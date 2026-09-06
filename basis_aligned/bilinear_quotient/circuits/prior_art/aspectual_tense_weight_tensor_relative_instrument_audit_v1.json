@@ -1,0 +1,28 @@
+{
+  "schema": "aspectual_tense_weight_tensor_relative_instrument_audit_prior_v1",
+  "candidate_id": "aspectual_tense.weight_tensor_relative_instrument_audit_v1",
+  "registered_utc": "2026-09-06T17:53:00Z",
+  "question": "Were the weight-manifest replay and gauge failures solely scale-dependent float32 absolute-error artifacts, such that the exact hashed tensors and substantive connectivity results remain usable?",
+  "authority": {
+    "invalid_manifest_result_sha256": "abc0db2279b7d7e8e1091fa7f6a0ffe0908b99abb56a57bccd3a9bb2bbad1386",
+    "manifest_runner_sha256": "c097cc5c32b5a105c2bfe16c70f84862f50de40a03f5eea67e647bfddd16d4e8",
+    "invalid_reason": "The absolute replay maximum was 0.021484375 and absolute gauge-score maximum was 0.001953125; all substantive predictions B-D passed. Preflight warned that absolute-only float32 replay bars had failed previously."
+  },
+  "frozen_design": {
+    "scope": "Recompute all 18 MLP task tensors and all 162 attention task maps from the same frozen bases and weights.",
+    "replay_metric": "L2(predicted tensor contraction - direct factor contraction) / max(L2(direct factor contraction), 1e-30).",
+    "gauge_metric": "absolute(score - orthogonally gauge-rotated score) / max(abs(score), abs(rotated score), 1e-30).",
+    "hash_metric": "Every recomputed MLP tensor and attention map SHA256 must exactly equal the invalid manifest's stored SHA256.",
+    "relative_tolerance": 0.00001,
+    "price": {"model_forwards": 0, "example_evaluations": 0, "causal_records": 0,
+      "fitted_scalars": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_basis_and_hash_reproduction": "Authorities and task ranks reproduce and all 180 tensor/map hashes match exactly.",
+    "pred_b_relative_replay_passes": "Maximum relative MLP replay error is <=1e-5.",
+    "pred_c_relative_gauge_passes": "Maximum relative MLP/head gauge-score error is <=1e-5.",
+    "pred_d_substantive_manifest_predictions_reproduce": "The invalid manifest's connectivity, shared-mode, attention-edge and zero-price predictions B-E remain true.",
+    "pred_e_zero_causal_fit_and_exact_price": "No model forward, causal example evaluation, fit, backward pass, or update."
+  },
+  "decision": "screen rehabilitates the invalid manifest's substantive tensor evidence under the corrected relative instrument; null rejects that evidence; invalid on authority, rank, hash coverage, finiteness, or price failure"
+}
