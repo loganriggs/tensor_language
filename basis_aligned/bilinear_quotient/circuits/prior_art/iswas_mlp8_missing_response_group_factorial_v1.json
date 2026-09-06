@@ -1,0 +1,16 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_missing_response_group_factorial_v1",
+  "checked_utc": "2026-09-06T23:48:00Z",
+  "decision": "novel_group_localization",
+  "parent_result_sha256": "96a60c343508c553c58102d541f6e525cce2e1c312aeefec61ee181a075cd876",
+  "parent_runner_sha256": "a32e886d9e92dfd9eb11654b6874ecb509f70e0c5f82b74b90e9c1af67ff08f4",
+  "seed": "main attention9 H1/H4 + complete MLP9 + auxiliary attention11 H1/H3 and attention15 H5",
+  "groups": {
+    "attention9_remainder": "all attention9 heads except H1/H4",
+    "downstream_response_remainder": "complete attention10-14 and MLP10-14 responses plus nonselected attention11/15 heads"
+  },
+  "factorial": "seed, seed+attention9 remainder, seed+downstream remainder, seed+both; every response is the unrestricted-live minus native-base value installed in causal order",
+  "prediction": "The downstream response remainder adds at least 25 percent of unrestricted behavior or Q8 on both panels. The both-groups arm replays unrestricted live, validating completeness.",
+  "decision_rule": "If downstream remainder is material, greedily select complete modules/remainder-head groups inside it. If attention9 remainder dominates, split its heads first.",
+  "fit_policy": "zero fit activation extraction used only to localize the next literal compiler"
+}
