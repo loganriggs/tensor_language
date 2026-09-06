@@ -15571,6 +15571,10 @@ Sixteen new same-tense `moment`→`instant` pairs hold token length and position
 
 The next exact screen asks whether is/was reuses not only L9H1/H4 and their contextualized carrier sources, but also has/had's upstream MLP4 computation. On 32 capability-qualified fresh A rows, every subset of MLP4 left-change, right-change, and bilinear-interaction response is inserted only at aligned `moment` plus determiner and checked against the direct MLP4 ceiling. Frozen bars require a live >=0.20 writer, >=0.75 direction in both families, >=80% retention by the inherited left+right program, positive left/right contributions, a secondary interaction, exact closure, and exact zero-fit price. This directly tests cross-task computational reuse and upstream causal source tracing.
 
+### 2026-09-06T10:51Z — Codex — MLP4 contextualization operation is cross-task reusable
+
+The screen passes all frozen bars. Exact MLP4 response at `moment` plus determiner recovers 0.329 on is/was (A1 0.213, A2 0.446, direction 1.0); the inherited left+right terms retain 96.8%. Factorial Shapley is left 0.202, right 0.117, mixed interaction 0.00984. Manual/native logits are exact, factor tensor closure is 7.32e-4, direct-ceiling logit closure is 6.68e-6, and the exact cost is 26 forwards/416 examples with zero fit/search. Thus MLP4's same algebraic response organization writes the contextual carrier bank for both tasks. The next test closes the causal edge from this writer through L9H1/H4.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
