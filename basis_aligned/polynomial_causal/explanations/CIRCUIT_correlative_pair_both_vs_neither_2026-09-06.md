@@ -137,6 +137,33 @@ and DAS says "one direction in it".
   head is logit-soft-capped, so climbing toward the cap flattens the gradient. The first P/C
   measure divided by `(m_donor - m_base)`, which for a same-answer family is legitimately near
   zero, reporting P at 24.678. Both are fixed; the numbers above come from the corrected run.
-- **The shared-subspace question is still open:** whether this same direction carries
-  `either`/`or` in `correlative_state` has not been tested. That is the next screen, and it is
-  what would turn "a direction for this pair" into "a correlative-state feature".
+## 5. What the direction actually encodes: `neither`, not correlative state
+
+Three further runs settled what the rank-1 direction is, and the answer is narrower than the
+first result suggested.
+
+| run | question | result |
+|---|---|---|
+| `das_correlative_shared_subspace_v1` | does the both/neither direction carry either/or? | 0.377 / 0.457 — **inconclusive** by preregistered thresholds |
+| `das_correlative_joint_fit_v1` | does a direction fitted on BOTH pairs serve both? | 0.975 / 0.963 — **yes** |
+| `das_correlative_neither_axis_test_v1` | does it carry a pair with NO negative member? | **0.036 / 0.020 — no** |
+
+The confound was structural and visible in the stimuli: `both`/`neither` and `either`/`neither`
+**both put `neither` -> ` nor` on the donor side**. A rank-1 direction separating {both, either}
+from {neither} places `both` and `either` on the same side of itself, so it should not
+distinguish them — and it does not, at 0.036.
+
+To test that, `correlative_pair.both_vs_either` was authored specifically to remove the negative
+member (`both` -> ` and` against `either` -> ` or`). It screens `selective_causal_site` at
+`resid:17` in its own right (A1 1.000, A2 1.001, P 0.031, C 0.066), so the near-zero transfer is
+not a weak behaviour — it is a direction that genuinely does not carry this contrast.
+
+**Established:** `resid:18` carries a one-dimensional feature encoding **whether `neither` is
+open** — the negative correlative specifically. It transfers across two pairs and two
+constructions, and it is selective (P 0.053, C 0.001).
+
+**Refuted:** that this is a general correlative-state feature. It is not. The `both`/`either`
+contrast is carried by something else, at a different selected site (`resid:17`).
+
+That is a narrower claim than "correlative state", and a better one: it names a specific lexical
+feature with a clean causal signature rather than a category the evidence never supported.

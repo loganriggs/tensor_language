@@ -84,15 +84,58 @@ mechanism. Sub-block structure is unresolved.
 
 ---
 
-## 4. DAS: queued, not done
+## 4. DAS result: one direction carries number across every intervening structure
 
-The causal evidence above is interchange intervention only. Directed at the natural next question
-— *which subspace at `resid:18` carries number?* — the corpus currently has no answer, because no
-Distributed Alignment Search has been run on it.
+Run: `circuits/followups/das_possessive_number_resid18_rank1_v1_result.json`
+**Rank fixed at 1 before running** and registered with the prediction; not raised.
 
-**This is now a standing follow-up step** (see `ops/README.md`, "DAS follow-up on localized
-circuits", and the board note of 2026-09-06). The target here is well posed: `resid:18` recovers
-1.000 with a clean P (0.14–0.20) across five matched configurations, so there is a stable site to
-search within, and the two established disruptors give ready-made negative controls — a subspace
-that genuinely encodes number should survive the inanimate-intervener configurations and degrade
-under the animate attractor.
+A single direction was learned at `resid:18` on the **adjacent** design only (distance 1, nothing
+intervening), then evaluated untouched on the four matched siblings — which differ in what sits
+between antecedent and pronoun, and in distance from 1 to 7.
+
+| evaluated on | intervening material | recovery |
+|---|---|---|
+| adjacent, held out | none | **0.886** |
+| adjacent, A2 construction | none | 0.837 |
+| medial | one prepositional phrase (distance 4) | 0.832 |
+| long simple | two stacked PPs (distance 7) | 0.735 |
+| inanimate argument | an inanimate direct object (distance 5) | 0.704 |
+| verb-final | a VP with its own object (distance 6) | **0.694** |
+| P (invariance) | — | same-answer effect **0.147** |
+| C (control) | — | same-answer effect **0.003** |
+
+Registered thresholds: ≥ 0.50 minimum across siblings means a number feature; ≤ 0.15 means a
+design-specific direction; between is inconclusive. **The minimum is 0.694.**
+
+**Reading: `number_feature_survives_intervening_material`.** All registered predictions resolve
+that way, and the instrument control — the differentiable head reproducing the producer's own
+native values — passed at 2.9e-06 before any fitting.
+
+### What this establishes, and what it does not
+
+**Establishes.** `resid:18` carries a one-dimensional feature encoding the antecedent's number. It
+was fitted on a three-token frame and still recovers ~70% of the effect across a seven-token gap
+containing two prepositional phrases, and across a VP with its own object — structures the fit
+never saw. It is selective: the answer-preserving edit reads 0.147 and the unrelated control
+0.003.
+
+**Does not establish.** That the direction is complete. Transfer declines with intervening
+complexity — 0.886 adjacent, 0.832 one PP, 0.735 two PPs, 0.704 and 0.694 with a verbal object —
+so roughly 20-30% of the effect in the harder frames sits outside it.
+
+### The negative controls were deliberately excluded, and why
+
+The two configurations that **fail** natively — the animate number-mismatched attractor and the
+particle-final site — were left out on purpose. Their base-to-donor separation is unreliable
+precisely because the model does not perform them, so a recovery ratio on those rows would be
+noise presented as evidence. Whether the direction *degrades* under the animate attractor is a
+real question that needs a measure not dividing by a degenerate denominator; it is not answered
+here.
+
+### Contrast with the correlative circuit
+
+The other DAS thread found a direction that looked like a shared feature across two behaviours and
+turned out to be a `neither` axis, because both behaviours put `neither` on the donor side.
+**This case has no such confound**: the five configurations differ in intervening material and
+share only the number contrast itself, which is the variable under study. Sharing the variable is
+what a transfer test is for; sharing an incidental element is what invalidated the other one.
