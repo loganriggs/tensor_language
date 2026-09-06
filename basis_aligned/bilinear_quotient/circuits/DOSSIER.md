@@ -302,6 +302,8 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.mlp4_induced_l9_head_sweep_v1` | null | fixed all-head singleton plus leave-one-out mediation | **H1/H4 dominate; no missing direct L9 head** | `aspectual_anchor_mlp4_induced_l9_head_sweep_v1_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_induced_block9_crossing_factorial_v1` | abandoned pre-run | BF16 instrument audit | **no model execution** | none |
 | `aspectual_anchor.has_vs_had.mlp4_induced_block9_crossing_factorial_v2` | complete | exact carried9/attention9/MLP9 factorial | **attention9-dominant resid10 crossing** | `aspectual_anchor_mlp4_induced_block9_crossing_factorial_v2_result.json` |
+| `aspectual_anchor.has_vs_had.mlp4_induced_final_query_onset_v1` | abandoned pre-run | exact-budget audit | **no model execution** | none |
+| `aspectual_anchor.has_vs_had.mlp4_induced_final_query_onset_v2` | null | fixed resid5–9 final-query depth sweep | **observed onset resid6, not predicted resid9** | `aspectual_anchor_mlp4_induced_final_query_onset_v2_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -364,6 +366,12 @@ MLP9 2.84. Removing attention9 loses 11.60 points in A1 and 15.10 in A2. Notably
 measured H1/H4 contextual-bank mediation (13.27%), tying that explicit reader edge to the dominant crossing term. The remaining
 secondary branch is already present in carried resid:9, so the next exact depth sweep traces when the writer reaches the final query
 through blocks5-8 before factoring the onset block.
+
+The frozen depth prediction is null but the curve is more informative than expected. Resid5 final-query replacement is exactly inert,
+confirming that MLP4 changed only the three source positions. The writer signal first passes immediately at resid6, after block5
+(5.53% recovery; A1 direction 0.9375, A2 1.0), rather than at predicted resid9. It then accumulates monotonically: resid7 7.29%,
+resid8 9.57%, resid9 10.92%. The carried branch is therefore initiated by block5 and strengthened through blocks6-8; the next exact
+factorization targets block5's carried/attention/MLP crossing at the final query.
 
 ### `subroutine.induction.equality_score` — site_live
 

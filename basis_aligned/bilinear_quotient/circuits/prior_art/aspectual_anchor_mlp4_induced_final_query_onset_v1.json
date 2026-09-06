@@ -1,0 +1,43 @@
+{
+  "schema": "aspectual_anchor_mlp4_induced_final_query_onset_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp4_induced_final_query_onset_v1",
+  "created_utc": "2026-09-06T03:06:00Z",
+  "question": "At which residual boundary between the MLP4 source write and block9 does that write first become a sufficient final-subject carrier?",
+  "authority": {
+    "block9_crossing_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_induced_block9_crossing_factorial_v2_result.json",
+      "sha256": "fb62926d6b52bbef750d0306d38a16539ca8393b94ed23448bcd29a9ee912221",
+      "terminal": "screen",
+      "carried9_shapley": 0.09377717804181483
+    },
+    "writer_terms": ["left_change", "right_change"],
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+  },
+  "population": "The same 64 valid A1/A2 discovery rows.",
+  "operator": {
+    "capture": "Run native base and the fixed two-term MLP4 writer hybrid, capturing residual boundaries 5 through 9.",
+    "intervention": "At each boundary independently, replace only the final-subject base residual vector by its writer-hybrid counterpart and run the exact remaining suffix.",
+    "boundaries": [5, 6, 7, 8, 9],
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_instrument": "The manual base path matches native scored logits within 1e-4 and the writer recurs within 0.02 of mean recovery 0.33379277118533013.",
+    "pred_b_source_only_start": "The resid5 final-query replacement has absolute mean recovery at most 0.01, because MLP4 was changed only at last+period+the source positions.",
+    "pred_c_block8_onset": "Using the frozen pass rule—A1 and A2 mean recovery each at least 0.05 and direction fraction each at least 0.80—the first passing boundary is resid9, after block8.",
+    "pred_d_resid9_strength": "Resid9 final-query replacement has mean target recovery at least 0.08 and positive A1/A2 recovery.",
+    "pred_e_exact_coverage": "All five boundaries produce all 64 finite outcomes within 16 model forward calls and 512 example evaluations."
+  },
+  "terminal": {
+    "screen": "A-E pass: license block8 as the onset block for the carried final-query branch and factor its carried/attention/MLP crossing.",
+    "null": "The run is valid but B, C, or D fails: report the frozen curve and follow its observed onset without retuning the pass rule.",
+    "invalid": "Instrument identity, writer recurrence, native capability, finiteness, or coverage fails. No boundary, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 16,
+    "example_evaluations_max": 512,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First residual-depth trace of a specific factorized MLP source write arriving at a downstream final-query carrier."
+}
