@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Predict two low-rank reader responses from the exact block8H1 writer vector."""
 
-# BQGATE: EXPERIMENT pred_a_exact_writer_vector pred_b_coefficient_prediction pred_c_predicted_program_material pred_d_prediction_beats_intercept pred_e_controls_selective pred_f_price_exact
+# BQGATE: EXPERIMENT pred_a_exact_writer_vector pred_b_coefficient_prediction pred_c_predicted_program_material pred_d_prediction_beats_intercept pred_e_aligned_p_selective pred_f_price_exact
 from __future__ import annotations
 
 from datetime import datetime, timezone
@@ -25,16 +25,16 @@ from circuit_fast_screen_managed_runner import atomic_create_json
 import residual_source_onset_eval as onset
 
 ROOT = Path(__file__).resolve().parents[1]
-PRIOR = ROOT / "circuits/prior_art/temporal_auxiliary_will_had_fresh_writer_to_reader_coefficients_v2.json"
+PRIOR = ROOT / "circuits/prior_art/temporal_auxiliary_will_had_fresh_writer_to_reader_coefficients_v3.json"
 RANK_RESULT = ROOT / "circuits/followups/temporal_auxiliary_will_had_fresh_two_reader_response_rank_v1_result.json"
 PROGRAM_RESULT = ROOT / "circuits/followups/temporal_auxiliary_will_had_fresh_two_reader_response_program_v1_result.json"
 ATTENTION = ROOT / "ops/attention_source_destination_eval.py"
 MEDIATION = ROOT / "ops/attention_path_mediation_eval.py"
 BUILDER = ROOT / "ops/circuit_candidate_temporal_auxiliary_fresh_cues_v1.py"
-OUT = ROOT / "circuits/followups/temporal_auxiliary_will_had_fresh_writer_to_reader_coefficients_v2_result.json"
-CANDIDATE_ID = "temporal_auxiliary.will_vs_had.fresh_writer_to_reader_coefficients_v2"
+OUT = ROOT / "circuits/followups/temporal_auxiliary_will_had_fresh_writer_to_reader_coefficients_v3_result.json"
+CANDIDATE_ID = "temporal_auxiliary.will_vs_had.fresh_writer_to_reader_coefficients_v3"
 EXPECTED = {
-    "prior": "34406928e9955ffea2b58cd48927fd7e118f6af2d995ad46bb1ba3c109e1a0ba",
+    "prior": "9a4df529719ec615da54750749d063fd61df25e7214a466fee04203057180364",
     "rank_result": "918888d78de2c10a24c57e80154f07fd4d9dd7ed5faf181385e1d4b22e587bcf",
     "program_result": "3fe8a3e7edf8dc24f7977d0ce4a37f564cac35211b2a2043e76336ea33e023cb",
     "attention": "e948c1950ff3deac055cfb91a1ece9c417236580bcc131811730bf1fad4d9f9b",
@@ -43,7 +43,7 @@ EXPECTED = {
 }
 ANSWER_ARMS = ("full_captured_response", "oracle_rank1_response",
                "predicted_rank1_response", "intercept_only_response", "zero_response")
-MODEL_FORWARDS, EXAMPLE_EVALUATIONS, RECORDS = 47, 1216, 240
+MODEL_FORWARDS, EXAMPLE_EVALUATIONS, RECORDS = 38, 928, 240
 
 
 class ExperimentError(RuntimeError):
@@ -76,14 +76,16 @@ def validate_static():
                                    for path in (PRIOR, RANK_RESULT, PROGRAM_RESULT)]
     rows = candidate.build_rows()
     family_rows = {family: [row for row in rows if row["transform_id"] == family]
-                   for family in ("A1", "A2", "P", "C")}
+                   for family in ("A1", "A2", "P")}
     if (prior.get("candidate_id") != CANDIDATE_ID or rank_result.get("terminal") != "screen"
             or program.get("terminal") != "screen"
             or {key: len(value) for key, value in family_rows.items()}
-            != {"A1": 32, "A2": 32, "P": 32, "C": 32}):
+            != {"A1": 32, "A2": 32, "P": 32}
+            or any(len(row["base_ids"]) != len(row["donor_ids"])
+                   for family in family_rows.values() for row in family)):
         raise ExperimentError("population or response-program authority changed")
     return {"fit": family_rows["A1"][0::2], "heldout": family_rows["A1"][1::2],
-            "a2": family_rows["A2"], "p": family_rows["P"], "c": family_rows["C"]}
+            "a2": family_rows["A2"], "p": family_rows["P"]}
 
 
 def dryrun_receipt():
@@ -250,7 +252,7 @@ def main():
     intercepts = {reader: float((matrices["fit"][reader] @ reader_axes[reader]).mean())
                   for reader in ("block9", "block11")}
     predicted_coefficients, correlations = {}, {}
-    for name in ("heldout", "a2", "p", "c"):
+    for name in ("heldout", "a2", "p"):
         x = matrices[name]["writer_terms"].sum(dim=1) @ writer_axis
         predicted_coefficients[name] = {
             reader: coefficients[reader][0] * x + coefficients[reader][1]
@@ -286,7 +288,7 @@ def main():
                 records.append(record)
 
     control_outputs = {}
-    for name in ("p", "c"):
+    for name in ("p",):
         item = items[name]
         pred9 = predicted_coefficients[name]["block9"][:, None] * reader_axes["block9"][None, :]
         pred11 = predicted_coefficients[name]["block11"][:, None] * reader_axes["block11"][None, :]
@@ -314,7 +316,7 @@ def main():
         for base, donor in zip(axis_values(items[name]["base_output"]), axis_values(items[name]["donor_output"])))
     controls = {name: {arm: statistics.mean(abs(value - base) / target_scale
         for value, base in zip(axis_values(output), axis_values(items[name]["base_output"])))
-        for arm, output in control_outputs[name].items()} for name in ("p", "c")}
+        for arm, output in control_outputs[name].items()} for name in ("p",)}
     pred_a = bool(max(direct_errors.values()) <= 1e-4
                   and max(item["identity_error"] for item in items.values()) <= 1e-4
                   and max(item["reconstruction_error"] for item in items.values()) <= 5e-4)
@@ -326,7 +328,7 @@ def main():
     pred_d = all(fractions[name]["predicted_rank1_response"]
                  - fractions[name]["intercept_only_response"] >= 0.15
                  for name in ("heldout", "a2"))
-    pred_e = all(controls[name]["predicted_rank1_response"] <= 0.20 for name in ("p", "c"))
+    pred_e = controls["p"]["predicted_rank1_response"] <= 0.20
     pred_f = bool(forwards == MODEL_FORWARDS and evaluations == EXAMPLE_EVALUATIONS
                   and len(records) == RECORDS
                   and len({(record["split"], record["arm"], record["row_id"]) for record in records}) == RECORDS
@@ -335,12 +337,12 @@ def main():
                    "pred_b_coefficient_prediction": pred_b,
                    "pred_c_predicted_program_material": pred_c,
                    "pred_d_prediction_beats_intercept": pred_d,
-                   "pred_e_controls_selective": pred_e,
+                   "pred_e_aligned_p_selective": pred_e,
                    "pred_f_price_exact": pred_f}
     terminal = "invalid" if not pred_a or not pred_f else (
         "screen" if all(predictions.values()) else
         "wrong_predictor" if not pred_b or not pred_c or not pred_d else "null")
-    result = {"schema": "temporal_auxiliary_fresh_writer_to_reader_coefficients_result_v2",
+    result = {"schema": "temporal_auxiliary_fresh_writer_to_reader_coefficients_result_v3",
               "candidate_id": CANDIDATE_ID, "execution_policy": "managed_queue_only",
               "started_utc": started_utc, "finished_utc": utc_now(),
               "serial_seconds": time.perf_counter() - started, "authority_sha256": EXPECTED,

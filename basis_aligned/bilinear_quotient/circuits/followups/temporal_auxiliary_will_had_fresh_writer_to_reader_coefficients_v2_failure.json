@@ -1,0 +1,20 @@
+{
+  "schema": "temporal_auxiliary_fresh_writer_to_reader_coefficients_failure_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_to_reader_coefficients_v2",
+  "execution_policy": "managed_queue_only",
+  "run_started_utc": "2026-09-06T14:37:00Z",
+  "runner_exit": 1,
+  "terminal": "invalid_instrument",
+  "failure": "The C family has unequal paired token lengths on all 32 rows, so aligned_source_partition rejects it and the exact source-resolved block8H1 writer vector is undefined.",
+  "static_population_audit": {
+    "A1_aligned": 32,
+    "A2_aligned": 32,
+    "P_aligned": 32,
+    "C_aligned": 0,
+    "C_total": 32
+  },
+  "scientific_predictions_scored": false,
+  "scientific_result": null,
+  "failure_log": "runlogs/failed/run_temporal_auxiliary_will_had_fresh_writer_to_reader_coefficients_v2.20260906T143703Z.exit1.log",
+  "correction": "v3 retains the exact hypothesis and aligned P selectivity control but removes the structurally undefined C family; prices are recomputed prospectively."
+}

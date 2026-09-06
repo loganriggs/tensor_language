@@ -1,0 +1,47 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_to_reader_coefficients_v3",
+  "created_utc": "2026-09-06T14:39:00Z",
+  "question": "Can two scalar reader-response coefficients be predicted from the exact source-resolved block8H1 writer vector, completing a non-replay low-rank response program?",
+  "authority": {
+    "response_rank_result_sha256": "918888d78de2c10a24c57e80154f07fd4d9dd7ed5faf181385e1d4b22e587bcf",
+    "response_program_result_sha256": "3fe8a3e7edf8dc24f7977d0ce4a37f564cac35211b2a2043e76336ea33e023cb",
+    "v2_invalid_instrument": "C has 0/32 aligned pairs; P has 32/32 aligned pairs",
+    "writer_mediation_evaluator_sha256": "05d07578129db0cb8bf5e46d08e6cd6e9c2bb9c3883675586c83c3efd24b8fda",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9"
+  },
+  "novelty": "The response-rank screen uses oracle row coefficients. v2 was invalid before scoring because C cannot instantiate the exact writer interface. v3 is the first valid prediction test and retains the fully aligned answer-preserving P family.",
+  "frozen_design": {
+    "population": "fresh A1 even rows fit; A1 odd rows held out; all A2 rows transfer; all aligned P rows are answer-preserving controls",
+    "writer_vector": "sum over two subject-onset destinations of exact donor-minus-base block8H1 cue source terms; direct per-destination reconstruction checked",
+    "reader_axes": "separate uncentered rank-one SVD axes for block9 H1/H4 and block11 H3 fitted on A1-even",
+    "coefficient_model": "two independent affine least-squares maps from the scalar A1-even writer-axis coefficient to the two reader-axis coefficients",
+    "answer_changing_arms": ["full_captured_response", "oracle_rank1_response", "predicted_rank1_response", "intercept_only_response", "zero_response"],
+    "control_arms": ["predicted_rank1_response", "intercept_only_response"],
+    "model_forwards": 38,
+    "example_evaluations": 928,
+    "answer_changing_records": 240,
+    "fitted_scalars": 4,
+    "stored_axis_coordinates": 512,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_exact_writer_vector": "direct per-destination reconstruction equals fixed-source writer within 1e-4 scored logits on fit, heldout, A2, and P",
+    "pred_b_coefficient_prediction": "both coefficient correlations have absolute r>=0.75 heldout and >=0.50 A2",
+    "pred_c_predicted_program_material": "predicted program is donorward on >=0.75 rows and retains >=0.60 of full response on heldout and A2",
+    "pred_d_prediction_beats_intercept": "predicted recovery exceeds intercept-only by >=0.15 of full response on both splits",
+    "pred_e_aligned_p_selective": "predicted-program absolute normalized P effect <=0.20",
+    "pred_f_price_exact": "38 forwards, 928 examples, 240 unique answer-changing records, four scalars, 512 axis coordinates, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, alignment, writer reconstruction, coverage, finiteness, or price fails",
+    "screen": "all predictions pass",
+    "wrong_predictor": "oracle rank-one response is material but coefficient prediction fails",
+    "null": "coefficients correlate but predicted installation is not material"
+  },
+  "interpretation_limits": [
+    "This is a four-scalar affine compiler over fixed empirical axes, not a symbolic attention derivation.",
+    "C selectivity remains inherited from the full response program because that family cannot express this exact writer interface.",
+    "The two reader axes remain separate live-boundary objects."
+  ]
+}
