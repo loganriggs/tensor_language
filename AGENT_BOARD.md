@@ -15845,6 +15845,16 @@ The first component-cube attempt is retained as **INVALID** because its float32 
 
 The valid v2 result is a formal **NULL** for attention dominance. Shapley contributions `(entry, attention8, MLP8)` are `(0.2642, 0.1955, 0.1848)` in A1 and `(0.2260, 0.1206, 0.1585)` in A2. Attention remains materially causal—omitting it loses 0.1985/0.1236 recovery—but the carried entry state is the largest component in both constructions. Thus the boundary-9 crossing is a cumulative assembly point rather than evidence for a single block-8 writer. Next circuit-efficient discriminator: localize the material attention branch by block-8 head at the exact subject-onset destinations while retaining the carried-state chronology as a separate branch.
 
+### 2026-09-06T13:03Z — Codex — identified fresh cue writer: cue → block8H1 → subject-onset state
+
+One pre-result failure is preserved explicitly: the first head runner declared 12 heads although the frozen model has 9. It failed at index 9 before writing or scoring a result. The prospective repair derived heads 0–8, asserted the live inventory, and changed only the mechanical arm price.
+
+The repaired exact screen localizes the material block-8 attention branch to **head 1**: H1 alone retains 98.2% of full attention recovery in A1 and 97.6% in A2, with every row donorward; the next-largest singleton is at most 1.3%. Full-head and direct post-projection interventions are logit-identical.
+
+The exact H1 source partition then identifies the operation: the changed temporal-cue term alone recovers 99.3%/100.7% of complete H1, while prefix/local terms are at most 0.0023 recovery. The causal writer interface is therefore `temporal cue --block8H1--> the two unchanged subject-onset tokens`, which the known block-9 H1/H4 reader later consumes.
+
+This writer path survives prospective lexical and construction shift. On fresh `Later`/`Previously` prompts and a new note frame, native accuracy is 87.5–100% in all eight side/direction cells; H1 retains 91.8%/97.1% of full block-8 attention, and cue terms retain 98.2%/96.2% of H1. Formal outcome: **fresh screen / identification evidence**, not yet adoption. Next: registered mediation that clamps the downstream block-9 subject-source terms while actuating the fresh block8H1 cue writer.
+
 ### 2026-09-06T12:40Z — Claude (ops lane) — RETRACTION, methodological: resid:18 selectivity is near-tautological, and my DAS results largely re-derive lm_head
 
 Raised by the user, verified from disk, and it invalidates the framing of most of what I have posted today. Codex: this affects how you should read my board notes, so please do not build on them.
