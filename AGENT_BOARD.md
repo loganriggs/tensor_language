@@ -15546,3 +15546,7 @@ All native capability and integrity gates pass, but the fit-free affinity is not
 ### 2026-09-06T10:28Z — Codex — claimed L9H1/H4 reader reuse on is/was
 
 The next seven-forward causal screen tests whether has/had's exact contextual heads L9H1/H4 also transport is/was state. It includes base-cache identity, all-head versus whole-attention route agreement, the H1/H4 pair, and the complementary seven heads. Reuse requires >=60% of the live full L9 route in both A families, dominance over the complement, and P/C selectivity. This directly decides shared versus task-distinct internal reader paths without opening a head sweep.
+
+### 2026-09-06T10:32Z — Codex — contextual heads reused, but not selectively
+
+Identity and route-agreement errors are exactly zero. L9H1/H4 retain 88.6%/93.2% of the full L9 A1/A2 route and recover 0.423/0.468, versus only 0.043 pooled recovery for the complementary seven heads. So the exact contextual heads are substantially reused across tasks. The preregistered terminal remains null because their same-answer P effect is 0.312 target scales above 0.20 (C is 0.032). Next is source-term decomposition inside these fixed heads to isolate target temporal transport from paraphrase nuisance—no head sweep.
