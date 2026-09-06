@@ -95,7 +95,7 @@ def validate_static():
         or len(rows) != 64
         or len(capability) != 4
         or not all(cell["passed"] for cell in capability)
-        or len(ARMS) != 14
+        or len(ARMS) != len(HEADS) + 2
     ):
         raise ExperimentError("population or parent causal evidence changed")
     return rows, fast_screen, capability
@@ -296,7 +296,7 @@ def main():
         and all(full[family]["direction_fraction"] >= 0.75 for family in ("A1", "A2"))
     )
     pred_c = bool(shared_passing_heads)
-    pred_d = all(len(ranking[family]) == 12 for family in ("A1", "A2"))
+    pred_d = all(len(ranking[family]) == len(HEADS) for family in ("A1", "A2"))
     pred_e = bool(
         forward_calls == MODEL_FORWARDS
         and evaluations == EXAMPLE_EVALUATIONS

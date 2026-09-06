@@ -1,0 +1,18 @@
+{
+  "schema": "temporal_auxiliary_will_had_block8_subject_attention_heads_failure_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.block8_subject_attention_heads_v1",
+  "timestamp_utc": "2026-09-06T12:48:00Z",
+  "terminal": "invalid",
+  "scientific_outcomes_opened": false,
+  "result_written": false,
+  "failure_class": "static_model_inventory_mismatch",
+  "reason": "The preregistration and runner declared 12 block-8 heads, but the frozen model has 9. The managed run reached head index 9 and failed before scoring or writing a result.",
+  "evidence": {
+    "runner_sha256": "0595fb17442c48ed353c547d27fb38066dbf2c356532970fec8f815f4bf2bc8b",
+    "failed_log_sha256": "dd75586d22ad23baad3c71d096e6d49d5b8e317a1a2a21abf9250ca2cdfa9a96",
+    "failed_log": "runlogs/failed/run_temporal_auxiliary_will_had_block8_subject_attention_heads_v1.20260906T124739Z.exit1.log",
+    "observed_index_error": "head index 9 is out of bounds for head dimension size 9"
+  },
+  "repair_constraint": "A prospective v2 must derive and assert the frozen model head count before execution, enumerate heads 0-8, adjust arms and exact price accordingly, and retain every scientific threshold from v1.",
+  "scientific_interpretation": "none"
+}
