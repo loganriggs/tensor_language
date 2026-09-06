@@ -1,0 +1,15 @@
+{
+  "schema": "aspectual_tense_path_conditioned_mlp_metric_derivation_prior_v1",
+  "candidate_id": "aspectual_tense.path_conditioned_mlp_metric_derivation_v1",
+  "registered_utc": "2026-09-06T17:17:22Z",
+  "scope": "Development-only metric derivation on the completed fresh-v3 panel. A second disjoint authority will be required for confirmation.",
+  "hypothesis": "The remaining MLP ranking error comes from downstream path sensitivity. Contracting each exact donor-minus-base MLP carrier response with the native answer-minus-foil Jacobian at that same component and position will predict the finite causal patch better than target-read response norm alone.",
+  "primary_score": "Mean absolute first-order directional effect |sum_carrier <gradient of answer-minus-foil margin with respect to MLP output, donor-minus-base MLP output>|, computed on A1 rows only and averaged without fitting.",
+  "predictions": {
+    "pred_a_exact_gradient_response_pairing_and_finiteness": "Every task/layer/row response is paired at exact carrier positions; all scores and gradient checks are finite.",
+    "pred_b_path_conditioning_improves_both_development_correlations": "Spearman against the already-frozen fresh A2 causal effects exceeds the local conditioned baselines 0.500 has/had and 0.3833 is/was for both tasks.",
+    "pred_c_path_conditioning_is_strong_enough_for_fresh_test": "Both correlations exceed 0.65 and MLP4 ranks in the top three for both tasks.",
+    "pred_d_zero_fit_and_declared_development_scope": "No fitted parameter or model update; this result can only nominate a formula for a later disjoint test."
+  },
+  "decision": "screen graduates the frozen Jacobian-contracted formula to a second disjoint causal authority; null redirects to finite-difference or higher-order suffix sensitivity; invalid on position, response, gradient, matching, finiteness, or accounting failure"
+}
