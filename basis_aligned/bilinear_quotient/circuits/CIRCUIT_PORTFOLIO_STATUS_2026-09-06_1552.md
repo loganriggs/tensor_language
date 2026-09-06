@@ -258,3 +258,23 @@ is a reproducible representational reader but not a behavioral mediator. Large t
 response norms are insufficient to establish downstream circuit use. The next localization is
 a complete dynamic-removal atlas of MLP11 and every attention/MLP module through block17 under
 rank-eight actuation, followed by head splitting only inside causally material attention sites.
+
+The complete removal atlas finds no such downstream module. The largest absolute singleton
+removal is MLP17 at 5.95% in A1 and MLP13 at 2.19% in A2; no site reaches 10% in both panels.
+Restoring all thirteen downstream module outputs jointly changes rank-eight behavior by only
++0.84%/-3.03%. This also explains the L15 paradox: downstream modules visibly transform the
+H3 state, but those transformations are small signed corrections rather than the behavioral
+readout. The dominant causal contribution remains in the residual skip stream. Consequently,
+head splitting and greedy downstream search are not licensed by this subspace intervention.
+
+The weight-level route is now explicit and executable. Projected H3 coordinates are mapped
+through the actual attention11 output matrix with exact `F.linear` orientation, multiplied by
+the frozen block12--17 residual coefficient product (1.51363148), and added directly to the
+native final residual. This zero-fit program agrees with live rank-eight actuation plus all
+downstream-module clamps within 2.86e-6 on answer/foil logits, and retains 99.16%/103.03% of
+rank-eight behavior in A1/A2. The first implementation used the transposed convention for an
+`nn.Linear` weight and is preserved as engineering-invalid; the source-verified orientation
+repair changed no scientific condition. The next tensor property to extract is the explicit
+eight-coordinate final reader: contract these residual modes with the analytic final
+RMS-normalization and unembedding Jacobian, then test whether upstream H3 coefficients and
+downstream weight-derived reader coefficients predict the per-row causal margin effect.
