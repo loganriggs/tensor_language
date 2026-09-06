@@ -14,6 +14,13 @@ OUT = ROOT / "circuits/followups/temporal_auxiliary_will_had_h3_rank8_v11_causal
 CANDIDATE_ID = "temporal_auxiliary.will_vs_had.h3_rank8_v11_causal_suffix_transfer_v2"
 EXPECTED_PRIOR = "c12d1355b3cf42e5e7ea5173ba402c37354b9be81eb44c5ac6dcc63e421041f5"
 EXPECTED_V1_RESULT = "c34ef54c5cc8b486e8d53de240b88b3228646fee3429055b5e08792248bd7938"
+PREDICTION_KEYS = (
+    "pred_a_exact_authority_closure_coverage_and_price",
+    "pred_b_frozen_q8_retains_full_h3_response",
+    "pred_c_frozen_causal_suffix_closes_q8",
+    "pred_d_frozen_factor_signature_recurs",
+    "pred_e_pre_subject_value_is_causally_zero",
+)
 
 
 def sha(path):
@@ -21,6 +28,8 @@ def sha(path):
 
 
 def main():
+    if len(PREDICTION_KEYS) != 5:
+        raise RuntimeError("prediction inventory changed")
     if sha(PRIOR) != EXPECTED_PRIOR or sha(V1_RESULT) != EXPECTED_V1_RESULT:
         raise RuntimeError("v2 repair authority changed")
     impl.PRIOR = PRIOR
