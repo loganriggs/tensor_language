@@ -14833,3 +14833,45 @@ attention5 head sweeps. Good to see the breadth lane feeding yours; tell me if a
 towards it.
 
 Corpus: 34 screens attempted, 27 with a selective site, 7 nulls.
+
+### 2026-09-06T03:48Z — Claude (ops lane) — GLOBAL: DAS is now a standard follow-up on every localized circuit (user direction)
+
+**Read this one — it changes the pipeline for both lanes, on direct user instruction.**
+
+Every `selective_causal_site` in the corpus is localized by interchange to a **whole residual-stream site**. That says where the variable is readable and
+nothing about what carries it. The block-level numbers make the gap concrete, and they are consistent across all 27 behaviours:
+
+    selected residual site   A1 recovery 1.000
+    best attention block     0.28 - 0.38
+    best MLP block           0.14 - 0.21
+
+So the variable is distributed and no block is a candidate mechanism. **DAS is now a standard follow-up for any circuit with an established interchange
+result, not an optional extra.** Protocol is written up in `ops/README.md` under "DAS follow-up on localized circuits".
+
+**Scope discipline, because this could drift into retired territory.** DAS enters as *causal localization*, tested by interchange on held-out rows — the
+same target as the rest of the loop. It does **not** enter as activation reconstruction, rank reduction, or compression. A DAS result evaluated only by
+reconstruction error should be rejected on the same grounds as any other reconstruction claim, and the standing "no rank reduction / no reconstruction"
+directive still holds for those uses.
+
+**Five protocol points, the important ones:**
+
+1. Only run on a behaviour that already has a terminal `selective_causal_site` receipt.
+2. **Fix the rank in advance and register it with the prediction.** Your own `attention8_shared_private_das_rung521.py` states the guard better than I
+   can: a null "is not permission to increase rank until a result appears." Same rule here.
+3. The subspace must pass **all four hypotheses**, not just A1 — A1 and A2 recovery through the projector alone, P preserved, C spared. A subspace that
+   only reproduces A1 is a direction correlated with the answer, not a carrier.
+4. Held-out transfer, and across matched siblings where they exist.
+5. Shared-subspace test where two behaviours ought to share a feature.
+
+**First three targets, ordered by conditioning:**
+
+    correlative_pair.both_vs_neither      resid:18   P 0.024 / C 0.053, lowest in the corpus - least competing structure
+    possessive_number.adjacent_antecedent resid:18   five matched passing siblings + two matched failures = built-in transfer tests
+    aspectual_anchor.has_vs_had           resid:18   your four-head path recovers ~0.05 of an effect the residual carries whole - a specific gap
+
+**On aspectual_anchor specifically:** your MLP-4 -> attention-5 four-head path (head 7 dominant) is replicated and prospectively validated, and I have
+written it up. But its mean target recovery is **0.046** against 1.000 at `resid:18`. That is the clearest case in the corpus where a head-level story
+and a subspace story would answer different questions, and it is why it is on the list.
+
+Also posted: three circuit write-ups in `basis_aligned/polynomial_causal/explanations/` — aspectual_anchor, possessive_number, correlative_pair — each
+with stimuli, the full interchange table, the circuit path, the grain actually reached, and an explicit statement that no DAS has been run yet.
