@@ -1,0 +1,32 @@
+{
+  "schema": "aspectual_tense_carrier_program_backward_pruning_prior_v1",
+  "candidate_id": "aspectual_tense.carrier_program_backward_pruning_v1",
+  "registered_utc": "2026-09-06T17:44:00Z",
+  "question": "Can fit-only backward greedy removal compress the converged programs without the accumulated out-of-sample damage caused by independent leave-one-out thresholding?",
+  "authority": {
+    "convergence_result_sha256": "7f7872f550b98829f3b0255f3bdc3b16ff49b1dc9d53969d18f922d70645a455",
+    "composition_result_sha256": "0757bfaf8f83aa1277123c0325d04f37774e26ccd1b014a3c9c3e788e6fbc9c6",
+    "greedy_runner_sha256": "22da9d253d531ffb2167302ae269c3b71bdd4fd4e74bc38263dea78c2f80c413",
+    "positioned_library_sha256": "4fc2ac355ca7c97a5a1270f88cb3302b1a39a85e62c0b0a8a1193fbc6f61bd0d",
+    "source_rank_runner_sha256": "c7570a2e25b444df84e40953e38d6bbc4b7b15c6d6f6657fda0696fb4eea3d34",
+    "source_group_library_sha256": "6ecf5f40b92f94cb32bccf1a703e527a3d468281936e63d4c7e91e8af66b4348",
+    "das_library_sha256": "49d67620b09c80edd1c999476ea9cfddb375f41016443f58cb6cc96111809d3f",
+    "producer_sha256": "14624b9959fe4bf0b43841a9e349bab50cd564a417595d1c1a048252c6c3b498"
+  },
+  "frozen_design": {
+    "selection_panels": {"has_had": "16 original A1 fit rows", "is_was": "8 original A1 fit rows"},
+    "starting_fit_mse": {"has_had": 0.06863485941990788, "is_was": 0.09595690881187888},
+    "algorithm": "From the complete converged path, evaluate every single removal, choose the lowest unit-target MSE with lexical tie-break, accept it only while cumulative MSE remains <= starting MSE + 0.005, and repeat. Never consult heldout A1 or A2 during selection.",
+    "evaluation": "After stopping, compare complete and pruned paths on heldout A1 and A2.",
+    "maximum_price": {"model_forwards": 122, "example_evaluations": 1460, "records": 1238,
+      "fitted_scalars": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_reproduction_capability_finiteness_and_price": "Starting MSE reproduces within 1e-6; capability, banks, finiteness and maximum price pass.",
+    "pred_b_both_programs_compress": "At least one component is removed from each path and the accepted final fit MSE stays within the frozen cumulative budget.",
+    "pred_c_pruned_programs_preserve_out_of_sample_quality": "Pruned recovery is within 0.03 of complete recovery with donorward direction on every heldout/A2 panel.",
+    "pred_d_is_was_beats_independent_core_compression": "The pruned is/was path beats the four-component independent-core path on both heldout A1 and A2.",
+    "pred_e_shared_backbone_survives": "MLP3, MLP4, and MLP8 remain in both pruned paths."
+  },
+  "decision": "screen seals the backward-pruned paths for tensor compilation; null preserves the prospective stopping trace without threshold repair; invalid on authority, reproduction, capability, finiteness, coverage, or price failure"
+}
