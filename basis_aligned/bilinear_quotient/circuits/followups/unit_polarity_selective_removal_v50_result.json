@@ -1,0 +1,79 @@
+{
+  "bars": {
+    "damage_min": 0.05,
+    "n_boot": 2000,
+    "off_frac": 0.1,
+    "off_max": 0.01,
+    "ood_frac": 0.5,
+    "rand_frac": 0.25,
+    "seed": 0
+  },
+  "candidate_id": "corpus.unit_polarity_selective_removal_v50",
+  "caveat": "intervention at the prediction position only; collateral measured on matched-negative sentences at that position",
+  "finished_utc": "2026-09-06T23:22:17.000193+00:00",
+  "intervention": "mean_ablation_block_diff_in_means_rank1_per_block_final_position",
+  "predictions": {
+    "pred_a_target_damage": true,
+    "pred_b_specific": true,
+    "pred_c_offtarget": true,
+    "pred_d_random_inert": true,
+    "pred_e_ood_a2": true
+  },
+  "report": {
+    "negative_C": {
+      "ce_damage": -0.015446594916284084,
+      "ce_lb975": -0.03143097527790815,
+      "ce_ub975": 0.0012374454410746536,
+      "documents": 64,
+      "kl_mean": 0.0035810713307000697,
+      "margin_damage": 0.014679601415991783,
+      "top1_change_rate": 0.03125
+    },
+    "ood_A2": {
+      "ce_damage": 0.2876281961798668,
+      "ce_lb975": 0.17473691664636135,
+      "ce_ub975": 0.3999758331105112,
+      "documents": 64,
+      "kl_mean": 0.023116804182791384,
+      "margin_damage": 0.9429249912500381,
+      "top1_change_rate": 0.078125
+    },
+    "ood_variant": {
+      "mapping": {
+        "noticed": "mentioned"
+      },
+      "skipped": "('base', 'The leader has never mentioned')"
+    },
+    "random_subspace_A1": {
+      "ce_damage": 0.003426097333431244,
+      "ce_lb975": 0.0006499406881630421,
+      "ce_ub975": 0.006148740090429782,
+      "documents": 64,
+      "kl_mean": 3.091704201096945e-05,
+      "margin_damage": 0.0007634013891220093,
+      "top1_change_rate": 0.0
+    },
+    "specificity_target_minus_negative": {
+      "lb975": 0.1120204440318048,
+      "point": 0.1887595159932971,
+      "ub975": 0.26712495386600493
+    },
+    "target_A1": {
+      "ce_damage": 0.17331292107701302,
+      "ce_lb975": 0.10106922974810004,
+      "ce_ub975": 0.24963381616398692,
+      "documents": 64,
+      "kl_mean": 0.021829894205438904,
+      "margin_damage": 1.0885735116899014,
+      "top1_change_rate": 0.125
+    }
+  },
+  "schema": "circuit_unit_selective_removal_result_v1",
+  "seconds": 1.058958861976862,
+  "units": [
+    "attn:07:head:08",
+    "attn:08:head:01",
+    "attn:04:head:07",
+    "attn:03:head:00"
+  ]
+}

@@ -129,7 +129,31 @@ second construction family, not a held-out split. No frozen gate has been evalua
 
 ## Smallest experiment capable of promotion
 
-Tier-3 completion for the missing 30%: freeze layer-12–17 heads one at a time under the real
-scaled-set write and rank by removed gate share (matched random-head control, bar registered
-in advance); then a rank-2 selective-removal run with document bootstrap and the rubric's
-default terminal bars, plus one frozen OOD construction (a non-bare frame) evaluated once.
+(updated 23:23 UTC) The "missing 30% attention share" is resolved by v48/v49 (downstream
+patterns 0.02 of b; stack patterns 0.09, layer-additive and head-additive but distributed over
+layer-9 heads). Terminal rows 3–5 are now on disk (v50, below). Remaining for promotion: row 2
+(extraction recovery ≥0.80 with bootstrap LB ≥0.60 against a registered deletion background —
+i.e. keep ONLY the four heads' direction and delete the rest of the set's block), and an
+intervention that acts at every position so collateral can be measured at non-answer positions.
+Tier-4 completion for the residual 22% of the gate: the Left/Right factor pairs of mlp 12–17
+carrying Δ⊗v, named and replayed.
+
+## Terminal evidence (v50, 2026-09-06 23:22 UTC) — `unit_polarity_selective_removal_v50_result.json`
+
+Mean-ablation along the block diff-in-means subspace (rank 1 per block, no fitting; background =
+per-unit mean over the A1 base+donor sentences), at the prediction position. Paired document
+bootstrap, 2000 resamples, 97.5% bounds (Bonferroni for two simultaneous tests). All five
+registered predictions True:
+
+| arm | documents | CE damage (nat) | 97.5% LB / UB | margin damage | KL | top-1 change |
+|---|---|---|---|---|---|---|
+| target A1 (never→anything, often→something) | 64 | 0.173 | 0.101 / 0.250 | 1.09 | 0.022 | 12.5% |
+| matched negative C (…middle of the → night) | 64 | −0.015 | −0.031 / 0.001 | 0.015 | 0.004 | 3.1% |
+| random subspace, same background, A1 | 64 | 0.003 | 0.001 / 0.006 | 0.001 | 0.000 | 0% |
+| frozen OOD A2 (In the report the X had never admitted) | 64 | 0.288 | 0.175 / 0.400 | 0.94 | 0.023 | 7.8% |
+
+Specificity (target − negative) 0.189, LB 0.112. Off-target: negative CE UB 0.001 nat (bar 0.01
+and ≤10% of target). OOD retains 166% of the in-distribution point (sign kept, LB > 0). Caveat:
+the intervention is applied only at the final position, so collateral is measured on matched
+negative sentences at that position, not on other positions of the same document; a lexical
+variant OOD (noticed→mentioned) was skipped because it substituted the final token.
