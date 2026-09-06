@@ -1,0 +1,236 @@
+{
+  "bars": {
+    "ctrl_frac": 0.25,
+    "dir_frac": 0.8,
+    "lb_min": 0.6,
+    "n_boot": 2000,
+    "null_frac": 0.25,
+    "rec_min": 0.8,
+    "seed": 0,
+    "track_tol": 0.15
+  },
+  "behaviours": {
+    "dative": {
+      "A1": {
+        "documents": 64,
+        "keep_dim": {
+          "lb95": 0.5133354995419825,
+          "point": 0.56217767186389,
+          "ub95": 0.6108369985050273
+        },
+        "keep_exact": {
+          "lb95": 0.5467317366128064,
+          "point": 0.588907775096269,
+          "ub95": 0.6314698896262275
+        },
+        "keep_rand": {
+          "lb95": 0.0009853779211638062,
+          "point": 0.0021351238875397848,
+          "ub95": 0.003150682140395876
+        },
+        "keep_set_r": {
+          "lb95": -0.0012605140633246172,
+          "point": 0.0035589956464858316,
+          "ub95": 0.008329234350354297
+        },
+        "null_abs_over_native_abs": 0.43178204493459904
+      },
+      "A2": {
+        "documents": 64,
+        "keep_dim": {
+          "lb95": 0.1839470542694336,
+          "point": 0.214474837368426,
+          "ub95": 0.2456252856965295
+        },
+        "keep_exact": {
+          "lb95": 0.5376642435947783,
+          "point": 0.5901328756982033,
+          "ub95": 0.6503688611143691
+        },
+        "null_abs_over_native_abs": 0.5094149138122355
+      },
+      "interchange_recovery_A1": 0.5645453258374263,
+      "random_set": [
+        "attn:14:head:02",
+        "attn:04:head:00",
+        "attn:04:head:05",
+        "attn:07:head:07",
+        "attn:15:head:07"
+      ],
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "polarity_licensing": {
+      "A1": {
+        "documents": 64,
+        "keep_dim": {
+          "lb95": 0.5547809803026267,
+          "point": 0.5736023610953882,
+          "ub95": 0.5940112923516382
+        },
+        "keep_exact": {
+          "lb95": 0.578607874917124,
+          "point": 0.59685971130619,
+          "ub95": 0.6149832997581545
+        },
+        "keep_rand": {
+          "lb95": 0.006147398858815141,
+          "point": 0.0064268037683648015,
+          "ub95": 0.006737468314457472
+        },
+        "keep_set_r": {
+          "lb95": 0.002160318923607975,
+          "point": 0.0034608117545153506,
+          "ub95": 0.004772266723028363
+        },
+        "null_abs_over_native_abs": 0.18912939294921938
+      },
+      "A2": {
+        "documents": 64,
+        "keep_dim": {
+          "lb95": 0.6523290889260658,
+          "point": 0.6774933055530822,
+          "ub95": 0.7075202594006951
+        },
+        "keep_exact": {
+          "lb95": 0.698738873952879,
+          "point": 0.7458843997627876,
+          "ub95": 0.8052263902966799
+        },
+        "null_abs_over_native_abs": 0.20460516406820228
+      },
+      "interchange_recovery_A1": 0.5848700852093098,
+      "random_set": [
+        "attn:11:head:08",
+        "attn:15:head:04",
+        "attn:14:head:00",
+        "attn:16:head:01"
+      ],
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ]
+    },
+    "quantifier_number": {
+      "A1": {
+        "documents": 64,
+        "keep_dim": {
+          "lb95": 0.4987953495824834,
+          "point": 0.5250363386822869,
+          "ub95": 0.5510200641872793
+        },
+        "keep_exact": {
+          "lb95": 0.4923237830712937,
+          "point": 0.5112296543369333,
+          "ub95": 0.5300090778992008
+        },
+        "keep_rand": {
+          "lb95": -0.0062476475901521045,
+          "point": -0.004787412746311906,
+          "ub95": -0.0034410104704219067
+        },
+        "keep_set_r": {
+          "lb95": -0.000263360241720109,
+          "point": 2.2045129282278195e-05,
+          "ub95": 0.0003300848879488464
+        },
+        "null_abs_over_native_abs": 0.41394523832102836
+      },
+      "A2": {
+        "documents": 64,
+        "keep_dim": {
+          "lb95": 0.39266983394980004,
+          "point": 0.42478007639770027,
+          "ub95": 0.4569692206447249
+        },
+        "keep_exact": {
+          "lb95": 0.40238323570777107,
+          "point": 0.4235019523021964,
+          "ub95": 0.44588101867533353
+        },
+        "null_abs_over_native_abs": 0.35986636987584997
+      },
+      "interchange_recovery_A1": 0.6348028265537385,
+      "random_set": [
+        "attn:00:head:05",
+        "attn:16:head:05"
+      ],
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "voice_frame": {
+      "A1": {
+        "documents": 64,
+        "keep_dim": {
+          "lb95": 0.5073552679447212,
+          "point": 0.5452578412508935,
+          "ub95": 0.5871992872724751
+        },
+        "keep_exact": {
+          "lb95": 0.5589720331765425,
+          "point": 0.6029760927481354,
+          "ub95": 0.6473205055590177
+        },
+        "keep_rand": {
+          "lb95": 0.0008261628326581581,
+          "point": 0.0024107298343904802,
+          "ub95": 0.0041395265306184955
+        },
+        "keep_set_r": {
+          "lb95": -0.0003815275791485444,
+          "point": 0.0005606753535051525,
+          "ub95": 0.001422272410629963
+        },
+        "null_abs_over_native_abs": 0.22604558526000376
+      },
+      "A2": {
+        "documents": 64,
+        "keep_dim": {
+          "lb95": 0.5583362637577484,
+          "point": 0.6069550062256943,
+          "ub95": 0.6616608104203309
+        },
+        "keep_exact": {
+          "lb95": 0.6580606587332716,
+          "point": 0.7193295696093587,
+          "ub95": 0.7944437031111904
+        },
+        "null_abs_over_native_abs": 0.2673774424115149
+      },
+      "interchange_recovery_A1": 0.6454185146122435,
+      "random_set": [
+        "attn:11:head:08",
+        "attn:15:head:04",
+        "attn:14:head:00",
+        "attn:16:head:01"
+      ],
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01"
+      ]
+    }
+  },
+  "candidate_id": "corpus.unit_extraction_four_sets_v52",
+  "finished_utc": "2026-09-06T23:27:27.206627+00:00",
+  "intervention": "all_heads_mean_ablated_at_prediction_position_except_kept_part_of_set",
+  "predictions": {
+    "pred_a_rubric_row2": false,
+    "pred_b_tracks_interchange": true,
+    "pred_c_direction_suffices": true,
+    "pred_d_controls_fail": true,
+    "pred_e_null_is_null": false
+  },
+  "schema": "circuit_unit_extraction_result_v1",
+  "seconds": 4.26917939260602
+}

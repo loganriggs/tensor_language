@@ -131,10 +131,11 @@ second construction family, not a held-out split. No frozen gate has been evalua
 
 (updated 23:23 UTC) The "missing 30% attention share" is resolved by v48/v49 (downstream
 patterns 0.02 of b; stack patterns 0.09, layer-additive and head-additive but distributed over
-layer-9 heads). Terminal rows 3–5 are now on disk (v50, below). Remaining for promotion: row 2
-(extraction recovery ≥0.80 with bootstrap LB ≥0.60 against a registered deletion background —
-i.e. keep ONLY the four heads' direction and delete the rest of the set's block), and an
-intervention that acts at every position so collateral can be measured at non-answer positions.
+layer-9 heads). Terminal rows 3–5 are now on disk (v50, below). Row 2 (extraction) measured in v52/v53 (below): 0.597, below the 0.80 campaign bar — the set
+carries ~60% of the behaviour alone, exactly what its interchange says. Promotion on the terminal
+axis therefore needs the set ENLARGED to the writers of the remaining 40% (a fresh greedy pass with
+extraction as the objective), not more measurement of this set; plus an intervention that acts at
+every position so collateral can be measured at non-answer positions.
 Tier-4 completion for the residual 22% of the gate: the Left/Right factor pairs of mlp 12–17
 carrying Δ⊗v, named and replayed.
 
@@ -157,3 +158,12 @@ and ≤10% of target). OOD retains 166% of the in-distribution point (sign kept,
 the intervention is applied only at the final position, so collateral is measured on matched
 negative sentences at that position, not on other positions of the same document; a lexical
 variant OOD (noticed→mentioned) was skipped because it substituted the final token.
+
+**Extraction (v52/v53, `unit_extraction_four_sets_v53_result.json`).** All 162 heads mean-ablated at
+the prediction position except the kept part of the set (background = own A1 mean; base and donor
+final states are then identical, so the null separation is exactly 0). Keep-exact recovery 0.597
+(95% 0.579–0.615) — rubric row 2 bar 0.80 NOT met; interchange recovery 0.585 (extraction tracks
+swap-in within 0.02). Direction alone 0.574 (0.96 of exact); random direction 0.006; random
+four-head set 0.003. Frozen A2: keep-exact 0.746, direction 0.677. Design-error note: v52's null
+predicate measured |margin| (0.19 here, 0.41 on quantifier) — a constant answer bias, not retained
+information; v53's separation predicate is true by construction. Recorded, not re-chosen.
