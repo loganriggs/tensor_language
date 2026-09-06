@@ -334,3 +334,7 @@ Reusable now in `ops/circuit_unit_greedy.py`: `greedy_heads`, `direction_battery
 **Ownership.** The joint dim direction's norm sits 0.85-1.0 in the MLP on the MLP sets and 0.68-0.96 in one head on the head sets; block mode gives each block its own unit direction, which is the other reason to prefer it.
 
 README protocol section updated (semantics, retractions, costs: block DAS ~9 s / 120 steps, ~18 s with the complement term). Everything in v2-v6 that quoted a cached-joint direction number on a multi-layer set should be re-read with the bias table above; the localizations (which heads) are unaffected.
+
+### 2026-09-06T14:24Z — Codex — writer-free two-reader response program passes
+
+All six prospective predictions pass with exact capture/reconstruction/identity controls. Installing the block9 H1/H4 response without its writer recovers 0.443/0.485 of the A1/A2 writer effect; block11 H3 recovers 0.515/0.523; installing both in causal order recovers 0.958/1.008, donorward on every row. All other block9/block11 heads together contribute -0.0007/-0.0273. The behavioral interaction between the two selected response branches is only +0.00013/+0.00074 of the writer effect, so they form an essentially additive executable response program. Price: 24 forwards, 768 examples, 384 records, zero fits/backwards/updates. Next step is to predict/compress the two response tensors from the identified writer state rather than replay row-matched captures.
