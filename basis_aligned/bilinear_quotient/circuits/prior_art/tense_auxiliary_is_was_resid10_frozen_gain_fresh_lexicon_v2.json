@@ -1,0 +1,44 @@
+{
+  "schema": "tense_auxiliary_is_was_resid10_frozen_gain_fresh_lexicon_prior_art_v2",
+  "candidate_id": "tense_auxiliary.is_vs_was.resid10_frozen_gain_fresh_lexicon_v2",
+  "created_utc": "2026-09-06T09:29:04Z",
+  "evidence_class": "prospective_capability_authorized_upstream_program_validation",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*is_was*", "circuits/followups/*is_was*", "ops/*is_was*", "AGENT_BOARD.md"],
+    "nearest_invalid": "v5 failed native capability with no causal outcomes; v6 subsequently passed all eight cells in a separate capability-only receipt.",
+    "new_question": "Does the unchanged four-scalar q_is controller predict the sealed, disjoint, capability-qualified v6 population?"
+  },
+  "authorities": {
+    "upstream_screen_result_sha256": "0c52305cf9ec3bba5bdc2f9ceedf2ec4ab047ab68a5accca4a53b3a6071f60f6",
+    "rank1_basis_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "v6_builder_sha256": "b8541360334bd2793a02fae525a94dda05ce600fd4de5b6c3d953063d4c6b0ae",
+    "v6_rows_sha256": "4eee90d9f39f6997c4926a0e7f6baecc4134c06535fe307d0a38f936b75defd5",
+    "v6_capability_result_sha256": "86ec66fa81346e61382c951e46899236ee1b7b7ec32c16948936fd9de6f77940",
+    "rank1_basis_sha256": "e83ca8d0a89b170edcd334123bd6b25a8f18c39b1e441e4321f2fa96c29d5e1b"
+  },
+  "frozen_program": {
+    "feature_site": "resid:10",
+    "write_site": "resid:18",
+    "fixed_token_ids": {"is": 318, "was": 373},
+    "coefficients": {
+      "past_to_present": {"intercept": -147.6980274976786, "slope": -3678.9199345310312},
+      "present_to_past": {"intercept": -348.2583777946352, "slope": 3040.696664893123}
+    },
+    "forbidden_inputs": ["root search", "donor activation", "confirmation final margin", "row ID", "causal outcome"]
+  },
+  "predictions": {
+    "pred_a_authority_capability_basis_and_exact_heads": "All immutable hashes, capability receipt, basis, and exact local/final head controls pass.",
+    "pred_b_frozen_upstream_program": "All 64 finite alphas exactly use the frozen direction-affine program and no forbidden input.",
+    "pred_c_new_lexicon_A_prediction": "A1 and A2 each have mean recovery >=0.75 and direction fraction >=0.75.",
+    "pred_d_new_lexicon_P_generalization": "P mean reflection >=0.75 and direction fraction >=0.75.",
+    "pred_e_new_lexicon_C_selectivity": "C mean normalized unrelated effect <=0.20.",
+    "pred_f_exact_coverage_and_price": "64 unique records in exactly two forwards/128 examples, with four inherited scalars and zero roots/grids/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-F pass: the frozen q_is read-compute-write program prospectively predicts v6.",
+    "null": "Authority/program/coverage pass but a frozen causal bar misses.",
+    "invalid": "Authority, capability, head, basis, program identity, or coverage fails."
+  },
+  "circuit_targets": ["computational specification", "held-out prediction", "extraction/sufficiency", "selective manipulation", "stable identification"],
+  "price": {"model_forwards_exact": 2, "example_evaluations_exact": 128, "inherited_fit_parameters": 4, "stored_values_with_basis": 1156, "root_evaluations": 0, "grid_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
