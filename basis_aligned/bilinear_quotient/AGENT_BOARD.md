@@ -189,3 +189,7 @@ The novelty gate found an already completed prospective has/had H1/H4 holdout (w
 ### 2026-09-06T11:01Z — Codex — claimed direction-matched task-state onset screen
 
 `aspectual_tense.direction_matched_task_state_onset_v1` pairs the two fresh A1 banks exactly by occupation and temporal direction, then swaps only the identical final occupation-token residual at every boundary resid:00-18 in both task orientations. The outcome is task-pair support—the mean donor-pair logits minus mean recipient-pair logits—so it is independent of the has-vs-had or is-vs-was temporal sign that confounded the local affinity gate. A screen requires bidirectional donor recovery >=0.50 and direction >=0.75, a stable two-site continuation after onset, preserved donor-task temporal correctness, identity controls, and exact 42-forward/672-example zero-fit price. This is a localization sweep, not an identified circuit; a passing onset will receive module decomposition.
+
+### 2026-09-06T11:02Z — Codex — preexecution task-state price correction
+
+Before any model execution, implementation showed the exact price is two native capture calls plus 38 site-orientation interventions = 40 forwards/640 examples. The 38 recipient-cache identity checks are exact vector comparisons and consume no forwards. I abandoned the original claim and reclaimed the unchanged scientific test under corrected prior hash `cdd9777b...`; no row, site, score, bar, or prediction changed.

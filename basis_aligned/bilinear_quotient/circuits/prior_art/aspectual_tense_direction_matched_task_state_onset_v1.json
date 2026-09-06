@@ -21,7 +21,7 @@
     "task_support": "Mean soft-capped logits of the donor answer pair minus mean soft-capped logits of the recipient answer pair, independent of within-pair temporal sign.",
     "intervention": "At each registered resid:00 through resid:18 boundary, replace only the recipient final-token residual vector with the direction-matched other-task donor vector.",
     "orientations": ["has_had_to_is_was", "is_was_to_has_had"],
-    "controls": ["base-cache identity at every site", "native capability for both task pairs and directions", "exact identical patched token id"],
+    "controls": ["exact recipient-cache vector equality at every site", "native capability for both task pairs and directions", "exact identical patched token id"],
     "fitting": "none",
     "no_rescue": "No layer, task-support functional, pairing, threshold, site, or orientation changes after outcomes open."
   },
@@ -30,7 +30,7 @@
     "pred_b_bidirectional_task_state_transfer": "At least one residual site moves task support donorward in >=0.75 of rows and reaches mean normalized donor recovery >=0.50 separately in both orientations.",
     "pred_c_stable_onset": "The earliest jointly passing site is followed by at least two consecutive jointly passing sites, preventing a one-layer numerical spike from defining onset.",
     "pred_d_temporal_value_not_destroyed": "At the selected onset, the donor task's correct temporal token beats its mate in >=0.75 of rows in both orientations.",
-    "pred_e_exact_zero_fit_price": "Exactly 42 forwards/672 examples, 38 causal site-orientation arms plus 38 identity controls evaluated from the same calls, zero fit/search/backward/update."
+    "pred_e_exact_zero_fit_price": "Exactly 40 forwards/640 examples: two native capture calls plus 38 causal site-orientation arms; 38 cache-vector identity checks require no model call; zero fit/search/backward/update."
   },
   "terminal": {
     "screen": "A-E pass: localize a bidirectional direction-matched task-pair state onset for deeper module decomposition.",
@@ -38,5 +38,5 @@
     "invalid": "Authority, pairing, capability, patch-token identity, intervention identity, coverage, finiteness, or price fails."
   },
   "circuit_targets": ["internal task branch localization", "stable identification", "selective manipulation", "cross-task composition"],
-  "price": {"model_forwards": 42, "example_evaluations": 672, "site_orientation_arms": 38, "identity_controls": 38, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+  "price": {"model_forwards": 40, "example_evaluations": 640, "site_orientation_arms": 38, "cache_vector_identity_checks": 38, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
 }
