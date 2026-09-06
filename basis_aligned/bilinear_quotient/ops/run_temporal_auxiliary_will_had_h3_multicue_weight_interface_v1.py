@@ -83,10 +83,14 @@ def main():
     started_utc, started = utc_now(), time.perf_counter()
     backend = producer.Bilin18TorchBackend.load("cuda")
     torch, model = backend.torch, backend.model
-    q1 = atlas.orthonormal_basis(torch.tensor(
-        subspace["axis_artifacts"]["pooled_aligned_rank1"], device=backend.device).unsqueeze(1))
-    q2 = atlas.orthonormal_basis(torch.tensor(
-        subspace["axis_artifacts"]["two_task_dim_union_rank2"], device=backend.device))
+    # Serialized float32 columns can miss the atlas's strict 1e-6 Gram tolerance.
+    # Thin QR changes only basis gauge and therefore preserves each projector.
+    q1 = atlas.orthonormal_basis(torch.linalg.qr(torch.tensor(
+        subspace["axis_artifacts"]["pooled_aligned_rank1"],
+        device=backend.device).unsqueeze(1), mode="reduced").Q)
+    q2 = atlas.orthonormal_basis(torch.linalg.qr(torch.tensor(
+        subspace["axis_artifacts"]["two_task_dim_union_rank2"],
+        device=backend.device), mode="reduced").Q)
     head = model.transformer.h[11].attn
     width = int(head.head_dim)
     value_rows = head.c_v.weight.detach().float()[3 * width:4 * width]
