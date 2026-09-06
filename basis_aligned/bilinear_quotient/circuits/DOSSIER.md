@@ -298,6 +298,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.block4_contextual_source_writer_factorial_v1` | complete | exact carried/attention4/MLP4 Boolean factorization | **MLP4 contextual writer screen** | `aspectual_anchor_block4_contextual_source_writer_factorial_v1_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_bilinear_response_factorial_v1` | invalid | exact left/right/interaction response factorial | **BF16 intermediate closure tripwire** | `aspectual_anchor_mlp4_bilinear_response_factorial_v1_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_bilinear_response_factorial_v2` | complete | tolerance-only corrected response factorial | **two-term MLP4 bilinear subprogram** | `aspectual_anchor_mlp4_bilinear_response_factorial_v2_result.json` |
+| `aspectual_anchor.has_vs_had.mlp4_to_l9h1_h4_path_mediation_v1` | null | exact two-term-writer to source-bank/head mediation | **specific partial path; misses frozen sufficiency by 0.24 points** | `aspectual_anchor_mlp4_to_l9h1_h4_path_mediation_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -340,6 +341,12 @@ their fixed pair recovers 33.38%, or 104.67% of the complete three-term MLP4 res
 The mixed bilinear interaction contributes only 0.52 points and is dispensable on this population. The transparent writer is thus
 `Down((Left_d-Left_b)*Right_b + Left_b*(Right_d-Right_b))` at `last`+period+`the`. The next frozen test asks whether this two-term
 write is specifically mediated through those positions' L9H1/H4 attention-source terms, closing the writer-to-reader path.
+
+That path is real and sharply specific, but the preregistered whole-path claim is null. The two-term writer recurs at 33.38%, while
+transplanting its induced `last`+period+`the` source terms through L9H1/H4 recovers 13.27%: 39.76% of the writer, just below the frozen
+40% sufficiency bar. No threshold was rounded or retuned. The bank nevertheless captures 102.02% of the complete all-source H1/H4
+effect, both families have direction fraction 1.0, and cue+self carries only 2.05% in absolute terms. Thus this is a licensed partial
+edge, not a licensed complete route. A fixed all-nine-head L9 sweep is required to locate the remainder of the MLP4-induced signal.
 
 ### `subroutine.induction.equality_score` — site_live
 

@@ -1,0 +1,51 @@
+{
+  "schema": "aspectual_anchor_mlp4_to_l9h1_h4_path_mediation_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp4_to_l9h1_h4_path_mediation_v1",
+  "created_utc": "2026-09-06T02:52:00Z",
+  "question": "Does the fixed two-term MLP4 contextual write causally reach the output through the localized last+period+the source terms of L9H1/H4?",
+  "authority": {
+    "writer_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_bilinear_response_factorial_v2_result.json",
+      "sha256": "359483cfb4807e9293e1f25f877db8d7303bc76333d83a6d237cf72a9c7e77e4",
+      "terminal": "screen",
+      "fixed_terms": ["left_change", "right_change"],
+      "mean_recovery": 0.33379287409141367
+    },
+    "reader_result": {
+      "path": "circuits/followups/aspectual_anchor_l9h1_h4_downstream_source_bank_v2_result.json",
+      "sha256": "6d694f92d35970f4eb5eba25ca3d9aff15cdbd1949db158a8be18e827e0423a7",
+      "terminal": "screen",
+      "fixed_heads": [1, 4],
+      "fixed_bank": ["last", "period", "determiner"]
+    },
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+  },
+  "population": "The same 64 valid A1/A2 discovery rows; no new prompts or selected examples.",
+  "operator": {
+    "writer_hybrid": "Run the base sequence after adding the frozen left_change+right_change MLP4 output terms at resid5 on last+period+the.",
+    "reader_capture": "Capture exact L9 attention patterns, values, and preprojection head outputs in native base and writer-hybrid executions.",
+    "mediated_arm": "Inside an otherwise native base execution, replace H1/H4 attention source terms at named positions by the corresponding writer-hybrid terms, then run the exact L9 projection and layers10-17 suffix.",
+    "arms": ["writer_two_term", "h1h4_complete", "h1h4_all_sources", "h1h4_last_period_determiner", "h1h4_cue_self"],
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_path_instrument": "An empty writer hook is exactly inert; all writer-hybrid H1/H4 source terms reconstruct the complete writer-hybrid H1/H4 preprojection arm within 0.125 scored logit on every row.",
+    "pred_b_writer_recurrence": "The fixed two-term writer recurs within 0.02 of mean recovery 0.33379287409141367, is positive in A1/A2, and has direction fraction at least 0.80 in each.",
+    "pred_c_bank_mediation": "The H1/H4 last+period+the mediated arm has positive A1/A2 recovery, direction fraction at least 0.80 in each, and retains at least 40% of the writer arm's mean recovery.",
+    "pred_d_reader_specificity": "The bank arm retains at least 80% of the H1/H4 all-source mediated effect, while cue+self retains at most 25% of the absolute all-source effect.",
+    "pred_e_exact_coverage": "All five arms produce all 64 outcomes with finite scored logits, within 20 model forward calls and 640 example evaluations."
+  },
+  "terminal": {
+    "screen": "A-E pass: license the explicit two-term MLP4 -> contextual source bank -> L9H1/H4 causal path on the discovery population.",
+    "null": "The experiment is valid but C or D fails: writer and reader remain separately localized without an end-to-end mediation claim.",
+    "invalid": "Instrument closure, frozen writer recurrence, native capability, alignment, finiteness, or coverage fails. No arm, head, source, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 20,
+    "example_evaluations_max": 640,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First exact end-to-end mediation test connecting a factorized bilin18 MLP response to a localized downstream attention source-bank read."
+}
