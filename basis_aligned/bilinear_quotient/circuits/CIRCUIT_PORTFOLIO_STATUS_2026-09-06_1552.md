@@ -416,3 +416,13 @@ A1 Q8 cosine is .8961, just below the frozen .90 coherence bar. H7 is a smaller 
 branch (15.55% versus 9.58%). All-head removal exactly replays the complete attention9 result and
 self-clamp is exact. Heads H1+H4 are now frozen, before outcomes, for union confirmation on a new
 `Throughout this/that interval` v8 construction with entirely new occupations.
+
+After two capability-only banks exposed complementary unusable panels without opening causal
+outcomes, a new-occupation v10 hybrid provided 13 capable A1 and 14 capable A2 rows. On this
+prospective bank the entire indirect route transfers: MLP8's Down-orthogonal complement predicts the
+shared-Q8 target at behavior cosine .9916/.9758 and Q8 cosine .8288/.8263. Attention9 H1+H4 jointly
+retain 86.26%/80.87% of all-head behavior conversion and 83.66%/76.32% of all-head Q8 conversion,
+with union-to-all cosine .9996/.9995 behavior and .9882/.9825 Q8. Both heads are separately positive
+and material. This promotes the transferable topology to `MLP8 post-cue complement -> L9H1/H4 ->
+shared Q8`. The current developmental atlas partitions the H1/H4 write by destination before exact
+attention source-factor and weight compilation.

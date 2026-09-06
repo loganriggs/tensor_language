@@ -1,0 +1,25 @@
+{
+  "schema": "iswas_mlp8_complement_attn9_h1h4_destination_atlas_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_complement_attn9_h1h4_destination_atlas_v1",
+  "registered_utc": "2026-09-06T21:38:00Z",
+  "question": "At which causal destination positions do the prospectively confirmed attention9 H1+H4 responses convert the MLP8 post-cue complement into final Q8?",
+  "authority": {
+    "fresh_confirmation_result_sha256": "eb4470b3ed1495a5ad11c0a1e685d0c6ca4e9942532a872f165bc16f07eb69f5",
+    "fresh_confirmation_runner_sha256": "d0209e6da76eb6cd1a11ef5f3487c693cd878b97242383e7fda00ddac10c362b",
+    "frozen_heads": [1, 4]
+  },
+  "frozen_design": {
+    "population_and_actuation": "Reuse the exact 27 manifest-selected v10 rows and their zero-fit MLP8 post-cue Down-complement actuation.",
+    "destination_partition": ["prefix_before_cue", "cue", "post_cue_before_subject", "subject_determiner", "final_query"],
+    "intervention": "For both H1 and H4 together, restore the native-base attention9 pre-c_proj response only at the selected destination group. Also restore all five groups jointly and run an unactuated all-group self-clamp.",
+    "maximum_price": {"model_forwards": 11, "example_evaluations": 297, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_partition_self_clamp_finiteness_and_price": "Hashes, manifest, exact disjoint exhaustive destination partition, self-clamp, finiteness, and price pass.",
+    "pred_b_all_destinations_replay_confirmed_h1h4_removal": "All-group behavior and Q8 removal fractions replay the fresh confirmation within 0.001 in both panels.",
+    "pred_c_at_least_one_proper_destination_is_material": "At least one group removes at least 20% live behavior and 20% live Q8 norm in both panels.",
+    "pred_d_causal_prefix_destination_is_zero": "Prefix response difference and its removed behavior/Q8 norm are at most 0.000001.",
+    "pred_e_destination_program_is_compressive": "At most two groups are stable material and their singleton absolute-behavior sum is at least 75% of the all-group removal in both panels."
+  },
+  "decision": "Freeze stable destinations for exact H1/H4 source-region pattern/value/interaction and c_v/c_proj compilation. Confirm any selected destination union on a later bank before final program promotion."
+}
