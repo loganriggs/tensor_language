@@ -190,11 +190,11 @@ def main():
         native = {}
         for side, output in (("base", base_output), ("donor", donor_output)):
             for row, pair in zip(family_rows, output.answer_foil):
-                native[(str(row.row_id), side)] = producer.NativeLogitEvidence(str(row.row_id), family, side, *producer._finite_pair(pair))
+                native[(str(row["row_id"]), side)] = producer.NativeLogitEvidence(str(row["row_id"]), family, side, *producer._finite_pair(pair))
         for direction in ("present_to_past", "past_to_present"):
-            cell_rows = [row for row in family_rows if row.direction_id == direction]
+            cell_rows = [row for row in family_rows if row["direction_id"] == direction]
             for side in ("base", "donor"):
-                accuracy = sum(native[(str(row.row_id), side)].margin > 0.0 for row in cell_rows) / len(cell_rows)
+                accuracy = sum(native[(str(row["row_id"]), side)].margin > 0.0 for row in cell_rows) / len(cell_rows)
                 capability_cells.append({"family": family, "direction": direction, "side": side, "count": len(cell_rows), "accuracy": accuracy, "threshold": 0.85, "passed": accuracy >= 0.85})
         checks = factor_tensors(backend, base_batch, donor_batch, base_attention, hybrid_attention, base_raw, hybrid_raw)
         tensors, factor_checks = checks
@@ -209,7 +209,7 @@ def main():
         writer_values = []
         for row, pair in zip(family_rows, writer_output.answer_foil):
             answer, foil = producer._finite_pair(pair)
-            writer_values.append(kernel.signed_pairwise_donor_recovery(-native[(str(row.row_id), "base")].margin, native[(str(row.row_id), "donor")].margin, -(answer - foil)))
+            writer_values.append(kernel.signed_pairwise_donor_recovery(-native[(str(row["row_id"]), "base")].margin, native[(str(row["row_id"]), "donor")].margin, -(answer - foil)))
         writer_summary[family] = summarize(writer_values)
         for subset in subsets():
             output = intervene(backend, base_batch, tensors, subset)
@@ -218,9 +218,9 @@ def main():
             arm_values = []
             for row, pair in zip(family_rows, output.answer_foil):
                 answer, foil = producer._finite_pair(pair)
-                recovery = kernel.signed_pairwise_donor_recovery(-native[(str(row.row_id), "base")].margin, native[(str(row.row_id), "donor")].margin, -(answer - foil))
+                recovery = kernel.signed_pairwise_donor_recovery(-native[(str(row["row_id"]), "base")].margin, native[(str(row["row_id"]), "donor")].margin, -(answer - foil))
                 arm_values.append(recovery)
-                records.append({"arm": arm_id(subset), "family": family, "row_id": str(row.row_id), "recovery": recovery})
+                records.append({"arm": arm_id(subset), "family": family, "row_id": str(row["row_id"]), "recovery": recovery})
             summaries[arm_id(subset)][family] = summarize(arm_values)
             values[(subset, family)] = summaries[arm_id(subset)][family]["mean_recovery"]
     shapley = {family: factorial_shapley({subset: values[(subset, family)] for subset in subsets()}) for family in ("A1", "A2")}
