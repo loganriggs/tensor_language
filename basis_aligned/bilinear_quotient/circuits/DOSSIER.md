@@ -330,6 +330,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_split_v2` | complete | sole-correction split bilinear factorials | **two-term MLP11/15 responses transfer in exact released source contexts** | `aspectual_anchor_mlp11_15_bilinear_compression_split_v2_result.json` |
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v5` | released | valid-lineage executable audit | **corrected source- and MLP-resolved paired-causal program through block15** | `aspectual_anchor_transparent_path_program_release_v5_result.json` |
 | `aspectual_anchor.has_vs_had.sparse_suffix_recurrence_confirmation_v1` | null | confirmation-only sparse resid10-to-resid18 recurrence | **blocks11+15 necessary but retain 78.99%, below 85% sufficiency** | `aspectual_anchor_sparse_suffix_recurrence_confirmation_v1_result.json` |
+| `aspectual_anchor.has_vs_had.sparse_suffix_missing_block_compression_split_v1` | invalid | split singleton/necessity screen over omitted suffix writes | **dense control compared compressed block11/15 recurrence against full block11/15 writer; block12+14 signal remains unreleased** | `aspectual_anchor_sparse_suffix_missing_block_compression_split_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
