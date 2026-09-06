@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "consecutive",
+    "degree",
+    "intensifier",
+    "purpose",
+    "result clause",
+    "so",
+    "that",
+    "to",
+    "too"
+  ],
+  "candidate_id": "degree_result.too_vs_so",
+  "canonical_objects": [
+    "a degree word licensing its result clause",
+    "too-versus-so choice of to/that at a shared adjective token",
+    "result-clause selection across two constructions"
+  ],
+  "decision_changed": "A pass adds a result-clause licenser and a comparable C point, and validates the declarative scaffold by use. A capability stop would be informative because both degree words sit immediately before the adjective, so cue distance cannot be blamed.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/degree_frame_comparative_vs_equative_v1_result.json is selective at resid:17; its variable is the COMPARISON head (more/as) selecting than/as."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twenty-seventh behaviour, and the first authored through the declarative scaffold. degree_frame varies the COMPARISON head and its complementizer (more->than, as->as); this varies a degree word that licenses a RESULT clause instead -- 'too' licenses an infinitival result with ' to', 'so' a finite one with ' that'. Both are degree words before the same adjective, but they select different clause types rather than different comparison markers, so the answer vocabulary is disjoint from degree_frame's. Prior-art search returns 0 events for intensifier, too, so and result clause. Recipient and donor differ only in the degree word and end on the same adjective token.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "site_results",
+        "capability_cells"
+      ],
+      "sha256": "91fb5377f770ee14f825d976565a73763ddac15e4320e2a1aa504915e8b9b9de",
+      "source": "circuits/fast_screens/degree_frame_comparative_vs_equative_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "degree"
+      ],
+      "sha256": "3faef62e90064aae9a9f781bfeda2093cbe902b6beababd3eb680789f5af4512",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the degree_frame screen",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

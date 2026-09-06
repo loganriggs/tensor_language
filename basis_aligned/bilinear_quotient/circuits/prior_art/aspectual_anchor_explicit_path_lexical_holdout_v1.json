@@ -1,0 +1,55 @@
+{
+  "schema": "aspectual_anchor_explicit_path_lexical_holdout_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.explicit_path_lexical_holdout_v1",
+  "created_utc": "2026-09-06T03:30:00Z",
+  "question": "Does the explicit two-term MLP4 -> three-source bank -> attention5 H7/H1/H6/H8 path transfer prospectively to unseen lexical combinations in the known-capable syntax?",
+  "authority": {
+    "holdout_builder": {
+      "path": "ops/circuit_candidate_aspectual_lexical_holdout_v2.py",
+      "sha256": "d4f37373ab52be5faf98fb1576179d659bbded8b4a5b75c7b7d7ec1fb567116a",
+      "rows_sha256": "1418bfb6e0eb69a788cd11bd1da7b77585bd65cb5868fb7382f946a2072a1a25",
+      "rows": 64,
+      "outcomes_opened": false
+    },
+    "discovery_path_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_to_attention5_four_head_source_identity_v1_result.json",
+      "sha256": "ec368faeb25c7309e77ef5a844c336e0511f92e19e2f714183b55b0e75c9d905",
+      "terminal": "screen"
+    },
+    "writer_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_bilinear_response_factorial_v2_result.json",
+      "sha256": "359483cfb4807e9293e1f25f877db8d7303bc76333d83a6d237cf72a9c7e77e4",
+      "terminal": "screen"
+    }
+  },
+  "data_status": "Prospective to every exact holdout text and causal outcome. Lexical items were previously present only in a different capability-invalid construction test; their pairing with the parent syntax and all explicit-path outcomes are unopened.",
+  "population": "All 64 rows for native A1/A2/P/C capability; the 32 answer-changing A1/A2 rows for causal path interventions.",
+  "frozen_program": {
+    "writer": "Down((Left_d-Left_b)*Right_b + Left_b*(Right_d-Right_b)) at resid5 on last+period+the",
+    "source_bank": ["last", "period", "determiner"],
+    "attention5_heads": [7, 1, 6, 8],
+    "arms": ["writer_two_term", "attention5_complete_four", "attention5_bank_four", "attention5_all_nine"],
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_native_capability": "Every ordered A1, A2, P, and C cell passes the fixed native capability bars before any causal result is interpreted.",
+    "pred_b_writer_transfer": "The writer arm has mean target recovery at least 0.20, positive A1/A2 mean recovery, and direction fraction at least 0.80 in each.",
+    "pred_c_four_head_path_transfer": "The complete four-head arm retains at least 8% of writer mean recovery, has positive A1/A2 mean recovery, and direction fraction at least 0.75 in each.",
+    "pred_d_source_identity_transfer": "The bank arm retains at least 95% of complete-four-head mean recovery and matches it within 0.125 scored logit on every row.",
+    "pred_e_four_head_compression_transfer": "The four-head arm retains at least 70% of the all-nine-head attention5 arm.",
+    "pred_f_exact_coverage": "All four arms produce all 32 target outcomes with finite logits within 20 model forward calls and 320 example evaluations."
+  },
+  "terminal": {
+    "screen": "A-F pass: promote the explicit MLP4-bank-attention5 path as prospectively lexical/recombination stable in A1/A2 syntax.",
+    "null": "The run is valid but B, C, D, or E fails: retain discovery-only scope.",
+    "invalid": "Native capability, token/source alignment, instrument identity, finiteness, or coverage fails. No text, lexicon, arm, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 20,
+    "example_evaluations_max": 320,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First prospective validation of an explicit factorized writer-to-source-to-head path for aspectual-anchor behavior."
+}
