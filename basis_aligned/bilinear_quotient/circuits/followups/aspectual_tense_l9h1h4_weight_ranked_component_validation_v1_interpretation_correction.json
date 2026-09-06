@@ -1,0 +1,18 @@
+{
+  "schema": "circuit_result_interpretation_correction_v1",
+  "created_utc": "2026-09-06T16:34:00Z",
+  "result_path": "circuits/followups/aspectual_tense_l9h1h4_weight_ranked_component_validation_v1_result.json",
+  "result_sha256": "5596eb43af7564e42d8254db564575ebf31729c85f02cde19363a7c03bac0e6b",
+  "correction": {
+    "licensed": [
+      "Weight scores prospectively rank whole-component causal effects at the registered final semantic position.",
+      "Top-versus-bottom enrichment and the downstream-reader results remain valid at that position."
+    ],
+    "not_licensed": [
+      "The upstream attention/MLP interventions do not establish that those modules write the L9H1/H4 value state at contextual carrier tokens.",
+      "The upstream components must not enter a source-to-reader circuit program until a carrier-position-resolved intervention validates them."
+    ],
+    "cause": "The reusable producer's donor cache stores each component only at batch.semantic_positions, which are the final prediction inputs; the L9 value state is read from task-specific contextual carrier positions.",
+    "next_test": "Capture full component tensors and patch top/bottom upstream writers at exact paired contextual carrier positions, with rankings frozen from the weight-only atlas."
+  }
+}
