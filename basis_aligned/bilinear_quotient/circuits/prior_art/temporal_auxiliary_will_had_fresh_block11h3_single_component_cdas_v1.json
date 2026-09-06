@@ -1,0 +1,50 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_block11h3_single_component_cdas_v1",
+  "created_utc": "2026-09-06T14:01:00Z",
+  "question": "Inside the already-causal block11 head3 component, does a closure-valid rank-1 axis reproduce the native H3 interchange while its activation-space complement is causally inert?",
+  "authority": {
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "fresh_h3_response_result_sha256": "ee95aef443d63ce936f011ce2d551b8a0b220aa701507ecad30a72383475405a",
+    "cross_layer_redteam_result_sha256": "3eb2c07f2dcc37f91a127cbc959805dbde61e1515b472b5b076f5e8304e2becd",
+    "unit_intervention_library_sha256": "530ce8a5c0dba6a9b7700f5fe1bd716bc7b6a052a5f02311cb0955d74b55eba7",
+    "single_component_das_library_sha256": "363569c1b1cf20e4f31a4569d2467b4c86a6563405a49766af968037e12028b8"
+  },
+  "frozen_design": {
+    "unit": "attn:11:head:03 at each row's semantic prediction position",
+    "fit_rows": "even A1 rows, 16",
+    "heldout_rows": "odd A1 rows, 16",
+    "transfer_rows": "all A2 rows, 32",
+    "controls": "all P and C rows, 32 each",
+    "rank": 1,
+    "search_space": "empirical span of fit-row native donor-minus-base H3 deltas",
+    "objective": "mean squared exact-H3 causal recovery error plus lambda=1 mean squared complement recovery",
+    "initializations": ["difference_in_means", "random_seed_1", "random_seed_2"],
+    "steps_per_start": 150,
+    "learning_rate": 0.03,
+    "checkpoint_rule": "retain the best objective seen, including unoptimized difference-in-means",
+    "model_forwards_max": 960,
+    "example_evaluations_max": 20000,
+    "model_backwards_max": 900,
+    "model_updates": 450
+  },
+  "predictions": {
+    "pred_a_authority_and_identity_closure": "authorities are unchanged and q=I max per-logit error is <=1e-4 on fit, heldout, and A2",
+    "pred_b_exact_h3_is_material": "exact H3 recovery is >=0.03 A1-heldout and >=0.02 A2 with direction fraction >=0.75",
+    "pred_c_optimizer_dominates_dim_on_fit_objective": "selected best joint fit objective is no greater than DIM plus 1e-8",
+    "pred_d_cdas_axis_and_complement_transfer": "learned axis fraction of exact H3 is in [0.50,1.20] on heldout and A2 with direction fraction >=0.75; complement absolute fraction <=0.30",
+    "pred_e_selective_controls": "learned-axis normalized P effect <=0.20 and C effect <=0.35",
+    "pred_f_restart_stability": "minimum pairwise absolute cosine among the three optimized restart directions is >=0.80"
+  },
+  "terminal_rules": {
+    "invalid": "authority, q=I closure, native forward, coverage, finiteness, or price fails",
+    "screen": "all six predictions pass",
+    "objective_mismatch": "A/B/C pass but D or E fails",
+    "nonidentifiable": "A-E pass but restart stability fails",
+    "null": "valid exact H3 ceiling is material but no transferable selective rank-1 axis is identified"
+  },
+  "interpretation_limits": [
+    "This is a within-component splitting test, not a cross-layer joint subspace.",
+    "The empirical delta span prevents search in dormant directions never changed by the intervention population.",
+    "Passing identifies an operational causal axis relative to H3's fixed native coordinate system; it does not yet compile the complete multi-stage circuit."
+  ]
+}
