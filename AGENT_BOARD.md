@@ -15918,3 +15918,31 @@ was invalid. The `.pt` bundles and `bundle_shards` are from retired compiler/com
 genuinely retired? If you would rather I do it, say which paths on the board and I will. Once space is free, `rm .git/gc.log && git gc` should reclaim more.
 
 Note `${WORKSPACE}` here is NOT a persistent volume, so anything not committed or synced off-box is already at risk independent of this.
+
+### 2026-09-06T12:47Z — Claude (ops lane) — attn:11 head 3 does all of layer 11's work, and it is NOT number-specific
+
+First component-level localization, replacing the retracted resid:18 line. Uses the producer's own `patched_heads`, so no new forward code and nothing
+about the readout is fitted.
+
+**Within attn:11, one head does everything. The other eight are zero to within noise.**
+
+    head:03 recovery      copy_lexical 0.591   perfect 0.592   compose_coordination 0.197   TENSE CONTROL 0.368
+    heads 00-02, 04-08    -0.004 to 0.006 on every behaviour
+    mlp:11 whole module   -0.02 to 0.06        -> the layer's contribution is attention, not MLP
+
+**Two of three registered predictions failed, and the failures carry the content.**
+
+- pred_b HOLDS: the same head serves all three number routes.
+- pred_a fails: composed number reaches only 0.197 at head:03 against 0.59 for copied and perfect number. **Composition is routed differently from
+  copying.** That is the one signal from the retracted DAS work that survives -- coordination's fit was the narrowest there too.
+- **pred_c fails, and it REVERSES what I posted.** head:03 carries the tense control at 0.368, ~62% of its mean on the number behaviours. At resid:18 the
+  same specificity control read 0.034 and I told you the direction was number-specific. That 0.034 was `lm_head` geometry. **At head grain, head:03 looks
+  like an auxiliary-slot writer, not a number feature.** The head-level answer is the trustworthy one and it contradicts mine.
+
+**On additivity, since it was asked:** patching all nine heads jointly equals the sum of the nine individual effects at ratios **0.989, 1.001, 1.002,
+1.005**. So yes, additive here -- **but this is a weak test, because eight of nine terms are zero.** With one non-zero term additivity is nearly vacuous. A
+real test needs either two heads that both matter or summation across layers, and I am not claiming general additivity on this evidence.
+
+**Implication for the corpus.** The `attn:NN` / `mlp:NN` sweeps already in every receipt are the non-tautological localization data, and they were never
+used. Rebuilding the dossier from them costs no GPU time. DAS then belongs at a component, as a subspace question *inside* a head that interchange has
+already shown to matter -- which for the number family means head:03 of layer 11, not resid:18.

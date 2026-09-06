@@ -1,0 +1,109 @@
+{
+  "best_head_by_number_mean": "head:03",
+  "best_head_recovery_on_tense_control": 0.36780030965421745,
+  "best_head_recovery_per_number_behaviour": {
+    "compose_coordination": 0.19712586020020428,
+    "copy_lexical": 0.5908433915650363,
+    "perfect_disjoint_vocab": 0.5924609631747901
+  },
+  "candidate_id": "number.head_localization_attn11_v1",
+  "families": {
+    "compose_coordination": {
+      "additivity_ratio_joint_over_sum": 0.9885825771522162,
+      "all_heads_layer_11_joint": 0.19198336308029426,
+      "mlp_11_whole_module": -0.021946359096229877,
+      "per_head": {
+        "head:00": 3.541539138127814e-05,
+        "head:01": -0.003598945415597621,
+        "head:02": 0.0019892501447814114,
+        "head:03": 0.19712586020020428,
+        "head:04": -0.0001972730834498648,
+        "head:05": 0.0017355659105286535,
+        "head:06": -0.004059408112748175,
+        "head:07": 0.0005736635929537838,
+        "head:08": 0.0005965052060318937
+      },
+      "rows": 32,
+      "sum_of_individual_heads": 0.19420063383408565
+    },
+    "control_tense": {
+      "additivity_ratio_joint_over_sum": 1.0009498064026436,
+      "all_heads_layer_11_joint": 0.3821003094547845,
+      "mlp_11_whole_module": 0.047900249174300746,
+      "per_head": {
+        "head:00": -0.00020810572304563203,
+        "head:01": 0.005816794106392221,
+        "head:02": 0.0008056085414164024,
+        "head:03": 0.36780030965421745,
+        "head:04": -4.988102933739077e-05,
+        "head:05": 0.004734975589487501,
+        "head:06": 0.0027253159519805307,
+        "head:07": 0.00037119741340821297,
+        "head:08": -0.000258481992205613
+      },
+      "rows": 32,
+      "sum_of_individual_heads": 0.3817377325123137
+    },
+    "copy_lexical": {
+      "additivity_ratio_joint_over_sum": 1.0021367442724236,
+      "all_heads_layer_11_joint": 0.5959346847018187,
+      "mlp_11_whole_module": 0.059842501480562575,
+      "per_head": {
+        "head:00": 0.0008189752429932039,
+        "head:01": 0.0005935934634022277,
+        "head:02": 0.003353635006932009,
+        "head:03": 0.5908433915650363,
+        "head:04": -5.040827855970632e-06,
+        "head:05": -0.0007791234231929748,
+        "head:06": 0.00012659367409913893,
+        "head:07": -0.00010665100481735401,
+        "head:08": -0.00018133397566793346
+      },
+      "rows": 32,
+      "sum_of_individual_heads": 0.5946640397209286
+    },
+    "perfect_disjoint_vocab": {
+      "additivity_ratio_joint_over_sum": 1.0053864591815982,
+      "all_heads_layer_11_joint": 0.5937665087493474,
+      "mlp_11_whole_module": 0.04443438965600584,
+      "per_head": {
+        "head:00": 0.00041413871480259676,
+        "head:01": 0.00044233923552340794,
+        "head:02": -0.0014558532483876078,
+        "head:03": 0.5924609631747901,
+        "head:04": -1.950603102838554e-06,
+        "head:05": 0.0005159444567905196,
+        "head:06": -0.002129271138348906,
+        "head:07": 0.0005713253429073968,
+        "head:08": -0.00023229103915871084
+      },
+      "rows": 32,
+      "sum_of_individual_heads": 0.590585344895816
+    }
+  },
+  "finished_utc": "2026-09-06T12:46:30.292607+00:00",
+  "heads_tested": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "layer": 11,
+  "predictions": {
+    "pred_a_single_head_carries_number": false,
+    "pred_b_same_head_across_routes": true,
+    "pred_c_head_is_number_specific": false
+  },
+  "reading": "number_is_distributed_within_layer_11",
+  "registered_thresholds": {
+    "carry": 0.3,
+    "specific_ratio": 0.5
+  },
+  "schema": "circuit_head_localization_result_v1",
+  "supersedes": "resid:18 DAS localization for the number family, retracted: resid:18 recovery is 1.0000 for all 50 screened behaviours by construction, and rank-1 DAS there recovers the lm_head readout direction rather than an internal feature"
+}
