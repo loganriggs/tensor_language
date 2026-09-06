@@ -167,3 +167,12 @@ swap-in within 0.02). Direction alone 0.574 (0.96 of exact); random direction 0.
 four-head set 0.003. Frozen A2: keep-exact 0.746, direction 0.677. Design-error note: v52's null
 predicate measured |margin| (0.19 here, 0.41 on quantifier) — a constant answer bias, not retained
 information; v53's separation predicate is true by construction. Recorded, not re-chosen.
+
+**Extraction-objective enlargement (v54, `unit_extraction_greedy_v54_result.json`).** Greedy on the
+even A1 rows with keep-only as the objective adds `attn:09:head:07`, `attn:10:head:05`,
+`attn:13:head:01` (fit 0.598→0.805); one-shot on the odd A1 rows the 7-head set extracts 0.773
+(95% LB 0.748) — 0.03 under the 0.80 bar, LB above 0.60 — and 0.966 on frozen A2; its interchange
+recovery rises 0.515→0.702; its rank-1-per-block direction keeps 0.741. Gains are diffuse
+(first-added share 0.46 of the total), and `attn:09:head:07` is added to all four behaviours'
+sets (a hub, consistent with v49's stack-pattern locus). Reading rule applied: the head budget
+is not raised; the residual ~23% is many small heads, not one more writer.

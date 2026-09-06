@@ -1,0 +1,313 @@
+{
+  "bars": {
+    "a2_frac": 0.5,
+    "bar": 0.8,
+    "conc_min": 0.5,
+    "dir_frac": 0.8,
+    "lb_min": 0.6,
+    "max_add": 4,
+    "min_gain": 0.02
+  },
+  "behaviours": {
+    "dative": {
+      "a2_keep_final": {
+        "lb95": 0.7008116285210206,
+        "point": 0.7464570998588068,
+        "ub95": 0.8041235025672717
+      },
+      "a2_keep_start": {
+        "lb95": 0.5401828266909858,
+        "point": 0.5921599946547523,
+        "ub95": 0.6518222222436819
+      },
+      "added": [
+        "attn:00:head:03",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07"
+      ],
+      "first_gain_share": 0.2926920391070298,
+      "held_interchange_final": 0.7166729195060098,
+      "held_interchange_start": 0.5935924779184841,
+      "held_keep_direction": {
+        "lb95": 0.6469502201883901,
+        "point": 0.7301790925320907,
+        "ub95": 0.8230644361563353
+      },
+      "held_keep_final": {
+        "lb95": 0.7017885426590035,
+        "point": 0.763385577926916,
+        "ub95": 0.8314516372436809
+      },
+      "held_keep_start": {
+        "lb95": 0.5876180374254302,
+        "point": 0.6341927786316288,
+        "ub95": 0.6892067828976278
+      },
+      "path": [
+        {
+          "added": null,
+          "fit_keep": 0.5522324491212505
+        },
+        {
+          "added": "attn:00:head:03",
+          "fit_keep": 0.6116311559481484
+        },
+        {
+          "added": "attn:14:head:03",
+          "fit_keep": 0.6631513388796282
+        },
+        {
+          "added": "attn:08:head:01",
+          "fit_keep": 0.7107449048965642
+        },
+        {
+          "added": "attn:09:head:07",
+          "fit_keep": 0.7551717125467836
+        }
+      ],
+      "units_final": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:00:head:03",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07"
+      ],
+      "units_start": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "polarity_licensing": {
+      "a2_keep_final": {
+        "lb95": 0.8938378720630763,
+        "point": 0.9664245203885101,
+        "ub95": 1.0546327035836902
+      },
+      "a2_keep_start": {
+        "lb95": 0.6976290212262584,
+        "point": 0.7413048086261321,
+        "ub95": 0.7966875649780915
+      },
+      "added": [
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:13:head:01"
+      ],
+      "first_gain_share": 0.4576260207863753,
+      "held_interchange_final": 0.7019731317081233,
+      "held_interchange_start": 0.5154732864927936,
+      "held_keep_direction": {
+        "lb95": 0.7084768626999457,
+        "point": 0.741197561637743,
+        "ub95": 0.777014754551262
+      },
+      "held_keep_final": {
+        "lb95": 0.747797137009648,
+        "point": 0.7732202139918988,
+        "ub95": 0.8022390103540156
+      },
+      "held_keep_start": {
+        "lb95": 0.5480258123121993,
+        "point": 0.5740490207388098,
+        "ub95": 0.6013040923843127
+      },
+      "path": [
+        {
+          "added": null,
+          "fit_keep": 0.5977562157954246
+        },
+        {
+          "added": "attn:09:head:07",
+          "fit_keep": 0.6924505912280546
+        },
+        {
+          "added": "attn:10:head:05",
+          "fit_keep": 0.7509529588477671
+        },
+        {
+          "added": "attn:13:head:01",
+          "fit_keep": 0.8046814585294569
+        }
+      ],
+      "units_final": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:13:head:01"
+      ],
+      "units_start": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ]
+    },
+    "quantifier_number": {
+      "a2_keep_final": {
+        "lb95": 0.6041834820081571,
+        "point": 0.6279625072602507,
+        "ub95": 0.6529766856461153
+      },
+      "a2_keep_start": {
+        "lb95": 0.40303263815496393,
+        "point": 0.42398075116353706,
+        "ub95": 0.44679888298591225
+      },
+      "added": [
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07"
+      ],
+      "first_gain_share": 0.36650535835633613,
+      "held_interchange_final": 0.8155549440383638,
+      "held_interchange_start": 0.6579382342605307,
+      "held_keep_direction": {
+        "lb95": 0.6853320800600953,
+        "point": 0.7269703133473749,
+        "ub95": 0.7694454943603928
+      },
+      "held_keep_final": {
+        "lb95": 0.6811503026431314,
+        "point": 0.7195997768684466,
+        "ub95": 0.7612633744480057
+      },
+      "held_keep_start": {
+        "lb95": 0.4850259961167689,
+        "point": 0.5119396388683624,
+        "ub95": 0.5417185710245384
+      },
+      "path": [
+        {
+          "added": null,
+          "fit_keep": 0.5182334981925264
+        },
+        {
+          "added": "attn:05:head:03",
+          "fit_keep": 0.5932588498570222
+        },
+        {
+          "added": "attn:08:head:01",
+          "fit_keep": 0.6406536643110405
+        },
+        {
+          "added": "attn:13:head:01",
+          "fit_keep": 0.6850043454311591
+        },
+        {
+          "added": "attn:09:head:07",
+          "fit_keep": 0.7229381497178449
+        }
+      ],
+      "units_final": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07"
+      ],
+      "units_start": [
+        "attn:07:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "voice_frame": {
+      "a2_keep_final": {
+        "lb95": 0.8382515257613091,
+        "point": 0.893057714057556,
+        "ub95": 0.9605631931709562
+      },
+      "a2_keep_start": {
+        "lb95": 0.6609450191152545,
+        "point": 0.7226350917557808,
+        "ub95": 0.7995565026192935
+      },
+      "added": [
+        "attn:09:head:07",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:05:head:03"
+      ],
+      "first_gain_share": 0.44591311741838063,
+      "held_interchange_final": 0.9108528550016554,
+      "held_interchange_start": 0.7064493146661498,
+      "held_keep_direction": {
+        "lb95": 0.6563556559259003,
+        "point": 0.722495684803681,
+        "ub95": 0.7996601416952142
+      },
+      "held_keep_final": {
+        "lb95": 0.7265780694437765,
+        "point": 0.7816453628485688,
+        "ub95": 0.8433915538725155
+      },
+      "held_keep_start": {
+        "lb95": 0.5551493781717096,
+        "point": 0.6158470442771363,
+        "ub95": 0.68368742044337
+      },
+      "path": [
+        {
+          "added": null,
+          "fit_keep": 0.5979083978384061
+        },
+        {
+          "added": "attn:09:head:07",
+          "fit_keep": 0.6798852018410374
+        },
+        {
+          "added": "attn:06:head:03",
+          "fit_keep": 0.7251645821942874
+        },
+        {
+          "added": "attn:02:head:02",
+          "fit_keep": 0.7548100565547046
+        },
+        {
+          "added": "attn:05:head:03",
+          "fit_keep": 0.7817487039438578
+        }
+      ],
+      "units_final": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:05:head:03"
+      ],
+      "units_start": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01"
+      ]
+    }
+  },
+  "candidate_id": "corpus.unit_extraction_greedy_v54",
+  "finished_utc": "2026-09-06T23:34:19.043571+00:00",
+  "predictions": {
+    "pred_a_bar_on_fit": false,
+    "pred_b_holds_heldout": false,
+    "pred_c_a2_transfer": true,
+    "pred_d_gain_concentrated": false,
+    "pred_e_direction_keeps": true
+  },
+  "schema": "circuit_unit_extraction_greedy_result_v1",
+  "seconds": 186.0461101718247,
+  "split": "A1 even rows FIT/SELECT; A1 odd rows and A2 FINAL one-shot; background from FIT rows"
+}
