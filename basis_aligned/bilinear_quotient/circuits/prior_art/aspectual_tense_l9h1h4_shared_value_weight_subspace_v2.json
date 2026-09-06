@@ -1,0 +1,45 @@
+{
+  "candidate_id": "aspectual_tense.l9h1h4_shared_value_weight_subspace_v2",
+  "created_utc": "2026-09-06T16:16:00Z",
+  "question": "At the shared L9H1/H4 value boundary, do aspectual has/had and tense is/was use a common causal value subspace, task-typed complements, or only a compact union?",
+  "authority": {
+    "v1_prior_sha256": "06620c3b87209fc8431278c19530262df891ee56d83a5c2b3fd266394095e3d1",
+    "v1_result_status": "invalid solely because its instrument required every individual row to be native capable; none of its subspace outputs are licensed here",
+    "capability_manifest_sha256": "9299fe3501995b72cec637a58838fdaf85f056034a1566de3a6d6bb04e38edd6",
+    "capability_manifest_terminal": "manifest with all registered checks passing and exact jointly capable IDs frozen"
+  },
+  "repair_boundary": {
+    "only_change": "filter every fit and evaluation population to the exact task/family row IDs that the independent capability manifest froze as correct on both base and donor sides",
+    "unchanged": "L9H1/H4 live value coordinate, source positions, factor capture, A1 fit/heldout alternation by direction, A2 evaluation, 95% task and joint energy bases, 0.80 principal-cosine shared basis, six causal arms, all effect thresholds, and all scientific terminal rules",
+    "anti_adaptation": "No scientific threshold is changed after the invalid v1 output was opened."
+  },
+  "frozen_population": {
+    "has_fit_a1": 16,
+    "has_heldout_a1": 15,
+    "has_a2": 31,
+    "is_fit_a1": 8,
+    "is_heldout_a1": 6,
+    "is_a2": 15
+  },
+  "predictions": {
+    "pred_a_authority_capability_capture_and_split": "all selected rows are manifest-joint-capable; factor reconstruction <=0.002; empty identity <=0.0001; exact frozen split and price close",
+    "pred_b_each_task_basis_is_sufficient": "own-task basis recovers 0.80-1.20 of exact value and >=0.75 donorward direction fraction in every heldout A1/A2 panel",
+    "pred_c_shared_geometric_mode_exists": "shared rank >=1 at principal cosine >=0.80 and each heldout task projects >=0.30 energy into the other task basis",
+    "pred_d_shared_mode_is_causally_material": "shared-basis installation recovers >=0.40 of exact value in every panel",
+    "pred_e_task_specific_complements_are_secondary": "absolute own-complement recovery is <=0.40 of exact value in every panel",
+    "pred_f_joint_basis_is_compact_and_sufficient": "joint rank is below summed task ranks and joint installation recovers 0.80-1.20 of exact value in every panel"
+  },
+  "price": {
+    "model_forwards": 48,
+    "example_evaluations": 766,
+    "records": 402,
+    "fitted_scalars": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  },
+  "terminal_rules": {
+    "invalid": "prediction A fails",
+    "screen": "all predictions pass",
+    "null": "A passes and any scientific prediction B-F fails"
+  }
+}
