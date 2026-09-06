@@ -227,3 +227,14 @@ it as a teacher and optimize only a tensor-anchored low-rank correction with ful
 KL, complement-inertness, noise consistency, and explicit multi-environment balance. This
 directly tests regularization against memorization while avoiding the already falsified
 task-scalar objective.
+
+The tensor-anchored regularized compression is a valid null. All three discarded-normal
+restarts converge near the checkpoint rank-seven initialization (minimum absolute cosine
+0.9764), but every nonzero displacement worsens the odd-row held-out full-vocabulary KL
+objective. Selection therefore returns the untouched weight rank seven at step zero, with
+zero projector distance. V8 and v9 causal metrics replay to numerical precision; the apparent
+v9 A2 gain is only 1.8e-6. Thus tangent noise, full-vocabulary sufficiency/complement KL,
+tensor anchoring, and four-environment balance successfully prevent task memorization but do
+not uncover a better rank-seven variable. The evidence now favors rank eight as the simplest
+robust tensor-family candidate, requiring a wholly new-bank confirmation rather than further
+regularization of the same rank-seven objective.
