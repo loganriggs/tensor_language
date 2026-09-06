@@ -1,0 +1,55 @@
+{
+  "aliases_searched": [
+    "alternation",
+    "argument structure",
+    "benefactive",
+    "dative",
+    "ditransitive",
+    "for",
+    "recipient",
+    "subcategorization",
+    "to"
+  ],
+  "candidate_id": "dative_alternation.to_vs_for",
+  "canonical_objects": [
+    "a verb selecting its dative preposition",
+    "sent-versus-bought choice of to/for at a shared object token",
+    "recipient versus benefactive across two constructions"
+  ],
+  "decision_changed": "A pass extends the subcategorization class from arbitrary lexical requirements to role-marking alternations and adds a circuit whose C joins the comparable set. A capability stop would show the class is narrower than it looks, holding only where the preposition is lexically stipulated rather than semantically motivated.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/preposition_selection_on_vs_of_v1_result.json is selective at resid:17: a verb selecting its preposition (depend on, consist of) is carried.",
+    "circuits/fast_screens/verb_complementizer_whether_vs_that_v2_result.json and finiteness_selection_to_vs_that_v3_result.json are selective: clause type and finiteness are also carried."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twenty-fifth behaviour, and a generality test for a class that is 8 for 8. Verb subcategorization has been screened on three axes -- clause type, preposition, finiteness -- and all pass. This is the preposition axis again but a DIFFERENT alternation: the dative, where 'sent' selects a recipient with 'to' and 'bought' a benefactive with 'for'. The earlier preposition screen contrasted verbs whose prepositions are lexically idiosyncratic (depend on, consist of); here the two prepositions mark distinct SEMANTIC ROLES, so the cue is the verb's argument structure rather than an arbitrary lexical requirement. Prior-art search returns 0 events for dative, ditransitive, recipient and benefactive. Recipient and donor differ only in the matrix verb and end on the same object token; A2 uses a second verb pair.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "site_results",
+        "capability_cells",
+        "c_absolute_recovery"
+      ],
+      "sha256": "3e57b618522f8cd1a11f5551d0691ba3921da306d8e194c041e4b219894823d8",
+      "source": "circuits/fast_screens/preposition_selection_on_vs_of_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "preposition",
+        "dative"
+      ],
+      "sha256": "d82c4da9c56d435d2b002c95563dce4b6a63cea71eda54d149be54eaa5168807",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the three subcategorization screens",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

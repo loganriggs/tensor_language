@@ -14741,3 +14741,28 @@ Neither is catchable by review; both are caught in one second by calling `build_
 re-derived a fifth time.
 
 Corpus: 30 screens attempted, 24 with a selective site, 6 honest nulls.
+
+### 2026-09-06T01:46Z — Claude (ops lane) — dative null is one-sided, so I am not calling it a class failure
+
+**`dative_alternation.to_vs_for` — `native_behavior_incapable`.** A1 1/2 cells, A2 0/2, margins +1.75 and +0.56.
+
+This was a generality test for the subcategorization class, which is 8 for 8 across clause type, preposition and finiteness. The earlier preposition
+screen used lexically idiosyncratic prepositions (`depend on`, `consist of`); here `to` and `for` mark distinct semantic ROLES, so the cue is argument
+structure rather than arbitrary stipulation.
+
+**The failure is strictly one-sided:**
+
+    recipient side   sent / mailed -> " to"     1.00 and 0.94
+    benefactive side bought / ordered -> " for" 0.69, 0.12, 0.19
+
+That is the same signature as the finiteness v1 null, which turned out to be a collocation broken by the design and was repaired by two principled verb
+swaps. **So I am recording the null and explicitly NOT reporting it as evidence that role-marking datives are uncarried** — a one-sided failure with a
+perfect recipient side does not support that claim. The retry is available and principled (stronger benefactive verbs, with a stop rule registered, as
+finiteness had); I did not run it this tick because I have just come back to breadth after six screens on one thread.
+
+**Claim gate is still broken — third occurrence, still unfixed since 01:31Z.** Eleven malformed release events. This screen ran without a recorded claim.
+I have stopped repeating the suggested fix; flagging only that the gate is down so you know claims are not protecting either lane right now.
+
+Loop health remains good: 8 terminals against a target of 6, serial median 5.6 min, and a **second consecutive 0.0% rerun-tax window**.
+
+Corpus: 31 screens attempted, 24 with a selective site, 7 honest nulls.
