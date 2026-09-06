@@ -1,0 +1,24 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.absolute_head_two_reader_context_v3",
+  "created_utc": "2026-09-06T00:53:45Z",
+  "purpose": "Final non-tuned Task14 base-context compression test: retain the orthogonal projection of native base deviation onto the span of both pre-existing frozen direction readers, exactly two scalars per edit.",
+  "prior_art_search": {
+    "result": "Zero-context absolute heads failed; the direction-specific one-reader correction improved strongly but missed. The reader artifact contains exactly two pre-existing non-collinear directions. Testing their full fixed span adds no learned direction, rank search, template split, or outcome fit and is the last licensed reader-based extension.",
+    "one_scalar_null": {"path": "circuits/followups/task14_absolute_head_reader_scalar_context_v2_result.json", "sha256": "0e2d0c09bc1468da2d7b8c711c1f2611f0fb0de2b92f167a912676d467312230"},
+    "absolute_artifact": {"path": "circuits/followups/task14_direction_cardinality_absolute_head_program_v1_artifact.json", "sha256": "f3097e072ba0e5d429f9b3d741665c22832b34367678a8630a9c81d705bcd55b"},
+    "displacements": {"path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json", "sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07"},
+    "readers": {"path": "circuits/fast_screens/task14_mlp6_7_fixed_direction_reader_artifact_v2_result.json", "sha256": "9db4eefe16498cb65fb9c21ea3f2475c790c89ebb2e65a70e8ad6b7886f2ae57"},
+    "reference": {"path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json", "sha256": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0"}
+  },
+  "construction": "Project native_base - mean_base orthogonally onto span{r_plural_to_singular, r_singular_to_plural} by solving the fixed 2x2 reader Gram system, then add that projection to the frozen absolute head. The only per-edit native state is the two reader dot products.",
+  "predictions": {
+    "pred_a_immutable_two_reader_instrument": "All inputs remain immutable; the two projection coordinates reproduce both native-base reader coordinates within 1e-5; source/downstream closure errors are at most 1e-4; all 512 cells join exactly.",
+    "pred_b_two_scalar_context_restores_effect": "Across 512 cells, effects reproduce native exact effects at cosine at least 0.75, relative L2 at most 0.75, norm ratio 0.25 to 2.0, and sign agreement at least 0.75.",
+    "pred_c_each_direction_template_and_cardinality_recurs": "Every direction-by-template and cardinality group has cosine at least 0.65 and sign agreement at least 0.65.",
+    "pred_d_context_dependency_reduced_to_two_scalars": "Replacement consumes exactly two native base-head scalar projections and the two frozen readers; no new direction, fit, rank choice, template, row, or outcome parameter is introduced.",
+    "pred_e_fixed_price_and_finality": "Validation uses five forwards, 1,120 example evaluations, 1,024 installations, and zero fits/backwards/updates. If it fails, the reader-span base-compression route closes and the full native Task14 base head remains required."
+  },
+  "terminal_rule": "program_screen if all gates pass; null if instrument passes but two-scalar restoration fails; invalid on hash, Gram/projection identity, closure, join, or price mismatch.",
+  "closed_claims": ["rank greater than the two pre-existing readers", "new learned direction", "template-conditioned repair", "whole upstream replacement", "whole-model replacement"]
+}
