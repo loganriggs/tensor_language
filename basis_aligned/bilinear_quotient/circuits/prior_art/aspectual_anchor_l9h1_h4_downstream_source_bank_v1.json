@@ -1,0 +1,57 @@
+{
+  "schema": "aspectual_anchor_l9h1_h4_downstream_source_bank_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.l9h1_h4_downstream_source_bank_v1",
+  "created_utc": "2026-09-06T02:23:05Z",
+  "question": "Can the distributed L9H1/H4 aspectual read be compressed to the period and determiner source terms downstream of since/by?",
+  "authority": {
+    "source_factorial_result": {
+      "path": "circuits/followups/aspectual_anchor_l9h1_h4_source_term_factorial_v1_result.json",
+      "sha256": "92fec63632f91be57a8bd85322366e8e1d2d41367974ac5e85c897f6d3433d4f"
+    },
+    "source_factorial_runner": {
+      "path": "ops/run_aspectual_anchor_l9h1_h4_source_term_factorial_v1.py",
+      "sha256": "8e890efd3520cfbece1d71f3ffb58397c732d8fc9c9446c74af9ac0380f2ca01"
+    },
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3",
+    "frozen_heads": [1, 4]
+  },
+  "population": "The same 64 valid A1/A2 discovery rows. This is a post-localization mechanistic compression test, not an independent generalization test.",
+  "operator": "Simultaneously replace the named paired donor attention source terms inside the otherwise native base L9H1/H4 preprojection activations at the final subject query, then run the exact suffix.",
+  "source_positions": {
+    "cue": "unique since/by token",
+    "last": "cue+1",
+    "period": "cue+2",
+    "determiner": "cue+3, verified as the token `the` on all 64 rows",
+    "self": "final subject token"
+  },
+  "frozen_arms": {
+    "full_pair": "complete paired donor H1/H4 activation",
+    "all_changed_sources": ["cue", "last", "period", "determiner", "self"],
+    "period_determiner": ["period", "determiner"],
+    "last_period_determiner": ["last", "period", "determiner"],
+    "cue_last_period_determiner": ["cue", "last", "period", "determiner"],
+    "period": ["period"],
+    "determiner": ["determiner"],
+    "cue_self": ["cue", "self"]
+  },
+  "predictions": {
+    "pred_a_exact_source_closure": "The all-changed-sources arm matches the complete H1/H4 pair scored logits within 1e-4 on every row.",
+    "pred_b_period_determiner_compression": "The period+determiner bank retains at least 60% of complete-pair mean recovery and has direction fraction at least 0.80 in A1 and A2.",
+    "pred_c_last_extension": "Adding last raises retained recovery to at least 80% of the complete pair, with direction fraction at least 0.80 in A1 and A2.",
+    "pred_d_cue_self_negative_control": "Cue+self retains at most 25% of complete-pair mean recovery.",
+    "pred_e_exact_coverage": "All eight registered arms produce all 64 row outcomes with finite logits and no dropped row."
+  },
+  "terminal": {
+    "screen": "A-E pass: license last+period+determiner as the compressed contextual source bank and period+determiner as its two-source core.",
+    "null": "The run is valid but B, C, or D fails: preserve only the distributed-source conclusion.",
+    "invalid": "Source closure, native capability, alignment, finiteness, or exact coverage fails. No source, head, arm, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 36,
+    "example_evaluations_max": 1152,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First exact multi-source causal compression of the contextual trace read by the localized aspectual heads; the previous test evaluated source terms only one at a time."
+}

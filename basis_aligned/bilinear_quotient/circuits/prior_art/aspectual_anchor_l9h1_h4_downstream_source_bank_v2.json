@@ -1,0 +1,46 @@
+{
+  "schema": "aspectual_anchor_l9h1_h4_downstream_source_bank_prior_art_v2",
+  "candidate_id": "aspectual_anchor.has_vs_had.l9h1_h4_downstream_source_bank_v2",
+  "created_utc": "2026-09-06T02:26:39Z",
+  "supersedes": {
+    "candidate_id": "aspectual_anchor.has_vs_had.l9h1_h4_downstream_source_bank_v1",
+    "result_sha256": "23135c52374b34fe2a4a0c5a94d60ccc74a7ffc6d2d9a49e857ec8913f38835c",
+    "runner_sha256": "9b1992ab332de426b882d0fe16667706ed6e70edd75da48f7fe23cd8fe435a33",
+    "terminal": "invalid",
+    "reason": "Repeated BF16 term additions differed from direct complete-head assignment by 0.020951 scored logit and tripped an unrealistic 1e-4 closure tolerance. Scientific outcomes are not licensed from v1."
+  },
+  "invariant_science": {
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3",
+    "heads": [1, 4],
+    "arms": ["full_pair", "all_changed_sources", "period_determiner", "last_period_determiner", "cue_last_period_determiner", "period", "determiner", "cue_self"],
+    "pred_b": "period+determiner retains at least 60% of full pair and each A direction fraction is at least 0.80",
+    "pred_c": "last+period+determiner retains at least 80% of full pair and each A direction fraction is at least 0.80",
+    "pred_d": "cue+self retains at most 25% of full pair",
+    "outcome_conditioning": "none; no row, head, source, arm, or causal threshold changed"
+  },
+  "instrument_repair": {
+    "old_closure": "all-source versus full-pair scored-logit max absolute difference <= 1e-4",
+    "new_closure": "all-source versus full-pair scored-logit max absolute difference <= 0.125",
+    "basis": "0.125 is one conservative BF16-scale logit quantum in the observed logit range and is fixed without changing any causal recovery decision bar",
+    "implementation": "unchanged exact BF16 checkpoint execution and source-term intervention"
+  },
+  "predictions": {
+    "pred_a_bf16_source_closure": "Native capability holds and all-source versus full-pair scored logits differ by at most 0.125.",
+    "pred_b_period_determiner_compression": "Unchanged from v1.",
+    "pred_c_last_extension": "Unchanged from v1.",
+    "pred_d_cue_self_negative_control": "Unchanged from v1.",
+    "pred_e_exact_coverage": "All eight arms produce all 64 outcomes within the unchanged execution price."
+  },
+  "terminal": {
+    "screen": "A-E pass: license last+period+determiner as the compressed source bank and period+determiner as its core.",
+    "null": "The corrected run is valid but B, C, or D fails.",
+    "invalid": "Corrected BF16 closure, native capability, alignment, finiteness, or coverage fails. No further numerical rerun is licensed."
+  },
+  "price": {
+    "model_forwards_max": 36,
+    "example_evaluations_max": 1152,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  }
+}

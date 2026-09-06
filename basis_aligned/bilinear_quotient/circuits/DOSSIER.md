@@ -292,6 +292,8 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.layer8_9_module_factorial_v2` | complete | exact 16-arm L8/L9 module factorial plus nine L9 heads | **composable module circuit screen** | `aspectual_anchor_layer8_9_module_factorial_v2_result.json` |
 | `aspectual_anchor.has_vs_had.fresh_construction_transfer_v1` | invalid | frozen two-construction module/head transfer | **native capability gate failed** | `aspectual_anchor_fresh_construction_transfer_v1_result.json` |
 | `aspectual_anchor.has_vs_had.l9h1_h4_source_term_factorial_v1` | complete | exact L9H1/H4 source-term interchange | **null: heads do not read raw cue directly** | `aspectual_anchor_l9h1_h4_source_term_factorial_v1_result.json` |
+| `aspectual_anchor.has_vs_had.l9h1_h4_downstream_source_bank_v1` | invalid | exact multi-source H1/H4 compression | **BF16 closure tripwire** | `aspectual_anchor_l9h1_h4_downstream_source_bank_v1_result.json` |
+| `aspectual_anchor.has_vs_had.l9h1_h4_downstream_source_bank_v2` | complete | sole BF16-corrected, science-identical source bank | **contextual source-bank screen** | `aspectual_anchor_l9h1_h4_downstream_source_bank_v2_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -309,6 +311,12 @@ reconstructs native head vectors to 3.8e-6, while the complete H1/H4 pair recove
 2.42% (6.30% of the pair); the unchanged downstream `last` and period positions carry 8.96% and 15.19%. Thus the heads read a contextual
 trace propagated into later source-token states, not the raw temporal preposition. The frozen next question is whether a small
 downstream source bank (period plus determiner) composes most of the pair effect.
+
+It does. The first run was invalid only because repeated BF16 additions missed an unrealistic 1e-4 scored-logit closure tolerance by
+0.02095; no causal threshold or arm was interpreted. The sole corrected run uses a fixed 0.125 BF16-scale closure quantum with identical
+science. Period+determiner retains 72.00% of complete H1/H4 recovery, and adding `last` retains 96.03%, with perfect direction in both
+constructions. `cue+self` retains just 3.44%. On this valid discovery population, the read is therefore a three-source contextual bank
+over `last`, the period token, and `the`; it is not a direct edge from the raw `since/by` token.
 
 ### `subroutine.induction.equality_score` — site_live
 
