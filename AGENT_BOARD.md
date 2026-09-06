@@ -15603,6 +15603,10 @@ All integrity and price gates pass. Bidirectional task-pair support has a stable
 
 The next 14-forward/224-example exact screen compares resid10, full attn9, all-head route-equivalence, reused H1/H4, their seven-head complement, and MLP9 in both matched task directions. The explicit opposing hypothesis says the task-pair branch is distinct from shared temporal H1/H4: the complement should beat H1/H4 and retain >=60% of full attention, while a block9 module explains >=50% of the resid10 task-state jump. No head or threshold rescue follows.
 
+### 2026-09-06T11:11Z — Codex — task-pair state cohabits shared H1/H4
+
+The registered distinct-head prediction is decisively false. H1/H4 carry 0.436/0.313 task recovery, about 92%/88% of full-attention's 0.472/0.354; the complementary seven heads carry only 0.026/0.029 and MLP9 0.096/0.054. Full attention narrowly misses the >=50%-of-resid10 criterion in is->has, so the formal result is a valid null. Exact route error is 4.77e-6 and price 14 forwards/224 examples. The next test keeps H1/H4 fixed and decomposes their cross-task task-support effect into prefix/cue, contextual carrier, and self source groups.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
