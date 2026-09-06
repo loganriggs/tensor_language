@@ -1,6 +1,6 @@
 # Circuit write-up: `aspectual_anchor.has_vs_had`
 
-**Date:** 2026-09-06 · **Model:** GPT-2 small · **Lane:** Claude (breadth) with Codex follow-ups
+**Date:** 2026-09-06 · **Model:** bilin18 (18-layer bilinear-MLP transformer, n_embd 1152, 9 heads; GPT-2 tokenizer) — an earlier revision of this file said "GPT-2 small", which was wrong · **Lane:** Claude (breadth) with Codex follow-ups
 **Screen receipt:** `circuits/fast_screens/aspectual_anchor_has_vs_had_v1_result.json`
 **Ledger:** `circuits/fast_screen_ledger.jsonl` · **Verdict:** `selective_causal_site`
 
@@ -44,12 +44,9 @@ base prompt, copy the site's activations from the donor run, and measure how far
 toward the donor's answer, normalised by the native base→donor separation. Recovery 1.000 means
 the patch moved the prediction the whole way.
 
-**No DAS was run on this circuit.** There is DAS machinery in the repository
-(`ops/attention8_shared_private_das_rung521.py`, `ops/bilinear_weight_compiled_das_rung536_*.py`),
-but it belongs to the retired frontier lane and has not been applied to any behaviour in this
-corpus. Nothing here involves a learned rotation, a trained subspace, or an alignment search. If a
-DAS result is wanted for this circuit it does not yet exist and should not be inferred from what
-follows.
+**No DAS enters sections 2–4.** Nothing below involves a learned rotation, a trained subspace, or
+an alignment search; the direction results came later and are in section 5 (2026-09-06 14:48 UTC),
+which supersedes the "not attempted" statements in section 3.
 
 ### Site sweep — 55 sites, whole-block granularity
 
@@ -106,7 +103,7 @@ weight-space decomposition would be for, and neither has been run here.
 
 ## 4. What this circuit does and does not establish
 
-**Established.** GPT-2 small carries an aspectual anchor from a temporal preposition, across an
+**Established.** bilin18 carries an aspectual anchor from a temporal preposition, across an
 intervening subject, to the auxiliary; the variable is recoverable in full from the residual
 stream from layer 10; the transfer survives a construction change (A2) and an answer-preserving
 edit (P 0.181).
@@ -119,3 +116,37 @@ Any claim about directions or subspaces within a head.
 same-answer control's ceiling is ~0.07–0.23, so the C clause here passed but was never at serious
 risk of failing. The selectivity claim rests mainly on target recovery plus P invariance; C should
 be read as a reported statistic, not as a test that could have gone the other way.
+
+---
+
+## 5. Update, 2026-09-06 14:48 UTC: a three-head set carries 0.61, and one direction per head carries that
+
+Sections 3–4 said the finest resolution reached was a single head at ~5% of the effect. That was
+before the greedy head-set protocol (`ops/circuit_unit_greedy.py`; `unit_greedy_battery_v5`,
+re-measured under corrected patch semantics in `unit_block_live_directions_v8`). All numbers are
+held-out interchange effects on the task margin; the held-out rows are the reverse direction
+(had→has) on fresh sentences.
+
+**Head set.** 162-head sweep, greedy forward selection over the top 12 (gain floor 0.02, at most
+6): T = {attn:08:head:01, attn:09:head:04, attn:09:head:01}, joint recovery **0.605** on the fit
+rows, **0.614** on held-out A1, **0.633** on A2; through the exact set P = 0.096, C = 0.013. The
+best whole block was attn:09 at 0.38, so the three heads together exceed any single block; the
+remaining ~0.39 is spread over units that did not clear the gain floor.
+
+**Direction.** Per head, the sign-aligned mean of (donor − base) over the head's 128-d output at
+the read position (diff-in-means, no search), applied to the live value as
+`x + qqᵀ(x_donor − x)`. Held-out fraction of the set's effect **0.98**, A2 **0.89**; complement
+(swap everything in the three heads except the direction) 0.00 / 0.09; subspace + complement =
+0.98 (linear); random rank-matched direction 0.00; P 0.063, C 0.001. A fitted DAS direction (rank
+1 per head, exact-set objective) matches (1.02 / 0.97, complement −0.02) at cosine 0.75 to the
+diff-in-means per head. The cached-vs-live full-rank control is 0.613 vs 0.614 (the layer-8 patch
+barely perturbs the layer-9 heads' outputs), so this set was not affected by the cross-layer
+inflation that hit the possessive sets.
+
+**What this changes in section 4.** "Not established: that any single head or MLP implements the
+behaviour" stands; "any claim about directions or subspaces within a head" no longer does — a
+single direction per head carries 0.98 of what the three heads carry. What the residual stream
+carries in full (1.000 at `resid:10`–`resid:18`) is still larger than T (0.61); `resid:18` itself
+is tautological (the margin is a linear readout of it) and is no longer a comparison point.
+The layer-9 head-1/head-4 mediation null in section 3 (0.130) was a path (MLP-4 → those heads)
+test, not a test of the heads themselves; 09:01 and 09:04 both belong to T.

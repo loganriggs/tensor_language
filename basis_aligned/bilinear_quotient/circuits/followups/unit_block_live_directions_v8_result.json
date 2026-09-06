@@ -1,0 +1,527 @@
+{
+  "aspectual": {
+    "directions": {
+      "das": {
+        "a2": {
+          "complement": 0.016750118937287933,
+          "complement_fraction": 0.02646757883259963,
+          "exact_set": 0.6328542192403757,
+          "linearity_sum": 0.9928755731720169,
+          "random": 0.0009130625876372918,
+          "random_fraction": 0.0014427692190047408,
+          "subspace": 0.6115953767253293,
+          "subspace_fraction": 0.9664079943394173
+        },
+        "c_effect": 0.0017006975379308864,
+        "cosine_to_dim": {
+          "08:heads": 0.7480348944664001,
+          "09:heads": 0.7494674324989319
+        },
+        "held": {
+          "complement": -0.011359437803208517,
+          "complement_fraction": -0.01851436445335621,
+          "exact_set": 0.6135472720020548,
+          "linearity_sum": 1.0020168656679491,
+          "random": 0.0011717077153594218,
+          "random_fraction": 0.00190972687652256,
+          "subspace": 0.6261441522338281,
+          "subspace_fraction": 1.0205312301213054
+        },
+        "loss_history": [
+          [
+            0,
+            6.330670356750488,
+            null
+          ],
+          [
+            50,
+            0.0038635197561234236,
+            null
+          ],
+          [
+            100,
+            0.0012085129274055362,
+            null
+          ],
+          [
+            119,
+            0.0008049284224398434,
+            null
+          ]
+        ],
+        "p_effect": 0.0750839356203439
+      },
+      "dim": {
+        "a2": {
+          "complement": 0.058378950832721474,
+          "complement_fraction": 0.09224707532612265,
+          "exact_set": 0.6328542192403757,
+          "linearity_sum": 0.9780998308677832,
+          "random": 0.0009130625876372918,
+          "random_fraction": 0.0014427692190047408,
+          "subspace": 0.5606156539702529,
+          "subspace_fraction": 0.8858527555416605
+        },
+        "c_effect": 0.0012790657402307179,
+        "held": {
+          "complement": 0.0014843127404419228,
+          "complement_fraction": 0.0024192312608586606,
+          "exact_set": 0.6135472720020548,
+          "linearity_sum": 0.9816427226112762,
+          "random": 0.0011717077153594218,
+          "random_fraction": 0.00190972687652256,
+          "subspace": 0.6007999017983764,
+          "subspace_fraction": 0.9792234913504175
+        },
+        "p_effect": 0.06310564921186038
+      }
+    },
+    "exact_p_c": {
+      "C": 0.012994969049582854,
+      "P": 0.0959433228439108
+    },
+    "semantics_heldout": {
+      "block_error": 2.670990433273346e-07,
+      "block_full_rank": 0.6135475391010982,
+      "cached_bias_fraction": -0.0004819193408215519,
+      "cached_full_rank": 0.6132515917051687,
+      "exact": 0.6135472720020548
+    },
+    "units": [
+      "attn:08:head:01",
+      "attn:09:head:04",
+      "attn:09:head:01"
+    ]
+  },
+  "candidate_id": "corpus.unit_block_live_directions_v8",
+  "finished_utc": "2026-09-06T14:46:32.520714+00:00",
+  "possessive_S": {
+    "fit": "adjacent even rows",
+    "per_design": {
+      "adjacent_antecedent": {
+        "dim": {
+          "complement": -0.00045712717577987545,
+          "complement_fraction": -0.0008230155603648127,
+          "exact_set": 0.555429566334381,
+          "linearity_sum": 0.9902447968968466,
+          "random": -0.0006345947391368263,
+          "random_fraction": -0.001142529634000049,
+          "subspace": 0.5504683652810726,
+          "subspace_fraction": 0.9910678124572114
+        },
+        "semantics": {
+          "block_error": 1.6675196201632048e-07,
+          "block_full_rank": 0.555429733086343,
+          "cached_bias_fraction": 0.2103760925235408,
+          "cached_full_rank": 0.6722786681718529,
+          "exact": 0.555429566334381
+        }
+      },
+      "inanimate_argument": {
+        "dim": {
+          "complement": 0.02746051549317525,
+          "complement_fraction": 0.08096993530234134,
+          "exact_set": 0.33914458978678713,
+          "linearity_sum": 1.0115724249917366,
+          "random": -0.00034240967939382305,
+          "random_fraction": -0.0010096274264881791,
+          "subspace": 0.3156087996202727,
+          "subspace_fraction": 0.9306024896893952
+        },
+        "semantics": {
+          "block_error": 6.324311513372649e-08,
+          "block_full_rank": 0.33914465302990227,
+          "cached_bias_fraction": 0.04319090415997322,
+          "cached_full_rank": 0.3537925512606417,
+          "exact": 0.33914458978678713
+        }
+      },
+      "long_simple_intervener": {
+        "dim": {
+          "complement": 0.018906596652039927,
+          "complement_fraction": 0.052125228068641345,
+          "exact_set": 0.36271489550400987,
+          "linearity_sum": 0.9703231924243025,
+          "random": -0.000704410953645259,
+          "random_fraction": -0.0019420513532162665,
+          "subspace": 0.3330440786932582,
+          "subspace_fraction": 0.9181979643556611
+        },
+        "semantics": {
+          "block_error": 1.690248126462457e-07,
+          "block_full_rank": 0.3627147264791972,
+          "cached_bias_fraction": 0.11316840278257104,
+          "cached_full_rank": 0.4037627608936458,
+          "exact": 0.36271489550400987
+        }
+      },
+      "medial_antecedent": {
+        "dim": {
+          "complement": -0.00386270432625745,
+          "complement_fraction": -0.009788008415244886,
+          "exact_set": 0.39463639204082246,
+          "linearity_sum": 0.9762408331182365,
+          "random": -0.001031015740974372,
+          "random_fraction": -0.0026125713739743508,
+          "subspace": 0.38912286447096495,
+          "subspace_fraction": 0.9860288415334814
+        },
+        "semantics": {
+          "block_error": 1.3840576545964822e-07,
+          "block_full_rank": 0.3946365304465879,
+          "cached_bias_fraction": 0.12017926440975552,
+          "cached_full_rank": 0.4420635033456084,
+          "exact": 0.39463639204082246
+        }
+      },
+      "verb_final_distance_six": {
+        "dim": {
+          "complement": 0.036855612505451336,
+          "complement_fraction": 0.11073874255966235,
+          "exact_set": 0.3328158840669042,
+          "linearity_sum": 1.0177949843523022,
+          "random": 4.532639001961563e-06,
+          "random_fraction": 1.3619058521408762e-05,
+          "subspace": 0.301882725010621,
+          "subspace_fraction": 0.9070562417926398
+        },
+        "semantics": {
+          "block_error": 1.0374054792983145e-07,
+          "block_full_rank": 0.33281598780745214,
+          "cached_bias_fraction": 0.04899177350268612,
+          "cached_full_rank": 0.3491211244772062,
+          "exact": 0.3328158840669042
+        }
+      }
+    },
+    "units": [
+      "attn:04:head:05",
+      "attn:03:head:04",
+      "attn:09:head:06",
+      "attn:10:head:05"
+    ]
+  },
+  "possessive_U": {
+    "adjacent_a2": {
+      "das_rank2": {
+        "complement": 0.007743885509106948,
+        "complement_fraction": 0.015799986947264755,
+        "exact_set": 0.4901197409183649,
+        "linearity_sum": 0.9971978949047577,
+        "random": 0.007686678560601998,
+        "random_fraction": 0.015683266595626275,
+        "subspace": 0.4810024883859518,
+        "subspace_fraction": 0.9813979079574929
+      },
+      "dim": {
+        "complement": 0.023864522136526938,
+        "complement_fraction": 0.04869120776855599,
+        "exact_set": 0.4901197409183649,
+        "linearity_sum": 0.9938681694767681,
+        "random": 0.00954474995746307,
+        "random_fraction": 0.019474322620791677,
+        "subspace": 0.46324988759443625,
+        "subspace_fraction": 0.9451769617082122
+      }
+    },
+    "adjacent_p_c": {
+      "das_rank2": {
+        "C": 0.0012936010074676664,
+        "P": 0.037754902981901046
+      },
+      "dim": {
+        "C": 0.0011136746067504804,
+        "P": 0.021737779468228947
+      },
+      "exact": {
+        "C": 0.00979550097291134,
+        "P": 0.07374707225266135
+      }
+    },
+    "cosine_das1_to_dim": {
+      "04:heads": 0.888596773147583,
+      "05:heads": 0.8896355032920837,
+      "09:heads": 0.871056318283081,
+      "15:heads": 0.8815951943397522
+    },
+    "fit": "pooled even rows of five designs",
+    "fit_rows": 80,
+    "loss_history": {
+      "das_rank1": [
+        [
+          0,
+          9.816754341125488,
+          null
+        ],
+        [
+          50,
+          0.008045216090977192,
+          null
+        ],
+        [
+          100,
+          0.004233371000736952,
+          null
+        ],
+        [
+          119,
+          0.0036223591305315495,
+          null
+        ]
+      ],
+      "das_rank2": [
+        [
+          0,
+          9.561507225036621,
+          null
+        ],
+        [
+          50,
+          0.004258011933416128,
+          null
+        ],
+        [
+          100,
+          0.0021778896916657686,
+          null
+        ],
+        [
+          119,
+          0.0018679853528738022,
+          null
+        ]
+      ]
+    },
+    "per_design": {
+      "adjacent_antecedent": {
+        "das_rank1": {
+          "complement": -0.016087555464539716,
+          "complement_fraction": -0.033541437167951244,
+          "exact_set": 0.4796322645325208,
+          "linearity_sum": 0.9419272812418237,
+          "random": 0.0071269074196122625,
+          "random_fraction": 0.014859107584346075,
+          "subspace": 0.4678662703915162,
+          "subspace_fraction": 0.9754687184097749
+        },
+        "das_rank2": {
+          "complement": -0.008070513368487277,
+          "complement_fraction": -0.01682646053086795,
+          "exact_set": 0.4796322645325208,
+          "linearity_sum": 0.9580422594047932,
+          "random": 0.0057777347388538215,
+          "random_fraction": 0.01204617613555493,
+          "subspace": 0.46757849176466093,
+          "subspace_fraction": 0.9748687199356612
+        },
+        "dim": {
+          "complement": 0.0071261195820485354,
+          "complement_fraction": 0.014857464997677108,
+          "exact_set": 0.4796322645325208,
+          "linearity_sum": 0.9813859814633537,
+          "random": 0.0071269074196122625,
+          "random_fraction": 0.014859107584346075,
+          "subspace": 0.46357826108769024,
+          "subspace_fraction": 0.9665285164656765
+        },
+        "semantics": {
+          "block_error": 1.201813559226217e-07,
+          "block_full_rank": 0.47963214435116486,
+          "cached_bias_fraction": 0.22641457457896122,
+          "cached_full_rank": 0.5882279996609953,
+          "exact": 0.4796322645325208
+        }
+      },
+      "inanimate_argument": {
+        "das_rank1": {
+          "complement": 0.01744661520326627,
+          "complement_fraction": 0.036161824595166085,
+          "exact_set": 0.48245948313123665,
+          "linearity_sum": 1.0118131790903302,
+          "random": 0.0073359739050904565,
+          "random_fraction": 0.015205367832089964,
+          "subspace": 0.47071224820602786,
+          "subspace_fraction": 0.9756513544951642
+        },
+        "das_rank2": {
+          "complement": 0.022696563056704745,
+          "complement_fraction": 0.04704345929610615,
+          "exact_set": 0.48245948313123665,
+          "linearity_sum": 1.0107449238731145,
+          "random": 0.0077695662701928285,
+          "random_fraction": 0.016104080325599866,
+          "subspace": 0.46494691049263925,
+          "subspace_fraction": 0.9637014645770084
+        },
+        "dim": {
+          "complement": 0.04219520429037917,
+          "complement_fraction": 0.08745854473939609,
+          "exact_set": 0.48245948313123665,
+          "linearity_sum": 1.0047052473962492,
+          "random": 0.0073359739050904565,
+          "random_fraction": 0.015205367832089964,
+          "subspace": 0.44253437006765645,
+          "subspace_fraction": 0.917246702656853
+        },
+        "semantics": {
+          "block_error": 5.953949738790598e-08,
+          "block_full_rank": 0.48245942359173927,
+          "cached_bias_fraction": 0.024745829818293052,
+          "cached_full_rank": 0.49439834339502386,
+          "exact": 0.48245948313123665
+        }
+      },
+      "long_simple_intervener": {
+        "das_rank1": {
+          "complement": 0.010132798360699389,
+          "complement_fraction": 0.021297350217744482,
+          "exact_set": 0.47577742099845666,
+          "linearity_sum": 1.0143658238059776,
+          "random": 0.006454206938517721,
+          "random_fraction": 0.013565601589442929,
+          "subspace": 0.4724795572386835,
+          "subspace_fraction": 0.9930684735882331
+        },
+        "das_rank2": {
+          "complement": 0.012669127597174217,
+          "complement_fraction": 0.026628265735240332,
+          "exact_set": 0.47577742099845666,
+          "linearity_sum": 1.0101255748581355,
+          "random": 0.007358400659930794,
+          "random_fraction": 0.015466056889561104,
+          "subspace": 0.46792581329341293,
+          "subspace_fraction": 0.9834973091228951
+        },
+        "dim": {
+          "complement": 0.024814586460266706,
+          "complement_fraction": 0.052155872399727014,
+          "exact_set": 0.47577742099845666,
+          "linearity_sum": 1.038860913646712,
+          "random": 0.006454206938517721,
+          "random_fraction": 0.013565601589442929,
+          "subspace": 0.46945197981066633,
+          "subspace_fraction": 0.986705041246985
+        },
+        "semantics": {
+          "block_error": 4.4527491305235145e-08,
+          "block_full_rank": 0.47577746552594796,
+          "cached_bias_fraction": 0.09631874925192142,
+          "cached_full_rank": 0.5216037071113329,
+          "exact": 0.47577742099845666
+        }
+      },
+      "medial_antecedent": {
+        "das_rank1": {
+          "complement": -0.007558933750301262,
+          "complement_fraction": -0.01737957544069691,
+          "exact_set": 0.43493201408136084,
+          "linearity_sum": 0.9899317487708894,
+          "random": 0.006781951556493983,
+          "random_fraction": 0.015593130275356812,
+          "subspace": 0.43811194304630785,
+          "subspace_fraction": 1.0073113242115863
+        },
+        "das_rank2": {
+          "complement": -0.0031296913793611124,
+          "complement_fraction": -0.007195817456600595,
+          "exact_set": 0.43493201408136084,
+          "linearity_sum": 0.9924281618025946,
+          "random": 0.007289500627015175,
+          "random_fraction": 0.01676009213166718,
+          "subspace": 0.43476847062322627,
+          "subspace_fraction": 0.9996239792591952
+        },
+        "dim": {
+          "complement": -0.0010087023988997244,
+          "complement_fraction": -0.002319218558859709,
+          "exact_set": 0.43493201408136084,
+          "linearity_sum": 1.032584126468582,
+          "random": 0.006781951556493983,
+          "random_fraction": 0.015593130275356812,
+          "subspace": 0.45011259623232264,
+          "subspace_fraction": 1.0349033450274416
+        },
+        "semantics": {
+          "block_error": 6.224412946176372e-08,
+          "block_full_rank": 0.4349320763254903,
+          "cached_bias_fraction": 0.10796030534630745,
+          "cached_full_rank": 0.48188740712646905,
+          "exact": 0.43493201408136084
+        }
+      },
+      "verb_final_distance_six": {
+        "das_rank1": {
+          "complement": 0.019873801717978153,
+          "complement_fraction": 0.04100267103815239,
+          "exact_set": 0.48469529459400024,
+          "linearity_sum": 1.0152309551272582,
+          "random": 0.006636362506214303,
+          "random_fraction": 0.013691823667843073,
+          "subspace": 0.4722038651583765,
+          "subspace_fraction": 0.9742282840891058
+        },
+        "das_rank2": {
+          "complement": 0.02365551459689329,
+          "complement_fraction": 0.048804919009391406,
+          "exact_set": 0.48469529459400024,
+          "linearity_sum": 1.0105218968729819,
+          "random": 0.007547876641768438,
+          "random_fraction": 0.015572415754707986,
+          "subspace": 0.46613969390164456,
+          "subspace_fraction": 0.9617169778635904
+        },
+        "dim": {
+          "complement": 0.048463437747594845,
+          "complement_fraction": 0.09998743187344065,
+          "exact_set": 0.48469529459400024,
+          "linearity_sum": 1.0113530313187415,
+          "random": 0.006636362506214303,
+          "random_fraction": 0.013691823667843073,
+          "subspace": 0.4417346177059778,
+          "subspace_fraction": 0.9113655994453009
+        },
+        "semantics": {
+          "block_error": 9.535769579516185e-08,
+          "block_full_rank": 0.48469538995169603,
+          "cached_bias_fraction": 0.03136376579854708,
+          "cached_full_rank": 0.49989716429730424,
+          "exact": 0.48469529459400024
+        }
+      }
+    },
+    "units": [
+      "attn:09:head:06",
+      "attn:05:head:03",
+      "attn:04:head:05",
+      "attn:15:head:01"
+    ]
+  },
+  "predictions": {
+    "pred_a_aspectual_bias_small": true,
+    "pred_b_aspectual_block_dim_selective": true,
+    "pred_c_S_direction_travels": true,
+    "pred_d_U_rank1_dim_serves_all": true,
+    "pred_e_U_rank2_das_serves_all": true,
+    "pred_f_U_cached_bias_explains_v6": false
+  },
+  "registered": {
+    "band": [
+      0.5,
+      1.2
+    ],
+    "bias_bar": 0.1,
+    "c_bar": 0.35,
+    "complement_bar": 0.3,
+    "das_objective": "match_exact_set_patch",
+    "linear_band": [
+      0.85,
+      1.15
+    ],
+    "lr": 0.05,
+    "p_bar": 0.2,
+    "semantics": "block-live",
+    "steps": 120
+  },
+  "schema": "circuit_unit_block_live_directions_result_v8",
+  "serial_seconds": 20.709974579513073
+}
