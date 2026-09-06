@@ -1,0 +1,35 @@
+{
+  "schema": "aspectual_tense_carrier_program_leave_one_out_prior_v1",
+  "candidate_id": "aspectual_tense.carrier_program_leave_one_out_v1",
+  "registered_utc": "2026-09-06T17:38:00Z",
+  "question": "Which components in the marginally converged source-position programs remain causally necessary in the complete program, and which greedy additions became redundant through distributed interactions?",
+  "authority": {
+    "convergence_result_sha256": "7f7872f550b98829f3b0255f3bdc3b16ff49b1dc9d53969d18f922d70645a455",
+    "greedy_runner_sha256": "22da9d253d531ffb2167302ae269c3b71bdd4fd4e74bc38263dea78c2f80c413",
+    "positioned_library_sha256": "4fc2ac355ca7c97a5a1270f88cb3302b1a39a85e62c0b0a8a1193fbc6f61bd0d",
+    "source_rank_runner_sha256": "c7570a2e25b444df84e40953e38d6bbc4b7b15c6d6f6657fda0696fb4eea3d34",
+    "source_group_library_sha256": "6ecf5f40b92f94cb32bccf1a703e527a3d468281936e63d4c7e91e8af66b4348",
+    "das_library_sha256": "49d67620b09c80edd1c999476ea9cfddb375f41016443f58cb6cc96111809d3f",
+    "producer_sha256": "14624b9959fe4bf0b43841a9e349bab50cd564a417595d1c1a048252c6c3b498"
+  },
+  "frozen_design": {
+    "programs": {
+      "has_had": ["MLP4", "L8H1", "MLP3", "MLP6", "MLP8", "MLP2", "MLP7", "L4H3"],
+      "is_was": ["MLP1", "MLP4", "MLP3", "MLP8", "MLP6", "MLP7", "L4H1", "L3H4", "L5H1", "MLP2", "L6H3"]
+    },
+    "panels": ["heldout_A1", "A2"],
+    "interventions": "For every task and panel, evaluate the complete source-position program and each exact leave-one-component-out program against the same native base and donor endpoints.",
+    "necessity_score": "complete-program mean recovery minus leave-one-out mean recovery",
+    "core_rule": "A label is core when its necessity score is positive on both panels and its row-count-pooled score is at least 0.01.",
+    "price": {"model_forwards": 50, "example_evaluations": 800, "records": 666,
+      "fitted_scalars": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capability_finiteness_and_exact_price": "Authorities, bank widths, capability, finiteness, record coverage, and exact price all pass.",
+    "pred_b_complete_programs_reproduce": "Every complete-program mean recovery reproduces the convergence receipt within 1e-6.",
+    "pred_c_majority_of_each_program_is_core": "At least half of each program's labels satisfy the frozen core rule.",
+    "pred_d_task_exclusive_components_are_functional": "Each task has at least one task-exclusive core component.",
+    "pred_e_shared_mlp_backbone_is_jointly_necessary": "At least four of the six shared MLP labels are core in both tasks."
+  },
+  "decision": "screen seals the core paths for compression; null records redundancy or task/panel instability without changing the core threshold; invalid on authority, capability, finiteness, coverage, reproduction, or price failure"
+}
