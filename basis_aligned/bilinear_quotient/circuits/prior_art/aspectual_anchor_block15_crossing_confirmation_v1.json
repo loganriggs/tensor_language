@@ -1,0 +1,57 @@
+{
+  "schema": "aspectual_anchor_block15_crossing_confirmation_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.block15_crossing_confirmation_v1",
+  "created_utc": "2026-09-06T04:11:32Z",
+  "question": "Does block15, the second-largest selection-half suffix increment, have an active carried/attention/MLP crossing on the disjoint confirmation half?",
+  "authority": {
+    "selection_result": {
+      "path": "circuits/followups/aspectual_anchor_suffix_depth_adaptive_factorial_lexical_holdout_v1_result.json",
+      "sha256": "f534448e1b6e27195928d0e748147f43703225666fa102ece9d9a59d2f70c7ab",
+      "terminal": "screen",
+      "selection_increment": 0.02125431588988444,
+      "rank_after_confirmed_block11": 2
+    },
+    "selection_runner": {
+      "path": "ops/run_aspectual_anchor_suffix_depth_adaptive_factorial_lexical_holdout_v1.py",
+      "sha256": "38c6ed4d8e2f7c66d7c3a48bbcafb1d0848927a6c502caa4f322b2e1b0867c4d"
+    },
+    "holdout_builder": {
+      "path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py",
+      "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859",
+      "rows_sha256": "18dfe9b5e86387017f3b8a81d378cc4892b4ee5a219ea7e35bf02548cd54e493"
+    }
+  },
+  "data_status": "Block15 direct-query recovery is open on the 16 selection rows. No block15 carried/attention/MLP factorial outcome has been computed on the 16 disjoint confirmation rows; their earlier block11 interventions do not reveal block15 components.",
+  "population": {
+    "confirmation": "Last 16 A1/A2 rows in immutable builder order, balanced 8 A1/8 A2 and 4 per family-direction cell.",
+    "confirmation_row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b"
+  },
+  "frozen_design": {
+    "boundary": 15,
+    "factors": ["carried", "attention", "mlp"],
+    "factorial_arms": 8,
+    "direct_resid16_ceiling": true,
+    "writer": "two-term MLP4 last+period+determiner write",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_split_capability_and_instrument": "All hashes/terminals, confirmation split/balance, current native capability, native/manual, writer tensor, block15 tensor, and full-factor/direct-ceiling closures pass.",
+    "pred_b_writer_recurrence": "Confirmation writer mean exactly recurs within 1e-6 of the bound confirmation writer mean, with positive A1/A2 means and at least 0.75 direction fraction.",
+    "pred_c_active_block15_confirmation": "Full block15 recovery exceeds carried-only recovery and attention+MLP exact Shapley sum is at least 0.005.",
+    "pred_d_new_factor_necessity": "At least one of attention15 or MLP15 has positive full-arm removal damage in both A1 and A2.",
+    "pred_e_exact_coverage": "Eight factorial arms, direct ceiling, and writer produce exactly 160 finite records within 26 forwards and 240 example evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: promote block15 as the second disjointly confirmed active suffix crossing.",
+    "null": "The run is valid and writer recurs, but active block15 or new-factor necessity fails.",
+    "invalid": "Authority, split, capability, alignment, instrument, writer recurrence, finiteness, coverage, or price fails."
+  },
+  "price": {
+    "model_forwards_max": 26,
+    "example_evaluations_max": 240,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First disjoint confirmation of the selection-ranked secondary suffix amplifier, with no reuse of its selection rows."
+}

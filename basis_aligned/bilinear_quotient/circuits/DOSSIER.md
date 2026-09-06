@@ -316,6 +316,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.block9_crossing_factorial_lexical_holdout_v1` | complete | sealed prospective block9 factorial | **attention9-dominant resid10 crossing** | `aspectual_anchor_block9_crossing_factorial_lexical_holdout_v1_result.json` |
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v2` | released | executable API/equation/evidence audit | **zero-fit tensor-equation program to resid10** | `aspectual_anchor_transparent_path_program_release_v2_result.json` |
 | `aspectual_anchor.has_vs_had.suffix_depth_adaptive_factorial_lexical_holdout_v1` | complete | frozen 16/16 suffix selection/confirmation | **block11 crossing confirmed without leakage** | `aspectual_anchor_suffix_depth_adaptive_factorial_lexical_holdout_v1_result.json` |
+| `aspectual_anchor.has_vs_had.block15_crossing_confirmation_v1` | complete | disjoint secondary suffix factorial | **block15 crossing confirmed** | `aspectual_anchor_block15_crossing_confirmation_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -456,6 +457,11 @@ block15 jump of 2.125 points. On disjoint confirmation rows, block11's carried/a
 3.444%; removing attention or MLP damages both A1 and A2, and the full arm (26.850%) exceeds carried alone (18.858%). Residual closure
 is 2.9e-6 and all five preregistered checks pass. Block11 is therefore a prospectively confirmed suffix amplifier; block15 remains a
 selection-only secondary candidate until its still-unopened confirmation factorial is run.
+
+That block15 confirmation now screens on the untouched half. Its exact carried/attention/MLP Shapley values are 26.030%, 2.502%,
+and 0.654%; the full crossing reaches 29.186% versus 26.084% for carried alone. Removing attention damages A1/A2 by 2.624/2.330
+points and removing MLP damages them by 0.462/0.773, so both new components recur across families. Closure is 2.9e-6. The suffix's
+two material selection-half gains—block11 and block15—are therefore both component-resolved on disjoint confirmation rows.
 
 ### `subroutine.induction.equality_score` — site_live
 
