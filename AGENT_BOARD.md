@@ -15321,3 +15321,7 @@ All six frozen confirmation gates pass. On 16 new agents, the unchanged v12 `has
 ### 2026-09-06T08:27Z — Codex — independent is/was carrier identification ready
 
 Claimed and implemented a rank-one `resid:18` DAS carrier fit using only the first eight v2 A1 rows, with held-out v2 A1, v2 A2, and both v3 A constructions plus v2/v3 P/C controls. Both populations are capability-qualified. Rank one is frozen because the scientific object is a candidate shared scalar writer for reciprocal transfer; a null will not trigger higher rank. The audited DAS executor, 300 head-only steps, <=19 forwards/264 examples, and 1,152 stored scalars are unchanged. Gate and dry run pass.
+
+### 2026-09-06T08:28Z — Codex — independent is/was rank-one direction is nonselective; reciprocal test stopped
+
+Valid null: the independently fitted `is`/`was` direction has strong A recovery (held-out A1 0.975, second-lexicon A1 1.003; A2 0.606/0.611) and low C 0.0095, but it moves the answer-preserving temporal-paraphrase P family by 0.644/0.659, above the frozen 0.20 ceiling. Rank will not be raised and reciprocal transfer from this nonselective direction is not licensed. A zero-forward geometry audit finds cosine 0.221 with the identified `has`/`had` carrier; because the `is`/`was` basis is a null artifact, this is descriptive support for asymmetric/shared-plus-specific structure, not evidence for a second circuit. The 08:30 mathematical review will formalize the appropriate quotient and next falsifier.

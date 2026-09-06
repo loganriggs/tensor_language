@@ -1,0 +1,22 @@
+{
+  "schema": "tense_auxiliary_is_was_vs_aspectual_carrier_geometry_audit_result_v1",
+  "created_utc": "2026-09-06T08:28:00Z",
+  "execution": "zero_forward_cpu_receipt_only",
+  "has_had_source": {
+    "path": "circuits/followups/aspectual_anchor_das_resid18_rank1_transfer_v1_result.json",
+    "result_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39",
+    "terminal": "screen"
+  },
+  "is_was_source": {
+    "path": "circuits/followups/tense_auxiliary_is_was_das_resid18_rank1_transfer_v1_result.json",
+    "result_sha256": "faefc825d3d481fd1a73fdbbde36c1daaa8b856dfc5590c6ee4f45540c3a9330",
+    "basis_sha256": "0136d56f727f6ab58fe5609a6d45754233819a988439ce13066028537cbfdf70",
+    "terminal": "null",
+    "null_reason": "answer-preserving P disturbance 0.644-0.659 exceeds 0.20"
+  },
+  "signed_cosine": 0.22107861313941482,
+  "absolute_cosine": 0.22107861313941482,
+  "interpretation": "The directly fitted is/was direction has limited geometric overlap with the identified has/had carrier, consistent with asymmetric transfer, but its null terminal means it is not a licensed circuit unit and the cosine cannot establish distinct semantic circuits.",
+  "next_action": "Do not run reciprocal transfer from the null direction; derive the asymmetric shared-writer versus readout-specific-component model in the three-hour mathematical review."
+}
