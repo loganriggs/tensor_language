@@ -1,0 +1,29 @@
+{
+  "schema": "temporal_auxiliary_h3_rank8_v11_causal_suffix_transfer_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_rank8_v11_causal_suffix_transfer_v1",
+  "registered_utc": "2026-09-06T20:36:31Z",
+  "question": "Does the frozen weight-derived Q8 interface and v10-selected causal-suffix attention operation transfer without optimization to the sealed v11 construction?",
+  "authority": {
+    "v10_source_factor_atlas_result_sha256": "7abe69894990d4c1a093afd312f40f65fa53fecee89e2bdd39344722ed4f25d8",
+    "v11_capability_result_sha256": "0330dc5a4f85bc68c4da6f98af2f4208335e65c644ddedd5d8cc487368091026",
+    "subspace_result_sha256": "d84c72d9d3c87a159fb453efc9ce9000fb8bfb7f3d2c34c96a3f7238914879c9",
+    "builder_sha256": "f75b17669a5fc5299d21f5b44e91530c03c71d75181683c7b6728cb95c862450",
+    "source_atlas_runner_sha256": "211f847b8e0799a5ee9b889f64183bdc7e67df0862463748c3443f3417efcfda"
+  },
+  "frozen_design": {
+    "population": "All jointly capable sealed-v11 A1/A2 rows selected only by the completed capability manifest.",
+    "writer": "Install the cue-source block8 H1 change at the two subject-onset destinations, unchanged from v10.",
+    "interface": "Use the pre-existing tensor-derived H3 Q8 basis and its zero-fit c_proj plus residual-skip weight route; no v11 fitting, gradients, DAS, or basis rotation.",
+    "source_rule": "The causal suffix is subject_onset plus post_subject plus self. The complete source partition remains prefix, cue, pre_subject, subject_onset, post_subject, self.",
+    "factor_rule": "Split exact H3 response into pattern-on-base-value, base-pattern-on-value-change, and interaction. Value must remain dominant, pattern must oppose on average, and interaction must remain small.",
+    "price": {"model_forwards_max": 20, "example_evaluations_max": 640, "records": 441, "fit_updates": 0, "transformer_backwards": 0}
+  },
+  "predictions": {
+    "pred_a_exact_authority_closure_coverage_and_price": "All reconstruction, factor closure, identity, finite coverage, and price controls pass.",
+    "pred_b_frozen_q8_retains_full_h3_response": "Q8 retains at least 80% of full-H3 causal behavior in each panel, with at least 90% directional agreement; raw activation norm is diagnostic because Q8 is weight-selected rather than response-PCA-selected.",
+    "pred_c_frozen_causal_suffix_closes_q8": "Causal suffix retains at least 90% of complete-Q8 response norm and behavior in both panels.",
+    "pred_d_frozen_factor_signature_recurs": "Value is the largest absolute factor and at least 80% of complete-Q8 behavior; pattern has non-positive signed behavior; interaction is at most 15% absolute behavior in both panels.",
+    "pred_e_pre_subject_value_is_causally_zero": "Prefix, cue, and pre-subject value-change coordinate norms are at most 1e-6."
+  },
+  "decision": "Screen only if every frozen transfer gate passes. A null rejects reuse of the whole selected operation; it does not license refitting on v11."
+}
