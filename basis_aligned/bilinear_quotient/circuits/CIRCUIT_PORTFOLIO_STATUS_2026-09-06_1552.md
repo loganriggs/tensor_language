@@ -289,3 +289,13 @@ absolute contribution (coordinate 0 in both), so the robust variable is genuinel
 over the compact eight-dimensional interface. This realizes the desired tensor use: actual
 weights identify the downstream reader and, together with measured upstream coefficients,
 predict intervention behavior row by row without a fitted task objective.
+
+The first upstream Q8 compilation falsifies a serial reading of the earlier L9 necessity result.
+L9H1/H4/H7 accounts for essentially all of the H3 response attributable to L9 heads, but removing
+that triple removes only 14.46%/15.96% of the complete live H3-Q8 norm on v10. Within this minor
+branch, the tensor account is strong: fixed-pattern H3 value weights predict the removed Q8 vector
+at cosine 0.9989/0.9937 and relative RMSE 4.74%/11.98%; contracting it with the final reader
+predicts the branch's causal margin effect at cosine 0.99987/0.99669. Thus the correct graph is
+primarily parallel: L8H1 writes the subject state, L9H1/H4/H7 and L11H3 read it in separate routes,
+with only a small L9-mediated contribution into H3. The next weight compilation targets the direct
+L8-written subject-state -> H3-Q8 value path, which should account for the missing majority.
