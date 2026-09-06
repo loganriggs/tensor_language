@@ -313,6 +313,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v1` | released | zero-forward hash/graph/metric/scope audit | **typed paired-causal tensor program** | `aspectual_anchor_transparent_path_program_release_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention9_h1h4_lexical_holdout_v1` | complete | sealed prospective downstream-bank transfer | **H1/H4 bank transfers prospectively** | `aspectual_anchor_attention9_h1h4_lexical_holdout_v1_result.json` |
 | `aspectual_anchor.has_vs_had.blocks6_8_crossing_factorials_lexical_holdout_v1` | complete | shared-capture exact three-boundary factorials | **prospective intermediate route closed** | `aspectual_anchor_blocks6_8_crossing_factorials_lexical_holdout_v1_result.json` |
+| `aspectual_anchor.has_vs_had.block9_crossing_factorial_lexical_holdout_v1` | complete | sealed prospective block9 factorial | **attention9-dominant resid10 crossing** | `aspectual_anchor_block9_crossing_factorial_lexical_holdout_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -433,6 +434,12 @@ and 8.762% at resid9. Carried state is dominant at every boundary (Shapley 3.616
 1.074%, 1.332%, and 1.763% and MLP6/7/8 adds 1.058%, 0.537%, and 0.522%. Removing each attention term damages both A1 and A2;
 all residual tensor errors are below 0.0004 and all scored-logit closures below 6.7e-6. The run passes all frozen predictions in
 62 forwards and 992 evaluations, prospectively turning the earlier depth curve into a component-resolved compositional route.
+
+The final measured crossing into resid10 also transfers prospectively. Its full carried9+attention9+MLP9 arm recovers 21.410% of the
+native donor effect and retains 75.50% of the two-term writer, with perfect direction in both families. Exact Shapley attribution again
+makes attention9 dominant at 11.205%, versus carried9 8.594% and MLP9 1.612%; removing attention9 damages A1 by 9.081 points and A2
+by 13.530. The full factorial closes to direct resid10 replacement within 4.8e-6 scored logit. Thus the entire MLP4 source-bank route
+through attention5, blocks6–8, and the block9 crossing is now prospectively component-resolved within the two capable constructions.
 
 ### `subroutine.induction.equality_score` — site_live
 
