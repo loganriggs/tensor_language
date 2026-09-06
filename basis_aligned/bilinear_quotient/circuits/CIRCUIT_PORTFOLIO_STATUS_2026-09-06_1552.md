@@ -309,3 +309,16 @@ construction-dependent rather than a stable source rule. This does not weaken th
 rank8 downstream interface; it changes the upstream computation that generates its coefficients.
 The licensed next object is a complete v10 source-region by pattern/value/interaction atlas in Q8
 and causal-behavior space, followed by weight compilation of whichever source-factor union closes.
+
+That complete upstream atlas passes and replaces the construction-specific subject-only rule with
+a stable candidate operation. The causal suffix—subject onset, post-subject interval, and H3's self
+position, including all three attention factors—reproduces 100.17%/100.17% of complete Q8 norm and
+100.30%/101.06% of complete behavior on sealed v10. Across all sources, base-pattern value transport
+is dominant but overshoots (109.69%/133.13% behavior); attention-pattern change supplies an opposing
+-12.29%/-38.41%, and interaction is small at 2.72%/5.48%. Subject onset is material but incomplete,
+while pre-subject value terms are exactly zero by causal order. All 18 partition cells close to
+8.5e-6 or better, the compiled direct weight route replays to 4.2e-9, and no fitting or backwards
+passes occur. The next falsification is a sealed v11 construction: capability first, then the frozen
+causal-suffix/value-plus-opposing-pattern operation. This is also the relevant test of DAS
+memorization—reuse of the operation and weight-defined Q8 interface, not training loss on another
+answer/foil complement.
