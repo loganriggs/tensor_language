@@ -306,6 +306,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.mlp4_induced_final_query_onset_v2` | null | fixed resid5–9 final-query depth sweep | **observed onset resid6, not predicted resid9** | `aspectual_anchor_mlp4_induced_final_query_onset_v2_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_induced_block5_crossing_factorial_v1` | complete | exact carried5/attention5/MLP5 factorial | **attention5 initiates final-query transport** | `aspectual_anchor_mlp4_induced_block5_crossing_factorial_v1_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_induced_attention5_head_sweep_v1` | null | fixed singleton plus leave-one-out attention5 sweep | **transport is distributed across heads** | `aspectual_anchor_mlp4_induced_attention5_head_sweep_v1_result.json` |
+| `aspectual_anchor.has_vs_had.mlp4_induced_attention5_four_head_factorial_v1` | complete | exact 16-arm H7/H1/H6/H8 factorial | **four-head attention5 transporter** | `aspectual_anchor_mlp4_induced_attention5_four_head_factorial_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -385,6 +386,12 @@ No single attention5 head owns that onset. The all-head intervention exactly rec
 single-head localization gate is null. The stable sufficiency/necessity endpoint ranking is H7 1.339%, H1 1.270%, H6 1.077%, H8
 0.839%, and H0 0.630%; remaining heads are negligible. The top four sum to roughly 82% of the all-head effect but this arithmetic is
 not yet a causal compression claim. A frozen 16-arm H7/H1/H6/H8 factorial is the next efficient test.
+
+The exact factorial licenses that compression. H7/H1/H6/H8 recover 4.5575%, or 82.40% of all-head attention5 transport, with A1/A2
+direction fractions 0.9375/1.0. All four exact Shapley values are positive (H7 1.338%, H1 1.267%, H6 1.078%, H8 0.875%); H7 is
+largest and its removal lowers both families. Because the upstream MLP4 intervention changes only `last`+period+`the` at resid5,
+attention5's first read now admits a stringent source-term identity test: those three changed terms should reconstruct the licensed
+four-head output difference without invoking any other source.
 
 ### `subroutine.induction.equality_score` — site_live
 
