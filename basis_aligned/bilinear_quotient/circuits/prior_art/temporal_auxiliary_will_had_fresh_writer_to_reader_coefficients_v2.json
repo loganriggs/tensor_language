@@ -1,0 +1,46 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_to_reader_coefficients_v2",
+  "created_utc": "2026-09-06T14:37:00Z",
+  "question": "Can two scalar reader-response coefficients be predicted from the exact source-resolved block8H1 writer vector, completing a non-replay low-rank response program?",
+  "authority": {
+    "response_rank_result_sha256": "918888d78de2c10a24c57e80154f07fd4d9dd7ed5faf181385e1d4b22e587bcf",
+    "response_program_result_sha256": "3fe8a3e7edf8dc24f7977d0ce4a37f564cac35211b2a2043e76336ea33e023cb",
+    "writer_mediation_evaluator_sha256": "05d07578129db0cb8bf5e46d08e6cd6e9c2bb9c3883675586c83c3efd24b8fda",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9"
+  },
+  "novelty": "The response-rank screen uses oracle row coefficients projected from captured downstream responses. No prior test predicts both coefficients from the upstream causal write and installs only the predicted rank-one responses.",
+  "frozen_design": {
+    "population": "fresh A1 even rows fit; fresh A1 odd rows held out; all fresh A2 rows transfer; P and C are same-answer controls",
+    "writer_vector": "sum over the two subject-onset destinations of the exact donor-minus-base block8H1 cue source terms; direct per-destination reconstruction is separately checked",
+    "reader_axes": "separate uncentered rank-one SVD axes for block9 H1/H4 and block11 H3 fitted on A1-even rows",
+    "coefficient_model": "for each reader, one affine least-squares map from the scalar projection onto the A1-even writer rank-one axis to the scalar projection onto that reader axis",
+    "answer-changing_arms": ["full_captured_response", "oracle_rank1_response", "predicted_rank1_response", "intercept_only_response", "zero_response"],
+    "control_arms": ["predicted_rank1_response", "intercept_only_response"],
+    "model_forwards": 47,
+    "example_evaluations": 1216,
+    "answer_changing_records": 240,
+    "fitted_scalars": 4,
+    "stored_axis_coordinates": 512,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_exact_writer_vector": "direct per-destination source-term reconstruction equals the established fixed-source writer at <=1e-4 scored-logit max error on every split",
+    "pred_b_coefficient_prediction": "both reader coefficient correlations have absolute r>=0.75 on heldout A1 and >=0.50 on A2",
+    "pred_c_predicted_program_material": "predicted program is donorward on >=0.75 of rows and retains >=0.60 of full response on heldout A1 and A2",
+    "pred_d_prediction_beats_intercept": "predicted program exceeds intercept-only recovery by >=0.15 of full response on both splits",
+    "pred_e_controls_selective": "predicted-program absolute normalized P and C effects <=0.20",
+    "pred_f_price_exact": "47 forwards, 1216 examples, 240 unique answer-changing arm-row records, four fitted scalars, 512 stored axis coordinates, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, exact writer reconstruction, coverage, finiteness, or price fails",
+    "screen": "all six predictions pass",
+    "wrong_predictor": "oracle rank-one response remains material but coefficient correlation or predicted execution fails",
+    "null": "predicted coefficients correlate but fail to execute material behavior"
+  },
+  "interpretation_limits": [
+    "This is a four-scalar affine compiler over fixed empirical axes, not yet a symbolic derivation of attention weights.",
+    "A1-to-A2 transfer is the decisive protection against memorizing the fit rows.",
+    "The two reader axes remain separate live-boundary objects."
+  ]
+}
