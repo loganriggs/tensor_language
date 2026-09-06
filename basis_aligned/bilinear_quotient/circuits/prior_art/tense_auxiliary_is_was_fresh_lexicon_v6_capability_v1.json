@@ -1,0 +1,41 @@
+{
+  "schema": "tense_auxiliary_is_was_fresh_lexicon_v6_capability_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.fresh_lexicon_v6_capability_v1",
+  "created_utc": "2026-09-06T09:26:28Z",
+  "evidence_class": "prospective_native_capability_gate",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*is_was*", "circuits/followups/*is_was*", "ops/*is_was*", "AGENT_BOARD.md"],
+    "nearest_invalid": "Prospective v5 failed present-to-past A1 and P native capability at 0.75; causal outcomes remained unopened.",
+    "new_question": "Does a fully disjoint common-occupation v6 population satisfy the unchanged native capability bars before any frozen-controller outcome is opened?"
+  },
+  "authorities": {
+    "v5_invalid_result_sha256": "6ec496c8ac93a369fe87e7dcb023e225df131f7acb8aa8d5804c1c84dccff0d1",
+    "v6_builder_sha256": "b8541360334bd2793a02fae525a94dda05ce600fd4de5b6c3d953063d4c6b0ae",
+    "v6_rows_sha256": "4eee90d9f39f6997c4926a0e7f6baecc4134c06535fe307d0a38f936b75defd5"
+  },
+  "prospective_boundary": {
+    "new_agents": 16,
+    "row_count": 64,
+    "row_id_and_agent_overlap_with_v1_v2_v3_v4_v5": 0,
+    "selection_variable": "native correctness only",
+    "intervention_outcomes_or_resid10_features_opened": false,
+    "all_rows_retained": true
+  },
+  "capability_policy": {
+    "A_P_cells": "For each family and direction, pooled base+donor native accuracy >=0.85.",
+    "C_cells": "For each direction, pooled base+donor native accuracy >=0.75.",
+    "all_eight_cells_must_pass": true
+  },
+  "predictions": {
+    "pred_a_authority_and_disjointness": "All builder, row, v5-boundary, count, and disjointness checks pass.",
+    "pred_b_population_capability": "All eight frozen native cells pass.",
+    "pred_c_no_causal_outcome_access": "No intervention, resid10 feature, or causal outcome is evaluated.",
+    "pred_d_exact_coverage_and_price": "128 native sides are scored in exactly two forwards/128 examples; zero interventions, grids, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-D pass: freeze this authority for the already-defined four-scalar controller.",
+    "invalid": "Authority, capability, no-outcome boundary, or coverage fails."
+  },
+  "circuit_targets": ["held-out prediction", "stable identification", "selective manipulation"],
+  "price": {"model_forwards_exact": 2, "example_evaluations_exact": 128, "interventions": 0, "grid_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
