@@ -1,0 +1,974 @@
+{
+  "bars": {
+    "band": [
+      0.5,
+      1.2
+    ],
+    "complement": 0.3,
+    "cos": 0.5,
+    "das": {
+      "complement_weight": 1.0,
+      "lr": 0.05,
+      "rank": 1,
+      "seed": 0,
+      "steps": 120
+    },
+    "exact": 0.5,
+    "need": 3
+  },
+  "candidate_id": "corpus.unit_two_pair_das_v19",
+  "finished_utc": "2026-09-06T19:51:52.437368+00:00",
+  "fits": [
+    {
+      "band": true,
+      "behaviour": "dative",
+      "complement": 0.21704769462894694,
+      "fraction": 0.7535663111273958,
+      "pairs": "orig+v1",
+      "tested": true
+    },
+    {
+      "band": false,
+      "behaviour": "dative",
+      "complement": 0.46432798112437473,
+      "fraction": 0.4882681289376144,
+      "pairs": "orig+v2",
+      "tested": true
+    },
+    {
+      "band": false,
+      "behaviour": "dative",
+      "complement": 0.4059992099034605,
+      "fraction": 0.5611095405213005,
+      "pairs": "v1+v2",
+      "tested": true
+    },
+    {
+      "band": true,
+      "behaviour": "verb_preposition",
+      "complement": -0.2576927110941091,
+      "fraction": 1.1218457608145245,
+      "pairs": "orig+v1",
+      "tested": false
+    },
+    {
+      "band": true,
+      "behaviour": "verb_preposition",
+      "complement": 0.0037680342270190936,
+      "fraction": 0.8189935757474158,
+      "pairs": "orig+v2",
+      "tested": false
+    },
+    {
+      "band": true,
+      "behaviour": "verb_preposition",
+      "complement": 0.13682257874269715,
+      "fraction": 0.7421064305203127,
+      "pairs": "v1+v2",
+      "tested": false
+    },
+    {
+      "band": true,
+      "behaviour": "quantifier_number",
+      "complement": 0.0003391869022458662,
+      "fraction": 1.0153212942138152,
+      "pairs": "orig+v1",
+      "tested": true
+    },
+    {
+      "band": true,
+      "behaviour": "quantifier_number",
+      "complement": -0.01981847211777892,
+      "fraction": 1.0060626394240662,
+      "pairs": "orig+v2",
+      "tested": true
+    },
+    {
+      "band": true,
+      "behaviour": "quantifier_number",
+      "complement": -0.037522345229151904,
+      "fraction": 1.0771983214098706,
+      "pairs": "v1+v2",
+      "tested": true
+    },
+    {
+      "band": true,
+      "behaviour": "polarity_licensing",
+      "complement": -0.06305205892630904,
+      "fraction": 0.8034265480287404,
+      "pairs": "orig+v1",
+      "tested": true
+    },
+    {
+      "band": true,
+      "behaviour": "polarity_licensing",
+      "complement": -0.1772847844257181,
+      "fraction": 1.0486951488189538,
+      "pairs": "orig+v2",
+      "tested": true
+    },
+    {
+      "band": true,
+      "behaviour": "polarity_licensing",
+      "complement": 0.1731673557687889,
+      "fraction": 0.5954949197958821,
+      "pairs": "v1+v2",
+      "tested": true
+    },
+    {
+      "band": false,
+      "behaviour": "verb_complementizer",
+      "complement": 0.34658258421171234,
+      "fraction": 0.640715867953597,
+      "pairs": "orig+v1",
+      "tested": true
+    },
+    {
+      "band": false,
+      "behaviour": "verb_complementizer",
+      "complement": 0.3053261775521905,
+      "fraction": 0.662048363592837,
+      "pairs": "orig+v2",
+      "tested": true
+    },
+    {
+      "band": false,
+      "behaviour": "verb_complementizer",
+      "complement": 0.3119404305175313,
+      "fraction": 0.6623714416652001,
+      "pairs": "v1+v2",
+      "tested": true
+    }
+  ],
+  "predictions": {
+    "pred_a_complement_monotone": false,
+    "pred_b_step_at_two": false,
+    "pred_c_fraction_monotone": true,
+    "pred_d_two_pair_axes_agree": true,
+    "pred_e_estimator_safe": true
+  },
+  "schema": "circuit_unit_two_pair_das_result_v1",
+  "seconds": 109.54283218830824,
+  "semantics": "block_live",
+  "sets": {
+    "dative": {
+      "complement_monotone": true,
+      "das_loss_history": {
+        "orig+v1": [
+          [
+            0,
+            7.962656497955322,
+            7.947192668914795
+          ],
+          [
+            50,
+            0.041140470653772354,
+            0.03415008634328842
+          ],
+          [
+            100,
+            0.022931119427084923,
+            0.016371944919228554
+          ],
+          [
+            119,
+            0.0193012785166502,
+            0.014207493513822556
+          ]
+        ],
+        "orig+v2": [
+          [
+            0,
+            4.820443153381348,
+            4.811865329742432
+          ],
+          [
+            50,
+            0.06533575803041458,
+            0.07637177407741547
+          ],
+          [
+            100,
+            0.040617410093545914,
+            0.048774562776088715
+          ],
+          [
+            119,
+            0.0349857322871685,
+            0.04337023198604584
+          ]
+        ],
+        "v1+v2": [
+          [
+            0,
+            6.4479193687438965,
+            6.480626106262207
+          ],
+          [
+            50,
+            0.08396460860967636,
+            0.08613364398479462
+          ],
+          [
+            100,
+            0.04850270226597786,
+            0.04965757951140404
+          ],
+          [
+            119,
+            0.04115263745188713,
+            0.04203135520219803
+          ]
+        ]
+      },
+      "dropped": {
+        "fourth": 0,
+        "orig+v1_fit": 0,
+        "orig+v2_fit": 0,
+        "v1+v2_fit": 0
+      },
+      "exact_fourth": 0.7611229650378946,
+      "fitted": [
+        {
+          "reserved": "bought",
+          "sent": "handed"
+        },
+        {
+          "reserved": "kept",
+          "sent": "gave"
+        }
+      ],
+      "fourth": {
+        "reserved": "cooked",
+        "sent": "passed"
+      },
+      "fraction_monotone": true,
+      "median_abs_complement_by_pairs": {
+        "1": 0.5463888343007133,
+        "2": 0.4059992099034605,
+        "3": 0.25991416338465034
+      },
+      "median_fraction_by_pairs": {
+        "1": 0.4100826724795553,
+        "2": 0.5611095405213005,
+        "3": 0.7057224081552952
+      },
+      "median_single_cos_v18": 0.418576180934906,
+      "median_two_pair_cos": 0.6860388517379761,
+      "on_fourth": {
+        "orig+v1": {
+          "complement": 0.1651999848906236,
+          "complement_fraction": 0.21704769462894694,
+          "exact_set": 0.7611229650378946,
+          "linearity_sum": 0.9706140057563427,
+          "random": 0.00031723788961286986,
+          "random_fraction": 0.0004168024145705225,
+          "subspace": 0.573556625077952,
+          "subspace_fraction": 0.7535663111273958
+        },
+        "orig+v2": {
+          "complement": 0.35341068974344364,
+          "complement_fraction": 0.46432798112437473,
+          "exact_set": 0.7611229650378946,
+          "linearity_sum": 0.9525961100619891,
+          "random": 0.00031723788961286986,
+          "random_fraction": 0.0004168024145705225,
+          "subspace": 0.3716320860305021,
+          "subspace_fraction": 0.4882681289376144
+        },
+        "v1+v2": {
+          "complement": 0.3090153224447644,
+          "complement_fraction": 0.4059992099034605,
+          "exact_set": 0.7611229650378946,
+          "linearity_sum": 0.967108750424761,
+          "random": 0.00031723788961286986,
+          "random_fraction": 0.0004168024145705225,
+          "subspace": 0.42707335719262285,
+          "subspace_fraction": 0.5611095405213005
+        }
+      },
+      "tested": true,
+      "two_pair_axis_cos": {
+        "orig+v1|orig+v2": {
+          "06:heads": 0.619148850440979,
+          "07:heads": 0.7415663003921509,
+          "11:heads": 0.7014498710632324,
+          "13:heads": 0.6930237412452698,
+          "14:heads": 0.6656094193458557
+        },
+        "orig+v1|v1+v2": {
+          "06:heads": 0.579377293586731,
+          "07:heads": 0.6738742589950562,
+          "11:heads": 0.07050073891878128,
+          "13:heads": 0.789955198764801,
+          "14:heads": 0.9267498850822449
+        },
+        "orig+v2|v1+v2": {
+          "06:heads": 0.6005170345306396,
+          "07:heads": 0.7820264101028442,
+          "11:heads": 0.31114038825035095,
+          "13:heads": 0.7483296990394592,
+          "14:heads": 0.6860388517379761
+        }
+      },
+      "two_pair_in_band": 1,
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "polarity_licensing": {
+      "complement_monotone": false,
+      "das_loss_history": {
+        "orig+v1": [
+          [
+            0,
+            11.24818229675293,
+            11.110432624816895
+          ],
+          [
+            50,
+            0.007999902591109276,
+            0.006937909871339798
+          ],
+          [
+            100,
+            0.005033100955188274,
+            0.0043770913034677505
+          ],
+          [
+            119,
+            0.004454676993191242,
+            0.0038873152807354927
+          ]
+        ],
+        "orig+v2": [
+          [
+            0,
+            12.729110717773438,
+            12.566705703735352
+          ],
+          [
+            50,
+            0.01999216340482235,
+            0.013432914391160011
+          ],
+          [
+            100,
+            0.0130438432097435,
+            0.009919148869812489
+          ],
+          [
+            119,
+            0.01133594661951065,
+            0.008882412686944008
+          ]
+        ],
+        "v1+v2": [
+          [
+            0,
+            7.370851516723633,
+            7.247853755950928
+          ],
+          [
+            50,
+            0.04959876462817192,
+            0.039606064558029175
+          ],
+          [
+            100,
+            0.023395543918013573,
+            0.018961872905492783
+          ],
+          [
+            119,
+            0.018785610795021057,
+            0.015052532777190208
+          ]
+        ]
+      },
+      "dropped": {
+        "fourth": 0,
+        "orig+v1_fit": 0,
+        "orig+v2_fit": 0,
+        "v1+v2_fit": 0
+      },
+      "exact_fourth": 0.5827728153807644,
+      "fitted": [
+        {
+          "never": "rarely",
+          "often": "usually"
+        },
+        {
+          "never": "hardly",
+          "often": "always"
+        }
+      ],
+      "fourth": {
+        "never": "scarcely",
+        "often": "frequently"
+      },
+      "fraction_monotone": true,
+      "median_abs_complement_by_pairs": {
+        "1": 0.057867930613078544,
+        "2": 0.1731673557687889,
+        "3": 0.13594298938735266
+      },
+      "median_fraction_by_pairs": {
+        "1": 0.6245929292837333,
+        "2": 0.8034265480287404,
+        "3": 0.9866668582551865
+      },
+      "median_single_cos_v18": 0.5614084005355835,
+      "median_two_pair_cos": 0.5786727368831635,
+      "on_fourth": {
+        "orig+v1": {
+          "complement": -0.03674502589603897,
+          "complement_fraction": -0.06305205892630904,
+          "exact_set": 0.5827728153807644,
+          "linearity_sum": 0.7403744891024313,
+          "random": -0.002514585335442061,
+          "random_fraction": -0.004314863818414581,
+          "subspace": 0.468215151346358,
+          "subspace_fraction": 0.8034265480287404
+        },
+        "orig+v2": {
+          "complement": -0.10331675294394763,
+          "complement_fraction": -0.1772847844257181,
+          "exact_set": 0.5827728153807644,
+          "linearity_sum": 0.8714103643932356,
+          "random": -0.002514585335442061,
+          "random_fraction": -0.004314863818414581,
+          "subspace": 0.6111510243533714,
+          "subspace_fraction": 1.0486951488189538
+        },
+        "v1+v2": {
+          "complement": 0.10091722745341956,
+          "complement_fraction": 0.1731673557687889,
+          "exact_set": 0.5827728153807644,
+          "linearity_sum": 0.768662275564671,
+          "random": -0.002514585335442061,
+          "random_fraction": -0.004314863818414581,
+          "subspace": 0.3470382509543887,
+          "subspace_fraction": 0.5954949197958821
+        }
+      },
+      "tested": true,
+      "two_pair_axis_cos": {
+        "orig+v1|orig+v2": {
+          "03:heads": 0.9040524959564209,
+          "04:heads": 0.8028185367584229,
+          "07:heads": 0.8448363542556763,
+          "08:heads": 0.11006925255060196
+        },
+        "orig+v1|v1+v2": {
+          "03:heads": 0.18293000757694244,
+          "04:heads": 0.5133345127105713,
+          "07:heads": 0.7982300519943237,
+          "08:heads": 0.6440109610557556
+        },
+        "orig+v2|v1+v2": {
+          "03:heads": 0.2491823136806488,
+          "04:heads": 0.470305860042572,
+          "07:heads": 0.8768215179443359,
+          "08:heads": 0.06316511332988739
+        }
+      },
+      "two_pair_in_band": 3,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ]
+    },
+    "quantifier_number": {
+      "complement_monotone": false,
+      "das_loss_history": {
+        "orig+v1": [
+          [
+            0,
+            10.408003807067871,
+            10.434216499328613
+          ],
+          [
+            50,
+            0.019382352009415627,
+            0.03620229661464691
+          ],
+          [
+            100,
+            0.01484308298677206,
+            0.017527440562844276
+          ],
+          [
+            119,
+            0.01300398912280798,
+            0.013448753394186497
+          ]
+        ],
+        "orig+v2": [
+          [
+            0,
+            18.72808837890625,
+            18.71050262451172
+          ],
+          [
+            50,
+            0.011859952472150326,
+            0.010994743555784225
+          ],
+          [
+            100,
+            0.007715368177741766,
+            0.009784586727619171
+          ],
+          [
+            119,
+            0.007350794039666653,
+            0.00854120310395956
+          ]
+        ],
+        "v1+v2": [
+          [
+            0,
+            18.73851203918457,
+            18.738855361938477
+          ],
+          [
+            50,
+            0.03776942938566208,
+            0.027445543557405472
+          ],
+          [
+            100,
+            0.012731701135635376,
+            0.010157854296267033
+          ],
+          [
+            119,
+            0.011229682713747025,
+            0.008474869653582573
+          ]
+        ]
+      },
+      "dropped": {
+        "fourth": 0,
+        "orig+v1_fit": 0,
+        "orig+v2_fit": 0,
+        "v1+v2_fit": 0
+      },
+      "exact_fourth": 0.563942746724988,
+      "fitted": [
+        {
+          "All": "Several",
+          "Each": "Neither"
+        },
+        {
+          "All": "Many",
+          "Each": "One"
+        }
+      ],
+      "fourth": {
+        "All": "Some",
+        "Each": "Either"
+      },
+      "fraction_monotone": true,
+      "median_abs_complement_by_pairs": {
+        "1": 0.15560953625355844,
+        "2": 0.01981847211777892,
+        "3": 0.07434442669107602
+      },
+      "median_fraction_by_pairs": {
+        "1": 0.7962084458562069,
+        "2": 1.0153212942138152,
+        "3": 1.1326743947794553
+      },
+      "median_single_cos_v18": 0.5633019804954529,
+      "median_two_pair_cos": 0.7570142149925232,
+      "on_fourth": {
+        "orig+v1": {
+          "complement": 0.00019128199330567378,
+          "complement_fraction": 0.0003391869022458662,
+          "exact_set": 0.563942746724988,
+          "linearity_sum": 1.015660481116061,
+          "random": -0.001434247321275844,
+          "random_fraction": -0.0025432498770575876,
+          "subspace": 0.5725830794673086,
+          "subspace_fraction": 1.0153212942138152
+        },
+        "orig+v2": {
+          "complement": -0.011176483601992833,
+          "complement_fraction": -0.01981847211777892,
+          "exact_set": 0.563942746724988,
+          "linearity_sum": 0.9862441673062873,
+          "random": -0.001434247321275844,
+          "random_fraction": -0.0025432498770575876,
+          "subspace": 0.5673617282541991,
+          "subspace_fraction": 1.0060626394240662
+        },
+        "v1+v2": {
+          "complement": -0.021160454432091174,
+          "complement_fraction": -0.037522345229151904,
+          "exact_set": 0.563942746724988,
+          "linearity_sum": 1.0396759761807186,
+          "random": -0.001434247321275844,
+          "random_fraction": -0.0025432498770575876,
+          "subspace": 0.6074781801434289,
+          "subspace_fraction": 1.0771983214098706
+        }
+      },
+      "tested": true,
+      "two_pair_axis_cos": {
+        "orig+v1|orig+v2": {
+          "07:heads": 0.7509604692459106,
+          "11:heads": 0.7363483309745789
+        },
+        "orig+v1|v1+v2": {
+          "07:heads": 0.7782140970230103,
+          "11:heads": 0.5422416925430298
+        },
+        "orig+v2|v1+v2": {
+          "07:heads": 0.7630679607391357,
+          "11:heads": 0.8990017175674438
+        }
+      },
+      "two_pair_in_band": 3,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "verb_complementizer": {
+      "complement_monotone": true,
+      "das_loss_history": {
+        "orig+v1": [
+          [
+            0,
+            25.291091918945312,
+            25.29625701904297
+          ],
+          [
+            50,
+            0.030843403190374374,
+            0.034317243844270706
+          ],
+          [
+            100,
+            0.018827075138688087,
+            0.015894141048192978
+          ],
+          [
+            119,
+            0.016826743260025978,
+            0.013646120205521584
+          ]
+        ],
+        "orig+v2": [
+          [
+            0,
+            28.028034210205078,
+            27.91370391845703
+          ],
+          [
+            50,
+            0.06031811609864235,
+            0.05894014611840248
+          ],
+          [
+            100,
+            0.038372721523046494,
+            0.04043721780180931
+          ],
+          [
+            119,
+            0.03334575891494751,
+            0.0364462248980999
+          ]
+        ],
+        "v1+v2": [
+          [
+            0,
+            25.91504669189453,
+            25.878923416137695
+          ],
+          [
+            50,
+            0.08106406033039093,
+            0.10343991965055466
+          ],
+          [
+            100,
+            0.053250305354595184,
+            0.070220947265625
+          ],
+          [
+            119,
+            0.04671374335885048,
+            0.06395141035318375
+          ]
+        ]
+      },
+      "dropped": {
+        "fourth": 0,
+        "orig+v1_fit": 0,
+        "orig+v2_fit": 0,
+        "v1+v2_fit": 0
+      },
+      "exact_fourth": 0.604910254299322,
+      "fitted": [
+        {
+          "remarked": "said",
+          "wondered": "asked"
+        },
+        {
+          "remarked": "insisted",
+          "wondered": "inquired"
+        }
+      ],
+      "fourth": {
+        "remarked": "declared",
+        "wondered": "questioned"
+      },
+      "fraction_monotone": true,
+      "median_abs_complement_by_pairs": {
+        "1": 0.41239053438088985,
+        "2": 0.3119404305175313,
+        "3": 0.2445388060281996
+      },
+      "median_fraction_by_pairs": {
+        "1": 0.5615344538233883,
+        "2": 0.662048363592837,
+        "3": 0.7302087605476825
+      },
+      "median_single_cos_v18": 0.5850961208343506,
+      "median_two_pair_cos": 0.7765776515007019,
+      "on_fourth": {
+        "orig+v1": {
+          "complement": 0.2096513591512231,
+          "complement_fraction": 0.34658258421171234,
+          "exact_set": 0.604910254299322,
+          "linearity_sum": 0.9872984521653094,
+          "random": 0.004820204194126923,
+          "random_fraction": 0.007968461701331628,
+          "subspace": 0.3875755986174212,
+          "subspace_fraction": 0.640715867953597
+        },
+        "orig+v2": {
+          "complement": 0.18469493570733547,
+          "complement_fraction": 0.3053261775521905,
+          "exact_set": 0.604910254299322,
+          "linearity_sum": 0.9673745411450275,
+          "random": 0.004820204194126923,
+          "random_fraction": 0.007968461701331628,
+          "subspace": 0.40047984397939307,
+          "subspace_fraction": 0.662048363592837
+        },
+        "v1+v2": {
+          "complement": 0.18869596515059983,
+          "complement_fraction": 0.3119404305175313,
+          "exact_set": 0.604910254299322,
+          "linearity_sum": 0.9743118721827314,
+          "random": 0.004820204194126923,
+          "random_fraction": 0.007968461701331628,
+          "subspace": 0.4006752772183047,
+          "subspace_fraction": 0.6623714416652001
+        }
+      },
+      "tested": true,
+      "two_pair_axis_cos": {
+        "orig+v1|orig+v2": {
+          "06:heads": 0.7375087738037109,
+          "07:heads": 0.7518406510353088,
+          "11:heads": 0.864906370639801
+        },
+        "orig+v1|v1+v2": {
+          "06:heads": 0.771639347076416,
+          "07:heads": 0.8514389991760254,
+          "11:heads": 0.8362686634063721
+        },
+        "orig+v2|v1+v2": {
+          "06:heads": 0.7765776515007019,
+          "07:heads": 0.7650179266929626,
+          "11:heads": 0.8127780556678772
+        }
+      },
+      "two_pair_in_band": 0,
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08"
+      ]
+    },
+    "verb_preposition": {
+      "complement_monotone": false,
+      "das_loss_history": {
+        "orig+v1": [
+          [
+            0,
+            13.10035514831543,
+            12.880739212036133
+          ],
+          [
+            50,
+            0.012845332734286785,
+            0.010322579182684422
+          ],
+          [
+            100,
+            0.007131010293960571,
+            0.008913980796933174
+          ],
+          [
+            119,
+            0.006365847773849964,
+            0.00835128128528595
+          ]
+        ],
+        "orig+v2": [
+          [
+            0,
+            9.095174789428711,
+            9.092857360839844
+          ],
+          [
+            50,
+            0.04831865429878235,
+            0.04191401228308678
+          ],
+          [
+            100,
+            0.02966640144586563,
+            0.02863556519150734
+          ],
+          [
+            119,
+            0.02654372528195381,
+            0.026050612330436707
+          ]
+        ],
+        "v1+v2": [
+          [
+            0,
+            9.413451194763184,
+            9.148645401000977
+          ],
+          [
+            50,
+            0.011941090226173401,
+            0.014492014423012733
+          ],
+          [
+            100,
+            0.0067954352125525475,
+            0.01000848039984703
+          ],
+          [
+            119,
+            0.005721462890505791,
+            0.0089713828638196
+          ]
+        ]
+      },
+      "dropped": {
+        "fourth": 0,
+        "orig+v1_fit": 0,
+        "orig+v2_fit": 0,
+        "v1+v2_fit": 0
+      },
+      "exact_fourth": 0.43833879758025496,
+      "fitted": [
+        {
+          "objected": "listened",
+          "relied": "depended"
+        },
+        {
+          "objected": "referred",
+          "relied": "insisted"
+        }
+      ],
+      "fourth": {
+        "objected": "spoke",
+        "relied": "counted"
+      },
+      "fraction_monotone": false,
+      "median_abs_complement_by_pairs": {
+        "1": 0.10299894012440534,
+        "2": 0.13682257874269715,
+        "3": 0.05303017104504926
+      },
+      "median_fraction_by_pairs": {
+        "1": 0.7306381314078875,
+        "2": 0.8189935757474158,
+        "3": 0.7791048554840896
+      },
+      "median_single_cos_v18": 0.509292721748352,
+      "median_two_pair_cos": 0.7306647300720215,
+      "on_fourth": {
+        "orig+v1": {
+          "complement": -0.1129567131261878,
+          "complement_fraction": -0.2576927110941091,
+          "exact_set": 0.43833879758025496,
+          "linearity_sum": 0.8641530497204154,
+          "random": -0.00914565788118021,
+          "random_fraction": -0.020864358646021385,
+          "subspace": 0.4917485218659449,
+          "subspace_fraction": 1.1218457608145245
+        },
+        "orig+v2": {
+          "complement": 0.001651675592312795,
+          "complement_fraction": 0.0037680342270190936,
+          "exact_set": 0.43833879758025496,
+          "linearity_sum": 0.8227616099744349,
+          "random": -0.00914565788118021,
+          "random_fraction": -0.020864358646021385,
+          "subspace": 0.3589966592190757,
+          "subspace_fraction": 0.8189935757474158
+        },
+        "v1+v2": {
+          "complement": 0.05997464464790362,
+          "complement_fraction": 0.13682257874269715,
+          "exact_set": 0.43833879758025496,
+          "linearity_sum": 0.8789290092630098,
+          "random": -0.00914565788118021,
+          "random_fraction": -0.020864358646021385,
+          "subspace": 0.32529404043084886,
+          "subspace_fraction": 0.7421064305203127
+        }
+      },
+      "tested": false,
+      "two_pair_axis_cos": {
+        "orig+v1|orig+v2": {
+          "06:heads": 0.3113563060760498,
+          "08:heads": 0.9348146915435791,
+          "13:heads": 0.8852009773254395
+        },
+        "orig+v1|v1+v2": {
+          "06:heads": 0.4410092532634735,
+          "08:heads": 0.7306647300720215,
+          "13:heads": 0.7783495783805847
+        },
+        "orig+v2|v1+v2": {
+          "06:heads": 0.44950342178344727,
+          "08:heads": 0.696929931640625,
+          "13:heads": 0.7907193899154663
+        }
+      },
+      "two_pair_in_band": 3,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08"
+      ]
+    }
+  },
+  "tested": [
+    "dative",
+    "quantifier_number",
+    "polarity_licensing",
+    "verb_complementizer"
+  ]
+}
