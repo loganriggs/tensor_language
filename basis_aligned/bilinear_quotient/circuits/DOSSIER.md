@@ -149,6 +149,13 @@ base head contains indispensable prompt context that cannot be removed by a ten-
 displacement or scalar-effect program; it bounds causal execution. The next allowed compression is reader-aligned scalar context, not a
 post-hoc template table or unconstrained rank sweep.
 
+Keeping only the native base deviation along the already frozen direction-specific reader is also a registered null, though informative:
+overall cosine improves to `0.68452`, relative L2 to `0.76755`, norm ratio to `0.92471`, and signs to `0.82813`, but it misses the frozen
+overall bars and two direction-by-template recurrence cells. The reader-coordinate identity holds within `5.96e-8` and all closures are
+zero, so this is a scientific failure rather than an instrument failure. One scalar captures substantial output-relevant context but not
+enough for causal execution. The only licensed next extension is the two-dimensional span of both pre-existing frozen readers; no learned
+rank, new direction, template table, or threshold change is allowed.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -193,6 +200,7 @@ post-hoc template table or unconstrained rank sweep.
 | `bracket_absolute_term_program_ood_controls.v2` | complete | two OOD targets plus three no-edit control families | **program screen** | active | `bracket_absolute_term_program_ood_control_validation_v2_result.json` |
 | `task14_bracket_compiled_predictive_dispatcher.v3` | complete | exact strongest-program packaging and price | **predictive/manipulable interface** | active | `task14_bracket_compiled_predictive_dispatcher_v3_result.json` |
 | `task14_direction_cardinality_absolute_head_program.v1` | complete | ten absolute heads on 512 third-corpus cells | **null: native base context required** | active | `task14_direction_cardinality_absolute_head_program_v1_result.json` |
+| `task14_absolute_head_reader_scalar_context.v2` | complete | one frozen-reader coordinate of native base context | **null: material but insufficient** | active | `task14_absolute_head_reader_scalar_context_v2_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -201,9 +209,9 @@ publication pair is retained only under `artifact_invalid` filenames.
 
 **Next:** keep both fixed programs and their bounded cross-program robustness, but reject fixed MLP15/17 gains and any end-to-end
 simplicity claim. Counterfactual role-prompt lookup is now eliminated at dispatch. The immediate frontier is the native suffix: test
-a reader-aligned one-scalar correction to the failed Task14 absolute term, using only the already frozen direction reader and a scalar
-projection of native base deviation. Do not substitute additional arbitrary stress scaling, syntax-conditioned gain fitting, template
-tables, or generic low-rank approximation for an executable dependency-reduction result.
+the fixed two-reader span as the final non-tuned correction to the failed Task14 absolute term. If it fails, close base-state compression
+at this interface and retain the full native Task14 base head. Do not substitute additional arbitrary stress scaling, syntax-conditioned
+gain fitting, template tables, or generic low-rank approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
