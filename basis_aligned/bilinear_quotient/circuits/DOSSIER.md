@@ -290,12 +290,18 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had` | complete | 55-site A1/A2/P/C fast screen | **residual carrier from resid:10** | `aspectual_anchor_has_vs_had_v1_result.json` |
 | `aspectual_anchor.has_vs_had.layer8_9_module_factorial_v1` | abandoned pre-run | timestamp integrity | **no model execution** | none |
 | `aspectual_anchor.has_vs_had.layer8_9_module_factorial_v2` | complete | exact 16-arm L8/L9 module factorial plus nine L9 heads | **composable module circuit screen** | `aspectual_anchor_layer8_9_module_factorial_v2_result.json` |
+| `aspectual_anchor.has_vs_had.fresh_construction_transfer_v1` | invalid | frozen two-construction module/head transfer | **native capability gate failed** | `aspectual_anchor_fresh_construction_transfer_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
 attribution assigns it the largest contribution (40.27 points). The preregistered non-adaptive head sweep localizes L9H1 and L9H4 as
 individually sufficient partial carriers. This is a screen on the discovery corpus; the frozen bank and heads require a sealed fresh
 construction before promotion to a predictive circuit.
+
+The first frozen construction transfer cannot provide that promotion. Although the four-module bank moves the target by 74.20%, the
+H1/H4-reduced bank retains 94.34% of that movement, and all target directions recur, A1, A2, and one P native capability cell fail; A2
+falls to 0.625/0.5625. Those intervention numbers are therefore disclosed only as invalid diagnostics. The prompts are closed without
+post-outcome retuning. The next circuit-first question is what token/source relation L9H1 and L9H4 read on the valid discovery corpus.
 
 ### `subroutine.induction.equality_score` — site_live
 

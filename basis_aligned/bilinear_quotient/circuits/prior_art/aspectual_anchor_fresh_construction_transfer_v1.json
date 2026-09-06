@@ -1,0 +1,58 @@
+{
+  "schema": "aspectual_anchor_fresh_construction_transfer_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.fresh_construction_transfer_v1",
+  "created_utc": "2026-09-06T02:13:11Z",
+  "question": "Does the frozen L8/L9 aspectual module circuit predict and manipulate has-versus-had on two outcome-sealed constructions, and can the frozen L9H1/H4 pair replace whole attention layer 9?",
+  "authority": {
+    "fresh_construction_builder": {
+      "path": "ops/circuit_candidate_aspectual_fresh_construction_v1.py",
+      "sha256": "f808d7f01a49c8d22614ea66cc956fd01adcba3f0c396e3f5d0e826f30779a22",
+      "rows_sha256": "d57dee7e1402ee14baf885b23aca7bbd7501a4d1aca82ab94c11012a0b8b0f35",
+      "rows": 64,
+      "outcomes_opened": false
+    },
+    "discovery_result": {
+      "path": "circuits/followups/aspectual_anchor_layer8_9_module_factorial_v2_result.json",
+      "sha256": "06918c951ab52c0b6082f440addba553bb994fec02e1a774772473917fd40050"
+    },
+    "discovery_runner": {
+      "path": "ops/run_aspectual_anchor_layer8_9_module_factorial_v2.py",
+      "sha256": "ee4e7435d42dd7ef84c212c34a26e90018045b11d65bb3d02b32232ded27ff59"
+    }
+  },
+  "frozen_constructions": {
+    "A1": "In the ledger, since/by last PERIOD, the AGENT -> has/had",
+    "A2": "The witness remembers that since/by last PERIOD the AGENT -> has/had",
+    "P": "period rewrite with anchor, final token, and answer held fixed",
+    "C": "canonical same-answer nocturnal-completion control v2",
+    "ordered_groups": 16,
+    "direction_balance": "eight present-to-past and eight past-to-present groups"
+  },
+  "frozen_arms": {
+    "module_bank": ["attn:08", "mlp:08", "attn:09", "mlp:09"],
+    "head_reduced_bank": ["attn:08", "mlp:08", "attn:09:head:01", "attn:09:head:04", "mlp:09"],
+    "attention_minimal_bank": ["attn:08", "attn:09:head:01", "attn:09:head:04"],
+    "intervention": "simultaneous exact paired-native donor replacement at the matched final token",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_native_capability": "Every ordered A1, A2, P, and C cell passes the fixed native capability bars.",
+    "pred_b_module_bank_transfer": "The four-module bank has A1 and A2 mean recovery at least 0.50 and direction fraction at least 0.80 in each, with P at most 0.20 and C at most 0.35.",
+    "pred_c_head_reduction": "The H1/H4 head-reduced bank retains at least 80% of the four-module bank's mean target recovery and has positive A1/A2 mean recovery with direction fraction at least 0.80 in each.",
+    "pred_d_minimal_bank_report": "The attention-minimal bank is reported under the same fixed bars but cannot rescue or invalidate the primary module-bank terminal.",
+    "pred_e_exact_coverage": "All three arms produce all 64 row outcomes with finite logits; no row, construction, direction, or arm is dropped."
+  },
+  "terminal": {
+    "screen": "A, B, and E pass. C and D are separately reported compression results.",
+    "null": "The run is valid but the frozen four-module bank misses B.",
+    "invalid": "Any authority, capability, coverage, finiteness, instrument, or execution check fails. No fresh prompt, answer, arm, head, threshold, or control may be changed after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 40,
+    "example_evaluations_max": 640,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "stored_fit_scalars": 0
+  },
+  "novelty": "First prospective construction transfer of the aspectual module circuit and first frozen replacement of its whole L9 attention write by the discovery-localized H1/H4 pair."
+}
