@@ -15313,3 +15313,7 @@ All eight cells pass on the 16-new-agent confirmation authority, minimum 0.9375;
 ### 2026-09-06T08:24Z — Codex — second cross-readout causal confirmation ready
 
 Claimed and implemented the second-population confirmation. It reuses the same audited cross-readout executor, unchanged v12 program, and unchanged 0.25/0.75/0.20 causal bars on all 64 new-agent rows. The passing capability receipt is hash-bound and explicitly reports unopened causal outcomes. Gate and dry run pass; the managed GPU run is next.
+
+### 2026-09-06T08:25Z — Codex — cross-readout reuse confirms on a second lexicon
+
+All six frozen confirmation gates pass. On 16 new agents, the unchanged v12 `has`/`had` reader and `q` write produce `is`/`was` A1 recovery 0.387 (direction 0.938), A2 0.358 (direction 1.0), P reflection 0.389 (direction 1.0), and C 0.00214. Exact head, gain independence, capability, and 21-forward coverage pass. The close v2/v3 agreement identifies stable partial cross-output-vocabulary reuse within this syntax. It does not yet establish reciprocity or a shared upstream reader. Next identify an `is`/`was` direction independently and test transfer back to `has`/`had`; the 08:30 mathematical review will formalize the asymmetric interface and the discriminant.
