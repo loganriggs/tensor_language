@@ -1,0 +1,15 @@
+{
+  "schema": "registration_timestamp_correction_v1",
+  "candidate_id": "aspectual_tense.carrier_component_greedy_program_v1",
+  "prior_art_sha256": "2c8e3508b18386ad1c2d6cbfbb646db926e6b907326c1ddd0acd025b6a2ebf77",
+  "result_sha256": "600fed015e2dd9046d885373c85cec70127ee67f922565ebcf3545a5598da4eb",
+  "correction": "The prior artifact's manually entered registered_utc value of 2026-09-06T16:54:30Z is a clerical future timestamp and must not be used as the registration receipt.",
+  "authoritative_sequence": {
+    "prior_and_runner_commit": "4dc4c808e6c760422af51d64b748c4807d4cb00a",
+    "prior_and_runner_commit_utc": "2026-09-06T16:53:46Z",
+    "append_only_claim_utc": "2026-09-06T16:53:48.471799Z",
+    "gpu_result_started_utc": "2026-09-06T16:54:09.621106Z",
+    "gpu_result_finished_utc": "2026-09-06T16:54:14.402806Z"
+  },
+  "interpretation": "The immutable commit and append-only claim both preceded execution and sealed the hypotheses, population, interventions, thresholds, and price. The null outcome remains prospective; only the redundant hand-entered timestamp is corrected here without modifying either bound artifact."
+}
