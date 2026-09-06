@@ -202,3 +202,22 @@ not yet in the ledger predicts CLEAR.
 **Fixing a refusal** means varying a key field — normally registering a distinguishing prior-art
 receipt. Do not vary one to dodge the check: two entries differing only in a digest are two claims
 of distinct evidence, and the ledger is what makes that claim.
+
+## Two design invariants that keep costing rework
+
+Both learned the hard way, each more than once, and each caught only by running `build_rows()`:
+
+**P must not vary the final input token.** The invariance edit has to change something the model
+reads but not the token being patched, because `matched_final_input_token` compares base and donor
+of the same row. In a long design the subject is safely mid-prompt and swapping it is fine; in a
+SHORT design the subject often IS the final token, and P must vary an earlier slot instead — the
+season, the place, the adverb. Hit on `narrative_tense.short_cue` and again on
+`aspectual_anchor`.
+
+**A2 needs its own matched suffix whenever it ends on a different slot from A1.** `matched_suffix`
+is per row, not per candidate. If A1 ends on an adverb and A2 ends on a participle, passing A1's
+suffix to A2 fails `matched_long_final_suffix`. Hit on `polarity_state` (participle) and again on
+`preposition_selection` (second adverb table).
+
+Neither is caught by review; both are caught in one second by calling `build_rows()` before
+writing a runner. Do that first.

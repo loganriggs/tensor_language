@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "anterior",
+    "anteriority",
+    "aspect",
+    "auxiliary",
+    "by",
+    "had",
+    "has",
+    "perfect",
+    "since",
+    "temporal preposition"
+  ],
+  "candidate_id": "aspectual_anchor.has_vs_had",
+  "canonical_objects": [
+    "a temporal preposition anchoring perfect aspect",
+    "since-versus-by choice of has/had at a shared subject token",
+    "aspect held across a fronted and a report-embedded construction"
+  ],
+  "decision_changed": "A recovering site adds aspect to the corpus and its C, authored against canonical control v2, joins the comparable set. A capability stop would be informative given that the prediction site here follows a content noun, which the six-screen agreement investigation just established is the configuration that works.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twenty-fourth behaviour. Prior-art search returns 0 events for aspect, perfect, has, had and anterior. The corpus has temporal FRAME (narrative_tense, was/is), conditional MOOD (modal_remoteness, would/will) and NUMBER on an auxiliary (existential, were/was); it has no ASPECT. Here a temporal preposition fixes the anchor point -- 'since' opens an interval reaching the present and takes the present perfect, 'by' fixes a past deadline and takes the past perfect -- so the cue is a function word two phrases back and the target is an auxiliary. Recipient and donor differ only in that preposition and end on the same subject token; A2 embeds the whole thing under a report frame.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "aspect",
+        "auxiliary"
+      ],
+      "sha256": "944c6ca07f65b636a3bebce9f8fd2480fa7b22b6aed8ffaf500a23ffe2cca6e6",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "site_results",
+        "c_absolute_recovery"
+      ],
+      "sha256": "7979c43e2f86b4d5f1294420eb0afb1ee260b3afb8d3837ec3616a4d436bb10f",
+      "source": "circuits/fast_screens/possessive_number_verb_final_distance_six_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the ledger's behaviour set",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

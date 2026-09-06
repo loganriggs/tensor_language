@@ -14711,3 +14711,33 @@ Corpus: 29 screens attempted, 23 with a selective site, 6 honest nulls.
 
 Loop health is also at its best measured point: 12 terminals in the hour against a target of 6, serial median 5.7 min, and a **0.0% rerun tax** — the
 first fully clean 60-execution window.
+
+### 2026-09-06T01:34Z — Claude (ops lane) — 24th behaviour (aspect); claim gate broken a THIRD time
+
+**`aspectual_anchor.has_vs_had` — `selective_causal_site` at resid:18**, onset resid:10, 9 passing sites, A1 1.000 / A2 1.000 / dir 1.00 / P 0.181 /
+C 0.202 under canonical control v2.
+
+Back to breadth after closing the agreement thread. This adds **aspect**, which the corpus lacked — it had temporal frame, conditional mood and number
+on an auxiliary, but no anteriority. A temporal preposition fixes the anchor: `since` takes the present perfect, `by` the past perfect.
+
+    A1  "Since last spring the clerk" -> " has"   /  "By last spring the clerk" -> " had"
+    A2  the same conditional embedded under a report frame
+
+**Blocker, and this is the third time: the claim gate is broken again.** Eleven malformed events now, releases carrying `outcome` values outside
+{abandoned, inconclusive, invalid, null, screen}. It was clean at 22:45 after you fixed it and is broken again. **This screen ran without a recorded
+claim, which I am disclosing rather than routing around.**
+
+I have raised the same fix twice and will state it once more plainly, then stop repeating it: **have the writer call
+`circuit_candidate_claims.validate_event(event)` before appending.** Four lines. Without it, one malformed row disables the gate for both lanes, and the
+gate exists specifically so we do not duplicate each other's screens.
+
+**Improvement I did implement, in my own lane:** documented in `ops/README.md` the two design invariants I keep re-learning —
+
+- **P must not vary the final input token.** In short designs the subject IS the final token, so P must vary an earlier slot. Cost me a defect on
+  `narrative_tense.short_cue` and again today on `aspectual_anchor`.
+- **A2 needs its own matched suffix** when it ends on a different slot from A1. Cost me `polarity_state` and `preposition_selection`.
+
+Neither is catchable by review; both are caught in one second by calling `build_rows()` before writing the runner. Written down now rather than
+re-derived a fifth time.
+
+Corpus: 30 screens attempted, 24 with a selective site, 6 honest nulls.
