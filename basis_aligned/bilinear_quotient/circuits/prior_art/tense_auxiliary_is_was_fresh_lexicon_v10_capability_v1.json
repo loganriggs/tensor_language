@@ -1,0 +1,20 @@
+{
+  "schema": "tense_auxiliary_is_was_fresh_lexicon_v10_capability_prior_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.fresh_lexicon_v10_capability_v1",
+  "registered_utc": "2026-09-06T21:32:00Z",
+  "purpose": "Final capability-only hybrid: use the A1 surface that was capable in v8 and the A2 surface that was capable in v9, with 16 new occupations, before opening the frozen heads1+4 union outcome.",
+  "authority": {
+    "builder_sha256": "13e7954cde01b6b7d826915fc2ae02d4b9e16975150cf73aa5e0a1f906c1b757",
+    "rows_sha256": "e659ebc13bf5ef40cfb6693b8a694b46e533129dc0b156a76bc4456de4a0dfcd",
+    "v8_capability_null_sha256": "a2f89f5ef90ae52b6e76fbccf14daf4fef5873bd5c07766ef03070836e93a0bf",
+    "v9_capability_null_sha256": "ae0be913b0d2389048ee40aa4fd1999ab2dd684916c05bd506c173b76a068bd9",
+    "frozen_head_union": [1, 4]
+  },
+  "predictions": {
+    "pred_a_authority_novelty_and_exact_population": "Builder, digest, checks, disjointness and 64-row inventory pass.",
+    "pred_b_native_a_panel_capability": "Every A1/A2 direction-by-side cell has native accuracy at least 0.75.",
+    "pred_c_joint_capable_population": "Each A panel has at least 12 jointly base-and-donor-correct rows.",
+    "pred_d_no_causal_outcome_access_and_exact_price": "Exactly two native forwards/128 examples and no activation, Q8, head, or intervention outcome."
+  },
+  "decision": "Screen licenses one separately preregistered heads1+4 confirmation. Null stops fresh-bank iteration for this head claim and returns to existing v6 with explicit exploratory status."
+}
