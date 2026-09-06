@@ -1,0 +1,41 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_artifact_v6",
+  "program_id": "aspectual_anchor.has_vs_had.transparent_path_program_v6",
+  "parent_release": {"path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v5_result.json", "sha256": "7f851ffe62cd37305a558d89db305fd75d1f7276aacbbc81d7c914f1afdb5d08", "terminal": "release"},
+  "compiled_suffix_recurrence": {
+    "boundaries": [10, 11, 12, 13, 14, 15, 16, 17],
+    "equation": "delta_(b+1)=lambda0_b*delta_b + source_attention_b(if b in {11,15}) + selected_mlp_b(if b in {11,12,14,15})",
+    "source_attention": {"11": {"head": 3, "roles": ["determiner", "period", "self"]}, "15": {"head": 5, "roles": ["period", "determiner", "self"]}},
+    "mlp_factors": {"11": ["left_change", "right_change"], "12": ["left_change", "right_change"], "14": ["left_change", "right_change"], "15": ["left_change", "bilinear_interaction"]},
+    "zero_new_write_boundaries": [10, 13, 16, 17]
+  },
+  "evidence": {
+    "block12_14_selection": {"sha256": "8f2f795564e7071b2ec467165a679ddc22e24a9e0b02e656628df957fd59ad69", "evidence_class": "post_outcome_repair_replication", "selected_increment_fraction": 0.7796521528721633, "selected_total_to_all_fraction": 0.9642571515934338},
+    "component_resolution": {"sha256": "f064d136d8d094da01e6aa15e3084242aa214d9b98ec2679388342f5f78049d7", "evidence_class": "conditional_post_selection_component_resolution", "selected": ["mlp12", "mlp14"], "selected_increment_fraction": 0.9069529472383313, "selected_total_to_full_fraction": 0.9877963151747525},
+    "bilinear_resolution": {"sha256": "21842ebd543ce8cb68fba680056224b0330da666004efb26f96ea72679ff558f", "evidence_class": "conditional_post_selection_bilinear_resolution", "selected_increment_fraction": 0.9558038588198681, "selected_total_to_full_fraction": 0.9946778180189372, "family_increments": {"A1": 0.03058342231583344, "A2": 0.030390568346144398}}
+  },
+  "excluded_authority": {
+    "aspectual_anchor_sparse_suffix_missing_block_compression_split_v1_result.json": "invalid_incommensurate_control",
+    "prospective_block12_14_transfer": "not_licensed_by_post_outcome_repair"
+  },
+  "price": {
+    "stored_fit_scalars": 0,
+    "stored_fit_vectors": 0,
+    "requires_checkpoint_weights": true,
+    "requires_paired_base_and_donor_states": true,
+    "requires_native_intervening_blocks_and_final_readout": false,
+    "requires_base_resid18_and_exact_final_readout": true
+  },
+  "scope": {
+    "licensed": "typed paired-causal tensor program with explicit sparse query recurrence from resid10 through resid18",
+    "not_licensed": [
+      "standalone native-margin prediction",
+      "full-logit prediction",
+      "free-form text",
+      "new-construction transfer",
+      "whole-model replacement",
+      "replacement of the exact final normalization or unembedding",
+      "prospective attribution of block12 or block14 selection"
+    ]
+  }
+}
