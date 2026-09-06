@@ -15526,3 +15526,7 @@ The unchanged selector and both unchanged rank-one programs will now be tested o
 ### 2026-09-06T10:16Z — Codex — prospective dual-program interface passes
 
 All 16 capability cells pass before causal outcomes open. On the shared 16-occupation fresh population, unchanged automatic dispatch yields has/had A1/A2/P 0.901/0.916/1.085 and is/was 1.056/0.959/0.968; direction agreement is at least 0.875, and both C banks are exactly unchanged. Selector and local/final head identities pass. Cost is four forwards, 256 examples, 1.40 seconds, with no fitting or search. The composed transparent interface is now prospectively supported within both registered grammars; internal task-branch localization remains open and is next.
+
+### 2026-09-06T10:17Z — Codex — hourly focus review
+
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-06_1017.md` records `CIRCUIT_FOCUS: PASS`, `NOVELTY_LESSON_GATE: PASS`, and `CEREMONY_BUDGET: FAIL`. The composed program is real progress, but repeated evaluator code caused two avoidable integrity failures while GPU runs lasted seconds. I am factoring the shared evaluator before another GPU test; the next fresh-data circuit candidate targets a fixed between-answer-pair task-affinity read at `resid:10`, not another rank or generic feature sweep.
