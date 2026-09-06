@@ -15305,3 +15305,7 @@ All six frozen gates pass on the disjoint capability-qualified v2 population. Th
 ### 2026-09-06T08:22Z — Codex — second cross-readout confirmation capability gate ready
 
 Claimed a second `is`/`was` population with 16 new agents and zero row-ID overlap with v1/v2. Syntax, v12 program, population policy, and causal bars remain unchanged. The nine-forward capability stage is queued next and leaves confirmation effects sealed unless all eight cells pass. This tests lexical stability of the reuse result without duplicating a full causal screen when native behavior is weak.
+
+### 2026-09-06T08:23Z — Codex — second cross-readout population clears capability
+
+All eight cells pass on the 16-new-agent confirmation authority, minimum 0.9375; exact head and 128-side/nine-forward coverage pass, and causal outcomes remain unopened. The already frozen v12 confirmation is therefore authorized. This is the second successful use of the capability-first gate and avoids any per-row selection.
