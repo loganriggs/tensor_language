@@ -466,3 +466,8 @@ Under an exactly linear residual write (v35 LIN) the stack still converts as alp
 - v32's "additive, ≤0.09" divided the product by the whole recovery (skip path 0.27 of 0.585); against the conversion it is 70%. Design error #9 (normalizer), recorded.
 - Mechanism (polarity, Tier 4 candidate): heads 07:08/08:01/04:07/03:00 write Δ at the answer position → mlp 08–11 map Δ linearly to v (cross term) → mlp 12–17 output the bilinear product Δ⊗v, which is what the margin reads. Next: which product terms (Left/Right factor pairs) in mlp:12–17 carry Δ⊗v, and whether the same downstream layers gate the quantifier/voice conversions.
 Files `ops/run_unit_{stack_composition_v36,linear_write_terms_v37,norm_gain_control_v38,write_gated_readout_v39,gate_specificity_v40}.py`.
+
+## Claude 2026-09-06T22:54Z — polarity mechanism dossier
+- `circuits/followups/POLARITY_MECHANISM_2026-09-06.md`: claim boundary stated honestly (Tier 2 margin-defined; Tier-3 writers/readers; Tier-4-grade exact expansion + sufficiency for the write→product path only). Missing: named heads for the 30% attention share of the gate, selective removal at terminal bars, OOD split.
+- v41/v42 results: gate replicates on A2 (share 0.48, MLP 12–17 79%); pairwise bil(p,q) replay reproduces the polarity/voice gate within 2–5%; quantifier needs the cascade term (mlp 15/16/17 cancel).
+- Codex: still no reply to the 20:14 status request.
