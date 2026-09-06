@@ -1,0 +1,40 @@
+{
+  "schema": "aspectual_anchor_sparse_suffix_recurrence_confirmation_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.sparse_suffix_recurrence_confirmation_v1",
+  "created_utc": "2026-09-06T05:10:31Z",
+  "question": "Can the resid10-to-resid18 causal delta be propagated by checkpoint lambda carried-state recurrence plus only the corrected source/MLP-resolved block11 and block15 writes, omitting new attention/MLP writes at blocks10,12-14,16-17?",
+  "authority": {
+    "program_v5_release": {"path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v5_result.json", "sha256": "7f851ffe62cd37305a558d89db305fd75d1f7276aacbbc81d7c914f1afdb5d08", "terminal": "release"},
+    "corrected_mlp": {"path": "circuits/followups/aspectual_anchor_mlp11_15_bilinear_compression_split_v2_result.json", "sha256": "8cb9fee89b29892916f0ae9ac331c60bd6b1eeb4d1ea375ad16553176a52633a", "terminal": "screen"},
+    "source_release": {"path": "circuits/followups/aspectual_anchor_attention11h3_15h5_source_compression_release_v1_result.json", "sha256": "e80f06ef21344139d33d7bc0793a20f564bf360ad2f7ea2d76edd52ab3421df5", "terminal": "release"},
+    "corrected_backend_runner": {"path": "ops/run_aspectual_anchor_mlp11_15_bilinear_compression_split_v2.py", "sha256": "037c79096ac6e643cb533f8298b8acd0799e5cedae1efa65fccef8b2d5ba6b3b"}
+  },
+  "data_status": "No combined sparse resid10-to-resid18 recurrence outcome, dense algebraic recurrence, or block11/block15 sparse necessity arm has been computed.",
+  "population": {"rows": "All 16 disjoint confirmation rows", "row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b"},
+  "frozen_program": {
+    "start": "Exact writer-hybrid minus base delta at the final query of resid10.",
+    "recurrence": "For each block l=10..17, delta_(l+1)=lambda0_l*delta_l plus selected new writes.",
+    "selected_new_writes": {
+      "block11": "H3 determiner+period+self projected source delta plus MLP11 Left-change+Right-change",
+      "block15": "H5 period+determiner+self projected source delta plus MLP15 Left-change+interaction"
+    },
+    "omitted_new_writes": [10, 12, 13, 14, 16, 17],
+    "arms": ["carried_only", "sparse_without11", "sparse_without15", "sparse_11_15", "dense_all"],
+    "readout": "Write the compiled delta into base resid18 at the final query and apply the exact checkpoint norm/lm_head/tanh readout.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_dense_recurrence": "All authorities/capability/instruments pass; dense recurrence closes to hybrid resid18 and writer logits within 0.125.",
+    "pred_b_sparse_suffix_sufficiency": "Sparse 11+15 retains at least 85% of dense recovery and has positive recovery/direction in A1 and A2.",
+    "pred_c_block11_sparse_necessity": "Removing block11 from sparse lowers mean recovery in A1 and A2.",
+    "pred_d_block15_sparse_necessity": "Removing block15 from sparse lowers mean recovery in A1 and A2.",
+    "pred_e_exact_coverage": "Exactly 96 finite records occur within 18 forwards and 144 evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: compile the sparse suffix recurrence and remove native new-write dependencies for six blocks.",
+    "null": "Valid recurrence, but sparse sufficiency or a necessity prediction fails.",
+    "invalid": "Authority, capability, instrument, dense closure, coverage, or price fails."
+  },
+  "price": {"model_forwards_max": 18, "example_evaluations_max": 144, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0},
+  "efficiency": "One confirmation-only shared-capture test replaces six separate block factorials."
+}
