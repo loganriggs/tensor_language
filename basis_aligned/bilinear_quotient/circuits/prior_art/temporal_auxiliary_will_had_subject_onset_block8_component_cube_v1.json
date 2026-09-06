@@ -1,0 +1,72 @@
+{
+  "schema": "temporal_auxiliary_will_had_subject_onset_block8_component_cube_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.subject_onset_block8_component_cube_v1",
+  "created_utc": "2026-09-06T12:36:00Z",
+  "evidence_class": "prospective_exact_block_component_factorial",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*will*had*block8*",
+      "circuits/followups/*will*had*block8*",
+      "circuits/prior_art/*block8*component*",
+      "circuits/followups/*block8*factorial*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "The valid will/had depth sweep localizes the subject-onset sufficiency crossing to boundary 9: recovery rises from 0.3798/0.3546 at boundary 8 to 0.6445/0.5052 at boundary 9. A previous cross-task deep-value block-8 factorial was invalid by a narrowly missed float closure and did not test this construction or end-to-end semantic source-state intervention.",
+    "new_question": "Which exact additive component of block 8 creates the late will/had subject-onset payload: carried entry state, attention update, or MLP update?"
+  },
+  "authorities": {
+    "subject_onset_depth_result_sha256": "b1f5ca50c669019684b5308b10dcd083de67897327bc6eecbcd92c978fc9cdae",
+    "temporal_fast_screen_sha256": "71a833c52c39b98be6f576d11749522e2725c540a29d61a2352e315978684ec9",
+    "temporal_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58",
+    "source_group_evaluator_sha256": "6ecf5f40b92f94cb32bccf1a703e527a3d468281936e63d4c7e91e8af66b4348",
+    "residual_onset_evaluator_sha256": "8f0235743c0450797ade21ac663d4bf735f1784931c2c60ef8f69d4f7cd113a7",
+    "block_component_capture_sha256": "a4424a1d4eeea8b34b1b5cf5adefd81f05d7d3479808463389bfceb6460c7474",
+    "rows_sha256": "b74ff65cf6b59142bf38172dae7f70a25e5f471bbeaa038f9b3971caedf913da"
+  },
+  "population": "All 64 sealed A1/A2 will/had rows, split into two fixed 32-row construction batches.",
+  "factorial": {
+    "components": {
+      "block8_entry_z8": "The carried block-8 entry term after the learned residual/embedding mixture and before attention.",
+      "attention8_update": "The complete block-8 attention output.",
+      "mlp8_update": "The complete block-8 MLP output after its native attention-stage input."
+    },
+    "arms": "All eight subsets of the three components. At the two exact subject-onset positions, assemble the boundary-9 state from base components except for donor components named by the arm; retain every other base position and the full base suffix.",
+    "closure": "The empty arm must reproduce base behavior and the all-components arm must reproduce exact paired donor boundary-9 source-state replacement. Shapley values must sum to the all-minus-empty effect.",
+    "fitting": "none"
+  },
+  "opposing_predictions": {
+    "attention_writer": "Block-8 attention has the largest positive Shapley value in both constructions and omitting it causes a material loss from the full source-state effect.",
+    "mlp_or_carried_writer": "The MLP update or carried entry state dominates in either construction, or attention omission is immaterial."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_cube": "All hashes and native capability hold; manual selected logits replay frozen native within 1e-4; block-component recombination, empty/base closure, full/donor-source closure, and Shapley efficiency are each within 2e-4; all records are finite and complete.",
+    "pred_b_boundary9_effect_recurrence": "The all-components arm recovers 0.6445 plus or minus 0.03 in A1 and 0.5052 plus or minus 0.03 in A2, with donorward fraction 1.0.",
+    "pred_c_attention8_is_dominant_writer": "Attention8 has the largest positive Shapley value among the three components in both A1 and A2.",
+    "pred_d_attention8_is_material": "Omitting attention8 reduces mean recovery by at least 0.10 relative to the all-components arm in both A1 and A2.",
+    "pred_e_exact_zero_fit_price": "Exactly 20 model forwards, 640 example evaluations, 512 arm-row records, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-E pass. Promote block-8 attention at the subject-onset source bank and next partition its source positions/heads.",
+    "null": "The exact cube is valid but attention is not the registered dominant material writer; retain the complete component effects and promote the observed winner only as a new hypothesis.",
+    "invalid": "Authority, capability, replay, additive closure, full-effect recurrence, finiteness, coverage, or price fails."
+  },
+  "scope": "This is an exact end-to-end intervention on the block-8 output decomposition at the already localized source bank. It identifies a module-level writer contribution, not a unique attention head or upstream source token.",
+  "circuit_targets": [
+    "upstream writer localization",
+    "exact additive block decomposition",
+    "computational specification",
+    "causal source-state assembly"
+  ],
+  "price": {
+    "model_forwards": 20,
+    "example_evaluations": 640,
+    "rows": 64,
+    "component_subsets": 8,
+    "intervention_records": 512,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
