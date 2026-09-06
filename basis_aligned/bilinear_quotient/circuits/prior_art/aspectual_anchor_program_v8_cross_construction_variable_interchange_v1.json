@@ -1,0 +1,46 @@
+{
+  "schema": "aspectual_anchor_program_v8_cross_construction_variable_interchange_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.program_v8_cross_construction_variable_interchange_v1",
+  "created_utc": "2026-09-06T06:34:00Z",
+  "question": "Are v8's initial, source-attention, and MLP-write variable groups operationally interchangeable between matched lexical and fresh constructions under the same downstream recurrence?",
+  "novelty_search": {
+    "queries": ["aspectual cross construction interchange", "swap_initial", "swap_attention", "swap_mlp", "operational equivalence"],
+    "result": "Existing aspectual work transfers whole programs and a final carrier but has not exchanged explicit pre-resid18 variable groups between matched constructions."
+  },
+  "authority": {
+    "program_v8": {"path": "ops/aspectual_anchor_transparent_path_program_v8.py", "sha256": "87eb67f3a96904534c8d3ddca5e1df59fa14efd88d1174e1cc2805435346bb57"},
+    "lexical_builder": {"path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py", "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859", "row_sha256": "18dfe9b5e86387017f3b8a81d378cc4892b4ee5a219ea7e35bf02548cd54e493"},
+    "fresh_builder": {"path": "ops/circuit_candidate_aspectual_fresh_construction_v2.py", "sha256": "848332a12c22bf523573e015b6f8f0a38b5865db8b77434dcbe6a176d98370ac", "row_sha256": "3c30019fdcc087c0e7410cd82d02458307bc6987ff9d23349dcf97d076f797d7"},
+    "mediation_runner": {"path": "ops/run_aspectual_anchor_program_v8_rank1_carrier_mediation_v1.py", "sha256": "79b184230fa5ccd594c082c634bffd13c61a12e49e47d38dac15fe95aa0298ce"}
+  },
+  "frozen_design": {
+    "population": "All 32 lexical and 32 fresh A1/A2 rows, bijectively matched by family, reporter, object_name, and direction_id; each row is target once and source is its match in the other panel.",
+    "arms": ["target_full", "source_full", "swap_initial", "swap_attention", "swap_mlp"],
+    "group_definitions": {
+      "initial": "resid10 donor-minus-base query displacement",
+      "attention": "role-projected block11 and block15 source-attention deltas",
+      "mlp": "the explicit block11/12/14/15 base/hybrid state tuples consumed by the released bilinear factors"
+    },
+    "swap_semantics": "Each swap arm starts from the target full v8 program and replaces exactly one named variable group with the matched source group's tensors. source_full supplies all three source groups. Global lambdas, Down weights, exact recurrence, base-resid18 readout, target answer/foil IDs, and target outcome denominator remain target-side/common.",
+    "bars": {
+      "target_full_direction_fraction_min": 0.75,
+      "source_full_over_target_mean_recovery_min": 0.50,
+      "source_full_direction_fraction_min": 0.75,
+      "each_single_group_swap_over_target_mean_recovery_min": 0.75,
+      "each_single_group_swap_direction_fraction_min": 0.75
+    }
+  },
+  "predictions": {
+    "pred_a_authority_pairing_capability_and_controls": "Hashes, row authorities, exact bijection, all native capability cells, manual base replay, and writer/MLP reconstruction controls pass.",
+    "pred_b_target_program_effect": "target_full has positive mean recovery and at least 0.75 direction in lexical/fresh A1/A2.",
+    "pred_c_whole_variable_transfer": "source_full retains at least 0.50 of target_full mean recovery and 0.75 direction in every panel.",
+    "pred_d_groupwise_operational_equivalence": "swap_initial, swap_attention, and swap_mlp each retain at least 0.75 of target_full mean recovery and 0.75 direction in every panel.",
+    "pred_e_exact_coverage_and_price": "All 320 intervention records are unique within 72 counted forwards, 576 example evaluations, and zero fit/backward/update."
+  },
+  "terminal": {
+    "screen": "A-E pass: all three explicit variable groups are construction-interchangeable under the registered downstream reader.",
+    "null": "Authority, target effect, and coverage pass, but whole-source or at least one named group fails operational interchange; retain the first failing group as construction-specific.",
+    "invalid": "Authority, pairing, native capability, reconstruction control, target program effect, or coverage fails."
+  },
+  "price": {"model_forwards_max": 72, "example_evaluations_max": 576, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
