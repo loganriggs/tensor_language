@@ -450,3 +450,13 @@ norm, accounting for 82.55%/85.05% of the complete H1/H4 response removal. Q8 co
 .9759/.9700. Prefix and cue destinations are exactly zero; post-cue intermediate and subject-
 determiner responses are small. The active exact tensor decomposition now partitions all query
 sources and all three attention response factors and validates their H1/H4 c_v/c_proj contraction.
+
+The exact MLP8 product-factor split is a scientifically useful null on the proposed two-term
+linearization. Left plus right change retains 98.72%/95.22% of full complement behavior and
+101.77%/92.48% of final-Q8 norm in A1/A2, with behavior cosine .977/.974, but A1 Q8 cosine is
+only .942 and therefore misses the frozen .95 sufficiency bar. More importantly, the isolated
+bilinear interaction is not secondary: it carries 19.81%/21.21% absolute behavior and
+33.54%/26.68% Q8 norm, above the frozen .15 bounds. Exact factor and projection closure are
+9.54e-6, parent replay is 4.47e-7, and the price is 10 forwards/270 examples with no fit. The
+literal upstream circuit must therefore retain all three tensor terms; removing the product
+interaction would erase real computation rather than merely simplify notation.
