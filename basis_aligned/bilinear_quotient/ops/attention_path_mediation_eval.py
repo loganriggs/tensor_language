@@ -168,3 +168,36 @@ def run_composed(
         for handle in handles:
             handle.remove()
     return output, float(dynamic.get("reconstruction_max_abs", 0.0))
+
+
+def capture_source_written_states(
+    backend,
+    base_batch,
+    donor_batch,
+    writer_base_capture,
+    writer_donor_capture,
+    writer_destinations,
+    *,
+    maximum_boundary,
+    writer_layer=8,
+    writer_heads=(1,),
+    writer_groups=("cue",),
+):
+    """Capture every residual boundary after one exact attention source write."""
+    writer_hook = fixed_source_delta_hook(
+        backend,
+        base_batch,
+        donor_batch,
+        writer_base_capture,
+        writer_donor_capture,
+        writer_destinations,
+        writer_groups,
+        selected_heads=writer_heads,
+    )
+    handle = backend.model.transformer.h[int(writer_layer)].attn.c_proj.register_forward_pre_hook(
+        writer_hook
+    )
+    try:
+        return backend.forward_states(base_batch, maximum_boundary=maximum_boundary)
+    finally:
+        handle.remove()

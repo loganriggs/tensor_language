@@ -175,3 +175,77 @@ def curve(records, group, boundaries, families=("A1", "A2"), *, recovery_bar=0.5
 
 def earliest_passing(points):
     return next((int(point["boundary"]) for point in points if point["passed"]), None)
+
+
+def sweep_precomputed_states(
+    backend,
+    items,
+    *,
+    boundaries,
+    group_name,
+    maximum_boundary,
+    recovery_bar,
+    direction_bar,
+):
+    """Patch precomputed causal states across boundaries and score one source group.
+
+    Each item supplies rows, base/donor batches and outputs, plus ``donor_states``.
+    The donor states may come from a natural donor or from an upstream intervention;
+    this function deliberately does not assume how they were produced.
+    """
+    selected_boundaries = tuple(int(boundary) for boundary in boundaries)
+    if (
+        not selected_boundaries
+        or len(selected_boundaries) != len(set(selected_boundaries))
+        or tuple(sorted(selected_boundaries)) != selected_boundaries
+        or any(not 0 <= boundary <= int(maximum_boundary) for boundary in selected_boundaries)
+    ):
+        raise ResidualOnsetError("boundary sweep must be unique, ordered, and in range")
+    prepared = tuple(items)
+    if not prepared:
+        raise ResidualOnsetError("boundary sweep has no family items")
+    records = []
+    forward_calls = 0
+    example_evaluations = 0
+    for boundary in selected_boundaries:
+        for item in prepared:
+            required = {
+                "rows", "base_batch", "donor_batch", "base_output", "donor_output", "donor_states"
+            }
+            if not required.issubset(item):
+                raise ResidualOnsetError("boundary sweep item is incomplete")
+            patched_output, _ = backend.forward_states(
+                item["base_batch"],
+                maximum_boundary=maximum_boundary,
+                donor_batch=item["donor_batch"],
+                donor_states=item["donor_states"],
+                boundary=boundary,
+                group_name=group_name,
+            )
+            forward_calls += 1
+            example_evaluations += len(item["rows"])
+            records.extend(
+                recovery_records(
+                    item["rows"],
+                    item["base_output"],
+                    item["donor_output"],
+                    patched_output,
+                    group=group_name,
+                    boundary=boundary,
+                )
+            )
+    families = tuple(dict.fromkeys(str(row["transform_id"]) for item in prepared for row in item["rows"]))
+    points = curve(
+        records,
+        group_name,
+        selected_boundaries,
+        families=families,
+        recovery_bar=recovery_bar,
+        direction_bar=direction_bar,
+    )
+    return {
+        "records": records,
+        "curve": points,
+        "forward_calls": forward_calls,
+        "example_evaluations": example_evaluations,
+    }
