@@ -1,0 +1,49 @@
+{
+  "schema": "aspectual_anchor_mlp4_induced_block5_crossing_factorial_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp4_induced_block5_crossing_factorial_v1",
+  "created_utc": "2026-09-06T03:10:00Z",
+  "question": "Which exact block5 term first transports the fixed two-term MLP4 source write into the final-subject carrier?",
+  "authority": {
+    "onset_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_induced_final_query_onset_v2_result.json",
+      "sha256": "c37d3269c4a3b7fc1163e905471804c1ed9d865f50fef0eca220f6d5e4343fd2",
+      "terminal": "null",
+      "first_passing_boundary": 6,
+      "resid6_mean_recovery": 0.05531263467112856
+    },
+    "writer_terms": ["left_change", "right_change"],
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+  },
+  "population": "The same 64 valid A1/A2 discovery rows.",
+  "operator": {
+    "base_and_hybrid": "Capture block5 components under native base and the fixed two-term MLP4 writer hybrid.",
+    "factors_at_final_query": {
+      "carried5": "lambda5[0] times hybrid-minus-base resid5",
+      "attention5": "hybrid-minus-base complete attention5 output",
+      "mlp5": "hybrid-minus-base complete MLP5 output"
+    },
+    "intervention": "Add selected factors at the final-subject base resid6 state and run the exact layers6-17 suffix.",
+    "arms": "All eight Boolean subsets, direct hybrid-minus-base resid6 ceiling, and full two-term writer.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_crossing_instrument": "Manual base logits match native within 1e-4; three factors reconstruct hybrid-minus-base resid6 within 0.04; full factors match direct resid6 replacement within 0.125 scored logit.",
+    "pred_b_writer_recurrence": "The two-term writer recurs within 0.02 of mean recovery 0.33379277118533013 with positive A1/A2 recovery and direction fraction at least 0.80.",
+    "pred_c_onset_recurrence": "The full block5 crossing recurs within 0.01 of resid6 mean recovery 0.05531263467112856, with A1/A2 recovery at least 0.05 and direction fraction at least 0.80.",
+    "pred_d_attention5_transport": "Attention5 is the largest exact factorial Shapley factor, contributes at least 0.04 mean recovery, and removing it lowers mean recovery in A1 and A2.",
+    "pred_e_exact_coverage": "All ten arms produce all 64 finite outcomes within 28 model forward calls and 896 example evaluations."
+  },
+  "terminal": {
+    "screen": "A-E pass: license attention5 as the first source-to-final-query transport operation for the two-term MLP4 write.",
+    "null": "The run is valid but C or D fails: report the exact block5 factorization without promoting attention5.",
+    "invalid": "Instrument identity, writer recurrence, native capability, finiteness, or coverage fails. No factor, arm, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 28,
+    "example_evaluations_max": 896,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First exact factorization of the onset block that transports a factorized upstream MLP source write into a later query state."
+}

@@ -304,6 +304,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.mlp4_induced_block9_crossing_factorial_v2` | complete | exact carried9/attention9/MLP9 factorial | **attention9-dominant resid10 crossing** | `aspectual_anchor_mlp4_induced_block9_crossing_factorial_v2_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_induced_final_query_onset_v1` | abandoned pre-run | exact-budget audit | **no model execution** | none |
 | `aspectual_anchor.has_vs_had.mlp4_induced_final_query_onset_v2` | null | fixed resid5–9 final-query depth sweep | **observed onset resid6, not predicted resid9** | `aspectual_anchor_mlp4_induced_final_query_onset_v2_result.json` |
+| `aspectual_anchor.has_vs_had.mlp4_induced_block5_crossing_factorial_v1` | complete | exact carried5/attention5/MLP5 factorial | **attention5 initiates final-query transport** | `aspectual_anchor_mlp4_induced_block5_crossing_factorial_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -372,6 +373,12 @@ confirming that MLP4 changed only the three source positions. The writer signal 
 (5.53% recovery; A1 direction 0.9375, A2 1.0), rather than at predicted resid9. It then accumulates monotonically: resid7 7.29%,
 resid8 9.57%, resid9 10.92%. The carried branch is therefore initiated by block5 and strengthened through blocks6-8; the next exact
 factorization targets block5's carried/attention/MLP crossing at the final query.
+
+That onset factorization closes within 6.7e-6 scored logit and screens. It exactly reproduces the resid6 recovery (5.5313%). Attention5
+is the first transport operation, with Shapley 4.8411 points; MLP5 adds 0.6902 and carried resid5 is exactly zero, as required by the
+source-only MLP4 intervention. Removing attention5 loses 4.94 points in A1 and 4.81 in A2. The explicit circuit now branches from the
+two-term MLP4 write into an immediate attention5 source-to-final-query edge, followed by accumulation through blocks6-8, alongside the
+separately closed attention9 H1/H4 contextual-bank edge. The next frozen decomposition resolves which attention5 heads carry the onset.
 
 ### `subroutine.induction.equality_score` — site_live
 
