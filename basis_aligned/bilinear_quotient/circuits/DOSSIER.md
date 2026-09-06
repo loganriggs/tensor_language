@@ -129,6 +129,12 @@ replacement does not read the recipient's native opener term and stores only `3,
 dependency, not all upstream context or the native suffix needed for causal execution. The earlier pair-centered selective-necessity null
 remains unchanged.
 
+The absolute program also survives a fresh-intervention audit on both established OOD target families: cosine `0.99654`, relative L2
+`0.09265`, norm ratio `1.03749`, and perfect signs across 144 endpoints. The direct and completed-then-reopened families separately reach
+cosine `0.99853` and `0.99612`; all six ordered pairs have positive-effect and sign-agreement fractions `1.0`. All 216 answer-preserving
+endpoints dispatch their native term unchanged, with exactly zero maximum logit change and no answer loss. This licenses replacing the
+six displacement vectors with three absolute closer terms in the compiled bracket interface while retaining the no-edit path.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -170,6 +176,7 @@ remains unchanged.
 | `bracket_ordered_pair_suffix_free_scalar_feasibility.v1` | complete | bidirectional leave-family-out scalar transfer | **retrospective feasibility** | active diagnostic | `bracket_ordered_pair_suffix_free_scalar_feasibility_v1_result.json` |
 | `bracket_suffix_free_scalar_fresh_corpus.v1` | complete | frozen six-scalar prediction on untouched third construction | **predictive screen** | active | `bracket_suffix_free_scalar_fresh_corpus_validation_v1_result.json` |
 | `bracket_l13h8_closer_absolute_term_program.v1` | complete | three absolute terms on untouched fourth construction | **program screen** | active | `bracket_l13h8_closer_absolute_term_program_v1_result.json` |
+| `bracket_absolute_term_program_ood_controls.v2` | complete | two OOD targets plus three no-edit control families | **program screen** | active | `bracket_absolute_term_program_ood_control_validation_v2_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -178,9 +185,9 @@ publication pair is retained only under `artifact_invalid` filenames.
 
 **Next:** keep both fixed programs and their bounded cross-program robustness, but reject fixed MLP15/17 gains and any end-to-end
 simplicity claim. Counterfactual role-prompt lookup is now eliminated at dispatch. The immediate frontier is the native suffix: test
-the three-term absolute bracket program across both prior OOD target families and all answer-preserving controls before replacing the
-six displacement vectors in the compiled package. Do not substitute additional arbitrary stress scaling, syntax-conditioned gain
-fitting, or generic low-rank approximation for an executable dependency-reduction result.
+an updated combined package that replaces six bracket displacements by three absolute terms and adds the prospective six-scalar bracket
+effect reader plus Task14's two fixed readers, with literal storage and residual-dependency accounting. Do not substitute additional
+arbitrary stress scaling, syntax-conditioned gain fitting, or generic low-rank approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
