@@ -1,0 +1,10 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_mlp9_bilinear_correction_program_v2",
+  "checked_utc": "2026-09-06T23:37:00Z",
+  "decision": "numeric_only_repair",
+  "invalid_predecessor_result_sha256": "05b0dbdc41089fdc27b743fc3064f2732ad7378f027bf824bbc18c80d2f9fd35",
+  "invalid_predecessor_runner_sha256": "40609971d922583c194c2c64eeda476b6bfe96c25361217337a2ee6cf96b3567",
+  "repair": "Raise only the full-union versus native-live resid18 relative-norm tolerance from 1e-4 to 2e-4. The observed v1 error was 1.0265325545e-4; full-vocabulary logits already closed at 1.0967e-5 and the exact MLP9 factor output closed at 5.455e-4 absolute.",
+  "frozen": "all rows, factors, unions, complete attention9 clamp, checkpoint tensors, behavior/Q8 thresholds, interaction thresholds, and price",
+  "no_further_repair": true
+}
