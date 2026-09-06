@@ -1,0 +1,28 @@
+{
+  "schema": "aspectual_tense_endpoint_jacobian_union_mode_program_prior_v1",
+  "candidate_id": "aspectual_tense.endpoint_jacobian_union_mode_program_v1",
+  "registered_utc": "2026-09-06T18:08:00Z",
+  "question": "Is the remaining is/was A2 complement caused by truncating fit-gradient energy and sampling only the base endpoint, or does it require genuinely construction-specific modes absent from the A1 intervention pair?",
+  "authority": {
+    "weight_jacobian_union_result_sha256": "5239a47f124ca14b241e42cbeb4ecc28b56a5ea58d4eac4ac41676865d635494",
+    "weight_jacobian_union_runner_sha256": "2041b78b4debf43847a71ea3d3cd10cba7cf8d3c8a6fb61e8dd3b2b68bdff9c4",
+    "jacobian_runner_sha256": "24b6c554960f2ace5e920944b0d0bffbb0aece185e81aa39ea9ff0b6aa0031c5",
+    "static_runner_sha256": "e72ec560692b2924c506f592ce83037f353b0bebc5cfa1e3705f1c2aab1a1c8f"
+  },
+  "frozen_design": {
+    "fit_only": "Original A1 fit rows only; heldout A1 and A2 stay sealed.",
+    "endpoint_span": "For every retained component, concatenate answer-minus-foil gradients at all carrier positions from both native base and native donor endpoints; retain every singular mode above relative 1e-6.",
+    "union": "Union the complete empirical endpoint-Jacobian span with the exact static downstream-weight-readable span.",
+    "arms": ["full_component_program", "endpoint_jacobian_weight_union", "orthogonal_union_complement"],
+    "price": {"model_forwards": 24, "example_evaluations": 383, "records": 201,
+      "transformer_backwards": 4, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capability_projection_finiteness_and_exact_price": "Authorities, base/donor capability, projectors, coverage, finiteness and price pass.",
+    "pred_b_endpoint_union_modes_are_sufficient": "Union recovery is at least 0.95 of full recovery and donorward on every task/panel.",
+    "pred_c_endpoint_union_complements_are_secondary": "Absolute complement recovery is at most 0.20 of full recovery on every task/panel.",
+    "pred_d_endpoint_union_remains_compressive": "Every union rank is below component width and no larger than 114 for has/had or 35 for is/was.",
+    "pred_e_no_causal_fit_or_model_update": "No heldout/A2 outcome selects modes and no model update occurs."
+  },
+  "decision": "screen promotes the endpoint-union quotient to fresh validation; null establishes that A2 uses construction-specific modes absent even from the complete A1 endpoint tangent span; invalid on authority, capability, projection, coverage, finiteness, or price failure"
+}
