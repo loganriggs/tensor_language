@@ -1,0 +1,28 @@
+{
+  "schema": "temporal_auxiliary_h3_rank8_v10_source_factor_atlas_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_rank8_v10_source_factor_atlas_v1",
+  "registered_utc": "2026-09-06T20:28:04Z",
+  "question": "Which source regions and pattern/value/interaction operations generate the complete H3-Q8 response on v10 after the older subject-only rule failed to transfer?",
+  "authority": {
+    "subject_only_v10_null_sha256": "2c829eff3b00de55442260885cf86ca2b4432c64bcaf7b97bfb8ff739c2bb5b4",
+    "status": "Subject base-pattern values leave 36.15%/45.99% of Q8 norm unexplained and miss composed behavior, despite exact c_v reconstruction.",
+    "older_source_screen_sha256": "1fd089aeb63e2ec7e1771d54170461dc18b3bd105e2b7fc08413d8456a515cf1",
+    "relation": "registered_control_family_reversal"
+  },
+  "frozen_partition": {
+    "source_groups": ["prefix", "cue", "pre_subject", "subject_onset", "post_subject", "self"],
+    "definition": "Per row, the groups form an exact disjoint partition of every causal source position through the answer query. Cue is the unique changed token; subject_onset is the two declared writer destinations; self is the query; pre/post groups are the remaining intervals.",
+    "factors": ["pattern_on_base_value", "base_pattern_on_value_change", "pattern_value_interaction"],
+    "coordinate_measure": "Project every exact group-factor H3 head-output term into frozen Q8 and require their complete sum to equal the live H3-Q8 response.",
+    "behavior_measure": "For every one of 18 cells, six group unions, three factor unions, the causal-suffix union, and the complete sum, map its Q8 vector through the released output-weight residual route and score exact finite answer/foil effects.",
+    "price_max": {"model_forwards": 72, "example_evaluations": 2400, "records": 1890, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_exact_partition_factor_closure_coverage_and_price": "Hashes, source partition, head/Q8 factor closure, capture reconstruction, complete endpoint replay, finite coverage, and price pass.",
+    "pred_b_all_source_value_is_the_dominant_operation": "The all-source base-pattern value union has the largest mean-absolute causal effect of the three factor unions and retains at least 80% of complete behavior in both panels.",
+    "pred_c_causal_suffix_sources_close_the_response": "The union of subject_onset, post_subject, and self across all factors retains at least 90% of complete Q8 norm and causal behavior in both panels.",
+    "pred_d_pre_subject_value_change_is_zero": "Prefix, cue, and pre_subject base-pattern value terms are numerically zero because the L8 intervention is written only at later subject destinations.",
+    "pred_e_subject_is_material_but_not_complete": "Subject_onset alone retains between 40% and 80% of complete Q8 norm in both panels, matching the observed construction shift without relabeling it as diffuse noise."
+  },
+  "decision": "A passing common causal-suffix/value account becomes the upstream writer tensor. If causal suffix fails but one common ranked union closes, freeze that union for a new-bank confirmation. If source rankings differ across A1/A2, define construction-conditioned reachable coordinates and move to the finite Hankel shared-state test rather than forcing one semantic source label."
+}
