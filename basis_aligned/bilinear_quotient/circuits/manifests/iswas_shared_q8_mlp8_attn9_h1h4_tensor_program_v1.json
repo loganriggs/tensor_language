@@ -1,0 +1,91 @@
+{
+  "schema": "compiled_causal_tensor_program_manifest_v1",
+  "program_id": "iswas.shared_q8.mlp8_postcue.attn9_h1h4.v1",
+  "compiled_utc": "2026-09-06T22:03:00Z",
+  "scope": "Dominant natural is/was path from the post-cue MLP8 bilinear product to the shared temporal-Q8 state through attention9 heads 1 and 4 at the final query.",
+  "authority_sha256": {
+    "weight_compiler_result": "393d730e958ace78ef5a4026ed2a35acebb4bf801f6c37daa8cca4746547aadc",
+    "product_factor_result": "c118e4936cd241e0aa0b2463508a7eb8a968cca7ab36331031f952c1ac854cd4",
+    "query_source_factor_result": "2d575d2c6e50d0cb716e8293576815b30cca0e4f84d07549cb8042ff0d887840",
+    "fresh_v10_confirmation_result": "eb4470b3ed1495a5ad11c0a1e685d0c6ca4e9942532a872f165bc16f07eb69f5",
+    "shared_specific_causal_result": "bd302cb0d104db5afe43906885dff52f851a03e638c6ff30de9d87224ce235bc",
+    "finite_hankel_result": "f8fa10c21c30cd3420648641b4a284ba3cb41152872db8cf77d25213c597bb62"
+  },
+  "state": {
+    "name": "Q8",
+    "ambient_width": 1152,
+    "coordinate_width": 8,
+    "finite_observable_rank": 4,
+    "finite_dimension_bracket": [4, 8],
+    "gauge": "Only the eight-dimensional projector and contracted maps are identified; coordinates are invariant up to an invertible basis change."
+  },
+  "program": [
+    {
+      "step": 1,
+      "name": "bilinear_product_delta",
+      "equation": "delta_h = (delta_L * R_base) + (L_base * delta_R) + (delta_L * delta_R)",
+      "source_positions": "post_cue_before_subject",
+      "checkpoint_tensors": ["transformer.h.8.mlp.Left", "transformer.h.8.mlp.Right"]
+    },
+    {
+      "step": 2,
+      "name": "remove_direct_q8_hidden_modes",
+      "equation": "delta_h_perp = (I - V8 V8^T) delta_h, where rows(V8) span S_Q8^T W_Down",
+      "checkpoint_tensors": ["transformer.h.8.mlp.Down.weight"],
+      "interpretation": "The dominant route begins in the exact hidden-product complement of direct Q8 Down modes."
+    },
+    {
+      "step": 3,
+      "name": "mlp8_down_and_block9_recurrence",
+      "equation": "delta_z9 = lambda9 * (Down(h_base + delta_h_perp) - Down(h_base)); z9_prime = z9_base + delta_z9",
+      "checkpoint_tensors": ["transformer.h.8.mlp.Down.weight", "transformer.h.9.lambdas[0]"],
+      "lambda9": 0.90234375
+    },
+    {
+      "step": 4,
+      "name": "state_conditioned_value_read",
+      "equation": "delta_V = (1-lambda_attn9) * (c_v(RMS(z9_prime)) - c_v(RMS(z9_base)))",
+      "heads": [1, 4],
+      "checkpoint_tensors": ["transformer.h.9.attn.c_v.weight", "transformer.h.9.attn.lamb"],
+      "initial_value_branch": "exactly zero in the confirmed intervention"
+    },
+    {
+      "step": 5,
+      "name": "base_pattern_transport_to_final_query",
+      "equation": "response_h(query) = sum_{s in postcue} P_base[h,query,s] * delta_V[h,s]",
+      "heads": [1, 4],
+      "destination": "final_query",
+      "interpretation": "Native attention routing transports an input-dependent value update; pattern change and pattern-value interaction are small."
+    },
+    {
+      "step": 6,
+      "name": "project_and_write_q8",
+      "equation": "delta_resid = sum_{h in {1,4}} F.linear(response_h, W_cproj[:,head_slice_h]); q8 = delta_resid * S_Q8",
+      "checkpoint_tensors": ["transformer.h.9.attn.c_proj.weight"],
+      "output": "shared temporal/is-was Q8 coordinates"
+    }
+  ],
+  "factor_necessity": {
+    "left_plus_right_behavior_fraction_A1_A2": [0.9871774316, 0.9522334337],
+    "left_plus_right_q8_norm_fraction_A1_A2": [1.0176875591, 0.9248374701],
+    "interaction_absolute_behavior_fraction_A1_A2": [0.1981347054, 0.2121190280],
+    "interaction_q8_norm_fraction_A1_A2": [0.3353698254, 0.2668438554],
+    "decision": "retain all three exact bilinear terms"
+  },
+  "compiler_validation": {
+    "behavior_cosine_A1_A2": [0.9999998984, 0.9999999373],
+    "behavior_relative_rmse_A1_A2": [0.0000123267, 0.0000095798],
+    "q8_relative_rmse_A1_A2": [0.0000068327, 0.0000060364],
+    "full_vocabulary_logit_max_abs": 0.000014782,
+    "fit_updates": 0
+  },
+  "causal_coverage": {
+    "attention9_h1h4_fraction_of_all_attention9_behavior_A1_A2": [0.8626, 0.8087],
+    "final_query_fraction_of_complete_h1h4_behavior_A1_A2": [0.8255, 0.8505],
+    "status": "High-quality dominant path, not yet a globally complete minimal circuit. Smaller attention11/MLP9 positive branches and MLP17 opposing correction remain outside this manifest."
+  },
+  "identification_policy": {
+    "regularization": "Noise or KL may be used during discovery to reduce unstable memorization, but cannot establish semantic identity.",
+    "required_evidence": ["zero-fit fresh-bank transfer", "full-vocabulary causal effect", "complement intervention", "literal checkpoint-weight contraction", "gauge-invariant shared-state test"]
+  }
+}

@@ -460,3 +460,12 @@ bilinear interaction is not secondary: it carries 19.81%/21.21% absolute behavio
 9.54e-6, parent replay is 4.47e-7, and the price is 10 forwards/270 examples with no fit. The
 literal upstream circuit must therefore retain all three tensor terms; removing the product
 interaction would erase real computation rather than merely simplify notation.
+
+The zero-refit v11 DAS regularization audit is a second valid null on regularization as a rank-one
+repair. Unregularized constrained DAS has centered full-vocabulary joint error .872/.949 in A1/A2.
+Tangent noise is consistently the best regularized variant but is slightly worse at .895/.971;
+KL gives 1.317/1.470, DIM 1.346/1.498, and the vector-aligned axis 1.358/1.508. Thus noise gives a
+stable ranking without a generalization improvement, while KL rotates toward DIM. Together with
+the tensor-anchored rank7 null and zero-fit rank8 v11 transfer, this localizes the problem to
+rank/target misspecification rather than optimizer failure: regularization can prevent unstable
+memorization, but it cannot compress an eight-dimensional causal interface into one direction.
