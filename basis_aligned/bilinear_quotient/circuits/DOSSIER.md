@@ -307,6 +307,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.mlp4_induced_block5_crossing_factorial_v1` | complete | exact carried5/attention5/MLP5 factorial | **attention5 initiates final-query transport** | `aspectual_anchor_mlp4_induced_block5_crossing_factorial_v1_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_induced_attention5_head_sweep_v1` | null | fixed singleton plus leave-one-out attention5 sweep | **transport is distributed across heads** | `aspectual_anchor_mlp4_induced_attention5_head_sweep_v1_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_induced_attention5_four_head_factorial_v1` | complete | exact 16-arm H7/H1/H6/H8 factorial | **four-head attention5 transporter** | `aspectual_anchor_mlp4_induced_attention5_four_head_factorial_v1_result.json` |
+| `aspectual_anchor.has_vs_had.mlp4_to_attention5_four_head_source_identity_v1` | complete | exact attention5 source-term identity | **MLP4 bank-to-four-head path closed** | `aspectual_anchor_mlp4_to_attention5_four_head_source_identity_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -392,6 +393,13 @@ direction fractions 0.9375/1.0. All four exact Shapley values are positive (H7 1
 largest and its removal lowers both families. Because the upstream MLP4 intervention changes only `last`+period+`the` at resid5,
 attention5's first read now admits a stringent source-term identity test: those three changed terms should reconstruct the licensed
 four-head output difference without invoking any other source.
+
+It does, to numerical identity. The `last`+period+`the` source-term arm retains 99.9997% of the complete H7/H1/H6/H8 effect and differs
+by at most 6.2e-6 scored logit; the all-source arm is identical to the same precision. Cue and final-query self terms are exactly zero.
+Individually, period carries 2.119%, the determiner 1.424%, and `last` 0.954% recovery. This licenses the explicit discovery-corpus path
+`Down((Left_d-Left_b)*Right_b + Left_b*(Right_d-Right_b)) @ MLP4(last,period,the)` -> the same three source terms ->
+`attention5 heads {7,1,6,8}` -> final query. The route is manipulable and composable, while downstream blocks6-9 still supply measured
+amplification/parallel transport rather than a complete standalone predictor.
 
 ### `subroutine.induction.equality_score` — site_live
 

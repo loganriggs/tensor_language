@@ -1,0 +1,45 @@
+{
+  "schema": "aspectual_anchor_mlp4_to_attention5_four_head_source_identity_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp4_to_attention5_four_head_source_identity_v1",
+  "created_utc": "2026-09-06T03:23:00Z",
+  "question": "Do the exact last+period+the source terms carry the two-term MLP4 write into the licensed attention5 H7/H1/H6/H8 transporter?",
+  "authority": {
+    "four_head_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_induced_attention5_four_head_factorial_v1_result.json",
+      "sha256": "18a88ee7142f18d98b1ffdb41deb338a81ff1b80be7b416fa68593b129532b96",
+      "terminal": "screen",
+      "heads": [7, 1, 6, 8],
+      "mean_recovery": 0.04557515628642643
+    },
+    "writer_terms": ["left_change", "right_change"],
+    "source_bank": ["last", "period", "determiner"],
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+  },
+  "population": "The same 64 valid A1/A2 discovery rows.",
+  "operator": {
+    "base_and_hybrid": "Capture exact attention5 patterns, effective values, and head outputs under native base and the fixed two-term MLP4 writer hybrid.",
+    "source_term": "For each licensed head at the final-subject query, replace base pattern[q,k,h]*value[k,h] by its writer-hybrid counterpart at named source k inside the otherwise native base head output.",
+    "arms": ["complete_four_heads", "all_sources", "last_period_determiner", "last", "period", "determiner", "cue", "self", "cue_self"],
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_attention_instrument": "The manual attention5 path matches native scored logits within 1e-4; all source terms reconstruct complete H7/H1/H6/H8 vectors within 1e-4 and scored logits within 0.125.",
+    "pred_b_four_head_recurrence": "Complete four-head replacement recurs within 0.01 of mean recovery 0.04557515628642643 with positive A1/A2 recovery and direction fraction at least 0.80.",
+    "pred_c_source_bank_identity": "The last+period+the arm matches the complete four-head arm within 0.125 scored logit per row, retains at least 95% of its mean recovery, and has A1/A2 direction fraction at least 0.80.",
+    "pred_d_unchanged_source_control": "Cue+self has absolute mean recovery at most 5% of the complete four-head absolute mean recovery.",
+    "pred_e_exact_coverage": "All nine arms produce all 64 finite outcomes within 28 model forward calls and 896 example evaluations."
+  },
+  "terminal": {
+    "screen": "A-E pass: license the explicit two-term MLP4 -> last+period+the -> attention5 H7/H1/H6/H8 path.",
+    "null": "The run is valid but B, C, or D fails: retain the four heads without a source identity claim.",
+    "invalid": "Instrument identity, native capability, alignment, finiteness, or coverage fails. No head, source, arm, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 28,
+    "example_evaluations_max": 896,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First exact source-term identity connecting a factorized MLP write to the distributed heads that immediately transport it."
+}
