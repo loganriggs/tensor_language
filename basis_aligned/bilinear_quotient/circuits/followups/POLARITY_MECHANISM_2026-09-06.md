@@ -176,3 +176,11 @@ recovery rises 0.515→0.702; its rank-1-per-block direction keeps 0.741. Gains 
 (first-added share 0.46 of the total), and `attn:09:head:07` is added to all four behaviours'
 sets (a hub, consistent with v49's stack-pattern locus). Reading rule applied: the head budget
 is not raised; the residual ~23% is many small heads, not one more writer.
+
+**Hidden units of the gate (v55, `unit_gate_hidden_units_v55_result.json`).** Exact split of each downstream Bilinear
+MLP into linear part + masked product term, applied in all four runs. Identity checks pass (mask = all → unmasked I to
+1e-5; mask = none → v43 floor exactly). Ranking the 27,648 hidden units of mlp 12–17 by the pairwise-cross product on the
+direct-path readout (even rows) and evaluating one-shot on odd rows: top-256 carries 0.29 of the gated part, top-1024
+0.10 (non-monotone), random-1024 0.04, odd-row in-sample ranking 1.62. Registered b/c/e FALSE. Reading: the 0.78·b
+product is a dense bilinear form across the six layers, not a small set of nameable Left/Right factor pairs reachable
+by a direct-path proxy; the Tier-4 statement stays at the layer level (v43/v48/v49). Not re-ranked.
