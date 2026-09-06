@@ -1,0 +1,63 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_artifact_v4",
+  "program_id": "aspectual_anchor.has_vs_had.transparent_path_program_v4",
+  "created_utc": "2026-09-06T04:55:00Z",
+  "executable": {
+    "path": "ops/aspectual_anchor_transparent_path_program_v4.py",
+    "sha256": "ed1d0cbabd3ca317803975413589b8a3886d594b8cd4a715ab61ebe663559729",
+    "parent_module": "ops/aspectual_anchor_transparent_path_program_v3.py",
+    "framework": "array-protocol compatible",
+    "model_loads": 0,
+    "fits": 0
+  },
+  "new_typed_operations": {
+    "bilinear_hidden_delta": "sum a unique subset of deltaLeft*Right_base, Left_base*deltaRight, and deltaLeft*deltaRight",
+    "suffix_mlp_write_delta": "project the frozen two-factor MLP11 or MLP15 hidden response through checkpoint Down.weight without bias",
+    "compiled_suffix_crossing_delta": "carried residual delta + source-resolved dominant-head attention delta + compressed bilinear MLP delta"
+  },
+  "frozen_suffix_program": {
+    "block11": {
+      "attention_head": 3,
+      "attention_source_bank": ["determiner", "period", "self"],
+      "mlp_factors": ["left_change", "right_change"],
+      "mlp_selected_to_all_fraction": 1.0114963035220619,
+      "mlp_family_increments": {"A1": 0.03059530044410544, "A2": 0.03934188414766046}
+    },
+    "block15": {
+      "attention_head": 5,
+      "attention_source_bank": ["period", "determiner", "self"],
+      "mlp_factors": ["left_change", "bilinear_interaction"],
+      "mlp_selected_to_all_fraction": 1.1007164084089096,
+      "mlp_family_increments": {"A1": 0.004541561511518188, "A2": 0.00902245001562857}
+    }
+  },
+  "price": {
+    "stored_fit_scalars": 0,
+    "stored_fit_vectors": 0,
+    "selected_suffix_attention_heads": 2,
+    "selected_suffix_source_role_occurrences": 6,
+    "selected_suffix_mlp_terms": 4,
+    "requires_checkpoint_weights": true,
+    "requires_paired_base_and_donor_states": true,
+    "requires_native_intervening_blocks_and_final_readout": true
+  },
+  "authority": {
+    "aspectual_anchor_transparent_path_program_release_v3_result.json": "b028230ac7fd5c3acdf84f568ab8e7cc43cf277d9028ace8a5b95f3d59c03f08",
+    "aspectual_anchor_mlp11_15_bilinear_compression_split_v1_result.json": "960bde3deb6b416212ff1be616887cc1b68f546fc31c0619a89be3aa6bef3bdf"
+  },
+  "evidence_class": "prospective_split_suffix_mlp_compression_composed_with_v3_source_banks",
+  "scope": {
+    "licensed": [
+      "executable paired-causal tensor equations with source- and MLP-resolved block11/block15 crossings",
+      "component manipulation of the four selected suffix MLP response terms"
+    ],
+    "not_licensed": [
+      "standalone native-margin prediction",
+      "full-logit prediction",
+      "free-form text",
+      "new-construction transfer",
+      "whole-model replacement",
+      "transparent replacement of native blocks10,12-14,16-17 or the final readout"
+    ]
+  }
+}

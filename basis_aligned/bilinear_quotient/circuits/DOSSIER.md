@@ -324,6 +324,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.attention11h3_15h5_source_compression_release_v1` | released | zero-forward immutable evidence-class audit | **three-role 11H3/15H5 banks released with post-outcome-repair label** | `aspectual_anchor_attention11h3_15h5_source_compression_release_v1_result.json` |
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v3` | released | executable API/equation/evidence audit | **source-resolved paired-causal program through block15** | `aspectual_anchor_transparent_path_program_release_v3_result.json` |
 | `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_split_v1` | complete | split exact bilinear-response factorials | **two-term MLP11 and MLP15 suffix responses transfer disjointly** | `aspectual_anchor_mlp11_15_bilinear_compression_split_v1_result.json` |
+| `aspectual_anchor.has_vs_had.transparent_path_program_release_v4` | released | executable API/equation/evidence audit | **source- and MLP-resolved paired-causal program through block15** | `aspectual_anchor_transparent_path_program_release_v4_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -509,6 +510,12 @@ all-three-minus-empty MLP increments, with positive increments in A1 and A2. Exa
 0.00115/0.00299, and the all-three scored outputs match the released source-resolved crossings within 4.8e-6. All five frozen gates
 pass in 60 forwards and 480 evaluations. The next compilation can therefore replace both native suffix MLP deltas with these typed
 two-term equations; the intervening native blocks and carried-state recurrence remain explicit dependencies.
+
+Executable v4 performs that compilation. It inherits the audited v3 interface, adds arbitrary exact bilinear hidden-response subsets,
+freezes the selected factor pair by suffix boundary, projects each pair through checkpoint `Down.weight`, and composes it with carried
+state and source-resolved attention. All five zero-forward release audits and 25 deterministic equation/rejection cases pass. The
+program is now source- and MLP-resolved at both material suffix amplifiers, with zero fitted state. It still depends on checkpoint
+weights, paired states, native intervening blocks, and the final readout, so the standalone/free-form/whole-model exclusions remain.
 
 ### `subroutine.induction.equality_score` — site_live
 
