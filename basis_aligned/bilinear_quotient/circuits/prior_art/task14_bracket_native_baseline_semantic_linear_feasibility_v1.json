@@ -1,0 +1,50 @@
+{
+  "schema": "task14_bracket_native_baseline_semantic_linear_feasibility_prior_art_v1",
+  "candidate_id": "cross_behavior.task14_bracket_native_baseline_semantic_linear_feasibility_v1",
+  "created_utc": "2026-09-06T01:06:10Z",
+  "data_status": "RETROSPECTIVE_TWO_FOLD_FEASIBILITY; native baseline margins have not previously been stored in the cited effect receipts; diagnostic only until a fresh-corpus validation",
+  "purpose": "Test the smallest explicit semantic baseline generators that could remove the v4 actuator's final native-margin input without row identity, lexical features, template tables, or outcome-conditioned rank search.",
+  "authority": {
+    "task14_bracket_counterfactual_margin_actuator_v4_artifact.json": "85c5cc0549421fc1575d96ce621d0677ea4b0cc2d154b2c0bf7af90f4148bd4c",
+    "circuit_fast_screen_candidate_task14_cardinality_prototype_transfer.py": "b8ac252137b9844ee5c417c073497e18df337c1e4200d17513ef6e31a0915ab1",
+    "run_task14_mlp6_7_direction_cardinality_prototype_causal_validation.py": "8b4c4c645cf333f26cf3a81669d36ca5d952c21704aa637089bae98adfa849a4",
+    "bracket_suffix_free_fresh_corpus_v1_rows.json": "d808806fd1b05f834cf6ef4fa71465464c0403f66dc13ece8a24cffcc40142f9"
+  },
+  "frozen_folds": {
+    "task14": "within each direction-by-template group, sort row_id and alternate rows between folds; all sixteen E/A/U/W subsets remain attached to their row",
+    "bracket": "sort the 36 row_id values and alternate rows between folds; both endpoint directions remain attached to their row"
+  },
+  "models": {
+    "task14": "ordinary least squares with six coefficients: intercept, direction sign, and four E/A/U/W membership indicators; no template, row, lexical, or subset-interaction feature",
+    "bracket": "ordinary least squares with five coefficients: intercept, two recipient-closer contrasts, and two donor-closer contrasts; no row, family, text, side, or interaction feature"
+  },
+  "bars": {
+    "minimum_baseline_cosine": 0.90,
+    "maximum_baseline_relative_l2": 0.50,
+    "minimum_baseline_sign_agreement": 0.90,
+    "minimum_each_fold_cosine": 0.85,
+    "maximum_each_fold_relative_l2": 0.60,
+    "minimum_counterfactual_cosine": 0.90,
+    "maximum_counterfactual_relative_l2": 0.50,
+    "minimum_counterfactual_sign_agreement": 0.85,
+    "maximum_replay_or_closure_error": 0.0001
+  },
+  "predictions": {
+    "pred_a_instrument_and_folds": "Task14 decomposition closure and bracket replay error are at most 1e-4; row-disjoint folds cover all 512 and 72 targets exactly once.",
+    "pred_b_task14_semantic_baseline": "Cross-fitted Task14 baseline margins pass the overall and each-fold baseline bars with exactly six coefficients per fold.",
+    "pred_c_bracket_semantic_baseline": "Cross-fitted bracket baseline margins pass the overall and each-fold baseline bars with exactly five coefficients per fold.",
+    "pred_d_absolute_counterfactual_margins": "Adding the immutable v4 effects to cross-fitted baselines passes all counterfactual bars separately for Task14 and bracket targets.",
+    "pred_e_fixed_price_and_scope": "Exactly four closed-form fits, four physical model forwards, 680 example evaluations, no backwards or parameter updates, and no row/template/lexical feature."
+  },
+  "terminal": {
+    "feasibility_screen": "All five predictions pass. Freeze coefficients from all diagnostic rows, construct an untouched corpus, and prospectively validate before promotion.",
+    "null": "Any valid scientific failure closes this smallest semantic-linear baseline route; do not add row, template, lexical, interaction, or higher-rank features post hoc.",
+    "invalid": "Instrument, fold, authority, or price failure only."
+  },
+  "closed_claims": [
+    "prospective baseline prediction",
+    "full logits",
+    "uncontrolled natural text",
+    "whole-model replacement"
+  ]
+}
