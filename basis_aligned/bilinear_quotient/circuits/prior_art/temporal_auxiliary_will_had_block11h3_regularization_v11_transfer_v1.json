@@ -1,0 +1,27 @@
+{
+  "schema": "temporal_auxiliary_block11h3_regularization_v11_transfer_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.block11h3_regularization_v11_transfer_v1",
+  "registered_utc": "2026-09-06T22:00:00Z",
+  "question": "Do already-frozen noise, KL, and vector-aligned rank-one constrained-DAS axes generalize more reliably than unregularized constrained DAS or difference in means on the text-disjoint v11 construction?",
+  "prior_art": {
+    "fresh_v2_result": "No regularized axis improved the unregularized full-vocabulary objective on both A panels. Sigma-.05 tangent noise was best among regularizers on both panels but changed the unregularized axis only slightly; KL and the vector-aligned objective rotated near DIM.",
+    "rank7_result": "Tensor-anchored noisy/KL rank7 optimization was reproducible but every learned move worsened held-out KL, indicating regularization blocked overfit without licensing removal of the eighth weight-derived mode.",
+    "v11_capability": "The previously sealed, text-disjoint v11 bank has 32/32 capable A1 base/donor sides and 32/31 capable A2 sides. Its DAS interventions and regularization ranking have not been evaluated.",
+    "novelty": "First zero-refit comparison of all frozen rank-one regularization variants on the distant v11 construction. No hyperparameter, rank, axis, or threshold is selected from v11."
+  },
+  "frozen_design": {
+    "population": "All 32 A1 and all 32 A2 v11 rows, without capability filtering.",
+    "axes": ["difference_in_means", "unregularized_scalar_cdas", "tangent_noise_sigma_0.05", "full_vocab_kl_weight_1", "centered_vector_weight_0.3"],
+    "selection": "None. Every axis was fitted and frozen before v11 existed; the v11 capability receipt is the only v11 authority read before this registration.",
+    "metrics": "Scalar answer/foil match plus complement error, and centered full-vocabulary match plus complement error, identical to the prior fresh-v2 evaluator.",
+    "updates": 0
+  },
+  "predictions": {
+    "pred_a_authority_capability_closure_and_price": "All authority hashes hold, each panel has at least 24 native-correct base and donor rows, full-rank closure is at most 1e-4, values are finite, and price is at most 32 forwards/992 examples.",
+    "pred_b_regularization_reduces_unregularized_overfit": "At least one regularized method has lower full-vocabulary joint error than unregularized on both A1 and A2.",
+    "pred_c_aligned_beats_dim_out_of_task": "The aligned axis has lower full-vocabulary joint error than DIM on both panels.",
+    "pred_d_aligned_preserves_behavioral_usefulness": "Aligned scalar joint error is at most 1.25 times DIM and below unregularized on both panels.",
+    "pred_e_regularization_ranking_is_construction_stable": "The same method among noise, KL, and aligned is best on both panels."
+  },
+  "decision": "Use the inherited evaluator decision without reinterpretation. A screen requires all five predictions. This test can show whether regularization is a stable guardrail, but cannot by itself identify a semantic state."
+}
