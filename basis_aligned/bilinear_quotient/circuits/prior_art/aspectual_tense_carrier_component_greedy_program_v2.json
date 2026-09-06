@@ -1,0 +1,25 @@
+{
+  "schema": "aspectual_tense_carrier_component_greedy_program_prior_v2",
+  "candidate_id": "aspectual_tense.carrier_component_greedy_program_v2",
+  "registered_utc": "2026-09-06T17:00:04Z",
+  "hypothesis": "The v1 task-specific programs were truncated while every sixth greedy step still improved. Extending the exact source-position greedy search to ten components will recover more of the distributed circuit without changing the frozen pool or using heldout outcomes for selection.",
+  "frozen_design": {
+    "candidate_pool": "The same 20 pre-outcome weight-frozen top/bottom attention-head and MLP candidates per task as v1.",
+    "fit": "The same jointly capable A1 fit rows only: 16 has/had and 8 is/was.",
+    "sealed_incremental_evaluation": "A1 heldout and A2; prefixes 7-10 are new interventions, while prior singleton/prefix evidence remains descriptive context.",
+    "objective": "Greedily minimize rowwise MSE to unit donor recovery.",
+    "maximum_components": 10
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_instrument": "All panels remain capable with exact carrier widths.",
+    "pred_b_both_greedy_paths_are_distributive": "Both paths select 2-10 components with strict fit improvement at every accepted step.",
+    "pred_c_both_paths_generalize_to_a1": "Both heldout A1 panels have recovery at least 0.70, direction at least 0.80, and beat the best singleton.",
+    "pred_d_both_paths_transfer_to_a2": "Both A2 panels have recovery at least 0.65, direction at least 0.80, and beat the best singleton.",
+    "pred_e_shared_program_machinery": "At least two labels are shared across task programs.",
+    "pred_f_price_and_coverage": "At most 438 forwards, 5845 example evaluations, and 5663 intervention records.",
+    "pred_g_truncation_was_active": "Both paths select at least seven components.",
+    "pred_h_extended_paths_improve_prior_recovery": "Each panel's mean recovery is no lower than its v1 value: has 0.736264936/0.742626401 and is 0.654259641/0.804755353 for heldout/A2."
+  },
+  "decision": "screen only if every prediction passes; null on scientific failure; invalid on authority, capability, instrument, coverage, or price failure",
+  "heldout_policy": "Only A1 fit chooses components; no heldout or A2 outcome changes the path."
+}
