@@ -1,0 +1,24 @@
+{
+  "schema": "tense_auxiliary_is_was_fresh_lexicon_v11_capability_prior_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.fresh_lexicon_v11_capability_v1",
+  "registered_utc": "2026-09-06T22:36:22Z",
+  "purpose": "Capability-only gate for a construction-shifted, lexically disjoint population before repairing the auxiliary five-head value-source atlas on fresh rows. The invalid v10 source-atlas outcomes are not exposed to this gate.",
+  "authority": {
+    "builder_sha256": "fbd47713fafcb87fc30ba339d175f7d06770ce36b93b6035e8848455529344ec",
+    "rows_sha256": "70dd2a100a385c077751d2aae3cafdb731eccab3aac845a88560f146937238ff",
+    "v10_capability_result_sha256": "77e3c5b6e47dc9416133643f422c130427f90fed0746d26f211f54b681718b3d",
+    "invalid_v10_source_atlas_sha256": "a547d8f1e1fbafef58dbf37aa1835b362d19be444ecf54e62c9b3f9c4585f436",
+    "frozen_head_union": {
+      "attention9": [1, 4],
+      "attention11": [1, 3],
+      "attention15": [5]
+    }
+  },
+  "predictions": {
+    "pred_a_authority_novelty_and_exact_population": "Builder, digest, construction checks, lexicon disjointness, and 64-row inventory pass.",
+    "pred_b_native_a_panel_capability": "Every A1/A2 direction-by-side cell has native accuracy at least 0.75.",
+    "pred_c_joint_capable_population": "Each A panel has at least 12 jointly base-and-donor-correct rows.",
+    "pred_d_no_causal_outcome_access_and_exact_price": "Exactly two native forwards/128 examples and no activation, Q8, head, source, or intervention outcome."
+  },
+  "decision": "Screen licenses one separately preregistered causal-only-closure source atlas on v11. Null stops this construction and preserves the v10 source outcomes as invalid rather than repairing them post hoc."
+}
