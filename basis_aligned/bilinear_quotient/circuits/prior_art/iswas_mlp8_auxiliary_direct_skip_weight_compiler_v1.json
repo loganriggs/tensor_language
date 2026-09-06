@@ -1,0 +1,17 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_auxiliary_direct_skip_weight_compiler_v1",
+  "checked_utc": "2026-09-06T23:18:00Z",
+  "decision": "novel_followup",
+  "closest_results": [
+    "iswas_mlp8_auxiliary_postcue_local_weight_compiler_v1",
+    "iswas_mlp8_auxiliary_cv_upstream_module_atlas_v2",
+    "iswas_mlp8_auxiliary_cv_greedy_mlp_program_v1"
+  ],
+  "novelty": "The prior local compiler begins from captured L11/L15 currents, while the upstream atlas leaves non-core attention9 live. This test clamps complete attention9 and every attention/MLP response through MLP14, then predicts the remaining L11/L15 current, c_v, base-pattern response, and c_proj write directly from MLP8 Down and the exact residual lambda products.",
+  "registered_interpretation": "A pass identifies the literal residual-skip branch of the auxiliary converter. It does not make the distributed MLP correction additive, minimal, or globally task-independent.",
+  "opposing_predictions": {
+    "direct_skip": "The full-clamp current equals RMS(base pre-norm plus the MLP8 Down delta times the exact lambda product), and compiled auxiliary responses replay the exact full-clamp arm.",
+    "hidden_converter": "Even after complete attention9 and intervening response clamps, the analytic current or c_v response fails, showing that the apparent remainder depended on an unclamped module or recurrent value branch."
+  },
+  "fit_policy": "zero fit, zero gradients, literal checkpoint tensors only"
+}
