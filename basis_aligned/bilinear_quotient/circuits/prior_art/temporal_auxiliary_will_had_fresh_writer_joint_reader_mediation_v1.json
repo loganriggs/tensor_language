@@ -1,0 +1,54 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_joint_reader_mediation_v1",
+  "created_utc": "2026-09-06T14:06:00Z",
+  "question": "Do the established block9 H1/H4 and block11 H3 subject-source readers jointly mediate nearly all of the fresh block8H1 cue-writer effect?",
+  "authority": {
+    "block9_mediation_result_sha256": "505ce01c9b88e7f088554db9fd8d0fa2eafeabe43067aa61cdd9f2681f420f68",
+    "block11_h3_response_result_sha256": "ee95aef443d63ce936f011ce2d551b8a0b220aa701507ecad30a72383475405a",
+    "block11_h3_source_result_sha256": "1fd089aeb63e2ec7e1771d54170461dc18b3bd105e2b7fc08413d8456a515cf1",
+    "multi_reader_evaluator_sha256": "05d07578129db0cb8bf5e46d08e6cd6e9c2bb9c3883675586c83c3efd24b8fda",
+    "attention_capture_sha256": "806bd970b773c839cf4eb8d74c1fdbf4102fda32d2188d22daa8a1d5624c2bdf",
+    "source_group_evaluator_sha256": "6ecf5f40b92f94cb32bccf1a703e527a3d468281936e63d4c7e91e8af66b4348",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9"
+  },
+  "frozen_design": {
+    "population": "all 32 A1 and 32 A2 fresh-cue rows",
+    "writer": "cue-source response of block8H1 at the two subject-onset destinations",
+    "reader9": "live block9 H1/H4 final-query P[k]V[k] terms from the subject-onset sources",
+    "reader11": "live block11 H3 final-query P[k]V[k] terms from the subject-onset sources",
+    "ordering": "writer hook, then dynamic block9 clamp, then dynamic block11 clamp in one native forward",
+    "arms": [
+      "writer_only",
+      "writer_block9_subject_clamped",
+      "writer_block11_subject_clamped",
+      "writer_both_subject_clamped",
+      "writer_both_non_subject_clamped",
+      "base_both_subject_self_clamp"
+    ],
+    "model_forwards": 20,
+    "example_evaluations": 640,
+    "records": 384,
+    "fitted_scalars": 0,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_multi_reader_instrument": "all authorities pass, capture and live attention reconstruction errors <=5e-4, base double self-clamp scored-logit error <=1e-4",
+    "pred_b_writer_effect_recurrence": "writer-only mean recovery is within 0.03 of 0.17216 A1 and 0.11321 A2, donorward fraction 1.0",
+    "pred_c_each_reader_is_material": "clamping block9 or block11 subject terms alone retains <=0.70 of writer recovery in each family",
+    "pred_d_joint_readers_are_nearly_complete": "clamping both subject readers retains <=0.15 of writer recovery in A1 and A2",
+    "pred_e_joint_path_is_source_selective": "clamping both non-subject complements retains >=0.90 of writer recovery in A1 and A2",
+    "pred_f_exact_zero_fit_price": "20 forwards, 640 example evaluations, 384 unique arm-row records, zero fits/backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, capability, reconstruction, self-clamp, coverage, finiteness, or price fails",
+    "screen": "all six predictions pass",
+    "partial_path": "A/B/C/E/F pass but D fails",
+    "null": "valid writer recurrence but either established reader is not material under the joint instrument"
+  },
+  "interpretation_limits": [
+    "A pass establishes response mediation of this exact writer effect, not general necessity for all temporal behavior.",
+    "The reader clamps are source-term counterfactuals at native head boundaries; they do not use DAS or fitted directions.",
+    "A joint residual above 15% licenses another downstream-consumer search rather than threshold repair."
+  ]
+}
