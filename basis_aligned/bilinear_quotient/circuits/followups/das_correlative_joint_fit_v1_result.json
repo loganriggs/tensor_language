@@ -1,0 +1,45 @@
+{
+  "candidate_id": "correlative.joint_fit_das_v1",
+  "families": {
+    "both_neither_heldout": {
+      "mean_absolute_recovery": 0.9754543900489807,
+      "mean_recovery": 0.9754543900489807,
+      "rows": 16
+    },
+    "either_neither_heldout": {
+      "mean_absolute_recovery": 0.9633718729019165,
+      "mean_recovery": 0.9633718729019165,
+      "rows": 16
+    }
+  },
+  "finished_utc": "2026-09-06T05:44:08.656824+00:00",
+  "fitted_on": "union of both/neither and either/neither A1 rows",
+  "head_verification": {
+    "max_abs_difference": 5.7220458984375e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_joint_fit_converged": true,
+  "pred_c_shared_feature": true,
+  "pred_d_both_positive_transfer": true,
+  "pred_e_distinct_directions": false,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_joint_fit_converged": true,
+    "pred_c_shared_feature": true,
+    "pred_d_both_positive_transfer": true,
+    "pred_e_distinct_directions": false
+  },
+  "rank": 1,
+  "reading": "shared_feature",
+  "registered_thresholds": {
+    "distinct": 0.5,
+    "shared": 0.8
+  },
+  "schema": "circuit_das_joint_fit_result_v1",
+  "single_behaviour_reference": {
+    "cross_pair": 0.377,
+    "own_heldout": 0.98
+  },
+  "site": "resid:18"
+}

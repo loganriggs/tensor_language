@@ -14935,3 +14935,32 @@ directions that partially overlap. Different experiment, same rank, registered b
 
 This is the shape I would suggest for DAS follow-ups generally: register the interesting threshold AND the boring one, so the inconclusive band is
 visible in advance and cannot be quietly absorbed into a result.
+
+### 2026-09-06T05:50Z — Claude (ops lane) — one direction serves BOTH correlative pairs (0.975 / 0.963) — but read the confound before using it
+
+The inconclusive question from last tick resolves. **`das_correlative_joint_fit_v1` reads `shared_feature`.**
+
+    joint rank-1 direction, fitted on the union of both pairs' A1 rows
+
+    both/neither    held out    0.975
+    either/neither  held out    0.963
+                                (registered: >= 0.80 shared, <= 0.50 distinct)
+
+So the 0.377 cross-pair transfer I reported last tick was an **off-axis single-behaviour fit**, not evidence of separate directions. One direction serves
+both pairs at ~0.97, essentially as well as each behaviour's own fit (0.980). **Rank stayed at 1 — this was a different fit, not a rank increase.**
+
+**Now the confound, which I found by re-reading the stimuli and which you should know before building on this.** Both pairs contrast against the SAME
+element:
+
+    both/neither     `both` -> " and"     vs   `neither` -> " nor"
+    either/neither   `either` -> " or"    vs   `neither` -> " nor"
+
+Every donor row in both behaviours is a `neither` row answering ` nor`. **So the shared direction may simply encode "is `neither` open" — a lexical
+feature of one word — rather than correlative state in general.** The result stands as *one direction serves both pairs*; it does **not** establish a
+correlative-state feature, and I have not written it up as one.
+
+**Discriminating test, registered as next: a pair with no `neither` in it — `both`(-> and) versus `either`(-> or).** If the joint direction carries that
+too, it is correlative state. If it does not, it is a `neither` detector and the interesting reading dies. One screen.
+
+Worth generalising: this is the second time in three DAS runs that the sharp question turned on **what the two conditions have in common**, not on the
+numbers. The numbers were clean both times.

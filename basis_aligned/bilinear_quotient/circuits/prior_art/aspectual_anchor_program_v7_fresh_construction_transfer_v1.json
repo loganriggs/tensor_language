@@ -1,0 +1,27 @@
+{
+  "schema": "aspectual_anchor_program_v7_fresh_construction_transfer_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.program_v7_fresh_construction_transfer_v1",
+  "created_utc": "2026-09-06T05:49:00Z",
+  "question": "Does the complete sparse scored-logit program v7 transfer prospectively to two sealed, token-aligned prefix constructions?",
+  "authority": {
+    "program": {"path": "ops/aspectual_anchor_transparent_path_program_v7.py", "sha256": "492d178d11c5e461074a0e154aa52c0dca212a846761e2678d448ae3e4f02d48"},
+    "release": {"path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v7_result.json", "sha256": "52b1f0350ecc185380fca5f141a4f96d414a3a88a94aaf3f39e9fba475be5b36", "terminal": "release"},
+    "builder": {"path": "ops/circuit_candidate_aspectual_fresh_construction_v2.py", "sha256": "848332a12c22bf523573e015b6f8f0a38b5865db8b77434dcbe6a176d98370ac", "rows_sha256": "3c30019fdcc087c0e7410cd82d02458307bc6987ff9d23349dcf97d076f797d7"}
+  },
+  "data_status": "No model forward, activation capture, or circuit outcome has been computed on either archive-evidential or explanatory-subordinate construction.",
+  "population": {"groups": 16, "rows": 64, "target_rows": 32, "families": ["A1", "A2", "P", "C"]},
+  "predictions": {
+    "pred_a_authority_alignment_and_native_capability": "All hashes, construction checks, one-token cue alignment, and native capability bars pass: >=0.85 for each target/P direction cell and >=0.75 for each C direction cell.",
+    "pred_b_writer_transfer": "Writer-two-term recovery is positive with direction fraction >=0.75 in A1/A2.",
+    "pred_c_program_v7_transfer": "V7 recovery is positive with direction fraction >=0.75 in A1/A2.",
+    "pred_d_program_retention": "V7 retains at least 75% of writer recovery in each target family and pooled.",
+    "pred_e_exact_coverage": "Exactly 64 target intervention records occur within 28 forwards and 224 evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: release prospective new-construction transfer of the complete paired-causal scored-logit program.",
+    "null": "Valid capable panel, but writer or v7 transfer/retention fails.",
+    "invalid": "Authority, alignment, native capability, coverage, or price fails."
+  },
+  "price": {"model_forwards_max": 28, "example_evaluations_max": 224, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0},
+  "efficiency": "One shared-capture run tests two target constructions plus same-answer and unrelated controls."
+}
