@@ -1,0 +1,27 @@
+{
+  "schema": "task14_bracket_counterfactual_error_budget_audit_prior_art_v3",
+  "candidate_id": "cross_behavior.task14_bracket_counterfactual_error_budget_audit_v3",
+  "created_utc": "2026-09-06T01:20:17Z",
+  "data_status": "POST_RESULT_DETERMINISTIC_DIAGNOSTIC; cannot strengthen the prospective v2 claim",
+  "purpose": "Decompose the prospective absolute-counterfactual error exactly into frozen baseline-prediction error and frozen intervention-effect error, and quantify amplification from native/edit cancellation before selecting any new circuit experiment.",
+  "authority": {
+    "task14_bracket_native_baseline_semantic_linear_prospective_v2_result.json": "1d2f99a6c965ed0d6794cb83a6fb0c8953d11e9a599e769b02d4a0f612d89ea4",
+    "task14_bracket_native_baseline_semantic_linear_prospective_v2_artifact.json": "013532f8481ef6e0c959e1ffdb045fb76214c9b3f72452c92d8e12543580ae5a"
+  },
+  "definitions": {
+    "baseline_error": "predicted_native_margin - actual_native_margin",
+    "effect_error": "predicted_effect - actual_effect",
+    "counterfactual_error": "predicted_counterfactual_margin - actual_counterfactual_margin",
+    "cancellation_amplification": "(abs(actual_native_margin) + abs(actual_effect)) / max(abs(actual_counterfactual_margin), 1e-12)"
+  },
+  "predictions": {
+    "pred_a_exact_error_identity": "For every one of 584 targets, counterfactual_error equals baseline_error plus effect_error within 1e-12.",
+    "pred_b_behavior_error_budgets_reported": "Report L2 norms, target-relative norms, error-error cosine/cross term, and baseline/effect shares for Task14 and bracket.",
+    "pred_c_cancellation_reported": "Report median, p90, and maximum cancellation amplification overall and by bracket ordered pair.",
+    "pred_d_no_rescue_or_new_fit": "Use zero model calls, fits, feature changes, thresholds, or program changes; preserve prospective v2 as null."
+  },
+  "terminal": {
+    "diagnostic_complete": "All identities and accounting checks pass.",
+    "invalid": "Any immutable hash, identity, or accounting check fails."
+  }
+}
