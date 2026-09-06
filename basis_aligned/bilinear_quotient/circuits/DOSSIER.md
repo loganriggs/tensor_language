@@ -15,7 +15,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 |---|---|---|---|---:|---:|---|
 | `task.subject_verb_number_agreement` | behavior_circuit | program_screened | `complete_subject_number_at_final_position` | 4 | 7 | retain the interface-simple 10-vector upstream + two-reader program, but do not call it end-to-end simple; defer joint composition until another fixed program exists; fixed mediator gains and possessive reuse are closed nulls, and rank/reconstruction sweeps remain closed |
 | `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
-| `task.bracket.pending_opener` | behavior_circuit | specified | `pending_opener_state_three_value_candidate` | 5 | 8 | execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict |
+| `task.bracket.pending_opener` | behavior_circuit | program_screened | `pending_opener_state_three_value_candidate` | 5 | 9 | compose the OOD-screened six-vector L13H8 ordered-pair program with the Task14 program under fixed simultaneous interventions; retain the pair-centered selective-necessity null |
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
@@ -191,10 +191,19 @@ substitute syntax-conditioned gain fitting or generic low-rank approximation for
 | `legacy_bracket_match.r547.invalid_unsealed_rows.v1` | invalid | full_swap_ceiling | **invalid** | active | `r547_legacy_audit` |
 | `legacy_bracket_pointer.r547.invalid_dense_decomposition.v1` | invalid | compiled_equivalence | **invalid** | active | `r547_legacy_audit` |
 | `legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1` | invalid | das_interchange | **invalid** | active | `r547_legacy_audit` |
+| `pending_opener_ordered_pair_program.v1` | complete | prospective fixed-vector substitution | **screen** | active | `bracket_l13h8_ordered_pair_displacement_program_ood_validation_v1_result.json` |
 
 **Frozen artifacts:** 69. Paths and SHA-256 hashes are in the canonical JSON record.
 
-**Next:** execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict
+The exact opener-term transfer has now been compiled into a fixed program. Six ordered-closer displacement vectors, each 1,152-D and
+estimated from 24 SELECT endpoints, were frozen before OOD access. All OOD native cells are 100% capable. On 144 OOD answer-changing
+endpoints, the fixed vectors reproduce exact per-prompt opener-term swaps at cosine `0.98986`, relative L2 `0.16973`, norm ratio
+`1.08280`, and perfect signs. Both target constructions and all six ordered pairs recur. The selector dispatches exact zero on all 216
+answer-preserving endpoints, producing zero logit change. This is a `6,912`-scalar interface program; it does not revive the failed
+pair-centered selective-necessity claim and does not infer the pending state from raw text autonomously.
+
+**Next:** preregister and run simultaneous Task14-at-L11H3 plus bracket-at-L13H8 interventions with single-program corners and an exact
+interaction term. Composition must be judged against fixed separate-program effects, not merely by coexisting dispatch code.
 
 ### `task.increment.state` — proposed
 
