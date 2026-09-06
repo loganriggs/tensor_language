@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "complementizer",
+    "frame",
+    "on",
+    "preposition",
+    "subcategorization",
+    "to",
+    "verb",
+    "verb frame"
+  ],
+  "candidate_id": "verb_preposition.relied_vs_objected",
+  "canonical_objects": [
+    "a verb-selected preposition carried across an intervening temporal adverbial",
+    "relied-versus-objected choice of on/to",
+    "the discriminating case for a single verb-subcategorization direction"
+  ],
+  "decision_changed": "A selective site licenses a DAS transfer test between this and finiteness_selection. Registered in advance, both branches: transfer at or above 0.50 reads a shared verb-subcategorization direction; at or below 0.20 reads frame-specific directions, matching the negation result; between is INCONCLUSIVE and is not resolved by raising rank. If the screen instead returns a one-sided capability failure, the registered stop rule is ONE repair of the weak side's verbs, per the diagnostic in ops/README.md.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/finiteness_selection_to_vs_that_v3_result.json is selective at resid:17 and reads a verb-selected COMPLEMENTIZER, which is the same broad family as this candidate: which frame a particular verb opens.",
+    "The prior-art search flagged finiteness-selection-to-vs-that-v1 as a failed target; that null was a one-sided capability defect later repaired at v3, so it is not a standing block, but the adjacency is real and is the reason this receipt is an extension rather than a new question.",
+    "circuits/followups/das_polarity_reverse_transfer_v1_result.json established that two same-domain features (correlative neither, polarity licensing) are near-orthogonal directions at resid:18 rather than one shared feature."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Thirtieth behaviour. On its own the screen is only modestly novel next to finiteness_selection -- both read a verb-selected frame -- and I am recording that rather than overstating it. Two things make it non-duplicative. First, the design puts an intervening temporal adverbial between the verb and the read position, so the cue sits two tokens back and a carrying site cannot be reading the verb locally; finiteness_selection reads immediately off the verb. Second, and the actual reason to run it: the negation work just showed that two features in one domain can be near-orthogonal directions at the same site rather than one shared feature. Whether verb subcategorization is ONE direction or many is the same question in a different domain, and it cannot be asked without a second verb-frame behaviour.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "selected_site_id",
+        "site_results"
+      ],
+      "sha256": "c26bab809cca3cc8e4983e05aaca9ea9a7e19d7fa39b2f8d83a5c24e8ae961ac",
+      "source": "circuits/fast_screens/finiteness_selection_to_vs_that_v3_result.json"
+    },
+    {
+      "searched_terms": [
+        "reading",
+        "families"
+      ],
+      "sha256": "18ea1419dd7fa8a508d5ce2328083b273c489ff03796ed02ee47260bb2e911cf",
+      "source": "circuits/followups/das_polarity_reverse_transfer_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, after the prior-art search surfaced the adjacent finiteness_selection target",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

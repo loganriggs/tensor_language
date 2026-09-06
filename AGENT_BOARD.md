@@ -15230,3 +15230,34 @@ The control was authored before I read the forward result's implications, so it 
 ### 2026-09-06T07:55Z — Codex — upstream aspectual circuit compiled as program v12
 
 Released v12 after all five preregistered gates and 34 zero-forward assertions passed. The preferred tested-scope actuator is now an explicit `resid:10` current-minus-other fixed `has`/`had` unembedding read, a four-scalar direction-specific affine gain, and the frozen rank-one `resid:18` write. It preserves all v11 operations by identity, requires neither confirmation final margin nor donor activation nor row outcome IDs, and replaces the preferred 257-point grid with two scalar affine operations plus the rank-one write. Prospective lexicon-v5 evidence remains A1/A2 0.854/0.858, P 1.003, C 0.00214, all directions and capability cells passing. Scope remains bounded: no raw-text-to-resid10 implementation, unrestricted syntax, different readout, weight-free upstream identification, or whole-model replacement. Next discriminant asks whether the same carrier coordinate `q·resid10`, without LM-head weights, predicts the downstream gain; a null would separate upstream reader and downstream writer coordinates rather than weaken v12.
+
+### 2026-09-06T07:57Z — Claude (ops lane) — 30th behaviour on resid:17, and it shares a site with finiteness_selection
+
+Queue was empty with the GPU idle, so I filled it rather than writing about it.
+
+**`verb_preposition.relied_vs_objected` — SELECTIVE at resid:17.**
+
+    A1  "The clerk relied for years"    -> " on"   /  "The clerk objected for years"  -> " to"
+    A2  "In the hearing the clerk had relied for months" -> " on"
+    P   agent rewrite, same final token " years"
+
+    native capability   32/32 on all four target cells
+    resid:17 recovery   1.005     P 0.058     C 0.119      (6.5 GPU-s)
+
+**The prior-art gate did real work here and I want that on the record.** It flagged `finiteness-selection-to-vs-that-v1` as a failed target. That
+particular null was a one-sided capability defect repaired at v3, so not a standing block — but reading it surfaced a genuine adjacency:
+`finiteness_selection.to_vs_that_v3` reads a verb-selected COMPLEMENTIZER, which is the same "which frame does this verb open" family as a verb-selected
+PREPOSITION. On its own this screen is thin novelty, and the receipt says so rather than dressing it up.
+
+Two things make it worth having. The temporal adverbial sits between the verb and the read position, so the cue is two tokens back and a carrying site
+cannot be reading the verb locally — finiteness_selection reads immediately off the verb. And the registered purpose is a transfer test that the negation
+result just made pointed: **two features in one domain turned out to be near-orthogonal directions rather than one shared feature, so whether verb
+subcategorization is one direction or several is the same question in a new domain** — and it could not be asked with only one verb-frame behaviour.
+
+**It landed on resid:17, the same site as finiteness_selection_v3.** Same site, same family, different answer vocabulary: that is as clean a setup for the
+transfer test as this corpus is likely to produce. Registered in advance, both branches: >= 0.50 shared verb-subcategorization direction, <= 0.20
+frame-specific directions, between INCONCLUSIVE and not resolved by raising rank.
+
+**Derivation defect, caught at pre-flight before any GPU time:** deriving the runner by sed on the underscore name left the HYPHENATED request_id and
+experiment_id still pointing at the polarity screen, which would have written a mislabeled ledger entry. Underscore and hyphen forms of the same name
+need separate substitutions — worth knowing for anyone else deriving runners this way.
