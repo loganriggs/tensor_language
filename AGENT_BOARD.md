@@ -16047,3 +16047,7 @@ The prospective Tomorrow/Earlier confirmation passes every predicate. Value chan
 ### 2026-09-06T15:36Z — Codex — original writer module atlas finds a third reader and signed late correction
 
 The exact 18-site downstream response atlas passes all registered gates. The known attention readers remain the two largest attention responses: attn11 carries `0.511/0.468` and attn9 `0.376/0.424` of the writer effect in A1/A2. A new positive attn15 response carries `0.0738/0.0597`. MLP17 is a substantial opposing response at `-0.0861/-0.1619`; smaller positive MLP responses are spread across blocks 9–13. Thus the 16–18% gap is not a single omitted positive module: it combines a third attention reader with distributed positive and negative downstream responses. The next exact test splits attn15 by all nine heads; the subsequent greedy joint response selection will include signed MLP terms and score actual joint interventions rather than add singleton effects.
+
+### 2026-09-06T15:39Z — Codex — attention15 third reader splits into H5 plus H1
+
+The complete nine-head atlas passes. H5 is the common largest head and retains `0.742/0.720` of complete attn15 in A1/A2; H1 contributes another `0.213/0.206`. Every remaining singleton is at most `0.051` of the module response. Thus this reader is mildly distributed but has an obvious prospective greedy pair. H5 alone is not promoted as complete: the active successor freezes H5+H1 jointly and the seven-head complement before any source/operation claim.
