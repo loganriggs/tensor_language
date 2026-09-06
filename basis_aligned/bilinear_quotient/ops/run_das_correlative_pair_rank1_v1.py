@@ -27,7 +27,7 @@ import circuit_fast_screen_candidate_correlative_pair as candidate
 import circuit_fast_screen_producer as producer
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "circuits/followups/das_correlative_pair_resid18_rank1_v1_result.json"
+OUT = ROOT / "circuits/followups/das_correlative_pair_resid18_rank1_v2_result.json"
 SITE = "resid:18"
 RANK = 1
 STEPS = 300
@@ -41,7 +41,7 @@ EXAMPLE_EVALUATIONS_MAX = 512
 
 def _plan(rows) -> dict:
     return {
-        "candidate_id": "correlative_pair.both_vs_neither.das_resid18_rank1_v1",
+        "candidate_id": "correlative_pair.both_vs_neither.das_resid18_rank1_v2",
         "site": SITE, "rank": RANK, "steps": STEPS,
         "row_count": len(rows),
         "model_forwards_max": MODEL_FORWARDS_MAX,
@@ -76,14 +76,29 @@ def main() -> None:
         rank=RANK, steps=STEPS,
     )
 
+    # The target families' median native separation is the scale the kernel uses for
+    # same-answer families (producer line 554). P and C share an answer across their two sides,
+    # so they get that measure, not a donor-difference ratio.
+    base_h, donor_h, _ = das.capture_site(backend, held_rows, SITE)
+    scale = das.target_scale(
+        backend, base_h, donor_h,
+        [r["donor_answer_id"] for r in held_rows], [r["donor_foil_id"] for r in held_rows])
+
     report = {}
-    for name, rs in (("A1_heldout", held_rows), ("A2", families["A2"]),
-                     ("P", families["P"]), ("C", families["C"])):
+    for name, rs in (("A1_heldout", held_rows), ("A2", families["A2"])):
         base, donor, _ = das.capture_site(backend, rs, SITE)
         mean, absmean, n = das.subspace_recovery(
             backend, base, donor, q,
             [r["donor_answer_id"] for r in rs], [r["donor_foil_id"] for r in rs])
         report[name] = {"mean_recovery": mean, "mean_absolute_recovery": absmean, "rows": n}
+    for name in ("P", "C"):
+        rs = families[name]
+        base, donor, _ = das.capture_site(backend, rs, SITE)
+        effect, n = das.subspace_same_answer_effect(
+            backend, base, donor, q,
+            [r["donor_answer_id"] for r in rs], [r["donor_foil_id"] for r in rs], scale)
+        report[name] = {"same_answer_effect": effect, "mean_absolute_recovery": effect, "rows": n}
+    report["target_scale"] = scale
 
     # Registered predictions, evaluated from the numbers above. Thresholds fixed in advance.
     a1 = report["A1_heldout"]["mean_absolute_recovery"]
@@ -105,7 +120,7 @@ def main() -> None:
         **predictions,
         "predictions": predictions,
         "schema": "circuit_das_subspace_result_v1",
-        "candidate_id": "correlative_pair.both_vs_neither.das_resid18_rank1_v1",
+        "candidate_id": "correlative_pair.both_vs_neither.das_resid18_rank1_v2",
         "site": SITE, "rank": RANK, "steps": STEPS,
         "head_verification": {"passed": ok, "max_abs_difference": worst},
         "fit_rows": len(fit_rows), "families": report,

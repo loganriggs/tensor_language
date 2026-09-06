@@ -1,0 +1,122 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_artifact_v3",
+  "program_id": "aspectual_anchor.has_vs_had.transparent_path_program_v3",
+  "created_utc": "2026-09-06T04:43:00Z",
+  "executable": {
+    "path": "ops/aspectual_anchor_transparent_path_program_v3.py",
+    "sha256": "e042a525aab35e5602fcb954a43096931d36aad1e356c21f977e33ddfeffcbb0",
+    "framework": "array-protocol compatible",
+    "model_loads": 0,
+    "fits": 0
+  },
+  "behavior": {
+    "cue_edit": "since <-> by",
+    "answer_edit": "has <-> had",
+    "validated_constructions": [
+      "Since/By last PERIOD the AGENT",
+      "The record shows that since/by last PERIOD the AGENT"
+    ],
+    "token_contract": "one changed cue token; final subject is cue+4; semantic source roles partition the causal prefix"
+  },
+  "typed_operations": {
+    "mlp4_hidden_response": "(Left_d-Left_b)*Right_b + Left_b*(Right_d-Right_b)",
+    "mlp4_write": "hidden_response @ Down.weight.T, without bias",
+    "attention_source_delta": "early last+period+determiner source transport through frozen attention5/9 heads",
+    "suffix_attention_source_delta": "dominant suffix-head hybrid-minus-base pattern-times-value sum over the boundary-specific role bank",
+    "project_selected_head_deltas": "scatter typed head vectors into a supplied zero buffer and apply checkpoint c_proj without bias",
+    "crossing_delta": "lambda0*(resid_h-resid_b) + (attention_h-attention_b) + (mlp_h-mlp_b)",
+    "suffix_crossing_delta": "lambda0*(resid_h-resid_b) + projected_source_attention_delta + (mlp_h-mlp_b)",
+    "write_query_delta": "functional clone/copy followed by one query-position addition"
+  },
+  "frozen_inventory": {
+    "mlp4_terms": ["left_change", "right_change"],
+    "early_source_positions": ["last", "period", "determiner"],
+    "attention5_heads": [7, 1, 6, 8],
+    "attention9_heads": [1, 4],
+    "route_crossing_boundaries": [6, 7, 8, 9],
+    "suffix_head_by_boundary": {"11": 3, "15": 5},
+    "suffix_source_bank_by_boundary": {
+      "11": ["determiner", "period", "self"],
+      "15": ["period", "determiner", "self"]
+    },
+    "all_source_roles": ["cue", "last", "period", "determiner", "self", "other"]
+  },
+  "suffix_evidence": {
+    "block11": {
+      "crossing_shapley": {"carried": 0.18918381294679656, "attention": 0.0448724135652903, "mlp": 0.03443998259958263},
+      "dominant_head": 3,
+      "dominant_head_to_four_fraction": 0.8143526077237474,
+      "source_bank": ["determiner", "period", "self"],
+      "source_bank_to_all_dominant_head_fraction": 0.9034421372941438,
+      "query_projection_max_abs": 0.00000762939453125
+    },
+    "block15": {
+      "crossing_shapley": {"carried": 0.2603001037590281, "attention": 0.025021305322142248, "mlp": 0.006538906557781147},
+      "dominant_head": 5,
+      "dominant_head_to_four_fraction": 0.8322431064117252,
+      "source_bank": ["period", "determiner", "self"],
+      "source_bank_to_all_dominant_head_fraction": 0.8703155052298842,
+      "query_projection_max_abs": 0.000004827976226806641
+    },
+    "evidence_class": "prospective_scientific_arms_with_post_outcome_instrument_audit_repair"
+  },
+  "price": {
+    "stored_fit_scalars": 0,
+    "stored_fit_vectors": 0,
+    "selected_mlp4_terms": 2,
+    "selected_attention5_heads": 4,
+    "selected_attention9_heads": 2,
+    "selected_suffix_heads": 2,
+    "selected_early_source_positions": 3,
+    "selected_suffix_source_role_occurrences": 6,
+    "explicit_route_crossing_boundaries": 4,
+    "explicit_suffix_crossing_boundaries": 2,
+    "requires_checkpoint_weights": true,
+    "requires_paired_base_and_donor_states": true,
+    "requires_full_carried_and_mlp_suffix_deltas": true,
+    "requires_native_checkpoint_suffix_after_block15": true
+  },
+  "interfaces": {
+    "input": [
+      "paired base/donor MLP4 Left and Right states",
+      "checkpoint MLP4 Down and attention c_proj weights",
+      "paired base/hybrid attention patterns and effective values",
+      "six-role causal-prefix position maps",
+      "paired base/hybrid residual and MLP boundary tensors",
+      "native base state and checkpoint suffix"
+    ],
+    "output": "paired causal answer-versus-foil effect after native suffix execution",
+    "manipulations": [
+      "include/exclude either MLP4 bilinear term",
+      "include/exclude frozen early source positions or heads",
+      "include/exclude carried, attention, or MLP route-crossing terms",
+      "replace suffix attention with the frozen source-resolved dominant-head term",
+      "write composed deltas at the final query"
+    ]
+  },
+  "authority": {
+    "aspectual_anchor_transparent_path_program_release_v2_result.json": "ce0cffd7dec596768fb9181ec546ff0764207717f244d13809a085d62f4dd3c1",
+    "aspectual_anchor_suffix_depth_adaptive_factorial_lexical_holdout_v1_result.json": "f534448e1b6e27195928d0e748147f43703225666fa102ece9d9a59d2f70c7ab",
+    "aspectual_anchor_block15_crossing_confirmation_v1_result.json": "0c53f422e8ae3a176737cecac0025f97f41cd5e5eda545eaea0f0766b5525252",
+    "aspectual_anchor_attention11_15_single_head_confirmation_v1_result.json": "be2c405c4b7023c57d4a11baf9be0bc999fb3835908f34fb88c1011ab146353f",
+    "aspectual_anchor_attention11h3_15h5_source_projection_query_diagnostic_v1_result.json": "e14a47c743fcb31b23591c0ff9579a5282aa9d1f98c35f272a32929951cd9ba8",
+    "aspectual_anchor_attention11h3_15h5_source_compression_release_v1_result.json": "e80f06ef21344139d33d7bc0793a20f564bf360ad2f7ea2d76edd52ab3421df5"
+  },
+  "scope": {
+    "licensed": [
+      "executable paired-causal tensor equations through source-resolved block15",
+      "prospective lexical/recombination support in two explicit constructions",
+      "component manipulation at MLP4, attention5, blocks6-9, attention9 H1/H4, block11 H3, and block15 H5"
+    ],
+    "not_licensed": [
+      "standalone native-margin prediction",
+      "full-logit prediction",
+      "free-form text",
+      "new-construction transfer",
+      "whole-model replacement",
+      "source-resolved replacement of carried or MLP block11/block15 terms",
+      "transparent replacement of native blocks10,12-14,16-17 or the final readout"
+    ],
+    "failed_boundary": "The sealed ledger/memory construction transfer failed native capability and remains invalid."
+  }
+}

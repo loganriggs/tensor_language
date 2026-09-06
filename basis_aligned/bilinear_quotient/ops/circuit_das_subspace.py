@@ -128,21 +128,67 @@ def fit_subspace(backend, base, donor, answer_ids, foil_ids, *, rank, steps=300,
     f_idx = torch.as_tensor(foil_ids, device=backend.device, dtype=torch.long)
     n = base.shape[0]
     arange = torch.arange(n, device=backend.device)
+    # Target the donor's margin rather than maximising the margin. Maximising is wrong twice
+    # over: it overshoots (a first run reached recovery 2.208, i.e. past the donor), and the
+    # model's head is logit-soft-capped -- `30*tanh(logits/30)`, from tt_model.py:260 -- so
+    # climbing toward the cap flattens the gradient and buys progressively less real signal
+    # while still moving the direction. Matching a point inside the cap fixes both.
+    with torch.no_grad():
+        donor_logits = head_logits(backend, donor)
+        target_margin = (donor_logits[arange, a_idx] - donor_logits[arange, f_idx]).detach()
     for _ in range(steps):
         optimizer.zero_grad()
         q, _ = torch.linalg.qr(raw)                       # orthonormal basis, differentiable
         patched = base + (delta @ q) @ q.T
         logits = head_logits(backend, patched)
         margin = logits[arange, a_idx] - logits[arange, f_idx]
-        (-margin.mean()).backward()
+        ((margin - target_margin) ** 2).mean().backward()
         optimizer.step()
     with torch.no_grad():
         q, _ = torch.linalg.qr(raw)
     return q.detach()
 
 
+def target_scale(backend, base, donor, answer_ids, foil_ids):
+    """The target families' median native separation, as `producer` computes it (line 554).
+
+    This is the denominator the kernel uses for same-answer families, and using anything else
+    makes P and C incomparable with A1.
+    """
+    import statistics
+    torch = backend.torch
+    with torch.no_grad():
+        a_idx = torch.as_tensor(answer_ids, device=backend.device, dtype=torch.long)
+        f_idx = torch.as_tensor(foil_ids, device=backend.device, dtype=torch.long)
+        arange = torch.arange(base.shape[0], device=backend.device)
+        def margin(x):
+            lg = head_logits(backend, x)
+            return lg[arange, a_idx] - lg[arange, f_idx]
+        return float(statistics.median([abs(v) for v in (margin(donor) - margin(base)).tolist()]))
+
+
+def subspace_same_answer_effect(backend, base, donor, q, answer_ids, foil_ids, scale):
+    """Disturbance measure for families whose two sides SHARE an answer (P, and same-answer C).
+
+    A first run divided these by `(m_donor - m_base)`, which for such a family is legitimately
+    near zero, and reported P at 24.678. The kernel handles this with
+    `normalized_same_answer_effect` = |intervened - base| / a registered scale; this mirrors it.
+    """
+    torch = backend.torch
+    with torch.no_grad():
+        a_idx = torch.as_tensor(answer_ids, device=backend.device, dtype=torch.long)
+        f_idx = torch.as_tensor(foil_ids, device=backend.device, dtype=torch.long)
+        arange = torch.arange(base.shape[0], device=backend.device)
+        def margin(x):
+            lg = head_logits(backend, x)
+            return lg[arange, a_idx] - lg[arange, f_idx]
+        patched = base + ((donor - base) @ q) @ q.T
+        effect = (margin(patched) - margin(base)).abs() / scale
+        return float(effect.mean()), int(effect.numel())
+
+
 def subspace_recovery(backend, base, donor, q, answer_ids, foil_ids):
-    """Interchange recovery through the subspace alone, normalised as the kernel does."""
+    """Interchange recovery through the subspace alone, for ANSWER-CHANGING families only."""
     torch = backend.torch
     with torch.no_grad():
         a_idx = torch.as_tensor(answer_ids, device=backend.device, dtype=torch.long)

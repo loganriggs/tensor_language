@@ -1,0 +1,51 @@
+{
+  "candidate_id": "correlative_pair.both_vs_neither.das_resid18_rank1_v2",
+  "families": {
+    "A1_heldout": {
+      "mean_absolute_recovery": 0.9797735810279846,
+      "mean_recovery": 0.9797735810279846,
+      "rows": 16
+    },
+    "A2": {
+      "mean_absolute_recovery": 0.8208860754966736,
+      "mean_recovery": 0.8208860754966736,
+      "rows": 32
+    },
+    "C": {
+      "mean_absolute_recovery": 0.0009606986423023045,
+      "rows": 32,
+      "same_answer_effect": 0.0009606986423023045
+    },
+    "P": {
+      "mean_absolute_recovery": 0.053014811128377914,
+      "rows": 32,
+      "same_answer_effect": 0.053014811128377914
+    },
+    "target_scale": 15.617530822753906
+  },
+  "finished_utc": "2026-09-06T04:44:39.545046+00:00",
+  "fit_rows": 16,
+  "head_verification": {
+    "max_abs_difference": 5.7220458984375e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_heldout_a1_transfer": true,
+  "pred_c_cross_construction_transfer": true,
+  "pred_d_subspace_selective": true,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_heldout_a1_transfer": true,
+    "pred_c_cross_construction_transfer": true,
+    "pred_d_subspace_selective": true
+  },
+  "rank": 1,
+  "schema": "circuit_das_subspace_result_v1",
+  "site": "resid:18",
+  "steps": 300,
+  "whole_site_reference": {
+    "A1_recovery": 1.0,
+    "C": 0.053,
+    "P": 0.024
+  }
+}

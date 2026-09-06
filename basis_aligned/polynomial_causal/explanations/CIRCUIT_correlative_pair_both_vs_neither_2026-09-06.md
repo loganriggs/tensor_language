@@ -77,18 +77,66 @@ lexical-semantic cues (pronoun gender at chance, countability, animacy).
 
 ---
 
-## 4. DAS: the natural next step, now queued
+## 4. DAS result: a **single direction** carries the correlative state
 
-This behaviour is the best-conditioned DAS target in the corpus, for a specific reason: the
-invariance and control clauses both sit far from their bars (0.024 and 0.053), so a subspace
-search at `resid:18` starts from an unusually clean signal — there is little competing structure
-at the site to confuse an alignment.
+Run: `circuits/followups/das_correlative_pair_resid18_rank1_v2_result.json`
+Tool: `ops/circuit_das_subspace.py` · Runner: `ops/run_das_correlative_pair_rank1_v1.py`
 
-The concrete question DAS answers here and interchange cannot: **is the open correlative carried
-in a low-dimensional subspace of `resid:18`, and is it the same subspace that carries
-`either`/`or`?** If the two pairs share a subspace, the corpus has a genuine "correlative state"
-feature rather than two separately-learned lexical associations — and that is a claim about the
-model's representation, not just about which site to patch.
+**Rank was fixed at 1 before running** and registered with the prediction, per the protocol in
+`ops/README.md`. It was not raised.
 
-Registered as a standing follow-up step for all localized circuits (see `ops/README.md`, "DAS
-follow-up on localized circuits").
+### Method
+
+`resid:18` is the final residual site, so the map from it to the logits is only the model's own
+head — `logits = 30 * tanh(lm_head(rms_norm(x)) / 30)`, verbatim from
+`jacclust/tt_model.py:257-260`. That is exactly differentiable and needs no transformer forward
+inside the optimization, which is what makes rank-1 DAS cheap here.
+
+An orthonormal R (1152x1) is learned so that patching **only** the projection
+
+    x_patched = x_base + R R^T (x_donor - x_base)
+
+matches the donor's answer margin. Fit on 16 A1 rows; everything below is evaluated on rows the
+fit never saw.
+
+**Instrument control, run before any fitting:** the differentiable head reproduces the producer's
+own native answer/foil values to **5.7e-06**.
+
+### Results
+
+| family | measure | value | whole-site reference |
+|---|---|---|---|
+| **A1 (held out)** | interchange recovery | **0.980** | 1.000 |
+| **A2** | interchange recovery | **0.821** | 1.000 |
+| **P** | same-answer effect | **0.053** | 0.024 |
+| **C** | same-answer effect | **0.001** | 0.053 |
+
+All four registered predictions hold: the head is the model's, one direction transfers on
+held-out rows, it transfers **across constructions**, and it is selective.
+
+### What this establishes
+
+**The open correlative is carried by a one-dimensional subspace of `resid:18`.** A single learned
+direction recovers 98% of what the whole 1152-dimensional site recovers, on rows the fit never
+saw, and it still recovers 82% in the *other* construction — so it is a carrier of the variable,
+not a direction fitted to one frame. Patching along it leaves the answer-preserving edit and the
+unrelated control essentially untouched (0.053 and 0.001 against a 0.2 bar).
+
+This is the first sub-site localization in the corpus: interchange said "somewhere in `resid:18`",
+and DAS says "one direction in it".
+
+### Honest limits
+
+- **A2 at 0.821 is the real test, and it is not 1.0.** The direction was fit on A1 rows; ~18% of
+  the cross-construction effect is not carried by it. Some construction-specific structure
+  remains outside the direction.
+- A1 held-out at 0.980 is a weaker test than A2, being the same construction as the fit.
+- **Two earlier defects, both mine, both caught by running the instrument** (`..._rank1_v1_result.json`
+  is retained on disk as the invalid record): the first objective *maximized* the donor margin
+  rather than matching it, which overshot to recovery 2.208 — and is doubly wrong because the
+  head is logit-soft-capped, so climbing toward the cap flattens the gradient. The first P/C
+  measure divided by `(m_donor - m_base)`, which for a same-answer family is legitimately near
+  zero, reporting P at 24.678. Both are fixed; the numbers above come from the corrected run.
+- **The shared-subspace question is still open:** whether this same direction carries
+  `either`/`or` in `correlative_state` has not been tested. That is the next screen, and it is
+  what would turn "a direction for this pair" into "a correlative-state feature".
