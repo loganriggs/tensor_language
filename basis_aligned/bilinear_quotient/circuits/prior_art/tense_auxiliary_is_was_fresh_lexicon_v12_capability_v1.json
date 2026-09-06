@@ -1,0 +1,20 @@
+{
+  "schema": "tense_auxiliary_is_was_fresh_lexicon_v12_capability_prior_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.fresh_lexicon_v12_capability_v1",
+  "registered_utc": "2026-09-06T22:45:01Z",
+  "purpose": "Capability-only lexical transfer gate before testing the frozen post-cue auxiliary value-source program on untouched rows.",
+  "authority": {
+    "builder_sha256": "2734cbeceb4e6979dab22fe5b24870386874ac2f905ae426e6e689548e43e8a2",
+    "rows_sha256": "5aa01e53247320889efc95a5472a577765f49e7879a861bf0c4230e86a4c8272",
+    "v11_capability_result_sha256": "6dd757b066304d1f81ea1e52e0db601fea05adeac516a49cc84ab42bc73a86a2",
+    "v11_source_atlas_screen_sha256": "e389c30a9d6d9f11e62c2a2a488d9ff5150433682f0716dc10f1b7c18d3b9f53",
+    "frozen_source_program": "post_cue_before_subject"
+  },
+  "predictions": {
+    "pred_a_authority_novelty_and_exact_population": "Builder, digest, construction checks, lexicon disjointness, and 64-row inventory pass.",
+    "pred_b_native_a_panel_capability": "Every A1/A2 direction-by-side cell has native accuracy at least 0.75.",
+    "pred_c_joint_capable_population": "Each A panel has at least 12 jointly base-and-donor-correct rows.",
+    "pred_d_no_causal_outcome_access_and_exact_price": "Exactly two native forwards/128 examples and no activation, Q8, head, source, or intervention outcome."
+  },
+  "decision": "Screen licenses one separately preregistered zero-fit post-cue versus all-value confirmation. Null stops this population without causal access and selects no replacement source program."
+}
