@@ -76,8 +76,8 @@ def score(evidence):
     target = {key: value for key, value in reports.items() if key.startswith("target|")}
     control = {key: value for key, value in reports.items() if key.startswith("control|")}
     predictions = {
-        "pred_a_ood_authority_complete": len(evidence) == 360 and len(target) == 24 and len(control) == 6
-                                          and {x["n"] for x in target.values()} == {6}
+        "pred_a_ood_authority_complete": len(evidence) == 360 and len(target) == 12 and len(control) == 6
+                                          and {x["n"] for x in target.values()} == {12}
                                           and {x["n"] for x in control.values()} == {36},
         "pred_b_native_target_capability": bool(target) and all(x["passed"] for x in target.values()),
         "pred_c_native_control_capability": bool(control) and all(x["passed"] for x in control.values()),

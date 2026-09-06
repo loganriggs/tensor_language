@@ -15,7 +15,7 @@ def test_score_requires_every_target_and_control_cell():
     families = capability.authority.TARGET_FAMILIES
     for family in families:
         for a, b in capability.authority.ORDERED_PAIRS:
-            for index in range(6):
+            for index in range(12):
                 evidence.append({"cell_id": f"target|{family}|{a}->{b}",
                                  "correct": True, "closer_margin": 1.0})
     for family in capability.authority.CONTROL_FAMILIES:
