@@ -39,3 +39,15 @@ def test_head_response_positions_validate_causal_coverage_before_hooking():
         source.intervene_head_output_delta(
             backend, batch, {}, {}, layer=11, selected_heads=(2,)
         )
+
+
+def test_ordered_response_installer_rejects_unsorted_or_duplicate_layers():
+    class Backend:
+        pass
+
+    with pytest.raises(source.AttentionSourceDestinationError):
+        source.intervene_ordered_head_output_deltas(
+            Backend(), None, ({"layer": 11}, {"layer": 9}))
+    with pytest.raises(source.AttentionSourceDestinationError):
+        source.intervene_ordered_head_output_deltas(
+            Backend(), None, ({"layer": 9}, {"layer": 9}))

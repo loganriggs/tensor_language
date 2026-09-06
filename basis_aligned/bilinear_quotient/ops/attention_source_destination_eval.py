@@ -181,6 +181,66 @@ def intervene_head_output_delta(
         handle.remove()
 
 
+def intervene_ordered_head_output_deltas(backend, batch, specs):
+    """Install captured response deltas at multiple attention layers in causal order."""
+    specs = tuple(specs)
+    layers = [int(spec["layer"]) for spec in specs]
+    if not specs or layers != sorted(layers) or len(layers) != len(set(layers)):
+        raise AttentionSourceDestinationError(
+            "response specs must name unique increasing attention layers")
+    handles = []
+    head_count = backend.model.config.n_head
+    head_dim = backend.model.config.n_embd // head_count
+    for spec in specs:
+        layer = int(spec["layer"])
+        heads = tuple(int(head) for head in spec["selected_heads"])
+        if not heads or len(heads) != len(set(heads)) or any(
+            not 0 <= head < head_count for head in heads
+        ):
+            raise AttentionSourceDestinationError("response head selection is invalid")
+        supplied = spec.get("positions_by_row")
+        positions = (tuple(tuple(range(int(query) + 1)) for query in batch.semantic_positions)
+                     if supplied is None else tuple(tuple(int(position) for position in row)
+                                                    for row in supplied))
+        if len(positions) != len(batch.row_ids) or any(
+            len(row) != len(set(row)) or any(not 0 <= position <= int(query) for position in row)
+            for row, query in zip(positions, batch.semantic_positions)
+        ):
+            raise AttentionSourceDestinationError("response destination coverage is invalid")
+        base_capture = spec["base_capture"]
+        changed_capture = spec["changed_capture"]
+
+        def patch(
+            _module,
+            arguments,
+            heads=heads,
+            positions=positions,
+            base_capture=base_capture,
+            changed_capture=changed_capture,
+        ):
+            flattened = arguments[0]
+            changed = flattened.clone().view(
+                len(batch.row_ids), flattened.shape[1], head_count, head_dim
+            )
+            for index, row_positions in enumerate(positions):
+                for position in row_positions:
+                    for head in heads:
+                        changed[index, position, head] += (
+                            changed_capture["head_output"][index, position, head]
+                            - base_capture["head_output"][index, position, head]
+                        ).to(device=changed.device, dtype=changed.dtype)
+            return (changed.reshape_as(flattened),) + tuple(arguments[1:])
+
+        handles.append(
+            backend.model.transformer.h[layer].attn.c_proj.register_forward_pre_hook(patch)
+        )
+    try:
+        return backend.native(batch, capture=False)
+    finally:
+        for handle in handles:
+            handle.remove()
+
+
 def intervene_source_groups(
     backend,
     base_batch,
