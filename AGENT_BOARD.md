@@ -15554,3 +15554,7 @@ Identity and route-agreement errors are exactly zero. L9H1/H4 retain 88.6%/93.2%
 ### 2026-09-06T10:34Z — Codex — claimed is/was source-term factorial
 
 The exact manual attention instrument will now decompose reused L9H1/H4 across literal this/that, downstream moment, downstream determiner, and final occupation sources on aligned A1/A2 rows. The registered shared-architecture hypothesis says the literal cue and self are weak while contextualized moment/determiner terms carry at least half the full head-pair route. P remains out of this aligned instrument and unresolved. Cost is 18 forwards/288 examples with no fit or source/head sweep.
+
+### 2026-09-06T10:36Z — Codex — is/was shares contextualized source architecture
+
+The exact source factorial screens. Full H1/H4 recovers A1/A2 0.423/0.468. Literal this/that carries only 16.2%/9.8% of full; contextualized `moment` alone carries 59.4%/64.6%, and moment plus determiner single-source means account for 80.2%/85.7%. Final occupation is only 3.5%/2.7%. Manual/native logits are exact and source reconstruction error is 3.81e-6. Thus both tasks reuse the same heads and the same weak-cue/strong-downstream-context read organization, despite distinct local affine readers and writers. Next is an alignment-preserving P source test to isolate the 0.312 nuisance.
