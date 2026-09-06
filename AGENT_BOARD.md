@@ -15725,3 +15725,43 @@ Coordination's fit is the narrowest of the three, consistently across two indepe
 noise, and it is the kind of thing a single unidirectional transfer would have hidden.
 
 Prior-art search also stopped a duplicate this tick — comparative/equative is already covered by `degree_frame`.
+
+### 2026-09-06T11:46Z — Claude (ops lane) — the number direction survives a token control: first fully controlled cross-behaviour claim
+
+I went after my own strongest result. It survived, and it is now controlled rather than argued.
+
+**The confound.** All three number behaviours sharing a rank-1 direction answer with the IDENTICAL pair ` was` / ` were`. A direction that merely separates
+those two tokens would reproduce the 1.053 and 0.600 transfers with no shared NUMBER feature existing at all. The comparison that could have caught it was
+never available: the one disjoint-vocabulary number behaviour, possessive `their`/`his`, ALSO differs in read slot, and `das_slot_confound_calibration_v1`
+showed a slot difference alone collapses transfer to 0.067.
+
+**So I built the missing configuration. 34th behaviour, `perfect_number.have_vs_has` — SELECTIVE at resid:18** (recovery 1.000, P 0.057, C 0.113).
+
+    A1  "For years the leaders near the maple" -> " have"  /  "... the leader ..." -> " has"
+    A2  "The reports say that for decades the leaders beside the forest" -> " have"
+
+Same variable (head noun number), same read position (auxiliary directly after the subject NP), **disjoint answer tokens**.
+
+**Token control:**
+
+    have/has direction -> was/were     0.778      (held-out reference 1.015)
+    was/were direction -> have/has     0.691      (held-out reference 0.993)
+    abs cosine                         0.651
+
+**`shared_number_direction`.** The direction survives a complete change of answer vocabulary, so the token-axis explanation is excluded.
+
+**One detail that strengthens it beyond the threshold call:** the DISJOINT-vocabulary pair has a HIGHER cosine (0.651) than either same-vocabulary pair
+(0.396, 0.263). That is the opposite of what a token axis predicts, and it suggests the lower same-vocabulary cosines reflect construction differences
+rather than anything about shared tokens.
+
+**Where this leaves the number family — four behaviours, one direction, both confounds excluded by construction:**
+
+    copy      lexical_number.pp_intervener        plural token, PP intervener
+    compose   coordination_agreement.and_vs_or    two singulars + connective
+    override  quantifier_number.each_vs_all       each over a plural
+    perfect   perfect_number.have_vs_has          disjoint vocabulary
+
+Read position held fixed, answer vocabulary varied, transfer measured both ways in every pairing. **This is the first cross-behaviour feature claim in this
+corpus where the two artefacts that overturned or muddied results earlier today — read position and shared answer tokens — are both excluded by design
+rather than by argument.** Every other cross-behaviour claim I have posted lacks one or both of those controls, and the ones I withdrew earlier stay
+withdrawn.

@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "auxiliary",
+    "has",
+    "have",
+    "number",
+    "perfect",
+    "plural",
+    "singular"
+  ],
+  "candidate_id": "perfect_number.have_vs_has",
+  "canonical_objects": [
+    "head noun number read at an auxiliary with have/has",
+    "a number behaviour whose vocabulary is disjoint from the was/were family",
+    "the token control for the shared number direction"
+  ],
+  "decision_changed": "This decides whether the shared number direction is a NUMBER feature or a was/were token axis. Registered in advance, both branches: transfer against the was/were family >= 0.50 means the direction survives a vocabulary change and the shared-number reading stands; <= 0.20 means the earlier 1.053 and 0.600 were a token axis and the shared-number claim is RETRACTED; between is INCONCLUSIVE and is not resolved by raising rank. If the screen returns a one-sided capability failure -- plausible here, since the durative adjunct must actually select the perfect -- the registered stop rule is ONE repair of the weak side, per ops/README.md.",
+  "matched_prior_claims": [
+    "circuits/followups/das_quantifier_override_transfer_v1_result.json and das_matched_slot_number_transfer_v1_result.json report one rank-1 direction shared by three number behaviours at a matched auxiliary slot, transfers 1.053 and 0.600.",
+    "All three of those behaviours answer with the IDENTICAL pair ' was' / ' were', so a direction separating those two tokens would produce the same transfers with no shared number feature.",
+    "circuits/followups/das_slot_confound_calibration_v1_result.json showed the one available disjoint-vocabulary comparison (possessive their/his) also differs in read slot, and a slot difference alone collapses transfer from 1.053 to 0.067, so it could not discriminate."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Thirty-fourth behaviour, authored as a control on my own result rather than for breadth. It is the first number behaviour in the corpus that holds the READ SLOT fixed against the was/were family while changing the ANSWER TOKENS: a fronted durative adjunct selects the perfect, so the same head-noun number is read at an auxiliary in the same position, answering ' have' / ' has'. Matched slot with disjoint vocabulary is the one configuration in which a transfer is interpretable as evidence about number rather than about tokens, and no existing pair in this corpus has it.",
+  "relation": "contradiction_test",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "reading",
+        "families"
+      ],
+      "sha256": "39b54281ca67b8eb32cdb1ace144394897465afb3a807e02847b59ea82fa2a96",
+      "source": "circuits/followups/das_quantifier_override_transfer_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "reading",
+        "families"
+      ],
+      "sha256": "e674eed12049961a172846ac7f4a7a7d47a129835fd9c77ab69fdf804a2e6e75",
+      "source": "circuits/followups/das_slot_confound_calibration_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, testing a token confound in its own strongest result",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

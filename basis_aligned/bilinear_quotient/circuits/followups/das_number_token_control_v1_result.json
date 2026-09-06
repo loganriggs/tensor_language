@@ -1,0 +1,68 @@
+{
+  "abs_cosine_between_directions": 0.6507284641265869,
+  "candidate_id": "number.token_control_v1",
+  "families": {
+    "c_control": {
+      "rows": 32,
+      "same_answer_effect": 0.0009030817309394479
+    },
+    "have_has_a1_heldout": {
+      "mean_absolute_recovery": 1.0147591829299927,
+      "mean_recovery": 1.0147591829299927,
+      "rows": 16
+    },
+    "have_has_direction_on_was_were": {
+      "mean_absolute_recovery": 0.7777082920074463,
+      "mean_recovery": 0.7777082920074463,
+      "rows": 32
+    },
+    "p_head_noun_rewrite": {
+      "rows": 32,
+      "same_answer_effect": 0.05950968712568283
+    },
+    "was_were_a1_heldout": {
+      "mean_absolute_recovery": 0.9926386475563049,
+      "mean_recovery": 0.9926386475563049,
+      "rows": 16
+    },
+    "was_were_a2_report_frame": {
+      "mean_absolute_recovery": 1.050809621810913,
+      "mean_recovery": 1.050809621810913,
+      "rows": 32
+    },
+    "was_were_direction_on_have_has": {
+      "mean_absolute_recovery": 0.6905746459960938,
+      "mean_recovery": 0.6905746459960938,
+      "rows": 32
+    }
+  },
+  "finished_utc": "2026-09-06T11:46:05.351424+00:00",
+  "head_verification": {
+    "max_abs_difference": 2.384185791015625e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_rank1_carries_both_constructions": true,
+  "pred_c_subspace_spares_p_and_c": true,
+  "pred_d_shared_number_direction": true,
+  "pred_e_distinct_number_directions": false,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_rank1_carries_both_constructions": true,
+    "pred_c_subspace_spares_p_and_c": true,
+    "pred_d_shared_number_direction": true,
+    "pred_e_distinct_number_directions": false
+  },
+  "rank": 1,
+  "reading": "shared_number_direction",
+  "registered_thresholds": {
+    "carry": 0.5,
+    "distinct": 0.2,
+    "shared": 0.5,
+    "spare": 0.2
+  },
+  "registered_token_control": "Both behaviours read head noun number at an auxiliary in the SAME position, so read slot is held fixed. Their answer vocabularies are DISJOINT (was/were against have/has), so a direction that merely separates two answer tokens cannot transfer between them. Matched slot with disjoint vocabulary is the only configuration in this corpus where transfer tests the FEATURE.",
+  "schema": "circuit_das_subspace_result_v1",
+  "site": "resid:18",
+  "target_scale": 9.443230628967285
+}
