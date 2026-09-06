@@ -1,0 +1,43 @@
+{
+  "schema": "aspectual_anchor_base_margin_affine_carrier_actuation_instrument_audit_result_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.base_margin_affine_carrier_actuation_v1",
+  "created_utc": "2026-09-06T07:14:00Z",
+  "evidence_class": "post_outcome_zero_forward_instrument_audit",
+  "source_result": {
+    "path": "circuits/followups/aspectual_anchor_base_margin_affine_carrier_actuation_v1_result.json",
+    "sha256": "4358d288756b7baf0e6d06377f314024905b17a845f8c5cbe5d490fd1bba2c25",
+    "preserved_terminal": "invalid"
+  },
+  "diagnosis": {
+    "failed_condition": "The runner required fixed_has_had_confidence > 0 for C controls even though their registered native behavior is the unrelated night-versus-day answer. Six of sixteen C rows fail this irrelevant probe condition.",
+    "nonpositive_C_probe_rows": 6,
+    "C_probe_confidence_min": -0.926202654838562,
+    "C_probe_confidence_max": 0.8943072557449341,
+    "C_actual_answer_margin_min": 0.3266744613647461,
+    "A1_probe_confidence_min": 0.9138278961181641,
+    "A2_probe_confidence_min": 0.9453201293945312,
+    "P_probe_confidence_min": 0.38053131103515625,
+    "why_unique": "Coefficient reconstruction is exact; head replay, actuator identity, all A/P probe capabilities, all C actual-task capabilities, and coverage/price pass. Only the conjunction with C probe positivity can make pred_a false.",
+    "instrument_effect": "C probe confidence is a real-valued predictor input, not a claimed C behavior or denominator. Its sign is allowed to vary, and the emitted C intervention directly tests whether the resulting alpha damages the registered unrelated answer. Therefore this extra condition changes the formal terminal but does not contaminate any scored intervention.",
+    "model_forwards": 0,
+    "example_evaluations": 0
+  },
+  "scientific_disposition": "design_seen_base_margin_affine_carrier_screen",
+  "scientific_scores": {
+    "fresh_A1_mean_recovery": 1.1719689014339019,
+    "fresh_A2_mean_recovery": 1.3245870599103713,
+    "fresh_A1_recovery_fraction_vs_v10": 1.0346637361790514,
+    "fresh_A2_recovery_fraction_vs_v10": 1.1308455651055818,
+    "fresh_P_mean_margin_reflection_fraction": 1.0232939889657762,
+    "fresh_C_mean_normalized_unrelated_effect": 0.0009691451747306743,
+    "A1_improvement_factor_vs_v2": 4.624240612253513,
+    "A2_improvement_factor_vs_v2": 5.153726468390575,
+    "P_improvement_factor_vs_v2": 3.464622241461342,
+    "A1_direction_fraction": 1.0,
+    "A2_direction_fraction": 1.0,
+    "P_direction_fraction": 1.0
+  },
+  "interpretation": "Within the explicitly design-seen population, source-state has/had confidence supplies the missing input-dependent gain: four coefficients match or exceed the per-row target-guided v10 actuator while preserving the unrelated C behavior. This is causal sufficiency evidence, not prospective identification, because existing fresh target-guided alpha correlations informed the predictor form.",
+  "terminal": "audit",
+  "next_action": "Freeze the four coefficients and validate the same actuator prospectively on genuinely new lexicon/construction rows with no inspected target-guided alpha outcomes."
+}
