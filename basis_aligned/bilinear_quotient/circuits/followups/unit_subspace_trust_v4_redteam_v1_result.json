@@ -1,0 +1,277 @@
+{
+  "candidate_id": "corpus.unit_subspace_trust_v4_redteam_v1",
+  "finished_utc": "2026-09-06T13:53:57.161398+00:00",
+  "instrument": {
+    "heads_max_abs_error": 0.0,
+    "mlp_max_abs_error": 0.0,
+    "native_max_abs_error": 0.0,
+    "passed": true,
+    "tolerance": 0.0001
+  },
+  "predictions": {
+    "pred_a_same_layer_identity_closes": true,
+    "pred_b_all_multilayer_identity_closes": false,
+    "pred_c_cdas_beat_dim_on_own_loss": true
+  },
+  "price": {
+    "example_evaluations_max": 2560,
+    "model_backwards": 0,
+    "model_forwards_max": 80,
+    "model_updates": 0
+  },
+  "schema": "circuit_unit_subspace_trust_v4_redteam_result_v1",
+  "serial_seconds": 1.5596057549118996,
+  "sets": {
+    "correlative_pair.both_vs_neither": {
+      "cdas_beats_dim_on_own_loss": true,
+      "difference_in_means_training_objective": {
+        "complement_inert_mse": 0.10318365693092346,
+        "joint_lambda1": 0.36348846554756165,
+        "match_mse": 0.2603048086166382
+      },
+      "dim_to_cdas_joint_loss_ratio": 28.816448080665694,
+      "dimension": 384,
+      "identity_vs_exact": {
+        "exact_recovery": 0.6497469439988572,
+        "identity_recovery": 0.6515504192248054,
+        "max_abs_logit_error": 0.09403705596923828,
+        "mean_abs_logit_error": 0.039877504110336304,
+        "passed": false,
+        "recovery_gap": 0.001803475225948148
+      },
+      "kind": "heads",
+      "layers": [
+        8,
+        7,
+        14
+      ],
+      "same_layer": false,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:14:head:08"
+      ],
+      "v4_cdas_recorded_final_training_objective": {
+        "complement_inert_mse": 0.004568202421069145,
+        "joint_lambda1": 0.012613923288881779,
+        "match_mse": 0.008045720867812634
+      }
+    },
+    "modal_remoteness.would_vs_will": {
+      "cdas_beats_dim_on_own_loss": true,
+      "difference_in_means_training_objective": {
+        "complement_inert_mse": 0.008309777826070786,
+        "joint_lambda1": 0.028499573469161987,
+        "match_mse": 0.020189795643091202
+      },
+      "dim_to_cdas_joint_loss_ratio": 8.642088243109198,
+      "dimension": 256,
+      "identity_vs_exact": {
+        "exact_recovery": 0.5170077793472332,
+        "identity_recovery": 0.5357419795473901,
+        "max_abs_logit_error": 0.09750556945800781,
+        "mean_abs_logit_error": 0.0506192147731781,
+        "passed": false,
+        "recovery_gap": 0.018734200200156925
+      },
+      "kind": "heads",
+      "layers": [
+        9,
+        11
+      ],
+      "same_layer": false,
+      "units": [
+        "attn:09:head:04",
+        "attn:11:head:03"
+      ],
+      "v4_cdas_recorded_final_training_objective": {
+        "complement_inert_mse": 0.001392699545249343,
+        "joint_lambda1": 0.0032977646915242076,
+        "match_mse": 0.0019050651462748647
+      }
+    },
+    "numbered_list.control_choice_discriminator": {
+      "cdas_beats_dim_on_own_loss": true,
+      "difference_in_means_training_objective": {
+        "complement_inert_mse": 0.010376929305493832,
+        "joint_lambda1": 0.014198100892826915,
+        "match_mse": 0.003821171587333083
+      },
+      "dim_to_cdas_joint_loss_ratio": 1.8835954803379553,
+      "dimension": 256,
+      "identity_vs_exact": {
+        "exact_recovery": 0.8477762690629864,
+        "identity_recovery": 0.8477761718245657,
+        "max_abs_logit_error": 7.62939453125e-06,
+        "mean_abs_logit_error": 2.8312206268310547e-06,
+        "passed": true,
+        "recovery_gap": -9.723842075981537e-08
+      },
+      "kind": "heads",
+      "layers": [
+        8,
+        8
+      ],
+      "same_layer": true,
+      "units": [
+        "attn:08:head:03",
+        "attn:08:head:07"
+      ],
+      "v4_cdas_recorded_final_training_objective": {
+        "complement_inert_mse": 0.004971704911440611,
+        "joint_lambda1": 0.0075377654284238815,
+        "match_mse": 0.0025660605169832706
+      }
+    },
+    "polarity_state.negative_vs_positive.heads": {
+      "cdas_beats_dim_on_own_loss": true,
+      "difference_in_means_training_objective": {
+        "complement_inert_mse": 0.08146529644727707,
+        "joint_lambda1": 0.2933998182415962,
+        "match_mse": 0.21193452179431915
+      },
+      "dim_to_cdas_joint_loss_ratio": 10.916670461079752,
+      "dimension": 512,
+      "identity_vs_exact": {
+        "exact_recovery": 0.5866333051356094,
+        "identity_recovery": 0.5506197808248132,
+        "max_abs_logit_error": 0.385958194732666,
+        "mean_abs_logit_error": 0.12526771426200867,
+        "passed": false,
+        "recovery_gap": -0.036013524310796186
+      },
+      "kind": "heads",
+      "layers": [
+        7,
+        8,
+        4,
+        5
+      ],
+      "same_layer": false,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:05:head:08"
+      ],
+      "v4_cdas_recorded_final_training_objective": {
+        "complement_inert_mse": 0.015805844217538834,
+        "joint_lambda1": 0.026876309886574745,
+        "match_mse": 0.011070465669035912
+      }
+    },
+    "polarity_state.negative_vs_positive.with_mlp04": {
+      "cdas_beats_dim_on_own_loss": true,
+      "difference_in_means_training_objective": {
+        "complement_inert_mse": 0.16769051551818848,
+        "joint_lambda1": 0.4309258460998535,
+        "match_mse": 0.26323533058166504
+      },
+      "dim_to_cdas_joint_loss_ratio": 1.8742455837447978,
+      "dimension": 1536,
+      "identity_vs_exact": {
+        "exact_recovery": 0.557134669179595,
+        "identity_recovery": 0.515387992070026,
+        "max_abs_logit_error": 0.43633174896240234,
+        "mean_abs_logit_error": 0.12568122148513794,
+        "passed": false,
+        "recovery_gap": -0.04174667710956903
+      },
+      "kind": "mlp",
+      "layers": [
+        7,
+        8,
+        4,
+        10
+      ],
+      "same_layer": false,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "mlp:04",
+        "attn:10:head:05"
+      ],
+      "v4_cdas_recorded_final_training_objective": {
+        "complement_inert_mse": 0.1766340583562851,
+        "joint_lambda1": 0.22991962730884552,
+        "match_mse": 0.053285568952560425
+      }
+    },
+    "possessive_number.adjacent_antecedent.heads": {
+      "cdas_beats_dim_on_own_loss": true,
+      "difference_in_means_training_objective": {
+        "complement_inert_mse": 0.4954051375389099,
+        "joint_lambda1": 0.9441016316413879,
+        "match_mse": 0.448696494102478
+      },
+      "dim_to_cdas_joint_loss_ratio": 19.77397804126313,
+      "dimension": 512,
+      "identity_vs_exact": {
+        "exact_recovery": 0.5788661452991863,
+        "identity_recovery": 0.6373977783101072,
+        "max_abs_logit_error": 0.8210306167602539,
+        "mean_abs_logit_error": 0.1859850436449051,
+        "passed": false,
+        "recovery_gap": 0.0585316330109209
+      },
+      "kind": "heads",
+      "layers": [
+        4,
+        3,
+        9,
+        10
+      ],
+      "same_layer": false,
+      "units": [
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:09:head:06",
+        "attn:10:head:05"
+      ],
+      "v4_cdas_recorded_final_training_objective": {
+        "complement_inert_mse": 0.03187670558691025,
+        "joint_lambda1": 0.04774464853107929,
+        "match_mse": 0.015867942944169044
+      }
+    },
+    "possessive_number.adjacent_antecedent.with_mlp08": {
+      "cdas_beats_dim_on_own_loss": true,
+      "difference_in_means_training_objective": {
+        "complement_inert_mse": 0.6860854625701904,
+        "joint_lambda1": 1.8355340957641602,
+        "match_mse": 1.1494486331939697
+      },
+      "dim_to_cdas_joint_loss_ratio": 28.915593257639,
+      "dimension": 1536,
+      "identity_vs_exact": {
+        "exact_recovery": 0.5780408269892419,
+        "identity_recovery": 0.7589943993225596,
+        "max_abs_logit_error": 1.8948702812194824,
+        "mean_abs_logit_error": 0.5005472898483276,
+        "passed": false,
+        "recovery_gap": 0.18095357233331777
+      },
+      "kind": "mlp",
+      "layers": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "same_layer": false,
+      "units": [
+        "attn:04:head:05",
+        "mlp:08",
+        "attn:09:head:06",
+        "attn:10:head:05"
+      ],
+      "v4_cdas_recorded_final_training_objective": {
+        "complement_inert_mse": 0.03197919577360153,
+        "joint_lambda1": 0.06347903981804848,
+        "match_mse": 0.031499844044446945
+      }
+    }
+  },
+  "terminal": "v4_partition_invalid",
+  "tolerance": 0.0001
+}
