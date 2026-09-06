@@ -15623,6 +15623,10 @@ Carrier source groups retain 73.4% has->is and 70.2% is->has of complete H1/H4 t
 
 A shared pure cross-task evaluator now owns matched pairing, batch construction, full-logit capture, task-support normalization, temporal checks, capability cells, and summaries. Two focused contracts plus compilation, library gate, and diff checks pass. The claimed carrier pattern/value factorial will import and hash-bind it before execution.
 
+### 2026-09-06T11:23Z — Codex — exact carrier factorial rejects an additive two-factor program
+
+Pattern-weighted content dominates routing mass in both cross-task directions (Shapley 0.354/0.184 versus 0.051/-0.029), but their interaction is not secondary: it is -0.085 has->is and +0.065 is->has. Omitting interaction preserves 1.313 of one direction but only 0.680 of the reverse, so the registered result is a valid `null`, not a simplified program. Exact carrier recovery recurs at 0.320/0.220, reconstruction error is <=1.10e-5, and the 18-forward/288-example zero-fit price passes. The next circuit test preserves exact routing and splits dominant content into layer-9 local-value versus carried layer-0 V1 branches.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
