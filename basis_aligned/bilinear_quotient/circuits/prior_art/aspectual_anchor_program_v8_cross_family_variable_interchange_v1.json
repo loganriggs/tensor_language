@@ -1,0 +1,42 @@
+{
+  "schema": "aspectual_anchor_program_v8_cross_family_variable_interchange_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.program_v8_cross_family_variable_interchange_v1",
+  "created_utc": "2026-09-06T06:39:00Z",
+  "question": "Do v8's explicit resid10, attention-source, and MLP-write variables form one reusable aspectual state across A1 and A2, rather than only across prefix variants within each family?",
+  "novelty_search": {
+    "queries": ["aspectual cross family variable interchange", "A1 A2 swap_initial", "A1 A2 swap_attention", "A1 A2 swap_mlp"],
+    "result": "The completed construction-interchange screen matched A1 to A1 and A2 to A2. No receipt exchanges the explicit variable groups between A1 and A2."
+  },
+  "authority": {
+    "program_v8": {"path": "ops/aspectual_anchor_transparent_path_program_v8.py", "sha256": "87eb67f3a96904534c8d3ddca5e1df59fa14efd88d1174e1cc2805435346bb57"},
+    "construction_interchange_result": {"path": "circuits/followups/aspectual_anchor_program_v8_cross_construction_variable_interchange_v1_result.json", "sha256": "951044ca2b195d1128bebfabe2b3aa815407b20c02a20747e5bf18b8d6d13286", "terminal": "screen"},
+    "construction_interchange_runner": {"path": "ops/run_aspectual_anchor_program_v8_cross_construction_variable_interchange_v1.py", "sha256": "566a01b3f73df26338905352cafad2d9398b6647b5bde0d6d4b8d8f63a1e8496"},
+    "lexical_builder": {"path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py", "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859"},
+    "fresh_builder": {"path": "ops/circuit_candidate_aspectual_fresh_construction_v2.py", "sha256": "848332a12c22bf523573e015b6f8f0a38b5865db8b77434dcbe6a176d98370ac"}
+  },
+  "frozen_design": {
+    "population": "All 64 lexical/fresh A1/A2 rows. Within each panel, target A1 is paired to source A2 and target A2 to source A1 by reporter, object_name, and direction_id.",
+    "arms": ["target_full", "source_full", "swap_initial", "swap_attention", "swap_mlp"],
+    "swap_semantics": "Identical to the released construction-interchange runner except that source is the opposite A family in the same lexical/fresh panel. Target base-resid18, answer/foil IDs, outcome denominator, global weights, and recurrence remain fixed.",
+    "bars": {
+      "target_full_direction_fraction_min": 0.75,
+      "source_full_over_target_mean_recovery_min": 0.50,
+      "source_full_direction_fraction_min": 0.75,
+      "each_group_swap_over_target_mean_recovery_min": 0.75,
+      "each_group_swap_direction_fraction_min": 0.75
+    }
+  },
+  "predictions": {
+    "pred_a_authority_pairing_capability_and_controls": "All hashes, exact A1/A2 bijections, native capability, and reconstruction controls pass.",
+    "pred_b_target_program_effect": "target_full is positive with at least 0.75 direction in all four target panels.",
+    "pred_c_whole_family_transfer": "source_full retains at least 0.50 of target_full recovery and 0.75 direction in all panels.",
+    "pred_d_groupwise_cross_family_equivalence": "Each single-group swap retains at least 0.75 of target_full recovery and 0.75 direction in all panels.",
+    "pred_e_exact_coverage_and_price": "All 320 records are unique within the parent screen's 72-forward/576-evaluation ceiling and zero fit/backward/update."
+  },
+  "terminal": {
+    "screen": "A-E pass: A1 and A2 share operationally equivalent explicit aspectual variables under the registered reader.",
+    "null": "Authority, target effect, and coverage pass but whole-family or a named group is family-specific.",
+    "invalid": "Authority, pairing, capability, reconstruction, target effect, or coverage fails."
+  },
+  "price": {"model_forwards_max": 72, "example_evaluations_max": 576, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
