@@ -206,3 +206,24 @@ Only after fixing this weight-derived hypothesis class should constrained DAS op
 small residual correction, with multi-environment fitting plus noise/KL/invariance
 regularization; otherwise regularization can stabilize an objective that is still aimed at
 the wrong scalar target.
+
+The nested rank screen selects rank seven, not rank four or six. Rank seven recovers
+93.55%/92.32% of full-H3 behavior, transports 95.98%/96.43% of the L15H5/H1 response, and
+leaves only 6.60%/7.81% behavioral complement. Rank six remains at 87.55%/84.95% behavior,
+85.88%/84.33% transport, and 12.75%/15.20% complement, so the selected boundary is not a
+rounding artifact. Rank eight also passes but is dominated in simplicity. All bases are
+nested and label/example-free, and rank four exactly replays the earlier receipt. Rank seven
+is therefore the current highest-quality manipulable H3 candidate, subject to a new-bank
+confirmation because v8 was used for rank selection.
+
+The sealed v9 confirmation is a strict rank-seven near-miss. On a fully capable 32/32 +
+32/32 bank, rank seven retains 92.99% A1 behavior but 89.33% A2 behavior, missing the frozen
+90% floor by 0.67 points. Its orthogonal complement remains selective at 7.31%/11.07%, and
+L15H5/H1 transport confirms strongly at 94.76%/95.78%; full H3 is material and every
+instrument check is exact. Thus the tensor-derived modes and downstream interface transfer,
+but rank seven is not promoted as a stable sufficient boundary. Rank eight is the robust
+upper-bound candidate from the preregistered v8 sweep. The next compression test should use
+it as a teacher and optimize only a tensor-anchored low-rank correction with full-distribution
+KL, complement-inertness, noise consistency, and explicit multi-environment balance. This
+directly tests regularization against memorization while avoiding the already falsified
+task-scalar objective.
