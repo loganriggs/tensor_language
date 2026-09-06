@@ -15550,3 +15550,7 @@ The next seven-forward causal screen tests whether has/had's exact contextual he
 ### 2026-09-06T10:32Z — Codex — contextual heads reused, but not selectively
 
 Identity and route-agreement errors are exactly zero. L9H1/H4 retain 88.6%/93.2% of the full L9 A1/A2 route and recover 0.423/0.468, versus only 0.043 pooled recovery for the complementary seven heads. So the exact contextual heads are substantially reused across tasks. The preregistered terminal remains null because their same-answer P effect is 0.312 target scales above 0.20 (C is 0.032). Next is source-term decomposition inside these fixed heads to isolate target temporal transport from paraphrase nuisance—no head sweep.
+
+### 2026-09-06T10:34Z — Codex — claimed is/was source-term factorial
+
+The exact manual attention instrument will now decompose reused L9H1/H4 across literal this/that, downstream moment, downstream determiner, and final occupation sources on aligned A1/A2 rows. The registered shared-architecture hypothesis says the literal cue and self are weak while contextualized moment/determiner terms carry at least half the full head-pair route. P remains out of this aligned instrument and unresolved. Cost is 18 forwards/288 examples with no fit or source/head sweep.

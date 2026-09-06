@@ -1,0 +1,55 @@
+{
+  "schema": "tense_auxiliary_is_was_l9h1_h4_source_term_factorial_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.l9h1_h4_source_term_factorial_v1",
+  "created_utc": "2026-09-06T10:33:13Z",
+  "evidence_class": "exact_cross_task_contextual_head_source_term_factorial",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*is_was*source*", "circuits/followups/*is_was*source*", "circuits/prior_art/*l9h1_h4*", "circuits/followups/*l9h1_h4*", "AGENT_BOARD.md"],
+    "nearest_result": "L9H1/H4 retain 0.886/0.932 of the full is/was L9 route but fail P selectivity; has/had source decomposition found the literal cue weak and downstream period/determiner state dominant.",
+    "new_question": "Within the fixed reused H1/H4 pair, is is/was temporal state likewise read from contextualized tokens downstream of the literal this/that cue?"
+  },
+  "authorities": {
+    "cross_task_head_reuse_sha256": "ca3139b6eba33f3d06c6d79c5b772f8ecf568e16918d2e2211c282847d577070",
+    "source_instrument_sha256": "8e890efd3520cfbece1d71f3ffb58397c732d8fc9c9446c74af9ac0380f2ca01",
+    "matched_v2_builder_sha256": "1f4b29bda3e26af3ee0102316ab0af166e317d1646e8b0b51332061245e606d6",
+    "q_is_v8_rows_sha256": "2efd47b9a89d0f092688a96d75bbc33e5b89991a8e5de28723c714319b9ccceb"
+  },
+  "population": "All 32 A1/A2 is/was rows from matched-v2. Base and donor strings have equal token length and exactly one aligned this/that cue difference. P is excluded because its paraphrase insertion is not position-aligned; P nuisance remains explicitly unresolved.",
+  "operator": {
+    "heads": [1, 4],
+    "layer": 9,
+    "query": "final occupation token",
+    "source_terms": {
+      "cue": "unique this/that token difference",
+      "moment": "cue+1, the token moment",
+      "determiner": "cue+2, the token the",
+      "self": "final occupation token"
+    },
+    "arm": "For each named source, replace its paired donor attention pattern-times-effective-value term inside otherwise native base H1/H4 preprojection state; full_pair replaces complete paired donor H1/H4 preprojection vectors.",
+    "exactness": "A reused manual bilinear-attention implementation must match native selected logits and reconstruct H1/H4 source sums within 1e-4.",
+    "fitting": "none",
+    "no_rescue": "No source, head, family, threshold, or row changes after execution."
+  },
+  "bars": {
+    "capability": "Base and donor native accuracy >=0.85 in each A1/A2 x direction cell.",
+    "full_pair": "A1 and A2 mean recovery >=0.30 with direction fraction >=0.80.",
+    "literal_cue_negative": "Cue-only mean recovery is <=0.25 of full-pair mean recovery in A1 and A2.",
+    "downstream_context": "Moment plus determiner single-source mean recoveries sum to >=0.50 of full-pair mean recovery in each A family; at least one individually retains >=0.25 with direction fraction >=0.80.",
+    "self_negative": "Self-only absolute mean recovery <=0.25 of full-pair mean recovery in A1 and A2.",
+    "price": "18 forwards/288 examples, five causal arms, zero fit/grid/root/backward/update."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_instrument_and_coverage": "Hashes, aligned cue positions, native capability, manual logits, source reconstruction, finiteness, and 32 rows per arm pass.",
+    "pred_b_full_h1_h4_pair_recurrence": "Full H1/H4 pair passes A1/A2 recovery and direction bars.",
+    "pred_c_literal_cue_is_not_sufficient": "Cue-only retains <=0.25 of full recovery in both A families.",
+    "pred_d_downstream_moment_determiner_context": "Moment/determiner source terms meet the registered summed and individual contextual-read bars.",
+    "pred_e_self_negative_and_exact_price": "Self remains <=0.25 of full recovery and exact zero-fit price passes."
+  },
+  "terminal": {
+    "screen": "A-E pass: is/was shares the contextualized downstream-source reader architecture of has/had within L9H1/H4.",
+    "null": "Instrument/full pair pass but literal-cue, downstream-context, or self prediction misses; retain only head-level reuse.",
+    "invalid": "Authority, alignment, capability, exact instrument, full-pair liveness, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["read localization", "component grouping", "causal source tracing", "composition and reuse"],
+  "price": {"model_forwards": 18, "example_evaluations": 288, "rows": 32, "causal_arms": 5, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
