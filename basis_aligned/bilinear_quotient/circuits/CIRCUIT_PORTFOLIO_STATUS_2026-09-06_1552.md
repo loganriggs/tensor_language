@@ -435,6 +435,15 @@ is 0.75%/3.02%. Raw three-factor closure is 5.01e-6 and the actual H1/H4 c_proj 
 closes at 7.63e-6. The active compiler now predicts those c_v value changes directly from MLP8
 Down output, block9's residual coefficient and RMS normalization, and exact H1/H4 c_v rows.
 
+That upstream compiler passes. Applying MLP8 Down to the hidden-product complement, multiplying by
+the exact block9 deep gain .90234375, recomputing native RMS normalization, reading with attention9
+H1/H4 c_v, routing with the frozen base pattern, and writing through H1/H4 c_proj reproduces the
+captured value intervention at behavior cosine >.99999989 and Q8 cosine >1 within float error.
+Behavior/Q8 relative RMSE is <=1.23e-5/6.84e-6; full-vocabulary logit error is 1.48e-5. The pre-RMS
+recurrence closes at 2.44e-4, c_v at 1.34e-5, c_proj at 2.75e-5, and the initial-value branch is
+exactly unchanged. The remaining local simplification is the frozen Left/Right/interaction split
+inside MLP8's complement product.
+
 The destination atlas passes and identifies a single writer destination. Restoring H1/H4 only at
 the final query removes 61.63%/57.74% of live complement behavior and 62.12%/55.91% of final-Q8
 norm, accounting for 82.55%/85.05% of the complete H1/H4 response removal. Q8 cosine is

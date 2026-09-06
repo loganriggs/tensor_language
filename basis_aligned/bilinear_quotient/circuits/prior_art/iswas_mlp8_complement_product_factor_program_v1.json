@@ -1,0 +1,25 @@
+{
+  "schema": "iswas_mlp8_complement_product_factor_program_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_complement_product_factor_program_v1",
+  "registered_utc": "2026-09-06T21:52:00Z",
+  "question": "Which exact MLP8 bilinear product factors generate the Down-orthogonal component that the compiled attention9 H1/H4 weight path converts into shared Q8?",
+  "authority": {
+    "value_compiler_result_sha256": "393d730e958ace78ef5a4026ed2a35acebb4bf801f6c37daa8cca4746547aadc",
+    "value_compiler_runner_sha256": "7a65c8ffd57eb93d82b0bf5104745db94e2703666616bbbf6c5f29dc64dc42ff"
+  },
+  "frozen_design": {
+    "population": "The same 27 capable v10 rows and exact post-cue positions.",
+    "factors": ["left_change=(Left_d-Left_b)*Right_b", "right_change=Left_b*(Right_d-Right_b)", "interaction=(Left_d-Left_b)*(Right_d-Right_b)"],
+    "complement": "Project every factor with I-VV^T, where V is the complete right-singular row basis of frozen temporal-Q8 contracted with MLP8 Down. The three projected factors exactly sum to the proven Down-orthogonal complement.",
+    "arms": "All eight subsets of the three projected factors, installed only at post-cue MLP8 Down inputs in native base runs.",
+    "maximum_price": {"model_forwards": 10, "example_evaluations": 270, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_factor_projection_full_replay_finiteness_and_price": "Hashes, 27-row manifest, hidden factor reconstruction, complement projection closure, empty/base identity, full-parent replay, finiteness and price pass.",
+    "pred_b_full_complement_factor_program_is_material": "The full three-factor arm has shared-target behavior cosine at least 0.95 and Q8-coordinate cosine at least 0.80 in both panels.",
+    "pred_c_left_right_two_term_program_is_sufficient": "Left+right retains at least 0.90 of full mean absolute behavior and Q8 norm, with cosine at least 0.95 to the full effects in both panels.",
+    "pred_d_bilinear_interaction_is_secondary": "Interaction alone is at most 0.15 of full mean absolute behavior and Q8 norm in both panels.",
+    "pred_e_zero_fit_literal_bilinear_weights": "Left, Right, Down, the complement projector and every intervention are exact frozen weights/tensors with no fit, gradients, or model updates."
+  },
+  "decision": "Screen yields the simpler two-term upstream MLP tensor program feeding the compiled H1/H4 converter. Null retains the full three-term bilinear product or redirects to a factor-specific downstream conversion audit."
+}
