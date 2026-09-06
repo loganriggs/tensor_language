@@ -1,0 +1,27 @@
+{
+  "schema": "temporal_q8_iswas_cdas_shared_specific_causal_prior_v1",
+  "candidate_id": "cross_task.temporal_q8_iswas_cdas_shared_specific_causal_v1",
+  "registered_utc": "2026-09-06T20:46:48Z",
+  "question": "Does the temporal-Q8 projection of the selective is/was cDAS write carry selective held-out is/was behavior, and does it compose exactly with the task-specific remainder?",
+  "authority": {
+    "weight_overlap_result_sha256": "883861b7392a8b1214491bef2fab80bfd670dfca98d87f91cb73fcb22bf624e6",
+    "iswas_cdas_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "v2_capability_sha256": "f76fbcd6174cc9e8e3f77352ee5461815156cdae421ecc43a0e0c3576b63af7e",
+    "v3_capability_sha256": "744d2fd3c8200ca00005357961df3d435a7a13dbdbd7c3a51a487daee76acec3"
+  },
+  "frozen_intervention": {
+    "population": "Exactly the original cDAS held-out groups: v2 A1 rows 8+, all v2 A2, v2 P/C rows 8+, and all v3 A1/A2/P/C.",
+    "write_decomposition": "For each donor-base resid18 delta d and released normalized cDAS axis a, original write w=(d^T a)a. Let p=SS^T a for the frozen temporal-Q8 residual projector S and c=a-p. Install w_shared=(d^T a)p and w_specific=(d^T a)c. Their sum must equal w exactly; neither component is renormalized or refit.",
+    "arms": ["base", "original_cdas", "temporal_q8_shared", "iswas_specific", "shared_plus_specific"],
+    "selectivity": "A1/A2 use donor answer/foil recovery. P/C retain the original same-answer absolute effect divided by the frozen cDAS target scale 1.9129114151000977.",
+    "price": {"model_forwards_max": 2, "example_evaluations_max": 208, "records": 520, "fit_updates": 0, "transformer_backwards": 0}
+  },
+  "predictions": {
+    "pred_a_exact_authority_replay_decomposition_coverage_and_price": "Original cDAS reproduces its released family metrics within 1e-4; shared+specific matches original logits within 1e-5; write closure is within 1e-6; coverage and price are exact.",
+    "pred_b_temporal_q8_shared_component_is_causally_material": "Shared write has positive mean recovery and at least 0.10 mean absolute recovery in all four held-out A families, with donorward direction on at least 75% of rows per family.",
+    "pred_c_temporal_q8_shared_component_is_selective": "Shared P/C same-answer effects are at most 0.20 in all four held-out control families.",
+    "pred_d_iswas_specific_component_remains_material": "Specific write has at least 0.25 mean absolute recovery in all four A families.",
+    "pred_e_shared_and_specific_compose_without_signed_reversal": "Shared plus specific equals original, and both components have positive signed mean recovery in every A family."
+  },
+  "decision": "Promote shared causal reuse only if all five gates pass. A selective but weak shared arm remains geometric overlap; a strong but nonselective shared arm is readout-aligned nuisance. Either null blocks the finite cross-task Hankel claim for this axis."
+}

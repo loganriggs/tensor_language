@@ -333,3 +333,12 @@ there are no fits, gradients, or updates. This sharply reduces the memorization 
 Q8 circuit even though it does not rescue constrained DAS as an identification method. The temporal
 line is now a transferable Tier-4 component-level circuit: its remaining frontier is cross-task
 state sharing and a finite causal-Hankel lower-bound/minimality test, not further within-task DAS.
+
+The first cross-task weight-space screen is positive but is not yet causal identification. Mapping
+temporal Q8 through the real H3 output matrix yields an orthonormal eight-dimensional resid18 write
+space. The released selective `is/was` constrained-DAS axis places 13.32% of its squared norm in
+that space: 19.18 times the isotropic 8/1152 expectation and above every one of 4,096 seeded Haar
+controls. The shared component norm is 0.365 and the task-specific complement norm is 0.931, so
+neither piece is degenerate. Q8 gauge rotation changes the projector by only 2.98e-8. This licenses,
+but does not replace, a held-out causal test that installs the shared and specific write components
+separately and together on `is/was` A/P/C families.
