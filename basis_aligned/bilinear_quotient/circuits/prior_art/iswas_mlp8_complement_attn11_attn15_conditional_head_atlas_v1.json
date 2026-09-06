@@ -1,0 +1,25 @@
+{
+  "schema": "iswas_mlp8_complement_attn11_attn15_conditional_head_atlas_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_complement_attn11_attn15_conditional_head_atlas_v1",
+  "registered_utc": "2026-09-06T22:10:00Z",
+  "question": "Which attention11 and attention15 heads supply the small auxiliary conversion left after attention9 is clamped under MLP8-complement actuation?",
+  "authority": {
+    "group_factorial_result_sha256": "126f39650ace12c7888103cf2af68f36595bca9e6e4f8aa8fc7ecd8a23f20d9a",
+    "finding": "Attention9+11+15 jointly accounts for 95.4/97.1% behavior and 95.5/96.0% Q8 norm. The MLP9-15 and late-MLP banks have only 1.6-2.1% and -0.5 to -1.0% conditional behavioral marginals."
+  },
+  "frozen_design": {
+    "population": "The same 29 jointly capable fresh-v6 A1/A2 rows and frozen MLP8 post-cue complement.",
+    "conditioning": "Every arm clamps the complete attention9 pre-c_proj response to native base. A head arm additionally clamps one pre-c_proj head slice in attention11 or attention15. Full-layer and all-auxiliary arms verify exact coverage.",
+    "inventory": "All nine heads in attention11 and all nine heads in attention15; no head selection, fitting, or rank search.",
+    "metric": "Each head's conditional marginal beyond attention9, normalized both to the full auxiliary marginal and to the live MLP8-complement route.",
+    "maximum_price": {"model_forwards": 27, "example_evaluations": 783, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_self_clamp_finiteness_and_price": "Hashes, parent core/core+aux replay, self-clamp, complete-head coverage, finite metrics, and price pass.",
+    "pred_b_at_least_one_stable_material_auxiliary_head": "At least one head carries at least 10% of full auxiliary behavior and Q8 norm in both panels.",
+    "pred_c_all_auxiliary_heads_replay_group_factorial": "Clamping all attention11/15 heads in addition to attention9 replays the registered core+auxiliary group within .001 on behavior and Q8 fractions.",
+    "pred_d_top_auxiliary_head_is_directionally_coherent": "The top stable head has behavior and Q8 cosine at least .85 to the full auxiliary marginal in both panels.",
+    "pred_e_zero_fit_complete_head_inventory": "All 18 heads, both full layers, their union, and core reference are evaluated with no fit or model update."
+  },
+  "decision": "Screen freezes stable heads for a prospective union confirmation and weight compilation. If distributed, use a greedy conditional union selected on one panel and confirmed on the other; do not sum singleton marginals."
+}

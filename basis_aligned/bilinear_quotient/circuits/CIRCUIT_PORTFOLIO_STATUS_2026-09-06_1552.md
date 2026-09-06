@@ -469,3 +469,13 @@ stable ranking without a generalization improvement, while KL rotates toward DIM
 the tensor-anchored rank7 null and zero-fit rank8 v11 transfer, this localizes the problem to
 rank/target misspecification rather than optimizer failure: regularization can prevent unstable
 memorization, but it cannot compress an eight-dimensional causal interface into one direction.
+
+The complete downstream group factorial is a strict null only on its predeclared late-correction
+magnitude and otherwise yields the first near-complete small module program for the is/was route.
+Attention9 alone removes 86.10%/83.91% behavior and 86.61%/81.42% Q8 norm. Adding complete
+attention11 and attention15 raises removal to 95.43%/97.13% behavior and 95.47%/96.05% Q8 norm,
+with behavior cosine above .99994 and Q8 cosine above .99910. The entire MLP9--15 bank adds only
+2.08%/1.56% conditionally; MLP16--17 then subtracts merely 1.04%/.48%, below the frozen 3% bar.
+Singleton-response nonadditivity is 50.76%/47.52%, confirming that their raw atlas effects must not
+be summed. The active refinement conditions on complete attention9 and splits all heads in
+attention11/15 before any further weight compilation.
