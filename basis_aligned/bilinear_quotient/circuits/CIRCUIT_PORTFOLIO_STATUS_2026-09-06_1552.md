@@ -153,3 +153,18 @@ frame at once is an inefficient route to a high-quality confirmation bank. The n
 will retain the already reliable Next-year/Last-year semantic frame while changing the
 lexicon and surface construction, isolating lexical/construction transfer of the revised
 H1/H4/H7/H0 hypothesis. New-cue transfer remains a later, separate test.
+
+V8 supplies that controlled bank (29 jointly capable A1, 31 A2). It cleanly falsifies H0
+as a reusable fourth component: H0 falls to 1.45%/1.93% of the all-head response and adding
+it slightly worsens H1/H4/H7. The original triple alone retains 99.21%/100.56%, while the
+remaining heads retain 2.89%/2.47%. Paired removal independently closes: the triple accounts
+for 99.51%/100.49% of all H3 removal and essentially all behavioral removal, with a
+2.41%/2.97% complement and zero instrument errors. The stable identification is therefore
+an operational-equivalence class: H1/H4/H7 are the cross-construction core; small remainder
+heads can be cue conditioned and are not part of the invariant unit.
+
+The next circuit boundary is downstream of that core. The frozen rank-two H3 union must now
+be installed as an actual H3 response—not merely used as a measurement projection—and
+tested for behavioral sufficiency, orthogonal-complement inertness, and transport into the
+weight-predicted L15H5/H1 reader pair on v8. This directly decides whether the DAS-derived
+subspace is a manipulable circuit variable with a weight-readable downstream interface.

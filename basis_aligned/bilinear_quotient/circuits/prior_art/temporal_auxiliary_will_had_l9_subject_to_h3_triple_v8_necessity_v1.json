@@ -1,0 +1,25 @@
+{
+  "schema": "temporal_auxiliary_l9_subject_to_h3_triple_v8_necessity_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.l9_subject_to_h3_triple_v8_necessity_v1",
+  "registered_utc": "2026-09-06T19:07:10Z",
+  "question": "Is the already frozen H1/H4/H7 core necessary on v8, matching its newly observed sufficiency and earlier removal confirmations?",
+  "authority": {
+    "v8_sufficiency_sha256": "199a534dc2aea9607aeae4a4033f76b27a515e8b884cbdab057f236f2d59daac",
+    "v8_capability_sha256": "fe9255aa8221fe68331bc49c43f1b59cf5909c599f96ff5f36bf653ea1162cff",
+    "scope": "This is a paired removal confirmation on an already opened population, not a second independent population. The triple itself was frozen before v8."
+  },
+  "frozen_design": {
+    "population": "The same 29 A1 and 31 A2 jointly capable v8 rows.",
+    "arms": "Live writer; restore H1/H4/H7, restore the other six heads, restore all heads, and inert base self-clamp.",
+    "outcomes": "Fraction of all projected H3 removal and signed behavioral removal.",
+    "price_max": {"model_forwards": 22, "example_evaluations": 704, "records": 300, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capture_self_clamp_and_price": "All authorities, exact controls, complete records, and price hold.",
+    "pred_b_complete_l9_removal_is_material": "All-head removal is nonzero and at least 3% of writer behavior in both panels.",
+    "pred_c_greedy_set_is_necessary_for_h3_response": "Triple removal is at least 90% of all-head H3 removal in both panels.",
+    "pred_d_complement_is_unnecessary_for_h3_response": "Six-head removal is at most 15% in both panels.",
+    "pred_e_greedy_set_is_necessary_for_behavior": "Triple behavioral removal is within 20% of all-head removal in both panels."
+  },
+  "decision": "paired_confirmation if all pass; redundant if the complete edge is material but triple necessity fails; null if complete removal is immaterial; invalid if instrumentation fails."
+}

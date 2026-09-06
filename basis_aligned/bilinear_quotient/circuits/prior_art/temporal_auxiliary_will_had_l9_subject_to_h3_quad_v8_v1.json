@@ -1,0 +1,26 @@
+{
+  "schema": "temporal_auxiliary_l9_subject_to_h3_quad_v8_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.l9_subject_to_h3_quad_v8_v1",
+  "registered_utc": "2026-09-06T19:05:30Z",
+  "question": "Is cross-cue remainder head L9H0 a reusable fourth component of the H1/H4/H7 subject-write core on sealed v8?",
+  "authority": {
+    "v8_capability_sha256": "fe9255aa8221fe68331bc49c43f1b59cf5909c599f96ff5f36bf653ea1162cff",
+    "v8_builder_sha256": "13c0ae6424cc936dfa4ccb6ec89cd696e4b2c1267c2a4ebeeebd1a313bb443cf",
+    "parent_runner_sha256": "b3bc00017d1eef6fdd73d9f77a909812974c187b1ca2e23ab38fb2699d2f27fa",
+    "selection": "H1/H4 came from the exact weight atlas, H7 from v4 causal response, and H0 solely from the preregistered Later/Previously remainder atlas. No v8 intervention outcome has been opened."
+  },
+  "frozen_design": {
+    "population": "The 29 A1 and 31 A2 jointly capable rows in the v8 manifest.",
+    "intervention": "The same live L8H1 cue-to-subject writer and frozen rank-two H3 projection. Evaluate all nine singletons, frozen triple H1/H4/H7, frozen quad H0/H1/H4/H7, five-head quad complement, and all heads.",
+    "outcomes": "Projected H3 response fraction and signed behavioral recovery, with exact attention reconstruction and identity controls.",
+    "price": {"model_forwards": 38, "example_evaluations": 1140, "records": 780, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capability_capture_closure_and_price": "All byte authorities, capability, exact controls, coverage, and exact price hold.",
+    "pred_b_writer_and_full_l9_subject_response_are_material": "Writer directions are perfect and all-head L9 recovery is at least 3% of writer recovery in both panels.",
+    "pred_c_frozen_triple_remains_dominant": "H1/H4/H7 retain at least 85% of all-head projected H3 response in both panels.",
+    "pred_d_h0_is_reusable_remainder": "H0 alone retains at least 5% of A2 all-head H3 response and adding H0 improves the A2 triple by at least 3 percentage points.",
+    "pred_e_quad_closes_selectively_and_behaviorally": "The quad retains at least 90%, its five-head complement at most 15%, and its behavioral recovery is within 20% of all-head recovery in both panels."
+  },
+  "decision": "confirmation if all pass; unstable_remainder if A-C pass but D/E fail; distributed if the core loses dominance; null if the complete edge is immaterial; invalid if A fails. A necessity run is licensed only after confirmation."
+}
