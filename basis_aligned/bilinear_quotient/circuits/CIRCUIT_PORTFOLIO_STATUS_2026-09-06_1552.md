@@ -238,3 +238,14 @@ tensor anchoring, and four-environment balance successfully prevent task memoriz
 not uncover a better rank-seven variable. The evidence now favors rank eight as the simplest
 robust tensor-family candidate, requiring a wholly new-bank confirmation rather than further
 regularization of the same rank-seven objective.
+
+Rank eight then passes a wholly new v10 confirmation without fitting or outcome-dependent
+adjustment. On all 31 jointly capable A1 and 32 A2 rows it carries 93.78%/91.29% of full-H3
+behavior, leaves only 6.47%/8.89% in the exact orthogonal complement, and transports
+96.75%/96.98% of the L15H5/H1 response. Full H3 remains material at 42.62%/30.05% of the
+live L8H1 writer effect, and every reconstruction, identity, orthonormality, decomposition,
+and price gate passes. The label-free checkpoint-derived H3 rank-eight subspace is therefore
+the current stable manipulable circuit variable. The next boundary is causal downstream use:
+remove the H3-induced L15H5/H1 response under rank-eight actuation and compare it with complete
+L15 and seven-head-complement removals. Response transport alone is not yet evidence that the
+pair mediates behavior.
