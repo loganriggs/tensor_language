@@ -1,0 +1,28 @@
+{
+  "schema": "temporal_auxiliary_h3_multicue_weight_interface_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_multicue_weight_interface_v1",
+  "registered_utc": "2026-09-06T18:35:00Z",
+  "question": "When the cross-task H3 rank-two operational subspace is translated through exact model weights, does it recover the known upstream writer and expose concrete downstream read/write interfaces better than the pooled rank-one axis?",
+  "authority": {
+    "multicue_result_sha256": "d84c72d9d3c87a159fb453efc9ce9000fb8bfb7f3d2c34c96a3f7238914879c9",
+    "weight_library_sha256": "2e7d3a546813a6029eca6fae455ad5abd03b429fcee92432ca6fe06e835e83f5",
+    "writer_weight_atlas_sha256": "bf231eb67127b6378fbeb9c72621607cbf12526dba1d68fd034d3cdc594684c4",
+    "downstream_module_atlas_sha256": "f8517f43f41444b966b95ff0d8da9449f25bd95d32b726c1082066605cfd076a"
+  },
+  "frozen_design": {
+    "head_read_map": "For H3 basis Q in raw 128-dimensional value/output coordinates, compute R = Q^T W_V[H3], the exact residual-to-subspace value read map.",
+    "head_write_map": "Compute O = W_O[:,H3] Q and its orthonormal residual image, the exact subspace-to-residual write interface.",
+    "upstream_atlas": "Contract every attention-head output and every MLP output in layers 0-10 into R. Rank normalized Frobenius incidence; block8H1 is frozen as the external causal positive control.",
+    "downstream_atlas": "For layers 12-17, contract the residual write image through every attention q/k/v read and MLP input factor. Report complete rankings and the known L15H1/H5 and MLP17 causal-response controls.",
+    "comparison": "Repeat gauge-invariant scores for pooled aligned rank one versus task-union rank two; no activation outcomes, fitting, or selection.",
+    "price": {"model_forwards": 0, "example_evaluations": 0, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_exact_shapes_gauge_and_price": "Authorities hold; bases are orthonormal; exact read/write shapes hold; random orthogonal gauge changes scores by <=1e-5; price is exactly zero model forwards.",
+    "pred_b_known_writer_is_weight_enriched": "Block8H1 ranks in the top quartile of all upstream attention heads under the rank-two H3 read map.",
+    "pred_c_rank2_strengthens_writer_interface": "Capacity-normalized block8H1 incidence into rank two is strictly larger than into pooled aligned rank one.",
+    "pred_d_known_late_attention_readers_are_enriched": "Both L15H1 and L15H5 rank in the top half of downstream attention heads by their maximum q/k/v read of the H3 residual write image.",
+    "pred_e_complete_weight_interface_is_reproducible": "All exact matrices receive byte hashes, all rankings cover their frozen inventories without duplicates, and every score is finite."
+  },
+  "decision": "screen if all predictions pass; partial if A,B,D,E pass but rank two does not strengthen the known writer; null if valid weights fail to recover known causal components; invalid if A or E fails. Weight incidence remains structural evidence and must be paired with the existing causal authorities."
+}
