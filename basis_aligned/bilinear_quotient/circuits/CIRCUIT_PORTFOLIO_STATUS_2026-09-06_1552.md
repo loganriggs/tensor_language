@@ -299,3 +299,13 @@ predicts the branch's causal margin effect at cosine 0.99987/0.99669. Thus the c
 primarily parallel: L8H1 writes the subject state, L9H1/H4/H7 and L11H3 read it in separate routes,
 with only a small L9-mediated contribution into H3. The next weight compilation targets the direct
 L8-written subject-state -> H3-Q8 value path, which should account for the missing majority.
+
+That simple direct-source compilation is a valid null on v10. Complete H3-Q8 norm is 6.92x/6.27x
+the L9-mediated branch, confirming that L9 is minor, but base-pattern value changes at the two
+subject-onset tokens leave 36.15%/45.99% of the Q8 norm unexplained. Coordinate cosine is
+0.9617/0.8472 and relative RMSE 37.6%/53.2%; downstream composition consequently misses its
+frozen error bars. The earlier bank's exact subject-source localization is therefore
+construction-dependent rather than a stable source rule. This does not weaken the confirmed H3
+rank8 downstream interface; it changes the upstream computation that generates its coefficients.
+The licensed next object is a complete v10 source-region by pattern/value/interaction atlas in Q8
+and causal-behavior space, followed by weight compilation of whichever source-factor union closes.
