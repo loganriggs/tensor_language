@@ -66,8 +66,24 @@ def batch_of(rows, side):
 
 # ----------------------------------------------------------------------------- units
 
+MLP_HIDDEN = 4 * N_EMBD
+
+
 def unit_dim(unit):
-    return HEAD_DIM if ":head:" in unit else N_EMBD
+    if ":head:" in unit:
+        return HEAD_DIM
+    if ":neuron:" in unit:
+        return 1
+    return N_EMBD
+
+
+def hidden_key(layer):
+    """Cache key for an MLP's hidden vector at the semantic position.
+
+    bilin18's MLP is `Bilinear`: hidden = Left(x) * Right(x) (4608-d, no gate, no nonlinearity),
+    output = Down(hidden) + bias. A "neuron" here is one bilinear product term l_j * r_j -- the
+    model's own basis for the module, no rotation involved."""
+    return f"mlp:{layer:02d}:hidden"
 
 
 def unit_layer(unit):
@@ -85,7 +101,7 @@ def all_mlp_units():
 # ----------------------------------------------------------------------------- forward
 
 def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None, q=None,
-                  grad=False):
+                  grad=False, complement=False, capture_hidden=None, neuron_per_row=None):
     """The producer's exact forward with unit interventions at each row's semantic position.
 
     units        unit ids to intervene on, in a fixed order (the order defines the concatenation)
@@ -94,7 +110,14 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
                           donor-minus-base difference is the cached native difference over the
                           concatenated unit space, D = sum of unit dims. With one layer and q
                           spanning everything this equals exact replacement.
-    Returns (answer_foil pairs as a (n,2) tensor, logits-free). Gradients flow to q iff grad.
+    complement    with q: patch (I - q q^T)(donor - base) instead -- swap everything EXCEPT the
+                  learned axes (the dormant-direction test of Makelov, Lange & Nanda 2023).
+    capture_hidden a dict to receive the MLP hidden (Left*Right product) vector at the semantic
+                  position for every layer, keyed (row_id, hidden_key(layer)).
+    neuron_per_row (layer, [neuron index per row]) -- a DIFFERENT single neuron per row, for the
+                  replicated-batch neuron sweep; needs donor_cache[(rid, hidden_key(layer))].
+    Units of the form mlp:LL:neuron:J swap single hidden units of that MLP (exact, on-distribution).
+    Returns answer/foil values as an (n,2) tensor. Gradients flow to q iff grad.
     """
     torch, F, model = backend.torch, backend.F, backend.model
     tokens, lengths = backend._tensor_batch(batch)
@@ -109,31 +132,60 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
         offsets, off = {}, 0
         for u in units:
             offsets[u] = (off, off + unit_dim(u)); off += unit_dim(u)
+        def cached(cache, rid, u):
+            if ":neuron:" in u:
+                j = int(u.rsplit(":", 1)[1])
+                return torch.as_tensor(cache[(rid, hidden_key(unit_layer(u)))])[j:j + 1]
+            return torch.as_tensor(cache[(rid, u)])
         delta = torch.stack([
-            torch.cat([torch.as_tensor(donor_cache[(rid, u)]).float()
-                       - torch.as_tensor(base_cache[(rid, u)]).float() for u in units])
+            torch.cat([cached(donor_cache, rid, u).float() - cached(base_cache, rid, u).float()
+                       for u in units])
             for rid in batch.row_ids]).to(backend.device)                   # (n, D)
         projected = (delta @ q) @ q.T                                         # (n, D)
+        if complement:
+            projected = delta - projected
 
     def donor_value(u):
         return torch.stack([torch.as_tensor(donor_cache[(rid, u)]) for rid in batch.row_ids]
                            ).to(backend.device)
 
+    def kind_of(u):
+        return "heads" if ":head:" in u else "neurons" if ":neuron:" in u else "mlp"
+
     def apply(value, layer, kind):
-        """kind 'heads' -> value is the c_proj input (n,T,1152); 'mlp' -> the MLP output."""
-        here = [u for u in by_layer.get(layer, []) if ((":head:" in u) == (kind == "heads"))]
+        """'heads' -> attn c_proj input (n,T,1152); 'neurons' -> mlp Down input (n,T,4608);
+        'mlp' -> the MLP output (n,T,1152)."""
+        here = [u for u in by_layer.get(layer, []) if kind_of(u) == kind]
+        idx = torch.arange(n, device=value.device)
+        pos = torch.tensor(positions, device=value.device)
+        if kind == "neurons":
+            if capture_hidden is not None:
+                for i, rid in enumerate(batch.row_ids):
+                    capture_hidden[(rid, hidden_key(layer))] = value[i, positions[i]].detach().clone()
+            if neuron_per_row is not None and neuron_per_row[0] == layer:
+                changed = value.clone()
+                j = torch.tensor(neuron_per_row[1], device=value.device)
+                donor_hidden = torch.stack([torch.as_tensor(donor_cache[(rid, hidden_key(layer))])
+                                            for rid in batch.row_ids]).to(value.device)
+                changed[idx, pos, j] = donor_hidden[idx, j].to(value.dtype)
+                return changed
         if not here:
             return value
         changed = value.clone()
-        idx = torch.arange(n, device=value.device)
-        pos = torch.tensor(positions, device=value.device)
         for u in here:
             if kind == "heads":
                 h = int(u.rsplit(":", 1)[1]); s, e = h * HEAD_DIM, (h + 1) * HEAD_DIM
+            elif kind == "neurons":
+                j = int(u.rsplit(":", 1)[1]); s, e = j, j + 1
             else:
                 s, e = 0, N_EMBD
             if q is None:
-                changed[idx, pos, s:e] = donor_value(u).to(value.dtype)
+                if kind == "neurons":
+                    changed[idx, pos, s:e] = torch.stack(
+                        [torch.as_tensor(donor_cache[(rid, hidden_key(layer))])[s:e]
+                         for rid in batch.row_ids]).to(value.device, value.dtype)
+                else:
+                    changed[idx, pos, s:e] = donor_value(u).to(value.dtype)
             else:
                 o0, o1 = offsets[u]
                 changed[idx, pos, s:e] = value[idx, pos, s:e] + projected[:, o0:o1].to(value.dtype)
@@ -154,7 +206,15 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
             finally:
                 handle.remove()
             x = live + attention
-            mlp = block.mlp(F.rms_norm(x, (N_EMBD,)))
+
+            def mlp_proj_pre(_module, arguments, layer=layer):
+                return (apply(arguments[0], layer, "neurons"),) + tuple(arguments[1:])
+
+            handle = block.mlp.Down.register_forward_pre_hook(mlp_proj_pre)
+            try:
+                mlp = block.mlp(F.rms_norm(x, (N_EMBD,)))
+            finally:
+                handle.remove()
             mlp = apply(mlp, layer, "mlp")
             x = x + mlp
         logits = 30.0 * torch.tanh(model.lm_head(F.rms_norm(x, (N_EMBD,))) / 30.0)
@@ -203,19 +263,24 @@ class Prepared:
     answer_changes: bool
 
 
-def prepare(backend, rows):
+def prepare(backend, rows, *, hidden=False):
+    """Native runs on both sides. hidden=True also caches every MLP's 4608-d hidden vector."""
     base_batch, donor_batch = batch_of(rows, "base"), batch_of(rows, "donor")
     base_out = backend.native(base_batch, capture=True)
     donor_out = backend.native(donor_batch, capture=True)
+    base_cache, donor_cache = dict(base_out.captured), dict(donor_out.captured)
+    if hidden:
+        forward_units(backend, base_batch, capture_hidden=base_cache)
+        forward_units(backend, donor_batch, capture_hidden=donor_cache)
     changes = bool(rows[0].get("answer_changes", rows[0]["base_answer_id"] != rows[0]["donor_answer_id"]))
-    return Prepared(rows, base_batch, donor_batch, base_out.captured, donor_out.captured,
+    return Prepared(rows, base_batch, donor_batch, base_cache, donor_cache,
                     [-(a - f) for a, f in base_out.answer_foil],
                     [a - f for a, f in donor_out.answer_foil], changes)
 
 
-def patched_axis(backend, prep, units, q=None):
+def patched_axis(backend, prep, units, q=None, complement=False):
     out = forward_units(backend, prep.base_batch, units=units, donor_cache=prep.donor_cache,
-                        base_cache=prep.base_cache, q=q)
+                        base_cache=prep.base_cache, q=q, complement=complement)
     return [-(float(a) - float(f)) for a, f in out.tolist()]
 
 
@@ -281,7 +346,7 @@ def greedy_select(evaluate: Callable[[Sequence[str]], float], pool: Sequence[str
 # ----------------------------------------------------------------------------- joint DAS
 
 def fit_joint_subspace(backend, prep, units, *, rank, steps=200, lr=0.05, seed=0,
-                       target="exact_set"):
+                       target="exact_set", complement_weight=0.0):
     """Orthonormal R over the concatenated unit space, fitted through the real forward.
 
     target "exact_set" (default): match the margin the EXACT interchange of `units` produces.
@@ -295,6 +360,11 @@ def fit_joint_subspace(backend, prep, units, *, rank, steps=200, lr=0.05, seed=0
         so that failure can be reproduced.
     Neither maximises the margin: the head is soft-capped and maximising overshot to 2.2 in an
     earlier resid:18 run.
+    complement_weight > 0 adds the Makelov-style constraint as a loss term: swapping everything
+        EXCEPT the learned axes must leave the base margin where it was. A dormant axis cannot
+        satisfy both terms -- if it steers when swapped, the real effect is still in the complement.
+        The complement term at the end of training is reported in the history; a term that will not
+        go to zero at rank k says the set's effect needs more than k directions.
     """
     torch = backend.torch
     for p in backend.model.parameters():
@@ -310,6 +380,7 @@ def fit_joint_subspace(backend, prep, units, *, rank, steps=200, lr=0.05, seed=0
     else:
         raise ValueError(target)
     target = torch.tensor(target_axis, device=backend.device)
+    base_target = torch.tensor(prep.base_axis, device=backend.device)
     history = []
     for step in range(steps):
         opt.zero_grad()
@@ -317,11 +388,19 @@ def fit_joint_subspace(backend, prep, units, *, rank, steps=200, lr=0.05, seed=0
         out = forward_units(backend, prep.base_batch, units=units, donor_cache=prep.donor_cache,
                             base_cache=prep.base_cache, q=q, grad=True)
         axis = -(out[:, 0] - out[:, 1])
-        loss = ((axis - target) ** 2).mean()
+        match = ((axis - target) ** 2).mean()
+        loss = match
+        inert = None
+        if complement_weight > 0:
+            comp = forward_units(backend, prep.base_batch, units=units, donor_cache=prep.donor_cache,
+                                 base_cache=prep.base_cache, q=q, grad=True, complement=True)
+            inert = ((-(comp[:, 0] - comp[:, 1]) - base_target) ** 2).mean()
+            loss = match + complement_weight * inert
         loss.backward()
         opt.step()
         if step % 50 == 0 or step == steps - 1:
-            history.append((step, float(loss.detach())))
+            history.append((step, float(match.detach()),
+                            None if inert is None else float(inert.detach())))
     with torch.no_grad():
         q, _ = torch.linalg.qr(raw)
     return q.detach(), history
@@ -334,3 +413,50 @@ def random_subspace(backend, units, *, rank, seed=1):
     dim = sum(unit_dim(u) for u in units)
     q, _ = torch.linalg.qr(torch.randn(dim, rank, generator=gen))
     return q.to(backend.device)
+
+
+def diff_in_means_direction(backend, prep, units):
+    """The unit-norm mean of (donor - base) over the concatenated unit space: a rank-1 direction
+    with NO search freedom, so it cannot go looking for dormant axes. The primary estimate; a
+    learned direction that beats it by a wide margin is exploiting something it should not."""
+    torch = backend.torch
+
+    def cached(cache, rid, u):
+        if ":neuron:" in u:
+            j = int(u.rsplit(":", 1)[1])
+            return torch.as_tensor(cache[(rid, hidden_key(unit_layer(u)))])[j:j + 1]
+        return torch.as_tensor(cache[(rid, u)])
+    delta = torch.stack([
+        torch.cat([cached(prep.donor_cache, rid, u).float() - cached(prep.base_cache, rid, u).float()
+                   for u in units]) for rid in prep.base_batch.row_ids]).to(backend.device)
+    d = delta.mean(0)
+    return (d / d.norm()).unsqueeze(1)
+
+
+def neuron_sweep(backend, prep, layer, *, replicas=16):
+    """Exact single-neuron interchange for all 4608 hidden units of one MLP.
+
+    Rows are replicated `replicas` times per forward and each replica group swaps a different
+    neuron, so the sweep costs 4608/replicas forwards of (rows x replicas) sequences.
+    """
+    rows = prep.rows
+    n = len(rows)
+    rep_rows = [r for _ in range(replicas) for r in rows]
+    rep_batch = batch_of(rep_rows, "base")
+    rep_base = [v for _ in range(replicas) for v in prep.base_axis]
+    rep_donor = [v for _ in range(replicas) for v in prep.donor_axis]
+    out = {}
+    for start in range(0, MLP_HIDDEN, replicas):
+        neurons = list(range(start, min(start + replicas, MLP_HIDDEN)))
+        k = len(neurons)
+        per_row = [neurons[g] for g in range(k) for _ in range(n)]
+        batch = rep_batch if k == replicas else batch_of(rep_rows[:k * n], "base")
+        res = forward_units(backend, batch, donor_cache=prep.donor_cache,
+                            neuron_per_row=(layer, per_row))
+        axis = [-(float(a) - float(f)) for a, f in res.tolist()]
+        for g, j in enumerate(neurons):
+            sl = slice(g * n, (g + 1) * n)
+            vals = [kernel.signed_pairwise_donor_recovery(b, d, p)
+                    for b, d, p in zip(rep_base[sl], rep_donor[sl], axis[sl])]
+            out[f"mlp:{layer:02d}:neuron:{j:04d}"] = sum(vals) / len(vals)
+    return out
