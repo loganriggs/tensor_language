@@ -1,0 +1,67 @@
+{
+  "schema": "aspectual_anchor_suffix_depth_adaptive_factorial_lexical_holdout_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.suffix_depth_adaptive_factorial_lexical_holdout_v1",
+  "created_utc": "2026-09-06T04:06:02Z",
+  "question": "Where does the prospectively validated resid10 causal signal gain its remaining strength in native blocks10-17, and does an exact carried/attention/MLP factorial confirm the largest selection-half increment on disjoint confirmation rows?",
+  "authority": {
+    "holdout_builder": {
+      "path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py",
+      "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859",
+      "rows_sha256": "18dfe9b5e86387017f3b8a81d378cc4892b4ee5a219ea7e35bf02548cd54e493"
+    },
+    "program_release_v2": {
+      "path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v2_result.json",
+      "sha256": "ce0cffd7dec596768fb9181ec546ff0764207717f244d13809a085d62f4dd3c1",
+      "terminal": "release"
+    },
+    "resid10_holdout": {
+      "path": "circuits/followups/aspectual_anchor_block9_crossing_factorial_lexical_holdout_v1_result.json",
+      "sha256": "d7df483de097811d93c2b5b92b8beed1dd44dcf165fa3bfc9ee89541e0e92bbc",
+      "terminal": "screen",
+      "resid10_mean": 0.2141020577610894,
+      "writer_mean": 0.2835613798233539
+    },
+    "writer_backend": {
+      "path": "ops/run_aspectual_anchor_mlp4_to_l9h1_h4_path_mediation_v1.py",
+      "sha256": "5449d45505267f2ebc92c9285b7a984fce773f834c2071e1d7e6d1a9f1949372"
+    }
+  },
+  "data_status": "All direct-query resid10-18 suffix-curve outcomes are unopened. All block10-17 carried/attention/MLP factorial outcomes are unopened. Earlier endpoint measurements do not reveal which suffix block has the largest increment.",
+  "population_split": {
+    "source": "The 32 A1/A2 rows in immutable builder order.",
+    "selection": "First 16 rows, balanced 8 A1/8 A2 and 4 per family-direction cell.",
+    "selection_row_ids_sha256": "d150ff72d1423058a01aa2140563315c041b1be98a59066e8dc4a98688775fe8",
+    "confirmation": "Last 16 rows, balanced 8 A1/8 A2 and 4 per family-direction cell.",
+    "confirmation_row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b",
+    "selection_rule": "On selection rows only, choose the lowest block number maximizing mean recovery(residN+1)-mean recovery(residN), N in 10..17."
+  },
+  "frozen_design": {
+    "selection_curve": ["resid10", "resid11", "resid12", "resid13", "resid14", "resid15", "resid16", "resid17", "resid18"],
+    "confirmation_factors": ["carried_selected", "attention_selected", "mlp_selected"],
+    "confirmation_factorial_arms": 8,
+    "confirmation_direct_ceiling": true,
+    "writer": "two-term MLP4 last+period+determiner write",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_instrument": "All hashes/terminals, split hashes/balance, native capability, native/manual, writer tensor, selected-boundary tensor, and full-factor/direct-ceiling closures pass fixed checks.",
+    "pred_b_writer_and_endpoint_recurrence": "Selection and confirmation writer means are positive with at least 0.75 direction per family; selection resid18 reproduces its writer within 1e-4 scored logit and recovery; pooled writer remains within 0.01 of 0.2835613798.",
+    "pred_c_suffix_gain_and_selection": "Selection resid18 exceeds resid10 by at least 0.04, all endpoint family directions are at least 0.75, and the frozen rule selects one block with increment at least 0.007.",
+    "pred_d_disjoint_factorial_confirmation": "On confirmation rows, the selected boundary's attention+MLP Shapley sum is positive, full recovery exceeds carried-only recovery, and at least one new factor has positive full-arm removal damage in both A1 and A2.",
+    "pred_e_exact_coverage": "The selection curve and writer plus confirmation factorial/direct ceiling and writer produce exactly 320 finite records within 52 forwards and 480 example evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: promote the selected suffix crossing as disjointly confirmed and compile it into the next program boundary.",
+    "null": "The run is valid and endpoints recur, but suffix-gain selection or disjoint component confirmation fails.",
+    "invalid": "Authority, split, capability, alignment, instrument, endpoint recurrence, finiteness, coverage, or price fails."
+  },
+  "price": {
+    "model_forwards_max": 52,
+    "example_evaluations_max": 480,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "efficiency": "One model load shares full suffix captures; an immutable 16/16 split permits adaptive localization and confirmatory factorization in one GPU job without selection leakage.",
+  "novelty": "First leakage-controlled localization and disjoint exact confirmation inside the native blocks10-17 suffix of the aspectual causal program."
+}

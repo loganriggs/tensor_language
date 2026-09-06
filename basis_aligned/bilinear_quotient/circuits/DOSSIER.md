@@ -315,6 +315,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.blocks6_8_crossing_factorials_lexical_holdout_v1` | complete | shared-capture exact three-boundary factorials | **prospective intermediate route closed** | `aspectual_anchor_blocks6_8_crossing_factorials_lexical_holdout_v1_result.json` |
 | `aspectual_anchor.has_vs_had.block9_crossing_factorial_lexical_holdout_v1` | complete | sealed prospective block9 factorial | **attention9-dominant resid10 crossing** | `aspectual_anchor_block9_crossing_factorial_lexical_holdout_v1_result.json` |
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v2` | released | executable API/equation/evidence audit | **zero-fit tensor-equation program to resid10** | `aspectual_anchor_transparent_path_program_release_v2_result.json` |
+| `aspectual_anchor.has_vs_had.suffix_depth_adaptive_factorial_lexical_holdout_v1` | complete | frozen 16/16 suffix selection/confirmation | **block11 crossing confirmed without leakage** | `aspectual_anchor_suffix_depth_adaptive_factorial_lexical_holdout_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -448,6 +449,13 @@ arbitrary carried/attention/MLP crossing subsets, and functional query writes. A
 equation and rejection cases and binds every prospective value above to immutable evidence. The module has no model-loading import and
 stores no fitted scalar or vector. It remains explicitly paired-causal: checkpoint weights, paired captures, and the native blocks10–17
 suffix are dependencies, so this release is not presented as standalone native-margin, full-logit, free-form, or whole-model prediction.
+
+A leakage-controlled 16/16 split now opens the native suffix. On selection rows, direct-query recovery rises from 20.663% at resid10
+to 27.218% at resid18, which reproduces the writer exactly. The frozen rule selects block11's 3.454-point jump over the secondary
+block15 jump of 2.125 points. On disjoint confirmation rows, block11's carried/attention/MLP Shapley values are 18.918%, 4.487%, and
+3.444%; removing attention or MLP damages both A1 and A2, and the full arm (26.850%) exceeds carried alone (18.858%). Residual closure
+is 2.9e-6 and all five preregistered checks pass. Block11 is therefore a prospectively confirmed suffix amplifier; block15 remains a
+selection-only secondary candidate until its still-unopened confirmation factorial is run.
 
 ### `subroutine.induction.equality_score` — site_live
 
