@@ -1,0 +1,44 @@
+{
+  "schema": "aspectual_anchor_direction_prototype_carrier_actuation_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.direction_prototype_carrier_actuation_v1",
+  "created_utc": "2026-09-06T06:56:00Z",
+  "question": "Can two direction-conditioned scalar carrier prototypes replace both confirmation-row donor activations and v10's per-row target-guided grid search on fresh constructions?",
+  "novelty_search": {
+    "queries": ["aspectual direction prototype", "fixed carrier amplitude", "target-token-free actuator", "present_to_past scalar"],
+    "result": "V10 is donor-free but selects alpha separately from each base state and requested target/foil readout. No aspectual test freezes one alpha per semantic direction before fresh evaluation."
+  },
+  "authority": {
+    "rank1_result": {"path": "circuits/followups/aspectual_anchor_das_resid18_rank1_transfer_v1_result.json", "sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278", "terminal": "screen"},
+    "scalar_result": {"path": "circuits/followups/aspectual_anchor_rank1_scalar_term_compression_split_v1_result.json", "sha256": "4a55ef3da37b12722fabae41c9caaa7e8284fc0891ba4e15c5cfdeab40323b2d", "terminal": "invalid"},
+    "scalar_instrument_audit": {"path": "circuits/followups/aspectual_anchor_rank1_scalar_term_compression_v1_instrument_audit_result.json", "sha256": "001a0ba6cc8d87fab6922b3541a1e9b4d77b38144c71fcd644f87e0dd82df130", "terminal": "screen", "scientific_disposition": "five_term_compression_null"},
+    "donor_free_v10_screen": {"path": "circuits/followups/aspectual_anchor_rank1_donor_free_margin_reflection_v1_result.json", "sha256": "cb1275e1b9449c52254a05efa9932aeaa916a2722c8ee72717231d9121e957fb", "terminal": "screen"},
+    "fresh_builder": {"path": "ops/circuit_candidate_aspectual_fresh_construction_v2.py", "sha256": "848332a12c22bf523573e015b6f8f0a38b5865db8b77434dcbe6a176d98370ac", "row_sha256": "3c30019fdcc087c0e7410cd82d02458307bc6987ff9d23349dcf97d076f797d7"}
+  },
+  "frozen_design": {
+    "calibration": "From the immutable scalar result's 16 lexical selection records, group exact full-program carrier amplitudes by direction_id and take the arithmetic mean.",
+    "frozen_prototypes": {"present_to_past": -828.5600967407227, "past_to_present": 874.4011383056641},
+    "confirmation": "All 64 fresh A1/A2/P/C rows. A-family and P interventions add alpha_direction*q; C receives the same alternating direction prototype as its group parity. No confirmation activation, margin, target ID, foil ID, or outcome enters alpha.",
+    "bars": {
+      "fresh_A_mean_native_donor_recovery_min": 0.50,
+      "fresh_A_direction_fraction_min": 0.75,
+      "fresh_P_mean_margin_reflection_fraction_min": 0.50,
+      "fresh_P_direction_fraction_min": 0.75,
+      "fresh_C_mean_absolute_effect_over_A_scale_max": 0.20,
+      "prototype_over_v10_A_mean_recovery_min": 0.50
+    }
+  },
+  "predictions": {
+    "pred_a_authority_calibration_capability_and_exact_head": "All hashes, audited calibration recomputation, basis, native capability, and exact-head replay pass.",
+    "pred_b_fixed_target_independent_actuator": "Exactly two finite frozen scalars are used and no confirmation state/readout/outcome changes alpha.",
+    "pred_c_fresh_A_prediction": "Fresh A1/A2 each reach at least 0.50 native-donor recovery, 0.75 direction, and 0.50 of v10's mean recovery.",
+    "pred_d_fresh_P_generalization": "Fresh noun-shifted starts reach at least 0.50 mean requested margin reflection and 0.75 direction.",
+    "pred_e_fresh_C_selectivity": "Fresh C moves by at most 0.20 of the frozen A target scale.",
+    "pred_f_exact_coverage_and_price": "All 64 confirmation rows are unique within 25 counted forwards, 200 example evaluations, 64 selected-head evaluations, zero grid search/backward/update, and two fitted scalars plus the existing basis."
+  },
+  "terminal": {
+    "screen": "A-F pass: a two-scalar semantic-direction program predicts selective carrier actuation on fresh constructions without donor states or target-guided optimization.",
+    "null": "Authority and coverage pass but fixed direction prototypes fail A/P prediction or C selectivity.",
+    "invalid": "Authority, audited calibration, basis, native capability, exact-head control, fixed-actuator identity, or coverage fails."
+  },
+  "price": {"model_forwards_max": 25, "example_evaluations_max": 200, "selected_head_evaluations": 64, "grid_evaluations": 0, "model_backwards": 0, "model_updates": 0, "fit_parameters": 2, "stored_fit_scalars_total": 1154}
+}
