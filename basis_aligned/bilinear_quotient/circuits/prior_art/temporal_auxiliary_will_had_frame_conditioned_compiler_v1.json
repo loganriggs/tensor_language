@@ -1,0 +1,45 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.frame_conditioned_compiler_v1",
+  "created_utc": "2026-09-06T15:03:00Z",
+  "question": "Does an explicit bare/report frame branch calibrate the broad Tomorrow/Earlier response compiler across Later/Previously text?",
+  "authority": {
+    "reverse_v2_result_sha256": "dbf49804d98660255fcae5b590c4ce46e5cf5067bf04af054fa2a2cfcd36fcec",
+    "reverse_v2_terminal": "coefficient_asymmetry with A1 0.701 and A2 0.489 predicted causal fractions",
+    "capability_manifest_sha256": "d59fdc0659f7db4632607a5fae860887bdf0f69f03af659b02ffcd6cc8c3be59"
+  },
+  "novelty": "The reverse compiler fitted response axes and coefficient maps only on the bare A1 frame. This is the first explicit typed frame branch: shared reader axes but separate affine doses learned from balanced A1 and A2 original-corpus rows.",
+  "frozen_design": {
+    "fit": "balanced 16-row Tomorrow/Earlier A1 subset plus identically indexed balanced 16-row A2 subset",
+    "test": "exact 29 A1 and 30 A2 Later/Previously capable row IDs plus all 32 aligned P rows",
+    "axes": "one summed-writer axis and one response axis per reader, fitted jointly across the 32 A1+A2 fit rows",
+    "coefficient_program": "separate affine map per frame and reader: eight fitted scalars; frame label is externally declared by the construction interface",
+    "answer_changing_arms": ["full_captured_response", "oracle_rank1_response", "predicted_rank1_response", "intercept_only_response", "zero_response"],
+    "model_forwards": 45,
+    "example_evaluations": 1161,
+    "answer_changing_records": 295,
+    "fitted_scalars": 8,
+    "stored_axis_coordinates": 512,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_authority_capability_closure": "all fit/test rows capable and exact writer/capture closures <=1e-4",
+    "pred_b_frame_coefficients_predict": "both reader coefficient correlations absolute r>=0.60 on capable fresh A1/A2",
+    "pred_c_frame_program_material": "predicted program retains >=0.65 of full response and is donorward on >=0.75 A1/A2 rows",
+    "pred_d_a2_repairs_a1_only": "A2 predicted fraction >=0.60, exceeding the frozen A1-only value 0.489 by >=0.10",
+    "pred_e_p_selective": "predicted-program P effect <=0.20",
+    "pred_f_price_exact": "45 forwards, 1161 examples, 295 records, eight scalars, 512 axes, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, exact rows, capability, closure, coverage, finiteness, or price fails",
+    "typed_compiler": "all predictions pass",
+    "cue_gain_missing": "coefficients correlate but explicit frame calibration does not repair causal dose",
+    "axis_mismatch": "oracle joint-fit axes fail to retain >=0.65",
+    "null": "other valid miss"
+  },
+  "interpretation_limits": [
+    "The frame selector is supplied by the typed circuit interface; it is not inferred from activations.",
+    "A pass supports two cue lexicons and two registered frames only.",
+    "C remains inherited because its paired writer interface is undefined."
+  ]
+}
