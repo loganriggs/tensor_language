@@ -28,7 +28,13 @@ DEFAULT_LEDGER = ROOT / "circuits" / "active_screen_claims.jsonl"
 IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]*$")
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 OUTCOMES = {"screen", "null", "inconclusive", "invalid", "abandoned"}
-LEGACY_OUTCOMES = {"pass", "partial", "diagnostic_complete", "release", "certificate"}
+LEGACY_OUTCOMES = {
+    "pass", "partial", "diagnostic_complete", "release", "certificate",
+    # Descriptive terminal labels manually appended on 2026-09-06.  They remain
+    # readable for append-only history, but the CLI still only writes OUTCOMES.
+    "wrong_predictor", "writer_summary_insufficient", "cue_specific", "shared_mode",
+    "manifest", "coefficient_asymmetry", "cue_gain_missing", "writer_only_insufficient",
+}
 LEGACY_EVENT_KINDS = {"claim_correction"}
 
 
