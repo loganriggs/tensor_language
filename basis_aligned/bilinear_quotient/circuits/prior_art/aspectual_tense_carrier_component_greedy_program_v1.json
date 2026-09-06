@@ -1,0 +1,25 @@
+{
+  "schema": "aspectual_tense_carrier_component_greedy_program_prior_v1",
+  "candidate_id": "aspectual_tense.carrier_component_greedy_program_v1",
+  "registered_utc": "2026-09-06T16:54:30Z",
+  "hypothesis": "The task-typed L9 state is produced distributively at the contextual carrier bank, so an exact greedy combination of full upstream attention-head and MLP responses will recover the donor behavior out of sample better than any singleton.",
+  "frozen_design": {
+    "candidate_pool": "For each task, all 20 top-and-bottom components frozen by the weight atlas: 12 attention heads and 8 MLPs. No component is filtered using the carrier-position validation outcome.",
+    "fit": "jointly capable, direction-stratified A1 fit split only: 16 has/had rows and 8 is/was rows",
+    "sealed_evaluation": "jointly capable A1 heldout and all A2 rows: 15+31 has/had, 6+15 is/was",
+    "intervention": "Exact joint replacement of selected attention head slices and whole MLP outputs at paired contextual carrier positions in one causal forward",
+    "objective": "greedily minimize rowwise mean squared error to unit donor recovery",
+    "maximum_components": 6,
+    "tie_break": "lexicographic component label"
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_instrument": "Every panel is natively capable and has the registered carrier-bank width.",
+    "pred_b_both_greedy_paths_are_distributive": "Each task selects between 2 and 6 components, and every accepted step strictly reduces fit MSE.",
+    "pred_c_both_paths_generalize_to_a1": "Each final path has heldout A1 mean recovery at least 0.70, direction fraction at least 0.80, and lower unit-target RMSE than the best singleton.",
+    "pred_d_both_paths_transfer_to_a2": "Each final path has A2 mean recovery at least 0.65, direction fraction at least 0.80, and lower unit-target RMSE than the best singleton.",
+    "pred_e_shared_program_machinery": "The independently selected task programs share at least two component labels.",
+    "pred_f_price_and_coverage": "Execution remains within 322 forwards, 4377 example evaluations, and 4195 intervention records with no fitting or backward passes."
+  },
+  "decision": "screen only if all predictions pass; null on a scientific prediction failure; invalid on authority, capability, instrument, coverage, or price failure",
+  "heldout_policy": "The greedy path is chosen only on A1 fit. Heldout A1 and A2 outcomes cannot change the selected program."
+}
