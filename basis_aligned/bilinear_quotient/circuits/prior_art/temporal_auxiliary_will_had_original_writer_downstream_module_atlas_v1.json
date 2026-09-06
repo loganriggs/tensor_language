@@ -1,0 +1,51 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.original_writer_downstream_module_atlas_v1",
+  "created_utc": "2026-09-06T15:33:00Z",
+  "question": "Which complete downstream attention or MLP responses carry the 16–18% of the original block8H1 writer effect not reproduced by the known block9 H1/H4 plus block11 H3 reader values?",
+  "authority": {
+    "original_operation_result_sha256": "747ab4ee2a7df1d2540e5ce5a653711263b386e7754a12434ebc71d6f76b012b",
+    "original_writer_result_sha256": "8865fe22a3c12e367709706ff0b941b3c2488d1d9608ce1921a4cfa73b22c6b9",
+    "attention_library_sha256": "608ae6bf74af96663ec022b907c53d371670a36e5d7ec4fd1667b3c6add58dfd",
+    "mediation_library_sha256": "05d07578129db0cb8bf5e46d08e6cd6e9c2bb9c3883675586c83c3efd24b8fda",
+    "producer_sha256": "528e9f50152d6dc2b28d084cd0828de58de042b893703d0f322b4a2f22c4a0a7",
+    "original_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58"
+  },
+  "prior_art_search": {
+    "searched": [
+      "temporal_auxiliary writer module/head/reader/response prior and result files",
+      "temporal_auxiliary_will_had_subject_onset_state_depth_v1",
+      "fresh_writer_subject_consumer_offset_v2",
+      "original_joint_reader_pattern_value_factorial_v1"
+    ],
+    "relation": "Whole-task component screens exist, and the fresh writer was localized through block11. No writer-specific complete-module response atlas exists for the original cue corpus."
+  },
+  "frozen_design": {
+    "population": "all 32 A1 and 32 A2 original rows, both sides natively capable",
+    "writer": "exact block8H1 cue-source response at the two subject-onset tokens",
+    "sites": "complete attention and MLP output responses at the final query for blocks 9 through 17",
+    "intervention": "for each site independently, replace its native-base response with the response captured under the exact writer intervention",
+    "known_readers": ["attn:09", "attn:11"],
+    "new_material_bar": "absolute mean site response >=0.05 of the writer effect in both A1 and A2 outside attn:09 and attn:11",
+    "maximum_model_forwards": 42,
+    "maximum_example_evaluations": 1344,
+    "maximum_records": 1152,
+    "fit": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_capture": "all authorities match, both sides are correct, exact writer recurrence is within 0.03 of 0.23825/0.14472, and capture identities are <=1e-4",
+    "pred_b_known_attention_readers_are_material": "attn:09 and attn:11 each have positive mean response and jointly are the two largest attention singleton responses in both families",
+    "pred_c_missing_singleton_module_exists": "at least one site outside attn:09/attn:11 reaches the registered 0.05 writer-fraction bar in both families",
+    "pred_d_complete_ranked_atlas_reported": "all 18 sites have 64 unique finite row records and family summaries",
+    "pred_e_exact_zero_fit_price": "42 forwards, 1344 examples, 1152 records, no fit/backward/update"
+  },
+  "terminal_rules": {
+    "invalid": "authority, capability, writer recurrence, identity, coverage, or price fails",
+    "screen": "a new material singleton module is found for head splitting",
+    "null": "valid atlas finds no new material singleton; proceed to greedy joint module combinations because the remainder is distributed or interactive"
+  },
+  "interpretation_limits": [
+    "Singleton response installation is a localization screen, not a complete mediation decomposition.",
+    "If no singleton passes, the registered successor is greedy joint selection over the complete module-response pool, not a lowered threshold.",
+    "Head splitting is opened only inside attention modules that pass this screen."
+  ]
+}
