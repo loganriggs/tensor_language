@@ -1,0 +1,27 @@
+{
+  "schema": "temporal_auxiliary_h3_rank8_weight_direct_residual_route_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_rank8_weight_direct_residual_route_v1",
+  "registered_utc": "2026-09-06T20:04:56Z",
+  "question": "Does the tensor-derived H3 rank-eight write reach the output mainly as an unchanged, weight-computable residual contribution rather than through downstream module responses?",
+  "authority": {
+    "rank8_confirmation_sha256": "0d19330da62f37f404570455ea4aeb198a7da787d244278935b6798dffc6e7db",
+    "downstream_removal_atlas_sha256": "66fdced03582fd9890382043dfbf3950e438d2085b378a3533750939bb849d91",
+    "atlas_status": "No stable >=10% singleton mediator; restoring all MLP11-through-MLP17 module responses changes rank8 behavior by only +0.84%/-3.03%.",
+    "relation": "licensed_redirect"
+  },
+  "frozen_tensor_program": {
+    "head_coordinate": "Project the live L8H1-induced H3 output delta through the already frozen rank-eight tensor basis.",
+    "residual_write": "Place that 128-vector in H3's slice of an otherwise zero 1152-vector and right-multiply by attention11.c_proj.weight; no bias is included because this is a delta.",
+    "skip_transport": "Multiply by the frozen product of block12-through-block17 residual coefficients lambdas[0], because downstream attention and MLP responses are restored to native base while each later block's live residual rescales the carried write.",
+    "actuation": "Add the resulting explicit 1152-vector to the native base resid:18 answer-query state and run only the final norm/unembedding.",
+    "route_agreement": "Compare this weight-computed endpoint intervention against a live rank-eight H3 intervention with all thirteen downstream module outputs dynamically restored to base.",
+    "price_max": {"model_forwards": 18, "example_evaluations": 600, "records": 252, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_exact_identity_coverage_and_price": "Hashes, attention reconstruction, native resid18 self-patch identity, finite complete coverage, and price pass.",
+    "pred_b_weight_route_matches_dynamic_all_module_clamp": "Weight-computed resid18 actuation and dynamic all-module clamp agree within 1e-4 per answer/foil logit.",
+    "pred_c_direct_route_retains_rank8_behavior": "The weight-computed direct route retains 95%-105% of rank-eight mean behavior in both A1 and A2.",
+    "pred_d_skip_gain_is_nonzero_and_frozen": "The product of frozen residual coefficients is finite and nonzero; no scalar is fitted."
+  },
+  "decision": "All predicates identify a tensor-readable direct residual-to-final-readout route. Failure of route agreement falsifies the simple coefficient propagation. Agreement but insufficient behavior means downstream responses are collectively necessary despite their removal atlas; disagreement triggers a boundarywise residual trace rather than refitting the subspace."
+}
