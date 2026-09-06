@@ -111,9 +111,15 @@ is a compiled intervention dispatcher, not an autonomous predictor.
 A retrospective cross-construction diagnostic shows that bracket donorward effects may admit a much smaller suffix-free readout. Six
 ordered-pair scalar means transferred symmetrically between the direct-type and completed-then-reopened OOD families at cosine
 `0.98181`, relative L2 `0.19025`, norm ratio `0.99373`, and perfect signs across 144 endpoints. The two directional folds separately
-reach cosine `0.99767` and `0.98960`, again with perfect signs. This costs six FP32 scalars and a lookup, but it is feasibility evidence
-on already opened outcomes—not a promoted predictive program. A new untouched corpus is mandatory before the native suffix can be
-declared unnecessary for bracket effect prediction.
+reach cosine `0.99767` and `0.98960`, again with perfect signs. This costs six FP32 scalars and a lookup, but by itself was feasibility
+evidence on already opened outcomes, not a promoted predictive program; the following untouched-corpus test supplies the required seal.
+
+That prospective test now passes on a third construction containing an identical completed distractor delimiter before the active
+pending opener. Six scalars frozen from the original direct-type family predict all 72 fresh program effects at cosine `0.99626`,
+relative L2 `0.10378`, norm ratio `1.05380`, median absolute error `0.46449`, and perfect signs. Native accuracy and positive program
+effects are `1.0` overall and in every ordered pair; every pair's median absolute error is at most `1.03691`. Thus the bracket package
+has a prospective six-scalar reader for donorward program-effect magnitude without native suffix execution. It still needs the native
+base activation to install its displacement and does not predict full logits.
 
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
@@ -154,6 +160,7 @@ declared unnecessary for bracket effect prediction.
 | `task14_bracket_compiled_dispatcher.v1` | abandoned | pre-execution specification audit | **contradictory self-pair rule** | superseded by v2 | none |
 | `task14_bracket_compiled_dispatcher.v2` | complete | exact combined dispatch and dependency boundary | **screen** | active | `task14_bracket_compiled_dispatcher_v2_result.json` |
 | `bracket_ordered_pair_suffix_free_scalar_feasibility.v1` | complete | bidirectional leave-family-out scalar transfer | **retrospective feasibility** | active diagnostic | `bracket_ordered_pair_suffix_free_scalar_feasibility_v1_result.json` |
+| `bracket_suffix_free_scalar_fresh_corpus.v1` | complete | frozen six-scalar prediction on untouched third construction | **predictive screen** | active | `bracket_suffix_free_scalar_fresh_corpus_validation_v1_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -162,9 +169,9 @@ publication pair is retained only under `artifact_invalid` filenames.
 
 **Next:** keep both fixed programs and their bounded cross-program robustness, but reject fixed MLP15/17 gains and any end-to-end
 simplicity claim. Counterfactual role-prompt lookup is now eliminated at dispatch. The immediate frontier is the native suffix: test
-the six-scalar bracket effect table on a new untouched construction/corpus, with values frozen from only one existing family, before
-attempting base-state construction. Do not substitute additional arbitrary stress scaling, syntax-conditioned gain fitting, or generic
-low-rank approximation for an executable dependency-reduction result.
+whether the bracket displacement's native base term can be replaced by a small closer-conditioned absolute-term program on a newly
+frozen construction, with the six-scalar reader retained only for effect prediction. Do not substitute additional arbitrary stress
+scaling, syntax-conditioned gain fitting, or generic low-rank approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
