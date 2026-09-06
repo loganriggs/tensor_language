@@ -1,0 +1,67 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_artifact_v5",
+  "program_id": "aspectual_anchor.has_vs_had.transparent_path_program_v5",
+  "created_utc": "2026-09-06T05:07:00Z",
+  "executable": {
+    "path": "ops/aspectual_anchor_transparent_path_program_v5.py",
+    "sha256": "9332b83e9e76d8fb3c334ecf81b4b517591c3366d3cbf39b8acdce17ac7dfa6a",
+    "valid_parent_module": "ops/aspectual_anchor_transparent_path_program_v3.py",
+    "framework": "array-protocol compatible",
+    "model_loads": 0,
+    "fits": 0
+  },
+  "frozen_suffix_program": {
+    "block11": {
+      "attention_head": 3,
+      "attention_source_bank": ["determiner", "period", "self"],
+      "mlp_factors": ["left_change", "right_change"],
+      "mlp_selected_to_all_fraction": 1.0115847549742534,
+      "mlp_family_increments": {"A1": 0.03064508849636488, "A2": 0.03937894746100923}
+    },
+    "block15": {
+      "attention_head": 5,
+      "attention_source_bank": ["period", "determiner", "self"],
+      "mlp_factors": ["left_change", "bilinear_interaction"],
+      "mlp_selected_to_all_fraction": 1.100476976137089,
+      "mlp_family_increments": {"A1": 0.004566776149075247, "A2": 0.009024653501424618}
+    }
+  },
+  "new_typed_operations": {
+    "bilinear_hidden_delta": "exact selectable Left-change, Right-change, and interaction response",
+    "suffix_mlp_write_delta": "boundary-frozen two-term response projected through checkpoint Down.weight without bias",
+    "compiled_suffix_crossing_delta": "carried delta + released three-role dominant-head attention delta + corrected compressed MLP delta"
+  },
+  "price": {
+    "stored_fit_scalars": 0,
+    "stored_fit_vectors": 0,
+    "selected_suffix_attention_heads": 2,
+    "selected_suffix_source_role_occurrences": 6,
+    "selected_suffix_mlp_terms": 4,
+    "requires_checkpoint_weights": true,
+    "requires_paired_base_and_donor_states": true,
+    "requires_native_intervening_blocks_and_final_readout": true
+  },
+  "authority": {
+    "aspectual_anchor_transparent_path_program_release_v3_result.json": "b028230ac7fd5c3acdf84f568ab8e7cc43cf277d9028ace8a5b95f3d59c03f08",
+    "aspectual_anchor_mlp11_15_bilinear_compression_split_v2_result.json": "8cb9fee89b29892916f0ae9ac331c60bd6b1eeb4d1ea375ad16553176a52633a"
+  },
+  "excluded_authority": {
+    "aspectual_anchor_mlp11_15_bilinear_compression_split_v1_result.json": "superseded_invalid_design_mismatch",
+    "aspectual_anchor_transparent_path_program_release_v4_result.json": "superseded_invalid_parent"
+  },
+  "evidence_class": "prospective_split_suffix_mlp_compression_in_exact_released_three_role_context",
+  "scope": {
+    "licensed": [
+      "executable paired-causal source- and MLP-resolved block11/block15 crossings",
+      "component manipulation of the four corrected suffix MLP response terms"
+    ],
+    "not_licensed": [
+      "standalone native-margin prediction",
+      "full-logit prediction",
+      "free-form text",
+      "new-construction transfer",
+      "whole-model replacement",
+      "transparent replacement of native blocks10,12-14,16-17 or the final readout"
+    ]
+  }
+}

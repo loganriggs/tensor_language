@@ -328,6 +328,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_v1_design_audit` | invalid | zero-forward design audit | **A/B diagnose mismatch; C exact-string assertion was malformed** | `aspectual_anchor_mlp11_15_bilinear_compression_v1_design_audit_result.json` |
 | `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_v1_design_audit_v2` | complete diagnostic | exact-string-only audit correction | **v1 and program v4 superseded invalid** | `aspectual_anchor_mlp11_15_bilinear_compression_v1_design_audit_v2_result.json` |
 | `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_split_v2` | complete | sole-correction split bilinear factorials | **two-term MLP11/15 responses transfer in exact released source contexts** | `aspectual_anchor_mlp11_15_bilinear_compression_split_v2_result.json` |
+| `aspectual_anchor.has_vs_had.transparent_path_program_release_v5` | released | valid-lineage executable audit | **corrected source- and MLP-resolved paired-causal program through block15** | `aspectual_anchor_transparent_path_program_release_v5_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -527,6 +528,11 @@ mismatch; a frozen v2 audit repaired that assertion and confirmed the invalid di
 rescued. A sole-correction MLP v2 then ran the previously unopened exact compositions. It selects the same pairs—Left+Right at MLP11
 and Left+interaction at MLP15—and on disjoint rows retains 101.16% and 110.05% of the all-three increments, with positive A1/A2
 effects and every gate passing. Those corrected results, not v1, license the next executable compilation.
+
+Executable v5 is that clean compilation. It builds directly on valid source-resolved v3 and corrected MLP v2, explicitly excludes
+the invalid MLP-v1/program-v4 lineage, and implements the same typed bilinear subset, Down projection, and composed suffix-crossing
+interfaces against the correct three-role context. All five release audits and 25 deterministic cases pass. V5 is now the latest
+valid executable program; its remaining boundary is the native computation in intervening blocks and the final checkpoint readout.
 
 ### `subroutine.induction.equality_score` — site_live
 

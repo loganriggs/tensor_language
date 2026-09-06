@@ -1,0 +1,23 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_release_prior_art_v5",
+  "candidate_id": "aspectual_anchor.has_vs_had.transparent_path_program_release_v5",
+  "created_utc": "2026-09-06T05:08:00Z",
+  "question": "Does program v5 faithfully compile corrected MLP v2 directly onto valid source-resolved program v3 while excluding the invalid v1/v4 lineage?",
+  "authority": {
+    "aspectual_anchor_transparent_path_program_v5.py": "9332b83e9e76d8fb3c334ecf81b4b517591c3366d3cbf39b8acdce17ac7dfa6a",
+    "aspectual_anchor_transparent_path_program_v5_artifact.json": "37ac3eb2d465b320d897d96214f86c37e577101996f248242cb81574fd3cfa1a",
+    "aspectual_anchor_transparent_path_program_release_v3_result.json": "b028230ac7fd5c3acdf84f568ab8e7cc43cf277d9028ace8a5b95f3d59c03f08",
+    "aspectual_anchor_mlp11_15_bilinear_compression_split_v2_result.json": "8cb9fee89b29892916f0ae9ac331c60bd6b1eeb4d1ea375ad16553176a52633a",
+    "aspectual_anchor_mlp11_15_bilinear_compression_v1_design_audit_v2_result.json": "7933cf1e4adae814fc3d2251692803ce1233f6eab61343cce026748b11b4127a"
+  },
+  "frozen_audit": {
+    "pred_a_hash_bound_valid_authority": "All five hashes match; v3 and corrected MLP v2 pass, while the design audit confirms v1 invalidation.",
+    "pred_b_executable_inventory": "V5 imports only annotations and valid v3, preserves the v3 API, and adds exactly three documented suffix-MLP operations.",
+    "pred_c_synthetic_equation_conformance": "At least 25 deterministic NumPy equation, composition, functional, and rejection cases pass.",
+    "pred_d_corrected_suffix_mlp_evidence_exact": "Compiled factor sets, retained fractions, and family increments equal corrected v2; invalid v1/v4 are explicitly excluded.",
+    "pred_e_price_dependency_scope_exact": "Zero fitted state/model execution is stored and all checkpoint, paired-state, intervening-block, readout, and negative-scope dependencies are explicit."
+  },
+  "terminal": {"release": "A-E pass: release valid executable v5.", "invalid": "Any audit fails."},
+  "price": {"model_forwards": 0, "example_evaluations": 0, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0, "stored_fit_scalars": 0, "stored_fit_vectors": 0},
+  "scope_boundary": "Native intervening blocks and final readout remain required; invalid MLP v1 and program v4 are not authorities."
+}
