@@ -1,0 +1,24 @@
+{
+  "schema": "temporal_auxiliary_h3_rank8_v11_causal_suffix_transfer_prior_v2",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_rank8_v11_causal_suffix_transfer_v2",
+  "registered_utc": "2026-09-06T20:39:46Z",
+  "question": "Does the frozen Q8 causal-suffix operation pass sealed v11 after repairing only v1's factor-name tuple mapping?",
+  "invalid_v1": {
+    "result_sha256": "c34ef54c5cc8b486e8d53de240b88b3228646fee3429055b5e08792248bd7938",
+    "runner_sha256": "ee842ba28c057a19336c97ae628351f69c2c24c47d1c73e2e37543d37bc7b521",
+    "fault": "The registered factor order was pattern,value,interaction, but pred_d locally named it value,pattern,interaction. This inverted the value/pattern predicate while leaving measurements unchanged."
+  },
+  "frozen_repair": {
+    "only_change": "Set the implementation FACTORS order to value,pattern,interaction before executing the identical v1 instrument, making local predicate names match their explicit arm names.",
+    "unchanged": "Population, tensors, interventions, arms, thresholds, prices, measurements, and all five predictions are identical to v1.",
+    "forbidden": "No outcome-dependent threshold, row, tensor, factor, or measurement change."
+  },
+  "predictions": {
+    "pred_a_exact_authority_closure_coverage_and_price": "Unchanged from v1.",
+    "pred_b_frozen_q8_retains_full_h3_response": "Unchanged from v1.",
+    "pred_c_frozen_causal_suffix_closes_q8": "Unchanged from v1.",
+    "pred_d_frozen_factor_signature_recurs": "Use explicit value, pattern, and interaction arm identities with the unchanged v1 thresholds.",
+    "pred_e_pre_subject_value_is_causally_zero": "Unchanged from v1."
+  },
+  "decision": "Treat v1 as engineering-invalid. Interpret only v2's independently rerun receipt."
+}
