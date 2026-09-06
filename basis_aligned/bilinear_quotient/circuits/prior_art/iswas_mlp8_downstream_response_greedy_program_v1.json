@@ -1,0 +1,24 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_downstream_response_greedy_program_v1",
+  "checked_utc": "2026-09-06T23:55:00Z",
+  "decision": "novel_zero_fit_greedy_response_program",
+  "parent_result_sha256": "bfb7ef88f2eea3b3df1e5e7eb8620aa970d72bc2ec94943fb0d9d96134a5488b",
+  "fixed_seed": "attention9 H1/H4, complete MLP9, attention11 H1/H3, and attention15 H5",
+  "candidate_pool": [
+    "attn10_all",
+    "attn11_remainder",
+    "attn12_all",
+    "attn13_all",
+    "attn14_all",
+    "attn15_remainder",
+    "mlp10",
+    "mlp11",
+    "mlp12",
+    "mlp13",
+    "mlp14"
+  ],
+  "selection": "panel-balanced greedy forward selection for at most six additions on disjoint discovery rows; choose the best prefix by equal-weight behavior and shared-Q8 relative MSE",
+  "confirmation": "evaluate seed, best singleton, selected union, and the complete downstream group on disjoint A1/A2 rows",
+  "prediction": "A union of at most six downstream components recovers at least 75 percent of behavior and 70 percent of Q8 norm on both confirmation panels, while improving on both the seed and best singleton.",
+  "fit_policy": "zero fitted scalars and no gradient updates; selection is discrete response restoration only"
+}
