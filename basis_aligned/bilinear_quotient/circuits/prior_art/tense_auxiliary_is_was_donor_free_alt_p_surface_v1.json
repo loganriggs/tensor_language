@@ -1,0 +1,41 @@
+{
+  "schema": "tense_auxiliary_is_was_donor_free_alt_p_surface_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.donor_free_alt_p_surface_v1",
+  "created_utc": "2026-09-06T09:00:00Z",
+  "question": "Does the frozen donor-free q_is additive actuator clear its sole failed hypothesis under a different answer-preserving surface edit?",
+  "novelty_search": {
+    "binding_result": "The zero-forward repaired donor-free test is a valid null solely because v2 temporal-paraphrase P reflection is 0.727 below 0.75; all A panels, v3 P, and both C panels pass.",
+    "standing_lesson": "When one P/C family alone controls a verdict, vary that hypothesis family once while holding the target circuit, other hypotheses, bars, and actuator fixed.",
+    "new_question": "Replace only P's this/that -> present/previous paraphrase with a same-tense exact-word insertion; do not rerun or alter A/C.",
+    "anti_rank_drift": "q_is, rank, budget, grid, bar, and all A/C outcomes are frozen. This is a causal control-family robustness test, not a rank or compression search."
+  },
+  "authority": {
+    "invalid_v1_sha256": "8e49101dc5fe1e2086488868e39b45c7914c9255a2b2637066b0ecc20e9840f8",
+    "repaired_v2_sha256": "e69acc81c970a6794f3d7cac64a0fc43805afa253164b223833649e5fb46d580",
+    "parent_v2_builder_sha256": "4ed62d06e2ffe5c471efc70eeaa35c7524a66923f19c64c803faef7200d4a62f",
+    "frozen_basis_sha256": "e83ca8d0a89b170edcd334123bd6b25a8f18c39b1e441e4321f2fa96c29d5e1b",
+    "frozen_budget": 7218.272705078125,
+    "grid_points": 257
+  },
+  "frozen_design": {
+    "rows": "Sixteen v2 agents/directions. Base remains 'At this/that moment the AGENT'; donor inserts only 'exact': 'At this/that exact moment the AGENT'. Both sides retain the same is/was answer.",
+    "identity": "All 48 parent A1/A2/C row dictionaries must remain byte-identical; all 16 P row IDs must be new and unique.",
+    "capability_first": "Score native base and donor is/was sides before intervention. If either direction/side population accuracy is below 0.85, stop invalid without evaluating the grid.",
+    "actuator": "Use q_is, budget 7218.272705078125, and the unchanged 257-point donor-free target-guided reflection rule. Donor activation/margin cannot select alpha.",
+    "scientific_bar": "Mean P margin reflection >=0.75 and direction fraction >=0.75, unchanged from v1.",
+    "known_outcomes": "A/C and original-P outcomes are open and are not rerun. Alternative-P capability and causal effects are unopened."
+  },
+  "predictions": {
+    "pred_a_row_identity_capability_and_exact_head": "A1/A2/C rows are byte-identical, P rows are new, all four native P direction-by-side cells are >=0.85, and exact head error <=1e-3.",
+    "pred_b_frozen_donor_free_actuator": "Basis, budget, grid and reflection rule are unchanged; no donor activation/margin or outcome selects any alpha.",
+    "pred_c_alternative_P_robustness": "Alternative P mean margin reflection >=0.75 with direction fraction >=0.75.",
+    "pred_d_exact_coverage_and_price": "Exactly 16 unique intervention records, 2 model forwards/32 examples, 4,112 head-grid evaluations, zero fit/backward/update, and no A/C causal reevaluation."
+  },
+  "terminal": {
+    "screen": "A-D pass: donor-free q_is additive actuation is robust to a second P family and upstream-controller work is reopened with the original null retained.",
+    "null": "A, B, and D pass but C misses: additive q_is fails P-family robustness; retain projected writer only.",
+    "invalid": "Row identity, capability, head, frozen actuator, or coverage fails."
+  },
+  "circuit_targets": ["selective manipulation", "held-out prediction", "stable identification"],
+  "price": {"model_forwards_exact": 2, "example_evaluations_exact": 32, "head_grid_evaluations_exact": 4112, "fit_parameters": 0, "transformer_backwards": 0, "model_updates": 0}
+}
