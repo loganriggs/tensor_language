@@ -1,0 +1,29 @@
+{
+  "schema": "aspectual_tense_l9h1h4_source_position_weight_validation_prior_v1",
+  "candidate_id": "aspectual_tense.l9h1h4_source_position_weight_validation_v1",
+  "registered_utc": "2026-09-06T16:51:00Z",
+  "hypothesis": "Weight contractions into the task-typed L9H1/H4 value subspaces rank upstream attention heads and MLPs that causally write those states at their established contextual carrier banks.",
+  "frozen_population": {
+    "has_heldout": 15,
+    "has_a2": 31,
+    "is_heldout": 6,
+    "is_a2": 15,
+    "selection": "the same top/bottom weight-ranked components frozen before the query-position validation",
+    "has_carrier_bank": "the three aligned tokens immediately after the sole has/had cue difference",
+    "is_carrier_bank": "the two aligned tokens immediately after the sole is/was cue difference"
+  },
+  "intervention": "Capture each full donor attention pre-c_proj head slice or full MLP output and exactly replace only paired carrier-bank positions in one recipient forward.",
+  "predictions": {
+    "pred_a_authority_capability_exact_instrument_and_price": "All sealed rows remain natively capable; every frozen component-row arm is unique; exact declared price recurs.",
+    "pred_b_weight_scores_predict_source_position_causal_effect": "Median Spearman(weight score, mean absolute recovery) across the four task/type cells exceeds 0.25 and at least three of four correlations are positive.",
+    "pred_c_top_weight_sets_are_source_enriched": "Top mean absolute recovery exceeds bottom in at least three of four task/type cells.",
+    "pred_d_carrier_position_corrects_query_scope": "Carrier-position top mean absolute recovery exceeds the prior query-position top mean by at least 2x in at least three of four task/type cells."
+  },
+  "decision": "screen only if all four predictions pass; null on any scientific prediction failure; invalid on authority, capability, coverage, instrument, or price failure",
+  "fit_price": {
+    "fitted_scalars": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  },
+  "heldout_policy": "No outcome-dependent component selection or threshold tuning; all weight ranks, panels, carrier banks, and bars are frozen before GPU execution."
+}
