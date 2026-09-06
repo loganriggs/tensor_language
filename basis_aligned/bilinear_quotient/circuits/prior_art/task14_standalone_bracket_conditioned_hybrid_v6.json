@@ -1,0 +1,39 @@
+{
+  "schema": "task14_standalone_bracket_conditioned_hybrid_prior_art_v6",
+  "candidate_id": "cross_behavior.task14_standalone_bracket_conditioned_hybrid_v6",
+  "created_utc": "2026-09-06T01:23:04Z",
+  "data_status": "IMMUTABLE_COMPONENT_EXTRACTION_AND_COMPILATION; no new empirical outcomes and no rescue of the v2 combined null",
+  "purpose": "Compile the strongest prospectively supported dependency boundary: standalone Task14 native/counterfactual margins, baseline-conditioned bracket effects, and the exact typed composition algebra.",
+  "authority": {
+    "task14_bracket_native_baseline_semantic_linear_prospective_v2_result.json": "1d2f99a6c965ed0d6794cb83a6fb0c8953d11e9a599e769b02d4a0f612d89ea4",
+    "task14_bracket_native_baseline_semantic_linear_prospective_v2_artifact.json": "013532f8481ef6e0c959e1ffdb045fb76214c9b3f72452c92d8e12543580ae5a",
+    "task14_bracket_margin_actuator_composition_contract_v5_result.json": "cef063b5875912af744a0205b55fc0a04296eedd67563ce36f678315dc47032a",
+    "task14_bracket_margin_actuator_composition_contract_v5_artifact.json": "3867afee8732515c8947560ac3c095f459959942f075d0ecd5b0f44e2c91ed2b",
+    "task14_bracket_counterfactual_error_budget_audit_v3_result.json": "845ad74db5488e7af84dd0e9e3a3e61d47407ee6b5741208cf2fe13410639f3a",
+    "task14_bracket_counterfactual_margin_actuator_v4_artifact.json": "85c5cc0549421fc1575d96ce621d0677ea4b0cc2d154b2c0bf7af90f4148bd4c"
+  },
+  "construction": {
+    "task14": "six frozen native-margin coefficients plus ten frozen intervention effects; input is explicit direction and E/A/U/W membership plus edit specification",
+    "bracket": "six frozen intervention effects; input is one native unedited donorward margin plus ordered closer edit",
+    "composition": "immutable-baseline, right-biased same-slot overwrite, commuting independent slots, no effect-history summation",
+    "stored_fp32_scalars": 22,
+    "new_fits_or_model_calls": 0
+  },
+  "predictions": {
+    "pred_a_exact_component_extraction": "Exactly six Task14 baseline coefficients, ten Task14 effects, and six bracket effects are copied bit-exactly from immutable artifacts.",
+    "pred_b_task14_standalone_prospective_gate": "The preregistered untouched Task14 baseline and absolute-counterfactual gates pass overall and in every direction-template group.",
+    "pred_c_bracket_conditioned_prospective_gate": "On the newest untouched bracket construction, frozen effects attain cosine at least 0.99, relative L2 at most 0.15, and sign agreement 1.0 while retaining the native baseline input.",
+    "pred_d_exact_composition_contract": "All v5 composition gates and exhaustive case counts are retained without changing semantics.",
+    "pred_e_literal_price_and_dependency_boundary": "The package stores exactly 22 FP32 scalars (88 bytes), uses no model execution after its declared inputs, and lists bracket native baseline plus explicit semantic/edit inputs as its only runtime dependencies."
+  },
+  "terminal": {
+    "screen": "All five gates pass. Release as the strongest hybrid predictive/composable/manipulable margin program, not a whole model or fully standalone cross-behavior program.",
+    "null": "Any failed extraction, prospective component, composition, price, or boundary gate rejects the package without tuning."
+  },
+  "closed_claims": [
+    "standalone bracket native margin",
+    "standalone cross-behavior absolute counterfactual margins",
+    "full logits",
+    "whole-model replacement"
+  ]
+}
