@@ -142,6 +142,13 @@ Relative to the previous complete operational inventory (both older vector banks
 `27.7215%`. Effect prediction for both programs is specification-only and suffix-free. Causal execution still needs model execution to
 the installation site and afterward; Task14 alone still reads its native L11H3 base term, while bracket needs the semantic opener position.
 
+The direct Task14 absolute-term analogue is a decisive null. Ten second-corpus direction-by-cardinality absolute L11H3 heads fail across
+all 512 third-corpus cells: cosine `0.19725`, relative L2 `2.72039`, norm ratio `2.73485`, and sign agreement `0.59375`. One
+direction-by-template cell is anticorrelated (`-0.19765`), no cardinality passes, and closure error is exactly zero. Thus Task14's native
+base head contains indispensable prompt context that cannot be removed by a ten-entry absolute table. This does not weaken the
+displacement or scalar-effect program; it bounds causal execution. The next allowed compression is reader-aligned scalar context, not a
+post-hoc template table or unconstrained rank sweep.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -185,6 +192,7 @@ the installation site and afterward; Task14 alone still reads its native L11H3 b
 | `bracket_l13h8_closer_absolute_term_program.v1` | complete | three absolute terms on untouched fourth construction | **program screen** | active | `bracket_l13h8_closer_absolute_term_program_v1_result.json` |
 | `bracket_absolute_term_program_ood_controls.v2` | complete | two OOD targets plus three no-edit control families | **program screen** | active | `bracket_absolute_term_program_ood_control_validation_v2_result.json` |
 | `task14_bracket_compiled_predictive_dispatcher.v3` | complete | exact strongest-program packaging and price | **predictive/manipulable interface** | active | `task14_bracket_compiled_predictive_dispatcher_v3_result.json` |
+| `task14_direction_cardinality_absolute_head_program.v1` | complete | ten absolute heads on 512 third-corpus cells | **null: native base context required** | active | `task14_direction_cardinality_absolute_head_program_v1_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -193,9 +201,9 @@ publication pair is retained only under `artifact_invalid` filenames.
 
 **Next:** keep both fixed programs and their bounded cross-program robustness, but reject fixed MLP15/17 gains and any end-to-end
 simplicity claim. Counterfactual role-prompt lookup is now eliminated at dispatch. The immediate frontier is the native suffix: test
-a Task14 absolute-term analogue that replaces rather than adds to the native L11H3 base term, preserving its ten-way cardinality law and
-fixed scalar effects. Do not substitute additional arbitrary stress scaling, syntax-conditioned gain fitting, or generic low-rank
-approximation for an executable dependency-reduction result.
+a reader-aligned one-scalar correction to the failed Task14 absolute term, using only the already frozen direction reader and a scalar
+projection of native base deviation. Do not substitute additional arbitrary stress scaling, syntax-conditioned gain fitting, template
+tables, or generic low-rank approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
