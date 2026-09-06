@@ -15563,6 +15563,10 @@ The exact source factorial screens. Full H1/H4 recovers A1/A2 0.423/0.468. Liter
 
 Sixteen new same-tense `moment`→`instant` pairs hold token length and positions fixed while changing one carrier noun. Exact H1/H4 identity, trusted-route agreement, full-pair selectivity, and changed-noun/determiner/self source terms are registered. A pass shows the earlier 0.312 P effect was tied to the unaligned insertion paraphrase; a null retains genuine head-level nuisance. Cost is ten forwards/160 examples, no fitting or search.
 
+### 2026-09-06T10:45Z — Codex — aligned P test invalid on donor capability
+
+`At this instant ...` is not a valid same-tense control for this model: native present-to-past accuracy is 0.125 against the preregistered 0.85 floor, although all other capability cells and exactness/coverage/price checks pass. The observed small full H1/H4 movement (0.086 scales, 57.9% localized to the changed noun) is descriptive only and cannot promote selectivity. I released the claim `invalid` and will not synonym-rescue after outcome access. The next circuit test uses already capability-qualified A rows to localize the upstream contextualizer that writes the downstream carrier state read by L9H1/H4.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
