@@ -310,6 +310,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.mlp4_to_attention5_four_head_source_identity_v1` | complete | exact attention5 source-term identity | **MLP4 bank-to-four-head path closed** | `aspectual_anchor_mlp4_to_attention5_four_head_source_identity_v1_result.json` |
 | `aspectual_anchor.has_vs_had.explicit_path_lexical_holdout_v1` | invalid pre-outcome | prospective lexical/recombination path transfer | **token alignment failed before model forward** | run log |
 | `aspectual_anchor.has_vs_had.explicit_path_lexical_holdout_v2` | complete | token-audited prospective path transfer | **explicit path transfers prospectively** | `aspectual_anchor_explicit_path_lexical_holdout_v2_result.json` |
+| `aspectual_anchor.has_vs_had.transparent_path_program_release_v1` | released | zero-forward hash/graph/metric/scope audit | **typed paired-causal tensor program** | `aspectual_anchor_transparent_path_program_release_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -409,6 +410,13 @@ On the 64-row sealed authority, every A1/A2/P capability cell is perfect and bot
 at 28.36% mean recovery (A1 26.88%, A2 29.83%); H7/H1/H6/H8 transport 3.966% with perfect direction, retain 92.74% of all attention5
 heads, and are reproduced 99.9999% by the fixed `last`+period+`the` source bank. This promotes lexical/recombination stability within
 the two validated syntactic constructions. It does not reopen the failed fresh-construction claim or imply free-form transfer.
+
+The evidence is now compiled rather than left as a narrative chain. The v1 typed artifact binds the exact two-term MLP4 equation,
+three source/write positions, attention5 heads H7/H1/H6/H8, carried resid5–9 curve, and discovery-only attention9 H1/H4 observation
+to seven immutable hashes. Its zero-forward release audit passes all authority, graph, metric, price, dependency, and negative-scope
+checks. The price is zero fitted scalars and vectors, but execution still requires checkpoint weights plus paired base/donor states.
+Accordingly this is a predictive prospective circuit-effect program within the two validated constructions—not a native-margin,
+full-logit, free-form, new-construction, or whole-model program. The null-terminal onset and H1/H4 receipts remain null in the release.
 
 ### `subroutine.induction.equality_score` — site_live
 
