@@ -1,0 +1,882 @@
+{
+  "bars": {
+    "band": [
+      0.5,
+      1.2
+    ],
+    "complement": 0.3,
+    "das": {
+      "complement_weight": 1.0,
+      "lr": 0.05,
+      "rank": 1,
+      "seed": 0,
+      "steps": 120
+    },
+    "exact": 0.5,
+    "need": 3,
+    "repro_tol": 0.05,
+    "shifts": [
+      8,
+      16,
+      24
+    ],
+    "sum": [
+      0.85,
+      1.15
+    ],
+    "tol": 0.1
+  },
+  "candidate_id": "corpus.unit_bank_scale_v20",
+  "dim_cells": [
+    {
+      "behaviour": "dative",
+      "close": true,
+      "dim_1x": 0.23724643753828056,
+      "dim_4x": 0.22798640680637453,
+      "pair": "orig",
+      "tested": true
+    },
+    {
+      "behaviour": "dative",
+      "close": true,
+      "dim_1x": 0.4656152278205275,
+      "dim_4x": 0.461012372065415,
+      "pair": "v1",
+      "tested": true
+    },
+    {
+      "behaviour": "dative",
+      "close": true,
+      "dim_1x": 0.12106349154304369,
+      "dim_4x": 0.12382771605945586,
+      "pair": "v2",
+      "tested": true
+    },
+    {
+      "behaviour": "verb_preposition",
+      "close": true,
+      "dim_1x": 0.603270507357882,
+      "dim_4x": 0.5942990407405262,
+      "pair": "orig",
+      "tested": false
+    },
+    {
+      "behaviour": "verb_preposition",
+      "close": true,
+      "dim_1x": 0.6183942041092012,
+      "dim_4x": 0.5800453959910694,
+      "pair": "v1",
+      "tested": false
+    },
+    {
+      "behaviour": "verb_preposition",
+      "close": true,
+      "dim_1x": 0.3168936530136564,
+      "dim_4x": 0.38123927759053927,
+      "pair": "v2",
+      "tested": false
+    },
+    {
+      "behaviour": "quantifier_number",
+      "close": true,
+      "dim_1x": 0.47755136264534126,
+      "dim_4x": 0.46261996256833854,
+      "pair": "orig",
+      "tested": true
+    },
+    {
+      "behaviour": "quantifier_number",
+      "close": true,
+      "dim_1x": 0.7951126479855902,
+      "dim_4x": 0.7835027291893134,
+      "pair": "v1",
+      "tested": true
+    },
+    {
+      "behaviour": "quantifier_number",
+      "close": true,
+      "dim_1x": 0.7742518026334609,
+      "dim_4x": 0.775415734931614,
+      "pair": "v2",
+      "tested": true
+    },
+    {
+      "behaviour": "polarity_licensing",
+      "close": true,
+      "dim_1x": 0.6796620557948276,
+      "dim_4x": 0.6085909548471989,
+      "pair": "orig",
+      "tested": true
+    },
+    {
+      "behaviour": "polarity_licensing",
+      "close": true,
+      "dim_1x": 0.3518737261015287,
+      "dim_4x": 0.3103120437235751,
+      "pair": "v1",
+      "tested": true
+    },
+    {
+      "behaviour": "polarity_licensing",
+      "close": true,
+      "dim_1x": 0.4383754399997397,
+      "dim_4x": 0.41185619215206676,
+      "pair": "v2",
+      "tested": true
+    },
+    {
+      "behaviour": "verb_complementizer",
+      "close": true,
+      "dim_1x": 0.4752394463547416,
+      "dim_4x": 0.4798831829889688,
+      "pair": "orig",
+      "tested": true
+    },
+    {
+      "behaviour": "verb_complementizer",
+      "close": true,
+      "dim_1x": 0.5373050386576247,
+      "dim_4x": 0.5339074947300886,
+      "pair": "v1",
+      "tested": true
+    },
+    {
+      "behaviour": "verb_complementizer",
+      "close": true,
+      "dim_1x": 0.3735516844136531,
+      "dim_4x": 0.3736537268181338,
+      "pair": "v2",
+      "tested": true
+    }
+  ],
+  "finished_utc": "2026-09-06T20:48:35.929606+00:00",
+  "predictions": {
+    "pred_a_rows_exchangeable": true,
+    "pred_b_cross_axis_holds_4x": true,
+    "pred_c_small_fit_not_overfit": true,
+    "pred_d_dim_not_noise_limited": true,
+    "pred_e_polarity_sum_repairs": false
+  },
+  "schema": "circuit_unit_bank_scale_result_v1",
+  "seconds": 139.95993934199214,
+  "semantics": "block_live",
+  "sets": {
+    "dative": {
+      "axis_cos_small_big": {
+        "06:heads": 0.9193864464759827,
+        "07:heads": 0.9691867232322693,
+        "11:heads": 0.9816049337387085,
+        "13:heads": 0.9853847622871399,
+        "14:heads": 0.9906305074691772
+      },
+      "big_axis_on_4x": {
+        "complement": 0.20243015903792844,
+        "complement_fraction": 0.25443594539552344,
+        "exact_set": 0.7956036193048452,
+        "linearity_sum": 0.9533819906751788,
+        "random": 0.0024824490201963076,
+        "random_fraction": 0.0031202083046898846,
+        "subspace": 0.556084003323302,
+        "subspace_fraction": 0.6989460452796553
+      },
+      "das_loss_history_4x": [
+        [
+          0,
+          6.458973407745361,
+          6.45888090133667
+        ],
+        [
+          50,
+          0.10905179381370544,
+          0.1202644556760788
+        ],
+        [
+          100,
+          0.07738949358463287,
+          0.08223550021648407
+        ],
+        [
+          119,
+          0.07236924022436142,
+          0.07583275437355042
+        ]
+      ],
+      "dim_4x_on_fourth": {
+        "orig": {
+          "complement": 0.5856869646427577,
+          "complement_fraction": 0.7361542235749239,
+          "exact_set": 0.7956036193048452,
+          "linearity_sum": 0.9641406303812984,
+          "random": 0.0024824490201963076,
+          "random_fraction": 0.0031202083046898846,
+          "subspace": 0.18138681040745838,
+          "subspace_fraction": 0.22798640680637453
+        },
+        "v1": {
+          "complement": 0.4014729746292177,
+          "complement_fraction": 0.5046143140726317,
+          "exact_set": 0.7956036193048452,
+          "linearity_sum": 0.9656266861380467,
+          "random": 0.0024824490201963076,
+          "random_fraction": 0.0031202083046898846,
+          "subspace": 0.36678311175955614,
+          "subspace_fraction": 0.461012372065415
+        },
+        "v2": {
+          "complement": 0.6782544168328337,
+          "complement_fraction": 0.8525029303228349,
+          "exact_set": 0.7956036193048452,
+          "linearity_sum": 0.9763306463822907,
+          "random": 0.0024824490201963076,
+          "random_fraction": 0.0031202083046898846,
+          "subspace": 0.0985177790671558,
+          "subspace_fraction": 0.12382771605945586
+        }
+      },
+      "dropped": {
+        "fourth_1x": 0,
+        "fourth_4x": 0,
+        "pool_1x": 0,
+        "pool_4x": 1
+      },
+      "exact_fourth_1x": 0.7611229650378946,
+      "exact_fourth_4x": 0.7956036193048452,
+      "exact_gap": 0.03448065426695068,
+      "fitted": [
+        {
+          "reserved": "bought",
+          "sent": "handed"
+        },
+        {
+          "reserved": "kept",
+          "sent": "gave"
+        }
+      ],
+      "fourth": {
+        "reserved": "cooked",
+        "sent": "passed"
+      },
+      "repro_gap": 0.0,
+      "rows": {
+        "pair_1x": 32,
+        "pair_4x": 128,
+        "pool_1x_fit": 48,
+        "pool_4x_fit": 191
+      },
+      "slot": [
+        "cycle",
+        1
+      ],
+      "small_axis_on_1x": {
+        "complement": 0.19782663869066883,
+        "complement_fraction": 0.25991416338465034,
+        "exact_set": 0.7611229650378946,
+        "linearity_sum": 0.9656365715399455,
+        "random": 0.00031723788961286986,
+        "random_fraction": 0.0004168024145705225,
+        "subspace": 0.5371415317888415,
+        "subspace_fraction": 0.7057224081552952
+      },
+      "small_axis_on_4x": {
+        "complement": 0.20143994069437324,
+        "complement_fraction": 0.25319133272719446,
+        "exact_set": 0.7956036193048452,
+        "linearity_sum": 0.9557737023766004,
+        "random": 0.0024824490201963076,
+        "random_fraction": 0.0031202083046898846,
+        "subspace": 0.558977076152842,
+        "subspace_fraction": 0.7025823696494059
+      },
+      "small_vs_big_gap": 0.0036363243697505876,
+      "tested": true,
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03"
+      ],
+      "v17_fourth_fraction": 0.7057224081552952
+    },
+    "polarity_licensing": {
+      "axis_cos_small_big": {
+        "03:heads": 0.9446237087249756,
+        "04:heads": 0.9077759981155396,
+        "07:heads": 0.9304339289665222,
+        "08:heads": 0.9684731364250183
+      },
+      "big_axis_on_4x": {
+        "complement": -0.08378513001666159,
+        "complement_fraction": -0.1456662164981834,
+        "exact_set": 0.5751857364793056,
+        "linearity_sum": 0.8323210795722038,
+        "random": -0.004364698357890846,
+        "random_fraction": -0.007588328571231671,
+        "subspace": 0.5625243431576503,
+        "subspace_fraction": 0.9779872960703871
+      },
+      "das_loss_history_4x": [
+        [
+          0,
+          9.148231506347656,
+          9.029312133789062
+        ],
+        [
+          50,
+          0.020720388740301132,
+          0.022611021995544434
+        ],
+        [
+          100,
+          0.015137670561671257,
+          0.014402414672076702
+        ],
+        [
+          119,
+          0.01383595447987318,
+          0.013070784509181976
+        ]
+      ],
+      "dim_4x_on_fourth": {
+        "orig": {
+          "complement": 0.06001034952897407,
+          "complement_fraction": 0.1043321239088709,
+          "exact_set": 0.5751857364793056,
+          "linearity_sum": 0.7129230787560699,
+          "random": -0.004364698357890846,
+          "random_fraction": -0.007588328571231671,
+          "subspace": 0.35005283657842995,
+          "subspace_fraction": 0.6085909548471989
+        },
+        "v1": {
+          "complement": 0.19543487273626042,
+          "complement_fraction": 0.33977698044550153,
+          "exact_set": 0.5751857364793056,
+          "linearity_sum": 0.6500890241690767,
+          "random": -0.004364698357890846,
+          "random_fraction": -0.007588328571231671,
+          "subspace": 0.17848706140754303,
+          "subspace_fraction": 0.3103120437235751
+        },
+        "v2": {
+          "complement": 0.1241526221968697,
+          "complement_fraction": 0.2158478806460051,
+          "exact_set": 0.5751857364793056,
+          "linearity_sum": 0.6277040727980718,
+          "random": -0.004364698357890846,
+          "random_fraction": -0.007588328571231671,
+          "subspace": 0.23689380720654893,
+          "subspace_fraction": 0.41185619215206676
+        }
+      },
+      "dropped": {
+        "fourth_1x": 0,
+        "fourth_4x": 0,
+        "pool_1x": 0,
+        "pool_4x": 0
+      },
+      "exact_fourth_1x": 0.5827728153807644,
+      "exact_fourth_4x": 0.5751857364793056,
+      "exact_gap": 0.007587078901458821,
+      "fitted": [
+        {
+          "never": "rarely",
+          "often": "usually"
+        },
+        {
+          "never": "hardly",
+          "often": "always"
+        }
+      ],
+      "fourth": {
+        "never": "scarcely",
+        "often": "frequently"
+      },
+      "repro_gap": 0.0,
+      "rows": {
+        "pair_1x": 32,
+        "pair_4x": 128,
+        "pool_1x_fit": 48,
+        "pool_4x_fit": 192
+      },
+      "single_pair_das_4x_on_fourth": {
+        "orig": {
+          "complement": -0.009137235596875366,
+          "complement_fraction": -0.015885713113826687,
+          "exact_set": 0.5751857364793056,
+          "linearity_sum": 0.7339232581060908,
+          "random": -0.004364698357890846,
+          "random_fraction": -0.007588328571231671,
+          "subspace": 0.4312794253299187,
+          "subspace_fraction": 0.7498089712199175
+        },
+        "v1": {
+          "complement": 0.018566031673496675,
+          "complement_fraction": 0.03227832419339671,
+          "exact_set": 0.5751857364793056,
+          "linearity_sum": 0.6735824517095534,
+          "random": -0.004364698357890846,
+          "random_fraction": -0.007588328571231671,
+          "subspace": 0.3688689868925991,
+          "subspace_fraction": 0.6413041275161567
+        },
+        "v2": {
+          "complement": 0.13209276872465922,
+          "complement_fraction": 0.22965237200281607,
+          "exact_set": 0.5751857364793056,
+          "linearity_sum": 0.7655135840595177,
+          "random": -0.004364698357890846,
+          "random_fraction": -0.007588328571231671,
+          "subspace": 0.3082197259075273,
+          "subspace_fraction": 0.5358612120567017
+        }
+      },
+      "slot": [
+        "alts",
+        0,
+        [
+          "Our",
+          "This",
+          "That"
+        ]
+      ],
+      "small_axis_on_1x": {
+        "complement": -0.07922387865654489,
+        "complement_fraction": -0.13594298938735266,
+        "exact_set": 0.5827728153807644,
+        "linearity_sum": 0.8507238688678338,
+        "random": -0.002514585335442061,
+        "random_fraction": -0.004314863818414581,
+        "subspace": 0.5750026228282686,
+        "subspace_fraction": 0.9866668582551865
+      },
+      "small_axis_on_4x": {
+        "complement": -0.055408537085028034,
+        "complement_fraction": -0.09633155617554427,
+        "exact_set": 0.5751857364793056,
+        "linearity_sum": 0.8205234686269418,
+        "random": -0.004364698357890846,
+        "random_fraction": -0.007588328571231671,
+        "subspace": 0.5273619326857699,
+        "subspace_fraction": 0.916855024802486
+      },
+      "small_vs_big_gap": 0.061132271267901106,
+      "tested": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ],
+      "v17_fourth_fraction": 0.9866668582551865
+    },
+    "quantifier_number": {
+      "axis_cos_small_big": {
+        "07:heads": 0.9967217445373535,
+        "11:heads": 0.9943976998329163
+      },
+      "big_axis_on_4x": {
+        "complement": -0.039474016027398626,
+        "complement_fraction": -0.06972540501328542,
+        "exact_set": 0.5661353422024193,
+        "linearity_sum": 1.0575007123754836,
+        "random": -0.0014634246616111511,
+        "random_fraction": -0.0025849378276191592,
+        "subspace": 0.6381625437073952,
+        "subspace_fraction": 1.127226117388769
+      },
+      "das_loss_history_4x": [
+        [
+          0,
+          16.393117904663086,
+          16.403348922729492
+        ],
+        [
+          50,
+          0.04612410068511963,
+          0.040479548275470734
+        ],
+        [
+          100,
+          0.01961466670036316,
+          0.014932367950677872
+        ],
+        [
+          119,
+          0.015776053071022034,
+          0.01223492156714201
+        ]
+      ],
+      "dim_4x_on_fourth": {
+        "orig": {
+          "complement": 0.2651074948002099,
+          "complement_fraction": 0.4682758256512836,
+          "exact_set": 0.5661353422024193,
+          "linearity_sum": 0.9308957882196222,
+          "random": -0.0014634246616111511,
+          "random_fraction": -0.0025849378276191592,
+          "subspace": 0.26190551081829677,
+          "subspace_fraction": 0.46261996256833854
+        },
+        "v1": {
+          "complement": 0.1006144419726644,
+          "complement_fraction": 0.1777215348917223,
+          "exact_set": 0.5661353422024193,
+          "linearity_sum": 0.9612242640810357,
+          "random": -0.0014634246616111511,
+          "random_fraction": -0.0025849378276191592,
+          "subspace": 0.44356858570612145,
+          "subspace_fraction": 0.7835027291893134
+        },
+        "v2": {
+          "complement": 0.09216753514464121,
+          "complement_fraction": 0.16280123898657273,
+          "exact_set": 0.5661353422024193,
+          "linearity_sum": 0.9382169739181867,
+          "random": -0.0014634246616111511,
+          "random_fraction": -0.0025849378276191592,
+          "subspace": 0.4389902524446498,
+          "subspace_fraction": 0.775415734931614
+        }
+      },
+      "dropped": {
+        "fourth_1x": 0,
+        "fourth_4x": 0,
+        "pool_1x": 0,
+        "pool_4x": 0
+      },
+      "exact_fourth_1x": 0.563942746724988,
+      "exact_fourth_4x": 0.5661353422024193,
+      "exact_gap": 0.002192595477431336,
+      "fitted": [
+        {
+          "All": "Several",
+          "Each": "Neither"
+        },
+        {
+          "All": "Many",
+          "Each": "One"
+        }
+      ],
+      "fourth": {
+        "All": "Some",
+        "Each": "Either"
+      },
+      "repro_gap": 0.0,
+      "rows": {
+        "pair_1x": 32,
+        "pair_4x": 128,
+        "pool_1x_fit": 48,
+        "pool_4x_fit": 192
+      },
+      "slot": [
+        "cycle",
+        3
+      ],
+      "small_axis_on_1x": {
+        "complement": -0.04192600019185992,
+        "complement_fraction": -0.07434442669107602,
+        "exact_set": 0.563942746724988,
+        "linearity_sum": 1.0583299680883793,
+        "random": -0.001434247321275844,
+        "random_fraction": -0.0025432498770575876,
+        "subspace": 0.6387635093369894,
+        "subspace_fraction": 1.1326743947794553
+      },
+      "small_axis_on_4x": {
+        "complement": -0.04053320933789927,
+        "complement_fraction": -0.07159632391119435,
+        "exact_set": 0.5661353422024193,
+        "linearity_sum": 1.0615062692940276,
+        "random": -0.0014634246616111511,
+        "random_fraction": -0.0025849378276191592,
+        "subspace": 0.641489424354687,
+        "subspace_fraction": 1.1331025932052219
+      },
+      "small_vs_big_gap": 0.005876475816452897,
+      "tested": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03"
+      ],
+      "v17_fourth_fraction": 1.1326743947794553
+    },
+    "verb_complementizer": {
+      "axis_cos_small_big": {
+        "06:heads": 0.9966056942939758,
+        "07:heads": 0.9899328351020813,
+        "11:heads": 0.9921150207519531
+      },
+      "big_axis_on_4x": {
+        "complement": 0.1457652916824951,
+        "complement_fraction": 0.24212201020371685,
+        "exact_set": 0.6020323867287033,
+        "linearity_sum": 0.9720772850433268,
+        "random": 0.004809102371926225,
+        "random_fraction": 0.007988112397171373,
+        "subspace": 0.439456716316897,
+        "subspace_fraction": 0.72995527483961
+      },
+      "das_loss_history_4x": [
+        [
+          0,
+          25.491811752319336,
+          25.452924728393555
+        ],
+        [
+          50,
+          0.07313133776187897,
+          0.09065505862236023
+        ],
+        [
+          100,
+          0.05472097918391228,
+          0.06941152364015579
+        ],
+        [
+          119,
+          0.05018014460802078,
+          0.06429643929004669
+        ]
+      ],
+      "dim_4x_on_fourth": {
+        "orig": {
+          "complement": 0.29993944352985513,
+          "complement_fraction": 0.49821147523250814,
+          "exact_set": 0.6020323867287033,
+          "linearity_sum": 0.9780946582214769,
+          "random": 0.004809102371926225,
+          "random_fraction": 0.007988112397171373,
+          "subspace": 0.288905218005816,
+          "subspace_fraction": 0.4798831829889688
+        },
+        "v1": {
+          "complement": 0.27347573178219786,
+          "complement_fraction": 0.4542541860051717,
+          "exact_set": 0.6020323867287033,
+          "linearity_sum": 0.9881616807352602,
+          "random": 0.004809102371926225,
+          "random_fraction": 0.007988112397171373,
+          "subspace": 0.3214296033446978,
+          "subspace_fraction": 0.5339074947300886
+        },
+        "v2": {
+          "complement": 0.3580787852698317,
+          "complement_fraction": 0.594783259444802,
+          "exact_set": 0.6020323867287033,
+          "linearity_sum": 0.9684369862629358,
+          "random": 0.004809102371926225,
+          "random_fraction": 0.007988112397171373,
+          "subspace": 0.22495164496639597,
+          "subspace_fraction": 0.3736537268181338
+        }
+      },
+      "dropped": {
+        "fourth_1x": 0,
+        "fourth_4x": 0,
+        "pool_1x": 0,
+        "pool_4x": 0
+      },
+      "exact_fourth_1x": 0.604910254299322,
+      "exact_fourth_4x": 0.6020323867287033,
+      "exact_gap": 0.0028778675706186974,
+      "fitted": [
+        {
+          "remarked": "said",
+          "wondered": "asked"
+        },
+        {
+          "remarked": "insisted",
+          "wondered": "inquired"
+        }
+      ],
+      "fourth": {
+        "remarked": "declared",
+        "wondered": "questioned"
+      },
+      "repro_gap": 0.0,
+      "rows": {
+        "pair_1x": 32,
+        "pair_4x": 128,
+        "pool_1x_fit": 48,
+        "pool_4x_fit": 192
+      },
+      "slot": [
+        "cycle",
+        1
+      ],
+      "small_axis_on_1x": {
+        "complement": 0.1479240313405708,
+        "complement_fraction": 0.2445388060281996,
+        "exact_set": 0.604910254299322,
+        "linearity_sum": 0.974747566575882,
+        "random": 0.004820204194126923,
+        "random_fraction": 0.007968461701331628,
+        "subspace": 0.4417107670344913,
+        "subspace_fraction": 0.7302087605476825
+      },
+      "small_axis_on_4x": {
+        "complement": 0.1456998972207954,
+        "complement_fraction": 0.24201338737354813,
+        "exact_set": 0.6020323867287033,
+        "linearity_sum": 0.9725513426346793,
+        "random": 0.004809102371926225,
+        "random_fraction": 0.007988112397171373,
+        "subspace": 0.43980750880176545,
+        "subspace_fraction": 0.7305379552611312
+      },
+      "small_vs_big_gap": 0.0005826804215212089,
+      "tested": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08"
+      ],
+      "v17_fourth_fraction": 0.7302087605476825
+    },
+    "verb_preposition": {
+      "axis_cos_small_big": {
+        "06:heads": 0.9509246349334717,
+        "08:heads": 0.9778894186019897,
+        "13:heads": 0.98105788230896
+      },
+      "big_axis_on_4x": {
+        "complement": -0.010248451473453801,
+        "complement_fraction": -0.02065010321124924,
+        "exact_set": 0.4962905690403963,
+        "linearity_sum": 0.8272258516467182,
+        "random": -0.017101207909204986,
+        "random_fraction": -0.03445805537322835,
+        "subspace": 0.4207928401121301,
+        "subspace_fraction": 0.8478759548579675
+      },
+      "das_loss_history_4x": [
+        [
+          0,
+          11.69936752319336,
+          11.536174774169922
+        ],
+        [
+          50,
+          0.04510893672704697,
+          0.05061837658286095
+        ],
+        [
+          100,
+          0.03372631222009659,
+          0.0368933230638504
+        ],
+        [
+          119,
+          0.030684057623147964,
+          0.03438682109117508
+        ]
+      ],
+      "dim_4x_on_fourth": {
+        "orig": {
+          "complement": 0.14638073871032084,
+          "complement_fraction": 0.2949496682827474,
+          "exact_set": 0.4962905690403963,
+          "linearity_sum": 0.8892487090232736,
+          "random": -0.017101207909204986,
+          "random_fraction": -0.03445805537322835,
+          "subspace": 0.2949450091092774,
+          "subspace_fraction": 0.5942990407405262
+        },
+        "v1": {
+          "complement": 0.19883699589451004,
+          "complement_fraction": 0.4006463316016094,
+          "exact_set": 0.4962905690403963,
+          "linearity_sum": 0.9806917275926788,
+          "random": -0.017101207909204986,
+          "random_fraction": -0.03445805537322835,
+          "subspace": 0.28787105964566984,
+          "subspace_fraction": 0.5800453959910694
+        },
+        "v2": {
+          "complement": 0.29476591604243185,
+          "complement_fraction": 0.5939381774116262,
+          "exact_set": 0.4962905690403963,
+          "linearity_sum": 0.9751774550021655,
+          "random": -0.017101207909204986,
+          "random_fraction": -0.03445805537322835,
+          "subspace": 0.18920545801595834,
+          "subspace_fraction": 0.38123927759053927
+        }
+      },
+      "dropped": {
+        "fourth_1x": 0,
+        "fourth_4x": 0,
+        "pool_1x": 0,
+        "pool_4x": 0
+      },
+      "exact_fourth_1x": 0.43833879758025496,
+      "exact_fourth_4x": 0.4962905690403963,
+      "exact_gap": 0.057951771460141355,
+      "fitted": [
+        {
+          "objected": "listened",
+          "relied": "depended"
+        },
+        {
+          "objected": "referred",
+          "relied": "insisted"
+        }
+      ],
+      "fourth": {
+        "objected": "spoke",
+        "relied": "counted"
+      },
+      "repro_gap": 0.0,
+      "rows": {
+        "pair_1x": 32,
+        "pair_4x": 128,
+        "pool_1x_fit": 48,
+        "pool_4x_fit": 192
+      },
+      "slot": [
+        "alts",
+        0,
+        [
+          "Our",
+          "This",
+          "That"
+        ]
+      ],
+      "small_axis_on_1x": {
+        "complement": 0.023245181411362142,
+        "complement_fraction": 0.05303017104504926,
+        "exact_set": 0.43833879758025496,
+        "linearity_sum": 0.8321350265291388,
+        "random": -0.00914565788118021,
+        "random_fraction": -0.020864358646021385,
+        "subspace": 0.34151188554183415,
+        "subspace_fraction": 0.7791048554840896
+      },
+      "small_axis_on_4x": {
+        "complement": 0.04870152412157933,
+        "complement_fraction": 0.09813106909475687,
+        "exact_set": 0.4962905690403963,
+        "linearity_sum": 0.8531423498604951,
+        "random": -0.017101207909204986,
+        "random_fraction": -0.03445805537322835,
+        "subspace": 0.37470497816314663,
+        "subspace_fraction": 0.7550112807657382
+      },
+      "small_vs_big_gap": 0.09286467409222932,
+      "tested": false,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08"
+      ],
+      "v17_fourth_fraction": 0.7791048554840896
+    }
+  },
+  "tested": [
+    "dative",
+    "quantifier_number",
+    "polarity_licensing",
+    "verb_complementizer"
+  ]
+}
