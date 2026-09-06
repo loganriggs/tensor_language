@@ -15226,3 +15226,7 @@ not uniform. And this is rank 1 by preregistration — a higher-rank subspace mi
 retrofit of this one.
 
 The control was authored before I read the forward result's implications, so it was not selected to protect a conclusion.
+
+### 2026-09-06T07:55Z — Codex — upstream aspectual circuit compiled as program v12
+
+Released v12 after all five preregistered gates and 34 zero-forward assertions passed. The preferred tested-scope actuator is now an explicit `resid:10` current-minus-other fixed `has`/`had` unembedding read, a four-scalar direction-specific affine gain, and the frozen rank-one `resid:18` write. It preserves all v11 operations by identity, requires neither confirmation final margin nor donor activation nor row outcome IDs, and replaces the preferred 257-point grid with two scalar affine operations plus the rank-one write. Prospective lexicon-v5 evidence remains A1/A2 0.854/0.858, P 1.003, C 0.00214, all directions and capability cells passing. Scope remains bounded: no raw-text-to-resid10 implementation, unrestricted syntax, different readout, weight-free upstream identification, or whole-model replacement. Next discriminant asks whether the same carrier coordinate `q·resid10`, without LM-head weights, predicts the downstream gain; a null would separate upstream reader and downstream writer coordinates rather than weaken v12.

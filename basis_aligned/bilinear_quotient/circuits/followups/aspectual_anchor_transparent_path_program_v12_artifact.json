@@ -1,0 +1,52 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_artifact_v12",
+  "program_id": "aspectual_anchor.has_vs_had.transparent_path_program_v12",
+  "created_utc": "2026-09-06T07:53:00Z",
+  "parent_program": "aspectual_anchor.has_vs_had.transparent_path_program_v11",
+  "computational_change": "Adds a frozen resid:10 local unembedding read, four-scalar direction-specific affine gain, and rank-one resid:18 write; all v11 operations remain identity aliases.",
+  "interface": {
+    "read_site": "resid:10",
+    "read": "current-minus-other normalized soft-capped has/had unembedding contrast",
+    "compute": "alpha = direction-specific intercept + slope * contrast",
+    "write_site": "resid:18",
+    "write": "base_resid18 + alpha * q",
+    "fixed_token_ids": {"has": 468, "had": 550},
+    "confirmation_resid18_margin_required": false,
+    "donor_activation_required": false,
+    "row_outcome_ids_required": false
+  },
+  "evidence": {
+    "path": "circuits/followups/aspectual_anchor_resid10_frozen_gain_fresh_lexicon_v2_result.json",
+    "sha256": "a4cee1818acd6a28e999eda26d0447f94d080b913f4061d0e6dab4914cb3802c",
+    "scope": "prospective third lexicon with population capability within tested constructions",
+    "A1_recovery": 0.8538454604376456,
+    "A2_recovery": 0.8579021545739657,
+    "P_margin_reflection": 1.0026248626680097,
+    "C_normalized_unrelated_effect": 0.0021410661481911153,
+    "direction_fraction": 1.0
+  },
+  "price": {
+    "parent_stored_fit_scalars": 1153,
+    "additional_stored_fit_scalars": 4,
+    "total_stored_fit_scalars": 1157,
+    "runtime_scalar_affine_operations": 2,
+    "runtime_rank_one_write_width": 1152,
+    "runtime_grid_evaluations": 0
+  },
+  "scope": {
+    "licensed": [
+      "upstream prediction on a prospective third lexicon",
+      "A1/A2 causal recovery",
+      "P margin reflection",
+      "C selectivity",
+      "tested construction family"
+    ],
+    "not_licensed": [
+      "raw-text-to-resid10 computation",
+      "unrestricted syntax",
+      "different surface readouts",
+      "weight-free upstream identification",
+      "whole-model replacement"
+    ]
+  }
+}
