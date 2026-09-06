@@ -1,0 +1,45 @@
+{
+  "schema": "aspectual_anchor_mlp4_induced_attention5_four_head_factorial_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp4_induced_attention5_four_head_factorial_v1",
+  "created_utc": "2026-09-06T03:18:00Z",
+  "question": "Does the frozen H7/H1/H6/H8 attention5 set form a compact causal transporter for the two-term MLP4 write?",
+  "authority": {
+    "head_sweep_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_induced_attention5_head_sweep_v1_result.json",
+      "sha256": "5dc3c6d7ae7eb4bb966d55bdf2ccffea9389e5b3fe075e2e66ec0686e2972eaa",
+      "terminal": "null",
+      "frozen_ranking": ["h7", "h1", "h6", "h8", "h0", "h3", "h4", "h2", "h5"],
+      "all_head_mean_recovery": 0.05531263467112856
+    },
+    "writer_terms": ["left_change", "right_change"],
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+  },
+  "population": "The same 64 valid A1/A2 discovery rows.",
+  "operator": {
+    "selected_heads": [7, 1, 6, 8],
+    "selection_rule": "Top four by the sealed singleton-plus-leave-one-out endpoint ranking; no outcomes from this factorial were available at selection.",
+    "intervention": "For every Boolean subset, replace the selected attention5 preprojection heads at the final-subject query by their two-term-writer-hybrid outputs inside a native base run.",
+    "arms": "All 16 selected-head subsets, plus all-nine-head ceiling and full two-term writer.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_instrument": "Empty subset is inert and the all-nine-head ceiling recurs within 0.01 of mean recovery 0.05531263467112856.",
+    "pred_b_writer_recurrence": "The two-term writer recurs within 0.02 of mean recovery 0.33379277118533013 with positive A1/A2 recovery and direction fraction at least 0.80.",
+    "pred_c_four_head_compression": "The complete H7/H1/H6/H8 set retains at least 75% of the all-nine-head mean recovery and has positive A1/A2 recovery with direction fraction at least 0.80.",
+    "pred_d_factorial_support": "At least three selected heads have positive exact Shapley value, and removing the largest-Shapley head from the full set lowers recovery in A1 and A2.",
+    "pred_e_exact_coverage": "All 18 arms produce all 64 finite outcomes within 44 model forward calls and 1408 example evaluations."
+  },
+  "terminal": {
+    "screen": "A-E pass: license H7/H1/H6/H8 as the compressed attention5 transporter and proceed to their source terms.",
+    "null": "The run is valid but C or D fails: retain whole attention5 as the transporter.",
+    "invalid": "Instrument identity, writer recurrence, native capability, finiteness, or coverage fails. No head, arm, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 44,
+    "example_evaluations_max": 1408,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First exact factorial compression of the distributed attention5 onset transporter for a factorized upstream MLP signal."
+}
