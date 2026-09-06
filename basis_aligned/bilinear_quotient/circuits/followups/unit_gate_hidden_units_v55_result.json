@@ -1,0 +1,98 @@
+{
+  "bars": {
+    "floor_tol": 0.05,
+    "id_tol": 0.001,
+    "rand_max": 0.15,
+    "stable_frac": 0.8,
+    "top1024_min": 0.8,
+    "top256_min": 0.5
+  },
+  "candidate_id": "corpus.unit_gate_hidden_units_v55",
+  "downstream": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "finished_utc": "2026-09-06T23:37:40.805760+00:00",
+  "gated_part_G": 0.007525661864715524,
+  "interactions": {
+    "all": 0.010923282298636067,
+    "none": 0.003397497165861907,
+    "rand1024": 0.0036936171017777214,
+    "top1024_fit": 0.004182740625584713,
+    "top256_fit": 0.005575584086990326,
+    "top256_own": 0.015589860787007873,
+    "unmasked": 0.010923159030577431,
+    "v43_floor": 0.003397497165861907
+  },
+  "predictions": {
+    "pred_a_identity": true,
+    "pred_b_top256": false,
+    "pred_c_top1024": false,
+    "pred_d_random": true,
+    "pred_e_ranking_stable": false
+  },
+  "rows_final": 16,
+  "rows_fit": 16,
+  "schema": "circuit_unit_gate_hidden_units_result_v1",
+  "seconds": 1.1483907625079155,
+  "set": [
+    "attn:07:head:08",
+    "attn:08:head:01",
+    "attn:04:head:07",
+    "attn:03:head:00"
+  ],
+  "shares_of_G": {
+    "all": 1.0000163796966768,
+    "none": 0.0,
+    "rand1024": 0.0393480256273789,
+    "top1024_fit": 0.1043421128717546,
+    "top256_fit": 0.289421310747497,
+    "top256_own": 1.6201051602265744,
+    "unmasked": 1.0,
+    "v43_floor": 0.0
+  },
+  "stack_mlps": [
+    "mlp:08",
+    "mlp:09",
+    "mlp:10",
+    "mlp:11"
+  ],
+  "top24_units_fit": [
+    "mlp:16:neuron:2617",
+    "mlp:15:neuron:3836",
+    "mlp:16:neuron:1427",
+    "mlp:14:neuron:4031",
+    "mlp:15:neuron:371",
+    "mlp:13:neuron:4493",
+    "mlp:12:neuron:2418",
+    "mlp:16:neuron:4549",
+    "mlp:17:neuron:231",
+    "mlp:13:neuron:1662",
+    "mlp:15:neuron:805",
+    "mlp:13:neuron:97",
+    "mlp:16:neuron:2652",
+    "mlp:12:neuron:3174",
+    "mlp:12:neuron:1655",
+    "mlp:17:neuron:4000",
+    "mlp:16:neuron:1065",
+    "mlp:17:neuron:807",
+    "mlp:13:neuron:604",
+    "mlp:12:neuron:1027",
+    "mlp:17:neuron:3742",
+    "mlp:17:neuron:4220",
+    "mlp:17:neuron:255",
+    "mlp:16:neuron:1733"
+  ],
+  "top256_units_per_layer": {
+    "mlp:12": 70,
+    "mlp:13": 47,
+    "mlp:14": 28,
+    "mlp:15": 45,
+    "mlp:16": 39,
+    "mlp:17": 27
+  }
+}
