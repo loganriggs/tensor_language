@@ -1,0 +1,68 @@
+{
+  "schema": "temporal_auxiliary_will_had_block8h1_subject_source_groups_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.block8h1_subject_source_groups_v1",
+  "created_utc": "2026-09-06T12:56:00Z",
+  "evidence_class": "prospective_exact_attention_source_partition",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*will*had*block8*h1*source*",
+      "circuits/followups/*will*had*block8*h1*source*",
+      "circuits/prior_art/*attention*destination*source*",
+      "circuits/followups/*attention*source*group*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "The exact nine-head screen localized 98.2%/97.6% of the full block-8 attention write at the subject-onset destinations to head 1. The L9H1/H4 source partition later in the path found the contextualized subject tokens dominate, but it did not identify which earlier tokens block8H1 reads to write them.",
+    "new_question": "Does block8H1 directly transport the changed temporal cue into the unchanged subject-onset states, or construct its write from prefix/local context?"
+  },
+  "authorities": {
+    "block8_head1_screen_sha256": "febac51eeb2bf452f6bc80f1dd4d221714da899274888fd2d0bc950e7e03e55a",
+    "valid_block8_cube_v2_sha256": "973c0e490ed04c07fbc410e4b2960aa27db9a7ffc7f219948a68e5dd947a431b",
+    "attention_destination_evaluator_sha256": "3e66f65aa5ca4a84676a267f54b95f49fc2220c8efc6775cfac1a48ce972ab5b",
+    "temporal_fast_screen_sha256": "71a833c52c39b98be6f576d11749522e2725c540a29d61a2352e315978684ec9",
+    "rows_sha256": "b74ff65cf6b59142bf38172dae7f70a25e5f471bbeaa038f9b3971caedf913da"
+  },
+  "population": "All 64 sealed A1/A2 will/had rows in two fixed 32-row construction batches.",
+  "source_partition": {
+    "destinations": "The determiner and head noun immediately after the temporal cue.",
+    "prefix": "Every causal source strictly before the cue; empty in A1 and the fixed reporting frame in A2.",
+    "cue": "The sole Tomorrow/Earlier or tomorrow/earlier token change.",
+    "local": "Tokens after the cue through the current destination, including the destination itself.",
+    "partition_control": "For each destination separately, prefix, cue, and local are disjoint and cover every causal source 0..destination exactly once. Installing all source terms must reproduce complete donor block8H1 output at both destinations."
+  },
+  "arms": ["full_h1", "all_sources", "prefix", "cue", "local"],
+  "opposing_predictions": {
+    "direct_cue_transport": "The cue source terms alone supply at least half of the complete H1 write in both constructions, while prefix and local terms are secondary.",
+    "contextual_mixture": "Cue recovery misses half of full in either construction, or prefix/local terms are too large to call this direct cue transport."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_partition": "All authorities and capability hold; native replay is within 1e-4; source-term reconstruction is within 5e-4; all-sources/full-H1 selected-logit closure is within 1e-4; all 320 arm-row records are finite and present.",
+    "pred_b_head1_effect_recurrence": "Complete H1 mean recovery remains within 0.03 of 0.23995 in A1 and 0.14375 in A2, with donorward fraction 1.0.",
+    "pred_c_literal_cue_dominates": "Cue mean recovery is positive, at least half of full-H1 recovery, and donorward fraction at least 0.75 in A1 and A2.",
+    "pred_d_prefix_and_local_secondary": "Prefix and local mean absolute recovery are each at most 0.35 of full-H1 recovery in both A1 and A2.",
+    "pred_e_exact_zero_fit_price": "Exactly 14 model forwards, 448 example evaluations, five arms, 320 arm-row records, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-E pass. Identify block8H1 as a direct cue-to-subject contextual writer and promote its exact path for held-out manipulation.",
+    "null": "A, B, and E pass but cue dominance or secondary-source predictions fail; retain the complete source partition and its interaction boundary.",
+    "invalid": "Authority, capability, replay, reconstruction, all-source closure, recurrence, finiteness, coverage, or price fails."
+  },
+  "scope": "This identifies source terms used by a fixed causal writer head at fixed destinations. It does not claim a low-rank direction, and it leaves the larger carried-entry and MLP block-8 branches separate.",
+  "circuit_targets": [
+    "computational specification",
+    "within-head source splitting",
+    "causal writer path",
+    "cross-construction recurrence"
+  ],
+  "price": {
+    "model_forwards": 14,
+    "example_evaluations": 448,
+    "rows": 64,
+    "arms": 5,
+    "intervention_records": 320,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
