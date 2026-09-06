@@ -115,7 +115,7 @@ def all_mlp_units():
 
 def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None, q=None,
                   grad=False, complement=False, capture_hidden=None, neuron_per_row=None,
-                  return_logits=False):
+                  return_logits=False, capture_resid=None, resid_add=None):
     """The producer's exact forward with unit interventions at each row's semantic position.
 
     units        unit ids to intervene on, in a fixed order (the order defines the concatenation)
@@ -143,6 +143,11 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
     Returns answer/foil values as an (n,2) tensor. Gradients flow to q iff grad.
     return_logits=True also returns the full final-position logits (n, V) as a second value (Tier 2
     characterization: competitor tokens, log-prob shifts, off-target KL).
+    capture_resid a dict to receive the PRE-rms_norm residual entering each MLP at the row's semantic
+                  position, keyed (row_id, layer) -- v34 rms_norm second-order expansion.
+    resid_add     {layer: (n, N_EMBD) tensor} ADDED to the residual at the row's semantic position right
+                  after that layer's attention (i.e. at the point capture_resid reads) -- v35 replay of a
+                  measured residual delta; it propagates to every later layer like any residual write.
     """
     torch, F, model = backend.torch, backend.F, backend.model
     tokens, lengths = backend._tensor_batch(batch)
@@ -260,6 +265,13 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
             def mlp_proj_pre(_module, arguments, layer=layer):
                 return (apply(arguments[0], layer, "neurons"),) + tuple(arguments[1:])
 
+            if resid_add is not None and layer in resid_add:
+                x = x.clone()
+                x[torch.arange(n, device=x.device), torch.tensor(positions, device=x.device)] += \
+                    resid_add[layer].to(x.device, x.dtype)
+            if capture_resid is not None:
+                for i, rid in enumerate(batch.row_ids):
+                    capture_resid[(rid, layer)] = x[i, positions[i]].detach().float().clone()
             handle = block.mlp.Down.register_forward_pre_hook(mlp_proj_pre)
             try:
                 mlp = block.mlp(F.rms_norm(x, (N_EMBD,)))
