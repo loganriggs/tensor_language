@@ -1,0 +1,9 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_artifact_v9",
+  "program_id": "aspectual_anchor.has_vs_had.transparent_path_program_v9",
+  "parent_release": {"path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v8_result.json", "sha256": "06a72441279946bd9facf302e545b8381ffde6d46a6dd33a72128dddb2ce8994", "terminal": "release"},
+  "carrier": {"path": "circuits/followups/aspectual_anchor_das_resid18_rank1_transfer_v1_result.json", "sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278", "terminal": "screen", "site": "resid:18", "rank": 1, "basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39", "stored_fit_scalars": 1152},
+  "mediation": {"path": "circuits/followups/aspectual_anchor_program_v8_rank1_carrier_mediation_v1_result.json", "sha256": "313ccce304a18f8b0d63547bb973964f0b6f93a506765e4bb87c31e40c128aa9", "terminal": "screen", "rank1_recovery_fraction": {"lexical_A1": 0.9345785212979353, "lexical_A2": 0.8216044307647269, "fresh_A1": 0.8766177603771781, "fresh_A2": 0.7955221554957826}, "orthogonal_absolute_fraction": {"lexical_A1": 0.13607285061027674, "lexical_A2": 0.17277526737630705, "fresh_A1": 0.17899110259841386, "fresh_A2": 0.22008478809153567}},
+  "price": {"stored_fit_scalars": 1152, "stored_fit_vectors": 1, "requires_checkpoint_weights": true, "requires_paired_base_and_donor_states": true, "requires_native_intervening_blocks_or_final_readout": false, "requires_base_resid18": true},
+  "scope": {"licensed": "rank-one carrier-mediated paired-causal scored-logit program on lexical and two prospective constructions", "not_licensed": ["standalone native-margin prediction", "free-form text", "whole-model replacement", "unrestricted syntax transfer", "complete mediation", "rank greater than one"]}
+}
