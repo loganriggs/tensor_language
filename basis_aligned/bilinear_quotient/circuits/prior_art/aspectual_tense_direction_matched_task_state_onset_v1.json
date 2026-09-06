@@ -1,0 +1,42 @@
+{
+  "schema": "aspectual_tense_direction_matched_task_state_onset_prior_art_v1",
+  "candidate_id": "aspectual_tense.direction_matched_task_state_onset_v1",
+  "created_utc": "2026-09-06T11:00:12Z",
+  "evidence_class": "cross_task_final_position_residual_interchange_screen",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*task*state*", "circuits/followups/*task*state*", "circuits/prior_art/*task*gate*", "circuits/followups/*task*gate*", "circuits/prior_art/*cross*task*", "AGENT_BOARD.md"],
+    "nearest_result": "A local resid10 pair-support sign gate is direction-entangled, while the typed dual graph still requires an external raw-text task selector. No direction-matched cross-task interchange has localized when the final-token state selects an answer vocabulary.",
+    "new_question": "At which residual boundary, if any, does swapping the final-token state between direction-matched has/had and is/was prompts transfer output-pair identity?"
+  },
+  "authorities": {
+    "typed_graph_result_sha256": "afb17159330dc6abcf018d36313a7df2c78c6708b67feb8d2f2d9d2eee50faf0",
+    "typed_graph_artifact_sha256": "f0f038f37fd9d97dff088117f93acdf239bab74c5877b522d7976bc81bfc6e85",
+    "matched_builder_sha256": "1f4b29bda3e26af3ee0102316ab0af166e317d1646e8b0b51332061245e606d6",
+    "has_had_rows_sha256": "7c2341ea65eb5915114ac4def7c3e7433d063e4cb3c988e518c91f1ff8e2b0ff",
+    "is_was_rows_sha256": "2efd47b9a89d0f092688a96d75bbc33e5b89991a8e5de28723c714319b9ccceb",
+    "prospective_dual_program_sha256": "36d54f861bd6dd70a493e306480a812b1fb9009e4e35c26fd77df5ab22d59ca7"
+  },
+  "population": "Sixteen A1 pairs matched exactly by novel occupation and temporal direction across the has/had and is/was banks. Each orientation is tested; sequence lengths may differ, but the patched final semantic token is the identical occupation token.",
+  "operator": {
+    "task_support": "Mean soft-capped logits of the donor answer pair minus mean soft-capped logits of the recipient answer pair, independent of within-pair temporal sign.",
+    "intervention": "At each registered resid:00 through resid:18 boundary, replace only the recipient final-token residual vector with the direction-matched other-task donor vector.",
+    "orientations": ["has_had_to_is_was", "is_was_to_has_had"],
+    "controls": ["base-cache identity at every site", "native capability for both task pairs and directions", "exact identical patched token id"],
+    "fitting": "none",
+    "no_rescue": "No layer, task-support functional, pairing, threshold, site, or orientation changes after outcomes open."
+  },
+  "predictions": {
+    "pred_a_authority_pairing_capability_and_identity": "All hashes, 16 one-to-one direction/occupation matches, four-token native capability, identical patch-token IDs, finite coverage, and identity controls pass.",
+    "pred_b_bidirectional_task_state_transfer": "At least one residual site moves task support donorward in >=0.75 of rows and reaches mean normalized donor recovery >=0.50 separately in both orientations.",
+    "pred_c_stable_onset": "The earliest jointly passing site is followed by at least two consecutive jointly passing sites, preventing a one-layer numerical spike from defining onset.",
+    "pred_d_temporal_value_not_destroyed": "At the selected onset, the donor task's correct temporal token beats its mate in >=0.75 of rows in both orientations.",
+    "pred_e_exact_zero_fit_price": "Exactly 42 forwards/672 examples, 38 causal site-orientation arms plus 38 identity controls evaluated from the same calls, zero fit/search/backward/update."
+  },
+  "terminal": {
+    "screen": "A-E pass: localize a bidirectional direction-matched task-pair state onset for deeper module decomposition.",
+    "null": "Instrument passes but no stable bidirectional task-state onset meets the frozen bars; retain the external selector boundary.",
+    "invalid": "Authority, pairing, capability, patch-token identity, intervention identity, coverage, finiteness, or price fails."
+  },
+  "circuit_targets": ["internal task branch localization", "stable identification", "selective manipulation", "cross-task composition"],
+  "price": {"model_forwards": 42, "example_evaluations": 672, "site_orientation_arms": 38, "identity_controls": 38, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}

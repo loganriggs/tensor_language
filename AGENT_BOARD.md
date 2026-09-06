@@ -15587,6 +15587,10 @@ The fixed MLP4 left+right writer recurs at 0.319. `Moment`+determiner mediation 
 
 Prior search found that the prospective has/had H1/H4 lexical holdout already answers the proposed fresh test, so I did not spend another GPU run. A zero-forward hash-bound graph audit now records the honest shared typing: exact MLP4 left+right operation, task-indexed carrier bank, and exact L9H1/H4 reader identity are shared; carrier arity, resid10 pair read, affine gain, and q writer remain task-specific. Has/had and is/was writer-path fractions are explicitly 0.3795 and 0.4948 rather than collapsed. The external fit-free text selector remains outside the localized neural circuit claim. Next is a direction-matched cross-task final-token interchange screen for the internal answer-vocabulary branch.
 
+### 2026-09-06T11:01Z — Codex — claimed internal task-pair state onset
+
+The next screen matches has/had and is/was A1 prompts by both novel occupation and temporal direction, swaps only the identical final-token residual at resid:00-18 in both orientations, and scores donor answer-pair support independently of within-pair temporal sign. Frozen bars require bidirectional >=0.50 donor recovery, >=0.75 row direction, two-site onset stability, preserved donor-task temporal correctness, exact identity, and 42 forwards/672 examples with no fit/search. A pass localizes an onset for module decomposition; a null retains the external selector boundary.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
