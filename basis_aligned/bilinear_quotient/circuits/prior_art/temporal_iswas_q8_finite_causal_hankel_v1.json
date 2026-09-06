@@ -1,0 +1,30 @@
+{
+  "schema": "temporal_iswas_q8_finite_causal_hankel_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas_q8_finite_causal_hankel_v1",
+  "registered_utc": "2026-09-06T20:53:18Z",
+  "question": "Can one frozen eight-state residual realization predict within-task and cross-task causal effects for temporal and is/was upstream commands under both tasks' downstream readouts?",
+  "authority": {
+    "shared_specific_causal_result_sha256": "bd302cb0d104db5afe43906885dff52f851a03e638c6ff30de9d87224ce235bc",
+    "temporal_v11_capability_sha256": "0330dc5a4f85bc68c4da6f98af2f4208335e65c644ddedd5d8cc487368091026",
+    "temporal_builder_sha256": "f75b17669a5fc5299d21f5b44e91530c03c71d75181683c7b6728cb95c862450",
+    "temporal_q8_source_sha256": "d84c72d9d3c87a159fb453efc9ce9000fb8bfb7f3d2c34c96a3f7238914879c9",
+    "iswas_cdas_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02"
+  },
+  "frozen_finite_realization": {
+    "state_basis": "The orthonormal resid18 basis S obtained by mapping temporal H3-Q8 through the real c_proj and residual gain.",
+    "temporal_commands": "First eight jointly capable v11 A1 and first eight A2 rows. Reconstruct each frozen causal-suffix H3-Q8 response and express its residual write in S coordinates.",
+    "iswas_commands": "First four rows from each of v2 A1, v2 A2, v3 A1, and v3 A2. Use the temporal-Q8 projection of each released cDAS residual write, expressed in S coordinates.",
+    "downstream_readouts": "Use the same 32 base resid18 contexts with each row's donor-answer minus donor-foil margin. Compute the exact analytic derivative through final RMS normalization, unembedding, and softcap in S coordinates.",
+    "causal_matrix": "H_exact[i,j] is the actual margin change when source command i is added to target context j. H_pred=C R^T is the zero-fit eight-state prediction. Report temporal->temporal, temporal->iswas, iswas->temporal, and iswas->iswas quadrants separately.",
+    "controls": "A seeded source-row permutation must materially worsen global prediction. Report the rank-eight SVD energy of H_exact and the numerical ranks/singular spectra of C, R, and H_pred.",
+    "price": {"model_forwards_max": 10, "example_evaluations_max": 96, "matrix_cells": 1024, "fit_updates": 0, "transformer_backwards": 0}
+  },
+  "predictions": {
+    "pred_a_exact_authority_state_construction_coverage_and_price": "All source-factor closure, capture/head identity, weight orientation, matrix shape, finite-value, and price controls pass.",
+    "pred_b_one_q8_realization_predicts_all_four_quadrants": "Every quadrant has prediction/exact cosine at least 0.90 and relative RMSE at most 0.30.",
+    "pred_c_finite_matrix_is_effectively_eight_state_but_not_scalar": "Rank-eight SVD captures at least 90% of H_exact squared Frobenius energy; H_pred numerical rank is at most eight; both command and reader matrices have at least four singular values above 1e-3 of their largest.",
+    "pred_d_cross_task_quadrants_are_observable": "Each cross-task quadrant's exact RMS is at least 10% of the geometric mean of the two within-task RMS values.",
+    "pred_e_coordinate_pairing_beats_shuffled_control": "Global prediction cosine exceeds a seeded source-row-permuted prediction by at least 0.20."
+  },
+  "decision": "A pass identifies a finite shared causal state on this command/readout family, with empirical state dimension bounded between four and eight. It does not prove the infinite Hankel/Fliess assumptions or a globally minimal transformer realization."
+}

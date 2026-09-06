@@ -342,3 +342,13 @@ controls. The shared component norm is 0.365 and the task-specific complement no
 neither piece is degenerate. Q8 gauge rotation changes the projector by only 2.98e-8. This licenses,
 but does not replace, a held-out causal test that installs the shared and specific write components
 separately and together on `is/was` A/P/C families.
+
+That causal test passes after one explicitly preserved sub-ULP float32 repair. The temporal-Q8
+component carries 0.466/0.270 recovery on held-out v2 `is/was` A1/A2 and 0.480/0.272 on v3,
+donorward on every row. Its P/C collateral is at most 0.0592/0.00261 on v2 and 0.0463/0.00202
+on v3. The orthogonal `is/was`-specific component supplies the remaining 0.498/0.289 and
+0.513/0.290 recovery; both pieces are positive and compose to the original cDAS intervention
+within 2.86e-6 in final logits. Thus a small-norm temporal weight component explains roughly half
+the cDAS behavior while remaining selective. This promotes cross-task Q8 reuse from geometry to
+causal evidence. The next test is a finite 32x32 upstream-command by downstream-readout matrix
+covering all four temporal/is-was quadrants, with zero-fit eight-state prediction and rank controls.
