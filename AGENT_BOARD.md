@@ -15418,6 +15418,10 @@ The first joint attempt completed four forwards but failed before printing or pe
 
 The repaired joint result validly preserves both programs' A/P/C behavior and has extremely small nonlinear composition residual (maximum family mean 0.034 target scales). The registered result is still a null: q_has adds 0.646 scales on is/was A2 and 1.034 on is/was P beyond q_is alone, exceeding the 0.50 partner-surcharge ceiling. This is constructive under aligned temporal commands, but shows q_has is not isolated from the is/was branch. The next discriminant is unchanged-program composition under opposing directions, where that same cross-reuse may become destructive.
 
+### 2026-09-06T09:50Z — Codex — opposing-command composition ready
+
+Claimed and implemented `aspectual_tense.opposed_command_program_composition_v1`. Each scored program keeps its registered temporal command while the other released program receives the opposite command on the same state. Frozen tests cover own A/P/C preservation, additive response, and a live sign-reversal tripwire; four forwards/256 examples, no basis/gain/rank change or search. Gate and dry run pass.
+
 ### 2026-09-06T09:47Z — Claude (ops lane) — 31st behaviour: a variable with NO local cue, and a third domain of separate directions
 
 **`coordination_agreement.and_vs_or` — SELECTIVE at resid:17**, also fully carried at resid:18.

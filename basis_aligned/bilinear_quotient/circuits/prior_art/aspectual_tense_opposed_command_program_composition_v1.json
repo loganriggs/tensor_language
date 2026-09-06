@@ -1,0 +1,49 @@
+{
+  "schema": "aspectual_tense_opposed_command_program_composition_prior_art_v1",
+  "candidate_id": "aspectual_tense.opposed_command_program_composition_v1",
+  "created_utc": "2026-09-06T09:47:10Z",
+  "evidence_class": "promoted_program_independent_manipulability_and_composition_test",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*aspectual*tense*", "circuits/followups/*aspectual*tense*", "circuits/prior_art/*compos*", "circuits/followups/*compos*", "ops/*compos*", "AGENT_BOARD.md"],
+    "nearest_result": "Aligned joint installation preserved both tasks and obeyed the additive response law, but q_has exceeded the partner-surcharge ceiling on is/was A2/P.",
+    "new_question": "Can either program execute its own temporal command when the other released program receives the opposite direction, or does cross-output reuse become destructive interference?"
+  },
+  "authorities": {
+    "aligned_joint_result_sha256": "46479986f81751af6141e8fcbaf19d4413198b119171711715414d2869f43e08",
+    "aligned_joint_runner_sha256": "60feb93111876d8075b6baadb6411693d57540c31fe93f780bd892f6cd419659",
+    "q_has_program_release_sha256": "ed6afb3455bf5bfeea6e36f65ce33e9199290cb26540ee94da2c42accc785e7c",
+    "q_is_program_release_sha256": "9804a0d0f047f194f6cce3490828c3a6e9525940f8c2b822467bc52176957e98",
+    "q_has_prospective_screen_sha256": "a4cee1818acd6a28e999eda26d0447f94d080b913f4061d0e6dab4914cb3802c",
+    "q_is_prospective_screen_sha256": "dad39b298a0e89e5e0271149574012ebf7f75e995b83f6ede12ebe3b1aa746e8"
+  },
+  "frozen_operator": {
+    "own_command": "The scored population's released program receives the row's registered direction.",
+    "partner_command": "The other released program receives the exact opposite direction on the same source resid:10 state.",
+    "joint_write": "alpha_own(direction)*q_own + alpha_partner(opposite_direction)*q_partner at resid:18.",
+    "populations_source_and_scoring": "Identical to aligned composition v1: has/had v5 and is/was v6; donor source for P and base otherwise; exact native output pair.",
+    "forbidden": ["refitting", "basis change", "dose/grid/root search", "row selection", "donor or outcome access for gain"]
+  },
+  "bars": {
+    "own_route_replay": "Own-only family metrics reproduce both prospective receipts within 1e-5.",
+    "opposed_joint_A": "Within each population, A1/A2 mean recovery >=0.75 and direction fraction >=0.75.",
+    "opposed_joint_P": "Within each population, P mean reflection >=0.75 and direction fraction >=0.75.",
+    "opposed_joint_C": "Within each population, C mean normalized unrelated effect <=0.20.",
+    "additive_law": "Every population/family mean absolute nonlinear composition residual <=0.20 target scales.",
+    "opponent_effect_sign": "For A1/A2/P, at least 0.75 of partner-only effects reverse the aligned partner effect sign; this verifies the command opposition is live rather than a dead knob."
+  },
+  "predictions": {
+    "pred_a_authority_basis_capability_and_exact_heads": "All aligned-result, program, population, basis, capability, and exact-head controls pass.",
+    "pred_b_frozen_opposed_program_identity_and_own_route": "Own and opposite partner alphas exactly use released coefficients with no forbidden input; own routes replay.",
+    "pred_c_opposed_has_had_program_preservation": "The has/had population passes opposed joint A1/A2/P/C bars.",
+    "pred_d_opposed_is_was_program_preservation": "The is/was population passes opposed joint A1/A2/P/C bars.",
+    "pred_e_additive_law_and_live_opposition": "Every family passes additive residual, and A/P partner effects reverse aligned signs on at least 0.75 of rows.",
+    "pred_f_exact_coverage_and_price": "128 unique rows use exactly four forwards/256 examples, eight inherited gains, two frozen bases, and zero fit/grid/root/backward/update."
+  },
+  "terminal": {
+    "screen": "A-F pass: the programs remain independently manipulable under opposing commands.",
+    "null": "Authority, identity, replay, live opposition, and coverage pass but one program loses its own behavior under the opponent.",
+    "invalid": "Authority, capability, basis, head, identity, own replay, live-opposition, or coverage fails."
+  },
+  "circuit_targets": ["selective manipulation", "composition and reuse", "computational specification", "stable identification"],
+  "price": {"model_forwards_exact": 4, "example_evaluations_exact": 256, "rows": 128, "inherited_gain_scalars": 8, "basis_scalars": 2304, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
