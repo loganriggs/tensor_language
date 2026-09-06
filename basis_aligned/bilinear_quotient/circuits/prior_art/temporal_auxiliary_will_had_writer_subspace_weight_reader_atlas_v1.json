@@ -1,6 +1,6 @@
 {
   "candidate_id": "temporal_auxiliary.will_vs_had.writer_subspace_weight_reader_atlas_v1",
-  "created_utc": "2026-09-06T15:55:16Z",
+  "created_utc": "2026-09-06T15:56:13Z",
   "question": "Does the exact block8H1-written residual subspace identify its downstream attention readers directly from weight contractions, before observing held-out head patches?",
   "authority": {
     "greedy_response_program_sha256": "791dd6e84d598cedd38df3c2d438ff7141ee2acd0b76546d575b40b12739c61c",
@@ -21,9 +21,9 @@
     "causal_evaluation": "On A1-heldout and all A2 rows, patch each of all 81 downstream heads from the exact writer run into base, one head per real forward. Compare sealed weight ranks with absolute rowwise causal response.",
     "known_reader_set": ["L9H1", "L9H4", "L11H3", "L15H1", "L15H5"],
     "writer_check": "Rank all block8 heads by target-subspace output capacity U^T O_h; H1 is evaluated as a positive-control writer, not counted as independent discovery.",
-    "maximum_model_forwards": 180,
-    "maximum_example_evaluations": 6688,
-    "maximum_records": 2592,
+    "maximum_model_forwards": 177,
+    "maximum_example_evaluations": 4208,
+    "maximum_records": 3888,
     "fit": "SVD rank selection on A1-fit activation energy only; no causal outcomes, gradients, or model updates enter the subspace or weight rankings"
   },
   "predictions": {
