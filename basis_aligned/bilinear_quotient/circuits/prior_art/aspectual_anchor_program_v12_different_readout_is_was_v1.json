@@ -1,0 +1,79 @@
+{
+  "schema": "aspectual_anchor_program_v12_different_readout_is_was_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.program_v12_different_readout_is_was_v1",
+  "created_utc": "2026-09-06T08:07:00Z",
+  "evidence_class": "frozen_circuit_cross_readout_reuse_preregistration",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*is*was*",
+      "circuits/followups/*is*was*",
+      "circuits/fast_screens/*is*was*",
+      "ops/*is*was*",
+      "AGENT_BOARD.md",
+      "circuits/active_screen_claims.jsonl"
+    ],
+    "result": "No existing is/was auxiliary circuit or transfer test. Existing narrative-tense mentions do not apply the aspectual rank-one carrier or frozen v12 gain.",
+    "new_question": "Does the frozen has/had upstream reader and downstream carrier causally reuse for a new present/past auxiliary output vocabulary?"
+  },
+  "authority": {
+    "program_v12_release_sha256": "ed6afb3455bf5bfeea6e36f65ce33e9199290cb26540ee94da2c42accc785e7c",
+    "builder_sha256": "9032230f40636838a458254f083b1434b455e8a1be046a6930ed76dd99b68645",
+    "rows_sha256": "548a92d15a783d90582de837c009c0f25acde38dabb7399874cd413c4867aeeb",
+    "rank1_result_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "rank1_basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"
+  },
+  "sealed_population": {
+    "rows": 64,
+    "families": {"A1": 16, "A2": 16, "P": 16, "C": 16},
+    "A1": "Today/Yesterday cue with is/was output.",
+    "A2": "Bulletin-embedded today/yesterday cue with is/was output.",
+    "P": "Today/Now or Yesterday/Earlier rewrite preserving the native is/was answer, followed by a requested tense reflection.",
+    "C": "Canonical night/day same-answer control.",
+    "outcomes_opened": false
+  },
+  "frozen_program": {
+    "gain_read": "Use v12's fixed has/had local unembedding contrast at source resid10 and its unchanged four direction-affine coefficients.",
+    "write": "Add alpha times the frozen aspectual carrier q at source resid18.",
+    "scored_readout": "Use each new row's is/was target and foil only after alpha is fixed; they cannot enter gain computation.",
+    "forbidden_gain_inputs": ["is/was target IDs", "confirmation resid18 margin", "donor activation", "outcomes"]
+  },
+  "population_policy": {
+    "all_rows_retained": true,
+    "A1_A2_P_capability_accuracy_per_direction_min": 0.85,
+    "C_capability_accuracy_per_direction_min": 0.75
+  },
+  "opposing_predictions": {
+    "shared_tense_circuit": "A1/A2 recovery and P reflection each >=0.25 with direction fraction >=0.75 and C<=0.20, licensing cross-readout reuse.",
+    "has_had_specific": "Valid instrument and capability but A/P effects miss: retain v12 as surface-readout-specific.",
+    "invalid": "Authority, population capability, head replay, basis, gain independence, or coverage fails."
+  },
+  "predictions": {
+    "pred_a_authority_population_capability_and_exact_head": "All hashes, 64 sealed rows, population capability cells, exact resid18 head, and basis pass.",
+    "pred_b_frozen_cross_readout_program": "Every alpha exactly uses only v12's fixed has/had resid10 read, direction, and coefficients; is/was IDs, final margin, donors, and outcomes cannot select gain.",
+    "pred_c_is_was_A_transfer": "A1 and A2 each reach mean recovery >=0.25 and direction fraction >=0.75.",
+    "pred_d_is_was_P_generalization": "P reaches mean requested is/was margin reflection >=0.25 and direction fraction >=0.75.",
+    "pred_e_C_selectivity": "C mean normalized unrelated effect <=0.20.",
+    "pred_f_exact_coverage_and_price": "All 64 unique rows yield 64 records within 21 forwards, 328 examples, 224 pair scores, zero grids/backwards/updates, and four inherited fit parameters."
+  },
+  "terminal": {
+    "screen": "A-F pass: identify cross-readout reuse of the v12 has/had reader and carrier for is/was tense behavior.",
+    "null": "Authority/instrument/capability/coverage pass but A/P reuse or C selectivity fails: v12 remains has/had-specific.",
+    "invalid": "Authority, population capability, head, basis, gain-independence, or coverage failure."
+  },
+  "circuit_targets": [
+    "computational specification",
+    "held-out and OOD prediction",
+    "selective manipulation",
+    "composition and reuse",
+    "stable identification"
+  ],
+  "price": {
+    "counted_forwards_max": 21,
+    "example_evaluations_max": 328,
+    "selected_head_pair_evaluations": 224,
+    "grid_evaluations": 0,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "inherited_fit_parameters": 4
+  }
+}
