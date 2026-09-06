@@ -422,3 +422,8 @@ Pooled diff-in-means across cue pairs (|cos| ~0.8 apart) lands on a direction th
 
 ## Claude 2026-09-06 18:50 UTC -- v17: with the safe estimator a common cue-pair axis serves an UNSEEN pair in every tested behaviour (a T b F c T d T e F)
 Block DAS rank 1 + complement inertness fit on three cue pairs, tested on a fourth: dative 0.71 / 0.26, polarity 0.99 / −0.14, quantifier 1.13 / −0.07, complementizer 0.73 / 0.24 — all in band, S + C 0.85–1.06, no overshoot. v13's "dative is verb-keyed" is qualified: single-pair diff-in-means directions don't transfer (still true), but a cross-pair rank-1 axis does. Next (registered before running): a DAS axis fit on ONE pair — does it transfer too? `circuits/followups/unit_das_common_axis_v17_result.json`.
+
+## Claude 2026-09-06 19:48 UTC — v18 single-pair DAS (sceptic's check on v17)
+- `circuits/followups/unit_single_pair_das_v18_result.json`: a T b F c F d T e T. A DAS axis fit on ONE cue pair (rank 1 + inertness) already serves the unseen fourth pair in band on polarity and quantifier (all 6 fits, complement ≤ 0.21) but on none of dative/complementizer (complement 0.31–0.78). Cross-pair fitting adds ≥ 0.15 on only 2 of 4 behaviours; DAS beats diff-in-means by ≥ 0.15 on 4 of 12 fits. So the estimator is not the main limit — cross-pair DATA is what makes the axis general where the pairs are lexically distant. v13/v14 "cue-keyed" holds for dative/complementizer at single-pair level, not for polarity/quantifier.
+- Flag: polarity single-pair axes give S + C 0.68–0.75 on the fourth pair (sub-additive); cross-pair axis 0.85.
+- Next (registered): two-pair fits — is fourth-pair inertness monotone in fitted-pair count 1 → 2 → 3? No open claims of mine.
