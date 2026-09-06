@@ -1,0 +1,429 @@
+{
+  "bars": {
+    "band": [
+      0.5,
+      1.2
+    ],
+    "complement": 0.3,
+    "cos": 0.5,
+    "das_lr": 0.05,
+    "das_steps": 120,
+    "linearity_sum": [
+      0.85,
+      1.15
+    ],
+    "union_rank_per_block": 2
+  },
+  "candidate_id": "corpus.unit_a2_direction_v12",
+  "finished_utc": "2026-09-06T16:44:59.931086+00:00",
+  "predictions": {
+    "pred_a_a2_own_direction_serves": true,
+    "pred_b_dative_directions_differ": true,
+    "pred_c_union_serves_both": true,
+    "pred_d_a2_deficit_is_direction": true,
+    "pred_e_voice_route_nonlinear": false
+  },
+  "schema": "circuit_unit_a2_direction_result_v1",
+  "seconds": 7.633559048175812,
+  "semantics": "block_live",
+  "sets": {
+    "dative_v2": {
+      "batteries": {
+        "d1": {
+          "a1_odd": {
+            "complement": -0.003088469590837376,
+            "complement_fraction": -0.005203013356347659,
+            "exact_set": 0.5935924779184841,
+            "linearity_sum": 1.00316249973641,
+            "random": 0.003268785300912865,
+            "random_fraction": 0.00550678356365856,
+            "subspace": 0.5985581835642736,
+            "subspace_fraction": 1.0083655130927576
+          },
+          "a2_odd": {
+            "complement": 0.26021322719664297,
+            "complement_fraction": 0.516157441973795,
+            "exact_set": 0.5041353781543536,
+            "linearity_sum": 0.914935784051017,
+            "random": -0.006506761591456335,
+            "random_fraction": -0.012906774397142443,
+            "subspace": 0.2010382702828665,
+            "subspace_fraction": 0.398778342077222
+          }
+        },
+        "d2": {
+          "a1_odd": {
+            "complement": 0.34108341593066105,
+            "complement_fraction": 0.5746087233563306,
+            "exact_set": 0.5935924779184841,
+            "linearity_sum": 0.9204417617053393,
+            "random": 0.003268785300912865,
+            "random_fraction": 0.00550678356365856,
+            "subspace": 0.2052838901796662,
+            "subspace_fraction": 0.34583303834900864
+          },
+          "a2_odd": {
+            "complement": 0.013814056780143521,
+            "complement_fraction": 0.027401482575408552,
+            "exact_set": 0.5041353781543536,
+            "linearity_sum": 0.9610535554519289,
+            "random": -0.006506761591456335,
+            "random_fraction": -0.012906774397142443,
+            "subspace": 0.4706870408242007,
+            "subspace_fraction": 0.9336520728765204
+          }
+        },
+        "union": {
+          "a1_odd": {
+            "complement": -0.007909566376901803,
+            "complement_fraction": -0.013324910053843363,
+            "exact_set": 0.5935924779184841,
+            "linearity_sum": 0.9805489811060362,
+            "random": 0.007558319672983025,
+            "random_fraction": 0.01273317967149338,
+            "subspace": 0.5899560657920787,
+            "subspace_fraction": 0.9938738911598796
+          },
+          "a2_odd": {
+            "complement": 0.00948385026359463,
+            "complement_fraction": 0.018812110148498474,
+            "exact_set": 0.5041353781543536,
+            "linearity_sum": 0.9732793515795806,
+            "random": -0.0004996450443782529,
+            "random_fraction": -0.0009910930000736312,
+            "subspace": 0.4811807036948013,
+            "subspace_fraction": 0.9544672414310821
+          }
+        }
+      },
+      "cos_d1_d2": {
+        "06:heads": 0.3757663369178772,
+        "07:heads": 0.3303297758102417,
+        "11:heads": 0.6215184330940247,
+        "13:heads": 0.37250715494155884,
+        "14:heads": 0.44086170196533203
+      },
+      "dropped": {
+        "a1_fit": 0,
+        "a1_odd": 0,
+        "a2_fit": 0,
+        "a2_odd": 0
+      },
+      "median_cos": 0.3757663369178772,
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "interrogative_licensing": {
+      "batteries": {
+        "d1": {
+          "a1_odd": {
+            "complement": 0.0014353002536839493,
+            "complement_fraction": 0.0021872564165748283,
+            "exact_set": 0.6562103294370865,
+            "linearity_sum": 1.0076449943191204,
+            "random": 0.013416476350477956,
+            "random_fraction": 0.020445390370473052,
+            "subspace": 0.6597917534240971,
+            "subspace_fraction": 1.0054577379025456
+          },
+          "a2_odd": {
+            "complement": 0.11294053828063652,
+            "complement_fraction": 0.2178291450715353,
+            "exact_set": 0.5184822179949645,
+            "linearity_sum": 0.8165590431960946,
+            "random": 0.012957126078044478,
+            "random_fraction": 0.024990492688739263,
+            "subspace": 0.3104308055595207,
+            "subspace_fraction": 0.5987298981245593
+          }
+        },
+        "d2": {
+          "a1_odd": {
+            "complement": 0.11834469123064534,
+            "complement_fraction": 0.18034566955409612,
+            "exact_set": 0.6562103294370865,
+            "linearity_sum": 1.094320291260531,
+            "random": 0.013416476350477956,
+            "random_fraction": 0.020445390370473052,
+            "subspace": 0.5997595876071161,
+            "subspace_fraction": 0.913974621706435
+          },
+          "a2_odd": {
+            "complement": 0.01895445465711731,
+            "complement_fraction": 0.03655757902443897,
+            "exact_set": 0.5184822179949645,
+            "linearity_sum": 0.9762044208220295,
+            "random": 0.012957126078044478,
+            "random_fraction": 0.024990492688739263,
+            "subspace": 0.4871901786671783,
+            "subspace_fraction": 0.9396468417975905
+          }
+        },
+        "union": {
+          "a1_odd": {
+            "complement": -0.0069147969930351645,
+            "complement_fraction": -0.010537470507309523,
+            "exact_set": 0.6562103294370865,
+            "linearity_sum": 1.0199662298950805,
+            "random": 0.002848702238342179,
+            "random_fraction": 0.004341142024975235,
+            "subspace": 0.676227172727189,
+            "subspace_fraction": 1.03050370040239
+          },
+          "a2_odd": {
+            "complement": 0.018040880195071475,
+            "complement_fraction": 0.034795562063512635,
+            "exact_set": 0.5184822179949645,
+            "linearity_sum": 0.9884271800038212,
+            "random": -2.221542060082591e-05,
+            "random_fraction": -4.284702508551926e-05,
+            "subspace": 0.4944410364198178,
+            "subspace_fraction": 0.9536316179403086
+          }
+        }
+      },
+      "cos_d1_d2": {
+        "02:heads": 0.5830998420715332,
+        "03:heads": 0.8139662742614746,
+        "07:heads": 0.8421779870986938,
+        "09:heads": 0.7116633653640747
+      },
+      "dropped": {
+        "a1_fit": 0,
+        "a1_odd": 0,
+        "a2_fit": 0,
+        "a2_odd": 0
+      },
+      "median_cos": 0.7628148198127747,
+      "units": [
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:03:head:00",
+        "attn:02:head:06"
+      ]
+    },
+    "polarity_licensing": {
+      "batteries": {
+        "d1": {
+          "a1_odd": {
+            "complement": 0.004045771806868985,
+            "complement_fraction": 0.007848654649779888,
+            "exact_set": 0.5154732864927936,
+            "linearity_sum": 0.9535658590322762,
+            "random": 0.001968559109207331,
+            "random_fraction": 0.0038189352596739307,
+            "subspace": 0.4874919554358223,
+            "subspace_fraction": 0.9457172043824963
+          },
+          "a2_odd": {
+            "complement": 0.0730341724643314,
+            "complement_fraction": 0.10964829508369234,
+            "exact_set": 0.666076680978814,
+            "linearity_sum": 0.7869305697607368,
+            "random": 0.0006402449273295316,
+            "random_fraction": 0.0009612180483314293,
+            "subspace": 0.4511219296026672,
+            "subspace_fraction": 0.6772822746770445
+          }
+        },
+        "d2": {
+          "a1_odd": {
+            "complement": -0.010657832450916054,
+            "complement_fraction": -0.02067581915530564,
+            "exact_set": 0.5154732864927936,
+            "linearity_sum": 0.9415921216315937,
+            "random": 0.001968559109207331,
+            "random_fraction": 0.0038189352596739307,
+            "subspace": 0.49602341792407584,
+            "subspace_fraction": 0.9622679407868993
+          },
+          "a2_odd": {
+            "complement": -0.0007336477291106316,
+            "complement_fraction": -0.0011014463500396388,
+            "exact_set": 0.666076680978814,
+            "linearity_sum": 1.0209314447992415,
+            "random": 0.0006402449273295316,
+            "random_fraction": 0.0009612180483314293,
+            "subspace": 0.6807522759878947,
+            "subspace_fraction": 1.022032891149281
+          }
+        },
+        "union": {
+          "a1_odd": {
+            "complement": -0.00023086161439472182,
+            "complement_fraction": -0.0004478633916521091,
+            "exact_set": 0.5154732864927936,
+            "linearity_sum": 1.0316341993873863,
+            "random": 0.001295000166202494,
+            "random_fraction": 0.0025122546602045852,
+            "subspace": 0.5320107328309726,
+            "subspace_fraction": 1.0320820627790384
+          },
+          "a2_odd": {
+            "complement": -0.0007453998526380632,
+            "complement_fraction": -0.0011190901497147177,
+            "exact_set": 0.666076680978814,
+            "linearity_sum": 0.9990695075799092,
+            "random": 0.006519517457997473,
+            "random_fraction": 0.00978793830226409,
+            "subspace": 0.666202301528602,
+            "subspace_fraction": 1.0001885977296239
+          }
+        }
+      },
+      "cos_d1_d2": {
+        "03:heads": 0.9202986359596252,
+        "04:heads": 0.9395690560340881,
+        "07:heads": 0.7834742665290833,
+        "08:heads": 0.806408703327179
+      },
+      "dropped": {
+        "a1_fit": 0,
+        "a1_odd": 0,
+        "a2_fit": 0,
+        "a2_odd": 0
+      },
+      "median_cos": 0.8633536696434021,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ]
+    },
+    "voice_frame": {
+      "batteries": {
+        "d1": {
+          "a1_odd": {
+            "complement": 0.0031604558672546344,
+            "complement_fraction": 0.004473719206236596,
+            "exact_set": 0.7064493146661498,
+            "linearity_sum": 0.8134984597368188,
+            "random": 0.005247429543914329,
+            "random_fraction": 0.0074278924686821055,
+            "subspace": 0.5715349734957894,
+            "subspace_fraction": 0.8090247405305822
+          },
+          "a2_odd": {
+            "complement": 0.008130838363463096,
+            "complement_fraction": 0.012221160895276853,
+            "exact_set": 0.6653081841517564,
+            "linearity_sum": 0.7991171885277472,
+            "random": 0.0038473640660478476,
+            "random_fraction": 0.005782829909048986,
+            "subspace": 0.5235283672603892,
+            "subspace_fraction": 0.7868960276324704
+          }
+        },
+        "d2": {
+          "a1_odd": {
+            "complement": 0.03005262320761202,
+            "complement_fraction": 0.04254038128951138,
+            "exact_set": 0.7064493146661498,
+            "linearity_sum": 0.82368847276479,
+            "random": 0.005247429543914329,
+            "random_fraction": 0.0074278924686821055,
+            "subspace": 0.5518415338754814,
+            "subspace_fraction": 0.7811480914752785
+          },
+          "a2_odd": {
+            "complement": 0.006046811043562445,
+            "complement_fraction": 0.009088736900586768,
+            "exact_set": 0.6653081841517564,
+            "linearity_sum": 0.8501478387983209,
+            "random": 0.0038473640660478476,
+            "random_fraction": 0.005782829909048986,
+            "subspace": 0.5595635038478886,
+            "subspace_fraction": 0.8410591018977341
+          }
+        },
+        "das": {
+          "a1_odd": {
+            "complement": 0.010689483957857843,
+            "complement_fraction": 0.01513128222498089,
+            "exact_set": 0.7064493146661498,
+            "linearity_sum": 0.9494613807952597,
+            "random": 0.005247429543914329,
+            "random_fraction": 0.0074278924686821055,
+            "subspace": 0.6600568578069297,
+            "subspace_fraction": 0.9343300985702788
+          }
+        },
+        "union": {
+          "a1_odd": {
+            "complement": 0.003882431168896452,
+            "complement_fraction": 0.005495696702220161,
+            "exact_set": 0.7064493146661498,
+            "linearity_sum": 0.8311170252219741,
+            "random": 0.006314213425785157,
+            "random_fraction": 0.008937956757406008,
+            "subspace": 0.5832596217065362,
+            "subspace_fraction": 0.8256213285197539
+          },
+          "a2_odd": {
+            "complement": 0.004805120283201228,
+            "complement_fraction": 0.0072223976762401925,
+            "exact_set": 0.6653081841517564,
+            "linearity_sum": 0.8748897837247339,
+            "random": 0.006112124926449164,
+            "random_fraction": 0.009186907770031267,
+            "subspace": 0.5772662130596243,
+            "subspace_fraction": 0.8676673860484937
+          }
+        }
+      },
+      "cos_d1_d2": {
+        "00:heads": 0.9999706745147705,
+        "01:heads": 0.9875542521476746,
+        "04:heads": 0.9205098152160645,
+        "07:heads": 0.9271386861801147
+      },
+      "das_cos_to_d1": {
+        "00:heads": 0.6829397678375244,
+        "01:heads": 0.7246793508529663,
+        "04:heads": 0.8167109489440918,
+        "07:heads": 0.7795993089675903
+      },
+      "das_loss_history": [
+        [
+          0,
+          43.32659149169922,
+          null
+        ],
+        [
+          50,
+          0.005915806628763676,
+          null
+        ],
+        [
+          100,
+          7.986234413692728e-05,
+          null
+        ],
+        [
+          119,
+          3.1474850402446464e-05,
+          null
+        ]
+      ],
+      "dropped": {
+        "a1_fit": 0,
+        "a1_odd": 0,
+        "a2_fit": 0,
+        "a2_odd": 0
+      },
+      "median_cos": 0.9573464691638947,
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01"
+      ]
+    }
+  }
+}

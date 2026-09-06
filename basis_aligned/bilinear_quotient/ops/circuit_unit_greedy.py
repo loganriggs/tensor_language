@@ -746,3 +746,10 @@ def block_battery(backend, module, units, *, seed=1, greedy=None):
     if greedy is not None:
         out["greedy"] = greedy
     return out
+
+
+def block_union(*qs):
+    """Per-block orthonormal basis of the span of several block subspaces (rank adds per block).
+    Registered-rank use: the union of an A1-fit and an A2-fit direction is rank 2 per block."""
+    import torch
+    return {key: torch.linalg.qr(torch.cat([q[key] for q in qs], dim=1))[0] for key in qs[0]}
