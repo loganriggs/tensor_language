@@ -139,3 +139,30 @@ turned out to be a `neither` axis, because both behaviours put `neither` on the 
 **This case has no such confound**: the five configurations differ in intervening material and
 share only the number contrast itself, which is the variable under study. Sharing the variable is
 what a transfer test is for; sharing an incidental element is what invalidated the other one.
+
+## 5. Superseded: the `resid:18` DAS in §4, and what replaces it
+
+**Retraction.** `resid:18` is the final residual, so patching it copies the logits (every screened
+behaviour reads 1.000 there) and rank-1 DAS on it re-derives the unembedding's ` their`−` his`
+direction. §4's "one direction carries number across every intervening structure" is a statement
+about the readout, not about a feature inside the model, and the "not answered here" caveat is
+moot. §2–§3 (interchange on components) stand.
+
+**Component-level result** (`unit_greedy_protocol_v2` and `unit_greedy_heads_only_v3`), adjacent
+design, units patched at the antecedent noun. Best single unit `attn:04:head:05` 0.266. Greedy
+over heads only:
+
+| set | A1 joint | A2 | P | C |
+|---|---|---|---|---|
+| `04:05` | 0.266 | | | |
+| `04:05 + 03:04` | 0.389 (03:04 alone is 0.031 — a superadditive pair) | | | |
+| `+ 09:06` | 0.485 | | | |
+| `+ 10:05` | **0.567** | 0.532 | 0.082 | 0.008 |
+
+Four heads reproduce over half the effect, transfer to A2, and are selective. Allowing MLP
+units, the greedy picks `mlp:08` second (set 0.554) — but a rank-1 DAS over a set containing a
+1152-d MLP output steers (held-out 2.0), so the head-only set is the one to build on. Rank-1 over
+the four heads: held-out 1.26, A2 1.42 of the set effect, P 0.08, C 0.001, random 0.00 — selective
+and transferring, though above the registered 1.20 ceiling, which is an open accounting question.
+**Grain reached: four heads.** Whether the same heads serve the medial and long-simple designs is
+the next test.

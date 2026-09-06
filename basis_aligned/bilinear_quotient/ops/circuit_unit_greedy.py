@@ -280,11 +280,21 @@ def greedy_select(evaluate: Callable[[Sequence[str]], float], pool: Sequence[str
 
 # ----------------------------------------------------------------------------- joint DAS
 
-def fit_joint_subspace(backend, prep, units, *, rank, steps=200, lr=0.05, seed=0):
+def fit_joint_subspace(backend, prep, units, *, rank, steps=200, lr=0.05, seed=0,
+                       target="exact_set"):
     """Orthonormal R over the concatenated unit space, fitted through the real forward.
 
-    Objective: match the donor's margin on the donor axis (not maximise it -- the head is
-    soft-capped, and maximising overshot to 2.2 in an earlier resid:18 run).
+    target "exact_set" (default): match the margin the EXACT interchange of `units` produces.
+        The subspace is then asked to reproduce what the component set itself does, so its
+        recovery is bounded by the set's, and a fraction_of_exact near 1 means the set's effect
+        lives in that subspace.
+    target "donor": match the donor's native margin. WRONG for a partial set -- v1 of the
+        protocol used it, and because a 2-4 unit set only reaches ~0.55 of the donor, the
+        optimizer was forced past the set's own effect into a steering direction: held-out
+        recoveries of 1.5-4.2 and P/C effects of 0.4-0.6 (`unit_greedy_protocol_v1`). Kept only
+        so that failure can be reproduced.
+    Neither maximises the margin: the head is soft-capped and maximising overshot to 2.2 in an
+    earlier resid:18 run.
     """
     torch = backend.torch
     for p in backend.model.parameters():
@@ -293,7 +303,13 @@ def fit_joint_subspace(backend, prep, units, *, rank, steps=200, lr=0.05, seed=0
     dim = sum(unit_dim(u) for u in units)
     raw = (torch.randn(dim, rank, device=backend.device) * 0.02).requires_grad_(True)
     opt = torch.optim.Adam([raw], lr=lr)
-    target = torch.tensor(prep.donor_axis, device=backend.device)
+    if target == "exact_set":
+        target_axis = patched_axis(backend, prep, units)
+    elif target == "donor":
+        target_axis = prep.donor_axis
+    else:
+        raise ValueError(target)
+    target = torch.tensor(target_axis, device=backend.device)
     history = []
     for step in range(steps):
         opt.zero_grad()
@@ -305,7 +321,16 @@ def fit_joint_subspace(backend, prep, units, *, rank, steps=200, lr=0.05, seed=0
         loss.backward()
         opt.step()
         if step % 50 == 0 or step == steps - 1:
-            history.append((step, float(loss)))
+            history.append((step, float(loss.detach())))
     with torch.no_grad():
         q, _ = torch.linalg.qr(raw)
     return q.detach(), history
+
+
+def random_subspace(backend, units, *, rank, seed=1):
+    """A random orthonormal R of the same shape: the baseline any fitted direction must beat."""
+    torch = backend.torch
+    gen = torch.Generator(device="cpu").manual_seed(seed)
+    dim = sum(unit_dim(u) for u in units)
+    q, _ = torch.linalg.qr(torch.randn(dim, rank, generator=gen))
+    return q.to(backend.device)

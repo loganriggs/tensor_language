@@ -167,3 +167,27 @@ contrast is carried by something else, at a different selected site (`resid:17`)
 
 That is a narrower claim than "correlative state", and a better one: it names a specific lexical
 feature with a clean causal signature rather than a category the evidence never supported.
+
+## 6. Superseded: the `resid:18` DAS in §4–§5, and what replaces it
+
+**Retraction.** `resid:18` is the final residual; its answer margin is `(w_answer − w_foil)·rms_norm(x)`,
+so patching it copies the logits (all 50 screened behaviours read exactly 1.000 there) and rank-1
+DAS on it recovers the unembedding's own difference direction. §4–§5 therefore localize the
+*readout*, not an internal feature. The `neither`-axis observation in §5 survives only as a fact
+about the lm_head geometry.
+
+**Component-level result** (`circuits/followups/unit_greedy_protocol_v2_result.json`). All 162
+heads and 18 MLPs patched at the correlative word inside a real forward; no single unit reaches
+0.25 (best `attn:08:head:01` 0.239). Greedy forward selection over the top 12 units:
+
+| set | A1 joint | A2 | P | C |
+|---|---|---|---|---|
+| `08:01` | 0.239 | | | |
+| `08:01 + 07:08` | 0.434 | | | |
+| `08:01 + 07:08 + 14:08` | **0.552** | 0.562 | 0.010 | 0.005 |
+
+Three heads reproduce over half the effect, transfer across constructions, and are selective —
+which is the selectivity the §2 table only appeared to show. A rank-1 direction over the three
+heads' concatenated 384-d output, fitted to reproduce the set's own patch on 16 rows, gives
+held-out 1.09 and A2 0.95 of the set effect, P 0.011, C 0.000; a random direction gives 0.00.
+**Grain reached: three heads, one direction.**
