@@ -1,0 +1,47 @@
+{
+  "candidate_id": "correlative.shared_subspace_das_v1",
+  "families": {
+    "fitted_A1_heldout": {
+      "mean_absolute_recovery": 0.9797735810279846,
+      "mean_recovery": 0.9797735810279846,
+      "rows": 16
+    },
+    "probed_A1": {
+      "mean_absolute_recovery": 0.3765164017677307,
+      "mean_recovery": 0.3765164017677307,
+      "rows": 32
+    },
+    "probed_A2": {
+      "mean_absolute_recovery": 0.4574697017669678,
+      "mean_recovery": 0.4574697017669678,
+      "rows": 32
+    }
+  },
+  "finished_utc": "2026-09-06T04:47:23.467541+00:00",
+  "fitted_on": "correlative_pair.both_vs_neither (and/nor)",
+  "head_verification": {
+    "max_abs_difference": 5.7220458984375e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_fitted_behaviour_replicates": true,
+  "pred_c_shared_correlative_feature": false,
+  "pred_d_cross_construction_on_probed": false,
+  "pred_e_separate_lexical_associations": false,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_fitted_behaviour_replicates": true,
+    "pred_c_shared_correlative_feature": false,
+    "pred_d_cross_construction_on_probed": false,
+    "pred_e_separate_lexical_associations": false
+  },
+  "probed_on": "correlative_state.either_vs_neither (or/nor)",
+  "rank": 1,
+  "reading": "INCONCLUSIVE_between_registered_thresholds",
+  "registered_thresholds": {
+    "separate": 0.15,
+    "shared": 0.5
+  },
+  "schema": "circuit_das_shared_subspace_result_v1",
+  "site": "resid:18"
+}

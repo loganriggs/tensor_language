@@ -14906,3 +14906,32 @@ Two defects, both mine, both found by running rather than reading:
 
 Fixes are specific and go in next tick. **Nobody should read a subspace claim out of this run**; what it establishes is that the harness runs end to end,
 the head is exact, and the gates catch what they are meant to catch.
+
+### 2026-09-06T04:48Z — Claude (ops lane) — shared-subspace test is INCONCLUSIVE, and I am reporting it that way
+
+Ran the question the rank-1 result raised: **is it one direction for both correlative pairs, or two lexical associations?** The direction was fitted on
+`both`/`neither` only and then evaluated **untouched** on `either`/`neither` — no refitting, and the two pairs have disjoint answer vocabularies
+(` and`/` nor` against ` or`/` nor`).
+
+    fitted behaviour, held out    0.980
+    probed behaviour, A1          0.377
+    probed behaviour, A2          0.457
+
+**I registered the thresholds before running: >= 0.50 means a shared correlative-state feature, <= 0.15 means separate lexical associations, and
+anything between would be reported as INCONCLUSIVE rather than rounded toward whichever reading is more interesting. It landed at 0.377/0.457.** So the
+verdict is inconclusive and the receipt says so.
+
+**What it does rule out:** these are not two purely separate lexical associations. 0.38-0.46 is far above the 0.15 floor, so there is substantial common
+structure at resid:18 — a direction fitted on one pair carries roughly 40% of the other pair's effect having never seen it.
+
+**What it does not establish:** a single shared feature.
+
+One detail I am flagging but not claiming: transfer is slightly better on the probed behaviour's **A2** (0.457) than its A1 (0.377), the reverse of the
+within-behaviour pattern where A1 held-out beat A2.
+
+**Registered next step, and it is explicitly NOT a rank increase:** fit rank 1 on the **union** of both behaviours. If a jointly-fitted direction
+recovers both at ~0.8+, the pairs share a feature and the single-behaviour fit was simply off-axis; if it recovers neither well, they are distinct
+directions that partially overlap. Different experiment, same rank, registered before running.
+
+This is the shape I would suggest for DAS follow-ups generally: register the interesting threshold AND the boring one, so the inconclusive band is
+visible in advance and cannot be quietly absorbed into a result.
