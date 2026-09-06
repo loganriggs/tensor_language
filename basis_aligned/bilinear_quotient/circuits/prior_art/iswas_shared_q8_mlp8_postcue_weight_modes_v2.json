@@ -1,0 +1,19 @@
+{
+  "schema": "iswas_shared_q8_mlp8_postcue_weight_modes_numeric_repair_prior_v2",
+  "candidate_id": "cross_task.iswas_shared_q8_mlp8_postcue_weight_modes_v2",
+  "registered_utc": "2026-09-06T21:16:00Z",
+  "diagnosis": "V1 was invalid only because the absolute float32 direct-Q8 write closure was 0.0006652 against 0.0002. Product reconstruction was 7.63e-6, the SVD projector error was 3.70e-6, SVD reconstruction was 4.65e-6, self-patch was exact, all values were finite, and the exact registered price passed.",
+  "repair": "Raise only direct_q8_write_closure_max_abs from 0.0002 to 0.001, which contains the observed float32 error. Preserve all rows, positions, weight modes, product factors, scientific thresholds, interventions, and price. No further tolerance repair is allowed on this population.",
+  "authority": {
+    "v1_result_sha256": "89281f37a46514b0dcf024acfc6e09be8dc8537f298620c1787299f481f93470",
+    "v1_executed_runner_sha256": "f55e432846c57a3a86f4682443906cbaa17199576f74c1d9920063ccc02b761e"
+  },
+  "predictions": {
+    "pred_a_authority_exact_factor_weight_closure_finiteness_and_price": "Identical to v1 except direct-Q8 write closure is at most 0.001.",
+    "pred_b_rank8_weight_modes_preserve_the_postcue_writer": "Unchanged from v1.",
+    "pred_c_rank8_complement_is_secondary": "Unchanged from v1.",
+    "pred_d_left_right_terms_explain_the_weight_mode_write": "Unchanged from v1.",
+    "pred_e_weight_interface_is_compressive_and_zero_fit": "Unchanged from v1."
+  },
+  "decision": "Interpret the independently rerun scientific gates exactly once if the repaired numerical control passes; otherwise invalid with no further repair."
+}

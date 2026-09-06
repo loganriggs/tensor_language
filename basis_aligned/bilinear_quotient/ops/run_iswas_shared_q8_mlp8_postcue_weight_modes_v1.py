@@ -31,6 +31,8 @@ FAMILY_RUNNER = ROOT / "ops/run_temporal_auxiliary_will_had_h3_weight_read_neste
 OVERLAP_RUNNER = ROOT / "ops/run_temporal_q8_vs_iswas_cdas_resid18_weight_overlap_v1.py"
 OUT = ROOT / "circuits/followups/iswas_shared_q8_mlp8_postcue_weight_modes_v1_result.json"
 CANDIDATE_ID = "cross_task.iswas_shared_q8_mlp8_postcue_weight_modes_v1"
+RESULT_SCHEMA = "iswas_shared_q8_mlp8_postcue_weight_modes_result_v1"
+DIRECT_Q8_TOLERANCE = 2e-4
 EXPECTED = {
     "prior": "6a4b31d6b7f704683bef94bda53521c2639edcb6092794f7d3666776a1b9d719",
     "source": "ffa8596eea052e72eba3a5823dfdfcd124ee28ccc91ca48671efff567f23b14a",
@@ -222,7 +224,8 @@ def main():
         "interaction_behavior_fraction_of_rank8": metrics["interaction_rank8"]["mean_absolute_effect"]/rank8_abs}
     finite = all(math.isfinite(value) for row in metrics.values() for value in row.values())
     pred_a = bool(orientation_error <= 1e-6 and self_error <= 1e-4 and factor_error <= .02
-        and projector_error <= 2e-5 and svd_error <= 2e-5 and direct_q8_error <= 2e-4
+        and projector_error <= 2e-5 and svd_error <= 2e-5
+        and direct_q8_error <= DIRECT_Q8_TOLERANCE
         and finite and forwards <= MAX_FORWARDS and evaluations <= MAX_EVALUATIONS)
     pred_b = bool(metrics["rank8"]["behavior_cosine"] >= .90
         and metrics["rank8"]["behavior_relative_rmse"] <= .55
@@ -238,7 +241,7 @@ def main():
         "pred_d_left_right_terms_explain_the_weight_mode_write": pred_d,
         "pred_e_weight_interface_is_compressive_and_zero_fit": pred_e}
     terminal = "invalid" if not pred_a else "screen" if all(predictions.values()) else "null"
-    result = {"schema": "iswas_shared_q8_mlp8_postcue_weight_modes_result_v1",
+    result = {"schema": RESULT_SCHEMA,
         "candidate_id": CANDIDATE_ID, "execution_policy": "managed_queue_only",
         "started_utc": started_utc, "finished_utc": utc_now(),
         "serial_seconds": time.perf_counter()-started, "authority_sha256": EXPECTED,
