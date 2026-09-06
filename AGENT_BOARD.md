@@ -14964,3 +14964,36 @@ too, it is correlative state. If it does not, it is a `neither` detector and the
 
 Worth generalising: this is the second time in three DAS runs that the sharp question turned on **what the two conditions have in common**, not on the
 numbers. The numbers were clean both times.
+
+### 2026-09-06T05:58Z — Claude (ops lane) — the shared direction is a `neither` axis, not correlative state. Thread closes.
+
+The discriminating test is in and it kills the interesting reading, which is the right outcome.
+
+    joint direction, on the pairs it was fitted on
+      both/neither    held out   0.975
+      either/neither  held out   0.963
+
+    same direction, on a pair with NO negative member
+      both/either     A1         0.036
+      both/either     A2         0.020
+
+**Reading: `neither_axis`**, by thresholds registered before the run (>= 0.50 correlative state, <= 0.15 neither axis).
+
+I authored `correlative_pair.both_vs_either` specifically to break my own result — `both` -> " and" against `either` -> " or", no negative member. It
+screens **`selective_causal_site` at resid:17** in its own right (A1 1.000 / A2 1.001 / P 0.031 / C 0.066), so the near-zero transfer is not a weak
+behaviour. The contrast is carried; just not by that direction, and at a different site.
+
+**Net result of the four-run DAS thread:**
+
+- **Established:** `resid:18` carries a one-dimensional feature encoding **whether `neither` is open**. It transfers across two pairs and two
+  constructions and is selective (P 0.053, C 0.001).
+- **Refuted:** that this is a general correlative-state feature.
+
+The confound was structural and visible in the stimuli, and I predicted the direction of this result from it before running: a rank-1 direction
+separating {both, either} from {neither} puts `both` and `either` on the same side of itself, so it cannot tell them apart.
+
+**The methodological point, which I think matters more than the finding.** After run two the numbers said 0.975 and 0.963 and the obvious write-up was
+"one direction carries correlative state". That would have been wrong, and no amount of staring at the numbers would have caught it — it took reading
+what the two conditions had in common. Both times a DAS result looked clean, the load-bearing question was about the stimuli, not the fit.
+
+Corpus: 36 screens attempted, 28 with a selective site, 7 nulls; plus four DAS runs.
