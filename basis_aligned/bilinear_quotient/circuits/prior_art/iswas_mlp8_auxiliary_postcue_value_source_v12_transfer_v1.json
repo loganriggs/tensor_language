@@ -1,0 +1,33 @@
+{
+  "schema": "iswas_mlp8_auxiliary_postcue_value_source_v12_transfer_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_auxiliary_postcue_value_source_v12_transfer_v1",
+  "registered_utc": "2026-09-06T22:50:00Z",
+  "purpose": "Zero-fit lexical transfer of the v11-frozen post-cue source program for auxiliary L11H1/H3 and L15H5 native-pattern value transport.",
+  "authority": {
+    "v11_source_screen_sha256": "e389c30a9d6d9f11e62c2a2a488d9ff5150433682f0716dc10f1b7c18d3b9f53",
+    "v12_builder_sha256": "2734cbeceb4e6979dab22fe5b24870386874ac2f905ae426e6e689548e43e8a2",
+    "v12_capability_sha256": "67cb3efbd1ea86f98f94a826922928229a7c7b0a247f218778fc4960a6e8c6f4",
+    "frozen_source_program": "post_cue_before_subject",
+    "selected_heads": {
+      "attention9": [1, 4],
+      "attention11": [1, 3],
+      "attention15": [5]
+    }
+  },
+  "arms": [
+    "empty",
+    "post_cue_before_subject",
+    "all_sources",
+    "layer11_all",
+    "layer15_all",
+    "complete_all_factors"
+  ],
+  "predictions": {
+    "pred_a_authority_partition_value_replay_finiteness_and_price": "Authorities and causal partition pass; causal source closure, attention reconstruction, self-clamp, and complete-factor/live-core logit replay are <=.001; metrics finite; exactly 11 forwards/330 examples and zero fits, backwards, or updates.",
+    "pred_b_frozen_postcue_source_is_sufficient": "In both panels, frozen post-cue retains >=.75 absolute behavior and Q8 norm with behavior and Q8 cosine >=.95 relative to all native-pattern value change.",
+    "pred_c_source_program_is_panel_stable": "Post-cue behavior and Q8 norm fractions differ by <=.15 across A1/A2.",
+    "pred_d_both_auxiliary_layers_have_material_value_reads": "For each panel and each layer, the layer-all arm reaches >=.10 in behavior or Q8 norm fraction.",
+    "pred_e_zero_fit_exact_arm_inventory": "Exactly the six registered arms are evaluated without fitting or source selection."
+  },
+  "decision": "Screen promotes post-cue as a transferable auxiliary source interface and licenses literal L11/L15 c_v/c_proj compilation. Null preserves the v11 source identification but blocks transfer and weight-program promotion until the construction/lexicon interaction is localized."
+}
