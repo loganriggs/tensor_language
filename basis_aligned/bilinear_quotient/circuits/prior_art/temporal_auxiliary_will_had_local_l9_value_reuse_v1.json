@@ -1,0 +1,73 @@
+{
+  "schema": "temporal_auxiliary_will_had_local_l9_value_reuse_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.local_l9_value_reuse_v1",
+  "created_utc": "2026-09-06T12:12:00Z",
+  "evidence_class": "prospective_new_construction_internal_edge_reuse_test",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*will*had*",
+      "circuits/followups/*will*had*",
+      "circuits/fast_screens/*temporal*",
+      "circuits/prior_art/*construction_transfer*",
+      "circuits/followups/*construction_transfer*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "Fresh has/had constructions were already tested, including one valid v7 screen and later capability-invalid OOD panels. Narrative tense uses L11H3 and its fresh value test was capability-invalid. The new will/had authority is fully capable and selective at resid:18, but no attention module passed its generic screen and no L9H1/H4 local-value reuse test exists.",
+    "new_question": "Without fitting or choosing a new head, does the exact MLP4-to-L9H1/H4 routing/local-value computation identified in has/had and is/was predict a new future-versus-anterior auxiliary construction?"
+  },
+  "authorities": {
+    "temporal_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58",
+    "temporal_fast_screen_sha256": "71a833c52c39b98be6f576d11749522e2725c540a29d61a2352e315978684ec9",
+    "frozen_factor_instrument_sha256": "6826d33fadd2af133000cb3c826b4d89c535f576c3f057e667e68dece98e7d39",
+    "typed_shared_path_v2_sha256": "18b877a114f718f9817dee4402130099cef0a109d7fcb4f5dd9f843636e5759f"
+  },
+  "population": "All 64 A1/A2 rows from the sealed will/had authority, in two fixed 32-row construction batches. The temporal cue is the sole aligned token change and the contextual bank is the following two tokens.",
+  "factorization": {
+    "fixed_writer": "The already defined exact MLP4 left_change+right_change response is installed at the two contextual-bank tokens; no coefficient is fitted.",
+    "factors": {
+      "routing_on_base_value": "(P_h-P_b) times base effective value",
+      "local_v9_content_change": "P_b times (1-lambda9)(V9_h-V9_b)",
+      "routing_local_interaction": "(P_h-P_b) times (1-lambda9)(V9_h-V9_b)"
+    },
+    "heads": [1, 4],
+    "arms": "All eight factor subsets enter otherwise native base L9H1/H4 immediately before c_proj.",
+    "structural_control": "MLP4 occurs after layer 0, so V1 must remain invariant; the three factors must close to the exact hybrid-minus-base contextual-bank head term.",
+    "fitting": "none",
+    "no_rescue": "No prompt, row, source bank, head, factor, sign, threshold, or aggregation may change after execution."
+  },
+  "opposing_predictions": {
+    "shared_edge": "The two-term MLP4 writer and complete H1/H4 bank route are positive with direction fraction at least 0.75 in both constructions; the local V9 factor is the largest Shapley term and alone retains at least 0.60 of the full factor effect.",
+    "late_or_different_route": "The writer or H1/H4 bank route is below the registered recurrence bars, or routing/interaction rather than local V9 dominates. This bounds the typed shared edge to the previously tested aspectual/copular constructions."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_factorization": "The sealed authority hashes hold; every A1/A2 direction/side has native accuracy at least 0.85; V1, effective-value, source, empty-hook, and factor closure errors are at most 1e-4 except the inherited MLP4 tensor tolerance at most 2e-3; all records are present.",
+    "pred_b_prospective_writer_and_bank_recurrence": "The two-term MLP4 writer has mean recovery at least 0.10 and the full L9H1/H4 bank factors have mean recovery at least 0.05, with positive family means and direction fraction at least 0.75 for A1 and A2.",
+    "pred_c_local_value_edge_reuses": "Local V9 content has positive Shapley recovery, exceeds routing and interaction in A1/A2, and its single arm retains at least 0.60 of the full effect with direction fraction at least 0.75.",
+    "pred_d_interaction_is_secondary": "Routing plus local value without their interaction retains at least 0.80 of the full effect with direction fraction at least 0.75 in A1/A2.",
+    "pred_e_exact_zero_fit_price": "Exactly 24 model forwards, 768 example evaluations, 512 intervention records, eight arms across two batches, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: the exact local-L9-value edge predicts the new temporal-auxiliary construction without refitting.",
+    "null": "The instrument and price pass, but prospective writer/bank recurrence, local-value dominance, or secondary-interaction prediction fails.",
+    "invalid": "Authority, capability, exactness, finiteness, coverage, or price fails."
+  },
+  "scope": "A screen would extend one internal edge computation, not identify the full will/had circuit. A null would not retract the established has/had and is/was edge; it would bound its reuse class.",
+  "circuit_targets": [
+    "held-out construction prediction",
+    "cross-task computation reuse",
+    "MLP4-to-L9H1/H4 edge",
+    "routing versus local value"
+  ],
+  "price": {
+    "model_forwards": 24,
+    "example_evaluations": 768,
+    "intervention_records": 512,
+    "factor_arms": 8,
+    "family_batches": 2,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
