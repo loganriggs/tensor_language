@@ -1,0 +1,45 @@
+{
+  "schema": "aspectual_anchor_mlp4_induced_l9_head_sweep_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp4_induced_l9_head_sweep_v1",
+  "created_utc": "2026-09-06T02:57:00Z",
+  "question": "Which L9 heads carry the part of the fixed two-term MLP4 write not explained by H1/H4?",
+  "authority": {
+    "path_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_to_l9h1_h4_path_mediation_v1_result.json",
+      "sha256": "649cc961fd4203a9d7489344bbf169754081a288b5d575bcefcab2caf41da9ab",
+      "terminal": "null",
+      "writer_mean_recovery": 0.33379277118533013,
+      "h1h4_complete_mean_recovery": 0.13009089135863688
+    },
+    "writer_terms": ["left_change", "right_change"],
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+  },
+  "population": "The same 64 valid A1/A2 discovery rows.",
+  "operator": {
+    "hybrid": "Add the fixed two-term MLP4 response at resid5 on last+period+the and capture the resulting L9 head outputs.",
+    "head_intervention": "At the final-subject query in an otherwise native base run, replace selected complete L9 preprojection head outputs by the writer-hybrid outputs.",
+    "arms": "writer; all nine heads; H1/H4 pair; every one of nine singleton heads; every one of nine leave-one-out complements",
+    "attribution": "For each head report singleton recovery, full-minus-leave-one-out recovery, and their fixed equal-weight endpoint average. This is an endpoint attribution, not a Shapley claim.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_instrument": "The empty writer hook is exactly inert, writer algebra closes within 2e-3, native/manual attention closes within 1e-4, and selecting all nine hybrid heads equals the direct complete hybrid L9 preprojection replacement within 0.125 scored logit.",
+    "pred_b_writer_and_h1h4_recurrence": "The writer and H1/H4 complete arms each recur within 0.02 of 0.33379277118533013 and 0.13009089135863688, respectively, with positive A1/A2 recovery and direction fraction at least 0.80.",
+    "pred_c_all_head_mediation": "All nine L9 heads retain at least 50% of the writer mean recovery and have positive A1/A2 recovery with direction fraction at least 0.80.",
+    "pred_d_additional_head": "At least one head outside H1/H4 has endpoint attribution at least 0.03, positive singleton recovery in A1/A2, and a positive full-minus-leave-one-out drop in A1/A2.",
+    "pred_e_exact_coverage": "All 21 arms produce all 64 finite outcomes within 50 model forward calls and 1600 example evaluations."
+  },
+  "terminal": {
+    "screen": "A-E pass: license the reported additional head(s) as candidates carrying the MLP4-induced route beyond H1/H4.",
+    "null": "The run is valid but C or D fails: the missing writer effect is not attributable to an additional direct L9 final-query head under this sweep.",
+    "invalid": "Instrument identity, recurrence, native capability, alignment, finiteness, or coverage fails. No head, arm, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 50,
+    "example_evaluations_max": 1600,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First fixed singleton-plus-leave-one-out sweep of all L9 heads for a specific upstream factorized MLP-induced signal."
+}
