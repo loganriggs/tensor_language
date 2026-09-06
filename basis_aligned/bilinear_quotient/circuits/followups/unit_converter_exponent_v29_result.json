@@ -1,0 +1,233 @@
+{
+  "alphas": [
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "bars": {
+    "instrument": 0.005,
+    "slope": [
+      1.6,
+      2.4
+    ],
+    "stack": 0.8
+  },
+  "behaviours": {
+    "polarity_licensing": {
+      "coef_linear": 0.2857287996254243,
+      "coef_quadratic": 0.3427814201059857,
+      "curve": {
+        "0.25": {
+          "rec_direct": 0.03691460825755185,
+          "rec_live": 0.06291970748697409,
+          "rec_stack_frozen": 0.04338878835296636,
+          "stack_conversion": 0.01953091913400773,
+          "stack_share": 0.7510418999636191,
+          "total_conversion": 0.026005099229422242
+        },
+        "0.5": {
+          "rec_direct": 0.08271659865539234,
+          "rec_live": 0.18145699362097026,
+          "rec_stack_frozen": 0.09937153487083748,
+          "stack_conversion": 0.08208545875013278,
+          "stack_share": 0.8313260117984007,
+          "total_conversion": 0.09874039496557792
+        },
+        "0.75": {
+          "rec_direct": 0.1362796763300475,
+          "rec_live": 0.36851742854883607,
+          "rec_stack_frozen": 0.16822060304375575,
+          "stack_conversion": 0.20029682550508032,
+          "stack_share": 0.8624645372746415,
+          "total_conversion": 0.23223775221878856
+        },
+        "1.0": {
+          "rec_direct": 0.19334652928432633,
+          "rec_live": 0.5848701335933372,
+          "rec_stack_frozen": 0.24527671258304515,
+          "stack_conversion": 0.339593421010292,
+          "stack_share": 0.867363850538797,
+          "total_conversion": 0.39152360430901084
+        }
+      },
+      "r2_linear": 0.8410635944643918,
+      "r2_quadratic": 0.9986132160414861,
+      "rows": 32,
+      "slope_loglog": 2.077390515380365,
+      "stack": [
+        "mlp:08",
+        "mlp:09",
+        "mlp:10",
+        "mlp:11",
+        "attn:09:head:07"
+      ],
+      "stack_conversion": [
+        0.01953091913400773,
+        0.08208545875013278,
+        0.20029682550508032,
+        0.339593421010292
+      ],
+      "total_conversion": [
+        0.026005099229422242,
+        0.09874039496557792,
+        0.23223775221878856,
+        0.39152360430901084
+      ],
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ]
+    },
+    "quantifier_number": {
+      "coef_linear": 0.17789281967561069,
+      "coef_quadratic": 0.20728334546285124,
+      "curve": {
+        "0.25": {
+          "rec_direct": 0.11605229650338197,
+          "rec_live": 0.13613748627709182,
+          "rec_stack_frozen": 0.11327610108512391,
+          "stack_conversion": 0.022861385191967912,
+          "stack_share": 1.1382210200419371,
+          "total_conversion": 0.02008518977370985
+        },
+        "0.5": {
+          "rec_direct": 0.23490630140952146,
+          "rec_live": 0.2979348473862083,
+          "rec_stack_frozen": 0.22676969236483122,
+          "stack_conversion": 0.07116515502137707,
+          "stack_share": 1.1290940306270087,
+          "total_conversion": 0.06302854597668683
+        },
+        "0.75": {
+          "rec_direct": 0.35235890619095206,
+          "rec_live": 0.46961868047819455,
+          "rec_stack_frozen": 0.3371534150644199,
+          "stack_conversion": 0.13246526541377462,
+          "stack_share": 1.1296735493391312,
+          "total_conversion": 0.11725977428724249
+        },
+        "1.0": {
+          "rec_direct": 0.46478920205705937,
+          "rec_live": 0.6348029140625399,
+          "rec_stack_frozen": 0.44190075003978135,
+          "stack_conversion": 0.1929021640227585,
+          "stack_share": 1.1346270941754404,
+          "total_conversion": 0.1700137120054805
+        }
+      },
+      "r2_linear": 0.9383460352984545,
+      "r2_quadratic": 0.9431391692607487,
+      "rows": 32,
+      "slope_loglog": 1.5506872923744635,
+      "stack": [
+        "mlp:11",
+        "mlp:12",
+        "mlp:13",
+        "mlp:14"
+      ],
+      "stack_conversion": [
+        0.022861385191967912,
+        0.07116515502137707,
+        0.13246526541377462,
+        0.1929021640227585
+      ],
+      "total_conversion": [
+        0.02008518977370985,
+        0.06302854597668683,
+        0.11725977428724249,
+        0.1700137120054805
+      ],
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "voice_frame": {
+      "coef_linear": 0.41270602611102447,
+      "coef_quadratic": 0.5007001594470437,
+      "curve": {
+        "0.25": {
+          "rec_direct": 0.01208614433741892,
+          "rec_live": 0.04538933180024928,
+          "rec_stack_frozen": 0.014978577053753791,
+          "stack_conversion": 0.03041075474649549,
+          "stack_share": 0.9131484720625281,
+          "total_conversion": 0.03330318746283036
+        },
+        "0.5": {
+          "rec_direct": 0.03257909892779243,
+          "rec_live": 0.14033728596757056,
+          "rec_stack_frozen": 0.040595368346090566,
+          "stack_conversion": 0.09974191762147999,
+          "stack_share": 0.9256087204275347,
+          "total_conversion": 0.10775818703977813
+        },
+        "0.75": {
+          "rec_direct": 0.06529550643769401,
+          "rec_live": 0.3546445283875217,
+          "rec_stack_frozen": 0.08364792144102635,
+          "stack_conversion": 0.27099660694649536,
+          "stack_share": 0.9365734334276941,
+          "total_conversion": 0.2893490219498277
+        },
+        "1.0": {
+          "rec_direct": 0.10064268827356253,
+          "rec_live": 0.6454185310734758,
+          "rec_stack_frozen": 0.13231583482254028,
+          "stack_conversion": 0.5131026962509355,
+          "stack_share": 0.9418602220205077,
+          "total_conversion": 0.5447758427999133
+        }
+      },
+      "r2_linear": 0.796389259384209,
+      "r2_quadratic": 0.9934007177072194,
+      "rows": 32,
+      "slope_loglog": 2.044756084942796,
+      "stack": [
+        "mlp:07",
+        "mlp:08",
+        "mlp:09",
+        "mlp:10",
+        "mlp:11"
+      ],
+      "stack_conversion": [
+        0.03041075474649549,
+        0.09974191762147999,
+        0.27099660694649536,
+        0.5131026962509355
+      ],
+      "total_conversion": [
+        0.03330318746283036,
+        0.10775818703977813,
+        0.2893490219498277,
+        0.5447758427999133
+      ],
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01"
+      ]
+    }
+  },
+  "candidate_id": "corpus.unit_converter_exponent_v29",
+  "finished_utc": "2026-09-06T22:07:29.652450+00:00",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_early_quadratic": true,
+    "pred_c_quantifier_quadratic": false,
+    "pred_d_quadratic_fits_better": true,
+    "pred_e_stack_holds_low": false
+  },
+  "schema": "circuit_unit_converter_exponent_result_v1",
+  "seconds": 1.2959576472640038,
+  "semantics": "block_live_scaled_write_plus_base_freeze",
+  "slopes": {
+    "polarity_licensing": 2.077390515380365,
+    "quantifier_number": 1.5506872923744635,
+    "voice_frame": 2.044756084942796
+  }
+}
