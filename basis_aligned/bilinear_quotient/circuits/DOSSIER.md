@@ -215,6 +215,7 @@ rank, new direction, template table, or threshold change is allowed.
 | `task14_bracket_text_selector_program_release.v9` | complete | exact controlled-text delimiter stack over 2,088 prompts | **selector-compiled executable screen** | active | `task14_bracket_text_selector_program_release_v9_result.json` |
 | `bracket.pending_opener.circuit_source_selector_release.v10` | complete | exact pending state plus L13H8 source token over 2,088 prompts | **internal-selector compiler screen** | active | `bracket_circuit_source_selector_release_v10_result.json` |
 | `subject_verb.number_agreement.text_direction_selector_program_release.v11` | complete | controlled-text subject-number read over 96 endpoints | **direction-compiled executable screen** | active | `task14_text_direction_selector_program_release_v11_result.json` |
+| `cross_behavior.task14_bracket_selector_compiled_margin_program_release.v12` | complete | hash-bound unified raw-text selector and margin-program release | **selector-compiled controlled-domain release** | active | `task14_bracket_selector_compiled_margin_program_release_v12_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -275,6 +276,12 @@ supplied externally; internal causal execution still retains native prefix/base 
 The unified v11 executable removes Task14 direction as an external input too. Controlled raw subject text yields the labeled number
 and opposite-number direction on all 96 frozen endpoint texts, and the resulting API matches 3,072 v7 equations exactly across every
 E/A/U/W subset and native/edit arm. E/A/U/W membership and edit/no-edit remain explicit intervention specifications, not inferred state.
+
+The v12 release binds those selectors to the strongest honest executable boundary. Its 22 stored FP32 scalars (88 bytes) pass 9,336
+frozen selector/equation checks: 96 Task14 endpoint texts, 3,072 Task14 equations, 2,088 bracket text/source endpoints, and 6,264 bracket
+equations. Task14 is standalone in the controlled domain; bracket prediction remains conditioned on one native unedited donorward
+margin. The release is therefore predictive, composable, and manipulable at the margin interface, but neither free-form nor a
+whole-model replacement.
 
 ### `subroutine.induction.equality_score` — site_live
 
