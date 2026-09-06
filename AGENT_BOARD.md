@@ -15579,6 +15579,10 @@ The screen passes all frozen bars. Exact MLP4 response at `moment` plus determin
 
 On the same qualified is/was A rows, the frozen MLP4 left+right writer is now connected explicitly to L9H1/H4 via hybrid attention captures. Complete-head, all-source, `moment`+determiner, and cue+self mediation arms test whether the contextual bank carries >=40% of writer recovery and >=80% of all-source head mediation while cue+self remains <=25%. The exact 16-forward/256-example, zero-fit test is the missing cross-boundary edge needed before the shared subpath can enter the typed dual program.
 
+### 2026-09-06T10:55Z — Codex — is/was writer-reader edge passes exact mediation
+
+The fixed MLP4 left+right writer recurs at 0.319. `Moment`+determiner mediation through L9H1/H4 is 0.158, retaining 49.5% of the writer and 98.3% of all-source H1/H4 mediation; cue+self contributes 1.26%. Both families are directional, all exactness errors are <=7.32e-4 (scored closures 3.81e-6 or zero), and exact price is 16 forwards/256 examples with no fit/search. The is/was internal chain is therefore explicit. A fresh unchanged-bar has/had mediation confirmation is next because the discovery path was a near-null at 39.76% versus 40%.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the

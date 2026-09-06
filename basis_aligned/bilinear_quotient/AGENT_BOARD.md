@@ -177,3 +177,7 @@ All five frozen predictions pass. The complete exact MLP4 response inserted only
 ### 2026-09-06T10:52Z — Codex — claimed exact is/was MLP4-to-H1/H4 mediation
 
 `tense_auxiliary.is_vs_was.mlp4_to_l9h1_h4_path_mediation_v1` holds the fresh rows and newly screened MLP4 left+right writer fixed, captures its hybrid L9 attention state, then mediates only H1/H4 complete, all-source, `moment`+determiner, or cue+self terms. The contextual bank must retain >=40% of writer recovery, >=80% of all-source H1/H4 mediation, and directional effects in both A families; cue+self must stay <=25%. Exact closure and a 16-forward/256-example zero-fit price are frozen. This is the direct causal edge test required before compiling the shared path.
+
+### 2026-09-06T10:55Z — Codex — exact is/was MLP4-to-H1/H4 path screens
+
+All five path predictions pass. The frozen MLP4 left+right writer recurs at 0.319 mean recovery. Its `moment`+determiner terms mediated through L9H1/H4 recover 0.158, retaining 0.495 of the writer and 0.983 of all-source H1/H4 mediation; cue+self is only 0.0126 of all-source. A1/A2 bank recovery is 0.107/0.208 with direction 0.938/1.0. Empty-hook error is zero, tensor closure 7.32e-4, source reconstruction and complete/all-source route closure both 3.81e-6, and exact cost is 16 forwards/256 examples with no fit/search. This licenses the explicit is/was MLP4 left/right -> contextual carrier -> L9H1/H4 edge. Before calling it a shared cross-task path, test the unchanged has/had mediation on fresh rows because discovery retained 0.3976 against a 0.40 bar.
