@@ -1,0 +1,36 @@
+{
+  "schema": "aspectual_anchor_mlp12_14_bilinear_compression_split_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp12_14_bilinear_compression_split_v1",
+  "created_utc": "2026-09-06T05:32:21Z",
+  "question": "Can two exact bilinear-response terms per selected suffix MLP preserve the combined MLP12+MLP14 recurrence contribution?",
+  "authority": {
+    "component_selection": {"path": "circuits/followups/aspectual_anchor_suffix_block12_14_component_factorial_split_v1_result.json", "sha256": "f064d136d8d094da01e6aa15e3084242aa214d9b98ec2679388342f5f78049d7", "terminal": "screen", "selected_components": ["mlp12", "mlp14"]},
+    "component_runner": {"path": "ops/run_aspectual_anchor_suffix_block12_14_component_factorial_split_v1.py", "sha256": "fe654f784e00d68dce083617666f540a059f8bd9b17489567ecf51f1f23d1172"},
+    "bilinear_engine": {"path": "ops/run_aspectual_anchor_mlp11_15_bilinear_compression_split_v2.py", "sha256": "037c79096ac6e643cb533f8298b8acd0799e5cedae1efa65fccef8b2d5ba6b3b"}
+  },
+  "data_status": "No Left-change, Right-change, or bilinear-interaction intervention has been computed for MLP12 or MLP14. The parent MLP selection is conditional/post-selection evidence.",
+  "population_split": {
+    "selection_row_ids_sha256": "d150ff72d1423058a01aa2140563315c041b1be98a59066e8dc4a98688775fe8",
+    "confirmation_row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b"
+  },
+  "frozen_design": {
+    "factors": ["left_change", "right_change", "bilinear_interaction"],
+    "selection": "For each boundary, execute all eight factor subsets with the other boundary's full MLP write fixed; rank exact three-player Shapley values and retain the top two.",
+    "confirmation_arms": ["no_mlp12_14", "selected_two_each", "full_mlp12_14"],
+    "fixed_program": "Lambda recurrence, corrected block11/15 terms, no attention12/14, no block10/13/16/17 writes.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_instruments": "Authorities, splits, native capability, manual base, MLP tensor reconstruction, per-boundary all-three, and parent full-MLP controls pass.",
+    "pred_b_shapley_closure_and_selection": "Each boundary's Shapley allocation closes and selects two distinct factors.",
+    "pred_c_bilinear_increment_compression": "Four selected terms retain at least 85% of full MLP12+14-minus-none and add positively in A1/A2.",
+    "pred_d_bilinear_total_sufficiency": "Selected terms reach at least 95% of full MLP12+14 total with direction fraction >=0.75 in A1/A2.",
+    "pred_e_exact_coverage": "Exactly 336 finite records occur within 54 forwards and 432 evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: compile the four selected bilinear-response terms into the sparse suffix program.",
+    "null": "Valid split, but two response terms per MLP are insufficient; retain all three at the failing boundary.",
+    "invalid": "Authority, split, capability, instrument, control, Shapley closure, coverage, or price fails."
+  },
+  "price": {"model_forwards_max": 54, "example_evaluations_max": 432, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
