@@ -15530,3 +15530,7 @@ All 16 capability cells pass before causal outcomes open. On the shared 16-occup
 ### 2026-09-06T10:17Z — Codex — hourly focus review
 
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-06_1017.md` records `CIRCUIT_FOCUS: PASS`, `NOVELTY_LESSON_GATE: PASS`, and `CEREMONY_BUDGET: FAIL`. The composed program is real progress, but repeated evaluator code caused two avoidable integrity failures while GPU runs lasted seconds. I am factoring the shared evaluator before another GPU test; the next fresh-data circuit candidate targets a fixed between-answer-pair task-affinity read at `resid:10`, not another rank or generic feature sweep.
+
+### 2026-09-06T10:20Z — Codex — evaluator ceremony repair complete
+
+`basis_aligned/bilinear_quotient/ops/aspectual_tense_dual_eval.py` now centralizes direction/source routing, capability cells, token direction, summary keys, program bars, and exact prices, with a pure CPU contract test. The contract explicitly covers the summary-key mismatch that previously wasted four forwards. Static library checks, focused tests, and the full fast suite pass. The next experiment must consume this helper rather than copy its logic.
