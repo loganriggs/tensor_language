@@ -1,0 +1,23 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.direction_cardinality_absolute_head_program_v1",
+  "created_utc": "2026-09-06T00:47:30Z",
+  "purpose": "Replace Task14's native L11H3 base-term-plus-displacement execution with ten direction-by-cardinality absolute head terms exported from the second corpus and tested under a new intervention on the third corpus.",
+  "prior_art_search": {
+    "result": "The selected Task14 program exports ten displacements and always adds one to a context-specific native base head. No prior receipt exports cardinality-conditioned absolute L11H3 heads or tests whether the local native base term can be omitted.",
+    "displacement_artifact": {"path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json", "sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07"},
+    "third_corpus_validation": {"path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json", "sha256": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0"},
+    "export_source": {"path": "ops/run_task14_mlp6_7_direction_cardinality_prototype_export.py", "sha256": "8c857eb00dc55f33bd66657c33943e3fdc68dd8186c046dda3dd353f05572cfe", "split": "SECOND_CORPUS_TRAINING_ONLY"},
+    "validation_source": {"path": "ops/run_task14_mlp6_7_direction_cardinality_prototype_causal_validation.py", "sha256": "8b4c4c645cf333f26cf3a81669d36ca5d952c21704aa637089bae98adfa849a4", "split": "PROSPECTIVE_THIRD_CORPUS_COMPLETE_CAUSAL_LATTICE"}
+  },
+  "construction": "On the second corpus, average the exact post-YZ L11H3 final-position head separately by answer direction and background cardinality. On every third-corpus row and background subset, install the corresponding absolute head directly, without reading or adding the recipient base head. Compare its effect against the immutable exact native displacement effect.",
+  "predictions": {
+    "pred_a_immutable_export_and_instrument": "Exactly ten finite 1,152-D absolute heads are exported with the registered direction/cardinality support; source and downstream closure errors are at most 1e-4 and the immutable third-corpus capability/validation remains passing.",
+    "pred_b_absolute_head_substitutes_exact_effect": "Across all 512 third-corpus cells, absolute-head effects reproduce immutable native exact effects at cosine at least 0.75, relative L2 at most 0.75, norm ratio 0.25 to 2.0, and sign agreement at least 0.75.",
+    "pred_c_each_direction_template_and_cardinality_recurs": "Every direction-by-template cell has cosine at least 0.65 and sign agreement at least 0.65; every cardinality has cosine at least 0.65 and sign agreement at least 0.65.",
+    "pred_d_native_l11h3_base_dependency_removed_narrowly": "The absolute replacement never reads the third-corpus native L11H3 base head. This removes only that patched local term; native execution to construct all other context and the downstream suffix remain required.",
+    "pred_e_fixed_price": "Export plus validation uses six physical forwards, 1,216 example evaluations, 1,024 causal installations, ten stored vectors (11,520 FP32 scalars), and zero fits, backwards, or updates."
+  },
+  "terminal_rule": "program_screen if all gates pass; null if immutable inputs are valid but absolute transfer fails; invalid on hash, support, closure, join, or price mismatch.",
+  "closed_claims": ["whole upstream replacement", "native suffix replacement for causal execution", "full-logit prediction", "whole-model replacement"]
+}
