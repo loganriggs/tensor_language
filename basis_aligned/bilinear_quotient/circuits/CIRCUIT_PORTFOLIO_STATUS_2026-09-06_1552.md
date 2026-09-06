@@ -524,3 +524,13 @@ at least .99898 and Q8 cosine at least .99144. Both L11 and L15 remain material,
 closure is `2.38e-7`, and complete-factor/live-core full-vocabulary replay is `1.43e-5`. The
 auxiliary interface is therefore now stable enough for literal local weight translation: actual
 L11/L15 c_v rows, frozen base-pattern routing from post-cue sources, and selected c_proj blocks.
+
+That local weight translation closes exactly enough for causal use. L11H1/H3 and L15H5 obtain
+their changed values entirely through their own c_v matrices applied to the live residual input;
+the checkpoint's inherited initial-value branch is exactly zero at both layers. Routing these
+values from the frozen post-cue span with the native base pattern and writing through the selected
+c_proj blocks matches the captured intervention with behavior/Q8 relative RMSE at most
+`9.17e-5/5.83e-5`. Head response, c_proj write, and full-vocabulary errors are
+`1.37e-6`, `5.72e-6`, and `1.38e-5`. This promotes a literal local reader-router-writer program;
+the unresolved boundary is which complete intervening modules construct the residual inputs read
+by L11 and L15.
