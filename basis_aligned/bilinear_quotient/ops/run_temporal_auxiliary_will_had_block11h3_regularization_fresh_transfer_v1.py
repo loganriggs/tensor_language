@@ -124,7 +124,7 @@ def main():
     discovery_prep = g.prepare(backend, discovery_a1)
     q_dim = g.diff_in_means_direction(backend, discovery_prep, evaluator.UNIT)
     aligned_fit = next(fit for fit in aligned_result["fits"] if fit["weight"] == 0.3)
-    regularized_fits = {fit["name"]: fit for fit in regularized_result["fits"]}
+    regularized_fits = regularized_result["fits"]
     axes = {
         "dim": q_dim,
         "unregularized": coordinates(torch, backend.device,
