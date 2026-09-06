@@ -203,6 +203,7 @@ rank, new direction, template table, or threshold change is allowed.
 | `task14_absolute_head_reader_scalar_context.v2` | complete | one frozen-reader coordinate of native base context | **null: material but insufficient** | active | `task14_absolute_head_reader_scalar_context_v2_result.json` |
 | `task14_absolute_head_two_reader_context.v3` | complete | final fixed two-reader span of native base context | **null: reader-span compression closed** | active | `task14_absolute_head_two_reader_context_v3_result.json` |
 | `task14_bracket_counterfactual_margin_actuator.v4` | complete | common baseline-margin plus 16-effect lookup | **suffix-free margin actuator screen** | active | `task14_bracket_counterfactual_margin_actuator_v4_result.json` |
+| `task14_bracket_margin_actuator_composition_contract.v5` | complete | typed immutable-baseline state algebra | **exact composition screen** | active | `task14_bracket_margin_actuator_composition_contract_v5_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -213,10 +214,12 @@ publication pair is retained only under `artifact_invalid` filenames.
 whole-model simplicity claim. Counterfactual role-prompt lookup is eliminated. One- and two-reader Task14 base repairs are null, so
 reader-span compression is closed. At the answer-margin boundary, the v4 actuator now removes all stored intervention vectors and all
 post-input model execution: one native unedited margin plus an edit specification selects one of sixteen frozen effects and performs one
-addition. The remaining frontier is therefore the native baseline margin itself. Audit whether a common compositional contract can
-cover sequential/no-edit operations without adding learned state; then either promote that exact scope or pursue a preregistered
-baseline generator. Do not substitute arbitrary rank creep, stress scaling, syntax-conditioned gains, template tables, or generic
-low-rank approximation for an executable dependency-reduction result.
+addition. The typed v5 contract now covers sequential/no-edit operations exactly without new learned state: same-slot edits overwrite
+from the immutable baseline and independent slots commute; donorward effects are never summed. The remaining frontier is therefore the
+native baseline margin itself. Consolidate the executable program and its exact dependency boundary, then pursue a preregistered
+baseline generator only if it predicts untouched native margins from explicit semantic inputs rather than row identity or
+outcome-conditioned tables. Do not substitute arbitrary rank creep, stress scaling, syntax-conditioned gains, template tables, or
+generic low-rank approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
