@@ -97,13 +97,13 @@ def main():
         reverse = torch.eye(read.shape[0], device=read.device).flip(0)
         gauged_read = reverse @ read
         generator = torch.Generator(device="cpu").manual_seed(9100 + (task == "is"))
-        x = torch.randn(3, 128, generator=generator).to(backend.device)
         mlps, heads = [], []
         flats[task] = {}
         for layer in range(9):
             block = model.transformer.h[layer]
             item = atlas.mlp_writer_to_read_tensor(block.mlp, read)
             tensor, output = item["tensor"], item["output"]
+            x = torch.randn(3, tensor.shape[1], generator=generator).to(backend.device)
             predicted = torch.einsum("aij,bi,bj->ba", tensor, x, x)
             direct = ((x @ item["left"].T) * (x @ item["right"].T)) @ output.T
             replay_errors.append(float((predicted - direct).abs().max()))
