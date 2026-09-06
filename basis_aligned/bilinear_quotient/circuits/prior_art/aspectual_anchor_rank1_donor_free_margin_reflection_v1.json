@@ -1,0 +1,66 @@
+{
+  "schema": "aspectual_anchor_rank1_donor_free_margin_reflection_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.rank1_donor_free_margin_reflection_v1",
+  "created_utc": "2026-09-06T06:18:00Z",
+  "question": "Can the identified rank-one carrier selectively enact a requested has-to-had edit from the base state and answer/foil readout alone, without using any confirmation-row donor activation to construct the intervention?",
+  "novelty_search": {
+    "queries": ["donor_free", "donor-free", "margin_reflection", "carrier actuator"],
+    "scope": ["circuits", "ops", "basis_aligned/polynomial_causal"],
+    "result": "No prior donor-free aspectual actuator or margin-reflection test. Existing rank-one work always projects a paired donor-minus-base displacement or a paired program displacement."
+  },
+  "authority": {
+    "rank1_result": {"path": "circuits/followups/aspectual_anchor_das_resid18_rank1_transfer_v1_result.json", "sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278", "terminal": "screen", "basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"},
+    "lexical_builder": {"path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py", "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859"},
+    "fresh_builder": {"path": "ops/circuit_candidate_aspectual_fresh_construction_v2.py", "sha256": "848332a12c22bf523573e015b6f8f0a38b5865db8b77434dcbe6a176d98370ac"},
+    "das_library": {"path": "ops/circuit_das_subspace.py", "sha256": "49d67620b09c80edd1c999476ea9cfddb375f41016443f58cb6cc96111809d3f"}
+  },
+  "frozen_design": {
+    "site": "resid:18",
+    "rank": 1,
+    "calibration_rows": "first eight lexical A1 rows, identical to the basis-fit subset",
+    "calibrated_quantity": "one scalar budget B = 1.25 * max_i |q^T(x_donor_i-x_base_i)|",
+    "confirmation_rows": {
+      "lexical_A1_heldout": 8,
+      "lexical_A2": 16,
+      "fresh_A1": 16,
+      "fresh_A2": 16,
+      "lexical_P_noun_shifted_start": 16,
+      "fresh_P_noun_shifted_start": 16,
+      "lexical_C": 16,
+      "fresh_C": 16
+    },
+    "actuator": "For each base state x and requested target/foil token pair, evaluate alpha on a fixed 257-point grid in [-B,B] and choose the smallest-index alpha minimizing |margin(x+alpha*q)+margin(x)|. The confirmation donor state is unavailable to this choice and is used only after selection as an A-family outcome reference.",
+    "P_semantics": "Start from the noun-rewritten present-perfect P donor prompt, request had over has, and test whether the same actuator generalizes across the noun rewrite without a past-state donor.",
+    "C_semantics": "Give the actuator its strongest fair attempt to reflect night/day within the same budget; low effect shows the carrier cannot enact an unrelated output edit.",
+    "grid_points": 257,
+    "bars": {
+      "lexical_A1_heldout_mean_recovery_min": 0.50,
+      "lexical_A2_and_fresh_mean_recovery_min": 0.50,
+      "all_target_direction_fraction_min": 0.75,
+      "P_mean_margin_reflection_fraction_min": 0.50,
+      "C_mean_absolute_effect_over_A_scale_max": 0.20
+    }
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_head": "Authority hashes, unit basis, native capability, and selected-token head reproduction all pass.",
+    "pred_b_budget_and_actuator_well_formed": "B is finite and positive, exactly 257 grid points are used, and every confirmation intervention is a scalar multiple of q selected without its donor activation.",
+    "pred_c_heldout_lexical_actuation": "Held-out lexical A1 reaches at least 0.50 mean donor recovery and 0.75 direction.",
+    "pred_d_cross_construction_actuation": "Lexical A2 and fresh A1/A2 each reach at least 0.50 mean donor recovery and 0.75 direction.",
+    "pred_e_noun_shift_generalization": "Lexical and fresh P noun-shifted starts each reach at least 0.50 of the requested margin reflection and 0.75 direction.",
+    "pred_f_unrelated_output_selectivity": "Lexical and fresh C each move by at most 0.20 of the frozen A target scale despite optimizing alpha within the same budget.",
+    "pred_g_exact_coverage_and_price": "All 120 confirmation rows are uniquely scored within 33 transformer forwards, 264 transformer-example evaluations, zero transformer backwards/updates, 30,840 two-token head grid evaluations, and one calibrated scalar."
+  },
+  "terminal": {
+    "screen": "A-G pass: the carrier supports donor-free, target-guided, selective margin actuation on unseen constructions.",
+    "null": "Authority and coverage pass, but target actuation, transfer, noun-shift generalization, or selectivity misses.",
+    "invalid": "Authority, native capability, exact-head control, intervention construction, or coverage fails."
+  },
+  "price": {
+    "model_forwards_max": 33,
+    "example_evaluations_max": 264,
+    "two_token_head_grid_evaluations": 30840,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 1
+  }
+}
