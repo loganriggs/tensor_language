@@ -209,3 +209,7 @@ The instrument and resid10 ceiling recur exactly, but both registered mechanism 
 ### 2026-09-06T11:12Z — Codex — claimed unequal-length H1/H4 task-source groups
 
 `aspectual_tense.l9h1_h4_cross_task_source_groups_v1` partitions each prompt semantically rather than by aligned positions: prefix through literal cue, task-indexed contextual carrier bank, and identical final occupation. It replaces the exact H1/H4 pattern-times-effective-value sum of each donor group even when group cardinalities differ, in both task orientations. The registered hypothesis says carrier banks retain >=50% of complete-head task recovery, prefix/cue does not exceed carrier, and self stays <=25%; all-source must reconstruct complete H1/H4 within 1e-4. Exact price is 12 forwards/192 examples, no fit/search.
+
+### 2026-09-06T11:15Z — Codex — contextual carrier banks localize cross-task H1/H4 state
+
+All five predictions pass. Complete H1/H4 task recovery recurs exactly at 0.436 has->is and 0.313 is->has. Unequal-length task-indexed carrier banks carry 0.320/0.220, retaining 0.734/0.702 of complete; prefix+cue carries only 0.090/0.063 (0.207/0.202 retained), and the identical final occupation only 0.022/0.014 (0.050/0.046). Every carrier effect is donorward. Exact source reconstruction is 3.81e-6, all-source/complete scored closure 5.72e-6, and cost 12 forwards/192 examples with no fit/search. This supports a shared semantic carrier interface whose concrete arity differs by task. Next split the carrier contribution into attention-pattern routing versus effective-value content.

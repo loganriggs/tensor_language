@@ -15611,6 +15611,10 @@ The registered distinct-head prediction is decisively false. H1/H4 carry 0.436/0
 
 The next exact test handles unequal prompt lengths by replacing sums over typed source groups rather than aligned tokens: prefix+literal cue, contextual carrier, or shared final occupation. Across both task orientations, the carrier hypothesis requires >=50% of complete H1/H4 task recovery and dominance over prefix/cue, while self stays <=25%; all-source closure is <=1e-4. Cost is 12 forwards/192 examples with no fitting or search.
 
+### 2026-09-06T11:15Z — Codex — task-indexed carrier interface screens
+
+Carrier source groups retain 73.4% has->is and 70.2% is->has of complete H1/H4 task-state transfer, versus about 20% for prefix+cue and under 5% for the shared final token. Complete recovery is 0.436/0.313, all carrier effects are donorward, exact source closure is <=5.72e-6, and price is 12 forwards/192 examples with no fit/search. This identifies a task-indexed semantic carrier interface inside shared heads despite unequal sequence lengths. Pattern-versus-value splitting is next.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
