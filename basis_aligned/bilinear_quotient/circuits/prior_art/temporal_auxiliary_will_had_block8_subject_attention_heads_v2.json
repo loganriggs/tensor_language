@@ -1,0 +1,51 @@
+{
+  "schema": "temporal_auxiliary_will_had_block8_subject_attention_heads_prior_art_v2",
+  "candidate_id": "temporal_auxiliary.will_vs_had.block8_subject_attention_heads_v2",
+  "created_utc": "2026-09-06T12:50:00Z",
+  "evidence_class": "prospective_static_inventory_repair_exact_attention_head_localization",
+  "invalid_predecessor": {
+    "receipt_sha256": "be2b3cb54eab7fadc5073fda910fbf905ba83769ddaf2d0a2f7c86ac417ac5c4",
+    "failure": "V1 declared 12 heads for the frozen 9-head model and failed on index 9 before any result or scientific score was written.",
+    "repair": "Enumerate the authoritative head inventory 0-8, assert model.config.n_head equals 9 immediately after load, and adjust only arm-count price fields."
+  },
+  "authorities": {
+    "valid_block8_cube_v2_sha256": "973c0e490ed04c07fbc410e4b2960aa27db9a7ffc7f219948a68e5dd947a431b",
+    "subject_onset_depth_result_sha256": "b1f5ca50c669019684b5308b10dcd083de67897327bc6eecbcd92c978fc9cdae",
+    "temporal_fast_screen_sha256": "71a833c52c39b98be6f576d11749522e2725c540a29d61a2352e315978684ec9",
+    "generalized_v1_runner_sha256": "aabc5b4970f2fe1b45c1c137c5cfca6ea12c1b403efb8ce8f4f2c78742e7fe12",
+    "invalid_v1_receipt_sha256": "be2b3cb54eab7fadc5073fda910fbf905ba83769ddaf2d0a2f7c86ac417ac5c4",
+    "rows_sha256": "b74ff65cf6b59142bf38172dae7f70a25e5f471bbeaa038f9b3971caedf913da"
+  },
+  "population": "The unchanged sealed 64 A1/A2 will/had rows in two 32-row construction batches.",
+  "interventions": {
+    "destinations": "Only the determiner and head noun immediately after the temporal cue.",
+    "arms": "Nine fixed singleton heads 0-8, all nine heads, and direct post-c_proj output replacement.",
+    "closure": "All-head and direct-output selected logits must agree within 1e-4.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_head_instrument": "All authorities and capability hold; model head count is exactly 9; native replay and all-head/direct-output closure are within 1e-4; every arm-row is finite and present.",
+    "pred_b_material_attention_branch_recurrence": "The all-head arm has mean recovery at least 0.10 in A1 and 0.06 in A2, with donorward fraction at least 0.75 in both.",
+    "pred_c_shared_single_head_concentration": "At least one identical head has singleton mean recovery at least half of all-head recovery and donorward fraction at least 0.75 in both A1 and A2.",
+    "pred_d_complete_head_ranking_reported": "Report all nine singleton effects and their shared passing intersection without adaptive subset search.",
+    "pred_e_exact_zero_fit_price": "Exactly 26 model forwards, 832 example evaluations, 704 arm-row records, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-E pass. Promote the shared singleton head for exact source-token partition.",
+    "null": "A, B, and E pass but no shared singleton head passes C; classify the material writer as distributed at singleton resolution.",
+    "invalid": "The repaired inventory assertion, authority, capability, replay, closure, materiality, finiteness, coverage, or price fails."
+  },
+  "scope": "V2 changes only the erroneous static head inventory and its mechanically implied price. Scientific hypotheses, bars, population, destinations, and causal operator are unchanged.",
+  "price": {
+    "model_forwards": 26,
+    "example_evaluations": 832,
+    "rows": 64,
+    "arms": 11,
+    "intervention_records": 704,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
