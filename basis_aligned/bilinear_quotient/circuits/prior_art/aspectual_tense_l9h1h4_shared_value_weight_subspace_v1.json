@@ -1,0 +1,51 @@
+{
+  "candidate_id": "aspectual_tense.l9h1h4_shared_value_weight_subspace_v1",
+  "created_utc": "2026-09-06T16:05:53Z",
+  "question": "Do has/had and is/was use a shared weight-realized L9H1/H4 value subspace, or the same reader weights on task-specific value axes?",
+  "authority": {
+    "typed_shared_path_sha256": "afb17159330dc6abcf018d36313a7df2c78c6708b67feb8d2f2d9d2eee50faf0",
+    "has_value_factor_sha256": "0f15a432f15b9f4a0a5f4b7470eb097793135c7d01118266fa6d45db2e8fd2c4",
+    "is_value_factor_sha256": "9a00cefe8986b1459c334c445a28208ae54911b81e5a42d78e1bc878777f07e4",
+    "cross_task_subspace_library_sha256": "5207690210fd8aa56e1e8a16fb34cb63e00db13a9995177b783e4dcaa4d5b11d"
+  },
+  "prior_art_search": {
+    "searched": [
+      "aspectual_tense typed_shared_contextual_path",
+      "matched_projected_writer_response_matrix",
+      "MLP4 H1 H4 bank routing local value",
+      "shared value subspace weights"
+    ],
+    "relation": "Both tasks independently use MLP4-driven local L9 values through H1/H4, while their final-residual DAS axes have absolute cosine 0.244 and asymmetric transfer. No live L9 value-space intersection/complement test exists."
+  },
+  "frozen_design": {
+    "coordinates": "Concatenate the raw L9 c_v changes of H1 and H4 at every declared contextual source-bank position into a common 256-dimensional weight coordinate system; multiply by the fixed (1-lambda9) factor only at causal installation.",
+    "fit_split": "Within A1 of each task, alternate occurrences separately within reciprocal directions. Fit uses 16 has/had and 8 is/was rows; the other 16/8 A1 rows and all 32/16 A2 rows remain sealed.",
+    "task_bases": "Geometrically orient reciprocal row changes and choose the smallest SVD rank retaining >=95% fit energy separately for each task.",
+    "joint_basis": "Give the two task fit matrices equal Frobenius weight, concatenate them, and choose the smallest >=95%-energy basis.",
+    "shared_basis": "Take principal-vector midpoints only for cross-task principal cosines >=0.80; if none exist, shared rank is exactly zero.",
+    "causal_arms": ["exact_value", "own_basis", "cross_basis", "joint_basis", "shared_basis", "own_complement"],
+    "causal_operator": "Under frozen base attention patterns, install the projected local value change into L9H1/H4 at the query and run the real suffix. This matches the already identified dominant operation and does not use evaluation outcomes to choose axes.",
+    "model_forwards": 48,
+    "example_evaluations": 816,
+    "records": 432,
+    "fit": "SVD/principal angles on fit activations only; no gradients, fitted scalar gains, or model updates"
+  },
+  "predictions": {
+    "pred_a_authority_capability_capture_and_split": "all hashes, native cells, factor captures, stratified splits, and price pass",
+    "pred_b_each_task_basis_is_sufficient": "own-basis recovery is [0.80,1.20] of exact value on every heldout A1/A2 task panel",
+    "pred_c_shared_geometric_mode_exists": "shared rank >=1 and each task heldout matrix retains >=0.30 energy in the other task basis",
+    "pred_d_shared_mode_is_causally_material": "shared-basis recovery is >=0.40 of exact value on every heldout A1/A2 task panel",
+    "pred_e_task_specific_complements_are_secondary": "own-complement absolute recovery is <=0.40 of exact value on every panel",
+    "pred_f_joint_basis_is_compact_and_sufficient": "joint rank is below the sum of task ranks and joint recovery is [0.80,1.20] of exact value on every panel"
+  },
+  "terminal_rules": {
+    "invalid": "authority, capability, capture, split, closure, coverage, or price fails",
+    "screen": "all predictions pass: promote a shared weight-realized value subspace plus secondary task branches",
+    "null": "valid result rejects shared-subspace dominance; retain the shared reader operation but type its value axes by task"
+  },
+  "interpretation_limits": [
+    "A shared L9 value subspace is distinct from the already dissimilar final answer-actuator axes.",
+    "The same c_v and c_proj weights do not by themselves prove the tasks use the same subspace; shared geometry and causal installation must both pass.",
+    "Temporal will/had is added only after this MLP4-matched comparison resolves, because its upstream writer differs."
+  ]
+}
