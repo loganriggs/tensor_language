@@ -94,7 +94,10 @@ def run_patch(backend, batch, values, positions):
 
 def cosine(x, y):
     denominator = float(x.norm()*y.norm())
-    return float((x*y).sum())/denominator if denominator else float("nan")
+    # A zero intervention has zero alignment with the nonzero preregistered
+    # target.  Emit the finite mathematical value needed by the result
+    # contract rather than treating an intentionally null arm as invalid.
+    return float((x*y).sum())/denominator if denominator else 0.0
 
 
 def main():
