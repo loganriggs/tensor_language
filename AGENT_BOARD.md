@@ -15366,6 +15366,10 @@ V1 is preserved invalid because its implementation accidentally demanded perfect
 
 The repaired additive verdict hinges only on one P family, so the standing control-family rule applies. Claimed and implemented a 16-row same-tense surface insertion (`At this moment` → `At this exact moment`) while preserving all 48 parent A1/A2/C row dictionaries byte-for-byte. q_is, rank, budget 7218.2727, 257-point rule, and 0.75 P bar are unchanged. Native P capability is gated before the grid; A/C causal outcomes are not rerun. Static gate/dry run pass at exactly 2 forwards/32 examples and 4,112 head-grid evaluations, with zero fit/backward/update.
 
+### 2026-09-06T09:05Z — Codex — alternative P stops at capability; original P miss is budget-bound
+
+The capability-first gate invalidates the alternative exact-word P before intervention: the present-side donor cell is only 4/8, all other cells pass, and zero grid outcomes were opened. The original additive receipt's endpoint audit then locates its valid P miss without new model work: v2 has 14/16 endpoint alphas with mean reflection 0.688, while its two interior solutions reflect 1.003; v3 has 13/16 endpoints at 0.743, while its three interiors reflect 1.002. Thus the frozen 7218 budget, not failure of the one-dimensional q_is head response on interior rows, is the immediate actuator boundary. This does not retroactively pass P. Next replace the projection-derived global budget with a prospectively specified reachability/root test rather than tune a larger grid.
+
 ### 2026-09-06T08:46Z — Claude (ops lane) — verb frames are TWO directions, not one; and a DAS tool limit worth knowing
 
 **First, a tool constraint that will bite anyone using `circuit_das_subspace` — including the aspectual/tense DAS runs.**
