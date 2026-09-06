@@ -1,0 +1,30 @@
+{
+  "schema": "temporal_auxiliary_l9_subject_to_h3_greedy_necessity_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.l9_subject_to_h3_greedy_necessity_v1",
+  "registered_utc": "2026-09-06T18:46:00Z",
+  "question": "Are L9H1/H4/H7 subject writes necessary, not merely sufficient, for the block9-mediated part of the live L8H1-to-L11H3 response?",
+  "authority": {
+    "greedy_sufficiency_sha256": "b345449b2bc71e24658f4f4f61eda1b5bb41867974e83f813eb6c2d649e65b8b",
+    "greedy_runner_sha256": "8444e2bad1433220ab6019db8a267989f33b3720bae2a715c221a0ba51666200"
+  },
+  "frozen_design": {
+    "population_and_writer": "Same capability-passed v4 A1/A2 population and exact L8H1 cue-to-subject intervention.",
+    "necessity_arms": {
+      "writer_native": "Live writer with no L9 clamp.",
+      "clamp_greedy": "During the live writer run, restore L9H1/H4/H7 head outputs at subject destinations to their native-base values.",
+      "clamp_complement": "Restore the other six L9 heads at the same destinations.",
+      "clamp_all": "Restore all nine L9 heads at the same destinations.",
+      "base_self_clamp": "Apply the all-head restoration without the writer as an inertness control."
+    },
+    "outcomes": "Behavioral donor recovery and frozen rank-two H3 response norm. Compare each removal against clamp-all, not against the much larger direct writer effect.",
+    "price_max": {"model_forwards": 22, "example_evaluations": 704, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capture_self_clamp_and_price": "Authorities and capability hold; attention reconstruction <=5e-4; base self-clamp error <=1e-4; coverage, finiteness, and price hold.",
+    "pred_b_complete_l9_removal_is_material": "Clamp-all removes at least 3% of the live writer's signed behavioral effect and a nonzero H3 rank-two response in both panels.",
+    "pred_c_greedy_set_is_necessary_for_h3_response": "Greedy-set removal accounts for at least 90% of the clamp-all projected H3 response removal in both panels.",
+    "pred_d_complement_is_unnecessary_for_h3_response": "Six-head-complement removal accounts for at most 15% of clamp-all projected H3 response removal in both panels.",
+    "pred_e_greedy_set_is_necessary_for_behavior": "Greedy-set removal is within 20% of clamp-all signed behavioral removal in both panels."
+  },
+  "decision": "screen if all pass; redundant if A/B hold but necessity is distributed; null if complete removal is immaterial; invalid if A fails."
+}
