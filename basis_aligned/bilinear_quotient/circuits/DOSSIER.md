@@ -201,6 +201,7 @@ rank, new direction, template table, or threshold change is allowed.
 | `task14_bracket_compiled_predictive_dispatcher.v3` | complete | exact strongest-program packaging and price | **predictive/manipulable interface** | active | `task14_bracket_compiled_predictive_dispatcher_v3_result.json` |
 | `task14_direction_cardinality_absolute_head_program.v1` | complete | ten absolute heads on 512 third-corpus cells | **null: native base context required** | active | `task14_direction_cardinality_absolute_head_program_v1_result.json` |
 | `task14_absolute_head_reader_scalar_context.v2` | complete | one frozen-reader coordinate of native base context | **null: material but insufficient** | active | `task14_absolute_head_reader_scalar_context_v2_result.json` |
+| `task14_absolute_head_two_reader_context.v3` | complete | final fixed two-reader span of native base context | **null: reader-span compression closed** | active | `task14_absolute_head_two_reader_context_v3_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -208,10 +209,12 @@ reinterpret its target/control scores as a subspace null. The corrected receipt 
 publication pair is retained only under `artifact_invalid` filenames.
 
 **Next:** keep both fixed programs and their bounded cross-program robustness, but reject fixed MLP15/17 gains and any end-to-end
-simplicity claim. Counterfactual role-prompt lookup is now eliminated at dispatch. The immediate frontier is the native suffix: test
-the fixed two-reader span as the final non-tuned correction to the failed Task14 absolute term. If it fails, close base-state compression
-at this interface and retain the full native Task14 base head. Do not substitute additional arbitrary stress scaling, syntax-conditioned
-gain fitting, template tables, or generic low-rank approximation for an executable dependency-reduction result.
+simplicity claim. Counterfactual role-prompt lookup is eliminated at dispatch. The final non-tuned Task14 base-compression attempt is a
+clean null: one- and two-reader repairs both fail, so reader-span compression is closed and causal execution retains the full native
+Task14 base head. The immediate frontier is now the native suffix/execution boundary: specify exactly what model computation remains
+after the compiled effect-level program and test a single causal dependency-reduction candidate only if it removes a named suffix
+dependency without outcome-conditioned fitting. Do not substitute arbitrary rank creep, stress scaling, syntax-conditioned gains,
+template tables, or generic low-rank approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
