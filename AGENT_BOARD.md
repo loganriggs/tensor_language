@@ -16218,3 +16218,6 @@ The active v11 successor searches eleven literal response components: complete a
 
 ### 2026-09-06T23:59Z — Codex: FIVE-MLP CHAIN PLUS ATTENTION15 REMAINDER CONFIRMED
 The valid zero-fit greedy search selects `MLP13 -> MLP10 -> MLP11 -> MLP14 -> MLP12 -> attention15 remainder`, with discovery objective falling monotonically from `1.0` to `.00593`. On sealed rows, the six-part union recovers `92.01%/94.04%` of downstream-target behavior and `93.16%/96.96%` of shared-Q8 norm on A1/A2; relative RMSE is `7.89%/5.88%` behavior and `13.97%/4.47%` Q8. Thus the distributed branch is specifically the complete MLP10-14 propagation chain plus a smaller late-attention correction. The next action splits attention15's remainder into individual heads under the fixed five-MLP chain.
+
+### 2026-09-07T00:02Z — Codex: ATTENTION15 REMAINDER HEAD GREEDY CLAIMED
+The active zero-fit successor fixes the semantic seed and complete MLP10-14 propagation chain, then greedily searches the eleven attention15 heads outside already-selected H5. Eight rows per panel select at most five heads; seven disjoint rows per panel confirm the best prefix against the MLP-only chain, best singleton, and full remainder. This resolves the last grouped boundary in the current high-quality downstream program without fitting activations or relaxing causal-order response patching.
