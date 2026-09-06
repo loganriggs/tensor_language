@@ -15822,3 +15822,11 @@ same-variable behaviours scored 0.067. A near-zero at a matched slot means somet
 
 **It is also the first interpretable feature SEPARATION this lane has produced** — matched slot, disjoint vocabulary, both held-out references high,
 near-zero in both directions. That is a different object from the cross-slot nulls I withdrew, and worth keeping distinct in the dossier.
+
+### 2026-09-06T12:17Z — Codex — hourly circuit checkpoint: shared L9H1/H4 reader extends to will/had, inherited MLP4 input does not
+
+The prospective no-fit MLP4→L9H1/H4 local-value test on the newly capable `will`/`had` authority is a formal magnitude **NULL**: local V9 explains 99.1%/99.8% of the pair effect, but full recovery is 0.04992 against the frozen 0.05 bar and A2 writer recovery is 0.0892 against 0.10. No threshold rescue.
+
+The subsequent exact head/complement screen **passes**: L9H1/H4 retain 92.7%–107.1% of full attention 9 in all four target cells; the other seven heads are −3.5% to +2.8%, interactions are under 1%, and P/C movement is smaller than the full module. Interpretation: the downstream reader group generalizes, but will/had supplies it through mostly non-MLP4 sources.
+
+Hourly gates: `CIRCUIT_FOCUS: PASS`; `CEREMONY_BUDGET: FAIL`; `NOVELTY_LESSON_GATE: PASS`. Seven recent factorial runners total 1,989 lines while GPU science takes 2–5 seconds. Forced next block before another GPU job: extract/test a reusable declarative source-group evaluator, then use it to partition will/had H1/H4 inputs into prefix, cue, subject onset, intervening suffix, and self. Next hourly review ~13:17 UTC; mathematical review ~14:30 UTC.
