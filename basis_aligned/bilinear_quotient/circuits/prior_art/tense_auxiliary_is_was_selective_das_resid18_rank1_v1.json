@@ -1,0 +1,90 @@
+{
+  "schema": "tense_auxiliary_is_was_selective_das_resid18_rank1_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.selective_das_resid18_rank1_v1",
+  "created_utc": "2026-09-06T08:34:00Z",
+  "question": "Can a constrained rank-one resid18 is/was writer retain held-out A effects while suppressing the temporal-paraphrase nuisance that invalidated the unconstrained direction, and if so is it the already identified has/had carrier?",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art and circuits/followups for selective rank-one, nuisance-constrained, and projected-gradient fits",
+      "the active claims ledger",
+      "the 08:30 mathematical review and current Agent Board"
+    ],
+    "nearest_result": "tense_auxiliary.is_vs_was.das_resid18_rank1_transfer_v1 is a valid null with strong A but P disturbance 0.644/0.659; it did not optimize a registered selectivity constraint.",
+    "new_question": "Distinguish an A-correlated nuisance direction from a genuinely selective is/was writer, then test shared-writer geometry and reciprocal transfer conditionally.",
+    "anti_rank_drift": "Rank remains exactly one. No rank, penalty, threshold, seed, row, or step sweep is permitted, and a null cannot authorize higher rank. The result changes selective-manipulation and reuse/grouping evidence rather than compression."
+  },
+  "authority": {
+    "v2_builder_sha256": "4ed62d06e2ffe5c471efc70eeaa35c7524a66923f19c64c803faef7200d4a62f",
+    "v3_builder_sha256": "ac240f13478168948814f59c0425270dd345ba03053332b72b34857e9a022638",
+    "v2_capability_sha256": "f76fbcd6174cc9e8e3f77352ee5461815156cdae421ecc43a0e0c3576b63af7e",
+    "v3_capability_sha256": "744d2fd3c8200ca00005357961df3d435a7a13dbdbd7c3a51a487daee76acec3",
+    "unconstrained_null_sha256": "faefc825d3d481fd1a73fdbbde36c1daaa8b856dfc5590c6ee4f45540c3a9330",
+    "has_had_builder_sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859",
+    "has_had_screen_sha256": "fd1b4ae15e1d327001c8b172bcbecb0f15609d6da01bec8c8dddbf8de107549e",
+    "has_had_basis_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "das_library_sha256": "49d67620b09c80edd1c999476ea9cfddb375f41016443f58cb6cc96111809d3f"
+  },
+  "frozen_design": {
+    "site": "resid:18",
+    "rank": 1,
+    "seed": 0,
+    "optimizer": "One 600-step final-head-only Adam run at lr=0.05. QR normalizes q each step. Twelve fixed 50-step augmented-Lagrangian blocks use rho=[1,1,2,2,4,4,8,8,16,16,32,32]; nonnegative P/C multipliers update only at block boundaries.",
+    "fit_target": "First eight v2 A1 rows minimize donor-margin squared error normalized by the frozen A target scale squared.",
+    "fit_constraints": "First eight v2 P and first eight v2 C rows each constrain mean absolute projected-intervention response divided by the frozen A target scale to <=0.10.",
+    "tests": [
+      "last eight v2 A1",
+      "all v2 A2",
+      "all v3 A1",
+      "all v3 A2",
+      "last eight v2 P and C",
+      "all v3 P and C"
+    ],
+    "conditional_shared_writer_test": "Only if own-task A/P/C gates pass: compare absolute cosine to the frozen has/had q and apply q_is by projected interchange to all has/had v5 A1/A2/P/C rows without refitting.",
+    "forbidden_inputs": [
+      "has/had q during fitting",
+      "held-out v2 rows",
+      "any v3 outcome",
+      "reciprocal-transfer outcome",
+      "unconstrained q initialization",
+      "row selection after outcomes"
+    ],
+    "toy_gate": "Before GPU execution, a deterministic CPU toy must show that the exact optimizer selects a planted shared actuator over an A-correlated nuisance direction and that removing constraints recovers the nuisance mixture."
+  },
+  "predictions": {
+    "pred_a_authority_toy_head_and_rank": "All hashes/capability authorities, CPU toy, exact-head <=1e-3, q shape 1152x1, rank one, and fixed optimizer tripwires pass.",
+    "pred_b_heldout_is_was_a": "Held-out v2 A1, v2 A2, v3 A1, and v3 A2 absolute recovery are each >=0.50.",
+    "pred_c_heldout_is_was_selectivity": "Held-out v2 and all-v3 P/C normalized disturbances are each <=0.20.",
+    "pred_d_shared_writer_geometry": "Conditional on B-C passing, absolute cosine with frozen q_has is >=0.50.",
+    "pred_e_reciprocal_has_had_transfer": "Conditional on B-C passing, has/had v5 A1 and A2 absolute recovery are each >=0.25 while P/C disturbance are each <=0.20.",
+    "pred_f_exact_coverage": "At most 27 model forwards, 392 example evaluations, 600 final-head-only gradient steps, 1152 fit scalars, zero transformer backwards and zero model updates."
+  },
+  "opposing_outcomes": {
+    "shared_selective_writer": "B-C pass and D-E pass: group one selective actuator across output vocabularies while retaining distinct upstream readers.",
+    "one_way_shared_sensitivity": "B-C pass but cosine <=0.20 and reciprocal A1/A2 <=0.20: is/was can observe q_has, but its independently controllable selective writer differs.",
+    "no_selective_rank1_writer": "Any own-task A cell is <0.50 or any held-out P is >0.20: preserve the rank-one null and do not raise rank.",
+    "intermediate": "Other valid combinations are reported as inconclusive, without threshold or rank repair."
+  },
+  "terminal": {
+    "screen": "A-C and F pass; a selective rank-one is/was writer is identified, with D-E separately scoring shared-writer reuse.",
+    "null": "A and F pass but own-task recovery or selectivity misses; do not raise rank.",
+    "invalid": "Authority, capability, toy, exact-head, optimizer-tripwire, rank, or coverage failure."
+  },
+  "circuit_targets": [
+    "cross-boundary grouping and within-module splitting",
+    "held-out and OOD prediction",
+    "selective manipulation",
+    "composition and reuse",
+    "stable identification"
+  ],
+  "price": {
+    "model_forwards_max": 27,
+    "example_evaluations_max": 392,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "final_head_gradient_steps": 600,
+    "fit_parameters": 1152,
+    "rank_grid_points": 0,
+    "penalty_grid_points": 0,
+    "seed_grid_points": 0
+  }
+}

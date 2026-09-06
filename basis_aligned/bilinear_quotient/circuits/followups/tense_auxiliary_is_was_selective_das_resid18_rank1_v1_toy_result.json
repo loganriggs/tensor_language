@@ -1,0 +1,56 @@
+{
+  "basis_sha256": "b153e3d8f5cc757cb3c8cd7695a06ed7eae9bb567e1e95cd5c718db1c5867d3d",
+  "candidate_id": "tense_auxiliary.is_vs_was.selective_das_resid18_rank1_v1",
+  "checks": {
+    "constrained_recovers_shared": true,
+    "constrained_retains_a": true,
+    "constrained_suppresses_c": true,
+    "constrained_suppresses_p": true,
+    "cuda_unused": true,
+    "fixed_schedule_executed": true,
+    "shared_actuator_visible_to_second_readout": true,
+    "unconstrained_uses_nuisance": true
+  },
+  "constrained": {
+    "a_recovery": 0.75503827403288,
+    "c_effect": 0.06867326185673946,
+    "nuisance_cosine": 0.14534020031776376,
+    "p_effect": 0.09999997296742721,
+    "second_readout_response": 0.47161826632254833,
+    "shared_cosine": 0.983146705697892
+  },
+  "created_utc": "2026-09-06T08:37:25.167377Z",
+  "device": "cpu",
+  "interpretation": "The fixed optimizer separates a planted shared actuator from an A-correlated nuisance only when P/C causal-response constraints are active; multiple readouts can observe the retained actuator.",
+  "optimizer": {
+    "constraint": 0.1,
+    "lr": 0.05,
+    "rho_schedule": [
+      1.0,
+      1.0,
+      2.0,
+      2.0,
+      4.0,
+      4.0,
+      8.0,
+      8.0,
+      16.0,
+      16.0,
+      32.0,
+      32.0
+    ],
+    "steps": 600,
+    "steps_per_block": 50
+  },
+  "passed": true,
+  "schema": "selective_rank1_causal_response_toy_result_v1",
+  "seed": 0,
+  "unconstrained": {
+    "a_recovery": 1.0000851622546345,
+    "c_effect": 0.09215824187825244,
+    "nuisance_cosine": 0.6333935702023618,
+    "p_effect": 0.5014474470632129,
+    "second_readout_response": 0.4584243735691469,
+    "shared_cosine": 0.7578809610160882
+  }
+}
