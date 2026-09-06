@@ -363,3 +363,13 @@ finite family supports a state-dimension lower bound of four and upper bound of 
 permutation drops global cosine from 0.999997 to -0.236. This is a finite causal realization, not a
 claim that the transformer's unrestricted Fliess/Hankel system is globally rank eight. The missing
 cross-task circuit edge is now upstream: which native `is/was` modules write the shared state.
+
+The complete 36-module atlas finds a distributed upstream and falsifies uncalibrated cross-type
+weight ranking. MLP1 is the largest causal shared-Q8 writer (mean target-norm ratio 3.12, coordinate
+cosine 0.675, behavioral recovery 0.740), followed by attention9 (1.98, 0.762, 0.543) and several
+early MLPs. Eighteen modules clear the basic materiality screen, and the top norm is 4.87 times the
+median. Raw output-weight incidence correlates with causal norm at Spearman 0.470 but ranks all nine
+top-quartile sites as attention, missing causal-top MLP1; it is therefore not a calibrated selector
+across module types. Per the registered distributed branch, the next test greedily composes complete
+modules on the 16 discovery rows and confirms one frozen union on 48 untouched A rows before any
+attention-head split.

@@ -1,0 +1,28 @@
+{
+  "schema": "iswas_shared_q8_greedy_module_program_prior_v1",
+  "candidate_id": "cross_task.iswas_shared_q8_greedy_module_program_v1",
+  "registered_utc": "2026-09-06T21:01:25Z",
+  "question": "Can a small causal-order union of complete native modules reproduce the natural is/was write into the shared temporal-Q8 state on untouched rows?",
+  "authority": {
+    "full_module_atlas_result_sha256": "bf055d107a97ff50f769700049a7f0ec8a886d644d1f3d635053b2a7de76a6dc",
+    "finite_hankel_result_sha256": "f8fa10c21c30cd3420648641b4a284ba3cb41152872db8cf77d25213c597bb62",
+    "shared_specific_causal_result_sha256": "bd302cb0d104db5afe43906885dff52f851a03e638c6ff30de9d87224ce235bc"
+  },
+  "frozen_search": {
+    "discovery_rows": "The 16 rows used by the module atlas: first four each of v2 A1/A2 and v3 A1/A2.",
+    "confirmation_rows": "The untouched remaining 48 rows: indices 4+ from each v2/v3 A1/A2 family.",
+    "candidate_pool": ["mlp:1", "attn:9", "mlp:0", "mlp:2", "mlp:3", "mlp:4", "mlp:5", "mlp:8"],
+    "selection": "In causal order, greedily add four distinct sites. At each step evaluate every remaining addition on discovery and minimize the equal-weight mean of normalized shared-Q8 coordinate MSE and normalized target-margin-effect MSE. Freeze the prefix of length 1--4 with minimum discovery objective; ties use candidate-pool order.",
+    "target": "The unchanged released-cDAS coefficient times its temporal-Q8 projected axis, installed at resid18.",
+    "confirmation_arms": ["base", "target_shared_write", "best_singleton", "selected_union", "all_pool"],
+    "price": {"model_forwards_max": 34, "example_evaluations_max": 1104, "selection_candidates": 26, "fit_updates": 0, "transformer_backwards": 0}
+  },
+  "predictions": {
+    "pred_a_exact_authority_alignment_identity_search_coverage_and_price": "All native/self/target identities, row disjointness, causal ordering, candidate coverage, finite objectives, and price controls pass.",
+    "pred_b_selected_union_predicts_shared_q8_on_confirmation": "Flattened coordinate cosine is at least 0.80 and relative coordinate RMSE at most 0.75 on 48 untouched rows.",
+    "pred_c_selected_union_predicts_shared_behavior_on_confirmation": "Target-effect prediction cosine is at least 0.90, relative RMSE at most 0.50, and every family has positive signed mean effect.",
+    "pred_d_greedy_union_beats_singleton_and_unpruned_pool": "Selected-union coordinate RMSE is at most 80% of best singleton and no worse than all eight candidates on confirmation.",
+    "pred_e_program_is_small_and_attention_split_is_licensed_only_if_selected": "The selected prefix has at most four modules; any next head split is restricted to attention modules in that prefix."
+  },
+  "decision": "A pass promotes a compact natural upstream program and licenses head splitting only within selected attention modules. A null records distributed interaction not captured by four complete modules and redirects to source-position or weight-mode splitting, not a larger greedy sweep on these rows."
+}
