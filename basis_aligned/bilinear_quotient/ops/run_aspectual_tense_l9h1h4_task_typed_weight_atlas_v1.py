@@ -50,16 +50,18 @@ def stored_basis(torch, record):
     shape = tuple(record["shape"])
     values = torch.tensor(record["values_column_major"], dtype=torch.float32)
     basis = values.reshape(shape[1], shape[0]).T.contiguous()
-    return torch.linalg.qr(basis).Q
+    return torch.linalg.qr(basis.double()).Q.float()
 
 
 def exclusive_basis(torch, own, other):
+    device = own.device
+    own, other = own.detach().double().cpu(), other.detach().double().cpu()
     residual = own - other @ (other.T @ own)
     left, singular, _right = torch.linalg.svd(residual, full_matrices=False)
     keep = singular > singular.max().clamp_min(1e-30) * 1e-6
     if not bool(keep.any()):
         raise ExperimentError("task-exclusive span is empty")
-    return left[:, keep]
+    return torch.linalg.qr(left[:, keep]).Q.float().to(device)
 
 
 def validate_static():
