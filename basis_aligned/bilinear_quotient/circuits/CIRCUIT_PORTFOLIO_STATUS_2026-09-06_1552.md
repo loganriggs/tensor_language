@@ -249,3 +249,12 @@ the current stable manipulable circuit variable. The next boundary is causal dow
 remove the H3-induced L15H5/H1 response under rank-eight actuation and compare it with complete
 L15 and seven-head-complement removals. Response transport alone is not yet evidence that the
 pair mediates behavior.
+
+That causal reader test rejects the L15 behavioral edge. Dynamically clamping all nine L15
+head responses during rank-eight actuation changes behavior by only +0.007% in A1 and -1.00%
+in A2; H5/H1 alone are slightly counter-mediating (-0.30%/-1.27%). Exact rank-eight replay,
+base self-clamp, reconstruction, and composition controls pass. Thus the weight-predicted pair
+is a reproducible representational reader but not a behavioral mediator. Large transported
+response norms are insufficient to establish downstream circuit use. The next localization is
+a complete dynamic-removal atlas of MLP11 and every attention/MLP module through block17 under
+rank-eight actuation, followed by head splitting only inside causally material attention sites.
