@@ -1,0 +1,15 @@
+{
+  "schema": "registration_timestamp_correction_v1",
+  "candidate_id": "aspectual_tense.l9h1h4_source_position_weight_validation_v1",
+  "prior_art_sha256": "7e2540062ad80db5977f941c6c25fecce2ee6a30346cbd5f507c64a4384feccf",
+  "result_sha256": "7692b9c3095e66935934a4a31c7263ea3986f3fd070d4faf271e8ddf6e5ec261",
+  "correction": "The prior artifact's manually entered registered_utc value of 2026-09-06T16:51:00Z is a clerical future timestamp and must not be used as the registration receipt.",
+  "authoritative_sequence": {
+    "prior_and_runner_commit": "c345529f613d680bef7f83911af54cf970b5947a",
+    "prior_and_runner_commit_utc": "2026-09-06T16:49:16Z",
+    "append_only_claim_utc": "2026-09-06T16:49:25.573452Z",
+    "gpu_result_started_utc": "2026-09-06T16:49:43.209545Z",
+    "gpu_result_finished_utc": "2026-09-06T16:49:45.156050Z"
+  },
+  "interpretation": "The immutable commit and append-only claim both preceded execution and sealed the hypotheses, population, interventions, thresholds, and price. The scientific outcome remains prospective; only the redundant hand-entered timestamp is corrected here without modifying either bound artifact."
+}
