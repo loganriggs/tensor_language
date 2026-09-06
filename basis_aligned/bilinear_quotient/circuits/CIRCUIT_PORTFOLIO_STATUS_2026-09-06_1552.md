@@ -509,3 +509,18 @@ value already closes to 100.34%/100.45% behavior and 100.21%/100.70% Q8. Raw fac
 6.94e-6 and the ordered complete intervention replays the L9-only core to 7.20e-5 relative state
 error. Thus all five heads use the same value-transport operation class. The next exact atlas tests
 all 32 causal source-region subsets for the auxiliary value term before literal c_v compilation.
+
+The first two source-atlas receipts are explicitly invalid, not evidence. V1 reordered tensor axes
+through advanced list indexing. V2 repaired that access but scored closure on padded and post-query
+destinations outside the registered causal intervention, leaving the same `.567` discrepancy. A
+construction- and lexicon-shifted v11 rerun corrects both issues prospectively: causal closure is
+`2.38e-7`, and `post_cue_before_subject` is the same smallest sufficient source in A1/A2, carrying
+87.15%/88.34% of auxiliary behavior and 92.04%/89.49% of Q8 norm with Q8 cosine at least .9937.
+The separately reported `.182` outside-causal discrepancy verifies the precise v2 scope error.
+
+The frozen post-cue source then transfers without fitting to another untouched v12 lexicon. It
+carries 84.53%/87.10% of all-value behavior and 90.36%/88.43% of Q8 norm, with behavior cosine
+at least .99898 and Q8 cosine at least .99144. Both L11 and L15 remain material, exact causal
+closure is `2.38e-7`, and complete-factor/live-core full-vocabulary replay is `1.43e-5`. The
+auxiliary interface is therefore now stable enough for literal local weight translation: actual
+L11/L15 c_v rows, frozen base-pattern routing from post-cue sources, and selected c_proj blocks.
