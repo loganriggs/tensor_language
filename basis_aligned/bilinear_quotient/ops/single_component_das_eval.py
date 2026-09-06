@@ -121,6 +121,7 @@ class FitResult:
     best_objective: dict[str, float]
     selected_start: str
     restarts: list[dict]
+    restart_min_pairwise_cosine: float
 
 
 def fit(backend, prep, units, *, rank=1, steps=200, lr=0.03, random_seeds=(1, 2),
@@ -144,7 +145,7 @@ def fit(backend, prep, units, *, rank=1, steps=200, lr=0.03, random_seeds=(1, 2)
             backend, prep, units, q_dim, exact_axis, complement_weight)
     dim_metrics = {"joint": float(loss), "match": float(match), "inert": float(inert)}
     global_q, global_metrics, global_start = q_dim.detach().clone(), dict(dim_metrics), "dim_unoptimized"
-    reports = []
+    reports, restart_qs = [], []
     starts = [("dim", None)] + [(f"random_seed_{seed}", seed) for seed in random_seeds]
     for name, seed in starts:
         if seed is None:
@@ -174,11 +175,17 @@ def fit(backend, prep, units, *, rank=1, steps=200, lr=0.03, random_seeds=(1, 2)
             optimizer.step()
         reports.append({"start": name, "best": best, "trace": trace,
                         "cosine_to_dim": float((best_q[:, 0] @ q_dim[:, 0]).abs())})
+        restart_qs.append(best_q)
         if best["joint"] < global_metrics["joint"]:
             global_q, global_metrics, global_start = best_q, dict(best), name
+    pairwise = [
+        float((restart_qs[left][:, 0] @ restart_qs[right][:, 0]).abs())
+        for left in range(len(restart_qs)) for right in range(left + 1, len(restart_qs))
+    ]
     return FitResult(
         q=global_q, span_rank=span_rank,
         singular_values=[float(value) for value in singular.detach().cpu()],
         dim_objective=dim_metrics, best_objective=global_metrics,
         selected_start=global_start, restarts=reports,
+        restart_min_pairwise_cosine=min(pairwise) if pairwise else 1.0,
     )
