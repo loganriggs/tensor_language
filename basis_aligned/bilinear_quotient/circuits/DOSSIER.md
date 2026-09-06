@@ -311,6 +311,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.explicit_path_lexical_holdout_v1` | invalid pre-outcome | prospective lexical/recombination path transfer | **token alignment failed before model forward** | run log |
 | `aspectual_anchor.has_vs_had.explicit_path_lexical_holdout_v2` | complete | token-audited prospective path transfer | **explicit path transfers prospectively** | `aspectual_anchor_explicit_path_lexical_holdout_v2_result.json` |
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v1` | released | zero-forward hash/graph/metric/scope audit | **typed paired-causal tensor program** | `aspectual_anchor_transparent_path_program_release_v1_result.json` |
+| `aspectual_anchor.has_vs_had.attention9_h1h4_lexical_holdout_v1` | complete | sealed prospective downstream-bank transfer | **H1/H4 bank transfers prospectively** | `aspectual_anchor_attention9_h1h4_lexical_holdout_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -417,6 +418,13 @@ to seven immutable hashes. Its zero-forward release audit passes all authority, 
 checks. The price is zero fitted scalars and vectors, but execution still requires checkpoint weights plus paired base/donor states.
 Accordingly this is a predictive prospective circuit-effect program within the two validated constructions—not a native-margin,
 full-logit, free-form, new-construction, or whole-model program. The null-terminal onset and H1/H4 receipts remain null in the release.
+
+The previously discovery-only attention9 branch now has its own unopened-outcome prospective test on that same immutable authority.
+H1/H4 recover 10.761% of the native donor effect, or 37.95% of the prospectively recurrent two-term writer, with A1/A2 direction
+fractions 0.9375/1.0. `last`+period+`the` recover 11.038% and 102.57% of the all-source H1/H4 effect; cue+self account for only
+2.45% in absolute proportion. All five frozen predictions pass in 16 forwards and 256 example evaluations with no fit. This promotes
+the H1/H4 bank branch to lexical/recombination stability in the two known-capable syntaxes, while leaving new-construction and
+standalone prediction boundaries unchanged.
 
 ### `subroutine.induction.equality_score` — site_live
 

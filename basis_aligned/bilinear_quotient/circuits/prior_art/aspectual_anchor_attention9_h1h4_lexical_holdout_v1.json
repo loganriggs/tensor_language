@@ -1,0 +1,63 @@
+{
+  "schema": "aspectual_anchor_attention9_h1h4_lexical_holdout_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.attention9_h1h4_lexical_holdout_v1",
+  "created_utc": "2026-09-06T03:45:57Z",
+  "question": "Does the discovery-only MLP4-induced attention9 H1/H4 three-source-bank branch transfer prospectively on the already sealed, capability-qualified lexical/recombination authority?",
+  "authority": {
+    "holdout_builder": {
+      "path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py",
+      "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859",
+      "rows_sha256": "18dfe9b5e86387017f3b8a81d378cc4892b4ee5a219ea7e35bf02548cd54e493",
+      "rows": 64
+    },
+    "holdout_capability_and_upstream_result": {
+      "path": "circuits/followups/aspectual_anchor_explicit_path_lexical_holdout_v2_result.json",
+      "sha256": "fd1b4ae15e1d327001c8b172bcbecb0f15609d6da01bec8c8dddbf8de107549e",
+      "terminal": "screen"
+    },
+    "discovery_attention9_path_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_to_l9h1_h4_path_mediation_v1_result.json",
+      "sha256": "649cc961fd4203a9d7489344bbf169754081a288b5d575bcefcab2caf41da9ab",
+      "terminal": "null",
+      "reason": "The bank retained 39.76% of the writer, 0.24 percentage points below a frozen 40% discovery sufficiency bar, while retaining 102.02% of all-source H1/H4 and perfect direction."
+    },
+    "typed_program_release": {
+      "path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v1_result.json",
+      "sha256": "a2751011ac5fa02fcec433f2f83090f0911bdd5be1c84aeff0bf3ab8e3875cf1",
+      "terminal": "release"
+    },
+    "backend_runner": {
+      "path": "ops/run_aspectual_anchor_mlp4_to_l9h1_h4_path_mediation_v1.py",
+      "sha256": "5449d45505267f2ebc92c9285b7a984fce773f834c2071e1d7e6d1a9f1949372"
+    }
+  },
+  "data_status": "The 64 texts, native capability, MLP4 writer, and attention5 outcomes are already open. The attention9 H1/H4 complete-head, all-source, three-source-bank, and cue+self causal outcomes on these rows have never been computed or opened.",
+  "population": "All 32 answer-changing A1/A2 rows from the immutable 64-row holdout; capability remains independently hash-bound to the prior prospective screen and is rechecked for A1/A2 from current native logits.",
+  "frozen_program": {
+    "writer": "Two-term factorized MLP4 write at last+period+determiner",
+    "attention9_heads": [1, 4],
+    "source_bank": ["last", "period", "determiner"],
+    "arms": ["writer_two_term", "h1h4_complete", "h1h4_all_sources", "h1h4_last_period_determiner", "h1h4_cue_self"],
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_instrument": "All hashes and terminal labels hold; every prior holdout capability cell remains passed; current A1/A2 native cells pass 0.85; manual/BF16 reconstruction and all-source closure satisfy fixed tolerances.",
+    "pred_b_writer_recurrence": "The recomputed writer mean is within 0.01 of the already opened 0.2835613798 value, with positive means and at least 0.80 direction fraction in A1 and A2.",
+    "pred_c_h1h4_transfer": "Complete H1/H4 has positive mean recovery, retains at least 25% of the writer, and has at least 0.75 direction fraction in A1 and A2.",
+    "pred_d_bank_identity_and_specificity": "The fixed bank retains at least 80% of all-source H1/H4 recovery; cue+self absolute recovery is at most 25% of all-source recovery; bank recovery is positive with at least 0.75 direction fraction per family.",
+    "pred_e_exact_coverage": "All five arms produce all 160 finite target outcomes within 20 model forward calls and 320 example evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: promote the attention9 H1/H4 bank branch to prospective lexical/recombination support within A1/A2 syntax.",
+    "null": "The run is valid and writer recurs, but H1/H4 transfer or bank specificity fails; retain discovery-only downstream scope.",
+    "invalid": "Any authority, capability, alignment, instrument, writer recurrence, finiteness, coverage, or budget check fails."
+  },
+  "price": {
+    "model_forwards_max": 20,
+    "example_evaluations_max": 320,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First prospective measurement of the explicit downstream attention9 H1/H4 source-bank branch on a sealed capable holdout; no attention9 intervention outcome from these rows was used to select heads, sources, arms, or thresholds."
+}
