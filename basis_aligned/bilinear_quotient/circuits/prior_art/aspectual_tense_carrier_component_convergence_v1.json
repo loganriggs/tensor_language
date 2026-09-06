@@ -1,0 +1,19 @@
+{
+  "schema": "aspectual_tense_carrier_component_convergence_prior_v1",
+  "candidate_id": "aspectual_tense.carrier_component_convergence_v1",
+  "registered_utc": "2026-09-06T17:27:11Z",
+  "hypothesis": "The source-resolved greedy programs should stop by a scientific marginal-improvement rule rather than an arbitrary depth ceiling. The has/had path already crossed that rule after eight components; is/was still had active improvement at ten and should extend until convergence.",
+  "frozen_rule": "Accept a component only when the best A1-fit unit-target MSE improvement is strictly greater than 0.001; stop at the first step that fails this bar or when the 20-component pool is exhausted.",
+  "starting_evidence": {
+    "has_had": "v2 step 8 MSE 0.0686348594; step 9 best improvement 0.0004838858, so the converged prefix is frozen at eight without rerunning selection",
+    "is_was": "v2 step 10 MSE 0.0980375288 with improvement 0.0040163146, so selection resumes prospectively from its ten-component prefix"
+  },
+  "predictions": {
+    "pred_a_authority_prefix_reproduction_capability_and_exact_price": "The is/was ten-component fit MSE reproduces within 1e-5; all evaluation panels remain capable; at most 70 forwards, 665 evaluations, and 515 records.",
+    "pred_b_is_was_reaches_marginal_convergence": "is/was selects at least one new component, stops before all 20 components, and the first rejected best improvement is at most 0.001.",
+    "pred_c_converged_paths_preserve_out_of_sample_quality": "has/had remains within 0.005 of v2 recovery on heldout/A2; is/was is no worse than v2 on either panel; all directions remain donorward.",
+    "pred_d_programs_remain_sparse_and_shared": "Both paths contain fewer than 20 components and share at least eight labels.",
+    "pred_e_zero_fit_parameters": "No fitted scalar, backward pass, or model update."
+  },
+  "decision": "screen seals the converged programs for selective-removal testing; null if marginal convergence harms quality or sharing; invalid on authority, reproduction, capability, coverage, finiteness, stopping-rule, or price failure"
+}
