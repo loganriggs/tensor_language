@@ -1,0 +1,38 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_artifact_v11",
+  "program_id": "aspectual_anchor.has_vs_had.transparent_path_program_v11",
+  "created_utc": "2026-09-06T06:53:00Z",
+  "parent_program": "aspectual_anchor.has_vs_had.transparent_path_program_v10",
+  "computational_change": "none; v10 equations and donor-free actuator remain byte-identical aliases",
+  "semantic_change": "The initial, source-attention, and MLP-write interfaces are now grouped by registered downstream operational equivalence across construction, A1/A2 family, and a fixed reporter/period derangement.",
+  "evidence": {
+    "construction": {
+      "path": "circuits/followups/aspectual_anchor_program_v8_cross_construction_variable_interchange_v1_result.json",
+      "sha256": "951044ca2b195d1128bebfabe2b3aa815407b20c02a20747e5bf18b8d6d13286",
+      "whole_recovery_fraction_range": [0.7614164364576264, 1.328088119723955],
+      "single_group_recovery_fraction_range": [0.8770960957982675, 1.152446697991182]
+    },
+    "A1_A2_family": {
+      "path": "circuits/followups/aspectual_anchor_program_v8_cross_family_variable_interchange_v1_result.json",
+      "sha256": "b10b919f4c3cf9d53d1a397326f5d46a195ecd710f3df24fb8acff35966ea031",
+      "whole_recovery_fraction_range": [0.9024155783815451, 1.1236555332325653],
+      "single_group_recovery_fraction_range": [0.9261138664226968, 1.0881374331929328]
+    },
+    "reporter_period_lexicon": {
+      "path": "circuits/followups/aspectual_anchor_program_v8_lexicon_deranged_variable_interchange_v1_result.json",
+      "sha256": "a4f719b10b42d6452a51fb4d472439d6e19bba56ea92eed309f9915e049c0ac9",
+      "whole_recovery_fraction_range": [1.0173329613977797, 1.0800782615361804],
+      "single_group_recovery_fraction_range": [0.9994659296116863, 1.046187532642156]
+    }
+  },
+  "price": {
+    "additional_stored_fit_scalars": 0,
+    "additional_runtime_compute": 0,
+    "parent_stored_fit_scalars": 1153,
+    "quotient_variable_groups": 3
+  },
+  "scope": {
+    "licensed": ["registered construction interchange", "registered A1/A2 interchange", "same-direction reporter/period derangement", "three operational variable groups under the v8 downstream reader"],
+    "not_licensed": ["unrestricted corpus invariance", "opposite-direction signed equivalence", "gauge-independent coordinate identity", "raw-text-to-resid18 computation", "whole-model replacement"]
+  }
+}
