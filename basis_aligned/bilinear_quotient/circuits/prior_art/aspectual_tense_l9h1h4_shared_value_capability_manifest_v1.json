@@ -1,0 +1,34 @@
+{
+  "candidate_id": "aspectual_tense.l9h1h4_shared_value_capability_manifest_v1",
+  "created_utc": "2026-09-06T16:12:00Z",
+  "question": "Which exact aspectual has/had and tense is/was A1/A2 row pairs are natively answer-over-foil capable on both base and donor sides, so a shared L9H1/H4 value-subspace rerun can freeze its population prospectively?",
+  "authority": {
+    "invalid_shared_subspace_result_sha256": "1ed214e9e6857624216b975d9f981d2b3c3ce404850650d1f5ab48f21d8d2530",
+    "invalid_reason": "The v1 runner imposed all-individual-row capability, stricter than its parent experiments' registered 0.85 cell gate; no v1 subspace outcome is promotive.",
+    "aspectual_parent_capability": "A1 and A2 each have 31/32 correct base sides and 32/32 correct donor sides; all direction-side cells pass 0.85.",
+    "tense_parent_capability": "A1 has 15/16 correct base and 15/16 correct donor sides; A2 has 15/16 correct base and 16/16 correct donor sides; all direction-side cells pass 0.85."
+  },
+  "frozen_design": {
+    "population": "all parent aspectual 64 rows and tense 32 rows, partitioned by task, A1/A2 family, and direction",
+    "record": "task, row ID, family, direction, side, answer-minus-foil margin, and strict correctness; jointly capable requires both sides correct",
+    "model_forwards": 8,
+    "example_evaluations": 192,
+    "records": 192,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_parent_counts_recur": "aspectual A1/A2 base-donor counts are 31/32 and 32/32; tense A1 is 15/16 and 15/16, tense A2 is 15/16 and 16/16",
+    "pred_b_stratified_joint_population_exists": "every task-family-direction stratum has at least 6 rows correct on both base and donor sides",
+    "pred_c_exact_coverage": "eight forwards, 192 examples, 192 unique task-row-side records, finite margins, zero backwards and updates"
+  },
+  "terminal_rules": {
+    "manifest": "all predictions pass and exact jointly capable row IDs are frozen",
+    "invalid": "parent counts, stratified population, coverage, finiteness, or price fails"
+  },
+  "interpretation_limits": [
+    "This is an instrument manifest, not circuit or subspace evidence.",
+    "It may only define a later population by exact jointly capable row IDs.",
+    "No threshold may be changed after this manifest is opened."
+  ]
+}
