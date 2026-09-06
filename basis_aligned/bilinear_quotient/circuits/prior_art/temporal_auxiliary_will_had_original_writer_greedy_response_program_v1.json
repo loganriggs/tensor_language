@@ -1,0 +1,60 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.original_writer_greedy_response_program_v1",
+  "created_utc": "2026-09-06T15:46:04Z",
+  "question": "Can actual joint interventions greedily select a sparse typed head/module response program that reproduces the original block8H1 writer effect out of sample?",
+  "authority": {
+    "module_atlas_result_sha256": "f8517f43f41444b966b95ff0d8da9449f25bd95d32b726c1082066605cfd076a",
+    "attn15_pair_result_sha256": "73433f9c265e035e22b227edfc99165a8c34be9508053c081ca2f31f971eefb8",
+    "response_installer_sha256": "b62586239869fabadad678e9a98b944e5a349b5d7bcd3382c0a9b236c1e8bb3d"
+  },
+  "prior_art_search": {
+    "searched": [
+      "original_writer_downstream_module_atlas_v1",
+      "original_writer_attn15_h5h1_joint_v1",
+      "greedy joint response program temporal auxiliary"
+    ],
+    "relation": "Singleton module effects and three typed attention groups are known, but no actual greedy joint program has selected among them and the signed MLP responses."
+  },
+  "frozen_design": {
+    "population": "32 A1 and 32 A2 original Tomorrow/Earlier rows",
+    "selection_split": "Within each A1 direction separately, alternating occurrence index goes to fit versus heldout, giving 8 rows per direction in each split; all A2 rows are transfer-only.",
+    "candidate_pool": [
+      "attn09_h1h4",
+      "attn11_h3",
+      "attn15_h5h1",
+      "mlp09",
+      "mlp10",
+      "mlp11",
+      "mlp12",
+      "mlp13",
+      "mlp14",
+      "mlp15",
+      "mlp16",
+      "mlp17"
+    ],
+    "intervention": "For every candidate set, add each cached writer-minus-base response at its typed head/module and run one real joint model forward; never sum singleton logits.",
+    "selection_objective": "Forward selection minimizes mean squared rowwise error to the writer recovery on A1-fit; ties are lexical. Accept an addition only for strictly lower MSE, for at most six components.",
+    "evaluation": "Freeze the full accepted path and report every prefix on untouched A1-heldout and all A2 rows.",
+    "maximum_model_forwards": 78,
+    "maximum_example_evaluations": 1392,
+    "maximum_records": 1264,
+    "fit": "discrete greedy selection only; no fitted scalars, gradients, or model updates"
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_capture": "all hashes match, all native margins are correct, and writer effects recur within 0.03",
+    "pred_b_greedy_path_strictly_improves": "at least two and at most six components are accepted, with strictly decreasing A1-fit MSE",
+    "pred_c_heldout_a1_is_nearly_complete": "final A1-heldout mean is [0.85,1.15] of writer, direction fraction >=0.80, and rowwise RMSE is below the best singleton",
+    "pred_d_a2_transfer_is_nearly_complete": "final A2 mean is [0.80,1.20] of writer, direction fraction >=0.80, and rowwise RMSE is below the best singleton",
+    "pred_e_price_and_split_are_exact": "stratified split is 16/16, all 32 A2 rows remain transfer-only, and price is within the frozen maxima"
+  },
+  "terminal_rules": {
+    "invalid": "authority, capability, split, capture, coverage, or price fails",
+    "screen": "all predictions pass: publish the frozen sparse response program",
+    "null": "valid greedy path fails heldout or transfer completeness; report the exact path without threshold repair"
+  },
+  "interpretation_limits": [
+    "This is a writer-conditioned response program, not yet a donor-free compiler.",
+    "Adding both upstream and downstream cached responses can double-count a transformation; actual joint scoring and the heldout objective decide whether a component belongs.",
+    "The selected components identify a compact manipulable response program, not a claim that unselected modules have zero mechanistic involvement."
+  ]
+}
