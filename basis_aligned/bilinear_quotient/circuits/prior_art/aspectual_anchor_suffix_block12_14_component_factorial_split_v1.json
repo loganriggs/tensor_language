@@ -1,0 +1,39 @@
+{
+  "schema": "aspectual_anchor_suffix_block12_14_component_factorial_split_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.suffix_block12_14_component_factorial_split_v1",
+  "created_utc": "2026-09-06T05:29:00Z",
+  "question": "Within the post-outcome-selected block12+14 suffix bank, can one attention-or-MLP new-write term per block preserve the recovery increment?",
+  "authority": {
+    "block_selection": {"path": "circuits/followups/aspectual_anchor_sparse_suffix_missing_block_compression_split_v2_result.json", "sha256": "8f2f795564e7071b2ec467165a679ddc22e24a9e0b02e656628df957fd59ad69", "terminal": "screen", "evidence_class": "post_outcome_repair_replication", "selected_blocks": [12, 14]},
+    "block_selection_runner": {"path": "ops/run_aspectual_anchor_sparse_suffix_missing_block_compression_split_v2.py", "sha256": "f94eae689fc15689baa3f42683ad71d18405f7c9caf86bfc792b8297e733d8fc"},
+    "sparse_null": {"path": "circuits/followups/aspectual_anchor_sparse_suffix_recurrence_confirmation_v1_result.json", "sha256": "db666e5e006d5ecb3300806399c682441ea92b990cb1155eaa76479899326ef2", "terminal": "null"}
+  },
+  "data_status": "No attention-versus-MLP component intervention at block12 or block14 has been computed. Block selection is exposed, so this is a conditional mechanism split rather than fresh block-selection evidence.",
+  "population_split": {
+    "selection_row_ids_sha256": "d150ff72d1423058a01aa2140563315c041b1be98a59066e8dc4a98688775fe8",
+    "confirmation_row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b"
+  },
+  "frozen_design": {
+    "fixed_program": "Lambda recurrence plus corrected source/MLP-resolved block11 and block15 writes; blocks10,13,16,17 omitted.",
+    "factors": ["attention12", "mlp12", "attention14", "mlp14"],
+    "selection_arms": "complete 16-subset lattice",
+    "selection_score": "exact four-player Shapley allocation of mean signed recovery",
+    "selected_set": "higher-Shapley component at each boundary; frozen attention-before-MLP tie break",
+    "confirmation_arms": ["no_12_14", "selected_one_per_block", "full_12_14"],
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_control": "Authorities, splits, native capability and instruments pass; full_12_14 confirmation logits match v2 selected_two within 0.125.",
+    "pred_b_shapley_closure_and_selection": "Four Shapley values close exactly to full-minus-none and select one distinct component per boundary.",
+    "pred_c_component_increment_compression": "Selected components retain at least 80% of full_12_14-minus-none and add positively in A1/A2.",
+    "pred_d_component_total_sufficiency": "Selected total reaches at least 90% of full_12_14 total with direction fraction >=0.75 in A1/A2.",
+    "pred_e_exact_coverage": "Exactly 336 finite records occur within 54 forwards and 432 evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: resolve only the selected attention/MLP component at each boundary.",
+    "null": "Valid split, but one component per boundary is insufficient; retain both at the failing boundary.",
+    "invalid": "Authority, split, capability, control, Shapley closure, coverage, or price fails."
+  },
+  "price": {"model_forwards_max": 54, "example_evaluations_max": 432, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0},
+  "efficiency": "One shared-capture 16-lattice plus three-arm confirmation replaces separate block and component jobs."
+}
