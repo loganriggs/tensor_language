@@ -1,0 +1,27 @@
+{
+  "schema": "iswas_mlp8_auxiliary_value_source_subset_atlas_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_auxiliary_value_source_subset_atlas_v1",
+  "registered_utc": "2026-09-06T22:28:00Z",
+  "question": "Which causal source intervals supply the dominant native-pattern value changes read by L11H1/H3 and L15H5?",
+  "authority": {
+    "factor_result_sha256": "cbf754a5edb2bac0cbaf56916f901c95d48296827952a641e63860e4f3e03c73",
+    "factor_runner_sha256": "b8e1dc98014394c75a90c9e721f4347be5bbd3ac73d65cd56096070c1ecad304",
+    "finding": "Base-pattern value transport carries 90.6/99.0% of auxiliary behavior and 86.0/88.9% of Q8; pattern change is secondary and interaction <=2.1%."
+  },
+  "frozen_design": {
+    "population": "The same 27 jointly capable v10 rows and ordered L9-core/L11/L15 intervention context.",
+    "source_groups": ["prefix_before_cue", "cue", "post_cue_before_subject", "subject_determiner", "self"],
+    "cells": "For each source group and each auxiliary layer, compute P_base[:,source] delta_V[source] for only the frozen selected heads at all causal destinations.",
+    "arms": "All 32 subsets of the five source groups, installed jointly in L11 and L15; two complete single-layer value arms; one complete all-factor reference; and native self-clamp.",
+    "selection": "The atlas may identify a smallest sufficient source subset, but no resulting subset is promoted until zero-fit confirmation on a new capable bank.",
+    "maximum_price": {"model_forwards": 40, "example_evaluations": 1080, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_partition_value_replay_finiteness_and_price": "Hashes, exhaustive source partition, per-layer value closure, parent all-value and complete replay, self-clamp, finite metrics, and price pass.",
+    "pred_b_at_least_one_small_source_program_is_sufficient": "At least one subset of at most two source groups retains at least 75% of all-value behavior and 75% of all-value Q8 norm in both panels, with cosine at least .95.",
+    "pred_c_source_program_is_panel_stable": "The same smallest sufficient subset is selected in A1 and A2 under the frozen lexicographic objective.",
+    "pred_d_both_auxiliary_layers_have_material_value_reads": "The complete L11-only and L15-only value programs each carry at least 10% behavior or Q8 norm in both panels.",
+    "pred_e_zero_fit_exact_subset_inventory": "All 32 source subsets and both layer arms are evaluated with no fit, gradients, rank search, or model update."
+  },
+  "decision": "Screen freezes the smallest sufficient source subset for fresh confirmation and c_v/c_proj compilation. Null retains the full five-source value program and redirects to layer-specific source interactions without changing the confirmed head circuit."
+}

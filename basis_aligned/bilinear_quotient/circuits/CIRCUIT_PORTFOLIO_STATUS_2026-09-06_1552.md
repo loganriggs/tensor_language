@@ -501,3 +501,11 @@ freedom. Conditioned on L9H1/H4 removal, the final-query L11H1/H3+L15H5 response
 .99992. Prefix and cue response deltas are exactly zero; post-cue and subject-determiner destinations
 are <=1.99% behavior and <=1.46% Q8. The active factor program now tests whether these ordered
 L11/L15 writes share L9's native-pattern value-transport operation.
+
+The ordered auxiliary factor program passes: native-pattern value change supplies 90.61%/98.96%
+of auxiliary behavior and 86.01%/88.90% of Q8 norm. Pattern change supplies 9.74%/3.51% behavior
+and 18.31%/22.50% Q8; interaction is only 1.32%/1.49% behavior and 1.89%/2.03% Q8. Pattern plus
+value already closes to 100.34%/100.45% behavior and 100.21%/100.70% Q8. Raw factor closure is
+6.94e-6 and the ordered complete intervention replays the L9-only core to 7.20e-5 relative state
+error. Thus all five heads use the same value-transport operation class. The next exact atlas tests
+all 32 causal source-region subsets for the auxiliary value term before literal c_v compilation.
