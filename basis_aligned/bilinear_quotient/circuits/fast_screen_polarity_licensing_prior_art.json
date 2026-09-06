@@ -1,0 +1,54 @@
+{
+  "aliases_searched": [
+    "NPI",
+    "any",
+    "anything",
+    "downward entailing",
+    "licensing",
+    "negation",
+    "negative polarity",
+    "never",
+    "polarity",
+    "something"
+  ],
+  "candidate_id": "polarity_licensing.never_vs_often",
+  "canonical_objects": [
+    "a negative-polarity licensing contrast carried to a shared verb token",
+    "never-versus-often choice of anything/something",
+    "the generalization test for this lane's neither axis"
+  ],
+  "decision_changed": "A selective site here licenses the DAS transfer test and decides how this lane describes its own neither-axis finding. Both branches are registered in advance so neither is retrofitted: transfer at or above 0.50 of the native direction reads as a shared negation axis; at or below 0.20 reads as a neither-specific feature; between is INCONCLUSIVE and stays that way rather than being resolved by raising rank.",
+  "matched_prior_claims": [
+    "circuits/followups/das_correlative_neither_axis_test_v1_result.json resolved the shared correlative direction as a `neither` axis: it transferred to both_vs_either at 0.036 and 0.020.",
+    "That result leaves open whether `neither` is a narrow lexical feature or one end of a general negation axis, and no behaviour in the corpus tests polarity licensing, so the question cannot currently be asked."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twenty-ninth behaviour and the corpus's first negative-polarity licensing screen. Every prior negation-adjacent screen contrasts CONNECTIVES (both/either/neither) at a coordination slot; this contrasts LICENSING CONTEXTS, with the licensor four tokens upstream of the read position and no coordination anywhere in the frame. It is a legitimate behaviour in its own right, and it is the precondition for the transfer test the neither-axis result requires: if the jointly-fitted correlative direction carries polarity here, `neither` was a negation feature all along; if it reads near zero, that axis is narrower than negation.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "families",
+        "reading",
+        "registered_thresholds"
+      ],
+      "sha256": "74fa47c0f865dad37a37ed4d1b5f7e89fe5788d5e568a748677c4ffb4aa66d85",
+      "source": "circuits/followups/das_correlative_neither_axis_test_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "site_results",
+        "selected_site_id"
+      ],
+      "sha256": "93a5e421b1bc09725eb27fe0de9a5730263dfdd78515a762e14cda685215395b",
+      "source": "circuits/fast_screens/correlative_pair_both_vs_either_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, following the open question left by the neither-axis resolution",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
