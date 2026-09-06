@@ -1,0 +1,21 @@
+{
+  "schema": "temporal_auxiliary_fresh_v4_capability_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_v4_capability_v1",
+  "registered_utc": "2026-09-06T18:28:00Z",
+  "question": "Does the sealed Next-year/Last-year authority provide a sufficiently live native capability panel for the frozen multi-cue H3 subspace confirmation?",
+  "authority": {
+    "builder_sha256": "31e40a5e8a8b285ce7afdb6327276c0aa28b4759083586d0310b0857c8b86764",
+    "builder_authority_sha256": "4df9233a0673b6cc526acbbde020ed98ad55bee740b018bfff0f392e013c9edc",
+    "invalid_predecessor": "The next/prior-stage v3 confirmation was invalid because native capability was below its frozen 75% per-side bar. No v3 intervention outcome is used here."
+  },
+  "frozen_design": {
+    "panels": ["A1 bare Next year/Last year", "A2 schedule-embedded Next year/Last year"],
+    "measurement": "Native answer-minus-foil margins for base and donor sides only; no intervention, fit, subspace, or H3 outcome is opened.",
+    "price": {"model_forwards": 4, "example_evaluations": 128, "records": 128}
+  },
+  "predictions": {
+    "pred_a_authority_and_price": "Authority holds; exactly 128 unique row-side records have finite margins at the exact registered price.",
+    "pred_b_joint_capability": "At least 28 of 32 rows are correct on both base and donor sides independently in each A1/A2 panel."
+  },
+  "decision": "manifest only if both predictions pass; otherwise invalid and design another capability authority before reopening the frozen subspace confirmation."
+}
