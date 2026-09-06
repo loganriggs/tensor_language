@@ -1,0 +1,33 @@
+{
+  "schema": "temporal_auxiliary_h3_rank2_downstream_v8_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_rank2_downstream_v8_v1",
+  "registered_utc": "2026-09-06T19:09:30Z",
+  "question": "Is the multi-cue rank-two H3 subspace an actual manipulable response variable that transports into weight-predicted L15H5/H1 on sealed v8?",
+  "authority": {
+    "stable_upstream_core_sha256": "dd64838525519a3addd679d1dbbcd6c7e18465b16a1faf06bea23940ef6d51f9",
+    "v8_h3_sufficiency_sha256": "199a534dc2aea9607aeae4a4033f76b27a515e8b884cbdab057f236f2d59daac",
+    "rank2_subspace_sha256": "d84c72d9d3c87a159fb453efc9ce9000fb8bfb7f3d2c34c96a3f7238914879c9",
+    "weight_interface_sha256": "5bf804ee1e61f918edceb0dc9e31ac68fa157de384a943391c4ca4eeb672246a",
+    "downstream_prediction": "The exact weight interface ranks L15H5 first and places L15H1 at percentile 0.887 among known downstream attention readers."
+  },
+  "frozen_design": {
+    "population": "The 29 A1 and 31 A2 jointly capable v8 rows.",
+    "writer": "Exact L8H1 cue-to-subject write, used only to capture the live block11 H3 response.",
+    "response_arms": {
+      "h3_full": "Install the complete captured H3 query-response delta into the native base run.",
+      "h3_rank2": "Install only Q Q^T times that delta for the frozen two-task DIM-union basis Q.",
+      "h3_orthogonal": "Install only (I-Q Q^T) times the same delta.",
+      "base_identity": "No response installed."
+    },
+    "downstream": "Capture block15 head outputs and score the joint L15H5/H1 response relative to h3_full, alongside answer/foil recovery.",
+    "price_max": {"model_forwards": 20, "example_evaluations": 1200, "records": 300, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_instrument_and_price": "Authorities, capability, QR orthonormality, attention reconstruction, identity, patch algebra, complete records, and price hold.",
+    "pred_b_full_h3_response_is_material": "h3_full is donorward on at least 90% of rows and recovers at least 30% of live-writer behavior in both panels.",
+    "pred_c_rank2_is_behaviorally_sufficient": "h3_rank2 retains at least 80% of h3_full signed behavioral recovery with at least 90% donorward rows in both panels.",
+    "pred_d_orthogonal_complement_is_secondary": "Absolute h3_orthogonal behavioral recovery is at most 30% of h3_full in both panels.",
+    "pred_e_rank2_transports_to_weight_predicted_l15_pair": "The rank-two arm retains at least 75% of the full H3-induced joint L15H5/H1 response norm in both panels."
+  },
+  "decision": "identification if all pass; representation_only if B holds but C/D/E fail; null if full H3 is immaterial; invalid if A fails."
+}

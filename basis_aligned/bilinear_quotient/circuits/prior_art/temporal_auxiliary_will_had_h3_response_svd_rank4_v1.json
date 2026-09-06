@@ -1,0 +1,30 @@
+{
+  "schema": "temporal_auxiliary_h3_response_svd_rank4_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_response_svd_rank4_v1",
+  "registered_utc": "2026-09-06T19:15:00Z",
+  "question": "Does a basis fitted to the full causal H3 response object, rather than scalar/complement loss, recover the functionally missing rank-two branch on sealed v8?",
+  "authority": {
+    "rank2_actuation_sha256": "8a2bfe5ba7ab5626db132509e637fd5df97bd306c7788c03bd180eb7628d8562",
+    "fit_builders": {
+      "Later_Previously": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+      "future_past": "adbfaf91ed2889cc42da85255edf9f5074f1002e9ad93dc1d4ff706de66d1144"
+    },
+    "sealed_v8_builder": "13c0ae6424cc936dfa4ccb6ec89cd696e4b2c1267c2a4ebeeebd1a313bb443cf",
+    "sealed_v8_capability": "fe9255aa8221fe68331bc49c43f1b59cf5909c599f96ff5f36bf653ea1162cff"
+  },
+  "frozen_design": {
+    "fit_object": "Stack every actual L8H1-induced block11 H3 output delta at every causal position from v1/v2 A1/A2, without labels, logits, v8 rows, or parameter updates. Use the leading four right singular vectors of this uncentered response matrix.",
+    "matched_baseline": "Replay the previously frozen two-task DIM-union rank-two basis in the same v8 instrument.",
+    "v8_arms": ["base_identity", "writer_live", "h3_full", "h3_frozen_rank2", "h3_response_rank4", "h3_response_rank4_orthogonal"],
+    "outcomes": "Signed answer/foil recovery and joint L15H5/H1 response norms on the 29/31 capable v8 rows.",
+    "price_max": {"model_forwards": 40, "example_evaluations": 1200, "records": 360, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_seal_exact_instrument_and_price": "All authorities, no-v8-fit seal, orthonormality, attention reconstruction, identity/projection closure, complete records, and price hold.",
+    "pred_b_rank4_captures_training_response_object": "Rank four captures at least 85% of v1/v2 causal-response Frobenius energy; this is a fit control, not circuit evidence.",
+    "pred_c_rank4_is_fresh_behaviorally_sufficient": "On both v8 panels rank four retains at least 90% of full-H3 behavior and improves over frozen rank two by at least 10 percentage points.",
+    "pred_d_rank4_orthogonal_complement_is_selective": "Absolute orthogonal-complement behavior is at most 15% of full H3 in both panels.",
+    "pred_e_rank4_restores_downstream_transport": "Rank four retains at least 85% of full H3-induced L15H5/H1 response and improves over frozen rank two by at least 10 points in both panels."
+  },
+  "decision": "identification if all pass; insufficient_rank if A/B hold but C/D/E fail; wrong_object if B fails or rank four does not beat rank two; null if full H3 loses materiality; invalid if A fails."
+}
