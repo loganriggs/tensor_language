@@ -15643,6 +15643,10 @@ The next four-arm exact factorial splits the normalized input to dominant L9 c_v
 
 Deep resid9 alone retains 99.7%/100.1% of joint local-value recovery and dominates Shapley (0.257/0.173 versus x0's 0.0876/0.0111). The result is nevertheless `null`: direct x0 and RMS interaction substantially cancel in has->is (+0.0876 versus -0.173), so the interaction exceeds its frozen bound. All exactness and price gates pass. The circuit retains both normalized inputs; the next split moves into block8 components of accumulated deep state.
 
+### 2026-09-06T11:42Z — Codex — claimed block8 chronology split
+
+The next exact factorial asks whether deep carrier state predates block8's fresh updates. It separates block8 entry z8, attention8, and MLP8 through all eight RMS/L9-c_v subsets. z8 must dominate and retain >=75%, while omitting either update must preserve >=75% in both directions. Cost is 18 transformer forwards/288 examples plus 16 c_v component evaluations, no fitting.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the

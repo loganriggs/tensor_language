@@ -1,0 +1,40 @@
+{
+  "schema": "aspectual_tense_h1h4_deep_resid9_block8_factorial_prior_art_v1",
+  "candidate_id": "aspectual_tense.h1h4_deep_resid9_block8_factorial_v1",
+  "created_utc": "2026-09-06T11:41:00Z",
+  "evidence_class": "exact_preceding_block_component_factorial",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*block8*carrier*", "circuits/followups/*block8*carrier*", "circuits/prior_art/*deep*resid9*", "circuits/followups/*deep*resid9*", "AGENT_BOARD.md"],
+    "nearest_result": "Deep resid9 alone reproduces 99.7%/100.1% of the localized L9 local-value route, but its internal block8 entry, attention update, and MLP update have not been causally separated on the cross-task carrier outcome.",
+    "new_question": "Is the deep resid9 carrier state already present at block8 entry, or freshly written by attention8 or MLP8?"
+  },
+  "authorities": {
+    "deep_input_result_sha256": "a9281216e53650ee8ddd9fef83b78b8198d67ae2110f9bf8664facb12fd1b35c",
+    "deep_input_instrument_sha256": "bf97fd9a88fd2b793358fd1285f9bd28e5749d436055eea76fbe883c6fdc9914",
+    "exact_attention_instrument_sha256": "8e890efd3520cfbece1d71f3ffb58397c732d8fc9c9446c74af9ac0380f2ca01",
+    "shared_cross_task_evaluator_sha256": "6b8762d6d6c060b96524b16a27f58dd74e8a7f3958234fc3e56ccf35354232f1"
+  },
+  "population": "The same 16 matched cross-task A1 pairs, both orientations, task-indexed H1/H4 carrier groups, and recipient-native L9 routing.",
+  "factorial": {
+    "block8_identity": "x9 = z8 + attn8 + mlp8, where z8 is block8's post-lambda mixed input and attn8/mlp8 are the exact native module outputs. The block9 deep input is block9.lambdas[0]*x9.",
+    "arms": "Evaluate all eight subsets of scaled z8, attn8, and mlp8 through RMS and fixed L9 c_v with block9 direct x0 excluded; form side-native normalized carrier differences and insert them at recipient H1/H4 before c_proj.",
+    "capture": "The RMS-call/c_v adjacency captures z8 and z9; forward hooks capture attn8 and mlp8 outputs. Exact x9/deep9 and joint-V9 closure are required.",
+    "identification_boundary": "z8 includes every computation through block7 and block8's own x0 mixing. This test localizes only whether block8's two fresh module updates are necessary.",
+    "fitting": "none",
+    "no_rescue": "No component, layer, RMS rule, carrier role, arm, head, row, orientation, or threshold changes after execution."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_block_factorial": "Hashes/capability pass; x9/deep9 recombination, joint deep-V9, local-content, source reconstruction, Möbius efficiency, finiteness, and coverage errors are <=1e-4.",
+    "pred_b_deep_route_recurrence": "The all-component arm remains within 0.05 of deep-input recoveries 0.34396155730965494 and 0.184366512527354 with direction fraction 1.0.",
+    "pred_c_state_preexists_block8_updates": "z8 has positive Shapley contribution, exceeds attn8 and mlp8 individually in both orientations, and its single arm retains >=0.75 of all components with direction >=0.75.",
+    "pred_d_each_block8_update_is_nonessential": "Both leave-one-update arms, z8+attn8 and z8+mlp8, retain >=0.75 of all components with direction >=0.75 in both orientations.",
+    "pred_e_exact_zero_fit_price": "Exactly 18 transformer forwards/288 examples plus 16 disclosed L9 c_v component batch evaluations, 16 subset-orientation arms, zero fit/search/backward/update."
+  },
+  "terminal": {
+    "screen": "A-E pass: the carrier state predominantly predates block8's fresh attention and MLP updates.",
+    "null": "Instrument and deep-route recurrence pass but the preexisting-state or nonessential-update prediction misses.",
+    "invalid": "Authority, capability, capture, exact closure, recurrence, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["deep carrier-state chronology", "block8 attention/MLP components", "normalized L9 value input", "selective manipulation"],
+  "price": {"model_forwards": 18, "example_evaluations": 288, "c_v_component_batch_evaluations": 16, "subset_orientation_arms": 16, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
