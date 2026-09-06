@@ -1,0 +1,45 @@
+{
+  "schema": "temporal_auxiliary_will_had_fresh_writer_block11_h3_response_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_block11_h3_response_v1",
+  "created_utc": "2026-09-06T13:40:00Z",
+  "evidence_class": "prospective_external_hypothesis_exact_native_head_response_transplant",
+  "question": "Does block11 H3 carry most of the downstream attention response to the exact fresh cue-written subject state?",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*block11*h3*", "circuits/followups/*block11*h3*", "circuits/followups/aspectual_anchor_attention11_15_single_head_confirmation_v1_result.json", "circuits/followups/head_localization_number_attn11_v1_result.json", "AGENT_BOARD.md"],
+    "external_hypothesis": "H3 was selected and confirmed as the dominant block11 suffix head on disjoint has/had rows (81.44% of the four-head increment), and an independent whole-head screen found it active across number routes and a tense control. These authorities predate and do not use the fresh Later/Previously head-response outcomes.",
+    "novelty": "First test of whether external H3 identity predicts the full block11 response induced specifically by the exact fresh block8H1 cue writer."
+  },
+  "authority": {
+    "fresh_offset": {"path": "circuits/followups/temporal_auxiliary_will_had_fresh_writer_subject_consumer_offset_v2_result.json", "sha256": "864f40e041cd4028c242fb96c816347875c59511d04e908372fd533b8c58c7ca", "terminal": "null", "boundary11_recovery": {"A1": 0.09417874839356316, "A2": 0.059744184811890595}},
+    "aspectual_h3_confirmation": {"path": "circuits/followups/aspectual_anchor_attention11_15_single_head_confirmation_v1_result.json", "sha256": "be2c405c4b7023c57d4a11baf9be0bc999fb3835908f34fb88c1011ab146353f", "terminal": "screen", "head": 3, "singleton_to_four_fraction": 0.8143526077237474},
+    "independent_whole_head_screen": {"path": "circuits/followups/head_localization_number_attn11_v1_result.json", "sha256": "70011cd36792a6040047d2c7d0d50f4818bde3b4a814750f6191d7de74a57559", "selected_head": 3, "lesson": "H3 is an auxiliary-slot writer rather than a number-specific unit."},
+    "head_response_evaluator": {"path": "ops/attention_source_destination_eval.py", "sha256": "806bd970b773c839cf4eb8d74c1fdbf4102fda32d2188d22daa8a1d5624c2bdf"},
+    "writer_capture": {"path": "ops/attention_path_mediation_eval.py", "sha256": "9180ef34ec376729103e200ae2b2a2ce93d5f8ed0b293b0b1b459a55d71a079d"},
+    "invalid_component_receipts_excluded": [
+      {"path": "circuits/followups/temporal_auxiliary_will_had_fresh_writer_block11_crossing_cube_v1_result.json", "sha256": "6d4c6f6cd1785fe58a75e78c9ee946c5c8a46ef29ebb410cc00a864a5d8f6519"},
+      {"path": "circuits/followups/temporal_auxiliary_will_had_fresh_writer_block11_crossing_cube_v2_result.json", "sha256": "278259e520adae2b4df39bea0d39f9caf0710fe848ece8a792ffda60aad9d68f"}
+    ]
+  },
+  "data_status": "No per-head block11 response to the fresh writer has been measured. Invalid component cubes exposed only aggregate attention arms and cannot select or confirm a head. H3 is frozen solely from earlier independent authorities.",
+  "population": "All 64 sealed fresh Later/Previously A1/A2 rows; eight native capability cells already passed.",
+  "fixed_intervention": {
+    "capture": "Capture native block11 head outputs and the block11 head outputs produced when only the exact writer-actuated subject vectors are patched at boundary11.",
+    "transplant": "Into an otherwise native base run, add changed-minus-native head-output response tensors at all causal destinations for all nine heads, H3 alone, or its eight-head complement.",
+    "arms": ["direct_boundary11", "all_heads", "h3", "complement"],
+    "endpoint": "Natural temporal donor recovery on row-native answer-minus-foil logits."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_head_response_instrument": "All hashes, rows, capability cells, nine-head inventory, both attention reconstructions, native identity, finite coverage, and hook destinations pass within 1e-4.",
+    "pred_b_direct_boundary11_recurrence": "The live boundary11 subject patch recurs 0.0941787484/0.0597441848 within 1e-6 with direction 1.0.",
+    "pred_c_all_head_response_is_material": "All-head response recovery is at least 0.05 A1 and 0.03 A2 with direction at least 0.75.",
+    "pred_d_external_h3_dominates_fresh_response": "H3 alone retains at least 75% of all-head response with direction at least 0.75 in A1 and A2; the complement has absolute recovery at most 25% of all-head response in each family.",
+    "pred_e_exact_zero_fit_price": "Exactly 16 forwards, 512 example evaluations, and 256 finite intervention records; zero fits, grids, roots, backwards, updates, or learned scalars."
+  },
+  "terminal": {
+    "screen": "A-E pass: prospectively promote block11 H3 as the dominant native consumer of the fresh cue writer and next localize its source term.",
+    "null": "A-C and E pass but H3 dominance fails; retain the all-head response and screen all heads under a new registered selection split.",
+    "invalid": "Authority, exactness, recurrence, capability, finiteness, coverage, or price fails."
+  },
+  "price": {"model_forwards": 16, "example_evaluations": 512, "intervention_records": 256, "fit_parameters": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0},
+  "scope_boundary": "A screen identifies H3 as the native response carrier for this path; exact source-token identity, selective necessity, joint mediation with block9, and complete program composition remain separate tests."
+}
