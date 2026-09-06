@@ -168,3 +168,41 @@ be installed as an actual H3 response—not merely used as a measurement project
 tested for behavioral sufficiency, orthogonal-complement inertness, and transport into the
 weight-predicted L15H5/H1 reader pair on v8. This directly decides whether the DAS-derived
 subspace is a manipulable circuit variable with a weight-readable downstream interface.
+
+That actuation falsifies the stronger interpretation of the frozen rank-two union. Full H3
+actuation is material, but the rank-two subspace carries only 74.72%/71.54% of its behavioral
+effect and 66.28%/71.18% of its induced L15H5/H1 response; the orthogonal complement still
+carries 25.43%/28.58% behavior. It is therefore a useful probe coordinate system, not yet a
+selectively manipulable circuit variable. This is also a direct red team of complement-loss
+DAS: a low-dimensional axis can look meaningful without making its complement causally inert.
+
+A label-free rank-four SVD of the actual L8H1-induced H3 responses was then fit on v1/v2 and
+sealed before v8. It captured 87.97% of training response energy, yet recovered only
+73.06%/71.30% of full-H3 behavior and 63.92%/60.69% of L15H5/H1 transport—no improvement over
+the frozen rank-two basis—and its complement retained 27.02%/28.75% behavior. This is a
+wrong-object result, not evidence that optimization is inherently inferior to
+difference-in-means: raw activation-response variance is not the downstream functional
+metric. The next test retains the cross-environment rank-two semantic core and augments it
+with two directions selected solely by exact H3-output-to-L15H5/H1 weight contractions. It
+therefore tests the proposed tensor writer/reader geometry without fitting labels or a
+task-specific scalar readout; held-out v8 behavior and complement remain decisive.
+
+The checkpoint-only reader augmentation produces the first clear improvement in the
+manipulable H3 variable. Relative to frozen rank two, rank-four behavioral coverage rises
+from 74.72% to 87.19% in A1 and 71.54% to 82.66% in A2; L15H5/H1 transport rises from
+66.28% to 84.56% and 71.18% to 82.50%. The behavioral complement falls to 13.08%/17.48%,
+passing its selectivity gate. The basis itself captures 22.01% of the normalized static
+reader-map energy versus 5.83% for rank two. This remains a registered near-miss, not an
+identification: A2 behavior and both transport panels miss the frozen 85% floors (A1
+transport by only 0.44 points). The contrast is nevertheless diagnostic. Exact weights
+recover causal functional modes that both scalar/complement DAS and 88%-energy response
+SVD missed, while the residual gap shows that static incidence alone omits
+activation-conditioned attention routing and intervening transformations.
+
+The efficient next screen is a nested rank sweep of the same label-free weight singular
+modes, retaining the frozen semantic core and measuring the behavior/transport/complement
+Pareto frontier. The smallest stable rank will then be sealed on a new capability bank.
+Only after fixing this weight-derived hypothesis class should constrained DAS optimize a
+small residual correction, with multi-environment fitting plus noise/KL/invariance
+regularization; otherwise regularization can stabilize an objective that is still aimed at
+the wrong scalar target.

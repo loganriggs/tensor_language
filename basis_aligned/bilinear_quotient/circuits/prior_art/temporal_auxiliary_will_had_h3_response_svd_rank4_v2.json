@@ -1,0 +1,24 @@
+{
+  "schema": "temporal_auxiliary_h3_response_svd_rank4_prior_v2",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_response_svd_rank4_v2",
+  "registered_utc": "2026-09-06T19:19:30Z",
+  "question": "Does the v1 causal-response rank-four test pass after the sole instrument correction of thin-QR-normalizing its numerically loose SVD basis?",
+  "authority": {
+    "invalid_v1_result_sha256": "0a04afa03e47e888271f38d8111b1d104961eb36aee2589b54f93b216020cbf8",
+    "invalid_v1_runner_sha256": "ae984f28ef6e9b8a830a36600f212fa4bd8c42599150f6e74daf2463cacc663f",
+    "invalid_reason": "Raw SVD basis orthonormality error was 3.37e-5, above the frozen 1e-5 exactness gate; all apparent functional outcomes remain unscored."
+  },
+  "frozen_design": {
+    "sole_change": "Replace q4 = Vh[:4].T with q4 = qr(Vh[:4].T).Q. This preserves the exact four-dimensional span while satisfying the same gauge convention already used for the frozen rank-two basis.",
+    "unchanged": "Fit rows/object, rank, v8 population, arms, downstream heads, all scientific thresholds, price, and decision labels are byte-for-byte inherited from v1.",
+    "price_max": {"model_forwards": 40, "example_evaluations": 1200, "records": 360, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_seal_exact_instrument_and_price": "All v1 exactness/authority/price gates pass after QR.",
+    "pred_b_rank4_captures_training_response_object": "Unchanged: at least 85% fit response energy.",
+    "pred_c_rank4_is_fresh_behaviorally_sufficient": "Unchanged: at least 90% full H3 and +10 points over rank two in both panels.",
+    "pred_d_rank4_orthogonal_complement_is_selective": "Unchanged: at most 15% in both panels.",
+    "pred_e_rank4_restores_downstream_transport": "Unchanged: at least 85% L15H5/H1 and +10 points over rank two in both panels."
+  },
+  "decision": "Same as v1; score all functional predictions only if A passes."
+}

@@ -23,7 +23,7 @@ import residual_source_onset_eval as onset
 import run_temporal_auxiliary_will_had_h3_rank2_downstream_v8_v1 as instrument
 
 ROOT = Path(__file__).resolve().parents[1]
-PRIOR = ROOT / "circuits/prior_art/temporal_auxiliary_will_had_h3_response_svd_rank4_v1.json"
+PRIOR = ROOT / "circuits/prior_art/temporal_auxiliary_will_had_h3_response_svd_rank4_v2.json"
 RANK2_RESULT = ROOT / "circuits/followups/temporal_auxiliary_will_had_h3_rank2_downstream_v8_v1_result.json"
 SUBSPACE = ROOT / "circuits/followups/temporal_auxiliary_will_had_block11h3_multicue_subspace_v2_result.json"
 CAPABILITY = ROOT / "circuits/followups/temporal_auxiliary_will_had_fresh_v8_capability_v1_result.json"
@@ -31,10 +31,10 @@ V1 = ROOT / "ops/circuit_candidate_temporal_auxiliary_fresh_cues_v1.py"
 V2 = ROOT / "ops/circuit_candidate_temporal_auxiliary_fresh_cues_v2.py"
 V8 = ROOT / "ops/circuit_candidate_temporal_auxiliary_fresh_cues_v8.py"
 INSTRUMENT = ROOT / "ops/run_temporal_auxiliary_will_had_h3_rank2_downstream_v8_v1.py"
-OUT = ROOT / "circuits/followups/temporal_auxiliary_will_had_h3_response_svd_rank4_v1_result.json"
-CANDIDATE_ID = "temporal_auxiliary.will_vs_had.h3_response_svd_rank4_v1"
+OUT = ROOT / "circuits/followups/temporal_auxiliary_will_had_h3_response_svd_rank4_v2_result.json"
+CANDIDATE_ID = "temporal_auxiliary.will_vs_had.h3_response_svd_rank4_v2"
 EXPECTED = {
-    "prior": "84c0da0724d02ee5e3d5acebf05828334d327c34958cd95b90afb762c118db4b",
+    "prior": "0ebf4879e5172b982e42a89c638efcbc9de767a61d4de1f237d02287b61171f5",
     "rank2_result": "8a2bfe5ba7ab5626db132509e637fd5df97bd306c7788c03bd180eb7628d8562",
     "subspace": "d84c72d9d3c87a159fb453efc9ce9000fb8bfb7f3d2c34c96a3f7238914879c9",
     "capability": "fe9255aa8221fe68331bc49c43f1b59cf5909c599f96ff5f36bf653ea1162cff",
@@ -118,7 +118,7 @@ def main():
     evaluations = sum(item[2] for item in fit_captures)
     reconstruction = max(item[3] for item in fit_captures)
     _u, singular, vh = backend.torch.linalg.svd(response, full_matrices=False)
-    q4 = vh[:4].T.contiguous()
+    q4 = backend.torch.linalg.qr(vh[:4].T.contiguous(), mode="reduced").Q
     q2 = backend.torch.linalg.qr(backend.torch.tensor(
         subspace["axis_artifacts"]["two_task_dim_union_rank2"], device=backend.device).float(),
         mode="reduced").Q
@@ -210,10 +210,11 @@ def main():
         if all(predictions.values()) else "wrong_object" if not pred_b or not all(
             behavior_fraction[p]["h3_response_rank4"] > behavior_fraction[p]["h3_frozen_rank2"]
             for p in ("A1", "A2")) else "insufficient_rank")
-    result = {"schema": "temporal_auxiliary_h3_response_svd_rank4_result_v1",
+    result = {"schema": "temporal_auxiliary_h3_response_svd_rank4_result_v2",
         "candidate_id": CANDIDATE_ID, "execution_policy": "managed_queue_only",
         "started_utc": started_utc, "finished_utc": utc_now(), "serial_seconds": time.perf_counter()-started,
         "authority_sha256": EXPECTED, "dryrun": dryrun,
+        "post_invalid_correction": "thin_qr_gauge_only_scientific_design_unchanged",
         "fit": {"response_vectors": int(response.shape[0]), "dimension": int(response.shape[1]),
             "rank": 4, "training_energy_fraction": training_energy,
             "leading_singular_values": [float(x) for x in singular[:12]],

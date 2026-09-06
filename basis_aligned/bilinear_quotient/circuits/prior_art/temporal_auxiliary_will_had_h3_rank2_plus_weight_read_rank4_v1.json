@@ -1,0 +1,26 @@
+{
+  "schema": "temporal_auxiliary_h3_rank2_plus_weight_read_rank4_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_rank2_plus_weight_read_rank4_v1",
+  "registered_utc": "2026-09-06T19:22:20Z",
+  "question": "Can exact downstream weight geometry add the two functionally read H3 modes that variance-SVD and scalar/complement DAS miss?",
+  "motivation": {
+    "rank2_actuation": "The frozen cross-environment rank-two semantic union carries only 71-75% of full-H3 behavior and 66-71% of L15H5/H1 transport.",
+    "response_svd_red_team": "A rank-four basis captured 87.97% of fit response energy but did not improve either held-out causal metric, identifying raw response variance as the wrong object.",
+    "user_hypothesis": "Translate a shared activation subspace through actual weights to identify which components read and write it, then test that tensor-derived interface causally."
+  },
+  "frozen_design": {
+    "semantic_core": "Thin-QR normalization of the already frozen v1/v2 rank-two H3 union; no refitting.",
+    "weight_reader_map": "Map H3 head coordinates through the L11H3 output slice, then through the normalized q/k/q2/k2/v input-weight sections of L15H5 and L15H1. Stack all ten maps.",
+    "augmentation": "Project the stacked reader map orthogonal to the semantic rank-two core, take its top two right singular vectors, and thin-QR the four-column union. This uses checkpoint tensors only: no labels, margins, examples, gradients, or fit updates.",
+    "sealed_test": "Actuate full H3, frozen rank two, weight-derived rank four, and its exact orthogonal complement on the already capability-frozen v8 population. Measure answer/foil behavior and induced L15H5/H1 head-output response only after the basis is fixed.",
+    "price_max": {"model_forwards": 24, "example_evaluations": 1200, "records": 360, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_exact_instrument_and_price": "All authorities match; bases are orthonormal within 1e-5; reconstruction/identity/projection errors and price pass frozen gates.",
+    "pred_b_weight_modes_add_static_reader_energy": "Rank four captures at least 10 percentage points more normalized static L15H5/H1 reader-map energy than rank two.",
+    "pred_c_weight_rank4_improves_fresh_behavior": "In both v8 panels rank four carries at least 85% of full-H3 behavior and improves at least 8 points over frozen rank two.",
+    "pred_d_weight_rank4_complement_is_selective": "The rank-four orthogonal complement carries at most 18% of full-H3 behavior in both panels.",
+    "pred_e_weight_rank4_improves_downstream_transport": "In both panels rank four carries at least 85% of full-H3 L15H5/H1 response and improves at least 8 points over frozen rank two."
+  },
+  "decision": "Identification requires A-E. If B passes but causal predictions C-E do not, static tensor incidence is an incomplete functional metric (activation-conditioned routing/intervening nonlinearities are required). If B fails, invalidate the construction rather than interpreting behavior."
+}
