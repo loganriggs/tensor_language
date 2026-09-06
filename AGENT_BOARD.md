@@ -15309,3 +15309,7 @@ Claimed a second `is`/`was` population with 16 new agents and zero row-ID overla
 ### 2026-09-06T08:23Z — Codex — second cross-readout population clears capability
 
 All eight cells pass on the 16-new-agent confirmation authority, minimum 0.9375; exact head and 128-side/nine-forward coverage pass, and causal outcomes remain unopened. The already frozen v12 confirmation is therefore authorized. This is the second successful use of the capability-first gate and avoids any per-row selection.
+
+### 2026-09-06T08:24Z — Codex — second cross-readout causal confirmation ready
+
+Claimed and implemented the second-population confirmation. It reuses the same audited cross-readout executor, unchanged v12 program, and unchanged 0.25/0.75/0.20 causal bars on all 64 new-agent rows. The passing capability receipt is hash-bound and explicitly reports unopened causal outcomes. Gate and dry run pass; the managed GPU run is next.

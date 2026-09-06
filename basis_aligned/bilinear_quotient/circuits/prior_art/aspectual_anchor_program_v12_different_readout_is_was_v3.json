@@ -1,0 +1,35 @@
+{
+  "schema": "aspectual_anchor_program_v12_different_readout_is_was_prior_art_v3",
+  "candidate_id": "aspectual_anchor.has_vs_had.program_v12_different_readout_is_was_v3",
+  "created_utc": "2026-09-06T08:23:00Z",
+  "question": "Does the frozen v12 cross-readout effect confirm on a second capability-qualified population with 16 new agents?",
+  "authority": {
+    "capability_result_sha256": "744d2fd3c8200ca00005357961df3d435a7a13dbdbd7c3a51a487daee76acec3",
+    "v2_causal_screen_sha256": "946131422a9d155551627617b3e5f4bb2f4331c5eb792aef96c996e07ab2840a",
+    "builder_sha256": "ac240f13478168948814f59c0425270dd345ba03053332b72b34857e9a022638",
+    "rows_sha256": "35dc18a4e95764bc2126fc18d672d2f7666e4bc1c84a7bcc06d1299b820d7ad2",
+    "program_v12_release_sha256": "ed6afb3455bf5bfeea6e36f65ce33e9199290cb26540ee94da2c42accc785e7c",
+    "rank1_result_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "rank1_basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"
+  },
+  "frozen_confirmation": {
+    "program": "Unchanged v12 fixed has/had resid10 read, four coefficients, and q write; is/was IDs only score the fixed write.",
+    "population": "All 64 v3 rows and 16 new agents; capability is open and all cells passed, causal outcomes remain sealed.",
+    "bars": {"A1_recovery_min": 0.25, "A2_recovery_min": 0.25, "P_reflection_min": 0.25, "direction_fraction_min": 0.75, "C_max": 0.20}
+  },
+  "predictions": {
+    "pred_a_authority_population_capability_and_exact_head": "All hashes, passing capability, all rows, exact head, and basis pass.",
+    "pred_b_frozen_cross_readout_program": "Gain remains independent of is/was IDs, final margin, donor activation, and outcomes.",
+    "pred_c_is_was_A_transfer": "A1 and A2 each reach recovery >=0.25 and direction >=0.75.",
+    "pred_d_is_was_P_generalization": "P reaches reflection >=0.25 and direction >=0.75.",
+    "pred_e_C_selectivity": "C <=0.20.",
+    "pred_f_exact_coverage_and_price": "64 interventions within 21 forwards/328 examples/224 pairs, zero grids/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-F pass: confirm cross-readout reuse across a second agent lexicon.",
+    "null": "Valid confirmation misses reuse bars; retain v2 as a single-population screen.",
+    "invalid": "Authority, capability, head, basis, gain, or coverage failure."
+  },
+  "circuit_targets": ["held-out and OOD prediction", "selective manipulation", "composition and reuse", "stable identification"],
+  "price": {"counted_forwards_max": 21, "example_evaluations_max": 328, "selected_head_pair_evaluations": 224, "grid_evaluations": 0, "model_backwards": 0, "model_updates": 0, "inherited_fit_parameters": 4}
+}
