@@ -278,3 +278,14 @@ repair changed no scientific condition. The next tensor property to extract is t
 eight-coordinate final reader: contract these residual modes with the analytic final
 RMS-normalization and unembedding Jacobian, then test whether upstream H3 coefficients and
 downstream weight-derived reader coefficients predict the per-row causal margin effect.
+
+That analytic factorization passes with effectively exact predictive performance. For every
+sealed v10 row, the upstream coordinate vector is the live H3 delta contracted with Q8; the
+downstream coordinate vector is the eight weight-derived residual modes contracted with the
+analytic final RMS-normalization and answer-minus-foil unembedding Jacobian. Their dot product
+predicts the exact direct-route causal margin effect with cosine 0.99999985/0.99999991 and
+relative RMSE 0.056%/0.047% in A1/A2. The largest coordinate supplies only 46.6%/44.5% of mean
+absolute contribution (coordinate 0 in both), so the robust variable is genuinely distributed
+over the compact eight-dimensional interface. This realizes the desired tensor use: actual
+weights identify the downstream reader and, together with measured upstream coefficients,
+predict intervention behavior row by row without a fitted task objective.
