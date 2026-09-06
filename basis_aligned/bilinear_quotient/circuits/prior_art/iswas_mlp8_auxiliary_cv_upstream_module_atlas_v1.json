@@ -1,0 +1,42 @@
+{
+  "schema": "iswas_mlp8_auxiliary_cv_upstream_module_atlas_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_auxiliary_cv_upstream_module_atlas_v1",
+  "registered_utc": "2026-09-06T23:00:17Z",
+  "purpose": "Module-first causal localization of the complete upstream responses that construct the post-cue residual changes read by L11H1/H3 and L15H5 through their literal c_v maps.",
+  "authority": {
+    "local_weight_compiler_sha256": "57717c1f38013943273db9eb4076ad5d3191b72d8b14e85fa333b8239650cf34",
+    "local_weight_compiler_runner_sha256": "81d01c6594d80c84d500e14bf4dd4896edb0e81bc38fa25bb6596f4abf4c27ce",
+    "v12_source_transfer_sha256": "acacbd917e52a5cdc6d2b43bf374af3f35583376977b0d551bb0c57d78d2fab5",
+    "frozen_source": "post_cue_before_subject",
+    "readers": {
+      "attention11": [1, 3],
+      "attention15": [5]
+    }
+  },
+  "sites": [
+    "mlp:09",
+    "attn:10",
+    "mlp:10",
+    "attn:11",
+    "mlp:11",
+    "attn:12",
+    "mlp:12",
+    "attn:13",
+    "mlp:13",
+    "attn:14",
+    "mlp:14"
+  ],
+  "additional_arms": [
+    "l9_core_live",
+    "all_intervening_removed",
+    "l9_core_live_and_all_intervening_removed"
+  ],
+  "predictions": {
+    "pred_a_authority_capture_self_clamp_causal_order_finiteness_and_price": "Authorities, exact site inventory, base capture identity, causal-order zero tripwires, and finite metrics pass at <=19 forwards/570 examples with zero fits, backwards, or updates.",
+    "pred_b_each_reader_has_a_stable_material_upstream_module": "For L11 and L15 separately, at least one causally prior singleton site removes >=10% of post-cue c_v response norm with cosine >=.50 in both panels.",
+    "pred_c_joint_removal_distinguishes_residual_skip_from_module_conversion": "Both all-intervening arms, with L9H1/H4 clamped as in the parent and with them live, are measured for each reader; their response-norm fractions and residual remainder are finite and reported without assuming additivity.",
+    "pred_d_l11_causal_order_tripwire": "Sites attention11 and later change the L11 input response by <=1e-6, because they execute at or after the L11 attention input.",
+    "pred_e_zero_fit_complete_module_inventory": "All 11 complete-module singleton removals and all three registered grouped arms execute without head splitting or outcome-dependent selection."
+  },
+  "decision": "A stable singleton advances to a fresh confirmation and within-module split only if attention is selected. If no singleton is stable but a grouped removal is material, freeze a greedy complete-module combination in causal order. If even the grouped removal is small, compile the direct MLP8 residual-skip contribution instead."
+}
