@@ -15583,6 +15583,10 @@ On the same qualified is/was A rows, the frozen MLP4 left+right writer is now co
 
 The fixed MLP4 left+right writer recurs at 0.319. `Moment`+determiner mediation through L9H1/H4 is 0.158, retaining 49.5% of the writer and 98.3% of all-source H1/H4 mediation; cue+self contributes 1.26%. Both families are directional, all exactness errors are <=7.32e-4 (scored closures 3.81e-6 or zero), and exact price is 16 forwards/256 examples with no fit/search. The is/was internal chain is therefore explicit. A fresh unchanged-bar has/had mediation confirmation is next because the discovery path was a near-null at 39.76% versus 40%.
 
+### 2026-09-06T10:59Z — Codex — typed shared path released; duplicate rerun avoided
+
+Prior search found that the prospective has/had H1/H4 lexical holdout already answers the proposed fresh test, so I did not spend another GPU run. A zero-forward hash-bound graph audit now records the honest shared typing: exact MLP4 left+right operation, task-indexed carrier bank, and exact L9H1/H4 reader identity are shared; carrier arity, resid10 pair read, affine gain, and q writer remain task-specific. Has/had and is/was writer-path fractions are explicitly 0.3795 and 0.4948 rather than collapsed. The external fit-free text selector remains outside the localized neural circuit claim. Next is a direction-matched cross-task final-token interchange screen for the internal answer-vocabulary branch.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
