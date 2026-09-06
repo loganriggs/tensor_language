@@ -20,6 +20,7 @@ BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v8.
 HEAD_ATLAS = ROOT / "circuits/followups/iswas_mlp8_complement_attn9_head_converter_atlas_v1_result.json"
 OUT = ROOT / "circuits/followups/tense_auxiliary_is_was_fresh_lexicon_v8_capability_v1_result.json"
 CANDIDATE_ID = "tense_auxiliary.is_vs_was.fresh_lexicon_v8_capability_v1"
+RESULT_SCHEMA = "tense_auxiliary_is_was_fresh_lexicon_v8_capability_result_v1"
 EXPECTED = {"prior": "936ea7b2e2520a6dbd18be5d453a4b81d854610d822a8c39fb7e3f1cc44ec502",
     "builder": "0d9e306face4125dcaa8ee5d89edff1731e30604109924ec81551cccd23671e2",
     "head_atlas": "2c7e19d53f6123491de20882c04f3781ac5c81531f6dfc8ca9137c53b96a01a8"}
@@ -78,7 +79,7 @@ def main():
         "pred_c_joint_capable_population": pred_c,
         "pred_d_no_causal_outcome_access_and_exact_price": pred_d}
     terminal = "invalid" if not pred_a or not pred_d else "screen" if pred_b and pred_c else "null"
-    result = {"schema": "tense_auxiliary_is_was_fresh_lexicon_v8_capability_result_v1",
+    result = {"schema": RESULT_SCHEMA,
         "candidate_id": CANDIDATE_ID, "execution_policy": "managed_queue_only_capability_only",
         "started_utc": started_utc,
         "finished_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
