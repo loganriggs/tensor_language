@@ -1,0 +1,39 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.original_writer_attn15_h5h1_joint_v1",
+  "created_utc": "2026-09-06T15:39:00Z",
+  "question": "Does the prospective greedy H5+H1 pair exhaust the original writer-induced attention15 response while the other seven heads are inert?",
+  "authority": {
+    "head_atlas_result_sha256": "55069267a732346603b1d27d162d342db285cea3a7a0310d3a02b9c748a5f102",
+    "head_atlas_runner_sha256": "7ddcd1673fbfd86f72ae9b018291475b766a772f1f89bffb1028c266a7d828a4"
+  },
+  "prior_art_search": {
+    "searched": ["original_writer_attn15_head_atlas_v1", "temporal_auxiliary attn15 H5 H1 joint complement"],
+    "relation": "The singleton atlas prospectively selected H5 then H1; their actual joint effect and seven-head complement have not been measured."
+  },
+  "frozen_design": {
+    "population": "same 32 A1 and 32 A2 original rows",
+    "arms": ["complete_attn15", "head05", "head01", "head05_head01", "other_seven"],
+    "selection": "H5 then H1 fixed from the prior singleton ordering, with no further greedy step",
+    "maximum_model_forwards": 16,
+    "maximum_example_evaluations": 512,
+    "maximum_records": 320,
+    "fit": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_complete_recurrence": "head atlas matches, both sides are capable, and complete attn15 recurs within 1e-5",
+    "pred_b_pair_is_sufficient": "H5+H1 retains [0.90,1.10] of complete attn15 in A1/A2 and is donorward on >=0.90 of rows",
+    "pred_c_other_seven_are_inert": "other-seven absolute fraction is <=0.15 in A1/A2",
+    "pred_d_joint_gain_is_real": "H5+H1 exceeds H5 alone by >=0.10 complete-attn15 units in A1/A2",
+    "pred_e_exact_zero_fit_price": "16 forwards, 512 examples, 320 unique records, no fit/backward/update"
+  },
+  "terminal_rules": {
+    "invalid": "authority, capability, recurrence, coverage, or price fails",
+    "screen": "all predictions pass: H5+H1 is the localized third reader",
+    "null": "valid joint test rejects pair sufficiency or complement inertness; continue greedy heads without threshold repair"
+  },
+  "interpretation_limits": [
+    "This establishes native head grouping inside attention15, not yet subject-source or value-operation identity.",
+    "The pair remains a small branch of the whole writer circuit.",
+    "Joint effects are measured through the model and are not inferred by adding singleton effects."
+  ]
+}
