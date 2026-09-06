@@ -1,0 +1,20 @@
+{
+  "schema": "task14_text_direction_selector_program_release_prior_art_v11",
+  "candidate_id": "subject_verb.number_agreement.text_direction_selector_program_release_v11",
+  "created_utc": "2026-09-06T01:58:00Z",
+  "purpose": "Remove the externally supplied Task14 direction from the transparent margin program by inferring the controlled prompt's final subject number, while retaining background-factor membership and edit/no-edit as explicit intervention specifications.",
+  "authority": {
+    "transparent_margin_program_v9.py": "52b89038ce7982c34ca7759beffde569c131ff009565810d7b5b8d123a9d250f",
+    "bracket_circuit_source_selector_release_v10_result.json": "fe462f9c6576a068ea3c3a52a20512a68029e04959dafcf4b4ca1c8608c90180",
+    "task14_native_baseline_fresh_corpus_v1_rows.json": "564d03ae74202b5e0e1be0ce272464362974e2a2f9f6f587c9587319ef829360"
+  },
+  "predictions": {
+    "pred_a_authority_and_v10_bound": "All hashes hold and v10 remains screened.",
+    "pred_b_exact_subject_number_direction": "Infer every labeled subject number and corresponding opposite-number direction on all 96 frozen Task14 endpoint texts.",
+    "pred_c_v7_equation_conformance": "For every endpoint, 16 background subsets, and native/edit arms, the text API exactly matches v7 after labeled direction substitution (3,072 cases).",
+    "pred_d_strict_malformed_rejection": "Reject non-string, empty, nonalphabetic-final-token, and unsupported ambiguous final-subject inputs.",
+    "pred_e_scope_and_price": "Add zero learned scalars, fits, or model calls. Remove direction only; retain controlled raw text, E/A/U/W background membership, and edit specification."
+  },
+  "price": {"endpoint_texts": 96, "equation_cases": 3072, "new_fitted_scalars": 0, "model_forwards": 0, "fits": 0},
+  "terminal": {"screen": "A-E pass.", "invalid": "Any authority, inference, conformance, rejection, or price check fails."}
+}

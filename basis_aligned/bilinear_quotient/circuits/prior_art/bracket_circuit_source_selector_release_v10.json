@@ -1,0 +1,24 @@
+{
+  "schema": "bracket_circuit_source_selector_release_prior_art_v10",
+  "candidate_id": "bracket.pending_opener.circuit_source_selector_release_v10",
+  "created_utc": "2026-09-06T01:55:30Z",
+  "purpose": "Compile the exact L13H8 semantic-opener source token position together with the v9 pending-closer read, so bracket internal interventions no longer require an externally supplied recipient closer or source position.",
+  "authority": {
+    "task14_bracket_text_selector_program_release_v9_result.json": "14beedea97bd4cbeb20571e5ca8364c048d1c422ff1ea943e16fa7b0aa410860",
+    "transparent_margin_program_v9.py": "52b89038ce7982c34ca7759beffde569c131ff009565810d7b5b8d123a9d250f",
+    "pending_opener_three_value_fresh_rows_rung545.json": "07b64d2e48a6ca67685c81d3475a064daba612d6fe7ff233efd5b6c157b940a9",
+    "bracket_suffix_free_fresh_corpus_v1_rows.json": "d808806fd1b05f834cf6ef4fa71465464c0403f66dc13ece8a24cffcc40142f9",
+    "bracket_absolute_term_fresh_corpus_v1_rows.json": "92ee66ce0a4bf084789bf0c2af394a107a49df19dbf3c9fbfbebbe467d873c76",
+    "bracket_native_baseline_fresh_corpus_v1_rows.json": "ad246a0ab2affd0a351b971c100c27c2ad09597d0d9e7b84b636e1eb4c8fb399",
+    "bracket_l13h8_direct_readout_fresh_corpus_v1_rows.json": "09424b15ad797491b4968bdb9e84b3f81f7062a6b42b057e85c725b25c1b4f8c"
+  },
+  "predictions": {
+    "pred_a_v9_and_authority_bound": "All authority hashes hold and v9 remains a release.",
+    "pred_b_exact_recipient_state": "Infer the labeled recipient closer on every one of 2,088 endpoints.",
+    "pred_c_exact_l13h8_source_position": "Select the same last semantic opener token used by the causal L13H8 executors on every endpoint.",
+    "pred_d_strict_token_rejection": "Reject non-list, noninteger, missing-opener, and raw/token recipient mismatch inputs.",
+    "pred_e_dependency_and_price": "Zero learned scalars, fits, and model calls; remove recipient closer and semantic source position while retaining raw text, native token IDs, desired edit, and native model execution required by the intervention program."
+  },
+  "price": {"endpoint_cases": 2088, "new_fitted_scalars": 0, "model_forwards": 0, "fits": 0},
+  "terminal": {"screen": "A-E pass.", "invalid": "Any authority, exact-selection, rejection, or scope check fails."}
+}

@@ -213,6 +213,8 @@ rank, new direction, template table, or threshold change is allowed.
 | `bracket.pending_opener.l13h8_direct_readout_baseline_program.v1` | complete | six-scalar causal decomposition on outcome-sealed archive construction | **null: cancellation precision not reached** | active | `bracket_l13h8_direct_readout_baseline_program_v1_result.json` |
 | `task14_bracket_transparent_program_boundary_certificate.v8` | complete | hash-bound release/null boundary | **empirical minimality certificate** | active | `task14_bracket_transparent_program_boundary_certificate_v8_result.json` |
 | `task14_bracket_text_selector_program_release.v9` | complete | exact controlled-text delimiter stack over 2,088 prompts | **selector-compiled executable screen** | active | `task14_bracket_text_selector_program_release_v9_result.json` |
+| `bracket.pending_opener.circuit_source_selector_release.v10` | complete | exact pending state plus L13H8 source token over 2,088 prompts | **internal-selector compiler screen** | active | `bracket_circuit_source_selector_release_v10_result.json` |
+| `subject_verb.number_agreement.text_direction_selector_program_release.v11` | complete | controlled-text subject-number read over 96 endpoints | **direction-compiled executable screen** | active | `task14_text_direction_selector_program_release_v11_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -265,6 +267,14 @@ The v9 executable removes a different dependency rather than retrying baseline c
 infers the pending closer directly from controlled-domain raw text with zero learned scalars. It matches all 2,088 labeled endpoints
 across five frozen corpora and all 6,264 corresponding v7 equations exactly, while rejecting balanced, multiply-pending, mismatched,
 and malformed inputs. The bracket API now retains only raw text, one native unedited donorward margin, and the desired closer edit.
+
+The v10 circuit selector extends that read to internal execution: the same controlled text plus native token IDs identifies the exact
+L13H8 semantic-opener token position as well as the recipient closer on all 2,088 endpoints. Thus neither circuit selector must be
+supplied externally; internal causal execution still retains native prefix/base activation and suffix computation.
+
+The unified v11 executable removes Task14 direction as an external input too. Controlled raw subject text yields the labeled number
+and opposite-number direction on all 96 frozen endpoint texts, and the resulting API matches 3,072 v7 equations exactly across every
+E/A/U/W subset and native/edit arm. E/A/U/W membership and edit/no-edit remain explicit intervention specifications, not inferred state.
 
 ### `subroutine.induction.equality_score` — site_live
 
