@@ -478,3 +478,19 @@ Files `ops/run_unit_{stack_composition_v36,linear_write_terms_v37,norm_gain_cont
 - v49 (per-head, four-projection freeze inside the stack): the stack pattern term is additive over layers (1.01/0.73/1.02 of T) and additive over heads within a layer to ≤0.01 T (heads combine through live stack MLPs yet add), but distributed: voice top head 09:07 carries 0.20 T (bar 0.25 → null), polarity 09:01 0.47 T (bar 0.50 → null; layer 9 carries 0.76 T). Not picking the top head post hoc.
 - Instrument lessons logged: v45 tanh-on-margin bug (repaired v46, error 1e-7); v43 pred_e summands carried the floor (design-error instance 9). Files `ops/run_unit_{downstream_linearisation_v43,attention_product_locus_v44,readout_curvature_v45,full_linearisation_v46,stack_attention_gate_v47,full_freeze_v48,stack_attention_heads_v49}.py`; dossier updated.
 - Codex: still no reply to the 20:14 status request.
+
+## Claude 2026-09-06T23:35Z — v50–v54: terminal-evidence axis for the four head sets + tier list (user asked for one)
+Intervention everywhere: mean-ablation along / outside the block diff-in-means subspace (rank 1 per (layer, kind) block, NO fitting; background = per-head mean over the set's own A1 sentences), at the prediction position; paired document bootstrap 2000×; A2 frozen, one-shot.
+
+| set (heads) | mech. tier | removal: own CE damage (97.5% LB) | negative C | random | frozen A2 | extraction keep-only (row 2, bar 0.80) | enlarged (≤4 more heads, held-out / A2) |
+|---|---|---|---|---|---|---|---|
+| polarity 07:08 08:01 04:07 03:00 | 2 (+Tier-4-grade expansion of the write→product path, v42/v48) | 0.173 (0.101) | −0.015 | 0.003 | 0.288 (0.175) | 0.597 [0.579, 0.615] | 7 heads: 0.773 (LB 0.748) / 0.966 |
+| quantifier 07:08 11:03 | 2 (+Tier 3: mlp 11–14 stack, product local to mlp:15) | 0.355 (0.300) | −0.116 | −0.001 | 0.397 (0.340) | 0.511 | 6 heads: 0.720 / 0.628 |
+| voice 07:08 01:05 00:03 04:01 | 2 (+Tier 3 stack mlp 07–11) | 0.098 (0.057) | −0.094 | 0.003 | 0.220 (0.129) | 0.603 | 8 heads: 0.782 / 0.893 |
+| dative 14:08 07:08 06:03 13:08 11:03 | 2 | 0.259 (0.220) | −0.111 | 0.000 | 0.144 (0.127) | 0.589 | 9 heads: 0.763 / 0.746 |
+
+- Rubric rows 3–5 (selective removal, specificity, frozen OOD) are MET for all four sets (v50/v51, 10/10 registered predictions True). Row 2 (extraction ≥0.80, LB ≥0.60) is NOT met by any set (v52/v53), and ≤4 greedily-added heads do not close it (v54: gains diffuse; `attn:09:head:07` joins every set). Per the registered reading rule the head budget is not raised: the residual ~25% is many small heads.
+- Caveats stated in the results: intervention at the final position only (collateral measured on matched-negative sentences, not other positions); matched-negative and cross-behaviour CE shifts are NEGATIVE up to −0.12 nat (KL 0.004, top-1 ≤3%) — the set-mean background mildly favours the controls' answer; quantifier-direction-on-dative −0.095 would fail a two-sided 0.25 bar (shared 07:08 + 11:03); the dative direction does not transfer to A2 under extraction (0.21 vs exact 0.59) — cue-pair keyed, as v13/v14.
+- Extraction tracks interchange within 0.02–0.12 on every set (the sets carry what their swap says); the diff-in-means direction alone keeps 0.90–1.03 of keep-only. Two predicate errors recorded (v52 |margin| carried a constant bias; v53's repair was true by construction) — design-error instance 10 in my memory file.
+- Files `ops/run_unit_{polarity_selective_removal_v50,selective_removal_four_sets_v51,extraction_four_sets_v52,extraction_four_sets_v53,extraction_greedy_v54}.py`; polarity dossier updated through v54.
+- Codex: still no reply to the 20:14 status request.
