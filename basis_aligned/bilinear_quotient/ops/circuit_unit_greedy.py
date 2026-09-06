@@ -697,3 +697,52 @@ def norm_shares(q, units):
         out[u] = float((q[off:off + d, 0] ** 2).sum())
         off += d
     return out
+
+
+def block_direction_battery(backend, prep, units, q, q_rand=None):
+    """`direction_battery` plus the linearity sum S + C (subspace + complement fractions; ~1 for
+    a linearly carried variable, > 1 means a nonlinear route). `q` is a per-block dict."""
+    b = direction_battery(backend, prep, units, q, q_rand=q_rand)
+    s, c = b["subspace_fraction"], b["complement_fraction"]
+    b["linearity_sum"] = None if s is None or c is None else s + c
+    return b
+
+
+def block_semantics(backend, prep, units):
+    """The v7 control, mandatory on every multi-layer set: exact interchange vs the cached-joint
+    full-rank patch (biased across layers) vs the block-live full-rank patch (must equal exact)."""
+    torch = backend.torch
+    exact = recovery(prep, patched_axis(backend, prep, units))
+    eye = torch.eye(sum(unit_dim(u) for u in units), device=backend.device)
+    cached = recovery(prep, patched_axis(backend, prep, units, q=eye))
+    block = recovery(prep, patched_axis(backend, prep, units, q=block_identity(backend, units)))
+    return {"exact": exact, "cached_full_rank": cached, "block_full_rank": block,
+            "cached_bias_fraction": (cached - exact) / exact if abs(exact) > 1e-6 else None,
+            "block_error": abs(block - exact)}
+
+
+def block_battery(backend, module, units, *, seed=1, greedy=None):
+    """`set_battery` in BLOCK-LIVE semantics (the object since v7): exact-set A1 fit / held-out /
+    A2 / P / C, the v7 semantics control on held-out rows, and the block diff-in-means direction
+    (fit on even A1 rows) with complement, linearity sum and a rank-matched random direction on
+    held-out A1 and A2 rows, plus its P / C. `greedy` (optional) is stored verbatim."""
+    a1 = rows_of(module, "A1")
+    fit, held = prepare(backend, a1[0::2]), prepare(backend, a1[1::2])
+    a2 = prepare(backend, rows_of(module, "A2"))
+    scale = target_scale(fit)
+    q = block_diff_in_means(backend, fit, units)
+    q_rand = block_random_subspace(backend, units, rank=1, seed=seed)
+    pc_exact = pc_effects(backend, module, units, scale)
+    pc_dim = pc_effects(backend, module, units, scale, q=q)
+    out = {"units": list(units),
+           "exact_set": {"a1_fit": recovery(fit, patched_axis(backend, fit, units)),
+                         "a1_heldout": recovery(held, patched_axis(backend, held, units)),
+                         "a2": recovery(a2, patched_axis(backend, a2, units)),
+                         "p_effect": pc_exact["P"], "c_effect": pc_exact["C"]},
+           "semantics_heldout": block_semantics(backend, held, units),
+           "diff_in_means": {"a1_heldout": block_direction_battery(backend, held, units, q, q_rand),
+                             "a2": block_direction_battery(backend, a2, units, q, q_rand),
+                             "p_effect": pc_dim["P"], "c_effect": pc_dim["C"]}}
+    if greedy is not None:
+        out["greedy"] = greedy
+    return out

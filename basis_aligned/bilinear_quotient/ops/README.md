@@ -248,7 +248,12 @@ Interchange localizes a behaviour to whole modules. The rest of the protocol ask
 carry it and in what direction -- all by interchange on held-out rows, never by reconstruction.
 Library: `ops/circuit_unit_greedy.py`. Runners: `run_unit_greedy_protocol_v2`,
 `run_unit_greedy_heads_only_v3`, `run_unit_subspace_trust_v4`, `run_unit_greedy_battery_v5`,
-`run_unit_greedy_pooled_possessive_v6`, `run_unit_subspace_redteam_v7` (the red team; read it first).
+`run_unit_greedy_pooled_possessive_v6`, `run_unit_subspace_redteam_v7` (the red team; read it first),
+`run_unit_block_live_directions_v8`, `run_unit_corpus_battery_v9` (steps 1-3 on 17 behaviours in 79 s).
+**One call per behaviour:** `g.greedy_heads(backend, prep)` then `g.block_battery(backend, module, chosen)`
+(exact-set A1/A2/P/C, the v7 semantics control, block diff-in-means with complement, S + C and random
+on held-out and A2). ~4.6 s per behaviour end to end; write a runner that loops over modules, do not
+copy the helpers.
 
 **Semantics (fixed by v7, 2026-09-06 14:18):** a direction is one subspace PER (layer, kind) BLOCK,
 applied to the block's LIVE value: `live + q q^T (donor - live)` (`q` a dict, "block-live" mode).
