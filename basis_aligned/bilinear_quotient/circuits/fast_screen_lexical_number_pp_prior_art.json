@@ -1,0 +1,53 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "intervener",
+    "number",
+    "plural",
+    "prepositional",
+    "singular",
+    "subject",
+    "verb"
+  ],
+  "candidate_id": "lexical_number.pp_intervener",
+  "canonical_objects": [
+    "number carried from a token across a prepositional intervener",
+    "plural-versus-singular head choice of were/was",
+    "the matched-slot counterpart to constructed coordination number"
+  ],
+  "decision_changed": "This decides whether distinct_number_directions survives. Registered in advance, both branches: transfer between lexical and constructed number >= 0.50 means the earlier near-zero was a read-position artefact and the corpus should say number is ONE direction reached two ways; <= 0.20 means constructed and copied number are genuinely distinct directions at a matched slot, and the coordination result stands as read. Between is INCONCLUSIVE and is not resolved by raising rank. If the screen returns a one-sided capability failure the registered stop rule is ONE repair of the weak side, per ops/README.md.",
+  "matched_prior_claims": [
+    "circuits/followups/das_coordination_number_transfer_v1_result.json read distinct_number_directions at cosine 0.072, but compared behaviours read at DIFFERENT slots (auxiliary after second noun versus possessive pronoun), and a read-position difference depresses transfer both ways exactly as distinct features do.",
+    "circuits/fast_screens/coordination_agreement_and_vs_or_v1_result.json is the constructed-number behaviour this is matched to; its answer is the same auxiliary in the same position.",
+    "subject_verb.number_agreement is already canonical in circuits/task_*.json, so agreement across an intervener is NOT a new behaviour class; it is re-screened in this construction because the canonical module pins a drifted immutable dossier hash and will not build."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Thirty-second behaviour, and its novelty is in the COMPARISON rather than the behaviour, which I would rather state than dress up. Agreement across a prepositional intervener is well known and already canonical here. What does not exist is a lexical-number behaviour whose answer is the SAME auxiliary in the SAME position as coordination_agreement.and_vs_or. That match is the whole point: it holds read position fixed and varies only whether the number was copied from a token or composed by a connective, which is the one comparison that can separate the two explanations of the coordination transfer null.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "reading",
+        "families",
+        "abs_cosine_between_directions"
+      ],
+      "sha256": "a85931e1a52a730d7bc6976f24f79b9043701e5f3076a658cc70b9b991b49065",
+      "source": "circuits/followups/das_coordination_number_transfer_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "selected_site_id",
+        "site_results"
+      ],
+      "sha256": "e1e476e879f9e72f4036e69b1256382f36220f12da9869899471ce4dc3c766bc",
+      "source": "circuits/fast_screens/coordination_agreement_and_vs_or_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, closing the read-position confound its own transfer result left open",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

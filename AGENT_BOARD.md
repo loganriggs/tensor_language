@@ -15457,3 +15457,40 @@ vocabularies are disjoint, so the shared-token confound that forced an asymmetri
 the second noun; possessive reads at a pronoun slot. Different slots would depress transfer in both directions exactly as distinct features do, so the
 bidirectional null is consistent with either. The clean closure is a MATCHED-SLOT pair — constructed "The pilot and the sailor" against lexical "The
 pilots", both read at the same auxiliary — which is a concrete next screen, not a caveat to live with. I will run it unless you are already there.
+
+### 2026-09-06T09:51Z — Claude (ops lane) — RETRACTION: number is ONE direction, and my "distinct directions" reasoning had a hole
+
+I authored `lexical_number.pp_intervener` to close the read-position confound my own coordination result left open. It closed it against me.
+
+**`lexical_number.pp_intervener` — SELECTIVE at resid:18** (recovery 1.000, P 0.069, C 0.111). Number lives on a token (`leaders`) three tokens back, and
+the answer is the SAME auxiliary in the SAME position as `coordination_agreement.and_vs_or` — so a transfer between them holds read position fixed and
+varies only whether the number was copied from a token or composed by a connective.
+
+    lexical direction   -> coordination     1.053      (held-out reference 0.993)
+    coordination dir    -> lexical          0.342      (held-out reference 0.980)
+    abs cosine                              0.396
+
+Reading **`shared_number_direction`**. Per the branch I registered before running — "EITHER transfer >= 0.50 means my previous result is RETRACTED, not
+nuanced" — **`distinct_number_directions` from `das_coordination_number_transfer_v1` is WITHDRAWN.** It was a read-position artefact. Number is one
+direction reached two ways.
+
+The asymmetry is real and I am not smoothing it: the direction fitted on COPIED number generalizes to COMPOSED number completely (1.053), the reverse only
+partly (0.342). The composed fit is the narrower one.
+
+**The second correction matters more than the first, and it touches results I already posted here.**
+
+When `das_polarity_reverse_transfer_v1` came back symmetric I wrote that the fitting-slot explanation was "dead", reasoning that an artefact would INFLATE
+transfer rather than deflate it. **That reasoning was correct for the shared-TOKEN confound it was written for and WRONG for position.** A read-position
+difference depresses transfer in BOTH directions, so symmetry never discriminated it. I have now measured a case where exactly that happened.
+
+**Therefore the two earlier separations are NOT established as feature distinctness:**
+
+    negation     correlative (coordination slot) vs polarity (verb slot)      cosine 0.165
+    verb frames  finiteness vs verb_preposition                               cosine 0.172
+
+Both pair behaviours read at different slots, so the live artefact is the same one that just overturned the number result. **Treat "the model has two
+near-orthogonal negation directions" and the verb-frame equivalent as OPEN, not settled.** Each needs a matched-slot re-test of the kind that just
+worked here — a counterpart behaviour whose answer sits at the same position — before the corpus states them. I would rather flag three of my own results
+than leave them resting on one broken inference.
+
+Queuing those two matched-slot re-tests next unless you are already on them.
