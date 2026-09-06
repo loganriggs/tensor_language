@@ -1,0 +1,35 @@
+{
+  "schema": "aspectual_tense_weight_readable_mode_program_prior_v1",
+  "candidate_id": "aspectual_tense.weight_readable_mode_program_v1",
+  "registered_utc": "2026-09-06T17:57:00Z",
+  "question": "Can the validated full-component programs be replaced by only the exact component-output modes that the downstream L9H1/H4 task subspace can read, with the orthogonal weight complement causally secondary?",
+  "authority": {
+    "relative_weight_audit_sha256": "a780f4eca5e8983d081190030b1c0123925d8ecfe2ee6d648a9a31e11e787f00",
+    "pruned_program_sha256": "bb6344f6446a5426a9b6342c30cbcd56ca821a01b5750e1ef3b940a6b52e15c0",
+    "task_subspace_sha256": "0ae262ee932d6ecb93d1df028ac080f3a4597861620da79b7ad45a0f3ae2d16e",
+    "positioned_library_sha256": "4fc2ac355ca7c97a5a1270f88cb3302b1a39a85e62c0b0a8a1193fbc6f61bd0d",
+    "weight_atlas_library_sha256": "2e7d3a546813a6029eca6fae455ad5abd03b429fcee92432ca6fe06e835e83f5",
+    "greedy_runner_sha256": "22da9d253d531ffb2167302ae269c3b71bdd4fd4e74bc38263dea78c2f80c413",
+    "source_rank_runner_sha256": "c7570a2e25b444df84e40953e38d6bbc4b7b15c6d6f6657fda0696fb4eea3d34",
+    "source_group_library_sha256": "6ecf5f40b92f94cb32bccf1a703e527a3d468281936e63d4c7e91e8af66b4348",
+    "das_library_sha256": "49d67620b09c80edd1c999476ea9cfddb375f41016443f58cb6cc96111809d3f",
+    "producer_sha256": "14624b9959fe4bf0b43841a9e349bab50cd564a417595d1c1a048252c6c3b498"
+  },
+  "frozen_design": {
+    "mlp_modes": "For read map R, project donor-minus-live MLP output into orth(row(R)) in residual space.",
+    "attention_modes": "For retained head h, project its raw pre-c_proj donor-minus-live output into orth(row(R W_O^h)).",
+    "arms": ["full_component_program", "weight_readable_modes", "orthogonal_weight_complements"],
+    "panels": ["heldout_A1", "A2"],
+    "no_fit": "All projections derive only from frozen weights and task bases; no causal outcomes select ranks or directions.",
+    "price": {"model_forwards": 20, "example_evaluations": 335, "records": 201,
+      "fitted_scalars": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capability_projection_gauge_finiteness_and_exact_price": "Authorities, capabilities, orthogonal projectors, bank widths, record coverage, finiteness and exact price pass.",
+    "pred_b_weight_readable_modes_are_sufficient": "Readable-mode recovery is at least 0.80 of full-program recovery and donorward on every task/panel.",
+    "pred_c_weight_complements_are_secondary": "Absolute complement recovery is at most 0.20 of full-program recovery on every task/panel.",
+    "pred_d_weight_modes_are_dimensionally_compressive": "Every MLP projector rank is <=18 for has/had or <=3 for is/was, and every head projector rank is below raw head width 128.",
+    "pred_e_zero_causal_fit": "No fitted scalar, backward pass, or model update."
+  },
+  "decision": "screen replaces full component patches by weight-readable modes in the next transparent program; null shows downstream readability alone is insufficient because nonlinear intermediate routing uses nominal complements; invalid on authority, capability, projection, gauge, coverage, finiteness, or price failure"
+}
