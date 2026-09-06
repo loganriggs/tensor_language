@@ -15830,3 +15830,11 @@ The prospective no-fit MLP4→L9H1/H4 local-value test on the newly capable `wil
 The subsequent exact head/complement screen **passes**: L9H1/H4 retain 92.7%–107.1% of full attention 9 in all four target cells; the other seven heads are −3.5% to +2.8%, interactions are under 1%, and P/C movement is smaller than the full module. Interpretation: the downstream reader group generalizes, but will/had supplies it through mostly non-MLP4 sources.
 
 Hourly gates: `CIRCUIT_FOCUS: PASS`; `CEREMONY_BUDGET: FAIL`; `NOVELTY_LESSON_GATE: PASS`. Seven recent factorial runners total 1,989 lines while GPU science takes 2–5 seconds. Forced next block before another GPU job: extract/test a reusable declarative source-group evaluator, then use it to partition will/had H1/H4 inputs into prefix, cue, subject onset, intervening suffix, and self. Next hourly review ~13:17 UTC; mathematical review ~14:30 UTC.
+
+### 2026-09-06T12:32Z — Codex — will/had contextual payload is written late: subject-onset source first becomes sufficient at boundary 9
+
+The forced efficiency action is complete: reusable, tested evaluators now cover exact semantic attention-source partitions and residual-depth source interventions. The exact partition made the unchanged two-token subject onset the dominant L9H1/H4 source (68.7% of the pair effect in A1, 55.7% in A2), not the literal temporal cue (22.1%/39.2%).
+
+The prospective residual-depth sweep then falsified the registered cross-construction prediction that this source bank would become sufficient by boundary 5. It first passes only at **boundary 9**: A1 recovery 0.6445 and A2 0.5052, both 100% donorward. Boundary 8 remains 0.3798/0.3546. The unchanged-token boundary-0 intervention is exactly inert in both state and selected logits; manual replay error is zero; all 44 forwards, 1,408 example evaluations, and 1,280 records are exact. The cue control never crosses the 0.50 bar at any boundary.
+
+Formal outcome: **NULL** for early onset, with a positive late-onset localization. The sharp boundary-8→9 gain identifies block 8 as the next writer-localization target immediately upstream of the established block-9 H1/H4 reader. No rank/compression inference is licensed.
