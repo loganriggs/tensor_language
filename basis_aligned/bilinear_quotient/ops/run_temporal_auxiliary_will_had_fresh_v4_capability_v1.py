@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Capability-only gate for the fourth fresh temporal authority."""
 
-# BQGATE: EXPERIMENT pred_a_authority_and_price pred_b_joint_capability
+# BQGATE: EXPERIMENT pred_a_authority pred_b_joint_capability pred_c_exact_finite_coverage_and_price
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -20,7 +20,7 @@ PRIOR = ROOT / "circuits/prior_art/temporal_auxiliary_will_had_fresh_v4_capabili
 BUILDER = ROOT / "ops/circuit_candidate_temporal_auxiliary_fresh_cues_v4.py"
 OUT = ROOT / "circuits/followups/temporal_auxiliary_will_had_fresh_v4_capability_v1_result.json"
 CANDIDATE_ID = "temporal_auxiliary.will_vs_had.fresh_v4_capability_v1"
-EXPECTED = {"prior": "a3a9fea8db93cbe9aca4a3563c06ab07d8a9fdc2b867f0f2e9409cf86fe0175a",
+EXPECTED = {"prior": "27003faab9d2552be67a0411a0c8ec0829a0c75d1396be134915e51a8fa46e76",
             "builder": "31e40a5e8a8b285ce7afdb6327276c0aa28b4759083586d0310b0857c8b86764"}
 
 
@@ -64,12 +64,14 @@ def main():
                                  if r["row_id"] == row["row_id"] and r["side"] == side)
                              for side in ("base", "donor")) for row in family[panel])
              for panel in ("A1", "A2")}
-    pred_a = (len(records) == 128
-              and len({(r["row_id"], r["side"]) for r in records}) == 128
-              and all(math.isfinite(r["margin"]) for r in records))
+    pred_a = len(rows) == 128 and all(len(family[name]) == 32 for name in ("A1", "A2"))
     pred_b = all(counts[p]["base_correct"] >= 28 and counts[p]["donor_correct"] >= 28
                  and joint[p] >= 28 for p in ("A1", "A2"))
-    predictions = {"pred_a_authority_and_price": pred_a, "pred_b_joint_capability": pred_b}
+    pred_c = (len(records) == 128
+              and len({(r["row_id"], r["side"]) for r in records}) == 128
+              and all(math.isfinite(r["margin"]) for r in records))
+    predictions = {"pred_a_authority": pred_a, "pred_b_joint_capability": pred_b,
+                   "pred_c_exact_finite_coverage_and_price": pred_c}
     result = {"schema": "temporal_auxiliary_fresh_v4_capability_result_v1",
               "candidate_id": CANDIDATE_ID, "execution_policy": "managed_queue_only",
               "started_utc": started_utc, "finished_utc": utc_now(),

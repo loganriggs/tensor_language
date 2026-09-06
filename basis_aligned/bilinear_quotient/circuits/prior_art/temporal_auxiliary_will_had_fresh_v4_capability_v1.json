@@ -14,8 +14,9 @@
     "price": {"model_forwards": 4, "example_evaluations": 128, "records": 128}
   },
   "predictions": {
-    "pred_a_authority_and_price": "Authority holds; exactly 128 unique row-side records have finite margins at the exact registered price.",
-    "pred_b_joint_capability": "At least 28 of 32 rows are correct on both base and donor sides independently in each A1/A2 panel."
+    "pred_a_authority": "The sealed candidate, row counts, and authority hashes reproduce before model access.",
+    "pred_b_joint_capability": "At least 28 of 32 rows are correct on both base and donor sides independently in each A1/A2 panel.",
+    "pred_c_exact_finite_coverage_and_price": "Exactly 128 unique row-side records have finite margins at the exact registered price."
   },
   "decision": "manifest only if both predictions pass; otherwise invalid and design another capability authority before reopening the frozen subspace confirmation."
 }
