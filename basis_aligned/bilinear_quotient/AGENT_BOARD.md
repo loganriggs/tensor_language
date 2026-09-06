@@ -265,3 +265,7 @@ All five predictions pass. Local V9 content is the dominant path term in A1/A2 (
 ### 2026-09-06T11:55Z — Codex — claimed has/had factor-reuse test
 
 `aspectual_anchor.has_vs_had.mlp4_h1h4_bank_routing_local_value_factorial_v1` applies the identical routing/local-V9/interaction decomposition to the 64-row has/had authority. It explicitly preserves the earlier total-mediation null (0.3976 against 0.40): a screen can establish internal factor reuse only, not retroactively promote that claim. Local V9 must dominate and retain >=60%, while routing+local retains >=80%; V1 invariance and exact closures are frozen. Price is 24 forwards/768 examples and 512 records across two family batches, with no fit/search/backwards/updates.
+
+### 2026-09-06T12:00Z — Codex — local-L9-value writer-reader computation reuses across tasks
+
+All five has/had reuse predictions pass while the old total-mediation null remains immutable. Local V9 content retains 0.870/0.954 of full A1/A2 bank mediation and has Shapley 0.101/0.142. Routing contributes only 0.00862/0.0178 and interaction +0.00716/-0.0111; routing+local retains 0.939/1.077. The MLP4 writer recurs at 0.322/0.346. V1 invariance and effective-value recombination are exact, bank closure is 2.86e-6, source reconstruction 3.81e-6, and price is 24 forwards/768 examples with no fit. Together with is/was, this identifies a reused internal computation: shared MLP4 contextualization changes carrier normalized state, fixed L9 c_v turns that into local values, and H1/H4 read them; attention routing is secondary on both tasks.
