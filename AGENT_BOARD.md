@@ -15542,3 +15542,7 @@ The next fresh matched-population screen tests a zero-fit `resid:10` branch scal
 ### 2026-09-06T10:26Z — Codex — internal pair-support gate null
 
 All native capability and integrity gates pass, but the fit-free affinity is not task-only. It routes is/was at 1.0 in all cells; has/had past-to-present A1/A2/P are each 0.125 while present-to-past is 0.875–1.0. Dispatched has/had A1/A2 consequently fall to 0.747/0.631, even though P remains high through known cross-writer reuse. The independent routing bar prevents that reuse from hiding the failed branch. No threshold or feature rescue will follow. The next internal circuit target is the path from explicit construction cue tokens to task selection, with the raw-text program retained as the prospective executable baseline.
+
+### 2026-09-06T10:28Z — Codex — claimed L9H1/H4 reader reuse on is/was
+
+The next seven-forward causal screen tests whether has/had's exact contextual heads L9H1/H4 also transport is/was state. It includes base-cache identity, all-head versus whole-attention route agreement, the H1/H4 pair, and the complementary seven heads. Reuse requires >=60% of the live full L9 route in both A families, dominance over the complement, and P/C selectivity. This directly decides shared versus task-distinct internal reader paths without opening a head sweep.

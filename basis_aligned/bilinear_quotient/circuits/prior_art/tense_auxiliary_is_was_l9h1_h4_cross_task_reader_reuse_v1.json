@@ -1,0 +1,59 @@
+{
+  "schema": "tense_auxiliary_is_was_l9h1_h4_cross_task_reader_reuse_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.l9h1_h4_cross_task_reader_reuse_v1",
+  "created_utc": "2026-09-06T10:27:35Z",
+  "evidence_class": "causal_cross_task_head_reader_reuse_with_identity_and_route_agreement",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*is_was*", "circuits/followups/*is_was*", "circuits/prior_art/*l9h1_h4*", "circuits/followups/*l9h1_h4*", "AGENT_BOARD.md"],
+    "nearest_result": "L9H1/H4 are localized has/had contextual reader heads whose donor patch recovers 0.36–0.41; their useful input is distributed over last/period/determiner sources. No head-level path has been tested for is/was.",
+    "new_question": "Do the exact has/had L9H1/H4 contextual reader heads causally transport is/was temporal state, or does the second task branch through a distinct head set?"
+  },
+  "authorities": {
+    "q_has_l8_l9_factorial_sha256": "06918c951ab52c0b6082f440addba553bb994fec02e1a774772473917fd40050",
+    "q_has_source_bank_sha256": "6d694f92d35970f4eb5eba25ca3d9aff15cdbd1949db158a8be18e827e0423a7",
+    "q_is_pair_support_null_sha256": "d8069bba6941f9f0f053888b22a2a63593241ce1cd67171f4110e440205c5c1b",
+    "producer_sha256": "528e9f50152d6dc2b28d084cd0828de58de042b893703d0f322b4a2f22c4a0a7",
+    "matched_v2_builder_sha256": "1f4b29bda3e26af3ee0102316ab0af166e317d1646e8b0b51332061245e606d6",
+    "q_is_v8_rows_sha256": "2efd47b9a89d0f092688a96d75bbc33e5b89991a8e5de28723c714319b9ccceb"
+  },
+  "population": {
+    "rows": "All 64 is/was rows from the matched-v2 authority already capability-qualified in the pair-support null. Head-patch outcomes are unopened; this is a mechanistic follow-up, not a new population-generalization claim.",
+    "capability": "Recompute two-sided native capability; all eight family/direction cells must retain A/P >=0.85 and C >=0.75 before patch outcomes open.",
+    "no_rescue": "No head, layer, row, threshold, task, or arm change after execution."
+  },
+  "operator": {
+    "site": "Layer-9 attention preprojection heads at the final subject query position.",
+    "selected": [1, 4],
+    "complement": [0, 2, 3, 5, 6, 7, 8],
+    "all_heads": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "arms": {
+      "identity_selected": "Replace H1/H4 base slices with their exact cached base slices.",
+      "donor_selected": "Replace H1/H4 base slices with paired donor slices.",
+      "donor_complement": "Replace the seven complementary head slices with paired donor slices.",
+      "donor_all_heads": "Replace all nine preprojection slices with paired donor slices.",
+      "donor_whole_attention": "Replace the complete post-c_proj layer-9 attention output with paired donor output."
+    },
+    "fitting": "none"
+  },
+  "bars": {
+    "instrument": "Identity-selected max answer/foil error <=1e-5; donor-all-heads versus donor-whole-attention max error <=1e-5; exact finite 64-row coverage per arm.",
+    "full_route": "Donor-all-heads A1 and A2 mean recovery >=0.25 and direction fraction >=0.75.",
+    "reuse": "Donor-selected H1/H4 retain >=0.60 of donor-all-heads mean recovery separately in A1 and A2, have direction fraction >=0.75, and their pooled A mean recovery is strictly greater than the complement's.",
+    "selectivity": "Selected H1/H4 P and C mean absolute normalized effects <=0.20 of the frozen is/was target scale.",
+    "price": "Seven forwards/448 examples, five patch arms, zero fit/grid/root/backward/update."
+  },
+  "predictions": {
+    "pred_a_authority_capability_identity_and_route_agreement": "All hashes/capability/coverage/finite checks pass; identity is exact and all-head equals whole-attention routing.",
+    "pred_b_full_l9_attention_route_is_live": "All layer-9 heads jointly carry at least 0.25 A1/A2 recovery with direction fraction >=0.75.",
+    "pred_c_q_has_h1_h4_cross_task_reader_reuse": "H1/H4 retain >=0.60 of the full route in both A families with direction fraction >=0.75.",
+    "pred_d_selected_heads_dominate_complement": "Pooled selected-head A recovery is strictly larger than the complementary seven-head recovery.",
+    "pred_e_selected_head_selectivity_and_exact_price": "Selected P/C effects are <=0.20 and exact seven-forward zero-fit price passes."
+  },
+  "terminal": {
+    "screen": "A-E pass: L9H1/H4 are reused contextual reader heads across has/had and is/was.",
+    "null": "Instrument and full L9 route pass but reuse, dominance, or selectivity misses; retain distinct task-gated reader paths.",
+    "invalid": "Authority, capability, identity, full-route liveness, route agreement, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["component grouping", "causal localization", "composition and reuse", "selective manipulation"],
+  "price": {"model_forwards": 7, "example_evaluations": 448, "rows": 64, "patch_arms": 5, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
