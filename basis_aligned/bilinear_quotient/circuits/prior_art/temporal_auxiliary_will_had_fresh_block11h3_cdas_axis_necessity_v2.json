@@ -1,0 +1,43 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_block11h3_cdas_axis_necessity_v2",
+  "created_utc": "2026-09-06T14:12:00Z",
+  "supersedes": "v1 abandoned pre-model because its projector-reproduction clause referenced no retained v1 projector",
+  "question": "Is the closure-valid learned H3 axis exactly reproducible as an executable vector and selectively necessary when removed from natural donor H3 states?",
+  "authority": {
+    "single_component_cdas_result_sha256": "5fba2b88bd7a6ec9883ee624e05495600e31258defcc355a22ab219ba9734b78",
+    "single_component_das_library_sha256": "363569c1b1cf20e4f31a4569d2467b4c86a6563405a49766af968037e12028b8",
+    "joint_reader_mediation_result_sha256": "7132fab362c1f137ed650bf8144a2b08a175d161c21db7171c2e1b52f2ffa173"
+  },
+  "frozen_design": {
+    "fit": "run the exact v1 fit twice: even A1, rank1, empirical delta span, DIM plus seeds 1/2, 150 Adam steps at lr .03, normalized match+complement objective",
+    "artifact": "store the first selected unit-norm 128-vector and its canonical little-endian float32 byte SHA256",
+    "determinism": "compare the two independently invoked fits by projector max error and absolute cosine",
+    "sufficiency_replay": "repeat v1 heldout A1 and A2 subspace/complement arms",
+    "necessity": "on each natural donor prompt, replace the learned H3 coefficient with its matched base coefficient and measure movement toward the base answer",
+    "controls": "apply the same donor coefficient neutralization to P and C prompts",
+    "rank": 1,
+    "model_forwards_max": 1880,
+    "example_evaluations_max": 31500,
+    "model_backwards_max": 1800,
+    "model_updates": 900
+  },
+  "predictions": {
+    "pred_a_fit_and_projector_reproduce": "both fits reproduce v1 best objective within 1e-6 and each other at projector max error <=1e-6 and absolute cosine >=0.999999",
+    "pred_b_sufficiency_reproduction": "heldout/A2 axis and complement fractions reproduce v1 within 0.01",
+    "pred_c_bidirectional_necessity": "donor-axis neutralization moves toward base on >=0.75 of rows and recovers >=0.25 of the full native contrast in A1-heldout and A2",
+    "pred_d_selective_neutralization": "normalized P and C donor collateral are <=0.20 and <=0.35",
+    "pred_e_executable_axis_artifact": "stored vector has exactly 128 finite float32 coordinates, norm within 1e-5 of one, and canonical byte hash agrees",
+    "pred_f_managed_price": "registered ceilings are respected with no new rank, seed, or threshold search"
+  },
+  "terminal_rules": {
+    "invalid": "authority, deterministic reproduction, finiteness, artifact identity, or price fails",
+    "screen": "all six predictions pass",
+    "sufficiency_only": "A/B/D/E/F pass but bidirectional necessity fails",
+    "null": "valid reproduction but the axis is not selective or not transferable"
+  },
+  "interpretation_limits": [
+    "This tests necessity of the H3 axis contribution, not the entire two-reader temporal circuit.",
+    "The axis is defined only in fixed block11H3 coordinates.",
+    "No post-result rank increase or additional seed is licensed."
+  ]
+}
