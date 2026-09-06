@@ -61,3 +61,19 @@ def test_capture_source_written_states_removes_hook(monkeypatch):
     assert result == ("base", 1)
     assert projection.hook == "hook"
     assert projection.removed is True
+
+
+def test_multi_reader_rejects_unsorted_or_duplicate_layers():
+    class Backend:
+        pass
+
+    with pytest.raises(mediation.AttentionPathMediationError):
+        mediation.run_composed_multi_reader(
+            Backend(), None, None, None, None, None,
+            ({"layer": 11}, {"layer": 9}), enable_writer=False,
+        )
+    with pytest.raises(mediation.AttentionPathMediationError):
+        mediation.run_composed_multi_reader(
+            Backend(), None, None, None, None, None,
+            ({"layer": 9}, {"layer": 9}), enable_writer=False,
+        )

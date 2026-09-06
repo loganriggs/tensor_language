@@ -170,6 +170,128 @@ def run_composed(
     return output, float(dynamic.get("reconstruction_max_abs", 0.0))
 
 
+def run_composed_multi_reader(
+    backend,
+    base_batch,
+    donor_batch,
+    writer_base_capture,
+    writer_donor_capture,
+    writer_destinations,
+    reader_specs,
+    *,
+    writer_layer=8,
+    writer_heads=(1,),
+    writer_groups=("cue",),
+    enable_writer=True,
+):
+    """Apply one exact writer and causally ordered dynamic reader clamps.
+
+    Each reader spec names one attention layer, its base capture, selected heads, and exactly
+    one of `positions_by_row` or `clamp_complete=True`. Later source terms are captured live
+    after earlier interventions, so joint mediation respects causal ordering.
+    """
+    specs = tuple(reader_specs)
+    layers = [int(spec["layer"]) for spec in specs]
+    if layers != sorted(layers) or len(layers) != len(set(layers)):
+        raise AttentionPathMediationError("reader specs must have unique increasing layers")
+    handles = []
+    if enable_writer:
+        writer_hook = fixed_source_delta_hook(
+            backend, base_batch, donor_batch, writer_base_capture, writer_donor_capture,
+            writer_destinations, writer_groups, selected_heads=writer_heads,
+        )
+        handles.append(
+            backend.model.transformer.h[int(writer_layer)].attn.c_proj.register_forward_pre_hook(
+                writer_hook
+            )
+        )
+    diagnostics = []
+    for spec in specs:
+        layer = int(spec["layer"])
+        if layer <= int(writer_layer):
+            raise AttentionPathMediationError("reader must be downstream of writer")
+        complete = bool(spec.get("clamp_complete", False))
+        supplied_positions = spec.get("positions_by_row")
+        if complete == (supplied_positions is not None):
+            raise AttentionPathMediationError(
+                "reader requires exactly one of positions_by_row or clamp_complete")
+        positions = None if complete else validate_reader_positions(base_batch, supplied_positions)
+        base_capture = spec["base_capture"]
+        heads = tuple(int(head) for head in spec["heads"])
+        head_count = backend.model.config.n_head
+        if not heads or len(heads) != len(set(heads)) or any(
+            not 0 <= head < head_count for head in heads
+        ):
+            raise AttentionPathMediationError("reader head selection is invalid")
+        head_dim = backend.model.config.n_embd // head_count
+        attention = backend.model.transformer.h[layer].attn
+        dynamic = {"layer": layer}
+        diagnostics.append(dynamic)
+
+        def capture_reader(_module, arguments, attention=attention, dynamic=dynamic):
+            current = arguments[0]
+            v1 = arguments[1] if len(arguments) > 1 else None
+            pattern, value, reconstructed = destination_source._attention_terms(
+                backend, attention, current, v1
+            )
+            dynamic["pattern"] = pattern
+            dynamic["value"] = value
+            dynamic["reconstructed"] = reconstructed
+
+        def clamp_reader(
+            _module,
+            arguments,
+            dynamic=dynamic,
+            complete=complete,
+            positions=positions,
+            base_capture=base_capture,
+            heads=heads,
+        ):
+            required = {"pattern", "value", "reconstructed"}
+            if not required.issubset(dynamic):
+                raise AttentionPathMediationError("dynamic multi-reader capture missing")
+            flattened = arguments[0]
+            native = flattened.view(
+                len(base_batch.row_ids), flattened.shape[1], head_count, head_dim
+            )
+            dynamic["reconstruction_max_abs"] = float(
+                (dynamic["reconstructed"].float() - native.float()).abs().max()
+            )
+            changed = native.clone()
+            for index, query in enumerate(base_batch.semantic_positions):
+                for head in heads:
+                    if complete:
+                        changed[index, query, head] = base_capture["head_output"][
+                            index, query, head
+                        ].to(device=changed.device, dtype=changed.dtype)
+                    else:
+                        for position in positions[index]:
+                            current_term = (
+                                dynamic["pattern"][index, head, query, position]
+                                * dynamic["value"][index, position, head]
+                            )
+                            base_term = (
+                                base_capture["pattern"][index, head, query, position]
+                                * base_capture["value"][index, position, head]
+                            )
+                            changed[index, query, head] += base_term - current_term
+            return (changed.reshape_as(flattened),) + tuple(arguments[1:])
+
+        handles.extend([
+            attention.register_forward_pre_hook(capture_reader),
+            attention.c_proj.register_forward_pre_hook(clamp_reader),
+        ])
+    try:
+        output = backend.native(base_batch, capture=False)
+    finally:
+        for handle in handles:
+            handle.remove()
+    return output, {
+        str(item["layer"]): float(item.get("reconstruction_max_abs", 0.0))
+        for item in diagnostics
+    }
+
+
 def capture_source_written_states(
     backend,
     base_batch,
