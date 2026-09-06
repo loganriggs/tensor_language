@@ -1,0 +1,248 @@
+{
+  "a2_counting_targets": [
+    "coordination_agreement",
+    "lexical_number",
+    "perfect_number",
+    "quantifier_number"
+  ],
+  "bars": {
+    "complement": 0.3,
+    "cos": 0.7,
+    "floor": 0.1,
+    "serve": 0.5
+  },
+  "candidate_id": "corpus.unit_number_axis_reach_v11",
+  "finished_utc": "2026-09-06T15:51:18.914246+00:00",
+  "head": [
+    "attn:11:head:03"
+  ],
+  "predictions": {
+    "pred_a_possessive_reads_1103": false,
+    "pred_b_axis_serves_possessive": false,
+    "pred_c_axis_serves_existential": false,
+    "pred_d_possessive_cos": true,
+    "pred_e_axis_serves_every_a2": true
+  },
+  "schema": "circuit_unit_number_axis_reach_result_v1",
+  "seconds": 3.163745805621147,
+  "semantics": "block_live",
+  "source": "lexical_number.pp_intervener even A1 rows",
+  "targets": {
+    "coordination_agreement": {
+      "a1_heldout": {
+        "complement": 0.004466850658856568,
+        "complement_fraction": 0.01863834784499807,
+        "counts": true,
+        "exact_set": 0.23965915305391866,
+        "linearity_sum": 0.9915184537362975,
+        "served": true,
+        "subspace": 0.23315962220091555,
+        "subspace_fraction": 0.9728801058912995
+      },
+      "a2": {
+        "complement": 0.001898633702161803,
+        "complement_fraction": 0.00915154393308496,
+        "counts": true,
+        "exact_set": 0.2074659441122061,
+        "linearity_sum": 0.9942659272458655,
+        "served": true,
+        "subspace": 0.2043776855924997,
+        "subspace_fraction": 0.9851143833127806
+      },
+      "cos_to_source": 0.5982005596160889,
+      "own_direction_a1_heldout": {
+        "complement": -0.010232043347720527,
+        "complement_fraction": -0.0426941479903274,
+        "exact_set": 0.23965915305391866,
+        "linearity_sum": 0.9973567649094738,
+        "subspace": 0.24925772091852127,
+        "subspace_fraction": 1.0400509128998012
+      },
+      "rows_dropped": {
+        "a2": 0,
+        "fit": 0,
+        "heldout": 0
+      }
+    },
+    "existential": {
+      "a1_heldout": {
+        "complement": 0.01938165486089265,
+        "complement_fraction": 0.3081671458990336,
+        "counts": false,
+        "exact_set": 0.06289331980652721,
+        "linearity_sum": 1.0012703061314285,
+        "served": false,
+        "subspace": 0.04359155871541068,
+        "subspace_fraction": 0.6931031602323948
+      },
+      "a2": {
+        "complement": 0.00858176279172622,
+        "complement_fraction": 0.31558795503446496,
+        "counts": false,
+        "exact_set": 0.02719293513844347,
+        "linearity_sum": 0.9976831785960181,
+        "served": false,
+        "subspace": 0.01854817117255141,
+        "subspace_fraction": 0.682095223561553
+      },
+      "cos_to_source": 0.25058814883232117,
+      "own_direction_a1_heldout": {
+        "complement": -0.023304259252682723,
+        "complement_fraction": -0.37053631966592665,
+        "exact_set": 0.06289331980652721,
+        "linearity_sum": 1.0015717164642846,
+        "subspace": 0.08629642952544336,
+        "subspace_fraction": 1.3721080361302112
+      },
+      "rows_dropped": {
+        "a2": 4,
+        "fit": 0,
+        "heldout": 0
+      }
+    },
+    "lexical_number": {
+      "a1_heldout": {
+        "complement": 0.008529522500403279,
+        "complement_fraction": 0.012695626892755408,
+        "counts": true,
+        "exact_set": 0.6718472882399008,
+        "linearity_sum": 1.0048316619422888,
+        "served": true,
+        "subspace": 0.6665639047131162,
+        "subspace_fraction": 0.9921360350495334
+      },
+      "a2": {
+        "complement": 0.005542654457993425,
+        "complement_fraction": 0.010463577145268034,
+        "counts": true,
+        "exact_set": 0.5297093318129729,
+        "linearity_sum": 1.0077368651872631,
+        "served": true,
+        "subspace": 0.5282649670436517,
+        "subspace_fraction": 0.9972732880419951
+      },
+      "cos_to_source": 1.0000001192092896,
+      "own_direction_a1_heldout": {
+        "complement": 0.008529522500403279,
+        "complement_fraction": 0.012695626892755408,
+        "exact_set": 0.6718472882399008,
+        "linearity_sum": 1.0048316619422888,
+        "subspace": 0.6665639047131162,
+        "subspace_fraction": 0.9921360350495334
+      },
+      "rows_dropped": {
+        "a2": 0,
+        "fit": 0,
+        "heldout": 0
+      }
+    },
+    "perfect_number": {
+      "a1_heldout": {
+        "complement": 0.009976298581495121,
+        "complement_fraction": 0.016066492463684044,
+        "counts": true,
+        "exact_set": 0.6209381795090051,
+        "linearity_sum": 1.0291691197926487,
+        "served": true,
+        "subspace": 0.6290741010694374,
+        "subspace_fraction": 1.0131026273289647
+      },
+      "a2": {
+        "complement": 0.005654778244822127,
+        "complement_fraction": 0.01021622360818847,
+        "counts": true,
+        "exact_set": 0.5535096393436152,
+        "linearity_sum": 1.0030094644195424,
+        "served": true,
+        "subspace": 0.5495206286642714,
+        "subspace_fraction": 0.9927932408113539
+      },
+      "cos_to_source": 0.9649844765663147,
+      "own_direction_a1_heldout": {
+        "complement": 0.010932975273462027,
+        "complement_fraction": 0.017607188016860335,
+        "exact_set": 0.6209381795090051,
+        "linearity_sum": 1.008323330378729,
+        "subspace": 0.615173477848363,
+        "subspace_fraction": 0.9907161423618686
+      },
+      "rows_dropped": {
+        "a2": 0,
+        "fit": 0,
+        "heldout": 0
+      }
+    },
+    "possessive_adjacent": {
+      "a1_heldout": {
+        "complement": 0.0002026837961429415,
+        "complement_fraction": 0.07920616950714682,
+        "counts": false,
+        "exact_set": 0.002558939504386123,
+        "linearity_sum": 0.9944544226688508,
+        "served": false,
+        "subspace": 0.0023420649113358753,
+        "subspace_fraction": 0.9152482531617039
+      },
+      "a2": {
+        "complement": 0.0029478741597076326,
+        "complement_fraction": 1.0326774583831821,
+        "counts": false,
+        "exact_set": 0.002854593305757821,
+        "linearity_sum": 1.0184354677936713,
+        "served": false,
+        "subspace": -4.065509099748353e-05,
+        "subspace_fraction": -0.014241990589510842
+      },
+      "cos_to_source": 0.9326834678649902,
+      "own_direction_a1_heldout": {
+        "complement": -0.0003162268562496518,
+        "complement_fraction": -0.12357730837623421,
+        "exact_set": 0.002558939504386123,
+        "linearity_sum": 0.9719881227371656,
+        "subspace": 0.002803485661315892,
+        "subspace_fraction": 1.0955654311133998
+      },
+      "rows_dropped": {
+        "a2": 0,
+        "fit": 0,
+        "heldout": 0
+      }
+    },
+    "quantifier_number": {
+      "a1_heldout": {
+        "complement": 0.07734513799241843,
+        "complement_fraction": 0.2715166622160269,
+        "counts": true,
+        "exact_set": 0.2848633205828094,
+        "linearity_sum": 0.9996740721675733,
+        "served": true,
+        "subspace": 0.20742533770577554,
+        "subspace_fraction": 0.7281574099515464
+      },
+      "a2": {
+        "complement": 0.059063899418896455,
+        "complement_fraction": 0.17021608324622237,
+        "counts": true,
+        "exact_set": 0.34699364650201037,
+        "linearity_sum": 0.9397235510538282,
+        "served": true,
+        "subspace": 0.2670142022650895,
+        "subspace_fraction": 0.7695074678076058
+      },
+      "cos_to_source": 0.49195921421051025,
+      "own_direction_a1_heldout": {
+        "complement": -0.0018029138995682545,
+        "complement_fraction": -0.006329048948385581,
+        "exact_set": 0.2848633205828094,
+        "linearity_sum": 1.0068510086109155,
+        "subspace": 0.28861783554462445,
+        "subspace_fraction": 1.013180057559301
+      },
+      "rows_dropped": {
+        "a2": 0,
+        "fit": 0,
+        "heldout": 0
+      }
+    }
+  }
+}

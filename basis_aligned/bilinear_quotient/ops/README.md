@@ -254,6 +254,8 @@ Library: `ops/circuit_unit_greedy.py`. Runners: `run_unit_greedy_protocol_v2`,
 (exact-set A1/A2/P/C, the v7 semantics control, block diff-in-means with complement, S + C and random
 on held-out and A2). ~4.6 s per behaviour end to end; write a runner that loops over modules, do not
 copy the helpers.
+Always `prepare(..., valid_only=True)` and report `prep.dropped` for any module that was a null or has
+not been screened: the kernel refuses rows whose donor does not beat the base (v5 and v11 both crashed on this).
 
 **Semantics (fixed by v7, 2026-09-06 14:18):** a direction is one subspace PER (layer, kind) BLOCK,
 applied to the block's LIVE value: `live + q q^T (donor - live)` (`q` a dict, "block-live" mode).
