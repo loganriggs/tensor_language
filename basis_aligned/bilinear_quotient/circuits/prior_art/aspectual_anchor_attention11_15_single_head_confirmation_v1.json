@@ -1,0 +1,56 @@
+{
+  "schema": "aspectual_anchor_attention11_15_single_head_confirmation_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.attention11_15_single_head_confirmation_v1",
+  "created_utc": "2026-09-06T04:22:12Z",
+  "question": "Do selection-dominant block11 H3 and block15 H5 each retain most of their already validated four-head suffix attention increment on disjoint confirmation rows?",
+  "authority": {
+    "head_compression_result": {
+      "path": "circuits/followups/aspectual_anchor_attention11_15_head_compression_split_v1_result.json",
+      "sha256": "77c631ca20f92328ea6a76a832a5e01581d3cea328d41137a04d721b4a9ef191",
+      "terminal": "screen",
+      "block11_selection_dominant": 3,
+      "block15_selection_dominant": 5
+    },
+    "head_compression_runner": {
+      "path": "ops/run_aspectual_anchor_attention11_15_head_compression_split_v1.py",
+      "sha256": "225c822c37007445353febd133fe308230b4f47b25b572bfe2c2614cc54950f2"
+    },
+    "holdout_builder": {
+      "path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py",
+      "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859",
+      "rows_sha256": "18dfe9b5e86387017f3b8a81d378cc4892b4ee5a219ea7e35bf02548cd54e493"
+    }
+  },
+  "data_status": "The H3-only block11 and H5-only block15 intervention outcomes on the 16 confirmation rows are unopened. Their selection-half singleton scores and confirmation four-head/all-head outcomes are open.",
+  "population": {
+    "confirmation": "Last 16 A1/A2 rows in immutable builder order.",
+    "confirmation_row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b"
+  },
+  "frozen_design": {
+    "head_by_boundary": {"11": 3, "15": 5},
+    "four_head_controls": {"11": [3, 7, 2, 6], "15": [5, 1, 4, 6]},
+    "arms_per_boundary": ["no_heads", "dominant_single_head", "selected_four_heads", "all_heads"],
+    "fixed_context": "Full carried and MLP boundary deltas remain present; only projected attention head deltas vary.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_split_capability_and_instrument": "All hashes/terminals, split hash, native capability, native/manual, MLP4 tensor, attention projection, and crossing tensor checks pass.",
+    "pred_b_writer_and_control_recurrence": "Writer and four-head/all-head controls recur within fixed numeric tolerances and preserve positive A1/A2 direction.",
+    "pred_c_single_head_compression": "H3 at block11 and H5 at block15 each retain at least 75% of the selected-four-minus-no-head attention increment.",
+    "pred_d_single_head_family_recurrence": "Each dominant singleton has a positive no-head-relative increment in both A1 and A2.",
+    "pred_e_exact_coverage": "Four arms at two boundaries plus writer produce exactly 144 finite records within 24 forwards and 224 example evaluations, without fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: replace the four-head suffix sets with H3 and H5 in the compact program.",
+    "null": "The run is valid and controls recur, but one singleton fails compression or family recurrence.",
+    "invalid": "Authority, split, capability, alignment, instrument, control recurrence, finiteness, coverage, or price fails."
+  },
+  "price": {
+    "model_forwards_max": 24,
+    "example_evaluations_max": 224,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First disjoint singleton compression test for the selection-dominant heads inside both material suffix attention amplifiers."
+}

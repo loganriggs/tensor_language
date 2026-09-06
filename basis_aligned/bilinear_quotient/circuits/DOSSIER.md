@@ -318,6 +318,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.suffix_depth_adaptive_factorial_lexical_holdout_v1` | complete | frozen 16/16 suffix selection/confirmation | **block11 crossing confirmed without leakage** | `aspectual_anchor_suffix_depth_adaptive_factorial_lexical_holdout_v1_result.json` |
 | `aspectual_anchor.has_vs_had.block15_crossing_confirmation_v1` | complete | disjoint secondary suffix factorial | **block15 crossing confirmed** | `aspectual_anchor_block15_crossing_confirmation_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention11_15_head_compression_split_v1` | complete | split singleton/necessity plus compact-set test | **four-head suffix sets transfer disjointly** | `aspectual_anchor_attention11_15_head_compression_split_v1_result.json` |
+| `aspectual_anchor.has_vs_had.attention11_15_single_head_confirmation_v1` | complete | unopened disjoint singleton compression | **block11 H3 and block15 H5 suffice compactly** | `aspectual_anchor_attention11_15_single_head_confirmation_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -470,6 +471,11 @@ increments in A1 and A2. Projection error is below 0.00035 and crossing tensor e
 concentrated: block11 H3 accounts for a 3.388-point endpoint score versus 0.117 for H7, while block15 H5 accounts for 1.964 points
 versus 0.380 for H1. Because confirmation outcomes for the singleton sets remain unopened, a frozen H3/H5 one-head compression test
 is licensed before source-term decomposition.
+
+That final compression also screens. On the same disjoint confirmation half but previously unopened singleton outcomes, block11 H3
+retains 81.44% of the validated four-head attention increment (3.535% versus 4.341%), and block15 H5 retains 83.22% (2.094% versus
+2.516%). Both heads have positive no-head-relative increments in A1 and A2; all control values recur exactly. The material suffix
+attention circuit is therefore two heads total—L11H3 and L15H5—before source-term identity is tested.
 
 ### `subroutine.induction.equality_score` — site_live
 
