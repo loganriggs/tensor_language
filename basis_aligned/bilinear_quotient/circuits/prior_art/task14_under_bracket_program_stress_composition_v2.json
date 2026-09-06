@@ -1,0 +1,28 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "cross_behavior.task14_under_bracket_program_stress_composition_v2",
+  "created_utc": "2026-09-06T00:16:30Z",
+  "purpose": "Append-only audit of the independently preregistered Task14-under-bracket half of the asymmetric v1 composition result, while preserving the two-sided inconclusive verdict.",
+  "prior_art_search": {
+    "result": "The parent preregistered separate Task14 and bracket preservation gates. Its two-sided stress gate failed only because Task14 stress was negligible on the bracket panel; bracket stress was strongly live on Task14.",
+    "parent_result": {
+      "path": "circuits/followups/task14_bracket_fixed_program_stress_composition_v1_result.json",
+      "sha256": "d6df30a66b50ce97745df382bda3af6e7d0f6f66a1636e57bf30850dd7bf0d74"
+    }
+  },
+  "predictions": {
+    "pred_a_parent_instrument_and_price": "The immutable parent has exact corners, parent replay, source closures, and fixed price gates passing.",
+    "pred_b_bracket_stress_is_live_on_task14": "Bracket marginal norm is at least 5% of isolated Task14 program-effect norm.",
+    "pred_c_task14_composes_under_bracket_stress": "The parent's frozen Task14 preservation gate passes: cosine >=0.90, relative L2 <=0.40, signs >=0.90, and interaction/own norm <=0.40.",
+    "pred_d_no_reverse_or_semantic_upgrade": "The audit exports no bracket-under-Task14, two-sided, or joint-semantic claim and changes no vector, row, assignment, bar, or outcome.",
+    "pred_e_zero_execution_price": "The audit uses zero model forwards, examples, backwards, fits, updates, or interventions."
+  },
+  "terminal_rule": "screen if all gates pass; null if immutable input is valid but live-stress or Task14 composition fails; invalid otherwise.",
+  "closed_claims": [
+    "bracket under Task14 stress",
+    "two-sided composition",
+    "joint semantic prompt",
+    "autonomous selectors",
+    "whole-model replacement"
+  ]
+}
