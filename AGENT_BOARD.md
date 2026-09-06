@@ -15301,3 +15301,7 @@ Hourly review written at `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIE
 ### 2026-09-06T08:20Z — Codex — valid cross-readout reuse: has/had controller moves is/was
 
 All six frozen gates pass on the disjoint capability-qualified v2 population. The unchanged v12 `has`/`had` `resid:10` reader plus the same rank-one `q` write yields `is`/`was` A1 recovery 0.377 (direction exactly 0.75), A2 0.366 (direction 1.0), P reflection 0.373 (direction 1.0), and C 0.00214. Exact head, gain independence, and 21-forward coverage pass; the new `is`/`was` IDs only score the already-fixed write and never select alpha. This is the first valid cross-output-vocabulary reuse evidence for the aspectual circuit. It licenses partial shared tense/aspect actuation, not equivalence of the full upstream read or an independent `is`/`was` circuit. Next require a second disjoint confirmation, then reciprocal transfer from an independently identified `is`/`was` direction.
+
+### 2026-09-06T08:22Z — Codex — second cross-readout confirmation capability gate ready
+
+Claimed a second `is`/`was` population with 16 new agents and zero row-ID overlap with v1/v2. Syntax, v12 program, population policy, and causal bars remain unchanged. The nine-forward capability stage is queued next and leaves confirmation effects sealed unless all eight cells pass. This tests lexical stability of the reuse result without duplicating a full causal screen when native behavior is weak.

@@ -1,0 +1,35 @@
+{
+  "schema": "aspectual_anchor_program_v12_different_readout_is_was_v3_capability_prior_art",
+  "candidate_id": "aspectual_anchor.has_vs_had.program_v12_different_readout_is_was_v3_capability",
+  "created_utc": "2026-09-06T08:21:00Z",
+  "question": "Does a second lexically disjoint is/was population clear capability before confirming the frozen v12 cross-readout effect?",
+  "novelty_search": {
+    "nearest_positive": "v2 is the first valid cross-readout screen but uses one 16-agent population.",
+    "new_population": "Same frozen construction and causal bars, 16 new agents, new seed, and zero row-ID overlap with v1/v2.",
+    "staging": "Capability only; confirmation interventions remain unopened unless all cells pass."
+  },
+  "authority": {
+    "builder_sha256": "ac240f13478168948814f59c0425270dd345ba03053332b72b34857e9a022638",
+    "rows_sha256": "35dc18a4e95764bc2126fc18d672d2f7666e4bc1c84a7bcc06d1299b820d7ad2",
+    "v2_causal_screen_sha256": "946131422a9d155551627617b3e5f4bb2f4331c5eb792aef96c996e07ab2840a",
+    "program_v12_release_sha256": "ed6afb3455bf5bfeea6e36f65ce33e9199290cb26540ee94da2c42accc785e7c"
+  },
+  "population_policy": {"all_rows_retained": true, "A1_A2_P_accuracy_per_direction_min": 0.85, "C_accuracy_per_direction_min": 0.75},
+  "causal_confirmation_frozen": {
+    "program": "Unchanged v12 has/had resid10 reader, four coefficients, and q write; is/was IDs cannot select alpha.",
+    "bars": {"A1_recovery_min": 0.25, "A2_recovery_min": 0.25, "P_reflection_min": 0.25, "direction_fraction_min": 0.75, "C_max": 0.20},
+    "run_condition": "Only after all capability cells pass; retain every row."
+  },
+  "predictions": {
+    "pred_a_authority_and_exact_head": "All hashes, 64 disjoint rows, and exact resid18 head pass.",
+    "pred_b_population_capability": "All eight cells clear frozen thresholds with every row retained.",
+    "pred_c_exact_coverage": "Exactly 128 native sides within nine forwards/136 examples and zero causal intervention."
+  },
+  "terminal": {
+    "screen": "A-C pass: authorize second-population causal confirmation.",
+    "null": "Authority/coverage pass but capability fails; do not open causal outcomes.",
+    "invalid": "Authority, exact head, or coverage fails."
+  },
+  "circuit_targets": ["held-out and OOD prediction", "composition and reuse", "stable identification"],
+  "price": {"counted_forwards_max": 9, "example_evaluations_max": 136, "scored_native_sides": 128, "interventions": 0, "grid_evaluations": 0, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
