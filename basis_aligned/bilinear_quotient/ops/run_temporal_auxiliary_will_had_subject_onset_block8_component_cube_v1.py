@@ -16,6 +16,7 @@ import circuit_das_subspace as das
 import circuit_fast_screen_candidate_temporal_auxiliary as candidate
 from circuit_fast_screen_managed_runner import atomic_create_json
 import residual_source_onset_eval as onset
+import run_aspectual_anchor_l9h1_h4_source_term_factorial_v1 as source_capture
 import run_aspectual_tense_h1h4_deep_resid9_block8_factorial_v1 as block_cube
 
 
@@ -50,6 +51,10 @@ EXACT_TOLERANCE = 2.0e-4
 
 class ExperimentError(RuntimeError):
     pass
+
+
+class Backend(onset.ResidualGroupBackend, source_capture.SourceBackend):
+    """Combine the sealed residual intervention and manual capture interfaces."""
 
 
 def sha(path):
@@ -156,7 +161,7 @@ def main():
 
     started_utc = utc_now()
     started = time.perf_counter()
-    backend = onset.ResidualGroupBackend.load("cuda")
+    backend = Backend.load("cuda")
     frozen_native = {
         (str(item["row_id"]), str(item["side"])): (
             float(item["answer_logit"]), float(item["foil_logit"])
