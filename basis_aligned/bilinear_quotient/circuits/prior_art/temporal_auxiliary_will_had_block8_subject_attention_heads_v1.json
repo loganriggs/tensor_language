@@ -1,0 +1,67 @@
+{
+  "schema": "temporal_auxiliary_will_had_block8_subject_attention_heads_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.block8_subject_attention_heads_v1",
+  "created_utc": "2026-09-06T12:46:00Z",
+  "evidence_class": "prospective_exact_attention_head_localization",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*will*had*block8*head*",
+      "circuits/followups/*will*had*block8*head*",
+      "circuits/prior_art/*subject*attention*head*",
+      "circuits/followups/*subject*attention*head*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "The valid native-order block-8 component cube found attention8 materially causal at the will/had subject-onset bank: omitting it loses 0.1985 recovery in A1 and 0.1236 in A2, although carried entry state has the largest Shapley value. Existing L9H1/H4 results identify downstream readers, not the block-8 writer heads.",
+    "new_question": "Is the material block-8 attention update into the subject-onset bank concentrated in one reusable head or distributed across heads?"
+  },
+  "authorities": {
+    "valid_block8_cube_v2_sha256": "973c0e490ed04c07fbc410e4b2960aa27db9a7ffc7f219948a68e5dd947a431b",
+    "subject_onset_depth_result_sha256": "b1f5ca50c669019684b5308b10dcd083de67897327bc6eecbcd92c978fc9cdae",
+    "temporal_fast_screen_sha256": "71a833c52c39b98be6f576d11749522e2725c540a29d61a2352e315978684ec9",
+    "temporal_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58",
+    "rows_sha256": "b74ff65cf6b59142bf38172dae7f70a25e5f471bbeaa038f9b3971caedf913da"
+  },
+  "population": "All 64 sealed A1/A2 will/had rows in two fixed 32-row construction batches.",
+  "interventions": {
+    "destinations": "Only the determiner and head-noun positions immediately after the temporal cue.",
+    "singleton_heads": "For each of block 8's 12 heads, replace that head's pre-c_proj output at both destinations by its paired donor value during an otherwise native base forward.",
+    "full_heads": "Replace all 12 pre-c_proj head outputs at the destinations.",
+    "direct_output_closure": "Replace the complete post-c_proj attention output at the same destinations by the paired donor output; it must match the full-head arm within 1e-4 selected-logit error.",
+    "fitting": "none; no head is selected or tuned during the run"
+  },
+  "opposing_predictions": {
+    "concentrated_writer": "At least one fixed head independently retains at least half of the full-head mean recovery, with donorward fraction at least 0.75, in both A1 and A2.",
+    "distributed_writer": "No single head reaches that bar in both constructions even though the complete attention update is materially positive."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_head_instrument": "All authorities and capability hold; manual replay is within 1e-4; full-head/direct-output selected-logit closure is within 1e-4; every arm-row is finite and present.",
+    "pred_b_material_attention_branch_recurrence": "The full-head arm has mean recovery at least 0.10 in A1 and 0.06 in A2, with donorward fraction at least 0.75 in both.",
+    "pred_c_shared_single_head_concentration": "At least one identical head has singleton mean recovery at least 0.50 of the full-head recovery and donorward fraction at least 0.75 in both A1 and A2.",
+    "pred_d_complete_head_ranking_reported": "Report all 12 singleton effects and the shared-head intersection without adaptive subset search; this descriptive ranking cannot rescue C.",
+    "pred_e_exact_zero_fit_price": "Exactly 32 model forwards, 1024 example evaluations, 896 arm-row records, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-E pass. Promote the shared singleton head and next partition its exact source tokens.",
+    "null": "A, B, and E pass but no shared singleton head passes C; retain the complete ranking and classify the writer as distributed at singleton resolution.",
+    "invalid": "Authority, capability, replay, full-head/direct closure, material-branch recurrence, finiteness, coverage, or price fails."
+  },
+  "scope": "This localizes block-8 attention writer heads at the established destinations. It does not test upstream source tokens, carried-state provenance, or low-rank compression.",
+  "circuit_targets": [
+    "module-to-head localization",
+    "causal writer identity",
+    "exact attention decomposition",
+    "cross-construction recurrence"
+  ],
+  "price": {
+    "model_forwards": 32,
+    "example_evaluations": 1024,
+    "rows": 64,
+    "arms": 14,
+    "intervention_records": 896,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
