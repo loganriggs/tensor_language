@@ -1,0 +1,43 @@
+{
+  "schema": "aspectual_anchor_affine_gain_identification_boundary_result_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.affine_gain_identification_boundary_v1",
+  "created_utc": "2026-09-06T07:28:00Z",
+  "evidence_class": "zero_forward_post_screen_identification_audit",
+  "authorities": {
+    "target_guided_v10_sha256": "cb1275e1b9449c52254a05efa9932aeaa916a2722c8ee72717231d9121e957fb",
+    "design_seen_affine_result_sha256": "4358d288756b7baf0e6d06377f314024905b17a845f8c5cbe5d490fd1bba2c25",
+    "prospective_new_lexicon_result_sha256": "a498295f1986f7ca80379fb193d3d961777e3eda1ef11fcf90515953dfc54921"
+  },
+  "audit_question": "Does prospective behavioral success justify interpreting the affine alpha as an identified prediction of a unique natural counterfactual carrier amplitude, rather than as a robust output control law?",
+  "old_fresh_overlap": {
+    "rows": 48,
+    "families": ["A1", "A2", "P"],
+    "affine_vs_target_guided_alpha_mean_absolute_difference": 530.9811683658344,
+    "affine_vs_target_guided_alpha_max_absolute_difference": 2703.1389508919347,
+    "A_mean_absolute_difference": 567.483868173013,
+    "P_mean_absolute_difference": 457.975768751477
+  },
+  "near_collision_examples": {
+    "within_confidence_0.01_pair_count": 4,
+    "largest_alpha_separation_within_confidence_0.01": 1530.04541015625,
+    "corresponding_confidence_separation": 0.0022487640380859375,
+    "largest_alpha_separation_within_confidence_0.05": 2692.88037109375,
+    "corresponding_confidence_separation_at_0.05": 0.026046276092529297,
+    "interpretation": "Nearly identical source margins can receive substantially different optima on the finite v10 grid, so the scalar feature does not identify a unique target-guided alpha. Grid discretization and broad behavioral plateaus are plausible contributors."
+  },
+  "behavioral_comparison": {
+    "affine_A1_recovery": 1.1719689014339019,
+    "target_guided_A1_recovery": 1.132705110321069,
+    "affine_A2_recovery": 1.3245870599103713,
+    "target_guided_A2_recovery": 1.1713244502901692,
+    "affine_P_reflection": 1.0232939889657762,
+    "target_guided_P_reflection": 0.9986408064580191,
+    "prospective_new_lexicon_A1_recovery": 1.1067275190652819,
+    "prospective_new_lexicon_A2_recovery": 1.1991189641984699,
+    "prospective_new_lexicon_P_reflection": 1.0126645046831488
+  },
+  "disposition": "causal_control_law_not_natural_amplitude_identification",
+  "reason": "The frozen rule is prospectively sufficient and selective, but equally good behavior under materially different alpha values means behavioral recovery alone does not identify a unique natural carrier gain or upstream computation.",
+  "terminal": "audit",
+  "next_action": "Measure a preregistered affine-alpha dose response on the prospective lexicon. A sharp optimum supports calibrated gain; a broad plateau confirms robust-control rather than amplitude-identification semantics."
+}

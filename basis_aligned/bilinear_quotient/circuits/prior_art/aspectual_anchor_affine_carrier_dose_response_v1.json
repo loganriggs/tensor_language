@@ -1,0 +1,42 @@
+{
+  "schema": "aspectual_anchor_affine_carrier_dose_response_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.affine_carrier_dose_response_v1",
+  "created_utc": "2026-09-06T07:28:00Z",
+  "evidence_class": "post_screen_causal_identification_preregistration",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*aspectual_anchor*", "circuits/followups/*aspectual_anchor*", "ops/*aspectual_anchor*", "AGENT_BOARD.md"],
+    "nearest_screen": "The frozen affine actuator predicts new-lexicon behavior at dose 1.0, but target-guided grid optima show large near-collisions in alpha.",
+    "new_question": "Is the frozen alpha a calibrated causal gain with a resolved dose response, or merely one point on a broad successful control plateau?"
+  },
+  "authorities": {
+    "prospective_affine_result_sha256": "a498295f1986f7ca80379fb193d3d961777e3eda1ef11fcf90515953dfc54921",
+    "identification_boundary_audit_sha256": "d8862dd13ca290b75fbb52ab611ec0482feb5a8700e836ad5922183490bd0cc3",
+    "fresh_lexicon_rows_sha256": "1127a313c7657ef2cace839219ff5cd6366df47151dcf63f89450abc85eaa02e",
+    "rank1_basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"
+  },
+  "frozen_design": {
+    "dose_multipliers": [0.5, 1.0, 1.5],
+    "coefficients": {
+      "present_to_past": {"intercept": -132.28506295990428, "slope": -2035.2755463854235},
+      "past_to_present": {"intercept": -383.97355829906564, "slope": 2426.378924892433}
+    },
+    "fixed_token_ids": {"has": 468, "had": 550},
+    "population": "The same sealed prospective new-lexicon rows; dose 1.0 outcome is known, while 0.5 and 1.5 were not evaluated before this preregistration.",
+    "actuator": "Compute frozen alpha exactly as in the prospective screen, then patch x_source + dose*alpha*q. No donor activation, row outcome ID, search, or observed dose outcome selects alpha or dose."
+  },
+  "predictions": {
+    "pred_a_authority_source_capability_and_exact_head": "Authorities, source-side capability, and exact-head replay pass.",
+    "pred_b_frozen_three_dose_actuator": "Exactly the three registered doses apply to every row with unchanged coefficients, IDs, and basis.",
+    "pred_c_ordered_causal_dose_response": "For A1, A2, and P, mean response is strictly ordered R(0.5)<R(1.0)<R(1.5), and at least 75% of rows are individually ordered.",
+    "pred_d_calibrated_gain_not_broad_plateau": "For each A1/A2/P, |R(1)-1|+0.10 is no greater than either alternate-dose error, and R(1.5)-R(0.5)>=0.50.",
+    "pred_e_all_dose_C_selectivity": "C mean normalized unrelated effect is <=0.20 at every dose.",
+    "pred_f_exact_coverage_and_price": "All 64 rows x 3 doses are unique within 25 counted forwards, 328 example evaluations, exactly 304 selected-head pair evaluations, zero grids/backwards/updates, and four inherited fit parameters."
+  },
+  "terminal": {
+    "screen": "A-F pass: the affine alpha is a resolved, calibrated causal gain over the registered dose interval.",
+    "null": "Authority, frozen dosing, and coverage pass but ordering, calibration, slope, or selectivity fails; retain robust-controller semantics without gain identification.",
+    "invalid": "Authority, capability, head control, frozen dosing, or coverage fails."
+  },
+  "circuit_targets": ["computational specification", "held-out causal prediction", "selective manipulation", "stable identification"],
+  "price": {"counted_forwards_max": 25, "example_evaluations_max": 328, "selected_head_pair_evaluations": 304, "grid_evaluations": 0, "model_backwards": 0, "model_updates": 0, "inherited_fit_parameters": 4}
+}
