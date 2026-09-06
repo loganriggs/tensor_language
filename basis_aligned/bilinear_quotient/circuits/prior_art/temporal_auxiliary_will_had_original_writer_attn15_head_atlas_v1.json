@@ -1,0 +1,45 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.original_writer_attn15_head_atlas_v1",
+  "created_utc": "2026-09-06T15:36:00Z",
+  "question": "Is the newly localized original-cue block15 attention reader concentrated in one native head or distributed across heads?",
+  "authority": {
+    "module_atlas_result_sha256": "f8517f43f41444b966b95ff0d8da9449f25bd95d32b726c1082066605cfd076a",
+    "module_atlas_runner_sha256": "a16fa52f76e0b7d947ed174b18898bced2ca242b735300ef592f2e3fc4bfeb4e",
+    "producer_sha256": "528e9f50152d6dc2b28d084cd0828de58de042b893703d0f322b4a2f22c4a0a7"
+  },
+  "prior_art_search": {
+    "searched": [
+      "temporal_auxiliary writer head/module/attn15 prior and followup files",
+      "original_writer_downstream_module_atlas_v1",
+      "circuit unit head atlases"
+    ],
+    "relation": "Attn15 was selected prospectively by the complete-module atlas; no writer-specific head split exists at this layer."
+  },
+  "frozen_design": {
+    "population": "the same 32 A1 and 32 A2 original rows",
+    "writer_and_capture": "unchanged exact block8H1 cue-source writer and captured downstream response",
+    "arms": "complete attn15 response plus each of heads 0 through 8 independently",
+    "concentration_bar": "one identical head is largest in both families and retains >=0.60 of the complete attn15 mean response in both",
+    "maximum_model_forwards": 26,
+    "maximum_example_evaluations": 832,
+    "maximum_records": 640,
+    "fit": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_writer_recurrence": "module authority matches, all native sides are capable, writer and complete-attn15 effects reproduce within 0.03 writer units",
+    "pred_b_same_head_is_largest": "the same head has the largest signed mean response in A1 and A2",
+    "pred_c_single_head_concentrates_attn15": "that head retains >=0.60 of complete attn15 in both families and is donorward on >=0.75 of rows",
+    "pred_d_all_heads_reported": "complete plus all nine singleton arms have 32 rows per family and finite effects",
+    "pred_e_exact_zero_fit_price": "26 forwards, 832 examples, 640 records, no fit/backward/update"
+  },
+  "terminal_rules": {
+    "invalid": "authority, capability, recurrence, coverage, or price fails",
+    "screen": "same concentrated head passes and is opened for source/operation confirmation",
+    "null": "valid head atlas is distributed; use greedy joint head selection with no threshold rescue"
+  },
+  "interpretation_limits": [
+    "Singleton head responses are a localization screen; concentration requires a later joint-complement check.",
+    "A distributed null leads directly to registered greedy head selection.",
+    "No DAS or rank fit is used."
+  ]
+}
