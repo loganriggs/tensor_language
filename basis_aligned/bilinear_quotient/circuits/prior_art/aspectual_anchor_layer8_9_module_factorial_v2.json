@@ -1,0 +1,54 @@
+{
+  "schema": "aspectual_anchor_layer8_9_module_factorial_prior_art_v2",
+  "candidate_id": "aspectual_anchor.has_vs_had.layer8_9_module_factorial_v2",
+  "created_utc": "2026-09-06T02:06:40Z",
+  "supersedes": {
+    "candidate_id": "aspectual_anchor.has_vs_had.layer8_9_module_factorial_v1",
+    "reason": "The v1 created_utc was accidentally 103 seconds in the future and was abandoned before any model execution or new outcome inspection; the scientific design below is unchanged."
+  },
+  "question": "Does a small, exact bank of layer-8/9 module writes compose the aspectual-anchor state that first becomes causally sufficient at resid:10?",
+  "authority": {
+    "aspectual_anchor_has_vs_had_v1_result.json": "5ca2125e7d18bd6a377efcfa0c3a361b949e5a8fff4c053ae7481b4384c4fb94",
+    "circuit_fast_screen_candidate_aspectual.py": "cca10e7f49f27ae49af62adbb0afb55d1d0b43b7174d0a5920db6f842fb1db20",
+    "circuit_fast_screen_producer.py": "528e9f50152d6dc2b28d084cd0828de58de042b893703d0f322b4a2f22c4a0a7"
+  },
+  "frozen_parent_observations": {
+    "resid08_target_recovery": 0.14781208031807608,
+    "resid09_target_recovery": 0.3647471682883708,
+    "resid10_target_recovery": 0.7845790034572205,
+    "attn08_target_recovery": 0.21403847885833527,
+    "mlp08_target_recovery": 0.052701000953531946,
+    "attn09_target_recovery": 0.41392600239657423,
+    "mlp09_target_recovery": 0.09087548364684012,
+    "parent_onset": "resid:10",
+    "no_single_module_passed_fixed_recovery_bar": true
+  },
+  "intervention": {
+    "direction": "donor_to_recipient",
+    "position": "the matched final subject token",
+    "value": "exact replacement from the paired native donor cache",
+    "module_factorial": ["attn:08", "mlp:08", "attn:09", "mlp:09"],
+    "module_arms": "all 16 subsets including the native empty set",
+    "head_arms": "all nine singleton pre-projection heads of attn:09",
+    "outcome_conditioning": "none"
+  },
+  "predictions": {
+    "pred_a_authority_and_native_capability": "The parent hashes and all eight ordered native capability cells reproduce exactly.",
+    "pred_b_four_module_composition": "The frozen four-module bank has A1 and A2 mean recovery at least 0.65, direction fraction at least 0.90 in each family, P effect at most 0.20, and C absolute recovery at most 0.35.",
+    "pred_c_attn09_is_necessary_within_bank": "Removing attn:09 from the full bank lowers mean target recovery by at least 0.25; its exact factorial Shapley contribution is the largest of the four modules.",
+    "pred_d_head_resolution": "Report all nine attn:09 singleton heads without adaptive subset rescue; a head is localized only if its A1 and A2 mean recovery are each at least 0.15, direction fractions are each at least 0.80, P is at most 0.20, and C is at most 0.35.",
+    "pred_e_exact_coverage": "Every one of 25 registered arms produces all 128 row outcomes, with finite logits and no dropped record."
+  },
+  "terminal": {
+    "screen": "A, B, C, and E pass. D is a separately reported head-resolution result and cannot rescue the module-bank terminal.",
+    "null": "The run is valid but B or C fails.",
+    "invalid": "Any authority, capability, exact-coverage, finiteness, instrument, or execution check fails. No threshold, site, layer, head subset, row, or construction may be changed after opening outcomes."
+  },
+  "price": {
+    "model_forwards_max": 416,
+    "example_evaluations_max": 13312,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "novelty": "The parent tested singleton residual, module, and conditionally eligible head swaps. This is the first exact multi-module factorial at the aspectual onset and the first non-adaptive L9 head decomposition for this behavior."
+}
