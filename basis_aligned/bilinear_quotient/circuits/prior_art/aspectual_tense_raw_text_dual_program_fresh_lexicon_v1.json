@@ -1,0 +1,59 @@
+{
+  "schema": "aspectual_tense_raw_text_dual_program_fresh_lexicon_prior_art_v1",
+  "candidate_id": "aspectual_tense.raw_text_dual_program_fresh_lexicon_v1",
+  "created_utc": "2026-09-06T10:11:05Z",
+  "evidence_class": "prospective_matched_lexicon_capability_first_dual_program_validation",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*aspectual*tense*", "circuits/followups/*aspectual*tense*", "ops/*aspectual*tense*", "AGENT_BOARD.md"],
+    "nearest_result": "The raw-text dual program is a zero-forward release over has/had v5 and is/was v6 evidence, not a prospective end-to-end test of the combined interface.",
+    "new_question": "Does the unchanged selector and both unchanged causal writers preserve A/P effects on two new banks sharing the same new occupation lexicon?"
+  },
+  "authorities": {
+    "dual_program_result_sha256": "0fb9d071d1ccad8662ab10958ea30db55b3293e1766d3c08cb1296ec03a37336",
+    "dual_program_sha256": "a756bfbeddaad7db2bb0c7feec1f3a6bd976b05fec36d231865b69e4813a976c",
+    "q_has_basis_result_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "q_is_basis_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "q_has_prospective_result_sha256": "a4cee1818acd6a28e999eda26d0447f94d080b913f4061d0e6dab4914cb3802c",
+    "q_is_prospective_result_sha256": "dad39b298a0e89e5e0271149574012ebf7f75e995b83f6ede12ebe3b1aa746e8",
+    "q_has_release_sha256": "ed6afb3455bf5bfeea6e36f65ce33e9199290cb26540ee94da2c42accc785e7c",
+    "q_is_release_sha256": "9804a0d0f047f194f6cce3490828c3a6e9525940f8c2b822467bc52176957e98",
+    "q_has_v6_builder_sha256": "9ebc6613df73b9470e562be7e91b4f5b27f7f1e9c111aacf5470a2a7e07377a5",
+    "q_is_v7_builder_sha256": "985e8e6647b35c29a9e02a6291fd11ea44e49e4113aaece3d029db12f65bb6c0",
+    "q_has_v6_rows_sha256": "a7592b57b40beb3fc75c9e6ef6385367dbbc5d3d3462f93df2cc6f6b79fd9fc2",
+    "q_is_v7_rows_sha256": "05847e77b62ba1321256dc3de058c6b05a52344a2d036f53753cc48f05f52f0d"
+  },
+  "population": {
+    "rows": "64 has/had v6 plus 64 is/was v7 rows; 16 occupations are identical across banks and disjoint from every prior bank for each task; has/had periods and every row ID are new.",
+    "capability_first": "Score native base/donor answer-versus-foil accuracy in eight family/direction cells per bank. All 16 cells must pass before any intervention outcome is computed or persisted.",
+    "capability_bars": "A1/A2/P cells >=0.85; C cells >=0.75, separately by direction and bank.",
+    "no_rescue": "No row removal, lexical replacement, cue edit, gain refit, basis/rank change, or bar change after execution."
+  },
+  "frozen_program": {
+    "selector": "Unchanged six-cue raw-text selector from aspectual_tense.raw_text_dual_program_v1.",
+    "read_compute_write": "Selected released program reads its exact resid:10 local contrast, applies its four unchanged direction-affine coefficients, and adds alpha times its unchanged unit rank-one basis at resid:18; C abstains.",
+    "source_side": "base for A1/A2/C and donor for P, matching the prior prospective program semantics.",
+    "forbidden": "No donor activation in the actuator, final-margin confirmation, per-row root/grid, outcome IDs for gain selection, fitting, or model update."
+  },
+  "bars": {
+    "selector": "All 128 intervention-source texts select exact bank/direction for A/P and abstain for C.",
+    "A": "A1 and A2 mean recovery >=0.75 and direction fraction >=0.75 separately by bank.",
+    "P": "Mean margin-reflection fraction >=0.75 and direction fraction >=0.75 separately by bank.",
+    "C": "Mean normalized unrelated effect <=0.20 separately by bank; abstention identity must make it exactly zero.",
+    "identity": "Both bases are unit norm and hash-exact; local and final selected-head controls <=1e-4; all 128 rows retained."
+  },
+  "predictions": {
+    "pred_a_authority_release_basis_and_rows": "All hashes, releases, manifests, row authorities, disjointness, basis hashes, and exact heads match.",
+    "pred_b_native_capability_first": "All 16 native cells pass before causal outcomes open.",
+    "pred_c_automatic_selector_identity": "All 128 source texts route exact bank/direction or C abstention without ambiguity.",
+    "pred_d_prospective_has_had_preservation": "Has/had v6 passes A1/A2/P/C bars with the unchanged q_has program.",
+    "pred_e_prospective_is_was_preservation": "Is/was v7 passes A1/A2/P/C bars with the unchanged q_is program.",
+    "pred_f_exact_coverage_and_price": "Four forwards cover 256 native examples and 128 causal records with zero fit/grid/root/backward/update."
+  },
+  "terminal": {
+    "screen": "A-F pass: prospective matched-lexicon evidence supports the automatic dual program within both registered grammars.",
+    "null": "Capability and identity pass but at least one program misses its causal bar.",
+    "invalid": "Authority, capability, selector, identity, coverage, finiteness, or price fails; causal outcomes remain sealed if capability fails."
+  },
+  "circuit_targets": ["computational specification", "held-out prediction", "extraction or sufficiency", "selective manipulation", "composition and reuse", "simplicity and compression"],
+  "price": {"model_forwards": 4, "example_evaluations": 256, "rows": 128, "inherited_gain_scalars": 8, "basis_scalars": 2304, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}

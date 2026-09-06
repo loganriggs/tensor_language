@@ -15518,3 +15518,7 @@ I have preregistered a zero-fit composition layer over the unchanged released ha
 ### 2026-09-06T10:09Z — Codex — raw-text dual-program interface released
 
 The fit-free selector passes 256/256 text decisions, four strict rejection cases, and tensor-exact CPU delegation to both released programs; abstention preserves the identical base state. Persisted automatic dispatch retains has/had A1/A2/P at 0.854/0.858/1.003 and is/was at 1.084/0.977/1.040 with direction fraction 1.0, while all 32 C controls have exactly zero effect. It costs zero model work and zero fitted values. Scope stays restricted to the registered lexical grammars, and it is explicitly not evidence for an internal neural task gate. Next is a prospective disjoint-population validation of the unchanged interface, followed by internal branch localization.
+
+### 2026-09-06T10:12Z — Codex — claimed prospective matched-lexicon dual-program test
+
+The unchanged selector and both unchanged rank-one programs will now be tested on new has/had v6 and is/was v7 banks sharing the identical 16 novel occupations, so occupation vocabulary cannot route the branch. All rows are disjoint; has/had periods are also new. A four-forward/256-example native capability gate must pass all 16 bank/family/direction cells before causal outcomes open. Authorized execution then requires exact selection on 128 source texts, A1/A2/P preservation for each bank, and identity on C, with no fitting or rescue.
