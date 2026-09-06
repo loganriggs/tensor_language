@@ -15102,3 +15102,8 @@ attractor" — it does not lose it.
 - **The measure is absolute, not signed.** It establishes that the direction moves the answer, **not** that it moves it toward the correct number — a
   large movement the wrong way would look identical. That is a genuine limitation of this probe, and the signed version is the obvious follow-up. I am
   not claiming direction of movement from an absolute measure.
+### 2026-09-06T07:05Z — Codex — fixed two-scalar aspectual carrier actuator is an audited null
+
+The v2 managed run is preserved with its registered `invalid` terminal. A zero-forward post-outcome audit localized the failed instrument condition: the runner unnecessarily required capability on the **unused C donor**, and the pre-existing fresh authority records 15/16 C donors correct. Every actually scored source side passes (minimum semantic native margins: A1 base/donor 0.914/0.318, A2 0.945/0.472, P donor 0.381, C base 0.327), and head/actuator/coverage controls pass. Thus the intervention scores are uncontaminated but are classified only by a separate audit, never by rewriting the result.
+
+Scientific disposition: honest null. The two frozen direction scalars get 100% of A/P signs right and move C only 0.00108 normalized units, but recover just 0.253/0.257 on fresh A1/A2 (0.224/0.219 of target-guided v10) and reflect only 0.295 on P, below the frozen 0.50 bars. The circuit constraint is that the rank-one carrier's **sign is direction-stable but amplitude is input-dependent**. Next candidate changes the object: predict amplitude from the base state's fixed has-vs-had margin on lexical rows and freeze the rule on fresh A/P/C; no per-row target/foil selection or grid.

@@ -1,0 +1,52 @@
+{
+  "schema": "aspectual_anchor_direction_prototype_carrier_actuation_instrument_audit_result_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.direction_prototype_carrier_actuation_v2",
+  "created_utc": "2026-09-06T07:04:01Z",
+  "evidence_class": "post_outcome_zero_forward_instrument_audit",
+  "source_result": {
+    "path": "circuits/followups/aspectual_anchor_direction_prototype_carrier_actuation_v2_result.json",
+    "sha256": "a740fbcb5dc42aed876294dc980cb5deb6fc8e8fa21090b30db0946597d5ad23",
+    "preserved_terminal": "invalid"
+  },
+  "fresh_capability_authority": {
+    "path": "circuits/followups/aspectual_anchor_program_v7_fresh_construction_transfer_v1_result.json",
+    "sha256": "8e1ea19c94ef269d2e9c7c0577568a0e1fe2e8bc6640e016377270df2dc68129",
+    "same_rows_sha256": "3c30019fdcc087c0e7410cd82d02458307bc6987ff9d23349dcf97d076f797d7",
+    "C_base_correct": 16,
+    "C_base_total": 16,
+    "C_donor_correct": 15,
+    "C_donor_total": 16
+  },
+  "source_side_capability_reconstruction": {
+    "method": "Recover the semantic native margin from fields already emitted before the terminal decision: A base = -base_margin and A donor = donor_reference_margin; P donor source = -base_margin; C base source = base_margin.",
+    "A1_base_min_margin": 0.9138278961181641,
+    "A1_donor_min_margin": 0.3178997039794922,
+    "A2_base_min_margin": 0.9453201293945312,
+    "A2_donor_min_margin": 0.4719982147216797,
+    "P_donor_source_min_margin": 0.38053131103515625,
+    "C_base_source_min_margin": 0.3266744613647461,
+    "all_scored_source_sides_capable": true
+  },
+  "diagnosis": {
+    "failed_condition": "The v2 runner required every unused C donor state to prefer its answer. The actuator and C selectivity score use only the C base state; one of sixteen C donor states fails natively under the pre-existing fresh capability authority.",
+    "why_unique": "The result's emitted margins prove all A base/donor, P donor-source, and C base-source checks pass. The exact-head, fixed-actuator, and coverage predictions also pass. The authority records all 16 C bases and 15 of 16 C donors as correct.",
+    "instrument_effect": "The extra C-donor condition makes the registered v2 terminal invalid, but it does not contaminate any emitted A, P, or C intervention score because that donor state is never an actuator source or a C score endpoint.",
+    "model_forwards": 0,
+    "example_evaluations": 0
+  },
+  "scientific_disposition": "fixed_two_scalar_direction_prototypes_null",
+  "scientific_scores": {
+    "fresh_A1_mean_recovery": 0.2534402942460148,
+    "fresh_A2_mean_recovery": 0.25701539808805923,
+    "fresh_A1_recovery_fraction_vs_v10": 0.22374781568185587,
+    "fresh_A2_recovery_fraction_vs_v10": 0.21942289177382873,
+    "fresh_P_mean_margin_reflection_fraction": 0.29535514051718414,
+    "fresh_C_mean_normalized_unrelated_effect": 0.0010785948487657044,
+    "A1_direction_fraction": 1.0,
+    "A2_direction_fraction": 1.0,
+    "P_direction_fraction": 1.0
+  },
+  "interpretation": "A direction-only prototype gets every intervention sign right and is highly selective, but retains only about 22% of the target-guided v10 recovery and misses the frozen 0.50 A and P bars. Carrier amplitude is input-dependent; two direction scalars are insufficient.",
+  "terminal": "audit",
+  "next_action": "Test a preregistered input-dependent scalar predictor from the base has-versus-had native margin, fitted only on lexical rows and frozen on fresh A/P/C rows."
+}

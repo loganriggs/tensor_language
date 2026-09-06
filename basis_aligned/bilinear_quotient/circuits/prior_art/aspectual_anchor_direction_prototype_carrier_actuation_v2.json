@@ -1,0 +1,40 @@
+{
+  "schema": "aspectual_anchor_direction_prototype_carrier_actuation_prior_art_v2",
+  "candidate_id": "aspectual_anchor.has_vs_had.direction_prototype_carrier_actuation_v2",
+  "created_utc": "2026-09-06T06:59:00Z",
+  "evidence_class": "preexecution_price_correction",
+  "supersedes": {
+    "path": "circuits/prior_art/aspectual_anchor_direction_prototype_carrier_actuation_v1.json",
+    "sha256": "4059d751e565ff198ec32a08173b4fb4ebbc2730707387c4bd93a192d6146b7d",
+    "disposition": "abandoned_before_execution"
+  },
+  "sole_correction": "Count all exact selected-head evaluations: 64 patched interventions plus 112 native/reference controls = 176. Rows, authorities, two frozen prototypes, intervention semantics, bars, predictions, model-forward price, and null are unchanged from v1.",
+  "inherited_authority": {
+    "rank1_result_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "scalar_result_sha256": "4a55ef3da37b12722fabae41c9caaa7e8284fc0891ba4e15c5cfdeab40323b2d",
+    "scalar_instrument_audit_sha256": "001a0ba6cc8d87fab6922b3541a1e9b4d77b38144c71fcd644f87e0dd82df130",
+    "donor_free_v10_screen_sha256": "cb1275e1b9449c52254a05efa9932aeaa916a2722c8ee72717231d9121e957fb",
+    "fresh_builder_sha256": "848332a12c22bf523573e015b6f8f0a38b5865db8b77434dcbe6a176d98370ac",
+    "fresh_rows_sha256": "3c30019fdcc087c0e7410cd82d02458307bc6987ff9d23349dcf97d076f797d7"
+  },
+  "frozen_design": {
+    "prototypes": {"present_to_past": -828.5600967407227, "past_to_present": 874.4011383056641},
+    "confirmation_rows": 64,
+    "actuator": "alpha is selected only by direction_id, then x_patched = x_base + alpha*q; no confirmation donor state, target/foil ID, margin, grid search, or outcome enters alpha.",
+    "bars": {"A_recovery_min": 0.50, "A_direction_min": 0.75, "A_over_v10_min": 0.50, "P_reflection_min": 0.50, "P_direction_min": 0.75, "C_effect_max": 0.20}
+  },
+  "predictions": {
+    "pred_a_authority_calibration_capability_and_exact_head": "All inherited hashes, audited calibration, basis, native capability, and exact-head replay pass.",
+    "pred_b_fixed_target_independent_actuator": "Exactly two finite frozen scalars are used; confirmation states/readouts/outcomes do not select alpha.",
+    "pred_c_fresh_A_prediction": "Fresh A1/A2 each clear recovery, direction, and v10-relative bars.",
+    "pred_d_fresh_P_generalization": "Fresh P clears reflection and direction bars.",
+    "pred_e_fresh_C_selectivity": "Fresh C stays below the unrelated-effect ceiling.",
+    "pred_f_exact_coverage_and_price": "All 64 rows are unique within 25 counted forwards, 200 example evaluations, exactly 176 selected-head evaluations, zero grids/backwards/updates, and two fitted scalars."
+  },
+  "terminal": {
+    "screen": "A-F pass: a two-scalar direction program predicts selective fresh actuation without donors or target-guided optimization.",
+    "null": "Authority and coverage pass but A/P prediction or C selectivity misses.",
+    "invalid": "Authority, calibration, capability, head control, actuator identity, or coverage fails."
+  },
+  "price": {"model_forwards_max": 25, "example_evaluations_max": 200, "selected_head_evaluations": 176, "grid_evaluations": 0, "model_backwards": 0, "model_updates": 0, "fit_parameters": 2, "stored_fit_scalars_total": 1154}
+}
