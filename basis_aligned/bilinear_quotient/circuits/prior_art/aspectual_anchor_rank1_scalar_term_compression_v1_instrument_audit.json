@@ -1,0 +1,24 @@
+{
+  "schema": "aspectual_anchor_rank1_scalar_term_compression_v1_instrument_audit_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.rank1_scalar_term_compression_v1_instrument_audit",
+  "created_utc": "2026-09-06T06:14:00Z",
+  "evidence_class": "post_outcome_instrument_audit",
+  "question": "Was v1 invalid only because its exact affine-closure tolerance was below ordinary float32 accumulation, and what is the unchanged scientific disposition after separating that defect?",
+  "authority": {
+    "program_v9_release": {"path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v9_result.json", "sha256": "dc2cd67daa2fbed6ae9ddde33e9c44fae11b694e4f351b596b541878df9a9106", "terminal": "release"},
+    "rank1_mediation": {"path": "circuits/followups/aspectual_anchor_program_v8_rank1_carrier_mediation_v1_result.json", "sha256": "313ccce304a18f8b0d63547bb973964f0b6f93a506765e4bb87c31e40c128aa9", "terminal": "screen"},
+    "science_prior": {"path": "circuits/prior_art/aspectual_anchor_rank1_scalar_term_compression_split_v1.json", "sha256": "2a7d57dafa5f87f8405318cad35f6c47bda93116e8cf70948ba27202a10fe982"},
+    "science_runner": {"path": "ops/run_aspectual_anchor_rank1_scalar_term_compression_split_v1.py", "sha256": "cf236cec36b8f6293477c5b0041d36ce537cace7bb55f38228cdd169ff66cdac"},
+    "science_result": {"path": "circuits/followups/aspectual_anchor_rank1_scalar_term_compression_split_v1_result.json", "sha256": "4a55ef3da37b12722fabae41c9caaa7e8284fc0891ba4e15c5cfdeab40323b2d", "terminal": "invalid"}
+  },
+  "predictions": {
+    "pred_a_authority": "All five authority hashes and terminals match.",
+    "pred_b_float32_noise_localized": "All reference/model controls are exact or within the preregistered constituent reconstruction bounds, while only aggregate closure exceeds 1e-4 and remains below 5e-4.",
+    "pred_c_scientific_disposition_unchanged": "The five-term scientific screen is null because fresh A1 scalar retention remains below 0.80; no bar or selected term changes."
+  },
+  "terminal": {
+    "screen": "A-C pass: v1 remains append-only invalid, while the corrected scientific disposition is a post-outcome-audited null.",
+    "invalid": "Any audit predicate fails."
+  },
+  "price": {"model_forwards": 0, "example_evaluations": 0, "fit_parameters": 0}
+}

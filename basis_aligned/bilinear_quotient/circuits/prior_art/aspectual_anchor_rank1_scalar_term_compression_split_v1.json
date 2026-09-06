@@ -1,0 +1,25 @@
+{
+  "schema": "aspectual_anchor_rank1_scalar_term_compression_split_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.rank1_scalar_term_compression_split_v1",
+  "created_utc": "2026-09-06T06:07:00Z",
+  "question": "Can five exact propagated recurrence terms explain at least 80% of v9's rank-one carrier amplitude and scored effect on fresh constructions?",
+  "authority": {
+    "program": {"path": "ops/aspectual_anchor_transparent_path_program_v9.py", "sha256": "30003dad7dc08bd9bebb7e43e58e8c652975195ec31a2fccbe36aafbba352436"},
+    "release": {"path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v9_result.json", "sha256": "dc2cd67daa2fbed6ae9ddde33e9c44fae11b694e4f351b596b541878df9a9106", "terminal": "release"},
+    "rank1": {"path": "circuits/followups/aspectual_anchor_das_resid18_rank1_transfer_v1_result.json", "sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278", "basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"},
+    "mediation": {"path": "circuits/followups/aspectual_anchor_program_v8_rank1_carrier_mediation_v1_result.json", "sha256": "313ccce304a18f8b0d63547bb973964f0b6f93a506765e4bb87c31e40c128aa9", "terminal": "screen"}
+  },
+  "split": {"selection": "16 lexical confirmation rows not used to fit q", "confirmation": "32 prospective-construction rows", "selected_width": 5},
+  "frozen_terms": ["carried_resid10", "attention11", "mlp11_left_change", "mlp11_right_change", "mlp12_left_change", "mlp12_right_change", "mlp14_left_change", "mlp14_right_change", "attention15", "mlp15_left_change", "mlp15_bilinear_interaction"],
+  "selection_score": "Mean sign(total carrier amplitude) times propagated term carrier amplitude; descending, frozen term order breaks ties.",
+  "predictions": {
+    "pred_a_authority_capability_and_exact_scalar_closure": "Authorities, basis, capability, instruments, and per-row sum-of-terms to full carrier amplitude closure <=1e-4 pass.",
+    "pred_b_selection_is_well_formed": "Exactly five distinct terms are selected from eleven on lexical rows.",
+    "pred_c_fresh_scalar_compression": "Selected terms retain >=80% of mean absolute carrier amplitude and align with total amplitude on >=75% of rows in fresh A1/A2.",
+    "pred_d_fresh_scored_effect_compression": "Selected carrier scoring retains >=80% of full rank1 mean recovery with direction fraction >=0.75 in fresh A1/A2.",
+    "pred_e_exact_coverage": "Exactly 96 scored records occur within 24 forwards and 288 evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {"screen": "A-E pass: compile the five scalar carrier terms.", "null": "Valid split, but five terms do not retain enough carrier amplitude or scored effect.", "invalid": "Authority, capability, closure, coverage, or price fails."},
+  "price": {"model_forwards_max": 24, "example_evaluations_max": 288, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0},
+  "efficiency": "Analytic affine term propagation replaces an eleven-arm intervention factorial."
+}
