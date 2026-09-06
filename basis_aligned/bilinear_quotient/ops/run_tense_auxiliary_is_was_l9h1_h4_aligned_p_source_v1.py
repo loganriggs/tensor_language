@@ -121,7 +121,11 @@ def main():
         for side, output in (("base", base_native), ("donor", donor_native)):
             accuracy = sum(float(output.answer_foil[index][0]) > float(output.answer_foil[index][1]) for index in indices) / len(indices)
             capability_cells.append({"direction": direction, "side": side, "count": len(indices), "accuracy": accuracy, "threshold": 0.85, "passed": accuracy >= 0.85})
-    identity, _ = backend.manual_forward(base_batch, donor_batch=base_batch, donor_capture=base_manual_capture, arm="full_pair")
+    # The shared source instrument validates that recipient and paired donor rows
+    # have exactly one aligned token difference before every intervention arm.
+    # Keep the registered donor rows for that structural check, but feed the base
+    # capture as the payload so this remains an exact identity intervention.
+    identity, _ = backend.manual_forward(base_batch, donor_batch=donor_batch, donor_capture=base_manual_capture, arm="full_pair")
     forward_calls += 1
     full_manual, _ = backend.manual_forward(base_batch, donor_batch=donor_batch, donor_capture=donor_manual_capture, arm="full_pair")
     forward_calls += 1
