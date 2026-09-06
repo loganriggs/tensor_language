@@ -1,0 +1,257 @@
+{
+  "bars": {
+    "cross_frac": 0.25,
+    "damage_min": 0.05,
+    "ood_frac": 0.5,
+    "rand_frac": 0.25,
+    "row2": 0.8,
+    "track_tol": 0.1
+  },
+  "behaviours": {
+    "verb_complementizer": {
+      "cross": {
+        "dative": {
+          "ce_damage": -0.015195688232779503,
+          "ce_lb975": -0.024310372932814062,
+          "ce_ub975": -0.007445375830866398,
+          "documents": 64,
+          "kl_mean": 0.0009012317798351432,
+          "margin_damage": -0.013105465099215508,
+          "top1_change_rate": 0.0
+        },
+        "polarity_licensing": {
+          "ce_damage": 0.008432958275079727,
+          "ce_lb975": 0.003995850775390863,
+          "ce_ub975": 0.012630287278443562,
+          "documents": 64,
+          "kl_mean": 0.001116767338317004,
+          "margin_damage": 0.06404537335038185,
+          "top1_change_rate": 0.0
+        },
+        "quantifier_number": {
+          "ce_damage": -0.011253118515014648,
+          "ce_lb975": -0.0157926962710917,
+          "ce_ub975": -0.007120317779481413,
+          "documents": 64,
+          "kl_mean": 0.0003789740683259879,
+          "margin_damage": 0.024078845977783203,
+          "top1_change_rate": 0.015625
+        },
+        "verb_preposition": {
+          "ce_damage": -0.004242494003847241,
+          "ce_lb975": -0.011298509326297789,
+          "ce_ub975": 0.0028947272745426687,
+          "documents": 64,
+          "kl_mean": 0.0013869740018890298,
+          "margin_damage": 0.11067120172083378,
+          "top1_change_rate": 0.0
+        },
+        "voice_frame": {
+          "ce_damage": -0.011741222813725471,
+          "ce_lb975": -0.016365955909714104,
+          "ce_ub975": -0.007500994973815979,
+          "documents": 64,
+          "kl_mean": 0.0009337219833014387,
+          "margin_damage": -0.004870105534791946,
+          "top1_change_rate": 0.015625
+        }
+      },
+      "extraction_A1": {
+        "keep_dim": {
+          "lb95": 0.5487781174505787,
+          "point": 0.5707487492157959,
+          "ub95": 0.5923502173586218
+        },
+        "keep_exact": {
+          "lb95": 0.5689022363945666,
+          "point": 0.5849833924558984,
+          "ub95": 0.60181959331508
+        },
+        "keep_rand": {
+          "lb95": 0.0037069865215560243,
+          "point": 0.004816992165776855,
+          "ub95": 0.006013007963516286
+        },
+        "keep_set_r": {
+          "lb95": -0.0020761061196853665,
+          "point": -0.0010681882724917367,
+          "ub95": -5.600159243115061e-05
+        }
+      },
+      "interchange_recovery_A1": 0.5815983374146699,
+      "negative_C": {
+        "ce_damage": -0.0005375249311327934,
+        "ce_lb975": -0.010737294238060713,
+        "ce_ub975": 0.008757734997197982,
+        "documents": 64,
+        "kl_mean": 0.001623240679691662,
+        "margin_damage": -0.08332806639373302,
+        "top1_change_rate": 0.0625
+      },
+      "ood_A2": {
+        "ce_damage": 0.31069101206958294,
+        "ce_lb975": 0.25527204694226385,
+        "ce_ub975": 0.3657043212326243,
+        "documents": 64,
+        "kl_mean": 0.088014646229567,
+        "margin_damage": 2.3821974266320467,
+        "top1_change_rate": 0.234375
+      },
+      "random_subspace_A1": {
+        "ce_damage": 0.008340084925293922,
+        "ce_lb975": 0.002807774394750595,
+        "ce_ub975": 0.014187673851847646,
+        "documents": 64,
+        "kl_mean": 0.00017144474816177535,
+        "margin_damage": 0.03709239512681961,
+        "top1_change_rate": 0.0
+      },
+      "specificity_target_minus_C": {
+        "lb975": 0.48849126787390557,
+        "point": 0.583577468059957
+      },
+      "target_A1": {
+        "ce_damage": 0.5830399431288242,
+        "ce_lb975": 0.4972490028711036,
+        "ce_ub975": 0.6775898914318531,
+        "documents": 64,
+        "kl_mean": 0.09801418120332528,
+        "margin_damage": 2.5241082180291414,
+        "top1_change_rate": 0.203125
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08"
+      ]
+    },
+    "verb_preposition": {
+      "cross": {
+        "dative": {
+          "ce_damage": 0.001359725371003151,
+          "ce_lb975": -0.004961342364549637,
+          "ce_ub975": 0.007979783089831466,
+          "documents": 64,
+          "kl_mean": 0.0012981547424715245,
+          "margin_damage": -0.028892364352941513,
+          "top1_change_rate": 0.0
+        },
+        "polarity_licensing": {
+          "ce_damage": -0.02539714053273201,
+          "ce_lb975": -0.03155404571443796,
+          "ce_ub975": -0.019274472072720535,
+          "documents": 64,
+          "kl_mean": 0.0009533066067888285,
+          "margin_damage": 0.04526272043585777,
+          "top1_change_rate": 0.0
+        },
+        "quantifier_number": {
+          "ce_damage": 0.013121645897626877,
+          "ce_lb975": 0.01026481408625841,
+          "ce_ub975": 0.015975480712950227,
+          "documents": 64,
+          "kl_mean": 0.0007094587590472656,
+          "margin_damage": -0.011523135006427765,
+          "top1_change_rate": 0.015625
+        },
+        "verb_complementizer": {
+          "ce_damage": -0.05979376379400492,
+          "ce_lb975": -0.07482707356102765,
+          "ce_ub975": -0.04572229406330735,
+          "documents": 64,
+          "kl_mean": 0.005381561619287822,
+          "margin_damage": -0.039043575525283813,
+          "top1_change_rate": 0.03125
+        },
+        "voice_frame": {
+          "ce_damage": 0.01332848984748125,
+          "ce_lb975": 0.005676066689193249,
+          "ce_ub975": 0.020926708308979868,
+          "documents": 64,
+          "kl_mean": 0.001233016196238168,
+          "margin_damage": 0.012822100892663002,
+          "top1_change_rate": 0.0
+        }
+      },
+      "extraction_A1": {
+        "keep_dim": {
+          "lb95": 0.5826760589576271,
+          "point": 0.6007929373976654,
+          "ub95": 0.6193713466941871
+        },
+        "keep_exact": {
+          "lb95": 0.5685374380355195,
+          "point": 0.5842602153401804,
+          "ub95": 0.6002775588260924
+        },
+        "keep_rand": {
+          "lb95": -0.0019421612861603946,
+          "point": -0.0014841078322913913,
+          "ub95": -0.0009903494367307288
+        },
+        "keep_set_r": {
+          "lb95": 0.010660235205345519,
+          "point": 0.0115347555622317,
+          "ub95": 0.012362225021121359
+        }
+      },
+      "interchange_recovery_A1": 0.5730077671192657,
+      "negative_C": {
+        "ce_damage": -0.11352130863815546,
+        "ce_lb975": -0.12891003324184566,
+        "ce_ub975": -0.09801533496938646,
+        "documents": 64,
+        "kl_mean": 0.003927286861653556,
+        "margin_damage": -0.049936139956116676,
+        "top1_change_rate": 0.015625
+      },
+      "ood_A2": {
+        "ce_damage": 0.15224368183407933,
+        "ce_lb975": 0.1426293254189659,
+        "ce_ub975": 0.1617643103818409,
+        "documents": 64,
+        "kl_mean": 0.056949618709040806,
+        "margin_damage": 1.431259797886014,
+        "top1_change_rate": 0.0
+      },
+      "random_subspace_A1": {
+        "ce_damage": 0.0019839764572679996,
+        "ce_lb975": 0.0007096678833477199,
+        "ce_ub975": 0.003375940001569688,
+        "documents": 64,
+        "kl_mean": 3.357839432283072e-05,
+        "margin_damage": -0.005455039441585541,
+        "top1_change_rate": 0.0
+      },
+      "specificity_target_minus_C": {
+        "lb975": 0.2730156954785343,
+        "point": 0.3141256954986602
+      },
+      "target_A1": {
+        "ce_damage": 0.20060438686050475,
+        "ce_lb975": 0.17500036050914786,
+        "ce_ub975": 0.22725946249556725,
+        "documents": 64,
+        "kl_mean": 0.07765671028755605,
+        "margin_damage": 1.5959855671972036,
+        "top1_change_rate": 0.0
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08"
+      ]
+    }
+  },
+  "candidate_id": "corpus.unit_terminal_two_sets_v57",
+  "finished_utc": "2026-09-06T23:49:12.877638+00:00",
+  "predictions": {
+    "pred_a_removal": true,
+    "pred_b_ood": true,
+    "pred_c_random": true,
+    "pred_d_cross": true,
+    "pred_e_extraction": true
+  },
+  "schema": "circuit_unit_terminal_two_sets_result_v1",
+  "seconds": 3.8377327993512154
+}
