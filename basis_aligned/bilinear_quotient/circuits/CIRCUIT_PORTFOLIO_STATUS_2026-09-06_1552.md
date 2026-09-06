@@ -400,3 +400,11 @@ left plus right change retains 97.31% and bilinear interaction is only 5.76%, so
 is not the failure. The topology is instead indirect: MLP8 writes a non-Q8 residual direction that
 later computation converts into Q8. The next complete-module removal atlas conditions on precisely
 that complement actuation and localizes its converter across attention/MLP9--17.
+
+The conditional converter atlas passes and makes the indirect edge concrete. Removing attention9
+under the frozen MLP8-complement actuation eliminates 86.10%/83.91% of complement behavior and
+86.61%/81.42% of its final-Q8 norm in A1/A2, with Q8 cosine .9948/.9950. Attention11 and MLP9 are
+smaller positive branches; MLP17 is a stable opposing correction. Clamping all attention/MLP9--17
+responses removes exactly 100%, and every replay/self-clamp control is exact. Attention9 is therefore
+the licensed dominant converter. The next complete nine-head removal atlas will identify its head
+interface before source-factor and c_v/c_proj weight compilation.

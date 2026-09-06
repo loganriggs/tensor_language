@@ -1,0 +1,26 @@
+{
+  "schema": "iswas_mlp8_complement_attn9_head_converter_atlas_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_complement_attn9_head_converter_atlas_v1",
+  "registered_utc": "2026-09-06T21:22:00Z",
+  "question": "Which attention9 heads convert the MLP8 post-cue Down complement into final temporal-Q8 coordinates and is/was behavior?",
+  "authority": {
+    "converter_atlas_result_sha256": "2ccfb7116e45665820a546ebd5edc2bf4e2616b49cf46723064891640835ac5b",
+    "converter_atlas_runner_sha256": "d757d4c54b53d5cda8d877bfe9a01e636f4459582be6cb379b28f0e8823be218",
+    "weight_mode_result_sha256": "623824f843e2e5b96e3ddfab9ad1e36118136949db8d7e3dcc4594e6b104980c"
+  },
+  "frozen_design": {
+    "population_and_actuation": "Reuse the same 29 fresh-v6 rows and exact MLP8 post-cue hidden-product complement; no row or head is selected from this run's outcome.",
+    "heads": "All nine attention9 heads, each removed by replacing its complete pre-c_proj response with the aligned native-base response at every causal position. Also remove all nine heads jointly and perform a base self-clamp.",
+    "metrics": "For each A1/A2 panel, report removed complement behavior and final-Q8 coordinate norm/cosine relative to the live complement actuation.",
+    "materiality": "A head is stable material when removal accounts for at least 15% absolute complement behavior and 15% final-Q8 coordinate norm in both panels.",
+    "maximum_price": {"model_forwards": 15, "example_evaluations": 435, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_self_clamp_finiteness_and_price": "Parent replay, base self-clamp, nine-head inventory, finite metrics, and price pass.",
+    "pred_b_at_least_one_stable_material_head": "At least one head meets the frozen two-metric materiality threshold in both panels.",
+    "pred_c_all_heads_replay_complete_attention9_removal": "All-head removal fractions match the released complete-attention9 removal within 0.001 for behavior and Q8 norm in both panels.",
+    "pred_d_top_head_is_directionally_coherent": "The top stable head has behavior cosine at least 0.90 and Q8 cosine at least 0.90 in both panels.",
+    "pred_e_head_program_is_compressive_and_zero_fit": "At most three stable heads account for at least 75% of attention9's absolute behavior removal in both panels, with no fit, gradients, or model updates."
+  },
+  "decision": "A screen freezes the stable head set for source-position then pattern/value/interaction and exact c_v/c_proj weight compilation. A distributed result triggers greedy head combination before source splitting."
+}
