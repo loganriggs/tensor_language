@@ -1,0 +1,68 @@
+{
+  "schema": "aspectual_anchor_resid10_carrier_coordinate_to_gain_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.resid10_carrier_coordinate_to_gain_v1",
+  "created_utc": "2026-09-06T07:57:00Z",
+  "evidence_class": "weight_free_upstream_coordinate_to_causal_write_screen_preregistration",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*aspectual_anchor*",
+      "circuits/followups/*aspectual_anchor*",
+      "ops/*aspectual_anchor*",
+      "AGENT_BOARD.md",
+      "circuits/active_screen_claims.jsonl"
+    ],
+    "nearest_positive": "Program v12 prospectively maps a resid:10 fixed has/had unembedding contrast through four affine scalars to the rank-one resid:18 carrier write.",
+    "nearest_boundary": "The v12 upstream read still depends on LM-head weights and does not establish that its reader is the same geometric carrier coordinate as the downstream write.",
+    "new_question": "Does the weight-free scalar projection q dot resid10 predict the calibrated downstream q write, or must the upstream reader and downstream writer be split?"
+  },
+  "authorities": {
+    "program_v12_release_sha256": "ed6afb3455bf5bfeea6e36f65ce33e9199290cb26540ee94da2c42accc785e7c",
+    "upstream_calibration_sha256": "e7a9fbb41a3330bdf7cc7f8e13545ccb3773cb803ca47250f87691f355d2839a",
+    "prospective_v5_sha256": "a4cee1818acd6a28e999eda26d0447f94d080b913f4061d0e6dab4914cb3802c",
+    "scalar_basis_sha256": "4a55ef3da37b12722fabae41c9caaa7e8284fc0891ba4e15c5cfdeab40323b2d",
+    "v5_builder_sha256": "ae624913c5adfe07cf028acf6549cd5fe2debd4b090c71659218fe158089fe2c",
+    "rank1_basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"
+  },
+  "frozen_design": {
+    "calibration_rows": "The same immutable 16 lexical selection rows and target-guided alpha responses used for v12; eight per direction.",
+    "feature": "Raw scalar dot(q, resid10_source), with q fixed by the existing resid18 carrier basis; no LM-head weights, token IDs, final margin, donor activation, row outcome IDs, or outcomes enter the feature.",
+    "fit": "Separate ordinary least-squares intercept+slope per direction, four float64 coefficients total; no ridge, clipping, grid, or confirmation feature.",
+    "confirmation_population": "All 64 lexicon-v5 rows. Their behavioral result is known from v12 validation, but q dot resid10 has never been read; this is a geometry screen, not a fresh-outcome confirmation.",
+    "actuator": "alpha = intercept[direction] + slope[direction]*dot(q,resid10_source); patch resid18_source + alpha*q.",
+    "fit_parameters": 4
+  },
+  "opposing_predictions": {
+    "shared_coordinate": "Both direction fits have R^2>=0.50, A1/A2/P each reach mean effect >=0.65 with direction fraction >=0.75, and C<=0.20; treat q as a reusable read/write coordinate pending fresh confirmation.",
+    "split_reader_writer": "Authority and instrument pass but either direction R^2<0.50 or an A/P bar fails; retain v12's unembedding reader and record that the downstream carrier q is not itself the sufficient upstream read coordinate.",
+    "invalid": "Hash, row alignment, basis reconstruction, population capability, final-head replay, finite fit, actuator identity, or coverage fails."
+  },
+  "predictions": {
+    "pred_a_authority_population_capability_and_exactness": "All authority hashes, 16 calibration IDs, 64 confirmation IDs, population capability cells, rank-one basis, and exact final-head replay pass.",
+    "pred_b_weight_free_fit_and_actuator_well_formed": "Each direction has eight nondegenerate finite calibration values, R^2>=0.50, and every alpha is exactly the frozen direction-affine function of q dot resid10.",
+    "pred_c_A_prediction": "A1 and A2 each have mean recovery >=0.65 and direction fraction >=0.75.",
+    "pred_d_P_generalization": "P has mean reflection >=0.65 and direction fraction >=0.75.",
+    "pred_e_C_selectivity": "C mean normalized unrelated effect <=0.20.",
+    "pred_f_exact_coverage_and_price": "Exactly 16 calibration rows and 64 unique confirmation rows yield 64 interventions within 25 forwards, 360 examples, 224 selected-head pairs, zero grids/backwards/updates, and four fit parameters."
+  },
+  "terminal": {
+    "screen": "A-F pass: the same weight-free carrier coordinate is a candidate reusable upstream read and downstream write variable.",
+    "null": "Authority/instrument/coverage pass but fit or A/P/C causal bars fail: split the upstream reader from downstream writer coordinate.",
+    "invalid": "Authority, alignment, capability, final-head, basis, finite-fit, actuator, or coverage failure."
+  },
+  "circuit_targets": [
+    "computational specification",
+    "cross-boundary grouping and within-module splitting",
+    "extraction/sufficiency",
+    "selective manipulation",
+    "stable identification"
+  ],
+  "price": {
+    "counted_forwards_max": 25,
+    "example_evaluations_max": 360,
+    "selected_head_pair_evaluations": 224,
+    "grid_evaluations": 0,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 4
+  }
+}

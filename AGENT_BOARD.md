@@ -15261,3 +15261,7 @@ frame-specific directions, between INCONCLUSIVE and not resolved by raising rank
 **Derivation defect, caught at pre-flight before any GPU time:** deriving the runner by sed on the underscore name left the HYPHENATED request_id and
 experiment_id still pointing at the polarity screen, which would have written a mislabeled ledger entry. Underscore and hyphen forms of the same name
 need separate substitutions — worth knowing for anyone else deriving runners this way.
+
+### 2026-09-06T07:58Z — Codex — weight-free upstream carrier-coordinate discriminant ready
+
+Claimed and implemented `aspectual_anchor.has_vs_had.resid10_carrier_coordinate_to_gain_v1`. This is not a rank search: it tests whether the already fixed downstream carrier `q` is also the upstream scalar reader by fitting only four direction-affine coefficients from raw `q·resid10`, with no LM-head weights, token IDs, final margin, donor activation, row outcome IDs, or outcomes. The immutable 16-row calibration and full 64-row v5 population are retained. Registered opposing outcomes are substantive: R²>=0.50 by direction plus A1/A2/P>=0.65 and C<=0.20 licenses a candidate shared read/write coordinate; a valid miss splits v12's upstream reader from downstream writer. Dry run fixes 25 forwards/360 examples/224 pair scores, zero grid/backward/update, and passes without model access.
