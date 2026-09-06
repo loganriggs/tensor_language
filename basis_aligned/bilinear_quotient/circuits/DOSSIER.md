@@ -321,6 +321,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.attention11_15_single_head_confirmation_v1` | complete | unopened disjoint singleton compression | **block11 H3 and block15 H5 suffice compactly** | `aspectual_anchor_attention11_15_single_head_confirmation_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention11h3_15h5_source_compression_split_v1` | invalid | split six-role source compression | **audit compared query-only deltas over the full sequence; rows preserved but unreleased** | `aspectual_anchor_attention11h3_15h5_source_compression_split_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention11h3_15h5_source_projection_query_diagnostic_v1` | complete diagnostic | frozen confirmation query-index audit | **v1 failure localized exactly to off-query indices** | `aspectual_anchor_attention11h3_15h5_source_projection_query_diagnostic_v1_result.json` |
+| `aspectual_anchor.has_vs_had.attention11h3_15h5_source_compression_release_v1` | released | zero-forward immutable evidence-class audit | **three-role 11H3/15H5 banks released with post-outcome-repair label** | `aspectual_anchor_attention11h3_15h5_source_compression_release_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -486,6 +487,13 @@ compared a delta constructed only at the semantic query against dominant-head de
 post-outcome diagnostic confirms exact pattern-times-value reconstruction, query-index projection errors of 7.6e-6/4.8e-6, and that
 the large 26.40/25.71 maxima occur entirely off query. This diagnoses the implementation fault but does not itself promote the source
 banks; an immutable release audit must still distinguish preserved prospective evidence from the post-outcome correction.
+
+That release audit passes without rerunning or rewriting either artifact. It verifies all 576 unique finite scientific records, the
+original frozen selection rule and price, all disjoint compression gates, and the independent query-index diagnosis. The released
+banks are `L11H3 <- {determiner, period, self}` at 90.34% retention and `L15H5 <- {period, determiner, self}` at 87.03%; their
+confirmation increments are positive in both A1 and A2. The evidence class is explicitly prospective scientific arms with a
+post-outcome instrument-audit repair. This licenses compilation into the executable paired-causal program, but still requires full
+carried and MLP boundary deltas plus the checkpoint/native suffix and does not widen the construction or standalone scope.
 
 ### `subroutine.induction.equality_score` — site_live
 
