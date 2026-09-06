@@ -494,3 +494,10 @@ L9H1/H4 + L11H1/H3 + L15H5 union retains 89.71%/82.62% of that behavior and 89.0
 Q8 norm, with behavior cosine .99973/.99937 and Q8 cosine .98872/.98298. Leaving out each layer
 worsens behavior or Q8 error in both panels. This promotes a transferable five-head, three-layer
 near-complete converter; its auxiliary destinations and value operations remain to be compiled.
+
+The auxiliary three-head destination atlas passes and collapses the remaining positional degree of
+freedom. Conditioned on L9H1/H4 removal, the final-query L11H1/H3+L15H5 response supplies
+99.04%/99.61% of auxiliary behavior and 99.61%/99.58% of auxiliary Q8 norm, with cosine above
+.99992. Prefix and cue response deltas are exactly zero; post-cue and subject-determiner destinations
+are <=1.99% behavior and <=1.46% Q8. The active factor program now tests whether these ordered
+L11/L15 writes share L9's native-pattern value-transport operation.

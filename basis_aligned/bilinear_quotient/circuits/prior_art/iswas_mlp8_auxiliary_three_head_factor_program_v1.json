@@ -1,0 +1,27 @@
+{
+  "schema": "iswas_mlp8_auxiliary_three_head_factor_program_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_auxiliary_three_head_factor_program_v1",
+  "registered_utc": "2026-09-06T22:23:00Z",
+  "question": "Do the confirmed final-query L11H1/H3 and L15H5 auxiliary writes use the same native-pattern value-transport operation as L9H1/H4?",
+  "authority": {
+    "destination_result_sha256": "1657b7b3eb5abb54389ab88ec901d9165c1e43ed422413a72965aa2372dde18b",
+    "destination_runner_sha256": "d702240b34404f7e9c06d0711202d4f9edcdbe7f82d509e5dc67aa4849b10dc1",
+    "attention_factor_library_sha256": "608ae6bf74af96663ec022b907c53d371670a36e5d7ec4fd1667b3c6add58dfd",
+    "finding": "Final query supplies 99.0/99.6% of auxiliary behavior and 99.6/99.6% of its Q8 norm; all other destinations are negligible."
+  },
+  "frozen_design": {
+    "population": "The same 27 jointly capable v10 A1/A2 rows.",
+    "contexts": "For each auxiliary layer, compare native-base attention terms to terms under the MLP8 complement with L9H1/H4 clamped to base. L11 and L15 selected responses are installed at every causal destination in causal order; the released destination atlas establishes that the final query supplies more than 99% of the effect.",
+    "factor_identity": "For each selected head, causal destination, and causal source, delta_response = (P_changed-P_base)V_base + P_base(V_changed-V_base) + (P_changed-P_base)(V_changed-V_base).",
+    "arms": "All eight subsets of pattern, value, and interaction, installed jointly at L11H1/H3 and L15H5. Empty must reproduce the five-head clamp; complete must reproduce the L9H1/H4-only clamp.",
+    "maximum_price": {"model_forwards": 15, "example_evaluations": 405, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_factor_complete_replay_finiteness_and_price": "Hashes, native reconstruction, raw factor closure, empty/five and complete/core replay, finite metrics, and price pass.",
+    "pred_b_base_pattern_value_transport_is_dominant": "Value-only retains at least 75% auxiliary behavior and 75% auxiliary Q8 norm in both panels.",
+    "pred_c_pattern_change_is_secondary": "Pattern-only carries at most 25% absolute behavior and 25% Q8 norm in both panels.",
+    "pred_d_pattern_value_interaction_is_secondary": "Interaction-only carries at most 20% absolute behavior and 20% Q8 norm in both panels.",
+    "pred_e_zero_fit_shared_operation_test": "No fit, gradients, head selection, destination selection, rank search, or model update."
+  },
+  "decision": "Screen licenses source-region decomposition and literal c_v/c_proj compilation for both auxiliary layers using a shared value-transport primitive. Null requires layer-specific factor analysis before compilation."
+}
