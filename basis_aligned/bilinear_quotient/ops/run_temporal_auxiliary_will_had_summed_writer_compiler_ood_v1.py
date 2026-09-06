@@ -42,6 +42,8 @@ PREDICTION_NAMES = (
 )
 TERMINAL_NAMES = {"success": "screen", "transfer_fail": "cue_specific",
                   "behavioral_fail": "behavioral_null"}
+OOD_ALLOWED_ROW_IDS = None
+OOD_FAMILY_COUNTS = {"A1": 32, "A2": 32, "P": 32}
 EXPECTED = {
     "prior": "4069c4c5fc683d1cd241fffe6e958e7cbc72f1fefa6ba73f58b04b721c13043d",
     "parent_result": "951830b296fe0b8ce47d8b7a08e78e0875ba40a1ed3216d049cdc00c11d01929",
@@ -78,13 +80,16 @@ def validate_static():
     ood = ood_builder.build_rows()
     family_rows = {family: [row for row in ood if row["transform_id"] == family]
                    for family in ("A1", "A2", "P")}
+    if OOD_ALLOWED_ROW_IDS is not None:
+        family_rows = {family: ([row for row in rows if row["row_id"] in OOD_ALLOWED_ROW_IDS[family]]
+                                if family in OOD_ALLOWED_ROW_IDS else rows)
+                       for family, rows in family_rows.items()}
     fit_directions = {direction: sum(row["direction_id"] == direction for row in fit)
                       for direction in ("future_to_anterior", "anterior_to_future")}
     if (prior.get("candidate_id") != CANDIDATE_ID
             or parent_result.get("terminal") != EXPECTED_PARENT_TERMINAL
             or fit_directions != {"future_to_anterior": 8, "anterior_to_future": 8}
-            or {key: len(value) for key, value in family_rows.items()}
-            != {"A1": 32, "A2": 32, "P": 32}
+            or {key: len(value) for key, value in family_rows.items()} != OOD_FAMILY_COUNTS
             or any(len(row["base_ids"]) != len(row["donor_ids"])
                    for selected in (fit, *family_rows.values()) for row in selected)):
         raise ExperimentError("fit authority, OOD population, or alignment changed")

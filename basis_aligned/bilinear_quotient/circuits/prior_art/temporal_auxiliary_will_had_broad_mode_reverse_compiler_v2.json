@@ -1,0 +1,44 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.broad_mode_reverse_compiler_v2",
+  "created_utc": "2026-09-06T15:00:00Z",
+  "question": "Does the Tomorrow/Earlier-trained broad-mode compiler transfer to the prospectively frozen natively capable Later/Previously subset?",
+  "authority": {
+    "v1_invalid_result_sha256": "6ae9a2cd1299f0adb91811cad42076655adb3da35ecee0ba7a7a54cdfb0442cc",
+    "capability_manifest_sha256": "d59fdc0659f7db4632607a5fae860887bdf0f69f03af659b02ffcd6cc8c3be59",
+    "jointly_capable_counts": "A1 29, A2 30",
+    "cross_cue_modes_result_sha256": "4c91680557c7c2cdcef67f69586fdc758c5605369a0be7b62477574caf1e4f42"
+  },
+  "frozen_design": {
+    "fit": "same balanced 16-row Tomorrow/Earlier A1 subset as v1",
+    "test": "exact A1/A2 row IDs in the capability manifest's jointly_capable_row_ids; all 32 aligned fresh P rows",
+    "compiler": "unchanged summed writer coefficient, original-corpus block9/block11 axes, and two affine maps",
+    "answer_changing_arms": ["full_captured_response", "oracle_rank1_response", "predicted_rank1_response", "intercept_only_response", "zero_response"],
+    "model_forwards": 38,
+    "example_evaluations": 1049,
+    "answer_changing_records": 295,
+    "fitted_scalars": 4,
+    "stored_axis_coordinates": 512,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_capability_and_writer_closure": "all 59 frozen rows correct on both sides and writer closure <=1e-4 on fit/A1/A2/P",
+    "pred_b_reverse_coefficient_prediction": "both coefficient correlations absolute r>=0.60 on A1/A2",
+    "pred_c_reverse_program_material": "predicted program retains >=0.60 of full response and is donorward on >=0.75 of A1/A2 rows",
+    "pred_d_prediction_beats_intercept": "predicted recovery exceeds intercept-only by >=0.15 of full response on A1/A2",
+    "pred_e_fresh_p_selective": "predicted-program P effect <=0.20",
+    "pred_f_price_exact": "38 forwards, 1049 examples, 295 records, four scalars, 512 axes, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, exact row IDs, capability, closure, coverage, finiteness, or price fails",
+    "shared_compiler": "all predictions pass",
+    "coefficient_asymmetry": "oracle response remains material but coefficient prediction/execution fails",
+    "response_asymmetry": "oracle broad-mode response is not material",
+    "null": "other valid miss"
+  },
+  "interpretation_limits": [
+    "Filtering is prospective and capability-only; thresholds and compiler are unchanged from v1.",
+    "A pass is bounded to two cue lexicons and frames.",
+    "C remains inherited because it lacks aligned writer semantics."
+  ]
+}
