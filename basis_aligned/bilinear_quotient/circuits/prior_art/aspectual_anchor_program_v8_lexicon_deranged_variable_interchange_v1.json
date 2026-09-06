@@ -1,0 +1,42 @@
+{
+  "schema": "aspectual_anchor_program_v8_lexicon_deranged_variable_interchange_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.program_v8_lexicon_deranged_variable_interchange_v1",
+  "created_utc": "2026-09-06T06:43:00Z",
+  "question": "Do the explicit v8 aspectual variables remain operationally reusable when source and target differ in reporter and period, or did the matched construction/family screens rely on shared lexical content?",
+  "novelty_search": {
+    "queries": ["aspectual deranged lexicon interchange", "different reporter period variable swap", "lexicon invariant quotient"],
+    "result": "Completed construction and A1/A2 interchange screens held reporter, period, and direction fixed. No explicit-variable screen has deranged the lexical identities."
+  },
+  "authority": {
+    "program_v8": {"path": "ops/aspectual_anchor_transparent_path_program_v8.py", "sha256": "87eb67f3a96904534c8d3ddca5e1df59fa14efd88d1174e1cc2805435346bb57"},
+    "construction_result": {"path": "circuits/followups/aspectual_anchor_program_v8_cross_construction_variable_interchange_v1_result.json", "sha256": "951044ca2b195d1128bebfabe2b3aa815407b20c02a20747e5bf18b8d6d13286", "terminal": "screen"},
+    "family_result": {"path": "circuits/followups/aspectual_anchor_program_v8_cross_family_variable_interchange_v1_result.json", "sha256": "b10b919f4c3cf9d53d1a397326f5d46a195ecd710f3df24fb8acff35966ea031", "terminal": "screen"},
+    "family_runner": {"path": "ops/run_aspectual_anchor_program_v8_cross_family_variable_interchange_v1.py", "sha256": "a14640e1fb08d2ae586ffec08eb5421435983a78c71961bd58f21fdc04d288de"}
+  },
+  "frozen_design": {
+    "population": "All 64 valid lexical/fresh A1/A2 rows.",
+    "source_permutation": "Within each panel and family, source group_number = (target group_number + 6) mod 16. Offset six is a fixed derangement that preserves direction parity while changing reporter and period for every row.",
+    "arms": ["target_full", "source_full", "swap_initial", "swap_attention", "swap_mlp"],
+    "swap_semantics": "The target base-resid18, requested answer/foil, native denominator, global weights, and recurrence stay fixed. source_full supplies every explicit variable from the deranged row; each swap arm replaces exactly one variable group.",
+    "bars": {
+      "target_full_direction_fraction_min": 0.75,
+      "source_full_over_target_mean_recovery_min": 0.50,
+      "source_full_direction_fraction_min": 0.75,
+      "each_group_swap_over_target_mean_recovery_min": 0.75,
+      "each_group_swap_direction_fraction_min": 0.75
+    }
+  },
+  "predictions": {
+    "pred_a_authority_derangement_capability_and_controls": "Hashes, exact fixed derangement, changed reporter/period, preserved direction, native capability, and reconstruction controls pass.",
+    "pred_b_target_program_effect": "target_full is positive with at least 0.75 direction in all panels.",
+    "pred_c_whole_lexicon_transfer": "source_full retains at least 0.50 of target_full recovery and 0.75 direction in every panel.",
+    "pred_d_groupwise_lexicon_invariance": "Each single-group swap retains at least 0.75 of target_full recovery and 0.75 direction in every panel.",
+    "pred_e_exact_coverage_and_price": "All 320 records are unique within 72 counted forwards, 576 example evaluations, and zero fit/backward/update."
+  },
+  "terminal": {
+    "screen": "A-E pass: the three explicit variable groups define a lexicon-invariant operational quotient on the tested corpus.",
+    "null": "Authority, target effect, and coverage pass but whole-source or a named group remains lexically bound.",
+    "invalid": "Authority, derangement, capability, reconstruction, target effect, or coverage fails."
+  },
+  "price": {"model_forwards_max": 72, "example_evaluations_max": 576, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
