@@ -128,6 +128,9 @@ def main():
 
         residual_basis, output_singular = atlas.map_head_bank_subspace_to_residual(
             model.transformer.h[9].attn, HEADS, basis)
+        # The SVD span is exact, but float32 U can miss the atlas library's strict
+        # 1e-6 Gram tolerance. QR changes only the within-span gauge.
+        residual_basis = torch.linalg.qr(residual_basis).Q
         downstream_heads = []
         downstream_mlps = []
         for layer in range(10, 18):
