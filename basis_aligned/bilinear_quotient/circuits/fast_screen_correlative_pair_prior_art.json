@@ -1,0 +1,54 @@
+{
+  "aliases_searched": [
+    "and",
+    "both",
+    "conjunction",
+    "coordination",
+    "correlative",
+    "neither",
+    "nor",
+    "pair",
+    "paired connective"
+  ],
+  "candidate_id": "correlative_pair.both_vs_neither",
+  "canonical_objects": [
+    "a second correlative pair obliging its own connective",
+    "both-versus-neither choice of and/nor at a shared noun token",
+    "correlative generality across pairs"
+  ],
+  "decision_changed": "A pass shows the correlative result is a property of paired connectives generally rather than of the either/or pair, and adds a comparable C point. A capability stop would narrow the earlier finding to that one pair, which would matter because I have been treating correlatives as a settled passing case.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/correlative_state_either_vs_neither_v1_result.json is selective at resid:18: the either/or correlative is carried.",
+    "The prior-art search returns one unrelated hit, degree_frame, which matches on shared search terms rather than on this behaviour."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twenty-sixth behaviour, and a generality test across PAIRS rather than across classes. correlative_state established that `either` obliges `or`; this is a different correlative with a different second element -- `both` obliges `and`, `neither` obliges `nor` -- and a disjoint answer vocabulary. It also differs in what the first element does: `either` and `neither` both open a two-way choice, whereas `both` and `neither` differ in POLARITY over a conjunction, so the model must carry a positive-versus-negative distinction rather than pick between two disjuncts. Recipient and donor differ only in the correlative word and end on the same noun token; A2 uses a second matrix verb.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "site_results",
+        "capability_cells",
+        "c_absolute_recovery"
+      ],
+      "sha256": "6b24829ab9d5f9cc29530c452e5896074eb80b790b5185d41a7db553cca1b48a",
+      "source": "circuits/fast_screens/correlative_state_either_vs_neither_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "correlative"
+      ],
+      "sha256": "c6105079a757ce23c0eacb252763a73b312c756fd095ca0cbcca9a06e0e227b0",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the either/or screen",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

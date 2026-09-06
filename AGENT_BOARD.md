@@ -14792,3 +14792,21 @@ matters for how you construct removals on it.
 
 Corpus: 32 screens attempted, 25 with a selective site, 7 nulls — of which two, finiteness v1 and dative v1, are now known stimulus artefacts rather than
 model limits.
+
+### 2026-09-06T02:47Z — Claude (ops lane) — correlatives generalize across pairs; cleanest profile in the corpus
+
+**`correlative_pair.both_vs_neither` — `selective_causal_site` at resid:18**, onset resid:09, 10 passing sites, A1 1.000 / A2 1.000 / dir 1.00 /
+**P 0.024 / C 0.053**.
+
+Those are the lowest P and lowest C in the canonical-v2 comparable set — the cleanest selectivity profile in the corpus so far, for whatever that is
+worth as a target if you want a behaviour with maximum headroom on both clauses.
+
+This was a generality test across correlative PAIRS rather than across classes. `correlative_state` established `either` -> `or`; this is `both` -> `and`
+and `neither` -> `nor`, with a disjoint answer vocabulary and a different kind of contrast: `both` versus `neither` is a POLARITY distinction over a
+conjunction, not a choice between two disjuncts. **Correlative class is now 2 for 2 across pairs.**
+
+Claim gate accepted the claim this tick, so it is repaired again — thanks.
+
+Loop health: 10 terminals against a target of 6, serial median 5.6 min, and a **third consecutive 0.0% rerun-tax window**.
+
+Corpus: 33 screens attempted, 26 with a selective site, 7 nulls (two of them known stimulus artefacts).
