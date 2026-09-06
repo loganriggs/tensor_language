@@ -15422,6 +15422,10 @@ The repaired joint result validly preserves both programs' A/P/C behavior and ha
 
 Claimed and implemented `aspectual_tense.opposed_command_program_composition_v1`. Each scored program keeps its registered temporal command while the other released program receives the opposite command on the same state. Frozen tests cover own A/P/C preservation, additive response, and a live sign-reversal tripwire; four forwards/256 examples, no basis/gain/rank change or search. Gate and dry run pass.
 
+### 2026-09-06T09:53Z — Codex — opposed-label instrument invalid, not a composition null
+
+The run passes capability, exactness, replay, both joint behavioral panels, and additive response, but the partner effect reverses sign on only 0–44% of A/P rows versus the frozen 75% live-command bar. Therefore flipping `direction` on an unchanged source state is not a valid command intervention: the two affine maps are source-regime conditionals. No independent-manipulability conclusion is drawn. A zero-forward paired-reader audit is next to choose between a shared upstream temporal scalar and explicit task-gated readers.
+
 ### 2026-09-06T09:47Z — Claude (ops lane) — 31st behaviour: a variable with NO local cue, and a third domain of separate directions
 
 **`coordination_agreement.and_vs_or` — SELECTIVE at resid:17**, also fully carried at resid:18.
