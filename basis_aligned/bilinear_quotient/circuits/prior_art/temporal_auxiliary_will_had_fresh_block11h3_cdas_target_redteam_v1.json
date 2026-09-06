@@ -1,0 +1,54 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_block11h3_cdas_target_redteam_v1",
+  "created_utc": "2026-09-06T15:16:00Z",
+  "question": "Does the frozen complement-optimized H3 axis beat difference-in-means outside its scalar answer-margin target, or did the fit exploit that target and signed averaging?",
+  "authority": {
+    "parent_cdas_result_sha256": "5fba2b88bd7a6ec9883ee624e05495600e31258defcc355a22ab219ba9734b78",
+    "axis_artifact_result_sha256": "4f345907c41222ebeec33c3a860052a0a8f39166655da0354f69e79a1c577fc5",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "unit_library_sha256": "b7bc7def571e04cadce38c90f978219bc95c0f8ddaa3ef941c3309a4b913e1a7"
+  },
+  "prior_art_search": {
+    "searched": [
+      "circuits/prior_art/*temporal_auxiliary*das*",
+      "circuits/followups/*temporal_auxiliary*das*",
+      "AGENT_BOARD.md constrained DAS / difference in means / complement",
+      "ops/pending_opener_target_invariance_das_rung556.py"
+    ],
+    "relation": "Frozen-axis target audit not previously run. The parent reports signed mean answer-margin fractions only; it does not report held-out rowwise squared loss or full-vocabulary effect fidelity."
+  },
+  "frozen_design": {
+    "axes": "the stored rank-1 constrained-DAS axis and a difference-in-means axis recomputed only from the original 16 fit rows",
+    "evaluation_rows": "the original 16 held-out A1 rows and all 32 A2 rows; no refitting",
+    "scalar_metrics": "per-row donor-normalized subspace match error and complement effect; report mean signed, mean absolute, RMS, p90 absolute, and the exact parent joint squared objective",
+    "vector_metrics": "center each row's complete vocabulary-logit effect across vocabulary; compare subspace versus exact-H3 match and complement versus native using per-row RMS normalized by the exact-H3 RMS",
+    "interventions": "base, exact H3, constrained-DAS H3 axis, its complement, DIM H3 axis, and its complement",
+    "model_updates": 0,
+    "fit_updates": 0,
+    "maximum_model_forwards": 20,
+    "maximum_example_evaluations": 512
+  },
+  "opposing_predictions": {
+    "genuine_causal_quotient": "constrained DAS has no larger scalar joint objective and no larger full-vocabulary joint objective than DIM on both held-out A1 and A2; complement mean-absolute/RMS effects also remain small",
+    "target_specific_cheat": "constrained DAS improves the answer-margin target but loses to DIM on centered full-vocabulary effect fidelity in either held-out family, or its near-zero signed complement hides materially larger absolute/RMS row effects",
+    "ordinary_overfit": "constrained DAS loses to DIM even on the exact scalar objective on either held-out family"
+  },
+  "predictions": {
+    "pred_a_authority_axis_and_full_rank_closure": "all authorities match, the stored axis is unit norm, and q=I reproduces exact H3 within 1e-4",
+    "pred_b_parent_scalar_aggregates_reproduce": "signed subspace and complement fractions reproduce the parent within 0.01",
+    "pred_c_cdas_scalar_objective_dominates_dim": "constrained-DAS rowwise squared match-plus-complement objective is <= DIM on both held-out A1 and A2",
+    "pred_d_cdas_full_vocabulary_objective_dominates_dim": "constrained-DAS centered full-vocabulary match-plus-complement objective is <= DIM on both held-out A1 and A2",
+    "pred_e_no_signed_cancellation": "for each constrained-DAS complement, absolute mean is <=0.30 exact-effect units and no more than 4x the absolute signed mean plus 0.02"
+  },
+  "terminal_rules": {
+    "invalid": "authority, axis, closure, reproduction, finiteness, or price fails",
+    "screen": "C, D, and E all pass: the optimized axis survives the target audit",
+    "null": "C fails: the optimized advantage was fit-specific ordinary overfit",
+    "inconclusive": "C passes but D or E fails: the answer-margin objective is target-specific or its aggregate report was cancellation-sensitive"
+  },
+  "interpretation_limits": [
+    "A scalar answer-margin loss is legitimate for discovering a task-causal quotient, but cannot by itself establish a general H3 feature.",
+    "Full-vocabulary fidelity is an independent readout test, not a requirement that a causal feature preserve activation variance.",
+    "This audit does not refit either axis and cannot rescue a failed result by changing rank, rows, or penalties."
+  ]
+}
