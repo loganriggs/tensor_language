@@ -1,0 +1,48 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_destination_resolved_coefficients_v1",
+  "created_utc": "2026-09-06T14:43:00Z",
+  "question": "Does preserving separate writer coefficients at the two subject-onset destinations predict row-level reader magnitude that a summed writer coefficient misses?",
+  "authority": {
+    "scalar_compiler_result_sha256": "1049e7be61f5bad58aa4d15ad18d836e89d27c0336efc0dfe12a8e8c9904ab57",
+    "response_rank_result_sha256": "918888d78de2c10a24c57e80154f07fd4d9dd7ed5faf181385e1d4b22e587bcf",
+    "scalar_compiler_terminal": "wrong_predictor: behavioral execution passes but heldout magnitude correlation fails",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9"
+  },
+  "novelty": "v3 summed the two exact destination writes and separated fit/heldout by intervention orientation. This test changes both identified weaknesses prospectively: destination-resolved features and lexical-group holdout containing both orientations.",
+  "frozen_design": {
+    "population": "A1 group pairs alternate between fit and heldout, retaining both directions in each; all A2 transfers; aligned P controls",
+    "writer_features": "one uncentered A1-fit SVD coefficient for each of the two 128-dimensional destination-specific source-term vectors",
+    "reader_targets": "rank-one A1-fit coefficients for block9 H1/H4 and block11 H3",
+    "target_model": "two independent affine maps from two destination coefficients to each reader coefficient: six fitted scalars",
+    "baseline_model": "the v3-style summed writer coefficient with two affine maps, refitted on the same balanced split: four fitted scalars",
+    "answer_changing_arms": ["full_captured_response", "oracle_rank1_response", "destination_predicted_response", "summed_predicted_response", "intercept_only_response", "zero_response"],
+    "control_arms": ["destination_predicted_response", "summed_predicted_response", "intercept_only_response"],
+    "model_forwards": 41,
+    "example_evaluations": 1008,
+    "answer_changing_records": 288,
+    "fitted_scalars_total": 10,
+    "target_fitted_scalars": 6,
+    "stored_axis_coordinates": 768,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_exact_writer_interface": "direct source-term reconstruction equals fixed-source writer within 1e-4 on all splits",
+    "pred_b_destination_magnitude_prediction": "both target coefficient correlations have absolute r>=0.60 on heldout A1 and A2",
+    "pred_c_destination_resolution_beats_sum": "mean absolute heldout coefficient correlation exceeds the same-split summed baseline by >=0.15",
+    "pred_d_destination_program_material": "destination-predicted program retains >=0.65 of full response and is donorward on >=0.75 of heldout/A2 rows",
+    "pred_e_aligned_p_selective": "target program absolute normalized P effect <=0.20",
+    "pred_f_price_exact": "41 forwards, 1008 examples, 288 unique records, ten total fit scalars, 768 axis coordinates, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, balanced split, writer closure, coverage, finiteness, or price fails",
+    "screen": "all predictions pass",
+    "writer_summary_insufficient": "valid test but destination features do not improve magnitude prediction",
+    "behavioral_null": "coefficients correlate but the installed response is not materially causal"
+  },
+  "interpretation_limits": [
+    "This tests whether destination separation is the missing causal state, not arbitrary higher-rank regression.",
+    "Failure redirects coefficient prediction to reader-local background state rather than more writer-only dimensions.",
+    "C selectivity remains inherited because C cannot instantiate the aligned writer interface."
+  ]
+}
