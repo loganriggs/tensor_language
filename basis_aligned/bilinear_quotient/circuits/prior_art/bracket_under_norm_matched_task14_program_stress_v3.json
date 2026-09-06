@@ -1,0 +1,32 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "cross_behavior.bracket_under_norm_matched_task14_program_stress_v3",
+  "created_utc": "2026-09-06T00:18:30Z",
+  "purpose": "Resolve the v1 reverse-composition power failure with an outcome-free activation-norm-matched Task14-derived stressor, while leaving original-gain two-sided composition unclaimed.",
+  "prior_art_search": {
+    "result": "The v1 bracket panel preserved its program but Task14 stress was only 0.0004896 of bracket-effect norm, below the frozen 0.05 power bar. No norm-matched stress result exists.",
+    "asymmetric_parent_sha256": "d6df30a66b50ce97745df382bda3af6e7d0f6f66a1636e57bf30850dd7bf0d74",
+    "task14_artifact_sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07",
+    "bracket_artifact_sha256": "531434535daf526ebf584564afbfd5834c75df7bd636014ea233f9ae71206db0"
+  },
+  "gain": {
+    "definition": "statistics.median of six bracket vector L2 norms divided by statistics.median of ten Task14 cardinality-vector L2 norms, recomputed from immutable coordinates",
+    "frozen_value": 137.63389776183087,
+    "outcome_values_consumed": 0
+  },
+  "predictions": {
+    "pred_a_immutable_artifacts_gain_and_corners": "Artifact hashes hold, recomputed gain matches within 1e-12, all 144 bracket OOD endpoints have four corners, and the isolated bracket corner replays within 1e-4.",
+    "pred_b_norm_matched_task14_stress_is_live": "Scaled Task14 stress has L2 norm at least 0.05 of isolated bracket program-effect norm.",
+    "pred_c_bracket_program_is_robust": "Bracket effects under scaled Task14 stress versus isolated effects have cosine at least 0.90, relative L2 at most 0.40, signs at least 0.90, and interaction/own norm at most 0.40.",
+    "pred_d_no_original_gain_upgrade": "The result is labeled norm-matched robustness only and does not promote original-gain reverse or two-sided composition.",
+    "pred_e_fixed_price": "At most one physical forward, 576 example evaluations, zero backwards, fits, updates, vector selection changes, or outcome-conditioned gains."
+  },
+  "terminal_rule": "robustness_screen if all gates pass; interaction_null if instrument/live-stress pass but robustness fails; inconclusive if stress remains weak; invalid otherwise.",
+  "closed_claims": [
+    "original-gain bracket-under-Task14 composition",
+    "two-sided program composition",
+    "joint semantic prompt",
+    "autonomous selector",
+    "whole-model replacement"
+  ]
+}
