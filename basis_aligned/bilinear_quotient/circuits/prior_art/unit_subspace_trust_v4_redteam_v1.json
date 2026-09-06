@@ -1,0 +1,39 @@
+{
+  "candidate_id": "corpus.unit_subspace_trust_v4_redteam_v1",
+  "created_utc": "2026-09-06T13:53:00Z",
+  "question": "Does v4's constrained-DAS intervention family actually partition the exact multi-site patch, and did its optimizer beat the search-free difference-in-means baseline on its own registered training loss?",
+  "authority": {
+    "v4_result": "circuits/followups/unit_subspace_trust_v4_result.json",
+    "v4_result_sha256": "59399d1b4c31004793d811f2f16e0e6c9444b402f87949d622c889999253bb56",
+    "v4_runner_sha256": "297993bc595a9d14eea91c4a71e1e7be15b1dd904f379c7e1e221d8d39817993",
+    "current_library_sha256": "530ce8a5c0dba6a9b7700f5fe1bd716bc7b6a052a5f02311cb0955d74b55eba7"
+  },
+  "frozen_design": {
+    "sets": "all seven v4 unit sets, unchanged and in their recorded order",
+    "rows": "even A1 fit rows used by v4",
+    "closure_test": "compare exact overwrite q=None with q=I, which applies the full cached donor-minus-base delta; report per-logit and recovery gaps",
+    "baseline_test": "evaluate difference-in-means under exactly v4's raw-axis match MSE plus lambda=1 complement-to-base MSE",
+    "optimizer_reference": "compare that objective with v4's recorded final constrained-DAS loss for the same set",
+    "no_refit": true,
+    "model_forwards_max": 80,
+    "example_evaluations_max": 2560,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_same_layer_identity_closes": "the numbered-list two-head same-layer set has maximum per-logit q=I versus exact error <= 1e-4",
+    "pred_b_all_multilayer_identity_closes": "every multi-layer set has maximum per-logit q=I versus exact error <= 1e-4",
+    "pred_c_cdas_beat_dim_on_own_loss": "for both MLP-containing sets, v4's final constrained-DAS joint training loss is <= the difference-in-means joint training loss"
+  },
+  "terminal_rules": {
+    "instrument_invalid": "same-layer identity closure exceeds 1e-4 or native instrument closure fails",
+    "v4_partition_invalid": "instrument is valid but any multi-layer full-rank identity closure exceeds 1e-4",
+    "optimizer_failure": "either MLP set violates pred_c",
+    "target_generalization_mismatch": "pred_c holds while difference-in-means remains better on the already-recorded held-out causal/complement bars"
+  },
+  "interpretation_limits": [
+    "No direction is refit and no threshold is changed after inspecting the audit.",
+    "A q=I closure failure invalidates the claim that q and its complement partition the exact multi-site intervention; it does not invalidate whole-unit patching.",
+    "Even a passing training-loss comparison cannot establish uniqueness or held-out causal validity."
+  ]
+}
