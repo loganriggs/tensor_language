@@ -1,0 +1,56 @@
+{
+  "schema": "aspectual_tense_raw_text_dual_program_prior_art_v1",
+  "candidate_id": "aspectual_tense.raw_text_dual_program_v1",
+  "created_utc": "2026-09-06T10:04:53Z",
+  "evidence_class": "zero_forward_compiled_raw_text_selector_and_persisted_causal_dispatch_release",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*aspectual*tense*", "circuits/followups/*aspectual*tense*", "ops/*aspectual*tense*", "AGENT_BOARD.md"],
+    "nearest_result": "The two released programs require an externally supplied direction, while the learned two-contrast gate is invalid and descriptively fails held-out construction routing.",
+    "new_question": "Can literal construction cues supply a transparent, fit-free bank/direction/abstention branch and compose the two unchanged causal writers into one executable?"
+  },
+  "authorities": {
+    "q_has_program_sha256": "359953a4ec747fd83c1db9a4874655699e3580eda1d5d5d97b6c51c003ce22b1",
+    "q_is_program_sha256": "be5c7ea1dceb850ab125fbeb3b5f4814e571e678dbb6929fc89bd74e39588307",
+    "q_has_release_sha256": "ed6afb3455bf5bfeea6e36f65ce33e9199290cb26540ee94da2c42accc785e7c",
+    "q_is_release_sha256": "9804a0d0f047f194f6cce3490828c3a6e9525940f8c2b822467bc52176957e98",
+    "q_has_builder_sha256": "ae624913c5adfe07cf028acf6549cd5fe2debd4b090c71659218fe158089fe2c",
+    "q_is_builder_sha256": "b8541360334bd2793a02fae525a94dda05ce600fd4de5b6c3d953063d4c6b0ae",
+    "aligned_joint_result_sha256": "46479986f81751af6141e8fcbaf19d4413198b119171711715414d2869f43e08"
+  },
+  "frozen_selector": {
+    "normalization": "lowercase, trim, and collapse ASCII whitespace only",
+    "has_had": {"present_to_past": ["since last"], "past_to_present": ["by last"]},
+    "is_was": {"present_to_past": ["this moment", "present moment"], "past_to_present": ["that moment", "previous moment"]},
+    "abstain": "no registered cue",
+    "rejection": "raise on empty/non-string input, ambiguous bank, or competing directions within one bank",
+    "fit": "No learned or fitted values. Cue strings are literal clauses of the two registered construction grammars.",
+    "no_rescue": "Do not add cues, edit precedence, or change normalization after an audit miss."
+  },
+  "tests": {
+    "exhaustive_text_selector": "Correct bank and source-side direction on all base and donor strings for A1/A2/P, and abstain on all C strings: 256 decisions total.",
+    "compiled_dispatch_conformance": "On deterministic synthetic CPU tensors, each bank route exactly equals its already released direct program and abstain exactly preserves base resid:18; invalid and ambiguous inputs reject.",
+    "persisted_causal_dispatch": "On the aligned receipt's intervention source side, selector routing chooses own margins for A1/A2/P and base for C; A1/A2 recovery and P reflection retain the released bars and C effect is exactly zero.",
+    "scope": "Only the registered since/by-last and this/that/present/previous-moment grammars; lexical cues are an explicit interface branch, not an inferred internal task circuit."
+  },
+  "bars": {
+    "selector": "256/256 exact decisions with zero ambiguity.",
+    "conformance": "Exact bank/direction metadata, alpha, local contrast, and patched tensor equality to direct calls; abstain max absolute change 0; all rejection checks pass.",
+    "causal": "Each bank has A1/A2 mean recovery and P mean reflection >=0.75 with direction fraction >=0.75; C normalized effect exactly 0.",
+    "price": "Zero model forwards, backwards, updates, fit, grid, or root evaluations."
+  },
+  "predictions": {
+    "pred_a_authority_release_and_rows": "All immutable hashes, releases, manifests, row hashes, and 128 persisted causal records match.",
+    "pred_b_exhaustive_raw_text_selector": "All 256 base/donor text decisions match bank, direction, or abstention exactly.",
+    "pred_c_compiled_dual_program_conformance": "The wrapper exactly delegates each selected branch and preserves abstention on CPU tensors, with strict rejection behavior.",
+    "pred_d_persisted_causal_preservation": "Automatic routing preserves both programs' A/P effects at the frozen bars.",
+    "pred_e_control_abstention": "All C intervention sources abstain and have exactly zero dispatched effect.",
+    "pred_f_zero_forward_price_and_scope": "No model work or fitting occurs and the restricted lexical scope is explicit."
+  },
+  "terminal": {
+    "release": "A-F pass: publish the fit-free raw-text dual-program selector within registered grammar scope.",
+    "null": "Authority/conformance/coverage pass but selector or causal preservation misses.",
+    "invalid": "Authority, identity, rejection, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["computational specification", "held-out prediction", "selective manipulation", "composition and reuse", "simplicity and compression"],
+  "price": {"model_forwards": 0, "example_evaluations": 0, "fitted_scalars": 0, "registered_cue_strings": 6, "selector_decisions": 256, "synthetic_conformance_cases": 3, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
