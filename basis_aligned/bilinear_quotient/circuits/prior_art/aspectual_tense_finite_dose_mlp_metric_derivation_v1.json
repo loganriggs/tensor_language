@@ -1,0 +1,15 @@
+{
+  "schema": "aspectual_tense_finite_dose_mlp_metric_derivation_prior_v1",
+  "candidate_id": "aspectual_tense.finite_dose_mlp_metric_derivation_v1",
+  "registered_utc": "2026-09-06T17:23:02Z",
+  "scope": "Development-only higher-order metric derivation on fresh-v3. Confirmation still requires a second disjoint authority.",
+  "hypothesis": "The remaining first-order rank error, especially MLP5 for is/was, is caused by suffix curvature and saturation. A fixed quarter-dose carrier intervention on A1 will preserve screening efficiency while predicting full-dose A2 effects more accurately.",
+  "primary_score": "Mean absolute normalized donor recovery from adding 0.25 times the exact donor-minus-base MLP output at all paired A1 carrier positions, divided by 0.25.",
+  "predictions": {
+    "pred_a_capability_position_coverage_finiteness_and_exact_price": "The same A1 development capability rows recur; 26 forwards, 394 evaluations, and 270 unique low-dose records.",
+    "pred_b_finite_dose_improves_both_rank_correlations": "Spearman against frozen full-dose A2 causal effects exceeds first-order baselines 0.95 has/had and 0.65 is/was for both tasks.",
+    "pred_c_finite_dose_is_strong_enough_for_fresh_test": "Both correlations exceed 0.80 and MLP4 is top-three by score for both tasks.",
+    "pred_d_fixed_dose_zero_fit_development_scope": "Dose is fixed before execution; no fitted scalar, backward pass, or model update."
+  },
+  "decision": "screen graduates the fixed-dose formula to a second disjoint A1-to-A2 test; null means direct causal screening remains preferable to further metric complexity; invalid on capability, position, coverage, matching, finiteness, dose, or accounting failure"
+}
