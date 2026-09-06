@@ -1,0 +1,110 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_artifact_v2",
+  "program_id": "aspectual_anchor.has_vs_had.transparent_path_program_v2",
+  "created_utc": "2026-09-06T04:01:03Z",
+  "executable": {
+    "path": "ops/aspectual_anchor_transparent_path_program_v2.py",
+    "sha256": "d53c54853813718d281146d52e8302266de32943c63906d06912eae4b5fe31ef",
+    "framework": "array-protocol compatible",
+    "model_loads": 0,
+    "fits": 0
+  },
+  "behavior": {
+    "cue_edit": "since <-> by",
+    "answer_edit": "has <-> had",
+    "validated_constructions": [
+      "Since/By last PERIOD the AGENT",
+      "The record shows that since/by last PERIOD the AGENT"
+    ],
+    "token_contract": "one changed cue token; final subject is cue+4; source bank is cue+1,cue+2,cue+3"
+  },
+  "typed_operations": {
+    "mlp4_hidden_response": "(Left_d-Left_b)*Right_b + Left_b*(Right_d-Right_b)",
+    "mlp4_write": "hidden_response @ Down.weight.T, without bias",
+    "attention_source_term": "pattern[head,query,source] * effective_value[source,head]",
+    "attention_source_delta": "sum over frozen sources of hybrid term minus base term, returned per frozen head",
+    "crossing_delta": "lambda0*(resid_h-resid_b) + (attention_h-attention_b) + (mlp_h-mlp_b)",
+    "write_query_delta": "functional clone/copy followed by one query-position addition"
+  },
+  "frozen_inventory": {
+    "mlp4_terms": ["left_change", "right_change"],
+    "source_positions": ["last", "period", "determiner"],
+    "attention5_heads": [7, 1, 6, 8],
+    "attention9_heads": [1, 4],
+    "crossing_boundaries": [6, 7, 8, 9]
+  },
+  "prospective_evidence": {
+    "writer_mean_recovery": 0.2835613798233539,
+    "attention5_all_head_mean_recovery": 0.04276979953808137,
+    "attention5_four_head_mean_recovery": 0.039664442463800936,
+    "attention5_four_head_to_all_fraction": 0.9273936958363462,
+    "attention5_bank_to_four_fraction": 0.9999986882770698,
+    "full_crossing_curve": {
+      "resid7": 0.057488985159058134,
+      "resid8": 0.07342442300429433,
+      "resid9": 0.0876184706243302,
+      "resid10": 0.2141020577610894
+    },
+    "crossing_shapley": {
+      "block6": {"carried": 0.03616293111757046, "attention": 0.010741627823445028, "mlp": 0.01058442621804264},
+      "block7": {"carried": 0.054736867867875905, "attention": 0.013318366963988937, "mlp": 0.005369188172429485},
+      "block8": {"carried": 0.06477575464664878, "attention": 0.01762517349268069, "mlp": 0.005217542485000724},
+      "block9": {"carried": 0.08593830976510597, "attention": 0.11204866590857068, "mlp": 0.016115082087412726}
+    },
+    "attention9_h1h4_mean_recovery": 0.10761107652295035,
+    "attention9_h1h4_to_writer_fraction": 0.37949835266702137,
+    "attention9_bank_to_all_h1h4_fraction": 1.0257042185463237,
+    "resid10_to_writer_fraction": 0.7550466071736054
+  },
+  "price": {
+    "stored_fit_scalars": 0,
+    "stored_fit_vectors": 0,
+    "selected_mlp4_terms": 2,
+    "selected_attention5_heads": 4,
+    "selected_attention9_heads": 2,
+    "selected_source_positions": 3,
+    "explicit_crossing_boundaries": 4,
+    "requires_checkpoint_weights": true,
+    "requires_paired_base_and_donor_states": true,
+    "requires_native_checkpoint_suffix_blocks10_17": true
+  },
+  "interfaces": {
+    "input": [
+      "paired base/donor MLP4 Left and Right states",
+      "checkpoint MLP4 Down weight",
+      "paired base/hybrid attention patterns and effective values",
+      "paired base/hybrid residual, attention, and MLP boundary tensors",
+      "native base state and checkpoint suffix"
+    ],
+    "output": "paired causal answer-versus-foil effect after native suffix execution",
+    "manipulations": [
+      "include/exclude either MLP4 bilinear term",
+      "include/exclude frozen source positions or heads",
+      "include/exclude carried, attention, or MLP crossing terms",
+      "write composed delta at the final query"
+    ]
+  },
+  "authority": {
+    "aspectual_anchor_transparent_path_program_release_v1_result.json": "a2751011ac5fa02fcec433f2f83090f0911bdd5be1c84aeff0bf3ab8e3875cf1",
+    "aspectual_anchor_explicit_path_lexical_holdout_v2_result.json": "fd1b4ae15e1d327001c8b172bcbecb0f15609d6da01bec8c8dddbf8de107549e",
+    "aspectual_anchor_attention9_h1h4_lexical_holdout_v1_result.json": "e07c5b210839a70ae1152fed907c4078a3439b833e8a2169346995abc16b2292",
+    "aspectual_anchor_blocks6_8_crossing_factorials_lexical_holdout_v1_result.json": "0c440a3f4e22941e9d2be40d02df0f1262c08ca646f0d7939206bf5a6cfaf932",
+    "aspectual_anchor_block9_crossing_factorial_lexical_holdout_v1_result.json": "d7df483de097811d93c2b5b92b8beed1dd44dcf165fa3bfc9ee89541e0e92bbc"
+  },
+  "scope": {
+    "licensed": [
+      "executable paired-causal tensor equations",
+      "prospective lexical/recombination support across the explicit MLP4-to-resid10 route",
+      "component-level manipulation at MLP4, attention5, blocks6-9, and attention9 H1/H4"
+    ],
+    "not_licensed": [
+      "standalone native-margin prediction",
+      "full-logit prediction",
+      "free-form text",
+      "new-construction transfer",
+      "whole-model replacement",
+      "transparent replacement of native suffix blocks10-17"
+    ],
+    "failed_boundary": "The sealed ledger/memory construction transfer failed native capability and remains invalid."
+  }
+}

@@ -314,6 +314,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.attention9_h1h4_lexical_holdout_v1` | complete | sealed prospective downstream-bank transfer | **H1/H4 bank transfers prospectively** | `aspectual_anchor_attention9_h1h4_lexical_holdout_v1_result.json` |
 | `aspectual_anchor.has_vs_had.blocks6_8_crossing_factorials_lexical_holdout_v1` | complete | shared-capture exact three-boundary factorials | **prospective intermediate route closed** | `aspectual_anchor_blocks6_8_crossing_factorials_lexical_holdout_v1_result.json` |
 | `aspectual_anchor.has_vs_had.block9_crossing_factorial_lexical_holdout_v1` | complete | sealed prospective block9 factorial | **attention9-dominant resid10 crossing** | `aspectual_anchor_block9_crossing_factorial_lexical_holdout_v1_result.json` |
+| `aspectual_anchor.has_vs_had.transparent_path_program_release_v2` | released | executable API/equation/evidence audit | **zero-fit tensor-equation program to resid10** | `aspectual_anchor_transparent_path_program_release_v2_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -440,6 +441,13 @@ native donor effect and retains 75.50% of the two-term writer, with perfect dire
 makes attention9 dominant at 11.205%, versus carried9 8.594% and MLP9 1.612%; removing attention9 damages A1 by 9.081 points and A2
 by 13.530. The full factorial closes to direct resid10 replacement within 4.8e-6 scored logit. Thus the entire MLP4 source-bank route
 through attention5, blocks6–8, and the block9 crossing is now prospectively component-resolved within the two capable constructions.
+
+The v2 release makes that route executable as framework-agnostic tensor equations rather than only a JSON graph. Its API implements
+the two-term MLP4 hidden response and Down projection, per-head source-term deltas for the frozen attention5 and attention9 banks,
+arbitrary carried/attention/MLP crossing subsets, and functional query writes. A zero-forward audit passes 22 deterministic synthetic
+equation and rejection cases and binds every prospective value above to immutable evidence. The module has no model-loading import and
+stores no fitted scalar or vector. It remains explicitly paired-causal: checkpoint weights, paired captures, and the native blocks10–17
+suffix are dependencies, so this release is not presented as standalone native-margin, full-logit, free-form, or whole-model prediction.
 
 ### `subroutine.induction.equality_score` — site_live
 
