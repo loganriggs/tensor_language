@@ -1,0 +1,46 @@
+{
+  "schema": "aspectual_anchor_resid10_margin_to_carrier_gain_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.resid10_margin_to_carrier_gain_v1",
+  "created_utc": "2026-09-06T07:34:00Z",
+  "evidence_class": "upstream_quotient_to_causal_write_screen_preregistration",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*aspectual_anchor*", "circuits/followups/*aspectual_anchor*", "ops/*aspectual_anchor*", "AGENT_BOARD.md"],
+    "nearest_positive": "Program v11 identifies initial resid10 as an operational variable group; the final-resid18 affine controller predicts new lexicon and has a calibrated dose response.",
+    "nearest_boundary": "The validated controller reads final-resid18 has/had confidence and therefore does not yet specify the upstream computation that sets gain.",
+    "new_question": "Can a four-parameter map from fixed has/had confidence at upstream resid10 compute the later rank-one carrier gain and preserve prospective causal performance?"
+  },
+  "authorities": {
+    "program_v11_release_sha256": "d8d96f3f0e6565d07fb8ca35f7aba9a361d5fb74a06dd153520131799e2ca309",
+    "target_guided_v10_sha256": "cb1275e1b9449c52254a05efa9932aeaa916a2722c8ee72717231d9121e957fb",
+    "scalar_selection_sha256": "4a55ef3da37b12722fabae41c9caaa7e8284fc0891ba4e15c5cfdeab40323b2d",
+    "prospective_dose_response_sha256": "4b3463aa095c03801a41453411ae663d14dad8340be6083ca42ff51264ec9a4f",
+    "fresh_lexicon_builder_sha256": "4d884af47ec7e9e2b00effc91754948514b8e3bb893a58b6a98c4653ef37ab3f",
+    "fresh_lexicon_rows_sha256": "1127a313c7657ef2cace839219ff5cd6366df47151dcf63f89450abc85eaa02e",
+    "rank1_basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"
+  },
+  "frozen_design": {
+    "calibration_rows": "The immutable 16 lexical row IDs tagged selection in the scalar-term result; eight per direction across A1/A2.",
+    "calibration_response": "The immutable v10 target-guided alpha for each calibration row.",
+    "feature": "At resid:10 of the base calibration state or confirmation source state, fixed current-tense token logit minus other-tense token logit using has=468 and had=550.",
+    "fit": "Separate ordinary least-squares intercept+slope per direction, four float64 coefficients total; no ridge, clipping, grid, or confirmation data.",
+    "confirmation_population": "The sealed 64-row prospective lexicon v3 population already used to establish the final-margin controller; resid10 features and interventions have not been inspected.",
+    "actuator": "alpha = intercept[direction] + slope[direction]*resid10_confidence; patch resid18_source + alpha*q. Confirmation resid18 has/had margin, donor activation, row outcome IDs, and outcomes do not select alpha.",
+    "fixed_token_ids": {"has": 468, "had": 550},
+    "fit_parameters": 4
+  },
+  "predictions": {
+    "pred_a_authority_alignment_capability_and_exact_heads": "All hashes and row alignments pass; exact-head replay passes at resid10 and resid18; inherited confirmation source capability is rechecked on scored resid18 sides.",
+    "pred_b_upstream_fit_and_actuator_well_formed": "Each direction has eight nondegenerate calibration features, finite OLS coefficients, calibration R^2>=0.50, and every confirmation alpha uses only resid10 source state, direction, fixed IDs, and those four coefficients.",
+    "pred_c_new_lexicon_A_prediction": "A1 and A2 each have mean recovery >=0.75, direction fraction >=0.75, and at least 0.65 of the final-margin prospective recovery.",
+    "pred_d_new_lexicon_P_generalization": "P mean reflection >=0.75, direction fraction >=0.75, and at least 0.65 of the final-margin prospective reflection.",
+    "pred_e_new_lexicon_C_selectivity": "C mean normalized unrelated effect <=0.20.",
+    "pred_f_exact_coverage_and_price": "Exactly 16 calibration rows and 64 unique confirmation rows fit four parameters within 25 counted forwards, 368 example evaluations, 240 selected-head pair evaluations, zero grids/backwards/updates, and 64 intervention records."
+  },
+  "terminal": {
+    "screen": "A-F pass: a tested v11 upstream variable computes a lexicon-held-out calibrated carrier write through a four-parameter map.",
+    "null": "Authority and coverage pass but upstream fit, A/P prediction, or C selectivity misses; final-margin feedback remains necessary under this scalar upstream interface.",
+    "invalid": "Authority, alignment, capability, exact-head control, fit degeneracy, actuator identity, or coverage fails."
+  },
+  "circuit_targets": ["computational specification", "held-out prediction", "extraction/sufficiency", "selective manipulation", "cross-boundary operational grouping"],
+  "price": {"counted_forwards_max": 25, "example_evaluations_max": 368, "selected_head_pair_evaluations": 240, "grid_evaluations": 0, "model_backwards": 0, "model_updates": 0, "fit_parameters": 4, "stored_values_with_basis": 1156}
+}
