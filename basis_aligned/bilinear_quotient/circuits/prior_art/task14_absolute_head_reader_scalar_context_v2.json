@@ -1,0 +1,24 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.absolute_head_reader_scalar_context_v2",
+  "created_utc": "2026-09-06T00:51:00Z",
+  "purpose": "Test the smallest circuit-motivated repair of the failed Task14 absolute program: retain one scalar of recipient base context along the already frozen direction reader, rather than the full 1,152-D native base head.",
+  "prior_art_search": {
+    "result": "The context-free ten-head program failed decisively, proving a context term is needed. The existing fixed direction readers prospectively predict displacement effects, but no intervention has used them as the sole retained coordinate of native base-head deviation. No rank, PCA, or template-conditioned repair is licensed.",
+    "absolute_artifact": {"path": "circuits/followups/task14_direction_cardinality_absolute_head_program_v1_artifact.json", "sha256": "f3097e072ba0e5d429f9b3d741665c22832b34367678a8630a9c81d705bcd55b"},
+    "absolute_null": {"path": "circuits/followups/task14_direction_cardinality_absolute_head_program_v1_result.json", "sha256": "badde085b97cceadd5b1055715597d11bfabd30b621a435951214315ab1bbc03"},
+    "displacements": {"path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json", "sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07"},
+    "readers": {"path": "circuits/fast_screens/task14_mlp6_7_fixed_direction_reader_artifact_v2_result.json", "sha256": "9db4eefe16498cb65fb9c21ea3f2475c790c89ebb2e65a70e8ad6b7886f2ae57"},
+    "reference": {"path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json", "sha256": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0"}
+  },
+  "construction": "For key (direction, cardinality), derive mean_base = frozen_absolute_head - frozen_displacement. For each third-corpus cell compute only s = r_direction dot (native_base - mean_base), then install absolute_head + r_direction*s/(r_direction dot r_direction). This exactly preserves the frozen reader coordinate of base deviation and discards all 1,151 orthogonal coordinates.",
+  "predictions": {
+    "pred_a_immutable_reader_aligned_instrument": "All artifacts remain immutable; the scalar correction reproduces the native-base reader coordinate within 1e-5; source/downstream closure errors are at most 1e-4; all 512 cells join exactly to the native-effect reference.",
+    "pred_b_one_scalar_context_restores_effect": "Across 512 cells, corrected absolute-head effects reproduce native exact effects at cosine at least 0.75, relative L2 at most 0.75, norm ratio 0.25 to 2.0, and sign agreement at least 0.75.",
+    "pred_c_each_direction_template_and_cardinality_recurs": "Every direction-by-template and cardinality group has cosine at least 0.65 and sign agreement at least 0.65.",
+    "pred_d_context_dependency_reduced_to_one_scalar": "Replacement construction consumes one scalar of native base-head state per edit plus a frozen reader direction; it does not consume the full base vector after projection. No template, row, rank, or outcome-conditioned parameter is added.",
+    "pred_e_fixed_price": "Validation uses five forwards, 1,120 example evaluations, 1,024 installations, zero fits/backwards/updates, and reuses the ten absolute vectors plus two readers."
+  },
+  "terminal_rule": "program_screen if all gates pass; null if the immutable instrument passes but one-scalar restoration fails; invalid on hash, projection identity, closure, join, or price mismatch.",
+  "closed_claims": ["zero-context absolute program", "multi-rank base reconstruction", "template-conditioned repair", "whole upstream replacement", "whole-model replacement"]
+}
