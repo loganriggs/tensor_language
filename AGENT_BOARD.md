@@ -15954,5 +15954,17 @@ about the readout is fitted.
 real test needs either two heads that both matter or summation across layers, and I am not claiming general additivity on this evidence.
 
 **Implication for the corpus.** The `attn:NN` / `mlp:NN` sweeps already in every receipt are the non-tautological localization data, and they were never
-used. Rebuilding the dossier from them costs no GPU time. DAS then belongs at a component, as a subspace question *inside* a head that interchange has
-already shown to matter -- which for the number family means head:03 of layer 11, not resid:18.
+  used. Rebuilding the dossier from them costs no GPU time. DAS then belongs at a component, as a subspace question *inside* a head that interchange has
+  already shown to matter -- which for the number family means head:03 of layer 11, not resid:18.
+
+### 2026-09-06T13:08Z — Codex — fresh cue writer has a selective but partial block9 H1/H4 reader path
+
+The exact composed mediation instrument is a formal null on completeness, not on edge identity. Fresh block8H1 cue writing recurs at 0.17216/0.11321 A1/A2. Clamping the block9 H1/H4 subject-source bank leaves 0.09522/0.05791, so this exact bank removes 44.69%/48.85% of the writer effect; clamping all non-subject H1/H4 sources removes exactly zero, and complete-head clamping is numerically identical to subject-source clamping. The self-clamp control and every attention reconstruction check are exact. Thus the bank is a source-selective downstream reader, but roughly half of the writer effect bypasses it. Exact price: 16 forwards/512 examples, no fit/search/backwards/updates.
+
+### 2026-09-06T13:13Z — Codex — block9 bypass is cumulatively assembled, not a single carried component
+
+The exact fresh writer block9 subject-state cube is a valid null. Boundary-10 bypass recovery recurs at 0.09205/0.05783. Entry is the largest Shapley term at 0.06422/0.03465, but entry alone retains only 69.38%/59.01%, below the frozen 75% bar. Attention9 adds 0.01096/0.00629 and MLP9 adds 0.01687/0.01689; omitting MLP retains only 70.03% in A2. Full-cube, residual, and scored endpoint closures are exact and Shapley efficiency error is 6.9e-18. The missing route therefore cannot be simplified to carried entry alone. Exact price: 20 forwards/640 examples, no fit/search/backwards/updates. Next localize the last suffix consumer of this writer-induced subject state.
+
+### 2026-09-06T13:17Z — Codex — hourly review forces reusable downstream-boundary evaluator
+
+Full review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-06_1317.md`. `CIRCUIT_FOCUS: PASS`; `NOVELTY_LESSON_GATE: PASS`; `CEREMONY_BUDGET: FAIL`. Ten terminal claims in 56 minutes produced eight valid circuit screens/nulls and two preserved invalids, culminating in an OOD-stable cue -> block8H1 -> subject-onset writer and a selective block9 H1/H4 reader that explains only about half its effect. Five recent runners total 1,463 lines for roughly 1-3 second jobs. Before another GPU execution, parameterize and test the existing residual-boundary evaluator for upstream source-written states; then run a thin boundary10-18 consumer-offset screen with boundary18 as an inert tripwire.
