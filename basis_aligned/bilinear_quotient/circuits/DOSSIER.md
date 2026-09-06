@@ -13,7 +13,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 
 | circuit | kind | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---|---:|---:|---|
-| `task.subject_verb_number_agreement` | behavior_circuit | program_screened | `complete_subject_number_at_final_position` | 4 | 7 | price the literal 10-vector upstream + two-reader implementation and defer joint composition until another fixed program exists; fixed mediator gains and possessive reuse are closed nulls, and rank/reconstruction sweeps remain closed |
+| `task.subject_verb_number_agreement` | behavior_circuit | program_screened | `complete_subject_number_at_final_position` | 4 | 7 | retain the interface-simple 10-vector upstream + two-reader program, but do not call it end-to-end simple; defer joint composition until another fixed program exists; fixed mediator gains and possessive reuse are closed nulls, and rank/reconstruction sweeps remain closed |
 | `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
 | `task.bracket.pending_opener` | behavior_circuit | specified | `pending_opener_state_three_value_candidate` | 5 | 8 | execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict |
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
@@ -50,8 +50,8 @@ factor cardinality were exported from the second corpus and installed on 32 new 
 effects substitute each target text's native displacement at cosine `0.86301` with `0.93945` sign agreement; the frozen readers predict
 the installed effects at cosine `0.96927` with perfect signs. Cardinality reduces SSE `29.72%` versus a two-direction control. All ten
 literal writes preserve frozen numbered-list and bracket behaviors (worst median normalized collateral `0.000715`, zero answer flips)
-after a documented FP32 tripwire repair. This is a **screened reusable interface/program**, not adoption: broader selectivity, joint
-composition/reuse, and literal whole-program price remain open.
+after a documented FP32 tripwire repair. This is a **screened reusable interface/program**, not adoption: broader selectivity and joint
+composition/reuse remain open.
 
 Cross-task reuse is bounded by a valid null. The preselected cardinality-0 writes do not transfer to adjacent possessive agreement with
 `their`/`his` outputs: median donorward change is `0.000499`, one direction×construction cell has chance-level sign, and the frozen
@@ -75,6 +75,16 @@ polarity, narrative tense, preposition selection, and voice frame—under per-be
 worst median normalized effect is `0.00405` and there are zero answer flips. Together with numbered-list and bracket panels this gives
 six measured collateral behaviors. The first broad receipt's `5e-5` FP32 tripwire was exceeded by `5.984e-5`; an append-only,
 zero-rerun audit at the repository's existing `1e-4` activation tolerance preserves all scientific values.
+
+Literal pricing now separates selected runtime state from controls. The selected ten vectors contain `11,520` FP32 scalars and the two
+readers contain `2,304`, for `13,824` scalars (`55,296` bytes) total; the two direction-only vectors in the export are controls and add
+`2,304` scalars only to the research artifact. A causal install costs `1,152` additions; including the optional dense reader costs
+`3,455` scalar arithmetic operations. This saves `64.706%` of storage versus a literal 32-vector direction-by-subset table with the same
+readers (`68.75%` for vectors alone). But the current harness still needs externally supplied direction and intervention cardinality,
+counterfactual role prompts, native contextual base construction, and the native suffix/logit path. It eliminates **zero** native blocks
+and **zero** native parameters. The licensed verdict is therefore `interface_simple_not_end_to_end`, not runtime acceleration or a
+standalone model. This also corrects the 23:35 reviews' arithmetic: their `13,824` upstream-vector count included the two controls; the
+selected upstream vectors are `11,520`, and `13,824` is the selected vectors-plus-readers total.
 
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
@@ -108,16 +118,17 @@ zero-rerun audit at the repository's existing `1e-4` activation tolerance preser
 | `agreement_mlp6_7_program_mlp15_component.v2` | complete | preregistered component audit | **null** | active | `task14_direction_mlp15_gain_fourth_corpus_component_v2_result.json` |
 | `agreement_mlp6_7_program_broad_collateral.v1` | invalid | four-behavior selectivity | **FP32 tripwire invalid** | superseded by v2 | `task14_mlp6_7_direction_cardinality_program_broad_collateral_v1_result.json` |
 | `agreement_mlp6_7_program_broad_collateral.v2` | complete | four-behavior selectivity | **held narrowly** | active | `task14_mlp6_7_direction_cardinality_program_broad_collateral_v2_result.json` |
+| `agreement_mlp6_7_program_literal_price.v1` | complete | storage/compute/dependency audit | **interface simple, not end-to-end** | active | `task14_direction_cardinality_program_literal_price_v1_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
 reinterpret its target/control scores as a subspace null. The corrected receipt and bundle are internally hash-consistent; the first
 publication pair is retained only under `artifact_invalid` filenames.
 
-**Next:** keep the upstream ten-vector plus two-reader program, but reject fixed MLP15/17 gains. Test joint composition with a separately
-identified circuit intervention once another fixed executable program exists, and price the literal Task14 interface against its native
-source/tail computation. Do not substitute syntax-conditioned gain fitting or generic low-rank approximation for prospective causal
-prediction.
+**Next:** keep the upstream ten-vector plus two-reader program, but reject fixed MLP15/17 gains and any end-to-end simplicity claim.
+Test joint composition with a separately identified circuit intervention once another fixed executable program exists. The immediate
+frontier is to materialize such a second program from an already identified circuit rather than further compressing Task14. Do not
+substitute syntax-conditioned gain fitting or generic low-rank approximation for prospective causal prediction.
 
 ### `subroutine.induction.equality_score` — site_live
 

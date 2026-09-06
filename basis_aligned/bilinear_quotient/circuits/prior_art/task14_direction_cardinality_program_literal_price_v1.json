@@ -1,0 +1,32 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.direction_cardinality_program_literal_price_v1",
+  "created_utc": "2026-09-05T23:57:30Z",
+  "purpose": "Price the selected ten-vector Task14 intervention and its two readers literally, separating executable state from direction-only controls and exposing every native-model or externally supplied dependency.",
+  "prior_art_search": {
+    "result": "Existing receipts report export and experimental execution prices, but no receipt distinguishes the ten selected vectors from two direction-only controls or asks whether the intervention removes any native inference block.",
+    "prototype_artifact": {
+      "path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json",
+      "sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07"
+    },
+    "reader_artifact": {
+      "path": "circuits/fast_screens/task14_mlp6_7_fixed_direction_reader_artifact_v2_result.json",
+      "sha256": "9db4eefe16498cb65fb9c21ea3f2475c790c89ebb2e65a70e8ad6b7886f2ae57"
+    }
+  },
+  "predictions": {
+    "pred_a_exact_selected_storage": "The selected program contains ten 1,152-coordinate vectors and two 1,152-coordinate readers: 13,824 FP32 scalars or 55,296 bytes. The two direction-only vectors are controls and excluded.",
+    "pred_b_interface_compute_is_small": "One selected-vector addition plus one dense reader contraction costs at most 3,455 scalar arithmetic operations per queried intervention; causal execution alone costs 1,152 additions.",
+    "pred_c_table_compression_is_real": "Relative to a literal 32-vector direction-by-subset table plus the same two readers, selected storage falls from 39,168 to 13,824 scalars (64.706%); vector-only storage falls 68.75%.",
+    "pred_d_native_dependency_prevents_standalone_claim": "The current executable requires externally supplied direction and intervention cardinality, native contextual base construction, and the native suffix/logit path; it eliminates zero native blocks and zero native parameters in the measured harness.",
+    "pred_e_classification": "The only licensed simplicity verdict is interface_simple_not_end_to_end; no whole-model, autonomous-selector, or native-runtime reduction claim is licensed."
+  },
+  "terminal_rule": "screen if all five frozen statements are verified from immutable artifacts and source; invalid on any count/hash/source mismatch.",
+  "closed_claims": [
+    "standalone inference",
+    "whole-model replacement",
+    "native block elimination",
+    "autonomous direction or cardinality selection",
+    "runtime speedup"
+  ]
+}
