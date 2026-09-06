@@ -308,6 +308,8 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.mlp4_induced_attention5_head_sweep_v1` | null | fixed singleton plus leave-one-out attention5 sweep | **transport is distributed across heads** | `aspectual_anchor_mlp4_induced_attention5_head_sweep_v1_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_induced_attention5_four_head_factorial_v1` | complete | exact 16-arm H7/H1/H6/H8 factorial | **four-head attention5 transporter** | `aspectual_anchor_mlp4_induced_attention5_four_head_factorial_v1_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_to_attention5_four_head_source_identity_v1` | complete | exact attention5 source-term identity | **MLP4 bank-to-four-head path closed** | `aspectual_anchor_mlp4_to_attention5_four_head_source_identity_v1_result.json` |
+| `aspectual_anchor.has_vs_had.explicit_path_lexical_holdout_v1` | invalid pre-outcome | prospective lexical/recombination path transfer | **token alignment failed before model forward** | run log |
+| `aspectual_anchor.has_vs_had.explicit_path_lexical_holdout_v2` | complete | token-audited prospective path transfer | **explicit path transfers prospectively** | `aspectual_anchor_explicit_path_lexical_holdout_v2_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -400,6 +402,13 @@ Individually, period carries 2.119%, the determiner 1.424%, and `last` 0.954% re
 `Down((Left_d-Left_b)*Right_b + Left_b*(Right_d-Right_b)) @ MLP4(last,period,the)` -> the same three source terms ->
 `attention5 heads {7,1,6,8}` -> final query. The route is manipulable and composable, while downstream blocks6-9 still supply measured
 amplification/parallel transport rather than a complete standalone predictor.
+
+The explicit path now has prospective support. V1 failed closed before any model forward because four holdout agents tokenized into two
+tokens; an append-only v2 replaced only those agents using model-free tokenizer metadata and preserved every scientific arm and bar.
+On the 64-row sealed authority, every A1/A2/P capability cell is perfect and both canonical controls pass. The two-term writer transfers
+at 28.36% mean recovery (A1 26.88%, A2 29.83%); H7/H1/H6/H8 transport 3.966% with perfect direction, retain 92.74% of all attention5
+heads, and are reproduced 99.9999% by the fixed `last`+period+`the` source bank. This promotes lexical/recombination stability within
+the two validated syntactic constructions. It does not reopen the failed fresh-construction claim or imply free-form transfer.
 
 ### `subroutine.induction.equality_score` — site_live
 
