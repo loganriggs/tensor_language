@@ -1,0 +1,47 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.summed_writer_compiler_ood_v1",
+  "created_utc": "2026-09-06T14:48:00Z",
+  "question": "Does the simpler summed-writer scalar compiler trained on Later/Previously predict reader magnitudes and causal behavior on the distinct Tomorrow/Earlier construction?",
+  "authority": {
+    "destination_test_result_sha256": "951830b296fe0b8ce47d8b7a08e78e0875ba40a1ed3216d049cdc00c11d01929",
+    "destination_test_terminal": "writer_summary_insufficient; summed baseline is simpler and matched destination-resolved correlation",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "ood_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58"
+  },
+  "novelty": "Prior prediction used heldout nouns and the A2 frame within the Later/Previously authority. This is the first frozen coefficient compiler transfer to different cue tokens and the original Tomorrow/Earlier bare/report templates.",
+  "frozen_design": {
+    "fit": "the exact balanced 16-row A1 subset from the destination test, containing eight examples of each intervention orientation",
+    "ood": "all 32 A1, 32 A2, and 32 aligned P rows from temporal_auxiliary.will_vs_had (Tomorrow/Earlier)",
+    "writer_feature": "one SVD coefficient of the sum of the two exact block8H1 subject-destination cue writes",
+    "reader_targets": "separate rank-one coefficients for block9 H1/H4 and block11 H3",
+    "compiler": "two affine maps, four fitted scalars; fitted only on Later/Previously A1",
+    "answer_changing_arms": ["full_captured_response", "oracle_rank1_response", "predicted_rank1_response", "intercept_only_response", "zero_response"],
+    "control_arms": ["predicted_rank1_response", "intercept_only_response"],
+    "model_forwards": 38,
+    "example_evaluations": 1104,
+    "answer_changing_records": 320,
+    "fitted_scalars": 4,
+    "stored_axis_coordinates": 512,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_ood_capability_and_writer_closure": "all OOD answer-changing rows are natively correct and direct writer reconstruction error <=1e-4 on fit/A1/A2/P",
+    "pred_b_ood_coefficient_prediction": "both reader coefficient correlations have absolute r>=0.60 in OOD A1 and A2",
+    "pred_c_ood_program_material": "predicted program retains >=0.60 of full captured response and is donorward on >=0.75 of OOD A1/A2 rows",
+    "pred_d_prediction_beats_intercept": "predicted recovery exceeds intercept-only by >=0.15 of full response on OOD A1 and A2",
+    "pred_e_ood_p_selective": "predicted-program absolute normalized P effect <=0.20",
+    "pred_f_price_exact": "38 forwards, 1104 examples, 320 unique records, four scalars, 512 axes, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, OOD capability, alignment, writer closure, coverage, finiteness, or price fails",
+    "screen": "all predictions pass",
+    "cue_specific": "valid test but reader coefficients or causal execution do not transfer",
+    "behavioral_null": "coefficients correlate but installed responses are not causal"
+  },
+  "interpretation_limits": [
+    "A pass identifies OOD prediction across two cue lexicons and two frames, not unrestricted temporal language.",
+    "The compiler remains empirical and uses exact writer terms supplied by the native block8 attention calculation.",
+    "C selectivity remains inherited because that family lacks an aligned writer interface."
+  ]
+}
