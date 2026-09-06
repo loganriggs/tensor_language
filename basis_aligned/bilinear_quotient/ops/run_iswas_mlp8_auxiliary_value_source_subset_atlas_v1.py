@@ -35,6 +35,7 @@ BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v10
 ATTENTION_LIBRARY = ROOT / "ops/attention_source_destination_eval.py"
 OUT = ROOT / "circuits/followups/iswas_mlp8_auxiliary_value_source_subset_atlas_v1_result.json"
 CANDIDATE_ID = "cross_task.iswas_mlp8_auxiliary_value_source_subset_atlas_v1"
+RESULT_SCHEMA = "iswas_mlp8_auxiliary_value_source_subset_atlas_result_v1"
 EXPECTED = {
     "prior": "a5cdd6cdb87a107456a05f81ad5ad0ac3bd858f175a0fcc120a6507d3fe4ee63",
     "parent": "cbf754a5edb2bac0cbaf56916f901c95d48296827952a641e63860e4f3e03c73",
@@ -181,7 +182,10 @@ def main() -> None:
             cell = torch.zeros_like(zero[layer])
             for i, source in enumerate(partitions):
                 selected = list(source[group])
-                raw = torch.einsum("hqs,shd->qhd", base_pattern[i, :, :, selected], dv[i, selected])
+                source_index = torch.as_tensor(selected, device=backend.device)
+                pattern_slice = base_pattern[i].index_select(-1, source_index)
+                value_slice = dv[i].index_select(0, source_index)
+                raw = torch.einsum("hqs,shd->qhd", pattern_slice, value_slice)
                 cell[i, :, list(SELECTED[layer])] = raw[:, list(SELECTED[layer])]
             cells[layer][group] = cell
     all_value = {layer: sum(cells[layer].values(), zero[layer]) for layer in LAYERS}
@@ -271,7 +275,7 @@ def main() -> None:
         "pred_d_both_auxiliary_layers_have_material_value_reads": pred_d,
         "pred_e_zero_fit_exact_subset_inventory": pred_e}
     terminal = "invalid" if not pred_a else "screen" if all(predictions.values()) else "null"
-    result = {"schema": "iswas_mlp8_auxiliary_value_source_subset_atlas_result_v1",
+    result = {"schema": RESULT_SCHEMA,
         "candidate_id": CANDIDATE_ID, "execution_policy": "managed_queue_only",
         "started_utc": started_utc, "finished_utc": utc_now(), "serial_seconds": time.perf_counter() - started,
         "authority_sha256": EXPECTED, "dryrun": dryrun,

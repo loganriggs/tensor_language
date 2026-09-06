@@ -1,0 +1,12 @@
+{
+  "schema": "iswas_mlp8_auxiliary_value_source_subset_atlas_prior_v2",
+  "candidate_id": "cross_task.iswas_mlp8_auxiliary_value_source_subset_atlas_v2",
+  "registered_utc": "2026-09-06T22:31:00Z",
+  "v1_result_sha256": "4764ff8692d3bcbc3ca3ae103f880b0dc2878e53967f7019567f4e282e37503e",
+  "v1_enqueued_runner_sha256": "b52108d18ad76d6f4cf9e09e00aa5325cc347e34c8266091df02daa21a20dda7",
+  "v1_terminal": "invalid",
+  "failure": "PyTorch advanced indexing in base_pattern[i,:,:,selected] moved the selected source dimension ahead of the basic-indexed dimensions. The subsequent hqs,shd contraction therefore did not implement the registered source partition and value-source closure was .567207.",
+  "repair": "Replace only the two list-index operations with index_select(-1, source_index) for pattern and index_select(0, source_index) for value. This preserves H,Q,S and S,H,D order. Add a configurable result schema so v2 writes a distinct artifact.",
+  "frozen": "All v1 rows, source groups, 32 subset arms, layer arms, factors, metrics, gates, thresholds, selection rule, and 40-forward/1080-example price remain unchanged. The repaired runner must rerun the model independently; no v1 source outcome is interpreted.",
+  "decision": "Identical to v1. No further source-index or closure repair is allowed on this population."
+}
