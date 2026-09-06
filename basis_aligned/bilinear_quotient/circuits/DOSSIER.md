@@ -305,6 +305,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.mlp4_induced_final_query_onset_v1` | abandoned pre-run | exact-budget audit | **no model execution** | none |
 | `aspectual_anchor.has_vs_had.mlp4_induced_final_query_onset_v2` | null | fixed resid5–9 final-query depth sweep | **observed onset resid6, not predicted resid9** | `aspectual_anchor_mlp4_induced_final_query_onset_v2_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_induced_block5_crossing_factorial_v1` | complete | exact carried5/attention5/MLP5 factorial | **attention5 initiates final-query transport** | `aspectual_anchor_mlp4_induced_block5_crossing_factorial_v1_result.json` |
+| `aspectual_anchor.has_vs_had.mlp4_induced_attention5_head_sweep_v1` | null | fixed singleton plus leave-one-out attention5 sweep | **transport is distributed across heads** | `aspectual_anchor_mlp4_induced_attention5_head_sweep_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -379,6 +380,11 @@ is the first transport operation, with Shapley 4.8411 points; MLP5 adds 0.6902 a
 source-only MLP4 intervention. Removing attention5 loses 4.94 points in A1 and 4.81 in A2. The explicit circuit now branches from the
 two-term MLP4 write into an immediate attention5 source-to-final-query edge, followed by accumulation through blocks6-8, alongside the
 separately closed attention9 H1/H4 contextual-bank edge. The next frozen decomposition resolves which attention5 heads carry the onset.
+
+No single attention5 head owns that onset. The all-head intervention exactly recurs at 5.5313%, but the preregistered 3-point
+single-head localization gate is null. The stable sufficiency/necessity endpoint ranking is H7 1.339%, H1 1.270%, H6 1.077%, H8
+0.839%, and H0 0.630%; remaining heads are negligible. The top four sum to roughly 82% of the all-head effect but this arithmetic is
+not yet a causal compression claim. A frozen 16-arm H7/H1/H6/H8 factorial is the next efficient test.
 
 ### `subroutine.induction.equality_score` — site_live
 

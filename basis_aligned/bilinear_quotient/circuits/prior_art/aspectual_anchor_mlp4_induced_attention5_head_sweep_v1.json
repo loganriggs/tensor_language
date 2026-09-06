@@ -1,0 +1,45 @@
+{
+  "schema": "aspectual_anchor_mlp4_induced_attention5_head_sweep_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp4_induced_attention5_head_sweep_v1",
+  "created_utc": "2026-09-06T03:14:00Z",
+  "question": "Which attention5 heads implement the first source-to-final-query transport of the fixed two-term MLP4 write?",
+  "authority": {
+    "block5_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_induced_block5_crossing_factorial_v1_result.json",
+      "sha256": "de2aaeb66b493a7b087f44d7c9e506861eb84cde17ef786d00613504b298ae63",
+      "terminal": "screen",
+      "attention5_shapley": 0.04841050071093325,
+      "full_crossing_mean_recovery": 0.055312640920517714
+    },
+    "writer_terms": ["left_change", "right_change"],
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+  },
+  "population": "The same 64 valid A1/A2 discovery rows.",
+  "operator": {
+    "capture": "Capture native-base and two-term-writer-hybrid attention5 preprojection head outputs.",
+    "intervention": "At the final-subject query in a native base run, replace selected complete attention5 head outputs by writer-hybrid outputs before the fixed c_proj; native MLP5 and the exact suffix respond normally.",
+    "arms": "Writer; all nine heads; each of nine singleton heads; each of nine leave-one-out complements.",
+    "attribution": "Report singleton, full-minus-leave-one-out, and their equal-weight endpoint average for each head; this is not claimed as exact Shapley.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_instrument": "Native capture is exactly inert; selecting all nine heads matches direct complete attention5 preprojection replacement within 0.125 scored logit.",
+    "pred_b_writer_recurrence": "The two-term writer recurs within 0.02 of mean recovery 0.33379277118533013 with positive A1/A2 recovery and direction fraction at least 0.80.",
+    "pred_c_attention5_recurrence": "The all-head arm recurs within 0.01 of full block5 crossing recovery 0.055312640920517714, with A1/A2 recovery at least 0.04 and direction fraction at least 0.80.",
+    "pred_d_head_localization": "At least one head has endpoint attribution at least 0.03, positive singleton recovery in A1/A2, and positive full-minus-leave-one-out drop in A1/A2.",
+    "pred_e_exact_coverage": "All 20 arms produce all 64 finite outcomes within 48 model forward calls and 1536 example evaluations."
+  },
+  "terminal": {
+    "screen": "A-E pass: license the reported head(s) as attention5 transport candidates and factor their source terms.",
+    "null": "The run is valid but C or D fails: retain whole attention5 as the onset transporter.",
+    "invalid": "Instrument identity, writer recurrence, native capability, finiteness, or coverage fails. No head, arm, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 48,
+    "example_evaluations_max": 1536,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First all-head sufficiency-plus-necessity decomposition of attention5 for a known upstream bilinear writer signal."
+}
