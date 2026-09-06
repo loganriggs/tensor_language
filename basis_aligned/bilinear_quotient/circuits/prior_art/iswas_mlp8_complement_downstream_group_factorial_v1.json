@@ -1,0 +1,33 @@
+{
+  "schema": "iswas_mlp8_complement_downstream_group_factorial_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_complement_downstream_group_factorial_v1",
+  "registered_utc": "2026-09-06T22:07:00Z",
+  "question": "Do a small number of causally ordered downstream response groups jointly account for the MLP8-complement route, including its opposing late correction, without treating overlapping singleton removals as additive?",
+  "prior_art": {
+    "atlas_result_sha256": "2ccfb7116e45665820a546ebd5edc2bf4e2616b49cf46723064891640835ac5b",
+    "atlas_runner_sha256": "d757d4c54b53d5cda8d877bfe9a01e636f4459582be6cb379b28f0e8823be218",
+    "finding": "Attention9 removes 84-86% of behavior. Attention11/15 and MLP9-15 are smaller positive responses, while MLP17 is an opposing correction. Singleton fractions overlap and therefore cannot be summed.",
+    "novelty": "First exact all-subset causal factorial over predeclared downstream module groups under the frozen MLP8 complement actuation."
+  },
+  "frozen_design": {
+    "population": "The same 29 jointly capable fresh-v6 A1/A2 rows and exact MLP8 post-cue Down-orthogonal complement as the released atlas.",
+    "groups": {
+      "core_attention": ["attn:09"],
+      "auxiliary_attention": ["attn:11", "attn:15"],
+      "positive_mlp_bank": ["mlp:09", "mlp:10", "mlp:11", "mlp:12", "mlp:13", "mlp:14", "mlp:15"],
+      "late_mlp_correction": ["mlp:16", "mlp:17"]
+    },
+    "arms": "All 16 subsets of the four groups, plus the complete 18-site clamp and native self-clamp. Groups are installed together in causal module order by simultaneous response clamping.",
+    "metrics": "Removed donorward answer/foil behavior and final-Q8 coordinates relative to the live complement route, reported per panel. Also report exact subset marginals and nonadditivity.",
+    "updates": 0,
+    "maximum_price": {"model_forwards": 22, "example_evaluations": 638, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_self_clamp_finiteness_and_price": "All hashes, parent replay, empty-subset replay, complete clamp, self-clamp, finite metrics, and price pass.",
+    "pred_b_four_group_program_is_near_complete": "The four-group union removes at least 95% absolute behavior and 90% Q8 norm, with behavior/Q8 cosine at least .95 in both panels.",
+    "pred_c_attention_core_is_dominant": "Core attention alone removes at least 75% behavior and 75% Q8 norm in both panels.",
+    "pred_d_late_bank_is_an_opposing_correction": "The late-bank marginal after core+auxiliary+positive groups has negative signed behavior fraction in both panels and absolute magnitude at least .03 in at least one.",
+    "pred_e_zero_fit_exact_group_inventory": "Every group and all 16 subsets are evaluated with no fit, gradients, rank search, or model update."
+  },
+  "decision": "Screen licenses localization/weight compilation only within groups with material conditional marginals. A null preserves the exact factorial and redirects group boundaries from the observed interactions; it does not license summing singleton atlas effects."
+}
