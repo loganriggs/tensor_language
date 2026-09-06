@@ -34,6 +34,7 @@ def test_sweep_scores_precomputed_states_and_price():
     assert [point["passed"] for point in result["curve"]] == [True, True]
     assert result["forward_calls"] == 2
     assert result["example_evaluations"] == 2
+    assert result["base_scored_logit_max_abs_by_boundary"] == {"1": 1.0, "2": 2.0}
 
 
 def test_sweep_rejects_unordered_or_duplicate_boundaries():

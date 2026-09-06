@@ -207,6 +207,7 @@ def sweep_precomputed_states(
     records = []
     forward_calls = 0
     example_evaluations = 0
+    base_scored_logit_max_abs_by_boundary = {str(boundary): 0.0 for boundary in selected_boundaries}
     for boundary in selected_boundaries:
         for item in prepared:
             required = {
@@ -224,6 +225,16 @@ def sweep_precomputed_states(
             )
             forward_calls += 1
             example_evaluations += len(item["rows"])
+            base_scored_logit_max_abs_by_boundary[str(boundary)] = max(
+                base_scored_logit_max_abs_by_boundary[str(boundary)],
+                max(
+                    abs(float(actual) - float(base))
+                    for actual_pair, base_pair in zip(
+                        patched_output.answer_foil, item["base_output"].answer_foil
+                    )
+                    for actual, base in zip(actual_pair, base_pair)
+                ),
+            )
             records.extend(
                 recovery_records(
                     item["rows"],
@@ -248,4 +259,5 @@ def sweep_precomputed_states(
         "curve": points,
         "forward_calls": forward_calls,
         "example_evaluations": example_evaluations,
+        "base_scored_logit_max_abs_by_boundary": base_scored_logit_max_abs_by_boundary,
     }
