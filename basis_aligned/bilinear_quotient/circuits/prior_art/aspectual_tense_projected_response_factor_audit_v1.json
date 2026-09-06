@@ -1,0 +1,52 @@
+{
+  "schema": "aspectual_tense_projected_response_factor_audit_prior_art_v1",
+  "candidate_id": "aspectual_tense.projected_response_factor_audit_v1",
+  "created_utc": "2026-09-06T08:48:00Z",
+  "question": "Is weak cross-readout projected transfer caused by donor-displacement alignment beta=(x_donor-x_base) dot q, by output observability g=grad(margin) dot q, or by finite-dose nonlinearity?",
+  "novelty_search": {
+    "nearest_result": "The matched 2x2 projected response matrix measured finite causal recovery but did not separate the intervention coefficient from the output directional derivative.",
+    "new_object": "For each frozen writer, population, A family, and row, record beta, g, their first-order product beta*g, and the exact finite projected margin response.",
+    "anti_rank_drift": "This is a no-fit causal computation audit. It diagnoses a read/write interface and cannot select rank, coordinates, or a compressed basis."
+  },
+  "authority": {
+    "matched_matrix_result_sha256": "b78b287698d1365a3e8b2f8e3266907eb11dfe8f4510101048fb1d59ab71e9e3",
+    "q_has_result_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "q_is_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "has_had_builder_sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859",
+    "is_was_v2_builder_sha256": "4ed62d06e2ffe5c471efc70eeaa35c7524a66923f19c64c803faef7200d4a62f",
+    "is_was_v3_builder_sha256": "ac240f13478168948814f59c0425270dd345ba03053332b72b34857e9a022638",
+    "das_library_sha256": "49d67620b09c80edd1c999476ea9cfddb375f41016443f58cb6cc96111809d3f"
+  },
+  "frozen_design": {
+    "identity": "For x'=x+beta*q with beta=(donor-base) dot q, the first-order response is beta*g where g=grad_x m(x) dot q.",
+    "writers": ["q_has", "q_is"],
+    "populations": ["has/had v5", "is/was v2", "is/was v3"],
+    "families": ["A1", "A2"],
+    "aggregation": "Per cell report median absolute beta, median absolute g divided by that population's A1 target scale, exact finite response, first-order response, signed Pearson correlation, and relative L2 error. Cross/native beta and normalized-g ratios use medians over both A families; is/was ratios average v2 and v3 medians before division.",
+    "bottleneck_rule": "ratio<=0.50 is weak and ratio>=0.75 is retained. beta weak/g retained means displacement controllability; beta retained/g weak means observation; both weak means mixed; neither means finite-dose/interaction. Values between bars are intermediate.",
+    "no_fit": true,
+    "outcomes_unopened": "No beta, g, or first-order adequacy outcome from these populations was used to set the rules."
+  },
+  "predictions": {
+    "pred_a_authority_head_basis_and_finite_route": "Authorities/bases and exact heads pass; recomputed finite family recoveries match the frozen matrix within 1e-5.",
+    "pred_b_local_first_order_adequacy": "Across all 12 writer/population/family cells, signed Pearson(beta*g, finite response)>=0.90 and relative L2 error<=0.35.",
+    "pred_c_q_has_cross_bottleneck": "For q_has from native has/had to is/was, beta ratio<=0.50 and normalized-g ratio>=0.75, identifying donor-displacement controllability as the bottleneck.",
+    "pred_d_q_is_cross_bottleneck": "For q_is from native is/was to has/had, beta ratio<=0.50 and normalized-g ratio>=0.75, identifying donor-displacement controllability as the bottleneck.",
+    "pred_e_exact_coverage": "Exactly 8 model forwards, 400 example evaluations, 3 final-head-only gradient batches, zero fit steps, transformer backwards, model updates, or parameter search."
+  },
+  "terminal": {
+    "screen": "A and E pass; the audit validly classifies both cross-writer bottlenecks, with B-D scored independently.",
+    "invalid": "Authority, exact head, finite-route identity, or coverage fails."
+  },
+  "circuit_targets": ["computational specification", "composition and reuse", "selective manipulation"],
+  "price": {
+    "model_forwards_exact": 8,
+    "example_evaluations_exact": 400,
+    "final_head_gradient_batches_exact": 3,
+    "fit_steps": 0,
+    "fit_parameters": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "parameter_grid_points": 0
+  }
+}
