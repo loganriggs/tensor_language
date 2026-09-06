@@ -322,6 +322,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.attention11h3_15h5_source_compression_split_v1` | invalid | split six-role source compression | **audit compared query-only deltas over the full sequence; rows preserved but unreleased** | `aspectual_anchor_attention11h3_15h5_source_compression_split_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention11h3_15h5_source_projection_query_diagnostic_v1` | complete diagnostic | frozen confirmation query-index audit | **v1 failure localized exactly to off-query indices** | `aspectual_anchor_attention11h3_15h5_source_projection_query_diagnostic_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention11h3_15h5_source_compression_release_v1` | released | zero-forward immutable evidence-class audit | **three-role 11H3/15H5 banks released with post-outcome-repair label** | `aspectual_anchor_attention11h3_15h5_source_compression_release_v1_result.json` |
+| `aspectual_anchor.has_vs_had.transparent_path_program_release_v3` | released | executable API/equation/evidence audit | **source-resolved paired-causal program through block15** | `aspectual_anchor_transparent_path_program_release_v3_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -494,6 +495,12 @@ banks are `L11H3 <- {determiner, period, self}` at 90.34% retention and `L15H5 <
 confirmation increments are positive in both A1 and A2. The evidence class is explicitly prospective scientific arms with a
 post-outcome instrument-audit repair. This licenses compilation into the executable paired-causal program, but still requires full
 carried and MLP boundary deltas plus the checkpoint/native suffix and does not widen the construction or standalone scope.
+
+Executable v3 compiles that release into typed array equations. In addition to the complete v2 MLP4-to-resid10 API, it validates
+six-role causal-prefix partitions, computes the frozen L11H3/L15H5 source sums, scatters selected head vectors into checkpoint
+projection space, and composes source-resolved suffix crossings. All five zero-forward release audits and 33 deterministic equation
+and rejection cases pass. The program stores no fitted scalar or vector. It remains a paired-causal program: full carried and MLP
+deltas at blocks11/15 and native blocks10,12-14,16-17/readout are dependencies, not silently modeled transparent components.
 
 ### `subroutine.induction.equality_score` — site_live
 
