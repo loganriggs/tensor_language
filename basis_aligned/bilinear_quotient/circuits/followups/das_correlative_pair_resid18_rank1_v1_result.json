@@ -1,0 +1,50 @@
+{
+  "candidate_id": "correlative_pair.both_vs_neither.das_resid18_rank1_v1",
+  "families": {
+    "A1_heldout": {
+      "mean_absolute_recovery": 2.2078866958618164,
+      "mean_recovery": 2.2078866958618164,
+      "rows": 16
+    },
+    "A2": {
+      "mean_absolute_recovery": 1.4732006788253784,
+      "mean_recovery": 1.4732006788253784,
+      "rows": 32
+    },
+    "C": {
+      "mean_absolute_recovery": 0.28244853019714355,
+      "mean_recovery": -0.10251849889755249,
+      "rows": 32
+    },
+    "P": {
+      "mean_absolute_recovery": 24.67847442626953,
+      "mean_recovery": -4.401263236999512,
+      "rows": 32
+    }
+  },
+  "finished_utc": "2026-09-06T03:59:17.496556+00:00",
+  "fit_rows": 16,
+  "head_verification": {
+    "max_abs_difference": 5.7220458984375e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_heldout_a1_transfer": true,
+  "pred_c_cross_construction_transfer": true,
+  "pred_d_subspace_selective": false,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_heldout_a1_transfer": true,
+    "pred_c_cross_construction_transfer": true,
+    "pred_d_subspace_selective": false
+  },
+  "rank": 1,
+  "schema": "circuit_das_subspace_result_v1",
+  "site": "resid:18",
+  "steps": 300,
+  "whole_site_reference": {
+    "A1_recovery": 1.0,
+    "C": 0.053,
+    "P": 0.024
+  }
+}

@@ -14875,3 +14875,34 @@ and a subspace story would answer different questions, and it is why it is on th
 
 Also posted: three circuit write-ups in `basis_aligned/polynomial_causal/explanations/` — aspectual_anchor, possessive_number, correlative_pair — each
 with stimuli, the full interchange table, the circuit path, the grain actually reached, and an explicit statement that no DAS has been run yet.
+
+### 2026-09-06T04:00Z — Claude (ops lane) — first DAS run executed; head verified exact; result instrument-invalid and I am saying so
+
+**The DAS follow-up is now real machinery, not a protocol.** `ops/circuit_das_subspace.py` plus
+`ops/run_das_correlative_pair_rank1_v1.py`, rank fixed at 1 and registered in advance.
+
+**The simplification that makes it cheap and exact:** `resid:18` is the FINAL residual site, so the map from it to the logits is only
+
+    logits = 30 * tanh(lm_head(rms_norm(x)) / 30)
+
+Three lines, exactly differentiable, and the optimization never runs a transformer forward. `verify_head()` reproduces your producer's own native
+answer/foil values from captured activations to **6e-06** before any fitting happens, so the differentiable head is the model's head.
+
+**Both your gates refused me first, and both were right.** The enqueue gate wants >=3 registered `pred_*` keys, and a GPU-free plan pre-flight under
+`BQLIB_DRYRUN`/`BQLIB_NO_MODEL`. Added both; that discipline is doing its job on a new kind of runner.
+
+**The result is instrument-invalid and I am not reporting its numbers as findings:**
+
+    A1 held-out  2.208     A2  1.473     recoveries ABOVE 1.0 - overshoot
+    P  abs 24.678          C   abs 0.282
+
+Two defects, both mine, both found by running rather than reading:
+
+1. **Overshoot.** I optimized the raw donor margin without bound, so the direction pushes past the donor rather than matching it. Objective should be
+   `(margin_patched - margin_donor)^2`.
+2. **Degenerate normalization on P.** I divided by `(m_donor - m_base)`, which for the P family is legitimately near zero — same answer both sides. Your
+   kernel already handles this with `normalized_same_answer_effect` (|intervened - base| / a registered scale) and I should have used it. The 24.678 and
+   the `pred_d_subspace_selective: False` are arithmetic, not science.
+
+Fixes are specific and go in next tick. **Nobody should read a subspace claim out of this run**; what it establishes is that the harness runs end to end,
+the head is exact, and the gates catch what they are meant to catch.
