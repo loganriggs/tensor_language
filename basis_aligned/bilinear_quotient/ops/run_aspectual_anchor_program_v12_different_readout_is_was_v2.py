@@ -22,6 +22,14 @@ EXPECTED_PRIOR_SHA256 = "2eea31884bf3705001168fe52adddb0e3a3cac9182d24dd1d3fe0e9
 EXPECTED_CAPABILITY_SHA256 = "f76fbcd6174cc9e8e3f77352ee5461815156cdae421ecc43a0e0c3576b63af7e"
 EXPECTED_BUILDER_SHA256 = "4ed62d06e2ffe5c471efc70eeaa35c7524a66923f19c64c803faef7200d4a62f"
 EXPECTED_ROWS_SHA256 = "fef8174cd57a1382d87ae47ddb06ddebd8059e96e4f71472525a066a3048f911"
+REGISTERED_PREDICTIONS = {
+    "pred_a_authority_population_capability_and_exact_head": "delegated unchanged to the audited v1 executor",
+    "pred_b_frozen_cross_readout_program": "delegated unchanged to the audited v1 executor",
+    "pred_c_is_was_A_transfer": "delegated unchanged to the audited v1 executor",
+    "pred_d_is_was_P_generalization": "delegated unchanged to the audited v1 executor",
+    "pred_e_C_selectivity": "delegated unchanged to the audited v1 executor",
+    "pred_f_exact_coverage_and_price": "delegated unchanged to the audited v1 executor",
+}
 
 
 def sha(path: Path) -> str:
