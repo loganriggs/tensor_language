@@ -1,0 +1,51 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "conjunction",
+    "coordination",
+    "or",
+    "plural",
+    "singular",
+    "was",
+    "were"
+  ],
+  "candidate_id": "coordination_agreement.and_vs_or",
+  "canonical_objects": [
+    "a subject number constructed by the connective rather than by any noun",
+    "and-versus-or choice of were/was across two singular nouns",
+    "agreement read as the ANSWER where the connective is the CUE"
+  ],
+  "decision_changed": "If a site carries this, the corpus gains a case where the causal variable is built by composition rather than copied from a token, which is a stronger claim about the residual stream than any existing screen supports. A selective site licenses the standard rank-1 DAS follow-up at resid:18, and a transfer test against subject_verb_number_agreement: whether constructed number and lexical number share a direction. Registered in advance for that follow-up: >= 0.50 shared number direction, <= 0.20 distinct, between INCONCLUSIVE. If the screen returns a one-sided capability failure the registered stop rule is ONE repair of the weak side, per ops/README.md.",
+  "matched_prior_claims": [
+    "circuits/task_subject_verb_number_agreement.json is a canonical behaviour, but it varies the NUMBER OF THE HEAD NOUN; here every noun is singular in every row and the subject's number is constructed entirely by the connective.",
+    "correlative_pair.both_vs_neither and its siblings put the connective on the ANSWER side -- the model predicts ' and' / ' or'. Here the connective is the CUE and agreement is the answer, so the inference runs in the opposite direction."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Thirty-first behaviour. The variable is a subject number that no individual noun carries: both coordinated nouns are singular in every row, and only 'and' versus 'or' decides between ' were' and ' was'. That makes it different in kind from subject_verb_number_agreement, where a noun's own morphology carries the number and a site could in principle read it locally. Here there is no local cue to read at the prediction site -- the second noun is singular either way -- so a site that transfers this is carrying a CONSTRUCTED feature across the second noun phrase. It is also the inverse inference of the correlative screens, which predict the connective rather than reading it.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "task_id",
+        "canonical"
+      ],
+      "sha256": "e904b3d8db0092e5e6ab451e6d899d71ec319c836f636b7c352f036cf581311b",
+      "source": "circuits/task_subject_verb_number_agreement.json"
+    },
+    {
+      "searched_terms": [
+        "selected_site_id",
+        "site_results"
+      ],
+      "sha256": "ab8b82815cce738aef7729e786a1757b5c877f046959b869e190af077cece08b",
+      "source": "circuits/fast_screens/correlative_pair_both_vs_neither_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, filling an idle queue with a breadth candidate",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
