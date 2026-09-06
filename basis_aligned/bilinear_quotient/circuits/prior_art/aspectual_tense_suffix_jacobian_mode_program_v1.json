@@ -1,0 +1,34 @@
+{
+  "schema": "aspectual_tense_suffix_jacobian_mode_program_prior_v1",
+  "candidate_id": "aspectual_tense.suffix_jacobian_mode_program_v1",
+  "registered_utc": "2026-09-06T18:01:00Z",
+  "question": "Do fit-only component-local suffix-Jacobian spans isolate the causally readable modes of the pruned programs better than the static L9 value-weight row spaces?",
+  "authority": {
+    "static_mode_result_sha256": "a49f9d6b06cb37a1759e449b72fb1446b93addae80fda521c0bd6d9af61bed49",
+    "static_mode_runner_sha256": "e72ec560692b2924c506f592ce83037f353b0bebc5cfa1e3705f1c2aab1a1c8f",
+    "pruned_program_sha256": "bb6344f6446a5426a9b6342c30cbcd56ca821a01b5750e1ef3b940a6b52e15c0",
+    "greedy_runner_sha256": "22da9d253d531ffb2167302ae269c3b71bdd4fd4e74bc38263dea78c2f80c413",
+    "source_rank_runner_sha256": "c7570a2e25b444df84e40953e38d6bbc4b7b15c6d6f6657fda0696fb4eea3d34",
+    "positioned_library_sha256": "4fc2ac355ca7c97a5a1270f88cb3302b1a39a85e62c0b0a8a1193fbc6f61bd0d",
+    "source_group_library_sha256": "6ecf5f40b92f94cb32bccf1a703e527a3d468281936e63d4c7e91e8af66b4348",
+    "das_library_sha256": "49d67620b09c80edd1c999476ea9cfddb375f41016443f58cb6cc96111809d3f",
+    "producer_sha256": "14624b9959fe4bf0b43841a9e349bab50cd564a417595d1c1a048252c6c3b498"
+  },
+  "frozen_design": {
+    "fit_only": "Use the original 16 has/had and 8 is/was A1 fit rows only. Heldout A1 and A2 remain sealed until every component basis is frozen.",
+    "gradient_population": "At every selected carrier position, collect the exact answer-minus-foil gradient with respect to each retained MLP output or retained raw head pre-c_proj slice.",
+    "basis_rule": "SVD each component's stacked fit-gradient matrix and retain the minimum rank explaining at least 95% squared singular-value energy.",
+    "arms": ["full_component_program", "suffix_jacobian_modes", "orthogonal_suffix_jacobian_complements"],
+    "interpretation": "The basis is a context-conditioned chain-rule contraction of downstream weights and local derivatives, not a causal-outcome-selected direction.",
+    "price": {"model_forwards": 26, "example_evaluations": 407, "records": 201,
+      "transformer_backwards": 2, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_gradient_replay_capability_projection_finiteness_and_exact_price": "Authorities, native gradient-forward replay, capability, projector geometry, coverage, finiteness and price pass.",
+    "pred_b_suffix_jacobian_modes_are_sufficient": "Jacobian-mode recovery is at least 0.90 of full-program recovery and donorward on every task/panel.",
+    "pred_c_suffix_jacobian_complements_are_secondary": "Absolute complement recovery is at most 0.20 of full-program recovery on every task/panel.",
+    "pred_d_gradient_modes_are_dimensionally_compressive": "Every basis rank is below its component width and no larger than 48 for has/had or 16 for is/was.",
+    "pred_e_no_causal_fit_or_model_update": "No heldout/A2 outcome selects a basis, no scalar is optimized, and no model update occurs."
+  },
+  "decision": "screen promotes suffix-Jacobian modes into the transparent tensor program; null shows full-dose nonlinear or alternate-route effects remain outside the local gradient quotient; invalid on authority, replay, capability, projection, coverage, finiteness, or price failure"
+}
