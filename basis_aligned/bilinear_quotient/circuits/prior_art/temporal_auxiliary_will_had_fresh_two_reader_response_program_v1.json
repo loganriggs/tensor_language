@@ -1,0 +1,45 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_two_reader_response_program_v1",
+  "created_utc": "2026-09-06T14:20:00Z",
+  "question": "Can the captured block9 H1/H4 and block11 H3 responses be installed without the upstream writer to execute its causal effect?",
+  "authority": {
+    "joint_mediation_result_sha256": "7132fab362c1f137ed650bf8144a2b08a175d161c21db7171c2e1b52f2ffa173",
+    "block11_h3_result_sha256": "ee95aef443d63ce936f011ce2d551b8a0b220aa701507ecad30a72383475405a",
+    "block9_mediation_result_sha256": "505ce01c9b88e7f088554db9fd8d0fa2eafeabe43067aa61cdd9f2681f420f68",
+    "ordered_response_installer_sha256": "e948c1950ff3deac055cfb91a1ece9c417236580bcc131811730bf1fad4d9f9b",
+    "writer_mediation_evaluator_sha256": "05d07578129db0cb8bf5e46d08e6cd6e9c2bb9c3883675586c83c3efd24b8fda",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9"
+  },
+  "frozen_design": {
+    "population": "all fresh A1 and A2 rows",
+    "capture": "capture native base block9/block11 head outputs and their live responses to the exact block8H1 cue writer",
+    "program": "without the writer, add captured changed-minus-base responses at block9 H1/H4, block11 H3, or both in causal order",
+    "arms": ["writer_only", "install_block9_response", "install_block11_response", "install_both_responses", "install_other_heads_response", "base_identity"],
+    "destinations": "final query only for both reader responses",
+    "model_forwards": 24,
+    "example_evaluations": 768,
+    "records": 384,
+    "fitted_scalars": 0,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_response_instrument": "capture identity and attention reconstruction errors <=5e-4; base identity scored-logit error <=1e-4",
+    "pred_b_writer_recurrence": "writer effect recurs within 0.03 of 0.17216 A1 and 0.11321 A2, donorward on every row",
+    "pred_c_each_installed_reader_is_material": "each reader alone installs >=0.25 and <=0.75 of writer recovery in both families",
+    "pred_d_joint_response_program_is_sufficient": "both installed responses recover [0.75,1.25] of writer effect with donorward fraction >=0.75 in both families",
+    "pred_e_unselected_head_response_is_inert": "installing all other block9/block11 head responses has absolute recovery <=0.15 of writer in both families",
+    "pred_f_exact_zero_fit_price": "24 forwards, 768 examples, 384 unique arm-row records, zero fits/backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, reconstruction, identity, coverage, finiteness, or price fails",
+    "screen": "all six predictions pass",
+    "mediation_only": "A/B/C/E/F pass but joint installation is not sufficient",
+    "null": "valid writer recurrence but one or both captured reader responses are not independently material"
+  },
+  "interpretation_limits": [
+    "This program reuses row-matched captured responses and is an extraction screen, not yet a compressed general predictor.",
+    "A pass licenses fresh-corpus response prediction and literal program pricing; it does not by itself establish those.",
+    "A miss records removal/insertion asymmetry rather than reopening the already valid joint-clamp mediation."
+  ]
+}
