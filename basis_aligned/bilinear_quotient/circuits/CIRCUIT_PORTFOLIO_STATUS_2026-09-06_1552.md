@@ -534,3 +534,12 @@ c_proj blocks matches the captured intervention with behavior/Q8 relative RMSE a
 `1.37e-6`, `5.72e-6`, and `1.38e-5`. This promotes a literal local reader-router-writer program;
 the unresolved boundary is which complete intervening modules construct the residual inputs read
 by L11 and L15.
+
+The valid complete-module upstream atlas finds a shared MLP converter plus a distributed late
+branch. MLP9 removes 42.38%/37.51% of L11's literal post-cue c_v/c_proj response norm and
+25.42%/21.19% of L15's, making it the only stable common singleton. L15 additionally receives
+stable contributions through MLP11, MLP12, and MLP14. Restoring every intervening module to its
+base response changes 57.87%/58.26% of L11 and 56.33%/46.09% of L15 response norm; the remaining
+state is carried directly by the MLP8 residual skip. Attention11-and-later effects on the L11 input
+are exactly zero, as causal order requires. The appropriate next compression is therefore a
+greedy complete-MLP union followed by fresh confirmation, not attention-head splitting.
