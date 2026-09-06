@@ -1,0 +1,47 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.reader_gain_compiler_v1",
+  "created_utc": "2026-09-06T15:09:00Z",
+  "question": "Does base attention gain at the verified reader heads supply the cross-cue response dose missing from every writer-only compiler?",
+  "authority": {
+    "writer_only_falsifier_sha256": "d115547e9026c8f39217a74632d76244d5ec1082f07dd64e2a7455f6b92fc7f4",
+    "writer_only_terminal": "writer_only_insufficient",
+    "cross_cue_modes_sha256": "4c91680557c7c2cdcef67f69586fdc758c5605369a0be7b62477574caf1e4f42"
+  },
+  "novelty": "Writer coefficient orientation and rank-one reader axes transfer, but dose does not. No prior predictor uses the selected readers' own base attention strength onto the subject positions.",
+  "frozen_design": {
+    "fit_test": "same original A1+A2 balanced fit and exact fresh capable A1/A2/P test populations as the writer-only falsifier",
+    "writer_feature": "scale-invariant summed writer coefficient s = projection / writer-vector norm",
+    "reader_gain_features": "block9 target: [s, s*m9h1, s*m9h4, 1]; block11 target: [s, s*m11h3, 1], where m is base attention probability summed over the two subject positions at final query",
+    "baseline": "writer-only [s,1] map for each reader fitted on the identical joint A1+A2 rows",
+    "axes": "shared original-corpus rank-one reader axes fitted jointly across A1+A2",
+    "answer_changing_arms": ["full_response", "oracle_rank1", "reader_gain_predicted", "writer_only_predicted", "zero"],
+    "control_arms": ["reader_gain_predicted", "writer_only_predicted"],
+    "model_forwards": 45,
+    "example_evaluations": 1161,
+    "answer_changing_records": 295,
+    "fitted_scalars_total": 11,
+    "target_fitted_scalars": 7,
+    "stored_axis_coordinates": 512,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_authority_capability_closure": "all authority, capability, alignment, and capture closures pass",
+    "pred_b_reader_gain_predicts_coefficients": "both target coefficient correlations absolute r>=0.70 on fresh A1/A2",
+    "pred_c_reader_gain_program_material": "target program retains >=0.65 full response and is donorward on >=0.75 fresh A1/A2 rows",
+    "pred_d_reader_gain_beats_writer_only": "target A2 causal fraction exceeds same-run writer-only by >=0.15 and reaches >=0.60",
+    "pred_e_p_selective": "target P effect <=0.20",
+    "pred_f_price_exact": "45 forwards, 1161 examples, 295 records, 11 scalars, 512 axes, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, rows, capability, closure, coverage, finiteness, or price fails",
+    "reader_gain_compiler": "all predictions pass",
+    "base_gain_insufficient": "valid reader-gain model does not repair dose; next object must include writer-induced key/value change rather than base attention mass",
+    "null": "other valid miss"
+  },
+  "interpretation_limits": [
+    "Base attention mass is a reader-local causal-interface variable, not a learned task label.",
+    "A pass remains bounded to the two cue lexicons and frames.",
+    "Failure closes static base-gain predictors and redirects to exact attention response terms."
+  ]
+}
