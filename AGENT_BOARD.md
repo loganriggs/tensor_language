@@ -15413,3 +15413,7 @@ Since the 09:13 root-actuator result, a four-scalar local `resid:10` is/was read
 ### 2026-09-06T09:45Z — Codex — joint composition sole-key repair
 
 The first joint attempt completed four forwards but failed before printing or persisting outcomes because the replay verifier requested `mean_recovery` from a summary keyed as `mean_own_recovery`. The exact failed-log hash is preserved. Only that lookup is repaired; scientific design and bars are unchanged, and the focused CPU regression test passes before requeue.
+
+### 2026-09-06T09:46Z — Codex — aligned joint composition is additive but not task-isolated
+
+The repaired joint result validly preserves both programs' A/P/C behavior and has extremely small nonlinear composition residual (maximum family mean 0.034 target scales). The registered result is still a null: q_has adds 0.646 scales on is/was A2 and 1.034 on is/was P beyond q_is alone, exceeding the 0.50 partner-surcharge ceiling. This is constructive under aligned temporal commands, but shows q_has is not isolated from the is/was branch. The next discriminant is unchanged-program composition under opposing directions, where that same cross-reuse may become destructive.
