@@ -1,0 +1,55 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.original_joint_reader_pattern_value_factorial_v1",
+  "created_utc": "2026-09-06T15:29:00Z",
+  "question": "Does the value-transport operation identified on Later/Previously recur on the original Tomorrow/Earlier temporal circuit despite rotation of its rank-one response axes?",
+  "authority": {
+    "fresh_operation_result_sha256": "57bed3ec25f00dd417478d5e6d9a8428a244ed7e4ecfa66440e41e3699c55a6d",
+    "cross_cue_modes_result_sha256": "4c91680557c7c2cdcef67f69586fdc758c5605369a0be7b62477574caf1e4f42",
+    "original_writer_source_result_sha256": "8865fe22a3c12e367709706ff0b941b3c2488d1d9608ce1921a4cfa73b22c6b9",
+    "attention_factor_library_sha256": "608ae6bf74af96663ec022b907c53d371670a36e5d7ec4fd1667b3c6add58dfd",
+    "original_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58",
+    "response_helper_sha256": "ce7822a6a0ae41f330b478663ddc8b1a48f0ce0314609cfcad0c8bc35fbf24ab",
+    "fresh_factorial_runner_sha256": "7472f046a20deb2a39930e2902cf27384e21960507b66890d9b4afe8286b0270"
+  },
+  "prior_art_search": {
+    "searched": [
+      "temporal_auxiliary_will_had_local_l9_value_reuse_v1",
+      "temporal_auxiliary_will_had_cross_cue_reader_modes_v1",
+      "temporal_auxiliary_will_had_fresh_joint_reader_pattern_value_factorial_v1",
+      "temporal_auxiliary_will_had_block8h1_subject_source_groups_v1"
+    ],
+    "relation": "Original-cue L9 local value reuse and cross-cue response modes exist, but the exact joint L9+L11 operation factorial has only been run on fresh cues. This prospective confirmation tests operation-level invariance rather than coordinate invariance."
+  },
+  "frozen_design": {
+    "population": "all 32 A1 and 32 A2 original Tomorrow/Earlier rows, capability checked separately by side",
+    "writer": "exact block8H1 cue-source response at the two subject-onset destinations",
+    "readers": "block9 H1/H4 and block11 H3 final-query reads from the subject-onset sources",
+    "factors": [
+      "pattern_on_base_value",
+      "base_pattern_on_value_change",
+      "pattern_value_interaction"
+    ],
+    "arms": "all eight factor subsets installed at both readers in causal order",
+    "fit": "none",
+    "maximum_model_forwards": 28,
+    "maximum_example_evaluations": 896,
+    "maximum_records": 512
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_factor_closure": "all authorities match, every side is natively correct, and capture/factor closure is <=1e-4",
+    "pred_b_full_factor_response_is_sufficient": "the full factor response retains [0.75,1.20] of the exact writer effect in A1 and A2 with >=0.90 donorward rows",
+    "pred_c_value_operation_repeats": "value-change singleton retains >=0.70 of the full factor response and has largest Shapley contribution in A1 and A2",
+    "pred_d_pattern_and_interaction_remain_secondary": "pattern and interaction singleton absolute fractions are each <=0.30, and pattern+value retains >=0.85 in A1 and A2",
+    "pred_e_exact_zero_fit_price": "28 forwards, 896 examples, 512 unique records, no fit/backward/update/rank selection"
+  },
+  "terminal_rules": {
+    "invalid": "authority, capability, exactness, recurrence, coverage, or price fails",
+    "screen": "all predictions pass: operation-level value transport is cross-cue stable",
+    "null": "the exact reader response is sufficient but the value-operation account fails"
+  },
+  "interpretation_limits": [
+    "A pass establishes shared operation type, not a shared vector coordinate system.",
+    "The response values remain input-dependent; this does not license the failed scalar-dose compiler.",
+    "A null would preserve two exact cue-specific circuits rather than erase their established paths."
+  ]
+}
