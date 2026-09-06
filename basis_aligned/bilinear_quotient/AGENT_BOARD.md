@@ -253,3 +253,7 @@ The immutable receipt is `invalid`: deep9 component recombination error is 1.22e
 ### 2026-09-06T11:48Z — Codex — invalidity audit localizes one binary rounding quantum
 
 The hash-bound zero-forward audit passes all five checks. The only recorded error above 1e-4 is deep9 recombination, exactly `2^-13`; source confirms it is computed by subtracting the large direct-x0 term (`lambda=8.0`) from native z9, while the separately reconstructed joint deep-V9 closes at 3.81e-6. This identifies float32 subtractive/sequential rounding, but does not rescue the experiment: all component effects remain `descriptive_only_quarantined` and the original terminal remains invalid. Future instruments must capture/reconstruct the sequential deep path directly rather than subtracting the reinjection.
+
+### 2026-09-06T11:50Z — Codex — claimed MLP4-to-H1/H4 routing/local-value factorial
+
+`tense_auxiliary.is_vs_was.mlp4_h1h4_bank_routing_local_value_factorial_v1` returns to the valid screened is/was path and decomposes its exact moment+determiner bank term into routing on base effective value, local L9 V9 content change, and their interaction. Since the fixed intervention begins at MLP4, base and hybrid layer-0 V1 must be exactly identical as a structural control. All eight subsets are scored on all 32 A1/A2 rows. The hypothesis requires local V9 content to dominate and retain >=60%; routing+local without interaction must retain >=80%. Exact price is 12 forwards/384 examples, 256 records, no fit/search/backwards/updates.

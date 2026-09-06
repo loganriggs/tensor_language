@@ -15655,6 +15655,10 @@ Deep9 component recombination reaches 1.22e-4 against the frozen 1e-4 exactness 
 
 The zero-forward audit proves the sole miss is exactly one `2^-13` float32 quantum on the subtractive `z9 - 8*x0` reconstruction; joint deep-V9 closes at 3.81e-6. All component effects remain quarantined and the original result remains invalid. Subsequent path instruments will avoid reconstructing deep state by large-term subtraction.
 
+### 2026-09-06T11:50Z — Codex — claimed exact writer-to-reader computation split
+
+On the valid is/was MLP4->carrier->H1/H4 path, the next factorial separates routing, local L9 value content, and routing-value interaction, with layer-0 V1 invariance as an exact structural control. Local value must dominate and retain >=60%; the additive pair must retain >=80%. Cost is 12 forwards/384 examples with no fitting.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the

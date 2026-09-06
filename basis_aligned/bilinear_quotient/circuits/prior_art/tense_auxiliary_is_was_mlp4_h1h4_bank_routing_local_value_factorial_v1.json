@@ -1,0 +1,43 @@
+{
+  "schema": "tense_auxiliary_is_was_mlp4_h1h4_bank_routing_local_value_factorial_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.mlp4_h1h4_bank_routing_local_value_factorial_v1",
+  "created_utc": "2026-09-06T11:49:30Z",
+  "evidence_class": "exact_writer_to_reader_internal_factorial",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*mlp4*routing*", "circuits/followups/*mlp4*routing*", "circuits/prior_art/*writer*local*v9*", "circuits/followups/*writer*local*v9*", "AGENT_BOARD.md"],
+    "nearest_result": "The exact is/was MLP4 left+right writer mediates 0.158 recovery through the moment+determiner H1/H4 bank. Separately, cross-task carrier content is dominated by local L9 c_v, but the computation used specifically by the MLP4-mediated path is unresolved.",
+    "new_question": "Does the fixed MLP4 contextual writer reach the exact L9 H1/H4 carrier bank mainly by changing attention routing or by changing local L9 value content?"
+  },
+  "authorities": {
+    "path_result_sha256": "6f5d01abec1debb41f67178a57db1ce79ad2a704e2ab094e2d8b1f055b3865d5",
+    "path_instrument_sha256": "ba2d36ca8a2dc18de92f4ea43d25f7769d5bcb2cfa110290c355d6aff8717501",
+    "cross_task_local_value_result_sha256": "9f3c04abe6bca5448d228d6fc71951b804e6a66a9a95834e59461a0d32bcf9b6"
+  },
+  "population": "All 32 capability-qualified matched-v2 is/was A1/A2 rows, with the frozen exact MLP4 left_change+right_change writer installed only at moment+determiner.",
+  "factorization": {
+    "bank_term": "For moment+determiner and H1/H4, compare hybrid versus base sum of pattern times effective value.",
+    "factors": {
+      "routing_on_base_value": "(P_h-P_b) * [(1-lambda9)V9_b + lambda9 V1]",
+      "local_v9_content_change": "P_b * (1-lambda9) * (V9_h-V9_b)",
+      "routing_local_interaction": "(P_h-P_b) * (1-lambda9) * (V9_h-V9_b)"
+    },
+    "structural_control": "Because the intervention begins at MLP4, after layer 0, hybrid V1 must equal base V1 exactly. The three factors must sum to the complete hybrid-minus-base bank term.",
+    "arms": "All eight factor subsets inserted into native base H1/H4 before c_proj; all other computation is native.",
+    "fitting": "none",
+    "no_rescue": "No factor, source, head, family, row, sign, threshold, or aggregation changes after execution."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_factorization": "Hashes/capability pass; empty writer identity, MLP4 tensor reconstruction, source reconstruction, V1 invariance, bank-factor closure, finiteness, and coverage satisfy their frozen <=1e-4 bounds (MLP4 tensor <=2e-3).",
+    "pred_b_writer_and_bank_route_recur": "Writer recovery remains within 0.02 of 0.31871042052323534; the full factor arm remains within 0.03 of bank mediation 0.15771071235856, with positive recovery and direction >=0.75 in A1 and A2.",
+    "pred_c_local_value_is_dominant_path": "local_v9_content_change has positive Shapley recovery, exceeds routing and interaction in each family, and its single arm retains >=0.60 of the full bank effect with direction >=0.75 in A1 and A2.",
+    "pred_d_interaction_is_secondary": "Routing plus local value without interaction retains >=0.80 of full recovery with direction >=0.75 in A1 and A2.",
+    "pred_e_exact_zero_fit_price": "Exactly 12 forwards/384 examples, 256 intervention records, eight factor arms, zero fit/search/backward/update."
+  },
+  "terminal": {
+    "screen": "A-E pass: the shared MLP4 writer reaches H1/H4 primarily by changing local L9 value content.",
+    "null": "Instrument and route recurrence pass but local-value dominance or secondary interaction misses.",
+    "invalid": "Authority, capability, capture, exact closure, recurrence, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["MLP4-to-H1H4 edge computation", "routing versus local value", "structural V1 control", "shared circuit composition"],
+  "price": {"model_forwards": 12, "example_evaluations": 384, "intervention_records": 256, "factor_arms": 8, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
