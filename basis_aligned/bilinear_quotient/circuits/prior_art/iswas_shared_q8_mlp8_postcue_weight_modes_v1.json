@@ -1,0 +1,31 @@
+{
+  "schema": "iswas_shared_q8_mlp8_postcue_weight_modes_prior_v1",
+  "candidate_id": "cross_task.iswas_shared_q8_mlp8_postcue_weight_modes_v1",
+  "registered_utc": "2026-09-06T21:12:00Z",
+  "question": "Does the fresh-v6 post-cue MLP8 writer use the exact rank-at-most-eight hidden-product modes selected by the Down weights that write into temporal Q8, and which bilinear factors activate those modes?",
+  "authority": {
+    "source_position_result_sha256": "ffa8596eea052e72eba3a5823dfdfcd124ee28ccc91ca48671efff567f23b14a",
+    "source_position_runner_sha256": "dfc84abe3d319b8a92f0007005b9bc206eaab5d3986f3c9ab1d8a80d8e8ab477",
+    "iswas_cdas_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "temporal_q8_subspace_sha256": "d84c72d9d3c87a159fb453efc9ce9000fb8bfb7f3d2c34c96a3f7238914879c9",
+    "fresh_v6_builder_sha256": "b8541360334bd2793a02fae525a94dda05ce600fd4de5b6c3d953063d4c6b0ae"
+  },
+  "frozen_design": {
+    "population": "The same 29 jointly base-and-donor-capable fresh-v6 A1/A2 rows used by the sealed source-position atlas; no row or outcome selects a weight mode.",
+    "positions": "Only the exact post-cue span from cue+1 through the token before the subject determiner. Prefix, cue, subject determiner, and query are never patched.",
+    "weight_modes": "Form A=S^T W_Down for the frozen 1152x8 temporal-Q8 residual basis S and MLP8 Down weight. The right singular vectors of A define the only hidden-product modes that directly write S. Test fixed rank prefixes 1,2,4,8 and the orthogonal rank-8 complement.",
+    "product_factors": "Exactly decompose donor-minus-base hidden product into (Left_d-Left_b)*Right_b, Left_b*(Right_d-Right_b), and their bilinear interaction. Project each and the left+right union into the complete row-space of A before causal installation.",
+    "intervention": "In an otherwise native base forward, replace the input to MLP8 Down only at post-cue positions by base hidden product plus the frozen selected component. Down bias and every other model operation remain native.",
+    "arms": ["rank1", "rank2", "rank4", "rank8", "rank8_complement", "complete_postcue", "left_rank8", "right_rank8", "interaction_rank8", "left_right_rank8"],
+    "numerical_controls": {"orientation_max_abs": 0.000001, "base_self_patch_resid18_max_abs": 0.0001, "hidden_factor_reconstruction_max_abs": 0.02, "svd_projector_max_abs": 0.00002, "direct_q8_write_closure_max_abs": 0.0002},
+    "maximum_price": {"model_forwards": 13, "example_evaluations": 377, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_exact_factor_weight_closure_finiteness_and_price": "All hashes, row identities, product reconstruction, SVD projector, direct Q8-write closure, base self-patch, finiteness, and price pass their declared numerical controls.",
+    "pred_b_rank8_weight_modes_preserve_the_postcue_writer": "Rank-8 behavior cosine to the shared-Q8 target is at least 0.90, relative RMSE at most 0.55, and its mean absolute effect is at least 0.80 of complete post-cue.",
+    "pred_c_rank8_complement_is_secondary": "The complement's mean absolute behavior is at most 0.20 of complete post-cue and its Q8-coordinate RMS is at most 0.20 of complete post-cue.",
+    "pred_d_left_right_terms_explain_the_weight_mode_write": "The left+right union retains at least 0.80 of rank-8 mean absolute behavior, while the interaction arm is at most 0.25 of rank-8 mean absolute behavior.",
+    "pred_e_weight_interface_is_compressive_and_zero_fit": "A has numerical rank at most eight and below the MLP hidden width; all modes derive only from S and Down, with no outcome fit, gradients, or model updates."
+  },
+  "decision": "A screen promotes the post-cue rank-8 Down/product interface to a literal upstream weight program. A null distinguishes weight-mode insufficiency, an active complement, or a task-specific interaction; do not tune ranks or thresholds on fresh-v6."
+}

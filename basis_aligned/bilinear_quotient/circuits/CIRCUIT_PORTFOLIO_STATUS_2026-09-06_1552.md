@@ -382,3 +382,12 @@ overshoots to 276% mean behavior and coordinate RMSE 3.21. Thus the earlier mult
 responses are predominantly cumulative/overlapping rather than an additive distributed program.
 No attention split is licensed. The next prospective v6 screen partitions MLP8's complete donor
 output by source positions before considering its Down-weight/product modes.
+
+That source-position screen passes on 29 jointly capable fresh-v6 rows. The post-cue interval is the
+only material proper group: it carries 63.15% of complete-MLP8 mean absolute behavior, predicts the
+shared target at behavior cosine .948, and improves Q8 coordinate cosine/relative RMSE from
+.782/.672 for complete MLP8 to .839/.618. Prefix is exactly zero, the cue carries only 7.70%, and
+subject determiner plus self carry the smaller remainder. The cue-through-query union exactly equals
+complete MLP8, as required by causality. This licenses a literal weight split only at post-cue:
+contract Q8 with MLP8 Down, causally test its rank-at-most-eight hidden-product modes and complement,
+then decompose the activated product into left change, right change, and bilinear interaction.
