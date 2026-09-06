@@ -1,0 +1,23 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "cross_behavior.task14_bracket_compiled_predictive_dispatcher_v3",
+  "created_utc": "2026-09-06T00:43:15Z",
+  "purpose": "Compile the strongest screened forms into one smaller predictive/manipulable interface: ten Task14 displacement vectors with precomputed reader effects, three bracket absolute terms, and six prospective bracket effect scalars.",
+  "prior_art_search": {
+    "result": "Dispatcher v2 stores ten Task14 plus six bracket displacement vectors but omits the screened effect readers. Subsequent evidence licenses replacing six bracket displacements by three absolute terms and adding six suffix-free effect scalars. Because Task14 has only ten selected vectors, its two dense readers can be contracted into ten fixed scalar predictions at compile time.",
+    "task14_vectors": {"path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json", "sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07"},
+    "task14_readers": {"path": "circuits/fast_screens/task14_mlp6_7_fixed_direction_reader_artifact_v2_result.json", "sha256": "9db4eefe16498cb65fb9c21ea3f2475c790c89ebb2e65a70e8ad6b7886f2ae57"},
+    "bracket_absolute_terms": {"path": "circuits/followups/bracket_l13h8_closer_absolute_term_program_v1_artifact.json", "sha256": "c365a9d3e5fccc8ba8463099571c1fbdf059e49ed8426cf0e32dddec30644930"},
+    "bracket_broad_validation": {"path": "circuits/followups/bracket_absolute_term_program_ood_control_validation_v2_result.json", "sha256": "2540bc308c7e79b93b5054a0ef5355e1166625b27708f99276b184817d1e47ed"},
+    "bracket_effect_reader": {"path": "circuits/followups/bracket_suffix_free_scalar_fresh_corpus_validation_v1_result.json", "sha256": "6b8db79cc8c72500586a01966eb11c9d9cde89b35221f35b8ada0928d5c78bdf"}
+  },
+  "predictions": {
+    "pred_a_exact_selected_compilation": "The package contains exactly ten Task14 displacement vectors, ten corresponding precomputed scalar effects, three bracket absolute terms, and six bracket ordered-pair scalar effects; all values reproduce immutable sources.",
+    "pred_b_task14_reader_contraction": "Each stored Task14 scalar equals the dot product of its selected vector and direction reader within 1e-7, so the package removes both dense readers and their 2,304 stored coordinates and 2,303 arithmetic operations per prediction.",
+    "pred_c_bracket_absolute_and_no_edit_dispatch": "Requested bracket edits return the donor-closer absolute term plus ordered-pair predicted effect; licensed self-pairs return no_edit and scalar zero. All valid keys and invalid-ID rejection are exhaustive.",
+    "pred_d_literal_smaller_price": "Total selected state is 14,992 FP32 scalars (59,968 bytes): 11,520 Task14 vector coordinates, 10 Task14 effects, 3,456 bracket term coordinates, and 6 bracket effects. This is 27.7215% smaller than the prior complete operational inventory of 20,742 scalars.",
+    "pred_e_residual_boundary": "Effect prediction is specification-only and suffix-free for both programs. Causal execution still requires the native installation site and downstream model; Task14 still needs its native L11H3 base term, while bracket edits no longer need the native opener term. No full-logit or whole-model claim is licensed."
+  },
+  "terminal_rule": "screen if exact values, reader contractions, exhaustive dispatch, literal price, and boundary gates all pass; invalid on immutable input mismatch; null on a valid semantic/package failure.",
+  "closed_claims": ["full-logit prediction", "whole native-context replacement", "whole-model replacement", "runtime speedup"]
+}
