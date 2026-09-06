@@ -408,3 +408,11 @@ smaller positive branches; MLP17 is a stable opposing correction. Clamping all a
 responses removes exactly 100%, and every replay/self-clamp control is exact. Attention9 is therefore
 the licensed dominant converter. The next complete nine-head removal atlas will identify its head
 interface before source-factor and c_v/c_proj weight compilation.
+
+The full attention9 head atlas localizes two stable material heads but is a valid strict null rather
+than a promotion. H4 removes 43.15%/42.17% of total complement behavior and H1 removes
+25.54%/31.26%; their singleton sums are 79.8%/87.5% of complete attention9 removal. However H4's
+A1 Q8 cosine is .8961, just below the frozen .90 coherence bar. H7 is a smaller construction-sensitive
+branch (15.55% versus 9.58%). All-head removal exactly replays the complete attention9 result and
+self-clamp is exact. Heads H1+H4 are now frozen, before outcomes, for union confirmation on a new
+`Throughout this/that interval` v8 construction with entirely new occupations.
