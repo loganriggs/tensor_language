@@ -1,0 +1,41 @@
+{
+  "schema": "temporal_auxiliary_will_had_fresh_writer_block11h3_source_response_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_block11h3_source_response_v1",
+  "created_utc": "2026-09-06T13:46:00Z",
+  "evidence_class": "prospective_exact_attention_response_source_partition",
+  "question": "Which semantic source terms inside block11 H3 transmit the exact fresh block8H1 cue-written subject state to the answer query?",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*block11h3*source*", "circuits/followups/*block11h3*source*", "circuits/prior_art/aspectual_anchor_attention11h3_15h5_source_compression_split_v1.json", "circuits/task_subject_verb_number_agreement.json", "AGENT_BOARD.md"],
+    "nearest_results": "Older number work repeatedly uses an L11H3 subject-value interface, while older has/had source compression selected determiner+period+self under a different writer. The new prospective H3 response screen establishes the native head on fresh rows but does not reveal its response source terms.",
+    "novelty": "First exact semantic source partition of H3's response to a source-resolved upstream writer, separating changed subject terms from global routing/source alternatives."
+  },
+  "authority": {
+    "fresh_h3_screen": {"path": "circuits/followups/temporal_auxiliary_will_had_fresh_writer_block11_h3_response_v1_result.json", "sha256": "ee95aef443d63ce936f011ce2d551b8a0b220aa701507ecad30a72383475405a", "terminal": "screen", "h3_recovery": {"A1": 0.08934141104223325, "A2": 0.05778063176379767}},
+    "fresh_offset": {"path": "circuits/followups/temporal_auxiliary_will_had_fresh_writer_subject_consumer_offset_v2_result.json", "sha256": "864f40e041cd4028c242fb96c816347875c59511d04e908372fd533b8c58c7ca", "latest_material_boundary": 11},
+    "response_source_evaluator": {"path": "ops/attention_response_source_eval.py", "sha256": "7bda6cf00c24efc3670704e8e01d9eabd954913db867abfa2fdf290052910848"},
+    "attention_capture": {"path": "ops/attention_source_destination_eval.py", "sha256": "806bd970b773c839cf4eb8d74c1fdbf4102fda32d2188d22daa8a1d5624c2bdf"}
+  },
+  "data_status": "No source-resolved block11 H3 response outcome has been computed on the fresh rows. H3 is fixed by the preceding prospective screen. Older source partitions used different writers/populations and provide opposing priors only.",
+  "population": "All 64 sealed fresh Later/Previously A1/A2 rows with eight passed capability cells.",
+  "fixed_intervention": {
+    "writer_and_capture": "Recreate the exact block8H1 cue write, patch its subject state at boundary11, and capture native versus writer-input block11 patterns, effective values, and head outputs.",
+    "semantic_partition": ["prefix", "cue", "subject_onset", "intervening_suffix", "self"],
+    "arms": ["h3_complete_all_destinations", "all_query_sources", "prefix", "cue", "subject_onset", "intervening_suffix", "self", "non_subject"],
+    "source_operation": "At the final query and H3 only, add changed-minus-native pattern-times-effective-value terms for the declared semantic sources into an otherwise native base run.",
+    "endpoint": "Natural temporal donor recovery on row-native answer-minus-foil logits."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_source_response_instrument": "All hashes, rows, capability, head inventory, attention reconstructions, exact five-group coverage, native identity, finiteness, and hook coverage pass within 1e-4.",
+    "pred_b_h3_complete_recurrence": "The complete all-destination H3 response recurs 0.0893414110/0.0577806318 within 1e-6 with direction 1.0.",
+    "pred_c_final_query_sources_cover_h3": "All five final-query source terms retain at least 90% of complete H3 response with direction at least 0.75 in A1 and A2.",
+    "pred_d_subject_terms_dominate": "Subject-onset terms retain at least 90% of all-query-source recovery with direction at least 0.75, while the non-subject union has absolute recovery at most 10% of all-query-source recovery in each family.",
+    "pred_e_exact_zero_fit_price": "Exactly 26 forwards, 832 example evaluations, and 512 finite intervention records; zero fits, grids, roots, backwards, updates, or learned scalars."
+  },
+  "terminal": {
+    "screen": "A-E pass: identify the fresh writer -> block11H3 edge as an exact subject-source response and next test joint block9+block11 path completeness.",
+    "null": "A-C and E pass but subject dominance fails; retain H3 and pursue the empirically dominant source group without post-outcome rescue.",
+    "invalid": "Authority, exactness, recurrence, coverage, finiteness, capability, or price fails."
+  },
+  "price": {"model_forwards": 26, "example_evaluations": 832, "intervention_records": 512, "fit_parameters": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0},
+  "scope_boundary": "A screen identifies H3's fresh subject-source response edge. Necessity, combined mediation with block9 H1/H4, selective collateral controls, and compiled program composition remain untested."
+}
