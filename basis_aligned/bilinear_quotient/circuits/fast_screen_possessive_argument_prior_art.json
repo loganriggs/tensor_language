@@ -1,0 +1,99 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "antecedent",
+    "controller",
+    "distance",
+    "his",
+    "locality",
+    "number",
+    "possessive",
+    "their"
+  ],
+  "candidate_id": "possessive_number.inanimate_argument",
+  "canonical_objects": [
+    "argument prominence versus oblique position for an intervening nominal",
+    "an INANIMATE direct object between antecedent and pronoun",
+    "their-versus-his at a shared verb token"
+  ],
+  "decision_changed": "A failure establishes two independent disruptors -- antecedent plausibility and argument prominence -- each demonstrated against a matched control. A pass leaves the distance-6 result unexplained and I report it as an open anomaly rather than reaching for another story.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json is native_behavior_incapable (A2 1/2) with the antecedent six tokens before the pronoun.",
+    "circuits/fast_screens/existential_agreement_were_vs_was_v1_result.json is native_behavior_incapable with A1 at chance, the controller separated from the auxiliary by an expletive.",
+    "circuits/fast_screens/task14_subject_verb_agreement_full_state_v2_result.json is selective: number passes at a copula agreeing with its own local subject.",
+    "AGENT_BOARD.md 2026-09-05T21:47Z states the resulting pattern -- the failing cases share a controller that is not local to the target -- and explicitly declines to claim a mechanism.",
+    "circuits/fast_screens/possessive_number_adjacent_antecedent_v1_result.json is selective at resid:18 with the antecedent ONE token before the pronoun.",
+    "circuits/fast_screens/possessive_number_medial_antecedent_v1_result.json is selective at distance 4 with a prepositional-phrase intervener.",
+    "The three existing points differ in intervening MATERIAL as well as distance -- nothing, a PP, and a full VP with an object -- so distance is currently a proxy and structure covaries with it.",
+    "circuits/fast_screens/possessive_number_long_simple_intervener_v1_result.json is selective at distance SEVEN across prepositional phrases, retiring token distance as the operative variable.",
+    "The distance-4 screen that passed already contained a number-MISMATCHED nominal -- 'The clerks at the desk signed' -- so the mere presence of a competing nominal is not the blocker.",
+    "circuits/fast_screens/possessive_number_animate_attractor_v1_result.json is native_behavior_incapable at distance 4 with an ANIMATE oblique attractor, where the inanimate oblique at the same distance passed.",
+    "The distance-6 failure ('finished the work and put away') involves an INANIMATE nominal, so animacy cannot explain it; that nominal is a verb's direct object rather than an oblique."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Tests the second of the two disruptors the corpus now implies. Animacy is established: an animate oblique breaks agreement at distance four where an inanimate oblique does not. But the distance-6 failure has an INANIMATE nominal, so a second factor is at work, and the candidate is argument prominence -- there the nominal is a verb's direct object, whereas every passing intervener has been the object of a preposition. This puts an INANIMATE nominal in DIRECT OBJECT position at distance FIVE: 'The clerks packed the crate and signed'. Distance five is shorter than the seven-token oblique chain that passes, so distance cannot account for a failure here. PREDICTION REGISTERED BEFORE THE RUN: if argument prominence is a real second disruptor, this FAILS despite obliques passing at distance seven; if it passes, the distance-6 failure was not about argument position and I have no explanation for it, which I will say rather than invent a third factor.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "77ebb910152b51e917fed97fc07a21275a08870b48c888d65df970e69e1d2022",
+      "source": "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "c5f87adc998344a3038705ba247017501d3bdc3aa5bafe62704b783d4e9d7568",
+      "source": "circuits/fast_screens/existential_agreement_were_vs_was_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "site_results",
+        "reason"
+      ],
+      "sha256": "3a08562d9d9ce57bef0027bc0d2e5ba1ca1d85a5d4ae462f489b5830a07f8dc7",
+      "source": "circuits/fast_screens/possessive_number_adjacent_antecedent_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "site_results",
+        "reason"
+      ],
+      "sha256": "357032a0f37d1689a9f19b15233c5e94d6f369ae05145b7fcc72ed1d34ece9fe",
+      "source": "circuits/fast_screens/possessive_number_medial_antecedent_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "site_results",
+        "capability_cells",
+        "reason"
+      ],
+      "sha256": "e8ce384116f8767c76c757a6c6186a16e42daea413001d41160de7d76e946450",
+      "source": "circuits/fast_screens/possessive_number_long_simple_intervener_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "e52d18be7bd1bc64bded34a29e498ae181f4d2e2f865fdce076803054161a03b",
+      "source": "circuits/fast_screens/possessive_number_animate_attractor_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, against all three number screens on disk",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

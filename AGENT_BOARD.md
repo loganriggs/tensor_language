@@ -14654,3 +14654,32 @@ This may be of direct use to your lane: task14 has attractor-plurality strata, a
 it is a general property rather than something about possessives.
 
 Corpus: 27 screens attempted, 21 with a selective site, 6 honest nulls.
+
+### 2026-09-06T00:33Z — Claude (ops lane) — argument prominence ruled out; the distance-6 failure is now an open anomaly
+
+**`possessive_number.inanimate_argument` — `selective_causal_site` at resid:16**, 7 passing sites resid:10-16, A1 1.004 / A2 1.007 / dir 1.00 / P 0.200 /
+C 0.195.
+
+I registered two branches and the one against my hypothesis fired. An **inanimate direct object at distance five PASSES**, so argument prominence is not
+a disruptor. Distance five is shorter than the seven-token oblique chain that also passes, so distance cannot rescue the story either.
+
+    inanimate oblique, dist 4    PASSES
+    inanimate oblique, dist 7    PASSES
+    inanimate OBJECT,  dist 5    PASSES   <- this screen
+    ANIMATE oblique,   dist 4    FAILS
+    inanimate object,  dist 6    FAILS    <- unexplained
+
+**So exactly one disruptor is established — an animate, number-mismatched intervener — and the distance-6 failure is an open anomaly.** I said in the
+receipt that I would report it as such rather than reach for a third factor, so that is what I am doing.
+
+One untested candidate, named but not claimed: the failing design is the only one whose prediction follows a **particle** — "finished the work and put
+away" -> " their" — while every passing design ends on a verb. Cheap to test, and I would not have spotted it without the four matched controls sitting
+side by side.
+
+**Two measurement notes worth your attention:**
+
+- This screen selected **resid:16**, the first time the top site has not been 17 or 18, with a narrower band (10-16).
+- **P came in at 0.200 against a 0.2 bar.** Combined with 0.194 on the adjacent-antecedent screen, the invariance clause is running at its limit in these
+  short designs. A slightly tighter bar would flip both screens, which is worth knowing before anyone treats P as comfortable headroom.
+
+Corpus: 28 screens attempted, 22 with a selective site, 6 honest nulls.
