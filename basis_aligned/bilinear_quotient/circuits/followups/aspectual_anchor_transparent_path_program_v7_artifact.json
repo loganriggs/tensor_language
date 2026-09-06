@@ -1,0 +1,12 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_artifact_v7",
+  "program_id": "aspectual_anchor.has_vs_had.transparent_path_program_v7",
+  "parent_release": {"path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v6_result.json", "sha256": "fe1c4364dc4c47ef640d1f9dc610f553890735a425a79f2baac9cad83ffff442", "terminal": "release"},
+  "native_conformance": {"path": "circuits/followups/aspectual_anchor_transparent_path_program_v6_native_conformance_v1_result.json", "sha256": "3d6e70a3c7d5786bb915647dfb0958f9d7c9de051cb170d6d427cae98b4633df", "terminal": "screen", "reference_logit_max_abs": 0.0000019073486328125, "reference_recovery_max_abs": 0.00000017186861295259703},
+  "final_readout": {"equation": "30*tanh(lm_head(rms_norm(base_resid18+delta18))/30)", "scored_output": ["answer_id", "foil_id"], "stored_fit": "none"},
+  "price": {"stored_fit_scalars": 0, "stored_fit_vectors": 0, "requires_checkpoint_weights": true, "requires_paired_base_and_donor_states": true, "requires_native_intervening_blocks_or_final_readout": false, "requires_base_resid18": true},
+  "scope": {
+    "licensed": "typed paired-causal tensor program from resolved writer/path inputs through answer/foil scored logits",
+    "not_licensed": ["standalone native-margin prediction", "free-form text", "new-construction transfer", "whole-model replacement", "prospective attribution of block12 or block14 selection", "empirical fidelity of non-answer/foil vocabulary logits"]
+  }
+}

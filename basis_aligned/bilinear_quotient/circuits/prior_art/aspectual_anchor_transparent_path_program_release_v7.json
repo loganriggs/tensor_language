@@ -1,0 +1,22 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_release_prior_art_v7",
+  "candidate_id": "aspectual_anchor.has_vs_had.transparent_path_program_release_v7",
+  "created_utc": "2026-09-06T05:45:04Z",
+  "question": "Does program v7 faithfully add the checkpoint's exact final normalization, unembedding, soft cap, and answer/foil selection to empirically validated v6?",
+  "authority": {
+    "aspectual_anchor_transparent_path_program_v7.py": "492d178d11c5e461074a0e154aa52c0dca212a846761e2678d448ae3e4f02d48",
+    "aspectual_anchor_transparent_path_program_v7_artifact.json": "5f513c3988639210beddbc4763822045a6247a99d68eea7c51312c5b5e960b65",
+    "aspectual_anchor_transparent_path_program_release_v6_result.json": "fe1c4364dc4c47ef640d1f9dc610f553890735a425a79f2baac9cad83ffff442",
+    "aspectual_anchor_transparent_path_program_v6_native_conformance_v1_result.json": "3d6e70a3c7d5786bb915647dfb0958f9d7c9de051cb170d6d427cae98b4633df"
+  },
+  "frozen_audit": {
+    "pred_a_hash_bound_valid_authority": "All four hashes and upstream terminals pass.",
+    "pred_b_executable_inventory": "V7 preserves the v6 recurrence and adds exactly full final logits, scored pair, composed scored pair, and manifest operations.",
+    "pred_c_synthetic_equation_conformance": "At least 25 deterministic PyTorch equation, composition, functional, and rejection cases pass.",
+    "pred_d_readout_and_conformance_evidence_exact": "The readout equation and v6 real-tensor error metrics exactly match immutable evidence.",
+    "pred_e_price_dependency_scope_exact": "Zero fitted state/model execution is stored; native suffix blocks and native final-readout calls are absent, while checkpoint and paired-state dependencies remain explicit."
+  },
+  "terminal": {"release": "A-E pass: release valid executable v7.", "invalid": "Any audit fails."},
+  "price": {"model_forwards": 0, "example_evaluations": 0, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0, "stored_fit_scalars": 0, "stored_fit_vectors": 0},
+  "scope_boundary": "The paired causal path now reaches answer/foil scored logits explicitly; raw-text state construction, sealed new-construction transfer, standalone native-margin prediction, and whole-model replacement remain open."
+}
