@@ -1,0 +1,34 @@
+{
+  "candidate_id": "aspectual_tense.l9h1h4_weight_ranked_component_validation_v1",
+  "created_utc": "2026-09-06T16:29:00Z",
+  "question": "Do exact weight contractions prospectively enrich for causal upstream writers and downstream readers of the task-typed L9H1/H4 value state?",
+  "authority": {
+    "weight_atlas_result_sha256": "bd652e89fe14982c87a362d4fbd6926c1803ba3267a12d360f2151b0073ad9a3",
+    "capability_manifest_sha256": "9299fe3501995b72cec637a58838fdaf85f056034a1566de3a6d6bb04e38edd6",
+    "atlas_interpretation": "has/is value axes are distinct but their top structural neighborhoods almost coincide; atlas rankings contain zero causal outcomes"
+  },
+  "frozen_selection": {
+    "policy": "per task, compare exact top six versus bottom six normalized upstream attention writers, top four versus bottom four normalized upstream MLP writers, and top six versus bottom six downstream value readers",
+    "shared_top_downstream": ["L11H3", "L15H5", "L11H1", "L15H1", "L10H5", "L10H1"],
+    "evaluation": "jointly capable heldout A1 and all jointly capable A2 rows for has/had and is/was; whole-component donor patches; no refitting"
+  },
+  "predictions": {
+    "pred_a_authority_capability_selection_and_exact_price": "all selected rows remain natively capable, frozen selections reproduce, and 136 forwards/2278 evaluations/2144 unique intervention records close exactly",
+    "pred_b_weight_scores_predict_causal_effect": "among six task-by-component-type Spearman correlations between frozen weight score and mean absolute causal recovery, median >0.25 and at least four are positive",
+    "pred_c_top_weight_sets_are_enriched": "top-set mean absolute causal recovery exceeds bottom-set recovery in at least four of six task-by-component-type comparisons",
+    "pred_d_shared_downstream_infrastructure_is_causal": "at least three of six shared top downstream heads have >=0.05 mean absolute recovery in both tasks after averaging heldout A1 and A2"
+  },
+  "price": {
+    "model_forwards": 136,
+    "example_evaluations": 2278,
+    "intervention_records": 2144,
+    "fitted_scalars": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  },
+  "terminal_rules": {
+    "invalid": "A fails",
+    "screen": "all predictions pass",
+    "null": "A passes and any causal prediction fails"
+  }
+}
