@@ -1,0 +1,45 @@
+{
+  "schema": "task14_bracket_counterfactual_margin_actuator_prior_art_v4",
+  "candidate_id": "cross_behavior.task14_bracket_counterfactual_margin_actuator_v4",
+  "created_utc": "2026-09-06T00:58:19Z",
+  "data_status": "COMPILATION_AUDIT_OF_ALREADY_FROZEN_PROSPECTIVE_EFFECTS; no new empirical outcomes",
+  "purpose": "Compile the strongest Task14 and bracket scalar effect programs into a baseline-conditioned counterfactual answer-margin actuator that does not execute either native downstream suffix after receiving the native unedited answer margin.",
+  "authority": {
+    "task14_bracket_compiled_predictive_dispatcher_v3_artifact.json": "a8ccb6525dc8f3fd83c49a41eeaebd7cd5547606bf134ac1db9c678ff0eb7b40",
+    "task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0",
+    "bracket_suffix_free_scalar_fresh_corpus_validation_v1_result.json": "6b8db79cc8c72500586a01966eb11c9d9cde89b35221f35b8ada0928d5c78bdf",
+    "task14_absolute_head_two_reader_context_v3_result.json": "a7893f3bdb9545afd234cd1d72e28262861f11f0cc85ec1007805c3c8a1acb18"
+  },
+  "prior_art_search": [
+    "The v3 dispatcher stores 14,992 scalars and predicts intervention effects without a suffix, but its causal-execution API still installs 1,152-dimensional terms and invokes the native suffix.",
+    "The Task14 one- and two-reader absolute-head repairs are null, so no local base-state compression is available and rank escalation is closed.",
+    "No registered artifact exposes one common baseline-margin-plus-effect actuator API for both behaviors or prices the removal of all intervention vectors and downstream execution."
+  ],
+  "construction": {
+    "input": "one native unedited answer margin plus a discrete edit specification",
+    "task14_rule": "look up one of ten frozen direction-by-cardinality effects and add it to the native margin",
+    "bracket_rule": "look up one of six frozen ordered-pair effects, or zero for a self-pair, and add it to the native margin",
+    "stored_fp32_scalars": 16,
+    "runtime_scalar_additions": 1,
+    "model_forwards_after_input": 0
+  },
+  "predictions": {
+    "pred_a_immutable_sources_and_exact_compilation": "All four source hashes match; exactly ten Task14 and six bracket scalar effects are copied bit-exactly from v3.",
+    "pred_b_task14_effect_recurrence": "The frozen Task14 scalar effects retain cosine at least 0.95, relative L2 at most 0.35, and sign agreement at least 0.95 against all 512 prospective installed-program effects.",
+    "pred_c_bracket_effect_recurrence": "The frozen bracket scalars retain cosine at least 0.99, relative L2 at most 0.15, and sign agreement 1.0 against all 72 untouched fresh-construction effects; every ordered pair retains sign agreement 1.0.",
+    "pred_d_exact_margin_actuation_identity": "For every recorded target, predicted edited margin minus actual edited margin equals predicted effect minus actual effect to absolute error at most 1e-12, for arbitrary finite baseline margins.",
+    "pred_e_suffix_and_price_reduction": "After the native baseline margin is supplied, the actuator uses no model call, activation, site, base head, native suffix, or stored vector; it stores exactly 16 FP32 scalars (64 bytes), a reduction of at least 99.89% from v3."
+  },
+  "terminal": {
+    "screen": "All five predictions pass. Release only as a baseline-conditioned counterfactual answer-margin actuator.",
+    "null": "Any failed source, recurrence, identity, or price gate rejects the compiled actuator without tuning."
+  },
+  "closed_claims": [
+    "native baseline-margin generation",
+    "full-logit generation",
+    "internal activation generation",
+    "whole-model replacement",
+    "context-free causal intervention",
+    "mechanistic equivalence between direct margin actuation and internal-site intervention"
+  ]
+}
