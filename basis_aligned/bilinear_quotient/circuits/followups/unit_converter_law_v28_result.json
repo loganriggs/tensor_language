@@ -1,0 +1,166 @@
+{
+  "alphas": [
+    0.5,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "bars": {
+    "dead_zone": 0.4,
+    "instrument": 0.005,
+    "linear": [
+      0.85,
+      1.15
+    ],
+    "saturation": 1.6,
+    "stack": 0.8
+  },
+  "behaviours": {
+    "polarity_licensing": {
+      "curve": {
+        "0.5": {
+          "conversion": 0.09874039496557792,
+          "rec_direct": 0.08271659865539234,
+          "rec_live": 0.18145699362097026,
+          "rec_stack_frozen": 0.09937153487083748,
+          "stack_share": 0.8313260117984007
+        },
+        "1.0": {
+          "conversion": 0.39152360430901084,
+          "rec_direct": 0.19334652928432633,
+          "rec_live": 0.5848701335933372,
+          "rec_stack_frozen": 0.24527671258304515,
+          "stack_share": 0.867363850538797
+        },
+        "1.5": {
+          "conversion": 0.5390860347665719,
+          "rec_direct": 0.29484615396834046,
+          "rec_live": 0.8339321887349124,
+          "rec_stack_frozen": 0.3877491810740325,
+          "stack_share": 0.8276656765076104
+        },
+        "2.0": {
+          "conversion": 0.4992016908170903,
+          "rec_direct": 0.35581645870844536,
+          "rec_live": 0.8550181495255357,
+          "rec_stack_frozen": 0.4745020400612577,
+          "stack_share": 0.762249240064575
+        }
+      },
+      "downstream_count": 91,
+      "rows": 32,
+      "stack": [
+        "mlp:08",
+        "mlp:09",
+        "mlp:10",
+        "mlp:11",
+        "attn:09:head:07"
+      ],
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ],
+      "v26_direct": 0.19334653589779174,
+      "v26_rec_set": 0.5848700852093098
+    },
+    "voice_frame": {
+      "curve": {
+        "0.5": {
+          "conversion": 0.10775818703977813,
+          "rec_direct": 0.03257909892779243,
+          "rec_live": 0.14033728596757056,
+          "rec_stack_frozen": 0.040595368346090566,
+          "stack_share": 0.9256087204275347
+        },
+        "1.0": {
+          "conversion": 0.5447758427999133,
+          "rec_direct": 0.10064268827356253,
+          "rec_live": 0.6454185310734758,
+          "rec_stack_frozen": 0.13231583482254028,
+          "stack_share": 0.9418602220205077
+        },
+        "1.5": {
+          "conversion": 0.7891246940001865,
+          "rec_direct": 0.13984882854443662,
+          "rec_live": 0.9289735225446231,
+          "rec_stack_frozen": 0.1876260736780656,
+          "stack_share": 0.9394553921618657
+        },
+        "2.0": {
+          "conversion": 0.8384159889194875,
+          "rec_direct": 0.15150825927664496,
+          "rec_live": 0.9899242481961325,
+          "rec_stack_frozen": 0.20449448675580464,
+          "stack_share": 0.9368019835267622
+        }
+      },
+      "downstream_count": 101,
+      "rows": 32,
+      "stack": [
+        "mlp:07",
+        "mlp:08",
+        "mlp:09",
+        "mlp:10",
+        "mlp:11"
+      ],
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01"
+      ],
+      "v26_direct": 0.10064271398625806,
+      "v26_rec_set": 0.6454185146122435
+    }
+  },
+  "candidate_id": "corpus.unit_converter_law_v28",
+  "conversion": {
+    "polarity_licensing": [
+      0.09874039496557792,
+      0.39152360430901084,
+      0.5390860347665719,
+      0.4992016908170903
+    ],
+    "voice_frame": [
+      0.10775818703977813,
+      0.5447758427999133,
+      0.7891246940001865,
+      0.8384159889194875
+    ]
+  },
+  "conversion_ratios": {
+    "polarity_licensing": {
+      "half_over_one": 0.2521952543317078,
+      "two_over_one": 1.2750232305868698
+    },
+    "voice_frame": {
+      "half_over_one": 0.19780279992950392,
+      "two_over_one": 1.539010952854279
+    }
+  },
+  "direct_linearity": {
+    "polarity_licensing": {
+      "0.5": 0.8556305506136415,
+      "1.5": 1.0166414849707615,
+      "2.0": 0.9201521745063196
+    },
+    "voice_frame": {
+      "0.5": 0.647421079199263,
+      "1.5": 0.9263718404414748,
+      "2.0": 0.7527037575984749
+    }
+  },
+  "finished_utc": "2026-09-06T22:05:42.532886+00:00",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_direct_linear": false,
+    "pred_c_stack_carries": true,
+    "pred_d_saturates": true,
+    "pred_e_no_dead_zone": false
+  },
+  "schema": "circuit_unit_converter_law_result_v1",
+  "seconds": 0.9444338418543339,
+  "semantics": "block_live_scaled_write_plus_base_freeze"
+}
