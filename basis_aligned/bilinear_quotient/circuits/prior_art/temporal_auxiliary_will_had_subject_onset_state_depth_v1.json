@@ -1,0 +1,71 @@
+{
+  "schema": "temporal_auxiliary_will_had_subject_onset_state_depth_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.subject_onset_state_depth_v1",
+  "created_utc": "2026-09-06T12:48:00Z",
+  "evidence_class": "prospective_exact_residual_source_depth_sweep",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*will*had*onset*",
+      "circuits/followups/*will*had*onset*",
+      "circuits/prior_art/*source*state*depth*",
+      "circuits/followups/*source*state*onset*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "The exact will/had L9H1/H4 source partition found that the unchanged two-token subject onset supplies 68.7% of the full reader effect in A1 and 55.7% in A2, while the literal temporal cue supplies 22.1% and 39.2%. The analogous has/had source bank first became behaviorally sufficient at residual boundary 5, but no experiment has localized when the will/had subject-onset payload is written.",
+    "new_question": "At what residual boundary does the unchanged will/had subject-onset state become sufficient to transfer the temporal decision, and is it written by boundary 5 as the cross-construction precedent predicts?"
+  },
+  "authorities": {
+    "source_partition_result_sha256": "c738d33cae91ee70f911ea5ea610d0156bc618b41b6574051d33ef6cd21e9f8d",
+    "temporal_fast_screen_sha256": "71a833c52c39b98be6f576d11749522e2725c540a29d61a2352e315978684ec9",
+    "temporal_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58",
+    "source_group_evaluator_sha256": "6ecf5f40b92f94cb32bccf1a703e527a3d468281936e63d4c7e91e8af66b4348",
+    "residual_onset_evaluator_sha256": "8f0235743c0450797ade21ac663d4bf735f1784931c2c60ef8f69d4f7cd113a7",
+    "rows_sha256": "b74ff65cf6b59142bf38172dae7f70a25e5f471bbeaa038f9b3971caedf913da"
+  },
+  "population": "All 64 sealed A1/A2 will/had discovery rows, split into two fixed 32-row construction batches with both transfer directions retained.",
+  "interventions": {
+    "subject_onset": "Simultaneously replace the determiner and head-noun residual states immediately after the temporal cue with paired donor states at one registered boundary.",
+    "cue_control": "Replace only the sole Tomorrow/Earlier or tomorrow/earlier temporal-cue residual state at the same boundaries.",
+    "boundaries": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "boundary_semantics": "Boundary 0 is the normalized token embedding; boundary n>0 is the residual state after block n-1.",
+    "operator": "Exact paired state replacement at only the declared semantic group, retaining every other base state and the complete base suffix.",
+    "fitting": "none"
+  },
+  "opposing_predictions": {
+    "early_contextual_writer": "The subject-onset state crosses the fixed causal sufficiency bar by boundary 5, matching or preceding the analogous has/had contextual source-bank onset.",
+    "late_or_distributed_writer": "The subject-onset state does not cross until boundary 6-9, or never crosses before the fixed L9 reader, implying a later or distributed upstream computation.",
+    "literal_cue_control": "The cue can be live at boundary 0 because its token identity changes, but its curve cannot rescue a missing or late subject-onset crossing."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_instrument": "All hashes and native capability hold; manual selected logits replay frozen native logits within 1e-4; every semantic position is aligned; subject-onset boundary-0 donor/base states and scored logits are exactly unchanged within 1e-7.",
+    "pred_b_subject_onset_becomes_sufficient": "At least one subject-onset boundary 1-9 has mean donor recovery at least 0.50 and donorward fraction at least 0.80 in both A1 and A2.",
+    "pred_c_early_onset_by_boundary5": "The earliest subject-onset boundary passing B is at most 5.",
+    "pred_d_literal_cue_control_reported": "Report the complete cue-only curve under identical interventions, including its potentially live boundary-0 effect; it cannot alter B or C.",
+    "pred_e_exact_zero_fit_price": "Exactly 44 model forwards, 1408 example evaluations, 1280 arm-row records, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A, B, C, and E pass; D is descriptive. License the crossing block interval for writer localization.",
+    "null": "The run is valid but the subject-onset state either never crosses through boundary 9 or first crosses after boundary 5; retain the exact late/no-onset classification and both curves.",
+    "invalid": "Authority, capability, replay, semantic alignment, boundary-0 invariance, finiteness, coverage, or price fails."
+  },
+  "scope": "This experiment localizes when a complete semantic source-state bank becomes sufficient for the end-to-end behavior. It does not identify a unique head or MLP writer and does not claim the literal cue is the dominant L9H1/H4 source.",
+  "circuit_targets": [
+    "computational specification",
+    "upstream writer localization",
+    "cross-construction onset prediction",
+    "exact semantic state intervention"
+  ],
+  "price": {
+    "model_forwards": 44,
+    "example_evaluations": 1408,
+    "rows": 64,
+    "groups": 2,
+    "boundaries": 10,
+    "intervention_records": 1280,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
