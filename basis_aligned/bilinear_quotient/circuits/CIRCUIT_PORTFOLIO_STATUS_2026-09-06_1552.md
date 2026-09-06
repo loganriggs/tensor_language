@@ -352,3 +352,14 @@ within 2.86e-6 in final logits. Thus a small-norm temporal weight component expl
 the cDAS behavior while remaining selective. This promotes cross-task Q8 reuse from geometry to
 causal evidence. The next test is a finite 32x32 upstream-command by downstream-readout matrix
 covering all four temporal/is-was quadrants, with zero-fit eight-state prediction and rank controls.
+
+The finite shared-state test passes. A 32x32 matrix crosses 16 temporal and 16 `is/was` natural
+upstream commands with the same 32 task-specific downstream contexts. The zero-fit contraction
+`H_pred = C R^T` predicts all four exact intervention quadrants at cosine 0.9999966--0.9999997
+and relative RMSE 0.084%--0.262%. Cross-task RMS effects are 0.116 and 1.250 versus a frozen
+0.0546 observability floor. Commands span all eight coordinates, downstream readers resolve four
+at the registered threshold, and rank eight captures effectively all exact matrix energy; thus this
+finite family supports a state-dimension lower bound of four and upper bound of eight. Seeded source
+permutation drops global cosine from 0.999997 to -0.236. This is a finite causal realization, not a
+claim that the transformer's unrestricted Fliess/Hankel system is globally rank eight. The missing
+cross-task circuit edge is now upstream: which native `is/was` modules write the shared state.
