@@ -1,0 +1,24 @@
+{
+  "schema": "aspectual_tense_multitask_shared_carrier_program_prior_v1",
+  "candidate_id": "aspectual_tense.multitask_shared_carrier_program_v1",
+  "registered_utc": "2026-09-06T16:55:30Z",
+  "hypothesis": "A shared carrier-writing subcircuit can be selected more robustly by optimizing one exact component program across both tasks, using multi-task agreement as regularization against the is/was fit split's small-sample overfitting.",
+  "frozen_design": {
+    "candidate_pool": "The 17 component labels in the intersection of the two pre-outcome weight-frozen pools.",
+    "fit": "Jointly capable A1 fit only: 16 has/had and 8 is/was rows.",
+    "objective": "At every greedy step, minimize the equal-task mean of has/had and is/was rowwise MSE to unit donor recovery.",
+    "intervention": "The same exact joint head/module program is patched at each task's own paired contextual carrier bank.",
+    "maximum_components": 6,
+    "sealed_evaluation": "A1 heldout and A2 for both tasks; no task-specific additions."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_instrument": "All panels remain capable and exact carrier widths recur.",
+    "pred_b_shared_path_is_distributive": "The common path selects 2-6 components and every step strictly reduces equal-task fit MSE.",
+    "pred_c_shared_path_generalizes_to_both_a1_panels": "Both heldout A1 panels have mean recovery at least 0.70, direction fraction at least 0.80, and unit-target RMSE below their best common-pool singleton.",
+    "pred_d_shared_path_transfers_to_both_a2_panels": "Both A2 panels satisfy the same 0.70 recovery, 0.80 direction, and best-singleton bars.",
+    "pred_e_multitask_regularization_repairs_is_heldout": "is/was heldout mean recovery exceeds the prior task-specific program's 0.6542596410 while has/had heldout remains at least 0.6862649360 (within 0.05 of its prior 0.7362649360).",
+    "pred_f_price_and_coverage": "At most 270 forwards, 3744 example evaluations, and 3562 intervention records; zero fitted scalars, backward passes, or model updates."
+  },
+  "decision": "screen only if all predictions pass; null on a scientific prediction failure; invalid on authority, capability, instrument, coverage, or price failure",
+  "heldout_policy": "All program selection uses only the two A1 fit panels."
+}
