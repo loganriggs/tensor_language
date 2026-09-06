@@ -1,0 +1,35 @@
+{
+  "schema": "iswas_mlp8_auxiliary_value_source_subset_atlas_prior_v3",
+  "candidate_id": "cross_task.iswas_mlp8_auxiliary_value_source_subset_atlas_v3",
+  "registered_utc": "2026-09-06T22:41:00Z",
+  "purpose": "Prospective fresh-population localization of the causal source positions supplying native-pattern value changes to the transferable auxiliary heads L11H1/H3 and L15H5, conditioned on the L9H1/H4 core.",
+  "authority": {
+    "v11_builder_sha256": "fbd47713fafcb87fc30ba339d175f7d06770ce36b93b6035e8848455529344ec",
+    "v11_rows_sha256": "70dd2a100a385c077751d2aae3cafdb731eccab3aac845a88560f146937238ff",
+    "v11_capability_result_sha256": "6dd757b066304d1f81ea1e52e0db601fea05adeac516a49cc84ab42bc73a86a2",
+    "v10_factor_parent_sha256": "cbf754a5edb2bac0cbaf56916f901c95d48296827952a641e63860e4f3e03c73",
+    "v2_invalid_sha256": "a547d8f1e1fbafef58dbf37aa1835b362d19be444ecf54e62c9b3f9c4585f436",
+    "selected_heads": {
+      "attention9": [1, 4],
+      "attention11": [1, 3],
+      "attention15": [5]
+    }
+  },
+  "failure_preserved": "V1 used dimension-reordering advanced indexing. V2 repaired indexing but incorrectly scored source closure over padded/post-query destinations outside the registered causal intervention; both v10 receipts remain invalid and none of their source rankings are used for v3 selection.",
+  "repair": "On the fresh v11 population, construct every source cell with index_select and score algebraic source closure only at each row's positions 0 through its semantic query, for the selected heads. Report the discrepancy outside that causal range separately as an unscored diagnostic. Replace the same-population parent-metric replay with an exact current-population full-vocabulary replay of the complete factor arm to the live L9-core run.",
+  "source_partition": [
+    "prefix_before_cue",
+    "cue",
+    "post_cue_before_subject",
+    "subject_determiner",
+    "self"
+  ],
+  "predictions": {
+    "pred_a_authority_partition_value_replay_finiteness_and_price": "All authorities pass; the five groups exactly partition every causal source; causal source closure, attention reconstruction, native self-clamp, and complete-factor/live-core full-logit replay are each <=.001; all metrics are finite; price is <=40 forwards/1200 examples with zero fits, backwards, or updates.",
+    "pred_b_at_least_one_small_source_program_is_sufficient": "In each A panel, at least one source subset of size <=2 retains >=.75 absolute behavior and Q8 norm with behavior and Q8 cosine >=.95 relative to all native-pattern value change.",
+    "pred_c_source_program_is_panel_stable": "The lexicographically tie-broken smallest sufficient source subset is identical in A1 and A2.",
+    "pred_d_both_auxiliary_layers_have_material_value_reads": "For each panel and each of layers 11 and 15, the layer-all arm reaches >=.10 in behavior or Q8 norm fraction.",
+    "pred_e_zero_fit_exact_subset_inventory": "All 32 subsets plus both layer arms and the complete-factor control are evaluated with no fitting."
+  },
+  "decision": "Screen freezes the common smallest source program for a zero-fit confirmation and then licenses literal c_v/c_proj weight compilation at L11/L15. Null preserves the complete source atlas and redirects to source-by-layer interaction or a different causal grouping. Any pred_a failure is invalid and forbids interpretation."
+}
