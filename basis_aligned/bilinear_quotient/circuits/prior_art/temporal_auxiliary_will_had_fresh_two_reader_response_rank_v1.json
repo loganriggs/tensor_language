@@ -1,0 +1,43 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_two_reader_response_rank_v1",
+  "created_utc": "2026-09-06T14:28:00Z",
+  "question": "How many fixed empirical response directions per verified reader preserve the writer-free two-reader program, and is the discarded response complement causally inert?",
+  "authority": {
+    "response_program_result_sha256": "3fe8a3e7edf8dc24f7977d0ce4a37f564cac35211b2a2043e76336ea33e023cb",
+    "ordered_response_installer_sha256": "e948c1950ff3deac055cfb91a1ece9c417236580bcc131811730bf1fad4d9f9b",
+    "writer_mediation_evaluator_sha256": "05d07578129db0cb8bf5e46d08e6cd6e9c2bb9c3883675586c83c3efd24b8fda",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9"
+  },
+  "novelty": "The prior result replays full row-matched response tensors. No prior experiment fits fixed response bases at block9 H1/H4 and block11 H3, installs their projections jointly, and tests the discarded complements in the live suffix.",
+  "frozen_design": {
+    "population": "fresh A1 even rows fit; fresh A1 odd rows held out; all fresh A2 rows transfer",
+    "reader_vectors": "changed-minus-base head output at final query, concatenated within block9 H1/H4 (256 coordinates) and block11 H3 (128 coordinates)",
+    "basis": "uncentered thin SVD independently per reader on the 16 A1-even response rows; projector sign is irrelevant; ranks 1, 2, and 4",
+    "arms": ["full_response", "rank1_response", "rank1_complement", "rank2_response", "rank2_complement", "rank4_response", "rank4_complement"],
+    "metrics": "heldout and A2 tensor explained energy per reader; joint causal recovery as a fraction of the full-response arm; donorward fraction",
+    "model_forwards": 32,
+    "example_evaluations": 720,
+    "records": 336,
+    "fitted_parameters": "basis coordinates only: rank*(256+128), no fitted scalar or model update",
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_authority_and_exact_instrument": "capture reconstruction and identity errors <=5e-4; full response recurs within 0.03 of the registered heldout/A2 endpoints",
+    "pred_b_rank4_program_sufficient": "rank4 joint response retains [0.85,1.15] of full-response recovery and is donorward on >=0.90 of rows in both heldout and A2",
+    "pred_c_rank4_complement_inert": "rank4 complement has absolute fraction <=0.20 of full-response recovery in both heldout and A2",
+    "pred_d_monotone_tensor_compression": "explained energy is nondecreasing from rank1 to rank2 to rank4 for each reader and evaluation split",
+    "pred_e_rank_price_is_exact": "32 forwards, 720 examples, 336 unique arm-row records, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, identity, reconstruction, recurrence, coverage, finiteness, or price fails",
+    "screen": "all five predictions pass",
+    "higher_rank_needed": "valid experiment but rank4 is not causally sufficient or its complement remains material",
+    "null": "valid rank4 projection fails to carry a consistently donorward response"
+  },
+  "interpretation_limits": [
+    "Projection coefficients remain row-specific oracle coefficients; this tests quotient dimension, not yet coefficient prediction.",
+    "SVD minimizes response-tensor squared error, while causal recovery is the decisive metric.",
+    "The two readers retain separate bases because a single cross-layer projector is not a coherent live intervention."
+  ]
+}
