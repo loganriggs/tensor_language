@@ -31,6 +31,8 @@ ATTENTION_LIBRARY = ROOT / "ops/attention_source_destination_eval.py"
 WEIGHT_INSTRUMENT = ROOT / "ops/run_iswas_shared_q8_mlp8_postcue_weight_modes_v1.py"
 OUT = ROOT / "circuits/followups/iswas_mlp8_attn9_h1h4_query_source_factor_tensor_v1_result.json"
 CANDIDATE_ID = "cross_task.iswas_mlp8_attn9_h1h4_query_source_factor_tensor_v1"
+RESULT_SCHEMA = "iswas_mlp8_attn9_h1h4_query_source_factor_tensor_result_v1"
+COMPLETE_RESID18_ABS_TOLERANCE = .001
 EXPECTED = {"prior": "d192ba0e2cbdd1043f165278e86f9768d1936440d17e11b95f303649cbd62662",
     "parent": "25c239436eb3cbf6fdd18237132bbd3a11683d977dd57dfe3877a2db78b95e7e",
     "parent_runner": "2fb6d8ed81e122161eb4ee8669b84639a3e26aa5859c2936ae3b39cb5f46ed3c",
@@ -180,10 +182,17 @@ def main():
                 "q8_norm_fraction_of_complete": float(coord.norm()/full_coord[mask].norm()),
                 "q8_cosine_to_complete": cosine(coord.reshape(-1), full_coord[mask].reshape(-1))}
     complete_replay = float((states["complete"]-live18).abs().max())
+    complete_replay_relative = float((states["complete"]-live18).norm()
+        / (live18-states["empty"]).norm())
+    complete_logit_replay = float((das.head_logits(backend, states["complete"])
+        - das.head_logits(backend, live18)).abs().max())
     identity_error = float((base_hidden18-base18).abs().max())
     finite = all(math.isfinite(value) for p in metrics.values() for row in p.values() for value in row.values())
     pred_a = bool(orientation_error <= 1e-6 and max(base_capture["reconstruction_max_abs"], live_capture["reconstruction_max_abs"]) <= .001
-        and raw_closure <= .001 and cproj_closure <= .001 and complete_replay <= .001 and identity_error <= .001
+        and raw_closure <= .001 and cproj_closure <= .001
+        and complete_replay <= COMPLETE_RESID18_ABS_TOLERANCE
+        and complete_replay_relative <= 1e-4 and complete_logit_replay <= 1e-4
+        and identity_error <= .001
         and finite and forwards <= MAX_FORWARDS and evaluations <= MAX_EVALUATIONS)
     pred_b = all(metrics[p]["group:post_cue_before_subject"][key] >= .75 for p in ("A1", "A2")
         for key in ("absolute_behavior_fraction_of_complete", "q8_norm_fraction_of_complete"))
@@ -201,14 +210,17 @@ def main():
         "pred_e_zero_fit_literal_weight_interface": pred_e}
     terminal = "invalid" if not pred_a else "screen" if all(predictions.values()) else "null"
     value_delta = live_capture["value"].float()-base_capture["value"].float()
-    result = {"schema": "iswas_mlp8_attn9_h1h4_query_source_factor_tensor_result_v1",
+    result = {"schema": RESULT_SCHEMA,
         "candidate_id": CANDIDATE_ID, "execution_policy": "managed_queue_only",
         "started_utc": started_utc, "finished_utc": utc_now(), "serial_seconds": time.perf_counter()-started,
         "authority_sha256": EXPECTED, "dryrun": dryrun,
         "instrument": {"f_linear_orientation_max_abs": orientation_error,
             "native_attention_reconstruction_max_abs": max(base_capture["reconstruction_max_abs"], live_capture["reconstruction_max_abs"]),
             "raw_factor_closure_max_abs": raw_closure, "cproj_weight_replay_max_abs": cproj_closure,
-            "complete_arm_live_resid18_max_abs": complete_replay, "native_base_identity_max_abs": identity_error, "rows": len(rows)},
+            "complete_arm_live_resid18_max_abs": complete_replay,
+            "complete_arm_live_resid18_relative_norm": complete_replay_relative,
+            "complete_arm_live_full_logit_max_abs": complete_logit_replay,
+            "native_base_identity_max_abs": identity_error, "rows": len(rows)},
         "weight_tensor": {"postcue_h1h4_value_delta_rms": float(torch.sqrt(torch.stack([
             value_delta[i, list(source_positions[i])][:, [1, 4]].square().mean() for i in range(len(rows))]).mean())),
             "compiled_query_write_rms": float(torch.sqrt(compiled[index, destinations].square().mean())),

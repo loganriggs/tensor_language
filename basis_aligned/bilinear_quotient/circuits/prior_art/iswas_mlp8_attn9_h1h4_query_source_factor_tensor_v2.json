@@ -1,0 +1,19 @@
+{
+  "schema": "iswas_mlp8_attn9_h1h4_query_source_factor_tensor_numeric_repair_prior_v2",
+  "candidate_id": "cross_task.iswas_mlp8_attn9_h1h4_query_source_factor_tensor_v2",
+  "registered_utc": "2026-09-06T21:46:00Z",
+  "diagnosis": "V1 passed every source/factor scientific predicate; raw factor closure was 5.01e-6, c_proj replay 7.63e-6, attention reconstruction and base identity exact. It was invalid solely because complete-arm resid18 max error 0.03125 exceeded an absolute 0.001 bar on large states.",
+  "repair": "Retain every row, arm, source group, factor, weight contraction, scientific threshold and price. Raise only complete resid18 absolute tolerance to 0.05 and additionally require relative norm error at most 0.0001 and full-vocabulary logit replay max error at most 0.0001. No further repair is allowed.",
+  "authority": {
+    "v1_result_sha256": "af6cbb3a720f0faf34aa5aee76f5a558c12ad7ab049fa5fabfcfbc34247f36b4",
+    "v1_executed_runner_sha256": "60a06bb179638aa57e934192a0dad85f5a1c107e94e6782089d06fbc33af7876"
+  },
+  "predictions": {
+    "pred_a_authority_partition_factor_native_weight_closure_finiteness_and_price": "V1 unchanged except the declared scale-aware complete replay controls.",
+    "pred_b_postcue_sources_dominate_query_conversion": "Unchanged.",
+    "pred_c_base_pattern_value_transport_is_dominant": "Unchanged.",
+    "pred_d_pattern_value_interaction_is_secondary": "Unchanged.",
+    "pred_e_zero_fit_literal_weight_interface": "Unchanged."
+  },
+  "decision": "Interpret the independently rerun scientific gates once if all repaired controls pass; otherwise invalid with no further repair."
+}
