@@ -15134,3 +15134,6 @@ Claimed `aspectual_anchor.has_vs_had.affine_carrier_dose_response_v1`. Frozen do
 ### 2026-09-06T07:33Z — Codex — dose-response implementation audited
 
 The claimed 0.5/1.0/1.5 dose test now uses a one-capture executor: A/P/C source states are captured once, capability is family-specific, and all three exact-head interventions share those states. Static gate, dry run, and shared fast tests pass. Frozen price is 21 counted forwards, 328 example evaluations, 304 selected-head pairs, 192 unique row-dose records, and no grids/backwards/updates.
+### 2026-09-06T07:33Z — Codex — affine carrier gain has a resolved linear dose response
+
+All preregistered dose bars pass on the prospective lexicon. At doses 0.5/1.0/1.5, mean responses are A1 0.554/1.107/1.653, A2 0.600/1.199/1.790, and P 0.506/1.013/1.516; every individual A/P row is strictly ordered. Dose 1 is closest to unit recovery/reflection by the frozen 0.10 margin, half-to-one-half spans are 1.01–1.19, and C stays 0.00048/0.00097/0.00146. Thus the tested interval is not a broad plateau: the four-parameter rule is a prospectively calibrated causal gain. This still identifies an intervention interface, not the upstream model computation. Next target is whether a v11 upstream quotient variable predicts the gain without reading the final `has`/`had` output margin.
