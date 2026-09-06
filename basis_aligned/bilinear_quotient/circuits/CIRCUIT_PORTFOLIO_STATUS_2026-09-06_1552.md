@@ -373,3 +373,12 @@ top-quartile sites as attention, missing causal-top MLP1; it is therefore not a 
 across module types. Per the registered distributed branch, the next test greedily composes complete
 modules on the 16 discovery rows and confirms one frozen union on 48 untouched A rows before any
 attention-head split.
+
+That greedy branch is a valid null: MLP8 alone is the best discovery prefix, and every additional
+module worsens both coordinate and behavioral objectives. On 48 untouched rows MLP8 retains strong
+shared-effect prediction (behavior cosine 0.941, relative RMSE 0.342, mean effect 82.9% of target),
+but its Q8 coordinate cosine is 0.778, just below the frozen 0.80 bar. The eight-module pool
+overshoots to 276% mean behavior and coordinate RMSE 3.21. Thus the earlier multi-module singleton
+responses are predominantly cumulative/overlapping rather than an additive distributed program.
+No attention split is licensed. The next prospective v6 screen partitions MLP8's complete donor
+output by source positions before considering its Down-weight/product modes.

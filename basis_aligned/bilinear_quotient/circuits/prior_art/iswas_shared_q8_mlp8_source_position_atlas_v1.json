@@ -1,0 +1,28 @@
+{
+  "schema": "iswas_shared_q8_mlp8_source_position_atlas_prior_v1",
+  "candidate_id": "cross_task.iswas_shared_q8_mlp8_source_position_atlas_v1",
+  "registered_utc": "2026-09-06T21:05:09Z",
+  "question": "Which causal source positions in the stable MLP8 singleton naturally generate the shared temporal-Q8 state on a fresh is/was lexicon?",
+  "authority": {
+    "greedy_module_result_sha256": "85c6117dd22a50a76c1d478279d3180c67b4d5403581c64b5204f4ce659e6c53",
+    "fresh_v6_capability_sha256": "86ec66fa81346e61382c951e46899236ee1b7b7ec32c16948936fd9de6f77940",
+    "fresh_v6_builder_sha256": "b8541360334bd2793a02fae525a94dda05ce600fd4de5b6c3d953063d4c6b0ae",
+    "shared_specific_causal_sha256": "bd302cb0d104db5afe43906885dff52f851a03e638c6ff30de9d87224ce235bc"
+  },
+  "frozen_screen": {
+    "population": "All fresh-v6 A1/A2 rows whose base and donor endpoints were both correct in the completed capability manifest.",
+    "module": "MLP8 complete output only; no refitting, other-module union, or attention-head intervention.",
+    "position_partition": "For each aligned row: prefix before the unique this/that cue; cue; post-cue/pre-subject token(s); subject determiner at query-1; self at query. These five groups exactly partition positions 0..query.",
+    "arms": ["base", "prefix", "cue", "post_cue", "subject_determiner", "self", "cue_suffix", "subject_suffix", "complete_mlp8", "target_shared_resid18"],
+    "target": "The released cDAS natural coefficient times its temporal-Q8 projected resid18 axis.",
+    "price": {"model_forwards_max": 12, "example_evaluations_max": 768, "fit_updates": 0, "transformer_backwards": 0}
+  },
+  "predictions": {
+    "pred_a_exact_authority_partition_identity_coverage_and_price": "Capability selection, one-cue alignment, exact partition, native/base identities, finite records, and price pass.",
+    "pred_b_complete_mlp8_transfers_to_fresh_v6": "Complete MLP8 predicts target behavior with cosine >=0.90 and relative RMSE <=0.50, and target Q8 coordinates with cosine >=0.70 and relative RMSE <=0.90.",
+    "pred_c_at_least_one_proper_position_group_is_material": "At least one of cue, post_cue, subject_determiner, or self carries >=25% of complete-MLP8 mean absolute behavior and has Q8 coordinate cosine >=0.50.",
+    "pred_d_causal_prefix_is_zero": "MLP8 donor/base output difference before the changed cue is exactly zero to 1e-6 and prefix intervention behavior is <=1e-6.",
+    "pred_e_small_source_union_beats_complete_mlp8_coordinate_error": "Either cue_suffix or subject_suffix has target-coordinate relative RMSE no worse than complete MLP8 while using a proper subset of positions."
+  },
+  "decision": "A passing proper source union becomes the natural shared-Q8 writer boundary for MLP8 Down/product weight splitting. If no proper union improves, split MLP8 output modes directly; do not reopen the full-module greedy sweep."
+}
