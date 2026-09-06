@@ -6,6 +6,8 @@ receive exact per-row semantic positions; no intervention replaces a whole
 sequence or assumes recipient and donor lengths are equal.
 """
 
+# BQGATE: LIBRARY
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -375,9 +377,29 @@ class Bilin18TorchBackend:
         capture: bool,
         patch_site: kernel.SiteRef | None = None,
         patch_heads: tuple[int, tuple[int, ...]] | None = None,
+        patch_sites: Sequence[str] = (),
+        patch_head_groups: Mapping[int, Sequence[int]] | None = None,
         donor_cache: Mapping[tuple[str, str], object] | None = None,
     ) -> BatchOutput:
         torch, F, model = self.torch, self.F, self.model
+        selected_sites = set(patch_sites)
+        legacy_head_site = (patch_site.site_id if patch_site is not None
+                            and ":head:" in patch_site.site_id else None)
+        if patch_site is not None and legacy_head_site is None:
+            selected_sites.add(patch_site.site_id)
+        selected_head_groups = {int(layer): tuple(heads)
+                                for layer, heads in (patch_head_groups or {}).items()}
+        if patch_heads is not None:
+            if patch_heads[0] in selected_head_groups:
+                raise ProducerError("head layer declared twice")
+            selected_head_groups[patch_heads[0]] = patch_heads[1]
+        valid_whole_sites = ({"resid:00"}
+            | {f"{kind}:{layer:02d}" for kind in ("attn", "mlp") for layer in range(18)}
+            | {f"resid:{boundary:02d}" for boundary in range(1, 19)})
+        if (not selected_sites <= valid_whole_sites
+                or any(not 0 <= layer < 18 for layer in selected_head_groups)
+                or any(f"attn:{layer:02d}" in selected_sites for layer in selected_head_groups)):
+            raise ProducerError("multi-component patch contains an invalid or overlapping site")
         tokens, lengths = self._tensor_batch(batch)
         captured: dict[tuple[str, str], object] = {}
         with torch.no_grad():
@@ -385,8 +407,8 @@ class Bilin18TorchBackend:
             x0, v1 = x, None
             if capture:
                 self._save(captured, batch, "resid:00", x)
-            if patch_site is not None and patch_site.site_id == "resid:00":
-                x = self._replace(x, batch, patch_site.site_id, donor_cache or {})
+            if "resid:00" in selected_sites:
+                x = self._replace(x, batch, "resid:00", donor_cache or {})
             for layer, block in enumerate(model.transformer.h):
                 live = block.lambdas[0] * x + block.lambdas[1] * x0
                 preprojection: dict[str, object] = {}
@@ -394,20 +416,18 @@ class Bilin18TorchBackend:
                 def c_proj_pre(_module, arguments):
                     value = arguments[0]
                     preprojection["value"] = value
-                    if patch_heads is not None and patch_heads[0] == layer:
+                    if layer in selected_head_groups:
                         return (
                             self._replace_heads(
-                                value, batch, layer, patch_heads[1], donor_cache or {}
+                                value, batch, layer, selected_head_groups[layer], donor_cache or {}
                             ),
                         ) + tuple(arguments[1:])
-                    prefix = f"attn:{layer:02d}:head:"
-                    if patch_site is None or not patch_site.site_id.startswith(prefix):
-                        return None
-                    return (
-                        self._replace_head(
-                            value, batch, patch_site.site_id, donor_cache or {}
-                        ),
-                    ) + tuple(arguments[1:])
+                    if legacy_head_site is not None \
+                            and legacy_head_site.startswith(f"attn:{layer:02d}:head:"):
+                        return (
+                            self._replace_head(value, batch, legacy_head_site, donor_cache or {}),
+                        ) + tuple(arguments[1:])
+                    return None
 
                 handle = block.attn.c_proj.register_forward_pre_hook(c_proj_pre)
                 try:
@@ -423,22 +443,21 @@ class Bilin18TorchBackend:
                             captured, batch, f"attn:{layer:02d}:head:{head:02d}",
                             value[..., head * width:(head + 1) * width],
                         )
-                if patch_site is not None and patch_site.site_id == f"attn:{layer:02d}":
+                if f"attn:{layer:02d}" in selected_sites:
                     attention = self._replace(
-                        attention, batch, patch_site.site_id, donor_cache or {}
+                        attention, batch, f"attn:{layer:02d}", donor_cache or {}
                     )
                 x = live + attention
                 mlp = block.mlp(F.rms_norm(x, (model.config.n_embd,)))
                 if capture:
                     self._save(captured, batch, f"mlp:{layer:02d}", mlp)
-                if patch_site is not None and patch_site.site_id == f"mlp:{layer:02d}":
-                    mlp = self._replace(mlp, batch, patch_site.site_id, donor_cache or {})
+                if f"mlp:{layer:02d}" in selected_sites:
+                    mlp = self._replace(mlp, batch, f"mlp:{layer:02d}", donor_cache or {})
                 x = x + mlp
                 if capture:
                     self._save(captured, batch, f"resid:{layer + 1:02d}", x)
-                if patch_site is not None \
-                        and patch_site.site_id == f"resid:{layer + 1:02d}":
-                    x = self._replace(x, batch, patch_site.site_id, donor_cache or {})
+                if f"resid:{layer + 1:02d}" in selected_sites:
+                    x = self._replace(x, batch, f"resid:{layer + 1:02d}", donor_cache or {})
             logits = 30.0 * torch.tanh(
                 model.lm_head(F.rms_norm(x, (model.config.n_embd,))) / 30.0
             )
@@ -480,6 +499,25 @@ class Bilin18TorchBackend:
             capture=False,
             patch_heads=(layer, selected),
             donor_cache=donor_cache,
+        )
+
+    def patched_components(
+        self,
+        batch: ModelBatch,
+        *,
+        head_groups: Mapping[int, Sequence[int]] | None = None,
+        sites: Sequence[str] = (),
+        donor_cache: Mapping[tuple[str, str], object],
+    ) -> BatchOutput:
+        """Patch an exact set of full modules/residuals and head groups jointly.
+
+        This is the compositional counterpart to ``patched`` and
+        ``patched_heads``. It performs one forward pass, replaces only declared
+        semantic positions, and rejects overlapping whole-attention/head edits.
+        """
+        return self._forward(
+            batch, capture=False, patch_sites=tuple(sites),
+            patch_head_groups=head_groups or {}, donor_cache=donor_cache,
         )
 
 

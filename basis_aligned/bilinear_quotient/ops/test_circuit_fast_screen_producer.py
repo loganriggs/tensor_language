@@ -311,6 +311,28 @@ def test_real_backend_multi_head_helper_changes_only_declared_slices() -> None:
         backend._replace_heads(state, batch, 4, (0, 0), cache)
 
 
+def test_joint_component_api_forwards_exact_declarations() -> None:
+    backend = object.__new__(producer.Bilin18TorchBackend)
+    observed = {}
+
+    def forward(batch, **kwargs):
+        observed["batch"] = batch
+        observed.update(kwargs)
+        return "sentinel"
+
+    backend._forward = forward
+    batch = object()
+    donor = {("row", "site"): object()}
+    output = backend.patched_components(
+        batch, head_groups={8: (1,), 11: (3, 5)},
+        sites=("mlp:04", "mlp:08"), donor_cache=donor)
+    assert output == "sentinel"
+    assert observed == {"batch": batch, "capture": False,
+                        "patch_sites": ("mlp:04", "mlp:08"),
+                        "patch_head_groups": {8: (1,), 11: (3, 5)},
+                        "donor_cache": donor}
+
+
 def test_import_and_dryrun_have_no_torch_fastload_or_cuda_access(monkeypatch) -> None:
     tree = ast.parse(SOURCE.read_text())
     imports = {
