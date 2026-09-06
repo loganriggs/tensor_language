@@ -1,0 +1,22 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_closer_absolute_term_program_v1",
+  "created_utc": "2026-09-06T00:38:00Z",
+  "purpose": "Test whether three closer-conditioned absolute L13H8 opener-term prototypes can replace the recipient opener term during an edit, removing native opener-term construction rather than merely adding a displacement.",
+  "prior_art_search": {
+    "result": "The six-vector program adds a displacement to each prompt's native opener term. Earlier pair-centered contrast removal transferred opener state but failed selective necessity; it did not export or prospectively test closer-conditioned absolute terms. The new program is therefore high-risk and must retain that negative result rather than reinterpret it.",
+    "select_rows": {"path": "pending_opener_three_value_fresh_rows_rung545.json", "sha256": "07b64d2e48a6ca67685c81d3475a064daba612d6fe7ff233efd5b6c157b940a9", "split": "SELECT"},
+    "fresh_rows": {"path": "circuits/prior_art/bracket_absolute_term_fresh_corpus_v1_rows.json", "sha256": "92ee66ce0a4bf084789bf0c2af394a107a49df19dbf3c9fbfbebbe467d873c76", "status": "rows_frozen_outcomes_unopened", "rows": 36, "endpoints": 72},
+    "negative_pair_centered_result": {"path": "circuits/fast_screens/bracket_l13h8_pair_centered_open_term_final_test_v1_result.json", "sha256": "e64093354428d62eecd268360a79e8ef6549437babdaf9897d853134a44000f6", "retained_verdict": "transfer_without_selective_pair_centered_necessity"}
+  },
+  "construction": "On SELECT target endpoints only, average the exact native p*u L13H8 semantic-opener term separately for closer IDs 1, 8, and 60. On each untouched fresh endpoint, replace the native opener term directly with the prototype for the requested donor closer; do not add it to or inspect the recipient term.",
+  "predictions": {
+    "pred_a_temporal_seal_export_and_instrument": "Exactly three 1,152-D prototypes are exported from balanced SELECT endpoints before any fresh outcome; fresh native replay error is at most 1e-4 and native accuracy is at least 0.85 overall and per ordered pair.",
+    "pred_b_absolute_program_reproduces_exact_swap": "Against exact within-row donor-term replacement, the absolute program reaches cosine at least 0.65, relative L2 at most 0.90, norm ratio 0.25 to 2.0, and sign agreement at least 0.75.",
+    "pred_c_each_ordered_pair_recurrence": "Every ordered pair has 12 endpoints, positive donorward program effect fraction at least 0.75, and sign agreement with exact swap at least 0.70.",
+    "pred_d_native_opener_term_dependency_removed_narrowly": "Edited endpoints use no recipient native opener term in their replacement value. This removes only construction of the patched L13H8 opener term; all other upstream context and the native suffix remain required.",
+    "pred_e_fixed_price": "Export plus validation uses four physical forwards and 360 example evaluations, with three stored vectors (3,456 FP32 scalars), zero fits, backwards, or updates."
+  },
+  "terminal_rule": "program_screen if all gates pass; capability_stop if sealed fresh native capability fails; null if capable but absolute transfer fails; invalid on hash, balance, replay, or price mismatch.",
+  "closed_claims": ["selective necessity", "whole upstream replacement", "native suffix replacement for causal execution", "full-logit prediction", "whole-model replacement"]
+}
