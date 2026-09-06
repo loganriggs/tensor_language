@@ -322,3 +322,14 @@ passes occur. The next falsification is a sealed v11 construction: capability fi
 causal-suffix/value-plus-opposing-pattern operation. This is also the relevant test of DAS
 memorization—reuse of the operation and weight-defined Q8 interface, not training loss on another
 answer/foil complement.
+
+The sealed v11 falsification now passes without any optimization. On 63 capability-selected rows
+from new reference/near and dispatch/behind constructions, frozen Q8 retains 99.93%/94.68% of the
+full H3 causal behavior in A1/A2. The frozen subject+post-subject+self union retains 99.80%/100.16%
+of complete Q8 norm and 100.03%/100.32% of its behavior. The operation signature recurs: value
+transport contributes 105.21%/115.50%, pattern change opposes at -5.92%/-17.97%, interaction is
+only 0.75%/2.58%, and all pre-subject value coordinates are exactly zero. Closure is below 8e-6;
+there are no fits, gradients, or updates. This sharply reduces the memorization explanation for the
+Q8 circuit even though it does not rescue constrained DAS as an identification method. The temporal
+line is now a transferable Tier-4 component-level circuit: its remaining frontier is cross-task
+state sharing and a finite causal-Hankel lower-bound/minimality test, not further within-task DAS.
