@@ -185,6 +185,40 @@ def mlp_writer_to_read_tensor(mlp, read_map):
             "score": score, "normalized_score": score / denominator if denominator > 0 else 0.0}
 
 
+def activation_conditioned_mlp_write(mlp, read_map, base_input, donor_input):
+    """Evaluate the exact read-contracted MLP donor-minus-base response.
+
+    Static tensor norms measure which writes are possible.  This contraction
+    evaluates which write is activated by a paired task distribution while
+    retaining the exact weight factorization.  Inputs may have any leading
+    dimensions followed by ``d_model``; the result has the same leading
+    dimensions followed by the read rank.
+    """
+    read = torch.as_tensor(read_map).float()
+    base, donor = torch.as_tensor(base_input).float(), torch.as_tensor(donor_input).float()
+    if hasattr(mlp, "Left") and hasattr(mlp, "Right") and hasattr(mlp, "Down"):
+        left = mlp.Left.weight.detach().float()
+        right = mlp.Right.weight.detach().float()
+        down = mlp.Down.weight.detach().float()
+    elif hasattr(mlp, "c_fc") and hasattr(mlp, "c_proj"):
+        left = mlp.c_fc.weight.detach().float()
+        right = left
+        down = mlp.c_proj.weight.detach().float()
+    else:
+        raise SubspaceWeightAtlasError("unsupported MLP weight factorization")
+    if (base.shape != donor.shape or base.ndim < 1 or base.shape[-1] != left.shape[1]
+            or left.shape != right.shape or down.shape[1] != left.shape[0]
+            or read.ndim != 2 or read.shape[1] != down.shape[0]
+            or not torch.isfinite(base).all() or not torch.isfinite(donor).all()
+            or not torch.isfinite(read).all()):
+        raise SubspaceWeightAtlasError("conditioned MLP inputs, factors, or read map are invalid")
+    base_hidden = (base @ left.T) * (base @ right.T)
+    donor_hidden = (donor @ left.T) * (donor @ right.T)
+    response = (donor_hidden - base_hidden) @ (read @ down).T
+    return {"response": response, "base_hidden": base_hidden,
+            "donor_hidden": donor_hidden, "read_down": read @ down}
+
+
 def mlp_subspace_tensor(mlp, source_basis, target_basis=None):
     """Return the exact quadratic weight tensor restricted between residual subspaces.
 

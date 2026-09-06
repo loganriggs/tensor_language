@@ -102,3 +102,24 @@ def test_complete_mlp_writer_tensor_replays_readout_and_is_gauge_invariant():
     rotated = subject.mlp_writer_to_read_tensor(mlp, rotation @ read)
     assert abs(result["score"] - rotated["score"]) < 1e-4
     assert abs(result["normalized_score"] - rotated["normalized_score"]) < 1e-7
+
+
+def test_activation_conditioned_mlp_write_is_exact_and_read_gauge_invariant():
+    g = torch.Generator().manual_seed(23)
+    mlp = type("MLP", (), {})()
+    mlp.Left = Linear(torch.randn(7, 5, generator=g))
+    mlp.Right = Linear(torch.randn(7, 5, generator=g))
+    mlp.Down = Linear(torch.randn(5, 7, generator=g))
+    read = torch.randn(3, 5, generator=g)
+    base = torch.randn(2, 4, 5, generator=g)
+    donor = torch.randn(2, 4, 5, generator=g)
+    result = subject.activation_conditioned_mlp_write(mlp, read, base, donor)
+    direct = torch.einsum("ad,btd->bta", read,
+        torch.einsum("dh,bth->btd", mlp.Down.weight,
+            (donor @ mlp.Left.weight.T) * (donor @ mlp.Right.weight.T)
+            - (base @ mlp.Left.weight.T) * (base @ mlp.Right.weight.T)))
+    assert torch.allclose(result["response"], direct, atol=1e-5)
+    rotation = random_basis(3, 3, g)
+    rotated = subject.activation_conditioned_mlp_write(mlp, rotation @ read, base, donor)
+    assert torch.allclose(torch.linalg.vector_norm(result["response"], dim=-1),
+                          torch.linalg.vector_norm(rotated["response"], dim=-1), atol=1e-5)
