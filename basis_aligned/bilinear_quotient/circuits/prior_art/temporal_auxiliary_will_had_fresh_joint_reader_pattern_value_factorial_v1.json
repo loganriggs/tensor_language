@@ -1,0 +1,55 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_joint_reader_pattern_value_factorial_v1",
+  "created_utc": "2026-09-06T15:23:00Z",
+  "question": "Which exact attention operation carries the block8H1 writer response through the jointly sufficient block9 H1/H4 and block11 H3 subject readers: routing-pattern change, value change under the base pattern, or their interaction?",
+  "authority": {
+    "capability_manifest_sha256": "d59fdc0659f7db4632607a5fae860887bdf0f69f03af659b02ffcd6cc8c3be59",
+    "two_reader_response_program_sha256": "3fe8a3e7edf8dc24f7977d0ce4a37f564cac35211b2a2043e76336ea33e023cb",
+    "older_local_l9_value_result_sha256": "52026d5df5994c75501ea005078fd649cf5685a5ac03f9ae680f87623b2ba4e7",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "attention_factor_library_sha256": "608ae6bf74af96663ec022b907c53d371670a36e5d7ec4fd1667b3c6add58dfd",
+    "writer_mediation_library_sha256": "05d07578129db0cb8bf5e46d08e6cd6e9c2bb9c3883675586c83c3efd24b8fda"
+  },
+  "prior_art_search": {
+    "searched": [
+      "temporal_auxiliary_will_had_local_l9_value_reuse_v1",
+      "aspectual_tense_h1h4_carrier_pattern_value_factorial_v1",
+      "fresh_writer_block11h3_source_response_v1",
+      "fresh_two_reader_response_program_v1",
+      "AGENT_BOARD.md pattern/value/interaction"
+    ],
+    "relation": "The older L9 test found local value change carried 99% of a different original-cue intervention but did not test the fresh block8H1 writer response, block11H3, joint ordered reader installation, or the cross-reader operation. This is a new exact-operation composition test, not a repeat head search."
+  },
+  "frozen_design": {
+    "population": "the prospectively manifested 29 A1 and 30 A2 fresh row pairs capable on both sides",
+    "writer": "exact changed-cue source term of block8H1 installed at both subject-onset destinations",
+    "readers": "block9 H1/H4 and block11 H3, each at the final prediction query and restricted to the two subject-onset sources",
+    "factors": {
+      "pattern_on_base_value": "(P_changed-P_base) V_base",
+      "base_pattern_on_value_change": "P_base (V_changed-V_base)",
+      "pattern_value_interaction": "(P_changed-P_base)(V_changed-V_base)"
+    },
+    "arms": "all eight exact subsets of the three factors, with each chosen factor installed at both reader layers in causal order",
+    "fit": "none",
+    "maximum_model_forwards": 48,
+    "maximum_example_evaluations": 1600,
+    "maximum_intervention_records": 472
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_factor_closure": "all authorities match; all selected rows are in the prospective manifest; attention reconstruction and P'V'-PV factor closure are <=1e-4",
+    "pred_b_full_factor_response_recurs": "the three-factor joint response retains [0.85,1.15] of the previously captured writer-free two-reader response in A1 and A2, with >=0.75 donorward rows",
+    "pred_c_base_pattern_value_change_dominates": "the value-change singleton retains >=0.70 of the full-factor response in both A1 and A2 and has the largest Shapley value in both",
+    "pred_d_routing_and_interaction_are_secondary": "pattern-only and interaction-only each have absolute retention <=0.30 in both families; pattern+value retains >=0.85",
+    "pred_e_exact_zero_fit_price": "no fitting, backwards, model updates, rank selection, or post-result row selection; declared price and record coverage are exact"
+  },
+  "terminal_rules": {
+    "invalid": "authority, capability, exactness, recurrence, coverage, or price fails",
+    "screen": "all five predictions pass: a shared value-update reader operation is identified",
+    "null": "the exact joint response recurs but the value-dominance or secondary-factor account fails"
+  },
+  "interpretation_limits": [
+    "This splits a fixed causal path by exact attention algebra; it does not search heads or optimize a subspace.",
+    "A pass identifies the operation used by this fresh cue writer. Cross-cue stability remains a separate prospective test.",
+    "A null preserves the exact reader path while rejecting a shared value-update simplification."
+  ]
+}

@@ -10,10 +10,65 @@ from jacclust.tt_model import apply_rotary_emb, einsum
 
 
 GROUPS = ("prefix", "cue", "local")
+RESPONSE_FACTORS = (
+    "pattern_on_base_value",
+    "base_pattern_on_value_change",
+    "pattern_value_interaction",
+)
 
 
 class AttentionSourceDestinationError(RuntimeError):
     pass
+
+
+def attention_response_factor_deltas(
+    base_capture,
+    changed_capture,
+    destinations,
+    positions_by_row,
+    *,
+    selected_heads,
+):
+    """Exact ``P'V' - PV`` decomposition for declared source-to-destination terms.
+
+    Returns three full head-output-shaped delta tensors whose sum is
+    ``(P'-P)V + P(V'-V) + (P'-P)(V'-V)`` on the selected terms and zero elsewhere.
+    They can be installed singly or jointly by adding them to a copied base capture and using
+    ``intervene_ordered_head_output_deltas``.  This is an operation split, not a low-rank fit.
+    """
+    required = {"pattern", "value", "head_output"}
+    if any(not required.issubset(capture) for capture in (base_capture, changed_capture)):
+        raise AttentionSourceDestinationError("attention response capture is incomplete")
+    if (base_capture["pattern"].shape != changed_capture["pattern"].shape
+            or base_capture["value"].shape != changed_capture["value"].shape
+            or base_capture["head_output"].shape != changed_capture["head_output"].shape):
+        raise AttentionSourceDestinationError("base and changed capture shapes differ")
+    batch, length, head_count, _head_dim = base_capture["head_output"].shape
+    destinations = tuple(int(value) for value in destinations)
+    positions = tuple(tuple(int(value) for value in row) for row in positions_by_row)
+    heads = tuple(int(value) for value in selected_heads)
+    if (len(destinations) != batch or len(positions) != batch or not heads
+            or len(heads) != len(set(heads)) or any(not 0 <= head < head_count for head in heads)
+            or any(not 0 <= destination < length for destination in destinations)
+            or any(not row or len(row) != len(set(row)) for row in positions)
+            or any(any(not 0 <= source <= destination for source in row)
+                   for row, destination in zip(positions, destinations))):
+        raise AttentionSourceDestinationError("response factor coverage is invalid")
+    output = {
+        factor: torch.zeros_like(base_capture["head_output"], dtype=torch.float32)
+        for factor in RESPONSE_FACTORS
+    }
+    for index, (destination, sources) in enumerate(zip(destinations, positions)):
+        for head in heads:
+            p0 = base_capture["pattern"][index, head, destination, list(sources)].float()
+            p1 = changed_capture["pattern"][index, head, destination, list(sources)].float()
+            v0 = base_capture["value"][index, list(sources), head].float()
+            v1 = changed_capture["value"][index, list(sources), head].float()
+            dp, dv = p1 - p0, v1 - v0
+            output["pattern_on_base_value"][index, destination, head] = (dp[:, None] * v0).sum(0)
+            output["base_pattern_on_value_change"][index, destination, head] = (p0[:, None] * dv).sum(0)
+            output["pattern_value_interaction"][index, destination, head] = (dp[:, None] * dv).sum(0)
+    return output
 
 
 def cue_partition(base_ids, donor_ids, destination):
