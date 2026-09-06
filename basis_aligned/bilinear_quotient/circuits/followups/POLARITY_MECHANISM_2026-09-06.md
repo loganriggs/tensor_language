@@ -55,7 +55,7 @@ interchange at the final position, `circuit_unit_greedy.forward_units`.
 | set + rank | `unit_polarity_rank_seeds_v22_result.json` | rank 2/4/8 × seeds; subspace/complement/random |
 | Tier-2 char. | `unit_tier2_characterization_v23_result.json` | direction, magnitude, competitor, off-target |
 | off-target | `unit_tier2_off_target_v24_result.json` | overshoot, competitor stability, random calibration |
-| stack | `unit_pattern_freeze_v35_result.json` | mlp 08–11 stack; attention patterns frozen keep 99% |
+| stack | `unit_pattern_freeze_v35_result.json` | mlp 08–11 stack; attention patterns frozen keep 99% (HALF-freeze, see caveats) |
 | composition | `unit_stack_composition_v36_result.json` | lone first layer slope 1.69; interaction share 0.33 |
 | terms | `unit_linear_write_terms_v37_result.json` | cross term slope 1.60 with ‖w‖ slope 1.02 |
 | norm control | `unit_norm_gain_control_v38_result.json` | rms-gain explanation refuted (rest share 0.07) |
@@ -63,6 +63,11 @@ interchange at the final position, `circuit_unit_greedy.forward_units`.
 | specificity | `unit_gate_specificity_v40_result.json` | (α,β) surface exactly bilinear R² 1.000; random inert |
 | A2 + real write | `unit_gate_a2_and_real_write_v41_result.json` | A2 share 0.48, MLP-all 79%; real slope 2.16→1.68 |
 | expansion | `unit_product_expansion_v42_result.json` | identity ≤5e-4; pairwise replay within 0.0005 of b |
+| MLP locus | `unit_downstream_linearisation_v43_result.json` | MLP-in-u linear downstream leaves 0.22 of b; single layers 12–17 add ~0.10–0.28 each, floor-corrected sum 0.78 (additive) |
+| attn locus | `unit_attention_product_locus_v44_result.json` | downstream attention half-freeze removed nothing (superseded by v48's full freeze) |
+| readout | `unit_readout_curvature_v45/46_result.json` | v45 instrument bug (tanh on margin) repaired in v46; full downstream linearisation left 0.85 of the floor |
+| stack attn | `unit_stack_attention_gate_v47_result.json` | + stack attention (c_q/c_k) linear/frozen: 0.36 of the floor unexplained (half-freeze) |
+| closure | `unit_full_freeze_v48_result.json` | all four projections (q,k,q2,k2) frozen in stack and downstream: I_lin(F3) = 0.00000 — the gate is exactly accounted for |
 
 ## Tensor-native form
 
@@ -83,6 +88,14 @@ Write Δ = Σ_heads (donor − base head output) at the final position (rank ≤
    b within 0.0005 of 0.0251 (v42 `pred_d` True). Freezing mlp 12–17 removes 79% of the gate;
    freezing downstream attention removes 29% (v39). Random write: b = −0.001; random
    norm-matched vector: 0.003–0.004 (v40).
+4. Complete decomposition of b (v43–v48, all shares of b = 0.0251; rec units in v48):
+   MLP-formed products in mlp 12–17 0.78 (v43, additive over layers) · stack-attention
+   pattern products (attn 09–11, q·k and q2·k2 both live) 0.09 · downstream attention
+   patterns ≈0.02 · block-input rms curvature −0.12 · final readout tanh curvature 0.23.
+   Sum 1.00; with all of these linearised/frozen the offline linear interaction is exactly
+   0 (v48 `pred_a_complete` True on all three behaviours). bilin18's attention is
+   `CausalBilinearSelfAttention`: pattern = (q·k/D)(q2·k2/D), causal-masked, not
+   row-normalised; freezing only c_q/c_k (v35–v47) is a half-freeze.
 
 Execution price: one forward per row per arm; ~400 forwards per screen; no fitting except the
 rank grid in v22 (120 steps, ranks 2/4/8, seeds 1/2).
@@ -105,7 +118,12 @@ second construction family, not a held-out split. No frozen gate has been evalua
   families; they carry near-orthogonal directions per behaviour (hub-head multiplexing), so
   component ownership is not exclusive.
 - The conversion stack mlp 08–11 is the same stack the voice set uses (mlp 07–11 there).
-- ~30% of the product gate sits in layers 12–17 attention and is unattributed to heads.
+- v48 (full freeze) puts only ≈0.02 of b in downstream attention patterns and 0.09 in the
+  stack attention patterns (attn 09–11); the earlier "~30% in layers 12–17 attention" (v39)
+  was measured by whole-layer freezing that also moved the value path. Head attribution of
+  the stack term: v49 (queued).
+- v35's "patterns frozen keep 99%" and v44's null froze only c_q/c_k (q2/k2 live); both are
+  qualitatively unchanged by v48 for the downstream layers but should be cited as half-freezes.
 - v32's earlier "additive" verdict for this set was a normaliser error (share ÷ whole recovery
   instead of ÷ conversion); it is superseded by v38–v42 and should not be cited.
 
