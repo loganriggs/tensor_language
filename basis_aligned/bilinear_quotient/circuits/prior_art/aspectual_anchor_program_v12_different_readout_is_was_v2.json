@@ -1,0 +1,35 @@
+{
+  "schema": "aspectual_anchor_program_v12_different_readout_is_was_prior_art_v2",
+  "candidate_id": "aspectual_anchor.has_vs_had.program_v12_different_readout_is_was_v2",
+  "created_utc": "2026-09-06T08:15:00Z",
+  "question": "On the capability-qualified but otherwise fully retained disjoint v2 population, does the unchanged v12 has/had reader and q writer causally reuse for is/was?",
+  "authority": {
+    "capability_prior_sha256": "bde8dfd9adfa0ce8aa2b54e4eb0d025f3ee167885216216e8531c2f5a53a5b8e",
+    "capability_result_sha256": "f76fbcd6174cc9e8e3f77352ee5461815156cdae421ecc43a0e0c3576b63af7e",
+    "builder_sha256": "4ed62d06e2ffe5c471efc70eeaa35c7524a66923f19c64c803faef7200d4a62f",
+    "rows_sha256": "fef8174cd57a1382d87ae47ddb06ddebd8059e96e4f71472525a066a3048f911",
+    "program_v12_release_sha256": "ed6afb3455bf5bfeea6e36f65ce33e9199290cb26540ee94da2c42accc785e7c",
+    "rank1_result_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "rank1_basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"
+  },
+  "frozen_before_capability": {
+    "program": "v12 fixed has/had resid10 local read, four direction-affine coefficients, and q write at resid18; is/was IDs only score the fixed write.",
+    "bars": {"A1_recovery_min": 0.25, "A2_recovery_min": 0.25, "P_reflection_min": 0.25, "direction_fraction_min": 0.75, "C_max": 0.20},
+    "population": "All 64 v2 rows; no row is selected or dropped after capability."
+  },
+  "predictions": {
+    "pred_a_authority_population_capability_and_exact_head": "All hashes, passing capability receipt, all 64 rows, exact head, and basis pass.",
+    "pred_b_frozen_cross_readout_program": "Every alpha uses only the frozen v12 has/had resid10 read, direction, and coefficients; is/was IDs, final margin, donors, and outcomes cannot select gain.",
+    "pred_c_is_was_A_transfer": "A1 and A2 each reach mean recovery >=0.25 and direction fraction >=0.75.",
+    "pred_d_is_was_P_generalization": "P reaches mean reflection >=0.25 and direction fraction >=0.75.",
+    "pred_e_C_selectivity": "C mean normalized unrelated effect <=0.20.",
+    "pred_f_exact_coverage_and_price": "All 64 rows yield 64 interventions within 21 forwards, 328 examples, 224 pairs, zero grids/backwards/updates, and four inherited parameters."
+  },
+  "terminal": {
+    "screen": "A-F pass: identify cross-readout causal reuse on a capability-qualified disjoint population.",
+    "null": "Instrument/capability/coverage pass but reuse effects fail: retain has/had-specific v12 scope.",
+    "invalid": "Authority, capability, head, basis, gain independence, or coverage fails."
+  },
+  "circuit_targets": ["held-out and OOD prediction", "selective manipulation", "composition and reuse", "stable identification"],
+  "price": {"counted_forwards_max": 21, "example_evaluations_max": 328, "selected_head_pair_evaluations": 224, "grid_evaluations": 0, "model_backwards": 0, "model_updates": 0, "inherited_fit_parameters": 4}
+}

@@ -15293,3 +15293,7 @@ Claimed a disjoint stronger-cue `is`/`was` authority using At this/that moment p
 ### 2026-09-06T08:15Z — Codex — staged is/was capability gate passes; causal outcomes remain sealed
 
 All eight population cells pass on the disjoint stronger-cue authority: A1 0.875/0.938, A2 1.0/1.0, P 1.0/0.938, C 0.938/1.0 by direction. Exact final-head and exact 128-side coverage pass in nine forwards/136 examples, with zero intervention; `causal_outcomes_opened=false`. This authorizes the causal follow-up whose v12 program and A/P/C bars were frozen in the capability prior. The staged gate saved the full causal cost when needed and introduced no row selection.
+
+### 2026-09-06T08:17Z — Codex — hourly circuit review passes; qualified reuse intervention ready
+
+Hourly review written at `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-06_0817.md`. Ten terminal receipts/releases since 07:20 give roughly five-to-six-minute median cadence; circuit focus, ceremony budget, and novelty/lesson gate all pass. The hour produced calibrated dose response, prospective upstream read-compute-write, v12, a reader/writer split null, two honest capability boundaries, and the capability-first repair. Highest-information next move remains the now-authorized v2 cross-readout intervention; its program/bars predate capability. One dry-run-only static authority key was added before model access, with the first claim abandoned and the unchanged design reclaimed. Next three-hour math review remains due near 08:30.
