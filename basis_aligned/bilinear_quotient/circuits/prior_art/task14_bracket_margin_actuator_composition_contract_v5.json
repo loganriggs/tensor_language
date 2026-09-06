@@ -1,0 +1,36 @@
+{
+  "schema": "task14_bracket_margin_actuator_composition_contract_prior_art_v5",
+  "candidate_id": "cross_behavior.task14_bracket_margin_actuator_composition_contract_v5",
+  "created_utc": "2026-09-06T01:02:35Z",
+  "data_status": "FORMAL_EXECUTABLE_CONTRACT_AUDIT; no new empirical outcomes",
+  "purpose": "Give the v4 baseline-conditioned margin actuator explicit compositional state semantics without falsely assuming that donorward effects add across sequential edits.",
+  "authority": {
+    "task14_bracket_counterfactual_margin_actuator_v4_artifact.json": "85c5cc0549421fc1575d96ce621d0677ea4b0cc2d154b2c0bf7af90f4148bd4c",
+    "task14_bracket_counterfactual_margin_actuator_v4_result.json": "fb3520b7bc77720adcda6d8a87066061878462136a60bc7d866bd2de056f2311"
+  },
+  "construction": {
+    "state": "immutable native baseline margin plus zero or one typed edit specification per independent example slot",
+    "evaluation": "always evaluate baseline plus the currently selected frozen effect; never sum donorward effects",
+    "same_slot_composition": "right-biased overwrite (last edit wins)",
+    "different_slot_composition": "product update (edits commute)",
+    "no_edit": "identity",
+    "extra_parameters": 0
+  },
+  "predictions": {
+    "pred_a_authority_and_complete_domain": "Hashes match and the exhaustive domain contains ten Task14 edits, six bracket edits, three bracket self-pair identities, and explicit Task14 no-edit.",
+    "pred_b_identity_and_idempotence": "No-edit is exact identity and applying the same typed edit twice gives the same state and margin as applying it once for every edit and multiple finite baselines.",
+    "pred_c_last_write_wins": "For every valid ordered pair of same-slot edits, composition equals direct evaluation of the second edit from the immutable baseline.",
+    "pred_d_independent_commutativity": "For every cross-slot Task14/bracket edit pair, either application order produces bit-identical typed state and margins.",
+    "pred_e_no_hidden_additivity_or_price": "The implementation contains no effect-summing path, stores no new learned scalar, performs one lookup and one addition per edited slot, and rejects malformed or cross-typed edits."
+  },
+  "terminal": {
+    "screen": "All five predictions pass. Release as an exact software/tensor composition contract around the empirically screened v4 effects.",
+    "null": "Any failed algebra, domain, rejection, or price gate rejects composability until the interface is corrected without changing frozen effects."
+  },
+  "closed_claims": [
+    "empirical causal superposition of sequential internal interventions",
+    "additivity of donorward effects",
+    "whole-model composition",
+    "native baseline generation"
+  ]
+}
