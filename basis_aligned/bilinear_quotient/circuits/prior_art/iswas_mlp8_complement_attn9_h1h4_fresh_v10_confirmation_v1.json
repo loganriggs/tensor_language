@@ -1,0 +1,28 @@
+{
+  "schema": "iswas_mlp8_complement_attn9_h1h4_fresh_v10_confirmation_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_complement_attn9_h1h4_fresh_v10_confirmation_v1",
+  "registered_utc": "2026-09-06T21:34:00Z",
+  "question": "Do the v6-selected attention9 heads 1+4 jointly convert the weight-defined MLP8 post-cue complement into shared Q8 on a construction- and occupation-disjoint capable v10 bank?",
+  "authority": {
+    "capability_result_sha256": "77e3c5b6e47dc9416133643f422c130427f90fed0746d26f211f54b681718b3d",
+    "capability_runner_sha256": "d96b7e0870172224085cbe0dc033db9e2565ac0dd2b9b73f41e584189fed7f63",
+    "builder_sha256": "13e7954cde01b6b7d826915fc2ae02d4b9e16975150cf73aa5e0a1f906c1b757",
+    "selection_atlas_sha256": "2c7e19d53f6123491de20882c04f3781ac5c81531f6dfc8ca9137c53b96a01a8",
+    "frozen_heads": [1, 4]
+  },
+  "frozen_design": {
+    "population": "Exactly the 13 A1 and 14 A2 v10 rows listed as jointly capable by the capability-only manifest.",
+    "actuation": "Recompute the zero-fit MLP8 post-cue hidden-product component orthogonal to row(S^T W_Down) for each new pair and install it in base.",
+    "removals": "Remove H1, H4, H1+H4, or all nine attention9 heads by restoring their native-base pre-c_proj response at every causal position.",
+    "target": "The frozen temporal-Q8 projection of the released is/was selective axis supplies an independent final-state and answer-margin target; it never selects a head.",
+    "maximum_price": {"model_forwards": 9, "example_evaluations": 243, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_manifest_replay_self_clamp_finiteness_and_price": "All hashes, exact manifest IDs, source partition, native self-clamp, finiteness and price pass.",
+    "pred_b_indirect_complement_route_transfers": "Live complement behavior has target cosine at least 0.85 and mean absolute effect at least 0.05 in both panels; final-Q8 coordinate cosine is at least 0.70.",
+    "pred_c_h1h4_union_closes_attention9_conversion": "Relative to all-head removal, H1+H4 retains at least 0.75 absolute behavior and Q8 norm in both panels, with removed-effect and removed-Q8 cosine at least 0.90.",
+    "pred_d_both_heads_are_positive_material_members": "Each singleton removes at least 0.10 absolute behavior and 0.10 Q8 norm with positive signed behavior in both panels.",
+    "pred_e_zero_fit_weight_defined_interface": "No v10 outcome fits a subspace, mode, head, coefficient, or gain; there are no gradients or updates."
+  },
+  "decision": "Screen freezes H1+H4 as the transferable converter and licenses exact source pattern/value plus c_v/c_proj tensor compilation. Null retains attention9 as a module-level converter without a stable two-head program."
+}
