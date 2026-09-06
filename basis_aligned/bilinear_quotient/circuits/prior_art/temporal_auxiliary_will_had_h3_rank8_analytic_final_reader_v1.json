@@ -1,0 +1,25 @@
+{
+  "schema": "temporal_auxiliary_h3_rank8_analytic_final_reader_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_rank8_analytic_final_reader_v1",
+  "registered_utc": "2026-09-06T20:11:00Z",
+  "question": "Can the per-row causal margin effect of the confirmed H3 rank-eight route be predicted by contracting upstream H3 coordinates with an explicit eight-coordinate reader derived from output weights and the analytic final-readout Jacobian?",
+  "authority": {
+    "direct_residual_route_sha256": "571a3d0d22fe159adbc0e37825873b4dda25dda99c46b7a47a9cc6a260de471f",
+    "status": "The zero-fit H3-output-weight residual program matches dynamic downstream removal within 2.86e-6 logits and retains 99.16%/103.03% of rank8 behavior.",
+    "relation": "new_weight_property"
+  },
+  "frozen_factorization": {
+    "upstream_coordinates": "For each row, c = (H3_writer-H3_base) @ Q8 at the answer query.",
+    "residual_modes": "For each Q8 column, embed it in H3's slice, apply exact F.linear with attention11.c_proj.weight, and multiply by the frozen block12--17 residual skip gain.",
+    "downstream_reader": "At the native base resid18 state, analytically differentiate 30*tanh(lm_head(rms_norm(x))/30) for the row's answer-minus-foil margin and contract that gradient with each residual mode, producing eight reader coordinates.",
+    "prediction": "The scalar causal effect is the dot product of upstream coordinates and downstream reader coordinates. No task labels, targets, scalar gains, regressions, or gradients through the transformer are used.",
+    "price_max": {"model_forwards": 12, "example_evaluations": 400, "records": 63, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_exact_formula_coverage_and_price": "Hashes, direct-route replay, finite complete coverage, analytic dimensions, and price pass.",
+    "pred_b_linearized_effect_cosine_at_least_point95": "Predicted versus exact per-row direct-route margin effects have cosine at least 0.95 in both panels.",
+    "pred_c_linearized_relative_rmse_at_most_point25": "RMSE divided by exact-effect RMS is at most 0.25 in both panels.",
+    "pred_d_no_single_fixed_reader_coordinate_dominates": "No one of the eight mean-absolute coordinate contributions exceeds 80% of their sum in either panel; the reader remains a small distributed tensor interface rather than a hidden scalar axis."
+  },
+  "decision": "All predicates promote an explicit predictive writer-coordinate times weight-reader-coordinate tensor interface. If prediction quality fails, preserve the exact finite residual actuator but treat final normalization/readout as nonlinear and test an exact finite eight-mode factorial. If only distribution fails, simplify to the dominant weight-derived coordinate and confirm it prospectively."
+}
