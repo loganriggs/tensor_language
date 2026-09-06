@@ -1,0 +1,12 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_auxiliary_direct_skip_weight_compiler_v2",
+  "checked_utc": "2026-09-06T23:24:00Z",
+  "decision": "formula_only_repair",
+  "invalid_predecessor": "iswas_mlp8_auxiliary_direct_skip_weight_compiler_v1",
+  "frozen_changes": [
+    "multiply the c_v delta by the checkpoint's literal (1-attention.lamb) value-mix coefficient",
+    "score pre-RMS propagation with a 0.01 absolute float32 bar while retaining 1e-5 normalized-current closure"
+  ],
+  "unchanged": "rows, clamps, arms, checkpoint tensors, causal metrics, materiality threshold, price, and zero-fit policy",
+  "interpretation": "V1 omitted a factor visibly present in the model equation and therefore did not instantiate its registered exact-value compiler. V2 is the only repair on these rows."
+}
