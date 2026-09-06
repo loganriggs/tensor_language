@@ -1,0 +1,53 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_artifact_v10",
+  "program_id": "aspectual_anchor.has_vs_had.transparent_path_program_v10",
+  "created_utc": "2026-09-06T06:24:00Z",
+  "parent_program": "aspectual_anchor.has_vs_had.transparent_path_program_v9",
+  "new_operation": {
+    "name": "donor_free_margin_reflection",
+    "equation": "alpha* = argmin_{alpha in linspace(-B,B,257)} |m_target,foil(x_base + alpha q) + m_target,foil(x_base)|",
+    "budget": 7833.8336181640625,
+    "budget_calibration": "1.25 times the maximum absolute carrier displacement on the eight frozen lexical-A1 basis-fit rows",
+    "basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39",
+    "runtime_inputs": ["base_resid18", "rank1_basis", "lm_head", "target_id", "foil_id"],
+    "forbidden_runtime_input": "confirmation donor activation"
+  },
+  "evidence": {
+    "source_result": "circuits/followups/aspectual_anchor_rank1_donor_free_margin_reflection_v1_result.json",
+    "source_sha256": "cb1275e1b9449c52254a05efa9932aeaa916a2722c8ee72717231d9121e957fb",
+    "A_recovery": {
+      "lexical_A1_heldout": 1.1190836036403162,
+      "lexical_A2": 1.0857816560749587,
+      "fresh_A1": 1.132705110321069,
+      "fresh_A2": 1.1713244502901692
+    },
+    "P_noun_shift_margin_reflection": {"lexical": 0.9952393909938151, "fresh": 0.9986408064580191},
+    "C_normalized_unrelated_effect": {"lexical": 0.011031758729177964, "fresh": 0.011031758729177964},
+    "qualification": "The lexical and fresh C builders instantiate the same canonical control texts, so the equal C numbers are a repeated control, not independent construction transfer."
+  },
+  "price": {
+    "stored_fit_scalars": 1153,
+    "stored_fit_vectors": 1,
+    "per_actuation_selected_head_evaluations": 257,
+    "requires_checkpoint_weights": true,
+    "requires_base_resid18": true,
+    "requires_confirmation_donor_activation": false,
+    "requires_target_and_foil_token_ids": true
+  },
+  "scope": {
+    "licensed": [
+      "target-guided has-to-had margin actuation from a base resid18 state",
+      "lexical held-out and two prospective construction families",
+      "noun-rewrite generalization",
+      "one canonical unrelated-output selectivity control"
+    ],
+    "not_licensed": [
+      "raw-text-to-resid18 computation",
+      "whole-model replacement",
+      "unrestricted syntax or vocabulary",
+      "target-token-free autonomous prediction",
+      "complete mediation of program v8",
+      "independent fresh C control"
+    ]
+  }
+}
