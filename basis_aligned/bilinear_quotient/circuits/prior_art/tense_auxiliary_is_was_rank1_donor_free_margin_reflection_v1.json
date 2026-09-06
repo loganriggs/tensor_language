@@ -1,0 +1,55 @@
+{
+  "schema": "tense_auxiliary_is_was_rank1_donor_free_margin_reflection_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.rank1_donor_free_margin_reflection_v1",
+  "created_utc": "2026-09-06T08:53:00Z",
+  "question": "Can the selective q_is direction enact requested is/was edits as a scalar additive write without using a donor activation, before attempting to identify its upstream gain controller?",
+  "novelty_search": {
+    "nearest_method": "The identified q_has writer passed an analogous donor-free target-guided margin-reflection test; no q_is additive actuator or gain has been tested.",
+    "nearest_q_is_result": "Selective q_is is identified only under rank-one projected interchange, whose coefficient beta reads the donor-base displacement.",
+    "new_question": "Replace donor projection with a target-guided scalar alpha selected from the base state and fixed is/was output rows, then test held-out construction/lexicon and P/C selectivity.",
+    "anti_rank_drift": "q_is and rank one are frozen. The 257-point scalar grid is an actuator calibration instrument, not a rank/compression search; a null cannot raise rank."
+  },
+  "authority": {
+    "q_is_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "v2_builder_sha256": "4ed62d06e2ffe5c471efc70eeaa35c7524a66923f19c64c803faef7200d4a62f",
+    "v3_builder_sha256": "ac240f13478168948814f59c0425270dd345ba03053332b72b34857e9a022638",
+    "v2_capability_sha256": "f76fbcd6174cc9e8e3f77352ee5461815156cdae421ecc43a0e0c3576b63af7e",
+    "v3_capability_sha256": "744d2fd3c8200ca00005357961df3d435a7a13dbdbd7c3a51a487daee76acec3",
+    "actuator_library_sha256": "47c2a56163381e7a22e7f2d9c84189ff45fbb3c8cc147b9e4bc6a3b0e6a9b310",
+    "response_factor_result_sha256": "28a9a49db15e2676d7c2a0a1c6b3ca039dc359fb91fdb47994cda2eb6a85bfc0"
+  },
+  "frozen_design": {
+    "site": "resid:18",
+    "basis": "Frozen selective q_is, rank one.",
+    "budget": "1.25 times the maximum absolute q_is projection coefficient on the first eight v2 A1 calibration rows.",
+    "actuator": "On a fixed 257-point grid in [-budget,budget], choose the first alpha minimizing absolute error from reflection of the source is/was margin; x'=x+alpha*q_is. Donor activation and donor margin cannot select alpha.",
+    "panels": ["held-out last-eight v2 A1", "all v2 A2", "all v3 A1/A2", "v2/v3 P", "v2/v3 C"],
+    "P_semantics": "Start from the answer-preserving donor surface and request the opposite tense, scoring margin reflection.",
+    "C_semantics": "Give the same actuator its strongest target-guided attempt on the unrelated fixed output pair; low normalized movement establishes directional selectivity.",
+    "future_use": "Only a passing result licenses fitting an upstream local is/was read to alpha; the grid itself is not the final program.",
+    "grid_points": 257
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_head": "All hashes, both capability screens, basis shape/norm/hash, and exact final-head controls pass.",
+    "pred_b_budget_and_donor_free_actuator": "Budget is finite/positive, every alpha is in range, and no confirmation donor activation, donor margin, row outcome, or search outside the fixed grid selects it.",
+    "pred_c_heldout_and_cross_lexicon_A": "v2 held-out A1, v2 A2, v3 A1, and v3 A2 mean recovery are each >=0.75 with direction fraction >=0.75.",
+    "pred_d_answer_preserving_generalization": "v2 and v3 P mean margin reflection are each >=0.75 with direction fraction >=0.75.",
+    "pred_e_unrelated_output_selectivity": "v2 and v3 C normalized movement are each <=0.20.",
+    "pred_f_exact_coverage_and_price": "Exactly 120 intervention records within 33 forwards/264 examples and 30,840 selected-head grid evaluations; zero transformer backwards or model updates and one calibrated budget scalar."
+  },
+  "terminal": {
+    "screen": "A-F pass: q_is supports donor-free selective additive actuation and upstream-controller identification is licensed.",
+    "null": "Valid additive actuator misses A/P transfer or C selectivity; retain projected q_is only and do not raise rank.",
+    "invalid": "Authority, capability, head, basis, actuator, or coverage fails."
+  },
+  "circuit_targets": ["computational specification", "held-out prediction", "selective manipulation", "extraction or sufficiency"],
+  "price": {
+    "model_forwards_max": 33,
+    "example_evaluations_max": 264,
+    "selected_head_grid_evaluations": 30840,
+    "grid_points": 257,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "calibrated_scalars": 1
+  }
+}
