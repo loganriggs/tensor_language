@@ -339,6 +339,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.transparent_path_program_v6_native_conformance_v1` | complete | real-checkpoint execution of released v6 API | **matches empirical sparse recurrence within 1.91e-6 scored logit and 1.72e-7 recovery** | `aspectual_anchor_transparent_path_program_v6_native_conformance_v1_result.json` |
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v7` | released | zero-forward hash/graph/PyTorch-equation/evidence/scope audit | **paired-causal program explicitly reaches exact answer/foil scored logits** | `aspectual_anchor_transparent_path_program_release_v7_result.json` |
 | `aspectual_anchor.has_vs_had.program_v7_fresh_construction_transfer_v1` | complete prospective transfer | sealed archive-prefix and explanatory-prefix panel with controls | **32/32 target directions positive; v7 retains 89.99% of writer recovery pooled** | `aspectual_anchor_program_v7_fresh_construction_transfer_v1_result.json` |
+| `aspectual_anchor.has_vs_had.transparent_path_program_release_v8` | released | zero-forward executable-identity and prospective-scope audit | **v7 scored-logit operations plus exact two-construction prospective transfer scope** | `aspectual_anchor_transparent_path_program_release_v8_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
