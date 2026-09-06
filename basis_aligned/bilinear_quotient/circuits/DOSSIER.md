@@ -13,9 +13,9 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 
 | circuit | kind | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---|---:|---:|---|
-| `task.subject_verb_number_agreement` | behavior_circuit | program_screened | `complete_subject_number_at_final_position` | 4 | 7 | retain the interface-simple 10-vector upstream + two-reader program, but do not call it end-to-end simple; defer joint composition until another fixed program exists; fixed mediator gains and possessive reuse are closed nulls, and rank/reconstruction sweeps remain closed |
+| `task.subject_verb_number_agreement` | behavior_circuit | program_screened | `complete_subject_number_at_final_position` | 4 | 7 | retain the interface-simple 10-vector upstream + two-reader program and its asymmetric cross-program robustness, but do not call it end-to-end simple; compile or remove its externally supplied selector/context dependencies; fixed mediator gains and possessive reuse are closed nulls, and rank/reconstruction sweeps remain closed |
 | `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
-| `task.bracket.pending_opener` | behavior_circuit | program_screened | `pending_opener_state_three_value_candidate` | 5 | 9 | compose the OOD-screened six-vector L13H8 ordered-pair program with the Task14 program under fixed simultaneous interventions; retain the pair-centered selective-necessity null |
+| `task.bracket.pending_opener` | behavior_circuit | program_screened | `pending_opener_state_three_value_candidate` | 5 | 9 | retain the OOD-screened six-vector L13H8 ordered-pair program and norm-matched cross-program robustness; next compile or remove its externally supplied ordered-pair selector; retain the pair-centered selective-necessity null |
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
@@ -93,6 +93,13 @@ valid composition screen. The reverse is not licensed: Task14-vector stress on b
 so its excellent numerical preservation is vacuous. The parent two-sided verdict remains inconclusive, and neither result establishes a
 single natural prompt that jointly instantiates both semantic variables.
 
+An outcome-free norm-matching audit resolves only the reverse panel's robustness question. Scaling the Task14 direction-cardinality
+vectors by the frozen median bracket-vector/Task14-vector norm ratio (`137.6339`) makes foreign stress material on bracket prompts
+(`0.31572×` isolated bracket-effect norm). Under that stress the bracket program retains cosine `0.98621`, relative L2 and
+interaction/own norm `0.17838`, norm ratio `0.91971`, and perfect signs across all 144 endpoints. This is a robustness screen at a
+declared artificial norm-matched scale. It does not upgrade the original-gain reverse test, establish a natural jointly instantiated
+prompt, or license arbitrary scaling as part of either program.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -128,16 +135,18 @@ single natural prompt that jointly instantiates both semantic variables.
 | `agreement_mlp6_7_program_literal_price.v1` | complete | storage/compute/dependency audit | **interface simple, not end-to-end** | active | `task14_direction_cardinality_program_literal_price_v1_result.json` |
 | `task14_bracket_program_stress_composition.v1` | complete | two-sided four-corner composition | **inconclusive: reverse stress inert** | superseded in one direction by v2 | `task14_bracket_fixed_program_stress_composition_v1_result.json` |
 | `task14_under_bracket_program_stress.v2` | complete | one-sided four-corner composition audit | **held** | active | `task14_under_bracket_program_stress_composition_v2_result.json` |
+| `bracket_under_norm_matched_task14_stress.v3` | complete | outcome-free norm-matched reverse robustness | **held at artificial matched norm** | active | `bracket_under_norm_matched_task14_program_stress_v3_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
 reinterpret its target/control scores as a subspace null. The corrected receipt and bundle are internally hash-consistent; the first
 publication pair is retained only under `artifact_invalid` filenames.
 
-**Next:** keep the upstream ten-vector plus two-reader program, but reject fixed MLP15/17 gains and any end-to-end simplicity claim.
-Test joint composition with a separately identified circuit intervention once another fixed executable program exists. The immediate
-frontier is to materialize such a second program from an already identified circuit rather than further compressing Task14. Do not
-substitute syntax-conditioned gain fitting or generic low-rank approximation for prospective causal prediction.
+**Next:** keep both fixed programs and their bounded cross-program robustness, but reject fixed MLP15/17 gains and any end-to-end
+simplicity claim. The immediate frontier is dependency compilation: measure which externally supplied Task14 direction/cardinality,
+bracket ordered-pair, counterfactual-role, native-context, and suffix dependencies can be derived from frozen prompt observables or
+eliminated. Do not substitute additional arbitrary stress scaling, syntax-conditioned gain fitting, or generic low-rank approximation
+for an executable selector/dependency result.
 
 ### `subroutine.induction.equality_score` — site_live
 
