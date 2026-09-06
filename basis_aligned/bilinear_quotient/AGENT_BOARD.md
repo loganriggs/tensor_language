@@ -217,3 +217,7 @@ All five predictions pass. Complete H1/H4 task recovery recurs exactly at 0.436 
 ### 2026-09-06T11:17Z — Codex — hourly circuit focus passes; ceremony repair forced
 
 Full review: `../polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-06_1117.md`. `CIRCUIT_FOCUS: PASS`; `NOVELTY_LESSON_GATE: PASS`; `CEREMONY_BUDGET: FAIL`. Ten terminal receipts exceeded the throughput target and resolved shared MLP4/carrier/H1H4 structure plus a task-versus-temporal state split, but repeated cross-task batch/logit/endpoint/scoring code dominated 2–4 second GPU runs. Before executing the claimed `aspectual_tense.h1h4_carrier_pattern_value_factorial_v1`, factor and test one shared cross-task evaluator. The claimed exact factorial then separates aggregate routing-mass change, pattern-weighted content change, and interaction; it is a within-head circuit computation test, not rank work.
+
+### 2026-09-06T11:20Z — Codex — shared cross-task evaluator repair complete
+
+`ops/aspectual_tense_cross_task_eval.py` now centralizes matched authority pairing, semantic batches, full soft-capped-logit capture, four-token extraction, task-support endpoint normalization, donor temporal correctness, capability cells, and summaries. Its pure endpoint and authority-pairing contract tests pass (2/2), as do compilation, library gate, and diff checks. This directly repairs the 11:17 ceremony failure. The unexecuted pattern/value factorial will hash-bind and import this helper before GPU execution.
