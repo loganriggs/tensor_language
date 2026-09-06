@@ -1,0 +1,16 @@
+{
+  "schema": "temporal_auxiliary_h3_rank8_weight_direct_residual_route_prior_v2",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_rank8_weight_direct_residual_route_v2",
+  "registered_utc": "2026-09-06T20:08:08Z",
+  "v1_prereg_sha256": "827020bab7eef0f1b44cea087acae62bca6b92905d0028791cde220653db351d",
+  "v1_invalid_result_sha256": "b9417541013b2db19a7c5239621719467fd76e8aab9c3716070b49b07d083959",
+  "engineering_diagnosis": "V1 compiled an nn.Linear delta as input@weight. The model's CastedLinear delegates to torch.nn.functional.linear, whose exact row-vector form is input@weight.T. This orientation error is independently visible in jacclust/tt_model.py and explains the failed route agreement. V1 causal fields are non-evidence.",
+  "frozen_repair": "Change only the residual-write multiplication from input@weight to torch.nn.functional.linear(input, weight), equivalently input@weight.T. Population, rank-eight basis, skip coefficient product, interventions, controls, prediction thresholds, price, and decision are byte-for-byte conceptually unchanged from v1.",
+  "predictions": {
+    "pred_a_authority_exact_identity_coverage_and_price": "Hashes, attention reconstruction, native resid18 self-patch identity, finite complete coverage, and price pass.",
+    "pred_b_weight_route_matches_dynamic_all_module_clamp": "Weight-computed resid18 actuation and dynamic all-module clamp agree within 1e-4 per answer/foil logit.",
+    "pred_c_direct_route_retains_rank8_behavior": "The weight-computed direct route retains 95%-105% of rank-eight mean behavior in both A1 and A2.",
+    "pred_d_skip_gain_is_nonzero_and_frozen": "The product of frozen residual coefficients is finite and nonzero; no scalar is fitted."
+  },
+  "price_max": {"model_forwards": 18, "example_evaluations": 600, "records": 252, "fit_updates": 0, "model_updates": 0}
+}
