@@ -1,0 +1,725 @@
+{
+  "bars": {
+    "band": [
+      0.5,
+      1.2
+    ],
+    "complement": 0.3,
+    "cos": 0.5,
+    "exact": 0.5,
+    "not_served": 0.35
+  },
+  "candidate_id": "corpus.unit_lexical_axis_v14",
+  "finished_utc": "2026-09-06T17:46:21.761947+00:00",
+  "pairs": [
+    {
+      "behaviour": "verb_preposition",
+      "exact": 0.5381020633605249,
+      "lexical": false,
+      "map": {
+        "objected": "listened",
+        "relied": "depended"
+      },
+      "median_cos": 0.43178147077560425,
+      "orig_band": false,
+      "orig_fraction": 0.3538651031572594,
+      "own_band": true,
+      "tested": true,
+      "variant": "v1"
+    },
+    {
+      "behaviour": "verb_preposition",
+      "exact": 0.46511046388846333,
+      "lexical": true,
+      "map": {
+        "objected": "referred",
+        "relied": "insisted"
+      },
+      "median_cos": 0.2006431668996811,
+      "orig_band": false,
+      "orig_fraction": 0.12116016297732501,
+      "own_band": true,
+      "tested": false,
+      "variant": "v2"
+    },
+    {
+      "behaviour": "quantifier_number",
+      "exact": 0.6738131317381053,
+      "lexical": true,
+      "map": {
+        "All": "Several",
+        "Each": "Neither"
+      },
+      "median_cos": 0.2973959296941757,
+      "orig_band": false,
+      "orig_fraction": 0.30077953062059876,
+      "own_band": true,
+      "tested": true,
+      "variant": "v1"
+    },
+    {
+      "behaviour": "quantifier_number",
+      "exact": 0.5520650938567142,
+      "lexical": true,
+      "map": {
+        "All": "Many",
+        "Each": "One"
+      },
+      "median_cos": 0.3011320233345032,
+      "orig_band": false,
+      "orig_fraction": 0.17815574686082794,
+      "own_band": true,
+      "tested": true,
+      "variant": "v2"
+    },
+    {
+      "behaviour": "polarity_licensing",
+      "exact": 0.5108576352011679,
+      "lexical": false,
+      "map": {
+        "never": "rarely",
+        "often": "usually"
+      },
+      "median_cos": 0.6253013610839844,
+      "orig_band": false,
+      "orig_fraction": 0.4582956949532979,
+      "own_band": true,
+      "tested": true,
+      "variant": "v1"
+    },
+    {
+      "behaviour": "polarity_licensing",
+      "exact": 0.4630503970253903,
+      "lexical": true,
+      "map": {
+        "never": "hardly",
+        "often": "always"
+      },
+      "median_cos": 0.37961892783641815,
+      "orig_band": false,
+      "orig_fraction": 0.19045454782074944,
+      "own_band": true,
+      "tested": false,
+      "variant": "v2"
+    },
+    {
+      "behaviour": "verb_complementizer",
+      "exact": 0.5754877461241316,
+      "lexical": false,
+      "map": {
+        "remarked": "said",
+        "wondered": "asked"
+      },
+      "median_cos": 0.6075131893157959,
+      "orig_band": false,
+      "orig_fraction": 0.527035343642529,
+      "own_band": true,
+      "tested": true,
+      "variant": "v1"
+    },
+    {
+      "behaviour": "verb_complementizer",
+      "exact": 0.5545695663489174,
+      "lexical": false,
+      "map": {
+        "remarked": "insisted",
+        "wondered": "inquired"
+      },
+      "median_cos": 0.4595189690589905,
+      "orig_band": false,
+      "orig_fraction": 0.5283315095177465,
+      "own_band": true,
+      "tested": true,
+      "variant": "v2"
+    }
+  ],
+  "predictions": {
+    "pred_a_exact_set_transfers": true,
+    "pred_b_variants_own_axis": true,
+    "pred_c_original_axis_serves": false,
+    "pred_d_lexical_is_the_rule": false,
+    "pred_e_number_axis_abstract": false
+  },
+  "schema": "circuit_unit_lexical_axis_result_v1",
+  "seconds": 4.21022505313158,
+  "semantics": "block_live",
+  "sets": {
+    "polarity_licensing": {
+      "batteries": {
+        "orig": {
+          "orig": {
+            "complement": 0.004045771806868985,
+            "complement_fraction": 0.007848654649779888,
+            "exact_set": 0.5154732864927936,
+            "linearity_sum": 0.9535658590322762,
+            "random": 0.001968559109207331,
+            "random_fraction": 0.0038189352596739307,
+            "subspace": 0.4874919554358223,
+            "subspace_fraction": 0.9457172043824963
+          },
+          "v1": {
+            "complement": 0.11256635444185506,
+            "complement_fraction": 0.220347796891649,
+            "exact_set": 0.5108576352011679,
+            "linearity_sum": 0.6786434918449469,
+            "random": -0.00018564422633463354,
+            "random_fraction": -0.00036339718454345837,
+            "subspace": 0.23412385494671759,
+            "subspace_fraction": 0.4582956949532979
+          },
+          "v2": {
+            "complement": 0.19712515006029896,
+            "complement_fraction": 0.4257099255861129,
+            "exact_set": 0.4630503970253903,
+            "linearity_sum": 0.6161644734068623,
+            "random": -0.0011873665841766951,
+            "random_fraction": -0.0025642275480255955,
+            "subspace": 0.08819005398368922,
+            "subspace_fraction": 0.19045454782074944
+          }
+        },
+        "v1": {
+          "orig": {
+            "complement": 0.04331257667303816,
+            "complement_fraction": 0.08402487152676859,
+            "exact_set": 0.5154732864927936,
+            "linearity_sum": 0.4375742562046195,
+            "random": 0.001968559109207331,
+            "random_fraction": 0.0038189352596739307,
+            "subspace": 0.1822452632573967,
+            "subspace_fraction": 0.3535493846778509
+          },
+          "v1": {
+            "complement": 0.0025888223084339183,
+            "complement_fraction": 0.0050676003059335305,
+            "exact_set": 0.5108576352011679,
+            "linearity_sum": 0.9900263955519745,
+            "random": -0.00018564422633463354,
+            "random_fraction": -0.00036339718454345837,
+            "subspace": 0.5031737209099838,
+            "subspace_fraction": 0.9849587952460409
+          },
+          "v2": {
+            "complement": 0.08223644135130395,
+            "complement_fraction": 0.17759717274747247,
+            "exact_set": 0.4630503970253903,
+            "linearity_sum": 0.5146065767863023,
+            "random": -0.0011873665841766951,
+            "random_fraction": -0.0025642275480255955,
+            "subspace": 0.15605233834147034,
+            "subspace_fraction": 0.33700940403882984
+          }
+        },
+        "v2": {
+          "orig": {
+            "complement": 0.2542650212352711,
+            "complement_fraction": 0.49326517570920875,
+            "exact_set": 0.5154732864927936,
+            "linearity_sum": 0.6188476043560605,
+            "random": 0.001968559109207331,
+            "random_fraction": 0.0038189352596739307,
+            "subspace": 0.06473438722033939,
+            "subspace_fraction": 0.1255824286468517
+          },
+          "v1": {
+            "complement": 0.2139355242106793,
+            "complement_fraction": 0.4187771885340126,
+            "exact_set": 0.5108576352011679,
+            "linearity_sum": 0.6762738950559488,
+            "random": -0.00018564422633463354,
+            "random_fraction": -0.00036339718454345837,
+            "subspace": 0.13154415856588553,
+            "subspace_fraction": 0.2574967065219363
+          },
+          "v2": {
+            "complement": 0.0049335862543073115,
+            "complement_fraction": 0.01065453411982884,
+            "exact_set": 0.4630503970253903,
+            "linearity_sum": 1.0426438202384092,
+            "random": -0.0011873665841766951,
+            "random_fraction": -0.0025642275480255955,
+            "subspace": 0.4778630486631578,
+            "subspace_fraction": 1.0319892861185804
+          }
+        }
+      },
+      "cos_to_orig": {
+        "v1": {
+          "03:heads": 0.7341058254241943,
+          "04:heads": 0.5475926399230957,
+          "07:heads": 0.6865793466567993,
+          "08:heads": 0.5640233755111694
+        },
+        "v2": {
+          "03:heads": 0.406730979681015,
+          "04:heads": 0.18520039319992065,
+          "07:heads": 0.38839828968048096,
+          "08:heads": 0.37083956599235535
+        }
+      },
+      "dropped": {
+        "orig_fit": 0,
+        "orig_odd": 0,
+        "v1_fit": 0,
+        "v1_odd": 0,
+        "v2_fit": 0,
+        "v2_odd": 0
+      },
+      "exact_set_odd": {
+        "orig": 0.5154732864927936,
+        "v1": 0.5108576352011679,
+        "v2": 0.4630503970253903
+      },
+      "maps": [
+        {
+          "never": "rarely",
+          "often": "usually"
+        },
+        {
+          "never": "hardly",
+          "often": "always"
+        }
+      ],
+      "median_cos_to_orig": {
+        "v1": 0.6253013610839844,
+        "v2": 0.37961892783641815
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ]
+    },
+    "quantifier_number": {
+      "batteries": {
+        "orig": {
+          "orig": {
+            "complement": -0.008625261693376735,
+            "complement_fraction": -0.013109531023183097,
+            "exact_set": 0.6579382342605307,
+            "linearity_sum": 1.0597867284524505,
+            "random": -0.0021511252126076488,
+            "random_fraction": -0.003269494157039436,
+            "subspace": 0.7058994705041265,
+            "subspace_fraction": 1.0728962594756335
+          },
+          "v1": {
+            "complement": 0.3488631314071458,
+            "complement_fraction": 0.5177446312262438,
+            "exact_set": 0.6738131317381053,
+            "linearity_sum": 0.8185241618468426,
+            "random": 0.002101205264399486,
+            "random_fraction": 0.0031183798080328495,
+            "subspace": 0.20266919749018297,
+            "subspace_fraction": 0.30077953062059876
+          },
+          "v2": {
+            "complement": 0.3830026945788554,
+            "complement_fraction": 0.6937636500493216,
+            "exact_set": 0.5520650938567142,
+            "linearity_sum": 0.8719193969101495,
+            "random": -0.0007567919018995425,
+            "random_fraction": -0.0013708381680366919,
+            "subspace": 0.09835356911183599,
+            "subspace_fraction": 0.17815574686082794
+          }
+        },
+        "v1": {
+          "orig": {
+            "complement": 0.5329482429209972,
+            "complement_fraction": 0.8100277733820833,
+            "exact_set": 0.6579382342605307,
+            "linearity_sum": 0.987390041412238,
+            "random": -0.0021511252126076488,
+            "random_fraction": -0.003269494157039436,
+            "subspace": 0.11669341745220294,
+            "subspace_fraction": 0.17736226803015467
+          },
+          "v1": {
+            "complement": -0.004579782107568391,
+            "complement_fraction": -0.006796813377256115,
+            "exact_set": 0.6738131317381053,
+            "linearity_sum": 1.037743514187435,
+            "random": 0.002101205264399486,
+            "random_fraction": 0.0031183798080328495,
+            "subspace": 0.7038249893431108,
+            "subspace_fraction": 1.044540327564691
+          },
+          "v2": {
+            "complement": 0.3767068818042885,
+            "complement_fraction": 0.6823595369390641,
+            "exact_set": 0.5520650938567142,
+            "linearity_sum": 0.8730613671831522,
+            "random": -0.0007567919018995425,
+            "random_fraction": -0.0013708381680366919,
+            "subspace": 0.10527982381234967,
+            "subspace_fraction": 0.19070183024408807
+          }
+        },
+        "v2": {
+          "orig": {
+            "complement": 0.46277934993302683,
+            "complement_fraction": 0.7033781072977973,
+            "exact_set": 0.6579382342605307,
+            "linearity_sum": 0.9756613706819619,
+            "random": -0.0021511252126076488,
+            "random_fraction": -0.003269494157039436,
+            "subspace": 0.17914556952967226,
+            "subspace_fraction": 0.2722832633841646
+          },
+          "v1": {
+            "complement": 0.22457806010580075,
+            "complement_fraction": 0.3332942763025413,
+            "exact_set": 0.6738131317381053,
+            "linearity_sum": 0.9301298025063729,
+            "random": 0.002101205264399486,
+            "random_fraction": 0.0031183798080328495,
+            "subspace": 0.40215561504396374,
+            "subspace_fraction": 0.5968355262038315
+          },
+          "v2": {
+            "complement": 0.004985967425372279,
+            "complement_fraction": 0.009031484657978326,
+            "exact_set": 0.5520650938567142,
+            "linearity_sum": 1.0397837685921638,
+            "random": -0.0007567919018995425,
+            "random_fraction": -0.0013708381680366919,
+            "subspace": 0.5690423563731486,
+            "subspace_fraction": 1.0307522839341854
+          }
+        }
+      },
+      "cos_to_orig": {
+        "v1": {
+          "07:heads": 0.2585706412792206,
+          "11:heads": 0.33622121810913086
+        },
+        "v2": {
+          "07:heads": 0.2758251428604126,
+          "11:heads": 0.32643890380859375
+        }
+      },
+      "dropped": {
+        "orig_fit": 0,
+        "orig_odd": 0,
+        "v1_fit": 0,
+        "v1_odd": 0,
+        "v2_fit": 0,
+        "v2_odd": 0
+      },
+      "exact_set_odd": {
+        "orig": 0.6579382342605307,
+        "v1": 0.6738131317381053,
+        "v2": 0.5520650938567142
+      },
+      "maps": [
+        {
+          "All": "Several",
+          "Each": "Neither"
+        },
+        {
+          "All": "Many",
+          "Each": "One"
+        }
+      ],
+      "median_cos_to_orig": {
+        "v1": 0.2973959296941757,
+        "v2": 0.3011320233345032
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "verb_complementizer": {
+      "batteries": {
+        "orig": {
+          "orig": {
+            "complement": 0.006544497429875108,
+            "complement_fraction": 0.011325717956729172,
+            "exact_set": 0.5778439349168762,
+            "linearity_sum": 1.024959910697132,
+            "random": 0.006429321191250659,
+            "random_fraction": 0.011126397289564919,
+            "subspace": 0.5857223704994058,
+            "subspace_fraction": 1.013634192740403
+          },
+          "v1": {
+            "complement": 0.22114122909794812,
+            "complement_fraction": 0.384267485428349,
+            "exact_set": 0.5754877461241316,
+            "linearity_sum": 0.911302829070878,
+            "random": 0.002337464137614355,
+            "random_fraction": 0.004061709659948465,
+            "subspace": 0.3033023820405962,
+            "subspace_fraction": 0.527035343642529
+          },
+          "v2": {
+            "complement": 0.22210813858764297,
+            "complement_fraction": 0.40050545876493276,
+            "exact_set": 0.5545695663489174,
+            "linearity_sum": 0.9288369682826794,
+            "random": 0.008465826697280033,
+            "random_fraction": 0.015265581111880932,
+            "subspace": 0.29299657612172564,
+            "subspace_fraction": 0.5283315095177465
+          }
+        },
+        "v1": {
+          "orig": {
+            "complement": 0.22930956907944045,
+            "complement_fraction": 0.3968365076158963,
+            "exact_set": 0.5778439349168762,
+            "linearity_sum": 0.9759949300499177,
+            "random": 0.006429321191250659,
+            "random_fraction": 0.011126397289564919,
+            "subspace": 0.33466318175952536,
+            "subspace_fraction": 0.5791584224340214
+          },
+          "v1": {
+            "complement": -0.005870765507578885,
+            "complement_fraction": -0.010201373612414978,
+            "exact_set": 0.5754877461241316,
+            "linearity_sum": 1.0235746143638507,
+            "random": 0.002337464137614355,
+            "random_fraction": 0.004061709659948465,
+            "subspace": 0.5949254133177084,
+            "subspace_fraction": 1.0337759879762656
+          },
+          "v2": {
+            "complement": 0.22241862320723613,
+            "complement_fraction": 0.40106532471941936,
+            "exact_set": 0.5545695663489174,
+            "linearity_sum": 0.9372308201154868,
+            "random": 0.008465826697280033,
+            "random_fraction": 0.015265581111880932,
+            "subspace": 0.29734106627304957,
+            "subspace_fraction": 0.5361654953960674
+          }
+        },
+        "v2": {
+          "orig": {
+            "complement": 0.3489492747660668,
+            "complement_fraction": 0.6038815217750164,
+            "exact_set": 0.5778439349168762,
+            "linearity_sum": 0.9532606288677155,
+            "random": 0.006429321191250659,
+            "random_fraction": 0.011126397289564919,
+            "subspace": 0.2018865980201899,
+            "subspace_fraction": 0.34937910709269904
+          },
+          "v1": {
+            "complement": 0.3242931442738479,
+            "complement_fraction": 0.56351007724828,
+            "exact_set": 0.5754877461241316,
+            "linearity_sum": 0.9001141849020632,
+            "random": 0.002337464137614355,
+            "random_fraction": 0.004061709659948465,
+            "subspace": 0.19371153924980025,
+            "subspace_fraction": 0.33660410765378324
+          },
+          "v2": {
+            "complement": 0.006549770812827566,
+            "complement_fraction": 0.011810548595280577,
+            "exact_set": 0.5545695663489174,
+            "linearity_sum": 1.0212014214217073,
+            "random": 0.008465826697280033,
+            "random_fraction": 0.015265581111880932,
+            "subspace": 0.5597774586199067,
+            "subspace_fraction": 1.0093908728264267
+          }
+        }
+      },
+      "cos_to_orig": {
+        "v1": {
+          "06:heads": 0.6075131893157959,
+          "07:heads": 0.5810560584068298,
+          "11:heads": 0.6175644397735596
+        },
+        "v2": {
+          "06:heads": 0.4595189690589905,
+          "07:heads": 0.4381493031978607,
+          "11:heads": 0.5621578693389893
+        }
+      },
+      "dropped": {
+        "orig_fit": 0,
+        "orig_odd": 0,
+        "v1_fit": 0,
+        "v1_odd": 0,
+        "v2_fit": 0,
+        "v2_odd": 0
+      },
+      "exact_set_odd": {
+        "orig": 0.5778439349168762,
+        "v1": 0.5754877461241316,
+        "v2": 0.5545695663489174
+      },
+      "maps": [
+        {
+          "remarked": "said",
+          "wondered": "asked"
+        },
+        {
+          "remarked": "insisted",
+          "wondered": "inquired"
+        }
+      ],
+      "median_cos_to_orig": {
+        "v1": 0.6075131893157959,
+        "v2": 0.4595189690589905
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08"
+      ]
+    },
+    "verb_preposition": {
+      "batteries": {
+        "orig": {
+          "orig": {
+            "complement": -0.0008406164925832056,
+            "complement_fraction": -0.0014488709016786598,
+            "exact_set": 0.5801872973011388,
+            "linearity_sum": 1.005277200028665,
+            "random": 0.0030727686768091587,
+            "random_fraction": 0.005296166757015842,
+            "subspace": 0.5840896782156706,
+            "subspace_fraction": 1.0067260709303436
+          },
+          "v1": {
+            "complement": 0.2869633886187218,
+            "complement_fraction": 0.5332880287181841,
+            "exact_set": 0.5381020633605249,
+            "linearity_sum": 0.8871531318754435,
+            "random": 0.0022517104998510183,
+            "random_fraction": 0.00418454165700232,
+            "subspace": 0.19041554216020629,
+            "subspace_fraction": 0.3538651031572594
+          },
+          "v2": {
+            "complement": 0.3876533053799389,
+            "complement_fraction": 0.8334650270798913,
+            "exact_set": 0.46511046388846333,
+            "linearity_sum": 0.9546251900572164,
+            "random": 0.005684256663852092,
+            "random_fraction": 0.012221304625851668,
+            "subspace": 0.05635285960718546,
+            "subspace_fraction": 0.12116016297732501
+          }
+        },
+        "v1": {
+          "orig": {
+            "complement": 0.28331013923330667,
+            "complement_fraction": 0.48830806974089636,
+            "exact_set": 0.5801872973011388,
+            "linearity_sum": 0.9138419448467507,
+            "random": 0.0030727686768091587,
+            "random_fraction": 0.005296166757015842,
+            "subspace": 0.246889348907746,
+            "subspace_fraction": 0.42553387510585433
+          },
+          "v1": {
+            "complement": 0.0012729209099688042,
+            "complement_fraction": 0.0023655752256723003,
+            "exact_set": 0.5381020633605249,
+            "linearity_sum": 0.9966326538297888,
+            "random": 0.0022517104998510183,
+            "random_fraction": 0.00418454165700232,
+            "subspace": 0.5350171665283163,
+            "subspace_fraction": 0.9942670786041166
+          },
+          "v2": {
+            "complement": 0.26461140127473065,
+            "complement_fraction": 0.5689216257628344,
+            "exact_set": 0.46511046388846333,
+            "linearity_sum": 0.9245148556921265,
+            "random": 0.005684256663852092,
+            "random_fraction": 0.012221304625851668,
+            "subspace": 0.16539013212801001,
+            "subspace_fraction": 0.35559322992929204
+          }
+        },
+        "v2": {
+          "orig": {
+            "complement": 0.5106856993058326,
+            "complement_fraction": 0.8802083425152407,
+            "exact_set": 0.5801872973011388,
+            "linearity_sum": 0.997911709347558,
+            "random": 0.0030727686768091587,
+            "random_fraction": 0.005296166757015842,
+            "subspace": 0.06828999828568671,
+            "subspace_fraction": 0.11770336683231736
+          },
+          "v1": {
+            "complement": 0.3509641463808514,
+            "complement_fraction": 0.6522259814226129,
+            "exact_set": 0.5381020633605249,
+            "linearity_sum": 0.9693948450421026,
+            "random": 0.0022517104998510183,
+            "random_fraction": 0.00418454165700232,
+            "subspace": 0.17066921994736034,
+            "subspace_fraction": 0.3171688636194897
+          },
+          "v2": {
+            "complement": -0.0007141096117538826,
+            "complement_fraction": -0.001535354861259649,
+            "exact_set": 0.46511046388846333,
+            "linearity_sum": 1.0033401427910351,
+            "random": 0.005684256663852092,
+            "random_fraction": 0.012221304625851668,
+            "subspace": 0.4673781088632092,
+            "subspace_fraction": 1.0048754976522947
+          }
+        }
+      },
+      "cos_to_orig": {
+        "v1": {
+          "06:heads": 0.43178147077560425,
+          "08:heads": 0.3773539960384369,
+          "13:heads": 0.5222554206848145
+        },
+        "v2": {
+          "06:heads": 0.0356479212641716,
+          "08:heads": 0.2006431668996811,
+          "13:heads": 0.22240972518920898
+        }
+      },
+      "dropped": {
+        "orig_fit": 0,
+        "orig_odd": 0,
+        "v1_fit": 0,
+        "v1_odd": 0,
+        "v2_fit": 0,
+        "v2_odd": 0
+      },
+      "exact_set_odd": {
+        "orig": 0.5801872973011388,
+        "v1": 0.5381020633605249,
+        "v2": 0.46511046388846333
+      },
+      "maps": [
+        {
+          "objected": "listened",
+          "relied": "depended"
+        },
+        {
+          "objected": "referred",
+          "relied": "insisted"
+        }
+      ],
+      "median_cos_to_orig": {
+        "v1": 0.43178147077560425,
+        "v2": 0.2006431668996811
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08"
+      ]
+    }
+  },
+  "tested_pairs": 6
+}

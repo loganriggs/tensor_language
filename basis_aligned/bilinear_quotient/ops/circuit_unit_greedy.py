@@ -753,3 +753,34 @@ def block_union(*qs):
     Registered-rank use: the union of an A1-fit and an A2-fit direction is rank 2 per block."""
     import torch
     return {key: torch.linalg.qr(torch.cat([q[key] for q in qs], dim=1))[0] for key in qs[0]}
+
+
+def lexical_variant(rows, mapping, *, encoding=None):
+    """Rows with whole-word substitutions in base/donor text, re-tokenized; answers and foils kept.
+
+    `mapping` is {old_word: new_word}; every row must change on both sides. The final token must
+    survive (the prediction slot is unchanged) and the joint answer/foil tokenization must hold;
+    positions are re-derived from the new length, so multi-token substitutes are allowed.
+    """
+    import copy
+    import re
+    if encoding is None:
+        import circuit_fast_screen_candidate_sentence_terminal_context_control as builder
+        encoding = builder.ENCODING
+    pattern = re.compile(r"\b(" + "|".join(re.escape(k) for k in mapping) + r")\b")
+    out = []
+    for r in rows:
+        n = copy.deepcopy(r)
+        for side in ("base", "donor"):
+            text = pattern.sub(lambda m: mapping[m.group(1)], n[f"{side}_text"])
+            assert text != n[f"{side}_text"], (side, text)
+            ids = encoding.encode(text)
+            assert ids[-1] == n[f"{side}_ids"][-1], (side, text)
+            for tok, key in ((n[f"{side}_answer"], "answer"), (n[f"{side}_foil"], "foil")):
+                assert encoding.encode(text + tok) == ids + [n[f"{side}_{key}_id"]], (side, text, tok)
+            assert n[f"{side}_semantic_position"] == len(n[f"{side}_ids"]) - 1, side
+            n[f"{side}_text"], n[f"{side}_ids"] = text, ids
+            n[f"{side}_semantic_position"] = n[f"{side}_prediction_position"] = len(ids) - 1
+        n["row_id"] = f"{n['row_id']}:" + "_".join(mapping.values())
+        out.append(n)
+    return out
