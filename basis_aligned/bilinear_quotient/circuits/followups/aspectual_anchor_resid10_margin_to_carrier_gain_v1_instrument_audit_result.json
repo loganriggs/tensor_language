@@ -1,0 +1,39 @@
+{
+  "schema": "aspectual_anchor_resid10_margin_to_carrier_gain_instrument_audit_result_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.resid10_margin_to_carrier_gain_v1",
+  "created_utc": "2026-09-06T07:38:46Z",
+  "evidence_class": "post_outcome_zero_forward_instrument_audit",
+  "source_result": {
+    "path": "circuits/followups/aspectual_anchor_resid10_margin_to_carrier_gain_v1_result.json",
+    "sha256": "e7a9fbb41a3330bdf7cc7f8e13545ccb3773cb803ca47250f87691f355d2839a",
+    "preserved_terminal": "invalid"
+  },
+  "diagnosis": {
+    "failed_condition": "The preregistration required das.verify_head to pass at resid:10. That helper compares the direct lm_head readout of the captured state with the full model's final logits, so it necessarily includes the omitted effects of blocks 10-17 and is not an exactness test for an intermediate linear functional.",
+    "resid10_verify_head_max_abs_difference": 8.310606956481934,
+    "resid18_verify_head_max_abs_difference": 4.76837158203125e-06,
+    "resid18_verify_head_passed": true,
+    "all_scored_source_sides_capable": true,
+    "capability_counts": {"A_base": "32/32", "A_donor": "32/32", "P_source": "16/16", "C_actual_base": "16/16"},
+    "why_not_contaminating": "The resid10 feature is defined exactly as a fixed lm_head-weight contrast applied to the captured intermediate state. It is not claimed to equal the native final margin, used as a denominator, or used for capability. Its failure to reconstruct the suffix output does not alter the feature, fitted coefficients, resid18 patch, or any scored endpoint.",
+    "required_language_correction": "Call the feature a fixed intermediate unembedding contrast, not native confidence or an exact-head replay. A true exactness control would compare two implementations of that same local functional, not compare it with the post-suffix model.",
+    "model_forwards": 0,
+    "example_evaluations": 0
+  },
+  "scientific_disposition": "resid10_unembedding_contrast_to_carrier_gain_screen",
+  "scientific_scores": {
+    "present_to_past_calibration_r2": 0.8061458101293532,
+    "past_to_present_calibration_r2": 0.6522402419980547,
+    "A1_mean_recovery": 0.9676436170856559,
+    "A2_mean_recovery": 1.0175454915233941,
+    "P_mean_margin_reflection": 0.9147092974591855,
+    "C_mean_normalized_unrelated_effect": 0.0021410661481911153,
+    "A1_retention_vs_final_margin_controller": 0.8743286856216486,
+    "A2_retention_vs_final_margin_controller": 0.8485775989737221,
+    "P_retention_vs_final_margin_controller": 0.9032698324361508,
+    "direction_fraction_A1_A2_P": 1.0
+  },
+  "interpretation": "A four-parameter read-compute-write interface from the v11 initial resid10 variable predicts a selective later rank-one carrier intervention without reading the confirmation resid18 margin. Because the confirmation population was previously used for the final-margin controller and the feature still uses lm_head weights, this is a causal screen rather than complete upstream identification.",
+  "terminal": "audit",
+  "next_action": "Freeze the two resid10 fits and validate them on a second unseen lexicon, using a local functional identity control rather than final-logit equality."
+}
