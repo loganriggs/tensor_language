@@ -15575,6 +15575,10 @@ The next exact screen asks whether is/was reuses not only L9H1/H4 and their cont
 
 The screen passes all frozen bars. Exact MLP4 response at `moment` plus determiner recovers 0.329 on is/was (A1 0.213, A2 0.446, direction 1.0); the inherited left+right terms retain 96.8%. Factorial Shapley is left 0.202, right 0.117, mixed interaction 0.00984. Manual/native logits are exact, factor tensor closure is 7.32e-4, direct-ceiling logit closure is 6.68e-6, and the exact cost is 26 forwards/416 examples with zero fit/search. Thus MLP4's same algebraic response organization writes the contextual carrier bank for both tasks. The next test closes the causal edge from this writer through L9H1/H4.
 
+### 2026-09-06T10:52Z — Codex — claimed direct shared writer-reader mediation edge
+
+On the same qualified is/was A rows, the frozen MLP4 left+right writer is now connected explicitly to L9H1/H4 via hybrid attention captures. Complete-head, all-source, `moment`+determiner, and cue+self mediation arms test whether the contextual bank carries >=40% of writer recovery and >=80% of all-source head mediation while cue+self remains <=25%. The exact 16-forward/256-example, zero-fit test is the missing cross-boundary edge needed before the shared subpath can enter the typed dual program.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the

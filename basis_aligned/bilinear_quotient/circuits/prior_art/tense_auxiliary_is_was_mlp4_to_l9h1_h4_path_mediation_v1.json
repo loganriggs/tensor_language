@@ -1,0 +1,47 @@
+{
+  "schema": "tense_auxiliary_is_was_mlp4_to_l9h1_h4_path_mediation_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.mlp4_to_l9h1_h4_path_mediation_v1",
+  "created_utc": "2026-09-06T10:51:36Z",
+  "evidence_class": "exact_cross_task_writer_reader_path_mediation",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*mlp4_to_l9h1_h4*", "circuits/followups/*mlp4_to_l9h1_h4*", "circuits/prior_art/*is_was*source*", "circuits/followups/*is_was*source*", "AGENT_BOARD.md"],
+    "nearest_result": "On has/had the exact MLP4-to-H1/H4 mediation retained 0.3976 of the writer, narrowly below a 0.40 bar. Independently, is/was now screens for the same MLP4 two-term writer and the same H1/H4 contextual source organization, but their causal edge is untested.",
+    "new_question": "Does the exact is/was MLP4 left+right response reach behavior specifically through the moment-plus-determiner terms of reused L9H1/H4?"
+  },
+  "authorities": {
+    "is_was_mlp4_writer_result_sha256": "18cbd0496ec79d1a30c41d12b620e5b9bd2d79eabd627b98b7db9016d4c63510",
+    "has_had_path_instrument_sha256": "5449d45505267f2ebc92c9285b7a984fce773f834c2071e1d7e6d1a9f1949372",
+    "source_instrument_sha256": "8e890efd3520cfbece1d71f3ffb58397c732d8fc9c9446c74af9ac0380f2ca01",
+    "matched_builder_sha256": "1f4b29bda3e26af3ee0102316ab0af166e317d1646e8b0b51332061245e606d6",
+    "is_was_rows_sha256": "2efd47b9a89d0f092688a96d75bbc33e5b89991a8e5de28723c714319b9ccceb"
+  },
+  "population": "The same 32 capability-qualified matched-v2 is/was A1/A2 rows used in the prospective MLP4 contextual-source factorial.",
+  "operator": {
+    "writer": "Insert the frozen exact MLP4 left_change+right_change response only at moment plus determiner in an otherwise native base execution.",
+    "reader": "Capture native-base and writer-hybrid L9 attention tensors, then replace H1/H4 either completely, at every source term, at moment+determiner only, or at cue+self only.",
+    "arms": ["writer_two_term", "h1h4_complete", "h1h4_all_sources", "h1h4_moment_determiner", "h1h4_cue_self"],
+    "fitting": "none",
+    "no_rescue": "No writer factor, source, head, row, threshold, or task-specific parameter changes after execution."
+  },
+  "bars": {
+    "instrument": "All hashes and capability pass; empty writer hook <=1e-4; MLP factor tensor closure <=2e-3; H1/H4 source reconstruction <=1e-4; all-source versus complete-head scored logits <=1e-4.",
+    "writer_recurrence": "Two-term writer mean recovery remains within 0.02 of 0.31871069327054274, is positive, and has direction fraction >=0.75 in A1 and A2.",
+    "mediation": "Moment+determiner H1/H4 mediation is positive with direction >=0.75 in each family and retains >=0.40 of writer mean recovery.",
+    "reader_specificity": "Moment+determiner retains >=0.80 of all-source H1/H4 mediation; cue+self absolute contribution is <=0.25 of all-source.",
+    "price": "Exactly 16 forwards/256 examples, five scored arms/160 records, zero fit/search/backward/update."
+  },
+  "predictions": {
+    "pred_a_exact_path_instrument": "Authority, capability, exact writer/reader closure, finiteness, and coverage pass.",
+    "pred_b_writer_recurrence": "The frozen MLP4 left+right writer recurs at its registered magnitude and direction.",
+    "pred_c_moment_determiner_mediation": "The contextual source-bank route carries at least 40% of the writer effect with directional A1/A2 recovery.",
+    "pred_d_reader_specificity": "Moment+determiner dominates all-source mediation while cue+self stays weak.",
+    "pred_e_exact_zero_fit_price": "Exact declared work and zero fitting/search/update hold."
+  },
+  "terminal": {
+    "screen": "A-E pass: license the cross-task MLP4 left/right -> contextual moment/determiner -> L9H1/H4 causal path.",
+    "null": "Instrument and writer recurrence pass but mediation or specificity misses; retain separately localized shared components without this edge.",
+    "invalid": "Authority, capability, exact closure, writer recurrence, coverage, finiteness, or price fails."
+  },
+  "circuit_targets": ["computational specification", "cross-boundary grouping", "causal path mediation", "composition and reuse"],
+  "price": {"model_forwards": 16, "example_evaluations": 256, "scored_arms": 5, "intervention_records": 160, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
