@@ -242,52 +242,51 @@ chosen for collocational strength still fails, record the behaviour as unscreena
 design and stop. What makes this legitimate rather than tuning-until-it-passes is that the defect
 is diagnosed from the asymmetry first, and the repair leaves the passing side untouched.
 
-## DAS follow-up on localized circuits (standing step, added 2026-09-06 on user direction)
+## Circuit protocol after localization: greedy head set -> direction (standing, 2026-09-06)
 
-Every `selective_causal_site` in this corpus is localized by **interchange intervention** to a
-whole residual-stream site. That answers *where* the variable is readable and says nothing about
-*what carries it*. The block-level numbers make the gap concrete: at the selected site the
-residual stream recovers 1.000 while the best attention block reaches 0.28–0.38 and the best MLP
-0.14–0.21, so the variable is distributed and no block is a candidate mechanism.
+Interchange localizes a behaviour to whole modules. The rest of the protocol asks WHICH units
+carry it and in what direction -- all by interchange on held-out rows, never by reconstruction.
+Library: `ops/circuit_unit_greedy.py`. Runners: `run_unit_greedy_protocol_v2`,
+`run_unit_greedy_heads_only_v3`, `run_unit_subspace_trust_v4`, `run_unit_greedy_battery_v5`.
 
-**Distributed Alignment Search is now a standard follow-up for any circuit with an established
-interchange result**, not an optional extra. The question it answers and interchange cannot: *is
-the variable carried in a low-dimensional subspace of the selected site, and is it the same
-subspace across behaviours that ought to share a feature?*
+**Retracted:** every `resid:18` DAS result. At the final residual the margin is
+`(w_answer - w_foil) . rms_norm(x)`, so patching it copies the logits (all 50 behaviours = 1.000)
+and a rank-1 DAS there recovers the lm_head difference direction. Tautological.
+
+### Steps and measured cost (bilin18, one GPU, 32 rows per family)
+
+| step | what | cost | registered bars |
+|---|---|---|---|
+| 0 capability + module sweep | 36 module interchanges (18 attn, 18 mlp) | ~1 s | A1/A2 >= 0.5, P <= 0.20, C <= 0.35 |
+| 1 head sweep | all 162 heads, pre-c_proj 128-d slices at the semantic position | ~4 s | -- |
+| 2 greedy set | forward selection over the top 12 heads, gain floor 0.02, <= 6 heads, every candidate score recorded | ~2 s | joint >= 0.50; A2 of the exact set >= 0.50; P/C through the exact set |
+| 3 direction | **diff-in-means** over the concatenated set (mean of donor - base, unit norm; no search) fit on even A1 rows | ~0.1 s | held-out and A2 fraction of the exact-set effect in [0.50, 1.20]; **complement** (swap everything but the axis) <= 0.30; random <= 0.10; P/C through the subspace |
+| 4 DAS (secondary) | rank fixed in advance, exact-set objective (`target="exact_set"`), optional complement loss term | ~15 s / 200 steps | same bars as step 3; report cosine to diff-in-means |
+| 5 MLP units | single bilinear product terms (`mlp:LL:neuron:J`, hook `mlp.Down`), exact sweep of all 4608 then greedy | ~30 s per MLP | fraction of the whole module's effect; A2 transfer |
+| 6 siblings | the set and its direction on every matched sibling, plus the known-null sibling as the negative case (`prepare(valid_only=True)` drops donor-invalid rows and counts them) | ~10 s per sibling | set >= 0.35; direction >= 0.50, complement <= 0.30 |
+
+A whole battery over seven sets and two MLPs (v4) took 167 GPU-s; the possessive-sibling +
+aspectual battery (v5) is one ~3 min enqueue. Everything after step 0 is run from one runner with
+predictions registered in the docstring (the gate reads them), one enqueue, no per-circuit rung.
+
+### What v2-v4 established about trust
+
+- DAS on a partial set must target the set's own exact-patch margin; a donor target turns the fit
+  into steering-vector search (v1: held-out 1.5-4.2, P 0.42).
+- Even with the right target, a set containing an 1152-d MLP output steers (held-out 3.9, complement
+  0.83, P 0.24): the Makelov, Lange & Nanda 2023 dormant-direction illusion. The complement test is
+  what exposes it; a random-direction baseline alone does not (random ~0 there too).
+- A complement-inertness loss term repairs most of it (held-out 1.24, complement 0.53, P 0.04) but
+  not to the bar with 16 rows at rank 1.
+- **Diff-in-means beats both fits on every set** (held-out 0.92-1.18, complement <= 0.15, P <= 0.05),
+  so it is the primary direction; DAS is a check. DAS matching the margin does not mean it found the
+  same direction (cosine to diff-in-means 0.4-0.8 -- the margin is a 1-d readout).
+- Report the delta's own rank: for four of five head sets the set's delta is itself 94-99% rank-1,
+  so a rank-1 result there is a fact about what the heads write, not a discovered subspace. The
+  possessive set (65%) is the informative case: a third of what its heads change is inert.
 
 ### Scope discipline
 
-DAS enters here as **causal localization**, tested by interchange on held-out rows — the same
-target as the rest of the loop (standing lesson 5). It does **not** enter as activation
-reconstruction, rank reduction, or a compression objective; those remain out of scope, and a DAS
-result that is only evaluated by reconstruction error should be rejected on the same grounds as
-any other reconstruction claim.
-
-### Protocol
-
-1. **Precondition.** Only run on a behaviour with a terminal `selective_causal_site` receipt. The
-   selected site and its passing band are the search target; without them there is nothing to
-   search within.
-2. **Fixed capacity, registered in advance.** Choose the rank before running and record it in the
-   prior-art receipt, with the prediction. Increasing rank until a result appears is the failure
-   mode the frontier lane already gated against (`ops/attention8_shared_private_das_rung521.py`
-   states this explicitly: a null "is not permission to increase rank until a result appears").
-3. **The subspace must pass the same four hypotheses the screen did.** A1 and A2 recovery through
-   the projector alone; P invariance preserved; C spared. A subspace that only reproduces A1 is a
-   direction that correlates with the answer, not a carrier of the variable.
-4. **Held-out transfer.** Fit on FIT rows, test on rows the fit never saw — and where a behaviour
-   has matched siblings, test across them. `possessive_number` is unusually well set up for this:
-   five matched configurations pass and two fail, so a genuine number subspace should transfer
-   across the five and degrade under the animate attractor.
-5. **Shared-subspace test where two behaviours ought to share a feature.** The sharpest available
-   case is `correlative_pair.both_vs_neither` against `correlative_state.either_vs_neither`. If
-   one subspace serves both pairs, the corpus has a correlative-state feature; if not, it has two
-   lexical associations that happen to screen alike.
-
-### First targets, ordered by how well conditioned they are
-
-| behaviour | site | why it is the best-conditioned target |
-|---|---|---|
-| `correlative_pair.both_vs_neither` | `resid:18` | P 0.024 and C 0.053 — lowest of both in the corpus, so least competing structure at the site |
-| `possessive_number.adjacent_antecedent` | `resid:18` | five matched passing siblings and two matched failures give ready-made positive and negative transfer tests |
-| `aspectual_anchor.has_vs_had` | `resid:18` | already has a head-level path (MLP-4 → attention-5, head 7 dominant) that recovers only ~0.05, so DAS has a specific gap to close |
+Every number above is a held-out interchange effect on task margins. Reconstruction error, rank
+reduction and compression objectives stay out of scope; a subspace evaluated only by
+reconstruction is rejected on the same grounds as any other reconstruction claim.

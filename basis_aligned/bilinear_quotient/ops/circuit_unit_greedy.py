@@ -261,21 +261,38 @@ class Prepared:
     base_axis: list        # base value on the donor-oriented axis  (= -margin of base run)
     donor_axis: list       # donor value on that axis
     answer_changes: bool
+    dropped: int = 0
 
 
-def prepare(backend, rows, *, hidden=False):
-    """Native runs on both sides. hidden=True also caches every MLP's 4608-d hidden vector."""
+def prepare(backend, rows, *, hidden=False, valid_only=False):
+    """Native runs on both sides. hidden=True also caches every MLP's 4608-d hidden vector.
+
+    valid_only=True drops rows whose donor does not beat the base on the donor's answer axis
+    (denominator <= 1e-6): the kernel refuses them, and a design with a capability failure on the
+    donor side (possessive animate_attractor) has such rows. `prep.dropped` records how many.
+    """
     base_batch, donor_batch = batch_of(rows, "base"), batch_of(rows, "donor")
     base_out = backend.native(base_batch, capture=True)
     donor_out = backend.native(donor_batch, capture=True)
+    dropped = 0
+    if valid_only:
+        keep = [i for i, ((ba, bf), (da, df)) in enumerate(zip(base_out.answer_foil, donor_out.answer_foil))
+                if (da - df) - (-(ba - bf)) > 1e-6]
+        dropped = len(rows) - len(keep)
+        if dropped:
+            prep = prepare(backend, [rows[i] for i in keep], hidden=hidden)
+            prep.dropped = dropped
+            return prep
     base_cache, donor_cache = dict(base_out.captured), dict(donor_out.captured)
     if hidden:
         forward_units(backend, base_batch, capture_hidden=base_cache)
         forward_units(backend, donor_batch, capture_hidden=donor_cache)
     changes = bool(rows[0].get("answer_changes", rows[0]["base_answer_id"] != rows[0]["donor_answer_id"]))
-    return Prepared(rows, base_batch, donor_batch, base_cache, donor_cache,
+    prep = Prepared(rows, base_batch, donor_batch, base_cache, donor_cache,
                     [-(a - f) for a, f in base_out.answer_foil],
                     [a - f for a, f in donor_out.answer_foil], changes)
+    prep.dropped = dropped
+    return prep
 
 
 def patched_axis(backend, prep, units, q=None, complement=False):
@@ -460,3 +477,63 @@ def neuron_sweep(backend, prep, layer, *, replicas=16):
                     for b, d, p in zip(rep_base[sl], rep_donor[sl], axis[sl])]
             out[f"mlp:{layer:02d}:neuron:{j:04d}"] = sum(vals) / len(vals)
     return out
+
+
+# ----------------------------------------------------------------------------- the standard battery
+# Shared by every runner from v5 on. Timings (bilin18, one H100-class GPU, 32 rows per family):
+#   prepare (two native forwards)            ~0.1 s      module_sweep (36 producer patches) ~1 s
+#   head_sweep (162 heads)                   ~4 s        greedy (pool 12, <= 6 steps)       ~2 s
+#   direction_battery (4 forwards)           ~0.1 s      fit_joint_subspace (200 steps)     ~15 s
+#   neuron_sweep (4608 terms, 16 replicas)   ~30 s       whole v4 battery, 7 sets + 2 MLPs  167 s
+
+def greedy_heads(backend, prep, *, pool=12, target=0.50, min_gain=0.02, max_units=6, units=None):
+    """162-head sweep, then forward selection over the top `pool`. Returns (singles, ranked, greedy)."""
+    units = list(units) if units is not None else all_head_units()
+    singles = unit_sweep(backend, prep, units)
+    ranked = sorted(singles, key=singles.get, reverse=True)
+    greedy = greedy_select(lambda s: recovery(prep, patched_axis(backend, prep, s)),
+                           ranked[:pool], target=target, min_gain=min_gain, max_units=max_units)
+    return singles, ranked, greedy
+
+
+def direction_battery(backend, prep, units, q, q_rand=None):
+    """Exact set, rank-k subspace `q`, its complement, and a random subspace of the same shape --
+    each as a recovery and as a fraction of the exact-set effect on this prep's rows."""
+    frac = lambda e, v: (v / e) if abs(e) > 1e-6 else None
+    exact = recovery(prep, patched_axis(backend, prep, units))
+    sub = recovery(prep, patched_axis(backend, prep, units, q=q))
+    comp = recovery(prep, patched_axis(backend, prep, units, q=q, complement=True))
+    out = {"exact_set": exact, "subspace": sub, "subspace_fraction": frac(exact, sub),
+           "complement": comp, "complement_fraction": frac(exact, comp)}
+    if q_rand is not None:
+        rand = recovery(prep, patched_axis(backend, prep, units, q=q_rand))
+        out.update({"random": rand, "random_fraction": frac(exact, rand)})
+    return out
+
+
+def pc_effects(backend, module, units, scale, q=None):
+    """P and C same-answer effects of the (sub)space patch, on the module's P and C families."""
+    out = {}
+    for fam in ("P", "C"):
+        fp = prepare(backend, rows_of(module, fam))
+        out[fam] = same_answer_effect(fp, patched_axis(backend, fp, units, q=q), scale)
+    return out
+
+
+def set_battery(backend, module, units, *, rank=1, seed=1):
+    """The whole standard follow-up for one unit set on one behaviour: exact-set A1/A2/P/C,
+    diff-in-means direction (fit on even A1 rows) with complement and random on held-out A1 and A2."""
+    a1 = rows_of(module, "A1")
+    fit, held = prepare(backend, a1[0::2]), prepare(backend, a1[1::2])
+    a2 = prepare(backend, rows_of(module, "A2"))
+    q = diff_in_means_direction(backend, fit, units)
+    q_rand = random_subspace(backend, units, rank=rank, seed=seed)
+    scale = target_scale(fit)
+    return {"units": list(units),
+            "exact_set": {"a1_fit": recovery(fit, patched_axis(backend, fit, units)),
+                          "a1_heldout": recovery(held, patched_axis(backend, held, units)),
+                          "a2": recovery(a2, patched_axis(backend, a2, units)),
+                          **{k.lower() + "_effect": v for k, v in pc_effects(backend, module, units, scale).items()}},
+            "diff_in_means": {"a1_heldout": direction_battery(backend, held, units, q, q_rand),
+                              "a2": direction_battery(backend, a2, units, q, q_rand),
+                              **{k.lower() + "_effect": v for k, v in pc_effects(backend, module, units, scale, q=q).items()}}}

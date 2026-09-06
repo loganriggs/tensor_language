@@ -1,0 +1,13 @@
+{
+  "schema": "unit_greedy_battery_prior_art_v1",
+  "candidate_id": "corpus.unit_greedy_battery_v5",
+  "created_utc": "2026-09-06T13:47:21Z",
+  "question": "Does the possessive 4-head set {04:05, 03:04, 09:06, 10:05} and its diff-in-means direction serve the five matched possessive siblings, and what head set carries aspectual_anchor.has_vs_had (four-head path recovered only 0.05)?",
+  "novelty_search": {
+    "searched": ["circuit_prior_art_search: possessive_number head set siblings diff-in-means (0 events)",
+                 "circuit_prior_art_search: aspectual_anchor head set greedy (0 events)",
+                 "circuits/followups/unit_greedy_*_v2/v3/v4 (adjacent_antecedent only; no sibling transfer)",
+                 "explanations/CIRCUIT_aspectual_anchor_has_vs_had_2026-09-06.md (resid:18 DAS, retracted)"],
+    "prior": "no head-set or direction transfer across possessive siblings; aspectual has only the retracted resid:18 result and Codex's H1/H4 path at 0.05"
+  }
+}
