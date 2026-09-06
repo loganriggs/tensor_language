@@ -208,6 +208,7 @@ rank, new direction, template table, or threshold change is allowed.
 | `task14_bracket_native_baseline_semantic_linear_prospective.v2` | complete | 27-scalar standalone program on two untouched corpora | **null: bracket near-cancellation exposes baseline error** | active | `task14_bracket_native_baseline_semantic_linear_prospective_v2_result.json` |
 | `task14_bracket_counterfactual_error_budget_audit.v3` | complete | exact baseline/effect error decomposition | **bracket baseline is 95.1% of error norm** | active diagnostic | `task14_bracket_counterfactual_error_budget_audit_v3_result.json` |
 | `task14_standalone_bracket_conditioned_hybrid.v6` | complete | 22-scalar strongest-boundary package | **predictive/composable/manipulable hybrid screen** | active | `task14_standalone_bracket_conditioned_hybrid_v6_result.json` |
+| `task14_bracket_transparent_margin_program_release.v7` | complete | hash-bound importable/CLI 22-scalar program | **executable release** | active | `task14_bracket_transparent_margin_program_release_v7_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -235,6 +236,11 @@ The v6 hybrid does exactly that in 22 scalars: Task14 is standalone on untouched
 construction, and all typed composition cases remain exact. Its sole model-valued runtime dependency is the native unedited bracket
 margin. The next circuit-first frontier is a fixed readout of the already localized native bracket term/state, evaluated for the precision
 needed under counterfactual cancellation; semantic feature expansion remains closed.
+
+The v7 release makes this boundary executable rather than documentary. Its hash-bound CLI/import API passes all 64 Task14 and 45
+bracket conformance cases, rejects malformed specifications, and imports no model/training/network dependency. The release manifest
+binds the prospective evidence, exact composition counts, 22-scalar price, combined standalone null, and remaining bracket baseline
+dependency. It is the current simplest honest transparent program, not a whole-model replacement.
 
 ### `subroutine.induction.equality_score` — site_live
 
