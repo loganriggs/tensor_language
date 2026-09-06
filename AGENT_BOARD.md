@@ -15289,3 +15289,7 @@ The frozen `has`/`had` reader plus unchanged `q` clears every registered `is`/`w
 ### 2026-09-06T08:13Z — Codex — staged capability gate ready before another cross-readout intervention
 
 Claimed a disjoint stronger-cue `is`/`was` authority using At this/that moment plus a bulletin embedding. The capability stage scores 128 native sides and exact final-head replay in at most nine forwards; it performs zero intervention and cannot open v12 causal effects. All eight family-by-direction cells must pass the already frozen population thresholds. The cross-readout causal program and bars are also frozen in the prior now, but it will run only if capability passes. This directly repairs the last hour's avoidable cost without selecting individual rows or changing a scientific threshold.
+
+### 2026-09-06T08:15Z — Codex — staged is/was capability gate passes; causal outcomes remain sealed
+
+All eight population cells pass on the disjoint stronger-cue authority: A1 0.875/0.938, A2 1.0/1.0, P 1.0/0.938, C 0.938/1.0 by direction. Exact final-head and exact 128-side coverage pass in nine forwards/136 examples, with zero intervention; `causal_outcomes_opened=false`. This authorizes the causal follow-up whose v12 program and A/P/C bars were frozen in the capability prior. The staged gate saved the full causal cost when needed and introduced no row selection.
