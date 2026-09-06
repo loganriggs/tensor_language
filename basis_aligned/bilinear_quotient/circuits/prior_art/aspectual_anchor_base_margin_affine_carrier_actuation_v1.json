@@ -1,0 +1,72 @@
+{
+  "schema": "aspectual_anchor_base_margin_affine_carrier_actuation_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.base_margin_affine_carrier_actuation_v1",
+  "created_utc": "2026-09-06T07:07:00Z",
+  "evidence_class": "design_seen_causal_screen_preregistration",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*aspectual_anchor*",
+      "circuits/followups/*aspectual_anchor*",
+      "ops/*aspectual_anchor*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_positive": "aspectual_anchor.has_vs_had.rank1_donor_free_margin_reflection_v1 chooses alpha with a per-row target-guided 257-point head grid.",
+    "nearest_null": "aspectual_anchor.has_vs_had.direction_prototype_carrier_actuation_v2 uses two direction means and retains only about 22% of v10 recovery.",
+    "new_question": "Does the source state's fixed has-versus-had confidence predict the missing row-specific carrier gain with only an intercept and slope per direction?"
+  },
+  "authorities": {
+    "v10_target_guided_result_sha256": "cb1275e1b9449c52254a05efa9932aeaa916a2722c8ee72717231d9121e957fb",
+    "scalar_selection_result_sha256": "4a55ef3da37b12722fabae41c9caaa7e8284fc0891ba4e15c5cfdeab40323b2d",
+    "v2_null_result_sha256": "a740fbcb5dc42aed876294dc980cb5deb6fc8e8fa21090b30db0946597d5ad23",
+    "v2_instrument_audit_sha256": "a379c2a25b372e9b734c59cd4cf5af6d8d97a031cb7cdc6652155b8b7437ee23",
+    "fresh_rows_sha256": "3c30019fdcc087c0e7410cd82d02458307bc6987ff9d23349dcf97d076f797d7",
+    "rank1_basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"
+  },
+  "selection_disclosure": "The affine form was chosen after inspecting correlations between v10 target-guided alpha and the fixed has/had margin, including the existing fresh population. The coefficients use only the frozen 16-row lexical selection IDs, and the intervention at the affine alpha has never been run, but this rung cannot establish prospective held-out prediction. A passing result requires a new-text preregistration before identification.",
+  "frozen_predictor": {
+    "feature": "At the intervention source state, confidence = logit(current tense token) - logit(other tense token), using globally fixed token IDs has=468 and had=550. No row answer/foil IDs are consulted to compute this feature.",
+    "direction_rule": "A uses its registered tense direction; P and C use present_to_past for even group_number and past_to_present for odd group_number, as in v2.",
+    "coefficients": {
+      "present_to_past": {
+        "intercept": -132.28506295990428,
+        "slope": -2035.2755463854235
+      },
+      "past_to_present": {
+        "intercept": -383.97355829906564,
+        "slope": 2426.378924892433
+      }
+    },
+    "fit_population": "The 16 lexical row IDs tagged selection in the immutable scalar-term result; response is the immutable v10 per-row target-guided alpha.",
+    "fit_parameters": 4,
+    "actuator": "alpha = intercept[direction] + slope[direction] * confidence; x_patched = x_source + alpha*q. No confirmation donor activation, row target/foil ID, grid, or outcome selects alpha."
+  },
+  "predictions": {
+    "pred_a_authority_fit_source_capability_and_exact_head": "All authority hashes, exact coefficient reconstruction, all scored source-side native capability, and exact-head replay pass. Unused C donors are not capability-gated.",
+    "pred_b_fixed_input_conditioned_actuator": "Exactly four finite frozen coefficients and the two fixed token IDs select every alpha; no confirmation donor activation, row answer/foil ID, grid, or outcome participates.",
+    "pred_c_fresh_A_prediction": "A1 and A2 each have mean recovery >=0.75, direction fraction >=0.75, recovery/v10 >=0.65, and recovery/v2 >=2.0.",
+    "pred_d_fresh_P_generalization": "P has mean reflection >=0.75, direction fraction >=0.75, and reflection/v2 >=2.0.",
+    "pred_e_fresh_C_selectivity": "C mean normalized unrelated effect <=0.20.",
+    "pred_f_exact_coverage_and_price": "All 64 rows are unique within 25 model forwards, 200 example evaluations, exactly 176 selected-head pair evaluations, zero grids/backwards/updates, and four fit parameters."
+  },
+  "terminal": {
+    "screen": "A-F pass: source-state confidence supplies the input-dependent rank-one carrier gain on this design-seen population.",
+    "null": "Authority, actuator identity, and coverage pass but A/P prediction or C selectivity misses; a fixed has/had-margin affine rule is insufficient.",
+    "invalid": "Authority, coefficient reconstruction, scored-source capability, head control, actuator identity, or coverage fails."
+  },
+  "circuit_targets": [
+    "held-out/OOD prediction (screen only here; new text required next)",
+    "extraction/sufficiency",
+    "selective manipulation",
+    "stable operational variable identification"
+  ],
+  "price": {
+    "model_forwards_max": 25,
+    "example_evaluations_max": 200,
+    "selected_head_pair_evaluations": 176,
+    "grid_evaluations": 0,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 4,
+    "stored_values_total": 1156
+  }
+}
