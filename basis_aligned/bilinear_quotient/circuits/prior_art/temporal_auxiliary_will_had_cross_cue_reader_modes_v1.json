@@ -1,0 +1,46 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.cross_cue_reader_modes_v1",
+  "created_utc": "2026-09-06T14:52:00Z",
+  "question": "Are Later/Previously and Tomorrow/Earlier implemented as two stable cue-conditioned response modes inside the same block9 H1/H4 and block11 H3 readers?",
+  "authority": {
+    "ood_compiler_result_sha256": "c7aa1a1f605467ccaf43199d3ec0eb08633b71f79089ca700fdf5a5cbc4614a6",
+    "ood_terminal": "cue_specific: writer scalar transfers but Later/Previously response axes retain only 49% on Tomorrow/Earlier",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "original_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58"
+  },
+  "novelty": "No prior experiment fits response modes independently on both cue lexicons, cross-installs them, and tests their two-mode span and complement on heldout lexical groups and alternate frames.",
+  "frozen_design": {
+    "corpora": ["Later/Previously fresh", "Tomorrow/Earlier original"],
+    "split": "within each corpus, alternating A1 lexical pairs form balanced 16-row fit and heldout sets; all 32 A2 rows transfer",
+    "reader_modes": "one uncentered fit SVD axis per corpus at block9 H1/H4 and block11 H3",
+    "answer_changing_arms": ["full_response", "own_mode", "cross_mode", "joint_two_mode_span", "joint_span_complement"],
+    "control": "own-mode and joint-span installations on each corpus's 32 aligned P rows",
+    "model_forwards": 72,
+    "example_evaluations": 1760,
+    "answer_changing_records": 480,
+    "fitted_scalars": 0,
+    "stored_axis_coordinates": 768,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_authority_and_closure": "all capture/reconstruction identity checks pass and full response is donorward on every answer-changing row",
+    "pred_b_own_modes_stable": "own-mode recovery is [0.70,1.20] of full response with donorward fraction >=0.90 on both heldout and A2 splits of both corpora",
+    "pred_c_cross_modes_distinct": "cross-mode recovery is at least 0.20 below own-mode recovery in each corpus's A1 heldout split",
+    "pred_d_joint_span_sufficient": "joint span recovery is [0.85,1.20] with donorward fraction >=0.90 and complement absolute fraction <=0.20 on all four answer-changing splits",
+    "pred_e_joint_span_selective": "joint-span absolute normalized P effect <=0.20 in both corpora",
+    "pred_f_price_exact": "72 forwards, 1760 examples, 480 unique records, zero scalars/backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, balanced split, identity, closure, coverage, finiteness, or price fails",
+    "two_mode_quotient": "all predictions pass",
+    "shared_mode": "own and joint modes work but cross-mode distinctness fails",
+    "unrelated_circuits": "own modes work but their joint span does not transfer or has material complement/collateral",
+    "null": "one or both own modes fail heldout causal stability"
+  },
+  "interpretation_limits": [
+    "Two response modes are an operational causal quotient, not yet a symbolic explanation of why cue tokens select a mode.",
+    "This is circuit grouping/splitting: native reader components are fixed, while their within-reader response modes may split by cue family.",
+    "The response coefficients remain oracle projections in this factorial; coefficient compilation is evaluated separately."
+  ]
+}
