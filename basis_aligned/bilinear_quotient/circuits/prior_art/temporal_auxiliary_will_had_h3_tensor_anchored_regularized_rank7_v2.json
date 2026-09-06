@@ -1,0 +1,42 @@
+{
+  "schema": "temporal_auxiliary_h3_tensor_anchored_regularized_rank7_prior_v2",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_tensor_anchored_regularized_rank7_v2",
+  "registered_utc": "2026-09-06T19:37:46Z",
+  "correction_from_v1": "Before implementation or model access, add explicit price gates and replace the structurally weak rank-seven projector-overlap restart test with absolute cosine of the uniquely discarded normal inside the fixed rank-eight teacher. Scientific target and all loss weights are unchanged.",
+  "question": "Can strongly constrained, regularized DAS compress the transferable checkpoint-derived rank-eight teacher to a stable rank-seven causal variable without task memorization?",
+  "authority": {
+    "nested_weight_screen_sha256": "adc318db1b08fd47c034cf4cd15b7234b16582b7ab134275f8c36265219254fc",
+    "rank7_v9_result_sha256": "d080cd9403321de37799c1c5088d3051e543df64aa632bf11bb257f1896014d3",
+    "invalid_v1_prior_sha256": "91289a25b9e9c8e9e4d31004c744067e70eabb8261e1dbbdf3c728c423209433",
+    "diagnosis": "Rank seven transfers tensor geometry, complement selectivity, and downstream transport but misses v9 A2 behavior by 0.67 points; unconstrained scalar cDAS and raw response-SVD selected the wrong objects."
+  },
+  "frozen_hypothesis_class": {
+    "teacher": "The exact checkpoint-only rank-eight member of the v8 nested reader family.",
+    "student": "A rank-seven hyperplane inside that fixed rank-eight teacher. Parameterize only its unit discarded normal in teacher coordinates (eight raw parameters); the remaining 120 H3 dimensions are inaccessible to the optimizer.",
+    "initialization": "The exact checkpoint-only rank-seven normal plus two fixed random restarts."
+  },
+  "frozen_objective": {
+    "environments": "v1 and v2, A1 and A2 separately; even rows train and odd rows select. No v8/v9 gradients or selection.",
+    "sufficiency": "Full-vocabulary KL from full-H3 intervention to rank-seven student intervention, normalized by each environment's full-H3-versus-base KL.",
+    "complement": "Full-vocabulary KL from base to the student's exact orthogonal-complement intervention, with the same normalization.",
+    "environment_balance": "Mean of the four environment losses plus 0.5 times their population variance; checkpoint selection minimizes the worst odd-row environment loss.",
+    "noise": "Antithetic tangent noise on the eight-dimensional unit normal, sigma 0.03, averaged during every update.",
+    "anchor": "0.1 times squared Frobenius distance from the initial checkpoint-derived rank-seven projector.",
+    "optimization": "Adam, learning rate 0.02, 150 updates per restart, three restarts; checkpoint every 10 updates; model weights frozen."
+  },
+  "frozen_evaluation": {
+    "populations": "All previously capability-qualified v8 and v9 rows, evaluated only after the student is selected.",
+    "metrics": "Behavioral fraction of full H3, exact complement fraction, L15H5/H1 transport, full-vocabulary KL, discarded-normal restart agreement, and projector distance from the tensor initialization.",
+    "success": "At least 90% behavior and transport and at most 12% absolute complement in both panels of both banks; strictly improve v9 A2 behavior over fixed weight rank seven; minimum pairwise absolute cosine among the three selected discarded normals at least 0.80.",
+    "status": "Discovery/validation screen only; any successful student requires a new v10 capability bank for confirmation."
+  },
+  "price_max": {
+    "model_forwards": 8400,
+    "example_evaluations": 150000,
+    "transformer_backward_forwards": 7200,
+    "model_updates": 450,
+    "fit_parameters": 8,
+    "evaluation_records": 640
+  },
+  "decision": "If the regularized student passes, freeze it for v10. If it fails but rank eight remains sufficient, prefer the transparent rank-eight tensor variable. If discarded-normal restarts disagree, the constrained objective remains underidentified despite regularization."
+}
