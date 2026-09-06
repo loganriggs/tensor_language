@@ -1,0 +1,67 @@
+{
+  "schema": "temporal_auxiliary_will_had_fresh_writer_block9_subject_bypass_cube_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_block9_subject_bypass_cube_v1",
+  "created_utc": "2026-09-06T13:12:00Z",
+  "evidence_class": "prospective_exact_residual_bypass_component_factorial",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*will*had*block9*bypass*",
+      "circuits/followups/*will*had*block9*bypass*",
+      "circuits/prior_art/*writer*subject*cube*",
+      "circuits/followups/*block9*component*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "Fresh selective mediation shows that clamping block9 H1/H4 subject-source terms removes 44.7%/48.8% of the block8H1 writer effect, while their source complement removes exactly zero. The remaining 55.3%/51.2% is not localized.",
+    "new_question": "Is the remaining writer effect transported through the subject residual state across block 9, or rewritten there by attention9/MLP9 updates at the subject positions?"
+  },
+  "authorities": {
+    "fresh_partial_mediation_sha256": "505ce01c9b88e7f088554db9fd8d0fa2eafeabe43067aa61cdd9f2681f420f68",
+    "fresh_writer_path_sha256": "2da5c4b424b620bbfe24cc98049a0520429102b7d37de45d49a48ef887181641",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "residual_onset_evaluator_sha256": "8f0235743c0450797ade21ac663d4bf735f1784931c2c60ef8f69d4f7cd113a7",
+    "attention_destination_evaluator_sha256": "3e66f65aa5ca4a84676a267f54b95f49fc2220c8efc6775cfac1a48ce972ab5b",
+    "fresh_rows_sha256": "c35d7f2159c47620b6f36f12c4f6c41c1630afae61a7f101ab9ff74e4e7e5e0a"
+  },
+  "population": "All 64 capable fresh Later/Previously A1/A2 rows.",
+  "factorial": {
+    "components": {
+      "block9_entry_z9": "The learned carried residual/embedding mixture entering block-9 attention at each subject-onset position.",
+      "attention9_update": "The complete block-9 attention update at each subject-onset position.",
+      "mlp9_update": "The complete block-9 MLP update at each subject-onset position."
+    },
+    "arms": "All eight component subsets. Components are drawn from the writer-actuated or native-base forward, assembled in native operation order, installed at the two subject positions after block 9, and propagated through the untouched base suffix.",
+    "interpretation_boundary": "This deliberately excludes block9 changes already written at later positions, including the separately measured H1/H4 final-query reader path; the full arm targets only the residual subject-state bypass.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_bypass_cube": "All authorities and fresh capability hold; native component recombination, empty/base closure, full/writer-subject-state closure, and Shapley efficiency are each within 1e-4; all records are finite and complete.",
+    "pred_b_residual_bypass_recurrence": "The full component arm recovers within 0.03 of 0.0952 in A1 and 0.0579 in A2, with donorward fraction at least 0.75.",
+    "pred_c_carried_entry_dominates_bypass": "Block9 entry has the largest positive Shapley value and its singleton retains at least 0.75 of the full bypass recovery in both families.",
+    "pred_d_block9_subject_updates_are_nonessential": "Omitting attention9 or omitting MLP9 each retains at least 0.75 of the full bypass recovery in both families.",
+    "pred_e_exact_zero_fit_price": "Exactly 20 model forwards, 640 example evaluations, eight arms, 512 arm-row records, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-E pass. Identify the non-H1/H4 branch as carried subject-state transport across block 9.",
+    "null": "The exact bypass cube is valid but the residual target or carried-entry prediction misses; retain the complete component accounting without promoting a bypass mechanism.",
+    "invalid": "Authority, capability, component capture/recombination, closure, recurrence, finiteness, coverage, or price fails."
+  },
+  "scope": "This localizes the residual half of a fresh writer effect after the selective block9 H1/H4 reader branch has been measured. It does not yet identify which later module consumes the carried state.",
+  "circuit_targets": [
+    "cross-boundary grouping",
+    "causal bypass localization",
+    "composition and reuse",
+    "computational specification"
+  ],
+  "price": {
+    "model_forwards": 20,
+    "example_evaluations": 640,
+    "rows": 64,
+    "component_subsets": 8,
+    "intervention_records": 512,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
