@@ -1,0 +1,64 @@
+{
+  "I_full": 0.008596149274199417,
+  "bars": {
+    "cascade_min": 0.2,
+    "ctrl_tol": 0.001,
+    "floor_tol": 0.02,
+    "late_max": 0.1,
+    "three_max": 0.1
+  },
+  "candidate_id": "corpus.unit_quantifier_cascade_v58",
+  "downstream": [
+    15,
+    16,
+    17
+  ],
+  "finished_utc": "2026-09-06T23:51:16.352489+00:00",
+  "interactions": {
+    "all_three": 0.008596149274199417,
+    "floor": 0.0008006288302958471,
+    "keep_15": 0.006111209192995674,
+    "keep_15_16": 0.010169875006292774,
+    "keep_15_17": 0.002778084432292844,
+    "keep_16": 0.004385644171083589,
+    "keep_16_17": 0.0018075228072596886,
+    "keep_17": -0.003310024313035745
+  },
+  "pair_excess": {
+    "15_16": 0.0551003079868537,
+    "15_17": 0.09045077718257463,
+    "16_17": 0.17828119668738765
+  },
+  "predictions": {
+    "pred_a_control": true,
+    "pred_b_cascade_15_16": false,
+    "pred_c_no_late_pair": false,
+    "pred_d_17_opposes": true,
+    "pred_e_three_way": true
+  },
+  "rows": 32,
+  "schema": "circuit_unit_quantifier_cascade_result_v1",
+  "seconds": 1.1048295460641384,
+  "set": [
+    "attn:07:head:08",
+    "attn:11:head:03"
+  ],
+  "shares": {
+    "all_three": 1.0,
+    "floor": 0.09313807901159463,
+    "keep_15": 0.7109240426219596,
+    "keep_15_16": 1.1830733368971098,
+    "keep_15_17": 0.323177779221566,
+    "keep_16": 0.5101870652998911,
+    "keep_16_17": 0.21027122140431048,
+    "keep_17": -0.38505896157137365
+  },
+  "stack_mlps": [
+    "mlp:11",
+    "mlp:12",
+    "mlp:13",
+    "mlp:14"
+  ],
+  "three_way": 0.02639172981589613,
+  "v43_floor": 0.09313807901159463
+}
