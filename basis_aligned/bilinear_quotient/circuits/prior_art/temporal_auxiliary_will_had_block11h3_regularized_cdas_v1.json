@@ -1,0 +1,41 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.block11h3_regularized_cdas_v1",
+  "created_utc": "2026-09-06T16:38:00Z",
+  "question": "Can KL geometry regularization, tangent-noise regularization, or both prevent rank-1 constrained DAS from specializing to the temporal answer/foil readout while retaining its scalar advantage?",
+  "authority": {
+    "target_redteam_result_sha256": "7382cf43bc4564b5d71bbb2bed70856bd1d44e84efc11c87ecaccf70c818c19d",
+    "finding": "unregularized cDAS beats DIM on sealed scalar loss but loses on centered full-vocabulary causal-effect fidelity",
+    "frozen_axis_result_sha256": "4f345907c41222ebeec33c3a860052a0a8f39166655da0354f69e79a1c577fc5",
+    "historical_kl_das_runner_sha256": "3c6bb5b43d69ddaed0e4bd7739fa0a9497fd5ac29940f4e04236867d5ce95402",
+    "historical_kl_das_result_sha256": "fd70514a5c5744c444b862b32b2ca797e6c2064a16aeacd15593d2a149ad8dca"
+  },
+  "frozen_design": {
+    "component": "block11 attention head3 raw 128-dimensional output",
+    "rank": 1,
+    "fit": "16 even A1 rows only; odd A1 and all A2 remain sealed evaluation",
+    "starts": ["DIM", "random_seed_1", "random_seed_2"],
+    "updates_per_start": 100,
+    "learning_rate": 0.03,
+    "checkpoint": "lowest unperturbed training objective checked before fitting and every 10 updates plus the final update; DIM is always a feasible retained baseline",
+    "scalar_objective": "normalized answer/foil exact-match squared error plus normalized complement-inertness squared error",
+    "kl_objective": "scalar objective plus normalized KL(exact full logits || subspace full logits) plus normalized KL(base full logits || complement full logits), weight 1",
+    "noise_objective": "scalar objective trained on an antithetic pair of rank-1 tangent perturbations of size 0.05; unperturbed checkpoints",
+    "kl_noise_objective": "KL objective trained on the same deterministic antithetic tangent perturbations",
+    "evaluation_axes": ["DIM", "unregularized_cDAS", "KL", "noise", "KL+noise"]
+  },
+  "predictions": {
+    "pred_a_authority_closure_baseline_reproduction_and_price": "q=I closure <=1e-4, frozen DIM/unregularized reports reproduce within 0.01, all fits finite, and exact registered execution accounting closes",
+    "pred_b_kl_noise_repairs_full_vocabulary_fidelity": "KL+noise full-vocabulary joint objective is below both unregularized cDAS and DIM on heldout A1 and A2",
+    "pred_c_kl_noise_retains_scalar_advantage": "KL+noise scalar joint objective remains below DIM on heldout A1 and A2",
+    "pred_d_noise_alone_reduces_readout_overfit": "noise-only full-vocabulary joint objective improves at least 10% over unregularized cDAS on heldout A1 and A2",
+    "pred_e_regularized_restarts_are_identifiable": "minimum pairwise absolute cosine across starts is at least 0.80 for each regularized objective"
+  },
+  "terminal_rules": {
+    "invalid": "A fails",
+    "screen": "all predictions pass",
+    "objective_regularized": "A-C and E pass but D fails; KL geometry repairs the target while noise alone does not",
+    "stability_regularized": "A, C-E pass but B fails; noise helps scalar generalization without recovering full vocabulary geometry",
+    "null": "all other valid outcomes"
+  },
+  "interpretation": "Noise tests row/local-minimum memorization; KL tests specialization to a narrow readout. They are not interchangeable explanations."
+}
