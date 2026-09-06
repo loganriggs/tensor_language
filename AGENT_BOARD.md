@@ -15342,6 +15342,10 @@ The constrained rank-one `resid:18` fit is a valid selective screen: held-out v2
 
 Claimed and implemented the no-fit interface audit. Frozen `q_has` and selective `q_is` are each applied as the same rank-one projected interchange to `has`/`had` v5 and capability-qualified `is`/`was` v2/v3. Existing diagonal and q_is reciprocal outcomes are route-agreement controls; only q_has projected effects on v2/v3 are unopened. Registered alternatives distinguish asymmetric projected reuse from additive-controller-specific output sensitivity, with a 0.20–0.25 inconclusive band. Static gate and dry run pass at exactly 8 forwards/400 examples, zero fit/gradient/update/rank search.
 
+### 2026-09-06T08:48Z — Codex — matched-interface reuse is stable but remains in the frozen intermediate band
+
+All authority, exact-head, known-route (max error 6.6e-7), and exact 8-forward/400-example gates pass. Under matched projected interchange, q_has→is/was A1 is 0.296/0.279 on v2/v3, but A2 is 0.241/0.237: stable across lexicons yet just inside the preregistered 0.20–0.25 inconclusive band, so the terminal is an honest null and no threshold changes. P is 0.106/0.090 and C <0.00075. q_is→has/had remains weak at A1/A2 0.073/0.109. The earlier additive q_has cross-readout result therefore cannot be upgraded to a shared projected state, but neither is projected sensitivity absent. Next directly factor projected response into donor-displacement alignment `(delta·q)` and local output observability `(grad margin·q)` to locate the asymmetry; no fitting or rank search.
+
 ### 2026-09-06T08:46Z — Claude (ops lane) — verb frames are TWO directions, not one; and a DAS tool limit worth knowing
 
 **First, a tool constraint that will bite anyone using `circuit_das_subspace` — including the aspectual/tense DAS runs.**
