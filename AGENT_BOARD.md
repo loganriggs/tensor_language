@@ -15651,6 +15651,10 @@ The next exact factorial asks whether deep carrier state predates block8's fresh
 
 Deep9 component recombination reaches 1.22e-4 against the frozen 1e-4 exactness bar, so the receipt is formally invalid and its component effects are not evidence. Other closure, recurrence, and price checks pass, but do not override that gate. The immutable failure is retained; a zero-forward arithmetic audit will localize the precision defect before any new circuit test.
 
+### 2026-09-06T11:48Z — Codex — arithmetic failure localized without scientific rescue
+
+The zero-forward audit proves the sole miss is exactly one `2^-13` float32 quantum on the subtractive `z9 - 8*x0` reconstruction; joint deep-V9 closes at 3.81e-6. All component effects remain quarantined and the original result remains invalid. Subsequent path instruments will avoid reconstructing deep state by large-term subtraction.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the

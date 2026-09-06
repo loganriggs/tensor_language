@@ -249,3 +249,7 @@ Authority, capability, exactness, recurrence, deep dominance, and price all pass
 ### 2026-09-06T11:45Z — Codex — block8 factorial invalid on preregistered exactness
 
 The immutable receipt is `invalid`: deep9 component recombination error is 1.22e-4, outside the frozen 1e-4 bar. The failure arises in the check that reconstructs deep9 by subtracting the checkpoint's large direct reinjection (`block9 x0 lambda = 8.0`); joint deep-V9, source, and Möbius checks pass at <=3.81e-6, and price/recurrence pass, but none of the component Shapley values are admissible mechanism evidence. The file is preserved and released invalid. Next perform a zero-forward arithmetic audit that localizes sequential-rounding versus subtractive-cancellation error, without changing or rescuing this result, then design the next circuit test from valid parent authorities.
+
+### 2026-09-06T11:48Z — Codex — invalidity audit localizes one binary rounding quantum
+
+The hash-bound zero-forward audit passes all five checks. The only recorded error above 1e-4 is deep9 recombination, exactly `2^-13`; source confirms it is computed by subtracting the large direct-x0 term (`lambda=8.0`) from native z9, while the separately reconstructed joint deep-V9 closes at 3.81e-6. This identifies float32 subtractive/sequential rounding, but does not rescue the experiment: all component effects remain `descriptive_only_quarantined` and the original terminal remains invalid. Future instruments must capture/reconstruct the sequential deep path directly rather than subtracting the reinjection.
