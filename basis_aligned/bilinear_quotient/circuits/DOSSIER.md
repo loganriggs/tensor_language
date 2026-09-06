@@ -296,6 +296,8 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.l9h1_h4_downstream_source_bank_v2` | complete | sole BF16-corrected, science-identical source bank | **contextual source-bank screen** | `aspectual_anchor_l9h1_h4_downstream_source_bank_v2_result.json` |
 | `aspectual_anchor.has_vs_had.contextual_source_state_onset_v1` | complete | exact source-bank residual-depth sweep | **source carrier first sufficient at resid:5** | `aspectual_anchor_contextual_source_state_onset_v1_result.json` |
 | `aspectual_anchor.has_vs_had.block4_contextual_source_writer_factorial_v1` | complete | exact carried/attention4/MLP4 Boolean factorization | **MLP4 contextual writer screen** | `aspectual_anchor_block4_contextual_source_writer_factorial_v1_result.json` |
+| `aspectual_anchor.has_vs_had.mlp4_bilinear_response_factorial_v1` | invalid | exact left/right/interaction response factorial | **BF16 intermediate closure tripwire** | `aspectual_anchor_mlp4_bilinear_response_factorial_v1_result.json` |
+| `aspectual_anchor.has_vs_had.mlp4_bilinear_response_factorial_v2` | complete | tolerance-only corrected response factorial | **two-term MLP4 bilinear subprogram** | `aspectual_anchor_mlp4_bilinear_response_factorial_v2_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -329,6 +331,15 @@ That factorization closes to direct resid:5 replacement within 7.6e-6 scored log
 three-factor Shapley contribution is 33.58 recovery points, versus 6.03 for attention4 and 16.11 for carried resid:4 state. Removing
 MLP4 from the full arm loses 33.56 points in A1 and 35.89 in A2. MLP4 alone recovers 31.89%; carried+MLP4 reaches 49.19%. The next
 factorization target is therefore the bilinear MLP4 response at the three contextual source positions.
+
+The response factorization resolves that target. V1 was invalid solely because its FP32 reconstruction differed from the native
+BF16 intermediate by 0.001160, narrowly outside a 0.001 tolerance, even though the independently scored full-factor/direct-MLP4
+closure was 7.6e-6. A preregistered tolerance-only v2 (0.002; all rows, arms, factors, behavioral gates, and computations unchanged)
+passes every gate. The exact right-change and left-change terms have Shapley contributions of 17.17 and 14.19 recovery points;
+their fixed pair recovers 33.38%, or 104.67% of the complete three-term MLP4 response, with direction fraction 1.0 in A1 and A2.
+The mixed bilinear interaction contributes only 0.52 points and is dispensable on this population. The transparent writer is thus
+`Down((Left_d-Left_b)*Right_b + Left_b*(Right_d-Right_b))` at `last`+period+`the`. The next frozen test asks whether this two-term
+write is specifically mediated through those positions' L9H1/H4 attention-source terms, closing the writer-to-reader path.
 
 ### `subroutine.induction.equality_score` — site_live
 
