@@ -1,0 +1,24 @@
+{
+  "schema": "temporal_auxiliary_l9_subject_to_h3_crosscue_remainder_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.l9_subject_to_h3_crosscue_remainder_v1",
+  "registered_utc": "2026-09-06T18:54:30Z",
+  "question": "Which frozen singleton accounts for the Later/Previously A2 remainder left by L9H1/H4/H7?",
+  "authority": {
+    "crosscue_result_sha256": "3c904aaec38bcc2577ae2c549fe5ad9eb818d3c664eee63210476f765b953479",
+    "weight_prediction": "Within L9, the exact rank-two weight-incidence ordering is H1, H4, H3, H7, H6, H2, H0, H5, H8; therefore H3 is the frozen predicted remainder head."
+  },
+  "frozen_design": {
+    "population": "The same 29 A1 and 30 A2 jointly capable Later/Previously rows as the failed strict confirmation.",
+    "arms": "All nine singletons, H1/H4/H7, its six-head complement, and all heads, applied as live L9 subject writes induced by the same L8H1 writer.",
+    "outcomes": "Frozen rank-two H3 response fractions, behavioral recovery, exact capture controls, and the complete singleton ranking.",
+    "price": {"model_forwards": 36, "example_evaluations": 1062, "records": 708, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capture_closure_and_price": "All authorities, exact instrument controls, coverage, and price hold.",
+    "pred_b_writer_and_full_l9_subject_response_are_material": "The writer and all-head L9 response remain material in both panels.",
+    "pred_c_frozen_triple_remains_dominant": "H1/H4/H7 retain at least 85% of all-head H3 response in both panels.",
+    "pred_d_h3_is_largest_complement_singleton": "H3 is the largest singleton among heads 0/2/3/5/6/8 in A2.",
+    "pred_e_h3_explains_material_a2_remainder": "H3 alone retains at least 5% of the A2 all-head projected response."
+  },
+  "decision": "diagnostic screen if all pass; alternate remainder if A-C pass but D/E fail; null if the complete edge loses materiality; invalid if A fails. No revised head set is licensed on this population."
+}

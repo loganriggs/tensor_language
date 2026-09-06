@@ -1,0 +1,26 @@
+{
+  "schema": "temporal_auxiliary_l9_subject_to_h3_greedy_crosscue_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.l9_subject_to_h3_greedy_crosscue_v1",
+  "registered_utc": "2026-09-06T18:51:25Z",
+  "question": "Does the v4-selected L9H1/H4/H7 subject-write set remain necessary on the independently authored Later/Previously cue bank?",
+  "authority": {
+    "discovery_necessity_result_sha256": "4c93e024299e6fff6fcd894ca7bef1b7365c0a56e1d3d9cb6daf996284306d32",
+    "discovery_necessity_runner_sha256": "1d4be0b54e81e9f272622739aee4d623011cedafdef290e53442b4f9462893ca",
+    "fresh_v1_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "fresh_v1_capability_sha256": "d59fdc0659f7db4632607a5fae860887bdf0f69f03af659b02ffcd6cc8c3be59"
+  },
+  "frozen_design": {
+    "population": "Only base-and-donor jointly capable A1/A2 rows named by the sealed Later/Previously capability manifest (29 A1 and 30 A2).",
+    "intervention": "Replay the exact discovery necessity instrument with the same L8H1 cue-to-subject writer, frozen rank-two H3 basis, L9H1/H4/H7 clamp, six-head complement clamp, all-head clamp, and base self-clamp.",
+    "independence_scope": "The head set is OOD because H7 was selected on v4. The H3 subspace itself was fitted partly on this cue bank, so this is not an independent subspace confirmation.",
+    "price_max": {"model_forwards": 22, "example_evaluations": 704, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capture_self_clamp_and_price": "Authorities, exact closures, complete records, and price gates hold.",
+    "pred_b_complete_l9_removal_is_material": "All-head removal remains nonzero and at least 3% of the writer effect in both panels.",
+    "pred_c_greedy_set_is_necessary_for_h3_response": "Triple removal accounts for at least 90% of all-head projected H3 removal in both panels.",
+    "pred_d_complement_is_unnecessary_for_h3_response": "Complement removal accounts for at most 15% in both panels.",
+    "pred_e_greedy_set_is_necessary_for_behavior": "Triple behavioral removal is within 20% of all-head removal in both panels."
+  },
+  "decision": "confirmation if all pass; distributed if the complete edge remains material but compression fails; null if the edge loses materiality; invalid if instrumentation fails."
+}

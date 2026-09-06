@@ -1,0 +1,21 @@
+{
+  "schema": "temporal_auxiliary_fresh_v6_capability_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_v6_capability_v1",
+  "registered_utc": "2026-09-06T18:59:00Z",
+  "question": "Does the sealed schedule-framed Tomorrow/Yesterday bank repair v5's capability failure without opening a circuit outcome?",
+  "authority": {
+    "builder_sha256": "771302e00e572c6169cb7ea3f155306b27a1413609a168960f27c589bedcb961",
+    "builder_authority_sha256": "ae80a7c1a461bc9c0727516e875a3f887d95a08f47627c2942e1b6b98f20d93f",
+    "invalid_v5": "V5 A2 had only 10/32 jointly capable rows; no circuit intervention was opened."
+  },
+  "frozen_design": {
+    "measurement": "Native margins only for 32 bare and 32 schedule-framed pairs, base and donor.",
+    "price": {"model_forwards": 4, "example_evaluations": 128, "records": 128}
+  },
+  "predictions": {
+    "pred_a_authority": "Exact authority and row counts reproduce.",
+    "pred_b_joint_capability": "At least 28 jointly correct rows per panel.",
+    "pred_c_exact_finite_coverage_and_price": "Exact finite coverage and price."
+  },
+  "decision": "manifest only if all pass; otherwise invalid without causal testing."
+}

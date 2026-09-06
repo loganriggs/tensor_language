@@ -94,3 +94,62 @@ subspaces using their gauge-invariant weight contractions and causally test the 
 intersection/task-specific complements. The DAS-vs-DIM weight audit remains necessary for
 identification, but weight-guided reader discovery is already licensed as an efficiency
 tool rather than merely a proposed method.
+
+## 18:51 subspace, weight, and live-edge update
+
+The constrained-DAS red team does not support regularization as a sufficient repair.
+On a truly fresh cue bank, frozen-axis difference-in-means beat unregularized scalar cDAS;
+noise improved one panel slightly but worsened the other, while KL and aligned penalties
+collapsed toward a still poorer difference-in-means-like basin. The stronger intervention
+was multi-task fitting: a pooled rank-one direction beat both task-specific rank-one
+baselines, and the frozen rank-two union beat every rank-one arm on a sealed third cue
+bank. Its complement disturbance remained 0.328/0.344, however. The present diagnosis is
+therefore an underspecified scalar/complement objective plus cue-conditioned rotation, not
+simply too little regularization. Future optimization must use multiple environments and
+an explicit invariance/selectivity constraint evaluated on held-out environments.
+
+The rank-two H3 union has now been translated into exact checkpoint-weight interfaces.
+The thin-QR gauge replay error is 6.36e-9; its two residual-write singular values are
+10.77 and 10.15, so the second mode is not a numerical null. The weight atlas prospectively
+ranked L9H1 first and L9H4 third among upstream heads. A live causal test then found that
+L9H1/H4 plus the causally exposed L9H7 account for 99.17%/96.21% of the all-head projected
+H3 response, while the other six heads account for only 2.62%/4.97%. Exact removal gives
+the matching necessity result: the triple accounts for 99.42%/97.14% of all projected H3
+removal and the complement only 2.40%/4.36%. Behavioral sufficiency and necessity close to
+the all-head arms as well, with zero reconstruction, identity, and self-clamp error.
+
+This licenses a selectively manipulable discovery-population edge:
+
+`L8H1 cue write -> subject state -> L9H1/H4/H7 distributed refinement -> L11H3 rank-two read`.
+
+The block-9 edge is about 8% of the total L8H1 writer effect, so it is a real serial branch
+rather than the whole computation. Evidence is currently a preregistered discovery screen,
+not stable identification: H7 was chosen on the v4 bank. The immediate promotion test is a
+zero-fit replay of the frozen three-head sufficiency/necessity intervention on the earlier
+Later/Previously cue bank, followed by a wholly new capability-first bank if it passes.
+
+That promotion test is a strict near-miss, not a confirmation. On the 59 jointly capable
+Later/Previously rows, triple necessity retains 99.47% of all-head H3 removal in A1 but
+89.72% in A2, narrowly below the frozen 90% floor. The six-head complement remains small
+(5.38%/12.42%), behavioral necessity closes in both panels, and every instrument control is
+exact. Thus H1/H4/H7 are a recurrent dominant core, but the claim that they are the stable
+minimal edge is falsified as registered. The efficient next diagnostic is the already
+frozen nine-singleton inventory on this population, using the weight atlas's prediction
+that H3 is the largest member of the six-head remainder; any revised set still requires a
+new cue bank rather than threshold repair on these outcomes.
+
+The singleton diagnostic preserves the dominant-core claim but falsifies that exact weight
+prediction. H1/H4/H7 recover 100.63%/90.15% of the all-head sufficiency response. H3 is a
+material A2 remainder at 5.65%, but H0 is larger at 11.07%. This is evidence that static
+weight incidence ranks the large readers well but does not fully determine activation-
+conditioned routing among small residual heads. H0 may extend the cross-cue core, but it is
+post-outcome on this bank and cannot be added here. A sealed Tomorrow/Yesterday authority
+has therefore been authored for capability-only gating before any four-head intervention.
+
+Three capability-only attempts were rejected before causal testing: v5 had 32/32 A1 but
+10/32 A2 jointly capable; v6 had 32/32 and 22/32; v7 Next-week/Last-week had 29/32 and
+25/32. This is useful negative design evidence: changing both cue semantics and embedded
+frame at once is an inefficient route to a high-quality confirmation bank. The next bank
+will retain the already reliable Next-year/Last-year semantic frame while changing the
+lexicon and surface construction, isolating lexical/construction transfer of the revised
+H1/H4/H7/H0 hypothesis. New-cue transfer remains a later, separate test.

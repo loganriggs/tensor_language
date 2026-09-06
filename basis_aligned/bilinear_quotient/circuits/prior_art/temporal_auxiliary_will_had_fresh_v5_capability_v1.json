@@ -1,0 +1,21 @@
+{
+  "schema": "temporal_auxiliary_fresh_v5_capability_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_v5_capability_v1",
+  "registered_utc": "2026-09-06T18:57:00Z",
+  "question": "Does the sealed Tomorrow/Yesterday bank support a wholly new capability-first test of the revised L9-to-H3 edge?",
+  "authority": {
+    "builder_sha256": "68b5bc13849e9be97cb596b5cf52ab2ae7a6a6ee3af0937acf472264c63fd647",
+    "builder_authority_sha256": "216f1e31a9f3fda1988d82ed8814ecde94c90c8db09ae3669ee0e1a208e932fb"
+  },
+  "frozen_design": {
+    "panels": ["A1 bare Tomorrow/Yesterday", "A2 forecast-embedded Tomorrow/Yesterday"],
+    "measurement": "Native base and donor answer-minus-foil margins only. No circuit intervention or subspace outcome is opened.",
+    "price": {"model_forwards": 4, "example_evaluations": 128, "records": 128}
+  },
+  "predictions": {
+    "pred_a_authority": "The sealed candidate and exact 32-row A1/A2 counts reproduce.",
+    "pred_b_joint_capability": "At least 28 of 32 rows are jointly correct on base and donor in each panel.",
+    "pred_c_exact_finite_coverage_and_price": "Exactly 128 unique finite row-side records land at the registered price."
+  },
+  "decision": "manifest only if all pass; otherwise invalid, without opening a revised edge test."
+}
