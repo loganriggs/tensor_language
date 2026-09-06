@@ -1,0 +1,22 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "bracket.pending_opener.absolute_term_program_ood_control_validation_v2",
+  "created_utc": "2026-09-06T00:40:15Z",
+  "purpose": "Validate the three-term absolute bracket program across both prior OOD target constructions and all three answer-preserving control families before replacing the six displacement vectors in the compiled package.",
+  "prior_art_search": {
+    "result": "The three absolute terms passed prospectively on one untouched construction, but their outcomes have never been measured on the two established OOD target families. No-edit controls were validated for the displacement dispatcher, not for this absolute-term implementation.",
+    "absolute_artifact": {"path": "circuits/followups/bracket_l13h8_closer_absolute_term_program_v1_artifact.json", "sha256": "c365a9d3e5fccc8ba8463099571c1fbdf059e49ed8426cf0e32dddec30644930"},
+    "fresh_result": {"path": "circuits/followups/bracket_l13h8_closer_absolute_term_program_v1_result.json", "sha256": "c3b80c69d51453e91dea1c45f7df095d7e5821de9441d1dea67a169e07263f10"},
+    "ood_capability": {"path": "circuits/fast_screens/bracket_l13h8_ordered_pair_program_ood_capability_v1_result.json", "sha256": "a1bb465af45b6d7c4059370629d117017aa01e028ed0a985b58d8bbb46da5622"},
+    "displacement_ood_result": {"path": "circuits/followups/bracket_l13h8_ordered_pair_displacement_program_ood_validation_v1_result.json", "sha256": "3b267f069647824fb7557e9784c63becb0366f94fe4d274fea343ae2bc802e5f"}
+  },
+  "predictions": {
+    "pred_a_immutable_artifact_capability_and_replay": "The three-term artifact and passing fresh result are unchanged; OOD native capability remains passed; exact replay error is at most 1e-4.",
+    "pred_b_absolute_program_transfers_both_families": "Across 144 OOD target endpoints, and separately in both target families, absolute terms reproduce exact donor-term effects with cosine at least 0.65, relative L2 at most 0.90, norm ratio 0.25 to 2.0, and sign agreement at least 0.75 overall; each family also has cosine at least 0.60 and signs at least 0.70.",
+    "pred_c_every_ordered_pair_recurs": "Each of six ordered pairs has 24 endpoints, positive absolute-program effect fraction at least 0.75, and exact-effect sign agreement at least 0.70.",
+    "pred_d_no_edit_controls_are_exact_noops": "All 216 answer-preserving endpoints dispatch the native term unchanged, producing maximum absolute logit change at most 1e-4 and preserving every recipient answer.",
+    "pred_e_fixed_price_and_boundary": "The validation uses three forwards over 1,080 example evaluations with zero fits, backwards, updates, or prototype changes. Pair-centered selective necessity remains null; broad success would license the absolute-term program, not a whole upstream or suffix replacement."
+  },
+  "terminal_rule": "program_screen if all gates pass; null if the immutable instrument is valid but transfer or controls fail; invalid on input, replay, balance, or price mismatch.",
+  "closed_claims": ["pair-centered selective necessity", "whole upstream replacement", "native suffix replacement for causal execution", "full-logit prediction", "whole-model replacement"]
+}
