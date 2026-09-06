@@ -209,6 +209,7 @@ rank, new direction, template table, or threshold change is allowed.
 | `task14_bracket_counterfactual_error_budget_audit.v3` | complete | exact baseline/effect error decomposition | **bracket baseline is 95.1% of error norm** | active diagnostic | `task14_bracket_counterfactual_error_budget_audit_v3_result.json` |
 | `task14_standalone_bracket_conditioned_hybrid.v6` | complete | 22-scalar strongest-boundary package | **predictive/composable/manipulable hybrid screen** | active | `task14_standalone_bracket_conditioned_hybrid_v6_result.json` |
 | `task14_bracket_transparent_margin_program_release.v7` | complete | hash-bound importable/CLI 22-scalar program | **executable release** | active | `task14_bracket_transparent_margin_program_release_v7_result.json` |
+| `bracket.pending_opener.native_baseline_l13h8_causal_ceiling_newest.v1` | complete | exact semantic-opener and whole-head zero removal on newest construction | **causal ceiling screen** | active | `bracket_native_baseline_l13h8_causal_ceiling_newest_v1_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -241,6 +242,12 @@ The v7 release makes this boundary executable rather than documentary. Its hash-
 bracket conformance cases, rejects malformed specifications, and imports no model/training/network dependency. The release manifest
 binds the prospective evidence, exact composition counts, 22-scalar price, combined standalone null, and remaining bracket baseline
 dependency. It is the current simplest honest transparent program, not a whole-model replacement.
+
+The newest-construction causal ceiling now localizes a material part of that remaining dependency. Exact semantic-opener removal at
+L13H8 damages the correct closer on all 72 endpoints, explains 44.83% of native-margin norm, aligns with native margin at cosine 0.84532,
+and agrees with complete-head damage at cosine 0.97512. Every one of the six ordered delimiter pairs recurs. This licenses exactly one
+fixed direct-readout compression evaluated at the counterfactual-cancellation precision boundary; failure closes local L13H8 baseline
+compression without feature, site, rank, or reconstruction rescue.
 
 ### `subroutine.induction.equality_score` — site_live
 

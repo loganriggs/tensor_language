@@ -1,0 +1,58 @@
+{
+  "schema": "bracket_native_baseline_l13h8_causal_ceiling_prior_art_v1",
+  "candidate_id": "bracket.pending_opener.native_baseline_l13h8_causal_ceiling_newest_v1",
+  "created_utc": "2026-09-06T01:38:01Z",
+  "data_status": "CAUSAL_INTERVENTIONS_UNRUN_ON_NEWEST_ROWS; native and frozen-program outcomes already opened",
+  "purpose": "Use exact zero replacement on the newest 36-row bracket construction to bound how much of the native correct-closer margin is causally carried by the semantic-opener term and by complete L13H8, before considering one fixed direct readout.",
+  "authority": {
+    "bracket_native_baseline_fresh_corpus_v1_rows.json": "ad246a0ab2affd0a351b971c100c27c2ad09597d0d9e7b84b636e1eb4c8fb399",
+    "task14_bracket_native_baseline_semantic_linear_prospective_v2_result.json": "1d2f99a6c965ed0d6794cb83a6fb0c8953d11e9a599e769b02d4a0f612d89ea4",
+    "run_bracket_l13h8_source_region_payload_factorial.py": "b4897139e6bc8451909c09c038bf46dae80ccdca5931e62fd8b7d7ed66c7f53e",
+    "run_bracket_l13h8_semantic_open_zero_removal.py": "9de2994652a3cc86efad64ebb48cdd9ac7ee605c0c49c82b5aaa8aefe02dc840"
+  },
+  "interventions": [
+    "native exact replay",
+    "replace the single semantic-opener p_times_u contribution at L13H8 by zero",
+    "replace the complete final-position L13H8 write by zero"
+  ],
+  "definitions": {
+    "recipient_margin": "recipient closer logit minus the mean of the other two closer logits",
+    "removal_damage": "native replay recipient_margin minus zeroed recipient_margin",
+    "explained_norm_ratio": "L2 norm of removal_damage divided by L2 norm of native recipient_margin",
+    "residual_norm_ratio": "L2 norm of zeroed recipient_margin divided by L2 norm of native recipient_margin"
+  },
+  "bars": {
+    "native_replay_max_absolute_logit_error_max": 0.0001,
+    "native_positive_fraction_min": 0.85,
+    "semantic_term_minimum_norm_min": 1.0,
+    "complete_head_damage_positive_fraction_min": 0.9,
+    "complete_head_explained_norm_ratio_min": 0.2,
+    "semantic_damage_positive_fraction_min": 0.9,
+    "semantic_explained_norm_ratio_min": 0.2,
+    "semantic_damage_native_cosine_min": 0.8,
+    "semantic_residual_norm_ratio_max": 0.9,
+    "semantic_to_complete_damage_cosine_min": 0.95,
+    "semantic_to_complete_damage_norm_ratio_min": 0.8,
+    "ordered_pair_semantic_positive_fraction_min": 0.75,
+    "ordered_pair_semantic_median_fraction_of_native_min": 0.15
+  },
+  "predictions": {
+    "pred_a_exact_live_instrument": "Replay error, capability, live-term, and complete-head ceiling bars all pass on 72 endpoints.",
+    "pred_b_semantic_opener_carries_material_native_baseline": "Semantic removal damage passes the global magnitude, alignment, residual, and complete-head agreement bars.",
+    "pred_c_six_pair_recurrence": "Every ordered delimiter pair passes positive-damage and median fraction-of-native bars.",
+    "pred_d_fixed_next_action": "If A-C pass, permit exactly one fixed direct-readout compression of this term; otherwise close local L13H8 baseline generation and retain the native baseline dependency. No feature, site, rank, or reconstruction follow-up is licensed."
+  },
+  "price": {
+    "physical_model_forwards": 4,
+    "endpoint_evaluations": 288,
+    "causal_installations": 144,
+    "fits": 0,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "terminal": {
+    "screen": "All predictions A-C pass; one fixed direct-readout compression is licensed.",
+    "null": "The exact instrument is live but any materiality or recurrence bar fails; retain native baseline dependency and close this local generator route.",
+    "invalid": "Any authority, replay, capability, live-term, or complete-head ceiling check fails."
+  }
+}
