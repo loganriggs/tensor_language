@@ -1,0 +1,35 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "cross_behavior.task14_bracket_fixed_program_stress_composition_v1",
+  "created_utc": "2026-09-06T00:12:30Z",
+  "purpose": "Test whether the two independently frozen Task14 and bracket programs remain predictive when simultaneously active at L11H3 and L13H8, using exact four-corner effects on each program's licensed corpus.",
+  "prior_art_search": {
+    "result": "Each program has prospective transfer and isolated collateral evidence, but no run installs both fixed programs in the same forward or measures their interaction.",
+    "task14_program_result_sha256": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0",
+    "task14_artifact_sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07",
+    "bracket_program_result_sha256": "3b267f069647824fb7557e9784c63becb0366f94fe4d274fea343ae2bc802e5f",
+    "bracket_artifact_sha256": "531434535daf526ebf584564afbfd5834c75df7bd636014ea233f9ae71206db0"
+  },
+  "design": {
+    "task14_panel": "All 512 licensed Task14 row-by-background cells. Reproduce base/program L11H3 heads, add a deterministic bracket vector at L13H8, and evaluate base, Task14, bracket-stress, and both corners.",
+    "bracket_panel": "All 144 licensed bracket OOD target endpoints. Add the selected bracket vector at L13H8 and a deterministic Task14 vector at L11H3, evaluating base, bracket, Task14-stress, and both corners.",
+    "stress_assignment": "SHA256(row_id + panel cell key), interpreted big-endian modulo the frozen foreign-program key count; no effect or logit enters assignment.",
+    "interaction": "both - own_program - foreign_stress + base on the panel's signed donorward margin",
+    "scope": "active cross-program stress composition, not a claim that one natural prompt jointly instantiates both semantic variables"
+  },
+  "predictions": {
+    "pred_a_immutable_programs_and_exact_corners": "Both artifacts/results remain hash-identical; all 512 Task14 and 144 bracket cells contain four unique corners; isolated own-program corners replay their parent effects within 1e-4.",
+    "pred_b_foreign_stress_is_live": "On each panel the foreign-program marginal has L2 norm at least 5% of the own-program marginal, preventing a vacuous coexistence pass.",
+    "pred_c_task14_survives_bracket_program": "Task14 effects under bracket stress versus isolated Task14 effects have cosine at least 0.90, relative L2 error at most 0.40, and sign agreement at least 0.90; interaction norm is at most 0.40 of isolated Task14 effect norm.",
+    "pred_d_bracket_survives_task14_program": "The identical preservation and interaction bars hold for bracket effects under Task14 stress.",
+    "pred_e_fixed_price_and_no_refit": "At most 20 physical forwards, 3,000 example evaluations, zero backwards, fits, parameter updates, vector changes, or outcome-conditioned assignments."
+  },
+  "terminal_rule": "composition_screen if all gates pass; interaction_null if instruments and live stress pass but either composition gate fails; inconclusive if foreign stress is not live; invalid otherwise.",
+  "closed_claims": [
+    "joint semantic variable in one natural prompt",
+    "autonomous selectors",
+    "whole-model replacement",
+    "runtime speedup",
+    "program recalibration"
+  ]
+}
