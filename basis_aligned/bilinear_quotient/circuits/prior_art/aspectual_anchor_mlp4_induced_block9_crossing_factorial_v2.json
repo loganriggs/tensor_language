@@ -1,0 +1,55 @@
+{
+  "schema": "aspectual_anchor_mlp4_induced_block9_crossing_factorial_prior_art_v2",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp4_induced_block9_crossing_factorial_v2",
+  "created_utc": "2026-09-06T03:01:00Z",
+  "question": "How does the fixed two-term MLP4 contextual write cross into the final-subject resid10 carrier?",
+  "preexecution_lineage": {
+    "v1_prior": "circuits/prior_art/aspectual_anchor_mlp4_induced_block9_crossing_factorial_v1.json",
+    "v1_terminal": "abandoned before runner creation or model execution",
+    "sole_correction": "The residual-state tensor reconstruction tolerance is 0.04 rather than 0.002 because the identity spans sequential native BF16 residual additions. The independent scored-logit closure remains 0.125.",
+    "unchanged": "Rows, factors, arms, behavioral gates, source writer, outcome thresholds, and compute budget."
+  },
+  "authority": {
+    "head_sweep_result": {
+      "path": "circuits/followups/aspectual_anchor_mlp4_induced_l9_head_sweep_v1_result.json",
+      "sha256": "0d092efa06ad697b419253262bf05db2ed2e5e2cbb0f0d3a5ff23aac9021e2b5",
+      "terminal": "null",
+      "all_heads_to_writer_retained_fraction": 0.44535002590948286,
+      "licensed_additional_heads": []
+    },
+    "writer_terms": ["left_change", "right_change"],
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+  },
+  "population": "The same 64 valid A1/A2 discovery rows.",
+  "operator": {
+    "base_and_hybrid": "Capture block9 components under native base and the fixed two-term MLP4 writer hybrid.",
+    "factors_at_final_query": {
+      "carried9": "lambda9[0] times hybrid-minus-base resid9",
+      "attention9": "hybrid-minus-base complete attention9 output",
+      "mlp9": "hybrid-minus-base complete MLP9 output"
+    },
+    "intervention": "Add selected factors at the final-subject base resid10 state and run the exact layers10-17 suffix.",
+    "arms": "All eight Boolean subsets, a direct hybrid-minus-base resid10 ceiling, and the full two-term writer.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_crossing_instrument": "Manual base logits match native within 1e-4; the three factors reconstruct hybrid-minus-base resid10 at the final query within 0.04; the full factor arm matches direct resid10 replacement within 0.125 scored logit.",
+    "pred_b_writer_recurrence": "The two-term writer recurs within 0.02 of mean recovery 0.33379277118533013 with positive A1/A2 recovery and direction fraction at least 0.80.",
+    "pred_c_resid10_final_query_sufficiency": "The full three-factor crossing retains at least 65% of the writer mean recovery with positive A1/A2 recovery and direction fraction at least 0.80.",
+    "pred_d_dominant_crossing_factor": "The largest exact factorial Shapley factor contributes at least 0.10 mean recovery, and removing it from the full arm lowers mean recovery in A1 and A2.",
+    "pred_e_exact_coverage": "All ten arms produce all 64 finite outcomes within 28 model forward calls and 896 example evaluations."
+  },
+  "terminal": {
+    "screen": "A-E pass: license the dominant carried/attention/MLP block9 route into the resid10 final-query carrier.",
+    "null": "The run is valid but C or D fails: the missing MLP4 route is not captured by this final-query block9 crossing.",
+    "invalid": "Instrument identity, writer recurrence, native capability, finiteness, or coverage fails. No factor, arm, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 28,
+    "example_evaluations_max": 896,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First exact causal factorization of how a factorized upstream MLP write crosses into a later behavior-localized residual carrier."
+}

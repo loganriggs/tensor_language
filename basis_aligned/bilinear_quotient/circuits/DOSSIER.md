@@ -300,6 +300,8 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.mlp4_bilinear_response_factorial_v2` | complete | tolerance-only corrected response factorial | **two-term MLP4 bilinear subprogram** | `aspectual_anchor_mlp4_bilinear_response_factorial_v2_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_to_l9h1_h4_path_mediation_v1` | null | exact two-term-writer to source-bank/head mediation | **specific partial path; misses frozen sufficiency by 0.24 points** | `aspectual_anchor_mlp4_to_l9h1_h4_path_mediation_v1_result.json` |
 | `aspectual_anchor.has_vs_had.mlp4_induced_l9_head_sweep_v1` | null | fixed all-head singleton plus leave-one-out mediation | **H1/H4 dominate; no missing direct L9 head** | `aspectual_anchor_mlp4_induced_l9_head_sweep_v1_result.json` |
+| `aspectual_anchor.has_vs_had.mlp4_induced_block9_crossing_factorial_v1` | abandoned pre-run | BF16 instrument audit | **no model execution** | none |
+| `aspectual_anchor.has_vs_had.mlp4_induced_block9_crossing_factorial_v2` | complete | exact carried9/attention9/MLP9 factorial | **attention9-dominant resid10 crossing** | `aspectual_anchor_mlp4_induced_block9_crossing_factorial_v2_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -354,6 +356,14 @@ recovery, only 44.54% of the MLP4 writer and below the frozen 50% bar. H4 and H1
 5.56%; the largest remaining heads, H8 and H7, contribute only 0.96% and 0.91%, and no additional head passes the preregistered joint
 sufficiency/necessity criterion. The unexplained writer effect therefore does not sit in another direct L9 final-query head. The next
 circuit boundary is resid:10 itself: factor the writer-induced final-query crossing into carried resid:9, attention9, and MLP9 terms.
+
+The corrected block9 crossing (v1 was abandoned before execution after a BF16-tolerance audit) closes to direct resid:10 replacement
+within 5.7e-6 scored logit and screens. The complete final-query crossing retains 76.53% of the two-term MLP4 writer: A1 23.61%, A2
+27.48%, both direction 1.0. Attention9 is dominant with exact factorial Shapley 13.32 points; carried resid:9 contributes 9.38 and
+MLP9 2.84. Removing attention9 loses 11.60 points in A1 and 15.10 in A2. Notably, attention9's attribution agrees with the independently
+measured H1/H4 contextual-bank mediation (13.27%), tying that explicit reader edge to the dominant crossing term. The remaining
+secondary branch is already present in carried resid:9, so the next exact depth sweep traces when the writer reaches the final query
+through blocks5-8 before factoring the onset block.
 
 ### `subroutine.induction.equality_score` — site_live
 
