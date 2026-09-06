@@ -1,0 +1,57 @@
+{
+  "schema": "task14_bracket_native_baseline_semantic_linear_prospective_prior_art_v2",
+  "candidate_id": "cross_behavior.task14_bracket_native_baseline_semantic_linear_prospective_v2",
+  "created_utc": "2026-09-06T01:14:59Z",
+  "data_status": "PROSPECTIVE_UNTOUCHED_CORPORA; rows and coefficients frozen with outcomes_opened empty before this registration",
+  "purpose": "Decide whether 27 transparent scalars generate both native and counterfactual answer margins on untouched Task14 lexical rows and an untouched bracket construction, removing the v4 actuator's last native-margin input within these controlled domains.",
+  "authority": {
+    "task14_bracket_native_baseline_semantic_linear_v1_artifact.json": "821aa7b02634d1e5300efd12803ae67b1d930e1d4132e83306c5ff31f1f647db",
+    "task14_native_baseline_fresh_corpus_v1_rows.json": "564d03ae74202b5e0e1be0ce272464362974e2a2f9f6f587c9587319ef829360",
+    "bracket_native_baseline_fresh_corpus_v1_rows.json": "ad246a0ab2affd0a351b971c100c27c2ad09597d0d9e7b84b636e1eb4c8fb399",
+    "task14_bracket_counterfactual_margin_actuator_v4_artifact.json": "85c5cc0549421fc1575d96ce621d0677ea4b0cc2d154b2c0bf7af90f4148bd4c",
+    "task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07",
+    "bracket_l13h8_ordered_pair_displacement_artifact_v1.json": "531434535daf526ebf584564afbfd5834c75df7bd636014ea233f9ae71206db0",
+    "task14_bracket_native_baseline_semantic_linear_feasibility_v1_result.json": "62d9d6e302d60b5372a13b3fbf119c6dfb333375b775497886515d0134fe29ca"
+  },
+  "program": {
+    "task14_native_margin": "six frozen coefficients contracted with intercept, direction sign, and E/A/U/W membership",
+    "bracket_native_margin": "five frozen coefficients contracted with intercept and recipient/donor closer contrasts",
+    "counterfactual_margin": "predicted native margin plus one of sixteen frozen v4 intervention effects",
+    "stored_fp32_scalars": 27,
+    "runtime_per_query": "one six- or five-term dot product, one effect lookup, and one scalar addition",
+    "model_execution": 0
+  },
+  "bars": {
+    "minimum_native_capability": 0.85,
+    "minimum_baseline_cosine": 0.90,
+    "maximum_baseline_relative_l2": 0.50,
+    "minimum_baseline_sign_agreement": 0.90,
+    "minimum_counterfactual_cosine": 0.90,
+    "maximum_counterfactual_relative_l2": 0.50,
+    "minimum_counterfactual_sign_agreement": 0.85,
+    "minimum_task14_direction_template_cosine": 0.80,
+    "minimum_task14_direction_template_sign_agreement": 0.85,
+    "minimum_bracket_ordered_pair_sign_agreement": 0.85,
+    "maximum_replay_or_closure_error": 0.0001
+  },
+  "predictions": {
+    "pred_a_temporal_seal_instrument_and_capability": "All hashes/statuses match, Task14 closure and bracket replay errors are at most 1e-4, all 584 baseline/program targets occur once, and native capability is at least 0.85 in each behavior.",
+    "pred_b_task14_prospective_baseline": "Frozen six-scalar Task14 baseline prediction passes overall bars and every direction-template group passes its group bars on all 512 untouched targets.",
+    "pred_c_bracket_prospective_baseline": "Frozen five-scalar bracket baseline prediction passes overall bars and every ordered pair passes sign agreement at least 0.85 on all 72 untouched targets.",
+    "pred_d_prospective_absolute_counterfactuals": "Frozen baseline plus frozen v4 effect passes counterfactual bars separately for the 512 Task14 and 72 bracket internally intervened margins.",
+    "pred_e_transparent_standalone_price_and_boundary": "The deployed controlled-domain margin program stores exactly 27 FP32 scalars, uses no model/base activation/native margin/suffix/row/template/lexical feature at inference, and the validation price is seven forwards, 1,264 evaluations, zero fits/backwards/updates."
+  },
+  "terminal": {
+    "program_screen": "All five predictions pass. Release as a prospectively validated standalone native/counterfactual answer-margin tensor program for the two controlled domains, not a full-logit or whole-model replacement.",
+    "capability_stop": "Native capability failure invalidates scientific evaluation.",
+    "null": "Any other valid failure retains the baseline-conditioned v4 actuator and closes this semantic-linear standalone route without feature expansion.",
+    "invalid": "Authority, temporal seal, instrument, or price failure only."
+  },
+  "closed_claims": [
+    "full vocabulary logits",
+    "free-form text",
+    "whole-model replacement",
+    "internal activation generation",
+    "causal equivalence of direct output actuation and internal intervention"
+  ]
+}
