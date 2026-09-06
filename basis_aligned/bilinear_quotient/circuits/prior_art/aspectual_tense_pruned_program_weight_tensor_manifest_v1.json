@@ -1,0 +1,30 @@
+{
+  "schema": "aspectual_tense_pruned_program_weight_tensor_manifest_prior_v1",
+  "candidate_id": "aspectual_tense.pruned_program_weight_tensor_manifest_v1",
+  "registered_utc": "2026-09-06T17:48:00Z",
+  "question": "Can the validated task-typed carrier programs be compiled into exact, gauge-invariant weight contractions that expose which components can write the L9H1/H4 task subspaces and whether shared MLP3/4/8 reuse common weight-computation modes?",
+  "authority": {
+    "pruned_program_result_sha256": "bb6344f6446a5426a9b6342c30cbcd56ca821a01b5750e1ef3b940a6b52e15c0",
+    "task_subspace_result_sha256": "0ae262ee932d6ecb93d1df028ac080f3a4597861620da79b7ad45a0f3ae2d16e",
+    "weight_atlas_library_sha256": "2e7d3a546813a6029eca6fae455ad5abd03b429fcee92432ca6fe06e835e83f5",
+    "producer_sha256": "14624b9959fe4bf0b43841a9e349bab50cd564a417595d1c1a048252c6c3b498"
+  },
+  "frozen_design": {
+    "subspaces": "Frozen has/had rank-18 and is/was rank-3 L9H1/H4 value-bank bases.",
+    "read_map": "For task basis U, R = U^T block_rows(W_V^L9,H1/H4).",
+    "mlp_tensor": "T[a,i,j] = sum_n (R W_Down)[a,n] W_Left[n,i] W_Right[n,j].",
+    "attention_map": "A = R W_O^head for each attention component in the pruned path.",
+    "stored_manifest": "For every upstream layer 0-8 component, store gauge-invariant scores, exact tensor/map SHA256, shapes, ranks and spectra; formulas plus frozen checkpoint and basis hashes regenerate every coefficient.",
+    "shared_mode_test": "Compare row spaces of flattened has/had and is/was tensors for MLP3, MLP4 and MLP8 by principal cosines.",
+    "price": {"model_forwards": 0, "example_evaluations": 0, "causal_records": 0,
+      "fitted_scalars": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_basis_rank_gauge_finiteness_and_exact_replay": "Authorities and ranks reproduce; direct factor and tensor contractions agree within 1e-4; all values and hashes are valid.",
+    "pred_b_shared_backbone_is_top_weight_connected": "MLP3, MLP4 and MLP8 are all in the top six normalized tensor scores for both task read maps.",
+    "pred_c_shared_backbone_reuses_weight_modes": "Every shared MLP has at least one cross-task tensor-row principal cosine >=0.50.",
+    "pred_d_pruned_attention_edges_are_weight_connected": "Every attention component retained in either pruned program has positive finite normalized write score to its task read map.",
+    "pred_e_zero_causal_fit_and_exact_price": "No model forward, causal example evaluation, fit, backward pass, or update."
+  },
+  "decision": "screen publishes the manifest as the weight-level compiler boundary; null retains exact tensors but rejects either top-connectivity or shared-mode reuse; invalid on authority, rank, gauge, replay, finiteness, hash, or price failure"
+}
