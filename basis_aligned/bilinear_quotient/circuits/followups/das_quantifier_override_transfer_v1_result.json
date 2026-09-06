@@ -1,0 +1,68 @@
+{
+  "abs_cosine_between_directions": 0.2633271813392639,
+  "candidate_id": "quantifier_number.override_transfer_v1",
+  "families": {
+    "c_control": {
+      "rows": 32,
+      "same_answer_effect": 0.0014317355817183852
+    },
+    "coordination_a1_heldout": {
+      "mean_absolute_recovery": 0.9802995920181274,
+      "mean_recovery": 0.9802995920181274,
+      "rows": 16
+    },
+    "coordination_a2_report_frame": {
+      "mean_absolute_recovery": 0.7437297105789185,
+      "mean_recovery": 0.7437297105789185,
+      "rows": 32
+    },
+    "coordination_direction_on_quantifier": {
+      "mean_absolute_recovery": 0.31791988015174866,
+      "mean_recovery": 0.31791988015174866,
+      "rows": 32
+    },
+    "p_first_noun_rewrite": {
+      "rows": 32,
+      "same_answer_effect": 0.12165567278862
+    },
+    "quantifier_a1_heldout": {
+      "mean_absolute_recovery": 0.9776004552841187,
+      "mean_recovery": 0.9776004552841187,
+      "rows": 16
+    },
+    "quantifier_direction_on_coordination": {
+      "mean_absolute_recovery": 0.5999031066894531,
+      "mean_recovery": 0.5999031066894531,
+      "rows": 32
+    }
+  },
+  "finished_utc": "2026-09-06T10:49:25.817536+00:00",
+  "head_verification": {
+    "max_abs_difference": 2.86102294921875e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_rank1_carries_both_constructions": true,
+  "pred_c_subspace_spares_p_and_c": true,
+  "pred_d_shared_number_direction": true,
+  "pred_e_distinct_number_directions": false,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_rank1_carries_both_constructions": true,
+    "pred_c_subspace_spares_p_and_c": true,
+    "pred_d_shared_number_direction": true,
+    "pred_e_distinct_number_directions": false
+  },
+  "rank": 1,
+  "reading": "shared_number_direction",
+  "registered_matched_slot": "quantifier_number.each_vs_all answers at the SAME auxiliary in the SAME position as coordination_agreement.and_vs_or, so this transfer is not confounded by read position -- the failure mode measured in das_slot_confound_calibration_v1.",
+  "registered_thresholds": {
+    "carry": 0.5,
+    "distinct": 0.2,
+    "shared": 0.5,
+    "spare": 0.2
+  },
+  "schema": "circuit_das_subspace_result_v1",
+  "site": "resid:18",
+  "target_scale": 4.373403310775757
+}

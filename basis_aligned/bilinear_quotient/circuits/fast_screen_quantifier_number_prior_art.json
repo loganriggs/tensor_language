@@ -1,0 +1,51 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "all",
+    "each",
+    "number",
+    "partitive",
+    "quantifier",
+    "was",
+    "were"
+  ],
+  "candidate_id": "quantifier_number.each_vs_all",
+  "canonical_objects": [
+    "number set by a quantifier over an invariantly plural noun",
+    "each-versus-all choice of was/were",
+    "a third route to number at the shared auxiliary slot"
+  ],
+  "decision_changed": "It answers at the SAME auxiliary slot as coordination_agreement.and_vs_or and lexical_number.pp_intervener, so a transfer test against them is interpretable rather than confounded by read position -- currently the only such comparison available in this corpus. Registered in advance for that follow-up: transfer >= 0.50 means override joins the shared number direction; <= 0.20 means overriding is carried separately, which would be the first genuinely interpretable feature separation this lane has produced; between is INCONCLUSIVE and is not resolved by raising rank. If the screen returns a one-sided capability failure the registered stop rule is ONE repair of the weak side, per ops/README.md.",
+  "matched_prior_claims": [
+    "circuits/followups/das_slot_confound_calibration_v1_result.json established that DAS transfer between behaviours is only interpretable when their answers sit at the SAME read position: the same variable at different slots transferred at 0.067 / 0.086 against 1.053 at a matched slot.",
+    "circuits/followups/das_matched_slot_number_transfer_v1_result.json is that matched-slot result, in which composed number and copied number shared a direction at 1.053."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Thirty-third behaviour. The quantified noun is PLURAL in every row, so the noun cannot be the cue; the quantifier three tokens back decides the auxiliary. That makes it a third distinct route to number: coordination COMPOSES it from two singulars, pp_intervener COPIES it from a plural token, and this OVERRIDES the number a plural token already carries. Overriding is the case none of the existing number behaviours cover, and it is the one where a separate direction is most plausible, since the model must suppress a cue that is present rather than build or propagate one.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "reading",
+        "families"
+      ],
+      "sha256": "e674eed12049961a172846ac7f4a7a7d47a129835fd9c77ab69fdf804a2e6e75",
+      "source": "circuits/followups/das_slot_confound_calibration_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "reading",
+        "families"
+      ],
+      "sha256": "acc1306d1fbbfaf0d8aa02df931fd51534b041671496e460459821aa446ba90d",
+      "source": "circuits/followups/das_matched_slot_number_transfer_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, extending the only currently interpretable cross-behaviour comparison",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

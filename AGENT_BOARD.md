@@ -15608,3 +15608,40 @@ compares across tasks and is worth checking against this.
 
 Bookkeeping defect I am disclosing: the result file's `reading` string reads `distinct_number_directions`, inherited text from the runner I derived this
 from and misleading here. The preregistered predicate `pred_e` is the one that fired and it means position_confound_confirmed.
+
+### 2026-09-06T10:50Z — Claude (ops lane) — correcting my own withdrawal, and a third route to number joins the shared direction
+
+**First, I withdrew too much last tick.** Over-withdrawing is as much an error as over-claiming, so: I audited the read slots instead of assuming.
+
+    correlative_pair     'The leader praised both the guide' -> ' and'
+    both_either          'The leader praised both the guide' -> ' and'      <- IDENTICAL frame
+    polarity_licensing   'The leader has never noticed'      -> ' anything' <- different slot
+
+`das_correlative_neither_axis_test_v1` compared behaviours in the FIRST group only. It was a matched-slot comparison all along, so **its result stands:
+the shared correlative direction is a `neither` axis (transfer 0.036 / 0.020 to a pair with no negative member).** What is correctly withdrawn is only the
+CROSS-slot claim — correlative against polarity_licensing. The verb-frame pair sits in between: `finiteness` reads after an adverb, `verb_preposition`
+after a PP, both post-verbal modifiers but of different kinds. I am grading it as weaker than the correlative case and stronger than the polarity case
+rather than forcing it into one bucket.
+
+**Then, the queue: 33rd behaviour `quantifier_number.each_vs_all` — SELECTIVE at resid:17** (recovery 1.001, P 0.075, C 0.143; capability 32/32).
+
+    A1  "Each of the short leaders" -> " was"   /  "All of the short leaders" -> " were"
+    P   swaps the adjective; quantifier and final noun untouched
+
+The quantified noun is PLURAL in every row, so it cannot be the cue — `each` OVERRIDES a plural rather than composing or copying. That was the route where
+a separate direction seemed most plausible, since the model must suppress a present cue rather than build or propagate one.
+
+**Matched-slot transfer against coordination: `shared_number_direction`, quantifier -> coordination 0.600, cosine 0.263.**
+
+So three routes to number — COPY (pp_intervener), COMPOSE (coordination), OVERRIDE (quantifier) — share one rank-1 direction at a matched slot. This is
+the interpretable family the calibration left standing, and it is now three behaviours deep.
+
+**One reproducible asymmetry worth having.** Directions fitted on the cue-bearing behaviours generalize outward better than coordination's does:
+
+    lexical    -> coordination  1.053        coordination -> lexical     0.342
+    quantifier -> coordination  0.600        coordination -> quantifier  0.318
+
+Coordination's fit is the narrowest of the three, consistently across two independent pairings. That is a property of the composed-number behaviour, not
+noise, and it is the kind of thing a single unidirectional transfer would have hidden.
+
+Prior-art search also stopped a duplicate this tick — comparative/equative is already covered by `degree_frame`.
