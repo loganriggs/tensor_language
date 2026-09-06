@@ -1,0 +1,52 @@
+{
+  "schema": "aspectual_tense_local_reader_task_gate_prior_art_v1",
+  "candidate_id": "aspectual_tense.local_reader_task_gate_v1",
+  "created_utc": "2026-09-06T09:57:22Z",
+  "evidence_class": "zero_forward_heldout_construction_branch_gate_and_dispatched_causal_screen",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*aspectual*tense*", "circuits/followups/*aspectual*tense*", "ops/*aspectual*tense*", "AGENT_BOARD.md"],
+    "nearest_result": "The paired-reader audit rejects one cross-bank affine temporal scalar and requires task-gated readers; no gate has been extracted from the local reader values.",
+    "new_question": "Can the two exact local contrasts route among q_has, q_is, and abstention across held-out constructions, while preserving the already measured causal effects?"
+  },
+  "authorities": {
+    "aligned_joint_result_sha256": "46479986f81751af6141e8fcbaf19d4413198b119171711715414d2869f43e08",
+    "paired_reader_audit_sha256": "be5802364a1b5cfa6efb3e747eb63d0ca3372565ef7071bedeed7a85892a7efd",
+    "q_has_scale_authority_sha256": "a4cee1818acd6a28e999eda26d0447f94d080b913f4061d0e6dab4914cb3802c",
+    "q_is_scale_authority_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "q_has_builder_sha256": "ae624913c5adfe07cf028acf6549cd5fe2debd4b090c71659218fe158089fe2c",
+    "q_is_builder_sha256": "b8541360334bd2793a02fae525a94dda05ce600fd4de5b6c3d953063d4c6b0ae"
+  },
+  "frozen_gate": {
+    "features": ["has_contrast", "is_contrast"],
+    "classes": ["has_had", "is_was", "abstain"],
+    "training": "All 32 A1 records label their bank; C records with group_number 0..7 label abstain. A2/P and C groups 8..15 are never used for fit.",
+    "standardization": "Training-set coordinate mean and population standard deviation.",
+    "classifier": "Nearest standardized class centroid under squared Euclidean distance; lexical tie-break has_had, is_was, abstain.",
+    "fitted_values": "Two means, two scales, and three two-dimensional centroids = 10 scalars.",
+    "dispatch": "Predicted bank applies that bank's already measured write; abstain uses base. No new head/model evaluation is needed because base/own/partner margins are persisted.",
+    "normalization_scales": {"has_had": 4.242919445037842, "is_was": 1.9129114151000977},
+    "no_rescue": "Do not add features, tune distance, move split, change classifier, or relax bars after a null."
+  },
+  "bars": {
+    "routing": "A2 and P accuracy >=0.75 separately for each bank; held-out C abstention accuracy >=0.75.",
+    "dispatched_A": "A2 dispatched mean recovery >=0.75 and direction fraction >=0.75 in each bank.",
+    "dispatched_P": "P dispatched mean reflection >=0.75 and direction fraction >=0.75 in each bank.",
+    "dispatched_C": "Held-out C mean normalized unrelated effect <=0.20 across both banks.",
+    "coverage": "48 training records and 80 test records, all disjoint by row within class/split; zero model work."
+  },
+  "predictions": {
+    "pred_a_hash_rows_split_and_margin_identity": "All hashes, builder joins, row splits, and persisted base/own/partner margins are exact and finite.",
+    "pred_b_frozen_three_way_gate": "The ten-scalar nearest-centroid gate is fit exactly once with no test access or tie ambiguity.",
+    "pred_c_heldout_construction_task_routing": "Both A2/P bank cells and held-out C abstention pass routing bars.",
+    "pred_d_dispatched_A_P_causal_preservation": "Both banks pass dispatched A2 and P causal bars.",
+    "pred_e_dispatched_C_selectivity": "Held-out C passes the 0.20 selectivity bar.",
+    "pred_f_exact_coverage_and_zero_forward_price": "Exactly 48 train and 80 test records use 10 fitted scalars and zero forward/backward/grid/root/update."
+  },
+  "terminal": {
+    "screen": "A-F pass: the two local contrasts implement a bounded automatic task gate for the dual program.",
+    "null": "Authority/gate/coverage pass but routing or dispatched causal behavior misses; local contrasts do not suffice for task routing.",
+    "invalid": "Authority, split, identity, finiteness, fit, or coverage fails."
+  },
+  "circuit_targets": ["computational specification", "held-out prediction", "extraction or sufficiency", "selective manipulation", "composition and reuse"],
+  "price": {"model_forwards": 0, "example_evaluations": 0, "fitted_scalars": 10, "feature_dimensions": 2, "classes": 3, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}

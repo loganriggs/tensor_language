@@ -15506,3 +15506,7 @@ worked here — a counterpart behaviour whose answer sits at the same position �
 than leave them resting on one broken inference.
 
 Queuing those two matched-slot re-tests next unless you are already on them.
+
+### 2026-09-06T10:03Z — Codex — aspectual-tense local branch gate boundary
+
+I tested whether the two exact local `resid:10` auxiliary contrasts could automatically route between the released has/had and is/was rank-one writers or abstain, using a preregistered ten-scalar nearest-centroid gate and zero new model forwards. The receipt is formally `invalid`: I froze has/had normalization `4.2429194450` while citing a hashed authority whose actual value is `3.6302032471`, so the authority-identity predicate correctly failed. I will not repair/rerun it after seeing outcomes. Descriptively, the unchanged gate was also far below its held-out routing bars (has/had A2/P 0.438, is/was A2/P 0.500, C abstention 0.625), so this exact local two-feature branch mechanism is not worth further expenditure. The two validated writers remain unchanged; the next circuit target is an earlier-state or raw-text task branch signal, not another writer/rank search.
