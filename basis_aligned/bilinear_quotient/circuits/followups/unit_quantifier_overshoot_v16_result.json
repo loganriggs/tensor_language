@@ -1,0 +1,215 @@
+{
+  "bars": {
+    "band": [
+      0.5,
+      1.2
+    ],
+    "block_gap": 0.15,
+    "complement": 0.3,
+    "das": {
+      "complement_weight": 1.0,
+      "lr": 0.05,
+      "rank": 1,
+      "steps": 120
+    },
+    "grow": 0.3,
+    "linearity_sum": [
+      0.85,
+      1.15
+    ],
+    "over": 1.2,
+    "tol": 0.05
+  },
+  "block_gaps_v1_odd": {
+    "attn:07:head:08": 0.24022861166636958,
+    "attn:11:head:03": 0.22263096248834371
+  },
+  "candidate_id": "quantifier_number.unit_overshoot_v16",
+  "das": {
+    "fourth": {
+      "complement": -0.04192600019185992,
+      "complement_fraction": -0.07434442669107602,
+      "exact_set": 0.563942746724988,
+      "linearity_sum": 1.0583299680883793,
+      "random": -0.001434247321275844,
+      "random_fraction": -0.0025432498770575876,
+      "subspace": 0.6387635093369894,
+      "subspace_fraction": 1.1326743947794553
+    },
+    "v1_odd": {
+      "complement": 0.10360748279690961,
+      "complement_fraction": 0.15376293206048602,
+      "exact_set": 0.6738131317381053,
+      "linearity_sum": 1.1934825901641901,
+      "random": 0.002101205264399486,
+      "random_fraction": 0.0031183798080328495,
+      "subspace": 0.7005767589565289,
+      "subspace_fraction": 1.039719658103704
+    }
+  },
+  "das_cos": {
+    "to_pooled": {
+      "07:heads": 0.836693286895752,
+      "11:heads": 0.7065288424491882
+    },
+    "to_v1": {
+      "07:heads": 0.5831754207611084,
+      "11:heads": 0.3283245861530304
+    }
+  },
+  "das_loss_history": [
+    [
+      0,
+      15.958216667175293,
+      15.961196899414062
+    ],
+    [
+      50,
+      0.04462675377726555,
+      0.03484523296356201
+    ],
+    [
+      100,
+      0.017108263447880745,
+      0.011302384547889233
+    ],
+    [
+      119,
+      0.01333847176283598,
+      0.008947594091296196
+    ]
+  ],
+  "dropped": {
+    "fourth": 0,
+    "pool": 0,
+    "v1_odd": 0
+  },
+  "exact_full": {
+    "fourth": 0.563942746724988,
+    "v1_odd": 0.6738131317381053
+  },
+  "finished_utc": "2026-09-06T18:45:30.181489+00:00",
+  "interpolation": {
+    "0.0": {
+      "complement_fraction": -0.006796729764587559,
+      "linearity_sum": 1.0377437563529757,
+      "subspace_fraction": 1.0445404861175631
+    },
+    "0.25": {
+      "complement_fraction": -0.06113232155018617,
+      "linearity_sum": 1.2307723455888997,
+      "subspace_fraction": 1.291904667139086
+    },
+    "0.5": {
+      "complement_fraction": -0.0734172954493894,
+      "linearity_sum": 1.3995767034875095,
+      "subspace_fraction": 1.472993998936899
+    },
+    "0.75": {
+      "complement_fraction": -0.06515427186263278,
+      "linearity_sum": 1.4994699350936769,
+      "subspace_fraction": 1.5646242069563097
+    },
+    "1.0": {
+      "complement_fraction": -0.04726450939945229,
+      "linearity_sum": 1.5182311683114265,
+      "subspace_fraction": 1.5654956777108788
+    }
+  },
+  "per_block": {
+    "attn:07:head:08|fourth": {
+      "axis_block": 0.3851022591976571,
+      "axis_fraction": 0.6828747447042809,
+      "complement_block": -0.09697729073200194,
+      "exact_block": 0.22442030942324326,
+      "exact_fraction": 0.39794874697215304,
+      "gap": 0.2849259977321278
+    },
+    "attn:07:head:08|v1_odd": {
+      "axis_block": 0.4042412527745403,
+      "axis_fraction": 0.5999308023751294,
+      "complement_block": -0.03021657353512681,
+      "exact_block": 0.24237205961452668,
+      "exact_fraction": 0.35970219070875986,
+      "gap": 0.24022861166636958
+    },
+    "attn:11:head:03|fourth": {
+      "axis_block": 0.3801685102695841,
+      "axis_fraction": 0.6741260748140748,
+      "complement_block": -0.04301755286839669,
+      "exact_block": 0.3368497830385969,
+      "exact_fraction": 0.5973120232413679,
+      "gap": 0.07681405157270683
+    },
+    "attn:11:head:03|v1_odd": {
+      "axis_block": 0.48583222842438967,
+      "axis_fraction": 0.7210192344740779,
+      "complement_block": -0.023481448857299695,
+      "exact_block": 0.33582056236825014,
+      "exact_fraction": 0.49838827198573415,
+      "gap": 0.22263096248834371
+    }
+  },
+  "pooled": {
+    "fourth": {
+      "complement": -0.1341887930801747,
+      "complement_fraction": -0.23794754673139387,
+      "exact_set": 0.563942746724988,
+      "linearity_sum": 1.1231251202826495,
+      "random": -0.001434247321275844,
+      "random_fraction": -0.0025432498770575876,
+      "subspace": 0.7675670583282046,
+      "subspace_fraction": 1.3610726670140434
+    },
+    "v1_odd": {
+      "complement": -0.03184744709851006,
+      "complement_fraction": -0.04726450939945229,
+      "exact_set": 0.6738131317381053,
+      "linearity_sum": 1.5182311683114265,
+      "random": 0.002101205264399486,
+      "random_fraction": 0.0031183798080328495,
+      "subspace": 1.054851545320835,
+      "subspace_fraction": 1.5654956777108788
+    }
+  },
+  "pooled_cos_to_v1": {
+    "07:heads": 0.8083109855651855,
+    "11:heads": 0.856850266456604
+  },
+  "predictions": {
+    "pred_a_overshoot_reproduces": true,
+    "pred_b_one_block_overshoots": false,
+    "pred_c_overshoot_grows_with_t": true,
+    "pred_d_das_common_axis_sane": false,
+    "pred_e_union_sane": true
+  },
+  "schema": "circuit_unit_overshoot_anatomy_result_v1",
+  "seconds": 9.027359906584024,
+  "semantics": "block_live",
+  "union": {
+    "fourth": {
+      "complement": -0.043583987975146225,
+      "complement_fraction": -0.07728441978951521,
+      "exact_set": 0.563942746724988,
+      "linearity_sum": 1.0362196663519252,
+      "random": 0.038332061466772004,
+      "random_fraction": 0.06797154797961254,
+      "subspace": 0.6279525528281016,
+      "subspace_fraction": 1.1135040861414405
+    },
+    "v1_odd": {
+      "complement": -0.003864661333700132,
+      "complement_fraction": -0.005735509077615055,
+      "exact_set": 0.6738131317381053,
+      "linearity_sum": 1.0162278878889623,
+      "random": 0.02336136865023879,
+      "random_fraction": 0.03467039680568111,
+      "subspace": 0.688612357031762,
+      "subspace_fraction": 1.0219633969665773
+    }
+  },
+  "units": [
+    "attn:07:head:08",
+    "attn:11:head:03"
+  ]
+}
