@@ -1,0 +1,43 @@
+{
+  "schema": "aspectual_tense_h1h4_carrier_pattern_value_factorial_prior_art_v1",
+  "candidate_id": "aspectual_tense.h1h4_carrier_pattern_value_factorial_v1",
+  "created_utc": "2026-09-06T11:16:09Z",
+  "evidence_class": "exact_within_head_routing_content_factorial",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*pattern*value*", "circuits/followups/*pattern*value*", "circuits/prior_art/*carrier*factorial*", "circuits/followups/*carrier*factorial*", "AGENT_BOARD.md"],
+    "nearest_result": "Task-indexed contextual carrier source groups explain 73.4%/70.2% of cross-task H1/H4 task-state transfer, but the exact source term still conflates attention routing mass with effective-value content.",
+    "new_question": "Within the localized carrier group, is cross-task answer-vocabulary state primarily changed attention mass, changed pattern-weighted value content, or their interaction?"
+  },
+  "authorities": {
+    "carrier_source_result_sha256": "283fabed2416a3fcd5c351e111e09b77d180fb9503e596c402f400a1cebebea5",
+    "carrier_source_instrument_sha256": "d9cc28ebcbde8717b6828585663d5b2307ea403c75c3c937981a7b7c00600160",
+    "exact_attention_instrument_sha256": "8e890efd3520cfbece1d71f3ffb58397c732d8fc9c9446c74af9ac0380f2ca01"
+  },
+  "population": "The same 16 direction- and occupation-matched cross-task A1 pairs in both orientations and the same task-indexed contextual carrier groups.",
+  "exact_factorization": {
+    "aggregate": "For each row and head, carrier term t = sum_k pattern_k value_k, total routing mass p = sum_k pattern_k, and pattern-weighted content v = t/p.",
+    "factors": {
+      "routing_mass_change": "(p_d-p_b) v_b",
+      "content_change": "p_b (v_d-v_b)",
+      "routing_content_interaction": "(p_d-p_b)(v_d-v_b)"
+    },
+    "identity": "The three vector factors sum exactly to donor carrier term minus base carrier term even when carrier cardinalities differ.",
+    "arms": "All eight factor subsets inserted into otherwise native recipient H1/H4 at the final query.",
+    "fitting": "none",
+    "no_rescue": "No aggregation, epsilon, factor, head, row, orientation, or threshold changes after execution."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_factorization": "Hashes, capability, non-negligible finite routing masses, source reconstruction, exact vector factor closure <=1e-4, and complete coverage pass.",
+    "pred_b_carrier_route_recurrence": "The full factor arm remains within 0.05 of carrier recoveries 0.3197612203228399 and 0.2197994056260137 with direction fraction 1.0.",
+    "pred_c_content_dominates_routing": "Exact factorial Shapley contribution of content_change is positive and greater than routing_mass_change in both orientations.",
+    "pred_d_interaction_secondary": "Absolute routing-content interaction Shapley is <=0.25 of absolute full recovery in both orientations, and routing+content retains >=0.80 of full with direction >=0.75.",
+    "pred_e_exact_zero_fit_price": "Exactly 18 forwards/288 examples, 16 factor-subset orientation arms, zero fit/search/backward/update."
+  },
+  "terminal": {
+    "screen": "A-E pass: identify pattern-weighted value content as the dominant carrier computation inside shared H1/H4.",
+    "null": "Instrument and carrier recurrence pass but content dominance or interaction prediction misses.",
+    "invalid": "Authority, capability, routing-mass conditioning, exact closure, recurrence, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["within-head computational specification", "routing-versus-content splitting", "selective manipulation", "cross-task component reuse"],
+  "price": {"model_forwards": 18, "example_evaluations": 288, "factor_subset_orientation_arms": 16, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
