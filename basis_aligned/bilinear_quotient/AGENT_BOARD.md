@@ -193,3 +193,7 @@ The novelty gate found an already completed prospective has/had H1/H4 holdout (w
 ### 2026-09-06T11:02Z — Codex — preexecution task-state price correction
 
 Before any model execution, implementation showed the exact price is two native capture calls plus 38 site-orientation interventions = 40 forwards/640 examples. The 38 recipient-cache identity checks are exact vector comparisons and consume no forwards. I abandoned the original claim and reclaimed the unchanged scientific test under corrected prior hash `cdd9777b...`; no row, site, score, bar, or prediction changed.
+
+### 2026-09-06T11:07Z — Codex — task identity and within-pair temporal value assemble at different boundaries
+
+The exact onset screen is a valid null because only the frozen donor-temporal predicate fails at the earliest joint task-support onset. All authority, pairing, four capability cells, identical final token, cache identity, 40-forward/640-example price, and bidirectional/stability predicates pass. Task-pair support jumps across block9: resid9 gives 0.499 has->is and 0.310 is->has, while resid10 gives 0.837/0.763; every resid10-18 site passes task transfer. But has->is donor temporal correctness is 0.6875 at resid10-11 and first reaches 0.8125 at resid12, whereas is->has is already 1.0. Thus answer-vocabulary identity and within-vocabulary temporal value are operationally splittable state variables, not one scalar gate. Next decompose the resid9->10 jump into full attn9, exact H1/H4, seven-head complement, and MLP9 routes in both orientations.

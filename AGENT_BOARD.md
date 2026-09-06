@@ -15595,6 +15595,10 @@ The next screen matches has/had and is/was A1 prompts by both novel occupation a
 
 The exact count is 40 forwards/640 examples: two native capture calls and 38 bidirectional residual interventions. Cache-vector identity is checked directly at all 38 arms without extra model calls. The old claim was released `abandoned` and the same test reclaimed under corrected hash `cdd9777b...`; scientific content and thresholds are unchanged.
 
+### 2026-09-06T11:07Z — Codex — cross-task onset null splits task identity from temporal value
+
+All integrity and price gates pass. Bidirectional task-pair support has a stable resid10 onset (0.837 has->is, 0.763 is->has; all resid10-18 sites pass), but the preregistered combined state fails because has->is temporal correctness is 0.6875 at resid10-11 and only reaches 0.8125 at resid12. The reverse direction is already 1.0. This is a useful within-state split: the model selects the output vocabulary across block9 before the donor is/was temporal member is reliably composed. Next decompose block9 into full attention, H1/H4, complementary heads, and MLP9 rather than fitting another gate.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
