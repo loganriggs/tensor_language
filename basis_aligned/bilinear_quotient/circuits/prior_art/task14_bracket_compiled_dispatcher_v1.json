@@ -1,0 +1,41 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "cross_behavior.task14_bracket_compiled_dispatcher_v1",
+  "created_utc": "2026-09-06T00:23:45Z",
+  "purpose": "Compile the two independently screened vector programs into one immutable executable dispatcher whose only program-selection inputs are a compact intervention specification, eliminating counterfactual role-prompt lookup at dispatch time.",
+  "prior_art_search": {
+    "result": "The Task14 and bracket artifacts contain fixed vectors and their validation receipts contain dispatch labels, but no combined executable artifact exposes a validated API, exact zero dispatch, or a literal residual dependency boundary.",
+    "task14_artifact": {
+      "path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json",
+      "sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07"
+    },
+    "task14_validation": {
+      "path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json",
+      "sha256": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0"
+    },
+    "bracket_artifact": {
+      "path": "circuits/fast_screens/bracket_l13h8_ordered_pair_displacement_artifact_v1.json",
+      "sha256": "531434535daf526ebf584564afbfd5834c75df7bd636014ea233f9ae71206db0"
+    },
+    "bracket_validation": {
+      "path": "circuits/followups/bracket_l13h8_ordered_pair_displacement_program_ood_validation_v1_result.json",
+      "sha256": "3b267f069647824fb7557e9784c63becb0366f94fe4d274fea343ae2bc802e5f"
+    }
+  },
+  "predictions": {
+    "pred_a_immutable_exact_compilation": "The package contains exactly the ten selected Task14 vectors and six bracket vectors, byte-value equivalent to their source JSON coordinates, with no direction-only controls.",
+    "pred_b_task14_dispatch_complete": "All 512 prospective Task14 validation cells dispatch from recipient_number, donor_number, and cardinality to one of the ten licensed vectors; invalid numbers, self-edits, and cardinalities are rejected.",
+    "pred_c_bracket_dispatch_and_zero_complete": "All 144 OOD bracket targets dispatch from recipient_closer_id and donor_closer_id to the registered vector, while all 216 answer-preserving controls dispatch exact zero; invalid and self-pairs are rejected.",
+    "pred_d_role_prompt_dependency_eliminated": "The dispatcher API and compiled artifact contain no recipient prompt, donor prompt, role prompt, row ID, template, family, activation, logit, or model-object selection input.",
+    "pred_e_residual_boundary_and_price": "The selected package stores 18,432 FP32 scalars (73,728 bytes), uses zero model calls to dispatch, and still requires an external intervention specification, a native base activation, and the native downstream suffix/logit path. It is a compiled intervention dispatcher, not an autonomous predictor."
+  },
+  "terminal_rule": "screen if every immutable compilation, dispatch coverage, zero-dispatch, forbidden-field, price, and residual-boundary gate passes; invalid on hash/schema/source mismatch; null on a valid semantic dispatch failure.",
+  "closed_claims": [
+    "raw-prompt autonomous selection",
+    "native base-state replacement",
+    "native suffix replacement",
+    "whole-model replacement",
+    "natural joint semantics",
+    "runtime speedup"
+  ]
+}
