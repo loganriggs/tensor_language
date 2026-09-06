@@ -1,0 +1,48 @@
+{
+  "schema": "tense_auxiliary_is_was_mlp4_contextual_source_factorial_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.mlp4_contextual_source_factorial_v1",
+  "created_utc": "2026-09-06T10:47:15Z",
+  "evidence_class": "cross_task_exact_bilinear_contextual_source_writer_screen",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*is_was*mlp4*", "circuits/followups/*is_was*mlp4*", "circuits/prior_art/*contextual_source*", "circuits/followups/*contextual_source*", "AGENT_BOARD.md"],
+    "nearest_result": "Has/had MLP4's exact left-change plus right-change response writes a downstream contextual source bank; is/was reuses L9H1/H4 and reads primarily from contextualized moment and determiner tokens, but its upstream writer has not been tested.",
+    "new_question": "Does the same exact MLP4 bilinear response organization causally write the moment-plus-determiner source bank for is/was on a fresh capability-qualified population?"
+  },
+  "authorities": {
+    "matched_builder_sha256": "1f4b29bda3e26af3ee0102316ab0af166e317d1646e8b0b51332061245e606d6",
+    "is_was_rows_sha256": "2efd47b9a89d0f092688a96d75bbc33e5b89991a8e5de28723c714319b9ccceb",
+    "has_had_mlp4_factorial_result_sha256": "359483cfb4807e9293e1f25f877db8d7303bc76333d83a6d237cf72a9c7e77e4",
+    "factorial_instrument_sha256": "290ef0e8b071a487d0d4560094e49ecc75d8a7358fbb8ec28c58e37a68463a57",
+    "is_was_l9h1_h4_source_result_sha256": "4c266158213edcda9f0c86b19064cabe6d673815167b69d9eff381ddadda9cf5"
+  },
+  "population": "All 32 A1/A2 rows from the matched-v2 is/was authority: 16 novel occupations, equal-length base/donor pairs differing only at aligned this/that, with native capability scored separately by family, direction, and side.",
+  "operator": {
+    "source_bank": "The two positions immediately downstream of the unique this/that difference: contextualized moment and following determiner.",
+    "exact_factorization": "At MLP4, decompose donor-minus-base Down(Left(z) elementwise-multiplied by Right(z)) into left_change, right_change, and bilinear_interaction using the fixed native weights and no fit.",
+    "arms": "All eight factor subsets plus the direct donor-minus-base MLP4-output ceiling, applied only at the frozen two-token source bank before the exact blocks5-17 suffix.",
+    "fitting": "none",
+    "no_rescue": "No source, module, term, row, threshold, or task-specific coefficient change after execution."
+  },
+  "bars": {
+    "capability": "Base and donor accuracy >=0.85 in every A1/A2 x direction x side cell.",
+    "instrument": "Manual/native selected logits <=1e-4; exact three-factor FP32 reconstruction <=2e-3; full-factor versus direct-ceiling scored logits <=1e-4; finite complete coverage.",
+    "live_writer": "Full three-factor source-bank intervention has mean recovery >=0.20, positive mean recovery and direction fraction >=0.75 separately in A1 and A2.",
+    "shared_two_term_program": "The frozen has/had terms left_change+right_change retain >=0.80 of the full-factor mean recovery and have direction fraction >=0.75 separately in A1 and A2.",
+    "factor_structure": "Both left_change and right_change have positive exact-factorial Shapley contribution, and absolute bilinear-interaction Shapley contribution is <=0.25 of absolute full recovery.",
+    "price": "At most 26 forwards/416 examples, nine causal arms, no fitting/search/backward/update."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_instrument": "All hashes, row structure, native capability, exact factor closure, manual/native agreement, and coverage pass.",
+    "pred_b_live_mlp4_contextual_source_writer": "The full exact MLP4 response at moment plus determiner clears the live writer bars.",
+    "pred_c_shared_left_right_two_term_program": "The frozen has/had two-term program retains at least 80% with directional effects in both is/was families.",
+    "pred_d_shared_factor_structure": "Left and right changes are both positive contributors and the mixed interaction remains secondary.",
+    "pred_e_exact_zero_fit_price": "The declared forward/example price and zero-fit/search/update constraints hold exactly."
+  },
+  "terminal": {
+    "screen": "A-E pass: MLP4's exact two-term bilinear contextualization operation is reused upstream of the shared L9H1/H4 reader architecture.",
+    "null": "Instrument passes but writer magnitude or factor-structure reuse misses; retain shared downstream readers without a shared upstream writer.",
+    "invalid": "Authority, capability, factor closure, manual/native agreement, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["computational specification", "cross-task component reuse", "causal source tracing", "within-module splitting"],
+  "price": {"model_forwards_max": 26, "example_evaluations_max": 416, "causal_arms": 9, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
