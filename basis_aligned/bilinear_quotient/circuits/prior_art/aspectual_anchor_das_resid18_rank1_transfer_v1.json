@@ -1,0 +1,32 @@
+{
+  "schema": "aspectual_anchor_das_resid18_rank1_transfer_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.das_resid18_rank1_transfer_v1",
+  "created_utc": "2026-09-06T05:57:00Z",
+  "question": "Does one preregistered resid18 direction causally carry aspectual-anchor state across held-out rows and four constructions while sparing same-answer controls?",
+  "authority": {
+    "lexical_result": {"path": "circuits/followups/aspectual_anchor_explicit_path_lexical_holdout_v2_result.json", "sha256": "fd1b4ae15e1d327001c8b172bcbecb0f15609d6da01bec8c8dddbf8de107549e", "terminal": "screen"},
+    "fresh_result": {"path": "circuits/followups/aspectual_anchor_program_v7_fresh_construction_transfer_v1_result.json", "sha256": "8e1ea19c94ef269d2e9c7c0577568a0e1fe2e8bc6640e016377270df2dc68129", "terminal": "screen"},
+    "lexical_builder": {"path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py", "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859", "rows_sha256": "18dfe9b5e86387017f3b8a81d378cc4892b4ee5a219ea7e35bf02548cd54e493"},
+    "fresh_builder": {"path": "ops/circuit_candidate_aspectual_fresh_construction_v2.py", "sha256": "848332a12c22bf523573e015b6f8f0a38b5865db8b77434dcbe6a176d98370ac", "rows_sha256": "3c30019fdcc087c0e7410cd82d02458307bc6987ff9d23349dcf97d076f797d7"},
+    "das_library": {"path": "ops/circuit_das_subspace.py", "sha256": "49d67620b09c80edd1c999476ea9cfddb375f41016443f58cb6cc96111809d3f"}
+  },
+  "frozen_design": {
+    "site": "resid:18",
+    "rank": 1,
+    "rank_policy": "Rank fixed before execution; a null is not permission to increase it.",
+    "fit": "First 8 lexical A1 rows only; 300 final-head-only Adam steps targeting donor margin.",
+    "tests": ["last 8 lexical A1", "all 16 lexical A2", "all 16 fresh A1", "all 16 fresh A2"],
+    "controls": ["lexical P", "lexical C", "fresh P", "fresh C"],
+    "stored_basis_parameters": 1152
+  },
+  "predictions": {
+    "pred_a_authority_head_and_rank": "All authorities pass, exact final head error <=1e-3, and rank remains exactly one.",
+    "pred_b_heldout_lexical_a1": "Held-out lexical A1 absolute recovery >=0.50.",
+    "pred_c_cross_construction_lexical_a2": "Lexical A2 absolute recovery >=0.50.",
+    "pred_d_prospective_construction_transfer": "Fresh A1 and A2 absolute recovery are each >=0.50.",
+    "pred_e_same_answer_selectivity": "Each lexical/fresh P/C normalized disturbance is <=0.20.",
+    "pred_f_exact_coverage": "Execution stays within 19 model forwards and 264 example evaluations; no transformer backward or model update occurs."
+  },
+  "terminal": {"screen": "A-F pass: release one resid18 causal carrier direction.", "null": "Valid rank-one test, but transfer or selectivity fails.", "invalid": "Authority, head verification, rank, coverage, or price fails."},
+  "price": {"model_forwards_max": 19, "example_evaluations_max": 264, "transformer_backwards": 0, "model_updates": 0, "final_head_gradient_steps": 300, "fit_parameters": 1152}
+}
