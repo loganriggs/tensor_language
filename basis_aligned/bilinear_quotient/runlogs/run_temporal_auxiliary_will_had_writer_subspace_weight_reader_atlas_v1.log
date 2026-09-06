@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_temporal_auxiliary_will_had_writer_subspace_weight_reader_atlas_v1.py", line 311, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_temporal_auxiliary_will_had_writer_subspace_weight_reader_atlas_v1.py", line 194, in main
+    factors = weight_atlas.attention_subspace_factors(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/subspace_weight_atlas.py", line 36, in attention_subspace_factors
+    source = orthonormal_basis(source_basis)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/subspace_weight_atlas.py", line 21, in orthonormal_basis
+    raise SubspaceWeightAtlasError("basis columns are not orthonormal")
+subspace_weight_atlas.SubspaceWeightAtlasError: basis columns are not orthonormal

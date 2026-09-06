@@ -1,0 +1,31 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.writer_subspace_weight_reader_atlas_v2",
+  "created_utc": "2026-09-06T15:59:36Z",
+  "question": "Does the exact block8H1-written residual subspace identify downstream readers from weights after gauge-only QR repair of the pre-outcome v1 instrument failure?",
+  "authority": {
+    "v1_prior_sha256": "bb9603b72f7c8c6a312c4cce7bb70866a0d84ec84d92ebcbab154a905fc70bb2",
+    "v1_runner_sha256": "3ba9a0ff2bdcbbdd465f14b6337f955ad232c9f2c3c89479e6474247b1050de6",
+    "v1_failure_log_sha256": "99a255310f738464edc522f0a5c0913b887c8956d0ba6e7ff19da999bb421435"
+  },
+  "frozen_design": {
+    "repair_only": "After selecting the identical SVD rank/span, apply thin QR to its columns before the strict orthonormality validator. QR changes only basis gauge, not the subspace projector.",
+    "unchanged_from_v1": "population, stratified split, 95% energy rank rule, 81 weight rankings, sealed A1-heldout/A2 head patches, six predictions, and exact 177-forward/4208-evaluation/3888-record price"
+  },
+  "predictions": {
+    "pred_a_authority_capability_capture_and_split": "unchanged from v1",
+    "pred_b_writer_positive_control": "unchanged from v1",
+    "pred_c_known_readers_are_weight_enriched": "unchanged from v1",
+    "pred_d_value_beats_routing_for_causal_prediction": "unchanged from v1",
+    "pred_e_top_weight_readers_are_causal": "unchanged from v1",
+    "pred_f_price_coverage_and_zero_causal_leakage": "unchanged from v1"
+  },
+  "terminal_rules": {
+    "invalid": "authority, capability, capture, split, leakage, coverage, or price fails",
+    "screen": "all unchanged predictions pass",
+    "null": "valid run rejects raw weight incidence; contextualize weights without post-hoc subspace changes"
+  },
+  "interpretation_limits": [
+    "No v1 scientific outcome was opened.",
+    "QR is a gauge repair and cannot improve any gauge-invariant weight score."
+  ]
+}

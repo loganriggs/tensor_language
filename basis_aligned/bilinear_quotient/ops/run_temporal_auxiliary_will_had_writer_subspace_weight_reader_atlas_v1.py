@@ -186,7 +186,9 @@ def main():
     _left, singular, vh = backend.torch.linalg.svd(delta, full_matrices=False)
     energy = singular.square()
     rank = int((energy.cumsum(0) < 0.95 * energy.sum()).sum()) + 1
-    basis = vh[:rank].T.contiguous()
+    # SVD vectors are mathematically orthonormal, but float32 can miss the atlas library's
+    # strict 1e-6 contract. Re-QR the same selected span; this changes only its gauge.
+    basis = backend.torch.linalg.qr(vh[:rank].T.contiguous()).Q
     explained = float(energy[:rank].sum() / energy.sum())
 
     weight_rows = []
