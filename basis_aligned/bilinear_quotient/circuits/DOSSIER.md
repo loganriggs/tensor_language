@@ -121,6 +121,14 @@ effects are `1.0` overall and in every ordered pair; every pair's median absolut
 has a prospective six-scalar reader for donorward program-effect magnitude without native suffix execution. It still needs the native
 base activation to install its displacement and does not predict full logits.
 
+A second prospective dependency reduction replaces the native L13H8 opener term rather than adding a displacement to it. Three
+1,152-D closer-conditioned absolute terms were exported from balanced SELECT endpoints and installed directly on 72 untouched endpoints
+in a fourth construction. They reproduce exact within-row donor-term swaps at cosine `0.99876`, relative L2 `0.11076`, norm ratio
+`0.89979`, and perfect signs; native accuracy and positive program effects are `1.0` overall and in every ordered pair. The edited
+replacement does not read the recipient's native opener term and stores only `3,456` FP32 scalars. This removes that one local base-term
+dependency, not all upstream context or the native suffix needed for causal execution. The earlier pair-centered selective-necessity null
+remains unchanged.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -161,6 +169,7 @@ base activation to install its displacement and does not predict full logits.
 | `task14_bracket_compiled_dispatcher.v2` | complete | exact combined dispatch and dependency boundary | **screen** | active | `task14_bracket_compiled_dispatcher_v2_result.json` |
 | `bracket_ordered_pair_suffix_free_scalar_feasibility.v1` | complete | bidirectional leave-family-out scalar transfer | **retrospective feasibility** | active diagnostic | `bracket_ordered_pair_suffix_free_scalar_feasibility_v1_result.json` |
 | `bracket_suffix_free_scalar_fresh_corpus.v1` | complete | frozen six-scalar prediction on untouched third construction | **predictive screen** | active | `bracket_suffix_free_scalar_fresh_corpus_validation_v1_result.json` |
+| `bracket_l13h8_closer_absolute_term_program.v1` | complete | three absolute terms on untouched fourth construction | **program screen** | active | `bracket_l13h8_closer_absolute_term_program_v1_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -169,9 +178,9 @@ publication pair is retained only under `artifact_invalid` filenames.
 
 **Next:** keep both fixed programs and their bounded cross-program robustness, but reject fixed MLP15/17 gains and any end-to-end
 simplicity claim. Counterfactual role-prompt lookup is now eliminated at dispatch. The immediate frontier is the native suffix: test
-whether the bracket displacement's native base term can be replaced by a small closer-conditioned absolute-term program on a newly
-frozen construction, with the six-scalar reader retained only for effect prediction. Do not substitute additional arbitrary stress
-scaling, syntax-conditioned gain fitting, or generic low-rank approximation for an executable dependency-reduction result.
+the three-term absolute bracket program across both prior OOD target families and all answer-preserving controls before replacing the
+six displacement vectors in the compiled package. Do not substitute additional arbitrary stress scaling, syntax-conditioned gain
+fitting, or generic low-rank approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
