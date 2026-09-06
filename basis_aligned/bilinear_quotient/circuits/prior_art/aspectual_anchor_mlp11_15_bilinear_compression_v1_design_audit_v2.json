@@ -1,0 +1,19 @@
+{
+  "schema": "aspectual_anchor_mlp11_15_bilinear_compression_v1_design_audit_prior_art_v2",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_v1_design_audit_v2",
+  "created_utc": "2026-09-06T04:59:50Z",
+  "authority": {
+    "v1_audit_result": {"path": "circuits/followups/aspectual_anchor_mlp11_15_bilinear_compression_v1_design_audit_result.json", "sha256": "57bd72f9f5b663e9481063a24b9f0c338bb2b86cd72f1531a5b64aea4fef2f8e", "terminal": "invalid"},
+    "science_prior": {"path": "circuits/prior_art/aspectual_anchor_mlp11_15_bilinear_compression_split_v1.json", "sha256": "e0f6f263fce698c93378bbf9ecfda8274ac113119d5e9fe0efa4a0f8dc254622"},
+    "science_runner": {"path": "ops/run_aspectual_anchor_mlp11_15_bilinear_compression_split_v1.py", "sha256": "4114c79ca08e1fb5e293481221a4a4249bc18c7f3dc7018b393d751be5f18b84"},
+    "science_result": {"path": "circuits/followups/aspectual_anchor_mlp11_15_bilinear_compression_split_v1_result.json", "sha256": "960bde3deb6b416212ff1be616887cc1b68f546fc31c0619a89be3aa6bef3bdf"}
+  },
+  "correction": "Replace only v1 audit pred_c's erroneous endswith('corrected v2.') check with an exact equality to its frozen screen disposition sentence.",
+  "predictions": {
+    "pred_a_authority": "All four hashes and terminals match.",
+    "pred_b_design_mismatch": "The scientific prior fixes three-role banks while factor_crossing passes all six roles.",
+    "pred_c_exact_disposition": "The frozen v1 audit disposition exactly requires invalidating the v1 scientific release."
+  },
+  "terminal": {"screen": "A-C pass: v1 scientific result is superseded as invalid.", "invalid": "Any audit fails."},
+  "price": {"model_forwards": 0, "example_evaluations": 0, "fit_parameters": 0}
+}

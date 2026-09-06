@@ -323,8 +323,11 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.attention11h3_15h5_source_projection_query_diagnostic_v1` | complete diagnostic | frozen confirmation query-index audit | **v1 failure localized exactly to off-query indices** | `aspectual_anchor_attention11h3_15h5_source_projection_query_diagnostic_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention11h3_15h5_source_compression_release_v1` | released | zero-forward immutable evidence-class audit | **three-role 11H3/15H5 banks released with post-outcome-repair label** | `aspectual_anchor_attention11h3_15h5_source_compression_release_v1_result.json` |
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v3` | released | executable API/equation/evidence audit | **source-resolved paired-causal program through block15** | `aspectual_anchor_transparent_path_program_release_v3_result.json` |
-| `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_split_v1` | complete | split exact bilinear-response factorials | **two-term MLP11 and MLP15 suffix responses transfer disjointly** | `aspectual_anchor_mlp11_15_bilinear_compression_split_v1_result.json` |
-| `aspectual_anchor.has_vs_had.transparent_path_program_release_v4` | released | executable API/equation/evidence audit | **source- and MLP-resolved paired-causal program through block15** | `aspectual_anchor_transparent_path_program_release_v4_result.json` |
+| `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_split_v1` | invalid, superseded | split exact bilinear-response factorials | **used all six source roles instead of frozen three-role banks** | `aspectual_anchor_mlp11_15_bilinear_compression_split_v1_result.json` |
+| `aspectual_anchor.has_vs_had.transparent_path_program_release_v4` | invalid, superseded | executable API/equation/evidence audit | **compiled invalid v1 MLP authority; v3 remains valid release** | `aspectual_anchor_transparent_path_program_release_v4_result.json` |
+| `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_v1_design_audit` | invalid | zero-forward design audit | **A/B diagnose mismatch; C exact-string assertion was malformed** | `aspectual_anchor_mlp11_15_bilinear_compression_v1_design_audit_result.json` |
+| `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_v1_design_audit_v2` | complete diagnostic | exact-string-only audit correction | **v1 and program v4 superseded invalid** | `aspectual_anchor_mlp11_15_bilinear_compression_v1_design_audit_v2_result.json` |
+| `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_split_v2` | complete | sole-correction split bilinear factorials | **two-term MLP11/15 responses transfer in exact released source contexts** | `aspectual_anchor_mlp11_15_bilinear_compression_split_v2_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -516,6 +519,14 @@ freezes the selected factor pair by suffix boundary, projects each pair through 
 state and source-resolved attention. All five zero-forward release audits and 25 deterministic equation/rejection cases pass. The
 program is now source- and MLP-resolved at both material suffix amplifiers, with zero fitted state. It still depends on checkpoint
 weights, paired states, native intervening blocks, and the final readout, so the standalone/free-form/whole-model exclusions remain.
+
+Postexecution review found that the MLP-v1 runner supplied all six source roles where its prior fixed the released three-role bank.
+The v1 result and the program-v4 release that compiled it are therefore append-only superseded as invalid; executable v3 remains the
+latest valid program. The first design audit itself failed only an erroneous exact-string assertion after correctly diagnosing the
+mismatch; a frozen v2 audit repaired that assertion and confirmed the invalid disposition. No v1 threshold or scientific number was
+rescued. A sole-correction MLP v2 then ran the previously unopened exact compositions. It selects the same pairs—Left+Right at MLP11
+and Left+interaction at MLP15—and on disjoint rows retains 101.16% and 110.05% of the all-three increments, with positive A1/A2
+effects and every gate passing. Those corrected results, not v1, license the next executable compilation.
 
 ### `subroutine.induction.equality_score` — site_live
 

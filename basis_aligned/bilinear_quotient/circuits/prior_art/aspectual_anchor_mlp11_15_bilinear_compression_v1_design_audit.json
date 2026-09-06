@@ -1,0 +1,21 @@
+{
+  "schema": "aspectual_anchor_mlp11_15_bilinear_compression_v1_design_audit_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_v1_design_audit",
+  "created_utc": "2026-09-06T04:58:07Z",
+  "question": "Did v1 execute the preregistered released three-role attention context, or substitute all six source roles?",
+  "authority": {
+    "prior": {"path": "circuits/prior_art/aspectual_anchor_mlp11_15_bilinear_compression_split_v1.json", "sha256": "e0f6f263fce698c93378bbf9ecfda8274ac113119d5e9fe0efa4a0f8dc254622"},
+    "runner": {"path": "ops/run_aspectual_anchor_mlp11_15_bilinear_compression_split_v1.py", "sha256": "4114c79ca08e1fb5e293481221a4a4249bc18c7f3dc7018b393d751be5f18b84"},
+    "result": {"path": "circuits/followups/aspectual_anchor_mlp11_15_bilinear_compression_split_v1_result.json", "sha256": "960bde3deb6b416212ff1be616887cc1b68f546fc31c0619a89be3aa6bef3bdf", "terminal": "screen"}
+  },
+  "frozen_audit": {
+    "pred_a_authority": "All hashes and the original recorded terminal match.",
+    "pred_b_design_mismatch": "The prior fixes boundary-specific three-role banks but factor_crossing passes the six-role inventory to projected_source_delta.",
+    "pred_c_fail_closed": "The audit emits no revised scientific metric and requires v1 to be superseded as invalid before a corrected v2."
+  },
+  "terminal": {
+    "screen": "A-C pass: diagnose a design mismatch and invalidate the v1 scientific release.",
+    "invalid": "The authority or diagnosis does not reproduce."
+  },
+  "price": {"model_forwards": 0, "example_evaluations": 0, "fit_parameters": 0}
+}
