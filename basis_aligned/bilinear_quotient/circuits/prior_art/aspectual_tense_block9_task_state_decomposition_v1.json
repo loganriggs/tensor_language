@@ -1,0 +1,38 @@
+{
+  "schema": "aspectual_tense_block9_task_state_decomposition_prior_art_v1",
+  "candidate_id": "aspectual_tense.block9_task_state_decomposition_v1",
+  "created_utc": "2026-09-06T11:07:22Z",
+  "evidence_class": "direction_matched_cross_task_block9_module_head_screen",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*block9*task*", "circuits/followups/*block9*task*", "circuits/prior_art/*task*state*", "circuits/followups/*task*state*", "AGENT_BOARD.md"],
+    "nearest_result": "Direction-matched task-pair support jumps bidirectionally from subthreshold resid9 to a stable resid10 onset, while H1/H4 are already known as shared temporal-context readers. No component test attributes the cross-task answer-vocabulary jump.",
+    "new_question": "Is block9 task-pair selection carried by full attention, MLP9, the reused temporal H1/H4 heads, or their seven-head complement?"
+  },
+  "authorities": {
+    "task_onset_result_sha256": "9d59df283eb7ada0c2f206746141eab2e4984e1c6b94a04c01cc054bb3b1ab36",
+    "task_onset_instrument_sha256": "1c6c8c8891e5cdd0f5d27671a612797dd741940a2b00a4bebced1f03e9c4505f",
+    "typed_graph_artifact_sha256": "f0f038f37fd9d97dff088117f93acdf239bab74c5877b522d7976bc81bfc6e85"
+  },
+  "population": "The same 16 occupation- and direction-matched cross-task A1 pairs in both orientations.",
+  "operator": {
+    "arms": ["resid10_ceiling", "attn9_module", "attn9_all_heads", "attn9_h1_h4", "attn9_complement", "mlp9_module"],
+    "intervention": "Replace only the recipient final-token component with the paired other-task native donor component; score answer-pair support and donor-task temporal correctness with the frozen four-logit instrument.",
+    "heads": {"shared_temporal_reader": [1, 4], "complement": [0, 2, 3, 5, 6, 7, 8]},
+    "fitting": "none",
+    "no_rescue": "No module, head set, score, row, orientation, or threshold change after execution."
+  },
+  "predictions": {
+    "pred_a_authority_capability_identity_and_route": "All hashes, pairing, capability, identical token, cache identity, finite coverage, and attn9 all-head versus module agreement <=1e-5 pass.",
+    "pred_b_resid10_ceiling_recurrence": "Bidirectional resid10 recovery remains within 0.05 of 0.8365237052169481 and 0.7629185997080772, with direction fraction 1.0.",
+    "pred_c_block9_component_localization": "At least one of full attn9 or MLP9 retains >=0.50 of the resid10 recovery with direction fraction >=0.75 in both orientations.",
+    "pred_d_task_branch_outside_shared_temporal_heads": "The seven-head attention complement has greater mean task recovery than H1/H4 in both orientations and retains >=0.60 of full-attn9 recovery wherever full-attn9 recovery is positive.",
+    "pred_e_exact_zero_fit_price": "Exactly 14 forwards/224 examples, 12 component-orientation arms, zero fit/search/backward/update."
+  },
+  "terminal": {
+    "screen": "A-E pass: localize the block9 task-pair branch outside the shared H1/H4 temporal readers and nominate its live module route.",
+    "null": "Instrument and ceiling pass but component localization or the registered head split misses.",
+    "invalid": "Authority, capability, identity, route equivalence, ceiling recurrence, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["within-module splitting", "internal task branch localization", "selective manipulation", "composition and reuse"],
+  "price": {"model_forwards": 14, "example_evaluations": 224, "component_orientation_arms": 12, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
