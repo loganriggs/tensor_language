@@ -391,3 +391,12 @@ subject determiner plus self carry the smaller remainder. The cue-through-query 
 complete MLP8, as required by causality. This licenses a literal weight split only at post-cue:
 contract Q8 with MLP8 Down, causally test its rank-at-most-eight hidden-product modes and complement,
 then decompose the activated product into left change, right change, and bilinear interaction.
+
+The direct Down-mode hypothesis is a valid null after one float32-only closure repair. The exact
+eight-dimensional row space of `S^T W_Down` carries only 19.48% of complete post-cue behavior;
+its exact hidden-product complement carries 79.05% and 78.19% of the final Q8 coordinate RMS.
+Rank-one through rank-four direct modes are essentially inactive. Within the small direct branch,
+left plus right change retains 97.31% and bilinear interaction is only 5.76%, so product factorization
+is not the failure. The topology is instead indirect: MLP8 writes a non-Q8 residual direction that
+later computation converts into Q8. The next complete-module removal atlas conditions on precisely
+that complement actuation and localizes its converter across attention/MLP9--17.

@@ -1,0 +1,28 @@
+{
+  "schema": "iswas_mlp8_complement_downstream_converter_atlas_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_complement_downstream_converter_atlas_v1",
+  "registered_utc": "2026-09-06T21:19:00Z",
+  "question": "Which complete downstream modules transform the post-cue MLP8 Down-output component initially orthogonal to temporal Q8 into the final shared-Q8 state and is/was behavior?",
+  "authority": {
+    "weight_mode_v2_result_sha256": "623824f843e2e5b96e3ddfab9ad1e36118136949db8d7e3dcc4594e6b104980c",
+    "weight_mode_v2_runner_sha256": "3c1adf53bd1e4e2fc77395ec905dcb9c47bbf1e02ade42b0927d3ad1f9bdaa8b",
+    "weight_mode_instrument_sha256": "d82035e45f8818a7de73024500592f1677f887e8be5d8a2e617c28afc6c1238c",
+    "source_position_result_sha256": "ffa8596eea052e72eba3a5823dfdfcd124ee28ccc91ca48671efff567f23b14a"
+  },
+  "frozen_design": {
+    "population": "The same 29 jointly capable fresh-v6 A1/A2 rows. The post-cue positions, Q8 basis, MLP8 hidden-product difference, and rank-8 Down-row-space complement are frozen from the released v2 null.",
+    "actuation": "Install only the MLP8 post-cue hidden-product complement orthogonal to row(S^T W_Down) into an otherwise native base run.",
+    "sites": "Every complete attention and MLP response in layers 9 through 17. Attention is clamped at the full pre-c_proj vector so the native c_proj is retained; MLP is clamped at its complete output. Clamp all causal positions through the final query.",
+    "arms": "Eighteen leave-one-response removals, one joint all-site removal, and one base self-clamp identity, always under the same frozen complement actuation.",
+    "materiality": "A site is stable material only if removing it accounts for at least 10% absolute complement behavior and at least 10% final-Q8 coordinate norm in both A1 and A2.",
+    "maximum_price": {"model_forwards": 24, "example_evaluations": 696, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_self_clamp_finiteness_and_price": "Hashes, 29-row identity, complement replay, native base self-clamp, finite metrics, complete site inventory, and price pass.",
+    "pred_b_at_least_one_stable_material_converter": "At least one complete module meets the frozen behavior-and-Q8 materiality rule in both panels.",
+    "pred_c_joint_downstream_responses_mediate_the_complement": "Joint removal accounts for at least 80% absolute complement behavior and 80% final-Q8 coordinate norm in both panels.",
+    "pred_d_converter_removal_is_directionally_coherent": "The top stable site's removed behavior has positive cosine at least 0.70 with the live complement effect in both panels.",
+    "pred_e_zero_fit_complete_inventory": "All eighteen modules are tested without fit, gradients, head selection, or model updates."
+  },
+  "decision": "A screen licenses head splitting for a top attention converter or Down/product splitting for a top MLP converter. If only the joint arm is material, run prospective greedy complete-module removal. If neither is material, follow the residual/normalization route instead."
+}
