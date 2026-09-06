@@ -1,0 +1,41 @@
+{
+  "schema": "temporal_auxiliary_block11h3_regularization_fresh_transfer_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.block11h3_regularization_fresh_transfer_v1",
+  "registered_utc": "2026-09-06T18:18:00Z",
+  "question": "Was constrained DAS's apparent complement success memorization of its small discovery task, and do frozen noise, KL, or direct multi-output regularization improve truly fresh cue/construction transfer?",
+  "prior_art_search": {
+    "searched": [
+      "circuits/prior_art/*cdas*",
+      "circuits/followups/*cdas*",
+      "AGENT_BOARD constrained-DAS entries"
+    ],
+    "nearest_results": [
+      "Unregularized scalar cDAS beat DIM on its scalar target but lost badly on centered full-vocabulary effects.",
+      "Noise sigma 0.05 alone did not repair full-vocabulary transfer; KL weight 1 moved the solution close to DIM but did not beat it.",
+      "Direct centered-effect regularization selected lambda 0.3 on held-out A1 and narrowly beat DIM on sealed A2 full-vocabulary error, 0.233426 versus 0.238513, while narrowly losing the scalar comparison."
+    ],
+    "novelty": "No result evaluates all frozen axes on a second cue lexicon and a new syntactic frame. This test performs no fitting or hyperparameter selection and therefore directly separates regularization from task memorization."
+  },
+  "frozen_design": {
+    "authority": "A new deterministic 128-row bank uses In-the-future/In-the-past cues, shifted reporters and objects, and bare versus report-states frames. It is sealed before model access and has no target-text overlap with the Tomorrow/Earlier or Later/Previously banks.",
+    "unit": "The independently localized closure-valid native component block11 H3 only.",
+    "axes": {
+      "dim": "Recomputed from the original 16 even A1 discovery rows.",
+      "unregularized": "Frozen scalar complement-loss cDAS axis.",
+      "noise": "Frozen tangent-noise sigma 0.05 scalar cDAS axis.",
+      "kl": "Frozen KL-weight-1 scalar cDAS axis.",
+      "aligned": "Frozen direct centered full-vocabulary lambda-0.3 axis selected before this authority existed."
+    },
+    "evaluation": "Evaluate every A1 and A2 row, without capability-based selection, on scalar answer/foil and centered full-vocabulary exact-H3 match plus complement inertness. Native base and donor correctness is reported as a validity/capability diagnostic.",
+    "updates": 0,
+    "selection": "None. No fresh result changes an axis, weight, rank, threshold, or panel."
+  },
+  "predictions": {
+    "pred_a_authority_capability_closure_and_price": "Authority hashes hold; each panel has at least 75% correct native base and donor runs; full-rank identity closure is <=1e-4; all values are finite; execution is within 36 forwards and 1120 example-evaluations.",
+    "pred_b_regularization_reduces_unregularized_overfit": "At least one of noise, KL, or aligned has strictly lower full-vocabulary joint error than unregularized on both fresh panels.",
+    "pred_c_aligned_beats_dim_out_of_task": "The frozen aligned axis has strictly lower centered full-vocabulary joint error than DIM on both fresh panels.",
+    "pred_d_aligned_preserves_behavioral_usefulness": "The aligned scalar joint error is at most 1.25 times DIM on both panels and is lower than unregularized on both panels.",
+    "pred_e_regularization_ranking_is_construction_stable": "The same regularized method has the lowest full-vocabulary joint error among noise, KL, and aligned on A1 and A2."
+  },
+  "decision": "screen if all predictions pass; regularization_helpful_dim_best if A,B,D pass but C fails; regularization_unstable if A,B pass but D or E fails; overfit_not_repaired if A passes but B fails; invalid if A fails. This is identification evidence, not adoption."
+}
