@@ -1,0 +1,41 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_to_reader_coefficients_v1",
+  "created_utc": "2026-09-06T14:33:00Z",
+  "question": "Can two scalar reader-response coefficients be predicted from the exact source-resolved block8H1 writer vector, completing a non-replay low-rank response program?",
+  "authority": {
+    "response_rank_result_sha256": "918888d78de2c10a24c57e80154f07fd4d9dd7ed5faf181385e1d4b22e587bcf",
+    "response_program_result_sha256": "3fe8a3e7edf8dc24f7977d0ce4a37f564cac35211b2a2043e76336ea33e023cb",
+    "writer_mediation_evaluator_sha256": "05d07578129db0cb8bf5e46d08e6cd6e9c2bb9c3883675586c83c3efd24b8fda",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9"
+  },
+  "novelty": "The response-rank screen uses oracle row coefficients projected from captured downstream responses. No prior test predicts both coefficients from the upstream causal write and installs only the predicted rank-one responses.",
+  "frozen_design": {
+    "population": "fresh A1 even rows fit; fresh A1 odd rows held out; all fresh A2 rows transfer; P and C are same-answer controls",
+    "writer_vector": "the exact summed donor-minus-base block8H1 cue source terms added at subject onset",
+    "reader_axes": "separate uncentered rank-one SVD axes for block9 H1/H4 and block11 H3 fitted on A1-even rows",
+    "coefficient_model": "for each reader, one affine least-squares map from the scalar projection onto the A1-even writer rank-one axis to the scalar projection onto that reader axis",
+    "test_arm": "install only the two predicted scalar-times-axis reader responses; no writer intervention and no captured heldout reader coefficient",
+    "baselines": ["full captured response", "oracle rank1 response", "intercept-only coefficient predictor", "zero response"],
+    "fitted_scalars": 4,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_exact_writer_vector": "directly reconstructed source-term writer equals the established fixed-source writer intervention to <=1e-4 logits",
+    "pred_b_coefficient_prediction": "both reader coefficient correlations have absolute r>=0.75 on heldout A1 and >=0.50 on A2",
+    "pred_c_predicted_program_material": "predicted program is donorward on >=0.75 of rows and retains >=0.60 of full response on heldout A1 and A2",
+    "pred_d_prediction_beats_intercept": "predicted program exceeds intercept-only recovery by >=0.15 of full response on both splits",
+    "pred_e_controls_selective": "absolute normalized P and C effects <=0.20"
+  },
+  "terminal_rules": {
+    "invalid": "authority, exact writer reconstruction, coverage, or finiteness fails",
+    "screen": "all five predictions pass",
+    "wrong_predictor": "reader quotient remains causal under oracle coefficients but coefficient prediction fails",
+    "null": "predicted coefficients correlate but fail to execute material behavior"
+  },
+  "interpretation_limits": [
+    "This is a four-scalar affine compiler over fixed empirical axes, not yet a symbolic derivation of attention weights.",
+    "A1-to-A2 transfer is the decisive protection against memorizing the fit rows.",
+    "The two reader axes remain separate live-boundary objects."
+  ]
+}
