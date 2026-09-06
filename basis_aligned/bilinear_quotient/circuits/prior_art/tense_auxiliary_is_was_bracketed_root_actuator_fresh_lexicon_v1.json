@@ -1,0 +1,48 @@
+{
+  "schema": "tense_auxiliary_is_was_bracketed_root_actuator_fresh_lexicon_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.bracketed_root_actuator_fresh_lexicon_v1",
+  "created_utc": "2026-09-06T09:07:00Z",
+  "question": "Can a deterministic bracket-and-bisection scalar controller remove the projection-derived global-budget truncation and selectively actuate q_is on a capability-gated fresh lexicon?",
+  "novelty_search": {
+    "nearest_null": "The fixed-budget donor-free q_is actuator passed every A/C panel but missed v2 P by 0.023; 14/16 v2 P and 13/16 v3 P alphas hit a grid endpoint, while all five interior P solutions reflected at 1.002-1.003.",
+    "failed_control": "A different P surface was native-incapable and opened no causal outcomes.",
+    "new_question": "Replace the postulated global budget and 257-grid approximation with a deterministic continuity-based bracket/root algorithm, freeze it before a new lexicon, and test intended is/was edits plus unrelated C collateral.",
+    "anti_rank_drift": "q_is and rank one remain frozen. This changes the causal controller algorithm and removes a demonstrated actuator truncation; it is not a rank, basis, or compression sweep."
+  },
+  "authority": {
+    "q_is_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "fixed_budget_null_sha256": "e69acc81c970a6794f3d7cac64a0fc43805afa253164b223833649e5fb46d580",
+    "reference_builder_sha256": "ac240f13478168948814f59c0425270dd345ba03053332b72b34857e9a022638"
+  },
+  "fresh_authority": {
+    "seed": 20260923,
+    "agents": ["acrobat", "barber", "carpenter", "dancer", "ecologist", "firefighter", "grocer", "illustrator", "jeweler", "locksmith", "musician", "navigator", "potter", "sailor", "technician", "upholsterer"],
+    "syntax": "Unchanged v2/v3 At-this/that-moment A1, bulletin-embedded A2, present/previous temporal-paraphrase P, and canonical C.",
+    "overlap_rule": "No agent or row ID may overlap v1-v3."
+  },
+  "frozen_design": {
+    "site": "resid:18",
+    "direction": "A/P use the requested opposite is/was answer. C alternates present-to-past and past-to-present by group parity, computes alpha only from fixed is/was rows, and scores the unrelated C answer/foil afterward.",
+    "initial_step": "||x||_2 / 1024. Evaluate both signs and retain the sign with the larger requested is/was margin; ties choose positive.",
+    "bracket": "Starting at zero, double the signed step for exactly 24 rounds or until requested margin reaches the reflected target -m(0).",
+    "root": "For bracketed rows, perform exactly 32 bisection rounds on the continuous signed interval and use the crossing endpoint. Unbracketed rows use the final explored endpoint and are reported unreachable.",
+    "forbidden_inputs": ["donor activation", "donor margin", "row outcome", "learned budget", "grid/rank/seed/step sweep"],
+    "capability_first": "From the same two native capture forwards, all eight family-by-direction population cells must meet v2/v3's frozen thresholds before any root/head intervention evaluation. Otherwise terminate invalid with causal_outcomes_opened=false.",
+    "root_head_evaluations_max": 3776
+  },
+  "predictions": {
+    "pred_a_fresh_authority_capability_and_exact_head": "Rows are deterministic/disjoint, all eight frozen capability cells pass, and exact final-head replay <=1e-3 before causal outcomes open.",
+    "pred_b_donor_free_root_controller": "Every alpha uses only source state, direction, fixed is/was rows, and the frozen 24+32 algorithm; all A/P rows bracket and finish within 1e-4 margin-reflection error.",
+    "pred_c_fresh_A_actuation": "A1 and A2 mean recovery each >=0.75 with direction fraction >=0.75.",
+    "pred_d_fresh_P_generalization": "P mean margin reflection >=0.95 with direction fraction 1.0.",
+    "pred_e_unrelated_C_selectivity": "C normalized unrelated movement <=0.20 despite receiving the alternating intended is/was edit.",
+    "pred_f_exact_coverage_and_price": "Exactly 2 model forwards/128 examples and 64 intervention records, <=3,776 selected-head root evaluations, zero fit/transformer backward/model update, and no grid points."
+  },
+  "terminal": {
+    "screen": "A-F pass: identify a prospectively validated donor-free scalar q_is actuator and license upstream local-reader fitting.",
+    "null": "Valid root controller misses fresh A/P or C selectivity; retain projected q_is only and do not raise rank.",
+    "invalid": "Authority, capability, head, controller identity, root coverage, or price fails."
+  },
+  "circuit_targets": ["computational specification", "held-out prediction", "selective manipulation", "extraction or sufficiency"],
+  "price": {"model_forwards_exact": 2, "example_evaluations_exact": 128, "intervention_records_exact": 64, "selected_head_root_evaluations_max": 3776, "fit_parameters": 0, "grid_points": 0, "transformer_backwards": 0, "model_updates": 0}
+}

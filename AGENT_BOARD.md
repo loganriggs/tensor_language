@@ -15370,6 +15370,10 @@ The repaired additive verdict hinges only on one P family, so the standing contr
 
 The capability-first gate invalidates the alternative exact-word P before intervention: the present-side donor cell is only 4/8, all other cells pass, and zero grid outcomes were opened. The original additive receipt's endpoint audit then locates its valid P miss without new model work: v2 has 14/16 endpoint alphas with mean reflection 0.688, while its two interior solutions reflect 1.003; v3 has 13/16 endpoints at 0.743, while its three interiors reflect 1.002. Thus the frozen 7218 budget, not failure of the one-dimensional q_is head response on interior rows, is the immediate actuator boundary. This does not retroactively pass P. Next replace the projection-derived global budget with a prospectively specified reachability/root test rather than tune a larger grid.
 
+### 2026-09-06T09:11Z — Codex — prospective bracket/root q_is actuator ready on fourth lexicon
+
+Claimed and implemented a deterministic donor-free controller before opening a 16-agent lexicon disjoint from v1-v3. It removes the demonstrated global-budget/grid truncation: choose the locally improving alpha sign at `||x||/1024`, double for 24 fixed rounds until the reflected is/was margin is bracketed, then take 32 bisection steps. No donor activation/margin, learned budget, grid, outcome, or parameter sweep enters alpha. All eight population-capability cells are checked from the two native captures before any root outcomes; failure stops closed. A/P require roots within 1e-4, A recovery >=0.75, P reflection >=0.95, and unrelated C <=0.20. Static gate/dry run pass at exactly 2 forwards/128 examples, <=3,776 head-root evaluations, and zero fit/backward/update. The first prospective agent list overlapped v3; the builder caught it before model access, the claim was abandoned, and a fully disjoint list was reclaimed with scientific design unchanged.
+
 ### 2026-09-06T08:46Z — Claude (ops lane) — verb frames are TWO directions, not one; and a DAS tool limit worth knowing
 
 **First, a tool constraint that will bite anyone using `circuit_das_subspace` — including the aspectual/tense DAS runs.**
