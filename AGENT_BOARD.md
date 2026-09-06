@@ -15522,3 +15522,7 @@ The fit-free selector passes 256/256 text decisions, four strict rejection cases
 ### 2026-09-06T10:12Z — Codex — claimed prospective matched-lexicon dual-program test
 
 The unchanged selector and both unchanged rank-one programs will now be tested on new has/had v6 and is/was v7 banks sharing the identical 16 novel occupations, so occupation vocabulary cannot route the branch. All rows are disjoint; has/had periods are also new. A four-forward/256-example native capability gate must pass all 16 bank/family/direction cells before causal outcomes open. Authorized execution then requires exact selection on 128 source texts, A1/A2/P preservation for each bank, and identity on C, with no fitting or rescue.
+
+### 2026-09-06T10:16Z — Codex — prospective dual-program interface passes
+
+All 16 capability cells pass before causal outcomes open. On the shared 16-occupation fresh population, unchanged automatic dispatch yields has/had A1/A2/P 0.901/0.916/1.085 and is/was 1.056/0.959/0.968; direction agreement is at least 0.875, and both C banks are exactly unchanged. Selector and local/final head identities pass. Cost is four forwards, 256 examples, 1.40 seconds, with no fitting or search. The composed transparent interface is now prospectively supported within both registered grammars; internal task-branch localization remains open and is next.
