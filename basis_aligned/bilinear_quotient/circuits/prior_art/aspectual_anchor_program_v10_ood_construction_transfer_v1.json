@@ -1,0 +1,42 @@
+{
+  "schema": "aspectual_anchor_program_v10_ood_construction_transfer_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.program_v10_ood_construction_transfer_v1",
+  "created_utc": "2026-09-06T06:31:00Z",
+  "question": "Does frozen donor-free program v10 selectively actuate aspect on a sealed syntax-and-lexicon OOD panel with an independent morning/evening control?",
+  "novelty_search": {
+    "queries": ["program_v10", "ood_construction", "past_span", "morning_same_answer"],
+    "result": "No existing v10 OOD test. V7/v8 transfer used archive prefixes with the original since/by cue and reused the canonical night/day control; this panel changes the temporal construction, lexicon, and unrelated output control."
+  },
+  "authority": {
+    "program_v10": {"path": "ops/aspectual_anchor_transparent_path_program_v10.py", "sha256": "b5c81e7fab8b7d6503944e5ac40b1a542f4af9470d5cdc5667bbf103ac48a2f5"},
+    "program_v10_release": {"path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v10_result.json", "sha256": "9677b97b66465ed49ee86b726954d4d74a8ae4ad285b255387f93e3067112661", "terminal": "release"},
+    "rank1_result": {"path": "circuits/followups/aspectual_anchor_das_resid18_rank1_transfer_v1_result.json", "sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278", "terminal": "screen"},
+    "ood_builder": {"path": "ops/circuit_candidate_aspectual_ood_construction_v3.py", "sha256": "5f91eaa016b37b39933388a7d12c8154a9f5598bf18c1a24bcb70b53f47cc392", "row_sha256": "ce9b03af12be0ff782fd10d968ba9f46ae100c76642b36ff20eca54c04a59bb0"}
+  },
+  "frozen_design": {
+    "rows": 64,
+    "families": {"A1_past_span": 16, "A2_embedded_past_span": 16, "P_noun_shifted_start": 16, "C_morning_evening": 16},
+    "actuator": "Unmodified program v10 basis, budget 7833.8336181640625, and 257-point target-guided grid. A-family confirmation donor activations are outcome references only and cannot enter alpha selection.",
+    "bars": {
+      "A_mean_native_donor_recovery_min": 0.50,
+      "A_direction_fraction_min": 0.75,
+      "P_mean_margin_reflection_fraction_min": 0.50,
+      "P_direction_fraction_min": 0.75,
+      "C_mean_absolute_effect_over_A_scale_max": 0.20
+    }
+  },
+  "predictions": {
+    "pred_a_authority_native_capability_and_exact_head": "All hashes, row authority, basis, program release, native capability, and exact-head replay pass.",
+    "pred_b_frozen_donor_free_program": "Every row uses unmodified v10; no confirmation donor activation enters its actuation call.",
+    "pred_c_ood_A_transfer": "OOD A1 and A2 each reach at least 0.50 mean native-donor recovery and 0.75 direction.",
+    "pred_d_ood_P_generalization": "The OOD noun-shifted starts reach at least 0.50 mean requested margin reflection and 0.75 direction.",
+    "pred_e_independent_C_selectivity": "The new morning/evening control moves by at most 0.20 of the frozen A target scale.",
+    "pred_f_exact_coverage_and_price": "All 64 rows are uniquely scored within 17 transformer forwards, 136 transformer-example evaluations, 16,448 selected-head grid evaluations, and no new fit/backward/update."
+  },
+  "terminal": {
+    "screen": "A-F pass: v10 transfers selectively to the sealed OOD temporal syntax and independent control.",
+    "null": "Authority and coverage pass, but OOD A/P transfer or independent C selectivity misses.",
+    "invalid": "Authority, native capability, head replay, frozen-program identity, or coverage fails."
+  },
+  "price": {"model_forwards_max": 17, "example_evaluations_max": 136, "selected_head_grid_evaluations": 16448, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
