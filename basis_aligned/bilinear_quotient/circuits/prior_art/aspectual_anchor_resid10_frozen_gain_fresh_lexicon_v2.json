@@ -1,0 +1,60 @@
+{
+  "schema": "aspectual_anchor_resid10_frozen_gain_fresh_lexicon_prior_art_v2",
+  "candidate_id": "aspectual_anchor.has_vs_had.resid10_frozen_gain_fresh_lexicon_v2",
+  "created_utc": "2026-09-06T07:45:53Z",
+  "evidence_class": "prospective_population_capable_upstream_program_validation",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*aspectual_anchor*", "circuits/followups/*aspectual_anchor*", "ops/*aspectual_anchor*", "AGENT_BOARD.md"],
+    "nearest_invalid": "Frozen upstream lexicon v1 cleared causal bars but was invalid because 2/32 A bases failed its all-rows capability rule.",
+    "new_question": "Does the identical frozen program transfer to a third disjoint lexicon under the pre-existing v7 population-capability standard while retaining every row?"
+  },
+  "authorities": {
+    "upstream_screen_result_sha256": "e7a9fbb41a3330bdf7cc7f8e13545ccb3773cb803ca47250f87691f355d2839a",
+    "upstream_instrument_audit_sha256": "4b8a8ac7e0bba304153544be3e9709bf902b59fabb7a1e2a1e0ab65e43a1ff93",
+    "second_lexicon_invalid_result_sha256": "519fe4c9ec41e0ba4fa462a18fe92f18fd2bf1f8ad0ecbe4401ebe27af19b869",
+    "lexicon_factory_sha256": "50b5ba3158d45cdf8996ac032f5b1b289aaa11a2542a16a3ab1d2c5fbccc3ccd",
+    "fresh_lexicon_v5_builder_sha256": "ae624913c5adfe07cf028acf6549cd5fe2debd4b090c71659218fe158089fe2c",
+    "fresh_lexicon_v5_rows_sha256": "296c2186f477a6d450bbbb87fda5ba89b999eb4d3ac0dc18e31496ca47d5caf7",
+    "rank1_basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"
+  },
+  "prospective_boundary": {
+    "new_agents": 16,
+    "new_periods": 16,
+    "row_count": 64,
+    "row_id_and_lexical_overlap_with_v2_v3_v4": 0,
+    "model_outcomes_or_resid10_features_inspected_before_preregistration": false,
+    "all_rows_retained_regardless_of_capability": true,
+    "scope": "Third lexicon shift within registered constructions, not unrestricted syntax OOD."
+  },
+  "capability_policy": {
+    "provenance": "The v7 fresh-construction authority preregistered 0.85 for A/P cells and 0.75 for C; this v2 uses those population bars before model access rather than postselecting rows.",
+    "A_cells": "For each A1/A2 x direction cell, pooled base+donor native accuracy >=0.85.",
+    "P_cells": "For each direction, scored donor-source native accuracy >=0.85.",
+    "C_cells": "For each direction, actual-task base native accuracy >=0.75. Intermediate feature sign is not capability."
+  },
+  "frozen_program": {
+    "feature_site": "resid:10",
+    "write_site": "resid:18",
+    "fixed_token_ids": {"has": 468, "had": 550},
+    "coefficients": {
+      "present_to_past": {"intercept": 3049.77917349804, "slope": -1881.1152323328579},
+      "past_to_present": {"intercept": 3575.0380871196844, "slope": 1181.9271936643886}
+    },
+    "actuator": "alpha = frozen intercept+slope*resid10 intermediate unembedding contrast; patch resid18_source+alpha*q. No confirmation resid18 margin, donor activation, outcome IDs, search, or outcome selects alpha."
+  },
+  "predictions": {
+    "pred_a_authority_population_capability_and_local_exactness": "All hashes/disjointness and registered capability cells pass; local resid10 functional identity <=1e-4 and exact resid18 head <=1e-3.",
+    "pred_b_frozen_upstream_program": "Every finite alpha uses only the frozen program inputs and no forbidden confirmation input.",
+    "pred_c_new_lexicon_A_prediction": "A1/A2 each have mean recovery >=0.75 and direction fraction >=0.75 across all rows.",
+    "pred_d_new_lexicon_P_generalization": "P mean reflection >=0.75 and direction fraction >=0.75 across all rows.",
+    "pred_e_new_lexicon_C_selectivity": "C mean normalized unrelated effect <=0.20 across all rows.",
+    "pred_f_exact_coverage_and_price": "64 unique rows within 25 counted forwards, 328 example evaluations, 224 selected-head pairs, zero grids/backwards/updates, four inherited parameters, and 64 records."
+  },
+  "terminal": {
+    "screen": "A-F pass: the frozen upstream read-compute-write interface predicts a population-capable third lexicon.",
+    "null": "Authority/program/coverage pass but A/P prediction or C selectivity misses.",
+    "invalid": "Authority, population capability, local exactness, head, frozen program, or coverage fails."
+  },
+  "circuit_targets": ["computational specification", "held-out prediction", "extraction/sufficiency", "selective manipulation", "cross-boundary grouping", "stable identification"],
+  "price": {"counted_forwards_max": 25, "example_evaluations_max": 328, "selected_head_pair_evaluations": 224, "grid_evaluations": 0, "model_backwards": 0, "model_updates": 0, "inherited_fit_parameters": 4, "stored_values_with_basis": 1156}
+}
