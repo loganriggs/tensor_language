@@ -1,0 +1,31 @@
+{
+  "schema": "iswas_mlp8_auxiliary_cv_upstream_module_atlas_prior_v2",
+  "candidate_id": "cross_task.iswas_mlp8_auxiliary_cv_upstream_module_atlas_v2",
+  "registered_utc": "2026-09-06T23:05:10Z",
+  "v1_result_sha256": "72edcd48fb7fd57a808cde80452adbae4dc5740b51a2ff2fc8b90fc44e65b312",
+  "v1_runner_sha256": "06d0ebb42e889ec5cb18bf15ad54a9f977bbc1ff44d583912263e16a1e6c5f32",
+  "v1_terminal": "invalid",
+  "failure": "The reconstruction diagnostic included attention-removal variants whose c_proj input had intentionally been clamped after the attention response was reconstructed. Native reconstruction and intervened c_proj input are not expected to agree in those arms; the 3.69 error is an instrument-scope failure.",
+  "repair": "Score attention reconstruction only on the unclamped native base and live parent captures. Preserve the 11 singleton modules, three grouped arms, v12 population, response metrics, thresholds, causal-order tripwire, and 18-forward/540-example price exactly. Rerun the model independently and do not interpret v1 rankings.",
+  "sites": [
+    "mlp:09",
+    "attn:10",
+    "mlp:10",
+    "attn:11",
+    "mlp:11",
+    "attn:12",
+    "mlp:12",
+    "attn:13",
+    "mlp:13",
+    "attn:14",
+    "mlp:14"
+  ],
+  "predictions": {
+    "pred_a_authority_capture_self_clamp_causal_order_finiteness_and_price": "Identical to v1 except reconstruction is evaluated only where the native identity is mathematically applicable.",
+    "pred_b_each_reader_has_a_stable_material_upstream_module": "Unchanged from v1.",
+    "pred_c_joint_removal_distinguishes_residual_skip_from_module_conversion": "Unchanged from v1.",
+    "pred_d_l11_causal_order_tripwire": "Unchanged from v1.",
+    "pred_e_zero_fit_complete_module_inventory": "Unchanged from v1."
+  },
+  "decision": "Use the original v1 decision tree after an independent valid rerun. No other repair or threshold change is allowed on v12."
+}
