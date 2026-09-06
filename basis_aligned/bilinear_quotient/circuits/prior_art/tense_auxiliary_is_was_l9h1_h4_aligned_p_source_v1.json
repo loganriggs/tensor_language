@@ -1,0 +1,55 @@
+{
+  "schema": "tense_auxiliary_is_was_l9h1_h4_aligned_p_source_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.l9h1_h4_aligned_p_source_v1",
+  "created_utc": "2026-09-06T10:38:05Z",
+  "evidence_class": "alignment_preserving_same_tense_head_selectivity_and_source_test",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*is_was*P*", "circuits/followups/*is_was*P*", "circuits/prior_art/*l9h1_h4*", "circuits/followups/*l9h1_h4*", "AGENT_BOARD.md"],
+    "nearest_result": "H1/H4 transport is/was A state through contextualized moment/determiner sources but exceed the P selectivity bar on an insertion paraphrase whose token positions are unaligned.",
+    "new_question": "Does H1/H4 remain selective on a one-token, position-aligned same-tense moment-to-instant paraphrase, and is any residual movement localized to that changed carrier noun?"
+  },
+  "authorities": {
+    "source_factorial_sha256": "4c266158213edcda9f0c86b19064cabe6d673815167b69d9eff381ddadda9cf5",
+    "head_reuse_sha256": "ca3139b6eba33f3d06c6d79c5b772f8ecf568e16918d2e2211c282847d577070",
+    "source_instrument_sha256": "8e890efd3520cfbece1d71f3ffb58397c732d8fc9c9446c74af9ac0380f2ca01",
+    "aligned_p_builder_sha256": "15f0db2b22d2fa5c674cfa8370f7ab0c341f2ca10cc7311e2b383c6ba735e2ba",
+    "aligned_p_rows_sha256": "9b42b6f255a767822954bea19a610089e88fcb39f8ed2b8008a5189d2fa7c3bb",
+    "q_is_scale_authority_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02"
+  },
+  "population": "Sixteen new P rows over the matched-v2 occupations. Base 'At this/that moment the X' and donor 'At this/that instant the X' have identical is/was answers, equal token length, and exactly one aligned changed token.",
+  "operator": {
+    "heads": [1, 4],
+    "layer": 9,
+    "arms": {
+      "identity_full_pair": "Replace complete base H1/H4 vectors with exact cached base vectors.",
+      "donor_full_pair_manual": "Replace complete base H1/H4 with donor vectors through the manual attention path.",
+      "donor_full_pair_native_hook": "Same donor replacement through the trusted producer head hook.",
+      "changed_noun_term": "Replace only the exact moment/instant source term.",
+      "determiner_term": "Replace only the following determiner source term.",
+      "self_term": "Replace only the final occupation source term."
+    },
+    "fitting": "none",
+    "no_rescue": "No phrase, token, source, head, threshold, or bar change after execution."
+  },
+  "bars": {
+    "capability": "Base and donor accuracy >=0.85 separately in both temporal directions.",
+    "instrument": "Manual/native logits and H1/H4 source reconstruction <=1e-4; identity and manual-full versus trusted-hook errors <=1e-5; exact finite coverage.",
+    "selectivity": "Donor full-pair mean normalized absolute effect <=0.20 target scales.",
+    "source": "If full-pair effect >=0.02, changed-noun term retains >=0.50 of it; otherwise the nuisance is below the localization floor. Determiner and self effects are each <= changed-noun effect.",
+    "price": "Ten forwards/160 examples, six intervention arms, zero fit/grid/root/backward/update."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_instrument_and_coverage": "All hashes, alignment, capability, manual/native/source reconstruction, identity, route agreement, finiteness, and coverage pass.",
+    "pred_b_alignment_preserving_P_selectivity": "Full H1/H4 aligned-P effect is <=0.20 target scales.",
+    "pred_c_changed_carrier_source_explains_residual": "Changed noun retains >=0.50 of a meaningful full effect, or full effect is below 0.02.",
+    "pred_d_changed_source_specificity": "Determiner and self effects do not exceed the changed-noun effect.",
+    "pred_e_exact_zero_fit_price": "Exactly ten forwards/160 examples and no fitting or search."
+  },
+  "terminal": {
+    "screen": "A-E pass: cross-task H1/H4 selectivity holds under aligned P, and residual surface movement is source-localized or negligible.",
+    "null": "Instrument passes but selectivity or source predictions miss; retain the P nuisance boundary.",
+    "invalid": "Authority, alignment, capability, instrument, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["selectivity", "causal source tracing", "component reuse", "confound resolution"],
+  "price": {"model_forwards": 10, "example_evaluations": 160, "rows": 16, "intervention_arms": 6, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
