@@ -75,6 +75,75 @@ def map_head_subspace_to_residual(attention, head, head_basis):
     return left[:, keep], singular[keep]
 
 
+def head_bank_value_read_map(attention, heads, bank_basis):
+    """Return the exact map from residual input into a multi-head value subspace.
+
+    ``bank_basis`` is expressed in the concatenated raw-value coordinates of
+    ``heads``.  The returned ``[rank, d_model]`` matrix is
+    ``U.T @ block_rows(c_v, heads)`` and is invariant up to a left orthogonal
+    gauge rotation.
+    """
+    heads = tuple(int(head) for head in heads)
+    if not heads or len(set(heads)) != len(heads):
+        raise SubspaceWeightAtlasError("heads must be a nonempty unique sequence")
+    head_dim, n_head = int(attention.head_dim), int(attention.n_head)
+    if any(not 0 <= head < n_head for head in heads) or not hasattr(attention, "c_v"):
+        raise SubspaceWeightAtlasError("head bank or attention value weights are invalid")
+    basis = orthonormal_basis(bank_basis)
+    if basis.shape[0] != len(heads) * head_dim:
+        raise SubspaceWeightAtlasError("bank basis does not match concatenated head width")
+    value_rows = torch.cat([_slice_rows(
+        attention.c_v.weight.detach(), head, head_dim) for head in heads], dim=0)
+    return basis.T @ value_rows
+
+
+def map_head_bank_subspace_to_residual(attention, heads, bank_basis):
+    """Map a concatenated multi-head output subspace through exact ``c_proj``."""
+    heads = tuple(int(head) for head in heads)
+    basis = orthonormal_basis(bank_basis)
+    head_dim, n_head = int(attention.head_dim), int(attention.n_head)
+    if (not heads or len(set(heads)) != len(heads)
+            or any(not 0 <= head < n_head for head in heads)
+            or basis.shape[0] != len(heads) * head_dim
+            or not hasattr(attention, "c_proj")):
+        raise SubspaceWeightAtlasError("head bank, basis, or output projection is invalid")
+    output_weight = attention.c_proj.weight.detach().float()
+    output_bank = torch.cat([
+        output_weight[:, head * head_dim:(head + 1) * head_dim] for head in heads
+    ], dim=1)
+    mapped = output_bank @ basis
+    left, singular, _right = torch.linalg.svd(mapped, full_matrices=False)
+    keep = singular > singular.max().clamp_min(1e-30) * 1e-6
+    if not bool(keep.any()):
+        raise SubspaceWeightAtlasError("head-bank subspace is annihilated by output projection")
+    return left[:, keep], singular[keep]
+
+
+def attention_writer_to_read_map(attention, head, read_map):
+    """Contract one attention head's output weights into a downstream read map."""
+    read = torch.as_tensor(read_map).float()
+    head, head_dim = int(head), int(attention.head_dim)
+    if (read.ndim != 2 or not torch.isfinite(read).all()
+            or read.shape[1] != int(attention.n_head) * head_dim
+            or not 0 <= head < int(attention.n_head) or not hasattr(attention, "c_proj")):
+        raise SubspaceWeightAtlasError("read map or attention writer is invalid")
+    output = attention.c_proj.weight.detach().float()[:, head * head_dim:(head + 1) * head_dim]
+    contraction = read @ output
+    return {"contraction": contraction, "score": float(torch.linalg.matrix_norm(contraction))}
+
+
+def mlp_writer_to_read_map(mlp, read_map):
+    """Contract a bilinear/squared MLP output factor into a downstream read map."""
+    read = torch.as_tensor(read_map).float()
+    output = (mlp.Down.weight.detach().float() if hasattr(mlp, "Down")
+              else mlp.c_proj.weight.detach().float() if hasattr(mlp, "c_proj") else None)
+    if (read.ndim != 2 or not torch.isfinite(read).all() or output is None
+            or read.shape[1] != output.shape[0]):
+        raise SubspaceWeightAtlasError("read map or MLP writer is invalid")
+    contraction = read @ output
+    return {"contraction": contraction, "score": float(torch.linalg.matrix_norm(contraction))}
+
+
 def mlp_subspace_tensor(mlp, source_basis, target_basis=None):
     """Return the exact quadratic weight tensor restricted between residual subspaces.
 

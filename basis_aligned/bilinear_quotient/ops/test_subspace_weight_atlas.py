@@ -46,3 +46,40 @@ def test_bilinear_tensor_replays_exact_restricted_polynomial_and_norm_is_gauge_i
     rotation = random_basis(2, 2, g)
     rotated = subject.mlp_subspace_tensor(mlp, source @ rotation, target)
     assert abs(result["scores"]["tensor"] - rotated["scores"]["tensor"]) < 1e-5
+
+
+def test_head_bank_read_write_contractions_are_exact_and_gauge_invariant():
+    g = torch.Generator().manual_seed(12)
+    attention = type("Attention", (), {"n_head": 3, "head_dim": 2})()
+    attention.c_v = Linear(torch.randn(6, 6, generator=g))
+    attention.c_proj = Linear(torch.randn(6, 6, generator=g))
+    basis = random_basis(4, 2, g)
+    heads = (0, 2)
+    value_rows = torch.cat((attention.c_v.weight[0:2], attention.c_v.weight[4:6]))
+    output_columns = torch.cat((attention.c_proj.weight[:, 0:2],
+                                attention.c_proj.weight[:, 4:6]), dim=1)
+    read = subject.head_bank_value_read_map(attention, heads, basis)
+    assert torch.allclose(read, basis.T @ value_rows)
+    mapped, singular = subject.map_head_bank_subspace_to_residual(attention, heads, basis)
+    expected_singular = torch.linalg.svdvals(output_columns @ basis)
+    assert torch.allclose(singular, expected_singular, atol=1e-5)
+    rotation = random_basis(2, 2, g)
+    rotated_read = subject.head_bank_value_read_map(attention, heads, basis @ rotation)
+    assert abs(torch.linalg.matrix_norm(read) - torch.linalg.matrix_norm(rotated_read)) < 1e-5
+    rotated_mapped, _ = subject.map_head_bank_subspace_to_residual(
+        attention, heads, basis @ rotation)
+    assert torch.allclose(mapped @ mapped.T, rotated_mapped @ rotated_mapped.T, atol=1e-5)
+
+
+def test_writer_contractions_match_explicit_maps():
+    g = torch.Generator().manual_seed(15)
+    attention = type("Attention", (), {"n_head": 2, "head_dim": 3})()
+    attention.c_proj = Linear(torch.randn(6, 6, generator=g))
+    mlp = type("MLP", (), {})()
+    mlp.Down = Linear(torch.randn(6, 8, generator=g))
+    read = torch.randn(2, 6, generator=g)
+    head = subject.attention_writer_to_read_map(attention, 1, read)
+    assert torch.allclose(head["contraction"], read @ attention.c_proj.weight[:, 3:6])
+    assert abs(head["score"] - torch.linalg.matrix_norm(head["contraction"])) < 1e-6
+    mlp_result = subject.mlp_writer_to_read_map(mlp, read)
+    assert torch.allclose(mlp_result["contraction"], read @ mlp.Down.weight)
