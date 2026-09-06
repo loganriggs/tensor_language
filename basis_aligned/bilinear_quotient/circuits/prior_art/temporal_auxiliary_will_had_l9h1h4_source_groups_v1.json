@@ -1,0 +1,77 @@
+{
+  "schema": "temporal_auxiliary_will_had_l9h1h4_source_groups_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.l9h1h4_source_groups_v1",
+  "created_utc": "2026-09-06T12:22:00Z",
+  "evidence_class": "prospective_exact_semantic_source_partition",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*will*had*source*",
+      "circuits/followups/*will*had*source*",
+      "circuits/prior_art/*l9h1*h4*source*",
+      "circuits/followups/*l9h1*h4*source*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "H1/H4 recover 92.7%-107.1% of will/had attention 9, while the exact shared MLP4 local-value input accounts for only about 0.05 normalized recovery. Existing has/had and is/was source partitions use task-specific lexical banks and do not partition the new temporal construction.",
+    "new_question": "Which complete semantic source group supplies the additional will/had payload read by the reused L9H1/H4 pair?"
+  },
+  "authorities": {
+    "source_group_evaluator_sha256": "6ecf5f40b92f94cb32bccf1a703e527a3d468281936e63d4c7e91e8af66b4348",
+    "h1h4_head_group_screen_sha256": "a885356476efe339f5d97c73f08989b2616beee13740edf81f48f4ae77ace570",
+    "temporal_fast_screen_sha256": "71a833c52c39b98be6f576d11749522e2725c540a29d61a2352e315978684ec9",
+    "temporal_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58",
+    "attention_capture_backend_sha256": "ba2d36ca8a2dc18de92f4ea43d25f7769d5bcb2cfa110290c355d6aff8717501"
+  },
+  "population": "All 64 sealed A1/A2 will/had rows, split into the two fixed 32-row constructions. Each pair has equal length and exactly one temporal-cue token change.",
+  "source_partition": {
+    "prefix": "all tokens strictly before the temporal cue; empty in A1 and the fixed reporting frame in A2",
+    "cue": "the sole Tomorrow/Earlier or tomorrow/earlier token change",
+    "subject_onset": "the two tokens immediately after the cue: determiner plus head noun",
+    "intervening_suffix": "all tokens after subject onset and before the semantic query",
+    "self": "the final semantic query token",
+    "partition_control": "The five groups are disjoint and cover every causal source position 0..query exactly once. Installing all groups must reproduce the complete donor H1/H4 head output within 1e-4 selected-logit error."
+  },
+  "arms": [
+    "full_pair",
+    "all_sources",
+    "prefix",
+    "cue",
+    "subject_onset",
+    "intervening_suffix",
+    "self"
+  ],
+  "opposing_predictions": {
+    "direct_temporal_cue": "The cue group alone supplies at least half of the complete H1/H4 effect with donorward fraction at least 0.75 in A1 and A2; subject onset and self are secondary.",
+    "contextual_or_late_payload": "Cue recovery is below half of full in either construction, and prefix, subject onset, intervening suffix, or nonlinear group interaction carries the missing effect."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_partition": "All hashes and native capability hold; manual selected logits replay frozen native logits within 1e-4; H1/H4 source reconstruction and all-sources/full-pair selected-logit closure are within 1e-4; all 448 arm-row records are present and finite.",
+    "pred_b_complete_h1h4_recurrence": "Complete H1/H4 mean recovery remains within 0.03 of 0.3440319120 in A1 and 0.3641600731 in A2, with direction fraction at least 0.75.",
+    "pred_c_literal_temporal_cue_dominates": "Cue mean recovery is positive, at least 0.50 of full-pair recovery, and donorward fraction at least 0.75 in A1 and A2.",
+    "pred_d_subject_onset_and_self_secondary": "Subject-onset and self mean absolute recovery are each at most 0.35 of full-pair recovery in A1 and A2.",
+    "pred_e_exact_zero_fit_price": "Exactly 18 model forwards, 576 example evaluations, seven arms, 448 arm-row records, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: the shared H1/H4 reader directly reads a temporal-cue payload on will/had, rather than reusing the dominant MLP4 contextual input from has/had/is/was.",
+    "null": "The instrument and complete-head recurrence pass but cue dominance or secondary-source predictions fail; retain the exact group effects and interaction boundary.",
+    "invalid": "Authority, capability, replay, partition, source closure, recurrence, finiteness, coverage, or price fails."
+  },
+  "scope": "Controls are inherited from the immediately preceding selective H1/H4 head-group screen. This source screen identifies inputs within that fixed reader and does not identify upstream writers of the cue payload.",
+  "circuit_targets": [
+    "computational specification",
+    "cross-task interface reuse",
+    "within-head source splitting",
+    "held-out construction prediction"
+  ],
+  "price": {
+    "model_forwards": 18,
+    "example_evaluations": 576,
+    "rows": 64,
+    "arms": 7,
+    "intervention_records": 448,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
