@@ -1,0 +1,66 @@
+{
+  "schema": "aspectual_anchor_attention11h3_15h5_source_compression_split_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.attention11h3_15h5_source_compression_split_v1",
+  "created_utc": "2026-09-06T04:26:24Z",
+  "question": "Which aligned source roles feed the prospectively compressed block11 H3 and block15 H5 suffix heads, and can three-role banks selected on one half reproduce them on the other?",
+  "authority": {
+    "single_head_result": {
+      "path": "circuits/followups/aspectual_anchor_attention11_15_single_head_confirmation_v1_result.json",
+      "sha256": "be2c405c4b7023c57d4a11baf9be0bc999fb3835908f34fb88c1011ab146353f",
+      "terminal": "screen",
+      "head_by_boundary": {"11": 3, "15": 5}
+    },
+    "single_head_runner": {
+      "path": "ops/run_aspectual_anchor_attention11_15_single_head_confirmation_v1.py",
+      "sha256": "36a3fe7c5e5066a1637877333b361bc6d87ba57b3f1fe8591fa0786108b448ec"
+    },
+    "head_backend_runner": {
+      "path": "ops/run_aspectual_anchor_attention11_15_head_compression_split_v1.py",
+      "sha256": "225c822c37007445353febd133fe308230b4f47b25b572bfe2c2614cc54950f2"
+    },
+    "holdout_builder": {
+      "path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py",
+      "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859",
+      "rows_sha256": "18dfe9b5e86387017f3b8a81d378cc4892b4ee5a219ea7e35bf02548cd54e493"
+    }
+  },
+  "data_status": "No attention11 H3 or attention15 H5 source-term intervention outcome has been computed on either split. Head-output outcomes are open, but not their pattern-times-value source decomposition.",
+  "population_split": {
+    "selection": "First 16 A1/A2 rows in immutable builder order.",
+    "selection_row_ids_sha256": "d150ff72d1423058a01aa2140563315c041b1be98a59066e8dc4a98688775fe8",
+    "confirmation": "Last 16 A1/A2 rows in immutable builder order.",
+    "confirmation_row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b"
+  },
+  "frozen_design": {
+    "head_by_boundary": {"11": 3, "15": 5},
+    "source_roles": ["cue", "last", "period", "determiner", "self", "other"],
+    "partition": "cue is the one changed token; last/period/determiner are cue+1/+2/+3; self is final query; other is every remaining causal source position through query.",
+    "selection_arms_per_boundary": ["no_sources", "all_sources", "six_singletons", "six_leave_one_out"],
+    "selection_score": "0.5 * ((singleton-no_sources) + (all_sources-leave_one_out)); ties resolve by frozen role order.",
+    "selected_width": 3,
+    "confirmation_arms_per_boundary": ["no_sources", "selected_three_roles", "all_sources"],
+    "fixed_context": "Full carried and MLP boundary deltas remain present; only the dominant head's projected source-term delta varies.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_split_capability_and_exact_instrument": "All hashes/terminals, split hashes, native capability, native/manual, MLP4 tensor, attention term reconstruction, and all-source/single-head crossing closures pass.",
+    "pred_b_writer_and_head_control_recurrence": "Writer and all-source dominant-head controls recur within fixed tolerances with positive A1/A2 direction.",
+    "pred_c_positive_selection_source_signal": "All-source minus no-source recovery is positive for both heads and each frozen selection returns exactly three distinct roles.",
+    "pred_d_disjoint_three_role_compression": "On confirmation rows, each selected three-role bank retains at least 70% of the all-source-minus-no-source dominant-head increment and is positive in both A1 and A2.",
+    "pred_e_exact_coverage": "Selection arms and writer plus confirmation arms and writer produce exactly 576 finite records within 84 forwards and 704 example evaluations, without fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: compile the two validated three-role source banks into the suffix circuit.",
+    "null": "The run is valid and head controls recur, but one three-role bank fails disjoint compression.",
+    "invalid": "Authority, split, capability, alignment, instrument, control recurrence, finiteness, coverage, or price fails."
+  },
+  "price": {
+    "model_forwards_max": 84,
+    "example_evaluations_max": 704,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "efficiency": "Two six-role selection sweeps and two disjoint three-role checks share one model load; raw token-position sweeps and full 64-way role factorials are avoided.",
+  "novelty": "First leakage-controlled source-term compression inside the two confirmed dominant suffix heads."
+}

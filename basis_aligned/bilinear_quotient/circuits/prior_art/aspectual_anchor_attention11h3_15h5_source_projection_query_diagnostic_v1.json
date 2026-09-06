@@ -1,0 +1,48 @@
+{
+  "schema": "aspectual_anchor_attention11h3_15h5_source_projection_query_diagnostic_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.attention11h3_15h5_source_projection_query_diagnostic_v1",
+  "created_utc": "2026-09-06T04:34:57Z",
+  "question": "Did the v1 source-compression run fail only because its projection audit compared a query-only constructed delta against selected-head deltas at every sequence position?",
+  "authority": {
+    "invalid_result": {
+      "path": "circuits/followups/aspectual_anchor_attention11h3_15h5_source_compression_split_v1_result.json",
+      "sha256": "7b4ba19260f4d311ca959331e60f29c64136f416566582d510591c96d5243adb",
+      "terminal": "invalid",
+      "observed_full_sequence_projection_max_abs": {"11": 47.31249237060547, "15": 25.711524963378906},
+      "observed_parent_logit_max_abs": {"11": 0.000003814697265625, "15": 0.0000019073486328125}
+    },
+    "invalid_runner": {
+      "path": "ops/run_aspectual_anchor_attention11h3_15h5_source_compression_split_v1.py",
+      "sha256": "419c0be9a1c9cebf594225c492b9402af7240d7ffd95d7987320d3e2ecb18a30"
+    },
+    "confirmation_row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b"
+  },
+  "data_status": "The v1 intervention outcomes and erroneous full-sequence statistic are open. Query-index projection errors and off-query-only maxima have not been computed or inspected.",
+  "frozen_design": {
+    "rows": "All 16 disjoint confirmation rows only.",
+    "boundaries_and_heads": {"11": 3, "15": 5},
+    "source_roles": ["cue", "last", "period", "determiner", "self", "other"],
+    "diagnostic": "Recompute base and writer-hybrid attention terms. Compare the all-role projected source delta to the dominant-head projected delta separately at the semantic query and away from it.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_attention_term_reconstruction": "Base and hybrid pattern-times-value tensors reconstruct native head outputs within 1e-4.",
+    "pred_b_query_projection_closure": "At every semantic query, the all-role projected source delta matches the dominant-head projected delta within 0.04 for blocks 11 and 15.",
+    "pred_c_error_is_off_query": "The full-sequence maximum remains above 1.0 while the maximum restricted to off-query positions accounts for the full-sequence maximum within 1e-6.",
+    "pred_d_exact_partition": "The six roles form a disjoint exact partition of every causal prefix through the semantic query.",
+    "pred_e_exact_coverage": "Exactly 16 rows are audited within 8 forwards and 64 example evaluations, with no fits, backwards, updates, or scientific intervention rescore."
+  },
+  "terminal": {
+    "screen": "A-E pass: the v1 invalidity is localized to an audit-index bug; a separate immutable release audit may evaluate the preserved scientific rows.",
+    "null": "The query projection itself fails, so the source-compression evidence remains unreleasable.",
+    "invalid": "Authority, alignment, reconstruction, partition, finiteness, coverage, or price fails."
+  },
+  "price": {
+    "model_forwards_max": 8,
+    "example_evaluations_max": 64,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "scope_boundary": "This is an instrument diagnostic after outcomes were observed. It cannot independently convert the invalid v1 run into prospective evidence or alter its terminal."
+}

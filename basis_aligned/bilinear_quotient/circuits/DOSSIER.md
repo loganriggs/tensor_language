@@ -319,6 +319,8 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.block15_crossing_confirmation_v1` | complete | disjoint secondary suffix factorial | **block15 crossing confirmed** | `aspectual_anchor_block15_crossing_confirmation_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention11_15_head_compression_split_v1` | complete | split singleton/necessity plus compact-set test | **four-head suffix sets transfer disjointly** | `aspectual_anchor_attention11_15_head_compression_split_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention11_15_single_head_confirmation_v1` | complete | unopened disjoint singleton compression | **block11 H3 and block15 H5 suffice compactly** | `aspectual_anchor_attention11_15_single_head_confirmation_v1_result.json` |
+| `aspectual_anchor.has_vs_had.attention11h3_15h5_source_compression_split_v1` | invalid | split six-role source compression | **audit compared query-only deltas over the full sequence; rows preserved but unreleased** | `aspectual_anchor_attention11h3_15h5_source_compression_split_v1_result.json` |
+| `aspectual_anchor.has_vs_had.attention11h3_15h5_source_projection_query_diagnostic_v1` | complete diagnostic | frozen confirmation query-index audit | **v1 failure localized exactly to off-query indices** | `aspectual_anchor_attention11h3_15h5_source_projection_query_diagnostic_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -476,6 +478,14 @@ That final compression also screens. On the same disjoint confirmation half but 
 retains 81.44% of the validated four-head attention increment (3.535% versus 4.341%), and block15 H5 retains 83.22% (2.094% versus
 2.516%). Both heads have positive no-head-relative increments in A1 and A2; all control values recur exactly. The material suffix
 attention circuit is therefore two heads total—L11H3 and L15H5—before source-term identity is tested.
+
+The first source-term compression artifact remains formally invalid and is not silently relabeled. Its six-role split nevertheless
+selected determiner+period+self for L11H3 and period+determiner+self for L15H5; those banks retained 90.34% and 87.03% on disjoint
+confirmation rows, and the all-source logits matched the frozen singleton-head controls within 3.8e-6. The failed audit statistic
+compared a delta constructed only at the semantic query against dominant-head deltas at every sequence position. A separately frozen
+post-outcome diagnostic confirms exact pattern-times-value reconstruction, query-index projection errors of 7.6e-6/4.8e-6, and that
+the large 26.40/25.71 maxima occur entirely off query. This diagnoses the implementation fault but does not itself promote the source
+banks; an immutable release audit must still distinguish preserved prospective evidence from the post-outcome correction.
 
 ### `subroutine.induction.equality_score` — site_live
 
