@@ -1,0 +1,46 @@
+{
+  "candidate_id": "polarity_licensing.reverse_transfer_v1",
+  "families": {
+    "correlative_both_neither": {
+      "mean_absolute_recovery": 0.05096212029457092,
+      "mean_recovery": 0.05096212029457092,
+      "rows": 32
+    },
+    "correlative_either_neither": {
+      "mean_absolute_recovery": 0.02024678885936737,
+      "mean_recovery": 0.02024678885936737,
+      "rows": 32
+    },
+    "polarity_a1_heldout_reference": {
+      "mean_absolute_recovery": 0.9855396747589111,
+      "mean_recovery": 0.9855396747589111,
+      "rows": 16
+    }
+  },
+  "finished_utc": "2026-09-06T07:52:57.101934+00:00",
+  "fitted_on": "polarity_licensing.never_vs_often A1 first half",
+  "forward_direction_recovery": 0.132,
+  "head_verification": {
+    "max_abs_difference": 9.5367431640625e-07,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_polarity_fit_replicates": true,
+  "pred_c_symmetric_distinct_features": true,
+  "pred_d_asymmetric_fitting_slot": false,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_polarity_fit_replicates": true,
+    "pred_c_symmetric_distinct_features": true,
+    "pred_d_asymmetric_fitting_slot": false
+  },
+  "probed_on": "correlative both/neither and either/neither",
+  "rank": 1,
+  "reading": "symmetric_distinct_features",
+  "registered_thresholds": {
+    "asymmetric": 0.5,
+    "symmetric": 0.2
+  },
+  "schema": "circuit_das_confound_test_result_v1",
+  "site": "resid:18"
+}

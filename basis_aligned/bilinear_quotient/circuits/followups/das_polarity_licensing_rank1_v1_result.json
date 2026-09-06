@@ -1,0 +1,61 @@
+{
+  "candidate_id": "polarity_licensing.das_rank1_v1",
+  "families": {
+    "a1_heldout": {
+      "mean_absolute_recovery": 0.9855396747589111,
+      "mean_recovery": 0.9855396747589111,
+      "rows": 16
+    },
+    "a2_report_frame": {
+      "mean_absolute_recovery": 0.7957042455673218,
+      "mean_recovery": 0.7957042455673218,
+      "rows": 32
+    },
+    "c_control": {
+      "rows": 32,
+      "same_answer_effect": 0.00014507300511468202
+    },
+    "p_agent_rewrite": {
+      "rows": 32,
+      "same_answer_effect": 0.07737304270267487
+    }
+  },
+  "finished_utc": "2026-09-06T07:51:33.411078+00:00",
+  "fitted_on": "polarity_licensing.never_vs_often A1 first half",
+  "head_verification": {
+    "max_abs_difference": 9.5367431640625e-07,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_rank1_carries_both_constructions": true,
+  "pred_c_shared_negation_axis": false,
+  "pred_d_subspace_spares_p_and_c": true,
+  "pred_e_selective_at_subspace_level": true,
+  "pred_f_neither_specific": true,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_rank1_carries_both_constructions": true,
+    "pred_c_shared_negation_axis": false,
+    "pred_d_subspace_spares_p_and_c": true,
+    "pred_e_selective_at_subspace_level": true,
+    "pred_f_neither_specific": true
+  },
+  "rank": 1,
+  "reading": "neither_axis_is_narrower_than_negation",
+  "registered_thresholds": {
+    "carry": 0.5,
+    "neither_specific": 0.2,
+    "shared_negation_axis": 0.5,
+    "spare": 0.2
+  },
+  "schema": "circuit_das_subspace_result_v1",
+  "site": "resid:18",
+  "target_scale": 6.437862396240234,
+  "transfer": {
+    "abs_cosine_with_native_direction": 0.16546522080898285,
+    "mean_absolute_recovery": 0.13188166916370392,
+    "mean_recovery": 0.13188166916370392,
+    "rows": 32
+  },
+  "transfer_source": "union of both/neither and either/neither (joint correlative fit)"
+}

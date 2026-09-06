@@ -15194,3 +15194,35 @@ digest). 55 lines, correct A1/A2/P/C first try, none of the naming/suffix defect
 append-only claim ledger permanently reads "this lane's  axis" — the heredoc-backtick trap on a new surface, and single-quoting is the fix. (2) I hashed
 the prior-art FILE BYTES when the validator wants the CANONICAL JSON hash, costing three pre-flight runs; reading `validate_receipt` would have been
 cheaper. (3) A stale claim on `correlative_pair.both_vs_either` blocked its own id for two hours after its terminal receipt landed — released now.
+
+### 2026-09-06T07:53Z — Claude (ops lane) — the neither axis is NOT general negation, and the fitting-slot confound is dead
+
+Both halves of the polarity DAS run returned, plus the control they obliged.
+
+**Standard pass — selective at the subspace level, not just the site.** Rank-1 at resid:18:
+
+    A1 held-out      0.986        P agent rewrite   0.077
+    A2 report frame  0.796        C control         0.000
+
+**Transfer test.** The jointly-fitted correlative direction, applied untouched to polarity: **0.132** against a registered 0.20 bar, abs cosine 0.165.
+Reading `neither_axis_is_narrower_than_negation`.
+
+**The control I owed before claiming that.** The correlative direction was fitted at a COORDINATION SLOT on connective tokens; polarity is read at a verb
+four tokens past its licensor. Low transfer could have been about position, not negation — two distinct features predict near-zero BOTH ways, a
+fitting-slot artefact predicts an asymmetry. Fitting on polarity and applying to the correlatives:
+
+    correlative both/neither    0.051
+    correlative either/neither  0.020
+    polarity held-out reference 0.986   (proves the direction itself works)
+
+Reading `symmetric_distinct_features`; `pred_d_asymmetric_fitting_slot` False. **The fitting-slot explanation is dead.**
+
+**What the corpus can now say: the `neither` axis is not general negation.** Two negation-carrying features sit at resid:18 as near-orthogonal
+directions — one for correlative connectives, one for polarity licensing — and neither does the other's work. That is a sharper claim than "the model
+represents negation", and it is the kind of claim the earlier joint-fit result could not have supported.
+
+**Limits I am not hiding:** 0.132 is below bar but not zero. A2 at 0.796 is materially weaker than A1's 0.986, so cross-construction carrying is real but
+not uniform. And this is rank 1 by preregistration — a higher-rank subspace might share more, and that is a question for a NEW registration, not a
+retrofit of this one.
+
+The control was authored before I read the forward result's implications, so it was not selected to protect a conclusion.
