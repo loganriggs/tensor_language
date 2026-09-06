@@ -427,6 +427,14 @@ and material. This promotes the transferable topology to `MLP8 post-cue compleme
 shared Q8`. The current developmental atlas partitions the H1/H4 write by destination before exact
 attention source-factor and weight compilation.
 
+The exact query source/factor tensor passes after one scale-aware numerical replay repair. All of
+the confirmed H1/H4 query conversion comes from the MLP8-written post-cue source interval. Under
+the native base pattern, c_v value change supplies 99.73%/105.42% of complete behavior and
+99.37%/103.14% of Q8 norm; pattern change is only 1.33%/5.79% and opposes in A2, while interaction
+is 0.75%/3.02%. Raw three-factor closure is 5.01e-6 and the actual H1/H4 c_proj weight contraction
+closes at 7.63e-6. The active compiler now predicts those c_v value changes directly from MLP8
+Down output, block9's residual coefficient and RMS normalization, and exact H1/H4 c_v rows.
+
 The destination atlas passes and identifies a single writer destination. Restoring H1/H4 only at
 the final query removes 61.63%/57.74% of live complement behavior and 62.12%/55.91% of final-Q8
 norm, accounting for 82.55%/85.05% of the complete H1/H4 response removal. Q8 cosine is

@@ -1,0 +1,28 @@
+{
+  "schema": "iswas_mlp8_postcue_to_attn9_h1h4_value_weight_compiler_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_postcue_to_attn9_h1h4_value_weight_compiler_v1",
+  "registered_utc": "2026-09-06T21:49:00Z",
+  "question": "Can the causal post-cue value-transport edge be predicted exactly from MLP8 Down output, block9 residual/RMS normalization, attention9 H1/H4 c_v rows, base attention pattern, and c_proj weights?",
+  "authority": {
+    "source_factor_result_sha256": "2d575d2c6e50d0cb716e8293576815b30cca0e4f84d07549cb8042ff0d887840",
+    "source_factor_runner_sha256": "a44db69e3b7ed6beca6f9365518ce47d1ac7c380109285e4c480de65a1881643",
+    "frozen_source": "post_cue_before_subject",
+    "frozen_factor": "base_pattern_on_value_change",
+    "frozen_heads": [1, 4],
+    "frozen_destination": "final_query"
+  },
+  "frozen_design": {
+    "population": "The same 27 manifest-selected v10 rows.",
+    "compiler": "Map the frozen MLP8 hidden-product complement through exact Down without bias; add it with the native block9 deep residual coefficient to captured base pre-RMS state only at post-cue positions; apply exact RMS norm; contract the normalized-state difference with attention9 c_v H1/H4 rows and the unchanged initial-value branch; weight by the captured base query attention pattern; then apply exact H1/H4 c_proj slices.",
+    "causal_check": "In the live complement context, replace query H1/H4 by base plus either the compiled value response or the independently captured exact value response. Compare final resid18, full-vocabulary logits, Q8 coordinates and selected margins.",
+    "maximum_price": {"model_forwards": 7, "example_evaluations": 189, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_residual_rms_cv_cproj_closure_finiteness_and_price": "Pre-RMS recurrence, normalized current, c_v value, base-pattern response, c_proj, identity, finiteness, and price controls all pass their 0.001 absolute / 0.0001 relative bounds.",
+    "pred_b_compiled_value_response_matches_exact_causal_effect": "Compiled versus exact value-arm selected-margin and Q8 effects have cosine at least 0.999 and relative RMSE at most 0.01 in both panels.",
+    "pred_c_compiled_full_vocabulary_intervention_replays": "Compiled and exact value-arm full-vocabulary logits differ by at most 0.0001 and resid18 relative norm error is at most 0.0001.",
+    "pred_d_initial_value_branch_is_unchanged": "The attention9 initial-value input changes by at most 0.000001 under MLP8 complement actuation.",
+    "pred_e_zero_fit_literal_weight_program": "No coefficient, direction, gain, mode, or map is fit from v10 outcomes; no gradients or model updates."
+  },
+  "decision": "Screen joins the natural MLP8 product writer to the H1/H4 converter with a literal state-conditioned weight program. Null isolates recurrence/RMS, c_v, routing, or downstream causal mismatch."
+}
