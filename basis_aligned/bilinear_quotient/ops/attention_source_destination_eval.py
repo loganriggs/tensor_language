@@ -94,7 +94,7 @@ def _attention_terms(backend, attention, current, v1):
     return pattern, value, head_output
 
 
-def capture_layer_attention(backend, batch, layer):
+def capture_layer_attention(backend, batch, layer, *, call=None):
     layer = int(layer)
     if not 0 <= layer < len(backend.model.transformer.h):
         raise AttentionSourceDestinationError("attention layer is invalid")
@@ -122,7 +122,7 @@ def capture_layer_attention(backend, batch, layer):
         attention.c_proj.register_forward_pre_hook(capture_native),
     ]
     try:
-        output = backend.native(batch, capture=False)
+        output = backend.native(batch, capture=False) if call is None else call()
     finally:
         for handle in handles:
             handle.remove()
@@ -132,6 +132,53 @@ def capture_layer_attention(backend, batch, layer):
         (captured["reconstructed"].float() - captured["head_output"].float()).abs().max()
     )
     return output, captured
+
+
+def intervene_head_output_delta(
+    backend,
+    batch,
+    base_capture,
+    changed_capture,
+    *,
+    layer,
+    selected_heads,
+    positions_by_row=None,
+):
+    """Add an exact captured head-response delta at declared destinations."""
+    heads = tuple(int(head) for head in selected_heads)
+    head_count = backend.model.config.n_head
+    head_dim = backend.model.config.n_embd // head_count
+    if not heads or len(heads) != len(set(heads)) or any(not 0 <= head < head_count for head in heads):
+        raise AttentionSourceDestinationError("head selection is invalid")
+    if positions_by_row is None:
+        positions = tuple(tuple(range(int(query) + 1)) for query in batch.semantic_positions)
+    else:
+        positions = tuple(tuple(int(position) for position in row) for row in positions_by_row)
+    if len(positions) != len(batch.row_ids) or any(
+        len(row) != len(set(row)) or any(not 0 <= position <= int(query) for position in row)
+        for row, query in zip(positions, batch.semantic_positions)
+    ):
+        raise AttentionSourceDestinationError("head-response destination coverage is invalid")
+
+    def patch(_module, arguments):
+        flattened = arguments[0]
+        changed = flattened.clone().view(
+            len(batch.row_ids), flattened.shape[1], head_count, head_dim
+        )
+        for index, row_positions in enumerate(positions):
+            for position in row_positions:
+                for head in heads:
+                    changed[index, position, head] += (
+                        changed_capture["head_output"][index, position, head]
+                        - base_capture["head_output"][index, position, head]
+                    ).to(device=changed.device, dtype=changed.dtype)
+        return (changed.reshape_as(flattened),) + tuple(arguments[1:])
+
+    handle = backend.model.transformer.h[int(layer)].attn.c_proj.register_forward_pre_hook(patch)
+    try:
+        return backend.native(batch, capture=False)
+    finally:
+        handle.remove()
 
 
 def intervene_source_groups(

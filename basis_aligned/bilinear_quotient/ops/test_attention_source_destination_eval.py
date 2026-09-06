@@ -26,3 +26,16 @@ def test_partition_handles_report_prefix():
     assert groups["prefix"] == (0, 1, 2, 3)
     assert groups["cue"] == (4,)
     assert groups["local"] == (5, 6)
+
+
+def test_head_response_positions_validate_causal_coverage_before_hooking():
+    batch = type("Batch", (), {"row_ids": ("r",), "semantic_positions": (2,)})()
+    backend = type("Backend", (), {"model": type("Model", (), {"config": type("Config", (), {"n_head": 2, "n_embd": 4})()})()})()
+    with pytest.raises(source.AttentionSourceDestinationError):
+        source.intervene_head_output_delta(
+            backend, batch, {}, {}, layer=11, selected_heads=(0,), positions_by_row=((3,),)
+        )
+    with pytest.raises(source.AttentionSourceDestinationError):
+        source.intervene_head_output_delta(
+            backend, batch, {}, {}, layer=11, selected_heads=(2,)
+        )
