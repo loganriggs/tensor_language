@@ -1,0 +1,31 @@
+{
+  "schema": "aspectual_tense_weight_jacobian_union_mode_program_prior_v1",
+  "candidate_id": "aspectual_tense.weight_jacobian_union_mode_program_v1",
+  "registered_utc": "2026-09-06T18:04:00Z",
+  "question": "Does the orthogonal union of context-stable static weight-read modes and fit-specific suffix-Jacobian modes form a sufficient, complement-inert component quotient across both task constructions?",
+  "authority": {
+    "jacobian_result_sha256": "94dca39621701afcc87a17b0006d36b5378b6c67cfffd1287172c1c3a67b10a3",
+    "jacobian_runner_sha256": "24b6c554960f2ace5e920944b0d0bffbb0aece185e81aa39ea9ff0b6aa0031c5",
+    "static_result_sha256": "a49f9d6b06cb37a1759e449b72fb1446b93addae80fda521c0bd6d9af61bed49",
+    "static_runner_sha256": "e72ec560692b2924c506f592ce83037f353b0bebc5cfa1e3705f1c2aab1a1c8f",
+    "task_subspace_sha256": "0ae262ee932d6ecb93d1df028ac080f3a4597861620da79b7ad45a0f3ae2d16e",
+    "weight_atlas_library_sha256": "2e7d3a546813a6029eca6fae455ad5abd03b429fcee92432ca6fe06e835e83f5"
+  },
+  "frozen_design": {
+    "static_modes": "Exact row spaces of the L9H1/H4 task read map (MLPs) or its contraction through the head output projection (heads).",
+    "jacobian_modes": "The already-frozen 95%-energy fit-gradient construction, recomputed exactly from original A1 fit rows.",
+    "union": "QR-orthogonalize the concatenation of each component's static and Jacobian bases; no causal outcome chooses union rank.",
+    "arms": ["full_component_program", "weight_jacobian_union", "orthogonal_union_complement"],
+    "panels": ["heldout_A1", "A2"],
+    "price": {"model_forwards": 26, "example_evaluations": 407, "records": 201,
+      "transformer_backwards": 2, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_capability_projection_finiteness_and_exact_price": "Authorities, gradient-forward replay, capability, projectors, coverage, finiteness and exact price pass.",
+    "pred_b_union_modes_are_sufficient": "Union recovery is at least 0.95 of full-program recovery and donorward on every task/panel.",
+    "pred_c_union_complements_are_secondary": "Absolute union-complement recovery is at most 0.20 of full-program recovery on every task/panel.",
+    "pred_d_union_is_still_dimensionally_compressive": "Every union rank is below its raw width and no larger than 66 for has/had or 19 for is/was.",
+    "pred_e_no_causal_fit_or_model_update": "No heldout/A2 outcome selects modes and no model update occurs."
+  },
+  "decision": "screen promotes the union quotient to fresh tensor-program validation; null rejects this two-source closure without threshold repair; invalid on authority, replay, capability, projection, coverage, finiteness, or price failure"
+}
