@@ -1,0 +1,39 @@
+{
+  "schema": "aspectual_anchor_program_v12_different_readout_is_was_v2_capability_prior_art",
+  "candidate_id": "aspectual_anchor.has_vs_had.program_v12_different_readout_is_was_v2_capability",
+  "created_utc": "2026-09-06T08:12:00Z",
+  "question": "Does a disjoint, stronger temporal-cue is/was authority clear the frozen population capability policy before any v12 causal transfer is opened?",
+  "novelty_search": {
+    "nearest_boundary": "Different-readout v1 cleared all causal bars but was invalid because A1 past-to-present capability was 13/16.",
+    "new_design": "At this/that moment and an embedded version replace Today/Yesterday; all 64 rows and the same population thresholds are frozen.",
+    "efficiency_lesson": "Run capability and exact-head checks first; causal transfer is allowed only after this receipt passes."
+  },
+  "authority": {
+    "builder_sha256": "4ed62d06e2ffe5c471efc70eeaa35c7524a66923f19c64c803faef7200d4a62f",
+    "rows_sha256": "fef8174cd57a1382d87ae47ddb06ddebd8059e96e4f71472525a066a3048f911",
+    "v1_invalid_result_sha256": "574518c76300a7633c438f94e72c656cfae167135c292407770ec41656131b0b",
+    "program_v12_release_sha256": "ed6afb3455bf5bfeea6e36f65ce33e9199290cb26540ee94da2c42accc785e7c"
+  },
+  "population_policy": {
+    "all_rows_retained": true,
+    "A1_A2_P_accuracy_per_direction_min": 0.85,
+    "C_accuracy_per_direction_min": 0.75
+  },
+  "causal_followup_frozen_before_capability": {
+    "program": "Unchanged v12 has/had resid10 read, four coefficients, and q write; is/was IDs cannot select alpha.",
+    "bars": {"A1_recovery_min": 0.25, "A2_recovery_min": 0.25, "P_reflection_min": 0.25, "direction_fraction_min": 0.75, "C_max": 0.20},
+    "terminal_rule": "Run only if every capability cell passes; otherwise stop with an honest capability null and do not inspect causal effects."
+  },
+  "predictions": {
+    "pred_a_authority_and_exact_head": "All hashes, 64 unique rows, answer IDs, and exact resid18 head pass.",
+    "pred_b_population_capability": "All eight family-by-direction cells clear their frozen thresholds with every row retained.",
+    "pred_c_exact_coverage": "Exactly 128 native sides are scored within nine forwards and 136 examples, with no intervention, grid, backward, update, or fit."
+  },
+  "terminal": {
+    "screen": "A-C pass: authorize the already frozen v12 cross-readout causal follow-up on these rows.",
+    "null": "Authority and coverage pass but a capability cell fails: stop before causal work.",
+    "invalid": "Authority, exact head, or coverage fails."
+  },
+  "circuit_targets": ["held-out and OOD prediction", "composition and reuse", "selective manipulation"],
+  "price": {"counted_forwards_max": 9, "example_evaluations_max": 136, "scored_native_sides": 128, "interventions": 0, "grid_evaluations": 0, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
