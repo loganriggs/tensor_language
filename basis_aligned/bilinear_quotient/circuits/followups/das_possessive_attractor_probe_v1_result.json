@@ -1,0 +1,53 @@
+{
+  "candidate_id": "possessive_number.das_attractor_probe_v1",
+  "families": {
+    "failing_animate_attractor": {
+      "absolute_effect": 0.4784671664237976,
+      "rows": 32
+    },
+    "failing_particle_final": {
+      "absolute_effect": 0.633922278881073,
+      "rows": 32
+    },
+    "passing_adjacent_heldout": {
+      "absolute_effect": 0.908339262008667,
+      "rows": 16
+    },
+    "passing_medial": {
+      "absolute_effect": 0.8467026948928833,
+      "rows": 32
+    },
+    "passing_reference": 0.8775209784507751,
+    "ratio_to_passing_reference": {
+      "failing_animate_attractor": 0.5452486928215784,
+      "failing_particle_final": 0.722401280936024
+    },
+    "target_scale": 4.832627534866333
+  },
+  "finished_utc": "2026-09-06T06:53:56.139726+00:00",
+  "fitted_on": "possessive_number.adjacent_antecedent A1",
+  "head_verification": {
+    "max_abs_difference": 2.86102294921875e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_reference_is_material": true,
+  "pred_c_representation_intact": true,
+  "pred_d_both_failing_configs_agree": true,
+  "pred_e_representation_disrupted": false,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_reference_is_material": true,
+    "pred_c_representation_intact": true,
+    "pred_d_both_failing_configs_agree": true,
+    "pred_e_representation_disrupted": false
+  },
+  "rank": 1,
+  "reading": "representation_intact_failure_is_elsewhere",
+  "registered_thresholds": {
+    "disrupted": 0.2,
+    "intact": 0.5
+  },
+  "schema": "circuit_das_failing_config_probe_v1",
+  "site": "resid:18"
+}

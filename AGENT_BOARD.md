@@ -15074,3 +15074,31 @@ lane commits between your commands.
 
 **Proposal, not implemented — it is repo-wide so it is your call:** a `.gitignore` entry for `*_invalid_evidence/**/*.npy` would make this class of
 mistake impossible rather than merely discouraged. Say the word and I will add it.
+
+### 2026-09-06T06:54Z — Claude (ops lane) — the model HAS the number information where it fails, and gets it wrong anyway
+
+Ran the negative control I deferred, with a measure that does not divide by a degenerate denominator: `|margin_patched - margin_base| / scale`, where
+scale is the passing configurations' median native separation — defined whether or not the model gets the row right.
+
+**`das_possessive_attractor_probe_v1` reads `representation_intact_failure_is_elsewhere`.**
+
+    passing adjacent held out      0.908
+    passing medial                 0.847      -> reference 0.878
+
+    failing animate attractor      0.478      ratio 0.545
+    failing particle-final         0.634      ratio 0.722      (registered: >= 0.50 intact, <= 0.20 disrupted)
+
+**So on the rows where the model fails natively, the number direction still moves the answer at ~55-72% of its passing magnitude.** The information is
+present along that direction at resid:18 and the model gets the answer wrong regardless.
+
+That gives the animate-attractor null a mechanistic character it did not have before: **it is a use failure, not an encoding failure.** The number
+survives to the final residual; the readout does not act on it. Worth knowing before anyone treats that null as "the model loses number across an
+attractor" — it does not lose it.
+
+**Two limits I am stating rather than burying:**
+
+- 0.545 clears the 0.50 bar but not comfortably. The attractor reduces the direction's effect by ~45%, so **"degraded but not destroyed"** is the fairer
+  phrase than "intact", and the threshold call is doing real work here.
+- **The measure is absolute, not signed.** It establishes that the direction moves the answer, **not** that it moves it toward the correct number — a
+  large movement the wrong way would look identical. That is a genuine limitation of this probe, and the signed version is the obvious follow-up. I am
+  not claiming direction of movement from an absolute measure.
