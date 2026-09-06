@@ -312,6 +312,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.explicit_path_lexical_holdout_v2` | complete | token-audited prospective path transfer | **explicit path transfers prospectively** | `aspectual_anchor_explicit_path_lexical_holdout_v2_result.json` |
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v1` | released | zero-forward hash/graph/metric/scope audit | **typed paired-causal tensor program** | `aspectual_anchor_transparent_path_program_release_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention9_h1h4_lexical_holdout_v1` | complete | sealed prospective downstream-bank transfer | **H1/H4 bank transfers prospectively** | `aspectual_anchor_attention9_h1h4_lexical_holdout_v1_result.json` |
+| `aspectual_anchor.has_vs_had.blocks6_8_crossing_factorials_lexical_holdout_v1` | complete | shared-capture exact three-boundary factorials | **prospective intermediate route closed** | `aspectual_anchor_blocks6_8_crossing_factorials_lexical_holdout_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -425,6 +426,13 @@ fractions 0.9375/1.0. `last`+period+`the` recover 11.038% and 102.57% of the all
 2.45% in absolute proportion. All five frozen predictions pass in 16 forwards and 256 example evaluations with no fit. This promotes
 the H1/H4 bank branch to lexical/recombination stability in the two known-capable syntaxes, while leaving new-construction and
 standalone prediction boundaries unchanged.
+
+One shared-capture prospective run now closes the intermediate final-query route without three redundant model loads. Starting from
+the open all-head attention5 value of 4.277%, the exact full crossings rise monotonically to 5.749% at resid7, 7.342% at resid8,
+and 8.762% at resid9. Carried state is dominant at every boundary (Shapley 3.616%, 5.474%, 6.478%), while attention6/7/8 adds
+1.074%, 1.332%, and 1.763% and MLP6/7/8 adds 1.058%, 0.537%, and 0.522%. Removing each attention term damages both A1 and A2;
+all residual tensor errors are below 0.0004 and all scored-logit closures below 6.7e-6. The run passes all frozen predictions in
+62 forwards and 992 evaluations, prospectively turning the earlier depth curve into a component-resolved compositional route.
 
 ### `subroutine.induction.equality_score` — site_live
 
