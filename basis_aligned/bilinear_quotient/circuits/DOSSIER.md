@@ -291,6 +291,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.layer8_9_module_factorial_v1` | abandoned pre-run | timestamp integrity | **no model execution** | none |
 | `aspectual_anchor.has_vs_had.layer8_9_module_factorial_v2` | complete | exact 16-arm L8/L9 module factorial plus nine L9 heads | **composable module circuit screen** | `aspectual_anchor_layer8_9_module_factorial_v2_result.json` |
 | `aspectual_anchor.has_vs_had.fresh_construction_transfer_v1` | invalid | frozen two-construction module/head transfer | **native capability gate failed** | `aspectual_anchor_fresh_construction_transfer_v1_result.json` |
+| `aspectual_anchor.has_vs_had.l9h1_h4_source_term_factorial_v1` | complete | exact L9H1/H4 source-term interchange | **null: heads do not read raw cue directly** | `aspectual_anchor_l9h1_h4_source_term_factorial_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -302,6 +303,12 @@ The first frozen construction transfer cannot provide that promotion. Although t
 H1/H4-reduced bank retains 94.34% of that movement, and all target directions recur, A1, A2, and one P native capability cell fail; A2
 falls to 0.625/0.5625. Those intervention numbers are therefore disclosed only as invalid diagnostics. The prompts are closed without
 post-outcome retuning. The next circuit-first question is what token/source relation L9H1 and L9H4 read on the valid discovery corpus.
+
+That exact source-term test rejects the simplest direct-cue story. The manual attention path matches native scored logits exactly and
+reconstructs native head vectors to 3.8e-6, while the complete H1/H4 pair recovers 38.39%. Replacing only the `since/by` term recovers
+2.42% (6.30% of the pair); the unchanged downstream `last` and period positions carry 8.96% and 15.19%. Thus the heads read a contextual
+trace propagated into later source-token states, not the raw temporal preposition. The frozen next question is whether a small
+downstream source bank (period plus determiner) composes most of the pair effect.
 
 ### `subroutine.induction.equality_score` — site_live
 

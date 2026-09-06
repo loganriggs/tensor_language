@@ -1,0 +1,58 @@
+{
+  "schema": "aspectual_anchor_l9h1_h4_source_term_factorial_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.l9h1_h4_source_term_factorial_v1",
+  "created_utc": "2026-09-06T02:17:48Z",
+  "question": "Do L9H1 and L9H4 implement the aspectual read by transporting the exact attention contribution of the since/by cue to the final subject position?",
+  "authority": {
+    "parent_fast_screen": {
+      "path": "circuits/fast_screens/aspectual_anchor_has_vs_had_v1_result.json",
+      "sha256": "5ca2125e7d18bd6a377efcfa0c3a361b949e5a8fff4c053ae7481b4384c4fb94"
+    },
+    "module_factorial": {
+      "path": "circuits/followups/aspectual_anchor_layer8_9_module_factorial_v2_result.json",
+      "sha256": "06918c951ab52c0b6082f440addba553bb994fec02e1a774772473917fd40050",
+      "frozen_heads": [1, 4]
+    },
+    "row_builder": {
+      "path": "ops/circuit_fast_screen_candidate_aspectual.py",
+      "sha256": "cca10e7f49f27ae49af62adbb0afb55d1d0b43b7174d0a5920db6f842fb1db20",
+      "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+    }
+  },
+  "population": "The 64 valid A1/A2 answer-changing rows from the frozen discovery corpus; P/C selectivity remains bound by the parent and module-factorial screens.",
+  "operator": {
+    "query_position": "matched final subject token",
+    "heads": ["L9H1", "L9H4"],
+    "source_term": "For source k, replace the paired base term pat_base[q,k,h]*v_base[k,h] by pat_donor[q,k,h]*v_donor[k,h] inside the otherwise native base head preprojection activation, then run the exact c_proj and suffix.",
+    "attention": "unnormalized signed bilinear attention exactly as executed by the checkpoint",
+    "full_head_pair": "replace both complete paired donor preprojection head activations at q",
+    "source_positions": {
+      "cue": "the unique since/by token difference",
+      "last": "the token immediately after cue",
+      "period": "the token two places after cue",
+      "self": "the final subject token"
+    },
+    "head_specific_diagnostics": ["H1 cue term", "H4 cue term"],
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_instrument": "The manual attention path matches native logits, the sum of all source terms reconstructs each native H1/H4 preprojection vector, and every row has exactly one aligned since/by token difference.",
+    "pred_b_full_pair_recurrence": "The jointly swapped complete H1/H4 outputs have positive A1 and A2 mean recovery and direction fraction at least 0.80 in each family.",
+    "pred_c_cue_source_sufficiency": "The joint cue-term swap retains at least 70% of the full H1/H4 pair's mean target recovery and has direction fraction at least 0.80 in A1 and A2.",
+    "pred_d_cue_source_specificity": "Joint cue-term mean target recovery is at least twice the maximum absolute mean target recovery of the registered last, period, and self source-term swaps.",
+    "pred_e_exact_coverage": "All seven registered arms produce all 64 row outcomes with finite logits and no dropped row."
+  },
+  "terminal": {
+    "screen": "A-E pass: license the cue-source read for L9H1/H4.",
+    "null": "The run is valid but B, C, or D fails: retain the heads as causal writers without a cue-source read claim.",
+    "invalid": "Instrument identity, native capability, source alignment, finiteness, or exact coverage fails. No source position, head, threshold, row, or arm may be changed after opening outcomes."
+  },
+  "price": {
+    "model_forwards_max": 32,
+    "example_evaluations_max": 1024,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "The prior screens localized whole residuals, modules, and heads. This is the first exact source-term intervention asking what those aspectual heads read, with three preregistered within-row positional alternatives."
+}
