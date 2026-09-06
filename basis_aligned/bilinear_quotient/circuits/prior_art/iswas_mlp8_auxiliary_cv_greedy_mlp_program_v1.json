@@ -1,0 +1,28 @@
+{
+  "schema": "iswas_mlp8_auxiliary_cv_greedy_mlp_program_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_auxiliary_cv_greedy_mlp_program_v1",
+  "registered_utc": "2026-09-06T23:09:24Z",
+  "purpose": "Causal-order greedy combination of the complete MLP responses that the upstream atlas found material for the distributed L11/L15 post-cue c_v interface.",
+  "authority": {
+    "upstream_atlas_sha256": "da3bd0473cf259537f5d70f1dff0ffe513bd5a7b420f6b6317259b522e4a3e67",
+    "upstream_atlas_runner_sha256": "ce3df585dea1cc20bacada055bf9926c0752839748075daec2f85759474ec63b",
+    "pool": [
+      "mlp:09",
+      "mlp:10",
+      "mlp:11",
+      "mlp:12",
+      "mlp:13",
+      "mlp:14"
+    ],
+    "target": "Joint normalized residual of the literal L11H1/H3 and L15H5 post-cue c_v/c_proj response, with L9H1/H4 clamped as in the parent."
+  },
+  "selection": "At each causal program width, add the remaining complete MLP whose joint discovery objective is smallest. Discovery rows have even group_number; odd groups are evaluation-only. Freeze the prefix with the smallest discovery objective, breaking ties by shorter width and lexical site order.",
+  "predictions": {
+    "pred_a_authority_capture_monotonic_inventory_finiteness_and_price": "Authorities, six-site pool, all 21 triangular greedy trials, finite metrics, native attention reconstruction, and <=25 forwards/750 examples pass with zero fitting/backwards/updates.",
+    "pred_b_greedy_program_materially_reduces_joint_reader_residual": "Best-prefix discovery objective improves by >=.10 from the unclamped objective 1.0 and every selected step is non-increasing.",
+    "pred_c_best_prefix_is_jointly_sufficient_screen": "On evaluation rows, every layer-by-panel residual norm fraction is <=.90 and their mean is <=.75.",
+    "pred_d_discovery_to_evaluation_is_stable": "The best-prefix evaluation objective is no more than .15 above its discovery objective.",
+    "pred_e_distributed_program_uses_multiple_mlps": "The best prefix contains at least two complete MLP modules."
+  },
+  "decision": "Screen freezes the selected causal-order MLP union for capability-gated fresh confirmation, then splits no MLP until weight-factor tests require it. Null preserves MLP9 as the stable singleton and redirects the unexplained response to the direct MLP8 residual skip."
+}
