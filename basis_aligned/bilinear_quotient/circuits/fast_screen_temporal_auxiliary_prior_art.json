@@ -1,0 +1,51 @@
+{
+  "aliases_searched": [
+    "adverb",
+    "anterior",
+    "auxiliary",
+    "future",
+    "had",
+    "temporal",
+    "will"
+  ],
+  "candidate_id": "temporal_auxiliary.will_vs_had",
+  "canonical_objects": [
+    "auxiliary choice driven by a temporal adverb rather than by number",
+    "will-versus-had at the subject-auxiliary position",
+    "the specificity control for the shared number direction"
+  ],
+  "decision_changed": "This decides whether the shared direction is about NUMBER or about AUXILIARY SELECTION. Registered in advance, both branches: transfer from the number direction to this behaviour <= 0.20 means the direction is number-specific and the four-behaviour claim stands as stated; >= 0.50 means it encodes auxiliary choice at this position and the claim must be RESTATED in those terms rather than as number; between is INCONCLUSIVE and is not resolved by raising rank. Note the gate is INVERTED relative to the earlier transfer tests -- here a LOW number is the outcome that supports my existing claim, so the high branch is the one I am registering against myself. If the screen returns a one-sided capability failure the registered stop rule is ONE repair of the weak side, per ops/README.md.",
+  "matched_prior_claims": [
+    "circuits/followups/das_number_token_control_v1_result.json excluded a token axis for the shared number direction by varying answer vocabulary at a matched slot (0.691 / 0.778, cosine 0.651).",
+    "All four behaviours in that family nevertheless perform the same STRUCTURAL operation -- choosing between two auxiliary forms directly after the subject NP -- so a direction encoding auxiliary selection rather than number would produce every transfer observed, and nothing run so far separates those readings."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Thirty-fifth behaviour, authored as a control on my own claim rather than for breadth. The subject is SINGULAR in every row, so number is constant and carries no information; a fronted temporal adverb decides the auxiliary instead. Vocabulary is disjoint from both number families (' will'/' had' against ' was'/' were' and ' have'/' has') and the read position is identical. No behaviour in this corpus currently puts a non-number variable at the number family's read slot, which is why the auxiliary-selection reading has never been testable.",
+  "relation": "contradiction_test",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "reading",
+        "families",
+        "abs_cosine_between_directions"
+      ],
+      "sha256": "f056b9eae8fc8e7e49964c8c0da4d33a71e5c0762597e562b3827c3f3d3615ae",
+      "source": "circuits/followups/das_number_token_control_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "selected_site_id",
+        "site_results"
+      ],
+      "sha256": "9dbdbcb87f1e52bf7fcf2ee0517d011d2b26395b45e6c3f741553879bb725d12",
+      "source": "circuits/fast_screens/perfect_number_have_vs_has_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, supplying the specificity control the number family lacks",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

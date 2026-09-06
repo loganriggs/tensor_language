@@ -15773,3 +15773,36 @@ Read position held fixed, answer vocabulary varied, transfer measured both ways 
 corpus where the two artefacts that overturned or muddied results earlier today — read position and shared answer tokens — are both excluded by design
 rather than by argument.** Every other cross-behaviour claim I have posted lacks one or both of those controls, and the ones I withdrew earlier stay
 withdrawn.
+
+### 2026-09-06T11:50Z — Claude (ops lane) — the number direction is number-specific, and the transfer measure now has a calibrated dynamic range
+
+Second control on my own claim in two ticks. This one had an INVERTED gate: a LOW number is what supports the claim I already held, so the branch that
+would have cost me was the high one, and I registered it in the words I would have had to use.
+
+**The confound.** All four number behaviours do the same STRUCTURAL thing — choose between two auxiliary forms directly after the subject NP. A direction
+encoding "which auxiliary goes here" would reproduce every transfer measured without being number at all. Excluding a token axis did not touch this.
+
+**35th behaviour, `temporal_auxiliary.will_vs_had` — SELECTIVE at resid:18** (recovery 1.000, P 0.072, C 0.099; capability 32/32).
+
+    A1  "Tomorrow the leader near the maple" -> " will"  /  "Earlier the leader near the maple" -> " had"
+
+Subject SINGULAR in every row, so number is constant and carries no information; a fronted temporal adverb drives the auxiliary. Read position identical to
+the number family, vocabulary disjoint from both number vocabularies.
+
+    number direction   -> temporal      -0.004     (temporal held-out reference 0.981)
+    temporal direction -> number         0.005     (number held-out reference 0.993)
+    abs cosine                           0.034
+
+**`number_direction_is_specific`.** The direction does not carry a non-number variable at the same slot.
+
+**This also finishes calibrating the transfer measure, which matters for both lanes.** At a MATCHED read slot it now has a measured known-good and a
+measured known-bad:
+
+    known-good   number against number      0.691 - 1.053     cosine 0.263 - 0.651
+    known-bad    number against temporal    0.004             cosine 0.034
+
+So the measure has real dynamic range **when read position is controlled** — which is precisely the condition the cross-slot comparisons violated, where
+same-variable behaviours scored 0.067. A near-zero at a matched slot means something; a near-zero across slots does not.
+
+**It is also the first interpretable feature SEPARATION this lane has produced** — matched slot, disjoint vocabulary, both held-out references high,
+near-zero in both directions. That is a different object from the cross-slot nulls I withdrew, and worth keeping distinct in the dossier.

@@ -1,0 +1,68 @@
+{
+  "abs_cosine_between_directions": 0.03444468230009079,
+  "candidate_id": "number.specificity_control_v1",
+  "families": {
+    "c_control": {
+      "rows": 32,
+      "same_answer_effect": 0.0009030817309394479
+    },
+    "number_direction_on_temporal": {
+      "mean_absolute_recovery": 0.004248509649187326,
+      "mean_recovery": -0.004248509649187326,
+      "rows": 32
+    },
+    "p_head_noun_rewrite": {
+      "rows": 32,
+      "same_answer_effect": 0.05950968712568283
+    },
+    "temporal_a1_heldout": {
+      "mean_absolute_recovery": 0.9809248447418213,
+      "mean_recovery": 0.9809248447418213,
+      "rows": 16
+    },
+    "temporal_direction_on_number": {
+      "mean_absolute_recovery": 0.004796941764652729,
+      "mean_recovery": 0.004747292026877403,
+      "rows": 32
+    },
+    "was_were_a1_heldout": {
+      "mean_absolute_recovery": 0.9926386475563049,
+      "mean_recovery": 0.9926386475563049,
+      "rows": 16
+    },
+    "was_were_a2_report_frame": {
+      "mean_absolute_recovery": 1.050809621810913,
+      "mean_recovery": 1.050809621810913,
+      "rows": 32
+    }
+  },
+  "finished_utc": "2026-09-06T11:49:55.328806+00:00",
+  "head_verification": {
+    "max_abs_difference": 2.384185791015625e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_rank1_carries_both_constructions": true,
+  "pred_c_subspace_spares_p_and_c": true,
+  "pred_d_shared_number_direction": false,
+  "pred_e_distinct_number_directions": true,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_rank1_carries_both_constructions": true,
+    "pred_c_subspace_spares_p_and_c": true,
+    "pred_d_shared_number_direction": false,
+    "pred_e_distinct_number_directions": true
+  },
+  "rank": 1,
+  "reading": "number_direction_is_specific",
+  "registered_specificity_control": "The subject is SINGULAR in every temporal row, so number is constant and carries no information there; a fronted temporal adverb drives the auxiliary instead. Read position is identical to the number family and the vocabulary is disjoint from both number vocabularies. A LOW transfer is therefore the outcome that SUPPORTS the existing number claim, which inverts the gate relative to every earlier transfer test in this lane.",
+  "registered_thresholds": {
+    "carry": 0.5,
+    "distinct": 0.2,
+    "shared": 0.5,
+    "spare": 0.2
+  },
+  "schema": "circuit_das_subspace_result_v1",
+  "site": "resid:18",
+  "target_scale": 9.443230628967285
+}
