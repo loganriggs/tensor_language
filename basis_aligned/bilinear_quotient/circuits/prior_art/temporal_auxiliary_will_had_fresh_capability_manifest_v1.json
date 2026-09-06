@@ -1,0 +1,32 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_capability_manifest_v1",
+  "created_utc": "2026-09-06T14:57:30Z",
+  "question": "Which exact Later/Previously A1/A2 row sides fail native answer-versus-foil capability, so a future valid-row test can be frozen prospectively?",
+  "authority": {
+    "invalid_reverse_result_sha256": "6ae9a2cd1299f0adb91811cad42076655adb3da35ecee0ba7a7a54cdfb0442cc",
+    "observed_counts": "A1 base 30, donor 31; A2 base 31, donor 31",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9"
+  },
+  "frozen_design": {
+    "population": "all 32 A1 and 32 A2 Later/Previously rows, base and donor sides",
+    "record": "row ID, family, direction, side, answer-minus-foil margin, strict correctness",
+    "model_forwards": 4,
+    "example_evaluations": 128,
+    "records": 128,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_counts_recur": "A1 base/donor 30/31 and A2 base/donor 31/31",
+    "pred_b_joint_subset_exists": "at least 28 rows in each family are correct on both sides",
+    "pred_c_price_exact": "four forwards, 128 examples, 128 unique row-side records, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "manifest": "all predictions pass and exact jointly capable row IDs are frozen",
+    "invalid": "counts, coverage, finiteness, or price fails"
+  },
+  "interpretation_limits": [
+    "This is an instrument manifest, not circuit evidence.",
+    "Its only licensed use is prospective capability filtering by exact row ID."
+  ]
+}
