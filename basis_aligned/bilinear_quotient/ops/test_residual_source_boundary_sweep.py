@@ -48,3 +48,12 @@ def test_sweep_rejects_unordered_or_duplicate_boundaries():
             Backend(), (item(),), boundaries=(1, 1), group_name="cue", maximum_boundary=2,
             recovery_bar=0.0, direction_bar=0.0,
         )
+
+
+def test_all_positions_requires_alignment_and_covers_through_query():
+    base = type("Batch", (), {"semantic_positions": (2, 4)})()
+    donor = type("Batch", (), {"semantic_positions": (2, 4)})()
+    assert onset.positions_for_group(base, donor, "all_positions") == ((0, 1, 2), (0, 1, 2, 3, 4))
+    shifted = type("Batch", (), {"semantic_positions": (2, 5)})()
+    with pytest.raises(onset.ResidualOnsetError):
+        onset.positions_for_group(base, shifted, "all_positions")

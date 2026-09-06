@@ -16,6 +16,10 @@ class ResidualOnsetError(RuntimeError):
 
 
 def positions_for_group(base_batch, donor_batch, group_name):
+    if group_name == "all_positions":
+        if tuple(base_batch.semantic_positions) != tuple(donor_batch.semantic_positions):
+            raise ResidualOnsetError("all-position intervention requires aligned query positions")
+        return tuple(tuple(range(int(query) + 1)) for query in base_batch.semantic_positions)
     if group_name not in source_groups.GROUP_ORDER:
         raise ResidualOnsetError("unknown semantic source group")
     partitions = source_groups.batch_partitions(base_batch, donor_batch)
