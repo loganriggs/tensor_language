@@ -1,0 +1,38 @@
+{
+  "schema": "temporal_auxiliary_will_had_fresh_writer_block11_crossing_cube_prior_art_v2",
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_block11_crossing_cube_v2",
+  "created_utc": "2026-09-06T13:35:00Z",
+  "evidence_class": "post_outcome_exact_instrument_repair_not_prospective_head_identification",
+  "question": "Does reconstructing the hybrid block11 entry from the state actually consumed after the boundary11 subject patch restore exact full-sequence component accounting?",
+  "invalid_parent": {
+    "prior": {"path": "circuits/prior_art/temporal_auxiliary_will_had_fresh_writer_block11_crossing_cube_v1.json", "sha256": "9d91f65884dd8ed6773db15cf86ac9515c2eb8ff3308cb0c6832f1db2c2a6105"},
+    "result": {"path": "circuits/followups/temporal_auxiliary_will_had_fresh_writer_block11_crossing_cube_v1_result.json", "sha256": "6d4c6f6cd1785fe58a75e78c9ee946c5c8a46ef29ebb410cc00a864a5d8f6519", "terminal": "invalid", "failure": "Hybrid entry used pre-patch states[11], producing block/full-state error 310.37542724609375 and full/direct scored-logit error 0.055992126953125."},
+    "quarantined_descriptive_only": {"attention_singleton_recovery": {"A1": 0.08114743631764813, "A2": 0.054036017158784554}, "attention_retained_against_invalid_full": {"A1": 0.9349903317366278, "A2": 0.9586520103386919}}
+  },
+  "repair": {
+    "path": "ops/written_state_block_factorial_eval.py",
+    "sha256": "b4ed1057e84e060fc2b01dfd7d056cfc4a8554f13d7a338b28048781b10e6f19",
+    "change": "Construct live_input by patching the declared subject positions in base states[11] with writer states[11], then compute entry=lambda0*live_input+lambda1*base_states[0]. Attention and MLP captures, rows, endpoints, component subsets, thresholds, and price are unchanged."
+  },
+  "authority": {
+    "offset_result": {"path": "circuits/followups/temporal_auxiliary_will_had_fresh_writer_subject_consumer_offset_v2_result.json", "sha256": "864f40e041cd4028c242fb96c816347875c59511d04e908372fd533b8c58c7ca", "boundary11": {"A1": 0.09417874839356316, "A2": 0.059744184811890595}, "subject_only_boundary12": {"A1": 0.006125655754336495, "A2": 0.0024376408871950436}},
+    "fresh_writer_result": {"path": "circuits/followups/temporal_auxiliary_will_had_block8h1_fresh_cue_path_v1_result.json", "sha256": "2da5c4b424b620bbfe24cc98049a0520429102b7d37de45d49a48ef887181641", "terminal": "screen"},
+    "block_components": {"path": "ops/block_component_state_eval.py", "sha256": "c44c5c392475fa4ead02c6402e44e6f14620caa055737d968111da80621d0379"},
+    "full_sequence_patch": {"path": "ops/residual_source_onset_eval.py", "sha256": "c276450cc9ec7c2b0a05e2be0e88bac3df9af7003e370b99b66552083c4f4b45"}
+  },
+  "fixed_design": "Identical 64 rows, exact cue -> block8H1 subject write, boundary11 subject patch, block11 entry/attention/MLP cube, full-sequence boundary12 installation, and natural-donor logit recovery from v1.",
+  "predictions": {
+    "pred_a_repaired_exactness": "Source, native identity, repaired block, empty, full-state, full/direct scored-logit, and Shapley closures all pass within their unchanged v1 tolerances.",
+    "pred_b_direct_and_entry_recurrence": "Direct boundary11 recovery recurs 0.0941787484/0.0597441848 within 1e-6; repaired entry singleton recurs subject-only boundary12 recovery 0.00612565575/0.00243764089 within 1e-6.",
+    "pred_c_full_cube_reconstructs_direct": "The all-changed full arm equals direct boundary11 recovery within scored-logit tolerance and exceeds entry-only in both families.",
+    "pred_d_quarantined_attention_shape_replays": "For repair diagnosis only, attention remains the largest Shapley term and its singleton remains positive with direction >=0.75 in A1/A2. This is not a prospective mechanism claim because v1 exposed the attention outcomes.",
+    "pred_e_exact_price": "Exactly 24 forwards, 768 example evaluations, and 512 finite factorial records; zero fits, grids, roots, backwards, updates, or learned scalars."
+  },
+  "terminal": {
+    "screen": "A-E pass: instrument repair validated with explicit post-outcome label; open a disjoint prospective head selection/confirmation protocol before identifying attention11.",
+    "null": "A-C and E pass but the quarantined attention shape does not replay; retain corrected accounting without an attention follow-up.",
+    "invalid": "Any authority, exactness, recurrence, coverage, finiteness, or price gate fails; preserve both invalid receipts."
+  },
+  "price": {"model_forwards": 24, "example_evaluations": 768, "factorial_records": 512, "fit_parameters": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0},
+  "scope_boundary": "Even a screen is repair validation, not prospective attention/head identification. The next mechanism claim must use a frozen disjoint split or a new authority."
+}
