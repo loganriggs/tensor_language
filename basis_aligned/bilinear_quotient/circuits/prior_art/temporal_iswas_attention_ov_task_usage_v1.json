@@ -1,0 +1,21 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_attention_ov_task_usage_v1",
+  "question": "Do temporal and is/was share live attention value computations inside the four joint causal head-response projectors, even though their MLP quadratic usage is task-typed?",
+  "authority": {
+    "joint_mlp_usage_result_sha256": "c446f90beeb2f86856b062faf85fe8d9218985cabee0670cd2f1002a2985934c",
+    "crossfit_weight_interface_sha256": "578fa690f2f3962409bb50bd40a1c4c6f0b5ce7f88828e2e889a3a47bb20f013",
+    "temporal_v12_capability_sha256": "4758b02cd026c85289dc3eaf352cc496d238057c6f8b52dfc6fe49ae17893324",
+    "iswas_v11_capability_sha256": "6dd757b066304d1f81ea1e52e0db601fea05adeac516a49cc84ab42bc73a86a2"
+  },
+  "sites": ["L8H1", "L9H1", "L9H4", "L11H3"],
+  "weight_object": "For task usage direction q in head-value space, input covector i=W_V^T q, residual write o=W_O q, and fixed-pattern OV operator is o i^T. Operator inner products are computed exactly as (o_a^T o_b) Hadamard (i_a^T i_b), without materializing 1152x1152 matrices.",
+  "predictions": {
+    "pred_a_authority_weight_identity_finiteness_and_price": "Authorities match, crossfit attention weight contractions close, values are finite, and exactly 12 model forwards execute.",
+    "pred_b_two_modes_capture_task_head_response": "At every site and cross-fit, each task's top two joint-projector usage modes capture at least 50% of response energy.",
+    "pred_c_shared_attention_ov_usage_exists": "At least two sites have a maximum OV-operator principal cosine at least 0.80 under both cross-fits.",
+    "pred_d_shared_sites_agree_as_value_readers_and_residual_writers": "For each site counted by C, both the W_V input-covector and W_O output-write maximum principal cosine are at least 0.80 under both fits.",
+    "pred_e_attention_weight_usage_is_crossfit_stable": "Each site's mean OV cosine differs by at most 0.10 and its count above 0.80 differs by at most one across fits."
+  },
+  "decision": "A-E passing licenses a held-out shared-OV versus task-complement causal swap. Failure means the shared eight-site interface is task-typed at both MLP and attention weight-function levels; no shared subcomputation is claimed from native site reuse alone.",
+  "price": {"model_forwards_exact": 12, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
