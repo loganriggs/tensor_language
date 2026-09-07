@@ -1,0 +1,20 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_reverse_fresh_gain_curve_v1",
+  "question": "Did gain calibration introduce the one fresh paraphrase-control flip, and is there a global gain interval that preserves both target calibration and selectivity?",
+  "status": "Post-hoc boundary diagnostic only. Any numerically safe gain found here requires a later untouched-family confirmation before adoption.",
+  "authority": {
+    "fresh_gain125_result_sha256": "6fee15243ad80cd7b21b86c0001474d11b5789d955d1cd90b793fc65584dd3d9",
+    "site_localization_result_sha256": "aa085d28f3abe2fee7b6bd97918a39b9298dc2dba12efc67234d1b434b87a958",
+    "shared_dose_runner_sha256": "946de70657dee61ac1d6ada876210ecf8c476904cce7d7daba3a746067c010bc"
+  },
+  "gains": [0.75, 1.0, 1.1, 1.2, 1.25],
+  "predictions": {
+    "pred_a_authority_population_finiteness_and_exact_price": "All bound results, capabilities, and builders match; all values are finite; exactly 41 model forwards execute.",
+    "pred_b_uncalibrated_gain_is_control_selective": "Gain 1.0 has zero paraphrase-control flips under both cross-fits.",
+    "pred_c_control_flip_is_a_calibration_threshold": "At least one gain above 1.0 flips a control, while gains 0.75 and 1.0 do not.",
+    "pred_d_a_safe_calibrated_gain_exists": "At gain 1.1 or 1.2, every task/cross-fit target projection is in [0.90,1.10], worst target residual is at most 0.15, and both cross-fits have zero control flips, margin RMS at most 0.10, and median KL at most 0.02.",
+    "pred_e_behavior_dose_is_monotone_and_crossfit_stable": "Every task/cross-fit behavior projection strictly increases with gain and the cross-fit difference is at most 0.10 at every task/gain."
+  },
+  "decision": "A-E passing diagnoses a calibration-induced threshold and identifies only a provisional safe interval. If B fails, the fresh control issue predates calibration. If D fails, retain the uncalibrated interface and close gain tuning. This run cannot prospectively release a selected gain.",
+  "price": {"model_forwards_exact": 41, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
