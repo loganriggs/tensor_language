@@ -1,0 +1,11 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_rank46_shared7_adaptive_greedy_v1",
+  "question": "How far can the frozen seven-module functional frontier be greedily pruned while preserving both tasks and monotonically improving collateral control KL?",
+  "authority": {
+    "ordered_conditional_result_sha256": "5803747e3891aadbc021f9e661b268c8fd70f989315d8f4e5c9dd02e742b87c5",
+    "initial_support": ["MLP0", "MLP1", "MLP2", "MLP3", "MLP4", "MLP6", "MLP7"],
+    "initial_metrics": "Response approximately 1.0, behavior .815 temporal/.872 is-was, median control KL .045301 and top-one flip fraction .125 after deleting MLP8."
+  },
+  "novelty": "First adaptive full-module backward deletion over the shared two-task bank with response, behavior, and control constraints evaluated jointly at every step.",
+  "decision": "Before selectivity, accept only functional deletions whose median control KL does not increase. After selectivity, accept only deletions that remain functional and selective. Rank eligible deletions by KL, flips, functional fidelity, then canonical order."
+}
