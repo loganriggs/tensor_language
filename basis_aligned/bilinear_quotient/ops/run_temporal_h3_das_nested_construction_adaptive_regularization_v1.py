@@ -246,7 +246,7 @@ def main():
     for parameter in backend.model.parameters():
         parameter.requires_grad_(False)
     previous = json.loads(PREVIOUS.read_text())
-    authority = json.loads(hard.HARD.read_text())
+    authority = json.loads(hard.OUT.read_text())
     selection = authority["selection"]
     pooled_axis = unit(torch.tensor(selection["selected_axis"], device=backend.device).float().unsqueeze(1))
     capabilities = {"v8": json.loads(CAP8.read_text()), "v10": json.loads(CAP10.read_text()), "v15": json.loads(CAP15.read_text())}
