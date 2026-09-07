@@ -37,6 +37,10 @@ EXPECTED = {"rank48": "92384a4496c7e3ceb5dbccecfd8ef65a61e7f5c219e52b5cf919b91ef
     "noise": "a811d10364deeaa8b0e8bb9c5a747413e0df6473999362ddf24d101dc206e46c",
     "helper": "09a7ea5504722a1765367f8422cbbb858373bcc5e910d5aae75ccba46cb124ed"}
 REMOVALS = ("L1H3", "L3H7", "L10H5")
+CANDIDATE = "temporal_auxiliary.five_mlp_rank48_pooled_joint_rank47_deletion_v1"
+RESULT_SCHEMA = "temporal_five_mlp_rank48_pooled_joint_rank47_deletion_result_v1"
+SUCCESS_TERMINAL = "pooled_bidirectional_rank47_program"
+FAILURE_TERMINAL = "rank48_single_deletion_boundary"
 
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -68,9 +72,10 @@ def reverse_arm(backend, fresh, support, qs, bases, reader, donor_full, control_
 def main():
     observed = {key: sha(path) for key, path in {"rank48": RANK48, "forward": FORWARD, "reverse": REVERSE, "noise": NOISE, "helper": HELPER}.items()}
     if observed != EXPECTED: raise RuntimeError(f"rank47 authority changed: {observed}")
-    dry = {"candidate_id": "temporal_auxiliary.five_mlp_rank48_pooled_joint_rank47_deletion_v1", "dryrun": True,
-        "gpu_accessed": False, "model_loaded": False, "queue_touched": False, "candidate_count": 3,
-        "model_forwards_exact": 39, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+    exact_forwards = 15 + 8 * len(REMOVALS)
+    dry = {"candidate_id": CANDIDATE, "dryrun": True,
+        "gpu_accessed": False, "model_loaded": False, "queue_touched": False, "candidate_count": len(REMOVALS),
+        "model_forwards_exact": exact_forwards, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
     if os.environ.get("BQLIB_DRYRUN") == "1" or os.environ.get("BQLIB_NO_MODEL") == "1": print(json.dumps(dry, sort_keys=True)); return
     if OUT.exists(): raise FileExistsError(OUT)
     started, tic = now(), time.perf_counter(); backend = producer.Bilin18TorchBackend.load("cuda")
@@ -113,12 +118,12 @@ def main():
         "coordinate_projection_min": min(min(reports[removed][d]["coordinate"]["signed_projection"].values()) for d in ("forward", "reverse")),
         "target_projection_min": min(min(reports[removed][d]["target"]["behavior_signed_projection"].values()) for d in ("forward", "reverse")),
         "control_flip_max": max(reports[removed][d]["control"]["top1_flip_fraction"] for d in ("forward", "reverse"))} for removed in REMOVALS}
-    terminal = "invalid" if not pa else "pooled_bidirectional_rank47_program" if all(predictions.values()) else "rank48_single_deletion_boundary"
-    result = {"schema": "temporal_five_mlp_rank48_pooled_joint_rank47_deletion_result_v1", "started_utc": started, "finished_utc": now(),
+    terminal = "invalid" if not pa else SUCCESS_TERMINAL if all(predictions.values()) else FAILURE_TERMINAL
+    result = {"schema": RESULT_SCHEMA, "candidate_id": CANDIDATE, "started_utc": started, "finished_utc": now(),
         "serial_seconds": time.perf_counter() - tic, "authority_sha256": EXPECTED, "pooled_projector_sha256": hashes, "tested_deletions": REMOVALS,
         "feasible_deletions": feasible, "selected_deletion": selected, "selected_support": reports[selected]["support"] if selected else None,
         "reports": reports, "arm_summary": compact, "predictions": predictions, "terminal": terminal,
-        "price": {"model_forwards": 39, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}}
+        "price": {"model_forwards": exact_forwards, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}}
     atomic_create_json(OUT, result); print(json.dumps({k: result[k] for k in ("feasible_deletions", "selected_deletion", "arm_summary", "predictions", "terminal", "price")}, sort_keys=True))
 
 

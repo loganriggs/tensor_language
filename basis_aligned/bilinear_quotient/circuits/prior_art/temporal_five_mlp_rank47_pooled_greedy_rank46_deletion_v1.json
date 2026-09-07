@@ -1,0 +1,19 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank47_pooled_greedy_rank46_deletion_v1",
+  "question": "After freezing removal of L1H3, can either of the two other rank47-feasible heads also be deleted while preserving bidirectional pooled OOD execution?",
+  "prior_art": {
+    "rank47_joint_result": "All three single deletions from rank48 passed; frozen order selected L1H3, while L3H7 and L10H5 remain the only preregistered next greedy deletions.",
+    "boundary_policy": "Combination effects must be physically rerun; individual removability does not imply joint removability."
+  },
+  "arms": ["remove_L1H3_and_L3H7", "remove_L1H3_and_L10H5"],
+  "evaluation": "Starting from the frozen 47-site support, test each remaining deletion forward and reverse on disjoint temporal-v12/iswas-v11 targets and controls using the identical pooled projector at gain one.",
+  "predictions": {
+    "pred_a_authority_hash_disjointness_finiteness_and_exact_price": "Authorities/projector hashes reproduce, fit and evaluation IDs are disjoint, source exchanges are single-token, values are finite, and exactly 31 forwards execute.",
+    "pred_b_at_least_one_rank47_arm_has_bidirectional_coordinate_fidelity": "At least one 46-site arm has minimum coordinate projection at least 0.75 and mean/worst residual at most 0.20 in both directions.",
+    "pred_c_at_least_one_rank47_arm_has_bidirectional_behavior_fidelity": "The same arm has both behavior projections at least 0.80 and worst target residual at most 0.15 in both directions.",
+    "pred_d_at_least_one_rank47_arm_is_bidirectionally_selective": "The same arm has control margin RMS at most 0.10, median full-vocabulary KL at most 0.02, and zero flips in both directions.",
+    "pred_e_selected_rank47_arm_is_direction_stable": "A jointly feasible 46-site arm exists and its forward/reverse task behavior gap is at most 0.05."
+  },
+  "decision": "Freeze the first passing 46-site arm in the declared order. If neither passes, retain rank47 and close this greedy combination branch.",
+  "price": {"model_forwards_exact": 31, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
