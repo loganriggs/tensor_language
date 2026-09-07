@@ -1,0 +1,39 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_control_conditioned_upstream_atlas_v1",
+  "claimed_utc": "2026-09-07T04:20:00Z",
+  "question": "Which upstream sites preserve target incidence after generic same-answer donor transport is measured out of sample?",
+  "authorities": {
+    "generic_union_null_sha256": "57402478b86e88237bb745824e7aa8e6d56c17336753cee3d1b4e9359b5febe3",
+    "target_atlas_sha256": "0cc9909dcab7a17b93820300da56a07f4cd9a2610f71a1de1c7008710d064467",
+    "target_atlas_runner_sha256": "6e28d38ec1446eafb3518c1bfe603a5e3469ceadb6f80266e2c695a274692366",
+    "temporal_builder_sha256": "3f738bf2fb2d4a5425dba85eaf948d7ed888e4b891666ff77a51c8638acd2509",
+    "iswas_builder_sha256": "2734cbeceb4e6979dab22fe5b24870386874ac2f905ae426e6e689548e43e8a2",
+    "physical_reader_sha256": "c8ab608fa116342f9cbc8af4955e6087faa0f1eee9dd74dacb5c0ec168c5bf4d"
+  },
+  "population": "All 32 transform-C same-answer rows from each frozen builder. Within each task, even row indices are discovery and odd row indices are sealed validation; token alignment and identical base/donor answer IDs are hard gates.",
+  "sites": "The same complete 179-site population as the target atlas: all 162 heads in layers 0--17 and MLP0--16.",
+  "intervention": "For every site and split, patch its full native response from C donor into C base, then measure final answer-margin movement and both frozen physical reader-mode movements. Base, donor, and self patches are included per split.",
+  "selection": "Use only discovery controls plus the already frozen target-atlas metrics. Normalize absolute C margin movement by the corresponding target full-effect RMS. Rank sites lexicographically by target causal magnitude divided by 0.05 plus worst discovery-control fraction, then target magnitude; freeze the first 20. Validation controls may not alter the ranking.",
+  "predictions": {
+    "pred_a_authority_population_self_patch_finiteness_and_price": "All authorities, 64 C rows, 179 sites, exact alignment, self-patch <=1e-4, finite outputs, and <=366 model forwards / 11712 row evaluations close.",
+    "pred_b_mlp1_is_generic_transport": "MLP1 lies in the top decile of discovery control effect in both tasks and exceeds 0.20 target-scale effect on validation in at least one task.",
+    "pred_c_control_incidence_generalizes": "Discovery-versus-validation site ranking by worst control fraction has Spearman >=0.70.",
+    "pred_d_selective_pool_contains_known_writers": "The frozen selective top20 contains at least two of L9H1/L9H4/MLP7/MLP9 and at least one non-MLP site from layers 8--11.",
+    "pred_e_selective_pool_improves_validation": "Against the original tensor top20, the selective top20 lowers median validation worst-control fraction by >=50% while retaining >=50% of its median frozen target causal magnitude."
+  },
+  "terminal_policy": {
+    "invalid": "A fails",
+    "selective_writer_screen": "all five pass",
+    "generic_transport_confirmed_no_selective_pool": "B and C pass but D or E fails",
+    "control_instability_null": "C fails",
+    "transport_explanation_null": "B fails"
+  },
+  "price_upper_bound": {
+    "model_forwards": 366,
+    "example_evaluations": 11712,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "decision": "This is a discovery screen, not circuit promotion. Only its discovery-frozen pool may enter a later greedy composition test, whose sealed validation controls remain untouched by selection."
+}
