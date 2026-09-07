@@ -1,0 +1,18 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_rank46_task_rank4_reverse_ood_v1",
+  "question": "Do the two minimal task-conditioned rank-four response programs execute the frozen rank46 graph in reverse, while opposite-task modes remain causally insufficient?",
+  "authority": {
+    "complete_rank_ladder": "Forward OOD selects own-task rank four as minimal; rank three misses, and the compressed task union requires the full installed rank eight.",
+    "rank46_noise": "The full pooled rank46 interface passes clean and 10%-source-noise OOD in both directions."
+  },
+  "evaluation": "Fit task modes only on older temporal-v13/iswas-v12 families, reverse the row-disjoint temporal-v12/iswas-v11 source exchange, and compare full rank eight, own-task rank four, and cross-task rank four on targets and matched reverse controls.",
+  "predictions": {
+    "pred_a_authority_disjointness_hashes_finiteness_and_exact_price": "Authorities/projector hashes reproduce, fit/evaluation IDs are disjoint, reverse source tripwires pass, values are finite, and exactly 27 forwards execute.",
+    "pred_b_full_rank46_reverse_arm_replays": "Full rank-eight reverse behavior is at least .80 for both tasks with worst residual at most .15 and zero control flips.",
+    "pred_c_own_task_rank4_reverse_is_sufficient": "Own-task rank-four reverse behavior is at least .80 for both tasks, worst residual at most .15, and each task's mean coordinate projection is at least .95.",
+    "pred_d_own_task_rank4_beats_cross_task_rank4": "Own-task reverse behavior exceeds cross-task behavior by at least .15 for both tasks.",
+    "pred_e_own_task_rank4_reverse_is_selective": "Own-task reverse control margin RMS is at most .10, median full-vocabulary KL at most .02, and top-one flips are zero."
+  },
+  "decision": "A-E passing licenses two bidirectional rank-four conditional response programs inside one pooled rank46 interface. Failure retains the forward compression only and leaves reverse execution at full rank eight.",
+  "price": {"model_forwards_exact": 27, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
