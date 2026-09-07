@@ -1,0 +1,21 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_mlp_input_covector_crossfit_v1",
+  "question": "Can the retained MLP response factors be generated from small, cross-panel residual-input subspaces derived directly from Left/Right/Down weights?",
+  "frozen_program": {
+    "authority": "the v1 factor-pruned causal program and its two frozen response-projector fits",
+    "effective_covector": "A(x_base)=W_Left^T diag(Right(x_base)) W_Down^T Q + W_Right^T diag(Left(x_base)) W_Down^T Q",
+    "crossfit": "even projector: fit each MLP input basis on A1 and evaluate A2; odd projector: fit on A2 and evaluate A1",
+    "ranks": [8, 16, 32, 64],
+    "causal_arms": "exact retained attention factors plus MLP factors generated through each frozen input-covector rank",
+    "controls": "temporal-v11 P rows, using only target-fit covector bases"
+  },
+  "predictions": {
+    "pred_a_authority_hash_exact_effective_covector_closure_finiteness_and_price": "authorities replay and the uncompressed effective-covector contraction reproduces every retained MLP coordinate at RSE <=1e-10",
+    "pred_b_rank32_crosspanel_coefficient_prediction": "rank-32 heldout coefficient RSE is <=0.10 for every MLP site, task, and projector fit",
+    "pred_c_rank32_compiled_program_is_target_sufficient": "for both projector fits, the rank-32 compiled program has worst heldout target residual <=0.15 and signed behavior projection >=0.80 per task",
+    "pred_d_rank32_compiled_program_is_selective": "rank-32 temporal controls have margin RMS <=0.10 of target scale, median full-vocabulary KL <=0.02 nat, and top-1 flip fraction <=0.05",
+    "pred_e_weight_covectors_admit_material_low_rank_compression": "rank 32 captures >=90% of training effective-covector energy at every MLP site and reduces mean heldout coefficient RSE by >=10% relative to rank 8 for both fits"
+  },
+  "decision": "Passing compiles the MLP coefficient generators one causal level upstream into fixed residual-input coordinates. Failure localizes whether gate-conditioned weight covectors require more rank or fail cross-panel transfer; it does not invalidate the already-passing factor-pruned response circuit.",
+  "price": {"model_forwards_max": 25, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
