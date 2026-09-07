@@ -115,7 +115,7 @@ def all_mlp_units():
 
 def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None, q=None,
                   grad=False, complement=False, capture_hidden=None, neuron_per_row=None,
-                  return_logits=False, capture_resid=None, resid_add=None):
+                  return_logits=False, capture_resid=None, resid_add=None, resid_add_positions=None):
     """The producer's exact forward with unit interventions at each row's semantic position.
 
     units        unit ids to intervene on, in a fixed order (the order defines the concatenation)
@@ -148,6 +148,8 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
     resid_add     {layer: (n, N_EMBD) tensor} ADDED to the residual at the row's semantic position right
                   after that layer's attention (i.e. at the point capture_resid reads) -- v35 replay of a
                   measured residual delta; it propagates to every later layer like any residual write.
+    resid_add_positions  optional per-row positions for resid_add (v162: a non-semantic position such as the subject
+                  noun); None keeps the semantic positions. capture_resid always reads the semantic position.
     """
     torch, F, model = backend.torch, backend.F, backend.model
     tokens, lengths = backend._tensor_batch(batch)
@@ -279,7 +281,8 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
 
             if resid_add is not None and layer in resid_add:
                 x = x.clone()
-                x[torch.arange(n, device=x.device), torch.tensor(positions, device=x.device)] += \
+                add_pos = positions if resid_add_positions is None else list(resid_add_positions)
+                x[torch.arange(n, device=x.device), torch.tensor(add_pos, device=x.device)] += \
                     resid_add[layer].to(x.device, x.dtype)
             if capture_resid is not None:
                 for i, rid in enumerate(batch.row_ids):
