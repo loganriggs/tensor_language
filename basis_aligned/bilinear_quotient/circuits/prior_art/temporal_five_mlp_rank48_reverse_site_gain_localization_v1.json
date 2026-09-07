@@ -1,0 +1,20 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_reverse_site_gain_localization_v1",
+  "question": "Which compiled response site makes the otherwise accurate 1.25 reverse calibration flip one fresh temporal paraphrase control?",
+  "authority": {
+    "fresh_gain_result_sha256": "6fee15243ad80cd7b21b86c0001474d11b5789d955d1cd90b793fc65584dd3d9",
+    "dose_result_sha256": "a1f00d208ec1a370d9e9d995de0620de70c6202ef242d46019608635552b9aa9",
+    "dose_price_correction_sha256": "f3410f081becb2951db3b214af2330d58db638ab3b5e7cfb543a9d971188c8a7"
+  },
+  "arms": "Baseline gain 1.25 plus eight leave-one-site gain reversions: the named site's gain returns to 1.0 while every other response site remains at 1.25. Evaluate both frozen cross-fits on the same temporal-v13/iswas-v12 target and temporal paraphrase populations.",
+  "sites": ["MLP1", "MLP3", "MLP4", "MLP6", "L8H1", "L9H1", "L9H4", "L11H3"],
+  "predictions": {
+    "pred_a_authority_replay_finiteness_and_exact_price": "Authorities match, the all-1.25 arm reproduces the fresh result within 0.002, values are finite, and exactly 57 model forwards execute.",
+    "pred_b_one_site_localizes_the_control_flip": "At least one single-site reversion yields zero control flips in both cross-fits.",
+    "pred_c_localized_reversion_preserves_target_calibration": "The lexicographically first flip-clearing site retains every task/cross-fit behavior projection in [0.90,1.10] and worst target residual at most 0.15.",
+    "pred_d_localization_is_crossfit_stable": "That same site has no control flips and preserves target calibration under both cross-fits, rather than repairing only even_fit.",
+    "pred_e_localized_site_is_mechanistically_specific": "At least one other site reversion fails to clear the even-fit flip or loses target calibration, rejecting a generic lower-global-gain explanation at this resolution."
+  },
+  "decision": "A-E passing licenses a site-specific frozen gain map for later-family confirmation. Failure means the rare control flip is distributed or threshold-level and the honest release remains the uncalibrated rank48 program plus a post-hoc gain diagnostic.",
+  "price": {"model_forwards_exact": 57, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
