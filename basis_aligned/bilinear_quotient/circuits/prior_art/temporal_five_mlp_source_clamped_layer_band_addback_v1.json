@@ -1,0 +1,25 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_source_clamped_layer_band_addback_v1",
+  "question": "Which omitted layer bands are required to close the live cue-source-to-compiled-reader graph?",
+  "frozen_arms": [
+    {"name": "top_only", "bands": []},
+    {"name": "terminal", "bands": ["terminal"]},
+    {"name": "early", "bands": ["early"]},
+    {"name": "middle", "bands": ["middle"]},
+    {"name": "late", "bands": ["late"]},
+    {"name": "early_middle", "bands": ["early", "middle"]},
+    {"name": "early_middle_late", "bands": ["early", "middle", "late"]},
+    {"name": "early_middle_terminal", "bands": ["early", "middle", "terminal"]},
+    {"name": "all", "bands": ["early", "middle", "late", "terminal"]}
+  ],
+  "selection_rule": "Among jointly feasible non-all arms, select the fewest allowed sites, breaking ties by frozen arm order. Joint feasibility requires, under both frozen cross-fits: coordinate minimum signed projection >=0.75 and mean residual <=0.20; target minimum signed projection >=0.80 and worst residual <=0.15; control maximum normalized margin RMS <=0.10, median full-vocabulary KL <=0.02, and top-1 flip fraction <=0.05.",
+  "predictions": {
+    "pred_a_authority_self_clamp_finiteness_and_price": "all authorities replay, top20 agrees across fits, no-source self-clamp is exact, all reported values are finite, and <=72 forwards execute",
+    "pred_b_a_non_all_arm_is_jointly_feasible": "at least one arm other than all satisfies every coordinate, target, and control threshold under both fits",
+    "pred_c_selected_arm_is_crossfit_stable": "the selected arm has even/odd minimum-coordinate projections within 0.05 and per-task final projections within 0.05",
+    "pred_d_selected_arm_is_strictly_pruned": "the selected arm exists and permits fewer than all 110 upstream components",
+    "pred_e_addback_localizes_a_required_band": "at least one single-band arm improves the top-only minimum coordinate projection by >=0.15 under both fits"
+  },
+  "decision": "A passing selected arm becomes the dependency-complete candidate graph. If no non-all arm is feasible, use the arm table to replace coarse layer bands with component-level dependency addback; the all arm is a diagnostic ceiling only.",
+  "price": {"model_forwards_max": 72, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
