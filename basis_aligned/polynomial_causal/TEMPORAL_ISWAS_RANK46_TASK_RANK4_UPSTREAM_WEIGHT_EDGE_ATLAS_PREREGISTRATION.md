@@ -34,7 +34,8 @@ covector `a = W_down^T Q`, use the gauge-invariant quadratic reader
 the patched source delta.  Weight alignment alone is never called an edge.
 
 The discovery output is a sparse task-by-source-by-response incidence tensor plus a
-ranked list of edges.  A subsequent intervention will patch the top task-specific
+ranked list of edges.  The live-edge cutoff is frozen at absolute signed target
+response `0.05`.  A subsequent intervention will patch the top task-specific
 edge set and its complement; the atlas itself is a screen.
 
 ## Registered predictions
