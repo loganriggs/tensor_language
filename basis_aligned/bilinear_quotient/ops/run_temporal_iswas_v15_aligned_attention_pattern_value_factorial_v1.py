@@ -83,6 +83,21 @@ def numeric_max_abs_difference(left, right) -> float:
     return 0.0 if left == right else math.inf
 
 
+def intervene_with_state_capture(backend, batch, specs):
+    """Use the shared exact intervention while requesting its final residual capture."""
+    native = backend.native
+
+    def captured(*args, **kwargs):
+        kwargs["capture"] = True
+        return native(*args, **kwargs)
+
+    backend.native = captured
+    try:
+        return attention_eval.intervene_ordered_head_output_deltas(backend, batch, specs)
+    finally:
+        backend.native = native
+
+
 def main() -> None:
     paths = {
         "prior": PRIOR, "linear_result": LINEAR_RESULT, "linear_runner": LINEAR_RUNNER,
@@ -136,7 +151,13 @@ def main() -> None:
     identity_error, reconstruction_error = 0.0, 0.0
     for side, batch in (("base", base_batch), ("donor", donor_batch)):
         for layer in tuple(LAYERS) + (COMPLETE_LAYER,):
-            output, capture = attention_eval.capture_layer_attention(backend, batch, layer)
+            output, capture = attention_eval.capture_layer_attention(
+                backend,
+                batch,
+                layer,
+                call=(lambda batch=batch: backend.native(batch, capture=True))
+                if layer == COMPLETE_LAYER else None,
+            )
             outputs[side][layer], captures[side][layer] = output, capture
             reconstruction_error = max(reconstruction_error, float(capture["reconstruction_max_abs"]))
         reference = outputs[side][COMPLETE_LAYER].answer_foil
@@ -234,13 +255,13 @@ def main() -> None:
                     and all(value["controls"][panel]["top1_flip_count"] == 0 for panel in CONTROL_PANELS)
                     and max(value["controls"][panel]["median_kl"] for panel in CONTROL_PANELS) <= .02)
 
-    self_output = attention_eval.intervene_ordered_head_output_deltas(backend, base_batch, specs((), source="base"))
+    self_output = intervene_with_state_capture(backend, base_batch, specs((), source="base"))
     self_state = greedy.module_impl.states(torch, backend, self_output, rows)
     self_logits = das.head_logits(backend, self_state).float()
     self_error = max(float((self_state - base_state).abs().max()), float((self_logits - base_logits).abs().max()))
     reports = {}
     for subset in factor_subsets():
-        value = report(attention_eval.intervene_ordered_head_output_deltas(
+        value = report(intervene_with_state_capture(
             backend, base_batch, specs(subset, source="donor")
         ))
         reports[arm_name(subset)] = {"factors": list(subset), "eligible": eligible(value), "report": value}
