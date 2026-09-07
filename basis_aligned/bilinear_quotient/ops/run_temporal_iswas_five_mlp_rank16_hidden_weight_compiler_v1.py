@@ -25,7 +25,9 @@ SUPPORT=("MLP0","MLP1","MLP2","MLP3","MLP6"); RANK=16; MAX_FORWARDS=17
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def thash(x): return hashlib.sha256(x.detach().cpu().contiguous().numpy().tobytes()).hexdigest()
 def now(): return datetime.now(timezone.utc).isoformat(timespec="microseconds").replace("+00:00","Z")
-def valid(batch,x): return x[batch.valid_mask].float()
+def valid(batch,x):
+    parts=[x[i,:int(position)+1] for i,position in enumerate(batch.semantic_positions)]
+    return x.new_empty((0,x.shape[-1])).float() if not parts else __import__('torch').cat(parts).float()
 def capture(backend,batch):
     hidden={}; out={}; handles=[]
     for site in SUPPORT:

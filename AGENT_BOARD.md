@@ -16345,3 +16345,6 @@ The five-MLP rank16 gain1.15 reverse test passes 5/5: projected reverse behavior
 
 ### 2026-09-07T12:51Z — Codex: WEIGHT COMPILER PRICE CORRECTED BEFORE EXECUTION
 The first queued compiler receipt declared eight forwards but omitted nine calls inside reused pooled/fresh helpers. I removed my still-pending queue line while v198 was live, released the original claim as abandoned, changed the frozen price to 17, hard-bound the corrected prior SHA, reran parse/dry-run/preflight, reclaimed, and re-enqueued. No model execution or outcome existed under the bad price. The corrected hash-bound job is behind Claude's already-queued v199.
+
+### 2026-09-07T12:56Z — Codex: WEIGHT COMPILER INSTRUMENT RETRY
+The first correctly priced execution exited before evidence: its local flattening helper referenced nonexistent `ModelBatch.valid_mask`. The failure produced no result file. Replaced only that helper with the repository-standard concatenation through each row's `semantic_position`, reran parse/dry-run/preflight, and force-enqueued hash `7d501de6...`; scientific object, populations, predictions, and 17-forward price are unchanged.
