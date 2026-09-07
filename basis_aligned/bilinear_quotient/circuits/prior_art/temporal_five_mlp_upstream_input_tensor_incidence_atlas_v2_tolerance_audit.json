@@ -1,0 +1,31 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_upstream_input_tensor_incidence_atlas_v2_tolerance_audit",
+  "claimed_utc": "2026-09-07T04:05:00Z",
+  "purpose": "Statically adjudicate the preserved v1 local-closure failure against the already validated target-MLP output scales, without new model access, fitting, ranking, or threshold selection.",
+  "authorities": {
+    "v1_result_sha256": "0cc9909dcab7a17b93820300da56a07f4cd9a2610f71a1de1c7008710d064467",
+    "v1_runner_sha256": "6e28d38ec1446eafb3518c1bfe603a5e3469ceadb6f80266e2c695a274692366",
+    "v1_prior_sha256": "ba41e39135762ad4bdd90bac4fca42f28ca17d657f3db7e9a4ef8e9c460e1e52",
+    "literal_tensor_result_sha256": "a0ac3ab0f35d1942339120a79fad07c040c7cf3663c5dd6b711ea1317c823652",
+    "literal_scale_audit_sha256": "ae86583c3461b151de1c6b25eb586be4e32bb0c9c8670a45710c38693700c10d"
+  },
+  "scale_rule": {
+    "reference": "For each target MLP, use its frozen observed-output norm from the literal five-MLP tensor result: the same scale authority already accepted by the v2 literal-program audit.",
+    "max_absolute": "For every compatible site-target record, max_abs_error / target_reference_norm <= 1e-6.",
+    "energy": "For every record, (v1 relative_squared_error * single_site_observed_norm^2) / target_reference_norm^2 <= 1e-8.",
+    "reason": "The real-number bilinear identity is evaluated after subtracting large float32 activations. Delta-relative error becomes ill-conditioned for small causal deltas; target-output-relative error tests numerical closure at the computation's actual scale."
+  },
+  "predictions": {
+    "pred_a_exact_authority_and_preserved_failure_pattern": "All hashes match; v1 is invalid with A/C/D true and B/E false.",
+    "pred_b_all_775_records_close_at_target_scale": "All 775 compatible records pass both frozen scale-aware bars.",
+    "pred_c_causal_ranking_signal_survives_unchanged": "Spearman is at least 0.90, top/bottom causal ratio at least 100, and at least three known writers remain tensor-top20 with positive cells.",
+    "pred_d_failed_distinct_writer_prediction_resolves_to_shared_writer": "All five material targets exist; MLP1 is top-ranked for every target; interaction fraction is at least 0.10. This preserves original E as false and records the opposing shared-writer outcome.",
+    "pred_e_static_zero_compute_complete_audit": "Exactly 179 sites and 775 compatible records are audited with zero model forwards, fitting, updates, or backwards."
+  },
+  "terminal_policy": {
+    "shared_upstream_writer_screen": "all audit predictions pass",
+    "invalid": "authority, scale closure, completeness, or finiteness fails",
+    "causal_incidence_only": "scale closes but a scientific receipt condition does not match"
+  },
+  "price": {"model_forwards": 0, "example_evaluations": 0, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
