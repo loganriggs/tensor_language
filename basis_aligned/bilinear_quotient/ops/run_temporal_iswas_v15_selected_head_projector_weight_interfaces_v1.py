@@ -60,7 +60,7 @@ def normalized_score(torch, matrix, vector) -> float:
 
 def writer_score(torch, covector, matrix) -> float:
     denominator = float(covector.norm()) * float(torch.linalg.matrix_norm(matrix))
-    return float(covector @ matrix).norm() / denominator if denominator else 0.0
+    return float((covector @ matrix).norm()) / denominator if denominator else 0.0
 
 
 def ranked(rows, key="score"):
@@ -154,7 +154,7 @@ def main():
         for layer, head in SOURCES:
             label = f"L{layer}H{head}"
             basis = torch.tensor(das["selected"]["projectors"][fold][label], dtype=torch.float32)
-            if tuple(basis.shape) != (128, 1):
+            if basis.ndim != 2 or basis.shape[0] != 128 or basis.shape[1] != 1:
                 raise RuntimeError(f"projector shape changed for {fold}/{label}")
             unit = basis[:, 0]
             output = model.transformer.h[layer].attn.c_proj.weight.detach().float()
