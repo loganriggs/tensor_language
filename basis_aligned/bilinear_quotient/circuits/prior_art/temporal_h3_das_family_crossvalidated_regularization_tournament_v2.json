@@ -1,0 +1,35 @@
+{
+  "schema": "temporal_h3_das_family_crossvalidated_regularization_tournament_prior_art_v2",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_das_family_crossvalidated_regularization_tournament_v2",
+  "question": "Can noise and/or full-vocabulary KL prevent complement-DAS family memorization under complete-family cross-validation?",
+  "scientific_design": "Exact deterministic replay of v1: rank one, pooled initialization, v8/v10 exchanged as complete train/validation families, v12 sealed, arms no_reg/noise/kl/noise_kl, 20 updates, checkpoints 0/5/10/20, and unchanged objectives, limits, seeds, thresholds, selection, and tie breaks.",
+  "instrument_repairs_only": {
+    "authority": "Accept the predecessor's literal selected_source deterministic_pooled at selected_step zero.",
+    "accounting": "Count and persist backend.native calls and every fitlib.manual_readers evaluation separately; total is their sum and must be <=1800.",
+    "closure": "Persist the maximum manual reader closure over v8, v10, and v12 and require <=1e-4.",
+    "atomicity": "Persist each authority, disjointness, finiteness, closure, price, and update conjunct separately."
+  },
+  "arms": {
+    "no_reg": {"tangent_noise": false, "vocabulary_kl": false},
+    "noise": {"tangent_noise": true, "vocabulary_kl": false},
+    "kl": {"tangent_noise": false, "vocabulary_kl": true},
+    "noise_kl": {"tangent_noise": true, "vocabulary_kl": true}
+  },
+  "predictions": {
+    "pred_a_authority_disjointness_instrument_finiteness_and_price": "Every atomic validity conjunct passes, including complete manual-reader accounting and persisted v12 closure.",
+    "pred_b_regularization_wins_both_family_folds": "A regularized nonzero checkpoint beats no-reg and pooled step zero on each held-out complete family.",
+    "pred_c_regularized_axes_are_cross_family_stable": "Selected fold axes have absolute cosine >=.80.",
+    "pred_d_regularized_refit_beats_pooled_on_sealed_v12": "The refit is target-feasible and strictly improves both mean and worst v12 score.",
+    "pred_e_improvement_is_not_target_sacrifice": "The refit improves vocabulary match+inertness on both v12 panels within all hard target limits."
+  },
+  "terminal_policy": {
+    "regularized_cross_family_das_candidate": "A-E pass.",
+    "regularization_fold_heterogeneity": "A passes, a regularized arm is selected, but B fails because improvement reverses across folds.",
+    "objective_miss": "A passes but no regularized arm wins validation.",
+    "rank_one_inadequate": "A passes but no moved checkpoint is target-feasible.",
+    "residual_family_memorization": "A-C pass but the sealed outcome D or E fails.",
+    "invalid": "A fails."
+  },
+  "price": {"model_forwards_max": 1800, "model_updates_max": 180, "fit_parameters": 128},
+  "execution_policy": "managed_queue_only"
+}
