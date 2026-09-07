@@ -341,6 +341,30 @@ six scalar terms are non-identifying: the improvement can discard a required dow
 The registered terminal is `inner_selection_mispredicts_construction`.  Further coefficient grids
 are closed; the next optimization object must expose a finite causal-response operator.
 
+The subsequent head-local target-feasible regularized DAS test resolves a different ambiguity and
+requires a more precise verdict than its machine label `regularization_does_not_beat_dim`.  The
+instrument is valid: absolute-clamp parent replay is within `7.15e-7`, factor closure within
+`7.63e-6`, native/manual logits within `1.81e-5`, and the run used exactly 1,738 differentiable
+forwards, 1,248 backward forwards, 480 updates, and 28,128 example evaluations.  Both parity fits
+select the same rank-one, factor-SVD-initialized family at step four (`sigma=.05`, Jacobian weight
+`.25`).  The learned directions are stable (minimum principal cosine `.8474`; maximum normalized
+projector Frobenius distance `.5309`) and improve cross-fit A1 signed projection from matched DIM's
+`.7250` to `.8719`, with perfect direction agreement.  Optimization therefore did find a
+materially stronger target solution; this is not evidence that DAS optimization cannot outperform
+difference in means.
+
+What fails is selective construction transfer.  The learned projector reaches only `.6489` on the
+sealed A2 construction, below the frozen `.75` floor, despite improving over DIM's `.4322`.  Its
+cross-fit P median KL improves (`.00175` versus `.00315`), but one parity direction has mean P KL
+`.01945` versus DIM's `.00678` and flips one row; the other direction improves to `.00107` versus
+`.00201`.  The tiny advantage over the corresponding unregularized candidate in the selection
+score (`.132217` versus `.132714`) also shows that Gaussian response noise and the local Jacobian
+penalty did not materially change the geometry.  Thus the user hypothesis was partly confirmed:
+the constrained optimizer is better at target extraction, while the present regularization and
+single-construction objective do not identify a construction-general selective subspace.  This is
+a construction-specific-geometry result, not a blanket DAS null.  Weight-tensor translation of
+this direction remains diagnostic only; it cannot yet be promoted as an identified shared variable.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -390,17 +414,19 @@ are closed; the next optimization object must expose a finite causal-response op
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`, followed by
   `temporal_h3_das_nested_construction_adaptive_regularization_v1_result.json` (valid rejection of
-  the current scalar-axis objective).
+  the current scalar-axis objective), followed by
+  `temporal_iswas_v15_head_response_target_feasible_regularized_das_v1_result.json` (valid,
+  fold-stable target improvement over DIM but failure of construction-general selectivity).
 
 ## Remaining gates
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Execute the registered head-local target-feasible regularized DAS protocol.  Use A1/P parity for
-   every fit and hyperparameter choice, keep A2/C sealed, and retain DIM/step zero plus exact-factor
-   programs as explicit controls.
-3. If the fixed linear projector family is infeasible or nonselective, replace it with an
-   input-conditional/nonlinear causal-response object whose held-out blocks are complete
-   constructions and downstream readers; do not merely widen the same coefficient grid.
+2. Capability-qualify a genuinely new cue construction, then fit a multi-environment causal-response
+   object on complete constructions while keeping the new construction sealed.  Retain DIM, step
+   zero, and exact-factor programs as controls.
+3. If the multi-environment fixed projector remains construction-specific, replace it with an
+   input-conditional/nonlinear causal-response object whose held-out blocks are complete constructions
+   and downstream readers; do not merely widen the same coefficient grid.
 4. Test joint composition when temporal and is–was commands are installed together.
 5. Price an extracted executor only after these identification gates pass.
