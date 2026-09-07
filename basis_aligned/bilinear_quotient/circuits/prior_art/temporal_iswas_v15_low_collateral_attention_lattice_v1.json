@@ -1,0 +1,47 @@
+{
+  "schema": "temporal_iswas_v15_low_collateral_attention_lattice_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_low_collateral_attention_lattice_v1",
+  "question": "Can nonlinear composition among the five low-collateral attention pieces recover most v15 temporal behavior while restoring exact P/C top-one selectivity?",
+  "authorities": {
+    "greedy_result": "62d1d16422c756da4838507b467b1a7d72f51981b9dc9a851f8b8f4485c59ece",
+    "greedy_runner": "de7906f02a1739c0ef01d08210a68140bfcac3a496a3d62780bfc024423f6954"
+  },
+  "novelty": "The preceding adaptive path tested only 153 extensions along one chosen chain and cannot exclude a selective subset off that chain. This is the first complete subset lattice over the v15 low-collateral attention pieces.",
+  "population": "Exactly the same 16 A1, 16 A2, 16 P, and 16 C v15 rows in authority order. A1 selects; A2 is a no-reselection construction check but is not pristine identification because it contributed to earlier candidate localization.",
+  "candidate_rule": {
+    "components": ["L8H1", "L9H1", "L9H4", "L11H3", "attn:15"],
+    "derivation": "Exactly the candidates in the greedy result's stage-one atlas with pooled P/C median KL <=.02 and at most two top-one flips. No target-score threshold beyond membership in the already frozen 17-candidate pool is added here."
+  },
+  "intervention": "For each of all 32 subsets, jointly replace each selected head's complete 128-dimensional pre-c_proj response slice and/or attention 15's complete nine-head pre-c_proj response through the semantic query position. Execute the native suffix and report A1/A2 behavior, full final residual, and P/C full-vocabulary KL/top-one flips.",
+  "selection": "An eligible subset has A1 behavioral signed projection >=.75, A1 direction fraction >=.875, zero P/C top-one flips, and pooled P/C median KL <=.02. Select fewest components, then largest A1 projection, then smallest five-bit mask. A2 never selects.",
+  "predictions": {
+    "pred_a_authority_population_lattice_closure_finiteness_and_exact_price": "Authority hashes, candidate derivation, all 32 unique masks, row counts/order, and aligned shapes match; all-base self error <=1e-4; metrics are finite; exactly 35 forwards execute.",
+    "pred_b_target_sufficient_selective_subset_exists": "At least one subset is eligible on A1.",
+    "pred_c_selected_subset_confirms_without_reselection": "The selected subset reaches A2 behavioral signed projection >=.75 and direction fraction >=.875 without A2 selection.",
+    "pred_d_selected_subset_is_proper": "The selected subset uses at most four of five pieces.",
+    "pred_e_every_selected_piece_is_necessary": "Removing any selected piece makes the subset A1-ineligible or lowers A1 signed projection by >=.05.",
+    "pred_f_final_residual_tracks_selected_behavior": "The selected subset has full-final-residual signed projection >=.50 on both A1 and A2."
+  },
+  "terminal_policy": {
+    "selective_attention_circuit": "A-F pass.",
+    "selective_attention_behavior_only": "A-E pass and F fails.",
+    "attention_construction_failure": "A and B pass but C fails.",
+    "attention_requires_all_five": "A-C pass but D fails.",
+    "attention_subset_redundant": "A-D pass but E fails.",
+    "no_selective_attention_subset": "A passes but B fails.",
+    "partial": "A passes and no more specific terminal applies.",
+    "invalid": "A fails."
+  },
+  "price": {
+    "model_forwards_exact": 35,
+    "rows_per_forward": 64,
+    "native_base_donor_forwards": 2,
+    "base-self_forward": 1,
+    "subset_forwards": 32,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "next_branch": "If a selective subset confirms, freeze it for a genuinely fresh family and translate its OV/QK/value weight edges. If none exists, preserve the attention core as a nonselective partial path and begin task/control-conditioned within-MLP response splitting.",
+  "execution_policy": "managed_queue_only"
+}
