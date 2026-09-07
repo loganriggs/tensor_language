@@ -1,0 +1,11 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_rank46_shared8_pairwise_mobius_v2",
+  "question": "Do the preserved v1 sufficient statistics pass a semantically valid degree-two reconstruction gate?",
+  "authority": {
+    "v1_result_sha256": "4b9a9cdb06b3eab1b842f037d80822814187bf821ee1077c96880d603717f19c",
+    "invalidity": "The v1 D gate required only a 0.10 absolute RSE improvement and therefore did not implement its stated degree-two adequacy claim.",
+    "corrected_gate": "Both tasks require degree-two signed projection in [0.8,1.2] and relative squared error <=0.2."
+  },
+  "novelty": "Scorer-only correction of the v1 semantic defect with raw measurements and all other frozen bars unchanged.",
+  "decision": "A failure is an honest null selecting ordered layer-band conditional increments; no model rerun or threshold tuning is permitted."
+}

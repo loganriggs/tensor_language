@@ -1,0 +1,21 @@
+{
+  "schema": "temporal_iswas_rank46_shared8_pairwise_mobius_invalidity_audit_v1",
+  "audited_result": "circuits/followups/temporal_iswas_rank46_shared8_pairwise_mobius_v1_result.json",
+  "audited_result_sha256": "4b9a9cdb06b3eab1b842f037d80822814187bf821ee1077c96880d603717f19c",
+  "invalid_terminal": "sparse_degree_two_interaction_map",
+  "defect": "Prediction D and the preregistration called a 0.10 absolute reduction in relative squared error a degree-two adequacy gate. That condition does not establish adequacy and allowed a grossly inaccurate degree-two reconstruction to pass.",
+  "contradictory_measurements": {
+    "iswas_pairwise_sum_signed_projection": -0.5509095191955566,
+    "iswas_pairwise_sum_relative_squared_error": 2.9141786098480225,
+    "temporal_pairwise_sum_signed_projection": -0.9290620684623718,
+    "temporal_pairwise_sum_relative_squared_error": 4.227116584777832
+  },
+  "valid_preserved_measurements": {
+    "top8_pair_mass_fraction": 0.8319363772376925,
+    "max_pair_norm_ratio_iswas": 0.6895075440406799,
+    "max_pair_norm_ratio_temporal": 0.6606239080429077,
+    "interpretation": "Large pair interactions are sparse and concentrated among MLP0 through MLP4, but truncating the Mobius expansion at degree two is not an executable approximation. Higher-order or ordered recurrent interactions dominate."
+  },
+  "corrected_adequacy_gate": "For each task, degree-two signed projection must lie in [0.8,1.2] and relative squared error must be <=0.2.",
+  "disposition": "Preserve the raw result, release v1 invalid, rescore under a separately claimed v2 correction, and follow the preregistered D-failure branch to ordered layer-band conditional increments."
+}
