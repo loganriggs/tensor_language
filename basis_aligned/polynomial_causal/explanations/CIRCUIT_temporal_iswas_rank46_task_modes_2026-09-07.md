@@ -235,6 +235,14 @@ experiment must build capability-qualified, equal-length P and C controls and re
 32-mask attention lattice.  Only if aligned controls reject the attention subsets should the route
 move to within-MLP task/control subspace splitting.
 
+That capability repair has now passed prospectively.  The replacement P panel pairs the two target
+cue constructions at fixed tense, answer, noun, and token count; the replacement C panel uses an
+unrelated equal-length nighttime-completion construction.  P/base, P/donor, C/base, and C/donor are
+all 16/16 natively correct, and all 16 rows in each panel are jointly correct on both sides.  The
+test used exactly two native forwards and opened no A1/A2 or causal outcomes.  This licenses the
+unchanged 32-mask attention replay, with P and C collateral reported separately so one family
+cannot hide failure of the other.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -330,8 +338,8 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Build capability-qualified, per-row token-aligned P/C controls and replay the complete 32-subset
-   lattice over the four material heads plus complete attention 15.  If it cannot close behavior
+2. Replay the complete 32-subset lattice over the four material heads plus complete attention 15
+   using the now capability-qualified, per-row token-aligned P/C controls.  If it cannot close behavior
    selectively under valid controls, split the causally live complete MLP responses by task/control-
    defined response rather than hidden-unit magnitude.
 3. Replace the rejected scalar-axis DAS loss with a finite causal-response operator whose held-out

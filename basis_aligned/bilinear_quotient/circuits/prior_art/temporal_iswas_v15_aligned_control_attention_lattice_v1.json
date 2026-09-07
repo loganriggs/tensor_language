@@ -1,0 +1,53 @@
+{
+  "schema": "temporal_iswas_v15_aligned_control_attention_lattice_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_aligned_control_attention_lattice_v1",
+  "registered_utc": "2026-09-07T18:46:42Z",
+  "question": "Does any subset of the frozen five-piece v15 attention core recover target behavior while remaining selective on independently capability-qualified, token-position-aligned P and C controls?",
+  "authorities": {
+    "aligned_builder_sha256": "7027e128ea3e68a35e92f451d0f62453a937e64a8dafda24d841aa1f1d29e645",
+    "aligned_rows_sha256": "3f1d28abb658040493284b307cc27ba76f422dddb08ee9c53686c557d49f283c",
+    "alignment_contract_sha256": "7b4b04cec6f28b47b7d22b8e4be32421bbfae6a04f1adc7c0b890939c9e32760",
+    "control_capability_result_sha256": "cf4a6b5a63e632f17a40639d5419fa84e5a0415d4bb100a219282fc55a672284",
+    "control_capability_runner_sha256": "8f22a06148ca70e45281eddb8ed29ea951977364fd78361220294141221ca4ef",
+    "retracted_lattice_result_sha256": "9777d6b43619a04f89eb40d3df3a8f8a60aca62d1430d40066e265236322dd9b",
+    "retracted_lattice_runner_sha256": "6747d2d5cc85772f1f20dceb3ab9ac6cf665bfdccad590a1ba028e7cac19f192"
+  },
+  "novelty_and_correction": "The exact target lattice and its .80536/.86829 full-mask A1/A2 behavior are preserved. The old selectivity terminal is retracted because legacy P/C pairs were patched across unequal token positions. This is the first causal execution of the frozen masks on equal-length, semantically aligned, prospectively capability-qualified controls.",
+  "population": "Exactly 16 A1, 16 A2, 16 aligned P, and 16 aligned C rows. A1/A2 are byte-for-byte the prior v15 targets. P/C are the sealed aligned-control authority and were 16/16 jointly capable per panel before causal access.",
+  "candidate_rule": {
+    "components": ["L8H1", "L9H1", "L9H4", "L11H3", "attn:15"],
+    "derivation": "Frozen before the aligned-control outcomes from the valid v15 target-side module/head/greedy evidence and the already-executed five-piece lattice. No component, mask, gain, or threshold is changed after control repair."
+  },
+  "intervention": "For all 32 masks, jointly replace each selected complete 128-dimensional head response slice and/or attention 15's complete nine-head response through the common terminal semantic position. Execute the native suffix and report target behavior/final residual plus full-vocabulary KL and top-one changes separately for P and C.",
+  "selection": "An eligible mask has A1 signed behavioral projection >=.75, A1 direction fraction >=.875, zero top-one flips in P, zero top-one flips in C, and max(P median KL, C median KL) <=.02. Select fewest pieces, then largest A1 projection, then smallest mask. Pooled-control metrics are reported but never select. A2 never selects.",
+  "predictions": {
+    "pred_a_authority_alignment_capability_lattice_closure_finiteness_and_exact_price": "All hashes, exact target preservation, per-row alignment, perfect capability ancestry, 32 unique masks, self closure <=1e-4, finite metrics, and exactly 35 forwards pass.",
+    "pred_b_target_sufficient_separately_selective_subset_exists": "At least one mask is A1-eligible under separate P and C rules.",
+    "pred_c_selected_subset_confirms_without_reselection": "The selected mask reaches A2 signed behavioral projection >=.75 and direction fraction >=.875.",
+    "pred_d_selected_subset_is_proper": "The selected mask uses at most four of five pieces.",
+    "pred_e_every_selected_piece_is_necessary": "Removing any selected piece makes A1 ineligible or lowers A1 signed projection by at least .05.",
+    "pred_f_final_residual_tracks_selected_behavior": "The selected mask has full-final-residual signed projection >=.50 on both A1 and A2."
+  },
+  "terminal_policy": {
+    "aligned_selective_attention_circuit": "A-F pass.",
+    "aligned_selective_attention_behavior_only": "A-E pass and F fails.",
+    "aligned_attention_construction_failure": "A and B pass but C fails.",
+    "aligned_attention_requires_all_five": "A-C pass but D fails.",
+    "aligned_attention_subset_redundant": "A-D pass but E fails.",
+    "aligned_no_selective_attention_subset": "A passes but B fails.",
+    "partial": "A passes and no more specific terminal applies.",
+    "invalid": "A fails."
+  },
+  "price": {
+    "model_forwards_exact": 35,
+    "rows_per_forward": 64,
+    "native_base_donor_forwards": 2,
+    "base_self_forward": 1,
+    "subset_forwards": 32,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "next_branch": "If a selective subset confirms, freeze it for genuinely fresh target/control families and then translate its attention OV/QK/value edges into upstream writers and downstream readers. If none exists, preserve the attention core as target-path evidence and split causally live MLP responses using a finite task/control response operator rather than hidden magnitude.",
+  "execution_policy": "managed_queue_only"
+}
