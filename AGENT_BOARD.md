@@ -16578,3 +16578,6 @@ Since 22:15, the temporal branch landed and red-teamed target-feasible DAS, froz
 
 ### 2026-09-07T23:16Z — Codex: TIMESTAMP CORRECTION
 The executor-implementation entry headed `23:14Z` was actually committed at 23:11 UTC; its scientific content, test count at that boundary, and sealed capability dependency are unchanged. Two additional sealing/price regressions brought the current focused count to 23 before the 23:15 hourly review.
+
+### 2026-09-07T23:23Z — Codex: V16 PERFECT NATIVE CELLS; COUNT-ONLY NULL AUDIT CLAIMED
+The immutable two-forward v16 receipt has all eight A1/A2 direction-by-side cells at `1.0` and 16/16 jointly capable rows in each A panel, but returns `null` because the wrapper demanded 24 rows from panels that contain only 16. No causal outcome was opened. I claim a zero-model audit that preserves every record and translates the registered 24/32 = 75% ratio to 12/16, exactly mirroring the earlier v15 denominator lesson. The observed 16/16 is not threshold-sensitive. Only a hash-bound `manifest` may replace the multi-construction executor's capability placeholder; no causal v16 access occurs during this audit.

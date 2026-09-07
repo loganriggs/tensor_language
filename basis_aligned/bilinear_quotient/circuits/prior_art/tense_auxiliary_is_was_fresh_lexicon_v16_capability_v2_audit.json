@@ -1,0 +1,23 @@
+{
+  "schema": "tense_auxiliary_is_was_fresh_lexicon_v16_capability_v2_audit_prior_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.fresh_lexicon_v16_capability_v2_audit",
+  "registered_utc": "2026-09-07T23:21:00Z",
+  "question": "Does the immutable v16 native receipt pass its intended 75% joint-capability population bar after correcting the impossible 24/32 panel count to 12/16?",
+  "authorities": {
+    "v1_result_sha256": "921cc7737f0986c1a897352c0e66171800b17660d6871742c4ec35741bbd30cf",
+    "v1_prior_sha256": "feea0b786aa23135daf6cfc7f818365e80bebcccfdd20e3e8e47af1b039c904b",
+    "v1_runner_sha256": "333c5398566539d8ba1f8940ab894d2ed8db9f1449caf73d5fd8d0156d40c34f",
+    "builder_sha256": "5b1cb38cc62b5682c03505a5090e962d4773015efb44f8fad145515f5066b549",
+    "rows_sha256": "4c5dfaee126c04ac7ea6ef5f53d6ad62a24806fa7133a0c773471a90e4d2e468"
+  },
+  "correction": "The deterministic 64-row builder contains 16 A1 and 16 A2 rows, not 32 per panel. Preserve the v1 null and every native record; translate the registered 24/32 = 75% bar to 12/16 with zero model calls. The observed 16/16 result is not threshold-sensitive.",
+  "predictions": {
+    "pred_a_hashes_inventory_and_v1_null": "All hashes match; v1 is the preserved count-only null; the builder validates 64 rows and exactly 16 per A panel.",
+    "pred_b_native_cells_and_corrected_joint_bar": "All eight native cells pass .75 and both A panels have at least 12/16 jointly capable rows.",
+    "pred_c_no_causal_access_and_exact_original_price": "V1 opened no causal outcomes and used exactly two native forwards/128 examples; this audit uses zero model/checkpoint calls.",
+    "pred_d_all_records_and_metrics_finite": "All 128 native records are present and every capability accuracy is finite."
+  },
+  "decision": "A manifest licenses v16 only as the already frozen sealed construction environment. A true corrected-bar failure preserves the bank null and forbids causal access.",
+  "price": {"model_forwards": 0, "checkpoint_loads": 0, "example_evaluations": 0, "model_updates": 0, "transformer_backwards": 0},
+  "execution_policy": "managed_cpu_lane_only"
+}
