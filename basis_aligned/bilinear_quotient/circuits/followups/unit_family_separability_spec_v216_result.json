@@ -1,0 +1,765 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 5,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v216",
+  "families": {
+    "aux_copy": [
+      "aux_copy_so",
+      "aux_copy_ellipsis"
+    ],
+    "complementizer": [
+      "verb_complementizer",
+      "noun_complementizer",
+      "doubt_belief_complementizer"
+    ],
+    "inversion": [
+      "negative_inversion",
+      "so_inversion",
+      "neither_inversion",
+      "rarely_inversion"
+    ],
+    "mood": [
+      "mandative_subjunctive",
+      "adjective_subjunctive",
+      "requested_subjunctive"
+    ]
+  },
+  "finished_utc": "2026-09-07T16:45:06.890630+00:00",
+  "members": {
+    "aux_copy_ellipsis": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0399,
+            "ce_lb975": 0.9419,
+            "ce_ub975": 1.1351
+          },
+          "C": {
+            "ce_damage": 0.0005,
+            "ce_lb975": -0.0083,
+            "ce_ub975": 0.0097
+          },
+          "extraction": 0.971,
+          "sib_abs_max": 0.0336,
+          "siblings": {
+            "aux_copy_so": 0.0336
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0652,
+            "ce_lb975": 0.9941,
+            "ce_ub975": 1.134
+          },
+          "C": {
+            "ce_damage": -0.0019,
+            "ce_lb975": -0.0066,
+            "ce_ub975": 0.0034
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 1.0283,
+          "siblings": {
+            "aux_copy_so": 1.0283
+          }
+        }
+      },
+      "exact_held": 0.884,
+      "family": "aux_copy",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 59.8,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:14:head:00",
+        "attn:09:head:01",
+        "attn:15:head:05",
+        "attn:08:head:01",
+        "attn:08:head:04",
+        "attn:11:head:03",
+        "attn:09:head:04",
+        "attn:08:head:03",
+        "attn:06:head:07",
+        "attn:10:head:08",
+        "attn:11:head:01",
+        "attn:13:head:03"
+      ]
+    },
+    "aux_copy_so": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0108,
+            "ce_lb975": 0.9563,
+            "ce_ub975": 1.0608
+          },
+          "C": {
+            "ce_damage": 0.0091,
+            "ce_lb975": 0.0036,
+            "ce_ub975": 0.0151
+          },
+          "extraction": 0.944,
+          "sib_abs_max": 0.1047,
+          "siblings": {
+            "aux_copy_ellipsis": 0.1047
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0982,
+            "ce_lb975": 1.0439,
+            "ce_ub975": 1.1455
+          },
+          "C": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0022,
+            "ce_ub975": 0.0018
+          },
+          "extraction": 1.013,
+          "sib_abs_max": 0.8224,
+          "siblings": {
+            "aux_copy_ellipsis": 0.8224
+          }
+        }
+      },
+      "exact_held": 0.901,
+      "family": "aux_copy",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 52.5,
+      "separable": false,
+      "units": [
+        "attn:13:head:08",
+        "attn:09:head:01",
+        "attn:15:head:05",
+        "attn:08:head:01",
+        "attn:14:head:00",
+        "attn:09:head:04",
+        "attn:11:head:03",
+        "attn:08:head:03",
+        "attn:08:head:04",
+        "attn:11:head:01",
+        "attn:12:head:08"
+      ]
+    },
+    "doubt_belief_complementizer": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6926,
+            "ce_lb975": 0.508,
+            "ce_ub975": 0.8897
+          },
+          "C": {
+            "ce_damage": -0.0006,
+            "ce_lb975": -0.0068,
+            "ce_ub975": 0.0052
+          },
+          "extraction": 0.982,
+          "sib_abs_max": 0.0044,
+          "siblings": {
+            "noun_complementizer": 0.0044,
+            "verb_complementizer": -0.0011
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6648,
+            "ce_lb975": 0.485,
+            "ce_ub975": 0.8565
+          },
+          "C": {
+            "ce_damage": 0.0023,
+            "ce_lb975": -0.0033,
+            "ce_ub975": 0.0077
+          },
+          "extraction": 0.981,
+          "sib_abs_max": 0.319,
+          "siblings": {
+            "noun_complementizer": 0.319,
+            "verb_complementizer": 0.0197
+          }
+        }
+      },
+      "exact_held": 0.874,
+      "family": "complementizer",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 57.2,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:08:head:08",
+        "attn:13:head:03",
+        "attn:09:head:01",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:05:head:03",
+        "attn:10:head:03"
+      ]
+    },
+    "negative_inversion": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6291,
+            "ce_lb975": 0.4809,
+            "ce_ub975": 0.7915
+          },
+          "C": {
+            "ce_damage": -0.0031,
+            "ce_lb975": -0.015,
+            "ce_ub975": 0.0075
+          },
+          "extraction": 0.996,
+          "sib_abs_max": 0.0041,
+          "siblings": {
+            "neither_inversion": -0.0017,
+            "rarely_inversion": 0.0041,
+            "so_inversion": -0.0009
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6864,
+            "ce_lb975": 0.5035,
+            "ce_ub975": 0.8804
+          },
+          "C": {
+            "ce_damage": -0.0004,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0098
+          },
+          "extraction": 0.997,
+          "sib_abs_max": 0.1623,
+          "siblings": {
+            "neither_inversion": 0.0114,
+            "rarely_inversion": 0.1623,
+            "so_inversion": 0.0856
+          }
+        }
+      },
+      "exact_held": 0.885,
+      "family": "inversion",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 64.2,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:04:head:07",
+        "attn:01:head:05",
+        "attn:00:head:08",
+        "attn:00:head:03",
+        "attn:02:head:06",
+        "attn:04:head:01",
+        "attn:06:head:01"
+      ]
+    },
+    "neither_inversion": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4855,
+            "ce_lb975": 0.3753,
+            "ce_ub975": 0.6067
+          },
+          "C": {
+            "ce_damage": -0.0055,
+            "ce_lb975": -0.0109,
+            "ce_ub975": -0.0004
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.0093,
+          "siblings": {
+            "negative_inversion": -0.0048,
+            "rarely_inversion": 0.0011,
+            "so_inversion": -0.0093
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5981,
+            "ce_lb975": 0.4765,
+            "ce_ub975": 0.7291
+          },
+          "C": {
+            "ce_damage": -0.0023,
+            "ce_lb975": -0.0092,
+            "ce_ub975": 0.0042
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.316,
+          "siblings": {
+            "negative_inversion": -0.0432,
+            "rarely_inversion": 0.2905,
+            "so_inversion": -0.316
+          }
+        }
+      },
+      "exact_held": 0.879,
+      "family": "inversion",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 61.8,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:04:head:00",
+        "attn:03:head:06",
+        "attn:05:head:03",
+        "attn:05:head:08",
+        "attn:02:head:03",
+        "attn:08:head:01",
+        "attn:09:head:01",
+        "attn:04:head:07",
+        "attn:06:head:06"
+      ]
+    },
+    "noun_complementizer": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7966,
+            "ce_lb975": 0.5156,
+            "ce_ub975": 1.0937
+          },
+          "C": {
+            "ce_damage": -0.0071,
+            "ce_lb975": -0.0141,
+            "ce_ub975": -0.0003
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.0166,
+          "siblings": {
+            "doubt_belief_complementizer": 0.0166,
+            "verb_complementizer": 0.0014
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8895,
+            "ce_lb975": 0.5589,
+            "ce_ub975": 1.2433
+          },
+          "C": {
+            "ce_damage": -0.0061,
+            "ce_lb975": -0.0125,
+            "ce_ub975": -0.0
+          },
+          "extraction": 1.004,
+          "sib_abs_max": 0.6125,
+          "siblings": {
+            "doubt_belief_complementizer": 0.6125,
+            "verb_complementizer": 0.2779
+          }
+        }
+      },
+      "exact_held": 0.902,
+      "family": "complementizer",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 69.9,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:08:head:08",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:09:head:01",
+        "attn:13:head:03",
+        "attn:10:head:03",
+        "attn:02:head:03"
+      ]
+    },
+    "rarely_inversion": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0597,
+            "ce_lb975": 0.7487,
+            "ce_ub975": 1.3858
+          },
+          "C": {
+            "ce_damage": -0.004,
+            "ce_lb975": -0.0215,
+            "ce_ub975": 0.0124
+          },
+          "extraction": 0.991,
+          "sib_abs_max": 0.0112,
+          "siblings": {
+            "negative_inversion": 0.0001,
+            "neither_inversion": 0.0097,
+            "so_inversion": 0.0112
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0654,
+            "ce_lb975": 0.7559,
+            "ce_ub975": 1.3982
+          },
+          "C": {
+            "ce_damage": -0.0093,
+            "ce_lb975": -0.0239,
+            "ce_ub975": 0.0053
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.2418,
+          "siblings": {
+            "negative_inversion": 0.1025,
+            "neither_inversion": 0.2418,
+            "so_inversion": 0.0876
+          }
+        }
+      },
+      "exact_held": 0.885,
+      "family": "inversion",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 17,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 64.4,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:04:head:07",
+        "attn:09:head:07",
+        "attn:09:head:01",
+        "attn:06:head:03",
+        "attn:03:head:04",
+        "attn:04:head:00",
+        "attn:02:head:03",
+        "attn:15:head:05",
+        "attn:08:head:03",
+        "attn:05:head:00",
+        "attn:03:head:00",
+        "attn:05:head:08"
+      ]
+    },
+    "requested_subjunctive": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.3789,
+            "ce_lb975": 0.2035,
+            "ce_ub975": 0.575
+          },
+          "C": {
+            "ce_damage": -0.0087,
+            "ce_lb975": -0.0218,
+            "ce_ub975": 0.0035
+          },
+          "extraction": 0.991,
+          "sib_abs_max": 0.0631,
+          "siblings": {
+            "adjective_subjunctive": 0.0605,
+            "mandative_subjunctive": 0.0631
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5255,
+            "ce_lb975": 0.3927,
+            "ce_ub975": 0.6777
+          },
+          "C": {
+            "ce_damage": -0.0027,
+            "ce_lb975": -0.0106,
+            "ce_ub975": 0.0052
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.9974,
+          "siblings": {
+            "adjective_subjunctive": 0.9974,
+            "mandative_subjunctive": 0.4514
+          }
+        }
+      },
+      "exact_held": 0.894,
+      "family": "mood",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 61.9,
+      "separable": false,
+      "units": [
+        "attn:11:head:03",
+        "attn:05:head:08",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:09:head:01",
+        "attn:09:head:07",
+        "attn:09:head:04",
+        "attn:04:head:01",
+        "attn:07:head:07",
+        "attn:16:head:08",
+        "attn:11:head:06",
+        "attn:05:head:03",
+        "attn:14:head:03",
+        "attn:04:head:00",
+        "attn:15:head:05"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_aux_copy_so": false,
+    "pred_b_aux_copy_ellipsis": true,
+    "pred_c_doubt_belief": true,
+    "pred_d_rarely_inversion": true,
+    "pred_e_requested_subj": false,
+    "pred_f_counted_kept": true,
+    "pred_g_row4_kept": true,
+    "pred_h_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "aux_copy_so",
+      "aux_copy_ellipsis",
+      "doubt_belief_complementizer",
+      "rarely_inversion",
+      "requested_subjunctive",
+      "negative_inversion",
+      "neither_inversion",
+      "noun_complementizer"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 + v201 + v204 + v205 + v207 + v209 + v211 + v213 + v215 receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v216",
+  "seconds": 496.1,
+  "separable_counts": {
+    "aux_copy": 1,
+    "complementizer": 2,
+    "inversion": 3,
+    "mood": 0
+  },
+  "summary": {
+    "aux_copy_ellipsis": {
+      "fam": [
+        0.971,
+        0.0336,
+        0.0097
+      ],
+      "family": "aux_copy",
+      "n_units": 13,
+      "own": [
+        0.993,
+        1.0283,
+        0.0034
+      ],
+      "separable": true
+    },
+    "aux_copy_so": {
+      "fam": [
+        0.944,
+        0.1047,
+        0.0151
+      ],
+      "family": "aux_copy",
+      "n_units": 11,
+      "own": [
+        1.013,
+        0.8224,
+        0.0018
+      ],
+      "separable": false
+    },
+    "doubt_belief_complementizer": {
+      "fam": [
+        0.982,
+        0.0044,
+        0.0052
+      ],
+      "family": "complementizer",
+      "n_units": 8,
+      "own": [
+        0.981,
+        0.319,
+        0.0077
+      ],
+      "separable": true
+    },
+    "negative_inversion": {
+      "fam": [
+        0.996,
+        0.0041,
+        0.0075
+      ],
+      "family": "inversion",
+      "n_units": 11,
+      "own": [
+        0.997,
+        0.1623,
+        0.0098
+      ],
+      "separable": true
+    },
+    "neither_inversion": {
+      "fam": [
+        0.995,
+        0.0093,
+        -0.0004
+      ],
+      "family": "inversion",
+      "n_units": 11,
+      "own": [
+        0.999,
+        0.316,
+        0.0042
+      ],
+      "separable": true
+    },
+    "noun_complementizer": {
+      "fam": [
+        0.999,
+        0.0166,
+        -0.0003
+      ],
+      "family": "complementizer",
+      "n_units": 9,
+      "own": [
+        1.004,
+        0.6125,
+        -0.0
+      ],
+      "separable": true
+    },
+    "rarely_inversion": {
+      "fam": [
+        0.991,
+        0.0112,
+        0.0124
+      ],
+      "family": "inversion",
+      "n_units": 17,
+      "own": [
+        0.998,
+        0.2418,
+        0.0053
+      ],
+      "separable": true
+    },
+    "requested_subjunctive": {
+      "fam": [
+        0.991,
+        0.0631,
+        0.0035
+      ],
+      "family": "mood",
+      "n_units": 15,
+      "own": [
+        0.999,
+        0.9974,
+        0.0052
+      ],
+      "separable": false
+    }
+  }
+}
