@@ -1,0 +1,23 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_source_clamped_band_lattice_completion_v1",
+  "question": "Does any untested combination of early, middle, late, and terminal layer bands close the source-driven compiled graph without admitting all components?",
+  "new_arms": [
+    {"name": "early_late", "bands": ["early", "late"]},
+    {"name": "early_terminal", "bands": ["early", "terminal"]},
+    {"name": "middle_late", "bands": ["middle", "late"]},
+    {"name": "middle_terminal", "bands": ["middle", "terminal"]},
+    {"name": "late_terminal", "bands": ["late", "terminal"]},
+    {"name": "early_late_terminal", "bands": ["early", "late", "terminal"]},
+    {"name": "middle_late_terminal", "bands": ["middle", "late", "terminal"]}
+  ],
+  "selection_rule": "Combine these arms with the nine frozen v1 arms to complete all 16 band subsets. Select the jointly feasible non-all arm with the fewest allowed sites, breaking ties by lexicographic arm name. Feasibility thresholds are unchanged from v1 and must all hold under both cross-fits.",
+  "predictions": {
+    "pred_a_authority_self_clamp_finiteness_and_price": "v1 and helper authorities replay, self-clamp is exact, values are finite, and <=59 forwards execute",
+    "pred_b_complete_lattice_contains_a_pruned_feasible_arm": "at least one of all 15 non-all band subsets is jointly feasible",
+    "pred_c_selected_arm_is_crossfit_stable": "selected arm minimum-coordinate projections differ by <=0.05 and per-task behavioral projections differ by <=0.05 across fits",
+    "pred_d_late_and_terminal_are_jointly_needed": "every jointly feasible non-all arm includes both late and terminal bands",
+    "pred_e_complete_lattice_is_monotone_at_ceiling": "the all-band arm weakly dominates every immediate three-band predecessor on minimum coordinate and behavioral projection"
+  },
+  "decision": "A feasible non-all arm defines the coarse dependency support for component-level greedy deletion. If none exists, all four bands are necessary at coarse resolution and component-level deletion starts from the all-component ceiling.",
+  "price": {"model_forwards_max": 59, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
