@@ -1,0 +1,11 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_five_mlp_source_dim_subspace_v1",
+  "question": "Can multi-environment difference-in-means source-output subspaces replace full patches at the five-MLP greedy boundary while preserving both tasks and removing control collateral?",
+  "authority": {
+    "greedy_result_sha256": "43ae9fc88e3ac64058e92fcedc95555fed31dd75bb5d546590b4a998316f9183",
+    "support": ["MLP0", "MLP1", "MLP2", "MLP3", "MLP6"],
+    "boundary": "No further whole-module deletion preserves the frozen functional and monotone-KL constraints; median control KL remains .033981 and flip fraction .125."
+  },
+  "novelty": "First low-rank intervention at every physical source MLP of the two-task greedy boundary, comparing pooled DIM, task-span DIM, empirical SVD, and the DIM complement on sealed rows.",
+  "decision": "Prefer the lowest-rank arm satisfying response, behavior, and control bars. Difference-in-means bases are fixed on old families; fresh task and control rows are evaluation only."
+}
