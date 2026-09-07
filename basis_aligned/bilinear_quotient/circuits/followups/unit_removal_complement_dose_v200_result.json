@@ -1,0 +1,1124 @@
+{
+  "alphas": [
+    1.0,
+    0.75,
+    0.5,
+    0.25,
+    0.0
+  ],
+  "bars": {
+    "control_tol": 0.05,
+    "half_dose_min": 0.5,
+    "instr_tol": 0.02,
+    "random_max": 0.05,
+    "rank4_tol": 0.05,
+    "step_tol": -0.02
+  },
+  "candidate_id": "corpus.unit_removal_complement_dose_v200",
+  "controls": [
+    "possessive_argument",
+    "possessive_verbfinal",
+    "correlative_both_either",
+    "finiteness_selection"
+  ],
+  "finished_utc": "2026-09-07T12:58:24.206215+00:00",
+  "over_band": [
+    "possessive_adjacent",
+    "possessive_long_simple",
+    "possessive_medial",
+    "possessive_number"
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_dose": false,
+    "pred_c_not_low_rank": false,
+    "pred_d_random": true,
+    "pred_e_control": true
+  },
+  "protocol": {
+    "dose": "Q = [sqrt(a) q1, sqrt(1-a) I] -> axis clamped, complement = mu + a (live - mu)",
+    "rank": "Q_r = qr([q1, top r-1 PCs of FIT residual orthogonal to q1]); r = D is identity",
+    "rows": "A1 within-direction: mu/q1/PCs from FIT rows[0::4]+rows[1::4], removal on HELD rows[2::4]+rows[3::4]",
+    "units_source": "v199 upstream halves"
+  },
+  "ranks": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    "D"
+  ],
+  "schema": "unit_removal_complement_dose_v200",
+  "seconds": 8.4,
+  "sets": {
+    "correlative_both_either": {
+      "block_dims": {
+        "10:heads": 128,
+        "11:heads": 256,
+        "7:heads": 128,
+        "8:heads": 128,
+        "9:heads": 256
+      },
+      "dose": {
+        "0.0": {
+          "ce_damage": 0.4404,
+          "ce_lb975": 0.327,
+          "ce_ub975": 0.5516,
+          "margin_damage": 3.8449
+        },
+        "0.25": {
+          "ce_damage": 0.5014,
+          "ce_lb975": 0.3713,
+          "ce_ub975": 0.6325,
+          "margin_damage": 3.8681
+        },
+        "0.5": {
+          "ce_damage": 0.5645,
+          "ce_lb975": 0.4132,
+          "ce_ub975": 0.7168,
+          "margin_damage": 3.8956
+        },
+        "0.75": {
+          "ce_damage": 0.6279,
+          "ce_lb975": 0.4573,
+          "ce_ub975": 0.801,
+          "margin_damage": 3.9263
+        },
+        "1.0": {
+          "ce_damage": 0.6904,
+          "ce_lb975": 0.4981,
+          "ce_ub975": 0.8844,
+          "margin_damage": 3.9593
+        }
+      },
+      "dose_curve": [
+        0.6904,
+        0.6279,
+        0.5645,
+        0.5014,
+        0.4404
+      ],
+      "n_rows": {
+        "fit": 16,
+        "held": 16
+      },
+      "random": {
+        "ce_damage": 0.0028,
+        "ce_lb975": 0.0013,
+        "ce_ub975": 0.0045,
+        "margin_damage": 0.0627
+      },
+      "rank": {
+        "1": {
+          "ce_damage": 0.6904,
+          "ce_lb975": 0.4981,
+          "ce_ub975": 0.8844,
+          "margin_damage": 3.9593
+        },
+        "16": {
+          "ce_damage": 0.5021,
+          "ce_lb975": 0.3816,
+          "ce_ub975": 0.6153,
+          "margin_damage": 3.875
+        },
+        "2": {
+          "ce_damage": 0.5804,
+          "ce_lb975": 0.4474,
+          "ce_ub975": 0.7194,
+          "margin_damage": 3.8962
+        },
+        "4": {
+          "ce_damage": 0.5636,
+          "ce_lb975": 0.4333,
+          "ce_ub975": 0.6931,
+          "margin_damage": 3.8973
+        },
+        "8": {
+          "ce_damage": 0.5518,
+          "ce_lb975": 0.4232,
+          "ce_ub975": 0.6757,
+          "margin_damage": 3.9009
+        },
+        "D": {
+          "ce_damage": 0.4404,
+          "ce_lb975": 0.327,
+          "ce_ub975": 0.5516,
+          "margin_damage": 3.8449
+        }
+      },
+      "rank_curve": [
+        0.6904,
+        0.5804,
+        0.5636,
+        0.5518,
+        0.5021,
+        0.4404
+      ],
+      "seconds": 0.9,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:14:head:08",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:09:head:05",
+        "attn:11:head:07",
+        "attn:15:head:01",
+        "attn:12:head:02",
+        "attn:11:head:02",
+        "attn:13:head:08"
+      ],
+      "upstream_blocks": [
+        "7:heads",
+        "8:heads",
+        "9:heads",
+        "10:heads",
+        "11:heads"
+      ],
+      "upstream_units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:09:head:05",
+        "attn:11:head:07",
+        "attn:11:head:02"
+      ],
+      "v199_F_up": 0.4404,
+      "v199_R1_up": 0.6904
+    },
+    "finiteness_selection": {
+      "block_dims": {
+        "2:heads": 128,
+        "3:heads": 128,
+        "4:heads": 128,
+        "6:heads": 128,
+        "7:heads": 128,
+        "8:heads": 256
+      },
+      "dose": {
+        "0.0": {
+          "ce_damage": 0.3844,
+          "ce_lb975": 0.3196,
+          "ce_ub975": 0.4523,
+          "margin_damage": 1.989
+        },
+        "0.25": {
+          "ce_damage": 0.3802,
+          "ce_lb975": 0.3154,
+          "ce_ub975": 0.4477,
+          "margin_damage": 1.9952
+        },
+        "0.5": {
+          "ce_damage": 0.3768,
+          "ce_lb975": 0.3112,
+          "ce_ub975": 0.4455,
+          "margin_damage": 2.0009
+        },
+        "0.75": {
+          "ce_damage": 0.3749,
+          "ce_lb975": 0.3059,
+          "ce_ub975": 0.4464,
+          "margin_damage": 2.0058
+        },
+        "1.0": {
+          "ce_damage": 0.3752,
+          "ce_lb975": 0.3013,
+          "ce_ub975": 0.4501,
+          "margin_damage": 2.0094
+        }
+      },
+      "dose_curve": [
+        0.3752,
+        0.3749,
+        0.3768,
+        0.3802,
+        0.3844
+      ],
+      "n_rows": {
+        "fit": 16,
+        "held": 16
+      },
+      "random": {
+        "ce_damage": -0.0013,
+        "ce_lb975": -0.006,
+        "ce_ub975": 0.0026,
+        "margin_damage": 0.0288
+      },
+      "rank": {
+        "1": {
+          "ce_damage": 0.3752,
+          "ce_lb975": 0.3013,
+          "ce_ub975": 0.4501,
+          "margin_damage": 2.0094
+        },
+        "16": {
+          "ce_damage": 0.3924,
+          "ce_lb975": 0.3134,
+          "ce_ub975": 0.4734,
+          "margin_damage": 1.9904
+        },
+        "2": {
+          "ce_damage": 0.3867,
+          "ce_lb975": 0.3082,
+          "ce_ub975": 0.4685,
+          "margin_damage": 2.0161
+        },
+        "4": {
+          "ce_damage": 0.3865,
+          "ce_lb975": 0.3091,
+          "ce_ub975": 0.4695,
+          "margin_damage": 2.0034
+        },
+        "8": {
+          "ce_damage": 0.3845,
+          "ce_lb975": 0.3088,
+          "ce_ub975": 0.4644,
+          "margin_damage": 1.9905
+        },
+        "D": {
+          "ce_damage": 0.3844,
+          "ce_lb975": 0.3196,
+          "ce_ub975": 0.4523,
+          "margin_damage": 1.989
+        }
+      },
+      "rank_curve": [
+        0.3752,
+        0.3867,
+        0.3865,
+        0.3845,
+        0.3924,
+        0.3844
+      ],
+      "seconds": 0.9,
+      "units": [
+        "attn:11:head:03",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:08:head:01",
+        "attn:03:head:06",
+        "attn:14:head:03",
+        "attn:04:head:01",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:09:head:03",
+        "attn:09:head:01",
+        "attn:02:head:03"
+      ],
+      "upstream_blocks": [
+        "2:heads",
+        "3:heads",
+        "4:heads",
+        "6:heads",
+        "7:heads",
+        "8:heads"
+      ],
+      "upstream_units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:08:head:01",
+        "attn:03:head:06",
+        "attn:04:head:01",
+        "attn:02:head:03"
+      ],
+      "v199_F_up": 0.3844,
+      "v199_R1_up": 0.3752
+    },
+    "possessive_adjacent": {
+      "block_dims": {
+        "2:heads": 128,
+        "3:heads": 128,
+        "4:heads": 128,
+        "5:heads": 128,
+        "6:heads": 128
+      },
+      "dose": {
+        "0.0": {
+          "ce_damage": -0.0358,
+          "ce_lb975": -0.3103,
+          "ce_ub975": 0.165,
+          "margin_damage": 1.0734
+        },
+        "0.25": {
+          "ce_damage": 0.0073,
+          "ce_lb975": -0.2352,
+          "ce_ub975": 0.1834,
+          "margin_damage": 1.0755
+        },
+        "0.5": {
+          "ce_damage": 0.0693,
+          "ce_lb975": -0.116,
+          "ce_ub975": 0.2049,
+          "margin_damage": 1.0886
+        },
+        "0.75": {
+          "ce_damage": 0.1495,
+          "ce_lb975": 0.0495,
+          "ce_ub975": 0.2382,
+          "margin_damage": 1.1108
+        },
+        "1.0": {
+          "ce_damage": 0.2259,
+          "ce_lb975": 0.1647,
+          "ce_ub975": 0.2921,
+          "margin_damage": 1.1328
+        }
+      },
+      "dose_curve": [
+        0.2259,
+        0.1495,
+        0.0693,
+        0.0073,
+        -0.0358
+      ],
+      "n_rows": {
+        "fit": 16,
+        "held": 16
+      },
+      "random": {
+        "ce_damage": -0.0064,
+        "ce_lb975": -0.0142,
+        "ce_ub975": -0.0002,
+        "margin_damage": -0.0029
+      },
+      "rank": {
+        "1": {
+          "ce_damage": 0.2259,
+          "ce_lb975": 0.1647,
+          "ce_ub975": 0.2921,
+          "margin_damage": 1.1328
+        },
+        "16": {
+          "ce_damage": 0.1044,
+          "ce_lb975": -0.0381,
+          "ce_ub975": 0.216,
+          "margin_damage": 1.0765
+        },
+        "2": {
+          "ce_damage": 0.2076,
+          "ce_lb975": 0.151,
+          "ce_ub975": 0.2663,
+          "margin_damage": 1.1113
+        },
+        "4": {
+          "ce_damage": 0.1977,
+          "ce_lb975": 0.1311,
+          "ce_ub975": 0.2657,
+          "margin_damage": 1.1011
+        },
+        "8": {
+          "ce_damage": 0.1413,
+          "ce_lb975": 0.054,
+          "ce_ub975": 0.2228,
+          "margin_damage": 1.1154
+        },
+        "D": {
+          "ce_damage": -0.0358,
+          "ce_lb975": -0.3103,
+          "ce_ub975": 0.165,
+          "margin_damage": 1.0734
+        }
+      },
+      "rank_curve": [
+        0.2259,
+        0.2076,
+        0.1977,
+        0.1413,
+        0.1044,
+        -0.0358
+      ],
+      "seconds": 1.2,
+      "units": [
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:09:head:06",
+        "attn:10:head:05",
+        "attn:09:head:07",
+        "attn:15:head:01",
+        "attn:02:head:06",
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:06:head:01",
+        "attn:05:head:03"
+      ],
+      "upstream_blocks": [
+        "2:heads",
+        "3:heads",
+        "4:heads",
+        "5:heads",
+        "6:heads"
+      ],
+      "upstream_units": [
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:02:head:06",
+        "attn:06:head:01",
+        "attn:05:head:03"
+      ],
+      "v199_F_up": -0.0358,
+      "v199_R1_up": 0.2259
+    },
+    "possessive_argument": {
+      "block_dims": {
+        "3:heads": 128,
+        "4:heads": 128,
+        "5:heads": 128,
+        "9:heads": 256
+      },
+      "dose": {
+        "0.0": {
+          "ce_damage": 0.1997,
+          "ce_lb975": 0.0915,
+          "ce_ub975": 0.3079,
+          "margin_damage": 1.1163
+        },
+        "0.25": {
+          "ce_damage": 0.219,
+          "ce_lb975": 0.1293,
+          "ce_ub975": 0.3108,
+          "margin_damage": 1.1011
+        },
+        "0.5": {
+          "ce_damage": 0.2399,
+          "ce_lb975": 0.1656,
+          "ce_ub975": 0.3176,
+          "margin_damage": 1.0872
+        },
+        "0.75": {
+          "ce_damage": 0.2624,
+          "ce_lb975": 0.2,
+          "ce_ub975": 0.3259,
+          "margin_damage": 1.0743
+        },
+        "1.0": {
+          "ce_damage": 0.2863,
+          "ce_lb975": 0.2329,
+          "ce_ub975": 0.3415,
+          "margin_damage": 1.0622
+        }
+      },
+      "dose_curve": [
+        0.2863,
+        0.2624,
+        0.2399,
+        0.219,
+        0.1997
+      ],
+      "n_rows": {
+        "fit": 16,
+        "held": 16
+      },
+      "random": {
+        "ce_damage": 0.0025,
+        "ce_lb975": 0.0002,
+        "ce_ub975": 0.0049,
+        "margin_damage": 0.007
+      },
+      "rank": {
+        "1": {
+          "ce_damage": 0.2863,
+          "ce_lb975": 0.2329,
+          "ce_ub975": 0.3415,
+          "margin_damage": 1.0622
+        },
+        "16": {
+          "ce_damage": 0.1973,
+          "ce_lb975": 0.1055,
+          "ce_ub975": 0.2881,
+          "margin_damage": 1.0642
+        },
+        "2": {
+          "ce_damage": 0.2728,
+          "ce_lb975": 0.2186,
+          "ce_ub975": 0.3275,
+          "margin_damage": 1.057
+        },
+        "4": {
+          "ce_damage": 0.22,
+          "ce_lb975": 0.1485,
+          "ce_ub975": 0.2922,
+          "margin_damage": 1.0572
+        },
+        "8": {
+          "ce_damage": 0.2101,
+          "ce_lb975": 0.1216,
+          "ce_ub975": 0.2983,
+          "margin_damage": 1.064
+        },
+        "D": {
+          "ce_damage": 0.1997,
+          "ce_lb975": 0.0915,
+          "ce_ub975": 0.3079,
+          "margin_damage": 1.1163
+        }
+      },
+      "rank_curve": [
+        0.2863,
+        0.2728,
+        0.22,
+        0.2101,
+        0.1973,
+        0.1997
+      ],
+      "seconds": 1.0,
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:10:head:01",
+        "attn:09:head:07",
+        "attn:03:head:04"
+      ],
+      "upstream_blocks": [
+        "3:heads",
+        "4:heads",
+        "5:heads",
+        "9:heads"
+      ],
+      "upstream_units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:04:head:05",
+        "attn:09:head:07",
+        "attn:03:head:04"
+      ],
+      "v199_F_up": 0.1997,
+      "v199_R1_up": 0.2863
+    },
+    "possessive_long_simple": {
+      "block_dims": {
+        "3:heads": 128,
+        "4:heads": 128,
+        "5:heads": 128,
+        "7:heads": 128
+      },
+      "dose": {
+        "0.0": {
+          "ce_damage": 0.0919,
+          "ce_lb975": -0.1801,
+          "ce_ub975": 0.2723,
+          "margin_damage": 1.103
+        },
+        "0.25": {
+          "ce_damage": 0.1117,
+          "ce_lb975": -0.1338,
+          "ce_ub975": 0.2735,
+          "margin_damage": 1.0845
+        },
+        "0.5": {
+          "ce_damage": 0.1442,
+          "ce_lb975": -0.047,
+          "ce_ub975": 0.2718,
+          "margin_damage": 1.0741
+        },
+        "0.75": {
+          "ce_damage": 0.1867,
+          "ce_lb975": 0.0792,
+          "ce_ub975": 0.2755,
+          "margin_damage": 1.0695
+        },
+        "1.0": {
+          "ce_damage": 0.2269,
+          "ce_lb975": 0.1574,
+          "ce_ub975": 0.2981,
+          "margin_damage": 1.0645
+        }
+      },
+      "dose_curve": [
+        0.2269,
+        0.1867,
+        0.1442,
+        0.1117,
+        0.0919
+      ],
+      "n_rows": {
+        "fit": 16,
+        "held": 16
+      },
+      "random": {
+        "ce_damage": -0.0001,
+        "ce_lb975": -0.0058,
+        "ce_ub975": 0.0058,
+        "margin_damage": -0.0015
+      },
+      "rank": {
+        "1": {
+          "ce_damage": 0.2269,
+          "ce_lb975": 0.1574,
+          "ce_ub975": 0.2981,
+          "margin_damage": 1.0645
+        },
+        "16": {
+          "ce_damage": 0.1469,
+          "ce_lb975": -0.0588,
+          "ce_ub975": 0.2913,
+          "margin_damage": 1.0994
+        },
+        "2": {
+          "ce_damage": 0.2504,
+          "ce_lb975": 0.1805,
+          "ce_ub975": 0.3188,
+          "margin_damage": 1.0937
+        },
+        "4": {
+          "ce_damage": 0.2253,
+          "ce_lb975": 0.1242,
+          "ce_ub975": 0.3106,
+          "margin_damage": 1.08
+        },
+        "8": {
+          "ce_damage": 0.1682,
+          "ce_lb975": 0.0069,
+          "ce_ub975": 0.2856,
+          "margin_damage": 1.0824
+        },
+        "D": {
+          "ce_damage": 0.0919,
+          "ce_lb975": -0.1801,
+          "ce_ub975": 0.2723,
+          "margin_damage": 1.103
+        }
+      },
+      "rank_curve": [
+        0.2269,
+        0.2504,
+        0.2253,
+        0.1682,
+        0.1469,
+        0.0919
+      ],
+      "seconds": 1.1,
+      "units": [
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:10:head:01",
+        "attn:10:head:05",
+        "attn:09:head:07",
+        "attn:07:head:08"
+      ],
+      "upstream_blocks": [
+        "3:heads",
+        "4:heads",
+        "5:heads",
+        "7:heads"
+      ],
+      "upstream_units": [
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:07:head:08"
+      ],
+      "v199_F_up": 0.0919,
+      "v199_R1_up": 0.2269
+    },
+    "possessive_medial": {
+      "block_dims": {
+        "3:heads": 128,
+        "4:heads": 256,
+        "5:heads": 128,
+        "6:heads": 128
+      },
+      "dose": {
+        "0.0": {
+          "ce_damage": 0.1263,
+          "ce_lb975": -0.0769,
+          "ce_ub975": 0.2675,
+          "margin_damage": 0.988
+        },
+        "0.25": {
+          "ce_damage": 0.1431,
+          "ce_lb975": -0.0483,
+          "ce_ub975": 0.274,
+          "margin_damage": 0.9706
+        },
+        "0.5": {
+          "ce_damage": 0.1689,
+          "ce_lb975": 0.014,
+          "ce_ub975": 0.281,
+          "margin_damage": 0.9615
+        },
+        "0.75": {
+          "ce_damage": 0.205,
+          "ce_lb975": 0.1052,
+          "ce_ub975": 0.2912,
+          "margin_damage": 0.9597
+        },
+        "1.0": {
+          "ce_damage": 0.2403,
+          "ce_lb975": 0.1705,
+          "ce_ub975": 0.3162,
+          "margin_damage": 0.9592
+        }
+      },
+      "dose_curve": [
+        0.2403,
+        0.205,
+        0.1689,
+        0.1431,
+        0.1263
+      ],
+      "n_rows": {
+        "fit": 16,
+        "held": 16
+      },
+      "random": {
+        "ce_damage": -0.0024,
+        "ce_lb975": -0.0053,
+        "ce_ub975": 0.0003,
+        "margin_damage": -0.0032
+      },
+      "rank": {
+        "1": {
+          "ce_damage": 0.2403,
+          "ce_lb975": 0.1705,
+          "ce_ub975": 0.3162,
+          "margin_damage": 0.9592
+        },
+        "16": {
+          "ce_damage": 0.1764,
+          "ce_lb975": 0.0158,
+          "ce_ub975": 0.2892,
+          "margin_damage": 1.0028
+        },
+        "2": {
+          "ce_damage": 0.2515,
+          "ce_lb975": 0.1862,
+          "ce_ub975": 0.3245,
+          "margin_damage": 0.9966
+        },
+        "4": {
+          "ce_damage": 0.2389,
+          "ce_lb975": 0.165,
+          "ce_ub975": 0.3062,
+          "margin_damage": 0.9986
+        },
+        "8": {
+          "ce_damage": 0.1897,
+          "ce_lb975": 0.0482,
+          "ce_ub975": 0.2931,
+          "margin_damage": 0.9988
+        },
+        "D": {
+          "ce_damage": 0.1263,
+          "ce_lb975": -0.0769,
+          "ce_ub975": 0.2675,
+          "margin_damage": 0.988
+        }
+      },
+      "rank_curve": [
+        0.2403,
+        0.2515,
+        0.2389,
+        0.1897,
+        0.1764,
+        0.1263
+      ],
+      "seconds": 1.0,
+      "units": [
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:09:head:06",
+        "attn:10:head:05",
+        "attn:12:head:04",
+        "attn:10:head:01",
+        "attn:09:head:07",
+        "attn:06:head:01",
+        "attn:04:head:04"
+      ],
+      "upstream_blocks": [
+        "3:heads",
+        "4:heads",
+        "5:heads",
+        "6:heads"
+      ],
+      "upstream_units": [
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:06:head:01",
+        "attn:04:head:04"
+      ],
+      "v199_F_up": 0.1263,
+      "v199_R1_up": 0.2403
+    },
+    "possessive_number": {
+      "block_dims": {
+        "5:heads": 128,
+        "6:heads": 128,
+        "7:heads": 256,
+        "9:heads": 256
+      },
+      "dose": {
+        "0.0": {
+          "ce_damage": 0.0403,
+          "ce_lb975": -0.1117,
+          "ce_ub975": 0.1926,
+          "margin_damage": 0.9051
+        },
+        "0.25": {
+          "ce_damage": 0.0654,
+          "ce_lb975": -0.048,
+          "ce_ub975": 0.1858,
+          "margin_damage": 0.8751
+        },
+        "0.5": {
+          "ce_damage": 0.0966,
+          "ce_lb975": 0.0096,
+          "ce_ub975": 0.1892,
+          "margin_damage": 0.846
+        },
+        "0.75": {
+          "ce_damage": 0.1339,
+          "ce_lb975": 0.0681,
+          "ce_ub975": 0.2053,
+          "margin_damage": 0.8179
+        },
+        "1.0": {
+          "ce_damage": 0.1772,
+          "ce_lb975": 0.1177,
+          "ce_ub975": 0.242,
+          "margin_damage": 0.791
+        }
+      },
+      "dose_curve": [
+        0.1772,
+        0.1339,
+        0.0966,
+        0.0654,
+        0.0403
+      ],
+      "n_rows": {
+        "fit": 16,
+        "held": 16
+      },
+      "random": {
+        "ce_damage": 0.0014,
+        "ce_lb975": -0.0023,
+        "ce_ub975": 0.0053,
+        "margin_damage": -0.0014
+      },
+      "rank": {
+        "1": {
+          "ce_damage": 0.1772,
+          "ce_lb975": 0.1177,
+          "ce_ub975": 0.242,
+          "margin_damage": 0.791
+        },
+        "16": {
+          "ce_damage": 0.0674,
+          "ce_lb975": -0.0237,
+          "ce_ub975": 0.1583,
+          "margin_damage": 0.7913
+        },
+        "2": {
+          "ce_damage": 0.1866,
+          "ce_lb975": 0.1282,
+          "ce_ub975": 0.2435,
+          "margin_damage": 0.7895
+        },
+        "4": {
+          "ce_damage": 0.127,
+          "ce_lb975": 0.055,
+          "ce_ub975": 0.1995,
+          "margin_damage": 0.766
+        },
+        "8": {
+          "ce_damage": 0.1212,
+          "ce_lb975": 0.042,
+          "ce_ub975": 0.2025,
+          "margin_damage": 0.7786
+        },
+        "D": {
+          "ce_damage": 0.0403,
+          "ce_lb975": -0.1117,
+          "ce_ub975": 0.1926,
+          "margin_damage": 0.9051
+        }
+      },
+      "rank_curve": [
+        0.1772,
+        0.1866,
+        0.127,
+        0.1212,
+        0.0674,
+        0.0403
+      ],
+      "seconds": 1.1,
+      "units": [
+        "attn:10:head:05",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:09:head:07",
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:10:head:01",
+        "attn:06:head:01",
+        "attn:11:head:01",
+        "attn:07:head:07",
+        "attn:07:head:08"
+      ],
+      "upstream_blocks": [
+        "5:heads",
+        "6:heads",
+        "7:heads",
+        "9:heads"
+      ],
+      "upstream_units": [
+        "attn:09:head:07",
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:06:head:01",
+        "attn:07:head:07",
+        "attn:07:head:08"
+      ],
+      "v199_F_up": 0.0403,
+      "v199_R1_up": 0.1772
+    },
+    "possessive_verbfinal": {
+      "block_dims": {
+        "3:heads": 128,
+        "4:heads": 128,
+        "5:heads": 128,
+        "9:heads": 256
+      },
+      "dose": {
+        "0.0": {
+          "ce_damage": 0.1999,
+          "ce_lb975": 0.0817,
+          "ce_ub975": 0.3168,
+          "margin_damage": 1.1265
+        },
+        "0.25": {
+          "ce_damage": 0.2206,
+          "ce_lb975": 0.1215,
+          "ce_ub975": 0.3196,
+          "margin_damage": 1.1128
+        },
+        "0.5": {
+          "ce_damage": 0.2423,
+          "ce_lb975": 0.1624,
+          "ce_ub975": 0.3243,
+          "margin_damage": 1.0999
+        },
+        "0.75": {
+          "ce_damage": 0.2646,
+          "ce_lb975": 0.1978,
+          "ce_ub975": 0.3324,
+          "margin_damage": 1.0877
+        },
+        "1.0": {
+          "ce_damage": 0.2874,
+          "ce_lb975": 0.2269,
+          "ce_ub975": 0.347,
+          "margin_damage": 1.0761
+        }
+      },
+      "dose_curve": [
+        0.2874,
+        0.2646,
+        0.2423,
+        0.2206,
+        0.1999
+      ],
+      "n_rows": {
+        "fit": 16,
+        "held": 16
+      },
+      "random": {
+        "ce_damage": 0.0025,
+        "ce_lb975": 0.0001,
+        "ce_ub975": 0.0051,
+        "margin_damage": 0.0064
+      },
+      "rank": {
+        "1": {
+          "ce_damage": 0.2874,
+          "ce_lb975": 0.2269,
+          "ce_ub975": 0.347,
+          "margin_damage": 1.0761
+        },
+        "16": {
+          "ce_damage": 0.2106,
+          "ce_lb975": 0.1108,
+          "ce_ub975": 0.309,
+          "margin_damage": 1.078
+        },
+        "2": {
+          "ce_damage": 0.2826,
+          "ce_lb975": 0.2238,
+          "ce_ub975": 0.3418,
+          "margin_damage": 1.0668
+        },
+        "4": {
+          "ce_damage": 0.2308,
+          "ce_lb975": 0.1598,
+          "ce_ub975": 0.2998,
+          "margin_damage": 1.0733
+        },
+        "8": {
+          "ce_damage": 0.2184,
+          "ce_lb975": 0.1266,
+          "ce_ub975": 0.3069,
+          "margin_damage": 1.0807
+        },
+        "D": {
+          "ce_damage": 0.1999,
+          "ce_lb975": 0.0817,
+          "ce_ub975": 0.3168,
+          "margin_damage": 1.1265
+        }
+      },
+      "rank_curve": [
+        0.2874,
+        0.2826,
+        0.2308,
+        0.2184,
+        0.2106,
+        0.1999
+      ],
+      "seconds": 1.1,
+      "units": [
+        "attn:05:head:03",
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:10:head:01",
+        "attn:09:head:07",
+        "attn:03:head:04"
+      ],
+      "upstream_blocks": [
+        "3:heads",
+        "4:heads",
+        "5:heads",
+        "9:heads"
+      ],
+      "upstream_units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:04:head:05",
+        "attn:09:head:07",
+        "attn:03:head:04"
+      ],
+      "v199_F_up": 0.1999,
+      "v199_R1_up": 0.2874
+    }
+  }
+}
