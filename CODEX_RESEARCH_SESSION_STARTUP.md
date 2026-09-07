@@ -2,17 +2,23 @@
 
 ## Start this program with Astra
 
-The installed Codex CLI is `0.153.4`, and direct account access to the official Astra model slug
-was verified on 2026-09-07 even though Astra was absent from the cached model picker.  Start a new
-interactive Astra session directly instead of relying on the picker:
+The installed Codex CLI is `0.153.4`. On 2026-09-07, `codex debug models` confirmed that the
+account catalog lists `GPT-6-Astra` under the exact slug `gpt-6-astra`, and a direct model call
+succeeded. Astra is now the default in `/root/.codex/config.toml`.
+
+An already-running session does not inherit a changed default. Use its model switcher if Astra is
+visible; otherwise exit it and start an Astra session explicitly:
 
 ```bash
 codex -m gpt-6-astra -C /workspace/tensor_language
 ```
 
 Then paste the prompt in **Suggested first prompt in a new session** at the end of this document.
-The model name is `gpt-6-astra`; restarting Codex refreshes the executable, but the explicit
-`-m` argument is what bypasses a stale picker.
+To diagnose a stale picker, query the actual catalog:
+
+```bash
+codex debug models | jq '.models[] | select(.slug == "gpt-6-astra")'
+```
 
 ## Purpose
 
@@ -103,97 +109,63 @@ theorems or algorithms object-to-object, list their assumptions and our violatio
 least one executable circuit consequence.  Begin the best consequence immediately after writing
 the review.
 
-## Current circuit state at 2026-09-07 18:14 UTC
+## Current circuit state at 2026-09-07 21:07 UTC
 
 The canonical dossier is
 `basis_aligned/polynomial_causal/explanations/CIRCUIT_temporal_iswas_rank46_task_modes_2026-09-07.md`.
 
 The v15 construction changed the causal graph enough that the old rank-16 five-MLP source program
-failed.  Complete native module patches then localized the changed behavior primarily to attention
-8, 9, and 11, with several MLP writers also material.  The input-inclusive prefix diagnostic is
-quarantined because replacing the whole embedding sequence trivially replaces the prompt.
+failed. Complete native-module patches localized the changed behavior primarily to attention
+layers 8, 9, and 11. Exact head patching then identified a distributed four-head core: `L8H1`,
+`L9H1`, `L9H4`, and `L11H3`. These are real within-module splits, not singleton-sufficiency claims.
 
-The exact 27-head atlas is complete and valid:
+Aligned, capability-qualified P/C controls repaired an earlier absolute-token-position defect. The
+repaired exhaustive five-piece attention lattice is valid and shows that complete head responses
+recover A1/A2 behavior (`.80535/.86829`) but are not selective: P has five flips and C has three. A
+cross-fitted linear complement removes P collateral but also collapses A1/A2, rejecting simple
+linear task/nuisance separation.
 
-- result: `basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_v15_attention8_9_11_complete_head_atlas_v1_result.json`;
-- `L8H1` behavioral signed projection `.40075`;
-- `L11H3` `.25460`;
-- `L9H1` `.16310`;
-- `L9H4` `.15853`;
-- all four have rowwise direction fraction `1.0` and are conditionally necessary inside their
-  full attention parents.
+The exact pattern/value/interaction decomposition is complete. Its mandatory shared lesson is that
+an absolute downstream clamp differs from adding a donor-minus-base delta to a live head already
+changed by upstream interventions. The valid absolute-clamp result localizes most target transfer
+to value content; pattern and interaction pieces are comparatively selective but too weak.
 
-This is a real within-module split, not a claim that one head is sufficient.  Attention 8 and 11
-are nearly additive across heads, while attention 9 has a `.02936` whole-layer-versus-singleton-sum
-behavior interaction gap.
+The latest completed screen is:
 
-The completed v15 cross-boundary adaptive greedy composition is:
+- prior: `basis_aligned/bilinear_quotient/circuits/prior_art/temporal_iswas_v15_head_factor_dual_greedy_v1.json`;
+- runner: `basis_aligned/bilinear_quotient/ops/run_temporal_iswas_v15_head_factor_dual_greedy_v1.py`;
+- runner SHA-256: `8c02ee2a04faad82c3341667f457c30537f351c9147a26dadd7b19736a5d3a48`;
+- result: `basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_v15_head_factor_dual_greedy_v1_result.json`;
+- result SHA-256: `51c705281cc4fa10aa7d5c3c54bc3b1ee1e9d6d3af3e74f3b98cef3a34ad0285`.
 
-- prior:
-  `basis_aligned/bilinear_quotient/circuits/prior_art/temporal_iswas_v15_cross_boundary_adaptive_greedy_v1.json`;
-- runner:
-  `basis_aligned/bilinear_quotient/ops/run_temporal_iswas_v15_cross_boundary_adaptive_greedy_v1.py`;
-- runner SHA-256:
-  `de7906f02a1739c0ef01d08210a68140bfcac3a496a3d62780bfc024423f6954`;
-- expected result:
-  `basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_v15_cross_boundary_adaptive_greedy_v1_result.json`;
-- exact price: 174 forwards over all 64 v15 A1/A2/P/C rows.
+It is mechanically valid at 152 observed forwards and returns
+`no_selective_dual_greedy_program`. The strongest zero-flip/low-KL visited arm reaches only
+`.13763` A1. Target-first combinations reach `.84510` A1 but still flip five P and two C rows. The
+full 12-factor arm replays its parent within `4.62e-7`, reaches `.80535/.86829` A1/A2, and flips
+five P plus three C rows. This null is path-local, not an impossibility theorem.
 
-The job finished successfully at `2026-09-07T18:14:24Z`.  Its A1/A2 target composition is valid:
-the full bank reconstructs behavior at `.958/.966` and final residual at `.981/.988`.  Its
-control-constrained selection and `no_small_selective_prefix` terminal are retracted because the P
-and C controls have unequal base/donor token lengths but were patched by absolute index.
+## Active continuation: target-feasible regularized DAS
 
-The greedy order is selected using actual joint A1 behavior subject to P/C selectivity; A2 never
-selects the sequence or stopping prefix.  However, A2 contributed to the earlier pooled module and
-head candidate screens.  Therefore prediction C is only a no-reselection construction check, not
-a pristine held-out identification test.  A genuinely fresh lexical/construction bank is required
-before promotion.
+Use the protocol derived in
+`basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-07_2026.md`:
 
-## Result-dependent continuation
+1. Make cross-fitted A1 transfer a hard feasibility constraint rather than optimizing a soft
+   target-minus-complement score.
+2. Among feasible projectors, minimize worst-group P KL plus Gaussian-noise/Jacobian sensitivity
+   and cross-fold projector instability.
+3. Select dimension, noise, and regularization on opposite A1/P parity only; keep A2/C sealed.
+4. Use orthonormal projectors and a fixed unit intervention dose so a zero-effect complement cannot
+   win by construction.
+5. If the subspace passes, translate it through native QK/OV and downstream weight tensors to
+   identify explicit writers/readers, then run fresh held-out manipulation.
+6. If no target-feasible projector exists, preserve the null and change the object to nonlinear or
+   input-conditional subspaces rather than another complement-only optimizer.
 
-The active successor should be an exact 32-subset lattice over the low-collateral attention pieces
-`L8H1`, `L9H1`, `L9H4`, `L11H3`, and complete `attn:15`.  It tests whether attention-component
-composition restores selectivity before splitting the high-gain, high-collateral MLP responses.
-
-That successor completed through the managed runner:
-
-- prior: `basis_aligned/bilinear_quotient/circuits/prior_art/temporal_iswas_v15_low_collateral_attention_lattice_v1.json`;
-- runner: `basis_aligned/bilinear_quotient/ops/run_temporal_iswas_v15_low_collateral_attention_lattice_v1.py`;
-- runner SHA-256: `6747d2d5cc85772f1f20dceb3ab9ac6cf665bfdccad590a1ba028e7cac19f192`;
-- expected result: `basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_v15_low_collateral_attention_lattice_v1_result.json`;
-- exact price: 35 forwards over all 64 A1/A2/P/C rows.
-
-It exactly evaluates all 32 target subsets.  All five pieces together recover `.80536/.86829`
-A1/A2 behavior.  The registered `no_selective_attention_subset` terminal is retracted because it
-uses the same misaligned P/C controls; only the target-side lattice is evidence.
-
-The active repair is `basis_aligned/bilinear_quotient/ops/aligned_full_sequence_patch_contract.py`.
-It requires equal base/donor token counts and semantic positions for every row before an
-absolute-index sequence patch.  The old A1/A2 rows pass; the old P/C controls fail closed.  Build
-new capability-qualified, equal-length P/C controls, then replay the frozen 32-mask attention
-lattice before deciding whether within-MLP subspace splitting is necessary.
-
-When the next result lands:
-
-1. Score every registered prediction and terminal exactly as written; retain failures and nulls.
-2. Inspect the chosen sequence, first eligible prefix, A1/A2 behavior, P/C KL and flips, full-final
-   residual agreement, and every selected-component exclusion.
-3. Update the canonical dossier and `AGENT_BOARD.md`, commit the result and interpretation, and
-   push exact owned files.
-4. If a selective prefix confirms, freeze it and immediately preregister a genuinely fresh
-   lexical/construction confirmation followed by temporal/is-was joint composition.  Translate
-   the confirmed response interfaces through the native attention OV and MLP bilinear weight
-   tensors to find explicit upstream writers and downstream readers.
-5. If no selective prefix exists, do not add arbitrary complete modules.  Use control-conditioned
-   pruning and split the causally selected MLP responses into task-defined, gauge-invariant pieces.
-6. If behavior succeeds but full-residual agreement fails, preserve that as an observation-map
-   mismatch and build the finite multi-environment causal-response operator needed for the next
-   constrained-DAS objective.
-
-Before ending any new session turn, require a continuation receipt: an append-only board claim and
-either completed CPU analysis, a committed preregistration with implementation underway, or an
-audited job present in the managed queue/runner.
+For every completed result, score the registered predictions exactly, preserve nulls and invalid
+instruments, update the dossier and `AGENT_BOARD.md`, commit and push exact owned files, then begin
+the evidence-selected successor. Before ending a turn, require a continuation receipt: an
+append-only board claim and either completed CPU analysis, a committed preregistration with
+implementation underway, or an audited job in the managed queue/runner.
 
 ## Suggested first prompt in a new session
 

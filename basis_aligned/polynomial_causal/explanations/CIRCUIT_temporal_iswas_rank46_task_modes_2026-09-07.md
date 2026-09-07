@@ -285,6 +285,17 @@ target-dominant value computation.  The final exact-operation screen opens all 1
 components under deterministic target-first and target/control-constrained greedy paths, allowing
 head-specific pattern/interaction terms to offset collateral before any learned subspace.
 
+That 12-factor dual-greedy screen is now complete and valid.  It evaluated 143 unique scientific
+arms in 152 forwards, with zero self error, `1.14e-5` factor closure, `4.62e-7` numeric parent replay,
+and exact categorical replay.  Neither deterministic path finds a selective program.  The strongest
+strictly zero-flip/low-KL visited arm reaches only `.13763` A1.  The target-first path reaches
+`.84510` A1 but flips five P and two C rows; the full arm reaches `.80535/.86829` A1/A2 and flips
+five P plus three C rows.  The terminal `no_selective_dual_greedy_program` is path-local: it closes
+the discrete exact-factor allocation route, not every continuous projector.  The registered
+successor is therefore a head-local, cross-fitted DAS projector with A1 transfer as a hard
+feasibility constraint and P KL, Gaussian-noise sensitivity, and fold-projector stability used to
+choose among feasible projectors while A2/C remain sealed.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -385,10 +396,11 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Execute the registered full 12-component head-by-factor dual-greedy program.  Its null is
-   path-local but supplies the finite response columns for target-feasible regularized DAS.
-3. Replace the rejected scalar-axis DAS loss, if exact factors fail, with a finite causal-response operator whose held-out
-   blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
-   as explicit controls, not post-hoc explanations.
+2. Execute the registered head-local target-feasible regularized DAS protocol.  Use A1/P parity for
+   every fit and hyperparameter choice, keep A2/C sealed, and retain DIM/step zero plus exact-factor
+   programs as explicit controls.
+3. If the fixed linear projector family is infeasible or nonselective, replace it with an
+   input-conditional/nonlinear causal-response object whose held-out blocks are complete
+   constructions and downstream readers; do not merely widen the same coefficient grid.
 4. Test joint composition when temporal and is–was commands are installed together.
 5. Price an extracted executor only after these identification gates pass.

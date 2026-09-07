@@ -1,0 +1,61 @@
+{
+  "schema": "temporal_iswas_v15_head_response_target_feasible_regularized_das_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_head_response_target_feasible_regularized_das_v1",
+  "question": "Can a cross-fitted, target-feasible projector inside the four causally material attention heads retain temporal transfer while regularization removes the aligned P/C collateral that defeated exact head-by-factor programs?",
+  "novelty_search": "The aligned complete-head lattice, linear complement, homogeneous factor factorial, 64-arm head-specific value lattice, and 12-factor dual greedy all exist. None fits orthonormal projectors inside the four head response spaces under a hard target-feasibility constraint, opposite-parity selection, noise sensitivity, projector stability, and sealed A2/C evaluation.",
+  "authorities": {
+    "dual_greedy_result_sha256": "51c705281cc4fa10aa7d5c3c54bc3b1ee1e9d6d3af3e74f3b98cef3a34ad0285",
+    "dual_greedy_runner_sha256": "8c02ee2a04faad82c3341667f457c30537f351c9147a26dadd7b19736a5d3a48",
+    "aligned_rows_sha256": "3f1d28abb658040493284b307cc27ba76f422dddb08ee9c53686c557d49f283c",
+    "aligned_builder_sha256": "7027e128ea3e68a35e92f451d0f62453a937e64a8dafda24d841aa1f1d29e645",
+    "absolute_clamp_contract_sha256": "b16b86b23d50b1284eecaa01855301d50ced82e2112bf44167b9596c0b7fd0f3",
+    "mathematical_review_sha256": "e2803967f22445b2113bdd1d470287f7051439f703e9b5af9aaeacffebd9557f"
+  },
+  "sites": ["L8H1", "L9H1", "L9H4", "L11H3"],
+  "intervention": "At every selected head, project the frozen donor-minus-base native head-output response onto an orthonormal U_h U_h^T and install base plus that projected response as an absolute clamp at all causal prefix positions. Complete attention 15 remains the same frozen donor clamp used by the valid parent. Intervention dose is exactly one and is never optimized.",
+  "folds": {
+    "selection": "Split A1 and P by frozen row-group parity. Fit on one parity and select dimension, noise, regularization, and checkpoint only on the opposite A1/P parity; reverse the roles and report both projectors.",
+    "sealed": "A2 and C are not evaluated, logged, or used until one configuration and checkpoint are frozen from A1/P alone. They are opened exactly once."
+  },
+  "projectors": {
+    "family": "Independent orthonormal head-local projectors U_h in St(128,k); no learned classifier or input-conditional gate.",
+    "dimensions": [1, 2, 4],
+    "initializations": ["DIM/task response SVD", "deterministic factor-response SVD"],
+    "stability": "Report pairwise Frobenius distance and principal angles between the two fold projectors, plus singular-value gaps needed to interpret Wedin-style stability."
+  },
+  "lexicographic_objective": {
+    "feasibility": "Every A1 selection group must have behavior signed projection >=0.75 and direction fraction >=0.875.",
+    "secondary": "Among feasible checkpoints minimize worst-group aligned-P full-vocabulary KL, then Gaussian tangent-noise/Jacobian sensitivity, then cross-fold projector instability. If no checkpoint is feasible, rank only for diagnosis by maximum target violation and do not call it a candidate.",
+    "regularization_grid": {
+      "noise_sigma": [0.0, 0.05, 0.1],
+      "jacobian_weight": [0.0, 0.25, 1.0],
+      "stability_weight": [0.0, 0.25, 1.0]
+    }
+  },
+  "fixed_baselines": [
+    "zero-step DIM/task-SVD projector at every registered dimension",
+    "best exact 12-factor zero-flip arm",
+    "full exact 12-factor parent",
+    "no intervention"
+  ],
+  "predictions": {
+    "pred_a_authority_alignment_absolute_clamp_gradient_closure_finiteness_and_price": "All authority hashes and 64 aligned rows match; absolute-clamp and differentiable-gradient tripwires pass; self and full-response replay close; all metrics are finite; observed work does not exceed the preregistered price.",
+    "pred_b_target_feasible_regularized_checkpoint_exists": "Both parity directions select a moved checkpoint satisfying every A1 target bar.",
+    "pred_c_regularization_beats_dim_on_opposite_parity": "On both directions the frozen moved checkpoint has lower worst-group P KL than its matched-rank DIM/task-SVD step-zero baseline without weakening either A1 bar.",
+    "pred_d_projector_is_fold_stable": "Matched head projectors have preregistered principal-angle and Frobenius stability within the reported spectral-gap uncertainty.",
+    "pred_e_sealed_a2_transfers": "The once-opened A2 panel satisfies signed projection >=0.75 and direction fraction >=0.875.",
+    "pred_f_sealed_controls_are_selective": "P and C separately have zero top-one flips and median full-vocabulary KL <=0.02.",
+    "pred_g_learned_projector_beats_exact_factor_baselines": "The learned program strictly improves the target/control feasibility tuple over every exact-factor baseline."
+  },
+  "terminal_policy": {
+    "target_feasible_regularized_das_candidate": "A-G pass; this remains a screen requiring fresh-family confirmation and weight-tensor writer/reader translation.",
+    "regularization_does_not_beat_dim": "A and B pass but C or G fails.",
+    "projector_instability": "A-C pass but D fails.",
+    "construction_memorization": "A-D pass but E fails.",
+    "control_nonselective": "A-E pass but F fails.",
+    "head_projector_family_infeasible": "A passes but no moved checkpoint satisfies B.",
+    "invalid": "A fails."
+  },
+  "next_branch": "A candidate freezes the projector for a genuinely fresh lexical/construction test, then translates it through QK/OV and downstream tensors to explicit writers/readers. An infeasible or nonselective result changes the object to nonlinear/input-conditional routing rather than widening the same hyperparameter grid.",
+  "execution_policy": "managed_queue_only"
+}
