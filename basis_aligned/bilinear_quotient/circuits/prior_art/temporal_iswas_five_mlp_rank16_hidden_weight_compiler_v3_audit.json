@@ -1,0 +1,15 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_five_mlp_rank16_hidden_weight_compiler_v3_audit",
+  "created_utc": "2026-09-07T13:07:00Z",
+  "v2_result_sha256": "3476ed7c80854bd7e7282062601dff16a775393a8b44ee0879958050961b4198",
+  "question": "Does an atomic zero-forward authority audit show that v2's only remaining invalidity is the mistaken requirement that the uncalibrated ladder itself selected rank16, while the actual rank16+gain1.15 authority and every tensor diagnostic pass?",
+  "predictions": {
+    "pred_a_hashes_and_parent_dispositions_match": "V2 and all five frozen authority hashes match; position parent is the valid rank-boundary receipt and gain parent is the promoted gain1.15 receipt.",
+    "pred_b_corrected_atomic_authority_passes": "Raw Q Gram <=5e-4, support exactly five named MLPs, all values finite, rank16 exists in the position report, gain selected 1.15, reverse terminal is bidirectional, and price is 17.",
+    "pred_c_exact_compiler_and_gauge_pass": "V2 closure <=1e-10 and float64 gauge error <=1e-10.",
+    "pred_d_full_rank_maps_pass": "All five maps have numerical rank16.",
+    "pred_e_participation_hypothesis_remains_false": "Fewer than three maps put >=25% energy in their top 10% hidden units."
+  },
+  "terminal_policy": {"invalid": "A-C fails", "distributed_weight_compiled_source_program": "A-D pass and E confirms the registered participation null", "null": "other valid outcome"},
+  "price": {"model_forwards": 0, "example_evaluations": 0, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
