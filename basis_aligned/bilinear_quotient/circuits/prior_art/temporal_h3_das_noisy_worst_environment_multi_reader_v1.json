@@ -1,0 +1,28 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_das_noisy_worst_environment_multi_reader_v1",
+  "claimed_utc": "2026-09-07T00:53:00Z",
+  "claim": "Rank-one H3 DAS optimized against the worst of four task/panel environments using behavior, L15 H5/H1, and full-vocabulary readers, with antithetic tangent noise and sealed odd-row/v8/v9 evaluation.",
+  "collision_search": [
+    "temporal_auxiliary_will_had_block11h3_regularized_cdas_v1",
+    "temporal_auxiliary_will_had_block11h3_multicue_subspace_v2",
+    "temporal_auxiliary_will_had_h3_tensor_anchored_regularized_rank7_v2",
+    "temporal_h3_das_multi_reader_frozen_axis_tournament_v1"
+  ],
+  "novelty": "Prior DAS fits used one scalar/full-vocabulary objective or optimized rank-seven compression. This fit shares each intervention across three causally distinct readers, minimizes a smooth worst-environment objective, and never selects on v8/v9.",
+  "opposing_predictions": {
+    "robust_operator": "Held-out objective improves over the pooled-aligned seed and sealed v8/v9 mean and worst scores improve over the frozen pooled-aligned axis.",
+    "task_memorization": "Training improves but held-out or sealed multi-reader scores do not improve.",
+    "objective_miss": "The optimizer cannot improve held-out loss from the pooled-aligned seed, or improvements trade off independent reader families."
+  },
+  "frozen_design": {
+    "training_environments": ["v1_A1_even", "v1_A2_even", "v2_A1_even", "v2_A2_even"],
+    "selection_environments": ["v1_A1_odd", "v1_A2_odd", "v2_A1_odd", "v2_A2_odd"],
+    "sealed_banks": ["v8", "v9"],
+    "readers": ["answer_foil_margin", "layer15_heads_5_1_query_output", "centered_full_vocabulary"],
+    "regularization": {"antithetic_tangent_noise_sigma": 0.03, "pooled_axis_projector_anchor": 0.02},
+    "restarts": ["pooled_aligned", "pooled_dim", "random_907"],
+    "updates_per_restart": 50,
+    "selection": "lowest actual worst-environment loss on held-out odd rows over frozen ten-step checkpoints"
+  },
+  "null": "Any trained-only gain without odd-row and sealed-reader improvement is recorded as task memorization, not a better circuit."
+}
