@@ -3,12 +3,13 @@
   "claimed_utc": "2026-09-07T04:34:00Z",
   "question": "Is the accurate but nonselective eight-site program a superposition of generic transport and a task-specific complementary response subspace within the same native modules?",
   "authorities": {"generic_union_result_sha256": "57402478b86e88237bb745824e7aa8e6d56c17336753cee3d1b4e9359b5febe3", "matched_control_atlas_result": "current committed v2 receipt"},
+  "pre_outcome_amendment": "Validation controls are the new endpoint-matched authority and therefore cannot reproduce the earlier mismatched-control union numerically. Before implementation or outcome access, pred B was narrowed to exact rank-0 replay on the unchanged target population; validation remains sealed for selectivity.",
   "sites": ["MLP1", "L9H1", "MLP3", "L9H4", "L8H1", "MLP6", "MLP4", "L11H3"],
   "fit": "For each site, pool all tokenwise donor-minus-base response vectors from matched-control discovery rows and take the deterministic SVD feature subspace. No target or validation-control outcome enters the fit.",
   "intervention": "On target and matched-control validation rows, replace each selected response by base plus donor-minus-base after removing its projection onto the fitted generic-control feature subspace. Test frozen ranks 1, 4, and 8; also replay the unprojected rank-0 program.",
   "predictions": {
     "pred_a_authority_alignment_self_patch_finiteness_and_price": "Authorities, endpoints, SVD ranks, self replay, finiteness, and <=16 forwards close.",
-    "pred_b_unprojected_replay_matches_prior": "Rank-0 target worst residual and validation-control effects reproduce the prior program within 0.01 absolute.",
+    "pred_b_unprojected_replay_matches_prior": "Rank-0 target output matches the ordinary eight-site donor response patch to <=1e-4 state max-absolute error, and its target worst residual matches the prior program within 0.01 absolute.",
     "pred_c_generic_projection_reduces_controls": "At rank 4 or 8, validation control effect is <=50% of rank 0 in both tasks.",
     "pred_d_complement_preserves_target": "The same rank achieving C has target worst residual <=0.15 and retains >=80% signed behavior projection in both tasks.",
     "pred_e_complement_is_selective": "The same rank has validation-control effect <=10% of target full-effect scale in both tasks."
