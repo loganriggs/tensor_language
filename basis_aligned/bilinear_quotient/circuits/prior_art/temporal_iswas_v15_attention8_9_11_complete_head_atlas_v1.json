@@ -31,6 +31,7 @@
     "known_head_construction_shift": "A, B, and D pass but C fails.",
     "conditional_only_head_set": "A, C, and D pass but B fails.",
     "head_singleton_and_necessity_null": "A passes but both B and D fail.",
+    "partial_head_structure": "A passes and no more specific terminal applies; retain every failed prediction and do not promote a head set.",
     "invalid": "A fails."
   },
   "next_branch": "Run a frozen greedy combination of material heads across layers 8/9/11 with top MLP modules; a dominant head first receives answer-preserving and unrelated control tests.",
