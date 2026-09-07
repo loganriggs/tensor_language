@@ -135,6 +135,12 @@ fold failure; sealed v16 reaches only `.64172/.49549`.  Therefore the attention-
 factorial is currently ineligible.  Build and execute the separate A1/A2 oracle-axis plus exact
 projective-bisector falsifier first.
 
+Its prospective receipt is
+`basis_aligned/bilinear_quotient/circuits/prior_art/temporal_iswas_v15_construction_oracle_projective_bisector_v1.json`.
+The reusable single-panel fit core is
+`basis_aligned/bilinear_quotient/ops/construction_oracle_projector_fit.py`; it must be integrated
+into a hash-bound managed runner without changing the completed parent artifact.
+
 Do not overstate the exact-weight result.  A hash-bound zero-model path audit proved that every
 current DAS outcome clamps the complete attention-15 donor head output after layer-15 Q/K/V has
 been computed.  Thus the causal projector effect can travel through the residual skip/MLP15 and

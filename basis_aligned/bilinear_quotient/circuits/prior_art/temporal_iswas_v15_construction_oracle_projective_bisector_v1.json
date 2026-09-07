@@ -1,0 +1,46 @@
+{
+  "schema": "temporal_iswas_v15_construction_oracle_projective_bisector_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_construction_oracle_projective_bisector_v1",
+  "registered_utc": "2026-09-07T23:48:00Z",
+  "question": "Did the joint rank-one optimizer fail to find an existing fixed invariant, or are the stable causal coordinates construction-conditioned or interaction-conditioned?",
+  "prior_art": {
+    "searched": [
+      "temporal/iswas v15 DIM, complement, DAS, multi-environment, weight-interface, and construction-transfer records",
+      "projective bisector, pooled rank-one, Grassmann, and two-construction circuit records",
+      "canonical dossier, active claims, latest hourly and mathematical reviews"
+    ],
+    "active_claim_collision": false,
+    "known_lessons": "The valid joint fit has no checkpoint feasible on both targets in both held parities, despite stable fold projectors and apparently good pooled v15 metrics. Local noise/Jacobian regularization did not solve the earlier construction failure.",
+    "novelty": "Separately identify each construction's rank-one causal axes under the same held-parity and control discipline, then execute the exact analytic projective minimax center without refitting."
+  },
+  "bound_ancestry": {
+    "multi_environment_result_sha256": "0eba172c8ada3e3cfcaa2826afa7a348480a6b61bde819c1a0daad9ed8dcb1a4",
+    "projective_bisector_contract_sha256": "db972f4c81947377dc2cb16072d9c95bcf42b3acf1538ae1a8345fe80e064f2c"
+  },
+  "frozen_design": {
+    "sites": ["L8H1", "L9H1", "L9H4", "L11H3"],
+    "rank": 1,
+    "constructions": ["A1", "A2"],
+    "controls": ["P", "C"],
+    "fit": "For each construction and training parity, initialize from that construction's head-response factor SVD, fit only that construction with eight Adam updates at .03, and select checkpoints 0/4/8 solely on the opposite parity using the .75 projection/.875 direction feasibility gate followed by worst P/C control score.",
+    "bisector": "For each training parity and head, sign-align the separately selected A1/A2 unit axes and use their normalized sum. No gradient update, rank choice, or post-outcome orientation is allowed.",
+    "evaluation": "Apply own, cross-construction, and bisector four-head tuples to opposite-parity v15 A1/A2/P/C. After all v15 fits and choices freeze, report v16 A1/A2/P for the same tuples. Complete attention-15 remains fixed to preserve comparability with the failed parent.",
+    "price_max": {
+      "native_capture_forwards": 20,
+      "differentiable_transformer_forwards": 140,
+      "transformer_backward_forwards": 32,
+      "model_updates": 32,
+      "example_evaluations": 7000,
+      "fit_parameters": 1024
+    }
+  },
+  "predictions": {
+    "pred_a_authority_alignment_parent_replay_gradient_geometry_closure_finiteness_and_price": "All ancestry hashes, row alignments, manual/native and parent identity replay, gradient, orthogonality, bisector geometric identity, finiteness, and literal price checks pass.",
+    "pred_b_each_construction_has_a_stable_effective_rank1_oracle": "Every A1-only and A2-only selected checkpoint is feasible on its held parity, and every head has within-construction fold cosine >= .75 for both constructions.",
+    "pred_c_construction_axes_are_distinct": "At least one head has A1-versus-A2 absolute axis cosine < .75 in both training parities.",
+    "pred_d_cross_use_is_construction_specific": "For both A1 and A2, the own-oracle held-panel signed projection exceeds the cross-oracle projection by >= .08 in each evaluation parity.",
+    "pred_e_analytic_bisector_recovers_a_fixed_invariant": "In each evaluation parity, the bisector reaches >= .75 signed projection and >= .875 direction fraction on both v15 A1/A2 with zero P/C flips; on v16 it reaches >= .65 and >= .875 on A1/A2 with zero P flips.",
+    "pred_f_bisector_beats_failed_joint_fit": "The bisector's worst per-parity v15 target projection exceeds the corresponding failed joint selected checkpoint by >= .03 in both evaluation parities."
+  },
+  "decision": "If b/e/f pass, diagnose joint-optimizer failure and promote the bisector to the pending attention-15 dependency factorial. If b/c/d pass while e fails, select a construction-routed finite mixture. If b fails, reject stable rank one. If per-head geometric overlap is high but e fails, test ordered cross-head interactions before adding rank."
+}
