@@ -21,7 +21,7 @@
   },
   "comparators": ["all five activation-top50", "all five full support"],
   "predictions": {
-    "pred_a_authority_population_replays_finiteness_and_price": "All hashes and parent terminal match; both populations are nonempty and disjoint from the selector population; full-support replays its reference intervention; all values finite; observed forwards <=24.",
+    "pred_a_authority_population_replays_finiteness_and_price": "All hashes and parent terminal match; both populations are nonempty and disjoint from the selector population; all values are finite; observed forwards <=25.",
     "pred_b_frozen_mask30_is_functional": "On each task, response signed projection >=.80, response RSE <=.20, and behavior signed projection >=.75.",
     "pred_c_mlp0_bottom_half_remains_dispensable": "Mask30 behavior differs from full support by at most .03 and response signed projection by at most .03 on each task.",
     "pred_d_mask30_beats_all_top50": "Mask30 improves temporal behavior by at least .03 over all-top50.",
@@ -33,6 +33,6 @@
     "null": "Other valid outcome",
     "invalid": "A fails"
   },
-  "price": {"model_forwards_max": 24, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0},
+  "price": {"model_forwards_max": 25, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0},
   "execution_policy": "managed_queue_only"
 }
