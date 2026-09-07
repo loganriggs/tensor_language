@@ -1,0 +1,21 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_source_clamped_compiled_graph_v1",
+  "question": "Can the cue source drive a selective end-to-end circuit when every non-pool upstream component is base-clamped and only compiled response coordinates are installed?",
+  "frozen_program": {
+    "source": "replace wte output only at the single aligned changed cue token",
+    "upstream_graph": "allow only the identical frozen 20-site atlas pool to respond through layers 0-10; base-clamp every other full head and MLP component",
+    "readers": "four local-current c_v/Q maps plus four prospectively validated rank-64 MLP input covector maps",
+    "actuation": "install only the eight generated projected responses into an independent base run",
+    "rows": "temporal-v13 and is/was-v12 targets; temporal-v13 P controls",
+    "reference": "the complete eight-site donor response patch, not the full donor model"
+  },
+  "predictions": {
+    "pred_a_authority_top20_self_clamp_embedding_scope_finiteness_and_price": "authorities replay, top20 agrees across fits, the no-source clamped graph is exactly base, target source touches one token, and <=24 forwards execute",
+    "pred_b_source_clamped_graph_generates_compiled_coordinates": "for both fits every generated coordinate has signed projection >=0.75 and aggregate mean residual <=0.20 versus the full donor-input compiled coordinates",
+    "pred_c_source_clamped_compiled_program_is_target_sufficient": "both fits attain worst target residual <=0.15 and signed behavior projection >=0.80 on both tasks",
+    "pred_d_source_clamped_compiled_program_is_selective": "controls have normalized margin RMS <=0.10, median full-vocabulary KL <=0.02, and flip fraction <=0.05",
+    "pred_e_source_clamped_graph_is_crossfit_stable": "even/odd minimum coordinate projection differs by <=0.05 and final per-task signed projections differ by <=0.05"
+  },
+  "decision": "Passing is an end-to-end source-to-reader tensor program. Failure localizes missing recurrence inside the 20-site graph and triggers layerwise add-back, not unconstrained DAS optimization.",
+  "price": {"model_forwards_max": 24, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
