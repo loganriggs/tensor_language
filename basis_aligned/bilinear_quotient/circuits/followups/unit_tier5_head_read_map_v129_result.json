@@ -1,0 +1,1683 @@
+{
+  "bars": {
+    "K": [
+      3,
+      8
+    ],
+    "a_frac": 0.95,
+    "add_frac": 0.2,
+    "b_frac": 0.6,
+    "far_gap": 3,
+    "hub_frac": 0.5,
+    "instr_tol": 0.02,
+    "own_min": 0.1,
+    "single_frac": 0.7
+  },
+  "behaviours": {
+    "additive_scope": {
+      "rows": 3,
+      "skipped": "fewer than 4 rows"
+    },
+    "correlative_either_neither": {
+      "heads": [
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01",
+        "attn:09:head:07"
+      ],
+      "per_head": {
+        "attn:07:head:08": {
+          "all": 0.073,
+          "between": 0.0,
+          "cue": 0.061,
+          "near": 0.01,
+          "own_cached": 0.073,
+          "self": -0.0
+        },
+        "attn:08:head:01": {
+          "all": 0.236,
+          "between": 0.0,
+          "cue": 0.232,
+          "near": 0.003,
+          "own_cached": 0.236,
+          "self": 0.0
+        },
+        "attn:09:head:07": {
+          "all": 0.032,
+          "between": 0.0,
+          "cue": 0.007,
+          "near": 0.02,
+          "own_cached": 0.032,
+          "self": 0.004
+        },
+        "attn:10:head:05": {
+          "all": 0.057,
+          "between": 0.0,
+          "cue": 0.03,
+          "near": 0.02,
+          "own_cached": 0.057,
+          "self": 0.007
+        },
+        "attn:13:head:08": {
+          "all": 0.065,
+          "between": 0.0,
+          "cue": 0.066,
+          "near": -0.0,
+          "own_cached": 0.065,
+          "self": -0.0
+        },
+        "attn:14:head:08": {
+          "all": 0.23,
+          "between": 0.0,
+          "cue": 0.231,
+          "near": -0.001,
+          "own_cached": 0.23,
+          "self": 0.0
+        },
+        "attn:15:head:01": {
+          "all": 0.032,
+          "between": 0.0,
+          "cue": 0.026,
+          "near": 0.003,
+          "own_cached": 0.032,
+          "self": 0.003
+        },
+        "attn:16:head:08": {
+          "all": 0.151,
+          "between": 0.0,
+          "cue": 0.15,
+          "near": 0.001,
+          "own_cached": 0.151,
+          "self": 0.0
+        }
+      },
+      "reference": 0.828,
+      "rows": 16,
+      "seconds": 1.0,
+      "sum_own": 0.876
+    },
+    "degree_frame": {
+      "heads": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:12:head:08",
+        "attn:06:head:03",
+        "attn:15:head:01",
+        "attn:10:head:05"
+      ],
+      "per_head": {
+        "attn:06:head:03": {
+          "all": 0.01,
+          "between": 0.0,
+          "cue": 0.012,
+          "near": 0.0,
+          "own_cached": 0.01,
+          "self": -0.002
+        },
+        "attn:07:head:08": {
+          "all": 0.027,
+          "between": 0.0,
+          "cue": 0.031,
+          "near": 0.0,
+          "own_cached": 0.027,
+          "self": -0.0
+        },
+        "attn:08:head:01": {
+          "all": 0.088,
+          "between": 0.0,
+          "cue": 0.084,
+          "near": 0.0,
+          "own_cached": 0.088,
+          "self": 0.001
+        },
+        "attn:10:head:05": {
+          "all": 0.022,
+          "between": 0.0,
+          "cue": 0.015,
+          "near": 0.0,
+          "own_cached": 0.022,
+          "self": 0.005
+        },
+        "attn:12:head:08": {
+          "all": 0.046,
+          "between": 0.0,
+          "cue": 0.037,
+          "near": 0.0,
+          "own_cached": 0.046,
+          "self": 0.008
+        },
+        "attn:15:head:01": {
+          "all": 0.031,
+          "between": 0.0,
+          "cue": 0.029,
+          "near": 0.0,
+          "own_cached": 0.031,
+          "self": 0.002
+        },
+        "attn:16:head:08": {
+          "all": 0.057,
+          "between": 0.0,
+          "cue": 0.058,
+          "near": 0.0,
+          "own_cached": 0.057,
+          "self": -0.001
+        }
+      },
+      "reference": 0.549,
+      "rows": 16,
+      "seconds": 1.1,
+      "sum_own": 0.281
+    },
+    "interrogative_licensing": {
+      "heads": [
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:03:head:00",
+        "attn:02:head:06",
+        "attn:10:head:05",
+        "attn:04:head:04",
+        "attn:05:head:03",
+        "attn:04:head:01",
+        "attn:05:head:07",
+        "attn:04:head:00"
+      ],
+      "per_head": {
+        "attn:02:head:06": {
+          "all": 0.04,
+          "between": 0.0,
+          "cue": 0.057,
+          "near": 0.0,
+          "own_cached": 0.04,
+          "self": -0.001
+        },
+        "attn:03:head:00": {
+          "all": 0.114,
+          "between": 0.0,
+          "cue": 0.113,
+          "near": 0.0,
+          "own_cached": 0.114,
+          "self": -0.002
+        },
+        "attn:04:head:00": {
+          "all": 0.007,
+          "between": 0.0,
+          "cue": 0.009,
+          "near": 0.0,
+          "own_cached": 0.007,
+          "self": -0.002
+        },
+        "attn:04:head:01": {
+          "all": 0.042,
+          "between": 0.0,
+          "cue": 0.041,
+          "near": 0.0,
+          "own_cached": 0.042,
+          "self": 0.002
+        },
+        "attn:04:head:04": {
+          "all": 0.048,
+          "between": 0.0,
+          "cue": 0.044,
+          "near": 0.0,
+          "own_cached": 0.048,
+          "self": 0.002
+        },
+        "attn:05:head:03": {
+          "all": 0.05,
+          "between": 0.0,
+          "cue": 0.03,
+          "near": 0.0,
+          "own_cached": 0.05,
+          "self": 0.015
+        },
+        "attn:05:head:07": {
+          "all": 0.025,
+          "between": 0.0,
+          "cue": 0.017,
+          "near": 0.0,
+          "own_cached": 0.025,
+          "self": 0.005
+        },
+        "attn:07:head:08": {
+          "all": 0.121,
+          "between": 0.0,
+          "cue": 0.058,
+          "near": 0.0,
+          "own_cached": 0.121,
+          "self": 0.059
+        },
+        "attn:09:head:07": {
+          "all": 0.109,
+          "between": 0.0,
+          "cue": 0.039,
+          "near": 0.0,
+          "own_cached": 0.109,
+          "self": 0.064
+        },
+        "attn:10:head:05": {
+          "all": 0.047,
+          "between": 0.0,
+          "cue": 0.023,
+          "near": 0.0,
+          "own_cached": 0.047,
+          "self": 0.023
+        }
+      },
+      "reference": 0.779,
+      "rows": 16,
+      "seconds": 1.0,
+      "sum_own": 0.603
+    },
+    "lexical_number_pp": {
+      "heads": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03"
+      ],
+      "per_head": {
+        "attn:05:head:03": {
+          "all": 0.02,
+          "between": 0.0,
+          "cue": 0.003,
+          "near": 0.016,
+          "own_cached": 0.02,
+          "self": -0.001
+        },
+        "attn:07:head:08": {
+          "all": 0.046,
+          "between": 0.0,
+          "cue": 0.017,
+          "near": 0.02,
+          "own_cached": 0.046,
+          "self": -0.001
+        },
+        "attn:09:head:07": {
+          "all": 0.023,
+          "between": 0.0,
+          "cue": 0.006,
+          "near": 0.013,
+          "own_cached": 0.023,
+          "self": 0.002
+        },
+        "attn:11:head:03": {
+          "all": 0.42,
+          "between": 0.0,
+          "cue": 0.222,
+          "near": 0.103,
+          "own_cached": 0.42,
+          "self": -0.001
+        }
+      },
+      "reference": 0.776,
+      "rows": 16,
+      "seconds": 0.5,
+      "sum_own": 0.509
+    },
+    "narrative_tense": {
+      "heads": [
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:04",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:15:head:01",
+        "attn:09:head:07"
+      ],
+      "per_head": {
+        "attn:07:head:07": {
+          "all": 0.028,
+          "between": 0.013,
+          "cue": 0.008,
+          "near": 0.004,
+          "own_cached": 0.028,
+          "self": 0.001
+        },
+        "attn:09:head:01": {
+          "all": 0.032,
+          "between": 0.019,
+          "cue": 0.001,
+          "near": 0.018,
+          "own_cached": 0.032,
+          "self": -0.001
+        },
+        "attn:09:head:04": {
+          "all": 0.058,
+          "between": 0.019,
+          "cue": 0.02,
+          "near": 0.01,
+          "own_cached": 0.058,
+          "self": -0.001
+        },
+        "attn:09:head:07": {
+          "all": 0.027,
+          "between": 0.004,
+          "cue": -0.001,
+          "near": 0.022,
+          "own_cached": 0.027,
+          "self": 0.002
+        },
+        "attn:11:head:03": {
+          "all": 0.32,
+          "between": 0.219,
+          "cue": 0.001,
+          "near": 0.048,
+          "own_cached": 0.32,
+          "self": 0.005
+        },
+        "attn:15:head:01": {
+          "all": 0.018,
+          "between": 0.007,
+          "cue": 0.002,
+          "near": 0.004,
+          "own_cached": 0.018,
+          "self": 0.003
+        },
+        "attn:15:head:05": {
+          "all": 0.29,
+          "between": 0.104,
+          "cue": 0.093,
+          "near": 0.016,
+          "own_cached": 0.29,
+          "self": 0.01
+        }
+      },
+      "reference": 0.828,
+      "rows": 16,
+      "seconds": 0.9,
+      "sum_own": 0.773
+    },
+    "perfect_number": {
+      "heads": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03",
+        "attn:13:head:01"
+      ],
+      "per_head": {
+        "attn:05:head:03": {
+          "all": 0.037,
+          "between": 0.0,
+          "cue": 0.005,
+          "near": 0.029,
+          "own_cached": 0.037,
+          "self": 0.0
+        },
+        "attn:07:head:08": {
+          "all": 0.067,
+          "between": 0.0,
+          "cue": 0.027,
+          "near": 0.034,
+          "own_cached": 0.067,
+          "self": -0.002
+        },
+        "attn:09:head:07": {
+          "all": 0.039,
+          "between": 0.0,
+          "cue": 0.013,
+          "near": 0.022,
+          "own_cached": 0.039,
+          "self": 0.001
+        },
+        "attn:11:head:03": {
+          "all": 0.502,
+          "between": 0.0,
+          "cue": 0.31,
+          "near": 0.116,
+          "own_cached": 0.502,
+          "self": 0.0
+        },
+        "attn:13:head:01": {
+          "all": 0.034,
+          "between": 0.0,
+          "cue": 0.031,
+          "near": 0.002,
+          "own_cached": 0.034,
+          "self": 0.001
+        }
+      },
+      "reference": 0.874,
+      "rows": 16,
+      "seconds": 0.6,
+      "sum_own": 0.679
+    },
+    "possessive_adjacent": {
+      "rows": 0,
+      "skipped": "fewer than 4 rows"
+    },
+    "possessive_argument": {
+      "heads": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:09:head:07"
+      ],
+      "per_head": {
+        "attn:04:head:05": {
+          "all": 0.038,
+          "between": 0.002,
+          "cue": 0.038,
+          "near": -0.003,
+          "own_cached": 0.038,
+          "self": 0.0
+        },
+        "attn:05:head:03": {
+          "all": 0.15,
+          "between": 0.11,
+          "cue": 0.008,
+          "near": 0.015,
+          "own_cached": 0.15,
+          "self": -0.002
+        },
+        "attn:09:head:06": {
+          "all": 0.106,
+          "between": 0.023,
+          "cue": 0.028,
+          "near": 0.056,
+          "own_cached": 0.106,
+          "self": 0.002
+        },
+        "attn:09:head:07": {
+          "all": 0.067,
+          "between": 0.002,
+          "cue": 0.014,
+          "near": 0.027,
+          "own_cached": 0.067,
+          "self": 0.023
+        },
+        "attn:10:head:05": {
+          "all": 0.132,
+          "between": 0.031,
+          "cue": 0.033,
+          "near": 0.036,
+          "own_cached": 0.132,
+          "self": 0.032
+        },
+        "attn:12:head:04": {
+          "all": 0.174,
+          "between": -0.005,
+          "cue": 0.068,
+          "near": 0.122,
+          "own_cached": 0.174,
+          "self": -0.002
+        },
+        "attn:15:head:01": {
+          "all": 0.132,
+          "between": 0.026,
+          "cue": 0.043,
+          "near": 0.044,
+          "own_cached": 0.132,
+          "self": 0.018
+        }
+      },
+      "reference": 0.809,
+      "rows": 16,
+      "seconds": 0.8,
+      "sum_own": 0.799
+    },
+    "possessive_long_simple": {
+      "heads": [
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:01",
+        "attn:10:head:05",
+        "attn:07:head:08"
+      ],
+      "per_head": {
+        "attn:03:head:04": {
+          "all": 0.075,
+          "between": 0.048,
+          "cue": 0.012,
+          "near": 0.0,
+          "own_cached": 0.075,
+          "self": -0.0
+        },
+        "attn:04:head:05": {
+          "all": 0.101,
+          "between": 0.016,
+          "cue": 0.068,
+          "near": 0.0,
+          "own_cached": 0.101,
+          "self": -0.001
+        },
+        "attn:05:head:03": {
+          "all": 0.142,
+          "between": 0.1,
+          "cue": 0.015,
+          "near": 0.002,
+          "own_cached": 0.142,
+          "self": -0.005
+        },
+        "attn:07:head:08": {
+          "all": 0.042,
+          "between": 0.008,
+          "cue": 0.012,
+          "near": 0.0,
+          "own_cached": 0.042,
+          "self": 0.018
+        },
+        "attn:09:head:06": {
+          "all": 0.135,
+          "between": 0.029,
+          "cue": 0.038,
+          "near": 0.003,
+          "own_cached": 0.135,
+          "self": 0.069
+        },
+        "attn:10:head:01": {
+          "all": 0.054,
+          "between": 0.018,
+          "cue": 0.053,
+          "near": -0.001,
+          "own_cached": 0.054,
+          "self": -0.015
+        },
+        "attn:10:head:05": {
+          "all": 0.088,
+          "between": 0.015,
+          "cue": 0.022,
+          "near": 0.009,
+          "own_cached": 0.088,
+          "self": 0.042
+        },
+        "attn:12:head:04": {
+          "all": 0.133,
+          "between": 0.03,
+          "cue": 0.062,
+          "near": 0.026,
+          "own_cached": 0.133,
+          "self": 0.023
+        },
+        "attn:15:head:01": {
+          "all": 0.1,
+          "between": 0.025,
+          "cue": 0.027,
+          "near": 0.028,
+          "own_cached": 0.1,
+          "self": 0.019
+        }
+      },
+      "reference": 0.886,
+      "rows": 16,
+      "seconds": 1.1,
+      "sum_own": 0.87
+    },
+    "possessive_medial": {
+      "heads": [
+        "attn:09:head:06",
+        "attn:04:head:05",
+        "attn:05:head:03",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:09:head:07"
+      ],
+      "per_head": {
+        "attn:03:head:04": {
+          "all": 0.1,
+          "between": 0.0,
+          "cue": 0.021,
+          "near": 0.055,
+          "own_cached": 0.1,
+          "self": 0.001
+        },
+        "attn:04:head:05": {
+          "all": 0.109,
+          "between": 0.0,
+          "cue": 0.077,
+          "near": 0.013,
+          "own_cached": 0.109,
+          "self": -0.001
+        },
+        "attn:05:head:03": {
+          "all": 0.097,
+          "between": 0.0,
+          "cue": 0.011,
+          "near": 0.059,
+          "own_cached": 0.097,
+          "self": 0.003
+        },
+        "attn:09:head:06": {
+          "all": 0.1,
+          "between": 0.0,
+          "cue": 0.033,
+          "near": 0.024,
+          "own_cached": 0.1,
+          "self": 0.046
+        },
+        "attn:09:head:07": {
+          "all": 0.069,
+          "between": 0.0,
+          "cue": 0.015,
+          "near": 0.014,
+          "own_cached": 0.069,
+          "self": 0.041
+        },
+        "attn:10:head:01": {
+          "all": 0.06,
+          "between": 0.0,
+          "cue": 0.056,
+          "near": 0.019,
+          "own_cached": 0.06,
+          "self": -0.016
+        },
+        "attn:10:head:05": {
+          "all": 0.111,
+          "between": 0.0,
+          "cue": 0.026,
+          "near": 0.041,
+          "own_cached": 0.111,
+          "self": 0.044
+        },
+        "attn:12:head:04": {
+          "all": 0.093,
+          "between": 0.0,
+          "cue": 0.056,
+          "near": 0.036,
+          "own_cached": 0.093,
+          "self": 0.006
+        },
+        "attn:15:head:01": {
+          "all": 0.107,
+          "between": 0.0,
+          "cue": 0.043,
+          "near": 0.042,
+          "own_cached": 0.107,
+          "self": 0.02
+        }
+      },
+      "reference": 0.868,
+      "rows": 16,
+      "seconds": 0.9,
+      "sum_own": 0.846
+    },
+    "possessive_verbfinal": {
+      "heads": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:10:head:01"
+      ],
+      "per_head": {
+        "attn:04:head:05": {
+          "all": 0.04,
+          "between": 0.001,
+          "cue": 0.041,
+          "near": -0.002,
+          "own_cached": 0.04,
+          "self": 0.0
+        },
+        "attn:05:head:03": {
+          "all": 0.154,
+          "between": 0.138,
+          "cue": 0.007,
+          "near": 0.002,
+          "own_cached": 0.154,
+          "self": -0.003
+        },
+        "attn:09:head:06": {
+          "all": 0.111,
+          "between": 0.026,
+          "cue": 0.024,
+          "near": 0.057,
+          "own_cached": 0.111,
+          "self": 0.008
+        },
+        "attn:10:head:01": {
+          "all": 0.05,
+          "between": -0.007,
+          "cue": 0.062,
+          "near": 0.006,
+          "own_cached": 0.05,
+          "self": -0.011
+        },
+        "attn:10:head:05": {
+          "all": 0.119,
+          "between": 0.029,
+          "cue": 0.03,
+          "near": 0.029,
+          "own_cached": 0.119,
+          "self": 0.032
+        },
+        "attn:12:head:04": {
+          "all": 0.192,
+          "between": 0.027,
+          "cue": 0.068,
+          "near": 0.104,
+          "own_cached": 0.192,
+          "self": 0.004
+        },
+        "attn:15:head:01": {
+          "all": 0.126,
+          "between": 0.029,
+          "cue": 0.037,
+          "near": 0.042,
+          "own_cached": 0.126,
+          "self": 0.018
+        }
+      },
+      "reference": 0.835,
+      "rows": 16,
+      "seconds": 0.8,
+      "sum_own": 0.792
+    },
+    "preposition_selection": {
+      "heads": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:04:head:01",
+        "attn:11:head:03",
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:09:head:07"
+      ],
+      "per_head": {
+        "attn:04:head:01": {
+          "all": 0.018,
+          "between": 0.0,
+          "cue": 0.016,
+          "near": 0.0,
+          "own_cached": 0.018,
+          "self": 0.002
+        },
+        "attn:06:head:03": {
+          "all": 0.097,
+          "between": 0.0,
+          "cue": 0.094,
+          "near": 0.0,
+          "own_cached": 0.097,
+          "self": 0.0
+        },
+        "attn:07:head:08": {
+          "all": 0.056,
+          "between": 0.0,
+          "cue": 0.049,
+          "near": 0.0,
+          "own_cached": 0.056,
+          "self": 0.002
+        },
+        "attn:08:head:01": {
+          "all": 0.014,
+          "between": 0.0,
+          "cue": 0.013,
+          "near": 0.0,
+          "own_cached": 0.014,
+          "self": 0.001
+        },
+        "attn:08:head:08": {
+          "all": 0.035,
+          "between": 0.0,
+          "cue": 0.035,
+          "near": 0.0,
+          "own_cached": 0.035,
+          "self": 0.0
+        },
+        "attn:09:head:07": {
+          "all": 0.012,
+          "between": 0.0,
+          "cue": 0.008,
+          "near": 0.0,
+          "own_cached": 0.012,
+          "self": 0.001
+        },
+        "attn:11:head:03": {
+          "all": 0.011,
+          "between": 0.0,
+          "cue": 0.009,
+          "near": 0.0,
+          "own_cached": 0.011,
+          "self": 0.002
+        },
+        "attn:13:head:08": {
+          "all": 0.057,
+          "between": 0.0,
+          "cue": 0.051,
+          "near": 0.0,
+          "own_cached": 0.057,
+          "self": 0.004
+        },
+        "attn:14:head:08": {
+          "all": 0.016,
+          "between": 0.0,
+          "cue": 0.016,
+          "near": 0.0,
+          "own_cached": 0.016,
+          "self": 0.0
+        },
+        "attn:16:head:08": {
+          "all": 0.031,
+          "between": 0.0,
+          "cue": 0.031,
+          "near": 0.0,
+          "own_cached": 0.031,
+          "self": 0.0
+        }
+      },
+      "reference": 0.773,
+      "rows": 10,
+      "seconds": 1.0,
+      "sum_own": 0.347
+    },
+    "quantifier_number": {
+      "heads": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:13:head:06",
+        "attn:09:head:01"
+      ],
+      "per_head": {
+        "attn:05:head:03": {
+          "all": 0.068,
+          "between": 0.0,
+          "cue": 0.0,
+          "near": 0.063,
+          "own_cached": 0.068,
+          "self": 0.003
+        },
+        "attn:07:head:08": {
+          "all": 0.35,
+          "between": 0.0,
+          "cue": 0.119,
+          "near": 0.165,
+          "own_cached": 0.35,
+          "self": 0.008
+        },
+        "attn:08:head:01": {
+          "all": 0.013,
+          "between": 0.0,
+          "cue": 0.013,
+          "near": 0.0,
+          "own_cached": 0.013,
+          "self": 0.0
+        },
+        "attn:09:head:01": {
+          "all": 0.01,
+          "between": 0.0,
+          "cue": -0.005,
+          "near": 0.01,
+          "own_cached": 0.01,
+          "self": 0.004
+        },
+        "attn:11:head:03": {
+          "all": 0.255,
+          "between": 0.0,
+          "cue": 0.064,
+          "near": 0.075,
+          "own_cached": 0.255,
+          "self": 0.086
+        },
+        "attn:13:head:01": {
+          "all": 0.051,
+          "between": 0.0,
+          "cue": 0.033,
+          "near": 0.003,
+          "own_cached": 0.051,
+          "self": 0.015
+        },
+        "attn:13:head:06": {
+          "all": 0.024,
+          "between": 0.0,
+          "cue": 0.023,
+          "near": -0.001,
+          "own_cached": 0.024,
+          "self": 0.001
+        }
+      },
+      "reference": 0.876,
+      "rows": 16,
+      "seconds": 0.7,
+      "sum_own": 0.771
+    }
+  },
+  "candidate_id": "corpus.unit_tier5_head_read_map_v129",
+  "counts": {
+    "additive": 7,
+    "heads": 90,
+    "hub_cue": 3,
+    "instrument_ok": 90,
+    "number_split": 0,
+    "ran": 12,
+    "single": 9,
+    "strong": 32
+  },
+  "finished_utc": "2026-09-07T06:16:16.537688+00:00",
+  "hub_shares": {
+    "correlative_either_neither": {
+      "between": 0.0,
+      "cue": 0.836,
+      "near": 0.137,
+      "self": -0.0
+    },
+    "degree_frame": {
+      "between": 0.0,
+      "cue": 1.148,
+      "near": 0.0,
+      "self": -0.0
+    },
+    "interrogative_licensing": {
+      "between": 0.0,
+      "cue": 0.479,
+      "near": 0.0,
+      "self": 0.488
+    },
+    "lexical_number_pp": {
+      "between": 0.0,
+      "cue": 0.37,
+      "near": 0.435,
+      "self": -0.022
+    },
+    "perfect_number": {
+      "between": 0.0,
+      "cue": 0.403,
+      "near": 0.507,
+      "self": -0.03
+    },
+    "possessive_long_simple": {
+      "between": 0.19,
+      "cue": 0.286,
+      "near": 0.0,
+      "self": 0.429
+    },
+    "preposition_selection": {
+      "between": 0.0,
+      "cue": 0.875,
+      "near": 0.0,
+      "self": 0.036
+    },
+    "quantifier_number": {
+      "between": 0.0,
+      "cue": 0.34,
+      "near": 0.471,
+      "self": 0.023
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_single_column": false,
+    "pred_c_number_split": false,
+    "pred_d_hub_0708_cue": true,
+    "pred_e_heads_additive": false
+  },
+  "schema": "unit_tier5_head_read_map_v129",
+  "seconds": 10.4,
+  "summary": {
+    "correlative_either_neither": {
+      "attn:07:head:08": [
+        0.073,
+        0.061,
+        0.0,
+        0.01,
+        -0.0
+      ],
+      "attn:08:head:01": [
+        0.236,
+        0.232,
+        0.0,
+        0.003,
+        0.0
+      ],
+      "attn:09:head:07": [
+        0.032,
+        0.007,
+        0.0,
+        0.02,
+        0.004
+      ],
+      "attn:10:head:05": [
+        0.057,
+        0.03,
+        0.0,
+        0.02,
+        0.007
+      ],
+      "attn:13:head:08": [
+        0.065,
+        0.066,
+        0.0,
+        -0.0,
+        -0.0
+      ],
+      "attn:14:head:08": [
+        0.23,
+        0.231,
+        0.0,
+        -0.001,
+        0.0
+      ],
+      "attn:15:head:01": [
+        0.032,
+        0.026,
+        0.0,
+        0.003,
+        0.003
+      ],
+      "attn:16:head:08": [
+        0.151,
+        0.15,
+        0.0,
+        0.001,
+        0.0
+      ]
+    },
+    "degree_frame": {
+      "attn:06:head:03": [
+        0.01,
+        0.012,
+        0.0,
+        0.0,
+        -0.002
+      ],
+      "attn:07:head:08": [
+        0.027,
+        0.031,
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "attn:08:head:01": [
+        0.088,
+        0.084,
+        0.0,
+        0.0,
+        0.001
+      ],
+      "attn:10:head:05": [
+        0.022,
+        0.015,
+        0.0,
+        0.0,
+        0.005
+      ],
+      "attn:12:head:08": [
+        0.046,
+        0.037,
+        0.0,
+        0.0,
+        0.008
+      ],
+      "attn:15:head:01": [
+        0.031,
+        0.029,
+        0.0,
+        0.0,
+        0.002
+      ],
+      "attn:16:head:08": [
+        0.057,
+        0.058,
+        0.0,
+        0.0,
+        -0.001
+      ]
+    },
+    "interrogative_licensing": {
+      "attn:02:head:06": [
+        0.04,
+        0.057,
+        0.0,
+        0.0,
+        -0.001
+      ],
+      "attn:03:head:00": [
+        0.114,
+        0.113,
+        0.0,
+        0.0,
+        -0.002
+      ],
+      "attn:04:head:00": [
+        0.007,
+        0.009,
+        0.0,
+        0.0,
+        -0.002
+      ],
+      "attn:04:head:01": [
+        0.042,
+        0.041,
+        0.0,
+        0.0,
+        0.002
+      ],
+      "attn:04:head:04": [
+        0.048,
+        0.044,
+        0.0,
+        0.0,
+        0.002
+      ],
+      "attn:05:head:03": [
+        0.05,
+        0.03,
+        0.0,
+        0.0,
+        0.015
+      ],
+      "attn:05:head:07": [
+        0.025,
+        0.017,
+        0.0,
+        0.0,
+        0.005
+      ],
+      "attn:07:head:08": [
+        0.121,
+        0.058,
+        0.0,
+        0.0,
+        0.059
+      ],
+      "attn:09:head:07": [
+        0.109,
+        0.039,
+        0.0,
+        0.0,
+        0.064
+      ],
+      "attn:10:head:05": [
+        0.047,
+        0.023,
+        0.0,
+        0.0,
+        0.023
+      ]
+    },
+    "lexical_number_pp": {
+      "attn:05:head:03": [
+        0.02,
+        0.003,
+        0.0,
+        0.016,
+        -0.001
+      ],
+      "attn:07:head:08": [
+        0.046,
+        0.017,
+        0.0,
+        0.02,
+        -0.001
+      ],
+      "attn:09:head:07": [
+        0.023,
+        0.006,
+        0.0,
+        0.013,
+        0.002
+      ],
+      "attn:11:head:03": [
+        0.42,
+        0.222,
+        0.0,
+        0.103,
+        -0.001
+      ]
+    },
+    "narrative_tense": {
+      "attn:07:head:07": [
+        0.028,
+        0.008,
+        0.013,
+        0.004,
+        0.001
+      ],
+      "attn:09:head:01": [
+        0.032,
+        0.001,
+        0.019,
+        0.018,
+        -0.001
+      ],
+      "attn:09:head:04": [
+        0.058,
+        0.02,
+        0.019,
+        0.01,
+        -0.001
+      ],
+      "attn:09:head:07": [
+        0.027,
+        -0.001,
+        0.004,
+        0.022,
+        0.002
+      ],
+      "attn:11:head:03": [
+        0.32,
+        0.001,
+        0.219,
+        0.048,
+        0.005
+      ],
+      "attn:15:head:01": [
+        0.018,
+        0.002,
+        0.007,
+        0.004,
+        0.003
+      ],
+      "attn:15:head:05": [
+        0.29,
+        0.093,
+        0.104,
+        0.016,
+        0.01
+      ]
+    },
+    "perfect_number": {
+      "attn:05:head:03": [
+        0.037,
+        0.005,
+        0.0,
+        0.029,
+        0.0
+      ],
+      "attn:07:head:08": [
+        0.067,
+        0.027,
+        0.0,
+        0.034,
+        -0.002
+      ],
+      "attn:09:head:07": [
+        0.039,
+        0.013,
+        0.0,
+        0.022,
+        0.001
+      ],
+      "attn:11:head:03": [
+        0.502,
+        0.31,
+        0.0,
+        0.116,
+        0.0
+      ],
+      "attn:13:head:01": [
+        0.034,
+        0.031,
+        0.0,
+        0.002,
+        0.001
+      ]
+    },
+    "possessive_argument": {
+      "attn:04:head:05": [
+        0.038,
+        0.038,
+        0.002,
+        -0.003,
+        0.0
+      ],
+      "attn:05:head:03": [
+        0.15,
+        0.008,
+        0.11,
+        0.015,
+        -0.002
+      ],
+      "attn:09:head:06": [
+        0.106,
+        0.028,
+        0.023,
+        0.056,
+        0.002
+      ],
+      "attn:09:head:07": [
+        0.067,
+        0.014,
+        0.002,
+        0.027,
+        0.023
+      ],
+      "attn:10:head:05": [
+        0.132,
+        0.033,
+        0.031,
+        0.036,
+        0.032
+      ],
+      "attn:12:head:04": [
+        0.174,
+        0.068,
+        -0.005,
+        0.122,
+        -0.002
+      ],
+      "attn:15:head:01": [
+        0.132,
+        0.043,
+        0.026,
+        0.044,
+        0.018
+      ]
+    },
+    "possessive_long_simple": {
+      "attn:03:head:04": [
+        0.075,
+        0.012,
+        0.048,
+        0.0,
+        -0.0
+      ],
+      "attn:04:head:05": [
+        0.101,
+        0.068,
+        0.016,
+        0.0,
+        -0.001
+      ],
+      "attn:05:head:03": [
+        0.142,
+        0.015,
+        0.1,
+        0.002,
+        -0.005
+      ],
+      "attn:07:head:08": [
+        0.042,
+        0.012,
+        0.008,
+        0.0,
+        0.018
+      ],
+      "attn:09:head:06": [
+        0.135,
+        0.038,
+        0.029,
+        0.003,
+        0.069
+      ],
+      "attn:10:head:01": [
+        0.054,
+        0.053,
+        0.018,
+        -0.001,
+        -0.015
+      ],
+      "attn:10:head:05": [
+        0.088,
+        0.022,
+        0.015,
+        0.009,
+        0.042
+      ],
+      "attn:12:head:04": [
+        0.133,
+        0.062,
+        0.03,
+        0.026,
+        0.023
+      ],
+      "attn:15:head:01": [
+        0.1,
+        0.027,
+        0.025,
+        0.028,
+        0.019
+      ]
+    },
+    "possessive_medial": {
+      "attn:03:head:04": [
+        0.1,
+        0.021,
+        0.0,
+        0.055,
+        0.001
+      ],
+      "attn:04:head:05": [
+        0.109,
+        0.077,
+        0.0,
+        0.013,
+        -0.001
+      ],
+      "attn:05:head:03": [
+        0.097,
+        0.011,
+        0.0,
+        0.059,
+        0.003
+      ],
+      "attn:09:head:06": [
+        0.1,
+        0.033,
+        0.0,
+        0.024,
+        0.046
+      ],
+      "attn:09:head:07": [
+        0.069,
+        0.015,
+        0.0,
+        0.014,
+        0.041
+      ],
+      "attn:10:head:01": [
+        0.06,
+        0.056,
+        0.0,
+        0.019,
+        -0.016
+      ],
+      "attn:10:head:05": [
+        0.111,
+        0.026,
+        0.0,
+        0.041,
+        0.044
+      ],
+      "attn:12:head:04": [
+        0.093,
+        0.056,
+        0.0,
+        0.036,
+        0.006
+      ],
+      "attn:15:head:01": [
+        0.107,
+        0.043,
+        0.0,
+        0.042,
+        0.02
+      ]
+    },
+    "possessive_verbfinal": {
+      "attn:04:head:05": [
+        0.04,
+        0.041,
+        0.001,
+        -0.002,
+        0.0
+      ],
+      "attn:05:head:03": [
+        0.154,
+        0.007,
+        0.138,
+        0.002,
+        -0.003
+      ],
+      "attn:09:head:06": [
+        0.111,
+        0.024,
+        0.026,
+        0.057,
+        0.008
+      ],
+      "attn:10:head:01": [
+        0.05,
+        0.062,
+        -0.007,
+        0.006,
+        -0.011
+      ],
+      "attn:10:head:05": [
+        0.119,
+        0.03,
+        0.029,
+        0.029,
+        0.032
+      ],
+      "attn:12:head:04": [
+        0.192,
+        0.068,
+        0.027,
+        0.104,
+        0.004
+      ],
+      "attn:15:head:01": [
+        0.126,
+        0.037,
+        0.029,
+        0.042,
+        0.018
+      ]
+    },
+    "preposition_selection": {
+      "attn:04:head:01": [
+        0.018,
+        0.016,
+        0.0,
+        0.0,
+        0.002
+      ],
+      "attn:06:head:03": [
+        0.097,
+        0.094,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "attn:07:head:08": [
+        0.056,
+        0.049,
+        0.0,
+        0.0,
+        0.002
+      ],
+      "attn:08:head:01": [
+        0.014,
+        0.013,
+        0.0,
+        0.0,
+        0.001
+      ],
+      "attn:08:head:08": [
+        0.035,
+        0.035,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "attn:09:head:07": [
+        0.012,
+        0.008,
+        0.0,
+        0.0,
+        0.001
+      ],
+      "attn:11:head:03": [
+        0.011,
+        0.009,
+        0.0,
+        0.0,
+        0.002
+      ],
+      "attn:13:head:08": [
+        0.057,
+        0.051,
+        0.0,
+        0.0,
+        0.004
+      ],
+      "attn:14:head:08": [
+        0.016,
+        0.016,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "attn:16:head:08": [
+        0.031,
+        0.031,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "quantifier_number": {
+      "attn:05:head:03": [
+        0.068,
+        0.0,
+        0.0,
+        0.063,
+        0.003
+      ],
+      "attn:07:head:08": [
+        0.35,
+        0.119,
+        0.0,
+        0.165,
+        0.008
+      ],
+      "attn:08:head:01": [
+        0.013,
+        0.013,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "attn:09:head:01": [
+        0.01,
+        -0.005,
+        0.0,
+        0.01,
+        0.004
+      ],
+      "attn:11:head:03": [
+        0.255,
+        0.064,
+        0.0,
+        0.075,
+        0.086
+      ],
+      "attn:13:head:01": [
+        0.051,
+        0.033,
+        0.0,
+        0.003,
+        0.015
+      ],
+      "attn:13:head:06": [
+        0.024,
+        0.023,
+        0.0,
+        -0.001,
+        0.001
+      ]
+    }
+  }
+}
