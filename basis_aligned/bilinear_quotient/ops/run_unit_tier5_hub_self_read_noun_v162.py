@@ -125,7 +125,7 @@ def main() -> None:
             rows = len(batch.row_ids)
             noun = [p - LEX_NOUN_OFFSET for p in sem] if sname == "lex_seven" else sem
             noun_d = [p - LEX_NOUN_OFFSET for p in prep.donor_batch.semantic_positions] if sname == "lex_seven" else list(prep.donor_batch.semantic_positions)
-            plural_is_base = torch.tensor([DIRS[n][rid].startswith("plural") for rid in batch.row_ids])
+            plural_is_base = torch.tensor([DIRS[n][rid].startswith("plural") for rid in batch.row_ids], device=backend.device)
             def rec(add=None, ps=None):
                 out = g.forward_units(backend, batch, units=(), donor_cache=prep.donor_cache, base_cache=prep.base_cache,
                                       resid_add=None if add is None else {LAYER: add}, resid_add_positions=ps)
