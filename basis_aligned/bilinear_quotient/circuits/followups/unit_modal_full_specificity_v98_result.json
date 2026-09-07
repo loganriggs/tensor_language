@@ -1,0 +1,215 @@
+{
+  "answers": {
+    "base": "will",
+    "donor": "would"
+  },
+  "bars": {
+    "a2_frac": 0.5,
+    "c_abs": 0.02,
+    "cross_abs": 0.02,
+    "ext_lb": 0.6,
+    "ext_min": 0.8,
+    "p_abs": 0.05,
+    "rem_min": 0.4
+  },
+  "candidate_id": "corpus.unit_modal_full_specificity_v98",
+  "cross": {
+    "dative": 0.0034718625247478485,
+    "polarity_licensing": 0.0017887204885482788,
+    "quantifier_number": -0.013195589184761047,
+    "verb_complementizer": -0.006160017102956772,
+    "verb_preposition": 0.00457715499214828,
+    "voice_frame": -0.00434799212962389
+  },
+  "extraction_per_row": [
+    0.8657294873667963,
+    0.8308263035639547,
+    0.8099475506843704,
+    0.819363268819849,
+    0.8179492128928452,
+    0.811807430067022,
+    0.7898813897491718,
+    0.7764210233956821,
+    0.8081267336401324,
+    0.7937170275787536,
+    0.820614352770656,
+    0.9312003361294984,
+    0.7778611095795607,
+    0.8828250542910618,
+    0.8380399263882377,
+    0.7421228608288429
+  ],
+  "finished_utc": "2026-09-07T03:19:39.780751+00:00",
+  "history": [
+    [
+      0,
+      25.701416015625,
+      25.68183135986328,
+      7.608753367094323e-05
+    ],
+    [
+      50,
+      0.7348443269729614,
+      0.8855910301208496,
+      0.005913120228797197
+    ],
+    [
+      100,
+      0.6857348680496216,
+      0.7897636890411377,
+      0.005180418957024813
+    ],
+    [
+      119,
+      0.6802355051040649,
+      0.7472344636917114,
+      0.005059043411165476
+    ]
+  ],
+  "predictions": {
+    "pred_a_extraction": true,
+    "pred_b_removal": true,
+    "pred_c_inert_own": false,
+    "pred_d_cross_clean": true,
+    "pred_e_a2": true
+  },
+  "removal": {
+    "A1": {
+      "base_side": {
+        "ce_damage": 1.0165621489286423,
+        "ce_lb975": 0.9570067871361971,
+        "ce_ub975": 1.0725260134786367,
+        "documents": 16,
+        "kl_mean": 0.0727335256524384,
+        "margin_damage": 2.2098336964845657,
+        "top1_change_rate": 0.25
+      },
+      "ce_damage": 0.6022891569882631,
+      "ce_lb975": 0.453312669089064,
+      "ce_ub975": 0.7470747672952711,
+      "documents": 32,
+      "donor_side": {
+        "ce_damage": 0.188016165047884,
+        "ce_lb975": 0.14758192673325538,
+        "ce_ub975": 0.22990359663963317,
+        "documents": 16,
+        "kl_mean": 0.1517458106391132,
+        "margin_damage": 1.7294095233082771,
+        "top1_change_rate": 0.25
+      },
+      "kl_mean": 0.1122396681457758,
+      "margin_damage": 1.9696216098964214,
+      "top1_change_rate": 0.25
+    },
+    "A2": {
+      "ce_damage": 0.5256666913628578,
+      "ce_lb975": 0.3994830181822181,
+      "ce_ub975": 0.6494902382139115,
+      "documents": 32,
+      "kl_mean": 0.07476283138385043,
+      "margin_damage": 1.5054744314402342,
+      "top1_change_rate": 0.3125
+    },
+    "C": {
+      "ce_damage": 0.005103264003992081,
+      "ce_lb975": -0.0015063437167555094,
+      "ce_ub975": 0.011312391189858315,
+      "documents": 32,
+      "kl_mean": 0.0004439918811840471,
+      "margin_damage": 0.0015160515904426575,
+      "top1_change_rate": 0.03125
+    },
+    "P": {
+      "ce_damage": 1.0237821117043495,
+      "ce_lb975": 0.9852929769083858,
+      "ce_ub975": 1.0624483875930308,
+      "documents": 32,
+      "kl_mean": 0.07341182790696621,
+      "margin_damage": 2.2165550366044044,
+      "top1_change_rate": 0.28125
+    },
+    "random_A1": {
+      "ce_damage": -0.0016737822443246841,
+      "ce_lb975": -0.0039424797054380175,
+      "ce_ub975": 0.0008389009162783622,
+      "documents": 32,
+      "kl_mean": 3.381041346983693e-05,
+      "margin_damage": -0.0005645789206027985,
+      "top1_change_rate": 0.0
+    }
+  },
+  "schema": "circuit_unit_new_behaviour_full_specificity_result_v1",
+  "seconds": 70.9,
+  "summary": {
+    "battery": {
+      "complement": 0.111,
+      "complement_fraction": 0.12,
+      "exact_set": 0.927,
+      "linearity_sum": 0.94,
+      "random": -0.0,
+      "random_fraction": -0.0,
+      "subspace": 0.76,
+      "subspace_fraction": 0.82
+    },
+    "cross": {
+      "dative": 0.003,
+      "polarity_licensing": 0.002,
+      "quantifier_number": -0.013,
+      "verb_complementizer": -0.006,
+      "verb_preposition": 0.005,
+      "voice_frame": -0.004
+    },
+    "extraction": {
+      "lb": 0.8,
+      "point": 0.82,
+      "ub": 0.843
+    },
+    "flips": {
+      "will": 0.0,
+      "would": 0.25
+    },
+    "removal": {
+      "A1": [
+        0.602,
+        0.453,
+        0.747
+      ],
+      "A2": [
+        0.526,
+        0.399,
+        0.649
+      ],
+      "C": [
+        0.005,
+        -0.002,
+        0.011
+      ],
+      "P": [
+        1.024,
+        0.985,
+        1.062
+      ],
+      "random_A1": [
+        -0.002,
+        -0.004,
+        0.001
+      ]
+    },
+    "sides": {
+      "will": 1.017,
+      "would": 0.188
+    }
+  },
+  "units": [
+    "attn:09:head:04",
+    "attn:11:head:03",
+    "attn:15:head:05",
+    "attn:09:head:01",
+    "attn:07:head:07",
+    "attn:11:head:01",
+    "attn:09:head:07",
+    "attn:05:head:08",
+    "attn:10:head:05",
+    "attn:15:head:01"
+  ]
+}
