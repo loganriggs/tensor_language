@@ -1,0 +1,191 @@
+{
+  "bars": {
+    "_v166_bars": {
+      "attn07_band": [
+        0.3,
+        0.7
+      ],
+      "attn07_whole_band": [
+        0.2,
+        0.6
+      ],
+      "attn_value_max": 0.03,
+      "computed_band": [
+        0.8,
+        1.2
+      ],
+      "control_max": 0.05,
+      "direct_value_max": 0.03,
+      "direct_whole_max": 0.2,
+      "dv_band": [
+        0.8,
+        1.5
+      ],
+      "instr_value_tol": 0.03,
+      "instr_whole": [
+        0.9,
+        1.05
+      ],
+      "mlp01_band": [
+        0.3,
+        0.75
+      ],
+      "value_band": [
+        0.35,
+        0.85
+      ],
+      "weight_max": 0.05
+    },
+    "complement_max": 0.1,
+    "cos_min": 0.8,
+    "loo_band": [
+      0.6,
+      1.1
+    ],
+    "quant_signed_min": 0.1,
+    "quant_wrong_max": 0.0,
+    "random_max": 0.02,
+    "rank1_band": [
+      0.8,
+      1.1
+    ],
+    "transfer_band": [
+      0.6,
+      1.1
+    ]
+  },
+  "candidate_id": "corpus.unit_tier5_hub_noun_mlp01_rank1_v167",
+  "finished_utc": "2026-09-07T09:01:39.118631+00:00",
+  "measures": {
+    "lex_seven:p0": {
+      "S_plus_C": 0.948,
+      "complement": {
+        "value_swap_at_t": 0.003,
+        "whole_model": 0.009
+      },
+      "complement_share": 0.022,
+      "cos_dim_p0_p1": 0.912,
+      "dim_cos_rowwise_mean": 0.665,
+      "dm_norm_mean": 3660.7,
+      "exact_hub": 0.51,
+      "full_delta": {
+        "value_swap_at_t": 0.135,
+        "whole_model": 0.555
+      },
+      "full_value_swap": 0.256,
+      "loo_rank1": {
+        "value_swap_at_t": 0.106,
+        "whole_model": 0.418
+      },
+      "mb_norm_mean": null,
+      "other_parity_dim": {
+        "value_swap_at_t": 0.107,
+        "whole_model": 0.415
+      },
+      "random_dir": {
+        "value_swap_at_t": 0.0,
+        "whole_model": 0.0
+      },
+      "rank1_dim": {
+        "value_swap_at_t": 0.125,
+        "whole_model": 0.517
+      },
+      "rank1_share": 0.926,
+      "rows": 16,
+      "top_singular_share": 0.431
+    },
+    "lex_seven:p1": {
+      "S_plus_C": 0.949,
+      "complement": {
+        "value_swap_at_t": -0.001,
+        "whole_model": -0.008
+      },
+      "complement_share": -0.006,
+      "cos_dim_p0_p1": 0.912,
+      "dim_cos_rowwise_mean": 0.69,
+      "dm_norm_mean": 3519.4,
+      "exact_hub": 0.672,
+      "full_delta": {
+        "value_swap_at_t": 0.178,
+        "whole_model": 0.647
+      },
+      "full_value_swap": 0.421,
+      "loo_rank1": {
+        "value_swap_at_t": 0.15,
+        "whole_model": 0.556
+      },
+      "mb_norm_mean": null,
+      "other_parity_dim": {
+        "value_swap_at_t": 0.161,
+        "whole_model": 0.581
+      },
+      "random_dir": {
+        "value_swap_at_t": -0.0,
+        "whole_model": -0.0
+      },
+      "rank1_dim": {
+        "value_swap_at_t": 0.17,
+        "whole_model": 0.617
+      },
+      "rank1_share": 0.955,
+      "rows": 16,
+      "top_singular_share": 0.466
+    },
+    "quant_seven:p0": {
+      "direction_ids": [
+        "each_to_all"
+      ],
+      "dose": 2408.0,
+      "exact_hub": 0.277,
+      "lexical_plural_dir_signed": {
+        "value_swap_at_t": -0.01,
+        "whole_model": -0.054
+      },
+      "rows": 16,
+      "wrong_sign": {
+        "value_swap_at_t": 0.003,
+        "whole_model": 0.24
+      }
+    },
+    "quant_seven:p1": {
+      "direction_ids": [
+        "all_to_each"
+      ],
+      "dose": 2408.0,
+      "exact_hub": 0.285,
+      "lexical_plural_dir_signed": {
+        "value_swap_at_t": 0.05,
+        "whole_model": 0.246
+      },
+      "rows": 16,
+      "wrong_sign": {
+        "value_swap_at_t": 0.029,
+        "whole_model": 0.13
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_rank1": true,
+    "pred_b_loo": true,
+    "pred_c_transfer": true,
+    "pred_d_random": true,
+    "pred_e_quant_sign": false
+  },
+  "schema": "unit_tier5_hub_noun_mlp01_rank1_v167",
+  "seconds": 1.5,
+  "sets": {
+    "lex_seven": {
+      "family": "lexical_number_pp",
+      "units": [
+        "attn:11:head:03",
+        "mlp:09",
+        "attn:09:head:07",
+        "mlp:10",
+        "attn:10:head:05",
+        "attn:11:head:02",
+        "mlp:08"
+      ]
+    }
+  },
+  "source_unit": "mlp:01"
+}
