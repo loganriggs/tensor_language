@@ -107,10 +107,18 @@ control flips to one.
 The union is not yet full-equivalent.  Full rank-16 behavior is `.8642/.9233`, so the is-was gap
 is `.04891`, above the frozen `.03` bar, even though the response-projection gap is only `.01182`.
 The orthogonal complement produces only `.01181` is-was signed response but `.04693` behavior.
-Thus a small physical residual is nonlinearly amplified downstream.  The registered terminal is
-`probe_basis_only`, not an identified task-pair source circuit.  The next test localizes this
-residual by adding each source MLP's complement back to the otherwise frozen union, then greedily
-composes only prospectively useful sites.
+Thus a small physical residual is nonlinearly amplified downstream.  The registered parent terminal
+is `probe_basis_only`, not an identified task-pair source circuit.
+
+The subsequent full-module add-back screen resolves where that amplified residual lives.  No single
+source MLP is sufficient: MLP3 is largest but recovers only `51.81%` of the missing is-was behavior;
+MLP6, MLP1, and MLP2 recover `22.78%`, `17.08%`, and `9.37%`, while MLP0 is negligible and slightly
+opposing.  MLP3's behavior gain (`.02534`) is materially larger than its signed-response gain
+(`.00828`), confirming downstream nonlinear amplification.  Yet the five singleton behavior gains
+sum to the full add-back within `.000406` on is-was and `.000558` on temporal, and no singleton adds
+a control flip beyond the parent.  The terminal is therefore `distributed_additive_complement`.
+This licenses a frozen greedy/complete five-site composition test; it does not yet license selecting
+a minimal add-back set from singleton scores alone.
 
 ## DAS interpretation
 
@@ -168,7 +176,9 @@ refitting on sealed task families and predicts through the exact weight-derived 
   `temporal_iswas_rank16_hidden_mask30_control_attribution_v1_result.json`.
 - Exact task-pair source-weight grouping:
   `temporal_iswas_rank16_source_task_pair_weight_groups_v2_result.json` (valid functional null;
-  five-site residual localization required).
+  five-site residual localization required), followed by
+  `temporal_iswas_rank16_source_complement_site_localization_v1_result.json` (distributed, nearly
+  additive complement; no single-site explanation).
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`.
 
@@ -176,9 +186,9 @@ refitting on sealed task families and predicts through the exact weight-derived 
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Localize the small but behaviorally amplified complement residual across the five native source
-   MLPs, add back the minimal frozen site set, then factor shared and contrast contributions inside
-   that repaired source program before greedy pruning.
+2. Execute the frozen five-site complement composition order (or complete 32-mask lattice), select
+   the smallest full-equivalent add-back, and confirm that exact mask on a new construction family;
+   then factor shared and contrast contributions inside the repaired source program.
 3. Fit construction-adaptive multi-environment DAS against the richer operator, selecting KL/noise
    strength without seeing the outer construction family and reserving a capability-qualified new
    text family for the outcome; do not tune against the already-open v12 success.
