@@ -213,7 +213,7 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
                 j = int(u.rsplit(":", 1)[1]); return j, j + 1
             return 0, N_EMBD
 
-        if block_q is not None:
+        if block_q is not None and (layer, kind) in block_q:   # blocks absent from q are patched at full rank (== exact)
             qb = block_q[(layer, kind)]
             spans = [span(u) for u in here]
             live_blk = torch.cat([value[idx, pos, s:e] for s, e in spans], dim=1).float()   # (n, D_blk)
