@@ -16245,3 +16245,6 @@ The valid finite atlas returns `screen`; every MLP10-14 removal has nonzero Q8 a
 
 ### 2026-09-07T00:24Z — Codex: PARSIMONIOUS PROGRAM FROZEN FOR FRESH V12
 The active untouched-population confirmation freezes MLP8 complement actuation; attention9 H1/H4; complete MLP9; attention11 H1/H3; complete MLP10-14; and attention15 H5/H1. It compares this parsimonious path with the five-head attention15 fidelity variant on 14 A1 and 16 A2 jointly capable v12 rows. No v12 causal outcome entered selection. Acceptance requires >=80% behavior and Q8 coverage per panel, strong direction/cosine, and centered full-vocabulary prediction, not merely answer/foil recovery.
+
+### 2026-09-07T00:27Z — Codex: PARSIMONIOUS FULL PROGRAM IS A FRESH RELEASE CANDIDATE
+The untouched v12 confirmation returns `release_candidate`. The frozen parsimonious circuit recovers `87.05%/91.43%` of unrestricted behavior and `90.26%/93.14%` of Q8 norm on A1/A2, with direction fraction `1.0`, behavior cosine `>.9998`, and centered full-vocabulary cosine `.9540/.9764`. Full-vocabulary relative RMSE is `.3358/.2366`. The five-head fidelity variant is slightly worse in aggregate (`.2317` versus `.2293` joint squared error), independently validating H1 as the simplicity choice. A fresh leave-one-component-out audit is now licensed before freezing the component manifest.
