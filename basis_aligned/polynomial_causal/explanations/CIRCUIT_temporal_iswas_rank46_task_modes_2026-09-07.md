@@ -388,6 +388,20 @@ chain `L8H1 -> {L9H1,L9H4} -> L11H3 -> L15H5`, but only at diagnostic weight-com
 Fresh-construction causal transfer is still required before calling these weights readers and
 writers of one identified reusable variable.
 
+A subsequent static causal-path audit adds an important scope restriction.  Every fitted and
+evaluated projector above uses a complete attention-15 donor clamp.  Inside the shared manual
+intervention, the model first computes layer-15 attention, but the pre-`c_proj` hook then replaces
+all nine computed head outputs with fixed donor-cache outputs.  Therefore the derivative from the
+upstream projected writes through `L15H5` Q/K/V into its head output is exactly zero in these DAS
+runs.  Upstream effects can still travel through the layer-15 residual skip into MLP15 and onward to
+layers 16-17, so the projector's causal effect relative to an attention-15 background is not
+invalidated.  What is not established is the tempting native edge from the exact weight atlas:
+`L15H5` remains a reader hypothesis, not a causally identified reader.  Complete attention-15 alone
+accounts for only `.12692/.12156` A1/A2 signed projection, so the background is weak but nontrivial.
+After construction transfer is scored, the required next localization is the exact 2x2 factorial
+`upstream projector on/off x complete attention-15 clamp on/off`; only an upstream-only effect through
+live attention licenses Q/K/V interface reset/rescue.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -445,6 +459,10 @@ writers of one identified reusable variable.
   artifact, absolute-tolerance invalid) and
   `temporal_iswas_v15_selected_head_projector_weight_interfaces_v2_tolerance_audit_result.json`
   (valid zero-model scale-aware repair; diagnostic, not causal identification).
+- Attention-15 causal-path scope:
+  `temporal_iswas_selected_projector_attn15_reader_path_audit_v1_result.json` (the complete
+  attention-15 clamp bypasses computed L15H5 head output, so the weight-ranked interface is not
+  causally tested by current DAS outcomes).
 
 ## Remaining gates
 

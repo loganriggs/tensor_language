@@ -127,6 +127,13 @@ falsifier for the failure branch.  The latest strategic and mathematical clocks 
 `HOURLY_STRATEGIC_REVIEW_2026-09-07_2315.md` and
 `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-07_2326.md`.
 
+Do not overstate the exact-weight result.  A hash-bound zero-model path audit proved that every
+current DAS outcome clamps the complete attention-15 donor head output after layer-15 Q/K/V has
+been computed.  Thus the causal projector effect can travel through the residual skip/MLP15 and
+layers 16-17, but cannot validate the weight-ranked `L15H5` Q/K/V reader path.  After the queued
+construction result, run the frozen `upstream projector on/off x complete attention-15 on/off`
+dependency factorial before any L15H5 reset/rescue claim.
+
 The target-feasible DAS run described below has completed.  It validly beats matched difference
 in means (DIM) on cross-fitted A1 target transfer (`.8719` versus `.7250`) with stable rank-one
 directions (minimum principal cosine `.8474`), so optimization is not the null.  It does not pass
