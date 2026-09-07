@@ -1,0 +1,22 @@
+{
+  "schema": "temporal_five_mlp_rank48_reverse_gain_dose_price_correction_v1",
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_reverse_gain_dose_v1",
+  "original_result": "circuits/followups/temporal_five_mlp_rank48_reverse_gain_dose_v1_result.json",
+  "original_result_sha256": "a1f00d208ec1a370d9e9d995de0620de70c6202ef242d46019608635552b9aa9",
+  "correction": {
+    "recorded_model_forwards": 21,
+    "actual_model_forwards": 37,
+    "breakdown": {
+      "frozen_projector_reader_and_training_context": 9,
+      "fresh_population_capture": 7,
+      "additional_native_and_reverse_graph_capture": 5,
+      "four_gains_times_two_crossfits_times_target_and_control": 16
+    }
+  },
+  "consequence": {
+    "pred_a_authority_reproduction_finiteness_and_price": false,
+    "formal_score": "4/5",
+    "scientific_terminal": "scalar_reverse_interface_undergain remains the descriptive scientific result; it is not a five-gate release",
+    "measurements_affected": false
+  }
+}
