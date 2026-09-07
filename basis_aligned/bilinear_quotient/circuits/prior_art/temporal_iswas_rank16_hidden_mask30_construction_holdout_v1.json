@@ -1,0 +1,38 @@
+{
+  "schema": "temporal_iswas_rank16_hidden_mask30_construction_holdout_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.iswas_rank16_hidden_mask30_construction_holdout_v1",
+  "question": "Does the frozen additive hidden-support mask30 transfer without reselection to different temporal-v13 and is/was-v12 construction families?",
+  "novelty_search": "No prior receipt confirms the activation-ranked mask30 hidden intervention outside the v12/v11 population used by its exhaustive selector.",
+  "authority_sha256": {
+    "factorial": "b146297e891d3dc0f19b1bf8453690132849cb38bf10d4a1c4402e8b1aa2684d",
+    "temporal_builder": "3f738bf2fb2d4a5425dba85eaf948d7ed888e4b891666ff77a51c8638acd2509",
+    "temporal_capability": "e053d3381680ce5a933356a060448466d7567e3079c4a2b9a5bff262bd98b9c1",
+    "iswas_builder": "2734cbeceb4e6979dab22fe5b24870386874ac2f905ae426e6e689548e43e8a2",
+    "iswas_capability": "67cb3efbd1ea86f98f94a826922928229a7c7b0a247f218778fc4960a6e8c6f4"
+  },
+  "frozen_program": {
+    "gain": 1.15,
+    "rank": 16,
+    "MLP0": "activation-ranked top 50 percent hidden support",
+    "MLP1": "full hidden support",
+    "MLP2": "full hidden support",
+    "MLP3": "full hidden support",
+    "MLP6": "full hidden support"
+  },
+  "comparators": ["all five activation-top50", "all five full support"],
+  "predictions": {
+    "pred_a_authority_population_replays_finiteness_and_price": "All hashes and parent terminal match; both populations are nonempty and disjoint from the selector population; full-support replays its reference intervention; all values finite; observed forwards <=24.",
+    "pred_b_frozen_mask30_is_functional": "On each task, response signed projection >=.80, response RSE <=.20, and behavior signed projection >=.75.",
+    "pred_c_mlp0_bottom_half_remains_dispensable": "Mask30 behavior differs from full support by at most .03 and response signed projection by at most .03 on each task.",
+    "pred_d_mask30_beats_all_top50": "Mask30 improves temporal behavior by at least .03 over all-top50.",
+    "pred_e_mask30_is_selective": "Matched controls have median KL <=.02 and zero top-1 flips."
+  },
+  "terminal_policy": {
+    "construction_holdout_screen": "A-E pass",
+    "population_specific_hidden_mask": "A passes but B or C fails",
+    "null": "Other valid outcome",
+    "invalid": "A fails"
+  },
+  "price": {"model_forwards_max": 24, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0},
+  "execution_policy": "managed_queue_only"
+}
