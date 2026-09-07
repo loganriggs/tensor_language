@@ -1,0 +1,29 @@
+{
+  "schema": "temporal_five_mlp_literal_weight_tensor_program_prior_v1",
+  "candidate_id": "temporal_auxiliary.five_mlp_literal_weight_tensor_program_v1",
+  "registered_utc": "2026-09-07T03:31:05.285958Z",
+  "question": "Can the fresh-confirmed cached responses of MLP12/13/15/16/17 be compiled into exact checkpoint-weight bilinear tensors whose propagated mode effects equal their causal response effects?",
+  "authority": {
+    "confirmation_result_sha256": "9fc9c6aad9257ba1d75745bc1938ec2451120c1363a66ec933cae222d43c515d",
+    "confirmation_audit_sha256": "c648b261dd2f541a8d99e8a0da75b547ddbe356db5d78f687ba162ea4c0e02a5",
+    "confirmation_runner_sha256": "dac30cf1b67502fae42c2db9546bf2e8f4d25db2c9627a19b3b64d7ac9fee18a",
+    "weight_library_sha256": "2e7d3a546813a6029eca6fae455ad5abd03b429fcee92432ca6fe06e835e83f5"
+  },
+  "frozen_design": {
+    "population": "The same 24 fresh temporal-v13 confirmation rows plus the same 30 is/was-v12 replay rows; evidence scope remains fresh temporal and provisional is/was.",
+    "sites": ["MLP12", "MLP13", "MLP15", "MLP16", "MLP17"],
+    "local_program": "For each ungated bilinear MLP and paired normalized inputs x0,x1, compile Down[(Left1-Left0)*Right0 + Left0*(Right1-Right0) + (Left1-Left0)*(Right1-Right0)]. Down bias cancels exactly.",
+    "mode_program": "Contract each MLP's exact CP tensor with the two gauge-safe physical final reader covectors pulled back by the exact product of later residual lambda0 gains.",
+    "causal_check": "Compare weight-predicted query mode deltas with selected-program minus leave-one-site-out final-state deltas; also execute all 15 individual factor-response interventions.",
+    "dependency_boundary": "The program compiles literal checkpoint weights and exact paired MLP inputs. It does not yet compile how upstream modules generate those activation-conditioned inputs.",
+    "price": {"model_forwards": 34, "example_evaluations": 1836, "factor_arms": 15, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+  },
+  "predictions": {
+    "pred_a_authority_architecture_gauge_replay_finiteness_and_price": "Hashes, ungated bilinear architecture, physical-reader identity, self/live replay, attention reconstruction, finiteness, and exact price pass.",
+    "pred_b_all_five_local_weight_expansions_close": "For every site the three checkpoint-weight factors sum to live-minus-base MLP output with max absolute error <=0.001 and relative squared error <=1e-8.",
+    "pred_c_weight_propagated_modes_equal_causal_site_effects": "For every site, both mode vectors predicted from the local output and later residual gains match selected-minus-site causal final-state modes with max absolute error <=0.001 and relative squared error <=1e-6.",
+    "pred_d_all_five_weight_tensors_have_causal_mode2_support": "Each site's exact tensor-induced mode2 effect has signed projection >=0.02 on both tasks relative to the full writer response.",
+    "pred_e_complete_zero_fit_literal_factor_program": "All five CP tensor manifests and all 15 left-change/right-change/bilinear-interaction intervention arms are present with no fit or model update."
+  },
+  "decision": "All gates yield literal_bilinear_weight_program and license a separate upstream input-generation incidence atlas. Failure of local closure is invalid; failure of propagated equality rejects the cached-to-weight compilation; failure of mode support keeps only the supported site tensors."
+}
