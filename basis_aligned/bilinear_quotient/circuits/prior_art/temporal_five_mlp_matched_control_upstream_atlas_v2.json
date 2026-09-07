@@ -1,0 +1,20 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_matched_control_upstream_atlas_v2",
+  "claimed_utc": "2026-09-07T04:29:00Z",
+  "question": "Which upstream sites retain target incidence after generic same-answer transport is measured with endpoint-aligned controls?",
+  "predecessor_invalid": "v1 exposed no causal result: all shipped C base/donor pairs have unequal semantic endpoints, making full-prefix module interchange undefined.",
+  "population": "From each frozen builder's transform-C base rows, retain endpoint groups 12 and 14. Within each task and endpoint, deterministically rotate the base documents by one to create a different donor with the identical answer, foil, token length, and semantic endpoint. This yields 28 temporal and 14 is/was aligned rows. Odd/even positions within each endpoint group are assigned to discovery/validation before outcomes.",
+  "sites": "The same complete 179-site population as the target atlas: all 162 heads in layers 0--17 and MLP0--16.",
+  "intervention": "For every site and split, patch its full native response from the matched C donor into C base and measure final answer-margin and both frozen physical-reader mode movements. Base, donor, and self patches are included.",
+  "selection": "Using discovery controls only, rank by frozen target causal magnitude divided by 0.05 plus worst task-normalized control movement, then target magnitude. Freeze top20 before validation.",
+  "predictions": {
+    "pred_a_authority_alignment_self_patch_finiteness_and_price": "All 42 rows are distinct-donor, answer/foil/length/endpoint aligned; 179 sites close; self patch <=1e-4; finite; <=366 forwards and 7644 evaluations.",
+    "pred_b_mlp1_is_generic_transport": "MLP1 is discovery-control top-decile in both tasks and validation effect >=0.20 target scale in one task.",
+    "pred_c_control_incidence_generalizes": "Discovery-versus-validation worst-control site-rank Spearman >=0.70.",
+    "pred_d_selective_pool_contains_known_writers": "Selective top20 contains at least two of L9H1/L9H4/MLP7/MLP9 and a layer-8--11 attention site.",
+    "pred_e_selective_pool_improves_validation": "Versus original tensor top20, selective top20 halves median validation control while retaining >=50% median target magnitude."
+  },
+  "terminal_policy": {"invalid": "A fails", "selective_writer_screen": "all pass", "generic_transport_confirmed_no_selective_pool": "B/C pass but D/E fails", "control_instability_null": "C fails", "transport_explanation_null": "B fails"},
+  "price_upper_bound": {"model_forwards": 366, "example_evaluations": 7644, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0},
+  "decision": "Screen only. A later union may use the discovery-frozen pool; validation cannot alter selection."
+}

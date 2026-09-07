@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_temporal_five_mlp_control_conditioned_upstream_atlas_v1.py", line 155, in <module>
+    if __name__ == "__main__": main()
+                               ^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_temporal_five_mlp_control_conditioned_upstream_atlas_v1.py", line 113, in main
+    rec, self_error, donor_change = evaluate_split(backend, group, sites, reader, scales)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_temporal_five_mlp_control_conditioned_upstream_atlas_v1.py", line 75, in evaluate_split
+    output, _ = atlasrun.run_patch(backend, base_batch, donor_cache, (site,))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_temporal_five_mlp_upstream_input_tensor_incidence_atlas_v1.py", line 169, in run_patch
+    output = backend.native(batch, capture=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/circuit_fast_screen_producer.py", line 474, in native
+    return self._forward(batch, capture=capture)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/circuit_fast_screen_producer.py", line 434, in _forward
+    attention, v1 = block.attn(F.rms_norm(live, (model.config.n_embd,)), v1)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/jacclust/tt_model.py", line 131, in forward
+    y = self.c_proj(y)
+        ^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1822, in inner
+    args_result = hook(self, args)
+                  ^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_temporal_five_mlp_upstream_input_tensor_incidence_atlas_v1.py", line 145, in patch_attention
+    changed[index, :stop_position, start:stop] = source[
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The expanded size of the tensor (15) must match the existing size (14) at non-singleton dimension 0.  Target sizes: [15, 128].  Tensor sizes: [14, 128]
