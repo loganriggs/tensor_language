@@ -1,0 +1,30 @@
+{
+  "schema": "temporal_iswas_v15_complete_source_mlp_write_atlas_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_complete_source_mlp_write_atlas_v1",
+  "question": "Does the is/was-v15 failure come from the old rank16 subspace or from a changed five-MLP source graph?",
+  "authorities": {
+    "holdout_result": "8c75ccd9d627ae8c1782a3d6ceb3dfcfb2535797943e4dbe297ef9550d764900",
+    "holdout_runner": "87fd06f9a9208b49905106e1216d00f59811e39500720a8dd535a9f0e9e7945f"
+  },
+  "arms": {
+    "rank16_parent": "Old full rank16 at MLP0/1/2/3/6 with gain 1.15.",
+    "whole_singletons": "Complete donor-minus-recipient native MLP output at each one of MLP0/1/2/3/6, gain 1.0.",
+    "whole_all_gain100": "Complete native response at all five source MLPs, gain 1.0.",
+    "whole_all_gain115": "Complete native response at all five source MLPs, gain 1.15."
+  },
+  "predictions": {
+    "pred_a_authority_replay_closure_finiteness_and_price": "Authorities match; failed rank16 parent replays <=1e-5; all metrics finite; observed forwards <=64.",
+    "pred_b_complete_five_mlp_write_restores_iswas": "Whole-all gain1.0 has is/was behavior >=.75, signed response >=.8, and response RSE <=.2.",
+    "pred_c_whole_write_beats_failed_rank16": "Whole-all gain1.0 improves is/was behavior by >=.50 and signed response by >=.10 over rank16.",
+    "pred_d_one_complete_mlp_is_dominant": "The largest singleton recovers at least 60% of the whole-all is/was behavior effect relative to base.",
+    "pred_e_native_gain_is_not_worse_than_old_gain": "Whole-all gain1.0 is no worse than gain1.15 by more than .03 in is/was behavior and signed response."
+  },
+  "terminal_policy": {
+    "localized_subspace_construction_failure": "A-C and D pass.",
+    "distributed_subspace_construction_failure": "A-C pass and D fails; run greedy whole-module composition.",
+    "source_graph_construction_failure": "A passes but B or C fails.",
+    "invalid": "A fails."
+  },
+  "price": {"model_forwards_max": 64, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0},
+  "execution_policy": "managed_queue_only"
+}
