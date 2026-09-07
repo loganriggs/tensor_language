@@ -1,0 +1,50 @@
+{
+  "schema": "temporal_iswas_v15_head_factor_dual_greedy_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_head_factor_dual_greedy_v1",
+  "registered_utc": "2026-09-07T20:56:41Z",
+  "question": "Can head-specific pattern or interaction terms compensate the P/C collateral of the target-dominant value terms in a small distributed attention program?",
+  "authorities": {
+    "head_value_lattice_result_sha256": "36f4e3a94f8eac9adfba233c14d78e0fe8a5efe87fa739ed0ae2205fd397c853",
+    "head_value_lattice_runner_sha256": "a09ad33fc4b3ce156533024c0ab5227655e462d663cf35b12bb50becc3ee11d6",
+    "absolute_clamp_contract_sha256": "b16b86b23d50b1284eecaa01855301d50ced82e2112bf44167b9596c0b7fd0f3",
+    "attention_factor_library_sha256": "608ae6bf74af96663ec022b907c53d371670a36e5d7ec4fd1667b3c6add58dfd"
+  },
+  "prior_art": "The exact homogeneous 3-factor lattice and exact 4-head value-allocation lattice are valid nulls. The latter evaluates global pattern/interaction only, so it cannot detect cancellation by a pattern or interaction term at one head. Existing adaptive module greedy operates on complete heads/modules, not the exact 12 P/V/interaction components.",
+  "components": "Twelve absolute response factors in frozen order: for L8H1, L9H1, L9H4, and L11H3, pattern_on_base_value, base_pattern_on_value_change, and pattern_value_interaction. Complete attention 15 remains donor-clamped in every scientific arm.",
+  "search": {
+    "target_first_path": "Starting at the attention-15-only mask, evaluate every one-component extension at each depth and advance to largest A1 signed projection; ties use direction fraction, fewer P+C flips, lower max P/C median KL, then component order.",
+    "constrained_path": "From the same start, evaluate every one-component extension and advance to minimum normalized eligibility distance d=max(0,.75-A1)/.75 + max(0,.875-direction)/.875 + P_flips + C_flips + 10*max(0,max(P_KL,C_KL)-.02); ties use larger A1 then component order.",
+    "selection": "Among every arm opened by either path, select any A1-eligible arm by fewest components, then largest A1 projection, then numeric mask. Eligibility is A1 projection >=.75, direction >=.875, zero P and C flips separately, and max separate-panel median KL <=.02. A2 never affects either path or selection.",
+    "scope": "The null is path-local, not an exhaustive 4096-mask impossibility statement. All 12 singleton columns are necessarily opened at depth one."
+  },
+  "predictions": {
+    "pred_a_authority_absolute_clamp_factor_closure_self_full_replay_finiteness_and_price": "Authorities and aligned rows match; attention reconstruction, factor closure, base self, and full-mask parent replay are <=1e-4 with categorical equality; all metrics are finite; no more than 178 forwards execute.",
+    "pred_b_dual_greedy_finds_selective_program": "At least one arm visited by the two paths is A1-eligible.",
+    "pred_c_selected_program_confirms_on_a2": "The selected arm reaches A2 signed projection >=.75 and direction fraction >=.875 without A2 selection.",
+    "pred_d_selected_allocation_is_head_heterogeneous": "The selected per-head factor subsets are not identical across all four heads.",
+    "pred_e_selected_program_tracks_parent_residual": "The selected arm reaches final-residual signed projection >=.25 on A1 and >=.32 on A2.",
+    "pred_f_selected_components_are_necessary": "Every selected-component deletion either drops A1 signed projection by >=.05 or makes the arm ineligible. Missing deletion arms are executed after selection within the price cap."
+  },
+  "terminal_policy": {
+    "selective_head_factor_greedy_circuit": "A-F pass.",
+    "selective_head_factor_behavior_only": "A-D and F pass but E fails.",
+    "head_factor_construction_failure": "A-B pass but C fails.",
+    "head_factor_uniform_or_nonnecessary": "A-C pass but D or F fails.",
+    "no_selective_dual_greedy_program": "A passes but B fails.",
+    "partial": "A passes and no more specific terminal applies.",
+    "invalid": "A fails."
+  },
+  "price": {
+    "model_forwards_max": 178,
+    "base_donor_factor_captures": 8,
+    "base_self_forward": 1,
+    "attention15_only_forward": 1,
+    "dual_path_extension_forwards_max_before_dedup": 156,
+    "selected_deletion_forwards_max": 12,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "next_branch": "A selective result licenses source-position and QK/OV translation plus fresh construction confirmation. A valid path-local null passes the 12 singleton causal-response columns to the target-feasible, noise/KL-regularized cross-fitted DAS protocol from the 20:26 mathematical review.",
+  "execution_policy": "managed_queue_only"
+}
