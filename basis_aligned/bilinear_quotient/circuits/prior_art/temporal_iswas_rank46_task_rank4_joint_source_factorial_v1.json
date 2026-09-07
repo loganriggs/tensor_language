@@ -1,0 +1,12 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_rank46_task_rank4_joint_source_factorial_v1",
+  "question": "Do the source sets selected prospectively from the corrected singleton edge atlas jointly execute the appropriate task-rank-four response, or do interactions make the singleton ranking non-compositional?",
+  "authority": {
+    "edge_atlas": "Corrected v2 identifies 75 temporal and 89 is-was live edges, seven task-typed response sites, exact weight closure, and rejects additive singleton replay.",
+    "temporal_top80_sources": ["MLP1", "MLP0", "MLP2", "MLP3", "L0H3", "MLP4", "MLP8", "MLP7", "MLP6"],
+    "iswas_top80_sources": ["MLP1", "MLP2", "MLP0", "MLP3", "MLP4", "MLP5", "L2H2", "MLP6", "MLP7", "MLP8", "L4H7"],
+    "selection_rule": "Shortest deterministic source prefix reaching 80% of positive singleton signed incidence, ordered by decreasing positive incidence then canonical source order."
+  },
+  "novelty": "First joint full-head/module patch test of task-specific source sets derived from exact task-rank-four weight-edge incidence, including intersection, union, and physical complements.",
+  "decision": "A causal source program must work when installed jointly; singleton ranks alone are attribution, not an executable circuit."
+}
