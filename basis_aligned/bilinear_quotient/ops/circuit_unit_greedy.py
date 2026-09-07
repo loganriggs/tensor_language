@@ -215,6 +215,18 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
 
         if block_q is not None and (layer, kind) in block_q:   # blocks absent from q are patched at full rank (== exact)
             qb = block_q[(layer, kind)]
+            fitted, d = [], 0                                    # leading units of this block cover q's rows; any
+            for u in here:                                       # further units (e.g. clamps) are patched at full rank
+                if d >= qb.shape[0]:
+                    break
+                fitted.append(u); d += span(u)[1] - span(u)[0]
+            assert d == qb.shape[0], (layer, kind, d, tuple(qb.shape))
+            for u in here[len(fitted):]:
+                s, e = span(u)
+                changed[idx, pos, s:e] = (torch.stack([torch.as_tensor(donor_cache[(rid, hidden_key(layer))])[s:e]
+                                                       for rid in batch.row_ids]) if kind == "neurons"
+                                          else donor_value(u)).to(value.device, value.dtype)
+            here = fitted
             spans = [span(u) for u in here]
             live_blk = torch.cat([value[idx, pos, s:e] for s, e in spans], dim=1).float()   # (n, D_blk)
             if kind == "neurons":
