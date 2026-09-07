@@ -1,0 +1,234 @@
+{
+  "bars": {
+    "K": [
+      2,
+      2,
+      2
+    ],
+    "carrier_layers": [
+      0,
+      8
+    ],
+    "carrier_mlps": [
+      6,
+      7,
+      8
+    ],
+    "carrier_offsets": [
+      1,
+      2,
+      3
+    ],
+    "ctrl_max": 0.15,
+    "instr_tol": 0.02,
+    "loss_min": 0.3,
+    "restore_max": 0.2
+  },
+  "behaviours": {
+    "additive_scope": {
+      "donor_minus_base_median": 4.466,
+      "dropped_unequal": 13,
+      "kind": "control",
+      "loss": {
+        "attn_clamp": 0.424,
+        "instrument": 0.0,
+        "mlp_clamp": 0.092,
+        "restore": 0.064
+      },
+      "rows": 3,
+      "seconds": 0.3,
+      "units": [
+        "attn:10:head:05",
+        "attn:16:head:08",
+        "attn:08:head:01",
+        "attn:09:head:03",
+        "attn:14:head:08",
+        "attn:05:head:07",
+        "attn:09:head:01",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:04:head:00",
+        "attn:11:head:07"
+      ]
+    },
+    "degree_frame": {
+      "donor_minus_base_median": 11.362,
+      "dropped_unequal": 0,
+      "kind": "control",
+      "loss": {
+        "attn_clamp": -0.035,
+        "instrument": 0.0,
+        "mlp_clamp": 0.028,
+        "restore": -0.017
+      },
+      "rows": 16,
+      "seconds": 0.5,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:12:head:08",
+        "attn:06:head:03",
+        "attn:15:head:01",
+        "attn:10:head:05"
+      ]
+    },
+    "interrogative_licensing": {
+      "donor_minus_base_median": 4.307,
+      "dropped_unequal": 0,
+      "kind": "control",
+      "loss": {
+        "attn_clamp": 0.354,
+        "instrument": 0.0,
+        "mlp_clamp": 0.049,
+        "restore": 0.04
+      },
+      "rows": 16,
+      "seconds": 0.5,
+      "units": [
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:03:head:00",
+        "attn:02:head:06",
+        "attn:10:head:05",
+        "attn:04:head:04",
+        "attn:05:head:03",
+        "attn:04:head:01",
+        "attn:05:head:07",
+        "attn:04:head:00"
+      ]
+    },
+    "narrative_tense": {
+      "donor_minus_base_median": 4.401,
+      "dropped_unequal": 0,
+      "kind": "relay",
+      "loss": {
+        "attn_clamp": 0.137,
+        "instrument": 0.0,
+        "mlp_clamp": 0.042,
+        "restore": 0.038
+      },
+      "rows": 16,
+      "seconds": 0.8,
+      "units": [
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:04",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:15:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "possessive_argument": {
+      "donor_minus_base_median": 4.299,
+      "dropped_unequal": 0,
+      "kind": "relay",
+      "loss": {
+        "attn_clamp": 0.191,
+        "instrument": 0.0,
+        "mlp_clamp": 0.106,
+        "restore": 0.01
+      },
+      "rows": 16,
+      "seconds": 0.6,
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:09:head:07"
+      ]
+    },
+    "possessive_verbfinal": {
+      "donor_minus_base_median": 4.526,
+      "dropped_unequal": 0,
+      "kind": "relay",
+      "loss": {
+        "attn_clamp": 0.167,
+        "instrument": 0.0,
+        "mlp_clamp": 0.105,
+        "restore": 0.029
+      },
+      "rows": 16,
+      "seconds": 0.6,
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:10:head:01"
+      ]
+    }
+  },
+  "candidate_id": "corpus.unit_tier5_carrier_relay_v120",
+  "control_sets": [
+    "additive_scope",
+    "degree_frame",
+    "interrogative_licensing"
+  ],
+  "counts": {
+    "controls_spared": 1,
+    "instrument": 6,
+    "mlp": 0,
+    "relay": 0,
+    "restored": 3
+  },
+  "finished_utc": "2026-09-07T05:41:48.749922+00:00",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_relay_necessary": false,
+    "pred_c_controls_spared": false,
+    "pred_d_mlp_carrier": false,
+    "pred_e_through_the_set": true
+  },
+  "relay_sets": [
+    "narrative_tense",
+    "possessive_argument",
+    "possessive_verbfinal"
+  ],
+  "schema": "unit_tier5_carrier_relay_v120",
+  "seconds": 3.2,
+  "summary": {
+    "additive_scope": {
+      "attn_clamp": 0.424,
+      "instrument": 0.0,
+      "mlp_clamp": 0.092,
+      "restore": 0.064
+    },
+    "degree_frame": {
+      "attn_clamp": -0.035,
+      "instrument": 0.0,
+      "mlp_clamp": 0.028,
+      "restore": -0.017
+    },
+    "interrogative_licensing": {
+      "attn_clamp": 0.354,
+      "instrument": 0.0,
+      "mlp_clamp": 0.049,
+      "restore": 0.04
+    },
+    "narrative_tense": {
+      "attn_clamp": 0.137,
+      "instrument": 0.0,
+      "mlp_clamp": 0.042,
+      "restore": 0.038
+    },
+    "possessive_argument": {
+      "attn_clamp": 0.191,
+      "instrument": 0.0,
+      "mlp_clamp": 0.106,
+      "restore": 0.01
+    },
+    "possessive_verbfinal": {
+      "attn_clamp": 0.167,
+      "instrument": 0.0,
+      "mlp_clamp": 0.105,
+      "restore": 0.029
+    }
+  }
+}
