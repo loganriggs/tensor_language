@@ -1,0 +1,57 @@
+{
+  "schema": "temporal_iswas_v15_cross_boundary_adaptive_greedy_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_cross_boundary_adaptive_greedy_v1",
+  "question": "Can the v15 changed behavior be reconstructed by a small selective cross-boundary circuit made from the four causally material heads and the other complete modules with absolute singleton behavior at least .10?",
+  "authorities": {
+    "module_atlas_result": "b04b049407b9a92e585550951e07ec92374a07fff70bdce8a61aba4613663468",
+    "head_atlas_result": "cf2427059f698eac94a9e733ff873e1892a49882f60bc587c3ac83c681507025",
+    "head_atlas_runner": "eb89c0948b03f9df15ce35cdbf07c8483c87a3404b8dd36efb6ebc1a873b2282"
+  },
+  "novelty": "Prior work contains greedy module and head programs on earlier temporal constructions, but no executed adaptive combination on the v15 changed graph and no combination that replaces live attention modules 8/9/11 by their prospectively localized complete heads.",
+  "population": {
+    "discovery": "The 16 A1 Today/Yesterday target rows.",
+    "sealed_confirmation": "The 16 A2 Currently/Previously target rows; these outcomes do not select the sequence or stopping prefix.",
+    "selectivity_controls": "All 16 P same-answer temporal-paraphrase rows and all 16 C canonical same-answer controls. Controls constrain selection but never contribute positive target reward."
+  },
+  "candidate_rule": {
+    "heads": ["L8H1", "L9H1", "L9H4", "L11H3"],
+    "other_modules": ["attn:2", "attn:15", "mlp:1", "mlp:2", "mlp:3", "mlp:4", "mlp:6", "mlp:7", "mlp:8", "mlp:9", "mlp:10", "mlp:11", "mlp:17"],
+    "derivation": "Heads are exactly those with absolute standalone behavior >=.10 and direction >=.75 in the frozen head atlas. Other modules are exactly the non-attention-8/9/11 module singletons with absolute behavior >=.10 in the frozen module atlas. MLP17 is retained despite its negative sign so the rule is symmetric and prospective."
+  },
+  "intervention": "At every chosen component, replace the complete aligned base response through the semantic query position by its paired donor response. A head replaces its native 128-dimensional pre-c_proj slice; an attention module replaces all nine such slices; an MLP replaces its complete 1152-dimensional output. Multiple hooks execute together through the native suffix.",
+  "adaptive_greedy": {
+    "algorithm": "Starting from the empty set, evaluate every one-component extension of the current set. Choose the extension with largest A1 behavioral signed projection among arms with zero P/C top-one flips and pooled P/C median centered full-vocabulary KL <=.05. If no extension is selective, choose the largest A1 projection and record a selectivity fallback. Break exact ties by the frozen candidate order above. Continue through all 17 components so the full sequence and every marginal are observed.",
+    "selected_prefix": "The earliest sequence prefix with A1 behavioral signed projection >=.80, A1 direction fraction >=.875, zero P/C top-one flips, and pooled P/C median centered KL <=.05. No A2 quantity participates.",
+    "necessity": "For each of the 17 frozen candidate names, execute the selected prefix with that name excluded. Selected names are genuine leave-one-component-out arms; exclusions of nonselected names must replay the selected prefix and are exact no-op controls. A selected component is materially necessary when removal lowers A1 signed projection by >=.05 or makes the prefix fail its A1/selectivity eligibility."
+  },
+  "predictions": {
+    "pred_a_authority_population_closure_finiteness_and_exact_price": "All authority hashes, row counts/order, candidate derivations, and aligned shapes match; empty/base-self errors are <=1e-4; all reports are finite; exactly 174 forwards execute.",
+    "pred_b_discovery_selective_prefix_exists": "An A1-selected prefix reaches >=.80 behavioral projection, >=.875 direction, zero P/C top-one flips, and pooled P/C median centered KL <=.05.",
+    "pred_c_selected_prefix_confirms_without_reselection": "The A1-selected prefix reaches A2 behavioral projection >=.75 and direction >=.875 without using A2 in selection.",
+    "pred_d_selected_program_is_smaller_than_candidate_pool": "The selected eligible prefix uses at most 10 of 17 candidates.",
+    "pred_e_selected_program_has_multiple_necessary_components": "At least two selected components are materially necessary by the frozen leave-one-out rule.",
+    "pred_f_response_operator_agrees_with_behavior": "The selected prefix has full-final-residual signed projection >=.50 on both A1 and A2; failure is retained as evidence that even the full residual is an incomplete proxy for behavior."
+  },
+  "terminal_policy": {
+    "selective_cross_boundary_circuit": "A-F pass.",
+    "behavioral_circuit_response_mismatch": "A-E pass and F fails.",
+    "confirmation_failure": "A and B pass but C fails.",
+    "no_small_selective_prefix": "A passes and B or D fails.",
+    "nonnecessary_greedy_set": "A-D pass but E fails.",
+    "partial": "A passes and no more specific terminal applies.",
+    "invalid": "A fails."
+  },
+  "price": {
+    "model_forwards_exact": 174,
+    "rows_per_forward": 64,
+    "greedy_extension_arms": 153,
+    "native_base_donor_forwards": 2,
+    "self_and_full_candidate_controls": 2,
+    "selected_prefix_leave_one_out_arms": 17,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "next_branch": "If a selective prefix confirms, freeze it and test a new lexical/construction bank plus task-pair composition. If no selective prefix exists, use control-conditioned pruning or within-MLP splitting rather than adding more complete modules.",
+  "execution_policy": "managed_queue_only"
+}
