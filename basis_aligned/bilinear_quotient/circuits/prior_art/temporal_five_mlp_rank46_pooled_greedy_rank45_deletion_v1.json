@@ -1,0 +1,19 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank46_pooled_greedy_rank45_deletion_v1",
+  "question": "Can the sole remaining frozen candidate L10H5 be removed from the corrected 46-site pooled support while preserving bidirectional OOD execution?",
+  "authority": {
+    "rank46_invalid_result": "The opened 31-forward result contains the selected 46-site support and passed every scientific gate but failed a stale input-count assertion.",
+    "rank46_count_correction": "A hash-bound zero-GPU audit corrects only 48 to 47 for the parent support, verifies two 46-site arms, and licenses L3H7 as the selected second deletion."
+  },
+  "arm": "remove_L1H3_L3H7_and_L10H5",
+  "evaluation": "Run the resulting 45-component graph forward and reverse on disjoint temporal-v12/iswas-v11 targets and controls with the identical pooled projector at gain one.",
+  "predictions": {
+    "pred_a_authority_hash_disjointness_finiteness_and_exact_price": "The parent result and count correction are hash-bound, the input support has 46 sites, projector/disjointness/source/finiteness tripwires pass, and exactly 23 forwards execute.",
+    "pred_b_at_least_one_rank47_arm_has_bidirectional_coordinate_fidelity": "The 45-site arm has minimum coordinate projection at least 0.75 and mean/worst residual at most 0.20 in both directions.",
+    "pred_c_at_least_one_rank47_arm_has_bidirectional_behavior_fidelity": "Both task behavior projections are at least 0.80 and worst target residual at most 0.15 in both directions.",
+    "pred_d_at_least_one_rank47_arm_is_bidirectionally_selective": "Control margin RMS is at most 0.10, median full-vocabulary KL at most 0.02, and no top-one control flips in either direction.",
+    "pred_e_selected_rank47_arm_is_direction_stable": "The paired forward/reverse task behavior gap is at most 0.05."
+  },
+  "decision": "A 5/5 pass freezes rank45 and ends this preregistered three-head greedy branch. Any scientific miss freezes corrected rank46; no threshold relaxation or new candidate is substituted.",
+  "price": {"model_forwards_exact": 23, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}

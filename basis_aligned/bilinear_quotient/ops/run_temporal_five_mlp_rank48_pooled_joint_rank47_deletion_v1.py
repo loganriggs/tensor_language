@@ -42,6 +42,7 @@ RESULT_SCHEMA = "temporal_five_mlp_rank48_pooled_joint_rank47_deletion_result_v1
 SUCCESS_TERMINAL = "pooled_bidirectional_rank47_program"
 FAILURE_TERMINAL = "rank48_single_deletion_boundary"
 EXPECTED_BASE_SUPPORT_COUNT = 48
+EXTRA_AUTHORITIES = {}
 
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -71,7 +72,8 @@ def reverse_arm(backend, fresh, support, qs, bases, reader, donor_full, control_
 
 
 def main():
-    observed = {key: sha(path) for key, path in {"rank48": RANK48, "forward": FORWARD, "reverse": REVERSE, "noise": NOISE, "helper": HELPER}.items()}
+    paths = {"rank48": RANK48, "forward": FORWARD, "reverse": REVERSE, "noise": NOISE, "helper": HELPER, **EXTRA_AUTHORITIES}
+    observed = {key: sha(path) for key, path in paths.items()}
     if observed != EXPECTED: raise RuntimeError(f"rank47 authority changed: {observed}")
     exact_forwards = 15 + 8 * len(REMOVALS)
     dry = {"candidate_id": CANDIDATE, "dryrun": True,
