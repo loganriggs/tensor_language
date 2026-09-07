@@ -1,0 +1,21 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_compiled_coordinate_upstream_atlas_v1",
+  "question": "Which full attention heads and MLP modules generate the now weight-compiled downstream response coordinates?",
+  "frozen_program": {
+    "population": "all 99 attention heads in layers 0-10 and all 11 MLPs in layers 0-10, patched one complete component at a time",
+    "rows": "temporal-v13 plus is/was-v12 A1/A2 targets",
+    "coordinate_target": "four local-current attention c_v/Q responses plus four rank-64 MLP residual-input/Q responses",
+    "score": "sum of absolute signed projections onto all eight full compiled coordinate tensors",
+    "causal_crosscheck": "native final answer-margin projection under the same single-component patches",
+    "joint_arm": "the top 20 components by frozen coordinate score"
+  },
+  "predictions": {
+    "pred_a_authority_alignment_self_patch_finiteness_and_price": "authorities replay, full-component self patch is inert, all statistics are finite, and <=128 forwards execute",
+    "pred_b_compiled_coordinate_instrument_closes_on_full_donor": "the reconstructed full compiled coordinate tensors retain the already validated target program and are nonzero for all eight sites",
+    "pred_c_known_response_frontier_is_enriched": "at least four of L8H1, L9H1, L9H4, MLP1, MLP3, MLP4, and MLP6 occur in the coordinate top 20",
+    "pred_d_compiled_coordinate_incidence_predicts_native_causality": "single-site coordinate magnitude and native final-margin magnitude have Spearman correlation >=0.50",
+    "pred_e_top20_joint_patch_is_coordinate_sufficient": "the top-20 joint patch attains signed projection >=0.80 on every downstream compiled coordinate with aggregate coordinate residual <=0.20"
+  },
+  "decision": "Use the top pool—not all native-effectful sites—as the search space for a subsequent complete-family greedy and control-tested upstream program. Failure redirects scoring to task-conditioned coordinate blocks rather than final-output greediness.",
+  "price": {"model_forwards_max": 128, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
