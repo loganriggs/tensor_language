@@ -1,0 +1,15 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank49_backward_deletion_atlas_v1",
+  "question": "Which members of the passing rank49 source graph remain individually redundant once the other 48 are present?",
+  "intervention": "Starting from the frozen passing rank49 support, base-clamp one allowed head/module at a time. Measure retention of all eight weight-derived coordinates under both fits and retention of the rank49 native task effect.",
+  "ranking": "Rank from most removable to least by the maximum across fits of coordinate impairment max(0,1-min projection) and native impairment max(0,1-min task projection), then site name.",
+  "predictions": {
+    "pred_a_authority_baseline_replay_finiteness_and_price": "authorities replay, the rank49 source baseline is deterministic, all values are finite, and <=66 forwards execute",
+    "pred_b_at_least_ten_sites_are_individually_removable": "at least ten deletions retain coordinate and native projections >=0.99 under both fits",
+    "pred_c_removability_spans_all_four_bands": "at least one individually removable component lies in each layer band",
+    "pred_d_early_mlp_chain_is_individually_required": "deleting each of MLP0, MLP1, MLP2, MLP3, or MLP4 causes >=0.05 impairment under both fits",
+    "pred_e_removability_is_crossfit_stable": "even/odd deletion-score rankings have Spearman correlation >=0.90 and top-20 least-removable overlap >=18"
+  },
+  "decision": "Freeze the ascending-removability order for sequential backward deletion with the full joint coordinate, behavior, and control gates. This atlas alone does not remove components.",
+  "price": {"model_forwards_max": 66, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
