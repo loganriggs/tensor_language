@@ -148,6 +148,28 @@ circuit.  The next split must compare complete native `MLP0/1/2/3/6` write patch
 rank16 patch on the new family.  Success of the whole-module patch would localize the failure to the
 learned response subspace; failure would show that the native source-site graph itself changes.
 
+### Complete-module construction atlas: old readers replay, behavior does not
+
+The v15 complete-source atlas is valid at 50/64 forwards and returns
+`source_graph_construction_failure`.  Replacing the entire donor-minus-recipient output at all five
+old source MLPs is much better than the rank-16 intervention in the old response coordinates:
+is/was signed response rises from `.66534` to `.92807` and RSE falls from `.39883` to `.02922`.
+It nevertheless recovers only `.39852` of the behavioral effect, far below the prospective `.75`
+bar.  Gain 1.15 raises behavior to `.47127` and response to `1.06190`, so native gain also misses
+the frozen no-worse prediction.  MLP1 is the largest singleton at `53.44%` of the five-site
+behavioral effect, below the 60% localization bar; MLP3 has the largest old-response projection
+(`.76039`) but only `.13743` behavior.
+
+This is sharper than merely saying that the five-site source graph changed.  The old downstream
+response measurements judge the all-five native patch nearly complete while task behavior says
+that more than half the causal effect is missing.  The old finite reader family is therefore not a
+sufficient observation map on the v15 construction.  Complete patches are also grossly nonselective
+on the inherited control set (14/16 top-1 flips, median KL `1.751`), unlike the rank-16 parent's
+2/16 flips.  The next atlas must treat answer margins, centered final residual/logit vectors, and
+registered downstream readers as separate response blocks and scan every complete attention and
+MLP module.  Only after the missing modules are localized should heads or within-module response
+subspaces be split.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -221,7 +243,9 @@ are closed; the next optimization object must expose a finite causal-response op
   `temporal_iswas_rank16_source_complement_composition_lattice_v1_result.json` (minimal mask 26:
   MLP1/3/6; complete 32-mask composition and selectivity), followed by
   `temporal_iswas_rank16_source_mask26_construction_holdout_v1_result.json` (parent-level is-was
-  construction null; mask remains close to full but full is not functional).
+  construction null; mask remains close to full but full is not functional), followed by
+  `temporal_iswas_v15_complete_source_mlp_write_atlas_v1_result.json` (valid source-graph/reader
+  failure: old response coordinates replay at `.928` while behavior reaches only `.399`).
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`, followed by
   `temporal_h3_das_nested_construction_adaptive_regularization_v1_result.json` (valid rejection of
@@ -231,9 +255,9 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Run complete native MLP0/1/2/3/6 write patches on the failed is-was-v15 family, with singleton
-   and full-site arms, to distinguish a construction-specific rank16 subspace from a changed source
-   graph.  Only then refit/factor a repaired source program.
+2. Scan all 36 complete attention/MLP responses on is-was-v15, plus cumulative layer prefixes, to
+   localize the missing behavioral path outside the old five MLP sites.  Split the top attention
+   module into heads or the top MLP into task-conditioned response modes only after this atlas.
 3. Replace the rejected scalar-axis DAS loss with a finite causal-response operator whose held-out
    blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
    as explicit controls, not post-hoc explanations.
