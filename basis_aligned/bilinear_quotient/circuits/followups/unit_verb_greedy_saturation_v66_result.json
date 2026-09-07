@@ -1,0 +1,415 @@
+{
+  "added_in_family": 10,
+  "added_total": 16,
+  "bars": {
+    "ceiling": 0.6,
+    "cross_frac": 0.1,
+    "family_frac": 0.5,
+    "hold_frac": 0.5,
+    "max_add": 8,
+    "plateau": 0.03
+  },
+  "candidate_id": "corpus.unit_verb_greedy_saturation_v66",
+  "finished_utc": "2026-09-07T00:12:20.085603+00:00",
+  "hub_family": [
+    "attn:00:head:03",
+    "attn:01:head:05",
+    "attn:02:head:02",
+    "attn:03:head:00",
+    "attn:04:head:01",
+    "attn:04:head:07",
+    "attn:05:head:03",
+    "attn:06:head:03",
+    "attn:07:head:08",
+    "attn:08:head:01",
+    "attn:08:head:08",
+    "attn:09:head:07",
+    "attn:10:head:05",
+    "attn:11:head:03",
+    "attn:13:head:01",
+    "attn:13:head:08",
+    "attn:14:head:03",
+    "attn:14:head:08"
+  ],
+  "predictions": {
+    "pred_a_plateau": false,
+    "pred_b_ceiling": true,
+    "pred_c_hub_family": true,
+    "pred_d_cross_clean": true,
+    "pred_e_transfer": true
+  },
+  "schema": "circuit_unit_verb_greedy_saturation_result_v1",
+  "seconds": 164.05311272665858,
+  "sets": {
+    "verb_complementizer": {
+      "base_even": 0.5667576715350151,
+      "base_odd": 0.5980751141905785,
+      "cross": {
+        "dative": 0.007919552735984325,
+        "polarity_licensing": 0.0022606179118156433,
+        "quantifier_number": -0.006408821791410446,
+        "voice_frame": -0.01314611453562975
+      },
+      "curve": [
+        {
+          "added": "attn:08:head:01",
+          "even_damage": 0.7119401842355728,
+          "gain_even": 0.1451825127005577,
+          "in_family": true,
+          "odd_damage": 0.7455619685351849,
+          "odd_lb": 0.572933348082006,
+          "runner_up": [
+            [
+              "attn:04:head:01",
+              0.6332524847239256
+            ],
+            [
+              "attn:09:head:03",
+              0.6274788025766611
+            ]
+          ],
+          "step": 1
+        },
+        {
+          "added": "attn:04:head:01",
+          "even_damage": 0.7856351714581251,
+          "gain_even": 0.0736949872225523,
+          "in_family": true,
+          "odd_damage": 0.8171258699148893,
+          "odd_lb": 0.6239541619084775,
+          "runner_up": [
+            [
+              "attn:09:head:03",
+              0.7804104890674353
+            ],
+            [
+              "attn:09:head:07",
+              0.7665391005575657
+            ]
+          ],
+          "step": 2
+        },
+        {
+          "added": "attn:09:head:03",
+          "even_damage": 0.8574535083025694,
+          "gain_even": 0.07181833684444427,
+          "in_family": false,
+          "odd_damage": 0.9000071994960308,
+          "odd_lb": 0.6882952801883221,
+          "runner_up": [
+            [
+              "attn:09:head:07",
+              0.8437619041651487
+            ],
+            [
+              "attn:14:head:03",
+              0.8309394307434559
+            ]
+          ],
+          "step": 3
+        },
+        {
+          "added": "attn:09:head:07",
+          "even_damage": 0.9210579544305801,
+          "gain_even": 0.06360444612801075,
+          "in_family": true,
+          "odd_damage": 0.9563153572380543,
+          "odd_lb": 0.7269615229219198,
+          "runner_up": [
+            [
+              "attn:14:head:03",
+              0.9058071468025446
+            ],
+            [
+              "attn:05:head:08",
+              0.8951757308095694
+            ]
+          ],
+          "step": 4
+        },
+        {
+          "added": "attn:14:head:03",
+          "even_damage": 0.970787400379777,
+          "gain_even": 0.049729445949196815,
+          "in_family": true,
+          "odd_damage": 1.0007375553250313,
+          "odd_lb": 0.7597280300222338,
+          "runner_up": [
+            [
+              "attn:05:head:08",
+              0.9598701428622007
+            ],
+            [
+              "attn:09:head:01",
+              0.955154487863183
+            ]
+          ],
+          "step": 5
+        },
+        {
+          "added": "attn:05:head:08",
+          "even_damage": 1.010813646018505,
+          "gain_even": 0.04002624563872814,
+          "in_family": false,
+          "odd_damage": 1.03899846971035,
+          "odd_lb": 0.7905909851193428,
+          "runner_up": [
+            [
+              "attn:09:head:01",
+              1.0063866265118122
+            ],
+            [
+              "attn:08:head:08",
+              1.004388153553009
+            ]
+          ],
+          "step": 6
+        },
+        {
+          "added": "attn:09:head:01",
+          "even_damage": 1.0471532978117466,
+          "gain_even": 0.0363396517932415,
+          "in_family": false,
+          "odd_damage": 1.080483827739954,
+          "odd_lb": 0.823224141728133,
+          "runner_up": [
+            [
+              "attn:08:head:08",
+              1.046178625896573
+            ],
+            [
+              "attn:14:head:08",
+              1.0365660656243563
+            ]
+          ],
+          "step": 7
+        },
+        {
+          "added": "attn:08:head:08",
+          "even_damage": 1.0839742589741945,
+          "gain_even": 0.03682096116244793,
+          "in_family": true,
+          "odd_damage": 1.1193297654390335,
+          "odd_lb": 0.8626744905486703,
+          "runner_up": [
+            [
+              "attn:02:head:03",
+              1.0733219888061285
+            ],
+            [
+              "attn:14:head:08",
+              1.072974530979991
+            ]
+          ],
+          "step": 8
+        }
+      ],
+      "final": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08"
+      ],
+      "final_odd": 1.1193297654390335,
+      "gain_even_total": 0.5172165874391794,
+      "gain_odd_total": 0.521254651248455,
+      "hub": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08"
+      ]
+    },
+    "verb_preposition": {
+      "base_even": 0.19653950911015272,
+      "base_odd": 0.2019428419880569,
+      "cross": {
+        "dative": 0.014467363245785236,
+        "polarity_licensing": 0.0031913965940475464,
+        "quantifier_number": -0.006977397948503494,
+        "voice_frame": 0.0013658995740115643
+      },
+      "curve": [
+        {
+          "added": "attn:11:head:03",
+          "even_damage": 0.2788281235843897,
+          "gain_even": 0.08228861447423697,
+          "in_family": true,
+          "odd_damage": 0.2864077310077846,
+          "odd_lb": 0.2392233997466974,
+          "runner_up": [
+            [
+              "attn:14:head:08",
+              0.275519160553813
+            ],
+            [
+              "attn:14:head:03",
+              0.26250112196430564
+            ]
+          ],
+          "step": 1
+        },
+        {
+          "added": "attn:14:head:08",
+          "even_damage": 0.37098106648772955,
+          "gain_even": 0.09215294290333986,
+          "in_family": true,
+          "odd_damage": 0.3814423056319356,
+          "odd_lb": 0.3283531707711518,
+          "runner_up": [
+            [
+              "attn:14:head:03",
+              0.3581818947568536
+            ],
+            [
+              "attn:07:head:08",
+              0.35733382776379585
+            ]
+          ],
+          "step": 2
+        },
+        {
+          "added": "attn:07:head:08",
+          "even_damage": 0.4680797941982746,
+          "gain_even": 0.09709872771054506,
+          "in_family": true,
+          "odd_damage": 0.47559432685375214,
+          "odd_lb": 0.39716133011970667,
+          "runner_up": [
+            [
+              "attn:14:head:03",
+              0.4576850663870573
+            ],
+            [
+              "attn:08:head:01",
+              0.4193058805540204
+            ]
+          ],
+          "step": 3
+        },
+        {
+          "added": "attn:14:head:03",
+          "even_damage": 0.5698740053921938,
+          "gain_even": 0.10179421119391918,
+          "in_family": true,
+          "odd_damage": 0.583893071860075,
+          "odd_lb": 0.4961489328881726,
+          "runner_up": [
+            [
+              "attn:08:head:01",
+              0.527351064607501
+            ],
+            [
+              "attn:16:head:08",
+              0.49651213735342026
+            ]
+          ],
+          "step": 4
+        },
+        {
+          "added": "attn:08:head:01",
+          "even_damage": 0.6346772704273462,
+          "gain_even": 0.06480326503515244,
+          "in_family": true,
+          "odd_damage": 0.6437528254464269,
+          "odd_lb": 0.5454384825890883,
+          "runner_up": [
+            [
+              "attn:16:head:08",
+              0.6016487386077642
+            ],
+            [
+              "attn:10:head:08",
+              0.5929732974618673
+            ]
+          ],
+          "step": 5
+        },
+        {
+          "added": "attn:16:head:08",
+          "even_damage": 0.668199559673667,
+          "gain_even": 0.033522289246320724,
+          "in_family": false,
+          "odd_damage": 0.6775784539058805,
+          "odd_lb": 0.5764179635792971,
+          "runner_up": [
+            [
+              "attn:10:head:08",
+              0.6596943866461515
+            ],
+            [
+              "attn:13:head:03",
+              0.6510517559945583
+            ]
+          ],
+          "step": 6
+        },
+        {
+          "added": "attn:10:head:08",
+          "even_damage": 0.69407968968153,
+          "gain_even": 0.025880130007863045,
+          "in_family": false,
+          "odd_damage": 0.7058577192947268,
+          "odd_lb": 0.600861613592133,
+          "runner_up": [
+            [
+              "attn:13:head:03",
+              0.6849417760968208
+            ],
+            [
+              "attn:06:head:00",
+              0.679354339838028
+            ]
+          ],
+          "step": 7
+        },
+        {
+          "added": "attn:13:head:03",
+          "even_damage": 0.711416831240058,
+          "gain_even": 0.017337141558527946,
+          "in_family": false,
+          "odd_damage": 0.723190980963409,
+          "odd_lb": 0.6178578948834911,
+          "runner_up": [
+            [
+              "attn:06:head:00",
+              0.7053677123039961
+            ],
+            [
+              "attn:05:head:00",
+              0.7052618768066168
+            ]
+          ],
+          "step": 8
+        }
+      ],
+      "final": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:13:head:03"
+      ],
+      "final_odd": 0.723190980963409,
+      "gain_even_total": 0.5148773221299052,
+      "gain_odd_total": 0.521248138975352,
+      "hub": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08"
+      ]
+    }
+  }
+}
