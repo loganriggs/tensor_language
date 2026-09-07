@@ -1,0 +1,1048 @@
+{
+  "bars": {
+    "c_tol": 0.02,
+    "cos_gain": 0.05,
+    "cross_tol": 0.03,
+    "instr_tol": 0.02,
+    "k": 5,
+    "norm_gain": 0.1
+  },
+  "candidate_id": "corpus.unit_seven_rank_fidelity_v110",
+  "finished_utc": "2026-09-07T04:47:21.675598+00:00",
+  "predictions": {
+    "pred_a_fidelity_rises": false,
+    "pred_b_norm_rises": false,
+    "pred_c_specificity_free": false,
+    "pred_d_dim_more_faithful": true,
+    "pred_e_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank1_source": "v109",
+    "ranks": [
+      1,
+      2,
+      4
+    ],
+    "seed": 0,
+    "steps": 120
+  },
+  "schema": "circuit_unit_rank_fidelity_result_v1",
+  "seconds": 896.9,
+  "sets": {
+    "dative": {
+      "arms": {
+        "das1": {
+          "cos": 0.726,
+          "cross": {
+            "modal_remoteness": 0.0074,
+            "polarity_licensing": -0.0052,
+            "quantifier_number": -0.0067,
+            "verb_complementizer": -0.0067,
+            "verb_preposition": 0.0017,
+            "voice_frame": 0.0038
+          },
+          "cross_abs_max": 0.007,
+          "extraction": 0.942,
+          "norm_ratio": 0.439,
+          "own_c": {
+            "ce_damage": 0.009324697777628899,
+            "ce_lb975": -0.004368926864117384,
+            "ce_ub975": 0.022295505646616216,
+            "documents": 32,
+            "kl_mean": 0.003077946683333721,
+            "margin_damage": -0.007207021117210388,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.022
+        },
+        "das2": {
+          "cos": 0.746,
+          "cross": {
+            "modal_remoteness": 0.0171,
+            "polarity_licensing": -0.0002,
+            "quantifier_number": -0.0091,
+            "verb_complementizer": -0.0012,
+            "verb_preposition": -0.0013,
+            "voice_frame": 0.0166
+          },
+          "cross_abs_max": 0.017,
+          "extraction": 0.896,
+          "norm_ratio": 0.476,
+          "own_c": {
+            "ce_damage": 0.06689003296196461,
+            "ce_lb975": 0.03560053505934775,
+            "ce_ub975": 0.09815494795329868,
+            "documents": 32,
+            "kl_mean": 0.018291245389264077,
+            "margin_damage": 0.09412670135498047,
+            "top1_change_rate": 0.0
+          },
+          "own_c_ub": 0.098
+        },
+        "das4": {
+          "cos": 0.823,
+          "cross": {
+            "modal_remoteness": 0.0185,
+            "polarity_licensing": -0.018,
+            "quantifier_number": -0.0009,
+            "verb_complementizer": -0.0129,
+            "verb_preposition": -0.0017,
+            "voice_frame": 0.0122
+          },
+          "cross_abs_max": 0.018,
+          "extraction": 0.945,
+          "norm_ratio": 0.63,
+          "own_c": {
+            "ce_damage": 0.005989124998450279,
+            "ce_lb975": -0.011259273393079638,
+            "ce_ub975": 0.024771117884665718,
+            "documents": 32,
+            "kl_mean": 0.006579909517313354,
+            "margin_damage": -0.044138796627521515,
+            "top1_change_rate": 0.0625
+          },
+          "own_c_ub": 0.025
+        },
+        "dim1": {
+          "cos": 0.985,
+          "cross": {
+            "modal_remoteness": 0.0437,
+            "polarity_licensing": -0.0224,
+            "quantifier_number": 0.0229,
+            "verb_complementizer": 0.0691,
+            "verb_preposition": -0.0261,
+            "voice_frame": 0.0121
+          },
+          "cross_abs_max": 0.069,
+          "extraction": 1.043,
+          "norm_ratio": 0.978,
+          "own_c": {
+            "ce_damage": -0.15924322418868542,
+            "ce_lb975": -0.18431514231488108,
+            "ce_ub975": -0.1357495292555541,
+            "documents": 32,
+            "kl_mean": 0.007696906890487298,
+            "margin_damage": -0.12058689817786217,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": -0.136
+        }
+      },
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:03:head:06",
+        "attn:11:head:02"
+      ],
+      "v109_cos17": 0.726
+    },
+    "modal_remoteness": {
+      "arms": {
+        "das1": {
+          "cos": 0.894,
+          "cross": {
+            "dative": 0.0023,
+            "polarity_licensing": -0.0014,
+            "quantifier_number": -0.0041,
+            "verb_complementizer": -0.0026,
+            "verb_preposition": -0.0009,
+            "voice_frame": -0.0038
+          },
+          "cross_abs_max": 0.004,
+          "extraction": 1.007,
+          "norm_ratio": 0.731,
+          "own_c": {
+            "ce_damage": -0.002027476206421852,
+            "ce_lb975": -0.005975091364234686,
+            "ce_ub975": 0.0013618242461234322,
+            "documents": 32,
+            "kl_mean": 0.0001798882383354794,
+            "margin_damage": -0.013587962836027145,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.001
+        },
+        "das2": {
+          "cos": 0.926,
+          "cross": {
+            "dative": 0.0054,
+            "polarity_licensing": -0.0014,
+            "quantifier_number": -0.0098,
+            "verb_complementizer": 0.0064,
+            "verb_preposition": -0.0014,
+            "voice_frame": -0.0038
+          },
+          "cross_abs_max": 0.01,
+          "extraction": 1.011,
+          "norm_ratio": 0.792,
+          "own_c": {
+            "ce_damage": 0.024808062240481377,
+            "ce_lb975": 0.008153611049056052,
+            "ce_ub975": 0.040967550873756385,
+            "documents": 32,
+            "kl_mean": 0.0009540778301015962,
+            "margin_damage": -0.04370329529047012,
+            "top1_change_rate": 0.0625
+          },
+          "own_c_ub": 0.041
+        },
+        "das4": {
+          "cos": 0.906,
+          "cross": {
+            "dative": 0.0102,
+            "polarity_licensing": -0.0023,
+            "quantifier_number": -0.0149,
+            "verb_complementizer": -0.0038,
+            "verb_preposition": 0.0011,
+            "voice_frame": -0.002
+          },
+          "cross_abs_max": 0.015,
+          "extraction": 1.015,
+          "norm_ratio": 0.775,
+          "own_c": {
+            "ce_damage": 0.04254222847521305,
+            "ce_lb975": 0.01709974235855043,
+            "ce_ub975": 0.06566913584247226,
+            "documents": 32,
+            "kl_mean": 0.016995698999380693,
+            "margin_damage": 0.17103177309036255,
+            "top1_change_rate": 0.0625
+          },
+          "own_c_ub": 0.066
+        },
+        "dim1": {
+          "cos": 0.984,
+          "cross": {
+            "dative": 0.0394,
+            "polarity_licensing": 0.0321,
+            "quantifier_number": -0.2144,
+            "verb_complementizer": -0.0689,
+            "verb_preposition": 0.0048,
+            "voice_frame": -0.0125
+          },
+          "cross_abs_max": 0.214,
+          "extraction": 0.988,
+          "norm_ratio": 0.976,
+          "own_c": {
+            "ce_damage": -0.008500851690769196,
+            "ce_lb975": -0.019088761182501912,
+            "ce_ub975": 0.0009994497988372983,
+            "documents": 32,
+            "kl_mean": 0.00187013861068408,
+            "margin_damage": -0.009752046316862106,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.001
+        }
+      },
+      "units": [
+        "attn:09:head:04",
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01"
+      ],
+      "v109_cos17": 0.894
+    },
+    "polarity_licensing": {
+      "arms": {
+        "das1": {
+          "cos": 0.914,
+          "cross": {
+            "dative": 0.0007,
+            "modal_remoteness": -0.0025,
+            "quantifier_number": 0.0023,
+            "verb_complementizer": 0.0082,
+            "verb_preposition": 0.0019,
+            "voice_frame": 0.0007
+          },
+          "cross_abs_max": 0.008,
+          "extraction": 0.998,
+          "norm_ratio": 0.683,
+          "own_c": {
+            "ce_damage": -7.743574678897858e-05,
+            "ce_lb975": -0.0041354745626449585,
+            "ce_ub975": 0.004373904922977084,
+            "documents": 32,
+            "kl_mean": 0.00011384218146304192,
+            "margin_damage": 0.007380936294794083,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.004
+        },
+        "das2": {
+          "cos": 0.881,
+          "cross": {
+            "dative": 0.0087,
+            "modal_remoteness": -0.0052,
+            "quantifier_number": 0.0079,
+            "verb_complementizer": -0.0166,
+            "verb_preposition": -0.0005,
+            "voice_frame": -0.0005
+          },
+          "cross_abs_max": 0.017,
+          "extraction": 0.829,
+          "norm_ratio": 0.579,
+          "own_c": {
+            "ce_damage": -0.011548561975359917,
+            "ce_lb975": -0.028689279220998287,
+            "ce_ub975": 0.005117816803976891,
+            "documents": 32,
+            "kl_mean": 0.0047730641381349415,
+            "margin_damage": 0.009738244116306305,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.005
+        },
+        "das4": {
+          "cos": 0.88,
+          "cross": {
+            "dative": -0.0173,
+            "modal_remoteness": -0.0105,
+            "quantifier_number": -0.0059,
+            "verb_complementizer": 0.0,
+            "verb_preposition": -0.0044,
+            "voice_frame": -0.0068
+          },
+          "cross_abs_max": 0.017,
+          "extraction": 0.868,
+          "norm_ratio": 0.686,
+          "own_c": {
+            "ce_damage": 0.05396338365972042,
+            "ce_lb975": 0.013611050369217993,
+            "ce_ub975": 0.09324704976752395,
+            "documents": 32,
+            "kl_mean": 0.03459215851034969,
+            "margin_damage": 0.25919269397854805,
+            "top1_change_rate": 0.09375
+          },
+          "own_c_ub": 0.093
+        },
+        "dim1": {
+          "cos": 0.99,
+          "cross": {
+            "dative": 0.005,
+            "modal_remoteness": -0.017,
+            "quantifier_number": 0.0426,
+            "verb_complementizer": -0.0666,
+            "verb_preposition": 0.0086,
+            "voice_frame": 0.0139
+          },
+          "cross_abs_max": 0.067,
+          "extraction": 1.004,
+          "norm_ratio": 1.008,
+          "own_c": {
+            "ce_damage": 0.016075322404503822,
+            "ce_lb975": -0.009660422429442405,
+            "ce_ub975": 0.04141973755322396,
+            "documents": 32,
+            "kl_mean": 0.00399468563409755,
+            "margin_damage": 0.008187789469957352,
+            "top1_change_rate": 0.09375
+          },
+          "own_c_ub": 0.041
+        }
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:05:head:03"
+      ],
+      "v109_cos17": 0.914
+    },
+    "quantifier_number": {
+      "arms": {
+        "das1": {
+          "cos": 0.796,
+          "cross": {
+            "dative": -0.0078,
+            "modal_remoteness": -0.0022,
+            "polarity_licensing": -0.0037,
+            "verb_complementizer": 0.0012,
+            "verb_preposition": 0.0031,
+            "voice_frame": -0.0002
+          },
+          "cross_abs_max": 0.008,
+          "extraction": 1.053,
+          "norm_ratio": 0.784,
+          "own_c": {
+            "ce_damage": -0.0036752037703990936,
+            "ce_lb975": -0.012976697646081448,
+            "ce_ub975": 0.005366565240547058,
+            "documents": 32,
+            "kl_mean": 0.0017861110936792102,
+            "margin_damage": 0.00971536710858345,
+            "top1_change_rate": 0.0
+          },
+          "own_c_ub": 0.005
+        },
+        "das2": {
+          "cos": 0.811,
+          "cross": {
+            "dative": 0.0026,
+            "modal_remoteness": 0.0007,
+            "polarity_licensing": -0.0029,
+            "verb_complementizer": -0.0056,
+            "verb_preposition": 0.0017,
+            "voice_frame": 0.0085
+          },
+          "cross_abs_max": 0.009,
+          "extraction": 1.037,
+          "norm_ratio": 0.78,
+          "own_c": {
+            "ce_damage": 0.007964352145791054,
+            "ce_lb975": -0.013056240091100334,
+            "ce_ub975": 0.02928451984189448,
+            "documents": 32,
+            "kl_mean": 0.005907174599997234,
+            "margin_damage": 0.0413508340716362,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.029
+        },
+        "das4": {
+          "cos": 0.853,
+          "cross": {
+            "dative": -0.0311,
+            "modal_remoteness": 0.0047,
+            "polarity_licensing": 0.0173,
+            "verb_complementizer": 0.0244,
+            "verb_preposition": -0.0037,
+            "voice_frame": 0.001
+          },
+          "cross_abs_max": 0.031,
+          "extraction": 1.016,
+          "norm_ratio": 0.758,
+          "own_c": {
+            "ce_damage": 0.04381104186177254,
+            "ce_lb975": -0.003292703116312623,
+            "ce_ub975": 0.09015998179092999,
+            "documents": 32,
+            "kl_mean": 0.05146747292019427,
+            "margin_damage": 0.35251931846141815,
+            "top1_change_rate": 0.125
+          },
+          "own_c_ub": 0.09
+        },
+        "dim1": {
+          "cos": 0.99,
+          "cross": {
+            "dative": -0.1302,
+            "modal_remoteness": -0.0498,
+            "polarity_licensing": -0.1107,
+            "verb_complementizer": -0.0524,
+            "verb_preposition": -0.0156,
+            "voice_frame": -0.0096
+          },
+          "cross_abs_max": 0.13,
+          "extraction": 1.07,
+          "norm_ratio": 1.026,
+          "own_c": {
+            "ce_damage": -0.05887206457555294,
+            "ce_lb975": -0.08290773746557534,
+            "ce_ub975": -0.034872714383527646,
+            "documents": 32,
+            "kl_mean": 0.00989211251726374,
+            "margin_damage": 0.0272262804210186,
+            "top1_change_rate": 0.0
+          },
+          "own_c_ub": -0.035
+        }
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:02:head:02",
+        "attn:09:head:01",
+        "attn:04:head:01",
+        "attn:13:head:06"
+      ],
+      "v109_cos17": 0.796
+    },
+    "verb_complementizer": {
+      "arms": {
+        "das1": {
+          "cos": 0.88,
+          "cross": {
+            "dative": -0.0068,
+            "modal_remoteness": 0.0022,
+            "polarity_licensing": 0.0132,
+            "quantifier_number": -0.0058,
+            "verb_preposition": 0.0037,
+            "voice_frame": -0.0057
+          },
+          "cross_abs_max": 0.013,
+          "extraction": 0.992,
+          "norm_ratio": 0.839,
+          "own_c": {
+            "ce_damage": 0.007519161328673363,
+            "ce_lb975": -0.008857099153101445,
+            "ce_ub975": 0.02178292348980902,
+            "documents": 32,
+            "kl_mean": 0.005420077055077854,
+            "margin_damage": 0.9925155639648438,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.022
+        },
+        "das2": {
+          "cos": 0.902,
+          "cross": {
+            "dative": -0.0114,
+            "modal_remoteness": -0.0032,
+            "polarity_licensing": 0.0055,
+            "quantifier_number": -0.0053,
+            "verb_preposition": -0.0007,
+            "voice_frame": -0.0045
+          },
+          "cross_abs_max": 0.011,
+          "extraction": 0.978,
+          "norm_ratio": 0.823,
+          "own_c": {
+            "ce_damage": 0.022123612463474274,
+            "ce_lb975": -0.007046536728739739,
+            "ce_ub975": 0.05044454929884519,
+            "documents": 32,
+            "kl_mean": 0.008552103416150203,
+            "margin_damage": 1.4100614935159683,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.05
+        },
+        "das4": {
+          "cos": 0.955,
+          "cross": {
+            "dative": -0.0151,
+            "modal_remoteness": 0.0036,
+            "polarity_licensing": 0.0137,
+            "quantifier_number": -0.0099,
+            "verb_preposition": 0.0019,
+            "voice_frame": 0.0036
+          },
+          "cross_abs_max": 0.015,
+          "extraction": 1.005,
+          "norm_ratio": 0.917,
+          "own_c": {
+            "ce_damage": 0.004484272561967373,
+            "ce_lb975": -0.05619197238702327,
+            "ce_ub975": 0.058199583995155985,
+            "documents": 32,
+            "kl_mean": 0.017441699499613605,
+            "margin_damage": 1.5677494555711746,
+            "top1_change_rate": 0.0625
+          },
+          "own_c_ub": 0.058
+        },
+        "dim1": {
+          "cos": 0.993,
+          "cross": {
+            "dative": 0.0028,
+            "modal_remoteness": -0.0017,
+            "polarity_licensing": 0.0083,
+            "quantifier_number": -0.0124,
+            "verb_preposition": 0.0036,
+            "voice_frame": -0.0134
+          },
+          "cross_abs_max": 0.013,
+          "extraction": 1.014,
+          "norm_ratio": 0.993,
+          "own_c": {
+            "ce_damage": 0.38749751169234514,
+            "ce_lb975": 0.2976149803958833,
+            "ce_ub975": 0.4831699880771338,
+            "documents": 32,
+            "kl_mean": 0.029163437560782768,
+            "margin_damage": 2.1046765223145485,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.483
+        }
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08"
+      ],
+      "v109_cos17": 0.88
+    },
+    "verb_preposition": {
+      "arms": {
+        "das1": {
+          "cos": 0.686,
+          "cross": {
+            "dative": 0.0042,
+            "modal_remoteness": 0.0013,
+            "polarity_licensing": 0.0052,
+            "quantifier_number": 0.0024,
+            "verb_complementizer": -0.0045,
+            "voice_frame": 0.0007
+          },
+          "cross_abs_max": 0.005,
+          "extraction": 1.02,
+          "norm_ratio": 0.561,
+          "own_c": {
+            "ce_damage": -0.004565289244055748,
+            "ce_lb975": -0.008700922783464193,
+            "ce_ub975": -0.0005812596529722216,
+            "documents": 32,
+            "kl_mean": 0.0003752499333131709,
+            "margin_damage": -0.017356541007757187,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": -0.001
+        },
+        "das2": {
+          "cos": 0.883,
+          "cross": {
+            "dative": 0.0053,
+            "modal_remoteness": -0.0072,
+            "polarity_licensing": 0.0048,
+            "quantifier_number": 0.0073,
+            "verb_complementizer": -0.0014,
+            "voice_frame": 0.0016
+          },
+          "cross_abs_max": 0.007,
+          "extraction": 1.026,
+          "norm_ratio": 0.82,
+          "own_c": {
+            "ce_damage": -0.0006494354456663132,
+            "ce_lb975": -0.004955489793792367,
+            "ce_ub975": 0.0038216808810830095,
+            "documents": 32,
+            "kl_mean": 0.0008055993112066062,
+            "margin_damage": 0.0010887309908866882,
+            "top1_change_rate": 0.0625
+          },
+          "own_c_ub": 0.004
+        },
+        "das4": {
+          "cos": 0.823,
+          "cross": {
+            "dative": -0.0209,
+            "modal_remoteness": 0.0019,
+            "polarity_licensing": 0.0073,
+            "quantifier_number": 0.0212,
+            "verb_complementizer": 0.0143,
+            "voice_frame": 0.0046
+          },
+          "cross_abs_max": 0.021,
+          "extraction": 1.031,
+          "norm_ratio": 0.643,
+          "own_c": {
+            "ce_damage": 0.06315848976373672,
+            "ce_lb975": 0.017246310180053116,
+            "ce_ub975": 0.10561575712636112,
+            "documents": 32,
+            "kl_mean": 0.034467765130102634,
+            "margin_damage": 0.18302907422184944,
+            "top1_change_rate": 0.125
+          },
+          "own_c_ub": 0.106
+        },
+        "dim1": {
+          "cos": 0.994,
+          "cross": {
+            "dative": 0.0201,
+            "modal_remoteness": 0.0012,
+            "polarity_licensing": 0.0108,
+            "quantifier_number": -0.0055,
+            "verb_complementizer": -0.0567,
+            "voice_frame": 0.0071
+          },
+          "cross_abs_max": 0.057,
+          "extraction": 1.021,
+          "norm_ratio": 0.993,
+          "own_c": {
+            "ce_damage": -0.24056261405348778,
+            "ce_lb975": -0.26808782750740645,
+            "ce_ub975": -0.21231690719723703,
+            "documents": 32,
+            "kl_mean": 0.011601061720284633,
+            "margin_damage": -0.11713826283812523,
+            "top1_change_rate": 0.09375
+          },
+          "own_c_ub": -0.212
+        }
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:13:head:03"
+      ],
+      "v109_cos17": 0.686
+    },
+    "voice_frame": {
+      "arms": {
+        "das1": {
+          "cos": 0.981,
+          "cross": {
+            "dative": -0.0079,
+            "modal_remoteness": -0.0004,
+            "polarity_licensing": -0.0059,
+            "quantifier_number": -0.0002,
+            "verb_complementizer": -0.0065,
+            "verb_preposition": -0.0011
+          },
+          "cross_abs_max": 0.008,
+          "extraction": 0.998,
+          "norm_ratio": 0.965,
+          "own_c": {
+            "ce_damage": 0.0036985576152801514,
+            "ce_lb975": -0.0016158185433596372,
+            "ce_ub975": 0.009430701937526464,
+            "documents": 32,
+            "kl_mean": 0.00039301837705352227,
+            "margin_damage": -0.0037936940789222717,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.009
+        },
+        "das2": {
+          "cos": 0.982,
+          "cross": {
+            "dative": -0.0169,
+            "modal_remoteness": -0.0026,
+            "polarity_licensing": 0.0005,
+            "quantifier_number": 0.0095,
+            "verb_complementizer": -0.0076,
+            "verb_preposition": -0.0032
+          },
+          "cross_abs_max": 0.017,
+          "extraction": 1.02,
+          "norm_ratio": 0.991,
+          "own_c": {
+            "ce_damage": 0.00198245607316494,
+            "ce_lb975": -0.009906676923856139,
+            "ce_ub975": 0.014959191484376785,
+            "documents": 32,
+            "kl_mean": 0.0010290227601217339,
+            "margin_damage": 0.015314437448978424,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.015
+        },
+        "das4": {
+          "cos": 0.983,
+          "cross": {
+            "dative": -0.0179,
+            "modal_remoteness": 0.0015,
+            "polarity_licensing": 0.0094,
+            "quantifier_number": -0.004,
+            "verb_complementizer": -0.0113,
+            "verb_preposition": -0.0011
+          },
+          "cross_abs_max": 0.018,
+          "extraction": 0.975,
+          "norm_ratio": 0.942,
+          "own_c": {
+            "ce_damage": 0.0768630038946867,
+            "ce_lb975": 0.044252537610009315,
+            "ce_ub975": 0.10829138443805277,
+            "documents": 32,
+            "kl_mean": 0.020644375996198505,
+            "margin_damage": 0.1815728209912777,
+            "top1_change_rate": 0.09375
+          },
+          "own_c_ub": 0.108
+        },
+        "dim1": {
+          "cos": 0.99,
+          "cross": {
+            "dative": 0.0284,
+            "modal_remoteness": 0.0343,
+            "polarity_licensing": -0.0239,
+            "quantifier_number": -0.003,
+            "verb_complementizer": 0.0248,
+            "verb_preposition": -0.0043
+          },
+          "cross_abs_max": 0.034,
+          "extraction": 0.929,
+          "norm_ratio": 0.899,
+          "own_c": {
+            "ce_damage": -0.0006773956120014191,
+            "ce_lb975": -0.030970931285992265,
+            "ce_ub975": 0.03006141535006459,
+            "documents": 32,
+            "kl_mean": 0.0026702843788370956,
+            "margin_damage": -0.025442931801080704,
+            "top1_change_rate": 0.03125
+          },
+          "own_c_ub": 0.03
+        }
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:16:head:08",
+        "attn:11:head:07",
+        "attn:10:head:05",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:02:head:06",
+        "attn:02:head:03"
+      ],
+      "v109_cos17": 0.981
+    }
+  },
+  "summary": {
+    "dative": {
+      "das1": {
+        "cos": 0.726,
+        "cross_abs_max": 0.007,
+        "extraction": 0.942,
+        "norm_ratio": 0.439,
+        "own_c_ub": 0.022
+      },
+      "das2": {
+        "cos": 0.746,
+        "cross_abs_max": 0.017,
+        "extraction": 0.896,
+        "norm_ratio": 0.476,
+        "own_c_ub": 0.098
+      },
+      "das4": {
+        "cos": 0.823,
+        "cross_abs_max": 0.018,
+        "extraction": 0.945,
+        "norm_ratio": 0.63,
+        "own_c_ub": 0.025
+      },
+      "dim1": {
+        "cos": 0.985,
+        "cross_abs_max": 0.069,
+        "extraction": 1.043,
+        "norm_ratio": 0.978,
+        "own_c_ub": -0.136
+      }
+    },
+    "modal_remoteness": {
+      "das1": {
+        "cos": 0.894,
+        "cross_abs_max": 0.004,
+        "extraction": 1.007,
+        "norm_ratio": 0.731,
+        "own_c_ub": 0.001
+      },
+      "das2": {
+        "cos": 0.926,
+        "cross_abs_max": 0.01,
+        "extraction": 1.011,
+        "norm_ratio": 0.792,
+        "own_c_ub": 0.041
+      },
+      "das4": {
+        "cos": 0.906,
+        "cross_abs_max": 0.015,
+        "extraction": 1.015,
+        "norm_ratio": 0.775,
+        "own_c_ub": 0.066
+      },
+      "dim1": {
+        "cos": 0.984,
+        "cross_abs_max": 0.214,
+        "extraction": 0.988,
+        "norm_ratio": 0.976,
+        "own_c_ub": 0.001
+      }
+    },
+    "polarity_licensing": {
+      "das1": {
+        "cos": 0.914,
+        "cross_abs_max": 0.008,
+        "extraction": 0.998,
+        "norm_ratio": 0.683,
+        "own_c_ub": 0.004
+      },
+      "das2": {
+        "cos": 0.881,
+        "cross_abs_max": 0.017,
+        "extraction": 0.829,
+        "norm_ratio": 0.579,
+        "own_c_ub": 0.005
+      },
+      "das4": {
+        "cos": 0.88,
+        "cross_abs_max": 0.017,
+        "extraction": 0.868,
+        "norm_ratio": 0.686,
+        "own_c_ub": 0.093
+      },
+      "dim1": {
+        "cos": 0.99,
+        "cross_abs_max": 0.067,
+        "extraction": 1.004,
+        "norm_ratio": 1.008,
+        "own_c_ub": 0.041
+      }
+    },
+    "quantifier_number": {
+      "das1": {
+        "cos": 0.796,
+        "cross_abs_max": 0.008,
+        "extraction": 1.053,
+        "norm_ratio": 0.784,
+        "own_c_ub": 0.005
+      },
+      "das2": {
+        "cos": 0.811,
+        "cross_abs_max": 0.009,
+        "extraction": 1.037,
+        "norm_ratio": 0.78,
+        "own_c_ub": 0.029
+      },
+      "das4": {
+        "cos": 0.853,
+        "cross_abs_max": 0.031,
+        "extraction": 1.016,
+        "norm_ratio": 0.758,
+        "own_c_ub": 0.09
+      },
+      "dim1": {
+        "cos": 0.99,
+        "cross_abs_max": 0.13,
+        "extraction": 1.07,
+        "norm_ratio": 1.026,
+        "own_c_ub": -0.035
+      }
+    },
+    "verb_complementizer": {
+      "das1": {
+        "cos": 0.88,
+        "cross_abs_max": 0.013,
+        "extraction": 0.992,
+        "norm_ratio": 0.839,
+        "own_c_ub": 0.022
+      },
+      "das2": {
+        "cos": 0.902,
+        "cross_abs_max": 0.011,
+        "extraction": 0.978,
+        "norm_ratio": 0.823,
+        "own_c_ub": 0.05
+      },
+      "das4": {
+        "cos": 0.955,
+        "cross_abs_max": 0.015,
+        "extraction": 1.005,
+        "norm_ratio": 0.917,
+        "own_c_ub": 0.058
+      },
+      "dim1": {
+        "cos": 0.993,
+        "cross_abs_max": 0.013,
+        "extraction": 1.014,
+        "norm_ratio": 0.993,
+        "own_c_ub": 0.483
+      }
+    },
+    "verb_preposition": {
+      "das1": {
+        "cos": 0.686,
+        "cross_abs_max": 0.005,
+        "extraction": 1.02,
+        "norm_ratio": 0.561,
+        "own_c_ub": -0.001
+      },
+      "das2": {
+        "cos": 0.883,
+        "cross_abs_max": 0.007,
+        "extraction": 1.026,
+        "norm_ratio": 0.82,
+        "own_c_ub": 0.004
+      },
+      "das4": {
+        "cos": 0.823,
+        "cross_abs_max": 0.021,
+        "extraction": 1.031,
+        "norm_ratio": 0.643,
+        "own_c_ub": 0.106
+      },
+      "dim1": {
+        "cos": 0.994,
+        "cross_abs_max": 0.057,
+        "extraction": 1.021,
+        "norm_ratio": 0.993,
+        "own_c_ub": -0.212
+      }
+    },
+    "voice_frame": {
+      "das1": {
+        "cos": 0.981,
+        "cross_abs_max": 0.008,
+        "extraction": 0.998,
+        "norm_ratio": 0.965,
+        "own_c_ub": 0.009
+      },
+      "das2": {
+        "cos": 0.982,
+        "cross_abs_max": 0.017,
+        "extraction": 1.02,
+        "norm_ratio": 0.991,
+        "own_c_ub": 0.015
+      },
+      "das4": {
+        "cos": 0.983,
+        "cross_abs_max": 0.018,
+        "extraction": 0.975,
+        "norm_ratio": 0.942,
+        "own_c_ub": 0.108
+      },
+      "dim1": {
+        "cos": 0.99,
+        "cross_abs_max": 0.034,
+        "extraction": 0.929,
+        "norm_ratio": 0.899,
+        "own_c_ub": 0.03
+      }
+    }
+  }
+}
