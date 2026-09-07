@@ -1,0 +1,44 @@
+{
+  "schema": "temporal_iswas_v15_all_layer_complete_module_response_atlas_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_all_layer_complete_module_response_atlas_v1",
+  "question": "Which complete native attention/MLP responses outside the old five-source set carry the missing is/was-v15 behavior, and at what cumulative depth does the full causal effect become observable?",
+  "authorities": {
+    "source_atlas_result": "69c3a1d0a2946c45ac3be05bb6ffca8a397177eb5803679eae5828bd8aee7c38",
+    "source_atlas_runner": "0657bd48be18acb17b55069fcec8914743301f2b24134009a94004711f807b0f",
+    "capability_audit": "fbe395731de4fa7850999864f67bd45ec709e5da3e3e237e9dcae352c1211c2f",
+    "builder": "e5774cd5e93c564ad3bdb3169c482c2e1ddb295b85cc7c9885a7b077493a8343"
+  },
+  "population": "Exactly all 16 A1 and 16 A2 target rows frozen by the v15 capability manifest; zero fitting or row selection.",
+  "interventions": {
+    "singletons": "Complete donor response at each of 36 native sites attn:0,mlp:0,...,attn:17,mlp:17, installed over every aligned position through the semantic endpoint.",
+    "prefixes": "For each layer l=0..17, jointly install complete donor attention and MLP responses at every layer 0..l; selection is not used during execution.",
+    "controls": "All-site base self-patch, all-site donor patch, and the old MLP0/1/2/3/6 whole-response arm."
+  },
+  "response_blocks": [
+    "rowwise donor-normalized answer-minus-foil margin",
+    "the complete 1152-dimensional final-residual donor difference at the semantic endpoint"
+  ],
+  "predictions": {
+    "pred_a_authority_population_closure_finiteness_and_exact_price": "All hashes and exact 16+16 inventory match; base-self and all-donor closures are <=1e-4; all metrics are finite; exactly 59 native forwards execute.",
+    "pred_b_old_five_behavior_replays": "The old five-MLP complete arm reproduces the prior is/was behavior projection .3985174 within 1e-5.",
+    "pred_c_new_module_outside_old_five_is_material": "At least one singleton outside MLP0/1/2/3/6 has absolute mean behavior recovery >=.10 with >=.75 rowwise causal direction.",
+    "pred_d_proper_prefix_restores_behavior_and_state": "A cumulative prefix ending no later than layer16 reaches behavior projection >=.75, >=.90 direction, and final-residual RSE <=.20.",
+    "pred_e_final_state_enriches_behavioral_localization": "Across 36 singleton modules, Spearman correlation between absolute behavior recovery and absolute final-residual signed projection is >=.40."
+  },
+  "terminal_policy": {
+    "localized_new_module": "A-C pass and the largest singleton behavior recovery is >=.50.",
+    "distributed_changed_graph": "A-D pass but no singleton reaches .50.",
+    "proper_prefix_interaction_failure": "A-B pass but D fails even though the all-site donor control closes.",
+    "response_block_mismatch": "A-D pass but E fails.",
+    "invalid": "A fails."
+  },
+  "next_branch": "Split the top causally live attention module into all nine heads, or split a top MLP by construction-stable causal response modes; if support is distributed, execute a frozen greedy composition of the top complete modules.",
+  "price": {
+    "model_forwards_exact": 59,
+    "rows_per_forward": 32,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "execution_policy": "managed_queue_only"
+}
