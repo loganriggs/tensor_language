@@ -1,0 +1,22 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_rank46_task_mode_complete_rank_ladder_v1",
+  "question": "What is the minimal causal response rank per task, and the minimal temporal/is-was union rank, that preserves the licensed rank46 OOD program?",
+  "prior_art": {
+    "causal_top2": "Own-task top-two modes strongly beat cross-task modes but recover only .7922 temporal and .7607 is/was behavior; their rank-at-most-four union recovers .7924/.7812 and misses the .80 program bar.",
+    "anti_tuning": "Testing only the next rank after observing the top-two miss would be adaptive threshold chasing, so the full finite ladder is frozen before execution."
+  },
+  "arms": {
+    "own_task": [1, 2, 3, 4, 5, 6, 7, 8],
+    "task_union": [1, 2, 3, 4]
+  },
+  "selection": "Within each family choose the smallest declared rank whose temporal and is/was behavior projections are each at least .80, worst target residual is at most .15, control margin RMS at most .10, median full-vocabulary KL at most .02, and control flips are zero. Ties are impossible because rank is the primary key.",
+  "predictions": {
+    "pred_a_authority_disjointness_finiteness_and_exact_price": "The causal-factorial/rank46 authorities reproduce, fit and evaluation IDs are disjoint, source tripwires pass, all values are finite, and exactly 42 forwards execute.",
+    "pred_b_nested_coordinate_capture_is_monotone": "Mean coordinate projection is nondecreasing to tolerance .01 with rank for both tasks in both own and union ladders.",
+    "pred_c_an_own_task_rank_at_most_four_is_program_sufficient": "The own-task ladder selects a jointly sufficient rank no greater than four.",
+    "pred_d_a_union_task_rank_at_most_three_is_program_sufficient": "The union ladder selects a task rank no greater than three (installed union rank at most six).",
+    "pred_e_selected_compression_is_selective_and_strict": "At least one selected arm uses installed rank below eight at every site and passes all target/control gates."
+  },
+  "decision": "A-E passing licenses a lower-rank task-conditioned response executor. Otherwise report the complete minimal ranks and retain the full rank-eight pooled interface wherever the frozen .80 gate is not met; no follow-up rank tuning is allowed.",
+  "price": {"model_forwards_exact": 42, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
