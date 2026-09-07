@@ -1,0 +1,808 @@
+{
+  "bars": {
+    "attn07_band": [
+      0.3,
+      0.7
+    ],
+    "attn07_whole_band": [
+      0.2,
+      0.6
+    ],
+    "attn_value_max": 0.03,
+    "computed_band": [
+      0.8,
+      1.2
+    ],
+    "control_max": 0.05,
+    "direct_value_max": 0.03,
+    "direct_whole_max": 0.2,
+    "dv_band": [
+      0.8,
+      1.5
+    ],
+    "instr_value_tol": 0.03,
+    "instr_whole": [
+      0.9,
+      1.05
+    ],
+    "mlp01_band": [
+      0.3,
+      0.75
+    ],
+    "value_band": [
+      0.35,
+      0.85
+    ],
+    "weight_max": 0.05
+  },
+  "candidate_id": "corpus.unit_tier5_hub_noun_value_source_anchored_v166",
+  "finished_utc": "2026-09-07T08:54:58.398379+00:00",
+  "measures": {
+    "lex_seven:p0": {
+      "control_same_number_other_noun": -0.004,
+      "dv_ratio_control_over_number": 1.143,
+      "embed_and_all_writes": {
+        "dv_frac": 1.0,
+        "value_swap_at_t": 0.256,
+        "whole_model": 1.002
+      },
+      "embed_only_writes_clamped": {
+        "value_swap_at_t": 0.009,
+        "whole_model": 0.088
+      },
+      "exact_hub": 0.51,
+      "noun_cross": -0.01,
+      "noun_positions_base": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "noun_positions_donor": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "noun_value_swap_full": 0.256,
+      "noun_weight_swap": 0.008,
+      "per_unit_at_noun": {
+        "attn:00": {
+          "dv_frac": 0.035,
+          "value_swap_at_t": 0.001,
+          "whole_model": 0.006
+        },
+        "attn:01": {
+          "dv_frac": 0.052,
+          "value_swap_at_t": 0.002,
+          "whole_model": 0.005
+        },
+        "attn:02": {
+          "dv_frac": 0.044,
+          "value_swap_at_t": 0.002,
+          "whole_model": -0.001
+        },
+        "attn:03": {
+          "dv_frac": 0.029,
+          "value_swap_at_t": -0.001,
+          "whole_model": -0.003
+        },
+        "attn:04": {
+          "dv_frac": 0.033,
+          "value_swap_at_t": 0.002,
+          "whole_model": 0.001
+        },
+        "attn:05": {
+          "dv_frac": 0.039,
+          "value_swap_at_t": 0.003,
+          "whole_model": 0.0
+        },
+        "attn:06": {
+          "dv_frac": 0.044,
+          "value_swap_at_t": 0.002,
+          "whole_model": -0.0
+        },
+        "attn:07": {
+          "dv_frac": 0.037,
+          "value_swap_at_t": 0.004,
+          "whole_model": 0.005
+        },
+        "attn:08": {
+          "dv_frac": 0.079,
+          "value_swap_at_t": 0.012,
+          "whole_model": 0.011
+        },
+        "attn:09": {
+          "dv_frac": 0.034,
+          "value_swap_at_t": -0.001,
+          "whole_model": 0.0
+        },
+        "attn:10": {
+          "dv_frac": 0.023,
+          "value_swap_at_t": 0.001,
+          "whole_model": 0.001
+        },
+        "embed": {
+          "dv_frac": 1.001,
+          "value_swap_at_t": 0.257,
+          "whole_model": 0.997
+        },
+        "mlp:00": {
+          "dv_frac": 0.26,
+          "value_swap_at_t": 0.046,
+          "whole_model": 0.166
+        },
+        "mlp:01": {
+          "dv_frac": 0.542,
+          "value_swap_at_t": 0.135,
+          "whole_model": 0.555
+        },
+        "mlp:02": {
+          "dv_frac": 0.244,
+          "value_swap_at_t": 0.042,
+          "whole_model": 0.097
+        },
+        "mlp:03": {
+          "dv_frac": 0.283,
+          "value_swap_at_t": 0.054,
+          "whole_model": 0.125
+        },
+        "mlp:04": {
+          "dv_frac": 0.142,
+          "value_swap_at_t": 0.021,
+          "whole_model": 0.026
+        },
+        "mlp:05": {
+          "dv_frac": 0.198,
+          "value_swap_at_t": 0.035,
+          "whole_model": 0.048
+        },
+        "mlp:06": {
+          "dv_frac": 0.246,
+          "value_swap_at_t": 0.048,
+          "whole_model": 0.066
+        },
+        "mlp:07": {
+          "dv_frac": 0.161,
+          "value_swap_at_t": 0.026,
+          "whole_model": 0.033
+        },
+        "mlp:08": {
+          "dv_frac": 0.288,
+          "value_swap_at_t": 0.057,
+          "whole_model": 0.064
+        },
+        "mlp:09": {
+          "dv_frac": 0.226,
+          "value_swap_at_t": 0.042,
+          "whole_model": 0.041
+        },
+        "mlp:10": {
+          "dv_frac": 0.233,
+          "value_swap_at_t": 0.04,
+          "whole_model": 0.034
+        }
+      },
+      "rows": 16,
+      "value_share_of_exact": 0.502,
+      "writes_only_embed_base": {
+        "value_swap_at_t": 0.246,
+        "whole_model": 0.837
+      }
+    },
+    "lex_seven:p1": {
+      "control_same_number_other_noun": -0.0,
+      "dv_ratio_control_over_number": 1.2,
+      "embed_and_all_writes": {
+        "dv_frac": 1.0,
+        "value_swap_at_t": 0.421,
+        "whole_model": 1.0
+      },
+      "embed_only_writes_clamped": {
+        "value_swap_at_t": -0.003,
+        "whole_model": 0.163
+      },
+      "exact_hub": 0.672,
+      "noun_cross": 0.057,
+      "noun_positions_base": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "noun_positions_donor": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "noun_value_swap_full": 0.421,
+      "noun_weight_swap": -0.015,
+      "per_unit_at_noun": {
+        "attn:00": {
+          "dv_frac": 0.011,
+          "value_swap_at_t": 0.0,
+          "whole_model": 0.001
+        },
+        "attn:01": {
+          "dv_frac": 0.037,
+          "value_swap_at_t": 0.001,
+          "whole_model": -0.001
+        },
+        "attn:02": {
+          "dv_frac": 0.035,
+          "value_swap_at_t": 0.001,
+          "whole_model": -0.003
+        },
+        "attn:03": {
+          "dv_frac": 0.029,
+          "value_swap_at_t": 0.002,
+          "whole_model": -0.005
+        },
+        "attn:04": {
+          "dv_frac": 0.026,
+          "value_swap_at_t": 0.0,
+          "whole_model": -0.0
+        },
+        "attn:05": {
+          "dv_frac": 0.033,
+          "value_swap_at_t": 0.001,
+          "whole_model": 0.003
+        },
+        "attn:06": {
+          "dv_frac": 0.038,
+          "value_swap_at_t": 0.002,
+          "whole_model": 0.002
+        },
+        "attn:07": {
+          "dv_frac": 0.03,
+          "value_swap_at_t": 0.005,
+          "whole_model": 0.005
+        },
+        "attn:08": {
+          "dv_frac": 0.043,
+          "value_swap_at_t": 0.009,
+          "whole_model": 0.011
+        },
+        "attn:09": {
+          "dv_frac": 0.045,
+          "value_swap_at_t": 0.013,
+          "whole_model": 0.013
+        },
+        "attn:10": {
+          "dv_frac": 0.026,
+          "value_swap_at_t": 0.005,
+          "whole_model": 0.006
+        },
+        "embed": {
+          "dv_frac": 1.0,
+          "value_swap_at_t": 0.421,
+          "whole_model": 1.0
+        },
+        "mlp:00": {
+          "dv_frac": 0.093,
+          "value_swap_at_t": 0.017,
+          "whole_model": 0.099
+        },
+        "mlp:01": {
+          "dv_frac": 0.395,
+          "value_swap_at_t": 0.178,
+          "whole_model": 0.647
+        },
+        "mlp:02": {
+          "dv_frac": 0.14,
+          "value_swap_at_t": 0.041,
+          "whole_model": 0.138
+        },
+        "mlp:03": {
+          "dv_frac": 0.19,
+          "value_swap_at_t": 0.07,
+          "whole_model": 0.211
+        },
+        "mlp:04": {
+          "dv_frac": 0.091,
+          "value_swap_at_t": 0.014,
+          "whole_model": 0.024
+        },
+        "mlp:05": {
+          "dv_frac": 0.157,
+          "value_swap_at_t": 0.059,
+          "whole_model": 0.096
+        },
+        "mlp:06": {
+          "dv_frac": 0.186,
+          "value_swap_at_t": 0.076,
+          "whole_model": 0.126
+        },
+        "mlp:07": {
+          "dv_frac": 0.115,
+          "value_swap_at_t": 0.024,
+          "whole_model": 0.029
+        },
+        "mlp:08": {
+          "dv_frac": 0.304,
+          "value_swap_at_t": 0.142,
+          "whole_model": 0.202
+        },
+        "mlp:09": {
+          "dv_frac": 0.25,
+          "value_swap_at_t": 0.108,
+          "whole_model": 0.119
+        },
+        "mlp:10": {
+          "dv_frac": 0.26,
+          "value_swap_at_t": 0.105,
+          "whole_model": 0.112
+        }
+      },
+      "rows": 16,
+      "value_share_of_exact": 0.626,
+      "writes_only_embed_base": {
+        "value_swap_at_t": 0.425,
+        "whole_model": 0.906
+      }
+    },
+    "quant_seven:p0": {
+      "control_same_number_other_noun": -0.003,
+      "dv_ratio_control_over_number": 2.025,
+      "embed_and_all_writes": {
+        "dv_frac": 1.0,
+        "value_swap_at_t": 0.089,
+        "whole_model": 0.771
+      },
+      "embed_only_writes_clamped": {
+        "value_swap_at_t": 0.0,
+        "whole_model": 0.0
+      },
+      "exact_hub": 0.277,
+      "noun_cross": 0.004,
+      "noun_positions_base": [
+        4,
+        5,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "noun_positions_donor": [
+        4,
+        5,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "noun_value_swap_full": 0.089,
+      "noun_weight_swap": -0.001,
+      "per_unit_at_noun": {
+        "attn:00": {
+          "dv_frac": 0.02,
+          "value_swap_at_t": -0.0,
+          "whole_model": -0.001
+        },
+        "attn:01": {
+          "dv_frac": 0.039,
+          "value_swap_at_t": 0.0,
+          "whole_model": 0.001
+        },
+        "attn:02": {
+          "dv_frac": 0.096,
+          "value_swap_at_t": 0.006,
+          "whole_model": 0.044
+        },
+        "attn:03": {
+          "dv_frac": 0.066,
+          "value_swap_at_t": 0.003,
+          "whole_model": 0.016
+        },
+        "attn:04": {
+          "dv_frac": 0.138,
+          "value_swap_at_t": 0.009,
+          "whole_model": 0.074
+        },
+        "attn:05": {
+          "dv_frac": 0.216,
+          "value_swap_at_t": 0.016,
+          "whole_model": 0.141
+        },
+        "attn:06": {
+          "dv_frac": 0.055,
+          "value_swap_at_t": 0.0,
+          "whole_model": 0.002
+        },
+        "attn:07": {
+          "dv_frac": 0.447,
+          "value_swap_at_t": 0.042,
+          "whole_model": 0.344
+        },
+        "attn:08": {
+          "dv_frac": 0.124,
+          "value_swap_at_t": 0.003,
+          "whole_model": 0.023
+        },
+        "attn:09": {
+          "dv_frac": 0.154,
+          "value_swap_at_t": 0.005,
+          "whole_model": 0.067
+        },
+        "attn:10": {
+          "dv_frac": 0.04,
+          "value_swap_at_t": 0.001,
+          "whole_model": 0.027
+        },
+        "embed": {
+          "dv_frac": 0.0,
+          "value_swap_at_t": 0.0,
+          "whole_model": 0.0
+        },
+        "mlp:00": {
+          "dv_frac": 0.02,
+          "value_swap_at_t": -0.0,
+          "whole_model": -0.001
+        },
+        "mlp:01": {
+          "dv_frac": 0.041,
+          "value_swap_at_t": 0.0,
+          "whole_model": 0.0
+        },
+        "mlp:02": {
+          "dv_frac": 0.064,
+          "value_swap_at_t": 0.002,
+          "whole_model": 0.017
+        },
+        "mlp:03": {
+          "dv_frac": 0.082,
+          "value_swap_at_t": 0.003,
+          "whole_model": 0.018
+        },
+        "mlp:04": {
+          "dv_frac": 0.112,
+          "value_swap_at_t": 0.005,
+          "whole_model": 0.045
+        },
+        "mlp:05": {
+          "dv_frac": 0.167,
+          "value_swap_at_t": 0.011,
+          "whole_model": 0.088
+        },
+        "mlp:06": {
+          "dv_frac": 0.174,
+          "value_swap_at_t": 0.012,
+          "whole_model": 0.094
+        },
+        "mlp:07": {
+          "dv_frac": 0.222,
+          "value_swap_at_t": 0.018,
+          "whole_model": 0.128
+        },
+        "mlp:08": {
+          "dv_frac": 0.321,
+          "value_swap_at_t": 0.026,
+          "whole_model": 0.178
+        },
+        "mlp:09": {
+          "dv_frac": 0.25,
+          "value_swap_at_t": 0.015,
+          "whole_model": 0.082
+        },
+        "mlp:10": {
+          "dv_frac": 0.258,
+          "value_swap_at_t": 0.02,
+          "whole_model": 0.106
+        }
+      },
+      "rows": 16,
+      "value_share_of_exact": 0.321,
+      "writes_only_embed_base": {
+        "value_swap_at_t": 0.089,
+        "whole_model": 0.771
+      }
+    },
+    "quant_seven:p1": {
+      "control_same_number_other_noun": -0.004,
+      "dv_ratio_control_over_number": 2.163,
+      "embed_and_all_writes": {
+        "dv_frac": 1.0,
+        "value_swap_at_t": 0.088,
+        "whole_model": 0.781
+      },
+      "embed_only_writes_clamped": {
+        "value_swap_at_t": 0.0,
+        "whole_model": 0.0
+      },
+      "exact_hub": 0.285,
+      "noun_cross": -0.005,
+      "noun_positions_base": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "noun_positions_donor": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "noun_value_swap_full": 0.088,
+      "noun_weight_swap": 0.005,
+      "per_unit_at_noun": {
+        "attn:00": {
+          "dv_frac": 0.023,
+          "value_swap_at_t": -0.0,
+          "whole_model": -0.001
+        },
+        "attn:01": {
+          "dv_frac": 0.046,
+          "value_swap_at_t": -0.001,
+          "whole_model": -0.001
+        },
+        "attn:02": {
+          "dv_frac": 0.105,
+          "value_swap_at_t": 0.003,
+          "whole_model": 0.029
+        },
+        "attn:03": {
+          "dv_frac": 0.077,
+          "value_swap_at_t": 0.003,
+          "whole_model": 0.017
+        },
+        "attn:04": {
+          "dv_frac": 0.13,
+          "value_swap_at_t": 0.006,
+          "whole_model": 0.054
+        },
+        "attn:05": {
+          "dv_frac": 0.204,
+          "value_swap_at_t": 0.013,
+          "whole_model": 0.091
+        },
+        "attn:06": {
+          "dv_frac": 0.063,
+          "value_swap_at_t": -0.001,
+          "whole_model": -0.014
+        },
+        "attn:07": {
+          "dv_frac": 0.544,
+          "value_swap_at_t": 0.048,
+          "whole_model": 0.388
+        },
+        "attn:08": {
+          "dv_frac": 0.146,
+          "value_swap_at_t": 0.008,
+          "whole_model": 0.043
+        },
+        "attn:09": {
+          "dv_frac": 0.169,
+          "value_swap_at_t": 0.009,
+          "whole_model": 0.089
+        },
+        "attn:10": {
+          "dv_frac": 0.043,
+          "value_swap_at_t": 0.002,
+          "whole_model": 0.02
+        },
+        "embed": {
+          "dv_frac": 0.0,
+          "value_swap_at_t": 0.0,
+          "whole_model": 0.0
+        },
+        "mlp:00": {
+          "dv_frac": 0.023,
+          "value_swap_at_t": -0.0,
+          "whole_model": -0.001
+        },
+        "mlp:01": {
+          "dv_frac": 0.05,
+          "value_swap_at_t": -0.001,
+          "whole_model": -0.003
+        },
+        "mlp:02": {
+          "dv_frac": 0.087,
+          "value_swap_at_t": 0.0,
+          "whole_model": 0.016
+        },
+        "mlp:03": {
+          "dv_frac": 0.109,
+          "value_swap_at_t": 0.002,
+          "whole_model": 0.014
+        },
+        "mlp:04": {
+          "dv_frac": 0.13,
+          "value_swap_at_t": 0.001,
+          "whole_model": 0.019
+        },
+        "mlp:05": {
+          "dv_frac": 0.17,
+          "value_swap_at_t": 0.009,
+          "whole_model": 0.068
+        },
+        "mlp:06": {
+          "dv_frac": 0.174,
+          "value_swap_at_t": 0.011,
+          "whole_model": 0.07
+        },
+        "mlp:07": {
+          "dv_frac": 0.367,
+          "value_swap_at_t": 0.031,
+          "whole_model": 0.223
+        },
+        "mlp:08": {
+          "dv_frac": 0.331,
+          "value_swap_at_t": 0.023,
+          "whole_model": 0.147
+        },
+        "mlp:09": {
+          "dv_frac": 0.279,
+          "value_swap_at_t": 0.016,
+          "whole_model": 0.063
+        },
+        "mlp:10": {
+          "dv_frac": 0.247,
+          "value_swap_at_t": 0.017,
+          "whole_model": 0.073
+        }
+      },
+      "rows": 16,
+      "value_share_of_exact": 0.309,
+      "writes_only_embed_base": {
+        "value_swap_at_t": 0.088,
+        "whole_model": 0.781
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_not_direct": true,
+    "pred_c_computed": true,
+    "pred_d_mlp01_source": true,
+    "pred_e_quant_attn07": true,
+    "pred_f_value_side": true,
+    "pred_g_identity_inv": true
+  },
+  "schema": "unit_tier5_hub_noun_value_source_anchored_v166",
+  "seconds": 5.4,
+  "sets": {
+    "lex_seven": {
+      "family": "lexical_number_pp",
+      "units": [
+        "attn:11:head:03",
+        "mlp:09",
+        "attn:09:head:07",
+        "mlp:10",
+        "attn:10:head:05",
+        "attn:11:head:02",
+        "mlp:08"
+      ]
+    },
+    "quant_seven": {
+      "family": "quantifier_number",
+      "units": [
+        "mlp:10",
+        "attn:11:head:03",
+        "mlp:09",
+        "mlp:08",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "mlp:07"
+      ]
+    }
+  },
+  "units_at_noun": [
+    "embed",
+    "attn:00",
+    "mlp:00",
+    "attn:01",
+    "mlp:01",
+    "attn:02",
+    "mlp:02",
+    "attn:03",
+    "mlp:03",
+    "attn:04",
+    "mlp:04",
+    "attn:05",
+    "mlp:05",
+    "attn:06",
+    "mlp:06",
+    "attn:07",
+    "mlp:07",
+    "attn:08",
+    "mlp:08",
+    "attn:09",
+    "mlp:09",
+    "attn:10",
+    "mlp:10"
+  ]
+}
