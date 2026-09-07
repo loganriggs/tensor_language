@@ -1,0 +1,20 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_attention_value_weight_pullback_v1",
+  "question": "Can every retained attention value factor be executed from exact local-current and layer-0 cached-value weight pullbacks?",
+  "frozen_program": {
+    "identity": "delta(V_L,h Q)=(1-lambda_L) delta(x_L) W_V,L,h^T Q + lambda_L delta(x_0) W_V,0,h^T Q",
+    "attention_execution": "base attention pattern over cue/post-cue source positions contracts the compiled value coordinates, then writes through Q and the unchanged c_proj",
+    "mlp_execution": "the prospectively validated rank-64 input-covector program is held fixed",
+    "rows": "temporal-v13 plus is/was-v12 targets and temporal-v13 P controls",
+    "arms": ["captured_value_factor", "compiled_both_value_branches", "compiled_current_only", "compiled_cached_only"]
+  },
+  "predictions": {
+    "pred_a_authority_hash_exact_value_coordinate_closure_finiteness_and_price": "all authorities replay and compiled current+cached value coordinates reproduce captured projected value deltas at RSE <=1e-10",
+    "pred_b_compiled_attention_execution_matches_captured_factor_program": "compiled and captured-factor programs agree end-to-end at state and centered-logit RSE <=1e-10 for targets and controls",
+    "pred_c_fully_weight_compiled_program_is_sufficient_and_selective": "both fits retain target residual <=0.15 and per-task projection >=0.80, while controls retain margin RMS <=0.10, median KL <=0.02, and flip fraction <=0.05",
+    "pred_d_current_and_cached_value_branches_compose": "for each fit, the combined program exceeds each single value branch by >=0.02 signed projection on at least one task",
+    "pred_e_attention_input_weight_maps_are_crossfit_stable": "after projector alignment, current and cached input-weight maps have cosine >=0.80 at every selected attention site"
+  },
+  "decision": "Passing removes captured attention values from the program and exposes exact upstream residual covectors. A branch-composition failure simplifies the program further; a map-stability failure keeps fit-specific coordinates explicit.",
+  "price": {"model_forwards_max": 28, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
