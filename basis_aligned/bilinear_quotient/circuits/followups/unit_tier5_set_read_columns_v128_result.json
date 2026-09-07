@@ -1,0 +1,525 @@
+{
+  "bars": {
+    "K": [
+      10,
+      5,
+      5,
+      12,
+      10
+    ],
+    "add_frac": 0.1,
+    "before_max": 0.15,
+    "cue_frac": 0.5,
+    "far_gap": 3,
+    "far_max": 0.1,
+    "instr_tol": 0.02,
+    "near_frac": 0.3,
+    "near_min": 0.2,
+    "self_frac": 0.15
+  },
+  "behaviours": {
+    "additive_scope": {
+      "rows": 3,
+      "skipped": "fewer than 4 rows"
+    },
+    "correlative_either_neither": {
+      "cue_offset_mean": 3.25,
+      "heads": [
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01",
+        "attn:09:head:07"
+      ],
+      "kind": "far",
+      "loss": {
+        "all": 0.828,
+        "before": 0.001,
+        "between": 0.0,
+        "cue": 0.769,
+        "group_sum": 0.842,
+        "near": 0.057,
+        "none": 0.0,
+        "reference": 0.828,
+        "self": 0.015
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "degree_frame": {
+      "cue_offset_mean": 1.0,
+      "heads": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:12:head:08",
+        "attn:06:head:03",
+        "attn:15:head:01",
+        "attn:10:head:05"
+      ],
+      "kind": "far",
+      "loss": {
+        "all": 0.549,
+        "before": -0.002,
+        "between": 0.0,
+        "cue": 0.546,
+        "group_sum": 0.558,
+        "near": 0.0,
+        "none": 0.0,
+        "reference": 0.549,
+        "self": 0.014
+      },
+      "rows": 16,
+      "seconds": 0.5
+    },
+    "interrogative_licensing": {
+      "cue_offset_mean": 1.0,
+      "heads": [
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:03:head:00",
+        "attn:02:head:06",
+        "attn:10:head:05",
+        "attn:04:head:04",
+        "attn:05:head:03",
+        "attn:04:head:01",
+        "attn:05:head:07",
+        "attn:04:head:00"
+      ],
+      "kind": "far",
+      "loss": {
+        "all": 0.779,
+        "before": 0.0,
+        "between": 0.0,
+        "cue": 0.722,
+        "group_sum": 0.901,
+        "near": 0.0,
+        "none": 0.0,
+        "reference": 0.779,
+        "self": 0.179
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "lexical_number_pp": {
+      "cue_offset_mean": 3.19,
+      "heads": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03"
+      ],
+      "kind": "near",
+      "loss": {
+        "all": 0.776,
+        "before": 0.001,
+        "between": 0.0,
+        "cue": 0.307,
+        "group_sum": 0.538,
+        "near": 0.23,
+        "none": 0.0,
+        "reference": 0.776,
+        "self": -0.0
+      },
+      "rows": 16,
+      "seconds": 0.2
+    },
+    "narrative_tense": {
+      "cue_offset_mean": 9.25,
+      "heads": [
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:04",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:15:head:01",
+        "attn:09:head:07"
+      ],
+      "kind": "other",
+      "loss": {
+        "all": 0.828,
+        "before": 0.109,
+        "between": 0.405,
+        "cue": 0.125,
+        "group_sum": 0.783,
+        "near": 0.126,
+        "none": 0.0,
+        "reference": 0.828,
+        "self": 0.018
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "perfect_number": {
+      "cue_offset_mean": 3.19,
+      "heads": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03",
+        "attn:13:head:01"
+      ],
+      "kind": "near",
+      "loss": {
+        "all": 0.874,
+        "before": 0.002,
+        "between": 0.0,
+        "cue": 0.452,
+        "group_sum": 0.72,
+        "near": 0.265,
+        "none": 0.0,
+        "reference": 0.874,
+        "self": 0.001
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "possessive_adjacent": {
+      "rows": 0,
+      "skipped": "fewer than 4 rows"
+    },
+    "possessive_argument": {
+      "cue_offset_mean": 5.0,
+      "heads": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:09:head:07"
+      ],
+      "kind": "near",
+      "loss": {
+        "all": 0.809,
+        "before": -0.002,
+        "between": 0.199,
+        "cue": 0.24,
+        "group_sum": 0.802,
+        "near": 0.295,
+        "none": 0.0,
+        "reference": 0.809,
+        "self": 0.07
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "possessive_long_simple": {
+      "cue_offset_mean": 7.0,
+      "heads": [
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:01",
+        "attn:10:head:05",
+        "attn:07:head:08"
+      ],
+      "kind": "far",
+      "loss": {
+        "all": 0.886,
+        "before": -0.002,
+        "between": 0.375,
+        "cue": 0.354,
+        "group_sum": 0.939,
+        "near": 0.067,
+        "none": 0.0,
+        "reference": 0.886,
+        "self": 0.145
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "possessive_medial": {
+      "cue_offset_mean": 4.0,
+      "heads": [
+        "attn:09:head:06",
+        "attn:04:head:05",
+        "attn:05:head:03",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:09:head:07"
+      ],
+      "kind": "near",
+      "loss": {
+        "all": 0.868,
+        "before": -0.004,
+        "between": 0.0,
+        "cue": 0.38,
+        "group_sum": 0.894,
+        "near": 0.378,
+        "none": 0.0,
+        "reference": 0.868,
+        "self": 0.14
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "possessive_verbfinal": {
+      "cue_offset_mean": 6.0,
+      "heads": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:10:head:01"
+      ],
+      "kind": "near",
+      "loss": {
+        "all": 0.835,
+        "before": -0.002,
+        "between": 0.251,
+        "cue": 0.276,
+        "group_sum": 0.806,
+        "near": 0.235,
+        "none": 0.0,
+        "reference": 0.835,
+        "self": 0.046
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "preposition_selection": {
+      "cue_offset_mean": 1.0,
+      "heads": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:04:head:01",
+        "attn:11:head:03",
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:09:head:07"
+      ],
+      "kind": "far",
+      "loss": {
+        "all": 0.773,
+        "before": 0.005,
+        "between": 0.0,
+        "cue": 0.746,
+        "group_sum": 0.763,
+        "near": 0.0,
+        "none": 0.0,
+        "reference": 0.773,
+        "self": 0.012
+      },
+      "rows": 10,
+      "seconds": 0.3
+    },
+    "quantifier_number": {
+      "cue_offset_mean": 4.0,
+      "heads": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:13:head:06",
+        "attn:09:head:01"
+      ],
+      "kind": "near",
+      "loss": {
+        "all": 0.876,
+        "before": 0.0,
+        "between": 0.0,
+        "cue": 0.294,
+        "group_sum": 0.786,
+        "near": 0.377,
+        "none": 0.0,
+        "reference": 0.876,
+        "self": 0.115
+      },
+      "rows": 16,
+      "seconds": 0.2
+    }
+  },
+  "candidate_id": "corpus.unit_tier5_set_read_columns_v128",
+  "counts": {
+    "additive": 8,
+    "before_inert": 12,
+    "far_cue": 4,
+    "instrument": 12,
+    "n": 14,
+    "near": 4,
+    "ran": 12,
+    "self_small": 9
+  },
+  "finished_utc": "2026-09-07T06:12:03.603899+00:00",
+  "partition": {
+    "far": [
+      "correlative_either_neither",
+      "degree_frame",
+      "interrogative_licensing",
+      "possessive_adjacent",
+      "possessive_long_simple",
+      "preposition_selection"
+    ],
+    "near": [
+      "additive_scope",
+      "lexical_number_pp",
+      "perfect_number",
+      "possessive_argument",
+      "possessive_medial",
+      "possessive_verbfinal",
+      "quantifier_number"
+    ]
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_additive": false,
+    "pred_c_far_cue": false,
+    "pred_d_near_sets": false,
+    "pred_e_before_inert": true,
+    "pred_f_self_small": false
+  },
+  "schema": "unit_tier5_set_read_columns_v128",
+  "seconds": 3.4,
+  "summary": {
+    "additive_scope": null,
+    "correlative_either_neither": {
+      "all": 0.828,
+      "before": 0.001,
+      "between": 0.0,
+      "cue": 0.769,
+      "group_sum": 0.842,
+      "near": 0.057,
+      "none": 0.0,
+      "reference": 0.828,
+      "self": 0.015
+    },
+    "degree_frame": {
+      "all": 0.549,
+      "before": -0.002,
+      "between": 0.0,
+      "cue": 0.546,
+      "group_sum": 0.558,
+      "near": 0.0,
+      "none": 0.0,
+      "reference": 0.549,
+      "self": 0.014
+    },
+    "interrogative_licensing": {
+      "all": 0.779,
+      "before": 0.0,
+      "between": 0.0,
+      "cue": 0.722,
+      "group_sum": 0.901,
+      "near": 0.0,
+      "none": 0.0,
+      "reference": 0.779,
+      "self": 0.179
+    },
+    "lexical_number_pp": {
+      "all": 0.776,
+      "before": 0.001,
+      "between": 0.0,
+      "cue": 0.307,
+      "group_sum": 0.538,
+      "near": 0.23,
+      "none": 0.0,
+      "reference": 0.776,
+      "self": -0.0
+    },
+    "narrative_tense": {
+      "all": 0.828,
+      "before": 0.109,
+      "between": 0.405,
+      "cue": 0.125,
+      "group_sum": 0.783,
+      "near": 0.126,
+      "none": 0.0,
+      "reference": 0.828,
+      "self": 0.018
+    },
+    "perfect_number": {
+      "all": 0.874,
+      "before": 0.002,
+      "between": 0.0,
+      "cue": 0.452,
+      "group_sum": 0.72,
+      "near": 0.265,
+      "none": 0.0,
+      "reference": 0.874,
+      "self": 0.001
+    },
+    "possessive_adjacent": null,
+    "possessive_argument": {
+      "all": 0.809,
+      "before": -0.002,
+      "between": 0.199,
+      "cue": 0.24,
+      "group_sum": 0.802,
+      "near": 0.295,
+      "none": 0.0,
+      "reference": 0.809,
+      "self": 0.07
+    },
+    "possessive_long_simple": {
+      "all": 0.886,
+      "before": -0.002,
+      "between": 0.375,
+      "cue": 0.354,
+      "group_sum": 0.939,
+      "near": 0.067,
+      "none": 0.0,
+      "reference": 0.886,
+      "self": 0.145
+    },
+    "possessive_medial": {
+      "all": 0.868,
+      "before": -0.004,
+      "between": 0.0,
+      "cue": 0.38,
+      "group_sum": 0.894,
+      "near": 0.378,
+      "none": 0.0,
+      "reference": 0.868,
+      "self": 0.14
+    },
+    "possessive_verbfinal": {
+      "all": 0.835,
+      "before": -0.002,
+      "between": 0.251,
+      "cue": 0.276,
+      "group_sum": 0.806,
+      "near": 0.235,
+      "none": 0.0,
+      "reference": 0.835,
+      "self": 0.046
+    },
+    "preposition_selection": {
+      "all": 0.773,
+      "before": 0.005,
+      "between": 0.0,
+      "cue": 0.746,
+      "group_sum": 0.763,
+      "near": 0.0,
+      "none": 0.0,
+      "reference": 0.773,
+      "self": 0.012
+    },
+    "quantifier_number": {
+      "all": 0.876,
+      "before": 0.0,
+      "between": 0.0,
+      "cue": 0.294,
+      "group_sum": 0.786,
+      "near": 0.377,
+      "none": 0.0,
+      "reference": 0.876,
+      "self": 0.115
+    }
+  }
+}
