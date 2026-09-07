@@ -1,0 +1,3825 @@
+{
+  "all_four": 7,
+  "bars": {
+    "a2_frac": 0.5,
+    "c_ub_max": 0.01,
+    "ext_min": 0.8,
+    "instr_c_ub": 0.03,
+    "k": {
+      "a": 14,
+      "b": 14,
+      "c": 8,
+      "d": 14
+    },
+    "rem_min": 0.1
+  },
+  "behaviours": {
+    "additive_scope": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.6351,
+            "ce_lb975": 0.4959,
+            "ce_ub975": 0.776,
+            "margin_damage": 1.6764,
+            "top1_change_rate": 0.1875
+          },
+          "A2": {
+            "ce_damage": 0.6469,
+            "ce_lb975": 0.5127,
+            "ce_ub975": 0.7843,
+            "margin_damage": 1.7372,
+            "top1_change_rate": 0.5312
+          },
+          "C": {
+            "ce_damage": -0.0078,
+            "ce_lb975": -0.0131,
+            "ce_ub975": -0.0031,
+            "margin_damage": 0.0735,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.257,
+            "ce_lb975": 0.2397,
+            "ce_ub975": 0.2757,
+            "margin_damage": 1.6869,
+            "top1_change_rate": 0.3125
+          },
+          "cross": {
+            "coordination_agreement": -0.0147,
+            "correlative_both_either": 0.0181,
+            "correlative_both_neither": 0.056,
+            "correlative_either_neither": 0.039,
+            "degree_frame": -0.0546,
+            "degree_result": -0.0392,
+            "finiteness_selection": -0.0244,
+            "interrogative_licensing": -0.0321,
+            "lexical_number_pp": -0.0178,
+            "narrative_tense": -0.0039,
+            "numbered_list_choice": -0.0021,
+            "numeric_sequence_choice": -0.0046,
+            "perfect_number": -0.0463,
+            "polarity_state": -0.0012,
+            "possessive_adjacent": 0.0032,
+            "possessive_argument": -0.0244,
+            "possessive_long_simple": -0.0119,
+            "possessive_medial": -0.0026,
+            "possessive_verbfinal": -0.025,
+            "preposition_selection": -0.0105,
+            "quantifier_number": -0.007
+          },
+          "cross_abs_max": 0.056,
+          "extraction_odd": 0.998
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.5478,
+            "ce_lb975": 0.3771,
+            "ce_ub975": 0.7151,
+            "margin_damage": 1.5598,
+            "top1_change_rate": 0.2812
+          },
+          "A2": {
+            "ce_damage": 0.4735,
+            "ce_lb975": 0.343,
+            "ce_ub975": 0.6116,
+            "margin_damage": 1.5993,
+            "top1_change_rate": 0.5312
+          },
+          "C": {
+            "ce_damage": -0.176,
+            "ce_lb975": -0.2063,
+            "ce_ub975": -0.146,
+            "margin_damage": 0.0375,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.0715,
+            "ce_lb975": 0.0509,
+            "ce_ub975": 0.092,
+            "margin_damage": 1.5627,
+            "top1_change_rate": 0.4688
+          },
+          "cross": {
+            "coordination_agreement": -0.0407,
+            "correlative_both_either": 0.0091,
+            "correlative_both_neither": 0.0571,
+            "correlative_either_neither": 0.1787,
+            "degree_frame": -0.0223,
+            "degree_result": -0.0491,
+            "finiteness_selection": -0.068,
+            "interrogative_licensing": -0.0583,
+            "lexical_number_pp": -0.0552,
+            "narrative_tense": 0.0843,
+            "numbered_list_choice": -0.005,
+            "numeric_sequence_choice": -0.0212,
+            "perfect_number": -0.02,
+            "polarity_state": -0.0107,
+            "possessive_adjacent": 0.0113,
+            "possessive_argument": -0.0184,
+            "possessive_long_simple": 0.0429,
+            "possessive_medial": 0.0457,
+            "possessive_verbfinal": -0.0252,
+            "preposition_selection": -0.0015,
+            "quantifier_number": -0.0209
+          },
+          "cross_abs_max": 0.1787,
+          "extraction_odd": 0.935
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.01041996106505394,
+        0.004322400316596031,
+        0.00016406195936724544
+      ],
+      "extraction_even": 0.781,
+      "extraction_odd": 0.774,
+      "n_units": 10,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 25.4,
+      "singles_top16": {
+        "attn:04:head:00": 0.038,
+        "attn:05:head:03": 0.027,
+        "attn:05:head:07": 0.061,
+        "attn:07:head:02": 0.016,
+        "attn:07:head:05": 0.012,
+        "attn:07:head:08": 0.038,
+        "attn:08:head:01": 0.07,
+        "attn:09:head:01": 0.044,
+        "attn:09:head:03": 0.051,
+        "attn:09:head:07": 0.011,
+        "attn:10:head:05": 0.159,
+        "attn:11:head:07": 0.028,
+        "attn:12:head:06": 0.015,
+        "attn:13:head:08": 0.035,
+        "attn:14:head:08": 0.058,
+        "attn:16:head:08": 0.158
+      },
+      "units": [
+        "attn:10:head:05",
+        "attn:16:head:08",
+        "attn:08:head:01",
+        "attn:09:head:03",
+        "attn:14:head:08",
+        "attn:05:head:07",
+        "attn:09:head:01",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:04:head:00"
+      ]
+    },
+    "coordination_agreement": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.3938,
+            "ce_lb975": 0.3399,
+            "ce_ub975": 0.4514,
+            "margin_damage": 1.5199,
+            "top1_change_rate": 0.2188
+          },
+          "A2": {
+            "ce_damage": 0.403,
+            "ce_lb975": 0.3446,
+            "ce_ub975": 0.4655,
+            "margin_damage": 1.827,
+            "top1_change_rate": 0.25
+          },
+          "C": {
+            "ce_damage": -0.0034,
+            "ce_lb975": -0.0254,
+            "ce_ub975": 0.017,
+            "margin_damage": 0.0623,
+            "top1_change_rate": 0.125
+          },
+          "P": {
+            "ce_damage": 0.4287,
+            "ce_lb975": 0.3884,
+            "ce_ub975": 0.4704,
+            "margin_damage": 1.7258,
+            "top1_change_rate": 0.1875
+          },
+          "cross": {
+            "additive_scope": -0.0053,
+            "correlative_both_either": -0.0065,
+            "correlative_both_neither": -0.0035,
+            "correlative_either_neither": -0.0249,
+            "degree_frame": 0.0686,
+            "degree_result": 0.011,
+            "finiteness_selection": -0.0079,
+            "interrogative_licensing": -0.024,
+            "lexical_number_pp": 0.2295,
+            "narrative_tense": 0.0736,
+            "numbered_list_choice": -0.0036,
+            "numeric_sequence_choice": 0.054,
+            "perfect_number": 0.3369,
+            "polarity_state": -0.004,
+            "possessive_adjacent": 0.0043,
+            "possessive_argument": 0.0301,
+            "possessive_long_simple": 0.0513,
+            "possessive_medial": 0.0514,
+            "possessive_verbfinal": 0.0437,
+            "preposition_selection": 0.0269,
+            "quantifier_number": 0.1997
+          },
+          "cross_abs_max": 0.3369,
+          "extraction_odd": 0.978
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.3795,
+            "ce_lb975": 0.3227,
+            "ce_ub975": 0.4364,
+            "margin_damage": 1.576,
+            "top1_change_rate": 0.1875
+          },
+          "A2": {
+            "ce_damage": 0.3795,
+            "ce_lb975": 0.3235,
+            "ce_ub975": 0.4354,
+            "margin_damage": 1.81,
+            "top1_change_rate": 0.3125
+          },
+          "C": {
+            "ce_damage": -0.007,
+            "ce_lb975": -0.0175,
+            "ce_ub975": 0.003,
+            "margin_damage": 0.0203,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.2945,
+            "ce_lb975": 0.2396,
+            "ce_ub975": 0.3492,
+            "margin_damage": 1.8665,
+            "top1_change_rate": 0.2188
+          },
+          "cross": {
+            "additive_scope": 0.0138,
+            "correlative_both_either": 0.0224,
+            "correlative_both_neither": 0.0035,
+            "correlative_either_neither": 0.0505,
+            "degree_frame": 0.0809,
+            "degree_result": -0.0272,
+            "finiteness_selection": -0.0137,
+            "interrogative_licensing": 0.0375,
+            "lexical_number_pp": 0.0918,
+            "narrative_tense": 0.0506,
+            "numbered_list_choice": -0.0022,
+            "numeric_sequence_choice": 0.0256,
+            "perfect_number": 0.1007,
+            "polarity_state": -0.0012,
+            "possessive_adjacent": 0.0427,
+            "possessive_argument": 0.0459,
+            "possessive_long_simple": 0.0467,
+            "possessive_medial": 0.0411,
+            "possessive_verbfinal": 0.0605,
+            "preposition_selection": 0.002,
+            "quantifier_number": 0.065
+          },
+          "cross_abs_max": 0.1007,
+          "extraction_odd": 1.029
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.01501564122736454,
+        0.009617339819669724,
+        0.00145163934212178
+      ],
+      "extraction_even": 0.744,
+      "extraction_odd": 0.76,
+      "n_units": 10,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "seconds": 23.5,
+      "singles_top16": {
+        "attn:03:head:03": 0.018,
+        "attn:03:head:06": 0.02,
+        "attn:04:head:00": 0.056,
+        "attn:04:head:04": 0.017,
+        "attn:04:head:07": 0.015,
+        "attn:05:head:03": 0.024,
+        "attn:05:head:06": 0.025,
+        "attn:05:head:08": 0.018,
+        "attn:06:head:01": 0.024,
+        "attn:06:head:05": 0.028,
+        "attn:07:head:08": 0.18,
+        "attn:09:head:01": 0.015,
+        "attn:09:head:07": 0.032,
+        "attn:10:head:05": 0.023,
+        "attn:11:head:03": 0.155,
+        "attn:16:head:08": 0.019
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:04:head:00",
+        "attn:06:head:05",
+        "attn:09:head:07",
+        "attn:03:head:03",
+        "attn:03:head:06",
+        "attn:05:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01"
+      ]
+    },
+    "correlative_both_either": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.8451,
+            "ce_lb975": 0.6548,
+            "ce_ub975": 1.0402,
+            "margin_damage": 4.7541,
+            "top1_change_rate": 0.5
+          },
+          "A2": {
+            "ce_damage": 0.6482,
+            "ce_lb975": 0.4817,
+            "ce_ub975": 0.8166,
+            "margin_damage": 3.8525,
+            "top1_change_rate": 0.4062
+          },
+          "C": {
+            "ce_damage": 0.0029,
+            "ce_lb975": -0.0006,
+            "ce_ub975": 0.0066,
+            "margin_damage": -0.0092,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 1.4004,
+            "ce_lb975": 1.3041,
+            "ce_ub975": 1.4995,
+            "margin_damage": 3.6948,
+            "top1_change_rate": 0.8125
+          },
+          "cross": {
+            "additive_scope": 0.085,
+            "coordination_agreement": -0.0366,
+            "correlative_both_neither": 0.1528,
+            "correlative_either_neither": 0.5575,
+            "degree_frame": -0.0383,
+            "degree_result": -0.0275,
+            "finiteness_selection": -0.0014,
+            "interrogative_licensing": 0.0851,
+            "lexical_number_pp": 0.012,
+            "narrative_tense": 0.0249,
+            "numbered_list_choice": 0.0043,
+            "numeric_sequence_choice": -0.009,
+            "perfect_number": 0.0087,
+            "polarity_state": 0.0069,
+            "possessive_adjacent": -0.0057,
+            "possessive_argument": -0.0001,
+            "possessive_long_simple": 0.002,
+            "possessive_medial": -0.0063,
+            "possessive_verbfinal": -0.0031,
+            "preposition_selection": 0.0024,
+            "quantifier_number": 0.014
+          },
+          "cross_abs_max": 0.5575,
+          "extraction_odd": 1.007
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.9329,
+            "ce_lb975": 0.706,
+            "ce_ub975": 1.1811,
+            "margin_damage": 4.7786,
+            "top1_change_rate": 0.4688
+          },
+          "A2": {
+            "ce_damage": 0.6509,
+            "ce_lb975": 0.4766,
+            "ce_ub975": 0.834,
+            "margin_damage": 3.8589,
+            "top1_change_rate": 0.375
+          },
+          "C": {
+            "ce_damage": -0.0983,
+            "ce_lb975": -0.1162,
+            "ce_ub975": -0.0825,
+            "margin_damage": -0.0489,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 1.5413,
+            "ce_lb975": 1.3578,
+            "ce_ub975": 1.7316,
+            "margin_damage": 3.8874,
+            "top1_change_rate": 0.7812
+          },
+          "cross": {
+            "additive_scope": 0.0724,
+            "coordination_agreement": -0.038,
+            "correlative_both_neither": 0.1589,
+            "correlative_either_neither": 0.3229,
+            "degree_frame": -0.0403,
+            "degree_result": -0.024,
+            "finiteness_selection": 0.0142,
+            "interrogative_licensing": -0.0018,
+            "lexical_number_pp": 0.0196,
+            "narrative_tense": 0.0344,
+            "numbered_list_choice": 0.0197,
+            "numeric_sequence_choice": 0.0249,
+            "perfect_number": 0.0467,
+            "polarity_state": -0.0256,
+            "possessive_adjacent": -0.0096,
+            "possessive_argument": 0.0282,
+            "possessive_long_simple": 0.0294,
+            "possessive_medial": 0.0033,
+            "possessive_verbfinal": 0.0304,
+            "preposition_selection": -0.0109,
+            "quantifier_number": 0.0008
+          },
+          "cross_abs_max": 0.3229,
+          "extraction_odd": 1.035
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0052028559148311615,
+        0.007402694784104824,
+        0.00017847030539996922
+      ],
+      "extraction_even": 0.842,
+      "extraction_odd": 0.664,
+      "n_units": 6,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.1,
+      "singles_top16": {
+        "attn:04:head:00": 0.015,
+        "attn:04:head:01": 0.015,
+        "attn:05:head:06": 0.015,
+        "attn:07:head:08": 0.2,
+        "attn:08:head:01": 0.254,
+        "attn:08:head:08": 0.022,
+        "attn:09:head:05": 0.034,
+        "attn:09:head:07": 0.152,
+        "attn:10:head:05": 0.14,
+        "attn:11:head:02": 0.02,
+        "attn:11:head:07": 0.071,
+        "attn:12:head:02": 0.043,
+        "attn:13:head:08": 0.016,
+        "attn:14:head:08": 0.154,
+        "attn:15:head:01": 0.041,
+        "attn:16:head:08": 0.138
+      },
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:09:head:07",
+        "attn:10:head:05"
+      ]
+    },
+    "correlative_both_neither": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.8391,
+            "ce_lb975": 0.6574,
+            "ce_ub975": 1.0371,
+            "margin_damage": 5.664,
+            "top1_change_rate": 0.375
+          },
+          "A2": {
+            "ce_damage": 0.7864,
+            "ce_lb975": 0.5677,
+            "ce_ub975": 1.0196,
+            "margin_damage": 5.0406,
+            "top1_change_rate": 0.3125
+          },
+          "C": {
+            "ce_damage": -0.0043,
+            "ce_lb975": -0.0181,
+            "ce_ub975": 0.0086,
+            "margin_damage": -0.0338,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 1.3478,
+            "ce_lb975": 1.2129,
+            "ce_ub975": 1.4923,
+            "margin_damage": 4.5961,
+            "top1_change_rate": 0.625
+          },
+          "cross": {
+            "additive_scope": 0.1434,
+            "coordination_agreement": -0.028,
+            "correlative_both_either": 0.1759,
+            "correlative_either_neither": 0.8748,
+            "degree_frame": -0.0144,
+            "degree_result": -0.0179,
+            "finiteness_selection": 0.0179,
+            "interrogative_licensing": -0.0384,
+            "lexical_number_pp": -0.0347,
+            "narrative_tense": -0.0361,
+            "numbered_list_choice": -0.0123,
+            "numeric_sequence_choice": -0.0657,
+            "perfect_number": 0.0503,
+            "polarity_state": 0.1196,
+            "possessive_adjacent": -0.0457,
+            "possessive_argument": -0.0318,
+            "possessive_long_simple": -0.0448,
+            "possessive_medial": -0.0479,
+            "possessive_verbfinal": -0.0387,
+            "preposition_selection": 0.0184,
+            "quantifier_number": -0.0522
+          },
+          "cross_abs_max": 0.8748,
+          "extraction_odd": 0.967
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.8726,
+            "ce_lb975": 0.6625,
+            "ce_ub975": 1.1028,
+            "margin_damage": 5.7706,
+            "top1_change_rate": 0.4062
+          },
+          "A2": {
+            "ce_damage": 0.8302,
+            "ce_lb975": 0.5803,
+            "ce_ub975": 1.0917,
+            "margin_damage": 4.9516,
+            "top1_change_rate": 0.3125
+          },
+          "C": {
+            "ce_damage": -0.0789,
+            "ce_lb975": -0.102,
+            "ce_ub975": -0.0576,
+            "margin_damage": -0.0718,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 1.4696,
+            "ce_lb975": 1.3152,
+            "ce_ub975": 1.6231,
+            "margin_damage": 4.7208,
+            "top1_change_rate": 0.7188
+          },
+          "cross": {
+            "additive_scope": 0.102,
+            "coordination_agreement": -0.0552,
+            "correlative_both_either": 0.1597,
+            "correlative_either_neither": 0.7698,
+            "degree_frame": 0.02,
+            "degree_result": -0.0633,
+            "finiteness_selection": 0.0011,
+            "interrogative_licensing": -0.049,
+            "lexical_number_pp": -0.0352,
+            "narrative_tense": -0.0328,
+            "numbered_list_choice": -0.0248,
+            "numeric_sequence_choice": -0.0533,
+            "perfect_number": 0.0778,
+            "polarity_state": 0.0861,
+            "possessive_adjacent": -0.0319,
+            "possessive_argument": -0.0438,
+            "possessive_long_simple": -0.009,
+            "possessive_medial": -0.0121,
+            "possessive_verbfinal": -0.0546,
+            "preposition_selection": -0.0002,
+            "quantifier_number": -0.0498
+          },
+          "cross_abs_max": 0.7698,
+          "extraction_odd": 0.996
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.00815094355493784,
+        0.0057541849091649055,
+        0.0010037956526502967
+      ],
+      "extraction_even": 0.828,
+      "extraction_odd": 0.69,
+      "n_units": 6,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.5,
+      "singles_top16": {
+        "attn:04:head:00": 0.017,
+        "attn:05:head:06": 0.014,
+        "attn:07:head:08": 0.186,
+        "attn:08:head:01": 0.294,
+        "attn:08:head:08": 0.027,
+        "attn:09:head:01": 0.012,
+        "attn:09:head:03": 0.013,
+        "attn:09:head:05": 0.014,
+        "attn:09:head:07": 0.096,
+        "attn:10:head:05": 0.1,
+        "attn:11:head:07": 0.028,
+        "attn:12:head:02": 0.024,
+        "attn:13:head:08": 0.059,
+        "attn:14:head:08": 0.152,
+        "attn:15:head:01": 0.037,
+        "attn:16:head:08": 0.105
+      },
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:09:head:07",
+        "attn:10:head:05"
+      ]
+    },
+    "correlative_either_neither": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 1.0729,
+            "ce_lb975": 0.8163,
+            "ce_ub975": 1.3414,
+            "margin_damage": 3.2836,
+            "top1_change_rate": 0.4062
+          },
+          "A2": {
+            "ce_damage": 1.163,
+            "ce_lb975": 0.8551,
+            "ce_ub975": 1.4839,
+            "margin_damage": 3.3474,
+            "top1_change_rate": 0.5312
+          },
+          "C": {
+            "ce_damage": -0.0032,
+            "ce_lb975": -0.0106,
+            "ce_ub975": 0.005,
+            "margin_damage": 0.9752,
+            "top1_change_rate": 0.0625
+          },
+          "P": {
+            "ce_damage": 1.7552,
+            "ce_lb975": 1.6118,
+            "ce_ub975": 1.897,
+            "margin_damage": 2.6757,
+            "top1_change_rate": 0.6875
+          },
+          "cross": {
+            "additive_scope": 0.049,
+            "coordination_agreement": -0.1137,
+            "correlative_both_either": 0.1183,
+            "correlative_both_neither": 0.6549,
+            "degree_frame": 0.0996,
+            "degree_result": 0.0462,
+            "finiteness_selection": 0.0206,
+            "interrogative_licensing": -0.212,
+            "lexical_number_pp": -0.0189,
+            "narrative_tense": 0.0033,
+            "numbered_list_choice": 0.001,
+            "numeric_sequence_choice": -0.0116,
+            "perfect_number": 0.0578,
+            "polarity_state": 0.0845,
+            "possessive_adjacent": -0.0148,
+            "possessive_argument": -0.0251,
+            "possessive_long_simple": -0.0131,
+            "possessive_medial": -0.0083,
+            "possessive_verbfinal": -0.0219,
+            "preposition_selection": 0.0205,
+            "quantifier_number": -0.0562
+          },
+          "cross_abs_max": 0.6549,
+          "extraction_odd": 0.975
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 1.079,
+            "ce_lb975": 0.8323,
+            "ce_ub975": 1.3386,
+            "margin_damage": 3.3086,
+            "top1_change_rate": 0.4062
+          },
+          "A2": {
+            "ce_damage": 1.1235,
+            "ce_lb975": 0.8586,
+            "ce_ub975": 1.4007,
+            "margin_damage": 3.3481,
+            "top1_change_rate": 0.5312
+          },
+          "C": {
+            "ce_damage": 0.3397,
+            "ce_lb975": 0.3008,
+            "ce_ub975": 0.3773,
+            "margin_damage": 1.4818,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 1.7506,
+            "ce_lb975": 1.6152,
+            "ce_ub975": 1.8715,
+            "margin_damage": 2.749,
+            "top1_change_rate": 0.6875
+          },
+          "cross": {
+            "additive_scope": -0.0033,
+            "coordination_agreement": -0.158,
+            "correlative_both_either": 0.1509,
+            "correlative_both_neither": 0.5639,
+            "degree_frame": 0.121,
+            "degree_result": 0.0187,
+            "finiteness_selection": 0.0037,
+            "interrogative_licensing": -0.1949,
+            "lexical_number_pp": 0.0064,
+            "narrative_tense": 0.0152,
+            "numbered_list_choice": 0.0114,
+            "numeric_sequence_choice": 0.0108,
+            "perfect_number": 0.0857,
+            "polarity_state": 0.1332,
+            "possessive_adjacent": -0.0224,
+            "possessive_argument": -0.0348,
+            "possessive_long_simple": -0.0172,
+            "possessive_medial": -0.0095,
+            "possessive_verbfinal": -0.0277,
+            "preposition_selection": 0.0129,
+            "quantifier_number": -0.0632
+          },
+          "cross_abs_max": 0.5639,
+          "extraction_odd": 0.989
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0014986153692007065,
+        0.0016992506571114063,
+        0.00018169009126722813
+      ],
+      "extraction_even": 0.819,
+      "extraction_odd": 0.783,
+      "n_units": 7,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.4,
+      "singles_top16": {
+        "attn:05:head:03": 0.011,
+        "attn:07:head:08": 0.076,
+        "attn:08:head:01": 0.273,
+        "attn:08:head:08": 0.021,
+        "attn:09:head:01": 0.014,
+        "attn:09:head:03": 0.014,
+        "attn:09:head:07": 0.034,
+        "attn:10:head:05": 0.057,
+        "attn:11:head:03": 0.018,
+        "attn:11:head:07": 0.013,
+        "attn:12:head:08": 0.018,
+        "attn:13:head:06": 0.009,
+        "attn:13:head:08": 0.065,
+        "attn:14:head:08": 0.221,
+        "attn:15:head:01": 0.03,
+        "attn:16:head:08": 0.143
+      },
+      "units": [
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01"
+      ]
+    },
+    "degree_frame": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 1.281,
+            "ce_lb975": 1.0416,
+            "ce_ub975": 1.5266,
+            "margin_damage": 3.8548,
+            "top1_change_rate": 0.5938
+          },
+          "A2": {
+            "ce_damage": 1.035,
+            "ce_lb975": 0.7027,
+            "ce_ub975": 1.385,
+            "margin_damage": 3.1787,
+            "top1_change_rate": 0.1875
+          },
+          "C": {
+            "ce_damage": 0.0001,
+            "ce_lb975": -0.0058,
+            "ce_ub975": 0.0051,
+            "margin_damage": 0.1265,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.6631,
+            "ce_lb975": 0.5534,
+            "ce_ub975": 0.7634,
+            "margin_damage": 5.2131,
+            "top1_change_rate": 0.3438
+          },
+          "cross": {
+            "additive_scope": -0.0016,
+            "coordination_agreement": -0.0002,
+            "correlative_both_either": -0.0062,
+            "correlative_both_neither": 0.0125,
+            "correlative_either_neither": 0.0212,
+            "degree_result": 0.0165,
+            "finiteness_selection": 0.0346,
+            "interrogative_licensing": 0.0752,
+            "lexical_number_pp": 0.0151,
+            "narrative_tense": 0.0428,
+            "numbered_list_choice": -0.0112,
+            "numeric_sequence_choice": -0.0038,
+            "perfect_number": -0.0178,
+            "polarity_state": 0.0604,
+            "possessive_adjacent": -0.0184,
+            "possessive_argument": -0.0003,
+            "possessive_long_simple": -0.0426,
+            "possessive_medial": -0.0233,
+            "possessive_verbfinal": -0.0051,
+            "preposition_selection": -0.0191,
+            "quantifier_number": -0.0103
+          },
+          "cross_abs_max": 0.0752,
+          "extraction_odd": 0.979
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 1.21,
+            "ce_lb975": 0.9866,
+            "ce_ub975": 1.4411,
+            "margin_damage": 3.661,
+            "top1_change_rate": 0.5625
+          },
+          "A2": {
+            "ce_damage": 0.9526,
+            "ce_lb975": 0.6516,
+            "ce_ub975": 1.278,
+            "margin_damage": 3.1691,
+            "top1_change_rate": 0.1875
+          },
+          "C": {
+            "ce_damage": 0.026,
+            "ce_lb975": 0.0181,
+            "ce_ub975": 0.0353,
+            "margin_damage": 0.3584,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.6904,
+            "ce_lb975": 0.5642,
+            "ce_ub975": 0.8087,
+            "margin_damage": 5.0364,
+            "top1_change_rate": 0.375
+          },
+          "cross": {
+            "additive_scope": 0.0066,
+            "coordination_agreement": 0.0251,
+            "correlative_both_either": 0.0198,
+            "correlative_both_neither": 0.0299,
+            "correlative_either_neither": 0.032,
+            "degree_result": -0.0094,
+            "finiteness_selection": 0.0108,
+            "interrogative_licensing": 0.0402,
+            "lexical_number_pp": 0.014,
+            "narrative_tense": 0.0522,
+            "numbered_list_choice": -0.0077,
+            "numeric_sequence_choice": -0.0007,
+            "perfect_number": -0.0002,
+            "polarity_state": 0.0229,
+            "possessive_adjacent": -0.0128,
+            "possessive_argument": -0.0025,
+            "possessive_long_simple": -0.0347,
+            "possessive_medial": -0.0212,
+            "possessive_verbfinal": -0.0002,
+            "preposition_selection": -0.0185,
+            "quantifier_number": 0.0407
+          },
+          "cross_abs_max": 0.0522,
+          "extraction_odd": 0.966
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.002953343093395233,
+        0.00809567328542471,
+        0.00010843300697160885
+      ],
+      "extraction_even": 0.487,
+      "extraction_odd": 0.854,
+      "n_units": 7,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.4,
+      "singles_top16": {
+        "attn:01:head:01": 0.003,
+        "attn:05:head:00": 0.004,
+        "attn:06:head:03": 0.009,
+        "attn:06:head:06": 0.003,
+        "attn:07:head:08": 0.028,
+        "attn:08:head:01": 0.064,
+        "attn:09:head:07": 0.008,
+        "attn:10:head:05": 0.021,
+        "attn:11:head:07": 0.004,
+        "attn:12:head:00": 0.009,
+        "attn:12:head:08": 0.045,
+        "attn:14:head:00": 0.005,
+        "attn:14:head:08": 0.004,
+        "attn:15:head:01": 0.03,
+        "attn:15:head:05": 0.004,
+        "attn:16:head:08": 0.048
+      },
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:12:head:08",
+        "attn:06:head:03",
+        "attn:15:head:01",
+        "attn:10:head:05"
+      ]
+    },
+    "degree_result": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.676,
+            "ce_lb975": 0.591,
+            "ce_ub975": 0.7566,
+            "margin_damage": 2.0084,
+            "top1_change_rate": 0.2188
+          },
+          "A2": {
+            "ce_damage": 0.708,
+            "ce_lb975": 0.6306,
+            "ce_ub975": 0.7837,
+            "margin_damage": 1.877,
+            "top1_change_rate": 0.125
+          },
+          "C": {
+            "ce_damage": 0.0001,
+            "ce_lb975": -0.0014,
+            "ce_ub975": 0.0018,
+            "margin_damage": -0.0072,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.7431,
+            "ce_lb975": 0.6874,
+            "ce_ub975": 0.7986,
+            "margin_damage": 1.4222,
+            "top1_change_rate": 0.125
+          },
+          "cross": {
+            "additive_scope": -0.0116,
+            "coordination_agreement": -0.0047,
+            "correlative_both_either": -0.002,
+            "correlative_both_neither": 0.0238,
+            "correlative_either_neither": 0.0955,
+            "degree_frame": 0.0122,
+            "finiteness_selection": 0.069,
+            "interrogative_licensing": -0.0026,
+            "lexical_number_pp": 0.0055,
+            "narrative_tense": 0.0079,
+            "numbered_list_choice": 0.0025,
+            "numeric_sequence_choice": 0.009,
+            "perfect_number": 0.013,
+            "polarity_state": 0.0014,
+            "possessive_adjacent": 0.0003,
+            "possessive_argument": -0.0045,
+            "possessive_long_simple": -0.007,
+            "possessive_medial": -0.0093,
+            "possessive_verbfinal": -0.0007,
+            "preposition_selection": -0.026,
+            "quantifier_number": -0.0002
+          },
+          "cross_abs_max": 0.0955,
+          "extraction_odd": 0.914
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.6653,
+            "ce_lb975": 0.5669,
+            "ce_ub975": 0.7719,
+            "margin_damage": 2.0943,
+            "top1_change_rate": 0.25
+          },
+          "A2": {
+            "ce_damage": 0.7296,
+            "ce_lb975": 0.635,
+            "ce_ub975": 0.8393,
+            "margin_damage": 1.9346,
+            "top1_change_rate": 0.1875
+          },
+          "C": {
+            "ce_damage": -0.0534,
+            "ce_lb975": -0.0639,
+            "ce_ub975": -0.0434,
+            "margin_damage": -0.0147,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.5727,
+            "ce_lb975": 0.5227,
+            "ce_ub975": 0.6224,
+            "margin_damage": 1.4838,
+            "top1_change_rate": 0.125
+          },
+          "cross": {
+            "additive_scope": 0.0094,
+            "coordination_agreement": 0.0126,
+            "correlative_both_either": 0.0258,
+            "correlative_both_neither": 0.0358,
+            "correlative_either_neither": 0.1209,
+            "degree_frame": -0.0059,
+            "finiteness_selection": 0.0689,
+            "interrogative_licensing": -0.0139,
+            "lexical_number_pp": 0.031,
+            "narrative_tense": 0.0198,
+            "numbered_list_choice": -0.0022,
+            "numeric_sequence_choice": -0.0117,
+            "perfect_number": 0.0665,
+            "polarity_state": 0.0089,
+            "possessive_adjacent": -0.0086,
+            "possessive_argument": -0.0108,
+            "possessive_long_simple": -0.0072,
+            "possessive_medial": -0.0065,
+            "possessive_verbfinal": -0.0105,
+            "preposition_selection": 0.0049,
+            "quantifier_number": -0.0237
+          },
+          "cross_abs_max": 0.1209,
+          "extraction_odd": 0.983
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.029741507023572922,
+        0.008223717100918293,
+        3.497068246360868e-05
+      ],
+      "extraction_even": 0.801,
+      "extraction_odd": 0.596,
+      "n_units": 4,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.6,
+      "singles_top16": {
+        "attn:04:head:01": 0.029,
+        "attn:04:head:07": 0.032,
+        "attn:05:head:00": 0.018,
+        "attn:05:head:03": 0.014,
+        "attn:05:head:08": 0.014,
+        "attn:06:head:01": 0.028,
+        "attn:06:head:03": 0.072,
+        "attn:07:head:05": 0.014,
+        "attn:07:head:08": 0.193,
+        "attn:08:head:01": 0.448,
+        "attn:09:head:01": 0.07,
+        "attn:09:head:03": 0.062,
+        "attn:09:head:07": 0.033,
+        "attn:10:head:05": 0.021,
+        "attn:11:head:03": 0.057,
+        "attn:15:head:01": 0.024
+      },
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:04:head:01"
+      ]
+    },
+    "finiteness_selection": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.7727,
+            "ce_lb975": 0.6511,
+            "ce_ub975": 0.8915,
+            "margin_damage": 2.7696,
+            "top1_change_rate": 0.4062
+          },
+          "A2": {
+            "ce_damage": 0.3824,
+            "ce_lb975": 0.311,
+            "ce_ub975": 0.4627,
+            "margin_damage": 1.9821,
+            "top1_change_rate": 0.1562
+          },
+          "C": {
+            "ce_damage": 0.0005,
+            "ce_lb975": -0.0043,
+            "ce_ub975": 0.0054,
+            "margin_damage": 0.0318,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.7517,
+            "ce_lb975": 0.6193,
+            "ce_ub975": 0.8845,
+            "margin_damage": 1.9083,
+            "top1_change_rate": 0.4688
+          },
+          "cross": {
+            "additive_scope": -0.0177,
+            "coordination_agreement": -0.0606,
+            "correlative_both_either": 0.0058,
+            "correlative_both_neither": -0.0013,
+            "correlative_either_neither": 0.0214,
+            "degree_frame": 0.0041,
+            "degree_result": 0.0416,
+            "interrogative_licensing": 0.0136,
+            "lexical_number_pp": 0.0043,
+            "narrative_tense": 0.0114,
+            "numbered_list_choice": 0.0026,
+            "numeric_sequence_choice": 0.0071,
+            "perfect_number": 0.0417,
+            "polarity_state": -0.0042,
+            "possessive_adjacent": 0.0035,
+            "possessive_argument": 0.0455,
+            "possessive_long_simple": 0.0254,
+            "possessive_medial": 0.0131,
+            "possessive_verbfinal": 0.0515,
+            "preposition_selection": 0.0132,
+            "quantifier_number": -0.0506
+          },
+          "cross_abs_max": 0.0606,
+          "extraction_odd": 1.014
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.7389,
+            "ce_lb975": 0.6111,
+            "ce_ub975": 0.8658,
+            "margin_damage": 2.7972,
+            "top1_change_rate": 0.3438
+          },
+          "A2": {
+            "ce_damage": 0.2839,
+            "ce_lb975": 0.203,
+            "ce_ub975": 0.3769,
+            "margin_damage": 1.7304,
+            "top1_change_rate": 0.0625
+          },
+          "C": {
+            "ce_damage": -0.0792,
+            "ce_lb975": -0.0905,
+            "ce_ub975": -0.0678,
+            "margin_damage": -0.0096,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.7264,
+            "ce_lb975": 0.5978,
+            "ce_ub975": 0.858,
+            "margin_damage": 1.9279,
+            "top1_change_rate": 0.4375
+          },
+          "cross": {
+            "additive_scope": -0.0232,
+            "coordination_agreement": -0.0255,
+            "correlative_both_either": -0.006,
+            "correlative_both_neither": -0.0087,
+            "correlative_either_neither": 0.0127,
+            "degree_frame": -0.0142,
+            "degree_result": 0.0604,
+            "interrogative_licensing": 0.0015,
+            "lexical_number_pp": 0.0016,
+            "narrative_tense": 0.013,
+            "numbered_list_choice": 0.0006,
+            "numeric_sequence_choice": -0.0033,
+            "perfect_number": 0.0438,
+            "polarity_state": -0.0099,
+            "possessive_adjacent": -0.0097,
+            "possessive_argument": 0.0077,
+            "possessive_long_simple": -0.005,
+            "possessive_medial": -0.0104,
+            "possessive_verbfinal": 0.0169,
+            "preposition_selection": 0.032,
+            "quantifier_number": 0.0116
+          },
+          "cross_abs_max": 0.0604,
+          "extraction_odd": 1.023
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.018889112398028374,
+        0.015665393322706223,
+        6.714290793752298e-05
+      ],
+      "extraction_even": 0.821,
+      "extraction_odd": 0.625,
+      "n_units": 7,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "seconds": 22.7,
+      "singles_top16": {
+        "attn:02:head:03": 0.023,
+        "attn:03:head:06": 0.036,
+        "attn:04:head:01": 0.046,
+        "attn:05:head:08": 0.023,
+        "attn:06:head:03": 0.267,
+        "attn:07:head:08": 0.273,
+        "attn:08:head:01": 0.069,
+        "attn:08:head:08": 0.049,
+        "attn:09:head:01": 0.028,
+        "attn:09:head:03": 0.023,
+        "attn:09:head:07": 0.025,
+        "attn:10:head:08": 0.021,
+        "attn:11:head:03": 0.31,
+        "attn:13:head:08": 0.048,
+        "attn:14:head:03": 0.035,
+        "attn:14:head:08": 0.021
+      },
+      "units": [
+        "attn:11:head:03",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:14:head:03",
+        "attn:04:head:01"
+      ]
+    },
+    "interrogative_licensing": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.716,
+            "ce_lb975": 0.5711,
+            "ce_ub975": 0.8693,
+            "margin_damage": 1.6628,
+            "top1_change_rate": 0.125
+          },
+          "A2": {
+            "ce_damage": 0.6262,
+            "ce_lb975": 0.418,
+            "ce_ub975": 0.8362,
+            "margin_damage": 1.1564,
+            "top1_change_rate": 0.125
+          },
+          "C": {
+            "ce_damage": -0.0074,
+            "ce_lb975": -0.0127,
+            "ce_ub975": -0.0025,
+            "margin_damage": -0.0454,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.329,
+            "ce_lb975": 0.2777,
+            "ce_ub975": 0.3807,
+            "margin_damage": 1.6217,
+            "top1_change_rate": 0.1875
+          },
+          "cross": {
+            "additive_scope": -0.0084,
+            "coordination_agreement": -0.025,
+            "correlative_both_either": 0.0147,
+            "correlative_both_neither": -0.0006,
+            "correlative_either_neither": 0.0497,
+            "degree_frame": -0.03,
+            "degree_result": -0.022,
+            "finiteness_selection": -0.0179,
+            "lexical_number_pp": 0.0064,
+            "narrative_tense": 0.0372,
+            "numbered_list_choice": 0.005,
+            "numeric_sequence_choice": 0.0127,
+            "perfect_number": 0.0262,
+            "polarity_state": 0.094,
+            "possessive_adjacent": -0.004,
+            "possessive_argument": -0.0005,
+            "possessive_long_simple": -0.0516,
+            "possessive_medial": -0.0317,
+            "possessive_verbfinal": -0.0013,
+            "preposition_selection": 0.0002,
+            "quantifier_number": 0.0039
+          },
+          "cross_abs_max": 0.094,
+          "extraction_odd": 0.963
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.7228,
+            "ce_lb975": 0.5991,
+            "ce_ub975": 0.8552,
+            "margin_damage": 1.7325,
+            "top1_change_rate": 0.0938
+          },
+          "A2": {
+            "ce_damage": 0.4529,
+            "ce_lb975": 0.3185,
+            "ce_ub975": 0.5971,
+            "margin_damage": 0.9914,
+            "top1_change_rate": 0.0312
+          },
+          "C": {
+            "ce_damage": 0.1789,
+            "ce_lb975": 0.1455,
+            "ce_ub975": 0.2126,
+            "margin_damage": 0.4796,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.4919,
+            "ce_lb975": 0.4429,
+            "ce_ub975": 0.5393,
+            "margin_damage": 1.8689,
+            "top1_change_rate": 0.1562
+          },
+          "cross": {
+            "additive_scope": 0.0826,
+            "coordination_agreement": 0.0264,
+            "correlative_both_either": -0.0262,
+            "correlative_both_neither": -0.0328,
+            "correlative_either_neither": -0.0867,
+            "degree_frame": -0.1965,
+            "degree_result": -0.1169,
+            "finiteness_selection": -0.0401,
+            "lexical_number_pp": -0.0248,
+            "narrative_tense": 0.0829,
+            "numbered_list_choice": -0.003,
+            "numeric_sequence_choice": -0.078,
+            "perfect_number": -0.1133,
+            "polarity_state": 0.1495,
+            "possessive_adjacent": -0.007,
+            "possessive_argument": -0.0231,
+            "possessive_long_simple": -0.0248,
+            "possessive_medial": -0.0139,
+            "possessive_verbfinal": -0.0435,
+            "preposition_selection": -0.017,
+            "quantifier_number": 0.0176
+          },
+          "cross_abs_max": 0.1965,
+          "extraction_odd": 1.033
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.002049101749435067,
+        0.0066712480038404465,
+        7.516022742493078e-05
+      ],
+      "extraction_even": 0.783,
+      "extraction_odd": 0.952,
+      "n_units": 10,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 23.1,
+      "singles_top16": {
+        "attn:02:head:03": 0.011,
+        "attn:02:head:06": 0.052,
+        "attn:03:head:00": 0.097,
+        "attn:03:head:04": 0.028,
+        "attn:03:head:06": 0.015,
+        "attn:04:head:00": 0.01,
+        "attn:04:head:01": 0.043,
+        "attn:04:head:04": 0.047,
+        "attn:05:head:03": 0.053,
+        "attn:05:head:07": 0.029,
+        "attn:06:head:08": 0.01,
+        "attn:07:head:08": 0.117,
+        "attn:08:head:01": 0.019,
+        "attn:09:head:07": 0.124,
+        "attn:10:head:05": 0.053,
+        "attn:16:head:08": 0.012
+      },
+      "units": [
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:03:head:00",
+        "attn:02:head:06",
+        "attn:10:head:05",
+        "attn:04:head:04",
+        "attn:05:head:03",
+        "attn:04:head:01",
+        "attn:05:head:07",
+        "attn:04:head:00"
+      ]
+    },
+    "lexical_number_pp": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.5598,
+            "ce_lb975": 0.4563,
+            "ce_ub975": 0.6679,
+            "margin_damage": 3.4129,
+            "top1_change_rate": 0.4062
+          },
+          "A2": {
+            "ce_damage": 0.5581,
+            "ce_lb975": 0.4264,
+            "ce_ub975": 0.6917,
+            "margin_damage": 2.0393,
+            "top1_change_rate": 0.0312
+          },
+          "C": {
+            "ce_damage": -0.001,
+            "ce_lb975": -0.0044,
+            "ce_ub975": 0.0026,
+            "margin_damage": -0.0062,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.6341,
+            "ce_lb975": 0.5394,
+            "ce_ub975": 0.7387,
+            "margin_damage": 4.4721,
+            "top1_change_rate": 0.3438
+          },
+          "cross": {
+            "additive_scope": -0.0201,
+            "coordination_agreement": 0.2075,
+            "correlative_both_either": 0.009,
+            "correlative_both_neither": 0.0071,
+            "correlative_either_neither": -0.0132,
+            "degree_frame": 0.008,
+            "degree_result": 0.0068,
+            "finiteness_selection": -0.0268,
+            "interrogative_licensing": -0.0024,
+            "narrative_tense": 0.1013,
+            "numbered_list_choice": 0.0021,
+            "numeric_sequence_choice": -0.0053,
+            "perfect_number": 0.7086,
+            "polarity_state": 0.0129,
+            "possessive_adjacent": 0.0249,
+            "possessive_argument": 0.0792,
+            "possessive_long_simple": 0.0903,
+            "possessive_medial": 0.0739,
+            "possessive_verbfinal": 0.0887,
+            "preposition_selection": 0.0,
+            "quantifier_number": 0.349
+          },
+          "cross_abs_max": 0.7086,
+          "extraction_odd": 0.987
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.646,
+            "ce_lb975": 0.4635,
+            "ce_ub975": 0.8516,
+            "margin_damage": 3.35,
+            "top1_change_rate": 0.375
+          },
+          "A2": {
+            "ce_damage": 0.5412,
+            "ce_lb975": 0.3778,
+            "ce_ub975": 0.7208,
+            "margin_damage": 1.9649,
+            "top1_change_rate": 0.0312
+          },
+          "C": {
+            "ce_damage": -0.0599,
+            "ce_lb975": -0.0706,
+            "ce_ub975": -0.0499,
+            "margin_damage": -0.0159,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.768,
+            "ce_lb975": 0.6062,
+            "ce_ub975": 0.9465,
+            "margin_damage": 4.7105,
+            "top1_change_rate": 0.375
+          },
+          "cross": {
+            "additive_scope": -0.014,
+            "coordination_agreement": 0.3741,
+            "correlative_both_either": 0.0025,
+            "correlative_both_neither": 0.0049,
+            "correlative_either_neither": 0.0134,
+            "degree_frame": 0.0337,
+            "degree_result": 0.0143,
+            "finiteness_selection": -0.008,
+            "interrogative_licensing": -0.041,
+            "narrative_tense": 0.0528,
+            "numbered_list_choice": -0.0133,
+            "numeric_sequence_choice": 0.009,
+            "perfect_number": 0.7008,
+            "polarity_state": -0.006,
+            "possessive_adjacent": 0.029,
+            "possessive_argument": 0.1849,
+            "possessive_long_simple": 0.1524,
+            "possessive_medial": 0.098,
+            "possessive_verbfinal": 0.2126,
+            "preposition_selection": 0.0172,
+            "quantifier_number": 0.4721
+          },
+          "cross_abs_max": 0.7008,
+          "extraction_odd": 0.973
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0020348101388663054,
+        0.009041398763656616,
+        6.729246524628252e-05
+      ],
+      "extraction_even": 0.824,
+      "extraction_odd": 0.876,
+      "n_units": 4,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.3,
+      "singles_top16": {
+        "attn:04:head:06": 0.002,
+        "attn:05:head:03": 0.012,
+        "attn:07:head:08": 0.055,
+        "attn:09:head:01": 0.008,
+        "attn:09:head:07": 0.034,
+        "attn:10:head:05": 0.014,
+        "attn:11:head:03": 0.51,
+        "attn:12:head:02": 0.003,
+        "attn:12:head:06": 0.005,
+        "attn:13:head:01": 0.019,
+        "attn:13:head:06": 0.003,
+        "attn:14:head:08": 0.003,
+        "attn:15:head:01": 0.014,
+        "attn:15:head:05": 0.003,
+        "attn:16:head:08": 0.013,
+        "attn:17:head:01": 0.003
+      },
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03"
+      ]
+    },
+    "narrative_tense": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.5125,
+            "ce_lb975": 0.4798,
+            "ce_ub975": 0.5472,
+            "margin_damage": 1.7676,
+            "top1_change_rate": 0.3125
+          },
+          "A2": {
+            "ce_damage": 0.409,
+            "ce_lb975": 0.3656,
+            "ce_ub975": 0.4539,
+            "margin_damage": 1.3459,
+            "top1_change_rate": 0.2188
+          },
+          "C": {
+            "ce_damage": 0.0024,
+            "ce_lb975": -0.0053,
+            "ce_ub975": 0.0099,
+            "margin_damage": 0.0816,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.4984,
+            "ce_lb975": 0.4677,
+            "ce_ub975": 0.5279,
+            "margin_damage": 1.8385,
+            "top1_change_rate": 0.25
+          },
+          "cross": {
+            "additive_scope": -0.0005,
+            "coordination_agreement": -0.309,
+            "correlative_both_either": -0.0008,
+            "correlative_both_neither": -0.0017,
+            "correlative_either_neither": 0.0037,
+            "degree_frame": 0.0066,
+            "degree_result": 0.0236,
+            "finiteness_selection": -0.0164,
+            "interrogative_licensing": -0.0149,
+            "lexical_number_pp": -0.1065,
+            "numbered_list_choice": -0.0014,
+            "numeric_sequence_choice": -0.0018,
+            "perfect_number": -0.4995,
+            "polarity_state": -0.0014,
+            "possessive_adjacent": 0.0087,
+            "possessive_argument": 0.0224,
+            "possessive_long_simple": 0.0078,
+            "possessive_medial": 0.0085,
+            "possessive_verbfinal": 0.024,
+            "preposition_selection": -0.0041,
+            "quantifier_number": -0.2814
+          },
+          "cross_abs_max": 0.4995,
+          "extraction_odd": 0.982
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.5175,
+            "ce_lb975": 0.458,
+            "ce_ub975": 0.5777,
+            "margin_damage": 1.7822,
+            "top1_change_rate": 0.25
+          },
+          "A2": {
+            "ce_damage": 0.386,
+            "ce_lb975": 0.299,
+            "ce_ub975": 0.4761,
+            "margin_damage": 1.3028,
+            "top1_change_rate": 0.1562
+          },
+          "C": {
+            "ce_damage": 0.1463,
+            "ce_lb975": 0.1283,
+            "ce_ub975": 0.1662,
+            "margin_damage": 0.727,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.5403,
+            "ce_lb975": 0.4861,
+            "ce_ub975": 0.5949,
+            "margin_damage": 1.9934,
+            "top1_change_rate": 0.25
+          },
+          "cross": {
+            "additive_scope": 0.0011,
+            "coordination_agreement": -0.3966,
+            "correlative_both_either": 0.001,
+            "correlative_both_neither": -0.0005,
+            "correlative_either_neither": -0.0022,
+            "degree_frame": -0.0027,
+            "degree_result": -0.0023,
+            "finiteness_selection": -0.0235,
+            "interrogative_licensing": -0.0294,
+            "lexical_number_pp": -0.1696,
+            "numbered_list_choice": -0.0024,
+            "numeric_sequence_choice": -0.0073,
+            "perfect_number": -0.1476,
+            "polarity_state": -0.0146,
+            "possessive_adjacent": 0.0052,
+            "possessive_argument": 0.0353,
+            "possessive_long_simple": 0.018,
+            "possessive_medial": 0.0171,
+            "possessive_verbfinal": 0.0359,
+            "preposition_selection": 0.002,
+            "quantifier_number": -0.4086
+          },
+          "cross_abs_max": 0.4086,
+          "extraction_odd": 1.004
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.005220586899667978,
+        0.002836444415152073,
+        0.0003660266811493784
+      ],
+      "extraction_even": 0.819,
+      "extraction_odd": 0.859,
+      "n_units": 7,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 22.5,
+      "singles_top16": {
+        "attn:05:head:01": 0.014,
+        "attn:05:head:06": 0.006,
+        "attn:05:head:07": 0.005,
+        "attn:06:head:01": 0.006,
+        "attn:07:head:00": 0.006,
+        "attn:07:head:07": 0.032,
+        "attn:07:head:08": 0.012,
+        "attn:09:head:01": 0.039,
+        "attn:09:head:04": 0.075,
+        "attn:09:head:07": 0.025,
+        "attn:10:head:02": 0.005,
+        "attn:10:head:05": 0.02,
+        "attn:11:head:03": 0.315,
+        "attn:13:head:06": 0.009,
+        "attn:15:head:01": 0.02,
+        "attn:15:head:05": 0.251
+      },
+      "units": [
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:04",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:15:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "numbered_list_choice": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.6298,
+            "ce_lb975": 0.5129,
+            "ce_ub975": 0.7569,
+            "margin_damage": 3.1374,
+            "top1_change_rate": 0.4375
+          },
+          "A2": {
+            "ce_damage": 0.104,
+            "ce_lb975": 0.0985,
+            "ce_ub975": 0.1095,
+            "margin_damage": 0.194,
+            "top1_change_rate": 0.0
+          },
+          "C": {
+            "ce_damage": -0.0018,
+            "ce_lb975": -0.0024,
+            "ce_ub975": -0.0012,
+            "margin_damage": -0.0034,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.0966,
+            "ce_lb975": 0.0927,
+            "ce_ub975": 0.1003,
+            "margin_damage": -0.0267,
+            "top1_change_rate": 0.0
+          },
+          "cross": {
+            "additive_scope": 0.0001,
+            "coordination_agreement": 0.0008,
+            "correlative_both_either": 0.0,
+            "correlative_both_neither": 0.0001,
+            "correlative_either_neither": 0.0003,
+            "degree_frame": -0.0001,
+            "degree_result": -0.0003,
+            "finiteness_selection": -0.0001,
+            "interrogative_licensing": 0.0005,
+            "lexical_number_pp": 0.0001,
+            "narrative_tense": 0.0003,
+            "numeric_sequence_choice": 0.0436,
+            "perfect_number": -0.0001,
+            "polarity_state": -0.0001,
+            "possessive_adjacent": 0.0002,
+            "possessive_argument": -0.0003,
+            "possessive_long_simple": -0.0001,
+            "possessive_medial": 0.0001,
+            "possessive_verbfinal": -0.0001,
+            "preposition_selection": 0.0003,
+            "quantifier_number": 0.0002
+          },
+          "cross_abs_max": 0.0436,
+          "extraction_odd": 0.992
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.617,
+            "ce_lb975": 0.4955,
+            "ce_ub975": 0.7478,
+            "margin_damage": 3.1362,
+            "top1_change_rate": 0.4688
+          },
+          "A2": {
+            "ce_damage": 0.101,
+            "ce_lb975": 0.0909,
+            "ce_ub975": 0.1105,
+            "margin_damage": 0.2051,
+            "top1_change_rate": 0.0
+          },
+          "C": {
+            "ce_damage": -0.0176,
+            "ce_lb975": -0.0247,
+            "ce_ub975": -0.0102,
+            "margin_damage": -0.07,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.1366,
+            "ce_lb975": 0.1316,
+            "ce_ub975": 0.1412,
+            "margin_damage": 0.256,
+            "top1_change_rate": 0.0
+          },
+          "cross": {
+            "additive_scope": 0.0026,
+            "coordination_agreement": 0.0212,
+            "correlative_both_either": 0.014,
+            "correlative_both_neither": 0.0213,
+            "correlative_either_neither": -0.0124,
+            "degree_frame": 0.0179,
+            "degree_result": -0.0232,
+            "finiteness_selection": -0.016,
+            "interrogative_licensing": 0.0345,
+            "lexical_number_pp": 0.0454,
+            "narrative_tense": 0.0304,
+            "numeric_sequence_choice": 0.0143,
+            "perfect_number": 0.0041,
+            "polarity_state": 0.0261,
+            "possessive_adjacent": 0.0287,
+            "possessive_argument": 0.024,
+            "possessive_long_simple": 0.0343,
+            "possessive_medial": 0.0456,
+            "possessive_verbfinal": 0.0168,
+            "preposition_selection": 0.0179,
+            "quantifier_number": 0.0153
+          },
+          "cross_abs_max": 0.0456,
+          "extraction_odd": 1.005
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.003066668752580881,
+        0.006922617554664612,
+        7.100412403815426e-06
+      ],
+      "extraction_even": 0.848,
+      "extraction_odd": 0.795,
+      "n_units": 2,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "seconds": 22.3,
+      "singles_top16": {
+        "attn:04:head:03": 0.001,
+        "attn:05:head:05": 0.002,
+        "attn:06:head:03": 0.004,
+        "attn:06:head:05": 0.002,
+        "attn:06:head:07": 0.004,
+        "attn:07:head:03": 0.051,
+        "attn:07:head:04": 0.002,
+        "attn:08:head:03": 0.484,
+        "attn:08:head:04": 0.101,
+        "attn:08:head:06": 0.004,
+        "attn:08:head:07": 0.41,
+        "attn:09:head:07": 0.009,
+        "attn:11:head:06": 0.002,
+        "attn:14:head:02": 0.002,
+        "attn:14:head:04": 0.063,
+        "attn:14:head:06": 0.002
+      },
+      "units": [
+        "attn:08:head:03",
+        "attn:08:head:07"
+      ]
+    },
+    "numeric_sequence_choice": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.7842,
+            "ce_lb975": 0.6645,
+            "ce_ub975": 0.9158,
+            "margin_damage": 1.903,
+            "top1_change_rate": 0.4688
+          },
+          "A2": {
+            "ce_damage": 0.3525,
+            "ce_lb975": 0.3105,
+            "ce_ub975": 0.395,
+            "margin_damage": 0.8687,
+            "top1_change_rate": 0.0
+          },
+          "C": {
+            "ce_damage": -0.0091,
+            "ce_lb975": -0.0109,
+            "ce_ub975": -0.0074,
+            "margin_damage": -0.0138,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.3107,
+            "ce_lb975": 0.2935,
+            "ce_ub975": 0.3281,
+            "margin_damage": 1.5561,
+            "top1_change_rate": 0.0
+          },
+          "cross": {
+            "additive_scope": 0.0078,
+            "coordination_agreement": 0.0002,
+            "correlative_both_either": -0.0004,
+            "correlative_both_neither": -0.0011,
+            "correlative_either_neither": -0.009,
+            "degree_frame": -0.0038,
+            "degree_result": -0.0084,
+            "finiteness_selection": -0.0073,
+            "interrogative_licensing": 0.0016,
+            "lexical_number_pp": -0.0077,
+            "narrative_tense": -0.0016,
+            "numbered_list_choice": -0.0051,
+            "perfect_number": 0.0128,
+            "polarity_state": 0.0127,
+            "possessive_adjacent": -0.0049,
+            "possessive_argument": 0.0049,
+            "possessive_long_simple": 0.0033,
+            "possessive_medial": 0.0004,
+            "possessive_verbfinal": 0.0035,
+            "preposition_selection": -0.0006,
+            "quantifier_number": 0.0015
+          },
+          "cross_abs_max": 0.0128,
+          "extraction_odd": 1.0
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.7647,
+            "ce_lb975": 0.665,
+            "ce_ub975": 0.8708,
+            "margin_damage": 1.9052,
+            "top1_change_rate": 0.5
+          },
+          "A2": {
+            "ce_damage": 0.3233,
+            "ce_lb975": 0.2867,
+            "ce_ub975": 0.361,
+            "margin_damage": 0.7702,
+            "top1_change_rate": 0.0
+          },
+          "C": {
+            "ce_damage": 0.0997,
+            "ce_lb975": 0.0883,
+            "ce_ub975": 0.1105,
+            "margin_damage": 0.0828,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.3812,
+            "ce_lb975": 0.3654,
+            "ce_ub975": 0.3967,
+            "margin_damage": 2.0048,
+            "top1_change_rate": 0.0
+          },
+          "cross": {
+            "additive_scope": 0.0042,
+            "coordination_agreement": -0.0016,
+            "correlative_both_either": 0.0068,
+            "correlative_both_neither": 0.0111,
+            "correlative_either_neither": 0.0131,
+            "degree_frame": 0.0269,
+            "degree_result": 0.0219,
+            "finiteness_selection": 0.0126,
+            "interrogative_licensing": -0.0091,
+            "lexical_number_pp": 0.0169,
+            "narrative_tense": 0.0177,
+            "numbered_list_choice": 0.0002,
+            "perfect_number": -0.0354,
+            "polarity_state": -0.0371,
+            "possessive_adjacent": 0.0218,
+            "possessive_argument": -0.0106,
+            "possessive_long_simple": 0.0155,
+            "possessive_medial": 0.0138,
+            "possessive_verbfinal": -0.0041,
+            "preposition_selection": -0.0015,
+            "quantifier_number": -0.0247
+          },
+          "cross_abs_max": 0.0371,
+          "extraction_odd": 0.995
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0012209778651595116,
+        0.0020767408423125744,
+        7.614974038006039e-06
+      ],
+      "extraction_even": 0.94,
+      "extraction_odd": 0.832,
+      "n_units": 3,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "seconds": 22.7,
+      "singles_top16": {
+        "attn:03:head:03": 0.005,
+        "attn:03:head:07": 0.009,
+        "attn:04:head:00": 0.005,
+        "attn:04:head:03": 0.017,
+        "attn:05:head:06": 0.008,
+        "attn:06:head:03": 0.033,
+        "attn:07:head:03": 0.046,
+        "attn:07:head:05": 0.005,
+        "attn:08:head:03": 0.513,
+        "attn:08:head:04": 0.038,
+        "attn:08:head:07": 0.41,
+        "attn:13:head:04": 0.011,
+        "attn:14:head:04": 0.185,
+        "attn:15:head:04": 0.008,
+        "attn:16:head:03": 0.021,
+        "attn:16:head:04": 0.006
+      },
+      "units": [
+        "attn:08:head:03",
+        "attn:08:head:07",
+        "attn:14:head:04"
+      ]
+    },
+    "perfect_number": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.5646,
+            "ce_lb975": 0.4908,
+            "ce_ub975": 0.6381,
+            "margin_damage": 2.5656,
+            "top1_change_rate": 0.2812
+          },
+          "A2": {
+            "ce_damage": 0.4534,
+            "ce_lb975": 0.3818,
+            "ce_ub975": 0.5317,
+            "margin_damage": 1.9695,
+            "top1_change_rate": 0.2188
+          },
+          "C": {
+            "ce_damage": 0.0032,
+            "ce_lb975": -0.0016,
+            "ce_ub975": 0.0079,
+            "margin_damage": 0.0241,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.6456,
+            "ce_lb975": 0.5771,
+            "ce_ub975": 0.7174,
+            "margin_damage": 3.0966,
+            "top1_change_rate": 0.375
+          },
+          "cross": {
+            "additive_scope": -0.0235,
+            "coordination_agreement": 0.2216,
+            "correlative_both_either": -0.0045,
+            "correlative_both_neither": -0.0032,
+            "correlative_either_neither": -0.0355,
+            "degree_frame": -0.0016,
+            "degree_result": -0.0093,
+            "finiteness_selection": -0.0232,
+            "interrogative_licensing": 0.0029,
+            "lexical_number_pp": 0.4217,
+            "narrative_tense": 0.2595,
+            "numbered_list_choice": -0.0002,
+            "numeric_sequence_choice": 0.002,
+            "polarity_state": 0.0061,
+            "possessive_adjacent": 0.0133,
+            "possessive_argument": 0.0251,
+            "possessive_long_simple": 0.0408,
+            "possessive_medial": 0.0395,
+            "possessive_verbfinal": 0.0282,
+            "preposition_selection": 0.0001,
+            "quantifier_number": 0.3281
+          },
+          "cross_abs_max": 0.4217,
+          "extraction_odd": 0.979
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.5581,
+            "ce_lb975": 0.4381,
+            "ce_ub975": 0.6877,
+            "margin_damage": 2.5188,
+            "top1_change_rate": 0.2188
+          },
+          "A2": {
+            "ce_damage": 0.4701,
+            "ce_lb975": 0.3524,
+            "ce_ub975": 0.5974,
+            "margin_damage": 1.9373,
+            "top1_change_rate": 0.1875
+          },
+          "C": {
+            "ce_damage": -0.0621,
+            "ce_lb975": -0.0778,
+            "ce_ub975": -0.0461,
+            "margin_damage": 0.0015,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.7244,
+            "ce_lb975": 0.6089,
+            "ce_ub975": 0.8465,
+            "margin_damage": 3.4038,
+            "top1_change_rate": 0.375
+          },
+          "cross": {
+            "additive_scope": -0.0549,
+            "coordination_agreement": 0.4396,
+            "correlative_both_either": -0.0172,
+            "correlative_both_neither": -0.012,
+            "correlative_either_neither": -0.0117,
+            "degree_frame": 0.0178,
+            "degree_result": 0.0177,
+            "finiteness_selection": -0.0272,
+            "interrogative_licensing": -0.0382,
+            "lexical_number_pp": 0.4761,
+            "narrative_tense": 0.2422,
+            "numbered_list_choice": -0.0118,
+            "numeric_sequence_choice": 0.0113,
+            "polarity_state": 0.0108,
+            "possessive_adjacent": 0.0309,
+            "possessive_argument": 0.0821,
+            "possessive_long_simple": 0.0729,
+            "possessive_medial": 0.0497,
+            "possessive_verbfinal": 0.0976,
+            "preposition_selection": -0.0016,
+            "quantifier_number": 0.6402
+          },
+          "cross_abs_max": 0.6402,
+          "extraction_odd": 0.951
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0016332644736394286,
+        0.01212624553591013,
+        9.219295316142961e-05
+      ],
+      "extraction_even": 0.802,
+      "extraction_odd": 0.788,
+      "n_units": 3,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.0,
+      "singles_top16": {
+        "attn:05:head:00": 0.008,
+        "attn:05:head:02": 0.003,
+        "attn:05:head:03": 0.024,
+        "attn:05:head:06": 0.003,
+        "attn:07:head:08": 0.075,
+        "attn:09:head:01": 0.018,
+        "attn:09:head:04": 0.005,
+        "attn:09:head:07": 0.05,
+        "attn:10:head:05": 0.022,
+        "attn:11:head:03": 0.564,
+        "attn:12:head:06": 0.004,
+        "attn:13:head:01": 0.022,
+        "attn:13:head:06": 0.004,
+        "attn:15:head:01": 0.018,
+        "attn:16:head:08": 0.017,
+        "attn:17:head:01": 0.003
+      },
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07"
+      ]
+    },
+    "polarity_state": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.6124,
+            "ce_lb975": 0.5332,
+            "ce_ub975": 0.689,
+            "margin_damage": 1.6052,
+            "top1_change_rate": 0.0
+          },
+          "A2": {
+            "ce_damage": 0.6853,
+            "ce_lb975": 0.5378,
+            "ce_ub975": 0.8374,
+            "margin_damage": 1.8844,
+            "top1_change_rate": 0.0625
+          },
+          "C": {
+            "ce_damage": -0.0079,
+            "ce_lb975": -0.0168,
+            "ce_ub975": 0.0013,
+            "margin_damage": -0.0188,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.4437,
+            "ce_lb975": 0.3927,
+            "ce_ub975": 0.4941,
+            "margin_damage": 1.4819,
+            "top1_change_rate": 0.0
+          },
+          "cross": {
+            "additive_scope": 0.0286,
+            "coordination_agreement": -0.0063,
+            "correlative_both_either": -0.0069,
+            "correlative_both_neither": 0.2115,
+            "correlative_either_neither": 0.5128,
+            "degree_frame": -0.0114,
+            "degree_result": -0.0303,
+            "finiteness_selection": 0.0325,
+            "interrogative_licensing": 0.1244,
+            "lexical_number_pp": -0.0055,
+            "narrative_tense": 0.0071,
+            "numbered_list_choice": 0.011,
+            "numeric_sequence_choice": -0.0096,
+            "perfect_number": -0.0033,
+            "possessive_adjacent": -0.0032,
+            "possessive_argument": -0.0056,
+            "possessive_long_simple": 0.0061,
+            "possessive_medial": 0.0012,
+            "possessive_verbfinal": -0.0145,
+            "preposition_selection": 0.0022,
+            "quantifier_number": -0.002
+          },
+          "cross_abs_max": 0.5128,
+          "extraction_odd": 0.93
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.5999,
+            "ce_lb975": 0.5393,
+            "ce_ub975": 0.6622,
+            "margin_damage": 1.6065,
+            "top1_change_rate": 0.0
+          },
+          "A2": {
+            "ce_damage": 0.5546,
+            "ce_lb975": 0.449,
+            "ce_ub975": 0.6641,
+            "margin_damage": 1.5544,
+            "top1_change_rate": 0.0938
+          },
+          "C": {
+            "ce_damage": -0.0657,
+            "ce_lb975": -0.0835,
+            "ce_ub975": -0.0485,
+            "margin_damage": -0.1489,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.61,
+            "ce_lb975": 0.5431,
+            "ce_ub975": 0.6798,
+            "margin_damage": 1.6814,
+            "top1_change_rate": 0.0312
+          },
+          "cross": {
+            "additive_scope": 0.0406,
+            "coordination_agreement": -0.0107,
+            "correlative_both_either": -0.0113,
+            "correlative_both_neither": 0.0981,
+            "correlative_either_neither": 0.4211,
+            "degree_frame": 0.0214,
+            "degree_result": 0.0328,
+            "finiteness_selection": -0.0115,
+            "interrogative_licensing": 0.1323,
+            "lexical_number_pp": 0.0182,
+            "narrative_tense": 0.0327,
+            "numbered_list_choice": 0.0167,
+            "numeric_sequence_choice": -0.0172,
+            "perfect_number": 0.0808,
+            "possessive_adjacent": -0.0182,
+            "possessive_argument": -0.032,
+            "possessive_long_simple": -0.0413,
+            "possessive_medial": -0.025,
+            "possessive_verbfinal": -0.0577,
+            "preposition_selection": -0.0052,
+            "quantifier_number": -0.0097
+          },
+          "cross_abs_max": 0.4211,
+          "extraction_odd": 0.979
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0024981508031487465,
+        0.002700354205444455,
+        6.419249984901398e-05
+      ],
+      "extraction_even": 0.808,
+      "extraction_odd": 0.733,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 22.3,
+      "singles_top16": {
+        "attn:02:head:06": 0.006,
+        "attn:04:head:01": 0.01,
+        "attn:04:head:07": 0.055,
+        "attn:05:head:03": 0.015,
+        "attn:05:head:08": 0.021,
+        "attn:06:head:01": 0.018,
+        "attn:07:head:08": 0.277,
+        "attn:08:head:01": 0.106,
+        "attn:09:head:03": 0.019,
+        "attn:09:head:07": 0.046,
+        "attn:10:head:05": 0.076,
+        "attn:11:head:08": 0.008,
+        "attn:13:head:01": 0.029,
+        "attn:15:head:01": 0.039,
+        "attn:16:head:08": 0.06,
+        "attn:17:head:03": 0.008
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:16:head:08",
+        "attn:15:head:01",
+        "attn:04:head:01"
+      ]
+    },
+    "possessive_adjacent": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.4283,
+            "ce_lb975": 0.3536,
+            "ce_ub975": 0.4986,
+            "margin_damage": 1.8335,
+            "top1_change_rate": 0.0625
+          },
+          "A2": {
+            "ce_damage": 0.4583,
+            "ce_lb975": 0.3975,
+            "ce_ub975": 0.522,
+            "margin_damage": 1.8399,
+            "top1_change_rate": 0.0625
+          },
+          "C": {
+            "ce_damage": 0.0013,
+            "ce_lb975": -0.0025,
+            "ce_ub975": 0.005,
+            "margin_damage": 0.0084,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.4957,
+            "ce_lb975": 0.4251,
+            "ce_ub975": 0.5653,
+            "margin_damage": 1.8146,
+            "top1_change_rate": 0.0625
+          },
+          "cross": {
+            "additive_scope": -0.0011,
+            "coordination_agreement": 0.0035,
+            "correlative_both_either": -0.013,
+            "correlative_both_neither": -0.0091,
+            "correlative_either_neither": -0.0033,
+            "degree_frame": 0.0106,
+            "degree_result": -0.0064,
+            "finiteness_selection": -0.0359,
+            "interrogative_licensing": -0.0521,
+            "lexical_number_pp": 0.0091,
+            "narrative_tense": 0.0163,
+            "numbered_list_choice": -0.0006,
+            "numeric_sequence_choice": -0.0138,
+            "perfect_number": 0.0115,
+            "polarity_state": -0.0154,
+            "possessive_argument": 0.349,
+            "possessive_long_simple": 0.3424,
+            "possessive_medial": 0.3621,
+            "possessive_verbfinal": 0.3432,
+            "preposition_selection": 0.0068,
+            "quantifier_number": -0.0005
+          },
+          "cross_abs_max": 0.3621,
+          "extraction_odd": 0.981
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.3984,
+            "ce_lb975": 0.3078,
+            "ce_ub975": 0.4867,
+            "margin_damage": 1.6969,
+            "top1_change_rate": 0.0625
+          },
+          "A2": {
+            "ce_damage": 0.3963,
+            "ce_lb975": 0.3423,
+            "ce_ub975": 0.4544,
+            "margin_damage": 1.6926,
+            "top1_change_rate": 0.0625
+          },
+          "C": {
+            "ce_damage": -0.066,
+            "ce_lb975": -0.0807,
+            "ce_ub975": -0.0526,
+            "margin_damage": -0.0185,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.4063,
+            "ce_lb975": 0.3242,
+            "ce_ub975": 0.4991,
+            "margin_damage": 1.6188,
+            "top1_change_rate": 0.0625
+          },
+          "cross": {
+            "additive_scope": 0.0178,
+            "coordination_agreement": -0.0146,
+            "correlative_both_either": -0.0002,
+            "correlative_both_neither": -0.0,
+            "correlative_either_neither": 0.0342,
+            "degree_frame": 0.0217,
+            "degree_result": 0.0139,
+            "finiteness_selection": -0.0592,
+            "interrogative_licensing": -0.0505,
+            "lexical_number_pp": 0.0072,
+            "narrative_tense": 0.0301,
+            "numbered_list_choice": 0.0084,
+            "numeric_sequence_choice": 0.0139,
+            "perfect_number": 0.0299,
+            "polarity_state": -0.0047,
+            "possessive_argument": 0.2969,
+            "possessive_long_simple": 0.272,
+            "possessive_medial": 0.3465,
+            "possessive_verbfinal": 0.2862,
+            "preposition_selection": 0.0152,
+            "quantifier_number": -0.0018
+          },
+          "cross_abs_max": 0.3465,
+          "extraction_odd": 0.979
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.004639043472707272,
+        0.007403294090181589,
+        5.095310916658491e-05
+      ],
+      "extraction_even": 0.817,
+      "extraction_odd": 0.76,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 25.6,
+      "singles_top16": {
+        "attn:02:head:06": 0.019,
+        "attn:03:head:04": 0.027,
+        "attn:04:head:05": 0.258,
+        "attn:05:head:01": 0.021,
+        "attn:05:head:03": 0.02,
+        "attn:06:head:01": 0.017,
+        "attn:07:head:00": 0.016,
+        "attn:07:head:08": 0.027,
+        "attn:08:head:08": 0.015,
+        "attn:09:head:06": 0.159,
+        "attn:09:head:07": 0.09,
+        "attn:10:head:01": 0.021,
+        "attn:10:head:05": 0.11,
+        "attn:11:head:01": 0.01,
+        "attn:12:head:04": 0.044,
+        "attn:15:head:01": 0.065
+      },
+      "units": [
+        "attn:04:head:05",
+        "attn:09:head:06",
+        "attn:02:head:06",
+        "attn:10:head:05",
+        "attn:03:head:04",
+        "attn:09:head:07",
+        "attn:15:head:01",
+        "attn:10:head:01"
+      ]
+    },
+    "possessive_argument": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.6128,
+            "ce_lb975": 0.5295,
+            "ce_ub975": 0.6975,
+            "margin_damage": 1.8681,
+            "top1_change_rate": 0.0312
+          },
+          "A2": {
+            "ce_damage": 0.6153,
+            "ce_lb975": 0.5291,
+            "ce_ub975": 0.7118,
+            "margin_damage": 1.8537,
+            "top1_change_rate": 0.0625
+          },
+          "C": {
+            "ce_damage": 0.0005,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.004,
+            "margin_damage": 0.0252,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.5167,
+            "ce_lb975": 0.4658,
+            "ce_ub975": 0.5665,
+            "margin_damage": 2.0123,
+            "top1_change_rate": 0.0312
+          },
+          "cross": {
+            "additive_scope": 0.0059,
+            "coordination_agreement": -0.0025,
+            "correlative_both_either": -0.0094,
+            "correlative_both_neither": -0.0095,
+            "correlative_either_neither": -0.0102,
+            "degree_frame": 0.0313,
+            "degree_result": 0.0139,
+            "finiteness_selection": -0.0379,
+            "interrogative_licensing": -0.026,
+            "lexical_number_pp": 0.0081,
+            "narrative_tense": 0.0269,
+            "numbered_list_choice": 0.0044,
+            "numeric_sequence_choice": -0.0103,
+            "perfect_number": 0.0311,
+            "polarity_state": -0.0085,
+            "possessive_adjacent": 0.3614,
+            "possessive_long_simple": 0.4519,
+            "possessive_medial": 0.3947,
+            "possessive_verbfinal": 0.6399,
+            "preposition_selection": -0.0028,
+            "quantifier_number": 0.0002
+          },
+          "cross_abs_max": 0.6399,
+          "extraction_odd": 0.989
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.5644,
+            "ce_lb975": 0.501,
+            "ce_ub975": 0.6281,
+            "margin_damage": 1.7169,
+            "top1_change_rate": 0.0312
+          },
+          "A2": {
+            "ce_damage": 0.5459,
+            "ce_lb975": 0.4842,
+            "ce_ub975": 0.6071,
+            "margin_damage": 1.652,
+            "top1_change_rate": 0.0312
+          },
+          "C": {
+            "ce_damage": -0.0924,
+            "ce_lb975": -0.1073,
+            "ce_ub975": -0.0782,
+            "margin_damage": 0.0024,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.5484,
+            "ce_lb975": 0.4842,
+            "ce_ub975": 0.6203,
+            "margin_damage": 1.9863,
+            "top1_change_rate": 0.0312
+          },
+          "cross": {
+            "additive_scope": 0.0094,
+            "coordination_agreement": -0.0264,
+            "correlative_both_either": -0.006,
+            "correlative_both_neither": -0.0111,
+            "correlative_either_neither": -0.0007,
+            "degree_frame": 0.038,
+            "degree_result": 0.022,
+            "finiteness_selection": -0.0542,
+            "interrogative_licensing": -0.0191,
+            "lexical_number_pp": 0.0009,
+            "narrative_tense": 0.0164,
+            "numbered_list_choice": 0.0088,
+            "numeric_sequence_choice": 0.0081,
+            "perfect_number": 0.0677,
+            "polarity_state": -0.002,
+            "possessive_adjacent": 0.3255,
+            "possessive_long_simple": 0.3696,
+            "possessive_medial": 0.3657,
+            "possessive_verbfinal": 0.5824,
+            "preposition_selection": 0.0063,
+            "quantifier_number": 0.0088
+          },
+          "cross_abs_max": 0.5824,
+          "extraction_odd": 0.963
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0014718365855515003,
+        0.0029683797620236874,
+        3.9146892959252e-05
+      ],
+      "extraction_even": 0.83,
+      "extraction_odd": 0.801,
+      "n_units": 7,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 25.0,
+      "singles_top16": {
+        "attn:03:head:04": 0.039,
+        "attn:04:head:04": 0.006,
+        "attn:04:head:05": 0.044,
+        "attn:05:head:01": 0.007,
+        "attn:05:head:03": 0.164,
+        "attn:05:head:07": 0.015,
+        "attn:06:head:01": 0.01,
+        "attn:07:head:00": 0.019,
+        "attn:07:head:08": 0.015,
+        "attn:09:head:06": 0.133,
+        "attn:09:head:07": 0.07,
+        "attn:10:head:01": 0.026,
+        "attn:10:head:05": 0.136,
+        "attn:11:head:01": 0.016,
+        "attn:12:head:04": 0.133,
+        "attn:15:head:01": 0.14
+      },
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:09:head:07"
+      ]
+    },
+    "possessive_long_simple": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.486,
+            "ce_lb975": 0.4145,
+            "ce_ub975": 0.5563,
+            "margin_damage": 1.7193,
+            "top1_change_rate": 0.125
+          },
+          "A2": {
+            "ce_damage": 0.4799,
+            "ce_lb975": 0.4242,
+            "ce_ub975": 0.537,
+            "margin_damage": 1.9774,
+            "top1_change_rate": 0.0938
+          },
+          "C": {
+            "ce_damage": 0.0024,
+            "ce_lb975": -0.0021,
+            "ce_ub975": 0.007,
+            "margin_damage": 0.0117,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.4002,
+            "ce_lb975": 0.3344,
+            "ce_ub975": 0.4686,
+            "margin_damage": 1.7301,
+            "top1_change_rate": 0.1562
+          },
+          "cross": {
+            "additive_scope": -0.0013,
+            "coordination_agreement": -0.0078,
+            "correlative_both_either": -0.0056,
+            "correlative_both_neither": -0.0053,
+            "correlative_either_neither": -0.0022,
+            "degree_frame": 0.0196,
+            "degree_result": 0.0103,
+            "finiteness_selection": -0.031,
+            "interrogative_licensing": -0.0469,
+            "lexical_number_pp": 0.0098,
+            "narrative_tense": 0.0134,
+            "numbered_list_choice": -0.0003,
+            "numeric_sequence_choice": -0.0094,
+            "perfect_number": 0.025,
+            "polarity_state": -0.0114,
+            "possessive_adjacent": 0.2825,
+            "possessive_argument": 0.4816,
+            "possessive_medial": 0.4202,
+            "possessive_verbfinal": 0.5227,
+            "preposition_selection": 0.0021,
+            "quantifier_number": 0.0148
+          },
+          "cross_abs_max": 0.5227,
+          "extraction_odd": 0.957
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.4258,
+            "ce_lb975": 0.336,
+            "ce_ub975": 0.5174,
+            "margin_damage": 1.5832,
+            "top1_change_rate": 0.125
+          },
+          "A2": {
+            "ce_damage": 0.4486,
+            "ce_lb975": 0.3778,
+            "ce_ub975": 0.5293,
+            "margin_damage": 1.8434,
+            "top1_change_rate": 0.0938
+          },
+          "C": {
+            "ce_damage": -0.119,
+            "ce_lb975": -0.1351,
+            "ce_ub975": -0.1035,
+            "margin_damage": -0.024,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.3042,
+            "ce_lb975": 0.2211,
+            "ce_ub975": 0.395,
+            "margin_damage": 1.595,
+            "top1_change_rate": 0.1562
+          },
+          "cross": {
+            "additive_scope": 0.0173,
+            "coordination_agreement": -0.0399,
+            "correlative_both_either": 0.0022,
+            "correlative_both_neither": -0.0036,
+            "correlative_either_neither": 0.0143,
+            "degree_frame": 0.0313,
+            "degree_result": 0.05,
+            "finiteness_selection": -0.0849,
+            "interrogative_licensing": -0.0798,
+            "lexical_number_pp": 0.0035,
+            "narrative_tense": 0.0331,
+            "numbered_list_choice": 0.0091,
+            "numeric_sequence_choice": 0.0141,
+            "perfect_number": 0.0504,
+            "polarity_state": -0.021,
+            "possessive_adjacent": 0.3333,
+            "possessive_argument": 0.3725,
+            "possessive_medial": 0.3737,
+            "possessive_verbfinal": 0.3974,
+            "preposition_selection": 0.0202,
+            "quantifier_number": 0.0171
+          },
+          "cross_abs_max": 0.3974,
+          "extraction_odd": 0.913
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.008379751816391945,
+        0.009236127138137817,
+        6.402678263839334e-05
+      ],
+      "extraction_even": 0.826,
+      "extraction_odd": 0.738,
+      "n_units": 7,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 25.1,
+      "singles_top16": {
+        "attn:03:head:04": 0.089,
+        "attn:04:head:04": 0.017,
+        "attn:04:head:05": 0.114,
+        "attn:05:head:01": 0.008,
+        "attn:05:head:03": 0.182,
+        "attn:05:head:06": 0.009,
+        "attn:05:head:07": 0.013,
+        "attn:06:head:01": 0.009,
+        "attn:07:head:08": 0.05,
+        "attn:08:head:08": 0.01,
+        "attn:09:head:06": 0.189,
+        "attn:09:head:07": 0.066,
+        "attn:10:head:01": 0.03,
+        "attn:10:head:05": 0.086,
+        "attn:12:head:04": 0.095,
+        "attn:15:head:01": 0.091
+      },
+      "units": [
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:01"
+      ]
+    },
+    "possessive_medial": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.4992,
+            "ce_lb975": 0.4335,
+            "ce_ub975": 0.5621,
+            "margin_damage": 1.6928,
+            "top1_change_rate": 0.0312
+          },
+          "A2": {
+            "ce_damage": 0.5292,
+            "ce_lb975": 0.4782,
+            "ce_ub975": 0.5838,
+            "margin_damage": 1.9646,
+            "top1_change_rate": 0.0312
+          },
+          "C": {
+            "ce_damage": 0.0015,
+            "ce_lb975": -0.0022,
+            "ce_ub975": 0.005,
+            "margin_damage": 0.0021,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.4329,
+            "ce_lb975": 0.3749,
+            "ce_ub975": 0.4947,
+            "margin_damage": 1.7304,
+            "top1_change_rate": 0.0312
+          },
+          "cross": {
+            "additive_scope": -0.0042,
+            "coordination_agreement": -0.0044,
+            "correlative_both_either": -0.0099,
+            "correlative_both_neither": -0.0061,
+            "correlative_either_neither": -0.0057,
+            "degree_frame": 0.0136,
+            "degree_result": 0.0059,
+            "finiteness_selection": -0.03,
+            "interrogative_licensing": -0.0568,
+            "lexical_number_pp": 0.0133,
+            "narrative_tense": 0.0189,
+            "numbered_list_choice": 0.0006,
+            "numeric_sequence_choice": -0.0053,
+            "perfect_number": 0.0334,
+            "polarity_state": -0.0115,
+            "possessive_adjacent": 0.3665,
+            "possessive_argument": 0.5842,
+            "possessive_long_simple": 0.547,
+            "possessive_verbfinal": 0.6075,
+            "preposition_selection": 0.0024,
+            "quantifier_number": -0.003
+          },
+          "cross_abs_max": 0.6075,
+          "extraction_odd": 0.956
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.4495,
+            "ce_lb975": 0.3588,
+            "ce_ub975": 0.5427,
+            "margin_damage": 1.5416,
+            "top1_change_rate": 0.0312
+          },
+          "A2": {
+            "ce_damage": 0.5004,
+            "ce_lb975": 0.4062,
+            "ce_ub975": 0.606,
+            "margin_damage": 1.7396,
+            "top1_change_rate": 0.0625
+          },
+          "C": {
+            "ce_damage": -0.1654,
+            "ce_lb975": -0.1866,
+            "ce_ub975": -0.1449,
+            "margin_damage": -0.0333,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.383,
+            "ce_lb975": 0.2886,
+            "ce_ub975": 0.4884,
+            "margin_damage": 1.6145,
+            "top1_change_rate": 0.0625
+          },
+          "cross": {
+            "additive_scope": 0.0156,
+            "coordination_agreement": -0.0378,
+            "correlative_both_either": 0.0051,
+            "correlative_both_neither": -0.0016,
+            "correlative_either_neither": 0.0332,
+            "degree_frame": 0.0326,
+            "degree_result": 0.0584,
+            "finiteness_selection": -0.0972,
+            "interrogative_licensing": -0.0937,
+            "lexical_number_pp": 0.0012,
+            "narrative_tense": 0.0541,
+            "numbered_list_choice": 0.0113,
+            "numeric_sequence_choice": 0.006,
+            "perfect_number": 0.0551,
+            "polarity_state": -0.0282,
+            "possessive_adjacent": 0.3849,
+            "possessive_argument": 0.4796,
+            "possessive_long_simple": 0.4532,
+            "possessive_verbfinal": 0.4981,
+            "preposition_selection": 0.0104,
+            "quantifier_number": -0.0031
+          },
+          "cross_abs_max": 0.4981,
+          "extraction_odd": 0.919
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.004140303935855627,
+        0.004900193773210049,
+        3.1268049497157335e-05
+      ],
+      "extraction_even": 0.84,
+      "extraction_odd": 0.781,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 24.3,
+      "singles_top16": {
+        "attn:03:head:04": 0.105,
+        "attn:04:head:04": 0.018,
+        "attn:04:head:05": 0.124,
+        "attn:05:head:01": 0.013,
+        "attn:05:head:03": 0.13,
+        "attn:05:head:07": 0.012,
+        "attn:06:head:01": 0.021,
+        "attn:07:head:00": 0.01,
+        "attn:07:head:08": 0.04,
+        "attn:09:head:06": 0.15,
+        "attn:09:head:07": 0.076,
+        "attn:10:head:01": 0.036,
+        "attn:10:head:05": 0.109,
+        "attn:11:head:01": 0.01,
+        "attn:12:head:04": 0.055,
+        "attn:15:head:01": 0.098
+      },
+      "units": [
+        "attn:09:head:06",
+        "attn:04:head:05",
+        "attn:05:head:03",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:10:head:01",
+        "attn:12:head:04"
+      ]
+    },
+    "possessive_verbfinal": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.6456,
+            "ce_lb975": 0.5515,
+            "ce_ub975": 0.7437,
+            "margin_damage": 1.9294,
+            "top1_change_rate": 0.0312
+          },
+          "A2": {
+            "ce_damage": 0.635,
+            "ce_lb975": 0.5302,
+            "ce_ub975": 0.7498,
+            "margin_damage": 1.818,
+            "top1_change_rate": 0.0312
+          },
+          "C": {
+            "ce_damage": 0.0028,
+            "ce_lb975": -0.001,
+            "ce_ub975": 0.0065,
+            "margin_damage": 0.0254,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.509,
+            "ce_lb975": 0.4555,
+            "ce_ub975": 0.5612,
+            "margin_damage": 2.0426,
+            "top1_change_rate": 0.0625
+          },
+          "cross": {
+            "additive_scope": 0.0052,
+            "coordination_agreement": -0.0009,
+            "correlative_both_either": -0.0116,
+            "correlative_both_neither": -0.0107,
+            "correlative_either_neither": -0.0133,
+            "degree_frame": 0.0391,
+            "degree_result": 0.0162,
+            "finiteness_selection": -0.0268,
+            "interrogative_licensing": -0.0206,
+            "lexical_number_pp": 0.0038,
+            "narrative_tense": 0.0206,
+            "numbered_list_choice": 0.0042,
+            "numeric_sequence_choice": -0.0032,
+            "perfect_number": 0.0305,
+            "polarity_state": -0.0027,
+            "possessive_adjacent": 0.3265,
+            "possessive_argument": 0.6065,
+            "possessive_long_simple": 0.471,
+            "possessive_medial": 0.4028,
+            "preposition_selection": -0.0029,
+            "quantifier_number": 0.0064
+          },
+          "cross_abs_max": 0.6065,
+          "extraction_odd": 0.979
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.6109,
+            "ce_lb975": 0.5327,
+            "ce_ub975": 0.6882,
+            "margin_damage": 1.7857,
+            "top1_change_rate": 0.0312
+          },
+          "A2": {
+            "ce_damage": 0.5513,
+            "ce_lb975": 0.4888,
+            "ce_ub975": 0.6175,
+            "margin_damage": 1.6126,
+            "top1_change_rate": 0.0312
+          },
+          "C": {
+            "ce_damage": -0.095,
+            "ce_lb975": -0.1067,
+            "ce_ub975": -0.0825,
+            "margin_damage": 0.0237,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.5273,
+            "ce_lb975": 0.4614,
+            "ce_ub975": 0.6023,
+            "margin_damage": 1.938,
+            "top1_change_rate": 0.0625
+          },
+          "cross": {
+            "additive_scope": 0.0119,
+            "coordination_agreement": -0.0241,
+            "correlative_both_either": -0.0144,
+            "correlative_both_neither": -0.0183,
+            "correlative_either_neither": -0.0126,
+            "degree_frame": 0.0267,
+            "degree_result": 0.0216,
+            "finiteness_selection": -0.0307,
+            "interrogative_licensing": -0.0131,
+            "lexical_number_pp": -0.0037,
+            "narrative_tense": 0.0016,
+            "numbered_list_choice": 0.0051,
+            "numeric_sequence_choice": 0.0035,
+            "perfect_number": 0.0545,
+            "polarity_state": 0.0037,
+            "possessive_adjacent": 0.3247,
+            "possessive_argument": 0.5806,
+            "possessive_long_simple": 0.4146,
+            "possessive_medial": 0.3832,
+            "preposition_selection": 0.0019,
+            "quantifier_number": 0.0105
+          },
+          "cross_abs_max": 0.5806,
+          "extraction_odd": 0.958
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.000998797477222979,
+        0.002311692340299487,
+        4.668777182814665e-05
+      ],
+      "extraction_even": 0.83,
+      "extraction_odd": 0.815,
+      "n_units": 7,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 24.3,
+      "singles_top16": {
+        "attn:03:head:04": 0.04,
+        "attn:04:head:04": 0.007,
+        "attn:04:head:05": 0.047,
+        "attn:05:head:01": 0.009,
+        "attn:05:head:03": 0.164,
+        "attn:05:head:07": 0.013,
+        "attn:06:head:01": 0.008,
+        "attn:07:head:00": 0.019,
+        "attn:07:head:08": 0.016,
+        "attn:09:head:06": 0.13,
+        "attn:09:head:07": 0.062,
+        "attn:10:head:01": 0.03,
+        "attn:10:head:05": 0.122,
+        "attn:11:head:01": 0.015,
+        "attn:12:head:04": 0.146,
+        "attn:15:head:01": 0.135
+      },
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:10:head:01"
+      ]
+    },
+    "preposition_selection": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.9945,
+            "ce_lb975": 0.6645,
+            "ce_ub975": 1.3585,
+            "margin_damage": 4.3797,
+            "top1_change_rate": 0.2812
+          },
+          "A2": {
+            "ce_damage": 0.7215,
+            "ce_lb975": 0.4938,
+            "ce_ub975": 0.9824,
+            "margin_damage": 3.6013,
+            "top1_change_rate": 0.2812
+          },
+          "C": {
+            "ce_damage": 0.0033,
+            "ce_lb975": -0.0022,
+            "ce_ub975": 0.009,
+            "margin_damage": 0.0018,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 1.7716,
+            "ce_lb975": 1.4894,
+            "ce_ub975": 2.0511,
+            "margin_damage": 5.572,
+            "top1_change_rate": 0.6562
+          },
+          "cross": {
+            "additive_scope": 0.0184,
+            "coordination_agreement": -0.0118,
+            "correlative_both_either": 0.0045,
+            "correlative_both_neither": -0.0079,
+            "correlative_either_neither": -0.0204,
+            "degree_frame": -0.0109,
+            "degree_result": 0.0236,
+            "finiteness_selection": 0.0153,
+            "interrogative_licensing": -0.006,
+            "lexical_number_pp": 0.0122,
+            "narrative_tense": -0.0041,
+            "numbered_list_choice": 0.007,
+            "numeric_sequence_choice": 0.0277,
+            "perfect_number": 0.0644,
+            "polarity_state": -0.008,
+            "possessive_adjacent": 0.0126,
+            "possessive_argument": 0.0181,
+            "possessive_long_simple": 0.0028,
+            "possessive_medial": 0.0034,
+            "possessive_verbfinal": 0.0264,
+            "quantifier_number": -0.0215
+          },
+          "cross_abs_max": 0.0644,
+          "extraction_odd": 1.0
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.9269,
+            "ce_lb975": 0.6163,
+            "ce_ub975": 1.2612,
+            "margin_damage": 4.3091,
+            "top1_change_rate": 0.375
+          },
+          "A2": {
+            "ce_damage": 0.608,
+            "ce_lb975": 0.4136,
+            "ce_ub975": 0.8293,
+            "margin_damage": 3.2371,
+            "top1_change_rate": 0.25
+          },
+          "C": {
+            "ce_damage": -0.0583,
+            "ce_lb975": -0.0812,
+            "ce_ub975": -0.036,
+            "margin_damage": 0.1287,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 1.6511,
+            "ce_lb975": 1.4017,
+            "ce_ub975": 1.901,
+            "margin_damage": 5.767,
+            "top1_change_rate": 0.7812
+          },
+          "cross": {
+            "additive_scope": 0.0607,
+            "coordination_agreement": -0.0003,
+            "correlative_both_either": 0.0145,
+            "correlative_both_neither": 0.0006,
+            "correlative_either_neither": 0.0067,
+            "degree_frame": -0.0036,
+            "degree_result": 0.0291,
+            "finiteness_selection": 0.0044,
+            "interrogative_licensing": -0.0025,
+            "lexical_number_pp": 0.0001,
+            "narrative_tense": -0.0307,
+            "numbered_list_choice": 0.0019,
+            "numeric_sequence_choice": -0.005,
+            "perfect_number": -0.0005,
+            "polarity_state": -0.0029,
+            "possessive_adjacent": -0.0306,
+            "possessive_argument": -0.0328,
+            "possessive_long_simple": -0.0108,
+            "possessive_medial": -0.0144,
+            "possessive_verbfinal": -0.03,
+            "quantifier_number": -0.0135
+          },
+          "cross_abs_max": 0.0607,
+          "extraction_odd": 1.013
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0034146374091506004,
+        0.020362824201583862,
+        0.00022661259572487324
+      ],
+      "extraction_even": 0.758,
+      "extraction_odd": 0.91,
+      "n_units": 10,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 23.6,
+      "singles_top16": {
+        "attn:04:head:01": 0.013,
+        "attn:05:head:03": 0.006,
+        "attn:06:head:03": 0.102,
+        "attn:07:head:00": 0.007,
+        "attn:07:head:08": 0.061,
+        "attn:08:head:01": 0.018,
+        "attn:08:head:02": 0.004,
+        "attn:08:head:08": 0.041,
+        "attn:09:head:07": 0.012,
+        "attn:09:head:08": 0.005,
+        "attn:10:head:08": 0.004,
+        "attn:11:head:03": 0.005,
+        "attn:11:head:06": 0.006,
+        "attn:13:head:08": 0.051,
+        "attn:14:head:08": 0.015,
+        "attn:16:head:08": 0.032
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:04:head:01",
+        "attn:11:head:03",
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:09:head:07"
+      ]
+    },
+    "quantifier_number": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.5243,
+            "ce_lb975": 0.4345,
+            "ce_ub975": 0.6203,
+            "margin_damage": 1.9295,
+            "top1_change_rate": 0.4688
+          },
+          "A2": {
+            "ce_damage": 0.5382,
+            "ce_lb975": 0.4308,
+            "ce_ub975": 0.6488,
+            "margin_damage": 2.303,
+            "top1_change_rate": 0.4375
+          },
+          "C": {
+            "ce_damage": 0.0041,
+            "ce_lb975": 0.0002,
+            "ce_ub975": 0.0077,
+            "margin_damage": 0.0336,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.3007,
+            "ce_lb975": 0.2681,
+            "ce_ub975": 0.3335,
+            "margin_damage": 1.9511,
+            "top1_change_rate": 0.3125
+          },
+          "cross": {
+            "additive_scope": 0.0066,
+            "coordination_agreement": 0.0804,
+            "correlative_both_either": 0.0047,
+            "correlative_both_neither": 0.0002,
+            "correlative_either_neither": -0.0192,
+            "degree_frame": 0.0082,
+            "degree_result": 0.0413,
+            "finiteness_selection": -0.0058,
+            "interrogative_licensing": -0.0219,
+            "lexical_number_pp": 0.1735,
+            "narrative_tense": 0.0013,
+            "numbered_list_choice": -0.0039,
+            "numeric_sequence_choice": -0.0135,
+            "perfect_number": 0.1844,
+            "polarity_state": -0.0201,
+            "possessive_adjacent": 0.0069,
+            "possessive_argument": 0.0452,
+            "possessive_long_simple": 0.0426,
+            "possessive_medial": 0.0361,
+            "possessive_verbfinal": 0.0509,
+            "preposition_selection": 0.0123
+          },
+          "cross_abs_max": 0.1844,
+          "extraction_odd": 1.041
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.5391,
+            "ce_lb975": 0.442,
+            "ce_ub975": 0.6424,
+            "margin_damage": 1.9994,
+            "top1_change_rate": 0.4375
+          },
+          "A2": {
+            "ce_damage": 0.5692,
+            "ce_lb975": 0.4486,
+            "ce_ub975": 0.6911,
+            "margin_damage": 2.3991,
+            "top1_change_rate": 0.4688
+          },
+          "C": {
+            "ce_damage": -0.1255,
+            "ce_lb975": -0.152,
+            "ce_ub975": -0.0984,
+            "margin_damage": -0.0045,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.3256,
+            "ce_lb975": 0.2829,
+            "ce_ub975": 0.3681,
+            "margin_damage": 2.1,
+            "top1_change_rate": 0.2812
+          },
+          "cross": {
+            "additive_scope": 0.0669,
+            "coordination_agreement": 0.0677,
+            "correlative_both_either": -0.0343,
+            "correlative_both_neither": -0.0286,
+            "correlative_either_neither": -0.0128,
+            "degree_frame": 0.072,
+            "degree_result": -0.0507,
+            "finiteness_selection": -0.0602,
+            "interrogative_licensing": -0.0333,
+            "lexical_number_pp": 0.1545,
+            "narrative_tense": -0.0363,
+            "numbered_list_choice": -0.0064,
+            "numeric_sequence_choice": 0.0094,
+            "perfect_number": 0.2115,
+            "polarity_state": -0.0844,
+            "possessive_adjacent": 0.0356,
+            "possessive_argument": 0.1261,
+            "possessive_long_simple": 0.1429,
+            "possessive_medial": 0.1111,
+            "possessive_verbfinal": 0.1595,
+            "preposition_selection": -0.0398
+          },
+          "cross_abs_max": 0.2115,
+          "extraction_odd": 1.056
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.004117934033274651,
+        0.005841931328177452,
+        6.966741057112813e-05
+      ],
+      "extraction_even": 0.828,
+      "extraction_odd": 0.79,
+      "n_units": 5,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.6,
+      "singles_top16": {
+        "attn:02:head:02": 0.04,
+        "attn:04:head:00": 0.017,
+        "attn:04:head:01": 0.027,
+        "attn:04:head:07": 0.017,
+        "attn:05:head:03": 0.074,
+        "attn:05:head:06": 0.03,
+        "attn:05:head:08": 0.012,
+        "attn:06:head:01": 0.012,
+        "attn:07:head:08": 0.341,
+        "attn:08:head:01": 0.026,
+        "attn:09:head:01": 0.012,
+        "attn:09:head:07": 0.039,
+        "attn:10:head:05": 0.025,
+        "attn:11:head:03": 0.277,
+        "attn:13:head:01": 0.046,
+        "attn:13:head:06": 0.024
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01"
+      ]
+    }
+  },
+  "candidate_id": "corpus.unit_tier3_batch_v112",
+  "counts": {
+    "row2": 8,
+    "row3": 21,
+    "row4": 20,
+    "row5": 18
+  },
+  "errors": {},
+  "finished_utc": "2026-09-07T04:57:19.058020+00:00",
+  "predictions": {
+    "pred_a_localizable": false,
+    "pred_b_row3_removal": true,
+    "pred_c_row4_specific": true,
+    "pred_d_row5_a2": true,
+    "pred_e_instrument": false
+  },
+  "protocol": {
+    "complement_weight": 1.0,
+    "controls": "own C EVEN only",
+    "lambda": 30.0,
+    "lr": 0.05,
+    "max_units": 10,
+    "min_gain": 0.02,
+    "pool": 16,
+    "steps": 120,
+    "target": 0.8
+  },
+  "schema": "circuit_unit_tier3_batch_result_v1",
+  "seconds": 515.9,
+  "summary": {
+    "additive_scope": {
+      "cross_abs_max": {
+        "cdas": 0.056,
+        "dim": 0.1787
+      },
+      "ext_odd": 0.774,
+      "n_units": 10,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "coordination_agreement": {
+      "cross_abs_max": {
+        "cdas": 0.3369,
+        "dim": 0.1007
+      },
+      "ext_odd": 0.76,
+      "n_units": 10,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "correlative_both_either": {
+      "cross_abs_max": {
+        "cdas": 0.5575,
+        "dim": 0.3229
+      },
+      "ext_odd": 0.664,
+      "n_units": 6,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "correlative_both_neither": {
+      "cross_abs_max": {
+        "cdas": 0.8748,
+        "dim": 0.7698
+      },
+      "ext_odd": 0.69,
+      "n_units": 6,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "correlative_either_neither": {
+      "cross_abs_max": {
+        "cdas": 0.6549,
+        "dim": 0.5639
+      },
+      "ext_odd": 0.783,
+      "n_units": 7,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "degree_frame": {
+      "cross_abs_max": {
+        "cdas": 0.0752,
+        "dim": 0.0522
+      },
+      "ext_odd": 0.854,
+      "n_units": 7,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "degree_result": {
+      "cross_abs_max": {
+        "cdas": 0.0955,
+        "dim": 0.1209
+      },
+      "ext_odd": 0.596,
+      "n_units": 4,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "finiteness_selection": {
+      "cross_abs_max": {
+        "cdas": 0.0606,
+        "dim": 0.0604
+      },
+      "ext_odd": 0.625,
+      "n_units": 7,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "tier": "not_localizable"
+    },
+    "interrogative_licensing": {
+      "cross_abs_max": {
+        "cdas": 0.094,
+        "dim": 0.1965
+      },
+      "ext_odd": 0.952,
+      "n_units": 10,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "lexical_number_pp": {
+      "cross_abs_max": {
+        "cdas": 0.7086,
+        "dim": 0.7008
+      },
+      "ext_odd": 0.876,
+      "n_units": 4,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "narrative_tense": {
+      "cross_abs_max": {
+        "cdas": 0.4995,
+        "dim": 0.4086
+      },
+      "ext_odd": 0.859,
+      "n_units": 7,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "numbered_list_choice": {
+      "cross_abs_max": {
+        "cdas": 0.0436,
+        "dim": 0.0456
+      },
+      "ext_odd": 0.795,
+      "n_units": 2,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "tier": "not_localizable"
+    },
+    "numeric_sequence_choice": {
+      "cross_abs_max": {
+        "cdas": 0.0128,
+        "dim": 0.0371
+      },
+      "ext_odd": 0.832,
+      "n_units": 3,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "tier": "tier3_rows_234"
+    },
+    "perfect_number": {
+      "cross_abs_max": {
+        "cdas": 0.4217,
+        "dim": 0.6402
+      },
+      "ext_odd": 0.788,
+      "n_units": 3,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "polarity_state": {
+      "cross_abs_max": {
+        "cdas": 0.5128,
+        "dim": 0.4211
+      },
+      "ext_odd": 0.733,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "possessive_adjacent": {
+      "cross_abs_max": {
+        "cdas": 0.3621,
+        "dim": 0.3465
+      },
+      "ext_odd": 0.76,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "possessive_argument": {
+      "cross_abs_max": {
+        "cdas": 0.6399,
+        "dim": 0.5824
+      },
+      "ext_odd": 0.801,
+      "n_units": 7,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "possessive_long_simple": {
+      "cross_abs_max": {
+        "cdas": 0.5227,
+        "dim": 0.3974
+      },
+      "ext_odd": 0.738,
+      "n_units": 7,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "possessive_medial": {
+      "cross_abs_max": {
+        "cdas": 0.6075,
+        "dim": 0.4981
+      },
+      "ext_odd": 0.781,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "possessive_verbfinal": {
+      "cross_abs_max": {
+        "cdas": 0.6065,
+        "dim": 0.5806
+      },
+      "ext_odd": 0.815,
+      "n_units": 7,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "preposition_selection": {
+      "cross_abs_max": {
+        "cdas": 0.0644,
+        "dim": 0.0607
+      },
+      "ext_odd": 0.91,
+      "n_units": 10,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "quantifier_number": {
+      "cross_abs_max": {
+        "cdas": 0.1844,
+        "dim": 0.2115
+      },
+      "ext_odd": 0.79,
+      "n_units": 5,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    }
+  }
+}
