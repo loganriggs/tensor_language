@@ -1,0 +1,85 @@
+{
+  "bars": {
+    "comp_max": 0.2,
+    "head_cos_min": 0.7,
+    "mlp_cos_max": 0.5,
+    "own_frac": 0.8,
+    "rand_max": 0.05,
+    "union_frac": 0.8
+  },
+  "candidate_id": "corpus.unit_tier5_shared_units_direction_union_v153",
+  "finished_utc": "2026-09-07T07:58:52.142964+00:00",
+  "measures": {
+    "cos_blocks": {
+      "08:mlp": 0.174,
+      "09:mlp": 0.237,
+      "10:mlp": 0.173,
+      "11:heads": 0.492
+    },
+    "cross": {
+      "lexical_number_pp": 0.226,
+      "quantifier_number": 0.295
+    },
+    "cross_comp": {
+      "lexical_number_pp": 0.649,
+      "quantifier_number": 0.33
+    },
+    "exact": {
+      "lexical_number_pp": 0.798,
+      "quantifier_number": 0.616
+    },
+    "one_block_swapped": {
+      "lexical_number_pp": {
+        "08:mlp": 0.769,
+        "09:mlp": 0.722,
+        "10:mlp": 0.77,
+        "11:heads": 0.385
+      },
+      "quantifier_number": {
+        "08:mlp": 0.492,
+        "09:mlp": 0.659,
+        "10:mlp": 0.606,
+        "11:heads": 0.56
+      }
+    },
+    "own": {
+      "lexical_number_pp": 0.78,
+      "quantifier_number": 0.673
+    },
+    "own_comp": {
+      "lexical_number_pp": 0.083,
+      "quantifier_number": -0.005
+    },
+    "random": {
+      "lexical_number_pp": 0.0,
+      "quantifier_number": 0.0
+    },
+    "rows": {
+      "lexical_number_pp": 16,
+      "quantifier_number": 16
+    },
+    "union": {
+      "lexical_number_pp": 0.785,
+      "quantifier_number": 0.626
+    },
+    "union_comp": {
+      "lexical_number_pp": 0.075,
+      "quantifier_number": -0.007
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_head_shared": false,
+    "pred_c_mlp_specific": true,
+    "pred_d_union": true,
+    "pred_e_union_comp": true
+  },
+  "schema": "unit_tier5_shared_units_direction_union_v153",
+  "seconds": 1.0,
+  "units": [
+    "attn:11:head:03",
+    "mlp:08",
+    "mlp:09",
+    "mlp:10"
+  ]
+}
