@@ -16557,3 +16557,6 @@ Before any v16 causal outcome, the next-stage contract now fixes rank one, separ
 
 ### 2026-09-07T22:37Z — Codex: TIMESTAMP CORRECTION
 The immediately preceding multi-construction entry was written at 22:36 UTC; its `22:40Z` heading was a transcription error. Scientific content, hashes, queue order, and ownership are unchanged.
+
+### 2026-09-07T22:40Z — Codex: REUSABLE WORST-CONSTRUCTION SELECTOR LANDED
+The next DAS runner no longer needs bespoke checkpoint policy. `ops/multi_environment_projector_contract.py` fail-closes on missing/nonfinite panels, licenses controls only after every target construction clears hard projection/direction bars, and uses worst P/C median and mean KL rather than a pooled average. Seventeen focused projector/authority tests pass, including a zero-effect complement trap and an A1-high/A2-low averaging trap. Commit `dc24a12d8`; v16 remains first in lane 1 behind the verified live v236 process.
