@@ -1,0 +1,171 @@
+{
+  "bars": {
+    "animacy_abs_max": 0.25,
+    "family_band": [
+      0.5,
+      1.5
+    ],
+    "family_min": 4,
+    "jaccard_min": 0.5,
+    "jaccard_min_sets": 3,
+    "own_repro": [
+      0.592,
+      0.05
+    ],
+    "quant_band": [
+      0.2,
+      0.9
+    ],
+    "random_abs_max": 0.25,
+    "random_seed": 0,
+    "reverse_band": [
+      0.5,
+      1.5
+    ]
+  },
+  "candidate_id": "corpus.unit_possessive_number_separability_v191",
+  "detail": {
+    "animacy": {
+      "ce_damage": 0.0092,
+      "ce_lb975": 0.0021,
+      "ce_ub975": 0.0157,
+      "margin_damage": 0.0052,
+      "top1_change_rate": 0.0312
+    },
+    "family": {
+      "possessive_adjacent": {
+        "ce_damage": 0.2447,
+        "ce_lb975": 0.1989,
+        "ce_ub975": 0.2953,
+        "margin_damage": 1.2704,
+        "top1_change_rate": 0.0312
+      },
+      "possessive_argument": {
+        "ce_damage": 0.5586,
+        "ce_lb975": 0.4962,
+        "ce_ub975": 0.6221,
+        "margin_damage": 1.7359,
+        "top1_change_rate": 0.0312
+      },
+      "possessive_long_simple": {
+        "ce_damage": 0.3796,
+        "ce_lb975": 0.2694,
+        "ce_ub975": 0.5022,
+        "margin_damage": 1.5274,
+        "top1_change_rate": 0.0938
+      },
+      "possessive_medial": {
+        "ce_damage": 0.3503,
+        "ce_lb975": 0.2967,
+        "ce_ub975": 0.4066,
+        "margin_damage": 1.4125,
+        "top1_change_rate": 0.0
+      },
+      "possessive_verbfinal": {
+        "ce_damage": 0.5734,
+        "ce_lb975": 0.5031,
+        "ce_ub975": 0.6492,
+        "margin_damage": 1.7691,
+        "top1_change_rate": 0.0312
+      }
+    },
+    "own": {
+      "ce_damage": 0.592,
+      "ce_lb975": 0.451,
+      "ce_ub975": 0.733,
+      "margin_damage": 1.8825,
+      "top1_change_rate": 0.0625
+    },
+    "quantifier": {
+      "ce_damage": -0.0062,
+      "ce_lb975": -0.0119,
+      "ce_ub975": -0.0004,
+      "margin_damage": 0.055,
+      "top1_change_rate": 0.0
+    },
+    "random": {
+      "ce_damage": -0.0081,
+      "ce_lb975": -0.0225,
+      "ce_ub975": 0.0048,
+      "margin_damage": 0.0165,
+      "top1_change_rate": 0.0
+    },
+    "reverse_on_possessive_number": {
+      "ce_damage": 0.4186,
+      "ce_lb975": 0.2924,
+      "ce_ub975": 0.5478,
+      "margin_damage": 1.5621,
+      "top1_change_rate": 0.0625
+    },
+    "reverse_own": {
+      "ce_damage": 0.6109,
+      "ce_lb975": 0.5327,
+      "ce_ub975": 0.6882,
+      "margin_damage": 1.7857,
+      "top1_change_rate": 0.0312
+    }
+  },
+  "finished_utc": "2026-09-07T11:36:23.568184+00:00",
+  "measures": {
+    "animacy": 0.0092,
+    "family": {
+      "possessive_adjacent": 0.2447,
+      "possessive_argument": 0.5586,
+      "possessive_long_simple": 0.3796,
+      "possessive_medial": 0.3503,
+      "possessive_verbfinal": 0.5734
+    },
+    "jaccard": {
+      "possessive_adjacent": 0.455,
+      "possessive_argument": 0.667,
+      "possessive_long_simple": 0.5,
+      "possessive_medial": 0.6,
+      "possessive_verbfinal": 0.667
+    },
+    "own": 0.592,
+    "quantifier": -0.0062,
+    "random": -0.0081,
+    "reverse_on_possessive_number": 0.4186,
+    "reverse_own": 0.6109
+  },
+  "predictions": {
+    "pred_a_same_heads": true,
+    "pred_b_own_repro": true,
+    "pred_c_family_shared": true,
+    "pred_d_controls": false,
+    "pred_e_reverse": true
+  },
+  "schema": "unit_possessive_number_separability_v191",
+  "seconds": 2.6,
+  "units": {
+    "possessive_number": [
+      "attn:10:head:05",
+      "attn:12:head:04",
+      "attn:15:head:01",
+      "attn:09:head:06",
+      "attn:05:head:03",
+      "attn:09:head:07",
+      "attn:10:head:01",
+      "attn:11:head:01"
+    ],
+    "possessive_verbfinal_v112": [
+      "attn:05:head:03",
+      "attn:09:head:06",
+      "attn:12:head:04",
+      "attn:15:head:01",
+      "attn:10:head:05",
+      "attn:04:head:05",
+      "attn:10:head:01"
+    ],
+    "random": [
+      "attn:11:head:05",
+      "attn:12:head:06",
+      "attn:01:head:01",
+      "attn:07:head:04",
+      "attn:15:head:03",
+      "attn:14:head:05",
+      "attn:12:head:01",
+      "attn:08:head:06"
+    ]
+  }
+}
