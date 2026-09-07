@@ -1,0 +1,37 @@
+{
+  "schema": "temporal_iswas_rank16_source_complement_composition_lattice_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.iswas_rank16_source_complement_composition_lattice_v1",
+  "question": "Which smallest combination of complete source-MLP complement blocks closes the task-pair weight union to the full rank-16 causal program?",
+  "authorities": {
+    "localizer_result": "cfe4914d653da25ba65f6e73cf447d54403d5f3b3f3036100584b4c552becbaa",
+    "localizer_runner": "ee8d39c36909a0db7975cef4814d7ba4f95d4e42bf2aea6b3d270dbcc361688c",
+    "population_runner": "7389053e5746120f4fa8611b4e182191363a29509088a4551542cf56c1b647fa",
+    "weight_group_runner": "8ec435c1e551c37d5ba86cf4be7cd4541de8a7c6cb1f798707309c4119f9adb7"
+  },
+  "prior_art_search": "Searched circuit authorities, prior-art records, runners, dossiers, and failure records for this exact five-MLP source complement. Only the registered singleton localizer covers this object; earlier greedy studies concern different heads or interfaces.",
+  "sites": ["MLP0", "MLP1", "MLP2", "MLP3", "MLP6"],
+  "arms": "All 32 masks. A set bit installs the complete rank-16 block at that source MLP; an unset bit installs the frozen mean-plus-contrast union. Every arm is executed on both target and matched-control populations through the complete model.",
+  "selection": "Eligible masks are functional and differ from full rank-16 by at most .015 in signed response and behavior for both tasks, add no control flips beyond full, have median KL at most full+.002, and have each control-task margin RMS fraction at most full+.02. Select by fewest sites, then smallest worst target gap, then integer mask.",
+  "frozen_greedy_order": ["MLP3", "MLP6", "MLP1", "MLP2", "MLP0"],
+  "predictions": {
+    "pred_a_authority_replay_closure_finiteness_and_price": "All hashes and parent terminals match; mask 0 and mask 31 replay union and full; all reports are finite; observed forwards <=96.",
+    "pred_b_strict_subset_is_full_equivalent": "At least one eligible mask uses at most three of five complement sites.",
+    "pred_c_frozen_greedy_finds_global_minimum": "The first eligible prefix of the frozen singleton order is exactly the globally selected mask.",
+    "pred_d_all_subset_effects_are_nearly_additive": "For every mask and task, behavior and signed-response deviations from union plus the registered singleton increments are <=.015.",
+    "pred_e_selected_sites_are_minimal_and_selective": "The selected mask passes the control rules and removing any selected site makes it ineligible."
+  },
+  "terminal_policy": {
+    "minimal_source_complement_program": "A-E pass.",
+    "non_greedy_source_complement_program": "A, B, D, and E pass but C fails.",
+    "conditional_source_complement_program": "A and B pass but D fails.",
+    "full_complement_required": "A passes but B fails.",
+    "invalid": "A fails."
+  },
+  "price": {
+    "model_forwards_max": 96,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "execution_policy": "managed_queue_only"
+}
