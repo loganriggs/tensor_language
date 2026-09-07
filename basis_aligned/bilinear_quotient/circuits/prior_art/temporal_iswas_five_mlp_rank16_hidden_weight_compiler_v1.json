@@ -1,0 +1,32 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_five_mlp_rank16_hidden_weight_compiler_v1",
+  "created_utc": "2026-09-07T12:44:00Z",
+  "question": "Can the bidirectional five-MLP rank-16 source interface be compiled exactly into native hidden-unit-to-subspace weight factors, and is its weight participation concentrated enough to guide finer causal splits?",
+  "authority": {
+    "position_svd_result_sha256": "b6f4562bcc6e19dc808a0debaf35d32b0d6c1dbd6c6a6e7846a92253b89dc014",
+    "gain_result_sha256": "958f58cf6ac05973b65a38cd258093926999351016f1aa1bc2ec608c4844b75d",
+    "reverse_result_sha256": "c66584f4ee94a2fc7d390b4abcb296ffec933237de43b3924221e7482f465d52",
+    "basis_runner_sha256": "cc2733a518e015b3cccde4d109e46125d69e90fa60555a593c921f6f0e860236"
+  },
+  "fixed_object": {
+    "support": ["MLP0", "MLP1", "MLP2", "MLP3", "MLP6"],
+    "rank": 16,
+    "gain": 1.15,
+    "compiler": "For each site s with orthonormal Q_s, store A_s = Down_s^T Q_s. Then the projected native output change is (delta_hidden A_s) Q_s^T, exactly equal to (delta_hidden Down_s^T Q_s) Q_s^T.",
+    "evaluations": "the frozen fit rows plus the already-used fresh temporal/is-was population; no outcome selection"
+  },
+  "predictions": {
+    "pred_a_authority_basis_support_finiteness_and_price": "All hashes match; support/rank/gain and prior terminals match; every Q Gram error <= 1e-4; all outputs finite; execution accounting closes.",
+    "pred_b_exact_weight_compiler_closes": "Maximum relative squared error between generic projected native MLP deltas and compiled hidden-factor execution is <= 1e-10 on both fit and fresh populations.",
+    "pred_c_all_native_maps_have_full_task_rank": "Every 4608x16 A_s has numerical rank 16 at relative singular threshold 1e-6.",
+    "pred_d_hidden_participation_is_nonuniform": "At least three of five sites place >=25% of ||A_s||_F^2 in their top 10% hidden units; this licenses weight-guided within-MLP patching.",
+    "pred_e_manifest_is_gauge_invariant": "For a fixed deterministic orthogonal 16x16 rotation, A_s and Q_s rotate together and the compiled projector output changes by relative norm <= 1e-10."
+  },
+  "terminal_policy": {
+    "invalid": "A or B fails",
+    "weight_compiled_source_program": "all five predictions pass",
+    "distributed_weight_compiled_source_program": "A-C and E pass but D fails",
+    "null": "other valid outcomes"
+  },
+  "price": {"model_forwards_max": 8, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
