@@ -1,0 +1,20 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_factor_pruned_causal_program_v1",
+  "question": "Does the factor-pruned operation program causally reproduce the complete rank-8 response circuit?",
+  "frozen_program": {
+    "projectors": ["even_fit", "odd_fit"],
+    "attention_terms": "base-pattern-on-value-change from cue and post-cue sources",
+    "mlp_terms": "left-change plus right-change",
+    "exception": "include bilinear interaction at MLP1 only on is/was rows",
+    "arms": ["complete_projector", "factor_pruned", "attention_only", "mlp_only", "factor_pruned_without_mlp1_exception"],
+    "rows": "temporal-v11 plus is/was-v10 A1/A2; temporal-v11 P controls"
+  },
+  "predictions": {
+    "pred_a_authority_hash_factor_reconstruction_finiteness_and_price": "authorities and projector hashes replay; complete factor tensors reconstruct coordinates at RSE <=1e-10",
+    "pred_b_factor_pruned_program_is_target_sufficient": "for both projectors, factor-pruned worst target residual <=0.15 and signed behavior projection >=0.80 per task",
+    "pred_c_factor_pruned_program_is_selective": "control margin RMS <=0.10, median full-vocabulary KL <=0.02 nat, and top-1 flip fraction <=0.05",
+    "pred_d_attention_and_mlp_factor_branches_compose": "combined pruned program beats each single branch by >=0.05 signed projection on at least one task, for both projectors",
+    "pred_e_mlp1_iswas_interaction_is_causally_required": "dropping only the MLP1/is-was interaction increases is/was worst residual by >=20% or lowers is/was signed projection by >=0.02, while temporal changes by <=0.01"
+  },
+  "price": {"model_forwards_max": 29, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
