@@ -1,0 +1,16 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_source_graph_component_deletion_atlas_v1",
+  "question": "Which individual heads and MLPs are required for the all-band cue-source graph to write the eight weight-derived response coordinates?",
+  "intervention": "For each of all 110 heads/modules in layers 0-10, base-clamp only that component while the cue embedding drives every other component; compare the resulting eight compiled coordinates and native donor behavior with the all-component source graph.",
+  "ranking": "For each fit and component, coordinate impairment is max(0, 1 - minimum signed coordinate projection); native impairment is max(0, 1 - minimum task signed projection). Rank by the maximum of coordinate and native impairment across fits, then site name.",
+  "candidate_pool": "Union the frozen atlas top20 with the shortest ranked prefix containing at least 90% of total positive deletion score; this is frozen for the subsequent greedy construction run.",
+  "predictions": {
+    "pred_a_authority_all_source_equivalence_finiteness_and_price": "authorities replay, unrestricted cue-source execution matches the donor trajectory, all values are finite, and <=128 forwards execute",
+    "pred_b_individual_dependencies_are_detectable": "at least one component deletion causes >=0.05 coordinate or native impairment under both fits",
+    "pred_c_dependency_importance_is_concentrated": "a prefix of <=30 components contains >=80% of total positive deletion score",
+    "pred_d_dependencies_extend_beyond_the_donor_top20": "at least one of the ten highest deletion-score components is outside the frozen donor-patch top20",
+    "pred_e_weight_coordinate_edges_are_crossfit_stable": "even/odd component deletion rankings have Spearman correlation >=0.75 and top-20 overlap >=15"
+  },
+  "decision": "Use the frozen candidate pool for a source-driven greedy construction. The component-to-most-impaired-coordinate map is the upstream-to-weight-reader edge atlas; a diffuse null triggers interaction-aware grouped deletion rather than DAS refitting.",
+  "price": {"model_forwards_max": 128, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
