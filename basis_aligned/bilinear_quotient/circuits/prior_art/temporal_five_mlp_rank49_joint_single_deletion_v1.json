@@ -1,0 +1,16 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank49_joint_single_deletion_v1",
+  "question": "Can any of the ten lowest-impact members be removed from rank49 while retaining the full joint circuit contract?",
+  "arms": ["L1H5", "L3H5", "L1H3", "L5H0", "L4H6", "L3H0", "L2H7", "L3H7", "L5H7", "L10H5"],
+  "construction": "Each arm removes exactly one preregistered site from the frozen passing rank49 support. Arm order is the frozen ascending local-impairment order.",
+  "selection_rule": "Select the first arm satisfying all existing coordinate, behavior, and full-vocabulary control thresholds under both cross-fits.",
+  "predictions": {
+    "pred_a_authority_self_clamp_finiteness_and_price": "authorities replay, self-clamp is exact, values are finite, and <=77 forwards execute",
+    "pred_b_at_least_one_rank48_arm_is_jointly_feasible": "one or more single-deletion arms passes every joint gate",
+    "pred_c_at_least_two_rank48_arms_are_jointly_feasible": "two or more distinct single-deletion arms pass",
+    "pred_d_selected_deletion_is_outside_donor_top20": "the selected removed site is not in the frozen donor-patch top20",
+    "pred_e_selected_arm_is_crossfit_stable": "selected minimum-coordinate projections differ by <=0.05 and per-task behavior projections differ by <=0.05 across fits"
+  },
+  "decision": "Promote the first passing rank48 support and repeat backward deletion from that frozen support; if none pass, rank49 is one-deletion-minimal over the ten best local candidates.",
+  "price": {"model_forwards_max": 77, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
