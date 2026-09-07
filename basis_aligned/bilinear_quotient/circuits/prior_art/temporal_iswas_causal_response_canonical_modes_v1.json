@@ -1,0 +1,27 @@
+{
+  "candidate_id": "cross_task.temporal_iswas_causal_response_canonical_modes_v1",
+  "claimed_utc": "2026-09-07T01:00:00Z",
+  "claim": "Canonicalize the already validated 32x32 temporal/is-was finite causal response matrix, after a frozen task-balanced diagonal scaling, and classify leading modes by source-task, target-task, family, and intervention-direction support.",
+  "collision_search": [
+    "temporal_iswas_q8_finite_causal_hankel_v1",
+    "temporal_q8_iswas_cdas_shared_specific_causal_v2",
+    "temporal_auxiliary_will_had_h3_multicue_weight_interface_v1",
+    "causal-response basis and Hankel records"
+  ],
+  "novelty": "The parent proves an eight-state weight-predicted realization but does not identify its canonical operational modes or distinguish task-shared from task-specific source and reader modes. This is a zero-forward analysis of the frozen causal matrix, not another activation-rank fit.",
+  "frozen_scaling": "Divide block H[source_task,target_task] by sqrt(RMS(H[source_task,source_task])*RMS(H[target_task,target_task])).",
+  "measurements": [
+    "raw and task-balanced singular spectra",
+    "rank-k reconstruction error in every task quadrant",
+    "per-mode source and target task energy",
+    "per-mode cosine with the registered intervention-direction sign vector",
+    "exact-versus-weight-predicted canonical projector agreement"
+  ],
+  "predictions": {
+    "shared_mode": "At least one leading task-balanced mode has at least 10% source and target energy in each task.",
+    "direction_mode": "At least one of the first four source or target mode vectors has absolute direction-sign cosine at least .70.",
+    "finite_predictability": "The first eight exact and weight-predicted task-balanced subspaces agree at mean squared canonical cosine at least .90.",
+    "non_scalar": "Rank one fails to reconstruct at least one quadrant to 10% relative RMSE while rank eight reconstructs every quadrant to 1%."
+  },
+  "null": "If leading modes segregate by task or weight-predicted and exact canonical subspaces disagree, the current shared-Q8 realization remains a predictive interface but does not identify a shared computational vocabulary."
+}
