@@ -1,0 +1,60 @@
+{
+  "schema": "temporal_iswas_selected_projector_attention15_dependency_factorial_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_selected_projector_attention15_dependency_factorial_v1",
+  "registered_utc": "2026-09-07T23:41:00Z",
+  "question": "Does the selected upstream four-head projector retain target transfer when layer-15 attention is live, and does complete attention-15 contribute additively or conditionally?",
+  "prior_art": {
+    "searched": [
+      "temporal/iswas v15 complete-head, attention-factor, greedy, DAS, construction-transfer, and weight-interface records",
+      "two-factor dependency and Mobius factorial priors and executors",
+      "canonical temporal dossier, current reviews, board claims, and attention-15 causal-path audit"
+    ],
+    "active_claim_collision": false,
+    "known_lesson": "Every current DAS fit/evaluation overwrites computed layer-15 head outputs with a complete donor clamp. The upstream projector is causal relative to that background, while the weight-ranked L15H5 Q/K/V path remains an untested reader hypothesis.",
+    "novelty": "First no-refit dependency factorial that executes the selected projector with native live layer-15 attention and isolates the attention-15 main and interaction terms rowwise."
+  },
+  "bound_ancestry": {
+    "multi_environment_prior_sha256": "252e604f133ce68f473d7b16c7676dd4b592889b1d4b413d0d796d3ab3bf2eb4",
+    "multi_environment_runner_sha256": "8c14405674b4773303e197be04668f29ca97d2662dbeccc0f9653c119716c556",
+    "attention15_path_audit_result_sha256": "8260c53bc22e5a4422baac8f7b366304357f387d94cc53468a6290c4867c2752",
+    "v16_capability_audit_result_sha256": "a1c2baf0bd9548e189ccc4ba4d11c4905f85af1ff7013d408c143f6f2a6434e3"
+  },
+  "eligibility": "Run only if the multi-environment result is mechanically valid and pred_b_joint_v15_target_feasible_moved_checkpoint_exists is true. Otherwise execute the registered separate-axis/projective-bisector falsifier first.",
+  "frozen_design": {
+    "projectors": "Load the selected rank-one projectors from the parent result without refitting. For each evaluation parity, use the projector trained on the opposite parity exactly as in the parent crossfit.",
+    "upstream_sites": ["L8H1", "L9H1", "L9H4", "L11H3"],
+    "factor_bits": {
+      "first": "selected upstream projectors off/on",
+      "second": "complete attention-15 donor clamp off/on"
+    },
+    "cells": {
+      "00": "no upstream projector; live native attention-15",
+      "01": "no upstream projector; complete attention-15 donor clamp",
+      "10": "selected upstream projector; live native attention-15",
+      "11": "selected upstream projector; complete attention-15 donor clamp"
+    },
+    "panels": {
+      "v15": ["A1", "A2", "P", "C"],
+      "v16": ["A1", "A2", "P"]
+    },
+    "excluded": ["v16:C", "projector refit", "rank sweep", "reader reset", "reader rescue"],
+    "linear_factorial": "For rowwise answer-minus-foil margin responses r_ab relative to one native base, compute upstream-live=r_10-r_00, attention-only=r_01-r_00, and interaction=r_11-r_10-r_01+r_00. Require r_11=r_00+upstream-live+attention-only+interaction.",
+    "nonlinear_controls": "Report full-vocabulary KL and top-one flips separately for all four cells and panels. Do not assign a Mobius decomposition to KL.",
+    "price_max": {
+      "native_capture_forwards": 20,
+      "intervention_forwards": 16,
+      "backward_forwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0,
+      "example_evaluations": 4096
+    }
+  },
+  "predictions": {
+    "pred_a_authority_parent_replay_zero_arm_factorial_closure_finiteness_and_price": "All bound hashes, eligibility, row alignments, parent arm-11 replay, native arm-00 replay, projective orthogonality, finiteness, exact margin-factorial closure, and literal price pass.",
+    "pred_b_upstream_projector_transfers_with_live_attention15": "The arm-10 upstream-live margin response reaches signed projection >= .65 and direction fraction >= .875 separately on every v15 A1/A2 panel; if parent pred_e passed, require the same separately on v16 A1/A2.",
+    "pred_c_live_attention15_route_is_selective": "Arm 10 has zero top-one flips separately on v15 P/C and v16 P, with every panel reported even if another fails.",
+    "pred_d_complete_attention15_is_not_a_required_gate": "For every evaluated target panel, arm-10 signed projection is at least 75% of arm-11 signed projection, and the mean absolute Mobius interaction is at most 25% of the mean absolute arm-11 response.",
+    "pred_e_attention15_has_a_nonzero_conditional_role": "In at least one target panel, either the attention-15 conditional effect with upstream projectors or the Mobius interaction has mean absolute magnitude >= 5% of the arm-11 mean absolute response."
+  },
+  "decision": "Predictions b/c license the live-attention upstream circuit. Prediction d distinguishes a native downstream route from dependence on the fixed attention-15 background. Only a valid live-attention result may open L15H5 Q/K/V reset/rescue; this factorial alone still does not identify L15H5 among the nine live layer-15 heads. Failure of b with parent arm-11 success establishes attention-15-background dependence and blocks the weight-reader claim."
+}

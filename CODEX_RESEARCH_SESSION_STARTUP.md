@@ -134,6 +134,15 @@ layers 16-17, but cannot validate the weight-ranked `L15H5` Q/K/V reader path.  
 construction result, run the frozen `upstream projector on/off x complete attention-15 on/off`
 dependency factorial before any L15H5 reset/rescue claim.
 
+That successor is now prospectively specified in
+`basis_aligned/bilinear_quotient/circuits/prior_art/temporal_iswas_selected_projector_attention15_dependency_factorial_v1.json`,
+with its derivation in
+`basis_aligned/polynomial_causal/explanations/TEMPORAL_ISWAS_SELECTED_PROJECTOR_ATTENTION15_DEPENDENCY_FACTORIAL_DESIGN_2026-09-07.md`
+and reusable CPU accounting in
+`basis_aligned/bilinear_quotient/ops/two_by_two_dependency_contract.py`.  It is eligible only if
+the multi-environment parent is mechanically valid and its registered joint-v15 feasibility
+prediction passes.  Otherwise run the already committed projective-bisector falsifier first.
+
 The target-feasible DAS run described below has completed.  It validly beats matched difference
 in means (DIM) on cross-fitted A1 target transfer (`.8719` versus `.7250`) with stable rank-one
 directions (minimum principal cosine `.8474`), so optimization is not the null.  It does not pass
