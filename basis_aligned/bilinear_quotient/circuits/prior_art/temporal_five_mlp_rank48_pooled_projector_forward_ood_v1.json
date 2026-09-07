@@ -1,0 +1,19 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_pooled_projector_forward_ood_v1",
+  "question": "Does the exact pooled projector that passed reverse OOD also preserve the original forward rank48 OOD source-to-reader program?",
+  "authority": {
+    "pooled_reverse_ood_result_sha256": "2791135e5abf88ceb5b76a3e0da44c1bb5625a5031ae58b0aba351f1232fb9b2",
+    "crossfit_forward_ood_result_sha256": "a19d8f07f1233e7ee607ee18d15d114afda429b396c405f17330681294e7b08b",
+    "pooled_fit_implementation": "The shared helper exactly factors the v2 pooled fit: all v13/v12 target rows, both matched-control splits, and all old rank-64 MLP input-training rows. Its projector hashes must reproduce the reverse receipt."
+  },
+  "evaluation": "Forward base-to-donor rank48 source execution on row-disjoint temporal-v12/iswas-v11 OOD targets and temporal-v12 P controls, using the frozen pooled projector at gain 1.0.",
+  "predictions": {
+    "pred_a_authority_projector_replay_disjointness_finiteness_and_price": "Authorities match, all eight pooled projector hashes reproduce the reverse receipt, fit/evaluation IDs are disjoint, values are finite, and exactly 16 forwards execute.",
+    "pred_b_pooled_forward_coordinates_transfer": "Every coordinate projection is at least 0.75 and mean/worst coordinate residual are each at most 0.20.",
+    "pred_c_pooled_forward_behavior_transfers": "Temporal and is/was behavior projections are each at least 0.80 and worst target residual is at most 0.15.",
+    "pred_d_pooled_forward_controls_are_selective": "Control margin RMS is at most 0.10, median full-vocabulary KL at most 0.02, and top-one flip fraction is at most 0.05.",
+    "pred_e_one_pooled_interface_is_bidirectional": "The reverse authority remains 5/5 and the pooled forward arm passes B-D, establishing the same projector/support in both directions."
+  },
+  "decision": "All five predictions establish one complete-family pooled rank48 response interface with bidirectional OOD manipulation. Failure preserves the pooled reverse screen but rejects a unified bidirectional projector.",
+  "price": {"model_forwards_exact": 16, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
