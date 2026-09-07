@@ -64,11 +64,11 @@ def unit(value):
 
 
 def score(report):
-    return report["secondary_worst"], report["secondary_mean"]
+    return report["six_term_worst"], report["six_term_mean"]
 
 
 def strictly_better(left, right):
-    return left["secondary_worst"] < right["secondary_worst"] and left["secondary_mean"] < right["secondary_mean"]
+    return left["six_term_worst"] < right["six_term_worst"] and left["six_term_mean"] < right["six_term_mean"]
 
 
 def finite(value):
@@ -95,6 +95,18 @@ def calibrate(backend, contexts, pooled):
     limits = [{term: float(item[term]) + hard.FEASIBILITY_SLACK for term in hard.TARGET_TERMS} for item in pieces]
     normalizers = [{term: max(abs(float(item[term])), 0.02) for term in ALL_TERMS} for item in pieces]
     return limits, normalizers
+
+
+def evaluate_axis(backend, contexts, limits, axis):
+    """Preserve hard target feasibility while ranking the registered six-term loss."""
+    report = hard.evaluate_axis(backend, contexts, limits, axis)
+    totals = []
+    for environment in report["environments"]:
+        environment["six_term"] = environment["secondary"] + sum(environment["target"].values())
+        totals.append(environment["six_term"])
+    report["six_term_mean"] = sum(totals) / len(totals)
+    report["six_term_worst"] = max(totals)
+    return report
 
 
 def objective(backend, contexts, limits, normalizers, raw, config, generator):
@@ -130,9 +142,9 @@ def fit_config(backend, train, train_limits, train_norms, select, select_limits,
 
     def checkpoint(step):
         axis = unit(raw).detach().clone()
-        report = hard.evaluate_axis(backend, select, select_limits, axis)
+        report = evaluate_axis(backend, select, select_limits, axis)
         candidates.append((step, axis, report))
-        trace.append({"step": step, **{key: report[key] for key in ("feasible", "max_violation", "secondary_mean", "secondary_worst")}})
+        trace.append({"step": step, **{key: report[key] for key in ("feasible", "max_violation", "six_term_mean", "six_term_worst")}})
 
     checkpoint(0)
     for step in range(1, steps + 1):
@@ -185,8 +197,8 @@ def stripped(fit):
 
 def aggregate(fits):
     return {
-        "worst": max(fit["best_report"]["secondary_worst"] for fit in fits),
-        "mean": sum(fit["best_report"]["secondary_mean"] for fit in fits) / len(fits),
+        "worst": max(fit["best_report"]["six_term_worst"] for fit in fits),
+        "mean": sum(fit["best_report"]["six_term_mean"] for fit in fits) / len(fits),
         "updates": sum(fit["best_step"] for fit in fits),
     }
 
@@ -285,9 +297,9 @@ def main():
         updates += chosen_step + no_reg_step
         outer[train_name] = {
             "test_family": test_name, "selected_config": chosen, "selected_step": chosen_step, "no_reg_step": no_reg_step,
-            "selected": hard.evaluate_axis(backend, test["contexts"], test["limits"], chosen_axis),
-            "no_reg": hard.evaluate_axis(backend, test["contexts"], test["limits"], no_reg_axis),
-            "pooled": hard.evaluate_axis(backend, test["contexts"], test["limits"], pooled_axis),
+            "selected": evaluate_axis(backend, test["contexts"], test["limits"], chosen_axis),
+            "no_reg": evaluate_axis(backend, test["contexts"], test["limits"], no_reg_axis),
+            "pooled": evaluate_axis(backend, test["contexts"], test["limits"], pooled_axis),
             "selected_inner": config_scores[train_name][chosen], "no_reg_inner": config_scores[train_name]["no_reg"],
         }
     global_scores = {config: aggregate([fit for fits in inner_fits.values() for fit in fits if fit["config"] == config]) for config in CONFIGS}
@@ -303,8 +315,8 @@ def main():
     # axis are frozen entirely from v8/v10 inner evidence.
     families["v15"] = make_family(backend, v15, capabilities["v15"], pooled_axis)
     sealed = {
-        "selected": hard.evaluate_axis(backend, families["v15"]["contexts"], families["v15"]["limits"], final_axis),
-        "pooled": hard.evaluate_axis(backend, families["v15"]["contexts"], families["v15"]["limits"], pooled_axis),
+        "selected": evaluate_axis(backend, families["v15"]["contexts"], families["v15"]["limits"], final_axis),
+        "pooled": evaluate_axis(backend, families["v15"]["contexts"], families["v15"]["limits"], pooled_axis),
     }
     closure = max(context["manual_base_margin_max_abs"] for family in families.values() for context in family["contexts"])
     row_ids = [{row["row_id"] for row in families[name]["rows"]} for name in ("v8", "v10", "v15")]
@@ -323,8 +335,8 @@ def main():
     )
     gaps = {
         name: {
-            "selected": item["selected"]["secondary_worst"] - item["selected_inner"]["worst"],
-            "no_reg": item["no_reg"]["secondary_worst"] - item["no_reg_inner"]["worst"],
+            "selected": item["selected"]["six_term_worst"] - item["selected_inner"]["worst"],
+            "no_reg": item["no_reg"]["six_term_worst"] - item["no_reg_inner"]["worst"],
         }
         for name, item in outer.items()
     }
