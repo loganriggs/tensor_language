@@ -1,0 +1,60 @@
+{
+  "bars": {
+    "cos_b": 0.5,
+    "cos_c": 0.3,
+    "cos_e": 0.3,
+    "half": [
+      0.35,
+      0.65
+    ],
+    "instr_tol": 0.02,
+    "rand_max": 0.03,
+    "two_max": 1.25,
+    "v145_1x": 0.492
+  },
+  "candidate_id": "corpus.unit_tier5_number_vector_residual_tie_v146",
+  "dose_ratios": {
+    "half": 0.494,
+    "two": 1.652
+  },
+  "finished_utc": "2026-09-07T07:30:09.419994+00:00",
+  "measures": {
+    "cos_dim11_lex_quant": 0.503,
+    "cos_dim17_lex_quant": 0.521,
+    "cos_img_dim11_lex": 0.875,
+    "cos_img_dim11_quant": 0.522,
+    "cos_img_dim17_lex": 0.731,
+    "cos_img_dim17_quant": 0.478,
+    "dose": {
+      "0.25": 0.114,
+      "0.5": 0.243,
+      "1.0": 0.492,
+      "2.0": 0.813,
+      "4.0": 0.839
+    },
+    "img_resid_add": 0.492,
+    "img_share_of_dim11": 0.331,
+    "m_none": 0.0,
+    "m_rand": 0.008,
+    "norm_dim11_lex": 3430.84,
+    "norm_dim17_lex": 9542.76,
+    "norm_img": 1300.0,
+    "positions_ok": [
+      true,
+      true
+    ]
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_dim11_lex": true,
+    "pred_c_dim11_quant": true,
+    "pred_d_dose_shape": false,
+    "pred_e_dim17_lex": true
+  },
+  "rows": [
+    16,
+    16
+  ],
+  "schema": "unit_tier5_number_vector_residual_tie_v146",
+  "seconds": 0.8
+}
