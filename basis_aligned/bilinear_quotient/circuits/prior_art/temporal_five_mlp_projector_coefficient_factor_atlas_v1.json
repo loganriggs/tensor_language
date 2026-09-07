@@ -1,0 +1,21 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_projector_coefficient_factor_atlas_v1",
+  "question": "What exact attention and bilinear-MLP operations generate the weight-executable rank-8 response coordinates?",
+  "frozen_design": {
+    "projectors": ["even_fit", "odd_fit"],
+    "rows": "temporal-v11 plus is/was-v10 jointly-capable A1/A2 rows",
+    "attention_factors": ["pattern_on_base_value", "base_pattern_on_value_change", "pattern_value_interaction"],
+    "attention_source_regions": ["pre_cue", "cue", "post_cue"],
+    "mlp_factors": ["left_change", "right_change", "bilinear_interaction"],
+    "fit_updates": 0
+  },
+  "predictions": {
+    "pred_a_authority_hash_factor_closure_finiteness_and_price": "both projector hashes replay and every factor sum reconstructs its projected coordinate with relative squared error <=1e-10",
+    "pred_b_attention_value_transport_dominates": "base-pattern-on-value-change is the largest attention factor and supplies >=50% of complete coordinate norm for every head/task/projector cell",
+    "pred_c_attention_causal_suffix_dominates": "cue plus post-cue source regions supply >=80% of complete attention-coordinate norm for every head/task/projector cell",
+    "pred_d_mlp_linear_changes_dominate_interaction": "left+right change reconstructs >=80% of complete MLP-coordinate norm and interaction is <=25% for every MLP/task/projector cell",
+    "pred_e_factor_profiles_are_crossfit_stable": "even/odd projector factor-profile cosine is >=0.80 at every site and task"
+  },
+  "decision": "Passing identifies a stable operation-level coefficient program. A failed dominance gate revises the factor program rather than invalidating exact weight execution.",
+  "price": {"model_forwards_max": 10, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
