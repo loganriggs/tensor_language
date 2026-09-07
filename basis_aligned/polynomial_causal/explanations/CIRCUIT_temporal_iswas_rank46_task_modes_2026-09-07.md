@@ -275,6 +275,16 @@ Thus the useful computation is value transport, while its collateral is entangle
 heads.  The next exact split assigns the value factor independently at L8H1/L9H1/L9H4/L11H3 while
 keeping pattern and interaction as global bits, rather than optimizing a homogeneous DAS axis.
 
+That 64-arm head-specific value lattice is also a valid null.  Its full arm replays the parent to
+`4.62e-7`, all categorical diagnostics match, and the exact 73-forward price holds.  No arm is
+selective.  Every strictly zero-flip, low-KL arm contains no value factor and reaches at most
+`.12692` A1.  L11H3 value is the strongest value singleton (`.37984/.36299` A1/A2) but flips three
+P rows; L8H1 and L9H1 value each reach about `.308` A1 with two and three P flips, and L9H4 value
+reaches `.202` with one P and one C flip.  Head allocation therefore does not disentangle the
+target-dominant value computation.  The final exact-operation screen opens all 12 head×factor
+components under deterministic target-first and target/control-constrained greedy paths, allowing
+head-specific pattern/interaction terms to offset collateral before any learned subspace.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -375,9 +385,8 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Execute the registered 64-arm head-specific value-factor lattice over L8H1/L9H1/L9H4/L11H3,
-   with global pattern/interaction bits and complete attention 15.  If it fails, open the full
-   12-component greedy factor program before learned DAS.
+2. Execute the registered full 12-component head-by-factor dual-greedy program.  Its null is
+   path-local but supplies the finite response columns for target-feasible regularized DAS.
 3. Replace the rejected scalar-axis DAS loss, if exact factors fail, with a finite causal-response operator whose held-out
    blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
    as explicit controls, not post-hoc explanations.
