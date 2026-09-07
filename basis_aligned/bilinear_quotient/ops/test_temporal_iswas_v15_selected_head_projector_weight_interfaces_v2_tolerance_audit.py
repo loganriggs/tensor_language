@@ -19,4 +19,5 @@ def test_registered_relative_bound_is_scale_aware_fp32_tolerance():
 
 def test_audit_prediction_key_differs_from_original_v1_key():
     assert audit.PREDICTION_KEYS[0] == "pred_a_authority_original_disposition_and_price"
-    assert "pred_a_authority_exact_map_finiteness_and_price" not in audit.PREDICTION_KEYS
+    assert audit.ORIGINAL_FAILURE_KEY not in audit.PREDICTION_KEYS
+    assert set(audit.ORIGINAL_REQUIRED_KEYS).isdisjoint(audit.PREDICTION_KEYS)

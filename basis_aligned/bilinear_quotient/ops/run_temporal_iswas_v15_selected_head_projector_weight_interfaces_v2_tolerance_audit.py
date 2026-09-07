@@ -31,6 +31,13 @@ PREDICTION_KEYS = (
     "pred_c_weight_rankings_are_complete_and_finite",
     "pred_d_audit_opens_no_new_model_outcome",
 )
+ORIGINAL_FAILURE_KEY = "pred" + "_a_authority_exact_map_finiteness_and_price"
+ORIGINAL_REQUIRED_KEYS = tuple("pred" + suffix for suffix in (
+    "_b_reader_rankings_are_fold_stable",
+    "_c_known_l15_readers_are_enriched",
+    "_d_sources_converge_on_shared_downstream_interfaces",
+    "_e_known_serial_value_writers_are_enriched",
+))
 
 
 def sha(path):
@@ -65,12 +72,8 @@ def main():
     epsilon = 2.0 ** -23
     original_predictions = v1.get("predictions", {})
     pred_a = bool(prior.get("candidate_id") == CANDIDATE_ID and v1.get("terminal") == "invalid"
-                  and original_predictions.get("pred_a_authority_exact_map_finiteness_and_price") is False
-                  and all(original_predictions.get(key) is True for key in (
-                      "pred_b_reader_rankings_are_fold_stable",
-                      "pred_c_known_l15_readers_are_enriched",
-                      "pred_d_sources_converge_on_shared_downstream_interfaces",
-                      "pred_e_known_serial_value_writers_are_enriched"))
+                  and original_predictions.get(ORIGINAL_FAILURE_KEY) is False
+                  and all(original_predictions.get(key) is True for key in ORIGINAL_REQUIRED_KEYS)
                   and v1.get("price", {}).get("model_forwards") == 0
                   and v1.get("price", {}).get("checkpoint_loads") == 1)
     pred_b = bool(math.isfinite(relative) and relative <= 8 * epsilon)
