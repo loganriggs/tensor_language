@@ -1,0 +1,133 @@
+{
+  "bars": {
+    "linear_band": [
+      0.85,
+      1.15
+    ],
+    "pool_band": [
+      0.5,
+      0.8
+    ],
+    "rand_max": 0.05,
+    "repro_tol": 0.03,
+    "v153_union": {
+      "lexical_number_pp": 0.785,
+      "quantifier_number": 0.626
+    }
+  },
+  "candidate_id": "corpus.unit_tier5_shared_units_pooled_rank1_v154",
+  "finished_utc": "2026-09-07T08:01:35.280147+00:00",
+  "measures": {
+    "bisector": {
+      "lexical_number_pp": 0.685,
+      "quantifier_number": 0.777
+    },
+    "bisector_comp": {
+      "lexical_number_pp": 0.243,
+      "quantifier_number": -0.07
+    },
+    "bisector_frac": {
+      "lexical_number_pp": 0.858,
+      "quantifier_number": 1.261
+    },
+    "cos": {
+      "08:mlp": {
+        "lex_vs_q": 0.174,
+        "pooled_vs_lex": 0.383,
+        "pooled_vs_q": 0.976
+      },
+      "09:mlp": {
+        "lex_vs_q": 0.237,
+        "pooled_vs_lex": 0.544,
+        "pooled_vs_q": 0.944
+      },
+      "10:mlp": {
+        "lex_vs_q": 0.173,
+        "pooled_vs_lex": 0.429,
+        "pooled_vs_q": 0.964
+      },
+      "11:heads": {
+        "lex_vs_q": 0.492,
+        "pooled_vs_lex": 0.879,
+        "pooled_vs_q": 0.848
+      }
+    },
+    "exact": {
+      "lexical_number_pp": 0.798,
+      "quantifier_number": 0.616
+    },
+    "norms": {
+      "08:mlp": {
+        "lexical_number_pp": 250.073,
+        "quantifier_number": 1064.745,
+        "ratio_lex_over_q": 0.235
+      },
+      "09:mlp": {
+        "lexical_number_pp": 418.498,
+        "quantifier_number": 1067.151,
+        "ratio_lex_over_q": 0.392
+      },
+      "10:mlp": {
+        "lexical_number_pp": 309.37,
+        "quantifier_number": 1050.706,
+        "ratio_lex_over_q": 0.294
+      },
+      "11:heads": {
+        "lexical_number_pp": 114.889,
+        "quantifier_number": 103.546,
+        "ratio_lex_over_q": 1.11
+      }
+    },
+    "own": {
+      "lexical_number_pp": 0.78,
+      "quantifier_number": 0.673
+    },
+    "pooled": {
+      "lexical_number_pp": 0.646,
+      "quantifier_number": 0.814
+    },
+    "pooled_comp": {
+      "lexical_number_pp": 0.297,
+      "quantifier_number": -0.086
+    },
+    "pooled_frac": {
+      "lexical_number_pp": 0.81,
+      "quantifier_number": 1.321
+    },
+    "pooled_linear": {
+      "lexical_number_pp": 0.943,
+      "quantifier_number": 0.728
+    },
+    "random": {
+      "lexical_number_pp": 0.0,
+      "quantifier_number": 0.0
+    },
+    "rows": {
+      "lexical_number_pp": 16,
+      "quantifier_number": 16
+    },
+    "union": {
+      "lexical_number_pp": 0.785,
+      "quantifier_number": 0.626
+    },
+    "union_comp": {
+      "lexical_number_pp": 0.075,
+      "quantifier_number": -0.007
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_pooled": false,
+    "pred_c_bisector": false,
+    "pred_d_linear": false,
+    "pred_e_norm_order": true
+  },
+  "schema": "unit_tier5_shared_units_pooled_rank1_v154",
+  "seconds": 0.9,
+  "units": [
+    "attn:11:head:03",
+    "mlp:08",
+    "mlp:09",
+    "mlp:10"
+  ]
+}
