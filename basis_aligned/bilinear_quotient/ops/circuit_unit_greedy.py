@@ -700,6 +700,81 @@ def fit_block_subspace(backend, prep, units, *, rank=1, steps=200, lr=0.05, seed
     return q, history
 
 
+def fit_block_subspace_constrained(backend, prep, units, *, rank=1, steps=200, lr=0.05, seed=0,
+                                   complement_weight=0.0, controls=(), control_weight=0.0, mu=None):
+    """fit_block_subspace plus a REMOVAL-inertness penalty on control families (v74).
+
+    controls        preps (e.g. the behaviour's own C family, even rows) on which projecting the units'
+                    activations onto `mu` along the fitted subspace must not change the answer log-prob.
+                    The penalty is the mean squared answer-CE change over both sides' sentences, i.e.
+                    exactly the v51.removal statistic made differentiable (mu is passed as the "donor").
+    mu              {unit: background vector} used by the removal; required when controls are given.
+    control_weight  0 -> identical objective to fit_block_subspace (same seed gives the same q; the
+                    reproduction control every runner using this must register).
+    Returns (q, history) with history rows (step, match, inert, control_penalty)."""
+    torch = backend.torch
+    F = torch.nn.functional
+    for p in backend.model.parameters():
+        p.requires_grad_(False)
+    torch.manual_seed(seed)
+    blocks = blocks_of(units)
+    raws = {key: (torch.randn(sum(unit_dim(u) for u in us), rank, device=backend.device) * 0.02
+                  ).requires_grad_(True) for key, us in blocks.items()}
+    opt = torch.optim.Adam(list(raws.values()), lr=lr)
+    target = torch.tensor(patched_axis(backend, prep, units), device=backend.device)
+    base_target = torch.tensor(prep.base_axis, device=backend.device)
+    ctrl = []
+    if control_weight > 0:
+        if mu is None:
+            raise ValueError("mu is required when controls are given")
+        for cp in controls:
+            for side in ("base", "donor"):
+                batch = cp.base_batch if side == "base" else cp.donor_batch
+                cache = cp.base_cache if side == "base" else cp.donor_cache
+                bg = dict(cache)
+                for rid in batch.row_ids:
+                    for u in units:
+                        bg[(rid, u)] = mu[u]
+                ans = torch.tensor(batch.answer_ids, device=backend.device)
+                with torch.no_grad():
+                    _, nat = forward_units(backend, batch, units=[], return_logits=True)
+                    lp_nat = F.log_softmax(nat.float(), -1)[torch.arange(len(batch.row_ids)), ans]
+                ctrl.append((batch, cache, bg, ans, lp_nat))
+    history = []
+
+    def qs():
+        return {key: torch.linalg.qr(raw)[0] for key, raw in raws.items()}
+    for step in range(steps):
+        opt.zero_grad()
+        q = qs()
+        out = forward_units(backend, prep.base_batch, units=units, donor_cache=prep.donor_cache,
+                            base_cache=prep.base_cache, q=q, grad=True)
+        match = ((-(out[:, 0] - out[:, 1]) - target) ** 2).mean()
+        loss, inert, pen = match, None, None
+        if complement_weight > 0:
+            comp = forward_units(backend, prep.base_batch, units=units, donor_cache=prep.donor_cache,
+                                 base_cache=prep.base_cache, q=q, grad=True, complement=True)
+            inert = ((-(comp[:, 0] - comp[:, 1]) - base_target) ** 2).mean()
+            loss = loss + complement_weight * inert
+        if ctrl:
+            terms = []
+            for batch, cache, bg, ans, lp_nat in ctrl:
+                _, rem = forward_units(backend, batch, units=units, donor_cache=bg, base_cache=cache,
+                                       q=q, grad=True, return_logits=True)
+                lp_rem = F.log_softmax(rem.float(), -1)[torch.arange(len(batch.row_ids)), ans]
+                terms.append(((lp_nat - lp_rem) ** 2).mean())
+            pen = torch.stack(terms).mean()
+            loss = loss + control_weight * pen
+        loss.backward()
+        opt.step()
+        if step % 50 == 0 or step == steps - 1:
+            history.append((step, float(match.detach()), None if inert is None else float(inert.detach()),
+                            None if pen is None else float(pen.detach())))
+    with torch.no_grad():
+        q = {key: v.detach() for key, v in qs().items()}
+    return q, history
+
+
 def block_cosines(qa, qb):
     """|cos| between two block-rank-1 direction sets, per block."""
     return {f"{k[0]:02d}:{k[1]}": float((qa[k][:, 0] @ qb[k][:, 0]).abs()) for k in qa}
