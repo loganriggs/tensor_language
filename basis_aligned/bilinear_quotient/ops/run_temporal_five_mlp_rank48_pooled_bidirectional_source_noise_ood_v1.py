@@ -39,6 +39,12 @@ EXPECTED = {
     "helper": "09a7ea5504722a1765367f8422cbbb858373bcc5e910d5aae75ccba46cb124ed",
 }
 SEEDS = (1729, 2718, 3141)
+CANDIDATE = "temporal_auxiliary.five_mlp_rank48_pooled_bidirectional_source_noise_ood_v1"
+RESULT_SCHEMA = "temporal_five_mlp_rank48_pooled_bidirectional_source_noise_ood_result_v1"
+SUCCESS_TERMINAL = "pooled_bidirectional_source_noise_robust_rank48_program"
+FAILURE_TERMINAL = "pooled_bidirectional_source_noise_failure"
+EXPECTED_SUPPORT_COUNT = 48
+EXTRA_AUTHORITIES = {}
 
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -94,9 +100,10 @@ def reverse_report(backend, fresh, support, qs, bases, reader, donor_full, contr
 
 
 def main():
-    observed = {key: sha(path) for key, path in {"forward": FORWARD, "reverse": REVERSE, "old_noise": OLD_NOISE, "support": SUPPORT, "helper": HELPER}.items()}
+    paths = {"forward": FORWARD, "reverse": REVERSE, "old_noise": OLD_NOISE, "support": SUPPORT, "helper": HELPER, **EXTRA_AUTHORITIES}
+    observed = {key: sha(path) for key, path in paths.items()}
     if observed != EXPECTED: raise RuntimeError(f"pooled bidirectional noise authority changed: {observed}")
-    dry = {"candidate_id": "temporal_auxiliary.five_mlp_rank48_pooled_bidirectional_source_noise_ood_v1", "dryrun": True,
+    dry = {"candidate_id": CANDIDATE, "dryrun": True,
            "gpu_accessed": False, "model_loaded": False, "queue_touched": False, "noise_fraction": .1,
            "noise_seeds": SEEDS, "model_forwards_exact": 39, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
     if os.environ.get("BQLIB_DRYRUN") == "1" or os.environ.get("BQLIB_NO_MODEL") == "1": print(json.dumps(dry, sort_keys=True)); return
@@ -126,7 +133,7 @@ def main():
     flat = [reports[str(seed)][direction] for seed in SEEDS for direction in ("forward", "reverse")]
     fit_ids = {row["row_id"] for row in fitted["target_rows"] + fitted["control_rows"]}; eval_ids = {row["row_id"] for row in fresh["rows"] + fresh["controls"]}
     pa = (reader_ok and orientation <= 1e-6 and hashes == clean["pooled_projector_sha256"] and not (fit_ids & eval_ids)
-          and len(support) == 48 and min(ratios) >= .099 and max(ratios) <= .101 and all(math.isfinite(float(v)) for v in finite + ratios))
+          and len(support) == EXPECTED_SUPPORT_COUNT and min(ratios) >= .099 and max(ratios) <= .101 and all(math.isfinite(float(v)) for v in finite + ratios))
     pb = all(min(r["coordinate"]["signed_projection"].values()) >= .75 and r["coordinate"]["mean_residual"] <= .2 and r["coordinate"]["worst_residual"] <= .2 for r in flat)
     pc = all(min(r["target"]["behavior_signed_projection"].values()) >= .8 and r["target"]["worst_target_residual"] <= .15 for r in flat)
     pd = all(max(r["control"]["margin_rms_fraction"].values()) <= .1 and r["control"]["median_kl"] <= .02 and r["control"]["top1_flip_fraction"] == 0.0 for r in flat)
@@ -152,8 +159,8 @@ def main():
         "control_margin_max": max(max(r["control"]["margin_rms_fraction"].values()) for r in flat),
         "control_median_kl_max": max(r["control"]["median_kl"] for r in flat),
         "control_flip_max": max(r["control"]["top1_flip_fraction"] for r in flat), "seed_ranges": ranges, "direction_gap_max": direction_gap}
-    terminal = "invalid" if not pa else "pooled_bidirectional_source_noise_robust_rank48_program" if all(predictions.values()) else "pooled_bidirectional_source_noise_failure"
-    result = {"schema": "temporal_five_mlp_rank48_pooled_bidirectional_source_noise_ood_result_v1", "started_utc": started, "finished_utc": now(),
+    terminal = "invalid" if not pa else SUCCESS_TERMINAL if all(predictions.values()) else FAILURE_TERMINAL
+    result = {"schema": RESULT_SCHEMA, "candidate_id": CANDIDATE, "started_utc": started, "finished_utc": now(),
         "serial_seconds": time.perf_counter() - tic, "authority_sha256": EXPECTED, "pooled_projector_sha256": hashes,
         "noise_fraction": .1, "noise_seeds": SEEDS, "reports": reports, "summary": summary, "predictions": predictions, "terminal": terminal,
         "price": {"model_forwards": 39, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}}
