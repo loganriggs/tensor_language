@@ -1,0 +1,338 @@
+{
+  "bars": {
+    "even_min": 0.05,
+    "even_ratio_band": [
+      2.0,
+      12.0
+    ],
+    "even_ratio_floor": 0.01,
+    "even_small_max": 0.0,
+    "odd_max": -0.02,
+    "r2_min": 0.85,
+    "random_abs_max": 0.03,
+    "second_even_min": 0.05,
+    "second_odd_max": -0.02
+  },
+  "candidate_id": "corpus.unit_tier5_hub_number_dir_dose_curve_v169",
+  "direction": "lexical p1 diff-in-means of mlp:01 noun write (singular->plural), dosed at t",
+  "finished_utc": "2026-09-07T09:18:23.759204+00:00",
+  "measures": {
+    "p0": {
+      "cue_positions": {
+        "base": [
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "donor": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "dose": 2408.0,
+      "downstream_split_at_1x": {
+        "mlp:02": {
+          "base_write_norm": 15035.2,
+          "even_norm": 6315.3,
+          "odd_norm": 8929.2
+        },
+        "mlp:03": {
+          "base_write_norm": 21283.7,
+          "even_norm": 17884.7,
+          "odd_norm": 17008.7
+        },
+        "mlp:04": {
+          "base_write_norm": 14306.5,
+          "even_norm": 12800.5,
+          "odd_norm": 13253.5
+        },
+        "mlp:05": {
+          "base_write_norm": 3439.4,
+          "even_norm": 1201.5,
+          "odd_norm": 1213.7
+        },
+        "mlp:06": {
+          "base_write_norm": 1846.6,
+          "even_norm": 849.1,
+          "odd_norm": 833.2
+        },
+        "mlp:07": {
+          "base_write_norm": 1001.3,
+          "even_norm": 565.5,
+          "odd_norm": 569.1
+        },
+        "mlp:08": {
+          "base_write_norm": 1510.0,
+          "even_norm": 1171.1,
+          "odd_norm": 1166.9
+        },
+        "mlp:09": {
+          "base_write_norm": 2009.0,
+          "even_norm": 1025.2,
+          "odd_norm": 1028.1
+        },
+        "mlp:10": {
+          "base_write_norm": 1393.2,
+          "even_norm": 740.0,
+          "odd_norm": 716.9
+        },
+        "mlp:11": {
+          "base_write_norm": 3625.3,
+          "even_norm": 926.0,
+          "odd_norm": 900.1
+        }
+      },
+      "even": {
+        "0.25": -0.0048,
+        "0.5": -0.0156,
+        "1.0": 0.0104,
+        "2.0": 0.0542,
+        "3.0": 0.0702
+      },
+      "exact_hub": 0.51,
+      "f": {
+        "-0.25": -0.0075,
+        "-0.5": -0.0176,
+        "-1.0": 0.0449,
+        "-2.0": 0.1039,
+        "-3.0": 0.1208,
+        "0.25": -0.0021,
+        "0.5": -0.0136,
+        "1.0": -0.0241,
+        "2.0": 0.0044,
+        "3.0": 0.0195
+      },
+      "fit": {
+        "a_quadratic": 0.0087,
+        "b_linear": -0.0199,
+        "r2": 0.8833
+      },
+      "odd": {
+        "0.25": 0.0027,
+        "0.5": 0.002,
+        "1.0": -0.0345,
+        "2.0": -0.0498,
+        "3.0": -0.0507
+      },
+      "push_over_mlp01_write_norm_at_t": 0.57,
+      "random_direction": {
+        "f": {
+          "-0.5": -0.0022,
+          "-2.0": -0.0016,
+          "0.5": 0.0019,
+          "2.0": -0.0006
+        }
+      },
+      "rows": 16,
+      "second_direction": {
+        "cos_to_u": 0.912,
+        "even_2x": 0.0633,
+        "f": {
+          "-1.0": 0.0522,
+          "-2.0": 0.1289,
+          "1.0": -0.0292,
+          "2.0": -0.0023
+        },
+        "odd_1x": -0.0407
+      }
+    },
+    "p1": {
+      "cue_positions": {
+        "base": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "donor": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "dose": 2408.0,
+      "downstream_split_at_1x": {
+        "mlp:02": {
+          "base_write_norm": 15845.1,
+          "even_norm": 6826.6,
+          "odd_norm": 9395.6
+        },
+        "mlp:03": {
+          "base_write_norm": 22497.2,
+          "even_norm": 19798.4,
+          "odd_norm": 18066.0
+        },
+        "mlp:04": {
+          "base_write_norm": 15440.7,
+          "even_norm": 13681.2,
+          "odd_norm": 13889.3
+        },
+        "mlp:05": {
+          "base_write_norm": 3533.5,
+          "even_norm": 1315.3,
+          "odd_norm": 1382.7
+        },
+        "mlp:06": {
+          "base_write_norm": 2035.6,
+          "even_norm": 874.8,
+          "odd_norm": 884.6
+        },
+        "mlp:07": {
+          "base_write_norm": 1115.5,
+          "even_norm": 529.3,
+          "odd_norm": 550.3
+        },
+        "mlp:08": {
+          "base_write_norm": 1761.0,
+          "even_norm": 862.3,
+          "odd_norm": 900.9
+        },
+        "mlp:09": {
+          "base_write_norm": 2271.7,
+          "even_norm": 696.0,
+          "odd_norm": 734.0
+        },
+        "mlp:10": {
+          "base_write_norm": 1516.0,
+          "even_norm": 551.7,
+          "odd_norm": 573.0
+        },
+        "mlp:11": {
+          "base_write_norm": 4103.2,
+          "even_norm": 753.0,
+          "odd_norm": 816.2
+        }
+      },
+      "even": {
+        "0.25": -0.0079,
+        "0.5": -0.014,
+        "1.0": 0.0661,
+        "2.0": 0.305,
+        "3.0": 0.3225
+      },
+      "exact_hub": 0.672,
+      "f": {
+        "-0.25": -0.0035,
+        "-0.5": -0.0069,
+        "-1.0": 0.1579,
+        "-2.0": 0.6385,
+        "-3.0": 0.6327,
+        "0.25": -0.0122,
+        "0.5": -0.0211,
+        "1.0": -0.0258,
+        "2.0": -0.0284,
+        "3.0": 0.0123
+      },
+      "fit": {
+        "a_quadratic": 0.0427,
+        "b_linear": -0.1184,
+        "r2": 0.8823
+      },
+      "odd": {
+        "0.25": -0.0044,
+        "0.5": -0.0071,
+        "1.0": -0.0919,
+        "2.0": -0.3334,
+        "3.0": -0.3102
+      },
+      "push_over_mlp01_write_norm_at_t": 0.57,
+      "random_direction": {
+        "f": {
+          "-0.5": -0.0031,
+          "-2.0": -0.0038,
+          "0.5": 0.002,
+          "2.0": 0.0002
+        }
+      },
+      "rows": 16,
+      "second_direction": {
+        "cos_to_u": 0.912,
+        "even_2x": 0.2867,
+        "f": {
+          "-1.0": 0.1575,
+          "-2.0": 0.5855,
+          "1.0": -0.0213,
+          "2.0": -0.0122
+        },
+        "odd_1x": -0.0894
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_even_part_changes_sign": true,
+    "pred_b_even_grows": true,
+    "pred_c_odd_context_signed": true,
+    "pred_d_quadratic_fit": true,
+    "pred_e_second_direction_same_curve": true,
+    "pred_f_random_direction_inert": true
+  },
+  "schema": "unit_tier5_hub_number_dir_dose_curve_v169",
+  "seconds": 1.1,
+  "sets": {
+    "lex_seven": {
+      "family": "lexical_number_pp",
+      "units": [
+        "attn:11:head:03",
+        "mlp:09",
+        "attn:09:head:07",
+        "mlp:10",
+        "attn:10:head:05",
+        "attn:11:head:02",
+        "mlp:08"
+      ]
+    }
+  },
+  "source_unit": "mlp:01"
+}
