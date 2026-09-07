@@ -1,0 +1,1053 @@
+{
+  "bars": {
+    "early_layer": 4,
+    "fo_tol": 0.25,
+    "instr": [
+      0.95,
+      1.05
+    ],
+    "k_of_7": 5,
+    "min_early": 3,
+    "min_single": 0.05,
+    "readout_min": 0.7,
+    "reset_max": 0.3,
+    "rho_min": 0.5
+  },
+  "candidate_id": "corpus.unit_seven_head_direct_v103",
+  "finished_utc": "2026-09-07T03:49:45.627318+00:00",
+  "predictions": {
+    "pred_a_instrument": false,
+    "pred_b_first_order": false,
+    "pred_c_reset": false,
+    "pred_d_readout_head": true,
+    "pred_e_cos_tracks": true
+  },
+  "schema": "circuit_unit_head_direct_result_v1",
+  "seconds": 4.6,
+  "sets": {
+    "dative": {
+      "direct_all": 48.66,
+      "direct_share": 0.786,
+      "exact_set": 61.938,
+      "first_order_share_v102": 1.366,
+      "heads": {
+        "attn:03:head:06": {
+          "big": false,
+          "cos": 0.145,
+          "direct": 0.144,
+          "lambda_product": 0.025,
+          "layer": 3,
+          "own": -0.476,
+          "share": null,
+          "single": -0.476
+        },
+        "attn:04:head:01": {
+          "big": false,
+          "cos": 0.099,
+          "direct": 0.251,
+          "lambda_product": 0.053,
+          "layer": 4,
+          "own": -0.497,
+          "share": null,
+          "single": -0.497
+        },
+        "attn:05:head:08": {
+          "big": false,
+          "cos": 0.351,
+          "direct": 0.815,
+          "lambda_product": 0.83,
+          "layer": 5,
+          "own": 0.53,
+          "share": null,
+          "single": 0.53
+        },
+        "attn:06:head:03": {
+          "big": true,
+          "cos": 0.37,
+          "direct": 2.098,
+          "lambda_product": 1.693,
+          "layer": 6,
+          "own": 7.151,
+          "share": 0.293,
+          "single": 7.151
+        },
+        "attn:07:head:08": {
+          "big": true,
+          "cos": 0.333,
+          "direct": 5.675,
+          "lambda_product": 2.084,
+          "layer": 7,
+          "own": 7.377,
+          "share": 0.769,
+          "single": 7.377
+        },
+        "attn:08:head:01": {
+          "big": false,
+          "cos": 0.351,
+          "direct": 1.67,
+          "lambda_product": 1.482,
+          "layer": 8,
+          "own": 2.482,
+          "share": null,
+          "single": 2.482
+        },
+        "attn:09:head:07": {
+          "big": false,
+          "cos": 0.331,
+          "direct": 2.21,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 2.19,
+          "share": null,
+          "single": 2.19
+        },
+        "attn:11:head:02": {
+          "big": false,
+          "cos": 0.051,
+          "direct": 0.107,
+          "lambda_product": 1.514,
+          "layer": 11,
+          "own": -0.279,
+          "share": null,
+          "single": -0.279
+        },
+        "attn:11:head:03": {
+          "big": true,
+          "cos": 0.078,
+          "direct": 7.064,
+          "lambda_product": 1.514,
+          "layer": 11,
+          "own": 4.702,
+          "share": 1.502,
+          "single": 4.702
+        },
+        "attn:13:head:08": {
+          "big": true,
+          "cos": 0.619,
+          "direct": 7.268,
+          "lambda_product": 1.522,
+          "layer": 13,
+          "own": 4.587,
+          "share": 1.585,
+          "single": 4.587
+        },
+        "attn:14:head:03": {
+          "big": true,
+          "cos": 0.401,
+          "direct": 3.981,
+          "lambda_product": 1.443,
+          "layer": 14,
+          "own": 4.227,
+          "share": 0.942,
+          "single": 4.227
+        },
+        "attn:14:head:08": {
+          "big": true,
+          "cos": 0.682,
+          "direct": 17.083,
+          "lambda_product": 1.443,
+          "layer": 14,
+          "own": 12.529,
+          "share": 1.363,
+          "single": 12.529
+        },
+        "attn:16:head:08": {
+          "big": false,
+          "cos": 0.638,
+          "direct": 3.128,
+          "lambda_product": 1.023,
+          "layer": 16,
+          "own": 2.871,
+          "share": null,
+          "single": 2.871
+        }
+      },
+      "instrument_ratio": 1.024,
+      "own_all": 63.436,
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:03:head:06",
+        "attn:11:head:02"
+      ]
+    },
+    "modal_remoteness": {
+      "direct_all": 48.575,
+      "direct_share": 0.602,
+      "exact_set": 80.677,
+      "first_order_share_v102": 0.995,
+      "heads": {
+        "attn:05:head:08": {
+          "big": false,
+          "cos": 0.318,
+          "direct": 0.439,
+          "lambda_product": 0.83,
+          "layer": 5,
+          "own": 0.103,
+          "share": null,
+          "single": 0.103
+        },
+        "attn:07:head:07": {
+          "big": false,
+          "cos": 0.749,
+          "direct": 2.227,
+          "lambda_product": 2.084,
+          "layer": 7,
+          "own": 2.715,
+          "share": null,
+          "single": 2.715
+        },
+        "attn:09:head:01": {
+          "big": true,
+          "cos": 0.652,
+          "direct": 7.182,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 12.601,
+          "share": 0.57,
+          "single": 12.601
+        },
+        "attn:09:head:04": {
+          "big": true,
+          "cos": 0.802,
+          "direct": 11.541,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 20.495,
+          "share": 0.563,
+          "single": 20.495
+        },
+        "attn:09:head:07": {
+          "big": false,
+          "cos": 0.404,
+          "direct": 0.829,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 1.631,
+          "share": null,
+          "single": 1.631
+        },
+        "attn:10:head:05": {
+          "big": false,
+          "cos": 0.56,
+          "direct": 1.078,
+          "lambda_product": 1.868,
+          "layer": 10,
+          "own": 1.209,
+          "share": null,
+          "single": 1.209
+        },
+        "attn:11:head:01": {
+          "big": false,
+          "cos": 0.383,
+          "direct": 1.833,
+          "lambda_product": 1.514,
+          "layer": 11,
+          "own": 2.97,
+          "share": null,
+          "single": 2.97
+        },
+        "attn:11:head:03": {
+          "big": true,
+          "cos": 0.733,
+          "direct": 15.709,
+          "lambda_product": 1.514,
+          "layer": 11,
+          "own": 20.834,
+          "share": 0.754,
+          "single": 20.834
+        },
+        "attn:15:head:01": {
+          "big": false,
+          "cos": 0.26,
+          "direct": 1.653,
+          "lambda_product": 1.215,
+          "layer": 15,
+          "own": 1.795,
+          "share": null,
+          "single": 1.795
+        },
+        "attn:15:head:05": {
+          "big": true,
+          "cos": 0.801,
+          "direct": 8.897,
+          "lambda_product": 1.215,
+          "layer": 15,
+          "own": 9.16,
+          "share": 0.971,
+          "single": 9.16
+        }
+      },
+      "instrument_ratio": 1.057,
+      "own_all": 85.273,
+      "units": [
+        "attn:09:head:04",
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01"
+      ]
+    },
+    "polarity_licensing": {
+      "direct_all": 30.754,
+      "direct_share": 0.344,
+      "exact_set": 89.288,
+      "first_order_share_v102": 0.643,
+      "heads": {
+        "attn:03:head:00": {
+          "big": false,
+          "cos": 0.566,
+          "direct": 0.412,
+          "lambda_product": 0.025,
+          "layer": 3,
+          "own": 1.377,
+          "share": null,
+          "single": 1.377
+        },
+        "attn:04:head:01": {
+          "big": false,
+          "cos": 0.284,
+          "direct": 0.207,
+          "lambda_product": 0.053,
+          "layer": 4,
+          "own": 0.347,
+          "share": null,
+          "single": 0.347
+        },
+        "attn:04:head:07": {
+          "big": false,
+          "cos": 0.531,
+          "direct": 0.766,
+          "lambda_product": 0.053,
+          "layer": 4,
+          "own": 0.225,
+          "share": null,
+          "single": 0.225
+        },
+        "attn:05:head:03": {
+          "big": false,
+          "cos": 0.349,
+          "direct": 0.31,
+          "lambda_product": 0.83,
+          "layer": 5,
+          "own": 0.499,
+          "share": null,
+          "single": 0.499
+        },
+        "attn:05:head:08": {
+          "big": false,
+          "cos": 0.414,
+          "direct": 1.312,
+          "lambda_product": 0.83,
+          "layer": 5,
+          "own": 1.582,
+          "share": null,
+          "single": 1.582
+        },
+        "attn:07:head:08": {
+          "big": true,
+          "cos": 0.609,
+          "direct": 5.59,
+          "lambda_product": 2.084,
+          "layer": 7,
+          "own": 16.553,
+          "share": 0.338,
+          "single": 16.553
+        },
+        "attn:08:head:01": {
+          "big": false,
+          "cos": 0.207,
+          "direct": 3.65,
+          "lambda_product": 1.482,
+          "layer": 8,
+          "own": 2.822,
+          "share": null,
+          "single": 2.822
+        },
+        "attn:09:head:07": {
+          "big": true,
+          "cos": 0.668,
+          "direct": 4.533,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 8.863,
+          "share": 0.511,
+          "single": 8.863
+        },
+        "attn:10:head:05": {
+          "big": true,
+          "cos": 0.728,
+          "direct": 4.153,
+          "lambda_product": 1.868,
+          "layer": 10,
+          "own": 6.517,
+          "share": 0.637,
+          "single": 6.517
+        },
+        "attn:13:head:01": {
+          "big": true,
+          "cos": 0.662,
+          "direct": 4.517,
+          "lambda_product": 1.522,
+          "layer": 13,
+          "own": 5.598,
+          "share": 0.807,
+          "single": 5.598
+        },
+        "attn:15:head:01": {
+          "big": false,
+          "cos": 0.719,
+          "direct": 2.435,
+          "lambda_product": 1.215,
+          "layer": 15,
+          "own": 2.68,
+          "share": null,
+          "single": 2.68
+        },
+        "attn:16:head:08": {
+          "big": false,
+          "cos": 0.703,
+          "direct": 2.778,
+          "lambda_product": 1.023,
+          "layer": 16,
+          "own": 2.983,
+          "share": null,
+          "single": 2.983
+        }
+      },
+      "instrument_ratio": 1.202,
+      "own_all": 107.282,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:05:head:03"
+      ]
+    },
+    "quantifier_number": {
+      "direct_all": 32.048,
+      "direct_share": 0.44,
+      "exact_set": 72.789,
+      "first_order_share_v102": 0.78,
+      "heads": {
+        "attn:02:head:02": {
+          "big": false,
+          "cos": 0.038,
+          "direct": 0.029,
+          "lambda_product": 0.014,
+          "layer": 2,
+          "own": 1.862,
+          "share": null,
+          "single": 1.862
+        },
+        "attn:04:head:01": {
+          "big": false,
+          "cos": 0.085,
+          "direct": -0.02,
+          "lambda_product": 0.053,
+          "layer": 4,
+          "own": 1.868,
+          "share": null,
+          "single": 1.868
+        },
+        "attn:05:head:03": {
+          "big": true,
+          "cos": 0.185,
+          "direct": 0.755,
+          "lambda_product": 0.83,
+          "layer": 5,
+          "own": 5.761,
+          "share": 0.131,
+          "single": 5.761
+        },
+        "attn:07:head:08": {
+          "big": true,
+          "cos": 0.608,
+          "direct": 6.468,
+          "lambda_product": 2.084,
+          "layer": 7,
+          "own": 31.286,
+          "share": 0.207,
+          "single": 31.286
+        },
+        "attn:08:head:01": {
+          "big": false,
+          "cos": 0.094,
+          "direct": 0.617,
+          "lambda_product": 1.482,
+          "layer": 8,
+          "own": 3.111,
+          "share": null,
+          "single": 3.111
+        },
+        "attn:09:head:01": {
+          "big": false,
+          "cos": 0.235,
+          "direct": 1.074,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 2.92,
+          "share": null,
+          "single": 2.92
+        },
+        "attn:09:head:07": {
+          "big": false,
+          "cos": 0.238,
+          "direct": 1.57,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 3.351,
+          "share": null,
+          "single": 3.351
+        },
+        "attn:11:head:03": {
+          "big": true,
+          "cos": 0.856,
+          "direct": 16.129,
+          "lambda_product": 1.514,
+          "layer": 11,
+          "own": 23.038,
+          "share": 0.7,
+          "single": 23.038
+        },
+        "attn:13:head:01": {
+          "big": true,
+          "cos": 0.492,
+          "direct": 3.877,
+          "lambda_product": 1.522,
+          "layer": 13,
+          "own": 4.775,
+          "share": 0.812,
+          "single": 4.775
+        },
+        "attn:13:head:06": {
+          "big": false,
+          "cos": 0.335,
+          "direct": 1.861,
+          "lambda_product": 1.522,
+          "layer": 13,
+          "own": 3.263,
+          "share": null,
+          "single": 3.263
+        }
+      },
+      "instrument_ratio": 1.113,
+      "own_all": 81.025,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:02:head:02",
+        "attn:09:head:01",
+        "attn:04:head:01",
+        "attn:13:head:06"
+      ]
+    },
+    "verb_complementizer": {
+      "direct_all": 30.272,
+      "direct_share": 0.239,
+      "exact_set": 126.792,
+      "first_order_share_v102": 0.41,
+      "heads": {
+        "attn:04:head:01": {
+          "big": false,
+          "cos": 0.241,
+          "direct": 0.353,
+          "lambda_product": 0.053,
+          "layer": 4,
+          "own": 3.093,
+          "share": null,
+          "single": 3.093
+        },
+        "attn:05:head:08": {
+          "big": false,
+          "cos": 0.018,
+          "direct": 0.242,
+          "lambda_product": 0.83,
+          "layer": 5,
+          "own": 1.947,
+          "share": null,
+          "single": 1.947
+        },
+        "attn:06:head:03": {
+          "big": true,
+          "cos": 0.289,
+          "direct": 2.74,
+          "lambda_product": 1.693,
+          "layer": 6,
+          "own": 31.129,
+          "share": 0.088,
+          "single": 31.129
+        },
+        "attn:07:head:08": {
+          "big": true,
+          "cos": 0.412,
+          "direct": 2.731,
+          "lambda_product": 2.084,
+          "layer": 7,
+          "own": 22.773,
+          "share": 0.12,
+          "single": 22.773
+        },
+        "attn:08:head:01": {
+          "big": true,
+          "cos": 0.446,
+          "direct": 2.65,
+          "lambda_product": 1.482,
+          "layer": 8,
+          "own": 12.188,
+          "share": 0.217,
+          "single": 12.188
+        },
+        "attn:08:head:08": {
+          "big": false,
+          "cos": 0.062,
+          "direct": -0.011,
+          "lambda_product": 1.482,
+          "layer": 8,
+          "own": 2.963,
+          "share": null,
+          "single": 2.963
+        },
+        "attn:09:head:01": {
+          "big": false,
+          "cos": 0.538,
+          "direct": 1.682,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 2.34,
+          "share": null,
+          "single": 2.34
+        },
+        "attn:09:head:03": {
+          "big": true,
+          "cos": 0.259,
+          "direct": 1.308,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 7.578,
+          "share": 0.173,
+          "single": 7.578
+        },
+        "attn:09:head:07": {
+          "big": false,
+          "cos": 0.342,
+          "direct": 1.201,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 5.554,
+          "share": null,
+          "single": 5.554
+        },
+        "attn:11:head:03": {
+          "big": true,
+          "cos": 0.548,
+          "direct": 15.218,
+          "lambda_product": 1.514,
+          "layer": 11,
+          "own": 25.136,
+          "share": 0.605,
+          "single": 25.136
+        },
+        "attn:14:head:03": {
+          "big": false,
+          "cos": 0.572,
+          "direct": 2.571,
+          "lambda_product": 1.443,
+          "layer": 14,
+          "own": 3.366,
+          "share": null,
+          "single": 3.366
+        }
+      },
+      "instrument_ratio": 1.044,
+      "own_all": 132.407,
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08"
+      ]
+    },
+    "verb_preposition": {
+      "direct_all": 47.346,
+      "direct_share": 0.48,
+      "exact_set": 98.536,
+      "first_order_share_v102": 0.874,
+      "heads": {
+        "attn:06:head:03": {
+          "big": true,
+          "cos": 0.389,
+          "direct": 3.621,
+          "lambda_product": 1.693,
+          "layer": 6,
+          "own": 26.578,
+          "share": 0.136,
+          "single": 26.578
+        },
+        "attn:07:head:08": {
+          "big": true,
+          "cos": 0.575,
+          "direct": 3.074,
+          "lambda_product": 2.084,
+          "layer": 7,
+          "own": 8.402,
+          "share": 0.366,
+          "single": 8.402
+        },
+        "attn:08:head:01": {
+          "big": false,
+          "cos": 0.219,
+          "direct": 0.723,
+          "lambda_product": 1.482,
+          "layer": 8,
+          "own": 3.249,
+          "share": null,
+          "single": 3.249
+        },
+        "attn:08:head:08": {
+          "big": true,
+          "cos": 0.35,
+          "direct": 3.432,
+          "lambda_product": 1.482,
+          "layer": 8,
+          "own": 11.534,
+          "share": 0.298,
+          "single": 11.534
+        },
+        "attn:10:head:08": {
+          "big": false,
+          "cos": 0.699,
+          "direct": 1.544,
+          "lambda_product": 1.868,
+          "layer": 10,
+          "own": 1.906,
+          "share": null,
+          "single": 1.906
+        },
+        "attn:11:head:03": {
+          "big": true,
+          "cos": 0.426,
+          "direct": 4.628,
+          "lambda_product": 1.514,
+          "layer": 11,
+          "own": 8.258,
+          "share": 0.56,
+          "single": 8.258
+        },
+        "attn:13:head:03": {
+          "big": false,
+          "cos": 0.328,
+          "direct": 0.388,
+          "lambda_product": 1.522,
+          "layer": 13,
+          "own": 0.822,
+          "share": null,
+          "single": 0.822
+        },
+        "attn:13:head:08": {
+          "big": true,
+          "cos": 0.686,
+          "direct": 14.715,
+          "lambda_product": 1.522,
+          "layer": 13,
+          "own": 17.395,
+          "share": 0.846,
+          "single": 17.395
+        },
+        "attn:14:head:03": {
+          "big": true,
+          "cos": 0.543,
+          "direct": 5.302,
+          "lambda_product": 1.443,
+          "layer": 14,
+          "own": 9.253,
+          "share": 0.573,
+          "single": 9.253
+        },
+        "attn:14:head:08": {
+          "big": true,
+          "cos": 0.496,
+          "direct": 7.6,
+          "lambda_product": 1.443,
+          "layer": 14,
+          "own": 9.88,
+          "share": 0.769,
+          "single": 9.88
+        },
+        "attn:16:head:08": {
+          "big": false,
+          "cos": 0.669,
+          "direct": 2.501,
+          "lambda_product": 1.023,
+          "layer": 16,
+          "own": 2.501,
+          "share": null,
+          "single": 2.501
+        }
+      },
+      "instrument_ratio": 1.027,
+      "own_all": 101.163,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:13:head:03"
+      ]
+    },
+    "voice_frame": {
+      "direct_all": 15.033,
+      "direct_share": 0.098,
+      "exact_set": 153.798,
+      "first_order_share_v102": 0.149,
+      "heads": {
+        "attn:00:head:03": {
+          "big": false,
+          "cos": 0.191,
+          "direct": 0.0,
+          "lambda_product": 0.0,
+          "layer": 0,
+          "own": 3.361,
+          "share": null,
+          "single": 3.361
+        },
+        "attn:01:head:05": {
+          "big": true,
+          "cos": 0.219,
+          "direct": 0.006,
+          "lambda_product": 0.028,
+          "layer": 1,
+          "own": 13.887,
+          "share": 0.0,
+          "single": 13.887
+        },
+        "attn:02:head:02": {
+          "big": false,
+          "cos": 0.145,
+          "direct": 0.01,
+          "lambda_product": 0.014,
+          "layer": 2,
+          "own": 1.364,
+          "share": null,
+          "single": 1.364
+        },
+        "attn:02:head:03": {
+          "big": false,
+          "cos": 0.185,
+          "direct": 0.053,
+          "lambda_product": 0.014,
+          "layer": 2,
+          "own": 1.725,
+          "share": null,
+          "single": 1.725
+        },
+        "attn:02:head:06": {
+          "big": false,
+          "cos": 0.292,
+          "direct": 0.037,
+          "lambda_product": 0.014,
+          "layer": 2,
+          "own": 1.867,
+          "share": null,
+          "single": 1.867
+        },
+        "attn:04:head:01": {
+          "big": true,
+          "cos": 0.352,
+          "direct": 0.389,
+          "lambda_product": 0.053,
+          "layer": 4,
+          "own": 8.256,
+          "share": 0.047,
+          "single": 8.256
+        },
+        "attn:06:head:03": {
+          "big": false,
+          "cos": 0.24,
+          "direct": 0.144,
+          "lambda_product": 1.693,
+          "layer": 6,
+          "own": 2.902,
+          "share": null,
+          "single": 2.902
+        },
+        "attn:07:head:08": {
+          "big": true,
+          "cos": 0.375,
+          "direct": 4.099,
+          "lambda_product": 2.084,
+          "layer": 7,
+          "own": 22.355,
+          "share": 0.183,
+          "single": 22.355
+        },
+        "attn:09:head:07": {
+          "big": true,
+          "cos": 0.33,
+          "direct": 3.095,
+          "lambda_product": 1.642,
+          "layer": 9,
+          "own": 9.494,
+          "share": 0.326,
+          "single": 9.494
+        },
+        "attn:10:head:05": {
+          "big": false,
+          "cos": 0.611,
+          "direct": 2.229,
+          "lambda_product": 1.868,
+          "layer": 10,
+          "own": 2.838,
+          "share": null,
+          "single": 2.838
+        },
+        "attn:11:head:07": {
+          "big": false,
+          "cos": 0.506,
+          "direct": 1.992,
+          "lambda_product": 1.514,
+          "layer": 11,
+          "own": 2.148,
+          "share": null,
+          "single": 2.148
+        },
+        "attn:16:head:08": {
+          "big": false,
+          "cos": 0.161,
+          "direct": 3.202,
+          "lambda_product": 1.023,
+          "layer": 16,
+          "own": 3.398,
+          "share": null,
+          "single": 3.398
+        }
+      },
+      "instrument_ratio": 1.022,
+      "own_all": 157.184,
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:16:head:08",
+        "attn:11:head:07",
+        "attn:10:head:05",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:02:head:06",
+        "attn:02:head:03"
+      ]
+    }
+  },
+  "summary": {
+    "direct_share_measured": {
+      "dative": 0.786,
+      "modal_remoteness": 0.602,
+      "polarity_licensing": 0.344,
+      "quantifier_number": 0.44,
+      "verb_complementizer": 0.239,
+      "verb_preposition": 0.48,
+      "voice_frame": 0.098
+    },
+    "early_head_shares": [
+      [
+        "voice_frame",
+        "01:head:05",
+        0.0
+      ],
+      [
+        "voice_frame",
+        "04:head:01",
+        0.047
+      ]
+    ],
+    "early_tested": false,
+    "first_order_v102": {
+      "dative": 1.366,
+      "modal_remoteness": 0.995,
+      "polarity_licensing": 0.643,
+      "quantifier_number": 0.78,
+      "verb_complementizer": 0.41,
+      "verb_preposition": 0.874,
+      "voice_frame": 0.149
+    },
+    "instrument_ratio": {
+      "dative": 1.024,
+      "modal_remoteness": 1.057,
+      "polarity_licensing": 1.202,
+      "quantifier_number": 1.113,
+      "verb_complementizer": 1.044,
+      "verb_preposition": 1.027,
+      "voice_frame": 1.022
+    },
+    "lambda0": [
+      6.094,
+      0.013,
+      1.977,
+      0.574,
+      0.463,
+      0.064,
+      0.49,
+      0.812,
+      1.406,
+      0.902,
+      0.879,
+      1.234,
+      1.039,
+      0.957,
+      1.055,
+      1.188,
+      1.188,
+      1.023
+    ],
+    "n_big_heads": 34,
+    "readout_sets": [
+      "dative",
+      "polarity_licensing",
+      "quantifier_number",
+      "verb_preposition",
+      "modal_remoteness"
+    ],
+    "spearman_cos_share": 0.516
+  }
+}
