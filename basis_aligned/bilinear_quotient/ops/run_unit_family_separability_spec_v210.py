@@ -27,7 +27,7 @@ REGISTERED BEFORE THE RUN (each coded predicate is the sentence here):
     pred_e_row4_kept             fam-arm own-C UB975 <= 0.01 on >= 9 of 18 members (v206: 10 of 15).                prior 55%
     pred_f_instrument            person_possessive own-arm extraction within +-0.03 of its v208 own-arm value (same units,
                                  seed, split and code path: a determinism check, NOT an independent run outcome).   prior 90%
-Smoke: V210_SMOKE=<out.json> (CPU, V210_SMOKE_ROWS=4, V210_SMOKE_NAMES=so_inversion,neither_inversion; steps 5).
+Smoke: V210_SMOKE=<out.json> (CPU, V210_SMOKE_ROWS=4, V210_SMOKE_NAMES=so_inversion,person_possessive; steps 5 -- the instrument member is in the smoke so pred_f exercises the V208 read; the first enqueue (15:03) crashed at 15:27 after all 18 members because the derive step had rewritten the V208 path to v210 and the smoke names skipped pred_f).
 """
 from __future__ import annotations
 
@@ -56,7 +56,7 @@ V204 = ROOT / "circuits/followups/unit_tier3_batch_amended_spec8_v204_result.jso
 V205 = ROOT / "circuits/followups/unit_tier3_batch_amended_spec8b_v205_result.json"
 V207 = ROOT / "circuits/followups/unit_tier3_batch_amended_spec8c_v207_result.json"
 V209 = ROOT / "circuits/followups/unit_tier3_batch_amended_spec8d_v209_result.json"
-V208 = ROOT / "circuits/followups/unit_family_separability_spec_v210_result.json"
+V208 = ROOT / "circuits/followups/unit_family_separability_spec_v208_result.json"
 FAMILIES = {
     "inversion": ["negative_inversion", "so_inversion", "neither_inversion"],
     "person_readout": ["person_possessive", "person_possessive_plural", "reflexive_person", "object_pronoun_person",
@@ -109,7 +109,7 @@ def main() -> None:
     cut = (lambda rows: rows[:int(os.environ.get("V210_SMOKE_ROWS", "4"))]) if smoke else (lambda rows: rows)
     steps = 5 if smoke else STEPS
     members = [m for f in FAMILIES.values() for m in f]
-    which = [n for n in members if not smoke or n in os.environ.get("V210_SMOKE_NAMES", "so_inversion,neither_inversion").split(",")]
+    which = [n for n in members if not smoke or n in os.environ.get("V210_SMOKE_NAMES", "so_inversion,person_possessive").split(",")]
     prior = {**json.loads(V197.read_text())["behaviours"], **json.loads(V201.read_text())["behaviours"], **json.loads(V204.read_text())["behaviours"], **json.loads(V205.read_text())["behaviours"], **json.loads(V207.read_text())["behaviours"], **json.loads(V209.read_text())["behaviours"]}
     fit_half = lambda rows: rows[0::4] + rows[1::4]
     held_half = lambda rows: rows[2::4] + rows[3::4]
