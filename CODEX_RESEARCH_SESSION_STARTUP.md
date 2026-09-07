@@ -1,5 +1,19 @@
 # Codex research-session startup and continuation
 
+## Start this program with Astra
+
+The installed Codex CLI is `0.153.4`, and direct account access to the official Astra model slug
+was verified on 2026-09-07 even though Astra was absent from the cached model picker.  Start a new
+interactive Astra session directly instead of relying on the picker:
+
+```bash
+codex -m gpt-6-astra -C /workspace/tensor_language
+```
+
+Then paste the prompt in **Suggested first prompt in a new session** at the end of this document.
+The model name is `gpt-6-astra`; restarting Codex refreshes the executable, but the explicit
+`-m` argument is what bypasses a stale picker.
+
 ## Purpose
 
 This document is the restart handoff for the bilin18/Theseus mechanistic-interpretability
