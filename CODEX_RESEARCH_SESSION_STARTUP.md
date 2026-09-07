@@ -143,6 +143,17 @@ The active successor should be an exact 32-subset lattice over the low-collatera
 `L8H1`, `L9H1`, `L9H4`, `L11H3`, and complete `attn:15`.  It tests whether attention-component
 composition restores selectivity before splitting the high-gain, high-collateral MLP responses.
 
+That successor is now implemented and queued through the managed runner:
+
+- prior: `basis_aligned/bilinear_quotient/circuits/prior_art/temporal_iswas_v15_low_collateral_attention_lattice_v1.json`;
+- runner: `basis_aligned/bilinear_quotient/ops/run_temporal_iswas_v15_low_collateral_attention_lattice_v1.py`;
+- runner SHA-256: `6747d2d5cc85772f1f20dceb3ab9ac6cf665bfdccad590a1ba028e7cac19f192`;
+- expected result: `basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_v15_low_collateral_attention_lattice_v1_result.json`;
+- exact price: 35 forwards over all 64 A1/A2/P/C rows.
+
+On restart, inspect the result, runner log, queue, and live process before deciding whether it is
+queued, running, or terminal.  Never restart from a stale timestamp alone.
+
 When the next result lands:
 
 1. Score every registered prediction and terminal exactly as written; retain failures and nulls.
