@@ -29,7 +29,7 @@ LINEAR_RUNNER = ROOT / "ops/run_temporal_iswas_v15_crossfit_head_response_task_p
 LATTICE_RESULT = ROOT / "circuits/followups/temporal_iswas_v15_aligned_control_attention_lattice_v1_result.json"
 BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_v15_aligned_controls_v1.py"
 ATTENTION_LIBRARY = ROOT / "ops/attention_source_destination_eval.py"
-OUT = ROOT / "circuits/followups/temporal_iswas_v15_aligned_attention_pattern_value_factorial_v1_result.json"
+OUT = ROOT / "circuits/followups/temporal_iswas_v15_aligned_attention_pattern_value_factorial_v1_retry1_result.json"
 CANDIDATE_ID = "temporal_auxiliary.iswas_v15_aligned_attention_pattern_value_factorial_v1"
 ROWS_SHA256 = "3f1d28abb658040493284b307cc27ba76f422dddb08ee9c53686c557d49f283c"
 FACTORS = attention_eval.RESPONSE_FACTORS
@@ -117,18 +117,20 @@ def registered_parent_report(value):
 
 
 def intervene_with_state_capture(backend, batch, specs):
-    """Use the shared exact intervention while requesting its final residual capture."""
-    native = backend.native
-
-    def captured(*args, **kwargs):
-        kwargs["capture"] = True
-        return native(*args, **kwargs)
-
-    backend.native = captured
-    try:
-        return attention_eval.intervene_ordered_head_output_deltas(backend, batch, specs)
-    finally:
-        backend.native = native
+    """Clamp each selected response to the absolute base-plus-factor tensor."""
+    cache, support = {}, []
+    for spec in specs:
+        layer = int(spec["layer"])
+        heads = tuple(int(head) for head in spec["selected_heads"])
+        changed = spec["changed_capture"]["head_output"]
+        flattened = changed.reshape(changed.shape[0], changed.shape[1], -1)
+        if layer == COMPLETE_LAYER and heads == COMPLETE_HEADS:
+            cache[f"attn:{layer}"] = flattened
+            support.append(f"attn:{layer}")
+        else:
+            cache[f"head_layer:{layer}"] = flattened
+            support.extend(f"L{layer}H{head}" for head in heads)
+    return greedy.run_patch(backend, batch, cache, support)
 
 
 def main() -> None:
@@ -366,6 +368,7 @@ def main() -> None:
     result = {
         "schema": "temporal_iswas_v15_aligned_attention_pattern_value_factorial_result_v1",
         "candidate_id": CANDIDATE_ID, "execution_policy": "managed_queue_only",
+        "instrument_retry": "retry1_absolute_base_plus_factor_clamp_after_invalid_additive_v1",
         "started_utc": started_utc, "finished_utc": now(), "serial_seconds": time.perf_counter() - started,
         "authority_sha256": EXPECTED, "rows_sha256": ROWS_SHA256, "alignment_contract": alignment,
         "factors": list(FACTORS), "factorized_layers": {str(layer): list(heads) for layer, heads in LAYERS.items()},

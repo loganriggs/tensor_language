@@ -1,34 +1,30 @@
-from types import SimpleNamespace
-
 import run_temporal_iswas_v15_aligned_attention_pattern_value_factorial_v1 as factorial
 
 
-def test_intervention_requests_state_capture_and_restores_native(monkeypatch):
-    calls = []
+def test_intervention_clamps_absolute_factor_responses(monkeypatch):
+    import torch
 
-    def native(batch, *, capture):
-        calls.append((batch, capture))
-        return SimpleNamespace(captured={"final": True})
+    changed8 = torch.arange(2 * 3 * 9 * 4).reshape(2, 3, 9, 4)
+    changed15 = changed8 + 1000
+    observed = {}
 
-    backend = SimpleNamespace(native=native)
+    def run_patch(backend, batch, cache, support):
+        observed.update(backend=backend, batch=batch, cache=cache, support=support)
+        return "captured-output"
 
-    def intervention(observed_backend, batch, specs):
-        assert specs == ("frozen",)
-        return observed_backend.native(batch, capture=False)
+    monkeypatch.setattr(factorial.greedy, "run_patch", run_patch)
+    output = factorial.intervene_with_state_capture("backend", "batch", (
+        {"layer": 8, "selected_heads": (1,), "changed_capture": {"head_output": changed8}},
+        {"layer": 15, "selected_heads": tuple(range(9)),
+         "changed_capture": {"head_output": changed15}},
+    ))
 
-    monkeypatch.setattr(
-        factorial.attention_eval,
-        "intervene_ordered_head_output_deltas",
-        intervention,
-    )
-    original = backend.native
-    output = factorial.intervene_with_state_capture(
-        backend, "batch", ("frozen",)
-    )
-
-    assert output.captured == {"final": True}
-    assert calls == [("batch", True)]
-    assert backend.native is original
+    assert output == "captured-output"
+    assert observed["support"] == ["L8H1", "attn:15"]
+    assert observed["cache"]["head_layer:8"].shape == (2, 3, 36)
+    assert observed["cache"]["attn:15"].shape == (2, 3, 36)
+    assert torch.equal(observed["cache"]["head_layer:8"], changed8.reshape(2, 3, 36))
+    assert torch.equal(observed["cache"]["attn:15"], changed15.reshape(2, 3, 36))
 
 
 def test_registered_parent_report_drops_only_legacy_pooled_control():
