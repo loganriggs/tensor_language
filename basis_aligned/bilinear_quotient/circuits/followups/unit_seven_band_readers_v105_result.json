@@ -1,0 +1,249 @@
+{
+  "bars": {
+    "band_max": 0.5,
+    "direct_min": 0.7,
+    "instr_tol": 0.15,
+    "k": 5
+  },
+  "candidate_id": "corpus.unit_seven_band_readers_v105",
+  "finished_utc": "2026-09-07T03:58:03.155898+00:00",
+  "predictions": {
+    "pred_a_band_carries_indirect": false,
+    "pred_b_direct_sets_spared": true,
+    "pred_c_instrument": true,
+    "pred_d_band_over_late": true,
+    "pred_e_band_over_attention": true
+  },
+  "schema": "circuit_unit_band_readers_result_v1",
+  "seconds": 1.7,
+  "sets": {
+    "dative": {
+      "exact": 61.938,
+      "survival": {
+        "all": 1.067,
+        "attn_other": 0.962,
+        "mlp_band": 0.748,
+        "mlp_early": 0.915,
+        "mlp_late": 1.53
+      },
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:03:head:06",
+        "attn:11:head:02"
+      ],
+      "v103_direct_share": 0.786
+    },
+    "modal_remoteness": {
+      "exact": 80.677,
+      "survival": {
+        "all": 0.623,
+        "attn_other": 0.992,
+        "mlp_band": 0.83,
+        "mlp_early": 0.998,
+        "mlp_late": 0.729
+      },
+      "units": [
+        "attn:09:head:04",
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01"
+      ],
+      "v103_direct_share": 0.602
+    },
+    "polarity_licensing": {
+      "exact": 89.288,
+      "survival": {
+        "all": 0.352,
+        "attn_other": 0.951,
+        "mlp_band": 0.527,
+        "mlp_early": 0.791,
+        "mlp_late": 0.746
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:05:head:03"
+      ],
+      "v103_direct_share": 0.344
+    },
+    "quantifier_number": {
+      "exact": 72.789,
+      "survival": {
+        "all": 0.477,
+        "attn_other": 0.989,
+        "mlp_band": 0.683,
+        "mlp_early": 0.947,
+        "mlp_late": 0.765
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:02:head:02",
+        "attn:09:head:01",
+        "attn:04:head:01",
+        "attn:13:head:06"
+      ],
+      "v103_direct_share": 0.44
+    },
+    "verb_complementizer": {
+      "exact": 126.792,
+      "survival": {
+        "all": 0.255,
+        "attn_other": 0.987,
+        "mlp_band": 0.466,
+        "mlp_early": 0.884,
+        "mlp_late": 0.718
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08"
+      ],
+      "v103_direct_share": 0.239
+    },
+    "verb_preposition": {
+      "exact": 98.536,
+      "survival": {
+        "all": 0.572,
+        "attn_other": 1.002,
+        "mlp_band": 0.783,
+        "mlp_early": 0.955,
+        "mlp_late": 0.872
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:13:head:03"
+      ],
+      "v103_direct_share": 0.48
+    },
+    "voice_frame": {
+      "exact": 153.798,
+      "survival": {
+        "all": 0.093,
+        "attn_other": 0.781,
+        "mlp_band": 0.323,
+        "mlp_early": 0.318,
+        "mlp_late": 0.745
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:16:head:08",
+        "attn:11:head:07",
+        "attn:10:head:05",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:02:head:06",
+        "attn:02:head:03"
+      ],
+      "v103_direct_share": 0.098
+    }
+  },
+  "summary": {
+    "dative": {
+      "all": 1.067,
+      "attn_other": 0.962,
+      "mlp_band": 0.748,
+      "mlp_early": 0.915,
+      "mlp_late": 1.53,
+      "v103_direct_share": 0.786
+    },
+    "modal_remoteness": {
+      "all": 0.623,
+      "attn_other": 0.992,
+      "mlp_band": 0.83,
+      "mlp_early": 0.998,
+      "mlp_late": 0.729,
+      "v103_direct_share": 0.602
+    },
+    "polarity_licensing": {
+      "all": 0.352,
+      "attn_other": 0.951,
+      "mlp_band": 0.527,
+      "mlp_early": 0.791,
+      "mlp_late": 0.746,
+      "v103_direct_share": 0.344
+    },
+    "quantifier_number": {
+      "all": 0.477,
+      "attn_other": 0.989,
+      "mlp_band": 0.683,
+      "mlp_early": 0.947,
+      "mlp_late": 0.765,
+      "v103_direct_share": 0.44
+    },
+    "verb_complementizer": {
+      "all": 0.255,
+      "attn_other": 0.987,
+      "mlp_band": 0.466,
+      "mlp_early": 0.884,
+      "mlp_late": 0.718,
+      "v103_direct_share": 0.239
+    },
+    "verb_preposition": {
+      "all": 0.572,
+      "attn_other": 1.002,
+      "mlp_band": 0.783,
+      "mlp_early": 0.955,
+      "mlp_late": 0.872,
+      "v103_direct_share": 0.48
+    },
+    "voice_frame": {
+      "all": 0.093,
+      "attn_other": 0.781,
+      "mlp_band": 0.323,
+      "mlp_early": 0.318,
+      "mlp_late": 0.745,
+      "v103_direct_share": 0.098
+    }
+  }
+}
