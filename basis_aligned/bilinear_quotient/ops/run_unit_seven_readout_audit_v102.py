@@ -9,7 +9,7 @@ seven behaviours' sets (six v80 hub+8 sets, modal v97) with two instruments that
 
   cosine    per head h at layer L: d_h = W_L[:, h-slice]^T (U[ans] - U[foil]) (c_proj columns of the head, unembedding rows
             of the two answer tokens); |cos(q_h, d_h)| for the fitted rank-1 direction's slice q_h, averaged over heads
-            weighted by each head's share of the direction's norm. Random baseline: the same for a random rank-1 direction
+            weighted by each head's share of its block's (unit-norm) direction, blocks weighted equally. Random baseline: the same for a random rank-1 direction
             (expected ~0.07 in 128-d).
   direct share   first-order direct-path attribution of the EXACT-set patch on ODD A1 rows: for each row the head deltas
             (donor - base at the prediction position) are pushed through c_proj, scaled by the product of later residual
@@ -22,8 +22,8 @@ controls at 30 each, complement 1.0, 120 steps, lr 0.05, seed 0, mu = pooled EVE
 (no verb-variant maps), so v80 numbers are NOT claimed as reproduced; extraction on ODD is the instrument gate instead.
 
 REGISTERED BEFORE THE RUN
-    pred_a_readout_directions   >= 4 of 7 behaviours have norm-weighted mean |cos(q_h, d_h)| >= 0.50. Worked: cos 0.7,0.6,0.55,0.5 on four -> True; 0.3 everywhere -> False.
-    pred_b_feature_directions   >= 4 of 7 have norm-weighted mean |cos| <= 0.20. Exclusive with a.
+    pred_a_readout_directions   >= 4 of 7 behaviours have block-share-weighted mean |cos(q_h, d_h)| >= 0.50. Worked: cos 0.7,0.6,0.55,0.5 on four -> True; 0.3 everywhere -> False.
+    pred_b_feature_directions   >= 4 of 7 have block-share-weighted mean |cos| <= 0.20. Exclusive with a.
     pred_c_direct_share_high    >= 4 of 7 have direct share in [0.50, 1.50]. Worked: 0.8 on four -> True; 0.2 -> False.
     pred_d_direct_share_low     >= 4 of 7 have direct share <= 0.25. Exclusive with c.
     pred_e_instrument           every behaviour: ODD extraction >= 0.80 AND random-direction |cos| <= 0.15. Worked: 0.9/0.07 True; 0.7/0.07 False.
@@ -104,8 +104,13 @@ def main() -> None:
         # answer-logit direction per head, in the head's 128-d output space
         r0 = O.rows[0]
         u_pair = U[r0["base_answer_id"]] - U[r0["base_foil_id"]]
-        cos, cos_rand, shares = {}, {}, g.norm_shares(q, units)
+        cos, cos_rand, shares = {}, {}, {}
         blocks = g.blocks_of(units)
+        for key, us in blocks.items():                       # per-block rank-1 q is unit-norm: shares are within-block, blocks equal
+            off = 0
+            for u in us:
+                shares[u] = float((q[key][off:off + g.HEAD_DIM, 0].float() ** 2).sum()) / len(blocks)
+                off += g.HEAD_DIM
         for key, us in blocks.items():
             L = key[0]; off = 0
             for u in us:
