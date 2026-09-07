@@ -1,0 +1,23 @@
+{
+  "schema": "temporal_iswas_rank16_hidden_mask30_control_attribution_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.iswas_rank16_hidden_mask30_control_attribution_v1",
+  "question": "Are the two construction-holdout control flips introduced by the MLP0 hidden split, or inherited from the full five-MLP parent intervention?",
+  "authority_sha256": {"holdout": "346402de851dd9d600fd767532a9b0238d90296fa3ed6305344af263bfabe63e"},
+  "population": "The identical 16 temporal-v13/is-was-v12 C controls from the holdout; no control-family substitution.",
+  "arms": ["all_top50", "mask30", "all_full"],
+  "predictions": {
+    "pred_a_authority_replay_finiteness_and_price": "Holdout hash/terminal match; mask30 aggregate controls replay within 1e-6; all per-row metrics finite; observed forwards <=20.",
+    "pred_b_mask30_adds_no_collateral_over_full": "Every mask30 top-1 flip is also a full-parent flip, mask30 median KL is <= full median KL +.002, and each task margin-RMS fraction is <= full +.02.",
+    "pred_c_full_parent_explains_the_failed_absolute_gate": "The full parent flips at least the same two rows as mask30.",
+    "pred_d_top50_exposes_the_function_selectivity_tradeoff": "All-top50 has fewer flips or lower median KL than mask30, while the authority shows at least .03 less temporal target behavior.",
+    "pred_e_mask30_and_full_control_effects_are_close": "Centered mask30-minus-full logit RMS is <=5% of centered full-minus-base RMS."
+  },
+  "terminal_policy": {
+    "parent_limited_selectivity": "A-E pass: the internal MLP0 split transfers without extra collateral, but the full parent itself fails this control family.",
+    "mask_specific_collateral": "A passes and B fails.",
+    "null": "Other valid outcome.",
+    "invalid": "A fails."
+  },
+  "price": {"model_forwards_max": 20, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0},
+  "execution_policy": "managed_queue_only"
+}
