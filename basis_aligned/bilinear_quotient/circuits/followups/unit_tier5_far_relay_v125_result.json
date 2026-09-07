@@ -1,0 +1,210 @@
+{
+  "bars": {
+    "K": [
+      3,
+      3,
+      3,
+      2
+    ],
+    "band_frac": 0.5,
+    "before_max": 0.15,
+    "between_frac": 0.8,
+    "far_gap": 3,
+    "first_frac": 0.5,
+    "instr_tol": 0.02,
+    "set_min": 0.3
+  },
+  "behaviours": {
+    "narrative_tense": {
+      "between_len_mean": 5.25,
+      "cue_offset_mean": 9.25,
+      "loss": {
+        "before_all": 0.002,
+        "between_all": 0.593,
+        "between_early": 0.296,
+        "between_first": 0.118,
+        "between_late": 0.256,
+        "between_mid": 0.38,
+        "between_rest": 0.516,
+        "between_top": 0.019,
+        "far_all": 0.696,
+        "instrument": 0.0
+      },
+      "rows": 16,
+      "seconds": 5.7,
+      "units": [
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:04",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:15:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "possessive_argument": {
+      "between_len_mean": 1.0,
+      "cue_offset_mean": 5.0,
+      "loss": {
+        "before_all": 0.0,
+        "between_all": 0.473,
+        "between_early": 0.423,
+        "between_first": 0.473,
+        "between_late": 0.013,
+        "between_mid": 0.085,
+        "between_rest": null,
+        "between_top": 0.004,
+        "far_all": 0.473,
+        "instrument": 0.0
+      },
+      "rows": 16,
+      "seconds": 1.3,
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:09:head:07"
+      ]
+    },
+    "possessive_long_simple": {
+      "between_len_mean": 3.0,
+      "cue_offset_mean": 7.0,
+      "loss": {
+        "before_all": -0.0,
+        "between_all": 0.531,
+        "between_early": 0.487,
+        "between_first": 0.465,
+        "between_late": 0.035,
+        "between_mid": 0.109,
+        "between_rest": 0.057,
+        "between_top": 0.004,
+        "far_all": 0.531,
+        "instrument": -0.0
+      },
+      "rows": 16,
+      "seconds": 2.8,
+      "units": [
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:01",
+        "attn:10:head:05",
+        "attn:07:head:08"
+      ]
+    },
+    "possessive_verbfinal": {
+      "between_len_mean": 2.0,
+      "cue_offset_mean": 6.0,
+      "loss": {
+        "before_all": -0.0,
+        "between_all": 0.547,
+        "between_early": 0.483,
+        "between_first": 0.478,
+        "between_late": 0.036,
+        "between_mid": 0.102,
+        "between_rest": 0.108,
+        "between_top": 0.004,
+        "far_all": 0.547,
+        "instrument": 0.0
+      },
+      "rows": 16,
+      "seconds": 2.0,
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:10:head:01"
+      ]
+    }
+  },
+  "candidate_id": "corpus.unit_tier5_far_relay_v125",
+  "counts": {
+    "before_inert": 4,
+    "between_carries": 4,
+    "early": 3,
+    "first": 3,
+    "instrument": 4,
+    "ran": 4
+  },
+  "finished_utc": "2026-09-07T06:01:25.913127+00:00",
+  "largest_band": {
+    "narrative_tense": "mid",
+    "possessive_argument": "early",
+    "possessive_long_simple": "early",
+    "possessive_verbfinal": "early"
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_between_carries": true,
+    "pred_c_before_inert": true,
+    "pred_d_early_band": true,
+    "pred_e_first_position": true
+  },
+  "schema": "unit_tier5_far_relay_v125",
+  "seconds": 11.7,
+  "sets": [
+    "narrative_tense",
+    "possessive_argument",
+    "possessive_long_simple",
+    "possessive_verbfinal"
+  ],
+  "summary": {
+    "narrative_tense": {
+      "before_all": 0.002,
+      "between_all": 0.593,
+      "between_early": 0.296,
+      "between_first": 0.118,
+      "between_late": 0.256,
+      "between_mid": 0.38,
+      "between_rest": 0.516,
+      "between_top": 0.019,
+      "far_all": 0.696,
+      "instrument": 0.0
+    },
+    "possessive_argument": {
+      "before_all": 0.0,
+      "between_all": 0.473,
+      "between_early": 0.423,
+      "between_first": 0.473,
+      "between_late": 0.013,
+      "between_mid": 0.085,
+      "between_rest": null,
+      "between_top": 0.004,
+      "far_all": 0.473,
+      "instrument": 0.0
+    },
+    "possessive_long_simple": {
+      "before_all": -0.0,
+      "between_all": 0.531,
+      "between_early": 0.487,
+      "between_first": 0.465,
+      "between_late": 0.035,
+      "between_mid": 0.109,
+      "between_rest": 0.057,
+      "between_top": 0.004,
+      "far_all": 0.531,
+      "instrument": -0.0
+    },
+    "possessive_verbfinal": {
+      "before_all": -0.0,
+      "between_all": 0.547,
+      "between_early": 0.483,
+      "between_first": 0.478,
+      "between_late": 0.036,
+      "between_mid": 0.102,
+      "between_rest": 0.108,
+      "between_top": 0.004,
+      "far_all": 0.547,
+      "instrument": 0.0
+    }
+  }
+}
