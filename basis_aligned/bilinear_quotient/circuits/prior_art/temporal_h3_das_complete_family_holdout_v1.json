@@ -1,0 +1,26 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_das_complete_family_holdout_v1",
+  "claimed_utc": "2026-09-07T00:46:00Z",
+  "claim": "Refit noisy multi-reader rank-one H3 DAS on v1/v2 rows, select checkpoints on the complete v8 cue/construction family with the pooled step-zero axis eligible, and evaluate selected, pooled, and DIM axes once on v10/v11.",
+  "collision_search": [
+    "temporal_auxiliary_will_had_block11h3_multicue_subspace_v2",
+    "temporal_h3_das_multi_reader_frozen_axis_tournament_v1",
+    "temporal_h3_das_noisy_worst_environment_multi_reader_v1",
+    "cross-family DAS and leave-one-family-out records"
+  ],
+  "novelty": "The preceding temporal H3 fit held out rows within each fitted family and demonstrably memorized the family. This experiment moves checkpoint selection to an entirely different cue/template family and makes no update a legal selected outcome.",
+  "frozen_partition": {
+    "gradient_rows": "even rows of v1_A1, v1_A2, v2_A1, and v2_A2",
+    "checkpoint_selection": "all jointly capable v8_A1 and v8_A2 rows",
+    "sealed_evaluation": "all jointly capable v10_A1/A2 and v11_A1/A2 rows",
+    "excluded_after_outcome": "v9 is not used because its outcome for the preceding optimized axis is already open"
+  },
+  "methods": ["selected_noisy_multi_reader_DAS", "frozen_pooled_aligned", "pooled_DIM"],
+  "predictions": {
+    "selector_positive_control": "The v8 family score rejects the previously observed same-family shortcut relative to pooled aligned.",
+    "robust_update": "A nonzero selected checkpoint beats pooled aligned in sealed v10/v11 mean and worst multi-reader score.",
+    "safe_no_update": "If no trained checkpoint beats pooled aligned on v8, step zero is selected and exactly preserves the pooled sealed baseline.",
+    "stable_reader": "The selected axis beats DIM in every sealed reader family."
+  },
+  "null": "A moved axis selected by v8 that regresses relative to pooled aligned on v10/v11 is residual construction-family memorization and ends penalty tuning for this object."
+}
