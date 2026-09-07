@@ -16,7 +16,7 @@ REGISTERED BEFORE THE RUN (removal = CE damage in nat on the row's answer; ODD r
     pred_a_reproduce        pooled xdas A1 odd removal within 0.02 of v91's 1.171 (read from the receipt).
     pred_b_one_sided_a1     A1 odd: that side (remarked -> that) <= 0.10 AND whether side (wondered -> whether) >= 1.50. Worked: 0.05 / 2.2 True; 0.4 / 1.8 False.
     pred_c_that_side_flat   that-side damage <= 0.10 for ALL 13 panel verbs (seen or unseen declaratives). Worked: max 0.06 True; one at 0.3 False.
-    pred_d_whether_side     whether-side damage (asked -> whether, the panel's shared donor) >= 1.50 on ALL 13 panel rows AND both C2 sides (asked, inquired) >= 1.50.
+    pred_d_whether_side     whether-side damage (asked -> whether, the panel's shared donor; wondered for the remarked row) >= 1.50 on ALL 13 panel rows AND both C2 sides (asked, inquired) >= 1.50.
     pred_e_unseen_interrog  C3 well-formed AND both C3 sides (debated, checked -> whether) >= 0.30 x the A1 whether side with lb975 > 0.
     Prior: a True; b ~85%; c ~75%; d ~75%; e ~50% (the marker may be lexical to the pool's interrogatives; v15's fourth-map
     'questioned' transferred at 0.70 pooled, i.e. ~1.4 on its whether side, which argues for generalisation).
@@ -95,7 +95,8 @@ def main() -> None:
     a1_odd = rem(a1[1::2])                      # base remarked -> that, donor wondered -> whether
     R = {"A1_odd": a1_odd, "C_that_only_odd": rem(g.rows_of(m, "C")[1::2]), "panel": {}}
     for v in PANEL:
-        rows = g.lexical_variant(a1, {"wondered": "asked", "remarked": v})[1::2]     # base v -> that, donor asked -> whether
+        # base v -> that, donor asked -> whether (the remarked row is the A1 odd half itself: donor wondered -> whether)
+        rows = a1[1::2] if v == "remarked" else g.lexical_variant(a1, {"wondered": "asked", "remarked": v})[1::2]
         R["panel"][v] = {"seen_in_pool": v in SEEN, "removal_odd": rem(rows)}
     c_rows = g.rows_of(m, "C")
     for label, mp in (("C2_seen_interrogative", C2), ("C3_unseen_interrogative", C3)):
