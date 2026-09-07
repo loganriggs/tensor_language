@@ -1,0 +1,23 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_pooled_projector_reverse_ood_v2",
+  "question": "Does one deterministic projector fit on the complete temporal-v13/iswas-v12 target/control families resolve the split-specific reverse behavior miss on disjoint temporal-v12/iswas-v11 OOD text?",
+  "repair": "V1 is instrument-invalid because it evaluated on its own pooled target-fit rows. V2 changes only evaluation to the disjoint OOD v12/v11 authorities already used by the frozen crossfit reverse test. V1 remains immutable non-evidence.",
+  "authority": {
+    "invalid_v1_result_sha256": "a2348920adc50c8a8d156693af038c5fbade6e9c4a1f8cd943cc332a047b7e3d",
+    "v1_runner_sha256": "6cbf975c5f8f858249921a08715ed7a2cef653b0c1fa8cb4e1916f87e50f6f17",
+    "ood_helper_sha256": "96b9e3aef3b64364c7fc4c49d0af9ff35827eadb4ca5bfbdf5d2271cb26ad808",
+    "temporal_v12_capability_sha256": "4758b02cd026c85289dc3eaf352cc496d238057c6f8b52dfc6fe49ae17893324",
+    "iswas_v11_capability_sha256": "6dd757b066304d1f81ea1e52e0db601fea05adeac516a49cc84ab42bc73a86a2"
+  },
+  "fit": "Unchanged from v1: all capable temporal-v13/iswas-v12 A1/A2 target rows, both matched-control splits, and all old rank-64 MLP input-training rows.",
+  "evaluation": "Disjoint temporal-v12/iswas-v11 OOD targets and temporal-v12 P controls, reverse rank48 source execution, gain 1.0, no selection or refitting.",
+  "predictions": {
+    "pred_a_authority_disjointness_finiteness_and_exact_price": "All authorities match, fit/evaluation row IDs are disjoint, support has 48 sites, values are finite, and exactly 19 forwards execute.",
+    "pred_b_pooled_reverse_coordinates_transfer": "Every coordinate projection is at least 0.75 and mean/worst coordinate residual are each at most 0.20.",
+    "pred_c_pooled_reverse_behavior_passes": "Temporal and is/was behavior projections are each at least 0.80 and worst target residual is at most 0.15.",
+    "pred_d_pooled_reverse_controls_are_selective": "Control margin RMS is at most 0.10, median full-vocabulary KL at most 0.02, and top-one flip fraction is zero.",
+    "pred_e_pooling_resolves_the_split_failure": "The pooled minimum behavior projection exceeds the prior even-fit OOD minimum 0.7981567 and retains zero control flips."
+  },
+  "decision": "All five predictions establish a stable pooled reverse OOD interface at gain one. Failure closes complete-family pooling as a repair; the forward/OOD rank48 program remains valid but uniform bidirectional identification remains false.",
+  "price": {"model_forwards_exact": 19, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
