@@ -1,0 +1,17 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_crossfit_response_weight_interface_v1",
+  "claimed_utc": "2026-09-07T05:23:00Z",
+  "question": "Do the two selective cross-fitted response programs identify stable weight-readable subspaces inside the same eight native sites?",
+  "authorities": {"even_fit_result_sha256":"db8d94bda707546878c78d62bde3c9bbb5b5510557f6fd9b3f042dbb05359f17","odd_fit_result_sha256":"f3895b9e07557be81966914d34f2ba8cda86d08dfd53434609d9d037201ff37c","even_runner_sha256":"8843cbb584d87823aedc346361b3f62679e06b8f31901b057b80b4d6b403cad3","odd_runner_sha256":"1e5586dcfe836fb8fda63c98fdae8705d779bf7477cda9b0a82b055037d0c255"},
+  "method": "Deterministically refit both frozen rank-8 bases. Compare their principal-angle spectra sitewise. For attention sites compile Q coordinates through the exact head block of c_proj; for MLP sites pull Q back through Down to the bilinear hidden product. Verify each compiled contraction against direct response projection on the opposite target half.",
+  "predictions": {
+    "pred_a_authority_split_hash_finiteness_and_price":"Authorities, disjoint halves, basis hashes, finite tensors, and <=8 model forwards close.",
+    "pred_b_crossfit_subspaces_overlap":"At least six of eight sites have mean squared principal cosine >=0.50 and every site >=0.20.",
+    "pred_c_attention_weight_contractions_close":"For all three attention sites and both fits, compiled c_proj-coordinate writes match direct projected writes at relative squared error <=1e-10.",
+    "pred_d_mlp_weight_contractions_close":"For all five MLP sites and both fits, Down-pulled bilinear contractions match direct projected writes at relative squared error <=1e-10.",
+    "pred_e_crossfit_weight_maps_agree":"After optimal orthogonal alignment, held-out compiled write cosine is >=0.80 for at least six sites and >=0.60 for every site."
+  },
+  "terminal_policy":{"invalid":"A/C/D fails","stable_weight_readable_response_program":"all pass","operational_equivalence_only":"B or E fails"},
+  "price_upper_bound":{"model_forwards":8,"fit_updates":0,"model_updates":0,"transformer_backwards":0},
+  "decision":"A pass licenses literal projected-weight interfaces and fresh/OOD testing. Operational-equivalence-only retains causal usefulness but forbids treating one fitted coordinate basis as a stable weight circuit."
+}
