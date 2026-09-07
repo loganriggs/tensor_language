@@ -1,0 +1,355 @@
+{
+  "bars": {
+    "attn_min": 0.9,
+    "instr_tol": 0.02,
+    "k": 5,
+    "same_tol": 0.1
+  },
+  "candidate_id": "corpus.unit_seven_direction_routing_v107",
+  "finished_utc": "2026-09-07T04:12:33.967949+00:00",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_band_same": true,
+    "pred_c_direct_same": true,
+    "pred_d_attention_inert": true,
+    "pred_e_direction_leans": false
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "steps": 120
+  },
+  "schema": "circuit_unit_direction_routing_result_v1",
+  "seconds": 445.2,
+  "sets": {
+    "dative": {
+      "direction": {
+        "all": 1.187,
+        "attn_other": 0.973,
+        "mlp_band": 0.777
+      },
+      "direction_effect": 56.926,
+      "exact": {
+        "all": 1.067,
+        "attn_other": 0.962,
+        "mlp_band": 0.748
+      },
+      "exact_effect": 61.938,
+      "extraction": 0.919,
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:03:head:06",
+        "attn:11:head:02"
+      ],
+      "v105": {
+        "all": 1.067,
+        "attn_other": 0.962,
+        "mlp_band": 0.748
+      }
+    },
+    "modal_remoteness": {
+      "direction": {
+        "all": 0.67,
+        "attn_other": 0.992,
+        "mlp_band": 0.802
+      },
+      "direction_effect": 81.012,
+      "exact": {
+        "all": 0.623,
+        "attn_other": 0.992,
+        "mlp_band": 0.83
+      },
+      "exact_effect": 80.677,
+      "extraction": 1.004,
+      "units": [
+        "attn:09:head:04",
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01"
+      ],
+      "v105": {
+        "all": 0.623,
+        "attn_other": 0.992,
+        "mlp_band": 0.83
+      }
+    },
+    "polarity_licensing": {
+      "direction": {
+        "all": 0.372,
+        "attn_other": 0.946,
+        "mlp_band": 0.571
+      },
+      "direction_effect": 88.979,
+      "exact": {
+        "all": 0.352,
+        "attn_other": 0.951,
+        "mlp_band": 0.527
+      },
+      "exact_effect": 89.288,
+      "extraction": 0.997,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:05:head:03"
+      ],
+      "v105": {
+        "all": 0.352,
+        "attn_other": 0.951,
+        "mlp_band": 0.527
+      }
+    },
+    "quantifier_number": {
+      "direction": {
+        "all": 0.492,
+        "attn_other": 0.987,
+        "mlp_band": 0.675
+      },
+      "direction_effect": 76.406,
+      "exact": {
+        "all": 0.477,
+        "attn_other": 0.989,
+        "mlp_band": 0.683
+      },
+      "exact_effect": 72.789,
+      "extraction": 1.05,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:02:head:02",
+        "attn:09:head:01",
+        "attn:04:head:01",
+        "attn:13:head:06"
+      ],
+      "v105": {
+        "all": 0.477,
+        "attn_other": 0.989,
+        "mlp_band": 0.683
+      }
+    },
+    "verb_complementizer": {
+      "direction": {
+        "all": 0.254,
+        "attn_other": 0.983,
+        "mlp_band": 0.466
+      },
+      "direction_effect": 125.53,
+      "exact": {
+        "all": 0.255,
+        "attn_other": 0.987,
+        "mlp_band": 0.466
+      },
+      "exact_effect": 126.792,
+      "extraction": 0.99,
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08"
+      ],
+      "v105": {
+        "all": 0.255,
+        "attn_other": 0.987,
+        "mlp_band": 0.466
+      }
+    },
+    "verb_preposition": {
+      "direction": {
+        "all": 0.655,
+        "attn_other": 0.989,
+        "mlp_band": 0.769
+      },
+      "direction_effect": 100.372,
+      "exact": {
+        "all": 0.572,
+        "attn_other": 1.002,
+        "mlp_band": 0.783
+      },
+      "exact_effect": 98.536,
+      "extraction": 1.019,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:13:head:03"
+      ],
+      "v105": {
+        "all": 0.572,
+        "attn_other": 1.002,
+        "mlp_band": 0.783
+      }
+    },
+    "voice_frame": {
+      "direction": {
+        "all": 0.068,
+        "attn_other": 0.705,
+        "mlp_band": 0.308
+      },
+      "direction_effect": 152.381,
+      "exact": {
+        "all": 0.093,
+        "attn_other": 0.781,
+        "mlp_band": 0.323
+      },
+      "exact_effect": 153.798,
+      "extraction": 0.991,
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:16:head:08",
+        "attn:11:head:07",
+        "attn:10:head:05",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:02:head:06",
+        "attn:02:head:03"
+      ],
+      "v105": {
+        "all": 0.093,
+        "attn_other": 0.781,
+        "mlp_band": 0.323
+      }
+    }
+  },
+  "summary": {
+    "dative": {
+      "direction": {
+        "all": 1.187,
+        "attn_other": 0.973,
+        "mlp_band": 0.777
+      },
+      "exact": {
+        "all": 1.067,
+        "attn_other": 0.962,
+        "mlp_band": 0.748
+      },
+      "extraction": 0.919
+    },
+    "modal_remoteness": {
+      "direction": {
+        "all": 0.67,
+        "attn_other": 0.992,
+        "mlp_band": 0.802
+      },
+      "exact": {
+        "all": 0.623,
+        "attn_other": 0.992,
+        "mlp_band": 0.83
+      },
+      "extraction": 1.004
+    },
+    "polarity_licensing": {
+      "direction": {
+        "all": 0.372,
+        "attn_other": 0.946,
+        "mlp_band": 0.571
+      },
+      "exact": {
+        "all": 0.352,
+        "attn_other": 0.951,
+        "mlp_band": 0.527
+      },
+      "extraction": 0.997
+    },
+    "quantifier_number": {
+      "direction": {
+        "all": 0.492,
+        "attn_other": 0.987,
+        "mlp_band": 0.675
+      },
+      "exact": {
+        "all": 0.477,
+        "attn_other": 0.989,
+        "mlp_band": 0.683
+      },
+      "extraction": 1.05
+    },
+    "verb_complementizer": {
+      "direction": {
+        "all": 0.254,
+        "attn_other": 0.983,
+        "mlp_band": 0.466
+      },
+      "exact": {
+        "all": 0.255,
+        "attn_other": 0.987,
+        "mlp_band": 0.466
+      },
+      "extraction": 0.99
+    },
+    "verb_preposition": {
+      "direction": {
+        "all": 0.655,
+        "attn_other": 0.989,
+        "mlp_band": 0.769
+      },
+      "exact": {
+        "all": 0.572,
+        "attn_other": 1.002,
+        "mlp_band": 0.783
+      },
+      "extraction": 1.019
+    },
+    "voice_frame": {
+      "direction": {
+        "all": 0.068,
+        "attn_other": 0.705,
+        "mlp_band": 0.308
+      },
+      "exact": {
+        "all": 0.093,
+        "attn_other": 0.781,
+        "mlp_band": 0.323
+      },
+      "extraction": 0.991
+    }
+  }
+}
