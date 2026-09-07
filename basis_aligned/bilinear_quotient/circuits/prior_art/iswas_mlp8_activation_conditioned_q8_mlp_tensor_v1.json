@@ -1,0 +1,11 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_activation_conditioned_q8_mlp_tensor_v1",
+  "checked_utc": "2026-09-07T00:12:00Z",
+  "decision": "novel_activation_conditioned_exact_tensor_test",
+  "weight_atlas_sha256": "03e9f70bf93d96304ffef2c2f08f30633c2f044612026681f3a99ac13aa5784f",
+  "scope": "MLP10-14 on all causal-prefix positions of the jointly capable v11 A1/A2 rows",
+  "calculation": "contract exact Left/Right/Down weights with unrestricted complement-actuated minus base module inputs; separately apply the Q8 projection and its complement to the input displacement",
+  "prediction": "The exact contraction replays cached Q8 output deltas, and activation-conditioned response magnitude ranks causal singleton importance at least as well as the static Q8-to-Q8 tensor correlation of 0.70.",
+  "interpretation": "Q8-input response fraction measures direct reading of the shared subspace; complement and bilinear interaction quantify task-conditioned context dependence.",
+  "fit_policy": "zero fitted parameters and no gradient updates"
+}
