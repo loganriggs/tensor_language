@@ -1,0 +1,23 @@
+{
+  "schema": "tense_auxiliary_is_was_fresh_lexicon_v13_capability_prior_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.fresh_lexicon_v13_capability_v1",
+  "registered_utc": "2026-09-07T02:56:11.998290Z",
+  "question": "Does a construction- and lexicon-disjoint at-this/that-moment and dispatch-period bank preserve native is/was capability for five-MLP confirmation?",
+  "authority": {
+    "builder_sha256": "9b2dbe9a7f0339131ed7c0ed486b0467b44d0cbb9bb5c9dfef1ed1e987ee730a",
+    "rows_sha256": "d495ba5b993f66e277e17e2b31d73b2b0e1064c1cf3ca88c761c4fb47bcda3b0",
+    "selection_result_sha256": "144e1c001a9c186daa7e2fa426b702a390f938b6fb2f2cf27880812d366301ed"
+  },
+  "frozen_design": {
+    "novelty": "Sixteen occupations disjoint from all v1-v12 banks and new moment/dispatch-period constructions, with this/that as the aligned causal cue.",
+    "measurement": "Capability only: two native forwards over all 64 rows and both sides; no causal intervention.",
+    "price": {"model_forwards": 2, "example_evaluations": 128, "interventions": 0}
+  },
+  "predictions": {
+    "pred_a_authority_novelty_and_exact_population": "Builder, digest, construction checks, all-bank lexicon disjointness, and 64-row inventory pass.",
+    "pred_b_native_a_panel_capability": "Every A1/A2 direction-by-side cell has native accuracy at least 0.75.",
+    "pred_c_joint_capable_population": "Each A panel has at least 12 jointly base-and-donor-correct rows.",
+    "pred_d_no_causal_outcome_access_and_exact_price": "Exactly two native forwards/128 examples and no intervention outcome."
+  },
+  "decision": "Screen licenses the separately preregistered five-MLP confirmation. Null stops this population without causal access."
+}
