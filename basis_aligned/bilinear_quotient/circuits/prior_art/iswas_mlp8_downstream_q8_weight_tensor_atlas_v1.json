@@ -1,0 +1,13 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_downstream_q8_weight_tensor_atlas_v1",
+  "checked_utc": "2026-09-07T00:07:00Z",
+  "decision": "novel_exact_weight_to_causal_atlas",
+  "module_parent_sha256": "fbd5416376ce9d0a510393a3685a6c733aa071efed2340264172123fe6b6ab54",
+  "head_parent_sha256": "5cf2aa2db970b454fd01ab0ed0fef47ac46616001ca5cfced0539a77f7d6a6af",
+  "basis": "frozen shared Q8 residual basis",
+  "maps": "exact bilinear MLP write tensors and exact attention Q/K/Q2/K2/V/O/OV contractions restricted to Q8",
+  "causal_comparison": "Spearman rank comparison against preregistered singleton objective improvements for MLP10-14, downstream attention groups, and attention15 remainder heads",
+  "prediction": "Weight-only contractions are finite and nonzero; at least one exact score family positively ranks causal importance, and attention15 H1 is top-three among remainder heads.",
+  "fallback": "If static contractions do not rank causal effects, retain them as incidence maps and graduate activation-conditioned contractions rather than claiming weight norms identify the circuit.",
+  "fit_policy": "zero model forwards, zero fitted parameters, no causal-label-selected weight metric"
+}
