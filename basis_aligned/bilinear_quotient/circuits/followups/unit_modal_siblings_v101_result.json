@@ -1,0 +1,187 @@
+{
+  "answers": {
+    "base": "will",
+    "donor": "would"
+  },
+  "bars": {
+    "cap_min": 0.8,
+    "carry_frac": 0.5,
+    "rem_min": 0.4,
+    "row4_ub": 0.01,
+    "side_ratio": 3.0,
+    "spare_frac": 0.2
+  },
+  "candidate_id": "corpus.unit_modal_siblings_v101",
+  "finished_utc": "2026-09-07T03:32:30.248171+00:00",
+  "history": [
+    [
+      0,
+      25.701416015625,
+      25.68183135986328,
+      8.609635551692918e-05
+    ],
+    [
+      50,
+      0.01606830023229122,
+      0.027533115819096565,
+      0.00010839937021955848
+    ],
+    [
+      100,
+      0.011004893109202385,
+      0.018048979341983795,
+      5.61339984415099e-05
+    ],
+    [
+      119,
+      0.00969117321074009,
+      0.015382841229438782,
+      4.6431534428847954e-05
+    ]
+  ],
+  "predictions": {
+    "pred_a_capability": true,
+    "pred_b_row4_default": false,
+    "pred_c_habitual_carried": false,
+    "pred_d_habitual_spared": false,
+    "pred_e_reproduces": true
+  },
+  "removal": {
+    "A1": {
+      "base_side": {
+        "ce_damage": 0.23149840533733368,
+        "ce_lb975": 0.21318957544863223,
+        "ce_ub975": 0.2518020391464233,
+        "documents": 16,
+        "kl_mean": 0.042197463335469365,
+        "margin_damage": 2.3309753984212875,
+        "top1_change_rate": 0.1875
+      },
+      "ce_damage": 0.6147699877619743,
+      "ce_lb975": 0.48003025776706637,
+      "ce_ub975": 0.7509380334522575,
+      "documents": 32,
+      "donor_side": {
+        "ce_damage": 0.998041570186615,
+        "ce_lb975": 0.9488637275062501,
+        "ce_ub975": 1.0522631875239312,
+        "documents": 16,
+        "kl_mean": 0.27412127889692783,
+        "margin_damage": 2.492784932255745,
+        "top1_change_rate": 0.6875
+      },
+      "kl_mean": 0.1581593711161986,
+      "margin_damage": 2.4118801653385162,
+      "top1_change_rate": 0.4375
+    },
+    "C": {
+      "ce_damage": -0.002027476206421852,
+      "ce_lb975": -0.005975091364234686,
+      "ce_ub975": 0.0013618242461234322,
+      "documents": 32,
+      "kl_mean": 0.0001798882383354794,
+      "margin_damage": -0.013587962836027145,
+      "top1_change_rate": 0.03125
+    },
+    "random_siblings": {
+      "ce_damage": -0.016291826963424683,
+      "ce_lb975": -0.019509707763791084,
+      "ce_ub975": -0.013254668191075325,
+      "documents": 32,
+      "kl_mean": 5.595218522103096e-05,
+      "margin_damage": 0.001918703317642212,
+      "top1_change_rate": 0.0
+    },
+    "siblings": {
+      "base_side": {
+        "ce_damage": 0.21537433564662933,
+        "ce_lb975": 0.1932935431599617,
+        "ce_ub975": 0.23552446067333221,
+        "documents": 16,
+        "kl_mean": 0.028383867698721588,
+        "margin_damage": 1.5813556611537933,
+        "top1_change_rate": 0.0625
+      },
+      "ce_damage": 0.3442961424589157,
+      "ce_lb975": 0.2973118221387267,
+      "ce_ub975": 0.3925000803545117,
+      "documents": 32,
+      "donor_side": {
+        "ce_damage": 0.4732179492712021,
+        "ce_lb975": 0.4454840552061796,
+        "ce_ub975": 0.5034456744790077,
+        "documents": 16,
+        "kl_mean": 0.028493623132817447,
+        "margin_damage": 1.5935429781675339,
+        "top1_change_rate": 0.0
+      },
+      "kl_mean": 0.028438745415769517,
+      "margin_damage": 1.5874493196606636,
+      "top1_change_rate": 0.03125
+    }
+  },
+  "schema": "circuit_unit_modal_siblings_result_v1",
+  "seconds": 59.8,
+  "summary": {
+    "a1_sides": {
+      "will": 0.231,
+      "would": 0.998
+    },
+    "capability": {
+      "will_default": 1.0,
+      "would_habitual": 1.0
+    },
+    "habitual_over_would": 0.474,
+    "removal": {
+      "A1": [
+        0.615,
+        0.48,
+        0.751
+      ],
+      "C": [
+        -0.002,
+        -0.006,
+        0.001
+      ],
+      "random_siblings": [
+        -0.016,
+        -0.02,
+        -0.013
+      ],
+      "siblings": [
+        0.344,
+        0.297,
+        0.393
+      ]
+    },
+    "sibling_sides": {
+      "will_default": [
+        0.215,
+        0.193,
+        0.236
+      ],
+      "would_habitual": [
+        0.473,
+        0.445,
+        0.503
+      ]
+    },
+    "sibling_texts": [
+      "The maple closes early, so the dry route",
+      "Whenever the maple closed early, the dry route"
+    ],
+    "untested_sides": []
+  },
+  "units": [
+    "attn:09:head:04",
+    "attn:11:head:03",
+    "attn:15:head:05",
+    "attn:09:head:01",
+    "attn:07:head:07",
+    "attn:11:head:01",
+    "attn:09:head:07",
+    "attn:05:head:08",
+    "attn:10:head:05",
+    "attn:15:head:01"
+  ]
+}
