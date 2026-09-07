@@ -15,6 +15,9 @@ J = lambda n: json.loads((F / n).read_text())
 v66, v67, v68, v69, v70 = (J(f"unit_{n}_result.json") for n in ("verb_greedy_saturation_v66", "four_sets_greedy_saturation_v67", "greedy_sets_extraction_v68", "greedy_sets_terminal_rows_v69", "c_penalised_greedy_v70"))
 v75 = J("unit_six_sets_constrained_das_v75_result.json")
 v76 = J("unit_constrained_das_extraction_v76_result.json")
+v80 = J("unit_six_sets_cross_inert_v80_result.json")
+import os as _os
+v81 = J("unit_cross_inert_extraction_v81_result.json") if _os.path.exists(str(F / "unit_cross_inert_extraction_v81_result.json")) else None
 curves = {**v66["sets"], **v67["sets"]}
 ORDER = ["quantifier_number", "verb_preposition", "polarity_licensing", "dative", "verb_complementizer", "voice_frame"]
 r3 = lambda x: f"{x:.3f}"
@@ -45,6 +48,19 @@ for n in ORDER:
         x1 = v76["sets"][n]["extraction"]["A1"]["cdas"]; x2 = v76["sets"][n]["extraction"]["A2"]["cdas"]
         row2 = x1["point"] >= 0.8 and x1["lb95"] >= 0.6
         lines.append(f"| {n} | hub+8 constrained DAS (pooled, λ=30) | {len(v75['sets'][n]['units'])} | {r3(P['A1']['ce_damage'])} ({r3(P['A1']['ce_lb975'])}) | {r3(x1['point'])} ({r3(x1['lb95'])}); A2 {r3(x2['point'])} | {r3(P['C']['ce_damage'])} ({r3(P['C']['ce_ub975'])}); λ=0 {r3(Z['C']['ce_damage'])} | {r3(P['A2']['ce_damage'])} | — | {r3(rn['ce_damage'])} | {r3(crossp)} | {mark(row2)}/{mark(row3)}/{mark(row4)}/{mark(row5)} |")
+    if n in v80["sets"]:
+        X = v80["sets"][n]["damage"]["xctl"]; rn = v80["sets"][n]["damage"]["random"]["A1"]
+        crossx = max(abs(v) for v in X["cross"].values())
+        row3 = X["A1"]["ce_lb975"] > 0 and X["A1"]["ce_lb975"] - X["C"]["ce_ub975"] > 0
+        row4 = X["C"]["ce_ub975"] <= 0.01
+        row5 = X["A2"]["ce_lb975"] > 0 and X["A2"]["ce_damage"] >= 0.5 * X["A1"]["ce_damage"]
+        if v81 is not None:
+            x1 = v81["sets"][n]["extraction"]["A1"]["xdas"]; x2 = v81["sets"][n]["extraction"]["A2"]["xdas"]
+            ext = f"{r3(x1['point'])} ({r3(x1['lb95'])}); A2 {r3(x2['point'])}"; row2 = mark(x1["point"] >= 0.8 and x1["lb95"] >= 0.6)
+        else:
+            ext, row2 = "pending (v81)", "?"
+        unseen = r3(X["unseen"]["ce_damage"]) if "unseen" in X else "—"
+        lines.append(f"| {n} | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | {len(v80['sets'][n]['units'])} | {r3(X['A1']['ce_damage'])} ({r3(X['A1']['ce_lb975'])}) | {ext} | {r3(X['C']['ce_damage'])} ({r3(X['C']['ce_ub975'])}) | {r3(X['A2']['ce_damage'])} | unseen pair {unseen} | {r3(rn['ce_damage'])} | max abs {r3(crossx)} | {row2}/{mark(row3)}/{mark(row4)}/{mark(row5)} |")
 lines += ["", "## Sets", ""]
 for n in ORDER:
     c = curves[n]

@@ -1,4 +1,4 @@
-# Terminal evidence — removal-greedy head sets (generated 2026-09-07 01:02 UTC by ops/terminal_table_greedy_sets.py)
+# Terminal evidence — removal-greedy head sets (generated 2026-09-07 01:36 UTC by ops/terminal_table_greedy_sets.py)
 
 Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised), v75 (constrained DAS: direction = rank-1-per-block DAS on pooled A1 + v15 verb-variant EVEN rows, complement term, C-removal-inertness regularizer λ=30 on C EVEN rows; A2 and the odd rows never fitted), v76 (extraction of those directions on A1 and A2 odd rows).
 
@@ -8,29 +8,35 @@ Rows evaluated on the ODD half of each family (directions = per-block diff-in-me
 | quantifier_number | hub+3 | 5 | 0.539 (0.442) | 0.665 (0.634) | — | — | — | — | — | ✗/·/·/· |
 | quantifier_number | hub+8 | 10 | 0.720 (0.572) | 0.816 (0.775) | -0.059 (-0.035) | 0.716 | 0.700 | -0.001 | -0.010 | ✓/✓/✓/✓ |
 | quantifier_number | hub+8 constrained DAS (pooled, λ=30) | 10 | 0.738 (0.538) | 0.753 (0.705); A2 0.853 | 0.009 (0.020); λ=0 -0.046 | 0.866 | — | -0.003 | 0.022 | ✗/✓/✗/✓ |
+| quantifier_number | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | 10 | 0.731 (0.533) | 0.757 (0.710); A2 0.850 | 0.009 (0.018) | 0.887 | unseen pair 0.677 | -0.003 | max abs 0.009 | ✗/✓/✗/✓ |
 | verb_preposition | hub | 3 | 0.202 | 0.588 (0.566) | — | — | — | — | — | ✗/·/·/· |
 | verb_preposition | hub+3 | 6 | 0.476 (0.397) | 0.840 (0.803) | — | — | — | — | — | ✓/·/·/· |
 | verb_preposition | hub+8 | 11 | 0.723 (0.618) | 0.995 (0.950) | -0.241 (-0.212) | 0.542 | 0.692 | 0.003 | 0.020 | ✓/✓/✓/✓ |
 | verb_preposition | hub+8 constrained DAS (pooled, λ=30) | 11 | 0.906 (0.849) | 1.067 (1.017); A2 0.952 | -0.001 (0.003); λ=0 -0.082 | 0.655 | — | -0.001 | 0.077 | ✓/✓/✓/✓ |
+| verb_preposition | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | 11 | 0.871 (0.815) | 1.064 (1.015); A2 0.956 | -0.000 (0.003) | 0.636 | unseen pair 0.260 | -0.001 | max abs 0.005 | ✓/✓/✓/✓ |
 | polarity_licensing | hub | 4 | 0.189 | 0.598 (0.574) | — | — | — | — | — | ✗/·/·/· |
 | polarity_licensing | hub+3 | 7 | 0.386 (0.203) | 0.805 (0.780) | — | — | — | — | — | ✓/·/·/· |
 | polarity_licensing | hub+8 | 12 | 0.567 (0.349) | 0.903 (0.873) | 0.016 (0.041) | 0.634 | 0.761 | -0.000 | 0.043 | ✓/✓/✗/✓ |
 | polarity_licensing | hub+8 C-pen (λ=2) | 12 | 0.551 (0.339) | 0.908 (0.877) | 0.006 (0.030) | 0.585 | — | — | — | ✓/✓/✗/✓ |
 | polarity_licensing | hub+8 constrained DAS (pooled, λ=30) | 12 | 0.666 (0.600) | 0.937 (0.889); A2 0.863 | 0.004 (0.008); λ=0 0.206 | 0.638 | — | -0.001 | 0.006 | ✓/✓/✓/✓ |
+| polarity_licensing | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | 12 | 0.648 (0.584) | 0.935 (0.884); A2 0.845 | 0.002 (0.009) | 0.661 | unseen pair 0.642 | -0.001 | max abs 0.005 | ✓/✓/✓/✓ |
 | dative | hub | 5 | 0.282 | 0.638 (0.589) | — | — | — | — | — | ✗/·/·/· |
 | dative | hub+3 | 8 | 0.388 (0.311) | 0.776 (0.715) | — | — | — | — | — | ✗/·/·/· |
 | dative | hub+8 | 13 | 0.512 (0.411) | 0.877 (0.827) | -0.159 (-0.136) | 0.218 | 0.629 | -0.003 | 0.069 | ✓/✓/✓/✗ |
 | dative | hub+8 constrained DAS (pooled, λ=30) | 13 | 0.565 (0.482) | 0.825 (0.776); A2 0.463 | 0.006 (0.021); λ=0 0.125 | 0.313 | — | 0.002 | 0.042 | ✓/✓/✗/✓ |
+| dative | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | 13 | 0.569 (0.487) | 0.826 (0.776); A2 0.446 | 0.013 (0.026) | 0.323 | unseen pair 0.443 | 0.002 | max abs 0.017 | ✓/✓/✗/✓ |
 | verb_complementizer | hub | 3 | 0.598 | 0.591 (0.565) | — | — | — | — | — | ✗/·/·/· |
 | verb_complementizer | hub+3 | 6 | 0.900 (0.688) | 0.766 (0.740) | — | — | — | — | — | ✗/·/·/· |
 | verb_complementizer | hub+8 | 11 | 1.119 (0.863) | 0.893 (0.869) | 0.387 (0.483) | 0.679 | 0.820 | 0.004 | 0.008 | ✓/✓/✗/✓ |
 | verb_complementizer | hub+8 C-pen (λ=2) | 11 | 1.034 (0.757) | 0.824 (0.794) | 0.284 (0.355) | 0.567 | — | — | — | ✓/✓/✗/✓ |
 | verb_complementizer | hub+8 constrained DAS (pooled, λ=30) | 11 | 1.025 (0.784) | 0.880 (0.842); A2 0.835 | 0.029 (0.046); λ=0 0.733 | 0.714 | — | 0.004 | 0.033 | ✓/✓/✗/✓ |
+| verb_complementizer | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | 11 | 1.018 (0.775) | 0.873 (0.835); A2 0.823 | 0.021 (0.037) | 0.709 | unseen pair 0.720 | 0.004 | max abs 0.009 | ✓/✓/✗/✓ |
 | voice_frame | hub | 4 | 0.092 | 0.606 (0.548) | — | — | — | — | — | ✗/·/·/· |
 | voice_frame | hub+3 | 7 | 0.180 (0.125) | 0.708 (0.648) | — | — | — | — | — | ✗/·/·/· |
 | voice_frame | hub+8 | 12 | 0.322 (0.190) | 0.809 (0.750) | -0.001 (0.030) | 0.610 | 0.609 | 0.004 | 0.028 | ✓/✓/✗/✓ |
 | voice_frame | hub+8 C-pen (λ=2) | 12 | 0.276 (0.156) | 0.756 (0.696) | -0.119 (-0.093) | 0.635 | — | — | — | ✗/✓/✓/✓ |
 | voice_frame | hub+8 constrained DAS (pooled, λ=30) | 12 | 0.361 (0.193) | 0.754 (0.686); A2 0.732 | 0.007 (0.013); λ=0 0.026 | 0.716 | — | 0.004 | 0.023 | ✗/✓/✗/✓ |
+| voice_frame | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | 12 | 0.358 (0.196) | 0.752 (0.682); A2 0.726 | 0.004 (0.010) | 0.672 | unseen pair — | 0.004 | max abs 0.011 | ✗/✓/✗/✓ |
 
 ## Sets
 
