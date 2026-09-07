@@ -1,4 +1,4 @@
-# Terminal evidence — removal-greedy head sets (generated 2026-09-07 02:30 UTC by ops/terminal_table_greedy_sets.py)
+# Terminal evidence — removal-greedy head sets (generated 2026-09-07 02:33 UTC by ops/terminal_table_greedy_sets.py)
 
 Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised), v75 (constrained DAS: direction = rank-1-per-block DAS on pooled A1 + v15 verb-variant EVEN rows, complement term, C-removal-inertness regularizer λ=30 on C EVEN rows; A2 and the odd rows never fitted), v76 (extraction of those directions on A1 and A2 odd rows).
 
@@ -27,6 +27,7 @@ Rows evaluated on the ODD half of each family (directions = per-block diff-in-me
 | dative | hub+8 | 13 | 0.512 (0.411) | 0.877 (0.827) | -0.159 (-0.136) | 0.218 | 0.629 | -0.003 | 0.069 | ✓/✓/✓/✗ |
 | dative | hub+8 constrained DAS (pooled, λ=30) | 13 | 0.565 (0.482) | 0.825 (0.776); A2 0.463 | 0.006 (0.021); λ=0 0.125 | 0.313 | — | 0.002 | 0.042 | ✓/✓/✗/✓ |
 | dative | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | 13 | 0.569 (0.487) | 0.826 (0.776); A2 0.446 | 0.013 (0.026) | 0.323 | unseen pair 0.443 | 0.002 | max abs 0.017 | ✓/✓/✗/✓ |
+| dative | hub+8 full-specificity DAS, A2 EVEN in the fit pool (v89; A2 no longer held-out, the unseen fourth map is) | 13 | 0.579 (0.500) | 0.831 (0.780); A2 0.695 (0.633) | 0.015 (0.025) | 0.536 (in-pool) | unseen pair 0.474 | ext 0.001 | max abs 0.021 | ✓/✓/✗/✓ |
 | verb_complementizer | hub | 3 | 0.598 | 0.591 (0.565) | — | — | — | — | — | ✗/·/·/· |
 | verb_complementizer | hub+3 | 6 | 0.900 (0.688) | 0.766 (0.740) | — | — | — | — | — | ✗/·/·/· |
 | verb_complementizer | hub+8 | 11 | 1.119 (0.863) | 0.893 (0.869) | 0.387 (0.483) | 0.679 | 0.820 | 0.004 | 0.008 | ✓/✓/✗/✓ |

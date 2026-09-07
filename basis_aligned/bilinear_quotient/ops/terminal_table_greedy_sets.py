@@ -63,6 +63,9 @@ for n in ORDER:
             ext, row2 = "pending (v81)", "?"
         unseen = r3(X["unseen"]["ce_damage"]) if "unseen" in X else "—"
         lines.append(f"| {n} | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | {len(v80['sets'][n]['units'])} | {r3(X['A1']['ce_damage'])} ({r3(X['A1']['ce_lb975'])}) | {ext} | {r3(X['C']['ce_damage'])} ({r3(X['C']['ce_ub975'])}) | {r3(X['A2']['ce_damage'])} | unseen pair {unseen} | {r3(rn['ce_damage'])} | max abs {r3(crossx)} | {row2}/{mark(row3)}/{mark(row4)}/{mark(row5)} |")
+    if n == "dative" and _os.path.exists(str(F / "unit_dative_a2_pool_v89_result.json")):
+        D = J("unit_dative_a2_pool_v89_result.json")["sets"][n]; X = D["removal"]["xa2"]; x1 = D["extraction"]["A1"]["xa2"]; x2 = D["extraction"]["A2"]["xa2"]; rn = D["extraction"]["A1"]["random"]
+        lines.append(f"| {n} | hub+8 full-specificity DAS, A2 EVEN in the fit pool (v89; A2 no longer held-out, the unseen fourth map is) | {len(D['units'])} | {r3(X['A1']['ce_damage'])} ({r3(X['A1']['ce_lb975'])}) | {r3(x1['point'])} ({r3(x1['lb95'])}); A2 {r3(x2['point'])} ({r3(x2['lb95'])}) | {r3(X['C']['ce_damage'])} ({r3(X['C']['ce_ub975'])}) | {r3(X['A2']['ce_damage'])} (in-pool) | unseen pair {r3(X['unseen']['ce_damage'])} | ext {r3(rn['point'])} | max abs {r3(max(abs(v) for v in X['cross'].values()))} | {mark(x1['point'] >= 0.8 and x1['lb95'] >= 0.6)}/{mark(X['A1']['ce_lb975'] > 0 and X['A1']['ce_lb975'] - X['C']['ce_ub975'] > 0)}/{mark(X['C']['ce_ub975'] <= 0.01)}/{mark(X['A2']['ce_lb975'] > 0 and X['A2']['ce_damage'] >= 0.5 * X['A1']['ce_damage'])} |")
     if n in HUB16 and all(_os.path.exists(str(F / f)) for f in HUB16[n]):
         g16, d16 = (J(f) for f in HUB16[n])
         if "hub16" not in g16:  # v87 keys per set
