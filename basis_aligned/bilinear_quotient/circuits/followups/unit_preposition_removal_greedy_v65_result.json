@@ -1,0 +1,227 @@
+{
+  "bars": {
+    "bar": 0.4,
+    "cross_frac": 0.1,
+    "first_gain": 0.08,
+    "gain_min": 0.02,
+    "hold_frac": 0.5,
+    "max_add": 3,
+    "rand_frac": 0.25,
+    "sel": "A1"
+  },
+  "candidate_id": "corpus.unit_preposition_removal_greedy_v65",
+  "eval": {
+    "ext1_oth": {
+      "ce_damage": 0.2549430374056101,
+      "ce_lb975": 0.23774027482140808,
+      "ce_ub975": 0.2716533629223704,
+      "documents": 32,
+      "kl_mean": 0.11443581199273467,
+      "margin_damage": 1.9384675920009613,
+      "top1_change_rate": 0.0
+    },
+    "ext1_sel": {
+      "ce_damage": 0.2864077310077846,
+      "ce_lb975": 0.2392233997466974,
+      "ce_ub975": 0.3376707526971586,
+      "documents": 32,
+      "kl_mean": 0.12138563639018685,
+      "margin_damage": 1.925028469413519,
+      "top1_change_rate": 0.0
+    },
+    "ext2_oth": {
+      "ce_damage": 0.34207274205982685,
+      "ce_lb975": 0.32247458742931484,
+      "ce_ub975": 0.36024101618677373,
+      "documents": 32,
+      "kl_mean": 0.16782070300541818,
+      "margin_damage": 2.2620431445538998,
+      "top1_change_rate": 0.0
+    },
+    "ext2_sel": {
+      "ce_damage": 0.3814423056319356,
+      "ce_lb975": 0.3283531707711518,
+      "ce_ub975": 0.4385480874916538,
+      "documents": 32,
+      "kl_mean": 0.17120815021917224,
+      "margin_damage": 2.2337170764803886,
+      "top1_change_rate": 0.0625
+    },
+    "ext3_oth": {
+      "ce_damage": 0.46019782964140177,
+      "ce_lb975": 0.43387067161966114,
+      "ce_ub975": 0.48611025176942346,
+      "documents": 32,
+      "kl_mean": 0.2507180799730122,
+      "margin_damage": 2.6339531019330025,
+      "top1_change_rate": 0.0
+    },
+    "ext3_sel": {
+      "ce_damage": 0.47559432685375214,
+      "ce_lb975": 0.39716133011970667,
+      "ce_ub975": 0.5615081831347197,
+      "documents": 32,
+      "kl_mean": 0.25672653526999056,
+      "margin_damage": 2.5901180878281593,
+      "top1_change_rate": 0.15625
+    },
+    "final_cross": {
+      "dative": {
+        "ce_damage": 0.00021688267588615417,
+        "ce_lb975": -0.007610697858035564,
+        "ce_ub975": 0.0077813351294025775,
+        "documents": 64,
+        "kl_mean": 0.0013018405402362987,
+        "margin_damage": -0.009496867656707764,
+        "top1_change_rate": 0.0
+      },
+      "polarity_licensing": {
+        "ce_damage": -0.01914862170815468,
+        "ce_lb975": -0.02607230506837368,
+        "ce_ub975": -0.012136960960924629,
+        "documents": 64,
+        "kl_mean": 0.0011270334389337222,
+        "margin_damage": 0.0508057065308094,
+        "top1_change_rate": 0.0
+      },
+      "quantifier_number": {
+        "ce_damage": -0.011460751295089722,
+        "ce_lb975": -0.015170639008283615,
+        "ce_ub975": -0.007573430519551041,
+        "documents": 64,
+        "kl_mean": 0.000819782198050234,
+        "margin_damage": -0.012617390602827072,
+        "top1_change_rate": 0.015625
+      },
+      "voice_frame": {
+        "ce_damage": 0.012380824889987707,
+        "ce_lb975": 0.0037695666309446097,
+        "ce_ub975": 0.020782257709652183,
+        "documents": 64,
+        "kl_mean": 0.0013251739806037222,
+        "margin_damage": 0.01839802786707878,
+        "top1_change_rate": 0.0
+      }
+    },
+    "final_random_sel": {
+      "ce_damage": 0.0009501620661467314,
+      "ce_lb975": -0.0005005320650525391,
+      "ce_ub975": 0.002490838803350923,
+      "documents": 32,
+      "kl_mean": 2.808098827244976e-05,
+      "margin_damage": -0.00888194888830185,
+      "top1_change_rate": 0.0
+    },
+    "hub_oth": {
+      "ce_damage": 0.16533871390856802,
+      "ce_lb975": 0.1533837786410004,
+      "ce_ub975": 0.17731399320764465,
+      "documents": 32,
+      "kl_mean": 0.0612924441229552,
+      "margin_damage": 1.4979931227862835,
+      "top1_change_rate": 0.0
+    },
+    "hub_sel": {
+      "ce_damage": 0.2019428419880569,
+      "ce_lb975": 0.16338234121212736,
+      "ce_ub975": 0.24386383425444363,
+      "documents": 32,
+      "kl_mean": 0.07873794855549932,
+      "margin_damage": 1.600498527288437,
+      "top1_change_rate": 0.0
+    }
+  },
+  "even_damage": {
+    "final": 0.4680797941982746,
+    "hub": 0.19653950911015272
+  },
+  "final": [
+    "attn:06:head:03",
+    "attn:13:head:08",
+    "attn:08:head:08",
+    "attn:11:head:03",
+    "attn:14:head:08",
+    "attn:07:head:08"
+  ],
+  "finished_utc": "2026-09-07T00:07:53.865560+00:00",
+  "hub": [
+    "attn:06:head:03",
+    "attn:13:head:08",
+    "attn:08:head:08"
+  ],
+  "path": [
+    {
+      "added": "attn:11:head:03",
+      "even_damage": 0.2788281235843897,
+      "gain_even": 0.08228861447423697,
+      "runner_up": [
+        [
+          "attn:14:head:08",
+          0.275519160553813
+        ],
+        [
+          "attn:14:head:03",
+          0.26250112196430564
+        ],
+        [
+          "attn:07:head:08",
+          0.2557488139718771
+        ]
+      ],
+      "step": 0
+    },
+    {
+      "added": "attn:14:head:08",
+      "even_damage": 0.37098106648772955,
+      "gain_even": 0.09215294290333986,
+      "runner_up": [
+        [
+          "attn:14:head:03",
+          0.3581818947568536
+        ],
+        [
+          "attn:07:head:08",
+          0.35733382776379585
+        ],
+        [
+          "attn:08:head:01",
+          0.3198729152791202
+        ]
+      ],
+      "step": 1
+    },
+    {
+      "added": "attn:07:head:08",
+      "even_damage": 0.4680797941982746,
+      "gain_even": 0.09709872771054506,
+      "runner_up": [
+        [
+          "attn:14:head:03",
+          0.4576850663870573
+        ],
+        [
+          "attn:08:head:01",
+          0.4193058805540204
+        ],
+        [
+          "attn:16:head:08",
+          0.39530142676085234
+        ]
+      ],
+      "step": 2
+    }
+  ],
+  "predictions": {
+    "pred_a_first_gain": true,
+    "pred_b_reaches_bar": true,
+    "pred_c_cross_clean": true,
+    "pred_d_random": true,
+    "pred_e_selection_holds": true
+  },
+  "rows": {
+    "A1": 32,
+    "A2": 32
+  },
+  "schema": "circuit_unit_preposition_removal_greedy_result_v1",
+  "seconds": 31.807425048202276
+}
