@@ -1,0 +1,15 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_lexical_ood_v1",
+  "question": "Does the frozen rank48 source-to-weight-reader circuit transfer to held-out capable construction and lexicon banks?",
+  "frozen_program": "Support is the selected rank48 arm (rank49 minus L1H5). Projectors, attention weight pullbacks, rank64 MLP covectors, actuation, and thresholds are unchanged.",
+  "ood_population": "Temporal fresh-v12 A1/A2 and is/was fresh-lexicon-v11 A1/A2, selected only by their already sealed native capability receipts; temporal-v12 P rows are controls. Circuit support was selected on temporal-v13/iswas-v12 and reader bases were trained on temporal-v11/iswas-v10.",
+  "predictions": {
+    "pred_a_authority_population_finiteness_and_price": "all authorities replay, 48 frozen sites execute, target source changes one aligned token, values are finite, and <=22 forwards execute",
+    "pred_b_ood_coordinates_transfer": "both cross-fits have every coordinate projection >=0.75 and mean residual <=0.20",
+    "pred_c_ood_behavior_transfer": "both fits have per-task behavior projection >=0.80 and worst target residual <=0.15",
+    "pred_d_ood_controls_are_selective": "both fits have control margin RMS <=0.10, median full-vocabulary KL <=0.02, and flip fraction <=0.05",
+    "pred_e_ood_crossfit_is_stable": "minimum coordinate projections differ by <=0.05 and per-task behavior projections differ by <=0.05 across fits"
+  },
+  "decision": "Passing promotes rank48 from an in-population circuit candidate to a lexical/construction OOD source-to-weight-reader program. Failure freezes further pruning and localizes transfer failure by coordinate before any optimization.",
+  "price": {"model_forwards_max": 22, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
