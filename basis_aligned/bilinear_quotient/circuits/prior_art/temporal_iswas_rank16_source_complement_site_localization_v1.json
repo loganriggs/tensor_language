@@ -27,7 +27,7 @@
   },
   "terminal_policy": {
     "localized_nonlinear_complement_site": "A-E pass; freeze the singleton ordering for a prospective greedy add-back.",
-    "distributed_additive_complement": "A, D, and E pass but B fails; freeze a multi-site greedy order.",
+    "distributed_additive_complement": "A, D, and E pass but B or C fails; freeze a multi-site greedy order rather than claiming one nonlinear site.",
     "conditional_complement_interaction": "A passes but E fails; run a bounded pairwise factorial rather than greedy composition.",
     "selectivity_blocked_residual": "A passes but D fails; do not promote an add-back without a new selective factorization.",
     "invalid": "A fails."
