@@ -1,0 +1,39 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_upstream_tensor_ranked_greedy_program_v1",
+  "claimed_utc": "2026-09-07T04:09:00Z",
+  "question": "Does the tensor-ranked upstream writer signal compose into a small causal program, or is its MLP1-dominated ranking generic donor transport?",
+  "authorities": {
+    "promoted_atlas_sha256": "9b76cb14b1793c83f8dc71ad45dc9da72cb16ce36d8462bd6789d7070e6ed52b",
+    "full_atlas_sha256": "0cc9909dcab7a17b93820300da56a07f4cd9a2610f71a1de1c7008710d064467",
+    "atlas_runner_sha256": "6e28d38ec1446eafb3518c1bfe603a5e3469ceadb6f80266e2c695a274692366",
+    "five_mlp_confirmation_sha256": "9fc9c6aad9257ba1d75745bc1938ec2451120c1363a66ec933cae222d43c515d"
+  },
+  "pool": "The frozen first 20 sites of the promoted tensor-incidence ranking; no site may enter from outside the pool.",
+  "target_rows": "The same 24 fresh temporal-v13 and 30 is/was-v12 replay rows used by the atlas.",
+  "controls": "Eight frozen same-answer C rows from each builder, selected by row order before causal outcomes, with exact base/donor token alignment required.",
+  "objective": "For temporal and is/was separately, compute normalized squared residual to the full donor response for behavior, physical mode 1, and physical mode 2. Greedy choice minimizes worst cell then mean cell over the six target cells.",
+  "search": "At each of at most eight steps, evaluate every remaining pool member jointly with the selected set and take the deterministic best improvement. Also evaluate the complete top-20 pool, every selected leave-one-out arm, the best singleton, and base self-patch.",
+  "predictions": {
+    "pred_a_authority_alignment_self_patch_finiteness_and_price": "All frozen authorities and target/control populations close; self-patch <=1e-4; all outputs finite; registered price closes.",
+    "pred_b_top20_pool_is_target_sufficient": "The complete top-20 union has worst target residual <=0.10.",
+    "pred_c_eight_site_greedy_program_is_selective": "A program of at most eight sites has worst target residual <=0.15 while its absolute same-answer C margin effect is <=10% of its target full-effect scale in both tasks.",
+    "pred_d_selected_sites_are_jointly_necessary": "Removing every selected site worsens mean target residual by at least 0.01, or the deterministic backward-pruned subset satisfies that bar.",
+    "pred_e_shared_writer_structure_survives_composition": "MLP1 is retained, at least one of L9H1/L9H4/MLP7/MLP9 is retained, and the selected union improves worst target residual by at least 0.20 over the best singleton."
+  },
+  "terminal_policy": {
+    "invalid": "A fails",
+    "selective_upstream_tensor_program": "all five pass",
+    "generic_transport_null": "target sufficiency holds but C controls fail",
+    "distributed_program_null": "top20 works but no <=8-site program meets target",
+    "upstream_composition_null": "top20 itself fails"
+  },
+  "price_upper_bound": {
+    "target_model_forwards": 150,
+    "control_model_forwards": 4,
+    "example_evaluations": 8420,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "decision": "A positive result promotes the upstream writer union into the end-to-end five-MLP program. Any null remains evidence about composition or selectivity, not a reason to change the atlas ranking post hoc."
+}
