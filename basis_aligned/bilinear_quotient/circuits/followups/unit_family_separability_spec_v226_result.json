@@ -1,0 +1,593 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 4,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v226",
+  "families": {
+    "adjective_preposition": [
+      "adjective_preposition_fond",
+      "adjective_preposition_similar",
+      "same_different_preposition",
+      "identical_distinct_preposition"
+    ],
+    "animacy_wh": [
+      "animacy",
+      "pronoun_animacy_he_it",
+      "dative_animacy_to_the",
+      "wh_argument_who_what",
+      "wh_adjunct_when_where"
+    ]
+  },
+  "finished_utc": "2026-09-07T18:36:20.445825+00:00",
+  "members": {
+    "adjective_preposition_fond": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.2079,
+            "ce_lb975": 1.1006,
+            "ce_ub975": 1.3247
+          },
+          "C": {
+            "ce_damage": 0.0019,
+            "ce_lb975": -0.0005,
+            "ce_ub975": 0.0043
+          },
+          "extraction": 0.991,
+          "sib_abs_max": 0.0063,
+          "siblings": {
+            "adjective_preposition_similar": -0.0021,
+            "identical_distinct_preposition": 0.0001,
+            "same_different_preposition": 0.0063
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.1997,
+            "ce_lb975": 1.105,
+            "ce_ub975": 1.2994
+          },
+          "C": {
+            "ce_damage": 0.0019,
+            "ce_lb975": -0.0014,
+            "ce_ub975": 0.0051
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.0271,
+          "siblings": {
+            "adjective_preposition_similar": 0.0007,
+            "identical_distinct_preposition": -0.0271,
+            "same_different_preposition": 0.0118
+          }
+        }
+      },
+      "exact_held": 0.91,
+      "family": "adjective_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 72.9,
+      "separable": true,
+      "units": [
+        "attn:08:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08"
+      ]
+    },
+    "adjective_preposition_similar": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9495,
+            "ce_lb975": 0.9012,
+            "ce_ub975": 0.9989
+          },
+          "C": {
+            "ce_damage": 0.0082,
+            "ce_lb975": 0.0008,
+            "ce_ub975": 0.0152
+          },
+          "extraction": 1.009,
+          "sib_abs_max": 0.0151,
+          "siblings": {
+            "adjective_preposition_fond": -0.0131,
+            "identical_distinct_preposition": 0.0151,
+            "same_different_preposition": -0.0099
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.935,
+            "ce_lb975": 0.8801,
+            "ce_ub975": 0.996
+          },
+          "C": {
+            "ce_damage": -0.0019,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0015
+          },
+          "extraction": 1.009,
+          "sib_abs_max": 0.5278,
+          "siblings": {
+            "adjective_preposition_fond": -0.0768,
+            "identical_distinct_preposition": 0.5278,
+            "same_different_preposition": 0.2741
+          }
+        }
+      },
+      "exact_held": 0.879,
+      "family": "adjective_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 63.6,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:11:head:03",
+        "attn:16:head:08",
+        "attn:14:head:03",
+        "attn:09:head:01",
+        "attn:04:head:07",
+        "attn:09:head:07"
+      ]
+    },
+    "dative_animacy_to_the": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.3864,
+            "ce_lb975": 0.2803,
+            "ce_ub975": 0.5045
+          },
+          "C": {
+            "ce_damage": 0.0013,
+            "ce_lb975": -0.0058,
+            "ce_ub975": 0.0086
+          },
+          "extraction": 1.013,
+          "sib_abs_max": 0.0112,
+          "siblings": {
+            "animacy": -0.0112,
+            "pronoun_animacy_he_it": -0.0004,
+            "wh_adjunct_when_where": 0.004,
+            "wh_argument_who_what": -0.0055
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.4013,
+            "ce_lb975": 0.2918,
+            "ce_ub975": 0.5209
+          },
+          "C": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.0097,
+            "ce_ub975": 0.0046
+          },
+          "extraction": 1.048,
+          "sib_abs_max": 0.1415,
+          "siblings": {
+            "animacy": -0.1415,
+            "pronoun_animacy_he_it": 0.0277,
+            "wh_adjunct_when_where": 0.0167,
+            "wh_argument_who_what": -0.0214
+          }
+        }
+      },
+      "exact_held": 0.974,
+      "family": "animacy_wh",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 18,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 93.5,
+      "separable": true,
+      "units": [
+        "attn:09:head:07",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:11:head:02",
+        "attn:04:head:00",
+        "attn:04:head:05",
+        "attn:05:head:06",
+        "attn:09:head:01",
+        "attn:09:head:05",
+        "attn:07:head:08",
+        "attn:09:head:08",
+        "attn:02:head:03",
+        "attn:04:head:01",
+        "attn:10:head:02",
+        "attn:06:head:04",
+        "attn:06:head:00",
+        "attn:05:head:02",
+        "attn:15:head:01"
+      ]
+    },
+    "identical_distinct_preposition": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8362,
+            "ce_lb975": 0.7793,
+            "ce_ub975": 0.8966
+          },
+          "C": {
+            "ce_damage": 0.0001,
+            "ce_lb975": -0.0145,
+            "ce_ub975": 0.0149
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.0071,
+          "siblings": {
+            "adjective_preposition_fond": 0.0052,
+            "adjective_preposition_similar": 0.0039,
+            "same_different_preposition": 0.0071
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8343,
+            "ce_lb975": 0.7655,
+            "ce_ub975": 0.9081
+          },
+          "C": {
+            "ce_damage": -0.0113,
+            "ce_lb975": -0.0249,
+            "ce_ub975": 0.0001
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.2244,
+          "siblings": {
+            "adjective_preposition_fond": -0.0522,
+            "adjective_preposition_similar": 0.2244,
+            "same_different_preposition": 0.024
+          }
+        }
+      },
+      "exact_held": 0.894,
+      "family": "adjective_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 73.7,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:08:head:08",
+        "attn:16:head:08",
+        "attn:07:head:00",
+        "attn:09:head:01",
+        "attn:09:head:00",
+        "attn:09:head:07"
+      ]
+    },
+    "wh_adjunct_when_where": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.08,
+            "ce_lb975": 0.0684,
+            "ce_ub975": 0.0918
+          },
+          "C": {
+            "ce_damage": 0.006,
+            "ce_lb975": -0.0032,
+            "ce_ub975": 0.0143
+          },
+          "extraction": 0.684,
+          "sib_abs_max": 0.008,
+          "siblings": {
+            "animacy": -0.008,
+            "dative_animacy_to_the": -0.0069,
+            "pronoun_animacy_he_it": 0.0019,
+            "wh_argument_who_what": -0.0015
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.0096,
+            "ce_lb975": 0.0075,
+            "ce_ub975": 0.0115
+          },
+          "C": {
+            "ce_damage": 0.0009,
+            "ce_lb975": -0.0051,
+            "ce_ub975": 0.0072
+          },
+          "extraction": 0.091,
+          "sib_abs_max": 0.0149,
+          "siblings": {
+            "animacy": -0.0149,
+            "dative_animacy_to_the": 0.0021,
+            "pronoun_animacy_he_it": -0.0019,
+            "wh_argument_who_what": -0.0042
+          }
+        }
+      },
+      "exact_held": 0.908,
+      "family": "animacy_wh",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 5,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 75.1,
+      "separable": false,
+      "units": [
+        "attn:11:head:01",
+        "attn:11:head:06",
+        "attn:10:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "wh_argument_who_what": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.2966,
+            "ce_lb975": 0.2119,
+            "ce_ub975": 0.3775
+          },
+          "C": {
+            "ce_damage": -0.0078,
+            "ce_lb975": -0.0306,
+            "ce_ub975": 0.0122
+          },
+          "extraction": 0.946,
+          "sib_abs_max": 0.0049,
+          "siblings": {
+            "animacy": -0.0007,
+            "dative_animacy_to_the": 0.0027,
+            "pronoun_animacy_he_it": -0.0046,
+            "wh_adjunct_when_where": -0.0049
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.2149,
+            "ce_lb975": 0.1598,
+            "ce_ub975": 0.27
+          },
+          "C": {
+            "ce_damage": -0.0255,
+            "ce_lb975": -0.038,
+            "ce_ub975": -0.0109
+          },
+          "extraction": 0.71,
+          "sib_abs_max": 0.0394,
+          "siblings": {
+            "animacy": 0.0049,
+            "dative_animacy_to_the": 0.0135,
+            "pronoun_animacy_he_it": 0.0394,
+            "wh_adjunct_when_where": -0.0032
+          }
+        }
+      },
+      "exact_held": 0.895,
+      "family": "animacy_wh",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 93.4,
+      "separable": true,
+      "units": [
+        "attn:10:head:03",
+        "attn:11:head:01",
+        "attn:07:head:00",
+        "attn:11:head:06",
+        "attn:15:head:01",
+        "attn:13:head:02",
+        "attn:06:head:03",
+        "attn:09:head:01",
+        "attn:08:head:03",
+        "attn:05:head:06",
+        "attn:09:head:07",
+        "attn:13:head:07",
+        "attn:07:head:07",
+        "attn:12:head:04",
+        "attn:08:head:08"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_dative_animacy": true,
+    "pred_b_who_what": true,
+    "pred_c_when_where_refused": true,
+    "pred_d_identical_distinct": true,
+    "pred_e_adj_prep_kept": true,
+    "pred_f_row4_kept": false,
+    "pred_g_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "dative_animacy_to_the",
+      "wh_argument_who_what",
+      "wh_adjunct_when_where",
+      "identical_distinct_preposition",
+      "adjective_preposition_fond",
+      "adjective_preposition_similar"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v227 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v226",
+  "seconds": 475.6,
+  "separable_counts": {
+    "adjective_preposition": 3,
+    "animacy_wh": 2
+  },
+  "summary": {
+    "adjective_preposition_fond": {
+      "fam": [
+        0.991,
+        0.0063,
+        0.0043
+      ],
+      "family": "adjective_preposition",
+      "n_units": 7,
+      "own": [
+        0.993,
+        0.0271,
+        0.0051
+      ],
+      "separable": true
+    },
+    "adjective_preposition_similar": {
+      "fam": [
+        1.009,
+        0.0151,
+        0.0152
+      ],
+      "family": "adjective_preposition",
+      "n_units": 11,
+      "own": [
+        1.009,
+        0.5278,
+        0.0015
+      ],
+      "separable": true
+    },
+    "dative_animacy_to_the": {
+      "fam": [
+        1.013,
+        0.0112,
+        0.0086
+      ],
+      "family": "animacy_wh",
+      "n_units": 18,
+      "own": [
+        1.048,
+        0.1415,
+        0.0046
+      ],
+      "separable": true
+    },
+    "identical_distinct_preposition": {
+      "fam": [
+        0.993,
+        0.0071,
+        0.0149
+      ],
+      "family": "adjective_preposition",
+      "n_units": 11,
+      "own": [
+        0.999,
+        0.2244,
+        0.0001
+      ],
+      "separable": true
+    },
+    "wh_adjunct_when_where": {
+      "fam": [
+        0.684,
+        0.008,
+        0.0143
+      ],
+      "family": "animacy_wh",
+      "n_units": 5,
+      "own": [
+        0.091,
+        0.0149,
+        0.0072
+      ],
+      "separable": false
+    },
+    "wh_argument_who_what": {
+      "fam": [
+        0.946,
+        0.0049,
+        0.0122
+      ],
+      "family": "animacy_wh",
+      "n_units": 15,
+      "own": [
+        0.71,
+        0.0394,
+        -0.0109
+      ],
+      "separable": true
+    }
+  }
+}
