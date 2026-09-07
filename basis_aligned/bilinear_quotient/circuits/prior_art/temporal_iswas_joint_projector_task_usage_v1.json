@@ -1,0 +1,14 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_joint_projector_task_usage_v1",
+  "question": "Within the already causal joint rank-eight MLP response projectors, do temporal and is/was excite shared quadratic weight-function directions or task-typed complements?",
+  "construction": "Freeze the two joint cross-fit projectors. On lexical-OOD temporal-v12 and iswas-v11 rows, project each task's native response deltas into the joint eight coordinates, take the top two right-singular usage directions, map them back through Q and Down^T into symmetric Left/Right quadratic forms, and compare task subspaces by principal angles. Report cross-task projected energy as an activation control.",
+  "predictions": {
+    "pred_a_authority_joint_hashes_finiteness_and_price": "joint projector hashes replay, the prior quadratic metric identity passed, all quantities are finite, and exactly 12 forwards execute",
+    "pred_b_two_usage_modes_capture_task_response": "top two joint-coordinate usage modes retain >=0.50 response-coordinate energy for both tasks at every MLP site and fit",
+    "pred_c_shared_quadratic_usage_exists": "at least two MLP sites have a largest temporal/iswas quadratic usage cosine >=0.80 under both fits",
+    "pred_d_task_typed_complements_also_exist": "at least two sites have a smaller quadratic usage cosine <=0.50 under both fits",
+    "pred_e_joint_usage_overlap_is_crossfit_stable": "sitewise mean quadratic cosine differs by <=0.10 and shared-direction count above 0.80 differs by at most one across fits"
+  },
+  "decision": "Shared directions that pass become candidates for held-out shared-only causal swaps; task-specific complements are tested separately. If overlap remains weak, the tasks reuse native sites and a joint interface but not a common MLP quadratic computation.",
+  "price": {"model_forwards_max": 12, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
