@@ -1,0 +1,39 @@
+{
+  "schema": "temporal_iswas_rank16_source_mask26_construction_holdout_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_rank16_source_mask26_construction_holdout_v1",
+  "question": "Does the frozen MLP1/3/6 complement plus MLP0/2 union source program remain full-equivalent and jointly necessary on new capability-qualified constructions?",
+  "authorities": {
+    "composition_result": "176ea2d57508fb42e83159c8f17a21044c7fcbda7b4e847113c92b15b441bea3",
+    "composition_runner": "a0fa322f30fa7de04c26ad8bec6f3bd363c5bf3c0e9d0c92ab2b3c80e83fba79",
+    "temporal_v15_builder": "e11f490895dcbfaf06039640b6b980c9d0ef7f8e25d823a4b95803fd67617418",
+    "temporal_v15_capability": "5d60c5733147419ea3a988b842c5bee96652a0f6f939910cd03e1687b5478867",
+    "iswas_v15_builder": "e5774cd5e93c564ad3bdb3169c482c2e1ddb295b85cc7c9885a7b077493a8343",
+    "iswas_v15_capability": "fbe395731de4fa7850999864f67bd45ec709e5da3e3e237e9dcae352c1211c2f",
+    "iswas_v15_capability_rows": "ecc34f5d089f31269de29250d8d63843ce49c622f5cc0161cbea3afb9042d7f0"
+  },
+  "population": "All jointly capable A1/A2 temporal-v15 and is/was-v15 rows; eight deterministic C controls per task. Row IDs must be disjoint from temporal-v13/is/was-v12 selection rows.",
+  "frozen_program": {
+    "selected_mask": 26,
+    "complement_sites": ["MLP1", "MLP3", "MLP6"],
+    "union_sites": ["MLP0", "MLP2"],
+    "leave_one_out_masks": [24, 18, 10],
+    "gain": 1.15,
+    "target_equivalence_tolerance": 0.015
+  },
+  "predictions": {
+    "pred_a_authority_disjointness_replay_closure_finiteness_and_price": "All hashes/manifests match; new target row IDs are disjoint from selection; masks 0/31 exactly replay union/full; union-complement closure <=1e-6; all reports finite; observed forwards <=64.",
+    "pred_b_full_parent_remains_functional": "Full rank16 satisfies response projection >=.8, response RSE <=.2, and behavior projection >=.75 on both tasks.",
+    "pred_c_mask26_is_functional_and_full_equivalent": "Mask26 is functional and differs from full by <=.015 in behavior and signed response for both tasks.",
+    "pred_d_mask26_adds_no_parent_collateral": "Its flipped controls are a subset of full, median KL <=full+.002, and every task margin RMS fraction <=full+.02.",
+    "pred_e_each_selected_site_is_jointly_necessary": "Masks 24, 18, and 10 each fail the same combined functional/equivalence/selectivity rule."
+  },
+  "terminal_policy": {
+    "stable_minimal_source_complement_program": "A-E pass.",
+    "transfers_but_not_minimal": "A-D pass but E fails.",
+    "construction_specific_source_mask": "A and B pass but C or D fails.",
+    "parent_construction_failure": "A passes but B fails.",
+    "invalid": "A fails."
+  },
+  "price": {"model_forwards_max": 64, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0},
+  "execution_policy": "managed_queue_only"
+}
