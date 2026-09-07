@@ -1,0 +1,45 @@
+{
+  "schema": "temporal_iswas_v15_attention8_9_11_complete_head_atlas_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_attention8_9_11_complete_head_atlas_v1",
+  "question": "Which heads inside the three strongest v15 attention modules carry their behavioral response, and are the heads visible alone or only conditionally within the complete module?",
+  "authorities": {
+    "module_atlas_result": "b04b049407b9a92e585550951e07ec92374a07fff70bdce8a61aba4613663468",
+    "module_atlas_runner": "450835763a1db0ea5586265a70775b57551a6820aa7107d4f4c50ea5e2cc3958"
+  },
+  "selection_rule": "The parent module atlas prospectively chose the three largest attention singleton modules by absolute behavior: attention 8, 9, and 11. No head outcome entered this selection.",
+  "population": "Exactly the parent's 16 A1 plus 16 A2 v15 rows in frozen order.",
+  "interventions": {
+    "singletons": "Complete donor pre-projection response for each of all nine heads at attention 8, 9, and 11, installed alone.",
+    "conditional_leave_one_out": "At each selected attention layer, install all eight donor heads except one; compare with that layer's all-nine-head arm.",
+    "controls": "Base-head self-patch across all three layers and all-nine-head replay of each parent complete-attention singleton."
+  },
+  "known_head_controls": {
+    "attention8": [1],
+    "attention9": [1, 4],
+    "attention11": [3]
+  },
+  "predictions": {
+    "pred_a_authority_population_self_reconstruction_finiteness_and_exact_price": "Parent hashes/order match; base self-patch <=1e-4; each all-nine-head arm replays its parent complete-attention behavior and final response within 1e-5; all metrics finite; exactly 60 forwards execute.",
+    "pred_b_at_least_one_standalone_head_is_material": "At least one of 27 singleton heads has absolute behavior projection >=.10 and >=.75 rowwise causal direction.",
+    "pred_c_known_heads_are_enriched": "In at least two of the three layers, a prior known head is among the layer's top three by max of absolute standalone behavior and conditional signed necessity.",
+    "pred_d_conditional_head_necessity_is_material": "At least one head changes its all-nine-head layer projection by absolute >=.10 when omitted.",
+    "pred_e_head_support_is_not_singleton_only": "At least two distinct heads have max standalone/conditional absolute contribution >=.08."
+  },
+  "terminal_policy": {
+    "localized_head": "A-D pass and the largest standalone head reaches .30 behavior projection.",
+    "distributed_head_set": "A-E pass and no standalone head reaches .30.",
+    "known_head_construction_shift": "A, B, and D pass but C fails.",
+    "conditional_only_head_set": "A, C, and D pass but B fails.",
+    "head_singleton_and_necessity_null": "A passes but both B and D fail.",
+    "invalid": "A fails."
+  },
+  "next_branch": "Run a frozen greedy combination of material heads across layers 8/9/11 with top MLP modules; a dominant head first receives answer-preserving and unrelated control tests.",
+  "price": {
+    "model_forwards_exact": 60,
+    "rows_per_forward": 32,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "execution_policy": "managed_queue_only"
+}
