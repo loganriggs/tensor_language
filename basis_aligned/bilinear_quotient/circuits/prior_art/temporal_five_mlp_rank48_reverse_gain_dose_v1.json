@@ -1,0 +1,20 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_reverse_gain_dose_v1",
+  "question": "Is the rank48 reverse-OOD behavioral miss a scalar interface undergain, or does it persist under a broad frozen dose response?",
+  "status": "Post-hoc mechanism diagnostic: gain 1.25 is motivated by the prior approximately 0.80 reverse projection and cannot by itself upgrade the circuit's prospective evidence tier.",
+  "authority": {
+    "reverse_result_sha256": "68e7fab4d108d365771105441ff7ac4d67a5533122dc9592f1260d984870824b",
+    "support_result_sha256": "92384a4496c7e3ceb5dbccecfd8ef65a61e7f5c219e52b5cf919b91ef1ba5fe2",
+    "ood_helper_sha256": "96b9e3aef3b64364c7fc4c49d0af9ff35827eadb4ca5bfbdf5d2271cb26ad808"
+  },
+  "gains": [0.75, 1.0, 1.25, 1.5],
+  "predictions": {
+    "pred_a_authority_reproduction_finiteness_and_price": "Authorities match, gain-1 behavior reproduces the prior reverse result within 0.002, all values are finite, and at most 21 forwards execute.",
+    "pred_b_reverse_behavior_has_monotone_dose_response": "For every task and cross-fit, behavior signed projection is strictly increasing over the four gains.",
+    "pred_c_fixed_125_gain_calibrates_reverse_behavior": "At gain 1.25 every task/cross-fit behavior projection is in [0.90,1.10] and worst target residual is at most 0.15.",
+    "pred_d_fixed_125_gain_remains_selective": "At gain 1.25 both fits retain control margin RMS at most 0.10, median full-vocabulary KL at most 0.02, and flip fraction at most 0.05.",
+    "pred_e_calibrated_crossfit_is_stable": "At gain 1.25 per-task behavior projections differ by at most 0.05 across cross-fits."
+  },
+  "decision": "All five predictions diagnose scalar reverse-interface undergain and license a separately selected, new-family calibration test. Any failure keeps reverse necessity formally unresolved and redirects to task/site localization rather than support pruning.",
+  "price": {"model_forwards_max": 21, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
