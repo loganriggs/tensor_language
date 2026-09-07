@@ -1,0 +1,36 @@
+{
+  "schema": "temporal_iswas_rank16_source_task_pair_weight_groups_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.iswas_rank16_source_task_pair_weight_groups_v1",
+  "question": "Within the five exact rank-16 source interfaces, do canonical shared-mean and task-contrast weight directions define stable, causally distinct temporal/is-was source groups?",
+  "novelty_search": "Prior rank-46 work typed downstream response modes, and the rank-16 compiler mapped the five source interfaces exactly into native Down weights. No receipt canonically splits those compiled source maps into shared versus task-contrast groups and executes the resulting physical weight patches in the complete model.",
+  "authorities": {
+    "weight_compiler_audit": "0ef59ddb33f3d0534e5ecc283844189683eb73b9c2f8ba40f7a7af91f4a14d0b",
+    "mask30_holdout": "346402de851dd9d600fd767532a9b0238d90296fa3ed6305344af263bfabe63e",
+    "mask30_control_attribution": "7c25c516398c4daa97522c19bfc5b27ff663ce73f225f7b9e1061f9571f82ebf",
+    "task_mode_helper": "f0f448113b4862f7b6451b01bd3f9c5df24d211a83a3996bb0e72833457d94e4",
+    "mathematical_review": "811d43e42c6257fb7546a11e9626c5145a2f126c8990de9c3dd5fc2ea7f9dd01"
+  },
+  "fit_and_identification": "For each MLP0/1/2/3/6, form A=Down^T Q in R^(4608x16), then Z_task=delta_hidden_task A. Fit temporal and is/was rank-4 right singular spaces. Use their CS canonical pairs to define physical shared-mean and task-contrast blocks. Repeat on even/odd row halves before fitting the frozen all-row blocks.",
+  "physical_patch": "For coordinate block B, install delta_y=(delta_hidden A B)(Q B)^T at each source MLP with the frozen gain 1.15. This is invariant to an orthogonal change of rank-16 interface gauge.",
+  "arms": ["full_rank16", "shared_mean", "task_contrast", "mean_plus_contrast", "own_task", "cross_task", "mean_plus_contrast_complement"],
+  "evaluation": "Execute every arm in the complete model on the transferred temporal-v13/is-was-v12 target and matched-control families. Score signed downstream response, behavior, row-level KL/flips, exact block closure, spectral gaps, and even/odd projector stability.",
+  "predictions": {
+    "pred_a_authority_replay_closure_finiteness_and_price": "All authorities match; full-rank16 replays its parent within 1e-5; union plus orthogonal complement closes within 1e-6; all metrics are finite; observed forwards <=48.",
+    "pred_b_task_pair_blocks_are_crossfit_stable": "At least four of five sites have even/odd minimum canonical cosine >=.70 for both the shared-mean and task-contrast blocks.",
+    "pred_c_own_task_beats_cross_task": "Own-task behavior signed projection exceeds cross-task by >=.10 for both tasks.",
+    "pred_d_mean_plus_contrast_is_functional_and_full_equivalent": "The union passes the existing response/behavior functional bars and differs from full-rank16 by <=.03 on each response signed projection and behavior signed projection.",
+    "pred_e_union_complement_is_insufficient": "The orthogonal complement has absolute response and behavior signed projection <=.50 for both tasks.",
+    "pred_f_weight_grouping_adds_no_parent_collateral": "Union control flips are a subset of full-parent flips, median KL <= full+.002, and each task margin-RMS fraction <= full+.02."
+  },
+  "terminal_policy": {
+    "stable_task_pair_source_weight_circuit": "A-F pass.",
+    "functional_unstable_task_blocks": "A and D pass but B fails.",
+    "shared_source_group_only": "A, B, and D pass but task ownership C fails.",
+    "probe_basis_only": "A passes but D fails.",
+    "invalid": "A fails."
+  },
+  "next_if_positive": "Run full native-site singleton patches followed by greedy composition, licensed by the prior five-site higher-order energy .00138.",
+  "next_if_negative": "Retain only crossfit-stable degenerate blocks and test downstream-reader-defined generalized eigenmodes rather than rotating another activation SVD.",
+  "price": {"model_forwards_max": 48, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0},
+  "execution_policy": "managed_queue_only"
+}
