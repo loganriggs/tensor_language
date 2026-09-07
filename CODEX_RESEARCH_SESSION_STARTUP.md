@@ -141,6 +141,12 @@ The reusable single-panel fit core is
 `basis_aligned/bilinear_quotient/ops/construction_oracle_projector_fit.py`; it must be integrated
 into a hash-bound managed runner without changing the completed parent artifact.
 
+The integration is now complete in
+`basis_aligned/bilinear_quotient/ops/run_temporal_iswas_v15_construction_oracle_projective_bisector_v1.py`
+at reviewed SHA-256 `f1a1fae56a6c78e4a0b093ab49032649d8d1d66ecee3f2876540417f8f40bc3d`.
+After confirming that hash and the current managed queue, enqueue it through `ops/enqueue.sh`; do
+not run it directly.
+
 Do not overstate the exact-weight result.  A hash-bound zero-model path audit proved that every
 current DAS outcome clamps the complete attention-15 donor head output after layer-15 Q/K/V has
 been computed.  Thus the causal projector effect can travel through the residual skip/MLP15 and
