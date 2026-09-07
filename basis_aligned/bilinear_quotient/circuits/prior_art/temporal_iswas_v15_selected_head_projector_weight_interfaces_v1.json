@@ -1,0 +1,45 @@
+{
+  "schema": "temporal_iswas_v15_selected_head_projector_weight_interfaces_prior_v1",
+  "candidate_id": "temporal_iswas.v15_selected_head_projector_weight_interfaces_v1",
+  "registered_utc": "2026-09-07T22:44:00Z",
+  "question": "Which exact upstream value-path writers and downstream Q/K/V/MLP interfaces are geometrically compatible with the cross-fitted rank-one head-response projectors?",
+  "prior_art": {
+    "searched": [
+      "temporal_iswas two-mode weight pullback v1-v3",
+      "temporal_iswas rank4 upstream weight-edge atlases v1-v2",
+      "iswas MLP8 downstream Q8 and source-position weight atlases",
+      "temporal/iswas canonical downstream reader and complete module atlases"
+    ],
+    "novelty": "Earlier weight atlases translate older Q8/residual task modes or rank-four source programs. None translates the newly selected four independent 128-dimensional head-response projectors from target-feasible DAS.",
+    "scope_limit": "Pure weight geometry cannot prove an activation-conditioned causal reader or writer. All rankings remain diagnostic until sealed construction transfer and reset/rescue validate them."
+  },
+  "authority": {
+    "das_result_sha256": "0e3ee2641a8f7c38ebad5cb0b73cf71461e2cd9bd96cdcb30a581e2f8d7bd30b",
+    "fastload_sha256": "5803de7f127d1f556470107b559c06daecf7fbc2bccf4574aeb1c347b6225d90",
+    "checkpoint_revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "frozen_design": {
+    "sources": ["L8H1", "L9H1", "L9H4", "L11H3"],
+    "folds": ["0", "1"],
+    "forward_map": "For head h at layer l, residual write w_lh = W_O[l][:, h*128:(h+1)*128] u_lh.",
+    "downstream_score": "For each later attention factor matrix A and same/later-layer MLP input matrix M, report ||A w||/(||A||_F ||w||) or ||M w||/(||M||_F ||w||).",
+    "value_pullback": "v_lh = W_V[l,h]^T u_lh; rank earlier attention W_O slices and MLP Down matrices by ||v^T W||/(||v|| ||W||_F). This covers the value path only, not QK routing.",
+    "price": {
+      "model_forwards": 0,
+      "example_evaluations": 0,
+      "fit_updates": 0,
+      "model_updates": 0,
+      "transformer_backwards": 0,
+      "checkpoint_loads": 1
+    }
+  },
+  "predictions": {
+    "pred_a_authority_exact_map_finiteness_and_price": "All authorities match, eight W_O embedding closures are <=1e-7, sign-gauge scores are invariant <=1e-12, all scores are finite, and the declared zero-forward price is exact.",
+    "pred_b_reader_rankings_are_fold_stable": "For every source, Spearman correlation between the two full downstream reader rankings is at least .80.",
+    "pred_c_known_l15_readers_are_enriched": "For each fold, at least one of L15H1 or L15H5 is in the top downstream quartile for at least three of four sources.",
+    "pred_d_sources_converge_on_shared_downstream_interfaces": "In each fold, at least one exact reader label is in the top ten for at least three of four sources.",
+    "pred_e_known_serial_value_writers_are_enriched": "L8H1 is top-quartile for at least one L9 target in both folds, and at least one of L9H1/L9H4 is top-quartile for L11H3 in both folds."
+  },
+  "decision": "If fold-stable shared readers are found, preregister causal reset/rescue only after a projector passes construction transfer. If rankings are unstable or diffuse, weight translation cannot rescue the current subspace claim."
+}
