@@ -1,0 +1,232 @@
+{
+  "bars": {
+    "K": [
+      5,
+      5,
+      2
+    ],
+    "before_max": 0.15,
+    "direct_frac": 0.5,
+    "far_gap": 3,
+    "instr_tol": 0.02,
+    "offsets": [
+      1,
+      2,
+      3
+    ],
+    "source_frac": 0.7
+  },
+  "behaviours": {
+    "lexical_number_pp": {
+      "between_len_mean": 0.0,
+      "carriers": [
+        "attn:04:head:05",
+        "attn:02:head:06",
+        "attn:04:head:07",
+        "attn:03:head:06"
+      ],
+      "cue_offset_mean": 3.19,
+      "loss": {
+        "before": 0.006,
+        "between": 0.0,
+        "cue": 0.139,
+        "none": 0.0,
+        "reference": 0.205,
+        "source": 0.139
+      },
+      "rows": 16,
+      "seconds": 0.4
+    },
+    "narrative_tense": {
+      "between_len_mean": 5.25,
+      "carriers": [
+        "attn:05:head:01",
+        "attn:05:head:06",
+        "attn:07:head:07",
+        "attn:07:head:00"
+      ],
+      "cue_offset_mean": 9.25,
+      "loss": {
+        "before": -0.005,
+        "between": 0.022,
+        "cue": 0.011,
+        "none": 0.0,
+        "reference": 0.082,
+        "source": 0.036
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "perfect_number": {
+      "between_len_mean": 0.0,
+      "carriers": [
+        "attn:04:head:05",
+        "attn:02:head:06",
+        "attn:04:head:07",
+        "attn:03:head:06"
+      ],
+      "cue_offset_mean": 3.19,
+      "loss": {
+        "before": -0.001,
+        "between": 0.0,
+        "cue": 0.178,
+        "none": 0.0,
+        "reference": 0.214,
+        "source": 0.178
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "possessive_argument": {
+      "between_len_mean": 1.0,
+      "carriers": [
+        "attn:05:head:03"
+      ],
+      "cue_offset_mean": 5.0,
+      "loss": {
+        "before": -0.0,
+        "between": 0.081,
+        "cue": 0.003,
+        "none": 0.0,
+        "reference": 0.158,
+        "source": 0.087
+      },
+      "rows": 16,
+      "seconds": 0.2
+    },
+    "possessive_medial": {
+      "between_len_mean": 0.0,
+      "carriers": [
+        "attn:02:head:06",
+        "attn:04:head:05",
+        "attn:01:head:03",
+        "attn:02:head:08"
+      ],
+      "cue_offset_mean": 4.0,
+      "loss": {
+        "before": 0.004,
+        "between": 0.0,
+        "cue": 0.102,
+        "none": 0.0,
+        "reference": 0.292,
+        "source": 0.102
+      },
+      "rows": 16,
+      "seconds": 0.2
+    },
+    "possessive_verbfinal": {
+      "between_len_mean": 2.0,
+      "carriers": [
+        "attn:05:head:03"
+      ],
+      "cue_offset_mean": 6.0,
+      "loss": {
+        "before": 0.0,
+        "between": 0.11,
+        "cue": 0.003,
+        "none": 0.0,
+        "reference": 0.157,
+        "source": 0.114
+      },
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "quantifier_number": {
+      "between_len_mean": 0.0,
+      "carriers": [
+        "attn:00:head:03",
+        "attn:01:head:03",
+        "attn:02:head:08",
+        "attn:03:head:06"
+      ],
+      "cue_offset_mean": 4.0,
+      "loss": {
+        "before": 0.0,
+        "between": 0.0,
+        "cue": 0.11,
+        "none": 0.0,
+        "reference": 0.391,
+        "source": 0.11
+      },
+      "rows": 16,
+      "seconds": 0.2
+    }
+  },
+  "candidate_id": "corpus.unit_tier5_carrier_read_source_v126",
+  "counts": {
+    "before_inert": 7,
+    "instrument": 7,
+    "number_direct": 2,
+    "possessive_relay": 2,
+    "ran": 7,
+    "source": 2
+  },
+  "finished_utc": "2026-09-07T06:05:46.177253+00:00",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_source_reads": false,
+    "pred_c_before_inert": true,
+    "pred_d_possessive_relay": true,
+    "pred_e_number_direct": true
+  },
+  "schema": "unit_tier5_carrier_read_source_v126",
+  "seconds": 1.9,
+  "summary": {
+    "lexical_number_pp": {
+      "before": 0.006,
+      "between": 0.0,
+      "cue": 0.139,
+      "none": 0.0,
+      "reference": 0.205,
+      "source": 0.139
+    },
+    "narrative_tense": {
+      "before": -0.005,
+      "between": 0.022,
+      "cue": 0.011,
+      "none": 0.0,
+      "reference": 0.082,
+      "source": 0.036
+    },
+    "perfect_number": {
+      "before": -0.001,
+      "between": 0.0,
+      "cue": 0.178,
+      "none": 0.0,
+      "reference": 0.214,
+      "source": 0.178
+    },
+    "possessive_argument": {
+      "before": -0.0,
+      "between": 0.081,
+      "cue": 0.003,
+      "none": 0.0,
+      "reference": 0.158,
+      "source": 0.087
+    },
+    "possessive_medial": {
+      "before": 0.004,
+      "between": 0.0,
+      "cue": 0.102,
+      "none": 0.0,
+      "reference": 0.292,
+      "source": 0.102
+    },
+    "possessive_verbfinal": {
+      "before": 0.0,
+      "between": 0.11,
+      "cue": 0.003,
+      "none": 0.0,
+      "reference": 0.157,
+      "source": 0.114
+    },
+    "quantifier_number": {
+      "before": 0.0,
+      "between": 0.0,
+      "cue": 0.11,
+      "none": 0.0,
+      "reference": 0.391,
+      "source": 0.11
+    }
+  }
+}
