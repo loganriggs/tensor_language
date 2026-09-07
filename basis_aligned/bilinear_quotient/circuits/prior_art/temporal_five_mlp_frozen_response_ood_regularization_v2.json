@@ -1,0 +1,20 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_frozen_response_ood_regularization_v2",
+  "correction_only": "v1 incorrectly mapped a versioned temporal task_id to the is/was normalization scale; v2 classifies task families by the temporal_auxiliary prefix",
+  "frozen_from_v1": {
+    "projectors": "both sealed rank-8 cross-fit projector families",
+    "target_rows": "temporal v10 and is/was v11 jointly-capable A1/A2 rows",
+    "controls": "temporal-v10 P plus endpoint-matched validation controls",
+    "noise_fraction": 0.1,
+    "noise_seeds": [1701, 1702, 1703],
+    "all_thresholds": "unchanged from v1"
+  },
+  "predictions": {
+    "pred_a_authority_hashes_disjointness_finiteness_and_price": "sealed authorities, disjoint fresh targets, exact projector hash replay",
+    "pred_b_both_frozen_projectors_transfer_cleanly": "worst target residual <= 0.15 and per-task signed projection >= 0.70",
+    "pred_c_transfer_survives_activation_noise": "every 10% noise arm has worst target residual <= 0.25 and per-task projection >= 0.60",
+    "pred_d_controls_are_output_inert": "per-task normalized margin RMS <= 0.10, median full-vocabulary KL <= 0.02 nat, top-1 flip fraction <= 0.05",
+    "pred_e_crossfit_effects_agree_ood": "per-task clean projection difference <= 0.15"
+  },
+  "price": {"model_forwards_max": 27, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}

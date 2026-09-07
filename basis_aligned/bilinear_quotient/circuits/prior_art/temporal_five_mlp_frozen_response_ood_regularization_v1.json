@@ -1,0 +1,28 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_frozen_response_ood_regularization_v1",
+  "claim_scope": "prospective frozen-projector transfer and anti-memorization red-team",
+  "frozen_before_run": {
+    "projectors": "the two independently fit rank-8 projector families whose tensor hashes are sealed in the cross-fit weight-interface result",
+    "target_authorities": [
+      "temporal will/had fresh v10 jointly-capable A1/A2 rows",
+      "is/was fresh lexicon v11 jointly-capable A1/A2 rows"
+    ],
+    "noise_fraction": 0.1,
+    "noise_seeds": [1701, 1702, 1703],
+    "controls": "fresh temporal-v10 P plus the endpoint-matched validation control atlas"
+  },
+  "predictions": {
+    "pred_a_authority_hashes_disjointness_finiteness_and_price": "all authorities are sealed; fresh targets do not overlap fit rows; refit tensor hashes exactly reproduce both frozen projector families",
+    "pred_b_both_frozen_projectors_transfer_cleanly": "for each projector, worst normalized target residual <= 0.15 and temporal/is-was signed behavior projection >= 0.70",
+    "pred_c_transfer_survives_activation_noise": "at 10% sitewise donor-delta RMS noise, every seed/projector has worst target residual <= 0.25 and both task projections >= 0.60",
+    "pred_d_controls_are_output_inert": "each projector has normalized control margin RMS <= 0.10 per control task, median full-vocabulary KL(base||projected) <= 0.02 nat, and top-1 flip fraction <= 0.05",
+    "pred_e_crossfit_effects_agree_ood": "clean temporal and is/was signed projections differ by <= 0.15 between the two independently fit projectors"
+  },
+  "decision": "All five predictions support a stable reusable response program. Clean-only success with noise or KL failure is classified as a memorization/fragility null. Authority or hash failure is invalid.",
+  "price": {
+    "model_forwards_max": 27,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  }
+}
