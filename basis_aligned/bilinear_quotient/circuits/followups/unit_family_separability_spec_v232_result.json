@@ -1,0 +1,2090 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 10,
+    "k_kept": 13,
+    "k_new": 2,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v232",
+  "families": {
+    "animacy_wh": [
+      "animacy",
+      "pronoun_animacy_he_it",
+      "dative_animacy_to_the",
+      "wh_argument_who_what",
+      "wh_adjunct_when_where",
+      "relative_animacy_whom_which",
+      "reflexive_animacy_himself_itself",
+      "relative_adverb_why_where",
+      "animacy_indefinite_someone_something",
+      "participle_animacy_interested_interesting"
+    ],
+    "duration": [
+      "duration_point_since_for",
+      "duration_point_within_by"
+    ],
+    "number_readout": [
+      "reflexive_number",
+      "pronoun_number",
+      "demonstrative_number",
+      "reciprocal",
+      "possessive_number",
+      "quantifier_number",
+      "possessive_verbfinal",
+      "object_pronoun_number",
+      "possessive_number_its_their",
+      "demonstrative_number_that_those",
+      "pronoun_number_it_they"
+    ],
+    "person_readout": [
+      "person_possessive",
+      "person_possessive_plural",
+      "reflexive_person",
+      "object_pronoun_person",
+      "reflexive_person_plural",
+      "object_pronoun_person_plural",
+      "person_reflexive_ourselves_themselves"
+    ]
+  },
+  "finished_utc": "2026-09-07T20:44:08.795482+00:00",
+  "members": {
+    "dative_animacy_to_the": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.3649,
+            "ce_lb975": 0.2712,
+            "ce_ub975": 0.4667
+          },
+          "C": {
+            "ce_damage": 0.0001,
+            "ce_lb975": -0.0119,
+            "ce_ub975": 0.0132
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.0192,
+          "siblings": {
+            "animacy": -0.0192,
+            "animacy_indefinite_someone_something": 0.0038,
+            "participle_animacy_interested_interesting": 0.0021,
+            "pronoun_animacy_he_it": 0.0006,
+            "reflexive_animacy_himself_itself": 0.0042,
+            "relative_adverb_why_where": -0.0068,
+            "relative_animacy_whom_which": 0.0092,
+            "wh_adjunct_when_where": -0.0022,
+            "wh_argument_who_what": -0.0021
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.4013,
+            "ce_lb975": 0.2918,
+            "ce_ub975": 0.5209
+          },
+          "C": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.0097,
+            "ce_ub975": 0.0046
+          },
+          "extraction": 1.048,
+          "sib_abs_max": 0.1976,
+          "siblings": {
+            "animacy": -0.1415,
+            "animacy_indefinite_someone_something": 0.0048,
+            "participle_animacy_interested_interesting": -0.0336,
+            "pronoun_animacy_he_it": 0.0277,
+            "reflexive_animacy_himself_itself": 0.0263,
+            "relative_adverb_why_where": -0.1976,
+            "relative_animacy_whom_which": -0.0252,
+            "wh_adjunct_when_where": 0.0167,
+            "wh_argument_who_what": -0.0214
+          }
+        }
+      },
+      "exact_held": 0.974,
+      "family": "animacy_wh",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 18,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 167.1,
+      "separable": true,
+      "units": [
+        "attn:09:head:07",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:11:head:02",
+        "attn:04:head:00",
+        "attn:04:head:05",
+        "attn:05:head:06",
+        "attn:09:head:01",
+        "attn:09:head:05",
+        "attn:07:head:08",
+        "attn:09:head:08",
+        "attn:02:head:03",
+        "attn:04:head:01",
+        "attn:10:head:02",
+        "attn:06:head:04",
+        "attn:06:head:00",
+        "attn:05:head:02",
+        "attn:15:head:01"
+      ]
+    },
+    "demonstrative_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6051,
+            "ce_lb975": 0.4856,
+            "ce_ub975": 0.7256
+          },
+          "C": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0058,
+            "ce_ub975": 0.0027
+          },
+          "extraction": 0.99,
+          "sib_abs_max": 0.0042,
+          "siblings": {
+            "demonstrative_number_that_those": 0.0008,
+            "object_pronoun_number": 0.0037,
+            "possessive_number": -0.0004,
+            "possessive_number_its_their": 0.0007,
+            "possessive_verbfinal": 0.0042,
+            "pronoun_number": -0.0004,
+            "pronoun_number_it_they": 0.0023,
+            "quantifier_number": -0.0001,
+            "reciprocal": 0.0004,
+            "reflexive_number": 0.0016
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.611,
+            "ce_lb975": 0.4963,
+            "ce_ub975": 0.728
+          },
+          "C": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.0074,
+            "ce_ub975": 0.0018
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0665,
+          "siblings": {
+            "demonstrative_number_that_those": 0.0665,
+            "object_pronoun_number": 0.0316,
+            "possessive_number": 0.0381,
+            "possessive_number_its_their": 0.0556,
+            "possessive_verbfinal": 0.0498,
+            "pronoun_number": -0.0151,
+            "pronoun_number_it_they": 0.0031,
+            "quantifier_number": 0.0322,
+            "reciprocal": 0.0508,
+            "reflexive_number": 0.027
+          }
+        }
+      },
+      "exact_held": 0.898,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 148.1,
+      "separable": true,
+      "units": [
+        "attn:11:head:02",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:04:head:01",
+        "attn:05:head:06",
+        "attn:16:head:08",
+        "attn:06:head:03",
+        "attn:15:head:01"
+      ]
+    },
+    "demonstrative_number_that_those": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.476,
+            "ce_lb975": 0.4047,
+            "ce_ub975": 0.5454
+          },
+          "C": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0148,
+            "ce_ub975": 0.0114
+          },
+          "extraction": 0.891,
+          "sib_abs_max": 0.0208,
+          "siblings": {
+            "demonstrative_number": 0.02,
+            "object_pronoun_number": 0.0206,
+            "possessive_number": 0.0124,
+            "possessive_number_its_their": -0.0016,
+            "possessive_verbfinal": -0.008,
+            "pronoun_number": -0.0023,
+            "pronoun_number_it_they": 0.0055,
+            "quantifier_number": 0.0039,
+            "reciprocal": -0.0026,
+            "reflexive_number": -0.0208
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5263,
+            "ce_lb975": 0.4589,
+            "ce_ub975": 0.594
+          },
+          "C": {
+            "ce_damage": -0.0141,
+            "ce_lb975": -0.0313,
+            "ce_ub975": 0.0027
+          },
+          "extraction": 0.99,
+          "sib_abs_max": 0.232,
+          "siblings": {
+            "demonstrative_number": -0.0223,
+            "object_pronoun_number": -0.0783,
+            "possessive_number": 0.0921,
+            "possessive_number_its_their": 0.0027,
+            "possessive_verbfinal": 0.1825,
+            "pronoun_number": 0.0594,
+            "pronoun_number_it_they": 0.0888,
+            "quantifier_number": -0.0199,
+            "reciprocal": 0.1961,
+            "reflexive_number": 0.232
+          }
+        }
+      },
+      "exact_held": 0.888,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 16,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 117.6,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:05:head:06",
+        "attn:08:head:08",
+        "attn:11:head:01",
+        "attn:08:head:03",
+        "attn:13:head:07",
+        "attn:09:head:07",
+        "attn:10:head:03",
+        "attn:05:head:03",
+        "attn:10:head:08",
+        "attn:10:head:01",
+        "attn:11:head:03",
+        "attn:12:head:04",
+        "attn:07:head:00",
+        "attn:15:head:01",
+        "attn:07:head:08"
+      ]
+    },
+    "duration_point_since_for": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8899,
+            "ce_lb975": 0.803,
+            "ce_ub975": 0.9835
+          },
+          "C": {
+            "ce_damage": 0.0185,
+            "ce_lb975": -0.0013,
+            "ce_ub975": 0.0402
+          },
+          "extraction": 1.029,
+          "sib_abs_max": 0.0093,
+          "siblings": {
+            "duration_point_within_by": 0.0093
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.913,
+            "ce_lb975": 0.8638,
+            "ce_ub975": 0.965
+          },
+          "C": {
+            "ce_damage": -0.0005,
+            "ce_lb975": -0.006,
+            "ce_ub975": 0.0053
+          },
+          "extraction": 1.027,
+          "sib_abs_max": 0.146,
+          "siblings": {
+            "duration_point_within_by": 0.146
+          }
+        }
+      },
+      "exact_held": 0.908,
+      "family": "duration",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 59.5,
+      "separable": true,
+      "units": [
+        "attn:04:head:01",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:03:head:06",
+        "attn:11:head:02",
+        "attn:05:head:06",
+        "attn:05:head:03",
+        "attn:03:head:07",
+        "attn:09:head:04",
+        "attn:11:head:01",
+        "attn:03:head:00",
+        "attn:14:head:03"
+      ]
+    },
+    "duration_point_within_by": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8327,
+            "ce_lb975": 0.7811,
+            "ce_ub975": 0.8881
+          },
+          "C": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.0066,
+            "ce_ub975": 0.001
+          },
+          "extraction": 0.98,
+          "sib_abs_max": 0.0133,
+          "siblings": {
+            "duration_point_since_for": -0.0133
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.7108,
+            "ce_lb975": 0.6224,
+            "ce_ub975": 0.8026
+          },
+          "C": {
+            "ce_damage": -0.0007,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.004
+          },
+          "extraction": 0.98,
+          "sib_abs_max": 0.0503,
+          "siblings": {
+            "duration_point_since_for": 0.0503
+          }
+        }
+      },
+      "exact_held": 0.866,
+      "family": "duration",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 19,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 50.7,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:04:head:01",
+        "attn:06:head:03",
+        "attn:05:head:08",
+        "attn:09:head:07",
+        "attn:11:head:02",
+        "attn:03:head:06",
+        "attn:16:head:08",
+        "attn:12:head:08",
+        "attn:09:head:05",
+        "attn:03:head:07",
+        "attn:03:head:03",
+        "attn:10:head:01",
+        "attn:02:head:03",
+        "attn:10:head:05",
+        "attn:01:head:02",
+        "attn:08:head:08",
+        "attn:06:head:04",
+        "attn:11:head:01"
+      ]
+    },
+    "object_pronoun_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7,
+            "ce_lb975": 0.585,
+            "ce_ub975": 0.8264
+          },
+          "C": {
+            "ce_damage": -0.0035,
+            "ce_lb975": -0.0057,
+            "ce_ub975": -0.0015
+          },
+          "extraction": 0.912,
+          "sib_abs_max": 0.0331,
+          "siblings": {
+            "demonstrative_number": 0.001,
+            "demonstrative_number_that_those": 0.0091,
+            "possessive_number": 0.0142,
+            "possessive_number_its_their": -0.0001,
+            "possessive_verbfinal": -0.0331,
+            "pronoun_number": 0.0033,
+            "pronoun_number_it_they": 0.0088,
+            "quantifier_number": -0.0005,
+            "reciprocal": 0.0085,
+            "reflexive_number": 0.0041
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.7599,
+            "ce_lb975": 0.6448,
+            "ce_ub975": 0.8875
+          },
+          "C": {
+            "ce_damage": -0.0008,
+            "ce_lb975": -0.0024,
+            "ce_ub975": 0.0008
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.3008,
+          "siblings": {
+            "demonstrative_number": -0.0752,
+            "demonstrative_number_that_those": 0.2115,
+            "possessive_number": 0.1884,
+            "possessive_number_its_their": 0.237,
+            "possessive_verbfinal": -0.0633,
+            "pronoun_number": 0.1895,
+            "pronoun_number_it_they": 0.3008,
+            "quantifier_number": -0.0281,
+            "reciprocal": 0.0228,
+            "reflexive_number": 0.0939
+          }
+        }
+      },
+      "exact_held": 0.877,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 6,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 148.4,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:11:head:01",
+        "attn:10:head:05",
+        "attn:05:head:06"
+      ]
+    },
+    "object_pronoun_person_plural": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6101,
+            "ce_lb975": 0.5486,
+            "ce_ub975": 0.6836
+          },
+          "C": {
+            "ce_damage": -0.001,
+            "ce_lb975": -0.0071,
+            "ce_ub975": 0.0057
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.0213,
+          "siblings": {
+            "object_pronoun_person": 0.0213,
+            "person_possessive": -0.0015,
+            "person_possessive_plural": 0.008,
+            "person_reflexive_ourselves_themselves": 0.0017,
+            "reflexive_person": 0.0026,
+            "reflexive_person_plural": -0.0016
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5881,
+            "ce_lb975": 0.5095,
+            "ce_ub975": 0.6767
+          },
+          "C": {
+            "ce_damage": 0.0019,
+            "ce_lb975": -0.0021,
+            "ce_ub975": 0.0059
+          },
+          "extraction": 1.01,
+          "sib_abs_max": 0.1252,
+          "siblings": {
+            "object_pronoun_person": 0.1188,
+            "person_possessive": -0.0218,
+            "person_possessive_plural": 0.1252,
+            "person_reflexive_ourselves_themselves": 0.0755,
+            "reflexive_person": -0.0066,
+            "reflexive_person_plural": 0.0577
+          }
+        }
+      },
+      "exact_held": 0.892,
+      "family": "person_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 81.4,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:09:head:08",
+        "attn:13:head:02",
+        "attn:06:head:01",
+        "attn:08:head:05",
+        "attn:05:head:01",
+        "attn:16:head:01",
+        "attn:10:head:02"
+      ]
+    },
+    "person_possessive": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0729,
+            "ce_lb975": 0.8316,
+            "ce_ub975": 1.2913
+          },
+          "C": {
+            "ce_damage": -0.0024,
+            "ce_lb975": -0.0071,
+            "ce_ub975": 0.0023
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.0257,
+          "siblings": {
+            "object_pronoun_person": 0.0153,
+            "object_pronoun_person_plural": -0.0038,
+            "person_possessive_plural": 0.0034,
+            "person_reflexive_ourselves_themselves": -0.0046,
+            "reflexive_person": 0.0257,
+            "reflexive_person_plural": 0.0181
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.1203,
+            "ce_lb975": 0.8635,
+            "ce_ub975": 1.364
+          },
+          "C": {
+            "ce_damage": -0.0024,
+            "ce_lb975": -0.0062,
+            "ce_ub975": 0.0014
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.6295,
+          "siblings": {
+            "object_pronoun_person": 0.2847,
+            "object_pronoun_person_plural": 0.0121,
+            "person_possessive_plural": -0.0114,
+            "person_reflexive_ourselves_themselves": -0.0416,
+            "reflexive_person": 0.6295,
+            "reflexive_person_plural": 0.5217
+          }
+        }
+      },
+      "exact_held": 0.9,
+      "family": "person_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 83.2,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:09:head:06",
+        "attn:10:head:05",
+        "attn:15:head:01",
+        "attn:13:head:02",
+        "attn:16:head:01",
+        "attn:10:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:06:head:01",
+        "attn:05:head:03",
+        "attn:12:head:04",
+        "attn:05:head:01",
+        "attn:08:head:05"
+      ]
+    },
+    "person_possessive_plural": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9813,
+            "ce_lb975": 0.9201,
+            "ce_ub975": 1.0463
+          },
+          "C": {
+            "ce_damage": 0.0025,
+            "ce_lb975": -0.0026,
+            "ce_ub975": 0.0071
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 0.0135,
+          "siblings": {
+            "object_pronoun_person": 0.0037,
+            "object_pronoun_person_plural": 0.0022,
+            "person_possessive": -0.0041,
+            "person_reflexive_ourselves_themselves": -0.0081,
+            "reflexive_person": 0.0038,
+            "reflexive_person_plural": -0.0135
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9941,
+            "ce_lb975": 0.9301,
+            "ce_ub975": 1.0609
+          },
+          "C": {
+            "ce_damage": 0.0028,
+            "ce_lb975": -0.0031,
+            "ce_ub975": 0.009
+          },
+          "extraction": 0.994,
+          "sib_abs_max": 0.3981,
+          "siblings": {
+            "object_pronoun_person": 0.123,
+            "object_pronoun_person_plural": 0.3981,
+            "person_possessive": 0.0539,
+            "person_reflexive_ourselves_themselves": 0.1843,
+            "reflexive_person": 0.0458,
+            "reflexive_person_plural": 0.2789
+          }
+        }
+      },
+      "exact_held": 0.892,
+      "family": "person_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 18,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 91.3,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:10:head:05",
+        "attn:08:head:01",
+        "attn:15:head:01",
+        "attn:05:head:03",
+        "attn:03:head:04",
+        "attn:16:head:01",
+        "attn:10:head:01",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:08:head:05",
+        "attn:06:head:01",
+        "attn:04:head:05",
+        "attn:13:head:02",
+        "attn:12:head:04",
+        "attn:04:head:04",
+        "attn:11:head:06",
+        "attn:14:head:05"
+      ]
+    },
+    "person_reflexive_ourselves_themselves": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9613,
+            "ce_lb975": 0.7162,
+            "ce_ub975": 1.2238
+          },
+          "C": {
+            "ce_damage": -0.004,
+            "ce_lb975": -0.0088,
+            "ce_ub975": 0.0008
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.0128,
+          "siblings": {
+            "object_pronoun_person": 0.0128,
+            "object_pronoun_person_plural": 0.0094,
+            "person_possessive": -0.0025,
+            "person_possessive_plural": 0.0014,
+            "reflexive_person": 0.0017,
+            "reflexive_person_plural": -0.0045
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.98,
+            "ce_lb975": 0.7103,
+            "ce_ub975": 1.2675
+          },
+          "C": {
+            "ce_damage": -0.0022,
+            "ce_lb975": -0.0092,
+            "ce_ub975": 0.0047
+          },
+          "extraction": 0.991,
+          "sib_abs_max": 0.2236,
+          "siblings": {
+            "object_pronoun_person": 0.062,
+            "object_pronoun_person_plural": 0.194,
+            "person_possessive": 0.0303,
+            "person_possessive_plural": 0.2236,
+            "reflexive_person": 0.0604,
+            "reflexive_person_plural": 0.1404
+          }
+        }
+      },
+      "exact_held": 0.883,
+      "family": "person_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 18,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 101.8,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:10:head:05",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:09:head:07",
+        "attn:11:head:06",
+        "attn:09:head:03",
+        "attn:13:head:02",
+        "attn:06:head:01",
+        "attn:10:head:02",
+        "attn:04:head:05",
+        "attn:10:head:01",
+        "attn:07:head:07",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:07:head:00",
+        "attn:07:head:01"
+      ]
+    },
+    "possessive_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.615,
+            "ce_lb975": 0.502,
+            "ce_ub975": 0.7257
+          },
+          "C": {
+            "ce_damage": -0.004,
+            "ce_lb975": -0.0105,
+            "ce_ub975": 0.0021
+          },
+          "extraction": 0.934,
+          "sib_abs_max": 0.0397,
+          "siblings": {
+            "demonstrative_number": -0.0078,
+            "demonstrative_number_that_those": -0.0041,
+            "object_pronoun_number": -0.0127,
+            "possessive_number_its_their": -0.0098,
+            "possessive_verbfinal": 0.0397,
+            "pronoun_number": 0.0067,
+            "pronoun_number_it_they": 0.0044,
+            "quantifier_number": -0.0004,
+            "reciprocal": -0.0131,
+            "reflexive_number": 0.0102
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6914,
+            "ce_lb975": 0.5888,
+            "ce_ub975": 0.7938
+          },
+          "C": {
+            "ce_damage": 0.0045,
+            "ce_lb975": -0.0034,
+            "ce_ub975": 0.0122
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.6116,
+          "siblings": {
+            "demonstrative_number": -0.0176,
+            "demonstrative_number_that_those": -0.0072,
+            "object_pronoun_number": 0.0252,
+            "possessive_number_its_their": 0.2273,
+            "possessive_verbfinal": 0.6116,
+            "pronoun_number": 0.5405,
+            "pronoun_number_it_they": 0.1513,
+            "quantifier_number": -0.0264,
+            "reciprocal": 0.2511,
+            "reflexive_number": 0.3067
+          }
+        }
+      },
+      "exact_held": 0.893,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": false
+      },
+      "seconds": 140.0,
+      "separable": true,
+      "units": [
+        "attn:10:head:05",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:09:head:07",
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:10:head:01",
+        "attn:06:head:01",
+        "attn:11:head:01",
+        "attn:07:head:07",
+        "attn:07:head:08"
+      ]
+    },
+    "possessive_number_its_their": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5014,
+            "ce_lb975": 0.4289,
+            "ce_ub975": 0.5718
+          },
+          "C": {
+            "ce_damage": -0.0022,
+            "ce_lb975": -0.0077,
+            "ce_ub975": 0.0026
+          },
+          "extraction": 0.891,
+          "sib_abs_max": 0.0237,
+          "siblings": {
+            "demonstrative_number": -0.0096,
+            "demonstrative_number_that_those": -0.002,
+            "object_pronoun_number": 0.0056,
+            "possessive_number": 0.0144,
+            "possessive_verbfinal": 0.0103,
+            "pronoun_number": 0.001,
+            "pronoun_number_it_they": 0.0237,
+            "quantifier_number": 0.005,
+            "reciprocal": 0.0174,
+            "reflexive_number": -0.0087
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5862,
+            "ce_lb975": 0.4527,
+            "ce_ub975": 0.7151
+          },
+          "C": {
+            "ce_damage": 0.0012,
+            "ce_lb975": -0.0027,
+            "ce_ub975": 0.0045
+          },
+          "extraction": 1.003,
+          "sib_abs_max": 0.5422,
+          "siblings": {
+            "demonstrative_number": 0.1272,
+            "demonstrative_number_that_those": 0.1139,
+            "object_pronoun_number": 0.4834,
+            "possessive_number": 0.5422,
+            "possessive_verbfinal": 0.4546,
+            "pronoun_number": 0.3793,
+            "pronoun_number_it_they": 0.3837,
+            "quantifier_number": -0.0224,
+            "reciprocal": 0.3371,
+            "reflexive_number": 0.4323
+          }
+        }
+      },
+      "exact_held": 0.887,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 135.5,
+      "separable": true,
+      "units": [
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:05:head:03"
+      ]
+    },
+    "pronoun_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4624,
+            "ce_lb975": 0.4007,
+            "ce_ub975": 0.5061
+          },
+          "C": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0061,
+            "ce_ub975": 0.0022
+          },
+          "extraction": 0.83,
+          "sib_abs_max": 0.0514,
+          "siblings": {
+            "demonstrative_number": -0.0001,
+            "demonstrative_number_that_those": -0.0041,
+            "object_pronoun_number": -0.0092,
+            "possessive_number": 0.0514,
+            "possessive_number_its_their": -0.0076,
+            "possessive_verbfinal": 0.0072,
+            "pronoun_number_it_they": 0.0282,
+            "quantifier_number": 0.0067,
+            "reciprocal": -0.0004,
+            "reflexive_number": -0.0075
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5868,
+            "ce_lb975": 0.5276,
+            "ce_ub975": 0.6367
+          },
+          "C": {
+            "ce_damage": -0.0013,
+            "ce_lb975": -0.0042,
+            "ce_ub975": 0.0013
+          },
+          "extraction": 1.012,
+          "sib_abs_max": 0.6004,
+          "siblings": {
+            "demonstrative_number": 0.012,
+            "demonstrative_number_that_those": 0.0152,
+            "object_pronoun_number": 0.1786,
+            "possessive_number": 0.6004,
+            "possessive_number_its_their": 0.3512,
+            "possessive_verbfinal": 0.5573,
+            "pronoun_number_it_they": 0.2454,
+            "quantifier_number": -0.0029,
+            "reciprocal": 0.1538,
+            "reflexive_number": 0.2833
+          }
+        }
+      },
+      "exact_held": 0.93,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 6,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 133.7,
+      "separable": false,
+      "units": [
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:05:head:03",
+        "attn:10:head:05",
+        "attn:10:head:01"
+      ]
+    },
+    "quantifier_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5834,
+            "ce_lb975": 0.481,
+            "ce_ub975": 0.6939
+          },
+          "C": {
+            "ce_damage": -0.0014,
+            "ce_lb975": -0.0071,
+            "ce_ub975": 0.0046
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.0112,
+          "siblings": {
+            "demonstrative_number": 0.0092,
+            "demonstrative_number_that_those": 0.0039,
+            "object_pronoun_number": -0.0098,
+            "possessive_number": -0.0038,
+            "possessive_number_its_their": -0.0017,
+            "possessive_verbfinal": 0.0112,
+            "pronoun_number": -0.006,
+            "pronoun_number_it_they": -0.0024,
+            "reciprocal": 0.006,
+            "reflexive_number": 0.0062
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5835,
+            "ce_lb975": 0.483,
+            "ce_ub975": 0.6989
+          },
+          "C": {
+            "ce_damage": 0.0191,
+            "ce_lb975": 0.0056,
+            "ce_ub975": 0.0351
+          },
+          "extraction": 1.01,
+          "sib_abs_max": 0.1637,
+          "siblings": {
+            "demonstrative_number": -0.0135,
+            "demonstrative_number_that_those": 0.0225,
+            "object_pronoun_number": 0.0991,
+            "possessive_number": 0.0096,
+            "possessive_number_its_their": 0.1098,
+            "possessive_verbfinal": 0.0715,
+            "pronoun_number": 0.0837,
+            "pronoun_number_it_they": -0.0067,
+            "reciprocal": 0.0472,
+            "reflexive_number": 0.1637
+          }
+        }
+      },
+      "exact_held": 0.892,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "seconds": 156.1,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:13:head:01",
+        "attn:08:head:01",
+        "attn:13:head:06",
+        "attn:04:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "reciprocal": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9039,
+            "ce_lb975": 0.8146,
+            "ce_ub975": 0.9951
+          },
+          "C": {
+            "ce_damage": 0.0006,
+            "ce_lb975": -0.005,
+            "ce_ub975": 0.0063
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0223,
+          "siblings": {
+            "demonstrative_number": 0.0053,
+            "demonstrative_number_that_those": 0.0005,
+            "object_pronoun_number": 0.0089,
+            "possessive_number": -0.0153,
+            "possessive_number_its_their": 0.0043,
+            "possessive_verbfinal": 0.0065,
+            "pronoun_number": -0.0048,
+            "pronoun_number_it_they": 0.003,
+            "quantifier_number": 0.0055,
+            "reflexive_number": -0.0223
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9306,
+            "ce_lb975": 0.8336,
+            "ce_ub975": 1.0317
+          },
+          "C": {
+            "ce_damage": 0.002,
+            "ce_lb975": -0.0021,
+            "ce_ub975": 0.0065
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.1399,
+          "siblings": {
+            "demonstrative_number": 0.0021,
+            "demonstrative_number_that_those": 0.0067,
+            "object_pronoun_number": 0.0659,
+            "possessive_number": 0.097,
+            "possessive_number_its_their": 0.0322,
+            "possessive_verbfinal": 0.1399,
+            "pronoun_number": 0.0495,
+            "pronoun_number_it_they": 0.0121,
+            "quantifier_number": 0.0119,
+            "reflexive_number": 0.1296
+          }
+        }
+      },
+      "exact_held": 0.908,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 148.8,
+      "separable": true,
+      "units": [
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:04:head:04",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:10:head:01",
+        "attn:05:head:06"
+      ]
+    },
+    "reflexive_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5806,
+            "ce_lb975": 0.5081,
+            "ce_ub975": 0.6644
+          },
+          "C": {
+            "ce_damage": -0.0022,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0058
+          },
+          "extraction": 0.934,
+          "sib_abs_max": 0.034,
+          "siblings": {
+            "demonstrative_number": -0.0145,
+            "demonstrative_number_that_those": 0.0034,
+            "object_pronoun_number": 0.0125,
+            "possessive_number": 0.02,
+            "possessive_number_its_their": -0.0082,
+            "possessive_verbfinal": 0.0119,
+            "pronoun_number": 0.0074,
+            "pronoun_number_it_they": 0.0179,
+            "quantifier_number": 0.0044,
+            "reciprocal": 0.034
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6822,
+            "ce_lb975": 0.5975,
+            "ce_ub975": 0.7796
+          },
+          "C": {
+            "ce_damage": -0.0032,
+            "ce_lb975": -0.0073,
+            "ce_ub975": 0.0004
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.618,
+          "siblings": {
+            "demonstrative_number": 0.02,
+            "demonstrative_number_that_those": 0.0372,
+            "object_pronoun_number": 0.2469,
+            "possessive_number": 0.618,
+            "possessive_number_its_their": 0.4163,
+            "possessive_verbfinal": 0.5938,
+            "pronoun_number": 0.5558,
+            "pronoun_number_it_they": 0.218,
+            "quantifier_number": -0.0005,
+            "reciprocal": 0.4658
+          }
+        }
+      },
+      "exact_held": 0.865,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 118.5,
+      "separable": true,
+      "units": [
+        "attn:05:head:03",
+        "attn:03:head:04",
+        "attn:04:head:05",
+        "attn:12:head:04",
+        "attn:10:head:05",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:05:head:06",
+        "attn:10:head:01",
+        "attn:04:head:04"
+      ]
+    },
+    "reflexive_person_plural": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.1034,
+            "ce_lb975": 0.9531,
+            "ce_ub975": 1.2611
+          },
+          "C": {
+            "ce_damage": 0.0028,
+            "ce_lb975": -0.0027,
+            "ce_ub975": 0.0085
+          },
+          "extraction": 0.985,
+          "sib_abs_max": 0.028,
+          "siblings": {
+            "object_pronoun_person": 0.0123,
+            "object_pronoun_person_plural": -0.0,
+            "person_possessive": 0.0175,
+            "person_possessive_plural": -0.0004,
+            "person_reflexive_ourselves_themselves": 0.0031,
+            "reflexive_person": 0.028
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0829,
+            "ce_lb975": 1.0457,
+            "ce_ub975": 1.1223
+          },
+          "C": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0012,
+            "ce_ub975": 0.0046
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.7927,
+          "siblings": {
+            "object_pronoun_person": 0.1957,
+            "object_pronoun_person_plural": 0.0115,
+            "person_possessive": 0.7927,
+            "person_possessive_plural": 0.1921,
+            "person_reflexive_ourselves_themselves": -0.0131,
+            "reflexive_person": 0.4648
+          }
+        }
+      },
+      "exact_held": 0.895,
+      "family": "person_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 17,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 90.9,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:15:head:01",
+        "attn:10:head:01",
+        "attn:08:head:05",
+        "attn:03:head:04",
+        "attn:05:head:03",
+        "attn:07:head:08",
+        "attn:04:head:05",
+        "attn:04:head:04",
+        "attn:06:head:01",
+        "attn:09:head:07",
+        "attn:13:head:02",
+        "attn:16:head:01",
+        "attn:02:head:06",
+        "attn:05:head:01"
+      ]
+    },
+    "relative_adverb_why_where": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.4648,
+            "ce_lb975": 1.2941,
+            "ce_ub975": 1.6463
+          },
+          "C": {
+            "ce_damage": -0.0014,
+            "ce_lb975": -0.0115,
+            "ce_ub975": 0.0084
+          },
+          "extraction": 1.014,
+          "sib_abs_max": 0.0051,
+          "siblings": {
+            "animacy": -0.0051,
+            "animacy_indefinite_someone_something": 0.0024,
+            "dative_animacy_to_the": -0.0006,
+            "participle_animacy_interested_interesting": 0.0028,
+            "pronoun_animacy_he_it": -0.001,
+            "reflexive_animacy_himself_itself": -0.0014,
+            "relative_animacy_whom_which": 0.0049,
+            "wh_adjunct_when_where": -0.0006,
+            "wh_argument_who_what": 0.0003
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.4871,
+            "ce_lb975": 1.2978,
+            "ce_ub975": 1.6867
+          },
+          "C": {
+            "ce_damage": -0.0041,
+            "ce_lb975": -0.0137,
+            "ce_ub975": 0.005
+          },
+          "extraction": 1.018,
+          "sib_abs_max": 0.1071,
+          "siblings": {
+            "animacy": 0.0894,
+            "animacy_indefinite_someone_something": -0.0878,
+            "dative_animacy_to_the": -0.1071,
+            "participle_animacy_interested_interesting": -0.0218,
+            "pronoun_animacy_he_it": -0.0292,
+            "reflexive_animacy_himself_itself": 0.0036,
+            "relative_animacy_whom_which": 0.095,
+            "wh_adjunct_when_where": 0.0044,
+            "wh_argument_who_what": 0.0096
+          }
+        }
+      },
+      "exact_held": 0.882,
+      "family": "animacy_wh",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 23,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 176.9,
+      "separable": true,
+      "units": [
+        "attn:08:head:08",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07",
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:07:head:00",
+        "attn:10:head:01",
+        "attn:07:head:08",
+        "attn:09:head:01",
+        "attn:03:head:06",
+        "attn:11:head:06",
+        "attn:10:head:03",
+        "attn:05:head:06",
+        "attn:13:head:03",
+        "attn:05:head:08",
+        "attn:04:head:03",
+        "attn:14:head:03",
+        "attn:14:head:08",
+        "attn:12:head:02",
+        "attn:16:head:08",
+        "attn:14:head:00"
+      ]
+    },
+    "relative_animacy_whom_which": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.952,
+            "ce_lb975": 0.8208,
+            "ce_ub975": 1.0944
+          },
+          "C": {
+            "ce_damage": -0.0041,
+            "ce_lb975": -0.0104,
+            "ce_ub975": 0.002
+          },
+          "extraction": 1.025,
+          "sib_abs_max": 0.0134,
+          "siblings": {
+            "animacy": -0.0134,
+            "animacy_indefinite_someone_something": -0.0115,
+            "dative_animacy_to_the": -0.0059,
+            "participle_animacy_interested_interesting": 0.0017,
+            "pronoun_animacy_he_it": 0.0017,
+            "reflexive_animacy_himself_itself": 0.0073,
+            "relative_adverb_why_where": 0.0041,
+            "wh_adjunct_when_where": 0.0003,
+            "wh_argument_who_what": -0.001
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9442,
+            "ce_lb975": 0.8024,
+            "ce_ub975": 1.1
+          },
+          "C": {
+            "ce_damage": -0.0055,
+            "ce_lb975": -0.0115,
+            "ce_ub975": 0.0002
+          },
+          "extraction": 1.016,
+          "sib_abs_max": 0.386,
+          "siblings": {
+            "animacy": 0.386,
+            "animacy_indefinite_someone_something": 0.1414,
+            "dative_animacy_to_the": -0.0017,
+            "participle_animacy_interested_interesting": 0.0521,
+            "pronoun_animacy_he_it": -0.0234,
+            "reflexive_animacy_himself_itself": 0.0528,
+            "relative_adverb_why_where": 0.0186,
+            "wh_adjunct_when_where": -0.0047,
+            "wh_argument_who_what": 0.1198
+          }
+        }
+      },
+      "exact_held": 0.892,
+      "family": "animacy_wh",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 19,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 150.4,
+      "separable": true,
+      "units": [
+        "attn:09:head:07",
+        "attn:09:head:06",
+        "attn:08:head:08",
+        "attn:07:head:08",
+        "attn:05:head:03",
+        "attn:11:head:06",
+        "attn:05:head:06",
+        "attn:07:head:00",
+        "attn:04:head:05",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:11:head:01",
+        "attn:10:head:01",
+        "attn:11:head:02",
+        "attn:12:head:04",
+        "attn:04:head:01",
+        "attn:05:head:08",
+        "attn:15:head:01",
+        "attn:09:head:01"
+      ]
+    },
+    "wh_argument_who_what": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.2979,
+            "ce_lb975": 0.2153,
+            "ce_ub975": 0.3774
+          },
+          "C": {
+            "ce_damage": -0.0103,
+            "ce_lb975": -0.0329,
+            "ce_ub975": 0.0095
+          },
+          "extraction": 0.953,
+          "sib_abs_max": 0.0066,
+          "siblings": {
+            "animacy": 0.0066,
+            "animacy_indefinite_someone_something": -0.0037,
+            "dative_animacy_to_the": -0.0015,
+            "participle_animacy_interested_interesting": -0.001,
+            "pronoun_animacy_he_it": -0.0015,
+            "reflexive_animacy_himself_itself": -0.0014,
+            "relative_adverb_why_where": 0.0034,
+            "relative_animacy_whom_which": -0.0031,
+            "wh_adjunct_when_where": -0.0001
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.2149,
+            "ce_lb975": 0.1598,
+            "ce_ub975": 0.27
+          },
+          "C": {
+            "ce_damage": -0.0255,
+            "ce_lb975": -0.038,
+            "ce_ub975": -0.0109
+          },
+          "extraction": 0.71,
+          "sib_abs_max": 0.0963,
+          "siblings": {
+            "animacy": 0.0049,
+            "animacy_indefinite_someone_something": 0.0544,
+            "dative_animacy_to_the": 0.0135,
+            "participle_animacy_interested_interesting": -0.0055,
+            "pronoun_animacy_he_it": 0.0394,
+            "reflexive_animacy_himself_itself": 0.0065,
+            "relative_adverb_why_where": -0.0139,
+            "relative_animacy_whom_which": 0.0963,
+            "wh_adjunct_when_where": -0.0032
+          }
+        }
+      },
+      "exact_held": 0.895,
+      "family": "animacy_wh",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 142.8,
+      "separable": true,
+      "units": [
+        "attn:10:head:03",
+        "attn:11:head:01",
+        "attn:07:head:00",
+        "attn:11:head:06",
+        "attn:15:head:01",
+        "attn:13:head:02",
+        "attn:06:head:03",
+        "attn:09:head:01",
+        "attn:08:head:03",
+        "attn:05:head:06",
+        "attn:09:head:07",
+        "attn:13:head:07",
+        "attn:07:head:07",
+        "attn:12:head:04",
+        "attn:08:head:08"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": true,
+    "pred_b_counted_kept": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "demonstrative_number_that_those",
+      "person_reflexive_ourselves_themselves",
+      "relative_adverb_why_where",
+      "duration_point_within_by",
+      "reflexive_number",
+      "pronoun_number",
+      "demonstrative_number",
+      "reciprocal",
+      "possessive_number",
+      "quantifier_number",
+      "object_pronoun_number",
+      "possessive_number_its_their",
+      "person_possessive",
+      "person_possessive_plural",
+      "object_pronoun_person_plural",
+      "reflexive_person_plural",
+      "dative_animacy_to_the",
+      "wh_argument_who_what",
+      "relative_animacy_whom_which",
+      "duration_point_since_for"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v235 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v232",
+  "seconds": 2453.8,
+  "separable_counts": {
+    "animacy_wh": 4,
+    "duration": 2,
+    "number_readout": 8,
+    "person_readout": 5
+  },
+  "summary": {
+    "dative_animacy_to_the": {
+      "fam": [
+        0.998,
+        0.0192,
+        0.0132
+      ],
+      "family": "animacy_wh",
+      "n_units": 18,
+      "own": [
+        1.048,
+        0.1976,
+        0.0046
+      ],
+      "separable": true
+    },
+    "demonstrative_number": {
+      "fam": [
+        0.99,
+        0.0042,
+        0.0027
+      ],
+      "family": "number_readout",
+      "n_units": 8,
+      "own": [
+        0.986,
+        0.0665,
+        0.0018
+      ],
+      "separable": true
+    },
+    "demonstrative_number_that_those": {
+      "fam": [
+        0.891,
+        0.0208,
+        0.0114
+      ],
+      "family": "number_readout",
+      "n_units": 16,
+      "own": [
+        0.99,
+        0.232,
+        0.0027
+      ],
+      "separable": true
+    },
+    "duration_point_since_for": {
+      "fam": [
+        1.029,
+        0.0093,
+        0.0402
+      ],
+      "family": "duration",
+      "n_units": 13,
+      "own": [
+        1.027,
+        0.146,
+        0.0053
+      ],
+      "separable": true
+    },
+    "duration_point_within_by": {
+      "fam": [
+        0.98,
+        0.0133,
+        0.001
+      ],
+      "family": "duration",
+      "n_units": 19,
+      "own": [
+        0.98,
+        0.0503,
+        0.004
+      ],
+      "separable": true
+    },
+    "object_pronoun_number": {
+      "fam": [
+        0.912,
+        0.0331,
+        -0.0015
+      ],
+      "family": "number_readout",
+      "n_units": 6,
+      "own": [
+        0.986,
+        0.3008,
+        0.0008
+      ],
+      "separable": true
+    },
+    "object_pronoun_person_plural": {
+      "fam": [
+        0.998,
+        0.0213,
+        0.0057
+      ],
+      "family": "person_readout",
+      "n_units": 12,
+      "own": [
+        1.01,
+        0.1252,
+        0.0059
+      ],
+      "separable": true
+    },
+    "person_possessive": {
+      "fam": [
+        0.993,
+        0.0257,
+        0.0023
+      ],
+      "family": "person_readout",
+      "n_units": 15,
+      "own": [
+        0.993,
+        0.6295,
+        0.0014
+      ],
+      "separable": true
+    },
+    "person_possessive_plural": {
+      "fam": [
+        0.989,
+        0.0135,
+        0.0071
+      ],
+      "family": "person_readout",
+      "n_units": 18,
+      "own": [
+        0.994,
+        0.3981,
+        0.009
+      ],
+      "separable": true
+    },
+    "person_reflexive_ourselves_themselves": {
+      "fam": [
+        0.993,
+        0.0128,
+        0.0008
+      ],
+      "family": "person_readout",
+      "n_units": 18,
+      "own": [
+        0.991,
+        0.2236,
+        0.0047
+      ],
+      "separable": true
+    },
+    "possessive_number": {
+      "fam": [
+        0.934,
+        0.0397,
+        0.0021
+      ],
+      "family": "number_readout",
+      "n_units": 11,
+      "own": [
+        0.999,
+        0.6116,
+        0.0122
+      ],
+      "separable": true
+    },
+    "possessive_number_its_their": {
+      "fam": [
+        0.891,
+        0.0237,
+        0.0026
+      ],
+      "family": "number_readout",
+      "n_units": 7,
+      "own": [
+        1.003,
+        0.5422,
+        0.0045
+      ],
+      "separable": true
+    },
+    "pronoun_number": {
+      "fam": [
+        0.83,
+        0.0514,
+        0.0022
+      ],
+      "family": "number_readout",
+      "n_units": 6,
+      "own": [
+        1.012,
+        0.6004,
+        0.0013
+      ],
+      "separable": false
+    },
+    "quantifier_number": {
+      "fam": [
+        0.999,
+        0.0112,
+        0.0046
+      ],
+      "family": "number_readout",
+      "n_units": 8,
+      "own": [
+        1.01,
+        0.1637,
+        0.0351
+      ],
+      "separable": true
+    },
+    "reciprocal": {
+      "fam": [
+        0.986,
+        0.0223,
+        0.0063
+      ],
+      "family": "number_readout",
+      "n_units": 11,
+      "own": [
+        1.006,
+        0.1399,
+        0.0065
+      ],
+      "separable": true
+    },
+    "reflexive_number": {
+      "fam": [
+        0.934,
+        0.034,
+        0.0058
+      ],
+      "family": "number_readout",
+      "n_units": 10,
+      "own": [
+        0.999,
+        0.618,
+        0.0004
+      ],
+      "separable": true
+    },
+    "reflexive_person_plural": {
+      "fam": [
+        0.985,
+        0.028,
+        0.0085
+      ],
+      "family": "person_readout",
+      "n_units": 17,
+      "own": [
+        0.998,
+        0.7927,
+        0.0046
+      ],
+      "separable": true
+    },
+    "relative_adverb_why_where": {
+      "fam": [
+        1.014,
+        0.0051,
+        0.0084
+      ],
+      "family": "animacy_wh",
+      "n_units": 23,
+      "own": [
+        1.018,
+        0.1071,
+        0.005
+      ],
+      "separable": true
+    },
+    "relative_animacy_whom_which": {
+      "fam": [
+        1.025,
+        0.0134,
+        0.002
+      ],
+      "family": "animacy_wh",
+      "n_units": 19,
+      "own": [
+        1.016,
+        0.386,
+        0.0002
+      ],
+      "separable": true
+    },
+    "wh_argument_who_what": {
+      "fam": [
+        0.953,
+        0.0066,
+        0.0095
+      ],
+      "family": "animacy_wh",
+      "n_units": 15,
+      "own": [
+        0.71,
+        0.0963,
+        -0.0109
+      ],
+      "separable": true
+    }
+  }
+}
