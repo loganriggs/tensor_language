@@ -1,0 +1,12 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_five_mlp_rank16_gain115_reverse_v1",
+  "question": "Does the frozen five-MLP all-position rank-16 gain-1.15 program execute the reverse donor-to-base intervention with selective controls?",
+  "authority": {
+    "gain_curve_sha256": "958f58cf6ac05973b65a38cd258093926999351016f1aa1bc2ec608c4844b75d",
+    "selected_gain": 1.15,
+    "support": ["MLP0", "MLP1", "MLP2", "MLP3", "MLP6"],
+    "forward": "Behavior .7517/.9130, response 1.0630/1.0997, RSE <=.0147, median control KL .000832, zero flips."
+  },
+  "novelty": "First reverse-direction execution of the pruned low-rank physical source program; prior reverse tests used the full rank46 source graph or downstream response filtering.",
+  "decision": "Require a full-five-source reverse ceiling, frozen projected reverse sufficiency, selectivity, and forward/reverse stability before promotion."
+}
