@@ -58,10 +58,10 @@ def site_module(backend, site: str):
 def capture(backend, batch):
     cache, handles = {}, []
 
-    def capture_input(_module, arguments):
-        cache[INPUT] = arguments[0].detach().clone()
+    def capture_input(_module, _arguments, output):
+        cache[INPUT] = output.detach().clone()
 
-    handles.append(backend.model.transformer.h[0].register_forward_pre_hook(capture_input))
+    handles.append(backend.model.transformer.wte.register_forward_hook(capture_input))
     for site in MODULE_SITES:
         kind = site.split(":")[0]
         if kind == "attn":
@@ -83,7 +83,13 @@ def capture(backend, batch):
 
 
 def patch_hook(batch, values, site: str):
-    if site == INPUT or site.startswith("attn:"):
+    if site == INPUT:
+        def hook(_module, _arguments, output):
+            changed = output.clone()
+            for index, query in enumerate(batch.semantic_positions):
+                changed[index, : int(query) + 1] = values[index, : int(query) + 1].to(changed)
+            return changed
+    elif site.startswith("attn:"):
         def hook(_module, arguments):
             changed = arguments[0].clone()
             for index, query in enumerate(batch.semantic_positions):
@@ -103,7 +109,7 @@ def run_patch(backend, batch, cache, sites):
     for site in sites:
         hook = patch_hook(batch, cache[site], site)
         if site == INPUT:
-            handles.append(backend.model.transformer.h[0].register_forward_pre_hook(hook))
+            handles.append(backend.model.transformer.wte.register_forward_hook(hook))
         elif site.startswith("attn:"):
             handles.append(site_module(backend, site).register_forward_pre_hook(hook))
         else:
