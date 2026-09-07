@@ -41,3 +41,8 @@ def test_literal_fit_update_cap_matches_frozen_schedule():
     assert runner.PRICE_MAX["model_updates"] == \
         len(runner.INITIALIZATIONS) * 2 * runner.joint.STEPS
     assert runner.PRICE_MAX["fit_parameters"] == 4 * 128
+
+
+def test_capability_dependency_is_corrected_zero_model_manifest():
+    assert runner.V16_CAPABILITY.name.endswith("v16_capability_v2_audit_result.json")
+    assert runner.EXPECTED["v16_capability"] != "PENDING_CAPABILITY_RESULT"

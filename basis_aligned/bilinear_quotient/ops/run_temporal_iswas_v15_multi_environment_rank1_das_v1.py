@@ -29,7 +29,7 @@ FIT_CORE = ROOT / "ops/multi_construction_head_projector_fit.py"
 SELECTOR = ROOT / "ops/multi_environment_projector_contract.py"
 V15_BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_v15_aligned_controls_v1.py"
 V16_BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v16.py"
-V16_CAPABILITY = ROOT / "circuits/followups/tense_auxiliary_is_was_fresh_lexicon_v16_capability_v1_result.json"
+V16_CAPABILITY = ROOT / "circuits/followups/tense_auxiliary_is_was_fresh_lexicon_v16_capability_v2_audit_result.json"
 V15_DAS = ROOT / "circuits/followups/temporal_iswas_v15_head_response_target_feasible_regularized_das_v1_result.json"
 PARENT_RUNNER = ROOT / "ops/run_temporal_iswas_v15_head_response_target_feasible_regularized_das_v1.py"
 PROJECTOR_CONTRACT = ROOT / "ops/head_response_projector_contract.py"
@@ -44,7 +44,7 @@ EXPECTED = {
     "selector": "12f18ed73401e54014553f049fd91ffcc09f3fffda0d2c6fb343ad857a170311",
     "v15_builder": "7027e128ea3e68a35e92f451d0f62453a937e64a8dafda24d841aa1f1d29e645",
     "v16_builder": "5b1cb38cc62b5682c03505a5090e962d4773015efb44f8fad145515f5066b549",
-    "v16_capability": "PENDING_CAPABILITY_RESULT",
+    "v16_capability": "a1c2baf0bd9548e189ccc4ba4d11c4905f85af1ff7013d408c143f6f2a6434e3",
     "v15_das": "0e3ee2641a8f7c38ebad5cb0b73cf71461e2cd9bd96cdcb30a581e2f8d7bd30b",
     "parent_runner": "0b7d92038283cad0fd48e398739474c4004de0da8e361d5aaaf0f68a4db6595e",
     "projector_contract": "23dbdd6380b745683f502ab0678b6e65e9168b5485eb488d759fa6eebbdc23ef",
@@ -156,8 +156,9 @@ def main():
         and v16.validate_rows(rows16_all) == V16_ROWS_SHA256
         and alignment15["panel_counts"] == {panel: 16 for panel in ("A1", "A2", "P", "C")}
         and alignment16["panel_counts"] == {panel: 16 for panel in ("A1", "A2", "P")}
-        and capability.get("terminal") == "screen"
+        and capability.get("terminal") == "manifest"
         and all(capability.get("predictions", {}).values())
+        and capability.get("causal_outcomes_opened") is False
         and frozen.get("predictions", {}).get(
             "pred_a_authority_alignment_absolute_clamp_gradient_closure_finiteness_and_price")
         and len(INITIALIZATIONS) == 3)
