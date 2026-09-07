@@ -1,0 +1,107 @@
+{
+  "arms": {
+    "A1": {
+      "ce_damage": 0.09448087587952614,
+      "ce_lb975": 0.05994121739640832,
+      "ce_ub975": 0.1255612111650407,
+      "documents": 32,
+      "kl_mean": 0.005881356000827509,
+      "margin_damage": 0.2558095380663872,
+      "top1_change_rate": 0.09375
+    },
+    "ceiling": {
+      "ce_damage": 0.4448309764266014,
+      "ce_lb975": 0.38811390455812217,
+      "ce_ub975": 0.5013178450986743,
+      "documents": 32,
+      "kl_mean": 0.06239426361571532,
+      "margin_damage": 1.0113057792186737,
+      "top1_change_rate": 0.1875
+    },
+    "pool": {
+      "ce_damage": 0.26533837243914604,
+      "ce_lb975": 0.21033771438524126,
+      "ce_ub975": 0.32096192101016635,
+      "documents": 32,
+      "kl_mean": 0.025565099022060167,
+      "margin_damage": 0.5809762626886368,
+      "top1_change_rate": 0.1875
+    },
+    "pool_on_C": {
+      "ce_damage": -0.03440823499113321,
+      "ce_lb975": -0.040968240983784196,
+      "ce_ub975": -0.02753656494896861,
+      "documents": 64,
+      "kl_mean": 0.0019795891203102656,
+      "margin_damage": -0.01733335480093956,
+      "top1_change_rate": 0.0
+    },
+    "random": {
+      "ce_damage": 0.004889417439699173,
+      "ce_lb975": -0.00038121221587061877,
+      "ce_ub975": 0.010701797436922785,
+      "documents": 32,
+      "kl_mean": 0.0002059951689261652,
+      "margin_damage": 0.004843674600124359,
+      "top1_change_rate": 0.0
+    }
+  },
+  "bars": {
+    "beat": 1.3,
+    "c_ub": 0.01,
+    "ceil_lb": 0.05,
+    "pool_frac": 0.8,
+    "rand_frac": 0.25,
+    "single_max": 0.7
+  },
+  "block_abs_cos": {
+    "11:heads": {
+      "A1_vs_ceiling": 0.21920636296272278,
+      "pool_vs_ceiling": 0.18826258182525635
+    },
+    "13:heads": {
+      "A1_vs_ceiling": 0.20575493574142456,
+      "pool_vs_ceiling": 0.3048822581768036
+    },
+    "14:heads": {
+      "A1_vs_ceiling": 0.22394970059394836,
+      "pool_vs_ceiling": 0.2844263017177582
+    },
+    "6:heads": {
+      "A1_vs_ceiling": 0.07043784856796265,
+      "pool_vs_ceiling": 0.32851600646972656
+    },
+    "7:heads": {
+      "A1_vs_ceiling": 0.1981784999370575,
+      "pool_vs_ceiling": 0.3445199728012085
+    }
+  },
+  "candidate_id": "corpus.unit_dative_pooled_unseen_v62",
+  "eval_rows": 16,
+  "finished_utc": "2026-09-06T23:59:44.973423+00:00",
+  "fit_rows": {
+    "A1": 32,
+    "ceiling": 16,
+    "pool": 128
+  },
+  "fourth_map": {
+    "reserved": "cooked",
+    "sent": "passed"
+  },
+  "predictions": {
+    "pred_a_pooled_transfers": false,
+    "pred_b_single_pair_weak": true,
+    "pred_c_ceiling_real": true,
+    "pred_d_pooled_beats_A1": true,
+    "pred_e_controls": true
+  },
+  "schema": "circuit_unit_dative_pooled_unseen_result_v1",
+  "seconds": 1.558000162243843,
+  "set": [
+    "attn:14:head:08",
+    "attn:07:head:08",
+    "attn:06:head:03",
+    "attn:13:head:08",
+    "attn:11:head:03"
+  ]
+}
