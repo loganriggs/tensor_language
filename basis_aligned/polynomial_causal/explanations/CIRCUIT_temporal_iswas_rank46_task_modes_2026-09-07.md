@@ -64,6 +64,43 @@ reader `S(a) = 1/2[L^T diag(a)R + R^T diag(a)L]`.  Ranking upstream writers and 
 readers by their contractions with these task-specific objects can group cross-module pieces
 that implement the same variable and split native modules that implement different ones.
 
+## Five-MLP rank-16 source execution
+
+A complementary source-side route now gives a smaller exact interface at five MLP boundaries:
+`MLP0`, `MLP1`, `MLP2`, `MLP3`, and `MLP6`.  A rank-16 output basis at each site, installed
+with frozen gain `1.15`, is functional in both interchange directions.  On the reverse test,
+temporal/is-was behavior is `.7575/.9174`, response projection is `1.0630/1.0997`, response
+RSE is `.01463/.01454`, and matched controls have median/max KL `.00077/.00320` with no
+top-1 flips.  Forward/reverse behavior differs by only `.00581/.00436`.
+
+This interface has an exact native-weight translation.  For source MLP `s`, let `Q_s` be its
+`1152 x 16` output basis and let `Down_s` be the native `1152 x 4608` output weight.  Then
+`A_s = Down_s^T Q_s` is a `4608 x 16` hidden-to-interface map and the installed write is
+exactly `(delta_hidden A_s) Q_s^T`.  All five maps have rank 16; fit/fresh factor closure is
+`8.11e-14`, and an orthogonal gauge replay closes at `2.96e-15`.  The causal source is not
+localized to a small static hidden-unit set: effective widths are 1,462–3,782 units and only
+MLP6 places at least 25% of its energy in the top 10% of units.
+
+Activation-conditioned ranking improves on weight magnitude but does not make the whole source
+sparse.  An exhaustive five-site lattice found one stable within-module deletion: retaining only
+the activation-ranked top half of MLP0 while keeping full hidden support at MLP1/2/3/6 is
+functionally equivalent to the full rank-16 parent.  On a different construction family it gives
+temporal/is-was behavior `.8640/.9234` versus `.8642/.9233` for full support, and response
+projection `1.0807/1.0985` with RSE `.01361/.01448`.  Higher-order site interaction energy is
+only `.00138`, so the broad support is distributed but nearly additive.
+
+Absolute selectivity remains a parent-level caveat.  The transferred mask and the full parent
+flip the same two of 16 controls; median KL is `.01220` for the mask and `.01249` for full, and
+their centered control effects differ by only 1.87% of the full-parent effect.  Thus the MLP0
+split adds no measured collateral, but it does not repair collateral already present in the
+five-MLP intervention.
+
+The active source-weight test now forms task-conditioned matrices
+`Z_task = delta_hidden (Down^T Q)`, uses canonical-angle mean/contrast blocks to identify shared
+versus task-specific physical weight directions, checks even/odd stability, and executes the
+blocks and their complement through the complete model.  Until those causal patches land, the
+mean/contrast coordinates remain a preregistered probe rather than an identified circuit split.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -73,6 +110,18 @@ reduced it to `0.2445`, near DIM's `0.2385`, while tangent noise alone stayed at
 A better aligned objective reached `0.233426` on sealed A2, slightly better than DIM, but
 traded away a registered target-sufficiency bar.  Complete-family selection then rejected
 the learned rotations and retained the pooled step-zero/DIM-like estimator.
+
+A fully instrumented four-arm tournament now gives positive but heterogeneous regularization
+evidence.  It compared no regularization, tangent noise, KL, and noise+KL while exchanging whole
+v8/v10 construction families.  The run counted 24 native calls and 1,208 differentiable reader
+evaluations, had zero manual-reader closure error, and passed every authority and price check.
+KL was selected and the two fold axes were stable (`|cos|=.8827`).  It improved the v8-to-v10
+worst score from `.7261` to `.6968`, but worsened v10-to-v8 from `.3486` to `.4007`, so the frozen
+both-fold claim failed.  Nevertheless, the refit reduced then-sealed v12 mean/worst loss from
+`.9803/1.0095` to `.3979/.4803`, improving vocabulary behavior on both panels within every hard
+target limit.  The correct terminal is `regularization_fold_heterogeneity`: optimization found a
+transferable improvement, but one global KL/noise setting did not eliminate construction-specific
+fitting.
 
 The failure mode is under-observation.  A scalar answer/complement loss only constrains
 the contractions it observes; the optimizer can rotate inside their joint nullspace and
@@ -101,14 +150,22 @@ refitting on sealed task families and predicts through the exact weight-derived 
   `temporal_iswas_rank46_task_rank4_bidirectional_source_noise_v1_result.json`.
 - Exact weight evidence: `temporal_iswas_mlp_quadratic_reader_overlap_v1_result.json`
   and `temporal_iswas_attention_ov_task_usage_v1_result.json`.
+- Exact five-MLP source compilation and hidden support:
+  `temporal_iswas_five_mlp_rank16_hidden_weight_compiler_v3_audit_result.json`,
+  `temporal_iswas_rank16_hidden_complement_factorial_v1_result.json`,
+  `temporal_iswas_rank16_hidden_mask30_construction_holdout_v1_result.json`, and
+  `temporal_iswas_rank16_hidden_mask30_control_attribution_v1_result.json`.
+- Fully instrumented DAS regularization:
+  `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`.
 
 ## Remaining gates
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Produce the exact task-mode writer/reader atlas through upstream and downstream weights,
-   then causally patch the highest-ranked edges and their complement.
-3. Fit multi-environment DAS only against that richer operator and use an unopened family
-   for model selection; do not reopen single-task scalar complement tuning.
+2. Score the active exact source mean/contrast weight patches.  If their union is functional,
+   factor shared and contrast contributions across all five native MLP sites before greedy pruning.
+3. Fit construction-adaptive multi-environment DAS against the richer operator, selecting KL/noise
+   strength without seeing the outer construction family and reserving a capability-qualified new
+   text family for the outcome; do not tune against the already-open v12 success.
 4. Test joint composition when temporal and is–was commands are installed together.
 5. Price an extracted executor only after these identification gates pass.
