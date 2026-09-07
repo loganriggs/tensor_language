@@ -1,0 +1,17 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_target_contrast_split_swap_v2",
+  "claimed_utc": "2026-09-07T05:01:00Z",
+  "question": "Does the selective rank-8 target-versus-control response circuit survive swapping every fit and evaluation half?",
+  "authorities": {"v1_result_sha256": "db8d94bda707546878c78d62bde3c9bbb5b5510557f6fd9b3f042dbb05359f17", "v1_runner_sha256": "8843cbb584d87823aedc346361b3f62679e06b8f31901b057b80b4d6b403cad3"},
+  "method": "Keep the same eight sites, generic-control rank 8, and target-residual rank 8. Fit generic PCA on C validation and target PCA on odd target rows; evaluate only on C discovery and even target rows. No rank or threshold selection.",
+  "predictions": {
+    "pred_a_authority_disjointness_alignment_finiteness_and_price": "Authorities, opposite disjoint halves, endpoint alignment, spectra, finiteness, and <=10 forwards close.",
+    "pred_b_swapped_target_fidelity": "Worst target residual <=0.05 and behavior signed projection >=0.80 in both tasks.",
+    "pred_c_swapped_control_selectivity": "Matched C effect <=0.10 target scale in both tasks.",
+    "pred_d_crossfit_target_stability": "Each swapped behavior projection differs from v1 by <=0.15 and worst residual differs by <=0.03.",
+    "pred_e_crossfit_control_stability": "Each swapped C fraction is <=0.03 and differs from v1 by <=0.02."
+  },
+  "terminal_policy": {"invalid": "A fails", "crossfit_selective_response_program": "all pass", "split_specific_null": "B or C fails", "unstable_identification": "D or E fails"},
+  "price_upper_bound": {"model_forwards": 10, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0},
+  "decision": "A pass identifies a stable within-module response circuit and licenses weight projection plus fresh/OOD testing. Failure closes this linear split as sample-specific."
+}
