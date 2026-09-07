@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [FULL_TWO_DAY_RESEARCH_UPDATE_2026-09-05_TO_2026-09-07.md](FULL_TWO_DAY_RESEARCH_UPDATE_2026-09-05_TO_2026-09-07.md) —
+  the high-level two-day status of circuit quality and breadth, constrained DAS and its regularization diagnosis,
+  causal subspace-to-weight translations, core terms and computations, negative results, and the active trajectory
 - [explanation_2026-09-05_1609.md](explanation_2026-09-05_1609.md) — Task14's exact upstream localization to a stable
   MLP8 write; the gauge-invariant cross-versus-quadratic computation inside MLP8; the preserved float32-invalid first
   run and unchanged numerical repair; the direction-dependent overshoot and cancellation mechanism; and the active
