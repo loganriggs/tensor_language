@@ -1,0 +1,177 @@
+{
+  "bars": {
+    "all_min": 0.7,
+    "ctrl_max": 0.15,
+    "early_min": 0.5,
+    "mid_min": 0.5,
+    "relay_min": 0.3
+  },
+  "behaviours": {
+    "lexical_number_pp": {
+      "arms": {
+        "all_below": {
+          "mid_mlp_keep_at_cue": 0.125,
+          "removed_cue": 0.677
+        },
+        "early": {
+          "mid_mlp_keep_at_cue": 0.3,
+          "removed_cue": 0.496
+        },
+        "mid": {
+          "mid_mlp_keep_at_cue": 0.304,
+          "removed_cue": 0.633
+        },
+        "none": {
+          "mid_mlp_keep_at_cue": 1.0,
+          "removed_cue": 0.0
+        },
+        "random4": {
+          "mid_mlp_keep_at_cue": 0.99,
+          "removed_cue": 0.005
+        }
+      },
+      "mid_layers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "random4": [
+        "attn:02:head:06",
+        "attn:02:head:08",
+        "attn:00:head:02",
+        "attn:01:head:07"
+      ],
+      "reader": "attn:11:head:03",
+      "rows": 16,
+      "seconds": 0.5
+    },
+    "perfect_number": {
+      "arms": {
+        "all_below": {
+          "mid_mlp_keep_at_cue": 0.123,
+          "removed_cue": 0.611
+        },
+        "early": {
+          "mid_mlp_keep_at_cue": 0.297,
+          "removed_cue": 0.433
+        },
+        "mid": {
+          "mid_mlp_keep_at_cue": 0.311,
+          "removed_cue": 0.561
+        },
+        "none": {
+          "mid_mlp_keep_at_cue": 1.0,
+          "removed_cue": 0.0
+        },
+        "random4": {
+          "mid_mlp_keep_at_cue": 0.991,
+          "removed_cue": 0.005
+        }
+      },
+      "mid_layers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "random4": [
+        "attn:02:head:06",
+        "attn:02:head:08",
+        "attn:00:head:02",
+        "attn:01:head:07"
+      ],
+      "reader": "attn:11:head:03",
+      "rows": 16,
+      "seconds": 0.3
+    },
+    "quantifier_number": {
+      "arms": {
+        "all_below": {
+          "mid_mlp_keep_at_cue": 0.094,
+          "removed_cue": 0.337
+        },
+        "early": {
+          "mid_mlp_keep_at_cue": 0.196,
+          "removed_cue": 0.298
+        },
+        "mid": {
+          "mid_mlp_keep_at_cue": 0.85,
+          "removed_cue": 0.203
+        },
+        "none": {
+          "mid_mlp_keep_at_cue": 1.0,
+          "removed_cue": 0.0
+        },
+        "random4": {
+          "mid_mlp_keep_at_cue": 1.033,
+          "removed_cue": 0.004
+        }
+      },
+      "mid_layers": [
+        5,
+        6
+      ],
+      "random4": [
+        "attn:02:head:06",
+        "attn:02:head:08",
+        "attn:00:head:02",
+        "attn:01:head:07"
+      ],
+      "reader": "attn:07:head:08",
+      "rows": 16,
+      "seconds": 0.3
+    }
+  },
+  "candidate_id": "corpus.unit_tier5_cue_value_relay_v134",
+  "counts": {
+    "control": 3,
+    "early": 0,
+    "layers_write": 0,
+    "mid": 2,
+    "ran": 3,
+    "relay": 2
+  },
+  "finished_utc": "2026-09-07T06:31:43.221677+00:00",
+  "mid_mlp_keep_under_early": {
+    "lexical_number_pp": 0.3,
+    "perfect_number": 0.297,
+    "quantifier_number": 0.196
+  },
+  "predictions": {
+    "pred_a_layers_write": false,
+    "pred_b_early": false,
+    "pred_c_mid": false,
+    "pred_d_relay": false,
+    "pred_e_control": true
+  },
+  "schema": "unit_tier5_cue_value_relay_v134",
+  "seconds": 1.1,
+  "summary": {
+    "lexical_number_pp": {
+      "all_below": 0.677,
+      "early": 0.496,
+      "mid": 0.633,
+      "none": 0.0,
+      "random4": 0.005
+    },
+    "perfect_number": {
+      "all_below": 0.611,
+      "early": 0.433,
+      "mid": 0.561,
+      "none": 0.0,
+      "random4": 0.005
+    },
+    "quantifier_number": {
+      "all_below": 0.337,
+      "early": 0.298,
+      "mid": 0.203,
+      "none": 0.0,
+      "random4": 0.004
+    }
+  }
+}
