@@ -1,0 +1,20 @@
+{
+  "candidate_id": "cross_task.temporal_iswas_two_mode_weight_pullback_v1",
+  "claimed_utc": "2026-09-07T01:12:00Z",
+  "claim": "Recompute the frozen temporal/is-was Q8 command and weight-reader factors, pull the leading two task-balanced causal modes into physical residual space, and rank upstream writers through H3 value weights and downstream readers mode by mode.",
+  "collision_search": [
+    "temporal_iswas_q8_finite_causal_hankel_v1",
+    "temporal_iswas_causal_response_canonical_modes_v1",
+    "temporal_auxiliary_will_had_h3_multicue_weight_interface_v1",
+    "mode-specific weight reader and writer validation"
+  ],
+  "novelty": "Existing weight atlases rank pooled rank-one/rank-two activation bases. This runner pulls back the two canonical cross-task response modes and carries the source covectors through H3's actual value map before ranking upstream weights.",
+  "predictions": {
+    "factor_replay": "Pulled rank-two response agrees with the frozen exact task-balanced rank-two response within 1% relative RMSE.",
+    "gauge": "Orthogonal Q8 gauge rotation preserves physical source/reader mode projectors within 1e-5.",
+    "known_components": "L8H1 is top-decile upstream in at least one mode; L15H5 and L15H1 are top-quartile downstream in at least one mode.",
+    "mode_split": "The two modes do not have identical writer and reader rankings; at least one ranking Spearman is below .90.",
+    "complete_inventory": "All 110 upstream modules and 60 downstream modules are scored per mode with finite values."
+  },
+  "null": "If replay/gauge fails the instrument is invalid. If rankings are indistinguishable or miss known components, canonical modes remain an effect-space description and weight ranking is not licensed for causal component selection."
+}
