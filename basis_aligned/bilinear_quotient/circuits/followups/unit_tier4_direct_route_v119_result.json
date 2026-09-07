@@ -1,0 +1,762 @@
+{
+  "bars": {
+    "K": [
+      7,
+      12,
+      3
+    ],
+    "instr_tol": 0.02,
+    "jaccard_min": 0.3,
+    "k_read": 256,
+    "k_share": 64,
+    "ks": [
+      16,
+      64,
+      256,
+      1024
+    ],
+    "literal_min": 0.5,
+    "self_max": 0.3,
+    "sparse_tol": 0.2
+  },
+  "behaviours": {
+    "additive_scope": {
+      "arms": {
+        "cross": 1.081,
+        "direct": 1.062,
+        "full_clamp": 1.0,
+        "literal": 1.065,
+        "self_minus": -0.077,
+        "self_plus_direct": 0.986,
+        "sparse": {
+          "1024": 0.998,
+          "16": 0.96,
+          "256": 1.012,
+          "64": 1.007
+        },
+        "sparse_minus_cross": {
+          "1024": -0.083,
+          "16": -0.121,
+          "256": -0.069,
+          "64": -0.074
+        }
+      },
+      "exact_odd": 0.803,
+      "layers": [
+        4,
+        17
+      ],
+      "partition": "direct",
+      "seconds": 0.6,
+      "units": [
+        "attn:10:head:05",
+        "attn:16:head:08",
+        "attn:08:head:01",
+        "attn:09:head:03",
+        "attn:14:head:08",
+        "attn:05:head:07",
+        "attn:09:head:01",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:04:head:00",
+        "attn:11:head:07"
+      ]
+    },
+    "correlative_either_neither": {
+      "arms": {
+        "cross": 0.946,
+        "direct": 1.049,
+        "full_clamp": 1.0,
+        "literal": 1.035,
+        "self_minus": 0.051,
+        "self_plus_direct": 1.1,
+        "sparse": {
+          "1024": 1.003,
+          "16": 1.098,
+          "256": 1.033,
+          "64": 1.072
+        },
+        "sparse_minus_cross": {
+          "1024": 0.057,
+          "16": 0.152,
+          "256": 0.087,
+          "64": 0.126
+        }
+      },
+      "exact_odd": 0.81,
+      "layers": [
+        7,
+        17
+      ],
+      "partition": "direct",
+      "seconds": 0.6,
+      "units": [
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "degree_frame": {
+      "arms": {
+        "cross": 1.225,
+        "direct": 0.716,
+        "full_clamp": 1.0,
+        "literal": 0.698,
+        "self_minus": -0.208,
+        "self_plus_direct": 0.509,
+        "sparse": {
+          "1024": 1.189,
+          "16": 1.127,
+          "256": 1.143,
+          "64": 1.151
+        },
+        "sparse_minus_cross": {
+          "1024": -0.036,
+          "16": -0.098,
+          "256": -0.082,
+          "64": -0.074
+        }
+      },
+      "exact_odd": 0.854,
+      "layers": [
+        6,
+        17
+      ],
+      "partition": "direct",
+      "seconds": 0.9,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:12:head:08",
+        "attn:06:head:03",
+        "attn:15:head:01",
+        "attn:10:head:05"
+      ]
+    },
+    "interrogative_licensing": {
+      "arms": {
+        "cross": 1.079,
+        "direct": 0.215,
+        "full_clamp": 1.0,
+        "literal": 0.211,
+        "self_minus": -0.054,
+        "self_plus_direct": 0.161,
+        "sparse": {
+          "1024": 0.905,
+          "16": 0.406,
+          "256": 0.724,
+          "64": 0.557
+        },
+        "sparse_minus_cross": {
+          "1024": -0.174,
+          "16": -0.673,
+          "256": -0.355,
+          "64": -0.522
+        }
+      },
+      "exact_odd": 0.952,
+      "layers": [
+        2,
+        17
+      ],
+      "partition": "conversion",
+      "seconds": 0.6,
+      "units": [
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:03:head:00",
+        "attn:02:head:06",
+        "attn:10:head:05",
+        "attn:04:head:04",
+        "attn:05:head:03",
+        "attn:04:head:01",
+        "attn:05:head:07",
+        "attn:04:head:00"
+      ]
+    },
+    "lexical_number_pp": {
+      "arms": {
+        "cross": 1.071,
+        "direct": 0.54,
+        "full_clamp": 1.0,
+        "literal": 0.535,
+        "self_minus": -0.109,
+        "self_plus_direct": 0.431,
+        "sparse": {
+          "1024": 1.05,
+          "16": 0.955,
+          "256": 1.001,
+          "64": 0.956
+        },
+        "sparse_minus_cross": {
+          "1024": -0.021,
+          "16": -0.116,
+          "256": -0.07,
+          "64": -0.115
+        }
+      },
+      "exact_odd": 0.876,
+      "layers": [
+        5,
+        17
+      ],
+      "partition": "direct",
+      "seconds": 0.6,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03"
+      ]
+    },
+    "narrative_tense": {
+      "arms": {
+        "cross": 1.055,
+        "direct": 0.922,
+        "full_clamp": 1.0,
+        "literal": 0.916,
+        "self_minus": -0.06,
+        "self_plus_direct": 0.861,
+        "sparse": {
+          "1024": 1.07,
+          "16": 1.071,
+          "256": 1.049,
+          "64": 1.045
+        },
+        "sparse_minus_cross": {
+          "1024": 0.015,
+          "16": 0.016,
+          "256": -0.006,
+          "64": -0.01
+        }
+      },
+      "exact_odd": 0.859,
+      "layers": [
+        7,
+        17
+      ],
+      "partition": "direct",
+      "seconds": 0.6,
+      "units": [
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:04",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:15:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "perfect_number": {
+      "arms": {
+        "cross": 1.065,
+        "direct": 0.488,
+        "full_clamp": 1.0,
+        "literal": 0.492,
+        "self_minus": -0.074,
+        "self_plus_direct": 0.414,
+        "sparse": {
+          "1024": 1.041,
+          "16": 0.965,
+          "256": 1.029,
+          "64": 0.982
+        },
+        "sparse_minus_cross": {
+          "1024": -0.024,
+          "16": -0.1,
+          "256": -0.036,
+          "64": -0.083
+        }
+      },
+      "exact_odd": 0.88,
+      "layers": [
+        5,
+        17
+      ],
+      "partition": "conversion",
+      "seconds": 0.6,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03",
+        "attn:13:head:01"
+      ]
+    },
+    "possessive_adjacent": {
+      "arms": {
+        "cross": 0.872,
+        "direct": 0.692,
+        "full_clamp": 1.0,
+        "literal": 0.684,
+        "self_minus": 0.13,
+        "self_plus_direct": 0.821,
+        "sparse": {
+          "1024": 0.866,
+          "16": 0.725,
+          "256": 0.808,
+          "64": 0.762
+        },
+        "sparse_minus_cross": {
+          "1024": -0.006,
+          "16": -0.147,
+          "256": -0.064,
+          "64": -0.11
+        }
+      },
+      "exact_odd": 0.87,
+      "layers": [
+        2,
+        17
+      ],
+      "partition": "direct",
+      "seconds": 0.6,
+      "units": [
+        "attn:04:head:05",
+        "attn:09:head:06",
+        "attn:02:head:06",
+        "attn:10:head:05",
+        "attn:03:head:04",
+        "attn:09:head:07",
+        "attn:15:head:01",
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:05:head:03",
+        "attn:06:head:01"
+      ]
+    },
+    "possessive_argument": {
+      "arms": {
+        "cross": 0.99,
+        "direct": 0.774,
+        "full_clamp": 1.0,
+        "literal": 0.768,
+        "self_minus": 0.007,
+        "self_plus_direct": 0.781,
+        "sparse": {
+          "1024": 0.983,
+          "16": 0.881,
+          "256": 0.941,
+          "64": 0.914
+        },
+        "sparse_minus_cross": {
+          "1024": -0.007,
+          "16": -0.109,
+          "256": -0.049,
+          "64": -0.076
+        }
+      },
+      "exact_odd": 0.801,
+      "layers": [
+        4,
+        17
+      ],
+      "partition": "direct",
+      "seconds": 0.6,
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:09:head:07"
+      ]
+    },
+    "possessive_long_simple": {
+      "arms": {
+        "cross": 0.919,
+        "direct": 0.666,
+        "full_clamp": 1.0,
+        "literal": 0.657,
+        "self_minus": 0.077,
+        "self_plus_direct": 0.743,
+        "sparse": {
+          "1024": 0.922,
+          "16": 0.803,
+          "256": 0.907,
+          "64": 0.857
+        },
+        "sparse_minus_cross": {
+          "1024": 0.003,
+          "16": -0.116,
+          "256": -0.012,
+          "64": -0.062
+        }
+      },
+      "exact_odd": 0.827,
+      "layers": [
+        3,
+        17
+      ],
+      "partition": "direct",
+      "seconds": 0.7,
+      "units": [
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:01",
+        "attn:10:head:05",
+        "attn:07:head:08"
+      ]
+    },
+    "possessive_medial": {
+      "arms": {
+        "cross": 0.923,
+        "direct": 0.706,
+        "full_clamp": 1.0,
+        "literal": 0.7,
+        "self_minus": 0.073,
+        "self_plus_direct": 0.779,
+        "sparse": {
+          "1024": 0.917,
+          "16": 0.814,
+          "256": 0.908,
+          "64": 0.857
+        },
+        "sparse_minus_cross": {
+          "1024": -0.006,
+          "16": -0.109,
+          "256": -0.015,
+          "64": -0.066
+        }
+      },
+      "exact_odd": 0.827,
+      "layers": [
+        3,
+        17
+      ],
+      "partition": "direct",
+      "seconds": 0.6,
+      "units": [
+        "attn:09:head:06",
+        "attn:04:head:05",
+        "attn:05:head:03",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:09:head:07"
+      ]
+    },
+    "possessive_verbfinal": {
+      "arms": {
+        "cross": 0.988,
+        "direct": 0.751,
+        "full_clamp": 1.0,
+        "literal": 0.743,
+        "self_minus": 0.009,
+        "self_plus_direct": 0.76,
+        "sparse": {
+          "1024": 0.977,
+          "16": 0.879,
+          "256": 0.962,
+          "64": 0.919
+        },
+        "sparse_minus_cross": {
+          "1024": -0.011,
+          "16": -0.109,
+          "256": -0.026,
+          "64": -0.069
+        }
+      },
+      "exact_odd": 0.815,
+      "layers": [
+        4,
+        17
+      ],
+      "partition": "direct",
+      "seconds": 0.7,
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:10:head:01"
+      ]
+    },
+    "preposition_selection": {
+      "arms": {
+        "cross": 1.166,
+        "direct": 0.363,
+        "full_clamp": 1.0,
+        "literal": 0.364,
+        "self_minus": -0.034,
+        "self_plus_direct": 0.329,
+        "sparse": {
+          "1024": 0.947,
+          "16": 0.613,
+          "256": 0.767,
+          "64": 0.658
+        },
+        "sparse_minus_cross": {
+          "1024": -0.219,
+          "16": -0.553,
+          "256": -0.399,
+          "64": -0.508
+        }
+      },
+      "exact_odd": 0.91,
+      "layers": [
+        4,
+        17
+      ],
+      "partition": "conversion",
+      "seconds": 0.6,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:04:head:01",
+        "attn:11:head:03",
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:09:head:07"
+      ]
+    },
+    "quantifier_number": {
+      "arms": {
+        "cross": 1.128,
+        "direct": 0.494,
+        "full_clamp": 1.0,
+        "literal": 0.491,
+        "self_minus": -0.134,
+        "self_plus_direct": 0.36,
+        "sparse": {
+          "1024": 1.129,
+          "16": 0.958,
+          "256": 1.112,
+          "64": 1.006
+        },
+        "sparse_minus_cross": {
+          "1024": 0.001,
+          "16": -0.17,
+          "256": -0.016,
+          "64": -0.122
+        }
+      },
+      "exact_odd": 0.834,
+      "layers": [
+        5,
+        17
+      ],
+      "partition": "conversion",
+      "seconds": 0.6,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:13:head:06",
+        "attn:09:head:01"
+      ]
+    }
+  },
+  "candidate_id": "corpus.unit_tier4_direct_route_v119",
+  "counts": {
+    "instrument": 14,
+    "literal": 10,
+    "n": 14,
+    "self_small": 14,
+    "sparse_ok": 2
+  },
+  "finished_utc": "2026-09-07T05:35:17.997258+00:00",
+  "literal_sets": [
+    "additive_scope",
+    "correlative_either_neither",
+    "degree_frame",
+    "lexical_number_pp",
+    "narrative_tense",
+    "possessive_adjacent",
+    "possessive_argument",
+    "possessive_long_simple",
+    "possessive_medial",
+    "possessive_verbfinal"
+  ],
+  "number_sharing_jaccard": {
+    "lexical_number_pp|perfect_number": 0.264,
+    "lexical_number_pp|quantifier_number": 0.196,
+    "perfect_number|quantifier_number": 0.142
+  },
+  "partition": {
+    "conversion": [
+      "interrogative_licensing",
+      "perfect_number",
+      "preposition_selection",
+      "quantifier_number"
+    ],
+    "direct": [
+      "additive_scope",
+      "correlative_either_neither",
+      "degree_frame",
+      "lexical_number_pp",
+      "narrative_tense",
+      "possessive_adjacent",
+      "possessive_argument",
+      "possessive_long_simple",
+      "possessive_medial",
+      "possessive_verbfinal"
+    ]
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_literal_route": true,
+    "pred_c_self_is_small": true,
+    "pred_d_sparse_repaired": false,
+    "pred_e_number_sharing": false
+  },
+  "schema": "unit_tier4_direct_route_v119",
+  "seconds": 9.1,
+  "summary": {
+    "additive_scope": [
+      0.803,
+      1.0,
+      1.062,
+      1.065,
+      1.081,
+      -0.077,
+      1.012
+    ],
+    "correlative_either_neither": [
+      0.81,
+      1.0,
+      1.049,
+      1.035,
+      0.946,
+      0.051,
+      1.033
+    ],
+    "degree_frame": [
+      0.854,
+      1.0,
+      0.716,
+      0.698,
+      1.225,
+      -0.208,
+      1.143
+    ],
+    "interrogative_licensing": [
+      0.952,
+      1.0,
+      0.215,
+      0.211,
+      1.079,
+      -0.054,
+      0.724
+    ],
+    "lexical_number_pp": [
+      0.876,
+      1.0,
+      0.54,
+      0.535,
+      1.071,
+      -0.109,
+      1.001
+    ],
+    "narrative_tense": [
+      0.859,
+      1.0,
+      0.922,
+      0.916,
+      1.055,
+      -0.06,
+      1.049
+    ],
+    "perfect_number": [
+      0.88,
+      1.0,
+      0.488,
+      0.492,
+      1.065,
+      -0.074,
+      1.029
+    ],
+    "possessive_adjacent": [
+      0.87,
+      1.0,
+      0.692,
+      0.684,
+      0.872,
+      0.13,
+      0.808
+    ],
+    "possessive_argument": [
+      0.801,
+      1.0,
+      0.774,
+      0.768,
+      0.99,
+      0.007,
+      0.941
+    ],
+    "possessive_long_simple": [
+      0.827,
+      1.0,
+      0.666,
+      0.657,
+      0.919,
+      0.077,
+      0.907
+    ],
+    "possessive_medial": [
+      0.827,
+      1.0,
+      0.706,
+      0.7,
+      0.923,
+      0.073,
+      0.908
+    ],
+    "possessive_verbfinal": [
+      0.815,
+      1.0,
+      0.751,
+      0.743,
+      0.988,
+      0.009,
+      0.962
+    ],
+    "preposition_selection": [
+      0.91,
+      1.0,
+      0.363,
+      0.364,
+      1.166,
+      -0.034,
+      0.767
+    ],
+    "quantifier_number": [
+      0.834,
+      1.0,
+      0.494,
+      0.491,
+      1.128,
+      -0.134,
+      1.112
+    ]
+  },
+  "summary_columns": [
+    "exact_odd",
+    "full_clamp",
+    "direct",
+    "literal",
+    "cross",
+    "self_minus",
+    "sparse_256"
+  ]
+}
