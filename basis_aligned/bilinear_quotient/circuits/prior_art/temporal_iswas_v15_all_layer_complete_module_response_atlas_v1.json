@@ -11,15 +11,16 @@
   "population": "Exactly all 16 A1 and 16 A2 target rows frozen by the v15 capability manifest; zero fitting or row selection.",
   "interventions": {
     "singletons": "Complete donor response at each of 36 native sites attn:0,mlp:0,...,attn:17,mlp:17, installed over every aligned position through the semantic endpoint.",
-    "prefixes": "For each layer l=0..17, jointly install complete donor attention and MLP responses at every layer 0..l; selection is not used during execution.",
-    "controls": "All-site base self-patch, all-site donor patch, and the old MLP0/1/2/3/6 whole-response arm."
+    "input_diagnostic": "Also patch the complete donor input residual before block 0 as a separately reported non-module column, because lexical cue changes enter through embeddings.",
+    "prefixes": "For each layer l=0..17, jointly install the donor input residual and complete donor attention/MLP responses at every layer 0..l; selection is not used during execution.",
+    "controls": "Input-plus-all-site base self-patch, input-plus-all-site donor trajectory patch, and the old MLP0/1/2/3/6 whole-response arm."
   },
   "response_blocks": [
     "rowwise donor-normalized answer-minus-foil margin",
     "the complete 1152-dimensional final-residual donor difference at the semantic endpoint"
   ],
   "predictions": {
-    "pred_a_authority_population_closure_finiteness_and_exact_price": "All hashes and exact 16+16 inventory match; base-self and all-donor closures are <=1e-4; all metrics are finite; exactly 59 native forwards execute.",
+    "pred_a_authority_population_closure_finiteness_and_exact_price": "All hashes and exact 16+16 inventory match; input-plus-module base-self and all-donor closures are <=1e-4; all metrics are finite; exactly 60 native forwards execute.",
     "pred_b_old_five_behavior_replays": "The old five-MLP complete arm reproduces the prior is/was behavior projection .3985174 within 1e-5.",
     "pred_c_new_module_outside_old_five_is_material": "At least one singleton outside MLP0/1/2/3/6 has absolute mean behavior recovery >=.10 with >=.75 rowwise causal direction.",
     "pred_d_proper_prefix_restores_behavior_and_state": "A cumulative prefix ending no later than layer16 reaches behavior projection >=.75, >=.90 direction, and final-residual RSE <=.20.",
@@ -34,7 +35,7 @@
   },
   "next_branch": "Split the top causally live attention module into all nine heads, or split a top MLP by construction-stable causal response modes; if support is distributed, execute a frozen greedy composition of the top complete modules.",
   "price": {
-    "model_forwards_exact": 59,
+    "model_forwards_exact": 60,
     "rows_per_forward": 32,
     "fit_updates": 0,
     "model_updates": 0,
