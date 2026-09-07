@@ -1,0 +1,11 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_mlp_chain_finite_downstream_sensitivity_v1",
+  "checked_utc": "2026-09-07T00:16:00Z",
+  "decision": "novel_finite_weight_write_to_downstream_reader_atlas",
+  "activation_tensor_sha256": "cbbc09378bc27a8674aa5da28309f95314654a2c72c9d6c44e9ab2a6f341e62c",
+  "scope": "MLP10-14 under unrestricted MLP8-complement actuation on jointly capable v11 A1/A2 rows",
+  "intervention": "for each MLP, replace its causal-prefix output by the cached native-base response while leaving earlier actuation and all later modules free to recompute; an alpha=1 cached-live arm must replay unrestricted live",
+  "edge_table": "exact local Q8 write RMS from the compiled weight response, final resid18 Q8 necessity, answer-margin necessity, and their finite downstream gain by panel",
+  "prediction": "Every selected MLP has nonzero final causal necessity, cached-live replay is exact, and downstream gains vary across layers enough to explain why local write magnitude alone misranks importance.",
+  "fit_policy": "zero fitted parameters, no gradients, finite causal removals only"
+}
