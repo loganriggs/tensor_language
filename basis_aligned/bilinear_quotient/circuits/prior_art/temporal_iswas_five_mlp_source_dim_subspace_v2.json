@@ -1,0 +1,11 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_five_mlp_source_dim_subspace_v2",
+  "question": "After atomically auditing v1 authority and split predicates, do the preserved DIM/SVD source-subspace interventions satisfy the frozen functional and selectivity bars?",
+  "authority": {
+    "v1_result_sha256": "450f41c1127b86dff5868abaee51b0eccf190de18d0990a7c9acbde45760f621",
+    "v1_invalidity": "Monolithic A returned false without constituent diagnostics.",
+    "rescoring_policy": "No measurements or scientific bars change; A is reconstructed from pinned authorities, the independent zero-overlap audit, published finiteness, and full-arm functional replay."
+  },
+  "novelty": "Scorer-only repair of v1 instrument reporting, with no model rerun or threshold adjustment.",
+  "decision": "Retain the same B-E predictions and publish a valid null if DIM/SVD source bases do not transfer."
+}

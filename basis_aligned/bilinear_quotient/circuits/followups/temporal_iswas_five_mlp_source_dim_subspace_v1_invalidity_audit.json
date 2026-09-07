@@ -1,0 +1,17 @@
+{
+  "schema": "temporal_iswas_five_mlp_source_dim_subspace_invalidity_audit_v1",
+  "audited_result": "circuits/followups/temporal_iswas_five_mlp_source_dim_subspace_v1_result.json",
+  "audited_result_sha256": "450f41c1127b86dff5868abaee51b0eccf190de18d0990a7c9acbde45760f621",
+  "invalid_terminal": "invalid",
+  "defect": "The monolithic prediction-A conjunction returned false but the result did not publish its constituent checks, so the failing instrument predicate cannot be identified from the receipt. The raw measurements cannot receive a scientific terminal under v1.",
+  "independent_findings": {
+    "all_frozen_authority_hashes_recomputed_equal": true,
+    "five_source_support_recomputed_equal": true,
+    "full_arm_functional_under_frozen_bars": true,
+    "all_published_numeric_measurements_finite": true,
+    "all_published_source_singular_values_finite": true,
+    "source_fit_evaluation_overlap_count": 0,
+    "split_audit": "circuits/followups/temporal_iswas_five_mlp_source_dim_subspace_v1_split_audit.json"
+  },
+  "disposition": "Release v1 invalid. A model-free v2 scorer may validate the preserved sufficient statistics against explicit atomic predicates and publish the scientific null without rerunning the model."
+}
