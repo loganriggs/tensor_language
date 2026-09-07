@@ -701,8 +701,11 @@ def fit_block_subspace(backend, prep, units, *, rank=1, steps=200, lr=0.05, seed
 
 
 def fit_block_subspace_constrained(backend, prep, units, *, rank=1, steps=200, lr=0.05, seed=0,
-                                   complement_weight=0.0, controls=(), control_weight=0.0, mu=None):
+                                   complement_weight=0.0, controls=(), control_weight=0.0, mu=None, init=None):
     """fit_block_subspace plus a REMOVAL-inertness penalty on control families (v74).
+
+    init            optional {block_key: (dim, rank) tensor} (e.g. block_diff_in_means output) used as the
+                    starting point instead of the seeded random raws (v82). None reproduces earlier runs.
 
     controls        preps (e.g. the behaviour's own C family, even rows) on which projecting the units'
                     activations onto `mu` along the fitted subspace must not change the answer log-prob.
@@ -720,6 +723,8 @@ def fit_block_subspace_constrained(backend, prep, units, *, rank=1, steps=200, l
     blocks = blocks_of(units)
     raws = {key: (torch.randn(sum(unit_dim(u) for u in us), rank, device=backend.device) * 0.02
                   ).requires_grad_(True) for key, us in blocks.items()}
+    if init is not None:
+        raws = {key: init[key].detach().clone().float().to(backend.device).requires_grad_(True) for key in blocks}
     opt = torch.optim.Adam(list(raws.values()), lr=lr)
     target = torch.tensor(patched_axis(backend, prep, units), device=backend.device)
     base_target = torch.tensor(prep.base_axis, device=backend.device)
