@@ -83,6 +83,14 @@ def numeric_max_abs_difference(left, right) -> float:
     return 0.0 if left == right else math.inf
 
 
+def registered_parent_report(value):
+    """Restrict the older lattice report to the separately registered P/C blocks."""
+    return {
+        "targets": value["targets"],
+        "controls": {panel: value["controls"][panel] for panel in CONTROL_PANELS},
+    }
+
+
 def intervene_with_state_capture(backend, batch, specs):
     """Use the shared exact intervention while requesting its final residual capture."""
     native = backend.native
@@ -267,7 +275,7 @@ def main() -> None:
         reports[arm_name(subset)] = {"factors": list(subset), "eligible": eligible(value), "report": value}
 
     full_name = arm_name(FACTORS)
-    full_parent = lattice["reports"]["31"]["report"]
+    full_parent = registered_parent_report(lattice["reports"]["31"]["report"])
     full_parent_replay_error = numeric_max_abs_difference(reports[full_name]["report"], full_parent)
     eligible_names = [name for name, value in reports.items() if value["eligible"]]
     selected_name = min(eligible_names, key=lambda name: (

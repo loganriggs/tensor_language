@@ -29,3 +29,15 @@ def test_intervention_requests_state_capture_and_restores_native(monkeypatch):
     assert output.captured == {"final": True}
     assert calls == [("batch", True)]
     assert backend.native is original
+
+
+def test_registered_parent_report_drops_only_legacy_pooled_control():
+    report = {
+        "targets": {"A1": {"behavior": 1}, "A2": {"behavior": 2}},
+        "controls": {"P": {"kl": 3}, "C": {"kl": 4}, "pooled": {"kl": 5}},
+    }
+
+    assert factorial.registered_parent_report(report) == {
+        "targets": report["targets"],
+        "controls": {"P": {"kl": 3}, "C": {"kl": 4}},
+    }
