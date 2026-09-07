@@ -1,0 +1,20 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_compiled_coordinate_embedding_source_v1",
+  "question": "Is the top-20 atlas's missing MLP1 coordinate supplied by the changed cue embedding through the persistent x0 stream?",
+  "frozen_program": {
+    "component_pool": "the identical 20-site even/odd top pool from the compiled-coordinate upstream atlas",
+    "embedding_patch": "replace wte output only at token positions where aligned base and donor token IDs differ",
+    "target_arms": ["top20", "cue_embedding_only", "top20_plus_cue_embedding"],
+    "targets": "all eight weight-compiled coordinates plus native final answer margins on temporal-v13 and is/was-v12",
+    "controls": "top20_plus_changed_embeddings on temporal-v13 P rows, scored by full-vocabulary KL, top-1 flips, and normalized answer-margin movement"
+  },
+  "predictions": {
+    "pred_a_authority_top20_agreement_embedding_scope_finiteness_and_price": "authorities replay, both atlas fits have the same 20 sites, target embedding patches touch exactly one aligned cue per row, and all values are finite",
+    "pred_b_cue_embedding_closes_missing_mlp1_coordinate": "adding the cue embedding improves MLP1 signed projection by >=0.15 and reaches >=0.85 for both fits",
+    "pred_c_top20_plus_embedding_is_coordinate_sufficient": "all eight coordinates reach signed projection >=0.80 with mean residual <=0.10 for both fits",
+    "pred_d_top20_plus_embedding_is_behaviorally_sufficient_and_selective": "native target margin projection is >=0.90 per task while controls have normalized margin RMS <=0.10, median KL <=0.02, and flip fraction <=0.05",
+    "pred_e_embedding_is_a_material_direct_mlp1_source": "embedding-only MLP1 signed projection is >=0.15 for both fits"
+  },
+  "decision": "Passing adds an explicit input-source node ahead of the head/module graph. Failure triggers an early-layer coordinate-specific greedy over the 19 compatible sites rather than enlarging the global pool.",
+  "price": {"model_forwards_max": 24, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
