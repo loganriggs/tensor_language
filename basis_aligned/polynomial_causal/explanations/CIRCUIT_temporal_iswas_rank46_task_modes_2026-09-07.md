@@ -95,11 +95,22 @@ their centered control effects differ by only 1.87% of the full-parent effect.  
 split adds no measured collateral, but it does not repair collateral already present in the
 five-MLP intervention.
 
-The active source-weight test now forms task-conditioned matrices
+The transferred source-weight test now forms task-conditioned matrices
 `Z_task = delta_hidden (Down^T Q)`, uses canonical-angle mean/contrast blocks to identify shared
 versus task-specific physical weight directions, checks even/odd stability, and executes the
-blocks and their complement through the complete model.  Until those causal patches land, the
-mean/contrast coordinates remain a preregistered probe rather than an identified circuit split.
+blocks and their complement through the complete model.  It is a valid, informative null.  All
+five source sites have crossfit-stable mean/contrast blocks, own-task blocks strongly beat
+cross-task blocks, and the mean+contrast union is functional: temporal/is-was behavior is
+`.8527/.8744`, with signed causal response `1.0734/1.0870`.  It also reduces the parent's two
+control flips to one.
+
+The union is not yet full-equivalent.  Full rank-16 behavior is `.8642/.9233`, so the is-was gap
+is `.04891`, above the frozen `.03` bar, even though the response-projection gap is only `.01182`.
+The orthogonal complement produces only `.01181` is-was signed response but `.04693` behavior.
+Thus a small physical residual is nonlinearly amplified downstream.  The registered terminal is
+`probe_basis_only`, not an identified task-pair source circuit.  The next test localizes this
+residual by adding each source MLP's complement back to the otherwise frozen union, then greedily
+composes only prospectively useful sites.
 
 ## DAS interpretation
 
@@ -155,6 +166,9 @@ refitting on sealed task families and predicts through the exact weight-derived 
   `temporal_iswas_rank16_hidden_complement_factorial_v1_result.json`,
   `temporal_iswas_rank16_hidden_mask30_construction_holdout_v1_result.json`, and
   `temporal_iswas_rank16_hidden_mask30_control_attribution_v1_result.json`.
+- Exact task-pair source-weight grouping:
+  `temporal_iswas_rank16_source_task_pair_weight_groups_v2_result.json` (valid functional null;
+  five-site residual localization required).
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`.
 
@@ -162,8 +176,9 @@ refitting on sealed task families and predicts through the exact weight-derived 
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Score the active exact source mean/contrast weight patches.  If their union is functional,
-   factor shared and contrast contributions across all five native MLP sites before greedy pruning.
+2. Localize the small but behaviorally amplified complement residual across the five native source
+   MLPs, add back the minimal frozen site set, then factor shared and contrast contributions inside
+   that repaired source program before greedy pruning.
 3. Fit construction-adaptive multi-environment DAS against the richer operator, selecting KL/noise
    strength without seeing the outer construction family and reserving a capability-qualified new
    text family for the outcome; do not tune against the already-open v12 success.
