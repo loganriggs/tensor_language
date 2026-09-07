@@ -1,0 +1,153 @@
+{
+  "bars": {
+    "_v166_bars": {
+      "attn07_band": [
+        0.3,
+        0.7
+      ],
+      "attn07_whole_band": [
+        0.2,
+        0.6
+      ],
+      "attn_value_max": 0.03,
+      "computed_band": [
+        0.8,
+        1.2
+      ],
+      "control_max": 0.05,
+      "direct_value_max": 0.03,
+      "direct_whole_max": 0.2,
+      "dv_band": [
+        0.8,
+        1.5
+      ],
+      "instr_value_tol": 0.03,
+      "instr_whole": [
+        0.9,
+        1.05
+      ],
+      "mlp01_band": [
+        0.3,
+        0.75
+      ],
+      "value_band": [
+        0.35,
+        0.85
+      ],
+      "weight_max": 0.05
+    },
+    "double_band": [
+      2.0,
+      6.0
+    ],
+    "half_max": 0.5,
+    "noun_band": [
+      0.5,
+      1.2
+    ],
+    "noun_wrong_abs_max": 0.3,
+    "t_plural_max": 0.0,
+    "t_singular_min": 0.05
+  },
+  "candidate_id": "corpus.unit_tier5_hub_number_dir_at_t_v168",
+  "direction": "lexical p1 diff-in-means of mlp:01 noun write (singular->plural)",
+  "finished_utc": "2026-09-07T09:06:43.678845+00:00",
+  "measures": {
+    "lex_seven:p0": {
+      "donor_sign_of_u": -1.0,
+      "dose": 2408.0,
+      "exact_hub": 0.51,
+      "full_delta": {
+        "value_swap_at_t": 0.135,
+        "whole_model": 0.555
+      },
+      "full_value_swap": 0.256,
+      "noun_toward_donor": {
+        "value_swap_at_t": 0.126,
+        "whole_model": 0.517
+      },
+      "noun_toward_donor_share": 0.933,
+      "noun_wrong_sign": {
+        "value_swap_at_t": 0.022,
+        "whole_model": 0.055
+      },
+      "noun_wrong_sign_share": 0.163,
+      "rows": 16,
+      "t_plural": {
+        "value_swap_at_t": 0.0,
+        "whole_model": -0.024
+      },
+      "t_singular": {
+        "value_swap_at_t": 0.0,
+        "whole_model": 0.045
+      },
+      "t_singular_double": {
+        "value_swap_at_t": 0.0,
+        "whole_model": 0.104
+      },
+      "t_singular_half": {
+        "value_swap_at_t": 0.0,
+        "whole_model": -0.018
+      }
+    },
+    "lex_seven:p1": {
+      "donor_sign_of_u": 1.0,
+      "dose": 2408.0,
+      "exact_hub": 0.672,
+      "full_delta": {
+        "value_swap_at_t": 0.178,
+        "whole_model": 0.647
+      },
+      "full_value_swap": 0.421,
+      "noun_toward_donor": {
+        "value_swap_at_t": 0.171,
+        "whole_model": 0.62
+      },
+      "noun_toward_donor_share": 0.961,
+      "noun_wrong_sign": {
+        "value_swap_at_t": 0.025,
+        "whole_model": 0.106
+      },
+      "noun_wrong_sign_share": 0.14,
+      "rows": 16,
+      "t_plural": {
+        "value_swap_at_t": 0.0,
+        "whole_model": -0.026
+      },
+      "t_singular": {
+        "value_swap_at_t": 0.0,
+        "whole_model": 0.158
+      },
+      "t_singular_double": {
+        "value_swap_at_t": 0.0,
+        "whole_model": 0.638
+      },
+      "t_singular_half": {
+        "value_swap_at_t": 0.0,
+        "whole_model": -0.007
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_noun_is_number": true,
+    "pred_b_t_context_signed": false,
+    "pred_c_t_superlinear": true
+  },
+  "schema": "unit_tier5_hub_number_dir_at_t_v168",
+  "seconds": 1.3,
+  "sets": {
+    "lex_seven": {
+      "family": "lexical_number_pp",
+      "units": [
+        "attn:11:head:03",
+        "mlp:09",
+        "attn:09:head:07",
+        "mlp:10",
+        "attn:10:head:05",
+        "attn:11:head:02",
+        "mlp:08"
+      ]
+    }
+  },
+  "source_unit": "mlp:01"
+}
