@@ -1,0 +1,11 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_five_mlp_rank16_gain_curve_v1",
+  "question": "Can a fixed scalar gain on the selective all-position rank-16 source program restore temporal behavior without sacrificing response fidelity or controls?",
+  "authority": {
+    "position_ladder_sha256": "b6f4562bcc6e19dc808a0debaf35d32b0d6c1dbd6c6a6e7846a92253b89dc014",
+    "rank16": "Response .933/.963 with low RSE, behavior .657 temporal/.804 is-was, median control KL .000625 and zero flips.",
+    "rank64_complement": "Causally insufficient on both tasks, establishing that rank16's deficit is calibration inside the live source span rather than a large orthogonal route."
+  },
+  "novelty": "First prospective finite gain curve on the all-position source tensor program at the five-MLP greedy boundary.",
+  "decision": "Select the lowest registered gain that is functional and selective; do not optimize continuously or alter the gain grid."
+}
