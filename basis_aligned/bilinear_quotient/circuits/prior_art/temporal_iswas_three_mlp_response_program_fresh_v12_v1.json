@@ -1,0 +1,48 @@
+{
+  "schema": "temporal_iswas_three_mlp_response_program_fresh_v12_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas_three_mlp_response_program_fresh_v12_v1",
+  "registered_utc": "2026-09-07T02:35:00Z",
+  "question": "Does the zero-fit MLP13+MLP15+MLP16 cached-response program, selected on v11 by the complete ten-site lattice, transfer to fresh v12 constructions and retain individually necessary mode-2 terms?",
+  "authority": {
+    "selection_result_sha256": "b39eaf86f1e6f8479acff263ae97dcb2b6ec62ee7975be599e6cefc86ac17f59",
+    "selection_runner_sha256": "0a36e82329333f5aae5c9a6df43808d30c4ec90aec19a7f539d22fa0937a6ed9",
+    "temporal_builder_sha256": "4cf4624361ff2bd3c87cd987a7c4d16a1eeefb1c7f78287b78319862ab8d8de9",
+    "temporal_capability_sha256": "4758b02cd026c85289dc3eaf352cc496d238057c6f8b52dfc6fe49ae17893324",
+    "iswas_builder_sha256": "2734cbeceb4e6979dab22fe5b24870386874ac2f905ae426e6e689548e43e8a2",
+    "iswas_capability_sha256": "67cb3efbd1ea86f98f94a826922928229a7c7b0a247f218778fc4960a6e8c6f4"
+  },
+  "frozen_design": {
+    "population": {
+      "temporal": "First 12 jointly capable rows in each v12 A1/A2 panel (24 total).",
+      "iswas": "All jointly capable v12 rows: 14 A1 and 16 A2 (30 total).",
+      "total_rows": 54,
+      "novelty": "Temporal v12 is text-disjoint and outcome-sealed. Is/was v12 predates selection and was never used by the mask-416 lattice; it is outcome-new for this program, though not globally pristine."
+    },
+    "writer": ["L7H8", "L9H1", "L9H4", "MLP7", "MLP9"],
+    "downstream_domain": "All attention-head and MLP responses in layers 12 through 17 are clamped to either their base cache or their writer-live cache.",
+    "arms": {
+      "direct": [],
+      "selected": ["MLP13", "MLP15", "MLP16"],
+      "full_ten_site_pool": ["L13H6", "L15H1", "L15H5", "L17H2", "MLP12", "MLP13", "MLP14", "MLP15", "MLP16", "MLP17"],
+      "minus_MLP13": ["MLP15", "MLP16"],
+      "minus_MLP15": ["MLP13", "MLP16"],
+      "minus_MLP16": ["MLP13", "MLP15"]
+    },
+    "measurement": "Behavioral donor-margin response and the two frozen gauge-safe physical reader coordinates are compared with the full writer-live response. No fitting, selection, threshold tuning, or model update occurs.",
+    "price": {
+      "model_forwards": 18,
+      "example_evaluations": 972,
+      "fit_updates": 0,
+      "model_updates": 0,
+      "transformer_backwards": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_capability_replay_self_clamp_finiteness_price": "Every hash and capability terminal is valid; exact 24/30 task population; self-clamp, live replay, attention reconstruction, physical-reader identity, finiteness, and exact price pass.",
+    "pred_b_selected_three_mlp_program_transfers": "Selected behavior direction is at least 0.90, behavior signed projection is at least 0.80 on each task, both mode signed projections are at least 0.60 on each task, and worst six-cell squared residual is at most 0.20.",
+    "pred_c_full_ten_site_pool_is_faithful": "Full ten-site pool has behavior direction at least 0.95 and worst six-cell squared residual at most 0.02.",
+    "pred_d_all_three_mlp_mode2_terms_are_necessary": "Removing each of MLP13, MLP15, and MLP16 reduces mode-2 signed projection by at least 0.03 on each task relative to the selected program.",
+    "pred_e_selected_improves_direct_in_all_mode_cells": "Selected program has no larger squared residual than the direct writer path in all four task-by-mode cells and cuts each task's mode-2 residual by at least 25%."
+  },
+  "decision": "All five gates yield fresh_component_resolved_response_program and license literal MLP weight compilation. Instrument failure yields invalid. Otherwise the result is a response_program_transfer_null; no site substitution or threshold repair is licensed on these outcomes."
+}
