@@ -1,0 +1,11 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_parsimonious_program_fresh_v12_confirmation_v1",
+  "checked_utc": "2026-09-07T00:23:00Z",
+  "decision": "novel_frozen_end_to_end_fresh_confirmation",
+  "frozen_program": "MLP8 complement actuation; attention9 H1/H4; complete MLP9; attention11 H1/H3; complete MLP10-14; attention15 H5/H1",
+  "fidelity_variant": "replace attention15 H1 with H1/H0/H8/H7/H2 while retaining seeded H5",
+  "population": "untouched jointly capable fresh lexicon v12 A1/A2 rows",
+  "metrics": "answer/foil behavior, shared-Q8 coordinates, and centered full-vocabulary logit effects relative to unrestricted complement actuation",
+  "prediction": "The parsimonious program recovers at least 80 percent of behavior and Q8 norm on both panels with strong direction agreement; the fidelity variant is no worse in joint relative error.",
+  "fit_policy": "fully frozen zero-fit program; no v12 causal outcomes used for selection"
+}
