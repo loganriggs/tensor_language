@@ -1,0 +1,59 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_das_hard_feasible_kl_stability_v1",
+  "claimed_utc": "2026-09-07T03:50:00Z",
+  "question": "Can optimization improve on DIM once target sufficiency is a non-tradeable constraint and KL/noise act only inside the feasible region?",
+  "prior_art": {
+    "redteam_sha256": "f39cdea34e1006d9e5f9db47cdd6f8d710c8a69178577148f36e53837af69b1b",
+    "complete_family_result_sha256": "0a7e46a037b53fb6c00fd146c816f09df655c2f9beffb9fcf99c144a108a38b4",
+    "regularized_result_sha256": "f7d53dd6530dbdbebba7610236adc862b3c595bd83fb6c1b24d8fd4365543163",
+    "aligned_result_sha256": "3aea84323bae1c2e46a430ef5f08b838826504693e6b1ba8a05027ca065b379d",
+    "pooled_axis_result_sha256": "d84c72d9d3c87a159fb453efc9ce9000fb8bfb7f3d2c34c96a3f7238914879c9"
+  },
+  "novelty": "Earlier runs used weighted sums, so complement or KL improvements could purchase target degradation. This test makes per-environment target matching a hard checkpoint-selection condition relative to DIM, then compares deterministic KL optimization with antithetic tangent-noise KL optimization. A complete construction family selects; v10/v11 remain sealed.",
+  "population": {
+    "gradient": "A1 and A2 even rows from temporal cue banks v1 and v2, four environments",
+    "selection": "all jointly capable A1/A2 rows from complete-family bank v8, two environments",
+    "sealed": "all jointly capable A1/A2 rows from fresh banks v10 and v11, four environments"
+  },
+  "rank_and_site": "one 128-dimensional direction in complete L11H3 value-output coordinates",
+  "readers": [
+    "answer-versus-foil margin",
+    "L15H5+H1 downstream transport",
+    "centered full-vocabulary logits and KL"
+  ],
+  "feasibility": {
+    "target_terms": ["normalized margin match error", "normalized L15 transport match error"],
+    "rule": "For every selection environment and each target term, checkpoint error must be no more than the corresponding DIM error plus 0.02. Infeasible checkpoints cannot win regardless of complement/KL score.",
+    "eligible_baselines": ["DIM", "frozen pooled aligned", "frozen weighted-KL", "frozen aligned-0.3"],
+    "training_barrier": "100 times squared positive violations of the same DIM+0.02 bounds; scientific selection still uses the exact hard rule"
+  },
+  "secondary_objective": "Worst-environment sum of normalized margin complement, L15 complement, full-vocabulary complement, and full-vocabulary match losses",
+  "learned_arms": {
+    "deterministic": "DIM and pooled-aligned starts; 40 Adam steps; checkpoints every 10 steps",
+    "noise": "same starts and schedule, with deterministic antithetic rank-one tangent perturbations of sigma 0.03 during fitting; unperturbed checkpoint evaluation"
+  },
+  "selection": "Lexicographically select a feasible v8 checkpoint by lowest worst secondary objective, then mean objective, then fixed arm/start/step order. DIM is always eligible.",
+  "predictions": {
+    "pred_a_authority_instrument_finiteness_and_price": "All authorities, causal-hook closure, finite traces, complete populations, and registered price close.",
+    "pred_b_nonbaseline_feasible_checkpoint_exists": "At least one moved deterministic or noisy checkpoint is v8-feasible under both target readers in both panels.",
+    "pred_c_feasible_optimization_improves_v8_secondary": "The selected non-DIM checkpoint lowers v8 worst secondary objective at least 5% versus DIM while satisfying every hard target constraint.",
+    "pred_d_selected_generalizes_to_sealed_families": "On every v10/v11 A1/A2 cell, both target errors remain within DIM+0.02, and sealed mean and worst secondary objectives are below DIM.",
+    "pred_e_regularization_is_stable_not_memorizing": "The winning learned condition has absolute cosine at least 0.80 across its DIM and pooled starts, or the exact selector retains a frozen baseline rather than accepting an unstable update."
+  },
+  "terminal_policy": {
+    "invalid": "prediction A fails",
+    "hard_feasible_das_candidate": "all five predictions pass",
+    "family_memorization": "B holds but C or D fails",
+    "dim_frontier": "no moved feasible checkpoint exists and DIM/frozen baseline wins",
+    "partial": "other valid mixed outcome"
+  },
+  "price_upper_bound": {
+    "model_forwards": 2500,
+    "transformer_backward_forwards": 1920,
+    "model_updates": 160,
+    "fit_parameters_per_restart": 128,
+    "fit_updates": 160,
+    "transformer_backwards": 160
+  },
+  "anti_rank_drift": "This tests stable identification, held-out prediction, extraction, and selective complement manipulation at a fixed rank and site; it does not search rank or compression."
+}
