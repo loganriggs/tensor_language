@@ -925,3 +925,24 @@ def swap_base_donor(rows):
         n["row_id"] = f"{n['row_id']}:rev"
         out.append(n)
     return out
+
+
+def cue_positions(base_batch, donor_batch, which="last"):
+    """Per-row token positions where base and donor differ (the cue), on each side -- never derive a cue position as an
+    offset from the semantic position (v165: 4/32 lexical rows split the PP object, so t-3 was 'near', not the noun).
+    Returns (base_positions, donor_positions); `which` = "first" or "last" differing index on each side, computed from the
+    common prefix / suffix so rows of unequal length are handled (the cue spans the middle)."""
+    out_b, out_d = [], []
+    for rb, rd in zip(base_batch.token_rows, donor_batch.token_rows):
+        rb, rd = list(rb), list(rd)
+        pre = 0
+        while pre < min(len(rb), len(rd)) and rb[pre] == rd[pre]:
+            pre += 1
+        suf = 0
+        while suf < min(len(rb), len(rd)) - pre and rb[-1 - suf] == rd[-1 - suf]:
+            suf += 1
+        if which == "first":
+            out_b.append(pre); out_d.append(pre)
+        else:
+            out_b.append(len(rb) - 1 - suf); out_d.append(len(rd) - 1 - suf)
+    return out_b, out_d
