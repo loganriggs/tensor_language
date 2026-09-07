@@ -1,0 +1,21 @@
+{
+  "candidate_id": "cross_task.temporal_iswas_v11_writer_frontier_holdout_v1",
+  "claimed_utc": "2026-09-07T01:40:00Z",
+  "question": "Does the four-group conditional writer frontier selected on the first v11 rows predict the unused v11 rows, and is L7H8 specifically useful only in the L9/MLP context?",
+  "selection_rule": "From the completed 32-arm discovery factorial, choose the smallest subset whose worst task-mode pre-H3 squared residual is at most 0.125. This uniquely selects mask 30: L7H8 + L9H1/H4 + MLP7 + MLP9. Mask 31 is the fidelity comparator, mask 28 removes L7H8 from the selected context, and mask 4 is the known L9 baseline.",
+  "sealed_population": "For each task and A1/A2 panel, skip the seven rows used by the discovery factorial and take the next seven jointly capable rows. No sealed activation or intervention outcome entered selection.",
+  "arms": {
+    "l9_pair": 4,
+    "context_without_l7h8": 28,
+    "parsimonious_conditional": 30,
+    "five_group_fidelity": 31
+  },
+  "predictions": {
+    "instrument": "Authority, exact row disjointness, capability, response shapes, attention replay, base self-patch, finiteness, arm count, and price close.",
+    "frontier_predicts": "Mask 30 has pre-H3 squared residual at most 0.20 with cosine at least 0.90 in all four task-mode cells and positive behavioral direction on at least 90% of rows.",
+    "beats_l9": "Mask 30 reduces squared residual relative to mask 4 by at least 10% in at least three of four task-mode cells.",
+    "conditional_l7h8": "Adding L7H8 (mask 28 to mask 30) reduces is/was mode-2 squared residual by at least 20%, while its signed marginal is not required to equal the failed singleton effect.",
+    "fidelity_no_worse": "Mask 31's mean four-cell residual is no more than 5% above mask 30; L7H7 remains optional rather than necessary."
+  },
+  "decision": "All predictions yield a held-out conditional writer screen: L7H8 is licensed only as part of the L9/MLP context, not as a stable standalone shared mode writer. Failure of the conditional increment demotes L7H8 to construction-specific. Failure of the frontier kills the selected writer program without refitting or trying another subset on these rows."
+}
