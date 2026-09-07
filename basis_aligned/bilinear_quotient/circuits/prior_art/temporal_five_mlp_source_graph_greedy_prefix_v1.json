@@ -1,0 +1,16 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_source_graph_greedy_prefix_v1",
+  "question": "How small a nested leave-one-out-ranked component pool closes the cue-source-to-weight-reader program?",
+  "arms": ["top20", "rank27", "rank35", "rank45", "rank55", "rank65", "rank75", "rank85", "rank95", "rank110"],
+  "construction": "Each arm is the union of the frozen donor top20 and the first N sites in the frozen component-deletion ranking. Rank27 is the preregistered 90%-importance candidate pool. No ranking or membership is recomputed.",
+  "selection_rule": "Select the jointly feasible arm with the fewest allowed components, breaking ties by arm order. The coordinate, target, and control thresholds are exactly the layer-band v1 thresholds under both cross-fits.",
+  "predictions": {
+    "pred_a_authority_self_clamp_finiteness_and_price": "authorities replay, no-source self-clamp is exact, values are finite, and <=77 forwards execute",
+    "pred_b_a_strictly_pruned_prefix_is_jointly_feasible": "some arm below rank110 meets all coordinate, behavior, and control thresholds under both fits",
+    "pred_c_importance_pool_or_modest_extension_suffices": "the selected arm permits <=55 components",
+    "pred_d_selected_arm_contains_frozen_90pct_pool": "the selected arm contains every component in the frozen rank27 candidate pool",
+    "pred_e_selected_arm_is_crossfit_stable": "selected minimum-coordinate projections differ by <=0.05 and per-task behavior projections differ by <=0.05 across fits"
+  },
+  "decision": "A passing prefix is the next executable circuit support. If only rank110 passes, single-deletion importance is not compositionally sufficient and grouped interaction search replaces this nested greedy construction.",
+  "price": {"model_forwards_max": 77, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
