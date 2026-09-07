@@ -1,0 +1,364 @@
+{
+  "bars": {
+    "comp_max": 0.15,
+    "dir_min": 0.7,
+    "instr_tol": 0.01,
+    "k": 5,
+    "rand_max": 0.1,
+    "top1_max": 0.05
+  },
+  "candidate_id": "corpus.unit_seven_complement_output_v111",
+  "finished_utc": "2026-09-07T04:47:25.152762+00:00",
+  "predictions": {
+    "pred_a_direction_carries": false,
+    "pred_b_complement_inert": false,
+    "pred_c_complement_top1": false,
+    "pred_d_random_fails": true,
+    "pred_e_instrument": true
+  },
+  "q_source": "v109",
+  "schema": "circuit_unit_complement_output_result_v1",
+  "seconds": 1.6,
+  "sets": {
+    "dative": {
+      "kl_exact_mean": 1.0291,
+      "rows": 16,
+      "share": {
+        "complement": 0.2233,
+        "direction": 0.4209,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0002
+      },
+      "top1_change": {
+        "complement": 0.25,
+        "direction": 0.8125,
+        "exact": 0.9375,
+        "full_rank": 0.9375,
+        "random": 0.0
+      },
+      "top1_exact_vs_direction": 0.1875,
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:03:head:06",
+        "attn:11:head:02"
+      ]
+    },
+    "modal_remoteness": {
+      "kl_exact_mean": 0.9614,
+      "rows": 16,
+      "share": {
+        "complement": 0.2038,
+        "direction": 0.4343,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0001
+      },
+      "top1_change": {
+        "complement": 0.75,
+        "direction": 0.9375,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0
+      },
+      "top1_exact_vs_direction": 0.1875,
+      "units": [
+        "attn:09:head:04",
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01"
+      ]
+    },
+    "polarity_licensing": {
+      "kl_exact_mean": 0.3623,
+      "rows": 16,
+      "share": {
+        "complement": 0.1713,
+        "direction": 0.5204,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0003
+      },
+      "top1_change": {
+        "complement": 0.0,
+        "direction": 0.25,
+        "exact": 0.4375,
+        "full_rank": 0.4375,
+        "random": 0.0
+      },
+      "top1_exact_vs_direction": 0.1875,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:05:head:03"
+      ]
+    },
+    "quantifier_number": {
+      "kl_exact_mean": 0.3231,
+      "rows": 16,
+      "share": {
+        "complement": 0.1554,
+        "direction": 0.9361,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0002
+      },
+      "top1_change": {
+        "complement": 0.125,
+        "direction": 0.5625,
+        "exact": 0.5,
+        "full_rank": 0.5,
+        "random": 0.0
+      },
+      "top1_exact_vs_direction": 0.25,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:02:head:02",
+        "attn:09:head:01",
+        "attn:04:head:01",
+        "attn:13:head:06"
+      ]
+    },
+    "verb_complementizer": {
+      "kl_exact_mean": 0.7679,
+      "rows": 16,
+      "share": {
+        "complement": 0.067,
+        "direction": 0.7464,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0003
+      },
+      "top1_change": {
+        "complement": 0.0,
+        "direction": 0.3125,
+        "exact": 0.3125,
+        "full_rank": 0.3125,
+        "random": 0.0
+      },
+      "top1_exact_vs_direction": 0.125,
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08"
+      ]
+    },
+    "verb_preposition": {
+      "kl_exact_mean": 1.5792,
+      "rows": 16,
+      "share": {
+        "complement": 0.2041,
+        "direction": 0.7306,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0001
+      },
+      "top1_change": {
+        "complement": 0.0,
+        "direction": 1.0,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0
+      },
+      "top1_exact_vs_direction": 0.0,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:13:head:03"
+      ]
+    },
+    "voice_frame": {
+      "kl_exact_mean": 3.9629,
+      "rows": 16,
+      "share": {
+        "complement": 0.0079,
+        "direction": 0.9504,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0
+      },
+      "top1_change": {
+        "complement": 0.1875,
+        "direction": 1.0,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0
+      },
+      "top1_exact_vs_direction": 0.125,
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:16:head:08",
+        "attn:11:head:07",
+        "attn:10:head:05",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:02:head:06",
+        "attn:02:head:03"
+      ]
+    }
+  },
+  "summary": {
+    "dative": {
+      "share": {
+        "complement": 0.2233,
+        "direction": 0.4209,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0002
+      },
+      "top1": {
+        "complement": 0.25,
+        "direction": 0.8125,
+        "exact": 0.9375,
+        "full_rank": 0.9375,
+        "random": 0.0
+      }
+    },
+    "modal_remoteness": {
+      "share": {
+        "complement": 0.2038,
+        "direction": 0.4343,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0001
+      },
+      "top1": {
+        "complement": 0.75,
+        "direction": 0.9375,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0
+      }
+    },
+    "polarity_licensing": {
+      "share": {
+        "complement": 0.1713,
+        "direction": 0.5204,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0003
+      },
+      "top1": {
+        "complement": 0.0,
+        "direction": 0.25,
+        "exact": 0.4375,
+        "full_rank": 0.4375,
+        "random": 0.0
+      }
+    },
+    "quantifier_number": {
+      "share": {
+        "complement": 0.1554,
+        "direction": 0.9361,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0002
+      },
+      "top1": {
+        "complement": 0.125,
+        "direction": 0.5625,
+        "exact": 0.5,
+        "full_rank": 0.5,
+        "random": 0.0
+      }
+    },
+    "verb_complementizer": {
+      "share": {
+        "complement": 0.067,
+        "direction": 0.7464,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0003
+      },
+      "top1": {
+        "complement": 0.0,
+        "direction": 0.3125,
+        "exact": 0.3125,
+        "full_rank": 0.3125,
+        "random": 0.0
+      }
+    },
+    "verb_preposition": {
+      "share": {
+        "complement": 0.2041,
+        "direction": 0.7306,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0001
+      },
+      "top1": {
+        "complement": 0.0,
+        "direction": 1.0,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0
+      }
+    },
+    "voice_frame": {
+      "share": {
+        "complement": 0.0079,
+        "direction": 0.9504,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0
+      },
+      "top1": {
+        "complement": 0.1875,
+        "direction": 1.0,
+        "exact": 1.0,
+        "full_rank": 1.0,
+        "random": 0.0
+      }
+    }
+  }
+}
