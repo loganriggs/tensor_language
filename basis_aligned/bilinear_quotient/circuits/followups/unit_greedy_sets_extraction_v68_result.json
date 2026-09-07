@@ -1,0 +1,404 @@
+{
+  "bars": {
+    "dim_frac": 0.8,
+    "floor": 0.7,
+    "grow": 0.1,
+    "n_add": 3,
+    "rand_frac": 0.5,
+    "row2": 0.8
+  },
+  "candidate_id": "corpus.unit_greedy_sets_extraction_v68",
+  "finished_utc": "2026-09-07T00:22:29.934119+00:00",
+  "predictions": {
+    "pred_a_row2_reached": true,
+    "pred_b_grows": true,
+    "pred_c_random_set": true,
+    "pred_d_dim_tracks": true,
+    "pred_e_floor": true
+  },
+  "schema": "circuit_unit_greedy_sets_extraction_result_v1",
+  "seconds": 4.089923296123743,
+  "sets": {
+    "dative": {
+      "extraction": {
+        "hub": {
+          "lb95": 0.5890070863427176,
+          "point": 0.6382883898874638,
+          "ub95": 0.6949867937036597
+        },
+        "hub3": {
+          "lb95": 0.7153572356272055,
+          "point": 0.7757366710181494,
+          "ub95": 0.8426305565844014
+        },
+        "hub8": {
+          "lb95": 0.8265372067007642,
+          "point": 0.8772023971183963,
+          "ub95": 0.9353275142779783
+        },
+        "hub8_dim": {
+          "lb95": 0.7886632955412328,
+          "point": 0.852080604401762,
+          "ub95": 0.924663601619387
+        },
+        "rand_set": {
+          "lb95": 0.002346137684933381,
+          "point": 0.01539820441603136,
+          "ub95": 0.02771682808014136
+        }
+      },
+      "final": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:03:head:06",
+        "attn:11:head:02"
+      ],
+      "hub": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03"
+      ],
+      "interchange_recovery_hub8": 0.8709575111047565,
+      "rand_set": [
+        "attn:08:head:06",
+        "attn:05:head:01",
+        "attn:04:head:07",
+        "attn:12:head:08",
+        "attn:00:head:07",
+        "attn:09:head:03",
+        "attn:17:head:03",
+        "attn:13:head:06",
+        "attn:03:head:04",
+        "attn:07:head:02",
+        "attn:00:head:00",
+        "attn:12:head:05",
+        "attn:00:head:08"
+      ],
+      "rows_odd": 16
+    },
+    "polarity_licensing": {
+      "extraction": {
+        "hub": {
+          "lb95": 0.5742472932361137,
+          "point": 0.5979099163554934,
+          "ub95": 0.6235954898876397
+        },
+        "hub3": {
+          "lb95": 0.7798405195957684,
+          "point": 0.8051381404784634,
+          "ub95": 0.8353668378638621
+        },
+        "hub8": {
+          "lb95": 0.8726768334235696,
+          "point": 0.9032221262469685,
+          "ub95": 0.9392696211873812
+        },
+        "hub8_dim": {
+          "lb95": 0.8432908230214843,
+          "point": 0.8840327821008414,
+          "ub95": 0.9308271964274178
+        },
+        "rand_set": {
+          "lb95": 0.04412302516407939,
+          "point": 0.04929432315897584,
+          "ub95": 0.05514594053032377
+        }
+      },
+      "final": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:05:head:03"
+      ],
+      "hub": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ],
+      "interchange_recovery_hub8": 0.8578542179202326,
+      "rand_set": [
+        "attn:17:head:04",
+        "attn:02:head:07",
+        "attn:03:head:04",
+        "attn:12:head:05",
+        "attn:14:head:07",
+        "attn:11:head:03",
+        "attn:01:head:08",
+        "attn:09:head:00",
+        "attn:04:head:03",
+        "attn:15:head:08",
+        "attn:11:head:08",
+        "attn:15:head:00"
+      ],
+      "rows_odd": 16
+    },
+    "quantifier_number": {
+      "extraction": {
+        "hub": {
+          "lb95": 0.48452499380308894,
+          "point": 0.5092205303939513,
+          "ub95": 0.5360660051394356
+        },
+        "hub3": {
+          "lb95": 0.6342366941303965,
+          "point": 0.665179953428966,
+          "ub95": 0.6978488660648509
+        },
+        "hub8": {
+          "lb95": 0.7752442850026263,
+          "point": 0.8157313107842252,
+          "ub95": 0.8594557099191138
+        },
+        "hub8_dim": {
+          "lb95": 0.7756959135222224,
+          "point": 0.8236006413280776,
+          "ub95": 0.8711574117056973
+        },
+        "rand_set": {
+          "lb95": 0.0011239952855347495,
+          "point": 0.009665214355105098,
+          "ub95": 0.01796226360967434
+        }
+      },
+      "final": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:02:head:02",
+        "attn:09:head:01",
+        "attn:04:head:01",
+        "attn:13:head:06"
+      ],
+      "hub": [
+        "attn:07:head:08",
+        "attn:11:head:03"
+      ],
+      "interchange_recovery_hub8": 0.8979108393307387,
+      "rand_set": [
+        "attn:05:head:02",
+        "attn:02:head:05",
+        "attn:03:head:00",
+        "attn:12:head:01",
+        "attn:06:head:04",
+        "attn:09:head:06",
+        "attn:14:head:03",
+        "attn:13:head:05",
+        "attn:17:head:08",
+        "attn:03:head:05"
+      ],
+      "rows_odd": 16
+    },
+    "verb_complementizer": {
+      "extraction": {
+        "hub": {
+          "lb95": 0.5651909706344983,
+          "point": 0.5909449225085954,
+          "ub95": 0.6177805176912569
+        },
+        "hub3": {
+          "lb95": 0.7396103330297689,
+          "point": 0.765634683028243,
+          "ub95": 0.7925124109255813
+        },
+        "hub8": {
+          "lb95": 0.8693526541861237,
+          "point": 0.892519699413566,
+          "ub95": 0.9182680221727834
+        },
+        "hub8_dim": {
+          "lb95": 0.8383771155644014,
+          "point": 0.8828164695876256,
+          "ub95": 0.9284222160987814
+        },
+        "rand_set": {
+          "lb95": -0.001653443021830077,
+          "point": 0.00856238513247037,
+          "ub95": 0.01805435470459837
+        }
+      },
+      "final": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08"
+      ],
+      "hub": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08"
+      ],
+      "interchange_recovery_hub8": 0.8925110934038148,
+      "rand_set": [
+        "attn:16:head:01",
+        "attn:11:head:00",
+        "attn:16:head:00",
+        "attn:11:head:01",
+        "attn:16:head:07",
+        "attn:13:head:05",
+        "attn:17:head:05",
+        "attn:01:head:03",
+        "attn:10:head:04",
+        "attn:15:head:07",
+        "attn:16:head:02"
+      ],
+      "rows_odd": 16
+    },
+    "verb_preposition": {
+      "extraction": {
+        "hub": {
+          "lb95": 0.5664182002527375,
+          "point": 0.5884438431950313,
+          "ub95": 0.6114616722544114
+        },
+        "hub3": {
+          "lb95": 0.8028675806136919,
+          "point": 0.8397503953830997,
+          "ub95": 0.8767387652830437
+        },
+        "hub8": {
+          "lb95": 0.9496902277799201,
+          "point": 0.994775543178988,
+          "ub95": 1.0411863245264996
+        },
+        "hub8_dim": {
+          "lb95": 0.9668522544589226,
+          "point": 1.0184806896061092,
+          "ub95": 1.0697823591214188
+        },
+        "rand_set": {
+          "lb95": -0.0013676278866163166,
+          "point": 0.0024407416550451303,
+          "ub95": 0.006397037555508104
+        }
+      },
+      "final": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:13:head:03"
+      ],
+      "hub": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08"
+      ],
+      "interchange_recovery_hub8": 0.9748368935573551,
+      "rand_set": [
+        "attn:16:head:00",
+        "attn:10:head:04",
+        "attn:15:head:08",
+        "attn:10:head:05",
+        "attn:16:head:06",
+        "attn:13:head:01",
+        "attn:17:head:05",
+        "attn:01:head:03",
+        "attn:09:head:08",
+        "attn:15:head:06",
+        "attn:16:head:01"
+      ],
+      "rows_odd": 16
+    },
+    "voice_frame": {
+      "extraction": {
+        "hub": {
+          "lb95": 0.5478571094125326,
+          "point": 0.6059746859190078,
+          "ub95": 0.6692970891171199
+        },
+        "hub3": {
+          "lb95": 0.6483903102844787,
+          "point": 0.7079083102914989,
+          "ub95": 0.771501860715984
+        },
+        "hub8": {
+          "lb95": 0.7496991190030851,
+          "point": 0.8088830226738295,
+          "ub95": 0.8715859364214702
+        },
+        "hub8_dim": {
+          "lb95": 0.691360052587891,
+          "point": 0.752630734680102,
+          "ub95": 0.8246824561959062
+        },
+        "rand_set": {
+          "lb95": 0.0012738511988624323,
+          "point": 0.008122118176736111,
+          "ub95": 0.014696197480386914
+        }
+      },
+      "final": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:16:head:08",
+        "attn:11:head:07",
+        "attn:10:head:05",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:02:head:06",
+        "attn:02:head:03"
+      ],
+      "hub": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01"
+      ],
+      "interchange_recovery_hub8": 0.9865736416722131,
+      "rand_set": [
+        "attn:17:head:04",
+        "attn:03:head:03",
+        "attn:03:head:08",
+        "attn:12:head:07",
+        "attn:14:head:08",
+        "attn:11:head:04",
+        "attn:02:head:01",
+        "attn:09:head:01",
+        "attn:04:head:07",
+        "attn:15:head:08",
+        "attn:12:head:01",
+        "attn:15:head:01"
+      ],
+      "rows_odd": 16
+    }
+  }
+}
