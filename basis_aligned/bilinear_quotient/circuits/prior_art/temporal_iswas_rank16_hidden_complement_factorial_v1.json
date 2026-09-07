@@ -1,0 +1,23 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_rank16_hidden_complement_factorial_v1",
+  "created_utc": "2026-09-07T13:32:00Z",
+  "authority": {"activation_hidden_result_sha256": "89869da0e01f983f5c6f6c64a5bcc65579d16df8a224df8d84a8490b5d9400fb"},
+  "question": "Which of the five source MLPs require their distributed bottom-half hidden support, and do those requirements compose additively or conditionally?",
+  "fixed_design": {
+    "sites": ["MLP0", "MLP1", "MLP2", "MLP3", "MLP6"],
+    "base_support": "activation-conditioned top 50% hidden units at every site, using exactly the parent score and fit rows",
+    "factorial": "all 32 masks; bit s changes site s from top50 to all hidden units; gain1.15; complete model patch with downstream recomputation",
+    "selection": "among functional arms, minimize number of full sites, then worst response RSE, then integer mask",
+    "interaction": "exact Boolean-lattice Mobius coefficients for temporal/is-was behavior and response projection",
+    "controls": "evaluate matched controls once for the selected arm; no control outcome enters selection"
+  },
+  "predictions": {
+    "pred_a_authority_replays_exactness_finiteness_and_price": "Parent hash/terminal match; mask0 replays act50 and mask31 replays full within 1e-5; 32 unique masks; observed forwards <=60; all finite.",
+    "pred_b_a_specific_site_complement_is_material": "At least one singleton bit raises temporal behavior projection by >=.03 over mask0.",
+    "pred_c_a_parsimonious_functional_mask_exists": "A functional arm exists with at most three full-support sites.",
+    "pred_d_selected_mask_is_response_and_behavior_functional": "Both tasks meet response projection >=.80, RSE <=.20, and behavior projection >=.75.",
+    "pred_e_selected_mask_is_selective": "Control median KL <=.02 and zero top1 flips."
+  },
+  "terminal_policy": {"invalid": "A fails", "localized_hidden_complement_program": "all predictions pass", "distributed_five_site_program": "A, D, E pass but C fails", "conditional_hidden_support": "A, B, D, E pass and higher-order interaction carries >=25% nonconstant coefficient energy", "null": "other valid outcome"},
+  "price": {"model_forwards_max": 60, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}

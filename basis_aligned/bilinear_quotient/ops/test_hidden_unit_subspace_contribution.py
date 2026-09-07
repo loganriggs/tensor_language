@@ -20,3 +20,12 @@ def test_bad_shapes_and_fraction_fail_closed():
     with pytest.raises(ValueError): h.contribution_energy(torch.ones(2, 3, 4), torch.ones(4, 2))
     with pytest.raises(ValueError): h.contribution_energy(torch.ones(2, 3), torch.ones(4, 2))
     with pytest.raises(ValueError): h.top_fraction_mask(torch.ones(3), 0)
+
+
+def test_complement_factorial_is_complete_and_ordered():
+    top = {"a": torch.tensor([True, False]), "b": torch.tensor([False, True])}
+    arms = h.complement_factorial(top, ("a", "b"))
+    assert [bits for bits, _ in arms] == [0, 1, 2, 3]
+    assert torch.equal(arms[0][1]["a"], top["a"])
+    assert arms[1][1]["a"].all() and torch.equal(arms[1][1]["b"], top["b"])
+    assert all(mask.all() for mask in arms[3][1].values())

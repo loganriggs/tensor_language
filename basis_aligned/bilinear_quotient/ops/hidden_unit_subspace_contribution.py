@@ -33,3 +33,17 @@ def compiled_delta(delta_hidden, hidden_factor, basis, mask=None):
     if mask is not None:
         delta_hidden, hidden_factor = delta_hidden[..., mask], hidden_factor[mask]
     return (delta_hidden @ hidden_factor) @ basis.T
+
+
+def complement_factorial(top_masks, ordered_sites):
+    """All combinations of top-mask versus full support, in integer-mask order."""
+    if set(top_masks) != set(ordered_sites):
+        raise ValueError("site inventory differs")
+    arms = []
+    for bits in range(1 << len(ordered_sites)):
+        masks = {}
+        for index, site in enumerate(ordered_sites):
+            top = top_masks[site]
+            masks[site] = top.new_ones(top.shape) if bits & (1 << index) else top.clone()
+        arms.append((bits, masks))
+    return arms
