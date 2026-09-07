@@ -1,0 +1,124 @@
+{
+  "bars": {
+    "add_tol": 0.1,
+    "instr_tol": 0.02,
+    "rand_max": 0.03,
+    "select_margin": 0.1,
+    "set_exact_min": 0.3,
+    "set_rem_min": 0.08,
+    "v147_dim": 0.936,
+    "v147_rem": 0.16
+  },
+  "candidate_id": "corpus.unit_tier5_number_remainder_set_v150",
+  "finished_utc": "2026-09-07T07:46:42.433020+00:00",
+  "measures": {
+    "closure_cos": 1.0,
+    "dim_add": 0.936,
+    "m_none": 0.0,
+    "m_rand": 0.008,
+    "per_unit_exact": {
+      "attn:09:head:07": 0.083,
+      "attn:10:head:05": 0.041,
+      "attn:11:head:02": 0.006,
+      "mlp:08": 0.056,
+      "mlp:09": 0.145,
+      "mlp:10": 0.054
+    },
+    "positions_ok": true,
+    "random_max": 0.148,
+    "random_sets": [
+      {
+        "exact": 0.1,
+        "units": [
+          "attn:10:head:06",
+          "attn:10:head:08",
+          "attn:08:head:02",
+          "mlp:04",
+          "mlp:08",
+          "mlp:07"
+        ]
+      },
+      {
+        "exact": 0.148,
+        "units": [
+          "attn:10:head:07",
+          "attn:10:head:01",
+          "attn:11:head:04",
+          "mlp:05",
+          "mlp:09",
+          "mlp:03"
+        ]
+      },
+      {
+        "exact": 0.009,
+        "units": [
+          "attn:11:head:06",
+          "attn:08:head:08",
+          "attn:10:head:00",
+          "mlp:02",
+          "mlp:01",
+          "mlp:04"
+        ]
+      },
+      {
+        "exact": 0.061,
+        "units": [
+          "attn:11:head:08",
+          "attn:09:head:00",
+          "attn:10:head:01",
+          "mlp:01",
+          "mlp:10",
+          "mlp:05"
+        ]
+      },
+      {
+        "exact": 0.04,
+        "units": [
+          "attn:11:head:04",
+          "attn:08:head:06",
+          "attn:10:head:04",
+          "mlp:06",
+          "mlp:05",
+          "mlp:03"
+        ]
+      },
+      {
+        "exact": 0.058,
+        "units": [
+          "attn:11:head:04",
+          "attn:11:head:01",
+          "attn:11:head:07",
+          "mlp:04",
+          "mlp:00",
+          "mlp:08"
+        ]
+      }
+    ],
+    "reader_exact": 0.672,
+    "reader_plus_six_exact": 0.85,
+    "rem_add": 0.16,
+    "rows": 16,
+    "set_exact": 0.325,
+    "set_full": 0.358,
+    "set_rem": 0.089,
+    "six_par_frac": 0.25,
+    "six_rem_frac": 0.545
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_set_rem": true,
+    "pred_c_additivity": true,
+    "pred_d_set_exact": true,
+    "pred_e_selective": true
+  },
+  "schema": "unit_tier5_number_remainder_set_v150",
+  "seconds": 0.9,
+  "six": [
+    "mlp:09",
+    "attn:09:head:07",
+    "mlp:10",
+    "attn:10:head:05",
+    "attn:11:head:02",
+    "mlp:08"
+  ]
+}
