@@ -1,0 +1,23 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_rank16_activation_conditioned_hidden_groups_v1",
+  "created_utc": "2026-09-07T13:11:00Z",
+  "question": "Although static Down-to-Q weights are distributed, do actual hidden coefficient changes concentrate the bidirectional rank16 source program into a smaller within-MLP causal group?",
+  "authority": {"compiler_v3_terminal": "distributed_weight_compiled_source_program"},
+  "fixed_design": {
+    "support": ["MLP0", "MLP1", "MLP2", "MLP3", "MLP6"],
+    "score": "sum_over_fit_positions(delta_hidden_i^2) * ||Down_i^T Q||^2",
+    "fractions": [0.10, 0.25, 0.50],
+    "controls": "top-25% by static ||Down_i^T Q|| only, plus the activation-top-25% complement",
+    "execution": "install base MLP output plus gain1.15 times the selected units' exact projected donor-minus-base contribution at every source site; later layers recompute",
+    "selection": "scores and masks frozen on old fit families; all causal outcomes measured once on fresh temporal/is-was targets and matched controls"
+  },
+  "predictions": {
+    "pred_a_authority_exactness_finiteness_and_price": "Authorities match; full-unit arm reproduces the rank16 gain1.15 parent; local selected+complement coefficient closure <=1e-6; all values finite; <=29 forwards.",
+    "pred_b_activation_top25_concentrates_local_signal": "At least four sites retain >=80% of fresh local projected-delta energy with activation-top25% units.",
+    "pred_c_activation_top25_is_a_functional_selective_program": "Both tasks have response projection >=.80, RSE <=.20, behavior projection >=.75, control median KL <=.02 and zero top1 flips.",
+    "pred_d_activation_conditioning_beats_static_weights": "Activation-top25 has lower response RSE than static-weight-top25 on both tasks.",
+    "pred_e_activation_top25_complement_is_insufficient": "Complement response and behavior projections are <=.50 on both tasks."
+  },
+  "terminal_policy": {"invalid": "A fails", "activation_conditioned_hidden_circuit": "all pass", "distributed_activation_program": "A passes but C fails and activation-top50 is functional", "null": "other valid outcome"},
+  "price": {"model_forwards_max": 29, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
