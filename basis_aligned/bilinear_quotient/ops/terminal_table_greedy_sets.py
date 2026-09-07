@@ -19,6 +19,7 @@ v80 = J("unit_six_sets_cross_inert_v80_result.json")
 import os as _os
 v81 = J("unit_cross_inert_extraction_v81_result.json") if _os.path.exists(str(F / "unit_cross_inert_extraction_v81_result.json")) else None
 HUB16 = {"voice_frame": ("unit_voice_greedy_continuation_v83_result.json", "unit_voice_hub16_full_specificity_v85_result.json"),
+         "verb_complementizer": ("unit_complementizer_greedy_continuation_v90_result.json", "unit_complementizer_hub16_full_specificity_v91_result.json"),
          "quantifier_number": ("unit_quant_dative_greedy_continuation_v87_result.json", "unit_quant_hub16_full_specificity_v88_result.json")}
 curves = {**v66["sets"], **v67["sets"]}
 ORDER = ["quantifier_number", "verb_preposition", "polarity_licensing", "dative", "verb_complementizer", "voice_frame"]
@@ -71,11 +72,11 @@ for n in ORDER:
         if "hub16" not in g16:  # v87 keys per set
             g16 = g16["sets"][n]
         S16 = g16["sets"]["hub16"]; e16 = S16["extraction"]; t16 = S16["removal"]
-        lines.append(f"| {n} | hub+16 (greedy continuation {'v87' if n == 'quantifier_number' else 'v83'}, dim) | {len(g16['hub16'])} | {r3(t16['A1']['ce_damage'])} ({r3(t16['A1']['ce_lb975'])}) | {r3(e16['A1']['point'])} ({r3(e16['A1']['lb95'])}); A2 {r3(e16['A2']['point'])} | {r3(t16['C']['ce_damage'])} ({r3(t16['C']['ce_ub975'])}) | {r3(t16['A2']['ce_damage'])} | — | — | max abs {r3(max(abs(v) for v in t16['cross'].values()))} | {mark(e16['A1']['point'] >= 0.8 and e16['A1']['lb95'] >= 0.6)}/{mark(t16['A1']['ce_lb975'] > 0 and t16['A1']['ce_lb975'] - t16['C']['ce_ub975'] > 0)}/{mark(t16['C']['ce_ub975'] <= 0.01)}/{mark(t16['A2']['ce_lb975'] > 0 and t16['A2']['ce_damage'] >= 0.5 * t16['A1']['ce_damage'])} |")
+        lines.append(f"| {n} | hub+16 (greedy continuation {HUB16[n][0].split('_')[-2]}, dim) | {len(g16['hub16'])} | {r3(t16['A1']['ce_damage'])} ({r3(t16['A1']['ce_lb975'])}) | {r3(e16['A1']['point'])} ({r3(e16['A1']['lb95'])}); A2 {r3(e16['A2']['point'])} | {r3(t16['C']['ce_damage'])} ({r3(t16['C']['ce_ub975'])}) | {r3(t16['A2']['ce_damage'])} | — | — | max abs {r3(max(abs(v) for v in t16['cross'].values()))} | {mark(e16['A1']['point'] >= 0.8 and e16['A1']['lb95'] >= 0.6)}/{mark(t16['A1']['ce_lb975'] > 0 and t16['A1']['ce_lb975'] - t16['C']['ce_ub975'] > 0)}/{mark(t16['C']['ce_ub975'] <= 0.01)}/{mark(t16['A2']['ce_lb975'] > 0 and t16['A2']['ce_damage'] >= 0.5 * t16['A1']['ce_damage'])} |")
         D = d16["sets"][n]; X = D["removal"]["xdas"]; x1 = D["extraction"]["A1"]["xdas"]; x2 = D["extraction"]["A2"]["xdas"]; rn = D["extraction"]["A1"]["random"]
         cf = D.get("crossfit", {}).get("pooled_C")
-        r4 = mark(cf["ce_ub975"] <= 0.01) + " (cross-fit 32 docs)" if cf else mark(X["C"]["ce_ub975"] <= 0.01)
-        lines.append(f"| {n} | hub+16 full-specificity DAS ({'v88' if n == 'quantifier_number' else 'v85'}) | {len(D['units'])} | {r3(X['A1']['ce_damage'])} ({r3(X['A1']['ce_lb975'])}) | {r3(x1['point'])} ({r3(x1['lb95'])}); A2 {r3(x2['point'])} | {r3(X['C']['ce_damage'])} ({r3(X['C']['ce_ub975'])}) | {r3(X['A2']['ce_damage'])} | — | ext {r3(rn['point'])} | max abs {r3(max(abs(v) for v in X['cross'].values()))} | {mark(x1['point'] >= 0.8 and x1['lb95'] >= 0.6)}/{mark(X['A1']['ce_lb975'] > 0 and X['A1']['ce_lb975'] - X['C']['ce_ub975'] > 0)}/{r4}/{mark(X['A2']['ce_lb975'] > 0 and X['A2']['ce_damage'] >= 0.5 * X['A1']['ce_damage'])} |")
+        r4 = mark(cf["ce_ub975"] <= 0.01) + f" (cross-fit {cf['documents']} docs, C {r3(cf['ce_damage'])} UB {r3(cf['ce_ub975'])})" if cf else mark(X["C"]["ce_ub975"] <= 0.01)
+        lines.append(f"| {n} | hub+16 full-specificity DAS ({HUB16[n][1].split('_')[-2]}) | {len(D['units'])} | {r3(X['A1']['ce_damage'])} ({r3(X['A1']['ce_lb975'])}) | {r3(x1['point'])} ({r3(x1['lb95'])}); A2 {r3(x2['point'])} | {r3(X['C']['ce_damage'])} ({r3(X['C']['ce_ub975'])}) | {r3(X['A2']['ce_damage'])} | — | ext {r3(rn['point'])} | max abs {r3(max(abs(v) for v in X['cross'].values()))} | {mark(x1['point'] >= 0.8 and x1['lb95'] >= 0.6)}/{mark(X['A1']['ce_lb975'] > 0 and X['A1']['ce_lb975'] - X['C']['ce_ub975'] > 0)}/{r4}/{mark(X['A2']['ce_lb975'] > 0 and X['A2']['ce_damage'] >= 0.5 * X['A1']['ce_damage'])} |")
 lines += ["", "## Sets", ""]
 for n in ORDER:
     c = curves[n]
