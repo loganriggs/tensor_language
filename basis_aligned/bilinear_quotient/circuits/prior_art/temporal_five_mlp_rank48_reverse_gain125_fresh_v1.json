@@ -1,0 +1,21 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_reverse_gain125_fresh_v1",
+  "question": "Does the frozen 1.25 reverse-interface calibration transfer to later temporal-v13/iswas-v12 constructions without refitting?",
+  "scope": "Temporal v13 is genuinely fresh to the gain diagnostic. Is/was v12 is a later construction bank but was previously opened by another program, so it is corroborative rather than globally sealed evidence.",
+  "authority": {
+    "dose_result_sha256": "a1f00d208ec1a370d9e9d995de0620de70c6202ef242d46019608635552b9aa9",
+    "dose_price_correction_sha256": "f3410f081becb2951db3b214af2330d58db638ab3b5e7cfb543a9d971188c8a7",
+    "temporal_v13_capability_sha256": "e053d3381680ce5a933356a060448466d7567e3079c4a2b9a5bff262bd98b9c1",
+    "iswas_v12_capability_sha256": "67cb3efbd1ea86f98f94a826922928229a7c7b0a247f218778fc4960a6e8c6f4"
+  },
+  "frozen_gain": 1.25,
+  "predictions": {
+    "pred_a_authority_population_finiteness_and_price": "All authorities/builders match, both capability gates pass, support has 48 sites, all values are finite, and exactly 25 forwards execute.",
+    "pred_b_gain125_reverse_behavior_transfers": "Every temporal/iswas cross-fit behavior projection is in [0.90,1.10] with worst target residual at most 0.15.",
+    "pred_c_reverse_coordinates_remain_accurate": "Every unscaled compiled coordinate projection is at least 0.75 and mean coordinate residual is at most 0.20.",
+    "pred_d_gain125_controls_remain_selective": "Both cross-fits have control margin RMS at most 0.10, median full-vocabulary KL at most 0.02, and flip fraction at most 0.05.",
+    "pred_e_crossfit_is_stable": "Per-task behavior projections differ by at most 0.05 and minimum coordinate projections differ by at most 0.05 across fits."
+  },
+  "decision": "All five predictions establish a frozen scalar calibration on a genuinely fresh temporal family and corroborative later is/was family. Failure localizes calibration by task/site; it does not reopen support pruning.",
+  "price": {"model_forwards_exact": 25, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
