@@ -402,6 +402,26 @@ After construction transfer is scored, the required next localization is the exa
 `upstream projector on/off x complete attention-15 clamp on/off`; only an upstream-only effect through
 live attention licenses Q/K/V interface reset/rescue.
 
+The multi-construction rank-one test is a valid fixed-family null.  No initialization produces a
+target-feasible selected checkpoint in both held lexical parities.  Factor-SVD misses one fold at
+`.69925` minimum target projection while its other fold passes at `.75463` but flips two P rows;
+joint-construction DIM misses one fold at `.70816`, and the frozen A1 initialization misses at
+`.72091`.  The lexicographically selected frozen-A1 family is stable across folds (minimum line
+cosine `.81967`), but only one fold is feasible and that fold retains one P flip.  Pooling the two
+held folds would misleadingly look successful (`.80699/.81765` A1/A2), which confirms why the
+registered per-environment, per-fold licensing rule must precede aggregate reporting.
+
+On sealed v16, the selected projector reaches `.64172` A1 and `.49549` A2, so it also fails the
+registered `.65` projection floor separately by construction.  V16 P has zero top-one flips, but
+its mean/max KL are `.08436/.21270`; the flip-only registered prediction passes and does not imply
+distributional selectivity.  The terminal is therefore
+`fixed_projector_infeasible_on_observed_constructions`.  The preregistered attention-15 dependency
+factorial is ineligible at this point.  The next branch is the mathematical falsifier: fit A1-only
+and A2-only rank-one oracle axes under the same crossfit, measure their projective angles and
+within-construction stability, then causally execute their exact sign-aligned bisectors.  This
+distinguishes joint-optimizer failure from construction-conditioned rank-one geometry before any
+input-conditioned mixture or reader reset is opened.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`

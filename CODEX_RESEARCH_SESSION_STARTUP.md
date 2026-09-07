@@ -127,6 +127,14 @@ falsifier for the failure branch.  The latest strategic and mathematical clocks 
 `HOURLY_STRATEGIC_REVIEW_2026-09-07_2315.md` and
 `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-07_2326.md`.
 
+The multi-construction run has since completed validly at result SHA-256
+`0eba172c8ada3e3cfcaa2826afa7a348480a6b61bde819c1a0daad9ed8dcb1a4` with terminal
+`fixed_projector_infeasible_on_observed_constructions`.  No initialization passes both target
+constructions in both held parities.  Aggregate v15 A1/A2 projections (`.80699/.81765`) hide this
+fold failure; sealed v16 reaches only `.64172/.49549`.  Therefore the attention-15 dependency
+factorial is currently ineligible.  Build and execute the separate A1/A2 oracle-axis plus exact
+projective-bisector falsifier first.
+
 Do not overstate the exact-weight result.  A hash-bound zero-model path audit proved that every
 current DAS outcome clamps the complete attention-15 donor head output after layer-15 Q/K/V has
 been computed.  Thus the causal projector effect can travel through the residual skip/MLP15 and
