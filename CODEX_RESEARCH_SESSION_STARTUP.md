@@ -111,6 +111,22 @@ the review.
 
 ## Authoritative restart delta at 2026-09-07 23:00 UTC
 
+### Live continuation at 23:30 UTC
+
+V16 capability has landed.  The immutable first receipt reports `null` only because it asked for
+24 jointly capable rows from 16-row A panels; all eight direction-by-side capability cells are
+actually `1.0` and both A1/A2 have 16/16 jointly capable rows.  A hash-bound zero-model audit
+translated the registered 24/32 ratio to 12/16 and returned `manifest` without causal access.
+
+The fixed-rank multi-construction causal executor is now hash-bound in managed lane 1 at SHA-256
+`8c14405674b4773303e197be04668f29ca97d2662dbeccc0f9653c119716c556`, behind live v238 and the
+previously queued v247/v249 jobs.  Its prior, joint fit/selection core, sealing tests, and no-model
+preflight are committed.  It fits/selects entirely on v15 A1/A2/P/C, then opens v16 A1/A2/P once;
+v16 C remains excluded.  The 23:26 mathematical review also implements an exact projective-bisector
+falsifier for the failure branch.  The latest strategic and mathematical clocks are now
+`HOURLY_STRATEGIC_REVIEW_2026-09-07_2315.md` and
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-07_2326.md`.
+
 The target-feasible DAS run described below has completed.  It validly beats matched difference
 in means (DIM) on cross-fitted A1 target transfer (`.8719` versus `.7250`) with stable rank-one
 directions (minimum principal cosine `.8474`), so optimization is not the null.  It does not pass
