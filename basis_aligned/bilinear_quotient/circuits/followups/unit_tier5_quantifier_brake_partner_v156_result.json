@@ -1,0 +1,188 @@
+{
+  "bars": {
+    "drop_max": 0.029,
+    "drop_other": 0.02,
+    "lex_tol": 0.02,
+    "other_max": 0.02,
+    "pair_min": 0.034,
+    "repro_tol": 0.02,
+    "v155": [
+      0.901,
+      0.289
+    ]
+  },
+  "candidate_id": "corpus.unit_tier5_quantifier_brake_partner_v156",
+  "finished_utc": "2026-09-07T08:07:46.809272+00:00",
+  "measures": {
+    "lex_seven": {
+      "alone": {
+        "comp": 0.009,
+        "dim": 0.667,
+        "exact": 0.672
+      },
+      "leave_out": {},
+      "pairs": {
+        "attn:09:head:07": {
+          "comp": 0.093,
+          "dim": 0.732,
+          "exact": 0.737,
+          "overshoot": -0.005
+        },
+        "attn:10:head:05": {
+          "comp": 0.051,
+          "dim": 0.7,
+          "exact": 0.706,
+          "overshoot": -0.006
+        },
+        "attn:11:head:02": {
+          "comp": 0.014,
+          "dim": 0.668,
+          "exact": 0.673,
+          "overshoot": -0.005
+        },
+        "mlp:08": {
+          "comp": 0.065,
+          "dim": 0.718,
+          "exact": 0.722,
+          "overshoot": -0.004
+        },
+        "mlp:09": {
+          "comp": 0.157,
+          "dim": 0.752,
+          "exact": 0.757,
+          "overshoot": -0.005
+        },
+        "mlp:10": {
+          "comp": 0.065,
+          "dim": 0.696,
+          "exact": 0.702,
+          "overshoot": -0.006
+        }
+      },
+      "rows": 16,
+      "six": {
+        "dim": 0.845,
+        "exact": 0.85,
+        "overshoot": -0.005
+      }
+    },
+    "quant_seven": {
+      "alone": {
+        "comp": -0.002,
+        "dim": 0.289,
+        "exact": 0.285
+      },
+      "leave_out": {
+        "attn:07:head:08": {
+          "dim": 0.782,
+          "exact": 0.726,
+          "overshoot": 0.056
+        },
+        "attn:08:head:01": {
+          "dim": 0.891,
+          "exact": 0.831,
+          "overshoot": 0.06
+        },
+        "mlp:07": {
+          "dim": 0.857,
+          "exact": 0.799,
+          "overshoot": 0.058
+        },
+        "mlp:08": {
+          "dim": 0.879,
+          "exact": 0.822,
+          "overshoot": 0.057
+        },
+        "mlp:09": {
+          "dim": 0.873,
+          "exact": 0.816,
+          "overshoot": 0.057
+        },
+        "mlp:10": {
+          "dim": 0.877,
+          "exact": 0.822,
+          "overshoot": 0.055
+        }
+      },
+      "pairs": {
+        "attn:07:head:08": {
+          "comp": 0.346,
+          "dim": 0.696,
+          "exact": 0.658,
+          "overshoot": 0.038
+        },
+        "attn:08:head:01": {
+          "comp": 0.034,
+          "dim": 0.337,
+          "exact": 0.331,
+          "overshoot": 0.006
+        },
+        "mlp:07": {
+          "comp": 0.2,
+          "dim": 0.534,
+          "exact": 0.509,
+          "overshoot": 0.025
+        },
+        "mlp:08": {
+          "comp": 0.125,
+          "dim": 0.472,
+          "exact": 0.445,
+          "overshoot": 0.027
+        },
+        "mlp:09": {
+          "comp": 0.051,
+          "dim": 0.387,
+          "exact": 0.372,
+          "overshoot": 0.015
+        },
+        "mlp:10": {
+          "comp": 0.058,
+          "dim": 0.393,
+          "exact": 0.373,
+          "overshoot": 0.02
+        }
+      },
+      "rows": 16,
+      "six": {
+        "dim": 0.901,
+        "exact": 0.844,
+        "overshoot": 0.057
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_mlp08_pair": false,
+    "pred_c_other_pairs": false,
+    "pred_d_leave_out": false,
+    "pred_e_lex_control": true
+  },
+  "schema": "unit_tier5_quantifier_brake_partner_v156",
+  "seconds": 1.4,
+  "sets": {
+    "lex_seven": {
+      "family": "lexical_number_pp",
+      "units": [
+        "attn:11:head:03",
+        "mlp:09",
+        "attn:09:head:07",
+        "mlp:10",
+        "attn:10:head:05",
+        "attn:11:head:02",
+        "mlp:08"
+      ]
+    },
+    "quant_seven": {
+      "family": "quantifier_number",
+      "units": [
+        "mlp:10",
+        "attn:11:head:03",
+        "mlp:09",
+        "mlp:08",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "mlp:07"
+      ]
+    }
+  }
+}
