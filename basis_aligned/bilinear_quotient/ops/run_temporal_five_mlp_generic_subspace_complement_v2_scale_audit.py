@@ -36,8 +36,8 @@ def main():
     disc_batch,_dbo,dbc,_ddo,ddc=cap(disc); batch,bo,bc,do,dc=cap(rows)
     bases,_=v1.fit_bases(backend,disc_batch,dbc,ddc)
     ordinary,_=atlasrun.run_patch(backend,batch,dc,v1.SITES); rank0=v1.run_complement(backend,batch,bc,dc,bases,0)
-    bs,ds,os,rs=[atlasrun.states(torch,backend,x,rows) for x in (bo,do,ordinary,rank0)]
-    error=rs-os; reference_norm=float(os.norm()); max_abs=float(error.abs().max()); rse=float(error.square().sum()/os.square().sum())
+    bs,ds,ordinary_state,rs=[atlasrun.states(torch,backend,x,rows) for x in (bo,do,ordinary,rank0)]
+    error=rs-ordinary_state; reference_norm=float(ordinary_state.norm()); max_abs=float(error.abs().max()); rse=float(error.square().sum()/ordinary_state.square().sum())
     reader,orientation,reader_ok=greedy.physical_reader(backend,json.loads(v1.WEIGHTS.read_text()))
     full_b=v1.margins(backend,ds,rows)-v1.margins(backend,bs,rows); db=v1.margins(backend,rs,rows)-v1.margins(backend,bs,rows); full_m=(ds-bs)@reader; dm=(rs-bs)@reader
     ids={"temporal":slice(0,len(tr)),"iswas":slice(len(tr),len(rows))}; cells={}
