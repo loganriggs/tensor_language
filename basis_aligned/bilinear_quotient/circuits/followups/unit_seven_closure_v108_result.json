@@ -1,0 +1,237 @@
+{
+  "band": [
+    "mlp:07",
+    "mlp:08",
+    "mlp:09",
+    "mlp:10"
+  ],
+  "bars": {
+    "add_min": 0.1,
+    "closed_min": 0.7,
+    "k": 5,
+    "late_frac": 0.5,
+    "rem_max": 0.3,
+    "tol_live": 0.02,
+    "tol_set": 0.05
+  },
+  "candidate_id": "corpus.unit_seven_closure_v108",
+  "finished_utc": "2026-09-07T04:14:37.758861+00:00",
+  "predictions": {
+    "pred_a_closed_sufficient": false,
+    "pred_b_band_adds_direct": true,
+    "pred_c_small_remainder": true,
+    "pred_d_late_reads_band": true,
+    "pred_e_instrument": false
+  },
+  "schema": "circuit_unit_closure_result_v1",
+  "seconds": 1.5,
+  "sets": {
+    "dative": {
+      "closed": 1.449,
+      "early_open": 1.469,
+      "late_open": 0.882,
+      "live": 0.929,
+      "set_only": 0.991,
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:03:head:06",
+        "attn:11:head:02"
+      ],
+      "v105_all_times_set": 0.929,
+      "v106_set_band": 0.929
+    },
+    "modal_remoteness": {
+      "closed": 0.697,
+      "early_open": 0.697,
+      "late_open": 0.936,
+      "live": 0.943,
+      "set_only": 0.581,
+      "units": [
+        "attn:09:head:04",
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01"
+      ],
+      "v105_all_times_set": 0.578,
+      "v106_set_band": 0.943
+    },
+    "polarity_licensing": {
+      "closed": 0.665,
+      "early_open": 0.689,
+      "late_open": 0.856,
+      "live": 0.915,
+      "set_only": 0.304,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:05:head:03"
+      ],
+      "v105_all_times_set": 0.302,
+      "v106_set_band": 0.915
+    },
+    "quantifier_number": {
+      "closed": 0.751,
+      "early_open": 0.767,
+      "late_open": 0.941,
+      "live": 0.97,
+      "set_only": 0.433,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:02:head:02",
+        "attn:09:head:01",
+        "attn:04:head:01",
+        "attn:13:head:06"
+      ],
+      "v105_all_times_set": 0.428,
+      "v106_set_band": 0.97
+    },
+    "verb_complementizer": {
+      "closed": 0.642,
+      "early_open": 0.654,
+      "late_open": 0.907,
+      "live": 0.938,
+      "set_only": 0.227,
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08"
+      ],
+      "v105_all_times_set": 0.228,
+      "v106_set_band": 0.938
+    },
+    "verb_preposition": {
+      "closed": 0.919,
+      "early_open": 0.927,
+      "late_open": 1.025,
+      "live": 1.027,
+      "set_only": 0.559,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:13:head:03"
+      ],
+      "v105_all_times_set": 0.558,
+      "v106_set_band": 1.027
+    },
+    "voice_frame": {
+      "closed": 0.559,
+      "early_open": 0.644,
+      "late_open": 0.792,
+      "live": 0.992,
+      "set_only": 0.096,
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:16:head:08",
+        "attn:11:head:07",
+        "attn:10:head:05",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:02:head:06",
+        "attn:02:head:03"
+      ],
+      "v105_all_times_set": 0.092,
+      "v106_set_band": 0.992
+    }
+  },
+  "summary": {
+    "dative": {
+      "closed": 1.449,
+      "early_open": 1.469,
+      "late_open": 0.882,
+      "live": 0.929,
+      "set_only": 0.991
+    },
+    "modal_remoteness": {
+      "closed": 0.697,
+      "early_open": 0.697,
+      "late_open": 0.936,
+      "live": 0.943,
+      "set_only": 0.581
+    },
+    "polarity_licensing": {
+      "closed": 0.665,
+      "early_open": 0.689,
+      "late_open": 0.856,
+      "live": 0.915,
+      "set_only": 0.304
+    },
+    "quantifier_number": {
+      "closed": 0.751,
+      "early_open": 0.767,
+      "late_open": 0.941,
+      "live": 0.97,
+      "set_only": 0.433
+    },
+    "verb_complementizer": {
+      "closed": 0.642,
+      "early_open": 0.654,
+      "late_open": 0.907,
+      "live": 0.938,
+      "set_only": 0.227
+    },
+    "verb_preposition": {
+      "closed": 0.919,
+      "early_open": 0.927,
+      "late_open": 1.025,
+      "live": 1.027,
+      "set_only": 0.559
+    },
+    "voice_frame": {
+      "closed": 0.559,
+      "early_open": 0.644,
+      "late_open": 0.792,
+      "live": 0.992,
+      "set_only": 0.096
+    }
+  }
+}
