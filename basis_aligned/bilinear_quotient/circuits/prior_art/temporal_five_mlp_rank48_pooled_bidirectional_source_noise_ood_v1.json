@@ -1,0 +1,24 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_pooled_bidirectional_source_noise_ood_v1",
+  "question": "Does the single complete-family pooled rank48 interface remain bidirectionally sufficient and selective when the exchanged cue embedding is perturbed by independent 10% norm-matched Gaussian noise?",
+  "prior_art": {
+    "crossfit_source_noise": "The split-specific forward interface passed three 10% source-noise seeds, but its minimum behavior recovery was 0.7981 and it did not test reverse execution.",
+    "pooled_clean_forward": "The pooled interface passed clean forward OOD with behavior recovery 0.8144/0.8275 and no control flips.",
+    "pooled_clean_reverse": "The identical pooled projector passed clean reverse OOD with behavior recovery 0.8126/0.8240 and no control flips."
+  },
+  "evaluation": "Fit the deterministic projector only on temporal-v13/iswas-v12 plus matched controls, evaluate row-disjoint temporal-v12/iswas-v11 targets and P controls, and perturb only the exchanged source-token embedding by 10% of the clean cue displacement norm for seeds 1729, 2718, and 3141 in both directions.",
+  "predictions": {
+    "pred_a_authority_hash_noise_tripwire_finiteness_and_exact_price": "Authorities and pooled projector hashes reproduce, fit/evaluation IDs are disjoint, every source exchange changes exactly one token, noise ratios lie in [0.099,0.101], all values are finite, and exactly 39 forwards execute.",
+    "pred_b_all_noisy_bidirectional_coordinates_transfer": "Across every seed and direction, minimum coordinate projection is at least 0.75 and mean/worst coordinate residual are at most 0.20.",
+    "pred_c_all_noisy_bidirectional_behaviors_transfer": "Across every seed and direction, both behavior projections are at least 0.80 and worst target residual is at most 0.15.",
+    "pred_d_all_noisy_bidirectional_controls_are_selective": "Across every seed and direction, control margin RMS is at most 0.10, median full-vocabulary KL is at most 0.02, and no control top-one prediction flips.",
+    "pred_e_seed_and_direction_stability": "Within each direction, seed ranges for minimum coordinate and each behavior projection are at most 0.08, and paired forward/reverse behavior projections differ by at most 0.08."
+  },
+  "decision": "All five predictions license the hash-identified pooled rank48 interface as bidirectional and 10%-source-noise robust on disjoint OOD. Failure localizes whether the clean result depends on direction, seed, coordinates, target behavior, or controls.",
+  "price": {
+    "model_forwards_exact": 39,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  }
+}
