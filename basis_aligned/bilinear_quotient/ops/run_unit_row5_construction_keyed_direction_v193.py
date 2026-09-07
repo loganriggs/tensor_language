@@ -74,15 +74,15 @@ def PREDS(R):
     B = BARS
     inb = lambda x, b: x is not None and b[0] <= x <= b[1]
     names = [n for n in NAMES if n in R]
-    if not names: return {k: False for k in ("pred_a_shared_heads", "pred_b_own_direction_repairs_row5", "pred_c_directions_are_construction_keyed", "pred_d_cos_orders_transfer", "pred_e_instrument")}
+    ok = bool(names)  # an empty receipt fails every prediction (all() over nothing would pass)
     ratio = lambda x, y: (x / y) if (x is not None and y) else None
-    a = all(inb(R[n]["a2_ext_odd_on_a1_set"], B["a2_ext_band"][n]) for n in names)
-    b = all(inb(ratio(R[n]["a2_own_ce"], R[n]["a1_own_ce"]), B["own_ratio_band"]) for n in names)
-    c = all((ratio(R[n]["a2_by_a1_ce"], R[n]["a2_own_ce"]) or 9) <= B["cross_max_ratio"] and (ratio(R[n]["a1_by_a2_ce"], R[n]["a1_own_ce"]) or 9) <= B["cross_max_ratio"]
+    a = ok and all(inb(R[n]["a2_ext_odd_on_a1_set"], B["a2_ext_band"][n]) for n in names)
+    b = ok and all(inb(ratio(R[n]["a2_own_ce"], R[n]["a1_own_ce"]), B["own_ratio_band"]) for n in names)
+    c = ok and all((ratio(R[n]["a2_by_a1_ce"], R[n]["a2_own_ce"]) or 9) <= B["cross_max_ratio"] and (ratio(R[n]["a1_by_a2_ce"], R[n]["a1_own_ce"]) or 9) <= B["cross_max_ratio"]
             and R[n]["cos_mean"] <= B["cos_max"] for n in names)
     pts = [(R[n]["cos_mean"], ratio(R[n]["a2_by_a1_ce"], R[n]["a2_own_ce"])) for n in names]
     d = len(pts) == 3 and all(p[1] is not None for p in pts) and [p[1] for p in sorted(pts)] == sorted(p[1] for p in pts) and len({p[1] for p in pts}) == 3
-    e = all(abs(R[n]["a1_own_ce"] - PARENT[n][1]) <= B["a1_ce_tol"] and abs(R[n]["a1_ext_odd"] - PARENT[n][2]) <= B["a1_ext_tol"] for n in names)
+    e = ok and all(abs(R[n]["a1_own_ce"] - PARENT[n][1]) <= B["a1_ce_tol"] and abs(R[n]["a1_ext_odd"] - PARENT[n][2]) <= B["a1_ext_tol"] for n in names)
     return {"pred_a_shared_heads": bool(a), "pred_b_own_direction_repairs_row5": bool(b), "pred_c_directions_are_construction_keyed": bool(c),
             "pred_d_cos_orders_transfer": bool(d), "pred_e_instrument": bool(e)}
 
