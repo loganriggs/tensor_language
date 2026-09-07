@@ -122,3 +122,15 @@ dependence and post-selection limits are explicit.
 The immediate continuation is the preregistered exact five-attention-component lattice.  A result
 boundary is not a pause: score it, then either confirm a selective core on a fresh family or begin
 control-conditioned within-MLP splitting.
+
+## 18:30 correction — padded shape did not imply semantic alignment
+
+The lattice landed after this review, and its target-side result is exact: all five pieces recover
+`.80536/.86829` A1/A2 behavior.  Its selectivity terminal is not evidence.  Inspection of the row
+authority shows A1/A2 base/donor token lengths and semantic positions agree per row, whereas the
+legacy P and C controls do not (sampled `6→7` and `15→13`).  The patch hooks copied responses by
+absolute token index after checking only equal padded batch tensor shape.  Consequently the P/C
+KL and flip measurements mix semantic positions.  Statements above calling those collateral
+figures scientific are retracted; target localization remains valid.  The next bounded block is a
+shared per-row alignment contract plus capability-qualified equal-length P/C controls, followed by
+the same frozen lattice.  This is the `NOVELTY_LESSON_GATE`-required instrument repair.

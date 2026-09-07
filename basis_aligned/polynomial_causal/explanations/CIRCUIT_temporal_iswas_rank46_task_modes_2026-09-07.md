@@ -219,6 +219,22 @@ those five attention pieces.  Failure of that lattice to find a target-sufficien
 would isolate the remaining problem to task-conditioned splitting of the high-gain, high-collateral
 complete MLP writes.
 
+That selectivity conclusion is now retracted because the control intervention was not
+token-position aligned.  Every A1/A2 target pair has equal base/donor token length and equal final
+semantic position, so the target localization and composition measurements remain valid.  The
+legacy P pairs do not (`6→7` tokens in the first sampled row), and the canonical C pairs also do
+not (`15→13`).  The runners checked only equal **padded batch tensor shape**, then copied donor
+responses to the base by absolute token index.  On P/C this mixes different semantic tokens and
+can itself create the reported KL and top-one flips.  Therefore the greedy control-constrained
+path and the attention lattice's `no_selective_attention_subset` terminal are invalid as
+selectivity evidence; their target-only subset behavior remains usable.
+
+A shared fail-closed contract now requires equal per-row token arrays and equal terminal semantic
+positions before any absolute-index full-sequence patch can claim a control result.  The next
+experiment must build capability-qualified, equal-length P and C controls and replay the complete
+32-mask attention lattice.  Only if aligned controls reject the attention subsets should the route
+move to within-MLP task/control subspace splitting.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -301,7 +317,10 @@ are closed; the next optimization object must expose a finite causal-response op
   `temporal_iswas_v15_attention8_9_11_complete_head_atlas_v1_result.json` (valid exact 27-head
   singleton/conditional atlas; material core `L8H1`, `L9H1`, `L9H4`, and `L11H3`), followed by
   `temporal_iswas_v15_cross_boundary_adaptive_greedy_v1_result.json` (valid greedy-path
-  selectivity null; full target/residual closure but catastrophic complete-MLP collateral).
+  target-composition evidence but invalid P/C selectivity instrument due unequal per-row token
+  lengths), followed by `temporal_iswas_v15_low_collateral_attention_lattice_v1_result.json`
+  (complete target-side five-piece lattice; selectivity terminal retracted for the same control
+  alignment defect).
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`, followed by
   `temporal_h3_das_nested_construction_adaptive_regularization_v1_result.json` (valid rejection of
@@ -311,9 +330,10 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Execute the complete 32-subset lattice over the four material heads plus complete attention 15.
-   If it cannot close behavior selectively, split the causally live complete MLP responses by
-   task/control-defined response rather than hidden-unit magnitude.
+2. Build capability-qualified, per-row token-aligned P/C controls and replay the complete 32-subset
+   lattice over the four material heads plus complete attention 15.  If it cannot close behavior
+   selectively under valid controls, split the causally live complete MLP responses by task/control-
+   defined response rather than hidden-unit magnitude.
 3. Replace the rejected scalar-axis DAS loss with a finite causal-response operator whose held-out
    blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
    as explicit controls, not post-hoc explanations.

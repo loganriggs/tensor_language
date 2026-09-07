@@ -125,11 +125,10 @@ The completed v15 cross-boundary adaptive greedy composition is:
   `basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_v15_cross_boundary_adaptive_greedy_v1_result.json`;
 - exact price: 174 forwards over all 64 v15 A1/A2/P/C rows.
 
-The job finished successfully at `2026-09-07T18:14:24Z`.  It is valid but returns the registered
-`no_small_selective_prefix` terminal.  The full bank reconstructs A1/A2 behavior at `.958/.966`
-and final residual at `.981/.988`, but flips 29/32 controls with median KL `2.627`.  Its first
-behavior-sufficient greedy prefix already flips 24 controls.  The terminal proves a local greedy
-boundary, not a global subset impossibility result.
+The job finished successfully at `2026-09-07T18:14:24Z`.  Its A1/A2 target composition is valid:
+the full bank reconstructs behavior at `.958/.966` and final residual at `.981/.988`.  Its
+control-constrained selection and `no_small_selective_prefix` terminal are retracted because the P
+and C controls have unequal base/donor token lengths but were patched by absolute index.
 
 The greedy order is selected using actual joint A1 behavior subject to P/C selectivity; A2 never
 selects the sequence or stopping prefix.  However, A2 contributed to the earlier pooled module and
@@ -143,7 +142,7 @@ The active successor should be an exact 32-subset lattice over the low-collatera
 `L8H1`, `L9H1`, `L9H4`, `L11H3`, and complete `attn:15`.  It tests whether attention-component
 composition restores selectivity before splitting the high-gain, high-collateral MLP responses.
 
-That successor is now implemented and queued through the managed runner:
+That successor completed through the managed runner:
 
 - prior: `basis_aligned/bilinear_quotient/circuits/prior_art/temporal_iswas_v15_low_collateral_attention_lattice_v1.json`;
 - runner: `basis_aligned/bilinear_quotient/ops/run_temporal_iswas_v15_low_collateral_attention_lattice_v1.py`;
@@ -151,8 +150,15 @@ That successor is now implemented and queued through the managed runner:
 - expected result: `basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_v15_low_collateral_attention_lattice_v1_result.json`;
 - exact price: 35 forwards over all 64 A1/A2/P/C rows.
 
-On restart, inspect the result, runner log, queue, and live process before deciding whether it is
-queued, running, or terminal.  Never restart from a stale timestamp alone.
+It exactly evaluates all 32 target subsets.  All five pieces together recover `.80536/.86829`
+A1/A2 behavior.  The registered `no_selective_attention_subset` terminal is retracted because it
+uses the same misaligned P/C controls; only the target-side lattice is evidence.
+
+The active repair is `basis_aligned/bilinear_quotient/ops/aligned_full_sequence_patch_contract.py`.
+It requires equal base/donor token counts and semantic positions for every row before an
+absolute-index sequence patch.  The old A1/A2 rows pass; the old P/C controls fail closed.  Build
+new capability-qualified, equal-length P/C controls, then replay the frozen 32-mask attention
+lattice before deciding whether within-MLP subspace splitting is necessary.
 
 When the next result lands:
 
