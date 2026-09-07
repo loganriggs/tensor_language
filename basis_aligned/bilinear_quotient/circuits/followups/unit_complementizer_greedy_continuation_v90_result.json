@@ -1,0 +1,352 @@
+{
+  "bars": {
+    "a2_slack": 0.02,
+    "cross_max": 0.05,
+    "gain_min": 0.1,
+    "hold": 0.5,
+    "repro_ext": 0.02,
+    "repro_rem": 0.02,
+    "row2": 0.85,
+    "row2_lb": 0.75,
+    "v67_odd": {
+      "verb_complementizer": 1.119
+    },
+    "v68_exact": {
+      "verb_complementizer": 0.893
+    }
+  },
+  "candidate_id": "corpus.unit_complementizer_greedy_continuation_v90",
+  "finished_utc": "2026-09-07T02:34:54.299702+00:00",
+  "predictions": {
+    "pred_a_reproduce": true,
+    "pred_b_not_plateaued": true,
+    "pred_c_row2_quant": true,
+    "pred_d_transfer": true,
+    "pred_e_cross_clean": false
+  },
+  "schema": "circuit_unit_greedy_continuation_one_set_result_v1",
+  "seconds": 81.54834593087435,
+  "sets": {
+    "verb_complementizer": {
+      "base_even": 1.0839742589741945,
+      "base_odd": 1.1193297654390335,
+      "curve": [
+        {
+          "added": "attn:02:head:03",
+          "even_damage": 1.111482748761773,
+          "gain_even": 0.027508489787578583,
+          "odd_damage": 1.1662610173225403,
+          "odd_lb": 0.9087920313701033,
+          "runner_up": [
+            [
+              "attn:14:head:08",
+              1.1108738258481026
+            ],
+            [
+              "attn:02:head:06",
+              1.1068044602870941
+            ]
+          ],
+          "step": 12
+        },
+        {
+          "added": "attn:14:head:08",
+          "even_damage": 1.13822110183537,
+          "gain_even": 0.026738353073596954,
+          "odd_damage": 1.1947529055178165,
+          "odd_lb": 0.922458347119391,
+          "runner_up": [
+            [
+              "attn:02:head:06",
+              1.1348791867494583
+            ],
+            [
+              "attn:00:head:03",
+              1.133125388994813
+            ]
+          ],
+          "step": 13
+        },
+        {
+          "added": "attn:02:head:06",
+          "even_damage": 1.162082264199853,
+          "gain_even": 0.02386116236448288,
+          "odd_damage": 1.2236590012907982,
+          "odd_lb": 0.9371170988306403,
+          "runner_up": [
+            [
+              "attn:01:head:05",
+              1.159944873303175
+            ],
+            [
+              "attn:00:head:03",
+              1.1599029544740915
+            ]
+          ],
+          "step": 14
+        },
+        {
+          "added": "attn:01:head:05",
+          "even_damage": 1.1883639637380838,
+          "gain_even": 0.026281699538230896,
+          "odd_damage": 1.231392901390791,
+          "odd_lb": 0.9383330871351063,
+          "runner_up": [
+            [
+              "attn:00:head:03",
+              1.1858719941228628
+            ],
+            [
+              "attn:03:head:06",
+              1.1828392017632723
+            ]
+          ],
+          "step": 15
+        },
+        {
+          "added": "attn:00:head:03",
+          "even_damage": 1.212160188704729,
+          "gain_even": 0.02379622496664524,
+          "odd_damage": 1.231567319482565,
+          "odd_lb": 0.9426709979772567,
+          "runner_up": [
+            [
+              "attn:03:head:06",
+              1.2093581296503544
+            ],
+            [
+              "attn:10:head:05",
+              1.2060266863554716
+            ]
+          ],
+          "step": 16
+        },
+        {
+          "added": "attn:03:head:06",
+          "even_damage": 1.2319831363856792,
+          "gain_even": 0.019822947680950165,
+          "odd_damage": 1.2532340064644814,
+          "odd_lb": 0.9569996070116759,
+          "runner_up": [
+            [
+              "attn:10:head:05",
+              1.2298962641507387
+            ],
+            [
+              "attn:16:head:08",
+              1.2291158344596624
+            ]
+          ],
+          "step": 17
+        },
+        {
+          "added": "attn:10:head:05",
+          "even_damage": 1.2496810760349035,
+          "gain_even": 0.01769793964922428,
+          "odd_damage": 1.2743301019072533,
+          "odd_lb": 0.973273013997823,
+          "runner_up": [
+            [
+              "attn:16:head:08",
+              1.2489606086164713
+            ],
+            [
+              "attn:06:head:06",
+              1.2487329542636871
+            ]
+          ],
+          "step": 18
+        },
+        {
+          "added": "attn:16:head:08",
+          "even_damage": 1.2667527496814728,
+          "gain_even": 0.017071673646569252,
+          "odd_damage": 1.291209302842617,
+          "odd_lb": 0.9893478455021978,
+          "runner_up": [
+            [
+              "attn:06:head:06",
+              1.2664576638489962
+            ],
+            [
+              "attn:13:head:08",
+              1.2655208446085453
+            ]
+          ],
+          "step": 19
+        }
+      ],
+      "gain_even": 0.18277849070727825,
+      "hub16": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08",
+        "attn:02:head:03",
+        "attn:14:head:08",
+        "attn:02:head:06",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:03:head:06",
+        "attn:10:head:05",
+        "attn:16:head:08"
+      ],
+      "hub8": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08"
+      ],
+      "sets": {
+        "hub16": {
+          "extraction": {
+            "A1": {
+              "lb95": 0.92464179465415,
+              "point": 0.9512519954062962,
+              "ub95": 0.9777899812574192
+            },
+            "A2": {
+              "lb95": 0.892458601748415,
+              "point": 0.9145117531133042,
+              "ub95": 0.9381236440600352
+            }
+          },
+          "removal": {
+            "A1": {
+              "ce_damage": 1.291209302842617,
+              "ce_lb975": 0.9893478455021978,
+              "ce_ub975": 1.5924637781456108,
+              "documents": 32,
+              "kl_mean": 0.33396702248137444,
+              "margin_damage": 4.196971386671066,
+              "top1_change_rate": 0.3125
+            },
+            "A2": {
+              "ce_damage": 0.7934356201440096,
+              "ce_lb975": 0.6013996543828398,
+              "ce_ub975": 0.99556027976796,
+              "documents": 32,
+              "kl_mean": 0.3138454759027809,
+              "margin_damage": 4.027503825724125,
+              "top1_change_rate": 0.46875
+            },
+            "C": {
+              "ce_damage": 0.3926243530586362,
+              "ce_lb975": 0.2979499689303339,
+              "ce_ub975": 0.4929909645114094,
+              "documents": 32,
+              "kl_mean": 0.03651538136182353,
+              "margin_damage": 2.2377287447452545,
+              "top1_change_rate": 0.03125
+            },
+            "cross": {
+              "dative": -0.009881649166345596,
+              "polarity_licensing": 0.0027572214603424072,
+              "quantifier_number": -0.04036030173301697,
+              "verb_preposition": -0.0007932528387755156,
+              "voice_frame": -0.01794402301311493
+            }
+          },
+          "units": [
+            "attn:06:head:03",
+            "attn:11:head:03",
+            "attn:07:head:08",
+            "attn:08:head:01",
+            "attn:04:head:01",
+            "attn:09:head:03",
+            "attn:09:head:07",
+            "attn:14:head:03",
+            "attn:05:head:08",
+            "attn:09:head:01",
+            "attn:08:head:08",
+            "attn:02:head:03",
+            "attn:14:head:08",
+            "attn:02:head:06",
+            "attn:01:head:05",
+            "attn:00:head:03",
+            "attn:03:head:06",
+            "attn:10:head:05",
+            "attn:16:head:08"
+          ]
+        },
+        "hub8": {
+          "extraction": {
+            "A1": {
+              "lb95": 0.8693526541861237,
+              "point": 0.892519699413566,
+              "ub95": 0.9182680221727834
+            },
+            "A2": {
+              "lb95": 0.841364450598658,
+              "point": 0.8615402066603703,
+              "ub95": 0.8833730796652846
+            }
+          },
+          "removal": {
+            "A1": {
+              "ce_damage": 1.1193297654390335,
+              "ce_lb975": 0.8626744905486703,
+              "ce_ub975": 1.3774075351655481,
+              "documents": 32,
+              "kl_mean": 0.2671247163088992,
+              "margin_damage": 3.8997984752058983,
+              "top1_change_rate": 0.28125
+            },
+            "A2": {
+              "ce_damage": 0.6792088318616152,
+              "ce_lb975": 0.5177682852838188,
+              "ce_ub975": 0.8531003843527287,
+              "documents": 32,
+              "kl_mean": 0.25647942966315895,
+              "margin_damage": 3.752389743924141,
+              "top1_change_rate": 0.4375
+            },
+            "C": {
+              "ce_damage": 0.38749751169234514,
+              "ce_lb975": 0.2976149803958833,
+              "ce_ub975": 0.4831699880771338,
+              "documents": 32,
+              "kl_mean": 0.029163437560782768,
+              "margin_damage": 2.1046765223145485,
+              "top1_change_rate": 0.03125
+            },
+            "cross": {
+              "dative": 0.0027964599430561066,
+              "polarity_licensing": 0.008260726928710938,
+              "quantifier_number": -0.01237524300813675,
+              "verb_preposition": 0.0036190536338835955,
+              "voice_frame": -0.013387332670390606
+            }
+          },
+          "units": [
+            "attn:06:head:03",
+            "attn:11:head:03",
+            "attn:07:head:08",
+            "attn:08:head:01",
+            "attn:04:head:01",
+            "attn:09:head:03",
+            "attn:09:head:07",
+            "attn:14:head:03",
+            "attn:05:head:08",
+            "attn:09:head:01",
+            "attn:08:head:08"
+          ]
+        }
+      }
+    }
+  }
+}
