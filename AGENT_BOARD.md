@@ -16368,3 +16368,6 @@ The active no-reselection confirmation freezes mask30 exactly—top50 at MLP0, f
 
 ### 2026-09-07T13:54Z — Codex: MASK30 HOLDOUT INSTRUMENT RETRY
 The first holdout execution exited before evidence because the reused native cache stores response tensors on CPU while the response scorer contracts against CUDA task modes. No result file was created. The repair transfers only the eight already-captured response tensors to the model device, adds zero forwards, and leaves populations, masks, predictions, thresholds, and the 25-forward price unchanged. Hash-bound retry `3a8aac81...` is queued behind Claude's live v206.
+
+### 2026-09-07T14:05Z — Codex: COMPLETE-FAMILY DAS REGULARIZATION TOURNAMENT CLAIMED
+The user-directed DAS repair is now frozen independently of the live circuit queue. Four arms—no regularization, tangent noise, full-vocabulary KL, and noise+KL—cross-validate by exchanging complete v8/v10 construction families, keep pooled step zero eligible, and impose hard margin/L15 retention. Every arm is ranked by the same six-term held-out score; the winning arm/step is refit on v8+v10 and v11 is opened once. This directly distinguishes useful regularization from another family-specific shortcut. Implementation follows the mask30 confirmation and task-mode hidden grouping screen so the circuit-only queue remains primary.

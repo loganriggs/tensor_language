@@ -1,0 +1,47 @@
+{
+  "schema": "temporal_h3_das_family_crossvalidated_regularization_tournament_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_das_family_crossvalidated_regularization_tournament_v1",
+  "question": "Can noise and/or full-vocabulary KL regularization prevent complement-DAS family memorization and produce a moved rank-one axis that improves on pooled step zero across complete construction families?",
+  "authority_sha256": {
+    "redteam": "ddf623d10c4d350f1d9e5113cccb5781a30f71d9b225539c2bfe9dc7c87c263a",
+    "hard_feasible": "f5202f4e9af89f84a29f786a44e24fcccc165ee4c9097cccc635278eca6d80b4",
+    "fit_library": "bf806b077da4e2fb43612f8f3b5ca318e0d45edac6b2c26ecc2f6accd218b413",
+    "v8_builder": "13c0ae6424cc936dfa4ccb6ec89cd696e4b2c1267c2a4ebeeebd1a313bb443cf",
+    "v8_capability": "fe9255aa8221fe68331bc49c43f1b59cf5909c599f96ff5f36bf653ea1162cff",
+    "v10_builder": "e945e0b4679fa74d6cea23594ba553d9b2ffd3ac653c353d09d1873f2a3e4494",
+    "v10_capability": "9923322703c72d50b2a1f06138ef35269db48e0a8a4ccb365f82df3519b113ad",
+    "v11_builder": "f75b17669a5fc5299d21f5b44e91530c03c71d75181683c7b6728cb95c862450",
+    "v11_capability": "0330dc5a4f85bc68c4da6f98af2f4208335e65c644ddedd5d8cc487368091026"
+  },
+  "rank": 1,
+  "initialization": "frozen pooled-aligned axis; step zero remains eligible",
+  "family_protocol": {
+    "crossvalidation": ["train complete v8, select complete v10", "train complete v10, select complete v8"],
+    "sealed": "v11 opened once after arm and step-count selection",
+    "panels": ["A1", "A2"]
+  },
+  "arms": {
+    "no_reg": {"tangent_noise": false, "vocabulary_kl": false},
+    "noise": {"tangent_noise": true, "vocabulary_kl": false},
+    "kl": {"tangent_noise": false, "vocabulary_kl": true},
+    "noise_kl": {"tangent_noise": true, "vocabulary_kl": true}
+  },
+  "objective": "All arms optimize margin/L15 match plus complement inertness with hard per-panel target-retention limits. KL arms additionally optimize full-vocabulary match and complement KL/vector inertness. Noise arms use antithetic tangent perturbations. Every arm is selected by the same six-term held-out-family score.",
+  "selection": "Choose the arm minimizing worst complete-family validation score across both folds, breaking ties by mean score then arm order. Choose final update count from fold checkpoints, refit that arm on v8+v10, and evaluate v11 once.",
+  "predictions": {
+    "pred_a_authority_disjointness_instrument_finiteness_and_price": "Authorities match; v8/v10/v11 are row-disjoint complete families; manual reader closures <=1e-4; all metrics finite; observed forwards <=1800.",
+    "pred_b_regularization_wins_both_family_folds": "Noise, KL, or noise+KL has a nonzero feasible checkpoint that beats no-reg and pooled step zero on each held-out family.",
+    "pred_c_regularized_axes_are_cross_family_stable": "The two selected fold axes have absolute cosine >=.80.",
+    "pred_d_regularized_refit_beats_pooled_on_sealed_v11": "The preregistered refit is target-feasible and strictly improves both mean and worst six-term v11 panel score over pooled step zero.",
+    "pred_e_improvement_is_not_target_sacrifice": "The refit improves full-vocabulary match+inertness on both v11 panels while remaining within every hard margin/L15 retention limit."
+  },
+  "terminal_policy": {
+    "regularized_cross_family_das_candidate": "A-E pass",
+    "objective_miss": "A passes, moved checkpoints exist, but pooled step zero wins family validation",
+    "rank_one_inadequate": "A passes but no moved checkpoint is target-feasible",
+    "residual_family_memorization": "A passes and a regularized arm wins folds but fails sealed v11",
+    "invalid": "A fails"
+  },
+  "price": {"model_forwards_max": 1800, "model_updates_max": 180, "transformer_backward_forwards_max": 1400, "fit_parameters": 128},
+  "execution_policy": "managed_queue_only"
+}
