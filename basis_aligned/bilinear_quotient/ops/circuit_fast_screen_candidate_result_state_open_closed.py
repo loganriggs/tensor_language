@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """result_state_open_closed.unlocked_vs_locked -- does a site carry a verb's RESULT STATE (unlocked -> `open`, locked -> `closed`) across the object, a parenthetical and a result clause to the state adjective?
 
-`The pilot unlocked the gate near the lantern, of course, so it was` obliges ` open`; `The pilot locked the gate near the lantern, of course, so it was` obliges ` closed`. NEW family (result state entailed by the verb).
+`The pilot unlocked the gate near the lantern, of course, so it was` obliges ` open`; `The pilot locked the gate near the lantern, of course, so it was` obliges ` closed`. NEW family (result state entailed by the verb). REPAIR: the first A2 frame (`... unlocked it, of course, leaving it` -> open/closed) dropped 28 of 32 A2 rows; the one licensed repair replaced it by `unlocked the gate, of course, and now it is` (A1 was fine at -0.28/+0.28).
 
 Authored through `circuit_fast_screen_behaviour_spec` (Claude, 2026-09-07, v229 batch).
 Capability is checked on CPU before the battery: rows where the donor does not beat the base on the
@@ -31,10 +31,10 @@ SPEC = bs.BehaviourSpec(
     generator_role="generate_linked_result_state_open_closed_fit_panels",
     answer_role="score_jointly_tokenized_open_versus_closed",
     a1=bs.Family("bare_frame", "bare_frame_verb_swap", lambda i, pos: f"The {_agent(i)} {'unlocked' if pos else 'locked'} the gate near the {_obj(i)}, of course, so it was"),
-    a2=bs.Family("dawn_frame", "dawn_frame_verb_swap", lambda i, pos: f"Before dawn the {_adj(i)} {_agent(i)} {'unlocked' if pos else 'locked'} it, of course, leaving it"),
+    a2=bs.Family("dawn_frame", "dawn_frame_verb_swap", lambda i, pos: f"Before dawn the {_adj(i)} {_agent(i)} {'unlocked' if pos else 'locked'} the gate, of course, and now it is"),
     p_donor=lambda i, pos: f"The {_agent(i)} {'unlocked' if pos else 'locked'} the gate near the {_adj2(i)} {_obj(i)}, of course, so it was",
     a1_suffix=lambda i: ", of course, so it was",
-    a2_suffix=lambda i: ", of course, leaving it",
+    a2_suffix=lambda i: ", of course, and now it is",
     directions=('unlocked_to_locked', 'locked_to_unlocked'),
     kinds=('unlocked', 'locked'),
     p_generator_role="object_lexical_rewrite",
