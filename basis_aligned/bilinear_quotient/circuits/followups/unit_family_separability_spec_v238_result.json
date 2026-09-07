@@ -1,0 +1,989 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 4,
+    "k_kept": 6,
+    "k_new": 1,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v238",
+  "families": {
+    "degree": [
+      "superlative_complement_best",
+      "superlative_complement_largest",
+      "comparative_complement_superior",
+      "comparative_complement_inferior",
+      "degree_much_very",
+      "degree_so_such",
+      "degree_synthetic_periphrastic_comparative",
+      "degree_synthetic_periphrastic_superlative",
+      "degree_enough",
+      "degree_synthetic_periphrastic_adverb",
+      "degree_complement_than_of"
+    ],
+    "modal_ellipsis": [
+      "modal_ellipsis_can_must",
+      "modal_ellipsis_should_might",
+      "modal_ellipsis_could_may",
+      "modal_complement_to_lift"
+    ]
+  },
+  "finished_utc": "2026-09-07T23:35:22.054352+00:00",
+  "members": {
+    "comparative_complement_inferior": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.315,
+            "ce_lb975": 1.2498,
+            "ce_ub975": 1.3818
+          },
+          "C": {
+            "ce_damage": -0.0013,
+            "ce_lb975": -0.0067,
+            "ce_ub975": 0.0038
+          },
+          "extraction": 0.984,
+          "sib_abs_max": 0.0149,
+          "siblings": {
+            "comparative_complement_superior": 0.009,
+            "degree_complement_than_of": -0.0017,
+            "degree_enough": -0.0014,
+            "degree_much_very": 0.0149,
+            "degree_so_such": 0.0016,
+            "degree_synthetic_periphrastic_adverb": 0.0016,
+            "degree_synthetic_periphrastic_comparative": 0.0029,
+            "degree_synthetic_periphrastic_superlative": 0.0039,
+            "superlative_complement_best": 0.0039,
+            "superlative_complement_largest": -0.0001
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3906,
+            "ce_lb975": 1.2791,
+            "ce_ub975": 1.5087
+          },
+          "C": {
+            "ce_damage": 0.0031,
+            "ce_lb975": -0.0032,
+            "ce_ub975": 0.0085
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.7297,
+          "siblings": {
+            "comparative_complement_superior": 0.7297,
+            "degree_complement_than_of": 0.0315,
+            "degree_enough": -0.0384,
+            "degree_much_very": -0.0634,
+            "degree_so_such": 0.0206,
+            "degree_synthetic_periphrastic_adverb": 0.0073,
+            "degree_synthetic_periphrastic_comparative": 0.0133,
+            "degree_synthetic_periphrastic_superlative": 0.0573,
+            "superlative_complement_best": 0.293,
+            "superlative_complement_largest": 0.2664
+          }
+        }
+      },
+      "exact_held": 0.9,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 118.8,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:12:head:08",
+        "attn:14:head:08",
+        "attn:11:head:07",
+        "attn:16:head:08",
+        "attn:05:head:03",
+        "attn:09:head:01",
+        "attn:15:head:01"
+      ]
+    },
+    "comparative_complement_superior": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.251,
+            "ce_lb975": 0.8513,
+            "ce_ub975": 1.6872
+          },
+          "C": {
+            "ce_damage": -0.002,
+            "ce_lb975": -0.0064,
+            "ce_ub975": 0.0029
+          },
+          "extraction": 0.96,
+          "sib_abs_max": 0.0287,
+          "siblings": {
+            "comparative_complement_inferior": 0.0062,
+            "degree_complement_than_of": -0.0017,
+            "degree_enough": -0.0048,
+            "degree_much_very": -0.0056,
+            "degree_so_such": 0.0017,
+            "degree_synthetic_periphrastic_adverb": -0.0029,
+            "degree_synthetic_periphrastic_comparative": 0.0028,
+            "degree_synthetic_periphrastic_superlative": 0.0009,
+            "superlative_complement_best": 0.0287,
+            "superlative_complement_largest": 0.0018
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3439,
+            "ce_lb975": 1.2284,
+            "ce_ub975": 1.4684
+          },
+          "C": {
+            "ce_damage": -0.0,
+            "ce_lb975": -0.0074,
+            "ce_ub975": 0.0067
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 1.1035,
+          "siblings": {
+            "comparative_complement_inferior": 1.1035,
+            "degree_complement_than_of": 0.1187,
+            "degree_enough": -0.1119,
+            "degree_much_very": -0.0615,
+            "degree_so_such": 0.0316,
+            "degree_synthetic_periphrastic_adverb": -0.0039,
+            "degree_synthetic_periphrastic_comparative": 0.0162,
+            "degree_synthetic_periphrastic_superlative": 0.0313,
+            "superlative_complement_best": 0.6095,
+            "superlative_complement_largest": 0.3695
+          }
+        }
+      },
+      "exact_held": 0.898,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 126.6,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:13:head:08",
+        "attn:12:head:08",
+        "attn:14:head:08",
+        "attn:09:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:15:head:01",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:11:head:07",
+        "attn:05:head:03"
+      ]
+    },
+    "degree_complement_than_of": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9503,
+            "ce_lb975": 0.8291,
+            "ce_ub975": 1.0821
+          },
+          "C": {
+            "ce_damage": -0.0018,
+            "ce_lb975": -0.0064,
+            "ce_ub975": 0.0029
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0282,
+          "siblings": {
+            "comparative_complement_inferior": 0.002,
+            "comparative_complement_superior": 0.0003,
+            "degree_enough": -0.0087,
+            "degree_much_very": 0.0108,
+            "degree_so_such": -0.0023,
+            "degree_synthetic_periphrastic_adverb": -0.0044,
+            "degree_synthetic_periphrastic_comparative": 0.004,
+            "degree_synthetic_periphrastic_superlative": 0.0062,
+            "superlative_complement_best": 0.0083,
+            "superlative_complement_largest": 0.0282
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9628,
+            "ce_lb975": 0.7927,
+            "ce_ub975": 1.1459
+          },
+          "C": {
+            "ce_damage": 0.0023,
+            "ce_lb975": -0.0036,
+            "ce_ub975": 0.0089
+          },
+          "extraction": 1.004,
+          "sib_abs_max": 0.8691,
+          "siblings": {
+            "comparative_complement_inferior": 0.3182,
+            "comparative_complement_superior": 0.4019,
+            "degree_enough": -0.006,
+            "degree_much_very": -0.1403,
+            "degree_so_such": 0.0061,
+            "degree_synthetic_periphrastic_adverb": 0.0041,
+            "degree_synthetic_periphrastic_comparative": -0.0033,
+            "degree_synthetic_periphrastic_superlative": 0.0699,
+            "superlative_complement_best": 0.5881,
+            "superlative_complement_largest": 0.8691
+          }
+        }
+      },
+      "exact_held": 0.901,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 106.9,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:09:head:01",
+        "attn:12:head:08",
+        "attn:10:head:05",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:11:head:03",
+        "attn:09:head:02",
+        "attn:15:head:01"
+      ]
+    },
+    "degree_much_very": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9073,
+            "ce_lb975": 0.7663,
+            "ce_ub975": 1.0541
+          },
+          "C": {
+            "ce_damage": 0.0044,
+            "ce_lb975": -0.0025,
+            "ce_ub975": 0.0116
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.0141,
+          "siblings": {
+            "comparative_complement_inferior": 0.0091,
+            "comparative_complement_superior": 0.0141,
+            "degree_complement_than_of": 0.0022,
+            "degree_enough": -0.0028,
+            "degree_so_such": 0.0096,
+            "degree_synthetic_periphrastic_adverb": 0.0029,
+            "degree_synthetic_periphrastic_comparative": 0.001,
+            "degree_synthetic_periphrastic_superlative": 0.0068,
+            "superlative_complement_best": 0.0033,
+            "superlative_complement_largest": 0.0041
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8988,
+            "ce_lb975": 0.7585,
+            "ce_ub975": 1.0442
+          },
+          "C": {
+            "ce_damage": -0.0033,
+            "ce_lb975": -0.0079,
+            "ce_ub975": 0.001
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.2331,
+          "siblings": {
+            "comparative_complement_inferior": 0.2331,
+            "comparative_complement_superior": 0.1815,
+            "degree_complement_than_of": 0.1624,
+            "degree_enough": 0.0576,
+            "degree_so_such": 0.0267,
+            "degree_synthetic_periphrastic_adverb": -0.0039,
+            "degree_synthetic_periphrastic_comparative": 0.0032,
+            "degree_synthetic_periphrastic_superlative": -0.0049,
+            "superlative_complement_best": 0.0972,
+            "superlative_complement_largest": 0.1991
+          }
+        }
+      },
+      "exact_held": 0.905,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 17,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 130.3,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:06:head:03",
+        "attn:09:head:07",
+        "attn:04:head:03",
+        "attn:03:head:06",
+        "attn:06:head:06",
+        "attn:11:head:02",
+        "attn:04:head:07",
+        "attn:10:head:08",
+        "attn:12:head:08",
+        "attn:11:head:03",
+        "attn:16:head:08",
+        "attn:05:head:03",
+        "attn:15:head:01",
+        "attn:13:head:06",
+        "attn:04:head:00"
+      ]
+    },
+    "degree_synthetic_periphrastic_comparative": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.3771,
+            "ce_lb975": 0.9835,
+            "ce_ub975": 1.8081
+          },
+          "C": {
+            "ce_damage": 0.0074,
+            "ce_lb975": -0.0017,
+            "ce_ub975": 0.0175
+          },
+          "extraction": 0.98,
+          "sib_abs_max": 0.0082,
+          "siblings": {
+            "comparative_complement_inferior": -0.0021,
+            "comparative_complement_superior": 0.0021,
+            "degree_complement_than_of": 0.0017,
+            "degree_enough": 0.0064,
+            "degree_much_very": -0.0082,
+            "degree_so_such": 0.0049,
+            "degree_synthetic_periphrastic_adverb": 0.004,
+            "degree_synthetic_periphrastic_superlative": 0.0066,
+            "superlative_complement_best": 0.0048,
+            "superlative_complement_largest": -0.0043
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3738,
+            "ce_lb975": 0.9935,
+            "ce_ub975": 1.7953
+          },
+          "C": {
+            "ce_damage": -0.0011,
+            "ce_lb975": -0.0111,
+            "ce_ub975": 0.008
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 0.6627,
+          "siblings": {
+            "comparative_complement_inferior": -0.0081,
+            "comparative_complement_superior": -0.0164,
+            "degree_complement_than_of": 0.012,
+            "degree_enough": 0.0001,
+            "degree_much_very": 0.1449,
+            "degree_so_such": -0.0903,
+            "degree_synthetic_periphrastic_adverb": 0.1298,
+            "degree_synthetic_periphrastic_superlative": 0.6627,
+            "superlative_complement_best": -0.0277,
+            "superlative_complement_largest": 0.0131
+          }
+        }
+      },
+      "exact_held": 0.888,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 20,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 120.6,
+      "separable": true,
+      "units": [
+        "attn:08:head:03",
+        "attn:13:head:03",
+        "attn:10:head:03",
+        "attn:14:head:04",
+        "attn:06:head:07",
+        "attn:11:head:06",
+        "attn:14:head:00",
+        "attn:14:head:06",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:13:head:00",
+        "attn:07:head:03",
+        "attn:10:head:01",
+        "attn:08:head:06",
+        "attn:15:head:03",
+        "attn:08:head:04",
+        "attn:07:head:00",
+        "attn:10:head:04",
+        "attn:16:head:00",
+        "attn:09:head:00"
+      ]
+    },
+    "degree_synthetic_periphrastic_superlative": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9223,
+            "ce_lb975": 0.6664,
+            "ce_ub975": 1.2013
+          },
+          "C": {
+            "ce_damage": 0.0058,
+            "ce_lb975": -0.0012,
+            "ce_ub975": 0.0123
+          },
+          "extraction": 1.008,
+          "sib_abs_max": 0.0049,
+          "siblings": {
+            "comparative_complement_inferior": 0.0013,
+            "comparative_complement_superior": 0.0022,
+            "degree_complement_than_of": -0.0002,
+            "degree_enough": 0.0035,
+            "degree_much_very": 0.0038,
+            "degree_so_such": 0.0005,
+            "degree_synthetic_periphrastic_adverb": 0.0024,
+            "degree_synthetic_periphrastic_comparative": -0.0049,
+            "superlative_complement_best": 0.0006,
+            "superlative_complement_largest": -0.0014
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9226,
+            "ce_lb975": 0.6566,
+            "ce_ub975": 1.2173
+          },
+          "C": {
+            "ce_damage": 0.0014,
+            "ce_lb975": -0.0056,
+            "ce_ub975": 0.0087
+          },
+          "extraction": 1.007,
+          "sib_abs_max": 0.4849,
+          "siblings": {
+            "comparative_complement_inferior": -0.0311,
+            "comparative_complement_superior": 0.0034,
+            "degree_complement_than_of": 0.0269,
+            "degree_enough": 0.0043,
+            "degree_much_very": 0.0136,
+            "degree_so_such": -0.0657,
+            "degree_synthetic_periphrastic_adverb": 0.0845,
+            "degree_synthetic_periphrastic_comparative": 0.4849,
+            "superlative_complement_best": 0.043,
+            "superlative_complement_largest": 0.0461
+          }
+        }
+      },
+      "exact_held": 0.885,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 26,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 130.0,
+      "separable": true,
+      "units": [
+        "attn:11:head:06",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:06:head:07",
+        "attn:07:head:00",
+        "attn:13:head:03",
+        "attn:10:head:03",
+        "attn:05:head:01",
+        "attn:13:head:00",
+        "attn:10:head:01",
+        "attn:15:head:03",
+        "attn:08:head:03",
+        "attn:14:head:00",
+        "attn:14:head:04",
+        "attn:06:head:03",
+        "attn:16:head:04",
+        "attn:10:head:04",
+        "attn:08:head:06",
+        "attn:17:head:00",
+        "attn:09:head:04",
+        "attn:09:head:01",
+        "attn:10:head:02",
+        "attn:09:head:02",
+        "attn:16:head:00",
+        "attn:15:head:01",
+        "attn:09:head:00"
+      ]
+    },
+    "modal_complement_to_lift": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.7968,
+            "ce_lb975": 1.2745,
+            "ce_ub975": 2.341
+          },
+          "C": {
+            "ce_damage": -0.0042,
+            "ce_lb975": -0.0098,
+            "ce_ub975": 0.0018
+          },
+          "extraction": 1.009,
+          "sib_abs_max": 0.0065,
+          "siblings": {
+            "modal_ellipsis_can_must": 0.0065,
+            "modal_ellipsis_could_may": -0.0009,
+            "modal_ellipsis_should_might": 0.0049
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.866,
+            "ce_lb975": 1.3098,
+            "ce_ub975": 2.4506
+          },
+          "C": {
+            "ce_damage": -0.0072,
+            "ce_lb975": -0.0156,
+            "ce_ub975": 0.0007
+          },
+          "extraction": 1.011,
+          "sib_abs_max": 0.0277,
+          "siblings": {
+            "modal_ellipsis_can_must": 0.0277,
+            "modal_ellipsis_could_may": -0.0067,
+            "modal_ellipsis_should_might": -0.022
+          }
+        }
+      },
+      "exact_held": 0.881,
+      "family": "modal_ellipsis",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 61.6,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:04:head:01",
+        "attn:03:head:06",
+        "attn:05:head:03",
+        "attn:05:head:08",
+        "attn:02:head:06",
+        "attn:16:head:08",
+        "attn:04:head:03",
+        "attn:11:head:06"
+      ]
+    },
+    "modal_ellipsis_can_must": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.1438,
+            "ce_lb975": 1.0618,
+            "ce_ub975": 1.2223
+          },
+          "C": {
+            "ce_damage": -0.0018,
+            "ce_lb975": -0.0076,
+            "ce_ub975": 0.0047
+          },
+          "extraction": 0.994,
+          "sib_abs_max": 0.0065,
+          "siblings": {
+            "modal_complement_to_lift": -0.0007,
+            "modal_ellipsis_could_may": 0.0065,
+            "modal_ellipsis_should_might": -0.0029
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.1529,
+            "ce_lb975": 1.1138,
+            "ce_ub975": 1.186
+          },
+          "C": {
+            "ce_damage": -0.0025,
+            "ce_lb975": -0.0077,
+            "ce_ub975": 0.0031
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.3393,
+          "siblings": {
+            "modal_complement_to_lift": 0.0277,
+            "modal_ellipsis_could_may": 0.3393,
+            "modal_ellipsis_should_might": 0.0996
+          }
+        }
+      },
+      "exact_held": 0.882,
+      "family": "modal_ellipsis",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 21,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 65.0,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:09:head:01",
+        "attn:15:head:05",
+        "attn:14:head:00",
+        "attn:08:head:01",
+        "attn:04:head:06",
+        "attn:11:head:03",
+        "attn:08:head:03",
+        "attn:11:head:01",
+        "attn:08:head:04",
+        "attn:09:head:04",
+        "attn:05:head:03",
+        "attn:05:head:06",
+        "attn:06:head:01",
+        "attn:12:head:08",
+        "attn:10:head:08",
+        "attn:07:head:00",
+        "attn:09:head:08",
+        "attn:15:head:01",
+        "attn:09:head:07",
+        "attn:03:head:04"
+      ]
+    },
+    "modal_ellipsis_should_might": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.166,
+            "ce_lb975": 1.0307,
+            "ce_ub975": 1.3076
+          },
+          "C": {
+            "ce_damage": 0.0017,
+            "ce_lb975": -0.0054,
+            "ce_ub975": 0.0095
+          },
+          "extraction": 1.003,
+          "sib_abs_max": 0.003,
+          "siblings": {
+            "modal_complement_to_lift": 0.003,
+            "modal_ellipsis_can_must": -0.0012,
+            "modal_ellipsis_could_may": 0.0018
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.163,
+            "ce_lb975": 1.1179,
+            "ce_ub975": 1.2106
+          },
+          "C": {
+            "ce_damage": 0.0011,
+            "ce_lb975": -0.0044,
+            "ce_ub975": 0.0067
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.2138,
+          "siblings": {
+            "modal_complement_to_lift": 0.0145,
+            "modal_ellipsis_can_must": 0.1562,
+            "modal_ellipsis_could_may": 0.2138
+          }
+        }
+      },
+      "exact_held": 0.879,
+      "family": "modal_ellipsis",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 18,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 56.1,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:14:head:00",
+        "attn:15:head:05",
+        "attn:08:head:01",
+        "attn:09:head:01",
+        "attn:09:head:04",
+        "attn:11:head:03",
+        "attn:11:head:01",
+        "attn:08:head:04",
+        "attn:15:head:01",
+        "attn:08:head:03",
+        "attn:13:head:03",
+        "attn:10:head:05",
+        "attn:11:head:06",
+        "attn:07:head:00",
+        "attn:09:head:07",
+        "attn:10:head:02",
+        "attn:07:head:07"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": true,
+    "pred_b_counted_kept": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "degree_complement_than_of",
+      "modal_complement_to_lift",
+      "comparative_complement_superior",
+      "comparative_complement_inferior",
+      "degree_much_very",
+      "degree_synthetic_periphrastic_comparative",
+      "degree_synthetic_periphrastic_superlative",
+      "modal_ellipsis_can_must",
+      "modal_ellipsis_should_might"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v245 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v238",
+  "seconds": 921.5,
+  "separable_counts": {
+    "degree": 6,
+    "modal_ellipsis": 3
+  },
+  "summary": {
+    "comparative_complement_inferior": {
+      "fam": [
+        0.984,
+        0.0149,
+        0.0038
+      ],
+      "family": "degree",
+      "n_units": 12,
+      "own": [
+        0.993,
+        0.7297,
+        0.0085
+      ],
+      "separable": true
+    },
+    "comparative_complement_superior": {
+      "fam": [
+        0.96,
+        0.0287,
+        0.0029
+      ],
+      "family": "degree",
+      "n_units": 15,
+      "own": [
+        0.998,
+        1.1035,
+        0.0067
+      ],
+      "separable": true
+    },
+    "degree_complement_than_of": {
+      "fam": [
+        0.986,
+        0.0282,
+        0.0029
+      ],
+      "family": "degree",
+      "n_units": 9,
+      "own": [
+        1.004,
+        0.8691,
+        0.0089
+      ],
+      "separable": true
+    },
+    "degree_much_very": {
+      "fam": [
+        0.999,
+        0.0141,
+        0.0116
+      ],
+      "family": "degree",
+      "n_units": 17,
+      "own": [
+        1.006,
+        0.2331,
+        0.001
+      ],
+      "separable": true
+    },
+    "degree_synthetic_periphrastic_comparative": {
+      "fam": [
+        0.98,
+        0.0082,
+        0.0175
+      ],
+      "family": "degree",
+      "n_units": 20,
+      "own": [
+        0.989,
+        0.6627,
+        0.008
+      ],
+      "separable": true
+    },
+    "degree_synthetic_periphrastic_superlative": {
+      "fam": [
+        1.008,
+        0.0049,
+        0.0123
+      ],
+      "family": "degree",
+      "n_units": 26,
+      "own": [
+        1.007,
+        0.4849,
+        0.0087
+      ],
+      "separable": true
+    },
+    "modal_complement_to_lift": {
+      "fam": [
+        1.009,
+        0.0065,
+        0.0018
+      ],
+      "family": "modal_ellipsis",
+      "n_units": 11,
+      "own": [
+        1.011,
+        0.0277,
+        0.0007
+      ],
+      "separable": true
+    },
+    "modal_ellipsis_can_must": {
+      "fam": [
+        0.994,
+        0.0065,
+        0.0047
+      ],
+      "family": "modal_ellipsis",
+      "n_units": 21,
+      "own": [
+        0.995,
+        0.3393,
+        0.0031
+      ],
+      "separable": true
+    },
+    "modal_ellipsis_should_might": {
+      "fam": [
+        1.003,
+        0.003,
+        0.0095
+      ],
+      "family": "modal_ellipsis",
+      "n_units": 18,
+      "own": [
+        1.006,
+        0.2138,
+        0.0067
+      ],
+      "separable": true
+    }
+  }
+}
