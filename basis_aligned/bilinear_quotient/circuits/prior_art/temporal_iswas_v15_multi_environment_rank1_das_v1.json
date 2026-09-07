@@ -1,0 +1,39 @@
+{
+  "schema": "temporal_iswas_v15_multi_environment_rank1_das_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_multi_environment_rank1_das_v1",
+  "registered_utc": "2026-09-07T23:05:00Z",
+  "question": "Does fitting complete A1 and A2 construction environments identify one fixed rank-one four-head causal coordinate that transfers selectively to capability-qualified v16?",
+  "prior_art": {
+    "searched": [
+      "temporal/iswas v15 response, factor, greedy, complement, DAS, and construction-holdout results",
+      "v4-v16 is/was builders and capability receipts",
+      "canonical temporal dossier, active claims, and current hourly/mathematical reviews"
+    ],
+    "known_lessons": "Complete-head and exact-factor programs are target-effective but nonselective; a linear P complement destroys construction transfer; target-feasible A1-only DAS beats DIM but fails A2; tested local noise/Jacobian regularization does not improve flips or construction generality.",
+    "novelty": "Fit complete construction environments with hard per-construction licensing and worst-panel controls, then open a third construction exactly once. Rank and regularization are fixed rather than swept."
+  },
+  "frozen_design": {
+    "sites": ["L8H1", "L9H1", "L9H4", "L11H3"],
+    "installation": "Ascending-layer unit-dose absolute clamp H_live <- H_base + (H_donor-H_base) U_h U_h^T, with complete attention-15 retained.",
+    "rank": 1,
+    "development_targets": ["v15:A1", "v15:A2"],
+    "development_controls": ["v15:P", "v15:C"],
+    "crossfit": "Train one group parity using both target constructions and both controls; select checkpoints on the opposite parity; repeat directions 0->1 and 1->0.",
+    "initializations": ["factor_svd_a1", "joint_construction_dim", "frozen_a1_only_projector"],
+    "optimizer": {"name": "Adam", "learning_rate": 0.03, "updates": 8, "checkpoints": [0, 4, 8]},
+    "smooth_training_objective": "Mean target match plus squared barriers for the worse A1/A2 projection and direction surrogate, plus the worse differentiable P/C full-vocabulary KL surrogate.",
+    "checkpoint_selection": "First require every A1/A2 signed projection >= .75 and direction fraction >= .875. Then minimize worst P/C median KL + .25*worst P/C mean KL, followed by max KL, flips, step, and canonical initialization order.",
+    "fold_stability": "Every head principal cosine across parity-selected projectors >= .75.",
+    "sealed_ood": "Capability-qualified v16 A1/A2/P is captured and patched only after the v15 checkpoint and initialization family are frozen. V16 C is excluded because its token lengths are not aligned.",
+    "price_max": {"native_capture_forwards": 20, "differentiable_transformer_forwards": 200, "transformer_backward_forwards": 48, "model_updates": 48, "example_evaluations": 8000, "fit_parameters": 512}
+  },
+  "predictions": {
+    "pred_a_authority_alignment_absolute_clamp_gradient_closure_finiteness_and_price": "All frozen hashes and capability ancestry match; v15 A1/A2/P/C and v16 A1/A2/P are rowwise aligned; native/manual, parent replay, factor closure, gradient, orthogonality, finiteness, and literal price pass.",
+    "pred_b_joint_v15_target_feasible_moved_checkpoint_exists": "A step-4 or step-8 rank-one checkpoint passes both A1 and A2 target bars in both parity directions.",
+    "pred_c_joint_v15_improves_a2_selectively": "Relative to frozen A1-only DAS, A2 signed projection improves by at least .08, A1 remains >= .75, and P/C have zero top-one flips.",
+    "pred_d_joint_projector_is_fold_stable": "Every selected head has cross-fold principal cosine >= .75.",
+    "pred_e_sealed_v16_identification_transfers": "Each v16 A1/A2 reaches signed projection >= .65 and direction fraction >= .875, and the worse v16 construction beats frozen A1-only DAS by >= .08.",
+    "pred_f_sealed_v16_p_is_selective": "V16 P has zero top-one flips and is reported separately; no v16 C patch is attempted."
+  },
+  "decision": "All predictions passing promotes a fixed-invariant causal candidate and licenses weight-predicted reader reset/rescue. Joint-v15 failure rejects this fixed projector family on observed constructions. Joint-v15 success plus v16 failure selects an input-conditioned or finite-mixture projector whose routing is trained only on v15."
+}
