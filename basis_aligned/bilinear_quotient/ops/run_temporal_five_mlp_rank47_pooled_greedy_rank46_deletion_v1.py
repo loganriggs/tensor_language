@@ -24,6 +24,7 @@ engine.CANDIDATE = "temporal_auxiliary.five_mlp_rank47_pooled_greedy_rank46_dele
 engine.RESULT_SCHEMA = "temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_result_v1"
 engine.SUCCESS_TERMINAL = "pooled_bidirectional_rank46_program"
 engine.FAILURE_TERMINAL = "rank47_greedy_deletion_boundary"
+engine.EXPECTED_BASE_SUPPORT_COUNT = 47
 engine.EXPECTED = dict(engine.EXPECTED, rank48=hashlib.sha256(RANK47.read_bytes()).hexdigest())
 
 

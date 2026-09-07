@@ -41,6 +41,7 @@ CANDIDATE = "temporal_auxiliary.five_mlp_rank48_pooled_joint_rank47_deletion_v1"
 RESULT_SCHEMA = "temporal_five_mlp_rank48_pooled_joint_rank47_deletion_result_v1"
 SUCCESS_TERMINAL = "pooled_bidirectional_rank47_program"
 FAILURE_TERMINAL = "rank48_single_deletion_boundary"
+EXPECTED_BASE_SUPPORT_COUNT = 48
 
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -102,7 +103,8 @@ def main():
             finite += list(report["target"]["cells"].values()) + list(report["target"]["behavior_signed_projection"].values())
             finite += list(report["control"]["margin_rms_fraction"].values()) + [report["control"]["median_kl"], report["control"]["max_kl"], report["control"]["top1_flip_fraction"]]
     fit_ids = {row["row_id"] for row in fitted["target_rows"] + fitted["control_rows"]}; eval_ids = {row["row_id"] for row in fresh["rows"] + fresh["controls"]}
-    pa = reader_ok and orientation <= 1e-6 and hashes == clean_hashes and not (fit_ids & eval_ids) and len(base_support) == 48 and all(math.isfinite(float(v)) for v in finite)
+    pa = (reader_ok and orientation <= 1e-6 and hashes == clean_hashes and not (fit_ids & eval_ids)
+          and len(base_support) == EXPECTED_BASE_SUPPORT_COUNT and all(math.isfinite(float(v)) for v in finite))
     def coords(arm): return all(min(r["coordinate"]["signed_projection"].values()) >= .75 and r["coordinate"]["mean_residual"] <= .2 and r["coordinate"]["worst_residual"] <= .2 and r["source_counts"] == [1] and r["control_source_counts"] == [1] for r in (arm["forward"], arm["reverse"]))
     def behavior(arm): return all(min(r["target"]["behavior_signed_projection"].values()) >= .8 and r["target"]["worst_target_residual"] <= .15 for r in (arm["forward"], arm["reverse"]))
     def selective(arm): return all(max(r["control"]["margin_rms_fraction"].values()) <= .1 and r["control"]["median_kl"] <= .02 and r["control"]["top1_flip_fraction"] == 0.0 for r in (arm["forward"], arm["reverse"]))
