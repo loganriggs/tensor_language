@@ -1,0 +1,57 @@
+{
+  "schema": "temporal_iswas_v15_aligned_attention_pattern_value_factorial_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_aligned_attention_pattern_value_factorial_v1",
+  "registered_utc": "2026-09-07T19:04:39Z",
+  "question": "Inside the four target-effective but linearly entangled heads, is selective temporal transfer carried by attention-pattern change, value-content change, or their bilinear interaction?",
+  "authorities": {
+    "linear_split_result_sha256": "053eca39027e5753c2e26812044c85f5a6116e4ee7e36d0d03c9c73a4a512f28",
+    "linear_split_runner_sha256": "449d3de7bebda460445997c60438095d6555222747ef33b27b70f4559bdfe9d5",
+    "aligned_lattice_result_sha256": "8eee3c031f9e7bae8bac578bd6fdd368f19fc5f027e1f184d58c7f325c4fee43",
+    "aligned_builder_sha256": "7027e128ea3e68a35e92f451d0f62453a937e64a8dafda24d841aa1f1d29e645",
+    "attention_factor_library_sha256": "608ae6bf74af96663ec022b907c53d371670a36e5d7ec4fd1667b3c6add58dfd"
+  },
+  "prior_art": "The existing will/had fresh joint-reader pattern/value factorial supplies the exact P/V reconstruction method, but it tests different tasks, rows, reader sites, and a previously installed writer. No existing result factors the aligned v15 complete-head core or tests its P/C selectivity.",
+  "population": "The same capability-qualified 16 A1, 16 A2, 16 aligned P, and 16 aligned C rows. Every pair is token-position aligned through the terminal semantic position.",
+  "sites": {
+    "factorized_heads": ["L8H1", "L9H1", "L9H4", "L11H3"],
+    "retained_complete_branch": "All nine heads of attention 15 are installed completely in every factor-subset arm because its singleton has zero P/C flips and it is not part of the linear collision test."
+  },
+  "exact_factorization": {
+    "pattern_on_base_value": "(P_donor - P_base) V_base",
+    "base_pattern_on_value_change": "P_base (V_donor - V_base)",
+    "pattern_value_interaction": "(P_donor - P_base)(V_donor - V_base)",
+    "closure": "The sum equals P_donor V_donor - P_base V_base at every selected head and token position through the semantic endpoint. No direction, rank, or scalar is fit."
+  },
+  "factorial": "Execute all eight subsets of the three factors jointly across the four heads, always with complete attention 15. The empty subset is attention-15-only; the full subset must reproduce the complete five-piece parent. A separate all-base response arm checks intervention identity.",
+  "selection": "A factor subset is A1-eligible if A1 signed behavioral projection >=.75, direction fraction >=.875, P and C each have zero top-one flips, and max(P median KL, C median KL) <=.02. Select fewest factors, then largest A1 projection, then lexical factor order. A2 never selects and must independently reach the same target bars.",
+  "predictions": {
+    "pred_a_authority_alignment_reconstruction_closure_finiteness_and_exact_price": "All hashes/rows align; native attention reconstruction, factor closure, base-self error, and full-factor parent replay are <=1e-4; all metrics are finite; exactly 17 forwards execute.",
+    "pred_b_selective_attention_operation_subset_exists": "At least one of the eight factor subsets is A1-eligible.",
+    "pred_c_selected_operation_subset_confirms_on_a2": "The selected subset reaches A2 signed behavioral projection >=.75 and direction fraction >=.875 without A2 selection.",
+    "pred_d_selected_operation_subset_is_proper": "The selected subset uses at most two of the three factors.",
+    "pred_e_factor_roles_are_nonexchangeable": "Across A1 and A2, the selected subset exceeds at least one same-cardinality alternative by >=.10 signed projection or avoids at least two additional P/C flips.",
+    "pred_f_selected_operation_tracks_final_residual": "The selected subset has full-final-residual signed projection >=.50 on both A1 and A2."
+  },
+  "terminal_policy": {
+    "selective_pattern_value_operation_circuit": "A-F pass.",
+    "selective_pattern_value_behavior_only": "A-E pass and F fails.",
+    "pattern_value_construction_failure": "A and B pass but C fails.",
+    "all_attention_factors_required": "A-C pass but D fails.",
+    "factor_roles_exchangeable": "A-D pass but E fails.",
+    "no_selective_attention_operation_subset": "A passes but B fails.",
+    "partial": "A passes and no more specific terminal applies.",
+    "invalid": "A fails."
+  },
+  "price": {
+    "model_forwards_exact": 17,
+    "rows_per_forward": 64,
+    "base_donor_factor_captures": 8,
+    "base_self_forward": 1,
+    "factor_subset_forwards": 8,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "next_branch": "If a selective factor subset confirms, translate its P/V terms through QK and OV weights to explicit upstream writers/downstream readers, then test a fresh construction without reselection. If no factor subset is selective, use the measured finite factor-response matrix as the observation operator for regularized nonlinear DAS, retaining DIM/task-SVD and factor arms as fixed baselines.",
+  "execution_policy": "managed_queue_only"
+}

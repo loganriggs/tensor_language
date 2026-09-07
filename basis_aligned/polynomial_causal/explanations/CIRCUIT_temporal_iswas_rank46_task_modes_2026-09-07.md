@@ -254,6 +254,16 @@ median KL and four flips); L9H1 and L11H3 each flip three P rows, while complete
 flips none.  The next test therefore splits the four material heads in response space with
 cross-fitted task and P-nuisance spans while retaining attention 15 complete.
 
+That linear split is also complete and informative.  A cross-fitted rank-eight task span keeps A1
+at `.80380` but transfers only `.57337` on A2 and still flips four P rows.  Removing the opposite-
+fold P nuisance span does what the complement loss requests: P/C flips fall to zero and P median KL
+falls to `.00913`.  But target transfer simultaneously falls to `.57591/.40321` on A1/A2.  The
+rank-one DIM and complemented-DIM arms show the same construction failure (`.72501/.43223` and
+`.53597/.30410`).  The result rejects a shared linear feature projector as the selective object;
+it does not reject optimization.  The next split uses the exact attention identity
+`P'V' - PV = (P'-P)V + P(V'-V) + (P'-P)(V'-V)` to distinguish routing, value content, and their
+interaction before defining any nonlinear DAS objective.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
