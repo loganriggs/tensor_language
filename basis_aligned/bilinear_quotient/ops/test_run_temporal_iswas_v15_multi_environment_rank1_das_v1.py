@@ -28,3 +28,16 @@ def test_v16_c_is_explicitly_outside_patch_panels():
     assert runner.V16_PROJECTION_MIN == 0.65
     assert runner.V16_DIRECTION_MIN == 0.875
     assert runner.V16_IMPROVEMENT_MIN == 0.08
+
+
+def test_v16_causal_bank_is_constructed_only_after_selection_freeze():
+    source = runner.Path(runner.__file__).read_text()
+    selection = source.index("selection_finished_utc = utc_now()")
+    causal_open = source.index("bank16 = parent.capture_bank")
+    assert selection < causal_open
+
+
+def test_literal_fit_update_cap_matches_frozen_schedule():
+    assert runner.PRICE_MAX["model_updates"] == \
+        len(runner.INITIALIZATIONS) * 2 * runner.joint.STEPS
+    assert runner.PRICE_MAX["fit_parameters"] == 4 * 128
