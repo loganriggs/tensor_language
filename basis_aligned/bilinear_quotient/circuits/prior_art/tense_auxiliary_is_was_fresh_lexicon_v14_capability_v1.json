@@ -1,0 +1,24 @@
+{
+  "schema": "tense_auxiliary_is_was_fresh_lexicon_v14_capability_prior_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.fresh_lexicon_v14_capability_v1",
+  "registered_utc": "2026-09-07T03:12:05.365896Z",
+  "question": "Do simple cue-leading, construction- and lexicon-disjoint Within/During frames preserve native is/was capability after the v13 reporting-frame null?",
+  "authority": {
+    "builder_sha256": "ca414597f76c5621b4527ac8f1920cb5c09b6df08346d0b0ce988e46991e331f",
+    "rows_sha256": "e70775d758e647af2ed541ddd93a1a4a8050d121c2c023df19198d68e8322103",
+    "v13_capability_null_sha256": "2c500e5043d24501d9633ff8015ec58374f8e2088362c74857c891fa96806fa8",
+    "selection_result_sha256": "144e1c001a9c186daa7e2fa426b702a390f938b6fb2f2cf27880812d366301ed"
+  },
+  "frozen_design": {
+    "novelty": "A second untouched 16-occupation lexicon and new Within-this/that-interval and During-this/that-phase frames. The causal program, response sites, modes, and thresholds remain unopened and unchanged.",
+    "measurement": "Capability only: two native forwards over all 64 rows and both sides.",
+    "price": {"model_forwards": 2, "example_evaluations": 128, "interventions": 0}
+  },
+  "predictions": {
+    "pred_a_authority_novelty_and_exact_population": "Builder, digest, checks, all-history lexicon disjointness, and 64-row inventory pass.",
+    "pred_b_native_a_panel_capability": "Every A1/A2 direction-by-side cell has native accuracy at least 0.75.",
+    "pred_c_joint_capable_population": "Each A panel has at least 12 jointly correct rows.",
+    "pred_d_no_causal_outcome_access_and_exact_price": "Exactly two native forwards/128 examples and no intervention outcome."
+  },
+  "decision": "Screen licenses the frozen four/five-MLP confirmation with temporal v13. Null stops without causal access; no further construction repair is licensed in this confirmation cycle."
+}
