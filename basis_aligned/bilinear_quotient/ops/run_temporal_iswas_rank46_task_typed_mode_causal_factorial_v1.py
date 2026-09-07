@@ -73,7 +73,7 @@ def fit_modes(backend, fitted):
     return task_rows, modes
 
 
-def filter_coordinates(backend, fresh, raw, modes, arm, *, controls=False):
+def filter_coordinates(backend, fresh, raw, qs, modes, arm, *, controls=False):
     output = {}
     for site, value in raw.items():
         changed = value.clone()
@@ -81,7 +81,8 @@ def filter_coordinates(backend, fresh, raw, modes, arm, *, controls=False):
             task = "temporal" if controls else klfit.task_name(row)
             if arm == "full": continue
             key = "union" if arm == "union" else task if arm == "own" else ("iswas" if task == "temporal" else "temporal")
-            v = modes[site][key].to(changed); changed[i] = (changed[i] @ v) @ v.T
+            response_basis = qs[site].to(changed) @ modes[site][key].to(changed)
+            changed[i] = (changed[i] @ response_basis) @ response_basis.T
         output[site] = changed
     return output
 
@@ -124,8 +125,8 @@ def main():
     control_ctx = {"rows": fresh["controls"], "base_logits": das.head_logits(backend, fresh["control_base_state"]).float()}
     reports = {}; finite = [orientation, training["capture_error"]]
     for arm in ARMS:
-        values = filter_coordinates(backend, fresh, generated, modes, arm)
-        cvalues = filter_coordinates(backend, fresh, cgenerated, modes, arm, controls=True)
+        values = filter_coordinates(backend, fresh, generated, qs, modes, arm)
+        cvalues = filter_coordinates(backend, fresh, cgenerated, qs, modes, arm, controls=True)
         output = pruned.run_factors(backend, fresh["batch"], fresh["base"][1], qs,
             {s: v for s, v in values.items() if atlasrun.site_parts(s)[0] == "attn"},
             {s: v for s, v in values.items() if atlasrun.site_parts(s)[0] == "mlp"}, use_attention=True, use_mlp=True)
