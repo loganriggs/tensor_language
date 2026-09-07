@@ -3,6 +3,20 @@
 from __future__ import annotations
 
 
+def hidden_metric(left, right):
+    """Materialize the PSD hidden coefficient metric for repeated small-subspace comparisons."""
+    if left.ndim != 2 or right.shape != left.shape:
+        raise ValueError("left/right must have identical [hidden,input] shapes")
+    return .5 * ((left @ left.T) * (right @ right.T) + (left @ right.T) * (right @ left.T))
+
+
+def gram_from_hidden_metric(coefficients_a, hidden_gram, coefficients_b=None):
+    b = coefficients_a if coefficients_b is None else coefficients_b
+    if hidden_gram.shape != (coefficients_a.shape[0], coefficients_a.shape[0]) or b.shape[0] != coefficients_a.shape[0]:
+        raise ValueError("hidden metric and coefficient row dimensions disagree")
+    return coefficients_a.T @ hidden_gram @ b
+
+
 def quadratic_gram(torch, left, right, coefficients_a, coefficients_b=None, *, block_size=256):
     """Return Frobenius Grams of symmetric L^T diag(a) R forms without materializing them."""
     b = coefficients_a if coefficients_b is None else coefficients_b

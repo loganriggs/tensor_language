@@ -50,3 +50,15 @@ def test_quadratic_metric_is_invariant_to_reader_gauge():
     cosines = metric.principal_cosines(torch, gaa, rotated,
                                        metric.quadratic_gram(torch, left, right, a, a @ rotation))
     torch.testing.assert_close(cosines, torch.ones_like(cosines), rtol=1e-11, atol=1e-11)
+
+
+def test_materialized_hidden_metric_matches_blocked_gram():
+    generator = torch.Generator().manual_seed(5772)
+    left = torch.randn(11, 7, dtype=torch.float64, generator=generator)
+    right = torch.randn(11, 7, dtype=torch.float64, generator=generator)
+    a = torch.randn(11, 4, dtype=torch.float64, generator=generator)
+    b = torch.randn(11, 3, dtype=torch.float64, generator=generator)
+    hidden = metric.hidden_metric(left, right)
+    direct = metric.gram_from_hidden_metric(a, hidden, b)
+    blocked = metric.quadratic_gram(torch, left, right, a, b, block_size=5)
+    torch.testing.assert_close(direct, blocked, rtol=1e-12, atol=1e-12)

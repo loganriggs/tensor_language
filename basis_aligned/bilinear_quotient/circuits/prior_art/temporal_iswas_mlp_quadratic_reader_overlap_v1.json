@@ -1,0 +1,14 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_mlp_quadratic_reader_overlap_v1",
+  "question": "Do temporal will/had and tense is/was reuse the same bilinear MLP computations when their separately fit response subspaces are translated into actual Left/Right/Down weights?",
+  "construction": "For even and odd document splits separately, fit temporal-only and iswas-only rank-8 target response bases after removing the same matched-control basis. At MLP1/3/4/6 contract Q through A=Down^T Q and compare the induced symmetric quadratic-form spans using the frozen hidden metric G. Also report ordinary activation-space principal cosines.",
+  "predictions": {
+    "pred_a_authority_metric_identity_finiteness_and_price": "authorities replay, bases are orthonormal, one explicit-vs-implicit quadratic inner product per site/fit has relative error <=2e-4, values are finite, and exactly 12 forwards execute",
+    "pred_b_every_mlp_has_a_shared_weight_function_direction": "at every MLP site and both fits the largest quadratic principal cosine is >=0.80",
+    "pred_c_multiple_shared_directions_exist": "at least two MLP sites have at least two quadratic principal cosines >=0.80 under both fits",
+    "pred_d_task_specific_quadratic_complements_exist": "at least two MLP sites have a smallest quadratic principal cosine <=0.50 under both fits",
+    "pred_e_quadratic_overlap_is_crossfit_stable": "for every site the mean quadratic cosine differs by <=0.10 across fits and the count above 0.80 differs by at most one"
+  },
+  "decision": "A passing shared span becomes a candidate reusable computation and must face held-out shared-span versus task-complement causal swaps. Weak quadratic overlap means the tasks share response sites but not the same bilinear weight function. Static overlap alone is a screen, never circuit membership.",
+  "price": {"model_forwards_max": 12, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
