@@ -1,0 +1,852 @@
+{
+  "bars": {
+    "direct_tol": 0.15,
+    "group_frac": 0.6666666666666666,
+    "group_min_cells": 3,
+    "late_layer_min": 15,
+    "perp_neg_min_cells": 13,
+    "push_band": [
+      0.95,
+      1.05
+    ],
+    "push_start_frac": 0.05,
+    "recon_tol_over_xnorm": 0.002,
+    "seed": 0,
+    "self_min_cells": 12,
+    "self_ratio_band": [
+      0.02,
+      1.0
+    ],
+    "token_band": [
+      -0.15,
+      0.15
+    ],
+    "token_min_cells": 9,
+    "top3_band": [
+      0.2,
+      0.8
+    ],
+    "top3_min_cells": 10
+  },
+  "candidate_id": "corpus.unit_tier5_mlp17_gate_anatomy_v185",
+  "channel": 8,
+  "families": [
+    "coordination_agreement",
+    "correlative_both_either",
+    "correlative_both_neither",
+    "correlative_either_neither",
+    "degree_frame",
+    "finiteness_selection",
+    "polarity_state"
+  ],
+  "finished_utc": "2026-09-07T10:58:10.310183+00:00",
+  "measures": {
+    "coordination_agreement:p0": {
+      "analytic_removed": -305.6,
+      "chance_align": 0.0295,
+      "cos_f_u": 0.568,
+      "cross_on": -573.0,
+      "direct_err": 0.158,
+      "f_norm": 130.8,
+      "gate": -3329.2,
+      "gate_align": -0.0575,
+      "late_pair_share": 0.118,
+      "measured_on": -385.8,
+      "measured_removed": -366.7,
+      "mid_chain_share": 0.734,
+      "perp_gate": -2178.3,
+      "push_norm": 3813.5,
+      "push_r0": 0.748,
+      "push_r1": 1.011,
+      "push_r2": 0.999,
+      "push_removed_r": 1.42,
+      "recon": -3351.2,
+      "recon_err_over_xnorm": 0.00038,
+      "recon_rel_err": 0.0066,
+      "removed_share": 0.049,
+      "rows": 16,
+      "self_gate": -1150.9,
+      "self_ratio": 0.528,
+      "token_share": -0.06,
+      "top1": "mlp:08",
+      "top1_layer": 8,
+      "top3_share": 0.321,
+      "top_writers": [
+        [
+          "mlp:08",
+          -532.8
+        ],
+        [
+          "attn:07",
+          -270.2
+        ],
+        [
+          "attn:09",
+          -264.5
+        ],
+        [
+          "mlp:12",
+          -258.3
+        ],
+        [
+          "attn:11",
+          -246.9
+        ]
+      ],
+      "v184_cross_on": -573.0,
+      "writer_gate_share": 0.16,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "coordination_agreement:p1": {
+      "analytic_removed": -275.0,
+      "chance_align": 0.0295,
+      "cos_f_u": -0.568,
+      "cross_on": -171.9,
+      "direct_err": 0.015,
+      "f_norm": 130.8,
+      "gate": -1151.3,
+      "gate_align": -0.0207,
+      "late_pair_share": 0.714,
+      "measured_on": -302.0,
+      "measured_removed": -270.6,
+      "mid_chain_share": 0.239,
+      "perp_gate": -1906.5,
+      "push_norm": 3037.3,
+      "push_r0": 0.91,
+      "push_r1": 0.997,
+      "push_r2": 1.0,
+      "push_removed_r": 0.841,
+      "recon": -1173.3,
+      "recon_err_over_xnorm": 0.0004,
+      "recon_rel_err": 0.0191,
+      "removed_share": 0.104,
+      "rows": 16,
+      "self_gate": 755.2,
+      "self_ratio": 0.396,
+      "token_share": -0.3,
+      "top1": "mlp:16",
+      "top1_layer": 16,
+      "top3_share": 0.606,
+      "top_writers": [
+        [
+          "mlp:16",
+          -441.7
+        ],
+        [
+          "mlp:15",
+          -379.9
+        ],
+        [
+          "attn:11",
+          123.9
+        ],
+        [
+          "attn:10",
+          -122.4
+        ],
+        [
+          "mlp:12",
+          119.7
+        ]
+      ],
+      "v184_cross_on": -171.9,
+      "writer_gate_share": 0.384,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "correlative_both_either:p0": {
+      "analytic_removed": -663.2,
+      "chance_align": 0.0295,
+      "cos_f_u": -0.356,
+      "cross_on": -328.3,
+      "direct_err": 0.005,
+      "f_norm": 166.3,
+      "gate": -566.8,
+      "gate_align": -0.0122,
+      "late_pair_share": 2.402,
+      "measured_on": -993.6,
+      "measured_removed": -658.0,
+      "mid_chain_share": -0.395,
+      "perp_gate": -2164.3,
+      "push_norm": 6566.5,
+      "push_r0": 0.384,
+      "push_r1": 0.933,
+      "push_r2": 0.993,
+      "push_removed_r": 0.898,
+      "recon": -593.2,
+      "recon_err_over_xnorm": 0.00056,
+      "recon_rel_err": 0.0466,
+      "removed_share": 0.338,
+      "rows": 16,
+      "self_gate": 1597.5,
+      "self_ratio": 0.738,
+      "token_share": 0.045,
+      "top1": "mlp:16",
+      "top1_layer": 16,
+      "top3_share": 2.042,
+      "top_writers": [
+        [
+          "mlp:16",
+          -703.0
+        ],
+        [
+          "mlp:15",
+          -658.6
+        ],
+        [
+          "mlp:11",
+          204.1
+        ],
+        [
+          "mlp:13",
+          194.9
+        ],
+        [
+          "attn:05",
+          183.6
+        ]
+      ],
+      "v184_cross_on": -328.3,
+      "writer_gate_share": 1.24,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "correlative_both_either:p1": {
+      "analytic_removed": -1349.1,
+      "chance_align": 0.0295,
+      "cos_f_u": 0.356,
+      "cross_on": -2405.0,
+      "direct_err": 0.551,
+      "f_norm": 166.3,
+      "gate": -3865.5,
+      "gate_align": -0.0785,
+      "late_pair_share": 0.324,
+      "measured_on": -1531.7,
+      "measured_removed": -2192.9,
+      "mid_chain_share": 0.513,
+      "perp_gate": -3034.3,
+      "push_norm": 7894.9,
+      "push_r0": 0.279,
+      "push_r1": 1.11,
+      "push_r2": 0.985,
+      "push_removed_r": 0.916,
+      "recon": -3891.9,
+      "recon_err_over_xnorm": 0.00054,
+      "recon_rel_err": 0.0068,
+      "removed_share": -0.432,
+      "rows": 16,
+      "self_gate": -831.2,
+      "self_ratio": 0.274,
+      "token_share": 0.044,
+      "top1": "mlp:15",
+      "top1_layer": 15,
+      "top3_share": 0.423,
+      "top_writers": [
+        [
+          "mlp:15",
+          -660.1
+        ],
+        [
+          "mlp:16",
+          -592.9
+        ],
+        [
+          "mlp:08",
+          -380.6
+        ],
+        [
+          "attn:10",
+          -309.4
+        ],
+        [
+          "attn:09",
+          -299.6
+        ]
+      ],
+      "v184_cross_on": -2405.0,
+      "writer_gate_share": 0.171,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "correlative_both_neither:p0": {
+      "analytic_removed": -910.5,
+      "chance_align": 0.0295,
+      "cos_f_u": 0.345,
+      "cross_on": -1354.1,
+      "direct_err": 0.074,
+      "f_norm": 80.3,
+      "gate": -5195.9,
+      "gate_align": -0.1099,
+      "late_pair_share": 0.091,
+      "measured_on": -1066.7,
+      "measured_removed": -989.9,
+      "mid_chain_share": 0.581,
+      "perp_gate": -3613.3,
+      "push_norm": 6215.1,
+      "push_r0": 0.346,
+      "push_r1": 1.094,
+      "push_r2": 0.99,
+      "push_removed_r": 1.103,
+      "recon": -5158.2,
+      "recon_err_over_xnorm": 0.0008,
+      "recon_rel_err": 0.0073,
+      "removed_share": 0.072,
+      "rows": 16,
+      "self_gate": -1582.6,
+      "self_ratio": 0.438,
+      "token_share": 0.067,
+      "top1": "mlp:09",
+      "top1_layer": 9,
+      "top3_share": 0.336,
+      "top_writers": [
+        [
+          "mlp:09",
+          -838.7
+        ],
+        [
+          "mlp:15",
+          -477.3
+        ],
+        [
+          "mlp:07",
+          -430.9
+        ],
+        [
+          "attn:09",
+          -322.3
+        ],
+        [
+          "attn:07",
+          -300.0
+        ]
+      ],
+      "v184_cross_on": -1354.1,
+      "writer_gate_share": 0.161,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "correlative_both_neither:p1": {
+      "analytic_removed": -2221.7,
+      "chance_align": 0.0295,
+      "cos_f_u": -0.345,
+      "cross_on": -1720.5,
+      "direct_err": 0.054,
+      "f_norm": 80.3,
+      "gate": -5020.4,
+      "gate_align": -0.0995,
+      "late_pair_share": 0.08,
+      "measured_on": -2285.1,
+      "measured_removed": -2345.2,
+      "mid_chain_share": 0.604,
+      "perp_gate": -5660.5,
+      "push_norm": 9609.1,
+      "push_r0": 0.291,
+      "push_r1": 0.899,
+      "push_r2": 0.982,
+      "push_removed_r": 1.03,
+      "recon": -4982.7,
+      "recon_err_over_xnorm": 0.00075,
+      "recon_rel_err": 0.0075,
+      "removed_share": -0.026,
+      "rows": 16,
+      "self_gate": 640.1,
+      "self_ratio": 0.113,
+      "token_share": 0.074,
+      "top1": "mlp:09",
+      "top1_layer": 9,
+      "top3_share": 0.293,
+      "top_writers": [
+        [
+          "mlp:09",
+          -681.5
+        ],
+        [
+          "mlp:07",
+          -445.9
+        ],
+        [
+          "attn:09",
+          -342.0
+        ],
+        [
+          "mlp:08",
+          -332.1
+        ],
+        [
+          "attn:07",
+          -309.4
+        ]
+      ],
+      "v184_cross_on": -1720.5,
+      "writer_gate_share": 0.136,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "correlative_either_neither:p0": {
+      "analytic_removed": -643.7,
+      "chance_align": 0.0295,
+      "cos_f_u": 0.211,
+      "cross_on": -720.3,
+      "direct_err": 0.05,
+      "f_norm": 55.5,
+      "gate": -6269.0,
+      "gate_align": -0.1297,
+      "late_pair_share": 0.082,
+      "measured_on": -666.2,
+      "measured_removed": -610.1,
+      "mid_chain_share": 0.518,
+      "perp_gate": -5558.6,
+      "push_norm": 4158.7,
+      "push_r0": 0.566,
+      "push_r1": 1.022,
+      "push_r2": 0.999,
+      "push_removed_r": 1.024,
+      "recon": -6240.4,
+      "recon_err_over_xnorm": 0.00059,
+      "recon_rel_err": 0.0046,
+      "removed_share": 0.084,
+      "rows": 16,
+      "self_gate": -710.4,
+      "self_ratio": 0.128,
+      "token_share": 0.042,
+      "top1": "attn:09",
+      "top1_layer": 9,
+      "top3_share": 0.231,
+      "top_writers": [
+        [
+          "attn:09",
+          -666.0
+        ],
+        [
+          "attn:10",
+          -443.6
+        ],
+        [
+          "mlp:11",
+          -338.7
+        ],
+        [
+          "attn:05",
+          -322.6
+        ],
+        [
+          "attn:14",
+          -313.0
+        ]
+      ],
+      "v184_cross_on": -720.3,
+      "writer_gate_share": 0.106,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "correlative_either_neither:p1": {
+      "analytic_removed": -730.9,
+      "chance_align": 0.0295,
+      "cos_f_u": -0.211,
+      "cross_on": -689.0,
+      "direct_err": 0.062,
+      "f_norm": 55.5,
+      "gate": -5344.2,
+      "gate_align": -0.1184,
+      "late_pair_share": 0.047,
+      "measured_on": -742.6,
+      "measured_removed": -685.0,
+      "mid_chain_share": 0.548,
+      "perp_gate": -5413.8,
+      "push_norm": 4108.2,
+      "push_r0": 0.559,
+      "push_r1": 0.976,
+      "push_r2": 0.999,
+      "push_removed_r": 1.003,
+      "recon": -5315.6,
+      "recon_err_over_xnorm": 0.00064,
+      "recon_rel_err": 0.0053,
+      "removed_share": 0.078,
+      "rows": 16,
+      "self_gate": 69.6,
+      "self_ratio": 0.013,
+      "token_share": 0.042,
+      "top1": "attn:09",
+      "top1_layer": 9,
+      "top3_share": 0.224,
+      "top_writers": [
+        [
+          "attn:09",
+          -498.9
+        ],
+        [
+          "attn:10",
+          -366.2
+        ],
+        [
+          "mlp:08",
+          -334.0
+        ],
+        [
+          "attn:05",
+          -325.5
+        ],
+        [
+          "attn:06",
+          -312.0
+        ]
+      ],
+      "v184_cross_on": -689.0,
+      "writer_gate_share": 0.093,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "degree_frame:p0": {
+      "analytic_removed": -1036.1,
+      "chance_align": 0.0295,
+      "cos_f_u": 0.527,
+      "cross_on": -1676.3,
+      "direct_err": 0.02,
+      "f_norm": 134.4,
+      "gate": -4506.3,
+      "gate_align": -0.0951,
+      "late_pair_share": -0.061,
+      "measured_on": -1140.7,
+      "measured_removed": -1058.5,
+      "mid_chain_share": 0.704,
+      "perp_gate": -4061.6,
+      "push_norm": 5416.3,
+      "push_r0": 0.399,
+      "push_r1": 1.091,
+      "push_r2": 0.989,
+      "push_removed_r": 0.997,
+      "recon": -4527.4,
+      "recon_err_over_xnorm": 0.00045,
+      "recon_rel_err": 0.0047,
+      "removed_share": 0.072,
+      "rows": 16,
+      "self_gate": -444.7,
+      "self_ratio": 0.109,
+      "token_share": -0.025,
+      "top1": "attn:07",
+      "top1_layer": 7,
+      "top3_share": 0.252,
+      "top_writers": [
+        [
+          "attn:07",
+          -408.4
+        ],
+        [
+          "attn:12",
+          -376.0
+        ],
+        [
+          "attn:16",
+          -351.8
+        ],
+        [
+          "attn:10",
+          -351.4
+        ],
+        [
+          "mlp:09",
+          -341.7
+        ]
+      ],
+      "v184_cross_on": -1676.3,
+      "writer_gate_share": 0.091,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "degree_frame:p1": {
+      "analytic_removed": -551.3,
+      "chance_align": 0.0295,
+      "cos_f_u": -0.527,
+      "cross_on": -219.1,
+      "direct_err": 0.01,
+      "f_norm": 134.4,
+      "gate": -711.3,
+      "gate_align": -0.0151,
+      "late_pair_share": -0.216,
+      "measured_on": -571.7,
+      "measured_removed": -556.8,
+      "mid_chain_share": 0.807,
+      "perp_gate": -2524.4,
+      "push_norm": 4157.0,
+      "push_r0": 0.558,
+      "push_r1": 0.961,
+      "push_r2": 0.997,
+      "push_removed_r": 1.182,
+      "recon": -732.4,
+      "recon_err_over_xnorm": 0.00047,
+      "recon_rel_err": 0.0297,
+      "removed_share": 0.026,
+      "rows": 16,
+      "self_gate": 1813.1,
+      "self_ratio": 0.718,
+      "token_share": 0.16,
+      "top1": "attn:06",
+      "top1_layer": 6,
+      "top3_share": 0.543,
+      "top_writers": [
+        [
+          "attn:06",
+          -138.6
+        ],
+        [
+          "attn:05",
+          -133.9
+        ],
+        [
+          "mlp:08",
+          -113.6
+        ],
+        [
+          "attn:10",
+          -112.7
+        ],
+        [
+          "mlp:09",
+          -101.7
+        ]
+      ],
+      "v184_cross_on": -219.1,
+      "writer_gate_share": 0.195,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "finiteness_selection:p0": {
+      "analytic_removed": -1041.2,
+      "chance_align": 0.0295,
+      "cos_f_u": -0.118,
+      "cross_on": -951.4,
+      "direct_err": 0.118,
+      "f_norm": 177.5,
+      "gate": -2350.9,
+      "gate_align": -0.0488,
+      "late_pair_share": 0.179,
+      "measured_on": -1060.4,
+      "measured_removed": -915.8,
+      "mid_chain_share": 0.57,
+      "perp_gate": -2657.3,
+      "push_norm": 4617.9,
+      "push_r0": 0.529,
+      "push_r1": 0.993,
+      "push_r2": 1.0,
+      "push_removed_r": 1.195,
+      "recon": -2379.6,
+      "recon_err_over_xnorm": 0.00059,
+      "recon_rel_err": 0.0122,
+      "removed_share": 0.136,
+      "rows": 16,
+      "self_gate": 306.4,
+      "self_ratio": 0.115,
+      "token_share": -0.029,
+      "top1": "mlp:11",
+      "top1_layer": 11,
+      "top3_share": 0.337,
+      "top_writers": [
+        [
+          "mlp:11",
+          -368.2
+        ],
+        [
+          "mlp:16",
+          -249.2
+        ],
+        [
+          "attn:11",
+          -173.8
+        ],
+        [
+          "mlp:12",
+          -171.8
+        ],
+        [
+          "mlp:15",
+          -170.6
+        ]
+      ],
+      "v184_cross_on": -951.4,
+      "writer_gate_share": 0.157,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "finiteness_selection:p1": {
+      "analytic_removed": -1203.1,
+      "chance_align": 0.0295,
+      "cos_f_u": 0.118,
+      "cross_on": -1985.1,
+      "direct_err": 0.239,
+      "f_norm": 177.5,
+      "gate": -4534.3,
+      "gate_align": -0.0845,
+      "late_pair_share": -0.042,
+      "measured_on": -1826.5,
+      "measured_removed": -1638.8,
+      "mid_chain_share": 0.935,
+      "perp_gate": -4237.1,
+      "push_norm": 6165.7,
+      "push_r0": 0.432,
+      "push_r1": 1.005,
+      "push_r2": 1.0,
+      "push_removed_r": 1.199,
+      "recon": -4563.0,
+      "recon_err_over_xnorm": 0.00054,
+      "recon_rel_err": 0.0063,
+      "removed_share": 0.103,
+      "rows": 16,
+      "self_gate": -297.3,
+      "self_ratio": 0.07,
+      "token_share": -0.019,
+      "top1": "mlp:12",
+      "top1_layer": 12,
+      "top3_share": 0.55,
+      "top_writers": [
+        [
+          "mlp:12",
+          -1685.4
+        ],
+        [
+          "mlp:11",
+          -412.3
+        ],
+        [
+          "mlp:08",
+          -396.4
+        ],
+        [
+          "attn:11",
+          -392.7
+        ],
+        [
+          "mlp:10",
+          -362.0
+        ]
+      ],
+      "v184_cross_on": -1985.1,
+      "writer_gate_share": 0.372,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "polarity_state:p0": {
+      "analytic_removed": -179.9,
+      "chance_align": 0.0295,
+      "cos_f_u": 0.142,
+      "cross_on": -193.8,
+      "direct_err": 0.003,
+      "f_norm": 29.0,
+      "gate": -6560.1,
+      "gate_align": -0.1107,
+      "late_pair_share": 0.324,
+      "measured_on": -187.6,
+      "measured_removed": -179.3,
+      "mid_chain_share": 0.439,
+      "perp_gate": -6247.8,
+      "push_norm": 3088.6,
+      "push_r0": 0.955,
+      "push_r1": 1.0,
+      "push_r2": 1.0,
+      "push_removed_r": 0.867,
+      "recon": -6585.7,
+      "recon_err_over_xnorm": 0.00043,
+      "recon_rel_err": 0.0039,
+      "removed_share": 0.044,
+      "rows": 16,
+      "self_gate": -312.3,
+      "self_ratio": 0.05,
+      "token_share": 0.022,
+      "top1": "mlp:16",
+      "top1_layer": 16,
+      "top3_share": 0.404,
+      "top_writers": [
+        [
+          "mlp:16",
+          -1418.3
+        ],
+        [
+          "mlp:15",
+          -708.4
+        ],
+        [
+          "mlp:10",
+          -525.7
+        ],
+        [
+          "mlp:12",
+          -466.3
+        ],
+        [
+          "mlp:13",
+          -379.2
+        ]
+      ],
+      "v184_cross_on": -193.8,
+      "writer_gate_share": 0.216,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    },
+    "polarity_state:p1": {
+      "analytic_removed": -181.5,
+      "chance_align": 0.0295,
+      "cos_f_u": -0.142,
+      "cross_on": -192.1,
+      "direct_err": 0.002,
+      "f_norm": 29.0,
+      "gate": -6372.2,
+      "gate_align": -0.1024,
+      "late_pair_share": 0.39,
+      "measured_on": -199.7,
+      "measured_removed": -181.0,
+      "mid_chain_share": 0.37,
+      "perp_gate": -6567.9,
+      "push_norm": 3498.7,
+      "push_r0": 0.89,
+      "push_r1": 1.0,
+      "push_r2": 1.0,
+      "push_removed_r": 0.688,
+      "recon": -6397.8,
+      "recon_err_over_xnorm": 0.00041,
+      "recon_rel_err": 0.004,
+      "removed_share": 0.094,
+      "rows": 16,
+      "self_gate": 195.7,
+      "self_ratio": 0.03,
+      "token_share": 0.022,
+      "top1": "mlp:16",
+      "top1_layer": 16,
+      "top3_share": 0.459,
+      "top_writers": [
+        [
+          "mlp:16",
+          -1654.6
+        ],
+        [
+          "mlp:15",
+          -832.3
+        ],
+        [
+          "mlp:10",
+          -437.3
+        ],
+        [
+          "mlp:12",
+          -399.0
+        ],
+        [
+          "mlp:14",
+          -290.6
+        ]
+      ],
+      "v184_cross_on": -192.1,
+      "writer_gate_share": 0.26,
+      "x0_coef": 145.12,
+      "x0_term_norm": 4925.6
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_context_gated": true,
+    "pred_c_token_small": true,
+    "pred_d_distributed": true,
+    "pred_e_direct_writer": true
+  },
+  "schema": "unit_tier5_mlp17_gate_anatomy_v185",
+  "seconds": 4.6
+}
