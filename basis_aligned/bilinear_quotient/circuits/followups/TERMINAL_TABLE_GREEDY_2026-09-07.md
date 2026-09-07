@@ -1,4 +1,4 @@
-# Terminal evidence — removal-greedy head sets (generated 2026-09-07 00:34 UTC by ops/terminal_table_greedy_sets.py)
+# Terminal evidence — removal-greedy head sets (generated 2026-09-07 00:37 UTC by ops/terminal_table_greedy_sets.py)
 
 Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised).
 
