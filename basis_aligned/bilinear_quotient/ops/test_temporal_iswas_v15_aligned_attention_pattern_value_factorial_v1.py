@@ -41,3 +41,14 @@ def test_registered_parent_report_drops_only_legacy_pooled_control():
         "targets": report["targets"],
         "controls": {"P": {"kl": 3}, "C": {"kl": 4}},
     }
+
+
+def test_replay_comparison_keeps_categorical_mismatch_finite_and_fail_closed():
+    comparison = factorial.replay_comparison(
+        {"score": 1.0, "flipped": ["row-a"]},
+        {"score": 1.000003, "flipped": ["row-b"]},
+    )
+
+    assert comparison["numeric_schema_match"] is True
+    assert comparison["categorical_match"] is False
+    assert 0.0 < comparison["numeric_max_abs_error"] < 1e-4

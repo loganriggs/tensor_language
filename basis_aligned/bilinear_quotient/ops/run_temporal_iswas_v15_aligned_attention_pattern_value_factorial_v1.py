@@ -75,12 +75,37 @@ def finite(value) -> bool:
     return True
 
 
-def numeric_max_abs_difference(left, right) -> float:
-    if isinstance(left, dict) and isinstance(right, dict) and set(left) == set(right):
-        return max((numeric_max_abs_difference(left[key], right[key]) for key in left), default=0.0)
-    if isinstance(left, (int, float)) and isinstance(right, (int, float)):
-        return abs(float(left) - float(right))
-    return 0.0 if left == right else math.inf
+def replay_comparison(left, right):
+    """Compare numeric replay separately from categorical diagnostics, always finitely."""
+    numeric_left, numeric_right = {}, {}
+
+    def collect(value, path, output):
+        if isinstance(value, dict):
+            for key, item in value.items():
+                collect(item, path + (str(key),), output)
+        elif isinstance(value, (int, float)) and not isinstance(value, bool):
+            output[path] = float(value)
+
+    def categorical_equal(a, b):
+        if isinstance(a, dict) and isinstance(b, dict):
+            return set(a) == set(b) and all(categorical_equal(a[key], b[key]) for key in a)
+        if (isinstance(a, (int, float)) and not isinstance(a, bool)
+                and isinstance(b, (int, float)) and not isinstance(b, bool)):
+            return True
+        return a == b
+
+    collect(left, (), numeric_left)
+    collect(right, (), numeric_right)
+    schema_match = set(numeric_left) == set(numeric_right)
+    numeric_error = max(
+        (abs(numeric_left[path] - numeric_right[path]) for path in set(numeric_left) & set(numeric_right)),
+        default=0.0,
+    )
+    return {
+        "numeric_schema_match": schema_match,
+        "numeric_max_abs_error": numeric_error,
+        "categorical_match": categorical_equal(left, right),
+    }
 
 
 def registered_parent_report(value):
@@ -276,7 +301,8 @@ def main() -> None:
 
     full_name = arm_name(FACTORS)
     full_parent = registered_parent_report(lattice["reports"]["31"]["report"])
-    full_parent_replay_error = numeric_max_abs_difference(reports[full_name]["report"], full_parent)
+    full_parent_replay = replay_comparison(reports[full_name]["report"], full_parent)
+    full_parent_replay_error = full_parent_replay["numeric_max_abs_error"]
     eligible_names = [name for name, value in reports.items() if value["eligible"]]
     selected_name = min(eligible_names, key=lambda name: (
         len(reports[name]["factors"]),
@@ -286,6 +312,8 @@ def main() -> None:
     selected = reports[selected_name] if selected_name is not None else None
     pred_a = bool(authority_ok and identity_error <= 1e-4 and reconstruction_error <= 5e-4
                   and factor_closure_error <= 1e-4 and self_error <= 1e-4
+                  and full_parent_replay["numeric_schema_match"]
+                  and full_parent_replay["categorical_match"]
                   and full_parent_replay_error <= 1e-4 and finite(reports) and forwards == EXACT_FORWARDS)
     pred_b = selected is not None
     pred_c = bool(selected and selected["report"]["targets"]["A2"]["behavior"]["signed_projection"] >= .75
@@ -347,6 +375,8 @@ def main() -> None:
             "factor_closure_max_abs_error": factor_closure_error,
             "base_self_max_abs_error": self_error,
             "full_parent_replay_max_abs_error": full_parent_replay_error,
+            "full_parent_replay_numeric_schema_match": full_parent_replay["numeric_schema_match"],
+            "full_parent_replay_categorical_match": full_parent_replay["categorical_match"],
         },
         "reports": reports, "eligible_arms": eligible_names, "selected_arm": selected_name,
         "selected": selected, "predictions": predictions, "terminal": terminal,
