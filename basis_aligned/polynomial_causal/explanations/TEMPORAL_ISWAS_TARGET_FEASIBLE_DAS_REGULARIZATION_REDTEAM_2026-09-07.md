@@ -45,3 +45,11 @@ to fitting and hold out another construction. A larger coefficient grid cannot d
 hypothesis. Weight-tensor translation can meanwhile report which fixed readers align with the
 selected direction, but those alignments remain diagnostic until construction transfer passes.
 
+That translation has now been run without opening another model outcome.  The exact residual
+images $W_{O,h}u_h$ are fold-stable (`|cos|=.9368-.9923`) and converge on all five inspected
+`L15H5` query/key/value interfaces in the top ten for every source.  Backward value pullbacks also
+recover `L8H1 -> {L9H1,L9H4} -> L11H3` at `.9725-1.0` writer percentiles.  A preregistered
+zero-model audit repaired only an over-tight absolute float32 closure bar: relative error is
+`2.5796e-8` against a registered `9.5367e-7` bound.  These exact contractions make the current
+causal hypothesis more specific, but do not rescue its failed construction transfer or license a
+shared-variable claim by themselves.

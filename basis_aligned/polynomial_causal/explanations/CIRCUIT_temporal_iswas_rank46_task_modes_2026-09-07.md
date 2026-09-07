@@ -365,6 +365,29 @@ single-construction objective do not identify a construction-general selective s
 a construction-specific-geometry result, not a blanket DAS null.  Weight-tensor translation of
 this direction remains diagnostic only; it cannot yet be promoted as an identified shared variable.
 
+The first exact translation of those four learned head directions into model weights is now a
+valid diagnostic.  For a head-local direction $u_h$, the residual-stream write is computed exactly
+as $w_h=W_{O,h}u_h$.  Candidate downstream readers are then ranked by normalized contractions of
+$w_h$ with each attention query/key/value matrix (including the two query/key halves used by this
+model) and each MLP left/right matrix.  Conversely, $W_{V,h}^{\mathsf T}u_h$ is pulled backward and
+contracted with earlier attention output and MLP-down matrices to rank possible value writers.
+This opens no activation or intervention outcome; it asks whether the already selected causal
+coordinate is compatible with fixed weight interfaces.
+
+The directions are stable across the two fitted folds (`|cos|=.9368-.9923`).  For every source
+head and both folds, all five inspected interfaces of `L15H5` (`q`, `k`, `q2`, `k2`, and `v`) are
+in the source's top ten downstream interfaces, and `L15H5` is at the `1.0` module-reader
+percentile.  The backward value pullback also recovers the measured serial order: `L8H1` ranks at
+percentiles `1.0/.9888` as a writer into `L9H1/L9H4`, while `L9H1/L9H4` rank at
+`.9908/.9725` into `L11H3`, identically across folds.  The immutable first artifact was labelled
+invalid because its exact $W_O$ embedding check used an absolute `1e-7` bar and observed
+`2.3842e-7`.  A preregistered zero-model audit divided that error by the smallest write norm
+(`9.2426`), obtaining `2.5796e-8`, below eight float32 epsilons (`9.5367e-7`); all hashes,
+rankings, prices, and other predictions were unchanged.  This supports the concrete interface
+chain `L8H1 -> {L9H1,L9H4} -> L11H3 -> L15H5`, but only at diagnostic weight-compatibility tier.
+Fresh-construction causal transfer is still required before calling these weights readers and
+writers of one identified reusable variable.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -417,6 +440,11 @@ this direction remains diagnostic only; it cannot yet be promoted as an identifi
   the current scalar-axis objective), followed by
   `temporal_iswas_v15_head_response_target_feasible_regularized_das_v1_result.json` (valid,
   fold-stable target improvement over DIM but failure of construction-general selectivity).
+- Exact selected-projector weight translation:
+  `temporal_iswas_v15_selected_head_projector_weight_interfaces_v1_result.json` (immutable first
+  artifact, absolute-tolerance invalid) and
+  `temporal_iswas_v15_selected_head_projector_weight_interfaces_v2_tolerance_audit_result.json`
+  (valid zero-model scale-aware repair; diagnostic, not causal identification).
 
 ## Remaining gates
 
