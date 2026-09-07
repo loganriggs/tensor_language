@@ -1,0 +1,20 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_rank46_task_typed_mode_causal_factorial_v1",
+  "question": "Do temporal and is/was causally use task-typed response modes inside the same pooled eight-site interface, or are their low exact-weight overlaps merely descriptive?",
+  "prior_art": {
+    "mlp_weights": "Task top-two modes capture .753-.953 of MLP response energy, but exact quadratic principal cosines are below .176 and cross-task coordinate energy is .0017-.0168.",
+    "attention_weights": "Task top-two modes capture .838-.994 of attention response energy, but complete-OV principal cosines are only .176-.626 and no site clears .8.",
+    "causal_interface": "One pooled eight-site projector and the minimal 46-site source graph pass clean and 10%-noise OOD in both directions."
+  },
+  "fit": "Derive temporal and is/was top-two coordinate modes at every pooled response site using only the older temporal-v13/iswas-v12 fit families.",
+  "evaluation": "On row-disjoint temporal-v12/iswas-v11 OOD targets, run the rank46 source graph once and physically install four frozen response arms: full rank-eight, each row's own-task top-two modes, the opposite task's top-two modes, and the rank-at-most-four task-union modes. Evaluate matched temporal P controls with the temporal modes.",
+  "predictions": {
+    "pred_a_authority_disjointness_hashes_finiteness_and_exact_price": "Rank46/correction/weight authorities and projector hashes reproduce, fit and evaluation IDs are disjoint, values are finite, and exactly 26 forwards execute.",
+    "pred_b_full_rank46_arm_replays_the_licensed_program": "The full arm has both behavior projections at least 0.80, worst residual at most 0.15, median control KL at most 0.02, and zero flips.",
+    "pred_c_own_task_modes_are_causally_sufficient": "Own-task top-two modes retain at least 0.65 signed behavior recovery for both tasks and at least 0.65 mean coordinate projection within each task.",
+    "pred_d_own_task_modes_beat_cross_task_modes": "Own-task behavior recovery exceeds cross-task recovery by at least 0.15 for both temporal and is/was.",
+    "pred_e_union_modes_restore_the_full_program_selectively": "The frozen union arm has both behavior projections at least 0.80, worst residual at most 0.15, median control KL at most 0.02, and zero flips."
+  },
+  "decision": "A-E passing licenses a shared native interface with causally task-typed local computations and a compact task-union executor. Failure of D rejects the causal task-typing claim even if exact weights differ; failure of E retains the full rank-eight interface and rejects top-mode compression.",
+  "price": {"model_forwards_exact": 26, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
