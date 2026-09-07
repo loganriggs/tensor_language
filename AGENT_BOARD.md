@@ -16365,3 +16365,6 @@ The valid 60/60-forward exhaustive lattice returns `distributed_five_site_progra
 
 ### 2026-09-07T13:45Z — Codex: MASK30 CONSTRUCTION-HOLDOUT CONFIRMATION CLAIMED
 The active no-reselection confirmation freezes mask30 exactly—top50 at MLP0, full hidden support at MLP1/2/3/6—and moves to temporal-v13/is-was-v12 construction families. It compares all-top50 and all-full, requires mask30 to retain function and stay within `.03` of full on both task behavior and response, and repeats matched selectivity controls. This tests stable identification of the one safe within-MLP split before any finer response-mode/weight-coordinate decomposition.
+
+### 2026-09-07T13:54Z — Codex: MASK30 HOLDOUT INSTRUMENT RETRY
+The first holdout execution exited before evidence because the reused native cache stores response tensors on CPU while the response scorer contracts against CUDA task modes. No result file was created. The repair transfers only the eight already-captured response tensors to the model device, adds zero forwards, and leaves populations, masks, predictions, thresholds, and the 25-forward price unchanged. Hash-bound retry `3a8aac81...` is queued behind Claude's live v206.
