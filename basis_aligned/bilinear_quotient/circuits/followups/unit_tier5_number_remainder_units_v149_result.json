@@ -1,0 +1,149 @@
+{
+  "bars": {
+    "closure_min": 0.98,
+    "instr_tol": 0.02,
+    "mlp_causal_min": 0.08,
+    "mlp_rem_min": 0.5,
+    "norm_band": [
+      0.95,
+      1.05
+    ],
+    "own_min": 0.6,
+    "rand_max": 0.03,
+    "v147_dim": 0.936,
+    "v147_rem": 0.16
+  },
+  "candidate_id": "corpus.unit_tier5_number_remainder_units_v149",
+  "finished_utc": "2026-09-07T07:42:04.340194+00:00",
+  "measures": {
+    "along_par_ranked": [
+      [
+        "attn:11:head:03",
+        1854.2
+      ],
+      [
+        "mlp:09",
+        371.7
+      ],
+      [
+        "mlp:10",
+        149.6
+      ],
+      [
+        "attn:07:head:08",
+        147.3
+      ],
+      [
+        "mlp:08",
+        129.2
+      ],
+      [
+        "mlp:07",
+        85.1
+      ],
+      [
+        "attn:09:head:07",
+        84.0
+      ],
+      [
+        "attn:05:head:03",
+        66.5
+      ]
+    ],
+    "along_rem_ranked": [
+      [
+        "mlp:09",
+        203.6
+      ],
+      [
+        "attn:09:head:07",
+        184.7
+      ],
+      [
+        "mlp:10",
+        184.6
+      ],
+      [
+        "attn:10:head:05",
+        120.8
+      ],
+      [
+        "attn:11:head:02",
+        117.1
+      ],
+      [
+        "attn:11:head:03",
+        113.5
+      ],
+      [
+        "mlp:08",
+        95.9
+      ],
+      [
+        "attn:07:head:08",
+        69.7
+      ],
+      [
+        "attn:09:head:01",
+        68.0
+      ],
+      [
+        "mlp:07",
+        66.3
+      ],
+      [
+        "mlp:06",
+        58.9
+      ],
+      [
+        "attn:05:head:03",
+        58.6
+      ]
+    ],
+    "cos_raw_total_dim": 0.625,
+    "cos_total_dim": 1.0,
+    "dim_add": 0.936,
+    "heads_8_11_rem_frac": 0.369,
+    "lambda0": [
+      6.094,
+      0.013,
+      1.977,
+      0.574,
+      0.463,
+      0.064,
+      0.49,
+      0.812,
+      1.406,
+      0.902,
+      0.879,
+      1.234
+    ],
+    "layers_0_7_rem_frac": 0.271,
+    "m_none": 0.0,
+    "m_rand": 0.008,
+    "mlp_rem_add": 0.048,
+    "mlp_rem_frac": 0.291,
+    "mlp_sum_add": 0.266,
+    "norm_dim": 3430.8,
+    "norm_par": 3000.8,
+    "norm_ratio": 1.0,
+    "norm_raw_total": 6661.9,
+    "norm_rem": 1663.1,
+    "norm_total": 3430.8,
+    "own_par_frac": 0.618,
+    "positions_ok": true,
+    "reader_rem_frac": 0.068,
+    "rem_add": 0.16,
+    "rows": 16,
+    "total_add": 0.936
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_closure": true,
+    "pred_c_own_axis": true,
+    "pred_d_mlp_rem": false,
+    "pred_e_mlp_causal": false
+  },
+  "schema": "unit_tier5_number_remainder_units_v149",
+  "seconds": 0.7
+}
