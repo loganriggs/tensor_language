@@ -115,8 +115,15 @@ def all_mlp_units():
 
 def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None, q=None,
                   grad=False, complement=False, capture_hidden=None, neuron_per_row=None,
-                  return_logits=False, capture_resid=None, resid_add=None, resid_add_positions=None):
+                  return_logits=False, capture_resid=None, resid_add=None, resid_add_positions=None,
+                  x0_override=None):
     """The producer's exact forward with unit interventions at each row's semantic position.
+
+    x0_override  optional callable (layer, x0) -> tensor: the x0 = rms_norm(wte) vector re-entering block `layer`
+                 (live = lambdas[0]*x + lambdas[1]*x0); called with layer=-1 for the initial stream. v171: the block
+                 lambdas are [0.013, 8.0] at block 1 and [0.064, 5.06] at block 5 -- the stream is re-scaled hard there
+                 and the token identity re-enters at weight ~8 at every block, which is why function-word cues are read
+                 "directly" (v170).
 
     units        unit ids to intervene on, in a fixed order (the order defines the concatenation)
     q            None  -> EXACT replacement of each unit by its donor value (producer semantics)
@@ -263,8 +270,10 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
     with torch.set_grad_enabled(grad):
         x = F.rms_norm(model.transformer.wte(tokens), (N_EMBD,))
         x0, v1 = x, None
+        if x0_override is not None:
+            x = x0_override(-1, x0)
         for layer, block in enumerate(model.transformer.h):
-            live = block.lambdas[0] * x + block.lambdas[1] * x0
+            live = block.lambdas[0] * x + block.lambdas[1] * (x0 if x0_override is None else x0_override(layer, x0))
 
             def c_proj_pre(_module, arguments, layer=layer):
                 return (apply(arguments[0], layer, "heads"),) + tuple(arguments[1:])
