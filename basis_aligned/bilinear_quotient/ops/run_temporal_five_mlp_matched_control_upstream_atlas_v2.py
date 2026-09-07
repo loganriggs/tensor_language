@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Complete split-half control atlas for the five-MLP upstream writer screen."""
+"""Complete split-half endpoint-matched control atlas for upstream writers."""
 
 # BQGATE: EXPERIMENT pred_a_authority_population_self_patch_finiteness_and_price pred_b_mlp1_is_generic_transport pred_c_control_incidence_generalizes pred_d_selective_pool_contains_known_writers pred_e_selective_pool_improves_validation
 from datetime import datetime, timezone
@@ -16,18 +16,18 @@ import run_temporal_five_mlp_upstream_input_tensor_incidence_atlas_v1 as atlasru
 import run_temporal_five_mlp_upstream_tensor_ranked_greedy_program_v1 as greedy
 
 ROOT = Path(__file__).resolve().parents[1]
-PRIOR = ROOT / "circuits/prior_art/temporal_five_mlp_control_conditioned_upstream_atlas_v1.json"
+PRIOR = ROOT / "circuits/prior_art/temporal_five_mlp_matched_control_upstream_atlas_v2.json"
 GENERIC = ROOT / "circuits/followups/temporal_five_mlp_upstream_tensor_ranked_greedy_program_v1_result.json"
 ATLAS = ROOT / "circuits/followups/temporal_five_mlp_upstream_input_tensor_incidence_atlas_v1_result.json"
 ATLAS_RUNNER = ROOT / "ops/run_temporal_five_mlp_upstream_input_tensor_incidence_atlas_v1.py"
 TEMPORAL_BUILDER = ROOT / "ops/circuit_candidate_temporal_auxiliary_fresh_cues_v13.py"
 ISWAS_BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v12.py"
 WEIGHTS = ROOT / "circuits/followups/temporal_iswas_two_mode_weight_pullback_v3_result.json"
-OUT = ROOT / "circuits/followups/temporal_five_mlp_control_conditioned_upstream_atlas_v1_result.json"
-CANDIDATE_ID = "temporal_auxiliary.five_mlp_control_conditioned_upstream_atlas_v1"
+OUT = ROOT / "circuits/followups/temporal_five_mlp_matched_control_upstream_atlas_v2_result.json"
+CANDIDATE_ID = "temporal_auxiliary.five_mlp_matched_control_upstream_atlas_v2"
 KNOWN = ("L9H1", "L9H4", "MLP7", "MLP9")
 EXPECTED = {
-    "prior": "89a725ff4578368274dd922ebd1d94b34e0390a858a9342eedb8b0533b422c34",
+    "prior": "dae0b89e71b6934fa3f6b96d52478f6a027ef259d46f50a4318dd0b72266e76e",
     "generic": "57402478b86e88237bb745824e7aa8e6d56c17336753cee3d1b4e9359b5febe3",
     "atlas": "0cc9909dcab7a17b93820300da56a07f4cd9a2610f71a1de1c7008710d064467",
     "atlas_runner": "6e28d38ec1446eafb3518c1bfe603a5e3469ceadb6f80266e2c695a274692366",
@@ -48,8 +48,24 @@ def spearman(a, b): return float(np.corrcoef(rank(a), rank(b))[0, 1])
 def control_rows():
     task_rows = {}
     for task, builder in (("temporal", temporal), ("iswas", iswas)):
-        rows = [row for row in builder.build_rows() if row["transform_id"] == "C"]
-        task_rows[task] = {"discovery": rows[::2], "validation": rows[1::2]}
+        source = [row for row in builder.build_rows()
+                  if row["transform_id"] == "C" and row["base_semantic_position"] in (12, 14)]
+        matched = []
+        for endpoint in (12, 14):
+            group = [row for row in source if row["base_semantic_position"] == endpoint]
+            for index, row in enumerate(group):
+                donor = group[(index + 1) % len(group)]
+                changed = dict(row)
+                for key in ("text", "ids", "answer", "answer_id", "foil", "foil_id",
+                            "prediction_position", "semantic_position"):
+                    changed[f"donor_{key}"] = donor[f"base_{key}"]
+                changed["row_id"] = f"matched_control_{task}_{endpoint}_{index}"
+                matched.append(changed)
+        discovery, validation = [], []
+        for endpoint in (12, 14):
+            group = [row for row in matched if row["base_semantic_position"] == endpoint]
+            discovery += group[::2]; validation += group[1::2]
+        task_rows[task] = {"discovery": discovery, "validation": validation}
     return {split: task_rows["temporal"][split] + task_rows["iswas"][split]
             for split in ("discovery", "validation")}
 
@@ -70,7 +86,8 @@ def evaluate_split(backend, rows, sites, reader, target_scales):
         return logits[ix, answer] - logits[ix, foil]
     base_margin = margin(base_state)
     records = {"temporal": {}, "iswas": {}}
-    task_indices = {"temporal": slice(0, 16), "iswas": slice(16, 24)}
+    temporal_n = sum(row["task_id"] == temporal.TASK_ID for row in rows)
+    task_indices = {"temporal": slice(0, temporal_n), "iswas": slice(temporal_n, len(rows))}
     for site in sites:
         output, _ = atlasrun.run_patch(backend, base_batch, donor_cache, (site,))
         state = atlasrun.states(torch, backend, output, rows)
@@ -92,16 +109,21 @@ def main():
     prior, generic, atlas, weights = map(lambda p: json.loads(p.read_text()), (PRIOR, GENERIC, ATLAS, WEIGHTS))
     sites = atlasrun.UPSTREAM_SITES
     dryrun = {"candidate_id": CANDIDATE_ID, "dryrun": True, "gpu_accessed": False,
-              "model_loaded": False, "queue_touched": False, "sites": len(sites), "rows": 48,
-              "model_forwards_max": 366, "example_evaluations_max": 8736,
+              "model_loaded": False, "queue_touched": False, "sites": len(sites), "rows": 42,
+              "model_forwards_max": 366, "example_evaluations_max": 7644,
               "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
     if os.environ.get("BQLIB_DRYRUN") == "1" or os.environ.get("BQLIB_NO_MODEL") == "1":
         print(json.dumps(dryrun, sort_keys=True)); return
     rows = control_rows()
     authority_ok = bool(prior["candidate_id"] == CANDIDATE_ID and generic["terminal"] == "generic_transport_null"
                         and atlas["terminal"] == "invalid" and len(sites) == 179
-                        and all(len(group) == 24 for group in rows.values())
-                        and all(r["base_answer_id"] == r["donor_answer_id"] for group in rows.values() for r in group))
+                        and sorted(map(len, rows.values())) == [20, 22]
+                        and all(r["base_answer_id"] == r["donor_answer_id"]
+                                and r["base_foil_id"] == r["donor_foil_id"]
+                                and len(r["base_ids"]) == len(r["donor_ids"])
+                                and r["base_semantic_position"] == r["donor_semantic_position"]
+                                and r["base_ids"] != r["donor_ids"]
+                                for group in rows.values() for r in group))
     if not authority_ok: raise RuntimeError("control population changed")
     if OUT.exists(): raise FileExistsError(OUT)
     started, tic = now(), time.perf_counter()
@@ -148,7 +170,7 @@ def main():
               "old_median_validation_control": old_med_c, "new_median_validation_control": new_med_c,
               "old_median_target_magnitude": old_med_t, "new_median_target_magnitude": new_med_t},
               "predictions": preds, "terminal": terminal, "price": {"model_forwards": 2*(3+len(sites)),
-              "example_evaluations": 2*(3+len(sites))*24, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}}
+              "example_evaluations": (3+len(sites))*sum(map(len, rows.values())), "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}}
     atomic_create_json(OUT, result)
     print(json.dumps({k: result[k] for k in ("summary","selective_top20","predictions","terminal","price")}, sort_keys=True))
 
