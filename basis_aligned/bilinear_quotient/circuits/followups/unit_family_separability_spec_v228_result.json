@@ -1,0 +1,2216 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 11,
+    "k_kept": 13,
+    "k_new": 3,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v228",
+  "families": {
+    "animacy_wh": [
+      "animacy",
+      "pronoun_animacy_he_it",
+      "dative_animacy_to_the",
+      "wh_argument_who_what",
+      "wh_adjunct_when_where",
+      "relative_animacy_whom_which"
+    ],
+    "countability": [
+      "countability",
+      "less_fewer_countability",
+      "article_countability",
+      "countability_few_little",
+      "countability_number_amount"
+    ],
+    "degree": [
+      "superlative_complement_best",
+      "superlative_complement_largest",
+      "comparative_complement_superior",
+      "comparative_complement_inferior",
+      "degree_much_very",
+      "degree_so_such",
+      "degree_synthetic_periphrastic_comparative",
+      "degree_synthetic_periphrastic_superlative"
+    ],
+    "number_readout": [
+      "reflexive_number",
+      "pronoun_number",
+      "demonstrative_number",
+      "reciprocal",
+      "possessive_number",
+      "quantifier_number",
+      "possessive_verbfinal",
+      "object_pronoun_number",
+      "possessive_number_its_their"
+    ],
+    "polarity": [
+      "polarity_state",
+      "polarity_licensing",
+      "polarity_addition",
+      "polarity_tag",
+      "polarity_nor_and",
+      "polarity_any_some"
+    ]
+  },
+  "finished_utc": "2026-09-07T19:47:16.033618+00:00",
+  "members": {
+    "article_countability": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.59,
+            "ce_lb975": 0.4541,
+            "ce_ub975": 0.7169
+          },
+          "C": {
+            "ce_damage": 0.0022,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.0072
+          },
+          "extraction": 0.98,
+          "sib_abs_max": 0.0026,
+          "siblings": {
+            "countability": -0.0026,
+            "countability_few_little": -0.0023,
+            "countability_number_amount": -0.0025,
+            "less_fewer_countability": -0.0007
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6071,
+            "ce_lb975": 0.471,
+            "ce_ub975": 0.7359
+          },
+          "C": {
+            "ce_damage": -0.0024,
+            "ce_lb975": -0.007,
+            "ce_ub975": 0.0023
+          },
+          "extraction": 0.984,
+          "sib_abs_max": 0.06,
+          "siblings": {
+            "countability": -0.008,
+            "countability_few_little": 0.0018,
+            "countability_number_amount": 0.005,
+            "less_fewer_countability": 0.06
+          }
+        }
+      },
+      "exact_held": 0.881,
+      "family": "countability",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 80.8,
+      "separable": true,
+      "units": [
+        "attn:11:head:02",
+        "attn:07:head:08",
+        "attn:04:head:07",
+        "attn:02:head:02",
+        "attn:03:head:06",
+        "attn:09:head:07",
+        "attn:11:head:06",
+        "attn:05:head:06"
+      ]
+    },
+    "comparative_complement_inferior": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.3168,
+            "ce_lb975": 1.215,
+            "ce_ub975": 1.4165
+          },
+          "C": {
+            "ce_damage": -0.001,
+            "ce_lb975": -0.0079,
+            "ce_ub975": 0.0056
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0135,
+          "siblings": {
+            "comparative_complement_superior": 0.0045,
+            "degree_much_very": 0.0135,
+            "degree_so_such": 0.002,
+            "degree_synthetic_periphrastic_comparative": 0.003,
+            "degree_synthetic_periphrastic_superlative": 0.0045,
+            "superlative_complement_best": -0.0007,
+            "superlative_complement_largest": -0.0031
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3906,
+            "ce_lb975": 1.2791,
+            "ce_ub975": 1.5087
+          },
+          "C": {
+            "ce_damage": 0.0031,
+            "ce_lb975": -0.0032,
+            "ce_ub975": 0.0085
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.7297,
+          "siblings": {
+            "comparative_complement_superior": 0.7297,
+            "degree_much_very": -0.0634,
+            "degree_so_such": 0.0206,
+            "degree_synthetic_periphrastic_comparative": 0.0133,
+            "degree_synthetic_periphrastic_superlative": 0.0573,
+            "superlative_complement_best": 0.293,
+            "superlative_complement_largest": 0.2664
+          }
+        }
+      },
+      "exact_held": 0.9,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 125.9,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:12:head:08",
+        "attn:14:head:08",
+        "attn:11:head:07",
+        "attn:16:head:08",
+        "attn:05:head:03",
+        "attn:09:head:01",
+        "attn:15:head:01"
+      ]
+    },
+    "comparative_complement_superior": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.2533,
+            "ce_lb975": 0.8528,
+            "ce_ub975": 1.6904
+          },
+          "C": {
+            "ce_damage": -0.0022,
+            "ce_lb975": -0.0077,
+            "ce_ub975": 0.0037
+          },
+          "extraction": 0.967,
+          "sib_abs_max": 0.0263,
+          "siblings": {
+            "comparative_complement_inferior": 0.0019,
+            "degree_much_very": -0.0053,
+            "degree_so_such": 0.0016,
+            "degree_synthetic_periphrastic_comparative": 0.0011,
+            "degree_synthetic_periphrastic_superlative": 0.0009,
+            "superlative_complement_best": 0.0263,
+            "superlative_complement_largest": 0.0021
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3439,
+            "ce_lb975": 1.2284,
+            "ce_ub975": 1.4684
+          },
+          "C": {
+            "ce_damage": -0.0,
+            "ce_lb975": -0.0074,
+            "ce_ub975": 0.0067
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 1.1035,
+          "siblings": {
+            "comparative_complement_inferior": 1.1035,
+            "degree_much_very": -0.0615,
+            "degree_so_such": 0.0316,
+            "degree_synthetic_periphrastic_comparative": 0.0162,
+            "degree_synthetic_periphrastic_superlative": 0.0313,
+            "superlative_complement_best": 0.6095,
+            "superlative_complement_largest": 0.3695
+          }
+        }
+      },
+      "exact_held": 0.898,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 130.7,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:13:head:08",
+        "attn:12:head:08",
+        "attn:14:head:08",
+        "attn:09:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:15:head:01",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:11:head:07",
+        "attn:05:head:03"
+      ]
+    },
+    "countability_few_little": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.1806,
+            "ce_lb975": 0.1542,
+            "ce_ub975": 0.2047
+          },
+          "C": {
+            "ce_damage": -0.0022,
+            "ce_lb975": -0.0058,
+            "ce_ub975": 0.0016
+          },
+          "extraction": 0.99,
+          "sib_abs_max": 0.0126,
+          "siblings": {
+            "article_countability": -0.0126,
+            "countability": 0.0124,
+            "countability_number_amount": 0.0011,
+            "less_fewer_countability": 0.0028
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.1864,
+            "ce_lb975": 0.1556,
+            "ce_ub975": 0.2168
+          },
+          "C": {
+            "ce_damage": -0.0004,
+            "ce_lb975": -0.0046,
+            "ce_ub975": 0.0037
+          },
+          "extraction": 0.997,
+          "sib_abs_max": 0.0446,
+          "siblings": {
+            "article_countability": -0.0356,
+            "countability": 0.009,
+            "countability_number_amount": 0.0446,
+            "less_fewer_countability": -0.0173
+          }
+        }
+      },
+      "exact_held": 0.882,
+      "family": "countability",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 62.6,
+      "separable": true,
+      "units": [
+        "attn:11:head:06",
+        "attn:13:head:00",
+        "attn:10:head:04",
+        "attn:07:head:00",
+        "attn:11:head:01",
+        "attn:09:head:06",
+        "attn:10:head:03",
+        "attn:14:head:03",
+        "attn:12:head:04"
+      ]
+    },
+    "dative_animacy_to_the": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.3408,
+            "ce_lb975": 0.2519,
+            "ce_ub975": 0.432
+          },
+          "C": {
+            "ce_damage": 0.0065,
+            "ce_lb975": -0.0024,
+            "ce_ub975": 0.0159
+          },
+          "extraction": 0.949,
+          "sib_abs_max": 0.0196,
+          "siblings": {
+            "animacy": -0.0196,
+            "pronoun_animacy_he_it": -0.0055,
+            "relative_animacy_whom_which": 0.0002,
+            "wh_adjunct_when_where": -0.0013,
+            "wh_argument_who_what": -0.0096
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.4013,
+            "ce_lb975": 0.2918,
+            "ce_ub975": 0.5209
+          },
+          "C": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.0097,
+            "ce_ub975": 0.0046
+          },
+          "extraction": 1.048,
+          "sib_abs_max": 0.1415,
+          "siblings": {
+            "animacy": -0.1415,
+            "pronoun_animacy_he_it": 0.0277,
+            "relative_animacy_whom_which": -0.0252,
+            "wh_adjunct_when_where": 0.0167,
+            "wh_argument_who_what": -0.0214
+          }
+        }
+      },
+      "exact_held": 0.974,
+      "family": "animacy_wh",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 18,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 86.2,
+      "separable": true,
+      "units": [
+        "attn:09:head:07",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:11:head:02",
+        "attn:04:head:00",
+        "attn:04:head:05",
+        "attn:05:head:06",
+        "attn:09:head:01",
+        "attn:09:head:05",
+        "attn:07:head:08",
+        "attn:09:head:08",
+        "attn:02:head:03",
+        "attn:04:head:01",
+        "attn:10:head:02",
+        "attn:06:head:04",
+        "attn:06:head:00",
+        "attn:05:head:02",
+        "attn:15:head:01"
+      ]
+    },
+    "degree_much_very": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8993,
+            "ce_lb975": 0.7641,
+            "ce_ub975": 1.0374
+          },
+          "C": {
+            "ce_damage": 0.0088,
+            "ce_lb975": 0.0031,
+            "ce_ub975": 0.0151
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.0078,
+          "siblings": {
+            "comparative_complement_inferior": 0.0049,
+            "comparative_complement_superior": 0.0057,
+            "degree_so_such": 0.0078,
+            "degree_synthetic_periphrastic_comparative": 0.0041,
+            "degree_synthetic_periphrastic_superlative": 0.0027,
+            "superlative_complement_best": 0.0004,
+            "superlative_complement_largest": 0.0047
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8988,
+            "ce_lb975": 0.7585,
+            "ce_ub975": 1.0442
+          },
+          "C": {
+            "ce_damage": -0.0033,
+            "ce_lb975": -0.0079,
+            "ce_ub975": 0.001
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.2331,
+          "siblings": {
+            "comparative_complement_inferior": 0.2331,
+            "comparative_complement_superior": 0.1815,
+            "degree_so_such": 0.0267,
+            "degree_synthetic_periphrastic_comparative": 0.0032,
+            "degree_synthetic_periphrastic_superlative": -0.0049,
+            "superlative_complement_best": 0.0972,
+            "superlative_complement_largest": 0.1991
+          }
+        }
+      },
+      "exact_held": 0.905,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 17,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 120.0,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:06:head:03",
+        "attn:09:head:07",
+        "attn:04:head:03",
+        "attn:03:head:06",
+        "attn:06:head:06",
+        "attn:11:head:02",
+        "attn:04:head:07",
+        "attn:10:head:08",
+        "attn:12:head:08",
+        "attn:11:head:03",
+        "attn:16:head:08",
+        "attn:05:head:03",
+        "attn:15:head:01",
+        "attn:13:head:06",
+        "attn:04:head:00"
+      ]
+    },
+    "degree_synthetic_periphrastic_comparative": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.3899,
+            "ce_lb975": 1.0001,
+            "ce_ub975": 1.8155
+          },
+          "C": {
+            "ce_damage": 0.0074,
+            "ce_lb975": -0.0026,
+            "ce_ub975": 0.0174
+          },
+          "extraction": 0.984,
+          "sib_abs_max": 0.0082,
+          "siblings": {
+            "comparative_complement_inferior": -0.0045,
+            "comparative_complement_superior": 0.0022,
+            "degree_much_very": -0.0082,
+            "degree_so_such": 0.0055,
+            "degree_synthetic_periphrastic_superlative": 0.0041,
+            "superlative_complement_best": 0.0034,
+            "superlative_complement_largest": -0.0023
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3738,
+            "ce_lb975": 0.9935,
+            "ce_ub975": 1.7953
+          },
+          "C": {
+            "ce_damage": -0.0011,
+            "ce_lb975": -0.0111,
+            "ce_ub975": 0.008
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 0.6627,
+          "siblings": {
+            "comparative_complement_inferior": -0.0081,
+            "comparative_complement_superior": -0.0164,
+            "degree_much_very": 0.1449,
+            "degree_so_such": -0.0903,
+            "degree_synthetic_periphrastic_superlative": 0.6627,
+            "superlative_complement_best": -0.0277,
+            "superlative_complement_largest": 0.0131
+          }
+        }
+      },
+      "exact_held": 0.888,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 20,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 132.3,
+      "separable": true,
+      "units": [
+        "attn:08:head:03",
+        "attn:13:head:03",
+        "attn:10:head:03",
+        "attn:14:head:04",
+        "attn:06:head:07",
+        "attn:11:head:06",
+        "attn:14:head:00",
+        "attn:14:head:06",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:13:head:00",
+        "attn:07:head:03",
+        "attn:10:head:01",
+        "attn:08:head:06",
+        "attn:15:head:03",
+        "attn:08:head:04",
+        "attn:07:head:00",
+        "attn:10:head:04",
+        "attn:16:head:00",
+        "attn:09:head:00"
+      ]
+    },
+    "degree_synthetic_periphrastic_superlative": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9283,
+            "ce_lb975": 0.6772,
+            "ce_ub975": 1.1998
+          },
+          "C": {
+            "ce_damage": 0.0035,
+            "ce_lb975": -0.005,
+            "ce_ub975": 0.0124
+          },
+          "extraction": 1.009,
+          "sib_abs_max": 0.0035,
+          "siblings": {
+            "comparative_complement_inferior": -0.0014,
+            "comparative_complement_superior": 0.0006,
+            "degree_much_very": 0.0025,
+            "degree_so_such": -0.002,
+            "degree_synthetic_periphrastic_comparative": -0.0035,
+            "superlative_complement_best": -0.0014,
+            "superlative_complement_largest": -0.0024
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9226,
+            "ce_lb975": 0.6566,
+            "ce_ub975": 1.2173
+          },
+          "C": {
+            "ce_damage": 0.0014,
+            "ce_lb975": -0.0056,
+            "ce_ub975": 0.0087
+          },
+          "extraction": 1.007,
+          "sib_abs_max": 0.4849,
+          "siblings": {
+            "comparative_complement_inferior": -0.0311,
+            "comparative_complement_superior": 0.0034,
+            "degree_much_very": 0.0136,
+            "degree_so_such": -0.0657,
+            "degree_synthetic_periphrastic_comparative": 0.4849,
+            "superlative_complement_best": 0.043,
+            "superlative_complement_largest": 0.0461
+          }
+        }
+      },
+      "exact_held": 0.885,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 26,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 146.6,
+      "separable": true,
+      "units": [
+        "attn:11:head:06",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:06:head:07",
+        "attn:07:head:00",
+        "attn:13:head:03",
+        "attn:10:head:03",
+        "attn:05:head:01",
+        "attn:13:head:00",
+        "attn:10:head:01",
+        "attn:15:head:03",
+        "attn:08:head:03",
+        "attn:14:head:00",
+        "attn:14:head:04",
+        "attn:06:head:03",
+        "attn:16:head:04",
+        "attn:10:head:04",
+        "attn:08:head:06",
+        "attn:17:head:00",
+        "attn:09:head:04",
+        "attn:09:head:01",
+        "attn:10:head:02",
+        "attn:09:head:02",
+        "attn:16:head:00",
+        "attn:15:head:01",
+        "attn:09:head:00"
+      ]
+    },
+    "demonstrative_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6097,
+            "ce_lb975": 0.4842,
+            "ce_ub975": 0.7362
+          },
+          "C": {
+            "ce_damage": -0.0012,
+            "ce_lb975": -0.005,
+            "ce_ub975": 0.0027
+          },
+          "extraction": 0.99,
+          "sib_abs_max": 0.0051,
+          "siblings": {
+            "object_pronoun_number": 0.0051,
+            "possessive_number": -0.0029,
+            "possessive_number_its_their": 0.0003,
+            "possessive_verbfinal": 0.0029,
+            "pronoun_number": 0.0,
+            "quantifier_number": -0.0015,
+            "reciprocal": -0.0002,
+            "reflexive_number": 0.0002
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.611,
+            "ce_lb975": 0.4963,
+            "ce_ub975": 0.728
+          },
+          "C": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.0074,
+            "ce_ub975": 0.0018
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0556,
+          "siblings": {
+            "object_pronoun_number": 0.0316,
+            "possessive_number": 0.0381,
+            "possessive_number_its_their": 0.0556,
+            "possessive_verbfinal": 0.0498,
+            "pronoun_number": -0.0151,
+            "quantifier_number": 0.0322,
+            "reciprocal": 0.0508,
+            "reflexive_number": 0.027
+          }
+        }
+      },
+      "exact_held": 0.898,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 130.1,
+      "separable": true,
+      "units": [
+        "attn:11:head:02",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:04:head:01",
+        "attn:05:head:06",
+        "attn:16:head:08",
+        "attn:06:head:03",
+        "attn:15:head:01"
+      ]
+    },
+    "object_pronoun_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7169,
+            "ce_lb975": 0.6017,
+            "ce_ub975": 0.8439
+          },
+          "C": {
+            "ce_damage": 0.0037,
+            "ce_lb975": 0.002,
+            "ce_ub975": 0.0057
+          },
+          "extraction": 0.928,
+          "sib_abs_max": 0.0281,
+          "siblings": {
+            "demonstrative_number": -0.002,
+            "possessive_number": 0.0082,
+            "possessive_number_its_their": 0.006,
+            "possessive_verbfinal": -0.0281,
+            "pronoun_number": 0.0105,
+            "quantifier_number": 0.0003,
+            "reciprocal": 0.0063,
+            "reflexive_number": 0.0052
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.7599,
+            "ce_lb975": 0.6448,
+            "ce_ub975": 0.8875
+          },
+          "C": {
+            "ce_damage": -0.0008,
+            "ce_lb975": -0.0024,
+            "ce_ub975": 0.0008
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.237,
+          "siblings": {
+            "demonstrative_number": -0.0752,
+            "possessive_number": 0.1884,
+            "possessive_number_its_their": 0.237,
+            "possessive_verbfinal": -0.0633,
+            "pronoun_number": 0.1895,
+            "quantifier_number": -0.0281,
+            "reciprocal": 0.0228,
+            "reflexive_number": 0.0939
+          }
+        }
+      },
+      "exact_held": 0.877,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 6,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 129.0,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:11:head:01",
+        "attn:10:head:05",
+        "attn:05:head:06"
+      ]
+    },
+    "polarity_addition": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.3508,
+            "ce_lb975": 1.2545,
+            "ce_ub975": 1.449
+          },
+          "C": {
+            "ce_damage": -0.0099,
+            "ce_lb975": -0.0313,
+            "ce_ub975": 0.0093
+          },
+          "extraction": 0.985,
+          "sib_abs_max": 0.0138,
+          "siblings": {
+            "polarity_any_some": 0.0094,
+            "polarity_licensing": -0.0067,
+            "polarity_nor_and": 0.0004,
+            "polarity_state": 0.0138,
+            "polarity_tag": 0.0063
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3458,
+            "ce_lb975": 1.1966,
+            "ce_ub975": 1.5034
+          },
+          "C": {
+            "ce_damage": -0.0109,
+            "ce_lb975": -0.0316,
+            "ce_ub975": 0.0107
+          },
+          "extraction": 0.985,
+          "sib_abs_max": 0.2746,
+          "siblings": {
+            "polarity_any_some": 0.2392,
+            "polarity_licensing": 0.2746,
+            "polarity_nor_and": 0.0681,
+            "polarity_state": 0.1775,
+            "polarity_tag": -0.1293
+          }
+        }
+      },
+      "exact_held": 0.921,
+      "family": "polarity",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 14,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "seconds": 76.7,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:09:head:03",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:16:head:08",
+        "attn:12:head:08",
+        "attn:06:head:03",
+        "attn:17:head:03",
+        "attn:15:head:01",
+        "attn:09:head:04",
+        "attn:09:head:07",
+        "attn:04:head:01"
+      ]
+    },
+    "polarity_any_some": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0197,
+            "ce_lb975": 0.8407,
+            "ce_ub975": 1.2128
+          },
+          "C": {
+            "ce_damage": -0.0101,
+            "ce_lb975": -0.0248,
+            "ce_ub975": 0.0024
+          },
+          "extraction": 0.969,
+          "sib_abs_max": 0.0197,
+          "siblings": {
+            "polarity_addition": 0.0013,
+            "polarity_licensing": -0.0066,
+            "polarity_nor_and": 0.0017,
+            "polarity_state": 0.0197,
+            "polarity_tag": -0.0035
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0749,
+            "ce_lb975": 0.8658,
+            "ce_ub975": 1.2952
+          },
+          "C": {
+            "ce_damage": -0.0061,
+            "ce_lb975": -0.0189,
+            "ce_ub975": 0.007
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.5737,
+          "siblings": {
+            "polarity_addition": 0.5444,
+            "polarity_licensing": 0.4034,
+            "polarity_nor_and": 0.5737,
+            "polarity_state": 0.3333,
+            "polarity_tag": 0.0536
+          }
+        }
+      },
+      "exact_held": 0.87,
+      "family": "polarity",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 80.1,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:08:head:01",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:05:head:03",
+        "attn:06:head:03",
+        "attn:15:head:01",
+        "attn:13:head:01",
+        "attn:03:head:04",
+        "attn:04:head:01",
+        "attn:16:head:08",
+        "attn:09:head:01",
+        "attn:11:head:06",
+        "attn:12:head:02"
+      ]
+    },
+    "polarity_licensing": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5234,
+            "ce_lb975": 0.4228,
+            "ce_ub975": 0.6291
+          },
+          "C": {
+            "ce_damage": 0.0046,
+            "ce_lb975": -0.0022,
+            "ce_ub975": 0.0112
+          },
+          "extraction": 0.994,
+          "sib_abs_max": 0.0164,
+          "siblings": {
+            "polarity_addition": 0.0164,
+            "polarity_any_some": -0.0063,
+            "polarity_nor_and": -0.0042,
+            "polarity_state": 0.0038,
+            "polarity_tag": 0.0075
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5112,
+            "ce_lb975": 0.3631,
+            "ce_ub975": 0.6694
+          },
+          "C": {
+            "ce_damage": 0.0032,
+            "ce_lb975": -0.0038,
+            "ce_ub975": 0.0093
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.6043,
+          "siblings": {
+            "polarity_addition": 0.5486,
+            "polarity_any_some": 0.6043,
+            "polarity_nor_and": 0.2677,
+            "polarity_state": 0.2659,
+            "polarity_tag": 0.092
+          }
+        }
+      },
+      "exact_held": 0.891,
+      "family": "polarity",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 82.1,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:05:head:08",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:01:head:05",
+        "attn:16:head:08",
+        "attn:03:head:04"
+      ]
+    },
+    "polarity_state": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7803,
+            "ce_lb975": 0.7201,
+            "ce_ub975": 0.8426
+          },
+          "C": {
+            "ce_damage": -0.0099,
+            "ce_lb975": -0.0205,
+            "ce_ub975": 0.0019
+          },
+          "extraction": 0.978,
+          "sib_abs_max": 0.0084,
+          "siblings": {
+            "polarity_addition": 0.0084,
+            "polarity_any_some": 0.0003,
+            "polarity_licensing": -0.0029,
+            "polarity_nor_and": -0.0023,
+            "polarity_tag": -0.0033
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8238,
+            "ce_lb975": 0.74,
+            "ce_ub975": 0.904
+          },
+          "C": {
+            "ce_damage": -0.0049,
+            "ce_lb975": -0.0139,
+            "ce_ub975": 0.0043
+          },
+          "extraction": 1.002,
+          "sib_abs_max": 0.7212,
+          "siblings": {
+            "polarity_addition": 0.7212,
+            "polarity_any_some": 0.6798,
+            "polarity_licensing": 0.4679,
+            "polarity_nor_and": 0.5224,
+            "polarity_tag": 0.158
+          }
+        }
+      },
+      "exact_held": 0.893,
+      "family": "polarity",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 109.6,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:02:head:06",
+        "attn:03:head:00",
+        "attn:09:head:03"
+      ]
+    },
+    "possessive_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5887,
+            "ce_lb975": 0.4692,
+            "ce_ub975": 0.7033
+          },
+          "C": {
+            "ce_damage": -0.0039,
+            "ce_lb975": -0.0091,
+            "ce_ub975": 0.0009
+          },
+          "extraction": 0.919,
+          "sib_abs_max": 0.0395,
+          "siblings": {
+            "demonstrative_number": -0.0137,
+            "object_pronoun_number": -0.0045,
+            "possessive_number_its_their": -0.012,
+            "possessive_verbfinal": 0.0395,
+            "pronoun_number": 0.0113,
+            "quantifier_number": 0.0052,
+            "reciprocal": -0.0069,
+            "reflexive_number": -0.0029
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6914,
+            "ce_lb975": 0.5888,
+            "ce_ub975": 0.7938
+          },
+          "C": {
+            "ce_damage": 0.0045,
+            "ce_lb975": -0.0034,
+            "ce_ub975": 0.0122
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.6116,
+          "siblings": {
+            "demonstrative_number": -0.0176,
+            "object_pronoun_number": 0.0252,
+            "possessive_number_its_their": 0.2273,
+            "possessive_verbfinal": 0.6116,
+            "pronoun_number": 0.5405,
+            "quantifier_number": -0.0264,
+            "reciprocal": 0.2511,
+            "reflexive_number": 0.3067
+          }
+        }
+      },
+      "exact_held": 0.893,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": false
+      },
+      "seconds": 120.1,
+      "separable": true,
+      "units": [
+        "attn:10:head:05",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:09:head:07",
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:10:head:01",
+        "attn:06:head:01",
+        "attn:11:head:01",
+        "attn:07:head:07",
+        "attn:07:head:08"
+      ]
+    },
+    "possessive_number_its_their": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5273,
+            "ce_lb975": 0.4661,
+            "ce_ub975": 0.5866
+          },
+          "C": {
+            "ce_damage": -0.0049,
+            "ce_lb975": -0.0087,
+            "ce_ub975": -0.0009
+          },
+          "extraction": 0.922,
+          "sib_abs_max": 0.0196,
+          "siblings": {
+            "demonstrative_number": -0.0071,
+            "object_pronoun_number": 0.0037,
+            "possessive_number": 0.0196,
+            "possessive_verbfinal": 0.0107,
+            "pronoun_number": 0.0072,
+            "quantifier_number": 0.007,
+            "reciprocal": 0.0156,
+            "reflexive_number": -0.002
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5862,
+            "ce_lb975": 0.4527,
+            "ce_ub975": 0.7151
+          },
+          "C": {
+            "ce_damage": 0.0012,
+            "ce_lb975": -0.0027,
+            "ce_ub975": 0.0045
+          },
+          "extraction": 1.003,
+          "sib_abs_max": 0.5422,
+          "siblings": {
+            "demonstrative_number": 0.1272,
+            "object_pronoun_number": 0.4834,
+            "possessive_number": 0.5422,
+            "possessive_verbfinal": 0.4546,
+            "pronoun_number": 0.3793,
+            "quantifier_number": -0.0224,
+            "reciprocal": 0.3371,
+            "reflexive_number": 0.4323
+          }
+        }
+      },
+      "exact_held": 0.887,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 129.8,
+      "separable": true,
+      "units": [
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:05:head:03"
+      ]
+    },
+    "pronoun_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4756,
+            "ce_lb975": 0.4165,
+            "ce_ub975": 0.519
+          },
+          "C": {
+            "ce_damage": -0.0057,
+            "ce_lb975": -0.0119,
+            "ce_ub975": 0.0001
+          },
+          "extraction": 0.848,
+          "sib_abs_max": 0.0341,
+          "siblings": {
+            "demonstrative_number": 0.0056,
+            "object_pronoun_number": -0.0171,
+            "possessive_number": 0.0341,
+            "possessive_number_its_their": 0.0019,
+            "possessive_verbfinal": 0.0264,
+            "quantifier_number": 0.0077,
+            "reciprocal": 0.0037,
+            "reflexive_number": -0.0142
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5868,
+            "ce_lb975": 0.5276,
+            "ce_ub975": 0.6367
+          },
+          "C": {
+            "ce_damage": -0.0013,
+            "ce_lb975": -0.0042,
+            "ce_ub975": 0.0013
+          },
+          "extraction": 1.012,
+          "sib_abs_max": 0.6004,
+          "siblings": {
+            "demonstrative_number": 0.012,
+            "object_pronoun_number": 0.1786,
+            "possessive_number": 0.6004,
+            "possessive_number_its_their": 0.3512,
+            "possessive_verbfinal": 0.5573,
+            "quantifier_number": -0.0029,
+            "reciprocal": 0.1538,
+            "reflexive_number": 0.2833
+          }
+        }
+      },
+      "exact_held": 0.93,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 6,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 92.0,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:05:head:03",
+        "attn:10:head:05",
+        "attn:10:head:01"
+      ]
+    },
+    "quantifier_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5742,
+            "ce_lb975": 0.471,
+            "ce_ub975": 0.684
+          },
+          "C": {
+            "ce_damage": 0.0134,
+            "ce_lb975": 0.0037,
+            "ce_ub975": 0.0223
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.0117,
+          "siblings": {
+            "demonstrative_number": -0.0015,
+            "object_pronoun_number": -0.001,
+            "possessive_number": 0.001,
+            "possessive_number_its_their": -0.0052,
+            "possessive_verbfinal": 0.0074,
+            "pronoun_number": -0.0117,
+            "reciprocal": 0.0005,
+            "reflexive_number": 0.0041
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5835,
+            "ce_lb975": 0.483,
+            "ce_ub975": 0.6989
+          },
+          "C": {
+            "ce_damage": 0.0191,
+            "ce_lb975": 0.0056,
+            "ce_ub975": 0.0351
+          },
+          "extraction": 1.01,
+          "sib_abs_max": 0.1637,
+          "siblings": {
+            "demonstrative_number": -0.0135,
+            "object_pronoun_number": 0.0991,
+            "possessive_number": 0.0096,
+            "possessive_number_its_their": 0.1098,
+            "possessive_verbfinal": 0.0715,
+            "pronoun_number": 0.0837,
+            "reciprocal": 0.0472,
+            "reflexive_number": 0.1637
+          }
+        }
+      },
+      "exact_held": 0.892,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "seconds": 120.9,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:13:head:01",
+        "attn:08:head:01",
+        "attn:13:head:06",
+        "attn:04:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "reciprocal": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9047,
+            "ce_lb975": 0.8159,
+            "ce_ub975": 0.9949
+          },
+          "C": {
+            "ce_damage": 0.0014,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.0054
+          },
+          "extraction": 0.985,
+          "sib_abs_max": 0.0184,
+          "siblings": {
+            "demonstrative_number": 0.0037,
+            "object_pronoun_number": 0.0065,
+            "possessive_number": -0.0179,
+            "possessive_number_its_their": 0.0034,
+            "possessive_verbfinal": 0.0076,
+            "pronoun_number": -0.004,
+            "quantifier_number": 0.0056,
+            "reflexive_number": -0.0184
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9306,
+            "ce_lb975": 0.8336,
+            "ce_ub975": 1.0317
+          },
+          "C": {
+            "ce_damage": 0.002,
+            "ce_lb975": -0.0021,
+            "ce_ub975": 0.0065
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.1399,
+          "siblings": {
+            "demonstrative_number": 0.0021,
+            "object_pronoun_number": 0.0659,
+            "possessive_number": 0.097,
+            "possessive_number_its_their": 0.0322,
+            "possessive_verbfinal": 0.1399,
+            "pronoun_number": 0.0495,
+            "quantifier_number": 0.0119,
+            "reflexive_number": 0.1296
+          }
+        }
+      },
+      "exact_held": 0.908,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 137.6,
+      "separable": true,
+      "units": [
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:04:head:04",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:10:head:01",
+        "attn:05:head:06"
+      ]
+    },
+    "reflexive_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.584,
+            "ce_lb975": 0.5105,
+            "ce_ub975": 0.6704
+          },
+          "C": {
+            "ce_damage": -0.0031,
+            "ce_lb975": -0.0124,
+            "ce_ub975": 0.0054
+          },
+          "extraction": 0.937,
+          "sib_abs_max": 0.0311,
+          "siblings": {
+            "demonstrative_number": -0.0141,
+            "object_pronoun_number": 0.0106,
+            "possessive_number": 0.018,
+            "possessive_number_its_their": -0.0045,
+            "possessive_verbfinal": 0.0097,
+            "pronoun_number": 0.0095,
+            "quantifier_number": 0.0038,
+            "reciprocal": 0.0311
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6822,
+            "ce_lb975": 0.5975,
+            "ce_ub975": 0.7796
+          },
+          "C": {
+            "ce_damage": -0.0032,
+            "ce_lb975": -0.0073,
+            "ce_ub975": 0.0004
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.618,
+          "siblings": {
+            "demonstrative_number": 0.02,
+            "object_pronoun_number": 0.2469,
+            "possessive_number": 0.618,
+            "possessive_number_its_their": 0.4163,
+            "possessive_verbfinal": 0.5938,
+            "pronoun_number": 0.5558,
+            "quantifier_number": -0.0005,
+            "reciprocal": 0.4658
+          }
+        }
+      },
+      "exact_held": 0.865,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 100.6,
+      "separable": true,
+      "units": [
+        "attn:05:head:03",
+        "attn:03:head:04",
+        "attn:04:head:05",
+        "attn:12:head:04",
+        "attn:10:head:05",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:05:head:06",
+        "attn:10:head:01",
+        "attn:04:head:04"
+      ]
+    },
+    "relative_animacy_whom_which": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9618,
+            "ce_lb975": 0.8377,
+            "ce_ub975": 1.0962
+          },
+          "C": {
+            "ce_damage": -0.0049,
+            "ce_lb975": -0.0113,
+            "ce_ub975": 0.0008
+          },
+          "extraction": 1.024,
+          "sib_abs_max": 0.0309,
+          "siblings": {
+            "animacy": -0.0309,
+            "dative_animacy_to_the": -0.0047,
+            "pronoun_animacy_he_it": 0.0004,
+            "wh_adjunct_when_where": -0.0007,
+            "wh_argument_who_what": 0.0009
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9442,
+            "ce_lb975": 0.8024,
+            "ce_ub975": 1.1
+          },
+          "C": {
+            "ce_damage": -0.0055,
+            "ce_lb975": -0.0115,
+            "ce_ub975": 0.0002
+          },
+          "extraction": 1.016,
+          "sib_abs_max": 0.386,
+          "siblings": {
+            "animacy": 0.386,
+            "dative_animacy_to_the": -0.0017,
+            "pronoun_animacy_he_it": -0.0234,
+            "wh_adjunct_when_where": -0.0047,
+            "wh_argument_who_what": 0.1198
+          }
+        }
+      },
+      "exact_held": 0.892,
+      "family": "animacy_wh",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 19,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 82.0,
+      "separable": true,
+      "units": [
+        "attn:09:head:07",
+        "attn:09:head:06",
+        "attn:08:head:08",
+        "attn:07:head:08",
+        "attn:05:head:03",
+        "attn:11:head:06",
+        "attn:05:head:06",
+        "attn:07:head:00",
+        "attn:04:head:05",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:11:head:01",
+        "attn:10:head:01",
+        "attn:11:head:02",
+        "attn:12:head:04",
+        "attn:04:head:01",
+        "attn:05:head:08",
+        "attn:15:head:01",
+        "attn:09:head:01"
+      ]
+    },
+    "wh_argument_who_what": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.3038,
+            "ce_lb975": 0.2198,
+            "ce_ub975": 0.3847
+          },
+          "C": {
+            "ce_damage": -0.008,
+            "ce_lb975": -0.0225,
+            "ce_ub975": 0.0067
+          },
+          "extraction": 0.974,
+          "sib_abs_max": 0.0097,
+          "siblings": {
+            "animacy": 0.0097,
+            "dative_animacy_to_the": -0.0024,
+            "pronoun_animacy_he_it": -0.0045,
+            "relative_animacy_whom_which": -0.0012,
+            "wh_adjunct_when_where": -0.0018
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.2149,
+            "ce_lb975": 0.1598,
+            "ce_ub975": 0.27
+          },
+          "C": {
+            "ce_damage": -0.0255,
+            "ce_lb975": -0.038,
+            "ce_ub975": -0.0109
+          },
+          "extraction": 0.71,
+          "sib_abs_max": 0.0963,
+          "siblings": {
+            "animacy": 0.0049,
+            "dative_animacy_to_the": 0.0135,
+            "pronoun_animacy_he_it": 0.0394,
+            "relative_animacy_whom_which": 0.0963,
+            "wh_adjunct_when_where": -0.0032
+          }
+        }
+      },
+      "exact_held": 0.895,
+      "family": "animacy_wh",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 78.6,
+      "separable": true,
+      "units": [
+        "attn:10:head:03",
+        "attn:11:head:01",
+        "attn:07:head:00",
+        "attn:11:head:06",
+        "attn:15:head:01",
+        "attn:13:head:02",
+        "attn:06:head:03",
+        "attn:09:head:01",
+        "attn:08:head:03",
+        "attn:05:head:06",
+        "attn:09:head:07",
+        "attn:13:head:07",
+        "attn:07:head:07",
+        "attn:12:head:04",
+        "attn:08:head:08"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": true,
+    "pred_b_counted_kept": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "degree_synthetic_periphrastic_comparative",
+      "degree_synthetic_periphrastic_superlative",
+      "countability_few_little",
+      "possessive_number_its_their",
+      "polarity_any_some",
+      "relative_animacy_whom_which",
+      "comparative_complement_superior",
+      "comparative_complement_inferior",
+      "degree_much_very",
+      "article_countability",
+      "reflexive_number",
+      "pronoun_number",
+      "demonstrative_number",
+      "reciprocal",
+      "possessive_number",
+      "quantifier_number",
+      "object_pronoun_number",
+      "polarity_state",
+      "polarity_licensing",
+      "polarity_addition",
+      "dative_animacy_to_the",
+      "wh_argument_who_what"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v231 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v228",
+  "seconds": 2367.0,
+  "separable_counts": {
+    "animacy_wh": 3,
+    "countability": 2,
+    "degree": 5,
+    "number_readout": 8,
+    "polarity": 4
+  },
+  "summary": {
+    "article_countability": {
+      "fam": [
+        0.98,
+        0.0026,
+        0.0072
+      ],
+      "family": "countability",
+      "n_units": 8,
+      "own": [
+        0.984,
+        0.06,
+        0.0023
+      ],
+      "separable": true
+    },
+    "comparative_complement_inferior": {
+      "fam": [
+        0.986,
+        0.0135,
+        0.0056
+      ],
+      "family": "degree",
+      "n_units": 12,
+      "own": [
+        0.993,
+        0.7297,
+        0.0085
+      ],
+      "separable": true
+    },
+    "comparative_complement_superior": {
+      "fam": [
+        0.967,
+        0.0263,
+        0.0037
+      ],
+      "family": "degree",
+      "n_units": 15,
+      "own": [
+        0.998,
+        1.1035,
+        0.0067
+      ],
+      "separable": true
+    },
+    "countability_few_little": {
+      "fam": [
+        0.99,
+        0.0126,
+        0.0016
+      ],
+      "family": "countability",
+      "n_units": 9,
+      "own": [
+        0.997,
+        0.0446,
+        0.0037
+      ],
+      "separable": true
+    },
+    "dative_animacy_to_the": {
+      "fam": [
+        0.949,
+        0.0196,
+        0.0159
+      ],
+      "family": "animacy_wh",
+      "n_units": 18,
+      "own": [
+        1.048,
+        0.1415,
+        0.0046
+      ],
+      "separable": true
+    },
+    "degree_much_very": {
+      "fam": [
+        0.998,
+        0.0078,
+        0.0151
+      ],
+      "family": "degree",
+      "n_units": 17,
+      "own": [
+        1.006,
+        0.2331,
+        0.001
+      ],
+      "separable": true
+    },
+    "degree_synthetic_periphrastic_comparative": {
+      "fam": [
+        0.984,
+        0.0082,
+        0.0174
+      ],
+      "family": "degree",
+      "n_units": 20,
+      "own": [
+        0.989,
+        0.6627,
+        0.008
+      ],
+      "separable": true
+    },
+    "degree_synthetic_periphrastic_superlative": {
+      "fam": [
+        1.009,
+        0.0035,
+        0.0124
+      ],
+      "family": "degree",
+      "n_units": 26,
+      "own": [
+        1.007,
+        0.4849,
+        0.0087
+      ],
+      "separable": true
+    },
+    "demonstrative_number": {
+      "fam": [
+        0.99,
+        0.0051,
+        0.0027
+      ],
+      "family": "number_readout",
+      "n_units": 8,
+      "own": [
+        0.986,
+        0.0556,
+        0.0018
+      ],
+      "separable": true
+    },
+    "object_pronoun_number": {
+      "fam": [
+        0.928,
+        0.0281,
+        0.0057
+      ],
+      "family": "number_readout",
+      "n_units": 6,
+      "own": [
+        0.986,
+        0.237,
+        0.0008
+      ],
+      "separable": true
+    },
+    "polarity_addition": {
+      "fam": [
+        0.985,
+        0.0138,
+        0.0093
+      ],
+      "family": "polarity",
+      "n_units": 14,
+      "own": [
+        0.985,
+        0.2746,
+        0.0107
+      ],
+      "separable": true
+    },
+    "polarity_any_some": {
+      "fam": [
+        0.969,
+        0.0197,
+        0.0024
+      ],
+      "family": "polarity",
+      "n_units": 15,
+      "own": [
+        0.998,
+        0.5737,
+        0.007
+      ],
+      "separable": true
+    },
+    "polarity_licensing": {
+      "fam": [
+        0.994,
+        0.0164,
+        0.0112
+      ],
+      "family": "polarity",
+      "n_units": 11,
+      "own": [
+        0.993,
+        0.6043,
+        0.0093
+      ],
+      "separable": true
+    },
+    "polarity_state": {
+      "fam": [
+        0.978,
+        0.0084,
+        0.0019
+      ],
+      "family": "polarity",
+      "n_units": 13,
+      "own": [
+        1.002,
+        0.7212,
+        0.0043
+      ],
+      "separable": true
+    },
+    "possessive_number": {
+      "fam": [
+        0.919,
+        0.0395,
+        0.0009
+      ],
+      "family": "number_readout",
+      "n_units": 11,
+      "own": [
+        0.999,
+        0.6116,
+        0.0122
+      ],
+      "separable": true
+    },
+    "possessive_number_its_their": {
+      "fam": [
+        0.922,
+        0.0196,
+        -0.0009
+      ],
+      "family": "number_readout",
+      "n_units": 7,
+      "own": [
+        1.003,
+        0.5422,
+        0.0045
+      ],
+      "separable": true
+    },
+    "pronoun_number": {
+      "fam": [
+        0.848,
+        0.0341,
+        0.0001
+      ],
+      "family": "number_readout",
+      "n_units": 6,
+      "own": [
+        1.012,
+        0.6004,
+        0.0013
+      ],
+      "separable": true
+    },
+    "quantifier_number": {
+      "fam": [
+        0.998,
+        0.0117,
+        0.0223
+      ],
+      "family": "number_readout",
+      "n_units": 8,
+      "own": [
+        1.01,
+        0.1637,
+        0.0351
+      ],
+      "separable": true
+    },
+    "reciprocal": {
+      "fam": [
+        0.985,
+        0.0184,
+        0.0054
+      ],
+      "family": "number_readout",
+      "n_units": 11,
+      "own": [
+        1.006,
+        0.1399,
+        0.0065
+      ],
+      "separable": true
+    },
+    "reflexive_number": {
+      "fam": [
+        0.937,
+        0.0311,
+        0.0054
+      ],
+      "family": "number_readout",
+      "n_units": 10,
+      "own": [
+        0.999,
+        0.618,
+        0.0004
+      ],
+      "separable": true
+    },
+    "relative_animacy_whom_which": {
+      "fam": [
+        1.024,
+        0.0309,
+        0.0008
+      ],
+      "family": "animacy_wh",
+      "n_units": 19,
+      "own": [
+        1.016,
+        0.386,
+        0.0002
+      ],
+      "separable": true
+    },
+    "wh_argument_who_what": {
+      "fam": [
+        0.974,
+        0.0097,
+        0.0067
+      ],
+      "family": "animacy_wh",
+      "n_units": 15,
+      "own": [
+        0.71,
+        0.0963,
+        -0.0109
+      ],
+      "separable": true
+    }
+  }
+}
