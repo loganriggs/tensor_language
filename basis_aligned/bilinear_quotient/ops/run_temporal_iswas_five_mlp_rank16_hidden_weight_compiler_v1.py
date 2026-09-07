@@ -20,8 +20,8 @@ GAIN=ROOT/"circuits/followups/temporal_iswas_five_mlp_rank16_gain_curve_v1_resul
 REV=ROOT/"circuits/followups/temporal_iswas_five_mlp_rank16_gain115_reverse_v1_result.json"
 BASIS_RUNNER=ROOT/"ops/run_temporal_iswas_five_mlp_position_svd_ladder_v1.py"
 OUT=ROOT/"circuits/followups/temporal_iswas_five_mlp_rank16_hidden_weight_compiler_v1_result.json"
-EXPECTED={"prior":None,"position":"b6f4562bcc6e19dc808a0debaf35d32b0d6c1dbd6c6a6e7846a92253b89dc014","gain":"958f58cf6ac05973b65a38cd258093926999351016f1aa1bc2ec608c4844b75d","reverse":"c66584f4ee94a2fc7d390b4abcb296ffec933237de43b3924221e7482f465d52","basis_runner":"cc2733a518e015b3cccde4d109e46125d69e90fa60555a593c921f6f0e860236"}
-SUPPORT=("MLP0","MLP1","MLP2","MLP3","MLP6"); RANK=16; MAX_FORWARDS=8
+EXPECTED={"prior":"d043dd9688f6c76bafc6ef2157496f54c6273cf5772a2eed1af5d134843979f7","position":"b6f4562bcc6e19dc808a0debaf35d32b0d6c1dbd6c6a6e7846a92253b89dc014","gain":"958f58cf6ac05973b65a38cd258093926999351016f1aa1bc2ec608c4844b75d","reverse":"c66584f4ee94a2fc7d390b4abcb296ffec933237de43b3924221e7482f465d52","basis_runner":"cc2733a518e015b3cccde4d109e46125d69e90fa60555a593c921f6f0e860236"}
+SUPPORT=("MLP0","MLP1","MLP2","MLP3","MLP6"); RANK=16; MAX_FORWARDS=17
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def thash(x): return hashlib.sha256(x.detach().cpu().contiguous().numpy().tobytes()).hexdigest()
 def now(): return datetime.now(timezone.utc).isoformat(timespec="microseconds").replace("+00:00","Z")
@@ -45,7 +45,7 @@ def population_report(backend,batch,b0,b1,o0,o1,bases,maps):
         records[site]={"closure_rse":rse,"generic_norm":float(generic.norm()),"compiled_norm":float(compiled.norm())}
     return records,worst
 def main():
-    expected=dict(EXPECTED); expected["prior"]=sha(PRIOR)
+    expected=dict(EXPECTED)
     observed={"prior":sha(PRIOR),"position":sha(POS),"gain":sha(GAIN),"reverse":sha(REV),"basis_runner":sha(BASIS_RUNNER)}
     dry={"candidate_id":"temporal_auxiliary.iswas_five_mlp_rank16_hidden_weight_compiler_v1","dryrun":True,"gpu_accessed":False,"model_loaded":False,"queue_touched":False,"support":list(SUPPORT),"rank":RANK,"model_forwards_max":MAX_FORWARDS,"fit_updates":0,"model_updates":0,"transformer_backwards":0}
     if os.environ.get("BQLIB_DRYRUN")=="1" or os.environ.get("BQLIB_NO_MODEL")=="1": print(json.dumps(dry,sort_keys=True)); return
