@@ -264,6 +264,17 @@ it does not reject optimization.  The next split uses the exact attention identi
 `P'V' - PV = (P'-P)V + P(V'-V) + (P'-P)(V'-V)` to distinguish routing, value content, and their
 interaction before defining any nonlinear DAS objective.
 
+The exact attention operation factorial is now complete after preserving an invalid additive-
+installation attempt.  The corrected absolute-clamp retry passes every mechanical tripwire at
+exactly 17 forwards: raw factor closure is `1.14e-5`, base self is zero, and the full factor arm
+replays the complete-head lattice within `2.53e-7` with identical categorical diagnostics.  No
+homogeneous operation subset is selective.  Base-pattern-on-value-change carries nearly the whole
+target effect (`.83077/.85314` A1/A2) but flips five P rows and one C row; pattern-only and
+interaction-only remain nearly control-inert but reach only `.09366/.12631` and `.13699/.14621`.
+Thus the useful computation is value transport, while its collateral is entangled across the four
+heads.  The next exact split assigns the value factor independently at L8H1/L9H1/L9H4/L11H3 while
+keeping pattern and interaction as global bits, rather than optimizing a homogeneous DAS axis.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -349,7 +360,12 @@ are closed; the next optimization object must expose a finite causal-response op
   target-composition evidence but invalid P/C selectivity instrument due unequal per-row token
   lengths), followed by `temporal_iswas_v15_low_collateral_attention_lattice_v1_result.json`
   (complete target-side five-piece lattice; selectivity terminal retracted for the same control
-  alignment defect).
+  alignment defect), followed by `temporal_iswas_v15_aligned_control_attention_lattice_v1_result.json`
+  (valid aligned complete-head selectivity null),
+  `temporal_iswas_v15_crossfit_head_response_task_p_complement_v1_result.json` (linear complement
+  removes P but destroys construction transfer), and
+  `temporal_iswas_v15_aligned_attention_pattern_value_factorial_v1_retry1_result.json` (valid exact
+  operation null: value transport is target-dominant but nonselective when shared across heads).
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`, followed by
   `temporal_h3_das_nested_construction_adaptive_regularization_v1_result.json` (valid rejection of
@@ -359,11 +375,10 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Replay the complete 32-subset lattice over the four material heads plus complete attention 15
-   using the now capability-qualified, per-row token-aligned P/C controls.  If it cannot close behavior
-   selectively under valid controls, split the causally live complete MLP responses by task/control-
-   defined response rather than hidden-unit magnitude.
-3. Replace the rejected scalar-axis DAS loss with a finite causal-response operator whose held-out
+2. Execute the registered 64-arm head-specific value-factor lattice over L8H1/L9H1/L9H4/L11H3,
+   with global pattern/interaction bits and complete attention 15.  If it fails, open the full
+   12-component greedy factor program before learned DAS.
+3. Replace the rejected scalar-axis DAS loss, if exact factors fail, with a finite causal-response operator whose held-out
    blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
    as explicit controls, not post-hoc explanations.
 4. Test joint composition when temporal and is–was commands are installed together.
