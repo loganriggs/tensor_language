@@ -1,0 +1,139 @@
+{
+  "bars": {
+    "add_tol": 0.15,
+    "ctrl_max": 0.15,
+    "emb_maj": 0.4,
+    "instr_tol": 0.02,
+    "match_tol": 0.15,
+    "rowcos_max": 0.5,
+    "writes_maj": 0.5
+  },
+  "behaviours": {
+    "lexical_number_pp": {
+      "arms": {
+        "keep_emb_margin": 0.163,
+        "margin_check_donor": 1.0,
+        "margin_check_none": 0.0,
+        "random4_margin": -0.001,
+        "rec_writes_margin": 0.906,
+        "rowcos_frac_ge_0.5": 0.0,
+        "rowcos_median": -0.109,
+        "v136_vec_writes": 0.655,
+        "vec_embedding": 0.323,
+        "vec_writes": 0.655
+      },
+      "random4": [
+        "attn:02:head:06",
+        "attn:02:head:08",
+        "attn:00:head:02",
+        "attn:01:head:07"
+      ],
+      "reader": "attn:11:head:03",
+      "rows": 16,
+      "seconds": 1.0
+    },
+    "perfect_number": {
+      "arms": {
+        "keep_emb_margin": 0.138,
+        "margin_check_donor": 1.0,
+        "margin_check_none": 0.0,
+        "random4_margin": 0.001,
+        "rec_writes_margin": 0.876,
+        "rowcos_frac_ge_0.5": 0.0,
+        "rowcos_median": -0.12,
+        "v136_vec_writes": 0.564,
+        "vec_embedding": 0.389,
+        "vec_writes": 0.564
+      },
+      "random4": [
+        "attn:02:head:06",
+        "attn:02:head:08",
+        "attn:00:head:02",
+        "attn:01:head:07"
+      ],
+      "reader": "attn:11:head:03",
+      "rows": 16,
+      "seconds": 0.8
+    },
+    "quantifier_number": {
+      "arms": {
+        "keep_emb_margin": 0.74,
+        "margin_check_donor": 1.0,
+        "margin_check_none": 0.0,
+        "random4_margin": -0.002,
+        "rec_writes_margin": 0.112,
+        "rowcos_frac_ge_0.5": 0.125,
+        "rowcos_median": 0.391,
+        "v136_vec_writes": 0.239,
+        "vec_embedding": 0.663,
+        "vec_writes": 0.239
+      },
+      "random4": [
+        "attn:02:head:06",
+        "attn:02:head:08",
+        "attn:00:head:02",
+        "attn:01:head:07"
+      ],
+      "reader": "attn:07:head:08",
+      "rows": 16,
+      "seconds": 0.7
+    }
+  },
+  "candidate_id": "corpus.unit_tier5_cue_routes_margin_v137",
+  "counts": {
+    "instrument": 3,
+    "majority": 3,
+    "margin_add": 3,
+    "margin_match": 1,
+    "ran": 3,
+    "rowwise": 3
+  },
+  "finished_utc": "2026-09-07T06:48:33.525513+00:00",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_rowwise": true,
+    "pred_c_margin_add": true,
+    "pred_d_margin_match": false,
+    "pred_e_majority": true
+  },
+  "schema": "unit_tier5_cue_routes_margin_v137",
+  "seconds": 2.5,
+  "summary": {
+    "lexical_number_pp": {
+      "keep_emb_margin": 0.163,
+      "margin_check_donor": 1.0,
+      "margin_check_none": 0.0,
+      "random4_margin": -0.001,
+      "rec_writes_margin": 0.906,
+      "rowcos_frac_ge_0.5": 0.0,
+      "rowcos_median": -0.109,
+      "v136_vec_writes": 0.655,
+      "vec_embedding": 0.323,
+      "vec_writes": 0.655
+    },
+    "perfect_number": {
+      "keep_emb_margin": 0.138,
+      "margin_check_donor": 1.0,
+      "margin_check_none": 0.0,
+      "random4_margin": 0.001,
+      "rec_writes_margin": 0.876,
+      "rowcos_frac_ge_0.5": 0.0,
+      "rowcos_median": -0.12,
+      "v136_vec_writes": 0.564,
+      "vec_embedding": 0.389,
+      "vec_writes": 0.564
+    },
+    "quantifier_number": {
+      "keep_emb_margin": 0.74,
+      "margin_check_donor": 1.0,
+      "margin_check_none": 0.0,
+      "random4_margin": -0.002,
+      "rec_writes_margin": 0.112,
+      "rowcos_frac_ge_0.5": 0.125,
+      "rowcos_median": 0.391,
+      "v136_vec_writes": 0.239,
+      "vec_embedding": 0.663,
+      "vec_writes": 0.239
+    }
+  }
+}
