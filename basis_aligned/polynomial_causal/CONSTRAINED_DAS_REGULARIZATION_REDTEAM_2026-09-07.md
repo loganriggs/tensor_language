@@ -61,3 +61,30 @@ If v15 qualifies, the next DAS comparison will be nested rather than another out
 6. Choose the final configuration only from aggregated v8/v10 inner scores, refit on all v8+v10 panel-direction environments, and open capability-qualified v15 once.  V12 is reported only as historical evidence and is never part of selection or validation.
 
 The registered success bar should require a nonzero regularized checkpoint to beat both its nested no-reg comparator and pooled step zero on each outer fold, then improve mean and worst six-term score on v15 without violating target limits.  If hyperparameters differ across the two outer folds but both win, the result supports adaptive regularization but not one reusable global objective.  If inner selection fails to predict either outer fold, the complement/KL loss family remains non-identifying even with nested tuning, and the route should move to a multi-reader causal operator rather than a denser coefficient grid.  A conservative ceiling is 5,000 counted reader/model evaluations and 350 updates; exact live accounting remains mandatory.
+
+## Nested result: the current scalar-axis objective is rejected
+
+The nested test is valid and returns `inner_selection_mispredicts_construction`.  Every authority,
+row-disjointness, capability, closure, finiteness, and price check passes; the run counted 48 native
+and 2,448 differentiable reader calls (2,496/5,000 total) and 305/350 updates.  Thus this is an
+objective result, not another instrumentation ambiguity.
+
+Inside v8, the aggregate selector chooses noise `.10` plus KL `1.0`, although the two held-out cue
+directions disagree between KL-only and noise+KL.  The moved refit beats pooled step zero on v10
+(`1.2052` versus `1.9098` worst six-term loss), but loses to identically budgeted no-reg (`1.1555`).
+Inside v10, every configuration selects step zero on both directions, so the registered selector
+chooses no-reg with zero updates.  It therefore makes no improvement over pooled when transferred
+to v8.  The direction-stability, both-outer-fold, and generalization-gap predictions all fail.
+
+The global inner score chooses noise `.10` plus KL `1.0` for five updates.  On the once-opened v15
+family it lowers mean/worst six-term loss from `1.3122/1.8406` to `.6927/1.2115`, but is infeasible:
+one v15 environment violates the hard L15-match limit by `.15642`.  This is the exact failure the
+hard constraint was meant to catch—the optimizer improves complement/full-vocabulary terms partly
+by discarding a required downstream target effect.  Predictions D and E therefore fail despite the
+headline aggregate improvement.
+
+This closes denser KL/noise tuning for the present rank-one scalar-axis loss.  Regularization remains
+a useful ingredient, and optimization itself is not rejected; what is rejected is treating the
+current six scalar contractions as an identifying objective.  The next DAS-like object should fit a
+finite causal-response operator across held-out downstream-reader and construction blocks, with
+target effects represented in the object rather than enforced only by a soft/barrier scalar loss.

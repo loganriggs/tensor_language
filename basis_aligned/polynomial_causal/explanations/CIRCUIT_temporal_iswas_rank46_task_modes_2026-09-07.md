@@ -154,6 +154,17 @@ checkpoint; target extraction is a hard feasibility constraint; complement and K
 among feasible checkpoints.  A learned rotation graduates only if it beats DIM without
 refitting on sealed task families and predicts through the exact weight-derived readers.
 
+The completed nested test now rejects the current rank-one scalar-axis objective.  It is fully
+valid at 48 native plus 2,448 differentiable-reader calls and 305 updates.  V8 inner selection
+chooses noise `.10` plus KL `1.0`, but the refit loses to matched-budget no-reg on outer v10
+(`1.2052` versus `1.1555` worst loss).  V10 selects step zero for every configuration.  A global
+noise+KL refit lowers the sealed-v15 aggregate loss from `1.3122/1.8406` mean/worst to
+`.6927/1.2115`, but violates one hard L15 target bound by `.15642`.  This is positive evidence that
+regularization can improve the observed complement distribution and simultaneous evidence that the
+six scalar terms are non-identifying: the improvement can discard a required downstream effect.
+The registered terminal is `inner_selection_mispredicts_construction`.  Further coefficient grids
+are closed; the next optimization object must expose a finite causal-response operator.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -180,7 +191,9 @@ refitting on sealed task families and predicts through the exact weight-derived 
   `temporal_iswas_rank16_source_complement_site_localization_v1_result.json` (distributed, nearly
   additive complement; no single-site explanation).
 - Fully instrumented DAS regularization:
-  `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`.
+  `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`, followed by
+  `temporal_h3_das_nested_construction_adaptive_regularization_v1_result.json` (valid rejection of
+  the current scalar-axis objective).
 
 ## Remaining gates
 
@@ -189,8 +202,8 @@ refitting on sealed task families and predicts through the exact weight-derived 
 2. Execute the frozen five-site complement composition order (or complete 32-mask lattice), select
    the smallest full-equivalent add-back, and confirm that exact mask on a new construction family;
    then factor shared and contrast contributions inside the repaired source program.
-3. Fit construction-adaptive multi-environment DAS against the richer operator, selecting KL/noise
-   strength without seeing the outer construction family and reserving a capability-qualified new
-   text family for the outcome; do not tune against the already-open v12 success.
+3. Replace the rejected scalar-axis DAS loss with a finite causal-response operator whose held-out
+   blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
+   as explicit controls, not post-hoc explanations.
 4. Test joint composition when temporal and is–was commands are installed together.
 5. Price an extracted executor only after these identification gates pass.
