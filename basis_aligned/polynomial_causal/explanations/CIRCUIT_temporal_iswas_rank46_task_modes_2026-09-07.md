@@ -203,6 +203,22 @@ complete MLP/module candidates.  That executed combination, rather than a sum of
 scores, will decide whether the v15 behavior admits a small cross-boundary circuit and which
 pieces are selectively necessary.
 
+The 17-candidate adaptive combination is valid at exactly 174 forwards but finds no selective
+prefix on its registered greedy path.  The full bank reconstructs both behavior (`.95849/.96621`
+on A1/A2) and the final residual (`.98098/.98789` signed projection), yet flips 29/32 P/C
+controls with median KL `2.62725`.  The path first exceeds `.80` behavioral projection with five
+pieces, but by then flips 24 controls.  Complete MLP1 is the main collateral transition: adding
+it at step three raises A1 behavior from `.45713` to `.69867` while median control KL jumps from
+`.01614` to `1.52048` and flips rise from one to 25.
+
+The registered `no_small_selective_prefix` terminal is local to that greedy sequence, not a
+global subset impossibility result.  `attn:15` and `L9H4` are individually zero-flip, low-KL
+components, while `L8H1`, `L11H3`, and `L9H1` have only one or two singleton flips.  Because
+composition can restore selectivity, the next exact test is the complete 32-subset lattice over
+those five attention pieces.  Failure of that lattice to find a target-sufficient selective set
+would isolate the remaining problem to task-conditioned splitting of the high-gain, high-collateral
+complete MLP writes.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -283,7 +299,9 @@ are closed; the next optimization object must expose a finite causal-response op
   singleton atlas; top `attn:8/9/11`, while input-inclusive prefix inference is tautological and
   explicitly quarantined), followed by
   `temporal_iswas_v15_attention8_9_11_complete_head_atlas_v1_result.json` (valid exact 27-head
-  singleton/conditional atlas; material core `L8H1`, `L9H1`, `L9H4`, and `L11H3`).
+  singleton/conditional atlas; material core `L8H1`, `L9H1`, `L9H4`, and `L11H3`), followed by
+  `temporal_iswas_v15_cross_boundary_adaptive_greedy_v1_result.json` (valid greedy-path
+  selectivity null; full target/residual closure but catastrophic complete-MLP collateral).
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`, followed by
   `temporal_h3_das_nested_construction_adaptive_regularization_v1_result.json` (valid rejection of
@@ -293,10 +311,9 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Execute a frozen greedy composition of the four causally material heads with the best complete
-   MLP/module candidates; do not use the tautological input-inclusive prefix result.  Confirm the
-   selected cross-boundary circuit without reselection and test selective leave-one-component-out
-   necessity.
+2. Execute the complete 32-subset lattice over the four material heads plus complete attention 15.
+   If it cannot close behavior selectively, split the causally live complete MLP responses by
+   task/control-defined response rather than hidden-unit magnitude.
 3. Replace the rejected scalar-axis DAS loss with a finite causal-response operator whose held-out
    blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
    as explicit controls, not post-hoc explanations.
