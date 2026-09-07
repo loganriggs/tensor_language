@@ -27,7 +27,7 @@ OUT = ROOT / "circuits/followups/temporal_five_mlp_control_conditioned_upstream_
 CANDIDATE_ID = "temporal_auxiliary.five_mlp_control_conditioned_upstream_atlas_v1"
 KNOWN = ("L9H1", "L9H4", "MLP7", "MLP9")
 EXPECTED = {
-    "prior": "487676c7ece09dfe13c6301439a9f91a89a4ce050ce14c0d4ac35f553c268003",
+    "prior": "89a725ff4578368274dd922ebd1d94b34e0390a858a9342eedb8b0533b422c34",
     "generic": "57402478b86e88237bb745824e7aa8e6d56c17336753cee3d1b4e9359b5febe3",
     "atlas": "0cc9909dcab7a17b93820300da56a07f4cd9a2610f71a1de1c7008710d064467",
     "atlas_runner": "6e28d38ec1446eafb3518c1bfe603a5e3469ceadb6f80266e2c695a274692366",
@@ -70,7 +70,7 @@ def evaluate_split(backend, rows, sites, reader, target_scales):
         return logits[ix, answer] - logits[ix, foil]
     base_margin = margin(base_state)
     records = {"temporal": {}, "iswas": {}}
-    task_indices = {"temporal": slice(0, 16), "iswas": slice(16, 32)}
+    task_indices = {"temporal": slice(0, 16), "iswas": slice(16, 24)}
     for site in sites:
         output, _ = atlasrun.run_patch(backend, base_batch, donor_cache, (site,))
         state = atlasrun.states(torch, backend, output, rows)
@@ -92,15 +92,15 @@ def main():
     prior, generic, atlas, weights = map(lambda p: json.loads(p.read_text()), (PRIOR, GENERIC, ATLAS, WEIGHTS))
     sites = atlasrun.UPSTREAM_SITES
     dryrun = {"candidate_id": CANDIDATE_ID, "dryrun": True, "gpu_accessed": False,
-              "model_loaded": False, "queue_touched": False, "sites": len(sites), "rows": 64,
-              "model_forwards_max": 366, "example_evaluations_max": 11712,
+              "model_loaded": False, "queue_touched": False, "sites": len(sites), "rows": 48,
+              "model_forwards_max": 366, "example_evaluations_max": 8736,
               "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
     if os.environ.get("BQLIB_DRYRUN") == "1" or os.environ.get("BQLIB_NO_MODEL") == "1":
         print(json.dumps(dryrun, sort_keys=True)); return
     rows = control_rows()
     authority_ok = bool(prior["candidate_id"] == CANDIDATE_ID and generic["terminal"] == "generic_transport_null"
                         and atlas["terminal"] == "invalid" and len(sites) == 179
-                        and all(len(group) == 32 for group in rows.values())
+                        and all(len(group) == 24 for group in rows.values())
                         and all(r["base_answer_id"] == r["donor_answer_id"] for group in rows.values() for r in group))
     if not authority_ok: raise RuntimeError("control population changed")
     if OUT.exists(): raise FileExistsError(OUT)
@@ -148,7 +148,7 @@ def main():
               "old_median_validation_control": old_med_c, "new_median_validation_control": new_med_c,
               "old_median_target_magnitude": old_med_t, "new_median_target_magnitude": new_med_t},
               "predictions": preds, "terminal": terminal, "price": {"model_forwards": 2*(3+len(sites)),
-              "example_evaluations": 2*(3+len(sites))*32, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}}
+              "example_evaluations": 2*(3+len(sites))*24, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}}
     atomic_create_json(OUT, result)
     print(json.dumps({k: result[k] for k in ("summary","selective_top20","predictions","terminal","price")}, sort_keys=True))
 

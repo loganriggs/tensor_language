@@ -10,12 +10,13 @@
     "iswas_builder_sha256": "2734cbeceb4e6979dab22fe5b24870386874ac2f905ae426e6e689548e43e8a2",
     "physical_reader_sha256": "c8ab608fa116342f9cbc8af4955e6087faa0f1eee9dd74dacb5c0ec168c5bf4d"
   },
-  "population": "All 32 transform-C same-answer rows from each frozen builder. Within each task, even row indices are discovery and odd row indices are sealed validation; token alignment and identical base/donor answer IDs are hard gates.",
+  "population": "All transform-C same-answer rows from each frozen builder: 32 temporal and 16 is/was. Within each task, even row indices are discovery and odd row indices are sealed validation; token alignment and identical base/donor answer IDs are hard gates.",
+  "pre_outcome_amendment": "The first managed attempt failed before model loading because the sealed builders contain 32 temporal but 16, not 32, is/was C rows. No causal outcome was exposed. Counts and evaluation price are corrected here without changing sites, split rule, selection, or predictions.",
   "sites": "The same complete 179-site population as the target atlas: all 162 heads in layers 0--17 and MLP0--16.",
   "intervention": "For every site and split, patch its full native response from C donor into C base, then measure final answer-margin movement and both frozen physical reader-mode movements. Base, donor, and self patches are included per split.",
   "selection": "Use only discovery controls plus the already frozen target-atlas metrics. Normalize absolute C margin movement by the corresponding target full-effect RMS. Rank sites lexicographically by target causal magnitude divided by 0.05 plus worst discovery-control fraction, then target magnitude; freeze the first 20. Validation controls may not alter the ranking.",
   "predictions": {
-    "pred_a_authority_population_self_patch_finiteness_and_price": "All authorities, 64 C rows, 179 sites, exact alignment, self-patch <=1e-4, finite outputs, and <=366 model forwards / 11712 row evaluations close.",
+    "pred_a_authority_population_self_patch_finiteness_and_price": "All authorities, 48 C rows, 179 sites, exact alignment, self-patch <=1e-4, finite outputs, and <=366 model forwards / 8736 row evaluations close.",
     "pred_b_mlp1_is_generic_transport": "MLP1 lies in the top decile of discovery control effect in both tasks and exceeds 0.20 target-scale effect on validation in at least one task.",
     "pred_c_control_incidence_generalizes": "Discovery-versus-validation site ranking by worst control fraction has Spearman >=0.70.",
     "pred_d_selective_pool_contains_known_writers": "The frozen selective top20 contains at least two of L9H1/L9H4/MLP7/MLP9 and at least one non-MLP site from layers 8--11.",
@@ -30,7 +31,7 @@
   },
   "price_upper_bound": {
     "model_forwards": 366,
-    "example_evaluations": 11712,
+    "example_evaluations": 8736,
     "fit_updates": 0,
     "model_updates": 0,
     "transformer_backwards": 0
