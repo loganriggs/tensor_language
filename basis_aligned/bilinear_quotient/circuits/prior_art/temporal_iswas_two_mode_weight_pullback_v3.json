@@ -1,0 +1,9 @@
+{
+  "candidate_id": "cross_task.temporal_iswas_two_mode_weight_pullback_v3",
+  "claimed_utc": "2026-09-07T01:09:00Z",
+  "repair_of": "cross_task.temporal_iswas_two_mode_weight_pullback_v2",
+  "invalid_parent_reason": "The correctly normalized float32 physical-projector comparison was 1.0792632e-5, narrowly above the frozen 1e-5 numerical bar.",
+  "sole_change": "Recompute only the orthogonal-gauge pullback and QR projector diagnostic end-to-end in float64; retain float32 scientific modes, rankings, predictions, prices, and all thresholds.",
+  "prediction": "The float64 physical-projector discrepancy is at most 1e-10 and every non-gauge numerical output reproduces v2.",
+  "null": "If the float64 projector discrepancy exceeds 1e-10 or any non-gauge predicate changes, the pullback remains invalid."
+}
