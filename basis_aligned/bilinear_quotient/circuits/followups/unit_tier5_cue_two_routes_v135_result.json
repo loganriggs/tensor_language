@@ -1,0 +1,114 @@
+{
+  "bars": {
+    "add_tol": 0.15,
+    "cos_min": 0.7,
+    "ctrl_max": 0.15,
+    "emb_maj": 0.4,
+    "instr_min": 0.9,
+    "writes_maj": 0.5
+  },
+  "behaviours": {
+    "lexical_number_pp": {
+      "arms": {
+        "cos_writes_vs_embedding": 0.994,
+        "cue_embedding_only": 0.335,
+        "cue_random4_writes": -0.01,
+        "cue_writes_only": 0.22,
+        "near_embedding_only": 0.059,
+        "near_writes_only": 1.028
+      },
+      "random4": [
+        "attn:02:head:06",
+        "attn:02:head:08",
+        "attn:00:head:02",
+        "attn:01:head:07"
+      ],
+      "reader": "attn:11:head:03",
+      "rows": 16,
+      "seconds": 1.1
+    },
+    "perfect_number": {
+      "arms": {
+        "cos_writes_vs_embedding": 0.99,
+        "cue_embedding_only": 0.228,
+        "cue_random4_writes": 0.002,
+        "cue_writes_only": 0.091,
+        "near_embedding_only": 0.061,
+        "near_writes_only": 1.056
+      },
+      "random4": [
+        "attn:02:head:06",
+        "attn:02:head:08",
+        "attn:00:head:02",
+        "attn:01:head:07"
+      ],
+      "reader": "attn:11:head:03",
+      "rows": 16,
+      "seconds": 0.8
+    },
+    "quantifier_number": {
+      "arms": {
+        "cos_writes_vs_embedding": 0.915,
+        "cue_embedding_only": 0.132,
+        "cue_random4_writes": -0.022,
+        "cue_writes_only": -0.239,
+        "near_embedding_only": 0.001,
+        "near_writes_only": 1.004
+      },
+      "random4": [
+        "attn:02:head:06",
+        "attn:02:head:08",
+        "attn:00:head:02",
+        "attn:01:head:07"
+      ],
+      "reader": "attn:07:head:08",
+      "rows": 16,
+      "seconds": 0.7
+    }
+  },
+  "candidate_id": "corpus.unit_tier5_cue_two_routes_v135",
+  "counts": {
+    "control": 3,
+    "instrument": 3,
+    "ran": 3,
+    "reader_type": 1,
+    "routes_add": 0,
+    "same_axis": 3
+  },
+  "finished_utc": "2026-09-07T06:36:29.149761+00:00",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_routes_add": false,
+    "pred_c_reader_type": false,
+    "pred_d_same_axis": true,
+    "pred_e_control": true
+  },
+  "schema": "unit_tier5_cue_two_routes_v135",
+  "seconds": 2.7,
+  "summary": {
+    "lexical_number_pp": {
+      "cos_writes_vs_embedding": 0.994,
+      "cue_embedding_only": 0.335,
+      "cue_random4_writes": -0.01,
+      "cue_writes_only": 0.22,
+      "near_embedding_only": 0.059,
+      "near_writes_only": 1.028
+    },
+    "perfect_number": {
+      "cos_writes_vs_embedding": 0.99,
+      "cue_embedding_only": 0.228,
+      "cue_random4_writes": 0.002,
+      "cue_writes_only": 0.091,
+      "near_embedding_only": 0.061,
+      "near_writes_only": 1.056
+    },
+    "quantifier_number": {
+      "cos_writes_vs_embedding": 0.915,
+      "cue_embedding_only": 0.132,
+      "cue_random4_writes": -0.022,
+      "cue_writes_only": -0.239,
+      "near_embedding_only": 0.001,
+      "near_writes_only": 1.004
+    }
+  }
+}
