@@ -1,13 +1,12 @@
-/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/followups/TERMINAL_TABLE_GREEDY_2026-09-07.md
+# Terminal evidence — removal-greedy head sets (generated 2026-09-07 02:14 UTC by ops/terminal_table_greedy_sets.py)
+
+Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised), v75 (constrained DAS: direction = rank-1-per-block DAS on pooled A1 + v15 verb-variant EVEN rows, complement term, C-removal-inertness regularizer λ=30 on C EVEN rows; A2 and the odd rows never fitted), v76 (extraction of those directions on A1 and A2 odd rows).
+
 | behaviour | set | n | removal A1 (LB) | extraction (LB) | own C (UB) | A2 a1-fit | A2 a2-fit | random | max cross | rows 2/3/4/5 |
 |---|---|---|---|---|---|---|---|---|---|---|
 | quantifier_number | hub | 2 | 0.353 | 0.509 (0.485) | — | — | — | — | — | ✗/·/·/· |
 | quantifier_number | hub+3 | 5 | 0.539 (0.442) | 0.665 (0.634) | — | — | — | — | — | ✗/·/·/· |
 | quantifier_number | hub+8 | 10 | 0.720 (0.572) | 0.816 (0.775) | -0.059 (-0.035) | 0.716 | 0.700 | -0.001 | -0.010 | ✓/✓/✓/✓ |
-| quantifier_number | hub+8 constrained DAS (pooled, λ=30) | 10 | 0.738 (0.538) | 0.753 (0.705); A2 0.853 | 0.009 (0.020); λ=0 -0.046 | 0.866 | — | -0.003 | 0.022 | ✗/✓/✗/✓ |
-| quantifier_number | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | 10 | 0.731 (0.533) | 0.757 (0.710); A2 0.850 | 0.009 (0.018) | 0.887 | unseen pair 0.677 | -0.003 | max abs 0.009 | ✗/✓/✗/✓ |
-| verb_preposition | hub | 3 | 0.202 | 0.588 (0.566) | — | — | — | — | — | ✗/·/·/· |
-10 | 0.720 (0.572) | 0.816 (0.775) | -0.059 (-0.035) | 0.716 | 0.700 | -0.001 | -0.010 | ✓/✓/✓/✓ |
 | quantifier_number | hub+8 constrained DAS (pooled, λ=30) | 10 | 0.738 (0.538) | 0.753 (0.705); A2 0.853 | 0.009 (0.020); λ=0 -0.046 | 0.866 | — | -0.003 | 0.022 | ✗/✓/✗/✓ |
 | quantifier_number | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | 10 | 0.731 (0.533) | 0.757 (0.710); A2 0.850 | 0.009 (0.018) | 0.887 | unseen pair 0.677 | -0.003 | max abs 0.009 | ✗/✓/✗/✓ |
 | verb_preposition | hub | 3 | 0.202 | 0.588 (0.566) | — | — | — | — | — | ✗/·/·/· |
