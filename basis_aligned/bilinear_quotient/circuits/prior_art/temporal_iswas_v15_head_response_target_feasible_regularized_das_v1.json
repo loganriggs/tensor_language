@@ -25,12 +25,14 @@
   },
   "lexicographic_objective": {
     "feasibility": "Every A1 selection group must have behavior signed projection >=0.75 and direction fraction >=0.875.",
-    "secondary": "Among feasible checkpoints minimize worst-group aligned-P full-vocabulary KL, then Gaussian tangent-noise/Jacobian sensitivity, then cross-fold projector instability. If no checkpoint is feasible, rank only for diagnosis by maximum target violation and do not call it a candidate.",
+    "secondary": "Within each direction, among feasible checkpoints minimize aligned-P group-mean full-vocabulary KL plus the fixed configuration's Jacobian sensitivity weight. Across the paired directions, minimize the worse held-parity secondary score plus 0.25 times mean normalized cross-fold projector distance. If no checkpoint is feasible, rank only for diagnosis by maximum target violation and do not call it a candidate.",
     "regularization_grid": {
       "noise_sigma": [0.0, 0.05, 0.1],
-      "jacobian_weight": [0.0, 0.25, 1.0],
-      "stability_weight": [0.0, 0.25, 1.0]
-    }
+      "jacobian_weight": [0.0, 0.25, 1.0]
+    },
+    "nonduplicate_configurations": "Use (noise_sigma, jacobian_weight) = (0,0), (.05,.25), (.05,1), (.10,.25), (.10,1). Noise is paired Gaussian perturbation of the native donor-minus-base head response, scaled by that head's training-response RMS. Sensitivity is centered-logit squared change divided by sigma^2 and the A1 full-response centered-logit scale.",
+    "stability_weight": 0.25,
+    "fit": "Adam, learning rate .03, eight updates, checkpoints 0/4/8, target barrier 100, smooth worst-row P-KL temperature .05. The scalar training surrogate guides search, but only the hard checkpoint feasibility bars can license a candidate."
   },
   "fixed_baselines": [
     "zero-step DIM/task-SVD projector at every registered dimension",
@@ -57,5 +59,13 @@
     "invalid": "A fails."
   },
   "next_branch": "A candidate freezes the projector for a genuinely fresh lexical/construction test, then translates it through QK/OV and downstream tensors to explicit writers/readers. An infeasible or nonselective result changes the object to nonlinear/input-conditional routing rather than widening the same hyperparameter grid.",
+  "price": {
+    "native_capture_forwards_max": 10,
+    "differentiable_transformer_forwards_max": 1800,
+    "transformer_backward_forwards_max": 1250,
+    "model_updates_max": 480,
+    "example_evaluations_max": 30000,
+    "fit_parameters_max": 2048
+  },
   "execution_policy": "managed_queue_only"
 }

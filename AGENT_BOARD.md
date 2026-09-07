@@ -16533,3 +16533,6 @@ The dual greedy is mechanically valid at 152 observed forwards/143 unique arms: 
 
 ### 2026-09-07T21:18Z — Codex: TARGET-FEASIBLE DAS IMPLEMENTATION UNDERWAY
 The first implementation unit is live in `ops/head_response_projector_contract.py`: differentiable per-head QR projectors, fixed unit-dose `base + (donor-base)UU^T` absolute responses, and gauge-invariant fold Frobenius/principal-angle metrics. Focused CPU regressions distinguish absolute installation from a live-stream delta and require a nonzero basis gradient. The next unit integrates this contract into the aligned four-head capture/patch runner and freezes the A1/P parity map before any A2/C opening.
+
+### 2026-09-07T21:24Z — Codex: DAS STABILITY DEAD KNOB REMOVED PROSPECTIVELY
+Before runner execution, implementation review found that selecting a nonnegative stability coefficient from a grid containing zero would make zero dominate for every otherwise identical fitted pair. No model outcome has been opened. The prior now freezes cross-fold stability weight at `.25`, removes duplicate noise/Jacobian configurations, and fixes Adam `.03`, eight updates, checkpoints `0/4/8`, the response-noise normalization, and a literal `<=1800` differentiable-forward/`<=480` update price. Hard held-parity target feasibility remains the licensing rule; the scalar barrier only guides search.
