@@ -1,0 +1,63 @@
+{
+  "bars": {
+    "c_max": 0.15,
+    "exact_tol": 0.03,
+    "frame_min": 0.5,
+    "heldout_min": 0.6,
+    "lin_tol": 0.15,
+    "rand_max": 0.05,
+    "v150_exact": 0.85
+  },
+  "candidate_id": "corpus.unit_tier5_number_seven_set_rubric_v151",
+  "finished_utc": "2026-09-07T07:50:25.761245+00:00",
+  "measures": {
+    "C_same_dim": 0.002,
+    "C_same_exact": 0.032,
+    "C_same_rand": 0.001,
+    "S_plus_C_A1p1": 0.927,
+    "block_cos_p0_p1": {
+      "08:mlp": 0.745,
+      "09:heads": 0.915,
+      "09:mlp": 0.891,
+      "10:heads": 0.97,
+      "10:mlp": 0.79,
+      "11:heads": 0.982
+    },
+    "comp_A1p1": 0.087,
+    "comp_A2p1": -0.015,
+    "dim_A1p1": 0.84,
+    "dim_A2p1": 0.738,
+    "exact_A1p0": 0.768,
+    "exact_A1p1": 0.85,
+    "exact_A2p1": 0.73,
+    "rand_A1p1": 0.001,
+    "rand_A2p1": 0.001,
+    "rows": {
+      "A1p0": 16,
+      "A1p1": 16,
+      "A2p1": 16,
+      "C": 32
+    },
+    "scale_logits": 9.39,
+    "swap_comp_A1p0": -0.0,
+    "swap_dim_A1p0": 0.749
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_heldout": true,
+    "pred_c_linearity": true,
+    "pred_d_frame": true,
+    "pred_e_C_inert": true
+  },
+  "schema": "unit_tier5_number_seven_set_rubric_v151",
+  "seconds": 0.9,
+  "units": [
+    "attn:11:head:03",
+    "mlp:09",
+    "attn:09:head:07",
+    "mlp:10",
+    "attn:10:head:05",
+    "attn:11:head:02",
+    "mlp:08"
+  ]
+}
