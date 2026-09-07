@@ -1,0 +1,39 @@
+{
+  "schema": "tense_auxiliary_is_was_v15_aligned_controls_capability_prior_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.v15_aligned_controls_capability_v1",
+  "registered_utc": "2026-09-07T18:42:12Z",
+  "question": "Are the new token-aligned P and C control pairs natively answer-capable on both sides, so their later patch responses can measure collateral rather than model uncertainty?",
+  "authority": {
+    "builder_sha256": "7027e128ea3e68a35e92f451d0f62453a937e64a8dafda24d841aa1f1d29e645",
+    "rows_sha256": "3f1d28abb658040493284b307cc27ba76f422dddb08ee9c53686c557d49f283c",
+    "alignment_contract_sha256": "7b4b04cec6f28b47b7d22b8e4be32421bbfae6a04f1adc7c0b890939c9e32760",
+    "population_contract_sha256": "acdf74ffe8eaa729e7704a2f66c0dde7d9543d7dedfdfeffe8ac7f88c6aef288"
+  },
+  "frozen_design": {
+    "population": "Exactly the 16 P and 16 C rows from the aligned-control authority; A1/A2 target logits and every causal arm remain unopened.",
+    "panels": {
+      "P": "Same-tense answer-preserving Today/Yesterday to Currently/Previously cue pairing, reported independently.",
+      "C": "Unrelated same-answer nighttime completion with equal-length rotated place/role lexicon, reported independently."
+    },
+    "capability_threshold": {
+      "minimum_fraction": 0.875,
+      "panel_denominators": {"P": 16, "C": 16},
+      "required_jointly_capable_counts": {"P": 14, "C": 14},
+      "cell_rule": "Each P/base, P/donor, C/base, and C/donor accuracy is at least 0.875."
+    },
+    "price": {
+      "model_forwards": 2,
+      "example_evaluations": 64,
+      "interventions": 0,
+      "transformer_backwards": 0,
+      "model_updates": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_alignment_and_exact_population": "All hashes match, all 32 rows satisfy the full-sequence alignment contract, panel counts are 16/16, and the derived 0.875 population contract is exactly 14/16 for each panel.",
+    "pred_b_each_panel_side_cell_capable": "Each of the four panel/side cells reaches native answer-over-foil accuracy at least 0.875.",
+    "pred_c_each_panel_joint_population_capable": "At least 14/16 rows in P and independently at least 14/16 rows in C are correct on both base and donor sides.",
+    "pred_d_no_causal_access_and_exact_price": "Exactly two native forwards and 64 example-side evaluations occur, with no interventions, backwards, updates, or A1/A2 outcome access."
+  },
+  "decision": "If all predictions pass, publish a capability manifest and replay the already-frozen five-piece 32-mask attention lattice with P and C selectivity reported separately. If authority or price fails, mark invalid. Otherwise preserve a capability null and repair or replace only the failing control panel before causal replay."
+}
