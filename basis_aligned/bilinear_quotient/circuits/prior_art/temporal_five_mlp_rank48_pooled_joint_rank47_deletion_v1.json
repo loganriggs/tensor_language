@@ -1,0 +1,19 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_pooled_joint_rank47_deletion_v1",
+  "question": "Can one of the three remaining rank49-feasible low-impact heads be removed from the now-stable rank48 support while preserving the same pooled interface in both OOD directions?",
+  "prior_art": {
+    "rank49_deletion": "L1H3, L3H7, and L10H5 were each individually removable from the earlier rank49 crossfit program; L1H5 was selected to form rank48.",
+    "rank48_stability": "The rank48 support with one pooled projector passes clean forward/reverse OOD and three 10% source-noise seeds in both directions."
+  },
+  "arms": ["remove_L1H3", "remove_L3H7", "remove_L10H5"],
+  "evaluation": "For each frozen candidate removal, run the resulting 47-component source graph forward and reverse on row-disjoint temporal-v12/iswas-v11 targets and controls using the exact pooled projector at gain one.",
+  "predictions": {
+    "pred_a_authority_hash_disjointness_finiteness_and_exact_price": "All authorities and projector hashes reproduce, fit/evaluation IDs are disjoint, source exchange changes one token, values are finite, and exactly 39 forwards execute.",
+    "pred_b_at_least_one_rank47_arm_has_bidirectional_coordinate_fidelity": "At least one arm has minimum coordinate projection at least 0.75 and mean/worst residual at most 0.20 in both directions.",
+    "pred_c_at_least_one_rank47_arm_has_bidirectional_behavior_fidelity": "The same arm has both task behavior projections at least 0.80 and worst target residual at most 0.15 in both directions.",
+    "pred_d_at_least_one_rank47_arm_is_bidirectionally_selective": "The same arm has control margin RMS at most 0.10, median full-vocabulary KL at most 0.02, and zero top-one flips in both directions.",
+    "pred_e_selected_rank47_arm_is_direction_stable": "A jointly feasible arm exists and its paired forward/reverse task behavior projections differ by at most 0.05."
+  },
+  "decision": "Select the first arm in the frozen order passing every bidirectional gate and freeze its 47-site support. If none passes, retain rank48 and close single-component pruning at this interface.",
+  "price": {"model_forwards_exact": 39, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
