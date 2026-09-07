@@ -1,0 +1,42 @@
+{
+  "schema": "temporal_iswas_rank16_source_complement_site_localization_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.iswas_rank16_source_complement_site_localization_v1",
+  "question": "Which native source MLP amplifies the small rank-16 complement residual that prevents the stable mean+contrast weight union from matching full is-was behavior?",
+  "authorities": {
+    "task_pair_weight_v2": "b69d0cbdba23f363f33a3fd834dbc63d1bfcfd41595ee061bb6587de8cb6aa5e",
+    "population_runner_v2": "7389053e5746120f4fa8611b4e182191363a29509088a4551542cf56c1b647fa",
+    "weight_group_runner": "8ec435c1e551c37d5ba86cf4be7cd4541de8a7c6cb1f798707309c4119f9adb7"
+  },
+  "population": "Exact transferred temporal-v13/iswas-v12 target and matched-control rows used by the valid v2 screen; no basis refit or threshold change.",
+  "arms": [
+    "mean_plus_contrast",
+    "full_rank16",
+    "union_plus_MLP0_complement",
+    "union_plus_MLP1_complement",
+    "union_plus_MLP2_complement",
+    "union_plus_MLP3_complement",
+    "union_plus_MLP6_complement"
+  ],
+  "intervention": "At one named source MLP, install its exact orthogonal complement block while every other source MLP retains the frozen mean+contrast union; execute complete-model target and control patches.",
+  "predictions": {
+    "pred_a_authority_replay_closure_finiteness_and_price": "All hashes match; union/full replay v2 within 1e-5; union+complement closes each site's rank16 write within 1e-6; all metrics finite; <=44 model forwards.",
+    "pred_b_one_site_explains_most_missing_iswas_behavior": "At least one singleton add-back recovers >=60% of the full-minus-union is-was behavior gap while remaining functional on both tasks.",
+    "pred_c_residual_localization_is_not_linear_response_ranking": "The top behavioral add-back is not selected merely by largest signed linear-response increment: its is-was behavior recovery exceeds its response recovery by >=.015, confirming downstream nonlinear amplification.",
+    "pred_d_singletons_add_no_new_parent_collateral": "Every singleton's flipped controls are a subset of the union of the frozen union/full flip sets, median KL <= full+.002, and each task margin-RMS <= full+.02.",
+    "pred_e_singleton_effects_license_greedy_composition": "The sum of five singleton behavior increments predicts the full-minus-union increment within .015 on both tasks, consistent with the prior .00138 source-site interaction bound."
+  },
+  "terminal_policy": {
+    "localized_nonlinear_complement_site": "A-E pass; freeze the singleton ordering for a prospective greedy add-back.",
+    "distributed_additive_complement": "A, D, and E pass but B fails; freeze a multi-site greedy order.",
+    "conditional_complement_interaction": "A passes but E fails; run a bounded pairwise factorial rather than greedy composition.",
+    "selectivity_blocked_residual": "A passes but D fails; do not promote an add-back without a new selective factorization.",
+    "invalid": "A fails."
+  },
+  "price": {
+    "model_forwards_max": 44,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "execution_policy": "managed_queue_only"
+}
