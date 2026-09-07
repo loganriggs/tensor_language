@@ -1,0 +1,14 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_source_noise_ood_v1",
+  "question": "Does the frozen rank48 OOD circuit remain predictive when its cue-source embedding displacement is corrupted by isotropic noise?",
+  "intervention": "On temporal-v12/iswas-v11 targets and temporal-v12 P controls, replace the changed cue embedding by the donor embedding plus Gaussian noise whose per-row RMS is exactly 10% of the recipient-to-donor embedding displacement RMS. Use seeds 1729, 2718, and 3141; all support, readers, and actuation remain frozen.",
+  "predictions": {
+    "pred_a_authority_noise_tripwire_finiteness_and_price": "authorities replay, support has 48 sites, every noise RMS ratio is in [0.099,0.101], values are finite, and <=34 forwards execute",
+    "pred_b_noisy_ood_coordinates_transfer": "for every seed and fit all coordinate projections are >=0.70 and mean residual <=0.25",
+    "pred_c_noisy_ood_behavior_transfer": "for every seed and fit both task projections are >=0.75 and worst target residual <=0.20",
+    "pred_d_noisy_ood_controls_are_selective": "all controls have margin RMS <=0.10, median full-vocabulary KL <=0.02, and flip fraction <=0.05",
+    "pred_e_noise_seed_stability": "the range across seeds of minimum coordinate projection and each task projection is <=0.08 within each fit"
+  },
+  "decision": "Passing establishes end-to-end source perturbation robustness in addition to clean lexical OOD transfer. Failure localizes whether noise breaks upstream coordinate writing or only the downstream behavioral map; it does not trigger refitting.",
+  "price": {"model_forwards_max": 34, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
