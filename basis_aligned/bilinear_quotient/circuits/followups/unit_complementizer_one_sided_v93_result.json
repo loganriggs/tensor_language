@@ -1,0 +1,380 @@
+{
+  "bars": {
+    "c2_frac": 0.5,
+    "inert": 0.1,
+    "n_unseen": 3,
+    "repro": 0.02,
+    "rho": 0.6,
+    "unseen_frac": 0.3,
+    "wellformed": 0.75
+  },
+  "candidate_id": "corpus.unit_complementizer_one_sided_v93",
+  "detail": {
+    "A1_odd": {
+      "ce_damage": 1.1714485120028257,
+      "ce_lb975": 0.8624733639881015,
+      "ce_ub975": 1.4680355133954435,
+      "documents": 32,
+      "dropped_by_prepare": 0,
+      "kl_mean": 0.22309725667582825,
+      "margin_damage": 3.9929179325699806,
+      "top1_change_rate": 0.21875
+    },
+    "C2_whether_side": {
+      "fraction_whether_preferred": 0.875,
+      "mapping": {
+        "noted": "asked",
+        "replied": "inquired"
+      },
+      "natural_margin_mean": 1.019214153289795,
+      "removal_odd": {
+        "ce_damage": 2.0167067870497704,
+        "ce_lb975": 1.8754623265936972,
+        "ce_ub975": 2.1567214837297795,
+        "documents": 32,
+        "dropped_by_prepare": 0,
+        "kl_mean": 0.1978174247778952,
+        "margin_damage": 4.27836449444294,
+        "top1_change_rate": 0.09375
+      }
+    },
+    "C_that_only_odd": {
+      "ce_damage": 0.02107245847582817,
+      "ce_lb975": 0.0018504417035728694,
+      "ce_ub975": 0.039239116851240395,
+      "documents": 32,
+      "dropped_by_prepare": 0,
+      "kl_mean": 0.007273555141182442,
+      "margin_damage": 1.2825584560632706,
+      "top1_change_rate": 0.03125
+    },
+    "panel": {
+      "added": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 7.465575784444809,
+        "removal_odd": {
+          "ce_damage": 1.180995274335146,
+          "ce_lb975": 0.842495699133724,
+          "ce_ub975": 1.5120321557857093,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.08685242875071708,
+          "margin_damage": 3.1200169920921326,
+          "top1_change_rate": 0.0625
+        },
+        "seen_in_pool": false
+      },
+      "admitted": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 8.40297481417656,
+        "removal_odd": {
+          "ce_damage": 1.0791627932339907,
+          "ce_lb975": 0.7140230353455991,
+          "ce_ub975": 1.4469435790553689,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.08355652863974683,
+          "margin_damage": 2.9462608695030212,
+          "top1_change_rate": 0.0
+        },
+        "seen_in_pool": false
+      },
+      "announced": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 7.571961671113968,
+        "removal_odd": {
+          "ce_damage": 1.1248987652361393,
+          "ce_lb975": 0.7757176054641605,
+          "ce_ub975": 1.4779861828777938,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.08624233207956422,
+          "margin_damage": 3.0875561386346817,
+          "top1_change_rate": 0.03125
+        },
+        "seen_in_pool": false
+      },
+      "argued": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 6.787719190120697,
+        "removal_odd": {
+          "ce_damage": 1.1416952600702643,
+          "ce_lb975": 0.7925948116462678,
+          "ce_ub975": 1.4894904582295567,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.08388538892904762,
+          "margin_damage": 2.7101001292467117,
+          "top1_change_rate": 0.03125
+        },
+        "seen_in_pool": false
+      },
+      "claimed": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 9.042287684977055,
+        "removal_odd": {
+          "ce_damage": 1.0882605900987983,
+          "ce_lb975": 0.7239001672249288,
+          "ce_ub975": 1.4543660376919434,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.08559687562228646,
+          "margin_damage": 3.2483869045972824,
+          "top1_change_rate": 0.0625
+        },
+        "seen_in_pool": false
+      },
+      "declared": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 7.758011981844902,
+        "removal_odd": {
+          "ce_damage": 1.136063989251852,
+          "ce_lb975": 0.7860727619379759,
+          "ce_ub975": 1.486012688977644,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.08803233031358104,
+          "margin_damage": 3.314707964658737,
+          "top1_change_rate": 0.03125
+        },
+        "seen_in_pool": false
+      },
+      "explained": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 6.6257873475551605,
+        "removal_odd": {
+          "ce_damage": 1.0737233273684978,
+          "ce_lb975": 0.705635670479387,
+          "ce_ub975": 1.4428483619354664,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.08214438005234115,
+          "margin_damage": 2.3890873789787292,
+          "top1_change_rate": 0.0
+        },
+        "seen_in_pool": false
+      },
+      "insisted": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 6.889925241470337,
+        "removal_odd": {
+          "ce_damage": 1.2669178424403071,
+          "ce_lb975": 0.9455114999087527,
+          "ce_ub975": 1.5737344053341071,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.1299416139954701,
+          "margin_damage": 3.895641878247261,
+          "top1_change_rate": 0.0625
+        },
+        "seen_in_pool": true
+      },
+      "noted": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 6.981649145483971,
+        "removal_odd": {
+          "ce_damage": 1.078073206357658,
+          "ce_lb975": 0.7094130952376873,
+          "ce_ub975": 1.4451773785753175,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.08455932670040056,
+          "margin_damage": 2.826448529958725,
+          "top1_change_rate": 0.03125
+        },
+        "seen_in_pool": false
+      },
+      "remarked": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 7.205722898244858,
+        "removal_odd": {
+          "ce_damage": 1.1714485120028257,
+          "ce_lb975": 0.8624733639881015,
+          "ce_ub975": 1.4680355133954435,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.22309725667582825,
+          "margin_damage": 3.9929179325699806,
+          "top1_change_rate": 0.21875
+        },
+        "seen_in_pool": true
+      },
+      "replied": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 7.449804604053497,
+        "removal_odd": {
+          "ce_damage": 1.079569585621357,
+          "ce_lb975": 0.7136363490484655,
+          "ce_ub975": 1.4441126457415518,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.07801538166404498,
+          "margin_damage": 2.242973268032074,
+          "top1_change_rate": 0.0
+        },
+        "seen_in_pool": false
+      },
+      "said": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 7.1930201053619385,
+        "removal_odd": {
+          "ce_damage": 1.2023677993565798,
+          "ce_lb975": 0.8650555732659996,
+          "ce_ub975": 1.5235638371668745,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.0946613012929447,
+          "margin_damage": 3.4317482337355614,
+          "top1_change_rate": 0.0
+        },
+        "seen_in_pool": true
+      },
+      "stated": {
+        "fraction_that_preferred": 1.0,
+        "natural_margin_mean": 7.265459090471268,
+        "removal_odd": {
+          "ce_damage": 1.1142236087471247,
+          "ce_lb975": 0.7608422028366476,
+          "ce_ub975": 1.4674709373153745,
+          "documents": 32,
+          "dropped_by_prepare": 0,
+          "kl_mean": 0.09079750269302167,
+          "margin_damage": 3.1154444962739944,
+          "top1_change_rate": 0.0
+        },
+        "seen_in_pool": false
+      }
+    }
+  },
+  "finished_utc": "2026-09-07T02:49:14.386047+00:00",
+  "predictions": {
+    "pred_a_reproduce": true,
+    "pred_b_verb_keyed": false,
+    "pred_c_margin_tracks": false,
+    "pred_d_unseen_transfer": true,
+    "pred_e_whether_side": true
+  },
+  "schema": "circuit_unit_complementizer_verb_panel_result_v1",
+  "seconds": 66.9,
+  "summary": {
+    "A1_odd": 1.171,
+    "C2": {
+      "lb": 1.875,
+      "removal": 2.017,
+      "whether_pref": 0.88
+    },
+    "C_that_only": 0.021,
+    "panel": {
+      "added": {
+        "lb": 0.842,
+        "margin": 7.47,
+        "removal": 1.181,
+        "that_pref": 1.0
+      },
+      "admitted": {
+        "lb": 0.714,
+        "margin": 8.4,
+        "removal": 1.079,
+        "that_pref": 1.0
+      },
+      "announced": {
+        "lb": 0.776,
+        "margin": 7.57,
+        "removal": 1.125,
+        "that_pref": 1.0
+      },
+      "argued": {
+        "lb": 0.793,
+        "margin": 6.79,
+        "removal": 1.142,
+        "that_pref": 1.0
+      },
+      "claimed": {
+        "lb": 0.724,
+        "margin": 9.04,
+        "removal": 1.088,
+        "that_pref": 1.0
+      },
+      "declared": {
+        "lb": 0.786,
+        "margin": 7.76,
+        "removal": 1.136,
+        "that_pref": 1.0
+      },
+      "explained": {
+        "lb": 0.706,
+        "margin": 6.63,
+        "removal": 1.074,
+        "that_pref": 1.0
+      },
+      "insisted": {
+        "lb": 0.946,
+        "margin": 6.89,
+        "removal": 1.267,
+        "that_pref": 1.0
+      },
+      "noted": {
+        "lb": 0.709,
+        "margin": 6.98,
+        "removal": 1.078,
+        "that_pref": 1.0
+      },
+      "remarked": {
+        "lb": 0.862,
+        "margin": 7.21,
+        "removal": 1.171,
+        "that_pref": 1.0
+      },
+      "replied": {
+        "lb": 0.714,
+        "margin": 7.45,
+        "removal": 1.08,
+        "that_pref": 1.0
+      },
+      "said": {
+        "lb": 0.865,
+        "margin": 7.19,
+        "removal": 1.202,
+        "that_pref": 1.0
+      },
+      "stated": {
+        "lb": 0.761,
+        "margin": 7.27,
+        "removal": 1.114,
+        "that_pref": 1.0
+      }
+    },
+    "spearman_margin_vs_removal": -0.104,
+    "unseen_hits": [
+      "stated",
+      "claimed",
+      "argued",
+      "announced",
+      "added",
+      "explained",
+      "admitted"
+    ],
+    "v91_A1_odd": 1.171
+  },
+  "units": [
+    "attn:06:head:03",
+    "attn:11:head:03",
+    "attn:07:head:08",
+    "attn:08:head:01",
+    "attn:04:head:01",
+    "attn:09:head:03",
+    "attn:09:head:07",
+    "attn:14:head:03",
+    "attn:05:head:08",
+    "attn:09:head:01",
+    "attn:08:head:08",
+    "attn:02:head:03",
+    "attn:14:head:08",
+    "attn:02:head:06",
+    "attn:01:head:05",
+    "attn:00:head:03",
+    "attn:03:head:06",
+    "attn:10:head:05",
+    "attn:16:head:08"
+  ]
+}
