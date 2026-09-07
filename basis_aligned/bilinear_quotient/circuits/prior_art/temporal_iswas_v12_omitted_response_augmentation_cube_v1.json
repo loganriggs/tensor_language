@@ -1,0 +1,36 @@
+{
+  "schema": "temporal_iswas_v12_omitted_response_augmentation_cube_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas_v12_omitted_response_augmentation_cube_v1",
+  "registered_utc": "2026-09-07T02:45:12.042144Z",
+  "question": "Which subset of the seven response sites omitted by the over-compressed three-MLP program restores its fresh temporal mode-2 deficit while preserving both tasks?",
+  "authority": {
+    "fresh_null_result_sha256": "ff831c87408078d1408463ff00a3452c7d8a5b2c7780c355ccc2d6c23376044c",
+    "fresh_null_runner_sha256": "a7f3907731cb35e588ace7ba5316edb2fd418bdef92790a04cad1c89f21761c7",
+    "interpretation": "This is explicitly outcome-adaptive discovery on v12. Any selected augmentation requires a new text-disjoint construction before it can be called transferable."
+  },
+  "frozen_design": {
+    "population": "The identical 24 temporal and 30 is/was v12 rows used by the registered transfer null.",
+    "core": ["MLP13", "MLP15", "MLP16"],
+    "optional_sites": ["L13H6", "L15H1", "L15H5", "L17H2", "MLP12", "MLP14", "MLP17"],
+    "arms": "The complete 2^7 Boolean lattice of optional-site subsets, always retaining the three-site core. Six fixed diagnostic aliases repeat direct/core/full/core-minus-one arms for continuity with the sealed evaluator.",
+    "eligibility": "Behavior direction at least 0.90; behavior signed projection at least 0.80 per task; both mode signed projections at least 0.60 per task; worst six-cell squared residual at most 0.20.",
+    "selector": "Among eligible cube arms, minimize optional-site count, then worst six-cell residual, then integer mask.",
+    "price": {
+      "model_forwards": 146,
+      "example_evaluations": 7884,
+      "cube_arms": 128,
+      "diagnostic_alias_arms": 6,
+      "fit_updates": 0,
+      "model_updates": 0,
+      "transformer_backwards": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_replay_finiteness_and_exact_price": "Fresh-null hashes and the inherited gauge/replay/self-clamp instruments pass, with the exact registered price.",
+    "pred_b_full_ten_site_pool_remains_faithful": "The full optional mask has behavior direction at least 0.95 and worst six-cell residual at most 0.02.",
+    "pred_c_a_six_site_or_smaller_program_exists": "At least one eligible arm adds no more than three optional sites to the core.",
+    "pred_d_selector_is_deterministic_and_eligible": "The frozen lexicographic selector returns exactly one eligible mask and its stored sites equal core union mask bits.",
+    "pred_e_complete_zero_fit_augmentation_lattice": "All 128 masks are present exactly once and no fitting, model update, or transformer backward occurs."
+  },
+  "decision": "All gates yield compact_augmented_response_discovery and license only a fresh confirmation of the selected mask. Instrument failure yields invalid. Other failures yield distributed_response_program; the ten-site pool remains the accepted upper bound if its fidelity gate passes."
+}
