@@ -1,0 +1,10 @@
+{
+  "candidate_id": "cross_task.temporal_iswas_two_mode_weight_pullback_v2",
+  "claimed_utc": "2026-09-07T01:16:00Z",
+  "repair_of": "cross_task.temporal_iswas_two_mode_weight_pullback_v1",
+  "invalid_parent_reason": "V1 compared raw scale-bearing covector outer products, although the preregistered gauge object and helper test were QR-normalized physical subspace projectors.",
+  "sole_change": "QR-normalize each two-column physical source/reader covector matrix before comparing its projector under an orthogonal Q8 gauge rotation.",
+  "unchanged": ["rows", "causal factors", "rank", "task scaling", "weight contractions", "component inventories", "predictions", "thresholds", "price"],
+  "prediction": "The corrected projector error is at most 1e-5; all other numerical outputs reproduce v1 within ordinary deterministic float tolerance.",
+  "null": "Failure of the corrected gauge test leaves the weight pullback invalid."
+}

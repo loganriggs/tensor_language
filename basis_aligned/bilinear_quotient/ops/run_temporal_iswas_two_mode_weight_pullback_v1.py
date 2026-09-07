@@ -40,7 +40,8 @@ def spearman(a,b):
         order=np.argsort(np.asarray(x),kind="stable");out=np.empty(len(x));out[order]=np.arange(len(x));return out
     return float(np.corrcoef(ranks(a),ranks(b))[0,1])
 
-def main(*, candidate_id=CANDIDATE_ID, out=OUT, normalized_gauge=False, repair_authority=None):
+def main(*, candidate_id=CANDIDATE_ID, out=OUT, normalized_gauge=False,
+         gauge_float64=False, repair_authority=None):
     if {"prior":sha(PRIOR),"canonical":sha(CANONICAL),"pullback":sha(PULLBACK),"parent":sha(PARENT)}!=EXPECTED:raise RuntimeError("two-mode pullback authority changed")
     parent_paths={"prior":parent.PRIOR,"shared_causal":parent.SHARED_CAUSAL,"temporal_capability":parent.TEMPORAL_CAPABILITY,"subspace":parent.SUBSPACE,"iswas":parent.ISWAS,"v2_capability":parent.V2_CAPABILITY,"v3_capability":parent.V3_CAPABILITY,"temporal_builder":parent.TEMPORAL_BUILDER,"v2_builder":parent.V2_BUILDER,"v3_builder":parent.V3_BUILDER,"atlas_runner":parent.ATLAS_RUNNER,"analytic_runner":parent.ANALYTIC_RUNNER,"overlap_runner":parent.OVERLAP_RUNNER}
     if {k:sha(v) for k,v in parent_paths.items()}!=parent.EXPECTED:raise RuntimeError("parent factor authorities changed")
@@ -87,7 +88,15 @@ def main(*, candidate_id=CANDIDATE_ID, out=OUT, normalized_gauge=False, repair_a
     scale=source_scale[:,None]*target_scale[None,:];balanced_exact=exact*scale;u,s,vh=torch.linalg.svd(balanced_exact,full_matrices=False);exact_rank2=(u[:,:2]*s[:2])@vh[:2];replay_rel=float((modes["rank_response"]-exact_rank2).norm()/exact_rank2.norm())
     gen=torch.Generator(device="cpu").manual_seed(20260907);gauge=torch.linalg.qr(torch.randn((8,8),generator=gen).to(backend.device)).Q;rot=pullback.pullback(torch,commands@gauge,readers@gauge,state_basis@gauge,source_scale,target_scale,rank=2)
     if normalized_gauge:
-        gauge_error=max(float((torch.linalg.qr(modes[k],mode="reduced").Q@torch.linalg.qr(modes[k],mode="reduced").Q.T-torch.linalg.qr(rot[k],mode="reduced").Q@torch.linalg.qr(rot[k],mode="reduced").Q.T).abs().max()) for k in ("physical_source_covectors","physical_reader_covectors"))
+        if gauge_float64:
+            commands64,readers64,state_basis64=commands.double(),readers.double(),state_basis.double()
+            source_scale64,target_scale64=source_scale.double(),target_scale.double()
+            modes_gauge=pullback.pullback(torch,commands64,readers64,state_basis64,source_scale64,target_scale64,rank=2)
+            gen64=torch.Generator(device="cpu").manual_seed(20260907);gauge64=torch.linalg.qr(torch.randn((8,8),generator=gen64,dtype=torch.float64).to(backend.device)).Q
+            rot_gauge=pullback.pullback(torch,commands64@gauge64,readers64@gauge64,state_basis64@gauge64,source_scale64,target_scale64,rank=2)
+        else:
+            modes_gauge,rot_gauge=modes,rot
+        gauge_error=max(float((torch.linalg.qr(modes_gauge[k],mode="reduced").Q@torch.linalg.qr(modes_gauge[k],mode="reduced").Q.T-torch.linalg.qr(rot_gauge[k],mode="reduced").Q@torch.linalg.qr(rot_gauge[k],mode="reduced").Q.T).abs().max()) for k in ("physical_source_covectors","physical_reader_covectors"))
     else:
         gauge_error=max(float((modes[k]@modes[k].T-rot[k]@rot[k].T).abs().max()) for k in ("physical_source_covectors","physical_reader_covectors"))
     head=backend.model.transformer.h[11].attn;width=int(head.head_dim);value_rows=head.c_v.weight.detach().float()[3*width:4*width];upstream={};downstream={}
