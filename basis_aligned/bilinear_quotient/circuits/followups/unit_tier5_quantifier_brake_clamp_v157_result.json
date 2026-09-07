@@ -1,0 +1,114 @@
+{
+  "bars": {
+    "axis_cos_min": 0.3,
+    "dose_tol": 0.03,
+    "induced_lex_max": 0.15,
+    "induced_min": 0.3,
+    "lex_tol": 0.02,
+    "repro_tol": 0.02,
+    "v155": [
+      0.901,
+      0.844,
+      0.057
+    ]
+  },
+  "candidate_id": "corpus.unit_tier5_quantifier_brake_clamp_v157",
+  "finished_utc": "2026-09-07T08:12:50.576654+00:00",
+  "measures": {
+    "lex_seven": {
+      "axis_cos": -0.198,
+      "delta_norm_mean": 138.56,
+      "dose_effect": {
+        "0.5": -0.002,
+        "1.0": -0.003,
+        "2.0": -0.007
+      },
+      "exact": 0.85,
+      "exact_plus_shift_comp": {
+        "0.5": 0.848,
+        "1.0": 0.847,
+        "2.0": 0.843
+      },
+      "hub_rank1": 0.845,
+      "induced_q_ratio": 0.03,
+      "norm_ratio": 0.0219,
+      "random_same_norm": [
+        0.845,
+        0.842,
+        0.843,
+        0.845,
+        0.846
+      ],
+      "rank1_plus_close_image": 0.85,
+      "resid_norm_mean": 23622.7,
+      "rows": 16,
+      "shift_comp_norm_mean": 15.01,
+      "shift_norm_mean": 15.7
+    },
+    "quant_seven": {
+      "axis_cos": 0.407,
+      "delta_norm_mean": 93.48,
+      "dose_effect": {
+        "0.5": 0.026,
+        "1.0": 0.052,
+        "2.0": 0.1
+      },
+      "exact": 0.844,
+      "exact_plus_shift_comp": {
+        "0.5": 0.87,
+        "1.0": 0.896,
+        "2.0": 0.944
+      },
+      "hub_rank1": 0.901,
+      "induced_q_ratio": 0.129,
+      "norm_ratio": 0.0057,
+      "random_same_norm": [
+        0.901,
+        0.902,
+        0.902,
+        0.902,
+        0.901
+      ],
+      "rank1_plus_close_image": 0.844,
+      "resid_norm_mean": 25508.8,
+      "rows": 16,
+      "shift_comp_norm_mean": 19.65,
+      "shift_norm_mean": 22.98
+    }
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_induced": false,
+    "pred_c_axis": true,
+    "pred_d_lex_inert": true,
+    "pred_e_dose": true
+  },
+  "schema": "unit_tier5_quantifier_brake_clamp_v157",
+  "seconds": 1.0,
+  "sets": {
+    "lex_seven": {
+      "family": "lexical_number_pp",
+      "units": [
+        "attn:11:head:03",
+        "mlp:09",
+        "attn:09:head:07",
+        "mlp:10",
+        "attn:10:head:05",
+        "attn:11:head:02",
+        "mlp:08"
+      ]
+    },
+    "quant_seven": {
+      "family": "quantifier_number",
+      "units": [
+        "mlp:10",
+        "attn:11:head:03",
+        "mlp:09",
+        "mlp:08",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "mlp:07"
+      ]
+    }
+  }
+}
