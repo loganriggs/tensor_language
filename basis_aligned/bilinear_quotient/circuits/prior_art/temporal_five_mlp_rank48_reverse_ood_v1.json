@@ -1,0 +1,14 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_reverse_ood_v1",
+  "question": "Does the frozen rank48 program selectively reverse the temporal/is-was computation on OOD text, rather than only supporting a forward donor insertion?",
+  "intervention": "Start from each temporal-v12/iswas-v11 donor trajectory, insert the recipient cue embedding, allow only the frozen 48-site graph to respond while all other layer-0..10 components stay donor-clamped, compile the resulting reverse coordinates through the same weight readers, and install only those eight response changes into an independent donor run. Apply the same reverse operation to temporal P controls.",
+  "predictions": {
+    "pred_a_authority_bidirectional_population_finiteness_and_price": "clean/noisy forward authorities pass, reverse source changes one token, support has 48 sites, values are finite, and <=25 forwards execute",
+    "pred_b_reverse_ood_coordinates_transfer": "both cross-fits have every reverse coordinate projection >=0.75 and mean residual <=0.20 versus the complete eight-site recipient-response patch",
+    "pred_c_reverse_ood_behavior_is_necessary": "both fits recover the reverse signed effect with per-task projection >=0.80 and worst residual <=0.15",
+    "pred_d_reverse_ood_controls_are_selective": "both fits have control margin RMS <=0.10, median full-vocabulary KL <=0.02, and flip fraction <=0.05",
+    "pred_e_reverse_crossfit_is_stable": "minimum coordinate projections differ by <=0.05 and per-task reverse behavior projections differ by <=0.05 across fits"
+  },
+  "decision": "Passing establishes bidirectional OOD manipulation/necessity for the rank48 interface. Failure distinguishes forward sufficiency from reverse necessity and freezes further pruning until the asymmetric coordinate is localized.",
+  "price": {"model_forwards_max": 25, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
