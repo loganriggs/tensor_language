@@ -109,7 +109,50 @@ theorems or algorithms object-to-object, list their assumptions and our violatio
 least one executable circuit consequence.  Begin the best consequence immediately after writing
 the review.
 
-## Current circuit state at 2026-09-07 21:07 UTC
+## Authoritative restart delta at 2026-09-07 23:00 UTC
+
+The target-feasible DAS run described below has completed.  It validly beats matched difference
+in means (DIM) on cross-fitted A1 target transfer (`.8719` versus `.7250`) with stable rank-one
+directions (minimum principal cosine `.8474`), so optimization is not the null.  It does not pass
+construction-general identification: sealed A2 is `.6489`, below `.75`, and one P-control fold has
+mean KL `.01945`, one flip, versus DIM `.00678`.  A complete 30-configuration red-team found that
+the registered noise/Jacobian regularizers change selection scores by less than `.0005` and never
+improve flips.  The current diagnosis is missing construction variation, not insufficient local
+regularization strength.
+
+The next multi-environment selector is already implemented and tested.  It keeps rank one fixed,
+requires every fitted target construction to pass separately before control scoring, and selects
+using worst P/C panels.  A history-disjoint third construction (`v16`: Right now/Back then and In
+these/those days) is hash-bound in managed GPU lane 1 for a capability-only two-forward gate:
+
+- runner:
+  `basis_aligned/bilinear_quotient/ops/run_tense_auxiliary_is_was_fresh_lexicon_v16_capability_v1.py`;
+- reviewed SHA-256:
+  `333c5398566539d8ba1f8940ab894d2ed8db9f1449caf73d5fd8d0156d40c34f`;
+- queue order at this checkpoint: immediately behind live `v236`, before `v238` and `v247`.
+
+Do not inspect a causal v16 outcome before the capability gate lands.  If it passes, score and
+publish it, then use v15 A1/A2 as separate fitted environments and keep v16 sealed for the fixed
+rank-one multi-construction causal transfer.  If it fails native capability, preserve the null and
+do not repair the text post hoc.
+
+An exact zero-forward weight translation of the learned four-head directions is also complete.
+It maps each head coordinate through $W_O$ into residual space, ranks downstream Q/K/V and MLP
+interfaces, and pulls it backward through $W_V^{\mathsf T}$ to rank earlier writers.  After a
+preregistered scale-aware float32 audit, the diagnostic is valid: fold cosines are
+`.9368-.9923`; every source ranks all five inspected `L15H5` interfaces in its top ten; and writer
+pullbacks recover `L8H1 -> {L9H1,L9H4} -> L11H3` at `.9725-1.0` percentiles.  Treat this as an
+explicit weight-compatibility hypothesis, not causal identification, until the sealed
+construction transfer succeeds.
+
+Latest Codex commits are `5f4acf140` (published weight-interface audit), `000d94082` (audit gate
+repair), and `d1e461377` (audit preregistration).  The canonical dossier remains
+`basis_aligned/polynomial_causal/explanations/CIRCUIT_temporal_iswas_rank46_task_modes_2026-09-07.md`.
+The latest hourly clock is `HOURLY_STRATEGIC_REVIEW_2026-09-07_2215.md`; the next review is due at
+the first safe boundary after 23:15 UTC.  The latest mathematical clock is
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-07_2026.md`; the next is due after 23:26 UTC.
+
+## Earlier circuit state at 2026-09-07 21:07 UTC
 
 The canonical dossier is
 `basis_aligned/polynomial_causal/explanations/CIRCUIT_temporal_iswas_rank46_task_modes_2026-09-07.md`.
@@ -144,7 +187,7 @@ It is mechanically valid at 152 observed forwards and returns
 full 12-factor arm replays its parent within `4.62e-7`, reaches `.80535/.86829` A1/A2, and flips
 five P plus three C rows. This null is path-local, not an impossibility theorem.
 
-## Active continuation: target-feasible regularized DAS
+## Earlier continuation: target-feasible regularized DAS (completed; see restart delta)
 
 Use the protocol derived in
 `basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-07_2026.md`:
