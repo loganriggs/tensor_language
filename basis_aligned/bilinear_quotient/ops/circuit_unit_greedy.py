@@ -895,3 +895,18 @@ def swap_answer_foil(rows):
         n["row_id"] = f"{n['row_id']}:swap"
         out.append(n)
     return out
+
+
+def swap_base_donor(rows):
+    """Rows with the base and donor sides exchanged (the reverse interchange on the same sentences)."""
+    import copy
+    out = []
+    for r in rows:
+        n = copy.deepcopy(r)
+        for k in list(r):
+            if k.startswith("base_"):
+                d = "donor_" + k[len("base_"):]
+                n[k], n[d] = r[d], r[k]
+        n["row_id"] = f"{n['row_id']}:rev"
+        out.append(n)
+    return out
