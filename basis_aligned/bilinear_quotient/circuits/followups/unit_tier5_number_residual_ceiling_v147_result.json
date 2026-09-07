@@ -1,0 +1,69 @@
+{
+  "bars": {
+    "instr_tol": 0.02,
+    "quant_min": 0.4,
+    "rand_max": 0.03,
+    "rank1_tol": 0.1,
+    "rem_min": 0.15,
+    "rowwise_min": 0.85,
+    "v146_img": 0.492
+  },
+  "candidate_id": "corpus.unit_tier5_number_residual_ceiling_v147",
+  "finished_utc": "2026-09-07T07:32:52.496691+00:00",
+  "measures": {
+    "additivity_gap": 0.083,
+    "cos_img_dim": 0.875,
+    "cos_rem_img": 0.0,
+    "dim": 0.936,
+    "img": 0.492,
+    "m_none": 0.0,
+    "m_rand": 0.008,
+    "norm_dim": 3430.8,
+    "norm_par": 3000.8,
+    "norm_rem": 1663.1,
+    "par": 0.859,
+    "par_2x": 0.779,
+    "par_4x": 0.573,
+    "par_over_img": 2.308,
+    "positions_ok": [
+      true,
+      true
+    ],
+    "quant_dim": 0.918,
+    "quant_own_dim": 0.927,
+    "quant_rowwise_own": 0.925,
+    "rem": 0.16,
+    "rowwise": 0.931,
+    "rowwise_cos_to_dim": [
+      0.936,
+      0.824,
+      0.774,
+      0.939,
+      0.852,
+      0.907,
+      0.884,
+      0.731,
+      0.841,
+      0.913,
+      0.661,
+      0.868,
+      0.885,
+      0.923,
+      0.941,
+      0.854
+    ]
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_channel": true,
+    "pred_c_rank1": true,
+    "pred_d_second_axis": true,
+    "pred_e_quant_xfer": true
+  },
+  "rows": [
+    16,
+    16
+  ],
+  "schema": "unit_tier5_number_residual_ceiling_v147",
+  "seconds": 0.8
+}
