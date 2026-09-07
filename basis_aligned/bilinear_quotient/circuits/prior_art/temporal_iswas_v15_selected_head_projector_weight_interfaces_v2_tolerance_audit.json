@@ -1,0 +1,22 @@
+{
+  "schema": "temporal_iswas_v15_selected_head_projector_weight_interfaces_v2_tolerance_audit_prior_v1",
+  "candidate_id": "temporal_iswas.v15_selected_head_projector_weight_interfaces_v2_tolerance_audit",
+  "registered_utc": "2026-09-07T22:51:00Z",
+  "question": "Was v1 invalid only because a scale-free absolute tolerance was tighter than expected fp32 accumulation error?",
+  "authority": {
+    "v1_result_sha256": "374f02e32d4c6c0b1e28a27ca6c13d9bf2145f6022498333355e3b9455b6f6ba",
+    "v1_runner_sha256": "99d71ea96c1ad2c888094143737db42c5661699a1377089296b298b9ac251b88"
+  },
+  "frozen_design": {
+    "measurement": "Zero-model audit of the immutable v1 artifact. Normalize its maximum absolute closure error by the minimum of the eight residual-write norms, then compare against eight float32 epsilons.",
+    "bar": "max_abs_error/min_write_norm <= 8 * 2^-23, with finite positive norms, exact original zero-forward price, original B-E all true, and original A false only through the recorded closure comparison.",
+    "price": {"model_forwards": 0, "checkpoint_loads": 0, "example_evaluations": 0, "fit_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_original_disposition_and_price": "Hashes match; v1 is invalid with A false, B-E true, finite evidence, and the registered zero-forward/one-checkpoint-load price.",
+    "pred_b_scale_aware_fp32_closure_passes": "Relative closure is finite and <= eight float32 epsilons.",
+    "pred_c_weight_rankings_are_complete_and_finite": "Both folds contain all four source records and every stored writer/reader score is finite.",
+    "pred_d_audit_opens_no_new_model_outcome": "No model/checkpoint load, forward, fit, intervention, or changed ranking occurs."
+  },
+  "decision": "If all pass, publish the v1 rankings as a repaired diagnostic under the explicit scope limit. Otherwise the weight-interface result remains invalid and is not interpreted."
+}
