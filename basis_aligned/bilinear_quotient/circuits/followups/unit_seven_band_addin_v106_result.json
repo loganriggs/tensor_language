@@ -1,0 +1,283 @@
+{
+  "band": [
+    "mlp:07",
+    "mlp:08",
+    "mlp:09",
+    "mlp:10"
+  ],
+  "bars": {
+    "close": 0.9,
+    "k": 5,
+    "k_e": 4,
+    "partial": 0.3
+  },
+  "candidate_id": "corpus.unit_seven_band_addin_v106",
+  "finished_utc": "2026-09-07T04:00:04.269504+00:00",
+  "predictions": {
+    "pred_a_band_closes": true,
+    "pred_b_band_alone_partial": true,
+    "pred_c_set_beats_band": true,
+    "pred_d_subadditive": true,
+    "pred_e_mlp08_largest": false
+  },
+  "schema": "circuit_unit_band_addin_result_v1",
+  "seconds": 1.6,
+  "sets": {
+    "dative": {
+      "band": 0.294,
+      "gain": {
+        "mlp:07": 0.01,
+        "mlp:08": 0.019,
+        "mlp:09": 0.023,
+        "mlp:10": 0.01
+      },
+      "set": 0.871,
+      "set_band": 0.929,
+      "set_plus": {
+        "mlp:07": 0.881,
+        "mlp:08": 0.89,
+        "mlp:09": 0.894,
+        "mlp:10": 0.881
+      },
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:03:head:06",
+        "attn:11:head:02"
+      ]
+    },
+    "modal_remoteness": {
+      "band": 0.161,
+      "gain": {
+        "mlp:07": -0.001,
+        "mlp:08": -0.004,
+        "mlp:09": 0.016,
+        "mlp:10": 0.001
+      },
+      "set": 0.927,
+      "set_band": 0.943,
+      "set_plus": {
+        "mlp:07": 0.926,
+        "mlp:08": 0.923,
+        "mlp:09": 0.943,
+        "mlp:10": 0.928
+      },
+      "units": [
+        "attn:09:head:04",
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:11:head:01",
+        "attn:09:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01"
+      ]
+    },
+    "polarity_licensing": {
+      "band": 0.545,
+      "gain": {
+        "mlp:07": 0.003,
+        "mlp:08": 0.006,
+        "mlp:09": 0.005,
+        "mlp:10": 0.002
+      },
+      "set": 0.858,
+      "set_band": 0.915,
+      "set_plus": {
+        "mlp:07": 0.861,
+        "mlp:08": 0.864,
+        "mlp:09": 0.863,
+        "mlp:10": 0.86
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:05:head:03"
+      ]
+    },
+    "quantifier_number": {
+      "band": 0.489,
+      "gain": {
+        "mlp:07": 0.027,
+        "mlp:08": 0.012,
+        "mlp:09": 0.022,
+        "mlp:10": 0.024
+      },
+      "set": 0.898,
+      "set_band": 0.97,
+      "set_plus": {
+        "mlp:07": 0.925,
+        "mlp:08": 0.91,
+        "mlp:09": 0.92,
+        "mlp:10": 0.922
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:02:head:02",
+        "attn:09:head:01",
+        "attn:04:head:01",
+        "attn:13:head:06"
+      ]
+    },
+    "verb_complementizer": {
+      "band": 0.542,
+      "gain": {
+        "mlp:07": 0.021,
+        "mlp:08": 0.021,
+        "mlp:09": 0.012,
+        "mlp:10": 0.001
+      },
+      "set": 0.893,
+      "set_band": 0.938,
+      "set_plus": {
+        "mlp:07": 0.914,
+        "mlp:08": 0.914,
+        "mlp:09": 0.905,
+        "mlp:10": 0.894
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:09:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:08:head:08"
+      ]
+    },
+    "verb_preposition": {
+      "band": 0.43,
+      "gain": {
+        "mlp:07": 0.023,
+        "mlp:08": 0.029,
+        "mlp:09": 0.027,
+        "mlp:10": 0.017
+      },
+      "set": 0.975,
+      "set_band": 1.027,
+      "set_plus": {
+        "mlp:07": 0.998,
+        "mlp:08": 1.004,
+        "mlp:09": 1.002,
+        "mlp:10": 0.992
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:13:head:03"
+      ]
+    },
+    "voice_frame": {
+      "band": 0.751,
+      "gain": {
+        "mlp:07": 0.001,
+        "mlp:08": 0.005,
+        "mlp:09": 0.005,
+        "mlp:10": 0.005
+      },
+      "set": 0.987,
+      "set_band": 0.992,
+      "set_plus": {
+        "mlp:07": 0.988,
+        "mlp:08": 0.992,
+        "mlp:09": 0.992,
+        "mlp:10": 0.992
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:16:head:08",
+        "attn:11:head:07",
+        "attn:10:head:05",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:02:head:06",
+        "attn:02:head:03"
+      ]
+    }
+  },
+  "summary": {
+    "dative": {
+      "band": 0.294,
+      "best_addin": "mlp:09",
+      "set": 0.871,
+      "set_band": 0.929
+    },
+    "modal_remoteness": {
+      "band": 0.161,
+      "best_addin": "mlp:09",
+      "set": 0.927,
+      "set_band": 0.943
+    },
+    "polarity_licensing": {
+      "band": 0.545,
+      "best_addin": "mlp:08",
+      "set": 0.858,
+      "set_band": 0.915
+    },
+    "quantifier_number": {
+      "band": 0.489,
+      "best_addin": "mlp:07",
+      "set": 0.898,
+      "set_band": 0.97
+    },
+    "verb_complementizer": {
+      "band": 0.542,
+      "best_addin": "mlp:07",
+      "set": 0.893,
+      "set_band": 0.938
+    },
+    "verb_preposition": {
+      "band": 0.43,
+      "best_addin": "mlp:08",
+      "set": 0.975,
+      "set_band": 1.027
+    },
+    "voice_frame": {
+      "band": 0.751,
+      "best_addin": "mlp:08",
+      "set": 0.987,
+      "set_band": 0.992
+    }
+  }
+}
