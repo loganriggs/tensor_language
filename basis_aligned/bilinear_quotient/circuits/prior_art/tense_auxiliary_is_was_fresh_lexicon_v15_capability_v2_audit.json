@@ -1,0 +1,26 @@
+{
+  "schema": "tense_auxiliary_is_was_fresh_lexicon_v15_capability_v2_audit_prior_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.fresh_lexicon_v15_capability_v2_audit",
+  "question": "Does the sealed v15 native receipt pass the intended 87.5% joint-capability bar after correcting the preregistered panel denominator from impossible 32 to exact 16?",
+  "authorities": {
+    "v1_result": "ecc34f5d089f31269de29250d8d63843ce49c622f5cc0161cbea3afb9042d7f0",
+    "v1_prior": "4fe19cddb27342f605058c02b673a91255ad866e503a82f953e4fcd192d4ac21",
+    "v1_runner": "8277df9126755bf619c18668864e31ba16d7d07f773445202707cadc43a1bec3",
+    "builder": "e5774cd5e93c564ad3bdb3169c482c2e1ddb295b85cc7c9885a7b077493a8343",
+    "rows_sha256": "9e6848a8bfe05be59ecd02d256502597e5e8b6b48fadd2b9f8e1b830b9e50c46"
+  },
+  "correction": "The deterministic builder has 16 A1 and 16 A2 target rows, not 32 each. Preserve v1 null; change only the count expression from 28/32 to the intended equivalent ratio 14/16. Reuse sealed native records with zero model forwards.",
+  "predictions": {
+    "pred_a_hashes_inventory_and_v1_null": "All authorities match; v1 is the preserved count-only null; builder validates 64 total rows and 16 per A panel.",
+    "pred_b_native_cells_and_corrected_joint_bar": "All eight native direction/panel/side cells pass .75 and both panels have at least 14/16 jointly correct rows.",
+    "pred_c_no_causal_access_and_exact_original_price": "V1 opened no causal outcomes and used exactly two native forwards/128 examples; the audit uses zero model calls.",
+    "pred_d_all_records_and_metrics_finite": "All 128 native records are present and every reported accuracy is finite."
+  },
+  "terminal_policy": {
+    "manifest": "A-D pass.",
+    "null": "A, C, and D pass but B fails.",
+    "invalid": "A, C, or D fails."
+  },
+  "price": {"model_forwards": 0, "model_updates": 0, "transformer_backwards": 0},
+  "execution_policy": "managed_cpu_lane_only"
+}

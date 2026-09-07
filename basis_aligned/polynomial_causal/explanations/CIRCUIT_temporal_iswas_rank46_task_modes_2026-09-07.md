@@ -120,6 +120,22 @@ a control flip beyond the parent.  The terminal is therefore `distributed_additi
 This licenses a frozen greedy/complete five-site composition test; it does not yet license selecting
 a minimal add-back set from singleton scores alone.
 
+The complete 32-mask composition lattice passes all five registered predictions and selects mask 26:
+full complement at `MLP1`, `MLP3`, and `MLP6`, with the mean+contrast union retained at `MLP0` and
+`MLP2`.  It is the first eligible prefix of the frozen singleton order and the best of two eligible
+three-site masks.  Temporal/is-was behavior is `.86308/.91890`, within `.00444` of full; signed
+response is `1.08011/1.09614`, RSE is `.01358/.01463`, and its control report matches the full
+parent's two flipped rows with slightly lower median KL (`.01207` versus `.01249`).  Removing any
+selected site makes the arm ineligible.  Across all 32 masks the maximum deviation from singleton
+additivity is only `.000768` in behavior and `.000251` in signed response.
+
+The selectivity constraint changes the scientific interpretation.  `MLP3+MLP6` already meets the
+strict `.015` target-equivalence tolerance, but flips a different control row not flipped by full.
+Adding MLP1 restores the parent's control identity while improving is-was behavior.  MLP1 is
+therefore a selectivity-routing component in this composed source program, not merely another large
+linear response writer.  The mask remains a promoted screen until it transfers without reselection
+to a capability-qualified new construction family.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -189,7 +205,9 @@ are closed; the next optimization object must expose a finite causal-response op
   `temporal_iswas_rank16_source_task_pair_weight_groups_v2_result.json` (valid functional null;
   five-site residual localization required), followed by
   `temporal_iswas_rank16_source_complement_site_localization_v1_result.json` (distributed, nearly
-  additive complement; no single-site explanation).
+  additive complement; no single-site explanation), and
+  `temporal_iswas_rank16_source_complement_composition_lattice_v1_result.json` (minimal mask 26:
+  MLP1/3/6; complete 32-mask composition and selectivity).
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`, followed by
   `temporal_h3_das_nested_construction_adaptive_regularization_v1_result.json` (valid rejection of
@@ -199,9 +217,9 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Execute the frozen five-site complement composition order (or complete 32-mask lattice), select
-   the smallest full-equivalent add-back, and confirm that exact mask on a new construction family;
-   then factor shared and contrast contributions inside the repaired source program.
+2. Confirm frozen mask 26 (`MLP1/3/6` complement plus `MLP0/2` union) on a capability-qualified new
+   construction family without reselection; then factor shared and contrast contributions inside
+   the repaired source program.
 3. Replace the rejected scalar-axis DAS loss with a finite causal-response operator whose held-out
    blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
    as explicit controls, not post-hoc explanations.
