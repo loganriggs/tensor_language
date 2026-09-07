@@ -1,0 +1,22 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank48_pooled_projector_reverse_fresh_v1",
+  "question": "Does a deterministic response projector fit once on all complete older target/control families remove the even/odd reverse-control instability on fresh text?",
+  "motivation": "The even-fit projector flips one fresh paraphrase control at gain 1.0 while odd-fit does not. MLP and attention weight-function usage is task-typed, so arbitrary split-specific bases are a plausible estimator-instability source. Pooling is frozen before fresh evaluation and uses no optimized DAS or gain.",
+  "authority": {
+    "fresh_gain_curve_result_sha256": "158d0b73d6acc2122802caa5965ece1085ba1de57c46cfd7809addd32a47bd7f",
+    "rank48_support_result_sha256": "92384a4496c7e3ceb5dbccecfd8ef65a61e7f5c219e52b5cf919b91ef1ba5fe2",
+    "crossfit_weight_interface_sha256": "578fa690f2f3962409bb50bd40a1c4c6f0b5ce7f88828e2e889a3a47bb20f013",
+    "compiled_graph_helper_sha256": "2de68cab2af7e9f1619bedc9c0692780574e015a64c3c2aaf7fbc53fd5d0f32a"
+  },
+  "fit": "Pool every older jointly capable temporal/is-was A1/A2 target row and both matched-control splits. Fit one rank-eight response projector per site and one rank-64 MLP input basis from all older A1/A2 training rows. No fresh row, outcome, gain, or threshold enters the fit.",
+  "evaluation": "Run the frozen rank48 source graph in reverse on temporal-v13/iswas-v12 at gain 1.0 and on temporal-v13 paraphrase controls.",
+  "predictions": {
+    "pred_a_authority_disjointness_finiteness_and_exact_price": "Authorities match, old fit rows and fresh evaluation rows are disjoint, support has 48 sites, all values are finite, and exactly 19 forwards execute.",
+    "pred_b_pooled_reverse_coordinates_transfer": "Every compiled response-site coordinate projection is at least 0.75, mean coordinate residual is at most 0.20, and worst coordinate residual is at most 0.20.",
+    "pred_c_pooled_reverse_behavior_passes": "Temporal and is/was behavior projections are each at least 0.80 and worst target residual is at most 0.15.",
+    "pred_d_pooled_reverse_controls_are_selective": "Control margin RMS is at most 0.10, median full-vocabulary KL at most 0.02, and top-one flip fraction is zero.",
+    "pred_e_pooling_resolves_the_split_failure": "The pooled projector simultaneously exceeds the prior even-fit minimum behavior projection 0.7962746 and improves its 0.0625 flip fraction to zero."
+  },
+  "decision": "All five predictions establish a stable gain-one reverse interface under complete-family pooled identification. Failure closes projector pooling as a repair and preserves the rank48 program as forward/OOD sufficient but not uniformly reverse-selective.",
+  "price": {"model_forwards_exact": 19, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
