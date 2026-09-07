@@ -14,12 +14,13 @@ F = ROOT / "circuits/followups"
 J = lambda n: json.loads((F / n).read_text())
 v66, v67, v68, v69, v70 = (J(f"unit_{n}_result.json") for n in ("verb_greedy_saturation_v66", "four_sets_greedy_saturation_v67", "greedy_sets_extraction_v68", "greedy_sets_terminal_rows_v69", "c_penalised_greedy_v70"))
 v75 = J("unit_six_sets_constrained_das_v75_result.json")
+v76 = J("unit_constrained_das_extraction_v76_result.json")
 curves = {**v66["sets"], **v67["sets"]}
 ORDER = ["quantifier_number", "verb_preposition", "polarity_licensing", "dative", "verb_complementizer", "voice_frame"]
 r3 = lambda x: f"{x:.3f}"
 mark = lambda b: "✓" if b else "✗"
 lines = [f"# Terminal evidence — removal-greedy head sets (generated {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')} UTC by ops/terminal_table_greedy_sets.py)", "",
-         "Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised), v75 (constrained DAS: direction = rank-1-per-block DAS on pooled A1 + v15 verb-variant EVEN rows, complement term, C-removal-inertness regularizer λ=30 on C EVEN rows; A2 and the odd rows never fitted).", "",
+         "Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised), v75 (constrained DAS: direction = rank-1-per-block DAS on pooled A1 + v15 verb-variant EVEN rows, complement term, C-removal-inertness regularizer λ=30 on C EVEN rows; A2 and the odd rows never fitted), v76 (extraction of those directions on A1 and A2 odd rows).", "",
          "| behaviour | set | n | removal A1 (LB) | extraction (LB) | own C (UB) | A2 a1-fit | A2 a2-fit | random | max cross | rows 2/3/4/5 |", "|---|---|---|---|---|---|---|---|---|---|---|"]
 for n in ORDER:
     c = curves[n]; e = v68["sets"][n]["extraction"]; t = v69["sets"][n]; rm = v69["rows_met"][n]
@@ -41,7 +42,9 @@ for n in ORDER:
         row3 = P["A1"]["ce_lb975"] > 0 and P["A1"]["ce_lb975"] - P["C"]["ce_ub975"] > 0
         row4 = P["C"]["ce_ub975"] <= 0.01
         row5 = P["A2"]["ce_lb975"] > 0 and P["A2"]["ce_damage"] >= 0.5 * P["A1"]["ce_damage"]
-        lines.append(f"| {n} | hub+8 constrained DAS (pooled, λ=30) | {len(v75['sets'][n]['units'])} | {r3(P['A1']['ce_damage'])} ({r3(P['A1']['ce_lb975'])}) | not measured | {r3(P['C']['ce_damage'])} ({r3(P['C']['ce_ub975'])}); λ=0 {r3(Z['C']['ce_damage'])} | {r3(P['A2']['ce_damage'])} | — | {r3(rn['ce_damage'])} | {r3(crossp)} | ·/{mark(row3)}/{mark(row4)}/{mark(row5)} |")
+        x1 = v76["sets"][n]["extraction"]["A1"]["cdas"]; x2 = v76["sets"][n]["extraction"]["A2"]["cdas"]
+        row2 = x1["point"] >= 0.8 and x1["lb95"] >= 0.6
+        lines.append(f"| {n} | hub+8 constrained DAS (pooled, λ=30) | {len(v75['sets'][n]['units'])} | {r3(P['A1']['ce_damage'])} ({r3(P['A1']['ce_lb975'])}) | {r3(x1['point'])} ({r3(x1['lb95'])}); A2 {r3(x2['point'])} | {r3(P['C']['ce_damage'])} ({r3(P['C']['ce_ub975'])}); λ=0 {r3(Z['C']['ce_damage'])} | {r3(P['A2']['ce_damage'])} | — | {r3(rn['ce_damage'])} | {r3(crossp)} | {mark(row2)}/{mark(row3)}/{mark(row4)}/{mark(row5)} |")
 lines += ["", "## Sets", ""]
 for n in ORDER:
     c = curves[n]
