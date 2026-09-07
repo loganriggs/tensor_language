@@ -1,0 +1,21 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_literal_projector_weight_execution_v1",
+  "question": "Can both frozen cross-fit projector programs be executed literally through model weight contractions rather than generic activation projection hooks?",
+  "frozen_program": {
+    "sites": ["MLP1", "L9H1", "MLP3", "L9H4", "L8H1", "MLP6", "MLP4", "L11H3"],
+    "projectors": ["even_fit", "odd_fit"],
+    "rank": 8,
+    "target_authority": "temporal-v11 plus is/was-v10 jointly-capable A1/A2 rows",
+    "control_authority": "temporal-v11 P rows",
+    "attention_formula": "(base_head-live_head) W_O^T + (delta_head Q)(W_O Q)^T",
+    "mlp_formula": "base_mlp-live_mlp + (delta_hidden (W_D^T Q)) Q^T"
+  },
+  "predictions": {
+    "pred_a_authority_hash_replay_instrument_finiteness_and_price": "sealed authorities and both projector hashes replay exactly; values finite",
+    "pred_b_attention_weight_contractions_close_locally": "direct projected attention writes equal literal c_proj contractions with RSE <=1e-10",
+    "pred_c_mlp_weight_contractions_close_locally": "direct projected MLP writes equal literal Down/bilinear contractions with RSE <=1e-10",
+    "pred_d_literal_execution_matches_generic_projector": "final residual and centered logits match generic execution with scale-relative RSE <=1e-5 for every target/control and projector arm",
+    "pred_e_literal_program_preserves_ood_behavior_and_controls": "literal target signed projection >=0.80 with worst residual <=0.05 per task, and control margin RMS <=0.10"
+  },
+  "price": {"model_forwards_max": 21, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
