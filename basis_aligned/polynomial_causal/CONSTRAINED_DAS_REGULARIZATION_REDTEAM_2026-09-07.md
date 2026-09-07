@@ -31,3 +31,18 @@ Accordingly, the decisive tournament will not ask whether KL wins the scalar com
 - regularization succeeds if a moved noise/KL checkpoint beats pooled step zero on every family fold and on a once-opened sealed family;
 - the objective is still wrong if learned checkpoints improve their training family but pooled step zero continues to win complete-family selection;
 - rank one is inadequate if no moved checkpoint can improve selectivity while respecting target-retention constraints.
+
+## Fully instrumented whole-family result
+
+The deterministic v2 replay validates the measurement and sharpens the diagnosis. It counted 24 native model calls and 1,208 differentiable manual-reader evaluations separately (1,232 total), persisted zero manual-reader closure error on v8/v10/v12, and passed every hash, disjointness, finiteness, update, and forward-price conjunct. Thus the following differences are scientific evidence rather than an accounting artifact.
+
+KL was selected by the registered worst-fold rule and its two fold axes were geometrically stable (`|cos|=.8827`). It improved v8-to-v10 worst six-term loss from `.7261` to `.6968`, but worsened v10-to-v8 from `.3486` to `.4007`. The v8 failure is not caused by a hard target-limit violation: every selected checkpoint is feasible. Instead, KL increases margin and L15 match/inert terms on both v8 panels while barely improving—or slightly worsening—the vocabulary terms that it was meant to regularize. On v10's difficult second panel, by contrast, KL reduces the dominant vocabulary terms enough to offset its larger margin terms.
+
+After the prospectively selected KL arm was refit on v8+v10, it generalized strongly to the then-sealed v12 family: mean/worst loss fell from `.9803/1.0095` to `.3979/.4803`, and vocabulary match plus inertness improved on both panels while all target limits remained satisfied. The terminal is therefore `regularization_fold_heterogeneity`, not “optimization failed” and not an unqualified DAS success.
+
+This rules out two simplistic next moves:
+
+- merely increasing fixed KL weight, because the weak side is already harmed primarily through margin/L15 terms rather than insufficient vocabulary pressure;
+- treating small tangent noise as a distinct solution, because at the tested scale its scores track the corresponding no-noise arms to within roughly `.001`.
+
+The next optimizer should select KL strength and stopping time without seeing its outer construction family, using inner panel/family validation, and should include an explicit cross-construction effect-variance term. A new v14 text family is being reserved before that optimizer is authored, so the next result cannot be tuned to the already-open v12 success.
