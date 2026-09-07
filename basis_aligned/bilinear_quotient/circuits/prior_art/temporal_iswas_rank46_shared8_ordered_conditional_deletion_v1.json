@@ -1,0 +1,11 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_rank46_shared8_ordered_conditional_deletion_v1",
+  "question": "Which shared MLPs are conditionally necessary in causal layer order and in the full recurrent context, and can one module be deleted while preserving both task programs and improving controls?",
+  "authority": {
+    "corrected_pairwise_result_sha256": "a86c42cedbba40740bcc8fb7479b57bb95ee710c435c0585ad65b58eea479b30",
+    "shared_intersection": ["MLP0", "MLP1", "MLP2", "MLP3", "MLP4", "MLP6", "MLP7", "MLP8"],
+    "pairwise_boundary": "Pair interactions are concentrated among MLP0-4 but the complete degree-two reconstruction has negative projection and RSE above 2.9, selecting ordered/full-context conditional increments."
+  },
+  "novelty": "First ordered-prefix, singleton, and full-context leave-one-out causal atlas of the shared eight-MLP two-task writer bank, with control-scored first-step greedy deletion.",
+  "decision": "Choose a deletion only among arms preserving both rank-four task responses and behaviors. Prefer a fully selective arm; otherwise retain the functional arm with the best frozen control frontier as a non-released next greedy state."
+}
