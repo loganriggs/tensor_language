@@ -28,9 +28,11 @@
   },
   "terminal_policy": {
     "localized_new_module": "A-C pass and the largest singleton behavior recovery is >=.50.",
-    "distributed_changed_graph": "A-D pass but no singleton reaches .50.",
+    "distributed_changed_graph": "A-E pass but no singleton reaches .50.",
+    "new_module_singleton_null": "A, B, and D pass but C fails; the prefix is causal without a >=.10 new singleton.",
     "proper_prefix_interaction_failure": "A-B pass but D fails even though the all-site donor control closes.",
-    "response_block_mismatch": "A-D pass but E fails.",
+    "response_block_mismatch": "A-D pass, E fails, and no singleton reaches .50.",
+    "old_five_replay_mismatch": "A passes but B fails.",
     "invalid": "A fails."
   },
   "next_branch": "Split the top causally live attention module into all nine heads, or split a top MLP by construction-stable causal response modes; if support is distributed, execute a frozen greedy composition of the top complete modules.",
