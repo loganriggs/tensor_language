@@ -1,0 +1,1076 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 7,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v224",
+  "families": {
+    "case": [
+      "pronoun_case_coordination",
+      "relative_case_who_whom",
+      "relative_case_who_whose"
+    ],
+    "degree": [
+      "superlative_complement_best",
+      "superlative_complement_largest",
+      "comparative_complement_superior",
+      "comparative_complement_inferior",
+      "degree_much_very",
+      "degree_so_such"
+    ],
+    "inversion": [
+      "negative_inversion",
+      "so_inversion",
+      "neither_inversion",
+      "rarely_inversion",
+      "not_only_inversion"
+    ],
+    "polarity": [
+      "polarity_state",
+      "polarity_licensing",
+      "polarity_addition",
+      "polarity_tag",
+      "polarity_nor_and"
+    ],
+    "verb_preposition": [
+      "verb_preposition",
+      "verb_preposition_insisted"
+    ]
+  },
+  "finished_utc": "2026-09-07T18:13:51.452387+00:00",
+  "members": {
+    "comparative_complement_inferior": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.3161,
+            "ce_lb975": 1.2141,
+            "ce_ub975": 1.4157
+          },
+          "C": {
+            "ce_damage": 0.0004,
+            "ce_lb975": -0.0092,
+            "ce_ub975": 0.0096
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0171,
+          "siblings": {
+            "comparative_complement_superior": 0.0026,
+            "degree_much_very": 0.0171,
+            "degree_so_such": 0.0031,
+            "superlative_complement_best": -0.0028,
+            "superlative_complement_largest": -0.004
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3906,
+            "ce_lb975": 1.2791,
+            "ce_ub975": 1.5087
+          },
+          "C": {
+            "ce_damage": 0.0031,
+            "ce_lb975": -0.0032,
+            "ce_ub975": 0.0085
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.7297,
+          "siblings": {
+            "comparative_complement_superior": 0.7297,
+            "degree_much_very": -0.0634,
+            "degree_so_such": 0.0206,
+            "superlative_complement_best": 0.293,
+            "superlative_complement_largest": 0.2664
+          }
+        }
+      },
+      "exact_held": 0.9,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 74.7,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:12:head:08",
+        "attn:14:head:08",
+        "attn:11:head:07",
+        "attn:16:head:08",
+        "attn:05:head:03",
+        "attn:09:head:01",
+        "attn:15:head:01"
+      ]
+    },
+    "comparative_complement_superior": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.2241,
+            "ce_lb975": 0.8375,
+            "ce_ub975": 1.6455
+          },
+          "C": {
+            "ce_damage": 0.0018,
+            "ce_lb975": -0.0036,
+            "ce_ub975": 0.0075
+          },
+          "extraction": 0.957,
+          "sib_abs_max": 0.031,
+          "siblings": {
+            "comparative_complement_inferior": 0.007,
+            "degree_much_very": -0.0077,
+            "degree_so_such": 0.0036,
+            "superlative_complement_best": 0.031,
+            "superlative_complement_largest": 0.0045
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3439,
+            "ce_lb975": 1.2284,
+            "ce_ub975": 1.4684
+          },
+          "C": {
+            "ce_damage": -0.0,
+            "ce_lb975": -0.0074,
+            "ce_ub975": 0.0067
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 1.1035,
+          "siblings": {
+            "comparative_complement_inferior": 1.1035,
+            "degree_much_very": -0.0615,
+            "degree_so_such": 0.0316,
+            "superlative_complement_best": 0.6095,
+            "superlative_complement_largest": 0.3695
+          }
+        }
+      },
+      "exact_held": 0.898,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 79.4,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:13:head:08",
+        "attn:12:head:08",
+        "attn:14:head:08",
+        "attn:09:head:01",
+        "attn:10:head:05",
+        "attn:05:head:08",
+        "attn:15:head:01",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:11:head:07",
+        "attn:05:head:03"
+      ]
+    },
+    "degree_much_very": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9036,
+            "ce_lb975": 0.7652,
+            "ce_ub975": 1.0467
+          },
+          "C": {
+            "ce_damage": 0.0126,
+            "ce_lb975": 0.005,
+            "ce_ub975": 0.0208
+          },
+          "extraction": 1.0,
+          "sib_abs_max": 0.0083,
+          "siblings": {
+            "comparative_complement_inferior": 0.0055,
+            "comparative_complement_superior": 0.0071,
+            "degree_so_such": 0.0083,
+            "superlative_complement_best": 0.0027,
+            "superlative_complement_largest": 0.0057
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8988,
+            "ce_lb975": 0.7585,
+            "ce_ub975": 1.0442
+          },
+          "C": {
+            "ce_damage": -0.0033,
+            "ce_lb975": -0.0079,
+            "ce_ub975": 0.001
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.2331,
+          "siblings": {
+            "comparative_complement_inferior": 0.2331,
+            "comparative_complement_superior": 0.1815,
+            "degree_so_such": 0.0267,
+            "superlative_complement_best": 0.0972,
+            "superlative_complement_largest": 0.1991
+          }
+        }
+      },
+      "exact_held": 0.905,
+      "family": "degree",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 17,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 81.4,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:06:head:03",
+        "attn:09:head:07",
+        "attn:04:head:03",
+        "attn:03:head:06",
+        "attn:06:head:06",
+        "attn:11:head:02",
+        "attn:04:head:07",
+        "attn:10:head:08",
+        "attn:12:head:08",
+        "attn:11:head:03",
+        "attn:16:head:08",
+        "attn:05:head:03",
+        "attn:15:head:01",
+        "attn:13:head:06",
+        "attn:04:head:00"
+      ]
+    },
+    "negative_inversion": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5864,
+            "ce_lb975": 0.4527,
+            "ce_ub975": 0.7308
+          },
+          "C": {
+            "ce_damage": -0.003,
+            "ce_lb975": -0.018,
+            "ce_ub975": 0.0104
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.0042,
+          "siblings": {
+            "neither_inversion": 0.0018,
+            "not_only_inversion": 0.0042,
+            "rarely_inversion": 0.003,
+            "so_inversion": -0.0009
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6864,
+            "ce_lb975": 0.5035,
+            "ce_ub975": 0.8804
+          },
+          "C": {
+            "ce_damage": -0.0004,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0098
+          },
+          "extraction": 0.997,
+          "sib_abs_max": 0.1623,
+          "siblings": {
+            "neither_inversion": 0.0114,
+            "not_only_inversion": 0.159,
+            "rarely_inversion": 0.1623,
+            "so_inversion": 0.0856
+          }
+        }
+      },
+      "exact_held": 0.885,
+      "family": "inversion",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 98.1,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:04:head:07",
+        "attn:01:head:05",
+        "attn:00:head:08",
+        "attn:00:head:03",
+        "attn:02:head:06",
+        "attn:04:head:01",
+        "attn:06:head:01"
+      ]
+    },
+    "neither_inversion": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4814,
+            "ce_lb975": 0.3719,
+            "ce_ub975": 0.6025
+          },
+          "C": {
+            "ce_damage": -0.0071,
+            "ce_lb975": -0.0137,
+            "ce_ub975": -0.0009
+          },
+          "extraction": 0.994,
+          "sib_abs_max": 0.0082,
+          "siblings": {
+            "negative_inversion": -0.0012,
+            "not_only_inversion": -0.0029,
+            "rarely_inversion": 0.0043,
+            "so_inversion": -0.0082
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5981,
+            "ce_lb975": 0.4765,
+            "ce_ub975": 0.7291
+          },
+          "C": {
+            "ce_damage": -0.0023,
+            "ce_lb975": -0.0092,
+            "ce_ub975": 0.0042
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.316,
+          "siblings": {
+            "negative_inversion": -0.0432,
+            "not_only_inversion": 0.0662,
+            "rarely_inversion": 0.2905,
+            "so_inversion": -0.316
+          }
+        }
+      },
+      "exact_held": 0.879,
+      "family": "inversion",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 94.1,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:04:head:00",
+        "attn:03:head:06",
+        "attn:05:head:03",
+        "attn:05:head:08",
+        "attn:02:head:03",
+        "attn:08:head:01",
+        "attn:09:head:01",
+        "attn:04:head:07",
+        "attn:06:head:06"
+      ]
+    },
+    "polarity_licensing": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5172,
+            "ce_lb975": 0.4152,
+            "ce_ub975": 0.6244
+          },
+          "C": {
+            "ce_damage": 0.0019,
+            "ce_lb975": -0.0058,
+            "ce_ub975": 0.0085
+          },
+          "extraction": 0.997,
+          "sib_abs_max": 0.0121,
+          "siblings": {
+            "polarity_addition": 0.0094,
+            "polarity_nor_and": -0.0046,
+            "polarity_state": 0.0121,
+            "polarity_tag": 0.0086
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5112,
+            "ce_lb975": 0.3631,
+            "ce_ub975": 0.6694
+          },
+          "C": {
+            "ce_damage": 0.0032,
+            "ce_lb975": -0.0038,
+            "ce_ub975": 0.0093
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.5486,
+          "siblings": {
+            "polarity_addition": 0.5486,
+            "polarity_nor_and": 0.2677,
+            "polarity_state": 0.2659,
+            "polarity_tag": 0.092
+          }
+        }
+      },
+      "exact_held": 0.891,
+      "family": "polarity",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 98.5,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00",
+        "attn:05:head:08",
+        "attn:09:head:07",
+        "attn:13:head:01",
+        "attn:10:head:05",
+        "attn:01:head:05",
+        "attn:16:head:08",
+        "attn:03:head:04"
+      ]
+    },
+    "polarity_state": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7861,
+            "ce_lb975": 0.726,
+            "ce_ub975": 0.8474
+          },
+          "C": {
+            "ce_damage": -0.0056,
+            "ce_lb975": -0.0181,
+            "ce_ub975": 0.0086
+          },
+          "extraction": 0.983,
+          "sib_abs_max": 0.0094,
+          "siblings": {
+            "polarity_addition": 0.0094,
+            "polarity_licensing": -0.0046,
+            "polarity_nor_and": -0.0028,
+            "polarity_tag": -0.0026
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8238,
+            "ce_lb975": 0.74,
+            "ce_ub975": 0.904
+          },
+          "C": {
+            "ce_damage": -0.0049,
+            "ce_lb975": -0.0139,
+            "ce_ub975": 0.0043
+          },
+          "extraction": 1.002,
+          "sib_abs_max": 0.7212,
+          "siblings": {
+            "polarity_addition": 0.7212,
+            "polarity_licensing": 0.4679,
+            "polarity_nor_and": 0.5224,
+            "polarity_tag": 0.158
+          }
+        }
+      },
+      "exact_held": 0.893,
+      "family": "polarity",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 88.2,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:02:head:06",
+        "attn:03:head:00",
+        "attn:09:head:03"
+      ]
+    },
+    "rarely_inversion": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.045,
+            "ce_lb975": 0.7287,
+            "ce_ub975": 1.3805
+          },
+          "C": {
+            "ce_damage": 0.0039,
+            "ce_lb975": -0.0089,
+            "ce_ub975": 0.017
+          },
+          "extraction": 0.982,
+          "sib_abs_max": 0.0164,
+          "siblings": {
+            "negative_inversion": -0.001,
+            "neither_inversion": 0.0164,
+            "not_only_inversion": -0.0054,
+            "so_inversion": 0.0126
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0654,
+            "ce_lb975": 0.7559,
+            "ce_ub975": 1.3982
+          },
+          "C": {
+            "ce_damage": -0.0093,
+            "ce_lb975": -0.0239,
+            "ce_ub975": 0.0053
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.2418,
+          "siblings": {
+            "negative_inversion": 0.1025,
+            "neither_inversion": 0.2418,
+            "not_only_inversion": 0.0268,
+            "so_inversion": 0.0876
+          }
+        }
+      },
+      "exact_held": 0.885,
+      "family": "inversion",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 17,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 85.4,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:01",
+        "attn:04:head:07",
+        "attn:09:head:07",
+        "attn:09:head:01",
+        "attn:06:head:03",
+        "attn:03:head:04",
+        "attn:04:head:00",
+        "attn:02:head:03",
+        "attn:15:head:05",
+        "attn:08:head:03",
+        "attn:05:head:00",
+        "attn:03:head:00",
+        "attn:05:head:08"
+      ]
+    },
+    "relative_case_who_whose": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.7853,
+            "ce_lb975": 1.1402,
+            "ce_ub975": 2.3941
+          },
+          "C": {
+            "ce_damage": -0.0086,
+            "ce_lb975": -0.0239,
+            "ce_ub975": 0.0061
+          },
+          "extraction": 1.007,
+          "sib_abs_max": 0.0395,
+          "siblings": {
+            "pronoun_case_coordination": 0.0395,
+            "relative_case_who_whom": -0.0138
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.7613,
+            "ce_lb975": 1.2623,
+            "ce_ub975": 2.2333
+          },
+          "C": {
+            "ce_damage": -0.004,
+            "ce_lb975": -0.0074,
+            "ce_ub975": -0.0005
+          },
+          "extraction": 1.008,
+          "sib_abs_max": 0.0351,
+          "siblings": {
+            "pronoun_case_coordination": -0.0106,
+            "relative_case_who_whom": 0.0351
+          }
+        }
+      },
+      "exact_held": 0.88,
+      "family": "case",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 61.7,
+      "separable": true,
+      "units": [
+        "attn:03:head:06",
+        "attn:11:head:02",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:05:head:08",
+        "attn:04:head:07",
+        "attn:04:head:00",
+        "attn:02:head:06",
+        "attn:03:head:03",
+        "attn:05:head:06",
+        "attn:04:head:01",
+        "attn:04:head:03",
+        "attn:03:head:07"
+      ]
+    },
+    "verb_preposition": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6315,
+            "ce_lb975": 0.5858,
+            "ce_ub975": 0.6774
+          },
+          "C": {
+            "ce_damage": 0.0041,
+            "ce_lb975": -0.0001,
+            "ce_ub975": 0.009
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0065,
+          "siblings": {
+            "verb_preposition_insisted": -0.0065
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6239,
+            "ce_lb975": 0.5799,
+            "ce_ub975": 0.6695
+          },
+          "C": {
+            "ce_damage": 0.0037,
+            "ce_lb975": 0.0003,
+            "ce_ub975": 0.0075
+          },
+          "extraction": 0.982,
+          "sib_abs_max": 0.0846,
+          "siblings": {
+            "verb_preposition_insisted": -0.0846
+          }
+        }
+      },
+      "exact_held": 0.931,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 49.3,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:14:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "verb_preposition_insisted": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.2056,
+            "ce_lb975": 1.0787,
+            "ce_ub975": 1.343
+          },
+          "C": {
+            "ce_damage": -0.0018,
+            "ce_lb975": -0.0043,
+            "ce_ub975": 0.0002
+          },
+          "extraction": 0.987,
+          "sib_abs_max": 0.0009,
+          "siblings": {
+            "verb_preposition": -0.0009
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.192,
+            "ce_lb975": 1.0265,
+            "ce_ub975": 1.3684
+          },
+          "C": {
+            "ce_damage": -0.0039,
+            "ce_lb975": -0.0069,
+            "ce_ub975": -0.001
+          },
+          "extraction": 0.987,
+          "sib_abs_max": 0.0736,
+          "siblings": {
+            "verb_preposition": 0.0736
+          }
+        }
+      },
+      "exact_held": 0.885,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 49.1,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:07:head:08",
+        "attn:07:head:07",
+        "attn:14:head:08",
+        "attn:14:head:03"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_much_very": true,
+    "pred_b_who_whose": true,
+    "pred_c_insisted": true,
+    "pred_d_verb_prep_kept": true,
+    "pred_e_degree_kept": true,
+    "pred_f_inversion_kept": true,
+    "pred_g_polarity_kept": true,
+    "pred_h_row4_kept": true,
+    "pred_i_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "degree_much_very",
+      "relative_case_who_whose",
+      "verb_preposition_insisted",
+      "verb_preposition",
+      "comparative_complement_superior",
+      "comparative_complement_inferior",
+      "negative_inversion",
+      "neither_inversion",
+      "rarely_inversion",
+      "polarity_state",
+      "polarity_licensing"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 + v201 + v204 + v205 + v207 + v209 + v211 + v213 + v215 + v217 + v219 + v221 receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v224",
+  "seconds": 867.5,
+  "separable_counts": {
+    "case": 1,
+    "degree": 3,
+    "inversion": 3,
+    "polarity": 2,
+    "verb_preposition": 2
+  },
+  "summary": {
+    "comparative_complement_inferior": {
+      "fam": [
+        0.986,
+        0.0171,
+        0.0096
+      ],
+      "family": "degree",
+      "n_units": 12,
+      "own": [
+        0.993,
+        0.7297,
+        0.0085
+      ],
+      "separable": true
+    },
+    "comparative_complement_superior": {
+      "fam": [
+        0.957,
+        0.031,
+        0.0075
+      ],
+      "family": "degree",
+      "n_units": 15,
+      "own": [
+        0.998,
+        1.1035,
+        0.0067
+      ],
+      "separable": true
+    },
+    "degree_much_very": {
+      "fam": [
+        1.0,
+        0.0083,
+        0.0208
+      ],
+      "family": "degree",
+      "n_units": 17,
+      "own": [
+        1.006,
+        0.2331,
+        0.001
+      ],
+      "separable": true
+    },
+    "negative_inversion": {
+      "fam": [
+        0.995,
+        0.0042,
+        0.0104
+      ],
+      "family": "inversion",
+      "n_units": 11,
+      "own": [
+        0.997,
+        0.1623,
+        0.0098
+      ],
+      "separable": true
+    },
+    "neither_inversion": {
+      "fam": [
+        0.994,
+        0.0082,
+        -0.0009
+      ],
+      "family": "inversion",
+      "n_units": 11,
+      "own": [
+        0.999,
+        0.316,
+        0.0042
+      ],
+      "separable": true
+    },
+    "polarity_licensing": {
+      "fam": [
+        0.997,
+        0.0121,
+        0.0085
+      ],
+      "family": "polarity",
+      "n_units": 11,
+      "own": [
+        0.993,
+        0.5486,
+        0.0093
+      ],
+      "separable": true
+    },
+    "polarity_state": {
+      "fam": [
+        0.983,
+        0.0094,
+        0.0086
+      ],
+      "family": "polarity",
+      "n_units": 13,
+      "own": [
+        1.002,
+        0.7212,
+        0.0043
+      ],
+      "separable": true
+    },
+    "rarely_inversion": {
+      "fam": [
+        0.982,
+        0.0164,
+        0.017
+      ],
+      "family": "inversion",
+      "n_units": 17,
+      "own": [
+        0.998,
+        0.2418,
+        0.0053
+      ],
+      "separable": true
+    },
+    "relative_case_who_whose": {
+      "fam": [
+        1.007,
+        0.0395,
+        0.0061
+      ],
+      "family": "case",
+      "n_units": 15,
+      "own": [
+        1.008,
+        0.0351,
+        -0.0005
+      ],
+      "separable": true
+    },
+    "verb_preposition": {
+      "fam": [
+        0.986,
+        0.0065,
+        0.009
+      ],
+      "family": "verb_preposition",
+      "n_units": 7,
+      "own": [
+        0.982,
+        0.0846,
+        0.0075
+      ],
+      "separable": true
+    },
+    "verb_preposition_insisted": {
+      "fam": [
+        0.987,
+        0.0009,
+        0.0002
+      ],
+      "family": "verb_preposition",
+      "n_units": 7,
+      "own": [
+        0.987,
+        0.0736,
+        -0.001
+      ],
+      "separable": true
+    }
+  }
+}
