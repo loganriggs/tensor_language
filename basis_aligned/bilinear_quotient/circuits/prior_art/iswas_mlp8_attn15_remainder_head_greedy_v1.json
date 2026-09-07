@@ -4,7 +4,7 @@
   "decision": "novel_conditional_head_greedy",
   "parent_result_sha256": "fbd5416376ce9d0a510393a3685a6c733aa071efed2340264172123fe6b6ab54",
   "fixed_program": "semantic seed plus complete MLP10-14 responses",
-  "candidate_pool": [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11],
+  "candidate_pool": [0, 1, 2, 3, 4, 6, 7, 8],
   "excluded_seed_head": 5,
   "selection": "panel-balanced zero-fit greedy forward selection of at most five attention15 remainder heads on discovery rows, choosing the best prefix against the parent six-component target",
   "confirmation": "disjoint A1/A2 rows compare the fixed MLP chain, best singleton head, selected head union, and the full attention15 remainder",

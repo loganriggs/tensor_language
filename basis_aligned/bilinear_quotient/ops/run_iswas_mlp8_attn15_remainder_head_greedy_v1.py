@@ -23,10 +23,10 @@ CAPABILITY=ROOT/"circuits/followups/tense_auxiliary_is_was_fresh_lexicon_v11_cap
 BUILDER=ROOT/"ops/circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v11.py"
 OUT=ROOT/"circuits/followups/iswas_mlp8_attn15_remainder_head_greedy_v1_result.json"
 CANDIDATE_ID="cross_task.iswas_mlp8_attn15_remainder_head_greedy_v1"
-EXPECTED={"prior":"b054ed93e4d7486bbcf5a6002b1629db9e62766f8491f422062354408bec8f93","parent":"fbd5416376ce9d0a510393a3685a6c733aa071efed2340264172123fe6b6ab54","parent_runner":"90354f9524f0281c530ab5c68fff45ab98c65e4d6cd83e25448ae3a81ccf05f0","capability":"6dd757b066304d1f81ea1e52e0db601fea05adeac516a49cc84ab42bc73a86a2","builder":"fbd47713fafcb87fc30ba339d175f7d06770ce36b93b6035e8848455529344ec"}
-HEADS=(0,1,2,3,4,6,7,8,9,10,11);FIXED_COMPONENTS=("mlp10","mlp11","mlp12","mlp13","mlp14");TARGET_COMPONENTS=FIXED_COMPONENTS+("attn15_remainder",)
+EXPECTED={"prior":"457d00d9c62a99a496ac169ca85f2474f132d770e1a4b4b9255294e31ad5434d","parent":"fbd5416376ce9d0a510393a3685a6c733aa071efed2340264172123fe6b6ab54","parent_runner":"90354f9524f0281c530ab5c68fff45ab98c65e4d6cd83e25448ae3a81ccf05f0","capability":"6dd757b066304d1f81ea1e52e0db601fea05adeac516a49cc84ab42bc73a86a2","builder":"fbd47713fafcb87fc30ba339d175f7d06770ce36b93b6035e8848455529344ec"}
+HEADS=(0,1,2,3,4,6,7,8);FIXED_COMPONENTS=("mlp10","mlp11","mlp12","mlp13","mlp14");TARGET_COMPONENTS=FIXED_COMPONENTS+("attn15_remainder",)
 MAX_STEPS=5
-MAX_FORWARDS,MAX_EVALUATIONS,SELECTION_CANDIDATES=61,958,45
+MAX_FORWARDS,MAX_EVALUATIONS,SELECTION_CANDIDATES=46,718,30
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def utc_now():return datetime.now(timezone.utc).isoformat(timespec="microseconds").replace("+00:00","Z")
@@ -82,7 +82,7 @@ def main():
     for arm,heads in arm_heads.items():
         output=run_heads(backend,cbatch,cbh,ccomp,cpos,cbase,clive,heads);states[arm]=parent_runner.state(output,confirmation,backend);reports[arm]=parent_runner.report(backend,confirmation,cbase18,ctarget18,states[arm],q8)
     replay=float((states["full_remainder"]-ctarget18).norm()/(ctarget18-cbase18).norm());combined=lambda arm:sum(reports[arm][p][k]**2 for p in ("A1","A2") for k in ("behavior_relative_rmse","q8_relative_rmse"));finite=all(math.isfinite(x) for arm in reports.values() for panel in arm.values() for x in panel.values())
-    pred_a=orientation_error<=1e-6 and self_error<=.05 and finite and MAX_FORWARDS==61 and MAX_EVALUATIONS==958
+    pred_a=orientation_error<=1e-6 and self_error<=.05 and finite and MAX_FORWARDS==46 and MAX_EVALUATIONS==718
     pred_b=combined("selected_heads")<combined("mlp_chain") and combined("selected_heads")<=combined("best_singleton")
     pred_c=all(reports["selected_heads"][p]["behavior_abs_fraction"]>=.90 and reports["selected_heads"][p]["behavior_relative_rmse"]<=.20 for p in ("A1","A2"))
     pred_d=all(reports["selected_heads"][p]["q8_norm_fraction"]>=.90 and reports["selected_heads"][p]["q8_relative_rmse"]<=.25 for p in ("A1","A2"))
