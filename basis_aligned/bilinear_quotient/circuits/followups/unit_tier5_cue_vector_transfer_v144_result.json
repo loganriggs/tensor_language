@@ -1,0 +1,289 @@
+{
+  "bars": {
+    "big": 0.3,
+    "cross_frac": 0.8,
+    "cross_min": 0.6,
+    "instr_tol": 0.02,
+    "pair_min": 0.03,
+    "rand_max": 0.03,
+    "rev_max": 0.4,
+    "slot_max": 0.15
+  },
+  "candidate_id": "corpus.unit_tier5_cue_vector_transfer_v144",
+  "counts": {
+    "big": [
+      "lexical_number_pp|attn:11:head:03",
+      "perfect_number|attn:11:head:03"
+    ],
+    "cross": 16,
+    "cross_ok": 12,
+    "pairs": 11,
+    "v143_repro": [
+      11,
+      11
+    ]
+  },
+  "cross_ratios": [
+    [
+      "lexical_number_pp|attn:11:head:03",
+      "perfect_number",
+      0.9
+    ],
+    [
+      "lexical_number_pp|attn:11:head:03",
+      "quantifier_number",
+      -0.054
+    ],
+    [
+      "perfect_number|attn:11:head:03",
+      "lexical_number_pp",
+      1.291
+    ],
+    [
+      "perfect_number|attn:11:head:03",
+      "quantifier_number",
+      -0.071
+    ],
+    [
+      "possessive_argument|attn:12:head:04",
+      "possessive_verbfinal",
+      1.178
+    ],
+    [
+      "possessive_argument|attn:15:head:01",
+      "possessive_medial",
+      1.129
+    ],
+    [
+      "possessive_long_simple|attn:10:head:01",
+      "possessive_medial",
+      1.111
+    ],
+    [
+      "possessive_long_simple|attn:10:head:01",
+      "possessive_verbfinal",
+      1.056
+    ],
+    [
+      "possessive_medial|attn:10:head:01",
+      "possessive_long_simple",
+      0.974
+    ],
+    [
+      "possessive_medial|attn:10:head:01",
+      "possessive_verbfinal",
+      0.974
+    ],
+    [
+      "possessive_medial|attn:15:head:01",
+      "possessive_argument",
+      0.906
+    ],
+    [
+      "possessive_verbfinal|attn:10:head:01",
+      "possessive_long_simple",
+      1.022
+    ],
+    [
+      "possessive_verbfinal|attn:10:head:01",
+      "possessive_medial",
+      1.089
+    ],
+    [
+      "possessive_verbfinal|attn:12:head:04",
+      "possessive_argument",
+      1.085
+    ],
+    [
+      "quantifier_number|attn:11:head:03",
+      "lexical_number_pp",
+      -6.097
+    ],
+    [
+      "quantifier_number|attn:11:head:03",
+      "perfect_number",
+      -5.839
+    ]
+  ],
+  "finished_utc": "2026-09-07T07:20:02.814036+00:00",
+  "pairs_detail": {
+    "lexical_number_pp|attn:11:head:03": {
+      "cross": {
+        "perfect_number": 0.416,
+        "quantifier_number": -0.025
+      },
+      "donor_minus_loo": 0.725,
+      "donor_none": 1.0,
+      "loo_w": 0.493,
+      "m_none": 0.0,
+      "m_rand": 0.007,
+      "m_w": 0.462,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": -0.005
+    },
+    "perfect_number|attn:11:head:03": {
+      "cross": {
+        "lexical_number_pp": 0.585,
+        "quantifier_number": -0.032
+      },
+      "donor_minus_loo": 0.603,
+      "donor_none": 1.0,
+      "loo_w": 0.502,
+      "m_none": 0.0,
+      "m_rand": 0.009,
+      "m_w": 0.453,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": 0.002
+    },
+    "possessive_argument|attn:12:head:04": {
+      "cross": {
+        "possessive_verbfinal": 0.053
+      },
+      "donor_minus_loo": 0.93,
+      "donor_none": 1.0,
+      "loo_w": 0.051,
+      "m_none": 0.0,
+      "m_rand": -0.001,
+      "m_w": 0.045,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": -0.001
+    },
+    "possessive_argument|attn:15:head:01": {
+      "cross": {
+        "possessive_medial": 0.035
+      },
+      "donor_minus_loo": 0.975,
+      "donor_none": 1.0,
+      "loo_w": 0.031,
+      "m_none": 0.0,
+      "m_rand": 0.001,
+      "m_w": 0.031,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": 0.001
+    },
+    "possessive_long_simple|attn:10:head:01": {
+      "cross": {
+        "possessive_medial": 0.04,
+        "possessive_verbfinal": 0.038
+      },
+      "donor_minus_loo": 0.962,
+      "donor_none": 1.0,
+      "loo_w": 0.038,
+      "m_none": 0.0,
+      "m_rand": -0.0,
+      "m_w": 0.036,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": 0.0
+    },
+    "possessive_medial|attn:04:head:05": {
+      "cross": {},
+      "donor_minus_loo": 0.943,
+      "donor_none": 1.0,
+      "loo_w": 0.045,
+      "m_none": 0.0,
+      "m_rand": 0.0,
+      "m_w": 0.042,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": -0.001
+    },
+    "possessive_medial|attn:10:head:01": {
+      "cross": {
+        "possessive_long_simple": 0.038,
+        "possessive_verbfinal": 0.038
+      },
+      "donor_minus_loo": 0.959,
+      "donor_none": 1.0,
+      "loo_w": 0.041,
+      "m_none": 0.0,
+      "m_rand": -0.0,
+      "m_w": 0.039,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": 0.0
+    },
+    "possessive_medial|attn:15:head:01": {
+      "cross": {
+        "possessive_argument": 0.029
+      },
+      "donor_minus_loo": 0.974,
+      "donor_none": 1.0,
+      "loo_w": 0.032,
+      "m_none": 0.0,
+      "m_rand": 0.001,
+      "m_w": 0.032,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": 0.001
+    },
+    "possessive_verbfinal|attn:10:head:01": {
+      "cross": {
+        "possessive_long_simple": 0.046,
+        "possessive_medial": 0.049
+      },
+      "donor_minus_loo": 0.956,
+      "donor_none": 1.0,
+      "loo_w": 0.046,
+      "m_none": 0.0,
+      "m_rand": -0.001,
+      "m_w": 0.045,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": 0.0
+    },
+    "possessive_verbfinal|attn:12:head:04": {
+      "cross": {
+        "possessive_argument": 0.051
+      },
+      "donor_minus_loo": 0.93,
+      "donor_none": 1.0,
+      "loo_w": 0.053,
+      "m_none": 0.0,
+      "m_rand": -0.001,
+      "m_w": 0.047,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": -0.001
+    },
+    "quantifier_number|attn:11:head:03": {
+      "cross": {
+        "lexical_number_pp": -0.189,
+        "perfect_number": -0.181
+      },
+      "donor_minus_loo": 0.973,
+      "donor_none": 1.0,
+      "loo_w": 0.032,
+      "m_none": 0.0,
+      "m_rand": 0.002,
+      "m_w": 0.031,
+      "pair": true,
+      "rows": 16,
+      "slot_shift": 0.003
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_cross_set": false,
+    "pred_c_reversal": false,
+    "pred_d_slot_control": true,
+    "pred_e_quantifier_source": false
+  },
+  "quantifier_source": [
+    [
+      "lexical_number_pp|attn:11:head:03",
+      -0.054
+    ],
+    [
+      "perfect_number|attn:11:head:03",
+      -0.071
+    ]
+  ],
+  "schema": "unit_tier5_cue_vector_transfer_v144",
+  "seconds": 3.4,
+  "skipped": {}
+}
