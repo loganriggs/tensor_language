@@ -21,3 +21,13 @@ subject to hard per-environment target-retention constraints. Hyperparameters an
 Operationally, the next DAS optimizer should train across multiple construction families and use leave-one-family-out selection, comparing four fixed arms: no regularization, noise, KL, and noise+KL. It passes only if a moved checkpoint beats the pooled/DIM step-zero baselines on every held-out family while preserving downstream-reader transfer and full-vocabulary selectivity. This directly tests the user's proposal without allowing the optimizer to answer “is this the subspace you were looking for?” on the same task family.
 
 This stays secondary to the current circuit promotion: the newly bidirectional five-MLP rank-16 source program is being translated into exact weight factors first, because that immediately connects a validated causal subspace to upstream/downstream tensor structure.
+
+## Quantitative adjudication of the regularization hypothesis
+
+The regularization hypothesis has positive evidence and should not be described as a failed idea. On the original held-out split, KL reduced the normalized full-vocabulary objective from `.5292` (unregularized) to `.0632`, while tangent noise reduced it slightly to `.5187`. On the separate multi-reader tournament, noise also beat the DIM baseline substantially. The price was that KL worsened the narrow scalar objective (`.00111` to `.00209`), which is exactly what we should expect if the scalar readout is the overfit quantity.
+
+Accordingly, the decisive tournament will not ask whether KL wins the scalar complement loss. It will compare no-reg/noise/KL/noise+KL under a common six-term evaluation score, with margin and L15 target retention imposed as hard constraints. Training and checkpoint selection will exchange complete construction families, not rows within a family. This makes the opposing outcomes crisp:
+
+- regularization succeeds if a moved noise/KL checkpoint beats pooled step zero on every family fold and on a once-opened sealed family;
+- the objective is still wrong if learned checkpoints improve their training family but pooled step zero continues to win complete-family selection;
+- rank one is inadequate if no moved checkpoint can improve selectivity while respecting target-retention constraints.
