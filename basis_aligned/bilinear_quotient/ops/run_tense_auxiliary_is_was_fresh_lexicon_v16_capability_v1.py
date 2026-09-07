@@ -21,6 +21,12 @@ EXPECTED = {
     "base_runner": "33e8afdcfa02379539bc6f018d662af5f13901d07676458414c9a25aecee8a3e",
 }
 ROWS_SHA256 = "4c5dfaee126c04ac7ea6ef5f53d6ad62a24806fa7133a0c773471a90e4d2e468"
+PREDICTION_KEYS = (
+    "pred_a_authority_novelty_and_exact_population",
+    "pred_b_native_a_panel_capability",
+    "pred_c_joint_capable_population",
+    "pred_d_no_causal_outcome_access_and_exact_price",
+)
 
 
 def sha(path):
