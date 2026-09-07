@@ -1,0 +1,15 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_reverse_support_ladder_v1",
+  "question": "Is the rank48 reverse miss caused by its one removed dependency, by broader upstream pruning, or by the fixed eight-site reader/actuation interface?",
+  "arms": ["rank48", "rank49", "rank55", "all110"],
+  "construction": "Reuse the exact reverse OOD intervention. Rank48 is the selected support; rank49 and rank55 are frozen earlier greedy supports; all110 permits every head/MLP in layers 0-10. Select the first jointly feasible arm in this order.",
+  "predictions": {
+    "pred_a_authority_rank48_replay_finiteness_and_price": "rank48 reproduces its prior summary within 1e-6, authorities replay, values are finite, and <=43 forwards execute",
+    "pred_b_rank49_repairs_reverse_necessity": "rank49 satisfies all reverse coordinate, behavior, and control gates under both fits",
+    "pred_c_a_pruned_reverse_support_exists": "the first jointly feasible arm has <=55 components",
+    "pred_d_reverse_behavior_is_monotone_through_rank55": "minimum reverse behavior projection is nondecreasing from rank48 to rank49 to rank55",
+    "pred_e_selected_support_is_crossfit_stable": "selected minimum-coordinate projections differ by <=0.05 and per-task behavior projections differ by <=0.05 across fits"
+  },
+  "decision": "Promote the smallest passing reverse support as the bidirectional circuit. If only all110 or no arm passes, the eight-site actuation/background interface—not simple missing support—limits reverse necessity.",
+  "price": {"model_forwards_max": 43, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
