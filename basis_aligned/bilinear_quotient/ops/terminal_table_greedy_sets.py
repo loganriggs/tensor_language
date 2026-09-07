@@ -18,6 +18,7 @@ v76 = J("unit_constrained_das_extraction_v76_result.json")
 v80 = J("unit_six_sets_cross_inert_v80_result.json")
 import os as _os
 v81 = J("unit_cross_inert_extraction_v81_result.json") if _os.path.exists(str(F / "unit_cross_inert_extraction_v81_result.json")) else None
+HUB16 = {"voice_frame": ("unit_voice_greedy_continuation_v83_result.json", "unit_voice_hub16_full_specificity_v85_result.json")}
 curves = {**v66["sets"], **v67["sets"]}
 ORDER = ["quantifier_number", "verb_preposition", "polarity_licensing", "dative", "verb_complementizer", "voice_frame"]
 r3 = lambda x: f"{x:.3f}"
@@ -61,6 +62,12 @@ for n in ORDER:
             ext, row2 = "pending (v81)", "?"
         unseen = r3(X["unseen"]["ce_damage"]) if "unseen" in X else "—"
         lines.append(f"| {n} | hub+8 full-specificity DAS (own C + 5 other A1 as inertness controls, 30 each) | {len(v80['sets'][n]['units'])} | {r3(X['A1']['ce_damage'])} ({r3(X['A1']['ce_lb975'])}) | {ext} | {r3(X['C']['ce_damage'])} ({r3(X['C']['ce_ub975'])}) | {r3(X['A2']['ce_damage'])} | unseen pair {unseen} | {r3(rn['ce_damage'])} | max abs {r3(crossx)} | {row2}/{mark(row3)}/{mark(row4)}/{mark(row5)} |")
+    if n in HUB16 and all(_os.path.exists(str(F / f)) for f in HUB16[n]):
+        g16, d16 = (J(f) for f in HUB16[n])
+        S16 = g16["sets"]["hub16"]; e16 = S16["extraction"]; t16 = S16["removal"]
+        lines.append(f"| {n} | hub+16 (v83 continuation, dim) | {len(g16['hub16'])} | {r3(t16['A1']['ce_damage'])} ({r3(t16['A1']['ce_lb975'])}) | {r3(e16['A1']['point'])} ({r3(e16['A1']['lb95'])}); A2 {r3(e16['A2']['point'])} | {r3(t16['C']['ce_damage'])} ({r3(t16['C']['ce_ub975'])}) | {r3(t16['A2']['ce_damage'])} | — | — | max abs {r3(max(abs(v) for v in t16['cross'].values()))} | {mark(e16['A1']['point'] >= 0.8 and e16['A1']['lb95'] >= 0.6)}/{mark(t16['A1']['ce_lb975'] > 0 and t16['A1']['ce_lb975'] - t16['C']['ce_ub975'] > 0)}/{mark(t16['C']['ce_ub975'] <= 0.01)}/{mark(t16['A2']['ce_lb975'] > 0 and t16['A2']['ce_damage'] >= 0.5 * t16['A1']['ce_damage'])} |")
+        D = d16["sets"][n]; X = D["removal"]["xdas"]; x1 = D["extraction"]["A1"]["xdas"]; x2 = D["extraction"]["A2"]["xdas"]; rn = D["extraction"]["A1"]["random"]
+        lines.append(f"| {n} | hub+16 full-specificity DAS (v85) | {len(D['units'])} | {r3(X['A1']['ce_damage'])} ({r3(X['A1']['ce_lb975'])}) | {r3(x1['point'])} ({r3(x1['lb95'])}); A2 {r3(x2['point'])} | {r3(X['C']['ce_damage'])} ({r3(X['C']['ce_ub975'])}) | {r3(X['A2']['ce_damage'])} | — | ext {r3(rn['point'])} | max abs {r3(max(abs(v) for v in X['cross'].values()))} | {mark(x1['point'] >= 0.8 and x1['lb95'] >= 0.6)}/{mark(X['A1']['ce_lb975'] > 0 and X['A1']['ce_lb975'] - X['C']['ce_ub975'] > 0)}/{mark(X['C']['ce_ub975'] <= 0.01)}/{mark(X['A2']['ce_lb975'] > 0 and X['A2']['ce_damage'] >= 0.5 * X['A1']['ce_damage'])} |")
 lines += ["", "## Sets", ""]
 for n in ORDER:
     c = curves[n]
