@@ -72,7 +72,7 @@ def ranked(rows, key="score"):
 
 
 def spearman(left, right) -> float:
-    labels = sorted(set(left) & set(right))
+    labels = sorted({row["label"] for row in left} & {row["label"] for row in right})
     if len(labels) < 2:
         return float("nan")
     rank_left = {row["label"]: i for i, row in enumerate(left)}

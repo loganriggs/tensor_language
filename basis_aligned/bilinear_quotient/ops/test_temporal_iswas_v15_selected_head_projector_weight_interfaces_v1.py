@@ -18,3 +18,11 @@ def test_normalized_score_is_vector_norm_and_sign_invariant():
     vector = torch.tensor([3.0, 4.0])
     assert runner.normalized_score(torch, vector=vector, matrix=matrix) == \
         runner.normalized_score(torch, vector=-vector, matrix=matrix)
+
+
+def test_spearman_compares_labels_not_mapping_identity():
+    left = [{"label": "a", "score": 3}, {"label": "b", "score": 2}, {"label": "c", "score": 1}]
+    same = [{"label": "a", "score": 30}, {"label": "b", "score": 20}, {"label": "c", "score": 10}]
+    reverse = list(reversed(same))
+    assert runner.spearman(left, same) == 1.0
+    assert runner.spearman(left, reverse) == -1.0
