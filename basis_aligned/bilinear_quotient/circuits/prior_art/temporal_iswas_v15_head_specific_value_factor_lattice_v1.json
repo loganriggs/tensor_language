@@ -1,0 +1,55 @@
+{
+  "schema": "temporal_iswas_v15_head_specific_value_factor_lattice_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_head_specific_value_factor_lattice_v1",
+  "registered_utc": "2026-09-07T20:48:18Z",
+  "question": "Does the target-dominant but nonselective attention value-change operation become selective when allocated separately across the four material heads?",
+  "authorities": {
+    "operation_factor_result_sha256": "6ac7bfe60cfbbeada55a509823f8a10b85f3624975860bf6b7d73e552d5160de",
+    "operation_factor_runner_sha256": "3424f394930cd9a0c25f05b5620f17fb37cfb852ce4e07154c8f4a8f979d64ab",
+    "aligned_builder_sha256": "7027e128ea3e68a35e92f451d0f62453a937e64a8dafda24d841aa1f1d29e645",
+    "attention_factor_library_sha256": "608ae6bf74af96663ec022b907c53d371670a36e5d7ec4fd1667b3c6add58dfd",
+    "absolute_clamp_contract_sha256": "b16b86b23d50b1284eecaa01855301d50ced82e2112bf44167b9596c0b7fd0f3"
+  },
+  "prior_art": "The aligned homogeneous factorial proves value change carries .83077/.85314 A1/A2 projection but causes five P and one C flips; pattern and interaction are low-effect and nearly control-inert. Existing factor programs allocate one subset homogeneously across all selected heads. No result independently allocates the exact value factor across L8H1, L9H1, L9H4, and L11H3 on aligned A1/A2/P/C rows.",
+  "population": "The unchanged 64 capability-qualified, full-sequence-aligned rows: 16 each of A1, A2, P, and C.",
+  "bits": [
+    "value_L8H1",
+    "value_L9H1",
+    "value_L9H4",
+    "value_L11H3",
+    "pattern_all_four_heads",
+    "interaction_all_four_heads"
+  ],
+  "factorial": "Execute all 64 subsets of the six frozen bits as absolute base-plus-factor clamps in causal layer order. Complete attention 15 is clamped to donor in every arm. A base-self arm checks identity; the full six-bit arm must reproduce the valid homogeneous full-factor parent.",
+  "selection": "An arm is A1-eligible when signed behavioral projection is at least .75, direction fraction at least .875, P and C each have zero top-one flips, and max separate-panel median KL is at most .02. Select fewest bits, then largest A1 projection, then numeric mask. A2 never selects.",
+  "predictions": {
+    "pred_a_authority_alignment_absolute_clamp_closure_replay_finiteness_and_exact_price": "Authorities and rows match; attention reconstruction, factor closure, base self, and full-parent replay pass at <=1e-4 with matching categorical diagnostics; all metrics are finite; exactly 73 forwards execute.",
+    "pred_b_selective_head_specific_value_program_exists": "At least one of the 64 arms is A1-eligible.",
+    "pred_c_selected_program_confirms_on_a2": "Without reselection, the chosen arm reaches A2 signed behavioral projection >=.75 and direction fraction >=.875.",
+    "pred_d_value_allocation_is_proper_and_nonuniform": "The selected arm uses at least one but fewer than all four head-specific value bits.",
+    "pred_e_selected_program_tracks_parent_residual": "The selected arm reaches final-residual signed projection >=.25 on A1 and >=.32 on A2.",
+    "pred_f_selected_program_is_necessary": "Removing every selected value bit in turn either drops A1 signed projection by >=.05 or makes the arm ineligible."
+  },
+  "terminal_policy": {
+    "selective_head_specific_value_operation_circuit": "A-F pass.",
+    "selective_value_behavior_only": "A-D and F pass but E fails.",
+    "head_specific_value_construction_failure": "A-B pass but C fails.",
+    "uniform_value_allocation_required": "A-C pass but D fails.",
+    "value_program_not_necessary": "A-E pass but F fails.",
+    "no_selective_head_specific_value_program": "A passes but B fails.",
+    "partial": "A passes and no more specific terminal applies.",
+    "invalid": "A fails."
+  },
+  "price": {
+    "model_forwards_exact": 73,
+    "rows_per_forward": 64,
+    "base_donor_factor_captures": 8,
+    "base_self_forward": 1,
+    "factor_subset_forwards": 64,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "next_branch": "A selective program licenses source-position and QK/OV weight translation followed by fresh construction confirmation. A valid null licenses the full 12-component head-by-factor constrained greedy screen before nonlinear DAS.",
+  "execution_policy": "managed_queue_only"
+}
