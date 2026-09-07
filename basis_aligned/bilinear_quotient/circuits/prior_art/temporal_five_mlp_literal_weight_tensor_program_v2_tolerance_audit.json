@@ -1,0 +1,25 @@
+{
+  "schema": "temporal_five_mlp_literal_weight_tensor_program_v2_tolerance_audit_prior_v1",
+  "candidate_id": "temporal_auxiliary.five_mlp_literal_weight_tensor_program_v2_tolerance_audit",
+  "registered_utc": "2026-09-07T03:38:41.666942Z",
+  "question": "Do dimensionless, scale-aware errors certify the already-recorded literal weight identities that v1 invalidated only with absolute float32 bars?",
+  "authority": {
+    "v1_result_sha256": "a0ac3ab0f35d1942339120a79fad07c040c7cf3663c5dd6b711ea1317c823652",
+    "v1_runner_sha256": "0b7130cc67ce796d12fd09b22e60816b6ed24c566cddc97318b35ac7edf513ea",
+    "frozen_observation": "v1 A/D/E true and B/C false; every B/C relative-squared error was already stored before this audit."
+  },
+  "frozen_design": {
+    "scope": "Static re-evaluation only. No model load, forward, intervention, fit, tensor recomputation, or causal outcome access.",
+    "local_scale_metric": "max_abs_error / observed_output_norm plus the stored relative squared error.",
+    "propagation_scale_metric": "Stored relative squared error over the complete row-by-mode tensor; max absolute errors are retained descriptively but do not define scale-free equality.",
+    "price": {"model_forwards": 0, "example_evaluations": 0, "gpu_accessed": false, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+  },
+  "predictions": {
+    "pred_a_exact_v1_authority_and_failure_pattern": "Hashes match; v1 is invalid with exactly B/C false and A/D/E true.",
+    "pred_b_scale_aware_local_closure": "Every local relative squared error <=1e-8 and max_abs/output_norm <=1e-6.",
+    "pred_c_scale_aware_propagated_mode_closure": "Every propagated relative squared error <=1e-6 and all recorded errors are finite.",
+    "pred_d_causal_support_and_tensor_manifests_survive": "All five tensor manifests are complete/nonzero and v1 causal mode2 support remains true.",
+    "pred_e_zero_compute_static_audit": "Exactly five local/propagation/tensor records and the frozen zero-compute price."
+  },
+  "decision": "All gates yield literal_bilinear_weight_program and license the upstream input-generation incidence atlas. Failure preserves v1 invalidity. This audit cannot change any response, factor contribution, or causal effect."
+}
