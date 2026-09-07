@@ -45,6 +45,7 @@ TASKS = tuple(source.TASKS)
 ARMS = ("full_rank16", "shared_mean", "task_contrast", "mean_plus_contrast", "own_task", "cross_task", "mean_plus_contrast_complement")
 GAIN = 1.15
 MAX_FORWARDS = 48
+EXPECTED_CONTROL_TASKS = {"temporal"}
 
 
 def sha(path):
@@ -293,7 +294,7 @@ def main():
     )
     pred_e = all(abs(complement["response"][task]["signed_projection"]) <= .50 and abs(complement["behavior_signed_projection"][task]) <= .50 for task in TASKS)
     control_tasks = set(union["control"]["margin_rms_fraction"])
-    pred_f = control_tasks == set(full["control"]["margin_rms_fraction"]) == {"temporal"} and set(union["control"]["flipped_row_ids"]).issubset(full["control"]["flipped_row_ids"]) and union["control"]["median_kl"] <= full["control"]["median_kl"] + .002 and all(union["control"]["margin_rms_fraction"][task] <= full["control"]["margin_rms_fraction"][task] + .02 for task in control_tasks)
+    pred_f = control_tasks == set(full["control"]["margin_rms_fraction"]) == EXPECTED_CONTROL_TASKS and set(union["control"]["flipped_row_ids"]).issubset(full["control"]["flipped_row_ids"]) and union["control"]["median_kl"] <= full["control"]["median_kl"] + .002 and all(union["control"]["margin_rms_fraction"][task] <= full["control"]["margin_rms_fraction"][task] + .02 for task in control_tasks)
     predictions = {
         "pred_a_authority_replay_closure_finiteness_and_price": bool(pred_a),
         "pred_b_task_pair_blocks_are_crossfit_stable": bool(pred_b),

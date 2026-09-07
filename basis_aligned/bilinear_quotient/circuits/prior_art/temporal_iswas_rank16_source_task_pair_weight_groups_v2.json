@@ -1,0 +1,28 @@
+{
+  "schema": "temporal_iswas_rank16_source_task_pair_weight_groups_prior_art_v2",
+  "candidate_id": "temporal_auxiliary.iswas_rank16_source_task_pair_weight_groups_v2",
+  "question": "Do canonical shared-mean and task-contrast physical weight directions define stable, causally distinct temporal/is-was groups inside the five exact rank-16 source interfaces?",
+  "predecessor": {
+    "prior_sha256": "cc21b54414896fdc246aea35be84eef42917ae9e30fdf91104c394bba530af12",
+    "invalid_result_sha256": "20199f66edb3a3694ae75ec0c49f41542b83c8b35cf7cd9485c9186795b52e92",
+    "invalidity": "V1 executed the older temporal-v12/iswas-v11 population, so its full arm could not replay the registered temporal-v13/iswas-v12 construction-holdout authority. Raw causal values are quarantined."
+  },
+  "repair_only": "Use exactly the temporal-v13/iswas-v12 rows and matched controls frozen by the mask30 construction-holdout runner. Preserve the fit rows, rank four per task, CS mean/contrast construction, gain 1.15, seven arms, thresholds, and 48-forward ceiling. Require both temporal and is/was control keys.",
+  "physical_patch": "For coordinate block B at source s, install delta_y_s=(delta_hidden_s A_s B)(Q_s B)^T with A_s=Down_s^T Q_s.",
+  "predictions": {
+    "pred_a_authority_replay_closure_finiteness_and_price": "All authorities match; the transferred full-rank16 arm replays its mask30-holdout parent within 1e-5; union plus complement closes within 1e-6; all metrics are finite; observed forwards <=48.",
+    "pred_b_task_pair_blocks_are_crossfit_stable": "At least four of five sites have even/odd minimum canonical cosine >=.70 for both mean and contrast blocks.",
+    "pred_c_own_task_beats_cross_task": "Own-task behavior signed projection exceeds cross-task by >=.10 for both tasks.",
+    "pred_d_mean_plus_contrast_is_functional_and_full_equivalent": "The union passes existing response/behavior bars and differs from full by <=.03 on each response and behavior signed projection.",
+    "pred_e_union_complement_is_insufficient": "The complement has absolute response and behavior signed projection <=.50 for both tasks.",
+    "pred_f_weight_grouping_adds_no_parent_collateral": "Union flips are a subset of full-parent flips, median KL <= full+.002, and each represented task margin-RMS fraction <= full+.02."
+  },
+  "terminal_policy": {
+    "stable_task_pair_source_weight_circuit": "A-F pass.",
+    "functional_unstable_task_blocks": "A and D pass but B fails.",
+    "shared_source_group_only": "A, B, and D pass but task ownership C fails.",
+    "probe_basis_only": "A passes but D fails.",
+    "invalid": "A fails."
+  },
+  "execution_policy": "managed_queue_only"
+}
