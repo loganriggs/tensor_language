@@ -1,0 +1,421 @@
+{
+  "bars": {
+    "damper_max": -0.05,
+    "damper_min_cells": 9,
+    "donor_band": [
+      0.99,
+      1.01
+    ],
+    "dose_band": [
+      1.0,
+      2.5
+    ],
+    "dose_min_cells": 5,
+    "mlp08_min": 0.1,
+    "mlp08_min_cells": 8,
+    "reproduce_tol": 0.02,
+    "trio_max": -0.1,
+    "trio_min_cells": 8
+  },
+  "candidate_id": "corpus.unit_tier5_mlp17_damper_v181",
+  "channel": 8,
+  "families": [
+    "coordination_agreement",
+    "correlative_both_either",
+    "correlative_both_neither",
+    "correlative_either_neither",
+    "degree_frame",
+    "finiteness_selection",
+    "polarity_state"
+  ],
+  "finished_utc": "2026-09-07T10:33:11.888538+00:00",
+  "measures": {
+    "coordination_agreement:p0": {
+      "cost_1W": {
+        "mlp:15": 0.0,
+        "mlp:16": 0.069,
+        "mlp:17": -0.017
+      },
+      "cost_2W": {
+        "mlp:15": -0.016,
+        "mlp:16": 0.055,
+        "mlp:17": -0.024
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 1.412,
+      "full_cost": {
+        "mlp:08": 0.389,
+        "mlp:15": -0.012,
+        "mlp:16": -0.054,
+        "mlp:17": -0.016,
+        "trio": -0.058
+      },
+      "rows": 16,
+      "v179_whole": 0.058,
+      "v180_cost17": -0.017,
+      "whole_2W": 0.127,
+      "whole_write": 0.058,
+      "zero": 0.0
+    },
+    "coordination_agreement:p1": {
+      "cost_1W": {
+        "mlp:15": 0.01,
+        "mlp:16": -0.05,
+        "mlp:17": 0.03
+      },
+      "cost_2W": {
+        "mlp:15": 0.0,
+        "mlp:16": -0.063,
+        "mlp:17": 0.01
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 0.333,
+      "full_cost": {
+        "mlp:08": 0.236,
+        "mlp:15": 0.008,
+        "mlp:16": -0.025,
+        "mlp:17": -0.101,
+        "trio": -0.167
+      },
+      "rows": 16,
+      "v179_whole": 0.1,
+      "v180_cost17": 0.03,
+      "whole_2W": 0.207,
+      "whole_write": 0.1,
+      "zero": 0.0
+    },
+    "correlative_both_either:p0": {
+      "cost_1W": {
+        "mlp:15": 0.093,
+        "mlp:16": 0.11,
+        "mlp:17": 0.025
+      },
+      "cost_2W": {
+        "mlp:15": 0.081,
+        "mlp:16": 0.092,
+        "mlp:17": 0.0
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 0.0,
+      "full_cost": {
+        "mlp:08": 0.075,
+        "mlp:15": 0.0,
+        "mlp:16": 0.012,
+        "mlp:17": -0.174,
+        "trio": -0.157
+      },
+      "rows": 16,
+      "v179_whole": 0.118,
+      "v180_cost17": 0.025,
+      "whole_2W": 0.26,
+      "whole_write": 0.118,
+      "zero": 0.0
+    },
+    "correlative_both_either:p1": {
+      "cost_1W": {
+        "mlp:15": -0.121,
+        "mlp:16": -0.04,
+        "mlp:17": -0.331
+      },
+      "cost_2W": {
+        "mlp:15": -0.098,
+        "mlp:16": -0.034,
+        "mlp:17": -0.318
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 0.961,
+      "full_cost": {
+        "mlp:08": 0.185,
+        "mlp:15": 0.013,
+        "mlp:16": 0.018,
+        "mlp:17": -0.119,
+        "trio": -0.084
+      },
+      "rows": 16,
+      "v179_whole": 0.124,
+      "v180_cost17": -0.331,
+      "whole_2W": 0.264,
+      "whole_write": 0.124,
+      "zero": 0.0
+    },
+    "correlative_both_neither:p0": {
+      "cost_1W": {
+        "mlp:15": 0.095,
+        "mlp:16": 0.119,
+        "mlp:17": -0.036
+      },
+      "cost_2W": {
+        "mlp:15": 0.079,
+        "mlp:16": 0.099,
+        "mlp:17": -0.042
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 1.167,
+      "full_cost": {
+        "mlp:08": 0.056,
+        "mlp:15": -0.029,
+        "mlp:16": -0.031,
+        "mlp:17": -0.145,
+        "trio": -0.196
+      },
+      "rows": 16,
+      "v179_whole": 0.084,
+      "v180_cost17": -0.036,
+      "whole_2W": 0.191,
+      "whole_write": 0.084,
+      "zero": 0.0
+    },
+    "correlative_both_neither:p1": {
+      "cost_1W": {
+        "mlp:15": -0.224,
+        "mlp:16": -0.145,
+        "mlp:17": -0.355
+      },
+      "cost_2W": {
+        "mlp:15": -0.157,
+        "mlp:16": -0.105,
+        "mlp:17": -0.277
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 0.78,
+      "full_cost": {
+        "mlp:08": 0.206,
+        "mlp:15": -0.028,
+        "mlp:16": -0.017,
+        "mlp:17": -0.031,
+        "trio": -0.067
+      },
+      "rows": 16,
+      "v179_whole": 0.076,
+      "v180_cost17": -0.355,
+      "whole_2W": 0.191,
+      "whole_write": 0.076,
+      "zero": 0.0
+    },
+    "correlative_either_neither:p0": {
+      "cost_1W": {
+        "mlp:15": 0.021,
+        "mlp:16": -0.021,
+        "mlp:17": -0.125
+      },
+      "cost_2W": {
+        "mlp:15": 0.02,
+        "mlp:16": -0.02,
+        "mlp:17": -0.122
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 0.976,
+      "full_cost": {
+        "mlp:08": 0.041,
+        "mlp:15": -0.02,
+        "mlp:16": -0.025,
+        "mlp:17": -0.092,
+        "trio": -0.14
+      },
+      "rows": 16,
+      "v179_whole": 0.048,
+      "v180_cost17": -0.125,
+      "whole_2W": 0.098,
+      "whole_write": 0.048,
+      "zero": 0.0
+    },
+    "correlative_either_neither:p1": {
+      "cost_1W": {
+        "mlp:15": -0.059,
+        "mlp:16": -0.088,
+        "mlp:17": -0.235
+      },
+      "cost_2W": {
+        "mlp:15": -0.054,
+        "mlp:16": -0.081,
+        "mlp:17": -0.216
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 0.919,
+      "full_cost": {
+        "mlp:08": 0.068,
+        "mlp:15": -0.013,
+        "mlp:16": -0.025,
+        "mlp:17": -0.096,
+        "trio": -0.149
+      },
+      "rows": 16,
+      "v179_whole": 0.034,
+      "v180_cost17": -0.235,
+      "whole_2W": 0.074,
+      "whole_write": 0.034,
+      "zero": 0.0
+    },
+    "degree_frame:p0": {
+      "cost_1W": {
+        "mlp:15": -0.19,
+        "mlp:16": -0.143,
+        "mlp:17": -0.524
+      },
+      "cost_2W": {
+        "mlp:15": -0.209,
+        "mlp:16": -0.116,
+        "mlp:17": -0.535
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 1.021,
+      "full_cost": {
+        "mlp:08": 0.241,
+        "mlp:15": -0.022,
+        "mlp:16": -0.047,
+        "mlp:17": -0.126,
+        "trio": -0.223
+      },
+      "rows": 16,
+      "v179_whole": 0.021,
+      "v180_cost17": -0.524,
+      "whole_2W": 0.043,
+      "whole_write": 0.021,
+      "zero": 0.0
+    },
+    "degree_frame:p1": {
+      "cost_1W": {
+        "mlp:15": -0.007,
+        "mlp:16": 0.007,
+        "mlp:17": -0.028
+      },
+      "cost_2W": {
+        "mlp:15": -0.01,
+        "mlp:16": -0.003,
+        "mlp:17": -0.038
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 1.357,
+      "full_cost": {
+        "mlp:08": 0.055,
+        "mlp:15": -0.027,
+        "mlp:16": -0.041,
+        "mlp:17": -0.13,
+        "trio": -0.222
+      },
+      "rows": 16,
+      "v179_whole": 0.142,
+      "v180_cost17": -0.028,
+      "whole_2W": 0.291,
+      "whole_write": 0.142,
+      "zero": 0.0
+    },
+    "finiteness_selection:p0": {
+      "cost_1W": {
+        "mlp:15": 0.06,
+        "mlp:16": 0.013,
+        "mlp:17": -0.067
+      },
+      "cost_2W": {
+        "mlp:15": 0.049,
+        "mlp:16": -0.013,
+        "mlp:17": -0.137
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 2.045,
+      "full_cost": {
+        "mlp:08": 0.091,
+        "mlp:15": -0.005,
+        "mlp:16": -0.036,
+        "mlp:17": -0.343,
+        "trio": -0.519
+      },
+      "rows": 16,
+      "v179_whole": 0.149,
+      "v180_cost17": -0.067,
+      "whole_2W": 0.307,
+      "whole_write": 0.149,
+      "zero": 0.0
+    },
+    "finiteness_selection:p1": {
+      "cost_1W": {
+        "mlp:15": -0.034,
+        "mlp:16": -0.051,
+        "mlp:17": -0.39
+      },
+      "cost_2W": {
+        "mlp:15": -0.045,
+        "mlp:16": -0.097,
+        "mlp:17": -0.463
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 1.187,
+      "full_cost": {
+        "mlp:08": 0.296,
+        "mlp:15": -0.048,
+        "mlp:16": -0.183,
+        "mlp:17": -0.298,
+        "trio": -0.51
+      },
+      "rows": 16,
+      "v179_whole": 0.059,
+      "v180_cost17": -0.39,
+      "whole_2W": 0.134,
+      "whole_write": 0.059,
+      "zero": 0.0
+    },
+    "polarity_state:p0": {
+      "cost_1W": {
+        "mlp:15": -0.092,
+        "mlp:16": -0.165,
+        "mlp:17": -0.119
+      },
+      "cost_2W": {
+        "mlp:15": -0.083,
+        "mlp:16": -0.157,
+        "mlp:17": -0.098
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 0.824,
+      "full_cost": {
+        "mlp:08": 0.131,
+        "mlp:15": -0.019,
+        "mlp:16": -0.053,
+        "mlp:17": -0.053,
+        "trio": -0.147
+      },
+      "rows": 16,
+      "v179_whole": 0.109,
+      "v180_cost17": -0.119,
+      "whole_2W": 0.254,
+      "whole_write": 0.109,
+      "zero": 0.0
+    },
+    "polarity_state:p1": {
+      "cost_1W": {
+        "mlp:15": 0.0,
+        "mlp:16": -0.016,
+        "mlp:17": -0.048
+      },
+      "cost_2W": {
+        "mlp:15": 0.0,
+        "mlp:16": -0.024,
+        "mlp:17": -0.037
+      },
+      "donor_recovery": 1.0,
+      "dose_ratio_17": 0.771,
+      "full_cost": {
+        "mlp:08": 0.122,
+        "mlp:15": -0.012,
+        "mlp:16": -0.076,
+        "mlp:17": 0.008,
+        "trio": -0.064
+      },
+      "rows": 16,
+      "v179_whole": 0.126,
+      "v180_cost17": -0.048,
+      "whole_2W": 0.297,
+      "whole_write": 0.126,
+      "zero": 0.0
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_damper_full": true,
+    "pred_c_dose": false,
+    "pred_d_late_trio_full": true,
+    "pred_e_mlp08_full": true
+  },
+  "schema": "unit_tier5_mlp17_damper_v181",
+  "seconds": 5.8
+}
