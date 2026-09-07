@@ -1,0 +1,19 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_target_contrast_response_basis_v1",
+  "claimed_utc": "2026-09-07T04:53:00Z",
+  "question": "Can the task-relevant slice inside the fixed eight upstream modules be identified by target-versus-control response geometry and transfer to held-out target rows?",
+  "sites": ["MLP1", "L9H1", "MLP3", "L9H4", "L8H1", "MLP6", "MLP4", "L11H3"],
+  "discovery": "Within each target task, even rows are discovery and odd rows are sealed target validation. Endpoint-matched C discovery/validation halves remain as frozen in the matched-control atlas.",
+  "fit": "Per site, fit rank-8 generic-control PCA on C discovery response deltas. Remove that subspace from target-discovery response deltas, then fit target-residual PCA. Frozen retained target ranks are 1, 4, and 8. No validation row or causal outcome selects a basis.",
+  "intervention": "On target-validation and C-validation rows, patch only the projection of donor-minus-base site responses onto the fitted target-residual basis. Compare with the full-response rank-0 eight-site program on the same rows.",
+  "predictions": {
+    "pred_a_authority_split_alignment_finiteness_and_price": "Authorities, disjoint splits, exact endpoints, nondegenerate spectra, finiteness, and <=16 forwards close.",
+    "pred_b_full_response_validation_program_is_sufficient": "Rank0 has worst held-out target residual <=0.05.",
+    "pred_c_target_basis_preserves_heldout_behavior": "At rank 4 or 8, worst target residual <=0.15 and signed behavior projection >=0.80 in both tasks.",
+    "pred_d_target_basis_is_selective": "The same rank moves C validation by <=10% of target full-effect scale in both tasks.",
+    "pred_e_basis_beats_control_complement": "The same rank has no worse target residual and at least 50% lower worst C fraction than the control-complement rank 8."
+  },
+  "terminal_policy": {"invalid": "A/B fails", "heldout_target_contrast_program": "all pass", "target_control_entangled_null": "C passes but D/E fails", "target_basis_transfer_null": "C fails"},
+  "price_upper_bound": {"model_forwards": 16, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0},
+  "decision": "A pass promotes the response-split circuit to fresh-construction and weight-reader compilation. A null closes linear within-module response splitting for this program and redirects to conditional/nonlinear gates or a different causal boundary."
+}
