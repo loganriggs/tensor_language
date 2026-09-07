@@ -1,0 +1,2252 @@
+{
+  "all_four": 6,
+  "bars": {
+    "a2_frac": 0.5,
+    "c_ub_max": 0.01,
+    "ext_min": 0.8,
+    "gap": 0.08,
+    "instr_c_ub": 0.03,
+    "k": {
+      "a": 7,
+      "b": 7,
+      "c": 10,
+      "d": 10
+    },
+    "rem_min": 0.1
+  },
+  "behaviours": {
+    "additive_scope": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.6623,
+            "ce_lb975": 0.5204,
+            "ce_ub975": 0.8038,
+            "margin_damage": 1.7572,
+            "top1_change_rate": 0.1875
+          },
+          "A2": {
+            "ce_damage": 0.6865,
+            "ce_lb975": 0.5416,
+            "ce_ub975": 0.8342,
+            "margin_damage": 1.848,
+            "top1_change_rate": 0.5312
+          },
+          "C": {
+            "ce_damage": -0.0032,
+            "ce_lb975": -0.0083,
+            "ce_ub975": 0.0016,
+            "margin_damage": 0.0604,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.2892,
+            "ce_lb975": 0.2718,
+            "ce_ub975": 0.3069,
+            "margin_damage": 1.8002,
+            "top1_change_rate": 0.3438
+          },
+          "cross": {
+            "coordination_agreement": -0.0306,
+            "correlative_both_either": 0.0134,
+            "correlative_both_neither": 0.0412,
+            "correlative_either_neither": 0.0231,
+            "degree_result": -0.0363,
+            "finiteness_selection": -0.0158,
+            "numbered_list_choice": -0.0052,
+            "perfect_number": -0.008,
+            "polarity_state": 0.0072,
+            "possessive_adjacent": 0.0005,
+            "possessive_long_simple": -0.0099,
+            "possessive_medial": -0.0036,
+            "quantifier_number": -0.014
+          },
+          "cross_abs_max": 0.0412,
+          "extraction_odd": 1.005
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.5683,
+            "ce_lb975": 0.3924,
+            "ce_ub975": 0.7394,
+            "margin_damage": 1.6187,
+            "top1_change_rate": 0.2812
+          },
+          "A2": {
+            "ce_damage": 0.523,
+            "ce_lb975": 0.3775,
+            "ce_ub975": 0.6749,
+            "margin_damage": 1.7037,
+            "top1_change_rate": 0.5312
+          },
+          "C": {
+            "ce_damage": -0.1759,
+            "ce_lb975": -0.2062,
+            "ce_ub975": -0.1459,
+            "margin_damage": 0.0376,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.077,
+            "ce_lb975": 0.0558,
+            "ce_ub975": 0.0979,
+            "margin_damage": 1.6337,
+            "top1_change_rate": 0.4688
+          },
+          "cross": {
+            "coordination_agreement": -0.0392,
+            "correlative_both_either": 0.0095,
+            "correlative_both_neither": 0.0584,
+            "correlative_either_neither": 0.1871,
+            "degree_result": -0.044,
+            "finiteness_selection": -0.0596,
+            "numbered_list_choice": -0.005,
+            "perfect_number": -0.0044,
+            "polarity_state": -0.008,
+            "possessive_adjacent": 0.0139,
+            "possessive_long_simple": 0.0446,
+            "possessive_medial": 0.0473,
+            "quantifier_number": -0.0205
+          },
+          "cross_abs_max": 0.1871,
+          "extraction_odd": 0.937
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.01133628748357296,
+        0.00494524696841836,
+        0.0001388387754559517
+      ],
+      "extraction_even": 0.808,
+      "extraction_odd": 0.803,
+      "n_units": 11,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 25.2,
+      "singles_top16": {
+        "attn:04:head:00": 0.038,
+        "attn:05:head:03": 0.027,
+        "attn:05:head:07": 0.061,
+        "attn:07:head:02": 0.016,
+        "attn:07:head:05": 0.012,
+        "attn:07:head:08": 0.038,
+        "attn:08:head:01": 0.07,
+        "attn:09:head:01": 0.044,
+        "attn:09:head:03": 0.051,
+        "attn:09:head:07": 0.011,
+        "attn:10:head:05": 0.159,
+        "attn:11:head:07": 0.028,
+        "attn:12:head:06": 0.015,
+        "attn:13:head:08": 0.035,
+        "attn:14:head:08": 0.058,
+        "attn:16:head:08": 0.158
+      },
+      "units": [
+        "attn:10:head:05",
+        "attn:16:head:08",
+        "attn:08:head:01",
+        "attn:09:head:03",
+        "attn:14:head:08",
+        "attn:05:head:07",
+        "attn:09:head:01",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:04:head:00",
+        "attn:11:head:07"
+      ]
+    },
+    "coordination_agreement": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.4441,
+            "ce_lb975": 0.3993,
+            "ce_ub975": 0.4934,
+            "margin_damage": 1.657,
+            "top1_change_rate": 0.25
+          },
+          "A2": {
+            "ce_damage": 0.4359,
+            "ce_lb975": 0.3816,
+            "ce_ub975": 0.4934,
+            "margin_damage": 1.9615,
+            "top1_change_rate": 0.2812
+          },
+          "C": {
+            "ce_damage": -0.0064,
+            "ce_lb975": -0.0274,
+            "ce_ub975": 0.014,
+            "margin_damage": 0.0207,
+            "top1_change_rate": 0.0938
+          },
+          "P": {
+            "ce_damage": 0.4597,
+            "ce_lb975": 0.4221,
+            "ce_ub975": 0.4995,
+            "margin_damage": 1.8583,
+            "top1_change_rate": 0.2188
+          },
+          "cross": {
+            "additive_scope": -0.0077,
+            "correlative_both_either": -0.0208,
+            "correlative_both_neither": -0.0195,
+            "correlative_either_neither": -0.0366,
+            "degree_result": -0.0105,
+            "finiteness_selection": -0.0195,
+            "numbered_list_choice": 0.0006,
+            "perfect_number": 0.3039,
+            "polarity_state": 0.007,
+            "possessive_adjacent": -0.0112,
+            "possessive_long_simple": 0.0164,
+            "possessive_medial": 0.0184,
+            "quantifier_number": 0.1527
+          },
+          "cross_abs_max": 0.3039,
+          "extraction_odd": 0.988
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.4315,
+            "ce_lb975": 0.3669,
+            "ce_ub975": 0.4962,
+            "margin_damage": 1.7125,
+            "top1_change_rate": 0.3125
+          },
+          "A2": {
+            "ce_damage": 0.4273,
+            "ce_lb975": 0.3672,
+            "ce_ub975": 0.4899,
+            "margin_damage": 1.9549,
+            "top1_change_rate": 0.3125
+          },
+          "C": {
+            "ce_damage": 0.0315,
+            "ce_lb975": 0.0219,
+            "ce_ub975": 0.0411,
+            "margin_damage": 0.0204,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.3179,
+            "ce_lb975": 0.2613,
+            "ce_ub975": 0.3764,
+            "margin_damage": 1.9956,
+            "top1_change_rate": 0.25
+          },
+          "cross": {
+            "additive_scope": 0.0137,
+            "correlative_both_either": 0.0198,
+            "correlative_both_neither": -0.0028,
+            "correlative_either_neither": 0.0538,
+            "degree_result": -0.0185,
+            "finiteness_selection": -0.0076,
+            "numbered_list_choice": -0.0001,
+            "perfect_number": 0.1006,
+            "polarity_state": 0.0001,
+            "possessive_adjacent": 0.0288,
+            "possessive_long_simple": 0.0339,
+            "possessive_medial": 0.0286,
+            "quantifier_number": 0.0636
+          },
+          "cross_abs_max": 0.1006,
+          "extraction_odd": 1.024
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.03369372710585594,
+        0.013184966519474983,
+        0.0011677402071654797
+      ],
+      "extraction_even": 0.824,
+      "extraction_odd": 0.811,
+      "n_units": 13,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "seconds": 24.7,
+      "singles_top16": {
+        "attn:03:head:03": 0.018,
+        "attn:03:head:06": 0.02,
+        "attn:04:head:00": 0.056,
+        "attn:04:head:04": 0.017,
+        "attn:04:head:07": 0.015,
+        "attn:05:head:03": 0.024,
+        "attn:05:head:06": 0.025,
+        "attn:05:head:08": 0.018,
+        "attn:06:head:01": 0.024,
+        "attn:06:head:05": 0.028,
+        "attn:07:head:08": 0.18,
+        "attn:09:head:01": 0.015,
+        "attn:09:head:07": 0.032,
+        "attn:10:head:05": 0.023,
+        "attn:11:head:03": 0.155,
+        "attn:16:head:08": 0.019
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:04:head:00",
+        "attn:06:head:05",
+        "attn:09:head:07",
+        "attn:03:head:03",
+        "attn:03:head:06",
+        "attn:05:head:03",
+        "attn:07:head:05",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:04:head:04",
+        "attn:16:head:08"
+      ]
+    },
+    "correlative_both_either": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.9764,
+            "ce_lb975": 0.759,
+            "ce_ub975": 1.1956,
+            "margin_damage": 5.1636,
+            "top1_change_rate": 0.5
+          },
+          "A2": {
+            "ce_damage": 0.7318,
+            "ce_lb975": 0.55,
+            "ce_ub975": 0.9157,
+            "margin_damage": 4.15,
+            "top1_change_rate": 0.4375
+          },
+          "C": {
+            "ce_damage": 0.0042,
+            "ce_lb975": 0.0003,
+            "ce_ub975": 0.008,
+            "margin_damage": -0.012,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 1.5808,
+            "ce_lb975": 1.4695,
+            "ce_ub975": 1.6956,
+            "margin_damage": 3.9833,
+            "top1_change_rate": 0.8125
+          },
+          "cross": {
+            "additive_scope": 0.1337,
+            "coordination_agreement": -0.0033,
+            "correlative_both_neither": 0.1883,
+            "correlative_either_neither": 0.6088,
+            "degree_result": -0.0448,
+            "finiteness_selection": -0.0175,
+            "numbered_list_choice": 0.0034,
+            "perfect_number": 0.0336,
+            "polarity_state": 0.0175,
+            "possessive_adjacent": -0.0056,
+            "possessive_long_simple": -0.0037,
+            "possessive_medial": -0.0095,
+            "quantifier_number": 0.0276
+          },
+          "cross_abs_max": 0.6088,
+          "extraction_odd": 0.996
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 1.0678,
+            "ce_lb975": 0.8094,
+            "ce_ub975": 1.3471,
+            "margin_damage": 5.1634,
+            "top1_change_rate": 0.5312
+          },
+          "A2": {
+            "ce_damage": 0.7393,
+            "ce_lb975": 0.551,
+            "ce_ub975": 0.942,
+            "margin_damage": 4.1435,
+            "top1_change_rate": 0.4062
+          },
+          "C": {
+            "ce_damage": -0.109,
+            "ce_lb975": -0.1275,
+            "ce_ub975": -0.0919,
+            "margin_damage": -0.0718,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 1.7334,
+            "ce_lb975": 1.5214,
+            "ce_ub975": 1.9489,
+            "margin_damage": 4.1745,
+            "top1_change_rate": 0.8125
+          },
+          "cross": {
+            "additive_scope": 0.1398,
+            "coordination_agreement": -0.0165,
+            "correlative_both_neither": 0.1941,
+            "correlative_either_neither": 0.3491,
+            "degree_result": -0.0428,
+            "finiteness_selection": -0.01,
+            "numbered_list_choice": 0.0148,
+            "perfect_number": 0.1163,
+            "polarity_state": -0.0233,
+            "possessive_adjacent": 0.0097,
+            "possessive_long_simple": 0.0456,
+            "possessive_medial": 0.021,
+            "quantifier_number": 0.014
+          },
+          "cross_abs_max": 0.3491,
+          "extraction_odd": 1.015
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.005432663485407829,
+        0.006367039401084185,
+        0.00021537797874771059
+      ],
+      "extraction_even": 0.889,
+      "extraction_odd": 0.751,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.1,
+      "singles_top16": {
+        "attn:04:head:00": 0.015,
+        "attn:04:head:01": 0.015,
+        "attn:05:head:06": 0.015,
+        "attn:07:head:08": 0.2,
+        "attn:08:head:01": 0.254,
+        "attn:08:head:08": 0.022,
+        "attn:09:head:05": 0.034,
+        "attn:09:head:07": 0.152,
+        "attn:10:head:05": 0.14,
+        "attn:11:head:02": 0.02,
+        "attn:11:head:07": 0.071,
+        "attn:12:head:02": 0.043,
+        "attn:13:head:08": 0.016,
+        "attn:14:head:08": 0.154,
+        "attn:15:head:01": 0.041,
+        "attn:16:head:08": 0.138
+      },
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:11:head:07",
+        "attn:09:head:05"
+      ]
+    },
+    "correlative_both_neither": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.9977,
+            "ce_lb975": 0.7807,
+            "ce_ub975": 1.2314,
+            "margin_damage": 6.1436,
+            "top1_change_rate": 0.5312
+          },
+          "A2": {
+            "ce_damage": 1.017,
+            "ce_lb975": 0.7412,
+            "ce_ub975": 1.3063,
+            "margin_damage": 5.6139,
+            "top1_change_rate": 0.4062
+          },
+          "C": {
+            "ce_damage": -0.0045,
+            "ce_lb975": -0.0171,
+            "ce_ub975": 0.008,
+            "margin_damage": -0.0395,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 1.5876,
+            "ce_lb975": 1.4332,
+            "ce_ub975": 1.737,
+            "margin_damage": 4.9462,
+            "top1_change_rate": 0.8125
+          },
+          "cross": {
+            "additive_scope": 0.1611,
+            "coordination_agreement": -0.0274,
+            "correlative_both_either": 0.2032,
+            "correlative_either_neither": 0.9782,
+            "degree_result": -0.031,
+            "finiteness_selection": 0.0368,
+            "numbered_list_choice": -0.0103,
+            "perfect_number": 0.0948,
+            "polarity_state": 0.1241,
+            "possessive_adjacent": -0.0433,
+            "possessive_long_simple": -0.0444,
+            "possessive_medial": -0.0428,
+            "quantifier_number": -0.0504
+          },
+          "cross_abs_max": 0.9782,
+          "extraction_odd": 0.958
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 1.0536,
+            "ce_lb975": 0.797,
+            "ce_ub975": 1.3259,
+            "margin_damage": 6.2783,
+            "top1_change_rate": 0.5
+          },
+          "A2": {
+            "ce_damage": 1.0415,
+            "ce_lb975": 0.7399,
+            "ce_ub975": 1.3532,
+            "margin_damage": 5.5447,
+            "top1_change_rate": 0.375
+          },
+          "C": {
+            "ce_damage": -0.1265,
+            "ce_lb975": -0.1538,
+            "ce_ub975": -0.1022,
+            "margin_damage": -0.1122,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 1.7716,
+            "ce_lb975": 1.5915,
+            "ce_ub975": 1.9492,
+            "margin_damage": 5.149,
+            "top1_change_rate": 0.875
+          },
+          "cross": {
+            "additive_scope": 0.1026,
+            "coordination_agreement": -0.058,
+            "correlative_both_either": 0.1838,
+            "correlative_either_neither": 0.8503,
+            "degree_result": -0.066,
+            "finiteness_selection": 0.0013,
+            "numbered_list_choice": -0.0292,
+            "perfect_number": 0.0981,
+            "polarity_state": 0.0818,
+            "possessive_adjacent": -0.0387,
+            "possessive_long_simple": -0.0098,
+            "possessive_medial": -0.0169,
+            "quantifier_number": -0.0426
+          },
+          "cross_abs_max": 0.8503,
+          "extraction_odd": 0.99
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.009866366162896156,
+        0.00481825415045023,
+        0.0008139293640851974
+      ],
+      "extraction_even": 0.889,
+      "extraction_odd": 0.753,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.0,
+      "singles_top16": {
+        "attn:04:head:00": 0.017,
+        "attn:05:head:06": 0.014,
+        "attn:07:head:08": 0.186,
+        "attn:08:head:01": 0.294,
+        "attn:08:head:08": 0.027,
+        "attn:09:head:01": 0.012,
+        "attn:09:head:03": 0.013,
+        "attn:09:head:05": 0.014,
+        "attn:09:head:07": 0.096,
+        "attn:10:head:05": 0.1,
+        "attn:11:head:07": 0.028,
+        "attn:12:head:02": 0.024,
+        "attn:13:head:08": 0.059,
+        "attn:14:head:08": 0.152,
+        "attn:15:head:01": 0.037,
+        "attn:16:head:08": 0.105
+      },
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:13:head:08",
+        "attn:08:head:08"
+      ]
+    },
+    "correlative_either_neither": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 1.125,
+            "ce_lb975": 0.852,
+            "ce_ub975": 1.4083,
+            "margin_damage": 3.4032,
+            "top1_change_rate": 0.4375
+          },
+          "A2": {
+            "ce_damage": 1.2137,
+            "ce_lb975": 0.8921,
+            "ce_ub975": 1.5503,
+            "margin_damage": 3.3951,
+            "top1_change_rate": 0.5312
+          },
+          "C": {
+            "ce_damage": -0.0008,
+            "ce_lb975": -0.0092,
+            "ce_ub975": 0.0084,
+            "margin_damage": 0.8839,
+            "top1_change_rate": 0.0625
+          },
+          "P": {
+            "ce_damage": 1.8571,
+            "ce_lb975": 1.72,
+            "ce_ub975": 1.9912,
+            "margin_damage": 2.7983,
+            "top1_change_rate": 0.75
+          },
+          "cross": {
+            "additive_scope": 0.0662,
+            "coordination_agreement": -0.1228,
+            "correlative_both_either": 0.1273,
+            "correlative_both_neither": 0.6881,
+            "degree_result": 0.0518,
+            "finiteness_selection": 0.0136,
+            "numbered_list_choice": 0.0054,
+            "perfect_number": 0.015,
+            "polarity_state": 0.0857,
+            "possessive_adjacent": -0.0131,
+            "possessive_long_simple": -0.0144,
+            "possessive_medial": -0.0104,
+            "quantifier_number": -0.0611
+          },
+          "cross_abs_max": 0.6881,
+          "extraction_odd": 0.977
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 1.1426,
+            "ce_lb975": 0.8621,
+            "ce_ub975": 1.4411,
+            "margin_damage": 3.4467,
+            "top1_change_rate": 0.4375
+          },
+          "A2": {
+            "ce_damage": 1.1747,
+            "ce_lb975": 0.8942,
+            "ce_ub975": 1.4701,
+            "margin_damage": 3.4023,
+            "top1_change_rate": 0.5312
+          },
+          "C": {
+            "ce_damage": 0.3583,
+            "ce_lb975": 0.32,
+            "ce_ub975": 0.3962,
+            "margin_damage": 1.5259,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 1.9133,
+            "ce_lb975": 1.7741,
+            "ce_ub975": 2.0401,
+            "margin_damage": 2.8847,
+            "top1_change_rate": 0.75
+          },
+          "cross": {
+            "additive_scope": -0.0033,
+            "coordination_agreement": -0.1615,
+            "correlative_both_either": 0.1562,
+            "correlative_both_neither": 0.6171,
+            "degree_result": 0.0122,
+            "finiteness_selection": 0.0071,
+            "numbered_list_choice": 0.0158,
+            "perfect_number": 0.0785,
+            "polarity_state": 0.1502,
+            "possessive_adjacent": -0.0228,
+            "possessive_long_simple": -0.0173,
+            "possessive_medial": -0.0097,
+            "quantifier_number": -0.0628
+          },
+          "cross_abs_max": 0.6171,
+          "extraction_odd": 0.999
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0019119003554806113,
+        0.003053398337215185,
+        0.00016819189477246255
+      ],
+      "extraction_even": 0.844,
+      "extraction_odd": 0.81,
+      "n_units": 8,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.1,
+      "singles_top16": {
+        "attn:05:head:03": 0.011,
+        "attn:07:head:08": 0.076,
+        "attn:08:head:01": 0.273,
+        "attn:08:head:08": 0.021,
+        "attn:09:head:01": 0.014,
+        "attn:09:head:03": 0.014,
+        "attn:09:head:07": 0.034,
+        "attn:10:head:05": 0.057,
+        "attn:11:head:03": 0.018,
+        "attn:11:head:07": 0.013,
+        "attn:12:head:08": 0.018,
+        "attn:13:head:06": 0.009,
+        "attn:13:head:08": 0.065,
+        "attn:14:head:08": 0.221,
+        "attn:15:head:01": 0.03,
+        "attn:16:head:08": 0.143
+      },
+      "units": [
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:10:head:05",
+        "attn:15:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "degree_result": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.709,
+            "ce_lb975": 0.6126,
+            "ce_ub975": 0.8043,
+            "margin_damage": 2.173,
+            "top1_change_rate": 0.2812
+          },
+          "A2": {
+            "ce_damage": 0.7058,
+            "ce_lb975": 0.6236,
+            "ce_ub975": 0.7948,
+            "margin_damage": 1.9903,
+            "top1_change_rate": 0.1562
+          },
+          "C": {
+            "ce_damage": -0.0007,
+            "ce_lb975": -0.0037,
+            "ce_ub975": 0.0023,
+            "margin_damage": -0.0123,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.7467,
+            "ce_lb975": 0.6713,
+            "ce_ub975": 0.8179,
+            "margin_damage": 1.469,
+            "top1_change_rate": 0.1562
+          },
+          "cross": {
+            "additive_scope": 0.0102,
+            "coordination_agreement": -0.0148,
+            "correlative_both_either": 0.0022,
+            "correlative_both_neither": 0.0249,
+            "correlative_either_neither": 0.0839,
+            "finiteness_selection": 0.0466,
+            "numbered_list_choice": -0.0058,
+            "perfect_number": 0.0695,
+            "polarity_state": 0.0023,
+            "possessive_adjacent": -0.0047,
+            "possessive_long_simple": -0.0065,
+            "possessive_medial": -0.008,
+            "quantifier_number": -0.0122
+          },
+          "cross_abs_max": 0.0839,
+          "extraction_odd": 0.916
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.7019,
+            "ce_lb975": 0.5866,
+            "ce_ub975": 0.826,
+            "margin_damage": 2.3023,
+            "top1_change_rate": 0.375
+          },
+          "A2": {
+            "ce_damage": 0.7607,
+            "ce_lb975": 0.6517,
+            "ce_ub975": 0.8818,
+            "margin_damage": 2.1368,
+            "top1_change_rate": 0.2188
+          },
+          "C": {
+            "ce_damage": -0.115,
+            "ce_lb975": -0.13,
+            "ce_ub975": -0.1003,
+            "margin_damage": -0.0544,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.5849,
+            "ce_lb975": 0.5047,
+            "ce_ub975": 0.6616,
+            "margin_damage": 1.5809,
+            "top1_change_rate": 0.1562
+          },
+          "cross": {
+            "additive_scope": 0.0282,
+            "coordination_agreement": -0.0499,
+            "correlative_both_either": 0.0355,
+            "correlative_both_neither": 0.0488,
+            "correlative_either_neither": 0.155,
+            "finiteness_selection": 0.055,
+            "numbered_list_choice": -0.0072,
+            "perfect_number": 0.1531,
+            "polarity_state": -0.0117,
+            "possessive_adjacent": -0.0154,
+            "possessive_long_simple": -0.0128,
+            "possessive_medial": -0.0091,
+            "quantifier_number": -0.0581
+          },
+          "cross_abs_max": 0.155,
+          "extraction_odd": 1.004
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.015079164877533913,
+        0.005005244165658951,
+        4.293923848308623e-05
+      ],
+      "extraction_even": 0.856,
+      "extraction_odd": 0.639,
+      "n_units": 6,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.5,
+      "singles_top16": {
+        "attn:04:head:01": 0.029,
+        "attn:04:head:07": 0.032,
+        "attn:05:head:00": 0.018,
+        "attn:05:head:03": 0.014,
+        "attn:05:head:08": 0.014,
+        "attn:06:head:01": 0.028,
+        "attn:06:head:03": 0.072,
+        "attn:07:head:05": 0.014,
+        "attn:07:head:08": 0.193,
+        "attn:08:head:01": 0.448,
+        "attn:09:head:01": 0.07,
+        "attn:09:head:03": 0.062,
+        "attn:09:head:07": 0.033,
+        "attn:10:head:05": 0.021,
+        "attn:11:head:03": 0.057,
+        "attn:15:head:01": 0.024
+      },
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:04:head:01",
+        "attn:04:head:07",
+        "attn:09:head:01"
+      ]
+    },
+    "finiteness_selection": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.7978,
+            "ce_lb975": 0.6752,
+            "ce_ub975": 0.9164,
+            "margin_damage": 2.8472,
+            "top1_change_rate": 0.4062
+          },
+          "A2": {
+            "ce_damage": 0.371,
+            "ce_lb975": 0.3018,
+            "ce_ub975": 0.4497,
+            "margin_damage": 1.9713,
+            "top1_change_rate": 0.1562
+          },
+          "C": {
+            "ce_damage": -0.0015,
+            "ce_lb975": -0.006,
+            "ce_ub975": 0.0027,
+            "margin_damage": 0.0129,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.7782,
+            "ce_lb975": 0.6453,
+            "ce_ub975": 0.9146,
+            "margin_damage": 1.9867,
+            "top1_change_rate": 0.5312
+          },
+          "cross": {
+            "additive_scope": -0.0244,
+            "coordination_agreement": -0.0622,
+            "correlative_both_either": 0.0084,
+            "correlative_both_neither": 0.0016,
+            "correlative_either_neither": 0.0174,
+            "degree_result": 0.052,
+            "numbered_list_choice": 0.0004,
+            "perfect_number": 0.0251,
+            "polarity_state": -0.0039,
+            "possessive_adjacent": 0.0052,
+            "possessive_long_simple": 0.0281,
+            "possessive_medial": 0.0147,
+            "quantifier_number": -0.0455
+          },
+          "cross_abs_max": 0.0622,
+          "extraction_odd": 1.008
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.7696,
+            "ce_lb975": 0.6393,
+            "ce_ub975": 0.8981,
+            "margin_damage": 2.8597,
+            "top1_change_rate": 0.4062
+          },
+          "A2": {
+            "ce_damage": 0.2966,
+            "ce_lb975": 0.2113,
+            "ce_ub975": 0.3947,
+            "margin_damage": 1.7493,
+            "top1_change_rate": 0.0625
+          },
+          "C": {
+            "ce_damage": -0.0757,
+            "ce_lb975": -0.0867,
+            "ce_ub975": -0.0647,
+            "margin_damage": -0.0074,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.7308,
+            "ce_lb975": 0.6016,
+            "ce_ub975": 0.8627,
+            "margin_damage": 1.9844,
+            "top1_change_rate": 0.5
+          },
+          "cross": {
+            "additive_scope": -0.0149,
+            "coordination_agreement": -0.0293,
+            "correlative_both_either": -0.0097,
+            "correlative_both_neither": -0.008,
+            "correlative_either_neither": 0.0226,
+            "degree_result": 0.0769,
+            "numbered_list_choice": 0.0007,
+            "perfect_number": 0.0362,
+            "polarity_state": 0.0003,
+            "possessive_adjacent": -0.0087,
+            "possessive_long_simple": -0.0042,
+            "possessive_medial": -0.009,
+            "quantifier_number": 0.0108
+          },
+          "cross_abs_max": 0.0769,
+          "extraction_odd": 1.019
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.02018631249666214,
+        0.0177883580327034,
+        6.381242565112188e-05
+      ],
+      "extraction_even": 0.844,
+      "extraction_odd": 0.641,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "seconds": 22.5,
+      "singles_top16": {
+        "attn:02:head:03": 0.023,
+        "attn:03:head:06": 0.036,
+        "attn:04:head:01": 0.046,
+        "attn:05:head:08": 0.023,
+        "attn:06:head:03": 0.267,
+        "attn:07:head:08": 0.273,
+        "attn:08:head:01": 0.069,
+        "attn:08:head:08": 0.049,
+        "attn:09:head:01": 0.028,
+        "attn:09:head:03": 0.023,
+        "attn:09:head:07": 0.025,
+        "attn:10:head:08": 0.021,
+        "attn:11:head:03": 0.31,
+        "attn:13:head:08": 0.048,
+        "attn:14:head:03": 0.035,
+        "attn:14:head:08": 0.021
+      },
+      "units": [
+        "attn:11:head:03",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:14:head:03",
+        "attn:16:head:08",
+        "attn:04:head:01"
+      ]
+    },
+    "numbered_list_choice": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.8313,
+            "ce_lb975": 0.685,
+            "ce_ub975": 0.9904,
+            "margin_damage": 3.6275,
+            "top1_change_rate": 0.5
+          },
+          "A2": {
+            "ce_damage": 0.1125,
+            "ce_lb975": 0.1037,
+            "ce_ub975": 0.1217,
+            "margin_damage": 0.1927,
+            "top1_change_rate": 0.0
+          },
+          "C": {
+            "ce_damage": -0.0006,
+            "ce_lb975": -0.001,
+            "ce_ub975": -0.0002,
+            "margin_damage": -0.0,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.0819,
+            "ce_lb975": 0.0788,
+            "ce_ub975": 0.0849,
+            "margin_damage": -0.1014,
+            "top1_change_rate": 0.0
+          },
+          "cross": {
+            "additive_scope": 0.0002,
+            "coordination_agreement": -0.001,
+            "correlative_both_either": -0.0004,
+            "correlative_both_neither": -0.0006,
+            "correlative_either_neither": -0.0002,
+            "degree_result": 0.0007,
+            "finiteness_selection": 0.0011,
+            "perfect_number": -0.0006,
+            "polarity_state": -0.0025,
+            "possessive_adjacent": -0.0006,
+            "possessive_long_simple": -0.0012,
+            "possessive_medial": -0.0014,
+            "quantifier_number": -0.0006
+          },
+          "cross_abs_max": 0.0025,
+          "extraction_odd": 1.0
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.8156,
+            "ce_lb975": 0.6597,
+            "ce_ub975": 0.988,
+            "margin_damage": 3.5999,
+            "top1_change_rate": 0.5
+          },
+          "A2": {
+            "ce_damage": 0.0999,
+            "ce_lb975": 0.0924,
+            "ce_ub975": 0.1069,
+            "margin_damage": 0.1707,
+            "top1_change_rate": 0.0
+          },
+          "C": {
+            "ce_damage": -0.0135,
+            "ce_lb975": -0.0213,
+            "ce_ub975": -0.0059,
+            "margin_damage": -0.0368,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.1234,
+            "ce_lb975": 0.1189,
+            "ce_ub975": 0.1281,
+            "margin_damage": 0.1521,
+            "top1_change_rate": 0.0
+          },
+          "cross": {
+            "additive_scope": 0.0019,
+            "coordination_agreement": 0.0298,
+            "correlative_both_either": 0.0189,
+            "correlative_both_neither": 0.0281,
+            "correlative_either_neither": -0.019,
+            "degree_result": -0.024,
+            "finiteness_selection": -0.0215,
+            "perfect_number": 0.0051,
+            "polarity_state": 0.0106,
+            "possessive_adjacent": 0.028,
+            "possessive_long_simple": 0.0481,
+            "possessive_medial": 0.0579,
+            "quantifier_number": 0.0159
+          },
+          "cross_abs_max": 0.0579,
+          "extraction_odd": 1.003
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0033102971501648426,
+        0.006394863128662109,
+        3.6114261092734523e-06
+      ],
+      "extraction_even": 0.931,
+      "extraction_odd": 0.908,
+      "n_units": 3,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "seconds": 21.7,
+      "singles_top16": {
+        "attn:04:head:03": 0.001,
+        "attn:05:head:05": 0.002,
+        "attn:06:head:03": 0.004,
+        "attn:06:head:05": 0.002,
+        "attn:06:head:07": 0.004,
+        "attn:07:head:03": 0.051,
+        "attn:07:head:04": 0.002,
+        "attn:08:head:03": 0.484,
+        "attn:08:head:04": 0.101,
+        "attn:08:head:06": 0.004,
+        "attn:08:head:07": 0.41,
+        "attn:09:head:07": 0.009,
+        "attn:11:head:06": 0.002,
+        "attn:14:head:02": 0.002,
+        "attn:14:head:04": 0.063,
+        "attn:14:head:06": 0.002
+      },
+      "units": [
+        "attn:08:head:03",
+        "attn:08:head:07",
+        "attn:08:head:04"
+      ]
+    },
+    "perfect_number": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.7329,
+            "ce_lb975": 0.6452,
+            "ce_ub975": 0.8205,
+            "margin_damage": 3.0353,
+            "top1_change_rate": 0.3438
+          },
+          "A2": {
+            "ce_damage": 0.5659,
+            "ce_lb975": 0.4788,
+            "ce_ub975": 0.658,
+            "margin_damage": 2.2778,
+            "top1_change_rate": 0.3438
+          },
+          "C": {
+            "ce_damage": 0.0018,
+            "ce_lb975": -0.0014,
+            "ce_ub975": 0.005,
+            "margin_damage": 0.0023,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.8397,
+            "ce_lb975": 0.7619,
+            "ce_ub975": 0.9197,
+            "margin_damage": 3.599,
+            "top1_change_rate": 0.375
+          },
+          "cross": {
+            "additive_scope": -0.0266,
+            "coordination_agreement": 0.2305,
+            "correlative_both_either": 0.0013,
+            "correlative_both_neither": 0.0036,
+            "correlative_either_neither": -0.0312,
+            "degree_result": -0.0005,
+            "finiteness_selection": -0.0233,
+            "numbered_list_choice": -0.0006,
+            "polarity_state": 0.0084,
+            "possessive_adjacent": 0.0245,
+            "possessive_long_simple": 0.0799,
+            "possessive_medial": 0.0684,
+            "quantifier_number": 0.4196
+          },
+          "cross_abs_max": 0.4196,
+          "extraction_odd": 0.978
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.6688,
+            "ce_lb975": 0.5398,
+            "ce_ub975": 0.8089,
+            "margin_damage": 2.8748,
+            "top1_change_rate": 0.3125
+          },
+          "A2": {
+            "ce_damage": 0.5421,
+            "ce_lb975": 0.4334,
+            "ce_ub975": 0.6612,
+            "margin_damage": 2.2054,
+            "top1_change_rate": 0.3125
+          },
+          "C": {
+            "ce_damage": -0.0616,
+            "ce_lb975": -0.0771,
+            "ce_ub975": -0.0457,
+            "margin_damage": 0.0031,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.8748,
+            "ce_lb975": 0.7557,
+            "ce_ub975": 1.0048,
+            "margin_damage": 3.7865,
+            "top1_change_rate": 0.4062
+          },
+          "cross": {
+            "additive_scope": -0.0571,
+            "coordination_agreement": 0.4922,
+            "correlative_both_either": -0.021,
+            "correlative_both_neither": -0.012,
+            "correlative_either_neither": -0.0107,
+            "degree_result": 0.0162,
+            "finiteness_selection": -0.03,
+            "numbered_list_choice": -0.0131,
+            "polarity_state": 0.0137,
+            "possessive_adjacent": 0.0363,
+            "possessive_long_simple": 0.1358,
+            "possessive_medial": 0.0927,
+            "quantifier_number": 0.6785
+          },
+          "cross_abs_max": 0.6785,
+          "extraction_odd": 0.942
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.0010700258426368237,
+        0.007897267118096352,
+        7.133483450161293e-05
+      ],
+      "extraction_even": 0.889,
+      "extraction_odd": 0.88,
+      "n_units": 5,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.8,
+      "singles_top16": {
+        "attn:05:head:00": 0.008,
+        "attn:05:head:02": 0.003,
+        "attn:05:head:03": 0.024,
+        "attn:05:head:06": 0.003,
+        "attn:07:head:08": 0.075,
+        "attn:09:head:01": 0.018,
+        "attn:09:head:04": 0.005,
+        "attn:09:head:07": 0.05,
+        "attn:10:head:05": 0.022,
+        "attn:11:head:03": 0.564,
+        "attn:12:head:06": 0.004,
+        "attn:13:head:01": 0.022,
+        "attn:13:head:06": 0.004,
+        "attn:15:head:01": 0.018,
+        "attn:16:head:08": 0.017,
+        "attn:17:head:01": 0.003
+      },
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03",
+        "attn:13:head:01"
+      ]
+    },
+    "polarity_state": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.6774,
+            "ce_lb975": 0.5877,
+            "ce_ub975": 0.7687,
+            "margin_damage": 1.7623,
+            "top1_change_rate": 0.0
+          },
+          "A2": {
+            "ce_damage": 0.6886,
+            "ce_lb975": 0.538,
+            "ce_ub975": 0.842,
+            "margin_damage": 2.0115,
+            "top1_change_rate": 0.0625
+          },
+          "C": {
+            "ce_damage": -0.0083,
+            "ce_lb975": -0.0172,
+            "ce_ub975": 0.0008,
+            "margin_damage": -0.0218,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.4646,
+            "ce_lb975": 0.4131,
+            "ce_ub975": 0.5138,
+            "margin_damage": 1.6589,
+            "top1_change_rate": 0.0
+          },
+          "cross": {
+            "additive_scope": 0.0331,
+            "coordination_agreement": -0.0035,
+            "correlative_both_either": -0.0029,
+            "correlative_both_neither": 0.236,
+            "correlative_either_neither": 0.598,
+            "degree_result": -0.0062,
+            "finiteness_selection": 0.025,
+            "numbered_list_choice": 0.0142,
+            "perfect_number": -0.034,
+            "possessive_adjacent": 0.0009,
+            "possessive_long_simple": -0.0005,
+            "possessive_medial": 0.0068,
+            "quantifier_number": -0.0075
+          },
+          "cross_abs_max": 0.598,
+          "extraction_odd": 0.941
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.6807,
+            "ce_lb975": 0.6082,
+            "ce_ub975": 0.756,
+            "margin_damage": 1.7711,
+            "top1_change_rate": 0.0
+          },
+          "A2": {
+            "ce_damage": 0.6253,
+            "ce_lb975": 0.5247,
+            "ce_ub975": 0.735,
+            "margin_damage": 1.6518,
+            "top1_change_rate": 0.125
+          },
+          "C": {
+            "ce_damage": -0.0615,
+            "ce_lb975": -0.0844,
+            "ce_ub975": -0.0396,
+            "margin_damage": -0.2152,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.7243,
+            "ce_lb975": 0.6491,
+            "ce_ub975": 0.8019,
+            "margin_damage": 1.8373,
+            "top1_change_rate": 0.0312
+          },
+          "cross": {
+            "additive_scope": 0.0511,
+            "coordination_agreement": -0.0112,
+            "correlative_both_either": -0.0187,
+            "correlative_both_neither": 0.1056,
+            "correlative_either_neither": 0.5162,
+            "degree_result": 0.0532,
+            "finiteness_selection": -0.0237,
+            "numbered_list_choice": 0.0241,
+            "perfect_number": 0.0815,
+            "possessive_adjacent": -0.024,
+            "possessive_long_simple": -0.0868,
+            "possessive_medial": -0.0443,
+            "quantifier_number": -0.0079
+          },
+          "cross_abs_max": 0.5162,
+          "extraction_odd": 0.989
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.004351574927568436,
+        0.004337514750659466,
+        6.709733133902773e-05
+      ],
+      "extraction_even": 0.865,
+      "extraction_odd": 0.79,
+      "n_units": 10,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.1,
+      "singles_top16": {
+        "attn:02:head:06": 0.006,
+        "attn:04:head:01": 0.01,
+        "attn:04:head:07": 0.055,
+        "attn:05:head:03": 0.015,
+        "attn:05:head:08": 0.021,
+        "attn:06:head:01": 0.018,
+        "attn:07:head:08": 0.277,
+        "attn:08:head:01": 0.106,
+        "attn:09:head:03": 0.019,
+        "attn:09:head:07": 0.046,
+        "attn:10:head:05": 0.076,
+        "attn:11:head:08": 0.008,
+        "attn:13:head:01": 0.029,
+        "attn:15:head:01": 0.039,
+        "attn:16:head:08": 0.06,
+        "attn:17:head:03": 0.008
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:05:head:08",
+        "attn:10:head:05",
+        "attn:16:head:08",
+        "attn:15:head:01",
+        "attn:04:head:01",
+        "attn:13:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "possessive_adjacent": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.5468,
+            "ce_lb975": 0.4605,
+            "ce_ub975": 0.6322,
+            "margin_damage": 2.1422,
+            "top1_change_rate": 0.0625
+          },
+          "A2": {
+            "ce_damage": 0.5849,
+            "ce_lb975": 0.5206,
+            "ce_ub975": 0.6505,
+            "margin_damage": 2.1815,
+            "top1_change_rate": 0.0938
+          },
+          "C": {
+            "ce_damage": -0.0043,
+            "ce_lb975": -0.0122,
+            "ce_ub975": 0.0032,
+            "margin_damage": 0.0088,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.6636,
+            "ce_lb975": 0.5803,
+            "ce_ub975": 0.7459,
+            "margin_damage": 2.1889,
+            "top1_change_rate": 0.0625
+          },
+          "cross": {
+            "additive_scope": -0.0024,
+            "coordination_agreement": 0.007,
+            "correlative_both_either": -0.0123,
+            "correlative_both_neither": -0.0106,
+            "correlative_either_neither": 0.0007,
+            "degree_result": -0.0078,
+            "finiteness_selection": -0.0419,
+            "numbered_list_choice": -0.0017,
+            "perfect_number": 0.02,
+            "polarity_state": -0.0261,
+            "possessive_long_simple": 0.5892,
+            "possessive_medial": 0.5398,
+            "quantifier_number": 0.007
+          },
+          "cross_abs_max": 0.5892,
+          "extraction_odd": 0.979
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.4716,
+            "ce_lb975": 0.3692,
+            "ce_ub975": 0.5723,
+            "margin_damage": 1.8873,
+            "top1_change_rate": 0.0625
+          },
+          "A2": {
+            "ce_damage": 0.4803,
+            "ce_lb975": 0.4,
+            "ce_ub975": 0.5602,
+            "margin_damage": 1.8728,
+            "top1_change_rate": 0.0938
+          },
+          "C": {
+            "ce_damage": -0.3526,
+            "ce_lb975": -0.4153,
+            "ce_ub975": -0.2926,
+            "margin_damage": -0.0541,
+            "top1_change_rate": 0.0625
+          },
+          "P": {
+            "ce_damage": 0.4837,
+            "ce_lb975": 0.3941,
+            "ce_ub975": 0.5806,
+            "margin_damage": 1.8199,
+            "top1_change_rate": 0.0625
+          },
+          "cross": {
+            "additive_scope": 0.0385,
+            "coordination_agreement": -0.0252,
+            "correlative_both_either": -0.0387,
+            "correlative_both_neither": -0.0391,
+            "correlative_either_neither": -0.0119,
+            "degree_result": 0.0547,
+            "finiteness_selection": -0.1159,
+            "numbered_list_choice": 0.0215,
+            "perfect_number": 0.0834,
+            "polarity_state": 0.0022,
+            "possessive_long_simple": 0.3839,
+            "possessive_medial": 0.4439,
+            "quantifier_number": 0.01
+          },
+          "cross_abs_max": 0.4439,
+          "extraction_odd": 0.905
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.007715781219303608,
+        0.008254455402493477,
+        9.89647232927382e-05
+      ],
+      "extraction_even": 0.899,
+      "extraction_odd": 0.87,
+      "n_units": 11,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 24.5,
+      "singles_top16": {
+        "attn:02:head:06": 0.019,
+        "attn:03:head:04": 0.027,
+        "attn:04:head:05": 0.258,
+        "attn:05:head:01": 0.021,
+        "attn:05:head:03": 0.02,
+        "attn:06:head:01": 0.017,
+        "attn:07:head:00": 0.016,
+        "attn:07:head:08": 0.027,
+        "attn:08:head:08": 0.015,
+        "attn:09:head:06": 0.159,
+        "attn:09:head:07": 0.09,
+        "attn:10:head:01": 0.021,
+        "attn:10:head:05": 0.11,
+        "attn:11:head:01": 0.01,
+        "attn:12:head:04": 0.044,
+        "attn:15:head:01": 0.065
+      },
+      "units": [
+        "attn:04:head:05",
+        "attn:09:head:06",
+        "attn:02:head:06",
+        "attn:10:head:05",
+        "attn:03:head:04",
+        "attn:09:head:07",
+        "attn:15:head:01",
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:05:head:03",
+        "attn:06:head:01"
+      ]
+    },
+    "possessive_long_simple": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.5823,
+            "ce_lb975": 0.4937,
+            "ce_ub975": 0.6668,
+            "margin_damage": 1.9587,
+            "top1_change_rate": 0.125
+          },
+          "A2": {
+            "ce_damage": 0.5648,
+            "ce_lb975": 0.5017,
+            "ce_ub975": 0.6296,
+            "margin_damage": 2.2116,
+            "top1_change_rate": 0.125
+          },
+          "C": {
+            "ce_damage": 0.0034,
+            "ce_lb975": -0.0018,
+            "ce_ub975": 0.009,
+            "margin_damage": 0.0175,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.4353,
+            "ce_lb975": 0.3703,
+            "ce_ub975": 0.5033,
+            "margin_damage": 1.9234,
+            "top1_change_rate": 0.1562
+          },
+          "cross": {
+            "additive_scope": 0.0043,
+            "coordination_agreement": 0.0257,
+            "correlative_both_either": 0.0123,
+            "correlative_both_neither": 0.0082,
+            "correlative_either_neither": -0.0025,
+            "degree_result": 0.0105,
+            "finiteness_selection": -0.0376,
+            "numbered_list_choice": 0.0007,
+            "perfect_number": 0.1616,
+            "polarity_state": -0.016,
+            "possessive_adjacent": 0.377,
+            "possessive_medial": 0.5335,
+            "quantifier_number": 0.0123
+          },
+          "cross_abs_max": 0.5335,
+          "extraction_odd": 0.963
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.507,
+            "ce_lb975": 0.3942,
+            "ce_ub975": 0.6174,
+            "margin_damage": 1.7628,
+            "top1_change_rate": 0.125
+          },
+          "A2": {
+            "ce_damage": 0.5312,
+            "ce_lb975": 0.4407,
+            "ce_ub975": 0.6204,
+            "margin_damage": 2.0101,
+            "top1_change_rate": 0.125
+          },
+          "C": {
+            "ce_damage": -0.1012,
+            "ce_lb975": -0.121,
+            "ce_ub975": -0.0848,
+            "margin_damage": 0.0006,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.352,
+            "ce_lb975": 0.2491,
+            "ce_ub975": 0.4633,
+            "margin_damage": 1.7437,
+            "top1_change_rate": 0.1562
+          },
+          "cross": {
+            "additive_scope": 0.0077,
+            "coordination_agreement": 0.0709,
+            "correlative_both_either": 0.0026,
+            "correlative_both_neither": -0.0014,
+            "correlative_either_neither": 0.0126,
+            "degree_result": 0.059,
+            "finiteness_selection": -0.0991,
+            "numbered_list_choice": 0.0091,
+            "perfect_number": 0.0917,
+            "polarity_state": -0.0152,
+            "possessive_adjacent": 0.4057,
+            "possessive_medial": 0.4797,
+            "quantifier_number": 0.1363
+          },
+          "cross_abs_max": 0.4797,
+          "extraction_odd": 0.895
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.00640798918902874,
+        0.0070471325889229774,
+        7.377051224466413e-05
+      ],
+      "extraction_even": 0.897,
+      "extraction_odd": 0.827,
+      "n_units": 9,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 25.0,
+      "singles_top16": {
+        "attn:03:head:04": 0.089,
+        "attn:04:head:04": 0.017,
+        "attn:04:head:05": 0.114,
+        "attn:05:head:01": 0.008,
+        "attn:05:head:03": 0.182,
+        "attn:05:head:06": 0.009,
+        "attn:05:head:07": 0.013,
+        "attn:06:head:01": 0.009,
+        "attn:07:head:08": 0.05,
+        "attn:08:head:08": 0.01,
+        "attn:09:head:06": 0.189,
+        "attn:09:head:07": 0.066,
+        "attn:10:head:01": 0.03,
+        "attn:10:head:05": 0.086,
+        "attn:12:head:04": 0.095,
+        "attn:15:head:01": 0.091
+      },
+      "units": [
+        "attn:09:head:06",
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:10:head:01",
+        "attn:10:head:05",
+        "attn:07:head:08"
+      ]
+    },
+    "possessive_medial": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.5454,
+            "ce_lb975": 0.4807,
+            "ce_ub975": 0.6068,
+            "margin_damage": 1.816,
+            "top1_change_rate": 0.0312
+          },
+          "A2": {
+            "ce_damage": 0.5889,
+            "ce_lb975": 0.5343,
+            "ce_ub975": 0.6423,
+            "margin_damage": 2.1036,
+            "top1_change_rate": 0.0312
+          },
+          "C": {
+            "ce_damage": 0.0013,
+            "ce_lb975": -0.0043,
+            "ce_ub975": 0.0071,
+            "margin_damage": 0.0192,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.4921,
+            "ce_lb975": 0.4365,
+            "ce_ub975": 0.5507,
+            "margin_damage": 1.8852,
+            "top1_change_rate": 0.0625
+          },
+          "cross": {
+            "additive_scope": -0.0099,
+            "coordination_agreement": 0.0056,
+            "correlative_both_either": -0.0192,
+            "correlative_both_neither": -0.0142,
+            "correlative_either_neither": -0.0064,
+            "degree_result": -0.0072,
+            "finiteness_selection": -0.0198,
+            "numbered_list_choice": 0.0018,
+            "perfect_number": 0.0309,
+            "polarity_state": -0.0074,
+            "possessive_adjacent": 0.3973,
+            "possessive_long_simple": 0.5946,
+            "quantifier_number": 0.0012
+          },
+          "cross_abs_max": 0.5946,
+          "extraction_odd": 0.974
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.5262,
+            "ce_lb975": 0.4288,
+            "ce_ub975": 0.6257,
+            "margin_damage": 1.6937,
+            "top1_change_rate": 0.0312
+          },
+          "A2": {
+            "ce_damage": 0.5378,
+            "ce_lb975": 0.4473,
+            "ce_ub975": 0.6368,
+            "margin_damage": 1.8394,
+            "top1_change_rate": 0.0625
+          },
+          "C": {
+            "ce_damage": -0.1514,
+            "ce_lb975": -0.1717,
+            "ce_ub975": -0.1334,
+            "margin_damage": -0.0504,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.4588,
+            "ce_lb975": 0.3601,
+            "ce_ub975": 0.5689,
+            "margin_damage": 1.7797,
+            "top1_change_rate": 0.0625
+          },
+          "cross": {
+            "additive_scope": 0.0184,
+            "coordination_agreement": -0.0344,
+            "correlative_both_either": 0.0117,
+            "correlative_both_neither": 0.0048,
+            "correlative_either_neither": 0.0501,
+            "degree_result": 0.0624,
+            "finiteness_selection": -0.1088,
+            "numbered_list_choice": 0.0153,
+            "perfect_number": 0.0869,
+            "polarity_state": -0.0246,
+            "possessive_adjacent": 0.4288,
+            "possessive_long_simple": 0.5096,
+            "quantifier_number": -0.0031
+          },
+          "cross_abs_max": 0.5096,
+          "extraction_odd": 0.957
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.005183529108762741,
+        0.006809566635638475,
+        6.705008854623884e-05
+      ],
+      "extraction_even": 0.874,
+      "extraction_odd": 0.827,
+      "n_units": 9,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 24.0,
+      "singles_top16": {
+        "attn:03:head:04": 0.105,
+        "attn:04:head:04": 0.018,
+        "attn:04:head:05": 0.124,
+        "attn:05:head:01": 0.013,
+        "attn:05:head:03": 0.13,
+        "attn:05:head:07": 0.012,
+        "attn:06:head:01": 0.021,
+        "attn:07:head:00": 0.01,
+        "attn:07:head:08": 0.04,
+        "attn:09:head:06": 0.15,
+        "attn:09:head:07": 0.076,
+        "attn:10:head:01": 0.036,
+        "attn:10:head:05": 0.109,
+        "attn:11:head:01": 0.01,
+        "attn:12:head:04": 0.055,
+        "attn:15:head:01": 0.098
+      },
+      "units": [
+        "attn:09:head:06",
+        "attn:04:head:05",
+        "attn:05:head:03",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:09:head:07"
+      ]
+    },
+    "quantifier_number": {
+      "arms": {
+        "cdas": {
+          "A1": {
+            "ce_damage": 0.5895,
+            "ce_lb975": 0.4881,
+            "ce_ub975": 0.6956,
+            "margin_damage": 2.0903,
+            "top1_change_rate": 0.4688
+          },
+          "A2": {
+            "ce_damage": 0.5743,
+            "ce_lb975": 0.4792,
+            "ce_ub975": 0.6693,
+            "margin_damage": 2.5097,
+            "top1_change_rate": 0.4375
+          },
+          "C": {
+            "ce_damage": 0.0028,
+            "ce_lb975": -0.001,
+            "ce_ub975": 0.0062,
+            "margin_damage": 0.0247,
+            "top1_change_rate": 0.0
+          },
+          "P": {
+            "ce_damage": 0.3357,
+            "ce_lb975": 0.2985,
+            "ce_ub975": 0.374,
+            "margin_damage": 2.1167,
+            "top1_change_rate": 0.3125
+          },
+          "cross": {
+            "additive_scope": 0.0033,
+            "coordination_agreement": 0.077,
+            "correlative_both_either": 0.0128,
+            "correlative_both_neither": 0.0054,
+            "correlative_either_neither": -0.0152,
+            "degree_result": 0.0558,
+            "finiteness_selection": -0.008,
+            "numbered_list_choice": -0.005,
+            "perfect_number": 0.194,
+            "polarity_state": -0.0158,
+            "possessive_adjacent": 0.004,
+            "possessive_long_simple": 0.0411,
+            "possessive_medial": 0.0355
+          },
+          "cross_abs_max": 0.194,
+          "extraction_odd": 1.045
+        },
+        "dim": {
+          "A1": {
+            "ce_damage": 0.601,
+            "ce_lb975": 0.4899,
+            "ce_ub975": 0.7183,
+            "margin_damage": 2.1588,
+            "top1_change_rate": 0.4375
+          },
+          "A2": {
+            "ce_damage": 0.6104,
+            "ce_lb975": 0.4839,
+            "ce_ub975": 0.7354,
+            "margin_damage": 2.5275,
+            "top1_change_rate": 0.4688
+          },
+          "C": {
+            "ce_damage": -0.1103,
+            "ce_lb975": -0.1397,
+            "ce_ub975": -0.0818,
+            "margin_damage": 0.0164,
+            "top1_change_rate": 0.0312
+          },
+          "P": {
+            "ce_damage": 0.3661,
+            "ce_lb975": 0.3166,
+            "ce_ub975": 0.4167,
+            "margin_damage": 2.2893,
+            "top1_change_rate": 0.3125
+          },
+          "cross": {
+            "additive_scope": 0.0681,
+            "coordination_agreement": 0.0857,
+            "correlative_both_either": -0.0209,
+            "correlative_both_neither": -0.0177,
+            "correlative_either_neither": 0.0492,
+            "degree_result": -0.0322,
+            "finiteness_selection": -0.0531,
+            "numbered_list_choice": -0.0056,
+            "perfect_number": 0.2069,
+            "polarity_state": -0.0548,
+            "possessive_adjacent": 0.0494,
+            "possessive_long_simple": 0.1482,
+            "possessive_medial": 0.1155
+          },
+          "cross_abs_max": 0.2069,
+          "extraction_odd": 1.06
+        }
+      },
+      "cdas_final_loss": [
+        119,
+        0.005899850279092789,
+        0.008534585125744343,
+        6.996234878897667e-05
+      ],
+      "extraction_even": 0.897,
+      "extraction_odd": 0.834,
+      "n_units": 7,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 21.5,
+      "singles_top16": {
+        "attn:02:head:02": 0.04,
+        "attn:04:head:00": 0.017,
+        "attn:04:head:01": 0.027,
+        "attn:04:head:07": 0.017,
+        "attn:05:head:03": 0.074,
+        "attn:05:head:06": 0.03,
+        "attn:05:head:08": 0.012,
+        "attn:06:head:01": 0.012,
+        "attn:07:head:08": 0.341,
+        "attn:08:head:01": 0.026,
+        "attn:09:head:01": 0.012,
+        "attn:09:head:07": 0.039,
+        "attn:10:head:05": 0.025,
+        "attn:11:head:03": 0.277,
+        "attn:13:head:01": 0.046,
+        "attn:13:head:06": 0.024
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:13:head:01",
+        "attn:13:head:06",
+        "attn:09:head:01"
+      ]
+    }
+  },
+  "candidate_id": "corpus.unit_tier3_batch_row2_v113",
+  "counts": {
+    "row2": 8,
+    "row3": 13,
+    "row4": 12,
+    "row5": 11
+  },
+  "errors": {},
+  "finished_utc": "2026-09-07T05:05:20.820050+00:00",
+  "predictions": {
+    "pred_a_row2_recovered": true,
+    "pred_b_even_reaches": false,
+    "pred_c_gap_small": false,
+    "pred_d_rows_kept": true,
+    "pred_e_instrument": true
+  },
+  "protocol": {
+    "complement_weight": 1.0,
+    "controls": "own C EVEN only",
+    "lambda": 30.0,
+    "lr": 0.05,
+    "max_units": 14,
+    "min_gain": 0.02,
+    "pool": 20,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "circuit_unit_tier3_batch_row2_result_v1",
+  "seconds": 324.7,
+  "summary": {
+    "additive_scope": {
+      "cross_abs_max": {
+        "cdas": 0.0412,
+        "dim": 0.1871
+      },
+      "ext_odd": 0.803,
+      "n_units": 11,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "coordination_agreement": {
+      "cross_abs_max": {
+        "cdas": 0.3039,
+        "dim": 0.1006
+      },
+      "ext_odd": 0.811,
+      "n_units": 13,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "tier": "tier3_rows_235"
+    },
+    "correlative_both_either": {
+      "cross_abs_max": {
+        "cdas": 0.6088,
+        "dim": 0.3491
+      },
+      "ext_odd": 0.751,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "correlative_both_neither": {
+      "cross_abs_max": {
+        "cdas": 0.9782,
+        "dim": 0.8503
+      },
+      "ext_odd": 0.753,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "correlative_either_neither": {
+      "cross_abs_max": {
+        "cdas": 0.6881,
+        "dim": 0.6171
+      },
+      "ext_odd": 0.81,
+      "n_units": 8,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "degree_result": {
+      "cross_abs_max": {
+        "cdas": 0.0839,
+        "dim": 0.155
+      },
+      "ext_odd": 0.639,
+      "n_units": 6,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "finiteness_selection": {
+      "cross_abs_max": {
+        "cdas": 0.0622,
+        "dim": 0.0769
+      },
+      "ext_odd": 0.641,
+      "n_units": 8,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "tier": "not_localizable"
+    },
+    "numbered_list_choice": {
+      "cross_abs_max": {
+        "cdas": 0.0025,
+        "dim": 0.0579
+      },
+      "ext_odd": 0.908,
+      "n_units": 3,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "tier": "tier3_rows_234"
+    },
+    "perfect_number": {
+      "cross_abs_max": {
+        "cdas": 0.4196,
+        "dim": 0.6785
+      },
+      "ext_odd": 0.88,
+      "n_units": 5,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "polarity_state": {
+      "cross_abs_max": {
+        "cdas": 0.598,
+        "dim": 0.5162
+      },
+      "ext_odd": 0.79,
+      "n_units": 10,
+      "rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "not_localizable"
+    },
+    "possessive_adjacent": {
+      "cross_abs_max": {
+        "cdas": 0.5892,
+        "dim": 0.4439
+      },
+      "ext_odd": 0.87,
+      "n_units": 11,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "possessive_long_simple": {
+      "cross_abs_max": {
+        "cdas": 0.5335,
+        "dim": 0.4797
+      },
+      "ext_odd": 0.827,
+      "n_units": 9,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "possessive_medial": {
+      "cross_abs_max": {
+        "cdas": 0.5946,
+        "dim": 0.5096
+      },
+      "ext_odd": 0.827,
+      "n_units": 9,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    },
+    "quantifier_number": {
+      "cross_abs_max": {
+        "cdas": 0.194,
+        "dim": 0.2069
+      },
+      "ext_odd": 0.834,
+      "n_units": 7,
+      "rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "tier": "tier3_all_rows"
+    }
+  }
+}
