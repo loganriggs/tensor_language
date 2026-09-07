@@ -170,6 +170,22 @@ registered downstream readers as separate response blocks and scan every complet
 MLP module.  Only after the missing modules are localized should heads or within-module response
 subspaces be split.
 
+The subsequent all-layer atlas supplies valid singleton columns for all 36 native attention/MLP
+modules.  The missing v15 behavior is attention-heavy and distributed: complete `attn:8`, `attn:9`,
+and `attn:11` responses recover `.40565`, `.38479`, and `.27203` of behavior with 100% rowwise
+direction; the largest MLP remains `mlp:1` at `.21296`.  No module reaches the prospective `.50`
+localization bar.  Final-residual and behavioral singleton scores have Spearman `.648`, so the full
+residual is a materially better observation block than the old reader-only response, though still
+not interchangeable with behavior.
+
+The same result's prefix interpretation is quarantined.  The input diagnostic replaces the entire
+aligned embedding-output sequence; because base and donor prompts are the paired inputs, that arm
+reconstructs the donor trajectory exactly.  Every input-inclusive prefix is consequently `1.0`
+before any depth inference and cannot establish that layer 0 is sufficient.  This does not affect
+the 36 independently executed module singletons, exact base-self/all-donor closures, or old-five
+replay.  The next causal split is therefore all 27 heads in attention 8/9/11, measured both alone
+and by leave-one-head-out inside each complete attention response.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -245,7 +261,10 @@ are closed; the next optimization object must expose a finite causal-response op
   `temporal_iswas_rank16_source_mask26_construction_holdout_v1_result.json` (parent-level is-was
   construction null; mask remains close to full but full is not functional), followed by
   `temporal_iswas_v15_complete_source_mlp_write_atlas_v1_result.json` (valid source-graph/reader
-  failure: old response coordinates replay at `.928` while behavior reaches only `.399`).
+  failure: old response coordinates replay at `.928` while behavior reaches only `.399`), followed
+  by `temporal_iswas_v15_all_layer_complete_module_response_atlas_v1_result.json` (valid 36-module
+  singleton atlas; top `attn:8/9/11`, while input-inclusive prefix inference is tautological and
+  explicitly quarantined).
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`, followed by
   `temporal_h3_das_nested_construction_adaptive_regularization_v1_result.json` (valid rejection of
@@ -255,9 +274,9 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Scan all 36 complete attention/MLP responses on is-was-v15, plus cumulative layer prefixes, to
-   localize the missing behavioral path outside the old five MLP sites.  Split the top attention
-   module into heads or the top MLP into task-conditioned response modes only after this atlas.
+2. Split all 27 heads in the three live attention modules 8/9/11 with singleton and conditional
+   leave-one-out patches.  Then execute a frozen greedy composition of the causally material heads
+   with the best MLP modules; do not use the tautological input-inclusive prefix result.
 3. Replace the rejected scalar-axis DAS loss with a finite causal-response operator whose held-out
    blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
    as explicit controls, not post-hoc explanations.
