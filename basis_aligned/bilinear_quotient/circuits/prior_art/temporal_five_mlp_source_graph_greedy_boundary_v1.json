@@ -1,0 +1,16 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_source_graph_greedy_boundary_v1",
+  "question": "Where is the exact jointly feasible boundary between the failed rank45 and passing rank55 source graphs?",
+  "arms": [46, 47, 48, 49, 50, 51, 52, 53, 54],
+  "construction": "For N in 46..54, allow the union of the frozen donor top20 and the first N components of the frozen deletion ranking. Evaluate unchanged coordinate, behavior, and control gates under both fits.",
+  "selection_rule": "Select the smallest jointly feasible N. No membership, order, or threshold is adapted.",
+  "predictions": {
+    "pred_a_authority_self_clamp_finiteness_and_price": "authorities replay, self-clamp is exact, values are finite, and <=71 forwards execute",
+    "pred_b_boundary_contains_a_feasible_prefix": "at least one rank46..54 arm is jointly feasible",
+    "pred_c_feasibility_is_monotone_above_boundary": "every tested prefix at or above the selected N is jointly feasible",
+    "pred_d_boundary_is_at_most_rank50": "the selected N is <=50",
+    "pred_e_selected_arm_is_crossfit_stable": "selected minimum-coordinate projections differ by <=0.05 and per-task behavior projections differ by <=0.05 across fits"
+  },
+  "decision": "Promote the smallest passing prefix as the frozen circuit support and next apply backward deletion/grouped interaction audits within it.",
+  "price": {"model_forwards_max": 71, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
