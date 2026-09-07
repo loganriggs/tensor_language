@@ -1,0 +1,10 @@
+{
+  "schema": "temporal_iswas_rank46_task_rank4_upstream_weight_edge_atlas_invalidity_audit_v1",
+  "candidate_id": "temporal_auxiliary.iswas_rank46_task_rank4_upstream_weight_edge_atlas_v1",
+  "captured_script_sha256": "830809bcfa332998f1193c15c816a5d8dd41467a092362e6066994532ed624cc",
+  "result_sha256": "ccfc5942c529ba4f2a84d5a02ff1023869f63876bde1f188d5360cbafdf4a8e7",
+  "verdict": "instrument_invalid",
+  "reason": "Prediction C compared total temporal incidence with total is-was incidence instead of the preregistered own-task versus cross-task coordinate-energy ratio. Prediction E also checked only a lower signed-projection bound and omitted response reconstruction error, allowing gross additive overcounting (2.44 is-was and 3.06 temporal) to be described as replay.",
+  "scientific_use": "The raw per-edge measurements remain diagnostic, including exact-weight closure, but none of the five v1 prediction booleans or its terminal may be used for promotion.",
+  "repair": "V2 keeps the support, rows, task-rank-four bases, full patch semantics, live-edge cutoff, and scientific bars fixed. It scores task typing from per-task own/cross energy and requires additive response relative squared error at most 0.20 in addition to signed projection at least 0.80."
+}

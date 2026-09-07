@@ -1,0 +1,10 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_rank46_task_rank4_upstream_weight_edge_atlas_v2",
+  "question": "Does the corrected full-patch atlas identify task-typed source-to-response edges when task typing is scored as own-mode versus cross-mode coordinate energy for each task?",
+  "correction": {
+    "invalid_v1": "The captured v1 scorer compared total temporal incidence with total is-was incidence, which does not implement the registered own-task/cross-task coordinate ratio.",
+    "v2_change": "For every response site and task, sum own-mode and cross-mode coordinate-energy fractions over strictly upstream source patches; call a site task typed only when both task-specific own/cross ratios are at least 2.",
+    "unchanged": "Source support, rows, rank-four bases, full head/module patching, live-edge cutoff, other thresholds, and GPU ceiling remain unchanged."
+  },
+  "decision": "Treat v1 as instrument-invalid regardless of its numerical output. Score only v2 against the original scientific predictions."
+}

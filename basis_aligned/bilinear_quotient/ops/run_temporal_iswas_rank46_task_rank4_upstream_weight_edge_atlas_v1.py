@@ -23,6 +23,8 @@ LADDER_RUNNER = ROOT / "ops/run_temporal_iswas_rank46_task_mode_complete_rank_la
 FACTORIAL_RUNNER = ROOT / "ops/run_temporal_iswas_rank46_task_typed_mode_causal_factorial_v1.py"
 ATLAS_HELPER = ROOT / "ops/run_temporal_five_mlp_upstream_input_tensor_incidence_atlas_v1.py"
 OUT = ROOT / "circuits/followups/temporal_iswas_rank46_task_rank4_upstream_weight_edge_atlas_v1_result.json"
+CANDIDATE_ID = "temporal_auxiliary.iswas_rank46_task_rank4_upstream_weight_edge_atlas_v1"
+SCHEMA = "temporal_iswas_rank46_task_rank4_upstream_weight_edge_atlas_result_v1"
 EXPECTED = {
     "prior": "5dd54a7c3817bd9380ed4d4cab3d49be46edf0d9b9b4cb185a9dba75e7b7197f",
     "rank46": "dc8b66d826acede98bde996babe42420dd9e805981f6b81de458d568f29eea1d",
@@ -123,7 +125,7 @@ def main():
     observed = {key: sha(path) for key, path in paths.items()}
     if observed != EXPECTED: raise RuntimeError(f"weight-edge atlas authority changed: {observed}")
     support = json.loads(RANK46.read_text())["selected_support"]
-    dry = {"candidate_id": "temporal_auxiliary.iswas_rank46_task_rank4_upstream_weight_edge_atlas_v1",
+    dry = {"candidate_id": CANDIDATE_ID,
            "dryrun": True, "gpu_accessed": False, "model_loaded": False, "queue_touched": False,
            "source_count": len(support), "response_sites": RESPONSE_SITES, "live_edge_cutoff": LIVE_EDGE,
            "model_forwards_max": MAX_FORWARDS, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
@@ -143,6 +145,7 @@ def main():
     for site in RESPONSE_SITES:
         self_error = max(self_error, float((raw_response(self_cache, site, width)-raw_response(base, site, width)).abs().max()))
     reports = {}; finite = [self_error]; closure_values = []; promoted_closure = []; task_edges = {task: set() for task in ids}
+    task_mode_incidence = {target: {task: {"own": 0.0, "cross": 0.0} for task in ids} for target in RESPONSE_SITES}
     additive = {task: {site: None for site in RESPONSE_SITES} for task in ids}
     for source_site in support:
         _output, changed = capture_with_source_patch(backend, batch, donor_full, (source_site,))
@@ -173,6 +176,8 @@ def main():
                         "cross_coordinate_energy": cross_energy, "own_cross_energy_ratio": own_energy / max(1e-30, cross_energy),
                         "exact_weight_closure_rse": closure}
                 reports[source_site][target][task] = edge; finite += list(edge.values()); closure_values.append(closure)
+                task_mode_incidence[target][task]["own"] += own_energy
+                task_mode_incidence[target][task]["cross"] += cross_energy
                 if abs(signed) >= LIVE_EDGE: task_edges[task].add(f"{source_site}->{target}"); promoted_closure.append(closure)
                 contribution = valid_rows(torch, actual_all, batch, task_ids) @ rb
                 additive[task][target] = contribution if additive[task][target] is None else additive[task][target] + contribution
@@ -185,22 +190,30 @@ def main():
         task_summary[task] = {"max_signed_target_response": maximum, "top_quartile_positive_incidence_fraction": concentration,
                               "live_edge_count": len(task_edges[task])}
     for target in RESPONSE_SITES:
-        own_t = sum(abs(reports[s][target]["temporal"]["signed_target_response"]) for s in reports if target in reports[s])
-        cross_t = sum(abs(reports[s][target]["iswas"]["signed_target_response"]) for s in reports if target in reports[s])
-        if max(own_t, cross_t) / max(1e-30, min(own_t, cross_t)) >= 2: typed_sites.append(target)
+        ratios = {}
+        for task in ids:
+            item = task_mode_incidence[target][task]
+            ratios[task] = item["own"] / max(1e-30, item["cross"])
+            item["own_cross_ratio"] = ratios[task]
+            finite.append(ratios[task])
+        if min(ratios.values()) >= 2: typed_sites.append(target)
     union, inter = task_edges["temporal"] | task_edges["iswas"], task_edges["temporal"] & task_edges["iswas"]
     edge_jaccard = len(inter)/max(1, len(union))
     additive_report = {}
     for task, task_ids in ids.items():
-        site_projection = {}; combined_num = combined_den = 0.0
+        site_projection = {}; combined_num = combined_den = combined_residual = 0.0
         for target in RESPONSE_SITES:
             rb = qs[target] @ modes[target][task]
             reference = valid_rows(torch, raw_response(donor, target, width)-raw_response(base, target, width), batch, task_ids) @ rb
             changed = additive[task][target]
             den = float(reference.square().sum()); num = float((changed*reference).sum())
+            residual = float((changed-reference).square().sum())
             site_projection[target] = num/max(1e-30, den); combined_num += num; combined_den += den
-        additive_report[task] = {"signed_projection": combined_num/max(1e-30, combined_den), "site_projection": site_projection}
-        finite += [additive_report[task]["signed_projection"], *site_projection.values()]
+            combined_residual += residual
+        additive_report[task] = {"signed_projection": combined_num/max(1e-30, combined_den),
+                                 "relative_squared_error": combined_residual/max(1e-30, combined_den),
+                                 "site_projection": site_projection}
+        finite += [additive_report[task]["signed_projection"], additive_report[task]["relative_squared_error"], *site_projection.values()]
     fit_ids = {row["row_id"] for rows in task_rows.values() for row in rows} | {row["row_id"] for row in fitted["control_rows"]}
     eval_ids = {row["row_id"] for row in fresh["rows"]}
     pa = (len(support) == 46 and json.loads(LADDER.read_text())["selected_rank"]["own"] == 4
@@ -208,15 +221,16 @@ def main():
     pb = all(x["max_signed_target_response"] >= .20 and x["top_quartile_positive_incidence_fraction"] >= .70 for x in task_summary.values())
     pc = len(typed_sites) >= 2 and edge_jaccard < .8
     pd = bool(promoted_closure) and sum(x <= .15 for x in promoted_closure)/len(promoted_closure) >= .8
-    pe = all(report["signed_projection"] >= .8 for report in additive_report.values())
+    pe = all(report["signed_projection"] >= .8 and report["relative_squared_error"] <= .2 for report in additive_report.values())
     predictions = {"pred_a_authority_alignment_self_patch_finiteness_and_price": bool(pa),
         "pred_b_sparse_causal_incidence": bool(pb), "pred_c_task_typed_edge_tensor": bool(pc),
         "pred_d_promoted_edges_close_through_exact_weights": bool(pd), "pred_e_additive_atlas_replays_response_order": bool(pe)}
     terminal = "invalid" if not pa else "task_typed_weight_edge_atlas" if all(predictions.values()) else "distributed_or_contextual_weight_edge_atlas"
-    result = {"schema": "temporal_iswas_rank46_task_rank4_upstream_weight_edge_atlas_result_v1",
+    result = {"schema": SCHEMA, "candidate_id": CANDIDATE_ID,
         "started_utc": started, "finished_utc": now(), "serial_seconds": time.perf_counter()-tic,
         "authority_sha256": EXPECTED, "support": support, "response_sites": RESPONSE_SITES,
-        "live_edge_cutoff": LIVE_EDGE, "task_summary": task_summary, "task_typed_sites": typed_sites,
+        "live_edge_cutoff": LIVE_EDGE, "task_summary": task_summary, "task_mode_incidence": task_mode_incidence,
+        "task_typed_sites": typed_sites,
         "edge_jaccard": edge_jaccard, "additive_report": additive_report, "site_reports": reports,
         "self_patch_max_abs": self_error, "promoted_edge_count": len(promoted_closure),
         "promoted_weight_closure_fraction": sum(x <= .15 for x in promoted_closure)/max(1, len(promoted_closure)),
