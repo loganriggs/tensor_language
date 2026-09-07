@@ -1,0 +1,11 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_parsimonious_program_fresh_v12_leave_one_out_v1",
+  "checked_utc": "2026-09-07T00:29:00Z",
+  "decision": "novel_fresh_component_necessity_manifest",
+  "parent_result_sha256": "3c8db411ee92701337df613870b139fc6c0d745e79ff7272280380b753108ebf",
+  "frozen_components": ["attn9_main_h1h4", "mlp9", "attn11_aux_h1h3", "mlp10", "mlp11", "mlp12", "mlp13", "mlp14", "attn15_aux_h5", "attn15_late_h1"],
+  "intervention": "remove exactly one cached-live response from the frozen parsimonious program while every other selected response remains installed in causal order",
+  "population": "the untouched v12 confirmation population; no component is reselected",
+  "prediction": "Every frozen component has nonzero behavior or shared-Q8 necessity, every MLP10-14 has at least two percent necessity in behavior or Q8 on both panels, and the complete program exactly replays its parent implementation.",
+  "fit_policy": "zero fitted parameters and no model updates"
+}

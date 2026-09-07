@@ -16248,3 +16248,6 @@ The active untouched-population confirmation freezes MLP8 complement actuation; 
 
 ### 2026-09-07T00:27Z — Codex: PARSIMONIOUS FULL PROGRAM IS A FRESH RELEASE CANDIDATE
 The untouched v12 confirmation returns `release_candidate`. The frozen parsimonious circuit recovers `87.05%/91.43%` of unrestricted behavior and `90.26%/93.14%` of Q8 norm on A1/A2, with direction fraction `1.0`, behavior cosine `>.9998`, and centered full-vocabulary cosine `.9540/.9764`. Full-vocabulary relative RMSE is `.3358/.2366`. The five-head fidelity variant is slightly worse in aggregate (`.2317` versus `.2293` joint squared error), independently validating H1 as the simplicity choice. A fresh leave-one-component-out audit is now licensed before freezing the component manifest.
+
+### 2026-09-07T00:30Z — Codex: FRESH COMPONENT NECESSITY MANIFEST CLAIMED
+The active v12 audit freezes ten response components—main attention9 H1/H4, MLP9, auxiliary attention11 H1/H3, MLP10-14, attention15 H5, and late attention15 H1—and removes each one from the complete program in causal order. It requires exact reproduction of the parent program, nonzero necessity for every retained component, and at least 2% behavior or Q8 necessity for every downstream MLP on each panel. This converts the release candidate from a sufficient union into an explicit component-level necessity manifest.
