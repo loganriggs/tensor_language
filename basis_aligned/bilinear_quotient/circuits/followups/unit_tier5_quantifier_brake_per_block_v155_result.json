@@ -1,0 +1,268 @@
+{
+  "bars": {
+    "add_tol": 0.05,
+    "flat_tol": 0.05,
+    "ident_tol": 0.01,
+    "mlp_share_min": 0.7,
+    "repro_tol": 0.03,
+    "single_min": 0.05
+  },
+  "candidate_id": "corpus.unit_tier5_quantifier_brake_per_block_v155",
+  "finished_utc": "2026-09-07T08:05:23.160637+00:00",
+  "measures": {
+    "lex_seven": {
+      "blocks": {
+        "08:mlp": {
+          "overshoot": -0.011,
+          "rank1_others_exact": 0.839,
+          "single_comp": 0.029,
+          "single_dim": 0.026,
+          "single_exact": 0.056,
+          "units": [
+            "mlp:08"
+          ]
+        },
+        "09:heads": {
+          "overshoot": -0.001,
+          "rank1_others_exact": 0.849,
+          "single_comp": 0.011,
+          "single_dim": 0.072,
+          "single_exact": 0.083,
+          "units": [
+            "attn:09:head:07"
+          ]
+        },
+        "09:mlp": {
+          "overshoot": -0.004,
+          "rank1_others_exact": 0.846,
+          "single_comp": 0.023,
+          "single_dim": 0.121,
+          "single_exact": 0.145,
+          "units": [
+            "mlp:09"
+          ]
+        },
+        "10:heads": {
+          "overshoot": 0.003,
+          "rank1_others_exact": 0.853,
+          "single_comp": -0.001,
+          "single_dim": 0.042,
+          "single_exact": 0.041,
+          "units": [
+            "attn:10:head:05"
+          ]
+        },
+        "10:mlp": {
+          "overshoot": 0.003,
+          "rank1_others_exact": 0.853,
+          "single_comp": 0.026,
+          "single_dim": 0.028,
+          "single_exact": 0.054,
+          "units": [
+            "mlp:10"
+          ]
+        },
+        "11:heads": {
+          "overshoot": -0.003,
+          "rank1_others_exact": 0.847,
+          "single_comp": 0.008,
+          "single_dim": 0.668,
+          "single_exact": 0.673,
+          "units": [
+            "attn:11:head:03",
+            "attn:11:head:02"
+          ]
+        }
+      },
+      "comp_all": 0.087,
+      "dim_all": 0.84,
+      "exact": 0.85,
+      "identity": 0.85,
+      "mlp_share": null,
+      "overshoot_sum": -0.013,
+      "overshoot_total": -0.01,
+      "prior_dim": 0.84,
+      "rows": 16
+    },
+    "quant_seven": {
+      "blocks": {
+        "07:heads": {
+          "overshoot": 0.003,
+          "rank1_others_exact": 0.847,
+          "single_comp": -0.006,
+          "single_dim": 0.397,
+          "single_exact": 0.387,
+          "units": [
+            "attn:07:head:08"
+          ]
+        },
+        "07:mlp": {
+          "overshoot": 0.001,
+          "rank1_others_exact": 0.845,
+          "single_comp": 0.007,
+          "single_dim": 0.221,
+          "single_exact": 0.223,
+          "units": [
+            "mlp:07"
+          ]
+        },
+        "08:heads": {
+          "overshoot": 0.0,
+          "rank1_others_exact": 0.844,
+          "single_comp": 0.0,
+          "single_dim": 0.037,
+          "single_exact": 0.038,
+          "units": [
+            "attn:08:head:01"
+          ]
+        },
+        "08:mlp": {
+          "overshoot": 0.027,
+          "rank1_others_exact": 0.871,
+          "single_comp": -0.022,
+          "single_dim": 0.178,
+          "single_exact": 0.147,
+          "units": [
+            "mlp:08"
+          ]
+        },
+        "09:mlp": {
+          "overshoot": -0.001,
+          "rank1_others_exact": 0.843,
+          "single_comp": 0.007,
+          "single_dim": 0.051,
+          "single_exact": 0.063,
+          "units": [
+            "mlp:09"
+          ]
+        },
+        "10:mlp": {
+          "overshoot": 0.005,
+          "rank1_others_exact": 0.849,
+          "single_comp": 0.007,
+          "single_dim": 0.066,
+          "single_exact": 0.073,
+          "units": [
+            "mlp:10"
+          ]
+        },
+        "11:heads": {
+          "overshoot": 0.057,
+          "rank1_others_exact": 0.901,
+          "single_comp": -0.002,
+          "single_dim": 0.289,
+          "single_exact": 0.285,
+          "units": [
+            "attn:11:head:03"
+          ]
+        }
+      },
+      "comp_all": 0.001,
+      "dim_all": 0.969,
+      "exact": 0.844,
+      "identity": 0.844,
+      "mlp_share": 0.348,
+      "overshoot_sum": 0.092,
+      "overshoot_total": 0.125,
+      "prior_dim": 0.969,
+      "rows": 16
+    },
+    "shared_four": {
+      "blocks": {
+        "08:mlp": {
+          "overshoot": 0.021,
+          "rank1_others_exact": 0.637,
+          "single_comp": -0.022,
+          "single_dim": 0.178,
+          "single_exact": 0.147,
+          "units": [
+            "mlp:08"
+          ]
+        },
+        "09:mlp": {
+          "overshoot": -0.023,
+          "rank1_others_exact": 0.593,
+          "single_comp": 0.007,
+          "single_dim": 0.051,
+          "single_exact": 0.063,
+          "units": [
+            "mlp:09"
+          ]
+        },
+        "10:mlp": {
+          "overshoot": 0.0,
+          "rank1_others_exact": 0.616,
+          "single_comp": 0.007,
+          "single_dim": 0.066,
+          "single_exact": 0.073,
+          "units": [
+            "mlp:10"
+          ]
+        },
+        "11:heads": {
+          "overshoot": 0.054,
+          "rank1_others_exact": 0.67,
+          "single_comp": -0.002,
+          "single_dim": 0.289,
+          "single_exact": 0.285,
+          "units": [
+            "attn:11:head:03"
+          ]
+        }
+      },
+      "comp_all": -0.005,
+      "dim_all": 0.673,
+      "exact": 0.616,
+      "identity": 0.616,
+      "mlp_share": -0.038,
+      "overshoot_sum": 0.052,
+      "overshoot_total": 0.057,
+      "prior_dim": 0.673,
+      "rows": 16
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_mlp_share": false,
+    "pred_c_mlp_negative": false,
+    "pred_d_lexical_flat": true,
+    "pred_e_additive": true
+  },
+  "schema": "unit_tier5_quantifier_brake_per_block_v155",
+  "seconds": 2.0,
+  "sets": {
+    "lex_seven": {
+      "family": "lexical_number_pp",
+      "units": [
+        "attn:11:head:03",
+        "mlp:09",
+        "attn:09:head:07",
+        "mlp:10",
+        "attn:10:head:05",
+        "attn:11:head:02",
+        "mlp:08"
+      ]
+    },
+    "quant_seven": {
+      "family": "quantifier_number",
+      "units": [
+        "mlp:10",
+        "attn:11:head:03",
+        "mlp:09",
+        "mlp:08",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "mlp:07"
+      ]
+    },
+    "shared_four": {
+      "family": "quantifier_number",
+      "units": [
+        "attn:11:head:03",
+        "mlp:08",
+        "mlp:09",
+        "mlp:10"
+      ]
+    }
+  }
+}
