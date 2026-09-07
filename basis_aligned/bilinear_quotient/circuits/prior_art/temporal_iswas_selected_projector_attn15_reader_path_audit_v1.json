@@ -1,0 +1,23 @@
+{
+  "schema": "temporal_iswas_selected_projector_attn15_reader_path_audit_prior_v1",
+  "candidate_id": "temporal_iswas.selected_projector_attn15_reader_path_audit_v1",
+  "registered_utc": "2026-09-07T23:35:00Z",
+  "question": "Can the current complete-attention-15-background DAS runs causally validate the weight-predicted L15H5 Q/K/V reader interfaces?",
+  "authority": {
+    "v15_das_runner_sha256": "0b7d92038283cad0fd48e398739474c4004de0da8e361d5aaaf0f68a4db6595e",
+    "multi_environment_runner_sha256": "8c14405674b4773303e197be04668f29ca97d2662dbeccc0f9653c119716c556",
+    "multi_environment_fit_core_sha256": "db0f87d1cd30b189303ac53500e44868bfeafbf483a47885b8498b5cbf250215",
+    "weight_result_sha256": "374f02e32d4c6c0b1e28a27ca6c13d9bf2145f6022498333355e3b9455b6f6ba",
+    "weight_audit_sha256": "31d8a52f17e8dcef447b47677b04eeff0b14268e1261ce8bae0c4ac06f9e676d",
+    "factor_result_sha256": "51c705281cc4fa10aa7d5c3c54bc3b1ee1e9d6d3af3e74f3b98cef3a34ad0285"
+  },
+  "predictions": {
+    "pred_a_authorities_and_weight_scope_match": "All hashes match; the scale-aware weight audit is a repaired diagnostic and the original result ranks L15H5 interfaces.",
+    "pred_b_complete_attn15_overwrites_computed_head_outputs": "In the shared manual intervention, complete15 replaces every layer-15 head output with a fixed donor-cache tensor immediately before c_proj.",
+    "pred_c_das_fit_and_evaluation_always_enable_complete15": "The v15 fit core and the queued multi-environment path call the shared intervention with complete15=True for fitted checkpoint and crossfit outcomes.",
+    "pred_d_l15h5_reader_is_not_causally_identified_by_these_runs": "The layer-15 Q/K/V-to-head-output derivative is zero under the complete overwrite, although upstream changes can still travel through the residual skip into MLP15 and layers 16-17."
+  },
+  "decision": "If all pass, retain the DAS result as an upstream-projector-plus-attention-15-background circuit and demote L15H5 to a native-reader hypothesis. After a construction-stable projector exists, run a 2x2 upstream-projector by complete-attention-15 factorial without refitting; only an upstream-only live-attention effect licenses L15H5 interface reset/rescue.",
+  "price": {"model_forwards": 0, "checkpoint_loads": 0, "example_evaluations": 0, "interventions": 0},
+  "execution_policy": "managed_cpu_lane_only_zero_model"
+}
