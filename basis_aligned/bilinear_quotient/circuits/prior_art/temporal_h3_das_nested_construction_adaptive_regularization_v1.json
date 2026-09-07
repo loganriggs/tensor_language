@@ -1,0 +1,41 @@
+{
+  "schema": "temporal_h3_das_nested_construction_adaptive_regularization_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_das_nested_construction_adaptive_regularization_v1",
+  "question": "Can nested direction-level selection of KL/noise strength prevent complement-DAS construction memorization and beat no-reg plus pooled step zero on both outer families and a new text family?",
+  "authorities": {
+    "validated_tournament_v2": "889b79b787a861b2292cf1620506a35f670e783b7f6ffdfe805aeeb0e27f7729",
+    "redteam_design": "0d947a24eac200057dd977830532ee7a7091c064ac96a276e7b887217214f817",
+    "v15_capability": "5d60c5733147419ea3a988b842c5bee96652a0f6f939910cd03e1687b5478867"
+  },
+  "outer_folds": ["train complete v8, test complete v10", "train complete v10, test complete v8"],
+  "inner_selection": "Inside each outer training family, fit both A1/A2 panels for one cue direction and select on both panels of the opposite direction, then reverse. Rank configurations by worst inner validation six-term score, mean score, update count, then fixed configuration order.",
+  "configurations": {
+    "no_reg": {"kl_weight": 0.0, "tangent_noise_sigma": 0.0},
+    "kl_025": {"kl_weight": 0.25, "tangent_noise_sigma": 0.0},
+    "kl_1": {"kl_weight": 1.0, "tangent_noise_sigma": 0.0},
+    "kl_4": {"kl_weight": 4.0, "tangent_noise_sigma": 0.0},
+    "noise_10": {"kl_weight": 0.0, "tangent_noise_sigma": 0.10},
+    "noise_10_kl_025": {"kl_weight": 0.25, "tangent_noise_sigma": 0.10},
+    "noise_10_kl_1": {"kl_weight": 1.0, "tangent_noise_sigma": 0.10}
+  },
+  "fit": "Rank one from frozen pooled/DIM-like initialization; Adam learning rate .025; checkpoints 0/5/10; existing hard per-environment margin/L15 limits; robust log-sum-exp over environments; fixed variance penalty on normalized six-term loss vectors across training panels.",
+  "outer_evaluation": "Refit each inner-selected configuration on the complete outer training family and evaluate the untouched outer family once. Refit no_reg under the identical nested budget as comparator. Outer outcomes never select hyperparameters.",
+  "sealed_evaluation": "Choose one global configuration and update count only from aggregate v8/v10 inner scores, refit on all v8+v10 panel-direction environments, then open capability-qualified v15 once. V12 is historical evidence only and is not read by the runner.",
+  "predictions": {
+    "pred_a_authority_disjointness_closure_finiteness_and_price": "All hashes/manifests match; v8/v10/v15 rows are disjoint; manual reader closure <=1e-4; every metric is finite; total counted native+manual evaluations <=5000 and updates <=350.",
+    "pred_b_nested_regularization_beats_both_outer_controls": "On each outer fold, the inner-selected nonzero regularized checkpoint is feasible and strictly beats both nested no_reg and pooled step zero on mean and worst six-term score.",
+    "pred_c_inner_selection_is_direction_stable": "The two inner direction folds select the same configuration family (same KL/noise setting, update count may differ) within each outer training family.",
+    "pred_d_global_refit_beats_pooled_on_v15": "The globally selected refit is feasible and strictly improves both mean and worst complete-v15 score over pooled step zero.",
+    "pred_e_v15_improvement_is_not_target_sacrifice": "The global refit improves vocabulary match+inertness on both v15 panels while satisfying every hard margin/L15 target limit.",
+    "pred_f_generalization_gap_shrinks": "The worst outer-family excess over corresponding inner validation is smaller than the analogous nested no-reg excess in both outer folds."
+  },
+  "terminal_policy": {
+    "nested_regularized_das_candidate": "A-F pass.",
+    "adaptive_but_not_global_objective": "A, B, D, and E pass but C fails because outer training families prefer different regularizers.",
+    "inner_selection_mispredicts_construction": "A passes but B fails on either outer fold.",
+    "residual_family_memorization": "A-C pass but D or E fails on v15.",
+    "invalid": "A fails."
+  },
+  "price": {"model_reader_evaluations_max": 5000, "model_updates_max": 350, "fit_parameters": 128},
+  "execution_policy": "managed_queue_only"
+}
