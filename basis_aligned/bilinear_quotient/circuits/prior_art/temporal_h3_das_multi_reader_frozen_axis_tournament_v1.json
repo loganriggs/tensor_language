@@ -1,0 +1,12 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_das_multi_reader_frozen_axis_tournament_v1",
+  "checked_utc": "2026-09-07T00:38:00Z",
+  "decision": "novel_frozen_axis_multi_reader_tournament",
+  "methods": ["dim", "unregularized", "noise", "kl", "kl_noise", "aligned_0.3", "pooled_aligned"],
+  "sealed_banks": ["v8", "v9"],
+  "readers": ["answer_margin", "attention15_h5h1_response", "centered_full_vocabulary"],
+  "objective": "equal-weight squared deviation of subspace behavior and L15 transport from full-H3, complement behavior from base, plus normalized full-vocabulary match and complement KL; report mean and worst bank/panel",
+  "prediction": "Pooled aligned rank1 beats matched-rank DIM on both mean and worst multi-reader objective. At least one noise/KL arm improves DIM full-vocabulary match plus inertness, but need not win the complete reader ensemble.",
+  "decision_rule": "Only a frozen axis that beats DIM on independent readers licenses expensive multi-environment optimization. Otherwise change the causal operator/readers before fitting again.",
+  "fit_policy": "zero new fit; every learned axis and regularization choice is inherited from earlier sealed experiments"
+}
