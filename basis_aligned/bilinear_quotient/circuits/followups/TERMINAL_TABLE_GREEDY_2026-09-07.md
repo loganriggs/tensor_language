@@ -1,4 +1,4 @@
-# Terminal evidence — removal-greedy head sets (generated 2026-09-07 03:27 UTC by ops/terminal_table_greedy_sets.py)
+# Terminal evidence — removal-greedy head sets (generated 2026-09-07 03:29 UTC by ops/terminal_table_greedy_sets.py)
 
 Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised), v75 (constrained DAS: direction = rank-1-per-block DAS on pooled A1 + v15 verb-variant EVEN rows, complement term, C-removal-inertness regularizer λ=30 on C EVEN rows; A2 and the odd rows never fitted), v76 (extraction of those directions on A1 and A2 odd rows).
 
@@ -46,6 +46,7 @@ Rows evaluated on the ODD half of each family (directions = per-block diff-in-me
 | voice_frame | hub+16 full-specificity DAS (v92) | 20 | 0.792 (0.472) | 0.808 (0.744); A2 0.781 | 0.002 (0.009) | 0.903 | — | ext 0.008 | max abs 0.009 | ✓/✓/✓ (cross-fit 64 docs, C 0.000 UB 0.005)/✓ |
 | modal_remoteness | hub+8 (v97; extraction-greedy hub ['09:head:04', '11:head:03'], removal-greedy +8; dim) | 10 | 0.516 (0.240) | 0.927 (exact set) | — | 0.412 | — | — | quantifier -0.219 | ·/·/·/· |
 | modal_remoteness | hub+8 full-specificity DAS (v99; own C + six A1 controls, no P control) | 10 | 0.615 (0.480) | 1.007 (0.990) | -0.002 (0.001) generic C, not a matched sibling | 0.509 | P (will rows) 0.238 | -0.002 | max abs 0.004 | ✓/✓/· (no matched sibling yet)/✓ |
+| modal_remoteness | split-swap (v100; fit ODD, evaluate EVEN) | 10 | 0.510 (0.379) | 0.951 (0.940) | 0.008 (0.012) | 0.500 | P (would rows) 0.911 | -0.001 | max abs 0.005 | ✓/✓/·/✓ |
 
 ## Sets
 
