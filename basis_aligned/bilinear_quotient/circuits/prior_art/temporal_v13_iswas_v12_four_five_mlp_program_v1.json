@@ -1,0 +1,36 @@
+{
+  "schema": "temporal_v13_iswas_v12_four_five_mlp_program_prior_v1",
+  "candidate_id": "cross_task.temporal_v13_iswas_v12_four_five_mlp_program_v1",
+  "registered_utc": "2026-09-07T03:23:52.509733Z",
+  "question": "Does the substantive MLP17 repair transfer to genuinely fresh temporal v13, and is MLP12 a reproducible fidelity term rather than a threshold artifact?",
+  "authority": {
+    "augmentation_discovery_sha256": "144e1c001a9c186daa7e2fa426b702a390f938b6fb2f2cf27880812d366301ed",
+    "augmentation_runner_sha256": "6c7c277e0bcb286a7c60e13fc636bec1388382f77fe9abc902ac7606632a0c61",
+    "temporal_v13_capability_sha256": "e053d3381680ce5a933356a060448466d7567e3079c4a2b9a5bff262bd98b9c1",
+    "temporal_v13_builder_sha256": "3f738bf2fb2d4a5425dba85eaf948d7ed888e4b891666ff77a51c8638acd2509",
+    "iswas_v12_capability_sha256": "67cb3efbd1ea86f98f94a826922928229a7c7b0a247f218778fc4960a6e8c6f4",
+    "iswas_v12_builder_sha256": "2734cbeceb4e6979dab22fe5b24870386874ac2f905ae426e6e689548e43e8a2"
+  },
+  "evidence_scope": {
+    "temporal": "Genuinely fresh confirmation: first 12 jointly capable A1 and A2 rows from construction-disjoint v13.",
+    "iswas": "Replay/control only: all 30 capable v12 rows were already opened by augmentation discovery. No fresh is/was transfer claim is permitted.",
+    "reason": "Two preregistered is/was replacement authorities failed native capability before causal access; construction shopping stops."
+  },
+  "frozen_design": {
+    "core_three": ["MLP13", "MLP15", "MLP16"],
+    "four_site": ["MLP13", "MLP15", "MLP16", "MLP17"],
+    "five_site": ["MLP12", "MLP13", "MLP15", "MLP16", "MLP17"],
+    "full_ten_site_pool": ["L13H6", "L15H1", "L15H5", "L17H2", "MLP12", "MLP13", "MLP14", "MLP15", "MLP16", "MLP17"],
+    "arms": "Direct, core-three, four-site, five-site, full-ten-site, and five leave-one-site-out arms (10 executed arms).",
+    "measurement": "Behavior and both frozen physical reader modes against the full conditional-writer response; zero fitting or model updates.",
+    "price": {"model_forwards": 22, "example_evaluations": 1188, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_self_clamp_finiteness_and_price": "All hashes/capabilities and gauge/replay/self-clamp/reconstruction instruments pass at exact price.",
+    "pred_b_four_site_mlp17_repair_transfers": "On each task, the four-site arm has behavior signed projection >=0.75, both mode projections >=0.60, and every cell residual <=0.20; global behavior direction >=0.90.",
+    "pred_c_five_site_program_meets_strict_cells": "Five-site behavior signed projection >=0.80 and both modes >=0.60 on each task, global direction >=0.90, and worst six-cell residual <=0.20.",
+    "pred_d_all_five_sites_have_mode2_support": "Removing every retained site reduces mode-2 signed projection by >=0.02 on each task, and MLP17's temporal decrement is >=0.15.",
+    "pred_e_mlp12_is_a_reproducible_fidelity_term": "Five-site mean three-cell residual is lower than four-site on both tasks, and MLP12 raises is/was behavior signed projection by >=0.005."
+  },
+  "decision": "All gates yield temporal_fresh_five_mlp_response_program and license literal weight compilation with a fresh-temporal/provisional-iswas scope label. Instrument failure is invalid; otherwise temporal_response_program_transfer_null. No is/was freshness claim is recoverable from this run."
+}
