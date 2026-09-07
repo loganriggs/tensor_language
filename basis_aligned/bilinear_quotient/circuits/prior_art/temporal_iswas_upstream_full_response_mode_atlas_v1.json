@@ -1,0 +1,32 @@
+{
+  "candidate_id": "cross_task.temporal_iswas_upstream_full_response_mode_atlas_v1",
+  "claimed_utc": "2026-09-07T01:19:00Z",
+  "question": "Do complete natural donor responses of the weight-ranked L6/L7/L9 heads and MLPs causally write the two canonical temporal/is-was modes into the exact L11H3 input and final residual state?",
+  "prior_art_search": [
+    "iswas_shared_q8_full_module_writer_atlas_v1",
+    "temporal_auxiliary_will_had_l9_subject_to_h3_greedy_crosscue_v1",
+    "unit_hub_head_axes_v10",
+    "temporal_iswas_two_mode_weight_pullback_v3"
+  ],
+  "novelty": "Earlier atlases either patch whole modules into a pooled shared-Q8 target, localize the known temporal L9 branch, or show that shared native heads contain behavior-specific directions. This screen freezes canonical mode covectors from the cross-task causal operator and exhaustively patches every complete head plus the complete MLP in each of the three weight-enriched layers, rather than testing only selected winners.",
+  "population": {
+    "rows": "The same 16 temporal and 16 is/was rows and task scaling used by the validated v3 pullback.",
+    "sites": "All nine attention heads and the complete MLP in each of layers 6, 7, and 9 (30 sites).",
+    "patch": "Replace each site's complete response on the base run with its aligned donor response at every causal-prefix position through the semantic query; allow all later modules to recompute.",
+    "controls": "Base, donor, complete base self-patch for every site in one joint run, exact attention reconstruction, aligned shapes, and layer-matched lowest-weight heads."
+  },
+  "measurements": {
+    "pre_h3": "Capture the exact input to L11 c_v at the semantic query. For each canonical source mode, report signed projection, cosine, and norm relative to the full donor-minus-base vector across rows, separately for temporal and is/was.",
+    "final_state": "Project patched-minus-base resid18 onto the physical canonical source covectors and compare with full donor-minus-base coordinates.",
+    "behavior": "Report donor-answer versus donor-foil margin recovery without using it to select sites.",
+    "rank_test": "Spearman correlation between frozen v3 weight scores and absolute pre-H3 signed projections over all 30 sites, per mode; report layer-stratified top-versus-low contrasts."
+  },
+  "predictions": {
+    "instrument": "All response shapes align; base self-patching changes pre-H3 state, resid18, and logits by at most 1e-4; attention reconstruction is at most 5e-4; price and record counts close.",
+    "known_positive": "L9H1 or L9H4 is among the top three temporal causal sites for at least one mode and has positive pre-H3 cosine.",
+    "weight_enrichment": "For at least one canonical mode, weight versus causal score Spearman is at least 0.30 and the highest-weight head beats the lowest-weight head within at least two of the three layers.",
+    "novel_writer": "At least one of L6H7, L7H7, or L7H8 has positive pre-H3 cosine at least 0.50 and signed projection magnitude at least 0.10 on one task-mode cell.",
+    "mode_split": "L7H7 is more mode-1-selective than L7H8 under the temporal pre-H3 signed projection ratio, matching the frozen weight ordering rather than merely showing generic donor sensitivity."
+  },
+  "decision": "Invalid if the instrument fails. A full screen requires every prediction. If known positives pass but weight enrichment or novel writers fail, retain the atlas only as weight incidence. If novel writers pass without the rank test, promote those sites individually but reject global weight ranking. Only a valid positive result licenses an executed greedy union; no rank, site, layer, metric, or threshold is changed after outcomes."
+}
