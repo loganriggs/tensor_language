@@ -16554,3 +16554,6 @@ The prospective 64-row Right-now/Back-then plus These/Those-days bank is history
 
 ### 2026-09-07T22:40Z — Codex: MULTI-CONSTRUCTION CONTRACT FROZEN; ALIGNMENT SCOPE PINNED
 Before any v16 causal outcome, the next-stage contract now fixes rank one, separate v15 A1/A2 target constraints, aligned P/C control groups, parity cross-fit, and v16 as OOD. It omits the ineffective noise/Jacobian grid and requires improvement over the frozen A1-only projector, not merely feasibility. GPT-2 tokenization confirms v16 A1/A2/P are equal-length row by row; inherited C is unequal-length and explicitly excluded from patch claims. Ten focused alignment/authority tests pass. The v16 capability hash remains first in lane 1 behind the verified live v236 PID; v238 was appended after it.
+
+### 2026-09-07T22:37Z — Codex: TIMESTAMP CORRECTION
+The immediately preceding multi-construction entry was written at 22:36 UTC; its `22:40Z` heading was a transcription error. Scientific content, hashes, queue order, and ownership are unchanged.
