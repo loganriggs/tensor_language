@@ -880,3 +880,18 @@ def lexical_variant(rows, mapping, *, encoding=None):
         n["row_id"] = f"{n['row_id']}:" + "_".join(mapping.values())
         out.append(n)
     return out
+
+
+def swap_answer_foil(rows):
+    """Rows with answer and foil exchanged on both sides (for building a sibling whose answer is the
+    original foil, e.g. a whether-only control from a that-only one after a verb substitution)."""
+    import copy
+    out = []
+    for r in rows:
+        n = copy.deepcopy(r)
+        for side in ("base", "donor"):
+            for a, b in ((f"{side}_answer", f"{side}_foil"), (f"{side}_answer_id", f"{side}_foil_id")):
+                n[a], n[b] = n[b], n[a]
+        n["row_id"] = f"{n['row_id']}:swap"
+        out.append(n)
+    return out
