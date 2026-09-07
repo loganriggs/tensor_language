@@ -1,0 +1,255 @@
+{
+  "bars": {
+    "control_max": 0.05,
+    "dominance_band": [
+      2.0,
+      50.0
+    ],
+    "dv_band": [
+      0.8,
+      1.5
+    ],
+    "instr_tol": 0.005,
+    "keys": 5,
+    "quant_band": [
+      0.15,
+      0.5
+    ],
+    "value_band": [
+      0.35,
+      0.85
+    ],
+    "weight_max": 0.05
+  },
+  "candidate_id": "corpus.unit_tier5_hub_noun_value_is_number_v164",
+  "finished_utc": "2026-09-07T08:43:37.519291+00:00",
+  "measures": {
+    "lex_seven:p0": {
+      "add_out_delta": 0.51,
+      "by_key": {
+        "t-0": {
+          "cross": 0.001,
+          "dv": 88.6,
+          "value_swap": -0.002,
+          "weight_swap": -0.0
+        },
+        "t-1": {
+          "cross": 0.004,
+          "dv": 67.9,
+          "value_swap": 0.012,
+          "weight_swap": -0.003
+        },
+        "t-2": {
+          "cross": 0.004,
+          "dv": 185.1,
+          "value_swap": 0.097,
+          "weight_swap": -0.002
+        },
+        "t-3": {
+          "cross": -0.008,
+          "dv": 350.0,
+          "value_swap": 0.253,
+          "weight_swap": 0.006
+        },
+        "t-4": {
+          "cross": -0.0,
+          "dv": 47.2,
+          "value_swap": 0.015,
+          "weight_swap": 0.001
+        }
+      },
+      "control_rotation": "row i takes row (i+1) mod n of the same parity",
+      "control_same_number_other_noun": -0.001,
+      "dv_control": 419.5,
+      "dv_number": 350.0,
+      "dv_ratio_control_over_number": 1.199,
+      "exact_hub": 0.51,
+      "largest_other_key_value_swap": 0.097,
+      "noun_cross": -0.008,
+      "noun_key": "t-3",
+      "noun_value_swap": 0.253,
+      "noun_weight_swap": 0.006,
+      "rows": 16,
+      "value_share": 0.496
+    },
+    "lex_seven:p1": {
+      "add_out_delta": 0.672,
+      "by_key": {
+        "t-0": {
+          "cross": -0.008,
+          "dv": 120.3,
+          "value_swap": -0.003,
+          "weight_swap": -0.001
+        },
+        "t-1": {
+          "cross": -0.006,
+          "dv": 64.7,
+          "value_swap": 0.034,
+          "weight_swap": 0.002
+        },
+        "t-2": {
+          "cross": -0.003,
+          "dv": 158.1,
+          "value_swap": 0.147,
+          "weight_swap": 0.002
+        },
+        "t-3": {
+          "cross": 0.05,
+          "dv": 318.2,
+          "value_swap": 0.415,
+          "weight_swap": -0.011
+        },
+        "t-4": {
+          "cross": 0.001,
+          "dv": 63.6,
+          "value_swap": 0.064,
+          "weight_swap": 0.003
+        }
+      },
+      "control_rotation": "row i takes row (i+1) mod n of the same parity",
+      "control_same_number_other_noun": 0.003,
+      "dv_control": 453.5,
+      "dv_number": 318.2,
+      "dv_ratio_control_over_number": 1.425,
+      "exact_hub": 0.672,
+      "largest_other_key_value_swap": 0.147,
+      "noun_cross": 0.05,
+      "noun_key": "t-3",
+      "noun_value_swap": 0.415,
+      "noun_weight_swap": -0.011,
+      "rows": 16,
+      "value_share": 0.618
+    },
+    "quant_seven:p0": {
+      "add_out_delta": 0.277,
+      "by_key": {
+        "t-0": {
+          "cross": 0.004,
+          "dv": 203.3,
+          "value_swap": 0.089,
+          "weight_swap": -0.001
+        },
+        "t-1": {
+          "cross": 0.001,
+          "dv": 40.3,
+          "value_swap": 0.002,
+          "weight_swap": 0.0
+        },
+        "t-2": {
+          "cross": 0.003,
+          "dv": 93.0,
+          "value_swap": 0.031,
+          "weight_swap": -0.001
+        },
+        "t-3": {
+          "cross": -0.021,
+          "dv": 110.8,
+          "value_swap": 0.049,
+          "weight_swap": 0.009
+        },
+        "t-4": {
+          "cross": -0.04,
+          "dv": 383.8,
+          "value_swap": 0.083,
+          "weight_swap": 0.031
+        }
+      },
+      "control_rotation": "row i takes row (i+1) mod n of the same parity",
+      "control_same_number_other_noun": -0.003,
+      "dv_control": 411.6,
+      "dv_number": 203.3,
+      "dv_ratio_control_over_number": 2.025,
+      "exact_hub": 0.277,
+      "largest_other_key_value_swap": 0.083,
+      "noun_cross": 0.004,
+      "noun_key": "t-0",
+      "noun_value_swap": 0.089,
+      "noun_weight_swap": -0.001,
+      "rows": 16,
+      "value_share": 0.321
+    },
+    "quant_seven:p1": {
+      "add_out_delta": 0.285,
+      "by_key": {
+        "t-0": {
+          "cross": -0.005,
+          "dv": 185.9,
+          "value_swap": 0.088,
+          "weight_swap": 0.005
+        },
+        "t-1": {
+          "cross": -0.001,
+          "dv": 44.4,
+          "value_swap": 0.002,
+          "weight_swap": 0.0
+        },
+        "t-2": {
+          "cross": -0.003,
+          "dv": 96.3,
+          "value_swap": 0.042,
+          "weight_swap": 0.002
+        },
+        "t-3": {
+          "cross": 0.03,
+          "dv": 111.8,
+          "value_swap": 0.025,
+          "weight_swap": 0.001
+        },
+        "t-4": {
+          "cross": 0.057,
+          "dv": 402.0,
+          "value_swap": 0.035,
+          "weight_swap": -0.012
+        }
+      },
+      "control_rotation": "row i takes row (i+1) mod n of the same parity",
+      "control_same_number_other_noun": -0.004,
+      "dv_control": 402.1,
+      "dv_number": 185.9,
+      "dv_ratio_control_over_number": 2.163,
+      "exact_hub": 0.285,
+      "largest_other_key_value_swap": 0.042,
+      "noun_cross": -0.005,
+      "noun_key": "t-0",
+      "noun_value_swap": 0.088,
+      "noun_weight_swap": 0.005,
+      "rows": 16,
+      "value_share": 0.309
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_value_side": true,
+    "pred_c_identity_inv": true,
+    "pred_d_quantifier": true,
+    "pred_e_noun_dominant": true
+  },
+  "schema": "unit_tier5_hub_noun_value_is_number_v164",
+  "seconds": 1.7,
+  "sets": {
+    "lex_seven": {
+      "family": "lexical_number_pp",
+      "units": [
+        "attn:11:head:03",
+        "mlp:09",
+        "attn:09:head:07",
+        "mlp:10",
+        "attn:10:head:05",
+        "attn:11:head:02",
+        "mlp:08"
+      ]
+    },
+    "quant_seven": {
+      "family": "quantifier_number",
+      "units": [
+        "mlp:10",
+        "attn:11:head:03",
+        "mlp:09",
+        "mlp:08",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "mlp:07"
+      ]
+    }
+  }
+}
