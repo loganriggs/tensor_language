@@ -1,0 +1,20 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_attention_value_weight_pullback_v2_tolerance_audit",
+  "question": "Does a BF16-aware relative tolerance validate the frozen v1 pullback without changing or rerunning any causal outcome?",
+  "frozen_evidence": {
+    "result_sha256": "aeede368b1c9c4dabf364e358780191da8074953af7b7c14f4a834bd22cc9a79",
+    "runner_sha256": "f60d07e8a52b4bb3cb0228ecf41d044548f063f1266f53328c5443206eed7dfc",
+    "invalid_note_sha256": "1ed872e1dd0792d69d1a49c3eccc36cacb1af2d1238464f28cefcf9ab23fe378",
+    "revised_local_rse_tolerance": 2e-9,
+    "unchanged_end_to_end_rse_tolerance": 1e-10,
+    "justification": "the compiled branch recomputes native BF16 c_v outputs before float projection; subtraction/mixing order can differ locally while the independently measured complete-program centered-logit RSE remains below 1e-10"
+  },
+  "predictions": {
+    "pred_a_frozen_authority_and_invalid_provenance": "all three frozen evidence hashes match and v1 remains explicitly invalid",
+    "pred_b_bf16_aware_numerical_closure": "local coordinate RSE <=2e-9 and complete-program execution RSE <=1e-10",
+    "pred_c_compiled_program_retains_target_and_control_validity": "the frozen sufficient/selective gate passed",
+    "pred_d_current_value_branch_alone_is_sufficient": "current-only target residual <=0.15 and per-task signed projection >=0.80 for both fits",
+    "pred_e_cached_value_branch_is_a_minor_correction": "combined-minus-current signed projection gain is <=0.02 on every task and fit, while cached-only is insufficient"
+  },
+  "price": {"model_forwards_max": 0, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
