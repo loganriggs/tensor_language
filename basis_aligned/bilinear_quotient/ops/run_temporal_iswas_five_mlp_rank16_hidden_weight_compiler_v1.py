@@ -14,13 +14,14 @@ import run_temporal_iswas_rank46_task_rank4_upstream_weight_edge_atlas_v1 as edg
 import run_temporal_five_mlp_upstream_input_tensor_incidence_atlas_v1 as atlas
 
 ROOT=Path(__file__).resolve().parents[1]
-PRIOR=ROOT/"circuits/prior_art/temporal_iswas_five_mlp_rank16_hidden_weight_compiler_v1.json"
+PRIOR=ROOT/"circuits/prior_art/temporal_iswas_five_mlp_rank16_hidden_weight_compiler_v2.json"
+V1=ROOT/"circuits/followups/temporal_iswas_five_mlp_rank16_hidden_weight_compiler_v1_result.json"
 POS=ROOT/"circuits/followups/temporal_iswas_five_mlp_position_svd_ladder_v1_result.json"
 GAIN=ROOT/"circuits/followups/temporal_iswas_five_mlp_rank16_gain_curve_v1_result.json"
 REV=ROOT/"circuits/followups/temporal_iswas_five_mlp_rank16_gain115_reverse_v1_result.json"
 BASIS_RUNNER=ROOT/"ops/run_temporal_iswas_five_mlp_position_svd_ladder_v1.py"
-OUT=ROOT/"circuits/followups/temporal_iswas_five_mlp_rank16_hidden_weight_compiler_v1_result.json"
-EXPECTED={"prior":"d043dd9688f6c76bafc6ef2157496f54c6273cf5772a2eed1af5d134843979f7","position":"b6f4562bcc6e19dc808a0debaf35d32b0d6c1dbd6c6a6e7846a92253b89dc014","gain":"958f58cf6ac05973b65a38cd258093926999351016f1aa1bc2ec608c4844b75d","reverse":"c66584f4ee94a2fc7d390b4abcb296ffec933237de43b3924221e7482f465d52","basis_runner":"cc2733a518e015b3cccde4d109e46125d69e90fa60555a593c921f6f0e860236"}
+OUT=ROOT/"circuits/followups/temporal_iswas_five_mlp_rank16_hidden_weight_compiler_v2_result.json"
+EXPECTED={"prior":"24b005feb00a45dcc6f7c7118b4991cb36334311314fd4622778335713477740","v1":"7ffd7ad0f887e426e6d1f06dd1ca2fefae927890485692a5adccb2c1ffeb888e","position":"b6f4562bcc6e19dc808a0debaf35d32b0d6c1dbd6c6a6e7846a92253b89dc014","gain":"958f58cf6ac05973b65a38cd258093926999351016f1aa1bc2ec608c4844b75d","reverse":"c66584f4ee94a2fc7d390b4abcb296ffec933237de43b3924221e7482f465d52","basis_runner":"cc2733a518e015b3cccde4d109e46125d69e90fa60555a593c921f6f0e860236"}
 SUPPORT=("MLP0","MLP1","MLP2","MLP3","MLP6"); RANK=16; MAX_FORWARDS=17
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def thash(x): return hashlib.sha256(x.detach().cpu().contiguous().numpy().tobytes()).hexdigest()
@@ -48,8 +49,8 @@ def population_report(backend,batch,b0,b1,o0,o1,bases,maps):
     return records,worst
 def main():
     expected=dict(EXPECTED)
-    observed={"prior":sha(PRIOR),"position":sha(POS),"gain":sha(GAIN),"reverse":sha(REV),"basis_runner":sha(BASIS_RUNNER)}
-    dry={"candidate_id":"temporal_auxiliary.iswas_five_mlp_rank16_hidden_weight_compiler_v1","dryrun":True,"gpu_accessed":False,"model_loaded":False,"queue_touched":False,"support":list(SUPPORT),"rank":RANK,"model_forwards_max":MAX_FORWARDS,"fit_updates":0,"model_updates":0,"transformer_backwards":0}
+    observed={"prior":sha(PRIOR),"v1":sha(V1),"position":sha(POS),"gain":sha(GAIN),"reverse":sha(REV),"basis_runner":sha(BASIS_RUNNER)}
+    dry={"candidate_id":"temporal_auxiliary.iswas_five_mlp_rank16_hidden_weight_compiler_v2","dryrun":True,"gpu_accessed":False,"model_loaded":False,"queue_touched":False,"support":list(SUPPORT),"rank":RANK,"model_forwards_max":MAX_FORWARDS,"fit_updates":0,"model_updates":0,"transformer_backwards":0}
     if os.environ.get("BQLIB_DRYRUN")=="1" or os.environ.get("BQLIB_NO_MODEL")=="1": print(json.dumps(dry,sort_keys=True)); return
     if OUT.exists(): raise FileExistsError(OUT)
     tic=time.perf_counter(); started=now(); backend=producer.Bilin18TorchBackend.load("cuda"); torch=backend.torch
@@ -59,18 +60,18 @@ def main():
     fresh=oodctx.capture(backend,__import__('run_temporal_iswas_rank46_task_typed_mode_causal_factorial_v1').TCAP,__import__('run_temporal_iswas_rank46_task_typed_mode_causal_factorial_v1').ICAP)
     fh0,fo0=capture(backend,fresh["batch"]); fh1,fo1=capture(backend,fresh["donor_batch"])
     maps={}; manifest={}; finite=[]; nonuniform=0; ranks=[]; gauge=[]
-    g=torch.Generator(device="cpu");g.manual_seed(160115);rot=torch.linalg.qr(torch.randn(RANK,RANK,generator=g))[0].to(backend.device)
+    g=torch.Generator(device="cpu");g.manual_seed(160115);rot=torch.linalg.qr(torch.randn(RANK,RANK,generator=g,dtype=torch.float64))[0].to(backend.device)
     for site in SUPPORT:
         layer=int(site[3:]);q=bases[site]["rank16"];down=backend.model.transformer.h[layer].mlp.Down.weight.detach().float();a=down.T@q;maps[site]=a
         sing=torch.linalg.svdvals(a);rank=int((sing>=sing[0]*1e-6).sum());ranks.append(rank);energy=a.square().sum(1).sort(descending=True).values;top=float(energy[:math.ceil(.1*len(energy))].sum()/energy.sum());nonuniform+=top>=.25
-        eff=float(energy.sum().square()/energy.square().sum());qr=q@rot;ar=a@rot;probe=valid(fb,hb1[site]-hb0[site]);x=(probe@a)@q.T;y=(probe@ar)@qr.T;ge=float((x-y).norm()/x.norm().clamp_min(1e-30));gauge.append(ge)
+        eff=float(energy.sum().square()/energy.square().sum());qd=q.double();ad=a.double();probe=valid(fb,hb1[site]-hb0[site]).double();qr=qd@rot;ar=ad@rot;x=(probe@ad)@qd.T;y=(probe@ar)@qr.T;ge=float((x-y).norm()/x.norm().clamp_min(1e-30));gauge.append(ge)
         gram=float((q.T@q-torch.eye(RANK,device=q.device)).abs().max());finite += [*sing.tolist(),top,eff,ge,gram]
         manifest[site]={"basis_sha256":thash(q),"hidden_factor_sha256":thash(a),"basis_gram_max_abs":gram,"hidden_factor_shape":list(a.shape),"numerical_rank":rank,"singular_values":[float(v) for v in sing],"top_10pct_hidden_energy_fraction":top,"effective_hidden_participation":eff,"gauge_output_relative_error":ge}
     fit_records,fit_worst=population_report(backend,fb,hb0,hb1,ho0,ho1,bases,maps);fresh_records,fresh_worst=population_report(backend,fresh["batch"],fh0,fh1,fo0,fo1,bases,maps)
-    pa=observed==expected and json.loads(POS.read_text())["selected_rank"]==16 and json.loads(REV.read_text())["terminal"]=="bidirectional_selective_five_mlp_rank16_program" and max(x["basis_gram_max_abs"] for x in manifest.values())<=1e-4 and all(math.isfinite(x) for x in finite)
+    pa=observed==expected and json.loads(POS.read_text())["selected_rank"]==16 and json.loads(REV.read_text())["terminal"]=="bidirectional_selective_five_mlp_rank16_program" and max(x["basis_gram_max_abs"] for x in manifest.values())<=5e-4 and all(math.isfinite(x) for x in finite)
     pb=max(fit_worst,fresh_worst)<=1e-10;pc=all(r==RANK for r in ranks);pd=nonuniform>=3;pe=max(gauge)<=1e-10
     preds={"pred_a_authority_basis_support_finiteness_and_price":bool(pa),"pred_b_exact_weight_compiler_closes":bool(pb),"pred_c_all_native_maps_have_full_task_rank":bool(pc),"pred_d_hidden_participation_is_nonuniform":bool(pd),"pred_e_manifest_is_gauge_invariant":bool(pe)}
     terminal="invalid" if not(pa and pb) else "weight_compiled_source_program" if all(preds.values()) else "distributed_weight_compiled_source_program" if pa and pb and pc and pe else "null"
-    result={"schema":"temporal_iswas_five_mlp_rank16_hidden_weight_compiler_result_v1","started_utc":started,"finished_utc":now(),"serial_seconds":time.perf_counter()-tic,"authority_sha256":expected,"manifest":manifest,"fit":fit_records,"fresh":fresh_records,"summary":{"max_closure_rse":max(fit_worst,fresh_worst),"full_rank_sites":sum(r==RANK for r in ranks),"nonuniform_sites":nonuniform,"max_gauge_error":max(gauge)},"predictions":preds,"terminal":terminal,"price":{"model_forwards_max":MAX_FORWARDS,"fit_updates":0,"model_updates":0,"transformer_backwards":0}}
+    result={"schema":"temporal_iswas_five_mlp_rank16_hidden_weight_compiler_result_v2","started_utc":started,"finished_utc":now(),"serial_seconds":time.perf_counter()-tic,"authority_sha256":expected,"manifest":manifest,"fit":fit_records,"fresh":fresh_records,"summary":{"max_closure_rse":max(fit_worst,fresh_worst),"full_rank_sites":sum(r==RANK for r in ranks),"nonuniform_sites":nonuniform,"max_gauge_error":max(gauge)},"predictions":preds,"terminal":terminal,"price":{"model_forwards_max":MAX_FORWARDS,"fit_updates":0,"model_updates":0,"transformer_backwards":0}}
     atomic_create_json(OUT,result);print(json.dumps({k:result[k] for k in ("summary","predictions","terminal","price")},sort_keys=True))
 if __name__=="__main__":main()

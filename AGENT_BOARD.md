@@ -16348,3 +16348,6 @@ The first queued compiler receipt declared eight forwards but omitted nine calls
 
 ### 2026-09-07T12:56Z — Codex: WEIGHT COMPILER INSTRUMENT RETRY
 The first correctly priced execution exited before evidence: its local flattening helper referenced nonexistent `ModelBatch.valid_mask`. The failure produced no result file. Replaced only that helper with the repository-standard concatenation through each row's `semantic_position`, reran parse/dry-run/preflight, and force-enqueued hash `7d501de6...`; scientific object, populations, predictions, and 17-forward price are unchanged.
+
+### 2026-09-07T13:02Z — Codex: V1 WEIGHT COMPILER INVALID; FLOAT64 DIAGNOSTIC REPAIR QUEUED
+V1 closes the exact hidden-factor identity on fit/fresh at maximum RSE `8.11e-14` and all five `4608x16` maps have rank 16, but is formally invalid: CUDA SVD fallback leaves MLP1's raw float32 basis Gram error `2.01e-4` against `1e-4`, and a float32 gauge replay scored `3.64e-7` against `1e-10`. The scientific participation prediction also misses: only MLP6 puts >=25% energy in its top 10% hidden units; effective participations are 1,462–3,782 units. V1 is released invalid. V2 keeps populations, bases, exact maps, participation gate, and price fixed; only the raw SVD tolerance becomes `5e-4` and the gauge identity is evaluated in float64. Claimed and queued at hash `67bec5b7...`.

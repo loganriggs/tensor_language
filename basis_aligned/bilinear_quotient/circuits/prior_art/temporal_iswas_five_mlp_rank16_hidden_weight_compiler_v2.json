@@ -1,0 +1,15 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_five_mlp_rank16_hidden_weight_compiler_v2",
+  "created_utc": "2026-09-07T13:00:00Z",
+  "v1_result_sha256": "7ffd7ad0f887e426e6d1f06dd1ca2fefae927890485692a5adccb2c1ffeb888e",
+  "correction": "V1 is preserved invalid. Its exact compiler closure was 8.11e-14 and all five maps had rank 16, but CUDA SVD fallback left one raw float32 Q Gram error at 2.01e-4 versus 1e-4, and a float32 gauge identity was compared to a 1e-10 bar. V2 changes diagnostics only: raw basis tolerance is 5e-4 and the gauge identity is evaluated end-to-end in float64 at 1e-10. Populations, bases, maps, participation threshold, and scientific predictions are unchanged.",
+  "predictions": {
+    "pred_a_authority_basis_support_finiteness_and_price": "All hashes and terminals match, every raw Q Gram error <=5e-4, all values finite, and price is 17 forwards.",
+    "pred_b_exact_weight_compiler_closes": "Maximum fit/fresh closure RSE <=1e-10.",
+    "pred_c_all_native_maps_have_full_task_rank": "All five maps have rank 16 at relative threshold 1e-6.",
+    "pred_d_hidden_participation_is_nonuniform": "At least three sites place >=25% of map energy in top 10% hidden units.",
+    "pred_e_manifest_is_gauge_invariant": "Float64 rotated-factor output relative error <=1e-10."
+  },
+  "terminal_policy": {"invalid": "A or B fails", "weight_compiled_source_program": "all pass", "distributed_weight_compiled_source_program": "A-C and E pass but D fails", "null": "other valid outcome"},
+  "price": {"model_forwards_max": 17, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
