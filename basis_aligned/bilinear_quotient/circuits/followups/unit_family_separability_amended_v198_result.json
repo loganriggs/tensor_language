@@ -1,0 +1,865 @@
+{
+  "bars": {
+    "animacy_leak_max": 1,
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "k_d": 8,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_amended_v198",
+  "families": {
+    "degree": [
+      "degree_frame",
+      "degree_result"
+    ],
+    "list": [
+      "numbered_list_choice",
+      "numeric_sequence_choice"
+    ],
+    "number_animacy": [
+      "lexical_number_pp",
+      "perfect_number",
+      "coordination_agreement",
+      "quantifier_number",
+      "narrative_tense",
+      "animacy"
+    ]
+  },
+  "finished_utc": "2026-09-07T12:53:16.383773+00:00",
+  "members": {
+    "animacy": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9192,
+            "ce_lb975": 0.5637,
+            "ce_ub975": 1.2742
+          },
+          "C": {
+            "ce_damage": 0.0049,
+            "ce_lb975": -0.0014,
+            "ce_ub975": 0.0111
+          },
+          "extraction": 1.007,
+          "sib_abs_max": 0.0352,
+          "siblings": {
+            "coordination_agreement": 0.0352,
+            "lexical_number_pp": 0.0077,
+            "narrative_tense": -0.0031,
+            "perfect_number": 0.0064,
+            "quantifier_number": -0.0059
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9441,
+            "ce_lb975": 0.5691,
+            "ce_ub975": 1.3156
+          },
+          "C": {
+            "ce_damage": 0.0074,
+            "ce_lb975": 0.0011,
+            "ce_ub975": 0.0139
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.1039,
+          "siblings": {
+            "coordination_agreement": -0.03,
+            "lexical_number_pp": -0.0534,
+            "narrative_tense": -0.015,
+            "perfect_number": 0.1039,
+            "quantifier_number": -0.0383
+          }
+        }
+      },
+      "exact_held": 0.886,
+      "family": "number_animacy",
+      "n_units": 19,
+      "seconds": 77.2,
+      "separable": true,
+      "units": [
+        "attn:08:head:08",
+        "attn:09:head:07",
+        "attn:05:head:06",
+        "attn:05:head:03",
+        "attn:11:head:06",
+        "attn:06:head:03",
+        "attn:07:head:00",
+        "attn:04:head:05",
+        "attn:11:head:02",
+        "attn:07:head:08",
+        "attn:09:head:06",
+        "attn:13:head:03",
+        "attn:10:head:03",
+        "attn:12:head:02",
+        "attn:11:head:01",
+        "attn:09:head:01",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:08:head:01"
+      ],
+      "v197_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      }
+    },
+    "coordination_agreement": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4902,
+            "ce_lb975": 0.4302,
+            "ce_ub975": 0.5496
+          },
+          "C": {
+            "ce_damage": -0.0093,
+            "ce_lb975": -0.0224,
+            "ce_ub975": 0.0037
+          },
+          "extraction": 1.001,
+          "sib_abs_max": 0.0229,
+          "siblings": {
+            "animacy": 0.0026,
+            "lexical_number_pp": 0.0229,
+            "narrative_tense": -0.0032,
+            "perfect_number": -0.0026,
+            "quantifier_number": 0.0169
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5251,
+            "ce_lb975": 0.4571,
+            "ce_ub975": 0.595
+          },
+          "C": {
+            "ce_damage": -0.0041,
+            "ce_lb975": -0.0219,
+            "ce_ub975": 0.0123
+          },
+          "extraction": 1.035,
+          "sib_abs_max": 0.2743,
+          "siblings": {
+            "animacy": -0.0337,
+            "lexical_number_pp": 0.2336,
+            "narrative_tense": -0.0052,
+            "perfect_number": 0.2743,
+            "quantifier_number": 0.1477
+          }
+        }
+      },
+      "exact_held": 0.861,
+      "family": "number_animacy",
+      "n_units": 17,
+      "seconds": 77.6,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:04:head:00",
+        "attn:06:head:05",
+        "attn:03:head:03",
+        "attn:03:head:06",
+        "attn:05:head:03",
+        "attn:09:head:07",
+        "attn:07:head:05",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:16:head:08",
+        "attn:04:head:04",
+        "attn:05:head:05",
+        "attn:06:head:08",
+        "attn:08:head:04",
+        "attn:10:head:05"
+      ],
+      "v197_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      }
+    },
+    "degree_frame": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.8594,
+            "ce_lb975": 1.6317,
+            "ce_ub975": 2.0801
+          },
+          "C": {
+            "ce_damage": 0.004,
+            "ce_lb975": -0.0036,
+            "ce_ub975": 0.0106
+          },
+          "extraction": 0.977,
+          "sib_abs_max": 0.0045,
+          "siblings": {
+            "degree_result": 0.0045
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.849,
+            "ce_lb975": 1.6212,
+            "ce_ub975": 2.0688
+          },
+          "C": {
+            "ce_damage": 0.0034,
+            "ce_lb975": -0.0041,
+            "ce_ub975": 0.0099
+          },
+          "extraction": 0.977,
+          "sib_abs_max": 0.0129,
+          "siblings": {
+            "degree_result": 0.0129
+          }
+        }
+      },
+      "exact_held": 0.88,
+      "family": "degree",
+      "n_units": 15,
+      "seconds": 43.6,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:16:head:08",
+        "attn:12:head:08",
+        "attn:15:head:01",
+        "attn:02:head:02",
+        "attn:04:head:07",
+        "attn:10:head:05",
+        "attn:03:head:06",
+        "attn:04:head:01",
+        "attn:02:head:06",
+        "attn:01:head:05",
+        "attn:04:head:03",
+        "attn:04:head:00"
+      ],
+      "v197_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      }
+    },
+    "degree_result": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9095,
+            "ce_lb975": 0.8251,
+            "ce_ub975": 0.9948
+          },
+          "C": {
+            "ce_damage": 0.0021,
+            "ce_lb975": -0.0046,
+            "ce_ub975": 0.0096
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0044,
+          "siblings": {
+            "degree_frame": 0.0044
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.903,
+            "ce_lb975": 0.8213,
+            "ce_ub975": 0.9849
+          },
+          "C": {
+            "ce_damage": -0.0073,
+            "ce_lb975": -0.0196,
+            "ce_ub975": 0.0032
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0257,
+          "siblings": {
+            "degree_frame": -0.0257
+          }
+        }
+      },
+      "exact_held": 0.875,
+      "family": "degree",
+      "n_units": 14,
+      "seconds": 43.4,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:04:head:01",
+        "attn:04:head:07",
+        "attn:09:head:03",
+        "attn:05:head:08",
+        "attn:09:head:07",
+        "attn:09:head:01",
+        "attn:05:head:03",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:11:head:03",
+        "attn:03:head:06"
+      ],
+      "v197_rows": {
+        "row2": false,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      }
+    },
+    "lexical_number_pp": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4266,
+            "ce_lb975": 0.3385,
+            "ce_ub975": 0.5148
+          },
+          "C": {
+            "ce_damage": -0.0106,
+            "ce_lb975": -0.0165,
+            "ce_ub975": -0.0048
+          },
+          "extraction": 0.867,
+          "sib_abs_max": 0.1483,
+          "siblings": {
+            "animacy": 0.0154,
+            "coordination_agreement": 0.0654,
+            "narrative_tense": 0.0112,
+            "perfect_number": 0.1483,
+            "quantifier_number": 0.0635
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6016,
+            "ce_lb975": 0.5007,
+            "ce_ub975": 0.7038
+          },
+          "C": {
+            "ce_damage": -0.0002,
+            "ce_lb975": -0.0037,
+            "ce_ub975": 0.0039
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 0.7407,
+          "siblings": {
+            "animacy": 0.0729,
+            "coordination_agreement": 0.2421,
+            "narrative_tense": 0.0704,
+            "perfect_number": 0.7407,
+            "quantifier_number": 0.3827
+          }
+        }
+      },
+      "exact_held": 0.873,
+      "family": "number_animacy",
+      "n_units": 5,
+      "seconds": 72.9,
+      "separable": false,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03",
+        "attn:13:head:01"
+      ],
+      "v197_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      }
+    },
+    "narrative_tense": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4871,
+            "ce_lb975": 0.4587,
+            "ce_ub975": 0.5143
+          },
+          "C": {
+            "ce_damage": 0.0375,
+            "ce_lb975": 0.0246,
+            "ce_ub975": 0.0529
+          },
+          "extraction": 0.897,
+          "sib_abs_max": 0.0307,
+          "siblings": {
+            "animacy": -0.0022,
+            "coordination_agreement": 0.0151,
+            "lexical_number_pp": -0.0153,
+            "perfect_number": 0.0307,
+            "quantifier_number": -0.005
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5709,
+            "ce_lb975": 0.5381,
+            "ce_ub975": 0.6042
+          },
+          "C": {
+            "ce_damage": -0.0023,
+            "ce_lb975": -0.0143,
+            "ce_ub975": 0.0094
+          },
+          "extraction": 0.997,
+          "sib_abs_max": 0.4558,
+          "siblings": {
+            "animacy": -0.0026,
+            "coordination_agreement": -0.4266,
+            "lexical_number_pp": -0.1493,
+            "perfect_number": -0.4558,
+            "quantifier_number": -0.3588
+          }
+        }
+      },
+      "exact_held": 0.895,
+      "family": "number_animacy",
+      "n_units": 10,
+      "seconds": 70.3,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:15:head:05",
+        "attn:09:head:04",
+        "attn:09:head:01",
+        "attn:07:head:07",
+        "attn:09:head:07",
+        "attn:05:head:01",
+        "attn:10:head:05",
+        "attn:15:head:01",
+        "attn:06:head:01"
+      ],
+      "v197_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      }
+    },
+    "numbered_list_choice": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8068,
+            "ce_lb975": 0.6577,
+            "ce_ub975": 0.9547
+          },
+          "C": {
+            "ce_damage": 0.0002,
+            "ce_lb975": -0.0,
+            "ce_ub975": 0.0005
+          },
+          "extraction": 1.001,
+          "sib_abs_max": 0.0029,
+          "siblings": {
+            "numeric_sequence_choice": 0.0029
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8023,
+            "ce_lb975": 0.6535,
+            "ce_ub975": 0.9495
+          },
+          "C": {
+            "ce_damage": 0.0002,
+            "ce_lb975": -0.0001,
+            "ce_ub975": 0.0005
+          },
+          "extraction": 1.001,
+          "sib_abs_max": 0.0221,
+          "siblings": {
+            "numeric_sequence_choice": 0.0221
+          }
+        }
+      },
+      "exact_held": 0.92,
+      "family": "list",
+      "n_units": 3,
+      "seconds": 38.4,
+      "separable": true,
+      "units": [
+        "attn:08:head:03",
+        "attn:08:head:07",
+        "attn:08:head:04"
+      ],
+      "v197_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      }
+    },
+    "numeric_sequence_choice": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7855,
+            "ce_lb975": 0.6616,
+            "ce_ub975": 0.9115
+          },
+          "C": {
+            "ce_damage": -0.0001,
+            "ce_lb975": -0.0003,
+            "ce_ub975": 0.0002
+          },
+          "extraction": 0.99,
+          "sib_abs_max": 0.0027,
+          "siblings": {
+            "numbered_list_choice": -0.0027
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.7852,
+            "ce_lb975": 0.6588,
+            "ce_ub975": 0.9135
+          },
+          "C": {
+            "ce_damage": -0.0008,
+            "ce_lb975": -0.0018,
+            "ce_ub975": 0.0001
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.0058,
+          "siblings": {
+            "numbered_list_choice": -0.0058
+          }
+        }
+      },
+      "exact_held": 0.884,
+      "family": "list",
+      "n_units": 3,
+      "seconds": 38.2,
+      "separable": true,
+      "units": [
+        "attn:08:head:03",
+        "attn:08:head:07",
+        "attn:14:head:04"
+      ],
+      "v197_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      }
+    },
+    "perfect_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5723,
+            "ce_lb975": 0.479,
+            "ce_ub975": 0.6734
+          },
+          "C": {
+            "ce_damage": 0.0048,
+            "ce_lb975": -0.0003,
+            "ce_ub975": 0.0102
+          },
+          "extraction": 0.859,
+          "sib_abs_max": 0.1303,
+          "siblings": {
+            "animacy": 0.0099,
+            "coordination_agreement": -0.0127,
+            "lexical_number_pp": 0.1303,
+            "narrative_tense": 0.011,
+            "quantifier_number": 0.0216
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.7667,
+            "ce_lb975": 0.6754,
+            "ce_ub975": 0.8574
+          },
+          "C": {
+            "ce_damage": 0.0036,
+            "ce_lb975": -0.0019,
+            "ce_ub975": 0.0094
+          },
+          "extraction": 0.98,
+          "sib_abs_max": 0.5501,
+          "siblings": {
+            "animacy": 0.0444,
+            "coordination_agreement": 0.2429,
+            "lexical_number_pp": 0.5501,
+            "narrative_tense": 0.2162,
+            "quantifier_number": 0.4627
+          }
+        }
+      },
+      "exact_held": 0.917,
+      "family": "number_animacy",
+      "n_units": 6,
+      "seconds": 67.8,
+      "separable": false,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03",
+        "attn:13:head:01",
+        "attn:10:head:05"
+      ],
+      "v197_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      }
+    },
+    "quantifier_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5747,
+            "ce_lb975": 0.4751,
+            "ce_ub975": 0.6841
+          },
+          "C": {
+            "ce_damage": 0.0148,
+            "ce_lb975": 0.0025,
+            "ce_ub975": 0.0292
+          },
+          "extraction": 1.017,
+          "sib_abs_max": 0.0227,
+          "siblings": {
+            "animacy": 0.0029,
+            "coordination_agreement": 0.0008,
+            "lexical_number_pp": 0.0227,
+            "narrative_tense": -0.0096,
+            "perfect_number": 0.001
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5835,
+            "ce_lb975": 0.483,
+            "ce_ub975": 0.6989
+          },
+          "C": {
+            "ce_damage": 0.0191,
+            "ce_lb975": 0.0056,
+            "ce_ub975": 0.0351
+          },
+          "extraction": 1.01,
+          "sib_abs_max": 0.4527,
+          "siblings": {
+            "animacy": -0.0108,
+            "coordination_agreement": 0.0971,
+            "lexical_number_pp": 0.4096,
+            "narrative_tense": -0.0253,
+            "perfect_number": 0.4527
+          }
+        }
+      },
+      "exact_held": 0.892,
+      "family": "number_animacy",
+      "n_units": 8,
+      "seconds": 70.5,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:05:head:03",
+        "attn:13:head:01",
+        "attn:08:head:01",
+        "attn:13:head:06",
+        "attn:04:head:01",
+        "attn:09:head:07"
+      ],
+      "v197_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_degree_separable": true,
+    "pred_b_list_separable": true,
+    "pred_c_animacy_separable": true,
+    "pred_d_row4_kept": false,
+    "pred_e_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197"
+  },
+  "schema": "unit_family_separability_amended_v198",
+  "seconds": 603.8,
+  "separable_counts": {
+    "degree": 2,
+    "list": 2,
+    "number_animacy": 4
+  },
+  "summary": {
+    "animacy": {
+      "fam": [
+        1.007,
+        0.0352,
+        0.0111
+      ],
+      "family": "number_animacy",
+      "n_units": 19,
+      "own": [
+        1.006,
+        0.1039,
+        0.0139
+      ],
+      "separable": true
+    },
+    "coordination_agreement": {
+      "fam": [
+        1.001,
+        0.0229,
+        0.0037
+      ],
+      "family": "number_animacy",
+      "n_units": 17,
+      "own": [
+        1.035,
+        0.2743,
+        0.0123
+      ],
+      "separable": true
+    },
+    "degree_frame": {
+      "fam": [
+        0.977,
+        0.0045,
+        0.0106
+      ],
+      "family": "degree",
+      "n_units": 15,
+      "own": [
+        0.977,
+        0.0129,
+        0.0099
+      ],
+      "separable": true
+    },
+    "degree_result": {
+      "fam": [
+        0.986,
+        0.0044,
+        0.0096
+      ],
+      "family": "degree",
+      "n_units": 14,
+      "own": [
+        0.986,
+        0.0257,
+        0.0032
+      ],
+      "separable": true
+    },
+    "lexical_number_pp": {
+      "fam": [
+        0.867,
+        0.1483,
+        -0.0048
+      ],
+      "family": "number_animacy",
+      "n_units": 5,
+      "own": [
+        0.989,
+        0.7407,
+        0.0039
+      ],
+      "separable": false
+    },
+    "narrative_tense": {
+      "fam": [
+        0.897,
+        0.0307,
+        0.0529
+      ],
+      "family": "number_animacy",
+      "n_units": 10,
+      "own": [
+        0.997,
+        0.4558,
+        0.0094
+      ],
+      "separable": true
+    },
+    "numbered_list_choice": {
+      "fam": [
+        1.001,
+        0.0029,
+        0.0005
+      ],
+      "family": "list",
+      "n_units": 3,
+      "own": [
+        1.001,
+        0.0221,
+        0.0005
+      ],
+      "separable": true
+    },
+    "numeric_sequence_choice": {
+      "fam": [
+        0.99,
+        0.0027,
+        0.0002
+      ],
+      "family": "list",
+      "n_units": 3,
+      "own": [
+        0.992,
+        0.0058,
+        0.0001
+      ],
+      "separable": true
+    },
+    "perfect_number": {
+      "fam": [
+        0.859,
+        0.1303,
+        0.0102
+      ],
+      "family": "number_animacy",
+      "n_units": 6,
+      "own": [
+        0.98,
+        0.5501,
+        0.0094
+      ],
+      "separable": false
+    },
+    "quantifier_number": {
+      "fam": [
+        1.017,
+        0.0227,
+        0.0292
+      ],
+      "family": "number_animacy",
+      "n_units": 8,
+      "own": [
+        1.01,
+        0.4527,
+        0.0351
+      ],
+      "separable": true
+    }
+  }
+}
