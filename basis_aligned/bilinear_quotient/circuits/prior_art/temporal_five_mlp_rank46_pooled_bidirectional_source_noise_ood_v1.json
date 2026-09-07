@@ -1,0 +1,19 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_rank46_pooled_bidirectional_source_noise_ood_v1",
+  "question": "Does the frozen minimal clean support retain the pooled interface's bidirectional robustness to 10% cue-source noise?",
+  "authority": {
+    "rank46_support": "The hash-corrected greedy result selects the 46-site support after removing L1H3 and L3H7.",
+    "rank45_boundary": "The sole remaining declared deletion L10H5 misses the frozen behavior threshold at .799723, closing the clean greedy branch at rank46.",
+    "rank48_noise": "The parent rank48 pooled interface passed all three 10% source-noise seeds in both directions."
+  },
+  "evaluation": "Using the frozen 46-site support and identical pooled projector, perturb only the exchanged cue embedding by 10% of its clean displacement norm for seeds 1729, 2718, and 3141; evaluate forward and reverse on disjoint temporal-v12/iswas-v11 targets and matched controls.",
+  "predictions": {
+    "pred_a_authority_hash_noise_tripwire_finiteness_and_exact_price": "Rank46 correction and rank45 boundary are hash-bound, support count is 46, projector/disjointness/noise/finiteness tripwires pass, and exactly 39 forwards execute.",
+    "pred_b_all_noisy_bidirectional_coordinates_transfer": "Every seed and direction has minimum coordinate projection at least 0.75 and mean/worst residual at most 0.20.",
+    "pred_c_all_noisy_bidirectional_behaviors_transfer": "Every seed and direction has both behavior projections at least 0.80 and worst target residual at most 0.15.",
+    "pred_d_all_noisy_bidirectional_controls_are_selective": "Every seed and direction has margin RMS at most 0.10, median full-vocabulary KL at most 0.02, and zero top-one control flips.",
+    "pred_e_seed_and_direction_stability": "Within-direction seed ranges and paired forward/reverse behavior gaps are each at most 0.08."
+  },
+  "decision": "A 5/5 pass promotes rank46 as the minimal clean-and-noise-stable pooled program. A miss restores rank47 or rank48 according to which robustness metric failed; no threshold tuning is allowed.",
+  "price": {"model_forwards_exact": 39, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
