@@ -1,0 +1,132 @@
+{
+  "bars": {
+    "add_tol": 0.02,
+    "head_max": 0.02,
+    "instr_rel": 0.05,
+    "mlp_frac": 0.7,
+    "pattern_frac": 0.2,
+    "repro_tol": 0.02,
+    "v157_effect": 0.052,
+    "value_frac": 0.8
+  },
+  "candidate_id": "corpus.unit_tier5_hub_induced_response_source_v158",
+  "finished_utc": "2026-09-07T08:15:37.136825+00:00",
+  "measures": {
+    "arms": {
+      "cross": {
+        "comp_norm": 2.7,
+        "effect": -0.004,
+        "q_part_norm": 1.98,
+        "shift_norm": 3.35
+      },
+      "heads2": {
+        "comp_norm": 14.59,
+        "effect": 0.03,
+        "q_part_norm": 7.57,
+        "shift_norm": 16.56
+      },
+      "mlp4": {
+        "comp_norm": 19.68,
+        "effect": 0.047,
+        "q_part_norm": 10.09,
+        "shift_norm": 22.14
+      },
+      "mlp:07": {
+        "comp_norm": 10.67,
+        "effect": 0.015,
+        "q_part_norm": 3.43,
+        "shift_norm": 11.36
+      },
+      "mlp:08": {
+        "comp_norm": 9.62,
+        "effect": 0.018,
+        "q_part_norm": 3.88,
+        "shift_norm": 10.4
+      },
+      "mlp:09": {
+        "comp_norm": 8.46,
+        "effect": 0.007,
+        "q_part_norm": 2.31,
+        "shift_norm": 8.85
+      },
+      "mlp:10": {
+        "comp_norm": 10.65,
+        "effect": 0.012,
+        "q_part_norm": 2.96,
+        "shift_norm": 11.14
+      },
+      "pattern_only": {
+        "comp_norm": 11.61,
+        "effect": 0.005,
+        "q_part_norm": 2.18,
+        "shift_norm": 11.84
+      },
+      "six": {
+        "comp_norm": 19.65,
+        "effect": 0.052,
+        "q_part_norm": 11.87,
+        "shift_norm": 22.98
+      },
+      "value_only": {
+        "comp_norm": 15.52,
+        "effect": 0.05,
+        "q_part_norm": 11.24,
+        "shift_norm": 19.16
+      }
+    },
+    "exact": 0.844,
+    "hub_rank1": 0.901,
+    "instr_rel": 0.0,
+    "rows": 16
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_mlps": false,
+    "pred_c_value": true,
+    "pred_d_additive": true,
+    "pred_e_mlp08": true
+  },
+  "schema": "unit_tier5_hub_induced_response_source_v158",
+  "seconds": 0.9,
+  "subsets": {
+    "heads2": [
+      "attn:07:head:08",
+      "attn:08:head:01"
+    ],
+    "mlp4": [
+      "mlp:07",
+      "mlp:08",
+      "mlp:09",
+      "mlp:10"
+    ],
+    "mlp:07": [
+      "mlp:07"
+    ],
+    "mlp:08": [
+      "mlp:08"
+    ],
+    "mlp:09": [
+      "mlp:09"
+    ],
+    "mlp:10": [
+      "mlp:10"
+    ],
+    "six": [
+      "mlp:07",
+      "mlp:08",
+      "mlp:09",
+      "mlp:10",
+      "attn:07:head:08",
+      "attn:08:head:01"
+    ]
+  },
+  "units": [
+    "mlp:10",
+    "attn:11:head:03",
+    "mlp:09",
+    "mlp:08",
+    "attn:07:head:08",
+    "attn:08:head:01",
+    "mlp:07"
+  ]
+}
