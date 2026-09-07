@@ -243,6 +243,17 @@ test used exactly two native forwards and opened no A1/A2 or causal outcomes.  T
 unchanged 32-mask attention replay, with P and C collateral reported separately so one family
 cannot hide failure of the other.
 
+The licensed replay is complete and returns a valid null.  It exactly reproduced the old target
+metrics within `2.92e-6` and executed all 32 masks at the registered 35-forward price.  Only the
+full five-piece mask reaches the A1 target bar (`.80535`, with A2 `.86829`), but that mask changes
+five of sixteen aligned P rows (median full-vocabulary KL `.11881`) and three of sixteen aligned C
+rows (median KL `.01156`).  No mask is selective under the separate-panel rule.  This establishes
+that the complete attention response slices are not a selective circuit, rather than merely that
+the earlier control instrument was broken.  L8H1 is the largest single P collision (`.03106`
+median KL and four flips); L9H1 and L11H3 each flip three P rows, while complete attention 15 alone
+flips none.  The next test therefore splits the four material heads in response space with
+cross-fitted task and P-nuisance spans while retaining attention 15 complete.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof

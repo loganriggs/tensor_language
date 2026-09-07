@@ -1,0 +1,69 @@
+{
+  "schema": "temporal_iswas_v15_crossfit_head_response_task_p_complement_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_crossfit_head_response_task_p_complement_v1",
+  "registered_utc": "2026-09-07T18:55:23Z",
+  "question": "Can a cross-fitted linear split inside the four material attention heads retain temporal transfer while removing same-answer cue/construction variation, with complete attention 15 retained as the already-clean branch?",
+  "authorities": {
+    "aligned_lattice_result_sha256": "8eee3c031f9e7bae8bac578bd6fdd368f19fc5f027e1f184d58c7f325c4fee43",
+    "aligned_lattice_runner_sha256": "bb1f9d75de5433a508604e3e8cbc9d527b7ec8280c12dedb36b377ab9ce2a5ae",
+    "aligned_builder_sha256": "7027e128ea3e68a35e92f451d0f62453a937e64a8dafda24d841aa1f1d29e645",
+    "complete_head_atlas_result_sha256": "cf2427059f698eac94a9e733ff873e1892a49882f60bc587c3ac83c681507025",
+    "complete_head_atlas_runner_sha256": "eb89c0948b03f9df15ce35cdbf07c8483c87a3404b8dd36efb6ebc1a873b2282"
+  },
+  "evidence_boundary": "The valid complete-response lattice identifies a target-effective but nonselective five-piece parent. Only the full mask reaches A1 .75; it yields P KL .11881/5 flips and C KL .01156/3 flips. L8H1 is the largest singleton P collision, L9H1 and L11H3 also flip three P rows, and complete attention 15 alone flips no P or C rows. These facts choose the split sites but no projected-subspace outcome has been opened.",
+  "population_and_crossfit": {
+    "rows": "The exact 16 A1, 16 A2, 16 aligned P, and 16 aligned C rows from the capability-qualified authority.",
+    "folds": "Two deterministic group-number parity folds. Every row is patched with projectors fit only on the opposite parity's A1 and P rows.",
+    "fit_access": "A1 head-response donor-minus-base differences define task directions/spans. Aligned P differences define nuisance spans. A2 and C never fit any projector. Held-parity A1/P rows do not fit their own projector.",
+    "positions": "Fit response-feature subspaces using every aligned token position through each row's terminal semantic position; apply the same feature projector at every patched position."
+  },
+  "fixed_subspaces": {
+    "sites": ["L8H1", "L9H1", "L9H4", "L11H3"],
+    "retained_complete_branch": "attn:15",
+    "dim1": "Rank-one oriented difference-in-means direction from opposite-fold A1 response differences.",
+    "p_complement_dim1": "The same A1 DIM direction after orthogonal projection away from the opposite-fold aligned-P top-eight nuisance span, then renormalization.",
+    "task_svd8": "Top-eight right singular response-feature directions of opposite-fold A1 differences, with no control fitting.",
+    "p_complement_svd8": "Top-eight right singular directions of A1 differences after removing the opposite-fold aligned-P top-eight nuisance span.",
+    "tolerance": "Singular values larger than max singular value times 1e-6 are live; requested rank is capped at eight. No rank is selected from causal outcomes."
+  },
+  "causal_arms": [
+    "base-self closure",
+    "complete five-piece parent",
+    "complete attention 15 only",
+    "four-head dim1 plus complete attention 15",
+    "four-head p_complement_dim1 plus complete attention 15",
+    "four-head task_svd8 plus complete attention 15",
+    "four-head p_complement_svd8 plus complete attention 15",
+    "each of four task_svd8 head singletons",
+    "each of four p_complement_svd8 head singletons"
+  ],
+  "selective_screen_rule": "An analytic composed arm passes only if A1 and A2 signed behavioral projection are each >=.75 with direction fraction >=.875, P and C each have zero top-one flips, and max(P median KL, C median KL) <=.02. Pooled controls never select.",
+  "predictions": {
+    "pred_a_authority_crossfit_projectors_closure_finiteness_and_exact_price": "All authorities, exact rows/alignment, opposite-parity nonleakage, projector ranks/tolerances, finite metrics, base-self error <=1e-4, and exactly 17 forwards pass.",
+    "pred_b_p_complement_svd8_reduces_aligned_p_collateral": "Relative to the complete parent, p_complement_svd8 reduces P median KL by at least 50% and leaves at most one P top-one flip.",
+    "pred_c_p_complement_svd8_preserves_target_transfer": "The p_complement_svd8 composition reaches >=.75 signed behavioral projection and >=.875 direction fraction on both A1 and A2.",
+    "pred_d_p_complement_svd8_is_selective": "The p_complement_svd8 composition passes the complete selective-screen rule, including independent C.",
+    "pred_e_analytic_rank1_is_sufficient": "At least one of dim1 or p_complement_dim1 passes the same selective-screen rule.",
+    "pred_f_control_complement_improves_matched_rank_tradeoff": "At rank at most eight, p_complement_svd8 has no lower minimum A1/A2 projection than task_svd8 minus .05 and strictly lower P median KL."
+  },
+  "terminal_policy": {
+    "crossfit_rank1_selective_response_split": "A and E pass.",
+    "crossfit_p_complement_selective_response_split": "A-D and F pass while E fails.",
+    "crossfit_task_span_selective_without_complement": "A passes, p_complement_svd8 fails selectivity, and task_svd8 passes selectivity.",
+    "linear_response_split_insufficient": "A passes and no analytic composed arm passes selectivity.",
+    "partial": "A passes and no more specific terminal applies.",
+    "invalid": "A fails."
+  },
+  "price": {
+    "model_forwards_exact": 17,
+    "rows_per_forward": 64,
+    "native_base_donor_forwards": 2,
+    "base_self_forward": 1,
+    "diagnostic_causal_forwards": 14,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "next_branch": "A selective analytic split is a screen requiring fresh-family confirmation and then direct OV/QK/value weight translation. If all linear splits fail, use their held-fold response matrix to define a regularized nonlinear DAS objective with DIM and task_svd8 as explicit baselines; do not tune on A2/C. If complement removes P but destroys target, the P and temporal response subspaces are operationally shared and downstream conditional routing, rather than an orthogonal subspace, is required.",
+  "execution_policy": "managed_queue_only"
+}
