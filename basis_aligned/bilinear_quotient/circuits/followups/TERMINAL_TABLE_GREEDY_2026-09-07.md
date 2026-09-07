@@ -1,30 +1,36 @@
-# Terminal evidence — removal-greedy head sets (generated 2026-09-07 00:50 UTC by ops/terminal_table_greedy_sets.py)
+# Terminal evidence — removal-greedy head sets (generated 2026-09-07 00:56 UTC by ops/terminal_table_greedy_sets.py)
 
-Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised).
+Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised), v75 (constrained DAS: direction = rank-1-per-block DAS on pooled A1 + v15 verb-variant EVEN rows, complement term, C-removal-inertness regularizer λ=30 on C EVEN rows; A2 and the odd rows never fitted).
 
 | behaviour | set | n | removal A1 (LB) | extraction (LB) | own C (UB) | A2 a1-fit | A2 a2-fit | random | max cross | rows 2/3/4/5 |
 |---|---|---|---|---|---|---|---|---|---|---|
 | quantifier_number | hub | 2 | 0.353 | 0.509 (0.485) | — | — | — | — | — | ✗/·/·/· |
 | quantifier_number | hub+3 | 5 | 0.539 (0.442) | 0.665 (0.634) | — | — | — | — | — | ✗/·/·/· |
 | quantifier_number | hub+8 | 10 | 0.720 (0.572) | 0.816 (0.775) | -0.059 (-0.035) | 0.716 | 0.700 | -0.001 | -0.010 | ✓/✓/✓/✓ |
+| quantifier_number | hub+8 constrained DAS (pooled, λ=30) | 10 | 0.738 (0.538) | not measured | 0.009 (0.020); λ=0 -0.046 | 0.866 | — | -0.003 | 0.022 | ·/✓/✗/✓ |
 | verb_preposition | hub | 3 | 0.202 | 0.588 (0.566) | — | — | — | — | — | ✗/·/·/· |
 | verb_preposition | hub+3 | 6 | 0.476 (0.397) | 0.840 (0.803) | — | — | — | — | — | ✓/·/·/· |
 | verb_preposition | hub+8 | 11 | 0.723 (0.618) | 0.995 (0.950) | -0.241 (-0.212) | 0.542 | 0.692 | 0.003 | 0.020 | ✓/✓/✓/✓ |
+| verb_preposition | hub+8 constrained DAS (pooled, λ=30) | 11 | 0.906 (0.849) | not measured | -0.001 (0.003); λ=0 -0.082 | 0.655 | — | -0.001 | 0.077 | ·/✓/✓/✓ |
 | polarity_licensing | hub | 4 | 0.189 | 0.598 (0.574) | — | — | — | — | — | ✗/·/·/· |
 | polarity_licensing | hub+3 | 7 | 0.386 (0.203) | 0.805 (0.780) | — | — | — | — | — | ✓/·/·/· |
 | polarity_licensing | hub+8 | 12 | 0.567 (0.349) | 0.903 (0.873) | 0.016 (0.041) | 0.634 | 0.761 | -0.000 | 0.043 | ✓/✓/✗/✓ |
 | polarity_licensing | hub+8 C-pen (λ=2) | 12 | 0.551 (0.339) | 0.908 (0.877) | 0.006 (0.030) | 0.585 | — | — | — | ✓/✓/✗/✓ |
+| polarity_licensing | hub+8 constrained DAS (pooled, λ=30) | 12 | 0.666 (0.600) | not measured | 0.004 (0.008); λ=0 0.206 | 0.638 | — | -0.001 | 0.006 | ·/✓/✓/✓ |
 | dative | hub | 5 | 0.282 | 0.638 (0.589) | — | — | — | — | — | ✗/·/·/· |
 | dative | hub+3 | 8 | 0.388 (0.311) | 0.776 (0.715) | — | — | — | — | — | ✗/·/·/· |
 | dative | hub+8 | 13 | 0.512 (0.411) | 0.877 (0.827) | -0.159 (-0.136) | 0.218 | 0.629 | -0.003 | 0.069 | ✓/✓/✓/✗ |
+| dative | hub+8 constrained DAS (pooled, λ=30) | 13 | 0.565 (0.482) | not measured | 0.006 (0.021); λ=0 0.125 | 0.313 | — | 0.002 | 0.042 | ·/✓/✗/✓ |
 | verb_complementizer | hub | 3 | 0.598 | 0.591 (0.565) | — | — | — | — | — | ✗/·/·/· |
 | verb_complementizer | hub+3 | 6 | 0.900 (0.688) | 0.766 (0.740) | — | — | — | — | — | ✗/·/·/· |
 | verb_complementizer | hub+8 | 11 | 1.119 (0.863) | 0.893 (0.869) | 0.387 (0.483) | 0.679 | 0.820 | 0.004 | 0.008 | ✓/✓/✗/✓ |
 | verb_complementizer | hub+8 C-pen (λ=2) | 11 | 1.034 (0.757) | 0.824 (0.794) | 0.284 (0.355) | 0.567 | — | — | — | ✓/✓/✗/✓ |
+| verb_complementizer | hub+8 constrained DAS (pooled, λ=30) | 11 | 1.025 (0.784) | not measured | 0.029 (0.046); λ=0 0.733 | 0.714 | — | 0.004 | 0.033 | ·/✓/✗/✓ |
 | voice_frame | hub | 4 | 0.092 | 0.606 (0.548) | — | — | — | — | — | ✗/·/·/· |
 | voice_frame | hub+3 | 7 | 0.180 (0.125) | 0.708 (0.648) | — | — | — | — | — | ✗/·/·/· |
 | voice_frame | hub+8 | 12 | 0.322 (0.190) | 0.809 (0.750) | -0.001 (0.030) | 0.610 | 0.609 | 0.004 | 0.028 | ✓/✓/✗/✓ |
 | voice_frame | hub+8 C-pen (λ=2) | 12 | 0.276 (0.156) | 0.756 (0.696) | -0.119 (-0.093) | 0.635 | — | — | — | ✗/✓/✓/✓ |
+| voice_frame | hub+8 constrained DAS (pooled, λ=30) | 12 | 0.361 (0.193) | not measured | 0.007 (0.013); λ=0 0.026 | 0.716 | — | 0.004 | 0.023 | ·/✓/✗/✓ |
 
 ## Sets
 
@@ -37,7 +43,7 @@ Rows evaluated on the ODD half of each family (directions = per-block diff-in-me
 
 ## Notes
 
-- verb_complementizer C: the hub alone damages own C ("The leader noted/replied quickly → that", foil whether) by 0.31 (v70 curve k=0) on the that/whether margin (v69: margin −2.1, KL 0.03). Row 4 as written fails at every set size. v71: the direction is NOT a verb-class axis — it transfers only 0.26–0.41× to three unseen verb pairs (per-pair refits 1.7–3.1× stronger, block |cos| 0.43–0.50); single-pair directions are pair-keyed. v72: a POOLED direction (three pairs, 48 docs) transfers to the unseen pair at 0.56× (pooled diff-in-means 0.619), 0.61× (DAS+inertness 0.679), 0.67× (DAS 0.740) of its refit 1.110 while keeping the fitted pairs at ≥0.86×: a shared rank-1 axis exists and the single-pair fits were noisy samples. Pooling RAISES own-C damage (0.45–0.73): C shares the that/whether output axis, so row 4 with this C measures the output axis, not specificity; cross-behaviour collateral (≤0.014) is the operative specificity measure. v57 tested the verb sets against polarity's C (borrowed control) and is superseded.
+- verb_complementizer C: the hub alone damages own C ("The leader noted/replied quickly → that", foil whether) by 0.31 (v70 curve k=0) on the that/whether margin (v69: margin −2.1, KL 0.03). Row 4 as written fails at every set size. v71: the direction is NOT a verb-class axis — it transfers only 0.26–0.41× to three unseen verb pairs (per-pair refits 1.7–3.1× stronger, block |cos| 0.43–0.50); single-pair directions are pair-keyed. v72: a POOLED direction (three pairs, 48 docs) transfers to the unseen pair at 0.56× (pooled diff-in-means 0.619), 0.61× (DAS+inertness 0.679), 0.67× (DAS 0.740) of its refit 1.110 while keeping the fitted pairs at ≥0.86×: a shared rank-1 axis exists and the single-pair fits were noisy samples. Pooling RAISES own-C damage (0.45–0.73). The reading posted at 00:42 ('C shares the that/whether output axis, row 4 unmeasurable') was REFUTED by v75: the C-inertness regularizer drives own C to 0.029 (UB 0.046) while keeping A1 at 1.025 (0.92× of the unconstrained 1.112) — the C-damaging component was separable and the C control is sound. Row 4 by the UB ≤0.01 bar is still not met for this set (residual 0.03, LB 0.011). v57 tested the verb sets against polarity's C (borrowed control) and is superseded.
 - Row 4 on 16-document halves: bootstrap half-width ≈0.025, so UB ≤0.01 is unreachable at zero mean (polarity: point 0.006, UB 0.030). Read polarity's row 4 from full rows (v51) or as point+width.
 - dative's A2 deficit is direction-keyed (A2-fit 0.63 vs A1-fit 0.22 at hub+8; v61/v62), unchanged by enlargement. v73/v74: a DAS direction pooled over A1 + two verb variants with a C-removal-inertness regularizer (λ=30, C even rows; `g.fit_block_subspace_constrained`) meets row 5 on odd rows (A2 0.313 = 0.55× A1 0.565, LB 0.279), transfers to an unseen verb pair at 0.87× its refit, keeps cross-collateral ≤0.042, and holds own C at 0.006 (UB 0.021 — misses the row-4 UB bar by bootstrap width). Without the regularizer the pooled direction damages C by 0.125.
 - Cross-collateral (A1-fit direction on the other five A1 families, odd rows): max 0.069 (dative→verb set), otherwise ≤0.043; quantifier's direction LOWERS dative/polarity CE by 0.11–0.13 (shared number axis, v54).

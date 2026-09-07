@@ -13,12 +13,13 @@ ROOT = Path(__file__).resolve().parent.parent
 F = ROOT / "circuits/followups"
 J = lambda n: json.loads((F / n).read_text())
 v66, v67, v68, v69, v70 = (J(f"unit_{n}_result.json") for n in ("verb_greedy_saturation_v66", "four_sets_greedy_saturation_v67", "greedy_sets_extraction_v68", "greedy_sets_terminal_rows_v69", "c_penalised_greedy_v70"))
+v75 = J("unit_six_sets_constrained_das_v75_result.json")
 curves = {**v66["sets"], **v67["sets"]}
 ORDER = ["quantifier_number", "verb_preposition", "polarity_licensing", "dative", "verb_complementizer", "voice_frame"]
 r3 = lambda x: f"{x:.3f}"
 mark = lambda b: "✓" if b else "✗"
 lines = [f"# Terminal evidence — removal-greedy head sets (generated {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')} UTC by ops/terminal_table_greedy_sets.py)", "",
-         "Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised).", "",
+         "Rows evaluated on the ODD half of each family (directions = per-block diff-in-means fit on the EVEN half); rubric rows: 2 extraction ≥0.80 (LB ≥0.60), 3 removal LB>0 with own-C specificity LB>0, 4 own-C CE UB ≤0.01, 5 A1-fit direction on A2 LB>0 and ≥0.50× A1. Receipts: v66/v67 (curves, cross), v68 (extraction), v69 (rows 3–5), v70 (C-penalised), v75 (constrained DAS: direction = rank-1-per-block DAS on pooled A1 + v15 verb-variant EVEN rows, complement term, C-removal-inertness regularizer λ=30 on C EVEN rows; A2 and the odd rows never fitted).", "",
          "| behaviour | set | n | removal A1 (LB) | extraction (LB) | own C (UB) | A2 a1-fit | A2 a2-fit | random | max cross | rows 2/3/4/5 |", "|---|---|---|---|---|---|---|---|---|---|---|"]
 for n in ORDER:
     c = curves[n]; e = v68["sets"][n]["extraction"]; t = v69["sets"][n]; rm = v69["rows_met"][n]
@@ -34,12 +35,19 @@ for n in ORDER:
         row4 = ev["C"]["ce_ub975"] <= 0.01
         row5 = ev["A2"]["ce_lb975"] > 0 and ev["A2"]["ce_damage"] >= 0.5 * ev["A1"]["ce_damage"]
         lines.append(f"| {n} | hub+8 C-pen (λ=2) | {len(p['final'])} | {r3(ev['A1']['ce_damage'])} ({r3(ev['A1']['ce_lb975'])}) | {r3(ex['point'])} ({r3(ex['lb95'])}) | {r3(ev['C']['ce_damage'])} ({r3(ev['C']['ce_ub975'])}) | {r3(ev['A2']['ce_damage'])} | — | — | — | {mark(ex['point'] >= 0.8 and ex['lb95'] >= 0.6)}/{mark(ev['A1']['ce_lb975'] > 0 and ev['A1']['ce_lb975'] - ev['C']['ce_ub975'] > 0)}/{mark(row4)}/{mark(row5)} |")
+    if n in v75["sets"]:
+        P = v75["sets"][n]["damage"]["30.0"]; Z = v75["sets"][n]["damage"]["0.0"]; rn = v75["sets"][n]["damage"]["random"]["A1"]
+        crossp = max(P["cross"].values())
+        row3 = P["A1"]["ce_lb975"] > 0 and P["A1"]["ce_lb975"] - P["C"]["ce_ub975"] > 0
+        row4 = P["C"]["ce_ub975"] <= 0.01
+        row5 = P["A2"]["ce_lb975"] > 0 and P["A2"]["ce_damage"] >= 0.5 * P["A1"]["ce_damage"]
+        lines.append(f"| {n} | hub+8 constrained DAS (pooled, λ=30) | {len(v75['sets'][n]['units'])} | {r3(P['A1']['ce_damage'])} ({r3(P['A1']['ce_lb975'])}) | not measured | {r3(P['C']['ce_damage'])} ({r3(P['C']['ce_ub975'])}); λ=0 {r3(Z['C']['ce_damage'])} | {r3(P['A2']['ce_damage'])} | — | {r3(rn['ce_damage'])} | {r3(crossp)} | ·/{mark(row3)}/{mark(row4)}/{mark(row5)} |")
 lines += ["", "## Sets", ""]
 for n in ORDER:
     c = curves[n]
     lines.append(f"- **{n}** hub {c['hub']} → additions in order {[u[5:] for u in c['final'][len(c['hub']):]]}" + (f"; C-penalised additions {[u[5:] for u in v70['sets'][n]['final'][len(c['hub']):]]}" if n in v70["sets"] else ""))
 lines += ["", "## Notes", "",
-          "- verb_complementizer C: the hub alone damages own C (\"The leader noted/replied quickly → that\", foil whether) by 0.31 (v70 curve k=0) on the that/whether margin (v69: margin −2.1, KL 0.03). Row 4 as written fails at every set size. v71: the direction is NOT a verb-class axis — it transfers only 0.26–0.41× to three unseen verb pairs (per-pair refits 1.7–3.1× stronger, block |cos| 0.43–0.50); single-pair directions are pair-keyed. v72: a POOLED direction (three pairs, 48 docs) transfers to the unseen pair at 0.56× (pooled diff-in-means 0.619), 0.61× (DAS+inertness 0.679), 0.67× (DAS 0.740) of its refit 1.110 while keeping the fitted pairs at ≥0.86×: a shared rank-1 axis exists and the single-pair fits were noisy samples. Pooling RAISES own-C damage (0.45–0.73): C shares the that/whether output axis, so row 4 with this C measures the output axis, not specificity; cross-behaviour collateral (≤0.014) is the operative specificity measure. v57 tested the verb sets against polarity's C (borrowed control) and is superseded.",
+          "- verb_complementizer C: the hub alone damages own C (\"The leader noted/replied quickly → that\", foil whether) by 0.31 (v70 curve k=0) on the that/whether margin (v69: margin −2.1, KL 0.03). Row 4 as written fails at every set size. v71: the direction is NOT a verb-class axis — it transfers only 0.26–0.41× to three unseen verb pairs (per-pair refits 1.7–3.1× stronger, block |cos| 0.43–0.50); single-pair directions are pair-keyed. v72: a POOLED direction (three pairs, 48 docs) transfers to the unseen pair at 0.56× (pooled diff-in-means 0.619), 0.61× (DAS+inertness 0.679), 0.67× (DAS 0.740) of its refit 1.110 while keeping the fitted pairs at ≥0.86×: a shared rank-1 axis exists and the single-pair fits were noisy samples. Pooling RAISES own-C damage (0.45–0.73). The reading posted at 00:42 ('C shares the that/whether output axis, row 4 unmeasurable') was REFUTED by v75: the C-inertness regularizer drives own C to 0.029 (UB 0.046) while keeping A1 at 1.025 (0.92× of the unconstrained 1.112) — the C-damaging component was separable and the C control is sound. Row 4 by the UB ≤0.01 bar is still not met for this set (residual 0.03, LB 0.011). v57 tested the verb sets against polarity's C (borrowed control) and is superseded.",
           "- Row 4 on 16-document halves: bootstrap half-width ≈0.025, so UB ≤0.01 is unreachable at zero mean (polarity: point 0.006, UB 0.030). Read polarity's row 4 from full rows (v51) or as point+width.",
           "- dative's A2 deficit is direction-keyed (A2-fit 0.63 vs A1-fit 0.22 at hub+8; v61/v62), unchanged by enlargement. v73/v74: a DAS direction pooled over A1 + two verb variants with a C-removal-inertness regularizer (λ=30, C even rows; `g.fit_block_subspace_constrained`) meets row 5 on odd rows (A2 0.313 = 0.55× A1 0.565, LB 0.279), transfers to an unseen verb pair at 0.87× its refit, keeps cross-collateral ≤0.042, and holds own C at 0.006 (UB 0.021 — misses the row-4 UB bar by bootstrap width). Without the regularizer the pooled direction damages C by 0.125.",
           "- Cross-collateral (A1-fit direction on the other five A1 families, odd rows): max 0.069 (dative→verb set), otherwise ≤0.043; quantifier's direction LOWERS dative/polarity CE by 0.11–0.13 (shared number axis, v54)."]
