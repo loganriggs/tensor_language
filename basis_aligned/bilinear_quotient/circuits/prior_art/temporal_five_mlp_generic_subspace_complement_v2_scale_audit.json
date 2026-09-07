@@ -1,0 +1,16 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_generic_subspace_complement_v2_scale_audit",
+  "claimed_utc": "2026-09-07T04:49:00Z",
+  "question": "Was v1 rank-0 replay invalid only because its absolute residual-state tolerance ignored state scale?",
+  "authorities": {"v1_result_sha256": "6b45e6c58b2d8ca208368ebc04247c06574511b77be1b7fdcdca1d2999031f86", "v1_runner_sha256": "85f556968935ae49e23aa52a5b7cb62aa62e15d9def27c24374ac57d0ab05f4f"},
+  "method": "Repeat only target base/donor capture, discovery-control basis fit, ordinary eight-site patch, and rank-0 complement patch. Report max-absolute/reference-norm and squared-error/reference-energy without changing any v1 scientific thresholds or outcomes.",
+  "predictions": {
+    "pred_a_authority_alignment_finiteness_and_price": "Authorities and populations close; finite; <=8 forwards.",
+    "pred_b_rank0_scale_relative_replay_closes": "Rank0 versus ordinary state max-absolute/reference-norm <=1e-6 and relative squared error <=1e-10.",
+    "pred_c_behavior_mode_replay_confirms_v1": "Rank0 target worst residual differs from v1 by <=1e-6.",
+    "pred_d_control_reduction_null_is_material": "Rank8 validation control remains >50% of rank0 in at least one task.",
+    "pred_e_target_complement_was_not_the_failure": "Rank8 target worst residual <=0.05 and both behavior projections >=0.85."
+  },
+  "terminal_policy": {"invalid": "A/B/C fails", "generic_subspace_miss": "A/B/C/D/E pass", "inconclusive": "otherwise"},
+  "price_upper_bound": {"model_forwards": 8, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0}
+}
