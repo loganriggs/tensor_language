@@ -1,0 +1,11 @@
+{
+  "candidate_id": "temporal_auxiliary.iswas_five_mlp_position_svd_ladder_v1",
+  "question": "Does fitting the source-output subspace to every pre-semantic token position recover a selective functional rank that per-row averaging erased?",
+  "authority": {
+    "source_dim_v2_sha256": "80fa5ff1ad7463260ad10aacefac2fb3c8a8cd36fac1ed4381e5a11b103dba2a",
+    "five_source_support": ["MLP0", "MLP1", "MLP2", "MLP3", "MLP6"],
+    "failure": "Per-row-mean SVD rank 8 explains about .99 of its training object but only .627/.644 of fresh causal response; DIM is still weaker, while all projected arms are selective."
+  },
+  "novelty": "First all-position source-output SVD rank ladder at the five-module two-task boundary, with a high-rank complement and frozen controls.",
+  "decision": "Select the lowest rank that is functional; release only if it is also selective and its rank-64 complement is insufficient."
+}
