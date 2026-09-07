@@ -1,0 +1,34 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_family_feasible_kl_refinement_v1",
+  "question": "Can full-vocabulary KL refine the stable cross-fit response projectors without exploiting a row-level or unconstrained-subspace shortcut?",
+  "frozen_design": {
+    "rank_per_site": 8,
+    "search_space": "at each of eight sites, the at-most-rank-16 union of the independently fit even/odd response subspaces",
+    "starts": ["even_fit", "odd_fit", "crossfit_consensus"],
+    "training_targets": "the original v13/v12 target authority",
+    "training_controls": "matched-control discovery authority",
+    "checkpoint_selection_targets": "complete temporal-v10 and is/was-v11 A1/A2 families",
+    "checkpoint_selection_controls": "temporal-v10 P plus matched-control validation",
+    "sealed_targets": "complete temporal-v11 and is/was-v10 A1/A2 families",
+    "sealed_controls": "temporal-v11 P",
+    "steps": 40,
+    "checkpoints": [0, 10, 20, 30, 40],
+    "learning_rate": 0.02,
+    "target_feasibility": "every task must retain signed behavior projection >=0.80 and worst normalized behavior/two-mode residual <=0.05; infeasibility cannot be traded for KL",
+    "secondary_objective": "worst-family centered-logit error plus full-vocabulary KL for projected matching, target-complement inertness, and control inertness"
+  },
+  "predictions": {
+    "pred_a_authority_instrument_hash_finiteness_and_price": "all populations/hashes close, baseline forward reconstruction closes, and all reported values are finite",
+    "pred_b_nonbaseline_family_feasible_checkpoint_exists": "at least one step>0 checkpoint is target-feasible on every complete selection family",
+    "pred_c_selected_lowers_selection_secondary": "selected checkpoint lowers worst-family secondary objective by at least 10% relative to the best frozen start",
+    "pred_d_selected_generalizes_to_sealed_families": "sealed targets remain feasible and sealed controls have margin RMS <=0.10, median KL <=0.02 nat, and top-1 flip fraction <=0.05",
+    "pred_e_refinement_is_stable_and_weight_readable": "two starts yield projectors with mean squared principal cosine >=0.70 at every site, and exact c_proj/Down contraction closure remains <=1e-10"
+  },
+  "decision": "All five gates promote a KL-refined response program. A selection gain without sealed-family gain is family memorization. Step-zero selection means the frozen response projector is already the transferable frontier under this search class.",
+  "price": {
+    "model_forwards_max": 500,
+    "fit_updates": 120,
+    "model_updates": 120,
+    "transformer_backwards": 120
+  }
+}
