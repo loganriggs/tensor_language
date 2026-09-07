@@ -1,0 +1,48 @@
+{
+  "candidate_id": "temporal_auxiliary.five_mlp_upstream_input_tensor_incidence_atlas_v1",
+  "claimed_utc": "2026-09-07T03:58:00Z",
+  "question": "Which complete upstream heads and MLPs causally generate the paired normalized inputs consumed by the exact MLP12/13/15/16/17 bilinear tensor program, and do tensor-contracted incidences predict their downstream mode effects?",
+  "authorities": {
+    "scale_aware_tensor_audit_sha256": "ae86583c3461b151de1c6b25eb586be4e32bb0c9c8670a45710c38693700c10d",
+    "literal_tensor_result_sha256": "a0ac3ab0f35d1942339120a79fad07c040c7cf3663c5dd6b711ea1317c823652",
+    "literal_tensor_runner_sha256": "0b7130cc67ce796d12fd09b22e60816b6ed24c566cddc97318b35ac7edf513ea",
+    "earlier_three_layer_upstream_atlas_sha256": "ff00f30785d00f2709f436a2f0bfa92a6a005d63e2abc72ad236836e0249b130",
+    "earlier_three_layer_runner_sha256": "8f1c2a1680163daaded60589540761f6b4903cb8160857185f0c313b146ce017",
+    "fresh_confirmation_sha256": "9fc9c6aad9257ba1d75745bc1938ec2451120c1363a66ec933cae222d43c515d"
+  },
+  "novelty": "The earlier upstream atlas patched only 30 sites in layers 6/7/9 into the L11H3 input and final modes. This atlas patches the complete 179-site native upstream population and simultaneously captures the left/right inputs and outputs of all five validated downstream MLPs. Each observed MLP change is decomposed exactly through checkpoint Left/Right/Down weights into left, right, and bilinear-interaction terms; this is causal activation-conditioned weight incidence, not a raw-weight rank.",
+  "population": {
+    "rows": "The same 24 fresh temporal-v13 rows and 30 is/was-v12 replay-control rows used by the validated literal tensor program.",
+    "upstream_sites": "All 162 attention heads L0H0 through L17H8 and all 17 MLP outputs MLP0 through MLP16. A site is scored only for selected MLP targets that occur later in execution order; same-layer attention precedes its MLP.",
+    "targets": ["MLP12", "MLP13", "MLP15", "MLP16", "MLP17"],
+    "patch": "Replace one complete site's base response with its aligned donor response at every causal-prefix position through the semantic query, then allow every later component to recompute."
+  },
+  "measurements": {
+    "input_generation": "For each compatible upstream-site/target-MLP pair, capture changes in the target MLP's normalized Left and Right projections.",
+    "exact_local_tensor": "Compute Down[(delta Left) Right0 + Left0 (delta Right) + (delta Left)(delta Right)] and compare with the observed target-MLP output change.",
+    "mode_incidence": "Contract each exact factor output through the frozen physical two-mode reader and later residual gain, preserving signed task-by-mode incidence.",
+    "causal_outcome": "Measure the upstream patch's final behavior and physical two-mode response with later modules recomputed.",
+    "ranking_test": "Compare summed absolute tensor incidence across the five MLP targets with final causal mode magnitude over all 179 sites and report complete rankings plus known-writer enrichment."
+  },
+  "predictions": {
+    "pred_a_authority_alignment_self_patch_finiteness_and_price": "Authorities and populations close; all base/donor response shapes align; the joint base self-patch changes selected inputs, outputs, final state, and logits by at most 1e-4; all values are finite and price closes.",
+    "pred_b_all_compatible_local_tensor_expansions_close": "Every compatible site-target local expansion has relative squared error at most 1e-8 and max-absolute/output-norm at most 1e-6.",
+    "pred_c_known_writer_frontier_is_enriched": "At least three of L7H8, L9H1, L9H4, MLP7, and MLP9 occur in the top 20 sites by tensor-contracted two-mode incidence and each has positive final causal projection in at least one task-mode cell.",
+    "pred_d_tensor_incidence_predicts_final_causal_modes": "Across all sites, Spearman correlation between tensor-incidence magnitude and final two-mode causal magnitude is at least 0.35, and top-quintile mean causal magnitude is at least twice bottom-quintile mean.",
+    "pred_e_factor_and_target_structure_is_nontrivial": "At least two target MLPs receive material incidence from distinct top-five upstream writers, and at least one top-20 site has a bilinear-interaction contribution of at least 10% of its total absolute tensor incidence."
+  },
+  "terminal_policy": {
+    "invalid": "A or B fails",
+    "upstream_tensor_incidence_screen": "all five pass",
+    "causal_incidence_only": "A-C pass but D or E fails",
+    "upstream_tensor_null": "valid instrument but known frontier is not enriched"
+  },
+  "price": {
+    "model_forwards_max": 184,
+    "example_evaluations_max": 9936,
+    "fit_updates": 0,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "decision": "A positive atlas licenses a separately registered greedy combination/removal test. It does not itself establish that the 179 native sites are irreducible semantic units."
+}
