@@ -186,6 +186,23 @@ the 36 independently executed module singletons, exact base-self/all-donor closu
 replay.  The next causal split is therefore all 27 heads in attention 8/9/11, measured both alone
 and by leave-one-head-out inside each complete attention response.
 
+The 27-head split is valid at exactly 60 forwards and identifies a sparse head-level core
+inside those three live attention modules.  `L8H1` is the largest standalone contributor,
+with behavioral signed projection `.40075` and perfect rowwise causal direction.  The other
+material heads are `L11H3` (`.25460`), `L9H1` (`.16310`), and `L9H4` (`.15853`), again with
+perfect direction.  The same four heads are conditionally necessary inside their respective
+complete attention parents (`.40442`, `.25477`, `.18481`, and `.18082`).  Every all-nine-head
+arm replays its complete-attention parent exactly and the three-layer base self-patch has zero
+error, so the localization is not a head-layout artifact.
+
+This result splits native modules but does not make `L8H1` a sufficient circuit.  Its `.401`
+effect is localized relative to its layer, while the four material standalone effects together
+span several serial layers and the full module atlas also contains material MLP writers.  The
+scientific branch is therefore a frozen greedy composition over these four heads plus the live
+complete MLP/module candidates.  That executed combination, rather than a sum of singleton
+scores, will decide whether the v15 behavior admits a small cross-boundary circuit and which
+pieces are selectively necessary.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -264,7 +281,9 @@ are closed; the next optimization object must expose a finite causal-response op
   failure: old response coordinates replay at `.928` while behavior reaches only `.399`), followed
   by `temporal_iswas_v15_all_layer_complete_module_response_atlas_v1_result.json` (valid 36-module
   singleton atlas; top `attn:8/9/11`, while input-inclusive prefix inference is tautological and
-  explicitly quarantined).
+  explicitly quarantined), followed by
+  `temporal_iswas_v15_attention8_9_11_complete_head_atlas_v1_result.json` (valid exact 27-head
+  singleton/conditional atlas; material core `L8H1`, `L9H1`, `L9H4`, and `L11H3`).
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`, followed by
   `temporal_h3_das_nested_construction_adaptive_regularization_v1_result.json` (valid rejection of
@@ -274,9 +293,10 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Split all 27 heads in the three live attention modules 8/9/11 with singleton and conditional
-   leave-one-out patches.  Then execute a frozen greedy composition of the causally material heads
-   with the best MLP modules; do not use the tautological input-inclusive prefix result.
+2. Execute a frozen greedy composition of the four causally material heads with the best complete
+   MLP/module candidates; do not use the tautological input-inclusive prefix result.  Confirm the
+   selected cross-boundary circuit without reselection and test selective leave-one-component-out
+   necessity.
 3. Replace the rejected scalar-axis DAS loss with a finite causal-response operator whose held-out
    blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
    as explicit controls, not post-hoc explanations.
