@@ -34,6 +34,7 @@ LEGACY_OUTCOMES = {
     # readable for append-only history, but the CLI still only writes OUTCOMES.
     "wrong_predictor", "writer_summary_insufficient", "cue_specific", "shared_mode",
     "manifest", "coefficient_asymmetry", "cue_gain_missing", "writer_only_insufficient",
+    "response_program_transfer_null",
 }
 LEGACY_EVENT_KINDS = {"claim_correction"}
 

@@ -170,3 +170,26 @@ def test_legacy_correction_and_descriptive_terminal_are_read_only_compatible(tmp
         claims.validate_event(events[1])
     with pytest.raises(claims.ClaimError, match="outcome is invalid"):
         claims.validate_event(events[2])
+
+
+def test_response_program_transfer_null_is_read_only_legacy_outcome(tmp_path: Path) -> None:
+    path = tmp_path / "claims.jsonl"
+    claim_event = {
+        "schema": "circuit_candidate_claim_v1", "event": "claim",
+        "candidate_id": "candidate.response", "owner": "codex",
+        "timestamp": clock(1)(), "prior_art_sha256": PRIOR,
+        "novelty": "Historical response-program confirmation.",
+    }
+    release_event = {
+        "schema": "circuit_candidate_claim_v1", "event": "release",
+        "candidate_id": "candidate.response", "owner": "codex",
+        "timestamp": clock(2)(), "outcome": "response_program_transfer_null",
+        "receipt": "circuits/response.json", "reason": "Registered transfer failed.",
+    }
+    path.write_text(
+        "\n".join(json.dumps(event, sort_keys=True, separators=(",", ":"))
+                  for event in (claim_event, release_event)) + "\n"
+    )
+    assert claims.active_claims(path) == {}
+    with pytest.raises(claims.ClaimError, match="outcome is invalid"):
+        claims.validate_event(release_event)
