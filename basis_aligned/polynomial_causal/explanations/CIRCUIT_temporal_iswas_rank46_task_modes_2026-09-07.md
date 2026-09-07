@@ -136,6 +136,18 @@ therefore a selectivity-routing component in this composed source program, not m
 linear response writer.  The mask remains a promoted screen until it transfers without reselection
 to a capability-qualified new construction family.
 
+That construction holdout is now an honest parent-level null.  On 94 disjoint, jointly capable
+temporal-v15/is-was-v15 rows, mask 26 remains extremely close to full rank16 (worst behavior or
+signed-response gap `.00282`) and introduces no collateral beyond full.  Temporal full/mask26
+behavior remains `.82078/.81896`.  But the complete old rank16 parent fails on the new is-was
+constructions: full behavior is only `.06754`, signed response `.66534`, and response RSE `.39883`;
+mask26 is correspondingly `.06710/.66816/.39258`.  Terminal `parent_construction_failure`.
+
+Therefore mask26 is a stable compression of this parent, not yet a construction-general source
+circuit.  The next split must compare complete native `MLP0/1/2/3/6` write patches with the failed
+rank16 patch on the new family.  Success of the whole-module patch would localize the failure to the
+learned response subspace; failure would show that the native source-site graph itself changes.
+
 ## DAS interpretation
 
 The constrained-DAS result is a target-mismatch and family-memorization warning, not proof
@@ -207,7 +219,9 @@ are closed; the next optimization object must expose a finite causal-response op
   `temporal_iswas_rank16_source_complement_site_localization_v1_result.json` (distributed, nearly
   additive complement; no single-site explanation), and
   `temporal_iswas_rank16_source_complement_composition_lattice_v1_result.json` (minimal mask 26:
-  MLP1/3/6; complete 32-mask composition and selectivity).
+  MLP1/3/6; complete 32-mask composition and selectivity), followed by
+  `temporal_iswas_rank16_source_mask26_construction_holdout_v1_result.json` (parent-level is-was
+  construction null; mask remains close to full but full is not functional).
 - Fully instrumented DAS regularization:
   `temporal_h3_das_family_crossvalidated_regularization_tournament_v2_result.json`, followed by
   `temporal_h3_das_nested_construction_adaptive_regularization_v1_result.json` (valid rejection of
@@ -217,9 +231,9 @@ are closed; the next optimization object must expose a finite causal-response op
 
 1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
    and construction bank, without refitting.
-2. Confirm frozen mask 26 (`MLP1/3/6` complement plus `MLP0/2` union) on a capability-qualified new
-   construction family without reselection; then factor shared and contrast contributions inside
-   the repaired source program.
+2. Run complete native MLP0/1/2/3/6 write patches on the failed is-was-v15 family, with singleton
+   and full-site arms, to distinguish a construction-specific rank16 subspace from a changed source
+   graph.  Only then refit/factor a repaired source program.
 3. Replace the rejected scalar-axis DAS loss with a finite causal-response operator whose held-out
    blocks are complete constructions and downstream readers; keep DIM/step zero and target retention
    as explicit controls, not post-hoc explanations.
