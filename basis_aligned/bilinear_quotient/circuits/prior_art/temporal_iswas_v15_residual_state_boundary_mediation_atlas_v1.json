@@ -1,0 +1,35 @@
+{
+  "schema": "temporal_iswas_v15_residual_state_boundary_mediation_atlas_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_residual_state_boundary_mediation_atlas_v1",
+  "registered_utc": "2026-09-08T01:27:00Z",
+  "question": "At which complete residual-state boundary does the dominant upstream oracle effect become a stable, non-reconstructed causal state?",
+  "authority": {
+    "suffix_module_atlas_result_sha256": "a8d990bc3aeec08193f8cd90ec64c6581e15927308c24fa6d6e72f879c248936",
+    "required_terminal": "direct_residual_carry"
+  },
+  "prior_art": {
+    "searched": ["temporal is/was residual boundary patching", "layer-12--17 state mediation", "complete suffix write atlas"],
+    "active_claim_collision": false,
+    "known_lessons": "A complete module write is not the carried residual state; absolute downstream clamps must not be implemented as deltas; a final-state patch is a positive-control interface rather than localization evidence.",
+    "novelty": "Cross each fixed upstream oracle with the absolute complete residual state at thirteen ordered boundaries while leaving x0 and recurrent attention state native, exposing reconstruction versus persistent carriage."
+  },
+  "frozen_design": {
+    "experts": ["A1_oracle", "A2_oracle"],
+    "evaluation": "Opposite-parity fixed oracle projectors; v15 A1/A2/P/C only; no refit, gain, or outcome-selected boundary.",
+    "boundaries": ["entry12", "post_attn12", "post_mlp12", "post_attn13", "post_mlp13", "post_attn14", "post_mlp14", "post_attn15", "post_mlp15", "post_attn16", "post_mlp16", "post_attn17", "post_mlp17"],
+    "cells": {"00": "upstream off/state from off", "01": "upstream off/state from on", "10": "upstream on/state reset from off", "11": "upstream on/state from on"},
+    "intervention": "Replace the complete residual tensor through each row's semantic position at exactly one boundary; x0 and recurrent attention state v1 remain native to the execution.",
+    "accounting": "Rowwise margin rescue, reset loss, bypass, and Mobius interaction; cellwise P/C KL and flips. Report every boundary in fixed serial order.",
+    "lockin_rule": "The earliest boundary through post_mlp16 for which reset and rescue both clear .75 projection/.875 direction in every expert/parity own-target cell and every later boundary through post_mlp17 also clears those bars.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 120, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 10000, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_closure_finiteness_and_price": "All hashes, native/self replays, row coverage, factorial closures, finiteness, exact 120-forward count, and literal price pass.",
+    "pred_b_entry12_residual_state_carries_upstream_effect": "Entry12 reset and rescue each project >=.75 with direction fraction >=.875 in every expert/parity own target.",
+    "pred_c_final_residual_state_closes_logit_route": "Post-MLP17 reset and rescue each project >=.95 with direction fraction >=.875 in every expert/parity own target.",
+    "pred_d_stable_preterminal_lockin_boundary_exists": "The frozen lock-in rule selects a boundary no later than post-MLP16.",
+    "pred_e_lockin_boundary_is_control_selective": "At the selected boundary, reset and rescue add zero P/C flips and changed-versus-background mean KL <=.02 in every expert/parity cell."
+  },
+  "decision": "A or C failure invalidates the instrument. B failure identifies carriage in an unpatched auxiliary state or unexpected downstream reconstruction. D selects the earliest stable state interface for reader localization; D failure identifies diffuse/recurrently reconstructed state. E gates selective promotion but does not erase localization.",
+  "closed_claims": ["semantic identity of a residual coordinate", "OOD transfer", "DAS rank", "compression", "adoption"]
+}

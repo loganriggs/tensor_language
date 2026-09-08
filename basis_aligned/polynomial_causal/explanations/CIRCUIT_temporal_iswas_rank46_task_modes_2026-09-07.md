@@ -487,6 +487,26 @@ the small branch is not OOD-stable.  The dominant `.919-.943` effect remains aft
 whole attention-15 response and must be localized through carried residual state and downstream
 module writes.
 
+The complete layer-12--17 attention/MLP write atlas returns the valid terminal
+`direct_residual_carry`.  Installing all twelve coherent upstream-off writes into the
+upstream-on execution removes only `.141-.207` of the own-target effect, and installing all twelve
+upstream-on writes into the upstream-off execution rescues only `.127-.210`; direction fractions
+are `1.0`, so the small effect is aligned but insufficient.  No singleton module is stable above
+the registered `.10` reset bar in all four expert/parity cells.  MLP13 is the top reset singleton
+everywhere (`.082-.117`), while MLP17 contributes a large opposing effect (`-.037` to `-.130`).
+The singleton sum is directionally close to the joint write bank (cosine `.984-.997`) but misses
+the relative-L2 composition bar in two cells (`.498` and `.270`).  Exact rowwise closure and
+self-clamp replay are zero, native replay error is `1.43e-5`, and the price is exactly 120 forwards.
+
+This rejects a greedy union of downstream module writes and sharpens the circuit object: most of
+the construction-specific upstream effect travels in the residual state around those module
+writes, while small aligned and opposing write corrections modulate it.  The next prospective
+atlas patches the complete residual state at the layer-12 entry and after each attention/MLP update
+through layer 17.  It will locate the earliest boundary after which reset/rescue stays strong,
+while leaving the embedding skip and recurrent attention state native; failure at an early boundary
+therefore measures downstream reconstruction through those alternate state paths rather than being
+silently pooled away.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -556,6 +576,10 @@ module writes.
 - Layer-15 head/module mediation:
   `temporal_iswas_v15_attention15_head_module_mediation_atlas_v1_result.json` (valid bypass null;
   L15H5 is the top but small singleton, while the complete module fails the 10% mediation gate).
+- Residual-suffix complete-write mediation:
+  `temporal_iswas_v15_residual_suffix_module_mediation_atlas_v1_result.json` (valid direct-residual
+  carry null; the joint layer-12--17 write bank mediates only `.141-.207` reset and `.127-.210`
+  rescue, with no stable singleton module).
 
 ## Remaining gates
 
@@ -564,8 +588,8 @@ module writes.
 2. Capability-qualify a genuinely new cue construction, then fit a multi-environment causal-response
    object on complete constructions while keeping the new construction sealed.  Retain DIM, step
    zero, and exact-factor programs as controls.
-3. If the multi-environment fixed projector remains construction-specific, replace it with an
-   input-conditional/nonlinear causal-response object whose held-out blocks are complete constructions
-   and downstream readers; do not merely widen the same coefficient grid.
+3. Localize the dominant direct residual carry at successive layer-12--17 residual-state
+   boundaries.  Only after a stable causal state boundary is known should an input-conditional or
+   nonlinear response object and its downstream readers be tested; do not widen the same DAS grid.
 4. Test joint composition when temporal and is–was commands are installed together.
 5. Price an extracted executor only after these identification gates pass.
