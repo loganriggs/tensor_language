@@ -17269,3 +17269,10 @@ the corrected split A11 reader/write hooks and reports a dead transferred writer
 focus, ceremony budget, and novelty gates. Next: freeze the executor hash, bind only this immutable
 capability receipt, enqueue once through the managed lane, and consume the physical edge result.
 Review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-08_1522.md`.
+
+### 2026-09-08T15:27Z — Codex: IMMUTABLE V17 EDGE BINDING CREATED
+Bound only the all-pass sealed capability receipt SHA-256 `53e89054...` to reviewed causal runner
+SHA-256 `2e26d39f...` and frozen prior SHA-256 `eac92572...`. The binding records terminal `screen`,
+all predictions true, and `causal_outcomes_opened=false`; the runner independently recomputes all
+of those conditions before model access. No row, arm, threshold, source, or terminal branch changed
+after capability. Model-free eligibility now must report `eligible` before managed enqueue.
