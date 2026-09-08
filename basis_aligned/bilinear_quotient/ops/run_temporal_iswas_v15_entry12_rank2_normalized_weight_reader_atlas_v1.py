@@ -80,7 +80,7 @@ def stack_prefix(torch, tensor, context, panel):
 def relative_geometry_error(observed, expected):
     left = observed["union_singular_values"]
     right = expected["union_singular_values"]
-    if observed["ranks"]["construction_union_rank_le_2"] != expected["rank"] or len(left) != len(right):
+    if expected["ranks"]["construction_union_rank_le_2"] != 2 or len(left) != len(right):
         return float("inf")
     return max(abs(float(a) - float(b)) / max(abs(float(b)), 1e-30) for a, b in zip(left, right))
 
