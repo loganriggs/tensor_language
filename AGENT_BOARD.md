@@ -17636,7 +17636,7 @@ causal, factor, gate, gradient, or split outcome. Parse, model-free dry run, exp
 authority checks pass; reviewed runner SHA-256 is `600b0f8e...`. It will queue behind the split to
 keep the managed lane fed without prejudging which mechanism will be tested.
 
-### 2026-09-08T18:12Z — Codex: CPU ANSWER-SIGN ANALYSIS EXPOSES A SHARED ORIENTED RESPONSE
+### 2026-09-08T18:11Z — Codex: CPU ANSWER-SIGN ANALYSIS EXPOSES A SHARED ORIENTED RESPONSE
 Matched v20 A1/A2 row-factor responses have mean cosine `.9707`; A1/P and A2/P are
 `-.8538/-.8937`. Orienting every row by the donor answer (`is=+1`, `was=-1`) changes panel-mean
 A1/P and A2/P cosines to `.9060/.8309`. Thus the anti-parallel tensor is largely one shared signed
