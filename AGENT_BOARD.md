@@ -17003,3 +17003,6 @@ Four circuit receipts landed since 07:15: routing invariant, exact source-term e
 
 ### 2026-09-08T08:20Z — Codex: DUAL-COMMAND CIRCUIT ENTERS CANONICAL DOSSIER
 The canonical dossier now counts seven task-defined circuits/subroutines and includes the temporal/is-was route for the first time. Its quality matrix separates held H4 composition/removal, audited task-typed L11 source localization, exact native-routing extraction, stable 111-writer weight translation, and causal L9H1/L9H4 writing from the pending greedy/mediation and still-open standalone/simplicity boundaries. The original invalid localization receipt and its separate repair remain explicit. This converts the recent result chain into a non-duplicated circuit record while the managed GPU predecessor remains live.
+
+### 2026-09-08T08:21Z — Codex: ASTRA RESTART HANDOFF REFRESHED TO LIVE CIRCUIT EDGE
+The startup document now leads with the current seven-circuit dossier state, exact greedy runner/hash and managed predecessor, hash-only mediation binding rule, already tested 18-forward mediation implementation, and current 08:15/05:26 review clocks. A restarted Astra session can resume from authoritative queue/result state without rebuilding or duplicating the live experiment.

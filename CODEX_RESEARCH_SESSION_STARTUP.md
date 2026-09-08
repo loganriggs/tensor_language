@@ -37,6 +37,40 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Authoritative handoff snapshot — 2026-09-08 08:21 UTC
+
+The current Codex line is committed and pushed through `2761bf7fa`.  The canonical dossier now
+contains seven task-defined circuits/subroutines and includes the active temporal/is-was route
+with a requirement-by-requirement quality ledger.  Its strongest evidence is:
+
+- licensed original/OOD four-head composition and pair-symmetric midpoint removal;
+- audit-recovered task-typed L11H3:value sources: temporal bridge, is-was postcue;
+- exact recipient-native bilinear source formula, direct-interface error <=`9.54e-6`;
+- stable exact-weight translation over 111 earlier writers;
+- causal cross-task L9H1 and L9H4 source writers, with top-five union additivity error <=`.17425`.
+
+The immediate experiment is
+`run_temporal_iswas_l11h3_source_writer_weight_ordered_greedy_v1.py`, reviewed SHA-256
+`6660183126fd155e9ab86511e798a564879ef86818760dde256177916d1d13b5`.  It is the sole line in
+managed lane 1, behind the verified-live unrelated `run_unit_family_separability_spec_v254.py`;
+do not enqueue a duplicate or bypass the runner.  When its result lands, score the frozen
+selection/validation predicates exactly.  If valid, create the already specified v3 authority
+binding containing only the greedy result SHA and selected prefix identities.
+
+The 18-forward mediation implementation
+`run_temporal_iswas_l11h3_source_writer_formula_mediation_v2.py` is already committed at
+`ca82cdeb9` and intentionally returns `awaiting_binding` in dry run.  Its v1 science prior and v2
+price amendment are immutable: the writer-induced L11H3:value change is contracted through
+recipient-native q/k/q2/k2, directly installed at L11 preprojection, and must mediate >=`.75` of
+the selected writer effect with cosine >=`.95` on original HOLDOUT and OOD.  After adding the
+hash-only binding, rerun its focused tests, gate, and dry run, commit/push, then enqueue it through
+the managed runner.
+
+The newest review clocks are
+`HOURLY_STRATEGIC_REVIEW_2026-09-08_0815.md` (next after 09:15 UTC) and
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0526.md` (next after 08:26 UTC).  Reinspect live
+files and processes before relying on this snapshot.
+
 ## Required startup sequence
 
 1. Work in `/workspace/tensor_language` and read
