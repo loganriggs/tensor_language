@@ -1,0 +1,45 @@
+{
+  "schema": "temporal_iswas_l11h3_value_source_region_localization_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.l11h3_value_source_region_localization_v1",
+  "registered_utc": "2026-09-08T06:49:00Z",
+  "question": "Which semantic source region supplies the command contrast read through the causally identified L11H3 value input, and is that source region stable across tasks and fresh text?",
+  "authority": {
+    "reader_factor_result_sha256": "5a1f121d82d799292613d7e386a3d16429457c80ba55a56aaca58a3386118b9b",
+    "selective_removal_result_sha256": "0e690ba19032b33abd93dbecc00a9a649eb12764aa8916caea03b27a5c9254ea",
+    "ood_h4_result_sha256": "a040a70cbe92728155f4e5affc232db194089e7b5ea501ab9c96f9ad164f45bd"
+  },
+  "frozen_design": {
+    "populations": "Use all 128 original and all 128 fresh OOD endpoints. For each role, pair only the exact command counterfactual and require all changed prefix tokens to form one contiguous cue span before the answer query.",
+    "regions": {
+      "precue": "Positions strictly before the first changed cue token; this is a causal negative control because paired prefixes are identical there.",
+      "cue_span": "All one or two changed cue-token positions.",
+      "bridge": "Unchanged positions strictly after the cue span and before the answer query.",
+      "query": "The single answer-query position.",
+      "postcue": "The union of bridge and query.",
+      "full_prefix": "Cue span, bridge, and query together, exactly reproducing the licensed L11H3:v-prefix intervention."
+    },
+    "intervention": "Replace only the 128-wide L11H3 c_v slice at the named native-donor positions. Q/K/Q2/K2 and every other value slice stay native. There is no projection, fitting, learned mask, DAS optimization, or source-position search.",
+    "partition_bar": "For every population x role x phase x template, the sum of cue-span, bridge, and query effects predicts the full-prefix effect with relative L2 <=.15 and cosine >=.99. Pre-cue max absolute target and non-target effects are <=1e-5.",
+    "selection_and_validation": "For each role separately, select exactly one of cue_span/bridge/query/postcue by maximum parent-relative signed recovery on pooled original FIT, breaking ties by arm name. Open original HOLDOUT and both OOD phases only afterward. The frozen selected region must have parent-relative recovery >=.50, cosine >=.80, and direction agreement >=.75 in all three validation panels.",
+    "shared_region_bar": "Temporal and is-was select the same semantic region and both pass every validation panel. A mismatch is a task-typed source-routing result, not an invalid instrument.",
+    "selectivity": "Every selected/full-prefix pooled panel has cross-role/gold norm <=.01; later is-was interventions have max absolute earlier-temporal effect <=1e-5.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 26,
+      "sequence_evaluations": 3328,
+      "scored_token_positions": 6656,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_pairing_region_coverage_full_replay_finiteness_and_exact_price": "All authorities, contiguous cue spans, disjoint/exhaustive prefix regions, capture/call counts, original full-prefix replay, finiteness, and literal price pass.",
+    "pred_b_value_source_regions_compose_and_precue_is_causally_inert": "Every registered partition/additivity bar passes and pre-cue effects are numerically zero.",
+    "pred_c_fit_selected_source_region_validates_original_and_ood": "Each role's original-FIT-selected region passes all original-HOLDOUT and OOD validation bars without reselection.",
+    "pred_d_temporal_and_iswas_reuse_one_semantic_value_source_region": "Both roles select the same semantic region and validate it everywhere.",
+    "pred_e_source_localization_is_task_selective_and_causal": "All selected/full-prefix collateral and later-to-earlier bars pass."
+  },
+  "null": "If A passes but B fails, value-source contributions are materially nonlinear downstream and singleton-region attribution is not compositional. If C fails, L11H3:v remains a causal reader but has no stable localized source region. If D alone fails, preserve two task-typed source routes. Do not merge regions, tune cut points, or fit a mask after outcomes.",
+  "decision": "A/B/C/D/E identifies a shared upstream source region feeding the L11H3 value reader across tasks and text shifts. A/B/C/E with D false identifies separate task-typed source regions. Either stable result opens key-side partner testing; a C failure routes to response-defined source grouping rather than DAS."
+}
