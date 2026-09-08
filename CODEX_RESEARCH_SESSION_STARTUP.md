@@ -68,7 +68,7 @@ the managed runner.
 
 The newest review clocks are
 `HOURLY_STRATEGIC_REVIEW_2026-09-08_0815.md` (next after 09:15 UTC) and
-`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0526.md` (next after 08:26 UTC).  Reinspect live
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0826.md` (next after 11:26 UTC).  Reinspect live
 files and processes before relying on this snapshot.
 
 ## Required startup sequence
