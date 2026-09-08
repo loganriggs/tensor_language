@@ -111,6 +111,40 @@ the review.
 
 ## Authoritative restart delta at 2026-09-07 23:00 UTC
 
+### Live continuation at 06:55 UTC on 2026-09-08
+
+The four-head temporal/is-was program has now passed the confirmation stages that were still
+pending in the 05:55 handoff:
+
+- `L9H1 + L9H4 + L11H3 + L15H5` passed simultaneous joint composition on the original bank;
+- the frozen dual-command OOD authority passed native capability in 31/32 cells at 8/8 and one
+  cell at 7/8, then the same four-head program passed the prospective OOD joint-composition bars;
+- a registered H4 midpoint clamp selectively removed the intended half-command effect on original
+  and OOD rows with unit reduction, direction preservation, low collateral, and additive joint
+  removal.  This upgrades the H4 addition from a predictive screen to a manipulable program
+  component for this intervention family;
+- the reader-factor split showed that `L11H3:v` is the strong stable reader, while the proposed
+  `L15H5:q/q2` explanation failed: q is anti-causal, q2 is weakly positive, and their combination
+  largely cancels.  Preserve that falsification; do not use the dominant L11 effect to rescue the
+  L15 interpretation.
+
+The newest source-localization receipt,
+`basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_l11h3_value_source_region_localization_v1_result.json`,
+returned terminal `invalid`.  Its region selections (`bridge` for temporal and `postcue` for
+is-was) are not yet claimable because prediction A failed: the runner compared a parent-relative
+full-effect cosine to an older command-gold cosine, producing an apparent replay error.  Preserve
+the immutable invalid receipt.  The immediate continuation is a small hash-bound replay audit
+that recomputes the like-for-like command-gold metrics before interpreting B--E; do not silently
+change A or retro-pass the original result.
+
+At this checkpoint `gpt-6-astra` is the configured Codex default and is visible in the account
+catalog.  Both `bqrunner` services are Supervisor-managed and healthy; their queues are currently
+drained after the localization job.  The latest clocks are
+`HOURLY_STRATEGIC_REVIEW_2026-09-08_0615.md` (next review after 07:15 UTC) and
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0526.md` (next review after 08:26 UTC).
+Inspect Git, files, runner logs, and queue state before acting because they remain authoritative
+over this prose.
+
 ### Live continuation at 05:55 UTC on 2026-09-08
 
 The composition branch has advanced past the 04:42 prerequisite state:
