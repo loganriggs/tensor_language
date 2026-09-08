@@ -17594,3 +17594,14 @@ without fit, gradient, reorder, or dose change. In addition to recovery/cosine/d
 bars, it registers downstream finite-dose relative-vector error <=`.10` between gain-1.25 and
 `1.25 *` gain-1 effects. Exact price is 32 forwards/512 sequences. Parse, model-free dry run,
 static experiment gate, and authority checks pass; reviewed runner SHA-256 is `265a6619...`.
+
+### 2026-09-08T17:46Z — Codex: V20 CONFIRMS TARGET CORE BUT FAILS PARAPHRASE SELECTIVITY
+Valid result SHA-256 `7d3981cf...`, terminal `fixed_program_nonselective_or_unstable`, passes
+A/B/D/E and fails C. On pristine A1/A2, the frozen top-16+gain-1.25 program recovers
+`.8344/.8470`, cosine `.9900/.9946`, direction `1/1`, and has only `.0126` recovery gap.
+Finite-dose vector error is `.00132/.00214`, so scalar linearization is not the failure. C is
+small (`.0193` target-normalized RMS), but same-answer temporal paraphrase P is `.6633` and the
+top-16 reproduces `.9417` of full M11 P effect with cosine `.9936`. This identifies a stable
+temporal reader core, not a selective answer-decision circuit. Next form the exact v20
+panel-by-row-by-native-factor downstream-response tensor and distinguish shared context-signed
+factors from a splittable answer-changing branch before any revised subset is promoted.
