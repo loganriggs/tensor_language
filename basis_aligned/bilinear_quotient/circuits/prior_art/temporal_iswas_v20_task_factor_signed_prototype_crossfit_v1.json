@@ -1,0 +1,59 @@
+{
+  "schema": "temporal_iswas_v20_task_factor_signed_prototype_crossfit_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_task_factor_signed_prototype_crossfit_v1",
+  "created_utc": "2026-09-08T18:27:00Z",
+  "question": "Does the exact weight-folded task-functional response tensor organize held-out rows as two discrete points, +q and -q, selected by the answer orientation?",
+  "evidence_status": "CPU-only post-v20 diagnostic screen. Passing identifies a cross-fitted signed response coordinate, not its native selector and not a causal repair.",
+  "prior_art_and_novelty": {
+    "searched": [
+      "v17 restricted weight tensor and v18/v19 transfer records",
+      "v20 task-functional response tensor, answer-sign analysis, selectivity lower bound, and binary-factor crossfit",
+      "current hourly and mathematical reviews plus AGENT_BOARD shared-subspace claims"
+    ],
+    "nearest_result": "The answer-sign analysis aligned in-sample panel means but did not fit on one document split and predict individual rows on the other.",
+    "novelty": "This test cross-fits a literal two-point computational model on exact downstream-response vectors and scores held-out rows. It changes the circuit specification decision between a discrete signed carrier and a higher-order or position-dependent restricted tensor; it is not a PCA/SAE rank or variance sweep."
+  },
+  "immutable_authority": {
+    "response_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "response_tensor_result_sha256": "da97abea6f3dae8721c2cda383e0b7af844217051e199046a23c6b9c264da396",
+    "v20_builder_sha256": "cafe9120c4ba8fdbeff27c5a2d05a247c2000641fd401529a4ca0a089137d1d9",
+    "answer_sign_analysis_sha256": "09b2b5e58a8b5990a905707835f5424696cfeb7ac83fbfa18578ff24377540e1"
+  },
+  "method": {
+    "panels": ["A1", "A2", "P"],
+    "folds": ["even_group_fit_to_odd_group_test", "odd_group_fit_to_even_group_test"],
+    "row_vector": "Normalize each Q[panel,row,:] to unit L2 norm.",
+    "orientation": "+1 when donor_answer is ' is' and -1 when donor_answer is ' was'.",
+    "fit": "q is the unit-normalized mean of orientation*row_vector over all three panels and all fit rows.",
+    "prediction": "For a held-out row, predict row_vector = orientation*q without using its Q values.",
+    "control": "Fit and predict an otherwise identical unsigned prototype with no answer orientation.",
+    "stability": "Measure cosine between the two independently fitted signed prototypes."
+  },
+  "predictions": {
+    "pred_a_authority_shape_row_identity_sign_formula_finiteness_and_exact_price": "All hashes, 4x16x4608 shape, panel order, builder row IDs, donor-answer signs, finiteness, folds, and operation counts match exactly.",
+    "pred_b_signed_two_point_model_predicts_each_heldout_panel": "On both folds and each of A1/A2/P, mean held-out cosine is >=0.80, minimum cosine is >=0.60, and at least 7/8 row cosines are positive.",
+    "pred_c_signed_coordinate_is_crossfit_stable_and_beats_unsigned_control": "The two signed prototypes have cosine >=0.90, pooled signed mean held-out cosine exceeds pooled unsigned mean by >=0.50, and each fold improves by >=0.45.",
+    "pred_d_scope_remains_a_diagnostic_screen": "No model, GPU, v21 outcome, causal gate, selector, subset, or intervention is opened."
+  },
+  "opposing_outcomes": {
+    "signed_discrete_carrier_screen": "A-D pass. Treat +/-q as a held-out computational specification for the shared carrier and use the H/R split to locate the native sign selector.",
+    "higher_structure_required": "A and D pass but B or C fails. Reject the two-point model and test positionwise, construction-keyed, hierarchical, or sparse restricted-tensor structure after the H/R split.",
+    "invalid_instrument": "A fails; do not interpret B/C."
+  },
+  "bars": {
+    "per_panel_mean_cosine": 0.80,
+    "per_panel_minimum_cosine": 0.60,
+    "per_panel_positive_fraction": 0.875,
+    "crossfit_prototype_cosine": 0.90,
+    "pooled_improvement_over_unsigned": 0.50,
+    "per_fold_improvement_over_unsigned": 0.45
+  },
+  "literal_price": {
+    "gpu_forwards": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "prototype_fits": 4,
+    "heldout_row_predictions": 96,
+    "fitted_vector_values_per_prototype": 4608
+  }
+}
