@@ -1,0 +1,40 @@
+{
+  "schema": "temporal_iswas_v23_l8h1_layerwise_transport_localization_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_l8h1_layerwise_transport_localization_v1",
+  "registered_utc": "2026-09-08T21:41:00Z",
+  "question": "Which of blocks 9, 10, and 11 converts the confirmed L8H1 write into the sparse occupied M11 reader mode?",
+  "evidence_status": "Prospective. L9H1/H4 boundary outcomes are open, but no v23 L8H1 boundary state or transport score has been opened.",
+  "authority": {
+    "l9_transport_result_sha256": "e5adbee64bd46f58419ed95863f6c0466d46a9460e889435e0b2ee2807c80a70",
+    "l11_rms_transport_result_sha256": "3d1c87d9dfe81985497c045db9a1cb567e5c0f88d518f4ef880fadba6d6f950b",
+    "restricted_weight_tensor_sha256": "9b553f42e708f1612fd90a934e0d26783b935457156f4856bc4b69f60df37892",
+    "builder_sha256": "a4830fd110b8cd854a5f28bfae776f697a15d4f791355990e02ea030fdca4c05"
+  },
+  "frozen_design": {
+    "route": "L8H1",
+    "boundaries": ["block9_input_after_block8", "block10_input_after_block9", "block11_input_after_block10", "block11_post_attention_raw", "M11_normalized_input"],
+    "measurement": "Use the same identity-carry diagnostic as the sealed L9 experiment: add each patched-minus-base residual delta to the base block11 post-attention raw state, then apply exact RMS/M11 and project into the frozen reader basis. The actual post-attention raw and normalized boundaries are closure controls.",
+    "controls": "Score the frozen 30 target rows, P, C, and two reporter halves separately. No boundary, rank, coordinate, or dose is selected before outcomes.",
+    "price": {"checkpoint_loads": 1, "model_forwards_exact": 4, "sequence_evaluations_exact": 256, "transformer_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+  },
+  "bars": {
+    "self_patch_max_abs": 0.0001,
+    "raw_and_normalized_closure_max_abs": 0.002,
+    "boundary_cosine_min": 0.90,
+    "boundary_relative_residual_max": 0.25,
+    "half_cosine_min": 0.90
+  },
+  "predictions": {
+    "pred_a_authority_hooks_boundaries_closures_finiteness_and_exact_price": "All hashes, hook counts, closures, self no-op, finiteness, and four-forward price pass.",
+    "pred_b_L8H1_localizes_before_block11_attention": "At least one of block9, block10, or block11 input passes cosine >=.90 and residual <=.25.",
+    "pred_c_block10_or_earlier_is_sufficient": "Block9 or block10 input passes, placing the essential conversion no later than block9.",
+    "pred_d_earliest_boundary_is_split_stable_and_selective": "The earliest passing boundary has >=.90 cosine in both reporter halves and actual P/C projected-response RMS below target RMS."
+  },
+  "opposing_interpretations": {
+    "block8_write_ready": "Block9 input passes: L8H1 emits the transferable variable directly.",
+    "block9_converter": "Block10 input first passes: block9 converts L8H1 into the shared transport interface.",
+    "block10_or_11_converter": "Only block11 input or post-attention raw passes: later computation is essential and must be grouped with L8H1.",
+    "distributed_transport": "Only the normalized closure passes: retain a multi-block state-dependent transport rather than a single edge."
+  },
+  "decision": "The earliest stable selective boundary completes the writer-side transport specification for the fourth confirmed head, after which the program moves to necessity/removal and M11 rescue."
+}
