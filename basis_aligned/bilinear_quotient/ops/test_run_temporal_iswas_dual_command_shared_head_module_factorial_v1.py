@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import importlib
+import math
 from pathlib import Path
 import sys
 import unittest
@@ -46,6 +47,10 @@ class DualCommandSharedHeadRunnerTests(unittest.TestCase):
                            ("producer", runner.PRODUCER)):
             self.assertEqual(runner.sha(path), runner.EXPECTED[name])
         self.assertEqual(runner.EXPECTED["capability"], "PENDING_CAPABILITY_RESULT_SHA256")
+
+    def test_recursive_finiteness(self):
+        self.assertTrue(runner.finite_structure({"x": [1.0, 2, True]}))
+        self.assertFalse(runner.finite_structure({"x": [math.inf]}))
 
 
 if __name__ == "__main__": unittest.main()

@@ -55,6 +55,12 @@ PREDICTION_KEYS = (
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def finite_structure(value):
+    if isinstance(value, dict): return all(finite_structure(item) for item in value.values())
+    if isinstance(value, (list, tuple)): return all(finite_structure(item) for item in value)
+    return not isinstance(value, float) or math.isfinite(value)
+
+
 def endpoint_bank(rows):
     endpoints = [(row, cell, row["endpoints"][cell]) for row in rows for cell in candidate.CELLS]
     lookup = {(row["row_id"], cell): index for index, (row, cell, _endpoint) in enumerate(endpoints)}
@@ -195,8 +201,7 @@ def main():
         for i, pair in enumerate(pair_indices(endpoints, lookup, role)))
     capture_ok = set(captures) == {9, 11, 15} and all(
         tuple(value.shape[:2]) == (128, maximum) and value.shape[2] == 1152 for value in captures.values())
-    finite = all(math.isfinite(record[key]) for record in records
-                 for key in ("target_effect", "target_gold", "non_target_effect"))
+    finite = finite_structure({"records": records, "reports": reports, "additivity": additivity})
     A = bool(authority and config == EXPECTED_CONFIG and pairing_ok and position_pairing_ok
              and capture_ok and finite and len(records) == 14 * 128 and counters == PRICE)
     material_modules, admitted_heads = {}, {}
