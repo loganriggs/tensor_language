@@ -17223,3 +17223,16 @@ null closes this bank without causal inspection or post-outcome text repair. Thr
 parse, static experiment gate, model-free dry run, and shared fast suite pass. Reviewed runner
 SHA-256 is `1ae08738956b6bb5a76ddff87c9e2a74c1d3f56b6f929e3c718caf5314936725`.
 Both managed lanes were empty at the last authoritative check; enqueue only this exact hash.
+
+### 2026-09-08T15:10Z — Codex: READER LOSS/RESCUE PRIMITIVE READY; WEIGHT-RESTRICTED OBJECT FIXED
+During the verified v262 wait, shared `ops/module_reader_loss_rescue.py` now captures normalized
+argument-0 readers and complete module outputs, replaces only registered row/positions, permits
+output rescue only after the same module's reader loss, verifies one-call coverage, and always
+removes hooks. A causal-order toy proves A11-then-M11 individual/joint loss and exact same-module
+rescue; invalid geometry and unmatched rescue fail closed. Three focused tests, library gate,
+parse, and shared fast suite pass; library SHA-256 `dccbcb3881f9bf49074a8968fb27a9d10a18c9d193c6eb6793a3b1c07b82dac0`.
+The weight-translation contract now records the user-specified next object: for a causally admitted
+shared basis U, analyze `U^T W_write`, `W_read U`, and the exact restricted bilinear core
+`sum_i (U_out^T D)[a,i](L U_in)[i,b](R U_in)[i,c]`; data estimates reachability, while weights
+define possible computation and factor interventions decide circuit status. No PCA/SAE/HT sweep
+opens before the directed edge gate. V17 capability remains queued once behind verified-live v262.

@@ -66,6 +66,53 @@ This is how repeated task subspaces become concrete upstream-writer and downstre
 The weight tensors reduce the search space and make the proposed computation legible; causal
 cross-installation decides whether the shared span is genuinely one reusable subcomputation.
 
+## Weight-restricted tensor after a shared causal subspace is identified
+
+There are two different objects and they should not be conflated. Activation PCA/SAE on a corpus
+describes the states that happened to occur in that corpus. If interchange and removal first
+identify a shared residual-space interface `U in R^[d,k]`, folding `U` into checkpoint weights
+instead defines the computation available through that interface on every algebraically possible
+coordinate, whether or not the current corpus visits it.
+
+For a writer matrix `W_write in R^[d,m]` and reader matrix `W_read in R^[n,d]`, form
+
+```text
+W_write_to_U = U^T W_write       in R^[k,m]
+W_read_from_U = W_read U         in R^[n,k].
+```
+
+These restricted tensors expose which native writer coordinates can enter the shared variable and
+which downstream coordinates can read it. Stack them across causally admitted writers/readers only
+after matching scale, normalization frame, and execution order. Sparse support, clustering, SVD,
+or a hierarchy in these weight-defined arrays is then a hypothesis about the checkpoint computation,
+not merely about dataset frequency.
+
+For a bilinear MLP with `L,R in R^[m,d]`, `D in R^[d,m]`, an identified input basis
+`U_in in R^[d,k]`, and output basis `U_out in R^[d,q]`, the exact restricted core is
+
+```text
+T[a,b,c] = sum_i (U_out^T D)[a,i] (L U_in)[i,b] (R U_in)[i,c]
+           in R^[q,k,k].
+```
+
+This is the appropriate object for CP/Tucker/hierarchical-Tucker or sparse/discrete-support
+analysis. Attention supplies analogous restricted Q/K and O/V contractions. A hierarchical or
+few-point decomposition is useful only if its factors predict held-out activations and survive
+factor-specific swaps/removals; operator reconstruction or low rank alone is not circuit evidence.
+
+Dataset activations remain useful as a reachability measure. After the weight-defined object is
+fixed, project fresh states into `U` to estimate which coordinates and branches are actually
+visited, use SAE/PCA/hierarchical SAE as competing descriptions of that support, and test whether
+the inferred reachable subset predicts interventions on unopened rows. Thus weights define the
+possible computation, data estimate its reachable domain, and causal experiments decide which
+factorization corresponds to an operational circuit.
+
+Executable consequence: once the sealed A11/M11 reader-loss and complete-output-rescue test admits
+an edge, save the exact `U^T W_write`, `W_read U`, and applicable bilinear core above. Compare a
+flat factorization against a hierarchical one with literal parameter/contraction prices, then
+intervene on their matched factors. Until that edge gate passes, do not spend the primary circuit
+budget fitting PCA/SAE/HT variants to the already opened P7 activations.
+
 ## Executable continuation
 
 The model-free implementation is now
@@ -97,7 +144,7 @@ blocks. The full Bilin18 module inventory is 180 writer tensors and 846 reader t
 are an explicit optional upstream source. This causal filter prevents a large static alignment from
 naming an impossible backward or same-stage edge.
 
-Result-conditioned branch binding is implemented model-free in
+The earlier result-conditioned branch binding is implemented model-free in
 `basis_aligned/bilinear_quotient/ops/p7_identity_split_binding.py`. Before the necessity result it
 returns `awaiting_result` and writes nothing. After the immutable result lands, invoke it from the
 `ops` directory, inspect the returned payloads, commit the newly created binding files, rerun each
@@ -105,10 +152,10 @@ eligible executor's model-free dry run, and enqueue only its reviewed hash. The 
 necessity runner, both branch-runner hashes, exact P7/schema/prediction keys, and consistency between
 the stable-module list and derived B/C/D predicates; it never creates an ineligible branch.
 
-- Consume the immutable P7 module-necessity receipt.
-- If A11/H3 passes, store its exact `W_O`-contracted per-row writes and rank downstream reader
-  contractions, then preregister the top physical reader edge before testing it.
-- If M11 passes, store all three `Down`-contracted write tensors and test which factors downstream
-  readers accept; preserve a failed interaction or linear factor as an exact null.
-- Compare passing A11/M11 output tensors for a shared response span only after causal factor results
-  land. Do not fit a shared DAS basis on this already opened OOD bank.
+The immutable LOO result subsequently made both old conditional splits ineligible, while the exact
+source-conditioned effect game nominated A11 and M11 through a different operational test. The live
+continuation is therefore the sealed v17 normalized-reader loss plus complete-output rescue test,
+using `ops/module_reader_loss_rescue.py`; it does not reopen the closed LOO branches. If A11/M11
+pass that directed edge gate, store their exact restricted write/read tensors and bilinear core as
+above. If they fail, preserve the edge null and retain the Shapley result only as a distributed
+dependence allocation. Do not fit a shared DAS/PCA/SAE/HT basis on the already opened P7 bank.
