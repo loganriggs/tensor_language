@@ -1,0 +1,22 @@
+{
+  "schema": "temporal_iswas_v23_rank1_shared_context_leave_one_head_out_v1_interpretation_audit",
+  "audited_result_sha256": "821c97b231d9e0337380e015906f5c74672caa91b0ebd9db492618b5da1a62dc",
+  "audited_utc": "2026-09-08T23:42:00Z",
+  "verdict": "invalid_instrument_do_not_interpret_scientific_predictions",
+  "failed_clause": "pred_a_authority_shapes_replay_certificates_gauge_invariance_and_zero_forward_price",
+  "observed": {
+    "certificate_max_abs": 0.046875,
+    "registered_max_abs": 0.00002,
+    "reconstruction_max_abs": 2.384185791015625e-7,
+    "private_gauge_max_abs": 5.960464477539063e-8,
+    "raw_gram_replay_abs": 6.974637134504746e-8
+  },
+  "diagnosis": "The implementation subtracts two large float32 squared-energy totals when comparing the explicitly reconstructed tail error with the discarded-singular-value optimum. The exact reconstruction and gauge checks pass, but the absolute certificate bar was registered and is not relaxed. The visible B/C/D values are therefore quarantined.",
+  "prospective_repair": "Preserve the immutable maps, rank one, equal component weights, four leave-one-head-out folds, seeds, random controls, scientific bars, predictions, and zero-forward price. Change only the decomposition arithmetic to preserve a caller-supplied float64 dtype, load the same float32 checkpoint artifact exactly into float64, and rerun under a new v2 namespace with the unchanged 2e-5 absolute certificate bar.",
+  "prohibited": [
+    "retrospectively passing A using relative error",
+    "relaxing the 2e-5 absolute bar",
+    "changing rank or component weights",
+    "using the visible B/C/D values to tune any scientific threshold"
+  ]
+}
