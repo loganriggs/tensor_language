@@ -460,6 +460,21 @@ projector-on/live-attention arm can open an L15H5-specific reset/rescue.  P cont
 the existing parity-0 flips mean this dependency test localizes the reader path but cannot by itself
 promote a selective full circuit.
 
+The live-attention dependency factorial is now valid and returns `live_attention_route_candidate`.
+All six registered predictions pass.  With native layer-15 attention, the A1 oracle preserves
+signed target projections `.774/.747` across held parities and the A2 oracle preserves
+`.750/.717`; every own-target direction fraction is `1.0`.  These are respectively at least 89%
+and 91% of the matching fixed-attention effects.  The rowwise interaction is small relative to the
+full response, and the live-attention arms have no worse P/C flips or mean KL than their fixed
+backgrounds.  The reused v16 intervention also passes its registered retention and direction gates.
+
+This establishes a native live-attention route for the fixed construction-specific upstream
+coordinates, but it does not yet establish that layer 15, L15H5, or any Q/K/V factor mediates that
+route: the upstream effect may still travel through the residual skip.  A hash-bound zero-model
+gate therefore admitted the preregistered complete layer-15 module plus nine-singleton-head
+reset/rescue atlas.  It will measure whole-module mediation before ranking heads, and will license a
+greedy head union only if the sum of singleton reset losses approximates the module reset loss.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -521,6 +536,11 @@ promote a selective full circuit.
   `temporal_iswas_selected_projector_attn15_reader_path_audit_v1_result.json` (the complete
   attention-15 clamp bypasses computed L15H5 head output, so the weight-ranked interface is not
   causally tested by current DAS outcomes).
+- Native attention-15 dependency:
+  `temporal_iswas_v15_construction_oracle_attention15_dependency_factorial_v1_result.json`
+  (valid live-route candidate; all six predictions pass), followed by
+  `temporal_iswas_v15_attention15_head_module_mediation_atlas_v1_admission.json`
+  (zero-model admission of the full module/nine-head mediation atlas).
 
 ## Remaining gates
 
