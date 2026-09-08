@@ -293,3 +293,38 @@ def mlp_subspace_literal_atoms(restricted):
     relative_error = float(torch.linalg.vector_norm(reconstruction - tensor) / denominator)
     return {"scores": scores, "order": order, "reconstruction": reconstruction,
             "relative_error": relative_error}
+
+
+def bilinear_mlp_writer_capability(mlp, writer_map, read_map):
+    """Return the exact weight-only response tensors for adding ``W z`` to ``x``.
+
+    For a bilinear MLP followed by ``read_map``, substitution of ``x + W z``
+    gives an exact change
+
+    ``einsum('aik,i,k->a', cross, x, z) + einsum('akl,k,l->a', self, z, z)``.
+
+    ``cross`` therefore describes context-dependent writer capability and ``self``
+    describes the writer's context-free quadratic contribution.  The construction
+    uses no activation sample and is invariant in norm to orthogonal gauges of the
+    writer coordinates and readout coordinates.
+    """
+    writer, read = torch.as_tensor(writer_map).float(), torch.as_tensor(read_map).float()
+    if not (hasattr(mlp, "Left") and hasattr(mlp, "Right") and hasattr(mlp, "Down")):
+        raise SubspaceWeightAtlasError("writer capability requires a bilinear MLP")
+    left = mlp.Left.weight.detach().float()
+    right = mlp.Right.weight.detach().float()
+    down = mlp.Down.weight.detach().float()
+    if (writer.ndim != 2 or read.ndim != 2 or writer.shape[0] != left.shape[1]
+            or read.shape[1] != down.shape[0] or left.shape != right.shape
+            or down.shape[1] != left.shape[0]
+            or not torch.isfinite(writer).all() or not torch.isfinite(read).all()):
+        raise SubspaceWeightAtlasError("writer/read maps or MLP factors are incompatible")
+    output = read @ down
+    left_write, right_write = left @ writer, right @ writer
+    cross = (torch.einsum("an,ni,nk->aik", output, left, right_write)
+             + torch.einsum("an,ni,nk->aik", output, right, left_write))
+    self_term = torch.einsum("an,nk,nl->akl", output, left_write, right_write)
+    return {"cross": cross, "self": self_term, "left_write": left_write,
+            "right_write": right_write, "read_down": output,
+            "scores": {"cross": float(torch.linalg.vector_norm(cross)),
+                       "self": float(torch.linalg.vector_norm(self_term))}}

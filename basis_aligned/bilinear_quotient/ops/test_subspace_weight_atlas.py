@@ -154,3 +154,31 @@ def test_literal_atoms_reconstruct_tensor_and_scores_are_subspace_gauge_invarian
     rotated_atoms = subject.mlp_subspace_literal_atoms(rotated)
     assert torch.allclose(atoms["scores"], rotated_atoms["scores"], atol=1e-5)
     assert torch.equal(atoms["order"], rotated_atoms["order"])
+
+
+def test_bilinear_writer_capability_exactly_replays_finite_substitution_and_is_gauge_invariant():
+    g = torch.Generator().manual_seed(37)
+    mlp = type("MLP", (), {})()
+    mlp.Left = Linear(torch.randn(8, 6, generator=g))
+    mlp.Right = Linear(torch.randn(8, 6, generator=g))
+    mlp.Down = Linear(torch.randn(6, 8, generator=g))
+    writer = random_basis(6, 3, g)
+    read = random_basis(6, 2, g).T
+    result = subject.bilinear_mlp_writer_capability(mlp, writer, read)
+    x = torch.randn(6, generator=g)
+    z = torch.randn(3, generator=g)
+
+    def output(value):
+        return read @ mlp.Down.weight @ (
+            (mlp.Left.weight @ value) * (mlp.Right.weight @ value))
+
+    expected = output(x + writer @ z) - output(x)
+    actual = (torch.einsum("aik,i,k->a", result["cross"], x, z)
+              + torch.einsum("akl,k,l->a", result["self"], z, z))
+    assert torch.allclose(actual, expected, atol=2e-4)
+
+    writer_rotation, read_rotation = random_basis(3, 3, g), random_basis(2, 2, g)
+    rotated = subject.bilinear_mlp_writer_capability(
+        mlp, writer @ writer_rotation, read_rotation.T @ read)
+    assert abs(result["scores"]["cross"] - rotated["scores"]["cross"]) < 1e-4
+    assert abs(result["scores"]["self"] - rotated["scores"]["self"]) < 1e-4
