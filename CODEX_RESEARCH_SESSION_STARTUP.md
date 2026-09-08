@@ -111,6 +111,37 @@ the review.
 
 ## Authoritative restart delta at 2026-09-07 23:00 UTC
 
+### Live continuation at 00:38 UTC on 2026-09-08
+
+The current decisive job is already hash-bound in managed lane 1; do **not** enqueue a duplicate:
+
+- runner: `basis_aligned/bilinear_quotient/ops/run_temporal_iswas_v15_construction_oracle_attention15_dependency_factorial_v1.py`;
+- reviewed SHA-256: `4d435dfa6c6f29a34de2b5ba7679aafb3b622cdf0fbf2ea779c58bea982b1fe3`;
+- current queue relation at this checkpoint: depth one behind live `v244`;
+- result path when it lands: `basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_v15_construction_oracle_attention15_dependency_factorial_v1_result.json`.
+
+This no-refit factorial asks whether each stable construction-specific oracle retains its own
+target transfer when layer-15 attention is live.  Predictions B/C are the admission gate.  If
+either fails, close the L15H5 causal-reader hypothesis for this intervention family: the static
+weight alignment was not on the exercised native route.  If both pass, execute the already
+preregistered full layer-15 head/module mediation atlas, not an immediate Q/K/V claim:
+
+- prior: `basis_aligned/bilinear_quotient/circuits/prior_art/temporal_iswas_v15_attention15_head_module_mediation_atlas_v1.json`;
+- pure intervention/accounting contract: `basis_aligned/bilinear_quotient/ops/head_response_mediation_contract.py`;
+- contract commit: `223369b3f` (seven focused tests pass).
+
+The atlas crosses upstream off/on with absolute downstream-response source off/on for the whole
+layer-15 attention module and each of its nine heads.  It separately measures rescue, reset loss,
+bypass, and interaction.  Only a passing singleton-composition test licenses a parity-cross-fit
+greedy head union; otherwise use an interaction-aware head-set test.  Only a passing L15H5
+head-level result licenses its later Q/K/V split.
+
+The latest review clocks are
+`HOURLY_STRATEGIC_REVIEW_2026-09-08_0015.md` (next safe-boundary review after 01:15 UTC) and
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-07_2326.md` (next after 02:26 UTC).  Both `bqrunner` and
+`bqrunner2` were healthy at this checkpoint.  Re-check files, process state, queues, and newer Git
+commits on restart because those facts can advance after this document is written.
+
 ### Live continuation at 23:30 UTC
 
 V16 capability has landed.  The immutable first receipt reports `null` only because it asked for
