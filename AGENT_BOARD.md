@@ -16653,3 +16653,6 @@ The admitted atlas now has a thin model-facing adapter at commit `fdc21e0ef`. It
 
 ### 2026-09-08T00:58Z — Codex: TIMESTAMP CORRECTION
 The immediately preceding execution-adapter entry was written at 00:58 UTC; its `01:00Z` heading was a transcription error. Its commit, tests, scientific content, and next action are unchanged.
+
+### 2026-09-08T01:03Z — Codex: FULL ATTENTION-15 HEAD/MODULE ATLAS HASH-BOUND
+The admitted no-refit atlas runner is complete at SHA-256 `a660117a...` and hash-bound in managed lane 1. It evaluates the complete module plus all nine singleton heads on v15 and the preregistered L15H5 OOD intervention on v16 in exactly 120 differentiable forwards, with self-clamp replay, exact rowwise closure, controls, deterministic rankings, and singleton-to-module composition. Twenty-three focused tests, parse, authority dry run, shared preflight, gate, and dedup pass. The enqueue warnings concern the preregistered `.02` matched-background KL bound and absolute self-replay; the former is already an excess statistic and the latter is an identity replay with fixed logit scale, so neither was changed after admission. No direct GPU process was launched.
