@@ -1,0 +1,19 @@
+{
+  "schema": "temporal_iswas_l11h3_source_writer_formula_mediation_price_amendment_v2",
+  "candidate_id": "cross_task.temporal_iswas.l11h3_source_writer_formula_mediation_v2",
+  "registered_utc": "2026-09-08T08:08:00Z",
+  "amends_sha256": "fd8a531168d098b99189e7aff21596c11eff5d88aeacb9ca321f28bd417b456a",
+  "reason": "The conditional v1 price omitted the independently rerun direct L11H3:value command-donor reference required to replay the greedy receipt's parent-relative writer metrics. Stored scalar reports do not contain the reference effect vector, so it cannot be reconstructed without that forward.",
+  "unchanged": "Every v1 population, selected-prefix binding rule, writer/value/formula intervention, algebra gate, replay tolerance, mediation threshold, template gate, selectivity gate, prediction, null, and decision remains byte-authoritative from v1. This amendment occurs before the greedy result and before any mediation execution.",
+  "added_execution": "For each population and role, run one direct command-paired L11H3:value patch at the same locked source positions and use it only to reproduce the greedy selected-prefix parent-relative metrics.",
+  "amended_price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 18,
+    "sequence_evaluations": 2304,
+    "scored_token_positions": 4608,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "binding_rule": "After the greedy result exists, a v3 authority amendment may fill only its immutable SHA-256 and selected prefix identities. No v1 scientific field or v2 price field may change."
+}
