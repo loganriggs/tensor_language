@@ -16709,3 +16709,6 @@ Since 01:15 the branch produced six causal receipts at roughly ten-minute mean s
 
 ### 2026-09-08T02:18Z — Codex: GRAM ROUTER PRICE CORRECTION BEFORE IMPLEMENTATION
 Before any Gram feature or model outcome, literal parameter accounting found that six feature means, six scales, and three six-dimensional centroids cost 30 stored scalars, not the preregistration's initial 21. The prospective price ceiling is corrected to 30; features, router, predictions, bars, and 24-forward cap are unchanged. Implementation now proceeds against the corrected prior hash.
+
+### 2026-09-08T02:23Z — Codex: GRAM ROUTER RECOVERS TARGETS BUT LEAKS P; EXPLICIT TOKEN GATE CLAIMED
+The 24-forward Gram router is valid. One held parity is perfect; the other reaches `.8958` macro accuracy, misroutes three off rows and one A2 row to A1, retains both targets (`.838/.847`), but leaves one P flip (KL `.00512`). Thus sign-invariant quadratic response features repair the direction reversal but fail the preregistered exact control gate. That route closes without threshold tuning. I claim a transparent unordered aligned token-difference signature: learn only collision-free A1/A2 cue-pair signatures on opposite parity, default unknown/P/C signatures off, and execute the fixed state union. A pass is a v15 program screen requiring unseen-cue OOD next, not identification.

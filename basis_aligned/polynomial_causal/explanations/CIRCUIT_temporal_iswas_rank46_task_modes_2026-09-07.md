@@ -584,6 +584,21 @@ prefix-averaged Gram matrices of the two proposed expert writes (two squared nor
 product at each scope).  These quadratic features are invariant to simultaneous sign reversal and
 directly test the interaction structure; failure closes this finite response-signature route.
 
+The six-scalar Gram router partially succeeds but fails its strict gate.  One held direction is
+perfect; the other reaches macro accuracy `.8958`, routes three off rows to A1, and misroutes one
+A2 row to A1.  Both target panels nevertheless pass (`.795-.847`) and retain at least 90% of the
+ungated union.  The remaining parity-0 P leakage is one flip at mean KL `.00512`.  Thus quadratic
+sign invariance repairs direction reversal and target composition, but coarse response magnitudes
+do not identify the off branch exactly.
+
+Per the preregistered kill rule, the response-signature route now closes rather than receiving a
+threshold tweak.  The next object is an explicit finite token-pair router: derive the unordered
+aligned base/source token-difference signature, learn only the A1 and A2 signatures from opposite
+parity, and default every unknown signature to off.  This is a transparent input-level gate with no
+behavioral outcome access.  A v15 pass is only a screen and must face unseen cue-pair OOD before
+identification, but it establishes whether the already-sufficient state coordinates can form a
+selective executable program with an explicit router.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -677,6 +692,10 @@ directly test the interaction structure; failure closes this finite response-sig
   `temporal_iswas_v15_entry12_crossfit_regularized_source_router_v1_result.json` (nested CV is
   perfect inside one signed tense direction but the opposite direction collapses entirely to off;
   linear raw-delta routing is not direction-gauge invariant).
+- Entry-12 Gram router:
+  `temporal_iswas_v15_entry12_crossfit_gram_router_v1_result.json` (both targets pass and one parity
+  routes perfectly, but three off rows leak to A1 in the other parity; the coarse response-signature
+  route is closed by its preregistered strict control gate).
 
 ## Remaining gates
 

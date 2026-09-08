@@ -1,0 +1,29 @@
+{
+  "schema": "temporal_iswas_v15_entry12_unordered_token_pair_router_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_entry12_unordered_token_pair_router_v1",
+  "registered_utc": "2026-09-08T02:23:00Z",
+  "question": "Can a transparent direction-invariant finite token-difference gate selectively execute the sufficient A1/A2 entry12 coordinates?",
+  "authority": {"gram_router_result_sha256": "8543717ad765068be8677f093d9bef6f204d6dc8a8d3ccca317985c4f9f2b7de", "required_terminal": "router_identification_failure"},
+  "prior_art": {
+    "searched": ["explicit temporal token router", "unordered cue pair", "Gram router control leakage", "finite routed union"],
+    "active_claim_collision": false,
+    "known_lessons": "Gold routing composes; native state is information-impossible; raw linear deltas fail reversed direction; Gram features restore targets but leak three controls; the preregistered Gram kill rule forbids a threshold tweak.",
+    "novelty": "Use the exact unordered aligned token-difference signature as a small transparent source/background gate, separating routing from the causal state coordinates."
+  },
+  "frozen_design": {
+    "signature": "For equal-length aligned base/source token rows, collect every unequal token pair through the semantic position, sort each pair internally to remove direction, and preserve positional order. Empty or unknown signatures default off.",
+    "fit": "On opposite parity, map signatures observed exclusively on A1 to A1 and exclusively on A2 to A2; any collision, P/C overlap, or ambiguity invalidates. No held label is consulted.",
+    "causal_program": "On held parity, choose the matching A1/A2 proposed entry12 delta or zero, project through the fixed construction union, and install at entry12.",
+    "controls": "Report signature dictionaries/collisions, held confusion, learned/gold/ungated causal programs, full/zero replays, and P/C KL/flips.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 24, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 2000, "fit_parameters": 2}
+  },
+  "predictions": {
+    "pred_a_authority_alignment_scope_replay_geometry_finiteness_and_price": "Hashes, equal-length alignment, collision-free train signatures, crossfit, replays, finite metrics, and literal price pass.",
+    "pred_b_token_router_identifies_held_branches": "Held macro accuracy is 1.0 in both parities with zero P/C rows routed to target.",
+    "pred_c_routed_union_preserves_both_targets": "The routed program projects >=.75 with direction fraction >=.875 on both targets in both parities.",
+    "pred_d_routed_union_is_control_selective": "The program has zero P/C flips and mean KL <=.02 in both parities.",
+    "pred_e_router_matches_gold_union": "Learned and gold routed logits match within 1e-4 in both parities."
+  },
+  "decision": "A failure invalidates. B/C/D/E creates a selective v15 finite-program screen and licenses unseen-cue OOD plus weight translation of the two state coordinates. Failure closes explicit signature routing. No v15 pass alone is identification because the cue pairs recur across lexical groups.",
+  "closed_claims": ["unseen cue OOD", "semantic generalization", "weight-reader causality", "compression", "adoption"]
+}
