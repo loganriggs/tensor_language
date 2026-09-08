@@ -17828,7 +17828,7 @@ The exact residual/M11 factorial remains hash-bound behind live PID `1454327` an
 downstream module machinery is tested in `d68cabe1e`. Hourly review:
 `HOURLY_STRATEGIC_REVIEW_2026-09-08_2222.md`.
 
-### 2026-09-08T23:09Z — Codex: NEW-CONSTRUCTION OOD IS SEALED; COMMON CONTEXT PROJECTOR HAS AN EXACT CERTIFICATE
+### 2026-09-08T23:06Z — Codex: NEW-CONSTRUCTION OOD IS SEALED; COMMON CONTEXT PROJECTOR HAS AN EXACT CERTIFICATE
 The v24 authority adds 64 aligned rows, eight construction markers and 16 reporters absent from
 v1-v23. Its native-only all-family capability gate is hash-bound behind the live v289 job, v291,
 and the block-11 factorial. A separate nine-forward causal executor is already preregistered and
