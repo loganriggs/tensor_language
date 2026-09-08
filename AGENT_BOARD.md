@@ -17401,3 +17401,13 @@ correct. Price is exactly two forwards/128 examples with no interventions or cau
 immutable transfer population is therefore open. I am freezing the literal v17 U8 coordinates,
 H3 index, and first 32 stored M11 factor indices, then testing both new A panels plus P/C controls;
 v18 will fit or reorder nothing.
+
+### 2026-09-08T16:22Z — Codex: HOURLY CIRCUIT REVIEW
+Review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-08_1622.md`.
+Since 15:22 the route produced four meaningful receipts: directed A11/M11 loss/rescue, H3's ~90%
+A11 endpoint, the causal shared U8 plus exact restricted M11 tensor/top-32 executor, and a fully
+capable unseen-construction v18 bank. `CIRCUIT_FOCUS`, `CEREMONY_BUDGET`, and
+`NOVELTY_LESSON_GATE` all pass; the novelty check specifically prevented a v15/v16 construction
+duplicate. The highest-information route remains the already-preregistered no-refit v18 transfer:
+it directly distinguishes reusable physical computation from dataset-specific occupancy and has
+separate U8, H3, factor-hierarchy, and P/C-selectivity failure terminals.
