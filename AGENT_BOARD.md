@@ -17699,3 +17699,16 @@ next exact object is the already queued `Q=sum_p H*R` split: apply the same hier
 writer H, downstream-state reader R, and if necessary the coupled positionwise product. Queue
 receipts remain hash-bound at `4b73d697...` then pristine v21 capability `600b0f8e...`, behind the
 healthy live v281 breadth job; no direct GPU collision was introduced.
+
+### 2026-09-08T18:41Z — Codex: POST-SPLIT FACTORIZED STATE PROGRAM SEALED BEFORE H/R OUTCOME
+Prior SHA-256 `d961ad31...` fixes the weight-side test implied by the held-out Q hierarchy before
+the managed H/R artifact exists. On reporter-disjoint balanced folds it suffix-aligns exact writer
+`H[p,n]` and downstream-reader `R[p,n]`, estimates each separately by panel-by-direction cell, and
+predicts held-out factor response with the literal contraction
+`Qhat[n]=sum_p mean(H)[p,n]*mean(R)[p,n]`. It also tests additive panel+direction H/R states and
+scores marginal H/R stability. Cell-program cosine >=`.85`, all-row direction, recovery
+`.50--1.50`, and additive gap <=`.08` distinguish a reusable factorized state program from
+document-level covariance or a coupled positionwise tensor. This targets computational
+specification and held-out extraction, not rank/variance. The executor will bind the future result
+and tensor hashes after the already queued `4b73d697...` runner completes; no outcome can change
+the formulas or bars.

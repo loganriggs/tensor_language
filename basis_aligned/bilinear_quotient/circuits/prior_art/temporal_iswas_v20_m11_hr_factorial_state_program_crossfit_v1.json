@@ -1,0 +1,65 @@
+{
+  "schema": "temporal_iswas_v20_m11_hr_factorial_state_program_crossfit_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_m11_hr_factorial_state_program_crossfit_v1",
+  "created_utc": "2026-09-08T18:40:00Z",
+  "question": "Can reporter-disjoint construction/direction states fitted separately in the exact M11 writer tensor H and downstream-reader tensor R be contracted to predict held-out task-functional factor responses Q?",
+  "evidence_status": "Prospective CPU-only computational-structure test sealed before the managed H/R result exists. Passing is a held-out weight-tensor program screen, not a causal repair or adoption result.",
+  "prior_art_and_novelty": {
+    "searched": [
+      "v17-v20 restricted weight and task-functional tensor records",
+      "v20 answer-sign, binary-factor, and factorial-prototype crossfits",
+      "M11 writer/reader atlases and current shared-subspace weight-folding plans"
+    ],
+    "known_lessons": "The exact Q tensor has a stable additive construction-plus-direction hierarchy, but that output-level description does not establish whether writers, readers, or their positionwise interaction implement it. PCA/SAE variance and a donor-answer-signed prototype are insufficient.",
+    "novelty": "No receipt fits H and R independently on one reporter split and tests the literal sum_p mean(H)*mean(R) contraction on held-out reporters. This distinguishes reusable marginal states from covariance that only appears in the coupled product."
+  },
+  "immutable_present_authority": {
+    "hr_split_prior_sha256": "b5d0300d68252a4cb7f10d46480da3c778daacd54bef54276c49127116fb57bc",
+    "hr_split_runner_sha256": "4b73d69731deb5146a783199ed7e39bade0aa2b0da6b3e904e46276397d409d5",
+    "response_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "factorial_q_result_sha256": "08d2e08094ed1ae28e8b0975d6a4261a5f85cfbf135b9e597700d9208ae387d1"
+  },
+  "future_authority_rule": "The executable must be authored only after the hash-bound managed H/R runner finishes. It must bind the resulting JSON and NPZ SHA-256 values without changing this design or any bar. Invalid or nonreconstructing H/R output closes the instrument without scoring structure.",
+  "frozen_method": {
+    "panels": ["A1", "A2", "P"],
+    "reporter_folds": "groups modulo 4 in {0,1} fit and {2,3} test, then reverse; four fit and four test rows per panel-by-direction cell",
+    "alignment": "For every row, take the final L valid semantic-prefix positions, where L is the minimum valid length across all A1/A2/P rows. Padding is never data.",
+    "cell_states": "For each fit panel-by-direction cell, compute raw arithmetic means Hbar[p,n] and Rbar[p,n] separately.",
+    "literal_cell_program": "For every held-out row in the cell, predict Qhat[n]=sum_p Hbar[p,n]*Rbar[p,n]. Compare with exact Q[n]=sum_p H[row,p,n]*R[row,p,n]. No held-out amplitude or direction is fitted.",
+    "additive_states": "Separately for H and R, form panel_mean + direction_mean - grand_mean, then contract the two additive state tensors identically.",
+    "marginal_structure": "Also unit-normalize suffix-aligned flattened H and R rows and score held-out cell/additive prototype cosines. These localize stable structure but do not replace the Qhat test.",
+    "interaction_residual": "Report Q-Qhat and the cell-program advantage over the additive program. Large residual means document-level H/R covariance or finer positionwise structure is required."
+  },
+  "predictions": {
+    "pred_a_future_authority_exact_split_alignment_folds_finiteness_and_price": "The managed split is valid, exactly reconstructs immutable Q, all hashes and row identities match, folds are balanced, suffix alignment excludes padding, tensors are finite, and price is exact.",
+    "pred_b_independent_cell_hr_states_predict_heldout_q": "The literal cell program has pooled held-out Q cosine >=0.85, each of six cell means >=0.75, positive direction on all 48 rows, and pooled signed recovery in [0.50,1.50].",
+    "pred_c_additive_hr_hierarchy_is_nearly_sufficient": "The additive H/R program has pooled held-out Q cosine >=0.80 and lies no more than 0.08 cosine below the cell program.",
+    "pred_d_writer_or_reader_structure_is_reporter_stable": "At least one of suffix-aligned H or R has cell-prototype pooled held-out cosine >=0.85 and cross-fold corresponding-cell prototype mean cosine >=0.90.",
+    "pred_e_scope_remains_computational_screen_only": "No model/GPU call, v21 outcome, factor selection, dose, inference-time selector, or causal intervention is opened."
+  },
+  "opposing_outcomes": {
+    "factorized_additive_weight_state_program": "A-E pass. Carry the additive H/R state interface into the sealed v21 causal implementation test.",
+    "factorized_coupled_cell_program": "A/B/D/E pass and C fails. Preserve six coupled construction-by-direction H/R states rather than an additive hierarchy.",
+    "positionwise_or_document_covariance_required": "A/E pass but B or D fails. Do not average H and R independently; decompose the coupled positionwise product or fit a sparse/hierarchical conditional interface.",
+    "invalid_instrument": "A fails; do not score B-D."
+  },
+  "bars": {
+    "cell_program_pooled_q_cosine": 0.85,
+    "cell_program_each_cell_mean_q_cosine": 0.75,
+    "cell_program_direction_fraction": 1.0,
+    "cell_program_signed_recovery_min": 0.50,
+    "cell_program_signed_recovery_max": 1.50,
+    "additive_program_pooled_q_cosine": 0.80,
+    "cell_advantage_over_additive_max": 0.08,
+    "marginal_cell_pooled_cosine": 0.85,
+    "marginal_crossfold_stability_mean": 0.90
+  },
+  "literal_price": {
+    "gpu_forwards": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "reporter_folds": 2,
+    "heldout_q_predictions_per_program": 48,
+    "programs": 2
+  }
+}
