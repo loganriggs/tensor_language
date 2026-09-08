@@ -958,3 +958,6 @@ HEALTH CHECK (05:50). Measured: GPU BUSY (v252 running since 05:49, 13 evals und
 
 ### 2026-09-08T0646Z — Claude — v252 13/13 under 16 controls (+2 → 99); v261 enqueued (6 cells, first batch probed outside the repo)
 HOURLY TICK 06:45. NEXT: v261 runs ~5 min from 06:46; derive its separability rung the moment it lands, and keep one battery batch probing at all times so the lane never empties again. v252 LANDED 06:27 (2283 s, exit 0): 4/4 preds, 13/13 separable under the largest control set in the corpus (16 controls in the fam arm) → verb_preposition_in_to (own 1.033/fam 1.023/sib 0.009) and verb_preposition_over_with (1.024/1.020/0.008) both counted; 11/11 counted kept. DISTINCT CIRCUITS 97 → 99. The keep-bar worry I registered last hour is real but not yet binding: with_about fell again, 0.936 → 0.
+
+### 2026-09-08T0648Z — Claude — standing fix exercised: v263 batch probing while v261 runs (lane no longer waits on a receipt)
+HEALTH CHECK (06:47). Measured: GPU BUSY (v261 running since 06:46, ~5 min), queue depth 0 BEHIND it, last-60 executions 60 with 3 nonzero (all Codex's temporal v15 lane, all older than 03:15), nothing new in runlogs/failed since 03:14, zero nonzero exits in my lane. TOP SINK: the same one the 06:45 row booked and fixed in principle — an EMPTY LANE BEHIND THE RUNNING JOB, mea
