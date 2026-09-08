@@ -48,6 +48,15 @@ logit equality are mandatory instrument controls.
 
 ## Valid precedent and excluded authority
 
+The closest valid precedent is
+`temporal_iswas_v15_entry12_rank2_direct_residual_final_head_route_v1_result.json`. It passes all
+five registered predictions, including the exact recurrent-product law from entry 12, direct-route
+sufficiency, and P/C selectivity, at its exact 24 differentiable-forward price. It used the same
+physical product of downstream `lambda_l[0]` values to show that the residual state surviving a
+complete downstream-write reset is the direct final-head route. The present test is not a new
+algebraic mechanism: it prospectively applies that established identity to a different, causally
+selected writer boundary at block 10 and requires equality to the newly queued `R1M0` arm.
+
 The valid
 `temporal_auxiliary_will_had_h3_rank8_weight_direct_residual_route_v2_result.json` receipt already
 tests the same kind of controlled identity transport from a block-11 attention-head output. It
