@@ -1,0 +1,34 @@
+{
+  "schema": "temporal_iswas_v15_multidirection_contextual_gram_router_v16_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_multidirection_contextual_gram_router_v16_v1",
+  "registered_utc": "2026-09-08T03:48:00Z",
+  "question": "Does fitting the established six-scalar contextual response Gram across both v15 tense directions remove the earlier parity confound and route capability-qualified v16 without refitting?",
+  "authority": {
+    "crossfit_gram_result_sha256": "8543717ad765068be8677f093d9bef6f204d6dc8a8d3ccca317985c4f9f2b7de",
+    "required_gram_terminal": "router_identification_failure",
+    "embedding_router_result_sha256": "b331027d227a95deca30d8f7b31d5c6c8a5ec7d9457268df3de6aba0722aa1b8",
+    "required_embedding_terminal": "embedding_router_in_distribution_null"
+  },
+  "prior_art": {
+    "searched": ["entry12 Gram router", "opposite direction parity", "v16 construction oracle", "tied embedding semantic router", "regularized source router"],
+    "active_claim_collision": false,
+    "known_lessons": "The six-scalar Gram router is perfect in one held direction and leaks four rows in the other when trained on only the reversed direction. Raw high-dimensional ridge memorizes direction. Tied embeddings fail v15 control selectivity and default all v16 targets off. The rank-two contextual responses and their direct residual decoder are causally validated.",
+    "novelty": "Fit one fixed six-scalar centroid router on cross-fitted contextual responses from both v15 directions, use leave-one-group-out rather than parity holdout for its in-distribution falsifier, and apply it to v16 under each of the two independently trained oracle bases. No optimizer or new feature is added."
+  },
+  "frozen_design": {
+    "features": "For proposed A1/A2 entry12 deltas, use the existing semantic-token and prefix Gram triples: log mean-square A1, log mean-square A2, and mean A1-A2 inner product at each scope. Responses for each v15 row use the oracle trained on the opposite parity. V16 is evaluated twice, once under each frozen oracle fold.",
+    "fit": "Fit one z-scored cosine-nearest-centroid A1/A2/off router on all v15 rows only. Before the final fit, score deterministic leave-one-group-out predictions over all 16 lexical groups. Off pools P and C on v15. There are no thresholds, regularization choices, label gains, logits, or v16 selection.",
+    "ood_scope": "Score aligned capability-qualified v16 A1/A2/P; explicitly exclude variable-length C. Require both frozen oracle-coordinate systems to pass and agree exactly.",
+    "controls": "Bind all builders, helpers, oracle, capability and parent-null hashes; validate row hashes/alignment, v15/v16 disjoint IDs, finite values, class inventories, two oracle coordinate executions, exact execution counts, and zero updates/backwards.",
+    "price_max": {"native_capture_forwards": 4, "differentiable_transformer_forwards": 11, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 656, "fit_parameters": 30}
+  },
+  "predictions": {
+    "pred_a_authority_alignment_scope_finiteness_and_exact_price": "All bound authorities, exact row hashes, alignment and v16 C exclusion, disjoint row IDs, finite features, class inventories, and exact literal price pass.",
+    "pred_b_v15_leave_one_group_out_is_selective": "Pooled v15 leave-one-group-out macro accuracy is >=.95 with zero P/C rows predicted A1/A2.",
+    "pred_c_v16_generalizes_under_both_oracle_folds": "Each oracle fold has v16 macro accuracy >=.75 and zero P rows predicted target.",
+    "pred_d_each_v16_target_is_covered": "Each oracle fold correctly routes at least 12/16 A1 rows and 12/16 A2 rows.",
+    "pred_e_oracle_folds_agree_on_v16": "The two independently frozen oracle-coordinate systems make identical predictions on all 48 scored v16 rows."
+  },
+  "decision": "A failure invalidates. A/B/C/D/E licenses a separately registered causal v16 execution of the existing rank-two state program. B failure closes this contextual Gram route in distribution. B pass with C/D/E failure is an OOD identification null and forbids v16 threshold or regularization tuning.",
+  "closed_claims": ["v16 causal transfer", "variable-length C routing", "joint temporal/is-was composition", "compression", "adoption"]
+}
