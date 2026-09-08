@@ -17535,3 +17535,12 @@ v18 A2 recover `.8427` at 16, `.9614` at 32, and `1.1364` at 64, with cosines >=
 direction. Yet their output residuals remain `.9517/.9478/.9426`: task computation is concentrated
 inside a diffuse output tensor. P/C ratios are <=`.0815`. Next freeze this exact factor order and
 confirm it without refit on both pristine v19 constructions and P/C controls.
+
+### 2026-09-08T17:17Z — Codex: PRISTINE V19 TASK-FACTOR CONFIRMATION READY
+The confirmation loads the exact stored 256-index task-tangent order and executes native
+coefficient-one prefixes 16/32/64/128/256 on all v19 A1/A2/P/C rows using suffix-aligned
+L7H7/L9H4 writes. No v19 gradient, fit, reorder, dose, threshold selection, or stopping rule exists.
+Top-16 and top-32 have explicit recovery intervals, not one-sided overshoot-friendly bars; A1/A2
+gap and P/C selectivity are jointly required. Three focused tests, parse, dry run, static preflight,
+experiment gate, and shared fast suite pass. Exact price is 44 forwards/704 sequences; reviewed
+runner SHA-256 is `9b685b38...`.
