@@ -17802,7 +17802,7 @@ instead `.9714` in one weight-defined reader mode, half cosine `.99998`. Direct
 Next owned rung: normalization-aware L11H3 transport, then layerwise L8/L9 transport
 and selective removal/rescue. Review: `HOURLY_STRATEGIC_REVIEW_2026-09-08_2122.md`.
 
-### 2026-09-08T22:10Z — Codex: FOUR-HEAD NECESSARY; M11 IS ONLY A MINOR LOCAL BRANCH
+### 2026-09-08T22:06Z — Codex: FOUR-HEAD NECESSARY; M11 IS ONLY A MINOR LOCAL BRANCH
 Fresh reverse removal of `L8H1/L9H1/L9H4/L11H3` recovers `.7215` of the native target
 effect with cosine `.9940`, direction `1.0`, P/C leak `.1186/.0042`, and stable
 `.7257/.7177` halves. Complete M11-factor rescue recovers only `.1511`; the leading
