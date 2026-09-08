@@ -137,13 +137,17 @@ the immutable invalid receipt and do not change A or retro-pass it.  The separat
 three-forward replay audit has now passed with zero like-for-like error and exactly reproduced the
 `.028743869178895265` mixed-target error.  It licenses interpretation of the already-frozen B--E
 outcomes: the value-source partition is compositional and stable on OOD text, but task typed;
-temporal selects the unchanged bridge and is-was selects postcue.  The immediate continuation is
-the frozen query/key routing-partner test for those two regions.
+temporal selects the unchanged bridge and is-was selects postcue.  The follow-up 16-corner
+q/k/q2/k2 factorial has now passed A/B/C/E with D false, terminal `stable_routing_invariant`.
+Is-was donor routing changes the value-parent effect by only 5.6--8.1%; temporal selects k+q+q2
+but the full routing change is only 8.1--12.3% of the value parent.  Recipient-native attention
+routing therefore carries most of the stable value effect.  The immediate continuation is an
+exact native-routing bilinear source-term extractor with direct head-interface installation.
 
 At this checkpoint `gpt-6-astra` is the configured Codex default and is visible in the account
 catalog.  Both `bqrunner` services are Supervisor-managed and healthy; their queues are currently
-drained after the localization job.  The latest clocks are
-`HOURLY_STRATEGIC_REVIEW_2026-09-08_0615.md` (next review after 07:15 UTC) and
+drained after the QK factorial.  The latest clocks are
+`HOURLY_STRATEGIC_REVIEW_2026-09-08_0715.md` (next review after 08:15 UTC) and
 `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0526.md` (next review after 08:26 UTC).
 Inspect Git, files, runner logs, and queue state before acting because they remain authoritative
 over this prose.

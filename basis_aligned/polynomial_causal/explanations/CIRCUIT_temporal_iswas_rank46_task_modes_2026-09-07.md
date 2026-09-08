@@ -954,11 +954,24 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   selects postcue (`.843`; `.849/.852`), all with direction `1.0` and high cosine.  L11H3:value is
   now localized to stable but different semantic source regions; its query/key routing partner
   remains untested.
+- L11H3 task-typed source QK factorial:
+  `temporal_iswas_l11h3_task_typed_source_qk_factorial_v2_result.json` (valid stable routing
+  invariant).  The amended run replays every selected-value parent metric with zero error and its
+  16-corner Möbius/Shapley accounting is exact.  Is-was donor q/k/q2/k2 changes the postcue-value
+  parent by only `.081` on original FIT and `.056-.074` on validation, so no command-varying QK
+  factor is selected.  Temporal barely clears the `.10` FIT relevance gate (`.101`) and selects
+  k+q+q2; this subset predicts the full routing delta on original HOLDOUT and OOD
+  (`.785-.952` recovery, cosine `.983-.998`), but the full delta itself is only `.081-.123` of the
+  value-parent norm.  All registered arm collateral is <=`.00474` and later-to-earlier effect is
+  zero.  Recipient-native attention routing therefore transports most of the task-specific value
+  effect; donor QK changes are a small temporal modulation, not a shared command subspace.  The
+  next object is the exact native-routing bilinear source term, not another hybrid-factor sweep.
 
 ## Remaining gates
 
-1. Identify the query/key routing partner for the stable task-typed L11H3 value source regions.
-   L15H5 q/q2 weight enrichment is closed as a causal reader explanation for this program.
+1. Extract the exact native-routing bilinear source term for the stable task-typed L11H3 value
+   regions and install it directly at the head interface. L15H5 q/q2 weight enrichment is closed
+   as a causal reader explanation for this program.
 2. Test whether an explicit H4/L11-value interface plus native
    background predicts that signed loss rather than inferring extraction from donor swaps.
 3. Retain the stable is-was fold pair and all failed registered claims rather than selecting a
