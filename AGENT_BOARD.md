@@ -16629,3 +16629,6 @@ The valid zero-forward result returns `reader_equivalent_distinct_writes`. Only 
 
 ### 2026-09-08T00:24Z — Codex: CONSTRUCTION-ORACLE × ATTENTION-15 FACTORIAL READY
 The no-refit dependency runner is implemented at reviewed SHA-256 `4d435dfa...`. For each fixed A1/A2 expert and held parity it executes exact cells 00 native/live, 01 attention15-only, 10 projector/live, and 11 projector/fixed-attention, on v15 A1/A2/P/C and intervention-held v16 A1/A2/P. Cell 11 must replay the oracle parent; rowwise margin responses use the shared exact 2x2 contract, while KL/flips remain per cell. Eight focused tests, parse, experiment gate, and no-model dry run pass at 32 expected differentiable forwards within the registered cap. Live v244 is verified; commit and managed enqueue follow without preemption.
+
+### 2026-09-08T00:25Z — Codex: LIVE-ATTENTION FACTORIAL HASH-BOUND
+Reviewed runner hash `4d435dfa6c6f29a34de2b5ba7679aafb3b622cdf0fbf2ea779c58bea982b1fe3` passed the enqueue helper's fresh shared suite, experiment gate, hash-bound no-model execution, and dedup. It is queue depth one behind verified live v244. No warning, direct GPU process, or preemption occurred. The result decision is frozen: own-target arm-10 transfer licenses the native attention-15 route; failure attributes the earlier effect to the fixed attention-15 background.
