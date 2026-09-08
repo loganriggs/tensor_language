@@ -23,6 +23,50 @@ class MediationContractError(ValueError):
     pass
 
 
+def capture_preprojection(torch, c_proj, execute, *, n_heads):
+    """Execute once and capture the absolute ``c_proj`` input as [B,T,H,D]."""
+    captured = []
+
+    def hook(_module, arguments):
+        flattened = arguments[0]
+        if flattened.ndim != 3 or flattened.shape[-1] % int(n_heads):
+            raise MediationContractError("preprojection input cannot be split into requested heads")
+        captured.append(flattened.detach().clone().view(
+            flattened.shape[0], flattened.shape[1], int(n_heads), -1))
+
+    handle = c_proj.register_forward_pre_hook(hook)
+    try:
+        output = execute()
+    finally:
+        handle.remove()
+    if len(captured) != 1:
+        raise MediationContractError(f"expected one preprojection call, observed {len(captured)}")
+    return output, captured[0]
+
+
+def execute_with_absolute_preprojection(c_proj, execute, absolute):
+    """Execute once while replacing the full absolute ``c_proj`` input tensor."""
+    calls = []
+
+    def hook(_module, arguments):
+        flattened = arguments[0]
+        if (absolute.ndim != 4 or tuple(absolute.shape[:2]) != tuple(flattened.shape[:2])
+                or absolute.shape[2] * absolute.shape[3] != flattened.shape[2]):
+            raise MediationContractError("absolute response is incompatible with preprojection input")
+        replacement = absolute.to(flattened).reshape_as(flattened)
+        calls.append(1)
+        return (replacement,) + tuple(arguments[1:])
+
+    handle = c_proj.register_forward_pre_hook(hook)
+    try:
+        output = execute()
+    finally:
+        handle.remove()
+    if len(calls) != 1:
+        raise MediationContractError(f"expected one preprojection call, observed {len(calls)}")
+    return output
+
+
 def absolute_head_set_hybrid(torch, background, head_source, *, heads, semantic_positions):
     """Return ``background`` with selected heads copied from ``head_source`` on-prefix."""
     if background.shape != head_source.shape or background.ndim != 4:

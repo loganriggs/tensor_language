@@ -4,6 +4,35 @@ import torch
 import head_response_mediation_contract as contract
 
 
+def test_capture_and_absolute_execution_hooks_are_single_use_and_removed():
+    projection = torch.nn.Linear(6, 6, bias=False)
+    with torch.no_grad():
+        projection.weight.copy_(torch.eye(6))
+    source = torch.arange(12, dtype=torch.float32).reshape(1, 2, 6)
+    output, captured = contract.capture_preprojection(
+        torch, projection, lambda: projection(source), n_heads=3)
+    assert torch.equal(output, source)
+    assert torch.equal(captured, source.reshape(1, 2, 3, 2))
+    absolute = torch.full((1, 2, 3, 2), 7.0)
+    changed = contract.execute_with_absolute_preprojection(
+        projection, lambda: projection(source), absolute)
+    assert torch.equal(changed, torch.full_like(source, 7.0))
+    assert torch.equal(projection(source), source)
+
+
+def test_capture_and_execution_hooks_fail_closed_on_shape_or_call_count():
+    projection = torch.nn.Linear(6, 6, bias=False)
+    source = torch.zeros(1, 2, 6)
+    with pytest.raises(contract.MediationContractError):
+        contract.capture_preprojection(torch, projection, lambda: source, n_heads=3)
+    with pytest.raises(contract.MediationContractError):
+        contract.capture_preprojection(
+            torch, projection, lambda: projection(source), n_heads=4)
+    with pytest.raises(contract.MediationContractError):
+        contract.execute_with_absolute_preprojection(
+            projection, lambda: projection(source), torch.zeros(1, 1, 2, 2))
+
+
 def test_absolute_cells_have_reset_and_rescue_semantics_only_on_prefix():
     off = torch.zeros(2, 4, 3, 2)
     on = torch.arange(off.numel(), dtype=torch.float32).reshape_as(off) + 1
