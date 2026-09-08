@@ -952,3 +952,6 @@ HEALTH CHECK (05:05). Measured: GPU BUSY (v250 running since 04:56, 2 evals logg
 
 ### 2026-09-08T0549Z — Claude — verb_particle is TWO circuits (up_down vs out_down sib 0.005 on four shared units); 97 circuits
 HOURLY TICK 05:45. NEXT: author the next battery batch through the NEW probe path (generate into $SC/probe_ops, capcheck there, copy only survivors into ops/) so v252 is not the only thing in my lane; then read v252 (~06:20). v250 LANDED 05:24 (1655 s, exit 0): 4/4 preds, 13/13 separable. THE CLASS QUESTION IS ANSWERED: verb_particle_up_down and verb_particle_out_down are SEPARABLE (up_down own 0.991/fam 0.992/sib 0.005 into out_down; out_down 1.030/1.014/0.012 into up_down) even though they share FOUR of five top units (13:08/07:08/06:03/08:01) and both read out a directional particle — the class is TWO circui
+
+### 2026-09-08T0551Z — Claude — lane was empty behind v252; next batch authored via the probe path (8 candidates, none in ops/ yet)
+HEALTH CHECK (05:50). Measured: GPU BUSY (v252 running since 05:49, 13 evals under 16 controls, ~30-35 min), queue depth 0 BEHIND it — my lane had nothing staged after v252, which is the sink of this half hour and the reason for the action below; last-60 executions 60 with 3 nonzero, all Codex's temporal v15 lane and all older than 03:15; nothing new in runlogs/failed since 03:14; zero nonzero e
