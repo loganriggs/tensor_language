@@ -1,0 +1,36 @@
+{
+  "schema": "temporal_iswas_h4_selective_midpoint_removal_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.h4_selective_midpoint_removal_v1",
+  "registered_utc": "2026-09-08T06:39:00Z",
+  "question": "Does removing the binary command contrast from the frozen H4 output interface selectively erase the predicted half-effect on both original and fresh-text populations, including simultaneous removal?",
+  "authority": {
+    "in_population_h4_joint_result_sha256": "a79a172f23a28befcb4ba0b78f1a5ca4420c5f49323d2c51d912b46f93bb611d",
+    "ood_h4_joint_result_sha256": "a040a70cbe92728155f4e5affc232db194089e7b5ea501ab9c96f9ad164f45bd"
+  },
+  "frozen_design": {
+    "union": ["L9H1", "L9H4", "L11H3", "L15H5"],
+    "populations": "Run every 128 endpoint in the original licensed bank and every 128 endpoint in the fresh temporal-v12/is-was-v16 bank. Preserve phases, templates, cells, and groups separately.",
+    "removal_semantics": "At each command query and each H4 head slice, replace the native output with the arithmetic midpoint of the current endpoint and its exact command-counterfactual donor. Because pairing is involutive, paired endpoints must produce the same midpoint. Temporal-only, is-was-only, and both-removal arms are fixed; no zero baseline or fitted neutral state is introduced.",
+    "target": "The prospective causal target is one half of the native paired command-margin difference. Score actual midpoint effects against that half-effect using canonical will-minus-had and is-minus-was margins.",
+    "single_removal_bars": "For each population x phase, temporal signed recovery >=.80 and is-was >=.65 relative to the half-effect, cosine >=.98, direction agreement 1.0, and cross-role/gold norm <=.01. At least 75% of native-correct rows must reduce their correctness-aligned target margin. Later is-was removal must change the earlier temporal margin by <=1e-5.",
+    "joint_removal_bars": "For every population x role x phase x template, interaction RMS / both-effect RMS <=.10 and additive cosine >=.99. Simultaneous signed recovery may be at most .05 below the corresponding single-removal recovery.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 8,
+      "sequence_evaluations": 1024,
+      "scored_token_positions": 2048,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_pairing_midpoint_invariance_finiteness_and_exact_price": "Both licensed results and builders are exact; pairing, positions, capture shapes, pairwise midpoint invariance, closure, finiteness, and literal price pass.",
+    "pred_b_h4_midpoint_selectively_removes_original_command_contrasts": "Every original-population phase passes the registered half-effect recovery, cosine, direction, margin-reduction, collateral, and causal-zero bars.",
+    "pred_c_h4_midpoint_selectively_removes_ood_command_contrasts": "Every fresh-population phase passes the same registered bars without reselection.",
+    "pred_d_simultaneous_midpoint_removal_is_additive_and_preserves_effects": "All population/template composition and simultaneous-loss bars pass.",
+    "pred_e_h4_selective_removal_is_licensed": "A/B/C/D all pass."
+  },
+  "null": "If A passes but B or C fails, donor-swap sufficiency does not establish selective necessity/removal for H4 on that population. If D fails, the two removals cannot be installed compositionally. Preserve the swap licenses but do not call H4 manipulable; do not tune a neutral point or subset after outcomes.",
+  "decision": "A/B/C/D/E establishes a prospective selective edit of the H4 task-typed interface on original and OOD text. It opens extraction/price testing and L11 value source localization; it is not itself a standalone model replacement."
+}
