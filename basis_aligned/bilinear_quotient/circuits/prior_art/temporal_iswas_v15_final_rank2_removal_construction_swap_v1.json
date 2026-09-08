@@ -1,0 +1,30 @@
+{
+  "schema": "temporal_iswas_v15_final_rank2_removal_construction_swap_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_final_rank2_removal_construction_swap_v1",
+  "registered_utc": "2026-09-08T03:19:00Z",
+  "question": "Is the transported entry12 rank-two span selectively necessary and sufficient at the final residual state, and can its causal payload be interchanged between the A1 and A2 constructions?",
+  "authority": {"direct_route_result_sha256": "d6dd9592660cfad1c632a7b6d580b15faa04f3e762629d76984129e4872a56e8", "required_terminal": "direct_residual_final_head_route"},
+  "prior_art": {
+    "searched": ["final residual rank2 removal", "construction coordinate swap", "direct residual final head", "selective state projection"],
+    "active_claim_collision": false,
+    "known_lessons": "Complete-state swaps are tautological; a subspace claim requires projection removal/sufficiency. Basis columns have rotational gauge and must not be named individually. The selective gold router keeps P/C off, while the learned lexical gate is not OOD.",
+    "novelty": "Manipulate the transported rank-two span immediately before the exact nonlinear decoder, and interchange whole projected payloads between paired A1/A2 rows without assigning semantics to arbitrary basis columns."
+  },
+  "frozen_design": {
+    "states": "Reconstruct opposite-fold entry12 unions and the gold A1/A2/off routed program. Capture native-off and routed-on final states through the full live suffix; also preserve the direct frozen-write final states from the identified route.",
+    "removal": "At the final state compute delta_parallel=(on-off)UU^T. Evaluate on-delta_parallel through the exact final RMSNorm/tied-unembedding/soft-cap head. No refit or logit optimization.",
+    "sufficiency": "Evaluate off+delta_parallel through the same exact head and score against the full routed target response.",
+    "construction_swap": "Within each group, exchange the complete projected final-state payload between its A1 and A2 rows, leave P/C at off, and decode. Score each target against its own full routed response; this tests shared payload reuse without identifying individual coordinates.",
+    "controls": "Require rank-two geometry replay, exact native/full head replay, orthogonality, paired-group inventory, finite metrics, zero P/C changes, and literal price. Report live-suffix and frozen-write variants separately.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 12, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 1200, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_geometry_replay_finiteness_and_price": "All hashes, rank-two geometry, exact final-head replay, paired rows, finiteness, and literal price pass.",
+    "pred_b_final_rank2_removal_is_necessary": "Removal loses signed projection >=0.75 of the full target response with direction fraction >=0.875 on A1/A2 in both folds.",
+    "pred_c_final_rank2_projection_is_sufficient": "Projection-only states retain signed projection >=0.75 and direction fraction >=0.875 on A1/A2 in both folds.",
+    "pred_d_construction_payload_swap_preserves_function": "A1/A2 paired payload swaps retain signed projection >=0.75 and direction fraction >=0.875 for both target panels in both folds.",
+    "pred_e_manipulations_are_control_selective": "P/C rows are exactly off under removal, sufficiency, and swap, with zero flips and mean KL <=0.02."
+  },
+  "decision": "A/B/C establishes selective necessity/sufficiency of the final transported span; D establishes reusable construction payload equivalence. D failure splits construction payloads operationally even though their union is rank two. Any pass remains v15-conditional until semantic OOD routing succeeds.",
+  "closed_claims": ["v16 routing", "basis-column semantics", "task-independent decoder", "compression", "adoption"]
+}
