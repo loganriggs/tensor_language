@@ -1,0 +1,51 @@
+{
+  "schema": "temporal_iswas_v23_occupied_reader_weight_writer_grouping_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_occupied_reader_weight_writer_grouping_v1",
+  "registered_utc": "2026-09-08T22:14:00Z",
+  "question": "Does contracting the exact four-head capability tensor with the frozen, activation-occupied M11 reader mode reveal a shared literal writer map that licenses grouping parts of four native heads, or do the heads remain distinct upstream implementations that only converge in downstream response?",
+  "evidence_status": "Prospective zero-forward decomposition. The unrestricted tensor's head spectrum, factor-score sharing, and activation occupancy are open. The occupied-reader-contracted per-head maps and their input/output subspace overlaps have not been computed.",
+  "prior_art": {
+    "searched": [
+      "v23 four-head restricted weight tensor and occupancy transport",
+      "v23 singleton exact transport results",
+      "task-typed weight atlases and selected-head weight-interface records"
+    ],
+    "known_results": "The unrestricted tensor has only 0.301 leading head-mode energy, despite 0.985 median nonnegative factor-score cosine. Realized M11 response occupies 0.971 of one frozen reader mode. Thus shared factor availability and shared signed computation are already separated.",
+    "novelty": "Contracting the exact global tensor with the independently frozen occupied reader mode tests whether realized downstream use removes the head-private gauge/sign structure. No activation PCA, SAE, labels, or refitting defines the contracted maps.",
+    "circuit_decision": "Strong signed-map and subspace sharing licenses a cross-head grouped writer interface. Weak sharing preserves four upstream branches that converge only through the common M11 reader response."
+  },
+  "authority": {
+    "weight_tensor_result_sha256": "8065c2403bd583b71adca4adcc5e41db9ce4247e1360fd2a75ca6a34980f5393",
+    "weight_tensor_npz_sha256": "9b553f42e708f1612fd90a934e0d26783b935457156f4856bc4b69f60df37892",
+    "occupancy_result_sha256": "2aae7e4bb5eb5092c64cc0248f5fa789a418ff2d78549e4d2acf438b8eef589b",
+    "four_head_confirmation_sha256": "db850d5e9b86f76cb4381a12fc83f91cd2aac3544029fabd18bad138d34fed92"
+  },
+  "frozen_object": {
+    "reader_mode": "Unfold C[h,a,i,k] with a as rows exactly as in the frozen occupancy experiment and take its leading left singular vector u[a], with deterministic SVD sign irrelevant.",
+    "contracted_maps": "T[h,i,k] = sum_a u[a] C[h,a,i,k], four exact 1152x128 bilinear maps from arbitrary M11 context coordinate i and physical head coordinate k into the occupied reader response.",
+    "signed_grouping": "SVD the head unfolding of T. Report leading head-mode Frobenius energy and pairwise signed/absolute flattened-map cosines.",
+    "interface_grouping": "For every T[h], take deterministic complete SVD. At r=8 and r=16, report captured energy plus normalized projector overlap tr(P_h P_g)/r for the 128-dimensional head-coordinate row spaces and the 1152-dimensional context column spaces.",
+    "no_pruning": "All singular values and overlap matrices are saved. No rank is adopted or used to alter the model in this experiment."
+  },
+  "bars": {
+    "contraction_replay_max_abs": 0.00001,
+    "occupied_contracted_top_head_mode_energy_min": 0.70,
+    "median_pair_absolute_map_cosine_min": 0.60,
+    "median_pair_top8_row_projector_overlap_min": 0.50,
+    "median_pair_top8_column_projector_overlap_min": 0.50,
+    "each_head_top16_energy_min": 0.50
+  },
+  "predictions": {
+    "pred_a_authority_shapes_contraction_replay_orthogonality_finiteness_and_zero_forward_price": "Authorities, shapes, direct einsum replay, SVD orthogonality, finiteness, and zero-forward price pass.",
+    "pred_b_occupied_reader_contracts_heads_into_one_shared_signed_map": "The leading head mode has at least 0.70 energy and median pair absolute map cosine is at least 0.60.",
+    "pred_c_heads_share_both_context_and_physical_coordinate_interfaces": "Median pair top-8 row-space and column-space projector overlaps are each at least 0.50.",
+    "pred_d_each_head_has_a_compact_internal_interface": "Every head's top-16 singular components capture at least 0.50 of its contracted-map energy."
+  },
+  "opposing_predictions": {
+    "cross_head_group": "B and C pass: freeze the common signed/interface map for causal grouped replacement while retaining head-specific transport adapters.",
+    "convergent_private_writers": "B or C fails: do not merge native head weights; the shared object is downstream occupied response, with four distinct transported writers.",
+    "broad_private_interfaces": "D fails: literal weight capability remains broad even after task-reader contraction; use causal occupancy rather than another rank threshold."
+  },
+  "anti_rank_drift": "The decomposition answers whether independently causal native heads should be grouped across boundaries. Passing spectra alone do not establish a new circuit; any proposed group requires held-out interchange and selective manipulation.",
+  "price": {"checkpoint_loads": 0, "model_forwards": 0, "sequence_evaluations": 0, "transformer_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
