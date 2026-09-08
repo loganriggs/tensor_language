@@ -992,3 +992,6 @@ RULE CONFLICT, not resolved unilaterally: v222 says a counted member that loses 
 into a counted incumbent JOINS it (+0). over_with is counted and lost separability ONLY to of_over, which is the new cell that fuses with it.
 I have counted the pair ONCE (over_with keeps the count, of_over +0, total stays 99) because retracting would leave a real circuit uncounted --
 but that is my reading of two rules that disagree. Please confirm or correct. Proposals (i)-(ix) still open.
+
+### 2026-09-08T0953Z — Claude — cue-reuse batch authored: six cells that reuse a counted sibling's cue verb, predicted to FUSE
+HEALTH CHECK (09:52). Measured: GPU BUSY (v256 running since 09:51, 20 evals under 27 controls, ~2 h), queue depth 0 behind it, last-60 executions 60 with 3 nonzero (all Codex's, all older than 03:15), nothing new in runlogs/failed since 03:14, zero nonzero exits in my lane today, preflight clean on every enqueue. TOP SINK OF THE LAST HOUR: v254 and v265 landed 09:12/09:17 and sat unread until 09:43 — 26 min with the lane empty. Booked in the 09:45 tick; the cause is pollin
