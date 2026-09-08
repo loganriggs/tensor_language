@@ -19,7 +19,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
-| `cross_task.temporal_iswas.dual_command` | cross_task_program | identified_partial | `task_typed_source_value_under_shared_native_routing` | 2 tasks, original+OOD | 3 | finish writer-to-formula mediation for the prospectively selected compact writers; then join the exact L11 source edge to the licensed H4 joint/removal program and price the executable boundary |
+| `cross_task.temporal_iswas.dual_command` | cross_task_program | identified_partial | `task_typed_source_value_under_shared_native_routing` | 2 tasks, original+OOD | 4 | resolve the is-was writer-route split with full-prefix value vs full-L11H3-head mediation; then join the licensed source edge to H4 and price the executable boundary |
 
 ### `cross_task.temporal_iswas.dual_command` — exact task-typed source interface, causal writers pending mediation
 
@@ -65,6 +65,14 @@ reselection on original HOLDOUT and OOD: temporal recovery is `.529-.561` with c
 cell has direction agreement `1.0`, reference replay and causal-zero errors are zero, and the
 shared physical core is reduced from five heads to two.
 
+Exact controlled mediation then splits that apparent shared writer core. The source-local
+recipient-native formula carries `.783-.799` of the temporal selected-writer effect with cosine
+at least `.9978`, but only `.165-.203` of the is-was effect despite cosine at least `.9764`.
+Algebra errors remain below `9.54e-6`, replay and causal-zero errors are zero, and task collateral
+is below `.00203`, so the is-was shortfall is a valid route null rather than a broken instrument.
+The shared writers therefore cannot yet be identified as one shared end-to-end edge: is-was may
+spread into L11H3 values outside postcue, alter L11H3 routing, or use a bypass path.
+
 The H4 program is already jointly composable and selectively manipulable.  On original text its
 four-head command recoveries are temporal `.833/.848` and is-was `.696/.669`; on fresh OOD they are
 `.835/.833` and `.730/.739`.  Joint interaction is small and later-to-earlier causal effect is
@@ -77,9 +85,9 @@ temporal recovery `.828-.847` original and `.831-.835` OOD, is-was `.652-.683` o
 | counterfactual semantics and native capability | held | 128-row command banks plus independently licensed fresh constructions; exact paired donor maps |
 | causal transfer and source localization | held with explicit repair provenance | L11H3:value causal route; temporal bridge and is-was postcue; original invalid receipt retained, separate zero-error audit licenses B--E only |
 | held-out and OOD prediction | held for H4, source regions, formula, weights, and compact causal writer prefixes | no row filtering or OOD reselection; selected P3 temporal/P2 is-was validate prospectively |
-| extraction / sufficiency | held at explicit L11 interface | exact bilinear tensor plus native routing/background; standalone upstream source generator remains open |
-| selective manipulation | held for H4; pending end-to-end source edge | original/OOD midpoint removal passes; writer-induced exact-formula mediation is frozen and implemented and now eligible for exact greedy-result binding |
-| composition and reuse | held for H4 and writer additivity | dual commands compose; L9H1/L9H4 are shared physical writers of distinct task-typed values; joined writer-formula-H4 composition remains open |
+| extraction / sufficiency | held at explicit L11 interface; partial upstream closure | exact bilinear tensor plus native routing/background; selected temporal writers mediate strongly, selected is-was writers do not |
+| selective manipulation | held for H4 and temporal writer→source edge; partial for is-was | original/OOD midpoint removal passes; exact source formula carries `.783-.799` temporal but only `.165-.203` is-was writer effect |
+| composition and reuse | held for H4 and writer additivity; shared-edge interpretation split | L7H7/L9H4 write both tasks causally, but only temporal is strongly closed through the source-local L11 formula; is-was route ladder pending |
 | stable identification | held within current scope | original/OOD source, routing, tensor, weight-ranking, and causal-head recurrence; broader free-form/corpus scope untested |
 | literal simplicity / adoption | open | greedy pruning reduces temporal writers 5→3 and is-was writers 5→2; native background and suffix still required; no whole-model parameter or block elimination claimed |
 
@@ -97,7 +105,7 @@ temporal recovery `.828-.847` original and `.831-.835` OOD, is-was `.652-.683` o
 | `temporal_iswas.l11h3_source_tensor_weight_atlas` | physical weight translation | stable six-head causal candidate union | `temporal_iswas_l11h3_source_tensor_upstream_weight_atlas_v1_result.json` |
 | `temporal_iswas.l11h3_upstream_head_factorial` | causal writer identification | L9H1/L9H4 shared writers; distributive unions | `temporal_iswas_l11h3_source_tensor_upstream_head_factorial_v1_result.json` |
 | `temporal_iswas.l11h3_weight_ordered_greedy` | compact writer selection | P3 temporal, P2 is-was; all frozen gates held | `temporal_iswas_l11h3_source_writer_weight_ordered_greedy_v1_result.json` |
-| `temporal_iswas.l11h3_writer_formula_mediation` | explicit edge mediation | conditionally frozen and implemented | exact greedy hash binding and managed execution pending |
+| `temporal_iswas.l11h3_writer_formula_mediation` | explicit edge mediation | temporal held; is-was route null | `temporal_iswas_l11h3_source_writer_formula_mediation_v2_result.json` |
 
 ### `task.subject_verb_number_agreement` — path_grouped
 
