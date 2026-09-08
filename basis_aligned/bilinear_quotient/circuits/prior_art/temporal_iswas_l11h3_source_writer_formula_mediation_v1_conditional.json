@@ -1,0 +1,44 @@
+{
+  "schema": "temporal_iswas_l11h3_source_writer_formula_mediation_conditional_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.l11h3_source_writer_formula_mediation_v1",
+  "registered_utc": "2026-09-08T08:06:00Z",
+  "status": "conditional_frozen_awaiting_greedy_result_hash",
+  "question": "Do the greedily selected upstream source writers affect the task command through the exact recipient-native L11H3 value-source tensor, rather than through an unmodeled parallel downstream route?",
+  "authority": {
+    "greedy_prior_sha256": "7281c046d67e696aca745062c829dacd55bc0df70b642b06c736bed0071be9b2",
+    "greedy_runner_sha256": "6660183126fd155e9ab86511e798a564879ef86818760dde256177916d1d13b5",
+    "source_term_extraction_result_sha256": "d55e448e5c950f9a6e316cc43e8d1ca7c95fd625b31021b2572a8e20ba4f245a",
+    "source_term_extraction_runner_sha256": "7c68faa314fe38ca0d1579b3c5ff3f6e12439923e49bec767bfb65212beb48dc",
+    "greedy_result_sha256": null,
+    "binding_rule": "Enqueue is forbidden until an immutable v2 amendment fills only greedy_result_sha256 and records the selected prefixes returned by the valid greedy receipt. No intervention, bar, null, population, or price may change in that amendment."
+  },
+  "frozen_design": {
+    "eligibility": "Run only if the greedy result is valid, both roles selected prefixes, and those prefixes validate without reselection. Otherwise preserve this conditional prior without execution.",
+    "populations": "Use every original and fresh OOD endpoint with the greedy receipt's exact donor pairs and locked temporal bridge/is-was postcue source positions. Original FIT is replay-only because it selected the prefix; causal mediation claims use original HOLDOUT and both OOD phases.",
+    "writer_arm": "Patch the selected role-specific earlier-head prefix from its exact command-counterfactual donor at only the locked source positions, then capture the resulting L11H3 q/k/q2/k2/v tensors and final logits.",
+    "value_mediator_arm": "In a separate native execution, replace only L11H3 c_v head 3 at the locked source positions with the values induced by the writer arm. Keep native recipient q/k/q2/k2 and all other components live.",
+    "formula_arm": "Using recipient-native normalized rotary q/k/q2/k2, contract the writer-induced source-local delta_v as (1-lambda_11) sum_j ((q_i dot k_j)/128)((q2_i dot k2_j)/128) delta_v_j for every destination. Add only this 128-vector tensor to the native L11H3 pre-c_proj slice. No learned projection, DAS basis, coefficient fit, or donor routing factor is permitted.",
+    "algebra_gate": "The explicit formula must equal the independently observed value-mediator L11H3 preprojection delta with max absolute and relative L2 error <=1e-4. Formula-arm selected logits must match value-mediator selected logits within 1e-4.",
+    "writer_replay": "The full writer arm must replay every selected-prefix parent-relative metric stored in the greedy receipt within 1e-5.",
+    "mediation_bar": "Against the full selected-writer causal effect, the formula arm must achieve signed recovery >=0.75, cosine >=0.95, relative residual <=0.50, and direction agreement >=0.90 on original HOLDOUT and both OOD phases for each role. Every validation template must retain recovery >=0.50 and direction agreement >=0.75.",
+    "selectivity": "Formula-arm command-gold cross-role norm ratio must be <=0.01 on every pooled validation cell. Every is-was formula intervention must change the earlier temporal margin by <=1e-5.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 14,
+      "sequence_evaluations": 1792,
+      "scored_token_positions": 3584,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_bound_authority_pairing_writer_replay_capture_coverage_finiteness_and_exact_price": "The later hash-only amendment binds a valid greedy result; all authorities, selected prefixes, positions, capture sets, writer replay, finiteness, and literal price pass.",
+    "pred_b_exact_recipient_native_formula_equals_the_value_mediator": "The explicit bilinear contraction equals the independently executed L11H3:value mediator and its selected logits within the algebra gates.",
+    "pred_c_selected_writer_effects_are_mediated_by_the_l11h3_source_formula": "Both role-specific formula arms pass every pooled original-HOLDOUT/OOD mediation bar without refitting or reselection.",
+    "pred_d_formula_mediation_is_stable_within_templates": "Every validation template retains the frozen minimum recovery and direction.",
+    "pred_e_formula_mediation_is_task_selective_and_causal": "All cross-role collateral and later-to-earlier causal-zero bars pass."
+  },
+  "null": "If A fails, the instrument is invalid. If B fails, the implementation does not establish the exact tensor identity. If B passes but C or D fails, the selected heads are causal writers but L11H3:value is only a partial or unstable mediator; preserve the residual as an explicit parallel-route target rather than widening heads or optimizing a DAS subspace. If E fails, no selective edge is licensed.",
+  "decision": "A/B/C/D/E identifies the selected earlier heads -> task-typed L11H3:value source tensor -> downstream command effect as an explicit executable edge on held-out and OOD text. The next action then joins this edge with the already licensed H4 joint/removal program and prices the resulting task-typed tensor program."
+}
