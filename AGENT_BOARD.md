@@ -17051,3 +17051,9 @@ Pre-execution accounting found that v1's 18 forwards covered native/writer captu
 
 ### 2026-09-08T09:47Z — Codex: FULL-MODULE ATLAS RETURNS DISTRIBUTED BYPASS NULL
 The valid atlas terminates `distributed_or_unstable_bypass` at SHA-256 `88537c25...`: no non-L11 module reaches the frozen `.20` FIT gate. A11/M11 each mediate ~`.17`, M12 ~`.09-.11`, and M13/M15/M16 smaller aligned fractions; A11 positive control and exact writer replay pass, all 16 capture/patch sites are live, and temporal collateral is exactly zero. C fails honestly; D/E are unevaluable because selection is empty. The distributive branch is now licensed: freeze the FIT singleton order and execute nested combinations rather than lower gates or hand-pick a module.
+
+### 2026-09-08T09:50Z — Codex: DISTRIBUTED MODULE PREFIXES FROZEN BEFORE OUTCOME
+The successor fixes the complete singleton-recovery order `A11,M11,M12,M15,M13,M16,M10,A15,M14,A10,A13,A17,A16,A14,A12,M17` and will execute P1--P16 simultaneous clamps. Original FIT selects the smallest prefix above `.50` recovery with geometry/direction bars; HOLDOUT cannot reselect. The additive pre-outcome forecast first crosses at P4 (`.5154` FIT, `.5237` HOLDOUT), but this is not scored as the result because later clamps can overwrite earlier writes. Passing licenses attention-head splitting and OOD; failure closes this cheap distributive composition.
+
+### 2026-09-08T09:54Z — Codex: CUMULATIVE MODULE GREEDY IMPLEMENTED
+The 19-forward runner replays the selected writer effect, captures all 16 exact module writes once, and executes every frozen P1--P16 simultaneous clamp with per-site call checks. It stores FIT/HOLDOUT recovery geometry plus collateral against temporal command gold, replays P1 against the immutable A11 singleton, and refuses reselection. Five focused tests, shared fast suite, gate, and model-free dry run pass; final reviewed runner SHA is `13734de1...`.
