@@ -1,0 +1,62 @@
+{
+  "schema": "temporal_iswas_identity_p7_live_module_effect_game_ood_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.identity_p7_live_module_effect_game_ood_v1",
+  "question": "Which fixed P7 modules transmit, redundantly reconstruct, complement, or suppress the block-10 residual identity effect when they are allowed to recompute live rather than overwritten by selected-writer clamps?",
+  "population": "The immutable 64+64 OOD FIT/HOLDOUT rows from the stable P7-plus-identity parent. All 128 subsets are enumerated on both phases; no row, subset, module, interaction, threshold, or sign is selected from these outcomes.",
+  "authorities": {
+    "parent_result": "circuits/followups/temporal_iswas_p7_residual_two_stream_ood_composition_v1_result.json",
+    "parent_result_sha256": "55498ec9110fbddc8ae9a86eb4bab63efeb92540322aaa8783cec2d8c7bd55a7",
+    "necessity_result": "circuits/followups/temporal_iswas_p7_identity_background_module_leave_one_out_ood_v1_result.json",
+    "necessity_result_sha256": "20eff67e079f46beefe0cf6ec14f16af7674c359fb460c8d73357175761154e4",
+    "necessity_runner": "ops/run_temporal_iswas_p7_identity_background_module_leave_one_out_ood_v1.py",
+    "necessity_runner_sha256": "384a79a38294416204d5bde0e24fcee7008e391a6712de82ec59c627f7f1318a"
+  },
+  "fixed_game": {
+    "source": "The exact selected-writer block-10 residual input installed over each row's registered causal prefix.",
+    "players": ["A11", "M11", "M12", "M15", "M13", "M16", "M10"],
+    "source_absent_arm": "Self-patch the native block-10 input. Players in S remain live; each player outside S is clamped to its native captured output at registered positions. This must be an exact no-op for every S.",
+    "source_present_arm": "Install the selected-writer block-10 input. Players in S recompute live under that source; each player outside S is clamped to its native captured output. All non-P7 modules remain live background.",
+    "effect_game": "E_I(S) is the source-present minus source-absent answer-margin vector for subset S.",
+    "decomposition": "Exact subset-lattice Mobius dividends are computed on E_I. Module Shapley vectors allocate E_I(P7)-E_I(empty); E_I(empty) is the direct/unmasked-background route. Grabisch-Roubens pair interaction indices are reported separately and may aggregate higher-order dividends.",
+    "interpretation": "This identifies operational dependence of the identity source on live P7 modules. A large value nominates a route but is not a direct edge until edge-specific interchange/removal holds. Negative interactions indicate redundancy/cancellation; positive interactions indicate complementarity, subject to inspecting the four corresponding outcomes."
+  },
+  "bars": {
+    "authority_noop_and_parent_replay_max_abs_error": 0.00001,
+    "mobius_reconstruction_and_shapley_efficiency_max_abs_error": 1e-08,
+    "stable_module_shapley_absolute_signed_credit_min": 0.03,
+    "stable_pair_interaction_absolute_signed_credit_min": 0.03,
+    "temporal_command_gold_collateral_max": 0.01
+  },
+  "predictions": {
+    "pred_a_authority_capture_all_subset_noop_full_identity_replay_finiteness_and_exact_price": "All immutable authorities and the fixed P7 order match; native/writer capture and every source/subset hook have exact coverage; all 128 source-absent arms replay native and the all-live source-present arm replays the parent's identity_full metrics within 1e-5; finiteness and exact price pass.",
+    "pred_b_exact_mobius_reconstruction_and_shapley_efficiency": "For every OOD row, Mobius reconstruction of all 128 source-effect values and Shapley efficiency close within 1e-8.",
+    "pred_c_at_least_one_p7_module_has_stable_live_route_credit": "The same P7 module has absolute signed Shapley credit >=.03 relative to the full identity-effect norm, with the same sign, on both OOD FIT and HOLDOUT.",
+    "pred_d_at_least_one_p7_pair_has_stable_interaction": "The same P7 pair has absolute signed Grabisch-Roubens interaction credit >=.03 relative to the full identity-effect norm, with the same sign, on both OOD FIT and HOLDOUT.",
+    "pred_e_every_source_conditioned_subset_is_temporally_selective": "Every E_I(S) arm has temporal command-gold collateral <=.01 on both OOD phases."
+  },
+  "terminal_rules": {
+    "invalid_instrument": "A or B fails.",
+    "nonselective": "A/B pass and E fails.",
+    "direct_background_identity": "A/B/E pass and C fails; the tested P7 live modules do not stably mediate the identity source above .03.",
+    "additive_live_module_routes": "A/B/C/E pass and D fails; retain stable Shapley routes but no pair interaction claim.",
+    "redundant_or_complementary_live_routes": "A--E pass; inspect the signed four-corner outcomes of stable pairs and follow with edge-specific interchange/removal."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 258,
+    "sequence_evaluations": 33024,
+    "scored_token_positions": 66048,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "tripwires": [
+    "The source-absent side must execute the same new hook path for all 128 subsets; algebraic no-op assertions without model execution are insufficient.",
+    "Enabled players remain live and recompute after all earlier interventions. Disabled players are clamped to native outputs only at registered positions; selected-writer module outputs are never used in this game.",
+    "All 128 subsets, Mobius orders, Shapley values, pair indices, signs, bars, and OOD phases are frozen before execution.",
+    "Shapley credit or interaction is operational dependence, not a direct edge, semantic unit, weight rank, or compression certificate.",
+    "No DAS, learned projector, surrogate tensor network, OOD selection, calibration, or post-outcome subset pruning is allowed."
+  ],
+  "null": "All P7 Shapley credits remain below .03 on at least one OOD phase: identity is carried by the direct residual/unmasked background route at this granularity, and the prior replacement LOO null must not be reinterpreted as hidden P7 mediation.",
+  "novelty": "Repository search found generic Mobius/Shapley utilities and many complete factorials, but no source-conditioned live-module effect game for the exact block-10 identity source. The immutable predecessor made every full-writer single deletion exactly null, meeting the prospectively registered redundancy trigger; this changes the intervention from selected-writer replacement to live recomputation and is not a repeated LOO or attribution-only sweep."
+}
