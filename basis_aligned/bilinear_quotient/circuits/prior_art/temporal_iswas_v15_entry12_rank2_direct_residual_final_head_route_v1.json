@@ -1,0 +1,30 @@
+{
+  "schema": "temporal_iswas_v15_entry12_rank2_direct_residual_final_head_route_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_entry12_rank2_direct_residual_final_head_route_v1",
+  "registered_utc": "2026-09-08T03:09:00Z",
+  "question": "Does the selective entry12 rank-two program reach the final RMS-normalized tied unembedding mainly through the recurrent residual identity path rather than layer-12--17 attention/MLP writes?",
+  "authority": {"factor_atlas_result_sha256": "f029dbefe062d49362987081b0404ea00b3db4120cb384f899df8bbf5d3482c0", "required_terminal": "weight_reader_bypass_null"},
+  "prior_art": {
+    "searched": ["direct residual carry", "suffix module write bank", "residual state lockin", "final RMS unembedding", "rank2 factor bypass"],
+    "active_claim_collision": false,
+    "known_lessons": "The oracle route's complete suffix writes mediate only .14-.21; the selective rank-two program's attention12/13 factor banks mediate below .012. Complete-state boundary swaps are tautologically exact and do not isolate the direct path.",
+    "novelty": "Freeze every complete attention and MLP write in layers 12-17 to its native-off value while the selective rank-two entry state remains on, and verify the resulting final-state delta against the literal product of recurrent residual coefficients."
+  },
+  "frozen_design": {
+    "program": "Reconstruct each opposite-parity rank-two union and gold-route A1/A2/off exactly as in the factor atlas.",
+    "factorial": "Capture all twelve complete suffix writes under 00 native-off and 11 routed-on. Run 01 off entry plus on writes and 10 on entry plus off writes, with semantic-prefix absolute replacement. Replay both full captured write banks once.",
+    "direct_state_law": "For cell 10, every suffix write is identical to cell 00 and x0/v1 are unchanged. Therefore the final residual delta must equal gamma times the entry12 delta, where gamma is the product of block.lambdas[0] over layers 12-17. Verify rowwise at the final semantic token before evaluating logits.",
+    "final_head": "Recompute each cell's logits exactly as 30*tanh(lm_head(rms_norm(final_state))/30), report answer-minus-foil response, and require replay. This establishes the literal decoder edge but remains task-specific until OOD routing exists.",
+    "controls": "Require authority, cross-fit geometry, target sufficiency, write replay, factorial closure, direct-state relative error, exact-head replay, P/C KL/flips, finiteness, and exact price.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 24, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 2000, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_geometry_closure_finiteness_and_price": "All hashes, rank-two geometry, row coverage, write replay, factorial closure, exact final-head replay, finite metrics, and literal price pass.",
+    "pred_b_suffix_write_bank_is_minor": "Joint suffix-write reset loss and rescue have signed projection <0.25 in every A1/A2 held-fold cell.",
+    "pred_c_direct_residual_route_is_sufficient": "With all suffix writes frozen off, the routed entry program retains signed projection >=0.75 and direction fraction >=0.875 on both targets in both folds.",
+    "pred_d_direct_state_obeys_recurrent_product_law": "Cell-10 final-state delta matches product(lambdas[0], layers12:18) times the entry12 delta with relative L2 <=1e-5 in every fold.",
+    "pred_e_route_is_control_selective": "Joint reset/rescue has zero P/C flips and mean KL <=0.02 in both folds."
+  },
+  "decision": "A/C/D identifies the literal direct residual-to-final-head route for the selective v15 program; B quantifies downstream write adjustment. Failure of C sends localization to later complete-state nonlinear reconstruction. This does not repair the failed v16 router or license adoption.",
+  "closed_claims": ["semantic routing", "v16 prediction", "task-independent unembedding coordinates", "compression", "adoption"]
+}
