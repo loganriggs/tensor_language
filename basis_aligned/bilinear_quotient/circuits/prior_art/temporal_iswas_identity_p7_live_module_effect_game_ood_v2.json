@@ -1,0 +1,41 @@
+{
+  "schema": "temporal_iswas_identity_p7_live_module_effect_game_ood_prior_v2_instrument_repair",
+  "candidate_id": "cross_task.temporal_iswas.identity_p7_live_module_effect_game_ood_v2",
+  "amends": "temporal_iswas_identity_p7_live_module_effect_game_ood_v1.json",
+  "invalid_result": "circuits/followups/temporal_iswas_identity_p7_live_module_effect_game_ood_v1_result.json",
+  "invalid_result_sha256": "985bbeb0e036ace4dbbe21295bf410e45a8803e89db91d46a7a049a76b653885",
+  "defect": "V1 required its all-live source-present arm to replay parent identity_full. Parent identity_full clamps all sixteen downstream module outputs native, while the game's all-live arm leaves every downstream module live. With the selected-writer block-10 input installed, deterministic live suffix execution instead replays the parent writer arm. The observed all-live recovery is exactly 1.0 with zero residual on both phases; the 0.54648 gate error is the parent identity_full residual itself.",
+  "single_change": "Compare each all-live report to the same-phase parent writer report. Preserve the source intervention, all 128 subsets, both source states, P7 order, rows, metrics, transforms, bars, signs, terminal rules, price, and all other authorities exactly.",
+  "predictions": {
+    "pred_a_authority_capture_all_subset_noop_full_writer_replay_finiteness_and_exact_price": "All immutable authorities and the fixed P7 order match; every source/subset hook has exact coverage; all 128 source-absent arms replay native and all-live source-present replays the parent's writer metrics within 1e-5; finiteness and exact price pass.",
+    "pred_b_exact_mobius_reconstruction_and_shapley_efficiency": "For every OOD row, Mobius reconstruction of all 128 source-effect values and Shapley efficiency close within 1e-8.",
+    "pred_c_at_least_one_p7_module_has_stable_live_route_credit": "The same P7 module has absolute signed Shapley credit >=.03 relative to the full identity-effect norm, with the same sign, on both OOD FIT and HOLDOUT.",
+    "pred_d_at_least_one_p7_pair_has_stable_interaction": "The same P7 pair has absolute signed Grabisch-Roubens interaction credit >=.03 relative to the full identity-effect norm, with the same sign, on both OOD FIT and HOLDOUT.",
+    "pred_e_every_source_conditioned_subset_is_temporally_selective": "Every source effect coalition has temporal command-gold collateral <=.01 on both OOD phases."
+  },
+  "bars": {
+    "authority_noop_and_parent_replay_max_abs_error": 0.00001,
+    "mobius_reconstruction_and_shapley_efficiency_max_abs_error": 1e-08,
+    "stable_module_shapley_absolute_signed_credit_min": 0.03,
+    "stable_pair_interaction_absolute_signed_credit_min": 0.03,
+    "temporal_command_gold_collateral_max": 0.01
+  },
+  "terminal_rules": {
+    "invalid_instrument": "A or B fails.",
+    "nonselective": "A/B pass and E fails.",
+    "direct_background_identity": "A/B/E pass and C fails.",
+    "additive_live_module_routes": "A/B/C/E pass and D fails.",
+    "redundant_or_complementary_live_routes": "A--E pass; preserve the attribution and open a sealed physical reader-input removal/module-output rescue test."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 258,
+    "sequence_evaluations": 33024,
+    "scored_token_positions": 66048,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "null": "The corrected writer replay or any other authority gate fails, or all P7 Shapley credits remain below .03 on at least one OOD phase. V1 remains invalid regardless of V2 outcome.",
+  "post_selection_guard": "V1's stable modules and pair are visible but do not change any V2 threshold or intervention. A passing V2 may preserve them only as OOD nominations; directed-edge confirmation must use a new sealed population."
+}
