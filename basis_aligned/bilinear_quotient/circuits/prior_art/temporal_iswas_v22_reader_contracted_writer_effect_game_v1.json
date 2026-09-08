@@ -1,0 +1,96 @@
+{
+  "schema": "temporal_iswas_v22_reader_contracted_writer_effect_game_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v22_reader_contracted_writer_effect_game_v1",
+  "registered_utc": "2026-09-08T20:38:00Z",
+  "question": "Does the v15/v21-replicated writer frontier causally reconstruct fresh v22 behavior through a frozen native M11 reader, and is its distributed structure redundant or complementary?",
+  "evidence_status": "Prospective v22 confirmation of two frozen unions plus exhaustive effect-game characterization of a 10-route set selected only from v21. V22 is used neither to choose routes nor to tune a dose. Any subset selected from the v22 game requires a further fresh confirmation.",
+  "authority": {
+    "v22_capability_result_sha256": "692914652431d33389f88818532c6d29aa16b3f1d151ed4728eb7aece7c3b437",
+    "v22_builder_sha256": "d84f50b334c6a2b2af47273da7668fdea8269bbc615378985fd49547f2f65499",
+    "v21_atlas_result_sha256": "b873575f36716a42a32167caa79230d0d6765754afa057e7541e73916282451d",
+    "v21_atlas_audit_sha256": "0fe6ed8b69498cbe68d00457cd797b2ecdb2b8ed06d02855b6e27b1a3cbf2b69",
+    "v20_hr_split_result_sha256": "e334a580b72806a3976408cc16efb36aa05d066c3a7db28cb74da8f96c5ccc71",
+    "v20_hr_state_result_sha256": "6825aea2585394e2570317069d13e1de19bc97058d149638e8f46b62f845bb7d",
+    "v20_hr_gain_result_sha256": "584d3ed65ecb74ae06f58b331a821a7f5958daf89ae6db3a9313eee5ef0120a3"
+  },
+  "collision_audit": {
+    "searched": [
+      "v15 complete module/head atlases and cross-boundary adaptive greedy result",
+      "v20 exact H/R tensor, state, and gain results",
+      "v21 exhaustive 24-module/108-head result and its instrument audit",
+      "shap_tensor.md and existing exact source-effect games"
+    ],
+    "known_results": "L8H1, L9H1, L9H4, and L11H3 are the four strongest v21 behavioral heads and exactly reproduce the independently selected v15 head set. V21 complete MLP1/3/2/4/6/0 each recovers at least 0.335 target behavior. Raw H is not the causal-use geometry; the stable reader must contract it. The old unconditional greedy search had no small selective prefix.",
+    "novelty": "No test has frozen this cross-corpus component set, evaluated it on untouched rows with exact base-reader-contracted M11 Q, or enumerated its exact 10-route source game."
+  },
+  "population": "All 16+16 jointly capable A1/A2 v22 rows and all 16 P plus 16 C controls. No row is removed after capability.",
+  "frozen_routes": {
+    "ordered_routes": ["mlp:1", "mlp:3", "mlp:2", "mlp:4", "mlp:6", "mlp:0", "L9H1", "L9H4", "L8H1", "L11H3"],
+    "selection_rule": "The first six are the v21 non-input complete MLPs with behavior recovery >=0.30, ordered by frozen v21 recovery. The four heads are the complete v15/v21 replicated head set, ordered by v21 recovery.",
+    "head_union": ["L9H1", "L9H4", "L8H1", "L11H3"],
+    "route_count": 10,
+    "subset_count": 1024
+  },
+  "reader_contracted_endpoint": {
+    "reader": "On the untouched native v22 base forward, replace the MLP11 output by a differentiable leaf and backpropagate the sum of per-row donor-answer-minus-donor-foil margins once. R[row,pos,n]=gradient[row,pos] dot Down[:,n]. R is then frozen for every arm.",
+    "writer": "For every arm capture MLP11 input x and compute literal H(x)=(x Left^T)*(x Right^T).",
+    "task_functional_response": "Q_arm[row,n]=sum over valid positions of (H(x_arm)-H(x_base))*R_base. The scalar q_arm is sum over factors. Native q_target uses H(x_donor)-H(x_base) with the same frozen R_base.",
+    "status": "Q is an exact contraction of the finite MLP11 writer change with a frozen local reader; it is not an exact linearization of later blocks. Exact finite answer-margin behavior is therefore a separate mandatory endpoint."
+  },
+  "arms": {
+    "effect_game": "Run every nonempty subset of the 10 routes once over all 64 rows; the native base forward supplies the empty coalition.",
+    "closure": "Separately run a base self-patch over every upstream site and an all-upstream donor patch. Self must be inert; donor must reconstruct donor final state/margin/M11 input and H. No P/C selectivity condition is applied to complete donor closure.",
+    "native": "One differentiable base forward and one no-grad donor forward.",
+    "no_refit": "No subspace, reader, factor, route, rank, dose, coefficient, or greedy order is fitted on v22."
+  },
+  "effect_game_math": {
+    "scalar_games": "For target behavior and q separately, v(S) is the signed projection of the A1+A2 arm vector onto its corresponding native target vector. Also compute each construction×direction cell game.",
+    "shapley": "phi_i=sum over S not containing i of |S|!(10-|S|-1)!/10! times [v(S union i)-v(S)].",
+    "pair_interaction": "I_ij=sum over S excluding i,j of |S|!(10-|S|-2)!/9! times the second difference v(Sij)-v(Si)-v(Sj)+v(S). Positive is complementarity and negative is redundancy for the registered scalar game.",
+    "efficiency": "For each scalar game require sum_i phi_i=v(N)-v(empty) to numerical tolerance. This identity validates enumeration; it does not validate causal selectivity.",
+    "frozen_prefix": "Report the ten prefixes of ordered_routes. An adaptive greedy and the best subset are discovery summaries only and cannot be promoted on v22."
+  },
+  "metrics": {
+    "target": "Behavior and q signed projection, cosine, relative residual, and rowwise direction over pooled A1+A2 and each of four target cells.",
+    "controls": "For each component/set intervention, P and C behavior/q RMS movement divided by target native RMS. Raw H norm and factor occupancy are reported only as diagnostics.",
+    "reporter_stability": "Repeat scalar-game and Shapley summaries on the two reversed modulo-4 reporter halves without changing any arm."
+  },
+  "predictions": {
+    "pred_a_authority_reader_hooks_closures_enumeration_finiteness_and_exact_price": "All hashes, rows, routes, masks, hook calls, and 1,024 coalitions match; base self-patch is <=1e-4 absolute on state/margin/input; donor closure is <=1e-4 on state/margin/input and <=1e-4 relative on H; Shapley efficiency residuals are <=1e-8; all metrics are finite; exactly 1,027 forwards, 65,728 row evaluations, and one transformer backward execute.",
+    "pred_b_frozen_ten_route_union_is_selective_on_behavior_and_q": "The full 10-route union has behavior and q signed recovery >=0.60, direction fraction >=0.90, and every P/C behavior/q leak ratio <=0.15.",
+    "pred_c_replicated_four_head_union_is_selective": "The frozen four-head union has behavior and q signed recovery >=0.50, direction fraction >=0.90, and every P/C behavior/q leak ratio <=0.15.",
+    "pred_d_effect_is_genuinely_distributed": "At least two routes have positive behavior and q Shapley allocations >=0.05, and their allocation signs agree on both reporter halves.",
+    "pred_e_three_of_four_heads_replicate_as_singletons": "At least three frozen heads individually have behavior recovery >=0.15, q recovery >=0.05, both directions >=0.75, and every P/C behavior/q leak ratio <=0.10."
+  },
+  "bars": {
+    "closure_max_abs": 0.0001,
+    "closure_h_relative": 0.0001,
+    "shapley_efficiency": 1e-8,
+    "full_union_recovery": 0.60,
+    "head_union_recovery": 0.50,
+    "union_direction": 0.90,
+    "union_control_leak": 0.15,
+    "distributed_shapley": 0.05,
+    "singleton_behavior_recovery": 0.15,
+    "singleton_q_recovery": 0.05,
+    "singleton_direction": 0.75,
+    "singleton_control_leak": 0.10,
+    "singleton_head_count": 3
+  },
+  "opposing_outcomes": {
+    "reader_contracted_distributed_writer_program": "A-E pass. Preserve the 10-route game, use Shapley/interactions to preregister a smaller subset, and confirm that subset on v23 before weight-tensor promotion.",
+    "four_head_writer_program": "A/C/E pass but B or D fails. Carry only the fixed four-head union to v23; do not add MLP route sites merely because they have large raw effects.",
+    "distributed_nonselective_or_q_mismatch": "A passes but B/C fail. Distinguish behavior-only, q-only, and P/C failure; do not tune the v22 subset or reader.",
+    "head_singleton_replication_failure": "A passes but E fails. The v15/v21 head frontier is not lexically stable enough for promotion.",
+    "invalid_instrument": "A fails; do not score B-E."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards_exact": 1027,
+    "sequence_evaluations_exact": 65728,
+    "transformer_backwards": 1,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "execution_policy": "managed_queue_only"
+}
