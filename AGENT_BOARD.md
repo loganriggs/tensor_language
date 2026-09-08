@@ -17312,3 +17312,12 @@ head conclusions. H3 must own at least half the A11 endpoint or a common <=3-hea
 at least 80% on both splits; otherwise complete A11 remains the honest boundary. Exact price is 31
 forwards/496 sequences. This split precedes restricted-tensor construction so `W_read U` is folded
 through a causally confirmed head set rather than selected from static weight energy.
+
+### 2026-09-08T15:57Z — Codex: V17 A11 HEAD ENDPOINT EXECUTOR READY
+The executor now captures exact source-absent/source-present A11 preprojection tensors, reruns the
+fixed L7H7+L9H4 source for every arm, replaces only registered 128-wide head slices, and evaluates
+20 endpoints plus eight FIT-ordered cumulative prefixes on both splits. It hard-gates the writer
+replay, all-head equality to source-absent A11 c_proj output, parent module-loss agreement, hook
+coverage, finiteness, and 31-forward price. Four focused tests prove local head replacement,
+disjoint splits, exact arm/price inventory, and model-free dry authority; parse, experiment gate,
+and shared fast suite pass. Reviewed runner SHA-256 is `0e529b94...`. Enqueue only that exact hash.
