@@ -4,6 +4,8 @@ import json
 import pytest
 
 import p7_identity_split_binding as target
+import run_temporal_iswas_p7_identity_a11_head_endpoint_atlas_ood_v1 as a11_executor
+import run_temporal_iswas_p7_identity_m11_exact_product_factorial_ood_v1 as m11_executor
 
 
 def write(path, content):
@@ -118,3 +120,19 @@ def test_changed_authority_or_branch_runner_creates_nothing(tmp_path):
             expected_necessity_runner_sha256=necessity_hash, branches=branches,
         )
     assert not (tmp_path / "bindings").exists()
+
+
+def test_emitted_bindings_are_accepted_by_frozen_branch_executors(tmp_path, monkeypatch):
+    necessity = result(("A11", "M11"))
+    result_path = tmp_path / "result.json"
+    result_hash = write(result_path, json.dumps(necessity))
+    payloads = target.binding_plan(
+        necessity,
+        result_sha256=result_hash,
+        necessity_runner_sha256=target.EXPECTED_NECESSITY_RUNNER_SHA256,
+    )
+
+    monkeypatch.setattr(a11_executor, "NECESSITY_RESULT", result_path)
+    monkeypatch.setattr(m11_executor, "NECESSITY_RESULT", result_path)
+    assert a11_executor.eligibility(payloads["a11"], necessity)
+    assert m11_executor.eligibility(payloads["m11"], necessity)
