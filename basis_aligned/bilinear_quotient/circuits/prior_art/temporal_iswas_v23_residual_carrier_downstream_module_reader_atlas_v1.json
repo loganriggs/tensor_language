@@ -1,0 +1,58 @@
+{
+  "schema": "temporal_iswas_v23_residual_carrier_downstream_module_reader_atlas_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_residual_carrier_downstream_module_reader_atlas_v1",
+  "registered_utc": "2026-09-08T22:12:00Z",
+  "question": "After the exact four-head-induced block-11 residual carrier is installed, do particular downstream attention/MLP modules read and rewrite it, or does it travel mainly by residual skip to the final literal readout?",
+  "evidence_status": "Outcome-blind successor registration while the exact block-11 residual/MLP factorial is queued. Execution is gated on a valid joint closure and a passing dominant residual branch. No v23 downstream module outcome has been opened.",
+  "prior_art": {
+    "searched": [
+      "v15 residual suffix-module mediation and residual-state boundary atlases",
+      "selected-writer downstream complete-module mediation atlas v2",
+      "v17 A11/M11 reader-loss/output-rescue",
+      "v23 four-head transport, necessity, and queued residual/MLP factorial"
+    ],
+    "nearest_results": "Earlier, differently aligned writers showed direct residual carry: no downstream complete module exceeded the selection gate, while a residual-state boundary closed the route but was not control-selective. The current bank has exact target/P/aligned-C endpoints and a different frozen four-head union, so stable selective replication or a real downstream reader are both unresolved.",
+    "novelty": "This tests both sufficiency and necessity of every complete downstream module response for the exact v23 residual branch, on capability-frozen target rows and aligned controls. It does not select a low-rank activation basis.",
+    "known_lessons": "Large module activation response is not mediation. Each candidate therefore gets reciprocal output transfer and output reset. Native module boundaries are only a first screen; a passing attention module must be split into all physical heads before identification."
+  },
+  "authority": {
+    "block11_factorial_prior_sha256": "564c59004f32c26632fbc54973ed86cdb9c8dfdd7f19207f3922c4ad57ce6e9e",
+    "necessity_result_sha256": "284ff3e05dddd14a979c88c6aa9e662deac4721e678a077055021f919f7a943f",
+    "older_complete_module_atlas_sha256": "88537c2561098239472072b277ab29bef868cc1d648d672024f306fed814990b",
+    "older_residual_boundary_atlas_sha256": "b2c667ef8f795d85ca729ccd6b97210ff5754a787fa2426aaab517176d7df862"
+  },
+  "frozen_design": {
+    "source": "Recompute the exact Delta_y post-attention residual correction from native donor versus four-head-removed block 11 states. Require the predecessor's exact joint closure and dominant residual verdict before execution.",
+    "candidate_modules": ["A12", "M12", "A13", "M13", "A14", "M14", "A15", "M15", "A16", "M16", "A17", "M17"],
+    "capture": "Capture each complete attention c_proj output and MLP output under the four-head-removed and residual-rescued paths, at every token through query.",
+    "transfer": "Starting from four-head removal without Delta_y, replace exactly one candidate module output by its residual-rescued value. This measures whether that response alone is sufficient to relay the residual branch.",
+    "reset": "Starting from residual rescue, replace exactly one candidate output by its removed-path value. Loss of residual rescue measures necessity of that module response while the skip carrier remains live.",
+    "selection": "FIT is group_number mod 4 in {0,1}; HOLDOUT is {2,3}. Rank FIT candidates by the minimum of transfer recovery and reset loss, retain at most four above bars, and validate unchanged identities on HOLDOUT.",
+    "price": {"checkpoint_loads": 1, "model_forwards_exact": 28, "sequence_evaluations_exact": 1792, "transformer_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+  },
+  "bars": {
+    "authority_replay_and_hook_max_abs": 0.0001,
+    "fit_transfer_and_reset_projection_min": 0.15,
+    "fit_transfer_and_reset_cosine_min": 0.85,
+    "holdout_transfer_and_reset_projection_min": 0.08,
+    "holdout_transfer_and_reset_cosine_min": 0.75,
+    "target_direction_fraction_min": 0.75,
+    "P_and_C_leak_ratio_max": 0.15,
+    "maximum_selected_modules": 4
+  },
+  "predictions": {
+    "pred_a_authority_residual_replay_hooks_finiteness_and_exact_price": "The predecessor is valid, the residual rescue replays, every candidate capture/patch hook fires exactly once, reports are finite, and the 28-forward price is exact.",
+    "pred_b_no_single_complete_downstream_module_is_a_dominant_reader": "No candidate passes both FIT transfer and reset projection 0.15 with cosine 0.85; this replicates direct residual carriage on the better-aligned v23 bank.",
+    "pred_c_any_fit_candidate_validates_without_reselection": "If B is false, every retained candidate passes the weaker frozen HOLDOUT transfer/reset bars and target direction bar.",
+    "pred_d_any_validated_candidate_is_selective": "If candidates validate, their transfer and reset effects have P/C leakage at most 0.15; if none exists this predicate is reported not-applicable rather than passed.",
+    "pred_e_residual_branch_remains_reporter_split_stable": "The residual-rescue effect has positive signed projection and direction fraction at least 0.90 in both reporter halves."
+  },
+  "opposing_predictions": {
+    "direct_residual_readout": "B and E pass; C/D are not applicable. Translate Delta_y through the exact final RMSNorm and lm-head tensor and test held-out/OOD prediction.",
+    "module_reader": "B fails and C/D pass. Split each passing attention module into every physical head, then contract Delta_y with its literal Q/K/V weights and causally validate weight-ranked heads.",
+    "distributed_reader": "B fails but no singleton validates. Run a greedy combination over positive reciprocal module effects, preserving interactions rather than lowering a rank threshold."
+  },
+  "null": "A failure invalidates the screen. B passing does not prove no downstream computation uses the carrier; it rules out a dominant singleton at complete-module grain and redirects to the exact final reader. C or D failure rejects stable/selective singleton localization and opens a registered greedy combination only if multiple positive effects exist.",
+  "anti_rank_drift": "This is complete native-module causal patching tied to an exact necessary source branch. No reconstruction, explained variance, DAS optimization, tensor rank, or compression score selects candidates.",
+  "decision": "A stable selective module opens full physical-head splitting and weight contraction. A clean singleton null promotes direct final-readout testing. Multiple weak positive modules open a greedy combination with a frozen order."
+}
