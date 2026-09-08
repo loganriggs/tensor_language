@@ -1,0 +1,67 @@
+{
+  "schema": "temporal_iswas_p7_identity_a11_head_endpoint_atlas_ood_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.p7_identity_a11_head_endpoint_atlas_ood_v1",
+  "status": "conditional_unbound",
+  "eligibility": "Open only if the future immutable temporal_iswas_p7_identity_background_module_leave_one_out_ood_v1 result passes predictions A, C, and E. Bind its exact result SHA in a separate receipt without changing this prior.",
+  "question": "If complete A11 is stably necessary inside the OOD P7-plus-identity interface, is that contribution localized to the prospectively nominated H3 or distributed across A11 heads?",
+  "population": "The same immutable OOD FIT/HOLDOUT rows as the P7-plus-identity parent; no row, head, threshold, or union is selected from these outcomes.",
+  "fixed_background": {
+    "identity": "Install selected-writer block-10 residual input over the exact causal prefix.",
+    "other_p7_modules": ["M11", "M12", "M15", "M13", "M16", "M10"],
+    "a11_intervention": "At A11 c_proj input, replace exact 128-wide selected-writer head slices in an otherwise-native nine-head tensor.",
+    "arms": "none; all_nine; nine singleton heads H0--H8; nine leave-one-head-out complements.",
+    "prospective_head": "H3, nominated only from pre-existing original-distribution L11H3 evidence. No OOD head selection is allowed."
+  },
+  "measurements": {
+    "writer_recovery": "Each arm's signed recovery against the selected-writer OOD task-margin effect.",
+    "singleton_increment": "recovery(singleton_h) - recovery(none).",
+    "leave_one_out_drop": "recovery(all_nine) - recovery(without_h).",
+    "endpoint_attribution": "0.5 * (singleton_increment + leave_one_out_drop); a fixed endpoint attribution, not an exact Shapley value.",
+    "h3_share": "endpoint_attribution(H3) / max(abs(recovery(all_nine)-recovery(none)), numerical floor)."
+  },
+  "bars": {
+    "authority_and_parent_replay_max_abs_error": 0.00001,
+    "full_recovery_min": 0.9,
+    "full_recovery_max": 1.1,
+    "full_cosine_min": 0.98,
+    "full_relative_residual_max": 0.2,
+    "full_direction_min": 0.9,
+    "stable_singleton_increment_min": 0.03,
+    "stable_leave_one_out_drop_min": 0.03,
+    "stable_endpoint_attribution_min": 0.03,
+    "h3_a11_contribution_share_min": 0.70,
+    "temporal_command_gold_collateral_max": 0.01
+  },
+  "predictions": {
+    "pred_a_conditional_authority_capture_hook_coverage_finiteness_and_exact_price": "The future eligibility binding passes; immutable prior/parent authorities match; native/writer captures and every arm's exact entry, six-MLP, and A11 pre-c_proj hooks fire once; exact 22-forward price and finiteness pass.",
+    "pred_b_all_nine_heads_replay_complete_a11_and_parent_joint_program": "The all-nine head-slice arm reproduces complete A11 and the parent P7-plus-identity reports within 1e-5, and passes the registered full-program geometry bars on both OOD phases.",
+    "pred_c_prospectively_nominated_h3_is_stably_necessary_and_sufficient_at_the_endpoint": "H3 singleton increment, leave-one-out drop, and endpoint attribution are each >=.03 on both OOD phases.",
+    "pred_d_h3_explains_at_least_seventy_percent_of_complete_a11_contribution": "H3 endpoint attribution divided by the complete A11 full-minus-none recovery is >=.70 on both OOD phases with the denominator positive.",
+    "pred_e_all_head_arms_preserve_temporal_selectivity": "Every none/full/singleton/LOO arm has temporal command-gold collateral <=.01 on both OOD phases."
+  },
+  "terminal_rules": {
+    "awaiting_binding": "No eligible immutable module-necessity result has been bound; exit model-free without queue/GPU access.",
+    "invalid_instrument": "A or B fails after binding.",
+    "nonselective": "A/B pass and E fails.",
+    "distributed_a11_heads": "A/B/E pass and C fails; retain complete A11 as the operational boundary pending a non-native cross-head grouping test.",
+    "h3_plus_distributed_support": "A/B/C/E pass and D fails; H3 is necessary but does not dominate complete A11.",
+    "h3_compact_a11_interface": "A--E pass; replace complete A11 by H3 in the P7 interface and proceed to joint replay/removal with necessary MLP factors."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 22,
+    "sequence_evaluations": 2816,
+    "scored_token_positions": 5632,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "tripwires": [
+    "Before eligibility binding, the runner must exit awaiting_binding without importing/loading a model or touching the queue/GPU.",
+    "All-nine pre-c_proj head replacement must replay the complete A11 c_proj output before head outcomes are interpretable.",
+    "The none arm leaves A11 fully native/live; singleton and LOO effects are computed relative to none/full in the identical identity-plus-six-MLP background.",
+    "No OOD-selected head union, DAS fit, rank choice, threshold tuning, or static weight-norm substitution is allowed.",
+    "A passing architectural head is still an operational component up to its internal value/output and rotary-commuting gauges; downstream weight translation remains required."
+  ],
+  "novelty": "Repository search found earlier L11H3 value/routing and head-factor experiments, but none tests all A11 head endpoints inside the newly established exact OOD identity-plus-P7 interface. H3 is nominated prospectively from those earlier original-background results, preventing OOD post-selection."
+}
