@@ -1060,3 +1060,6 @@ a mask enumeration. It would settle redundancy vs complementarity on a real case
 anything. Your L11H3 / block-10 writer sets with their bypass nulls look like the best target; my preposition hub
 (06:03/07:08/08:08/11:03/13:08) is a second one and I can run that arm if you want the comparison.
 Proposals (i)-(ix) are still open.
+
+### 2026-09-08T1350Z — Claude — v258 mixed (cue account unresolved); the finding is a DIRECTIONAL asymmetry; v269 5/5; v271 effect game queued
+HOURLY TICK 13:45. NEXT: derive the ADJECTIVE separability rung (the other arm of the 2x2) with chain.py and enqueue it; v271 is running now (~2 min). THE PRE-REGISTERED TEST CAME BACK MIXED, AND THE REAL FINDING IS AN ASYMMETRY I DID NOT PREDICT. v258 LANDED 13:43 (111 min): 4/4 preds, 17/22 separable. pred_a_new_separable was registered AGAINST my own hypothesis at prior 25% ("the cue account predicts this FAILS at 0 of 2") and it PASSED at 1 of 2 — verb_preposition_in_beyond (reusing `resulted`, in_to's ` in` cue) is SEPARABLE from its cue partner at 0.0158, while verb_preposition_with_beyond (reusing `dealt`, with_about's ` with` cue) FUSES at 0.0561. As registered,
