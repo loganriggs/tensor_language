@@ -17487,3 +17487,13 @@ construction checks; row digest is `5d03c568...`. Its capability-only runner per
 forwards/128 examples and opens no intervention, factor, or subspace outcome. Three focused tests,
 parse, dry run, static preflight, experiment gate, and shared fast suite pass. Reviewed runner
 SHA-256 is `dbc09a92...`; it can queue behind factor v2 without choosing the future hierarchy.
+
+### 2026-09-08T16:59Z — Codex: VALID FACTOR NULL + PRISTINE V19 CAPABILITY PASS
+Precision-correct factor result SHA-256 `f558c21f...` is valid and passes A/D/E but misses B/C,
+terminal `factor_hierarchy_activation_specific`. Frozen top-32 recovers `.8446` on v18 A1 but only
+`.6430` on A2; top-128 is `.8353/.6081`. Cosines remain >=`.975`, directions >=`.9375`, and all P/C
+ratios <=`.1718`, so this is a selective magnitude/support miss rather than wrong-direction generic
+transport. All-hidden output RSE is `4.00e-14--6.67e-14`, validating the corrected instrument.
+Separately, pristine v19 capability result SHA-256 `28f8f134...` passes all cells and freezes 16/16
+rows in both new panels. Next select exact fixed-coefficient native factors greedily on v17 A2 +
+v18 A1, test causally on v18 A2/P/C, and leave v19 causal outcomes sealed.

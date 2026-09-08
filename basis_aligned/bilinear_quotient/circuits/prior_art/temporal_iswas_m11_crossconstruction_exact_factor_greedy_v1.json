@@ -1,0 +1,59 @@
+{
+  "schema": "temporal_iswas_m11_crossconstruction_exact_factor_greedy_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.m11_crossconstruction_exact_factor_greedy_v1",
+  "registered_utc": "2026-09-08T16:58:37Z",
+  "question": "Can an exact fixed-coefficient greedy decomposition of native M11 rank-one weight factors, selected across two constructions, recover full M11 causality on a third construction while remaining selective?",
+  "prior_art": {
+    "searched": [
+      "v17 U8 restricted M11 tensor and native factor order",
+      "valid v18 frozen-U8 and full-reader factor transfer results",
+      "temporal/is-was hidden masks, exact weight compilers, and greedy source records",
+      "AGENT_BOARD, BILIN18_CONNECTION, BENCHMARK_BACKLOG, and canonical temporal dossier"
+    ],
+    "known_result": "The v17 U8 weight-norm order is selective and high-cosine on v18, but its top-32/128 magnitude recovery falls to .643/.608 on v18 A2. H3 remains construction-stable. Thus a fixed residual basis and its restricted-tensor ranking are not the invariant object, but native M11 factors may still admit a cross-construction stable subset.",
+    "novelty": "No prior run greedily decomposes the exact full M11 output delta jointly across constructions with native factor coefficients fixed to one, then causally tests the frozen order on a held-out construction. V19 has been capability-sealed but its causal outcomes stay unopened."
+  },
+  "authority": {
+    "v18_factor_v2_result_sha256": "f558c21f40bfb961e7abc3ecc84dd52e4153e3f7ec0e99a390594c487030a82d",
+    "v18_transfer_result_sha256": "d26dca30ef08287587aca6c43cd5c1161c5f6d21ee0a4e9dcff22e68311276dc",
+    "v17_tensor_result_sha256": "f267b3ebbe151077f0aa44939e6f01e78fc8ae30e85d9b52e0858383ef893972",
+    "v19_capability_result_sha256": "28f8f134d78279dd82cd7cca94f76e9cf35815bd1a59430ad34601fd0294fdd4"
+  },
+  "frozen_design": {
+    "selection_population": "All 16 v17 A2 rows and all 16 v18 A1 rows. These are discovery data. V18 A2/P/C are untouched by the new order until it is frozen; v19 causal outcomes remain sealed.",
+    "exact_factor_object": "For construction c and native M11 unit n, O[c,n] is the flattened exact output contribution delta_h[c,n] times literal Down[:,n]. Its factor Gram is G_c=(H_c^T H_c) elementwise-multiplied by (Down^T Down). Normalize each G_c by the squared norm of its complete output delta so constructions receive equal weight.",
+    "greedy_rule": "Start with zero output. At each step choose the smallest-index unselected unit maximizing the exact reduction 2*<O_n,residual>-||O_n||^2 under the equally weighted summed normalized Grams. Install every selected native factor at fixed coefficient one; never refit coefficients. Freeze the first 256 indices and report prefixes 16,32,64,128,256.",
+    "test": "On v18 A2, compare each frozen prefix with complete M11 reader loss in both exact M11-output relative residual and downstream margin signed recovery/cosine/direction. On v18 P and C separately, normalize top-128/top-256 margin RMS by pooled target RMS. Independent writer and all-hidden formula replays remain live.",
+    "bars": {
+      "writer_or_formula_margin_max_abs": 0.00001,
+      "all_hidden_output_relative_squared_max": 0.00000001,
+      "training_top128_output_relative_residual_max": 0.45,
+      "heldout_top128_output_relative_residual_max": 0.45,
+      "heldout_top128_signed_recovery_minimum": 0.8,
+      "heldout_top128_cosine_minimum": 0.95,
+      "heldout_top256_signed_recovery_minimum": 0.85,
+      "heldout_top256_cosine_minimum": 0.95,
+      "heldout_direction_minimum": 0.875,
+      "P_or_C_top128_or_top256_normalized_effect_maximum": 0.25
+    },
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 39,
+      "sequence_evaluations": 624,
+      "scored_token_positions": 1248,
+      "intervention_arms_per_test_panel": 8,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0,
+      "selected_native_factor_indices": 256
+    }
+  },
+  "predictions": {
+    "pred_a_authority_exact_gram_greedy_formula_replays_hooks_and_price": "Authorities/populations match; Gram and direct-output residual curves agree within 1e-5; writer/all-hidden margin replay is within 1e-5; all-hidden output RSE <=1e-8; hooks/finite values/39-forward price pass.",
+    "pred_b_crossconstruction_greedy_top128_is_compact_on_training_outputs": "The frozen top-128 exact-factor prefix has output relative residual <=.45 on both v17 A2 and v18 A1 selection constructions.",
+    "pred_c_frozen_top128_transfers_to_v18_A2_output_and_causality": "On v18 A2, top-128 output residual <=.45, signed recovery >=.80, cosine >=.95, and direction >=.875.",
+    "pred_d_frozen_top256_recovers_most_v18_A2_causality": "On v18 A2, top-256 signed recovery >=.85, cosine >=.95, and direction >=.875.",
+    "pred_e_greedy_factor_program_is_selective_and_v19_remains_sealed": "Every P/C top-128/top-256 normalized ratio <=.25, and this executor neither loads v19 rows nor opens a v19 causal outcome."
+  },
+  "decision": "C promotes a <=128 cross-construction factor program; only D promotes a broader <=256 program. If B passes but C/D fail, exact output-factor support remains construction-specific. If B fails, fixed native-factor greedy compression itself is diffuse. No failure licenses fitting on v18 A2 or opening v19; a passing prefix is frozen first, then separately confirmed on v19."
+}
