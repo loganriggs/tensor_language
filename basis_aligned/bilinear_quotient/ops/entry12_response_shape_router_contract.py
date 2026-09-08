@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import entry12_finite_router_contract as base
+
 
 class ResponseShapeError(ValueError):
     pass
@@ -48,3 +50,18 @@ def features(torch, off, expert_states, semantic_positions):
         rows.append(torch.cat((_shape(torch, a), _shape(torch, b), torch.stack((
             prefix_cosine, semantic_cosine, token_gram_cosine, log_energy_ratio)))))
     return torch.stack(rows)
+
+
+def fit(torch, values, labels):
+    if values.ndim != 2 or values.shape[1] != 14:
+        raise ResponseShapeError("response-shape router requires fourteen features")
+    mean = values.float().mean(0)
+    scale = values.float().std(0, unbiased=False).clamp_min(1e-8)
+    standardized = (values.float() - mean) / scale
+    return {"mean": mean, "scale": scale,
+            "centroids": base.fit_centroids(torch, standardized, labels)}
+
+
+def predict(torch, values, fitted):
+    standardized = (values.float() - fitted["mean"]) / fitted["scale"]
+    return base.predict(torch, standardized, fitted["centroids"])

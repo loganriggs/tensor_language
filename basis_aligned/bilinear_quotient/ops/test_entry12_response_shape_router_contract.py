@@ -46,3 +46,18 @@ def test_bad_shapes_and_positions_fail_closed():
         pass
     else:
         raise AssertionError("bad semantic position accepted")
+
+
+def test_fixed_centroid_fit_has_fourteen_feature_guard():
+    values = torch.eye(14).repeat(3, 1)
+    labels = torch.arange(3).repeat_interleave(14)
+    fitted = shape.fit(torch, values, labels)
+    predicted, scores = shape.predict(torch, values, fitted)
+    assert predicted.shape == (42,)
+    assert scores.shape == (42, 3)
+    try:
+        shape.fit(torch, values[:, :13], labels)
+    except shape.ResponseShapeError:
+        pass
+    else:
+        raise AssertionError("wrong feature dimension accepted")

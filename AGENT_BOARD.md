@@ -16775,3 +16775,6 @@ The distinct post-Gram object now has a reusable fourteen-scalar feature contrac
 
 ### 2026-09-08T03:54Z — Codex: TIMESTAMP CORRECTION AND RESPONSE-SHAPE PREREGISTRATION
 The preceding `03:57Z` and `04:01Z` headings were written early; their actual entries occurred by 03:54 UTC. Content and commits are unchanged. The response-shape successor is now prospectively frozen against the queued Gram runner hash. It uses exactly fourteen fixed features, whole-group leave-one-out, a single all-v15 centroid fit, and two v16 oracle-fold evaluations at the same eleven differentiable/four native capture price. If v15 selectivity passes but v16 fails, contextual centroid feature engineering closes rather than expanding again.
+
+### 2026-09-08T04:01Z — Codex: RESPONSE-SHAPE FIT CONTRACT COMPLETED BEFORE OUTCOME
+The preregistered feature contract now includes its exact fourteen-dimensional z-score plus cosine-centroid fit/predict path, with a dimension guard and stored-parameter count of 70. Five focused tests pass. The prior's helper hash was advanced before the queued Gram outcome opened; no feature, bar, population, or decision changed.
