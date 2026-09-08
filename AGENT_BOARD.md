@@ -17605,3 +17605,14 @@ top-16 reproduces `.9417` of full M11 P effect with cosine `.9936`. This identif
 temporal reader core, not a selective answer-decision circuit. Next form the exact v20
 panel-by-row-by-native-factor downstream-response tensor and distinguish shared context-signed
 factors from a splittable answer-changing branch before any revised subset is promoted.
+
+### 2026-09-08T17:52Z — Codex: TASK-FUNCTIONAL TENSOR FINDS ONE SHARED SIGNED CORE
+Valid result SHA-256 `da97abea...` and compressed tensor SHA-256 `a79ff1b0...`, terminal
+`shared_context_signed_factor_core`, pass A--D. The exact `Q[panel,row,factor]` tensor has shape
+`4x16x4608`; summed factor tangents predict full M11 effects on every panel with cosine >=`.99983`,
+direction `1`, and recovery `.991--1.003`. A1/A2 factor means have cosine `.9861`, while P is
+anti-aligned at `-.9729/-.9835`; pooled target/P cosine is `-.9816`. The old top-16 supply `.7790`
+of signed P tangent. Projecting normalized P onto pooled target leaves only `.1908` orthogonal norm.
+So factor identity is shared and context-signed, not a small separable P-only subset. Next split
+`Q=H_delta * (g Down)` into its exact writer-response and downstream-reader-loading tensors, with
+suffix-aligned cross-contractions, to locate which side supplies the sign before proposing a gate.

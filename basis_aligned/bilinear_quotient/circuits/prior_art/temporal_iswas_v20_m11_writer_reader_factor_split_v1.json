@@ -1,0 +1,42 @@
+{
+  "schema": "temporal_iswas_v20_m11_writer_reader_factor_split_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_m11_writer_reader_factor_split_v1",
+  "registered_utc": "2026-09-08T17:53:00Z",
+  "question": "Does the target-versus-paraphrase sign reversal in the shared M11 factor core arise primarily from the writer response delta_h, the downstream reader loading g*Down, or their positionwise interaction?",
+  "evidence_status": "Post-failure mechanistic diagnostic. It separates the exact factors of the already observed task-functional tensor and cannot itself confirm a repaired circuit.",
+  "prior_art": {
+    "searched": [
+      "v20 task-functional response tensor and all parent factor/covector artifacts",
+      "M11 writer-atlas, reader-loss/rescue, restricted-weight, response-basis, and source-position records",
+      "shared-subspace weight-folding and read/write decomposition proposals in explanations and board"
+    ],
+    "known_result": "Q target and P panel means are almost antiparallel (pooled cosine -.9816), frozen top-16 explains .779 of signed P tangent, and only .191 of normalized P lies orthogonal to the pooled target response. Factor-subset pruning alone is therefore unlikely to yield selectivity.",
+    "novelty": "No stored artifact separates each exact native factor response Q into its upstream bilinear activation response H_delta and downstream task-reader loading R=g*Down over every v20 row and semantic-prefix position, or cross-contracts target writers with paraphrase readers."
+  },
+  "authority": {
+    "response_tensor_result_sha256": "da97abea6f3dae8721c2cda383e0b7af844217051e199046a23c6b9c264da396",
+    "response_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "v20_confirmation_result_sha256": "7d3981cf12ef8ff00f83ca0420e9a3d0787b57434f9c2dee86c8d96ee6c13a8e"
+  },
+  "frozen_design": {
+    "factorization": "For every panel c, row s, semantic-prefix position p, and native factor n, store H[c,s,p,n]=delta_h and R[c,s,p,n]=<g[c,s,p],Down[:,n]>. Verify Q[c,s,n]=sum_p H*R against the immutable response tensor.",
+    "alignment": "Pad H/R with explicit masks for storage. For cross-panel diagnostics, pair rows by group number and align positions from the final token backward, using only the common suffix length; never treat padding as data.",
+    "cross_contractions": "Report mean factor vectors and total scalar sums for each writer/reader pairing among pooled target A=(A1+A2), A1, A2, and P. Compare target-writer/P-reader against P-writer/target-reader to localize sign control.",
+    "registered_prediction": "Because P keeps the base answer while A changes the donor answer, the downstream margin covector should supply most of the sign reversal: pooled target/P reader-loading cosine <=-.50 while writer-response cosine is >-.50, and the A-writer/P-reader cross-contraction should be negative relative to native A/A.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 16,
+      "sequence_evaluations": 256,
+      "transformer_backwards": 4,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_gradients_hooks_masks_finiteness_and_exact_price": "Authorities match; H/R masks and shapes are exact and finite; gradients/hooks are live; price is exactly 16 forwards and four backwards.",
+    "pred_b_split_reconstructs_immutable_task_functional_tensor": "Summing positionwise H*R reproduces every stored Q value with maximum absolute error <=1e-6 and relative squared error <=1e-10.",
+    "pred_c_sign_reversal_is_reader_dominated": "Pooled target/P reader-loading cosine is <=-.50, pooled target/P writer-response cosine is >-.50, and the A-writer/P-reader cross-contraction has opposite sign to native A/A.",
+    "pred_d_result_is_diagnostic_and_does_not_select_a_repair": "The result stores exact read/write tensors and cross-contractions but selects no factors, gate, dose, or promoted program."
+  },
+  "decision": "If C passes, search for a compact downstream context/answer-state gate and test signed composition rather than pruning shared factors. If writer response supplies the sign, localize the L7H7/L9H4-to-M11 write branch. If neither marginal tensor explains it, positionwise writer-reader interaction is the semantic unit and must remain coupled. Any repair requires a new sealed corpus."
+}
