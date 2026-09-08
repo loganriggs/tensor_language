@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+"""verb_preposition_on_toward.insisted_vs_gravitated -- does a site carry a verb's PREPOSITION SELECTION (insisted -> `on`, gravitated -> `toward`) across a parenthetical to the preposition?
+
+`Near the lantern the pilot insisted, of course,` obliges ` on`; `... gravitated, of course,` obliges ` toward`. verb_preposition family (13 counted after v252; v261/v263 passes pending v254); NEW pair on/toward.
+
+Authored through `circuit_fast_screen_behaviour_spec` (Claude, 2026-09-08, v265 batch).
+Capability is checked on CPU before the battery: rows where the donor does not beat the base on the
+donor axis are dropped by `g.prepare(valid_only=True)` and counted as `n_dropped` in the receipt.
+"""
+from __future__ import annotations
+
+import circuit_fast_screen_behaviour_spec as bs
+import circuit_fast_screen_candidates as lex
+
+R, ADJ, OBJ = lex._REPORTERS, lex._ADJECTIVES, lex._OBJECTS
+_agent = lambda i: R[i][0]
+_alt = lambda i: R[i][1]
+_adj = lambda i: ADJ[i]
+_adj2 = lambda i: ADJ[(i + 1) % len(ADJ)]
+_obj = lambda i: OBJ[i]
+_obj2 = lambda i: OBJ[(i + 1) % len(OBJ)]
+GENDER = (("king", "queen"), ("father", "mother"), ("brother", "sister"), ("uncle", "aunt"), ("son", "daughter"),
+          ("husband", "wife"), ("boy", "girl"), ("man", "woman"), ("prince", "princess"), ("grandfather", "grandmother"),
+          ("nephew", "niece"), ("actor", "actress"), ("waiter", "waitress"), ("duke", "duchess"), ("lord", "lady"),
+          ("monk", "nun"))
+_g = lambda i, male: GENDER[i % len(GENDER)][0 if male else 1]
+
+SPEC = bs.BehaviourSpec(
+    task_id="verb_preposition_on_toward.insisted_vs_gravitated",
+    vocabulary=(' on', ' toward'),
+    generator_role="generate_linked_verb_preposition_on_toward_fit_panels",
+    answer_role="score_jointly_tokenized_on_versus_toward",
+    a1=bs.Family("bare_frame", "bare_frame_verb_swap", lambda i, pos: f"Near the {_obj(i)} the {_agent(i)} {'insisted' if pos else 'gravitated'}, of course,"),
+    a2=bs.Family("storm_frame", "storm_frame_verb_swap", lambda i, pos: f"After the {_adj(i)} storm the {_agent(i)} {'insisted' if pos else 'gravitated'}, of course,"),
+    p_donor=lambda i, pos: f"Near the {_adj2(i)} {_obj(i)} the {_agent(i)} {'insisted' if pos else 'gravitated'}, of course,",
+    a1_suffix=lambda i: ", of course,",
+    a2_suffix=lambda i: ", of course,",
+    directions=('insisted_to_gravitated', 'gravitated_to_insisted'),
+    kinds=('insisted', 'gravitated'),
+    p_generator_role="object_lexical_rewrite",
+)
+
+TASK_ID = SPEC.task_id
+TASK_SPEC = SPEC.battery_spec()
+build_rows, validate_rows, authority_sha256 = SPEC.api()
+
+if __name__ == "__main__":
+    rows = build_rows()
+    print("authority:", authority_sha256())
+    for f in ("A1", "A2", "P", "C"):
+        r = next(x for x in rows if x["family"] == f)
+        print(f"  {f} base : {r['base_text']!r} -> {r['base_answer']!r}")
+        print(f"     donor: {r['donor_text']!r} -> {r['donor_answer']!r}")
