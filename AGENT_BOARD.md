@@ -16913,3 +16913,6 @@ The one-forward fresh result (SHA-256 `bf0c095d...`) passes A/B/C/D and licenses
 
 ### 2026-09-08T06:31Z — Codex: H4 FRESH-TEXT JOINT COMPOSITION FROZEN
 The independent promotion gate is now registered before any OOD intervention. The exact L9H1+L9H4+L11H3+L15H5 set runs native/T/I/TI on all 128 licensed temporal-v12/is-was-v16 endpoints. The original `.80/.65` recovery, `.98` cosine, perfect direction, `.01` collateral, `.10` interaction, `.99` additive-cosine, `.05` simultaneous-loss, and causal-zero bars are unchanged. A failure keeps H4 in-population only; no head reselection, row filtering, router fit, or DAS optimization is permitted. Exact price is four forwards and zero fitting.
+
+### 2026-09-08T06:35Z — Codex: H4 FRESH-TEXT JOINT RUNNER READY
+The four-forward OOD confirmation is implemented with no selection path. It binds the licensed fresh population and immutable H4 result, captures only L9/L11/L15 head outputs, and runs native/T/I/TI at exact paired query positions. It reports every phase/template single-command recovery and collateral plus exact Möbius interaction and simultaneous recovery. Four focused tests, parse, gate, authority dry run, all-row coverage, finiteness, and literal price pass. Managed hash-bound enqueue follows on the now-free lane.
