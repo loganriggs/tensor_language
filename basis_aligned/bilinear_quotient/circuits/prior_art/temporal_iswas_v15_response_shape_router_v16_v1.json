@@ -1,0 +1,32 @@
+{
+  "schema": "temporal_iswas_v15_response_shape_router_v16_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_response_shape_router_v16_v1",
+  "registered_utc": "2026-09-08T03:54:00Z",
+  "question": "Do low-dimensional projective shape invariants of the two proposed entry-12 responses distinguish target construction from answer-preserving controls across lexical groups and fresh phrase lengths?",
+  "authority": {
+    "multidirection_gram_runner_sha256": "2a6a245084826bd8242b326ec5c90022977cac4a7622e4d23a1eaa5653f12a05",
+    "required_terminal": "contextual_gram_in_distribution_null",
+    "shape_contract_sha256": "fa40791da78250e7fe2f9787303be7f75489a0aac8dfe138242070ec02c9f05a"
+  },
+  "prior_art": {
+    "searched": ["entry12 Gram router", "multi-direction contextual response", "response singular spectrum", "projective response invariants", "v16 variable phrase length"],
+    "active_claim_collision": false,
+    "known_lessons": "Raw source vectors and regularized linear routing memorize tense direction; six Gram moments retain targets but leak controls; tied lexical embeddings fail even v15 selectivity. The next object must add structural information without a high-capacity fit or v16 tuning.",
+    "novelty": "Replace coarse semantic/prefix means with a fixed fourteen-scalar spectrum-and-shape summary of the two contextual response matrices. It preserves phrase-position structure, supports variable prefix length, and is invariant to simultaneous sign reversal and common orthogonal hidden-coordinate gauges."
+  },
+  "frozen_design": {
+    "features": "For each A1/A2 prefix response matrix: log mean energy, top singular-energy fraction, rank-normalized participation, semantic-row energy fraction, and adjacent-row roughness. Add cross-expert prefix cosine, semantic-row cosine, token-Gram cosine, and log energy ratio. Fourteen scalars total.",
+    "fit": "Use the same opposite-parity oracle responses per v15 row, z-score fourteen features, and fit deterministic cosine centroids for A1/A2/off on all v15 only. Score whole-group leave-one-out first. Evaluate v16 twice under the two frozen oracle bases. No optimizer, thresholds, feature selection, outcome access, or v16 tuning.",
+    "controls": "Require exact builders and row hashes, aligned v15/A1-A2-P v16 populations, explicit exclusion of variable-length v16 C, finite SVD features, all classes in every training fold, v15/v16 row-ID disjointness, oracle-fold agreement, and exact execution price.",
+    "price_max": {"native_capture_forwards": 4, "differentiable_transformer_forwards": 11, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 656, "fit_parameters": 70}
+  },
+  "predictions": {
+    "pred_a_authority_alignment_shape_symmetry_finiteness_and_exact_price": "All authorities, row/alignment checks, shape symmetries, finite features, class inventories, and exact price pass.",
+    "pred_b_v15_leave_one_group_out_is_selective": "V15 whole-group leave-one-out macro accuracy is >=.95 with zero P/C rows predicted target.",
+    "pred_c_v16_generalizes_under_both_oracle_folds": "Each oracle fold has v16 macro accuracy >=.75 and zero P rows predicted target.",
+    "pred_d_each_v16_target_is_covered": "Each oracle fold correctly routes at least 12/16 A1 and 12/16 A2 rows.",
+    "pred_e_oracle_folds_agree_on_v16": "Both frozen oracle-coordinate systems make identical predictions on all v16 scored rows."
+  },
+  "decision": "A failure invalidates. A/B/C/D/E licenses a separately registered v16 causal execution. B failure rejects the fixed response-shape object in distribution. B pass with C/D/E failure is an OOD null and closes contextual centroid routing before any more feature engineering.",
+  "closed_claims": ["v16 causal transfer", "learned semantic identity", "variable-length C routing", "joint-task composition", "compression", "adoption"]
+}
