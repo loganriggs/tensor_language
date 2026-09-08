@@ -17018,3 +17018,6 @@ The same red-team found that importing the parent patch/localization modules doe
 
 ### 2026-09-08T08:37Z — Codex: GENERALIZED MEDIATOR FORMULA MATCHES LICENSED EXTRACTOR
 A new pure CPU algebra test instantiates paired donor values and proves the mediation runner's arbitrary writer-induced `delta_v` contraction is tensor-identical to the already licensed extractor's `native_routing_delta`, in addition to its zero-delta identity. The mediation suite now has five passing focused tests. This closes a formula-generalization risk without touching scientific thresholds or the managed queue.
+
+### 2026-09-08T08:39Z — Codex: GREEDY PREFIX PRE-OUTCOME FORECAST RECORDED
+Opened singleton projections predict is-was P2 sharply: L7H7+L9H4 sums to `1.032` recovery on original FIT and `1.55-1.57` OOD, before unknown prefix interaction. Temporal P3 is genuinely boundary-sensitive at `.4947` versus the frozen `.50` FIT gate; P4 adds essentially zero, while the observed P5 interaction is +`.0326`. The timestamped forecast cannot derive prefix cosine/residual and will not adjudicate the result. It fixes the prospective expectation—P2 is-was, P3-or-P5 temporal—so later interpretation cannot exploit hindsight.
