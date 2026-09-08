@@ -737,6 +737,14 @@ alignment remains nomination, not proof, by the earlier L15H5 counterexample.
   Singleton heads reproduce each module reset vector with cosine above `.999997` and relative L2
   below `.0042`, so hidden head interaction is not the explanation.  Static weight response is not
   causal reader identification for these modules.
+- Entry-12 direct residual/final-head route:
+  `temporal_iswas_v15_entry12_rank2_direct_residual_final_head_route_v1_result.json` (valid explicit
+  route).  With every layer-12--17 attention/MLP write frozen native-off, the selective program
+  retains `.803-.871` signed projection with direction `1.0`; suffix writes contribute `.129-.201`.
+  The final residual delta equals the entry12 delta times the six recurrent `lambdas[0]` product
+  `1.51363146` within `1.42e-6` relative L2, after which final RMSNorm, tied unembedding, and soft cap
+  reproduce logits exactly.  This identifies a dominant v15 computational path, not its semantic
+  OOD router.
 
 ## Remaining gates
 
