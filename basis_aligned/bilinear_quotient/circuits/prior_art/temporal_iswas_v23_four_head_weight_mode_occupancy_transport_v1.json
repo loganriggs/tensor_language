@@ -1,0 +1,49 @@
+{
+  "schema": "temporal_iswas_v23_four_head_weight_mode_occupancy_transport_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_four_head_weight_mode_occupancy_transport_v1",
+  "registered_utc": "2026-09-08T21:17:00Z",
+  "question": "Which frozen weight-defined reader modes are occupied by the confirmed four-head intervention on v23, and how much of each early head's literal direct-to-M11 capability survives intervening nonlinear transport?",
+  "evidence_status": "Prospective activation-occupancy overlay. The weight tensor is open and diffuse with shared factor support but head-private signed maps. No projection of v23 activations or singleton causal responses into its frozen modes has been opened.",
+  "authority": {
+    "weight_result_sha256": "8065c2403bd583b71adca4adcc5e41db9ce4247e1360fd2a75ca6a34980f5393",
+    "weight_tensor_sha256": "9b553f42e708f1612fd90a934e0d26783b935457156f4856bc4b69f60df37892",
+    "v23_confirmation_result_sha256": "db850d5e9b86f76cb4381a12fc83f91cd2aac3544029fabd18bad138d34fed92",
+    "builder_sha256": "a4830fd110b8cd854a5f28bfae776f697a15d4f791355990e02ea030fdca4c05",
+    "shared_patch_runner_sha256": "9ab2a9edb60f4e3e4befebf11f55225659559a2a504075567218eab9bf903d06"
+  },
+  "frozen_design": {
+    "weight_coordinates": "SVD the frozen C[h,a,i,k] reader-mode unfolding only to obtain a 4x4 orthogonal coordinate change. This is computed exclusively from weights and is not refit on activations.",
+    "native_occupancy": "Capture base/donor c_proj input coordinates z_h and M11 inputs x on all 64 aligned v23 rows. For each position, contract the frozen C/S tensors with base x and delta-z to obtain the literal direct-interface prediction in frozen reader coordinates.",
+    "realized_transport": "Run the four frozen singleton donor patches and project their actual M11 hidden-factor changes into the same reader basis and reader-mode coordinates. L11H3 crosses the live post-attention RMS normalization but no later transformer block; L8H1/L9H1/L9H4 additionally cross intervening blocks.",
+    "aggregation": "Report target jointly-capable rows, P, and C separately; both frozen reporter halves separately; every head separately; and the four-head sum as a diagnostic. No PCA, SAE, rotation, route selection, threshold tuning, or parameter fit occurs.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards_exact": 7,
+      "sequence_evaluations_exact": 448,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "bars": {
+    "self_capture_max_abs": 0.0001,
+    "adjacent_L11H3_direct_actual_cosine_min": 0.70,
+    "early_head_direct_actual_cosine_min": 0.70,
+    "early_head_count_min": 2,
+    "realized_target_top_reader_mode_energy_fraction_min": 0.60,
+    "half_mode_energy_cosine_min": 0.90
+  },
+  "predictions": {
+    "pred_a_authority_alignment_hooks_self_capture_finiteness_and_exact_price": "All hashes, population, hook coverage, four-head self-patch no-op, finiteness, and seven-forward price pass.",
+    "pred_b_adjacent_L11H3_preserves_direct_weight_orientation": "Despite live RMS normalization, the literal direct-interface tensor predicts actual L11H3 M11 factor-response orientation at cosine >=0.70; scale residual is diagnostic and is not a closure bar.",
+    "pred_c_at_least_two_early_heads_preserve_direct_weight_orientation": "At least two of L8H1/L9H1/L9H4 have target direct-prediction versus realized-response cosine >=0.70.",
+    "pred_d_realized_target_use_is_sparser_and_split_stable": "At least 60% of realized target response energy occupies one frozen reader mode and the two reporter halves' four-mode energy profiles have cosine >=0.90."
+  },
+  "opposing_interpretations": {
+    "direct_transport": "B-D pass: the globally diffuse tensor is selectively occupied and head writes largely retain their literal orientation through normalization and the residual path.",
+    "nonlinear_transport": "B passes and C fails: normalization preserves adjacent orientation, but early-head computation must include intervening blocks as a transport tensor/Jacobian rather than folding W_O directly into M11. B failure means even the adjacent interface requires an explicit normalization transport.",
+    "occupancy_not_sparse": "D fails: the observed task also uses multiple weight modes; do not force an SAE/hierarchy merely because the circuit is selective.",
+    "invalid": "Only A failure invalidates the capture instrument. B/C are substantive transport outcomes."
+  },
+  "decision": "Use the outcome to choose between a direct restricted-weight circuit and an explicit head-to-M11 transport tensor. Any later SAE or hierarchical decomposition is an occupancy annotation and must preserve the frozen weight coordinates."
+}
