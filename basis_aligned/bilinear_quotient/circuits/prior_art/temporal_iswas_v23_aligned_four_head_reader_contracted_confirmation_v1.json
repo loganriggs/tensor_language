@@ -1,0 +1,63 @@
+{
+  "schema": "temporal_iswas_v23_aligned_four_head_reader_contracted_confirmation_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_aligned_four_head_reader_contracted_confirmation_v1",
+  "registered_utc": "2026-09-08T21:00:00Z",
+  "question": "Does the prospectively frozen L8H1/L9H1/L9H4/L11H3 writer program selectively reproduce fresh is/was behavior and native-M11-reader-contracted response when every target and control patch is position-compatible?",
+  "evidence_status": "Prospective confirmation. V23 native capability is open and passed; no v23 causal, reader-gradient, component, singleton, union, Shapley, or control-leak outcome has been opened. The four routes and all bars were fixed from v15/v21/v22 before this test.",
+  "prior_art": {
+    "searched": [
+      "v15 attention factor and source-position screens",
+      "v21 complete module/head atlas and its invalid-instrument audit",
+      "v22 exact effect game and its target/P-valid, C-invalid instrument audit",
+      "all is/was capability banks through the aligned v23 gate"
+    ],
+    "known_lessons": "Raw hidden-state recovery mixes weight capability with downstream use. The endpoint is behavior plus exact Q=(H_donor-H_base) contracted with the frozen native M11 margin reader. V22 established target/P replication but could not establish C selectivity because C endpoints differed. No v22 Shapley-selected subset is tested here.",
+    "route_provenance": "L9H1, L9H4, L8H1, and L11H3 were frozen before v22 from independent v15/v21 discovery. V22 then recovered 0.7221 behavior and 0.7173 Q with 0.1054/0.0751 P leakage; each singleton replicated."
+  },
+  "authority": {
+    "builder_sha256": "a4830fd110b8cd854a5f28bfae776f697a15d4f791355990e02ea030fdca4c05",
+    "rows_sha256": "46e9e493a4b2b42ce0c121b30978f08208537300363fa91902184c8f8d6565c7",
+    "capability_result_sha256": "35e6cb352c276a4e1b3643cc2f5795bde667c06b8d7987352b198ccce10a4856",
+    "v22_effect_result_sha256": "b0c8ea135e1a84ebe148445203b3ba7be82994cfb6fc1f82ad625f90ab13f75f",
+    "v22_effect_audit_sha256": "e49fa3db73811cdfc7481357378c89a46d562304a5820b46b5f145c8c236a8c2"
+  },
+  "frozen_design": {
+    "population": "All 64 v23 rows are forwarded. Target metrics use the capability-frozen jointly correct A1/A2 rows (16 and 14); P and C use all 16 rows each.",
+    "routes": ["L9H1", "L9H4", "L8H1", "L11H3"],
+    "intervention": "For each of 15 nonempty coalitions, copy donor attention c_proj input slices for the listed heads through the inclusive semantic-position prefix into the base run. No MLP or residual-stream patch belongs to the candidate program.",
+    "reader": "One frozen gradient of the summed native base donor-answer-minus-foil margin with respect to M11 output, mapped through the literal M11 Down weight. Q is its contraction with the induced M11 bilinear hidden response difference.",
+    "controls": "P is a same-tense temporal paraphrase; C is an answer-preserving harbor/canyon lexical substitution. All base/donor token lengths and semantic endpoints are equal by construction.",
+    "bars": {
+      "self_and_donor_closure_max_abs": 0.0001,
+      "donor_hidden_relative_error": 0.0001,
+      "shapley_efficiency_max": 1e-8,
+      "union_behavior_and_q_recovery_min": 0.5,
+      "union_behavior_and_q_cosine_min": 0.9,
+      "union_direction_fraction_min": 0.9,
+      "union_P_and_C_leak_ratio_max": 0.15,
+      "singleton_behavior_recovery_min": 0.15,
+      "singleton_q_recovery_min": 0.05,
+      "singleton_direction_fraction_min": 0.75,
+      "singleton_P_and_C_leak_ratio_max": 0.1,
+      "singleton_pass_count_min": 3,
+      "distributed_route_allocation_min": 0.05,
+      "distributed_route_count_min": 3
+    },
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards_exact": 19,
+      "sequence_evaluations_exact": 1216,
+      "transformer_backwards": 1,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_alignment_reader_hooks_closures_finiteness_and_exact_price": "All hashes, capability ancestry, exact alignment, reader hook, all-sites self/donor closures, finiteness, and price pass.",
+    "pred_b_four_head_union_selectively_recovers_behavior_and_q": "The union passes recovery, cosine, direction, and both P/C leakage bars.",
+    "pred_c_at_least_three_frozen_heads_replicate_as_selective_singletons": "At least three of four singleton arms pass behavior, Q, direction, P, and C bars.",
+    "pred_d_effect_is_distributed_and_split_stable": "At least three routes receive behavior and Q Shapley allocation >=0.05 and positive allocation in both frozen reporter halves."
+  },
+  "null": "Failure of B or C with valid A rejects promotion of this four-head set as a selective circuit on the registered control family. Failure of A invalidates the instrument and permits no circuit conclusion.",
+  "decision": "A-D promote the four-head writer program to weight restriction plus activation-occupancy characterization. Valid A with B/C failure rejects promotion; no route or threshold is retuned on v23."
+}
