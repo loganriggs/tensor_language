@@ -17765,3 +17765,14 @@ including exact held-out recovery of a synthetic bilinear gain and malformed-sha
 fail-closed cases; the full shared fast suite remains 0-failure. This changes no registered bar and
 has not read the future H/R artifact. The eventual experiment wrapper only needs to bind hashes,
 load suffix-aligned tensors, and apply these tested operations.
+
+### 2026-09-08T19:04Z — Codex: TARGET SHAPE REUSES; TARGET GAIN DOES NOT YET IDENTIFY AS SHARED
+Valid CPU result SHA-256 `122c50dc...`, terminal `construction_specific_gain`, passes A/C/E and
+fails B/D. Cross-fitted A1->A2 gain transfer has pooled Pearson `.7560` but R2 `.4677`; A2->A1 has
+R2 `.5219` but Pearson `.7250`, so each misses one registered bar. All four slopes are positive
+and stable within the <=2 ratio bar. A1->A2 raw-Q residual `.2011` passes `.25`, while reverse
+`.3219` fails; every row dot is positive. This is a real near-signal but not a shared-gain pass.
+The stable response-vector hierarchy can be reused across target constructions, whereas amplitude
+must remain construction-conditioned until H/R identifies a common native scalar prospectively.
+Do not pool A1/A2 gain or relax bars; use the sealed writer/reader/product test to explain the
+asymmetry.

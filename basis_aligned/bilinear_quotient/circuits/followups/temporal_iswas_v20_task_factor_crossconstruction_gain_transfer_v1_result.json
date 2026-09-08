@@ -1,0 +1,144 @@
+{
+  "authority_sha256": {
+    "error_result": "d8e1772d9fd3e356e142027e12402cb99b4b57a60458ed79079fd539b74cb76d",
+    "library": "f7cf522a6ee302638df90981dc1b2168e6021dba848bb7c7df968d191da8a0f6",
+    "prior": "e39915408abcdb912853b996646fe3cbc80dff3f7a7c95cc04884745345384e1",
+    "tensor": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12"
+  },
+  "bars": {
+    "pearson": 0.75,
+    "r2": 0.5,
+    "raw_q_relative_residual": 0.25,
+    "row_positive_fraction": 1.0,
+    "slope_ratio_max": 2.0
+  },
+  "candidate_id": "cross_task.temporal_iswas.v20_task_factor_crossconstruction_gain_transfer_v1",
+  "evidence_status": "cpu_crossconstruction_gain_reuse_screen_only",
+  "fold_reports": {
+    "first_to_second": {
+      "A1_to_A2": {
+        "coefficients": [
+          0.5679716380511701,
+          0.4320283619488298
+        ],
+        "gain_metrics": {
+          "pearson": 0.707081312597294,
+          "r2": 0.4454345353893888,
+          "relative_error": 0.1596283707219618
+        },
+        "raw_q_metrics": {
+          "relative_residual": 0.19398116118023495,
+          "row_positive_fraction": 1.0
+        }
+      },
+      "A2_to_A1": {
+        "coefficients": [
+          -0.5139872458004796,
+          1.5139872458004793
+        ],
+        "gain_metrics": {
+          "pearson": 0.707081312597294,
+          "r2": 0.39715798281932935,
+          "relative_error": 0.2500942610626626
+        },
+        "raw_q_metrics": {
+          "relative_residual": 0.28647486962718033,
+          "row_positive_fraction": 1.0
+        }
+      }
+    },
+    "second_to_first": {
+      "A1_to_A2": {
+        "coefficients": [
+          0.3053680849470482,
+          0.6946319150529517
+        ],
+        "gain_metrics": {
+          "pearson": 0.8346556658401966,
+          "r2": 0.4667206978333023,
+          "relative_error": 0.17217640686746205
+        },
+        "raw_q_metrics": {
+          "relative_residual": 0.20754879076230112,
+          "row_positive_fraction": 1.0
+        }
+      },
+      "A2_to_A1": {
+        "coefficients": [
+          0.028951551766852865,
+          0.9710484482331466
+        ],
+        "gain_metrics": {
+          "pearson": 0.8346556658401961,
+          "r2": 0.5914460883392298,
+          "relative_error": 0.27174014519753587
+        },
+        "raw_q_metrics": {
+          "relative_residual": 0.35639340019736554,
+          "row_positive_fraction": 1.0
+        }
+      }
+    }
+  },
+  "hr_outcome_opened": false,
+  "mapping_pass": {
+    "A1_to_A2": false,
+    "A2_to_A1": false
+  },
+  "pooled_reports": {
+    "A1_to_A2": {
+      "fold_slopes": [
+        0.4320283619488298,
+        0.6946319150529517
+      ],
+      "gain_metrics": {
+        "pearson": 0.7559698044465891,
+        "r2": 0.46767058665061056,
+        "relative_error": 0.16644809479804146
+      },
+      "raw_q_metrics": {
+        "relative_residual": 0.20107416568080208,
+        "row_positive_fraction": 1.0
+      }
+    },
+    "A2_to_A1": {
+      "fold_slopes": [
+        1.5139872458004793,
+        0.9710484482331466
+      ],
+      "gain_metrics": {
+        "pearson": 0.724990731667363,
+        "r2": 0.5219313162118475,
+        "relative_error": 0.26108482862996085
+      },
+      "raw_q_metrics": {
+        "relative_residual": 0.32185208327309034,
+        "row_positive_fraction": 1.0
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_authority_folds_projection_map_finiteness_and_exact_price": true,
+    "pred_b_target_constructions_share_predictive_gain": false,
+    "pred_c_gain_mapping_sign_and_scale_are_fold_stable": true,
+    "pred_d_transferred_gain_predicts_raw_destination_q": false,
+    "pred_e_scope_is_gain_reuse_screen_only": true
+  },
+  "price": {
+    "affine_fits": 4,
+    "gpu_forwards": 0,
+    "heldout_gain_predictions": 32,
+    "heldout_q_predictions": 32,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "schema": "temporal_iswas_v20_task_factor_crossconstruction_gain_transfer_result_v1",
+  "serial_seconds": 0.006736788898706436,
+  "started_utc": "2026-09-08T19:03:46.002174Z",
+  "terminal": "construction_specific_gain",
+  "v21_causal_outcomes_opened": false,
+  "vector_pass": {
+    "A1_to_A2": true,
+    "A2_to_A1": false
+  }
+}
