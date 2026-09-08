@@ -46,7 +46,9 @@ compression alone is not circuit evidence.
 
 ## Authoritative handoff snapshot — 2026-09-08 11:10 UTC
 
-The current committed and pushed branch edge is `790ef0456`. The selected upstream source-writer prefixes
+The science authority summarized here is committed and pushed through `790ef0456`; the startup
+handoff and outcome-independent hook implementation are in later commits. Always inspect the live
+branch edge before acting. The selected upstream source-writer prefixes
 are now identified and validated: temporal uses `L7H7 + L9H4 + L9H1`; is-was uses
 `L7H7 + L9H4`. The exact recipient-native L11H3 source formula mediates `.783-.799` of the
 temporal writer effect, but only `.165-.203` of is-was. A nested source/full-prefix/full-head
