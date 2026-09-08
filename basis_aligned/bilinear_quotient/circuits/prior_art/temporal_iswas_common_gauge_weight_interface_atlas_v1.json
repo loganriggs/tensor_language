@@ -1,0 +1,38 @@
+{
+  "schema": "temporal_iswas_common_gauge_weight_interface_atlas_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas_common_gauge_weight_interface_atlas_v1",
+  "registered_utc": "2026-09-08T04:47:00Z",
+  "question": "Which exact attention-head and MLP weight tensors write into, or read from, the temporal Q8 and cross-fitted is-was physical command subspaces in their shared final-residual gauge?",
+  "authority": {
+    "basis_capture_prior_sha256": "ca731bcfde6bc0d602ad6820e171e83ea9aa7a068a727810dd1052ad14e9f54a",
+    "basis_capture_runner_sha256": "a2bdc76d61c54e6879d84a0a5b451ae39ed798bcea74fdb77e10579ee08d78cd",
+    "weight_geometry_is_not_causal_identification": true
+  },
+  "novelty": {
+    "closest_art": "The v15 normalized reader atlas measures activation-conditioned suffix readers of a task-specific rank-two response. Earlier weight translation ranks one four-head intervention. Neither consumes physically stored temporal and is-was bases in one gauge or enumerates exact writer and reader energy for both tasks across all 18 layers.",
+    "new_object": "A complete, gauge-invariant exact-weight interface atlas over the common physical ambient space, with fold-stable is-was scores, temporal scores, shared-interface classification, and literal tensor labels."
+  },
+  "frozen_design": {
+    "eligibility": "Run only after a mechanically valid common-final-gauge basis result. Consume temporal_q8 and both v15 fold bases exactly as stored; do not rotate, refit, select, or average the is-was folds.",
+    "writer_inventory": "For every layer 0--17: nine attention output slices c_proj.weight[:,128h:128(h+1)] and one MLP Down.weight, 180 interfaces total.",
+    "reader_inventory": "For every layer 0--17: each of c_q,c_k,c_q2,c_k2,c_v weight rows [128h:128(h+1)] for all nine heads plus MLP Left.weight and Right.weight, 846 interfaces total.",
+    "scores": "For orthonormal rank-r basis Q in R^1152, writer fraction is ||Q^T W||_F^2/||W||_F^2 and reader fraction is ||W Q||_F^2/||W||_F^2. Enrichment divides either fraction by r/1152. Report temporal, v15-fold0, and v15-fold1 fractions and enrichments for every fixed interface.",
+    "stability": "For reader and writer inventories separately, compare v15 fold top-20 label sets by Jaccard intersection-over-union. A fold-stable is-was interface has enrichment >=4 in both folds. A shared material interface also has temporal enrichment >=4. No top-k label is discarded after outcomes.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 0,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "weight_interfaces_scored": 1026,
+      "basis_weight_contractions": 3078,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_basis_config_finiteness_inventory_and_exact_price": "The basis authority, float32 hashes/roundtrip, exact bilin18 configuration, all 1026 labels, finite scores, analytical fraction bounds, and literal price pass.",
+    "pred_b_iswas_top_weight_interfaces_are_fold_stable": "Both reader and writer top-20 fold Jaccards are >=.60.",
+    "pred_c_at_least_one_fold_stable_iswas_reader_and_writer_are_material": "At least one reader and one writer have enrichment >=4 in both v15 folds.",
+    "pred_d_at_least_one_weight_interface_is_material_for_both_tasks": "At least one reader or writer has temporal enrichment >=4 and v15 enrichment >=4 in both folds."
+  },
+  "decision": "A failure is invalid. B/C/D passing exposes exact shared weight-interface candidates for a preregistered causal reader/writer test. B/C pass with D failure identifies task-typed weight interfaces rather than shared use. B failure forbids naming one is-was weight route from these bases. This atlas alone never establishes causal reading or writing."
+}
