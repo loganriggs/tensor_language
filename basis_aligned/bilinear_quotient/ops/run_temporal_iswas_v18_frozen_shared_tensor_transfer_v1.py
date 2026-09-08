@@ -18,6 +18,7 @@ from circuit_fast_screen_managed_runner import atomic_create_json
 import circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v18 as fresh
 import circuit_das_subspace as das
 import circuit_fast_screen_producer as producer
+import module_reader_loss_rescue as intervention
 import run_temporal_iswas_v17_a11_head_endpoint_ordered_cumulative_v1 as head_parent
 import run_temporal_iswas_v17_a11_m11_reader_loss_output_rescue_v1 as parent
 import run_temporal_iswas_v17_h3_m11_shared_basis_restricted_weight_tensor_v1 as tensor_parent
@@ -33,7 +34,7 @@ BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v18
 OUT = ROOT / "circuits/followups/temporal_iswas_v18_frozen_shared_tensor_transfer_v1_result.json"
 CANDIDATE_ID = "cross_task.temporal_iswas.v18_frozen_shared_tensor_transfer_v1"
 EXPECTED = {
-    "prior": "a49b048d7250485c7b87e2ff24ddb5990abe3392b62080e5223d16a7f1ea1786",
+    "prior": "1d28e68551fecebffbc25fe8a3b4e6cb07b531f31fb2ba8895c320f8930c0ea9",
     "tensor_result": "f267b3ebbe151077f0aa44939e6f01e78fc8ae30e85d9b52e0858383ef893972",
     "head_result": "7fa315b84f71f267c3ed4cea67231cbad9dd0ef2b5ad25a3b18133fc6a6e9c85",
     "capability_result": "e2f5a4368303a867646e6df7f67e3c64e98a3b3eb9a742ea7714ab413678020b",
@@ -113,12 +114,114 @@ def capture_all(forward, model):
         lambda: tensor_parent.capture_sites(forward, model), model)
 
 
+def suffix_position_rows(base_batch, donor_batch):
+    base_rows, donor_rows = [], []
+    for base_ids, donor_ids, base_query, donor_query in zip(
+        base_batch.token_rows, donor_batch.token_rows,
+        base_batch.semantic_positions, donor_batch.semantic_positions
+    ):
+        base_stop, donor_stop = int(base_query) + 1, int(donor_query) + 1
+        common = 0
+        while (common < base_stop and common < donor_stop
+               and base_ids[base_stop - common - 1] == donor_ids[donor_stop - common - 1]):
+            common += 1
+        if common < 1:
+            raise RuntimeError("paired rows lost their matched final suffix")
+        base_positions = tuple(range(base_stop - common, base_stop))
+        donor_positions = tuple(range(donor_stop - common, donor_stop))
+        if [base_ids[index] for index in base_positions] != [
+                donor_ids[index] for index in donor_positions]:
+            raise RuntimeError("suffix alignment changed token identity")
+        base_rows.append(base_positions)
+        donor_rows.append(donor_positions)
+    return tuple(base_rows), tuple(donor_rows)
+
+
+def with_source_heads_aligned(forward, model, batch, base, donor,
+                              base_positions, donor_positions):
+    handles, calls = [], {layer: 0 for layer, _head in parent.SOURCE_HEADS}
+    heads, width = model.config.n_head, model.config.n_embd // model.config.n_head
+    for layer, head in parent.SOURCE_HEADS:
+        def patch(_module, arguments, layer=layer, head=head):
+            calls[layer] += 1
+            value = arguments[0]
+            changed = value.clone().view(len(batch.row_ids), value.shape[1], heads, width)
+            for row, (base_row, donor_row) in enumerate(zip(base_positions, donor_positions)):
+                if base_row:
+                    changed[row, list(base_row), head] += (
+                        donor[layer][row, list(donor_row), head]
+                        - base[layer][row, list(base_row), head]
+                    ).to(changed)
+            return (changed.reshape_as(value),) + tuple(arguments[1:])
+        handles.append(model.transformer.h[layer].attn.c_proj.register_forward_pre_hook(patch))
+    try:
+        output = forward()
+    finally:
+        for handle in handles:
+            handle.remove()
+    if set(calls.values()) != {1}:
+        raise RuntimeError(f"aligned source-head patch coverage changed: {calls}")
+    return output, calls
+
+
+def run_tensor_arm(backend, batch, base_heads, donor_heads, base_source_positions,
+                   donor_source_positions, positions, replacements, *, output_replacement=None):
+    calls, output_calls, handles = {label: 0 for label in replacements}, 0, []
+    targets = {"A11": backend.model.transformer.h[11].attn,
+               "M11": backend.model.transformer.h[11].mlp}
+    for label in replacements:
+        def pre(_module, arguments, label=label):
+            calls[label] += 1
+            changed = intervention.replace_positions(arguments[0], replacements[label], positions)
+            return (changed,) + tuple(arguments[1:])
+        handles.append(targets[label].register_forward_pre_hook(pre))
+    if output_replacement is not None:
+        def post(_module, _arguments, output):
+            nonlocal output_calls
+            output_calls += 1
+            return intervention.replace_positions(output, output_replacement, positions)
+        handles.append(targets["M11"].register_forward_hook(post))
+    try:
+        output, source_calls = with_source_heads_aligned(
+            lambda: parent.full_forward(backend, batch), backend.model, batch,
+            base_heads, donor_heads, base_source_positions, donor_source_positions)
+    finally:
+        for handle in handles:
+            handle.remove()
+    if (calls and set(calls.values()) != {1}) or output_calls != int(output_replacement is not None):
+        raise RuntimeError(f"aligned tensor arm coverage changed: {calls}/{output_calls}")
+    return output, {"readers": calls, "output": output_calls, "source": source_calls}
+
+
+def run_head_arm(backend, batch, base_heads, donor_heads, base_source_positions,
+                 donor_source_positions, absent_a11, positions, removed):
+    calls, saved_output = 0, {}
+    def a11_pre(_module, arguments):
+        nonlocal calls
+        calls += 1
+        changed = head_parent.replace_removed_heads(arguments[0], absent_a11, removed, positions)
+        return (changed,) + tuple(arguments[1:])
+    def a11_post(_module, _arguments, output):
+        saved_output["value"] = output.detach().clone()
+    pre_handle = backend.model.transformer.h[11].attn.c_proj.register_forward_pre_hook(a11_pre)
+    post_handle = backend.model.transformer.h[11].attn.c_proj.register_forward_hook(a11_post)
+    try:
+        output, source_calls = with_source_heads_aligned(
+            lambda: parent.full_forward(backend, batch), backend.model, batch,
+            base_heads, donor_heads, base_source_positions, donor_source_positions)
+    finally:
+        pre_handle.remove(); post_handle.remove()
+    if calls != 1 or set(saved_output) != {"value"}:
+        raise RuntimeError("aligned A11 head arm coverage changed")
+    return output, {"a11": calls, "source": source_calls}, saved_output["value"]
+
+
 def panel_run(backend, rows, basis, basis_cpu, top):
     torch, model = backend.torch, backend.model
     batch = das._batch(backend, rows, side="base")
     donor_batch = das._batch(backend, rows, side="donor")
     positions = tuple(tuple(range(int(query) + 1)) for query in batch.semantic_positions)
-    source_positions = parent.postcue_rows(batch, donor_batch)
+    base_source_positions, donor_source_positions = suffix_position_rows(batch, donor_batch)
     calls = {}
 
     native_bundle, base_heads, calls["native_source"] = parent.capture_source_heads(
@@ -127,9 +230,9 @@ def panel_run(backend, rows, basis, basis_cpu, top):
     native, absent_readers, absent_outputs, calls["native_sites"] = native_sites
     donor, donor_heads, calls["donor_source"] = parent.capture_source_heads(
         lambda: parent.full_forward(backend, donor_batch), model, donor_batch)
-    writer_bundle, calls["writer_source"] = parent.with_source_heads(
+    writer_bundle, calls["writer_source"] = with_source_heads_aligned(
         lambda: capture_all(lambda: parent.full_forward(backend, batch), model),
-        model, batch, base_heads, donor_heads, source_positions)
+        model, batch, base_heads, donor_heads, base_source_positions, donor_source_positions)
     writer_sites, writer_a11, calls["writer_a11"] = writer_bundle
     writer, present_readers, present_outputs, calls["writer_sites"] = writer_sites
 
@@ -145,8 +248,9 @@ def panel_run(backend, rows, basis, basis_cpu, top):
     }
     outputs = {}
     for label, replacements in arm_specs.items():
-        outputs[label], calls[label] = tensor_parent.run_arm(
-            backend, batch, base_heads, donor_heads, source_positions, positions, replacements)
+        outputs[label], calls[label] = run_tensor_arm(
+            backend, batch, base_heads, donor_heads, base_source_positions,
+            donor_source_positions, positions, replacements)
 
     mlp = model.transformer.h[11].mlp
     x0, xu = absent_readers["M11"].float(), projected["M11"].float()
@@ -156,15 +260,18 @@ def panel_run(backend, rows, basis, basis_cpu, top):
                     * (x0 @ mlp.Right.weight.detach().float().T))
     top_delta = hidden_delta[..., top] @ mlp.Down.weight.detach().float()[:, top].T
     top_output = absent_outputs["M11"] + top_delta.to(absent_outputs["M11"])
-    outputs["M11_U8_top32"], calls["M11_U8_top32"] = tensor_parent.run_arm(
-        backend, batch, base_heads, donor_heads, source_positions, positions,
+    outputs["M11_U8_top32"], calls["M11_U8_top32"] = run_tensor_arm(
+        backend, batch, base_heads, donor_heads, base_source_positions,
+        donor_source_positions, positions,
         {"M11": projected["M11"]}, output_replacement=top_output)
-    outputs["H3_removed"], calls["H3_removed"], _ = head_parent.run_arm(
-        backend, batch, base_heads, donor_heads, source_positions,
+    outputs["H3_removed"], calls["H3_removed"], _ = run_head_arm(
+        backend, batch, base_heads, donor_heads, base_source_positions,
+        donor_source_positions,
         native_a11["input"], positions, (H3,))
     outputs["all_A11_heads_removed"], calls["all_A11_heads_removed"], all_head_output = (
-        head_parent.run_arm(backend, batch, base_heads, donor_heads, source_positions,
-                            native_a11["input"], positions, head_parent.HEADS))
+        run_head_arm(backend, batch, base_heads, donor_heads, base_source_positions,
+                     donor_source_positions, native_a11["input"], positions,
+                     head_parent.HEADS))
 
     native_margin, writer_margin = parent.toward_donor_margin(native), parent.toward_donor_margin(writer)
     margins = {label: parent.toward_donor_margin(output) for label, output in outputs.items()}

@@ -35,3 +35,17 @@ def test_no_fit_or_optimizer_is_present():
     assert "torch.linalg.svd" not in source
     assert "Adam" not in source
     assert run.PRICE["fit_parameters"] == run.PRICE["model_updates"] == 0
+
+
+def test_suffix_alignment_is_exact_and_supports_unequal_control_prefixes():
+    rows = run.fresh.build_rows()
+    for family in run.PANELS:
+        selected = [row for row in rows if row["transform_id"] == family]
+        base = run.das._batch(None, selected, side="base")
+        donor = run.das._batch(None, selected, side="donor")
+        base_positions, donor_positions = run.suffix_position_rows(base, donor)
+        assert all(tuple(base.token_rows[row][index] for index in base_positions[row])
+                   == tuple(donor.token_rows[row][index] for index in donor_positions[row])
+                   for row in range(len(selected)))
+    controls = [row for row in rows if row["transform_id"] == "C"]
+    assert any(len(row["base_ids"]) != len(row["donor_ids"]) for row in controls)

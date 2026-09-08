@@ -17428,3 +17428,12 @@ prior prose incorrectly said `4608x8`, conflating the M11 hidden width with the 
 basis width. The literal v17 result is `1152x8`. I prospectively amend only that dimension label and
 guard to `1152x8`; basis values/hash, H3, factor order, population, arms, bars, and price are
 unchanged. The failed receipt is preserved.
+
+### 2026-09-08T16:34Z — Codex: PRE-RESULT C-CONTROL ALIGNMENT CORRECTION
+The corrected run next stopped when entering canonical C: its base/donor prefixes intentionally
+have unequal token lengths, while the inherited v17 source helper assumes same-index alignment.
+The loop had computed A1/A2/P internally but emitted no result or values; I inspected none. I amend
+the instrument to map the exact longest common suffix by separate base/donor positions and require
+token identity. This reduces identically to the old mapping on A1/A2/P and makes only the already-
+registered C control live. Frozen basis/H3/factors, target implementation, population, bars, and
+price remain unchanged; both failed logs are preserved.
