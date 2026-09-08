@@ -1,0 +1,32 @@
+{
+  "schema": "temporal_iswas_dual_command_ood_native_capability_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.dual_command_ood_native_capability_v1",
+  "registered_utc": "2026-09-08T06:22:00Z",
+  "question": "Do both commands remain natively capable when the licensed same-sequence construction is replaced by entirely fresh temporal-v12 and is-was-v16 templates and lexicons?",
+  "authority": {
+    "population_logical_sha256": "19cc9aebdb7c2b0cef1b93ea889056f721423d4e15ff37bc2c0a5beae285e591",
+    "temporal_v12_capability_result_sha256": "4758b02cd026c85289dc3eaf352cc496d238057c6f8b52dfc6fe49ae17893324",
+    "iswas_v16_corrected_capability_audit_sha256": "a1c2baf0bd9548e189ccc4ba4d11c4905f85af1ff7013d408c143f6f2a6434e3"
+  },
+  "frozen_design": {
+    "population": "Sixteen new lexical groups split 8 FIT/8 HOLDOUT. Pair temporal-v12 registry A1 with is-was-v16 right-now A1, and temporal-v12 field-report A2 with is-was-v16 these-days A2. Each of 32 rows retains all 00/10/01/11 endpoints; no row or cell may be filtered.",
+    "outcomes": "Score fixed will-minus-had at the earlier query and is-minus-was at the later query. Preserve every signed margin and all 32 phase x template x command-cell x role capability cells.",
+    "gate": "Every one of the 32 capability cells contains exactly eight examples and must achieve at least 6/8 correct. Exact prefix preservation, paired length/query alignment, configuration, and finite logits are hard gates.",
+    "price": {
+      "model_forwards": 1,
+      "sequence_evaluations": 128,
+      "scored_token_positions": 256,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_positions_finiteness_and_exact_price": "All immutable source/population hashes, exact positions, configuration, finiteness, and price pass.",
+    "pred_b_fit_every_joint_cell_and_role_is_capable": "Every FIT template x command-cell x role cell has at least 6/8 correct.",
+    "pred_c_holdout_every_joint_cell_and_role_is_capable": "Every HOLDOUT template x command-cell x role cell has at least 6/8 correct.",
+    "pred_d_dual_command_ood_license_is_issued": "A/B/C all pass and all 32 OOD rows are licensed without filtering."
+  },
+  "null": "Any failed cell closes this OOD population without filtering, template edits, or threshold changes. No OOD H4 causal claim can be scored on an unlicensed row bank.",
+  "decision": "A/B/C/D opens a frozen H4 OOD swap confirmation using the exact in-population head set and bars. This capability receipt alone is not circuit generalization evidence."
+}
