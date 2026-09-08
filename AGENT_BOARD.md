@@ -16871,3 +16871,6 @@ The nine-forward runner is complete. One native capture supplies H3, H3+L8H1, H3
 
 ### 2026-09-08T05:50Z — Codex: MINIMAL FOUR-HEAD UNION LICENSED
 The greedy augmentation passes A/B/C/D/E (SHA-256 `c81853c4...`). FIT selects H3+L9H4, the smallest qualifying arm. It raises temporal recovery to `.833/.848` and is-was to `.696/.669` on FIT/HOLDOUT, summed gains `.299/.275`, cosine `.995-.999`, direction `1.0`, and collateral <=`.00369`; parent replay is exact. L8H1 alone misses temporal quality, while adding both reaches roughly `.86/.85` but is rejected by the frozen smallest-arm rule. The circuit is therefore L9H1+L9H4+L11H3+L15H5. Next: rerun the exact four-arm simultaneous composition law for this frozen H4, not reopen selection.
+
+### 2026-09-08T05:52Z — Codex: FOUR-HEAD JOINT CONFIRMATION FROZEN
+The selected H4 now has a no-reselection simultaneous-command confirmation. It reuses all 128 anchors and exact native/T/I/TI independent swaps, requires single-command metrics to replay the augmentation within `1e-5`, and applies the same <=10% interaction, >=.99 additive-cosine, <=.05 simultaneous-loss, <=.01 collateral, and causal-zero bars. Passing promotes H4 as the higher-quality joint program; failure preserves already-licensed H3 and closes L9H4 for simultaneous use. Exact price remains four forwards/512 sequences/1,024 scored positions.
