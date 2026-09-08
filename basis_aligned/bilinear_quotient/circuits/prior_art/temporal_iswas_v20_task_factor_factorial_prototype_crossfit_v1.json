@@ -1,0 +1,62 @@
+{
+  "schema": "temporal_iswas_v20_task_factor_factorial_prototype_crossfit_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_task_factor_factorial_prototype_crossfit_v1",
+  "created_utc": "2026-09-08T18:34:19Z",
+  "question": "After rejecting one answer-signed point, is the exact weight-folded response tensor organized by a discrete construction/direction hierarchy, a coupled six-cell table, or neither?",
+  "evidence_status": "CPU-only held-out restricted-tensor structure screen; no causal selector, circuit repair, or adoption claim.",
+  "prior_art_and_novelty": {
+    "searched": ["v17-v20 restricted/task-functional tensors", "answer-sign and binary-factor crossfits", "hourly and mathematical shared-subspace reviews"],
+    "known_lessons": "Variance preservation and in-sample PCA/SAE are not circuit identification. Donor-answer sign is confounded with transfer direction and failed held-out prediction.",
+    "novelty": "Fit five explicit computational state models on reporter-disjoint rows of the weight-folded Q tensor and compare their held-out predictions: global, direction, panel, additive panel+direction, and coupled panel-by-direction."
+  },
+  "immutable_authority": {
+    "response_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "response_tensor_result_sha256": "da97abea6f3dae8721c2cda383e0b7af844217051e199046a23c6b9c264da396",
+    "v20_builder_sha256": "cafe9120c4ba8fdbeff27c5a2d05a247c2000641fd401529a4ca0a089137d1d9",
+    "signed_prototype_null_sha256": "781f960478c66c836ba91710d97d0634e2bb01529c7eeb55e200f81790438214"
+  },
+  "method": {
+    "panels": ["A1", "A2", "P"],
+    "direction_index": "group_number parity, checked against every authority row's direction and answer-change fields",
+    "reporter_folds": "groups modulo 4 in {0,1} fit and {2,3} test, then reverse; both sides contain four rows per panel-by-direction cell",
+    "row_vector": "unit-normalized Q[panel,row,:]",
+    "models": {
+      "global": "one fit mean",
+      "direction": "one fit mean per direction",
+      "panel": "one fit mean per A1/A2/P panel",
+      "additive": "normalize(panel_mean + direction_mean - global_mean)",
+      "cell": "one fit mean per panel-by-direction cell"
+    }
+  },
+  "predictions": {
+    "pred_a_authority_identity_balanced_folds_formula_finiteness_and_exact_price": "Hashes, shape, row IDs, categorical labels, four fit/test rows per cell, formulas, finiteness, and operation counts match.",
+    "pred_b_six_cell_model_predicts_heldout_restricted_tensor": "Across both folds, cell-model pooled cosine is >=0.90, every cell mean is >=0.85, every row is >=0.70, and all row cosines are positive.",
+    "pred_c_additive_hierarchy_explains_cells_without_material_interaction": "Across folds, additive pooled cosine is >=0.85, every additive cell mean is >=0.75, and the cell-minus-additive pooled advantage is <=0.05.",
+    "pred_d_cell_identities_are_crossfit_stable": "The six corresponding cell prototypes across reporter folds have mean cosine >=0.90 and minimum cosine >=0.80.",
+    "pred_e_scope_is_heldout_structure_screen_only": "No model, GPU, v21 outcome, intervention, selected factors, or causal gate is opened."
+  },
+  "opposing_outcomes": {
+    "additive_discrete_hierarchy": "A-E pass: carry a panel-plus-direction restricted-tensor specification into H/R decomposition.",
+    "coupled_six_state_tensor": "A/B/D/E pass and C fails: construction and direction interact and must remain coupled.",
+    "continuous_or_positionwise_structure": "A/E pass but B or D fails: six discrete response states do not generalize; use positionwise H/R or sparse/hierarchical decomposition there.",
+    "invalid_instrument": "A fails."
+  },
+  "bars": {
+    "cell_pooled_cosine": 0.90,
+    "cell_mean_cosine": 0.85,
+    "cell_minimum_cosine": 0.70,
+    "cell_positive_fraction": 1.0,
+    "additive_pooled_cosine": 0.85,
+    "additive_cell_mean_cosine": 0.75,
+    "cell_advantage_over_additive": 0.05,
+    "cell_prototype_stability_mean": 0.90,
+    "cell_prototype_stability_minimum": 0.80
+  },
+  "literal_price": {
+    "gpu_forwards": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "prototype_vectors_fit": 24,
+    "heldout_row_predictions": 240
+  }
+}
