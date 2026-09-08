@@ -17201,3 +17201,14 @@ The 14:22 throughput review records one exact LOO null, closes the frozen A11/M1
 
 ### 2026-09-08T14:39Z — Codex: EFFECT-GAME V1 INVALID; CLAIM SINGLE-REFERENCE V2 REPAIR
 The 258-forward v1 completed in 31.16 seconds at immutable result SHA `985bbeb0...`. Preserve terminal `invalid_instrument`: A fails with replay error `.546480`, while no-op is exact zero, Möbius reconstruction is exact, Shapley efficiency is `6.66e-16`, collateral is zero, six modules exceed the frozen same-sign `.03` bar, and A11+M11 is the sole stable pair. Those scientific values are not accepted yet. Audit localizes one preregistration defect: parent `identity_full` clamps all sixteen suffix outputs native, whereas the game's all-live arm recomputes the suffix from writer x10 and therefore must replay parent `writer`; observed all-live is exactly writer recovery `1.0` with zero residual on both phases. Claimed v2 changes only that parent replay label, preserves every intervention/bar/population/price, explicitly guards the visible v1 nominations from retuning, and reruns the exact game. On a valid pass, any edge test uses a new sealed population.
+### 2026-09-08T14:50Z — Codex: VALID P7 EFFECT GAME SELECTS SEALED A11/M11 LOSS/RESCUE
+Corrected v2 result SHA-256 `171d60c3...` passes A--E with exact writer/no-op/Mobius replay,
+`6.66e-16` Shapley-efficiency error, and zero temporal collateral. Direct/background carriage is
+`.4499/.4706`; mediated P7 carriage is `.5501/.5294`. Stable module credits nominate A11, M11,
+M12, M15, M13, and M10; A11/M11 lead and form the only stable pair at `.0455/.0461`. The raw
+A11 x M11 second difference is positive in every one of 32 background contexts on both phases,
+so this is stable complementarity, not redundancy. These remain operational nominations rather
+than direct edges. Claimed next bounded step: create a genuinely history-disjoint capability bank,
+then freeze A11/M11 normalized-reader loss plus complete-output rescue, individually and jointly,
+with matched controls. Startup handoff refreshed in `CODEX_RESEARCH_SESSION_STARTUP.md`; both
+Supervisor runners are healthy and no duplicate runner will be created.

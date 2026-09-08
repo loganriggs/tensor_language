@@ -53,6 +53,41 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Current authoritative delta — 2026-09-08 14:50 UTC
+
+The pushed code edge is commit `0e4de3243`; always inspect newer commits, dirty files, queue,
+results, and Supervisor state before acting. The corrected P7 source-conditioned live-module
+effect game has now completed valid. Its immutable v2 result is
+`circuits/followups/temporal_iswas_identity_p7_live_module_effect_game_ood_v2_result.json`,
+SHA-256 `171d60c3aaf2d35b6a400b9ac753c2c0d8936ee6d354ab91e3bcc9da4f813fc2`.
+All A--E instrument, exact-accounting, live-route, interaction, and selectivity predictions pass.
+
+The source effect contains a direct/unmasked-background share of `.4499/.4706` on frozen OOD
+FIT/HOLDOUT and a mediated P7 share of `.5501/.5294`. Six P7 modules have stable positive exact
+Shapley credit: A11, M11, M12, M15, M13, and M10. A11 and M11 lead at about `.175` and `.133`.
+A11+M11 is the only stable pair interaction, positive at `.0455/.0461`; its raw second difference
+is positive in every one of 32 background contexts on both phases, so the evidence is stable
+complementarity rather than redundancy. M16 does not pass the prospective `.03` stable-credit
+bar. These are operational mediation nominations, not yet direct edges.
+
+Preserve v1's immutable `invalid_instrument` receipt. V2 repaired only the parent replay reference:
+an all-live suffix must replay the selected writer, whereas v1 incorrectly required the fully
+native-clamped identity arm. No scientific population, intervention, bar, or candidate was changed.
+
+The evidence-selected next experiment is a sealed-population physical reader-loss/output-rescue
+test for A11 and M11. It must first establish native capability on a genuinely new lexical bank;
+then source-present normalized-reader replacement by the source-absent tensor must remove the
+registered module contribution, restoring the source-present complete module output must rescue
+it, and matched controls must remain inert. Include individual and joint A11/M11 arms so the
+positive pair excess is tested physically. Do not call exact Shapley credit or checkpoint-weight
+alignment a directed edge without this intervention.
+
+The latest periodic clocks are
+`HOURLY_STRATEGIC_REVIEW_2026-09-08_1422.md` (next review after 15:22 UTC) and
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_1426.md` (next after 17:26 UTC). Both
+Supervisor-managed `bqrunner` services were healthy and the managed queue was empty at this
+snapshot. Never create duplicate runners or launch GPU work directly; use `ops/enqueue.sh`.
+
 ## Authoritative handoff snapshot — 2026-09-08 13:58 UTC
 
 The pushed science edge immediately before this handoff refresh is commit `4666f2934`; always inspect newer commits, dirty files,
