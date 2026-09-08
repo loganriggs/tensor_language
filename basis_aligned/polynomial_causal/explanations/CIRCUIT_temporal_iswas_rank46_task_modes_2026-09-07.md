@@ -599,6 +599,22 @@ behavioral outcome access.  A v15 pass is only a screen and must face unseen cue
 identification, but it establishes whether the already-sufficient state coordinates can form a
 selective executable program with an explicit router.
 
+That explicit program passes all five registered predictions and returns
+`token_pair_router_candidate`.  Each parity learns the same two unordered one-pair signatures,
+maps them to A1/A2, and defaults everything else off.  Held confusion is perfect in both directions.
+The routed state union projects `.795-.881` on all four target cells with direction fraction `1.0`,
+has exactly zero P/C KL and flips, and matches gold-router logits bit-for-bit.  Its literal learned
+gate contains two signature entries; the causal state portion remains the cross-fitted rank-two
+union.
+
+This is the first selective executable v15 program in the construction-oracle branch, but it is a
+screen rather than identification.  Its finite token lookup is expected to default unseen cue pairs
+off, so fresh-cue OOD must be audited without relabeling or adding signatures.  In parallel, the
+successful selective state union now licenses the user's requested exact-weight diagnostic: map
+both entry12 coordinates through downstream Q/K/V and MLP input tensors and the final unembedding,
+then causally confirm only readers whose complete-module path has enough effect.  Static weight
+alignment remains nomination, not proof, by the earlier L15H5 counterexample.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -696,6 +712,10 @@ selective executable program with an explicit router.
   `temporal_iswas_v15_entry12_crossfit_gram_router_v1_result.json` (both targets pass and one parity
   routes perfectly, but three off rows leak to A1 in the other parity; the coarse response-signature
   route is closed by its preregistered strict control gate).
+- Entry-12 unordered token-pair router:
+  `temporal_iswas_v15_entry12_unordered_token_pair_router_v1_result.json` (selective v15 executable
+  screen: perfect held routing, `.795-.881` target projection, zero P/C effect, and exact gold
+  composition; unseen-cue OOD remains open).
 
 ## Remaining gates
 
