@@ -929,15 +929,24 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   Simultaneous recovery is unchanged and later-to-earlier effect is zero.  This establishes stable
   identification of the H4 causal interface across new constructions and lexicons; selective
   removal and standalone extraction remain untested.
+- H4 selective midpoint removal:
+  `temporal_iswas_h4_selective_midpoint_removal_v1_result.json` (valid full license).  Clamping each
+  H4 command slice to the pair-symmetric native midpoint recovers the prospectively expected
+  half-toggle at `.828/.847` temporal and `.683/.652` is-was on original FIT/HOLDOUT, and
+  `.835/.831` temporal and `.714/.722` is-was on OOD.  Cosines are at least `.991`, direction is
+  `1.0`, every native-correct endpoint moves toward a smaller correctness-aligned margin, and
+  collateral is at most `.00352`.  Pair midpoint invariance and later-to-earlier causal zero are
+  exact.  Simultaneous removals preserve both effects; temporal interaction is zero and is-was
+  interaction is at most `.01043`.  H4 is therefore selectively manipulable under a frozen
+  contrast-removal edit, in addition to being sufficient for high-recovery swaps.  Standalone
+  extraction and literal simplicity remain open.
 
 ## Remaining gates
 
-1. Test selective contrast removal for the frozen H4 program on both original and OOD populations,
-   with the intervention and expected half-effect fixed before outcomes.
-2. Localize the source positions and any key-side partner for the identified L11H3 value route.
+1. Localize the source positions and any key-side partner for the identified L11H3 value route.
    L15H5 q/q2 weight enrichment is now closed as a causal reader explanation for this program.
-3. If midpoint removal passes, test whether an explicit H4/L11-value interface plus native
+2. Test whether an explicit H4/L11-value interface plus native
    background predicts that signed loss rather than inferring extraction from donor swaps.
-4. Retain the stable is-was fold pair and all failed registered claims rather than selecting a
+3. Retain the stable is-was fold pair and all failed registered claims rather than selecting a
    favorable gauge, factor, task, phase, or template after outcomes.
-5. Price an extracted executor only after OOD composition and selective manipulation pass.
+4. Price an extracted executor only after its intervention fidelity and composition are verified.
