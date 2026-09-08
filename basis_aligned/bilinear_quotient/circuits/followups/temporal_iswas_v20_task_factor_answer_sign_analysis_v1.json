@@ -1,0 +1,36 @@
+{
+  "schema": "temporal_iswas_v20_task_factor_answer_sign_analysis_v1",
+  "created_utc": "2026-09-08T18:12:00Z",
+  "authority": {
+    "response_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "v20_builder_sha256": "cafe9120c4ba8fdbeff27c5a2d05a247c2000641fd401529a4ca0a089137d1d9"
+  },
+  "object": "Normalize each exact row-by-native-factor task response Q[s,:]. Compare matched group rows across A1/A2/P/C. Then orient each row by +1 for donor answer 'is' and -1 for donor answer 'was' before recomputing panel means. This orientation is an analysis of the experimental answer coordinate, not an inference-time gate.",
+  "matched_row_cosine": {
+    "A1_A2_mean": 0.9707040801740288,
+    "A1_A2_minimum": 0.9245643723429271,
+    "A1_P_mean": -0.853776251259206,
+    "A1_P_minimum": -0.987619287143923,
+    "A2_P_mean": -0.8936782158711838,
+    "A2_P_minimum": -0.9864759488036304,
+    "A1_C_mean": -0.020440792672494906,
+    "A2_C_mean": -0.02096152316057046,
+    "P_C_mean": 0.0218730948812757
+  },
+  "donor_answer_oriented_panel_mean_cosine": {
+    "A1_A2": 0.8903684668906087,
+    "A1_P": 0.9059834781599597,
+    "A2_P": 0.830931506974827
+  },
+  "base_answer_oriented_panel_mean_cosine": {
+    "A1_A2": 0.8903684668906087,
+    "A1_P": -0.9059834781599597,
+    "A2_P": -0.830931506974827
+  },
+  "interpretation": "The apparent target/P antiparallelism largely becomes a common factor pattern after orienting by the answer whose margin defines the downstream covector. That is evidence for a shared signed answer-coordinate response, but donor-answer orientation is unavailable to a donor-free circuit and cannot repair selectivity. The queued H/R split must determine whether a native downstream reader state carries an equivalent sign or whether the upstream writer patch itself is nonselective.",
+  "price": {
+    "gpu_forwards": 0,
+    "backwards": 0,
+    "fitted_parameters": 0
+  }
+}
