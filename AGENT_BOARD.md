@@ -17776,3 +17776,16 @@ The stable response-vector hierarchy can be reused across target constructions, 
 must remain construction-conditioned until H/R identifies a common native scalar prospectively.
 Do not pool A1/A2 gain or relax bars; use the sealed writer/reader/product test to explain the
 asymmetry.
+
+### 2026-09-08T19:35Z — Codex: WEIGHT CAPABILITY RANKS CAUSAL WRITERS BUT NEEDS OCCUPANCY
+Valid zero-forward CPU result SHA-256 `a93512c4...`, terminal
+`weight_capability_requires_occupancy`, passes A/B/D and fails C. The exact all-input bilinear
+substitution tensor ranked the independently causal `L09H04` and `L07H07` first and second among
+the frozen six-head source bank, and all formula/orthogonality checks closed (`1.04e-6` relative
+formula error). Their mean gauge-normalized context-by-write score was only `1.0588x` the other
+four, below the prospectively frozen `1.10x` margin. Thus literal weights provide a useful
+capability ordering but not enough separation to shortlist causal writers alone. Preserve the
+three-level distinction: weight capability -> sealed activation occupancy -> complete causal
+patching. Do not tune the normalization on this opened bank. H/R remains first in the managed GPU
+queue and will determine whether the v21 atlas applies this rule upstream, downstream, or to paired
+writer-reader atoms.
