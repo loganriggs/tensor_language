@@ -146,7 +146,10 @@ extractor has since passed all gates: its formula matches the c_v-patch head del
 and direct L11H3 interface installation matches selected logits within `8.59e-6` on original and
 OOD text.  Four checksummed 128x128 query-tensor banks are stored in the result.  The immediate
 continuation is exact upstream writer-weight translation through L11H3 W_v followed by a causal
-source-position module/head screen.
+source-position module/head screen.  The exact atlas has now frozen six unique head candidates:
+shared L6H7/L7H7/L9H1/L9H4, temporal-only L5H1, and is-was-only L3H4.  Original/OOD top-ten
+rankings are identical and shared enrichments are 6.11x--17.25x.  Treat these as weight
+candidates only until the all-singleton plus task-top-five causal source-position screen lands.
 
 At this checkpoint `gpt-6-astra` is the configured Codex default and is visible in the account
 catalog.  Both `bqrunner` services are Supervisor-managed and healthy; their queues are currently

@@ -979,12 +979,22 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   row, query, and source metadata are stored and checksummed in the result.  This is an exact,
   directly executable, original/OOD-stable interface—not a fitted subspace—and it opens physical
   upstream writer translation through L11H3 W_v.
+- Source-tensor upstream exact-weight atlas:
+  `temporal_iswas_l11h3_source_tensor_upstream_weight_atlas_v1_result.json` (valid shared-candidate
+  atlas).  All 111 earlier writers were composed through the physical L11H3 W_v slice and scored
+  against the four trace-one extracted-tensor covariances.  Original/OOD top-ten Jaccard is `1.0`
+  for both tasks.  Temporal top five is L7H7, L9H4, L9H1, L6H7, L5H1; is-was top five is L7H7,
+  L9H4, L6H7, L9H1, L3H4.  Four writers are prospectively shared: L6H7, L7H7, L9H1, and L9H4.
+  Their enrichments range from `6.11x` to `17.25x` across all four task/population panels; L7H7 is
+  strongest overall.  This makes the user-proposed tensor-to-weight translation operational and
+  freezes a six-head causal source-position union.  It is exact weight compatibility, not causal
+  writing, until that head patch test lands.
 
 ## Remaining gates
 
 1. Translate the extracted L11H3 source tensor through its exact W_v read matrix to prospectively
-   nominate upstream attention/MLP writers, then test those components causally at the locked
-   source positions. L15H5 q/q2 weight enrichment is closed as a causal reader explanation.
+   nominate upstream attention/MLP writers, then test the frozen six nominated heads causally at
+   the locked source positions. L15H5 q/q2 weight enrichment is closed as a causal explanation.
 2. Test whether an explicit H4/L11-value interface plus native
    background predicts that signed loss rather than inferring extraction from donor swaps.
 3. Retain the stable is-was fold pair and all failed registered claims rather than selecting a
