@@ -1,0 +1,36 @@
+{
+  "schema": "temporal_iswas_three_head_union_joint_composition_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.three_head_union_joint_composition_v1",
+  "registered_utc": "2026-09-08T05:36:00Z",
+  "question": "Does the distributive L9H1+L11H3+L15H5 union carry temporal and is-was command swaps simultaneously with small cross-command interaction?",
+  "authority": {
+    "head_module_result_sha256": "870c34d6e4d6b786eafe9bcdd960e790cab5ffb5b865b530b258997d405dbae2",
+    "head_module_runner_sha256": "61cc52e73d51441512b073b75eef86f41ff5941c8f97770b7a062446c47ef849",
+    "joint_contract_sha256": "940e34ca48f1ef998ba0a45f51d0c77f5ea6860a0364a71781b026cf264b72c2",
+    "population_builder_sha256": "72da11860ce5bf1c03ea126bc10fcb6c46dd2648169edb00a1e9e1dbeee8a0d0"
+  },
+  "scope": "The parent remains a registered singleton/module identification null because B/C failed. Its preregistered D clause passed and explicitly licenses use of the three-head greedy union. This experiment tests that distributed union as one program; it does not retro-pass any singleton claim.",
+  "frozen_design": {
+    "population": "All 32 licensed rows and all four native cells serve as anchors, for 128 anchored examples. No row, direction, template, or phase is selected.",
+    "arms": "One native capture plus temporal-only union swap, is-was-only union swap, and simultaneous union swap. Each union replaces the 128-dimensional L9H1, L11H3, and L15H5 pre-c_proj slices at the query immediately before the relevant answer. Single arms use the paired cell differing in one bit. The simultaneous arm applies both independent single-command donor substitutions in the same forward.",
+    "outputs": "Score canonical will-minus-had and is-minus-was margins on every arm. Apply the exact 00/10/01/11 Möbius contract separately by output role, phase, and template. Also report each role's signed recovery against its native paired-cell gold and the other command's collateral.",
+    "bars": "In both FIT and HOLDOUT, temporal-only signed recovery must be >=.60 and is-was-only >=.40, each with cosine >=.98 and direction agreement 1.0. Single-arm other-role norm is <=.01 of target gold and is-was-to-earlier-temporal max absolute effect <=1e-5. For each role, phase, and template, joint interaction RMS/both RMS <=.10 and additive cosine >=.99. In the simultaneous arm, each role retains at least its single-arm signed recovery minus .05.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 4,
+      "sequence_evaluations": 512,
+      "scored_token_positions": 1024,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_capture_pairing_reproduction_finiteness_and_exact_price": "Authorities, all-row license ancestry, exact pairs/positions, parent single-union metric replay, finite closure, configuration, and literal price pass.",
+    "pred_b_single_command_union_effects_remain_material_and_selective": "Both roles pass their frozen FIT/HOLDOUT recovery, cosine, direction, collateral, and causal-zero bars.",
+    "pred_c_simultaneous_union_is_additive_across_commands": "Every role x phase x template Möbius interaction ratio is <=.10 and additive cosine is >=.99.",
+    "pred_d_simultaneous_arm_preserves_each_single_command_effect": "For each role and phase, simultaneous-arm signed recovery is no more than .05 below its corresponding single-arm recovery.",
+    "pred_e_distributed_joint_union_is_licensed": "A/B/C/D all pass without changing the parent singleton/module null."
+  },
+  "decision": "A failure invalidates. B/C/D/E identifies a distributed three-head joint program with task-typed state and shared physical interfaces. B pass with C/D failure identifies shared but interacting execution and routes to the exact command-order/factorial decomposition. B failure closes this union on the dual population. No singleton module is promoted by this result."
+}
