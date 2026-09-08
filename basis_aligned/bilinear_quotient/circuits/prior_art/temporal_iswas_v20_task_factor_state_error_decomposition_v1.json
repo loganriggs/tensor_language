@@ -1,0 +1,49 @@
+{
+  "schema": "temporal_iswas_v20_task_factor_state_error_decomposition_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_task_factor_state_error_decomposition_v1",
+  "created_utc": "2026-09-08T18:52:20Z",
+  "question": "Is the remaining held-out error of the raw panel-by-direction Q state program primarily a missing scalar amplitude or additional response-vector shape?",
+  "evidence_status": "CPU-only exact error attribution for choosing the next circuit object. Held-out oracle amplitudes are diagnostic and cannot be used by an executable circuit.",
+  "prior_art_and_novelty": {
+    "searched": ["normalized and raw v20 factorial state crossfits", "H/R state-program prior", "task-factor answer-sign and selectivity analyses"],
+    "known_result": "Raw cell means predict held-out Q at cosine .9512, recovery .9171, residual .3089; normalized cell directions reach mean row cosine .9754.",
+    "novelty": "Use the exact orthogonal identity ||y-mu||^2=||y-(y dot u)u||^2+(y dot u-m)^2 on reporter-held-out Q rows to separate shape and scalar-amplitude error without refitting the direction."
+  },
+  "immutable_authority": {
+    "response_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "raw_state_result_sha256": "730575d554ef69ed31e4d19e1fa0612c33defb69daa7ce7ff45a0713ea1a28d2",
+    "factorial_tensor_state_library_sha256": "f0ce2a482da038abe14c98c2521675710cbfcc0c678feda089ae43a83641833e"
+  },
+  "method": {
+    "folds": "The unchanged balanced modulo-4 reporter folds, reversed.",
+    "fit": "For each panel-by-direction cell, qbar is the raw fit mean, u=qbar/||qbar||, and m=||qbar||.",
+    "heldout_decomposition": "For held-out y, a*=y dot u, shape residual is y-a*u, and amplitude residual is (a*-m)u. Aggregate squared norms before taking fractions.",
+    "oracle_warning": "a* reads held-out y and is only an upper-bound attribution. A later executable scalar must be computed from upstream/native input state and tested prospectively."
+  },
+  "predictions": {
+    "pred_a_authority_folds_formula_finiteness_and_exact_price": "Hashes, shape, folds, nonzero fit means, finiteness, and exact counts match.",
+    "pred_b_remaining_cell_error_is_mainly_scalar_amplitude": "Amplitude contributes >=0.50 of fixed-state squared error and oracle-scalar relative residual is <=0.25.",
+    "pred_c_decomposition_is_exact_and_oracle_sign_is_stable": "Shape SSE plus amplitude SSE equals fixed-state SSE to relative error <=1e-10 and all 48 held-out oracle amplitudes are positive.",
+    "pred_d_scope_remains_diagnostic_only": "No model/GPU call, H/R/v21 outcome, causal intervention, or executable use of held-out amplitude occurs."
+  },
+  "opposing_outcomes": {
+    "scalar_amplitude_is_next_state_variable": "A-D pass. Search H/R and upstream native state for a predictive scalar gain multiplying the discrete state.",
+    "additional_shape_is_required": "A/C/D pass and shape contributes >=0.60 or oracle-scalar relative residual >0.25. Preserve richer positionwise/hierarchical structure.",
+    "mixed_error": "A/C/D pass with neither dominance criterion. Test H/R first; do not force a scalar-only or shape-only repair.",
+    "invalid_instrument": "A or C fails."
+  },
+  "bars": {
+    "amplitude_fraction_of_fixed_sse": 0.50,
+    "shape_dominance_fraction": 0.60,
+    "oracle_scalar_relative_residual": 0.25,
+    "decomposition_relative_error": 1e-10,
+    "oracle_positive_fraction": 1.0
+  },
+  "literal_price": {
+    "gpu_forwards": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fitted_cell_vectors": 12,
+    "heldout_oracle_scalar_reads": 48
+  }
+}
