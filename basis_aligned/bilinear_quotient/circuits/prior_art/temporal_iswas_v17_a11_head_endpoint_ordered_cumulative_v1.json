@@ -1,0 +1,89 @@
+{
+  "schema": "temporal_iswas_v17_a11_head_endpoint_ordered_cumulative_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v17_a11_head_endpoint_ordered_cumulative_v1",
+  "status": "preregistered_before_head_outcomes",
+  "question": "Does the fresh directed A11 reader edge write through prospectively nominated H3, a compact head set, or a distributed nine-head endpoint?",
+  "parent": {
+    "result": "circuits/followups/temporal_iswas_v17_a11_m11_reader_loss_output_rescue_v1_result.json",
+    "result_sha256": "4883354bf39fe6bfe9ffd5c2f97475be749a0aec78d8aa13985739bcf4b93062",
+    "runner_sha256": "a34217de464b988f10be94b60d7526146b9f86c4ad717502e4dfe852e1f2b0d7",
+    "licensed_fact": "A11 reader loss is stable on FIT/HOLDOUT and restoring complete A11 c_proj output exactly rescues it; matched A12 control is inert.",
+    "rejected_fact": "The positive A11/M11 Shapley interaction sign did not transfer to joint reader removal and is not used here."
+  },
+  "prior_art": {
+    "searched": [
+      "temporal_iswas_p7_identity_a11_head_endpoint_atlas_ood_v1",
+      "temporal_iswas_l11h3_writer_route_closure_ladder_v1",
+      "temporal_iswas_h4_reader_factor_factorial_v1",
+      "temporal_iswas_common_gauge_weight_interface_atlas_v1",
+      "all v15 head-factor and conditional head-atlas records"
+    ],
+    "closest": "The old conditional P7 A11 endpoint atlas froze H3 plus nine singleton/LOO endpoints but never became eligible because complete A11 was LOO-null in a sequential clamp background. The valid v17 loss/rescue receipt supplies a different, direct module edge on unopened head outcomes.",
+    "known_lessons": "Complete-module mediation must precede head splitting. All-head output replacement must reproduce the parent A11 loss. Endpoint attribution is not Shapley. If singleton endpoints distribute, an actual cumulative combination must be executed and evaluated on held-out groups."
+  },
+  "population": {
+    "rows": "All sixteen immutable v17 A2 rows; no filtering.",
+    "fit": "group_number 0--7; used only to order heads.",
+    "holdout": "group_number 8--15; never used to select or reorder heads.",
+    "positions": "Every token from position 0 through each row's answer query for A11 head-output replacement.",
+    "source": "The unchanged fixed L7H7+L9H4 donor-minus-base postcue writer intervention."
+  },
+  "intervention": {
+    "boundary": "A11 c_proj argument 0, split into nine exact contiguous 128-wide head outputs.",
+    "captures": "Capture source-absent and source-present A11 preprojection tensors. Every scored arm starts from the same source-present writer execution.",
+    "endpoint_arms": [
+      "no_heads_removed",
+      "all_heads_removed",
+      "remove_H0 through remove_H8",
+      "keep_only_H0 through keep_only_H8"
+    ],
+    "replacement": "A removed head takes its exact source-absent slice only at registered rows/positions; all unremoved heads and all other modules remain live.",
+    "fit_order": "For each head, average its FIT first-removal marginal and last-removal marginal. Sort descending by that endpoint attribution, breaking ties by lower head index.",
+    "cumulative_arms": "Execute the first 1 through 8 heads in the frozen FIT order; prefix 9 is identical to all_heads_removed and is not rerun.",
+    "prospective_head": "H3, fixed from earlier exact L11H3 value mediation and the common-gauge weight atlas, not from v17 head outcomes."
+  },
+  "metrics": {
+    "recovery": "Signed recovery of each arm relative to the full source-present writer effect.",
+    "head_first_loss": "recovery(no_heads_removed) - recovery(remove_Hh).",
+    "head_last_loss": "recovery(keep_only_Hh) - recovery(all_heads_removed).",
+    "endpoint_attribution": "0.5 * (head_first_loss + head_last_loss); an endpoint interaction diagnostic, not an exact Shapley allocation.",
+    "a11_loss": "recovery(no_heads_removed) - recovery(all_heads_removed).",
+    "cumulative_fraction": "loss(prefix_k) / a11_loss, with a positive registered denominator."
+  },
+  "bars": {
+    "replay_max_abs_margin_error": 0.00001,
+    "all_head_output_max_abs_error": 0.00001,
+    "parent_a11_loss_absolute_agreement": 0.03,
+    "h3_first_loss_min_each_split": 0.03,
+    "h3_last_loss_min_each_split": 0.03,
+    "h3_endpoint_share_min_each_split": 0.50,
+    "compact_prefix_max_heads": 3,
+    "compact_prefix_a11_loss_fraction_min_each_split": 0.80,
+    "head_effect_direction_agreement_min": 0.875
+  },
+  "predictions": {
+    "pred_a_authority_source_replay_capture_hook_coverage_finiteness_and_exact_price": "All immutable hashes and row/source/position inventories match; no-head source-present replay is exact; every source and A11 hook fires once and cleans up; metrics are finite; the exact 31-forward price holds.",
+    "pred_b_all_nine_head_removal_reproduces_the_parent_A11_reader_loss": "All-head replacement reproduces captured source-absent A11 c_proj output within 1e-5 and its A11 loss agrees with the parent reader-loss value within .03 on FIT and HOLDOUT.",
+    "pred_c_prospective_H3_is_a_stable_majority_A11_endpoint": "H3 first and last loss are each at least .03, direction agreement is at least .875, and its endpoint attribution is at least 50% of complete A11 loss on FIT and HOLDOUT.",
+    "pred_d_fit_ordered_prefix_of_at_most_three_heads_recovers_A11_loss_on_holdout": "One common prefix length k<=3 reaches at least 80% of all-head A11 loss with direction agreement at least .875 on both FIT and HOLDOUT.",
+    "pred_e_no_v17_head_outcome_was_used_to_choose_rows_source_boundary_or_H3": "The immutable population, writer, A11 boundary, all nine endpoints, H3 nomination, bars, ordering rule, and price were frozen before execution."
+  },
+  "terminal_rules": {
+    "invalid_instrument": "A or B fails; no head conclusion.",
+    "h3_compact_A11_endpoint": "A--E pass; carry H3 into the restricted write/read tensor.",
+    "compact_non_H3_A11_endpoint": "A/B/D/E pass and C fails; carry the sealed FIT-ordered prefix, not H3 alone.",
+    "distributed_A11_endpoint": "A/B/E pass and D fails; keep complete A11 as the operational boundary and decompose its restricted weight tensor without inventing a sparse native-head circuit."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 31,
+    "sequence_evaluations": 496,
+    "scored_token_positions": 992,
+    "endpoint_arms": 20,
+    "cumulative_arms": 8,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "next": "Use the confirmed H3, compact prefix, or complete A11 endpoint together with causal M11 to define a cross-fit shared activation basis. Then save exact U^T W_write, W_read U, and the M11 restricted bilinear tensor; decompose that weight-defined object and validate selected factors by removal/replay on a sealed population."
+}

@@ -17300,3 +17300,15 @@ two directed readers and mild physical redundancy, but do not transfer the posit
 sign across intervention frames. Next use the existing common-gauge weight atlas as prior art and
 freeze a v17 cross-fit causal reader basis whose exact writer/read contractions and restricted M11
 bilinear tensor can be decomposed and then tested by basis-factor removal, not variance alone.
+
+### 2026-09-08T15:45Z — Codex: PREREGISTER FULL A11 HEAD ENDPOINTS BEFORE WEIGHT DECOMPOSITION
+The direct A11 module edge now licenses the previously blocked within-module question, but not the
+old sequential-clamp executor. New v17 prior `cross_task.temporal_iswas.v17_a11_head_endpoint_ordered_cumulative_v1`
+freezes all nine 128-wide A11 pre-c_proj head removals, all nine keep-only endpoints, prospective
+H3, and eight actually executed cumulative prefixes. FIT groups only order heads by the average of
+first- and last-removal marginals; HOLDOUT groups cannot reorder them. All-head removal must match
+the parent A11 reader loss within `.03` and exact source-absent c_proj output within `1e-5` before
+head conclusions. H3 must own at least half the A11 endpoint or a common <=3-head prefix must recover
+at least 80% on both splits; otherwise complete A11 remains the honest boundary. Exact price is 31
+forwards/496 sequences. This split precedes restricted-tensor construction so `W_read U` is folded
+through a causally confirmed head set rather than selected from static weight energy.
