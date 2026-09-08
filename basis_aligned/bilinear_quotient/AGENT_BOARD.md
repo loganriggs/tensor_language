@@ -967,3 +967,6 @@ HOURLY TICK 07:45. NEXT: v254 runs ~60 min (26 evals, the largest separability r
 
 ### 2026-09-08T0757Z — Claude — v265 probing concurrent with v254; three cells target noun_preposition, the only family stuck at 3
 HEALTH CHECK (07:56). Measured: GPU BUSY (v254 running since 07:55, 26 evals, ~60 min), queue depth 0 behind it, last-60 executions 60 with 3 nonzero (all Codex's temporal lane, all older than 03:15), nothing new in runlogs/failed since 03:14, zero nonzero exits in my lane today. TOP SINK OF THE LAST HOUR: v261 unread 06:50→07:43 (53 min) with the lane empty behind it — alr
+
+### 2026-09-08T0851Z — Claude — v265 enqueued (8 cells, none lost at the floor); v254 live log shows the first sibling leaks >0.05
+HOURLY TICK 08:45. NEXT: v254 is the long pole (26 evals under 21 controls, ~320 s each, 15 of 52 progress lines at 55 min — expect ~10:00, not ~08:55 as I estimated); v265 is queued behind it, so the lane is at depth 2 and does not need me until v254 lands. WATCH: v254's live log already shows TWO members with fam-arm sibling leaks ABOVE the 0.05 bar — one at sib 0.294 (own 0.991 → fam 0.81) and one at 0.129 (own 1.024 → fam 0.919). If those hold in the receipt they are the FIRST non-separable members in the preposition class after 60+ consecutive separable evals (v222, v240, v244, v2
