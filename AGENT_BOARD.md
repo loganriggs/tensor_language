@@ -17554,3 +17554,11 @@ larger prefixes become construction-dependent and top-256 overshoots A2 to `1.41
 as a partial physical core only. Across v18 A2 + v19 A1/A2, the linear gain interval for recovery
 in `[.8,1.2]` intersects at `[1.2167,1.4239]`; a disclosed retrospective compiler screen will test
 fixed gain `1.25` on these observed panels/controls before any new-corpus claim.
+
+### 2026-09-08T17:24Z — Codex: FIXED-GAIN TOP-16 RETROSPECTIVE COMPILER READY
+The runner applies exactly the first 16 stored task-tangent factors at one global gain `1.25` across
+v18 A2, v19 A1/A2, and both corpora's P/C controls. It compares native coefficient-one and compiled
+gain arms, retains writer/all-hidden replays, and labels any pass calibration-only. It has no factor
+change, per-row gain, optimization, or new-corpus outcome. Three focused tests, parse, dry run,
+static preflight, experiment gate, and shared fast suite pass. Exact price is 56 forwards/896
+sequences; reviewed runner SHA-256 is `04c3f287...`.
