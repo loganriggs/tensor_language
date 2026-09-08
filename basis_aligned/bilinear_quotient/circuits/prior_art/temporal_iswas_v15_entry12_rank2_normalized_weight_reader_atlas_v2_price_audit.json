@@ -1,0 +1,20 @@
+{
+  "schema": "temporal_iswas_v15_entry12_rank2_normalized_weight_reader_atlas_v2_price_audit_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_entry12_rank2_normalized_weight_reader_atlas_v2_price_audit",
+  "registered_utc": "2026-09-08T02:58:00Z",
+  "question": "Is the v1 weight atlas invalid only because its prospective price omitted the four already-required manual reference executions, with all scientific outputs otherwise mechanically valid?",
+  "authority": {"v1_result_sha256": "e8dd97ad21542ccba884e9e0c52c9cb007473b24a989782c099ea2f515dda429", "required_terminal": "invalid"},
+  "correction": {
+    "cause": "Two held-parity contexts each call attach_references, which runs one manual base and one manual donor transformer execution. The v1 maximum counted the two off-state plus four expert-state captures but omitted these 2*2 reference executions.",
+    "corrected_price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 10, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 1400, "fit_parameters": 0, "checkpoint_loads": 1},
+    "scope": "Zero-model immutable-result audit. Do not recompute, threshold, reorder, or drop any scientific metric or prediction. Preserve the false raw-versus-exact ranking prediction."
+  },
+  "predictions": {
+    "pred_a_v1_invalid_only_from_registered_forward_price": "The v1 authority, geometry, finiteness, splits, and configuration pass; its actual ten differentiable forwards exceed only the erroneous registered maximum of six.",
+    "pred_b_corrected_exact_price_validates_instrument": "The actual literal counters exactly match ten differentiable forwards and one checkpoint load and remain within every corrected maximum.",
+    "pred_c_scientific_predictions_and_nulls_are_immutable": "Predictions B-F, rankings, overlaps, and tangent/exact metrics are copied byte-for-value from v1; B remains false and C-F remain true.",
+    "pred_d_all_preserved_metrics_are_finite": "Every preserved scalar metric is finite."
+  },
+  "decision": "A/B/C/D validates the v1 measurements under the corrected literal price and retains its normalized-reader nomination. Any failure leaves v1 invalid. This audit cannot change a scientific threshold or make raw/exact rankings differ.",
+  "closed_claims": ["causal reader identity", "semantic coordinate identity", "OOD routing", "adoption"]
+}

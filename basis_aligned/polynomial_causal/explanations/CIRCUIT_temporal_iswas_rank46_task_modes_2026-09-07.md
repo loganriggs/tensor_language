@@ -720,6 +720,16 @@ alignment remains nomination, not proof, by the earlier L15H5 counterexample.
   OOD null: none of the 32 native-capable v16 target rows shares either learned v15 signature, so
   the immutable default-off rule predicts exactly zero transfer; v16 C is explicitly outside the
   exact aligned-signature program because its base/donor token lengths differ).
+- Entry-12 normalization-aware weight atlas:
+  `temporal_iswas_v15_entry12_rank2_normalized_weight_reader_atlas_v1_result.json` (preserved
+  invalid v1 because the registered six-forward price omitted four manual reference executions),
+  followed by
+  `temporal_iswas_v15_entry12_rank2_normalized_weight_reader_atlas_v2_price_audit_result.json`
+  (valid zero-model price correction to ten forwards).  RMS-Jacobian responses track exact finite
+  responses for every interface; exact rankings are stable across folds and nominate shared
+  L12H0:v, L12H4:q/k, L13H2:q, and L15H5 interfaces.  Raw and exact top tens overlap `.9-1.0`,
+  so normalization does not change the coarse ranking here.  All four known oracle source heads
+  rank above the 97th upstream-writer percentile.  These are weight nominations, not causal readers.
 
 ## Remaining gates
 
