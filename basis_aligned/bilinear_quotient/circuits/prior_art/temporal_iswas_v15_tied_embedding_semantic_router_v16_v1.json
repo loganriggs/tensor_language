@@ -1,0 +1,33 @@
+{
+  "schema": "temporal_iswas_v15_tied_embedding_semantic_router_v16_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_tied_embedding_semantic_router_v16_v1",
+  "registered_utc": "2026-09-08T03:34:00Z",
+  "question": "Can frozen tied-token weights turn unseen temporal cue pairs into a direction-invariant semantic router that separates A1, A2, and off on sealed v16?",
+  "authority": {
+    "token_lookup_ood_result_sha256": "92abdb1d7f17ee253288c5dd92cc2369dd3950e21a582b00c95d0b04816a8054",
+    "required_terminal": "unseen_signature_default_off",
+    "gain_swap_result_sha256": "d1e54e50d09a0767be525382cc6f825e5ff18596ae1e66fc817006c79a0bc31f"
+  },
+  "prior_art": {
+    "searched": ["v15 token router v16 unseen", "tied embedding temporal semantic pair", "direction invariant cue embedding", "Gram router", "regularized source router"],
+    "active_claim_collision": false,
+    "known_lessons": "Exact token lookup has zero v16 support; signed source deltas reverse with tense direction; high-dimensional ridge memorizes a direction; coarse response Gram features leak P. The new feature must be frozen, direction invariant, and outcome-free.",
+    "novelty": "Use pretrained tied embedding geometry of the changed lexical pairs, rather than task-fitted hidden states: concatenate the normalized mean unordered-pair midpoint with the normalized mean elementwise-squared pair difference, then use three cosine centroids."
+  },
+  "frozen_design": {
+    "population": "Use aligned A1/A2/P/C v15 rows for opposite-parity fitting and held-parity replay. On v16, score all aligned A1/A2/P rows; explicitly exclude the known variable-length C rows rather than padding them.",
+    "feature": "For each unequal aligned token pair through the semantic position, RMS-normalize both tied input embeddings, compute midpoint e_i+e_j and squared difference (e_i-e_j)^2, average each over changed positions, L2-normalize each block, and concatenate. Sorting/direction is irrelevant by construction. Empty signatures map to zero.",
+    "router": "For each fold, compute unit cosine centroids for A1, A2, and pooled P/C off on opposite-parity v15 only. Predict v15 held and sealed v16 by maximum cosine with frozen class order A1,A2,off. No regularization, thresholds, label-specific gains, or v16 selection.",
+    "controls": "Bind checkpoint/builders/results/helper hashes, exact row inventories, direction invariance, finite features, v15 train-held disjointness, v16 nonoverlap, fold agreement, and literal zero-transformer price.",
+    "price": {"checkpoint_loads": 1, "model_forwards": 0, "transformer_backwards": 0, "model_updates": 0, "example_evaluations": 256, "fit_parameters": 6912}
+  },
+  "predictions": {
+    "pred_a_authority_alignment_direction_invariance_finiteness_and_price": "All hashes/configuration, row inventories, aligned populations, explicit v16 C exclusion, direction invariance, finite features, disjoint splits, and price pass.",
+    "pred_b_v15_crossfit_router_is_selective": "Both v15 held folds have macro accuracy 1.0 and zero P/C rows predicted target.",
+    "pred_c_v16_semantic_router_generalizes": "Each frozen fold has v16 A1/A2/P macro accuracy >=0.75 and zero P rows predicted target.",
+    "pred_d_both_v16_target_constructions_are_covered": "Each fold correctly routes at least 12/16 A1 and 12/16 A2 rows.",
+    "pred_e_frozen_folds_agree_on_v16": "The two opposite-parity fits make identical predictions on every scored v16 row."
+  },
+  "decision": "A/B/C/D/E licenses one hash-bound v16 causal execution of the existing rank-two program. B failure rejects this embedding representation in-distribution. B pass with C/D/E failure is an honest semantic-router OOD null and forbids threshold or ridge tuning on v16.",
+  "closed_claims": ["v16 causal transfer", "task-independent semantics", "variable-length C routing", "compression", "adoption"]
+}
