@@ -1,0 +1,58 @@
+{
+  "schema": "temporal_iswas_v23_block11_residual_mlp_factorial_rescue_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_block11_residual_mlp_factorial_rescue_v1",
+  "registered_utc": "2026-09-08T22:03:00Z",
+  "question": "After removing the frozen four-head writer program, how much of its behavior is carried through block 11's post-attention residual state versus M11's MLP contribution?",
+  "evidence_status": "Prospective exact component rescue. Four-head reverse necessity and weak M11-factor rescue are open. No aligned-v23 intervention has separately restored the exact block-11 residual carrier delta, exact M11 contribution delta, and their sum.",
+  "prior_art": {
+    "searched": [
+      "v15 residual suffix/module mediation atlas",
+      "v17 complete A11/M11 reader-loss and output-rescue results",
+      "v20/v21 complete M11 writer/module atlases",
+      "v23 aligned four-head confirmation, transport, necessity, occupied-mode result, and interpretation audit"
+    ],
+    "novelty": "Earlier experiments patched whole modules or M11 factor/output states. This is the first frozen-v23 four-head 2x2 component rescue at the exact block-11 output boundary, with an algebraically exhaustive residual-plus-MLP decomposition and exact joint restoration control.",
+    "known_lessons": "The opened M11 full-factor rescue recovered only 0.1511 of the four-head removal effect. The occupied mode explains most of that weak M11-local share, not most behavior. Therefore the residual carrier is the leading hypothesis, while exact joint restoration prevents a weak branch from being mistaken for unexplained mediation. Component effects on logits may interact downstream even though their block-output tensors sum exactly."
+  },
+  "authority": {
+    "necessity_result_sha256": "284ff3e05dddd14a979c88c6aa9e662deac4721e678a077055021f919f7a943f",
+    "necessity_interpretation_audit_sha256": "12db9bababe983802bebacb2970e3247516cd2259dc7ea062cba8988e529efe2",
+    "v15_residual_atlas_sha256": "a8d990bc3aeec08193f8cd90ec64c6581e15927308c24fa6d6e72f879c248936",
+    "builder_sha256": "a4830fd110b8cd854a5f28bfae776f697a15d4f791355990e02ea030fdca4c05",
+    "shared_executor_sha256": "9ab2a9edb60f4e3e4befebf11f55225659559a2a504075567218eab9bf903d06",
+    "boundary_helper_sha256": "d027438fbd9f65b336793cd628c8d55f41510adcf36266198b43449d36cdc8b9"
+  },
+  "frozen_design": {
+    "population": "All 64 aligned v23 rows; behavioral inference uses the capability-frozen 30 jointly correct A1/A2 rows, P and aligned C controls, and reporter-disjoint halves.",
+    "removal": "On each donor prompt, replace inclusive-prefix c_proj inputs of L8H1/L9H1/L9H4/L11H3 with matched-base values.",
+    "exact_decomposition": "Capture donor and removed states at block 11. Let y be the reconstructed post-attention raw residual state and o the block output. Delta_y=y_donor-y_removed and Delta_m=(o_donor-o_removed)-Delta_y. Hence Delta_o=Delta_y+Delta_m exactly; fixed block bias cancels.",
+    "factorial_rescue": "Repeat the identical head removal and add Delta_y alone, Delta_m alone, or Delta_y+Delta_m to block 11's first output tensor. Score downstream donor-answer-minus-foil margins.",
+    "no_op": "A donor-to-donor four-head self patch must remain exact. The joint rescue must reconstruct donor block-11 output, final hidden state, and logits within tolerance.",
+    "price": {"checkpoint_loads": 1, "model_forwards_exact": 7, "sequence_evaluations_exact": 448, "transformer_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+  },
+  "bars": {
+    "self_and_tensor_closure_max_abs": 0.0001,
+    "residual_rescue_head_effect_projection_min": 0.65,
+    "residual_rescue_direction_fraction_min": 0.90,
+    "residual_rescue_P_and_C_leak_ratio_max": 0.15,
+    "mlp_rescue_head_effect_projection_min": 0.05,
+    "mlp_rescue_head_effect_projection_max": 0.35,
+    "residual_minus_mlp_projection_min": 0.40,
+    "joint_rescue_head_effect_projection_min": 0.99,
+    "joint_restore_max_abs": 0.0001,
+    "reporter_half_positive_projection_required": true
+  },
+  "predictions": {
+    "pred_a_authority_hooks_closures_self_patch_finiteness_and_exact_price": "All hashes, boundary/hook calls, exact decomposition closure, donor self patch, finite outputs, and seven-forward price pass.",
+    "pred_b_residual_carrier_is_the_dominant_selective_branch": "Delta_y rescue recovers at least 0.65 of the head-removal behavior, has direction fraction at least 0.90, P/C leakage at most 0.15, and positive projection in both reporter halves.",
+    "pred_c_m11_is_a_real_but_minor_branch": "Delta_m rescue recovers 0.05--0.35 of the head-removal behavior, while Delta_y exceeds it by at least 0.40 projection and both halves are positive.",
+    "pred_d_exact_joint_rescue_closes_the_block11_mediation": "Delta_y+Delta_m restores donor block-11 output/final/logits within 1e-4 and at least 0.99 signed projection of the head-removal behavior."
+  },
+  "opposing_predictions": {
+    "residual_bypass": "B and D pass; C may pass as a minor side branch. Downstream reader mapping should start from the block-11 residual carrier.",
+    "mlp_mediator": "C fails because M11 projection is above 0.35 or residual-minus-MLP is below 0.40; downstream mapping should center M11 despite the earlier weak factor rescue.",
+    "earlier_or_mixed_nonlinearity": "D passes algebraically but neither B nor C gives stable positive separate effects; the computation is only identifiable as an interacting block-output pair under the present intervention."
+  },
+  "null": "A failure invalidates the instrument. With valid A, D failure rejects the claimed exhaustive boundary decomposition or intervention implementation. B failure rejects a dominant selective residual carrier. C failure rejects the specific real-but-minor M11 branch prediction without changing the exact joint accounting.",
+  "decision": "Use the dominant separately rescuing branch as the source object for a downstream reader atlas; preserve the other branch and downstream interaction explicitly rather than assigning all behavior to the occupied M11 mode."
+}
