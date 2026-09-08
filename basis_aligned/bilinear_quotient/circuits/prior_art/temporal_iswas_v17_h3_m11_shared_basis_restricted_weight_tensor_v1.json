@@ -41,6 +41,7 @@
   },
   "causal_arms": {
     "captures": "Source-absent native, donor, and source-present writer captures.",
+    "writer_replay": "Repeat the source-present writer through the reader-hook path with no reader replacement; require exact margin replay.",
     "A11_absent": "Under the source-present writer, replace A11's reader by its source-absent value.",
     "A11_U8": "Replace A11's source-induced reader delta by UU^T times that delta.",
     "M11_absent": "Under the source-present writer, replace M11's reader by its source-absent value.",
@@ -59,7 +60,7 @@
     "tensor_formula_max_abs_error": 0.00001
   },
   "predictions": {
-    "pred_a_authority_capture_replay_basis_roundtrip_finiteness_and_exact_price": "All immutable authorities/configuration match; source replay, hooks, orthonormality, literal U roundtrip, finiteness, and exact eight-forward price pass.",
+    "pred_a_authority_capture_replay_basis_roundtrip_finiteness_and_exact_price": "All immutable authorities/configuration match; source replay, hooks, orthonormality, literal U roundtrip, finiteness, and exact nine-forward price pass.",
     "pred_b_shared_U8_reaches_both_causal_readers_on_holdout": "U8 contains at least 80% of source-delta energy for A11 and M11 HOLDOUT reader inputs.",
     "pred_c_shared_U8_is_causally_sufficient_for_H3_A11_and_M11": "Relative to each full source-absent reader loss, its U8 reader arm recovers at least 80% with cosine at least .95 on FIT and HOLDOUT.",
     "pred_d_exact_checkpoint_writer_reader_and_M11_tensor_contractions_close": "All named tensor shapes/hashes are stored and direct random-coordinate evaluation matches the exact M11 weight polynomial within 1e-5.",
@@ -73,9 +74,9 @@
   },
   "price": {
     "checkpoint_loads": 1,
-    "model_forwards": 8,
-    "sequence_evaluations": 128,
-    "scored_token_positions": 256,
+    "model_forwards": 9,
+    "sequence_evaluations": 144,
+    "scored_token_positions": 288,
     "transformer_backwards": 0,
     "model_updates": 0,
     "fit_parameters": 0

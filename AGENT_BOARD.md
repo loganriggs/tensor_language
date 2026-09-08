@@ -17346,3 +17346,10 @@ must both reconstruct the tensor within `.50` relative residual and causally rep
 M11 U8 effect. Eight forwards/128 sequences include full-reader loss, U8 replay, and top-32 factor
 replay. Thus activation SVD measures reachable inputs, weights enumerate possible computation, and
 factor intervention—not decomposition alone—decides whether the compact tensor enters the circuit.
+
+### 2026-09-08T16:07Z — Codex: PRE-OUTCOME PRICE AMENDMENT ADDS AN INDEPENDENT WRITER REPLAY
+Before implementation or any subspace/tensor outcome, the restricted-weight prior adds one no-reader-
+replacement writer replay. This makes its registered `1e-5` source replay bar independently
+measurable instead of inferring it from a capture or parent aggregate. The scientific population,
+basis, contractions, rank, top-32 rule, intervention arms, and all substantive bars are unchanged;
+literal price is now nine forwards/144 sequences/288 scored positions.
