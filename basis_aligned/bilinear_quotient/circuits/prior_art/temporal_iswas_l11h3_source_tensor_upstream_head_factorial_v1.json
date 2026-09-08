@@ -1,0 +1,43 @@
+{
+  "schema": "temporal_iswas_l11h3_source_tensor_upstream_head_factorial_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.l11h3_source_tensor_upstream_head_factorial_v1",
+  "registered_utc": "2026-09-08T07:47:00Z",
+  "question": "Do the exact-weight-nominated earlier heads causally write the task-typed source values read by the extracted L11H3 interface, singly or as a distributed union?",
+  "authority": {
+    "upstream_weight_atlas_result_sha256": "f1b1a057c0ad48f3f514970430551b51d42cfa75a549e6491ea2d724664740d6",
+    "source_term_extraction_result_sha256": "d55e448e5c950f9a6e316cc43e8d1ca7c95fd625b31021b2572a8e20ba4f245a"
+  },
+  "frozen_design": {
+    "populations": "Run every 128 endpoint in the original and fresh OOD banks with all phase/template/cell/group labels retained. Temporal source is bridge and is-was source is postcue; no position or row may be reselected.",
+    "candidate_union": ["L03H04", "L05H01", "L06H07", "L07H07", "L09H01", "L09H04"],
+    "role_top5": {
+      "temporal": ["L07H07", "L09H04", "L09H01", "L06H07", "L05H01"],
+      "iswas": ["L07H07", "L09H04", "L06H07", "L09H01", "L03H04"]
+    },
+    "intervention": "Capture each nominated native pre-c_proj 128-wide head slice. For a role, replace that slice from the exact command-counterfactual donor only at every locked L11 source position. Run all six singletons plus the frozen role top-five union. In multi-layer unions each selected output is an absolute native-donor tensor; unselected heads/modules remain live.",
+    "reference": "Separately execute the identified L11H3 c_v native-donor patch at the locked source and score every upstream arm against its final command-margin effect. Replay the reference's stored command-gold fields within 1e-5.",
+    "shared_singleton_bar": "A prospectively shared head among L6H7/L7H7/L9H1/L9H4 must, for both roles and both original phases, recover >=.10 of the L11 value-reference effect with cosine >=.60 and direction agreement >=.65. The same head must retain nonnegative recovery and direction >=.55 on both OOD phases.",
+    "union_bar": "Each role top-five union must recover >=.50 of its L11 reference on original FIT/HOLDOUT and >=.35 on OOD FIT/HOLDOUT, with cosine >=.80 and direction agreement >=.75 everywhere.",
+    "additivity": "For every population x role x phase x template, the sum of the five corresponding singleton effects predicts the top-five union with relative L2 <=.25 and cosine >=.95. Passing licenses a weight-ordered greedy subset successor; failure routes to the complete 32-subset interaction-aware test without changing candidates.",
+    "selectivity": "Every reference and top-five union pooled phase has cross-role/gold norm <=.01; every is-was arm changes the earlier temporal margin by <=1e-5.",
+    "diagnostics": "Report whether L5H1 is more temporal-selective than L3H4 and vice versa, but do not gate the registered causal claims on this descriptive contrast.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 34,
+      "sequence_evaluations": 4352,
+      "scored_token_positions": 8704,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_pairing_reference_replay_head_capture_coverage_finiteness_and_exact_price": "Both authorities, source positions, donor pairings, six head captures, all arms, reference replay, finiteness, and literal price pass.",
+    "pred_b_at_least_one_weight_shared_head_is_a_cross_task_causal_writer": "At least one of the four shared exact-weight candidates passes its complete registered singleton bar.",
+    "pred_c_each_task_top5_union_recovers_the_l11_value_source_effect": "Both frozen top-five unions pass every original and OOD recovery/geometry bar.",
+    "pred_d_upstream_head_effects_are_distributive": "Every registered singleton-sum versus union additivity panel passes.",
+    "pred_e_upstream_writing_is_task_selective_and_causal": "Every collateral and later-to-earlier causal-zero bar passes."
+  },
+  "null": "If A fails, the instrument is invalid. If B fails but C passes, the writer is distributed with no shared singleton. If C fails, exact weight reach did not identify a sufficient upstream source writer set. If D fails, do not run greedy selection; use all 32 subsets of each frozen top-five. Any causal null preserves the atlas as weight compatibility only and cannot trigger threshold, position, or candidate widening.",
+  "decision": "A/B or A/C establishes causal upstream writing into the extracted L11 value route at singleton or distributed granularity. D fixes greedy versus interaction-aware combination. Passing candidates still require held-out writer-to-formula mediation before joining the executable circuit."
+}
