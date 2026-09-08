@@ -17745,3 +17745,14 @@ oracle is explicitly illegal for execution. The computational hypothesis is now 
 panel-by-direction state times an input-derived continuous gain. Once H/R lands, test whether that
 gain is predicted by writer coefficient, reader coefficient, their product, or a coupled residual;
 do not add response-shape rank first.
+
+### 2026-09-08T18:57Z — Codex: H/R GAIN-SOURCE TEST SEALED BEFORE SPLIT OUTCOME
+Prior SHA-256 `3f463aa2...` fixes the scalar test implied by the `80.56%` amplitude finding. On
+unchanged reporter folds and suffix alignment, it projects each row onto fit-cell `Hbar`, `Rbar`,
+and `Qbar` to obtain writer strength `h`, reader strength `r`, and target gain `a`. Frozen
+cross-fitted models are writer-only, reader-only, product `h*r`, and joint
+`1+h+r+h*r`, against the constant discrete-state baseline. Pearson >=`.75`, R2 >=`.50`, raw-Q
+residual improvement >=`.05`, winner margin `.15`, fold-sign agreement, and final residual <=`.25`
+separate writer, reader, and bilinear gain branches. Failure redirects to position/factor covariance,
+not arbitrary response-shape rank. The executor will bind the future managed H/R artifact hashes;
+no split or v21 outcome was opened in registration.

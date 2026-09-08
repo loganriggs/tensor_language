@@ -1,0 +1,63 @@
+{
+  "schema": "temporal_iswas_v20_m11_hr_gain_factorization_crossfit_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_m11_hr_gain_factorization_crossfit_v1",
+  "created_utc": "2026-09-08T18:56:00Z",
+  "question": "Is the continuous gain multiplying the stable Q state computed predominantly by writer strength, reader strength, or their bilinear product?",
+  "evidence_status": "Prospective CPU-only read/write gain-identification screen sealed before the managed H/R result exists. It cannot itself install an inference-time gate.",
+  "prior_art_and_novelty": {
+    "searched": ["v20 Q hierarchy/raw/error-decomposition receipts", "M11 writer/reader atlases", "sealed H/R split and factorized-state-program prior"],
+    "known_result": "A cross-fitted discrete cell state predicts raw Q with residual .3089, and 80.56% of its SSE is scalar amplitude; an oracle scalar lowers residual to .1362.",
+    "novelty": "Project suffix-aligned held-out H and R separately onto fit-cell Hbar/Rbar, then prospectively compare writer-only, reader-only, multiplicative, and joint bilinear scalar models for the held-out Q coefficient."
+  },
+  "immutable_present_authority": {
+    "hr_split_prior_sha256": "b5d0300d68252a4cb7f10d46480da3c778daacd54bef54276c49127116fb57bc",
+    "hr_split_runner_sha256": "4b73d69731deb5146a783199ed7e39bade0aa2b0da6b3e904e46276397d409d5",
+    "raw_q_result_sha256": "730575d554ef69ed31e4d19e1fa0612c33defb69daa7ce7ff45a0713ea1a28d2",
+    "q_error_decomposition_result_sha256": "d8e1772d9fd3e356e142027e12402cb99b4b57a60458ed79079fd539b74cb76d"
+  },
+  "future_authority_rule": "Author the executor only after the unchanged managed split finishes; bind its result and tensor hashes. Do not alter folds, scalar definitions, models, bars, or branches after observing H/R.",
+  "frozen_method": {
+    "folds_and_alignment": "Use the same reversed modulo-4 reporter folds and final common valid suffix as the factorized state-program prior.",
+    "fit_cell_states": "For each panel-by-direction cell fit raw flattened Hbar, Rbar, and Qbar on fit rows.",
+    "row_coefficients": "For every row define h=<H,Hbar>/||Hbar||^2, r=<R,Rbar>/||Rbar||^2, and a=<Q,Qbar>/||Qbar||^2.",
+    "scalar_models": {
+      "constant": "a_hat=1",
+      "writer": "least-squares a_hat=b0+b1*h on fit rows",
+      "reader": "least-squares a_hat=b0+b1*r on fit rows",
+      "product": "least-squares a_hat=b0+b1*h*r on fit rows",
+      "joint": "least-squares a_hat=b0+b1*h+b2*r+b3*h*r on fit rows"
+    },
+    "heldout_metrics": "Across all held-out rows report Pearson correlation, R2 against held-out a, coefficient sign/stability across folds, and raw-vector residual of a_hat*Qbar versus Q.",
+    "controls": "Constant is the discrete-state baseline. Writer/reader/product/joint have frozen feature counts and are scored only on the opposite reporter fold. Oracle a remains reported only as the .1362 unattainable ceiling."
+  },
+  "predictions": {
+    "pred_a_future_authority_exact_split_alignment_coefficients_folds_finiteness_and_price": "The managed H/R split is valid and exact; hashes, row IDs, suffix masks, projections, folds, least-squares formulas, finiteness, and counts match.",
+    "pred_b_native_hr_coefficients_predict_heldout_gain": "At least one nonconstant model has held-out Pearson >=0.75, R2 >=0.50, and improves raw Q relative residual by >=0.05 over the constant model.",
+    "pred_c_gain_source_is_discriminated": "One registered branch holds: writer or reader R2 is >=0.40 and >=the other marginal+0.15; or product/joint R2 is >=0.50 and >=best marginal+0.15. The winning nonconstant coefficient signs agree across folds.",
+    "pred_d_predicted_gain_closes_most_nonshape_error": "The winning legal scalar model gives held-out raw-Q relative residual <=0.25, approaching the .1362 oracle-shape floor and improving on .3089 fixed-state residual.",
+    "pred_e_scope_remains_identification_screen_only": "No GPU/model call, v21 outcome, intervention, or use of held-out a in prediction occurs."
+  },
+  "opposing_outcomes": {
+    "writer_gain": "A-E pass with writer branch. Localize and causally manipulate upstream writer strength.",
+    "reader_gain": "A-E pass with reader branch. Search downstream modules that compute reader strength.",
+    "bilinear_gain": "A-E pass with product/joint branch. Preserve the coupled H/R scalar interface.",
+    "gain_not_identified_by_marginal_strength": "A/E pass but B, C, or D fails. Move to positionwise/factor-specific covariance rather than adding response-shape rank blindly.",
+    "invalid_instrument": "A fails."
+  },
+  "bars": {
+    "gain_pearson": 0.75,
+    "gain_r2": 0.50,
+    "marginal_r2_floor": 0.40,
+    "winner_r2_margin": 0.15,
+    "raw_q_residual_improvement": 0.05,
+    "winning_raw_q_relative_residual": 0.25,
+    "fold_coefficient_sign_agreement": 1.0
+  },
+  "literal_price": {
+    "gpu_forwards": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "least_squares_fits": 8,
+    "heldout_scalar_predictions": 192
+  }
+}
