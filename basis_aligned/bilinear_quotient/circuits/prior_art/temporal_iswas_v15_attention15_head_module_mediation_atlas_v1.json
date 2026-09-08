@@ -1,0 +1,69 @@
+{
+  "schema": "temporal_iswas_v15_attention15_head_module_mediation_atlas_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_attention15_head_module_mediation_atlas_v1",
+  "registered_utc": "2026-09-08T00:35:00Z",
+  "question": "If construction-oracle transfer survives native attention 15, how much is mediated by the complete layer-15 attention response, which individual heads mediate it, and do singleton head effects compose well enough to license a greedy combination?",
+  "admission_gate": {
+    "dependency_result_path": "circuits/followups/temporal_iswas_v15_construction_oracle_attention15_dependency_factorial_v1_result.json",
+    "dependency_runner_sha256": "4d435dfa6c6f29a34de2b5ba7679aafb3b622cdf0fbf2ea779c58bea982b1fe3",
+    "required_predictions": [
+      "pred_a_authority_alignment_parent_replay_zero_arm_factorial_closure_finiteness_and_price",
+      "pred_b_each_oracle_transfers_own_v15_target_with_live_attention15",
+      "pred_c_live_attention_retains_most_fixed_background_effect"
+    ],
+    "binding": "Do not execute from this prior alone. After the dependency result lands, a zero-model admission manifest must bind its SHA-256 and verify all required predictions true. If either live-route prediction fails, close this prior unrun."
+  },
+  "prior_art": {
+    "searched": [
+      "temporal is/was L15H5 reader, removal, response, weight-interface, and attention-15 dependency records",
+      "existing head and module mediation/reset/rescue priors and results",
+      "attention head response lattice and greedy combination runners"
+    ],
+    "active_claim_collision": false,
+    "known_lessons": "Weight response alignment is diagnostic, not mediation. A responsive singleton can fail rescue because of bypass or interactions. Native head boundaries are hypotheses, and a greedy union is licensed only after singleton effects approximate the module effect.",
+    "novelty": "For each fixed A1/A2 construction oracle, cross upstream-off/on with the absolute response source of the entire layer-15 attention module and each of its nine heads, using the same paired live executions. This directly compares whole-module mediation, singleton mediation, and their compositional closure."
+  },
+  "frozen_design": {
+    "experts": ["A1_oracle", "A2_oracle"],
+    "upstream_sites": ["L8H1", "L9H1", "L9H4", "L11H3"],
+    "evaluation": "Each evaluation parity uses the corresponding construction oracle trained on the opposite parity. No refit, subspace change, gain, or calibration is allowed.",
+    "capture": "On each base batch, execute the upstream oracle off and on with native attention 15 and capture the absolute pre-c_proj layer-15 head-response tensor through every semantic-prefix position.",
+    "mediators": {
+      "module": "all nine layer-15 head responses together",
+      "singletons": ["L15H0", "L15H1", "L15H2", "L15H3", "L15H4", "L15H5", "L15H6", "L15H7", "L15H8"]
+    },
+    "cells": {
+      "00": "upstream off, mediator response from upstream-off execution",
+      "01": "upstream off, mediator response rescued from upstream-on execution",
+      "10": "upstream on, mediator response reset from upstream-off execution",
+      "11": "upstream on, mediator response from upstream-on execution"
+    },
+    "panels": {"v15": ["A1", "A2", "P", "C"], "v16": ["A1", "A2", "P"]},
+    "accounting": "For each expert, parity, panel, mediator, and version report rowwise full upstream effect r11-r00, rescue r01-r00, reset loss r11-r10, bypass r10-r00, and Mobius interaction. Score linear margin effects against the full upstream effect; keep KL and flips as cellwise nonlinear outcomes.",
+    "composition_test": "On each expert/parity own v15 target, compare the rowwise sum of nine singleton reset-loss vectors with the complete-module reset-loss vector. No greedy union is executed in this atlas. If the registered additive gate passes, a later parity-cross-selected greedy union is licensed; otherwise use an interaction-aware head-set test.",
+    "scope": "The atlas identifies mediation of the fixed oracle intervention, not universal necessity for native is/was behavior. v16 is OOD_TEXT_REUSE_NEW_INTERVENTION, not pristine text holdout.",
+    "price_max": {"native_capture_forwards": 20, "differentiable_transformer_forwards": 120, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 10000, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_admission_authority_capture_replay_closure_finiteness_and_price": "The hash-bound admission manifest passes; cell 00 and 11 replay the admitted dependency arms; absolute self-source head/module clamps are identity within 1e-4; every rowwise decomposition closes within 1e-12; all outputs are finite and within literal price.",
+    "pred_b_complete_attention15_module_mediates_live_transfer": "For both experts and parities on their own v15 target, complete-module reset loss and rescue each have signed projection >= .10 against the full upstream-live effect and direction fraction >= .75.",
+    "pred_c_l15h5_is_stable_dominant_singleton_mediator": "For both experts and parities on their own v15 target, L15H5 has positive reset-loss and rescue projection and ranks in the top two of nine heads for both measures; its reset-loss direction fraction is >= .75.",
+    "pred_d_singleton_reset_losses_approximately_compose": "For both experts and parities on their own v15 target, the sum of nine singleton reset-loss vectors predicts the module reset-loss with cosine >= .90 and relative L2 error <= .25.",
+    "pred_e_l15h5_mediation_is_control_selective": "For every expert/parity v15 P/C panel, the L15H5 rescue and reset cells introduce no additional top-one flips relative to their own 00/11 backgrounds, and each changed-versus-background mean KL is <= .02.",
+    "pred_f_l15h5_mediation_transfers_to_v16": "For both experts and parities on the own v16 target, L15H5 reset loss has signed projection >= .10 against the full upstream-live effect, direction fraction >= .75, and the reset cell adds no P top-one flip relative to cell 11."
+  },
+  "decision": {
+    "invalid": "A fails.",
+    "attention15_bypass": "A passes and B fails: native upstream transfer exists but is not substantially mediated by the layer-15 attention response.",
+    "weight_reader_rejected": "A/B pass and C fails: layer-15 attention mediates, but L15H5's static weight alignment does not identify the causal singleton reader.",
+    "interaction_conditioned_reader": "A/B/C pass and D fails: L15H5 is a mediator, but singleton effects do not support a distributive greedy combination; use interaction-aware head sets.",
+    "greedy_head_union_licensed": "A/B/C/D pass: parity-cross-selected greedy head combination is licensed. E and F separately gate selective and OOD promotion."
+  },
+  "closed_claims": [
+    "native-task necessity",
+    "semantic identity of an entire attention head",
+    "Q/K/V factor identity before a passing head-level mediation result",
+    "greedy combination before singleton composition passes",
+    "compression or adoption"
+  ]
+}
