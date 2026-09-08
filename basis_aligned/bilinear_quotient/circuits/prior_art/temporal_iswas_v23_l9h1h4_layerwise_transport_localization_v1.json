@@ -1,0 +1,42 @@
+{
+  "schema": "temporal_iswas_v23_l9h1h4_layerwise_transport_localization_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_l9h1h4_layerwise_transport_localization_v1",
+  "registered_utc": "2026-09-08T21:34:00Z",
+  "question": "At which intervening boundary do the causally confirmed L9H1/L9H4 writes acquire the orientation of the sparse occupied M11 reader mode?",
+  "evidence_status": "Prospective layerwise localization after L11H3 established the RMS-Jacobian transport program. No v23 patched-vs-native boundary state for L9H1/H4 has been opened.",
+  "authority": {
+    "l11h3_rms_transport_result_sha256": "3d1c87d9dfe81985497c045db9a1cb567e5c0f88d518f4ef880fadba6d6f950b",
+    "occupancy_transport_result_sha256": "2aae7e4bb5eb5092c64cc0248f5fa789a418ff2d78549e4d2acf438b8eef589b",
+    "restricted_weight_tensor_sha256": "9b553f42e708f1612fd90a934e0d26783b935457156f4856bc4b69f60df37892",
+    "rmsnorm_transport_sha256": "6145377fc6492d2b254967f4ddc3519d8d980d3062965251fde76775b70ecfbc",
+    "builder_sha256": "a4830fd110b8cd854a5f28bfae776f697a15d4f791355990e02ea030fdca4c05"
+  },
+  "frozen_design": {
+    "routes": ["L9H1", "L9H4"],
+    "boundaries": ["block10_input_after_block9", "block11_input_after_block10", "block11_post_attention_raw", "M11_normalized_input"],
+    "measurement": "Capture native base/donor and each singleton patch. At each residual boundary, add its patched-minus-base delta to the base block11 pre-normalization raw state, apply the now-validated exact RMS transport and literal M11 bilinear map, then project into the frozen reader basis. Compare with the actual singleton M11 response on target, P, C, and reporter halves.",
+    "interpretation": "The first boundary whose identity-carried delta predicts the actual occupied-mode response localizes where intervening transformations become dispensable. This is an operational transport boundary, not proof that earlier blocks are literally identity.",
+    "price": {"checkpoint_loads": 1, "model_forwards_exact": 5, "sequence_evaluations_exact": 320, "transformer_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+  },
+  "bars": {
+    "self_patch_max_abs": 0.0001,
+    "actual_raw_and_normalized_closure_max_abs": 0.002,
+    "localized_boundary_cosine_min": 0.90,
+    "localized_boundary_relative_residual_max": 0.25,
+    "half_cosine_min": 0.90,
+    "both_heads_required": true
+  },
+  "predictions": {
+    "pred_a_authority_hooks_boundaries_closures_finiteness_and_exact_price": "All hashes, boundary hook counts, raw/normalized reconstructions, self no-op, finiteness, and five-forward price pass.",
+    "pred_b_both_L9_heads_localize_before_M11_normalization": "Each head has at least one pre-normalization boundary with target cosine >=.90 and residual <=.25.",
+    "pred_c_block11_input_is_a_sufficient_transport_boundary": "For both heads, identity-carrying the block11-input delta to the base post-attention raw state, then applying exact RMS/M11, predicts target response at the same bars.",
+    "pred_d_localized_boundary_is_split_stable_and_selective": "The selected earliest passing boundary has >=.90 cosine in both reporter halves and P/C response RMS below target response RMS for both heads."
+  },
+  "opposing_interpretations": {
+    "block9_transport": "The block10-input boundary passes: block9 constructs the transferable write and blocks10/11 mainly carry it.",
+    "block10_transport": "Only block11 input passes: block10 is an essential converter/grouping boundary.",
+    "block11_transport": "Only post-attention raw or normalized M11 input passes: block11 attention/normalization performs essential conversion.",
+    "distributed_nonlinear_transport": "No pre-normalization boundary passes: retain the realized causal response as the interface and decompose paired transformations rather than forcing a single linear edge."
+  },
+  "decision": "The earliest valid boundary becomes the input interface for a compact L9-to-M11 transport program and the target of selective removal/rescue."
+}
