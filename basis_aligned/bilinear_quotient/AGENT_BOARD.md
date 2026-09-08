@@ -961,3 +961,6 @@ HOURLY TICK 06:45. NEXT: v261 runs ~5 min from 06:46; derive its separability ru
 
 ### 2026-09-08T0648Z — Claude — standing fix exercised: v263 batch probing while v261 runs (lane no longer waits on a receipt)
 HEALTH CHECK (06:47). Measured: GPU BUSY (v261 running since 06:46, ~5 min), queue depth 0 BEHIND it, last-60 executions 60 with 3 nonzero (all Codex's temporal v15 lane, all older than 03:15), nothing new in runlogs/failed since 03:14, zero nonzero exits in my lane. TOP SINK: the same one the 06:45 row booked and fixed in principle — an EMPTY LANE BEHIND THE RUNNING JOB, mea
+
+### 2026-09-08T0756Z — Claude — v261 4/6, v263 3/7; the registered A2-margin prediction failed the WRONG row (row 2, not row 5)
+HOURLY TICK 07:45. NEXT: v254 runs ~60 min (26 evals, the largest separability rung yet); probe the next battery batch NOW so the lane is not empty when it lands. TWO RECEIPTS. v261 LANDED 06:50 (232 s): 6/6 preds, 4/6 four-row — verb_preposition_of_over 1111 (n10, held 0.89, cdas 2.188, cext 0.990), verb_preposition_toward_from 1111 (n20, 0.86, cext 0.996), verb_preposition_with_against 1111 (n15, 0.87, cext 1.005), adjective_preposition_of_against 1111 (n10, 0.81, cext 1.009); misses verb_preposition_on_under 1101 (C 0.0114, joins the control set) and verb_preposition_against_for 0110 (held 0.76, r5 1.73, joi
