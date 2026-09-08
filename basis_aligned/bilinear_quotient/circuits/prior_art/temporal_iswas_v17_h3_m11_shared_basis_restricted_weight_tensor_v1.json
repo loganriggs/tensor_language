@@ -1,0 +1,84 @@
+{
+  "schema": "temporal_iswas_v17_h3_m11_shared_basis_restricted_weight_tensor_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v17_h3_m11_shared_basis_restricted_weight_tensor_v1",
+  "status": "preregistered_before_subspace_or_weight_factor_outcomes",
+  "question": "Can the causally confirmed H3 and M11 readers be expressed through one cross-fit source-response subspace whose exact checkpoint weight contractions reveal a compact executable computation?",
+  "causal_parents": {
+    "module_result_sha256": "4883354bf39fe6bfe9ffd5c2f97475be749a0aec78d8aa13985739bcf4b93062",
+    "head_result_sha256": "7fa315b84f71f267c3ed4cea67231cbad9dd0ef2b5ad25a3b18133fc6a6e9c85",
+    "facts": "A11 and M11 reader loss/output rescue pass on both v17 splits; H3 alone reproduces more than 90% of complete A11 loss with prospective selection and exact all-head closure."
+  },
+  "prior_art": {
+    "searched": [
+      "temporal_iswas_common_final_gauge_basis_capture_v1",
+      "temporal_iswas_common_gauge_weight_interface_atlas_v1",
+      "subspace_weight_atlas.mlp_subspace_tensor",
+      "temporal_iswas_l11h3_native_routing_source_term_extraction_v1",
+      "all v15 rank-2/rank-16 DAS and weight compiler records"
+    ],
+    "existing_evidence": "The old fold-stable common gauge statically enriches L9H4 output and L11H3 value read, but it is v15 activation-defined and only scores Frobenius energy. It neither uses the new v17 causal reader deltas nor decomposes and executes the restricted M11 tensor.",
+    "novelty": "First tensor object whose basis is fit only from a sealed causal source-response on FIT groups, evaluated for reachability on HOLDOUT groups, folded into exact selected-writer/H3/M11 weights, and tested by a live hidden-factor intervention."
+  },
+  "population": {
+    "rows": "All sixteen immutable v17 A2 rows.",
+    "fit": "group_number 0--7 defines U only.",
+    "holdout": "group_number 8--15 evaluates activation reachability and every causal bar.",
+    "positions": "Every position 0 through the answer query.",
+    "source": "Fixed L7H7+L9H4 postcue writer, unchanged from both causal parents."
+  },
+  "basis": {
+    "definition": "Stack the uncentered source-present minus source-absent normalized reader-input rows from A11 and M11 over FIT rows/positions; take the leading eight right singular vectors U in R^(1152x8).",
+    "rank": 8,
+    "gauge": "Only the projector UU^T and gauge-invariant tensor norms determine predictions. Stored basis columns use descending singular values and deterministic largest-coordinate-positive signs for literal roundtrip.",
+    "data_role": "The activation SVD defines and audits reachable source variation; it is not itself the computation."
+  },
+  "exact_weight_objects": {
+    "writers": "Store U^T W_O[:,head] for L7H7 and L9H4.",
+    "H3_reader": "Store W_h U for H3 q,k,q2,k2,v and U^T W_O[:,H3].",
+    "M11_reader": "Store Left U and Right U.",
+    "M11_restricted_tensor": "T[a,b,c] = sum_i (U^T Down)[a,i](Left U)[i,b](Right U)[i,c], exactly matching subspace_weight_atlas.mlp_subspace_tensor.",
+    "decomposition": "Each hidden unit i is one native CP factor. Rank factors by ||Down_U[:,i]||*||Left_U[i]||*||Right_U[i]||, break ties by index, store cumulative tensor reconstruction for K={1,2,4,8,16,32,64,128}."
+  },
+  "causal_arms": {
+    "captures": "Source-absent native, donor, and source-present writer captures.",
+    "A11_absent": "Under the source-present writer, replace A11's reader by its source-absent value.",
+    "A11_U8": "Replace A11's source-induced reader delta by UU^T times that delta.",
+    "M11_absent": "Under the source-present writer, replace M11's reader by its source-absent value.",
+    "M11_U8": "Replace M11's source-induced reader delta by UU^T times that delta.",
+    "M11_U8_top32": "Use the M11_U8 reader, but replace the complete M11 output response by the exact source-absent output plus only the 32 highest weight-defined native hidden-factor response terms."
+  },
+  "bars": {
+    "replay_max_abs_margin_error": 0.00001,
+    "basis_orthonormal_max_abs_error": 0.00001,
+    "holdout_delta_energy_fraction_each_reader": 0.80,
+    "U8_fraction_of_full_reader_effect_each_site_each_split": 0.80,
+    "U8_reader_effect_cosine_each_site_each_split": 0.95,
+    "top32_tensor_relative_residual_max": 0.50,
+    "top32_fraction_of_M11_U8_causal_effect_each_split": 0.70,
+    "top32_causal_effect_cosine_each_split": 0.95,
+    "tensor_formula_max_abs_error": 0.00001
+  },
+  "predictions": {
+    "pred_a_authority_capture_replay_basis_roundtrip_finiteness_and_exact_price": "All immutable authorities/configuration match; source replay, hooks, orthonormality, literal U roundtrip, finiteness, and exact eight-forward price pass.",
+    "pred_b_shared_U8_reaches_both_causal_readers_on_holdout": "U8 contains at least 80% of source-delta energy for A11 and M11 HOLDOUT reader inputs.",
+    "pred_c_shared_U8_is_causally_sufficient_for_H3_A11_and_M11": "Relative to each full source-absent reader loss, its U8 reader arm recovers at least 80% with cosine at least .95 on FIT and HOLDOUT.",
+    "pred_d_exact_checkpoint_writer_reader_and_M11_tensor_contractions_close": "All named tensor shapes/hashes are stored and direct random-coordinate evaluation matches the exact M11 weight polynomial within 1e-5.",
+    "pred_e_top32_weight_defined_M11_factors_are_structurally_and_causally_compact": "The top-32 CP tensor has relative residual at most .50 and its live output replay recovers at least 70% of the M11_U8 causal effect with cosine at least .95 on FIT and HOLDOUT."
+  },
+  "terminal_rules": {
+    "invalid_instrument": "A or D fails.",
+    "activation_specific_interface": "B or C fails; do not call U shared or weight-defined.",
+    "shared_but_diffuse_weight_tensor": "A--D pass and E fails; preserve U and the exact full restricted tensor, but do not compress to 32 native factors.",
+    "compact_shared_weight_tensor": "A--E pass; promote the stored write/read/tensor factors into the executable circuit and validate on a new construction bank."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 8,
+    "sequence_evaluations": 128,
+    "scored_token_positions": 256,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "interpretation_rule": "Weights describe all computation possible inside the causally restricted interface; v17 projected activations describe the occupied subset. Neither PCA/SVD nor weight factor concentration alone is a circuit edge. Only the registered reader and hidden-factor interventions license execution claims."
+}

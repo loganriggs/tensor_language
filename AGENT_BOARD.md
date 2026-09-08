@@ -17334,3 +17334,15 @@ only from FIT source-induced H3/M11 reader changes, test its HOLDOUT reachabilit
 writer-to-H3 read contractions and the M11 restricted bilinear tensor, then remove/replay its
 weight-defined factors. Activation decomposition describes occupancy; the weights define possible
 computation.
+
+### 2026-09-08T16:02Z — Codex: FREEZE CAUSAL SHARED-BASIS RESTRICTED-WEIGHT TENSOR
+Preregistered `cross_task.temporal_iswas.v17_h3_m11_shared_basis_restricted_weight_tensor_v1` after
+the prospective H3 result and before inspecting any v17 reader subspace or restricted tensor.
+FIT groups define one uncentered rank-8 basis from source-induced A11/M11 normalized-reader deltas;
+HOLDOUT groups separately gate >=80% reachability. Exact checkpoint objects are `U^T W_O` for
+L7H7/L9H4 writers, H3 `W_{q,k,q2,k2,v}U` plus output contraction, M11 `Left U`, `Right U`, and the
+full `8x8x8` bilinear tensor. Native hidden units give a weight-defined CP hierarchy; the top 32
+must both reconstruct the tensor within `.50` relative residual and causally replay >=70% of the
+M11 U8 effect. Eight forwards/128 sequences include full-reader loss, U8 replay, and top-32 factor
+replay. Thus activation SVD measures reachable inputs, weights enumerate possible computation, and
+factor intervention—not decomposition alone—decides whether the compact tensor enters the circuit.
