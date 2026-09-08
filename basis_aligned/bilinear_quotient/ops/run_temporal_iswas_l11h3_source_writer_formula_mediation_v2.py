@@ -29,6 +29,12 @@ GREEDY = ROOT / "circuits/followups/temporal_iswas_l11h3_source_writer_weight_or
 EXTRACTOR_RESULT = ROOT / "circuits/followups/temporal_iswas_l11h3_native_routing_source_term_extraction_v1_result.json"
 GREEDY_RUNNER = ROOT / "ops/run_temporal_iswas_l11h3_source_writer_weight_ordered_greedy_v1.py"
 SOURCE_RUNNER = ROOT / "ops/run_temporal_iswas_l11h3_native_routing_source_term_extraction_v1.py"
+PARENT_RUNNER = ROOT / "ops/run_temporal_iswas_l11h3_source_tensor_upstream_head_factorial_v1.py"
+LOCALIZATION_RUNNER = ROOT / "ops/run_temporal_iswas_l11h3_value_source_region_localization_v1.py"
+ORIGINAL_BUILDER = ROOT / "ops/circuit_candidate_temporal_iswas_dual_command_v2.py"
+OOD_BUILDER = ROOT / "ops/circuit_candidate_temporal_iswas_dual_command_ood_v1.py"
+ACCOUNTING = ROOT / "ops/dual_command_head_module_factorial_contract.py"
+PRODUCER = ROOT / "ops/circuit_fast_screen_producer.py"
 SELF = Path(__file__).resolve()
 OUT = ROOT / "circuits/followups/temporal_iswas_l11h3_source_writer_formula_mediation_v2_result.json"
 EXPECTED = {
@@ -37,6 +43,12 @@ EXPECTED = {
     "extractor_result": "d55e448e5c950f9a6e316cc43e8d1ca7c95fd625b31021b2572a8e20ba4f245a",
     "greedy_runner": "6660183126fd155e9ab86511e798a564879ef86818760dde256177916d1d13b5",
     "source_runner": "7c68faa314fe38ca0d1579b3c5ff3f6e12439923e49bec767bfb65212beb48dc",
+    "parent_runner": "74326a9c7aa1a8d2e7a9bf1b3dcf50c70cbbc67384eb8c5c4d2614a6a46396ca",
+    "localization_runner": "ba51ffec9601444de6cbef51713cf7136b76c6207666e8a6c5364297a7f3296d",
+    "original_builder": "72da11860ce5bf1c03ea126bc10fcb6c46dd2648169edb00a1e9e1dbeee8a0d0",
+    "ood_builder": "6062f2b8dfaa54da71477b43cb9fc63650db389c5883c9e64125f0a200afeb5a",
+    "accounting": "985b824c7d3d8b622dfb92e3522f107e15e5e095b1f40a59a46122ad9af68496",
+    "producer": "14624b9959fe4bf0b43841a9e349bab50cd564a417595d1c1a048252c6c3b498",
 }
 PRICE = {"checkpoint_loads": 1, "model_forwards": 18, "sequence_evaluations": 2304,
          "scored_token_positions": 4608, "transformer_backwards": 0,
@@ -227,7 +239,11 @@ def run_population(backend, authority, population, greedy, selected_heads):
 def main():
     base_paths = {"prior_v1": PRIOR_V1, "prior_v2": PRIOR_V2,
                   "extractor_result": EXTRACTOR_RESULT,
-                  "greedy_runner": GREEDY_RUNNER, "source_runner": SOURCE_RUNNER}
+                  "greedy_runner": GREEDY_RUNNER, "source_runner": SOURCE_RUNNER,
+                  "parent_runner": PARENT_RUNNER,
+                  "localization_runner": LOCALIZATION_RUNNER,
+                  "original_builder": ORIGINAL_BUILDER, "ood_builder": OOD_BUILDER,
+                  "accounting": ACCOUNTING, "producer": PRODUCER}
     observed = {name: sha(path) for name, path in base_paths.items()}
     awaiting_binding = not BINDING.exists() or not GREEDY.exists()
     dry = {"candidate_id": "cross_task.temporal_iswas.l11h3_source_writer_formula_mediation_v2",

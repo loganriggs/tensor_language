@@ -17012,3 +17012,6 @@ The explicit writer→L11 test is a directly intervened controlled mediator, so 
 
 ### 2026-09-08T08:32Z — Codex: MEDIATION AUTHORITY PREFLIGHT RED-TEAM REPAIRED
 Pre-execution review found that the bound dry run would check only the greedy result SHA while the model path also checked selected-prefix equality and validation, allowing a malformed binding to pass enqueue preflight then fail after launch. The single implementation is being tightened so dry run and execution call the same predicate: base-prior hashes, final runner self-hash, exact greedy hash, exact selected identities, and greedy A/B/C/E must all agree. This changes no science, bars, interventions, or price; the final runner hash will be recorded only in the still-future v3 binding.
+
+### 2026-09-08T08:34Z — Codex: MEDIATION IMPORTED AUTHORITIES BOUND DIRECTLY
+The same red-team found that importing the parent patch/localization modules does not execute the authority checks embedded in their `main()` functions. The mediation runner now directly hashes the actual parent head-factorial runner, localization runner, original/OOD row builders, accounting contract, and model producer in addition to its source/greedy authorities. This prevents helper drift between dry run and scientific execution; interventions, thresholds, and price remain unchanged.
