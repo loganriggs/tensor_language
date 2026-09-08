@@ -1,0 +1,33 @@
+{
+  "schema": "temporal_iswas_common_final_gauge_basis_capture_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas_common_final_gauge_basis_capture_v1",
+  "registered_utc": "2026-09-08T04:24:00Z",
+  "question": "When reconstructed in the shared final-residual gauge, is the current v15 is-was rank-two command span contained in, aligned with, or distinct from the earlier temporal Q8 command state?",
+  "authority": {
+    "compatibility_audit_sha256": "dcae033128e12903242aca03acb1cd4a53b493dba9f9554fb826553519903563",
+    "required_terminal": "joint_population_and_basis_capture_required",
+    "finite_hankel_sha256": "f8fa10c21c30cd3420648641b4a284ba3cb41152872db8cf77d25213c597bb62",
+    "v15_response_basis_sha256": "ffaec3f0bede415f7b9b1664ae7ddf1667978dc26f42cfa2f81e9c82f0f77467",
+    "v15_oracles_sha256": "dde8cc793f2ba2d1f0bf7439dd9c62cb53ad979ea4ab3363928015b8cbe7e224"
+  },
+  "prior_art": {
+    "searched": ["finite Q8 physical state basis", "entry12 rank2 final residual", "cross-task principal angles", "common command gauge", "joint composition compatibility"],
+    "active_claim_collision": false,
+    "known_lessons": "The finite Hankel screen proves cross-task observability in a temporal-derived Q8 space but does not store its physical basis. The v15 rank-two span has exact scalar residual transport and selective manipulation but also does not store physical basis columns. Static weight alignment alone is not causal reuse.",
+    "novelty": "Reconstruct both already-causal command spaces once, express them as orthonormal physical 1152-dimensional final-residual bases, store them with tensor hashes, and measure gauge-invariant principal angles before designing the joint factorial."
+  },
+  "frozen_design": {
+    "temporal_basis": "Rebuild the exact eight-column residual basis S used by the immutable finite-Hankel runner from its frozen Q8 family and literal layer-12--17 recurrent gain; do not fit a new basis.",
+    "iswas_bases": "For each v15 held fold, reconstruct opposite-fold A1/A2 oracle entry12 responses, fit the already-registered rank-at-most-two construction union, and use the exact positive scalar residual law to identify the same physical span at the final residual. No logits or router predictions enter.",
+    "geometry": "Report S-vs-U principal cosines for both folds, U0-vs-U1 stability, concatenated union rank, projector distances, and orthonormal/reconstruction errors. Store all basis columns in float32 column-major lists plus SHA-256 hashes.",
+    "price_max": {"checkpoint_loads": 1, "native_capture_forwards": 2, "differentiable_transformer_forwards": 6, "transformer_backwards": 0, "model_updates": 0, "example_evaluations": 320, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_geometry_finiteness_and_exact_price": "Authorities, row hashes, oracle replays, rank-two fits, orthonormality, tensor hashes, finite geometry, and exact price pass.",
+    "pred_b_v15_physical_command_span_is_fold_stable": "Both v15 final spans have rank two and their minimum principal cosine is >=.80.",
+    "pred_c_v15_iswas_span_is_contained_in_temporal_q8": "For each fold, both principal cosines against temporal Q8 are >=.75.",
+    "pred_d_literal_basis_storage_roundtrips": "Every stored float32 basis reconstructs its in-memory tensor with zero byte-hash error and <=1e-6 numeric error."
+  },
+  "decision": "A/D failure invalidates. B/C pass identifies a reusable common Q8 command state and licenses the joint factorial in that state after dual-command capability. B pass with C failure identifies a direct-sum task-typed final state S plus U, still composable but not shared. B failure requires operational-equivalence storage of both folds rather than naming one is-was basis. No result substitutes for the missing joint population.",
+  "closed_claims": ["simultaneous command additivity", "dual-command capability", "joint selectivity", "minimal state dimension", "adoption"]
+}
