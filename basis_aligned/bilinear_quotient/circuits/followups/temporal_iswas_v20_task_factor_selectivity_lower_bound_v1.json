@@ -1,0 +1,24 @@
+{
+  "schema": "temporal_iswas_v20_task_factor_selectivity_lower_bound_v1",
+  "created_utc": "2026-09-08T17:58:00Z",
+  "authority": {
+    "response_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "response_tensor_result_sha256": "da97abea6f3dae8721c2cda383e0b7af844217051e199046a23c6b9c264da396"
+  },
+  "object": "Let t be the mean of the separately L2-normalized A1 and A2 native-factor response means, and let p be the L2-normalized P response mean. Among arbitrary real coefficient vectors w satisfying <t,w>=1 and <p,w>=0, compute the minimum Euclidean norm. This is a relaxation of factor masking, not a causal-program guarantee.",
+  "measurements": {
+    "target_vector_norm": 0.9965112209836806,
+    "target_p_cosine": -0.9816220211211453,
+    "p_orthogonal_fraction": 0.19083555132636523,
+    "minimum_selector_coefficient_l2_norm": 5.2584593710832275,
+    "target_only_aligned_coefficient_l2_norm": 1.0035009932079595,
+    "selectivity_norm_amplification": 5.2401137683712244
+  },
+  "derivation": "Project t into the orthogonal complement of unit p. Its norm is ||t|| sqrt(1-cos(t,p)^2). The minimum-norm feasible w is that projected vector divided by its squared norm, hence ||w||=1/(||t|| sqrt(1-cos^2)). The target-only aligned solution has norm 1/||t||.",
+  "interpretation": "Even an unconstrained signed linear recombination needs about 5.24 times the coefficient norm of the target-aligned solution to cancel mean P while preserving unit target response. A binary native-factor subset is more constrained. This does not prove impossibility, but it predicts noise and construction sensitivity for pruning-only repair and favors locating a context-dependent read/write sign gate.",
+  "price": {
+    "gpu_forwards": 0,
+    "backwards": 0,
+    "fitted_parameters": 0
+  }
+}

@@ -17616,3 +17616,12 @@ of signed P tangent. Projecting normalized P onto pooled target leaves only `.19
 So factor identity is shared and context-signed, not a small separable P-only subset. Next split
 `Q=H_delta * (g Down)` into its exact writer-response and downstream-reader-loading tensors, with
 suffix-aligned cross-contractions, to locate which side supplies the sign before proposing a gate.
+
+### 2026-09-08T17:58Z — Codex: LINEAR SELECTIVITY RELAXATION FAVORS A CONTEXT GATE
+An exact CPU analysis of the frozen response tensor projects pooled target response away from P.
+Only `.19084` of the normalized P direction is orthogonal to target. Even allowing arbitrary real
+factor coefficients, preserving unit target response while forcing mean P to zero requires minimum
+coefficient L2 norm `5.258`, or `5.240x` the target-only aligned solution; binary subset masks are
+more constrained. This is not an impossibility theorem, but it predicts unstable amplification for
+pruning-only repair. The read/write split remains queued through the managed runner and directly
+tests whether a compact context/answer-state reader gate is the correct next circuit object.
