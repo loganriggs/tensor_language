@@ -615,6 +615,21 @@ both entry12 coordinates through downstream Q/K/V and MLP input tensors and the 
 then causally confirm only readers whose complete-module path has enough effect.  Static weight
 alignment remains nomination, not proof, by the earlier L15H5 counterexample.
 
+The frozen tied-embedding semantic router fails before OOD transfer.  Both opposite-parity v15
+fits identify every A1 and A2 target, but each routes all eight held P rows to A2; held v15 macro
+accuracy is therefore `.8333` with eight control false positives per fold.  On capability-qualified
+v16, both frozen fits route every A1, A2, and P row to `off`, for macro accuracy `1/3` and zero
+target coverage.  The two folds agree exactly, so instability is not the explanation.  A fixed
+unordered midpoint plus squared-difference representation of tied token embeddings does not expose
+the operational task distinction in a usable cosine-centroid geometry.
+
+This null rules out the simple lexical-weight route, not semantic routing in general.  The next
+bounded test returns to the already causally validated contextual object: the six sign-invariant
+Gram scalars of the proposed A1/A2 entry-12 responses.  It fits one centroid rule across both v15
+directions, checks leave-one-group-out selectivity, and evaluates sealed v16 under both independently
+cross-fitted oracle bases.  This removes the earlier direction/parity confound without adding an
+optimizer; disagreement between oracle folds or failure on v16 closes this contextual Gram route.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -760,6 +775,12 @@ alignment remains nomination, not proof, by the earlier L15H5 counterexample.
   still overshoots two cells to `1.342/1.389`, and one cell worsens relative to the unscaled swap.
   Thus the dominant direct payload is reusable with a scalar construction gain, while the minor
   live suffix correction is construction/parity dependent; the registered whole-program claim fails.
+- Frozen tied-embedding semantic router:
+  `temporal_iswas_v15_tied_embedding_semantic_router_v16_v1_result.json` (valid in-distribution and
+  OOD null).  Both folds recover all v15 targets but misroute every held P row to A2, giving macro
+  accuracy `.8333`; both then default every v16 A1/A2/P row to off, giving macro accuracy `1/3`.
+  Simple unordered tied-embedding midpoint/squared-difference geometry is neither selective on v15
+  nor target-covering on v16.
 
 ## Remaining gates
 
