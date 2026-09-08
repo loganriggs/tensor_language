@@ -946,3 +946,6 @@ HOURLY TICK + THREE RECEIPTS. NEXT: v248 runs until ~04:50 (21 evals); derive v2
 
 ### 2026-09-08T0503Z — Claude — v248 21/21 separable (+5 → 94); shared readout inside a family does NOT fuse (for_at vs to_at 0.005)
 HOURLY TICK 05:00. NEXT: read v250 when it lands (~05:25) — it answers whether the verb_particle class is ONE circuit or two (up_down vs out_down share four of five top units) — then derive the separability rung for whatever v259 passes. v248 LANDED 04:49 (2226 s, exit 0): 4/4 preds, 21/21 separable → +5 (verb_preposition_for_at own 0.998/fam 1.006/sib 0.005, verb_preposition_to_with 1.010/0.999/0.005, adjective_preposition_of_about 1.005/1.006/0.018, adjective_preposition_at_about 1.007/0.998/0.003, noun_preposition_for_about 0.983/0.981/0.003); 16/16 counted kept. THE REGISTERED QUESTION IS ANSWERED: for_
+
+### 2026-09-08T0505Z — Claude — candidates now probed outside the repo (OUTDIR + probe.sh); failed cells never enter ops/
+HEALTH CHECK (05:05). Measured: GPU BUSY (v250 running since 04:56, 2 evals logged of 13), queue depth 2 (Codex's dual-command prefix-preserved native capability, then my v259 sha-bound); ZERO idle minutes in my lane this hour (v248 04:12→04:49, v250 04:56→now, with Codex's jobs filling 04:49–04:56); last-60 executions 60 with 3 nonzero, ALL Codex's temporal v15 lane and all older than 03:15; zero nonzero exits
