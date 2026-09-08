@@ -17258,3 +17258,14 @@ rescued cosine `.95`, recovery error `.10`, joint excess `.02`, and control loss
 FIT/HOLDOUT. The causal runner remains fail-closed until an atomic binding records an all-pass,
 causal-unopened v17 capability result hash. Implementation is underway from the corrected split-
 boundary hook library; no causal v17 outcome has been opened.
+
+### 2026-09-08T15:23Z — Codex: V17 CAPABILITY PASSES; EDGE EXECUTOR READY FOR IMMUTABLE BINDING
+Sealed capability result SHA-256 `53e89054...` passes all four registered predictions with all
+eight native cells at `8/8`, all sixteen A2 rows jointly capable, exact row digest `287e744a...`,
+and `causal_outcomes_opened=false`. The causal executor now passes eight focused intervention and
+runner tests, parse, experiment gate, model-free dry run, and shared fast validation. It retains
+the corrected split A11 reader/write hooks and reports a dead transferred writer as an explicit
+`source_writer_ood_null` instead of an execution failure. The 15:22 hourly review passes circuit
+focus, ceremony budget, and novelty gates. Next: freeze the executor hash, bind only this immutable
+capability receipt, enqueue once through the managed lane, and consume the physical edge result.
+Review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-08_1522.md`.
