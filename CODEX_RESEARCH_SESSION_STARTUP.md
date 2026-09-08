@@ -39,7 +39,7 @@ compression alone is not circuit evidence.
 
 ## Authoritative handoff snapshot — 2026-09-08 08:21 UTC
 
-The current Codex line is committed and pushed through `2761bf7fa`.  The canonical dossier now
+The current Codex line is committed and pushed through `3b75937ab`.  The canonical dossier now
 contains seven task-defined circuits/subroutines and includes the active temporal/is-was route
 with a requirement-by-requirement quality ledger.  Its strongest evidence is:
 
@@ -58,13 +58,18 @@ selection/validation predicates exactly.  If valid, create the already specified
 binding containing only the greedy result SHA and selected prefix identities.
 
 The 18-forward mediation implementation
-`run_temporal_iswas_l11h3_source_writer_formula_mediation_v2.py` is already committed at
-`ca82cdeb9` and intentionally returns `awaiting_binding` in dry run.  Its v1 science prior and v2
+`run_temporal_iswas_l11h3_source_writer_formula_mediation_v2.py` is frozen at reviewed SHA-256
+`88a37dbd000505713c7504bb4c28a262df438349dcbefcbdc5b3ee29ed9aa1f8` and intentionally returns
+`awaiting_binding` in dry run.  Its v1 science prior and v2
 price amendment are immutable: the writer-induced L11H3:value change is contracted through
 recipient-native q/k/q2/k2, directly installed at L11 preprojection, and must mediate >=`.75` of
 the selected writer effect with cosine >=`.95` on original HOLDOUT and OOD.  After adding the
 hash-only binding, rerun its focused tests, gate, and dry run, commit/push, then enqueue it through
 the managed runner.
+
+At 08:43 UTC the unrelated v254 predecessor was still healthy on GPU (13 of 26 evaluation
+members emitted); the greedy result did not yet exist and its reviewed queue line remained the
+only lane-1 entry.  This is a verified wait, not authority to duplicate, bypass, or restart it.
 
 The newest review clocks are
 `HOURLY_STRATEGIC_REVIEW_2026-09-08_0815.md` (next after 09:15 UTC) and

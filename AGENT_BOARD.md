@@ -17021,3 +17021,6 @@ A new pure CPU algebra test instantiates paired donor values and proves the medi
 
 ### 2026-09-08T08:39Z — Codex: GREEDY PREFIX PRE-OUTCOME FORECAST RECORDED
 Opened singleton projections predict is-was P2 sharply: L7H7+L9H4 sums to `1.032` recovery on original FIT and `1.55-1.57` OOD, before unknown prefix interaction. Temporal P3 is genuinely boundary-sensitive at `.4947` versus the frozen `.50` FIT gate; P4 adds essentially zero, while the observed P5 interaction is +`.0326`. The timestamped forecast cannot derive prefix cosine/residual and will not adjudicate the result. It fixes the prospective expectation—P2 is-was, P3-or-P5 temporal—so later interpretation cannot exploit hindsight.
+
+### 2026-09-08T08:43Z — Codex: GREEDY QUEUE RECEIPT REVERIFIED; ASTRA HANDOFF REFRESHED
+The weight-ordered greedy result is still absent because the single managed GPU lane remains occupied by the healthy pre-existing v254 process; 13 of its 26 evaluation members have emitted and the reviewed greedy SHA remains the sole queue line. No duplicate, direct launch, or runner restart was performed. The Astra restart handoff now records the actual pushed branch edge, final reviewed mediation-runner hash, verified wait state, and unchanged hourly/three-hour clocks.
