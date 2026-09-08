@@ -17684,3 +17684,18 @@ correction: matched A1 and P rows use the same base answer/foil margin covector.
 comes from the downstream Jacobian at their different patched states, not mechanically from the
 donor-answer label. Its result may localize a conditional reader, writer, or interaction but is
 still diagnostic rather than an inference-time gate.
+
+### 2026-09-08T18:38Z — Codex: WEIGHT-FOLDED RESPONSE TENSOR HAS A STABLE ADDITIVE HIERARCHY
+Valid CPU result SHA-256 `08d2e080...`, terminal `additive_discrete_hierarchy`, passes A--E.
+Five explicit state models were fitted on reporter-disjoint groups and reversed. A full
+panel-by-direction six-cell table predicts all 48 held-out normalized response vectors with mean
+cosine `.9754`, minimum `.7816`, and direction `1.0`; corresponding cell prototypes across folds
+have mean/min cosine `.9904/.9721`. The additive `panel + direction - grand` model reaches `.9584`,
+only `.0170` below the cell table and within every registered bar. Panel alone already reaches
+`.9536`; direction alone reaches only `.3810`. Thus the restricted task-functional tensor is well
+described by a stable construction/intervention-role hierarchy plus a small direction correction,
+not a donor-answer-signed point. This is a held-out structure screen, not a causal selector. The
+next exact object is the already queued `Q=sum_p H*R` split: apply the same hierarchy separately to
+writer H, downstream-state reader R, and if necessary the coupled positionwise product. Queue
+receipts remain hash-bound at `4b73d697...` then pristine v21 capability `600b0f8e...`, behind the
+healthy live v281 breadth job; no direct GPU collision was introduced.
