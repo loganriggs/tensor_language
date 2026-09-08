@@ -1,0 +1,45 @@
+{
+  "schema": "temporal_iswas_v15_construction_oracle_attention15_dependency_factorial_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_construction_oracle_attention15_dependency_factorial_v1",
+  "registered_utc": "2026-09-08T00:16:00Z",
+  "question": "Do the stable construction-specific upstream coordinates transfer through the native live layer-15 attention computation, or only relative to the complete attention-15 donor background?",
+  "prior_art": {
+    "searched": [
+      "temporal/iswas construction-oracle, bisector, fixed-projector, and attention15 path-audit results",
+      "temporal construction-axis weight-convergence result",
+      "two-factor dependency and Mobius factorial priors, contracts, and runners"
+    ],
+    "active_claim_collision": false,
+    "known_lessons": "A1/A2 oracle axes are individually stable and effective but construction-specific and nonselective on one P parity. Their distinct writes produce aligned responses at every L15H5 Q/K/Q2/K2/V interface, while all existing behavioral evaluations bypass live attention 15.",
+    "novelty": "Execute each fixed construction oracle with attention 15 live and complete in an exact no-refit dependency factorial, separating native upstream transfer, the attention-15 main effect, and their interaction."
+  },
+  "authority": {
+    "construction_oracle_result_sha256": "dde8cc793f2ba2d1f0bf7439dd9c62cb53ad979ea4ab3363928015b8cbe7e224",
+    "weight_convergence_result_sha256": "358d3ae1100a639bb930f4a6fa5f05a4bce631659b49b6e91b37fb7fbffe41a7",
+    "dependency_contract_sha256": "bf6cf52bfa55d4d071c9e10f3efe7ab44df795fd17fa0cdc0a286fa1d75bd73a"
+  },
+  "frozen_design": {
+    "experts": ["A1_oracle", "A2_oracle"],
+    "sites": ["L8H1", "L9H1", "L9H4", "L11H3"],
+    "projectors": "For each evaluation parity, use the corresponding construction oracle trained on the opposite parity. No refit, mixture, dimension change, or outcome-selected orientation.",
+    "cells": {
+      "00": "no upstream projector; live native attention 15",
+      "01": "no upstream projector; complete attention-15 donor clamp",
+      "10": "construction oracle installed; live native attention 15",
+      "11": "construction oracle installed; complete attention-15 donor clamp"
+    },
+    "panels": {"v15": ["A1", "A2", "P", "C"], "v16": ["A1", "A2", "P"]},
+    "linear_accounting": "Apply exact rowwise margin Mobius accounting separately by expert, parity, panel, and version. Score upstream-live=r10-r00 against the registered donor-minus-base target. Report KL/flips separately by cell without nonlinear decomposition.",
+    "parent_replay": "Cell 11 must exactly replay each construction-oracle parent report on v15 and v16. Cell 00 must replay the native manual base.",
+    "price_max": {"native_capture_forwards": 20, "differentiable_transformer_forwards": 64, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 5000, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_alignment_parent_replay_zero_arm_factorial_closure_finiteness_and_price": "All hashes, alignments, cell-11 parent replays, cell-00 base replay, row coverage, factorial closure, finiteness, and literal price pass.",
+    "pred_b_each_oracle_transfers_own_v15_target_with_live_attention15": "For both evaluation parities, A1-oracle upstream-live reaches A1 signed projection >= .65 and direction fraction >= .875, and A2-oracle upstream-live does the same on A2.",
+    "pred_c_live_attention_retains_most_fixed_background_effect": "For each expert and parity on its own v15 target, arm-10 signed projection is at least 75% of arm-11 signed projection.",
+    "pred_d_attention15_dependency_interaction_is_small": "For each expert/parity own v15 target, the mean absolute Mobius interaction is at most 25% of the mean absolute arm-11 margin response.",
+    "pred_e_live_attention_does_not_worsen_controls": "For every v15 P/C expert-parity cell, arm 10 has no more top-one flips and no larger mean KL than arm 11.",
+    "pred_f_v16_new_intervention_retains_fixed_effect": "For A1-oracle on v16 A1 and A2-oracle on v16 A2, arm 10 retains at least 75% of arm 11 signed projection with direction fraction >= .875 in both parities and no more P flips. This is OOD_TEXT_REUSE_NEW_INTERVENTION."
+  },
+  "decision": "B/C passing establishes a native live-attention route and licenses a separate L15H5-specific Q/K/V reset/rescue. B/C failure rejects the weight-reader causal route under these interventions and attributes prior transfer to the fixed attention-15 background. E is required for selective-circuit promotion but not for path localization; D distinguishes mostly additive transmission from a conditional attention gate."
+}

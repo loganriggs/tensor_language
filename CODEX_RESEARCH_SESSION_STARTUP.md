@@ -161,6 +161,13 @@ selective because each own expert has the same parity-0 P flips.  The active suc
 zero-forward CPU weight-convergence diagnostic in
 `basis_aligned/bilinear_quotient/ops/run_temporal_iswas_construction_oracle_weight_convergence_v1.py`.
 
+That weight screen has now returned `reader_equivalent_distinct_writes`: the construction axes do
+not generally align as W_O writes or W_V pullbacks, but all five L15H5 Q/K/Q2/K2/V responses rank
+top-ten for all four sources in both folds.  The next runner is
+`basis_aligned/bilinear_quotient/ops/run_temporal_iswas_v15_construction_oracle_attention15_dependency_factorial_v1.py`
+at reviewed SHA-256 `4d435dfa6c6f29a34de2b5ba7679aafb3b622cdf0fbf2ea779c58bea982b1fe3`.
+It must be enqueued through the managed GPU lane and interpreted before any L15H5-specific reset.
+
 Do not overstate the exact-weight result.  A hash-bound zero-model path audit proved that every
 current DAS outcome clamps the complete attention-15 donor head output after layer-15 Q/K/V has
 been computed.  Thus the causal projector effect can travel through the residual skip/MLP15 and
