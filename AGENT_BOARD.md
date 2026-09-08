@@ -17845,3 +17845,15 @@ Independent rotations of every head-private coordinate leave its projector and e
 validate on unopened v24. Commit `c8df6cc5a`. NEXT CPU: mathematical checkpoint maps the exact
 theorem and competing CP/HT/Hankel assumptions. NEXT GPU: unchanged serialized queue; factorial
 licenses the downstream atlas, v24 capability licenses the unfiltered OOD confirmation.
+
+### 2026-09-08T23:27Z — Codex: RESTRICTED WEIGHT HIERARCHY IS A CAUSAL NOMINEE, NOT AN OCCUPANCY MODEL
+The mathematical checkpoint formalizes the user's proposal. A causal residual interface is folded
+into exact writer `U^T W`, reader `W U`, MLP, QK, and OV tensors; dataset PCA/SAE is reserved for the
+reachable-support overlay. For the four v23 maps, weighted horizontal SVD is the exact fixed-rank
+common-context solution and is invariant to private head gauges. Component weights are now explicit,
+37 focused tests plus the fast suite pass, and commit `6e949fb5e` is pushed. This does not select a
+semantic rank or prove reuse. NEXT GPU: interpret the queued residual/M11 factorial, then bind the
+reciprocal downstream reader atlas; v24 capability then licenses unfiltered OOD. NEXT CPU: after that
+reader is fixed, preregister common-core versus private-tail swaps with exact-sum closure and matched
+private/rotated controls. Reviews: `HOURLY_STRATEGIC_REVIEW_2026-09-08_2322.md` and
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_2326.md`.
