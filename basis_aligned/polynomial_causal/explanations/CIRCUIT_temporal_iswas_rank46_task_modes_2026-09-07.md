@@ -715,17 +715,23 @@ alignment remains nomination, not proof, by the earlier L15H5 counterexample.
 - Entry-12 unordered token-pair router:
   `temporal_iswas_v15_entry12_unordered_token_pair_router_v1_result.json` (selective v15 executable
   screen: perfect held routing, `.795-.881` target projection, zero P/C effect, and exact gold
-  composition; unseen-cue OOD remains open).
+  composition), followed by
+  `temporal_iswas_v15_token_router_v16_signature_coverage_audit_v1_result.json` (valid zero-model
+  OOD null: none of the 32 native-capable v16 target rows shares either learned v15 signature, so
+  the immutable default-off rule predicts exactly zero transfer; v16 C is explicitly outside the
+  exact aligned-signature program because its base/donor token lengths differ).
 
 ## Remaining gates
 
-1. Test the frozen task-rank-four programs on a genuinely new capability-qualified lexical
-   and construction bank, without refitting.
+1. Replace the lexeme-specific two-entry lookup with a prospectively semantic or multi-environment
+   routing object, then test it on the sealed capability-qualified v16 bank without refitting.  The
+   frozen v15 lookup has already failed this gate by exact signature noncoverage.
 2. Capability-qualify a genuinely new cue construction, then fit a multi-environment causal-response
    object on complete constructions while keeping the new construction sealed.  Retain DIM, step
    zero, and exact-factor programs as controls.
-3. Localize the dominant direct residual carry at successive layer-12--17 residual-state
-   boundaries.  Only after a stable causal state boundary is known should an input-conditional or
-   nonlinear response object and its downstream readers be tested; do not widen the same DAS grid.
+3. Translate the causally sufficient entry-12 rank-two coordinates through normalization-aware
+   downstream weight maps, including exact finite normalized responses.  Treat this as reader
+   nomination until a subsequent causal input-mediation test passes; do not infer causality from
+   raw `WU` alignment or widen the same DAS grid.
 4. Test joint composition when temporal and is–was commands are installed together.
 5. Price an extracted executor only after these identification gates pass.

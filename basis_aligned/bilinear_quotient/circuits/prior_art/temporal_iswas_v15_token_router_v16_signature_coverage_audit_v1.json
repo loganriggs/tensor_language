@@ -1,0 +1,32 @@
+{
+  "schema": "temporal_iswas_v15_token_router_v16_signature_coverage_audit_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_token_router_v16_signature_coverage_audit_v1",
+  "registered_utc": "2026-09-08T02:27:00Z",
+  "question": "Does the immutable two-signature v15 token router cover native-capable fresh-lexicon v16 targets, or does its registered default-off rule certify zero predicted transfer?",
+  "authority": {
+    "v15_token_router_result_sha256": "582c19b22017fd0bb1070260b4737b8b046c54c3838a0a646a85254d77135be0",
+    "required_terminal": "token_pair_router_candidate",
+    "v16_capability_audit_sha256": "a1c2baf0bd9548e189ccc4ba4d11c4905f85af1ff7013d408c143f6f2a6434e3",
+    "required_v16_terminal": "manifest"
+  },
+  "prior_art": {
+    "searched": ["unordered token-pair router", "v16 fresh lexicon", "finite transducer unseen signature", "default-off OOD"],
+    "active_claim_collision": false,
+    "known_lessons": "The v15 gate is a selective screen, not semantic identification. A finite lookup cannot infer the class of a never-observed signature; its frozen unknown-signature behavior is off.",
+    "novelty": "Audit signature support exactly before spending GPU forwards. This is an executable OOD prediction from the published finite program, not a refit or post-hoc threshold."
+  },
+  "frozen_design": {
+    "v15_fit_replay": "Rebuild both opposite-parity v15 token maps with the immutable signature helper and require exact equality to the maps stored in the parent result.",
+    "v16_audit": "Construct authoritative v16 rows, require exact base/donor alignment on A1/A2/P, compute the same unordered token-difference signatures there, and apply each frozen v15 map without fitting or reading outcomes. Record the known variable-length C panel as outside this exact aligned-signature program rather than silently padding or inventing a rule.",
+    "coverage": "Report target/control signature intersections with the learned support, class confusion, target coverage, and exact counts defaulted off.",
+    "causal_consequence": "Because the routed absolute state chooses the unchanged off state for label off, every v16 target routed off has identically zero program-induced logit change. This conclusion requires zero model forwards.",
+    "price": {"model_forwards": 0, "checkpoint_loads": 0, "example_evaluations": 128, "model_updates": 0, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capability_alignment_and_v15_replay": "All hashes, parent/v16 terminals, exact row counts, A1/A2/P semantic alignment, explicit C non-applicability, and both reconstructed v15 maps pass.",
+    "pred_b_fresh_target_signatures_are_unseen": "No v16 A1/A2 signature belongs to either immutable v15 target-signature support.",
+    "pred_c_default_off_certifies_zero_ood_transfer": "Every v16 A1/A2 row is predicted off by both frozen folds, so target coverage and predicted program transfer are exactly zero."
+  },
+  "decision": "A/B/C closes lexical OOD identification for the explicit v15 lookup while preserving it as a selective in-distribution screen. Any covered v16 target signature instead licenses a hash-bound causal replay on covered rows. No refit is allowed in this audit.",
+  "closed_claims": ["semantic token-class inference", "v16 causal transfer", "weight-reader causality", "adoption"]
+}
