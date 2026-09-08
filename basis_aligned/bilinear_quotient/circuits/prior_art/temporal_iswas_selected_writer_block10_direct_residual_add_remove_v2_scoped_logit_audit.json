@@ -1,0 +1,45 @@
+{
+  "schema": "temporal_iswas_selected_writer_block10_direct_residual_add_remove_scoped_logit_audit_prior_v2",
+  "candidate_id": "cross_task.temporal_iswas.selected_writer_block10_direct_residual_add_remove_v2_scoped_logit_audit",
+  "registered_utc": "2026-09-08T11:31:00Z",
+  "status": "frozen_before_v2_execution_after_immutable_v1",
+  "instrument_defect": "V1 applied every dynamic module clamp through the registered causal prefix but compared direct/dynamic logits over the whole padded sequence. Positions after the is-was query therefore had different intervention footprints. V1 raw final states agree on the registered prefix at <=3.70e-8 relative L2 and its direct/dynamic causal reports agree numerically; preserve v1 terminal arithmetic_or_hook_failure and do not retro-pass it.",
+  "fixed_change_only": "Replace direct/dynamic and native-self max-logit equality by the maximum over the registered is/was answer and foil logits at each row's is-was query. Preserve the all-sequence v1 maxima as off-footprint diagnostics. No row, intervention, source position, state metric, scientific metric, bar, price, or terminal rule changes.",
+  "populations": ["original:FIT", "original:HOLDOUT", "ood:FIT", "ood:HOLDOUT"],
+  "predictions": {
+    "pred_a_authority_scoped_endpoint_capture_state_replay_finiteness_and_exact_price": "V1 authority is immutable; endpoint projection, hook coverage, state equality, native self-patch, finiteness, and exact 14-forward price pass.",
+    "pred_b_scoped_direct_add_matches_dynamic_identity_carriage": "Direct-add and dynamic R1M0 answer/foil logits match within 1e-5 in every cell.",
+    "pred_c_scoped_direct_remove_matches_dynamic_module_response": "Direct-remove and dynamic R0M1 answer/foil logits match within 1e-5 in every cell.",
+    "pred_d_frozen_identity_route_predicts_ood_writer_behavior": "Expected falsification, scored unchanged: original HOLDOUT and OOD FIT/HOLDOUT each require recovery >=.5, cosine >=.9, and direction >=.9.",
+    "pred_e_identity_carriage_is_selectively_manipulable": "Expected falsification, scored unchanged: removal must eliminate >=.5 of writer effect with direction >=.9 in every validation cell and all nonnative arms must keep temporal collateral <=.01."
+  },
+  "bars": {
+    "authority_replay_max_abs_error": 0.00001,
+    "native_final_self_patch_selected_logit_max_abs_error": 0.00001,
+    "direct_add_vs_R1M0_selected_logit_max_abs_error": 0.00001,
+    "direct_remove_vs_R0M1_selected_logit_max_abs_error": 0.00001,
+    "direct_state_relative_l2_diagnostic_max": 0.05,
+    "ood_direct_add_signed_recovery_min": 0.5,
+    "ood_direct_add_cosine_min": 0.9,
+    "ood_direct_add_direction_min": 0.9,
+    "identity_removal_signed_fraction_min": 0.5,
+    "identity_removal_direction_min": 0.9,
+    "temporal_command_gold_collateral_max": 0.01
+  },
+  "nulls": {
+    "invalid": "If A fails, no scientific result is interpreted.",
+    "physical_route_failure": "If B or C fails under matched endpoint projection, the exact direct route is not established.",
+    "ood_instability": "If B/C pass but D fails, the exact physical route is in-distribution but not a stable OOD majority carrier.",
+    "nonselective_or_redundant": "If B--D pass but E fails, preserve redundancy/non-necessity rather than claiming selective removal."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 14,
+    "sequence_evaluations": 1792,
+    "scored_token_positions": 3584,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "anti_rank_drift": "This is an instrument-scope repair for an exact physical circuit route. No DAS, fitting, rank, reconstruction, variance, or compression objective is present."
+}
