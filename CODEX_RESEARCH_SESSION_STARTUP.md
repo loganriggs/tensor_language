@@ -44,63 +44,45 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
-## Authoritative handoff snapshot — 2026-09-08 11:10 UTC
+## Authoritative handoff snapshot — 2026-09-08 12:00 UTC
 
-The science authority summarized here is committed and pushed through `790ef0456`; the startup
-handoff and outcome-independent hook implementation are in later commits. Always inspect the live
-branch edge before acting. The selected upstream source-writer prefixes
-are now identified and validated: temporal uses `L7H7 + L9H4 + L9H1`; is-was uses
-`L7H7 + L9H4`. The exact recipient-native L11H3 source formula mediates `.783-.799` of the
-temporal writer effect, but only `.165-.203` of is-was. A nested source/full-prefix/full-head
-ladder then showed that the missing is-was effect is neither value spreading nor changed L11H3
-routing: the full observed L11H3 head still mediates only `.155-.197`.
+The current pushed science edge is commit `2a8f748f0`; always inspect newer commits, dirty files,
+and managed-runner state before acting. The is-was selected writer is `L7H7 + L9H4`. Its complete
+downstream singleton atlas showed a distributed response, and the prospectively fixed cumulative
+order selected P7=`A11+M11+M12+M15+M13+M16+M10`. P7 recovers `.5276/.5376` on original
+FIT/HOLDOUT with cosine `.9937/.9945`, direction `1.0`, and zero temporal collateral.
 
-The complete downstream module atlas over `A10--M17` found no singleton above the frozen `.20`
-FIT bar. Its leading aligned modules are A11 and M11 at about `.17`, followed by M12 and smaller
-M13/M15/M16 effects. This is an honest distributed-bypass null, not permission to lower the bar.
-The prospectively frozen distributive successor tests the full singleton-ordered cumulative
-prefixes P1--P16. Its runner is:
+An independent block-10 residual-input x complete-module-output 2x2 then established two nearly
+additive physical streams. Residual identity alone recovers `.5209/.5088`; all module responses
+recover `.4896/.5029`; installing both exactly replays the selected writer. A direct final-residual
+add/remove experiment verified the residual recurrence to `3.61e-8--3.69e-8` relative state error
+and `3.81e-6--5.72e-6` registered-logit error. Preserve its scientific OOD null: identity alone
+drops to `.4582/.4803`, so exact transport is not by itself stable circuit identification.
 
-```text
-basis_aligned/bilinear_quotient/ops/run_temporal_iswas_downstream_module_singleton_ordered_greedy_v1.py
-SHA-256 13734de17a6e0c7fa47be1fe3d45804e94e59d8743562e2075e2f0aa8a420d39
-```
+The decisive OOD composition receipt is
+`circuits/followups/temporal_iswas_p7_residual_two_stream_ood_composition_v1_result.json`, SHA-256
+`55498ec9110fbddc8ae9a86eb4bab63efeb92540322aaa8783cec2d8c7bd55a7`. It passes all predictions:
+the original-selected P7 transfers without OOD reselection at `.5685/.5479`; identity contributes
+`.4582/.4803`; P7+identity exactly replays the writer at `1.0/1.0`; both streams remain necessary;
+finite-vector nonadditivity is only `.0296/.0326`; all directions are `1.0`; temporal collateral
+is zero. Treat this as an OOD-composable executable two-stream interface, not as a learned DAS
+subspace or a complete semantic decomposition.
 
-That exact hash is first in managed lane 1, behind the verified-live unrelated
-`run_unit_family_separability_spec_v256.py` process (PID `1171621`, started 09:51:56 UTC). At
-11:02 UTC it had emitted 15/20 evaluations and remained healthy. Do not enqueue a duplicate,
-bypass the managed runner, or restart either job.
+The exact active successor is fixed-P7 leave-one-module-out necessity inside the identity
+background. Its runner is
+`ops/run_temporal_iswas_p7_identity_background_module_leave_one_out_ood_v1.py`, reviewed SHA-256
+`384a79a38294416204d5bde0e24fcee7008e391a6712de82ec59c627f7f1318a`. It is already hash-bound
+in managed lane 1 behind the pre-existing live `run_unit_family_separability_spec_v258.py`; do not
+enqueue a duplicate or launch it directly. The ten-forward audit leaves each omitted module
+native/live and defines stable necessity as full-minus-LOO recovery loss >=`.03` on both frozen
+OOD phases. If A11 passes, split it into its nine native heads. Split each passing MLP into the
+exact activation-conditioned terms `Delta L R0 + L0 Delta R + Delta L Delta R`; do not substitute
+static tensor norms or a rank/compression sweep.
 
-An independent six-forward 2x2 successor is implemented, tested, committed, and second in the
-managed queue. Its runner is
-`ops/run_temporal_iswas_selected_writer_residual_skip_module_response_factorial_v1.py` at exact
-SHA-256 `9e3c9773bb96330f2b2166f5fe2c1087d4ec10b8199f7f4219c527e48ef89c0e`; its preregistration is
-`circuits/prior_art/temporal_iswas_selected_writer_residual_skip_module_response_factorial_v1.json`.
-It crosses native/writer block-10 input residual with native/writer outputs for all A10--M17
-modules. This distinguishes residual identity carriage, distributed module response, redundancy,
-and state-response interaction while avoiding the older tautology that a complete input state is
-sufficient by definition. Do not enqueue or launch another copy.
-
-While the GPU predecessor runs, two branch-specific exact-weight routes have been audited on CPU.
-If the module-response branch wins, preserve the exact activation-conditioned MLP split
-`Delta h = Delta L R0 + L0 Delta R + Delta L Delta R`; prior evidence rejects dropping the
-interaction term or treating static tensor norms as causal ordering. If the residual-identity
-branch wins, compile the block-10 residual delta through the controlled identity recurrence and
-test a direct final-residual installation before interpreting RMSNorm/unembedding geometry.
-
-The residual branch now has an exact shared add/remove primitive in
-`ops/residual_identity_route.py`. Its outcome-conditional 14-forward direct intervention contract
-is frozen at prior SHA-256
-`9fb12faf4f89594ac9594f3b8747725b0f88b7e52fd8e4c54ddd0eb5daf5c625`. It may open only if the
-factorial's A/B/C gates pass and may bind only that immutable result. Its OOD, state/logit
-equality, selective-removal, and collateral bars cannot change after outcome. The reusable final
-residual hook needed to execute it is under test; do not enqueue the conditional experiment until
-the authority binding exists.
-
-The newest review clocks are
-`HOURLY_STRATEGIC_REVIEW_2026-09-08_1022.md` (next safe-boundary review after 11:22 UTC) and
-`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0826.md` (next after 11:26 UTC). Reinspect live
-files, queues, processes, and newer commits before relying on this snapshot.
+The newest clocks are `HOURLY_STRATEGIC_REVIEW_2026-09-08_1122.md` (next safe-boundary review
+after 12:22 UTC) and `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_1126.md` (next after 14:26 UTC).
+Both `bqrunner` and `bqrunner2` are Supervisor-managed with autostart/autorestart and were healthy
+at this snapshot. Never start duplicate background runners; use `ops/enqueue.sh` only.
 
 ## Required startup sequence
 
