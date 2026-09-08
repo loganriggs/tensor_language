@@ -17526,3 +17526,12 @@ summed tangent against complete M11 removal, and causally tests prefixes on v18 
 sealed. Three focused tests, parse, dry run, static preflight, experiment gate, and shared fast suite
 pass. Exact price is 41 forwards/656 sequences plus two boundary backwards; reviewed runner SHA-256
 is `78ac32a9...`.
+
+### 2026-09-08T17:14Z — Codex: TASK-TANGENT FINDS A COMPACT SELECTIVE M11 PROGRAM
+Valid result SHA-256 `e0af6cc9...` passes A--E, terminal `compact_task_read_factor_program`.
+The summed native-factor tangent predicts full M11 loss on v17 A2/v18 A1 with cosines
+`.99987/.99998`, direction `1`, and recovery `.9934/1.0021`. Frozen task-read prefixes on held-out
+v18 A2 recover `.8427` at 16, `.9614` at 32, and `1.1364` at 64, with cosines >=`.9715` and perfect
+direction. Yet their output residuals remain `.9517/.9478/.9426`: task computation is concentrated
+inside a diffuse output tensor. P/C ratios are <=`.0815`. Next freeze this exact factor order and
+confirm it without refit on both pristine v19 constructions and P/C controls.

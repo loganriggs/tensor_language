@@ -1,0 +1,56 @@
+{
+  "schema": "temporal_iswas_v19_frozen_task_tangent_factor_confirmation_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v19_frozen_task_tangent_factor_confirmation_v1",
+  "registered_utc": "2026-09-08T17:13:31Z",
+  "question": "Does the exact cross-construction task-tangent M11 factor order transfer without refit to both pristine v19 constructions while preserving P/C selectivity?",
+  "prior_art": {
+    "searched": [
+      "task-tangent M11 factor-order result and its output-greedy null",
+      "v17/v18 restricted tensor, full-reader factor, and H3 records",
+      "v19 capability authority/result and all is/was confirmation records",
+      "AGENT_BOARD, BILIN18_CONNECTION, BENCHMARK_BACKLOG, and canonical temporal dossier"
+    ],
+    "known_result": "Task-tangent selection predicts complete M11 loss on two selection constructions and frozen prefixes recover .843/.961/1.136 at 16/32/64 units on held-out v18 A2 with low P/C movement. Output reconstruction remains ~.95 residual, demonstrating that task-read rather than variance-selected factors matter.",
+    "novelty": "V19 was authored and capability-qualified at 16/16 in both A panels before the task-tangent order existed. No v19 intervention or factor outcome has been opened. This is the first pristine transfer of that exact coefficient-one native-factor program."
+  },
+  "authority": {
+    "task_tangent_result_sha256": "e0af6cc965d2d6a560dbde548e191268c77fcac7a5817ad54ea2ccaefe7050b7",
+    "task_tangent_runner_sha256": "78ac32a90ef3a0182fe2eb024a3b687ddefe2b5fb1b816df5dd0febaf8f857ec",
+    "v19_capability_result_sha256": "28f8f134d78279dd82cd7cca94f76e9cf35815bd1a59430ad34601fd0294fdd4",
+    "v19_builder_sha256": "67916a1c83a019e037fc14415932560ba98cc5dd46a623216b43fd36d267d8b6"
+  },
+  "frozen_design": {
+    "population": "All 16 capability-qualified v19 A1 rows, all 16 capability-qualified A2 rows, all 16 P rows, and all 16 C rows, evaluated separately with exact suffix alignment.",
+    "program": "Load the first 256 task-tangent factor indices exactly as stored. At full writer-present versus writer-absent M11 inputs, install coefficient-one native-factor prefixes 16,32,64,128,256 through literal Down columns. No v19 gradient, fit, ranking, reorder, dose, stopping selection, or coefficient calibration.",
+    "measurements": "Compare every prefix with complete M11 reader loss. Primary compact claims are frozen top-16 and top-32 recovery/cosine/direction on A1 and A2. Require their construction recovery gap to remain bounded. Normalize P/C top-16/top-32 RMS movement separately by pooled A1+A2 target RMS. Retain writer and all-hidden formula replays.",
+    "bars": {
+      "writer_or_formula_margin_max_abs": 0.00001,
+      "all_hidden_output_relative_squared_max": 0.00000001,
+      "top16_signed_recovery_interval": [0.7, 1.3],
+      "top16_cosine_minimum": 0.95,
+      "top32_signed_recovery_interval": [0.8, 1.25],
+      "top32_cosine_minimum": 0.95,
+      "target_direction_minimum": 0.875,
+      "A1_A2_recovery_gap_maximum": 0.25,
+      "P_or_C_top16_or_top32_normalized_effect_maximum": 0.25
+    },
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 44,
+      "sequence_evaluations": 704,
+      "scored_token_positions": 1408,
+      "intervention_arms_per_panel": 8,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_formula_replays_hooks_finiteness_and_exact_price": "All hashes/populations/frozen indices match; writer and all-hidden formula closure, hook coverage, finiteness, and exact 44-forward price pass.",
+    "pred_b_frozen_top16_transfers_to_both_pristine_v19_constructions": "On A1 and A2 separately, top-16 signed recovery is in [.70,1.30], cosine >=.95, and direction >=.875.",
+    "pred_c_frozen_top32_recovers_most_of_both_pristine_v19_constructions": "On A1 and A2 separately, top-32 signed recovery is in [.80,1.25], cosine >=.95, and direction >=.875.",
+    "pred_d_factor_program_is_construction_stable_and_selective": "A1/A2 signed-recovery gap is <=.25 for top-16 and top-32, and every separate P/C normalized RMS ratio for those prefixes is <=.25.",
+    "pred_e_no_v19_fit_reorder_dose_or_postselection": "The runner consumes only the stored order and reports all fixed prefixes without v19 fitting, ranking, calibration, or stopping selection."
+  },
+  "decision": "A-E promote the top-16/top-32 native M11 factors to a construction-general selective physical subprogram. If only C passes, retain top-32. A recovery overshoot is a miss, not success. If B/C fail with valid A, the task-tangent covector is not stable enough for pristine adoption; do not refit v19."
+}
