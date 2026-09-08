@@ -730,6 +730,13 @@ alignment remains nomination, not proof, by the earlier L15H5 counterexample.
   L12H0:v, L12H4:q/k, L13H2:q, and L15H5 interfaces.  Raw and exact top tens overlap `.9-1.0`,
   so normalization does not change the coarse ranking here.  All four known oracle source heads
   rank above the 97th upstream-writer percentile.  These are weight nominations, not causal readers.
+- Entry-12 layer-12/13 attention factor mediation:
+  `temporal_iswas_v15_entry12_rank2_attention12_13_factor_mediation_atlas_v1_result.json`
+  (valid weight-reader bypass null).  Complete attention12/13 factor banks mediate only
+  `-.0014-.0118` of the selective rank-two effect; no complete head or nominated factor passes.
+  Singleton heads reproduce each module reset vector with cosine above `.999997` and relative L2
+  below `.0042`, so hidden head interaction is not the explanation.  Static weight response is not
+  causal reader identification for these modules.
 
 ## Remaining gates
 
@@ -740,8 +747,9 @@ alignment remains nomination, not proof, by the earlier L15H5 counterexample.
    object on complete constructions while keeping the new construction sealed.  Retain DIM, step
    zero, and exact-factor programs as controls.
 3. Translate the causally sufficient entry-12 rank-two coordinates through normalization-aware
-   downstream weight maps, including exact finite normalized responses.  Treat this as reader
-   nomination until a subsequent causal input-mediation test passes; do not infer causality from
-   raw `WU` alignment or widen the same DAS grid.
+   downstream weight maps, including exact finite normalized responses, and require causal input
+   mediation.  The first L12/L13 nominated interfaces fail that mediation gate; next test the
+   coherent residual-identity route to the final RMS-normalized unembedding rather than widening
+   the static weight ranking.
 4. Test joint composition when temporal and is–was commands are installed together.
 5. Price an extracted executor only after these identification gates pass.
