@@ -1,0 +1,70 @@
+{
+  "authority_sha256": {
+    "library": "f0ce2a482da038abe14c98c2521675710cbfcc0c678feda089ae43a83641833e",
+    "prior": "f00a955cd6d2cdc300df169c6c73063396add0c6b24f173fe3f77d61de70a598",
+    "raw_result": "730575d554ef69ed31e4d19e1fa0612c33defb69daa7ce7ff45a0713ea1a28d2",
+    "tensor": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12"
+  },
+  "bars": {
+    "amplitude_fraction_of_fixed_sse": 0.5,
+    "decomposition_relative_error": 1e-10,
+    "oracle_positive_fraction": 1.0,
+    "oracle_scalar_relative_residual": 0.25,
+    "shape_dominance_fraction": 0.6
+  },
+  "candidate_id": "cross_task.temporal_iswas.v20_task_factor_state_error_decomposition_v1",
+  "evidence_status": "cpu_heldout_error_attribution_diagnostic_only",
+  "fold_reports": {
+    "first_to_second": {
+      "amplitude_fraction_of_fixed_sse": 0.7869891354002491,
+      "amplitude_sse": 0.007535504912318077,
+      "decomposition_relative_error": 1.539946244800344e-15,
+      "fixed_sse": 0.009575106660761777,
+      "oracle_positive_fraction": 1.0,
+      "oracle_scalar_relative_residual": 0.1329690978754894,
+      "reference_sse": 0.11535699410664314,
+      "shape_sse": 0.002039601748443685
+    },
+    "second_to_first": {
+      "amplitude_fraction_of_fixed_sse": 0.8203617564637612,
+      "amplitude_sse": 0.00987853524517961,
+      "decomposition_relative_error": 1.440598998141632e-16,
+      "fixed_sse": 0.012041681815790479,
+      "oracle_positive_fraction": 1.0,
+      "oracle_scalar_relative_residual": 0.13948781258877938,
+      "reference_sse": 0.11117660803708614,
+      "shape_sse": 0.0021631465706108666
+    }
+  },
+  "heldout_oracle_amplitude_used_by_executable": false,
+  "hr_outcome_opened": false,
+  "pooled": {
+    "amplitude_fraction_of_fixed_sse": 0.805579430838522,
+    "amplitude_sse": 0.017414040157497687,
+    "decomposition_relative_error": 6.4199119230258015e-16,
+    "fixed_sse": 0.021616788476552254,
+    "oracle_positive_fraction": 1.0,
+    "oracle_scalar_relative_residual": 0.13620729750179172,
+    "reference_sse": 0.22653360214372928,
+    "shape_fraction_of_fixed_sse": 0.1944205691614772,
+    "shape_sse": 0.004202748319054551
+  },
+  "predictions": {
+    "pred_a_authority_folds_formula_finiteness_and_exact_price": true,
+    "pred_b_remaining_cell_error_is_mainly_scalar_amplitude": true,
+    "pred_c_decomposition_is_exact_and_oracle_sign_is_stable": true,
+    "pred_d_scope_remains_diagnostic_only": true
+  },
+  "price": {
+    "fitted_cell_vectors": 12,
+    "gpu_forwards": 0,
+    "heldout_oracle_scalar_reads": 48,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "schema": "temporal_iswas_v20_task_factor_state_error_decomposition_result_v1",
+  "serial_seconds": 0.0018827281892299652,
+  "started_utc": "2026-09-08T18:54:56.168090Z",
+  "terminal": "scalar_amplitude_is_next_state_variable",
+  "v21_causal_outcomes_opened": false
+}

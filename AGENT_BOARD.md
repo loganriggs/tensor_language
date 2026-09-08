@@ -17734,3 +17734,14 @@ upper bound, not a causal implementation. The sealed H/R program now has a meani
 determine whether separately averaged writer and reader states approach this `.951/.917` ceiling or
 whether the remaining response requires within-document/position covariance. The managed split
 remains queued and its outcome was not opened.
+
+### 2026-09-08T18:55Z — Codex: MOST RESIDUAL STATE ERROR IS ONE SCALAR AMPLITUDE
+Valid CPU result SHA-256 `d8e1772d...`, terminal `scalar_amplitude_is_next_state_variable`, passes
+A--D. On reporter-held-out raw Q rows, the exact orthogonal identity splits cell-mean prediction
+SSE into `80.56%` amplitude mismatch and `19.44%` response-shape mismatch (closure relative error
+`6.4e-16`). Giving each row its diagnostic oracle scalar along the cross-fitted cell direction
+reduces relative residual from `.3089` to `.1362`; all 48 oracle coefficients are positive. The
+oracle is explicitly illegal for execution. The computational hypothesis is now a stable discrete
+panel-by-direction state times an input-derived continuous gain. Once H/R lands, test whether that
+gain is predicted by writer coefficient, reader coefficient, their product, or a coupled residual;
+do not add response-shape rank first.
