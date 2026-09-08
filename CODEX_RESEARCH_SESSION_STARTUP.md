@@ -45,9 +45,9 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
-## Authoritative handoff snapshot — 2026-09-08 12:39 UTC
+## Authoritative handoff snapshot — 2026-09-08 13:58 UTC
 
-The current pushed science edge is commit `d29589065`; always inspect newer commits, dirty files,
+The pushed science edge immediately before this handoff refresh is commit `4666f2934`; always inspect newer commits, dirty files,
 and managed-runner state before acting. The is-was selected writer is `L7H7 + L9H4`. Its complete
 downstream singleton atlas showed a distributed response, and the prospectively fixed cumulative
 order selected P7=`A11+M11+M12+M15+M13+M16+M10`. P7 recovers `.5276/.5376` on original
@@ -69,30 +69,33 @@ finite-vector nonadditivity is only `.0296/.0326`; all directions are `1.0`; tem
 is zero. Treat this as an OOD-composable executable two-stream interface, not as a learned DAS
 subspace or a complete semantic decomposition.
 
-The exact active successor is fixed-P7 leave-one-module-out necessity inside the identity
-background. Its runner is
-`ops/run_temporal_iswas_p7_identity_background_module_leave_one_out_ood_v1.py`, reviewed SHA-256
-`384a79a38294416204d5bde0e24fcee7008e391a6712de82ec59c627f7f1318a`. It is already hash-bound
-in managed lane 1 behind the pre-existing live `run_unit_family_separability_spec_v258.py`; do not
-enqueue a duplicate or launch it directly. The ten-forward audit leaves each omitted module
-native/live and defines stable necessity as full-minus-LOO recovery loss >=`.03` on both frozen
-OOD phases. If A11 passes, split it into its nine native heads. Split each passing MLP into the
-exact activation-conditioned terms `Delta L R0 + L0 Delta R + Delta L Delta R`; do not substitute
-static tensor norms or a rank/compression sweep.
+The fixed-P7 leave-one-module-out necessity result has now landed valid at SHA-256
+`20eff67e079f46beefe0cf6ec14f16af7674c359fb460c8d73357175761154e4`. Its instrument and
+selectivity predictions pass, but every individual deletion is exactly null: full and every
+`without_A11/M11/M12/M15/M13/M16/M10` arm recover `1.0` with cosine/direction `1.0` on both OOD
+phases. The terminal is `nonminimal_sufficient_bundle`, with no stable necessary modules. This is
+a sequential redundancy/overwrite result: later selected-writer clamps can absorb an earlier
+omission. It is not evidence that the native modules are all inert.
 
-Two outcome-conditional executors are already complete, tested, and fail closed without a binding.
-If the immutable necessity result makes A11 eligible, bind
+Two outcome-conditional executors remain complete and tested, but the immutable necessity result
+made neither eligible. The atomic binder returns an empty eligible set and created no binding
+files. Do not force or enqueue them post-outcome. The closed A11 executor is
 `ops/run_temporal_iswas_p7_identity_a11_head_endpoint_atlas_ood_v1.py` at reviewed SHA-256
-`417aaa017c06116f69141dbaaa683c511b955c5f80f59f7ccda0508cabbbf3e7`; it tests all nine
-pre-`c_proj` head slices in the exact P7+identity background. If M11 is eligible, bind
+`417aaa017c06116f69141dbaaa683c511b955c5f80f59f7ccda0508cabbbf3e7`. The closed M11 executor is
 `ops/run_temporal_iswas_p7_identity_m11_exact_product_factorial_ood_v1.py` at reviewed SHA-256
-`6551339eeec03b3121ed23fb274d24adc02a8654cd5dc6555dfe3a5158f98b43`; it tests the three exact
-arm-local Left/Right/interaction product factors and every nonempty subset. Never create either
-binding from a forecast: score the immutable LOO receipt first and preserve failed eligibility.
-Use model-free `ops/p7_identity_split_binding.py` after scoring: its `create_bindings()` function
-verifies all three runner hashes and emits only prospectively eligible binding files. Run it from
-the `ops` directory, inspect and commit any emitted bindings before model-free dry-run and managed
-enqueue. Before the result exists it returns `awaiting_result` without touching the filesystem.
+`6551339eeec03b3121ed23fb274d24adc02a8654cd5dc6555dfe3a5158f98b43`.
+
+The active successor is the exact source-conditioned live-module effect game, preregistered after
+the LOO redundancy trigger. Runner
+`ops/run_temporal_iswas_identity_p7_live_module_effect_game_ood_v1.py`, reviewed SHA-256
+`b53113fe0237d4e5c0267b61f357d1e397c6ccecce670002118c062281649274`, enumerates every one of
+128 P7 subsets under source-absent and source-present block-10 identity states. Enabled P7 modules
+recompute live; complement modules clamp native outputs; source-absent arms must be exact no-ops.
+Exact Mobius/Shapley accounting separates the direct/unmasked background route from live-module
+credits and pair redundancy/complementarity without fitting a surrogate. It is queued exactly once
+in managed lane 1 behind Claude's verified-live hash-bound `run_unit_family_separability_spec_v260.py`.
+Do not reorder, duplicate, or run it directly. A large credit nominates operational dependence,
+not a direct edge; passing pieces still require checkpoint-reader interchange/removal.
 
 The current CPU contract for translating passing causal pieces into checkpoint tensors is
 `basis_aligned/polynomial_causal/TEMPORAL_ISWAS_P7_WEIGHT_TENSOR_TRANSLATION_PLAN_2026-09-08.md`.
@@ -101,8 +104,8 @@ It maps A11 head deltas through the corresponding `W_O` slice and M11 product-fa
 interchange, upstream writer reproduction, composition, selective removal, and sealed transfer
 when the component was not prospectively nominated.
 
-The newest clocks are `HOURLY_STRATEGIC_REVIEW_2026-09-08_1222.md` (next safe-boundary review
-after 13:22 UTC) and `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_1126.md` (next after 14:26 UTC).
+The newest clocks are `HOURLY_STRATEGIC_REVIEW_2026-09-08_1322.md` (next safe-boundary review
+after 14:22 UTC) and `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_1126.md` (next after 14:26 UTC).
 Both `bqrunner` and `bqrunner2` are Supervisor-managed with autostart/autorestart and were healthy
 at this snapshot. Never start duplicate background runners; use `ops/enqueue.sh` only.
 
