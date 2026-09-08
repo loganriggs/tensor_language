@@ -152,3 +152,39 @@ def scalar_prediction_metrics(prediction: np.ndarray, reference: np.ndarray) -> 
     total = float(np.square(centered_reference).sum())
     return {"pearson": pearson, "r2": 1.0 - residual / max(total, 1e-30),
             "relative_error": float(np.sqrt(residual / max(float(np.square(reference).sum()), 1e-30)))}
+
+
+def balance_hr_gauge(
+    writer: np.ndarray, reader: np.ndarray, mask: np.ndarray
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Balance reciprocal H/R factor gauges using pooled valid-position RMS.
+
+    If a native factor is rescaled as ``H_n -> a_n H_n`` and
+    ``R_n -> R_n/a_n``, the balanced pair is unchanged up to the shared sign of
+    ``a_n``.  Consequently its singular spectra and exact products are gauge
+    invariant.  No factor with zero writer or reader RMS can be balanced.
+    """
+    writer = np.asarray(writer, dtype=np.float64)
+    reader = np.asarray(reader, dtype=np.float64)
+    mask = np.asarray(mask, dtype=bool)
+    if (writer.shape != reader.shape or writer.ndim < 2
+            or mask.shape != writer.shape[:-1] or not mask.any()
+            or not np.isfinite(writer).all() or not np.isfinite(reader).all()):
+        raise ValueError("expected finite matching H/R tensors and a nonempty leading mask")
+    writer_valid, reader_valid = writer[mask], reader[mask]
+    writer_rms = np.sqrt(np.mean(np.square(writer_valid), axis=0))
+    reader_rms = np.sqrt(np.mean(np.square(reader_valid), axis=0))
+    if np.any(writer_rms <= 0) or np.any(reader_rms <= 0):
+        raise ValueError("every factor needs nonzero writer and reader RMS")
+    scale = np.sqrt(reader_rms / writer_rms)
+    return writer * scale, reader / scale, scale
+
+
+def masked_factor_spectrum(values: np.ndarray, mask: np.ndarray) -> np.ndarray:
+    """Return the complete singular spectrum of valid position-by-factor states."""
+    values = np.asarray(values, dtype=np.float64)
+    mask = np.asarray(mask, dtype=bool)
+    if (values.ndim < 2 or mask.shape != values.shape[:-1] or not mask.any()
+            or not np.isfinite(values).all()):
+        raise ValueError("expected finite factor states and matching nonempty mask")
+    return np.linalg.svd(values[mask], compute_uv=False, full_matrices=False)

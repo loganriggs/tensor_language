@@ -62,5 +62,31 @@ class FactorialTensorStateTest(unittest.TestCase):
         with self.assertRaises(ValueError): state.projection_coefficient(np.zeros(2), np.zeros(2))
         with self.assertRaises(ValueError): state.gain_design("missing", np.ones(2), np.ones(2))
 
+    def test_hr_balancing_preserves_products_and_spectra_under_reciprocal_gauge(self):
+        rng = np.random.default_rng(41)
+        writer = rng.normal(size=(3, 4, 2, 5))
+        reader = rng.normal(size=writer.shape)
+        mask = np.ones(writer.shape[:-1], dtype=bool)
+        mask[0, 0, 0] = False
+        balanced_h, balanced_r, _scale = state.balance_hr_gauge(writer, reader, mask)
+        gauge = np.asarray([-3.0, -0.4, 0.2, 2.0, 7.0])
+        changed_h, changed_r, _changed_scale = state.balance_hr_gauge(
+            writer * gauge, reader / gauge, mask)
+        np.testing.assert_allclose(balanced_h * balanced_r, writer * reader, rtol=1e-12, atol=1e-12)
+        np.testing.assert_allclose(changed_h * changed_r, writer * reader, rtol=1e-12, atol=1e-12)
+        np.testing.assert_allclose(
+            state.masked_factor_spectrum(balanced_h, mask),
+            state.masked_factor_spectrum(changed_h, mask), rtol=1e-12, atol=1e-12)
+        np.testing.assert_allclose(
+            state.masked_factor_spectrum(balanced_r, mask),
+            state.masked_factor_spectrum(changed_r, mask), rtol=1e-12, atol=1e-12)
+
+    def test_hr_balancing_rejects_unoccupied_factors(self):
+        writer = np.ones((2, 3, 4))
+        reader = np.ones_like(writer)
+        writer[..., 2] = 0
+        with self.assertRaises(ValueError):
+            state.balance_hr_gauge(writer, reader, np.ones((2, 3), dtype=bool))
+
 
 if __name__ == "__main__": unittest.main()
