@@ -17625,3 +17625,13 @@ coefficient L2 norm `5.258`, or `5.240x` the target-only aligned solution; binar
 more constrained. This is not an impossibility theorem, but it predicts unstable amplification for
 pruning-only repair. The read/write split remains queued through the managed runner and directly
 tests whether a compact context/answer-state reader gate is the correct next circuit object.
+
+### 2026-09-08T18:08Z — Codex: PRISTINE V21 CONFIRMATION BANK SEALED BEFORE SPLIT OUTCOME
+The v21 builder freezes 64 rows with row digest `a6ef4ad7...`, sixteen history-unused reporters,
+unseen Present-day/Days-gone-by and Current/former-age targets, and a separate same-answer
+Present-time/Times-gone-by P control. Full v1-v20 row/text/reporter novelty and construction checks
+pass. This bank was fixed while the v20 read/write split remained queued, so that result cannot
+choose v21 text. Its capability-only runner performs exactly two forwards/128 examples and opens no
+causal, factor, gate, gradient, or split outcome. Parse, model-free dry run, experiment gate, and
+authority checks pass; reviewed runner SHA-256 is `600b0f8e...`. It will queue behind the split to
+keep the managed lane fed without prejudging which mechanism will be tested.
