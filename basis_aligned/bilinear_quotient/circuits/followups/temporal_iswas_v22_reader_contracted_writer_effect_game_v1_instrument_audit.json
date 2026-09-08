@@ -1,0 +1,45 @@
+{
+  "schema": "temporal_iswas_v22_reader_contracted_writer_effect_game_instrument_audit_v1",
+  "created_utc": "2026-09-08T20:49:00Z",
+  "audited_result_sha256": "b0c8ea135e1a84ebe148445203b3ba7be82994cfb6fc1f82ad625f90ab13f75f",
+  "verdict": "target_and_P_game_valid_four_head_confirmation; global_A_and_C_selectivity_not_admissible",
+  "instrument_findings": {
+    "aligned_rows": "Every A1, A2, and P pair has identical base/donor semantic positions and sequence lengths. Their component patches, target/P metrics, scalar games, Shapley allocations, and interactions use aligned coordinates.",
+    "misaligned_rows": "C base/donor semantic endpoints differ by up to three positions. The runner copied donor component responses by absolute position and compared closure over padded tensors. Its C leakage and full donor-closure diagnostics are therefore not admissible.",
+    "closure_failure": "The registered pred_a remains false: donor H relative error is 0.1766 and the mixed absolute closure maximum is 121344.8. This is not repaired or reclassified after seeing outcomes.",
+    "scope": "The original terminal remains invalid_instrument. Only the prospectively untouched, position-aligned A1/A2/P subexperiment is retained as bounded evidence; C selectivity requires a new aligned control bank."
+  },
+  "valid_target_P_results": {
+    "four_head_union": {
+      "routes": ["L9H1", "L9H4", "L8H1", "L11H3"],
+      "behavior_recovery": 0.722113472669478,
+      "behavior_cosine": 0.9963144654446291,
+      "q_recovery": 0.7172812113764889,
+      "q_cosine": 0.9853737326967544,
+      "behavior_direction_fraction": 1.0,
+      "q_direction_fraction": 1.0,
+      "P_behavior_leak_ratio": 0.10535376950115782,
+      "P_q_leak_ratio": 0.0751423720143553
+    },
+    "singleton_replication": {
+      "L9H1": {"behavior_recovery": 0.22318, "q_recovery": 0.10337, "P_behavior_leak": 0.03540, "P_q_leak": 0.02561},
+      "L9H4": {"behavior_recovery": 0.19259, "q_recovery": 0.18867, "P_behavior_leak": 0.03402, "P_q_leak": 0.02586},
+      "L8H1": {"behavior_recovery": 0.18217, "q_recovery": 0.12149, "P_behavior_leak": 0.02676, "P_q_leak": 0.03905},
+      "L11H3": {"behavior_recovery": 0.17418, "q_recovery": 0.12074, "P_behavior_leak": 0.04010, "P_q_leak": 0.02479}
+    },
+    "ten_route_union": "Target behavior/Q recovery is 0.9800/0.9812, but P behavior/Q leak is 0.1727/0.1613, so the registered P selectivity bar fails even without C.",
+    "shapley": "Eight routes have positive >=0.05 allocations on both behavior and q with stable half signs. MLP pair interactions are strongly negative (largest magnitudes around -0.16), showing redundancy; four-head pair interactions are near zero to mildly positive. Shapley efficiency residual is 4.44e-16."
+  },
+  "claims_allowed": [
+    "The fixed four-head set prospectively reproduces about 72% of fresh v22 target behavior and reader-contracted Q with high cosine and low aligned P leakage.",
+    "Each of the four v15/v21 heads independently replicates on v22 target/P rows.",
+    "Adding the six broad MLP response routes closes target recovery but violates the aligned P bar and is highly redundant by exact pair interactions."
+  ],
+  "claims_forbidden": [
+    "The four-head circuit passes the complete A1/A2/P/C protocol.",
+    "The v22 C leakage numbers establish unrelated-task selectivity.",
+    "The invalid pred_a can be changed to true without a prospective audit.",
+    "A subset chosen from v22 Shapley values is already confirmed."
+  ],
+  "next_step": "Construct a new capability-gated bank whose C base/donor sequences are position-compatible, then test only the already frozen four-head singleton/union program with exact self-patch, donor closure on aligned rows, reader-contracted Q, behavior, P, and C. No route selection or dose tuning is permitted."
+}
