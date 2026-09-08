@@ -200,7 +200,7 @@ def test_shared_context_subspace_accepts_heterogeneous_reader_widths():
                           projector @ unfolded, atol=2e-6, rtol=2e-6)
 
 
-@pytest.mark.parametrize("rank", (0, 8, 1.5))
+@pytest.mark.parametrize("rank", (0, 7, 8, 1.5))
 def test_shared_context_subspace_rejects_bad_rank(rank):
     with pytest.raises(target.CausalCheckpointTranslationError):
         target.optimal_shared_context_subspace(torch.ones(2, 7, 3), rank=rank)

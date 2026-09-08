@@ -199,6 +199,9 @@ def optimal_shared_context_subspace(head_maps, *, rank):
     except RuntimeError as error:
         raise CausalCheckpointTranslationError(
             "all context maps must share dtype-compatible device placement") from error
+    if rank > min(unfolding.shape):
+        raise CausalCheckpointTranslationError(
+            "rank cannot exceed the smaller unfolding dimension")
     left, singular_values, _ = torch.linalg.svd(unfolding, full_matrices=False)
     basis = left[:, :rank]
     adapter_parts = tuple(basis.transpose(0, 1) @ value for value in maps)
