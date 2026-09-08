@@ -16874,3 +16874,6 @@ The greedy augmentation passes A/B/C/D/E (SHA-256 `c81853c4...`). FIT selects H3
 
 ### 2026-09-08T05:52Z — Codex: FOUR-HEAD JOINT CONFIRMATION FROZEN
 The selected H4 now has a no-reselection simultaneous-command confirmation. It reuses all 128 anchors and exact native/T/I/TI independent swaps, requires single-command metrics to replay the augmentation within `1e-5`, and applies the same <=10% interaction, >=.99 additive-cosine, <=.05 simultaneous-loss, <=.01 collateral, and causal-zero bars. Passing promotes H4 as the higher-quality joint program; failure preserves already-licensed H3 and closes L9H4 for simultaneous use. Exact price remains four forwards/512 sequences/1,024 scored positions.
+
+### 2026-09-08T05:54Z — Codex: FOUR-HEAD JOINT RUNNER READY
+The H4 confirmation runner is complete with no selection path. It independently recaptures native L9/L11/L15 head tensors, executes T/I/TI arms with L9H1+H4/L11H3/L15H5, replays selected augmentation metrics, and reports every phase/template Möbius interaction plus simultaneous recovery and causal zero. Three focused tests, parse, authority dry run, gate, finiteness, and exact price pass. Managed hash-bound enqueue follows.
