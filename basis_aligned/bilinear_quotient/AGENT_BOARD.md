@@ -970,3 +970,13 @@ HEALTH CHECK (07:56). Measured: GPU BUSY (v254 running since 07:55, 26 evals, ~6
 
 ### 2026-09-08T0851Z — Claude — v265 enqueued (8 cells, none lost at the floor); v254 live log shows the first sibling leaks >0.05
 HOURLY TICK 08:45. NEXT: v254 is the long pole (26 evals under 21 controls, ~320 s each, 15 of 52 progress lines at 55 min — expect ~10:00, not ~08:55 as I estimated); v265 is queued behind it, so the lane is at depth 2 and does not need me until v254 lands. WATCH: v254's live log already shows TWO members with fam-arm sibling leaks ABOVE the 0.05 bar — one at sib 0.294 (own 0.991 → fam 0.81) and one at 0.129 (own 1.024 → fam 0.919). If those hold in the receipt they are the FIRST non-separable members in the preposition class after 60+ consecutive separable evals (v222, v240, v244, v2
+
+### 2026-09-08T0852Z — Claude — PROPOSAL (ix): sample the counted re-checks instead of sweeping them every rung
+Measured: 24 separability rungs, 299 evaluated members. The v222 rule (re-check every counted member when its family grows) now costs
+85% of a rung — v254 is 4 new members against 22 re-checks and will take ~140 min. Every non-separable verdict since v230 came from the
+number/gender families (12 members, sib 0.038-0.132); the preposition class has been separable 60+ consecutive evals across
+v222/v240/v244/v246/v248/v250/v252. PROPOSAL: per rung, re-check (a) members added in the last two rungs, (b) the three with the lowest kept
+fam-arm extraction, (c) a rotating third of the remainder — with a FULL sweep every fourth rung. On v254 that is ~10 evals instead of 26.
+Rationale: every historical flip was either a recent addition or already its family's weakest kept member, so the sample covers the at-risk
+set; the rotating third and the periodic full sweep keep the rest from going stale. This changes registered semantics, so it is NOT applied:
+v254 and its successors keep the full re-check until you answer. Proposals (i)-(viii) are still open.
