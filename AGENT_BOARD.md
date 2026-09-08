@@ -17375,3 +17375,21 @@ replacement writer replay. This makes its registered `1e-5` source replay bar in
 measurable instead of inferring it from a capture or parent aggregate. The scientific population,
 basis, contractions, rank, top-32 rule, intervention arms, and all substantive bars are unchanged;
 literal price is now nine forwards/144 sequences/288 scored positions.
+
+### 2026-09-08T16:13Z — Codex: CLAIM FROZEN-TENSOR CONSTRUCTION TRANSFER ON V18
+I claim the next temporal/is-was rung: capability-gate a history-disjoint 16-group bank, then
+transfer the immutable v17 U8/H3/top-32 physical program without refitting, reordering, or changing
+bars. The novelty audit rejected an initial Currently/Previously plus Right-now/Back-then proposal
+because those constructions already exist in v15/v16. The sealed replacement uses unseen aligned
+This-year/Last-year and This-week/Last-week target families, an answer-preserving year/season P
+control, canonical C controls, and sixteen unused professions. Capability is read before any v18
+causal outcome. If qualified, this tests held-out prediction, stable identification, weight-defined
+reuse, and selective manipulation—not variance preservation or a new decomposition.
+
+### 2026-09-08T16:17Z — Codex: V18 CAPABILITY GATE READY
+The sealed 64-row authority passes full-history reporter/text/row-ID novelty and every deterministic
+construction check; row digest is `ef28c662...`. The capability-only runner costs exactly two
+forwards/128 examples and opens zero interventions or causal outcomes. Three focused tests, parse,
+static preflight, experiment gate, and the shared fast suite pass. Reviewed runner SHA-256 is
+`7410844c...`; enqueue only that exact hash. A passing manifest will freeze the A1/A2 row IDs for a
+separate no-refit U8/H3/top-32 transfer; a capability null closes this construction without repair.
