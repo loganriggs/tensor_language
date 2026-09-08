@@ -1,0 +1,109 @@
+{
+  "schema": "temporal_iswas_v20_hr_weight_capability_occupancy_causal_atlas_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_hr_weight_capability_occupancy_causal_atlas_v1",
+  "registered_utc": "2026-09-08T19:12:00Z",
+  "question": "After the exact M11 H/R split, what weight-defined computations can write into and read from the shared factor subspace, which of those capabilities are occupied on sealed corpora, and which complete heads/modules are causally necessary or jointly sufficient?",
+  "evidence_status": "Prospective analysis and causal-routing plan. It is sealed before the H/R result and before v21 capability opens. Weight geometry nominates interfaces; only held-out patch/reset/rescue and combination tests can promote edges.",
+  "motivation": {
+    "capability_vs_occupancy": "A decomposition fitted to activations describes the support actually visited by one corpus. A decomposition of the exact checkpoint tensor restricted to the shared subspace describes the computation the weights can implement, including inputs not represented in that corpus. Both are useful but answer different questions and must not be pooled.",
+    "shared_subspace": "When multiple tasks or circuit branches use the same subspace, translate the subspace back through literal checkpoint weights. The resulting writer, local-computation, and reader tensors expose which upstream components can write its coordinates, how M11 combines them, and which downstream interfaces can consume them.",
+    "causal_requirement": "Large restricted weight norm, low rank, sparse atoms, or activation frequency is not an edge claim. Full component interventions with exact no-op checks remain mandatory; distributed routes are tested by prospective greedy composition and, for a small frozen shortlist, exact effect-game Shapley interactions."
+  },
+  "authority": {
+    "m11_hr_split_prior_sha256": "b5d0300d8d88443c3afbe166077666710098d94010e85ac67d50078392462b5e",
+    "task_functional_tensor_result_sha256": "da97abea6f3dae8721c2cda383e0b7af844217051e199046a23c6b9c264da396",
+    "task_functional_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "v20_confirmation_result_sha256": "7d3981cf12ef8ff00f83ca0420e9a3d0787b57434f9c2dee86c8d96ee6c13a8e",
+    "checkpoint_revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "prior_complete_module_atlas_result": "temporal_iswas_v15_all_layer_complete_module_response_atlas_v1_result.json",
+    "prior_complete_head_atlas_result_sha256": "cf2427059f698eac94a9e733ff873e1892a49882f60bc587c3ac83c681507025",
+    "prior_adaptive_greedy_result": "temporal_iswas_v15_cross_boundary_adaptive_greedy_v1_result.json",
+    "prior_weight_interface_tolerance_audit": "temporal_iswas_v15_selected_head_projector_weight_interfaces_v2_tolerance_audit_result.json",
+    "prior_directed_reader_result": "temporal_iswas_v17_a11_m11_reader_loss_output_rescue_v1_result.json"
+  },
+  "collision_audit": {
+    "searched": [
+      "all temporal/is-was complete-module, complete-head, source-writer, reader-loss/rescue, greedy-composition, restricted-weight, and weight-interface records",
+      "v20 exact Q tensor, factorial state, scalar-gain, crossconstruction transfer, and sealed H/R split records",
+      "exact downstream effect-game and Shapley interaction notes/results"
+    ],
+    "known_coverage": "Earlier work supplies intervention machinery and shows that L8H1/L9H1/L9H4/L11H3 are material heads on v15, A11 and M11 are selective directed readers on v17, and weight rankings converge strongly on downstream L15H5 interfaces. The earlier adaptive whole-component greedy set had no small selective prefix, so the successor must be H/R-state-conditioned rather than repeat unconditional component addition.",
+    "novelty": "No existing artifact constructs separate writer-capability, local H/R-computation, and reader-capability tensors from the exact v20 factor state; decomposes those weight-restricted tensors independently of activation occupancy; or prospectively binds the resulting atoms to v21 full head/module interventions."
+  },
+  "frozen_analysis": {
+    "subspace_construction": {
+      "factor_basis": "From the immutable H/R artifact, construct orthonormal factor-coordinate bases separately for writer states H, reader states R, and coupled product states Q=sum_p H*R. Ranks are reported by complete singular spectra; no variance threshold selects a causal rank.",
+      "residual_translation": "Map each factor-coordinate basis through the literal M11 Down columns to a residual-stream basis, preserving the exact hidden-factor gauge by reporting projector- and contraction-invariant quantities.",
+      "gauge_rule": "Never compare raw H and R norms without paired normalization: hidden-factor rescaling H_n->a_n H_n and R_n->R_n/a_n leaves Q invariant. Primary objects are projectors, normalized interface maps, exact H*R contractions, and causal effects."
+    },
+    "weight_capability_tensors": {
+      "upstream_writers": "For every complete upstream attention head and MLP module, restrict its literal output map to the M11 writer-factor input forms. For bilinear hidden factors, retain both linear cross-terms induced by adding the component output to the base input; do not replace the finite intervention by a single local gradient.",
+      "local_computation": "Restrict the exact M11 bilinear factor tensor to the writer and reader bases. Report its full core, singular spectra of every unfolding, CP/Tucker diagnostics, sparsity of literal hidden-factor atoms, and hierarchical clustering of atoms by shared writer/read coordinates.",
+      "downstream_readers": "Restrict every later attention Q/K/V interface, MLP input interface, final normalization tangent, and answer-logit covector to the translated residual basis. Rank both raw and source-normalized interface maps, with scale-aware fp32 reconstruction checks.",
+      "normalization_boundary": "RMSNorm and QK-normalization make a global end-to-end weight contraction input-dependent. Weight-only maps therefore describe module/interface capability. Any claimed end-to-end path must use the live normalization intervention or a separately validated fixed-normalization instrument with its own no-op control."
+    },
+    "decomposition_ladder": [
+      "Exact SVD/HOSVD spectra and literal hidden-factor atoms first; these are deterministic and reconstructable.",
+      "Sparse dictionary or nonnegative/signed sparse coding on weight-induced atoms second, cross-validated by reconstruction on held-out atoms/interfaces rather than datapoints.",
+      "Hierarchical clustering or hierarchical sparse coding only if stable under bootstrap over components and factor gauges.",
+      "An activation SAE/PCA is an occupancy annotation, never the definition of the weight basis and never causal evidence by itself."
+    ],
+    "activation_occupancy_overlay": {
+      "method": "Project sealed v20 and, only after capability passes, sealed v21 H/R states into the frozen weight-defined coordinates. Report coordinate support, density, signs, joint occupancy, task sharing, and unseen-but-weight-available coordinates. Do not refit or rotate the weight basis on v21.",
+      "comparisons": "Separate coordinates shared across A1/A2/P/C, construction-specific coordinates, same-answer versus answer-changing use, and writer-only, reader-only, and coupled occupancy.",
+      "interpretation": "High capability with zero observed occupancy is a possible but currently unused computation. High occupancy with weak causal patch effect is correlated state. High capability, stable occupancy, and selective causal effect is a circuit interface candidate."
+    }
+  },
+  "causal_decision_tree": {
+    "reader_dominated_hr_outcome": {
+      "shortlist": "Use the frozen reader-capability ranking, seeded but not restricted by A11/M11 and L15H5. Run complete downstream module patches first, then every head within material attention modules and complete MLP output/input patches.",
+      "intervention": "On v21, replace or suppress the frozen reader-state coordinates while preserving the writer state; require target retention or transfer and P/C selectivity, exact self-patch no-op, matched random-subspace controls, and output rescue.",
+      "distributed_branch": "If no singleton reaches 0.30 of the selective effect but the union does, freeze all singleton scores and run forward greedy addition with backward necessity pruning. If the frozen shortlist has at most 12 routes, enumerate the exact source-effect game and pair interactions to distinguish redundancy from complementarity."
+    },
+    "writer_dominated_hr_outcome": {
+      "shortlist": "Use the frozen writer-capability ranking, seeded but not restricted by L7H7/L9H4. Run every complete upstream module patch, then all heads inside material attention modules and complete MLP writes into the M11 factor-driving coordinates.",
+      "intervention": "On v21, suppress same-answer/P writer coordinates or transplant answer-changing A1/A2 coordinates while keeping the downstream reader native; require target recovery, P/C suppression, self-patch no-op, matched-energy controls, and M11 output rescue.",
+      "distributed_branch": "Apply the same frozen forward-greedy, backward-pruning, and optional <=12-route exact effect-game protocol. Greedy eligibility is based on held-out selective effect, not weight norm alone."
+    },
+    "coupled_hr_outcome": {
+      "shortlist": "Treat the positionwise H*R product state as the semantic unit. Rank head/module pairs by their exact contribution to the restricted core rather than forcing a writer-only or reader-only edge.",
+      "intervention": "Patch paired writer and reader states at their native positions, plus writer-only and reader-only controls. A selective joint effect with null marginals is evidence for conditional computation, not failure to localize.",
+      "distributed_branch": "Greedy candidates are paired atoms or modules, and exact effect-game interactions are required before describing null singleton routes as redundant or complementary."
+    }
+  },
+  "frozen_reporting": {
+    "weight_capability": [
+      "complete spectra and reconstruction error",
+      "effective ranks without using them as selection thresholds",
+      "per-component normalized writer and reader scores",
+      "literal atom loadings and bootstrap/gauge stability",
+      "all normalization assumptions"
+    ],
+    "occupancy": [
+      "per-corpus coordinate frequency, magnitude, sign, and co-occurrence",
+      "shared-versus-task-specific support",
+      "capable-but-unobserved coordinates",
+      "no v21 refitting"
+    ],
+    "causality": [
+      "target recovery, cosine, residual, and row direction",
+      "P/C normalized movement, KL, and top-1 flips",
+      "singleton, union, greedy-prefix, backward-necessity, and pair-interaction effects",
+      "exact self-patch/no-op, hook coverage, finiteness, and price"
+    ]
+  },
+  "promotion_rule": "A computation enters the circuit only if its weight-defined interface is reconstructable and stable, its coordinate is occupied on held-out data or intentionally actuated, and a sealed complete-component or paired intervention changes the registered target while passing selectivity and no-op controls. Weight capability alone, activation decomposition alone, and greedy fit on the discovery bank are insufficient.",
+  "stop_rules": [
+    "Do not run activation-only PCA/SAE before the exact weight spectra and interface maps are reported.",
+    "Do not expand beyond the complete head/module atlas if no union effect exists.",
+    "Do not call a null singleton irrelevant when exact pair interactions show redundancy or complementarity.",
+    "Do not infer global computation from fixed-normalization algebra unless the fixed-normalization intervention independently closes.",
+    "Do not tune rank, sparsity, greedy eligibility, or causal dose on v21."
+  ],
+  "price": {
+    "weight_and_occupancy_stage": "CPU-only after the H/R artifact and checkpoint tensors are available; zero model forwards.",
+    "causal_stage": "Priced in a separate hash-bound v21 preregistration after H/R selects one branch; no causal outcome is opened by this plan."
+  },
+  "decision": "Execute the zero-forward capability/occupancy atlas immediately after the H/R result, use its registered outcome branch to author one v21 complete head/module patching experiment, and invoke greedy/Shapley interaction work only if the complete union is material but singleton localization is diffuse."
+}
