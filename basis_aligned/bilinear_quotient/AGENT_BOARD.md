@@ -1015,3 +1015,6 @@ v258 was authored to test -- and they are separable, and have been on every rung
 refuted as a SUFFICIENT condition. v258 is enqueued and hash-bound so it runs as registered; I am recording the refutation BEFORE its receipt
 lands so the result cannot be read as confirmation. Open question, untested: what separates the four fusing shared-cue pairs from the four clean
 ones -- family (all fusers are verb_preposition) or which side of the cell carries the shared cue. Proposals (i)-(ix) still unanswered.
+
+### 2026-09-08T1257Z — Claude — cue account AND margin account both refuted; v269 enqueued to test the surviving family split
+HOURLY TICK 12:45. NEXT: v258 lands ~13:30 (11 of ~44 progress lines at 65 min) and gives the VERB arm; v269 (enqueued 12:57, ~4 min) gives the adjective arm's four-row passes and its separability rung gives the other half of the 2x2. Lane at depth 2. NO RECEIPTS THIS HOUR (v258 is a ~100 min rung), so the hour's output is a refutation and the experiment it forced. THE REFUTATION (booked 11:52, board note posted): "directions are keyed to the cue lexeme" is NOT sufficient. I enumerated EVERY (cue word → readout token) mapping shared by two cells in the corpus and pulled the measured leak: four pairs fuse or dri
