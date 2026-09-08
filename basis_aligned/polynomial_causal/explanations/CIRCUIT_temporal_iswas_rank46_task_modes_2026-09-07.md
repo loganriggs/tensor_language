@@ -876,6 +876,16 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   singleton-sum error is only `.024-.057`, so the preregistered distributivity clause passes.  This
   does not retro-pass the failed singleton/module identification claim; it licenses the distributed
   three-head combination for the next joint composition test.
+- Distributed three-head joint composition:
+  `temporal_iswas_three_head_union_joint_composition_v1_result.json` (valid full license).  The
+  L9H1+L11H3+L15H5 union exactly reproduces its parent metrics and, when temporal and is-was swaps
+  are installed simultaneously at their distinct answer queries, preserves temporal recovery
+  `.706/.752` and is-was recovery `.523/.491`.  Every phase/template interaction ratio is at most
+  `.01130` and additive cosine is at least `.999936`; temporal output has exactly zero interaction,
+  later-to-earlier causal effect is exactly zero, and single-arm cross-role collateral remains
+  below `.00288`.  This identifies a shared physical three-head interface carrying task-typed
+  command states compositionally.  It does not identify any singleton module as sufficient and is
+  still a partial-effect circuit rather than a full behavioral replacement.
 
 ## Remaining gates
 
