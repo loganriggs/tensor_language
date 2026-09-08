@@ -850,6 +850,15 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   A successor may preserve an already capability-qualified temporal prefix exactly—causality makes
   its earlier-token margin invariant to any appended second clause—then test only whether the later
   is-was command survives the composition.
+- Common-gauge exact-weight interface atlas:
+  `temporal_iswas_common_gauge_weight_interface_atlas_v1_result.json` (full valid screen).  Despite
+  the rank-12 task-typed state, weight interfaces substantially overlap: is-was fold top-20 Jaccards
+  are `.8182` for readers and `.7391` for writers.  Six interfaces exceed fourfold isotropic
+  enrichment for temporal Q8 and both is-was folds: writers L9H1, L11H3, and L15H5, plus L11H3:v
+  and L15H5:q/q2 readers.  L11H3 is strongest for temporal writing (`24.38x`) and value reading
+  (`13.80x`); L15H5 is strongest for is-was writing (`12.51/12.54x`) and q2 reading
+  (`7.79/7.46x`).  This is exact physical weight compatibility and a sharply reduced intervention
+  set, not causal identification by itself.
 
 ## Remaining gates
 
