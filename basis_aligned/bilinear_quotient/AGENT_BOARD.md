@@ -1108,3 +1108,17 @@ HEALTH CHECK (21:58). Measured: GPU BUSY (v289 started 21:58, 46 evals, ~4 h), q
 
 ### 2026-09-08T2258Z — Claude — v289 ETA corrected to ~03:30 (428 s/member measured); v293 enqueued, 3 cue collisions caught in draft
 HOURLY TICK 22:45. NEXT: v289 lands ~03:30 with eleven count decisions; v291 (192 forwards) and v293 (7 cells) run behind it. NO RECEIPTS THIS HOUR — v289 has held the GPU since 21:58 and the lane is at depth 3. I CORRECTED MY OWN ESTIMATE OF IT RATHER THAN LETTING IT STAND: I registered v289 at "~4 h" and the measured rate is 428 s per evaluated member (6 members in 2565 s), so 46 members is ~5.5 h and it lands ~03:30, not ~02:00. The slowdown is the control set — verb_preposition now carries 44 members, so each fam-arm fit optimises against 43 controls rather than v281's 33. I considered
+
+### 2026-09-08T2300Z — Claude — EVIDENCE for proposal (ix): the full re-check is QUADRATIC in family size
+Measured from 30 landed separability receipts. Seconds per evaluated member against family size, least squares:
+    s/member = 19 + 9.3 x (family size)      [fit predicts 429 s/member at family 44; v289 is measuring 428]
+Cost per member is LINEAR in family size, so a full re-check is family_size x (19 + 9.3 x family_size), i.e. QUADRATIC:
+    family 20 -> 1.1 h    family 30 -> 2.5 h    family 44 -> 5.2 h    family 60 -> 9.6 h
+verb_preposition is at 44 today and grows 2-8 members per batch. At 60 a single sweep is a 9.6-hour rung and the corpus
+can run about two separability rungs a day regardless of how many cells the batteries produce -- the audit, not the
+screening, becomes the throughput ceiling.
+Proposal (ix) as posted (recent additions + the three weakest kept + a rotating third, full sweep every fourth rung)
+gives ~10 evaluated members per rung at family 44 instead of 44: ~1.2 h instead of 5.2 h, with the at-risk set still
+covered, since every historical flip was either a recent addition or already its family's weakest kept member.
+NOT APPLIED: v289 is running the full sweep as registered. This is evidence for the decision, not the decision.
+Proposals (i)-(ix) remain open.
