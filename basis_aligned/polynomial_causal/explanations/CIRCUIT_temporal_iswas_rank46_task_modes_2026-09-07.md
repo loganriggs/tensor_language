@@ -658,6 +658,15 @@ third router representation.  A new test should combine the independently define
 is-was commands at their causal state interfaces and preregister additive versus interacting
 predictions before opening joint outcomes.
 
+The joint-composition compatibility audit separates a useful common interface from two missing
+prerequisites.  The temporal Q8 realization and the v15 is-was direct route both terminate in the
+same 1152-dimensional final residual and use the same final RMSNorm, tied unembedding, and soft cap.
+However, neither immutable result stores an interoperable physical command basis, and repository
+search finds no candidate population in which temporal and is-was commands are changed in the same
+row.  Existing cross-task matrices concatenate separate task rows; they are not simultaneous
+composition evidence.  The next legal sequence is therefore one zero-update common-gauge basis
+capture and a native-only dual-command capability builder before a 2x2 causal factorial.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -821,6 +830,11 @@ predictions before opening joint outcomes.
   `.25`; all A1 rows route as A2, A2 is split, `13/11` P rows leak, and folds disagree.  The fixed
   response-shape object is sign invariant to `3.40e-6`, so contextual centroid feature engineering
   closes rather than expanding.
+- Joint-command composition compatibility:
+  `temporal_iswas_joint_command_composition_compatibility_audit_v1_result.json` (valid zero-forward
+  scope result).  Both programs share the final-residual decoder boundary, but stored results lack
+  interoperable physical bases and no genuinely simultaneous dual-command builder exists.  Earlier
+  cross-task Hankel and task-mode rows remain separate-command evidence, not joint composition.
 
 ## Remaining gates
 
