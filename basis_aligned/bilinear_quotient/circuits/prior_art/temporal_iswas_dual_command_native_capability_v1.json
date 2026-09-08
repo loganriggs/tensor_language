@@ -1,0 +1,31 @@
+{
+  "schema": "temporal_iswas_dual_command_native_capability_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.dual_command_native_capability_v1",
+  "registered_utc": "2026-09-08T04:39:00Z",
+  "question": "Does the native model correctly express both temporal will/had and present/past is/was choices at their two teacher-forced positions across every cell of a same-sequence 2x2 command factorial?",
+  "authority": {
+    "builder_logical_sha256": "05f04d6438a0eb8d503cedeba752cb4196a20f935782b9a6f65f7539e28b0e8e",
+    "builder_file_sha256": "9a5430ed0527f4ebd8bda64eace1e4c6ce6c61afe2e99c5c3143a8fcafc9fe3c",
+    "compatibility_audit_sha256": "dcae033128e12903242aca03acb1cd4a53b493dba9f9554fb826553519903563"
+  },
+  "prior_art": {
+    "searched": ["temporal iswas joint command", "dual command capability", "finite causal Hankel", "task rank4 joint source factorial", "same sequence auxiliary factorial"],
+    "active_claim_collision": false,
+    "known_lessons": "Prior cross-task artifacts concatenate separate task rows and therefore do not establish simultaneous composition. Both task programs do share the final-residual decoder. Capability must be established before causal intervention and must score both command positions rather than one aggregate margin.",
+    "novelty": "Each row is one natural two-clause sequence with independently crossed temporal and is-was cues and correct auxiliaries. Teacher-forced native logits are scored at both auxiliary positions for all four 00/10/01/11 cells."
+  },
+  "frozen_design": {
+    "population": "Sixteen lexical groups split 8 FIT/8 HOLDOUT and two fixed templates. Each row has four endpoints: future/present, past/present, future/past, and past/past, for 128 sequences total. No template or row is selected after outcomes.",
+    "outcomes": "At the temporal auxiliary position score correct will versus had; at the later copular position score correct is versus was. Report margins and correctness separately for every phase/template/joint-cell/role.",
+    "gate": "Every one of 32 phase x template x joint-cell x role cells must achieve at least 6/8 correct. FIT and HOLDOUT are both hard gates; aggregation cannot hide a failed command or composition cell.",
+    "price": {"model_forwards": 1, "sequence_evaluations": 128, "scored_token_positions": 256, "transformer_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_positions_finiteness_and_exact_price": "Builder hashes, 32-row/128-sequence inventory, exact answer-token positions, finite logits/margins, model configuration, and literal price pass.",
+    "pred_b_fit_every_joint_cell_and_role_is_capable": "Every FIT template x joint-cell x temporal/iswas role cell has >=6/8 correct.",
+    "pred_c_holdout_every_joint_cell_and_role_is_capable": "Every HOLDOUT template x joint-cell x temporal/iswas role cell has >=6/8 correct.",
+    "pred_d_dual_command_license_is_issued": "A/B/C all pass and all 32 rows are licensed without filtering."
+  },
+  "decision": "A/B/C/D licenses the exact 2x2 joint causal factorial after common-gauge basis capture. Any failed cell is an honest native capability null; do not filter rows or templates post hoc. This stage opens no causal outcome.",
+  "closed_claims": ["joint causal additivity", "command-basis reuse", "joint selectivity", "OOD generality", "adoption"]
+}
