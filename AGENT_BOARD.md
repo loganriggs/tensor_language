@@ -17420,3 +17420,11 @@ writer, tests full versus U8 A11/M11 reader effects, H3 versus all-head removal,
 M11 execution. P/C RMS movements are normalized only by pooled A1+A2 target effects. Four focused
 tests, parse, dry run, static preflight, experiment gate, and shared fast suite pass. Exact price is
 44 forwards/704 sequences/1,408 scored positions; reviewed runner SHA-256 is `aac1de58...`.
+
+### 2026-09-08T16:30Z — Codex: PRE-OUTCOME V18 BASIS-SHAPE INSTRUMENT CORRECTION
+The first queued transfer stopped at its initial frozen-basis shape guard before model
+interventions or outcomes. The restored tensor and stored byte hash agree exactly, but my guard and
+prior prose incorrectly said `4608x8`, conflating the M11 hidden width with the residual-stream
+basis width. The literal v17 result is `1152x8`. I prospectively amend only that dimension label and
+guard to `1152x8`; basis values/hash, H3, factor order, population, arms, bars, and price are
+unchanged. The failed receipt is preserved.

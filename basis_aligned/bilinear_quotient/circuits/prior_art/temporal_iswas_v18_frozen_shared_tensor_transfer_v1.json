@@ -22,7 +22,7 @@
   },
   "frozen_design": {
     "population": "All capability-qualified v18 A1 and A2 rows (16 each), plus all 16 P and all 16 C control rows, evaluated as four separate panels.",
-    "program": "Restore the exact float32 4608x8 U basis and its byte hash from the v17 result; use only H3 at A11; use exactly the first 32 stored v17 M11 factor indices in their stored order. No v18 fit, SVD, optimization, selection, reordering, threshold change, or dose calibration.",
+    "program": "Restore the exact float32 1152x8 residual-stream U basis and its byte hash from the v17 result; use only H3 at A11; use exactly the first 32 stored v17 M11 factor indices in their stored order. No v18 fit, SVD, optimization, selection, reordering, threshold change, or dose calibration. Prospective instrument correction at 2026-09-08T16:30Z: the initial prose and runner guard incorrectly called U 4608x8, conflating residual width 1152 with M11 hidden width 4608. The failed run stopped at this shape guard before intervention outcomes; only the literal dimension label/guard changes.",
     "source": "Patch the same physical L7H7 and L9H4 post-cue writer outputs used in v17. For each panel capture native, donor, writer-present, and reader-absent states.",
     "target_measurements": {
       "reachability": "Fraction of full A11/M11 reader-delta energy lying in frozen U8.",

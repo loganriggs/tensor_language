@@ -33,7 +33,7 @@ BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v18
 OUT = ROOT / "circuits/followups/temporal_iswas_v18_frozen_shared_tensor_transfer_v1_result.json"
 CANDIDATE_ID = "cross_task.temporal_iswas.v18_frozen_shared_tensor_transfer_v1"
 EXPECTED = {
-    "prior": "6cf7d4d07026a1e55a110cd393e705bbea785710c055ce4c93a6ddf5c5adc0b3",
+    "prior": "a49b048d7250485c7b87e2ff24ddb5990abe3392b62080e5223d16a7f1ea1786",
     "tensor_result": "f267b3ebbe151077f0aa44939e6f01e78fc8ae30e85d9b52e0858383ef893972",
     "head_result": "7fa315b84f71f267c3ed4cea67231cbad9dd0ef2b5ad25a3b18133fc6a6e9c85",
     "capability_result": "e2f5a4368303a867646e6df7f67e3c64e98a3b3eb9a742ea7714ab413678020b",
@@ -245,7 +245,7 @@ def main():
     basis_hash = hashlib.sha256(basis_cpu.contiguous().numpy().tobytes()).hexdigest()
     basis_roundtrip_error = float((basis_cpu - torch.tensor(
         basis_record["values"], dtype=torch.float32).reshape(basis_record["shape"])).abs().max())
-    if basis_cpu.shape != (4608, RANK) or basis_hash != basis_record["sha256"]:
+    if basis_cpu.shape != (1152, RANK) or basis_hash != basis_record["sha256"]:
         raise RuntimeError("frozen v17 basis did not restore exactly")
     factor_order = tuple(int(index) for index in tensor_result["M11_factor_order"])
     if len(factor_order) < TOP or len(set(factor_order[:TOP])) != TOP:
