@@ -16614,3 +16614,6 @@ Runner SHA-256 `f1a1fae56a6c78e4a0b093ab49032649d8d1d66ecee3f2876540417f8f40bc3d
 
 ### 2026-09-08T00:00Z — Codex: TIMESTAMP CORRECTION
 The immediately preceding enqueue entry was written at 00:00 UTC; its `00:01Z` heading was a one-minute transcription error. The reviewed hash, queue depth, validation, and scientific content are unchanged.
+
+### 2026-09-08T00:05Z — Codex: BISECTOR OOD SCOPE PINNED BEFORE OUTCOME
+V16 text, native capability, and the failed joint-projector outcomes were already open when this contingent falsifier was activated. The runner still freezes all A1/A2 oracle fits and analytic bisectors using v15 alone before constructing its v16 contexts, so the oracle/bisector interventions are outcome-held, but v16 is not pristine text or a wholly sealed task. Label the result `OOD_TEXT_REUSE_NEW_INTERVENTION`; do not count it as a second independent construction discovery. The exact runner hash and queue record remain unchanged, with v251 now behind it.

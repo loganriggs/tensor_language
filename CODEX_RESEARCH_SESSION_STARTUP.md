@@ -147,6 +147,11 @@ at reviewed SHA-256 `f1a1fae56a6c78e4a0b093ab49032649d8d1d66ecee3f2876540417f8f4
 After confirming that hash and the current managed queue, enqueue it through `ops/enqueue.sh`; do
 not run it directly.
 
+Scope its v16 evidence as `OOD_TEXT_REUSE_NEW_INTERVENTION`: v16 text, native capability, and the
+failed joint-projector response were already open, although the new oracle/bisector intervention
+is frozen entirely from v15 before its v16 contexts are constructed.  It is intervention-held, not
+a new pristine task discovery.
+
 Do not overstate the exact-weight result.  A hash-bound zero-model path audit proved that every
 current DAS outcome clamps the complete attention-15 donor head output after layer-15 Q/K/V has
 been computed.  Thus the causal projector effect can travel through the residual skip/MLP15 and
