@@ -23,12 +23,15 @@ class MediationContractError(ValueError):
     pass
 
 
-def absolute_head_hybrid(torch, background, head_source, *, head, semantic_positions):
-    """Return ``background`` with one head copied from ``head_source`` on-prefix."""
+def absolute_head_set_hybrid(torch, background, head_source, *, heads, semantic_positions):
+    """Return ``background`` with selected heads copied from ``head_source`` on-prefix."""
     if background.shape != head_source.shape or background.ndim != 4:
         raise MediationContractError("head captures must be equal [batch, token, head, width] tensors")
-    batch, tokens, heads, _width = background.shape
-    if not 0 <= int(head) < heads:
+    batch, tokens, n_heads, _width = background.shape
+    selected = tuple(int(head) for head in heads)
+    if not selected or len(selected) != len(set(selected)):
+        raise MediationContractError("selected heads must be nonempty and unique")
+    if any(not 0 <= head < n_heads for head in selected):
         raise MediationContractError("selected head is out of range")
     if len(semantic_positions) != batch:
         raise MediationContractError("semantic-position count must equal batch size")
@@ -37,22 +40,34 @@ def absolute_head_hybrid(torch, background, head_source, *, head, semantic_posit
         stop = int(stop)
         if not 0 <= stop < tokens:
             raise MediationContractError("semantic position is out of range")
-        result[row, : stop + 1, int(head)] = head_source[row, : stop + 1, int(head)].to(result)
+        result[row, : stop + 1, selected] = head_source[row, : stop + 1, selected].to(result)
     return result
 
 
-def build_absolute_cells(torch, upstream_off, upstream_on, *, head, semantic_positions):
+def absolute_head_hybrid(torch, background, head_source, *, head, semantic_positions):
+    """Backward-compatible singleton wrapper around :func:`absolute_head_set_hybrid`."""
+    return absolute_head_set_hybrid(
+        torch, background, head_source, heads=(head,), semantic_positions=semantic_positions)
+
+
+def build_absolute_set_cells(torch, upstream_off, upstream_on, *, heads, semantic_positions):
     """Build the four absolute response tensors for the mediation intervention."""
     return {
-        "00": absolute_head_hybrid(
-            torch, upstream_off, upstream_off, head=head, semantic_positions=semantic_positions),
-        "01": absolute_head_hybrid(
-            torch, upstream_off, upstream_on, head=head, semantic_positions=semantic_positions),
-        "10": absolute_head_hybrid(
-            torch, upstream_on, upstream_off, head=head, semantic_positions=semantic_positions),
-        "11": absolute_head_hybrid(
-            torch, upstream_on, upstream_on, head=head, semantic_positions=semantic_positions),
+        "00": absolute_head_set_hybrid(
+            torch, upstream_off, upstream_off, heads=heads, semantic_positions=semantic_positions),
+        "01": absolute_head_set_hybrid(
+            torch, upstream_off, upstream_on, heads=heads, semantic_positions=semantic_positions),
+        "10": absolute_head_set_hybrid(
+            torch, upstream_on, upstream_off, heads=heads, semantic_positions=semantic_positions),
+        "11": absolute_head_set_hybrid(
+            torch, upstream_on, upstream_on, heads=heads, semantic_positions=semantic_positions),
     }
+
+
+def build_absolute_cells(torch, upstream_off, upstream_on, *, head, semantic_positions):
+    """Backward-compatible singleton cell builder."""
+    return build_absolute_set_cells(
+        torch, upstream_off, upstream_on, heads=(head,), semantic_positions=semantic_positions)
 
 def _vector(values, name):
     result = tuple(float(value) for value in values)

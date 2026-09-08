@@ -19,6 +19,17 @@ def test_absolute_cells_have_reset_and_rescue_semantics_only_on_prefix():
     assert torch.equal(cells["10"][:, :, 2], on[:, :, 2])
 
 
+def test_module_cells_share_the_singleton_semantics_for_all_heads():
+    off = torch.zeros(1, 3, 3, 2)
+    on = torch.ones_like(off)
+    cells = contract.build_absolute_set_cells(
+        torch, off, on, heads=(0, 1, 2), semantic_positions=(1,))
+    assert torch.equal(cells["01"][:, :2], on[:, :2])
+    assert torch.equal(cells["01"][:, 2:], off[:, 2:])
+    assert torch.equal(cells["10"][:, :2], off[:, :2])
+    assert torch.equal(cells["10"][:, 2:], on[:, 2:])
+
+
 def test_decomposition_separates_rescue_bypass_and_interaction_exactly():
     result = contract.decompose_margin_cells({
         "00": [0.0, 1.0], "01": [2.0, 4.0],
@@ -47,6 +58,12 @@ def test_shape_position_and_cell_schema_fail_closed():
         contract.build_absolute_cells(torch, value, value, head=1, semantic_positions=(2,))
     with pytest.raises(contract.MediationContractError):
         contract.decompose_margin_cells({"00": [0.0]})
+    with pytest.raises(contract.MediationContractError):
+        contract.build_absolute_set_cells(
+            torch, value, value, heads=(), semantic_positions=(1,))
+    with pytest.raises(contract.MediationContractError):
+        contract.build_absolute_set_cells(
+            torch, value, value, heads=(1, 1), semantic_positions=(1,))
 
 
 def test_nonfinite_and_length_mismatch_fail_closed():
