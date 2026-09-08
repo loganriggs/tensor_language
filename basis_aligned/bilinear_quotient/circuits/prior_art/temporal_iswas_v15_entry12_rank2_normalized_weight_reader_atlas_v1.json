@@ -1,0 +1,37 @@
+{
+  "schema": "temporal_iswas_v15_entry12_rank2_normalized_weight_reader_atlas_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_entry12_rank2_normalized_weight_reader_atlas_v1",
+  "registered_utc": "2026-09-08T02:43:00Z",
+  "question": "Which exact upstream weight tensors write into the causally sufficient entry-12 rank-two span, and which downstream input tensors read its target intervention after RMS normalization?",
+  "authority": {
+    "entry12_basis_result_sha256": "ffaec3f0bede415f7b9b1664ae7ddf1667978dc26f42cfa2f81e9c82f0f77467",
+    "required_basis_prediction": "pred_b_construction_union_is_target_sufficient",
+    "v16_lookup_audit_sha256": "92abdb1d7f17ee253288c5dd92cc2369dd3950e21a582b00c95d0b04816a8054",
+    "required_lookup_terminal": "unseen_signature_default_off"
+  },
+  "prior_art": {
+    "searched": ["selected head projector weight interfaces", "construction oracle weight convergence", "attention15 mediation bypass", "RMSNorm Jacobian reader map", "entry12 response basis"],
+    "active_claim_collision": false,
+    "known_lessons": "Raw WU alignment nominated L15H5 but the causal module atlas found only a small bypassed side channel. The entry12 construction union is causally sufficient, but its coordinates are not semantic and the v15 token gate fails fresh lexical OOD. Weight geometry must therefore include normalization and remain a nomination, not identification.",
+    "novelty": "Translate the complete-state causal span, rather than head-local DAS axes, through all literal upstream writers and downstream readers using raw, exact RMS-Jacobian, and exact finite normalized responses on held states."
+  },
+  "frozen_design": {
+    "basis": "For each held parity, reconstruct the rank-at-most-two construction union from only the opposite parity exactly as in the published entry12 basis screen. Require rank two and replay its registered singular geometry.",
+    "target_delta": "For each held A1/A2 panel, project that expert's complete entry12 source-minus-off semantic-prefix delta through UU^T. This is the basis-invariant finite perturbation used for reader rankings.",
+    "downstream_readers": "At attention inputs for layers 12-17 and post-attention MLP inputs, evaluate every head-specific Q/K/Q2/K2/V matrix and every MLP Left/Right matrix. Report normalized strengths for raw W delta, W J_rms(x) delta, and W(rms(x+delta)-rms(x)), tangent/exact fidelity, raw-versus-exact rank changes, and fold/panel top-interface overlap.",
+    "upstream_writers": "For layers 0-11, rank every attention-head output block U^T W_O,h and every MLP down matrix U^T W_Down by scale-normalized Frobenius response. This is literal weight support, not a causal ancestry claim.",
+    "state_conditioning": "Use every token through the semantic position in each held target row. Attention base states include the block's exact recurrent lambda mixture with x0; MLP base states are the exact post-attention residuals. RMS epsilon equals the model dtype default and is checked by autograd tests.",
+    "controls": "Bind all authorities, require train/held row disjointness, rank-two orthogonality and geometry replay, exact finite metrics, actual model configuration, no fitting updates, and literal forward/load price. Preserve all nulls and the L15H5 causal caveat.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 6, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 1400, "fit_parameters": 0, "checkpoint_loads": 1}
+  },
+  "predictions": {
+    "pred_a_authority_geometry_finiteness_and_price": "All hashes, dispositions, row splits, rank-two geometry, RMS derivative tests, model config, finite metrics, and literal price pass.",
+    "pred_b_raw_and_exact_normalized_rankings_differ": "At least one held panel/fold has raw-versus-exact top-ten reader overlap <=0.8, confirming raw W delta is not an adequate reader atlas.",
+    "pred_c_rms_tangent_tracks_exact_finite_response": "At least 90% of downstream interfaces in every panel/fold have tangent/exact cosine >=0.95 and relative L2 <=0.25.",
+    "pred_d_exact_reader_nominations_are_fold_stable": "For each construction, exact-strength rankings have cross-fold Spearman >=0.50 and top-ten overlap >=0.40.",
+    "pred_e_a_shared_exact_reader_is_nominated": "At least one identical downstream interface occurs in the exact top ten for A1 and A2 in both held folds.",
+    "pred_f_known_oracle_sources_write_into_the_span": "In both folds at least three of L8H1, L9H1, L9H4, and L11H3 rank in the top quartile of upstream writers."
+  },
+  "decision": "A failure invalidates. B measures the normalization correction. C determines whether Jacobian maps suffice or exact secants are required. D/E nominate stable shared reader interfaces for one preregistered causal input-mediation atlas; failure closes static weight nomination. F connects, but cannot causally identify, upstream oracle sources. No weight-only outcome licenses adoption or semantic OOD claims.",
+  "closed_claims": ["causal downstream reader identity", "causal upstream ancestry", "semantic coordinate identity", "v16 routing", "compression", "adoption"]
+}
