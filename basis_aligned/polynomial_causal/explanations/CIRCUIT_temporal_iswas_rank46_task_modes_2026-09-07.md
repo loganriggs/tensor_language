@@ -966,12 +966,25 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   zero.  Recipient-native attention routing therefore transports most of the task-specific value
   effect; donor QK changes are a small temporal modulation, not a shared command subspace.  The
   next object is the exact native-routing bilinear source term, not another hybrid-factor sweep.
+- L11H3 exact native-routing source-term extraction:
+  `temporal_iswas_l11h3_native_routing_source_term_extraction_v1_result.json` (valid full
+  extraction license).  For every destination, the explicit tensor
+  `(1-lambda_11) sum_{j in R} ((q_i·k_j)/128)((q2_i·k2_j)/128) delta_v_j` reproduces the
+  independently observed c_v-patch L11H3 preprojection delta with maximum absolute error
+  `9.54e-6` and relative L2 `1.20e-7`.  Adding that tensor directly to the native L11H3
+  preprojection slice, with no c_v hook, reproduces selected answer logits within `8.59e-6` and
+  every phase/template causal effect at recovery `.9999988-1.0000004`, cosine at least
+  `.99999999999`, and residual at most `4.52e-6`.  Command-gold replay error and later-to-earlier
+  causal effect are zero; collateral is at most `.00474`.  Four 128x128 query-tensor banks with
+  row, query, and source metadata are stored and checksummed in the result.  This is an exact,
+  directly executable, original/OOD-stable interface—not a fitted subspace—and it opens physical
+  upstream writer translation through L11H3 W_v.
 
 ## Remaining gates
 
-1. Extract the exact native-routing bilinear source term for the stable task-typed L11H3 value
-   regions and install it directly at the head interface. L15H5 q/q2 weight enrichment is closed
-   as a causal reader explanation for this program.
+1. Translate the extracted L11H3 source tensor through its exact W_v read matrix to prospectively
+   nominate upstream attention/MLP writers, then test those components causally at the locked
+   source positions. L15H5 q/q2 weight enrichment is closed as a causal reader explanation.
 2. Test whether an explicit H4/L11-value interface plus native
    background predicts that signed loss rather than inferring extraction from donor swaps.
 3. Retain the stable is-was fold pair and all failed registered claims rather than selecting a

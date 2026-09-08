@@ -141,8 +141,12 @@ temporal selects the unchanged bridge and is-was selects postcue.  The follow-up
 q/k/q2/k2 factorial has now passed A/B/C/E with D false, terminal `stable_routing_invariant`.
 Is-was donor routing changes the value-parent effect by only 5.6--8.1%; temporal selects k+q+q2
 but the full routing change is only 8.1--12.3% of the value parent.  Recipient-native attention
-routing therefore carries most of the stable value effect.  The immediate continuation is an
-exact native-routing bilinear source-term extractor with direct head-interface installation.
+routing therefore carries most of the stable value effect.  The exact native-routing source-term
+extractor has since passed all gates: its formula matches the c_v-patch head delta within `9.54e-6`
+and direct L11H3 interface installation matches selected logits within `8.59e-6` on original and
+OOD text.  Four checksummed 128x128 query-tensor banks are stored in the result.  The immediate
+continuation is exact upstream writer-weight translation through L11H3 W_v followed by a causal
+source-position module/head screen.
 
 At this checkpoint `gpt-6-astra` is the configured Codex default and is visible in the account
 catalog.  Both `bqrunner` services are Supervisor-managed and healthy; their queues are currently
