@@ -1,0 +1,72 @@
+{
+  "schema": "temporal_iswas_selected_writer_block10_direct_residual_add_remove_prior_v1_conditional",
+  "candidate_id": "cross_task.temporal_iswas.selected_writer_block10_direct_residual_add_remove_v1",
+  "registered_utc": "2026-09-08T10:59:00Z",
+  "status": "conditional_unbound",
+  "execution_condition": "Open only if the immutable residual-skip x module-response factorial result passes A and B and prediction C is true on original FIT and HOLDOUT. Bind only that result's SHA-256 and exact prediction/terminal object after it lands; do not change this file's interventions, populations, bars, nulls, or price.",
+  "question": "Does the exact block-10 residual identity carrier transport through physical suffix weights to the final residual, remain predictive on OOD text, and support selective addition and removal?",
+  "novelty": "Prospective application of the already validated entry12 recurrent-product identity to the compact L7H7+L9H4 writer's newly selected block-10 boundary, with paired direct-add=R1M0 and direct-remove=R0M1 controls on original and OOD rows.",
+  "fixed_writer": {
+    "role": "iswas",
+    "heads": ["L07H07", "L09H04"],
+    "source_region": "postcue",
+    "entry_boundary": 10,
+    "final_boundary": 18,
+    "skip_gain": "product of checkpoint transformer.h[l].lambdas[0] for l=10,...,17"
+  },
+  "populations": {
+    "selection": ["original:FIT"],
+    "validation": ["original:HOLDOUT", "ood:FIT", "ood:HOLDOUT"],
+    "rule": "No population, phase, row, coordinate, threshold, or coefficient may be reselected after the factorial or after any direct-route arm is observed."
+  },
+  "arms": {
+    "native": "Ordinary native run; capture x10 and x18.",
+    "writer": "Ordinary compact-writer run; capture x10 and x18.",
+    "R1M0_dynamic": "Writer x10 with all A10--M17 outputs clamped native.",
+    "R0M1_dynamic": "Native x10 with all A10--M17 outputs clamped writer.",
+    "native_x18_self_patch": "Install captured native x18 into the native final residual boundary.",
+    "direct_add": "Install native x18 + g10*(writer x10-native x10) at the final residual boundary.",
+    "direct_remove": "Install writer x18 - g10*(writer x10-native x10) at the final residual boundary."
+  },
+  "bars": {
+    "authority_and_parent_replay_max_abs_error": 0.00001,
+    "native_final_self_patch_max_abs_logit_error": 0.00001,
+    "direct_add_vs_R1M0_max_abs_logit_error": 0.00001,
+    "direct_remove_vs_R0M1_max_abs_logit_error": 0.00001,
+    "direct_state_relative_l2_diagnostic_max": 0.05,
+    "ood_direct_add_signed_recovery_min": 0.5,
+    "ood_direct_add_cosine_min": 0.9,
+    "ood_direct_add_direction_min": 0.9,
+    "identity_removal_signed_fraction_min": 0.5,
+    "identity_removal_direction_min": 0.9,
+    "temporal_command_gold_collateral_max": 0.01
+  },
+  "predictions": {
+    "pred_a_authority_condition_pairing_capture_self_patch_finiteness_and_exact_price": "All immutable authorities and the future factorial binding match; writer replay, x10/x18 capture, semantic positions, native final self-patch, finiteness, and exact price pass.",
+    "pred_b_direct_add_matches_dynamic_identity_carriage": "On original FIT/HOLDOUT and OOD FIT/HOLDOUT, direct-add matches dynamic R1M0 within the logit bar and the scale-relative state diagnostic.",
+    "pred_c_direct_remove_matches_dynamic_module_response": "On all four cells, direct-remove matches dynamic R0M1 within the logit bar and the scale-relative state diagnostic.",
+    "pred_d_frozen_identity_route_predicts_ood_writer_behavior": "On original HOLDOUT and both OOD phases, direct-add passes the registered recovery, cosine, and direction bars against the compact writer effect.",
+    "pred_e_identity_carriage_is_selectively_manipulable": "On original HOLDOUT and both OOD phases, direct removal eliminates at least half of the compact writer effect in the registered direction while every nonnative arm stays below the temporal-command collateral bar."
+  },
+  "nulls": {
+    "invalid": "If A fails, no scientific prediction is interpreted.",
+    "arithmetic_or_hook_failure": "If B or C fails, the direct physical route is not established; repair only a proven instrument defect without changing scientific bars.",
+    "ood_instability": "If B/C pass but D fails, the exact identity exists on the measured boundary but is not a stable OOD circuit route.",
+    "nonselective_or_redundant": "If B--D pass but E fails, identity carriage is sufficient but not independently necessary/selective under this intervention family; preserve redundancy or nonlinear readout interaction rather than claiming removal."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 14,
+    "sequence_evaluations": 1792,
+    "scored_token_positions": 3584,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "prior_art": {
+    "closest_same_task": "temporal_iswas_v15_entry12_rank2_direct_residual_final_head_route_v1_result.json passes the entry12 suffix-product law and P/C selectivity.",
+    "dynamic_direct_control": "temporal_auxiliary_will_had_h3_rank8_weight_direct_residual_route_v2_result.json matches a dynamic all-module clamp within 2.861e-6 logits.",
+    "excluded": "temporal_iswas_v15_entry12_rank2_normalized_weight_reader_atlas_v1_result.json is terminal invalid because it used 10 differentiable forwards against a frozen maximum of 6."
+  },
+  "anti_rank_drift": "No DAS, fitted projector, rank, reconstruction, variance, or compression objective is used. The tested object is an exact causal residual route with OOD prediction and physical add/remove manipulation."
+}
