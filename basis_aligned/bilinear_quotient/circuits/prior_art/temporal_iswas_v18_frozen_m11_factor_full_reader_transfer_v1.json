@@ -1,0 +1,56 @@
+{
+  "schema": "temporal_iswas_v18_frozen_m11_factor_full_reader_transfer_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v18_frozen_m11_factor_full_reader_transfer_v1",
+  "registered_utc": "2026-09-08T16:37:16Z",
+  "question": "Do the immutable v17 weight-defined M11 factor prefixes causally explain the full v18 M11 reader effect even though the fixed residual U8 does not transfer?",
+  "prior_art": {
+    "searched": [
+      "v17 restricted-weight tensor and top-32 causal executor",
+      "v18 frozen U8/H3/top-32 transfer result and both preserved pre-result instrument failures",
+      "temporal/is-was hidden-unit masks, source graphs, and weight compiler records",
+      "AGENT_BOARD, BILIN18_CONNECTION, BENCHMARK_BACKLOG, and canonical temporal dossier"
+    ],
+    "known_result": "V18 rejects a single global U8: M11 reachability is .435/.462 and causal recovery .559/.509. H3 and selectivity transfer, while frozen top-32 factors recover 1.119/.866 of only the U8-mediated M11 effect. That does not establish their recovery of the complete construction-specific M11 effect.",
+    "novelty": "No test has applied the fixed v17 M11 factor order to the full v18 writer-present versus writer-absent reader delta. This separates a stable discrete weight computation from a construction-specific residual coordinate system without fitting v18."
+  },
+  "authority": {
+    "v18_transfer_result_sha256": "d26dca30ef08287587aca6c43cd5c1161c5f6d21ee0a4e9dcff22e68311276dc",
+    "v17_tensor_result_sha256": "f267b3ebbe151077f0aa44939e6f01e78fc8ae30e85d9b52e0858383ef893972",
+    "v18_capability_result_sha256": "e2f5a4368303a867646e6df7f67e3c64e98a3b3eb9a742ea7714ab413678020b",
+    "v18_builder_sha256": "44a51b3370bcf59f9cb5b17e5d63ac1cfdba3e883072112a49ec2f92ba78ae2a"
+  },
+  "frozen_design": {
+    "population": "The same 16 A1, 16 A2, 16 P, and 16 C v18 rows and exact suffix-aligned L7H7/L9H4 writer patch as the valid transfer result.",
+    "program": "Use exactly the stored v17 M11 factor order. At the full writer-present M11 input, compute each native bilinear hidden-unit response relative to the writer-absent M11 input, retain frozen prefixes K in [1,2,4,8,16,32,64,128], and project through the corresponding literal Down columns. No U8 projection, v18 fit, factor reorder, dose, or parameter selection.",
+    "arms": "Per panel: native/donor/writer capture; independent writer replay; M11 reader absent; eight fixed factor-prefix output arms; and an all-4608-hidden formula arm that must exactly reproduce the captured complete M11 output.",
+    "measurements": "For A1 and A2, each prefix's output-margin vector is compared with full M11 reader loss by signed recovery, cosine, residual, and direction. On P/C, top-32 and top-128 RMS movements are separately normalized by their pooled A1+A2 target-effect RMS.",
+    "bars": {
+      "writer_replay_max_abs": 0.00001,
+      "all_hidden_output_max_abs": 0.00001,
+      "top32_signed_recovery_minimum": 0.7,
+      "top32_cosine_minimum": 0.95,
+      "top128_signed_recovery_minimum": 0.8,
+      "top128_cosine_minimum": 0.95,
+      "target_direction_minimum": 0.875,
+      "P_or_C_top32_or_top128_normalized_effect_maximum": 0.25
+    },
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 56,
+      "sequence_evaluations": 896,
+      "scored_token_positions": 1792,
+      "intervention_arms_per_panel": 11,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_formula_replay_hook_coverage_finiteness_and_exact_price": "All authorities and rows match, writer replay and all-hidden M11 formula close within 1e-5, hooks are exact, values finite, and execution costs 56 forwards/896 sequences/1792 scored positions with no fitting.",
+    "pred_b_frozen_top32_factors_explain_full_M11_on_both_new_constructions": "On A1 and A2, top-32 signed recovery/cosine is at least .70/.95 and direction agreement at least .875.",
+    "pred_c_frozen_top128_factors_explain_most_full_M11_on_both_new_constructions": "On A1 and A2, top-128 signed recovery/cosine is at least .80/.95 and direction agreement at least .875.",
+    "pred_d_frozen_factor_program_remains_selective_on_P_and_C": "For P and C separately, normalized RMS movement of both top-32 and top-128 is at most .25.",
+    "pred_e_no_U8_refit_reorder_or_v18_selection": "The executor never consumes v18 outcomes to fit, reorder, select, or calibrate factors; all eight prefixes are reported in their frozen order."
+  },
+  "decision": "B passing promotes a compact construction-general discrete M11 factor program despite the rotating residual basis. Only C passing yields a broader <=128-factor program. If both fail with valid A, the stable object is H3/native boundaries rather than the v17 restricted-tensor factor hierarchy; do not refit this order on v18. D failure marks the factor program nonselective."
+}

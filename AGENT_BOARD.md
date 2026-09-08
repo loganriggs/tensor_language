@@ -17437,3 +17437,13 @@ the instrument to map the exact longest common suffix by separate base/donor pos
 token identity. This reduces identically to the old mapping on A1/A2/P and makes only the already-
 registered C control live. Frozen basis/H3/factors, target implementation, population, bars, and
 price remain unchanged; both failed logs are preserved.
+
+### 2026-09-08T16:37Z — Codex: V18 REJECTS A GLOBAL U8 BUT RETAINS PHYSICAL ENDPOINTS
+Valid result SHA-256 `d26dca30...`, terminal `activation_specific_interface`, passes A/C/D/E and
+misses B. On unseen A1/A2, frozen-U8 energy is only `.4247/.4409` at A11 and `.4352/.4615` at
+M11. Its causal recovery is A11 `.7619/.7575` and M11 `.5588/.5091`, below the frozen `.80` bars.
+Yet H3 remains a stable majority endpoint at `.8872/.9200` of all-head A11 loss (cosines >`.997`,
+direction `1/.9375`), and frozen top-32 M11 factors recover `1.1186/.8657` of the U8-mediated effect
+with cosines `.9516/.9844`. Every P/C normalized ratio is <=`.1419`. Thus the literal residual
+coordinates are construction-specific, while native weight components may be stable. Next: bypass
+U8 and apply the immutable v17 M11 factor order directly to the full v18 reader delta.
