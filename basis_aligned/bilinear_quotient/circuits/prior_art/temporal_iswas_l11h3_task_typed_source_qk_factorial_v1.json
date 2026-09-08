@@ -1,0 +1,47 @@
+{
+  "schema": "temporal_iswas_l11h3_task_typed_source_qk_factorial_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.l11h3_task_typed_source_qk_factorial_v1",
+  "registered_utc": "2026-09-08T07:04:00Z",
+  "question": "Which of L11H3's two bilinear query/key branches routes the command-specific values from the locked temporal-bridge and is-was-postcue source regions?",
+  "authority": {
+    "localization_replay_audit_result_sha256": "04ae7f940a4677b71801cfc2d3d40f60911fa52007ece2561796f66c1f54372f",
+    "invalid_localization_result_sha256": "74d7e51e227c9799bb6e079edff1fb8b5c49e9e6725960958e0269e19d74882e",
+    "reader_factor_result_sha256": "5a1f121d82d799292613d7e386a3d16429457c80ba55a56aaca58a3386118b9b"
+  },
+  "prior_art_search": {
+    "terms": [
+      "L11H3 q k q2 k2 factorial",
+      "Task14 fronted self QK factorial",
+      "L11H3 value source key routing"
+    ],
+    "closest": "task14_head11_3_ood_fronted_self_qk_factorial_v1 is a 16-corner algebra precedent on a different task and self-source term. It did not test the temporal/is-was H4 program, the bridge/postcue source regions, or value-source transfer.",
+    "novelty": "First exact four-factor routing screen conditioned on the causally identified L11H3 value reader and its two prospectively locked semantic source regions."
+  },
+  "frozen_design": {
+    "populations": "Use every 128 endpoint in the original and fresh OOD banks. Preserve phase, template, cell, group, and exact command-counterfactual pairings. Temporal source is locked to bridge; is-was source is locked to postcue. No source reselection is allowed.",
+    "corners": "For each role, keep donor L11H3 c_v installed at the locked source positions in every arm. Evaluate all 16 masks over q,k,q2,k2. Donor q/q2 slices are installed only at the role answer query; donor k/k2 slices are installed only at the locked source positions. Mask 0000 is the licensed selected-value parent and 1111 is the full donor-routing corner.",
+    "algebra": "Compute the exact four-factor Mobius expansion and Shapley vectors of the 0000-to-1111 downstream command-margin response. Require reconstruction error <=1e-8. These are interventions on the multilinear extension; q versus k labels are descriptive until a natural-counterfactual confirmation passes.",
+    "fit_selection": "On pooled original FIT separately by role, order factors by descending Shapley-vector L2 norm with fixed q,k,q2,k2 tie order. Select the shortest prefix whose norm mass is at least 80 percent of total. If the full-routing delta norm is below 10 percent of the 0000 parent norm, report routing_invariant and select no factor.",
+    "validation": "Without reselection, the selected-mask delta must recover at least .50 of the full-routing delta with cosine >=.80 and direction agreement >=.75 on original HOLDOUT and both OOD phases. The 0000 value parent must reproduce the audit-recovered localization validations to 1e-5.",
+    "shared_partner": "The two roles share a routing partner only if their selected factor sets are identical and both validate. Otherwise preserve task-typed routing or a stable routing-invariant result.",
+    "selectivity": "Every 0000/selected/1111 panel has cross-role/gold norm <=.01; is-was arms change the earlier temporal margin by <=1e-5.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 66,
+      "sequence_evaluations": 8448,
+      "scored_token_positions": 16896,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_pairing_parent_replay_factor_coverage_finiteness_and_exact_price": "All authorities, locked regions, 16-corner coverage, hook counts, 0000 parent replay, finiteness, and literal price pass.",
+    "pred_b_four_factor_mobius_and_shapley_accounting_is_exact": "Every response vector reconstructs to <=1e-8 and Shapley efficiency holds.",
+    "pred_c_fit_selected_routing_partner_validates_original_and_ood": "Every non-invariant role's original-FIT-selected factor subset passes all frozen validation bars without reselection; an invariant role satisfies the registered small-delta clause everywhere.",
+    "pred_d_temporal_and_iswas_share_one_routing_partner": "Both roles are non-invariant and select the same q/k factor subset, which validates everywhere.",
+    "pred_e_routing_factorial_is_task_selective_and_causal": "All collateral and later-to-earlier causal-zero bars pass."
+  },
+  "null": "If A or B fails, the instrument is invalid. If C fails, the q/k factor identity is not stable and no partner is claimed. If D alone fails, preserve separate task-typed routing partners. A routing-invariant terminal means native value transfer does not require command-varying q/k factors under this paired intervention; it does not mean attention routing is absent.",
+  "decision": "A/B/C/E with D true identifies a shared routing-factor subset for the two task-typed values. A/B/C/E with D false identifies stable task-typed routing or routing invariance. Either result sharpens the L11H3 computation before extraction; it does not reopen DAS, source positions, or L15 q/q2."
+}

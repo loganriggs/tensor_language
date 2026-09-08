@@ -940,11 +940,25 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   interaction is at most `.01043`.  H4 is therefore selectively manipulable under a frozen
   contrast-removal edit, in addition to being sufficient for high-recovery swaps.  Standalone
   extraction and literal simplicity remain open.
+- L11H3 value source-region localization and replay audit:
+  `temporal_iswas_l11h3_value_source_region_localization_v1_result.json` remains immutably
+  `invalid` because its A gate compared parent-relative full-effect cosine (exactly one) with the
+  reader-factor receipt's command-gold cosine.  The separately registered three-forward audit
+  `temporal_iswas_l11h3_value_source_region_localization_v1_replay_audit_result.json` reproduces
+  the reported erroneous maximum exactly (`.028743869178895265`) while every like-for-like
+  command-gold metric and both already-stored command-gold fields replay with zero error.  The
+  audit therefore licenses the frozen B--E evidence without changing the original terminal or A:
+  semantic regions compose with low error, pre-cue is inert, both selected regions validate on
+  original HOLDOUT and both OOD phases, and the source routes are task typed.  Temporal selects
+  the unchanged bridge (`.996` original HOLDOUT; `1.026/1.029` OOD FIT/HOLDOUT), whereas is-was
+  selects postcue (`.843`; `.849/.852`), all with direction `1.0` and high cosine.  L11H3:value is
+  now localized to stable but different semantic source regions; its query/key routing partner
+  remains untested.
 
 ## Remaining gates
 
-1. Localize the source positions and any key-side partner for the identified L11H3 value route.
-   L15H5 q/q2 weight enrichment is now closed as a causal reader explanation for this program.
+1. Identify the query/key routing partner for the stable task-typed L11H3 value source regions.
+   L15H5 q/q2 weight enrichment is closed as a causal reader explanation for this program.
 2. Test whether an explicit H4/L11-value interface plus native
    background predicts that signed loss rather than inferring extraction from donor swaps.
 3. Retain the stable is-was fold pair and all failed registered claims rather than selecting a

@@ -128,14 +128,17 @@ pending in the 05:55 handoff:
   largely cancels.  Preserve that falsification; do not use the dominant L11 effect to rescue the
   L15 interpretation.
 
-The newest source-localization receipt,
+The source-localization receipt,
 `basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_l11h3_value_source_region_localization_v1_result.json`,
 returned terminal `invalid`.  Its region selections (`bridge` for temporal and `postcue` for
-is-was) are not yet claimable because prediction A failed: the runner compared a parent-relative
+is-was) were initially unclaimable because prediction A failed: the runner compared a parent-relative
 full-effect cosine to an older command-gold cosine, producing an apparent replay error.  Preserve
-the immutable invalid receipt.  The immediate continuation is a small hash-bound replay audit
-that recomputes the like-for-like command-gold metrics before interpreting B--E; do not silently
-change A or retro-pass the original result.
+the immutable invalid receipt and do not change A or retro-pass it.  The separately registered
+three-forward replay audit has now passed with zero like-for-like error and exactly reproduced the
+`.028743869178895265` mixed-target error.  It licenses interpretation of the already-frozen B--E
+outcomes: the value-source partition is compositional and stable on OOD text, but task typed;
+temporal selects the unchanged bridge and is-was selects postcue.  The immediate continuation is
+the frozen query/key routing-partner test for those two regions.
 
 At this checkpoint `gpt-6-astra` is the configured Codex default and is visible in the account
 catalog.  Both `bqrunner` services are Supervisor-managed and healthy; their queues are currently
