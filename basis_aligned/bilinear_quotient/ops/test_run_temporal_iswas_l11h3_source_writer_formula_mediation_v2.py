@@ -4,6 +4,7 @@ from pathlib import Path
 import subprocess
 import sys
 
+import numpy as np
 import torch
 
 import run_temporal_iswas_l11h3_source_writer_formula_mediation_v2 as target
@@ -37,6 +38,26 @@ def test_formula_zero_delta_is_zero():
         [[0], [1]], Rotary(), torch, torch.nn.functional)
     assert result.shape == (batch, tokens, 128)
     assert torch.count_nonzero(result) == 0
+
+
+def test_general_formula_matches_licensed_paired_donor_formula():
+    class Rotary:
+        lamb = .2
+        def rotary(self, value):
+            shape = (value.shape[1], value.shape[-1] // 2)
+            return torch.ones(shape), torch.zeros(shape)
+    torch.manual_seed(20260908)
+    batch, tokens = 2, 3
+    native = {name: torch.randn(batch, tokens, 9 * 128)
+              for name in ("q", "k", "q2", "k2", "v")}
+    pairs = np.asarray([1, 0], dtype=np.int64)
+    source_rows = [[0, 1], [1]]
+    attention = Rotary()
+    expected, _pattern, _mask = target.source.native_routing_delta(
+        native, attention, pairs, source_rows, torch, torch.nn.functional)
+    observed = target.recipient_native_source_formula(
+        native, native["v"][pairs], source_rows, attention, torch, torch.nn.functional)
+    assert torch.equal(observed, expected)
 
 
 def test_prediction_inventory_matches_gate_marker():
