@@ -182,3 +182,8 @@ def test_bilinear_writer_capability_exactly_replays_finite_substitution_and_is_g
         mlp, writer @ writer_rotation, read_rotation.T @ read)
     assert abs(result["scores"]["cross"] - rotated["scores"]["cross"]) < 1e-4
     assert abs(result["scores"]["self"] - rotated["scores"]["self"]) < 1e-4
+    scaled = subject.bilinear_mlp_writer_capability(mlp, 3 * writer, 2 * read)
+    assert abs(result["scores"]["cross_normalized"]
+               - scaled["scores"]["cross_normalized"]) < 1e-6
+    assert abs(result["scores"]["self_normalized"]
+               - scaled["scores"]["self_normalized"]) < 1e-6

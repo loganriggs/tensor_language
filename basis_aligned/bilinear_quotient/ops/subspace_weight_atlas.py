@@ -324,7 +324,16 @@ def bilinear_mlp_writer_capability(mlp, writer_map, read_map):
     cross = (torch.einsum("an,ni,nk->aik", output, left, right_write)
              + torch.einsum("an,ni,nk->aik", output, right, left_write))
     self_term = torch.einsum("an,nk,nl->akl", output, left_write, right_write)
+    output_norm = float(torch.linalg.matrix_norm(output))
+    cross_bound = output_norm * (
+        float(torch.linalg.matrix_norm(left)) * float(torch.linalg.matrix_norm(right_write))
+        + float(torch.linalg.matrix_norm(right)) * float(torch.linalg.matrix_norm(left_write)))
+    self_bound = (output_norm * float(torch.linalg.matrix_norm(left_write))
+                  * float(torch.linalg.matrix_norm(right_write)))
+    cross_score, self_score = (float(torch.linalg.vector_norm(value))
+                               for value in (cross, self_term))
     return {"cross": cross, "self": self_term, "left_write": left_write,
             "right_write": right_write, "read_down": output,
-            "scores": {"cross": float(torch.linalg.vector_norm(cross)),
-                       "self": float(torch.linalg.vector_norm(self_term))}}
+            "scores": {"cross": cross_score, "self": self_score,
+                       "cross_normalized": cross_score / cross_bound if cross_bound else 0.0,
+                       "self_normalized": self_score / self_bound if self_bound else 0.0}}
