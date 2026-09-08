@@ -18,6 +18,7 @@ def test_price_and_unbound_dryrun_are_model_free():
         capture_output=True, text=True, env=dict(os.environ, BQLIB_DRYRUN="1"))
     payload = json.loads(completed.stdout)
     assert payload["awaiting_binding"] is True
+    assert payload["base_authority_ok"] is True
     assert payload["gpu_accessed"] is False
     assert payload["model_loaded"] is False
     assert payload["price"]["model_forwards"] == 18

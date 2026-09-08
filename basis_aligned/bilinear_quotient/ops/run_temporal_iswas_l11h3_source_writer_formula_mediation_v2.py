@@ -18,6 +18,7 @@ from circuit_fast_screen_managed_runner import atomic_create_json
 import dual_command_head_module_factorial_contract as accounting
 import run_temporal_iswas_l11h3_native_routing_source_term_extraction_v1 as source
 import run_temporal_iswas_l11h3_source_tensor_upstream_head_factorial_v1 as parent
+import run_temporal_iswas_l11h3_source_writer_weight_ordered_greedy_v1 as greedy_contract
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +29,7 @@ GREEDY = ROOT / "circuits/followups/temporal_iswas_l11h3_source_writer_weight_or
 EXTRACTOR_RESULT = ROOT / "circuits/followups/temporal_iswas_l11h3_native_routing_source_term_extraction_v1_result.json"
 GREEDY_RUNNER = ROOT / "ops/run_temporal_iswas_l11h3_source_writer_weight_ordered_greedy_v1.py"
 SOURCE_RUNNER = ROOT / "ops/run_temporal_iswas_l11h3_native_routing_source_term_extraction_v1.py"
+SELF = Path(__file__).resolve()
 OUT = ROOT / "circuits/followups/temporal_iswas_l11h3_source_writer_formula_mediation_v2_result.json"
 EXPECTED = {
     "prior_v1": "fd8a531168d098b99189e7aff21596c11eff5d88aeacb9ca321f28bd417b456a",
@@ -50,6 +52,21 @@ PREDICTION_KEYS = (
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def bound_authority_ok(observed, binding, greedy):
+    required_predictions = tuple(greedy_contract.PREDICTION_KEYS[index]
+                                 for index in (0, 1, 2, 4))
+    return bool(observed == EXPECTED
+        and binding.get("candidate_id") ==
+            "cross_task.temporal_iswas.l11h3_source_writer_formula_mediation_v2"
+        and binding.get("conditional_prior_sha256") == EXPECTED["prior_v1"]
+        and binding.get("price_amendment_sha256") == EXPECTED["prior_v2"]
+        and binding.get("mediation_runner_sha256") == sha(SELF)
+        and binding.get("greedy_result_sha256") == sha(GREEDY)
+        and binding.get("selected_prefixes") == greedy.get("selected_prefixes")
+        and all(greedy.get("selected_prefixes", {}).get(role) for role in parent.LOCKED)
+        and all(greedy.get("predictions", {}).get(key) is True for key in required_predictions))
 
 
 def forward_with_l11_capture(backend, tokens, *, head_captures=None,
@@ -215,12 +232,13 @@ def main():
     awaiting_binding = not BINDING.exists() or not GREEDY.exists()
     dry = {"candidate_id": "cross_task.temporal_iswas.l11h3_source_writer_formula_mediation_v2",
            "dryrun": True, "awaiting_binding": awaiting_binding, "gpu_accessed": False,
-           "model_loaded": False, "queue_touched": False, "price": PRICE}
+           "model_loaded": False, "queue_touched": False, "price": PRICE,
+           "base_authority_ok": observed == EXPECTED}
     if os.environ.get("BQLIB_DRYRUN") == "1" or os.environ.get("BQLIB_NO_MODEL") == "1":
         if not awaiting_binding:
             binding = json.loads(BINDING.read_text())
-            dry["authority_ok"] = bool(observed == EXPECTED
-                and sha(GREEDY) == binding.get("greedy_result_sha256"))
+            greedy = json.loads(GREEDY.read_text())
+            dry["authority_ok"] = bound_authority_ok(observed, binding, greedy)
             dry["selected_prefixes"] = binding.get("selected_prefixes")
         print(json.dumps(dry, sort_keys=True))
         return
@@ -229,12 +247,7 @@ def main():
     binding, greedy = json.loads(BINDING.read_text()), json.loads(GREEDY.read_text())
     selected_heads = {role: tuple(greedy["selected_prefixes"][role]["heads"])
                       for role in parent.LOCKED}
-    authority_ok = bool(observed == EXPECTED
-        and sha(GREEDY) == binding.get("greedy_result_sha256")
-        and binding.get("selected_prefixes") == greedy.get("selected_prefixes")
-        and greedy.get("predictions", {}).get(
-            "pred_c_selected_prefixes_validate_without_reselection") is True
-        and all(greedy.get("selected_prefixes", {}).get(role) for role in parent.LOCKED))
+    authority_ok = bound_authority_ok(observed, binding, greedy)
     if not authority_ok:
         raise RuntimeError("mediation authority or selected-prefix binding changed")
     if OUT.exists():
