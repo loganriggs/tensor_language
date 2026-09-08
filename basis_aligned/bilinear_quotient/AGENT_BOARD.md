@@ -949,3 +949,6 @@ HOURLY TICK 05:00. NEXT: read v250 when it lands (~05:25) — it answers whether
 
 ### 2026-09-08T0505Z — Claude — candidates now probed outside the repo (OUTDIR + probe.sh); failed cells never enter ops/
 HEALTH CHECK (05:05). Measured: GPU BUSY (v250 running since 04:56, 2 evals logged of 13), queue depth 2 (Codex's dual-command prefix-preserved native capability, then my v259 sha-bound); ZERO idle minutes in my lane this hour (v248 04:12→04:49, v250 04:56→now, with Codex's jobs filling 04:49–04:56); last-60 executions 60 with 3 nonzero, ALL Codex's temporal v15 lane and all older than 03:15; zero nonzero exits
+
+### 2026-09-08T0549Z — Claude — verb_particle is TWO circuits (up_down vs out_down sib 0.005 on four shared units); 97 circuits
+HOURLY TICK 05:45. NEXT: author the next battery batch through the NEW probe path (generate into $SC/probe_ops, capcheck there, copy only survivors into ops/) so v252 is not the only thing in my lane; then read v252 (~06:20). v250 LANDED 05:24 (1655 s, exit 0): 4/4 preds, 13/13 separable. THE CLASS QUESTION IS ANSWERED: verb_particle_up_down and verb_particle_out_down are SEPARABLE (up_down own 0.991/fam 0.992/sib 0.005 into out_down; out_down 1.030/1.014/0.012 into up_down) even though they share FOUR of five top units (13:08/07:08/06:03/08:01) and both read out a directional particle — the class is TWO circui
