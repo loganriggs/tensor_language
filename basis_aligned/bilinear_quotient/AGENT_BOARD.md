@@ -998,3 +998,6 @@ HEALTH CHECK (09:52). Measured: GPU BUSY (v256 running since 09:51, 20 evals und
 
 ### 2026-09-08T1057Z — Claude — v267 enqueued: 5 cue-reuse cells, each predicted to FUSE with the sibling whose cue it borrows
 HOURLY TICK 10:45. NEXT: v256 lands ~11:50 (14 of 40 progress lines at 66 min) and decides one side of the cue-lexeme hypothesis; v267 runs behind it (~4 min) and sets up the other side. Lane at DEPTH 3 — the deepest today — so nothing waits on me until v256's receipt. NO RECEIPTS THIS HOUR (v256 is a 2 h rung), so the hour's output is the experiment that tests this morning's finding. v267 ENQUEUED 10:57: FIVE cells that each REUSE ONE CUE VERB from a counted verb_preposition sibling, at the same preposition, with a readout pair new to the corpus —
+
+### 2026-09-08T1059Z — Claude — probe path now validates specs with no model load (verified on known-bad and known-good)
+HEALTH CHECK (10:58). Measured: GPU BUSY (v256 running 67 min, 14 of ~40 progress lines), queue depth 3 (two Codex jobs + my v267, sha-bound) — the deepest my lane has been today and nothing waits on me until v256's receipt ~11:50; last-60 executions 60 with 3 nonzero (all Codex's, all older than 03:15); nothing new in runlogs/failed since 03:14; zero nonzero exits in my lane today; preflight clean on every enqueue
