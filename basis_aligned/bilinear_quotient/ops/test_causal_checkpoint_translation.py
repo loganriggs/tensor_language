@@ -216,6 +216,55 @@ def test_shared_context_component_weights_are_explicit_and_certified():
     assert torch.equal(first_heavy["component_weights"], torch.tensor([1.0, 0.1]))
 
 
+def test_shared_context_reports_each_component_instead_of_only_pooled_fit():
+    first = torch.tensor([[2.0], [0.0]])
+    second = torch.tensor([[0.0], [1.0]])
+    report = target.optimal_shared_context_subspace(
+        (first, second), rank=1, component_weights=(10.0, 1.0)
+    )
+    assert torch.allclose(torch.stack(report["component_energy"]),
+                          torch.tensor([4.0, 1.0]))
+    assert torch.allclose(torch.stack(report["component_captured_energy_fraction"]),
+                          torch.tensor([1.0, 0.0]), atol=1e-6)
+
+
+def test_shared_context_leave_one_out_requires_transfer_to_every_component():
+    torch.manual_seed(110)
+    common, _ = torch.linalg.qr(torch.randn(8, 2))
+    maps = tuple(common @ torch.randn(2, width) for width in (3, 5, 7, 9))
+    report = target.shared_context_leave_one_out(
+        maps, rank=2, component_weights=(1.0, 2.0, 3.0, 4.0)
+    )
+    assert len(report["folds"]) == 4
+    assert report["worst_heldout_captured_energy_fraction"] > 1.0 - 2e-6
+    for fold in report["folds"]:
+        assert fold["training_certificate_absolute_error"] < 2e-5
+
+    rotated = []
+    for value in maps:
+        private_rotation, _ = torch.linalg.qr(torch.randn(value.shape[1], value.shape[1]))
+        rotated.append(value @ private_rotation)
+    rotated_report = target.shared_context_leave_one_out(
+        rotated, rank=2, component_weights=(1.0, 2.0, 3.0, 4.0)
+    )
+    assert torch.allclose(
+        report["worst_heldout_captured_energy_fraction"],
+        rotated_report["worst_heldout_captured_energy_fraction"],
+        atol=2e-5, rtol=2e-5,
+    )
+
+
+def test_shared_context_leave_one_out_exposes_a_nonshared_component():
+    maps = (
+        torch.tensor([[2.0], [0.0], [0.0]]),
+        torch.tensor([[3.0], [0.0], [0.0]]),
+        torch.tensor([[0.0], [0.0], [4.0]]),
+    )
+    report = target.shared_context_leave_one_out(maps, rank=1)
+    assert report["folds"][2]["heldout_captured_energy_fraction"] < 1e-6
+    assert report["worst_heldout_captured_energy_fraction"] < 1e-6
+
+
 @pytest.mark.parametrize("rank", (0, 7, 8, 1.5))
 def test_shared_context_subspace_rejects_bad_rank(rank):
     with pytest.raises(target.CausalCheckpointTranslationError):
@@ -226,6 +275,11 @@ def test_shared_context_subspace_rejects_bad_rank(rank):
 def test_shared_context_subspace_rejects_bad_component_sequence(maps):
     with pytest.raises(target.CausalCheckpointTranslationError):
         target.optimal_shared_context_subspace(maps, rank=1)
+
+
+def test_shared_context_leave_one_out_rejects_a_single_map():
+    with pytest.raises(target.CausalCheckpointTranslationError):
+        target.shared_context_leave_one_out((torch.ones(4, 2),), rank=1)
 
 
 @pytest.mark.parametrize("weights", ((1.0,), (1.0, 0.0), (1.0, float("nan"))))

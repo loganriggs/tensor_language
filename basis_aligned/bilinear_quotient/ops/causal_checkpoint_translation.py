@@ -226,6 +226,12 @@ def optimal_shared_context_subspace(head_maps, *, rank, component_weights=None):
     tail_parts = tuple(value - common for value, common in zip(maps, common_parts))
     squared_error = sum(weights[index] * value.square().sum()
                         for index, value in enumerate(tail_parts))
+    component_energy = tuple(value.square().sum() for value in maps)
+    component_squared_error = tuple(value.square().sum() for value in tail_parts)
+    component_relative_squared_error = tuple(
+        error / energy.clamp_min(1e-30)
+        for error, energy in zip(component_squared_error, component_energy)
+    )
     certified_optimum = singular_values[rank:].square().sum()
     total = sum(weights[index] * value.square().sum()
                 for index, value in enumerate(maps)).clamp_min(1e-30)
@@ -242,11 +248,86 @@ def optimal_shared_context_subspace(head_maps, *, rank, component_weights=None):
         "private_tails": tails,
         "singular_values": singular_values,
         "relative_squared_error": squared_error / total,
+        "component_energy": component_energy,
+        "component_squared_error": component_squared_error,
+        "component_relative_squared_error": component_relative_squared_error,
+        "component_captured_energy_fraction": tuple(
+            1.0 - value for value in component_relative_squared_error
+        ),
         "optimal_squared_error_certificate": certified_optimum,
         "certificate_absolute_error": (squared_error - certified_optimum).abs(),
         "boundary_spectral_gap": gap,
         "private_widths": tuple(int(value.shape[1]) for value in maps),
         "component_weights": weights,
+    }
+
+
+def shared_context_leave_one_out(head_maps, *, rank, component_weights=None):
+    """Test whether a fixed-rank common context transfers to every omitted component.
+
+    Each fold learns the context projector from all but one map and scores the omitted
+    map by its unweighted captured Frobenius-energy fraction. Component weights affect
+    only the training objective. This is a zero-forward stability diagnostic: callers
+    must still freeze the rank/weights prospectively and test causal interchange.
+    """
+    if isinstance(head_maps, torch.Tensor):
+        _finite_tensor("head_maps", head_maps, minimum_rank=3)
+        if head_maps.ndim != 3:
+            raise CausalCheckpointTranslationError(
+                "head_maps must be a rank-three tensor or matrix sequence")
+        maps = tuple(head_maps.unbind(0))
+    elif isinstance(head_maps, (list, tuple)):
+        maps = tuple(head_maps)
+    else:
+        raise CausalCheckpointTranslationError(
+            "head_maps must be a rank-three tensor or matrix sequence")
+    if len(maps) < 2:
+        raise CausalCheckpointTranslationError(
+            "leave-one-out transfer requires at least two component maps")
+
+    pooled = optimal_shared_context_subspace(
+        maps, rank=rank, component_weights=component_weights
+    )
+    weights = pooled["component_weights"]
+    folds = []
+    for heldout_index, heldout in enumerate(maps):
+        training_maps = tuple(
+            value for index, value in enumerate(maps) if index != heldout_index
+        )
+        training_weights = torch.stack(tuple(
+            weights[index] for index in range(len(maps)) if index != heldout_index
+        ))
+        training = optimal_shared_context_subspace(
+            training_maps, rank=rank, component_weights=training_weights
+        )
+        heldout_value = heldout.float()
+        basis = training["basis"]
+        tail = heldout_value - basis @ (basis.transpose(0, 1) @ heldout_value)
+        energy = heldout_value.square().sum()
+        squared_error = tail.square().sum()
+        relative_error = squared_error / energy.clamp_min(1e-30)
+        folds.append({
+            "heldout_index": heldout_index,
+            "basis": basis,
+            "heldout_energy": energy,
+            "heldout_squared_error": squared_error,
+            "heldout_relative_squared_error": relative_error,
+            "heldout_captured_energy_fraction": 1.0 - relative_error,
+            "training_optimal_squared_error_certificate":
+                training["optimal_squared_error_certificate"],
+            "training_certificate_absolute_error":
+                training["certificate_absolute_error"],
+        })
+    captured = torch.stack(tuple(
+        fold["heldout_captured_energy_fraction"] for fold in folds
+    ))
+    return {
+        "rank": rank,
+        "component_weights": weights,
+        "folds": tuple(folds),
+        "mean_heldout_captured_energy_fraction": captured.mean(),
+        "worst_heldout_captured_energy_fraction": captured.min(),
+        "pooled_report": pooled,
     }
 
 

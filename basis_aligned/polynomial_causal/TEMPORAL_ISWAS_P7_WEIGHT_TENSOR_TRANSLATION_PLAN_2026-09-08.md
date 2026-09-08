@@ -145,6 +145,11 @@ row/token dimensions and implements PyTorch `Linear` orientation explicitly:
   attention readers, or wider MLP readers must be preregistered rather than silently inherited from
   their private widths. A nonzero boundary spectral gap certifies uniqueness of the projector, not a
   semantic rank or causal group; those still require an unopened intervention authority.
+- `shared_context_leave_one_out` fits that same fixed-rank projector on all but one component and
+  reports the omitted component's captured physical energy. This prevents a strong pooled optimum
+  from hiding one sacrificed head, task, or reader. It remains zero-forward and gauge invariant on
+  private component coordinates; rank and component weights must be frozen prospectively, and even
+  perfect held-out weight transfer only nominates a later causal interchange test.
 
 The focused tests compare the head result with the full patched `c_proj` difference, compare the
 factor definitions byte-for-byte with the frozen M11 executor, prove full bilinear closure through
