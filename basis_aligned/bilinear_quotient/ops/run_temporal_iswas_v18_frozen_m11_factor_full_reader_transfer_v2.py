@@ -15,8 +15,8 @@ PRIOR = ROOT / "circuits/prior_art/temporal_iswas_v18_frozen_m11_factor_full_rea
 V1_RESULT = ROOT / "circuits/followups/temporal_iswas_v18_frozen_m11_factor_full_reader_transfer_v1_result.json"
 OUT = ROOT / "circuits/followups/temporal_iswas_v18_frozen_m11_factor_full_reader_transfer_v2_result.json"
 EXPECTED = {
-    "base_runner": "107ce8b51294e0a74b07016352dc55968369b6dc8612423979229dee49105253",
-    "prior": "ad803dae9bd31e8ff0495e935aab515cec1173606fc52e2efc87072f998e600f",
+    "base_runner": "bc0159be82d26f84d6e7fbf48abd6133033fda0444217c3180d8a8bf8982b279",
+    "prior": "a4e6c8c470d927bc9bf170892e997122d58100bb1dbf366f3cfa4e5f36589076",
     "v1_result": "d0764a416da08395fbec24361104f46883061ff7b4639e1f01aaf8102a57867e",
 }
 PREDICTION_KEYS = (

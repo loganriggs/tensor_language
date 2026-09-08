@@ -34,7 +34,7 @@ OUT = ROOT / "circuits/followups/temporal_iswas_v18_frozen_m11_factor_full_reade
 CANDIDATE_ID = "cross_task.temporal_iswas.v18_frozen_m11_factor_full_reader_transfer_v1"
 RESULT_SCHEMA = "temporal_iswas_v18_frozen_m11_factor_full_reader_transfer_result_v1"
 EXPECTED = {
-    "prior": "ad803dae9bd31e8ff0495e935aab515cec1173606fc52e2efc87072f998e600f",
+    "prior": "a4e6c8c470d927bc9bf170892e997122d58100bb1dbf366f3cfa4e5f36589076",
     "transfer_result": "d26dca30ef08287587aca6c43cd5c1161c5f6d21ee0a4e9dcff22e68311276dc",
     "tensor_result": "f267b3ebbe151077f0aa44939e6f01e78fc8ae30e85d9b52e0858383ef893972",
     "capability_result": "e2f5a4368303a867646e6df7f67e3c64e98a3b3eb9a742ea7714ab413678020b",
