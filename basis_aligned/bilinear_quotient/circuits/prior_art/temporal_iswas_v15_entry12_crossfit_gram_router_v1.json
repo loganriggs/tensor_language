@@ -15,7 +15,7 @@
     "router": "Training-feature z-score with floor 1e-8 followed by deterministic cosine nearest centroids for A1, A2, and off=(P union C), fit on opposite parity only. No hyperparameters or outcome selection.",
     "causal_program": "Select A1 delta, A2 delta, or zero, project through the fixed construction union, and install at entry12. No held labels, logits, answer IDs, or downstream outcomes enter routing.",
     "controls": "Report feature distributions, reversal-invariance unit tests, held confusion, learned/gold/ungated programs, full/zero replays, and P/C KL/flips.",
-    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 24, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 2000, "fit_parameters": 21}
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 24, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 2000, "fit_parameters": 30}
   },
   "predictions": {
     "pred_a_authority_replay_scope_geometry_finiteness_and_price": "Hashes, direction-parity audit, sign-invariance tests, replays, crossfit, finite features, and literal price pass.",
