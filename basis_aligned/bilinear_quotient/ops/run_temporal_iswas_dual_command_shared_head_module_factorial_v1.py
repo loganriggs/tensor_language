@@ -87,7 +87,7 @@ def _forward(backend, tokens, *, capture_layers=(), captures=None, pairs=None,
                         for head in heads:
                             sl = slice(head * width, (head + 1) * width)
                             changed[index, position, sl] = donor[donor_index, donor_position, sl]
-                return (changed,)
+                return (changed,) + tuple(inputs[1:])
             handles.append(model.transformer.h[layer].attn.c_proj.register_forward_pre_hook(patch))
     try:
         x = F.rms_norm(model.transformer.wte(tokens), (model.config.n_embd,))
