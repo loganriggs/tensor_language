@@ -1,0 +1,58 @@
+{
+  "schema": "temporal_iswas_v20_frozen_top16_gain125_confirmation_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_frozen_top16_gain125_confirmation_v1",
+  "registered_utc": "2026-09-08T17:39:19Z",
+  "question": "Does the exact task-tangent top-16 M11 factor program at globally frozen gain 1.25 prospectively reproduce the writer-mediated M11 effect on two pristine v20 constructions while sparing controls?",
+  "evidence_status": "Prospective confirmation. V20 text and capability were sealed before causal access; the exact factor indices, gain, metrics, and bars come from prior v18/v19 work and cannot change here.",
+  "prior_art": {
+    "searched": [
+      "all temporal is/was M11 factor, hidden-mask, compiler, and construction-transfer records",
+      "v18 task-tangent factor result, v19 pristine confirmation, and fixed-gain retrospective calibration",
+      "all fresh-lexicon builders v1-v20 plus active board claims and canonical temporal dossier"
+    ],
+    "known_result": "The task-tangent top-16 has stable direction but unscaled recovery .843 on held-out v18 A2 and .664/.658 on pristine v19 A1/A2. Retrospective global gain 1.25 moves those panels to 1.053/.828/.822 with controls <=.139; that result explicitly cannot confirm itself.",
+    "novelty": "No causal, factor, gradient, gain, or subspace outcome on v20 has been used. This is the first no-refit test of the exact 16 indices and scalar compiler on the independently capability-gated v20 constructions."
+  },
+  "authority": {
+    "v20_capability_result_sha256": "d03534d18f9d3662e5765f7d79294f9ea5f45d09f59d891a093c1739bd20c2ef",
+    "v20_builder_sha256": "cafe9120c4ba8fdbeff27c5a2d05a247c2000641fd401529a4ca0a089137d1d9",
+    "task_tangent_result_sha256": "e0af6cc965d2d6a560dbde548e191268c77fcac7a5817ad54ea2ccaefe7050b7",
+    "fixed_gain_calibration_result_sha256": "a5b493763cea7fb0270f179a2f7e4cf5e8ca45354c037844d9d77ff6859d9b0e",
+    "fixed_gain_executor_sha256": "04c3f2877531b8c33aadc3dae953139ca41bee6a555a541b17fcd1d70117acba"
+  },
+  "frozen_design": {
+    "program": "Use exactly the first 16 stored task-tangent factor indices. At writer-present versus writer-absent M11 input, sum their exact native bilinear output deltas, multiply the sum by global scalar 1.25, add it to writer-absent M11 output, and continue the unchanged downstream checkpoint.",
+    "target_panels": "All 16 jointly capable rows in each v20 A1 and A2 panel.",
+    "controls": "All 16 v20 P and C rows, reported separately and normalized by pooled gain-1.25 target RMS.",
+    "linearity_falsifier": "Compare the complete downstream margin-effect vector at gain 1.25 with 1.25 times the margin-effect vector at native coefficient one. This tests finite-dose downstream curvature; it is not implied by exact linearity of the M11 output replacement.",
+    "bars": {
+      "writer_or_formula_margin_max_abs": 0.00001,
+      "all_hidden_output_relative_squared_max": 0.00000001,
+      "target_signed_recovery_interval": [0.8, 1.2],
+      "target_cosine_minimum": 0.95,
+      "target_direction_minimum": 0.875,
+      "a1_a2_recovery_gap_maximum": 0.25,
+      "each_control_normalized_RMS_maximum": 0.25,
+      "each_target_finite_dose_relative_vector_error_maximum": 0.1
+    },
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 32,
+      "sequence_evaluations": 512,
+      "scored_token_positions": 1024,
+      "panels": 4,
+      "forwards_per_panel": 8,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_formula_replays_hooks_finiteness_and_exact_price": "All authorities, exact factor program, rows, gain, hook calls, formula/no-op replays, finiteness, and 32-forward price pass.",
+    "pred_b_fixed_program_recovers_both_pristine_v20_target_panels": "Each v20 A1/A2 gain-1.25 response has signed recovery in [.8,1.2], cosine >=.95, and direction agreement >=.875.",
+    "pred_c_program_is_construction_stable_and_selective": "A1/A2 recovery gap is <=.25 and each separate v20 P/C normalized RMS ratio is <=.25.",
+    "pred_d_finite_dose_response_is_locally_linear": "For each target panel, the relative L2 error between the gain-1.25 downstream margin effect and 1.25 times the gain-1 effect is <=.10.",
+    "pred_e_no_v20_fit_reorder_dose_or_postselection": "V20 contributes zero fitting, backwards, factor reorder, gain adjustment, threshold selection, or population selection after capability gating."
+  },
+  "decision": "A-E passing promotes a prospectively confirmed fixed-gain partial M11 factor program on v20. A recovery miss with high cosine rejects the global scalar and supports missing construction state; cosine/direction failure rejects the shared factor core; control failure rejects selectivity; curvature failure rejects the first-order compiler explanation."
+}

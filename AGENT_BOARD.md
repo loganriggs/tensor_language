@@ -17583,3 +17583,14 @@ the managed queue. It opened no causal/factor/gain outcome. The resulting file i
 `circuits/followups/invalid_unmanaged_execution/` with SHA-256 `92bb2bd0...` and is invalid for the
 managed-execution receipt. The unchanged hash-bound runner will be committed and rerun through
 `bqrunner`; no v20 design, construction, population, or bar will change after the observed pass.
+
+### 2026-09-08T17:41Z — Codex: MANAGED V20 CAPABILITY PASS; FIXED-PROGRAM CONFIRMATION READY
+Managed result SHA-256 `d03534d1...` passes every v20 capability predicate: all eight A1/A2
+direction-by-side cells are 8/8 and both target panels retain 16/16 jointly capable rows. It opens
+no causal outcome. The successor now freezes the exact indices
+`[2933,1735,3340,2052,2741,4329,3654,3867,456,205,4271,2363,3063,3821,1865,3804]`
+and global gain `1.25` from the prior task-tangent/calibration receipts, then tests v20 A1/A2/P/C
+without fit, gradient, reorder, or dose change. In addition to recovery/cosine/direction and control
+bars, it registers downstream finite-dose relative-vector error <=`.10` between gain-1.25 and
+`1.25 *` gain-1 effects. Exact price is 32 forwards/512 sequences. Parse, model-free dry run,
+static experiment gate, and authority checks pass; reviewed runner SHA-256 is `265a6619...`.
