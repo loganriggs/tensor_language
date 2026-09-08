@@ -209,8 +209,8 @@ def main():
              and all(counters[name] <= PRICE_MAX[name] for name in PRICE_MAX))
     B = all(reports[str(fold)][panel]["metrics"][component]["signed_projection"] < .25
             for fold in (0,1) for panel in ("A1","A2") for component in ("head_reset_loss","head_rescue"))
-    C = all(reports[str(fold)][panel]["metrics"]["head_bypass"]["signed_projection"] >= .75
-            and reports[str(fold)][panel]["metrics"]["head_bypass"]["direction_fraction"] >= .875
+    C = all(reports[str(fold)][panel]["metrics"]["upstream_bypass_with_head_reset"]["signed_projection"] >= .75
+            and reports[str(fold)][panel]["metrics"]["upstream_bypass_with_head_reset"]["direction_fraction"] >= .875
             for fold in (0,1) for panel in ("A1","A2"))
     D = all(item["semantic_position_is_final_token"] and item["relative_l2_error"] <= 1e-5
             for item in direct_state.values())
