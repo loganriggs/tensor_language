@@ -1,0 +1,62 @@
+{
+  "schema": "temporal_iswas_h4_reader_factor_factorial_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.h4_reader_factor_factorial_v1",
+  "registered_utc": "2026-09-08T06:03:00Z",
+  "question": "Which exact Q/Q2/V inputs implement the command-sensitive effects of the licensed distributed head program, and do those factors explain their complete-head parents out of sample?",
+  "novelty": {
+    "searched": [
+      "temporal_iswas_v15_entry12_rank2_attention12_13_factor_mediation_atlas_v1",
+      "temporal_iswas_v15_aligned_attention_pattern_value_factorial_v1",
+      "temporal_iswas_v15_head_factor_dual_greedy_v1",
+      "temporal_iswas_v15_head_specific_value_factor_lattice_v1"
+    ],
+    "distinction": "Earlier factor tests intervened on downstream readers of a fitted entry-12 DAS state. This experiment factorizes the native Q/Q2/V inputs of L11H3 and L15H5 inside the independently licensed counterfactual head-output program, using its exact dual-command population and complete-head effects as causal parents."
+  },
+  "authority": {
+    "weight_atlas_result_sha256": "d951420fef51f9d550237927072bfc721bd73112f87d5f716b3cb7c2ca3483ae",
+    "head_module_result_sha256": "870c34d6e4d6b786eafe9bcdd960e790cab5ffb5b865b530b258997d405dbae2",
+    "augmentation_result_sha256": "c81853c47e6ed2ecf40840a2951f67fe3f249d0f3f8b5ca5e6a4282e5ade4e4e"
+  },
+  "frozen_design": {
+    "population": "All 128 licensed prefix-preserved dual-command endpoints, with FIT/HOLDOUT and both templates retained separately and pooled.",
+    "pairing": "For each role, use the exact counterfactual endpoint differing only in that command. Require equal sequence length and equal role query position within every pair.",
+    "factor_semantics": "Capture native c_v, c_q, and c_q2 outputs. Replace L11H3:v on the complete causal prefix through the role query position. Replace L15H5:q and/or q2 only at the role query position. All replacements are absolute native donor activations; no fitting, DAS optimization, projection, or label-conditioned selection is allowed.",
+    "arms_per_role": [
+      "L11H3:head_output",
+      "L11H3:v_prefix",
+      "L15H5:head_output",
+      "L15H5:q_query",
+      "L15H5:q2_query",
+      "L15H5:q_plus_q2_query",
+      "L11H3_plus_L15H5:head_output",
+      "L11H3:v_plus_L15H5:q_plus_q2",
+      "H4_head_output_replay"
+    ],
+    "outcomes": "Score canonical will-minus-had and is-minus-was margins. For each factor arm report signed recovery, cosine, direction agreement, and residual against its complete-head causal parent, plus command-gold recovery and cross-role collateral. For q/q2 also report the exact two-factor Mobius interaction.",
+    "bars": {
+      "L11H3_v_explains_head": "For both roles and phases, v-prefix versus L11H3-head signed recovery >=.50, cosine >=.80, and direction agreement >=.75.",
+      "L15H5_q_family_explains_head": "For both roles and phases, q+q2 versus L15H5-head signed recovery >=.50, cosine >=.80, and direction agreement >=.75.",
+      "within_head_split": "In each role and phase, q and q2 are each material (absolute parent recovery >=.10), q+q2 is at least .05 better than the stronger singleton, and its interaction RMS relative to the q+q2 effect is <=.35.",
+      "reader_union": "For both roles and phases, the three-factor reader union versus the L11H3+L15H5 complete-head parent has signed recovery >=.60, cosine >=.90, and direction agreement >=.875.",
+      "selectivity": "Every pooled factor arm has non-target effect norm / command-gold norm <=.01, and every is-was intervention has max absolute effect <=1e-5 on the earlier temporal margin."
+    },
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 19,
+      "sequence_evaluations": 2432,
+      "scored_token_positions": 4864,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_pairing_replay_factor_coverage_finiteness_and_exact_price": "All authority, semantic-position, capture/call-count, native replay, complete-head replay, finiteness, and literal-price checks pass.",
+    "pred_b_l11h3_value_prefix_explains_complete_head": "The registered L11H3:v parent-relative bars hold in both roles and phases.",
+    "pred_c_l15h5_q_q2_split_explains_complete_head": "The registered q/q2 materiality, combination, interaction, and parent-relative bars hold in both roles and phases.",
+    "pred_d_weight_nominated_reader_union_explains_two_head_parent": "The registered three-factor union explains the L11H3+L15H5 complete-head parent in both roles and phases.",
+    "pred_e_reader_factor_transfer_is_task_selective_and_causal": "All collateral and later-to-earlier causal-zero bars hold."
+  },
+  "null": "If A passes but B/C/D do not, exact projected weight enrichment did not identify the causal read factors of these head-output swaps; preserve the H4 head-level circuit and close this factor interpretation rather than retuning thresholds or optimizing a DAS subspace. If only one branch passes, identify only that branch and leave the other head unsplit.",
+  "decision": "A passing factor is a within-module causal split, not yet an extracted standalone program. A/B/C/D/E licenses the three exact reader factors as a composable explanation of the two-head subprogram and opens source-position/key-factor localization."
+}

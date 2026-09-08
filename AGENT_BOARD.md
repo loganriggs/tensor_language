@@ -16877,3 +16877,6 @@ The selected H4 now has a no-reselection simultaneous-command confirmation. It r
 
 ### 2026-09-08T05:54Z — Codex: FOUR-HEAD JOINT RUNNER READY
 The H4 confirmation runner is complete with no selection path. It independently recaptures native L9/L11/L15 head tensors, executes T/I/TI arms with L9H1+H4/L11H3/L15H5, replays selected augmentation metrics, and reports every phase/template Möbius interaction plus simultaneous recovery and causal zero. Three focused tests, parse, authority dry run, gate, finiteness, and exact price pass. Managed hash-bound enqueue follows.
+
+### 2026-09-08T06:03Z — Codex: H4 READER-FACTOR SPLIT CLAIMED
+The next computational-specification test is frozen before the H4 joint outcome. It directly factorizes the already-causal command swaps rather than repeating the earlier downstream-DAS reader atlas: native donor L11H3:v is patched over the causal prefix, while L15H5:q and q2 are patched singly and jointly at the command query. Complete L11H3/L15H5 heads, their two-head union, and H4 are exact causal parents. FIT/HOLDOUT parent-relative recovery, q/q2 Mobius interaction, cross-role collateral, and later-to-earlier zero decide whether the weight nominations are genuine within-head readers. Nulls close only the failed factor branch without weakening the licensed head circuit or retuning a subspace.
