@@ -1,0 +1,66 @@
+{
+  "schema": "temporal_iswas_v23_four_head_m11_restricted_weight_capability_tensor_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_four_head_m11_restricted_weight_capability_tensor_v1",
+  "registered_utc": "2026-09-08T21:12:00Z",
+  "question": "After causal identification of the distributed four-head writer program, what exact computation can those literal output weights implement inside the task-reader subspace of M11, and is that restricted tensor shared, factor-concentrated, or diffuse?",
+  "evidence_status": "Prospective zero-forward weight analysis after the v23 four-head causal confirmation. No tensor spectrum, literal-factor concentration, head sharing score, or decomposition outcome for this four-head set has been opened.",
+  "motivation": {
+    "user_hypothesis": "A shared causal subspace can be folded back into the weights. Decomposing the resulting restricted tensor may reveal hierarchical structure or a few discrete weight atoms that an activation-only PCA/SAE would obscure.",
+    "separation": "The restricted tensor describes global checkpoint capability for arbitrary residual context x and head coordinate z. It does not say which x,z pairs occur. Activation occupancy and realized causal mode use are a separately frozen overlay after this weight basis is sealed.",
+    "circuit_relevance": "The heads already passed fresh selective intervention. This decomposition therefore characterizes an identified circuit interface rather than using low rank or variance to discover a circuit."
+  },
+  "authority": {
+    "umbrella_capability_occupancy_prior_sha256": "4467613bd38d62e3ecccd56390054ef6f7b3eb18ef262fcec28e6c247d97fa47",
+    "v20_hr_result_sha256": "e334a580b72806a3976408cc16efb36aa05d066c3a7db28cb74da8f96c5ccc71",
+    "v20_hr_npz_sha256": "0af2a5e263b0a227e1f88a4d91d7b1ac2191e89734d4882458ba5f46b492a5eb",
+    "v23_confirmation_result_sha256": "db850d5e9b86f76cb4381a12fc83f91cd2aac3544029fabd18bad138d34fed92",
+    "checkpoint_revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "subspace_weight_atlas_sha256": "076c63208ed10658702e1779ce336a3d85ba89191542408f45eb3bc9e0c6cf68",
+    "fastload_sha256": "5803de7f127d1f556470107b559c06daecf7fbc2bccf4574aeb1c347b6225d90"
+  },
+  "frozen_object": {
+    "reader_subspace": "For A1 and A2 separately and each group parity/direction, average every valid v20 R[p,g,s,n] over groups and suffix-aligned positions, producing four vectors in factor index n=1..4608. Take the complete numerical row span by float64 SVD with tolerance max(shape)*eps*sigma_max. The projector, not basis orientation, is semantic.",
+    "head_write_maps": "For each confirmed route L9H1, L9H4, L8H1, L11H3, W_h is the literal 1152x128 slice of that attention module's c_proj weight.",
+    "restricted_cross_tensor": "C[h,a,i,k] = sum_n U[a,n](L[n,i](R W_h)[n,k] + R[n,i](L W_h)[n,k]), where L/R are M11's literal bilinear input weights. It maps arbitrary residual context x_i and head coordinate z_k to reader-subspace M11 factor response a.",
+    "restricted_self_tensor": "S[h,a,k,l] = sum_n U[a,n](L W_h)[n,k](R W_h)[n,l]. Together, C*x*z + S*z*z is the exact finite M11 hidden-factor response caused by adding W_h z at the M11 input interface.",
+    "literal_atoms": "Each hidden factor n contributes an exact rank-one/symmetrized atom. Report per-head factor upper scores ||U[:,n]|| (||L[n]|| ||(R W_h)[n]|| + ||R[n]|| ||(L W_h)[n]||), self scores, sorted cumulative mass, participation across heads, and score-vector cosines.",
+    "scope_caveat": "For L11H3 the weight interface is adjacent to M11. For L8/L9 heads, intervening normalized nonlinear blocks mean this is an interface capability tensor, not an exact end-to-end weight path. Their end-to-end relevance comes from the v23 causal patch, and realized mode use is measured separately."
+  },
+  "decomposition": {
+    "exact_first": "Save C, S, U, factor scores, and complete singular spectra of every C and S unfolding. All tensor reconstruction checks must close before interpreting spectra.",
+    "shared_vs_private": "The head-mode spectrum and pairwise cosines of factor-score vectors diagnose shared versus head-private capability without assuming native heads are semantic units.",
+    "discrete_vs_diffuse": "Cumulative squared literal-atom score at k in {1,4,16,64,256,1024} diagnoses a few discrete points versus a diffuse cloud. This does not prune factors or define a causal rank.",
+    "hierarchical_successor": "Only if head sharing and factor concentration are material should a separately registered hierarchical clustering/sparse dictionary be fit over weight atoms; its stability unit is heads/factors, never datapoints."
+  },
+  "bars": {
+    "reader_basis_orthonormal_max_abs": 1e-5,
+    "exact_formula_relative_error_max": 1e-5,
+    "all_finite": true,
+    "shared_head_top_mode_energy_fraction_min": 0.70,
+    "shared_factor_score_median_pair_cosine_min": 0.80,
+    "factor_concentration_top256_squared_mass_min": 0.50
+  },
+  "predictions": {
+    "pred_a_authority_basis_formula_reconstruction_finiteness_and_exact_price": "All authority hashes, causal ancestry, reader-basis orthogonality, deterministic direct-vs-tensor formula tests, reconstruction, finiteness, and zero-forward price pass.",
+    "pred_b_restricted_capability_has_a_shared_head_mode": "The leading head-mode singular component contains at least 70% of C Frobenius energy.",
+    "pred_c_literal_factor_support_is_shared_across_heads": "Median pairwise cosine of the four nonnegative cross-factor score vectors is at least 0.80.",
+    "pred_d_restricted_capability_is_concentrated_on_few_literal_factors": "The top 256 factors by pooled cross score contain at least 50% of squared score mass."
+  },
+  "opposing_interpretations": {
+    "shared_and_concentrated": "B-D pass: proceed to a weight-atom hierarchy and frozen occupancy overlay.",
+    "shared_but_diffuse": "B/C pass and D fails: the heads share a broad factor population; preserve the exact tensor and test occupancy-induced sparsity without claiming sparse weights.",
+    "head_private": "B or C fails: decompose each head separately and test whether causal composition occurs only downstream in M11 rather than in shared writer weights.",
+    "invalid": "A fails: no decomposition claim is admissible."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 0,
+    "sequence_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "saved_tensor_families": 2
+  },
+  "next_step": "Freeze the weight-defined modes from this result, then project v20/v23 activation and singleton causal responses into them without refitting or rotation."
+}
