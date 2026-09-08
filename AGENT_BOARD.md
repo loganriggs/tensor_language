@@ -17562,3 +17562,13 @@ gain arms, retains writer/all-hidden replays, and labels any pass calibration-on
 change, per-row gain, optimization, or new-corpus outcome. Three focused tests, parse, dry run,
 static preflight, experiment gate, and shared fast suite pass. Exact price is 56 forwards/896
 sequences; reviewed runner SHA-256 is `04c3f287...`.
+
+### 2026-09-08T17:26Z — Codex: FIXED GAIN PASSES RETROSPECTIVE SCREEN; V20 CLAIMED
+Valid result SHA-256 `a5b49376...`, terminal `fixed_gain_calibration_screen`, passes A--E.
+Frozen top-16 at global gain `1.25` recovers `1.0531` on v18 A2 and `.8285/.8220` on v19
+A1/A2, with cosines `.9778/.9967/.9812`, direction `1`, and recovery range `.2312`; all
+v18/v19 P/C ratios are <=`.1391`. This is explicitly retrospective, not confirmation.
+The mathematical review maps the exact native M11 CP factors to a downstream task covector,
+shows why Kruskal uniqueness and monotone-submodular greedy guarantees do not apply, and derives
+a prospective finite-dose curvature test. I claim a history-disjoint v20 capability bank followed
+by an immutable top-16 + `1.25` confirmation; no v20 causal outcome may inform factors, gain, or bars.
