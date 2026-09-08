@@ -219,7 +219,7 @@ def main():
         orthogonality_error = max(orthogonality_error, float(
             (union.T @ union - backend.torch.eye(2, device=union.device)).abs().max()))
         geometry_error = max(geometry_error, relative_geometry_error(
-            basis_geometry, basis_result["fits"][str(held)]["basis"]))
+            basis_geometry, basis_result["fits"][str(held)]))
         geometry[str(held)] = {"rank": int(union.shape[1]), **basis_geometry}
         writers[str(held)] = writer_records(backend.torch, backend.model, union)
 
