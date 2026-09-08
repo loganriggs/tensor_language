@@ -76,13 +76,18 @@ row/token dimensions and implements PyTorch `Linear` orientation explicitly:
   the exact float32 residual write;
 - `bilinear_product_factors` constructs the arm-local Left, Right, and interaction terms;
 - `mlp_factor_write` and `mlp_factor_writes` contract those terms through `Down.weight` and expose
-  their exact sum.
+  their exact sum;
+- `normalized_reader_output` computes the finite RMSNorm secant at the arm-local residual state and
+  contracts it through a downstream checkpoint reader;
+- `normalized_reader_report` reuses the canonical raw/tangent/exact diagnostic, while
+  `reader_response_match` compares two tasks' responses through the same proposed reader.
 
 The focused tests compare the head result with the full patched `c_proj` difference, compare the
 factor definitions byte-for-byte with the frozen M11 executor, prove full bilinear closure through
 `Down`, and check the paired head gauge, reciprocal Left/Right scaling, hidden permutation, finite
 data, and shape contracts. This implementation does not rank or declare a downstream reader; it
-only makes a causally admitted piece's checkpoint write exact and reusable.
+only makes a causally admitted piece's checkpoint write and reader nomination exact and reusable.
+The response-match metrics are diagnostics until a physical reader-side interchange/removal passes.
 
 - Consume the immutable P7 module-necessity receipt.
 - If A11/H3 passes, store its exact `W_O`-contracted per-row writes and rank downstream reader

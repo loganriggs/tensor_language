@@ -112,6 +112,46 @@ def test_mlp_factor_writes_survive_reciprocal_scaling_and_hidden_permutation():
         assert torch.allclose(permuted[name], original[name], atol=2e-6, rtol=2e-6)
 
 
+def test_normalized_reader_output_equals_explicit_finite_checkpoint_read():
+    torch.manual_seed(5)
+    state = torch.randn(2, 3, 7)
+    write = torch.randn(2, 3, 7) / 5
+    reader = torch.randn(4, 7)
+    expected = (
+        torch.nn.functional.rms_norm(state + write, (7,))
+        - torch.nn.functional.rms_norm(state, (7,))
+    ) @ reader.T
+    actual = target.normalized_reader_output(state, write, reader)
+    assert torch.allclose(actual, expected, atol=2e-6, rtol=2e-6)
+
+
+def test_normalized_reader_output_is_invariant_under_residual_orthogonal_gauge():
+    torch.manual_seed(6)
+    state, write = torch.randn(9, 5), torch.randn(9, 5) / 4
+    reader = torch.randn(3, 5)
+    orthogonal, _ = torch.linalg.qr(torch.randn(5, 5))
+    native = target.normalized_reader_output(state, write, reader, eps=0.0)
+    changed = target.normalized_reader_output(
+        state @ orthogonal, write @ orthogonal,
+        reader @ orthogonal, eps=0.0,
+    )
+    assert torch.allclose(changed, native, atol=3e-6, rtol=3e-6)
+
+
+def test_normalized_reader_report_reuses_canonical_exact_metric_and_match():
+    state = torch.tensor([[[1.0, 2.0, 4.0], [2.0, -1.0, 3.0]]])
+    write = torch.tensor([[[.4, -.3, .2], [-.1, .2, .3]]])
+    reader = torch.eye(3)
+    report = target.normalized_reader_report(state, write, reader)
+    assert report["tangent_exact_cosine"] > .9
+    output = target.normalized_reader_output(state, write, reader)
+    match = target.reader_response_match(output, output)
+    assert match == pytest.approx({
+        "cosine": 1.0, "relative_l2": 0.0,
+        "norm_ratio": 1.0, "sign_agreement": 1.0,
+    })
+
+
 @pytest.mark.parametrize(
     "call",
     (
@@ -128,6 +168,17 @@ def test_mlp_factor_writes_survive_reciprocal_scaling_and_hidden_permutation():
         ),
         lambda: target.mlp_factor_write(
             torch.tensor([[float("nan")]]), torch.ones(2, 1)
+        ),
+        lambda: target.normalized_reader_output(
+            torch.ones(2, 3), torch.ones(2, 3), torch.ones(4, 2)
+        ),
+        lambda: target.normalized_reader_output(
+            torch.ones(2, 3), torch.ones(2, 3), torch.ones(4, 3), eps=-1
+        ),
+        lambda: target.reader_response_match(torch.ones(2), torch.ones(3)),
+        lambda: target.normalized_reader_output(
+            torch.ones(2, 3, dtype=torch.long),
+            torch.ones(2, 3, dtype=torch.long), torch.ones(4, 3)
         ),
     ),
 )

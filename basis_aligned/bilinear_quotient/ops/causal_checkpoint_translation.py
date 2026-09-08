@@ -5,15 +5,18 @@ from __future__ import annotations
 
 import torch
 
+import normalized_weight_reader_contract as normalized_reader
+
 
 class CausalCheckpointTranslationError(ValueError):
     pass
 
 
 def _finite_tensor(name, tensor, *, minimum_rank=1):
-    if not isinstance(tensor, torch.Tensor) or tensor.ndim < minimum_rank:
+    if (not isinstance(tensor, torch.Tensor) or tensor.ndim < minimum_rank
+            or not tensor.is_floating_point()):
         raise CausalCheckpointTranslationError(
-            f"{name} must be a tensor with rank at least {minimum_rank}")
+            f"{name} must be a floating tensor with rank at least {minimum_rank}")
     if not bool(torch.isfinite(tensor).all()):
         raise CausalCheckpointTranslationError(f"{name} must be finite")
 
@@ -89,3 +92,90 @@ def mlp_factor_writes(live_left, live_right, writer_left, writer_right, down_wei
               for name, value in factors.items()}
     writes["all_three"] = sum(writes.values())
     return writes
+
+
+def normalized_reader_output(residual_state, residual_write, reader_weight, *, eps=None):
+    """Return the exact finite RMSNorm-aware change seen by a checkpoint reader.
+
+    RMSNorm is evaluated in the state tensor's deployed dtype. The resulting finite
+    input secant and checkpoint reader weight are contracted in float32. This is a
+    weight-based reader nomination; causal reader-side interchange remains a separate
+    identification test.
+    """
+    _finite_tensor("residual_state", residual_state, minimum_rank=2)
+    _finite_tensor("residual_write", residual_write, minimum_rank=2)
+    _finite_tensor("reader_weight", reader_weight, minimum_rank=2)
+    if residual_state.shape != residual_write.shape:
+        raise CausalCheckpointTranslationError(
+            "residual state and write must share one shape")
+    if reader_weight.ndim != 2 or reader_weight.shape[1] != residual_state.shape[-1]:
+        raise CausalCheckpointTranslationError(
+            "reader weight must have shape [output, residual_width]")
+    if eps is None:
+        eps = torch.finfo(residual_state.dtype).eps
+    try:
+        epsilon = float(eps)
+    except (TypeError, ValueError):
+        raise CausalCheckpointTranslationError("RMSNorm epsilon must be finite")
+    if not torch.isfinite(torch.tensor(epsilon)) or epsilon < 0:
+        raise CausalCheckpointTranslationError(
+            "RMSNorm epsilon must be finite and nonnegative")
+    normalized0 = torch.nn.functional.rms_norm(
+        residual_state, (residual_state.shape[-1],), eps=epsilon
+    )
+    normalized1 = torch.nn.functional.rms_norm(
+        residual_state + residual_write,
+        (residual_state.shape[-1],), eps=epsilon,
+    )
+    return _linear_write(
+        normalized1.float() - normalized0.float(), reader_weight,
+        name="normalized_input_delta",
+    )
+
+
+def normalized_reader_report(residual_state, residual_write, reader_weight, *, eps=None):
+    """Reuse the canonical raw/tangent/exact reader diagnostic on any leading shape."""
+    _finite_tensor("residual_state", residual_state, minimum_rank=2)
+    _finite_tensor("residual_write", residual_write, minimum_rank=2)
+    _finite_tensor("reader_weight", reader_weight, minimum_rank=2)
+    if residual_state.shape != residual_write.shape:
+        raise CausalCheckpointTranslationError(
+            "residual state and write must share one shape")
+    if reader_weight.ndim != 2 or reader_weight.shape[1] != residual_state.shape[-1]:
+        raise CausalCheckpointTranslationError(
+            "reader weight must have shape [output, residual_width]")
+    epsilon = torch.finfo(residual_state.dtype).eps if eps is None else eps
+    flat_state = residual_state.reshape(-1, residual_state.shape[-1]).float()
+    flat_write = residual_write.reshape(-1, residual_write.shape[-1]).float()
+    try:
+        return normalized_reader.reader_response(
+            torch, reader_weight.float(), flat_state, flat_write, eps=epsilon
+        )
+    except (TypeError, ValueError, RuntimeError):
+        raise CausalCheckpointTranslationError(
+            "normalized reader diagnostic failed")
+
+
+def reader_response_match(candidate, reference):
+    """Measure whether two task writes are operationally equivalent to one reader."""
+    _finite_tensor("candidate", candidate)
+    _finite_tensor("reference", reference)
+    if candidate.shape != reference.shape:
+        raise CausalCheckpointTranslationError(
+            "candidate and reference reader responses must share one shape")
+    candidate, reference = candidate.float(), reference.float()
+    reference_norm = reference.norm().clamp_min(1e-30)
+    candidate_norm = candidate.norm()
+    cosine = float(
+        (candidate.reshape(-1) @ reference.reshape(-1))
+        / (candidate_norm * reference_norm).clamp_min(1e-30)
+    )
+    return {
+        "cosine": cosine,
+        "relative_l2": float((candidate - reference).norm() / reference_norm),
+        "norm_ratio": float(candidate_norm / reference_norm),
+        "sign_agreement": float(
+            ((candidate == 0) & (reference == 0)
+             | (candidate.sign() == reference.sign())).float().mean()
+        ),
+    }
