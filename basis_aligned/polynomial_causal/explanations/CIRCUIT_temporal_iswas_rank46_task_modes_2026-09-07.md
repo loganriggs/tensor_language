@@ -443,6 +443,23 @@ linear interfaces construction-specific and require a routed or nonlinear select
 is a zero-forward weight screen, not causal reader identification, and the attention-15 bypass
 restriction remains in force.
 
+The weight-convergence screen returns `reader_equivalent_distinct_writes`.  Only L11H3's A1/A2
+residual writes clear `.75` cosine in both folds; L8H1 is `.472/.512`, L9H1 `.569/.618`, and L9H4
+`.721/.698`.  Value pullbacks are likewise shared only at L11H3 (`.804/.828`), so neither the
+residual writes nor their upstream value covectors collapse to one common direction.  In contrast,
+all five L15H5 interfaces are top-ten joint readers of all four sources in both folds.  Their
+response alignments range roughly `.766-.966`, and each source's best L15H5 joint-score percentile
+is `.997-1.0`.  Thus construction-specific encodings are linearly reader-equivalent at the exact
+L15H5 weight interface even though they are not a common upstream vector.
+
+This strengthens the L15H5 reader hypothesis while leaving its causal status unchanged: the
+complete attention-15 clamp bypassed those Q/K/V computations in every behavioral run.  The next
+causal discriminator therefore crosses each stable construction oracle on/off with complete
+attention-15 on/off, without refitting.  Only retained own-construction transfer in the
+projector-on/live-attention arm can open an L15H5-specific reset/rescue.  P controls remain explicit;
+the existing parity-0 flips mean this dependency test localizes the reader path but cannot by itself
+promote a selective full circuit.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
