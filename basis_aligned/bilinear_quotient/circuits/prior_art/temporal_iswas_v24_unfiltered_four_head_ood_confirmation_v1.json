@@ -1,0 +1,57 @@
+{
+  "schema": "temporal_iswas_v24_unfiltered_four_head_ood_confirmation_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v24_unfiltered_four_head_ood_confirmation_v1",
+  "registered_utc": "2026-09-08T22:52:59Z",
+  "question": "Does the fixed L8H1/L9H1/L9H4/L11H3 writer program selectively reproduce behavior and native-M11-reader response on genuinely new temporal constructions without filtering rows after native capability is observed?",
+  "evidence_status": "Prospective and result-bound. The v24 builder, capability prior, and capability runner are frozen, but no v24 model output exists. Execution is forbidden until the immutable capability result passes every registered target and control cell and is hash-bound into the confirmation runner.",
+  "prior_art": {
+    "known_result": "V23 confirmed the four-head union at behavior recovery 0.7259, behavior cosine 0.9952, and Q recovery 0.6701 with selective P/C controls, all selective singletons, distributed Shapley allocation, and exact aligned closures.",
+    "new_test": "V24 changes every temporal/control construction marker and every reporter, retains exact position alignment, forwards all 64 rows, and never selects a causal subset from native correctness. This is an OOD confirmation, not circuit discovery.",
+    "efficiency_change": "The v23 effect game already established distributed allocation. V24 therefore tests the fixed union, four fixed singletons, exact self/donor closures, controls, and reporter halves in 9 forwards rather than repeating 15 coalition arms."
+  },
+  "authority": {
+    "builder_sha256": "240a1685d8e7190ee6803268b1b2e7c910891c29135583f2ae4b14eb3d19f1a0",
+    "rows_sha256": "870c829290e1791351d0b2b67985aa5700780920b14423906e7b8fd4d35ed2de",
+    "v24_capability_prior_sha256": "ffa818d105793a63d8a6f2bedf3e240ae3751e584ad5098d8dfa7e8685e2604a",
+    "v24_capability_runner_sha256": "6c11f38c6cec2c4f9cfae7180b39e0b1782ee0c10f60d94c9e03dcdfa20db210",
+    "v23_confirmation_result_sha256": "db850d5e9b86f76cb4381a12fc83f91cd2aac3544029fabd18bad138d34fed92",
+    "v23_confirmation_runner_sha256": "d1e8bf0237b33e42bda11dc877cf6ef7315cd24ae00a93e31c0d62821f152d5a"
+  },
+  "frozen_design": {
+    "population": "Forward all 64 v24 rows. Target metrics use all 32 A1/A2 rows regardless of native correctness; P and C use all 16 rows each. No jointly-correct row IDs enter causal scoring.",
+    "routes": ["L9H1", "L9H4", "L8H1", "L11H3"],
+    "intervention": "Copy each fixed head's donor pre-c_proj slice through the inclusive aligned semantic-position prefix into the base run. Evaluate the union and exactly four singleton arms; perform no search, dose fit, rank fit, or coalition selection.",
+    "reader": "Use one gradient of the summed native base donor-answer-minus-foil margin with respect to M11 output, mapped through literal M11 Down weights; Q contracts this reader with induced M11 hidden response.",
+    "bars": {
+      "self_and_donor_closure_max_abs": 0.0001,
+      "donor_hidden_relative_error_max": 0.0001,
+      "union_behavior_and_q_recovery_min": 0.5,
+      "union_behavior_and_q_cosine_min": 0.9,
+      "union_direction_fraction_min": 0.9,
+      "union_P_and_C_leak_ratio_max": 0.15,
+      "singleton_behavior_recovery_min": 0.15,
+      "singleton_q_recovery_min": 0.05,
+      "singleton_direction_fraction_min": 0.75,
+      "singleton_P_and_C_leak_ratio_max": 0.1,
+      "singleton_pass_count_min": 3,
+      "each_reporter_half_behavior_and_q_recovery_min": 0.35,
+      "each_reporter_half_behavior_and_q_direction_min": 0.75
+    },
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards_exact": 9,
+      "sequence_evaluations_exact": 576,
+      "transformer_backwards": 1,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_capability_alignment_closures_finiteness_and_exact_price": "Every frozen authority and the future result hash pass; all four v24 capability predicates pass; all 64 rows remain unfiltered and aligned; reader, closures, finiteness, and exact price pass.",
+    "pred_b_union_selectively_transfers_to_new_constructions": "The four-head union passes frozen target behavior/Q recovery, cosine, direction, and both P/C leakage bars on the complete unfiltered bank.",
+    "pred_c_at_least_three_singletons_transfer_selectively": "At least three of the four fixed singleton routes pass frozen behavior, Q, direction, P, and C bars without selection.",
+    "pred_d_transfer_is_stable_across_frozen_reporter_halves": "Union behavior and Q each pass recovery and direction bars in both group-number reporter halves."
+  },
+  "null": "Valid A with failure of B or C rejects OOD transfer of the four-head circuit to these constructions. Failure of D rejects stable transfer. Failure of A invalidates the instrument. No v24 row, threshold, route, dose, or rank is changed after any result.",
+  "decision": "A-D promote the circuit from lexical replication to new-construction OOD confirmation and license applying the already-fixed weight-operator/reachability decomposition on future unopened support."
+}
