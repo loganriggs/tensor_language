@@ -541,6 +541,21 @@ entry-12 state, chooses the A1 coordinate, A2 coordinate, or off, and installs t
 member of the sufficient two-coordinate union.  This tests conditional selectivity rather than
 another rank or penalty sweep.
 
+The first finite router returns `router_identification_failure`.  Its gold-label program composes
+the two coordinates successfully and exactly preserves controls, but the learned native-state
+router reaches only `.729/.667` held macro accuracy and predicts a target branch for 7/16 and 8/16
+off rows.  Consequently learned target projection falls to `.655/.772` in parity 0 and
+`.795/.646` in parity 1, and parity-0 P still flips once.
+
+This is not evidence against conditional routing in general.  It exposes a structural information
+error in the registered router input: every aligned P control has exactly the same base text as its
+paired A1 target, hence their upstream-off native entry-12 states are mathematically identical.
+No classifier on that state can distinguish whether the requested source transformation changes
+tense or merely paraphrases the temporal cue.  The circuit operator receives both background and
+source; the next prospective router must therefore read the proposed source-minus-background
+entry-12 write (with no held label or output margin), then select A1, A2, or off.  This changes the
+information object rather than tuning nearest-centroid geometry.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -622,6 +637,10 @@ another rank or penalty sweep.
   `temporal_iswas_v15_entry12_shared_target_control_response_basis_v1_result.json` (valid rank-two
   construction union; exact P complementation removes controls but destroys target, and rank-one
   pooled DIM is not construction-general).
+- Entry-12 native-state finite router:
+  `temporal_iswas_v15_entry12_crossfit_finite_router_v1_result.json` (valid router-identification
+  null; the gold finite mixture composes, but native base state cannot distinguish paired A1/P rows
+  whose base texts are identical).
 
 ## Remaining gates
 

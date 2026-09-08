@@ -1,0 +1,32 @@
+{
+  "schema": "temporal_iswas_v15_entry12_crossfit_source_delta_router_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_entry12_crossfit_source_delta_router_v1",
+  "registered_utc": "2026-09-08T01:56:00Z",
+  "question": "Can the proposed source-minus-background entry12 writes identify whether the sufficient A1 coordinate, A2 coordinate, or off branch should execute?",
+  "authority": {
+    "native_router_result_sha256": "a449e3fa784d733775e2d6f0e9ad371ae2cbffbcaeca5b1c35047a909674d697",
+    "required_terminal": "router_identification_failure"
+  },
+  "prior_art": {
+    "searched": ["source-aware temporal router", "paired A1 P identical base", "entry12 delta classifier", "gold finite router"],
+    "active_claim_collision": false,
+    "known_lessons": "The gold mixture composes; native base state is information-theoretically unable to separate paired A1/P rows because their base texts are identical; held labels and behavioral outcomes may not gate the intervention.",
+    "novelty": "Route on the concatenated semantic-position A1-oracle and A2-oracle proposed entry12 deltas, which depend on source and background but precede the downstream intervention and output."
+  },
+  "frozen_design": {
+    "router_features": "Concatenate the A1-oracle and A2-oracle on-minus-off entry12 vectors at the semantic position; subtract the opposite-parity training mean and L2-normalize.",
+    "router": "Three deterministic cosine nearest centroids for A1, A2, and off=(P union C), fit on opposite parity only; ties resolve A1 then A2 then off. No hyperparameter selection.",
+    "causal_program": "Use the predicted branch to select the matching expert delta or zero, project through the opposite-parity two-construction DIM union, and install it at entry12. The router observes no logits, answer IDs, held labels, or downstream outcomes.",
+    "controls": "Report source-feature duplicate distances, confusion, learned/gold programs, ungated expert unions, full and zero replays, A1/A2 effects, and P/C KL/flips.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 24, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 2000, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_scope_geometry_finiteness_and_price": "Hashes, authorities, exact base-text impossibility audit, replays, disjoint crossfit, finite geometry, and literal price pass.",
+    "pred_b_source_router_identifies_held_branches": "Held macro accuracy is >=.875 in both parities and no P/C row is predicted A1/A2.",
+    "pred_c_routed_union_preserves_both_targets": "The routed program projects >=.75 with direction fraction >=.875 on A1 and A2 in both held parities.",
+    "pred_d_routed_union_is_control_selective": "The routed program has zero P/C flips and changed-versus-off mean KL <=.02 in both parities.",
+    "pred_e_router_retains_ungated_union_effect": "Each routed target projection is at least 90% of its corresponding ungated union projection."
+  },
+  "decision": "A failure invalidates. B/C/D/E licenses OOD router evaluation and weight translation of the router and two causal coordinates. Gold pass with B failure rejects nearest-centroid source routing. B without C rejects mixture composability. C without D shows source features still confuse answer-preserving transformations.",
+  "closed_claims": ["OOD router identification", "semantic identity", "weight-reader causality", "compression", "adoption"]
+}
