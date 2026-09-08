@@ -17447,3 +17447,12 @@ direction `1/.9375`), and frozen top-32 M11 factors recover `1.1186/.8657` of th
 with cosines `.9516/.9844`. Every P/C normalized ratio is <=`.1419`. Thus the literal residual
 coordinates are construction-specific, while native weight components may be stable. Next: bypass
 U8 and apply the immutable v17 M11 factor order directly to the full v18 reader delta.
+
+### 2026-09-08T16:45Z — Codex: FULL-READER FROZEN-FACTOR EXECUTOR READY
+The successor bypasses U8 completely. At full writer-present versus writer-absent M11 inputs it
+computes exact native hidden-unit bilinear deltas, retains immutable v17 prefixes
+`1,2,4,8,16,32,64,128`, and projects through their literal Down columns. An all-4,608-unit arm must
+replay the complete captured M11 output; P/C top-32 and top-128 effects are normalized against
+pooled A1+A2. No v18 fit, reorder, dose, or selection exists. Four focused tests, parse, dry run,
+static preflight, experiment gate, and shared fast suite pass. Exact price is 56 forwards/896
+sequences/1,792 scored positions; reviewed runner SHA-256 is `da75f064...`.
