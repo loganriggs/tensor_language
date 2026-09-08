@@ -89,6 +89,14 @@ data, and shape contracts. This implementation does not rank or declare a downst
 only makes a causally admitted piece's checkpoint write and reader nomination exact and reusable.
 The response-match metrics are diagnostics until a physical reader-side interchange/removal passes.
 
+The companion `basis_aligned/bilinear_quotient/ops/causal_checkpoint_topology.py` enumerates the
+real checkpoint interfaces before scoring them. In each block, attention readers have stage 0,
+attention writes stage 1, MLP readers stage 2, and MLP writes stage 3. Consequently an attention
+write may nominate its own block's Left/Right readers, whereas an MLP write may nominate only later
+blocks. The full Bilin18 module inventory is 180 writer tensors and 846 reader tensors; embeddings
+are an explicit optional upstream source. This causal filter prevents a large static alignment from
+naming an impossible backward or same-stage edge.
+
 - Consume the immutable P7 module-necessity receipt.
 - If A11/H3 passes, store its exact `W_O`-contracted per-row writes and rank downstream reader
   contractions, then preregister the top physical reader edge before testing it.
