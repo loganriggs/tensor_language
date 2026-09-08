@@ -1,0 +1,19 @@
+{
+  "schema": "temporal_iswas_selected_writer_downstream_module_mediation_atlas_price_amendment_v2",
+  "candidate_id": "cross_task.temporal_iswas.selected_iswas_writer_downstream_module_mediation_atlas_v2",
+  "registered_utc": "2026-09-08T09:41:00Z",
+  "amends": "temporal_iswas_selected_writer_downstream_module_mediation_atlas_v1.json",
+  "amends_sha256": "7a3b77c0a723bcbd4d3df838abfc55c74df5685ca89d69ec1c0343f668b7e908",
+  "reason": "The v1 18-forward price covers native/module capture, selected-writer/module capture, and all 16 module-mediator forwards, but prediction A also freezes numeric writer replay. Reproducing the greedy arm's parent-relative metrics requires one independent direct L11H3:value command-donor reference forward; no stored artifact contains that effect vector.",
+  "added_execution": "One original-bank is-was direct L11H3:value command-donor reference at the frozen postcue positions, used only to replay the selected writer metrics against the immutable greedy receipt.",
+  "unchanged": "All v1 authorities, candidate modules, intervention arms, FIT selection, HOLDOUT validation, positive control, bars, predictions, null, next action, and anti-rank gate remain unchanged.",
+  "amended_price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 19,
+    "sequence_evaluations": 2432,
+    "scored_token_positions": 4864,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  }
+}
