@@ -865,6 +865,17 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   (`13.80x`); L15H5 is strongest for is-was writing (`12.51/12.54x`) and q2 reading
   (`7.79/7.46x`).  This is exact physical weight compatibility and a sharply reduced intervention
   set, not causal identification by itself.
+- Dual-command shared head/module factorial:
+  `temporal_iswas_dual_command_shared_head_module_factorial_v1_result.json` (valid registered
+  causal-route null with a strong distributed fragment).  No single complete parent module reaches
+  the frozen `.50` recovery bar for both phases, so B/C fail and the terminal remains null.  Yet
+  every singleton and module has positive, high-cosine, perfectly directional effects.  The fixed
+  L9H1+L11H3+L15H5 union recovers `.706/.752` of the temporal toggle and `.523/.491` of the is-was
+  toggle on FIT/HOLDOUT, with cosines `.991-.998`, direction `1.0`, and other-role norm ratios at
+  most `.00288`; later is-was patches change the earlier temporal margin exactly zero.  Union-minus-
+  singleton-sum error is only `.024-.057`, so the preregistered distributivity clause passes.  This
+  does not retro-pass the failed singleton/module identification claim; it licenses the distributed
+  three-head combination for the next joint composition test.
 
 ## Remaining gates
 
