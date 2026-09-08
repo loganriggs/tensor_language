@@ -570,6 +570,20 @@ macro accuracy; the held parity remains sealed.  This uses the correct branch-cl
 rather than the destructive complement objective.  Failure would license nonlinear interaction
 features or a token-level symbolic router, not another ridge/noise sweep.
 
+The nested regularized source router also returns `router_identification_failure`.  Its selected
+penalties (`10.0` and `.01`) both achieve perfect leave-one-group-out accuracy with zero control
+false positives *inside* the training parity, yet the refit predicts `off` for every row in the
+opposite parity.  Held macro accuracy is `1/3` and target projection is zero.  This is a concrete
+memorization/distribution-shift failure despite strong L2 regularization and nested group CV.
+
+The missing invariance is exact: even group numbers are `present_to_past` and odd group numbers are
+`past_to_present`.  The parity holdout therefore reverses the signed source delta.  A linear router
+on raw deltas can fit lexical groups within one direction but is not gauge-invariant to the reverse
+transformation.  The next bounded router uses only the six scalar entries of semantic-position and
+prefix-averaged Gram matrices of the two proposed expert writes (two squared norms and one inner
+product at each scope).  These quadratic features are invariant to simultaneous sign reversal and
+directly test the interaction structure; failure closes this finite response-signature route.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -659,6 +673,10 @@ features or a token-level symbolic router, not another ridge/noise sweep.
   `temporal_iswas_v15_entry12_crossfit_source_delta_router_v1_result.json` (valid identification
   null; predicts off for every held row while the gold routed union remains target-effective and
   exactly control-selective).
+- Entry-12 regularized source router:
+  `temporal_iswas_v15_entry12_crossfit_regularized_source_router_v1_result.json` (nested CV is
+  perfect inside one signed tense direction but the opposite direction collapses entirely to off;
+  linear raw-delta routing is not direction-gauge invariant).
 
 ## Remaining gates
 

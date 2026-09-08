@@ -1,0 +1,29 @@
+{
+  "schema": "temporal_iswas_v15_entry12_crossfit_gram_router_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_entry12_crossfit_gram_router_v1",
+  "registered_utc": "2026-09-08T02:14:00Z",
+  "question": "Do sign-gauge-invariant quadratic response signatures identify A1, A2, and off across reversed tense directions?",
+  "authority": {"regularized_router_result_sha256": "7e1bb0c549dc37f002909738cfa1e498a5c8734791cc9aa1fb4c9663fd5e182e", "required_terminal": "router_identification_failure"},
+  "prior_art": {
+    "searched": ["source delta router", "direction reversal gauge", "quadratic Gram classifier", "nested regularized router"],
+    "active_claim_collision": false,
+    "known_lessons": "Raw source centroids collapse to off; nested ridge is perfect within parity but collapses on opposite tense direction; even/odd parity exactly reverses present_to_past versus past_to_present; the gold union composes.",
+    "novelty": "Replace signed 2304-dimensional deltas with six fixed Gram invariants of the two proposed expert writes, testing a low-complexity quadratic interaction router rather than another linear fit."
+  },
+  "frozen_design": {
+    "features": "For A1/A2 proposed entry12 deltas, compute [mean squared norm A1, mean squared norm A2, mean inner product] at the semantic token and averaged over the semantic prefix; apply log1p to nonnegative norm entries. Six scalars total, invariant to simultaneous sign reversal.",
+    "router": "Training-feature z-score with floor 1e-8 followed by deterministic cosine nearest centroids for A1, A2, and off=(P union C), fit on opposite parity only. No hyperparameters or outcome selection.",
+    "causal_program": "Select A1 delta, A2 delta, or zero, project through the fixed construction union, and install at entry12. No held labels, logits, answer IDs, or downstream outcomes enter routing.",
+    "controls": "Report feature distributions, reversal-invariance unit tests, held confusion, learned/gold/ungated programs, full/zero replays, and P/C KL/flips.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 24, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 2000, "fit_parameters": 21}
+  },
+  "predictions": {
+    "pred_a_authority_replay_scope_geometry_finiteness_and_price": "Hashes, direction-parity audit, sign-invariance tests, replays, crossfit, finite features, and literal price pass.",
+    "pred_b_gram_router_identifies_held_branches": "Held macro accuracy is >=.875 in both parities and no P/C row is predicted A1/A2.",
+    "pred_c_routed_union_preserves_both_targets": "The routed program projects >=.75 with direction fraction >=.875 on both targets in both parities.",
+    "pred_d_routed_union_is_control_selective": "The program has zero P/C flips and mean KL <=.02 in both parities.",
+    "pred_e_router_retains_ungated_union_effect": "Every routed target projection is at least 90% of its corresponding ungated union projection."
+  },
+  "decision": "A failure invalidates. B/C/D/E licenses OOD testing and weight translation. Gold pass with B failure closes the six-scalar sign-invariant response router and sends branch identification to an explicit token-level or richer nonlinear circuit, not more linear regularization.",
+  "closed_claims": ["OOD router identification", "general nonlinear router", "semantic identity", "weight-reader causality", "compression", "adoption"]
+}
