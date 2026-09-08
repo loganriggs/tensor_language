@@ -17456,3 +17456,18 @@ replay the complete captured M11 output; P/C top-32 and top-128 effects are norm
 pooled A1+A2. No v18 fit, reorder, dose, or selection exists. Four focused tests, parse, dry run,
 static preflight, experiment gate, and shared fast suite pass. Exact price is 56 forwards/896
 sequences/1,792 scored positions; reviewed runner SHA-256 is `da75f064...`.
+
+### 2026-09-08T16:50Z — Codex: V1 FACTOR TRANSFER INVALID; PRECISION-CORRECT V2 REGISTERED
+V1 emitted `invalid_instrument`: float32 all-factor reconstruction cast to BF16 differs from the
+captured BF16 M11 output by `.00098--.00146` max-absolute, although answer-margin closure is
+`<=4.30e-6`. This is the documented absolute-versus-relative precision class. Scientific top-32
+and top-128 A2 recoveries also miss, but are not promoted from an invalid receipt. V2 replays every
+unchanged arm/order/population/bar and replaces only the output max-absolute gate by relative-
+squared error `<=1e-8`, retaining the `1e-5` margin closure. V1 stays immutable.
+
+### 2026-09-08T16:55Z — Codex: PRECISION-CORRECT FACTOR TRANSFER V2 READY
+V2 is hash-bound to the immutable invalid v1 result, amended prior, and complete amended executor.
+It reruns all 56 forwards and changes only the all-hidden output gate to relative-squared error;
+the downstream `1e-5` margin replay, every scientific prefix/control bar, factor order, population,
+and price are unchanged. Six focused tests, parse, dry run, static preflight, experiment gate, and
+shared fast suite pass. Reviewed v2 wrapper SHA-256 is `f66ab678...`.

@@ -26,7 +26,7 @@
     "measurements": "For A1 and A2, each prefix's output-margin vector is compared with full M11 reader loss by signed recovery, cosine, residual, and direction. On P/C, top-32 and top-128 RMS movements are separately normalized by their pooled A1+A2 target-effect RMS.",
     "bars": {
       "writer_replay_max_abs": 0.00001,
-      "all_hidden_output_max_abs": 0.00001,
+      "all_hidden_output_relative_squared_max": 0.00000001,
       "top32_signed_recovery_minimum": 0.7,
       "top32_cosine_minimum": 0.95,
       "top128_signed_recovery_minimum": 0.8,
@@ -46,7 +46,7 @@
     }
   },
   "predictions": {
-    "pred_a_authority_formula_replay_hook_coverage_finiteness_and_exact_price": "All authorities and rows match, writer replay and all-hidden M11 formula close within 1e-5, hooks are exact, values finite, and execution costs 56 forwards/896 sequences/1792 scored positions with no fitting.",
+    "pred_a_authority_formula_replay_hook_coverage_finiteness_and_exact_price": "All authorities and rows match, writer replay and all-hidden M11 margin close within 1e-5, all-hidden M11 output relative-squared error is at most 1e-8, hooks are exact, values finite, and execution costs 56 forwards/896 sequences/1792 scored positions with no fitting. Instrument amendment at 2026-09-08T16:50Z: v1 was emitted invalid because float32 factor reconstruction cast back to BF16 differed from the captured BF16 module output by 0.00098--0.00146 max-absolute, despite answer-margin closure <=4.30e-6. Replace only the precision-sensitive absolute output bar with relative-squared error <=1e-8 and replay all unchanged arms as v2. V1 and its scientific misses remain immutable and are not evidence until v2 validates the instrument.",
     "pred_b_frozen_top32_factors_explain_full_M11_on_both_new_constructions": "On A1 and A2, top-32 signed recovery/cosine is at least .70/.95 and direction agreement at least .875.",
     "pred_c_frozen_top128_factors_explain_most_full_M11_on_both_new_constructions": "On A1 and A2, top-128 signed recovery/cosine is at least .80/.95 and direction agreement at least .875.",
     "pred_d_frozen_factor_program_remains_selective_on_P_and_C": "For P and C separately, normalized RMS movement of both top-32 and top-128 is at most .25.",

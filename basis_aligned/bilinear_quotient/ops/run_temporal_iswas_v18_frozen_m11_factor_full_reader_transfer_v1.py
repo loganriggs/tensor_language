@@ -32,8 +32,9 @@ BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v18
 TRANSFER_RUNNER = ROOT / "ops/run_temporal_iswas_v18_frozen_shared_tensor_transfer_v1.py"
 OUT = ROOT / "circuits/followups/temporal_iswas_v18_frozen_m11_factor_full_reader_transfer_v1_result.json"
 CANDIDATE_ID = "cross_task.temporal_iswas.v18_frozen_m11_factor_full_reader_transfer_v1"
+RESULT_SCHEMA = "temporal_iswas_v18_frozen_m11_factor_full_reader_transfer_result_v1"
 EXPECTED = {
-    "prior": "ca7c98a73804b51afbeb90f634484db8d09b9e70811002384ad556941276d61a",
+    "prior": "ad803dae9bd31e8ff0495e935aab515cec1173606fc52e2efc87072f998e600f",
     "transfer_result": "d26dca30ef08287587aca6c43cd5c1161c5f6d21ee0a4e9dcff22e68311276dc",
     "tensor_result": "f267b3ebbe151077f0aa44939e6f01e78fc8ae30e85d9b52e0858383ef893972",
     "capability_result": "e2f5a4368303a867646e6df7f67e3c64e98a3b3eb9a742ea7714ab413678020b",
@@ -47,7 +48,7 @@ PRICE = {"checkpoint_loads": 1, "model_forwards": 56, "sequence_evaluations": 89
          "transformer_backwards": 0, "model_updates": 0, "fit_parameters": 0}
 BARS = {"replay": 1e-5, "formula": 1e-5, "top32_recovery": .70,
         "top32_cosine": .95, "top128_recovery": .80, "top128_cosine": .95,
-        "direction": .875, "control_ratio": .25}
+        "output_relative_squared": 1e-8, "direction": .875, "control_ratio": .25}
 PREDICTION_KEYS = (
     "pred_a_authority_formula_replay_hook_coverage_finiteness_and_exact_price",
     "pred_b_frozen_top32_factors_explain_full_M11_on_both_new_constructions",
@@ -149,6 +150,12 @@ def panel_run(backend, rows, factor_order):
         "writer_replay_max_abs_margin_error": float(np.max(np.abs(
             margins["writer_replay"] - writer_margin))),
         "all_hidden_output_max_abs_error": max(output_errors, default=0.0),
+        "all_hidden_output_relative_squared_error": float(sum(
+            (all_output[row, list(row_positions)].float()
+             - present_outputs["M11"][row, list(row_positions)].float()).square().sum().item()
+            for row, row_positions in enumerate(positions) if row_positions) / max(sum(
+            present_outputs["M11"][row, list(row_positions)].float().square().sum().item()
+            for row, row_positions in enumerate(positions) if row_positions), 1e-30)),
         "all_hidden_margin_max_abs_error": float(np.max(np.abs(
             margins["all_hidden_formula"] - writer_margin))),
         "calls": calls,
@@ -200,7 +207,7 @@ def main():
 
     A = bool(authority_ok and all(calls_ok(record["calls"]) for record in instrument.values())
         and all(record["writer_replay_max_abs_margin_error"] <= BARS["replay"]
-                and record["all_hidden_output_max_abs_error"] <= BARS["formula"]
+                and record["all_hidden_output_relative_squared_error"] <= BARS["output_relative_squared"]
                 and record["all_hidden_margin_max_abs_error"] <= BARS["formula"]
                 for record in instrument.values())
         and finite({"reports": reports, "effects": effects, "controls": control_ratios})
@@ -223,7 +230,7 @@ def main():
         "compact_construction_general_factor_program" if B else
         "broad_construction_general_factor_program" if C else
         "factor_hierarchy_activation_specific")
-    result = {"schema": "temporal_iswas_v18_frozen_m11_factor_full_reader_transfer_result_v1",
+    result = {"schema": RESULT_SCHEMA,
         "candidate_id": CANDIDATE_ID, "started_utc": started_utc,
         "finished_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "serial_seconds": time.perf_counter() - started, "authority_sha256": observed,
