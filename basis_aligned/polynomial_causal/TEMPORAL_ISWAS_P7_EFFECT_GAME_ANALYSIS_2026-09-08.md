@@ -107,3 +107,28 @@ After that receipt:
 This conditional use adds a redundancy-sensitive circuit diagnostic without changing
 the current frozen experiment, opening an 8,192-arm twelve-player sweep, or treating
 generic attribution as causal identification.
+
+## Independent effect-game receipt after this analysis
+
+Claude's independently preregistered nine-player head-patch game
+`unit_shapley_effect_game_v271_result.json` subsequently landed valid in 19.3 seconds.
+Its exact efficiency residual is `-2.08e-17`; Shapley attribution reorders the singleton
+ranking, but its redundancy prediction fails. The largest negative reported pair value
+is `-0.027131`. The direct/unlisted route is large:
+
+\[
+E_a(\varnothing)/E_a(D)=0.203774/0.252417=0.8073.
+\]
+
+Thus only about 19.3% of that source effect is allocated to the enumerated set. This is
+an informative prior for the P7 game: a broad downstream list may still leave most of a
+source effect in the residual or unlisted background, and pair effects near three points
+are plausible. It does not license changing the P7 game's frozen `.03` bars.
+
+The comparison also sharpens two semantic distinctions. V271's game patches the source
+and coalition members to donor values; the P7 successor instead installs one source and
+lets enabled modules **recompute live**, clamping the complement to native outputs. In
+addition, all P7 players are causally after the block-10 source, whereas v271 deliberately
+included one pre-source negative control. Finally, v271 reports an unweighted coalition
+mean of pair second differences, while the P7 runner reports the Grabisch--Roubens index
+from Harsanyi dividends; their magnitudes must not be treated as the same estimator.
