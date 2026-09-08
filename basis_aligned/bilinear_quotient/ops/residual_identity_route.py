@@ -41,3 +41,15 @@ def direct_remove(writer_final, native_entry, writer_entry, gain):
     if writer_final.shape != delta.shape:
         raise ResidualIdentityRouteError("writer final and transported delta shapes differ")
     return writer_final - delta
+
+
+def relative_l2_error(observed, predicted):
+    """Measure deployed state disagreement in float32 at the prediction's scale."""
+    if observed.shape != predicted.shape:
+        raise ResidualIdentityRouteError("observed and predicted state shapes differ")
+    observed32, predicted32 = observed.float(), predicted.float()
+    denominator = predicted32.norm().clamp_min(1e-30)
+    value = float((observed32 - predicted32).norm() / denominator)
+    if not math.isfinite(value):
+        raise ResidualIdentityRouteError("relative state error is not finite")
+    return value

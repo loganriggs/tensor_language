@@ -46,6 +46,12 @@ at the final residual boundary must match the dynamic `R1M0` arm before final RM
 unembedding, up to deployed precision. Native `x_18` self-patching and dynamic-versus-direct
 logit equality are mandatory instrument controls.
 
+“Exact” here refers to the real-valued recurrence. In the deployed dtype, multiplying by one
+precomputed product need not be bit-identical to eight sequential residual multiplications and
+additions. The successor must therefore report float32-computed relative L2 state error at the
+transported-state scale as a precision diagnostic, while strict final-logit equality remains the
+behavioral route gate. A raw maximum state error without its scale is insufficient.
+
 The same recurrence supplies a stronger paired removal identity. If `x_18^writer` is the ordinary
 selected-writer final state, then
 

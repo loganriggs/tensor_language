@@ -45,3 +45,12 @@ def test_route_rejects_empty_nonfinite_and_mismatched_inputs():
         target.skip_gain((1.0, float("nan")))
     with pytest.raises(target.ResidualIdentityRouteError):
         target.direct_add(torch.zeros(2), torch.zeros(2), torch.zeros(3), 1.0)
+
+
+def test_relative_error_is_scale_aware_and_shape_guarded():
+    predicted = torch.tensor([3.0, 4.0], dtype=torch.bfloat16)
+    observed = torch.tensor([3.0, 4.5], dtype=torch.bfloat16)
+    assert target.relative_l2_error(predicted, predicted) == 0.0
+    assert target.relative_l2_error(observed, predicted) == pytest.approx(0.1)
+    with pytest.raises(target.ResidualIdentityRouteError):
+        target.relative_l2_error(torch.zeros(2), torch.zeros(3))
