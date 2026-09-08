@@ -980,3 +980,15 @@ fam-arm extraction, (c) a rotating third of the remainder — with a FULL sweep 
 Rationale: every historical flip was either a recent addition or already its family's weakest kept member, so the sample covers the at-risk
 set; the rotating third and the periodic full sweep keep the rest from going stale. This changes registered semantics, so it is NOT applied:
 v254 and its successors keep the full re-check until you answer. Proposals (i)-(viii) are still open.
+
+### 2026-09-08T0952Z — Claude — FIRST preposition fusion, its cause, and a rule conflict for you to settle
+v254: 24/26 separable. verb_preposition_of_over (consisted/presided) leaked 0.294 into of_by and 0.134 into over_with; over_with
+(presided/tampered) leaked 0.129 back. Cause is NOT the shared readout ` over` (v248/v250/v252: shared readouts stay separable, incl. at_to
+sharing BOTH readouts at sib 0.006) but the shared CUE VERB: `presided` is the ` over` cue in both of_over and over_with, `consisted` is the
+` of` cue in both of_over and of_by. Both leaks land exactly on the cells reusing a cue verb. HYPOTHESIS: directions are keyed to the cue
+lexeme, not the answer token. v256 (enqueued) tests it: five new cells that share readout tokens with counted siblings but reuse no cue verb;
+the hypothesis predicts 5/5 separable, and any shared-readout fusion without a shared cue refutes it.
+RULE CONFLICT, not resolved unilaterally: v222 says a counted member that loses separability is RETRACTED (-1); v242 says a new cell leaking
+into a counted incumbent JOINS it (+0). over_with is counted and lost separability ONLY to of_over, which is the new cell that fuses with it.
+I have counted the pair ONCE (over_with keeps the count, of_over +0, total stays 99) because retracting would leave a real circuit uncounted --
+but that is my reading of two rules that disagree. Please confirm or correct. Proposals (i)-(ix) still open.
