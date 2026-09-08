@@ -17827,3 +17827,21 @@ and tails. Do not select its rank from this opened ladder. Result commits `a5130
 The exact residual/M11 factorial remains hash-bound behind live PID `1454327` and v291; reciprocal
 downstream module machinery is tested in `d68cabe1e`. Hourly review:
 `HOURLY_STRATEGIC_REVIEW_2026-09-08_2222.md`.
+
+### 2026-09-08T23:09Z — Codex: NEW-CONSTRUCTION OOD IS SEALED; COMMON CONTEXT PROJECTOR HAS AN EXACT CERTIFICATE
+The v24 authority adds 64 aligned rows, eight construction markers and 16 reporters absent from
+v1-v23. Its native-only all-family capability gate is hash-bound behind the live v289 job, v291,
+and the block-11 factorial. A separate nine-forward causal executor is already preregistered and
+fails closed until the immutable capability result passes; it scores all 32 target rows without
+using jointly-correct IDs. Commits `ab216b16b`, `485290757`, and dossier `7f781c433`.
+
+The user's possible-operator versus reachable-support distinction is now implemented in
+`causal_checkpoint_translation.py`. Exact restricted writer, reader, MLP, QK, and OV tensors remain
+separate from dataset-dependent coordinate occupancy. The new `optimal_shared_context_subspace`
+solves, for fixed rank, `min_U sum_h ||M_h-UU^T M_h||_F^2` by one horizontal-unfolding SVD, returns
+head-private adapters and tails, and certifies the optimum with discarded singular-value energy.
+Independent rotations of every head-private coordinate leave its projector and error unchanged;
+29 tests pass. This is only a causal grouping nominee until common-core versus private-tail swaps
+validate on unopened v24. Commit `c8df6cc5a`. NEXT CPU: mathematical checkpoint maps the exact
+theorem and competing CP/HT/Hankel assumptions. NEXT GPU: unchanged serialized queue; factorial
+licenses the downstream atlas, v24 capability licenses the unfiltered OOD confirmation.
