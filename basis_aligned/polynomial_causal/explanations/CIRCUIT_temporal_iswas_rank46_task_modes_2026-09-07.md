@@ -556,6 +556,20 @@ source; the next prospective router must therefore read the proposed source-minu
 entry-12 write (with no held label or output margin), then select A1, A2, or off.  This changes the
 information object rather than tuning nearest-centroid geometry.
 
+The source-delta nearest-centroid router is also a valid identification null.  It sends every held
+row to `off` in both parities: macro accuracy is exactly `1/3`, target projection is zero, and P/C
+are therefore perfectly preserved.  The gold mixture still reaches the union's `.795-.881` target
+projection with zero control effect.  This separates two facts cleanly: the causal coordinates and
+their finite composition work, while an unsupervised centroid rule on raw 2304-dimensional source
+deltas does not identify their branch across lexical parity.
+
+The next router test is supervised but fail-closed against memorization.  A class-balanced linear
+ridge router on the same source-only features will choose its penalty by leave-one-group-out folds
+entirely inside the opposite-parity training split, with P/C false positives prioritized before
+macro accuracy; the held parity remains sealed.  This uses the correct branch-classification target
+rather than the destructive complement objective.  Failure would license nonlinear interaction
+features or a token-level symbolic router, not another ridge/noise sweep.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -641,6 +655,10 @@ information object rather than tuning nearest-centroid geometry.
   `temporal_iswas_v15_entry12_crossfit_finite_router_v1_result.json` (valid router-identification
   null; the gold finite mixture composes, but native base state cannot distinguish paired A1/P rows
   whose base texts are identical).
+- Entry-12 source-delta centroid router:
+  `temporal_iswas_v15_entry12_crossfit_source_delta_router_v1_result.json` (valid identification
+  null; predicts off for every held row while the gold routed union remains target-effective and
+  exactly control-selective).
 
 ## Remaining gates
 

@@ -1,0 +1,33 @@
+{
+  "schema": "temporal_iswas_v15_entry12_crossfit_regularized_source_router_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_entry12_crossfit_regularized_source_router_v1",
+  "registered_utc": "2026-09-08T02:04:00Z",
+  "question": "Does a nested-cross-validated, strongly regularized linear classifier recover the source-aware A1/A2/off gate without memorizing lexical groups?",
+  "authority": {
+    "source_centroid_result_sha256": "cf41b3c37a50813d71bc454abe2878cd4ec8701ec339610ac94fc81f690c34d8",
+    "required_terminal": "router_identification_failure"
+  },
+  "prior_art": {
+    "searched": ["entry12 source router", "regularized DAS overfit", "nested group crossfit router", "gold finite mixture"],
+    "active_claim_collision": false,
+    "known_lessons": "The native-state router is information-impossible; source centroids collapse to off; the gold mixture composes; high-dimensional supervised fitting can memorize 32 training rows unless lexical groups are held out inside model selection.",
+    "novelty": "Optimize the explicit branch-classification target with class-balanced dual ridge and nested leave-one-group-out selection, rather than optimizing an orthogonal complement or raw centroid distance."
+  },
+  "frozen_design": {
+    "features": "The same concatenated A1/A2 proposed entry12 semantic-position deltas, centered by training mean and row-L2-normalized.",
+    "classifier": "Class-balanced least-squares three-class linear ridge in the dual, with an intercept and relative penalties [1e-3,1e-2,1e-1,1,10] times trace(K)/n.",
+    "selection": "Eight leave-one-group-out folds within the opposite-parity training set. Lexicographically minimize P/C-to-target errors, then maximize macro accuracy, then choose the larger penalty. Refit once on all training groups; held parity is opened once.",
+    "causal_program": "Use the held prediction to select A1 delta, A2 delta, or zero, project through the fixed opposite-parity construction union, and install at entry12. No held label, logit, answer ID, or behavioral outcome enters fitting or routing.",
+    "controls": "Report the full nested grid, selected penalty, held confusion, learned/gold/ungated causal programs, full/zero replays, and P/C KL/flips.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 24, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 2000, "fit_parameters": 6915}
+  },
+  "predictions": {
+    "pred_a_authority_nested_scope_replay_geometry_finiteness_and_price": "Hashes, group-disjoint nested folds, held parity sealing, replays, finite geometry, selected-grid membership, and literal price pass.",
+    "pred_b_regularized_router_identifies_held_branches": "Held macro accuracy is >=.875 in both parities and no P/C row is predicted A1/A2.",
+    "pred_c_routed_union_preserves_both_targets": "The learned routed program projects >=.75 with direction fraction >=.875 on both targets in both parities.",
+    "pred_d_routed_union_is_control_selective": "The program has zero P/C flips and mean KL <=.02 in both parities.",
+    "pred_e_router_retains_ungated_union_effect": "Every routed target projection is at least 90% of its corresponding ungated union projection."
+  },
+  "decision": "A failure invalidates. B/C/D/E licenses OOD routing and weight translation. A gold pass with B failure rejects regularized linear source routing and sends the route to prospective nonlinear interaction or explicit token-level gates, not a wider penalty grid. B without C rejects causal mixture execution; C without D retains control leakage.",
+  "closed_claims": ["OOD router identification", "nonlinear router", "semantic identity", "weight-reader causality", "compression", "adoption"]
+}
