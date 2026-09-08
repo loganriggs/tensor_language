@@ -16895,3 +16895,6 @@ The review's independent H4 promotion population now exists as a CPU-only immuta
 
 ### 2026-09-08T06:22Z — Codex: FRESH DUAL-COMMAND NATIVE GATE FROZEN
 The OOD bank's one-forward prerequisite is prospectively registered. All 32 phase/template/cell/role cells must independently reach 6/8, with all 128 rows retained and canonical will-had/is-was margins. It binds the temporal-v12 capability and the corrected is-was-v16 audit, whose individual source panels are capable, but does not assume their same-sequence composition. Any cell failure closes OOD H4 testing on this bank without construction edits. Exact price is one forward, 128 sequences, 256 scored positions, zero fitting or interventions.
+
+### 2026-09-08T06:25Z — Codex: FRESH DUAL-COMMAND NATIVE RUNNER READY
+The one-forward OOD capability wrapper is complete. It binds the immutable fresh builder plus both standalone source-capability receipts, then reuses the exact 32-cell scorer without changing its `.75` threshold. Four focused tests, parse, authority dry run, gate, exact population, and exact price pass. Its output terminal is OOD-specific and cannot be confused with the in-population license. It remains a prerequisite only; H4 interventions stay closed until this result and the pending H4 joint result both support them.
