@@ -1,0 +1,31 @@
+{
+  "schema": "temporal_iswas_v15_entry12_rank2_attention12_13_factor_mediation_atlas_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_entry12_rank2_attention12_13_factor_mediation_atlas_v1",
+  "registered_utc": "2026-09-08T03:00:00Z",
+  "question": "Do the normalization-aware weight-ranked layer-12/13 attention interfaces causally mediate the selective rank-two entry12 program at complete-module, head, or Q/K/Q2/K2/V factor scale?",
+  "authority": {"normalized_weight_audit_sha256": "afd58acc948a4338ca7fa15a296e765ad29020320fe403d0c749b7ff423b2f58", "required_terminal": "normalized_reader_candidate_price_corrected"},
+  "prior_art": {
+    "searched": ["entry12 normalized readers", "attention15 head module mediation bypass", "full head module patch", "q k v factor reset rescue", "gold routed state union"],
+    "active_claim_collision": false,
+    "known_lessons": "Static L15H5 weight alignment survived folds but mediated only a small bypassed effect. Module mediation must precede head/factor interpretation, singleton composition must be measured before a greedy union, and the learned lexical router cannot be used OOD.",
+    "novelty": "Cross the causally sufficient, gold-routed rank-two state program with absolute downstream factor responses, testing full modules and every head before interpreting the specific normalized-weight nominees."
+  },
+  "frozen_design": {
+    "program": "For each held parity, fit the rank-two entry12 union on the opposite parity. Install the correct A1 expert delta on held A1 rows, correct A2 expert delta on held A2 rows, and zero on P/C rows, all projected through UU^T. Labels define this gold upper-bound program only; they do not fit a reader.",
+    "factor_capture": "Capture pre-rotary c_q/c_k/c_q2/c_k2/c_v outputs for every head in layers 12 and 13 on native-off and routed-program-on runs. Absolute replacements are semantic-prefix-only and require exact shapes and one call per factor.",
+    "mediators": "Test 35 frozen mediators: complete factor banks for attention12 and attention13; complete five-factor banks for all nine heads in each layer; and singleton factors q/k/q2/k2/v for L12H0, L12H4, and L13H2 nominated before causal outcomes.",
+    "factorial": "For every mediator and held fold run 00 off/off, 01 off entry plus on factor, 10 on entry plus off factor, and 11 on/on. Reuse native 00/11 captures and execute only reset/rescue. Score A1 and A2 response vectors against the complete routed-program effect with reset loss, rescue, bypass, and Mobius interaction.",
+    "controls": "Require off/on self replay, gold-program target sufficiency, exact cell closure, unchanged P/C top-1 and KL <=.02, finite metrics, fixed hashes/configuration, and literal price. Report singleton-head sum versus complete-module response before any greedy combination.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 156, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 12000, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_geometry_closure_finiteness_and_price": "All authorities, exact rank-two geometry, row coverage, 00/11 replay, factor call/shape checks, closure, finite metrics, configuration, and literal price pass.",
+    "pred_b_a_complete_layer12_or13_module_mediates_the_program": "At least one complete module has reset-loss and rescue signed projection >=0.50 with direction fraction >=0.875 on A1 and A2 in both folds.",
+    "pred_c_a_stable_complete_head_mediates": "At least one complete head has reset-loss and rescue signed projection >=0.10 with direction fraction >=0.875 on both targets in both folds.",
+    "pred_d_weight_nominated_factor_mediates": "At least one of L12H0:v, L12H4:q, L12H4:k, or L13H2:q has reset-loss and rescue signed projection >=0.05 with direction fraction >=0.875 on both targets in both folds.",
+    "pred_e_factorial_is_control_selective": "Every complete-module reset/rescue cell has zero P/C top-1 flips and mean KL <=0.02 in both folds.",
+    "pred_f_singleton_heads_compose_to_modules": "For each layer and fold, the sum of nine singleton-head reset-loss vectors matches the complete-module reset-loss vector with cosine >=0.95 and relative L2 <=0.25 on both targets."
+  },
+  "decision": "A failure invalidates. B failure causally rejects layers 12/13 as dominant readers despite their weight rank. B with C localizes a head; B without C keeps a distributed module. D licenses factor-specific confirmation only if its parent head also passes. F licenses a greedy head union only when true; otherwise interactions require joint tests. No pass alone identifies semantics or OOD routing.",
+  "closed_claims": ["semantic coordinate identity", "learned OOD routing", "upstream causal ancestry", "extracted adoption"]
+}
