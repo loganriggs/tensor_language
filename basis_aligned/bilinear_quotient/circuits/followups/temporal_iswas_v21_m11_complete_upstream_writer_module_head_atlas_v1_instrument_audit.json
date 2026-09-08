@@ -1,0 +1,39 @@
+{
+  "schema": "temporal_iswas_v21_m11_complete_upstream_writer_module_head_atlas_instrument_audit_v1",
+  "created_utc": "2026-09-08T20:21:00Z",
+  "audited_result_sha256": "b873575f36716a42a32167caa79230d0d6765754afa057e7541e73916282451d",
+  "verdict": "registered_union_selectivity_test_is_self_contradictory_and_raw_H_is_the_wrong_use_metric",
+  "hard_instrument_failures": [
+    "The donor-union arm was required both to reconstruct the complete donor trajectory and to keep the unrelated donor C trajectory quiet. Exact closure necessarily reproduces C's native donor change, so pred_b cannot distinguish a bad writer union from the required donor closure.",
+    "The combined closure statistic applied an absolute 1e-4 threshold to the raw quadratic H tensor. The union has exactly 1.0 target H recovery, yet tiny M11-input roundoff is amplified by the unnormalized quadratic factors into a large raw maximum. Closure must report scale-aware relative H error separately from absolute state/margin errors.",
+    "Raw H energy counts all 4,608 factors equally. It therefore penalizes a head that changes a small downstream-read subset and rewards broad unused writer movement, violating the preregistered separation between weight capability, activation occupancy, and causal use. The writer endpoint must be H contracted with a frozen downstream reader R, or an equivalent task-functional Q response."
+  ],
+  "unchanged_valid_facts": {
+    "forward_inventory": "All 24 eligible input/module singletons and all 108 upstream attention-head singletons were executed on all 64 v21 rows; 136 forwards and 8,704 row evaluations completed.",
+    "self_patch": "The all-site base self-patch is exact (max absolute error 0).",
+    "donor_union_target": "The all-site donor union has exactly 1.0 recovery, cosine, and direction for both target behavior and raw target H.",
+    "behavior_module_order": [
+      ["mlp:1", 0.8173], ["attn:9", 0.5513], ["mlp:3", 0.5458],
+      ["mlp:2", 0.5368], ["mlp:4", 0.4347], ["mlp:6", 0.3847],
+      ["mlp:0", 0.3359], ["mlp:5", 0.2602], ["mlp:8", 0.2492]
+    ],
+    "behavior_head_order": [
+      ["L9H1", 0.2215], ["L9H4", 0.2201], ["L8H1", 0.1940],
+      ["L11H3", 0.1893], ["L0H3", 0.1032]
+    ],
+    "cross_corpus_replication": "The four strongest v21 behavioral heads are exactly the four independently identified on v15: L8H1, L9H1, L9H4, and L11H3. This is discovery/replication evidence, not promotion under the invalid v21 terminal."
+  },
+  "discarded_claims": [
+    "No selective module/head exists.",
+    "The complete upstream writer family is nonselective.",
+    "Raw H recovery is a valid proxy for downstream causal use.",
+    "The registered invalid terminal licenses stopping the upstream search."
+  ],
+  "corrected_next_test": {
+    "population": "A new history-disjoint v22 capability-gated corpus; v21 is discovery-only for selection.",
+    "writer_endpoint": "For each intervention compute the exact M11 H response and contract it with a frozen native or cross-fitted stable reader R to form task-functional Q. Raw H norm remains a capability/occupancy diagnostic only.",
+    "controls": "The full donor union is a closure control and is never required to be quiet. Selectivity is tested on component or component-set interventions using answer behavior and task-functional Q movement on P/C. A C self/no-op arm, not the unrelated C donor trajectory, supplies closure.",
+    "candidate_set": "Prospectively freeze the replicated four-head set L8H1/L9H1/L9H4/L11H3 and the top complete-module frontier; test singleton, union, forward-greedy prefix, and backward necessity on v22. Do not tune on v22.",
+    "weight_decomposition": "After causal confirmation, restrict literal head/module output maps to the reader-weighted M11 writer subspace and decompose the resulting weight tensor. Overlay v20/v21/v22 occupancy without rotating the weight basis."
+  }
+}
