@@ -68,6 +68,22 @@ cross-installation decides whether the shared span is genuinely one reusable sub
 
 ## Executable continuation
 
+The model-free implementation is now
+`basis_aligned/bilinear_quotient/ops/causal_checkpoint_translation.py`. It preserves leading
+row/token dimensions and implements PyTorch `Linear` orientation explicitly:
+
+- `attention_head_write` selects the registered head's `c_proj.weight[:, head_slice]` and returns
+  the exact float32 residual write;
+- `bilinear_product_factors` constructs the arm-local Left, Right, and interaction terms;
+- `mlp_factor_write` and `mlp_factor_writes` contract those terms through `Down.weight` and expose
+  their exact sum.
+
+The focused tests compare the head result with the full patched `c_proj` difference, compare the
+factor definitions byte-for-byte with the frozen M11 executor, prove full bilinear closure through
+`Down`, and check the paired head gauge, reciprocal Left/Right scaling, hidden permutation, finite
+data, and shape contracts. This implementation does not rank or declare a downstream reader; it
+only makes a causally admitted piece's checkpoint write exact and reusable.
+
 - Consume the immutable P7 module-necessity receipt.
 - If A11/H3 passes, store its exact `W_O`-contracted per-row writes and rank downstream reader
   contractions, then preregister the top physical reader edge before testing it.
