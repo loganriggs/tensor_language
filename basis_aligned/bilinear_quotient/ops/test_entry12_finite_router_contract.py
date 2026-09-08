@@ -27,3 +27,12 @@ def test_routed_absolute_selects_expert_or_off_by_row():
 def test_row_labels_merge_p_and_c_into_off():
     rows = [{"transform_id": name} for name in ("A1", "A2", "P", "C")]
     assert router.labels_for_rows(torch, rows, device="cpu").tolist() == [0, 1, 2, 2]
+
+
+def test_source_features_concatenate_both_proposed_deltas():
+    off = torch.zeros(2, 2, 2)
+    experts = {"A1": torch.ones_like(off), "A2": torch.full_like(off, 2.)}
+    features = router.source_delta_features(torch, off, experts, (0, 1))
+    assert features.shape == (2, 4)
+    assert torch.equal(features[0], torch.tensor([1., 1., 2., 2.]))
+    assert torch.equal(features[1], torch.tensor([1., 1., 2., 2.]))

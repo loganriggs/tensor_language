@@ -30,6 +30,16 @@ def semantic_features(torch, states, semantic_positions):
     return states[row, position].float()
 
 
+def source_delta_features(torch, off, expert_states, semantic_positions):
+    """Concatenate proposed A1/A2 write deltas without reading outcomes or labels."""
+    if set(expert_states) != {"A1", "A2"}:
+        raise RouterError("source features require exactly A1 and A2 expert states")
+    base = semantic_features(torch, off, semantic_positions)
+    pieces = [semantic_features(torch, expert_states[name], semantic_positions) - base
+              for name in ("A1", "A2")]
+    return torch.cat(pieces, dim=-1)
+
+
 def fit_centroids(torch, features, labels):
     if features.ndim != 2 or labels.ndim != 1 or len(features) != len(labels):
         raise RouterError("feature/label shape mismatch")
