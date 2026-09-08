@@ -1,0 +1,35 @@
+{
+  "schema": "temporal_iswas_v15_residual_suffix_module_mediation_atlas_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_residual_suffix_module_mediation_atlas_v1",
+  "registered_utc": "2026-09-08T01:10:00Z",
+  "question": "Which complete downstream module writes mediate the dominant residual bypass of the construction-specific upstream oracle intervention?",
+  "authority": {
+    "attention15_atlas_result_sha256": "006fdb1871ee188aa9b3500cc09af0b3e6cb418c898003a8c08bb7d36b4dd3b8",
+    "required_terminal": "attention15_bypass"
+  },
+  "prior_art": {
+    "searched": ["temporal is/was downstream response/removal/module atlases", "MLP12-17 programs", "attention-15 head mediation atlas"],
+    "active_claim_collision": false,
+    "known_lessons": "A responsive module is not a mediator; native module boundaries are proposals; greedy union requires measured singleton composition; the whole attention-15 branch is too small to license factor splitting.",
+    "novelty": "Cross the fixed upstream oracle with the source of every complete attention/MLP write in layers 12-17 and their joint write bank, preserving the carried residual background."
+  },
+  "frozen_design": {
+    "experts": ["A1_oracle", "A2_oracle"],
+    "evaluation": "Opposite-parity fixed oracle projectors; v15 A1/A2/P/C only; no refit, gain, or outcome-selected module.",
+    "singleton_mediators": ["attn12", "mlp12", "attn13", "mlp13", "attn14", "mlp14", "attn15", "mlp15", "attn16", "mlp16", "attn17", "mlp17"],
+    "joint_mediator": "all twelve complete module writes installed together",
+    "cells": {"00": "upstream off/write from off", "01": "upstream off/write from on", "10": "upstream on/write reset from off", "11": "upstream on/write from on"},
+    "accounting": "Rowwise margin rescue, reset loss, bypass, and Mobius interaction; cellwise P/C KL and flips. Test joint bank before interpreting singleton rankings.",
+    "composition": "Compare sum of twelve singleton reset-loss vectors with joint-bank reset loss. Greedy module union is licensed only when cosine >=.90 and relative L2 <=.25 in every own-target expert/parity cell.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 120, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 10000, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_closure_finiteness_and_price": "All hashes, native/self replays, row coverage, factorial closures, finiteness, and literal price pass.",
+    "pred_b_joint_suffix_write_bank_mediates_bypass": "Joint-bank reset loss and rescue each project >=.50 onto the full upstream effect with direction fraction >=.875 in every expert/parity own target.",
+    "pred_c_stable_singleton_module_mediator_exists": "At least one identical singleton module has positive reset-loss projection >=.10 and direction fraction >=.75 in every expert/parity own target.",
+    "pred_d_singleton_module_effects_compose": "The sum of singleton reset losses predicts joint-bank reset loss with cosine >=.90 and relative L2 <=.25 in every expert/parity own target.",
+    "pred_e_selected_module_mediation_is_control_selective": "Every module satisfying C adds zero P/C flips and changed-versus-background mean KL <=.02 in reset and rescue cells."
+  },
+  "decision": "A failure invalidates. B failure identifies direct residual carry beyond downstream writes. B/C with D licenses parity-cross-fit greedy module union; B/C without D licenses interaction-aware module sets. B without C diagnoses distributed write mediation. E gates selective promotion.",
+  "closed_claims": ["semantic identity of native modules", "OOD transfer", "factor-level splitting", "compression", "adoption"]
+}

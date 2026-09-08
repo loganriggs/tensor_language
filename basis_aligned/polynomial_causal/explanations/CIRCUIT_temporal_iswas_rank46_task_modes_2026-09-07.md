@@ -475,6 +475,18 @@ gate therefore admitted the preregistered complete layer-15 module plus nine-sin
 reset/rescue atlas.  It will measure whole-module mediation before ranking heads, and will license a
 greedy head union only if the sum of singleton reset losses approximates the module reset loss.
 
+The admitted head/module atlas returns the valid terminal `attention15_bypass`.  Complete layer-15
+attention reset loss mediates only `.057-.081` of the upstream live effect across the four
+expert/parity own-target cells, below the registered `.10` bar.  L15H5 is nevertheless the top
+reset and rescue singleton in all four cells and accounts for most of that small branch
+(`.050-.072`).  Singleton reset losses reproduce the complete-module reset loss almost exactly
+(cosine above `.9999996`, relative L2 below `.005`), and L15H5 controls are clean.  This licenses
+neither a greedy union nor Q/K/V splitting because the complete attention module itself failed the
+mediation gate.  On reused v16, L15H5 reset projection is `.031`, `-.015`, `.050`, and `-.030`, so
+the small branch is not OOD-stable.  The dominant `.919-.943` effect remains after resetting the
+whole attention-15 response and must be localized through carried residual state and downstream
+module writes.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -541,6 +553,9 @@ greedy head union only if the sum of singleton reset losses approximates the mod
   (valid live-route candidate; all six predictions pass), followed by
   `temporal_iswas_v15_attention15_head_module_mediation_atlas_v1_admission.json`
   (zero-model admission of the full module/nine-head mediation atlas).
+- Layer-15 head/module mediation:
+  `temporal_iswas_v15_attention15_head_module_mediation_atlas_v1_result.json` (valid bypass null;
+  L15H5 is the top but small singleton, while the complete module fails the 10% mediation gate).
 
 ## Remaining gates
 
