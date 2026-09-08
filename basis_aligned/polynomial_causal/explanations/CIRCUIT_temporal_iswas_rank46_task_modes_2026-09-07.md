@@ -989,12 +989,27 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   strongest overall.  This makes the user-proposed tensor-to-weight translation operational and
   freezes a six-head causal source-position union.  It is exact weight compatibility, not causal
   writing, until that head patch test lands.
+- Source-tensor upstream causal head factorial:
+  `temporal_iswas_l11h3_source_tensor_upstream_head_factorial_v1_result.json` (valid shared-writer
+  result).  All six weight-nominated heads were patched singly and as each task's frozen top-five
+  union at only the locked source positions, against a live L11H3:value reference.  L9H1 and
+  L9H4 independently pass the complete cross-task singleton gate.  The temporal top-five union
+  recovers `.554/.562` on original FIT/HOLDOUT and `.575/.585` on OOD; the is-was union is
+  directionally faithful but overcomplete, recovering `2.305/2.501` original and `2.914/2.901`
+  OOD.  Pooled union cosines are `.970-.996` and direction agreement is `1.0`.  Across every
+  phase/template, singleton sums predict the simultaneous union with maximum relative L2
+  `.17425` and minimum cosine `.98560`, so the registered distributivity branch passes.
+  Reference replay and later-to-earlier causal effect are exact zero.  The weight atlas is now
+  causally validated, but the five-head is-was set should be pruned rather than treated as the
+  final circuit.  The licensed successor is weight-ordered greedy prefix selection on original
+  FIT followed by unchanged original-HOLDOUT/OOD validation.
 
 ## Remaining gates
 
-1. Translate the extracted L11H3 source tensor through its exact W_v read matrix to prospectively
-   nominate upstream attention/MLP writers, then test the frozen six nominated heads causally at
-   the locked source positions. L15H5 q/q2 weight enrichment is closed as a causal explanation.
+1. Prune the causally validated source writers by the prospectively licensed weight-ordered
+   greedy prefixes, selecting only on original FIT and validating unchanged on original HOLDOUT
+   and OOD. L9H1 and L9H4 are already licensed shared writers; L15H5 q/q2 weight enrichment is
+   closed as a causal explanation.
 2. Test whether an explicit H4/L11-value interface plus native
    background predicts that signed loss rather than inferring extraction from donor swaps.
 3. Retain the stable is-was fold pair and all failed registered claims rather than selecting a

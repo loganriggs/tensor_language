@@ -148,8 +148,15 @@ OOD text.  Four checksummed 128x128 query-tensor banks are stored in the result.
 continuation is exact upstream writer-weight translation through L11H3 W_v followed by a causal
 source-position module/head screen.  The exact atlas has now frozen six unique head candidates:
 shared L6H7/L7H7/L9H1/L9H4, temporal-only L5H1, and is-was-only L3H4.  Original/OOD top-ten
-rankings are identical and shared enrichments are 6.11x--17.25x.  Treat these as weight
-candidates only until the all-singleton plus task-top-five causal source-position screen lands.
+  rankings are identical and shared enrichments are 6.11x--17.25x.  Treat these as weight
+  candidates only until the all-singleton plus task-top-five causal source-position screen lands.
+  That screen has now landed valid at SHA-256 `d00fdf1f...`: L9H1 and L9H4 each pass the frozen
+  shared cross-task causal-writer singleton gate, both top-five unions pass, and singleton-sum
+  composition has maximum relative L2 `.17425` and minimum cosine `.98560`.  The temporal union
+  recovers about `.55-.58` of the L11 value effect; the is-was union overshoots at `2.30-2.91`,
+  making it causally sufficient but overcomplete.  The preregistered distributive branch therefore
+  requires a weight-ordered greedy prefix successor, selected only on original FIT and then frozen
+  for original HOLDOUT/OOD validation.  Do not run the 32-subset interaction branch.
 
 At this checkpoint `gpt-6-astra` is the configured Codex default and is visible in the account
 catalog.  Both `bqrunner` services are Supervisor-managed and healthy; their queues are currently
