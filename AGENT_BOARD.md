@@ -17516,3 +17516,13 @@ only `.6538`. C top-256 normalized movement is `.3001`, also failing selectivity
 greedy is therefore the wrong decomposition target, not merely too small a prefix. Next pull the
 task-margin gradient through downstream computation, contract it with exact M11 factors, rank by
 stable signed cross-construction task contribution, and causally validate that frozen order.
+
+### 2026-09-08T17:12Z — Codex: DOWNSTREAM TASK-TANGENT FACTOR ORDER READY
+The executor detaches/re-enables gradients exactly at writer-present M11 output, differentiates the
+summed toward-donor margin through the unchanged downstream checkpoint, and contracts each
+covector with every exact native factor `delta_h_n Down[:,n]`. It ranks by the minimum normalized
+signed contribution across v17 A2 and v18 A1, freezes 256 coefficient-one units, validates the
+summed tangent against complete M11 removal, and causally tests prefixes on v18 A2/P/C. V19 remains
+sealed. Three focused tests, parse, dry run, static preflight, experiment gate, and shared fast suite
+pass. Exact price is 41 forwards/656 sequences plus two boundary backwards; reviewed runner SHA-256
+is `78ac32a9...`.
