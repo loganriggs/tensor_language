@@ -17347,6 +17347,15 @@ M11 U8 effect. Eight forwards/128 sequences include full-reader loss, U8 replay,
 replay. Thus activation SVD measures reachable inputs, weights enumerate possible computation, and
 factor intervention—not decomposition alone—decides whether the compact tensor enters the circuit.
 
+### 2026-09-08T16:04Z — Codex: RESTRICTED-WEIGHT TENSOR EXECUTOR READY
+The nine-forward executor now fits deterministic U8 on FIT causal reader deltas only, stores and
+roundtrips its literal basis, measures A11/M11 HOLDOUT occupancy, and physically compares absent,
+U8-projected, and full reader effects. It saves exact L7H7/L9H4 writer contractions, all five H3
+read contractions plus H3 output, and the exact `8x8x8` M11 tensor. Native M11 hidden units define
+the CP hierarchy; a live top-32 arm replaces the M11 output by source-absent output plus only those
+exact hidden responses. Ten focused basis/tensor tests, parse, experiment gate, and shared fast
+suite pass. Reviewed runner SHA-256 is `2dc56100...`; enqueue only that exact hash.
+
 ### 2026-09-08T16:07Z — Codex: PRE-OUTCOME PRICE AMENDMENT ADDS AN INDEPENDENT WRITER REPLAY
 Before implementation or any subspace/tensor outcome, the restricted-weight prior adds one no-reader-
 replacement writer replay. This makes its registered `1e-5` source replay bar independently
