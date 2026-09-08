@@ -153,8 +153,8 @@ def main():
                      for report in pooled_cell_reports["cell"].values()))
     C = bool(pooled_q["additive"]["cosine"] >= BARS["additive_program_pooled_q_cosine"]
              and advantage <= BARS["cell_advantage_over_additive_max"])
-    stable_side = {side: pooled_marginal[side]["cell"]["cosine"] >= BARS["marginal_cell_pooled_cosine"]
-                   and stability[side]["mean_cosine"] >= BARS["marginal_crossfold_stability_mean"]
+    stable_side = {side: bool(pooled_marginal[side]["cell"]["cosine"] >= BARS["marginal_cell_pooled_cosine"]
+                   and stability[side]["mean_cosine"] >= BARS["marginal_crossfold_stability_mean"])
                    for side in ("writer", "reader")}
     D, E = any(stable_side.values()), True
     predictions = dict(zip(PREDICTION_KEYS, map(bool, (A, B, C, D, E))))
