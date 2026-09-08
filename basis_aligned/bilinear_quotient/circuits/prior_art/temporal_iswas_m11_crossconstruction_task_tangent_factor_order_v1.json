@@ -1,0 +1,58 @@
+{
+  "schema": "temporal_iswas_m11_crossconstruction_task_tangent_factor_order_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.m11_crossconstruction_task_tangent_factor_order_v1",
+  "registered_utc": "2026-09-08T17:06:52Z",
+  "question": "Can downstream task-tangent pullback identify a stable compact set of exact native M11 weight factors where output-reconstruction greedy fails?",
+  "prior_art": {
+    "searched": [
+      "v17 restricted tensor and valid v18 frozen factor transfer",
+      "cross-construction exact output-factor greedy result",
+      "task-tangent, response-basis, source compiler, hidden-mask, and downstream-reader records",
+      "AGENT_BOARD, BILIN18_CONNECTION, BENCHMARK_BACKLOG, and canonical temporal dossier"
+    ],
+    "known_result": "Output-greedy is exactly implemented but diffuse: 256 factors leave .75-.77 training output residual, recover .654 held-out causality, and breach C selectivity. High output variance is not the circuit target. Downstream readers can amplify a small task-aligned component, as earlier source-complement experiments demonstrated.",
+    "novelty": "No prior factorization pulls the actual is/was answer-margin covector back to M11 output and contracts it with every native rank-one M11 factor across constructions before causal testing."
+  },
+  "authority": {
+    "output_greedy_result_sha256": "fa5db0f2539fd120b29dd1effa7114bc6eb0b4a2d841049ecbb1a4b5199d8907",
+    "factor_v2_result_sha256": "f558c21f40bfb961e7abc3ecc84dd52e4153e3f7ec0e99a390594c487030a82d",
+    "v19_capability_result_sha256": "28f8f134d78279dd82cd7cca94f76e9cf35815bd1a59430ad34601fd0294fdd4"
+  },
+  "frozen_design": {
+    "selection_population": "All v17 A2 and v18 A1 rows. V18 A2/P/C are held out from the new ordering; v19 causal outcomes remain sealed.",
+    "task_tangent": "At the writer-present M11 output, detach and re-enable gradients only at that module boundary, run the exact downstream checkpoint, and differentiate the summed per-row toward-donor answer margin. For factor n and sample s, t[s,n]=delta_h[s,n] * <grad_margin[s], Down[:,n]>. The sum over n is the first-order prediction for complete M11 removal.",
+    "stable_order": "For each selection construction, average t[:,n] and normalize by the sum of absolute per-unit means. Score unit n by the minimum of its two normalized signed contributions. Sort descending with smallest index breaking exact ties; freeze the first 256 indices. Coefficients remain exactly one. Report prefixes 16,32,64,128,256.",
+    "tangent_validation": "Run complete M11 removal on both selection constructions. The summed factor tangent must predict its margin-effect vector with cosine >=.90 and direction >=.875 before the ordering is considered a valid task-conditioned instrument.",
+    "causal_test": "Apply frozen factor prefixes to the full v18 A2 M11 reader delta and compare with complete M11 loss. Separately normalize P/C top-64/top-128 movements by target RMS. V19 remains unopened.",
+    "bars": {
+      "writer_or_formula_margin_max_abs": 0.00001,
+      "all_hidden_output_relative_squared_max": 0.00000001,
+      "selection_tangent_full_effect_cosine_minimum": 0.9,
+      "selection_tangent_full_effect_direction_minimum": 0.875,
+      "heldout_top64_signed_recovery_minimum": 0.75,
+      "heldout_top64_cosine_minimum": 0.95,
+      "heldout_top128_signed_recovery_minimum": 0.85,
+      "heldout_top128_cosine_minimum": 0.95,
+      "heldout_direction_minimum": 0.875,
+      "P_or_C_top64_or_top128_normalized_effect_maximum": 0.25
+    },
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 41,
+      "sequence_evaluations": 656,
+      "scored_token_positions": 1312,
+      "transformer_backwards": 2,
+      "model_updates": 0,
+      "fit_parameters": 0,
+      "selected_native_factor_indices": 256
+    }
+  },
+  "predictions": {
+    "pred_a_authority_gradient_and_formula_instruments_hooks_finiteness_and_price": "Authorities/populations match; boundary gradient is live and finite; writer/all-hidden replays close; hook counts and exact 41-forward/2-backward price pass.",
+    "pred_b_summed_native_factor_tangent_predicts_full_M11_effect_on_both_selection_constructions": "On v17 A2 and v18 A1 separately, summed tangent versus complete M11 removal has cosine >=.90 and direction >=.875.",
+    "pred_c_stable_task_tangent_top64_transfers_to_v18_A2": "Frozen top-64 signed recovery/cosine/direction on v18 A2 is at least .75/.95/.875.",
+    "pred_d_stable_task_tangent_top128_recovers_most_v18_A2": "Frozen top-128 signed recovery/cosine/direction on v18 A2 is at least .85/.95/.875.",
+    "pred_e_task_tangent_factor_program_is_selective_and_v19_remains_sealed": "Every P/C top-64/top-128 normalized ratio <=.25 and no v19 causal outcome is opened."
+  },
+  "decision": "C promotes a compact task-read factor set; only D promotes <=128 if C fails. If B fails, the first-order pullback is not a valid selector and no causal prefix is promoted. If B passes but C/D fail, the downstream covector itself is construction-conditioned and the next object must explicitly branch by reader state. E failure marks generic/nonselective use. A passing order is frozen before v19 confirmation."
+}

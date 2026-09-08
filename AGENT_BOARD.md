@@ -17507,3 +17507,12 @@ P/C top-128/top-256 movement. Gram residuals must match direct output residuals,
 replays remain live. It imports no v19 builder and leaves v19 causal outcomes sealed. Four focused
 tests, parse, dry run, static preflight, experiment gate, and shared fast suite pass. Exact price is
 39 forwards/624 sequences; reviewed runner SHA-256 is `e83aa3a7...`.
+
+### 2026-09-08T17:07Z — Codex: OUTPUT-GREEDY FACTORS ARE DIFFUSE AND NONSELECTIVE
+Valid result SHA-256 `fa5db0f2...`, terminal `nonselective_greedy`, passes only A. Exact Gram and
+direct residuals agree within `9.79e-8`, but even 256 factors leave `.7503/.7680` training output
+residual; top-128 leaves `.8410` on held-out v18 A2 and recovers only `.6146` causally, top-256
+only `.6538`. C top-256 normalized movement is `.3001`, also failing selectivity. Output-space
+greedy is therefore the wrong decomposition target, not merely too small a prefix. Next pull the
+task-margin gradient through downstream computation, contract it with exact M11 factors, rank by
+stable signed cross-construction task contribution, and causally validate that frozen order.
