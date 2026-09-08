@@ -123,3 +123,34 @@ def test_activation_conditioned_mlp_write_is_exact_and_read_gauge_invariant():
     rotated = subject.activation_conditioned_mlp_write(mlp, rotation @ read, base, donor)
     assert torch.allclose(torch.linalg.vector_norm(result["response"], dim=-1),
                           torch.linalg.vector_norm(rotated["response"], dim=-1), atol=1e-5)
+
+
+def test_tensor_unfolding_spectra_are_mode_gauge_invariant():
+    g = torch.Generator().manual_seed(29)
+    tensor = torch.randn(3, 4, 5, generator=g)
+    baseline = subject.tensor_unfolding_spectra(tensor)
+    rotations = [random_basis(size, size, g) for size in tensor.shape]
+    rotated = torch.einsum("ai,bj,ck,ijk->abc", *rotations, tensor)
+    transformed = subject.tensor_unfolding_spectra(rotated)
+    for original, changed in zip(baseline, transformed):
+        assert torch.allclose(original["singular_values"], changed["singular_values"], atol=1e-5)
+        assert abs(original["stable_rank"] - changed["stable_rank"]) < 1e-5
+
+
+def test_literal_atoms_reconstruct_tensor_and_scores_are_subspace_gauge_invariant():
+    g = torch.Generator().manual_seed(31)
+    mlp = type("MLP", (), {})()
+    mlp.Left = Linear(torch.randn(9, 6, generator=g))
+    mlp.Right = Linear(torch.randn(9, 6, generator=g))
+    mlp.Down = Linear(torch.randn(6, 9, generator=g))
+    source, target = random_basis(6, 3, g), random_basis(6, 2, g)
+    restricted = subject.mlp_subspace_tensor(mlp, source, target)
+    atoms = subject.mlp_subspace_literal_atoms(restricted)
+    assert atoms["relative_error"] < 1e-6
+    assert torch.allclose(atoms["reconstruction"], restricted["tensor"], atol=1e-5)
+    source_rotation, target_rotation = random_basis(3, 3, g), random_basis(2, 2, g)
+    rotated = subject.mlp_subspace_tensor(
+        mlp, source @ source_rotation, target @ target_rotation)
+    rotated_atoms = subject.mlp_subspace_literal_atoms(rotated)
+    assert torch.allclose(atoms["scores"], rotated_atoms["scores"], atol=1e-5)
+    assert torch.equal(atoms["order"], rotated_atoms["order"])

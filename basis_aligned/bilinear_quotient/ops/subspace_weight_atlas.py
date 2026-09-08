@@ -244,3 +244,52 @@ def mlp_subspace_tensor(mlp, source_basis, target_basis=None):
                        "right": float(torch.linalg.matrix_norm(right)),
                        "down": float(torch.linalg.matrix_norm(down)),
                        "tensor": float(torch.linalg.vector_norm(tensor))}}
+
+
+def tensor_unfolding_spectra(tensor):
+    """Return complete singular spectra and stable ranks of every tensor unfolding.
+
+    This is a deterministic weight-capability description, not a causal rank
+    selector.  Orthogonal changes of coordinates within any tensor mode preserve
+    the corresponding spectrum and stable rank.
+    """
+    value = torch.as_tensor(tensor).float()
+    if value.ndim < 2 or not torch.isfinite(value).all():
+        raise SubspaceWeightAtlasError("tensor must be finite and have at least two modes")
+    reports = []
+    for mode in range(value.ndim):
+        unfolding = value.movedim(mode, 0).reshape(value.shape[mode], -1)
+        singular = torch.linalg.svdvals(unfolding)
+        squared = singular.square()
+        stable_rank = float(squared.sum() / squared.max().clamp_min(1e-30))
+        reports.append({"mode": mode, "shape": tuple(unfolding.shape),
+                        "singular_values": singular, "stable_rank": stable_rank})
+    return reports
+
+
+def mlp_subspace_literal_atoms(restricted):
+    """Score and exactly reconstruct literal hidden-factor atoms of a restricted MLP.
+
+    The input is the dictionary returned by :func:`mlp_subspace_tensor`.  Atom
+    scores are products of the three factor norms and are invariant to orthogonal
+    rotations of source and target subspace coordinates.  They describe available
+    weight computation; no activation frequency is folded into them.
+    """
+    required = ("left", "right", "down", "tensor")
+    if not isinstance(restricted, dict) or any(key not in restricted for key in required):
+        raise SubspaceWeightAtlasError("restricted MLP tensor fields are missing")
+    left, right, down, tensor = (torch.as_tensor(restricted[key]).float() for key in required)
+    if (left.ndim != 2 or right.shape != left.shape or down.ndim != 2
+            or down.shape[1] != left.shape[0]
+            or tensor.shape != (down.shape[0], left.shape[1], left.shape[1])
+            or not all(torch.isfinite(value).all() for value in (left, right, down, tensor))):
+        raise SubspaceWeightAtlasError("restricted MLP tensor shapes are incompatible")
+    scores = (torch.linalg.vector_norm(down, dim=0)
+              * torch.linalg.vector_norm(left, dim=1)
+              * torch.linalg.vector_norm(right, dim=1))
+    order = torch.argsort(scores, descending=True, stable=True)
+    reconstruction = torch.einsum("an,ni,nj->aij", down, left, right)
+    denominator = torch.linalg.vector_norm(tensor).clamp_min(1e-30)
+    relative_error = float(torch.linalg.vector_norm(reconstruction - tensor) / denominator)
+    return {"scores": scores, "order": order, "reconstruction": reconstruction,
+            "relative_error": relative_error}
