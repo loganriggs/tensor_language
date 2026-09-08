@@ -1,0 +1,40 @@
+{
+  "schema": "temporal_iswas_l11h3_source_writer_weight_ordered_greedy_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.l11h3_source_writer_weight_ordered_greedy_v1",
+  "registered_utc": "2026-09-08T07:56:00Z",
+  "question": "What is the smallest prospectively weight-ordered prefix of the causally validated upstream writers that faithfully reconstructs each task-typed L11H3 value-source effect?",
+  "authority": {
+    "upstream_head_factorial_result_sha256": "d00fdf1f256b94199547d9260b6896c56b0af95229240b204cd0eb2798ded0d1",
+    "upstream_weight_atlas_result_sha256": "f1b1a057c0ad48f3f514970430551b51d42cfa75a549e6491ea2d724664740d6"
+  },
+  "frozen_design": {
+    "populations": "Run all 128 endpoints in both the original and fresh OOD banks. Temporal remains locked to bridge and is-was to postcue; donor pairing, rows, phases, templates, and source positions cannot be reselected.",
+    "weight_ordered_prefixes": {
+      "temporal": ["L07H07", "L09H04", "L09H01", "L06H07", "L05H01"],
+      "iswas": ["L07H07", "L09H04", "L06H07", "L09H01", "L03H04"]
+    },
+    "intervention": "For each role, patch absolute native-donor pre-c_proj head slices for prefixes P1 through P5 at only the locked source positions. Every selected earlier head is patched in its own layer; all unselected components and L11H3 itself remain live. Independently rerun the direct L11H3:value patch as the parent reference.",
+    "selection": "Read only pooled original FIT. Select the smallest weight-ordered prefix with signed recovery in [0.50,1.50], cosine >=0.90, relative residual <=0.75, and direction agreement >=0.90 against the live L11H3:value reference. If no prefix qualifies, return a registered greedy-selection null without inspecting validation to choose another set.",
+    "validation": "The selected prefix is frozen independently per role. It must have signed recovery in [0.50,1.75], cosine >=0.90, relative residual <=0.90, and direction agreement >=0.90 on original HOLDOUT and both OOD phases. Every per-template validation row must retain nonnegative recovery and direction agreement >=0.75.",
+    "compactness": "A role is compact only if its selected prefix is shorter than five. The cross-task program is compact if at least one role prunes and neither role fails validation. Report overlap of selected physical heads without requiring identical task prefixes.",
+    "selectivity": "For each selected-prefix pooled phase, command-gold cross-role norm ratio must be <=0.01; every is-was intervention must change the earlier temporal margin by <=1e-5. Reference replay must be exact within 1e-5.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 26,
+      "sequence_evaluations": 3328,
+      "scored_token_positions": 6656,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_pairing_reference_replay_capture_coverage_finiteness_and_exact_price": "Both immutable authorities, task banks, locked positions, native references, prefix inventory, capture coverage, finiteness, and literal price pass.",
+    "pred_b_original_fit_selects_a_qualified_prefix_for_each_role": "Each role has at least one prefix satisfying the frozen selection bar on pooled original FIT.",
+    "pred_c_selected_prefixes_validate_without_reselection": "Both FIT-selected prefixes pass every pooled and template-level original HOLDOUT/OOD validation bar.",
+    "pred_d_greedy_prunes_at_least_one_overcomplete_top5_union": "At least one role selects fewer than five heads while both selected prefixes validate.",
+    "pred_e_selected_prefixes_are_task_selective_and_causal": "All selected-prefix collateral and later-to-earlier causal-zero bars pass."
+  },
+  "null": "If A fails, the instrument is invalid. If B fails, weight order is not a sufficient greedy path and no validation-driven subset may be substituted. If B passes but C fails, the prefix is an original-FIT overfit and the complete top-five remains only the licensed sufficient set. If C passes but D fails, the program is validated but not pruned. Any failure preserves L9H1/L9H4 singleton writer licenses and cannot reopen candidate widening, source positions, DAS, or the interaction-aware branch.",
+  "decision": "A/B/C/E licenses the selected task-typed prefixes as compact upstream writers into the exact L11H3 source-term interface. D determines whether the causal circuit is simpler than the complete top-five unions. The successor is held-out writer-to-formula mediation, not another head search."
+}
