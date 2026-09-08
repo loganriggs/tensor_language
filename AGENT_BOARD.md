@@ -17670,3 +17670,17 @@ interface: reader gate if `g*Down` supplies the target/P sign, source-write gate
 or the coupled positionwise product if neither marginal does. `CIRCUIT_FOCUS`, `CEREMONY_BUDGET`,
 and `NOVELTY_LESSON_GATE` all pass. V21 is already sealed, and both split plus capability jobs remain
 audited in the managed queue behind the live breadth job.
+
+### 2026-09-08T18:34Z — Codex: HELD-OUT TEST REJECTS A SINGLE +/- ANSWER-SIGNED POINT
+Valid CPU result SHA-256 `781f9604...`, terminal `higher_structure_required`, passes A/D and
+fails B/C. A prototype fitted to donor-answer-oriented A1/A2/P response rows on one direction
+predicts the opposite direction with pooled cosine `-.9284`/`-.8709`; the two fitted prototypes
+have cosine `-.9386`. Every one of the 48 signed held-out row cosines is negative. The prior
+full-dataset answer-orientation observation was therefore an aggregation artifact caused by
+answer sign being perfectly coupled to transfer direction, not a stable two-point restricted
+tensor. Do not name a +/-q answer carrier. The tensor needs a construction/direction index or a
+coupled positionwise writer-reader factor. The queued H/R split remains useful, with one rationale
+correction: matched A1 and P rows use the same base answer/foil margin covector. Any R difference
+comes from the downstream Jacobian at their different patched states, not mechanically from the
+donor-answer label. Its result may localize a conditional reader, writer, or interaction but is
+still diagnostic rather than an inference-time gate.

@@ -1,0 +1,261 @@
+{
+  "authority_sha256": {
+    "answer_sign": "09b2b5e58a8b5990a905707835f5424696cfeb7ac83fbfa18578ff24377540e1",
+    "builder": "cafe9120c4ba8fdbeff27c5a2d05a247c2000641fd401529a4ca0a089137d1d9",
+    "prior": "fff6691ae03480020fedb7f1f82bfe684104c6fcf829adc5db4089e241d51306",
+    "tensor": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "tensor_result": "da97abea6f3dae8721c2cda383e0b7af844217051e199046a23c6b9c264da396"
+  },
+  "bars": {
+    "crossfit_prototype_cosine": 0.9,
+    "per_fold_improvement_over_unsigned": 0.45,
+    "per_panel_mean_cosine": 0.8,
+    "per_panel_minimum_cosine": 0.6,
+    "per_panel_positive_fraction": 0.875,
+    "pooled_improvement_over_unsigned": 0.5
+  },
+  "candidate_id": "cross_task.temporal_iswas.v20_task_factor_signed_prototype_crossfit_v1",
+  "causal_selector_identified": false,
+  "crossfit_prototype_cosine": -0.938567101962029,
+  "evidence_status": "cpu_crossfit_diagnostic_screen_only",
+  "fold_summary": {
+    "even_to_odd": {
+      "improvement": -1.2326193832895167,
+      "signed_pooled_mean_cosine": -0.9283953086408449,
+      "unsigned_pooled_mean_cosine": 0.3042240746486718
+    },
+    "odd_to_even": {
+      "improvement": -1.264423975056587,
+      "signed_pooled_mean_cosine": -0.8709390700583898,
+      "unsigned_pooled_mean_cosine": 0.3934849049981974
+    }
+  },
+  "heldout": {
+    "even_to_odd": {
+      "signed": {
+        "A1": {
+          "cosines": [
+            -0.9050234411442203,
+            -0.9418431050242255,
+            -0.8909181323769212,
+            -0.8988505395623289,
+            -0.9247726353684712,
+            -0.924829181745828,
+            -0.936380858222565,
+            -0.8809681576739211
+          ],
+          "count": 8,
+          "mean_cosine": -0.9129482563898101,
+          "minimum_cosine": -0.9418431050242255,
+          "positive_fraction": 0.0
+        },
+        "A2": {
+          "cosines": [
+            -0.9588277907947287,
+            -0.9708781958047742,
+            -0.9576833929960819,
+            -0.9534525092259238,
+            -0.9579487037025154,
+            -0.9566563381631162,
+            -0.9624750041072483,
+            -0.9308228160593374
+          ],
+          "count": 8,
+          "mean_cosine": -0.9560930938567158,
+          "minimum_cosine": -0.9708781958047742,
+          "positive_fraction": 0.0
+        },
+        "P": {
+          "cosines": [
+            -0.9217803403001512,
+            -0.9376773936098651,
+            -0.9250386767018881,
+            -0.8992770904231275,
+            -0.9107382306997348,
+            -0.9239182332310135,
+            -0.9318892931194106,
+            -0.8788373473228764
+          ],
+          "count": 8,
+          "mean_cosine": -0.9161445756760084,
+          "minimum_cosine": -0.9376773936098651,
+          "positive_fraction": 0.0
+        }
+      },
+      "unsigned": {
+        "A1": {
+          "cosines": [
+            0.8953782768692046,
+            0.9020468301353346,
+            0.8907805383209297,
+            0.8932359481959081,
+            0.9047538141167031,
+            0.8968681657221904,
+            0.9033057263238495,
+            0.8886377373408507
+          ],
+          "count": 8,
+          "mean_cosine": 0.8968758796281213,
+          "minimum_cosine": 0.8886377373408507,
+          "positive_fraction": 1.0
+        },
+        "A2": {
+          "cosines": [
+            0.8937107196761761,
+            0.8868905750786654,
+            0.8933204665072335,
+            0.8928524878045703,
+            0.8954305270385697,
+            0.8916291399581712,
+            0.8881076916129401,
+            0.895148969097813
+          ],
+          "count": 8,
+          "mean_cosine": 0.8921363220967674,
+          "minimum_cosine": 0.8868905750786654,
+          "positive_fraction": 1.0
+        },
+        "P": {
+          "cosines": [
+            -0.8805644272267641,
+            -0.8844646253557199,
+            -0.8819300946978057,
+            -0.8684127173366504,
+            -0.8685533524458071,
+            -0.8798247205318113,
+            -0.8829316639174604,
+            -0.8640382207189676
+          ],
+          "count": 8,
+          "mean_cosine": -0.8763399777788733,
+          "minimum_cosine": -0.8844646253557199,
+          "positive_fraction": 0.0
+        }
+      }
+    },
+    "odd_to_even": {
+      "signed": {
+        "A1": {
+          "cosines": [
+            -0.9513890799553666,
+            -0.9415519265632873,
+            -0.9815059679682885,
+            -0.8975697241444758,
+            -0.8978220748086079,
+            -0.9506906723740378,
+            -0.9668795415506891,
+            -0.9163520866552785
+          ],
+          "count": 8,
+          "mean_cosine": -0.937970134252504,
+          "minimum_cosine": -0.9815059679682885,
+          "positive_fraction": 0.0
+        },
+        "A2": {
+          "cosines": [
+            -0.9643264611018437,
+            -0.9436002081357601,
+            -0.9757032281308664,
+            -0.9272680039171304,
+            -0.9336370821848552,
+            -0.9603565850970857,
+            -0.9685311853052548,
+            -0.9539729247683404
+          ],
+          "count": 8,
+          "mean_cosine": -0.953424459830142,
+          "minimum_cosine": -0.9757032281308664,
+          "positive_fraction": 0.0
+        },
+        "P": {
+          "cosines": [
+            -0.750958967497353,
+            -0.7166352888675839,
+            -0.9038213248652937,
+            -0.612040091166908,
+            -0.42174526669965523,
+            -0.8066140179713156,
+            -0.8394984529654083,
+            -0.7200675187066662
+          ],
+          "count": 8,
+          "mean_cosine": -0.721422616092523,
+          "minimum_cosine": -0.9038213248652937,
+          "positive_fraction": 0.0
+        }
+      },
+      "unsigned": {
+        "A1": {
+          "cosines": [
+            0.9635023537255786,
+            0.9532426937378131,
+            0.9758260178025692,
+            0.9225912941539195,
+            0.9122950067354946,
+            0.9632212184851812,
+            0.9749682734563409,
+            0.9417273465931469
+          ],
+          "count": 8,
+          "mean_cosine": 0.9509217755862555,
+          "minimum_cosine": 0.9122950067354946,
+          "positive_fraction": 1.0
+        },
+        "A2": {
+          "cosines": [
+            0.9643263815491121,
+            0.9528709393470628,
+            0.9694367468310335,
+            0.9377681927086452,
+            0.9353204309216512,
+            0.9626154056982829,
+            0.9678693468441876,
+            0.960202313831914
+          ],
+          "count": 8,
+          "mean_cosine": 0.9563012197164862,
+          "minimum_cosine": 0.9353204309216512,
+          "positive_fraction": 1.0
+        },
+        "P": {
+          "cosines": [
+            -0.7591782462306342,
+            -0.733094807369308,
+            -0.8923086703320414,
+            -0.6173874127328363,
+            -0.4178157368115866,
+            -0.8114137016050191,
+            -0.8423791061159414,
+            -0.7405685612678289
+          ],
+          "count": 8,
+          "mean_cosine": -0.7267682803081494,
+          "minimum_cosine": -0.8923086703320414,
+          "positive_fraction": 0.0
+        }
+      }
+    }
+  },
+  "pooled_improvement_over_unsigned": -1.2485216791730518,
+  "pooled_signed_mean_cosine": -0.8996671893496173,
+  "pooled_unsigned_mean_cosine": 0.3488544898234346,
+  "predictions": {
+    "pred_a_authority_shape_row_identity_sign_formula_finiteness_and_exact_price": true,
+    "pred_b_signed_two_point_model_predicts_each_heldout_panel": false,
+    "pred_c_signed_coordinate_is_crossfit_stable_and_beats_unsigned_control": false,
+    "pred_d_scope_remains_a_diagnostic_screen": true
+  },
+  "price": {
+    "fitted_vector_values_per_prototype": 4608,
+    "gpu_forwards": 0,
+    "heldout_row_predictions": 96,
+    "model_updates": 0,
+    "prototype_fits": 4,
+    "transformer_backwards": 0
+  },
+  "schema": "temporal_iswas_v20_task_factor_signed_prototype_crossfit_result_v1",
+  "serial_seconds": 0.0020304545760154724,
+  "started_utc": "2026-09-08T18:31:19.068309Z",
+  "terminal": "higher_structure_required",
+  "v21_causal_outcomes_opened": false
+}
