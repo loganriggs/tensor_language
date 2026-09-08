@@ -1,0 +1,320 @@
+{
+  "authority_sha256": {
+    "library": "02d291fa5ce70c0807f264a9a303c996bca992d7d337900d5ff9373d0c0885d4",
+    "prior": "3f463aa29edf38bc22f3f20f53bfbc40688e6aeb6680f519a0100d0278d2624e",
+    "split_result": "e334a580b72806a3976408cc16efb36aa05d066c3a7db28cb74da8f96c5ccc71",
+    "tensor": "0af2a5e263b0a227e1f88a4d91d7b1ac2191e89734d4882458ba5f46b492a5eb"
+  },
+  "bars": {
+    "fold_coefficient_sign_agreement": 1.0,
+    "gain_pearson": 0.75,
+    "gain_r2": 0.5,
+    "marginal_r2_floor": 0.4,
+    "raw_q_residual_improvement": 0.05,
+    "winner_r2_margin": 0.15,
+    "winning_raw_q_relative_residual": 0.25
+  },
+  "branch_candidates": {},
+  "candidate_id": "cross_task.temporal_iswas.v20_m11_hr_gain_factorization_crossfit_v1",
+  "causal_intervention_opened": false,
+  "coefficient_sign_stability": {
+    "joint": {
+      "fraction": 1.0,
+      "stable": true
+    },
+    "product": {
+      "fraction": 1.0,
+      "stable": true
+    },
+    "reader": {
+      "fraction": 0.0,
+      "stable": false
+    },
+    "writer": {
+      "fraction": 1.0,
+      "stable": true
+    }
+  },
+  "common_suffix_positions": 7,
+  "constant_raw_q_metrics": {
+    "count": 48,
+    "relative_residual": 0.30890884024040083,
+    "row_positive_fraction": 1.0
+  },
+  "evidence_status": "cpu_heldout_hr_gain_identification_screen_only",
+  "fold_reports": {
+    "first_to_second": {
+      "fit_coefficients": {
+        "joint": [
+          5.773907237227478,
+          -4.965955719427787,
+          -6.756155465189573,
+          6.95738831088813
+        ],
+        "product": [
+          0.19672080971725042,
+          0.8043409910200329
+        ],
+        "reader": [
+          1.1318605908303785,
+          -0.1318605908303783
+        ],
+        "writer": [
+          -0.4388624033607237,
+          1.4388624033607236
+        ]
+      },
+      "models": {
+        "joint": {
+          "gain_metrics": {
+            "pearson": -0.4470861232147684,
+            "r2": -2.2529756044053126,
+            "relative_error": 0.5330784859781458
+          },
+          "raw_q_metrics": {
+            "count": 24,
+            "relative_residual": 0.5297445540047176,
+            "row_positive_fraction": 1.0
+          }
+        },
+        "product": {
+          "gain_metrics": {
+            "pearson": -0.3970774261045042,
+            "r2": -0.7745682758516292,
+            "relative_error": 0.3937287328133695
+          },
+          "raw_q_metrics": {
+            "count": 24,
+            "relative_residual": 0.3929774504458929,
+            "row_positive_fraction": 1.0
+          }
+        },
+        "reader": {
+          "gain_metrics": {
+            "pearson": -0.01076265565964948,
+            "r2": -0.002318054561266658,
+            "relative_error": 0.2959058349527252
+          },
+          "raw_q_metrics": {
+            "count": 24,
+            "relative_residual": 0.28852829078131303,
+            "row_positive_fraction": 1.0
+          }
+        },
+        "writer": {
+          "gain_metrics": {
+            "pearson": -0.46930568806974615,
+            "r2": -1.6505229034165567,
+            "relative_error": 0.48118993327179177
+          },
+          "raw_q_metrics": {
+            "count": 24,
+            "relative_residual": 0.48689230337648165,
+            "row_positive_fraction": 1.0
+          }
+        }
+      }
+    },
+    "second_to_first": {
+      "fit_coefficients": {
+        "joint": [
+          6.986983392043607,
+          -7.407907933752174,
+          -6.981763993709289,
+          8.425187545045603
+        ],
+        "product": [
+          -0.3426115482690544,
+          1.3462065202858677
+        ],
+        "reader": [
+          0.08889076844484894,
+          0.9111092315551514
+        ],
+        "writer": [
+          0.07875531899098039,
+          0.9212446810090191
+        ]
+      },
+      "models": {
+        "joint": {
+          "gain_metrics": {
+            "pearson": 0.6076651213055636,
+            "r2": -0.11345972033718232,
+            "relative_error": 0.39588537214855285
+          },
+          "raw_q_metrics": {
+            "count": 24,
+            "relative_residual": 0.4352380417498132,
+            "row_positive_fraction": 1.0
+          }
+        },
+        "product": {
+          "gain_metrics": {
+            "pearson": 0.7926408515067156,
+            "r2": 0.09769256099047274,
+            "relative_error": 0.35637683659001307
+          },
+          "raw_q_metrics": {
+            "count": 24,
+            "relative_residual": 0.3959340268012434,
+            "row_positive_fraction": 1.0
+          }
+        },
+        "reader": {
+          "gain_metrics": {
+            "pearson": 0.026287311702857013,
+            "r2": -0.034865035307416914,
+            "relative_error": 0.3816577243074911
+          },
+          "raw_q_metrics": {
+            "count": 24,
+            "relative_residual": 0.34112949068313736,
+            "row_positive_fraction": 1.0
+          }
+        },
+        "writer": {
+          "gain_metrics": {
+            "pearson": 0.765735518344136,
+            "r2": 0.32310026555498483,
+            "relative_error": 0.30866996406037345
+          },
+          "raw_q_metrics": {
+            "count": 24,
+            "relative_residual": 0.30673854787802574,
+            "row_positive_fraction": 1.0
+          }
+        }
+      }
+    }
+  },
+  "gpu_accessed": false,
+  "model_pass": {
+    "joint": false,
+    "product": false,
+    "reader": false,
+    "writer": false
+  },
+  "pooled_reports": {
+    "joint": {
+      "fold_coefficients": [
+        [
+          5.773907237227478,
+          -4.965955719427787,
+          -6.756155465189573,
+          6.95738831088813
+        ],
+        [
+          6.986983392043607,
+          -7.407907933752174,
+          -6.981763993709289,
+          8.425187545045603
+        ]
+      ],
+      "gain_metrics": {
+        "pearson": 0.24607660691037153,
+        "r2": -0.8901686238281623,
+        "relative_error": 0.46665664320426353
+      },
+      "raw_q_metrics": {
+        "count": 48,
+        "relative_residual": 0.4856673940711157,
+        "row_positive_fraction": 1.0
+      }
+    },
+    "product": {
+      "fold_coefficients": [
+        [
+          0.19672080971725042,
+          0.8043409910200329
+        ],
+        [
+          -0.3426115482690544,
+          1.3462065202858677
+        ]
+      ],
+      "gain_metrics": {
+        "pearson": 0.517811051046475,
+        "r2": -0.2188416610177235,
+        "relative_error": 0.37473203627239526
+      },
+      "raw_q_metrics": {
+        "count": 48,
+        "relative_residual": 0.39443177234077764,
+        "row_positive_fraction": 1.0
+      }
+    },
+    "reader": {
+      "fold_coefficients": [
+        [
+          1.1318605908303785,
+          -0.1318605908303783
+        ],
+        [
+          0.08889076844484894,
+          0.9111092315551514
+        ]
+      ],
+      "gain_metrics": {
+        "pearson": 0.019549424457889538,
+        "r2": -0.0227613902042767,
+        "relative_error": 0.34326880666352055
+      },
+      "raw_q_metrics": {
+        "count": 48,
+        "relative_residual": 0.31544196379740486,
+        "row_positive_fraction": 1.0
+      }
+    },
+    "writer": {
+      "fold_coefficients": [
+        [
+          -0.4388624033607237,
+          1.4388624033607236
+        ],
+        [
+          0.07875531899098039,
+          0.9212446810090191
+        ]
+      ],
+      "gain_metrics": {
+        "pearson": 0.3329830932079259,
+        "r2": -0.3934805034595943,
+        "relative_error": 0.40067996413127416
+      },
+      "raw_q_metrics": {
+        "count": 48,
+        "relative_residual": 0.40852903508447375,
+        "row_positive_fraction": 1.0
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_future_authority_exact_split_alignment_coefficients_folds_finiteness_and_price": true,
+    "pred_b_native_hr_coefficients_predict_heldout_gain": false,
+    "pred_c_gain_source_is_discriminated": false,
+    "pred_d_predicted_gain_closes_most_nonshape_error": false,
+    "pred_e_scope_remains_identification_screen_only": true
+  },
+  "price": {
+    "gpu_forwards": 0,
+    "heldout_scalar_predictions": 192,
+    "least_squares_fits": 8,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "raw_q_residual_improvement": {
+    "joint": -0.17675855383071487,
+    "product": -0.08552293210037681,
+    "reader": -0.006533123557004028,
+    "writer": -0.09962019484407292
+  },
+  "schema": "temporal_iswas_v20_m11_hr_gain_factorization_crossfit_result_v1",
+  "serial_seconds": 0.02193523943424225,
+  "split_reconstruction_max_abs": 6.352586887081735e-09,
+  "started_utc": "2026-09-08T20:07:24.584048Z",
+  "terminal": "gain_not_identified_by_marginal_strength",
+  "v21_outcome_opened": false,
+  "winning_branch": null,
+  "winning_model": null
+}

@@ -1,0 +1,506 @@
+{
+  "authority_sha256": {
+    "library": "02d291fa5ce70c0807f264a9a303c996bca992d7d337900d5ff9373d0c0885d4",
+    "prior": "d961ad31f523573501dea9d4e27155dc4d2c715a6c765a688d4a2ce6356feb70",
+    "split_result": "e334a580b72806a3976408cc16efb36aa05d066c3a7db28cb74da8f96c5ccc71",
+    "tensor": "0af2a5e263b0a227e1f88a4d91d7b1ac2191e89734d4882458ba5f46b492a5eb"
+  },
+  "bars": {
+    "additive_program_pooled_q_cosine": 0.8,
+    "cell_advantage_over_additive_max": 0.08,
+    "cell_program_direction_fraction": 1.0,
+    "cell_program_each_cell_mean_q_cosine": 0.75,
+    "cell_program_pooled_q_cosine": 0.85,
+    "cell_program_signed_recovery_max": 1.5,
+    "cell_program_signed_recovery_min": 0.5,
+    "marginal_cell_pooled_cosine": 0.85,
+    "marginal_crossfold_stability_mean": 0.9
+  },
+  "candidate_id": "cross_task.temporal_iswas.v20_m11_hr_factorial_state_program_crossfit_v1",
+  "causal_intervention_opened": false,
+  "cell_cosine_advantage_over_additive": 0.5227727062938643,
+  "common_suffix_positions": 7,
+  "evidence_status": "cpu_heldout_hr_weight_tensor_program_screen_only",
+  "fold_reports": {
+    "first_to_second": {
+      "marginals": {
+        "reader": {
+          "additive": {
+            "cosine": 0.949205748215031,
+            "count": 24,
+            "relative_residual": 0.3153966102014448,
+            "row_positive_fraction": 1.0,
+            "signed_recovery": 0.9214947079741936
+          },
+          "cell": {
+            "cosine": 0.9529691349769234,
+            "count": 24,
+            "relative_residual": 0.30390039525925844,
+            "row_positive_fraction": 1.0,
+            "signed_recovery": 0.9295786841073864
+          }
+        },
+        "writer": {
+          "additive": {
+            "cosine": 0.44275516810162113,
+            "count": 24,
+            "relative_residual": 0.9133507087798338,
+            "row_positive_fraction": 1.0,
+            "signed_recovery": 0.27302783051603396
+          },
+          "cell": {
+            "cosine": 0.6438284654173874,
+            "count": 24,
+            "relative_residual": 0.7862267768957976,
+            "row_positive_fraction": 1.0,
+            "signed_recovery": 0.5308818786485445
+          }
+        }
+      },
+      "q_programs": {
+        "additive": {
+          "cells": {
+            "A1:0": {
+              "cosine": 0.9392060578369694,
+              "count": 4,
+              "relative_residual": 0.4718566462733091,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.5781237537857368
+            },
+            "A1:1": {
+              "cosine": 0.9455903800862694,
+              "count": 4,
+              "relative_residual": 0.5053760958854913,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.5284705171750094
+            },
+            "A2:0": {
+              "cosine": 0.9271821261470592,
+              "count": 4,
+              "relative_residual": 0.7554249705174141,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.2514371095958137
+            },
+            "A2:1": {
+              "cosine": 0.9668606335848292,
+              "count": 4,
+              "relative_residual": 0.6307186246008377,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.3771956220111096
+            },
+            "P:0": {
+              "cosine": -0.6467526657742744,
+              "count": 4,
+              "relative_residual": 3.7465889261984215,
+              "row_positive_fraction": 0.0,
+              "signed_recovery": -1.9540874269720085
+            },
+            "P:1": {
+              "cosine": -0.0503853689327112,
+              "count": 4,
+              "relative_residual": 1.0170823250670757,
+              "row_positive_fraction": 0.25,
+              "signed_recovery": -0.007152395577716045
+            }
+          },
+          "pooled": {
+            "cosine": 0.4668381371348262,
+            "count": 24,
+            "relative_residual": 0.8888711632628952,
+            "row_positive_fraction": 0.7083333333333334,
+            "signed_recovery": 0.25976415227779426
+          }
+        },
+        "cell": {
+          "cells": {
+            "A1:0": {
+              "cosine": 0.9518089673064649,
+              "count": 4,
+              "relative_residual": 0.3603284978000652,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 1.0859721125729198
+            },
+            "A1:1": {
+              "cosine": 0.951500352799931,
+              "count": 4,
+              "relative_residual": 0.3450077635952357,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.7567760056235616
+            },
+            "A2:0": {
+              "cosine": 0.9573938934152075,
+              "count": 4,
+              "relative_residual": 0.2933652952510755,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.9660362951662221
+            },
+            "A2:1": {
+              "cosine": 0.9818949334738402,
+              "count": 4,
+              "relative_residual": 0.18990237468509524,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.9772967788069059
+            },
+            "P:0": {
+              "cosine": 0.9118275809605019,
+              "count": 4,
+              "relative_residual": 0.5024850081596014,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 1.0955773727720783
+            },
+            "P:1": {
+              "cosine": 0.9699558703810458,
+              "count": 4,
+              "relative_residual": 0.3000961418256605,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.770390868805497
+            }
+          },
+          "pooled": {
+            "cosine": 0.9593038770994825,
+            "count": 24,
+            "relative_residual": 0.28270362842981495,
+            "row_positive_fraction": 1.0,
+            "signed_recovery": 0.9072969927494259
+          }
+        }
+      }
+    },
+    "second_to_first": {
+      "marginals": {
+        "reader": {
+          "additive": {
+            "cosine": 0.9503978975486654,
+            "count": 24,
+            "relative_residual": 0.31162815812763744,
+            "row_positive_fraction": 1.0,
+            "signed_recovery": 0.9214947079741934
+          },
+          "cell": {
+            "cosine": 0.9544421685397088,
+            "count": 24,
+            "relative_residual": 0.29903292716758395,
+            "row_positive_fraction": 1.0,
+            "signed_recovery": 0.9295786841073865
+          }
+        },
+        "writer": {
+          "additive": {
+            "cosine": 0.4527107787009496,
+            "count": 24,
+            "relative_residual": 0.9042502492718462,
+            "row_positive_fraction": 1.0,
+            "signed_recovery": 0.27302783051603385
+          },
+          "cell": {
+            "cosine": 0.6475358837172723,
+            "count": 24,
+            "relative_residual": 0.7812740958022447,
+            "row_positive_fraction": 1.0,
+            "signed_recovery": 0.5308818786485442
+          }
+        }
+      },
+      "q_programs": {
+        "additive": {
+          "cells": {
+            "A1:0": {
+              "cosine": 0.6215617575063268,
+              "count": 4,
+              "relative_residual": 0.8199572893639465,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.23578670588556988
+            },
+            "A1:1": {
+              "cosine": 0.8914663614171369,
+              "count": 4,
+              "relative_residual": 0.4733585426818109,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.6725438105626484
+            },
+            "A2:0": {
+              "cosine": 0.8183238517683403,
+              "count": 4,
+              "relative_residual": 0.8228522814611374,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.18778710683653688
+            },
+            "A2:1": {
+              "cosine": 0.9719838258351272,
+              "count": 4,
+              "relative_residual": 0.6210485111967631,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.3860069277163334
+            },
+            "P:0": {
+              "cosine": -0.6925918304885149,
+              "count": 4,
+              "relative_residual": 3.193458028866974,
+              "row_positive_fraction": 0.0,
+              "signed_recovery": -1.6749182204486925
+            },
+            "P:1": {
+              "cosine": 0.5832231296827072,
+              "count": 4,
+              "relative_residual": 0.8796326363548159,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.14331464810892314
+            }
+          },
+          "pooled": {
+            "cosine": 0.3954911404647167,
+            "count": 24,
+            "relative_residual": 0.9435426408933822,
+            "row_positive_fraction": 0.8333333333333334,
+            "signed_recovery": 0.2418649839881502
+          }
+        },
+        "cell": {
+          "cells": {
+            "A1:0": {
+              "cosine": 0.9094345630906085,
+              "count": 4,
+              "relative_residual": 0.4352577717292069,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.7101804391491703
+            },
+            "A1:1": {
+              "cosine": 0.8925520218708098,
+              "count": 4,
+              "relative_residual": 0.49454468223502607,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.9778690903551911
+            },
+            "A2:0": {
+              "cosine": 0.9476358425495571,
+              "count": 4,
+              "relative_residual": 0.3248673504670249,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.8415323616168582
+            },
+            "A2:1": {
+              "cosine": 0.9880416541935164,
+              "count": 4,
+              "relative_residual": 0.15419866767181606,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.9744844914028405
+            },
+            "P:0": {
+              "cosine": 0.8473582108350555,
+              "count": 4,
+              "relative_residual": 0.5565248286734574,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 0.5768972445801072
+            },
+            "P:1": {
+              "cosine": 0.9761995757507883,
+              "count": 4,
+              "relative_residual": 0.32066056319689507,
+              "row_positive_fraction": 1.0,
+              "signed_recovery": 1.1835399175997168
+            }
+          },
+          "pooled": {
+            "cosine": 0.9458911890513609,
+            "count": 24,
+            "relative_residual": 0.32645162351335744,
+            "row_positive_fraction": 1.0,
+            "signed_recovery": 0.9285357545244767
+          }
+        }
+      }
+    }
+  },
+  "gpu_accessed": false,
+  "marginal_cell_crossfold_stability": {
+    "reader": {
+      "cell_cosines": [
+        0.9826251839473249,
+        0.9698518319969246,
+        0.9853070980322707,
+        0.9742785671296177,
+        0.9850775567662525,
+        0.9734876640293362
+      ],
+      "mean_cosine": 0.9784379836502878,
+      "minimum_cosine": 0.9698518319969246
+    },
+    "writer": {
+      "cell_cosines": [
+        0.9062603897563825,
+        0.6314550868464517,
+        0.917027407385265,
+        0.6601079574236273,
+        0.9237107514278262,
+        0.6852985350594912
+      ],
+      "mean_cosine": 0.7873100213165074,
+      "minimum_cosine": 0.6314550868464517
+    }
+  },
+  "pooled_marginal_reports": {
+    "reader": {
+      "additive": {
+        "cosine": 0.9498012617570145,
+        "count": 48,
+        "relative_residual": 0.31351804626256036,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.9214947079741936
+      },
+      "cell": {
+        "cosine": 0.9537047985756085,
+        "count": 48,
+        "relative_residual": 0.3014764847953709,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.929578684107387
+      }
+    },
+    "writer": {
+      "additive": {
+        "cosine": 0.44764996602646123,
+        "count": 48,
+        "relative_residual": 0.9088118701185686,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.27302783051603385
+      },
+      "cell": {
+        "cosine": 0.6456741917983454,
+        "count": 48,
+        "relative_residual": 0.7837543484662683,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.5308818786485444
+      }
+    }
+  },
+  "pooled_q_cells": {
+    "additive": {
+      "A1:0": {
+        "cosine": 0.7620922552846122,
+        "count": 8,
+        "relative_residual": 0.7037941123614261,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.37053755050360215
+      },
+      "A1:1": {
+        "cosine": 0.9084035365128796,
+        "count": 8,
+        "relative_residual": 0.49207191855689186,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.5894826218820802
+      },
+      "A2:0": {
+        "cosine": 0.8702172184418917,
+        "count": 8,
+        "relative_residual": 0.7923535247435112,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.217251041783682
+      },
+      "A2:1": {
+        "cosine": 0.9693893198328842,
+        "count": 8,
+        "relative_residual": 0.6259348681204746,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.38157152920386744
+      },
+      "P:0": {
+        "cosine": -0.6705967762472668,
+        "count": 8,
+        "relative_residual": 3.392532726107156,
+        "row_positive_fraction": 0.0,
+        "signed_recovery": -1.7702667683217064
+      },
+      "P:1": {
+        "cosine": 0.2705167209441261,
+        "count": 8,
+        "relative_residual": 0.9661573820261262,
+        "row_positive_fraction": 0.625,
+        "signed_recovery": 0.051138942822690533
+      }
+    },
+    "cell": {
+      "A1:0": {
+        "cosine": 0.9136045067046915,
+        "count": 8,
+        "relative_residual": 0.4074119951619307,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.8580996751337867
+      },
+      "A1:1": {
+        "cosine": 0.9101595231899872,
+        "count": 8,
+        "relative_residual": 0.4149644657710675,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.8504043900144446
+      },
+      "A2:0": {
+        "cosine": 0.9505249299511136,
+        "count": 8,
+        "relative_residual": 0.31068225119051823,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.899166001289487
+      },
+      "A2:1": {
+        "cosine": 0.9849232825531229,
+        "count": 8,
+        "relative_residual": 0.17309403028930873,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.9759001289696114
+      },
+      "P:0": {
+        "cosine": 0.8439646798087217,
+        "count": 8,
+        "relative_residual": 0.5386778517515328,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.7540492003511995
+      },
+      "P:1": {
+        "cosine": 0.9516698685674543,
+        "count": 8,
+        "relative_residual": 0.3082257959395134,
+        "row_positive_fraction": 1.0,
+        "signed_recovery": 0.9304463824708828
+      }
+    }
+  },
+  "pooled_q_programs": {
+    "additive": {
+      "cosine": 0.42966008626068375,
+      "count": 48,
+      "relative_residual": 0.9161114737232627,
+      "row_positive_fraction": 0.7708333333333334,
+      "signed_recovery": 0.2509803625088123
+    },
+    "cell": {
+      "cosine": 0.952432792554548,
+      "count": 48,
+      "relative_residual": 0.3049596120007736,
+      "row_positive_fraction": 1.0,
+      "signed_recovery": 0.9177227639629336
+    }
+  },
+  "predictions": {
+    "pred_a_future_authority_exact_split_alignment_folds_finiteness_and_price": true,
+    "pred_b_independent_cell_hr_states_predict_heldout_q": true,
+    "pred_c_additive_hr_hierarchy_is_nearly_sufficient": false,
+    "pred_d_writer_or_reader_structure_is_reporter_stable": true,
+    "pred_e_scope_remains_computational_screen_only": true
+  },
+  "price": {
+    "gpu_forwards": 0,
+    "heldout_q_predictions_per_program": 48,
+    "model_updates": 0,
+    "programs": 2,
+    "reporter_folds": 2,
+    "transformer_backwards": 0
+  },
+  "schema": "temporal_iswas_v20_m11_hr_factorial_state_program_crossfit_result_v1",
+  "serial_seconds": 0.046325474977493286,
+  "split_reconstruction_max_abs": 6.352586887081735e-09,
+  "stable_marginal_side": {
+    "reader": true,
+    "writer": false
+  },
+  "started_utc": "2026-09-08T20:08:24.865153Z",
+  "terminal": "factorized_coupled_cell_program",
+  "v21_outcome_opened": false
+}
