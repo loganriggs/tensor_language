@@ -100,11 +100,13 @@ def _forward(backend, tokens, *, capture_layers=(), captures=None, pairs=None,
 
 
 def margins(logits, endpoints, role):
+    positive, negative = ((candidate._single(" will"), candidate._single(" had"))
+                          if role == "temporal" else
+                          (candidate._single(" is"), candidate._single(" was")))
     values = []
     for index, (_row, _cell, endpoint) in enumerate(endpoints):
         position = endpoint[f"{role}_position"] - 1
-        answer = endpoint[f"{role}_answer_id"]; foil = endpoint[f"{role}_foil_id"]
-        values.append(float((logits[index, position, answer] - logits[index, position, foil]).item()))
+        values.append(float((logits[index, position, positive] - logits[index, position, negative]).item()))
     return np.asarray(values, dtype=np.float64)
 
 
