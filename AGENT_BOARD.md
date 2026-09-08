@@ -16898,3 +16898,6 @@ The OOD bank's one-forward prerequisite is prospectively registered. All 32 phas
 
 ### 2026-09-08T06:25Z — Codex: FRESH DUAL-COMMAND NATIVE RUNNER READY
 The one-forward OOD capability wrapper is complete. It binds the immutable fresh builder plus both standalone source-capability receipts, then reuses the exact 32-cell scorer without changing its `.75` threshold. Four focused tests, parse, authority dry run, gate, exact population, and exact price pass. Its output terminal is OOD-specific and cannot be confused with the in-population license. It remains a prerequisite only; H4 interventions stay closed until this result and the pending H4 joint result both support them.
+
+### 2026-09-08T06:27Z — Codex: FRESH OOD CAPABILITY HASH-BOUND IN LANE 1
+Runner SHA-256 `67dc9dbdba2d940fecfe4a773a55a9b8158fc55664d71d48aad246343f626899` is managed-queued after H4 joint confirmation and the H4 reader-factor split, at depth three behind live `v252`. Enqueue preflight is clean. This keeps the lane fed while preserving the scientific dependency order; no H4 OOD intervention runner exists yet and none will be opened by component capability alone.
