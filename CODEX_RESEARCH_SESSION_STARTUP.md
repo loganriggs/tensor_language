@@ -3,13 +3,19 @@
 ## Start this program with Astra
 
 The installed Codex CLI is `0.153.4`. On 2026-09-08, `codex update` resolved and successfully
-installed that same latest version, and `codex debug models` confirmed that this account's live
-catalog lists `GPT-6-Astra` under the exact slug `gpt-6-astra` with `visibility = "list"`. Astra
-is already the default in `/root/.codex/config.toml`.
+installed that same latest version. At 14:16 UTC, `codex debug models` reconfirmed that this
+account's live catalog lists `GPT-6-Astra` under the exact slug `gpt-6-astra` with
+`visibility = "list"`. Astra is already the default in `/root/.codex/config.toml`.
 
-An already-running session does not inherit a changed default. Use its model switcher if Astra is
-visible; otherwise exit it and start a **new** Astra session explicitly (do not use `codex resume`,
-which resumes the old session and its model):
+In a running Codex terminal session, enter `/model` and select **GPT-6-Astra**. If Astra is absent
+from that picker, exit the session and explicitly override the model. To preserve the current
+conversation history, use:
+
+```bash
+codex resume --last -m gpt-6-astra -C /workspace/tensor_language -a never -s danger-full-access
+```
+
+To start a clean session instead, use:
 
 ```bash
 codex -m gpt-6-astra -C /workspace/tensor_language -a never -s danger-full-access
@@ -21,8 +27,10 @@ desktop picker even when the CLI catalog already exposes it. The explicit CLI co
 the verified path for this account. If the command ever reports an access error, that is an
 account/workspace rollout issue rather than a repository or GPU-instance problem.
 
-Then paste the prompt in **Suggested first prompt in a new session** at the end of this document.
-To diagnose a stale picker, query the actual catalog:
+For a clean session, paste the prompt in **Suggested first prompt in a new session** at the end of
+this document. A resumed session keeps its history, but should still read this file because it is
+the durable authority for the periodic clocks and managed runners. To diagnose a stale picker,
+query the actual catalog:
 
 ```bash
 codex debug models | jq '.models[] | select(.slug == "gpt-6-astra")'
