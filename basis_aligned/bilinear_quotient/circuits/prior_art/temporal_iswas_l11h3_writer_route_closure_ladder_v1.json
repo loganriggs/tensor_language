@@ -1,0 +1,98 @@
+{
+  "schema": "temporal_iswas_l11h3_writer_route_closure_ladder_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.l11h3_writer_route_closure_ladder_v1",
+  "registered_utc": "2026-09-08T09:24:00Z",
+  "question": "Does the selected is-was writer effect become causally sufficient when the L11H3 value mediator expands from postcue to the full causal prefix, only when the full observed L11H3 head delta is installed, or not even then?",
+  "prior_art_search": {
+    "searched": [
+      "AGENT_BOARD.md",
+      "basis_aligned/bilinear_quotient/circuits/DOSSIER.md",
+      "basis_aligned/bilinear_quotient/circuits/prior_art",
+      "basis_aligned/bilinear_quotient/circuits/followups",
+      "basis_aligned/polynomial_causal"
+    ],
+    "nearest_result": "temporal_iswas_l11h3_source_writer_formula_mediation_v2_result.json",
+    "novelty": "The prior result intervened only on writer-induced L11H3 values at the task-local donor source. This ladder prospectively distinguishes value spreading, writer-induced routing/head computation, and an L11H3 bypass with nested physical mediators."
+  },
+  "authorities": {
+    "mediation_result_sha256": "383c162f2dcc505248122cd0d98d5b2bb7afedc019299f9b4be537cc791a18c4",
+    "greedy_result_sha256": "6a2ae6598ae95269f7d9e24e13196155342f690d331c78efed5115a8cf84bda2",
+    "binding_sha256": "c7ad05cb4ba94f4a491cbfaddb1b13936ee8fa7a356d405e2a143b0033fec285",
+    "mediation_runner_sha256": "88a37dbd000505713c7504bb4c28a262df438349dcbefcbdc5b3ee29ed9aa1f8"
+  },
+  "locked_selected_prefixes": {
+    "temporal": {
+      "arm": "P3",
+      "length": 3,
+      "heads": ["L07H07", "L09H04", "L09H01"]
+    },
+    "iswas": {
+      "arm": "P2",
+      "length": 2,
+      "heads": ["L07H07", "L09H04"]
+    }
+  },
+  "arms": {
+    "source_value": "Writer-induced L11H3 value change restricted to the frozen temporal bridge or is-was postcue source, contracted through recipient-native routing.",
+    "full_prefix_value": "The same writer-induced L11H3 value change at every position up to and including the task query, contracted through recipient-native routing.",
+    "full_head": "The complete observed writer-induced L11H3 head-3 preprojection delta at every destination, including induced value and q/k/q2/k2 routing changes, installed into an otherwise native run."
+  },
+  "splits": {
+    "selection": "None. Prefix identities and all three mediators are frozen before execution.",
+    "validation": ["original HOLDOUT", "OOD FIT", "OOD HOLDOUT"],
+    "descriptive_only": "original FIT is stored for replay and continuity but cannot choose a route."
+  },
+  "bars": {
+    "authority_replay_max_abs_error": 0.00001,
+    "source_report_replay_max_abs_error": 0.00001,
+    "pooled_recovery_min": 0.75,
+    "pooled_cosine_min": 0.95,
+    "pooled_relative_residual_max": 0.5,
+    "pooled_direction_agreement_min": 0.9,
+    "template_recovery_min": 0.5,
+    "template_direction_agreement_min": 0.75,
+    "source_iswas_recovery_max_for_registered_null": 0.3,
+    "command_gold_non_target_norm_ratio_max": 0.01,
+    "causal_zero_max_abs": 0.00001
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 18,
+    "sequence_evaluations": 2304,
+    "scored_token_positions": 4608,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "predictions": {
+    "pred_a_authority_pairing_capture_source_replay_finiteness_and_exact_price": "All immutable authorities, selected identities, row/pair/position sets, capture inventories, source-arm report replay, finite metrics, and literal price pass.",
+    "pred_b_source_local_mediator_reproduces_the_registered_asymmetric_result": "Temporal source-value remains a pooled validation closure while is-was remains below 0.30 recovery; every prior source report replays within 1e-5.",
+    "pred_c_full_prefix_value_closes_the_selected_iswas_writer_effect": "The full-prefix-value arm passes all pooled and template closure bars for is-was on original HOLDOUT and both OOD phases.",
+    "pred_d_full_observed_l11h3_head_closes_the_selected_iswas_writer_effect": "The full-head arm passes all pooled and template closure bars for is-was on original HOLDOUT and both OOD phases.",
+    "pred_e_temporal_positive_control_and_task_selectivity_hold": "The temporal source-value and full-head arms pass pooled/template closure; every arm remains below collateral and later-to-earlier causal-zero bars."
+  },
+  "decision": {
+    "value_spreading": "If C passes, identify full-prefix L11H3 value spreading as sufficient for the selected is-was writer route; a later source-position partition may split the added positions.",
+    "routing_or_head_operation": "If C fails and D passes, identify writer-induced L11H3 routing/head computation as necessary beyond recipient-native value transport; next factor q/k/q2/k2 without fitting a subspace.",
+    "l11h3_bypass": "If D fails with a valid instrument, preserve the L11H3 route null and search exact downstream readers of L7H7/L9H4 followed by causal module/head mediation.",
+    "invalid": "If A or B fails, do not interpret C/D; repair the instrument without changing arms or thresholds."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 18,
+    "sequence_evaluations": 2304,
+    "scored_token_positions": 4608,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "circuit_targets": [
+    "computational specification",
+    "cross-boundary grouping and within-module splitting",
+    "held-out and OOD prediction",
+    "extraction or sufficiency",
+    "composition and reuse",
+    "stable identification"
+  ],
+  "anti_rank_drift": "No rank, learned projector, activation reconstruction, variance objective, compression, or DAS optimization is used."
+}
