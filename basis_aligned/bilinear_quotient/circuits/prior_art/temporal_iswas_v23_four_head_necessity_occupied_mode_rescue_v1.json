@@ -1,0 +1,53 @@
+{
+  "schema": "temporal_iswas_v23_four_head_necessity_occupied_mode_rescue_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_four_head_necessity_occupied_mode_rescue_v1",
+  "registered_utc": "2026-09-08T21:53:00Z",
+  "question": "Is the fresh four-head program necessary in the reverse direction, and does its single occupied M11 weight mode mediate the resulting behavioral effect?",
+  "evidence_status": "Prospective manipulation and rescue test. Forward sufficiency, four-head interactions, frozen weight modes, occupancy, and layerwise transport are open. No reverse four-head removal, occupied-mode removal, or head-removal-plus-M11-rescue outcome on v23 has been opened.",
+  "prior_art": {
+    "searched": [
+      "all v15-v23 is/was head removal, reader loss, M11 rescue, source-writer, factor, and mediation priors/results",
+      "v23 aligned four-head confirmation, frozen weight tensor, occupancy transport, and L8/L9/L11 transport receipts",
+      "earlier v17 complete A11/M11 reader-loss and full-output rescue"
+    ],
+    "novelty": "Earlier work rescued complete reader/module outputs and established forward donor transfer. No prior test reverses this prospectively frozen four-head union on the aligned v23 bank and compares complete M11-factor rescue with a one-dimensional weight-defined occupied-mode rescue.",
+    "known_lessons": "A decoded direction is not necessarily a removable causal carrier. The leading mode is eligible only because it is weight-defined before this run, occupies 97.1% of realized response on split-stable data, and belongs to a separately confirmed causal head union. Full-factor rescue is required as the positive-control ceiling."
+  },
+  "authority": {
+    "v23_confirmation_result_sha256": "db850d5e9b86f76cb4381a12fc83f91cd2aac3544029fabd18bad138d34fed92",
+    "weight_tensor_sha256": "9b553f42e708f1612fd90a934e0d26783b935457156f4856bc4b69f60df37892",
+    "occupancy_result_sha256": "2aae7e4bb5eb5092c64cc0248f5fa789a418ff2d78549e4d2acf438b8eef589b",
+    "l11_transport_result_sha256": "3d1c87d9dfe81985497c045db9a1cb567e5c0f88d518f4ef880fadba6d6f950b",
+    "l9_transport_result_sha256": "e5adbee64bd46f58419ed95863f6c0466d46a9460e889435e0b2ee2807c80a70",
+    "l8_transport_result_sha256": "b2763ed635ad481d450bbb37bccfdf9ee6d3b452b4c1977606a08ce277b326a3",
+    "builder_sha256": "a4830fd110b8cd854a5f28bfae776f697a15d4f791355990e02ea030fdca4c05"
+  },
+  "frozen_design": {
+    "population": "All 64 aligned v23 rows; target behavior uses the capability-frozen 30 jointly correct A1/A2 rows, with P, C, and reporter halves separate.",
+    "head_removal": "Start from each donor prompt and replace the inclusive-prefix c_proj input slices of L8H1/L9H1/L9H4/L11H3 by their matched base values. Score donor-minus-removed margin as reverse recovery toward the paired base state.",
+    "factor_ceiling_rescue": "Capture the native-donor and head-removed M11 bilinear factor states. Repeat head removal and add the complete corresponding M11 Down-weighted factor difference to M11's output. This is the registered mediation ceiling; it does not alter the residual skip carrying the removed heads.",
+    "occupied_mode_rescue": "Let u be the leading reader-mode left singular vector of the frozen weight tensor, mapped through the frozen reader basis into a unit vector f over 4,608 M11 factors. Repeat head removal and add only Down[f f^T(H_donor-H_removed)] to M11 output.",
+    "occupied_mode_removal": "On the native donor path, subtract Down[f f^T(H_donor-H_base)] from M11 output. This tests necessity of the paired target change's occupied factor component independently of head removal.",
+    "no_op": "A donor-to-donor four-head self patch must be exact.",
+    "price": {"checkpoint_loads": 1, "model_forwards_exact": 7, "sequence_evaluations_exact": 448, "transformer_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+  },
+  "bars": {
+    "self_patch_max_abs": 0.0001,
+    "head_removal_behavior_recovery_min": 0.50,
+    "head_removal_direction_fraction_min": 0.90,
+    "head_removal_P_and_C_leak_ratio_max": 0.15,
+    "full_factor_rescue_recovery_min": 0.50,
+    "occupied_to_full_rescue_cosine_min": 0.95,
+    "occupied_to_full_rescue_signed_projection_min": 0.70,
+    "occupied_mode_removal_head_effect_recovery_min": 0.40,
+    "reporter_half_sign_agreement_required": true
+  },
+  "predictions": {
+    "pred_a_authority_hooks_self_patch_finiteness_and_exact_price": "All hashes, exact frozen mode reconstruction, hook counts, donor self no-op, finiteness, and seven-forward price pass.",
+    "pred_b_four_head_union_is_selectively_necessary_in_reverse": "Head removal passes target recovery/direction and P/C leakage bars with positive recovery in both reporter halves.",
+    "pred_c_occupied_mode_rescues_most_of_complete_M11_factor_mediation": "The full-factor rescue recovers >=.50 of head-removal behavior; occupied-mode rescue has cosine >=.95 and signed projection >=.70 relative to that full-factor rescue, with positive half projections.",
+    "pred_d_occupied_mode_is_directly_necessary": "Direct occupied-mode removal recovers >=.40 of the four-head removal effect with positive reporter-half projections and P/C leak <=.15."
+  },
+  "null": "With valid A, B failure rejects bidirectional necessity of the four-head union. C failure means the occupied mode is descriptive but not a sufficient M11 mediator. D failure means the mode cannot be called a directly removable causal carrier even if it rescues a head intervention.",
+  "decision": "B-D pass promote the writer-to-M11 occupied-mode interface to selective manipulation. B pass/C or D fail preserves the four-head causal circuit but requires a multidimensional or residual-skip-aware mediator before extraction."
+}
