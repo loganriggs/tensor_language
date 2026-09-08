@@ -835,19 +835,30 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   scope result).  Both programs share the final-residual decoder boundary, but stored results lack
   interoperable physical bases and no genuinely simultaneous dual-command builder exists.  Earlier
   cross-task Hankel and task-mode rows remain separate-command evidence, not joint composition.
+- Common-final-gauge basis capture:
+  `temporal_iswas_common_final_gauge_basis_capture_v1_result.json` (valid task-typed direct-sum
+  result).  The two cross-fitted is-was rank-two spans are stable, with principal cosines
+  `.9050/.8087`, but are not contained in temporal Q8: their Q8 cosines are only
+  `.6752/.2465` and `.6520/.1941`.  The physical union has rank 12.  All 1152x8/1152x2 bases are
+  now stored byte-exactly in one final-residual gauge, so weight translation can use the actual
+  tensors; joint work must preserve task type rather than calling this one shared subspace.
+- First same-sequence dual-command capability:
+  `temporal_iswas_dual_command_native_capability_v1_result.json` (valid native capability null).
+  Is-was is perfect in all 16 cells, and future temporal cells are perfect, but past temporal cells
+  fail symmetrically across FIT/HOLDOUT: the forecast template is `0/8` and schedule template is
+  `4/8`.  No row is licensed and no causal outcome opens.  The bank is closed without filtering.
+  A successor may preserve an already capability-qualified temporal prefix exactly—causality makes
+  its earlier-token margin invariant to any appended second clause—then test only whether the later
+  is-was command survives the composition.
 
 ## Remaining gates
 
-1. Replace the lexeme-specific two-entry lookup with a prospectively semantic or multi-environment
-   routing object, then test it on the sealed capability-qualified v16 bank without refitting.  The
-   frozen v15 lookup has already failed this gate by exact signature noncoverage.
-2. Capability-qualify a genuinely new cue construction, then fit a multi-environment causal-response
-   object on complete constructions while keeping the new construction sealed.  Retain DIM, step
-   zero, and exact-factor programs as controls.
-3. Translate the causally sufficient entry-12 rank-two coordinates through normalization-aware
-   downstream weight maps, including exact finite normalized responses, and require causal input
-   mediation.  The first L12/L13 nominated interfaces fail that mediation gate; next test the
-   coherent residual-identity route to the final RMS-normalized unembedding rather than widening
-   the static weight ranking.
-4. Test joint composition when temporal and is–was commands are installed together.
+1. Run the frozen complete exact-weight atlas on temporal Q8 and both physical is-was folds.  Use it
+   to distinguish shared readers/writers from task-typed interfaces, then causally test nominated
+   interfaces; weight energy alone is not identification.
+2. Capability-qualify a second same-sequence population whose temporal prefix is byte-identical to
+   a previously qualified standalone prefix.  Do not reuse or filter the failed first bank.
+3. If the second bank passes, run the exact `00/10/01/11` causal composition factorial in the
+   measured rank-12 task-typed direct sum, reporting Möbius interaction and additive closure.
+4. Retain the stable is-was fold pair rather than selecting or averaging one fold after outcomes.
 5. Price an extracted executor only after these identification gates pass.
