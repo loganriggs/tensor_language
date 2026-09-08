@@ -1,0 +1,59 @@
+{
+  "schema": "temporal_iswas_p7_identity_m11_exact_product_factorial_ood_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.p7_identity_m11_exact_product_factorial_ood_v1",
+  "status": "conditional_unbound",
+  "eligibility": "Open only if the future immutable P7 module-necessity result passes A/D/E and lists prospectively nominated M11 as stably necessary. Bind its exact SHA separately without changing this prior.",
+  "question": "If M11 is necessary inside the OOD P7-plus-identity interface, which exact activation-conditioned Left, Right, and bilinear-interaction changes implement its response?",
+  "population": "The immutable OOD FIT/HOLDOUT parent rows; no row, MLP, factor, threshold, or subset is selected from these outcomes.",
+  "fixed_background": {
+    "identity": "Install selected-writer block-10 residual input over the exact causal prefix.",
+    "other_p7_modules": ["M10", "A11", "M12", "M13", "M15", "M16"],
+    "m11_intervention": "At M11 Down input, use arm-local live L0/R0 and captured selected-writer L1/R1 to install subsets of dL*R0, L0*dR, and dL*dR over the causal prefix.",
+    "arms": ["none", "complete_M11", "left", "right", "interaction", "left_right", "left_interaction", "right_interaction", "all_three"],
+    "prospective_mlp": "M11, nominated from the original-distribution singleton ordering before the future OOD necessity result."
+  },
+  "exact_identity": "L1*R1 - L0*R0 = (L1-L0)*R0 + L0*(R1-R0) + (L1-L0)*(R1-R0). Down is affine, so all_three must reproduce complete_M11 including the unchanged bias.",
+  "bars": {
+    "authority_and_route_replay_max_abs_error": 0.00001,
+    "full_recovery_min": 0.9,
+    "full_recovery_max": 1.1,
+    "full_cosine_min": 0.98,
+    "full_relative_residual_max": 0.2,
+    "full_direction_min": 0.9,
+    "factor_material_recovery_increment_min": 0.03,
+    "interaction_necessity_drop_min": 0.03,
+    "temporal_command_gold_collateral_max": 0.01
+  },
+  "predictions": {
+    "pred_a_conditional_authority_capture_factor_closure_hook_coverage_finiteness_and_exact_price": "Eligibility and immutable authorities pass; arm-local L/R and writer L/R capture exactly once; algebraic hidden-factor closure, hook coverage, finiteness, and exact 11-forward price pass.",
+    "pred_b_all_three_factors_replay_complete_m11_and_parent_joint_program": "all_three reproduces complete_M11 and the parent P7-plus-identity task effects within 1e-5 and passes full-program geometry on both OOD phases.",
+    "pred_c_bilinear_interaction_is_stably_necessary": "all_three recovery minus left_right recovery is >=.03 on both OOD phases.",
+    "pred_d_at_least_one_linear_factor_is_stably_material": "left or right has a none-relative signed-recovery increment >=.03 on both OOD phases.",
+    "pred_e_all_factor_arms_preserve_temporal_selectivity": "Every factor and route-replay arm has temporal command-gold collateral <=.01 on both OOD phases."
+  },
+  "terminal_rules": {
+    "awaiting_binding": "No eligible immutable result is bound; exit model-free.",
+    "invalid_instrument": "A or B fails after binding.",
+    "nonselective": "A/B pass and E fails.",
+    "linear_m11_response": "A/B/D/E pass and C fails; use the passing linear factor set but preserve interaction as an exact null.",
+    "interaction_only_or_synergistic": "A/B/C/E pass and D fails; retain the interaction and test paired factor synergy.",
+    "exact_three_factor_m11_interface": "A--E pass; M11 has an exact, OOD-stable activation-conditioned weight-factor program."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 11,
+    "sequence_evaluations": 1408,
+    "scored_token_positions": 2816,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "tripwires": [
+    "Before binding, exit awaiting_binding without model/GPU/queue access.",
+    "L0/R0 are captured in the exact arm-local identity-plus-other-P7 background; globally native activations are not a legal baseline.",
+    "all_three must match complete_M11 both at Down output and registered task logits before factor claims are scored.",
+    "The interaction term cannot be dropped from analogy, norm, or the earlier MLP8 outcome.",
+    "No OOD MLP/factor selection, DAS, SVD/rank fit, or static weight-norm causal claim is allowed."
+  ],
+  "novelty": "Earlier MLP8 work validated the exact product-factor instrument and falsified a generic small-interaction assumption. No prior result factorizes prospectively nominated downstream M11 inside the exact OOD P7-plus-identity interface; this applies that algebra in the correct arm-local frame."
+}
