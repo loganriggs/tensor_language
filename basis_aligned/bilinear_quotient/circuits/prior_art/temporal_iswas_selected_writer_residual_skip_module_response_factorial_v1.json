@@ -1,0 +1,62 @@
+{
+  "schema": "temporal_iswas_selected_writer_residual_skip_module_response_factorial_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.selected_iswas_writer_residual_skip_module_response_factorial_v1",
+  "registered_utc": "2026-09-08T10:03:00Z",
+  "question": "Is the dominant is-was writer bypass carried through the block-10 residual identity path, through the distributed outputs of blocks 10--17, or through their interaction?",
+  "authorities": {
+    "route_ladder_result_sha256": "a5401d739775526fa1802c09d7cf633d6ae1253625a32671aabbb822a0754e6c",
+    "module_atlas_result_sha256": "88537c2561098239472072b277ab29bef868cc1d648d672024f306fed814990b",
+    "module_atlas_runner_sha256": "719394cd2fd134a02afe0365b6603bff4ae3882b5ddd5f2b586930e41b6f3902",
+    "greedy_writer_result_sha256": "6a2ae6598ae95269f7d9e24e13196155342f690d331c78efed5115a8cf84bda2"
+  },
+  "locked_writer": {
+    "role": "iswas",
+    "heads": ["L07H07", "L09H04"],
+    "source_region": "postcue"
+  },
+  "factorial": {
+    "R0M0": "Native block-10 input residual and native downstream module outputs; the native reference.",
+    "R1M0": "Writer-run block-10 input residual installed through the is-was query while all A10--M17 outputs are clamped to native-run tensors; isolates the residual/identity carrier under controlled native responses.",
+    "R0M1": "Native block-10 input residual while all A10--M17 outputs are clamped to writer-run tensors; isolates the distributed downstream module-response carrier.",
+    "R1M1": "Writer-run block-10 input residual plus all writer-run downstream module outputs; must replay the complete selected-writer effect."
+  },
+  "scope": "Original FIT and HOLDOUT pooled panels. OOD is reserved for the promoted branch after the causal carrier is identified.",
+  "bars": {
+    "authority_and_writer_replay_max_abs_error": 0.00001,
+    "joint_writer_replay_signed_recovery_min": 0.99,
+    "joint_writer_replay_signed_recovery_max": 1.01,
+    "joint_writer_replay_cosine_min": 0.9999,
+    "joint_writer_replay_relative_residual_max": 0.01,
+    "joint_writer_replay_direction_min": 1.0,
+    "dominant_carrier_recovery_min": 0.5,
+    "dominant_carrier_cosine_min": 0.9,
+    "dominant_carrier_direction_min": 0.9,
+    "additivity_relative_l2_max": 0.25,
+    "temporal_command_gold_collateral_max": 0.01
+  },
+  "predictions": {
+    "pred_a_authority_pairing_writer_replay_state_module_capture_finiteness_and_exact_price": "All authorities, selected writer/source/query maps, block-10 state and 16 module captures, hook counts, writer replay, finite metrics, and literal price pass.",
+    "pred_b_joint_state_and_module_clamp_replays_the_complete_writer_effect": "R1M1 passes every joint writer-replay bar on FIT and HOLDOUT.",
+    "pred_c_residual_identity_path_is_a_majority_carrier": "R1M0 passes every dominant-carrier bar on FIT and HOLDOUT.",
+    "pred_d_distributed_module_response_is_a_majority_carrier": "R0M1 passes every dominant-carrier bar on FIT and HOLDOUT.",
+    "pred_e_two_factor_decomposition_is_additive_and_temporally_selective": "The relative L2 error between R1M1 and R1M0+R0M1 is <=0.25 on FIT/HOLDOUT and every nonnative arm's temporal-command effect is <=0.01 of temporal gold."
+  },
+  "decision": {
+    "identity_skip_dominant": "C true, D false: identify the block-10 residual identity carrier; next translate its query-position tensor through exact suffix normalization/unembedding weights and selectively remove it.",
+    "module_response_dominant": "C false, D true: use the queued cumulative module result to select and split the response path into heads/MLPs.",
+    "redundant_dual_carriers": "C and D true: treat residual and module response as redundant causal carriers and test removals/composition.",
+    "interaction_dominant": "B true but C and D false: the bypass requires state-response interaction; retain the full 2x2 term and test its OOD stability rather than forcing additive modules.",
+    "invalid": "A or B false: do not interpret C--E."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 6,
+    "sequence_evaluations": 768,
+    "scored_token_positions": 1536,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "prior_art_lesson": "The older v15 all-layer atlas showed that complete input-state sufficiency can be tautological. This experiment therefore does not claim R1 state sufficiency alone: it clamps native versus writer module responses in a registered 2x2 and requires exact R1M1 replay plus explicit interaction accounting.",
+  "anti_rank_drift": "No fitted subspace, DAS, rank, reconstruction, variance, or compression objective is used."
+}

@@ -7,7 +7,8 @@ account catalog lists `GPT-6-Astra` under the exact slug `gpt-6-astra`, and a di
 succeeded. Astra is now the default in `/root/.codex/config.toml`.
 
 An already-running session does not inherit a changed default. Use its model switcher if Astra is
-visible; otherwise exit it and start an Astra session explicitly:
+visible; otherwise exit it and start a **new** Astra session explicitly (do not use `codex resume`,
+which resumes the old session and its model):
 
 ```bash
 codex -m gpt-6-astra -C /workspace/tensor_language
@@ -37,44 +38,43 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
-## Authoritative handoff snapshot — 2026-09-08 08:21 UTC
+## Authoritative handoff snapshot — 2026-09-08 10:04 UTC
 
-The current Codex line is committed and pushed through `3b75937ab`.  The canonical dossier now
-contains seven task-defined circuits/subroutines and includes the active temporal/is-was route
-with a requirement-by-requirement quality ledger.  Its strongest evidence is:
+The current committed branch edge is `22ab9467a`. The selected upstream source-writer prefixes
+are now identified and validated: temporal uses `L7H7 + L9H4 + L9H1`; is-was uses
+`L7H7 + L9H4`. The exact recipient-native L11H3 source formula mediates `.783-.799` of the
+temporal writer effect, but only `.165-.203` of is-was. A nested source/full-prefix/full-head
+ladder then showed that the missing is-was effect is neither value spreading nor changed L11H3
+routing: the full observed L11H3 head still mediates only `.155-.197`.
 
-- licensed original/OOD four-head composition and pair-symmetric midpoint removal;
-- audit-recovered task-typed L11H3:value sources: temporal bridge, is-was postcue;
-- exact recipient-native bilinear source formula, direct-interface error <=`9.54e-6`;
-- stable exact-weight translation over 111 earlier writers;
-- causal cross-task L9H1 and L9H4 source writers, with top-five union additivity error <=`.17425`.
+The complete downstream module atlas over `A10--M17` found no singleton above the frozen `.20`
+FIT bar. Its leading aligned modules are A11 and M11 at about `.17`, followed by M12 and smaller
+M13/M15/M16 effects. This is an honest distributed-bypass null, not permission to lower the bar.
+The prospectively frozen distributive successor tests the full singleton-ordered cumulative
+prefixes P1--P16. Its runner is:
 
-The immediate experiment is
-`run_temporal_iswas_l11h3_source_writer_weight_ordered_greedy_v1.py`, reviewed SHA-256
-`6660183126fd155e9ab86511e798a564879ef86818760dde256177916d1d13b5`.  It is the sole line in
-managed lane 1, behind the verified-live unrelated `run_unit_family_separability_spec_v254.py`;
-do not enqueue a duplicate or bypass the runner.  When its result lands, score the frozen
-selection/validation predicates exactly.  If valid, create the already specified v3 authority
-binding containing only the greedy result SHA and selected prefix identities.
+```text
+basis_aligned/bilinear_quotient/ops/run_temporal_iswas_downstream_module_singleton_ordered_greedy_v1.py
+SHA-256 13734de17a6e0c7fa47be1fe3d45804e94e59d8743562e2075e2f0aa8a420d39
+```
 
-The 18-forward mediation implementation
-`run_temporal_iswas_l11h3_source_writer_formula_mediation_v2.py` is frozen at reviewed SHA-256
-`88a37dbd000505713c7504bb4c28a262df438349dcbefcbdc5b3ee29ed9aa1f8` and intentionally returns
-`awaiting_binding` in dry run.  Its v1 science prior and v2
-price amendment are immutable: the writer-induced L11H3:value change is contracted through
-recipient-native q/k/q2/k2, directly installed at L11 preprojection, and must mediate >=`.75` of
-the selected writer effect with cosine >=`.95` on original HOLDOUT and OOD.  After adding the
-hash-only binding, rerun its focused tests, gate, and dry run, commit/push, then enqueue it through
-the managed runner.
+That exact hash is the sole line in managed lane 1, behind the verified-live unrelated
+`run_unit_family_separability_spec_v256.py` process (PID `1171621`, started 09:51:56 UTC). At
+10:03 UTC it had emitted 3/20 evaluations and remained healthy. Do not enqueue a duplicate,
+bypass the managed runner, or restart either job.
 
-At 08:43 UTC the unrelated v254 predecessor was still healthy on GPU (13 of 26 evaluation
-members emitted); the greedy result did not yet exist and its reviewed queue line remained the
-only lane-1 entry.  This is a verified wait, not authority to duplicate, bypass, or restart it.
+An independent six-forward 2x2 successor is preregistered as
+`circuits/prior_art/temporal_iswas_selected_writer_residual_skip_module_response_factorial_v1.json`.
+It crosses native/writer block-10 input residual with native/writer outputs for all A10--M17
+modules. This distinguishes residual identity carriage, distributed module response, redundancy,
+and state-response interaction while avoiding the older tautology that a complete input state is
+sufficient by definition. Finish its runner and focused tests, commit/push, then enqueue its exact
+reviewed hash behind the cumulative-prefix screen.
 
 The newest review clocks are
-`HOURLY_STRATEGIC_REVIEW_2026-09-08_0815.md` (next after 09:15 UTC) and
-`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0826.md` (next after 11:26 UTC).  Reinspect live
-files and processes before relying on this snapshot.
+`HOURLY_STRATEGIC_REVIEW_2026-09-08_0922.md` (next safe-boundary review after 10:22 UTC) and
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0826.md` (next after 11:26 UTC). Reinspect live
+files, queues, processes, and newer commits before relying on this snapshot.
 
 ## Required startup sequence
 

@@ -17060,3 +17060,9 @@ The 19-forward runner replays the selected writer effect, captures all 16 exact 
 
 ### 2026-09-08T09:57Z — Codex: QUEUED MULTI-MODULE HOOK PATH MOCK-VALIDATED
 With the reviewed runner unchanged and queued behind live v256, a new CPU mock executes two simultaneous module-output hooks in causal order, verifies each fires exactly once, verifies the later frozen replacement is applied at only the locked prefix positions, and verifies all hooks are removed. The focused suite is now 6/6; the queued runner SHA remains exactly `13734de1...`.
+
+### 2026-09-08T10:03Z — Codex: RESIDUAL-SKIP × MODULE-RESPONSE FACTORIAL FROZEN
+The independent six-forward 2x2 freezes block-10 input state native/writer × all A10--M17 outputs native/writer. R1M0 isolates controlled residual/identity carriage, R0M1 isolates distributed module responses, and R1M1 must exactly replay the writer effect; their interaction is scored explicitly. This addresses the old lesson that input-state sufficiency alone is tautological and distinguishes identity, response, redundancy, and synergy without changing the queued cumulative-prefix experiment.
+
+### 2026-09-08T10:05Z — Codex: ASTRA RESTART PATH AND LIVE CIRCUIT HANDOFF VERIFIED
+The local model catalog exposes `gpt-6-astra`, `/root/.codex/config.toml` already makes it the default, and `codex update` confirms CLI `0.153.4` is current. A running pre-Astra session retains its original model, so restart with `codex -m gpt-6-astra -C /workspace/tensor_language` rather than resuming it. `CODEX_RESEARCH_SESSION_STARTUP.md` now points to the live v256 predecessor, queued exact cumulative-module runner, 09:22/08:26 review clocks, and the registered residual-skip × module-response successor. Both Supervisor-managed bqrunners are healthy; no duplicate service or GPU launch was made.
