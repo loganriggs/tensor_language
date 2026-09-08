@@ -630,6 +630,19 @@ directions, checks leave-one-group-out selectivity, and evaluates sealed v16 und
 cross-fitted oracle bases.  This removes the earlier direction/parity confound without adding an
 optimizer; disagreement between oracle folds or failure on v16 closes this contextual Gram route.
 
+Pooling both tense directions does not rescue the six-scalar contextual Gram router.  Exact
+whole-group leave-one-out on v15 gives confusion `[[16,0,0],[1,15,0],[3,0,29]]`, macro accuracy
+`.9479`, and three control false positives.  Capability-qualified v16 exposes a stronger failure:
+the two oracle folds achieve macro accuracy only `.1458/.125`, almost completely exchange A1 and
+A2, leak `9/11` P rows, and disagree.  The earlier parity split was therefore not the sole cause;
+coarse response energies and inner products do not stably identify construction semantics.
+
+The registered successor changes the measured object once, from coarse moments to a fixed
+fourteen-scalar projective response-shape spectrum (singular-energy concentration, participation,
+semantic-position concentration, roughness, and cross-expert geometry).  It keeps whole-group v15
+validation, both frozen v16 oracle folds, and no optimizer.  Its preregistered OOD failure closes
+contextual centroid feature engineering rather than opening further variants.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -781,6 +794,12 @@ optimizer; disagreement between oracle folds or failure on v16 closes this conte
   accuracy `.8333`; both then default every v16 A1/A2/P row to off, giving macro accuracy `1/3`.
   Simple unordered tied-embedding midpoint/squared-difference geometry is neither selective on v15
   nor target-covering on v16.
+- Multi-direction contextual Gram router:
+  `temporal_iswas_v15_multidirection_contextual_gram_router_v16_v1_result.json` (valid strict null).
+  Pooling both v15 directions yields LOGO macro `.9479` but retains three control false positives.
+  V16 macro falls to `.1458/.125` under the two oracle folds, A1/A2 are almost wholly exchanged,
+  P leaks `9/11` rows, and fold predictions disagree.  Six coarse contextual response moments do
+  not identify a stable semantic branch.
 
 ## Remaining gates
 

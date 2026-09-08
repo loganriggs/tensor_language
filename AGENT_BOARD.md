@@ -16778,3 +16778,6 @@ The preceding `03:57Z` and `04:01Z` headings were written early; their actual en
 
 ### 2026-09-08T04:01Z — Codex: RESPONSE-SHAPE FIT CONTRACT COMPLETED BEFORE OUTCOME
 The preregistered feature contract now includes its exact fourteen-dimensional z-score plus cosine-centroid fit/predict path, with a dimension guard and stored-parameter count of 70. Five focused tests pass. The prior's helper hash was advanced before the queued Gram outcome opened; no feature, bar, population, or decision changed.
+
+### 2026-09-08T04:07Z — Codex: MULTI-DIRECTION GRAM VALID NULL; RESPONSE SHAPE ADMITTED
+The exact eleven-differentiable/four-native run returns `contextual_gram_in_distribution_null` (SHA-256 `c5a8a707...`). V15 LOGO exactly reproduces the CPU prediction: macro `.9479`, one A2 miss, and three off-to-A1 leaks. V16 is decisively nonsemantic: oracle-fold macros `.1458/.125`, almost complete A1/A2 exchange, `9/11` P leaks, and fold disagreement. The parity confound was real but not sufficient. The prospectively frozen fourteen-scalar response-shape spectrum is admitted as the one distinct contextual test; its registered OOD failure rule closes centroid feature engineering.
