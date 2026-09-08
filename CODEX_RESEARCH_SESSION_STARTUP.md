@@ -2,9 +2,10 @@
 
 ## Start this program with Astra
 
-The installed Codex CLI is `0.153.4`. On 2026-09-07, `codex debug models` confirmed that the
-account catalog lists `GPT-6-Astra` under the exact slug `gpt-6-astra`, and a direct model call
-succeeded. Astra is now the default in `/root/.codex/config.toml`.
+The installed Codex CLI is `0.153.4`. On 2026-09-08, `codex update` resolved and successfully
+installed that same latest version, and `codex debug models` confirmed that this account's live
+catalog lists `GPT-6-Astra` under the exact slug `gpt-6-astra` with `visibility = "list"`. Astra
+is already the default in `/root/.codex/config.toml`.
 
 An already-running session does not inherit a changed default. Use its model switcher if Astra is
 visible; otherwise exit it and start a **new** Astra session explicitly (do not use `codex resume`,
@@ -44,9 +45,9 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
-## Authoritative handoff snapshot — 2026-09-08 12:00 UTC
+## Authoritative handoff snapshot — 2026-09-08 12:39 UTC
 
-The current pushed science edge is commit `2a8f748f0`; always inspect newer commits, dirty files,
+The current pushed science edge is commit `d29589065`; always inspect newer commits, dirty files,
 and managed-runner state before acting. The is-was selected writer is `L7H7 + L9H4`. Its complete
 downstream singleton atlas showed a distributed response, and the prospectively fixed cumulative
 order selected P7=`A11+M11+M12+M15+M13+M16+M10`. P7 recovers `.5276/.5376` on original
@@ -79,8 +80,25 @@ OOD phases. If A11 passes, split it into its nine native heads. Split each passi
 exact activation-conditioned terms `Delta L R0 + L0 Delta R + Delta L Delta R`; do not substitute
 static tensor norms or a rank/compression sweep.
 
-The newest clocks are `HOURLY_STRATEGIC_REVIEW_2026-09-08_1122.md` (next safe-boundary review
-after 12:22 UTC) and `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_1126.md` (next after 14:26 UTC).
+Two outcome-conditional executors are already complete, tested, and fail closed without a binding.
+If the immutable necessity result makes A11 eligible, bind
+`ops/run_temporal_iswas_p7_identity_a11_head_endpoint_atlas_ood_v1.py` at reviewed SHA-256
+`417aaa017c06116f69141dbaaa683c511b955c5f80f59f7ccda0508cabbbf3e7`; it tests all nine
+pre-`c_proj` head slices in the exact P7+identity background. If M11 is eligible, bind
+`ops/run_temporal_iswas_p7_identity_m11_exact_product_factorial_ood_v1.py` at reviewed SHA-256
+`6551339eeec03b3121ed23fb274d24adc02a8654cd5dc6555dfe3a5158f98b43`; it tests the three exact
+arm-local Left/Right/interaction product factors and every nonempty subset. Never create either
+binding from a forecast: score the immutable LOO receipt first and preserve failed eligibility.
+
+The current CPU contract for translating passing causal pieces into checkpoint tensors is
+`basis_aligned/polynomial_causal/TEMPORAL_ISWAS_P7_WEIGHT_TENSOR_TRANSLATION_PLAN_2026-09-08.md`.
+It maps A11 head deltas through the corresponding `W_O` slice and M11 product-factor deltas through
+`Down`. Weight overlap only nominates an edge; identification still requires downstream reader
+interchange, upstream writer reproduction, composition, selective removal, and sealed transfer
+when the component was not prospectively nominated.
+
+The newest clocks are `HOURLY_STRATEGIC_REVIEW_2026-09-08_1222.md` (next safe-boundary review
+after 13:22 UTC) and `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_1126.md` (next after 14:26 UTC).
 Both `bqrunner` and `bqrunner2` are Supervisor-managed with autostart/autorestart and were healthy
 at this snapshot. Never start duplicate background runners; use `ops/enqueue.sh` only.
 
