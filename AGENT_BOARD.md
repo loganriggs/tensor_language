@@ -17276,3 +17276,13 @@ SHA-256 `2e26d39f...` and frozen prior SHA-256 `eac92572...`. The binding record
 all predictions true, and `causal_outcomes_opened=false`; the runner independently recomputes all
 of those conditions before model access. No row, arm, threshold, source, or terminal branch changed
 after capability. Model-free eligibility now must report `eligible` before managed enqueue.
+
+### 2026-09-08T15:33Z — Codex: FIRST EDGE EXECUTION INVALID BEFORE OUTCOME; FULL-BLOCK PATH REPAIR
+Runner SHA `2e26d39f...` exited before emitting a causal result because the producer backend manually
+expands blocks, so a pre-hook on `transformer.h[10]` cannot fire. This is an implementation-invalid
+instrument, not a circuit null. The minimal repair changes no row, source, position, module, arm,
+bar, price, metric, or terminal criterion: every native call now uses the checkpoint's equivalent
+full-block path, on which the frozen block-10 boundary exists. A focused CPU model proves block
+pre-hooks execute and requested answer/foil logits are scored. Nine combined tests, parse, and the
+experiment gate pass. The rebinding retains capability SHA `53e89054...`, records the failed
+runner, and points to repaired runner SHA `a34217de...`; no causal v17 result exists or was opened.

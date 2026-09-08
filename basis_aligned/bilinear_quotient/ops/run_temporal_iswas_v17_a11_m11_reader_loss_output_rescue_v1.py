@@ -93,6 +93,32 @@ def site_modules(model):
     }
 
 
+def full_forward(backend, batch):
+    """Run the checkpoint's native block path so residual-boundary hooks are live.
+
+    ``Bilin18TorchBackend.native`` manually expands each block and therefore bypasses
+    hooks registered on the block itself.  This mathematically identical path calls
+    each block and is required for the preregistered block-10 entry intervention.
+    """
+    torch, F, model = backend.torch, backend.F, backend.model
+    tokens, lengths = backend._tensor_batch(batch)
+    x = F.rms_norm(model.transformer.wte(tokens), (model.config.n_embd,))
+    x0, v1 = x, None
+    for block in model.transformer.h:
+        x, v1 = block(x, v1, x0)
+    logits = 30.0 * torch.tanh(
+        model.lm_head(F.rms_norm(x, (model.config.n_embd,))) / 30.0
+    )
+    values = tuple(
+        (
+            float(logits[index, length - 1, batch.answer_ids[index]].detach().float()),
+            float(logits[index, length - 1, batch.foil_ids[index]].detach().float()),
+        )
+        for index, length in enumerate(lengths)
+    )
+    return producer.BatchOutput(values, {})
+
+
 def postcue_rows(base_batch, donor_batch):
     rows = []
     for base_ids, donor_ids, query in zip(
@@ -194,7 +220,7 @@ def run_arm(backend, batch, modules, entry, absent_readers, present_outputs,
     def call():
         nonlocal inner_calls
         result, inner_calls = intervention.run_reader_loss_rescue(
-            lambda: backend.native(batch, capture=False), modules,
+            lambda: full_forward(backend, batch), modules,
             absent_readers, present_outputs, positions, losses=losses, rescues=rescues)
         return result
     output, entry_calls = with_entry(call, backend.model, entry, positions)
@@ -279,21 +305,21 @@ def main():
     with backend.torch.no_grad():
         def native_call():
             return capture_entry_and_modules(
-                lambda: backend.native(base_batch, capture=False), model, modules)
+                lambda: full_forward(backend, base_batch), model, modules)
         native_bundle, base_heads, calls["base_head_capture"] = capture_source_heads(
             native_call, model, base_batch)
         native, native_entry, absent_readers, _absent_outputs, calls["native_capture"] = native_bundle
         donor, donor_heads, calls["donor_head_capture"] = capture_source_heads(
-            lambda: backend.native(donor_batch, capture=False), model, donor_batch)
+            lambda: full_forward(backend, donor_batch), model, donor_batch)
 
         def writer_capture_call():
             return capture_entry_and_modules(
-                lambda: backend.native(base_batch, capture=False), model, modules)
+                lambda: full_forward(backend, base_batch), model, modules)
         writer_bundle, calls["source_patch"] = with_source_heads(
             writer_capture_call, model, base_batch, base_heads, donor_heads, source_positions)
         writer, writer_entry, _present_readers, present_outputs, calls["writer_capture"] = writer_bundle
         replay, calls["writer_replay"] = with_entry(
-            lambda: backend.native(base_batch, capture=False), model, writer_entry, positions)
+            lambda: full_forward(backend, base_batch), model, writer_entry, positions)
         self_clamp, calls["source_absent_self_clamp"] = run_arm(
             backend, base_batch, modules, native_entry, absent_readers, present_outputs,
             positions, ("A11", "M11"), ())

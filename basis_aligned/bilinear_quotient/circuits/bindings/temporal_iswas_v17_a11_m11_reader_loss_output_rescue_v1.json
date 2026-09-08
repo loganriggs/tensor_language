@@ -2,10 +2,13 @@
   "schema": "temporal_iswas_v17_a11_m11_reader_loss_output_rescue_binding_v1",
   "candidate_id": "cross_task.temporal_iswas.v17_a11_m11_reader_loss_output_rescue_v1",
   "edge_prior_sha256": "eac92572567b2d8e670dc2c02ec91af0439666f4901ab2aa2668f27f1af46923",
-  "edge_runner_sha256": "2e26d39fe059bf6e03164677bc474b14e7c02182e5fe28b56a112c9d0e8106cf",
+  "edge_runner_sha256": "a34217de464b988f10be94b60d7526146b9f86c4ad717502e4dfe852e1f2b0d7",
   "capability_result_sha256": "53e89054f456b65853d7ef5f0e566d1bd3993a6a55c6ecdc6615269f28d23e78",
   "capability_terminal": "screen",
   "capability_all_predictions_pass": true,
   "causal_outcomes_opened": false,
-  "bound_utc": "2026-09-08T15:27:00Z"
+  "execution_repair": "use the checkpoint native full-block forward so the frozen block-10 entry hook executes",
+  "failed_runner_sha256": "2e26d39fe059bf6e03164677bc474b14e7c02182e5fe28b56a112c9d0e8106cf",
+  "failed_before_causal_result": true,
+  "bound_utc": "2026-09-08T15:32:50Z"
 }
