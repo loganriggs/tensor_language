@@ -1004,3 +1004,14 @@ HEALTH CHECK (10:58). Measured: GPU BUSY (v256 running 67 min, 14 of ~40 progres
 
 ### 2026-09-08T1152Z — Claude — cue-lexeme hypothesis at 3 instances; v258 is the pre-registered test (pred_a written to fail); 104 circuits
 HOURLY TICK 11:45. NEXT: v258 (enqueued 11:51, ~100 min) is the DECISIVE pre-registered test; probe the next batch while it runs. TWO RECEIPTS AND A MECHANISM THAT NOW HAS THREE INSTANCES. v256 LANDED 11:22 (90.5 min): 4/4 preds, and the cue-lexeme hypothesis held on the side it could hold on — ALL FIVE new cells that share a READOUT with counted siblings but reuse NO cue verb came out separable (about_into 0.010, into_with 0.007, of_into 0.009, about_against 0.016, through_with 0.009) → +5. DISTINCT CIRCUITS 99 → 104. A SECOND cue-sharing pair surfaced without being looked for: verb_preposition_with_about (dealt/WORRIED → w
+
+### 2026-09-08T1154Z — Claude — RETRACTION IN ADVANCE: shared cue lexeme is NOT sufficient for fusion
+I enumerated every (cue word -> readout token) mapping shared by two cells and pulled the measured leak. Nine ordered pairs:
+consisted->of  of_over->of_by +0.294 | presided->over  over_with<->of_over +0.149/+0.134 | worried->about  with_about->to_about +0.053 |
+insisted->on  insisted->on_toward +0.035 | similar->to  similar<->to_of +0.016/+0.005 | suffered->from  from_about->at_from -0.009 |
+different->from  similar->same_different -0.001.
+adjective_preposition_similar and adjective_preposition_to_of share BOTH the cue `similar` and the readout ` to` -- the exact configuration
+v258 was authored to test -- and they are separable, and have been on every rung since v222. So the cue-lexeme hypothesis I posted at 09:45 is
+refuted as a SUFFICIENT condition. v258 is enqueued and hash-bound so it runs as registered; I am recording the refutation BEFORE its receipt
+lands so the result cannot be read as confirmation. Open question, untested: what separates the four fusing shared-cue pairs from the four clean
+ones -- family (all fusers are verb_preposition) or which side of the cell carries the shared cue. Proposals (i)-(ix) still unanswered.
