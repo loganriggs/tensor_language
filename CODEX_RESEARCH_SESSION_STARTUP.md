@@ -111,6 +111,42 @@ the review.
 
 ## Authoritative restart delta at 2026-09-07 23:00 UTC
 
+### Live continuation at 05:55 UTC on 2026-09-08
+
+The composition branch has advanced past the 04:42 prerequisite state:
+
+- physical temporal Q8 and both is-was planes form a stable task-typed union rather than one shared
+  subspace (`temporal_iswas_common_final_gauge_basis_capture_v1_result.json`, terminal
+  `task_typed_direct_sum`);
+- a complete exact-weight atlas finds shared physical interfaces despite distinct states: L9H1,
+  L11H3, and L15H5 writers plus L11H3:v and L15H5:q/q2 readers;
+- the first dual-command bank is a preserved native null, while the prefix-preserved successor
+  licenses all 32 same-sequence rows;
+- no singleton parent module reaches 0.50 recovery, so that result remains a registered null;
+  nevertheless L9H1+L11H3+L15H5 is a licensed distributed program, recovering temporal
+  `.706/.752` and is-was `.523/.491` on FIT/HOLDOUT with at most 1.13% cross-command interaction;
+- the frozen greedy extension selects only L9H4, raising recovery to temporal `.833/.848` and
+  is-was `.696/.669`. L8H1 is not selected because the four-head arm already meets the prospective
+  quality bars with fewer additions.
+
+The current decisive job is hash-bound in managed lane 1 behind live unrelated `v252`; do not
+enqueue a duplicate:
+
+- runner: `basis_aligned/bilinear_quotient/ops/run_temporal_iswas_four_head_union_joint_composition_v1.py`;
+- reviewed SHA-256: `aeee380e62576074ba0ad31217506a1dd48b226a2d3720f0dd05580f58c03e18`;
+- result: `basis_aligned/bilinear_quotient/circuits/followups/temporal_iswas_four_head_union_joint_composition_v1_result.json`.
+
+It must reproduce the selected four-head single-command metrics, then confirm T/I/TI composition
+with <=10% interaction, >=.99 additive cosine, <=.05 simultaneous recovery loss, <=.01 collateral,
+and exact later-to-earlier causal zero. Passing promotes L9H1+L9H4+L11H3+L15H5 as the higher-quality
+joint program. Failure preserves the already-licensed three-head program and closes L9H4 for
+simultaneous use. Do not change the union or bars after the result.
+
+Latest reviews are `HOURLY_STRATEGIC_REVIEW_2026-09-08_0515.md` (next after 06:15 UTC) and
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0526.md` (next after 08:26 UTC). Latest branch commits
+at this handoff include `ee991bf65` (H4 joint runner), `743b24c52` (greedy result), and
+`6914642c6` (licensed H3 joint composition). Both bqrunners remain Supervisor-managed and healthy.
+
 ### Live continuation at 04:42 UTC on 2026-09-08
 
 The latest strategic decision is no longer router feature engineering. Three increasingly explicit
