@@ -1059,6 +1059,25 @@ tested reciprocal transfer/reset executor.  These pending outcomes decide whethe
 travels by residual skip to the final literal RMSNorm/unembedding or is rewritten by a downstream
 module.  Queue presence is not evidence for either outcome.
 
+The next OOD authority is also frozen without opening model results.  V24 has 64 aligned rows using
+new temporal constructions, new answer-preserving controls, and 16 reporters disjoint from v1-v23.
+Its queued native-only gate requires every target and control direction-by-side cell to reach `.75`
+accuracy and every family to retain at least 12/16 base-and-donor-correct rows; failure closes the
+bank without editing it.  A binding-ready causal confirmation is separately preregistered, uses all
+32 target rows regardless of native correctness, and rechecks only the fixed union, four singletons,
+closures, controls, and reporter halves.  This costs nine forwards rather than repeating the v23
+discovery Shapley game and prohibits route, rank, dose, or row selection.
+
+The subspace-to-weight proposal now has a tested executable boundary in
+`ops/causal_checkpoint_translation.py`.  It computes exact `U_out^T W_write` writer maps,
+`W_read U_in` reader maps, `q x k x k` bilinear MLP cores, and separate attention QK-routing and
+OV-content cores.  Internal head/hidden gauges and rotations of the subspace bases are tested.
+Observed-state projection is exposed as a deliberately separate reachability operation: checkpoint
+weights define all computation possible through the causally admitted interface, while held-out
+occupancy/PCA/SAE/hierarchical descriptions estimate which inputs to that operator occur.  Neither
+dataset support nor low-rank reconstruction is allowed to redefine the physical operator or count as
+a circuit without factor-specific intervention.
+
 ## Remaining gates
 
 1. Score the queued exact block-11 residual/M11 factorial.  Joint restoration must close exactly;
@@ -1067,12 +1086,14 @@ module.  Queue presence is not evidence for either outcome.
    sufficiency and reset necessity on unchanged HOLDOUT before all nine physical heads are split.
    A clean singleton null opens the already demonstrated recurrent residual-product law and exact
    final RMSNorm/unembedding route on aligned v23.
-3. Freeze the partial shared-context-core hypothesis on a genuinely fresh authority before choosing
+3. Read the queued v24 native-only gate.  If every target and control predicate passes, bind its
+   immutable result hash into the already-tested nine-forward unfiltered OOD confirmation; otherwise
+   preserve the bank-level null and do not run the circuit on v24.
+4. Freeze the partial shared-context-core hypothesis on a genuinely fresh authority before choosing
    its dimension.  Require causal interchange with private head adapters and P/C selectivity; the
    opened weight spectrum alone cannot select or identify the group.
-4. Test the resulting program on fresh/OOD constructions and compose it with the existing temporal
-   command circuit.  Preserve later-to-earlier causal zero and both task endpoints under simultaneous
-   removal, swap, and edit.
-5. Price a standalone extracted executor only after residual/reader fidelity, OOD prediction, and
+5. Compose the resulting program with the existing temporal command circuit.  Preserve
+   later-to-earlier causal zero and both task endpoints under simultaneous removal, swap, and edit.
+6. Price a standalone extracted executor only after residual/reader fidelity, OOD prediction, and
    composition are verified.  Keep every invalid endpoint-control and gauge-dependent interpretation
    in the record rather than selecting a favorable instrument after outcomes.
