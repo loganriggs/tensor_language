@@ -10,14 +10,14 @@ import torch
 import run_temporal_iswas_selected_writer_block10_direct_residual_add_remove_v1 as target
 
 
-def test_unbound_dryrun_is_model_free_and_refuses_outcome_claim():
+def test_bound_dryrun_is_authority_checked_and_model_free():
     completed = subprocess.run([sys.executable, str(Path(target.__file__))], check=True,
         capture_output=True, text=True,
         env=dict(os.environ, BQLIB_DRYRUN="1", BQLIB_NO_MODEL="1"))
     payload = json.loads(completed.stdout)
     assert payload["static_authority_ok"] is True
-    assert payload["authority_ok"] is False
-    assert payload["status"] == "awaiting_binding"
+    assert payload["authority_ok"] is True
+    assert payload["status"] == "bound"
     assert payload["gpu_accessed"] is False
     assert payload["model_loaded"] is False
     assert payload["queue_touched"] is False

@@ -1,0 +1,28 @@
+{
+  "schema": "temporal_iswas_selected_writer_block10_direct_residual_add_remove_authority_binding_v1",
+  "candidate_id": "cross_task.temporal_iswas.selected_writer_block10_direct_residual_add_remove_v1",
+  "bound_utc": "2026-09-08T11:25:00Z",
+  "status": "bound",
+  "prior_sha256": "9fb12faf4f89594ac9594f3b8747725b0f88b7e52fd8e4c54ddd0eb5daf5c625",
+  "runner_sha256": "bd3d230c635892a4c174d0561d30c1c43fdadfadc217a455e07d59a1cd3c0a7f",
+  "factorial_result_sha256": "8e67ec87e123cd7c452e8e28b34dd5f8d9b310e4f79ffe69b6382f680c33607b",
+  "factorial_predictions": {
+    "pred_a_authority_pairing_writer_replay_state_module_capture_finiteness_and_exact_price": true,
+    "pred_b_joint_state_and_module_clamp_replays_the_complete_writer_effect": true,
+    "pred_c_residual_identity_path_is_a_majority_carrier": true,
+    "pred_d_distributed_module_response_is_a_majority_carrier": false,
+    "pred_e_two_factor_decomposition_is_additive_and_temporally_selective": true
+  },
+  "factorial_terminal": "identity_skip_dominant",
+  "eligibility": {
+    "pred_a": true,
+    "pred_b": true,
+    "pred_c": true,
+    "opens_conditional_successor": true
+  },
+  "context_only_not_an_execution_condition": {
+    "cumulative_result_sha256": "ca53dd95504e174b3301ce9e4cf87edcf112ec9685a6f5b82643057224338d69",
+    "cumulative_terminal": "compact_distributed_module_prefix",
+    "selected_prefix": ["A11", "M11", "M12", "M15", "M13", "M16", "M10"]
+  }
+}
