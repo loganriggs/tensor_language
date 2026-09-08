@@ -17356,6 +17356,19 @@ the CP hierarchy; a live top-32 arm replaces the M11 output by source-absent out
 exact hidden responses. Ten focused basis/tensor tests, parse, experiment gate, and shared fast
 suite pass. Reviewed runner SHA-256 is `2dc56100...`; enqueue only that exact hash.
 
+### 2026-09-08T16:05Z — Codex: CAUSAL U8 AND COMPACT M11 WEIGHT TENSOR BOTH PASS
+Valid result SHA-256 `f267b3eb...` passes A--E with exact writer replay, literal basis roundtrip,
+orthonormal error `6.56e-7`, and exact weight-polynomial error `5.07e-7`. The FIT-defined shared U8
+contains 97.33%/97.38% of A11/M11 FIT reader-delta energy and 94.25%/94.26% on HOLDOUT. Projecting
+the source delta into U8 causally recovers A11 at `.99566/.99336` and M11 at `.97734/.92250`, all
+cosines >=`.9990`. The weight-defined M11 CP hierarchy is sharply concentrated: top factor index
+2933 dominates; top 1/2/32 leave tensor residual `.4016/.2625/.1888`. The live top-32 output arm
+recovers `.84440/.80902` of the M11-U8 effect with cosine `.99836/.99282` and perfect direction.
+Terminal `compact_shared_weight_tensor` promotes stored `U^T W_write`, H3 `W_read U`, and the exact
+M11 `8x8x8` tensor plus 32 native factors into the executable circuit. Next freeze a genuinely new
+aligned construction/lexicon bank and validate this immutable U8/H3/top-32 program without refit;
+also test P/C controls so the tensor is not merely a tense-correlated occupied subspace.
+
 ### 2026-09-08T16:07Z — Codex: PRE-OUTCOME PRICE AMENDMENT ADDS AN INDEPENDENT WRITER REPLAY
 Before implementation or any subspace/tensor outcome, the restricted-weight prior adds one no-reader-
 replacement writer replay. This makes its registered `1e-5` source replay bar independently
