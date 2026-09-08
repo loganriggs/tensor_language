@@ -1004,14 +1004,75 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   final circuit.  The licensed successor is weight-ordered greedy prefix selection on original
   FIT followed by unchanged original-HOLDOUT/OOD validation.
 
+### Aligned v23 four-head is–was program and weight anatomy
+
+The weight-ordered and complete-module continuation has now moved the is–was branch beyond the
+six-head source-factorial screen.  The important correction is that two different interfaces had
+been mixed: a shared L11H3 value-source circuit and a broader behavior-carrying four-head program.
+The latter is now identified on a fully token- and endpoint-aligned fresh bank.
+
+- The v21 complete upstream atlas and v22 reader-contracted effect game nominated
+  `L8H1`, `L9H1`, `L9H4`, and `L11H3`.  V22's target and P effects were informative, but its
+  canonical C comparison was invalid because C endpoints differed.  The history-disjoint v23
+  corpus repaired that instrument rather than reinterpreting the invalid control.
+- `temporal_iswas_v23_aligned_four_head_reader_contracted_confirmation_v1_result.json` is the
+  valid selective confirmation.  The union recovers `.72588` of behavior and `.67007` of the
+  frozen M11-reader-contracted response, with cosines `.99524/.97676`, direction `1.0`, P leakage
+  `.10033/.08344`, aligned-C leakage `.00396/.00640`, and exact self/hidden closure.  Every head
+  passes its registered singleton screen and every Shapley allocation is positive and stable
+  across reporter halves.  This is a distributed four-head writer program, not a selected rank.
+- Exact transport splits the native heads rather than treating them as copies.  In
+  `temporal_iswas_v23_l11h3_exact_rmsnorm_transport_v1_result.json`, the state-dependent RMS
+  tangent predicts adjacent L11H3 transport with cosine `.99998`, signed projection `.99237`, and
+  residual `.00945`; raw `W_O -> M11` composition is invalid.  The L9 and L8 localization results
+  show L9H4 is nearly transport-ready after block 9, L9H1 needs block-10 rotation plus block-11
+  attention gain, and L8H1 is progressively oriented by blocks 9/10 before the same late gain.
+- `temporal_iswas_v23_four_head_necessity_occupied_mode_rescue_v1_result.json` establishes reverse
+  necessity: four-head removal recovers `.72151` of the native target effect with cosine `.99401`,
+  direction `1.0`, P/C leakage `.11861/.00416`, and `.72567/.71771` half projections.  Its stored
+  terminal label is superseded by the adjacent interpretation audit.  Restoring the entire induced
+  M11 factor difference rescues only `.15114` of the head-removal behavior.  The leading occupied
+  weight mode explains `.87376` of that small M11-local rescue, but direct mode removal reaches only
+  `.18197` of the full head effect.  Therefore M11 is a minor local branch; neither a dominant nor a
+  multidimensional M11 mediator is licensed.
+- The exact restricted weight tensor in
+  `temporal_iswas_v23_four_head_m11_restricted_weight_capability_tensor_v1_result.json` separates
+  checkpoint capability from realized use.  Literal M11 factors are broadly shared across heads
+  (median nonnegative factor-score cosine `.98538`) but diffuse (top-256 squared mass `.28090`) and
+  do not form one signed head map (leading head-mode energy `.3012`).  Activation occupancy is much
+  narrower: `.97137` of the realized M11 response lies in one frozen reader mode, with reporter-half
+  profile cosine `.99998`.
+- Contracting the exact weight tensor with that occupied reader mode does not license wholesale
+  cross-head merging.  The literal-coordinate result has leading head-mode energy `.29723` and map
+  cosine `.04860`.  Its immediate gauge audit is authoritative for interpretation: direct comparison
+  of different heads' private 128-dimensional coordinates is not rotation invariant.  Gauge-invariant
+  context-Gram similarity is high (`.92455`) and the leading context direction overlaps about `.96`,
+  while full-map Procrustes similarity is only `.68596`, rank-8 context overlap `.39605`, and rank-32
+  overlap `.26262`.  The prospective grouping hypothesis is consequently a shared low-dimensional
+  context-read core with head-private adapters and tails.  No rank was selected from this opened
+  ladder, and no complete common weight map is claimed.
+
+The exact block-11 residual-versus-M11 factorial is currently hash-bound in the managed queue.  It
+adds back the post-attention residual delta, the M11 contribution, or their exact sum after four-head
+removal.  Its successor complete-module reader atlas was registered outcome-blind and already has a
+tested reciprocal transfer/reset executor.  These pending outcomes decide whether the dominant branch
+travels by residual skip to the final literal RMSNorm/unembedding or is rewritten by a downstream
+module.  Queue presence is not evidence for either outcome.
+
 ## Remaining gates
 
-1. Prune the causally validated source writers by the prospectively licensed weight-ordered
-   greedy prefixes, selecting only on original FIT and validating unchanged on original HOLDOUT
-   and OOD. L9H1 and L9H4 are already licensed shared writers; L15H5 q/q2 weight enrichment is
-   closed as a causal explanation.
-2. Test whether an explicit H4/L11-value interface plus native
-   background predicts that signed loss rather than inferring extraction from donor swaps.
-3. Retain the stable is-was fold pair and all failed registered claims rather than selecting a
-   favorable gauge, factor, task, phase, or template after outcomes.
-4. Price an extracted executor only after its intervention fidelity and composition are verified.
+1. Score the queued exact block-11 residual/M11 factorial.  Joint restoration must close exactly;
+   the separately rescuing branch, not M11 occupancy alone, determines the next reader object.
+2. Run the frozen reciprocal downstream module atlas.  Any attention module must pass both transfer
+   sufficiency and reset necessity on unchanged HOLDOUT before all nine physical heads are split.
+   A clean singleton null opens the already demonstrated recurrent residual-product law and exact
+   final RMSNorm/unembedding route on aligned v23.
+3. Freeze the partial shared-context-core hypothesis on a genuinely fresh authority before choosing
+   its dimension.  Require causal interchange with private head adapters and P/C selectivity; the
+   opened weight spectrum alone cannot select or identify the group.
+4. Test the resulting program on fresh/OOD constructions and compose it with the existing temporal
+   command circuit.  Preserve later-to-earlier causal zero and both task endpoints under simultaneous
+   removal, swap, and edit.
+5. Price a standalone extracted executor only after residual/reader fidelity, OOD prediction, and
+   composition are verified.  Keep every invalid endpoint-control and gauge-dependent interpretation
+   in the record rather than selecting a favorable instrument after outcomes.
