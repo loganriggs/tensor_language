@@ -89,6 +89,10 @@ pre-`c_proj` head slices in the exact P7+identity background. If M11 is eligible
 `6551339eeec03b3121ed23fb274d24adc02a8654cd5dc6555dfe3a5158f98b43`; it tests the three exact
 arm-local Left/Right/interaction product factors and every nonempty subset. Never create either
 binding from a forecast: score the immutable LOO receipt first and preserve failed eligibility.
+Use model-free `ops/p7_identity_split_binding.py` after scoring: its `create_bindings()` function
+verifies all three runner hashes and emits only prospectively eligible binding files. Run it from
+the `ops` directory, inspect and commit any emitted bindings before model-free dry-run and managed
+enqueue. Before the result exists it returns `awaiting_result` without touching the filesystem.
 
 The current CPU contract for translating passing causal pieces into checkpoint tensors is
 `basis_aligned/polynomial_causal/TEMPORAL_ISWAS_P7_WEIGHT_TENSOR_TRANSLATION_PLAN_2026-09-08.md`.

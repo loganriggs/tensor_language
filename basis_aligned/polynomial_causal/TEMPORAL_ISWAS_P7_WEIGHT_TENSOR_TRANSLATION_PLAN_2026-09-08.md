@@ -97,6 +97,14 @@ blocks. The full Bilin18 module inventory is 180 writer tensors and 846 reader t
 are an explicit optional upstream source. This causal filter prevents a large static alignment from
 naming an impossible backward or same-stage edge.
 
+Result-conditioned branch binding is implemented model-free in
+`basis_aligned/bilinear_quotient/ops/p7_identity_split_binding.py`. Before the necessity result it
+returns `awaiting_result` and writes nothing. After the immutable result lands, invoke it from the
+`ops` directory, inspect the returned payloads, commit the newly created binding files, rerun each
+eligible executor's model-free dry run, and enqueue only its reviewed hash. The binder checks the
+necessity runner, both branch-runner hashes, exact P7/schema/prediction keys, and consistency between
+the stable-module list and derived B/C/D predicates; it never creates an ineligible branch.
+
 - Consume the immutable P7 module-necessity receipt.
 - If A11/H3 passes, store its exact `W_O`-contracted per-row writes and rank downstream reader
   contractions, then preregister the top physical reader edge before testing it.
