@@ -200,6 +200,22 @@ def test_shared_context_subspace_accepts_heterogeneous_reader_widths():
                           projector @ unfolded, atol=2e-6, rtol=2e-6)
 
 
+def test_shared_context_component_weights_are_explicit_and_certified():
+    first = torch.tensor([[3.0], [0.0]])
+    second = torch.tensor([[0.0], [2.0]])
+    first_heavy = target.optimal_shared_context_subspace(
+        (first, second), rank=1, component_weights=(1.0, 0.1)
+    )
+    second_heavy = target.optimal_shared_context_subspace(
+        (first, second), rank=1, component_weights=(0.1, 10.0)
+    )
+    assert abs(first_heavy["basis"][0, 0]) > 0.999
+    assert abs(second_heavy["basis"][1, 0]) > 0.999
+    assert first_heavy["certificate_absolute_error"] < 1e-6
+    assert second_heavy["certificate_absolute_error"] < 1e-6
+    assert torch.equal(first_heavy["component_weights"], torch.tensor([1.0, 0.1]))
+
+
 @pytest.mark.parametrize("rank", (0, 7, 8, 1.5))
 def test_shared_context_subspace_rejects_bad_rank(rank):
     with pytest.raises(target.CausalCheckpointTranslationError):
@@ -210,6 +226,15 @@ def test_shared_context_subspace_rejects_bad_rank(rank):
 def test_shared_context_subspace_rejects_bad_component_sequence(maps):
     with pytest.raises(target.CausalCheckpointTranslationError):
         target.optimal_shared_context_subspace(maps, rank=1)
+
+
+@pytest.mark.parametrize("weights", ((1.0,), (1.0, 0.0), (1.0, float("nan"))))
+def test_shared_context_subspace_rejects_bad_component_weights(weights):
+    with pytest.raises(target.CausalCheckpointTranslationError):
+        target.optimal_shared_context_subspace(
+            (torch.ones(4, 2), torch.ones(4, 3)), rank=1,
+            component_weights=weights,
+        )
 
 
 def test_head_write_is_invariant_under_paired_orthogonal_head_gauge():

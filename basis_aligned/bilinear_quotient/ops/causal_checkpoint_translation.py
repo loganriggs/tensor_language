@@ -157,14 +157,16 @@ def reachable_subspace_coordinates(states, basis):
     return states.float() @ frozen_basis
 
 
-def optimal_shared_context_subspace(head_maps, *, rank):
+def optimal_shared_context_subspace(head_maps, *, rank, component_weights=None):
     """Solve the common-context projector problem exactly for a fixed rank.
 
     A rank-three tensor `head_maps[h, context, private]`, or a nonempty sequence of
     matrices `[context, private_h]`, may use an independent orthogonal gauge and a
     different private width for every component. The top left singular vectors of the horizontal unfolding
     minimize `sum_h ||M_h - U U^T M_h||_F^2` over column-orthonormal `U` of the
-    requested rank. The function fixes no rank and makes no causal claim; it returns
+    requested rank. Optional strictly positive `component_weights` make the fitting
+    norm explicit rather than letting heterogeneous reader widths silently choose it.
+    The function fixes no rank or weights and makes no causal claim; it returns
     the common context basis, private adapters `U^T M_h`, and residual tails needed
     for a prospective common-core-versus-tail intervention.
     """
@@ -194,11 +196,26 @@ def optimal_shared_context_subspace(head_maps, *, rank):
     if not isinstance(rank, int) or rank < 1 or rank > context_width:
         raise CausalCheckpointTranslationError(
             "rank must be a positive integer no larger than context width")
+    if component_weights is None:
+        weights = maps[0].new_ones(len(maps))
+    else:
+        try:
+            weights = torch.as_tensor(component_weights, dtype=maps[0].dtype,
+                                      device=maps[0].device)
+        except (TypeError, ValueError, RuntimeError) as weight_error:
+            raise CausalCheckpointTranslationError(
+                "component_weights must be finite positive scalars") from weight_error
+        if (weights.ndim != 1 or weights.numel() != len(maps)
+                or not bool(torch.isfinite(weights).all())
+                or not bool((weights > 0).all())):
+            raise CausalCheckpointTranslationError(
+                "component_weights must have one finite positive value per map")
     try:
-        unfolding = torch.cat(maps, dim=1)
-    except RuntimeError as error:
+        unfolding = torch.cat(tuple(value * weights[index].sqrt()
+                                    for index, value in enumerate(maps)), dim=1)
+    except RuntimeError as concatenation_error:
         raise CausalCheckpointTranslationError(
-            "all context maps must share dtype-compatible device placement") from error
+            "all context maps must share dtype-compatible device placement") from concatenation_error
     if rank > min(unfolding.shape):
         raise CausalCheckpointTranslationError(
             "rank cannot exceed the smaller unfolding dimension")
@@ -207,9 +224,11 @@ def optimal_shared_context_subspace(head_maps, *, rank):
     adapter_parts = tuple(basis.transpose(0, 1) @ value for value in maps)
     common_parts = tuple(basis @ value for value in adapter_parts)
     tail_parts = tuple(value - common for value, common in zip(maps, common_parts))
-    squared_error = sum(value.square().sum() for value in tail_parts)
+    squared_error = sum(weights[index] * value.square().sum()
+                        for index, value in enumerate(tail_parts))
     certified_optimum = singular_values[rank:].square().sum()
-    total = sum(value.square().sum() for value in maps).clamp_min(1e-30)
+    total = sum(weights[index] * value.square().sum()
+                for index, value in enumerate(maps)).clamp_min(1e-30)
     next_value = (singular_values[rank] if rank < singular_values.numel()
                   else singular_values.new_zeros(()))
     gap = singular_values[rank - 1] - next_value
@@ -227,6 +246,7 @@ def optimal_shared_context_subspace(head_maps, *, rank):
         "certificate_absolute_error": (squared_error - certified_optimum).abs(),
         "boundary_spectral_gap": gap,
         "private_widths": tuple(int(value.shape[1]) for value in maps),
+        "component_weights": weights,
     }
 
 

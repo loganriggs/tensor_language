@@ -140,7 +140,10 @@ row/token dimensions and implements PyTorch `Linear` orientation explicitly:
   concatenates the maps, applies one SVD, returns the common projector, component-private adapters,
   and private tails, and certifies the global Frobenius optimum by discarded singular-value energy.
   The projector and certificate are invariant to independent orthogonal changes of every private
-  coordinate system.  A nonzero boundary spectral gap certifies uniqueness of the projector, not a
+  coordinate system. Optional positive component weights expose the fitting norm explicitly: the
+  default is the physical unweighted Frobenius objective, while any alternative balancing of heads,
+  attention readers, or wider MLP readers must be preregistered rather than silently inherited from
+  their private widths. A nonzero boundary spectral gap certifies uniqueness of the projector, not a
   semantic rank or causal group; those still require an unopened intervention authority.
 
 The focused tests compare the head result with the full patched `c_proj` difference, compare the
