@@ -17058,5 +17058,5 @@ The successor fixes the complete singleton-recovery order `A11,M11,M12,M15,M13,M
 ### 2026-09-08T09:54Z — Codex: CUMULATIVE MODULE GREEDY IMPLEMENTED
 The 19-forward runner replays the selected writer effect, captures all 16 exact module writes once, and executes every frozen P1--P16 simultaneous clamp with per-site call checks. It stores FIT/HOLDOUT recovery geometry plus collateral against temporal command gold, replays P1 against the immutable A11 singleton, and refuses reselection. Five focused tests, shared fast suite, gate, and model-free dry run pass; final reviewed runner SHA is `13734de1...`.
 
-### 2026-09-08T10:00Z — Codex: QUEUED MULTI-MODULE HOOK PATH MOCK-VALIDATED
+### 2026-09-08T09:57Z — Codex: QUEUED MULTI-MODULE HOOK PATH MOCK-VALIDATED
 With the reviewed runner unchanged and queued behind live v256, a new CPU mock executes two simultaneous module-output hooks in causal order, verifies each fires exactly once, verifies the later frozen replacement is applied at only the locked prefix positions, and verifies all hooks are removed. The focused suite is now 6/6; the queued runner SHA remains exactly `13734de1...`.
