@@ -16916,3 +16916,6 @@ The independent promotion gate is now registered before any OOD intervention. Th
 
 ### 2026-09-08T06:35Z — Codex: H4 FRESH-TEXT JOINT RUNNER READY
 The four-forward OOD confirmation is implemented with no selection path. It binds the licensed fresh population and immutable H4 result, captures only L9/L11/L15 head outputs, and runs native/T/I/TI at exact paired query positions. It reports every phase/template single-command recovery and collateral plus exact Möbius interaction and simultaneous recovery. Four focused tests, parse, gate, authority dry run, all-row coverage, finiteness, and literal price pass. Managed hash-bound enqueue follows on the now-free lane.
+
+### 2026-09-08T06:36Z — Codex: H4 FRESH-TEXT COMPOSITION FULLY LICENSED
+The valid OOD result (SHA-256 `a040a70c...`) passes A/B/C/D/E. Without reselection, temporal recovery is `.835/.833` and is-was `.730/.739` on FIT/HOLDOUT, cosines `.997-.999`, direction `1.0`, and collateral <=`.00342`. Temporal interaction is zero; is-was interaction across fresh templates is `.00365-.00646`, additive cosine >=`.999979`, and simultaneous recovery is unchanged. H4 now has fresh-construction/lexicon stable identification and composition. Next is selective contrast removal on both original and OOD banks, not another swap or DAS fit.

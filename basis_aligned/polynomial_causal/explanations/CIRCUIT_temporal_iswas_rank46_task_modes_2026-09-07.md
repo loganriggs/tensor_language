@@ -920,16 +920,24 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   constructions and sixteen fresh lexical groups.  Thirty-one cells are `8/8`; FIT
   field-these-days past-temporal is `7/8`.  All rows are retained.  This opens a prospective H4 OOD
   intervention, but native capability alone is not circuit generalization evidence.
+- H4 fresh-template/lexicon joint composition:
+  `temporal_iswas_h4_ood_joint_composition_v1_result.json` (valid full license).  With no head or
+  threshold reselection, H4 recovers `.835/.833` of temporal and `.730/.739` of is-was command
+  effects on OOD FIT/HOLDOUT.  Cosines are `.997-.999`, direction is `1.0`, and cross-role
+  collateral is at most `.00342`.  Temporal interaction remains exactly zero; is-was interaction
+  is only `.00365-.00646` across fresh templates, with additive cosine at least `.999979`.
+  Simultaneous recovery is unchanged and later-to-earlier effect is zero.  This establishes stable
+  identification of the H4 causal interface across new constructions and lexicons; selective
+  removal and standalone extraction remain untested.
 
 ## Remaining gates
 
-1. Run the frozen H4 intervention unchanged on the newly licensed OOD population, including
-   single-command and simultaneous effects, canonical margins, cross-role selectivity, and exact
-   Möbius interaction.  No site or threshold may be reselected from OOD outcomes.
+1. Test selective contrast removal for the frozen H4 program on both original and OOD populations,
+   with the intervention and expected half-effect fixed before outcomes.
 2. Localize the source positions and any key-side partner for the identified L11H3 value route.
    L15H5 q/q2 weight enrichment is now closed as a causal reader explanation for this program.
-3. Test selective H4 removal and whether an explicit H4/L11-value interface plus native background
-   predicts the signed loss, rather than inferring necessity or extraction from donor swaps.
+3. If midpoint removal passes, test whether an explicit H4/L11-value interface plus native
+   background predicts that signed loss rather than inferring extraction from donor swaps.
 4. Retain the stable is-was fold pair and all failed registered claims rather than selecting a
    favorable gauge, factor, task, phase, or template after outcomes.
 5. Price an extracted executor only after OOD composition and selective manipulation pass.
