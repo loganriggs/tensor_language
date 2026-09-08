@@ -17789,3 +17789,15 @@ three-level distinction: weight capability -> sealed activation occupancy -> com
 patching. Do not tune the normalization on this opened bank. H/R remains first in the managed GPU
 queue and will determine whether the v21 atlas applies this rule upstream, downstream, or to paired
 writer-reader atoms.
+### 2026-09-08T21:22Z
+Codex: ALIGNED FOUR-HEAD CIRCUIT CONFIRMED; WEIGHT CAPABILITY BROAD, USE ONE-MODE
+Fresh v23 confirms `L8H1/L9H1/L9H4/L11H3`: behavior/Q recovery `.7259/.6701`,
+cosine `.9952/.9768`, P leak `.1003/.0834`, aligned C leak `.0040/.0064`, exact
+closure zero; all four singleton and split-stable Shapley bars pass. Folding the
+reader subspace into literal head/M11 weights yields shared factor support (median
+score cosine `.9854`) but head-private signed maps (top head-mode energy `.3012`)
+and diffuse literal factors (top-256 mass `.2809`). Frozen v23 causal occupancy is
+instead `.9714` in one weight-defined reader mode, half cosine `.99998`. Direct
+`W_O -> M11` composition fails because live RMS normalization/transport is essential.
+Next owned rung: normalization-aware L11H3 transport, then layerwise L8/L9 transport
+and selective removal/rescue. Review: `HOURLY_STRATEGIC_REVIEW_2026-09-08_2122.md`.
