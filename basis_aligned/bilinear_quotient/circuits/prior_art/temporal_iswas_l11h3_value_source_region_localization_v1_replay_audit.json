@@ -1,0 +1,35 @@
+{
+  "schema": "temporal_iswas_l11h3_value_source_region_localization_replay_audit_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.l11h3_value_source_region_localization_v1_replay_audit",
+  "registered_utc": "2026-09-08T06:57:00Z",
+  "question": "Did the localization receipt fail because the intervention drifted, or because its replay gate compared parent-relative cosine to command-gold cosine?",
+  "authority": {
+    "invalid_localization_result_sha256": "74d7e51e227c9799bb6e079edff1fb8b5c49e9e6725960958e0269e19d74882e",
+    "localization_runner_sha256": "ba51ffec9601444de6cbef51713cf7136b76c6207666e8a6c5364297a7f3296d",
+    "reader_factor_result_sha256": "5a1f121d82d799292613d7e386a3d16429457c80ba55a56aaca58a3386118b9b"
+  },
+  "diagnosis_frozen_before_audit": "The v1 full-prefix report uses the full-prefix effect itself as its parent-relative target, so its cosine is exactly one. The replay gate compares that value to the factor receipt's command-gold cosine; the observed 0.028743869 error is exactly compatible with this target mismatch. Signed recovery was already compared in the correct command-gold frame.",
+  "frozen_design": {
+    "population": "Rebuild all 128 original endpoints only; retain all rows, phases, templates, cells, and exact command-counterfactual pairings.",
+    "intervention": "Capture native L11 c_v once, then rerun only temporal and is-was L11H3:value full-prefix native-donor patches using the immutable v1 helper. No regions are selected and no localization outcomes are recomputed.",
+    "like_for_like_replay": "For each role x FIT/HOLDOUT pooled panel, score the new full-prefix effect against the native command-gold effect and compare signed recovery, cosine, direction agreement, relative residual, count, and non-target/gold norm to the immutable reader-factor L11H3:v-prefix row. Maximum absolute numeric error must be <=1e-5 and integer fields must match exactly.",
+    "bug_reproduction": "Recompute the erroneous mixed-target cosine comparison and require it to reproduce the invalid receipt's full_replay_max_abs_error to <=1e-12. Also require the invalid receipt's stored command-gold signed recovery and non-target ratio to replay to <=1e-5.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 3,
+      "sequence_evaluations": 384,
+      "scored_token_positions": 768,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_pairing_finiteness_and_exact_price": "All bound authorities, pairings, hook coverage, shapes, finiteness, and literal price pass.",
+    "pred_b_like_for_like_command_gold_replay_is_exact": "Every registered command-gold metric replays the immutable factor result within tolerance.",
+    "pred_c_mixed_target_bug_exactly_explains_invalid_receipt": "The deliberately reconstructed mixed-target comparison equals the invalid receipt's reported replay error.",
+    "pred_d_localization_science_is_recovered_without_rescoring": "A/B/C pass, licensing interpretation of the already-frozen v1 B--E outcomes while leaving v1 terminal invalid and prediction A false."
+  },
+  "null": "Any authority, pairing, price, like-for-like replay, or exact bug-reproduction failure preserves the v1 receipt as scientifically unclaimable. Do not edit its terminal, predictions, selections, or bars and do not rerun the 26-forward localization under new thresholds.",
+  "decision": "A/B/C/D establishes a grade-1 analysis-target mismatch rather than intervention drift. It permits the immutable v1 B--E outcomes to be reported as audit-recovered evidence: compositional stable but task-typed source regions, temporal bridge and is-was postcue. The original invalid receipt remains immutable."
+}
