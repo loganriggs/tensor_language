@@ -17072,3 +17072,6 @@ The six-forward runner captures the raw block-10 residual input and all 16 compl
 
 ### 2026-09-08T10:18Z — Codex: FACTORIAL HASH-BOUND IN MANAGED QUEUE
 The exact reviewed `9e3c9773...` factorial was accepted by `ops/enqueue.sh` after its parse, fast-test, gate, dry-run, dedup, and captured-byte checks. Lane 1 depth is now 2: cumulative module prefixes first, residual/module 2x2 second. The live v256 predecessor remains PID 1171621 and has emitted 6/20 evaluations; neither queued circuit job was duplicated or launched directly.
+
+### 2026-09-08T10:22Z — Codex: HOURLY REVIEW LOCKS RESIDUAL-VERSUS-RESPONSE DECISION
+Since 09:22, the valid route ladder killed value spreading and L11 routing, while the valid 16-module atlas returned a singleton-null; two independent successors are now implemented and queued. Exact intervention analysis shows factorial R0M1 equals cumulative P16, and the fully clamped hidden-state suffix is affine, so any 2x2 task-margin interaction localizes to final normalization/readout. All circuit-focus, ceremony, and novelty gates PASS. Consume cumulative prefixes then the 2x2; split passing modules into heads/weights if response wins, or translate/manipulate the block-10 residual boundary if identity wins. Review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-08_1022.md`.
