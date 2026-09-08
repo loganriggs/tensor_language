@@ -176,7 +176,8 @@ def optimal_shared_context_subspace(head_maps, *, rank, component_weights=None):
         if head_maps.ndim != 3 or head_maps.shape[0] < 1:
             raise CausalCheckpointTranslationError(
                 "head_maps must have shape [positive_components, context, private]")
-        maps = tuple(value.float() for value in head_maps.unbind(0))
+        maps = tuple(value if value.dtype in (torch.float32, torch.float64)
+                     else value.float() for value in head_maps.unbind(0))
     else:
         if not isinstance(head_maps, (list, tuple)) or not head_maps:
             raise CausalCheckpointTranslationError(
@@ -191,7 +192,8 @@ def optimal_shared_context_subspace(head_maps, *, rank, component_weights=None):
         if len(context_widths) != 1:
             raise CausalCheckpointTranslationError(
                 "all context maps must share their context width")
-        maps = tuple(value.float() for value in maps)
+        maps = tuple(value if value.dtype in (torch.float32, torch.float64)
+                     else value.float() for value in maps)
     context_width = maps[0].shape[0]
     if not isinstance(rank, int) or rank < 1 or rank > context_width:
         raise CausalCheckpointTranslationError(
@@ -300,8 +302,8 @@ def shared_context_leave_one_out(head_maps, *, rank, component_weights=None):
         training = optimal_shared_context_subspace(
             training_maps, rank=rank, component_weights=training_weights
         )
-        heldout_value = heldout.float()
         basis = training["basis"]
+        heldout_value = heldout.to(dtype=basis.dtype, device=basis.device)
         tail = heldout_value - basis @ (basis.transpose(0, 1) @ heldout_value)
         energy = heldout_value.square().sum()
         squared_error = tail.square().sum()

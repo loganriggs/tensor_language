@@ -168,6 +168,16 @@ def test_shared_context_subspace_is_exact_best_fixed_rank_projector():
         assert competitor_tail.square().sum() + 2e-5 >= optimum_error
 
 
+def test_shared_context_subspace_preserves_float64_for_strict_certificates():
+    torch.manual_seed(1071)
+    maps = torch.randn(4, 32, 12, dtype=torch.float64) * 100.0
+    report = target.optimal_shared_context_subspace(maps, rank=3)
+    assert report["basis"].dtype == torch.float64
+    assert report["common_maps"].dtype == torch.float64
+    assert report["private_tails"].dtype == torch.float64
+    assert report["certificate_absolute_error"] < 2e-8
+
+
 def test_shared_context_projector_and_error_ignore_private_head_gauges():
     torch.manual_seed(108)
     maps = torch.randn(4, 10, 6)
