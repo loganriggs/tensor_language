@@ -17756,3 +17756,12 @@ residual improvement >=`.05`, winner margin `.15`, fold-sign agreement, and fina
 separate writer, reader, and bilinear gain branches. Failure redirects to position/factor covariance,
 not arbitrary response-shape rank. The executor will bind the future managed H/R artifact hashes;
 no split or v21 outcome was opened in registration.
+
+### 2026-09-08T19:00Z — Codex: GAIN-SOURCE EXECUTOR CORE IMPLEMENTED OUTCOME-BLIND
+The reusable tensor-state library now includes gauge-fixed projection coefficients, the exact
+writer/reader/product/joint design matrices, least-squares fitting, held-out prediction, and
+Pearson/R2/relative-error scoring required by the sealed H/R gain prior. Five CPU tests pass,
+including exact held-out recovery of a synthetic bilinear gain and malformed-shape/zero-reference
+fail-closed cases; the full shared fast suite remains 0-failure. This changes no registered bar and
+has not read the future H/R artifact. The eventual experiment wrapper only needs to bind hashes,
+load suffix-aligned tensors, and apply these tested operations.

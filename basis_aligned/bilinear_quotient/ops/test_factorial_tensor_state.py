@@ -44,5 +44,23 @@ class FactorialTensorStateTest(unittest.TestCase):
         with self.assertRaises(ValueError): state.balanced_mod4_folds(15)
         with self.assertRaises(ValueError): state.suffix_align(np.zeros((3, 2, 4)), np.zeros((3, 2)))
 
+    def test_gain_models_recover_bilinear_scalar_on_heldout_points(self):
+        writer = np.linspace(0.5, 1.5, 12)
+        reader = np.linspace(1.4, 0.6, 12)
+        target = 0.2 + 1.7 * writer * reader
+        fitted = state.fit_gain_models(writer[:8], reader[:8], target[:8])
+        predicted = state.predict_gain_models(fitted, writer[8:], reader[8:])
+        product = state.scalar_prediction_metrics(predicted["product"], target[8:])
+        joint = state.scalar_prediction_metrics(predicted["joint"], target[8:])
+        self.assertAlmostEqual(product["r2"], 1.0, places=10)
+        self.assertAlmostEqual(joint["r2"], 1.0, places=10)
+        self.assertGreater(product["r2"], state.scalar_prediction_metrics(
+            predicted["writer"], target[8:])["r2"])
+
+    def test_projection_coefficient_and_gain_shapes_fail_closed(self):
+        self.assertAlmostEqual(state.projection_coefficient(np.array([2., 4.]), np.array([1., 2.])), 2.0)
+        with self.assertRaises(ValueError): state.projection_coefficient(np.zeros(2), np.zeros(2))
+        with self.assertRaises(ValueError): state.gain_design("missing", np.ones(2), np.ones(2))
+
 
 if __name__ == "__main__": unittest.main()

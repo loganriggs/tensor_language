@@ -89,3 +89,66 @@ def cosine_and_recovery(prediction: np.ndarray, reference: np.ndarray) -> tuple[
         raise ValueError("nonzero prediction and reference required")
     dot = float(prediction @ reference)
     return dot / np.sqrt(pp * rr), dot / rr
+
+
+def projection_coefficient(value: np.ndarray, reference: np.ndarray) -> float:
+    """Return the least-squares scalar multiplying a nonzero reference tensor."""
+    value = np.asarray(value, dtype=np.float64).reshape(-1)
+    reference = np.asarray(reference, dtype=np.float64).reshape(-1)
+    if value.shape != reference.shape:
+        raise ValueError("value and reference shapes differ")
+    denominator = float(reference @ reference)
+    if denominator <= 0:
+        raise ValueError("nonzero reference required")
+    return float(value @ reference) / denominator
+
+
+def gain_design(model: str, writer: np.ndarray, reader: np.ndarray) -> np.ndarray:
+    """Build the frozen scalar feature matrix for a registered gain model."""
+    writer, reader = np.asarray(writer, dtype=np.float64), np.asarray(reader, dtype=np.float64)
+    if writer.ndim != 1 or reader.shape != writer.shape:
+        raise ValueError("writer and reader coefficients must be equal-length vectors")
+    ones = np.ones_like(writer)
+    columns = {
+        "writer": (ones, writer),
+        "reader": (ones, reader),
+        "product": (ones, writer * reader),
+        "joint": (ones, writer, reader, writer * reader),
+    }
+    if model not in columns:
+        raise ValueError("unknown gain model")
+    return np.stack(columns[model], axis=1)
+
+
+def fit_gain_models(writer: np.ndarray, reader: np.ndarray, target: np.ndarray) -> dict[str, np.ndarray]:
+    """Fit writer, reader, product, and joint least-squares scalar models."""
+    target = np.asarray(target, dtype=np.float64)
+    if target.ndim != 1 or len(target) != len(writer):
+        raise ValueError("target must match coefficient count")
+    return {model: np.linalg.lstsq(gain_design(model, writer, reader), target, rcond=None)[0]
+            for model in ("writer", "reader", "product", "joint")}
+
+
+def predict_gain_models(
+    fitted: Mapping[str, np.ndarray], writer: np.ndarray, reader: np.ndarray
+) -> dict[str, np.ndarray]:
+    """Predict scalar gains with already fitted model coefficients."""
+    required = ("writer", "reader", "product", "joint")
+    if tuple(fitted) != required:
+        raise ValueError("fitted models must retain registered order")
+    return {model: gain_design(model, writer, reader) @ np.asarray(fitted[model], dtype=np.float64)
+            for model in required}
+
+
+def scalar_prediction_metrics(prediction: np.ndarray, reference: np.ndarray) -> dict[str, float]:
+    """Return held-out Pearson, R2, and relative error for scalar gains."""
+    prediction, reference = np.asarray(prediction, dtype=np.float64), np.asarray(reference, dtype=np.float64)
+    if prediction.ndim != 1 or reference.shape != prediction.shape or len(reference) < 2:
+        raise ValueError("scalar metric inputs must be matching vectors of length at least two")
+    centered_prediction, centered_reference = prediction - prediction.mean(), reference - reference.mean()
+    denominator = float(np.linalg.norm(centered_prediction) * np.linalg.norm(centered_reference))
+    pearson = float(centered_prediction @ centered_reference) / denominator if denominator > 0 else 0.0
+    residual = float(np.square(prediction - reference).sum())
+    total = float(np.square(centered_reference).sum())
+    return {"pearson": pearson, "r2": 1.0 - residual / max(total, 1e-30),
+            "relative_error": float(np.sqrt(residual / max(float(np.square(reference).sum()), 1e-30)))}
