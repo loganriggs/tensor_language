@@ -1,6 +1,6 @@
 # Circuit dossier — bilin18
 
-Assembled from the frozen census (source note: 2026-08-30 by Claude, circuit task (Logan)) plus current version-2 records. **62 census response regions and 6 task-defined behavior circuits/shared subroutines**. Each census region was localised by two independent causal interventions over the 256,000-position census grid.
+Assembled from the frozen census (source note: 2026-08-30 by Claude, circuit task (Logan)) plus current version-2 records. **62 census response regions and 7 task-defined behavior circuits/shared subroutines**. Each census region was localised by two independent causal interventions over the 256,000-position census grid.
 
 `concentration` = mean|dCE| on the circuit's members / mean|dCE| off its slice, when the named component is ablated. **mean** replaces the component output with its grid mean; **interchange** replaces it with its output at a random other position (seed 20260830).
 
@@ -19,6 +19,81 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
+| `cross_task.temporal_iswas.dual_command` | cross_task_program | identified_partial | `task_typed_source_value_under_shared_native_routing` | 2 tasks, original+OOD | 3 | finish frozen greedy writer pruning and writer-to-formula mediation; then join the exact L11 source edge to the licensed H4 joint/removal program and price the executable boundary |
+
+### `cross_task.temporal_iswas.dual_command` — exact task-typed source interface, causal writers pending mediation
+
+**Read:** task-specific value changes from the unchanged temporal bridge or is-was postcue span.
+**Operation:** L11H3 contracts that value change through recipient-native bilinear q/k/q2/k2
+routing.  **Write:** an explicit 128-vector preprojection tensor at every destination, with the
+answer-query tensor driving the command margin.  **Downstream use:** the identified H4 set
+L9H1+L9H4+L11H3+L15H5 composes the temporal and is-was command effects and supports registered
+midpoint removal.  **Endpoint:** signed `will`-versus-`had` and `is`-versus-`was` answer margins
+under exact command-counterfactual interchange.
+
+The strongest current object is an exact interface plus native background, not yet a standalone
+program.  For each destination `i` and locked source region `R`, the extracted intervention is
+
+`delta_z_i = (1-lambda_11) sum_{j in R} ((q_i·k_j)/128)((q2_i·k2_j)/128) delta_v_j`.
+
+This formula matches an independent L11H3 value patch at maximum absolute error `9.54e-6` and
+relative L2 `1.20e-7`.  Installing the formula directly at L11H3 preprojection reproduces selected
+logits within `8.59e-6`; every original/OOD phase/template has effect recovery
+`.9999988-1.0000004`, cosine at least `.99999999999`, and direction `1.0`.  The interface is
+therefore literally executable and predictive given native recipient routing and the appropriate
+source-local value change.
+
+The source is task typed rather than one shared command subspace.  Temporal selects the unchanged
+bridge; is-was selects postcue.  Those regions validate on original HOLDOUT and two OOD phases.
+The first localization receipt is immutably `invalid` because it compared a parent-relative cosine
+with an older command-gold cosine.  A separate preregistered audit reproduced the erroneous
+`.028743869178895265` comparison exactly and replayed every like-for-like metric with zero error;
+only the frozen B--E source evidence is recovered.  Donor q/k/q2/k2 changes are small (`.056-.123`
+of the selected-value parent), so recipient-native routing—not a fitted shared DAS coordinate—is
+the stable operation.
+
+Exact weight translation through physical L11H3 `W_v` scored all 111 earlier residual writers.
+Original/OOD top-ten rankings are identical for both tasks and nominate shared L6H7, L7H7, L9H1,
+and L9H4.  The subsequent causal source-position factorial validates L9H1 and L9H4 independently
+as cross-task writers.  Both task top-five unions pass causal recovery, and singleton sums predict
+the simultaneous unions with maximum relative L2 `.17425` and minimum cosine `.98560`.  However,
+the is-was union recovers `2.30-2.91` of the L11 parent, so it is sufficient but deliberately
+overcomplete.  A prospectively weight-ordered greedy prefix is queued; original FIT alone selects
+and all original-HOLDOUT/OOD rows validate without reselection.
+
+The H4 program is already jointly composable and selectively manipulable.  On original text its
+four-head command recoveries are temporal `.833/.848` and is-was `.696/.669`; on fresh OOD they are
+`.835/.833` and `.730/.739`.  Joint interaction is small and later-to-earlier causal effect is
+zero.  Pair-symmetric midpoint clamps preserve roughly half of each native command toggle with
+temporal recovery `.828-.847` original and `.831-.835` OOD, is-was `.652-.683` original and
+`.714-.722` OOD; every native-correct row moves toward a smaller correctness-aligned margin.
+
+| quality requirement | status | strongest evidence / remaining boundary |
+|---|---|---|
+| counterfactual semantics and native capability | held | 128-row command banks plus independently licensed fresh constructions; exact paired donor maps |
+| causal transfer and source localization | held with explicit repair provenance | L11H3:value causal route; temporal bridge and is-was postcue; original invalid receipt retained, separate zero-error audit licenses B--E only |
+| held-out and OOD prediction | held for H4, source regions, formula, weights, and causal writer unions | no row filtering or OOD reselection; greedy compact prefix still pending |
+| extraction / sufficiency | held at explicit L11 interface | exact bilinear tensor plus native routing/background; standalone upstream source generator remains open |
+| selective manipulation | held for H4; pending end-to-end source edge | original/OOD midpoint removal passes; writer-induced exact-formula mediation is frozen and implemented but awaits greedy authority |
+| composition and reuse | held for H4 and writer additivity | dual commands compose; L9H1/L9H4 are shared physical writers of distinct task-typed values; joined writer-formula-H4 composition remains open |
+| stable identification | held within current scope | original/OOD source, routing, tensor, weight-ranking, and causal-head recurrence; broader free-form/corpus scope untested |
+| literal simplicity / adoption | open | greedy pruning may reduce writer edges; native background and suffix still required; no whole-model parameter or block elimination claimed |
+
+**Append-only evidence ledger:**
+
+| event | stage | verdict | result artifact |
+|---|---|---|---|
+| `temporal_iswas.h4_joint_composition` | original composition | held | `temporal_iswas_four_head_union_joint_composition_v1_result.json` |
+| `temporal_iswas.h4_ood_joint_composition` | fresh/OOD composition | held | `temporal_iswas_h4_ood_joint_composition_v1_result.json` |
+| `temporal_iswas.h4_selective_midpoint_removal` | removal/edit | held | `temporal_iswas_h4_selective_midpoint_removal_v1_result.json` |
+| `temporal_iswas.l11h3_value_source_region_localization` | source split | invalid analysis target | `temporal_iswas_l11h3_value_source_region_localization_v1_result.json` |
+| `temporal_iswas.l11h3_value_source_region_replay_audit` | independent correction | target-frame mismatch exactly repaired | `temporal_iswas_l11h3_value_source_region_localization_v1_replay_audit_result.json` |
+| `temporal_iswas.l11h3_task_typed_qk_factorial` | routing factorization | stable recipient-routing invariant | `temporal_iswas_l11h3_task_typed_source_qk_factorial_v2_result.json` |
+| `temporal_iswas.l11h3_native_routing_source_term` | exact tensor extraction | held | `temporal_iswas_l11h3_native_routing_source_term_extraction_v1_result.json` |
+| `temporal_iswas.l11h3_source_tensor_weight_atlas` | physical weight translation | stable six-head causal candidate union | `temporal_iswas_l11h3_source_tensor_upstream_weight_atlas_v1_result.json` |
+| `temporal_iswas.l11h3_upstream_head_factorial` | causal writer identification | L9H1/L9H4 shared writers; distributive unions | `temporal_iswas_l11h3_source_tensor_upstream_head_factorial_v1_result.json` |
+| `temporal_iswas.l11h3_weight_ordered_greedy` | compact writer selection | managed-queued | pending |
+| `temporal_iswas.l11h3_writer_formula_mediation` | explicit edge mediation | conditionally frozen and implemented | pending greedy hash binding |
 
 ### `task.subject_verb_number_agreement` — path_grouped
 
