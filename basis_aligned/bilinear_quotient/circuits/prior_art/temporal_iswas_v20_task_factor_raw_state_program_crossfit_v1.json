@@ -1,0 +1,56 @@
+{
+  "schema": "temporal_iswas_v20_task_factor_raw_state_program_crossfit_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_task_factor_raw_state_program_crossfit_v1",
+  "created_utc": "2026-09-08T18:48:00Z",
+  "question": "Does the held-out construction/direction hierarchy predict raw task-functional response magnitude as well as direction, or was the normalized-Q result only angular?",
+  "evidence_status": "CPU-only upper-bound screen for the preregistered H/R state program; no causal or adoption claim.",
+  "prior_art_and_novelty": {
+    "searched": ["v20 task-functional tensor analyses and crossfits", "H/R split/state-program prior", "current board and tensor-state helper"],
+    "known_result": "Cell and additive prototypes predict normalized held-out Q directions at cosine .9754/.9584, but normalization discards amplitude.",
+    "novelty": "Fit raw cell and additive Q states on reporter-disjoint rows and predict held-out vectors without row normalization or amplitude calibration. This is the attainable upper bound for independently averaged H/R state programs."
+  },
+  "immutable_authority": {
+    "response_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "response_tensor_result_sha256": "da97abea6f3dae8721c2cda383e0b7af844217051e199046a23c6b9c264da396",
+    "normalized_factorial_result_sha256": "08d2e08094ed1ae28e8b0975d6a4261a5f85cfbf135b9e597700d9208ae387d1",
+    "factorial_tensor_state_library_sha256": "f0ce2a482da038abe14c98c2521675710cbfcc0c678feda089ae43a83641833e"
+  },
+  "method": {
+    "panels": ["A1", "A2", "P"],
+    "folds": "groups modulo 4 in {0,1} fit and {2,3} test, then reverse; balanced over direction",
+    "cell_program": "Raw arithmetic mean Q for each fit panel-by-direction cell predicts every held-out row in that cell.",
+    "additive_program": "Raw panel_mean + direction_mean - grand_mean predicts held-out rows.",
+    "metrics": "For pooled and per-cell concatenated factor vectors report cosine, signed recovery dot(pred,actual)/||actual||^2, relative residual, and row-level positive-dot fraction."
+  },
+  "predictions": {
+    "pred_a_authority_raw_formula_balanced_folds_finiteness_and_exact_price": "All hashes, 4x16x4608 shape, folds, formulas, finiteness, and operation counts match.",
+    "pred_b_raw_cell_states_predict_heldout_q_magnitude": "Pooled cell cosine >=0.85, pooled signed recovery in [0.50,1.50], pooled relative residual <=0.75, every cell cosine >=0.75, and all 48 row dots are positive.",
+    "pred_c_raw_additive_hierarchy_is_nearly_sufficient": "Additive pooled cosine >=0.80, relative residual <=0.85, and it trails cell by at most 0.08 cosine and 0.15 relative residual.",
+    "pred_d_scope_is_upper_bound_screen_only": "No model/GPU call, H/R or v21 outcome, fit to held-out amplitude, intervention, selected factor, or causal gate is opened."
+  },
+  "opposing_outcomes": {
+    "raw_additive_state_program": "A-D pass. Raw Q does not prevent the sealed factorized H/R state program.",
+    "raw_coupled_cell_program": "A/B/D pass and C fails. H/R should target coupled cells rather than additive states.",
+    "amplitude_is_document_continuous": "A/D pass and B fails. Discrete normalized directions remain useful, but a raw H/R state program needs an input-derived amplitude variable or finer structure.",
+    "invalid_instrument": "A fails."
+  },
+  "bars": {
+    "cell_pooled_cosine": 0.85,
+    "cell_pooled_recovery_min": 0.50,
+    "cell_pooled_recovery_max": 1.50,
+    "cell_pooled_relative_residual": 0.75,
+    "cell_each_cell_cosine": 0.75,
+    "cell_row_positive_fraction": 1.0,
+    "additive_pooled_cosine": 0.80,
+    "additive_pooled_relative_residual": 0.85,
+    "cell_cosine_advantage_max": 0.08,
+    "additive_residual_disadvantage_max": 0.15
+  },
+  "literal_price": {
+    "gpu_forwards": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fitted_state_vectors": 24,
+    "heldout_vector_predictions": 96
+  }
+}
