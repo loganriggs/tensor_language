@@ -17321,3 +17321,16 @@ replay, all-head equality to source-absent A11 c_proj output, parent module-loss
 coverage, finiteness, and 31-forward price. Four focused tests prove local head replacement,
 disjoint splits, exact arm/price inventory, and model-free dry authority; parse, experiment gate,
 and shared fast suite pass. Reviewed runner SHA-256 is `0e529b94...`. Enqueue only that exact hash.
+
+### 2026-09-08T15:53Z — Codex: PROSPECTIVE H3 EXPLAINS NINETY PERCENT OF THE CAUSAL A11 ENDPOINT
+Valid result SHA-256 `7fa315b8...` passes all five registered predictions with exact writer replay,
+exact all-head source-absent c_proj replay, and zero disagreement with the parent A11 loss. H3 is
+first in the FIT-only order `[3,6,1,5,8,7,4,0,2]`. Removing H3 loses `.20133/.20230` of the full
+writer effect, versus complete A11 loss `.22197/.22399`; its endpoint attribution is
+`.20173/.20268`, first/last directions are `1.0`, and the executed one-head prefix explains
+90.70%/90.32% of A11 loss on FIT/HOLDOUT. Terminal `h3_compact_A11_endpoint` licenses replacing
+the complete attention module by H3 for weight translation. Next construct the shared causal basis
+only from FIT source-induced H3/M11 reader changes, test its HOLDOUT reachability, save exact
+writer-to-H3 read contractions and the M11 restricted bilinear tensor, then remove/replay its
+weight-defined factors. Activation decomposition describes occupancy; the weights define possible
+computation.
