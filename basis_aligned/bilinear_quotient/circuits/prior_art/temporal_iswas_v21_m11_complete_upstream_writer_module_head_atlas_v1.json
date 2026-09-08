@@ -1,0 +1,85 @@
+{
+  "schema": "temporal_iswas_v21_m11_complete_upstream_writer_module_head_atlas_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v21_m11_complete_upstream_writer_module_head_atlas_v1",
+  "registered_utc": "2026-09-08T20:13:00Z",
+  "question": "Which complete upstream modules and attention heads causally write the fresh v21 tense change into the exact M11 bilinear writer state, and do those writes selectively cause the answer change?",
+  "evidence_status": "Prospective full-population causal atlas registered after v21 native capability and the sealed v20 H/R branch, but before any v21 intervention outcome. Weight capability nominates interfaces; this experiment measures causal use.",
+  "authority": {
+    "v21_capability_result_sha256": "9819224e3d83cc99039bbbe64f45e725050aa2381535b2ec655b08ca772a79d7",
+    "v21_builder_sha256": "4289795a9886c3c36561f47ca202cb790072dd05c324d96ca9fbd5e837a23dc8",
+    "v20_hr_split_result_sha256": "e334a580b72806a3976408cc16efb36aa05d066c3a7db28cb74da8f96c5ccc71",
+    "v20_hr_state_result_sha256": "6825aea2585394e2570317069d13e1de19bc97058d149638e8f46b62f845bb7d",
+    "v20_hr_gain_result_sha256": "584d3ed65ecb74ae06f58b331a821a7f5958daf89ae6db3a9313eee5ef0120a3",
+    "weight_capability_occupancy_plan_sha256": "4467613bd38d62e3ecccd56390054ef6f7b3eb18ef262fcec28e6c247d97fa47",
+    "prior_complete_module_runner_sha256": "450835763a1db0ea5586265a70775b57551a6820aa7107d4f4c50ea5e2cc3958",
+    "prior_complete_head_runner_sha256": "eb89c0948b03f9df15ce35cdbf07c8483c87a3404b8dd36efb6ebc1a873b2282"
+  },
+  "collision_audit": {
+    "searched": [
+      "all temporal is/was complete-module, complete-head, greedy, H/R, response-tensor, and weight-interface records",
+      "the v15 all-layer module atlas and attention 8/9/11 head atlas",
+      "the v20 exact H/R state and scalar-gain crossfits",
+      "the v21 native capability-only receipt"
+    ],
+    "known_results": "v15 found material attention modules 8/9/11 and heads L8H1/L9H1/L9H4/L11H3, but its later unconditional greedy search had no small selective prefix. Weight-only v17 scoring ranked L9H4 and L7H7 first among a six-head bank but did not separate the whole causal bank from its remainder. The new H/R result says readers are stable while the writer has six non-additive construction-by-direction states; a global writer, reader, product, or joint strength model fails held-out.",
+    "novelty": "No prior experiment patches every complete upstream module and every head feeding M11 on a history-disjoint corpus while simultaneously measuring the exact nonlinear M11 writer-state response, target behavior, and P/C leakage. This is not a rerun of the unconditional v15 greedy search."
+  },
+  "population": {
+    "rows": "All 64 frozen v21 rows: 16 each A1, A2, P, and C, in builder order; no outcome-dependent row selection.",
+    "target": "A1 and A2 jointly, with their two directions retained in per-cell reports.",
+    "controls": "P is same-answer tense paraphrase and C is the unrelated canonical control; both are patched identically to targets and never used to fit a component."
+  },
+  "writer_branch_binding": {
+    "reason": "A/P reader cross-contraction keeps the target sign, swapping A/P writers flips it; held-out reader states are stable while writer states are not.",
+    "state_model": "Retain six construction-by-direction H/R cells. Do not impose an additive H hierarchy or a global gain scalar.",
+    "scope": "Only sites upstream of the MLP11 input are eligible: input embedding response; complete attention responses at layers 0 through 11; and complete MLP outputs at layers 0 through 10. MLP11 itself and all later modules are downstream of the writer boundary."
+  },
+  "interventions": {
+    "module_singletons": "Patch the full donor response, through each row's semantic endpoint, at each of 24 eligible sites: input, attention 0..11, and MLP 0..10. Attention module response is the complete nine-head pre-c_proj tensor, so it is exactly decomposable into head slices.",
+    "head_singletons": "Patch each of all nine complete 128-dimensional heads independently at every attention layer 0..11: 108 prospectively exhaustive head arms. No head is selected by v15, weight norm, or v21 outcomes.",
+    "unions": "Patch every eligible donor site jointly. Also self-patch every eligible base site jointly. The donor union must reconstruct the donor trajectory; if it does not, no localization claim is valid.",
+    "exact_writer_endpoint": "Capture the native or patched MLP11 input x and compute H(x)=(x Left^T)*(x Right^T) with the literal checkpoint weights. For every arm compare H(x_arm)-H(x_base) with H(x_donor)-H(x_base) on target rows, without gradients, rank selection, or fitted rotation.",
+    "behavior_endpoint": "At the semantic endpoint compute donor-answer minus donor-foil margin. Compare each arm's change from base with the native donor-base target change.",
+    "position_rule": "Patch and score every valid position through the semantic endpoint; padding is excluded by the row mask."
+  },
+  "metrics": {
+    "target": "For behavior and M11 writer state report concatenated signed projection, cosine, relative residual, and rowwise positive-direction fraction over A1+A2; also report all six panel-by-direction cells.",
+    "controls": "For P and C separately report RMS arm movement divided by target native RMS for behavior and writer state. These are leak ratios, not projections onto a fitted complement.",
+    "ranking": "Rank all modules and all heads by the minimum of absolute target behavior recovery and absolute target writer-state recovery after requiring target direction and both control leak bars. Report raw rankings too; no rank cutoff changes the atlas.",
+    "known_head_watch": "Report L7H7 and L9H4 ranks because the zero-forward weight atlas ranked them first, but do not seed or restrict the exhaustive causal atlas with them."
+  },
+  "predictions": {
+    "pred_a_authority_population_hooks_closures_finiteness_and_exact_price": "All hashes, 16x4 rows, site/head inventory, masks, and hook calls match; the all-site base self-patch is <=1e-4; the all-site donor union closes final margin, final residual, M11 input, and exact H to <=1e-4 relative/absolute tolerance; all metrics are finite; exactly 136 forwards and 8704 sequence evaluations execute.",
+    "pred_b_complete_upstream_union_is_selective_and_sufficient": "The donor union has target behavior and writer-state signed recovery >=0.75, direction fraction >=0.90, and P/C behavior and writer leak ratios <=0.15.",
+    "pred_c_at_least_one_complete_module_is_a_selective_writer": "At least one module singleton has target behavior and writer-state absolute signed recovery >=0.10, both direction fractions >=0.75, and every P/C behavior/writer leak ratio <=0.15.",
+    "pred_d_at_least_one_complete_head_is_a_selective_writer": "At least one of 108 head singletons meets the same joint >=0.10 recovery, >=0.75 direction, and <=0.15 P/C leak bars.",
+    "pred_e_weight_ranked_heads_are_causally_enriched": "At least one of L7H7 or L9H4 is a selective head and at least one is in the top 12 exhaustive heads by the frozen joint score."
+  },
+  "bars": {
+    "closure_max_abs": 0.0001,
+    "union_target_recovery": 0.75,
+    "union_target_direction": 0.90,
+    "singleton_target_recovery": 0.10,
+    "singleton_target_direction": 0.75,
+    "control_leak_ratio": 0.15,
+    "localized_head_recovery": 0.30,
+    "known_head_top_k": 12
+  },
+  "opposing_outcomes": {
+    "localized_upstream_writer_head": "A-E pass and at least one selective head has joint target recovery >=0.30. Promote complete heads to the v21 necessity/sufficiency intervention and weight-restricted tensor decomposition.",
+    "distributed_upstream_writer_set": "A/B pass, the union is selective, but no selective head reaches 0.30 or C/D/E fails. Freeze singleton scores, then run forward greedy composition and backward necessity; enumerate exact Shapley interactions only if the resulting shortlist has at most 12 routes.",
+    "module_without_head_localization": "A-C pass but D fails. Treat the attention module or MLP as the causal unit; do not infer a head from weight norm.",
+    "upstream_union_not_selective": "A passes but B fails. Stop this upstream family; do not widen or greedily overfit a union that lacks a selective total effect.",
+    "invalid_instrument": "A fails; do not score B-E."
+  },
+  "post_atlas_weight_tensor_rule": "For each causally live singleton or greedy set, restrict its literal checkpoint write operator to the frozen M11 writer subspace. Decompose that restricted operator by exact SVD/HOSVD and literal atoms first, then sparse/hierarchical coding only if reconstruction and component-bootstrap stability hold. Overlay v20/v21 activation occupancy without refitting the weight basis. A weight-supported but unoccupied mode is capability, not an active edge; an occupied but causally null mode is correlation.",
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards_exact": 136,
+    "sequence_evaluations_exact": 8704,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "execution_policy": "managed_queue_only"
+}
