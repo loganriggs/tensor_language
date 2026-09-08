@@ -1,0 +1,152 @@
+{
+  "bars": {
+    "all_pairs_at_most": 0.0,
+    "backward_max": 0.02,
+    "direct_share_min": 0.5,
+    "identity_tol": 1e-06,
+    "noop_tol": 0.02
+  },
+  "cases": {
+    "lexical_number_pp": {
+      "E_empty": 0.5729833388544884,
+      "E_full": 0.601050265797072,
+      "F_full_with_source": 0.8728384075538143,
+      "backward_control": "attn:13:head:01",
+      "direct_share": 0.953303527941439,
+      "downstream": [
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:05:head:03",
+        "attn:13:head:01"
+      ],
+      "efficiency_residual": 3.469446951953614e-18,
+      "forwards": 32,
+      "max_pair_interaction": 0.00036059519505043935,
+      "min_pair_interaction": -0.02724612406889404,
+      "n_dropped": 0,
+      "n_rows": 16,
+      "noop_abs_diff": 0.0001615924461857432,
+      "pair_interactions": {
+        "attn:05:head:03|attn:13:head:01": 0.00010377493536695148,
+        "attn:07:head:08|attn:05:head:03": -0.02724612406889404,
+        "attn:07:head:08|attn:09:head:07": -0.021569498105245388,
+        "attn:07:head:08|attn:13:head:01": 0.00036059519505043935,
+        "attn:09:head:07|attn:05:head:03": -0.01049077870835502,
+        "attn:09:head:07|attn:13:head:01": 9.316010941046171e-05
+      },
+      "parent_extraction_held": 0.873,
+      "shapley": {
+        "attn:05:head:03": 0.004217841940936255,
+        "attn:07:head:08": 0.01917919150920916,
+        "attn:09:head:07": 0.009310186474568195,
+        "attn:13:head:01": -0.004640292982129998
+      },
+      "single_deletion": {
+        "attn:05:head:03": 0.023482829526861093,
+        "attn:07:head:08": 0.0438680430422852,
+        "attn:09:head:07": 0.025702988955232153,
+        "attn:13:head:01": -0.004677385697507308
+      },
+      "source": "attn:11:head:03"
+    },
+    "relative_clause_agreement": {
+      "E_empty": 0.5760875346347191,
+      "E_full": 0.6446580351271625,
+      "F_full_with_source": 0.9043483084936181,
+      "backward_control": "attn:05:head:03",
+      "direct_share": 0.8936327529386685,
+      "downstream": [
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:09:head:01",
+        "attn:05:head:03"
+      ],
+      "efficiency_residual": 0.0,
+      "forwards": 32,
+      "max_pair_interaction": -0.00916584873575188,
+      "min_pair_interaction": -0.049789723862349866,
+      "n_dropped": 0,
+      "n_rows": 16,
+      "noop_abs_diff": 0.0003483084936181102,
+      "pair_interactions": {
+        "attn:07:head:08|attn:05:head:03": -0.02610853994340906,
+        "attn:07:head:08|attn:09:head:01": -0.030479502764507393,
+        "attn:07:head:08|attn:09:head:07": -0.049789723862349866,
+        "attn:09:head:01|attn:05:head:03": -0.00916584873575188,
+        "attn:09:head:07|attn:05:head:03": -0.015259469748958254,
+        "attn:09:head:07|attn:09:head:01": -0.019975189876801802
+      },
+      "parent_extraction_held": 0.904,
+      "shapley": {
+        "attn:05:head:03": 0.01151162775522981,
+        "attn:07:head:08": 0.0328768872915235,
+        "attn:09:head:01": 0.008203110768077188,
+        "attn:09:head:07": 0.015978874677612907
+      },
+      "single_deletion": {
+        "attn:05:head:03": 0.035217305349193984,
+        "attn:07:head:08": 0.08407693066630417,
+        "attn:09:head:01": 0.03648770670652779,
+        "attn:09:head:07": 0.05666742863376617
+      },
+      "source": "attn:11:head:03"
+    },
+    "wh_adjunct_when_where": {
+      "E_empty": 0.47874088693142,
+      "E_full": 0.47912606039262123,
+      "F_full_with_source": 0.9075821354668226,
+      "backward_control": "attn:09:head:07",
+      "direct_share": 0.9991960916071114,
+      "downstream": [
+        "attn:11:head:06",
+        "attn:10:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07"
+      ],
+      "efficiency_residual": 0.0,
+      "forwards": 32,
+      "max_pair_interaction": -2.9133079194804123e-05,
+      "min_pair_interaction": -0.00027137483563155484,
+      "n_dropped": 0,
+      "n_rows": 16,
+      "noop_abs_diff": 0.00041786453317738115,
+      "pair_interactions": {
+        "attn:08:head:01|attn:09:head:07": -0.00027137483563155484,
+        "attn:10:head:03|attn:08:head:01": -5.077250064719485e-05,
+        "attn:10:head:03|attn:09:head:07": -2.9133079194804123e-05,
+        "attn:11:head:06|attn:08:head:01": -5.441372584225057e-05,
+        "attn:11:head:06|attn:09:head:07": -4.3610540480742976e-05,
+        "attn:11:head:06|attn:10:head:03": -9.388661855455616e-05
+      },
+      "parent_extraction_held": 0.908,
+      "shapley": {
+        "attn:08:head:01": 0.0005925003835200633,
+        "attn:09:head:07": 0.0015579751395596493,
+        "attn:10:head:03": -0.0027733274875408145,
+        "attn:11:head:06": 0.0010080254256623622
+      },
+      "single_deletion": {
+        "attn:08:head:01": 0.0007751566372091179,
+        "attn:09:head:07": 0.0017242568246942924,
+        "attn:10:head:03": -0.002692780516501847,
+        "attn:11:head:06": 0.0010965648502975767
+      },
+      "source": "attn:11:head:01"
+    }
+  },
+  "findings_valid": true,
+  "finished_utc": "2026-09-08T15:48:38.863219+00:00",
+  "instrument_checks": {
+    "pred_a_identity_efficiency": true,
+    "pred_b_noop_through_new_path": true,
+    "pred_c_full_set_matches_parent": true
+  },
+  "predictions": {
+    "pred_a_identity_efficiency": true,
+    "pred_b_noop_through_new_path": true,
+    "pred_c_full_set_matches_parent": true,
+    "pred_d_direct_share_generalises": true,
+    "pred_e_no_complementary_pair": false
+  },
+  "seconds": 3.6
+}
