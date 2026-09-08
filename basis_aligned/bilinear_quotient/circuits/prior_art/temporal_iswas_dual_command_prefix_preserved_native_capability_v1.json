@@ -1,0 +1,31 @@
+{
+  "schema": "temporal_iswas_dual_command_prefix_preserved_native_capability_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.dual_command_prefix_preserved_native_capability_v1",
+  "registered_utc": "2026-09-08T05:00:00Z",
+  "question": "Can both commands coexist natively when each temporal answer is scored after the exact byte-for-token prefix that already passed the standalone v11 capability gate?",
+  "authority": {
+    "population_logical_sha256": "f71e4f95a27b8c3a656beadbc79919ce20ee789a146950c3bda70a9752e30831",
+    "failed_predecessor_result_sha256": "7209be34d22c435c3f04e7231fe10c34452c3ee4df362dcbdac9c68adc402842"
+  },
+  "failure_localization": "The first dual bank was perfect on all is-was cells and future temporal cells but failed every past temporal cell. It is closed without filtering. This successor does not edit those rows: it uses a distinct bank whose earlier temporal prefix is exactly a previously capability-qualified standalone v11 prefix. By causal masking, text appended after that answer position cannot alter its native temporal logits.",
+  "frozen_design": {
+    "population": "Sixteen lexical groups split 8 FIT/8 HOLDOUT. Pair temporal v11 A1 with is-was v15 A1 and temporal v11 A2 with is-was v15 A2. Each of 32 rows has exact 00/10/01/11 endpoints. After will use 'complete the assignment'; after had use 'completed the assignment'; then append the is-was clause. No filtering.",
+    "outcomes": "Score will versus had at the earlier auxiliary and is versus was at the later auxiliary. Preserve all signed margins and report every phase/template/cell/role separately.",
+    "gate": "Every one of 32 phase x template x joint-cell x role cells must achieve at least 6/8 correct. The temporal prefix identity is a mechanical hard gate.",
+    "price": {
+      "model_forwards": 1,
+      "sequence_evaluations": 128,
+      "scored_token_positions": 256,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_positions_finiteness_and_exact_price": "Authorities, exact temporal-prefix identity, 32-row/128-sequence inventory, positions, finite logits, configuration, and price pass.",
+    "pred_b_fit_every_joint_cell_and_role_is_capable": "Every FIT template x joint-cell x role cell has >=6/8 correct.",
+    "pred_c_holdout_every_joint_cell_and_role_is_capable": "Every HOLDOUT template x joint-cell x role cell has >=6/8 correct.",
+    "pred_d_dual_command_license_is_issued": "A/B/C all pass and all 32 rows are licensed without filtering."
+  },
+  "decision": "A/B/C/D licenses the exact task-typed joint causal factorial. Any failed cell is another honest native null; do not filter or tune the bank. No causal outcome is opened here."
+}
