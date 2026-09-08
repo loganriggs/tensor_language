@@ -1,0 +1,37 @@
+{
+  "schema": "temporal_iswas_greedy_shared_writer_augmentation_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.greedy_shared_writer_augmentation_v1",
+  "registered_utc": "2026-09-08T05:47:00Z",
+  "question": "Can the licensed partial three-head program be improved by adding the only two remaining fold-stable material is-was writer heads from the complete exact-weight atlas?",
+  "authority": {
+    "joint_union_result_sha256": "309f30a665faaf2f90203cb7f00e8f38854698e41e01784694563b918bc2424f",
+    "weight_atlas_result_sha256": "d951420fef51f9d550237927072bfc721bd73112f87d5f716b3cb7c2ca3483ae",
+    "head_patch_runner_sha256": "61cc52e73d51441512b073b75eef86f41ff5941c8f97770b7a062446c47ef849"
+  },
+  "frozen_design": {
+    "base": ["L9H1", "L11H3", "L15H5"],
+    "eligible_additions": ["L8H1", "L9H4"],
+    "why_only_these": "They are the only fold-stable >=4x is-was writer interfaces omitted from the licensed union. L8H1 has temporal enrichment 1.76 and L9H4 3.56, so success is not assumed to be shared-state alignment; this tests whether task-typed supporting writes improve the common program.",
+    "arms": ["base_H3", "H3_plus_L8H1", "H3_plus_L9H4", "H3_plus_both"],
+    "execution": "One native capture, then all four fixed union swaps separately for temporal and is-was toggles on every one of 128 licensed endpoints. Score both canonical margins. No new heads, row filters, or module substitutions.",
+    "fit_selection": "Among augmentation arms, choose the smallest added-head count achieving temporal signed recovery >=.80 and is-was >=.65 on pooled FIT, with cosine >=.98, direction agreement 1.0, and non-target norm <=.01 for both. Break same-size ties by the larger minimum of temporal/.80 and is-was/.65, then lexical arm name. Do not select on HOLDOUT.",
+    "holdout": "The frozen selected arm must meet the same recovery/cosine/direction/selectivity bars on pooled HOLDOUT. Report both templates separately. Improvement also requires neither role to fall more than .02 below H3 and the sum of the two role recoveries to improve by >=.10 in both phases.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 9,
+      "sequence_evaluations": 1152,
+      "scored_token_positions": 2304,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_capture_h3_replay_finiteness_and_exact_price": "Authorities, exact fixed candidates, H3 metric replay, pairing, configuration, finiteness, and literal price pass.",
+    "pred_b_a_fixed_augmentation_meets_fit_quality_bars": "At least one augmentation arm passes all pooled FIT selection bars.",
+    "pred_c_fit_selected_augmentation_transfers_to_holdout": "The deterministic FIT-selected arm passes every pooled HOLDOUT bar without reselection.",
+    "pred_d_selected_augmentation_materially_improves_h3": "In each phase neither role regresses by >.02 and summed temporal-plus-is-was recovery improves by >=.10 over H3.",
+    "pred_e_greedy_augmented_union_is_licensed": "A/B/C/D all pass and the selected arm is fixed for joint-composition confirmation."
+  },
+  "decision": "A failure invalidates. B/C/D/E licenses the selected augmented union, followed by the same four-arm joint-composition test. If B fails, H3 is retained and exact-weight enrichment did not improve causal coverage. If C/D fails, preserve H3 and close these additions; do not expand to a fresh all-head sweep."
+}
