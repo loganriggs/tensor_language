@@ -524,6 +524,23 @@ state swap, but a cross-fitted target/control causal-response basis *within the 
 That basis must predict both constructions and remove the P collision under projected state
 interchange before weight-tensor translation can nominate its actual downstream readers.
 
+The entry-12 shared-basis screen returns `p_complement_destroys_target`.  The fixed two-construction
+DIM union is causally sufficient on every held expert/parity cell (`.795-.881` signed projection,
+direction fraction `1.0`), whereas pooled rank-one DIM fails both A1 cells (`.674/.588`) even though
+it passes A2 (`.956/.847`).  Thus the complete state contains a stable two-coordinate linear target
+union, not one shared scalar.
+
+The exact training-P complement removes every P/C top-one flip and lowers P mean KL below
+`.00039`, but preserves only `.023-.058` target projection.  The training P response span has rank
+56/58 at the frozen `1e-6` threshold.  This reproduces the earlier head-response result at the
+causally sufficient state interface: the complement objective works exactly as specified, while
+the target and P effects overlap in the linear causal-response space.  More optimization of the
+same orthogonal-complement loss cannot recover the removed target component.  The licensed next
+object is a prospective input-conditioned finite mixture: a cross-fitted router reads only native
+entry-12 state, chooses the A1 coordinate, A2 coordinate, or off, and installs the corresponding
+member of the sufficient two-coordinate union.  This tests conditional selectivity rather than
+another rank or penalty sweep.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -601,6 +618,10 @@ interchange before weight-tensor translation can nominate its actual downstream 
   `temporal_iswas_v15_residual_state_boundary_mediation_atlas_v1_result.json` (valid complete-state
   interface; exact full mediation at every boundary, with the known parity-0 P collision and no
   later consumer transition localized).
+- Entry-12 shared target/control bases:
+  `temporal_iswas_v15_entry12_shared_target_control_response_basis_v1_result.json` (valid rank-two
+  construction union; exact P complementation removes controls but destroys target, and rank-one
+  pooled DIM is not construction-general).
 
 ## Remaining gates
 

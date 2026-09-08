@@ -1,0 +1,33 @@
+{
+  "schema": "temporal_iswas_v15_entry12_crossfit_finite_router_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_entry12_crossfit_finite_router_v1",
+  "registered_utc": "2026-09-08T01:45:00Z",
+  "question": "Can a held-parity router read native entry-12 state and selectively choose the A1 coordinate, A2 coordinate, or off branch of the causally sufficient construction union?",
+  "authority": {
+    "entry12_basis_result_sha256": "ffaec3f0bede415f7b9b1664ae7ddf1667978dc26f42cfa2f81e9c82f0f77467",
+    "required_terminal": "p_complement_destroys_target"
+  },
+  "prior_art": {
+    "searched": ["temporal construction router", "entry12 conditional response", "P collision router", "construction oracle mixture"],
+    "active_claim_collision": false,
+    "known_lessons": "Both fixed oracle experts collide on parity-0 P, so expert choice alone is insufficient; the two-coordinate union is sufficient; linear P complementation destroys target; held labels or output margins may not gate the intervention.",
+    "novelty": "Fit a three-way A1/A2/off nearest-centroid router solely on native upstream-off entry12 state from opposite parity, then causally execute the corresponding fixed expert delta projected into the shared construction union."
+  },
+  "frozen_design": {
+    "router_features": "Native upstream-off entry12 residual vector at each row's semantic position, L2-normalized after subtracting the training global mean.",
+    "router": "Three deterministic cosine nearest centroids for A1, A2, and off=(P union C), fit on opposite parity only; ties resolve A1 then A2 then off. No regularization or threshold selection.",
+    "causal_program": "For each held row predicted A1/A2, take that fixed oracle expert's entry12 on-minus-off tensor, project it into the opposite-parity two-construction DIM union, and install off plus the projected semantic prefix. Rows predicted off receive zero delta.",
+    "controls": "Report the router confusion matrix, ungated construction-union expert arms, gold-label router upper bound, zero state, full expert states, A1/A2/P/C margin effects, and P/C KL/flips. Gold labels cannot select or modify the learned router.",
+    "evaluation": "Both held parities, with no refit or outcome selection. A1 and A2 are target panels; P/C are off panels.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 24, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 2000, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_scope_geometry_finiteness_and_price": "Hashes, state/basis authorities, parent/full/zero replays, opposite-parity scope, finite geometry, and literal price pass.",
+    "pred_b_router_identifies_held_branches": "Held macro accuracy across A1/A2/off is >=.875 in both parities, with no P/C row predicted A1 or A2.",
+    "pred_c_routed_union_preserves_both_targets": "The routed program projects >=.75 with direction fraction >=.875 on both A1 and A2 in both held parities.",
+    "pred_d_routed_union_is_control_selective": "The routed program has zero P/C top-one flips and changed-versus-off mean KL <=.02 in both held parities.",
+    "pred_e_router_retains_ungated_union_effect": "Routed A1/A2 signed projection is at least 90% of the corresponding ungated expert construction-union projection in every held cell."
+  },
+  "decision": "A failure invalidates. B/C/D/E licenses the finite routed state program for OOD router testing and weight translation of both coordinate and router interfaces. B failure rejects this native-state linear router. B without C rejects the mixture execution or union composability. C without D means the learned gate still leaks into controls. A gold-router pass with learned-router failure localizes the obstacle to branch identification rather than the causal coordinates.",
+  "closed_claims": ["OOD router identification", "semantic identity of coordinates", "weight-reader causality", "compression", "adoption"]
+}
