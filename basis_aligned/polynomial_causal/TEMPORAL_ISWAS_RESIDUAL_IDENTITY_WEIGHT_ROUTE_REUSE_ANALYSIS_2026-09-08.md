@@ -46,6 +46,19 @@ at the final residual boundary must match the dynamic `R1M0` arm before final RM
 unembedding, up to deployed precision. Native `x_18` self-patching and dynamic-versus-direct
 logit equality are mandatory instrument controls.
 
+The same recurrence supplies a stronger paired removal identity. If `x_18^writer` is the ordinary
+selected-writer final state, then
+
+```text
+x_18^writer - g_10 (x_10^writer - x_10^native) = x_18^R0M1.
+```
+
+The left side removes only controlled identity carriage while retaining the writer-run downstream
+module writes; the right side is the factorial's module-response arm. Thus one successor can test
+both sufficiency (`native + g_10 Delta x_10` equals `R1M0`) and necessity/removal (`writer - g_10
+Delta x_10` equals `R0M1`) at the exact physical final-residual interface. These are state and
+logit equalities, not an assumption that task-margin effects add through RMSNorm and tanh.
+
 ## Valid precedent and excluded authority
 
 The closest valid precedent is
@@ -93,8 +106,9 @@ by itself.
 
 1. Reuse the factorial's immutable authorities and exact original FIT/HOLDOUT rows.
 2. Capture native and selected-writer `x_10`, native `x_18`, and the frozen block lambdas.
-3. Execute native, dynamic `R1M0`, native final-residual self-patch, and direct `g_10 Delta x_10`
-   arms. Require dynamic/direct logit agreement and report scale-relative residual-state error.
+3. Execute native, writer, dynamic `R1M0`/`R0M1`, native final-residual self-patch, direct-add
+   `g_10 Delta x_10`, and direct-remove `-g_10 Delta x_10` arms. Require direct-add=`R1M0` and
+   direct-remove=`R0M1` in both state and logits, and report scale-relative residual-state error.
 4. Freeze the direct route on original FIT, then test the same formula on original HOLDOUT and
    fresh OOD without refitting or choosing coordinates.
 5. Only after exact route equality, remove or swap the transported `Delta x_10` and require the
