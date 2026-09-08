@@ -135,6 +135,13 @@ row/token dimensions and implements PyTorch `Linear` orientation explicitly:
 - `reachable_subspace_coordinates` is deliberately the only dataset-dependent member of this group.
   It projects observed states after the basis is frozen, so occupancy cannot redefine the possible
   checkpoint operator it is meant to qualify.
+- `optimal_shared_context_subspace` takes either equal-width head maps or heterogeneous attention/
+  MLP reader maps with one common residual-space axis.  For a caller-supplied rank it horizontally
+  concatenates the maps, applies one SVD, returns the common projector, component-private adapters,
+  and private tails, and certifies the global Frobenius optimum by discarded singular-value energy.
+  The projector and certificate are invariant to independent orthogonal changes of every private
+  coordinate system.  A nonzero boundary spectral gap certifies uniqueness of the projector, not a
+  semantic rank or causal group; those still require an unopened intervention authority.
 
 The focused tests compare the head result with the full patched `c_proj` difference, compare the
 factor definitions byte-for-byte with the frozen M11 executor, prove full bilinear closure through
