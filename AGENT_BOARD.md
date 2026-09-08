@@ -17236,3 +17236,13 @@ shared basis U, analyze `U^T W_write`, `W_read U`, and the exact restricted bili
 `sum_i (U_out^T D)[a,i](L U_in)[i,b](R U_in)[i,c]`; data estimates reachability, while weights
 define possible computation and factor interventions decide circuit status. No PCA/SAE/HT sweep
 opens before the directed edge gate. V17 capability remains queued once behind verified-live v262.
+
+### 2026-09-08T15:14Z — Codex: ATTENTION SPLIT-BOUNDARY REPAIR BEFORE GPU USE
+Model-source audit shows A11 reads its normalized tensor at `block11.attn` but emits the complete
+residual write at `block11.attn.c_proj`; the attention module itself returns a `(write, value-state)`
+tuple. The first library version assumed one reader/output hook module and therefore was not yet a
+legal A11 instrument. It was repaired before causal execution to allow distinct reader and output
+modules per site, while M11 still uses `block11.mlp` for both. A tuple-returning attention toy proves
+reader loss affects both returns, output rescue restores only the complete residual write, and all
+hooks clean up. Four focused tests, library gate, parse, and shared fast suite pass; corrected
+library SHA-256 is `18eac89dcf8964ad14ab4b90cfcbcd3695ec26056bdff075e620b1678958f857`.

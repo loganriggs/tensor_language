@@ -12,6 +12,21 @@ class ReaderLossRescueError(RuntimeError):
     pass
 
 
+def _site_modules(site):
+    """Return (reader module, complete-output module) for a site declaration."""
+    if isinstance(site, (tuple, list)):
+        if len(site) != 2:
+            raise ReaderLossRescueError("split site must contain reader and output modules")
+        reader, output = site
+    else:
+        reader = output = site
+    if not hasattr(reader, "register_forward_pre_hook") or not hasattr(
+        output, "register_forward_hook"
+    ):
+        raise ReaderLossRescueError("site modules do not expose PyTorch hook boundaries")
+    return reader, output
+
+
 def _validate_tensor_pair(current, replacement, position_rows):
     if current.ndim != 3 or replacement.shape != current.shape:
         raise ReaderLossRescueError("reader/output tensors must share [row, position, width]")
@@ -63,9 +78,10 @@ def capture_reader_outputs(forward, modules):
             outputs[label] = output.detach().clone()
         return hook
 
-    for label, module in modules.items():
-        handles.append(module.register_forward_pre_hook(reader_hook(label)))
-        handles.append(module.register_forward_hook(output_hook(label)))
+    for label, site in modules.items():
+        reader_module, output_module = _site_modules(site)
+        handles.append(reader_module.register_forward_pre_hook(reader_hook(label)))
+        handles.append(output_module.register_forward_hook(output_hook(label)))
     try:
         result = forward()
     finally:
@@ -123,10 +139,10 @@ def run_reader_loss_rescue(
         return hook
 
     for label in losses:
-        module = modules[label]
-        handles.append(module.register_forward_pre_hook(loss_hook(label)))
+        reader_module, output_module = _site_modules(modules[label])
+        handles.append(reader_module.register_forward_pre_hook(loss_hook(label)))
         if label in rescues:
-            handles.append(module.register_forward_hook(rescue_hook(label)))
+            handles.append(output_module.register_forward_hook(rescue_hook(label)))
     try:
         result = forward()
     finally:
