@@ -1,0 +1,61 @@
+{
+  "schema": "temporal_iswas_v23_rank1_shared_context_leave_one_head_out_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_rank1_shared_context_leave_one_head_out_v1",
+  "registered_utc": "2026-09-08T23:38:00Z",
+  "question": "Does one shared residual-context direction learned from three confirmed circuit heads predict the restricted checkpoint map of the omitted fourth head?",
+  "evidence_status": "Prospective zero-forward stability screen. The opened gauge audit shows pairwise leading-context projector overlap 0.939--0.982 and median full context-Gram similarity 0.92455, but no leave-one-head-out common projector, omitted-head captured energy, random-direction comparison, or common-direction removal result has been computed.",
+  "prior_art": {
+    "searched": [
+      "v23 occupied-reader writer grouping and gauge audit",
+      "September 1 global-common-carrier versus clique analysis",
+      "MLP10 leave-one-action-out shared-summary reuse probe",
+      "P7 subspace-to-weight translation plan and 23:26 mathematical review"
+    ],
+    "novelty": "The prior gauge audit compares independently fitted per-head directions. This screen instead learns one rank-one physical context projector from three maps and tests it on the omitted head, so a pooled optimum cannot hide a sacrificed component.",
+    "known_lessons": "A common leading direction does not imply a common complete map, semantic rank, causal use, or compression. Independent head-private coordinates are gauges. Random matched-rank directions and common-core removal are required, and no outcome may select a higher rank."
+  },
+  "authority": {
+    "grouping_arrays_sha256": "e8dde195577c4ff8778ef471eee744469e8f95a346611376f5f964dae6ba215c",
+    "grouping_result_sha256": "f9b5c7206c6c67d5bb1096b1f65c230be4327efd5c0372a75d3577c5e6114717",
+    "gauge_audit_sha256": "757ede89805372cd0634851fc12e0bd8e82d010240c52e8499b2dcb451d43868",
+    "translation_library_sha256": "514be335690aae4cb100fb9f58f3f00b8d55449a57b3b253ea1600a33153a6a6"
+  },
+  "frozen_design": {
+    "maps": "Use the four immutable occupied-reader-contracted maps M_h with shape 1152x128 for L8H1, L9H1, L9H4, and L11H3.",
+    "rank": 1,
+    "component_weights": "Equal physical Frobenius weight. No head, task, width, or outcome weighting.",
+    "leave_one_out": "For each head h, fit the exact top rank-one context projector to the horizontal concatenation of the other three maps and report the omitted map's captured Frobenius-energy fraction.",
+    "gauge_check": "Apply four seed-2308 independent 128x128 orthogonal private-coordinate rotations and require every held-out score and physical projector to agree.",
+    "random_control": "For each held-out map, compare its learned-projector capture with the q99 of 256 seed-2401 isotropic rank-one physical-context projectors.",
+    "removal": "Fit the rank-one projector to all four maps, remove it, and recompute median pairwise context-Gram similarity on the four private tails.",
+    "price": {
+      "checkpoint_loads": 0,
+      "model_forwards": 0,
+      "sequence_evaluations": 0,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "bars": {
+    "replay_certificate_and_gauge_max_abs": 0.00002,
+    "heldout_captured_energy_fraction_min_each": 0.05,
+    "heldout_exceeds_random_q99_each": true,
+    "leave_one_out_projector_overlap_min_pair": 0.85,
+    "context_gram_median_reduction_min": 0.05
+  },
+  "predictions": {
+    "pred_a_authority_shapes_replay_certificates_gauge_invariance_and_zero_forward_price": "All immutable hashes and 4x1152x128 shapes match; pooled reconstruction, SVD optimum certificates, private-gauge invariance, stored raw Gram replay, finiteness, and literal zero-forward price pass.",
+    "pred_b_rank1_context_core_predicts_every_omitted_head_beyond_random": "Every leave-one-head-out projector captures at least 0.05 of its omitted map's energy and exceeds that map's fixed isotropic-random q99.",
+    "pred_c_three_head_fits_identify_one_stable_physical_direction": "Every pair of the four leave-one-head-out physical projectors has squared overlap at least 0.85.",
+    "pred_d_removing_the_common_direction_reduces_cross_head_context_similarity": "Removing the pooled rank-one core lowers median pairwise context-Gram similarity by at least 0.05."
+  },
+  "opposing_predictions": {
+    "shared_rank1_trunk_plus_private_structure": "A--D pass. One weight-defined physical context direction transfers across all four heads and explains a material part of their shared Gram geometry.",
+    "shared_leading_direction_inside_broader_common_geometry": "A--C pass and D fails. A stable rank-one trunk exists but does not account for most cross-head context similarity.",
+    "pairwise_alignment_without_universal_transfer": "A passes and B or C fails. The pairwise leading overlaps do not define one universally predictive rank-one core.",
+    "instrument_failure": "A fails; no scientific score is interpreted."
+  },
+  "null": "A failure invalidates the screen. With valid A, any B or C failure rejects a universal rank-one shared-context capability. D failure rejects the claim that this direction explains a material share of the broad common Gram geometry.",
+  "decision": "This is a checkpoint-capability screen only. It selects no higher rank, changes no causal bar, and cannot license adoption. A--C may nominate the frozen rank-one core for common-core/private-tail intervention only after the dominant downstream reader is identified; failure preserves the four private maps and redirects no live GPU work."
+}
