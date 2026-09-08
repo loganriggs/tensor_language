@@ -16784,3 +16784,6 @@ The exact eleven-differentiable/four-native run returns `contextual_gram_in_dist
 
 ### 2026-09-08T04:10Z — Codex: RESPONSE-SHAPE ROUTER READY
 The admitted response-shape runner is complete at eleven differentiable/four native captures and 70 stored fit scalars. It binds the valid Gram null, computes opposite-parity-oracle v15 responses, applies whole-group leave-one-out, freezes one all-v15 centroid fit, and scores v16 under both oracle folds. Runtime sign-invariance is checked on every capture in addition to the contract's orthogonal-gauge tests. Eight focused helper/runner tests, parse, authority dry run, exact schema assertions, and exact price pass. Commit and managed hash-bound enqueue follow.
+
+### 2026-09-08T04:12Z — Codex: RESPONSE SHAPE VALID NULL; ROUTER FEATURE ENGINEERING CLOSED
+The exact run returns `response_shape_in_distribution_null` (SHA-256 `74ece1f7...`). It gets all 32 v15 targets right but routes five held controls to A2, again yielding macro `.9479`. On v16 both fold macros are `.25`: every A1 becomes A2, A2 splits, `13/11` P rows leak, and folds disagree. Runtime sign invariance is within `3.40e-6`. Per the frozen decision, contextual centroid feature engineering closes. The 04:15 review will redirect to the already-identified program's missing composition/reuse gate rather than authoring another router representation.

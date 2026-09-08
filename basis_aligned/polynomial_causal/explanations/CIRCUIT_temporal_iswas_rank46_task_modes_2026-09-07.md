@@ -643,6 +643,21 @@ semantic-position concentration, roughness, and cross-expert geometry).  It keep
 validation, both frozen v16 oracle folds, and no optimizer.  Its preregistered OOD failure closes
 contextual centroid feature engineering rather than opening further variants.
 
+The projective response-shape successor also fails its strict identification gate.  It separates
+all 32 v15 target rows, but sends five held controls to A2, leaving LOGO macro accuracy at `.9479`.
+On v16 it sends all A1 rows to A2, splits A2, leaks `13/11` P rows, and gives macro `.25` under
+both oracle folds; the folds disagree.  Runtime simultaneous-sign invariance holds within
+`3.40e-6`, so this is not a direction-gauge implementation failure.  Per the prospective kill
+rule, contextual centroid feature engineering is closed: neither response magnitude nor fixed
+projective response shape identifies the task branch.
+
+The route should now change circuit target.  The v15 rank-two state program already has selective
+execution, direct residual transport, exact decoding, removal, sufficiency, and gain-calibrated
+payload reuse.  Its highest-information unsettled property is joint task composition/reuse, not a
+third router representation.  A new test should combine the independently defined temporal and
+is-was commands at their causal state interfaces and preregister additive versus interacting
+predictions before opening joint outcomes.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -800,6 +815,12 @@ contextual centroid feature engineering rather than opening further variants.
   V16 macro falls to `.1458/.125` under the two oracle folds, A1/A2 are almost wholly exchanged,
   P leaks `9/11` rows, and fold predictions disagree.  Six coarse contextual response moments do
   not identify a stable semantic branch.
+- Projective contextual response-shape router:
+  `temporal_iswas_v15_response_shape_router_v16_v1_result.json` (valid strict null).  V15 LOGO
+  classifies all targets but leaks five controls to A2 (macro `.9479`).  Both v16 folds have macro
+  `.25`; all A1 rows route as A2, A2 is split, `13/11` P rows leak, and folds disagree.  The fixed
+  response-shape object is sign invariant to `3.40e-6`, so contextual centroid feature engineering
+  closes rather than expanding.
 
 ## Remaining gates
 
