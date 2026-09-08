@@ -1,0 +1,36 @@
+{
+  "schema": "temporal_iswas_v23_occupied_reader_weight_writer_gauge_audit_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v23_occupied_reader_weight_writer_gauge_audit_v1",
+  "registered_utc": "2026-09-08T22:19:00Z",
+  "question": "Does the apparent head-private occupied-reader weight structure survive independent orthogonal changes of basis in each head's private 128-dimensional value coordinate?",
+  "trigger": "The opened grouping result compared flattened maps and top-right singular spaces across heads. Those comparisons assume coordinate alignment between distinct head-local value spaces and are not invariant to the V/O rotation gauge. The result is preserved, but its cross-head grouping interpretation is suspended pending this audit.",
+  "authority": {
+    "grouping_result_sha256": "f9b5c7206c6c67d5bb1096b1f65c230be4327efd5c0372a75d3577c5e6114717",
+    "grouping_arrays_sha256": "e8dde195577c4ff8778ef471eee744469e8f95a346611376f5f964dae6ba215c"
+  },
+  "frozen_tests": {
+    "procrustes_similarity": "For each pair T_h,T_g, maximize <T_h Q,T_g>/(||T_h||_F||T_g||_F) over orthogonal Q in the private 128-space. The solution is the nuclear norm of T_h^T T_g divided by Frobenius norms.",
+    "context_gram_similarity": "Compare G_h=T_h T_h^T through tr(G_h G_g)/(||G_h||_F||G_g||_F), computed without materializing 1152x1152 matrices. This is invariant to right rotations and tests shared context-side computation.",
+    "spectrum_similarity": "Cosine between complete per-head singular-value vectors tests whether the maps have the same strength profile even when their subspaces differ.",
+    "projector_ladder": "Report context-side projector overlap for ranks 1,2,4,8,16,32,64,128; no rank is selected from outcomes."
+  },
+  "bars": {
+    "identity_and_random_rotation_invariance_max_abs": 0.00000001,
+    "median_pair_procrustes_similarity_min": 0.80,
+    "median_pair_context_gram_similarity_min": 0.70,
+    "median_pair_spectrum_cosine_min": 0.95,
+    "median_pair_rank32_context_projector_overlap_min": 0.60
+  },
+  "predictions": {
+    "pred_a_authority_formula_rotation_invariance_finiteness_and_zero_forward_price": "Authorities, direct formula identities, synthetic independent-rotation invariance, finiteness, and zero-forward price pass.",
+    "pred_b_head_maps_remain_private_up_to_orthogonal_gauge": "Median Procrustes similarity is below 0.80 or median context-Gram similarity is below 0.70.",
+    "pred_c_heads_share_only_a_broad_spectral_profile": "Median complete singular-spectrum cosine is at least 0.95 while median rank-32 context projector overlap is below 0.60.",
+    "pred_d_no_cross_head_weight_group_is_licensed": "B passes; therefore the causal representation retains four head-specific transport adapters and groups only their operationally shared downstream response."
+  },
+  "opposing_predictions": {
+    "gauge_hidden_group": "Procrustes and context-Gram bars both pass; retract the private-writer interpretation and test a common map plus four head-local orthogonal adapters by held-out interchange.",
+    "gauge_robust_private": "Either similarity bar fails; preserve separate literal writer maps and group only at the downstream response interface.",
+    "shared_spectrum_only": "Spectra agree but context projectors do not; this is common capacity/shape, not common computation."
+  },
+  "price": {"checkpoint_loads": 0, "model_forwards": 0, "sequence_evaluations": 0, "transformer_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
