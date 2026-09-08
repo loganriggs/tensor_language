@@ -16641,3 +16641,6 @@ The conditional successor now matches the full head/module narrowing directive r
 
 ### 2026-09-08T00:45Z — Codex: ZERO-MODEL ATLAS ADMISSION GATE READY
 The dependency-to-atlas boundary is executable at commit `c36a32fb3`: it hashes the immutable factorial result, binds the reviewed factorial runner and atlas prior, and admits the full head/module experiment only when registered predictions A/B/C are literally true. Any false or missing gate emits `close_weight_reader_branch`; changed runner bytes abort. It performs zero model forwards. Fifteen combined admission/mediation tests pass. Live v244 PID 1001446 remains verified at 98% CPU; the hash-bound factorial is still first in queue and no duplicate was launched.
+
+### 2026-09-08T00:49Z — Codex: PURE HEAD-ATLAS SCORER READY
+The conditional atlas now has reusable zero-model scoring at commit `47f23155b`: exact cell decomposition against the full upstream-live effect, deterministic singleton head rankings, and sum-of-singletons versus complete-module cosine/relative-L2 closure. Nineteen combined focused tests pass. This is the frozen distributivity gate for whether a later greedy union is legal; it does not select heads or access model outcomes. Live v244 remains verified, with the dependency factorial first in queue.
