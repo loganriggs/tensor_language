@@ -111,6 +111,40 @@ the review.
 
 ## Authoritative restart delta at 2026-09-07 23:00 UTC
 
+### Live continuation at 04:42 UTC on 2026-09-08
+
+The latest strategic decision is no longer router feature engineering. Three increasingly explicit
+objects—tied-embedding routing, contextual Gram moments, and projective response shape—failed
+stable selective routing, including catastrophic A1/A2 exchange on the v16 construction. The
+04:15 hourly review closes that branch and redirects to simultaneous task composition and physical
+weight-readable command coordinates.
+
+Two prerequisite jobs are hash-bound in managed lane 1 behind the unrelated live `v248` run, in
+this order; do not enqueue duplicates:
+
+1. `basis_aligned/bilinear_quotient/ops/run_temporal_iswas_common_final_gauge_basis_capture_v1.py`
+   at SHA-256 `a2bdc76d61c54e6879d84a0a5b451ae39ed798bcea74fdb77e10579ee08d78cd`.
+   It stores the temporal 1152x8 Q8 basis and both cross-fitted is-was 1152x2 bases in the same
+   physical final-residual gauge and decides shared state versus a task-typed direct sum.
+2. `basis_aligned/bilinear_quotient/ops/run_temporal_iswas_dual_command_native_capability_v1.py`
+   at SHA-256 `0ebc5d1bd8cbcde0db8bee0aa09e7a5384ce35f58df0002f87e4fb0809d689f9`.
+   It uses one model forward for 128 same-sequence 2x2 endpoints and scores temporal plus is-was
+   auxiliaries separately in 32 hard capability cells. No rows or templates may be filtered.
+
+The exact joint-command Möbius/additivity scorer is already implemented in
+`basis_aligned/bilinear_quotient/ops/joint_command_composition_contract.py`. A causal joint
+factorial is eligible only if the native capability job issues its all-row license and the basis
+capture is mechanically valid. Read and publish both immutable outcomes first, then choose the
+shared-basis or task-typed intervention exactly as the basis terminal directs. If native capability
+fails, preserve the null and do not tune or filter this bank post hoc.
+
+Current commits are `264af0b60` (dual-command native gate), `cb75e4b2d` (dual-command authority),
+and `2ccef52ef` (joint composition contract). The latest clocks are
+`HOURLY_STRATEGIC_REVIEW_2026-09-08_0415.md` (next due after 05:15 UTC) and
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0226.md` (next due after 05:26 UTC).
+Both bqrunners should remain Supervisor-managed and automatic; verify them at startup as specified
+above, and immediately restore queue depth if either lane is unexpectedly empty.
+
 ### Live continuation at 00:38 UTC on 2026-09-08
 
 The current decisive job is already hash-bound in managed lane 1; do **not** enqueue a duplicate:
