@@ -1,0 +1,41 @@
+{
+  "schema": "temporal_iswas_dual_command_shared_head_module_factorial_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.dual_command_shared_head_module_factorial_v1",
+  "registered_utc": "2026-09-08T05:06:00Z",
+  "question": "Do the six exact shared weight-interface nominations correspond to exercised causal paths for both commands, and are the three nominated heads distributive enough for a greedy combination?",
+  "authority": {
+    "weight_atlas_result_sha256": "d951420fef51f9d550237927072bfc721bd73112f87d5f716b3cb7c2ca3483ae",
+    "dual_population_builder_sha256": "72da11860ce5bf1c03ea126bc10fcb6c46dd2648169edb00a1e9e1dbeee8a0d0",
+    "dual_capability_prior_sha256": "55f6f66ef6d6ff9503dc4c71ba1212259d9a6b91bf995fd17e33db40623cf328",
+    "joint_composition_contract_sha256": "940e34ca48f1ef998ba0a45f51d0c77f5ea6860a0364a71781b026cf264b72c2"
+  },
+  "eligibility": "The prefix-preserved dual-command capability result must issue its exact all-32-row license. Otherwise do not open these causal outcomes.",
+  "frozen_design": {
+    "sites": [
+      {"layer": 9, "head": 1, "weight_role": "shared_writer"},
+      {"layer": 11, "head": 3, "weight_role": "shared_writer_and_value_reader"},
+      {"layer": 15, "head": 5, "weight_role": "shared_writer_and_q_q2_reader"}
+    ],
+    "native_capture": "In one forward over all 128 exact endpoints, capture the concatenated pre-c_proj head outputs at layers 9, 11, and 15 and both native answer margins.",
+    "counterfactual_pairing": "For temporal swaps, pair cells differing only in the temporal bit; for is-was swaps, pair cells differing only in the is-was bit. At the token immediately preceding that role's answer, replace either the complete 1152-dimensional pre-c_proj vector or only the nominated 128-dimensional head slice with its paired donor value.",
+    "interventions": "For each role run the three singleton-head swaps, three complete-parent-module swaps, and one simultaneous three-head swap. Record effects on both role margins for every row/cell; do not select rows, directions, templates, or sites.",
+    "metrics": "Against the native paired-cell margin difference g and patched change e, report signed recovery <e,g>/<g,g>, cosine, direction agreement, and relative residual ||e-g||/||g|| by role/template/phase. Report non-target effect relative to target gold norm. For each layer report singleton-head signed recovery divided by its parent-module signed recovery. For the simultaneous head set report ||e_union-sum(e_h)||/||e_union|| and union recovery versus the best singleton.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 15,
+      "sequence_evaluations": 1920,
+      "scored_token_positions": 3840,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_pairing_capture_closure_finiteness_and_exact_price": "All authorities, license, pairing involutions, head slices, capture replays, finite metrics, model configuration, and literal price pass.",
+    "pred_b_each_command_has_a_material_complete_module_route": "For each role, at least one parent module has signed recovery >=.50, direction agreement >=.75, and cosine >=.50 in both FIT and HOLDOUT.",
+    "pred_c_a_nominated_head_accounts_for_its_parent_route": "For each role, at least one nominated head has signed recovery >=.25, >=.50 of its corresponding module recovery, direction agreement >=.75, and cosine >=.50 in both phases.",
+    "pred_d_three_head_union_is_distributive_and_improves_recovery": "For both roles and phases, union-versus-sum relative error is <=.25 and union signed recovery is at least the best singleton recovery minus .05.",
+    "pred_e_task_typed_selectivity_survives_shared_weight_use": "For every admitted role/phase head, absolute non-target effect is <=.25 of target gold norm; the later is-was intervention changes the earlier temporal margin by <=1e-5."
+  },
+  "decision": "A failure invalidates. B/C/E identifies shared physical weight interfaces that causally carry distinct task-typed states. D additionally licenses the three-head greedy combination. If B passes but C fails, the weight nomination localizes only a parent module. If D fails, use interaction-aware subsets rather than greedy combination. If E fails, call the route shared and entangled, not selective. This experiment does not yet claim final task-program additivity."
+}
