@@ -745,6 +745,14 @@ alignment remains nomination, not proof, by the earlier L15H5 counterexample.
   `1.51363146` within `1.42e-6` relative L2, after which final RMSNorm, tied unembedding, and soft cap
   reproduce logits exactly.  This identifies a dominant v15 computational path, not its semantic
   OOD router.
+- Final-state rank-two removal/sufficiency/swap:
+  `temporal_iswas_v15_final_rank2_removal_construction_swap_v1_result.json` (valid selective
+  manipulation with an operational construction-gain split).  Removing the transported span loses
+  `1.106-1.212` of the live target response and projection-only states recover `1.133-1.198`; on the
+  frozen direct path both are `1.0` to numerical precision.  Unscaled A1/A2 payload swaps preserve
+  direction and cosine (`>=.995`) but fail magnitude: A2 payloads overshoot A1 (`1.61-1.98`) while
+  A1 payloads undershoot A2 (`.557-.758`).  The shared direction therefore needs a construction
+  gain before payload reuse is established.
 
 ## Remaining gates
 
