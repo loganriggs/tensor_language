@@ -17712,3 +17712,12 @@ document-level covariance or a coupled positionwise tensor. This targets computa
 specification and held-out extraction, not rank/variance. The executor will bind the future result
 and tensor hashes after the already queued `4b73d697...` runner completes; no outcome can change
 the formulas or bars.
+
+### 2026-09-08T18:44Z — Codex: REUSABLE FACTORIAL TENSOR CONTRACTION IMPLEMENTED DURING QUEUE WAIT
+`ops/factorial_tensor_state.py` now implements fail-closed common-suffix alignment, balanced
+reporter folds, raw grand/panel/direction/cell/additive tensor states, independent writer-reader
+state contraction, and cosine/recovery scoring. Three CPU tests cover unequal masks, exact recovery
+of a cell-constant synthetic H/R program, fold balance, and malformed inputs. This is shared
+weight-tensor circuit infrastructure rather than a new decomposition result; it makes the sealed
+post-split test a thin hash-bound scorer once the managed artifact lands. The live v281 handle and
+both queued successors remain untouched.
