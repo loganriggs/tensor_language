@@ -184,10 +184,32 @@ def test_shared_context_projector_and_error_ignore_private_head_gauges():
                           rotated["relative_squared_error"], atol=2e-6, rtol=2e-6)
 
 
+def test_shared_context_subspace_accepts_heterogeneous_reader_widths():
+    torch.manual_seed(109)
+    maps = (torch.randn(11, 4), torch.randn(11, 7), torch.randn(11, 13))
+    report = target.optimal_shared_context_subspace(maps, rank=5)
+    assert report["private_widths"] == (4, 7, 13)
+    assert tuple(value.shape for value in report["private_adapters"]) == (
+        (5, 4), (5, 7), (5, 13))
+    for original, common, tail in zip(
+            maps, report["common_maps"], report["private_tails"]):
+        assert torch.allclose(common + tail, original, atol=2e-6, rtol=2e-6)
+    unfolded = torch.cat(maps, dim=1)
+    projector = report["basis"] @ report["basis"].T
+    assert torch.allclose(torch.cat(report["common_maps"], dim=1),
+                          projector @ unfolded, atol=2e-6, rtol=2e-6)
+
+
 @pytest.mark.parametrize("rank", (0, 8, 1.5))
 def test_shared_context_subspace_rejects_bad_rank(rank):
     with pytest.raises(target.CausalCheckpointTranslationError):
         target.optimal_shared_context_subspace(torch.ones(2, 7, 3), rank=rank)
+
+
+@pytest.mark.parametrize("maps", ((), (torch.ones(4, 2), torch.ones(5, 3))))
+def test_shared_context_subspace_rejects_bad_component_sequence(maps):
+    with pytest.raises(target.CausalCheckpointTranslationError):
+        target.optimal_shared_context_subspace(maps, rank=1)
 
 
 def test_head_write_is_invariant_under_paired_orthogonal_head_gauge():

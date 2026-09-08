@@ -160,34 +160,59 @@ def reachable_subspace_coordinates(states, basis):
 def optimal_shared_context_subspace(head_maps, *, rank):
     """Solve the common-context projector problem exactly for a fixed rank.
 
-    `head_maps[h, context, private_h]` may use an independent orthogonal gauge on
-    every private axis. The top left singular vectors of the horizontal unfolding
+    A rank-three tensor `head_maps[h, context, private]`, or a nonempty sequence of
+    matrices `[context, private_h]`, may use an independent orthogonal gauge and a
+    different private width for every component. The top left singular vectors of the horizontal unfolding
     minimize `sum_h ||M_h - U U^T M_h||_F^2` over column-orthonormal `U` of the
     requested rank. The function fixes no rank and makes no causal claim; it returns
     the common context basis, private adapters `U^T M_h`, and residual tails needed
     for a prospective common-core-versus-tail intervention.
     """
-    _finite_tensor("head_maps", head_maps, minimum_rank=3)
-    if head_maps.ndim != 3:
-        raise CausalCheckpointTranslationError(
-            "head_maps must have shape [heads, context, private]")
-    if not isinstance(rank, int) or rank < 1 or rank > head_maps.shape[1]:
+    tensor_input = isinstance(head_maps, torch.Tensor)
+    if tensor_input:
+        _finite_tensor("head_maps", head_maps, minimum_rank=3)
+        if head_maps.ndim != 3 or head_maps.shape[0] < 1:
+            raise CausalCheckpointTranslationError(
+                "head_maps must have shape [positive_components, context, private]")
+        maps = tuple(value.float() for value in head_maps.unbind(0))
+    else:
+        if not isinstance(head_maps, (list, tuple)) or not head_maps:
+            raise CausalCheckpointTranslationError(
+                "head_maps must be a rank-three tensor or nonempty matrix sequence")
+        maps = tuple(head_maps)
+        for index, value in enumerate(maps):
+            _finite_tensor(f"head_maps[{index}]", value, minimum_rank=2)
+            if value.ndim != 2 or value.shape[1] < 1:
+                raise CausalCheckpointTranslationError(
+                    "each context map must have shape [context, positive_private]")
+        context_widths = {int(value.shape[0]) for value in maps}
+        if len(context_widths) != 1:
+            raise CausalCheckpointTranslationError(
+                "all context maps must share their context width")
+        maps = tuple(value.float() for value in maps)
+    context_width = maps[0].shape[0]
+    if not isinstance(rank, int) or rank < 1 or rank > context_width:
         raise CausalCheckpointTranslationError(
             "rank must be a positive integer no larger than context width")
-    maps = head_maps.float()
-    context_width = maps.shape[1]
-    unfolding = maps.permute(1, 0, 2).reshape(context_width, -1)
+    try:
+        unfolding = torch.cat(maps, dim=1)
+    except RuntimeError as error:
+        raise CausalCheckpointTranslationError(
+            "all context maps must share dtype-compatible device placement") from error
     left, singular_values, _ = torch.linalg.svd(unfolding, full_matrices=False)
     basis = left[:, :rank]
-    adapters = torch.einsum("ck,hcp->hkp", basis, maps)
-    common = torch.einsum("ck,hkp->hcp", basis, adapters)
-    tails = maps - common
-    squared_error = tails.square().sum()
+    adapter_parts = tuple(basis.transpose(0, 1) @ value for value in maps)
+    common_parts = tuple(basis @ value for value in adapter_parts)
+    tail_parts = tuple(value - common for value, common in zip(maps, common_parts))
+    squared_error = sum(value.square().sum() for value in tail_parts)
     certified_optimum = singular_values[rank:].square().sum()
-    total = maps.square().sum().clamp_min(1e-30)
+    total = sum(value.square().sum() for value in maps).clamp_min(1e-30)
     next_value = (singular_values[rank] if rank < singular_values.numel()
                   else singular_values.new_zeros(()))
     gap = singular_values[rank - 1] - next_value
+    adapters = torch.stack(adapter_parts) if tensor_input else adapter_parts
+    common = torch.stack(common_parts) if tensor_input else common_parts
+    tails = torch.stack(tail_parts) if tensor_input else tail_parts
     return {
         "basis": basis,
         "private_adapters": adapters,
@@ -198,6 +223,7 @@ def optimal_shared_context_subspace(head_maps, *, rank):
         "optimal_squared_error_certificate": certified_optimum,
         "certificate_absolute_error": (squared_error - certified_optimum).abs(),
         "boundary_spectral_gap": gap,
+        "private_widths": tuple(int(value.shape[1]) for value in maps),
     }
 
 
