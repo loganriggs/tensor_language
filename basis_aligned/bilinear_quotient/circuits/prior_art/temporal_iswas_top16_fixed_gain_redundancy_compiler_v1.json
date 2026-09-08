@@ -1,0 +1,55 @@
+{
+  "schema": "temporal_iswas_top16_fixed_gain_redundancy_compiler_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.top16_fixed_gain_redundancy_compiler_v1",
+  "registered_utc": "2026-09-08T17:19:43Z",
+  "question": "Can a single disclosed fixed gain compile the selective task-tangent top-16 M11 core into a full-effect replacement across observed v18/v19 constructions?",
+  "evidence_status": "Retrospective calibration screen only. Gain 1.25 is chosen after observing unscaled v18/v19 top-16 recoveries. Even a pass is not held-out identification and must be frozen before a new corpus.",
+  "prior_art": {
+    "searched": [
+      "task-tangent factor selection and pristine v19 confirmation",
+      "M11 dose, hidden-mask, redundancy, compiler, and nonlinear response records",
+      "AGENT_BOARD, BILIN18_CONNECTION, BENCHMARK_BACKLOG, and canonical temporal dossier"
+    ],
+    "known_result": "Unscaled top-16 recovery is .84273 on v18 A2 and .66359/.65750 on v19 A1/A2, with high cosine/perfect direction and low controls. For a linear target interval [.8,1.2], their gain intervals intersect at [1.21672,1.42394].",
+    "novelty": "No run has scaled the exact task-tangent top-16 native factor response as a compiled replacement across both corpora. This tests whether distributed redundancy is predominantly scalar gain rather than a new direction."
+  },
+  "authority": {
+    "task_tangent_result_sha256": "e0af6cc965d2d6a560dbde548e191268c77fcac7a5817ad54ea2ccaefe7050b7",
+    "v19_confirmation_result_sha256": "876c66398bee6ca771534b63aba945231e55ae24b5b0250a4dd7115c2e64c127"
+  },
+  "frozen_design": {
+    "gain": 1.25,
+    "gain_derivation": "A simple round value inside the disclosed intersection [1.21672,1.42394], not an optimizer output.",
+    "target_panels": "v18 A2 and v19 A1/A2, all 16 rows each. These outcomes are already observed for unscaled top-16 and are calibration data, not confirmation.",
+    "controls": "v18 P/C and v19 P/C, separately. Normalize gain-1.25 top-16 RMS by pooled target RMS.",
+    "program": "At full writer-present versus absent M11 input, retain exactly the first 16 stored task-tangent factors at native coefficient one, multiply only their summed output delta by 1.25, add it to absent M11 output, and continue the native downstream checkpoint. No new factor, reorder, row-specific gain, or fit.",
+    "bars": {
+      "writer_or_formula_margin_max_abs": 0.00001,
+      "all_hidden_output_relative_squared_max": 0.00000001,
+      "target_signed_recovery_interval": [0.8, 1.2],
+      "target_cosine_minimum": 0.95,
+      "target_direction_minimum": 0.875,
+      "target_recovery_range_maximum": 0.3,
+      "each_control_normalized_RMS_maximum": 0.25
+    },
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 56,
+      "sequence_evaluations": 896,
+      "scored_token_positions": 1792,
+      "panels": 7,
+      "forwards_per_panel": 8,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_formula_replays_hooks_finiteness_and_exact_price": "Authorities/order/populations/gain match; writer and all-hidden formula replays, hooks, finiteness, and exact 56-forward price pass.",
+    "pred_b_fixed_gain_top16_recovers_all_three_observed_target_panels": "Each of v18 A2, v19 A1, and v19 A2 has signed recovery in [.8,1.2], cosine >=.95, and direction >=.875.",
+    "pred_c_fixed_gain_is_construction_stable": "The maximum minus minimum signed recovery across the three target panels is <=.30.",
+    "pred_d_fixed_gain_program_remains_selective_on_both_corpora": "Every separate v18/v19 P/C normalized RMS ratio is <=.25.",
+    "pred_e_result_is_labeled_retrospective_and_cannot_promote_without_new_corpus": "The receipt records calibration-only status and does not open or claim a new-corpus confirmation."
+  },
+  "decision": "A-D passing freezes this exact 16-factor/gain-1.25 replacement for a separately capability-gated fresh-corpus confirmation. Any target miss or control breach rejects the scalar-redundancy compiler; do not tune gain again on these panels."
+}

@@ -17544,3 +17544,13 @@ Top-16 and top-32 have explicit recovery intervals, not one-sided overshoot-frie
 gap and P/C selectivity are jointly required. Three focused tests, parse, dry run, static preflight,
 experiment gate, and shared fast suite pass. Exact price is 44 forwards/704 sequences; reviewed
 runner SHA-256 is `9b685b38...`.
+
+### 2026-09-08T17:20Z — Codex: V19 FINDS A SELECTIVE PARTIAL TOP-16 CORE, NOT FULL CONFIRMATION
+Valid result SHA-256 `876c6639...` passes A/D/E and misses B/C, terminal
+`task_tangent_factor_confirmation_failed`. Top-16 is remarkably stable across pristine v19 A1/A2:
+recovery `.6636/.6575`, cosine `.9969/.9811`, direction `1`, recovery gap `.0061`; P/C ratios are
+<=`.1178`. But it misses the registered `.70` floor. Top-32 is `.6910/.7607`, also below `.80`;
+larger prefixes become construction-dependent and top-256 overshoots A2 to `1.4198`. Treat top-16
+as a partial physical core only. Across v18 A2 + v19 A1/A2, the linear gain interval for recovery
+in `[.8,1.2]` intersects at `[1.2167,1.4239]`; a disclosed retrospective compiler screen will test
+fixed gain `1.25` on these observed panels/controls before any new-corpus claim.
