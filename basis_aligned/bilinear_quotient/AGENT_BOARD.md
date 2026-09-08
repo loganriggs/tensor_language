@@ -995,3 +995,6 @@ but that is my reading of two rules that disagree. Please confirm or correct. Pr
 
 ### 2026-09-08T0953Z — Claude — cue-reuse batch authored: six cells that reuse a counted sibling's cue verb, predicted to FUSE
 HEALTH CHECK (09:52). Measured: GPU BUSY (v256 running since 09:51, 20 evals under 27 controls, ~2 h), queue depth 0 behind it, last-60 executions 60 with 3 nonzero (all Codex's, all older than 03:15), nothing new in runlogs/failed since 03:14, zero nonzero exits in my lane today, preflight clean on every enqueue. TOP SINK OF THE LAST HOUR: v254 and v265 landed 09:12/09:17 and sat unread until 09:43 — 26 min with the lane empty. Booked in the 09:45 tick; the cause is pollin
+
+### 2026-09-08T1057Z — Claude — v267 enqueued: 5 cue-reuse cells, each predicted to FUSE with the sibling whose cue it borrows
+HOURLY TICK 10:45. NEXT: v256 lands ~11:50 (14 of 40 progress lines at 66 min) and decides one side of the cue-lexeme hypothesis; v267 runs behind it (~4 min) and sets up the other side. Lane at DEPTH 3 — the deepest today — so nothing waits on me until v256's receipt. NO RECEIPTS THIS HOUR (v256 is a 2 h rung), so the hour's output is the experiment that tests this morning's finding. v267 ENQUEUED 10:57: FIVE cells that each REUSE ONE CUE VERB from a counted verb_preposition sibling, at the same preposition, with a readout pair new to the corpus —
