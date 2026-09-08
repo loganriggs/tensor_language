@@ -17393,3 +17393,11 @@ forwards/128 examples and opens zero interventions or causal outcomes. Three foc
 static preflight, experiment gate, and the shared fast suite pass. Reviewed runner SHA-256 is
 `7410844c...`; enqueue only that exact hash. A passing manifest will freeze the A1/A2 row IDs for a
 separate no-refit U8/H3/top-32 transfer; a capability null closes this construction without repair.
+
+### 2026-09-08T16:20Z — Codex: V18 CONSTRUCTION GATE PASSES 16/16 + 16/16
+Valid capability result SHA-256 `e2f5a436...` passes A--D. Every A1/A2 direction-by-side cell is
+`8/8`, and all 16 rows in both unseen This-year/Last-year and This-week/Last-week panels are jointly
+correct. Price is exactly two forwards/128 examples with no interventions or causal outcomes. The
+immutable transfer population is therefore open. I am freezing the literal v17 U8 coordinates,
+H3 index, and first 32 stored M11 factor indices, then testing both new A panels plus P/C controls;
+v18 will fit or reorder nothing.

@@ -1,0 +1,72 @@
+{
+  "schema": "temporal_iswas_v18_frozen_shared_tensor_transfer_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v18_frozen_shared_tensor_transfer_v1",
+  "registered_utc": "2026-09-08T16:20:30Z",
+  "question": "Does the literal v17 U8/H3/top-32 physical program transfer without refit to two unseen v18 temporal constructions while remaining selective on answer-preserving and canonical controls?",
+  "prior_art": {
+    "searched": [
+      "temporal/is-was v15-v17 module, Shapley, A11-head, and restricted-weight tensor records",
+      "all v4-v18 construction authorities and capability manifests",
+      "shared-subspace, weight-atlas, control-family, and transfer records",
+      "AGENT_BOARD, BILIN18_CONNECTION, BENCHMARK_BACKLOG, and the canonical temporal dossier"
+    ],
+    "nearest_result": "V17 identified a shared U8 with A11/M11 HOLDOUT causal recovery .993/.923, H3 carrying about 90% of A11 loss, and a weight-defined top-32 M11 factor program recovering .809 on HOLDOUT. All were selected or fit on v17 A2; none has been run on v18.",
+    "novelty": "V18 contains two unseen aligned target constructions and sixteen unused professions. Its independently executed capability-only result qualified all 16 rows in each A panel before any v18 causal outcome. This is the first immutable construction transfer of the joint U8/H3/top-32 physical program with P/C selectivity controls."
+  },
+  "authority": {
+    "v17_tensor_result_sha256": "f267b3ebbe151077f0aa44939e6f01e78fc8ae30e85d9b52e0858383ef893972",
+    "v17_head_result_sha256": "7fa315b84f71f267c3ed4cea67231cbad9dd0ef2b5ad25a3b18133fc6a6e9c85",
+    "v18_capability_result_sha256": "e2f5a4368303a867646e6df7f67e3c64e98a3b3eb9a742ea7714ab413678020b",
+    "v18_capability_runner_sha256": "7410844c376c99b88aa8fe84f91b5afd501059e06de7948146d6b32181f8a063",
+    "v18_builder_sha256": "44a51b3370bcf59f9cb5b17e5d63ac1cfdba3e883072112a49ec2f92ba78ae2a"
+  },
+  "frozen_design": {
+    "population": "All capability-qualified v18 A1 and A2 rows (16 each), plus all 16 P and all 16 C control rows, evaluated as four separate panels.",
+    "program": "Restore the exact float32 4608x8 U basis and its byte hash from the v17 result; use only H3 at A11; use exactly the first 32 stored v17 M11 factor indices in their stored order. No v18 fit, SVD, optimization, selection, reordering, threshold change, or dose calibration.",
+    "source": "Patch the same physical L7H7 and L9H4 post-cue writer outputs used in v17. For each panel capture native, donor, writer-present, and reader-absent states.",
+    "target_measurements": {
+      "reachability": "Fraction of full A11/M11 reader-delta energy lying in frozen U8.",
+      "U8_causality": "Signed recovery and cosine of the frozen-U8 reader effect relative to full physical reader loss, separately on A1 and A2.",
+      "H3": "Signed recovery, cosine, and direction agreement of H3 removal relative to all-nine-head A11 removal.",
+      "top32": "Signed recovery and cosine of the exact frozen top-32 M11 output effect relative to the full frozen-U8 M11 effect."
+    },
+    "controls": "For P and C separately, compare RMS U8, H3, and top-32 score movement with the corresponding pooled A1+A2 target-effect RMS. Each normalized control ratio must be at most .25; report P/C native correctness but do not condition on it.",
+    "bars": {
+      "writer_replay_max_abs": 0.00001,
+      "basis_roundtrip_max_abs": 0.0,
+      "target_U8_energy_minimum": 0.8,
+      "target_U8_signed_recovery_minimum": 0.8,
+      "target_U8_cosine_minimum": 0.95,
+      "target_H3_signed_share_minimum": 0.5,
+      "target_H3_cosine_minimum": 0.95,
+      "target_H3_direction_minimum": 0.875,
+      "target_top32_signed_recovery_minimum": 0.7,
+      "target_top32_cosine_minimum": 0.95,
+      "P_or_C_normalized_effect_maximum": 0.25
+    },
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 44,
+      "sequence_evaluations": 704,
+      "scored_token_positions": 1408,
+      "intervention_arms_per_panel": 8,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_frozen_program_capture_replay_roundtrip_and_exact_price": "All hashes/populations/calls pass, writer replay is within 1e-5, frozen basis restores bit-exactly, every value is finite, and execution costs exactly 44 forwards/704 sequences/1408 scored positions with no fitting.",
+    "pred_b_frozen_U8_reaches_and_causally_explains_both_readers_on_both_new_constructions": "For A1 and A2 separately, A11 and M11 frozen-U8 energy is at least .80 and causal signed recovery/cosine is at least .80/.95.",
+    "pred_c_frozen_H3_remains_the_majority_A11_endpoint_on_both_new_constructions": "For A1 and A2, H3 removal recovers at least .50 of all-head A11 removal, cosine is at least .95, and direction agreement is at least .875.",
+    "pred_d_frozen_top32_M11_factor_program_transfers_on_both_new_constructions": "For A1 and A2, the stored top-32 factors recover at least .70 of the frozen-U8 M11 effect with cosine at least .95.",
+    "pred_e_frozen_program_is_selective_on_answer_preserving_and_canonical_controls": "Every registered U8/H3/top-32 normalized RMS movement ratio is at most .25 on P and separately on C."
+  },
+  "nulls": {
+    "activation_specific": "Failure of B with valid A means the v17 U8 described a construction-specific occupied subspace rather than a stable reader variable.",
+    "native_boundary_specific": "B passes but C fails: cross-module U8 transfers, but H3 is not the stable within-A11 semantic endpoint.",
+    "factor_specific": "B/C pass but D fails: the shared subspace transfers while the v17 weight-defined M11 hierarchy is activation-regime specific.",
+    "nonselective": "B-D pass but E fails: the program transfers the target but also carries generic temporal/lexical or unrelated control movement and is not selectively identified."
+  },
+  "decision": "Promote to construction-general shared physical circuit only if A-E all pass. Preserve every partial terminal and do not refit v18 after a miss."
+}
