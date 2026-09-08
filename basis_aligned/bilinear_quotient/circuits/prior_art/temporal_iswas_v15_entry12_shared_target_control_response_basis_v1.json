@@ -1,0 +1,33 @@
+{
+  "schema": "temporal_iswas_v15_entry12_shared_target_control_response_basis_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_entry12_shared_target_control_response_basis_v1",
+  "registered_utc": "2026-09-08T01:36:00Z",
+  "question": "Does the causally sufficient entry-12 residual state contain a shared A1/A2 target subspace whose P-nuisance complement remains effective and selective?",
+  "authority": {
+    "state_boundary_result_sha256": "b2c667ef8f795d85ca729ccd6b97210ff5754a787fa2426aaab517176d7df862",
+    "required_terminal": "nonselective_residual_lockin"
+  },
+  "prior_art": {
+    "searched": ["temporal is/was response complement", "entry12 residual subspace", "multi-construction rank-one DAS", "construction oracle axes"],
+    "active_claim_collision": false,
+    "known_lessons": "Head-local P complementation removed target transfer; fixed rank-one DAS was construction-specific; complete-state swaps are tautologically sufficient after c-proj interventions; fitting must be opposite-parity and P/C outcomes must not choose a basis.",
+    "novelty": "Move the identification object to the causally sufficient entry-12 state and compare pooled DIM, the fixed two-construction DIM union, and its exact training-P nuisance complement under causal state projection."
+  },
+  "frozen_design": {
+    "fits": "For each held parity, use only the opposite parity. Form separate A1-oracle/A1-panel and A2-oracle/A2-panel mean entry12 delta vectors over all semantic-prefix tokens; sign-align and pool them for shared rank-one DIM, or orthonormalize both for a rank-at-most-two construction union.",
+    "p_complement": "Build the full numerical row span of entry12 P deltas from both experts on training parity at relative singular threshold 1e-6; project both target mean vectors into its exact orthogonal complement, then orthonormalize. No rank, threshold, or regularization selection.",
+    "intervention": "For each expert and held parity, install off_state + (on_state-off_state)UU^T through each row's semantic position at entry12. Full-state replay and zero-projection arms are controls.",
+    "bases": ["shared_dim_rank1", "construction_union_rank_le_2", "p_complement_union_rank_le_2"],
+    "evaluation": "Score A1/A2/P/C separately for both fixed oracle experts and held parities. Own target is A1 for A1_oracle and A2 for A2_oracle. No basis is selected after evaluation.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 32, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 3000, "fit_parameters": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_scope_geometry_finiteness_and_price": "Hashes and state authority pass; parent/full/zero replays, row coverage, train-held disjointness, orthogonality, finite metrics, and literal price pass.",
+    "pred_b_construction_union_is_target_sufficient": "The fixed construction-union basis projects >=.75 of the full entry12 effect with direction fraction >=.875 in every expert/held-parity own target.",
+    "pred_c_p_complement_preserves_target": "The P-complemented union retains at least 90% of the construction-union own-target signed projection and remains >=.675 in every expert/held-parity cell.",
+    "pred_d_p_complement_removes_collision": "The P-complemented union has zero P/C top-1 flips and changed-versus-off mean KL <=.02 in every expert/held-parity cell.",
+    "pred_e_shared_rank1_is_construction_general": "The pooled rank-one DIM basis projects >=.75 with direction fraction >=.875 in every expert/held-parity own target."
+  },
+  "decision": "A failure invalidates. B failure rejects a two-dimensional shared linear state object. B/C/D licenses causal weight translation of the complemented union. B without C repeats the geometric inseparability at the state interface and sends the route to a nonlinear/conditional response basis. C without D shows P collateral outside the training nuisance span. E distinguishes one shared scalar from a two-construction union.",
+  "closed_claims": ["OOD identification", "semantic identity of basis coordinates", "downstream reader identity", "compression", "adoption"]
+}

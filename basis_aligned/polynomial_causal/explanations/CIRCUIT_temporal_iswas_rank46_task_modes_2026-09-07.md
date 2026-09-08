@@ -507,6 +507,23 @@ while leaving the embedding skip and recurrent attention state native; failure a
 therefore measures downstream reconstruction through those alternate state paths rather than being
 silently pooled away.
 
+The ordered residual-state atlas returns `nonselective_residual_lockin`.  Reset and rescue are
+exactly `1.0` in every own-target cell at all thirteen boundaries, from `entry12` through
+`post_mlp17`, with zero factorial and self-replay error.  This proves that the complete entry-12
+residual tensor is sufficient and necessary for the measured upstream route and that the native
+recurrent attention state adds no independent effect here.  It does not localize a later consumer:
+because the upstream intervention changes only c-projected head output and leaves recurrent `v1`
+unchanged, setting the complete residual state equal makes the deterministic suffix executions
+identical.  The flat curve is therefore a graph-level state-interface result, not evidence that
+every later module separately mediates the behavior.
+
+Selectivity still fails exactly where the oracle fits failed it.  A1 parity 0 has one P flip with
+reset/rescue mean KL `.0191/.0205`; A2 parity 0 has two flips and KL `.0463/.0511`.  Both parity-1
+directions remain zero-flip and low-KL.  The next useful object is consequently not another complete
+state swap, but a cross-fitted target/control causal-response basis *within the entry-12 state*.
+That basis must predict both constructions and remove the P collision under projected state
+interchange before weight-tensor translation can nominate its actual downstream readers.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
@@ -580,6 +597,10 @@ silently pooled away.
   `temporal_iswas_v15_residual_suffix_module_mediation_atlas_v1_result.json` (valid direct-residual
   carry null; the joint layer-12--17 write bank mediates only `.141-.207` reset and `.127-.210`
   rescue, with no stable singleton module).
+- Ordered residual-state mediation:
+  `temporal_iswas_v15_residual_state_boundary_mediation_atlas_v1_result.json` (valid complete-state
+  interface; exact full mediation at every boundary, with the known parity-0 P collision and no
+  later consumer transition localized).
 
 ## Remaining gates
 
