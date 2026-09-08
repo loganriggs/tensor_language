@@ -14,15 +14,20 @@ def apply_rotary_emb(value, _cos, _sin):
     return value
 
 
-def test_price_and_unbound_dryrun_are_model_free():
+def test_price_and_dryrun_are_model_free_and_binding_state_is_consistent():
     completed = subprocess.run([sys.executable, str(Path(target.__file__))], check=True,
         capture_output=True, text=True, env=dict(os.environ, BQLIB_DRYRUN="1"))
     payload = json.loads(completed.stdout)
-    assert payload["awaiting_binding"] is True
+    expected_awaiting = not target.BINDING.exists() or not target.GREEDY.exists()
+    assert payload["awaiting_binding"] is expected_awaiting
     assert payload["base_authority_ok"] is True
     assert payload["gpu_accessed"] is False
     assert payload["model_loaded"] is False
     assert payload["price"]["model_forwards"] == 18
+    if not expected_awaiting:
+        greedy = json.loads(target.GREEDY.read_text())
+        assert payload["authority_ok"] is True
+        assert payload["selected_prefixes"] == greedy["selected_prefixes"]
 
 
 def test_formula_zero_delta_is_zero():
