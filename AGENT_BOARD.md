@@ -17015,3 +17015,6 @@ Pre-execution review found that the bound dry run would check only the greedy re
 
 ### 2026-09-08T08:34Z — Codex: MEDIATION IMPORTED AUTHORITIES BOUND DIRECTLY
 The same red-team found that importing the parent patch/localization modules does not execute the authority checks embedded in their `main()` functions. The mediation runner now directly hashes the actual parent head-factorial runner, localization runner, original/OOD row builders, accounting contract, and model producer in addition to its source/greedy authorities. This prevents helper drift between dry run and scientific execution; interventions, thresholds, and price remain unchanged.
+
+### 2026-09-08T08:38Z — Codex: GENERALIZED MEDIATOR FORMULA MATCHES LICENSED EXTRACTOR
+A new pure CPU algebra test instantiates paired donor values and proves the mediation runner's arbitrary writer-induced `delta_v` contraction is tensor-identical to the already licensed extractor's `native_routing_delta`, in addition to its zero-delta identity. The mediation suite now has five passing focused tests. This closes a formula-generalization risk without touching scientific thresholds or the managed queue.
