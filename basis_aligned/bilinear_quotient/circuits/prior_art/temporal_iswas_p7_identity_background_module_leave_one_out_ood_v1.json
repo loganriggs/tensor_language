@@ -1,0 +1,60 @@
+{
+  "schema": "temporal_iswas_p7_identity_background_module_leave_one_out_ood_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.p7_identity_background_module_leave_one_out_ood_v1",
+  "question": "Which members of the fixed original-selected P7 response branch are individually necessary for its exact OOD composition with the block-10 residual identity stream?",
+  "population": "The immutable OOD FIT/HOLDOUT rows from the stable P7-plus-identity parent; no row, module, threshold, or ordering may be selected from these outcomes.",
+  "authorities": {
+    "parent_result": "circuits/followups/temporal_iswas_p7_residual_two_stream_ood_composition_v1_result.json",
+    "parent_result_sha256": "55498ec9110fbddc8ae9a86eb4bab63efeb92540322aaa8783cec2d8c7bd55a7",
+    "parent_runner": "ops/run_temporal_iswas_p7_residual_two_stream_ood_composition_v1.py",
+    "parent_runner_sha256": "0e3f6de1b273d372006652e37c085ddf15d5b120795225ba873de82a402a19ec"
+  },
+  "fixed_program": {
+    "identity_stream": "Install the selected-writer block-10 residual input over each row's exact causal prefix.",
+    "response_stream": ["A11", "M11", "M12", "M15", "M13", "M16", "M10"],
+    "full_arm": "Install all seven selected-writer module outputs in the identity background.",
+    "leave_one_out_arms": "For each fixed P7 member, leave that one module native/live while installing the other six selected-writer outputs in the same identity background.",
+    "necessity_measure": "full-arm signed recovery minus leave-one-out signed recovery, computed separately on frozen OOD FIT and HOLDOUT.",
+    "interpretation": "This is operational necessity within the installed P7 program, not a Shapley value and not proof that a native module is a semantic atom. Passing A11 licenses head splitting; passing MLPs license exact activation-conditioned Left/Right/interaction weight-factor splitting."
+  },
+  "bars": {
+    "authority_and_full_replay_max_abs_error": 0.00001,
+    "stable_module_necessity_drop_min": 0.03,
+    "full_recovery_min": 0.9,
+    "full_recovery_max": 1.1,
+    "full_cosine_min": 0.98,
+    "full_relative_residual_max": 0.2,
+    "full_direction_min": 0.9,
+    "temporal_command_gold_collateral_max": 0.01
+  },
+  "predictions": {
+    "pred_a_authority_capture_full_replay_finiteness_and_exact_price": "Immutable parent hashes and P7 order match; capture hooks and every installed arm fire exactly once; the full P7-plus-identity arm replays the parent within 1e-5; exact price and finiteness pass.",
+    "pred_b_at_least_two_p7_modules_are_stably_necessary": "At least two fixed P7 members have a full-minus-LOO signed-recovery drop >=.03 on both OOD FIT and HOLDOUT.",
+    "pred_c_attention11_is_stably_necessary_and_licenses_head_splitting": "Leaving A11 out loses >=.03 signed recovery on both OOD phases.",
+    "pred_d_at_least_one_p7_mlp_is_stably_necessary_and_licenses_weight_factor_splitting": "At least one of M11/M12/M15/M13/M16/M10 loses >=.03 signed recovery on both OOD phases.",
+    "pred_e_every_leave_one_out_arm_is_temporally_selective": "Every LOO arm has temporal command-gold collateral <=.01 on both OOD phases."
+  },
+  "terminal_rules": {
+    "invalid_instrument": "A fails.",
+    "nonminimal_sufficient_bundle": "A and E pass but B fails; use frozen backward pruning before native-unit splitting.",
+    "mlp_only_necessity": "A/B/D/E pass and C fails; drop or defer A11 and split necessary MLPs only.",
+    "attention_only_necessity": "A/B/C/E pass and D fails; split A11 heads and treat P7 MLP membership as distributed/redundant.",
+    "stable_cross_module_necessity": "A--E all pass; split A11 into heads and the necessary MLPs into exact activation-conditioned weight factors."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 10,
+    "sequence_evaluations": 1280,
+    "scored_token_positions": 2560,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "tripwires": [
+    "No OOD reselection, greedy deletion, threshold tuning, DAS fitting, or learned subspace is allowed.",
+    "Each LOO arm must omit exactly one fixed P7 clamp while leaving that native module live; omitting its computation entirely is a different intervention.",
+    "All bars and predictions are frozen before reading any LOO outcome.",
+    "A module passing necessity remains a proposed boundary and must be split at native heads or exact activation-conditioned MLP factors before a semantic-unit claim."
+  ],
+  "novelty": "Repository search found many leave-one-out screens, but no prior fixed-OOD necessity audit of this exact original-selected P7 module response inside its newly established exact residual-identity composition. This is the registered refinement of parent SHA 55498ec9, not a repeated subspace or compression sweep."
+}
