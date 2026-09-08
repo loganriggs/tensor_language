@@ -17801,3 +17801,17 @@ instead `.9714` in one weight-defined reader mode, half cosine `.99998`. Direct
 `W_O -> M11` composition fails because live RMS normalization/transport is essential.
 Next owned rung: normalization-aware L11H3 transport, then layerwise L8/L9 transport
 and selective removal/rescue. Review: `HOURLY_STRATEGIC_REVIEW_2026-09-08_2122.md`.
+
+### 2026-09-08T22:10Z — Codex: FOUR-HEAD NECESSARY; M11 IS ONLY A MINOR LOCAL BRANCH
+Fresh reverse removal of `L8H1/L9H1/L9H4/L11H3` recovers `.7215` of the native target
+effect with cosine `.9940`, direction `1.0`, P/C leak `.1186/.0042`, and stable
+`.7257/.7177` halves. Complete M11-factor rescue recovers only `.1511`; the leading
+occupied weight mode explains `.8738` of that small M11-local rescue but direct removal
+recovers only `.1820` of the head effect. The corrected claim is therefore a necessary
+four-head program with a minor M11 branch, not a dominant or multidimensional M11
+mediator. The prospective exact block-11 `residual carrier x MLP` factorial is committed
+as `1c7bb10c0`, pushed, and queued through bqrunner (script SHA `7aac1b15...`). It adds
+back exact residual-only, M11-only, and joint output deltas; joint restoration is the
+algebraic positive control. Next after interpretation: full downstream module/head
+reader localization on the dominant branch, using existing atlas machinery and literal
+weight contraction rather than activation variance/rank.
