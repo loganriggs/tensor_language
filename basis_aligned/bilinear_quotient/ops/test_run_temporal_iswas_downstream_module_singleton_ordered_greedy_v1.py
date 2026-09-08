@@ -4,6 +4,8 @@ from pathlib import Path
 import subprocess
 import sys
 
+import torch
+
 import run_temporal_iswas_downstream_module_singleton_ordered_greedy_v1 as target
 
 
@@ -51,3 +53,48 @@ def test_expected_authorities_match_bytes():
                 "atlas_runner": target.sha(target.ATLAS_RUNNER),
                 "greedy_result": target.sha(target.GREEDY_RESULT)}
     assert observed == target.EXPECTED
+
+
+def test_patch_prefix_executes_every_selected_hook_once(monkeypatch):
+    class Handle:
+        def __init__(self, module, hook):
+            self.module, self.hook = module, hook
+        def remove(self):
+            self.module.hooks.remove(self.hook)
+
+    class Module:
+        def __init__(self):
+            self.hooks = []
+        def register_forward_hook(self, hook):
+            self.hooks.append(hook)
+            return Handle(self, hook)
+        def fire(self, value):
+            for hook in tuple(self.hooks):
+                changed = hook(self, (), value)
+                if changed is not None:
+                    value = changed
+            return value
+
+    modules = {name: Module() for name in target.ORDER[:2]}
+    monkeypatch.setattr(target.atlas, "module_targets", lambda _model: modules)
+
+    class Parent:
+        @staticmethod
+        def _forward(_backend, _tokens):
+            value = torch.zeros(2, 3, 1)
+            for module in modules.values():
+                value = module.fire(value)
+            return value, {}
+
+    monkeypatch.setattr(target.atlas.mediation, "parent", Parent)
+    backend = type("Backend", (), {"model": object()})()
+    replacements = {
+        target.ORDER[0]: torch.ones(2, 3, 1),
+        target.ORDER[1]: torch.full((2, 3, 1), 2.0),
+    }
+    logits, calls = target.patch_prefix(
+        backend, torch.zeros(2, 3), target.ORDER[:2], replacements, [[0, 1], [0, 1, 2]])
+    assert calls == {target.ORDER[0]: 1, target.ORDER[1]: 1}
+    assert torch.equal(logits[0, :2], replacements[target.ORDER[1]][0, :2])
+    assert torch.equal(logits[1], replacements[target.ORDER[1]][1])
+    assert all(not module.hooks for module in modules.values())
