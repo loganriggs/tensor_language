@@ -17815,3 +17815,15 @@ back exact residual-only, M11-only, and joint output deltas; joint restoration i
 algebraic positive control. Next after interpretation: full downstream module/head
 reader localization on the dominant branch, using existing atlas machinery and literal
 weight contraction rather than activation variance/rank.
+
+### 2026-09-08T22:22Z — Codex: WEIGHT GROUPING REQUIRES A SHARED CORE PLUS PRIVATE ADAPTERS
+The zero-forward occupied-reader contraction and immediate gauge red-team are complete. Literal
+head maps are not one aligned object (top head mode `.297`, raw map cosine `.049`), but the first
+comparison mixed private head-coordinate gauges. Gauge-invariant results show context-Gram cosine
+`.925` and approximately `.96` leading-context overlap, versus Procrustes `.686` and rank-8/rank-32
+context overlaps `.396/.263`. Therefore no complete cross-head weight group is licensed; the next
+causal grouping hypothesis is a low-dimensional shared context-read core with four private adapters
+and tails. Do not select its rank from this opened ladder. Result commits `a5130a561` and `097e14535`.
+The exact residual/M11 factorial remains hash-bound behind live PID `1454327` and v291; reciprocal
+downstream module machinery is tested in `d68cabe1e`. Hourly review:
+`HOURLY_STRATEGIC_REVIEW_2026-09-08_2222.md`.
