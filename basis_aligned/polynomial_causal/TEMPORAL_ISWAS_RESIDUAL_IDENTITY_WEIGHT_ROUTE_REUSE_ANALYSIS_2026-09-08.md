@@ -1,4 +1,4 @@
-# Temporal/is-was residual-identity weight-route reuse analysis — 2026-09-08 10:42 UTC
+# Temporal/is-was residual-identity weight-route reuse analysis — 2026-09-08 10:37 UTC
 
 ## Decision this note prepares
 
