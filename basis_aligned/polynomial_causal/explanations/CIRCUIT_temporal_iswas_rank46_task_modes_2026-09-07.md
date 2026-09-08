@@ -850,6 +850,12 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   A successor may preserve an already capability-qualified temporal prefix exactly—causality makes
   its earlier-token margin invariant to any appended second clause—then test only whether the later
   is-was command survives the composition.
+- Prefix-preserved same-sequence capability:
+  `temporal_iswas_dual_command_prefix_preserved_native_capability_v1_result.json` (valid complete
+  license).  All 32 phase/template/cell/role gates pass, with minimum cell accuracy `.875`, maximum
+  `1.0`, and mean `.9961`; all 32 rows are licensed without filtering.  Preserving the exact
+  standalone temporal prefix eliminates the first bank's past-tense failure while the appended
+  is-was command remains capable.  This opens the preregistered full-head/module causal factorial.
 - Common-gauge exact-weight interface atlas:
   `temporal_iswas_common_gauge_weight_interface_atlas_v1_result.json` (full valid screen).  Despite
   the rank-12 task-typed state, weight interfaces substantially overlap: is-was fold top-20 Jaccards

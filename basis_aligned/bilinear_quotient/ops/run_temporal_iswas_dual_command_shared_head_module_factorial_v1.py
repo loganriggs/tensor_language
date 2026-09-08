@@ -30,7 +30,7 @@ OUT = ROOT / "circuits/followups/temporal_iswas_dual_command_shared_head_module_
 EXPECTED = {
     "prior": "7332c7358da591dbb7fac0c0251314f4f5e9895a56b91a0ec4c3d6f22c9abf8d",
     "atlas": "d951420fef51f9d550237927072bfc721bd73112f87d5f716b3cb7c2ca3483ae",
-    "capability": "PENDING_CAPABILITY_RESULT_SHA256",
+    "capability": "a5abc4c4ef83b0a1a79ef0b71496f7ddf2e19eb6d78c98f78478d037979c22b5",
     "builder": "72da11860ce5bf1c03ea126bc10fcb6c46dd2648169edb00a1e9e1dbeee8a0d0",
     "accounting": "985b824c7d3d8b622dfb92e3522f107e15e5e095b1f40a59a46122ad9af68496",
     "producer": "14624b9959fe4bf0b43841a9e349bab50cd564a417595d1c1a048252c6c3b498",

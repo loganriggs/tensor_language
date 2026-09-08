@@ -46,7 +46,7 @@ class DualCommandSharedHeadRunnerTests(unittest.TestCase):
                            ("builder", runner.BUILDER), ("accounting", runner.ACCOUNTING),
                            ("producer", runner.PRODUCER)):
             self.assertEqual(runner.sha(path), runner.EXPECTED[name])
-        self.assertEqual(runner.EXPECTED["capability"], "PENDING_CAPABILITY_RESULT_SHA256")
+        self.assertEqual(runner.sha(runner.CAPABILITY), runner.EXPECTED["capability"])
 
     def test_recursive_finiteness(self):
         self.assertTrue(runner.finite_structure({"x": [1.0, 2, True]}))
