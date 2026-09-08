@@ -1,0 +1,37 @@
+{
+  "schema": "temporal_iswas_l11h3_source_tensor_upstream_weight_atlas_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.l11h3_source_tensor_upstream_weight_atlas_v1",
+  "registered_utc": "2026-09-08T07:35:00Z",
+  "question": "Which exact earlier writer weights can feed the extracted temporal and is-was source tensors through the shared physical L11H3 W_v reader?",
+  "authority": {
+    "source_term_extraction_result_sha256": "d55e448e5c950f9a6e316cc43e8d1ca7c95fd625b31021b2572a8e20ba4f245a",
+    "common_gauge_weight_atlas_relation": "The earlier complete atlas nominated residual subspaces globally. This atlas conditions exact composed weights on the now-causal, task-typed L11H3 source tensor and cannot turn weight alignment into causal identification."
+  },
+  "frozen_design": {
+    "reader": "Use the exact 128x1152 L11H3 row slice of c_v.weight.",
+    "writers": "Enumerate the token embedding transpose plus every attention c_proj head slice and MLP Down matrix in layers 0 through 10: exactly 111 earlier residual writers. Record residual propagation coefficients but do not let scalar coefficients affect normalized rankings.",
+    "composition": "For writer matrix O_s, form the exact physical map M_s=W_v,H3 O_s into L11H3 value coordinates. No activations, gradients, fitting, rank selection, or labels enter M_s.",
+    "task_tensor_score": "For each stored original/OOD temporal/is-was 128x128 query-tensor bank Z, form trace-one C=Z^T Z/||Z||_F^2. Score e_s=128 trace(M_s^T C M_s)/||M_s||_F^2. An isotropic map has expected e_s=1. Preserve all scores and exact tensor checksums.",
+    "selection": "For each role, rank writers by the minimum original/OOD enrichment, breaking ties by label, and freeze the top five. The causal successor must test the union of both top-five lists with no replacement or widening after outcome.",
+    "stability": "Original/OOD top-ten Jaccard must be >=.60 separately for temporal and is-was. A shared weight candidate must occur in both frozen top-five lists and have enrichment >=2.0 in all four task/population panels.",
+    "interpretation": "This is a prospective exact-weight candidate generator for a source-position causal screen. It can establish physical read/write compatibility and task reuse, not causal writing, necessity, or standalone sufficiency.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 0,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0,
+      "writer_interfaces_scored": 111,
+      "weight_compositions": 111,
+      "task_tensor_contractions": 444
+    }
+  },
+  "predictions": {
+    "pred_a_authority_tensor_hash_config_inventory_finiteness_and_exact_price": "All source tensors, hashes, model dimensions, writer labels/shapes, composed-map norms, finiteness, and literal price pass.",
+    "pred_b_task_conditioned_weight_rankings_are_original_ood_stable": "Both roles pass their registered top-ten Jaccard bar.",
+    "pred_c_each_task_has_a_material_fold_stable_upstream_writer_candidate": "Each frozen role top-five contains at least one writer with enrichment >=2.0 in both original and OOD panels.",
+    "pred_d_at_least_one_upstream_weight_writer_is_shared_across_tasks": "At least one writer is in both top-five lists and reaches enrichment >=2.0 in all four panels."
+  },
+  "null": "If A fails, the atlas is invalid. If B fails, exact weight reach is not stable enough to nominate a causal set. If C fails, the extracted source tensors do not concentrate on any earlier literal writer under this statistic. If D alone fails, preserve task-typed upstream candidates. Do not change top counts, score, tensor banks, or threshold after outcome.",
+  "decision": "A/B/C freezes the union of task top-five writers for an all-row source-position causal factorial; D determines whether that successor contains a prospectively shared writer. Any causal null remains a falsification of weight-only nomination rather than a reason to retune the atlas."
+}
