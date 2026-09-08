@@ -32,3 +32,22 @@ def paired_payload_swap(torch, off, parallel, rows):
         result[items["A1"]] += parallel[items["A2"]]
         result[items["A2"]] += parallel[items["A1"]]
     return result
+
+
+def paired_scaled_payload_swap(torch, off, parallel, rows, gains):
+    if set(gains) != {"A1_from_A2", "A2_from_A1"}:
+        raise FinalManipulationError("scaled swap requires both directed gains")
+    if any(float(value) <= 0 for value in gains.values()):
+        raise FinalManipulationError("swap gains must be positive")
+    if off.shape != parallel.shape or off.ndim != 2 or len(rows) != off.shape[0]:
+        raise FinalManipulationError("row/state inventory mismatch")
+    by_group = {}
+    for index, row in enumerate(rows):
+        by_group.setdefault(int(row["group_number"]), {})[row["transform_id"]] = index
+    if any(set(items) != {"A1", "A2", "P", "C"} for items in by_group.values()):
+        raise FinalManipulationError("each group must contain exactly A1/A2/P/C")
+    result = off.float().clone()
+    for items in by_group.values():
+        result[items["A1"]] += float(gains["A1_from_A2"]) * parallel[items["A2"]]
+        result[items["A2"]] += float(gains["A2_from_A1"]) * parallel[items["A1"]]
+    return result

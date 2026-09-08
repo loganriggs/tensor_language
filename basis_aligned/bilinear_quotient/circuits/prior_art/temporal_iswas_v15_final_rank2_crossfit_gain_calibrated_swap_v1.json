@@ -1,0 +1,28 @@
+{
+  "schema": "temporal_iswas_v15_final_rank2_crossfit_gain_calibrated_swap_prior_v1",
+  "candidate_id": "temporal_auxiliary.iswas_v15_final_rank2_crossfit_gain_calibrated_swap_v1",
+  "registered_utc": "2026-09-08T03:27:00Z",
+  "question": "Can one outcome-free construction-specific scalar gain make the direction-preserving A1/A2 final-state payload interchange quantitatively reusable?",
+  "authority": {"unscaled_swap_result_sha256": "df0f6b4d3a43ea5a2e88281bdf7c95afab99e9329cae7edba5c9aee86480bded", "required_terminal": "final_rank2_construction_split"},
+  "prior_art": {
+    "searched": ["final rank2 construction gain", "unscaled payload swap amplitude", "crossfit state norm calibration", "shared direction scalar gain"],
+    "active_claim_collision": false,
+    "known_lessons": "Unscaled swaps preserve direction/cosine but systematically overshoot A1 and undershoot A2. Optimizing held logits would memorize the task; the gain must be estimated without outcomes and frozen across parity.",
+    "novelty": "Use only opposite-parity projected state norms to calibrate whole-payload interchange, preserving basis gauge and never optimizing task logits."
+  },
+  "frozen_design": {
+    "fit": "For each held fold and each live/frozen suffix variant, compute the mean L2 norm of complete final projected payloads on opposite-parity A1 and A2 rows. Set gain(destination<-source)=mean_norm(destination)/mean_norm(source); the two gains must be reciprocal.",
+    "evaluation": "On held rows exchange whole A1/A2 payloads as before, multiply only by the frozen destination/source gain, add to the off final state, and decode through the exact final head. P/C remain off. Open no training logits or outcomes.",
+    "controls": "Require authority, exact rank-two geometry, disjoint parity, finite positive gains, reciprocal closure, final-head replay, exact row pairing, P/C invariance, and literal price. Preserve the unscaled result as comparator.",
+    "price_max": {"native_capture_forwards": 10, "differentiable_transformer_forwards": 14, "transformer_backward_forwards": 0, "model_updates": 0, "example_evaluations": 1400, "fit_parameters": 4}
+  },
+  "predictions": {
+    "pred_a_authority_geometry_crossfit_finiteness_and_price": "All hashes, rank-two geometry, disjoint fit/evaluation rows, exact decoding, pairing, finite metrics, and literal price pass.",
+    "pred_b_construction_gains_are_stable_and_reciprocal": "Every gain is positive, reciprocal within 1e-6, and the same directed gain differs by <=20% across held folds.",
+    "pred_c_calibrated_swap_preserves_both_constructions": "Calibrated swaps have signed projection in [0.75,1.25], cosine >=0.95, and direction fraction >=0.875 on A1/A2 in both folds and both suffix variants.",
+    "pred_d_calibration_improves_unscaled_amplitude": "For every cell, absolute signed-projection error from 1 is strictly smaller than the preserved unscaled swap error.",
+    "pred_e_calibrated_swap_is_control_selective": "P/C remain exactly off with zero flips and mean KL <=0.02."
+  },
+  "decision": "A/B/C/D/E identifies a shared construction payload with one scalar gain per direction. Failure of B or C means the A1/A2 payloads are not reusable by a simple gain and remain operationally split. No held-logit tuning or widened gain grid is allowed.",
+  "closed_claims": ["semantic OOD router", "basis-column semantics", "task-independent gain", "compression", "adoption"]
+}

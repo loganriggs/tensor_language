@@ -25,3 +25,19 @@ def test_bad_group_inventory_fails_closed():
     rows = [{"group_number": 0, "transform_id": name} for name in ("A1", "A2", "P")]
     with pytest.raises(contract.FinalManipulationError):
         contract.paired_payload_swap(torch, torch.zeros(3, 2), torch.zeros(3, 2), rows)
+
+
+def test_scaled_swap_applies_directed_reciprocal_gains():
+    rows = [{"group_number": 0, "transform_id": name} for name in ("A1", "A2", "P", "C")]
+    off = torch.zeros(4, 2)
+    parallel = torch.tensor([[1., 0.], [0., 2.], [7., 7.], [8., 8.]])
+    result = contract.paired_scaled_payload_swap(
+        torch, off, parallel, rows, {"A1_from_A2": .5, "A2_from_A1": 2.0})
+    assert torch.equal(result, torch.tensor([[0., 1.], [2., 0.], [0., 0.], [0., 0.]]))
+
+
+def test_scaled_swap_rejects_missing_or_negative_gains():
+    rows = [{"group_number": 0, "transform_id": name} for name in ("A1", "A2", "P", "C")]
+    with pytest.raises(contract.FinalManipulationError):
+        contract.paired_scaled_payload_swap(torch, torch.zeros(4, 2), torch.zeros(4, 2), rows,
+                                            {"A1_from_A2": 1.0})
