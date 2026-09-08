@@ -1,0 +1,52 @@
+{
+  "schema": "temporal_iswas_v20_task_factor_crossconstruction_gain_transfer_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_task_factor_crossconstruction_gain_transfer_v1",
+  "created_utc": "2026-09-08T19:01:02Z",
+  "question": "Is the continuous gain multiplying the stable response state shared across the two answer-changing constructions A1 and A2?",
+  "evidence_status": "CPU-only reporter-held-out gain-reuse screen; it does not identify the native source of gain or establish a causal intervention.",
+  "prior_art_and_novelty": {
+    "searched": ["v20 normalized/raw/error-decomposition state receipts", "crossconstruction task-tangent and restricted tensor records", "sealed H/R gain-source prior"],
+    "known_result": "Cell-state error is 80.56% scalar amplitude, but each construction currently has its own fitted cell mean.",
+    "novelty": "Fit affine A1-to-A2 and A2-to-A1 gain maps on one reporter fold using directions learned only there, then predict opposite-fold gains and raw Q vectors. This tests reuse rather than adding state rank."
+  },
+  "immutable_authority": {
+    "response_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "error_decomposition_result_sha256": "d8e1772d9fd3e356e142027e12402cb99b4b57a60458ed79079fd539b74cb76d",
+    "factorial_tensor_state_library_sha256": "f7cf522a6ee302638df90981dc1b2168e6021dba848bb7c7df968d191da8a0f6"
+  },
+  "method": {
+    "folds": "The unchanged reversed modulo-4 reporter folds, balanced over direction.",
+    "gain": "Within each fold and direction, fit raw A1 and A2 means qbar; each row gain is <Q,qbar>/||qbar||^2.",
+    "maps": "Fit A2_gain=b0+b1*A1_gain and the reverse on fit reporters, then predict held-out reporters.",
+    "vector_test": "Multiply the destination construction's fit qbar by the predicted held-out gain and score the raw destination Q vector.",
+    "no_cheat": "Destination held-out Q is used only as the response after both the direction and affine map are fixed."
+  },
+  "predictions": {
+    "pred_a_authority_folds_projection_map_finiteness_and_exact_price": "Hashes, 4x16x4608 shape, balanced folds, nonzero means, projections, least-squares maps, finiteness, and counts match.",
+    "pred_b_target_constructions_share_predictive_gain": "Pooled held-out Pearson and R2 are >=0.75 and >=0.50 in both A1-to-A2 and A2-to-A1 directions.",
+    "pred_c_gain_mapping_sign_and_scale_are_fold_stable": "All four fitted slopes are positive and, within each mapping direction, max(abs(slope))/min(abs(slope)) <=2.0.",
+    "pred_d_transferred_gain_predicts_raw_destination_q": "For each mapping direction, pooled held-out raw-Q relative residual is <=0.25 and every row prediction has positive dot with destination Q.",
+    "pred_e_scope_is_gain_reuse_screen_only": "No model/GPU call, H/R/v21 outcome, intervention, or held-out gain fit occurs."
+  },
+  "opposing_outcomes": {
+    "shared_crossconstruction_gain": "A-E pass. Treat A1/A2 as readers of one continuous gain variable and seek one native H/R source on v21.",
+    "directionally_asymmetric_gain": "A/C/E pass and exactly one mapping passes B/D. Preserve an asymmetric construction interface.",
+    "construction_specific_gain": "A/E pass and neither mapping passes. Do not pool gain across constructions.",
+    "invalid_instrument": "A fails."
+  },
+  "bars": {
+    "pearson": 0.75,
+    "r2": 0.50,
+    "slope_ratio_max": 2.0,
+    "raw_q_relative_residual": 0.25,
+    "row_positive_fraction": 1.0
+  },
+  "literal_price": {
+    "gpu_forwards": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "affine_fits": 4,
+    "heldout_gain_predictions": 32,
+    "heldout_q_predictions": 32
+  }
+}
