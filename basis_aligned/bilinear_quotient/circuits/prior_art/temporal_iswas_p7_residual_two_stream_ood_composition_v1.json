@@ -1,0 +1,71 @@
+{
+  "schema": "temporal_iswas_p7_residual_two_stream_ood_composition_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.p7_residual_two_stream_ood_composition_v1",
+  "registered_utc": "2026-09-08T11:42:00Z",
+  "status": "frozen_before_execution",
+  "question": "Does the original-selected seven-module response program transfer to OOD text and compose with the exact block-10 residual-identity stream into a stable, selectively decomposable writer interface?",
+  "fixed_writer": {
+    "role": "iswas",
+    "heads": ["L07H07", "L09H04"],
+    "source_region": "postcue",
+    "entry_boundary": 10
+  },
+  "fixed_response_prefix": {
+    "selection_authority": "temporal_iswas_downstream_module_singleton_ordered_greedy_v1_result.json",
+    "arm": "P7",
+    "modules": ["A11", "M11", "M12", "M15", "M13", "M16", "M10"],
+    "rule": "The prefix was selected on original FIT and validated on original HOLDOUT. OOD FIT and HOLDOUT are both sealed validation; no module, order, boundary, threshold, row, or coefficient may be reselected."
+  },
+  "population": ["ood:FIT", "ood:HOLDOUT"],
+  "arms": {
+    "native": "Native run capturing block-10 entry and all A10--M17 outputs.",
+    "writer": "Compact-writer run capturing block-10 entry and all A10--M17 outputs; this is the joint target.",
+    "identity_full": "Writer block-10 entry with all sixteen complete module outputs clamped native (factorial R1M0).",
+    "response_full": "Native block-10 entry with all sixteen complete module outputs clamped writer (factorial R0M1).",
+    "P7_response": "Native block-10 entry plus exact writer outputs for the frozen P7 sites; every other module remains live.",
+    "P7_plus_identity": "Writer block-10 entry plus exact writer outputs for the frozen P7 sites; every other module remains live."
+  },
+  "bars": {
+    "authority_and_parent_replay_max_abs_error": 0.00001,
+    "p7_ood_signed_recovery_min": 0.4,
+    "p7_ood_signed_recovery_max": 1.75,
+    "p7_ood_cosine_min": 0.85,
+    "p7_ood_relative_residual_max": 0.75,
+    "p7_ood_direction_min": 0.8,
+    "joint_signed_recovery_min": 0.9,
+    "joint_signed_recovery_max": 1.1,
+    "joint_cosine_min": 0.98,
+    "joint_relative_residual_max": 0.2,
+    "joint_direction_min": 0.9,
+    "partial_signed_recovery_min": 0.2,
+    "partial_signed_recovery_max": 0.8,
+    "each_stream_joint_contribution_min": 0.2,
+    "two_stream_additivity_relative_l2_max": 0.15,
+    "temporal_command_gold_collateral_max": 0.01
+  },
+  "predictions": {
+    "pred_a_authority_pairing_capture_full_arm_replay_finiteness_and_exact_price": "All immutable parent authorities match; the writer, identity_full, and response_full OOD effects replay v2; all state/module hooks fire once; exact six-forward price and finiteness pass.",
+    "pred_b_original_selected_p7_response_transfers_ood_without_reselection": "P7_response passes the registered recovery, cosine, residual, and direction bars on both OOD FIT and HOLDOUT.",
+    "pred_c_p7_response_composes_with_identity_to_replay_the_writer_ood": "P7_plus_identity reaches .9--1.1 recovery, cosine >=.98, relative residual <=.2, and direction >=.9 on both OOD phases.",
+    "pred_d_both_physical_streams_are_needed_in_the_composed_interface": "Identity_full and P7_response each lie in [.2,.8] recovery and adding the other stream to reach P7_plus_identity contributes at least .2 signed writer-effect fraction in both phases.",
+    "pred_e_two_stream_composition_is_nearly_additive_and_temporally_selective": "The vector interaction P7_plus_identity - identity_full - P7_response is <=.15 relative to the joint writer effect and every nonnative arm has temporal command-gold collateral <=.01 in both phases."
+  },
+  "nulls": {
+    "invalid": "If A fails, no scientific result is interpreted.",
+    "p7_ood_null": "If B fails, the original-selected response prefix is not a stable OOD circuit program.",
+    "noncomposable": "If B passes but C fails, P7 and identity do not form a stable executable OOD interface.",
+    "redundant_single_stream": "If B/C pass but D fails, preserve redundancy/dominance rather than claim a necessary two-stream decomposition.",
+    "nonadditive_or_nonselective": "If B--D pass but E fails, preserve interaction/collateral rather than claim a simple selective two-stream program."
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 6,
+    "sequence_evaluations": 768,
+    "scored_token_positions": 1536,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "prior_art_and_novelty": "Repository search found complete-module factorials, a ten-site response lattice, the exact full-response OOD arms, and the original-only P7 greedy prefix, but no prospective OOD composition of that fixed P7 with the exact residual-identity stream. This test reuses those physical interventions rather than opening another atlas.",
+  "anti_rank_drift": "No DAS, learned subspace, rank, reconstruction, variance, or compression objective is present. This tests OOD prediction, cross-boundary grouping, executable composition, and selective two-stream necessity."
+}
