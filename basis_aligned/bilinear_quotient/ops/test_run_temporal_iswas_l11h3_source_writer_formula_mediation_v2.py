@@ -42,3 +42,28 @@ def test_formula_zero_delta_is_zero():
 def test_prediction_inventory_matches_gate_marker():
     assert len(target.PREDICTION_KEYS) == 5
     assert target.PRICE == json.loads(target.PRIOR_V2.read_text())["amended_price"]
+
+
+def test_bound_authority_is_identical_for_dryrun_and_execution(tmp_path, monkeypatch):
+    selected = {
+        "temporal": {"arm": "P3", "length": 3,
+                     "heads": ["L07H07", "L09H04", "L09H01"]},
+        "iswas": {"arm": "P2", "length": 2, "heads": ["L07H07", "L09H04"]},
+    }
+    greedy = {"selected_prefixes": selected,
+              "predictions": {key: index != 3 for index, key in
+                              enumerate(target.greedy_contract.PREDICTION_KEYS)}}
+    greedy_path = tmp_path / "greedy.json"
+    greedy_path.write_text(json.dumps(greedy))
+    monkeypatch.setattr(target, "GREEDY", greedy_path)
+    binding = {
+        "candidate_id": "cross_task.temporal_iswas.l11h3_source_writer_formula_mediation_v2",
+        "conditional_prior_sha256": target.EXPECTED["prior_v1"],
+        "price_amendment_sha256": target.EXPECTED["prior_v2"],
+        "mediation_runner_sha256": target.sha(target.SELF),
+        "greedy_result_sha256": target.sha(greedy_path),
+        "selected_prefixes": selected,
+    }
+    assert target.bound_authority_ok(target.EXPECTED, binding, greedy)
+    binding["selected_prefixes"] = {**selected, "temporal": selected["iswas"]}
+    assert not target.bound_authority_ok(target.EXPECTED, binding, greedy)
