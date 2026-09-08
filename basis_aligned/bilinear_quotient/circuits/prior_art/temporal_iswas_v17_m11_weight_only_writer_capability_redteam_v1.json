@@ -1,0 +1,48 @@
+{
+  "schema": "temporal_iswas_v17_m11_weight_only_writer_capability_redteam_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v17_m11_weight_only_writer_capability_redteam_v1",
+  "registered_utc": "2026-09-08T19:34:00Z",
+  "question": "Does an exact all-input weight-only bilinear capability tensor enrich the two heads already selected by held-out causal greedy composition as writers into the shared M11 U8 computation?",
+  "evidence_status": "Retrospective diagnostic red-team on an independently selected causal writer bank. It tests whether weight capability can shortlist causal writers without activation occupancy; it cannot promote a new edge.",
+  "prior_art": {
+    "searched": [
+      "temporal/is-was source writer factorials, weight-ordered greedy results, complete upstream activation-conditioned tensor incidence atlases, and restricted M11 weight tensors",
+      "selected-head projector weight-interface rankings and their tolerance audit",
+      "all H/R and weight-capability/occupancy records through v20"
+    ],
+    "known_result": "The immutable six-head bank was ordered independently from causal evidence. Is/was selected L7H7+L9H4; temporal selected those two plus L9H1. Existing tensor-incidence atlases condition on observed base/donor states. No result tests the exact all-input x-plus-Wz polynomial for these frozen writers.",
+    "novelty": "For each frozen head output map W, this test exactly expands M11(x+Wz)-M11(x), read into the causally identified U8, into context-by-write and write-by-write tensors without using an activation row."
+  },
+  "authority": {
+    "causal_writer_greedy_result_sha256": "6a2ae6598ae95269f7d9e24e13196155342f690d331c78efed5115a8cf84bda2",
+    "shared_u8_restricted_tensor_result_sha256": "f267b3ebbe151077f0aa44939e6f01e78fc8ae30e85d9b52e0858383ef893972",
+    "shared_u8_basis_sha256": "e14ff7b7bdae17c0339744b2c37a5bb77b80e973e9d70b78f742e67aa1e4835f",
+    "checkpoint_revision": "ed9146549ee6dc8edcd75e9d48fcfe4278f4240",
+    "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "frozen_design": {
+    "candidate_heads": ["L07H07", "L09H04", "L06H07", "L09H01", "L03H04", "L05H01"],
+    "causal_positive_set": ["L07H07", "L09H04"],
+    "selection_independence": "Candidates and positives are copied exactly from the earlier weight-ordered greedy result. No new weight score, tensor spectrum, or activation outcome selected them.",
+    "tensor": "For writer map W and shared read basis U, compute the exact U^T M11 output change under x->x+Wz as C[a,i,k] x_i z_k + S[a,k,l] z_k z_l. C is the context-by-write tensor and S is the write-by-write tensor.",
+    "score": "Primary ranking is the cross tensor Frobenius norm divided by the product-norm upper bound ||U^T Down||_F (||Left||_F ||Right W||_F + ||Right||_F ||Left W||_F). This is invariant to orthogonal writer/read gauges and uniform writer/read rescaling. Raw cross/self norms and complete unfolding spectra for the two positives are diagnostics only.",
+    "formula_check": "For every head, compare the tensor contraction against direct finite M11 evaluation on one deterministic nonzero x,z pair; relative error must be at most 1e-5.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 0,
+      "sequence_evaluations": 0,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0,
+      "head_weight_tensors": 6
+    }
+  },
+  "predictions": {
+    "pred_a_authority_basis_formula_finiteness_and_exact_price": "All authorities match; U8 is finite and column-orthonormal within 1e-5; every finite-substitution formula has relative error <=1e-5; all scores/spectra are finite; and the zero-forward price is exact.",
+    "pred_b_both_causal_writers_are_enriched_by_weight_only_capability": "L07H07 and L09H04 each rank in the top four of six candidates by normalized context-by-write score.",
+    "pred_c_causal_pair_has_a_weight_only_capability_margin": "The mean normalized context-by-write score of L07H07/L09H04 is at least 1.10 times the mean of the other four frozen candidates.",
+    "pred_d_scope_remains_diagnostic_and_opens_no_new_causal_outcome": "The result preserves the prior causal set, selects no new head, rank, dose, or intervention, and is labeled as a weight-capability diagnostic."
+  },
+  "null": "A valid B or C failure means weight capability is too broad or too gauge-insensitive to shortlist these causal writers by itself. The next atlas must overlay frozen activation occupancy or use complete causal patches; it must not tune the capability normalization on this opened bank.",
+  "decision": "If B and C pass, weight-only capability may prospectively prioritize the complete v21 writer atlas after H/R selects the writer branch, while every nominated edge still requires causal patching. If either fails, use capability only to describe possible computation and require occupancy before shortlisting."
+}
