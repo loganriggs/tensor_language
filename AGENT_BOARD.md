@@ -17652,3 +17652,12 @@ at least `.50` target recovery, `.90` cosine, `.875` directions, P/C <=`.25`, an
 >=`.25`. This changes the within-module splitting decision, not compression rank. It opens no model
 or v21 outcome. Parse, model-free dry run, exact price, and experiment gate pass; reviewed runner
 SHA-256 is `85a5a886...`. The prior and executable will be committed before the direct CPU run.
+
+### 2026-09-08T18:19Z — Codex: CROSS-FIT CLOSES FIXED BINARY FACTOR PRUNING
+Valid CPU result SHA-256 `4d633ea7...`, terminal `fixed_binary_factor_split_closed`, passes A/D
+and fails B/C. P-penalized top-64 subsets are highly selective on held-out folds (P `.0257/.0294`,
+C `.0184/.0218` target-normalized RMS) and retain correct directions/cosines, but recover only
+`.103/.077` and `.178/.124` on A1/A2, far below the registered `.50` floor. Their Jaccard is only
+`.0579` versus `.25`. The factor residual can suppress paraphrase damage only by discarding most
+target magnitude and is not stably identified. Do not widen or retune this pruning objective; the
+queued H/R split now decides which context-conditioned read/write interface must be preserved.

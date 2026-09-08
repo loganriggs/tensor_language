@@ -1,0 +1,344 @@
+{
+  "authority_sha256": {
+    "lower_bound": "b58e22c2b3f52b8226e29df2d88df7e43adfc9d9353b3ac5e31854b2d078cf4b",
+    "prior": "a925c0469bf2c7c331536a45717ab2cd46133c7db398506653dd785ea1fa17fe",
+    "tensor": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "tensor_result": "da97abea6f3dae8721c2cda383e0b7af844217051e199046a23c6b9c264da396",
+    "v21_builder": "4289795a9886c3c36561f47ca202cb790072dd05c324d96ca9fbd5e837a23dc8"
+  },
+  "bars": {
+    "control_ratio": 0.25,
+    "target_cosine": 0.9,
+    "target_direction": 0.875,
+    "target_recovery": 0.5,
+    "top64_jaccard": 0.25
+  },
+  "candidate_id": "cross_task.temporal_iswas.v20_task_factor_crossfit_selectivity_v1",
+  "evidence_status": "post_v20_cpu_crossfit_diagnostic_only",
+  "full_v20_order_first64_only_if_screen_passes": null,
+  "heldout_control_normalized_rms": {
+    "even_to_odd": {
+      "16": {
+        "C": 0.01005276086944253,
+        "P": 0.012517684926180921
+      },
+      "32": {
+        "C": 0.015150601361106256,
+        "P": 0.016871112375825913
+      },
+      "64": {
+        "C": 0.018394886222572397,
+        "P": 0.02942949315225945
+      },
+      "8": {
+        "C": 0.00661835086344266,
+        "P": 0.007369789826377368
+      }
+    },
+    "odd_to_even": {
+      "16": {
+        "C": 0.011638149592219753,
+        "P": 0.021798866857744344
+      },
+      "32": {
+        "C": 0.01413558138506914,
+        "P": 0.01686801619172093
+      },
+      "64": {
+        "C": 0.02184620716056952,
+        "P": 0.025667201173058412
+      },
+      "8": {
+        "C": 0.013566718425304427,
+        "P": 0.019615465991102615
+      }
+    }
+  },
+  "heldout_reports": {
+    "even_to_odd": {
+      "16": {
+        "A1": {
+          "cosine": 0.9880657381988959,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.9529450915655022,
+          "signed_recovery": 0.04708317640948145
+        },
+        "A2": {
+          "cosine": 0.9644461227245512,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.970122582603055,
+          "signed_recovery": 0.02991204436623568
+        }
+      },
+      "32": {
+        "A1": {
+          "cosine": 0.9974575149687493,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.93137795681692,
+          "signed_recovery": 0.06863495195326004
+        },
+        "A2": {
+          "cosine": 0.9847163004716132,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.9568040660085073,
+          "signed_recovery": 0.043226480272805685
+        }
+      },
+      "64": {
+        "A1": {
+          "cosine": 0.9988659963131361,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.8966556217883787,
+          "signed_recovery": 0.10335791198029802
+        },
+        "A2": {
+          "cosine": 0.9937183582404454,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.9230166465540413,
+          "signed_recovery": 0.07702411341286425
+        }
+      },
+      "8": {
+        "A1": {
+          "cosine": 0.9918386707641224,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.964258242624605,
+          "signed_recovery": 0.03575271029839428
+        },
+        "A2": {
+          "cosine": 0.9453934345653078,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.9814849349161218,
+          "signed_recovery": 0.018535868948233464
+        }
+      }
+    },
+    "odd_to_even": {
+      "16": {
+        "A1": {
+          "cosine": 0.9802648886854816,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.9245206803146792,
+          "signed_recovery": 0.07560505595128221
+        },
+        "A2": {
+          "cosine": 0.953216292096332,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.9540767680279265,
+          "signed_recovery": 0.046034930940746774
+        }
+      },
+      "32": {
+        "A1": {
+          "cosine": 0.9840854657416982,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.8882719524511536,
+          "signed_recovery": 0.11195812827361468
+        },
+        "A2": {
+          "cosine": 0.9696661721245452,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.9218667858401253,
+          "signed_recovery": 0.07834478078962796
+        }
+      },
+      "64": {
+        "A1": {
+          "cosine": 0.9870356386896276,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.8223457213572114,
+          "signed_recovery": 0.17816476618224888
+        },
+        "A2": {
+          "cosine": 0.9745574440401126,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.8767932745189668,
+          "signed_recovery": 0.12366816902865743
+        }
+      },
+      "8": {
+        "A1": {
+          "cosine": 0.9829400856230776,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.9401481688300445,
+          "signed_recovery": 0.05991868804598042
+        },
+        "A2": {
+          "cosine": 0.9576238652548873,
+          "count": 8,
+          "direction_agreement": 1.0,
+          "relative_residual": 0.9599392809664005,
+          "signed_recovery": 0.040136626731690404
+        }
+      }
+    }
+  },
+  "orders_first64": {
+    "even_to_odd": [
+      321,
+      92,
+      3804,
+      1343,
+      118,
+      3821,
+      3779,
+      3251,
+      3654,
+      2667,
+      1774,
+      3222,
+      2709,
+      1247,
+      4211,
+      2467,
+      1939,
+      4273,
+      3148,
+      2202,
+      746,
+      2356,
+      329,
+      1451,
+      4109,
+      2321,
+      2687,
+      1297,
+      2922,
+      4224,
+      1873,
+      1401,
+      4309,
+      2681,
+      3666,
+      1380,
+      3928,
+      4364,
+      319,
+      237,
+      814,
+      3377,
+      3591,
+      3166,
+      3687,
+      1809,
+      1029,
+      1712,
+      1260,
+      2255,
+      3671,
+      2564,
+      2250,
+      3962,
+      713,
+      3419,
+      305,
+      2452,
+      790,
+      575,
+      1492,
+      3993,
+      105,
+      4188
+    ],
+    "odd_to_even": [
+      1926,
+      321,
+      1867,
+      2918,
+      4293,
+      2017,
+      1343,
+      87,
+      3926,
+      2988,
+      683,
+      1635,
+      1760,
+      2380,
+      79,
+      1097,
+      2412,
+      2192,
+      3377,
+      605,
+      3035,
+      2810,
+      993,
+      2922,
+      21,
+      149,
+      762,
+      3128,
+      2807,
+      4211,
+      2283,
+      3867,
+      689,
+      956,
+      373,
+      1361,
+      1774,
+      106,
+      456,
+      808,
+      70,
+      1388,
+      2726,
+      2100,
+      1441,
+      493,
+      56,
+      1861,
+      2184,
+      3610,
+      738,
+      3023,
+      770,
+      169,
+      1828,
+      829,
+      701,
+      789,
+      1324,
+      165,
+      3665,
+      2202,
+      2147,
+      576
+    ]
+  },
+  "predictions": {
+    "pred_a_authority_shape_finiteness_folds_formula_and_price": true,
+    "pred_b_binary_top64_is_target_sufficient_and_control_selective_on_both_heldout_folds": false,
+    "pred_c_binary_factor_identity_is_crossfit_stable": false,
+    "pred_d_result_is_diagnostic_and_v21_remains_causally_sealed": true
+  },
+  "price": {
+    "factor_scores": 9216,
+    "gpu_forwards": 0,
+    "heldout_prefix_panel_evaluations": 32,
+    "model_updates": 0,
+    "transformer_backwards": 0
+  },
+  "schema": "temporal_iswas_v20_task_factor_crossfit_selectivity_result_v1",
+  "serial_seconds": 0.008847352117300034,
+  "started_utc": "2026-09-08T18:19:07.618726Z",
+  "terminal": "fixed_binary_factor_split_closed",
+  "top64_jaccard": 0.05785123966942149,
+  "v21_causal_outcomes_opened": false
+}
