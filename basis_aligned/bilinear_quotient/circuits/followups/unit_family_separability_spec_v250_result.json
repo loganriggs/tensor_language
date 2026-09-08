@@ -1,0 +1,1408 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 6,
+    "k_kept": 8,
+    "k_new": 2,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v250",
+  "families": {
+    "verb_particle": [
+      "verb_particle_up_down",
+      "verb_particle_out_down"
+    ],
+    "verb_preposition": [
+      "verb_preposition",
+      "verb_preposition_insisted",
+      "verb_preposition_to_at",
+      "verb_preposition_with_about",
+      "verb_preposition_of_with",
+      "verb_preposition_from_for",
+      "verb_preposition_on_about",
+      "verb_preposition_to_about",
+      "verb_preposition_at_from",
+      "verb_preposition_on_with",
+      "verb_preposition_for_at",
+      "verb_preposition_to_with",
+      "verb_preposition_at_to",
+      "verb_preposition_from_about"
+    ]
+  },
+  "finished_utc": "2026-09-08T05:24:11.081107+00:00",
+  "members": {
+    "verb_particle_out_down": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8041,
+            "ce_lb975": 0.6876,
+            "ce_ub975": 0.9272
+          },
+          "C": {
+            "ce_damage": 0.0045,
+            "ce_lb975": -0.0001,
+            "ce_ub975": 0.0098
+          },
+          "extraction": 1.014,
+          "sib_abs_max": 0.0122,
+          "siblings": {
+            "verb_particle_up_down": -0.0122
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9416,
+            "ce_lb975": 0.8257,
+            "ce_ub975": 1.0464
+          },
+          "C": {
+            "ce_damage": -0.0013,
+            "ce_lb975": -0.0075,
+            "ce_ub975": 0.0059
+          },
+          "extraction": 1.03,
+          "sib_abs_max": 0.4664,
+          "siblings": {
+            "verb_particle_up_down": 0.4664
+          }
+        }
+      },
+      "exact_held": 0.89,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 41.4,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:08:head:08",
+        "attn:05:head:08",
+        "attn:11:head:02",
+        "attn:11:head:06",
+        "attn:16:head:08",
+        "attn:05:head:06",
+        "attn:06:head:04"
+      ]
+    },
+    "verb_particle_up_down": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.3272,
+            "ce_lb975": 1.2144,
+            "ce_ub975": 1.4445
+          },
+          "C": {
+            "ce_damage": 0.0001,
+            "ce_lb975": -0.0038,
+            "ce_ub975": 0.0036
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.0046,
+          "siblings": {
+            "verb_particle_out_down": 0.0046
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3258,
+            "ce_lb975": 1.2875,
+            "ce_ub975": 1.3657
+          },
+          "C": {
+            "ce_damage": 0.0008,
+            "ce_lb975": -0.0012,
+            "ce_ub975": 0.0027
+          },
+          "extraction": 0.991,
+          "sib_abs_max": 0.2455,
+          "siblings": {
+            "verb_particle_out_down": 0.2455
+          }
+        }
+      },
+      "exact_held": 0.893,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 39.6,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:08:head:01",
+        "attn:08:head:08",
+        "attn:16:head:08",
+        "attn:13:head:03",
+        "attn:11:head:03",
+        "attn:14:head:03"
+      ]
+    },
+    "verb_preposition": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.625,
+            "ce_lb975": 0.5817,
+            "ce_ub975": 0.6699
+          },
+          "C": {
+            "ce_damage": 0.0033,
+            "ce_lb975": -0.0047,
+            "ce_ub975": 0.0131
+          },
+          "extraction": 0.982,
+          "sib_abs_max": 0.027,
+          "siblings": {
+            "verb_preposition_at_from": -0.0135,
+            "verb_preposition_at_to": 0.008,
+            "verb_preposition_for_at": 0.0039,
+            "verb_preposition_from_about": 0.0007,
+            "verb_preposition_from_for": 0.0039,
+            "verb_preposition_insisted": -0.0031,
+            "verb_preposition_of_with": 0.0095,
+            "verb_preposition_on_about": 0.0117,
+            "verb_preposition_on_with": 0.0269,
+            "verb_preposition_to_about": 0.027,
+            "verb_preposition_to_at": 0.0016,
+            "verb_preposition_to_with": 0.0022,
+            "verb_preposition_with_about": 0.0059
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6239,
+            "ce_lb975": 0.5799,
+            "ce_ub975": 0.6695
+          },
+          "C": {
+            "ce_damage": 0.0037,
+            "ce_lb975": 0.0003,
+            "ce_ub975": 0.0075
+          },
+          "extraction": 0.982,
+          "sib_abs_max": 0.1719,
+          "siblings": {
+            "verb_preposition_at_from": 0.0277,
+            "verb_preposition_at_to": 0.1235,
+            "verb_preposition_for_at": -0.0856,
+            "verb_preposition_from_about": 0.038,
+            "verb_preposition_from_for": -0.0035,
+            "verb_preposition_insisted": -0.0846,
+            "verb_preposition_of_with": -0.0034,
+            "verb_preposition_on_about": 0.024,
+            "verb_preposition_on_with": 0.0258,
+            "verb_preposition_to_about": 0.0763,
+            "verb_preposition_to_at": 0.1719,
+            "verb_preposition_to_with": 0.029,
+            "verb_preposition_with_about": -0.0012
+          }
+        }
+      },
+      "exact_held": 0.931,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 158.4,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:14:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "verb_preposition_at_to": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0259,
+            "ce_lb975": 0.7206,
+            "ce_ub975": 1.3628
+          },
+          "C": {
+            "ce_damage": -0.001,
+            "ce_lb975": -0.0061,
+            "ce_ub975": 0.0038
+          },
+          "extraction": 1.011,
+          "sib_abs_max": 0.0064,
+          "siblings": {
+            "verb_preposition": -0.0017,
+            "verb_preposition_at_from": -0.0064,
+            "verb_preposition_for_at": -0.001,
+            "verb_preposition_from_about": -0.0019,
+            "verb_preposition_from_for": -0.0003,
+            "verb_preposition_insisted": 0.0031,
+            "verb_preposition_of_with": 0.0049,
+            "verb_preposition_on_about": 0.0026,
+            "verb_preposition_on_with": 0.0051,
+            "verb_preposition_to_about": 0.0013,
+            "verb_preposition_to_at": -0.0035,
+            "verb_preposition_to_with": -0.0054,
+            "verb_preposition_with_about": -0.0029
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0432,
+            "ce_lb975": 0.7379,
+            "ce_ub975": 1.3697
+          },
+          "C": {
+            "ce_damage": -0.0046,
+            "ce_lb975": -0.0094,
+            "ce_ub975": -0.0005
+          },
+          "extraction": 1.008,
+          "sib_abs_max": 0.3883,
+          "siblings": {
+            "verb_preposition": 0.1357,
+            "verb_preposition_at_from": 0.3288,
+            "verb_preposition_for_at": 0.0026,
+            "verb_preposition_from_about": 0.0002,
+            "verb_preposition_from_for": 0.0221,
+            "verb_preposition_insisted": -0.0587,
+            "verb_preposition_of_with": 0.0165,
+            "verb_preposition_on_about": -0.0045,
+            "verb_preposition_on_with": -0.0462,
+            "verb_preposition_to_about": 0.024,
+            "verb_preposition_to_at": 0.3883,
+            "verb_preposition_to_with": 0.0059,
+            "verb_preposition_with_about": -0.0097
+          }
+        }
+      },
+      "exact_held": 0.88,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 128.7,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:11:head:03",
+        "attn:09:head:07"
+      ]
+    },
+    "verb_preposition_for_at": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0053,
+            "ce_lb975": 0.9674,
+            "ce_ub975": 1.0442
+          },
+          "C": {
+            "ce_damage": 0.0007,
+            "ce_lb975": -0.0035,
+            "ce_ub975": 0.0049
+          },
+          "extraction": 1.009,
+          "sib_abs_max": 0.0066,
+          "siblings": {
+            "verb_preposition": 0.004,
+            "verb_preposition_at_from": -0.0005,
+            "verb_preposition_at_to": 0.0009,
+            "verb_preposition_from_about": -0.0014,
+            "verb_preposition_from_for": 0.0025,
+            "verb_preposition_insisted": -0.0066,
+            "verb_preposition_of_with": 0.0012,
+            "verb_preposition_on_about": 0.0018,
+            "verb_preposition_on_with": -0.0007,
+            "verb_preposition_to_about": 0.002,
+            "verb_preposition_to_at": -0.0004,
+            "verb_preposition_to_with": 0.0005,
+            "verb_preposition_with_about": 0.0028
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0233,
+            "ce_lb975": 0.9828,
+            "ce_ub975": 1.0664
+          },
+          "C": {
+            "ce_damage": -0.0006,
+            "ce_lb975": -0.0049,
+            "ce_ub975": 0.0043
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.3263,
+          "siblings": {
+            "verb_preposition": 0.0006,
+            "verb_preposition_at_from": 0.3263,
+            "verb_preposition_at_to": 0.302,
+            "verb_preposition_from_about": -0.0052,
+            "verb_preposition_from_for": 0.1829,
+            "verb_preposition_insisted": 0.0519,
+            "verb_preposition_of_with": 0.0105,
+            "verb_preposition_on_about": -0.0072,
+            "verb_preposition_on_with": 0.0153,
+            "verb_preposition_to_about": -0.0031,
+            "verb_preposition_to_at": 0.2825,
+            "verb_preposition_to_with": 0.0168,
+            "verb_preposition_with_about": -0.0004
+          }
+        }
+      },
+      "exact_held": 0.901,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 132.6,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:08:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:14:head:08",
+        "attn:10:head:08",
+        "attn:16:head:08",
+        "attn:08:head:01",
+        "attn:09:head:01",
+        "attn:14:head:03"
+      ]
+    },
+    "verb_preposition_from_about": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.5152,
+            "ce_lb975": 0.9667,
+            "ce_ub975": 2.0289
+          },
+          "C": {
+            "ce_damage": 0.0073,
+            "ce_lb975": -0.0025,
+            "ce_ub975": 0.0172
+          },
+          "extraction": 0.98,
+          "sib_abs_max": 0.0143,
+          "siblings": {
+            "verb_preposition": 0.0113,
+            "verb_preposition_at_from": -0.0131,
+            "verb_preposition_at_to": -0.0092,
+            "verb_preposition_for_at": 0.001,
+            "verb_preposition_from_for": -0.0045,
+            "verb_preposition_insisted": -0.0017,
+            "verb_preposition_of_with": 0.0073,
+            "verb_preposition_on_about": -0.01,
+            "verb_preposition_on_with": -0.0008,
+            "verb_preposition_to_about": -0.0143,
+            "verb_preposition_to_at": -0.0031,
+            "verb_preposition_to_with": -0.0005,
+            "verb_preposition_with_about": -0.014
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.6671,
+            "ce_lb975": 1.4423,
+            "ce_ub975": 1.8983
+          },
+          "C": {
+            "ce_damage": -0.0,
+            "ce_lb975": -0.0076,
+            "ce_ub975": 0.0069
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 1.1461,
+          "siblings": {
+            "verb_preposition": -0.0004,
+            "verb_preposition_at_from": 1.1461,
+            "verb_preposition_at_to": -0.0369,
+            "verb_preposition_for_at": -0.0151,
+            "verb_preposition_from_for": 0.0354,
+            "verb_preposition_insisted": -0.2639,
+            "verb_preposition_of_with": 0.0261,
+            "verb_preposition_on_about": 0.1429,
+            "verb_preposition_on_with": -0.0394,
+            "verb_preposition_to_about": 0.1217,
+            "verb_preposition_to_at": -0.0139,
+            "verb_preposition_to_with": 0.0201,
+            "verb_preposition_with_about": 0.1209
+          }
+        }
+      },
+      "exact_held": 0.887,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 144.7,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:08:head:01",
+        "attn:09:head:07",
+        "attn:05:head:03",
+        "attn:14:head:08",
+        "attn:04:head:01",
+        "attn:14:head:03",
+        "attn:16:head:08",
+        "attn:11:head:02",
+        "attn:05:head:06",
+        "attn:09:head:01"
+      ]
+    },
+    "verb_preposition_from_for": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9203,
+            "ce_lb975": 0.7644,
+            "ce_ub975": 1.0881
+          },
+          "C": {
+            "ce_damage": -0.0064,
+            "ce_lb975": -0.0154,
+            "ce_ub975": 0.0027
+          },
+          "extraction": 1.005,
+          "sib_abs_max": 0.0081,
+          "siblings": {
+            "verb_preposition": 0.0022,
+            "verb_preposition_at_from": 0.0013,
+            "verb_preposition_at_to": -0.0018,
+            "verb_preposition_for_at": 0.0081,
+            "verb_preposition_from_about": 0.0007,
+            "verb_preposition_insisted": 0.0042,
+            "verb_preposition_of_with": -0.0043,
+            "verb_preposition_on_about": 0.004,
+            "verb_preposition_on_with": -0.0017,
+            "verb_preposition_to_about": 0.0038,
+            "verb_preposition_to_at": 0.0038,
+            "verb_preposition_to_with": 0.0006,
+            "verb_preposition_with_about": -0.0045
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9592,
+            "ce_lb975": 0.8824,
+            "ce_ub975": 1.0357
+          },
+          "C": {
+            "ce_damage": -0.0075,
+            "ce_lb975": -0.0187,
+            "ce_ub975": 0.0029
+          },
+          "extraction": 1.008,
+          "sib_abs_max": 0.3143,
+          "siblings": {
+            "verb_preposition": -0.0145,
+            "verb_preposition_at_from": 0.0776,
+            "verb_preposition_at_to": -0.0363,
+            "verb_preposition_for_at": 0.3143,
+            "verb_preposition_from_about": 0.1228,
+            "verb_preposition_insisted": 0.1545,
+            "verb_preposition_of_with": -0.0409,
+            "verb_preposition_on_about": 0.0752,
+            "verb_preposition_on_with": 0.0297,
+            "verb_preposition_to_about": 0.0496,
+            "verb_preposition_to_at": -0.0017,
+            "verb_preposition_to_with": 0.0258,
+            "verb_preposition_with_about": 0.0427
+          }
+        }
+      },
+      "exact_held": 0.884,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 137.7,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:14:head:08",
+        "attn:06:head:03",
+        "attn:09:head:01",
+        "attn:05:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:09:head:07"
+      ]
+    },
+    "verb_preposition_insisted": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.1869,
+            "ce_lb975": 1.0797,
+            "ce_ub975": 1.3047
+          },
+          "C": {
+            "ce_damage": -0.002,
+            "ce_lb975": -0.0054,
+            "ce_ub975": 0.0012
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 0.0048,
+          "siblings": {
+            "verb_preposition": -0.0009,
+            "verb_preposition_at_from": 0.0003,
+            "verb_preposition_at_to": 0.0013,
+            "verb_preposition_for_at": 0.0021,
+            "verb_preposition_from_about": 0.0029,
+            "verb_preposition_from_for": 0.0013,
+            "verb_preposition_of_with": -0.0009,
+            "verb_preposition_on_about": 0.0048,
+            "verb_preposition_on_with": -0.0002,
+            "verb_preposition_to_about": 0.0026,
+            "verb_preposition_to_at": -0.0006,
+            "verb_preposition_to_with": -0.0009,
+            "verb_preposition_with_about": 0.0045
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.192,
+            "ce_lb975": 1.0265,
+            "ce_ub975": 1.3684
+          },
+          "C": {
+            "ce_damage": -0.0039,
+            "ce_lb975": -0.0069,
+            "ce_ub975": -0.001
+          },
+          "extraction": 0.987,
+          "sib_abs_max": 0.0736,
+          "siblings": {
+            "verb_preposition": 0.0736,
+            "verb_preposition_at_from": -0.0093,
+            "verb_preposition_at_to": 0.0286,
+            "verb_preposition_for_at": 0.0161,
+            "verb_preposition_from_about": -0.0019,
+            "verb_preposition_from_for": 0.0033,
+            "verb_preposition_of_with": 0.0261,
+            "verb_preposition_on_about": 0.0537,
+            "verb_preposition_on_with": 0.046,
+            "verb_preposition_to_about": 0.0228,
+            "verb_preposition_to_at": -0.0068,
+            "verb_preposition_to_with": 0.0101,
+            "verb_preposition_with_about": 0.0264
+          }
+        }
+      },
+      "exact_held": 0.885,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 179.7,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:07:head:08",
+        "attn:07:head:07",
+        "attn:14:head:08",
+        "attn:14:head:03"
+      ]
+    },
+    "verb_preposition_of_with": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0899,
+            "ce_lb975": 0.9926,
+            "ce_ub975": 1.1926
+          },
+          "C": {
+            "ce_damage": 0.0023,
+            "ce_lb975": -0.0012,
+            "ce_ub975": 0.0061
+          },
+          "extraction": 0.99,
+          "sib_abs_max": 0.013,
+          "siblings": {
+            "verb_preposition": 0.0007,
+            "verb_preposition_at_from": -0.013,
+            "verb_preposition_at_to": -0.0096,
+            "verb_preposition_for_at": 0.0012,
+            "verb_preposition_from_about": -0.0043,
+            "verb_preposition_from_for": 0.0086,
+            "verb_preposition_insisted": 0.0001,
+            "verb_preposition_on_about": 0.0074,
+            "verb_preposition_on_with": 0.0055,
+            "verb_preposition_to_about": -0.0048,
+            "verb_preposition_to_at": -0.0028,
+            "verb_preposition_to_with": 0.0047,
+            "verb_preposition_with_about": 0.0042
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.1047,
+            "ce_lb975": 1.0556,
+            "ce_ub975": 1.1509
+          },
+          "C": {
+            "ce_damage": -0.0012,
+            "ce_lb975": -0.0066,
+            "ce_ub975": 0.005
+          },
+          "extraction": 0.997,
+          "sib_abs_max": 0.4485,
+          "siblings": {
+            "verb_preposition": -0.0221,
+            "verb_preposition_at_from": -0.0845,
+            "verb_preposition_at_to": -0.0166,
+            "verb_preposition_for_at": -0.0267,
+            "verb_preposition_from_about": -0.0923,
+            "verb_preposition_from_for": -0.0056,
+            "verb_preposition_insisted": 0.0012,
+            "verb_preposition_on_about": -0.0138,
+            "verb_preposition_on_with": 0.4485,
+            "verb_preposition_to_about": -0.0436,
+            "verb_preposition_to_at": -0.046,
+            "verb_preposition_to_with": 0.3474,
+            "verb_preposition_with_about": 0.2012
+          }
+        }
+      },
+      "exact_held": 0.881,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 131.0,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:14:head:03",
+        "attn:16:head:08"
+      ]
+    },
+    "verb_preposition_on_about": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8022,
+            "ce_lb975": 0.6841,
+            "ce_ub975": 0.9142
+          },
+          "C": {
+            "ce_damage": 0.0007,
+            "ce_lb975": -0.0038,
+            "ce_ub975": 0.0058
+          },
+          "extraction": 0.988,
+          "sib_abs_max": 0.0228,
+          "siblings": {
+            "verb_preposition": 0.0114,
+            "verb_preposition_at_from": 0.0087,
+            "verb_preposition_at_to": 0.0066,
+            "verb_preposition_for_at": -0.0006,
+            "verb_preposition_from_about": 0.0085,
+            "verb_preposition_from_for": 0.0017,
+            "verb_preposition_insisted": 0.004,
+            "verb_preposition_of_with": -0.0001,
+            "verb_preposition_on_with": 0.0228,
+            "verb_preposition_to_about": 0.0153,
+            "verb_preposition_to_at": 0.0043,
+            "verb_preposition_to_with": -0.0047,
+            "verb_preposition_with_about": 0.0066
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9268,
+            "ce_lb975": 0.8143,
+            "ce_ub975": 1.0324
+          },
+          "C": {
+            "ce_damage": 0.005,
+            "ce_lb975": 0.0004,
+            "ce_ub975": 0.0096
+          },
+          "extraction": 0.991,
+          "sib_abs_max": 0.2736,
+          "siblings": {
+            "verb_preposition": 0.0762,
+            "verb_preposition_at_from": -0.0843,
+            "verb_preposition_at_to": -0.0062,
+            "verb_preposition_for_at": -0.1787,
+            "verb_preposition_from_about": 0.2503,
+            "verb_preposition_from_for": -0.0093,
+            "verb_preposition_insisted": 0.0115,
+            "verb_preposition_of_with": -0.0297,
+            "verb_preposition_on_with": 0.0584,
+            "verb_preposition_to_about": 0.2736,
+            "verb_preposition_to_at": -0.0119,
+            "verb_preposition_to_with": 0.0168,
+            "verb_preposition_with_about": 0.2623
+          }
+        }
+      },
+      "exact_held": 0.898,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 134.9,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:16:head:08",
+        "attn:05:head:08"
+      ]
+    },
+    "verb_preposition_to_at": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8778,
+            "ce_lb975": 0.7659,
+            "ce_ub975": 0.9843
+          },
+          "C": {
+            "ce_damage": 0.0009,
+            "ce_lb975": -0.0039,
+            "ce_ub975": 0.0058
+          },
+          "extraction": 0.985,
+          "sib_abs_max": 0.0099,
+          "siblings": {
+            "verb_preposition": 0.0025,
+            "verb_preposition_at_from": 0.0053,
+            "verb_preposition_at_to": 0.0099,
+            "verb_preposition_for_at": -0.0062,
+            "verb_preposition_from_about": 0.0,
+            "verb_preposition_from_for": 0.0054,
+            "verb_preposition_insisted": -0.0022,
+            "verb_preposition_of_with": 0.0027,
+            "verb_preposition_on_about": -0.0031,
+            "verb_preposition_on_with": 0.0005,
+            "verb_preposition_to_about": 0.0046,
+            "verb_preposition_to_with": 0.0012,
+            "verb_preposition_with_about": 0.0034
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.904,
+            "ce_lb975": 0.7298,
+            "ce_ub975": 1.0708
+          },
+          "C": {
+            "ce_damage": -0.0008,
+            "ce_lb975": -0.0056,
+            "ce_ub975": 0.0041
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.3626,
+          "siblings": {
+            "verb_preposition": 0.0991,
+            "verb_preposition_at_from": 0.3515,
+            "verb_preposition_at_to": 0.3626,
+            "verb_preposition_for_at": 0.0141,
+            "verb_preposition_from_about": -0.0553,
+            "verb_preposition_from_for": -0.0334,
+            "verb_preposition_insisted": -0.12,
+            "verb_preposition_of_with": -0.0333,
+            "verb_preposition_on_about": -0.0164,
+            "verb_preposition_on_with": -0.0573,
+            "verb_preposition_to_about": -0.0145,
+            "verb_preposition_to_with": -0.0265,
+            "verb_preposition_with_about": -0.0167
+          }
+        }
+      },
+      "exact_held": 0.898,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 151.8,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:04:head:03"
+      ]
+    },
+    "verb_preposition_to_with": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.1662,
+            "ce_lb975": 0.8108,
+            "ce_ub975": 1.5061
+          },
+          "C": {
+            "ce_damage": -0.001,
+            "ce_lb975": -0.0101,
+            "ce_ub975": 0.0084
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.0086,
+          "siblings": {
+            "verb_preposition": 0.0008,
+            "verb_preposition_at_from": 0.0062,
+            "verb_preposition_at_to": -0.0023,
+            "verb_preposition_for_at": 0.0019,
+            "verb_preposition_from_about": 0.0086,
+            "verb_preposition_from_for": -0.0021,
+            "verb_preposition_insisted": -0.0017,
+            "verb_preposition_of_with": 0.0051,
+            "verb_preposition_on_about": -0.0023,
+            "verb_preposition_on_with": 0.0022,
+            "verb_preposition_to_about": 0.0009,
+            "verb_preposition_to_at": 0.0023,
+            "verb_preposition_with_about": 0.0022
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3198,
+            "ce_lb975": 0.9187,
+            "ce_ub975": 1.6971
+          },
+          "C": {
+            "ce_damage": -0.0005,
+            "ce_lb975": -0.0085,
+            "ce_ub975": 0.0076
+          },
+          "extraction": 1.01,
+          "sib_abs_max": 0.571,
+          "siblings": {
+            "verb_preposition": 0.0474,
+            "verb_preposition_at_from": -0.0266,
+            "verb_preposition_at_to": 0.0413,
+            "verb_preposition_for_at": -0.0793,
+            "verb_preposition_from_about": 0.0373,
+            "verb_preposition_from_for": -0.0416,
+            "verb_preposition_insisted": 0.013,
+            "verb_preposition_of_with": 0.571,
+            "verb_preposition_on_about": 0.0254,
+            "verb_preposition_on_with": 0.2799,
+            "verb_preposition_to_about": 0.0568,
+            "verb_preposition_to_at": 0.1039,
+            "verb_preposition_with_about": 0.3766
+          }
+        }
+      },
+      "exact_held": 0.883,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 136.8,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:05:head:08",
+        "attn:05:head:03",
+        "attn:14:head:03",
+        "attn:08:head:08",
+        "attn:09:head:07",
+        "attn:09:head:01",
+        "attn:09:head:05"
+      ]
+    },
+    "verb_preposition_with_about": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7614,
+            "ce_lb975": 0.5285,
+            "ce_ub975": 1.0218
+          },
+          "C": {
+            "ce_damage": -0.0036,
+            "ce_lb975": -0.0122,
+            "ce_ub975": 0.0053
+          },
+          "extraction": 0.936,
+          "sib_abs_max": 0.0403,
+          "siblings": {
+            "verb_preposition": 0.0054,
+            "verb_preposition_at_from": -0.0074,
+            "verb_preposition_at_to": 0.0008,
+            "verb_preposition_for_at": 0.0081,
+            "verb_preposition_from_about": -0.0039,
+            "verb_preposition_from_for": 0.0034,
+            "verb_preposition_insisted": 0.0002,
+            "verb_preposition_of_with": -0.001,
+            "verb_preposition_on_about": -0.0106,
+            "verb_preposition_on_with": -0.0209,
+            "verb_preposition_to_about": 0.0403,
+            "verb_preposition_to_at": -0.0096,
+            "verb_preposition_to_with": 0.0219
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0312,
+            "ce_lb975": 0.9426,
+            "ce_ub975": 1.1182
+          },
+          "C": {
+            "ce_damage": -0.0005,
+            "ce_lb975": -0.0067,
+            "ce_ub975": 0.0055
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 0.5623,
+          "siblings": {
+            "verb_preposition": -0.0582,
+            "verb_preposition_at_from": -0.0043,
+            "verb_preposition_at_to": -0.044,
+            "verb_preposition_for_at": 0.0832,
+            "verb_preposition_from_about": 0.2877,
+            "verb_preposition_from_for": 0.0116,
+            "verb_preposition_insisted": -0.2848,
+            "verb_preposition_of_with": -0.0248,
+            "verb_preposition_on_about": 0.2943,
+            "verb_preposition_on_with": -0.1804,
+            "verb_preposition_to_about": 0.5623,
+            "verb_preposition_to_at": -0.0652,
+            "verb_preposition_to_with": 0.0118
+          }
+        }
+      },
+      "exact_held": 0.903,
+      "family": "verb_preposition",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 132.2,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:14:head:03",
+        "attn:16:head:08",
+        "attn:07:head:00",
+        "attn:09:head:01"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": true,
+    "pred_b_counted_kept": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "verb_preposition_at_to",
+      "verb_preposition_from_about",
+      "verb_particle_out_down",
+      "verb_preposition",
+      "verb_preposition_insisted",
+      "verb_preposition_to_at",
+      "verb_preposition_with_about",
+      "verb_preposition_of_with",
+      "verb_preposition_from_for",
+      "verb_preposition_on_about",
+      "verb_preposition_for_at",
+      "verb_preposition_to_with",
+      "verb_particle_up_down"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v250",
+  "seconds": 1655.3,
+  "separable_counts": {
+    "verb_particle": 2,
+    "verb_preposition": 11
+  },
+  "summary": {
+    "verb_particle_out_down": {
+      "fam": [
+        1.014,
+        0.0122,
+        0.0098
+      ],
+      "family": "verb_particle",
+      "n_units": 12,
+      "own": [
+        1.03,
+        0.4664,
+        0.0059
+      ],
+      "separable": true
+    },
+    "verb_particle_up_down": {
+      "fam": [
+        0.992,
+        0.0046,
+        0.0036
+      ],
+      "family": "verb_particle",
+      "n_units": 10,
+      "own": [
+        0.991,
+        0.2455,
+        0.0027
+      ],
+      "separable": true
+    },
+    "verb_preposition": {
+      "fam": [
+        0.982,
+        0.027,
+        0.0131
+      ],
+      "family": "verb_preposition",
+      "n_units": 7,
+      "own": [
+        0.982,
+        0.1719,
+        0.0075
+      ],
+      "separable": true
+    },
+    "verb_preposition_at_to": {
+      "fam": [
+        1.011,
+        0.0064,
+        0.0038
+      ],
+      "family": "verb_preposition",
+      "n_units": 8,
+      "own": [
+        1.008,
+        0.3883,
+        -0.0005
+      ],
+      "separable": true
+    },
+    "verb_preposition_for_at": {
+      "fam": [
+        1.009,
+        0.0066,
+        0.0049
+      ],
+      "family": "verb_preposition",
+      "n_units": 11,
+      "own": [
+        0.998,
+        0.3263,
+        0.0043
+      ],
+      "separable": true
+    },
+    "verb_preposition_from_about": {
+      "fam": [
+        0.98,
+        0.0143,
+        0.0172
+      ],
+      "family": "verb_preposition",
+      "n_units": 15,
+      "own": [
+        0.992,
+        1.1461,
+        0.0069
+      ],
+      "separable": true
+    },
+    "verb_preposition_from_for": {
+      "fam": [
+        1.005,
+        0.0081,
+        0.0027
+      ],
+      "family": "verb_preposition",
+      "n_units": 11,
+      "own": [
+        1.008,
+        0.3143,
+        0.0029
+      ],
+      "separable": true
+    },
+    "verb_preposition_insisted": {
+      "fam": [
+        0.989,
+        0.0048,
+        0.0012
+      ],
+      "family": "verb_preposition",
+      "n_units": 7,
+      "own": [
+        0.987,
+        0.0736,
+        -0.001
+      ],
+      "separable": true
+    },
+    "verb_preposition_of_with": {
+      "fam": [
+        0.99,
+        0.013,
+        0.0061
+      ],
+      "family": "verb_preposition",
+      "n_units": 9,
+      "own": [
+        0.997,
+        0.4485,
+        0.005
+      ],
+      "separable": true
+    },
+    "verb_preposition_on_about": {
+      "fam": [
+        0.988,
+        0.0228,
+        0.0058
+      ],
+      "family": "verb_preposition",
+      "n_units": 10,
+      "own": [
+        0.991,
+        0.2736,
+        0.0096
+      ],
+      "separable": true
+    },
+    "verb_preposition_to_at": {
+      "fam": [
+        0.985,
+        0.0099,
+        0.0058
+      ],
+      "family": "verb_preposition",
+      "n_units": 8,
+      "own": [
+        0.995,
+        0.3626,
+        0.0041
+      ],
+      "separable": true
+    },
+    "verb_preposition_to_with": {
+      "fam": [
+        0.999,
+        0.0086,
+        0.0084
+      ],
+      "family": "verb_preposition",
+      "n_units": 13,
+      "own": [
+        1.01,
+        0.571,
+        0.0076
+      ],
+      "separable": true
+    },
+    "verb_preposition_with_about": {
+      "fam": [
+        0.936,
+        0.0403,
+        0.0053
+      ],
+      "family": "verb_preposition",
+      "n_units": 10,
+      "own": [
+        0.989,
+        0.5623,
+        0.0055
+      ],
+      "separable": true
+    }
+  }
+}
