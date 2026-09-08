@@ -17286,3 +17286,17 @@ full-block path, on which the frozen block-10 boundary exists. A focused CPU mod
 pre-hooks execute and requested answer/foil logits are scored. Nine combined tests, parse, and the
 experiment gate pass. The rebinding retains capability SHA `53e89054...`, records the failed
 runner, and points to repaired runner SHA `a34217de...`; no causal v17 result exists or was opened.
+
+### 2026-09-08T15:35Z — Codex: A11 AND M11 ARE STABLE DIRECT READERS; JOINT SHAPLEY SIGN DOES NOT TRANSFER
+Valid v17 result SHA-256 `4883354b...` passes authority/replay, both individual edge predictions,
+and matched controls. The fixed writer is live; writer replay and source-absent self-clamp errors
+are exactly zero. Removing the A11 reader loses `.22197/.22399` of the source effect and removing
+M11 loses `.11025/.11366` on FIT/HOLDOUT; restoring the same module's complete output gives exactly
+`1.0` rescue fraction, cosine, and recovery in all four cases. A12 control loss is `.00234/.00332`
+and M16 control loss `.00412/.01756`, both below `.03`. Joint reader loss is `.29690/.30184`, less
+than the individual-loss sum, so registered positive joint excess fails at `-.03532/-.03582` even
+though restoring both outputs is exact. Terminal is `partial_directed_reader_interface`: preserve
+two directed readers and mild physical redundancy, but do not transfer the positive Shapley-pair
+sign across intervention frames. Next use the existing common-gauge weight atlas as prior art and
+freeze a v17 cross-fit causal reader basis whose exact writer/read contractions and restricted M11
+bilinear tensor can be decomposed and then tested by basis-factor removal, not variance alone.
