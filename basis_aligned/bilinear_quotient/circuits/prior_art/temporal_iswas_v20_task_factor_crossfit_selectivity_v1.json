@@ -1,0 +1,48 @@
+{
+  "schema": "temporal_iswas_v20_task_factor_crossfit_selectivity_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v20_task_factor_crossfit_selectivity_v1",
+  "registered_utc": "2026-09-08T18:16:00Z",
+  "question": "Despite near-antiparallel target and P task-functional means, can a fixed binary native-factor subset isolate a stable target-specific residual across held-out v20 groups?",
+  "evidence_status": "Post-v20 CPU diagnostic with even/odd group cross-fitting. A pass only nominates a factor subset for causal v21 confirmation; it is not causal identification.",
+  "prior_art": {
+    "searched": [
+      "exact output-greedy, task-tangent, top-16 confirmation, v20 response tensor, and selectivity lower-bound receipts",
+      "all M11 hidden-mask, sparse-factor, greedy, response-basis, and construction-crossfit records",
+      "active board claims and canonical temporal dossier"
+    ],
+    "known_result": "Pooled target/P native-factor response cosine is -.9816 and an unconstrained mean-cancellation relaxation needs 5.24x coefficient-norm amplification. That bound does not logically exclude a stable binary subset supported by the residual 19.1% direction.",
+    "novelty": "No prior test selects exact M11 factors with an explicit P penalty on one v20 group fold and evaluates unchanged binary prefixes on the opposite fold in both directions."
+  },
+  "authority": {
+    "response_tensor_result_sha256": "da97abea6f3dae8721c2cda383e0b7af844217051e199046a23c6b9c264da396",
+    "response_tensor_npz_sha256": "a79ff1b0e8eac3e3b135a8cb02eaa58e83c317ade23f0d65950b90b2ef2dff12",
+    "lower_bound_sha256": "b58e22c2b3f52b8226e29df2d88df7e43adfc9d9353b3ac5e31854b2d078cf4b"
+  },
+  "frozen_design": {
+    "folds": "Fit even group numbers and test odd, then fit odd and test even. Each fit/test fold contains eight matched rows per A1/A2/P/C panel.",
+    "score": "On the fit fold, divide each factor's A1 and A2 mean contributions by the absolute corresponding full-factor panel mean. Divide its P mean contribution by pooled target full-effect RMS. Score factor n as min(A1_n,A2_n)-4*abs(P_n); sort descending with index as exact-tie breaker. Coefficients remain binary one.",
+    "prefixes": [8, 16, 32, 64],
+    "primary_prefix": 64,
+    "heldout_bars": {
+      "each_A1_A2_signed_recovery_minimum": 0.5,
+      "each_A1_A2_cosine_minimum": 0.9,
+      "each_A1_A2_direction_agreement_minimum": 0.875,
+      "each_P_C_target_normalized_RMS_maximum": 0.25,
+      "top64_crossfit_jaccard_minimum": 0.25
+    },
+    "price": {
+      "gpu_forwards": 0,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "factor_scores": 9216,
+      "heldout_prefix_panel_evaluations": 32
+    }
+  },
+  "predictions": {
+    "pred_a_authority_shape_finiteness_folds_formula_and_price": "Authorities, exact 4x16x4608 tensor, folds, score, stable ordering, finiteness, and CPU-only price pass.",
+    "pred_b_binary_top64_is_target_sufficient_and_control_selective_on_both_heldout_folds": "On both held-out folds, top-64 reaches recovery >=.5, cosine >=.9, and direction >=.875 on A1/A2 while P/C normalized RMS are each <=.25.",
+    "pred_c_binary_factor_identity_is_crossfit_stable": "The two independently selected top-64 sets have Jaccard overlap >=.25.",
+    "pred_d_result_is_diagnostic_and_v21_remains_causally_sealed": "The result performs no model call or causal intervention and does not promote a v20-selected subset without v21 confirmation."
+  },
+  "decision": "B/C passing preserves a factor-splitting route and freezes a full-v20 order only for causal v21 testing. Any B or C miss closes fixed binary pruning as the immediate repair and prioritizes the queued native read/write sign localization."
+}

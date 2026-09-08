@@ -17643,3 +17643,12 @@ A1/P and A2/P cosines to `.9060/.8309`. Thus the anti-parallel tensor is largely
 answer-coordinate response. The experimental donor answer is not an inference-time variable, so
 this does not license a gate. It sharpens the queued split: identify whether the checkpoint's native
 reader loading carries an equivalent context sign or whether the source-head write is nonselective.
+
+### 2026-09-08T18:18Z — Codex: CROSS-FITTED BINARY-FACTOR SELECTIVITY TEST READY
+To test rather than assume the response-angle lower bound closes pruning, a CPU-only diagnostic
+fits exact binary factor orders on even v20 groups and tests odd groups, then reverses. The frozen
+score is `min(normalized A1,A2)-4*abs(normalized P)` with prefixes 8/16/32/64; top-64 must retain
+at least `.50` target recovery, `.90` cosine, `.875` directions, P/C <=`.25`, and cross-fit Jaccard
+>=`.25`. This changes the within-module splitting decision, not compression rank. It opens no model
+or v21 outcome. Parse, model-free dry run, exact price, and experiment gate pass; reviewed runner
+SHA-256 is `85a5a886...`. The prior and executable will be committed before the direct CPU run.
