@@ -895,15 +895,41 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   `.859/.864` temporal and `.855/.840` is-was, but is not selected because the frozen rule prefers
   the smallest arm already meeting both quality bars.  The selected H4 now requires simultaneous
   composition confirmation.
+- Four-head joint composition:
+  `temporal_iswas_four_head_union_joint_composition_v1_result.json` (valid full license).  The
+  selected L9H1+L9H4+L11H3+L15H5 program exactly replays its single-command result and preserves
+  temporal recovery `.833/.848` and is-was `.696/.669` under simultaneous installation.  Temporal
+  interaction is exactly zero.  Is-was interaction ranges only `.00297-.01118` across held-out and
+  template panels, with additive cosine at least `.999938`; later-to-earlier causal effect remains
+  exactly zero.  H4 therefore supersedes H3 as the best currently licensed joint head program,
+  while remaining a partial-effect rather than complete behavioral replacement.
+- H4 exact reader-factor split:
+  `temporal_iswas_h4_reader_factor_factorial_v1_result.json` (valid partial split).  L11H3:v over the
+  causal prefix explains essentially all of its complete-head effect in both tasks and phases:
+  parent-relative recovery is `1.015/1.026` temporal and `.966/.973` is-was, cosine `.993-.997`,
+  and direction `1.0`.  By contrast, the weight-nominated L15H5 q/q2 story is causally false in this
+  intervention: q is anti-aligned and negative (`-.118` to `-.225`), q2 is small and positive
+  (`.055-.226`), and q+q2 nearly cancels (`-.053` to `.012`).  Their pooled is-was interaction ratio
+  is `.771/.618`, so the multiplicative pattern factors cannot be called an additive reader split.
+  The three-factor union passes only because L11H3:v dominates its two-head parent.  Preserve the
+  L11 value-reader identification, close L15 q/q2 as a causal explanation, and do not convert exact
+  weight enrichment into causal identity without intervention.
+- Fresh dual-command OOD capability:
+  `temporal_iswas_dual_command_ood_native_capability_v1_result.json` (valid complete native license).
+  All 32 cells pass on temporal-v12 registry/field-report plus is-was-v16 right-now/these-days
+  constructions and sixteen fresh lexical groups.  Thirty-one cells are `8/8`; FIT
+  field-these-days past-temporal is `7/8`.  All rows are retained.  This opens a prospective H4 OOD
+  intervention, but native capability alone is not circuit generalization evidence.
 
 ## Remaining gates
 
-1. Run the frozen complete exact-weight atlas on temporal Q8 and both physical is-was folds.  Use it
-   to distinguish shared readers/writers from task-typed interfaces, then causally test nominated
-   interfaces; weight energy alone is not identification.
-2. Capability-qualify a second same-sequence population whose temporal prefix is byte-identical to
-   a previously qualified standalone prefix.  Do not reuse or filter the failed first bank.
-3. If the second bank passes, run the exact `00/10/01/11` causal composition factorial in the
-   measured rank-12 task-typed direct sum, reporting Möbius interaction and additive closure.
-4. Retain the stable is-was fold pair rather than selecting or averaging one fold after outcomes.
-5. Price an extracted executor only after these identification gates pass.
+1. Run the frozen H4 intervention unchanged on the newly licensed OOD population, including
+   single-command and simultaneous effects, canonical margins, cross-role selectivity, and exact
+   Möbius interaction.  No site or threshold may be reselected from OOD outcomes.
+2. Localize the source positions and any key-side partner for the identified L11H3 value route.
+   L15H5 q/q2 weight enrichment is now closed as a causal reader explanation for this program.
+3. Test selective H4 removal and whether an explicit H4/L11-value interface plus native background
+   predicts the signed loss, rather than inferring necessity or extraction from donor swaps.
+4. Retain the stable is-was fold pair and all failed registered claims rather than selecting a
+   favorable gauge, factor, task, phase, or template after outcomes.
+5. Price an extracted executor only after OOD composition and selective manipulation pass.

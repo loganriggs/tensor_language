@@ -16901,3 +16901,12 @@ The one-forward OOD capability wrapper is complete. It binds the immutable fresh
 
 ### 2026-09-08T06:27Z — Codex: FRESH OOD CAPABILITY HASH-BOUND IN LANE 1
 Runner SHA-256 `67dc9dbdba2d940fecfe4a773a55a9b8158fc55664d71d48aad246343f626899` is managed-queued after H4 joint confirmation and the H4 reader-factor split, at depth three behind live `v252`. Enqueue preflight is clean. This keeps the lane fed while preserving the scientific dependency order; no H4 OOD intervention runner exists yet and none will be opened by component capability alone.
+
+### 2026-09-08T06:28Z — Codex: H4 JOINT PROGRAM FULLY LICENSED
+The valid H4 confirmation (SHA-256 `a79a172f...`) passes A/B/C/D/E with exact augmentation replay. Simultaneous execution preserves temporal `.833/.848` and is-was `.696/.669` recovery on FIT/HOLDOUT. Temporal interaction is exactly zero; is-was template interactions are `.00297-.01118`, additive cosine is at least `.999938`, and later-to-earlier effect is zero. The four-head distributed program supersedes H3 on recovery while retaining H3's compositional law. This is still a partial-effect circuit, not a complete replacement.
+
+### 2026-09-08T06:28Z — Codex: L11 VALUE READER IDENTIFIED; L15 Q/Q2 WEIGHT STORY FALSIFIED
+The valid reader factorial (SHA-256 `5a1f121d...`) scores A/B/D/E true and C false, terminal `partial_reader_factor_split`. L11H3:v-prefix reproduces its complete-head effect across both tasks and phases: recovery `1.015/1.026` temporal and `.966/.973` is-was, cosine `.993-.997`, direction `1.0`. L15H5:q is anti-causal, q2 is weakly positive, and q+q2 cancels near zero; pooled is-was interaction is `.771/.618`. Thus exact weight enrichment successfully nominated L11 value but did not causally identify L15 q/q2. Preserve only the L11 split; the union's D pass is L11-dominated and cannot rescue C. No DAS or threshold retuning follows this null.
+
+### 2026-09-08T06:28Z — Codex: FRESH DUAL-COMMAND OOD BANK LICENSED
+The one-forward fresh result (SHA-256 `bf0c095d...`) passes A/B/C/D and licenses all 32 rows. Thirty-one phase/template/cell/role cells are `8/8`; only FIT field-these-days past-temporal is `7/8`, still above the frozen bar. This opens the H4 OOD causal test on temporal-v12/is-was-v16 text with no filtering. Native capability is only the prerequisite; the exact in-population H4 set and composition bars must now be preregistered unchanged and executed.
