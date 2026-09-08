@@ -103,6 +103,7 @@ def test_all_three_arm_uses_live_local_factors_and_cleans_hooks(monkeypatch):
                       "right": torch.full((2, 3, 18), 7.0)}
     writer_modules = {name: torch.full((2, 3, 18), float(index + 2))
                       for index, name in enumerate(two_stream.factorial.atlas.MODULES)}
+    writer_modules["M11"] = torch.full((2, 3, 18), 28.0)
     logits, calls, m11_output, closure = target.run_factor_arm(
         two_stream, backend, torch.zeros(2, 3), torch.ones(2, 3, 18),
         writer_factors, writer_modules, [[0, 1], [0, 1, 2]], "all_three")
@@ -113,5 +114,20 @@ def test_all_three_arm_uses_live_local_factors_and_cleans_hooks(monkeypatch):
     assert torch.allclose(m11_output[0, :2], torch.full((2, 18), 28.0))
     assert torch.allclose(m11_output[1], torch.full((3, 18), 28.0))
     assert logits.shape == (2, 3, 18)
+    assert not block10.pre_hooks and not mlp.hooks and not mlp.Down.pre_hooks
+    assert not mlp.Left.hooks and not mlp.Right.hooks
+
+    _complete_logits, complete_calls, complete_output, complete_closure = target.run_factor_arm(
+        two_stream, backend, torch.zeros(2, 3), torch.ones(2, 3, 18),
+        writer_factors, writer_modules, [[0, 1], [0, 1, 2]], "complete_M11")
+    _none_logits, none_calls, none_output, none_closure = target.run_factor_arm(
+        two_stream, backend, torch.zeros(2, 3), torch.ones(2, 3, 18),
+        writer_factors, writer_modules, [[0, 1], [0, 1, 2]], "none")
+    assert complete_calls["m11"] == none_calls["m11"] == 1
+    assert complete_closure < 2e-7 and none_closure < 2e-7
+    assert torch.equal(complete_output[0, :2], writer_modules["M11"][0, :2])
+    assert torch.equal(complete_output[1], writer_modules["M11"][1])
+    assert torch.allclose(m11_output[0, :2], torch.full((2, 18), 28.0))
+    assert not torch.equal(none_output[0, :2], complete_output[0, :2])
     assert not block10.pre_hooks and not mlp.hooks and not mlp.Down.pre_hooks
     assert not mlp.Left.hooks and not mlp.Right.hooks
