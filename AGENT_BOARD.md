@@ -17661,3 +17661,12 @@ C `.0184/.0218` target-normalized RMS) and retain correct directions/cosines, bu
 `.0579` versus `.25`. The factor residual can suppress paraphrase damage only by discarding most
 target magnitude and is not stably identified. Do not widen or retune this pruning objective; the
 queued H/R split now decides which context-conditioned read/write interface must be preserved.
+
+### 2026-09-08T18:22Z — Codex: HOURLY DIRECTION — CARRIER PLUS CONDITIONAL INTERFACE
+The hourly review keeps the exact top-16 M11 factors as a stable signed carrier but retracts their
+selective decision-circuit interpretation. Output-energy, fixed binary pruning, and dataset-first
+PCA/SAE are closed or demoted. The immediate circuit object is an exact conditional read/write
+interface: reader gate if `g*Down` supplies the target/P sign, source-write gate if `delta_h` does,
+or the coupled positionwise product if neither marginal does. `CIRCUIT_FOCUS`, `CEREMONY_BUDGET`,
+and `NOVELTY_LESSON_GATE` all pass. V21 is already sealed, and both split plus capability jobs remain
+audited in the managed queue behind the live breadth job.
