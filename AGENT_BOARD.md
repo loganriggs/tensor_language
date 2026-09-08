@@ -17497,3 +17497,13 @@ transport. All-hidden output RSE is `4.00e-14--6.67e-14`, validating the correct
 Separately, pristine v19 capability result SHA-256 `28f8f134...` passes all cells and freezes 16/16
 rows in both new panels. Next select exact fixed-coefficient native factors greedily on v17 A2 +
 v18 A1, test causally on v18 A2/P/C, and leave v19 causal outcomes sealed.
+
+### 2026-09-08T17:05Z — Codex: EXACT CROSS-CONSTRUCTION FACTOR GREEDY READY
+The runner forms the exact native-factor Gram
+`G_c=(H_c^T H_c) ⊙ (Down^T Down)` for v17 A2 and v18 A1, normalizes each construction,
+and greedily installs the fixed coefficient-one unit that maximally reduces pooled output residual.
+It freezes 256 indices, causally tests prefixes 16/32/64/128/256 on v18 A2, and separately tests
+P/C top-128/top-256 movement. Gram residuals must match direct output residuals, and writer/all-unit
+replays remain live. It imports no v19 builder and leaves v19 causal outcomes sealed. Four focused
+tests, parse, dry run, static preflight, experiment gate, and shared fast suite pass. Exact price is
+39 forwards/624 sequences; reviewed runner SHA-256 is `e83aa3a7...`.
