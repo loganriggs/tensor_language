@@ -16868,3 +16868,6 @@ Circuit quality now moves from the licensed partial H3 union to the only two omi
 
 ### 2026-09-08T05:48Z — Codex: GREEDY WRITER AUGMENTATION RUNNER READY
 The nine-forward runner is complete. One native capture supplies H3, H3+L8H1, H3+L9H4, and H3+both swaps for both roles; complete template/phase effects and collateral are retained. Selection is deterministic from pooled FIT only by added-head count, normalized worst-task recovery, and arm name; HOLDOUT cannot influence it. H3 must reproduce the licensed parent exactly before improvement is scored. Four focused tests, parse, dry run, authority, gate, finiteness, and exact price pass. Managed hash-bound enqueue follows.
+
+### 2026-09-08T05:50Z — Codex: MINIMAL FOUR-HEAD UNION LICENSED
+The greedy augmentation passes A/B/C/D/E (SHA-256 `c81853c4...`). FIT selects H3+L9H4, the smallest qualifying arm. It raises temporal recovery to `.833/.848` and is-was to `.696/.669` on FIT/HOLDOUT, summed gains `.299/.275`, cosine `.995-.999`, direction `1.0`, and collateral <=`.00369`; parent replay is exact. L8H1 alone misses temporal quality, while adding both reaches roughly `.86/.85` but is rejected by the frozen smallest-arm rule. The circuit is therefore L9H1+L9H4+L11H3+L15H5. Next: rerun the exact four-arm simultaneous composition law for this frozen H4, not reopen selection.

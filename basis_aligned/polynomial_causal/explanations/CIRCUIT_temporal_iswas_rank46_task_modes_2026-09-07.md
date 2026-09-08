@@ -886,6 +886,15 @@ capture and a native-only dual-command capability builder before a 2x2 causal fa
   below `.00288`.  This identifies a shared physical three-head interface carrying task-typed
   command states compositionally.  It does not identify any singleton module as sufficient and is
   still a partial-effect circuit rather than a full behavioral replacement.
+- Greedy shared-writer augmentation:
+  `temporal_iswas_greedy_shared_writer_augmentation_v1_result.json` (valid full license).  FIT
+  selects the smallest qualifying addition, L9H4, yielding the four-head union
+  L9H1+L9H4+L11H3+L15H5.  Temporal recovery rises from `.706/.752` to `.833/.848` and is-was from
+  `.523/.491` to `.696/.669` on FIT/HOLDOUT; summed gains are `.299/.275`, cosines are
+  `.995-.999`, direction is `1.0`, and collateral is at most `.00369`.  Adding L8H1 too would reach
+  `.859/.864` temporal and `.855/.840` is-was, but is not selected because the frozen rule prefers
+  the smallest arm already meeting both quality bars.  The selected H4 now requires simultaneous
+  composition confirmation.
 
 ## Remaining gates
 
