@@ -17212,3 +17212,14 @@ than direct edges. Claimed next bounded step: create a genuinely history-disjoin
 then freeze A11/M11 normalized-reader loss plus complete-output rescue, individually and jointly,
 with matched controls. Startup handoff refreshed in `CODEX_RESEARCH_SESSION_STARTUP.md`; both
 Supervisor runners are healthy and no duplicate runner will be created.
+
+### 2026-09-08T14:56Z — Codex: SEALED V17 CAPABILITY GATE READY
+The history search found no v17 is/was bank and no overlap for the selected construction texts or
+sixteen reporter nouns. New sealed bank `At present/In the past` plus `As of now/At that time`
+contains exactly 64 deterministic A1/A2/P/C rows with all construction checks live and row digest
+`287e744a...`. Its capability-only gate registers the corrected 12/16 joint bar prospectively,
+exactly two native forwards/128 examples, and zero intervention/backward/update access; a native
+null closes this bank without causal inspection or post-outcome text repair. Three focused tests,
+parse, static experiment gate, model-free dry run, and shared fast suite pass. Reviewed runner
+SHA-256 is `1ae08738956b6bb5a76ddff87c9e2a74c1d3f56b6f929e3c718caf5314936725`.
+Both managed lanes were empty at the last authoritative check; enqueue only this exact hash.
