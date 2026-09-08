@@ -19,7 +19,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
-| `cross_task.temporal_iswas.dual_command` | cross_task_program | identified_partial | `task_typed_source_value_under_shared_native_routing` | 2 tasks, original+OOD | 5 | localize the validated is-was L11H3 bypass by full downstream module patching, split passing attention modules into heads, then translate the bypass tensor through exact reader weights |
+| `cross_task.temporal_iswas.dual_command` | cross_task_program | identified_partial | `task_typed_source_value_under_shared_native_routing` | 2 tasks, original+OOD | 6 | combine the distributed downstream full-module mediators greedily; split selected attention modules into heads, then translate the bypass tensor through exact reader weights |
 
 ### `cross_task.temporal_iswas.dual_command` — exact task-typed source interface, causal writers pending mediation
 
@@ -80,6 +80,13 @@ present but do not improve mediation. Temporal remains the stable positive contr
 `.782-.801`. The compact shared writers therefore split by downstream use: temporal is largely
 carried through L11H3, while roughly 80% of their is-was command effect uses a different route.
 
+A full attention/MLP output atlas over blocks 10--17 finds no single dominant bypass module. A11
+and M11 each mediate about `.17`, M12 about `.10`, and smaller aligned effects recur through
+M13/M15/M16; every temporal-command collateral is zero and FIT/HOLDOUT rankings are stable. This
+is a registered distributed singleton null, not authority to lower the `.20` gate. The frozen
+singleton-ranked cumulative successor tests whether these module writes compose to close the
+bypass before any head-level split.
+
 The H4 program is already jointly composable and selectively manipulable.  On original text its
 four-head command recoveries are temporal `.833/.848` and is-was `.696/.669`; on fresh OOD they are
 `.835/.833` and `.730/.739`.  Joint interaction is small and later-to-earlier causal effect is
@@ -94,7 +101,7 @@ temporal recovery `.828-.847` original and `.831-.835` OOD, is-was `.652-.683` o
 | held-out and OOD prediction | held for H4, source regions, formula, weights, and compact causal writer prefixes | no row filtering or OOD reselection; selected P3 temporal/P2 is-was validate prospectively |
 | extraction / sufficiency | held at explicit L11 interface; bypass localized only negatively | exact bilinear tensor plus native routing/background; full-prefix value and full L11H3 head both fail to close selected is-was writers |
 | selective manipulation | held for H4 and temporal writer→source edge; partial for is-was | original/OOD midpoint removal passes; exact source formula carries `.783-.799` temporal but only `.165-.203` is-was writer effect |
-| composition and reuse | held for H4 and writer additivity; shared-edge interpretation split | L7H7/L9H4 write both tasks causally, but only temporal is strongly closed through the source-local L11 formula; is-was route ladder pending |
+| composition and reuse | held for H4 and writer additivity; shared-edge interpretation split | L7H7/L9H4 write both tasks causally, temporal closes through L11H3, and is-was has multiple small downstream module mediators awaiting cumulative composition |
 | stable identification | held for the L11 branch and its bypass null | original/OOD source, routing, tensor, weight-ranking, causal-head recurrence, and nested route failure; bypass destination identity still open |
 | literal simplicity / adoption | open | greedy pruning reduces temporal writers 5→3 and is-was writers 5→2; native background and suffix still required; no whole-model parameter or block elimination claimed |
 
@@ -114,6 +121,7 @@ temporal recovery `.828-.847` original and `.831-.835` OOD, is-was `.652-.683` o
 | `temporal_iswas.l11h3_weight_ordered_greedy` | compact writer selection | P3 temporal, P2 is-was; all frozen gates held | `temporal_iswas_l11h3_source_writer_weight_ordered_greedy_v1_result.json` |
 | `temporal_iswas.l11h3_writer_formula_mediation` | explicit edge mediation | temporal held; is-was route null | `temporal_iswas_l11h3_source_writer_formula_mediation_v2_result.json` |
 | `temporal_iswas.l11h3_writer_route_closure_ladder` | nested physical mediation | is-was L11H3 bypass dominant | `temporal_iswas_l11h3_writer_route_closure_ladder_v1_result.json` |
+| `temporal_iswas.selected_writer_downstream_module_atlas` | complete-module mediation | distributed singleton null; A11/M11 strongest | `temporal_iswas_selected_writer_downstream_module_mediation_atlas_v2_result.json` |
 
 ### `task.subject_verb_number_agreement` — path_grouped
 
