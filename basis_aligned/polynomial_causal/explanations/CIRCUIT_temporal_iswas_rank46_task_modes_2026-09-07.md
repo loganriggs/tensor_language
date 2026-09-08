@@ -753,6 +753,13 @@ alignment remains nomination, not proof, by the earlier L15H5 counterexample.
   direction and cosine (`>=.995`) but fail magnitude: A2 payloads overshoot A1 (`1.61-1.98`) while
   A1 payloads undershoot A2 (`.557-.758`).  The shared direction therefore needs a construction
   gain before payload reuse is established.
+- Cross-fit construction-gain swap:
+  `temporal_iswas_v15_final_rank2_crossfit_gain_calibrated_swap_v1_result.json` (valid partial null).
+  Opposite-parity state-norm gains are reciprocal and cross-fold stable within `19.6%`.  They repair
+  the frozen direct path to `.807-1.234` signed projection with cosine `>=.995`, but the live suffix
+  still overshoots two cells to `1.342/1.389`, and one cell worsens relative to the unscaled swap.
+  Thus the dominant direct payload is reusable with a scalar construction gain, while the minor
+  live suffix correction is construction/parity dependent; the registered whole-program claim fails.
 
 ## Remaining gates
 
