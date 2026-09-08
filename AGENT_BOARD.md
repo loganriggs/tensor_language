@@ -17721,3 +17721,16 @@ of a cell-constant synthetic H/R program, fold balance, and malformed inputs. Th
 weight-tensor circuit infrastructure rather than a new decomposition result; it makes the sealed
 post-split test a thin hash-bound scorer once the managed artifact lands. The live v281 handle and
 both queued successors remain untouched.
+
+### 2026-09-08T18:51Z — Codex: RAW Q CONFIRMS THE DISCRETE HIERARCHY PREDICTS MAGNITUDE
+Valid CPU result SHA-256 `730575d5...`, terminal `raw_additive_state_program`, passes A--D.
+Reporter-disjoint raw panel-by-direction cell means predict all 48 held-out factor-response vectors
+with pooled cosine `.9512`, signed recovery `.9171`, relative residual `.3089`, and positive dot on
+every row. The raw additive `panel + direction - grand` program reaches cosine `.9285`, recovery
+`.8648`, and residual `.3715`; it trails the cell table by only `.0227` cosine and `.0626` residual.
+Every per-fold cell cosine is >=`.8457`. Thus the prior normalized hierarchy was not hiding a free
+amplitude variable: discrete states predict both direction and most magnitude. This is the direct-Q
+upper bound, not a causal implementation. The sealed H/R program now has a meaningful target:
+determine whether separately averaged writer and reader states approach this `.951/.917` ceiling or
+whether the remaining response requires within-document/position covariance. The managed split
+remains queued and its outcome was not opened.
