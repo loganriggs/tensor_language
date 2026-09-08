@@ -14,6 +14,12 @@ which resumes the old session and its model):
 codex -m gpt-6-astra -C /workspace/tensor_language
 ```
 
+In the ChatGPT desktop app, first use **Menu > Check for Updates**, then create a new Codex chat
+and open its model picker. Astra is rolling out gradually, so it may still be absent from the
+desktop picker even when the CLI catalog already exposes it. The explicit CLI command above is
+the verified path for this account. If the command ever reports an access error, that is an
+account/workspace rollout issue rather than a repository or GPU-instance problem.
+
 Then paste the prompt in **Suggested first prompt in a new session** at the end of this document.
 To diagnose a stale picker, query the actual catalog:
 
@@ -38,9 +44,9 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
-## Authoritative handoff snapshot — 2026-09-08 10:04 UTC
+## Authoritative handoff snapshot — 2026-09-08 10:32 UTC
 
-The current committed branch edge is `22ab9467a`. The selected upstream source-writer prefixes
+The current committed and pushed branch edge is `48eb8020e`. The selected upstream source-writer prefixes
 are now identified and validated: temporal uses `L7H7 + L9H4 + L9H1`; is-was uses
 `L7H7 + L9H4`. The exact recipient-native L11H3 source formula mediates `.783-.799` of the
 temporal writer effect, but only `.165-.203` of is-was. A nested source/full-prefix/full-head
@@ -58,21 +64,30 @@ basis_aligned/bilinear_quotient/ops/run_temporal_iswas_downstream_module_singlet
 SHA-256 13734de17a6e0c7fa47be1fe3d45804e94e59d8743562e2075e2f0aa8a420d39
 ```
 
-That exact hash is the sole line in managed lane 1, behind the verified-live unrelated
+That exact hash is first in managed lane 1, behind the verified-live unrelated
 `run_unit_family_separability_spec_v256.py` process (PID `1171621`, started 09:51:56 UTC). At
-10:03 UTC it had emitted 3/20 evaluations and remained healthy. Do not enqueue a duplicate,
+10:30 UTC it had emitted 9/20 evaluations and remained healthy. Do not enqueue a duplicate,
 bypass the managed runner, or restart either job.
 
-An independent six-forward 2x2 successor is preregistered as
+An independent six-forward 2x2 successor is implemented, tested, committed, and second in the
+managed queue. Its runner is
+`ops/run_temporal_iswas_selected_writer_residual_skip_module_response_factorial_v1.py` at exact
+SHA-256 `9e3c9773bb96330f2b2166f5fe2c1087d4ec10b8199f7f4219c527e48ef89c0e`; its preregistration is
 `circuits/prior_art/temporal_iswas_selected_writer_residual_skip_module_response_factorial_v1.json`.
 It crosses native/writer block-10 input residual with native/writer outputs for all A10--M17
 modules. This distinguishes residual identity carriage, distributed module response, redundancy,
 and state-response interaction while avoiding the older tautology that a complete input state is
-sufficient by definition. Finish its runner and focused tests, commit/push, then enqueue its exact
-reviewed hash behind the cumulative-prefix screen.
+sufficient by definition. Do not enqueue or launch another copy.
+
+While the GPU predecessor runs, two branch-specific exact-weight routes have been audited on CPU.
+If the module-response branch wins, preserve the exact activation-conditioned MLP split
+`Delta h = Delta L R0 + L0 Delta R + Delta L Delta R`; prior evidence rejects dropping the
+interaction term or treating static tensor norms as causal ordering. If the residual-identity
+branch wins, compile the block-10 residual delta through the controlled identity recurrence and
+test a direct final-residual installation before interpreting RMSNorm/unembedding geometry.
 
 The newest review clocks are
-`HOURLY_STRATEGIC_REVIEW_2026-09-08_0922.md` (next safe-boundary review after 10:22 UTC) and
+`HOURLY_STRATEGIC_REVIEW_2026-09-08_1022.md` (next safe-boundary review after 11:22 UTC) and
 `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_0826.md` (next after 11:26 UTC). Reinspect live
 files, queues, processes, and newer commits before relying on this snapshot.
 
