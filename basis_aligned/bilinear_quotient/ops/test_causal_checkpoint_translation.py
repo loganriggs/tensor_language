@@ -24,6 +24,128 @@ def test_head_slice_contraction_equals_complete_linear_output_difference():
     assert torch.allclose(translated, complete_delta, atol=2e-6, rtol=2e-6)
 
 
+def test_restricted_writer_and_reader_are_exact_weight_contractions():
+    torch.manual_seed(101)
+    residual, writer_in, reader_out, rank = 7, 5, 4, 3
+    basis, _ = torch.linalg.qr(torch.randn(residual, rank))
+    writer = torch.randn(residual, writer_in)
+    reader = torch.randn(reader_out, residual)
+    assert torch.allclose(
+        target.restricted_writer_operator(writer, basis), basis.T @ writer
+    )
+    assert torch.allclose(
+        target.restricted_reader_operator(reader, basis), reader @ basis
+    )
+
+
+def test_restricted_bilinear_core_equals_full_checkpoint_computation():
+    torch.manual_seed(102)
+    residual, hidden, input_rank, output_rank = 8, 11, 3, 2
+    input_basis, _ = torch.linalg.qr(torch.randn(residual, input_rank))
+    output_basis, _ = torch.linalg.qr(torch.randn(residual, output_rank))
+    left, right = torch.randn(hidden, residual), torch.randn(hidden, residual)
+    down = torch.randn(residual, hidden)
+    coordinates = torch.randn(13, input_rank)
+    states = coordinates @ input_basis.T
+    full_output = ((states @ left.T) * (states @ right.T)) @ down.T
+    core = target.restricted_bilinear_core(
+        left, right, down, input_basis, output_basis
+    )
+    restricted_output = torch.einsum(
+        "nb,abc,nc->na", coordinates, core, coordinates
+    )
+    assert torch.allclose(restricted_output, full_output @ output_basis,
+                          atol=2e-5, rtol=2e-5)
+
+
+def test_restricted_attention_qk_and_ov_cores_are_exact_and_separate():
+    torch.manual_seed(103)
+    residual, head, input_rank, output_rank = 9, 4, 3, 2
+    input_basis, _ = torch.linalg.qr(torch.randn(residual, input_rank))
+    output_basis, _ = torch.linalg.qr(torch.randn(residual, output_rank))
+    query, key, value = (torch.randn(head, residual) for _ in range(3))
+    output = torch.randn(residual, head)
+    left, right = torch.randn(7, input_rank), torch.randn(7, input_rank)
+    qk = target.restricted_qk_core(query, key, input_basis)
+    ov = target.restricted_ov_core(value, output, input_basis, output_basis)
+    assert torch.allclose(
+        torch.einsum("nb,bc,nc->n", left, qk, right),
+        ((left @ input_basis.T @ query.T)
+         * (right @ input_basis.T @ key.T)).sum(dim=-1),
+        atol=1e-5, rtol=1e-5,
+    )
+    assert torch.allclose(
+        left @ ov.T,
+        left @ input_basis.T @ value.T @ output.T @ output_basis,
+        atol=1e-5, rtol=1e-5,
+    )
+
+
+def test_weight_operator_and_empirical_reachability_are_distinct_objects():
+    torch.manual_seed(104)
+    basis, _ = torch.linalg.qr(torch.randn(7, 3))
+    states = torch.randn(2, 5, 7)
+    coordinates = target.reachable_subspace_coordinates(states, basis)
+    assert coordinates.shape == (2, 5, 3)
+    assert torch.allclose(coordinates, states @ basis)
+
+
+def test_restricted_cores_survive_internal_weight_gauges():
+    torch.manual_seed(105)
+    residual, hidden, head, rank = 8, 10, 4, 3
+    basis, _ = torch.linalg.qr(torch.randn(residual, rank))
+    left, right = torch.randn(hidden, residual), torch.randn(hidden, residual)
+    down = torch.randn(residual, hidden)
+    native_mlp = target.restricted_bilinear_core(
+        left, right, down, basis, basis
+    )
+    scale = torch.randn(hidden).sign() * (torch.rand(hidden) + 0.5)
+    scaled_mlp = target.restricted_bilinear_core(
+        left * scale[:, None], right / scale[:, None], down, basis, basis
+    )
+    assert torch.allclose(scaled_mlp, native_mlp, atol=2e-5, rtol=2e-5)
+
+    query, key, value = (torch.randn(head, residual) for _ in range(3))
+    output = torch.randn(residual, head)
+    head_rotation, _ = torch.linalg.qr(torch.randn(head, head))
+    native_qk = target.restricted_qk_core(query, key, basis)
+    native_ov = target.restricted_ov_core(value, output, basis, basis)
+    changed_qk = target.restricted_qk_core(
+        head_rotation.T @ query, head_rotation.T @ key, basis
+    )
+    changed_ov = target.restricted_ov_core(
+        head_rotation.T @ value, output @ head_rotation, basis, basis
+    )
+    assert torch.allclose(changed_qk, native_qk, atol=2e-5, rtol=2e-5)
+    assert torch.allclose(changed_ov, native_ov, atol=2e-5, rtol=2e-5)
+
+
+def test_restricted_core_basis_gauge_changes_coordinates_not_physical_map():
+    torch.manual_seed(106)
+    residual, hidden, input_rank, output_rank = 7, 9, 3, 2
+    input_basis, _ = torch.linalg.qr(torch.randn(residual, input_rank))
+    output_basis, _ = torch.linalg.qr(torch.randn(residual, output_rank))
+    input_rotation, _ = torch.linalg.qr(torch.randn(input_rank, input_rank))
+    output_rotation, _ = torch.linalg.qr(torch.randn(output_rank, output_rank))
+    left, right = torch.randn(hidden, residual), torch.randn(hidden, residual)
+    down = torch.randn(residual, hidden)
+    coordinates = torch.randn(12, input_rank)
+    states = coordinates @ input_basis.T
+    full_output = ((states @ left.T) * (states @ right.T)) @ down.T
+    changed_input = input_basis @ input_rotation
+    changed_output = output_basis @ output_rotation
+    changed_coordinates = coordinates @ input_rotation
+    changed_core = target.restricted_bilinear_core(
+        left, right, down, changed_input, changed_output
+    )
+    evaluated = torch.einsum(
+        "nb,abc,nc->na", changed_coordinates, changed_core,
+        changed_coordinates
+    )
+    assert torch.allclose(evaluated, full_output @ changed_output,
+                          atol=2e-5, rtol=2e-5)
+
+
 def test_head_write_is_invariant_under_paired_orthogonal_head_gauge():
     torch.manual_seed(2)
     delta = torch.randn(11, 4)

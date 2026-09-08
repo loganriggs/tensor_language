@@ -128,11 +128,19 @@ row/token dimensions and implements PyTorch `Linear` orientation explicitly:
   contracts it through a downstream checkpoint reader;
 - `normalized_reader_report` reuses the canonical raw/tangent/exact diagnostic, while
   `reader_response_match` compares two tasks' responses through the same proposed reader.
+- `restricted_writer_operator` and `restricted_reader_operator` compute exact weight-only
+  `U_out^T W_write` and `W_read U_in` maps;
+- `restricted_bilinear_core` constructs the exact `q x k x k` MLP tensor, while
+  `restricted_qk_core` and `restricted_ov_core` keep attention routing and content maps separate;
+- `reachable_subspace_coordinates` is deliberately the only dataset-dependent member of this group.
+  It projects observed states after the basis is frozen, so occupancy cannot redefine the possible
+  checkpoint operator it is meant to qualify.
 
 The focused tests compare the head result with the full patched `c_proj` difference, compare the
 factor definitions byte-for-byte with the frozen M11 executor, prove full bilinear closure through
-`Down`, and check the paired head gauge, reciprocal Left/Right scaling, hidden permutation, finite
-data, and shape contracts. This implementation does not rank or declare a downstream reader; it
+`Down`, and check the paired head gauge, reciprocal Left/Right scaling, hidden permutation,
+subspace-basis gauge, exact QK/OV and bilinear restricted-core evaluation, finite data, and shape
+contracts. This implementation does not rank or declare a downstream reader; it
 only makes a causally admitted piece's checkpoint write and reader nomination exact and reusable.
 The response-match metrics are diagnostics until a physical reader-side interchange/removal passes.
 

@@ -31,6 +31,132 @@ def _linear_write(delta, weight, *, name):
     return torch.matmul(delta.float(), weight.float().transpose(0, 1))
 
 
+def _orthonormal_basis(name, basis, *, ambient_width):
+    """Validate a column-orthonormal physical subspace basis `[ambient, rank]`."""
+    _finite_tensor(name, basis, minimum_rank=2)
+    if basis.ndim != 2 or basis.shape[0] != ambient_width or basis.shape[1] < 1:
+        raise CausalCheckpointTranslationError(
+            f"{name} must have shape [ambient_width, positive_rank]")
+    candidate = basis.float()
+    gram = candidate.transpose(0, 1) @ candidate
+    identity = torch.eye(candidate.shape[1], dtype=candidate.dtype,
+                         device=candidate.device)
+    if not torch.allclose(gram, identity, atol=1e-5, rtol=1e-5):
+        raise CausalCheckpointTranslationError(
+            f"{name} columns must be orthonormal")
+    return candidate
+
+
+def restricted_writer_operator(writer_weight, output_basis):
+    """Fold a causal output subspace into a weight-only writer `[rank, input]`.
+
+    `writer_weight` has PyTorch Linear orientation `[residual, input]`. This is
+    the exact `U_out^T W_write` operator and opens no activation dataset.
+    """
+    _finite_tensor("writer_weight", writer_weight, minimum_rank=2)
+    if writer_weight.ndim != 2:
+        raise CausalCheckpointTranslationError("writer_weight must be rank two")
+    basis = _orthonormal_basis(
+        "output_basis", output_basis, ambient_width=writer_weight.shape[0]
+    )
+    return basis.transpose(0, 1) @ writer_weight.float()
+
+
+def restricted_reader_operator(reader_weight, input_basis):
+    """Fold a causal input subspace into a weight-only reader `[output, rank]`."""
+    _finite_tensor("reader_weight", reader_weight, minimum_rank=2)
+    if reader_weight.ndim != 2:
+        raise CausalCheckpointTranslationError("reader_weight must be rank two")
+    basis = _orthonormal_basis(
+        "input_basis", input_basis, ambient_width=reader_weight.shape[1]
+    )
+    return reader_weight.float() @ basis
+
+
+def restricted_bilinear_core(left_weight, right_weight, down_weight,
+                             input_basis, output_basis):
+    """Return the exact weight-only bilinear core `T[out_rank,in_rank,in_rank]`.
+
+    All three weights use PyTorch Linear orientation. The returned tensor obeys
+    `y_U[a] = sum_bc T[a,b,c] x_U[b] x_U[c]` for inputs inside `input_basis`.
+    It describes algebraically possible computation; empirical reachability is
+    deliberately handled by `reachable_subspace_coordinates` after this core is fixed.
+    """
+    for name, tensor in (("left_weight", left_weight),
+                         ("right_weight", right_weight),
+                         ("down_weight", down_weight)):
+        _finite_tensor(name, tensor, minimum_rank=2)
+        if tensor.ndim != 2:
+            raise CausalCheckpointTranslationError(f"{name} must be rank two")
+    if left_weight.shape != right_weight.shape:
+        raise CausalCheckpointTranslationError(
+            "left_weight and right_weight must share [hidden, residual] shape")
+    hidden, residual = left_weight.shape
+    if down_weight.shape != (residual, hidden):
+        raise CausalCheckpointTranslationError(
+            "down_weight must have shape [residual, hidden]")
+    input_u = _orthonormal_basis(
+        "input_basis", input_basis, ambient_width=residual
+    )
+    output_u = _orthonormal_basis(
+        "output_basis", output_basis, ambient_width=residual
+    )
+    down_u = output_u.transpose(0, 1) @ down_weight.float()
+    left_u = left_weight.float() @ input_u
+    right_u = right_weight.float() @ input_u
+    return torch.einsum("ai,ib,ic->abc", down_u, left_u, right_u)
+
+
+def restricted_qk_core(query_weight, key_weight, input_basis):
+    """Return the exact QK bilinear form available inside an input subspace."""
+    _finite_tensor("query_weight", query_weight, minimum_rank=2)
+    _finite_tensor("key_weight", key_weight, minimum_rank=2)
+    if query_weight.ndim != 2 or query_weight.shape != key_weight.shape:
+        raise CausalCheckpointTranslationError(
+            "query_weight and key_weight must share [head_width, residual] shape")
+    basis = _orthonormal_basis(
+        "input_basis", input_basis, ambient_width=query_weight.shape[1]
+    )
+    query_u, key_u = query_weight.float() @ basis, key_weight.float() @ basis
+    return query_u.transpose(0, 1) @ key_u
+
+
+def restricted_ov_core(value_weight, output_weight, input_basis, output_basis):
+    """Return the exact value-to-output map between fixed causal subspaces.
+
+    This is the OV content map for a fixed attention coefficient. QK routing is
+    represented separately by `restricted_qk_core` and must not be folded into it.
+    """
+    _finite_tensor("value_weight", value_weight, minimum_rank=2)
+    _finite_tensor("output_weight", output_weight, minimum_rank=2)
+    if (value_weight.ndim != 2 or output_weight.ndim != 2
+            or output_weight.shape[1] != value_weight.shape[0]):
+        raise CausalCheckpointTranslationError(
+            "value/output weights must have [head,residual] and [residual,head] shapes")
+    input_u = _orthonormal_basis(
+        "input_basis", input_basis, ambient_width=value_weight.shape[1]
+    )
+    output_u = _orthonormal_basis(
+        "output_basis", output_basis, ambient_width=output_weight.shape[0]
+    )
+    return (output_u.transpose(0, 1) @ output_weight.float()
+            @ value_weight.float() @ input_u)
+
+
+def reachable_subspace_coordinates(states, basis):
+    """Project observed states after a weight-defined subspace has been frozen.
+
+    Unlike the functions above this is explicitly dataset-dependent: it estimates
+    which part of the possible operator domain is visited, without redefining the
+    operator or selecting a basis from the same observations.
+    """
+    _finite_tensor("states", states)
+    frozen_basis = _orthonormal_basis(
+        "basis", basis, ambient_width=states.shape[-1]
+    )
+    return states.float() @ frozen_basis
+
+
 def attention_head_write(head_delta, c_proj_weight, *, head, num_heads):
     """Translate one pre-`c_proj` head delta into its physical residual write.
 
