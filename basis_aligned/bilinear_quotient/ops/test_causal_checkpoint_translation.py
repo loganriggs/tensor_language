@@ -146,6 +146,50 @@ def test_restricted_core_basis_gauge_changes_coordinates_not_physical_map():
                           atol=2e-5, rtol=2e-5)
 
 
+def test_shared_context_subspace_is_exact_best_fixed_rank_projector():
+    torch.manual_seed(107)
+    maps = torch.randn(4, 9, 5)
+    report = target.optimal_shared_context_subspace(maps, rank=3)
+    reconstructed = report["common_maps"] + report["private_tails"]
+    assert torch.allclose(reconstructed, maps, atol=2e-6, rtol=2e-6)
+    assert torch.allclose(report["basis"].T @ report["basis"], torch.eye(3),
+                          atol=2e-6, rtol=2e-6)
+    optimum_error = report["private_tails"].square().sum()
+    assert torch.allclose(optimum_error,
+                          report["optimal_squared_error_certificate"],
+                          atol=2e-5, rtol=2e-5)
+    assert report["certificate_absolute_error"] < 2e-5
+    for _ in range(16):
+        competitor, _ = torch.linalg.qr(torch.randn(9, 3))
+        competitor_tail = maps - torch.einsum(
+            "ck,dk,hdp->hcp", competitor, competitor,
+            maps
+        )
+        assert competitor_tail.square().sum() + 2e-5 >= optimum_error
+
+
+def test_shared_context_projector_and_error_ignore_private_head_gauges():
+    torch.manual_seed(108)
+    maps = torch.randn(4, 10, 6)
+    changed = maps.clone()
+    for head in range(4):
+        rotation, _ = torch.linalg.qr(torch.randn(6, 6))
+        changed[head] = maps[head] @ rotation
+    native = target.optimal_shared_context_subspace(maps, rank=4)
+    rotated = target.optimal_shared_context_subspace(changed, rank=4)
+    native_projector = native["basis"] @ native["basis"].T
+    rotated_projector = rotated["basis"] @ rotated["basis"].T
+    assert torch.allclose(native_projector, rotated_projector, atol=2e-5, rtol=2e-5)
+    assert torch.allclose(native["relative_squared_error"],
+                          rotated["relative_squared_error"], atol=2e-6, rtol=2e-6)
+
+
+@pytest.mark.parametrize("rank", (0, 8, 1.5))
+def test_shared_context_subspace_rejects_bad_rank(rank):
+    with pytest.raises(target.CausalCheckpointTranslationError):
+        target.optimal_shared_context_subspace(torch.ones(2, 7, 3), rank=rank)
+
+
 def test_head_write_is_invariant_under_paired_orthogonal_head_gauge():
     torch.manual_seed(2)
     delta = torch.randn(11, 4)

@@ -157,6 +157,50 @@ def reachable_subspace_coordinates(states, basis):
     return states.float() @ frozen_basis
 
 
+def optimal_shared_context_subspace(head_maps, *, rank):
+    """Solve the common-context projector problem exactly for a fixed rank.
+
+    `head_maps[h, context, private_h]` may use an independent orthogonal gauge on
+    every private axis. The top left singular vectors of the horizontal unfolding
+    minimize `sum_h ||M_h - U U^T M_h||_F^2` over column-orthonormal `U` of the
+    requested rank. The function fixes no rank and makes no causal claim; it returns
+    the common context basis, private adapters `U^T M_h`, and residual tails needed
+    for a prospective common-core-versus-tail intervention.
+    """
+    _finite_tensor("head_maps", head_maps, minimum_rank=3)
+    if head_maps.ndim != 3:
+        raise CausalCheckpointTranslationError(
+            "head_maps must have shape [heads, context, private]")
+    if not isinstance(rank, int) or rank < 1 or rank > head_maps.shape[1]:
+        raise CausalCheckpointTranslationError(
+            "rank must be a positive integer no larger than context width")
+    maps = head_maps.float()
+    context_width = maps.shape[1]
+    unfolding = maps.permute(1, 0, 2).reshape(context_width, -1)
+    left, singular_values, _ = torch.linalg.svd(unfolding, full_matrices=False)
+    basis = left[:, :rank]
+    adapters = torch.einsum("ck,hcp->hkp", basis, maps)
+    common = torch.einsum("ck,hkp->hcp", basis, adapters)
+    tails = maps - common
+    squared_error = tails.square().sum()
+    certified_optimum = singular_values[rank:].square().sum()
+    total = maps.square().sum().clamp_min(1e-30)
+    next_value = (singular_values[rank] if rank < singular_values.numel()
+                  else singular_values.new_zeros(()))
+    gap = singular_values[rank - 1] - next_value
+    return {
+        "basis": basis,
+        "private_adapters": adapters,
+        "common_maps": common,
+        "private_tails": tails,
+        "singular_values": singular_values,
+        "relative_squared_error": squared_error / total,
+        "optimal_squared_error_certificate": certified_optimum,
+        "certificate_absolute_error": (squared_error - certified_optimum).abs(),
+        "boundary_spectral_gap": gap,
+    }
+
+
 def attention_head_write(head_delta, c_proj_weight, *, head, num_heads):
     """Translate one pre-`c_proj` head delta into its physical residual write.
 
