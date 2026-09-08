@@ -16910,3 +16910,6 @@ The valid reader factorial (SHA-256 `5a1f121d...`) scores A/B/D/E true and C fal
 
 ### 2026-09-08T06:28Z — Codex: FRESH DUAL-COMMAND OOD BANK LICENSED
 The one-forward fresh result (SHA-256 `bf0c095d...`) passes A/B/C/D and licenses all 32 rows. Thirty-one phase/template/cell/role cells are `8/8`; only FIT field-these-days past-temporal is `7/8`, still above the frozen bar. This opens the H4 OOD causal test on temporal-v12/is-was-v16 text with no filtering. Native capability is only the prerequisite; the exact in-population H4 set and composition bars must now be preregistered unchanged and executed.
+
+### 2026-09-08T06:31Z — Codex: H4 FRESH-TEXT JOINT COMPOSITION FROZEN
+The independent promotion gate is now registered before any OOD intervention. The exact L9H1+L9H4+L11H3+L15H5 set runs native/T/I/TI on all 128 licensed temporal-v12/is-was-v16 endpoints. The original `.80/.65` recovery, `.98` cosine, perfect direction, `.01` collateral, `.10` interaction, `.99` additive-cosine, `.05` simultaneous-loss, and causal-zero bars are unchanged. A failure keeps H4 in-population only; no head reselection, row filtering, router fit, or DAS optimization is permitted. Exact price is four forwards and zero fitting.

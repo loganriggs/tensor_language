@@ -1,0 +1,36 @@
+{
+  "schema": "temporal_iswas_h4_ood_joint_composition_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.h4_ood_joint_composition_v1",
+  "registered_utc": "2026-09-08T06:31:00Z",
+  "question": "Does the exact in-population H4 program retain its task-typed causal effects and additive simultaneous composition on fully fresh temporal-v12/is-was-v16 templates and lexicons?",
+  "authority": {
+    "h4_joint_result_sha256": "a79a172f23a28befcb4ba0b78f1a5ca4420c5f49323d2c51d912b46f93bb611d",
+    "ood_capability_result_sha256": "bf0c095dd78bd2e7f495104f34626669ba774f8ad9660771abf3202bcfb2802a",
+    "ood_population_logical_sha256": "19cc9aebdb7c2b0cef1b93ea889056f721423d4e15ff37bc2c0a5beae285e591"
+  },
+  "frozen_design": {
+    "union": ["L9H1", "L9H4", "L11H3", "L15H5"],
+    "population": "All 128 endpoints from the fully licensed temporal-v12/is-was-v16 OOD authority. Retain both fresh templates, both phases, all command cells, and all lexical groups without selection.",
+    "arms": "Native, temporal-only H4 donor swap, is-was-only H4 donor swap, and both independent swaps installed together at their exact command query positions.",
+    "single_command_bars": "In both phases, temporal signed recovery >=.80 and is-was signed recovery >=.65, cosine >=.98, direction agreement 1.0, non-target/gold norm <=.01, and is-was-to-earlier-temporal max absolute effect <=1e-5.",
+    "composition_bars": "For every role x phase x fresh template, interaction RMS / both-effect RMS <=.10 and additive cosine >=.99. Simultaneous recovery may be at most .05 below the corresponding single-command recovery.",
+    "price": {
+      "checkpoint_loads": 1,
+      "model_forwards": 4,
+      "sequence_evaluations": 512,
+      "scored_token_positions": 1024,
+      "transformer_backwards": 0,
+      "model_updates": 0,
+      "fit_parameters": 0
+    }
+  },
+  "predictions": {
+    "pred_a_authority_ood_license_pairing_finiteness_and_exact_price": "All hashes, all-row OOD license, pairs/positions, capture shapes, exact closure, configuration, finiteness, and price pass.",
+    "pred_b_h4_single_command_quality_and_selectivity_transfer_ood": "Both roles pass their frozen recovery, cosine, direction, collateral, and causal-zero bars on FIT and HOLDOUT OOD rows.",
+    "pred_c_h4_simultaneous_execution_remains_additive_ood": "Every role x phase x fresh-template interaction and additive-cosine bar passes.",
+    "pred_d_h4_simultaneous_execution_preserves_recoveries_ood": "Each role/phase simultaneous recovery is no more than .05 below its single-command OOD recovery.",
+    "pred_e_h4_ood_joint_program_is_licensed": "A/B/C/D all pass without changing the head set or any bar."
+  },
+  "null": "Any B/C/D failure keeps H4 licensed only on its original population and prevents a stable OOD/composition claim. Preserve every fresh row and report template-specific failures; do not reselect heads, lower thresholds, or fit an OOD router.",
+  "decision": "A/B/C/D/E promotes H4 from held-out in-population composition to fresh-template/lexicon stable identification. A pass opens selective removal and L11 value source-position localization; it still does not by itself prove standalone extraction or literal simplicity."
+}
