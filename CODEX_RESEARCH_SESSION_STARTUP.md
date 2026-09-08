@@ -11,7 +11,7 @@ visible; otherwise exit it and start a **new** Astra session explicitly (do not 
 which resumes the old session and its model):
 
 ```bash
-codex -m gpt-6-astra -C /workspace/tensor_language
+codex -m gpt-6-astra -C /workspace/tensor_language -a never -s danger-full-access
 ```
 
 In the ChatGPT desktop app, first use **Menu > Check for Updates**, then create a new Codex chat
@@ -44,9 +44,9 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
-## Authoritative handoff snapshot — 2026-09-08 10:32 UTC
+## Authoritative handoff snapshot — 2026-09-08 11:10 UTC
 
-The current committed and pushed branch edge is `48eb8020e`. The selected upstream source-writer prefixes
+The current committed and pushed branch edge is `790ef0456`. The selected upstream source-writer prefixes
 are now identified and validated: temporal uses `L7H7 + L9H4 + L9H1`; is-was uses
 `L7H7 + L9H4`. The exact recipient-native L11H3 source formula mediates `.783-.799` of the
 temporal writer effect, but only `.165-.203` of is-was. A nested source/full-prefix/full-head
@@ -66,7 +66,7 @@ SHA-256 13734de17a6e0c7fa47be1fe3d45804e94e59d8743562e2075e2f0aa8a420d39
 
 That exact hash is first in managed lane 1, behind the verified-live unrelated
 `run_unit_family_separability_spec_v256.py` process (PID `1171621`, started 09:51:56 UTC). At
-10:30 UTC it had emitted 9/20 evaluations and remained healthy. Do not enqueue a duplicate,
+11:02 UTC it had emitted 15/20 evaluations and remained healthy. Do not enqueue a duplicate,
 bypass the managed runner, or restart either job.
 
 An independent six-forward 2x2 successor is implemented, tested, committed, and second in the
@@ -85,6 +85,15 @@ If the module-response branch wins, preserve the exact activation-conditioned ML
 interaction term or treating static tensor norms as causal ordering. If the residual-identity
 branch wins, compile the block-10 residual delta through the controlled identity recurrence and
 test a direct final-residual installation before interpreting RMSNorm/unembedding geometry.
+
+The residual branch now has an exact shared add/remove primitive in
+`ops/residual_identity_route.py`. Its outcome-conditional 14-forward direct intervention contract
+is frozen at prior SHA-256
+`9fb12faf4f89594ac9594f3b8747725b0f88b7e52fd8e4c54ddd0eb5daf5c625`. It may open only if the
+factorial's A/B/C gates pass and may bind only that immutable result. Its OOD, state/logit
+equality, selective-removal, and collateral bars cannot change after outcome. The reusable final
+residual hook needed to execute it is under test; do not enqueue the conditional experiment until
+the authority binding exists.
 
 The newest review clocks are
 `HOURLY_STRATEGIC_REVIEW_2026-09-08_1022.md` (next safe-boundary review after 11:22 UTC) and
@@ -500,4 +509,5 @@ Read /workspace/tensor_language/CODEX_RESEARCH_SESSION_STARTUP.md and resume the
 bilin18/Theseus circuit-finding goal from authoritative current state. Keep the hourly circuit
 reviews, three-hour mathematical reviews, and Supervisor-managed bqrunner workflow active. Do not
 stop at a result boundary; interpret it, record it, and begin the evidence-selected successor.
+Do not ask for routine permissions: use the configured never-approval, full-workspace authority.
 ```
