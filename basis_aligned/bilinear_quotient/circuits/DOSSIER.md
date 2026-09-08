@@ -19,7 +19,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
-| `cross_task.temporal_iswas.dual_command` | cross_task_program | identified_partial | `task_typed_source_value_under_shared_native_routing` | 2 tasks, original+OOD | 3 | finish frozen greedy writer pruning and writer-to-formula mediation; then join the exact L11 source edge to the licensed H4 joint/removal program and price the executable boundary |
+| `cross_task.temporal_iswas.dual_command` | cross_task_program | identified_partial | `task_typed_source_value_under_shared_native_routing` | 2 tasks, original+OOD | 3 | finish writer-to-formula mediation for the prospectively selected compact writers; then join the exact L11 source edge to the licensed H4 joint/removal program and price the executable boundary |
 
 ### `cross_task.temporal_iswas.dual_command` — exact task-typed source interface, causal writers pending mediation
 
@@ -58,8 +58,12 @@ and L9H4.  The subsequent causal source-position factorial validates L9H1 and L9
 as cross-task writers.  Both task top-five unions pass causal recovery, and singleton sums predict
 the simultaneous unions with maximum relative L2 `.17425` and minimum cosine `.98560`.  However,
 the is-was union recovers `2.30-2.91` of the L11 parent, so it is sufficient but deliberately
-overcomplete.  A prospectively weight-ordered greedy prefix is queued; original FIT alone selects
-and all original-HOLDOUT/OOD rows validate without reselection.
+overcomplete. Prospectively weight-ordered greedy pruning selects temporal
+`L7H7+L9H4+L9H1` and is-was `L7H7+L9H4` using original FIT alone. Both identities validate without
+reselection on original HOLDOUT and OOD: temporal recovery is `.529-.561` with cosine at least
+`.9937`; is-was recovery is `1.099-1.688` with cosine at least `.9218`. Every pooled and template
+cell has direction agreement `1.0`, reference replay and causal-zero errors are zero, and the
+shared physical core is reduced from five heads to two.
 
 The H4 program is already jointly composable and selectively manipulable.  On original text its
 four-head command recoveries are temporal `.833/.848` and is-was `.696/.669`; on fresh OOD they are
@@ -72,12 +76,12 @@ temporal recovery `.828-.847` original and `.831-.835` OOD, is-was `.652-.683` o
 |---|---|---|
 | counterfactual semantics and native capability | held | 128-row command banks plus independently licensed fresh constructions; exact paired donor maps |
 | causal transfer and source localization | held with explicit repair provenance | L11H3:value causal route; temporal bridge and is-was postcue; original invalid receipt retained, separate zero-error audit licenses B--E only |
-| held-out and OOD prediction | held for H4, source regions, formula, weights, and causal writer unions | no row filtering or OOD reselection; greedy compact prefix still pending |
+| held-out and OOD prediction | held for H4, source regions, formula, weights, and compact causal writer prefixes | no row filtering or OOD reselection; selected P3 temporal/P2 is-was validate prospectively |
 | extraction / sufficiency | held at explicit L11 interface | exact bilinear tensor plus native routing/background; standalone upstream source generator remains open |
-| selective manipulation | held for H4; pending end-to-end source edge | original/OOD midpoint removal passes; writer-induced exact-formula mediation is frozen and implemented but awaits greedy authority |
+| selective manipulation | held for H4; pending end-to-end source edge | original/OOD midpoint removal passes; writer-induced exact-formula mediation is frozen and implemented and now eligible for exact greedy-result binding |
 | composition and reuse | held for H4 and writer additivity | dual commands compose; L9H1/L9H4 are shared physical writers of distinct task-typed values; joined writer-formula-H4 composition remains open |
 | stable identification | held within current scope | original/OOD source, routing, tensor, weight-ranking, and causal-head recurrence; broader free-form/corpus scope untested |
-| literal simplicity / adoption | open | greedy pruning may reduce writer edges; native background and suffix still required; no whole-model parameter or block elimination claimed |
+| literal simplicity / adoption | open | greedy pruning reduces temporal writers 5→3 and is-was writers 5→2; native background and suffix still required; no whole-model parameter or block elimination claimed |
 
 **Append-only evidence ledger:**
 
@@ -92,8 +96,8 @@ temporal recovery `.828-.847` original and `.831-.835` OOD, is-was `.652-.683` o
 | `temporal_iswas.l11h3_native_routing_source_term` | exact tensor extraction | held | `temporal_iswas_l11h3_native_routing_source_term_extraction_v1_result.json` |
 | `temporal_iswas.l11h3_source_tensor_weight_atlas` | physical weight translation | stable six-head causal candidate union | `temporal_iswas_l11h3_source_tensor_upstream_weight_atlas_v1_result.json` |
 | `temporal_iswas.l11h3_upstream_head_factorial` | causal writer identification | L9H1/L9H4 shared writers; distributive unions | `temporal_iswas_l11h3_source_tensor_upstream_head_factorial_v1_result.json` |
-| `temporal_iswas.l11h3_weight_ordered_greedy` | compact writer selection | managed-queued | pending |
-| `temporal_iswas.l11h3_writer_formula_mediation` | explicit edge mediation | conditionally frozen and implemented | pending greedy hash binding |
+| `temporal_iswas.l11h3_weight_ordered_greedy` | compact writer selection | P3 temporal, P2 is-was; all frozen gates held | `temporal_iswas_l11h3_source_writer_weight_ordered_greedy_v1_result.json` |
+| `temporal_iswas.l11h3_writer_formula_mediation` | explicit edge mediation | conditionally frozen and implemented | exact greedy hash binding and managed execution pending |
 
 ### `task.subject_verb_number_agreement` — path_grouped
 
