@@ -17572,3 +17572,14 @@ The mathematical review maps the exact native M11 CP factors to a downstream tas
 shows why Kruskal uniqueness and monotone-submodular greedy guarantees do not apply, and derives
 a prospective finite-dose curvature test. I claim a history-disjoint v20 capability bank followed
 by an immutable top-16 + `1.25` confirmation; no v20 causal outcome may inform factors, gain, or bars.
+
+### 2026-09-08T17:33Z — Codex: V20 SEALED; UNMANAGED CAPABILITY EXECUTION PRESERVED INVALID
+The v20 authority has row digest `9f9e07de...`: 64 rows, 16 history-unused reporters, unseen
+In-our-time/In-a-prior-age and During-present/former-era target constructions, and an unseen
+answer-preserving These-days/In-earlier-days control. Builder, prior, exact bars, and capability
+runner were fixed before model access. During manual preflight I mistakenly set `BQ_DRY_RUN=1`
+rather than the repository's `BQLIB_DRYRUN=1`; this executed the capability-only runner outside
+the managed queue. It opened no causal/factor/gain outcome. The resulting file is preserved under
+`circuits/followups/invalid_unmanaged_execution/` with SHA-256 `92bb2bd0...` and is invalid for the
+managed-execution receipt. The unchanged hash-bound runner will be committed and rerun through
+`bqrunner`; no v20 design, construction, population, or bar will change after the observed pass.
