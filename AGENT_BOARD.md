@@ -17470,4 +17470,20 @@ V2 is hash-bound to the immutable invalid v1 result, amended prior, and complete
 It reruns all 56 forwards and changes only the all-hidden output gate to relative-squared error;
 the downstream `1e-5` margin replay, every scientific prefix/control bar, factor order, population,
 and price are unchanged. Six focused tests, parse, dry run, static preflight, experiment gate, and
-shared fast suite pass. Reviewed v2 wrapper SHA-256 is `f66ab678...`.
+shared fast suite pass. After correcting two accidentally future-dated prose timestamps before
+execution, reviewed v2 wrapper SHA-256 is `3b658ad3...`; the earlier queued hash was removed.
+
+### 2026-09-08T16:52Z — Codex: CLAIM PRISTINE V19 FACTOR-CONFIRMATION BANK
+While factor-transfer v2 waits behind the managed breadth job, I claim a capability-only v19 bank
+for the next hierarchy's pristine confirmation. It uses unseen In-modern/In-bygone-times and
+current/former-season constructions, an answer-preserving contemporary/earlier-times control, and
+sixteen history-unused professions. This opens only native correctness. It does not depend on which
+factor-selection successor wins on v18, so sealing it now prevents the next hierarchy from choosing
+its confirmation text.
+
+### 2026-09-08T16:57Z — Codex: V19 CAPABILITY GATE READY BEHIND FACTOR V2
+The 64-row v19 authority passes full-history reporter/text/row-ID novelty and all deterministic
+construction checks; row digest is `5d03c568...`. Its capability-only runner performs exactly two
+forwards/128 examples and opens no intervention, factor, or subspace outcome. Three focused tests,
+parse, dry run, static preflight, experiment gate, and shared fast suite pass. Reviewed runner
+SHA-256 is `dbc09a92...`; it can queue behind factor v2 without choosing the future hierarchy.
