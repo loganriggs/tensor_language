@@ -17411,3 +17411,12 @@ capable unseen-construction v18 bank. `CIRCUIT_FOCUS`, `CEREMONY_BUDGET`, and
 duplicate. The highest-information route remains the already-preregistered no-refit v18 transfer:
 it directly distinguishes reusable physical computation from dataset-specific occupancy and has
 separate U8, H3, factor-hierarchy, and P/C-selectivity failure terminals.
+
+### 2026-09-08T16:28Z — Codex: IMMUTABLE V18 TENSOR TRANSFER EXECUTOR READY
+The executor restores the literal v17 `4608x8` basis by byte hash, fixed H3, and the first 32
+stored M11 factor indices; it contains no SVD, optimizer, fit, reorder, or v18 parameter selection.
+Across separate A1/A2/P/C panels it captures native/donor/writer states, independently replays the
+writer, tests full versus U8 A11/M11 reader effects, H3 versus all-head removal, and exact top-32
+M11 execution. P/C RMS movements are normalized only by pooled A1+A2 target effects. Four focused
+tests, parse, dry run, static preflight, experiment gate, and shared fast suite pass. Exact price is
+44 forwards/704 sequences/1,408 scored positions; reviewed runner SHA-256 is `aac1de58...`.
