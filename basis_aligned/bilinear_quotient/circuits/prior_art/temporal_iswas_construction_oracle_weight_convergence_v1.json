@@ -1,0 +1,39 @@
+{
+  "schema": "temporal_iswas_construction_oracle_weight_convergence_prior_v1",
+  "candidate_id": "temporal_iswas.construction_oracle_weight_convergence_v1",
+  "registered_utc": "2026-09-08T00:09:00Z",
+  "question": "Do construction-specific head coordinates converge through exact weights onto shared residual writes or downstream reader responses?",
+  "prior_art": {
+    "searched": [
+      "temporal selected-projector weight interfaces v1/v2",
+      "construction oracle and projective-bisector result",
+      "temporal shared subspace, downstream reader, and weight atlas records"
+    ],
+    "active_claim_collision": false,
+    "known_lessons": "The A1/A2 head axes are individually stable but have only .409-.671 between-construction cosine. Earlier A1-only axes ranked L15H5 interfaces highly, but complete attention-15 bypass means that ranking is not causal identification.",
+    "novelty": "Compare the two construction-specific axes after exact W_O and reader contractions, rather than asking only whether each independently scores the same reader highly."
+  },
+  "authority": {
+    "construction_oracle_result_sha256": "dde8cc793f2ba2d1f0bf7439dd9c62cb53ad979ea4ab3363928015b8cbe7e224",
+    "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "checkpoint_loads": 1,
+    "model_forwards": 0
+  },
+  "frozen_design": {
+    "sources": ["L8H1", "L9H1", "L9H4", "L11H3"],
+    "folds": ["0", "1"],
+    "write_map": "For construction e, w_e=W_O[:,h]u_e. Report |cos(w_A1,w_A2)| and its change from |cos(u_A1,u_A2)|.",
+    "reader_map": "For every later attention Q/K/Q2/K2/V matrix or same/later MLP Left/Right matrix A, compute z_e=A w_e, response alignment |cos(z_A1,z_A2)|, normalized strengths ||z_e||/(||A||_F||w_e||), and joint score alignment*min(strengths).",
+    "value_pullback": "For each source, compare W_V^T u_A1 and W_V^T u_A2 by absolute cosine.",
+    "price": {"model_forwards": 0, "example_evaluations": 0, "fit_updates": 0, "model_updates": 0, "transformer_backwards": 0, "checkpoint_loads": 1}
+  },
+  "predictions": {
+    "pred_a_authority_relative_exact_map_gauge_finiteness_and_price": "All hashes/config match; every W_O slice embedding has relative max error <= eight float32 epsilons; sign gauges leave scores invariant <=1e-12; all values are finite; price is exact.",
+    "pred_b_local_geometry_replays_causal_result": "All sixteen stored local A1/A2 absolute cosines reproduce the causal-result geometry within 1e-6.",
+    "pred_c_construction_axes_converge_as_residual_writes": "In both folds, at least three of four sources have |cos(w_A1,w_A2)| >= .75.",
+    "pred_d_l15h5_reads_a_shared_construction_response": "In both folds, at least three of four sources place an L15H5 Q/K/Q2/K2/V response in the top quartile by joint score.",
+    "pred_e_sources_converge_on_one_shared_reader_interface": "In both folds, at least one exact reader label is top-ten by joint score for at least three of four sources.",
+    "pred_f_value_pullbacks_share_an_upstream_covector": "In both folds, at least three of four sources have |cos(W_V^T u_A1,W_V^T u_A2)| >= .75."
+  },
+  "decision": "C passing supports shared residual writes; D/E passing with C failing supports reader-equivalent distinct writes; F localizes sharing upstream of head values. If C-F fail, the construction-specific coordinates remain distinct through the inspected linear interfaces and the next causal object must include routing or a control-selective nonlinear split. Weight geometry remains a diagnostic screen, never causal reader proof."
+}

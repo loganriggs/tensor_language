@@ -152,6 +152,15 @@ failed joint-projector response were already open, although the new oracle/bisec
 is frozen entirely from v15 before its v16 contexts are constructed.  It is intervention-held, not
 a new pristine task discovery.
 
+The bisector result has landed validly at SHA-256
+`dde8cc793f2ba2d1f0bf7439dd9c62cb53ad979ea4ab3363928015b8cbe7e224` with terminal
+`construction_conditioned_coordinate`.  Both construction oracles are stable/effective, their
+same-head cosines are only `.409-.671`, and cross-use fails.  The bisector passes v15 target bars
+but retains two P flips in one parity and fails v16 A2.  A naïve routed mixture is therefore not
+selective because each own expert has the same parity-0 P flips.  The active successor is the
+zero-forward CPU weight-convergence diagnostic in
+`basis_aligned/bilinear_quotient/ops/run_temporal_iswas_construction_oracle_weight_convergence_v1.py`.
+
 Do not overstate the exact-weight result.  A hash-bound zero-model path audit proved that every
 current DAS outcome clamps the complete attention-15 donor head output after layer-15 Q/K/V has
 been computed.  Thus the causal projector effect can travel through the residual skip/MLP15 and

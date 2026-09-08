@@ -422,6 +422,27 @@ within-construction stability, then causally execute their exact sign-aligned bi
 distinguishes joint-optimizer failure from construction-conditioned rank-one geometry before any
 input-conditioned mixture or reader reset is opened.
 
+That falsifier validly selects construction-conditioned coordinates rather than optimizer failure.
+Every construction-specific fit passes its own held target bar, with minimum within-construction
+fold cosine `.86246` for A1 and `.99881` for A2.  Yet the A1-versus-A2 axes at the same head have
+only `.40859-.67064` absolute cosine, and each own oracle beats cross-use by the registered `.08`
+in both held parities.  The analytic per-head bisector reaches both v15 target bars in both folds
+(`.76372-.93010`), but causes two P flips in parity 0 and does not beat the failed joint fit in both
+folds.  Under the outcome-held v16 intervention it reaches only `.72390/.52098` on parity 0 and
+`.59807/.45904` on parity 1 for A1/A2, with large parity-0 P mean KL `.18406`.  Thus geometric
+overlap is not a behavioral guarantee through the nonlinear suffix.
+
+A naïve construction router is already insufficient under the registered controls: both own
+experts cause the same two parity-0 P flips, so choosing between them cannot produce a zero-flip P
+arm.  The next diagnostic asks whether their different 128-dimensional head coordinates converge
+after exact weight maps.  For each construction axis it computes the residual write through the
+head's `W_O`, then compares the two response vectors through every later Q/K/Q2/K2/V or MLP
+Left/Right reader, and compares their `W_V^T` pullbacks.  Shared residual or reader responses would
+support a common downstream variable with construction-specific encodings; failure would keep the
+linear interfaces construction-specific and require a routed or nonlinear selective object.  This
+is a zero-forward weight screen, not causal reader identification, and the attention-15 bypass
+restriction remains in force.
+
 ## Evidence ledger
 
 - Minimal support: `temporal_five_mlp_rank47_pooled_greedy_rank46_deletion_v1_result.json`
