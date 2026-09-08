@@ -1,0 +1,90 @@
+{
+  "schema": "temporal_iswas_v17_a11_m11_reader_loss_output_rescue_prior_v1",
+  "candidate_id": "cross_task.temporal_iswas.v17_a11_m11_reader_loss_output_rescue_v1",
+  "registered_utc": "2026-09-08T15:17:00Z",
+  "question": "Do A11 and M11 physically read the fresh selected-writer signal, individually and complementarily, rather than merely receiving exact Shapley credit in the opened OOD game?",
+  "prior_art": {
+    "searched": [
+      "all temporal/is-was reader mediation, complete-module, exact-factor, and rescue priors/results",
+      "P7 leave-one-out null and exact source-conditioned live-module effect game v1/v2",
+      "v4-v17 is/was capability banks and all sealed-construction records",
+      "shap_tensor.md, AGENT_BOARD, BILIN18_CONNECTION, BENCHMARK_BACKLOG, and canonical dossier"
+    ],
+    "collision_result": "No existing experiment combines source-absent normalized-reader replacement with source-present complete-output rescue for A11/M11 on an unopened bank.",
+    "known_lessons": "Shapley credit allocates dependence but is not a directed edge. A11 reads at block11.attn while its complete residual write exits block11.attn.c_proj; M11 reads and writes at block11.mlp. Arm-local baselines, exact answer-position footprints, causal order, and capability-before-causality are mandatory."
+  },
+  "authority": {
+    "v17_builder_sha256": "7e59800324e5b6a4a9c5af564cbe8fb5cf642cfd6e702e1e97c32bc0cc54fe9e",
+    "v17_rows_sha256": "287e744a0fcdfd609149ee99ef2f280b485eeae2e08c20b1a10d269ef17b10e3",
+    "v17_capability_runner_sha256": "1ae08738956b6bb5a76ddff87c9e2a74c1d3f56b6f929e3c718caf5314936725",
+    "p7_effect_game_v2_result_sha256": "171d60c3aaf2d35b6a400b9ac753c2c0d8936ee6d354ab91e3bcc9da4f813fc2",
+    "selected_writer_greedy_result_sha256": "6a2ae6598ae95269f7d9e24e13196155342f690d331c78efed5115a8cf84bda2",
+    "intervention_library_sha256": "18eac89dcf8964ad14ab4b90cfcbcd3695ec26056bdff075e620b1678958f857"
+  },
+  "eligibility": "A separate atomic binding may be created only after the immutable v17 capability receipt is a screen with all four registered predictions true and causal_outcomes_opened=false. The binding records the receipt SHA-256. Otherwise this causal experiment remains closed.",
+  "frozen_population": {
+    "rows": "All sixteen A2 rows from v17, without capability-row filtering: groups 0-7 are FIT and 8-15 HOLDOUT.",
+    "construction": "As of now / At that time, with equal paired token lengths and a contiguous three-token changed cue span.",
+    "source": "Capture native base and donor complete L7H7/L9H4 head outputs. On base rows, install donor-minus-base head-output deltas in increasing layer order at the established is/was postcue positions, then capture its block-10 entry. Every reader arm replays that same captured source-present block-10 entry.",
+    "positions": "Replace only tokens 0..query at block-10 and downstream reader/write boundaries. Source head deltas are confined to the frozen postcue span."
+  },
+  "sites": {
+    "A11": {"reader": "block11.attn argument 0", "complete_output": "block11.attn.c_proj tensor output"},
+    "M11": {"reader": "block11.mlp argument 0", "complete_output": "block11.mlp tensor output"},
+    "A12_control": {"reader": "block12.attn argument 0", "complete_output": "block12.attn.c_proj tensor output"},
+    "M16_control": {"reader": "block16.mlp argument 0", "complete_output": "block16.mlp tensor output"}
+  },
+  "arms": [
+    "writer_replay",
+    "source_absent_A11_M11_self_clamp",
+    "A11_reader_loss",
+    "A11_reader_loss_output_rescue",
+    "M11_reader_loss",
+    "M11_reader_loss_output_rescue",
+    "A11_M11_joint_reader_loss",
+    "A11_M11_joint_loss_A11_rescue",
+    "A11_M11_joint_loss_M11_rescue",
+    "A11_M11_joint_loss_both_rescue",
+    "A12_control_reader_loss",
+    "A12_control_reader_loss_output_rescue",
+    "M16_control_reader_loss",
+    "M16_control_reader_loss_output_rescue"
+  ],
+  "metrics": {
+    "reference": "The captured selected-writer margin delta relative to native base, separately on frozen FIT/HOLDOUT.",
+    "recovery": "dot(arm_delta, reference)/dot(reference, reference).",
+    "loss": "1 - recovery(reader_loss).",
+    "rescue_fraction": "dot(rescue_delta-loss_delta, reference)/dot(writer_delta-loss_delta, reference), with a positive denominator required.",
+    "joint_excess": "loss(A11+M11) - loss(A11) - loss(M11). Positive values are physical complementarity under removal.",
+    "geometry": "Also report cosine, relative residual, and per-row direction agreement against the writer reference."
+  },
+  "bars": {
+    "replay_max_abs_margin_error": 0.00001,
+    "minimum_A11_loss_each_split": 0.08,
+    "minimum_M11_loss_each_split": 0.06,
+    "minimum_rescue_fraction_each_split": 0.70,
+    "minimum_rescued_cosine_each_split": 0.95,
+    "maximum_rescued_recovery_error_each_split": 0.10,
+    "minimum_joint_complementarity_excess_each_split": 0.02,
+    "maximum_absolute_control_loss_each_split": 0.03
+  },
+  "predictions": {
+    "pred_a_authority_capability_source_replay_self_clamp_hook_coverage_finiteness_and_exact_price": "All hashes/binding/population/positions pass; writer replay and source-absent A11+M11 self-clamp are within 1e-5; every requested hook fires once and cleans up; all metrics are finite; exact price holds.",
+    "pred_b_A11_reader_loss_is_stable_and_complete_A11_output_rescues": "A11 loss is at least .08 on FIT and HOLDOUT; its output rescue reaches at least .70 of that loss with cosine at least .95 and recovery within .10 of writer on both.",
+    "pred_c_M11_reader_loss_is_stable_and_complete_M11_output_rescues": "M11 loss is at least .06 on FIT and HOLDOUT; its output rescue reaches at least .70 of that loss with cosine at least .95 and recovery within .10 of writer on both.",
+    "pred_d_joint_A11_M11_loss_physically_reproduces_positive_complementarity": "Joint loss exceeds the sum of singleton losses by at least .02 on FIT and HOLDOUT, and rescuing both outputs restores the writer bars.",
+    "pred_e_matched_attention_and_mlp_controls_are_inert": "Absolute reader-loss effect is at most .03 for A12 and M16 on both splits; their same-site rescues restore the writer bars."
+  },
+  "null": "A valid failure of B or C rejects that directed module edge on this fresh bank. A valid D failure rejects transfer of the A11/M11 complementarity sign to physical reader removal. A valid E failure identifies an unmodeled neighboring/background route and prevents a selective edge claim. None may be repaired by row filtering or threshold changes.",
+  "decision": "A-E supports a fresh held-out directed A11/M11 reader interface and licenses restricted checkpoint write/read/bilinear tensor construction. Partial passes preserve only the corresponding edge; any failed site remains a Shapley dependence nomination, not a directed edge.",
+  "price": {
+    "checkpoint_loads": 1,
+    "model_forwards": 17,
+    "sequence_evaluations": 272,
+    "scored_token_positions": 544,
+    "intervention_arms": 14,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  }
+}

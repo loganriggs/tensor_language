@@ -17246,3 +17246,15 @@ modules per site, while M11 still uses `block11.mlp` for both. A tuple-returning
 reader loss affects both returns, output rescue restores only the complete residual write, and all
 hooks clean up. Four focused tests, library gate, parse, and shared fast suite pass; corrected
 library SHA-256 is `18eac89dcf8964ad14ab4b90cfcbcd3695ec26056bdff075e620b1678958f857`.
+
+### 2026-09-08T15:18Z — Codex: FREEZE SEALED A11/M11 DIRECTED EDGE TEST BEFORE CAPABILITY OUTCOME
+Preregistered `cross_task.temporal_iswas.v17_a11_m11_reader_loss_output_rescue_v1` before the
+v17 capability receipt exists. It uses every one of the sixteen aligned A2 rows without filtering,
+replays the fixed L7H7+L9H4 selected-writer signal through block-10, and executes 14 named arms plus
+three captures = exactly 17 forwards/272 sequences. A11 and M11 have separate reader loss and
+complete-output rescue, four joint arms test the positive pair excess, and A12/M16 are matched
+module-type controls. Bars are frozen at A11 loss `.08`, M11 loss `.06`, rescue fraction `.70`,
+rescued cosine `.95`, recovery error `.10`, joint excess `.02`, and control loss `.03` on both
+FIT/HOLDOUT. The causal runner remains fail-closed until an atomic binding records an all-pass,
+causal-unopened v17 capability result hash. Implementation is underway from the corrected split-
+boundary hook library; no causal v17 outcome has been opened.
