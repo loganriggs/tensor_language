@@ -65,7 +65,7 @@ Active EXACT_SOURCE_EDIT_V1_PREREGISTRATION.md and exact_source_edit_reference.p
 SourceEditProgram.prepare(tokens) computes native-prefix/QKV cache; edit(context,
 delta) recomputes RMS/RoPE/projections only at affected source/query positions and
 all affected source sums. Supports overlapping edits exactly. Physically removes
-final O by known generic readout fold; expected387968 constants.16 CPU controls
+final O by known generic readout fold; expected387968 constants.15 CPU controls
 pass, nonzero editreplay<=1.11e-16. No native or learned opaque coefficient hidden.
 
 Next integrate ops/run_exact_source_edit_v1.py on fresh21909/21910 three-chain

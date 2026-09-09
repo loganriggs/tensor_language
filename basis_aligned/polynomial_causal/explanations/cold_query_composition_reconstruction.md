@@ -438,7 +438,7 @@ uses original positions. Final O is physically removed using the known generic
 O/head fold; expected constants387968. That saving is generic, not a new semantic
 reduction, and all native prefix/reader weights remain charged.
 
-`EXACT_SOURCE_EDIT_V1_CPU_CONTROLS.json` passes16 controls, with nonzero edit replay
+`EXACT_SOURCE_EDIT_V1_CPU_CONTROLS.json` passes15 controls, with nonzero edit replay
 at1.11e-16 and explicit wrong-position negatives. Initial bitwise comparisons of
 projections with different GEMM row counts were replaced before trained execution
 by the registered numerical tolerance; full-logit controls were already passing.
