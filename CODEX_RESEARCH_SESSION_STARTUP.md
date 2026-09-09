@@ -69,6 +69,14 @@ source extraction, selective later-suffix removal and strict full-output suffici
 All opaque background charged; fixed-point native failures explicitly tested.
 Implementation/shared preflight ready. Inspect live queue/result before action.
 Review clocks1449/1348 remain due1549/1648; full goal active under the handoff.
+While the suffix-source job waits behind live v389, causal_edge_join_reference.py
+implements the candidate operation J_i=E_i C_prev+C_prev E_i. The total is exactly
+F² minus same-edge squares. All1296 exhaustive three-node fact-subset/order cases
+pass, with separate source-write removals; fact deletion must recompute later joins.
+CAUSAL_EDGE_JOIN_REFERENCE_CONTROLS.json records zero trained-model calls. This is
+an explicit proposed operation, not a trained identification. Await/inspect the
+managed source result before choosing its native writer/reader follow-up.
+
 
 ## Active reconstruction target — 2026-09-09 15:09 UTC
 

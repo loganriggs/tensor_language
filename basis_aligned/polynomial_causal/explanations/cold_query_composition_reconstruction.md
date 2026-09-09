@@ -77,3 +77,48 @@ full-distribution sufficiency.32 fixed-point controls test the model's observed
 failure on degenerate self-loops rather than omitting them. A causal join of two
 bindings on their shared middle entity is a hypothesis; native join writers and
 readers have not yet been identified or extracted. All background remains charged.
+
+
+## An explicit operation to test
+
+Represent one binding u→v by the matrix E=|v><u|, which maps the one-hot key u to
+its value v. Let C contain the sum of earlier binding matrices. At the arrival of
+one new binding, compute
+
+\[
+J = EC + CE,\qquad C\leftarrow C+E.
+\]
+
+J contains the two-edge paths completed by this new fact: one orientation follows
+an earlier edge then the new edge; the other follows the new edge then an earlier
+edge. Each completed path is stored at the later of its two binding sources.
+There are no learned coefficients in this candidate operation.
+
+After every binding has arrived, writing F for the full function matrix,
+
+\[
+\sum_i J_i = F^2-\sum_i E_i^2.
+\]
+
+This is an elementary expansion, not an empirical rank claim. For a function with
+no self-loops every same-edge square is zero, so the sum is exactly F². An isolated
+self-loop is excluded because composing it with itself would reuse the same stored
+edge. The proposed hop3 computation first obtains F e and reads the two-edge table
+at that key: (sum J_i) F e. This yields F³ e on the non-loop permutation domain and
+predicts the observed missing result on fixed-point queries. Full teacher logits
+and native intermediate implementation remain unverified by this algebra.
+
+The source-order nomination and failure-mode nomination therefore have one concrete
+candidate explanation. They are not merely separate descriptions of attention plots.
+The counterbalanced native experiment is still needed to test that explanation.
+
+The integer reference checks all27 three-node functions, all6 source orders, and
+all8 subsets of retained original facts (1296 cases), plus single/joint source-write
+removals. All checks pass. Deleting an original fact recomputes subsequent J writes;
+simply deleting that fact's own J write gives a different result in the explicit
+counterexample. This distinction is required for a reusable stateful explanation.
+
+Reference: [causal_edge_join_reference.py](../causal_edge_join_reference.py).
+Receipt: [CAUSAL_EDGE_JOIN_REFERENCE_CONTROLS.json](../CAUSAL_EDGE_JOIN_REFERENCE_CONTROLS.json).
+These are candidate algebra and intervention controls, with zero trained-model calls.
+They do not establish extraction, compact native replacement or the overall goal.
