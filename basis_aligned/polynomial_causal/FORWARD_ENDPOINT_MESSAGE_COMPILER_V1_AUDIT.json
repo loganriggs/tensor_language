@@ -1,0 +1,236 @@
+{
+  "scope": "opened-case CPU algebra audit; randomized-layout semantic validation remains untested",
+  "controls": {
+    "passed": true,
+    "checks": {
+      "exhaustive_162_function_orders": true,
+      "shared_endpoint_multiple_consumers": true,
+      "native_message_False": true,
+      "native_message_True": true,
+      "identity": true,
+      "live_edit": true,
+      "hooks_restored": true
+    },
+    "exhaustive_function_orders": 162
+  },
+  "worlds": 32,
+  "selected_paths_are_parsed_joins": true,
+  "selected_endpoint_path_max_abs": 5.551115123125783e-16,
+  "all_parsed_native_hook_max_abs": 7.771561172376096e-16,
+  "passed": true,
+  "formula": "phi(e)=O_L2H1 V_L2H1 Emb(e)/8; message(t,s)=P_L2H1(t,s)*RMSgain_L2(s)*phi(endpoint(s))",
+  "dictionary_shape": [
+    24,
+    128
+  ],
+  "derived_cache_coefficients": 3072,
+  "derived_cache_bytes": 24576,
+  "independent_program_constants": 387968,
+  "new_independent_coefficients": 0,
+  "native_coefficients_removed": 0,
+  "opaque_dependencies": [
+    "native prefix states",
+    "L2H1 contextual QK scores",
+    "L2 source RMS gains",
+    "native complement and final readers",
+    "derived arbitrary endpoint vectors"
+  ],
+  "structural_saving_claim": false,
+  "counts": [
+    {
+      "population": "iid",
+      "world": 0,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "iid",
+      "world": 1,
+      "joins": 10,
+      "message_cells": 20
+    },
+    {
+      "population": "iid",
+      "world": 2,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "iid",
+      "world": 3,
+      "joins": 12,
+      "message_cells": 24
+    },
+    {
+      "population": "iid",
+      "world": 4,
+      "joins": 15,
+      "message_cells": 30
+    },
+    {
+      "population": "iid",
+      "world": 5,
+      "joins": 11,
+      "message_cells": 22
+    },
+    {
+      "population": "iid",
+      "world": 6,
+      "joins": 10,
+      "message_cells": 20
+    },
+    {
+      "population": "iid",
+      "world": 7,
+      "joins": 12,
+      "message_cells": 24
+    },
+    {
+      "population": "iid",
+      "world": 8,
+      "joins": 11,
+      "message_cells": 22
+    },
+    {
+      "population": "iid",
+      "world": 9,
+      "joins": 14,
+      "message_cells": 28
+    },
+    {
+      "population": "iid",
+      "world": 10,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "iid",
+      "world": 11,
+      "joins": 11,
+      "message_cells": 22
+    },
+    {
+      "population": "iid",
+      "world": 12,
+      "joins": 14,
+      "message_cells": 28
+    },
+    {
+      "population": "iid",
+      "world": 13,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "iid",
+      "world": 14,
+      "joins": 11,
+      "message_cells": 22
+    },
+    {
+      "population": "iid",
+      "world": 15,
+      "joins": 14,
+      "message_cells": 28
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 0,
+      "joins": 11,
+      "message_cells": 22
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 1,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 2,
+      "joins": 12,
+      "message_cells": 24
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 3,
+      "joins": 14,
+      "message_cells": 28
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 4,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 5,
+      "joins": 12,
+      "message_cells": 24
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 6,
+      "joins": 14,
+      "message_cells": 28
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 7,
+      "joins": 15,
+      "message_cells": 30
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 8,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 9,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 10,
+      "joins": 12,
+      "message_cells": 24
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 11,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 12,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 13,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 14,
+      "joins": 13,
+      "message_cells": 26
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 15,
+      "joins": 13,
+      "message_cells": 26
+    }
+  ],
+  "wall_seconds": 1.6045944392681122,
+  "reference_sha256": "262dbb8127a8ae0029e5e025a5d4db65392b6ce41226a1f5b3bfbe8ac98ea693",
+  "package_sha256": "e69bff6562c48bd1b59366f118157720734d353626b0a1576626bdd437a1421a"
+}

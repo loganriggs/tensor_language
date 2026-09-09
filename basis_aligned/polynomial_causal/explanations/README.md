@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Forward endpoint field circuit](forward_endpoint_field_circuit.md): selective single/joint swaps pass on registered IID/OOD cases; exact shared message formula, explicit background and cost limits.
+
 - [cold_query_composition_reconstruction.md](cold_query_composition_reconstruction.md) — stronger existing checkpoint passes multi-hop capability without any previous answers; fresh OOD comparison, honest prior-mechanism limits, and the next exact composition-source test
 
 - [contextual_answer_history_circuit.md](contextual_answer_history_circuit.md) — contextual answer-history reuse explains the small model's longer-hop floor; matched causal removals, unique-query and short-cycle OOD, complete full-output readout decomposition, and portable export/replay with native dependencies explicitly priced

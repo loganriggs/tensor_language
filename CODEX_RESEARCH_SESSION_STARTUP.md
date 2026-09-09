@@ -53,6 +53,41 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active arbitrary-layout endpoint family — 2026-09-09 17:39 UTC
+
+JOIN_ENDPOINT_FIELD_SWAP_V1_RESULT.json passesA/B/C/D in3.49s: all single/joint
+hop3 intended answers correct across32IID/OOD worlds, targetP gains.956–.998.
+Independent full-logit correspondence1.21e-13; otherquery collateral<=.00697,
+lowerhop<=.01845; finalquery raw composition<=9.60e-14. This identifies endpoint
+interchange on fixed layouts, not the full structural-simplicity goal.
+Canonical circuit dossier explanations/forward_endpoint_field_circuit.md.
+Complete-route removal is causal; endpoint-only removal remains to be tested.
+
+Immediate CPU FORWARD_ENDPOINT_MESSAGE_COMPILER_V1_AUDIT.json completed1.60s:
+162 exhaustive tiny function/orders plus7 controls; exact native path5.55e-16
+and all token-parsed join messages vs native hooks7.77e-16 on32 opened worlds.
+forward_endpoint_program_reference.py defines joins/dictionary/messages. Shared
+phi(e)=O_L2H1 V_L2H1 Emb(e)/8, contextual scalar=P_L2H1(t,s)*sourceRMSgain.
+Derived dictionary3072coefficients/24576bytes, zero independent additions and
+zero native coefficients removed;387968 constants remain. All native prefix,
+routing/gains, complement/readers and arbitrary phi content stay charged.
+
+Active FORWARD_ENDPOINT_RANDOM_LAYOUT_V1_PREREGISTRATION.md and
+forward_endpoint_random_layout_reference.py: fresh24909/24910 IID24-cycle and
+OODthree8-cycle worlds, uniformly random record orders, all24queries×hops0..3.
+32worlds/3072variants; parser selects all forwardjoins, partitions bytargetrecord
+parity, fixed random24-cycle endpoint map. Arms native,identity,mapEven,mapOdd,
+mapAll,removeAll(endpoint terms only). Structural eligibility/desiredanswers
+fixed fromlast-two-edge orientation; no native-error/layout filtering.
+Generator's10CPU checks pass; everyeligible hop/parity/population has88–104 rows.
+Next integrate managed ops/run_forward_endpoint_random_layout_v1.py using exported
+program plus independent native-message oracle. No trained outcome opened.
+All quantitative gates, controls and price in prereg; no routing refit orhead sweep.
+
+Both runners healthy, latest GPU endpoint job completed. Clocks hourly1651 due17:51,
+math1648 due19:48. Durable goal follows bilinear reconstruction handoff plus
+appended criterion, overriding stale better_math_ideas wording. Goal remains active.
+
 ## Active endpoint-field interchange — 2026-09-09 17:30 UTC
 
 JOIN_ORIGIN_FIELD_SWAP_V1_RESULT.json is a valid null: A/D true,B/C false.
