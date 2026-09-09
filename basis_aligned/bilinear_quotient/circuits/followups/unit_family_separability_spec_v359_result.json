@@ -1,0 +1,447 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 2,
+    "k_new": 3,
+    "keep": 0.8,
+    "own_leak_min": 0.2
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v359",
+  "families": {
+    "frame_prep_copies2": [
+      "verb_preposition_fb_from_about",
+      "verb_preposition_fb_into_with",
+      "verb_preposition_fc_of_into",
+      "verb_preposition_fc_through_with",
+      "verb_preposition_from_about",
+      "verb_preposition_into_with",
+      "verb_preposition_of_into",
+      "verb_preposition_through_with"
+    ]
+  },
+  "finished_utc": "2026-09-09T13:32:55.518798+00:00",
+  "members": {
+    "verb_preposition_fb_from_about": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.5683,
+            "ce_lb975": 1.4775,
+            "ce_ub975": 1.6579
+          },
+          "C": {
+            "ce_damage": 0.0029,
+            "ce_lb975": -0.0092,
+            "ce_ub975": 0.015
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.019,
+          "siblings": {
+            "verb_preposition_fb_into_with": 0.0046,
+            "verb_preposition_fc_of_into": 0.0053,
+            "verb_preposition_fc_through_with": 0.0009,
+            "verb_preposition_from_about": 0.019,
+            "verb_preposition_into_with": -0.0185,
+            "verb_preposition_of_into": -0.0141,
+            "verb_preposition_through_with": -0.0041
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.6335,
+            "ce_lb975": 1.4324,
+            "ce_ub975": 1.8488
+          },
+          "C": {
+            "ce_damage": 0.0022,
+            "ce_lb975": -0.0032,
+            "ce_ub975": 0.0074
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 1.3365,
+          "siblings": {
+            "verb_preposition_fb_into_with": -0.0018,
+            "verb_preposition_fc_of_into": 0.0571,
+            "verb_preposition_fc_through_with": -0.0368,
+            "verb_preposition_from_about": 1.3365,
+            "verb_preposition_into_with": -0.0056,
+            "verb_preposition_of_into": 0.0132,
+            "verb_preposition_through_with": -0.0204
+          }
+        }
+      },
+      "exact_held": 0.897,
+      "family": "frame_prep_copies2",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 14,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 96.2,
+      "separable": true,
+      "units": [
+        "attn:08:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:11:head:03",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:09:head:01",
+        "attn:11:head:02",
+        "attn:10:head:08"
+      ]
+    },
+    "verb_preposition_fb_into_with": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9872,
+            "ce_lb975": 0.8227,
+            "ce_ub975": 1.1609
+          },
+          "C": {
+            "ce_damage": 0.004,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.0115
+          },
+          "extraction": 0.987,
+          "sib_abs_max": 0.0086,
+          "siblings": {
+            "verb_preposition_fb_from_about": 0.0019,
+            "verb_preposition_fc_of_into": -0.0002,
+            "verb_preposition_fc_through_with": -0.0007,
+            "verb_preposition_from_about": -0.0012,
+            "verb_preposition_into_with": -0.0002,
+            "verb_preposition_of_into": -0.0086,
+            "verb_preposition_through_with": -0.0054
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0903,
+            "ce_lb975": 1.0416,
+            "ce_ub975": 1.1422
+          },
+          "C": {
+            "ce_damage": 0.001,
+            "ce_lb975": -0.0023,
+            "ce_ub975": 0.0043
+          },
+          "extraction": 1.01,
+          "sib_abs_max": 0.8532,
+          "siblings": {
+            "verb_preposition_fb_from_about": -0.0268,
+            "verb_preposition_fc_of_into": 0.2512,
+            "verb_preposition_fc_through_with": 0.109,
+            "verb_preposition_from_about": 0.0105,
+            "verb_preposition_into_with": 0.8532,
+            "verb_preposition_of_into": 0.1306,
+            "verb_preposition_through_with": 0.1149
+          }
+        }
+      },
+      "exact_held": 0.914,
+      "family": "frame_prep_copies2",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 88.5,
+      "separable": true,
+      "units": [
+        "attn:14:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:09:head:07",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:11:head:06",
+        "attn:07:head:00",
+        "attn:06:head:04",
+        "attn:16:head:08"
+      ]
+    },
+    "verb_preposition_fc_of_into": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.629,
+            "ce_lb975": 1.4484,
+            "ce_ub975": 1.8229
+          },
+          "C": {
+            "ce_damage": -0.0013,
+            "ce_lb975": -0.0108,
+            "ce_ub975": 0.0068
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.0239,
+          "siblings": {
+            "verb_preposition_fb_from_about": 0.0029,
+            "verb_preposition_fb_into_with": -0.0055,
+            "verb_preposition_fc_through_with": -0.006,
+            "verb_preposition_from_about": -0.0021,
+            "verb_preposition_into_with": -0.0089,
+            "verb_preposition_of_into": -0.0239,
+            "verb_preposition_through_with": -0.0028
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.9511,
+            "ce_lb975": 1.6721,
+            "ce_ub975": 2.2554
+          },
+          "C": {
+            "ce_damage": -0.0007,
+            "ce_lb975": -0.0067,
+            "ce_ub975": 0.0052
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 1.2666,
+          "siblings": {
+            "verb_preposition_fb_from_about": -0.1699,
+            "verb_preposition_fb_into_with": 0.0048,
+            "verb_preposition_fc_through_with": 0.2977,
+            "verb_preposition_from_about": -0.1475,
+            "verb_preposition_into_with": 0.1212,
+            "verb_preposition_of_into": 1.2666,
+            "verb_preposition_through_with": 0.2695
+          }
+        }
+      },
+      "exact_held": 0.898,
+      "family": "frame_prep_copies2",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 94.9,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:08:head:08",
+        "attn:07:head:08",
+        "attn:05:head:08",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:09:head:01",
+        "attn:08:head:01",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:05:head:03"
+      ]
+    },
+    "verb_preposition_fc_through_with": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.456,
+            "ce_lb975": 1.4099,
+            "ce_ub975": 1.4976
+          },
+          "C": {
+            "ce_damage": 0.0001,
+            "ce_lb975": -0.0062,
+            "ce_ub975": 0.0062
+          },
+          "extraction": 1.008,
+          "sib_abs_max": 0.0204,
+          "siblings": {
+            "verb_preposition_fb_from_about": -0.0041,
+            "verb_preposition_fb_into_with": 0.0086,
+            "verb_preposition_fc_of_into": 0.0015,
+            "verb_preposition_from_about": -0.0014,
+            "verb_preposition_into_with": 0.0048,
+            "verb_preposition_of_into": -0.008,
+            "verb_preposition_through_with": 0.0204
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.6499,
+            "ce_lb975": 1.5814,
+            "ce_ub975": 1.7159
+          },
+          "C": {
+            "ce_damage": 0.0013,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.0062
+          },
+          "extraction": 1.007,
+          "sib_abs_max": 1.244,
+          "siblings": {
+            "verb_preposition_fb_from_about": 0.0179,
+            "verb_preposition_fb_into_with": 0.2812,
+            "verb_preposition_fc_of_into": 0.1063,
+            "verb_preposition_from_about": -0.0213,
+            "verb_preposition_into_with": 0.2004,
+            "verb_preposition_of_into": 0.1,
+            "verb_preposition_through_with": 1.244
+          }
+        }
+      },
+      "exact_held": 0.894,
+      "family": "frame_prep_copies2",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 99.2,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:14:head:08",
+        "attn:05:head:08",
+        "attn:09:head:01",
+        "attn:04:head:01",
+        "attn:08:head:01",
+        "attn:11:head:06",
+        "attn:03:head:06",
+        "attn:05:head:03",
+        "attn:14:head:03",
+        "attn:11:head:03",
+        "attn:09:head:07"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": true,
+    "pred_b_own_leak_large": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true,
+    "pred_e_donors_below": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "verb_preposition_fb_from_about",
+      "verb_preposition_fb_into_with",
+      "verb_preposition_fc_of_into",
+      "verb_preposition_fc_through_with"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v359",
+  "seconds": 381.9,
+  "separable_counts": {
+    "frame_prep_copies2": 4
+  },
+  "summary": {
+    "verb_preposition_fb_from_about": {
+      "fam": [
+        0.995,
+        0.019,
+        0.015
+      ],
+      "family": "frame_prep_copies2",
+      "n_units": 14,
+      "own": [
+        0.989,
+        1.3365,
+        0.0074
+      ],
+      "separable": true
+    },
+    "verb_preposition_fb_into_with": {
+      "fam": [
+        0.987,
+        0.0086,
+        0.0115
+      ],
+      "family": "frame_prep_copies2",
+      "n_units": 12,
+      "own": [
+        1.01,
+        0.8532,
+        0.0043
+      ],
+      "separable": true
+    },
+    "verb_preposition_fc_of_into": {
+      "fam": [
+        0.998,
+        0.0239,
+        0.0068
+      ],
+      "family": "frame_prep_copies2",
+      "n_units": 12,
+      "own": [
+        0.998,
+        1.2666,
+        0.0052
+      ],
+      "separable": true
+    },
+    "verb_preposition_fc_through_with": {
+      "fam": [
+        1.008,
+        0.0204,
+        0.0062
+      ],
+      "family": "frame_prep_copies2",
+      "n_units": 15,
+      "own": [
+        1.007,
+        1.244,
+        0.0062
+      ],
+      "separable": true
+    }
+  }
+}
