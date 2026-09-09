@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "fresh_seed": 5919,
+  "documents": 8,
+  "original_checkpoint_needed_for_restore": false,
+  "records": {
+    "()": {
+      "max_abs": 2.2737367544323206e-13,
+      "passed": true
+    },
+    "('H',)": {
+      "max_abs": 2.2737367544323206e-13,
+      "passed": true
+    },
+    "('B',)": {
+      "max_abs": 2.2737367544323206e-13,
+      "passed": true
+    },
+    "('H', 'B')": {
+      "max_abs": 2.2737367544323206e-13,
+      "passed": true
+    },
+    "('C',)": {
+      "max_abs": 2.2737367544323206e-13,
+      "passed": true
+    }
+  },
+  "parameters_and_fold": 387968,
+  "artifact_bytes": 4310895,
+  "artifact_sha256": "7258c497a3db14155f82782588dd5fd168a09e9734237f05a35136cad4bd20e7",
+  "source_sha256": "13e807829bf4a50ea63151e959373e7c90d1cfd9e3bd9bf5122413ee9775c7d7",
+  "reference_sha256": "9976ef34a91b5badbf831f1a111987758b02eb67ddebf4ef3d7c0966cf9a5275",
+  "seconds": 2.2167880944907665,
+  "scope": "Complete full-output program with native prefix/routers retained and priced; generic folding saving only."
+}

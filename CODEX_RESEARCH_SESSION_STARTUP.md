@@ -104,8 +104,28 @@ matching answer and other sources, with matched nonmatching-history controls.
 Full upstream native computation is retained and counted; final W_O is physically
 folded into the vocabulary readout in `contextual_history_reference.py`. Nine CPU
 controls and model-free preflight pass. Inspect its queue/log/receipt before acting.
-This is a contextual read-route-write hypothesis, not more first-layer symmetry or
-locality fitting. Reviews remain1348, due1448/1648 during active work.
+This contextual source hypothesis has now passed all four registered tests:
+`CONTEXTUAL_HISTORY_V1_RESULT.json`. Higher-hop IID repeated queries are100% correct
+versus6.28% novel; matching-history removal drops repeats to6.50% versus an almost
+inert count/hop-matched control. Short-cycle OOD supports the same dependence;
+unique-query OOD remains6.63%. Novel hop1 depends on initial bindings instead.
+Native/extracted full29-way logits close to5.12e-13 and joint edge removals6.25e-13.
+The contextual routers/prefix remain native and charged. The complete portable
+`CONTEXTUAL_HISTORY_V1_PROGRAM.pt` loads without the original checkpoint and passes
+fresh8-document CPU replay (`CONTEXTUAL_HISTORY_V1_EXPORT_REPLAY.json`, max2.27e-13).
+Constants387968 versus400640 native, with12672 saved by generic readout folding;
+do not count that fold as semantic discovery. Report:
+`explanations/contextual_answer_history_circuit.md`.
+
+Active successor: `CONTEXTUAL_HISTORY_FIELDS_V1_PREREGISTRATION.md` and managed
+`ops/run_contextual_history_fields_v1.py`. Fresh fixed-position counterfactuals
+independently change stored entity key, hop key and answer payload, then jointly
+retarget the current query. This addresses source-age ambiguity and tests composite
+key/value semantics. A separate IID-nominated/OOD-confirmed test asks whether native
+QK1/QK2 factors specialize to the fields; failure of that screen must not erase a
+passing semantic product-level result. Twenty parser checks plus nine readout controls
+pass; implementation/preflight ready. Inspect live queue/result before enqueuing.
+Reviews remain1348, due1448/1648 during active work. Full bilin18 goal remains active.
 
 The user redirected Codex to
 `basis_aligned/polynomial_causal/explanations/bilinear_circuit_reconstruction_codex_handoff.md`.

@@ -1,0 +1,1324 @@
+{
+  "predictions": {
+    "pred_a_exact_extraction": true,
+    "pred_b_repetition_explains_floor": true,
+    "pred_c_selective_sources": true,
+    "pred_d_composition": true
+  },
+  "terminal": "answer_history_account_supported",
+  "populations": {
+    "iid": {
+      "groups": {
+        "hop0_repeated": {
+          "n": 310,
+          "accuracy": 1.0,
+          "mean_gold_probability": 0.9999994667100953,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": -1.169374444229892e-09,
+              "accuracy": 1.0,
+              "mean_kl": 1.3000944665077587e-10
+            },
+            "remove_binding": {
+              "gold_probability_loss": -1.9959640092328106e-08,
+              "accuracy": 1.0,
+              "mean_kl": 2.3437051208669938e-09
+            },
+            "remove_joint": {
+              "gold_probability_loss": -2.0881514752807955e-08,
+              "accuracy": 1.0,
+              "mean_kl": 2.721219030688562e-09
+            },
+            "remove_control": {
+              "gold_probability_loss": 4.656316690643975e-10,
+              "accuracy": 1.0,
+              "mean_kl": 9.512414418913837e-11
+            }
+          }
+        },
+        "hop0_novel": {
+          "n": 1198,
+          "accuracy": 1.0,
+          "mean_gold_probability": 0.9999988412748716,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": -4.28610028681908e-08,
+              "accuracy": 1.0,
+              "mean_kl": 7.416952985106661e-09
+            },
+            "remove_joint": {
+              "gold_probability_loss": -4.28610028681908e-08,
+              "accuracy": 1.0,
+              "mean_kl": 7.416952985106661e-09
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "hop1_repeated": {
+          "n": 338,
+          "accuracy": 1.0,
+          "mean_gold_probability": 0.9997246329441819,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.2230008978132845,
+              "accuracy": 0.8136094674556213,
+              "mean_kl": 0.3157576635667275
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.33988700136020694,
+              "accuracy": 0.6449704142011834,
+              "mean_kl": 1.0388152872733354
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.927890030571553,
+              "accuracy": 0.0650887573964497,
+              "mean_kl": 8.044537600591863
+            },
+            "remove_control": {
+              "gold_probability_loss": 1.632540803538504e-05,
+              "accuracy": 1.0,
+              "mean_kl": 1.9418156243658405e-05
+            }
+          }
+        },
+        "hop1_novel": {
+          "n": 1245,
+          "accuracy": 0.7606425702811245,
+          "mean_gold_probability": 0.7309748693210268,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.7606425702811245,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.7606425702811245,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.6720665482696266,
+              "accuracy": 0.05943775100401606,
+              "mean_kl": 5.342828561836287
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.6720665482696266,
+              "accuracy": 0.05943775100401606,
+              "mean_kl": 5.342828561836287
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.7606425702811245,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "hop2_repeated": {
+          "n": 320,
+          "accuracy": 1.0,
+          "mean_gold_probability": 0.9993839039491107,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.9329255173465842,
+              "accuracy": 0.08125,
+              "mean_kl": 2.7497281588136717
+            },
+            "remove_binding": {
+              "gold_probability_loss": 5.37231549782996e-06,
+              "accuracy": 1.0,
+              "mean_kl": 1.8389851774475083e-06
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.9339937961707478,
+              "accuracy": 0.08125,
+              "mean_kl": 2.766814865366849
+            },
+            "remove_control": {
+              "gold_probability_loss": 2.1410172084649834e-05,
+              "accuracy": 1.0,
+              "mean_kl": 2.482147776414528e-05
+            }
+          }
+        },
+        "hop2_novel": {
+          "n": 1242,
+          "accuracy": 0.06360708534621579,
+          "mean_gold_probability": 0.05931539964334665,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06360708534621579,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06360708534621579,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0010534648410308579,
+              "accuracy": 0.05555555555555555,
+              "mean_kl": 0.0052015588088826
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.0010534648410308579,
+              "accuracy": 0.05555555555555555,
+              "mean_kl": 0.0052015588088826
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06360708534621579,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "hop3_repeated": {
+          "n": 295,
+          "accuracy": 1.0,
+          "mean_gold_probability": 0.9986650299855117,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.9362019639108483,
+              "accuracy": 0.04745762711864407,
+              "mean_kl": 2.7976387193290537
+            },
+            "remove_binding": {
+              "gold_probability_loss": 5.985326247404486e-06,
+              "accuracy": 1.0,
+              "mean_kl": 2.110682028501972e-06
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.9372646344259713,
+              "accuracy": 0.05084745762711865,
+              "mean_kl": 2.8150240255478294
+            },
+            "remove_control": {
+              "gold_probability_loss": 6.456492132452035e-05,
+              "accuracy": 1.0,
+              "mean_kl": 8.308011225012873e-05
+            }
+          }
+        },
+        "hop3_novel": {
+          "n": 1196,
+          "accuracy": 0.061872909698996656,
+          "mean_gold_probability": 0.05852828988467945,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.061872909698996656,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.061872909698996656,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0010398695159949765,
+              "accuracy": 0.061036789297658864,
+              "mean_kl": 0.005243267446389204
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.0010398695159949765,
+              "accuracy": 0.061036789297658864,
+              "mean_kl": 0.005243267446389204
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.061872909698996656,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "high_repeated": {
+          "n": 615,
+          "accuracy": 1.0,
+          "mean_gold_probability": 0.9990390782267341,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.9344971461863533,
+              "accuracy": 0.06504065040650407,
+              "mean_kl": 2.7727096471909687
+            },
+            "remove_binding": {
+              "gold_probability_loss": 5.66636130453644e-06,
+              "accuracy": 1.0,
+              "mean_kl": 1.969311309254121e-06
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.9355627348460175,
+              "accuracy": 0.06666666666666667,
+              "mean_kl": 2.7899395844780512
+            },
+            "remove_control": {
+              "gold_probability_loss": 4.211041765499423e-05,
+              "accuracy": 1.0,
+              "mean_kl": 5.276667642002353e-05
+            }
+          }
+        },
+        "high_novel": {
+          "n": 2438,
+          "accuracy": 0.06275635767022149,
+          "mean_gold_probability": 0.058929270327774064,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06275635767022149,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06275635767022149,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0010467954362962746,
+              "accuracy": 0.05824446267432322,
+              "mean_kl": 0.0052220196499235755
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.0010467954362962746,
+              "accuracy": 0.05824446267432322,
+              "mean_kl": 0.0052220196499235755
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06275635767022149,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "high_matched_repeated": {
+          "n": 606,
+          "accuracy": 1.0,
+          "mean_gold_probability": 0.9990421795429193,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.9342504248793778,
+              "accuracy": 0.066006600660066,
+              "mean_kl": 2.768843412487209
+            },
+            "remove_binding": {
+              "gold_probability_loss": 5.399043979855502e-06,
+              "accuracy": 1.0,
+              "mean_kl": 1.8874039781398008e-06
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.9353244541494298,
+              "accuracy": 0.06765676567656766,
+              "mean_kl": 2.7861734650702465
+            },
+            "remove_control": {
+              "gold_probability_loss": 4.273581989739513e-05,
+              "accuracy": 1.0,
+              "mean_kl": 5.3550339931212e-05
+            }
+          }
+        }
+      },
+      "distribution_fidelity": {
+        "native": {
+          "all_positions": {
+            "mean_kl": 1.2753474945800786e-18,
+            "p99_kl": 3.428237445177698e-16,
+            "max_kl": 6.684932904313274e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 4.055254948121857e-18,
+            "p99_kl": 4.3094589758283743e-16,
+            "max_kl": 6.684932904313274e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_history": {
+          "all_positions": {
+            "mean_kl": 1.4538918959135407e-18,
+            "p99_kl": 3.523801042979244e-16,
+            "max_kl": 6.684932904313274e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 4.944257279761387e-18,
+            "p99_kl": 4.520548041815636e-16,
+            "max_kl": 6.684932904313274e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_binding": {
+          "all_positions": {
+            "mean_kl": 9.163909401363967e-19,
+            "p99_kl": 3.50368321014123e-16,
+            "max_kl": 6.887078633574168e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 2.2679504374543593e-18,
+            "p99_kl": 4.538702675841467e-16,
+            "max_kl": 6.887078633574168e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_joint": {
+          "all_positions": {
+            "mean_kl": 8.655242401060971e-19,
+            "p99_kl": 3.580642283389518e-16,
+            "max_kl": 6.887078633574168e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 2.0146766602201567e-18,
+            "p99_kl": 4.627471564950284e-16,
+            "max_kl": 6.887078633574168e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_control": {
+          "all_positions": {
+            "mean_kl": 1.2588057953966385e-18,
+            "p99_kl": 3.428237445177698e-16,
+            "max_kl": 6.684932904313274e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 3.972891070937644e-18,
+            "p99_kl": 4.3094589758283743e-16,
+            "max_kl": 6.684932904313274e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        }
+      },
+      "effects": {
+        "remove_history": {
+          "target_rms": 0.4515985914052408,
+          "error_rms": 4.168302587670208e-15,
+          "relative_l2": 9.230105378982002e-15,
+          "passed": true
+        },
+        "remove_binding": {
+          "target_rms": 0.4988784723422082,
+          "error_rms": 7.631249362980424e-15,
+          "relative_l2": 1.529681031765534e-14,
+          "passed": true
+        },
+        "remove_joint": {
+          "target_rms": 0.7458850361000035,
+          "error_rms": 7.617636797380836e-15,
+          "relative_l2": 1.021288325773506e-14,
+          "passed": true
+        },
+        "remove_control": {
+          "target_rms": 0.3542057145328011,
+          "error_rms": 4.074330793115433e-15,
+          "relative_l2": 1.1502724620040346e-14,
+          "passed": true
+        }
+      },
+      "all_logits_close": true,
+      "max_abs_logit": 4.547473508864641e-13,
+      "effect_vectors_close": true,
+      "native_joint_closure": true,
+      "joint_max_abs": 5.684341886080801e-13,
+      "matching_control_age_mean": {
+        "H": 66.97231833910034,
+        "C": 19.401384083044984
+      },
+      "repeated_queries": 1263,
+      "eligible_repeated_queries": 1246,
+      "token_sha256": "b513ed2f8d92a84cac3d939fec4b378f04f5952dc7d8dc07d3b1c8e823d5a838"
+    },
+    "ood_unique_queries": {
+      "groups": {
+        "hop0_repeated": {
+          "n": 0
+        },
+        "hop0_novel": {
+          "n": 1531,
+          "accuracy": 1.0,
+          "mean_gold_probability": 0.9999691664817725,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": -2.947169961853726e-07,
+              "accuracy": 1.0,
+              "mean_kl": 1.8450950704847904e-08
+            },
+            "remove_joint": {
+              "gold_probability_loss": -2.947169961853726e-07,
+              "accuracy": 1.0,
+              "mean_kl": 1.8450950704847904e-08
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "hop1_repeated": {
+          "n": 0
+        },
+        "hop1_novel": {
+          "n": 1519,
+          "accuracy": 0.761026991441738,
+          "mean_gold_probability": 0.7367527657889921,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.761026991441738,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.761026991441738,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.6745738668384434,
+              "accuracy": 0.06385780118499013,
+              "mean_kl": 5.286870775819646
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.6745738668384434,
+              "accuracy": 0.06385780118499013,
+              "mean_kl": 5.286870775819646
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.761026991441738,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "hop2_repeated": {
+          "n": 0
+        },
+        "hop2_novel": {
+          "n": 1566,
+          "accuracy": 0.06066411238825032,
+          "mean_gold_probability": 0.06432034562447582,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06066411238825032,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06066411238825032,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0011125471547036082,
+              "accuracy": 0.05555555555555555,
+              "mean_kl": 0.0051265277697698985
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.0011125471547036082,
+              "accuracy": 0.05555555555555555,
+              "mean_kl": 0.0051265277697698985
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06066411238825032,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "hop3_repeated": {
+          "n": 0
+        },
+        "hop3_novel": {
+          "n": 1528,
+          "accuracy": 0.07198952879581152,
+          "mean_gold_probability": 0.06365963285989784,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.07198952879581152,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.07198952879581152,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0010732263627209807,
+              "accuracy": 0.06740837696335078,
+              "mean_kl": 0.004942262202575046
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.0010732263627209807,
+              "accuracy": 0.06740837696335078,
+              "mean_kl": 0.004942262202575046
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.07198952879581152,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "high_repeated": {
+          "n": 0
+        },
+        "high_novel": {
+          "n": 3094,
+          "accuracy": 0.06625727213962508,
+          "mean_gold_probability": 0.06399404662503329,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06625727213962508,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06625727213962508,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0010931282244678443,
+              "accuracy": 0.06140917905623788,
+              "mean_kl": 0.00503552654589345
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.0010931282244678443,
+              "accuracy": 0.06140917905623788,
+              "mean_kl": 0.00503552654589345
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06625727213962508,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "high_matched_repeated": {
+          "n": 0
+        }
+      },
+      "distribution_fidelity": {
+        "native": {
+          "all_positions": {
+            "mean_kl": 9.684647128849093e-20,
+            "p99_kl": 3.4502364807170107e-16,
+            "max_kl": 8.202467183900872e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 2.612352882828147e-19,
+            "p99_kl": 4.3938929185978737e-16,
+            "max_kl": 8.202467183900872e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_history": {
+          "all_positions": {
+            "mean_kl": 9.684647128849093e-20,
+            "p99_kl": 3.4502364807170107e-16,
+            "max_kl": 8.202467183900872e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 2.612352882828147e-19,
+            "p99_kl": 4.3938929185978737e-16,
+            "max_kl": 8.202467183900872e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_binding": {
+          "all_positions": {
+            "mean_kl": 2.2718327688602057e-19,
+            "p99_kl": 3.4377880346888094e-16,
+            "max_kl": 6.35349967853989e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 9.10203966153845e-19,
+            "p99_kl": 4.563980353907355e-16,
+            "max_kl": 6.35349967853989e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_joint": {
+          "all_positions": {
+            "mean_kl": 2.2718327688602057e-19,
+            "p99_kl": 3.4377880346888094e-16,
+            "max_kl": 6.35349967853989e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 9.10203966153845e-19,
+            "p99_kl": 4.563980353907355e-16,
+            "max_kl": 6.35349967853989e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_control": {
+          "all_positions": {
+            "mean_kl": 9.684647128849093e-20,
+            "p99_kl": 3.4502364807170107e-16,
+            "max_kl": 8.202467183900872e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 2.612352882828147e-19,
+            "p99_kl": 4.3938929185978737e-16,
+            "max_kl": 8.202467183900872e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        }
+      },
+      "effects": {
+        "remove_history": {
+          "target_rms": 0.0,
+          "error_rms": 0.0,
+          "relative_l2": 0.0,
+          "passed": true
+        },
+        "remove_binding": {
+          "target_rms": 0.4910459749687153,
+          "error_rms": 7.457673426227703e-15,
+          "relative_l2": 1.5187322178341517e-14,
+          "passed": true
+        },
+        "remove_joint": {
+          "target_rms": 0.4910459749687153,
+          "error_rms": 7.457673426227703e-15,
+          "relative_l2": 1.5187322178341517e-14,
+          "passed": true
+        },
+        "remove_control": {
+          "target_rms": 0.0,
+          "error_rms": 0.0,
+          "relative_l2": 0.0,
+          "passed": true
+        }
+      },
+      "all_logits_close": true,
+      "max_abs_logit": 4.547473508864641e-13,
+      "effect_vectors_close": true,
+      "native_joint_closure": true,
+      "joint_max_abs": 5.684341886080802e-14,
+      "matching_control_age_mean": {
+        "H": 0.0,
+        "C": 0.0
+      },
+      "repeated_queries": 0,
+      "eligible_repeated_queries": 0,
+      "token_sha256": "cf6b655aef6c2dd82d5895328a4f5d88948df38c140246fbd6f5369cba92e9a4"
+    },
+    "ood_short_cycles": {
+      "groups": {
+        "hop0_repeated": {
+          "n": 301,
+          "accuracy": 1.0,
+          "mean_gold_probability": 0.9999992881585181,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": -4.813852743518623e-09,
+              "accuracy": 1.0,
+              "mean_kl": 1.028775643802289e-09
+            },
+            "remove_binding": {
+              "gold_probability_loss": 2.5645767535817976e-08,
+              "accuracy": 1.0,
+              "mean_kl": 2.0992583824435154e-09
+            },
+            "remove_joint": {
+              "gold_probability_loss": 2.0285011105325324e-08,
+              "accuracy": 1.0,
+              "mean_kl": 2.5810958692816554e-09
+            },
+            "remove_control": {
+              "gold_probability_loss": -2.0297919048773277e-08,
+              "accuracy": 1.0,
+              "mean_kl": 1.0528478202329976e-08
+            }
+          }
+        },
+        "hop0_novel": {
+          "n": 1202,
+          "accuracy": 1.0,
+          "mean_gold_probability": 0.9999980885716078,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": -1.0584427394176738e-07,
+              "accuracy": 1.0,
+              "mean_kl": 3.7721359477253855e-08
+            },
+            "remove_joint": {
+              "gold_probability_loss": -1.0584427394176738e-07,
+              "accuracy": 1.0,
+              "mean_kl": 3.7721359477253855e-08
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "hop1_repeated": {
+          "n": 281,
+          "accuracy": 0.9750889679715302,
+          "mean_gold_probability": 0.9738928834672174,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.9750889679715302,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.2547597790180813,
+              "accuracy": 0.7651245551601423,
+              "mean_kl": 0.5207352991692505
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.3647421882649097,
+              "accuracy": 0.6120996441281139,
+              "mean_kl": 1.255575837739892
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.9119276240384577,
+              "accuracy": 0.060498220640569395,
+              "mean_kl": 8.377035806495241
+            },
+            "remove_control": {
+              "gold_probability_loss": 2.4666361999401308e-05,
+              "accuracy": 0.9750889679715302,
+              "mean_kl": 2.92781506607763e-05
+            }
+          }
+        },
+        "hop1_novel": {
+          "n": 1186,
+          "accuracy": 0.648397976391231,
+          "mean_gold_probability": 0.6360630799552238,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.648397976391231,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.648397976391231,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.5866687327741399,
+              "accuracy": 0.05143338954468803,
+              "mean_kl": 4.787229416643991
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.5866687327741399,
+              "accuracy": 0.05143338954468803,
+              "mean_kl": 4.787229416643991
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.648397976391231,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "hop2_repeated": {
+          "n": 318,
+          "accuracy": 0.9433962264150944,
+          "mean_gold_probability": 0.9284923117053742,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.9433962264150944,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.8724760022135104,
+              "accuracy": 0.05660377358490566,
+              "mean_kl": 2.8191992532382275
+            },
+            "remove_binding": {
+              "gold_probability_loss": -0.0005437277325758895,
+              "accuracy": 0.949685534591195,
+              "mean_kl": 0.0027208248422268444
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.8733244840393863,
+              "accuracy": 0.059748427672955975,
+              "mean_kl": 2.8262602548590303
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.00029794813134127247,
+              "accuracy": 0.9433962264150944,
+              "mean_kl": 0.0037088443087811575
+            }
+          }
+        },
+        "hop2_novel": {
+          "n": 1231,
+          "accuracy": 0.06255077173030058,
+          "mean_gold_probability": 0.052561881940530006,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06255077173030058,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06255077173030058,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0009418173612479462,
+              "accuracy": 0.05848903330625508,
+              "mean_kl": 0.005080082577256416
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.0009418173612479462,
+              "accuracy": 0.05848903330625508,
+              "mean_kl": 0.005080082577256416
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.06255077173030058,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "hop3_repeated": {
+          "n": 362,
+          "accuracy": 0.9530386740331491,
+          "mean_gold_probability": 0.9314995478395962,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.9530386740331491,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.8758009706759894,
+              "accuracy": 0.055248618784530384,
+              "mean_kl": 2.8573258128629813
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0005649835067975245,
+              "accuracy": 0.9502762430939227,
+              "mean_kl": 0.0010702027690296869
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.8764498075196893,
+              "accuracy": 0.052486187845303865,
+              "mean_kl": 2.8752354483078473
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.00023384282876182246,
+              "accuracy": 0.9530386740331491,
+              "mean_kl": 0.0026583907930794277
+            }
+          }
+        },
+        "hop3_novel": {
+          "n": 1263,
+          "accuracy": 0.04592240696753761,
+          "mean_gold_probability": 0.05057880706100028,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.04592240696753761,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.04592240696753761,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0003894769503305105,
+              "accuracy": 0.04433887569279493,
+              "mean_kl": 0.00507087262104279
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.0003894769503305105,
+              "accuracy": 0.04433887569279493,
+              "mean_kl": 0.00507087262104279
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.04592240696753761,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "high_repeated": {
+          "n": 680,
+          "accuracy": 0.9485294117647058,
+          "mean_gold_probability": 0.9300932227062395,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.9485294117647058,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.8742460589538302,
+              "accuracy": 0.05588235294117647,
+              "mean_kl": 2.839496039391405
+            },
+            "remove_binding": {
+              "gold_probability_loss": 4.6497956619957516e-05,
+              "accuracy": 0.95,
+              "mean_kl": 0.0018421113267895342
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.8749882591862536,
+              "accuracy": 0.05588235294117647,
+              "mean_kl": 2.8523323431361947
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0002638214849680946,
+              "accuracy": 0.9485294117647058,
+              "mean_kl": 0.003149632290128178
+            }
+          }
+        },
+        "high_novel": {
+          "n": 2494,
+          "accuracy": 0.0541299117882919,
+          "mean_gold_probability": 0.05155762228822605,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.0541299117882919,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.0541299117882919,
+              "mean_kl": 0.0
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0006621036728001831,
+              "accuracy": 0.05132317562149158,
+              "mean_kl": 0.005075418513624576
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.0006621036728001831,
+              "accuracy": 0.05132317562149158,
+              "mean_kl": 0.005075418513624576
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.0541299117882919,
+              "mean_kl": 0.0
+            }
+          }
+        },
+        "high_matched_repeated": {
+          "n": 669,
+          "accuracy": 0.9491778774289985,
+          "mean_gold_probability": 0.9312820995389517,
+          "removals": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.9491778774289985,
+              "mean_kl": 0.0
+            },
+            "remove_history": {
+              "gold_probability_loss": 0.875098225836641,
+              "accuracy": 0.05680119581464873,
+              "mean_kl": 2.8383389969841866
+            },
+            "remove_binding": {
+              "gold_probability_loss": 0.0003907734167476289,
+              "accuracy": 0.9506726457399103,
+              "mean_kl": 0.0017040737093217903
+            },
+            "remove_joint": {
+              "gold_probability_loss": 0.8758438078320302,
+              "accuracy": 0.05680119581464873,
+              "mean_kl": 2.8517641526063118
+            },
+            "remove_control": {
+              "gold_probability_loss": 0.0002681593569182427,
+              "accuracy": 0.9491778774289985,
+              "mean_kl": 0.003201419966049568
+            }
+          }
+        }
+      },
+      "distribution_fidelity": {
+        "native": {
+          "all_positions": {
+            "mean_kl": -1.1546922905463907e-18,
+            "p99_kl": 3.351481484081331e-16,
+            "max_kl": 6.811892794198027e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 4.833406612043717e-19,
+            "p99_kl": 4.125694389798917e-16,
+            "max_kl": 6.811892794198027e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_history": {
+          "all_positions": {
+            "mean_kl": -7.012909154510736e-19,
+            "p99_kl": 3.444696220513425e-16,
+            "max_kl": 6.811892794198027e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 2.740901674699802e-18,
+            "p99_kl": 4.3600224575333754e-16,
+            "max_kl": 6.811892794198027e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_binding": {
+          "all_positions": {
+            "mean_kl": -1.4778412270389667e-18,
+            "p99_kl": 3.3500056795342933e-16,
+            "max_kl": 7.242573128603503e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": -1.125671751748246e-18,
+            "p99_kl": 4.3697693220188366e-16,
+            "max_kl": 7.242573128603503e-16,
+            "max_abs_logit": 3.979039320256561e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_joint": {
+          "all_positions": {
+            "mean_kl": -1.2288719146690434e-18,
+            "p99_kl": 3.472316445693551e-16,
+            "max_kl": 7.242573128603503e-16,
+            "max_abs_logit": 5.115907697472721e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 1.1398794942699626e-19,
+            "p99_kl": 4.492450208666298e-16,
+            "max_kl": 7.242573128603503e-16,
+            "max_abs_logit": 5.115907697472721e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        },
+        "remove_control": {
+          "all_positions": {
+            "mean_kl": -1.2109947318815452e-18,
+            "p99_kl": 3.351481484081331e-16,
+            "max_kl": 6.811892794198027e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          },
+          "query_positions": {
+            "mean_kl": 2.030014220564138e-19,
+            "p99_kl": 4.1374931316746127e-16,
+            "max_kl": 6.811892794198027e-16,
+            "max_abs_logit": 4.547473508864641e-13,
+            "top1_agreement": 1.0,
+            "passed": true
+          }
+        }
+      },
+      "effects": {
+        "remove_history": {
+          "target_rms": 0.445839058484512,
+          "error_rms": 3.827846832629443e-15,
+          "relative_l2": 8.585714418205059e-15,
+          "passed": true
+        },
+        "remove_binding": {
+          "target_rms": 0.47519950266799443,
+          "error_rms": 7.413205474152989e-15,
+          "relative_l2": 1.5600196196611638e-14,
+          "passed": true
+        },
+        "remove_joint": {
+          "target_rms": 0.7108649899754438,
+          "error_rms": 7.37477846269324e-15,
+          "relative_l2": 1.037437286501899e-14,
+          "passed": true
+        },
+        "remove_control": {
+          "target_rms": 0.37076249054280125,
+          "error_rms": 3.949512062319124e-15,
+          "relative_l2": 1.0652404606887243e-14,
+          "passed": true
+        }
+      },
+      "all_logits_close": true,
+      "max_abs_logit": 5.115907697472721e-13,
+      "effect_vectors_close": true,
+      "native_joint_closure": true,
+      "joint_max_abs": 6.252776074688882e-13,
+      "matching_control_age_mean": {
+        "H": 64.85318559556787,
+        "C": 18.872576177285318
+      },
+      "repeated_queries": 1262,
+      "eligible_repeated_queries": 1235,
+      "token_sha256": "657dc2ea046c73d066e39ac6357de9a483975f4868528d963b3136d4295cefc4"
+    }
+  },
+  "controls": {
+    "passed": true,
+    "checks": {
+      "known_history_edge": true,
+      "()": true,
+      "('H',)": true,
+      "('B',)": true,
+      "('H', 'B')": true,
+      "('C',)": true,
+      "live_history": true,
+      "live_binding": true,
+      "causal": true
+    }
+  },
+  "constants": {
+    "native_parameters": 400640,
+    "compiled_parameters_and_fold": 387968,
+    "folded_readout": 3712,
+    "other_fixed_buffers": 145920
+  },
+  "seconds": 3.6076125726103783,
+  "scope": "Exact final-readout decomposition with explicitly native prefix and contextual Q/K/V; generic compiler folding saving, not a discovered compact router or complete bilin18 explanation.",
+  "hashes": {
+    "basis_aligned/polynomial_causal/contextual_history_reference.py": "9976ef34a91b5badbf831f1a111987758b02eb67ddebf4ef3d7c0966cf9a5275",
+    "basis_aligned/polynomial_causal/CONTEXTUAL_HISTORY_V1_PREREGISTRATION.md": "5ff69108724bfd98051804aa528431fbc313eeee6b71c271664e78ef502f04eb",
+    "basis_aligned/bilinear_quotient/ops/run_equality_router_v1.py": "71495a3129c5f4b0207c0a27f209836c30dd9b63fc1365719e9b2ccc059b934a",
+    "basis_aligned/bilinear_quotient/ops/run_contextual_history_v1.py": "4a5854ab0f56da8020c0583e4fdbabeffe39c9acea1ce0186430e16f8e24583b",
+    "runs_hop/attn-mlp-attn-rms-seed0/model.pt": "02a3f0e793849899629af95d88be4f60b5ff1b42ee39116cb2a7d8512cb212ff"
+  }
+}
