@@ -358,3 +358,28 @@ original distribution and effect bars on fresh18909/18910 inputs. The primitive
 including nonzero term closure and exact joint restoration. Fresh generator and
 managed runner integration remain. No native dependency or coefficient is hidden
 or counted as eliminated by this diagnostic representation.
+
+## Exact payload producers: semantic field evidence, insufficient precision
+
+`JOIN_VALUE_PRODUCERS_V1_RESULT.json` passes A/B and fails C/D on fresh18909/18910
+worlds. The exact residual decomposition closes at8.88e-16, selected write sums
+at2.22e-15 and joint all-term logits at4.26e-14. Runtime6.14s via managedGPU.
+Forward E-only recovery is.969–.999; backward (Y0+Y1) recovery.952–1.003. Their
+complements recover at most.103. This supports the specified current-value versus
+contextually supplied origin-key distinction at the task-effect level.
+
+The predeclared complete factorial further nominates Y1, the second attention
+output, as the backward field producer: Y1alone recovery.951–.996; Y0alone≈0.
+This nomination needs a fresh producer-source test. No best subset replaces the
+registered candidate. That candidate still fails full native prediction: joint
+all-position meanKL.0135–.0333, query meanKL.00332–.00973, joint query-effect
+relative error.197–.232. Task recovery near100% remains weaker than the goal.
+
+The next `JOIN_ORIGIN_WRITER_V1_PREREGISTRATION.md` tests a single explicit path:
+L1 previous-key→current-value attention, feeding the L2 backward join V and final
+key consumers. Fresh19909/19910 worlds; all four L1 heads retained, no head/source
+selection. The path and exact complement are separately restored, both with the
+independent forward route present and removed. Its reference passes five CPU
+controls including all-source Y1 identity, single/conditional-joint replay and
+future-token invariance. All native coefficients and normalization dependencies
+remain charged. A semantic path result will not erase the quantitative failures.
