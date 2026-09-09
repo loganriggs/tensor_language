@@ -197,9 +197,15 @@ baselines.
 ## 4. Early hours: the direct residual route became explicit
 
 Complete attention/MLP write patches over layers 12--17 recovered only about `.13-.21` of the
-upstream effect. By contrast, complete residual-state swaps from entry 12 through post-MLP17 all
-recovered exactly `1.0`. This identified a carried residual interface but did not by itself identify
-a consumer—equal state at a deterministic suffix trivially gives equal output.
+upstream effect. A separate atlas then made **thirteen independent full residual-state swaps**: at
+entry 12 and after each attention and MLP sublayer through post-MLP17. Every boundary recovered
+exactly `1.0`. This is not evidence that every layer separately mediates the effect. In particular,
+the post-MLP17 swap is a final-state positive control, and any complete donor-state swap followed by
+the same deterministic suffix is expected to reproduce the donor output. The informative part is
+limited: already at entry 12, replacing the complete residual tensor through the semantic prefix was
+sufficient even while `x0` and recurrent attention state `v1` remained native. That establishes a
+residual-state interface at entry 12, but neither localizes a downstream consumer nor shows that the
+intervening layers actively read the state.
 
 A cross-fitted rank-two A1/A2 subspace at entry 12 was sufficient at roughly `.795-.881`. A pooled
 rank-one coordinate failed A1, and removing the full nuisance P span destroyed the target too,
@@ -564,10 +570,13 @@ one shared low-dimensional residual-context core
 not “all four heads write the same map.”
 
 The first preregistered rank-one leave-one-head-out screen generated large-looking transfer values,
-but its absolute float32 SVD certificate failed. Under the project rules, pred A failure makes the
-whole scientific receipt invalid. The result and audit are preserved; the same rank, weights,
-seeds, random controls, and bars are being rerun with float64 arithmetic. Until that repair passes,
-the rank-one transfer values are not evidence.
+but its absolute float32 SVD certificate failed. Under the project rules, pred A failure made that
+whole receipt invalid. A post-window float64 repair, with the same rank, weights, seeds, random
+controls, and bars, has now passed: held-out captured-energy fractions are `.2291`, `.2687`, `.5022`,
+and `.4465` against random 99th percentiles of only `.00204-.00275`; the minimum leave-one-out
+projector overlap is `.99543`. This is valid evidence for a shared rank-one **weight-capability**
+core, but it is still not evidence of semantic identity, native causal reuse, or the correct adopted
+rank.
 
 ### What happens next
 
@@ -585,3 +594,165 @@ matched rotation or private tail works equally well, the shared-looking weight g
 causal decomposition. After that causal decision, PCA/SAE/hierarchical SAE can still be applied to
 the fixed coordinates to explain which legal branches occur and whether their occupancy is sparse,
 discrete, or hierarchical.
+
+## 14. DAS regularization: what was optimized, what failed, and what remains open
+
+### High-level correction
+
+The current evidence does **not** show that optimized DAS is intrinsically worse than difference in
+means (DIM). It shows that the particular losses, regularizers, selection environments, optimizer
+budgets, and intervention parameterization tested so far did not yield a construction-invariant,
+selective subspace that beat the DIM baseline. The user's concern is therefore live: the
+regularization may have been optimized incorrectly, or the primary objective may identify the wrong
+solution.
+
+This distinction matters because complement inertness is underidentifying. Many subspaces can leave
+a finite complement/control panel nearly unchanged, including subspaces that memorize the training
+construction. Passing that test can reject some bad solutions, but cannot by itself prove that the
+selected subspace is the intended causal variable.
+
+### The most complete constrained-DAS optimization
+
+The strongest completed test learned a separate orthonormal projector for each of four physical
+heads, `L8H1`, `L9H1`, `L9H4`, and `L11H3`. For head `h`, with learned
+`U_h in R^(128 x k)` and `U_h^T U_h = I`, the intervention was
+
+```text
+P_h = U_h U_h^T
+patched head response = base response + P_h(donor response - base response).
+```
+
+The projected response was installed as an absolute clamp at every causal prefix position. The
+parent attention-15 donor clamp remained fixed, so this experiment optimized the upstream head-local
+response interfaces, not an entirely native end-to-end execution.
+
+Rows were split by frozen row-group parity. One parity trained the projector; the opposite parity
+selected rank, regularization, and checkpoint, and the direction was then reversed. A2 and C were
+sealed until selection was complete. The grid was:
+
+- ranks `k in {1,2,4}`;
+- DIM/task-response-SVD and factor-response-SVD initializations;
+- Gaussian response noise `sigma in {0,.05,.10}`, scaled by each head's training-response RMS;
+- Jacobian/sensitivity weights `lambda_J in {0,.25,1}` through the nonduplicate combinations
+  `(0,0)`, `(.05,.25)`, `(.05,1)`, `(.10,.25)`, and `(.10,1)`;
+- Adam with learning rate `.03`, eight updates, and checkpoints at steps `0`, `4`, and `8`.
+
+The target side was treated as a hard feasibility constraint: every A1 selection group needed signed
+projection at least `.75` and direction fraction at least `.875`. Among feasible candidates, the
+secondary score minimized aligned-P full-vocabulary KL plus the weighted local sensitivity penalty.
+The implementation used a weight-`100` target barrier and a smooth worst-row P-KL surrogate with
+temperature `.05`. Paired-fold selection used the worse held-parity secondary score plus `.25` times
+the normalized distance between the two learned projectors. Schematically,
+
+```text
+training loss = smooth_worst_P_KL
+              + lambda_J * normalized_local_sensitivity
+              + 100 * target_feasibility_violations
+
+selection score = worse_held_parity_secondary
+                + .25 * cross_fold_projector_distance.
+```
+
+This was a substantial search rather than a single fragile fit: 1,738 differentiable forwards,
+1,248 backward-forwards, 480 optimizer updates, 28,128 evaluated examples, and 2,048 learned
+parameters across the tournament.
+
+### How it was found to be bad
+
+The chosen candidate was rank one, factor-SVD initialized, with `sigma=.05`,
+`lambda_J=.25`, and checkpoint step 4 in both folds. It was target-feasible on the A1 selection
+folds:
+
+- fold 0: A1 signed projection `.85128`, P mean KL `.001067`, zero P flips;
+- fold 1: A1 signed projection `.89229`, P mean KL `.019449`, one P flip.
+
+But the result failed prospectively in two ways. First, sealed A2 target recovery was only `.64888`,
+below the `.75` bar. Second, the P panel still had one top-1 flip. The selected regularized candidate
+also did not beat matched step-zero DIM on both held parities, producing terminal
+`regularization_does_not_beat_dim`. Cross-fold projector stability passed, so this was not merely a
+basis-rotation artifact.
+
+The correct diagnosis is **construction-specific generalization/selectivity failure**, not “the
+optimizer found no lower training loss” and not “DAS has no better solution.” The training and
+selection environments were A1/P parity splits, whereas the decisive target failure occurred on
+sealed A2. Thus the experiment can be read as direct evidence that its validation scheme did not
+adequately represent the variation we wanted the regularizer to suppress.
+
+For scale, the complete uncompressed parent response recovered A1 `.80535` and A2 `.86829`, but
+caused five P flips and three C flips. The best zero-flip exact-factor subset recovered only A1
+`.13763` and A2 `.13062`. There is therefore a real target/selectivity tradeoff; the failed optimized
+projector did not invent that tradeoff, but it did not solve it either.
+
+### Regularization and selection methods actually tried
+
+| Method | Where it was tested | Outcome |
+|---|---|---|
+| No explicit regularizer | Single-site, family, nested-construction, and four-head comparisons | Often fit one fold/construction best; did not provide invariant selection. |
+| Full-vocabulary KL to the native/control distribution | Single-site and multi-construction tournaments | Sometimes selected and improved pooled control loss, but did not win both folds. |
+| Isotropic Gaussian response noise | Alone and with KL; `sigma` including `.05` and `.10` | Helped some folds/configurations, but gains were heterogeneous across constructions. |
+| Noise plus KL | Family and nested-construction tournaments | Selected for one construction family; failed to transfer as the universal choice. |
+| Local Jacobian/sensitivity penalty | Four-head target-feasible tournament, weights `.25` and `1` | The winning candidate used `.25`, yet failed sealed A2 and retained a P flip. |
+| Hard target-feasibility barrier | Four-head tournament | Prevented trivial inert solutions on selected A1 groups, but did not guarantee sealed A2 retention. |
+| Early stopping/checkpoint selection | Steps `0/4/8`; broader earlier family checkpoints | The four-head winner stopped at step 4; a nested run selected step zero on one environment. |
+| Cross-fold projector-stability penalty | Four-head paired selection, coefficient `.25` | Produced a stable projector but stability did not imply construction invariance. |
+| Nested environment selection | Family cross-validation and construction-adaptive tournament | Exposed the problem: one environment chose regularization and another chose no regularization. |
+
+An earlier single-site constrained-DAS run tried no regularization, KL, noise, and noise-plus-KL and
+ended null after 3,233 model forwards and 900 updates. A later family tournament selected KL and had
+high cross-fold axis cosine (`.88274`); its sealed pooled score improved substantially, but
+regularization failed to win both folds. The nested-construction run was even more diagnostic: one
+inner environment chose noise `.10` plus KL weight `1`, another chose no regularization, and the
+regularized choice scored worse on its outer construction (`1.2052` versus `1.1555`). Its sealed
+refit also violated the L15 target-retention bound by `.15642`. These disagreeing choices are
+evidence that the current selection target is unstable across environments.
+
+DIM/task-SVD, factor-SVD, exact factor subsets, ranks, and P-complement SVD are **not** counted as
+regularizers above. They are initializations, model-class choices, or non-gradient baselines. The
+Stiefel constraint `U^T U=I` fixes projector geometry but likewise does not regularize which causal
+direction is selected.
+
+### Why the current objective may be wrong
+
+There are several concrete failure modes in the present formulation:
+
+1. Minimizing KL on a finite P panel can memorize that panel instead of learning construction
+   invariance. Complement inertness is a necessary diagnostic, not an identifying objective.
+2. Row-parity cross-validation changes examples but not the construction. It did not test the A1 to
+   A2 environment shift that ultimately failed.
+3. Isotropic response noise regularizes every direction equally, while the dangerous perturbations
+   may lie specifically along downstream-reader or lexical/construction directions.
+4. The Jacobian term is local around the training response. It need not control finite donor swaps or
+   top-1 changes after nonlinear downstream computation.
+5. A fixed scalarization of P KL, sensitivity, feasibility, and fold distance can prefer a stable
+   but semantically wrong subspace. Stability only says the same estimator was found twice.
+6. Eight Adam updates and a coarse hyperparameter grid are adequate for comparing the frozen small
+   tournament, but not evidence that the best feasible DAS solution was found.
+7. Independent head-local fixed-rank projectors and the retained attention-15 clamp may be the wrong
+   parameterization if the true variable is distributed jointly across heads or requires native
+   downstream adaptation.
+
+### Promising alternatives not yet honestly tested
+
+The following should not be reported as attempted results. They are proposed corrections:
+
+- leave-one-construction-out selection with A1, A2, and genuinely new constructions treated as
+  separate environments;
+- group-DRO/minimax loss over constructions and lexical groups instead of average or parity loss;
+- a target constraint in **every** training environment, followed by a sealed held-construction
+  test, rather than A1 feasibility plus sealed A2 discovery;
+- KL or logit preservation over a broad native-text corpus, not only the named P/C panels;
+- adversarial perturbations aligned to measured downstream readers, replacing or supplementing
+  isotropic Gaussian noise;
+- finite-intervention robustness and smooth top-1-margin penalties, rather than only a local
+  Jacobian proxy;
+- explicit distance-to-DIM/geodesic weight decay, ordinary parameter weight decay, head dropout, and
+  flatter-minimum or ensemble selection;
+- target/control gradient-conflict methods or constrained optimization with separate dual variables,
+  avoiding a single hand-weighted scalar objective;
+- longer optimization with multiple frozen restarts, while charging the search price and retaining a
+  matched DIM baseline.
+
+The next fair DAS claim should therefore be narrower and stronger: test whether environment-level
+robust selection can beat DIM on a sealed construction while satisfying target recovery and broad
+complement inertness simultaneously. Until that experiment passes, the present result rejects the
+tested regularization recipe—not optimized subspace methods as a class.

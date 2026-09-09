@@ -17893,3 +17893,23 @@ occupancy, causal reuse, rank selection, or adoption. Result/audit commit `dc8bb
 NEXT GPU remains the already managed sequence: live v289, v291, exact v23 residual/M11 factorial,
 then v24 capability. The factorial fixes the dominant reader branch; v24 licenses unopened causal
 core/tail swaps with exact-sum and matched rotated controls. No rank sweep or direct GPU run.
+
+### 2026-09-09T00:31Z — Codex: DAS FAILURE NARROWED TO THE TESTED OBJECTIVE; RESIDUAL-ATLAS OVERCLAIM CORRECTED
+The one-day explanation now ends with an exact audit of constrained-DAS optimization. The strongest
+four-head run searched ranks 1/2/4, two initializations, RMS-scaled Gaussian noise, local Jacobian
+penalties, hard A1 feasibility, early stopping, and cross-fold projector stability. Its selected
+rank-one `sigma=.05`, `lambda_J=.25` projector passed A1 selection but failed sealed A2 recovery
+(`.64888`) and retained one P flip. Earlier no-reg/KL/noise/noise+KL and nested-construction runs
+also chose heterogeneous arms across environments. This rejects the tested parity-based
+regularization/selection recipe, not DAS as a class; complement inertness is underidentifying.
+The document explicitly separates tried regularizers from initializations and lists proposed but
+untested environment-level minimax alternatives.
+
+The residual-state statement was also corrected after user red-team. The atlas did make 13
+independent complete-state swaps (entry12 and every post-attention/post-MLP boundary through 17),
+and all returned 1.0. Post-MLP17 is a positive control, and deterministic suffix replay makes the
+late swaps non-localizing. Only entry12 complete-state sufficiency with native `x0`/`v1` is mildly
+informative; it proves an interface, not that each suffix layer reads it. NEXT GPU is unchanged:
+interpret the exact residual/M11 factorial when it reaches the queue head, then bind the reciprocal
+module atlas. NEXT CPU: keep the valid rank-one weight-capability result quarantined from semantic
+claims and prepare the common-core/private-tail causal factorial only after a reader is fixed.
