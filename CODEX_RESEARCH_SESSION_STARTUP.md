@@ -53,6 +53,45 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Fresh content confirmation fails; query-factor study active — 2026-09-09 19:00 UTC
+
+FRESH_ERROR_CONTENT_V1_RESULT.json completes2.60s managedGPU,A/B/D true,C false.
+Every3072 fresh native state retained: IID9errors,8supported,5repaired;
+OOD11errors,10supported,5repaired, below the registered50% OODbar. Field-level
+raw/join mediation passes, correct peers18/18 remaincorrect, mean absolute
+goldP change.00917 and worstloss.00364. Numericaloracle1.56e-13,composition9.24e-14.
+Do not relabel the overall confirmation as a pass or enlarge the failed rule.
+
+WRONG_SOURCE_ROOT_CONTENT_AUDIT_V1.json follows immediately onall20 openederrors,
+all51 inputroots: source/nativehookclosure1.17e-13. Strongest rootmatcheswrong
+identity19/20. OODworld5 query3 renamed has strongestroot correctvalue7 despite
+predicting19. SIGNED_RAW_READER_AUDIT_V1.json resolves this as suppression of7:
+positive-P H0 contributes-4.125 togold versus+.163 towrong. Negative attention
+alone is not the explanation; semantic sign combines gate and decoder. Static
+H1/H2 decoders favor sourceentity24/24, H3 suppresses24/24, H0 suppresses19/24.
+
+SIGNED_COPY_SUFFICIENCY_V1.json tests a fixed96-coefficient shared centeredonehot
+decoder derived by orthogonal projection. Every40 full-vector raw-removal case
+fails1%relativeRMS, max.990; residualdictionaryFrobenius.328. Preserve this null:
+sign/copy descriptions are insufficient for full distributions. All387968 opaque
+constants staycharged; no decoder/rank/shared-table rescue is selected.
+
+Active HOP_QUERY_FACTOR_TRANSFER_V1_PREREGISTRATION.md and
+query_factor_transfer_reference.py,13 CPUcontrols pass. Fresh31909/31910 first8
+worlds/pop,all24entities,all12ordered hop transitions,4608transitions. Only final
+hop token changes, so initialbinding states/K1/K2/V remain identical bycausality.
+Interchange finalquery Q1,Q2,both: target is entire29-vector initialbinding read,
+not the querysuffix orresidual/fullmodel. Both-Q transfer must equal donorread;
+test Q1-only andQ2-only separately at1%centered effecterror in everypop/hoppair.
+Exact bilinear interaction isreported, not assumedzero. No trained outcomeopened.
+Next integrate managed ops/run_hop_query_factor_transfer_v1.py using existing
+export/native helper/sharedmetrics; all pairedcontext/gates/weights charged.
+This changes queryinstruction factorization, not a fit or repair of valuefields.
+
+Hourly1851 completed with circuit/throughput/novelty audit; next19:51.
+Math1648 next19:48. Both runners healthy; inspect currentqueues beforeenqueue.
+Bilinear handoff/appended structural criterion remains controlling; goalactive.
+
 ## Wrong-source content paths pass an opened-case screen — 2026-09-09 18:43 UTC
 
 Follow the bilinear circuit reconstruction handoff and its appended structural

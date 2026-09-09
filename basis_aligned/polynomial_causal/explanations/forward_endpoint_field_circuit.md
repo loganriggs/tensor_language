@@ -222,3 +222,46 @@ screen localizes content behind particular errors; it establishes neither fresh
 identification, a deployable repair rule, nor reduced structural description.
 The next test must freeze the nomination rule on a fresh complete cohort and
 count unsupported/uncovered errors instead of selecting another successful subset.
+
+## Fresh confirmation misses its OOD bar
+
+[FRESH_ERROR_CONTENT_V1_RESULT.json](../FRESH_ERROR_CONTENT_V1_RESULT.json)
+retains every3072 native state in16 fresh IID/OOD worlds. It finds9 IID errors
+and11 OOD errors; the fixed rule covers8/9 and10/11 respectively. The nominated
+cut repairs5/9 IID but5/11 OOD errors, missing the registered50% OOD bar. Mechanical,
+coverage and specificity gates pass; the full confirmation fails. Raw/join
+field-level mean margin and probability-loss bars hold, but do not override
+the complete-error denominator. All18 correctly answered peers stay correct;
+mean absolute goldP change.00917, worst loss.00364. Native oracle1.56e-13.
+
+The [root audit](../WRONG_SOURCE_ROOT_CONTENT_AUDIT_V1.json) traces all51 original
+embedding roots into each already nominated binding, under native P/RMS gates.
+The complete read and independent final projection hooks close within1.17e-13.
+The strongest root matches the wrong entity in19/20 errors. In the remaining
+OOD case the strongest root is the correct value7 while the model predicts19.
+This exhaustive decomposition is a frozen-gate attribution, not a token-input
+counterfactual or adoption of a larger raw-value field.
+
+The [signed reader audit](../SIGNED_RAW_READER_AUDIT_V1.json) shows that exception
+is principally suppression of the correct value. Positive attention in finalH0
+feeds an inhibitory decoder, contributing-4.125 to centered gold7 and+.163 to
+wrong19. Negative attention alone does not explain the error. Effective semantic
+sign combines attention and decoder. Across the static raw decoder, H1/H2 favor
+the source entity for24/24 tokens; H3 suppresses it for24/24; H0 suppresses19/24.
+
+These signs do not make a sufficient simplified program. A registered
+[signed-copy test](../SIGNED_COPY_SUFFICIENCY_V1.json) projects the full decoder
+onto one shared centered token indicator with96 head/entity coefficients. Its
+omitted residual has relativeFrobenius.328, and every40 opened full-vector
+removal prediction fails the1% bar (maximum relativeRMS.990). The full decoder
+residual must remain charged. No whole-model coefficient is removed.
+
+The next [query-factor study](../HOP_QUERY_FACTOR_TRANSFER_V1_PREREGISTRATION.md)
+changes the research object to instruction-dependent routing. Varying only the
+last hop token preserves all initial binding states by causality. A four-cell
+Q1/Q2 query interchange can therefore test whether either query factor supplies
+hop control, with both-factor donor-read equality as a positive control. The
+primitive passes13 checks, including independent native hooks and a live check
+that this partial binding read is not the full donor output. Fresh integration
+remains; neither query alternative is supported yet. Structural simplification
+and the full four-property goal remain outstanding.
