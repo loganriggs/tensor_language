@@ -18265,3 +18265,12 @@ postnominal temporal modifier—with 16 new compound professions, no reused row/
 per direction, and no row filtering. Its capability-only gate requires every direction/side cell
 to reach 3/4 and every construction to have 6/8 jointly correct base/donor rows. Six focused tests,
 the shared fast suite, and model-free dry-run pass; price is exactly two forwards / 128 sequences.
+
+### 2026-09-09T03:12Z — Codex: SESSION HANDOFF REFRESHED; LIVE CONTINUATION PRESERVED
+`CODEX_RESEARCH_SESSION_STARTUP.md` now begins with the current pushed edge, the exact v23 directed
+cell and residual-readout evidence, the v25 structural capability null, and the queued v26 fresh
+holdout. It explicitly restores the hourly circuit and three-hour mathematical clocks, requires
+Supervisor-managed `bqrunner`/`bqrunner2` by default, forbids direct or duplicate GPU execution,
+records the user's standing in-scope permission, and contains a copy-paste first prompt. The active
+continuation remains v26 capability at reviewed runner hash
+`88ac97c2429234fdc5a9a6f35bce2cf87f1fef76fb837438251b72cc1132c6b9`, queued once in lane 1.

@@ -53,7 +53,61 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
-## Current authoritative delta — 2026-09-08 14:50 UTC
+## Current authoritative delta — 2026-09-09 03:10 UTC
+
+The pushed research edge is commit `71b0496f0`. Treat Git, immutable results, the append-only
+board, and live managed-runner state as newer authority if they have advanced beyond this snapshot.
+
+The strongest current `is`/`was` circuit evidence is now an explicit but still partial computation:
+
+- four complete attention heads, `L8H1`, `L9H1`, `L9H4`, and `L11H3`, pass exact input-factor
+  replay on the v23 aligned bank;
+- the valid directed source/destination cells are primarily changed-cue-to-matched-suffix and
+  matched-suffix-to-matched-suffix writes; `L11H3` is dominated by suffix-to-suffix;
+- the exact per-cell contraction is a causal sum of
+  `(q1 dot k1 / 128) (q2 dot k2 / 128) u` over the selected source and destination positions;
+- at block 11, the rescued correction propagates through layers 12--17 as approximately `.83266`
+  direct residual carry plus `.17281` distributed downstream response, with `-.00547` final-decoder
+  interaction. V2 closes the state telescope to `7.28e-12` and logits exactly;
+- do not call the direct route fully selective: its P-control leak is `.155885` against the frozen
+  `.15` bar. Do not call the circuit structure-general yet.
+
+The user's latest red-team is binding: changing profession nouns inside one temporal-prefix,
+comma, subject template is lexical variation, not syntactic generalization. V25 therefore tested
+eight genuinely different structures at 8--18 tokens. Four complete target/control structure
+pairs were natively capable—fronted era, subordinate-clause prefix, reported-source frame, and
+postnominal temporal modifier. Four others failed honestly—post-subject time, relative-clause
+subject, long coordinated prefix, and embedded-predicate nominal. V25 is a capability null and
+opened no causal result.
+
+The active successor is v26, a completely fresh 64-row holdout over the four capable structure
+families. It uses 16 new compound professions, no reused row IDs or prompt text, four examples per
+direction, and no post-outcome row filtering. The capability runner is:
+
+```text
+basis_aligned/bilinear_quotient/ops/run_tense_auxiliary_is_was_structural_holdout_v26_capability_v1.py
+SHA-256: 88ac97c2429234fdc5a9a6f35bce2cf87f1fef76fb837438251b72cc1132c6b9
+```
+
+At this snapshot it is queued exactly once in managed lane 1 behind the live family-separability
+v295 run. Do not enqueue a duplicate or run it directly. Once it lands, score it exactly. Only an
+all-construction capability pass licenses a separately preregistered v26 causal transfer of the
+four-head/directed-cell program. A capability null must be preserved and should redirect toward
+structure-conditional circuit comparison rather than sentence filtering.
+
+The newest periodic clocks are:
+
+- hourly circuit review: `HOURLY_STRATEGIC_REVIEW_2026-09-09_0224.md`; next safe-boundary review
+  after 03:24 UTC;
+- three-hour mathematical review: `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-09_0226.md`; next
+  safe-boundary review after 05:26 UTC.
+
+These clocks are research-loop reminders, not merely prose. During active work, check them at every
+safe boundary, write the due review, and immediately begin its selected action. Supervisor keeps
+the bqrunners alive independently of a Codex session; Codex must inspect and feed their managed
+queues, never replace them with direct GPU commands.
+
+## Previous authoritative delta — 2026-09-08 14:50 UTC
 
 The pushed code edge is commit `0e4de3243`; always inspect newer commits, dirty files, queue,
 results, and Supervisor state before acting. The corrected P7 source-conditioned live-module
@@ -557,9 +611,15 @@ implementation underway, or an audited job in the managed queue/runner.
 ## Suggested first prompt in a new session
 
 ```text
-Read /workspace/tensor_language/CODEX_RESEARCH_SESSION_STARTUP.md and resume the durable
-bilin18/Theseus circuit-finding goal from authoritative current state. Keep the hourly circuit
-reviews, three-hour mathematical reviews, and Supervisor-managed bqrunner workflow active. Do not
-stop at a result boundary; interpret it, record it, and begin the evidence-selected successor.
-Do not ask for routine permissions: use the configured never-approval, full-workspace authority.
+Read /workspace/tensor_language/CODEX_RESEARCH_SESSION_STARTUP.md completely, then read the
+bilin18-research-driver skill and the current-state slices it specifies. Resume or create the
+durable bilin18/Theseus circuit-finding goal and actively continue it from authoritative Git,
+result, board, queue, and runner state. Keep the hourly circuit reviews and three-hour mathematical
+reviews active using the newest timestamped artifacts as clocks. Keep Supervisor-managed bqrunner
+and bqrunner2 running by default, inspect their state at startup, and send all GPU experiments only
+through the hash-bound ops/enqueue.sh workflow—never direct GPU Python and never duplicate a queued
+job. Interpret every result, preserve nulls and invalid instruments, commit and push durable units,
+and begin the evidence-selected successor before stopping. The user has granted full permission
+for in-scope research, repository writes, managed executions, commits, and pushes; do not ask for
+routine permissions. Do not mark the overall goal complete merely because one rung finishes.
 ```
