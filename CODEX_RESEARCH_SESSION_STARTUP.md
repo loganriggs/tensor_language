@@ -53,6 +53,30 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Joint-reader native audit queued; edit-response math executed — 2026-09-09 23:49 UTC
+
+MLP1 runner now exists and is managed-queued behind Claude v449:
+ops/run_bilin18_mlp1_joint_reader_weight_v1.py under bilinear_quotient,
+SHA cd9b4efd8ffe9fa8d4b76d2c1113e5de496c695dc20bb9313ac58dc3680abdf2.
+Frozen27-source manifest and runner published in de10f5189. Check queue/log
+and BILIN18_MLP1_JOINT_READER_WEIGHT_V1_RESULT.json before any action;
+never edit/duplicate queued source. Eight forwards restore pooled/task readers,
+all8 full1152-dimensional quadratic forms, normalization/native replay,
+function principal angles, full input support spectrum, literal native co-use.
+No trained result at this checkpoint. No new rank/candidate scan authorized.
+
+Additional CPU derivation/control is complete in
+bilinear_joint_edit_observable_reference.py: fixed additive writers W admit
+closed nonlinear edit state p=xQx, g=W^TQx, h=W^Tx, rho=||x||². For8readers,
+2writers,96D random full-rank forms,27scalars reproduce edits with1.71e-13
+output error;7checks pass. This is an edit-response engine with native
+initialization and weights retained, not an independently extracted circuit.
+Explanation weight_tensor_two_circuit_math_2026-09-09.md includes proof,
+explicit cross-writer/norm coupling, price and limits. Mathematical progress
+continues during GPU serialization. Interpret native result next; choose
+writer interfaces only from existing task evidence. Goal remains active.
+Regular hourly0003/math0149 Sep10 clocks unchanged. Preserve concurrent files.
+
 ## User redirects to weight-based two-circuit mathematics — 2026-09-09 23:37 UTC
 
 User reports insufficient progress in current iswas direction and explicitly

@@ -301,3 +301,72 @@ and no new native normalized intervention has been tested.
 [result](../SAVED_BILINEAR_FUNCTION_TENSOR_V1_RESULT.json).
 The bounded next native study is specified in the
 [joint-reader protocol](../BILIN18_MLP1_JOINT_READER_WEIGHT_V1_PREREGISTRATION.md).
+
+## A compact edit rule can exist even when the whole input space is needed
+
+A further derivation separates two questions that the pilot could otherwise
+conflate: can we simplify the computation from arbitrary inputs, and can we
+simplify its response to a specified family of circuit edits? The second can
+have a positive answer even when the first linear quotient fails.
+
+Suppose the allowed input changes are `x -> x + Wz`. The columns of `W`
+are the explicitly supplied write directions, and `z` gives their amplitudes.
+For each symmetric reader matrix `Q_k`, retain:
+
+\[
+p_k=x^TQ_kx,\qquad g_k=W^TQ_kx,\qquad
+h=W^Tx,\qquad \rho=x^Tx.
+\]
+
+Here `p` stores baseline quadratic numerators; `g` describes how each reader
+responds to each write direction; `h` and `rho` retain the information needed
+to update normalization. Precompute the small weight contractions
+`H_k = W^T Q_k W` and `G = W^T W`. One edit updates these quantities exactly:
+
+\[
+\begin{aligned}
+p'_k&=p_k+2g_k^Tz+z^TH_kz,\\
+g'_k&=g_k+H_kz,\\
+h'&=h+Gz,\\
+\rho'&=\rho+2h^Tz+z^TGz.
+\end{aligned}
+\]
+
+The output is still `p'_k / (rho'/d + epsilon) + bias_k`.
+These identities follow by expanding each quadratic after substituting
+`x + Wz`. Updating `g` and `h`, rather than freezing them after the first
+edit, makes successive edits agree with their joint application.
+
+For `m` readers and `r` fixed write directions, this state has
+`m + mr + r + 1` scalars, regardless of residual width. This is a sufficient
+state for that edit family, not a minimum-state theorem. A dense `Q_k` can
+have full input rank and still permit this edit engine. If the write matrix
+changes with the input or earlier interventions, that additional dependency
+must be supplied and recomputed; the fixed-`W` theorem does not absorb it.
+
+The link to the user's shared-module question is explicit. Partition `W`
+into writes from circuits A and B. The off-diagonal block
+`W_A^T Q_k W_B` determines their mixed numerator contribution, while
+`W_A^T W_B` determines the mixed norm contribution. Even zero mixed blocks
+do not by themselves imply additive normalized outputs, because the common
+denominator also changes. These weight objects say exactly what joint
+intervention needs to predict; module co-use alone cannot say this.
+
+A new CPU control used eight random full-rank quadratic readers in96 input
+dimensions and two write directions. All seven checks passed, including
+independent-versus-joint edits, inverse edits, and deliberately omitted mixed
+terms. The27-scalar edit state reproduced full outputs with maximum absolute
+error **1.71e-13**. This is a numerical control of the derivation, not evidence
+of a trained semantic circuit.
+
+**The price caveat is essential:** initializing `p` and `g` still requires the
+original input and quadratic functions. Their opaque weights and the native
+prefix remain charged. A compact response engine could make causal testing
+cheaper, but it does not constitute independent extraction or structural
+model reduction. Discovery still needs an explicit reusable implementation
+of those initial quantities, with the four requested behavioral properties.
+
+[Executable edit reference](../bilinear_joint_edit_observable_reference.py)
+and [seven-control receipt](../BILINEAR_JOINT_EDIT_OBSERVABLE_CONTROLS_V1.json).
+The full-input MLP1 weight audit is now implemented and queued through the
+managed GPU runner; no native result is claimed in this paragraph.

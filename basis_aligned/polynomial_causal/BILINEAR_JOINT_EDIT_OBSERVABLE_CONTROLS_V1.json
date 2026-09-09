@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "checks": {
+    "full_state_closure": true,
+    "full_output_closure": true,
+    "independent_then_joint": true,
+    "edit_inverse": true,
+    "missing_mixed_writer_negative": true,
+    "linear_frozen_norm_negative": true,
+    "full_rank_forms": true
+  },
+  "state_errors": {
+    "p": 6.821210263296962e-13,
+    "g": 3.410605131648481e-13,
+    "h": 1.1368683772161603e-13,
+    "rho": 1.1368683772161603e-13
+  },
+  "output_error": 1.7053025658242404e-13,
+  "input_width": 96,
+  "readers": 8,
+  "writer_amplitudes": 2,
+  "state_scalars_per_input": 27,
+  "scope": "Random full-rank module; exact specified additive-edit family. Initialization retains full forms and native input; no trained structural savings."
+}
