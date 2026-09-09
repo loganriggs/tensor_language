@@ -4,9 +4,9 @@ import types
 import torch
 
 
-def populations():
+def populations(seeds=(17909, 17910)):
     out = {}
-    for pop, seed in (('iid', 17909), ('ood_two_12cycles', 17910)):
+    for pop, seed in zip(('iid', 'ood_two_12cycles'), seeds):
         g = torch.Generator().manual_seed(seed); worlds = []
         for world in range(16):
             perm = torch.randperm(24, generator=g); fmap = torch.empty(24, dtype=torch.long)
