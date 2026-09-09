@@ -1,0 +1,412 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "cue_over_frame": 0.02,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 2,
+    "k_kept": 1,
+    "k_new": 1,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v337",
+  "families": {
+    "verb_preposition_replication": [
+      "verb_preposition_repl_base",
+      "verb_preposition_repl_twin",
+      "verb_preposition_repl_reuse",
+      "verb_preposition_repl_frame_same",
+      "verb_preposition_repl_frame_fresh"
+    ]
+  },
+  "finished_utc": "2026-09-09T11:47:50.787898+00:00",
+  "members": {
+    "verb_preposition_repl_base": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5654,
+            "ce_lb975": 0.359,
+            "ce_ub975": 0.7628
+          },
+          "C": {
+            "ce_damage": 0.0035,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.0108
+          },
+          "extraction": 0.997,
+          "sib_abs_max": 0.0094,
+          "siblings": {
+            "verb_preposition_repl_frame_fresh": -0.0094,
+            "verb_preposition_repl_frame_same": 0.0036,
+            "verb_preposition_repl_reuse": -0.007,
+            "verb_preposition_repl_twin": -0.0088
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.7936,
+            "ce_lb975": 0.7498,
+            "ce_ub975": 0.8344
+          },
+          "C": {
+            "ce_damage": -0.003,
+            "ce_lb975": -0.0079,
+            "ce_ub975": 0.0024
+          },
+          "extraction": 1.002,
+          "sib_abs_max": 0.6398,
+          "siblings": {
+            "verb_preposition_repl_frame_fresh": 0.0834,
+            "verb_preposition_repl_frame_same": 0.6398,
+            "verb_preposition_repl_reuse": 0.3179,
+            "verb_preposition_repl_twin": 0.0426
+          }
+        }
+      },
+      "exact_held": 0.887,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 68.9,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:05:head:08",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:13:head:03",
+        "attn:04:head:01",
+        "attn:10:head:08",
+        "attn:05:head:03",
+        "attn:09:head:01"
+      ]
+    },
+    "verb_preposition_repl_frame_fresh": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6908,
+            "ce_lb975": 0.6021,
+            "ce_ub975": 0.7749
+          },
+          "C": {
+            "ce_damage": -0.0047,
+            "ce_lb975": -0.0095,
+            "ce_ub975": 0.0007
+          },
+          "extraction": 1.015,
+          "sib_abs_max": 0.0101,
+          "siblings": {
+            "verb_preposition_repl_base": 0.0008,
+            "verb_preposition_repl_frame_same": -0.0009,
+            "verb_preposition_repl_reuse": 0.0085,
+            "verb_preposition_repl_twin": 0.0101
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.7078,
+            "ce_lb975": 0.6676,
+            "ce_ub975": 0.7476
+          },
+          "C": {
+            "ce_damage": -0.005,
+            "ce_lb975": -0.0116,
+            "ce_ub975": 0.0027
+          },
+          "extraction": 1.007,
+          "sib_abs_max": 0.0833,
+          "siblings": {
+            "verb_preposition_repl_base": -0.007,
+            "verb_preposition_repl_frame_same": 0.0833,
+            "verb_preposition_repl_reuse": 0.0423,
+            "verb_preposition_repl_twin": 0.0641
+          }
+        }
+      },
+      "exact_held": 0.894,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 71.7,
+      "separable": true,
+      "units": [
+        "attn:08:head:08",
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:09:head:01",
+        "attn:14:head:08",
+        "attn:09:head:03",
+        "attn:01:head:03",
+        "attn:04:head:00",
+        "attn:03:head:07"
+      ]
+    },
+    "verb_preposition_repl_frame_same": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7503,
+            "ce_lb975": 0.7245,
+            "ce_ub975": 0.7744
+          },
+          "C": {
+            "ce_damage": 0.0058,
+            "ce_lb975": -0.0039,
+            "ce_ub975": 0.0151
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.0191,
+          "siblings": {
+            "verb_preposition_repl_base": 0.0191,
+            "verb_preposition_repl_frame_fresh": 0.0067,
+            "verb_preposition_repl_reuse": 0.0075,
+            "verb_preposition_repl_twin": -0.0008
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8912,
+            "ce_lb975": 0.8706,
+            "ce_ub975": 0.9115
+          },
+          "C": {
+            "ce_damage": -0.0051,
+            "ce_lb975": -0.0188,
+            "ce_ub975": 0.0078
+          },
+          "extraction": 0.991,
+          "sib_abs_max": 0.6521,
+          "siblings": {
+            "verb_preposition_repl_base": 0.6521,
+            "verb_preposition_repl_frame_fresh": 0.2658,
+            "verb_preposition_repl_reuse": 0.3474,
+            "verb_preposition_repl_twin": 0.1484
+          }
+        }
+      },
+      "exact_held": 0.897,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 14,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 67.8,
+      "separable": true,
+      "units": [
+        "attn:08:head:08",
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:04:head:01",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:09:head:01",
+        "attn:05:head:03",
+        "attn:05:head:08",
+        "attn:13:head:03",
+        "attn:09:head:07",
+        "attn:10:head:08",
+        "attn:08:head:01"
+      ]
+    },
+    "verb_preposition_repl_twin": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.625,
+            "ce_lb975": 0.4112,
+            "ce_ub975": 0.8462
+          },
+          "C": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.0061,
+            "ce_ub975": 0.0002
+          },
+          "extraction": 1.02,
+          "sib_abs_max": 0.0065,
+          "siblings": {
+            "verb_preposition_repl_base": -0.0021,
+            "verb_preposition_repl_frame_fresh": 0.0017,
+            "verb_preposition_repl_frame_same": 0.0065,
+            "verb_preposition_repl_reuse": 0.0032
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6492,
+            "ce_lb975": 0.6112,
+            "ce_ub975": 0.6879
+          },
+          "C": {
+            "ce_damage": -0.0028,
+            "ce_lb975": -0.0042,
+            "ce_ub975": -0.0013
+          },
+          "extraction": 1.012,
+          "sib_abs_max": 0.4398,
+          "siblings": {
+            "verb_preposition_repl_base": 0.1698,
+            "verb_preposition_repl_frame_fresh": 0.2827,
+            "verb_preposition_repl_frame_same": 0.2075,
+            "verb_preposition_repl_reuse": 0.4398
+          }
+        }
+      },
+      "exact_held": 0.871,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 63.0,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:05:head:08"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": true,
+    "pred_b_counted_kept": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true,
+    "pred_e_cue_beats_frame": false
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "verb_preposition_repl_frame_same",
+      "verb_preposition_repl_frame_fresh",
+      "verb_preposition_repl_base",
+      "verb_preposition_repl_twin"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v337",
+  "seconds": 273.4,
+  "separable_counts": {
+    "verb_preposition_replication": 4
+  },
+  "summary": {
+    "verb_preposition_repl_base": {
+      "fam": [
+        0.997,
+        0.0094,
+        0.0108
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 13,
+      "own": [
+        1.002,
+        0.6398,
+        0.0024
+      ],
+      "separable": true
+    },
+    "verb_preposition_repl_frame_fresh": {
+      "fam": [
+        1.015,
+        0.0101,
+        0.0007
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 10,
+      "own": [
+        1.007,
+        0.0833,
+        0.0027
+      ],
+      "separable": true
+    },
+    "verb_preposition_repl_frame_same": {
+      "fam": [
+        0.992,
+        0.0191,
+        0.0151
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 14,
+      "own": [
+        0.991,
+        0.6521,
+        0.0078
+      ],
+      "separable": true
+    },
+    "verb_preposition_repl_twin": {
+      "fam": [
+        1.02,
+        0.0065,
+        0.0002
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 7,
+      "own": [
+        1.012,
+        0.4398,
+        -0.0013
+      ],
+      "separable": true
+    }
+  }
+}
