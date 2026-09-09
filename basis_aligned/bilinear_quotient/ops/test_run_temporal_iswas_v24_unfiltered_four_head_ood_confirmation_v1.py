@@ -8,11 +8,31 @@ import run_temporal_iswas_v24_unfiltered_four_head_ood_confirmation_v1 as run
 
 
 def test_v24_ood_confirmation_is_result_bound_and_unfiltered():
-    assert run.EXPECTED_CAPABILITY_RESULT_SHA256 is None
+    assert not run.CAPABILITY.exists()
+    assert not run.BINDING.exists()
     prior = json.loads(run.PRIOR.read_text())
     assert prior["frozen_design"]["population"].startswith("Forward all 64 v24 rows")
     assert prior["frozen_design"]["price"] == run.PRICE
     assert prior["frozen_design"]["routes"] == list(run.ROUTES)
+
+
+def test_v24_eligibility_binds_capability_and_confirmation_runners(monkeypatch):
+    capability = {
+        "terminal": "screen", "predictions": {"a": True},
+        "causal_outcomes_opened": False, "rows_sha256": run.ROWS_SHA256,
+        "jointly_capable_row_ids": {panel: [] for panel in run.PANELS},
+    }
+    binding = {
+        "schema": "temporal_iswas_v24_ood_confirmation_binding_v1",
+        "capability_result_sha256": "capability-result",
+        "capability_runner_sha256": run.EXPECTED["capability_runner"],
+        "confirmation_runner_sha256": "confirmation-runner",
+    }
+    observed = {run.CAPABILITY: "capability-result", run.SELF: "confirmation-runner"}
+    monkeypatch.setattr(run, "sha", lambda path: observed[path])
+    assert run.eligibility(binding, capability)
+    capability["causal_outcomes_opened"] = True
+    assert not run.eligibility(binding, capability)
 
 
 def test_v24_ood_confirmation_prebound_authorities_match():

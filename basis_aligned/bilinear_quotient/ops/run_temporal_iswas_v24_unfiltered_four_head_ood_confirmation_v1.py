@@ -19,8 +19,10 @@ from circuit_fast_screen_managed_runner import atomic_create_json
 import run_temporal_iswas_v23_aligned_four_head_reader_contracted_confirmation_v1 as reference
 
 ROOT = Path(__file__).resolve().parents[1]
+SELF = Path(__file__).resolve()
 PRIOR = ROOT / "circuits/prior_art/temporal_iswas_v24_unfiltered_four_head_ood_confirmation_v1.json"
 CAPABILITY = ROOT / "circuits/followups/tense_auxiliary_is_was_fresh_lexicon_v24_capability_v1_result.json"
+BINDING = ROOT / "circuits/bindings/temporal_iswas_v24_unfiltered_four_head_ood_confirmation_v1.json"
 BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v24.py"
 CAPABILITY_PRIOR = ROOT / "circuits/prior_art/tense_auxiliary_is_was_fresh_lexicon_v24_capability_v1.json"
 CAPABILITY_RUNNER = ROOT / "ops/run_tense_auxiliary_is_was_fresh_lexicon_v24_capability_v1.py"
@@ -35,7 +37,6 @@ EXPECTED = {
     "v23_result": "db850d5e9b86f76cb4381a12fc83f91cd2aac3544029fabd18bad138d34fed92",
     "reference": "d1e8bf0237b33e42bda11dc877cf6ef7315cd24ae00a93e31c0d62821f152d5a",
 }
-EXPECTED_CAPABILITY_RESULT_SHA256 = None
 ROWS_SHA256 = "870c829290e1791351d0b2b67985aa5700780920b14423906e7b8fd4d35ed2de"
 CANDIDATE_ID = "cross_task.temporal_iswas.v24_unfiltered_four_head_ood_confirmation_v1"
 ROUTES = ("L9H1", "L9H4", "L8H1", "L11H3")
@@ -66,6 +67,20 @@ def now():
     return datetime.now(timezone.utc).isoformat(timespec="microseconds").replace("+00:00", "Z")
 
 
+def eligibility(binding, capability):
+    return bool(
+        binding.get("schema") == "temporal_iswas_v24_ood_confirmation_binding_v1"
+        and binding.get("capability_result_sha256") == sha(CAPABILITY)
+        and binding.get("capability_runner_sha256") == EXPECTED["capability_runner"]
+        and binding.get("confirmation_runner_sha256") == sha(SELF)
+        and capability.get("terminal") == "screen"
+        and all(capability.get("predictions", {}).values())
+        and capability.get("causal_outcomes_opened") is False
+        and capability.get("rows_sha256") == ROWS_SHA256
+        and set(capability.get("jointly_capable_row_ids", {})) == set(PANELS)
+    )
+
+
 def main():
     paths = {"prior": PRIOR, "builder": BUILDER, "capability_prior": CAPABILITY_PRIOR,
              "capability_runner": CAPABILITY_RUNNER, "v23_result": V23_RESULT,
@@ -77,12 +92,16 @@ def main():
                   and len(row["base_ids"]) == len(row["donor_ids"]) for row in rows)
     prebound_authority = bool(observed == EXPECTED and fresh.authority_sha256() == ROWS_SHA256
                               and counts == {panel: 16 for panel in PANELS} and aligned)
-    awaiting = EXPECTED_CAPABILITY_RESULT_SHA256 is None or not CAPABILITY.exists()
+    awaiting = not CAPABILITY.exists() or not BINDING.exists()
+    capability = json.loads(CAPABILITY.read_text()) if CAPABILITY.exists() else {}
+    bound = bool(not awaiting and eligibility(
+        json.loads(BINDING.read_text()), capability
+    ))
     dryrun = {
         "candidate_id": CANDIDATE_ID, "dryrun": True, "gpu_accessed": False,
         "model_loaded": False, "queue_touched": False,
         "prebound_authority_ok": prebound_authority,
-        "status": "awaiting_hash_bound_v24_capability_result" if awaiting else "bound",
+        "status": "bound" if bound else "awaiting_hash_bound_v24_capability_result",
         "rows": counts, "target_rows_unfiltered": 32, "capability_row_filter_used": False,
         "routes": list(ROUTES), "arms": ["self", "all_sites_donor", "union", *ROUTES],
         "bars": BARS, "price": PRICE,
@@ -92,17 +111,8 @@ def main():
         return
     if not prebound_authority:
         raise RuntimeError("v24 OOD prebound authority changed")
-    if awaiting:
+    if awaiting or not bound:
         raise RuntimeError("v24 capability result is not hash-bound; GPU access forbidden")
-    if sha(CAPABILITY) != EXPECTED_CAPABILITY_RESULT_SHA256:
-        raise RuntimeError("v24 capability result hash changed")
-    capability = json.loads(CAPABILITY.read_text())
-    if (capability.get("terminal") != "screen"
-            or not all(capability.get("predictions", {}).values())
-            or capability.get("causal_outcomes_opened") is not False
-            or capability.get("rows_sha256") != ROWS_SHA256
-            or set(capability.get("jointly_capable_row_ids", {})) != set(PANELS)):
-        raise RuntimeError("v24 capability did not license OOD confirmation")
     if OUT.exists():
         raise FileExistsError(f"refusing overwrite: {OUT}")
 
@@ -241,7 +251,8 @@ def main():
         "schema": "temporal_iswas_v24_unfiltered_four_head_ood_confirmation_result_v1",
         "candidate_id": CANDIDATE_ID, "started_utc": started_utc,
         "finished_utc": now(), "serial_seconds": time.perf_counter() - started,
-        "authority_sha256": {**observed, "capability_result": EXPECTED_CAPABILITY_RESULT_SHA256},
+        "authority_sha256": {**observed, "capability_result": sha(CAPABILITY),
+                              "binding": sha(BINDING)},
         "population": {"counts": counts, "target_rows_unfiltered": len(target_rows),
                        "capability_row_filter_used": False},
         "alignment_all_rows": aligned, "routes": list(ROUTES),
