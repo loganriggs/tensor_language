@@ -97,3 +97,23 @@ test whether the two score factors implement those fields separately or jointly.
 This is progress on an existing small contextual model. The full bilin18 model and
 the overall goal remain unfinished; a compact learned routing program has not yet
 replaced the contextual native weights.
+
+## Fixed-position field counterfactuals — completed 14:32 UTC
+
+`CONTEXTUAL_HISTORY_FIELDS_V1_RESULT.json` preserves a valid failure of the stronger
+registered key/payload and retargeting criteria (A true, B/C/D false). The source,
+current query and nonmatching control positions are fixed across all arms. Changing
+either stored key field largely removes the original answer; payload-only changes
+raise the foil probability to .788/.808 for IID hops2/3 and .751/.701 on short-cycle
+OOD. Jointly retargeting stored/current keys and payload gives .839/.784 IID and
+.798/.732 OOD. Several groups miss the required .80, so this is suggestive composite
+key/value behavior, not a passing manipulable symbolic dictionary. The mostly-zero
+foil token follows the fixed first-eligible-token protocol and limits generality.
+
+The additional one-native-factor-per-field screen also fails: zero IID heads meet
+its conjunction. First factors in heads0/3 are relatively insensitive to entity
+changes (RMS effect .058–.082), while hop changes cause 1.04–1.08; their second factors
+are mixed. This licenses a narrower falsifiable candidate, not semantic labeling
+from sensitivity alone: `HOP_STATE_COMPILER_V1_PREREGISTRATION.md` substitutes one
+causal role/hop state codebook into these first-factor projections. It must preserve
+all29-way distributions and single/joint native-corresponding removals on fresh text.

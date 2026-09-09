@@ -126,6 +126,14 @@ QK1/QK2 factors specialize to the fields; failure of that screen must not erase 
 passing semantic product-level result. Twenty parser checks plus nine readout controls
 pass; implementation/preflight ready. Inspect live queue/result before enqueuing.
 Reviews remain1348, due1448/1648 during active work. Full bilin18 goal remains active.
+The fields test has now completed validly with A true, B/C/D false: payload/retarget
+probabilities miss .8 in several groups; no head splits fields cleanly by factor.
+Preserve this stronger null. Active successor is HOP_STATE_COMPILER_V1_PREREGISTRATION.md,
+hop_state_reference.py and ops/run_hop_state_compiler_v1.py: replace final heads0/3
+q1/k1 using one causal role/last-visible-hop parser and fitted32-vector means. This
+removes16384 weights, adds3840 constants, and tests fresh full outputs and joint
+removals; implementation and10 CPU controls ready. Inspect live receipts before action.
+
 
 The user redirected Codex to
 `basis_aligned/polynomial_causal/explanations/bilinear_circuit_reconstruction_codex_handoff.md`.
