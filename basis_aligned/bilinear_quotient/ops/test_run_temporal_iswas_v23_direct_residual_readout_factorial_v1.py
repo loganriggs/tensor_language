@@ -27,10 +27,11 @@ def test_direct_readout_price_and_dependency_are_frozen():
     assert run.PRICE["model_forwards_exact"] == 4
     assert run.PRICE["sequence_evaluations_exact"] == 4 * 64
     assert json.loads(run.PARENT.read_text())["terminal"] == "direct_residual_readout_candidate"
-    assert {name: run.sha(path) for name, path in {
+    observed = {name: run.sha(path) for name, path in {
         "authority": run.AUTHORITY, "prior": run.PRIOR, "parent": run.PARENT,
         "reader": run.READER, "component": run.COMPONENT, "shared": run.SHARED,
-    }.items()} == run.EXPECTED
+    }.items()}
+    assert observed == {name: run.EXPECTED[name] for name in observed}
 
 
 def test_model_free_dryrun_has_no_side_effects_and_no_v25_access():

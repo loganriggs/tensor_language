@@ -18235,3 +18235,17 @@ state change as the complete downstream response, and decodes direct-only, respo
 joint states through final RMSNorm/unembedding/softcap. Registered outcomes distinguish dominant
 direct carry, a real signed correction, and decoder interaction. Three focused tests, shared fast
 suite, gate, dry-run, and preflight pass; no fit, rank selection, or v25 access occurs.
+
+### 2026-09-09T02:55Z — Codex: DIRECT V1 INVALID; SCIENTIFIC DECOMPOSITION RETAINED, V2 FLOAT64 REPAIR
+Direct-readout v1 is `invalid_instrument`: its float32 final-state telescope has max closure
+`0.0078125` even though reconstructed logits replay within `5.72e-06`. Descriptively, the analytic
+identity path (`product lambda0[12:18] = 1.51363148`) carries `0.83266` of the rescued effect, the
+complete downstream response carries `0.17281`, and decoder interaction is `-0.00547`. Prediction B
+also honestly fails because P leak is `0.155885` versus the frozen `0.15` bar; no rounding or retuning
+is allowed.
+
+V2 changes only the algebraic state telescope to float64 before casting the same three decoder arms
+to float32. It reruns all four forwards and preserves every scientific bar, including the known P
+miss. Five focused tests, shared fast suite, gate, dry-run, and preflight pass. A valid V2 would
+establish the quantitative direct/response decomposition but is expected to remain a nonselective
+direct-route miss unless the P value materially fails to reproduce.

@@ -1,0 +1,15 @@
+{
+  "candidate_id": "cross_task.temporal_iswas.v23_direct_residual_readout_factorial_v2",
+  "created_utc": "2026-09-09T02:54:00Z",
+  "decision": "prospective_float64_state_telescope_repair",
+  "failed_predecessor": "circuits/followups/temporal_iswas_v23_direct_residual_readout_factorial_v1_result.json",
+  "single_change": "evaluate the exact direct plus response final-state closure in float64 before casting the frozen decoder arms to float32",
+  "scientific_changes": [],
+  "known_scientific_miss_preserved": "v1 direct P leak 0.155885 exceeds frozen 0.15 bar",
+  "forbidden_claims": [
+    "v1 is retroactively valid",
+    "the P-control threshold may be relaxed",
+    "float64 closure changes the causal intervention arms",
+    "direct residual carry is selective unless prediction B independently passes"
+  ]
+}

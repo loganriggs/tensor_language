@@ -24,6 +24,9 @@ READER = Path(reader.__file__).resolve()
 COMPONENT = reader.COMPONENT
 SHARED = reader.SHARED
 OUT = ROOT / "circuits/followups/temporal_iswas_v23_direct_residual_readout_factorial_v1_result.json"
+CANDIDATE_ID = "cross_task.temporal_iswas.v23_direct_residual_readout_factorial_v1"
+SCHEMA = "temporal_iswas_v23_direct_residual_readout_factorial_result_v1"
+EXTRA_PATHS = {}
 EXPECTED = {
     "authority": "8cb689a7ce59a67c6ab953a71bd7fe22aa23d0b3caec38a8ca8897946c4b922a",
     "prior": "0c2e00ec0a0b81e2cb5e1bff99b69c91d004c357077867e42cb0314262b96d85",
@@ -73,6 +76,7 @@ def carry_coefficient(model):
 def main():
     paths = {"authority": AUTHORITY, "prior": PRIOR, "parent": PARENT,
              "reader": READER, "component": COMPONENT, "shared": SHARED}
+    paths.update(EXTRA_PATHS)
     observed = {name: sha(path) for name, path in paths.items()}
     parent = json.loads(PARENT.read_text())
     dependency_ok = bool(
@@ -86,7 +90,7 @@ def main():
         and parent.get("selected_modules") == []
     )
     dryrun = {
-        "candidate_id": "cross_task.temporal_iswas.v23_direct_residual_readout_factorial_v1",
+        "candidate_id": CANDIDATE_ID,
         "dryrun": True, "gpu_accessed": False, "model_loaded": False,
         "queue_touched": False, "dependency_ok": dependency_ok,
         "rows": 64, "paths": ["base", "donor", "removed", "rescued"],
@@ -132,8 +136,13 @@ def main():
         forwards += 1
         coefficient, lambda_factors = carry_coefficient(backend.model)
         direct_state = coefficient * delta_y
-        response_state = rescued_final.float() - removed_final.float() - direct_state.float()
-        reconstructed_final = removed_final.float() + direct_state.float() + response_state
+        # Use float64 for the algebraic state telescope. Float32 cancellation on residual
+        # coordinates around 1e5 has an observed 0.0078125 ULP-scale floor.
+        direct_state64 = coefficient * delta_y.double()
+        response_state64 = rescued_final.double() - removed_final.double() - direct_state64
+        reconstructed_final64 = removed_final.double() + direct_state64 + response_state64
+        response_state = response_state64.float()
+        reconstructed_final = reconstructed_final64.float()
 
         def decode(final):
             return 30.0 * torch.tanh(
@@ -173,7 +182,7 @@ def main():
         }
 
     reports = {name: report(effect) for name, effect in effects.items()}
-    state_closure = float((reconstructed_final - rescued_final.float()).abs().max())
+    state_closure = float((reconstructed_final64 - rescued_final.double()).abs().max())
     logit_replay = float((joint_logits - rescued_logits.float()).abs().max())
     hook_values = list(donor_calls.values()) + list(removed_calls.values())
     hook_values += list(rescued_calls["residual_correction"].values())
@@ -205,7 +214,7 @@ def main():
         "direct_residual_readout_program_screen" if B and E
         else "distributed_downstream_response")
     result = {
-        "schema": "temporal_iswas_v23_direct_residual_readout_factorial_result_v1",
+        "schema": SCHEMA,
         "candidate_id": dryrun["candidate_id"], "started_utc": started_utc,
         "finished_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "serial_seconds": time.perf_counter() - started,
