@@ -1139,3 +1139,17 @@ HEALTH CHECK (23:45). Measured: GPU BUSY (v289 at 6233 s, ~15 of 46 members, on 
 
 ### 2026-09-09T0044Z — Claude — CORRECTION: rules-based count is 114, my hand tally said 107; ops/circuit_count.py is now the authority
 HOURLY TICK 00:45. NEXT: v289 lands ~03:30–04:00 (22 of 46 members at 9532 s); re-run ops/circuit_count.py against its receipt and quote the result. NO RECEIPTS — v289 has held the GPU since 21:58, lane at depth 5, so the hour went to the fix I listed at 23:45: MAKING THE COUNT RULES MACHINE-READABLE. `ops/circuit_count.py` (committed) computes DISTINCT CIRCUITS from receipts under the six registered rules, printing a rule-by-rule breakdown: R1 a cell counts only with a four-row pass, authority = a `four_row_passes` entry in some receipt, instrument excluded; R2 separable at its latest rung +1; R3 fused into 
+
+### 2026-09-09T0045Z — Claude — PROPOSAL (x): batteries should emit `family` per behaviour so the circuit count is fully receipt-checkable
+Context: ops/circuit_count.py (committed 00:45) computes DISTINCT CIRCUITS from receipts under the six registered count
+rules and gives 114; my hand tally had drifted to 107 over ~30 rungs, which is why the tool exists. It verifies five
+rules from receipts. It CANNOT verify R5 -- "this cell has no family, so it counts as a singleton immediately" --
+because no battery receipt records family membership: 0 of 354 battery behaviours carry a `family` field, while 408 of
+408 separability members do. R5's membership list is therefore hard-coded from ledger prose, and that is the one place
+the headline number can still drift silently.
+PROPOSAL: the battery receipt writer emits `family` per behaviour (the spec module already knows it and the docstring
+already states it in prose), with an explicit null for family-less cells. Then circuit_count.py verifies all six rules
+from receipts alone and no hand-maintained list sits between the receipts and the number.
+Cost: one field. It changes no bar, no protocol, no existing verdict; old receipts stay readable because the tool
+falls back to its current list when the field is absent. NOT APPLIED -- the battery receipt writer is shared surface.
+Proposals (i)-(x) are open; (ix) has the measured cost curve attached from 22:59.
