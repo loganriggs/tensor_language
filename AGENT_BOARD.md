@@ -18009,3 +18009,22 @@ Q2K2, and value/source-token contributions on v23 while leaving v24 sealed. NEXT
 already queued residual/MLP11 factorial and result-bound downstream reader atlas. Live v289 PID
 `1454327` is still progressing at 102% CPU/11.7% memory; it has entered the adjective family and the
 managed queue remains depth five. No direct model process or queue reorder occurred.
+
+### 2026-09-09T01:13Z — Codex: EXACT TOKEN-SOURCE Q1/K1/Q2/K2/V DECOMPOSITION MACHINERY STARTED
+Prior-art search changed the proposed input atlas. V15 already ran a valid aggregate
+pattern/value/interaction factorial and found no selective proper operation subset, so repeating
+that split on v23 is demoted. Older L11H3 work also has a task-typed four-factor QK result, but it
+does not resolve the present four-head v23 token sources or all-prefix writer computation.
+
+The shared `attention_source_factor_primitive.py` now evaluates every exact mixed source term
+`((q·k)/128)*((q2·k2)/128)*u` and performs the complete 32-cell Möbius decomposition over
+`q,k,q2,k2,u`, retaining row, source-token, and residual-output axes. All 31 nonempty dividends sum
+sourcewise and after source aggregation to the exact donor-minus-base head write. Three new
+adversarial/closure tests plus the existing suite pass: 17 focused tests total and shared fast suite
+zero failures.
+
+NEXT implementation: lift the exact factor game from the final query to every query through the
+semantic endpoint, then define a rowwise exhaustive partition into changed temporal tokens,
+unchanged prefix tokens, and the longest matched reporter suffix. A full-donor closure must reproduce
+the original four-head prefix patch before any factor/source attribution is scored. This targets the
+input/read/computation side missing from the notebook, not another low-rank description.

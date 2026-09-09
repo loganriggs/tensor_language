@@ -162,3 +162,59 @@ def test_optional_qk_factors_expose_selected_normalized_rotary_vectors():
                   * (factors["q2"] * factors["k2"][torch.arange(batch), finals]).sum(-1)
                   / head_width)
     assert torch.allclose(self_score, factors["p"][torch.arange(batch), finals])
+
+
+def _five_factor_fixture():
+    native = {
+        "q": torch.tensor([[1.0, 2.0], [2.0, -1.0]]),
+        "k": torch.tensor([[[1.0, 0.0], [0.0, 1.0]],
+                           [[2.0, 1.0], [1.0, -2.0]]]),
+        "q2": torch.tensor([[2.0, -1.0], [1.0, 3.0]]),
+        "k2": torch.tensor([[[1.0, 1.0], [-1.0, 2.0]],
+                            [[0.0, 2.0], [3.0, 1.0]]]),
+        "u": torch.tensor([[[1.0, 3.0, 2.0], [4.0, -1.0, 2.0]],
+                           [[2.0, 2.0, -3.0], [1.0, 5.0, 2.0]]]),
+    }
+    donor = {name: value + (index + 1) * .25
+             for index, (name, value) in enumerate(native.items())}
+    return native, donor
+
+
+def test_five_factor_source_mixture_matches_direct_attention_term():
+    native, donor = _five_factor_fixture()
+    for selected in ((), ("q",), ("k", "u"), primitive.SOURCE_FACTORS):
+        got = primitive.mixed_source_terms(native, donor, selected, torch)
+        chosen = {name: donor[name] if name in selected else native[name]
+                  for name in primitive.SOURCE_FACTORS}
+        score1 = torch.einsum("bd,btd->bt", chosen["q"], chosen["k"]) / 2
+        score2 = torch.einsum("bd,btd->bt", chosen["q2"], chosen["k2"]) / 2
+        expected = (score1 * score2).unsqueeze(-1) * chosen["u"]
+        assert torch.equal(got, expected)
+
+
+def test_five_factor_mobius_closes_sourcewise_and_after_source_sum():
+    native, donor = _five_factor_fixture()
+    dividends = primitive.source_factor_mobius(native, donor, torch)
+    assert len(dividends) == 32
+    native_terms = primitive.mixed_source_terms(native, donor, (), torch)
+    donor_terms = primitive.mixed_source_terms(
+        native, donor, primitive.SOURCE_FACTORS, torch)
+    reconstructed = sum((dividends[mask] for mask in range(1, 32)),
+                        torch.zeros_like(native_terms))
+    assert torch.allclose(reconstructed, donor_terms - native_terms, atol=2e-5, rtol=2e-5)
+    assert torch.allclose(reconstructed.sum(1),
+                          donor_terms.sum(1) - native_terms.sum(1),
+                          atol=2e-5, rtol=2e-5)
+    assert primitive.factor_names(0b10101) == ("q", "q2", "u")
+
+
+def test_five_factor_source_game_rejects_unknown_factors_and_bad_shapes():
+    native, donor = _five_factor_fixture()
+    with pytest.raises(ValueError, match="unknown"):
+        primitive.mixed_source_terms(native, donor, ("score3",), torch)
+    with pytest.raises(ValueError, match="shapes"):
+        primitive.mixed_source_terms(
+            {**native, "u": native["u"][:, :1]}, donor, (), torch)
+    with pytest.raises(ValueError, match="must contain"):
+        primitive.mixed_source_terms(
+            {name: value for name, value in native.items() if name != "q2"}, donor, (), torch)
