@@ -13,7 +13,26 @@ def test_price_and_module_inventory():
     assert experiment.MODULES[0] == "A12" and experiment.MODULES[-1] == "M17"
 
 def test_executor_is_fail_closed_before_factorial_binding():
-    assert experiment.EXPECTED_FACTORIAL_RESULT_SHA256 is None
+    assert not experiment.FACTORIAL_RESULT.exists()
+    assert not experiment.BINDING.exists()
+
+def test_eligibility_binds_both_runners_and_required_predecessor_predictions(monkeypatch):
+    predictions = {key: True for key in experiment.component.PREDICTION_KEYS}
+    predecessor = {"predictions": predictions}
+    binding = {
+        "schema": "temporal_iswas_v23_residual_reader_atlas_binding_v1",
+        "factorial_result_sha256": "factorial-result",
+        "factorial_runner_sha256": experiment.EXPECTED["component"],
+        "atlas_runner_sha256": "atlas-runner",
+    }
+    observed = {
+        experiment.FACTORIAL_RESULT: "factorial-result",
+        experiment.SELF: "atlas-runner",
+    }
+    monkeypatch.setattr(experiment, "sha", lambda path: observed[path])
+    assert experiment.eligibility(binding, predecessor)
+    predecessor["predictions"][experiment.component.PREDICTION_KEYS[1]] = False
+    assert not experiment.eligibility(binding, predecessor)
 
 def test_block_correction_preserves_auxiliary_stream_and_cleans_hook():
     class Block:

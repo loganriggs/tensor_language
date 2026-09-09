@@ -22,9 +22,11 @@ import run_temporal_iswas_v23_block11_residual_mlp_factorial_rescue_v1 as compon
 import transport_boundary_capture as boundary
 
 ROOT = Path(__file__).resolve().parents[1]
+SELF = Path(__file__).resolve()
 PRIOR = ROOT / "circuits/prior_art/temporal_iswas_v23_residual_carrier_downstream_module_reader_atlas_v1.json"
 FACTORIAL_PRIOR = ROOT / "circuits/prior_art/temporal_iswas_v23_block11_residual_mlp_factorial_rescue_v1.json"
 FACTORIAL_RESULT = ROOT / "circuits/followups/temporal_iswas_v23_block11_residual_mlp_factorial_rescue_v1_result.json"
+BINDING = ROOT / "circuits/bindings/temporal_iswas_v23_residual_carrier_downstream_module_reader_atlas_v1.json"
 NECESSITY = ROOT / "circuits/followups/temporal_iswas_v23_four_head_necessity_occupied_mode_rescue_v1_result.json"
 CONFIRMATION = ROOT / "circuits/followups/temporal_iswas_v23_aligned_four_head_reader_contracted_confirmation_v1_result.json"
 HELPER = ROOT / "ops/residual_reader_module_atlas.py"
@@ -33,7 +35,6 @@ BUILDER = ROOT / "ops/circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v23
 SHARED = ROOT / "ops/run_temporal_iswas_v22_reader_contracted_writer_effect_game_v1.py"
 BOUNDARY = ROOT / "ops/transport_boundary_capture.py"
 OUT = ROOT / "circuits/followups/temporal_iswas_v23_residual_carrier_downstream_module_reader_atlas_v1_result.json"
-EXPECTED_FACTORIAL_RESULT_SHA256 = None  # bound only after the predecessor lands and is scored
 EXPECTED = {"prior": "26523fe81959412e9e959183b7eda6fcaec8412114bde4f0ccb98747adb35751",
     "factorial_prior": "564c59004f32c26632fbc54973ed86cdb9c8dfdd7f19207f3922c4ad57ce6e9e",
     "necessity": "284ff3e05dddd14a979c88c6aa9e662deac4721e678a077055021f919f7a943f",
@@ -72,6 +73,18 @@ def finite(value):
     if isinstance(value, dict): return all(finite(item) for item in value.values())
     if isinstance(value, (list, tuple)): return all(finite(item) for item in value)
     return not isinstance(value, (int, float)) or isinstance(value, bool) or math.isfinite(float(value))
+
+def eligibility(binding, predecessor):
+    """Require a result-conditioned, runner-bound license for this causal successor."""
+    required = (component.PREDICTION_KEYS[0], component.PREDICTION_KEYS[1],
+                component.PREDICTION_KEYS[3])
+    return bool(
+        binding.get("schema") == "temporal_iswas_v23_residual_reader_atlas_binding_v1"
+        and binding.get("factorial_result_sha256") == sha(FACTORIAL_RESULT)
+        and binding.get("factorial_runner_sha256") == EXPECTED["component"]
+        and binding.get("atlas_runner_sha256") == sha(SELF)
+        and all(predecessor.get("predictions", {}).get(key) is True for key in required)
+    )
 
 def add_block_correction(model, execute, correction):
     calls = {"block11": 0}
@@ -117,8 +130,10 @@ def main():
         "confirmation": CONFIRMATION, "helper": HELPER, "component": COMPONENT,
         "builder": BUILDER, "shared": SHARED, "boundary": BOUNDARY}
     observed = {name: sha(path) for name, path in base_paths.items()}
-    predecessor_ready = bool(FACTORIAL_RESULT.exists() and EXPECTED_FACTORIAL_RESULT_SHA256 is not None)
-    predecessor_hash_ok = bool(predecessor_ready and sha(FACTORIAL_RESULT) == EXPECTED_FACTORIAL_RESULT_SHA256)
+    predecessor_ready = bool(FACTORIAL_RESULT.exists() and BINDING.exists())
+    predecessor = json.loads(FACTORIAL_RESULT.read_text()) if FACTORIAL_RESULT.exists() else {}
+    binding = json.loads(BINDING.read_text()) if BINDING.exists() else {}
+    predecessor_hash_ok = bool(predecessor_ready and eligibility(binding, predecessor))
     dry = {"candidate_id": "cross_task.temporal_iswas.v23_residual_carrier_downstream_module_reader_atlas_v1",
         "dryrun": True, "gpu_accessed": False, "model_loaded": False, "queue_touched": False,
         "base_authority_ok": observed == EXPECTED, "predecessor_ready": predecessor_ready,
@@ -127,10 +142,6 @@ def main():
         print(json.dumps(dry, sort_keys=True)); return
     if observed != EXPECTED or not predecessor_hash_ok:
         raise RuntimeError("downstream reader atlas is not bound to a valid predecessor")
-    predecessor = json.loads(FACTORIAL_RESULT.read_text())
-    required = (component.PREDICTION_KEYS[0], component.PREDICTION_KEYS[1], component.PREDICTION_KEYS[3])
-    if not all(predecessor.get("predictions", {}).get(key) is True for key in required):
-        raise RuntimeError("predecessor does not license the residual reader atlas")
     if OUT.exists(): raise FileExistsError(f"refusing overwrite: {OUT}")
     started_utc, started = now(), time.perf_counter(); rows = fresh.build_rows()
     confirmation = json.loads(CONFIRMATION.read_text()); target_ids = set(confirmation["population"]["target_row_ids"])
@@ -213,7 +224,8 @@ def main():
     result = {"schema": "temporal_iswas_v23_residual_carrier_downstream_module_reader_atlas_result_v1",
         "candidate_id": dry["candidate_id"], "started_utc": started_utc, "finished_utc": now(),
         "serial_seconds": time.perf_counter()-started, "authority_sha256": {**observed,
-            "factorial_result": sha(FACTORIAL_RESULT)}, "residual_replay_max_abs": replay_error,
+            "factorial_result": sha(FACTORIAL_RESULT), "binding": sha(BINDING)},
+        "residual_replay_max_abs": replay_error,
         "residual_report": residual_report, "residual_half_reports": half_reports,
         "reports": reports, "selected_modules": selected, "hook_count_values": sorted(set(hook_values)),
         "predictions": predictions, "prediction_applicability": {PREDICTION_KEYS[2]: not B, PREDICTION_KEYS[3]: not B},
