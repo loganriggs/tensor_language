@@ -1097,3 +1097,21 @@ a circuit without factor-specific intervention.
 6. Price a standalone extracted executor only after residual/reader fidelity, OOD prediction, and
    composition are verified.  Keep every invalid endpoint-control and gauge-dependent interpretation
    in the record rather than selecting a favorable instrument after outcomes.
+
+### Full-input MLP1 joint-reader weight follow-up — September9,23:55 UTC
+
+The user-directed two-circuit mathematics audit restores the existing complete
+rank-four task readers (not the older top-two reader definition). Eight native
+capture forwards; all numerical/serialization/gauge checks pass. Joint symmetric
+quadratic input support is1152/1152, min/max singular ratio.03115. Function-space
+principal cosines are.4251/.1944/.0914/.0506, without an apparent common complete
+quadratic direction. All4608native products have nonzero coefficients for both
+tasks. This does not identify a common semantic factor or improve the earlier
+rank-four noisy behavior verdict. Native FP32 coordinate discrepancy is at most
+4.48e-4/relative3.90e-7; FP64 algebra discrepancy1.32e-11.
+
+Full support excludes a smaller numerator representation using linear features
+alone, but not a linear-plus-norm state: isotropic forms are a counterexample.
+The exact modular commutator successor tests that remaining representation
+class. See [mathematical explanation](weight_tensor_two_circuit_math_2026-09-09.md)
+and [native receipt](../BILIN18_MLP1_JOINT_READER_WEIGHT_V1_RESULT.json).

@@ -53,6 +53,31 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## MLP1 full-input audit valid; exact norm-quotient certificate queued — 2026-09-09 23:58 UTC
+
+BILIN18_MLP1_JOINT_READER_WEIGHT_V1_RESULT.json is valid:72.514s,8forwards,
+300sequences, FP64 max1.32e-11 and nativeFP32 max4.48e-4/relative3.90e-7.
+Full input support1152/1152,min/max.03115. Function principal cosines
+.4251/.1944/.0914/.0506. Reader JSON saved; no refit needed. All4608native
+products active under both task readers; no semantic sharing or adoption.
+Different from old top2reader overlap; rank4 noisy behavioral null unchanged.
+
+Logical scope refinement: full support excludes a smaller linear-coordinate
+numerator representation only. A retained norm permits alpha_k I terms, so
+Q=I is a counterexample to a blanket linear-plus-norm impossibility claim.
+New protocol BILIN18_MLP1_NORM_OBSERVABLE_OBSTRUCTION_V1 fixes first temporal
+and first iswas reader. A nonzero exact commutator determinant modulo65521
+certifies no proper linear-plus-norm state for all real inputs, even with
+arbitrary decoder. Zero is inconclusive; no pair/module/rank scan. Dyadic
+weights mapped exactly, bounded integer FP64 GEMMs, GPU elimination plus
+independent CPU integer determinant and saved matrix. Six CPU controls pass.
+Managed runner enqueued at45a2b36dbdc5ab6039cce46366f4a2cebc57ffdccaecbe2739641f15ae836ee0,
+ops/run_bilin18_mlp1_norm_observable_obstruction_v1.py under bilinear_quotient.
+Zero native forwards; no refit, training or weight changes. Inspect live result
+and queue before any action. Interpret it before choosing nonlinear factor
+work. Do not change or duplicate queued source. Goal active; preserve Claude
+files. Previous turn/continuation is PROGRESS. Clocks hourly0003/math0149.
+
 ## Joint-reader native audit queued; edit-response math executed — 2026-09-09 23:49 UTC
 
 MLP1 runner now exists and is managed-queued behind Claude v449:

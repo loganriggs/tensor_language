@@ -370,3 +370,72 @@ of those initial quantities, with the four requested behavioral properties.
 and [seven-control receipt](../BILINEAR_JOINT_EDIT_OBSERVABLE_CONTROLS_V1.json).
 The full-input MLP1 weight audit is now implemented and queued through the
 managed GPU runner; no native result is claimed in this paragraph.
+
+## The full-input trained MLP1 audit has now finished
+
+The managed RTX5090 run took72.5seconds and exactly eight native forwards
+(300 sequence evaluations). It restored the existing pooled eight-coordinate
+output projector and each task's first four modes, and saved those readers
+so subsequent coefficient work needs no new fit or task execution.
+
+All registered numerical checks passed. The largest FP64 algebra discrepancy
+was1.32e-11. Against captured native FP32 module outputs, the maximum absolute
+reader-coordinate difference was4.48e-4, with relative discrepancy below
+3.90e-7. The latter comparison is numerical agreement, not bitwise equality.
+
+The eight reader functions jointly have numerical input support1152/1152.
+Their smallest-to-largest singular ratio is0.03115, far above the registered
+1e-10 numerical cutoff. The principal cosines between the two four-dimensional
+quadratic-function spaces are0.4251,0.1944,0.0914,0.0506. A value of1 would
+indicate a common function direction; none appears here. This uses the
+coefficient Frobenius inner product, not a measured distribution of language
+inputs or causal effects. The older report's0.176 maximum used two modes per
+task, so these are different reader definitions, not contradictory reruns.
+
+Both tasks have nonzero coefficients on all4,608 native hidden products.
+That establishes native implementation co-use, but neither selective semantic
+units nor an impossibility of a different shared factorization. The earlier
+rank-four program's noisy behavioral miss also remains binding; these weight
+checks do not promote its robustness status.
+
+[Native result](../BILIN18_MLP1_JOINT_READER_WEIGHT_V1_RESULT.json) and
+[serialized task readers](../BILIN18_MLP1_JOINT_READER_WEIGHT_V1_READERS.json).
+
+There is an important scope correction before drawing a stronger conclusion.
+Full input support rules out expressing all numerators using fewer *linear
+coordinates alone*. It does not rule out using fewer linear coordinates **plus
+the norm scalar**. For example, `Q=I` has full rank, but its numerator is just
+`rho`. Treating the previous result's terminal name as ruling out every
+linear-plus-norm representation would overstate what that test measured.
+
+The correct condition for a representation from `(U^T x,rho)` is
+
+\[
+Q_k=U H_k U^T+\alpha_k I
+\]
+
+for every reader, where `U` has orthonormal columns. To see necessity, rotate
+or reflect the component of `x` perpendicular to `U`. The proposed state
+cannot distinguish these inputs. Thus the quadratic can contain no cross
+term between retained and discarded coordinates, and its action on the
+entire discarded space must be a scalar multiple of the identity. These
+conditions also suffice, since the numerator becomes
+`(U^T x)^T H_k (U^T x) + alpha_k*rho`.
+
+Consequently, any discarded direction must be a common eigenvector of every
+reader matrix. For two matrices, define their **commutator** as
+`K=Q_A Q_B-Q_B Q_A`: their actions in the two possible orders, subtracted.
+Every common eigenvector lies in the kernel of `K`. If `K` is invertible,
+there is no discarded direction and no proper linear-plus-norm quotient,
+even with arbitrary nonlinear decoding of the retained state.
+
+The next managed run fixes the first temporal and first is/was reader and
+tests that obstruction exactly. Binary floating-point coefficients are
+rational numbers with power-of-two denominators. They can be mapped into
+arithmetic modulo the prime65,521. A nonzero determinant there proves the
+original rational determinant is nonzero; a zero result is inconclusive.
+Small Fraction-arithmetic controls, a determinant oracle, and the norm-only
+counterexample all pass. The native certificate has been queued with zero
+model forwards and an independent integer determinant replay. This tests one
+representation class; it is not a claim that the model lacks smaller nonlinear
+circuits or domain-specific semantic computations.
