@@ -1,0 +1,66 @@
+{
+  "experiment": "source_support_interaction_v1",
+  "runner_sha256": "45b52a1fd827c712f8abc92f9510df5e7da84cc3a811c086bc638039aed82a72",
+  "bound_sha256": "b2ef489e9b88ef43397145dd02f67e598b222c35c5dcaf71d4c983070f6a4f74",
+  "checkpoint_sha256": "c9388cc8b1ba7e95c6a043cbf4d01592987447867a50781d3babe31ce3f8358b",
+  "controls": {
+    "passed": true,
+    "checks": {
+      "generator_disjoint_supports": true,
+      "generator_valid_maps": true,
+      "generator_answers": true,
+      "disjoint_third_zero": true,
+      "pair_support_only_later_changed_queries": true,
+      "every_pair_live": true,
+      "seven_eval_joint_prediction": true,
+      "overlap_third_live": true,
+      "integer_disjoint_third_zero": true,
+      "integer_overlap_third_nonzero": true
+    },
+    "details": {
+      "fp64_third_max": 4.163336342344337e-16,
+      "pair_outside_max": 3.885780586188048e-16,
+      "pair_live_maxima": [
+        0.0017055875084754368,
+        0.002029586028331809,
+        0.0011375807678130623
+      ],
+      "overlap_third_max": 0.001120663946500039,
+      "integer_overlap_third_max": 416
+    }
+  },
+  "native_parameters_retained": 400640,
+  "native_suffix_replay_max_abs": 4.973799150320701e-14,
+  "native_suffix_replay_max_relative_rms": 5.1149742956896995e-16,
+  "populations": {
+    "iid": {
+      "triple_max_abs_error": 1.8474111129762605e-13,
+      "triple_max_relative_rms": 8.877326343930858e-16,
+      "pair_outside_support_max_abs": 2.1316282072803006e-13,
+      "allowed_pair_max_abs": 10.83626436180069,
+      "overlap_third_centered_rms": 0.005830107227041594,
+      "logprob_finalquery_pair_max_abs": 7.4408694176239685,
+      "native_query_accuracy": 0.984375
+    },
+    "ood_three_8cycles": {
+      "triple_max_abs_error": 1.5631940186722204e-13,
+      "triple_max_relative_rms": 9.283364365459903e-16,
+      "pair_outside_support_max_abs": 1.5631940186722204e-13,
+      "allowed_pair_max_abs": 6.079361498127053,
+      "overlap_third_centered_rms": 0.012347373101071965,
+      "logprob_finalquery_pair_max_abs": 6.446251948170829,
+      "native_query_accuracy": 1.0
+    }
+  },
+  "rows": "basis_aligned/polynomial_causal/SOURCE_SUPPORT_INTERACTION_V1_ROWS.pt",
+  "rows_sha256": "1c385d66bbc47f090b9eb954b0617442e60be7ec63e94d8dc576ea6f8feed8f5",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_disjoint": true,
+    "pred_c_overlap": true,
+    "pred_d_probability": true
+  },
+  "terminal": "source_support_law_verified",
+  "scope": "fixed-input native-background response algebra; not independent compact extraction",
+  "wall_seconds": 3.2654284462332726
+}

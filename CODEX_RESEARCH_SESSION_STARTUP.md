@@ -53,6 +53,33 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active exact source-edit executor — 2026-09-09 17:01 UTC
+
+SOURCE_SUPPORT_INTERACTION_V1_RESULT.json passes all4 gates. Fresh IID/three8cycle
+withheld triple removal maxerror1.85e-13/1.56e-13; forbidden pair support<=2.14e-13;
+overlap thirdRMS.00583/.01235 and logprob pairmax7.44/6.45. Exact grouping rule for
+one final attention suffix, not learned parameter reduction. Full report and
+1648 mathematical proof state scope restrictions (no extra suffix norm/softmax).
+
+Active EXACT_SOURCE_EDIT_V1_PREREGISTRATION.md and exact_source_edit_reference.py:
+SourceEditProgram.prepare(tokens) computes native-prefix/QKV cache; edit(context,
+delta) recomputes RMS/RoPE/projections only at affected source/query positions and
+all affected source sums. Supports overlapping edits exactly. Physically removes
+final O by known generic readout fold; expected387968 constants.16 CPU controls
+pass, nonzero editreplay<=1.11e-16. No native or learned opaque coefficient hidden.
+
+Next integrate ops/run_exact_source_edit_v1.py on fresh21909/21910 three-chain
+worlds (extend generator's seeds argument without changing default behavior),
+all8 disjoint plus8 overlapping producer edits andhalf-dose. Candidate must form
+its own writes from retained prefix weights. Compare native/full andcachedsuffix,
+export state/config and fresh-process CPU replay without original checkpoint,
+then price preparation/repeated edits/cache. No trained outcome opened yet.
+
+Latest hourly1651 (next17:51) andmath1648 (next19:48), both completed. Goal active
+under the bilinear reconstruction handoff, overriding stale better_math_ideas
+text. Origin path and payload-field task gates pass but quantitative sufficiency
+remains rejected; do not relax the original full-distribution/intervention bars.
+
 ## Active exact value-producer split — 2026-09-09 16:35 UTC
 
 JOIN_CONTRIBUTION_CONTEXT_V1_RESULT.json passesA/B and failsC/D. Two disjoint

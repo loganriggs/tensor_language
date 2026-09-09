@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "checks": {
+    "token_prepare": true,
+    "empty": true,
+    "disjoint": true,
+    "overlapping_sum": true,
+    "absolute_rope_q1": true,
+    "wrong_position_rejected_q1": true,
+    "absolute_rope_q2": true,
+    "wrong_position_rejected_q2": true,
+    "absolute_rope_k1": true,
+    "wrong_position_rejected_k1": true,
+    "absolute_rope_k2": true,
+    "wrong_position_rejected_k2": true,
+    "context_not_mutated": true,
+    "final_O_absent": true,
+    "constant_count": true
+  },
+  "errors": {
+    "empty": {
+      "max_abs": 2.7755575615628914e-17,
+      "relative_rms": 1.8151138809892873e-16
+    },
+    "disjoint": {
+      "max_abs": 5.551115123125783e-17,
+      "relative_rms": 1.9790999907129348e-16
+    },
+    "overlapping_sum": {
+      "max_abs": 1.1102230246251565e-16,
+      "relative_rms": 2.1735992995772273e-16
+    }
+  },
+  "code_sha256": "fe45301574c2ad16d8dcb49ff4c2f64c75f3853734fe06f7c2b4cbc593eb65b7",
+  "control_note": "Bitwise projection comparison replaced before trained execution by registered FP64 tolerance and live wrong-absolute-position negative control; different GEMM row counts round differently."
+}

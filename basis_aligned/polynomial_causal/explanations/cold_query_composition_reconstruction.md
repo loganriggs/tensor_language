@@ -412,3 +412,38 @@ reference verifies integer and FP64 disjoint/overlap controls. The fresh trained
 prediction, pair-support localization, overlapping producer edits and nonlinear
 log-probability controls. The goal remains a smaller independently executable
 program; this step establishes which circuit groupings permit exact composition.
+
+## Trained source-support law verified; exact edit executor underway
+
+`SOURCE_SUPPORT_INTERACTION_V1_RESULT.json` passes all four gates in3.27s. On fresh
+IID/three8-cycle inputs, baseline/single/pair responses predict the withheld triple
+removal at maximum all-logit error1.85e-13/1.56e-13. Forbidden pair-support leakage
+is at most2.14e-13; allowed pair effects are live (max10.84/6.08). Three overlapping
+producer edits have third-order centered RMS.00583/.01235. At unchanged finalquery
+positions, log-probability pair interactions reach7.44/6.45 even though raw-logit
+pair interactions vanish. Native cached-suffix/full-forward replay is4.97e-14.
+
+This establishes a useful composition/grouping rule under the precise one-layer
+suffix assumptions. It does not discover smaller model weights or make the
+context-independent semantic kernel valid. The next step turns the shared query/
+source reader structure into a direct executable interface, rather than retaining
+seven response vectors perinput as an unexplained cache.
+
+`exact_source_edit_reference.py` computes its native-prefix and final Q/K/V cache
+from supplied tokens, then recomputes normalized projections only at changed
+positions. It updates source messages to all queries and recomputes the complete
+source sum for changed query positions. Overlapping component edits are combined
+before normalization, so their higher-order effects are preserved. Absolute RoPE
+uses original positions. Final O is physically removed using the known generic
+O/head fold; expected constants387968. That saving is generic, not a new semantic
+reduction, and all native prefix/reader weights remain charged.
+
+`EXACT_SOURCE_EDIT_V1_CPU_CONTROLS.json` passes16 controls, with nonzero edit replay
+at1.11e-16 and explicit wrong-position negatives. Initial bitwise comparisons of
+projections with different GEMM row counts were replaced before trained execution
+by the registered numerical tolerance; full-logit controls were already passing.
+`EXACT_SOURCE_EDIT_V1_PREREGISTRATION.md` specifies fresh21909/21910 disjoint,
+overlapping and half-dose tests, independent CPU export/replay, and preparation/
+edit/cache pricing against both full native and cached native suffix baselines.
+Managed trained runner and export integration remain. This is reusable intervention
+infrastructure on the path toward the goal, not an adopted compact circuit model.
