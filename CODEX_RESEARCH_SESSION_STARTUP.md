@@ -53,6 +53,42 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Native shared read needs joint routing; daily report — 2026-09-09 23:14 UTC
+
+Previous turn PROGRESS, and this continuation produces a managed native read
+screen plus the user's requested high-level-first daily explanation. Follow
+bilinear_circuit_reconstruction_codex_handoff.md and its appended structural
+criterion; stale better_math_ideas goal wording does not control. Goal active.
+
+BILIN18_ROUTED_SHARED_COMMAND_INTERACTION_V1 completes23:06:28 UTC in1.880s:
+32forwards/128sequences,192extra local contractions, actual545902902params.
+A/B pass,C false. Native maxabs2.14e-5/relative1.33e-7, convolution1.42e-14,
+future mixedread0, payloadmixed7.11e-15,14controls pass. Latequery mixed/shared
+RMS .03247/.03579; crossed-only mixedwrite error .77813/.75007 FIT/HOLDOUT.
+Joint routing is material, no final-effect sufficiency or structural reduction.
+Runner SHA c37eb7776bc41d7c3d08d2acb4bed8dbedf02c208e6e324f6f9aaf4767ca963a.
+Result and helper/runner are immutable; do not edit hash-bound primitives.
+
+User-requested explanations/research_update_2026-09-09.md covers the early
+pilot through23:06, main afternoon work from1354, explicit terms/computations
+and positive endpoint evidence with its limits. Linked first in README.
+Canonical shared_first_value_payload.md updated to completed read result.
+
+Next BILIN18_UPSTREAM_MIXED_COMMAND_STATE_V1_PREREGISTRATION.md: remove only
+the two-command mixed residual mode after zero-based block8, preserving
+mean/single modes, original embedding and first-value memory. Test whether
+one common upstream component supplies the four shared readers' interaction
+and selective output coupling. Fixed boundary/heads/cohort, no scan. New
+mixed_command_state_intervention.py implements scoped tuple-preserving hook
+and mode removal; six algebra controls pass. Native hook control/integration
+and64forward managed screen pending. All four-cell prefix/weights priced,
+no standalone semantic-variable or reduction claim. Prior-art check separated
+this from old MLP11 occupied-factor rescue.
+
+Both runners healthy; no own GPU job pending. Preserve concurrent files.
+Latest clocks2303hourly/2249math; next0003/0149 Sep10. Concrete continuation
+receipt is registered upstream-state test with implementation underway.
+
 ## Shared producer is additive; downstream response is coupled — 2026-09-09 23:03 UTC
 
 The bilinear reconstruction handoff and its appended criterion remain the

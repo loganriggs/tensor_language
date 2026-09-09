@@ -118,7 +118,7 @@ single-command routing with the other command's payload. The
 [registered next screen](../BILIN18_ROUTED_SHARED_COMMAND_INTERACTION_V1_PREREGISTRATION.md)
 keeps every fixed head and both queries, validates the native contraction,
 and tests whether the crossed terms alone suffice. Its primitive passes
-eight planted controls; trained capture and scoring are pending. One initial
+eight planted controls; trained capture and scoring have now completed. One initial
 toy negative control had effect norm exactly equal to its strict >1 bar;
 its planted payload amplitude was doubled before any trained run, preserving
 the bar. No scientific threshold or trained result changed.
@@ -133,3 +133,28 @@ closed independent squared channels, proper linear blocks, and a single
 shared linear gate. Those narrowly scoped certificates do not justify saying
 that a coupled computation cannot reuse work. This full-model branch returns
 to an actual shared input and its intervention semantics.
+
+## Native read result and next causal test — 23:06 UTC
+
+The [read-convolution result](../BILIN18_ROUTED_SHARED_COMMAND_INTERACTION_V1_RESULT.json)
+passes instrument and material-interaction gates, but rejects crossed-only
+sufficiency. At the later query, the mixed read is 3.25%/3.58% of the complete
+shared read RMS, FIT/HOLDOUT. Dropping joint routing leaves 77.8%/75.0%
+relative mixed-read error. These are pooled norms over separate layer/head
+entries; no cross-layer sum is interpreted as one intervention. The earlier
+query has exactly zero mixed read. Native oracle max absolute error is
+2.14e-5, relative RMS 1.33e-7; convolution closes to 1.42e-14. All fourteen
+capture/algebra controls pass. Managed execution took 1.880 seconds, with
+32 full forwards, 128 sequences and 192 extra local attention contractions.
+
+A material interaction therefore exists already in these native readers.
+This does not establish that it explains the whole final-output interaction.
+The joint router could receive a previously computed joint-command state,
+or generate its interaction from separate command features downstream.
+The [next fixed-boundary experiment](../BILIN18_UPSTREAM_MIXED_COMMAND_STATE_V1_PREREGISTRATION.md)
+removes only the mixed residual-state command mode after block8, preserving
+mean/single-command modes and both shared first-value and embedding inputs.
+It tests whether one upstream component mediates the four readers and whether
+its output effect is selective. This cross-cell internal intervention is
+explicitly priced; it is not yet an independently identified semantic variable.
+Six algebra controls pass; native integration is pending.

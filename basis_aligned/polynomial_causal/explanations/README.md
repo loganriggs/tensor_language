@@ -11,7 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
-- [Shared first-value payload](shared_first_value_payload.md): current full-model reconstruction screen; contextual-value deletion fails full-output fidelity and composition, with the next shared/contextual causal factorial prepared.
+- [Today’s research update — 9 September](research_update_2026-09-09.md): high-level account first, then explanations of the models, computations, positive circuit evidence, failed simplifications, and the latest full-bilin18 routing result.
+
+- [Shared first-value payload](shared_first_value_payload.md): full-model shared/contextual value interventions and command-interaction analysis; exact producer certificate and native reader test.
 
 - [Forward endpoint field circuit](forward_endpoint_field_circuit.md): selective single/joint swaps pass on registered IID/OOD cases; exact shared message formula, explicit background and cost limits.
 
