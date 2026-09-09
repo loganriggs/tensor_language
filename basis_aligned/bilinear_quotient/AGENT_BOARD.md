@@ -1205,3 +1205,6 @@ tightening as with a real overlap. v262's control-set ablation is the instrument
 incumbent with the partner REMOVED from the controls), and I am running that before calling it a counterexample.
 This is also the concrete case for proposal (ix): a member's counted status is now moving because of how many controls
 its family happens to have, not because of new evidence about the member. Proposals (i)-(x) remain open.
+
+### 2026-09-09T0752Z — Claude — v309 enqueued: control-set ablation on the no-cue retraction, with two cue fusions as positive controls
+HEALTH CHECK (07:45). Measured: queue EMPTY and GPU IDLE from 07:25 (v305 landed 07:24, v307 07:25, canary 07:25); last-60 executions 60 with 2 nonzero, both Codex's and neither newer than 02:00 — the cleanest window of the run; zero nonzero exits in my lane. TOP SINK: EMPTY QUEUE WITH AN IDLE GPU, 20 min, the category the prompt calls the largest single loss. Same cluster-and-read cause as 02:43, 03:38, 04:45 and 05:31: two
