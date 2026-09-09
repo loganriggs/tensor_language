@@ -1,0 +1,1219 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "cue_margin": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 5,
+    "k_kept": 7,
+    "k_new": 2,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v325",
+  "families": {
+    "verb_particle": [
+      "verb_particle_up_down",
+      "verb_particle_out_down",
+      "verb_particle_out_up",
+      "verb_particle_up_on",
+      "verb_particle_away_up",
+      "verb_particle_down_in",
+      "verb_particle_on_out",
+      "verb_particle_up_down_b",
+      "verb_particle_away_up_b",
+      "verb_particle_out_down_b",
+      "verb_particle_away_down_r",
+      "verb_particle_up_out_r",
+      "verb_particle_down_in_r"
+    ]
+  },
+  "finished_utc": "2026-09-09T11:05:38.881420+00:00",
+  "members": {
+    "verb_particle_away_down_r": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.1062,
+            "ce_lb975": 0.0578,
+            "ce_ub975": 0.1525
+          },
+          "C": {
+            "ce_damage": 0.0127,
+            "ce_lb975": 0.004,
+            "ce_ub975": 0.021
+          },
+          "extraction": 0.885,
+          "sib_abs_max": 0.0652,
+          "siblings": {
+            "verb_particle_away_up": 0.0286,
+            "verb_particle_away_up_b": 0.0099,
+            "verb_particle_down_in": -0.0002,
+            "verb_particle_down_in_r": -0.0031,
+            "verb_particle_on_out": 0.0019,
+            "verb_particle_out_down": 0.0652,
+            "verb_particle_out_down_b": -0.0021,
+            "verb_particle_out_up": 0.0031,
+            "verb_particle_up_down": -0.0052,
+            "verb_particle_up_down_b": -0.0127,
+            "verb_particle_up_on": -0.0019,
+            "verb_particle_up_out_r": -0.0043
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8557,
+            "ce_lb975": 0.7564,
+            "ce_ub975": 0.9609
+          },
+          "C": {
+            "ce_damage": 0.0008,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.0044
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.547,
+          "siblings": {
+            "verb_particle_away_up": 0.547,
+            "verb_particle_away_up_b": 0.1111,
+            "verb_particle_down_in": 0.151,
+            "verb_particle_down_in_r": 0.1339,
+            "verb_particle_on_out": 0.042,
+            "verb_particle_out_down": 0.1963,
+            "verb_particle_out_down_b": 0.1128,
+            "verb_particle_out_up": 0.0123,
+            "verb_particle_up_down": 0.1263,
+            "verb_particle_up_down_b": -0.1068,
+            "verb_particle_up_on": 0.002,
+            "verb_particle_up_out_r": -0.1142
+          }
+        }
+      },
+      "exact_held": 0.875,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 14,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 134.9,
+      "separable": false,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:08:head:08",
+        "attn:09:head:07",
+        "attn:13:head:08",
+        "attn:05:head:08",
+        "attn:14:head:03",
+        "attn:11:head:03",
+        "attn:05:head:06",
+        "attn:06:head:04",
+        "attn:13:head:03",
+        "attn:09:head:01"
+      ]
+    },
+    "verb_particle_away_up": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4197,
+            "ce_lb975": 0.28,
+            "ce_ub975": 0.5511
+          },
+          "C": {
+            "ce_damage": -0.0087,
+            "ce_lb975": -0.0167,
+            "ce_ub975": -0.0006
+          },
+          "extraction": 1.026,
+          "sib_abs_max": 0.0143,
+          "siblings": {
+            "verb_particle_away_down_r": 0.0143,
+            "verb_particle_away_up_b": 0.0015,
+            "verb_particle_down_in": 0.0026,
+            "verb_particle_down_in_r": -0.0032,
+            "verb_particle_on_out": 0.0023,
+            "verb_particle_out_down": -0.0036,
+            "verb_particle_out_down_b": -0.0033,
+            "verb_particle_out_up": 0.0059,
+            "verb_particle_up_down": -0.0047,
+            "verb_particle_up_down_b": 0.0045,
+            "verb_particle_up_on": 0.0066,
+            "verb_particle_up_out_r": -0.0031
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.4938,
+            "ce_lb975": 0.4496,
+            "ce_ub975": 0.5359
+          },
+          "C": {
+            "ce_damage": 0.0002,
+            "ce_lb975": -0.0042,
+            "ce_ub975": 0.0042
+          },
+          "extraction": 1.046,
+          "sib_abs_max": 0.1472,
+          "siblings": {
+            "verb_particle_away_down_r": 0.1389,
+            "verb_particle_away_up_b": 0.1472,
+            "verb_particle_down_in": -0.0285,
+            "verb_particle_down_in_r": -0.0502,
+            "verb_particle_on_out": -0.0313,
+            "verb_particle_out_down": -0.0852,
+            "verb_particle_out_down_b": -0.0385,
+            "verb_particle_out_up": 0.0527,
+            "verb_particle_up_down": 0.0471,
+            "verb_particle_up_down_b": 0.1024,
+            "verb_particle_up_on": 0.1077,
+            "verb_particle_up_out_r": 0.0737
+          }
+        }
+      },
+      "exact_held": 0.893,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 190.2,
+      "separable": true,
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:08:head:08",
+        "attn:05:head:08",
+        "attn:05:head:03",
+        "attn:13:head:08",
+        "attn:09:head:07",
+        "attn:08:head:01",
+        "attn:11:head:03",
+        "attn:10:head:04",
+        "attn:06:head:04",
+        "attn:11:head:06"
+      ]
+    },
+    "verb_particle_away_up_b": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0131,
+            "ce_lb975": 0.8219,
+            "ce_ub975": 1.2106
+          },
+          "C": {
+            "ce_damage": -0.0048,
+            "ce_lb975": -0.0095,
+            "ce_ub975": -0.0002
+          },
+          "extraction": 0.993,
+          "sib_abs_max": 0.0051,
+          "siblings": {
+            "verb_particle_away_down_r": -0.0029,
+            "verb_particle_away_up": -0.0026,
+            "verb_particle_down_in": 0.0009,
+            "verb_particle_down_in_r": 0.0013,
+            "verb_particle_on_out": 0.0006,
+            "verb_particle_out_down": -0.005,
+            "verb_particle_out_down_b": -0.0012,
+            "verb_particle_out_up": 0.0051,
+            "verb_particle_up_down": -0.0012,
+            "verb_particle_up_down_b": 0.0015,
+            "verb_particle_up_on": 0.0033,
+            "verb_particle_up_out_r": -0.0051
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0505,
+            "ce_lb975": 0.9445,
+            "ce_ub975": 1.1498
+          },
+          "C": {
+            "ce_damage": 0.0007,
+            "ce_lb975": -0.003,
+            "ce_ub975": 0.0044
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.2542,
+          "siblings": {
+            "verb_particle_away_down_r": -0.0776,
+            "verb_particle_away_up": -0.0609,
+            "verb_particle_down_in": -0.0025,
+            "verb_particle_down_in_r": -0.0354,
+            "verb_particle_on_out": -0.039,
+            "verb_particle_out_down": -0.0703,
+            "verb_particle_out_down_b": -0.0828,
+            "verb_particle_out_up": 0.2278,
+            "verb_particle_up_down": 0.0445,
+            "verb_particle_up_down_b": 0.2542,
+            "verb_particle_up_on": 0.0816,
+            "verb_particle_up_out_r": 0.029
+          }
+        }
+      },
+      "exact_held": 0.883,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 14,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 141.0,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:08:head:01",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:09:head:01",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:12:head:08",
+        "attn:13:head:03",
+        "attn:05:head:08",
+        "attn:04:head:01",
+        "attn:11:head:06"
+      ]
+    },
+    "verb_particle_down_in": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7245,
+            "ce_lb975": 0.4781,
+            "ce_ub975": 0.9861
+          },
+          "C": {
+            "ce_damage": 0.0052,
+            "ce_lb975": -0.0002,
+            "ce_ub975": 0.0109
+          },
+          "extraction": 0.96,
+          "sib_abs_max": 0.0105,
+          "siblings": {
+            "verb_particle_away_down_r": 0.005,
+            "verb_particle_away_up": -0.0014,
+            "verb_particle_away_up_b": -0.0014,
+            "verb_particle_down_in_r": -0.0053,
+            "verb_particle_on_out": -0.0038,
+            "verb_particle_out_down": 0.0105,
+            "verb_particle_out_down_b": -0.0022,
+            "verb_particle_out_up": -0.0043,
+            "verb_particle_up_down": -0.0055,
+            "verb_particle_up_down_b": -0.0063,
+            "verb_particle_up_on": -0.0015,
+            "verb_particle_up_out_r": 0.0058
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8318,
+            "ce_lb975": 0.5975,
+            "ce_ub975": 1.0809
+          },
+          "C": {
+            "ce_damage": -0.0006,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.004
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 0.2418,
+          "siblings": {
+            "verb_particle_away_down_r": 0.1017,
+            "verb_particle_away_up": -0.0138,
+            "verb_particle_away_up_b": -0.2124,
+            "verb_particle_down_in_r": 0.0553,
+            "verb_particle_on_out": -0.1514,
+            "verb_particle_out_down": -0.0666,
+            "verb_particle_out_down_b": -0.0726,
+            "verb_particle_out_up": -0.2418,
+            "verb_particle_up_down": -0.1078,
+            "verb_particle_up_down_b": -0.1575,
+            "verb_particle_up_on": -0.1678,
+            "verb_particle_up_out_r": -0.1932
+          }
+        }
+      },
+      "exact_held": 0.922,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 138.8,
+      "separable": true,
+      "units": [
+        "attn:08:head:08",
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:06:head:03",
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:09:head:05"
+      ]
+    },
+    "verb_particle_down_in_r": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.2674,
+            "ce_lb975": 0.2384,
+            "ce_ub975": 0.2956
+          },
+          "C": {
+            "ce_damage": 0.0009,
+            "ce_lb975": -0.0043,
+            "ce_ub975": 0.0065
+          },
+          "extraction": 0.719,
+          "sib_abs_max": 0.1368,
+          "siblings": {
+            "verb_particle_away_down_r": 0.0087,
+            "verb_particle_away_up": -0.0007,
+            "verb_particle_away_up_b": 0.0053,
+            "verb_particle_down_in": 0.1368,
+            "verb_particle_on_out": -0.0013,
+            "verb_particle_out_down": 0.0096,
+            "verb_particle_out_down_b": 0.0134,
+            "verb_particle_out_up": -0.0029,
+            "verb_particle_up_down": 0.1204,
+            "verb_particle_up_down_b": -0.0087,
+            "verb_particle_up_on": 0.005,
+            "verb_particle_up_out_r": -0.0062
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9683,
+            "ce_lb975": 0.717,
+            "ce_ub975": 1.2303
+          },
+          "C": {
+            "ce_damage": 0.0021,
+            "ce_lb975": -0.0016,
+            "ce_ub975": 0.0055
+          },
+          "extraction": 1.014,
+          "sib_abs_max": 0.7803,
+          "siblings": {
+            "verb_particle_away_down_r": -0.0428,
+            "verb_particle_away_up": -0.152,
+            "verb_particle_away_up_b": -0.0658,
+            "verb_particle_down_in": 0.3909,
+            "verb_particle_on_out": -0.0162,
+            "verb_particle_out_down": -0.1439,
+            "verb_particle_out_down_b": 0.3348,
+            "verb_particle_out_up": -0.1632,
+            "verb_particle_up_down": 0.7803,
+            "verb_particle_up_down_b": -0.3686,
+            "verb_particle_up_on": -0.063,
+            "verb_particle_up_out_r": -0.214
+          }
+        }
+      },
+      "exact_held": 0.915,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 136.7,
+      "separable": false,
+      "units": [
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:06:head:03",
+        "attn:08:head:08",
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:11:head:03",
+        "attn:16:head:08",
+        "attn:04:head:05"
+      ]
+    },
+    "verb_particle_out_down": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.041,
+            "ce_lb975": -0.0088,
+            "ce_ub975": 0.0931
+          },
+          "C": {
+            "ce_damage": -0.0039,
+            "ce_lb975": -0.0151,
+            "ce_ub975": 0.0077
+          },
+          "extraction": 0.947,
+          "sib_abs_max": 0.0558,
+          "siblings": {
+            "verb_particle_away_down_r": 0.0558,
+            "verb_particle_away_up": 0.0079,
+            "verb_particle_away_up_b": -0.0036,
+            "verb_particle_down_in": 0.0025,
+            "verb_particle_down_in_r": -0.0012,
+            "verb_particle_on_out": -0.0004,
+            "verb_particle_out_down_b": -0.0003,
+            "verb_particle_out_up": -0.0034,
+            "verb_particle_up_down": 0.0027,
+            "verb_particle_up_down_b": -0.0054,
+            "verb_particle_up_on": -0.0029,
+            "verb_particle_up_out_r": -0.0086
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9416,
+            "ce_lb975": 0.8257,
+            "ce_ub975": 1.0464
+          },
+          "C": {
+            "ce_damage": -0.0013,
+            "ce_lb975": -0.0075,
+            "ce_ub975": 0.0059
+          },
+          "extraction": 1.03,
+          "sib_abs_max": 0.7385,
+          "siblings": {
+            "verb_particle_away_down_r": 0.7385,
+            "verb_particle_away_up": 0.1873,
+            "verb_particle_away_up_b": 0.1242,
+            "verb_particle_down_in": 0.2667,
+            "verb_particle_down_in_r": 0.4481,
+            "verb_particle_on_out": 0.0989,
+            "verb_particle_out_down_b": 0.3685,
+            "verb_particle_out_up": 0.1175,
+            "verb_particle_up_down": 0.4664,
+            "verb_particle_up_down_b": 0.2078,
+            "verb_particle_up_on": 0.1423,
+            "verb_particle_up_out_r": 0.3626
+          }
+        }
+      },
+      "exact_held": 0.89,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 176.9,
+      "separable": false,
+      "units": [
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:08:head:08",
+        "attn:05:head:08",
+        "attn:11:head:02",
+        "attn:11:head:06",
+        "attn:16:head:08",
+        "attn:05:head:06",
+        "attn:06:head:04"
+      ]
+    },
+    "verb_particle_out_down_b": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8368,
+            "ce_lb975": 0.7961,
+            "ce_ub975": 0.8786
+          },
+          "C": {
+            "ce_damage": -0.0028,
+            "ce_lb975": -0.0063,
+            "ce_ub975": 0.0007
+          },
+          "extraction": 0.996,
+          "sib_abs_max": 0.0154,
+          "siblings": {
+            "verb_particle_away_down_r": -0.0105,
+            "verb_particle_away_up": 0.0017,
+            "verb_particle_away_up_b": 0.0033,
+            "verb_particle_down_in": -0.001,
+            "verb_particle_down_in_r": -0.0032,
+            "verb_particle_on_out": 0.0147,
+            "verb_particle_out_down": -0.0154,
+            "verb_particle_out_up": 0.0034,
+            "verb_particle_up_down": -0.0032,
+            "verb_particle_up_down_b": -0.0045,
+            "verb_particle_up_on": 0.0038,
+            "verb_particle_up_out_r": -0.0051
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8654,
+            "ce_lb975": 0.7889,
+            "ce_ub975": 0.9345
+          },
+          "C": {
+            "ce_damage": 0.0005,
+            "ce_lb975": -0.0045,
+            "ce_ub975": 0.0058
+          },
+          "extraction": 1.01,
+          "sib_abs_max": 0.3327,
+          "siblings": {
+            "verb_particle_away_down_r": -0.0049,
+            "verb_particle_away_up": -0.0078,
+            "verb_particle_away_up_b": -0.0871,
+            "verb_particle_down_in": -0.0542,
+            "verb_particle_down_in_r": 0.2417,
+            "verb_particle_on_out": 0.1327,
+            "verb_particle_out_down": 0.1015,
+            "verb_particle_out_up": 0.1453,
+            "verb_particle_up_down": 0.1987,
+            "verb_particle_up_down_b": -0.3327,
+            "verb_particle_up_on": -0.1253,
+            "verb_particle_up_out_r": 0.0898
+          }
+        }
+      },
+      "exact_held": 0.913,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 128.5,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:08:head:08",
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:09:head:01",
+        "attn:12:head:08",
+        "attn:16:head:08",
+        "attn:13:head:03"
+      ]
+    },
+    "verb_particle_out_up": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0321,
+            "ce_lb975": 0.9277,
+            "ce_ub975": 1.1399
+          },
+          "C": {
+            "ce_damage": 0.0002,
+            "ce_lb975": -0.0041,
+            "ce_ub975": 0.0041
+          },
+          "extraction": 0.987,
+          "sib_abs_max": 0.0061,
+          "siblings": {
+            "verb_particle_away_down_r": -0.0019,
+            "verb_particle_away_up": 0.0014,
+            "verb_particle_away_up_b": 0.0061,
+            "verb_particle_down_in": -0.0008,
+            "verb_particle_down_in_r": 0.0007,
+            "verb_particle_on_out": 0.0014,
+            "verb_particle_out_down": -0.001,
+            "verb_particle_out_down_b": -0.0023,
+            "verb_particle_up_down": -0.0007,
+            "verb_particle_up_down_b": 0.0033,
+            "verb_particle_up_on": -0.0008,
+            "verb_particle_up_out_r": -0.001
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.04,
+            "ce_lb975": 0.9903,
+            "ce_ub975": 1.0932
+          },
+          "C": {
+            "ce_damage": 0.0013,
+            "ce_lb975": -0.0025,
+            "ce_ub975": 0.005
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.3947,
+          "siblings": {
+            "verb_particle_away_down_r": 0.0341,
+            "verb_particle_away_up": 0.1168,
+            "verb_particle_away_up_b": 0.3947,
+            "verb_particle_down_in": 0.0337,
+            "verb_particle_down_in_r": 0.0418,
+            "verb_particle_on_out": -0.108,
+            "verb_particle_out_down": 0.0321,
+            "verb_particle_out_down_b": -0.1179,
+            "verb_particle_up_down": 0.3002,
+            "verb_particle_up_down_b": 0.2116,
+            "verb_particle_up_on": 0.0363,
+            "verb_particle_up_out_r": 0.2441
+          }
+        }
+      },
+      "exact_held": 0.866,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 159.4,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:08:head:08",
+        "attn:10:head:01",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:07:head:07"
+      ]
+    },
+    "verb_particle_up_down": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.3809,
+            "ce_lb975": 0.3367,
+            "ce_ub975": 0.4248
+          },
+          "C": {
+            "ce_damage": 0.0119,
+            "ce_lb975": 0.0072,
+            "ce_ub975": 0.0166
+          },
+          "extraction": 0.706,
+          "sib_abs_max": 0.1864,
+          "siblings": {
+            "verb_particle_away_down_r": 0.0203,
+            "verb_particle_away_up": 0.0065,
+            "verb_particle_away_up_b": 0.0315,
+            "verb_particle_down_in": -0.0091,
+            "verb_particle_down_in_r": 0.1864,
+            "verb_particle_on_out": 0.0075,
+            "verb_particle_out_down": 0.0207,
+            "verb_particle_out_down_b": 0.0045,
+            "verb_particle_out_up": 0.0059,
+            "verb_particle_up_down_b": -0.0037,
+            "verb_particle_up_on": 0.0284,
+            "verb_particle_up_out_r": 0.1858
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3258,
+            "ce_lb975": 1.2875,
+            "ce_ub975": 1.3657
+          },
+          "C": {
+            "ce_damage": 0.0008,
+            "ce_lb975": -0.0012,
+            "ce_ub975": 0.0027
+          },
+          "extraction": 0.991,
+          "sib_abs_max": 0.6778,
+          "siblings": {
+            "verb_particle_away_down_r": 0.2522,
+            "verb_particle_away_up": 0.1506,
+            "verb_particle_away_up_b": 0.0837,
+            "verb_particle_down_in": 0.2365,
+            "verb_particle_down_in_r": 0.6778,
+            "verb_particle_on_out": 0.0639,
+            "verb_particle_out_down": 0.2455,
+            "verb_particle_out_down_b": 0.2633,
+            "verb_particle_out_up": 0.0519,
+            "verb_particle_up_down_b": 0.1901,
+            "verb_particle_up_on": 0.179,
+            "verb_particle_up_out_r": 0.6509
+          }
+        }
+      },
+      "exact_held": 0.893,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 157.9,
+      "separable": false,
+      "units": [
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:08:head:01",
+        "attn:08:head:08",
+        "attn:16:head:08",
+        "attn:13:head:03",
+        "attn:11:head:03",
+        "attn:14:head:03"
+      ]
+    },
+    "verb_particle_up_down_b": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6279,
+            "ce_lb975": 0.5087,
+            "ce_ub975": 0.7389
+          },
+          "C": {
+            "ce_damage": 0.0037,
+            "ce_lb975": -0.0001,
+            "ce_ub975": 0.0072
+          },
+          "extraction": 0.958,
+          "sib_abs_max": 0.0055,
+          "siblings": {
+            "verb_particle_away_down_r": 0.0031,
+            "verb_particle_away_up": -0.0023,
+            "verb_particle_away_up_b": -0.0025,
+            "verb_particle_down_in": -0.0025,
+            "verb_particle_down_in_r": -0.0021,
+            "verb_particle_on_out": 0.0021,
+            "verb_particle_out_down": -0.0005,
+            "verb_particle_out_down_b": -0.001,
+            "verb_particle_out_up": -0.0055,
+            "verb_particle_up_down": -0.0019,
+            "verb_particle_up_on": -0.0007,
+            "verb_particle_up_out_r": -0.0046
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6097,
+            "ce_lb975": 0.4374,
+            "ce_ub975": 0.7726
+          },
+          "C": {
+            "ce_damage": 0.0017,
+            "ce_lb975": -0.0001,
+            "ce_ub975": 0.0036
+          },
+          "extraction": 0.984,
+          "sib_abs_max": 0.4067,
+          "siblings": {
+            "verb_particle_away_down_r": 0.3968,
+            "verb_particle_away_up": 0.0358,
+            "verb_particle_away_up_b": 0.1734,
+            "verb_particle_down_in": 0.3735,
+            "verb_particle_down_in_r": 0.3075,
+            "verb_particle_on_out": 0.054,
+            "verb_particle_out_down": 0.3057,
+            "verb_particle_out_down_b": 0.1988,
+            "verb_particle_out_up": 0.0708,
+            "verb_particle_up_down": 0.4067,
+            "verb_particle_up_on": 0.0947,
+            "verb_particle_up_out_r": 0.094
+          }
+        }
+      },
+      "exact_held": 0.882,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 125.0,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:06:head:03",
+        "attn:14:head:08",
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:14:head:03",
+        "attn:09:head:01"
+      ]
+    },
+    "verb_particle_up_out_r": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.1393,
+            "ce_lb975": 0.1175,
+            "ce_ub975": 0.163
+          },
+          "C": {
+            "ce_damage": 0.004,
+            "ce_lb975": -0.0024,
+            "ce_ub975": 0.0101
+          },
+          "extraction": 0.752,
+          "sib_abs_max": 0.0679,
+          "siblings": {
+            "verb_particle_away_down_r": -0.0071,
+            "verb_particle_away_up": -0.0145,
+            "verb_particle_away_up_b": 0.0017,
+            "verb_particle_down_in": 0.0046,
+            "verb_particle_down_in_r": -0.0089,
+            "verb_particle_on_out": 0.0097,
+            "verb_particle_out_down": 0.0632,
+            "verb_particle_out_down_b": -0.0097,
+            "verb_particle_out_up": 0.0174,
+            "verb_particle_up_down": 0.0679,
+            "verb_particle_up_down_b": -0.0062,
+            "verb_particle_up_on": 0.0063
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8087,
+            "ce_lb975": 0.7772,
+            "ce_ub975": 0.8408
+          },
+          "C": {
+            "ce_damage": -0.0001,
+            "ce_lb975": -0.003,
+            "ce_ub975": 0.0027
+          },
+          "extraction": 1.001,
+          "sib_abs_max": 0.441,
+          "siblings": {
+            "verb_particle_away_down_r": 0.1196,
+            "verb_particle_away_up": 0.2827,
+            "verb_particle_away_up_b": 0.284,
+            "verb_particle_down_in": 0.0204,
+            "verb_particle_down_in_r": 0.0109,
+            "verb_particle_on_out": 0.075,
+            "verb_particle_out_down": 0.3651,
+            "verb_particle_out_down_b": 0.0755,
+            "verb_particle_out_up": 0.3526,
+            "verb_particle_up_down": 0.441,
+            "verb_particle_up_down_b": 0.2683,
+            "verb_particle_up_on": 0.1681
+          }
+        }
+      },
+      "exact_held": 1.023,
+      "family": "verb_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 4,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 120.2,
+      "separable": false,
+      "units": [
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": false,
+    "pred_b_counted_kept": false,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true,
+    "pred_e_cue_beats_pair": false
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "verb_particle_away_down_r",
+      "verb_particle_up_out_r",
+      "verb_particle_down_in_r",
+      "verb_particle_up_down",
+      "verb_particle_out_down",
+      "verb_particle_out_up",
+      "verb_particle_away_up",
+      "verb_particle_down_in",
+      "verb_particle_up_down_b",
+      "verb_particle_away_up_b",
+      "verb_particle_out_down_b"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v325",
+  "seconds": 1614.2,
+  "separable_counts": {
+    "verb_particle": 6
+  },
+  "summary": {
+    "verb_particle_away_down_r": {
+      "fam": [
+        0.885,
+        0.0652,
+        0.021
+      ],
+      "family": "verb_particle",
+      "n_units": 14,
+      "own": [
+        1.006,
+        0.547,
+        0.0044
+      ],
+      "separable": false
+    },
+    "verb_particle_away_up": {
+      "fam": [
+        1.026,
+        0.0143,
+        -0.0006
+      ],
+      "family": "verb_particle",
+      "n_units": 13,
+      "own": [
+        1.046,
+        0.1472,
+        0.0042
+      ],
+      "separable": true
+    },
+    "verb_particle_away_up_b": {
+      "fam": [
+        0.993,
+        0.0051,
+        -0.0002
+      ],
+      "family": "verb_particle",
+      "n_units": 14,
+      "own": [
+        0.992,
+        0.2542,
+        0.0044
+      ],
+      "separable": true
+    },
+    "verb_particle_down_in": {
+      "fam": [
+        0.96,
+        0.0105,
+        0.0109
+      ],
+      "family": "verb_particle",
+      "n_units": 9,
+      "own": [
+        0.989,
+        0.2418,
+        0.004
+      ],
+      "separable": true
+    },
+    "verb_particle_down_in_r": {
+      "fam": [
+        0.719,
+        0.1368,
+        0.0065
+      ],
+      "family": "verb_particle",
+      "n_units": 10,
+      "own": [
+        1.014,
+        0.7803,
+        0.0055
+      ],
+      "separable": false
+    },
+    "verb_particle_out_down": {
+      "fam": [
+        0.947,
+        0.0558,
+        0.0077
+      ],
+      "family": "verb_particle",
+      "n_units": 12,
+      "own": [
+        1.03,
+        0.7385,
+        0.0059
+      ],
+      "separable": false
+    },
+    "verb_particle_out_down_b": {
+      "fam": [
+        0.996,
+        0.0154,
+        0.0007
+      ],
+      "family": "verb_particle",
+      "n_units": 10,
+      "own": [
+        1.01,
+        0.3327,
+        0.0058
+      ],
+      "separable": true
+    },
+    "verb_particle_out_up": {
+      "fam": [
+        0.987,
+        0.0061,
+        0.0041
+      ],
+      "family": "verb_particle",
+      "n_units": 11,
+      "own": [
+        0.992,
+        0.3947,
+        0.005
+      ],
+      "separable": true
+    },
+    "verb_particle_up_down": {
+      "fam": [
+        0.706,
+        0.1864,
+        0.0166
+      ],
+      "family": "verb_particle",
+      "n_units": 10,
+      "own": [
+        0.991,
+        0.6778,
+        0.0027
+      ],
+      "separable": false
+    },
+    "verb_particle_up_down_b": {
+      "fam": [
+        0.958,
+        0.0055,
+        0.0072
+      ],
+      "family": "verb_particle",
+      "n_units": 7,
+      "own": [
+        0.984,
+        0.4067,
+        0.0036
+      ],
+      "separable": true
+    },
+    "verb_particle_up_out_r": {
+      "fam": [
+        0.752,
+        0.0679,
+        0.0101
+      ],
+      "family": "verb_particle",
+      "n_units": 4,
+      "own": [
+        1.001,
+        0.441,
+        0.0027
+      ],
+      "separable": false
+    }
+  }
+}
