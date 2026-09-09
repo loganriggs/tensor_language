@@ -53,6 +53,23 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Latest cold-composition continuation — 2026-09-09 15:20 UTC
+
+COLD_COMPOSITION_SOURCE_V1_RESULT.json passes A/D but rejects direct-answer-binding
+sufficiency/selectivity. Larger-panel native hop3 .906/.813; earlier-chain removal
+loss .381/.309. COLD_COMPOSITION_ORDER_V1_RESULT.json is an opened-panel CPU diagnostic:
+earlier-source loss is nearly zero when the target fact lies in its causal future,
+but large when visible. Six order groups nominate reading the later B2/B3 binding,
+not simply the latest of all3. Preserve this as nomination, not confirmed algorithm.
+
+Active managed test: CAUSAL_SUFFIX_JOIN_V1_PREREGISTRATION.md,
+causal_suffix_join_reference.py and ops/run_causal_suffix_join_v1.py. Fresh64 worlds
+counterbalanced through6 binding orders, plus32 fixed-point controls; tests exact
+source extraction, selective later-suffix removal and strict full-output sufficiency.
+All opaque background charged; fixed-point native failures explicitly tested.
+Implementation/shared preflight ready. Inspect live queue/result before action.
+Review clocks1449/1348 remain due1549/1648; full goal active under the handoff.
+
 ## Active reconstruction target — 2026-09-09 15:09 UTC
 
 Read explanations/cold_query_composition_reconstruction.md under polynomial_causal.

@@ -50,3 +50,30 @@ Protocol: [`COLD_COMPOSITION_SOURCE_V1_PREREGISTRATION.md`](../COLD_COMPOSITION_
 Reference: [`cold_composition_source_reference.py`](../cold_composition_source_reference.py).
 Ten independent parser/extraction controls pass. Managed runner integration is
 underway; no trained result for this source test has been opened yet.
+
+## Final-source test and the binding-order clue
+
+COLD_COMPOSITION_SOURCE_V1 completed validly (A/D true,B/C false). On the larger
+64-world cold panels, hop3 accuracy is .906IID/.813 short-cycle OOD, below the
+initial16-example capability estimate. All full logits replay within1.42e-13.
+Keeping only the requested answer binding and query sources gives hop3 query
+KL1.771/1.828 and accuracy .625/.578. Removing earlier chain bindings lowers gold
+probability .381/.309, so the final layer does not uniformly read the final fact.
+
+The following CPU diagnostic reuses those opened panels; it is not fresh evidence.
+When the final fact occurs later than all earlier chain sources, earlier-source
+removal is nearly inert (.00020/-.00175 IID/OOD). When an earlier source occurs
+latest, the loss is .697/.551. The six order groups nominate a more precise rule:
+read the later of the second and third bindings, independently of the first.
+For order2,3,1 the target binding still matters and the earlier sources do not;
+for3,2,1 the earlier source matters. The original mask groups the first two bindings,
+so distinguishing them requires a new test. All perworld logits are retained in
+COLD_COMPOSITION_ORDER_V1_RESULT.json rather than only aggregate statistics.
+
+The prospective CAUSAL_SUFFIX_JOIN_V1 test counterbalances all6 chain-binding orders
+for each of32 IID and32 OOD worlds with two12-cycles. It defines J as the later
+suffix binding and tests its removal against the other chain bindings, plus strict
+full-distribution sufficiency.32 fixed-point controls test the model's observed
+failure on degenerate self-loops rather than omitting them. A causal join of two
+bindings on their shared middle entity is a hypothesis; native join writers and
+readers have not yet been identified or extracted. All background remains charged.
