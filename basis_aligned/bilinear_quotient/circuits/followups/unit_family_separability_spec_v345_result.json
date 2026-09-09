@@ -1,0 +1,1038 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 4,
+    "k_kept": 5,
+    "k_new": 2,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v345",
+  "families": {
+    "verb_preposition_replication": [
+      "verb_preposition_repl_base",
+      "verb_preposition_repl_twin",
+      "verb_preposition_repl_reuse",
+      "verb_preposition_repl_frame_same",
+      "verb_preposition_repl_frame_fresh",
+      "verb_particle_fb_out_down",
+      "verb_preposition_fb_about_for",
+      "verb_particle_fb_up_down",
+      "verb_particle_out_down",
+      "verb_preposition_about_for",
+      "verb_particle_fc_up_down",
+      "verb_particle_fc_out_down",
+      "verb_preposition_fc_about_for",
+      "verb_particle_up_down"
+    ]
+  },
+  "finished_utc": "2026-09-09T12:35:15.567206+00:00",
+  "members": {
+    "verb_particle_fb_out_down": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7704,
+            "ce_lb975": 0.707,
+            "ce_ub975": 0.836
+          },
+          "C": {
+            "ce_damage": -0.0061,
+            "ce_lb975": -0.0125,
+            "ce_ub975": -0.0005
+          },
+          "extraction": 0.953,
+          "sib_abs_max": 0.0168,
+          "siblings": {
+            "verb_particle_fb_up_down": 0.0047,
+            "verb_particle_fc_out_down": -0.0168,
+            "verb_particle_fc_up_down": -0.0021,
+            "verb_particle_out_down": -0.0002,
+            "verb_particle_up_down": -0.0002,
+            "verb_preposition_about_for": 0.0027,
+            "verb_preposition_fb_about_for": 0.0025,
+            "verb_preposition_fc_about_for": -0.0088,
+            "verb_preposition_repl_base": -0.0141,
+            "verb_preposition_repl_frame_fresh": -0.0049,
+            "verb_preposition_repl_frame_same": 0.0043,
+            "verb_preposition_repl_reuse": -0.0113,
+            "verb_preposition_repl_twin": -0.0068
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0365,
+            "ce_lb975": 0.9248,
+            "ce_ub975": 1.1448
+          },
+          "C": {
+            "ce_damage": 0.0025,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.008
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.9843,
+          "siblings": {
+            "verb_particle_fb_up_down": 0.5902,
+            "verb_particle_fc_out_down": 0.9843,
+            "verb_particle_fc_up_down": 0.5421,
+            "verb_particle_out_down": 0.6577,
+            "verb_particle_up_down": 0.5143,
+            "verb_preposition_about_for": 0.0383,
+            "verb_preposition_fb_about_for": 0.0568,
+            "verb_preposition_fc_about_for": -0.0036,
+            "verb_preposition_repl_base": 0.0405,
+            "verb_preposition_repl_frame_fresh": 0.0793,
+            "verb_preposition_repl_frame_same": 0.0929,
+            "verb_preposition_repl_reuse": 0.0368,
+            "verb_preposition_repl_twin": 0.0269
+          }
+        }
+      },
+      "exact_held": 0.905,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 137.5,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:08:head:08",
+        "attn:09:head:05",
+        "attn:09:head:01",
+        "attn:05:head:08",
+        "attn:10:head:08"
+      ]
+    },
+    "verb_particle_fc_out_down": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8038,
+            "ce_lb975": 0.6887,
+            "ce_ub975": 0.9238
+          },
+          "C": {
+            "ce_damage": -0.0002,
+            "ce_lb975": -0.0056,
+            "ce_ub975": 0.0048
+          },
+          "extraction": 0.965,
+          "sib_abs_max": 0.0163,
+          "siblings": {
+            "verb_particle_fb_out_down": -0.0034,
+            "verb_particle_fb_up_down": -0.008,
+            "verb_particle_fc_up_down": 0.008,
+            "verb_particle_out_down": 0.0163,
+            "verb_particle_up_down": 0.0007,
+            "verb_preposition_about_for": 0.006,
+            "verb_preposition_fb_about_for": -0.0089,
+            "verb_preposition_fc_about_for": -0.0032,
+            "verb_preposition_repl_base": -0.0066,
+            "verb_preposition_repl_frame_fresh": -0.009,
+            "verb_preposition_repl_frame_same": -0.0002,
+            "verb_preposition_repl_reuse": -0.0055,
+            "verb_preposition_repl_twin": 0.004
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0756,
+            "ce_lb975": 0.9857,
+            "ce_ub975": 1.1651
+          },
+          "C": {
+            "ce_damage": 0.0023,
+            "ce_lb975": -0.0025,
+            "ce_ub975": 0.0078
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 0.5494,
+          "siblings": {
+            "verb_particle_fb_out_down": 0.4948,
+            "verb_particle_fb_up_down": 0.08,
+            "verb_particle_fc_up_down": 0.1437,
+            "verb_particle_out_down": 0.5494,
+            "verb_particle_up_down": 0.089,
+            "verb_preposition_about_for": -0.0041,
+            "verb_preposition_fb_about_for": -0.0614,
+            "verb_preposition_fc_about_for": -0.0136,
+            "verb_preposition_repl_base": -0.0203,
+            "verb_preposition_repl_frame_fresh": -0.0331,
+            "verb_preposition_repl_frame_same": 0.0106,
+            "verb_preposition_repl_reuse": -0.0229,
+            "verb_preposition_repl_twin": -0.0074
+          }
+        }
+      },
+      "exact_held": 0.896,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 154.8,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:04:head:01",
+        "attn:08:head:08",
+        "attn:09:head:05"
+      ]
+    },
+    "verb_particle_fc_up_down": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.6401,
+            "ce_lb975": 1.5546,
+            "ce_ub975": 1.7347
+          },
+          "C": {
+            "ce_damage": -0.0025,
+            "ce_lb975": -0.0082,
+            "ce_ub975": 0.003
+          },
+          "extraction": 0.97,
+          "sib_abs_max": 0.023,
+          "siblings": {
+            "verb_particle_fb_out_down": -0.023,
+            "verb_particle_fb_up_down": -0.0022,
+            "verb_particle_fc_out_down": 0.0104,
+            "verb_particle_out_down": -0.0151,
+            "verb_particle_up_down": -0.0148,
+            "verb_preposition_about_for": -0.006,
+            "verb_preposition_fb_about_for": 0.0093,
+            "verb_preposition_fc_about_for": 0.0066,
+            "verb_preposition_repl_base": -0.0048,
+            "verb_preposition_repl_frame_fresh": 0.0045,
+            "verb_preposition_repl_frame_same": -0.0111,
+            "verb_preposition_repl_reuse": -0.002,
+            "verb_preposition_repl_twin": -0.0026
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.9748,
+            "ce_lb975": 1.94,
+            "ce_ub975": 2.0105
+          },
+          "C": {
+            "ce_damage": -0.0038,
+            "ce_lb975": -0.0099,
+            "ce_ub975": 0.0026
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 1.5808,
+          "siblings": {
+            "verb_particle_fb_out_down": 0.2849,
+            "verb_particle_fb_up_down": 1.5808,
+            "verb_particle_fc_out_down": 0.4194,
+            "verb_particle_out_down": 0.2279,
+            "verb_particle_up_down": 1.1316,
+            "verb_preposition_about_for": 0.0003,
+            "verb_preposition_fb_about_for": 0.0085,
+            "verb_preposition_fc_about_for": 0.0221,
+            "verb_preposition_repl_base": 0.0225,
+            "verb_preposition_repl_frame_fresh": 0.0287,
+            "verb_preposition_repl_frame_same": -0.0049,
+            "verb_preposition_repl_reuse": 0.0352,
+            "verb_preposition_repl_twin": 0.0402
+          }
+        }
+      },
+      "exact_held": 0.9,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 14,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 138.4,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:14:head:08",
+        "attn:08:head:08",
+        "attn:14:head:03",
+        "attn:09:head:01",
+        "attn:13:head:03",
+        "attn:16:head:08",
+        "attn:06:head:06",
+        "attn:10:head:08",
+        "attn:12:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "verb_preposition_fb_about_for": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7852,
+            "ce_lb975": 0.7377,
+            "ce_ub975": 0.8366
+          },
+          "C": {
+            "ce_damage": 0.0018,
+            "ce_lb975": -0.0066,
+            "ce_ub975": 0.01
+          },
+          "extraction": 0.938,
+          "sib_abs_max": 0.028,
+          "siblings": {
+            "verb_particle_fb_out_down": -0.0059,
+            "verb_particle_fb_up_down": 0.0004,
+            "verb_particle_fc_out_down": -0.0091,
+            "verb_particle_fc_up_down": 0.0085,
+            "verb_particle_out_down": -0.0047,
+            "verb_particle_up_down": -0.0067,
+            "verb_preposition_about_for": 0.0056,
+            "verb_preposition_fc_about_for": 0.0098,
+            "verb_preposition_repl_base": -0.0202,
+            "verb_preposition_repl_frame_fresh": -0.0053,
+            "verb_preposition_repl_frame_same": 0.028,
+            "verb_preposition_repl_reuse": -0.0014,
+            "verb_preposition_repl_twin": -0.0053
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.1328,
+            "ce_lb975": 1.0813,
+            "ce_ub975": 1.1812
+          },
+          "C": {
+            "ce_damage": 0.0021,
+            "ce_lb975": -0.0019,
+            "ce_ub975": 0.0064
+          },
+          "extraction": 0.998,
+          "sib_abs_max": 1.0611,
+          "siblings": {
+            "verb_particle_fb_out_down": -0.0219,
+            "verb_particle_fb_up_down": -0.0318,
+            "verb_particle_fc_out_down": -0.0416,
+            "verb_particle_fc_up_down": 0.0013,
+            "verb_particle_out_down": -0.0302,
+            "verb_particle_up_down": 0.0068,
+            "verb_preposition_about_for": 1.0611,
+            "verb_preposition_fc_about_for": 0.9984,
+            "verb_preposition_repl_base": 0.0988,
+            "verb_preposition_repl_frame_fresh": -0.0324,
+            "verb_preposition_repl_frame_same": 0.1639,
+            "verb_preposition_repl_reuse": 0.0601,
+            "verb_preposition_repl_twin": 0.0423
+          }
+        }
+      },
+      "exact_held": 0.873,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 17,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 149.1,
+      "separable": true,
+      "units": [
+        "attn:08:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:04:head:01",
+        "attn:08:head:01",
+        "attn:14:head:03",
+        "attn:04:head:03",
+        "attn:16:head:08",
+        "attn:09:head:07",
+        "attn:07:head:07",
+        "attn:09:head:04",
+        "attn:08:head:06",
+        "attn:11:head:03",
+        "attn:11:head:01",
+        "attn:10:head:08",
+        "attn:10:head:01"
+      ]
+    },
+    "verb_preposition_fc_about_for": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8556,
+            "ce_lb975": 0.7242,
+            "ce_ub975": 0.9956
+          },
+          "C": {
+            "ce_damage": -0.0025,
+            "ce_lb975": -0.0141,
+            "ce_ub975": 0.0075
+          },
+          "extraction": 0.879,
+          "sib_abs_max": 0.0693,
+          "siblings": {
+            "verb_particle_fb_out_down": 0.0138,
+            "verb_particle_fb_up_down": -0.0132,
+            "verb_particle_fc_out_down": -0.0169,
+            "verb_particle_fc_up_down": 0.0209,
+            "verb_particle_out_down": -0.0032,
+            "verb_particle_up_down": 0.0016,
+            "verb_preposition_about_for": 0.0693,
+            "verb_preposition_fb_about_for": 0.0449,
+            "verb_preposition_repl_base": -0.007,
+            "verb_preposition_repl_frame_fresh": -0.0058,
+            "verb_preposition_repl_frame_same": -0.0068,
+            "verb_preposition_repl_reuse": -0.0001,
+            "verb_preposition_repl_twin": -0.0336
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.228,
+            "ce_lb975": 1.1258,
+            "ce_ub975": 1.3408
+          },
+          "C": {
+            "ce_damage": -0.0052,
+            "ce_lb975": -0.0104,
+            "ce_ub975": -0.0001
+          },
+          "extraction": 1.016,
+          "sib_abs_max": 1.0021,
+          "siblings": {
+            "verb_particle_fb_out_down": 0.0179,
+            "verb_particle_fb_up_down": -0.0011,
+            "verb_particle_fc_out_down": -0.0254,
+            "verb_particle_fc_up_down": 0.0189,
+            "verb_particle_out_down": -0.0214,
+            "verb_particle_up_down": 0.0564,
+            "verb_preposition_about_for": 1.0021,
+            "verb_preposition_fb_about_for": 0.661,
+            "verb_preposition_repl_base": 0.0327,
+            "verb_preposition_repl_frame_fresh": 0.0238,
+            "verb_preposition_repl_frame_same": 0.0874,
+            "verb_preposition_repl_reuse": -0.0081,
+            "verb_preposition_repl_twin": -0.052
+          }
+        }
+      },
+      "exact_held": 0.878,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 176.1,
+      "separable": false,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:08:head:01",
+        "attn:13:head:08",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:04:head:03",
+        "attn:16:head:08",
+        "attn:10:head:08",
+        "attn:11:head:01"
+      ]
+    },
+    "verb_preposition_repl_base": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.539,
+            "ce_lb975": 0.3806,
+            "ce_ub975": 0.6895
+          },
+          "C": {
+            "ce_damage": 0.001,
+            "ce_lb975": -0.0103,
+            "ce_ub975": 0.0119
+          },
+          "extraction": 0.92,
+          "sib_abs_max": 0.0567,
+          "siblings": {
+            "verb_particle_fb_out_down": -0.0145,
+            "verb_particle_fb_up_down": -0.0298,
+            "verb_particle_fc_out_down": -0.0096,
+            "verb_particle_fc_up_down": -0.0082,
+            "verb_particle_out_down": -0.0074,
+            "verb_particle_up_down": -0.0124,
+            "verb_preposition_about_for": 0.0267,
+            "verb_preposition_fb_about_for": -0.0321,
+            "verb_preposition_fc_about_for": -0.0006,
+            "verb_preposition_repl_frame_fresh": -0.021,
+            "verb_preposition_repl_frame_same": 0.0347,
+            "verb_preposition_repl_reuse": 0.0567,
+            "verb_preposition_repl_twin": 0.0014
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.7936,
+            "ce_lb975": 0.7498,
+            "ce_ub975": 0.8344
+          },
+          "C": {
+            "ce_damage": -0.003,
+            "ce_lb975": -0.0079,
+            "ce_ub975": 0.0024
+          },
+          "extraction": 1.002,
+          "sib_abs_max": 0.6398,
+          "siblings": {
+            "verb_particle_fb_out_down": 0.01,
+            "verb_particle_fb_up_down": 0.1235,
+            "verb_particle_fc_out_down": -0.0454,
+            "verb_particle_fc_up_down": 0.0571,
+            "verb_particle_out_down": -0.0142,
+            "verb_particle_up_down": 0.0701,
+            "verb_preposition_about_for": 0.3002,
+            "verb_preposition_fb_about_for": 0.1285,
+            "verb_preposition_fc_about_for": 0.1687,
+            "verb_preposition_repl_frame_fresh": 0.0834,
+            "verb_preposition_repl_frame_same": 0.6398,
+            "verb_preposition_repl_reuse": 0.3179,
+            "verb_preposition_repl_twin": 0.0426
+          }
+        }
+      },
+      "exact_held": 0.887,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 165.5,
+      "separable": false,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:11:head:03",
+        "attn:05:head:08",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:13:head:03",
+        "attn:04:head:01",
+        "attn:10:head:08",
+        "attn:05:head:03",
+        "attn:09:head:01"
+      ]
+    },
+    "verb_preposition_repl_frame_fresh": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7311,
+            "ce_lb975": 0.6916,
+            "ce_ub975": 0.7696
+          },
+          "C": {
+            "ce_damage": 0.0047,
+            "ce_lb975": -0.0006,
+            "ce_ub975": 0.0104
+          },
+          "extraction": 1.041,
+          "sib_abs_max": 0.0114,
+          "siblings": {
+            "verb_particle_fb_out_down": 0.0011,
+            "verb_particle_fb_up_down": -0.0016,
+            "verb_particle_fc_out_down": 0.0053,
+            "verb_particle_fc_up_down": 0.0028,
+            "verb_particle_out_down": -0.0048,
+            "verb_particle_up_down": -0.0047,
+            "verb_preposition_about_for": -0.0114,
+            "verb_preposition_fb_about_for": -0.0042,
+            "verb_preposition_fc_about_for": 0.01,
+            "verb_preposition_repl_base": -0.0004,
+            "verb_preposition_repl_frame_same": 0.0004,
+            "verb_preposition_repl_reuse": 0.0001,
+            "verb_preposition_repl_twin": 0.0053
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.7078,
+            "ce_lb975": 0.6676,
+            "ce_ub975": 0.7476
+          },
+          "C": {
+            "ce_damage": -0.005,
+            "ce_lb975": -0.0116,
+            "ce_ub975": 0.0027
+          },
+          "extraction": 1.007,
+          "sib_abs_max": 0.0833,
+          "siblings": {
+            "verb_particle_fb_out_down": -0.0085,
+            "verb_particle_fb_up_down": -0.0124,
+            "verb_particle_fc_out_down": 0.005,
+            "verb_particle_fc_up_down": -0.0081,
+            "verb_particle_out_down": 0.0386,
+            "verb_particle_up_down": -0.0349,
+            "verb_preposition_about_for": -0.0664,
+            "verb_preposition_fb_about_for": 0.0715,
+            "verb_preposition_fc_about_for": 0.0237,
+            "verb_preposition_repl_base": -0.007,
+            "verb_preposition_repl_frame_same": 0.0833,
+            "verb_preposition_repl_reuse": 0.0423,
+            "verb_preposition_repl_twin": 0.0641
+          }
+        }
+      },
+      "exact_held": 0.894,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 154.6,
+      "separable": true,
+      "units": [
+        "attn:08:head:08",
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:09:head:01",
+        "attn:14:head:08",
+        "attn:09:head:03",
+        "attn:01:head:03",
+        "attn:04:head:00",
+        "attn:03:head:07"
+      ]
+    },
+    "verb_preposition_repl_frame_same": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6985,
+            "ce_lb975": 0.6692,
+            "ce_ub975": 0.7276
+          },
+          "C": {
+            "ce_damage": -0.0011,
+            "ce_lb975": -0.0099,
+            "ce_ub975": 0.0078
+          },
+          "extraction": 0.956,
+          "sib_abs_max": 0.0755,
+          "siblings": {
+            "verb_particle_fb_out_down": -0.0033,
+            "verb_particle_fb_up_down": 0.0051,
+            "verb_particle_fc_out_down": -0.0121,
+            "verb_particle_fc_up_down": 0.0021,
+            "verb_particle_out_down": 0.006,
+            "verb_particle_up_down": -0.0146,
+            "verb_preposition_about_for": -0.0126,
+            "verb_preposition_fb_about_for": 0.0226,
+            "verb_preposition_fc_about_for": -0.014,
+            "verb_preposition_repl_base": 0.0755,
+            "verb_preposition_repl_frame_fresh": -0.0049,
+            "verb_preposition_repl_reuse": 0.0099,
+            "verb_preposition_repl_twin": -0.0197
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8912,
+            "ce_lb975": 0.8706,
+            "ce_ub975": 0.9115
+          },
+          "C": {
+            "ce_damage": -0.0051,
+            "ce_lb975": -0.0188,
+            "ce_ub975": 0.0078
+          },
+          "extraction": 0.991,
+          "sib_abs_max": 0.6521,
+          "siblings": {
+            "verb_particle_fb_out_down": -0.0094,
+            "verb_particle_fb_up_down": 0.0876,
+            "verb_particle_fc_out_down": -0.1042,
+            "verb_particle_fc_up_down": 0.0321,
+            "verb_particle_out_down": -0.0145,
+            "verb_particle_up_down": 0.0859,
+            "verb_preposition_about_for": 0.2221,
+            "verb_preposition_fb_about_for": 0.2302,
+            "verb_preposition_fc_about_for": 0.1353,
+            "verb_preposition_repl_base": 0.6521,
+            "verb_preposition_repl_frame_fresh": 0.2658,
+            "verb_preposition_repl_reuse": 0.3474,
+            "verb_preposition_repl_twin": 0.1484
+          }
+        }
+      },
+      "exact_held": 0.897,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 14,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 146.1,
+      "separable": false,
+      "units": [
+        "attn:08:head:08",
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:04:head:01",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:09:head:01",
+        "attn:05:head:03",
+        "attn:05:head:08",
+        "attn:13:head:03",
+        "attn:09:head:07",
+        "attn:10:head:08",
+        "attn:08:head:01"
+      ]
+    },
+    "verb_preposition_repl_twin": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5615,
+            "ce_lb975": 0.4283,
+            "ce_ub975": 0.6999
+          },
+          "C": {
+            "ce_damage": -0.0071,
+            "ce_lb975": -0.0161,
+            "ce_ub975": 0.0011
+          },
+          "extraction": 0.902,
+          "sib_abs_max": 0.0967,
+          "siblings": {
+            "verb_particle_fb_out_down": -0.005,
+            "verb_particle_fb_up_down": -0.007,
+            "verb_particle_fc_out_down": 0.0055,
+            "verb_particle_fc_up_down": -0.0079,
+            "verb_particle_out_down": -0.0146,
+            "verb_particle_up_down": 0.0094,
+            "verb_preposition_about_for": -0.0037,
+            "verb_preposition_fb_about_for": 0.0085,
+            "verb_preposition_fc_about_for": 0.0052,
+            "verb_preposition_repl_base": 0.0021,
+            "verb_preposition_repl_frame_fresh": -0.0037,
+            "verb_preposition_repl_frame_same": -0.011,
+            "verb_preposition_repl_reuse": 0.0967
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6492,
+            "ce_lb975": 0.6112,
+            "ce_ub975": 0.6879
+          },
+          "C": {
+            "ce_damage": -0.0028,
+            "ce_lb975": -0.0042,
+            "ce_ub975": -0.0013
+          },
+          "extraction": 1.012,
+          "sib_abs_max": 0.4398,
+          "siblings": {
+            "verb_particle_fb_out_down": -0.0105,
+            "verb_particle_fb_up_down": 0.0492,
+            "verb_particle_fc_out_down": 0.0333,
+            "verb_particle_fc_up_down": 0.0422,
+            "verb_particle_out_down": 0.0096,
+            "verb_particle_up_down": -0.0251,
+            "verb_preposition_about_for": -0.0091,
+            "verb_preposition_fb_about_for": 0.0916,
+            "verb_preposition_fc_about_for": 0.0223,
+            "verb_preposition_repl_base": 0.1698,
+            "verb_preposition_repl_frame_fresh": 0.2827,
+            "verb_preposition_repl_frame_same": 0.2075,
+            "verb_preposition_repl_reuse": 0.4398
+          }
+        }
+      },
+      "exact_held": 0.871,
+      "family": "verb_preposition_replication",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 139.8,
+      "separable": false,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:05:head:08"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": true,
+    "pred_b_counted_kept": false,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true,
+    "pred_e_bc_distinct": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "verb_particle_fc_up_down",
+      "verb_particle_fc_out_down",
+      "verb_preposition_fc_about_for",
+      "verb_preposition_repl_base",
+      "verb_preposition_repl_twin",
+      "verb_preposition_repl_frame_same",
+      "verb_preposition_repl_frame_fresh",
+      "verb_particle_fb_out_down",
+      "verb_preposition_fb_about_for"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v345",
+  "seconds": 1367.1,
+  "separable_counts": {
+    "verb_preposition_replication": 5
+  },
+  "summary": {
+    "verb_particle_fb_out_down": {
+      "fam": [
+        0.953,
+        0.0168,
+        -0.0005
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 10,
+      "own": [
+        1.006,
+        0.9843,
+        0.008
+      ],
+      "separable": true
+    },
+    "verb_particle_fc_out_down": {
+      "fam": [
+        0.965,
+        0.0163,
+        0.0048
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 8,
+      "own": [
+        0.998,
+        0.5494,
+        0.0078
+      ],
+      "separable": true
+    },
+    "verb_particle_fc_up_down": {
+      "fam": [
+        0.97,
+        0.023,
+        0.003
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 14,
+      "own": [
+        0.998,
+        1.5808,
+        0.0026
+      ],
+      "separable": true
+    },
+    "verb_preposition_fb_about_for": {
+      "fam": [
+        0.938,
+        0.028,
+        0.01
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 17,
+      "own": [
+        0.998,
+        1.0611,
+        0.0064
+      ],
+      "separable": true
+    },
+    "verb_preposition_fc_about_for": {
+      "fam": [
+        0.879,
+        0.0693,
+        0.0075
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 12,
+      "own": [
+        1.016,
+        1.0021,
+        -0.0001
+      ],
+      "separable": false
+    },
+    "verb_preposition_repl_base": {
+      "fam": [
+        0.92,
+        0.0567,
+        0.0119
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 13,
+      "own": [
+        1.002,
+        0.6398,
+        0.0024
+      ],
+      "separable": false
+    },
+    "verb_preposition_repl_frame_fresh": {
+      "fam": [
+        1.041,
+        0.0114,
+        0.0104
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 10,
+      "own": [
+        1.007,
+        0.0833,
+        0.0027
+      ],
+      "separable": true
+    },
+    "verb_preposition_repl_frame_same": {
+      "fam": [
+        0.956,
+        0.0755,
+        0.0078
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 14,
+      "own": [
+        0.991,
+        0.6521,
+        0.0078
+      ],
+      "separable": false
+    },
+    "verb_preposition_repl_twin": {
+      "fam": [
+        0.902,
+        0.0967,
+        0.0011
+      ],
+      "family": "verb_preposition_replication",
+      "n_units": 7,
+      "own": [
+        1.012,
+        0.4398,
+        -0.0013
+      ],
+      "separable": false
+    }
+  }
+}
