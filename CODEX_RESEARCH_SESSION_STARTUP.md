@@ -53,6 +53,48 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Degree and grouped-path nulls; physical causal balance next — 2026-09-09 21:03 UTC
+
+The bilinear reconstruction handoff and its appended structural criterion
+control. The durable goal remains active; no structurally simpler sufficient
+circuit was identified in this turn. Do not revert to better_math_ideas.
+
+JOIN_WRITE_READ_DEGREE_V1 completes4.384s on768 requests. Exact response and
+removal partition pass1.28e-13/1.33e-14; fixed forward-C1/backward-C2 hypotheses
+fail. Hop3 native-scale errors are7% forward and53–65% backward. No degree,
+scale, head or task rescue. All387968 opaque export constants remain.
+
+CROSS_LAYER_ENDPOINT_TRANSPORT_V1 then executes1.859s on CPU,384 paired cases
+across32 opened worlds/three forward orders/four hops. Whole write/read oracles
+close7.11e-15. At hop3 the writer has27/48 IID and30/48 OOD negative-cosine pairs;
+including all final readers removes those negative cosines, with means .998735
+and .999340. Nevertheless grouped-path changes .22525/.21721 and live-removal
+prediction errors .36223/.36127 fail both fixed1% bars. Every other hop group
+fails too. Frozen gates are conditional attribution, not physical removal.
+Dossiers: explanations/join_write_response_curve.md and join_matcher_factors.md.
+
+Hourly2058: focus/novelty PASS, ceremony FAIL for main-screen median14.8min
+versus seconds of compute. Bounded workflow repair completed: shared
+query_hop_fork_reference.py with five controls; executed immutable metadata
+correction QUERY_HOP_METADATA_CORRECTION_V1.json. Degree rows need576 answer
+and expected-answer fixes; earlier pair rows need576 expected-answer fixes
+(their actual answers were correct). No registered scores consumed the stale
+fields. Apply the overlays before later answer-based analyses. Completed
+runner/results/rows unchanged. New cross-layer rows already use the helper.
+
+Next action is claimed and its exact accounting derived in
+ENDPOINT_RENAMING_CAUSAL_BALANCE_V1_PREREGISTRATION.md. Use saved physical
+removals and native query logits to partition matched-context output change
+into removal-effect change and remaining-computation change. Align by the
+known middle/foil transposition, including hop2 answer correspondence; no
+fitted rotation. Measure causal-field portability and paired query JS floor
+on every opened population/hop group. No GPU or model execution needed.
+The derived metrics have not been opened; execute this bounded CPU step next.
+
+Both managed runners healthy; last observed GPU v439 completed20:54:14.
+Inspect current queue before GPU work. Next hourly21:58 and math22:49 UTC.
+Preserve concurrent Claude work and all closed nulls; commit/push owned files.
+
 ## Pair transport rejected; exact join-read degree audit active — 2026-09-09 20:43 UTC
 
 The bilinear reconstruction handoff and appended structural criterion control

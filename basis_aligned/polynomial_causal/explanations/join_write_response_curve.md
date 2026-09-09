@@ -74,9 +74,10 @@ No degree or scale range may be selected after seeing the result.
 The [primitive](../join_write_read_degree_reference.py) passes12 CPU controls:
 five physical source-edit scales, exact removal partition, live curve, nonnegative
 norm representation, planted linear/quadratic cases, a live omitted-degree
-negative, and rejection of writes that change the final query. The trained-model
-audit remains unexecuted. The derivation is invalid for a changed query or an
-additional contextual layer after the edited states without further work.
+negative, and rejection of writes that change the final query. The managed
+trained-model audit is now complete: exact response and partition pass, both
+fixed degree hypotheses fail. The derivation is invalid for a changed query or
+an additional contextual layer after the edited states without further work.
 
 ## What is and is not saved
 
@@ -93,3 +94,36 @@ response representation. No whole-model storage reduction, novel semantic
 operation or OOD causal sufficiency follows from compiling it exactly. The
 degree hypotheses, if supported, would identify a simpler operation in the
 specified reader; their broader extraction and structural cost remain separate.
+
+## Trained result and constraint
+
+The [managed receipt](../JOIN_WRITE_READ_DEGREE_V1_RESULT.json) covers768 requests
+from32 opened worlds in4.384 seconds. Five-scale native/source-edit correspondence
+is1.28e-13 absolute and1.34e-15 relative RMS; removal partition closes1.33e-14.
+At the native scale, hop3 forward-C1 relative errors are .06999 IID/.06772 OOD;
+backward-C2 errors are .65392/.53191. Both registered hypotheses are rejected.
+No degree, scale range, head or task subset is selected to repair the null.
+
+For backward hop3 removal, the linear term's projection onto the full removal
+is .498 IID/.422 OOD; the quadratic term's is .488/.575. Both contribute
+substantially. These correlated terms are neither variance fractions nor
+independently editable causal variables. Forward removal has a large linear
+term but the omitted terms still violate the1% prediction bar. Port necessity
+and polynomial degree therefore describe different properties of the reader.
+
+Curve compilation excluding native context takes .252 seconds; saved cohort
+curve tensors total1,643,520 bytes. All387968 opaque export coefficients remain.
+The exact response compiler is useful intervention machinery, not the requested
+structural discovery.
+
+[Metadata correction](../QUERY_HOP_METADATA_CORRECTION_V1.json) supplies576
+answer/expected-answer fixes for the degree rows: their hop-fork loop retained
+hop3 labels. These labels were not consumed by the registered exactness, KL,
+centered-effect or degree/partition scores. Saved logits, curves and results
+remain unchanged. Apply the overlay before future answer-based analysis.
+
+The next completed screen groups the existing direct forward endpoint writer
+with all final readers; see [matcher dossier](join_matcher_factors.md). It finds
+sign compensation at hop3 but fails both grouped-vector portability and agreement
+with physical removal. Neither exact response compilation nor conditional
+path attribution has yet supplied a structurally simpler sufficient circuit.

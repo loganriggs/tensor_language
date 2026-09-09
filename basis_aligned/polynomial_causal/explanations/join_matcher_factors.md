@@ -143,3 +143,36 @@ The [response-curve derivation](join_write_response_curve.md) gives an executabl
 test of the fixed forward-linear/backward-quadratic hypotheses. Twelve CPU
 controls pass; the trained-case audit remains next. Exact curve closure is
 intervention infrastructure, not a structurally reduced model.
+
+
+## Grouping the endpoint writer with its readers
+
+The [degree audit](join_write_response_curve.md) rejects fixed forward-linear
+and backward-quadratic reads. The next [cross-layer screen](../CROSS_LAYER_ENDPOINT_TRANSPORT_V1_RESULT.json)
+uses the existing direct endpoint embedding field through L2 head1 and all four
+final heads, with native routing and RMS conditioned on each matched context.
+All32 opened worlds, three forward orders and four hops give384 paired
+comparisons/768 executions. CPU wall time1.859 seconds; independent write and
+whole-final-read oracles close7.11e-15. No head or sample was selected.
+
+This grouping changes the sign picture. At hop3, writer vectors have negative
+cosine on27/48 IID and30/48 OOD pairs. The complete endpoint paths have none;
+their mean full-vector cosines are .998735/.999340. This supports conditional
+sign compensation across the writer-reader boundary. It does not establish a
+portable sufficient circuit: full path relative changes remain .22525/.21721,
+and prediction of physical endpoint-write removal errs .36223/.36127. The
+registered1% grouped-transport and physical-removal hypotheses both fail. Every
+other hop group fails too; no hop3-only success is promoted.
+
+The path freezes final keys and normalization. Physical removal updates them,
+so these objects cannot be interchanged in the explanation. All387968 native
+export coefficients and the token-derived background remain required. The
+next CPU diagnostic will use these already saved native logits and physical
+removals to determine whether changing removal effects are compensated by
+remaining computation. No fitted signs, gains, heads or enlarged payload field.
+
+A [separate metadata overlay](../QUERY_HOP_METADATA_CORRECTION_V1.json) also fixes
+576 stale expected-answer fields in the earlier pair-transport rows. Their actual
+answer fields were already correct; no registered pair-transport scores change.
+The cross-layer runner uses the shared token-derived hop-fork helper and needs
+no such overlay.

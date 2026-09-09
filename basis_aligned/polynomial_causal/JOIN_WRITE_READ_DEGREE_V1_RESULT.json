@@ -1,0 +1,886 @@
+{
+  "experiment": "join_write_read_degree_v1",
+  "scope": "exact final-query response curves and fixed degree screen; no model reduction",
+  "controls": {
+    "passed": true,
+    "checks": {
+      "native_scale_-1.0": true,
+      "native_scale_0.0": true,
+      "native_scale_0.5": true,
+      "native_scale_1.0": true,
+      "native_scale_2.0": true,
+      "removal_partition": true,
+      "live_curve": true,
+      "finite_norm": true,
+      "planted_degree_1": true,
+      "planted_degree_2": true,
+      "omitted_degree_live": true,
+      "changed_query_rejected": true
+    }
+  },
+  "predictions": {
+    "pred_a_exact": true,
+    "pred_b_degree": false,
+    "pred_c_partition": true
+  },
+  "populations": {
+    "iid": {
+      "B2_later": {
+        "0": {
+          "requests": 48,
+          "fixed_degree": 1,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 0.3749436316541237,
+              "relative_effect_error": 0.2118378512944886,
+              "query_mean_kl": 2.0764637826610262e-19,
+              "query_p99_kl": 4.196488492400421e-18,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 0.20600811082916037,
+              "relative_effect_error": 0.13789037475630223,
+              "query_mean_kl": 5.3037386859774064e-20,
+              "query_p99_kl": 1.2119544538255746e-18,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 0.36509734299509217,
+              "relative_effect_error": 0.23082948530811775,
+              "query_mean_kl": 1.734259900581657e-19,
+              "query_p99_kl": 3.9145041090651545e-18,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 0.5746193805960277,
+              "relative_effect_error": 0.2730213960366122,
+              "query_mean_kl": 4.961234817209715e-19,
+              "query_p99_kl": 1.0363950378595213e-17,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.5687172252621319,
+              "projection_fraction": 0.29255834515401274
+            },
+            "linear": {
+              "rms_over_removal": 0.8396538086507371,
+              "projection_fraction": 0.6645013215497388
+            },
+            "quadratic": {
+              "rms_over_removal": 0.23220058408142158,
+              "projection_fraction": 0.04359538583089126
+            },
+            "cubic": {
+              "rms_over_removal": 0.016750380267218968,
+              "projection_fraction": -0.0006550525346428471
+            }
+          }
+        },
+        "1": {
+          "requests": 48,
+          "fixed_degree": 1,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 1.147638067494781,
+              "relative_effect_error": 0.11309026784589193,
+              "query_mean_kl": 3.336123568045587e-07,
+              "query_p99_kl": 8.377388920732089e-06,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 0.5302817648870491,
+              "relative_effect_error": 0.08303483085806551,
+              "query_mean_kl": 5.165735758992175e-08,
+              "query_p99_kl": 1.1948301801065713e-06,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 1.063970462839894,
+              "relative_effect_error": 0.12368768095000819,
+              "query_mean_kl": 1.6537686968400654e-06,
+              "query_p99_kl": 3.92472319440091e-05,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 1.7674519214560223,
+              "relative_effect_error": 0.14265611071130607,
+              "query_mean_kl": 6.0940770453760634e-06,
+              "query_p99_kl": 0.00012395025212432785,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.7316914774696454,
+              "projection_fraction": 0.5574894806513174
+            },
+            "linear": {
+              "rms_over_removal": 0.6907069176844973,
+              "projection_fraction": 0.4600342115107671
+            },
+            "quadratic": {
+              "rms_over_removal": 0.12608812244728462,
+              "projection_fraction": -0.016609879045179188
+            },
+            "cubic": {
+              "rms_over_removal": 0.007104301116294893,
+              "projection_fraction": -0.000913813116905179
+            }
+          }
+        },
+        "2": {
+          "requests": 48,
+          "fixed_degree": 1,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 2.7089027979760796,
+              "relative_effect_error": 0.08765857058845278,
+              "query_mean_kl": 0.02005663826209477,
+              "query_p99_kl": 0.5092303663760774,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 1.4061467999770179,
+              "relative_effect_error": 0.051907550586952816,
+              "query_mean_kl": 1.3742657684523146e-08,
+              "query_p99_kl": 3.2769876360365705e-07,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 2.588841318665653,
+              "relative_effect_error": 0.09043939105074317,
+              "query_mean_kl": 3.556863854624258e-06,
+              "query_p99_kl": 8.68458953969336e-05,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 4.00929988407249,
+              "relative_effect_error": 0.12808772939780594,
+              "query_mean_kl": 0.00045540815459672873,
+              "query_p99_kl": 0.006025941816073957,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.6248904413375416,
+              "projection_fraction": 0.3509974358668411
+            },
+            "linear": {
+              "rms_over_removal": 0.8115499957521131,
+              "projection_fraction": 0.630391205668115
+            },
+            "quadratic": {
+              "rms_over_removal": 0.08987903489079063,
+              "projection_fraction": 0.01836061991490979
+            },
+            "cubic": {
+              "rms_over_removal": 0.002269168190893785,
+              "projection_fraction": 0.0002507385501340719
+            }
+          }
+        },
+        "3": {
+          "requests": 48,
+          "fixed_degree": 1,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 3.577695119723597,
+              "relative_effect_error": 0.07063172972553035,
+              "query_mean_kl": 0.0033760271708261854,
+              "query_p99_kl": 0.05257241439180308,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 2.335294778072733,
+              "relative_effect_error": 0.04013962002084291,
+              "query_mean_kl": 0.0034403940398618385,
+              "query_p99_kl": 0.0543182279752757,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 3.9269336830303794,
+              "relative_effect_error": 0.06998964109938385,
+              "query_mean_kl": 0.0041569613057423705,
+              "query_p99_kl": 0.08735889348000009,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 5.222062096913188,
+              "relative_effect_error": 0.0983695791901903,
+              "query_mean_kl": 0.010805566607069562,
+              "query_p99_kl": 0.21927827778224987,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.38119985481007185,
+              "projection_fraction": 0.14869384188945983
+            },
+            "linear": {
+              "rms_over_removal": 0.8884911331300958,
+              "projection_fraction": 0.8181691291775877
+            },
+            "quadratic": {
+              "rms_over_removal": 0.06941003108814534,
+              "projection_fraction": 0.03315355356090436
+            },
+            "cubic": {
+              "rms_over_removal": 0.0015219244181030077,
+              "projection_fraction": -1.652462795174341e-05
+            }
+          }
+        }
+      },
+      "B3_later": {
+        "0": {
+          "requests": 48,
+          "fixed_degree": 2,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 0.6030913206023968,
+              "relative_effect_error": 1.1753677272726082,
+              "query_mean_kl": 7.924609201922259e-19,
+              "query_p99_kl": 1.7121775135911427e-17,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 0.36190788359948467,
+              "relative_effect_error": 0.809520896956655,
+              "query_mean_kl": 3.827537443435551e-18,
+              "query_p99_kl": 9.194203899189802e-17,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 0.5544669271409289,
+              "relative_effect_error": 0.5995827705802238,
+              "query_mean_kl": 1.0224255115605451e-17,
+              "query_p99_kl": 2.440542017967439e-16,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 0.6668778510472728,
+              "relative_effect_error": 0.41250947807539073,
+              "query_mean_kl": 4.224385465121946e-18,
+              "query_p99_kl": 1.0670628992753476e-16,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.7773307596415744,
+              "projection_fraction": 0.45564581292490114
+            },
+            "linear": {
+              "rms_over_removal": 0.5957408357638374,
+              "projection_fraction": 0.32126649677579017
+            },
+            "quadratic": {
+              "rms_over_removal": 0.528987172106515,
+              "projection_fraction": 0.2210060070978171
+            },
+            "cubic": {
+              "rms_over_removal": 0.04652314859800243,
+              "projection_fraction": 0.0020816832014916614
+            }
+          }
+        },
+        "1": {
+          "requests": 48,
+          "fixed_degree": 2,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 0.9506843041700347,
+              "relative_effect_error": 0.7408101462271837,
+              "query_mean_kl": 0.0002009554002302354,
+              "query_p99_kl": 0.005093935016737904,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 0.6303023693637265,
+              "relative_effect_error": 0.7973172923848959,
+              "query_mean_kl": 5.912880261598384e-06,
+              "query_p99_kl": 0.0001271440080034464,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 0.9734898583865704,
+              "relative_effect_error": 0.5456890902359107,
+              "query_mean_kl": 2.0546296296267093e-05,
+              "query_p99_kl": 0.0004797137566864527,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 1.2486877911589707,
+              "relative_effect_error": 0.305762051618888,
+              "query_mean_kl": 2.030366436715292e-05,
+              "query_p99_kl": 0.000461631864427114,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.9388565582480749,
+              "projection_fraction": 0.7129508949868159
+            },
+            "linear": {
+              "rms_over_removal": 0.539389118757785,
+              "projection_fraction": 0.22759719486024801
+            },
+            "quadratic": {
+              "rms_over_removal": 0.24485665070893597,
+              "projection_fraction": 0.04946699964813454
+            },
+            "cubic": {
+              "rms_over_removal": 0.03795052439615604,
+              "projection_fraction": 0.009984910504801459
+            }
+          }
+        },
+        "2": {
+          "requests": 48,
+          "fixed_degree": 2,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 2.8995820215616046,
+              "relative_effect_error": 0.5751387516304884,
+              "query_mean_kl": 0.460410388785464,
+              "query_p99_kl": 9.712587701837263,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 1.2310603460655547,
+              "relative_effect_error": 1.373243938866482,
+              "query_mean_kl": 3.846180142191756e-06,
+              "query_p99_kl": 8.1885529483485e-05,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 1.309191228303512,
+              "relative_effect_error": 1.4889328139996478,
+              "query_mean_kl": 5.0484341512885496e-05,
+              "query_p99_kl": 0.0010635830454906983,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 1.5721022739552835,
+              "relative_effect_error": 0.9927212117363184,
+              "query_mean_kl": 0.07861903143264515,
+              "query_p99_kl": 1.9965880620218024,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.5452388723498686,
+              "projection_fraction": 0.04623083043847795
+            },
+            "linear": {
+              "rms_over_removal": 1.490981760074957,
+              "projection_fraction": 0.8320275930598229
+            },
+            "quadratic": {
+              "rms_over_removal": 0.943076510988737,
+              "projection_fraction": 0.12184824503480175
+            },
+            "cubic": {
+              "rms_over_removal": 0.04881084796560378,
+              "projection_fraction": -0.00010666853310243404
+            }
+          }
+        },
+        "3": {
+          "requests": 48,
+          "fixed_degree": 2,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 1.8100034099699458,
+              "relative_effect_error": 1.2652047153669046,
+              "query_mean_kl": 4.197475550518308,
+              "query_p99_kl": 20.104903102141066,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 1.7840879173566702,
+              "relative_effect_error": 0.698203411437276,
+              "query_mean_kl": 0.9399477424058267,
+              "query_p99_kl": 5.275457809320056,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 2.5443091171151466,
+              "relative_effect_error": 0.6539229225041336,
+              "query_mean_kl": 0.8633928335673561,
+              "query_p99_kl": 10.461662642585484,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 2.352246436521813,
+              "relative_effect_error": 0.6786553766279797,
+              "query_mean_kl": 1.2393725420538588,
+              "query_p99_kl": 16.332354309035026,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.19830224153494908,
+              "projection_fraction": 0.012674803897868831
+            },
+            "linear": {
+              "rms_over_removal": 0.6529869804405549,
+              "projection_fraction": 0.4979130465588033
+            },
+            "quadratic": {
+              "rms_over_removal": 0.59834681516975,
+              "projection_fraction": 0.48810370433800204
+            },
+            "cubic": {
+              "rms_over_removal": 0.034810659077829695,
+              "projection_fraction": 0.00130844520532565
+            }
+          }
+        }
+      }
+    },
+    "ood_two_12cycles": {
+      "B2_later": {
+        "0": {
+          "requests": 48,
+          "fixed_degree": 1,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 0.3467790667618523,
+              "relative_effect_error": 0.2884256075711205,
+              "query_mean_kl": 1.9491233790662212e-16,
+              "query_p99_kl": 4.7431544852391895e-15,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 0.2179341820350497,
+              "relative_effect_error": 0.19594957772563196,
+              "query_mean_kl": 2.699461035306946e-17,
+              "query_p99_kl": 6.412410374965907e-16,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 0.3645557884079015,
+              "relative_effect_error": 0.3448084431195361,
+              "query_mean_kl": 2.341221349397673e-16,
+              "query_p99_kl": 5.702265562855414e-15,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 0.4824824604303889,
+              "relative_effect_error": 0.4780674040666979,
+              "query_mean_kl": 1.009967912518217e-15,
+              "query_p99_kl": 2.4397599577672704e-14,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.38872975554494527,
+              "projection_fraction": 0.12363471424073375
+            },
+            "linear": {
+              "rms_over_removal": 0.8700756635937338,
+              "projection_fraction": 0.750179603210854
+            },
+            "quadratic": {
+              "rms_over_removal": 0.3274560347226578,
+              "projection_fraction": 0.1158404144670102
+            },
+            "cubic": {
+              "rms_over_removal": 0.02873460160207635,
+              "projection_fraction": 0.010345268081402072
+            }
+          }
+        },
+        "1": {
+          "requests": 48,
+          "fixed_degree": 1,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 1.0247182107854367,
+              "relative_effect_error": 0.11069318051453271,
+              "query_mean_kl": 5.898689785477283e-09,
+              "query_p99_kl": 6.903043644588537e-08,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 0.4385520328106345,
+              "relative_effect_error": 0.09802221567866741,
+              "query_mean_kl": 6.624770239385902e-10,
+              "query_p99_kl": 9.732213722680743e-09,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 0.8809731000382939,
+              "relative_effect_error": 0.1496687808938971,
+              "query_mean_kl": 6.059240118460931e-09,
+              "query_p99_kl": 8.214463935165978e-08,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 1.536091159992556,
+              "relative_effect_error": 0.16599336401502615,
+              "query_mean_kl": 2.7782503724450463e-08,
+              "query_p99_kl": 4.200975543008785e-07,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.7295917170145423,
+              "projection_fraction": 0.5123908416102976
+            },
+            "linear": {
+              "rms_over_removal": 0.7204742612956287,
+              "projection_fraction": 0.48297977665007913
+            },
+            "quadratic": {
+              "rms_over_removal": 0.14959269954588256,
+              "projection_fraction": 0.002192661891546402
+            },
+            "cubic": {
+              "rms_over_removal": 0.010583173840175961,
+              "projection_fraction": 0.002436719848076732
+            }
+          }
+        },
+        "2": {
+          "requests": 48,
+          "fixed_degree": 1,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 2.962163868347628,
+              "relative_effect_error": 0.08020036159559026,
+              "query_mean_kl": 0.02089733245936506,
+              "query_p99_kl": 0.5142663102529785,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 1.5525977160961455,
+              "relative_effect_error": 0.05378557882402852,
+              "query_mean_kl": 3.223950172425552e-10,
+              "query_p99_kl": 5.726759934035989e-09,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 2.8339183339607446,
+              "relative_effect_error": 0.09218870112863846,
+              "query_mean_kl": 1.6229164847984742e-07,
+              "query_p99_kl": 3.0935175873723227e-06,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 4.343706381233732,
+              "relative_effect_error": 0.12380805803383292,
+              "query_mean_kl": 0.0017531626101679118,
+              "query_p99_kl": 0.0326318829733029,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.5561857696816539,
+              "projection_fraction": 0.3099444939533717
+            },
+            "linear": {
+              "rms_over_removal": 0.8331579416929799,
+              "projection_fraction": 0.6889099766287118
+            },
+            "quadratic": {
+              "rms_over_removal": 0.09179983240646851,
+              "projection_fraction": 0.00029159955184480236
+            },
+            "cubic": {
+              "rms_over_removal": 0.004401993458407825,
+              "projection_fraction": 0.0008539298660716315
+            }
+          }
+        },
+        "3": {
+          "requests": 48,
+          "fixed_degree": 1,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 3.858765962383936,
+              "relative_effect_error": 0.06712807447500291,
+              "query_mean_kl": 0.001540730985065292,
+              "query_p99_kl": 0.013681944191332318,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 2.484701629871716,
+              "relative_effect_error": 0.03779963571812037,
+              "query_mean_kl": 0.0014124284578538465,
+              "query_p99_kl": 0.013891328012554386,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 4.231602565198658,
+              "relative_effect_error": 0.0677189552856521,
+              "query_mean_kl": 0.022856015283741593,
+              "query_p99_kl": 0.5635649742547452,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 5.644990725550284,
+              "relative_effect_error": 0.09740028657477236,
+              "query_mean_kl": 0.018566694291441796,
+              "query_p99_kl": 0.3229332479906753,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.3747144164665123,
+              "projection_fraction": 0.1525283155580769
+            },
+            "linear": {
+              "rms_over_removal": 0.8930334145253153,
+              "projection_fraction": 0.8254324021708732
+            },
+            "quadratic": {
+              "rms_over_removal": 0.06852487280209936,
+              "projection_fraction": 0.022068409620129917
+            },
+            "cubic": {
+              "rms_over_removal": 0.0014821484445410322,
+              "projection_fraction": -2.912734907998747e-05
+            }
+          }
+        }
+      },
+      "B3_later": {
+        "0": {
+          "requests": 48,
+          "fixed_degree": 2,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 0.6389210980931196,
+              "relative_effect_error": 0.7461857742967405,
+              "query_mean_kl": 2.1400763779696864e-17,
+              "query_p99_kl": 3.164339946839177e-16,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 0.5770575539820708,
+              "relative_effect_error": 0.6100928420096335,
+              "query_mean_kl": 2.3414060232830574e-17,
+              "query_p99_kl": 3.587572697388745e-16,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 0.8364078439938499,
+              "relative_effect_error": 0.398468558658638,
+              "query_mean_kl": 2.0718108924279332e-17,
+              "query_p99_kl": 3.6524623383927303e-16,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 0.8677355514478029,
+              "relative_effect_error": 0.25058617426792223,
+              "query_mean_kl": 1.5408134829150545e-17,
+              "query_p99_kl": 1.9536176507879713e-16,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.6190255769098291,
+              "projection_fraction": 0.5046045865074604
+            },
+            "linear": {
+              "rms_over_removal": 0.39658001875582016,
+              "projection_fraction": 0.2563806471500354
+            },
+            "quadratic": {
+              "rms_over_removal": 0.4987671222400947,
+              "projection_fraction": 0.2377896230689564
+            },
+            "cubic": {
+              "rms_over_removal": 0.03551502806889053,
+              "projection_fraction": 0.0012251432735479013
+            }
+          }
+        },
+        "1": {
+          "requests": 48,
+          "fixed_degree": 2,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 2.220949610249179,
+              "relative_effect_error": 0.28841070268133207,
+              "query_mean_kl": 2.0637190079064138e-07,
+              "query_p99_kl": 4.405402683038331e-06,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 0.6167645081673536,
+              "relative_effect_error": 1.0069573615003975,
+              "query_mean_kl": 6.456104053437113e-08,
+              "query_p99_kl": 1.4165858722807475e-06,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 1.4569080141143658,
+              "relative_effect_error": 0.39404984316512526,
+              "query_mean_kl": 5.261666118004675e-08,
+              "query_p99_kl": 1.0066766960872406e-06,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 2.225408177752172,
+              "relative_effect_error": 0.13848231864709287,
+              "query_mean_kl": 5.391397167549061e-08,
+              "query_p99_kl": 8.407087555372429e-07,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 1.1909638981072388,
+              "projection_fraction": 1.1426015918567267
+            },
+            "linear": {
+              "rms_over_removal": 0.39414679811797615,
+              "projection_fraction": -0.20125068875090368
+            },
+            "quadratic": {
+              "rms_over_removal": 0.19863975053068186,
+              "projection_fraction": 0.059189057649712155
+            },
+            "cubic": {
+              "rms_over_removal": 0.019998691686736274,
+              "projection_fraction": -0.0005399607555353128
+            }
+          }
+        },
+        "2": {
+          "requests": 48,
+          "fixed_degree": 2,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 3.2348604556644682,
+              "relative_effect_error": 0.5175183463656955,
+              "query_mean_kl": 0.1055089208499349,
+              "query_p99_kl": 2.566764971558408,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 1.1421596987208906,
+              "relative_effect_error": 1.5734005779560252,
+              "query_mean_kl": 1.2273222198489331e-08,
+              "query_p99_kl": 1.9576285823670592e-07,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 1.3506577744978372,
+              "relative_effect_error": 1.3663431256377256,
+              "query_mean_kl": 7.278645973829449e-07,
+              "query_p99_kl": 1.6750510043737738e-05,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 1.8361654154850082,
+              "relative_effect_error": 0.6134892334400202,
+              "query_mean_kl": 3.142648617155418e-05,
+              "query_p99_kl": 0.0007568645956762728,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.711586036677031,
+              "projection_fraction": 0.3781515171788362
+            },
+            "linear": {
+              "rms_over_removal": 1.364979578364806,
+              "projection_fraction": 0.26619067258728546
+            },
+            "quadratic": {
+              "rms_over_removal": 1.0494701074750288,
+              "projection_fraction": 0.3561093724524468
+            },
+            "cubic": {
+              "rms_over_removal": 0.06834251117751601,
+              "projection_fraction": -0.00045156221856838607
+            }
+          }
+        },
+        "3": {
+          "requests": 48,
+          "fixed_degree": 2,
+          "scales": {
+            "-1.0": {
+              "native_effect_rms": 1.4368989361218085,
+              "relative_effect_error": 1.3119450545842115,
+              "query_mean_kl": 2.82504093919453,
+              "query_p99_kl": 17.653201786720693,
+              "degree_passed": false
+            },
+            "0.5": {
+              "native_effect_rms": 1.7062527082620362,
+              "relative_effect_error": 0.648026338910488,
+              "query_mean_kl": 0.9288390267844284,
+              "query_p99_kl": 5.158864861187424,
+              "degree_passed": false
+            },
+            "1.0": {
+              "native_effect_rms": 2.3521094142682704,
+              "relative_effect_error": 0.5319080851964325,
+              "query_mean_kl": 0.6216258181259281,
+              "query_p99_kl": 3.3515218652304544,
+              "degree_passed": false
+            },
+            "2.0": {
+              "native_effect_rms": 2.041873909023749,
+              "relative_effect_error": 0.5026814172769168,
+              "query_mean_kl": 0.4159372477816749,
+              "query_p99_kl": 3.2786474991943706,
+              "degree_passed": false
+            }
+          },
+          "removal_terms": {
+            "normalization": {
+              "rms_over_removal": 0.22799404458534198,
+              "projection_fraction": 0.002471270794361873
+            },
+            "linear": {
+              "rms_over_removal": 0.5320910884095335,
+              "projection_fraction": 0.4221349192888573
+            },
+            "quadratic": {
+              "rms_over_removal": 0.6133025417635377,
+              "projection_fraction": 0.5753832951851394
+            },
+            "cubic": {
+              "rms_over_removal": 0.03645561700490122,
+              "projection_fraction": 1.0514731641497483e-05
+            }
+          }
+        }
+      }
+    }
+  },
+  "native_curve_max_abs": 1.2789769243681803e-13,
+  "native_curve_max_relative_rms": 1.3388394963695996e-15,
+  "partition_max_abs": 1.3253287356462806e-14,
+  "curve_compile_seconds_excluding_native_prefix_and_context": 0.2521072030067444,
+  "curve_tensor_cache_bytes_cohort": 1643520,
+  "independent_worlds": 32,
+  "requests": 768,
+  "independent_constants": 387968,
+  "native_coefficients_removed": 0,
+  "runner_sha256": "cf59bbc297963e3a8fe9de3328e95ecf5a0078bd9f0831029c3ecfbfcc8986a5",
+  "bound_sha256": "90cdf8c1dc62c0ea550798d571d14e815d8034ace0d840090d4c9a095a23bcaf",
+  "rows_sha256": "e55502a8b7f5384c0ed1b41b4a5ab84db645277c4cd7faa014e198014365e573",
+  "wall_seconds": 4.383951794356108,
+  "terminal": "fixed_degree_read_rejected"
+}
