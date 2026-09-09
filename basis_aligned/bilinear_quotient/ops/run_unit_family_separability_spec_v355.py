@@ -169,9 +169,6 @@ def _plan():
             "gpu_accessed": False, "model_loaded": False, "execution_policy": "managed_queue_only"}
 
 
-CELL, DONOR = "verb_particle_fc_out_up", "verb_particle_out_up"
-
-
 DONOR = {"verb_preposition_fb_at_to": "verb_preposition_at_to",
          "verb_preposition_fb_from_for": "verb_preposition_from_for",
          "verb_preposition_fc_by_from": "verb_preposition_by_from",
