@@ -1,10 +1,11 @@
 # Reconstructing composition without earlier answers
 
-Current result (17:39 UTC): the [forward endpoint field](forward_endpoint_field_circuit.md)
-passes selective single/joint semantic interchange on all registered IID/OOD
-hop3 cases. Its shared endpoint-message formula is exact under native contextual
-routing. Arbitrary-layout family validation and structural-description reduction
-remain unfinished; the distinct backward-origin interchange failed.
+Current result (17:50 UTC): the [forward endpoint field](forward_endpoint_field_circuit.md)
+passes fixed-layout single/joint interchange, but the broader randomly serialized
+hop2+hop3 consumer claim fails. Hop3 endpoint-only removal and retargeting remain
+strong; hop2 task effect is weak despite substantial logit changes. The active
+successor tests original-value versus computed-endpoint fields at the same state.
+Structural-description reduction remains unfinished.
 
 The existing `attn4-rms-seed0` checkpoint is a better target for studying composed
 lookup than the weak checkpoint used in the bounded reconstruction pilot. A fresh

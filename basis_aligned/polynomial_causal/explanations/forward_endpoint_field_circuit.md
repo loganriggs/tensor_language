@@ -74,3 +74,37 @@ evidence. [The next protocol](../FORWARD_ENDPOINT_RANDOM_LAYOUT_V1_PREREGISTRATI
 tests all parsed joins on randomly serialized worlds, arbitrary endpoint maps,
 endpoint-only removal and simultaneous even/odd consumer groups. No layout or
 routing changes may be selected from its outcomes.
+
+## Random-layout consumer generalization fails for hop2
+
+`FORWARD_ENDPOINT_RANDOM_LAYOUT_V1_RESULT.json` tests3072 variants from32 fresh
+worlds with arbitrary binding orders and all parser-selected joins. Numerical
+correspondence passes1.42e-13; endpoint-message oracle1.11e-15, identity0,
+finalquery composition<=2.14e-13. Native eligible accuracy is.973–1.0.
+
+The registered combined hop2/hop3 hypothesis fails: endpoint-only removal changes
+hop2 goldP by only.0086–.0119, and mapping retargets only5.5–6.2%. The receipt's
+`instrument_invalid` terminal reflects this failed causal-route requirement
+inside its broad A gate. It does not indicate a mechanical or numerical defect.
+The separate `FORWARD_ENDPOINT_RANDOM_LAYOUT_GATE_AUDIT_V1.json` shows this
+classification without changing the original receipt or promoting the family.
+
+Predeclared hop3 groups separately show.863–.881 joint retarget accuracy and
+.883–.888 endpoint-only removal goldP loss. Every hop3 parity target bar and all
+raw control/composition bars pass. These useful subgroup results do not turn the
+combined hypothesis into a pass; no layouts or native errors are dropped.
+
+A CPU diagnostic on the first4 opened worlds/population reconstructs all saved
+native/mapped query outputs within2.77e-13. Final heads0 and3 carry most of the
+hop3 response, and neither alone suffices (single retarget.33–.45). Hop2 centered
+logit changes remain large (RMS3.99–4.74 versus hop3 5.19–5.33). Thus low hop2
+answer damage must not be described as absence of a numerical reader response.
+This diagnostic nominates no adopted head subset.
+
+The next [dual-value-field protocol](../DUAL_VALUE_FIELD_INTERCHANGE_V1_PREREGISTRATION.md)
+separately edits original binding value E/8 and computed endpoint messages at the
+same postL2 positions. Distinct endpoint maps distinguish consumers; complete
+source normalization preserves their overlapping interactions. Raw-value-only
+causal strength is untested and may fail through redundancy. Mechanical and
+semantic gates are reported separately. Seven CPU controls pass; managed trained
+integration remains. No structural parameter saving has been established.

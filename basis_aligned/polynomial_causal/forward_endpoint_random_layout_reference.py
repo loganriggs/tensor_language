@@ -3,9 +3,9 @@ import torch
 from forward_endpoint_program_reference import joins
 
 
-def populations():
+def populations(seeds=(24909,24910)):
     out={}
-    for pop,seed in (('iid',24909),('ood_three_8cycles',24910)):
+    for pop,seed in zip(('iid','ood_three_8cycles'),seeds):
         g=torch.Generator().manual_seed(seed);worlds=[]
         for world in range(16):
             perm=torch.randperm(24,generator=g);f=torch.empty(24,dtype=torch.long)

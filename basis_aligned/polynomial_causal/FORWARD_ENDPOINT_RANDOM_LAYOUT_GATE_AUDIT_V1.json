@@ -1,0 +1,49 @@
+{
+  "scope": "classification of existing registered bars; original gated predictions and terminal preserved, no promotion",
+  "source_sha256": "67dd532f2576fb588d49905037f730a49a6348447756680fe8153ed5a3faaaae",
+  "mechanical_checks_pass": true,
+  "eligible_groups": {
+    "iid_hop2": {
+      "native_capability": true,
+      "removal": false,
+      "retarget": false
+    },
+    "iid_hop3": {
+      "native_capability": true,
+      "removal": true,
+      "retarget": true
+    },
+    "ood_three_8cycles_hop2": {
+      "native_capability": true,
+      "removal": false,
+      "retarget": false
+    },
+    "ood_three_8cycles_hop3": {
+      "native_capability": true,
+      "removal": true,
+      "retarget": true
+    }
+  },
+  "parity_raw_bars": {
+    "iid_2_0": false,
+    "iid_2_1": false,
+    "iid_3_0": true,
+    "iid_3_1": true,
+    "ood_three_8cycles_2_0": false,
+    "ood_three_8cycles_2_1": false,
+    "ood_three_8cycles_3_0": true,
+    "ood_three_8cycles_3_1": true
+  },
+  "specificity_composition_raw_bars": {
+    "iid": true,
+    "ood_three_8cycles": true
+  },
+  "original_predictions": {
+    "pred_a_instrument": false,
+    "pred_b_retarget": false,
+    "pred_c_reuse": false,
+    "pred_d_specificity": false
+  },
+  "failure_reason": "hop2 removal requirement fails despite native capability and numerical correspondence; hop2 retargeting also fails",
+  "family_success": false
+}

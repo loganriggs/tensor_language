@@ -1,0 +1,447 @@
+{
+  "scope": "opened first4worlds/pop diagnostic,768queryvariants; no head adoption or fresh semantic evidence",
+  "saved_output_replay_max_abs": 2.7711166694643907e-13,
+  "passed": true,
+  "populations": {
+    "iid": {
+      "hop0_eligibleFalse": {
+        "n": 96,
+        "centered_total_effect_rms": 1.5287242461900166,
+        "native_accuracy": 1.0,
+        "all_target_accuracy": 1.0,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.17088566023326784,
+            "relative_effect_norm": 0.41184777447839505,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -5.528580949524612e-11
+          },
+          "1": {
+            "signed_effect_projection": 0.11432222063258714,
+            "relative_effect_norm": 0.27497846177839713,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -3.19259537788034e-11
+          },
+          "2": {
+            "signed_effect_projection": 0.06399604188184319,
+            "relative_effect_norm": 0.3425711287099403,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -6.8480845993867945e-12
+          },
+          "3": {
+            "signed_effect_projection": 0.6507960772523018,
+            "relative_effect_norm": 0.8116263042541426,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": 1.4846124329892518e-11
+          }
+        }
+      },
+      "hop1_eligibleFalse": {
+        "n": 96,
+        "centered_total_effect_rms": 3.4769724292522595,
+        "native_accuracy": 1.0,
+        "all_target_accuracy": 1.0,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.31742089266541895,
+            "relative_effect_norm": 0.5559522560170965,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -0.0036125538676030286
+          },
+          "1": {
+            "signed_effect_projection": 0.24036929844756372,
+            "relative_effect_norm": 0.4653007266769503,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -0.0008981124460101728
+          },
+          "2": {
+            "signed_effect_projection": 0.34612482137099815,
+            "relative_effect_norm": 0.549173316487729,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -0.003038597138936902
+          },
+          "3": {
+            "signed_effect_projection": 0.09608498751601922,
+            "relative_effect_norm": 0.32233637701288975,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 0.9791666666666666,
+            "single_gold_probability_change": 7.176961316273402e-05
+          }
+        }
+      },
+      "hop2_eligibleFalse": {
+        "n": 45,
+        "centered_total_effect_rms": 4.491908012694925,
+        "native_accuracy": 1.0,
+        "all_target_accuracy": 1.0,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.4399448271751224,
+            "relative_effect_norm": 0.6767925049796595,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": 0.0017861335997753623
+          },
+          "1": {
+            "signed_effect_projection": 0.1863284141511434,
+            "relative_effect_norm": 0.3956812519742316,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": 0.0006921359308112601
+          },
+          "2": {
+            "signed_effect_projection": 0.07415881713392695,
+            "relative_effect_norm": 0.21928248644452664,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": 0.0017052934409497646
+          },
+          "3": {
+            "signed_effect_projection": 0.2995679415398073,
+            "relative_effect_norm": 0.564800454806271,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -0.006141672725125661
+          }
+        }
+      },
+      "hop2_eligibleTrue": {
+        "n": 51,
+        "centered_total_effect_rms": 4.741725168650332,
+        "native_accuracy": 1.0,
+        "all_target_accuracy": 0.0784313725490196,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.47545936361288427,
+            "relative_effect_norm": 0.7041525707522086,
+            "single_target_accuracy": 0.0196078431372549,
+            "complement_target_accuracy": 0.0,
+            "single_gold_probability_change": -0.02491360499066649
+          },
+          "1": {
+            "signed_effect_projection": 0.16910354381322484,
+            "relative_effect_norm": 0.3855570824442293,
+            "single_target_accuracy": 0.0,
+            "complement_target_accuracy": 0.058823529411764705,
+            "single_gold_probability_change": -8.647115793774104e-05
+          },
+          "2": {
+            "signed_effect_projection": 0.07069952627919618,
+            "relative_effect_norm": 0.20279833876387518,
+            "single_target_accuracy": 0.0,
+            "complement_target_accuracy": 0.0784313725490196,
+            "single_gold_probability_change": -1.1378381079761226e-05
+          },
+          "3": {
+            "signed_effect_projection": 0.28473756629469477,
+            "relative_effect_norm": 0.536441631181121,
+            "single_target_accuracy": 0.0,
+            "complement_target_accuracy": 0.0392156862745098,
+            "single_gold_probability_change": -0.003828987934621301
+          }
+        }
+      },
+      "hop3_eligibleFalse": {
+        "n": 45,
+        "centered_total_effect_rms": 2.721523109350836,
+        "native_accuracy": 0.9555555555555556,
+        "all_target_accuracy": 0.8666666666666667,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.30123070151817777,
+            "relative_effect_norm": 0.6089561055207457,
+            "single_target_accuracy": 0.9111111111111111,
+            "complement_target_accuracy": 0.9333333333333333,
+            "single_gold_probability_change": -0.021355140351349184
+          },
+          "1": {
+            "signed_effect_projection": 0.054655323739214653,
+            "relative_effect_norm": 0.23402618388068766,
+            "single_target_accuracy": 0.9333333333333333,
+            "complement_target_accuracy": 0.8666666666666667,
+            "single_gold_probability_change": -0.005922190505362345
+          },
+          "2": {
+            "signed_effect_projection": 0.005313343676820107,
+            "relative_effect_norm": 0.11102723873367658,
+            "single_target_accuracy": 0.9555555555555556,
+            "complement_target_accuracy": 0.8666666666666667,
+            "single_gold_probability_change": -0.0011744515376851295
+          },
+          "3": {
+            "signed_effect_projection": 0.6388006310657874,
+            "relative_effect_norm": 0.8454478438644016,
+            "single_target_accuracy": 0.9333333333333333,
+            "complement_target_accuracy": 0.9111111111111111,
+            "single_gold_probability_change": -0.017366501602862704
+          }
+        }
+      },
+      "hop3_eligibleTrue": {
+        "n": 51,
+        "centered_total_effect_rms": 5.329766854120515,
+        "native_accuracy": 1.0,
+        "all_target_accuracy": 0.9019607843137255,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.4507185459019748,
+            "relative_effect_norm": 0.5978703222936539,
+            "single_target_accuracy": 0.37254901960784315,
+            "complement_target_accuracy": 0.45098039215686275,
+            "single_gold_probability_change": -0.4585636534199271
+          },
+          "1": {
+            "signed_effect_projection": 0.021972888428303274,
+            "relative_effect_norm": 0.1362408225706974,
+            "single_target_accuracy": 0.0,
+            "complement_target_accuracy": 0.8823529411764706,
+            "single_gold_probability_change": -0.0004399184750591804
+          },
+          "2": {
+            "signed_effect_projection": 0.0036092416905689666,
+            "relative_effect_norm": 0.06574047765598405,
+            "single_target_accuracy": 0.0,
+            "complement_target_accuracy": 0.9019607843137255,
+            "single_gold_probability_change": 0.0001998930942814454
+          },
+          "3": {
+            "signed_effect_projection": 0.523699323979153,
+            "relative_effect_norm": 0.6572939434849127,
+            "single_target_accuracy": 0.45098039215686275,
+            "complement_target_accuracy": 0.4117647058823529,
+            "single_gold_probability_change": -0.5557052285269449
+          }
+        }
+      }
+    },
+    "ood_three_8cycles": {
+      "hop0_eligibleFalse": {
+        "n": 96,
+        "centered_total_effect_rms": 1.7640645310442615,
+        "native_accuracy": 1.0,
+        "all_target_accuracy": 1.0,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.45674141289301284,
+            "relative_effect_norm": 0.6589148019673788,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -1.4318206342789352e-11
+          },
+          "1": {
+            "signed_effect_projection": 0.0734733939735746,
+            "relative_effect_norm": 0.23725746796997965,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -1.3374463573671372e-11
+          },
+          "2": {
+            "signed_effect_projection": 0.091091135455081,
+            "relative_effect_norm": 0.2898880493326069,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": 2.215489366038289e-12
+          },
+          "3": {
+            "signed_effect_projection": 0.3786940576783316,
+            "relative_effect_norm": 0.5672383217797434,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -1.6569245975261992e-12
+          }
+        }
+      },
+      "hop1_eligibleFalse": {
+        "n": 96,
+        "centered_total_effect_rms": 2.721064907296756,
+        "native_accuracy": 1.0,
+        "all_target_accuracy": 1.0,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.39713277364276106,
+            "relative_effect_norm": 0.6202251055443759,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -0.00047171004938960603
+          },
+          "1": {
+            "signed_effect_projection": 0.1046218027116324,
+            "relative_effect_norm": 0.29910295160430983,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": 5.9792162263335356e-05
+          },
+          "2": {
+            "signed_effect_projection": 0.33731431918438837,
+            "relative_effect_norm": 0.5446148808911287,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -0.00023682981928195684
+          },
+          "3": {
+            "signed_effect_projection": 0.16093110446121806,
+            "relative_effect_norm": 0.37300793303592006,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": 2.4606399485570713e-05
+          }
+        }
+      },
+      "hop2_eligibleFalse": {
+        "n": 48,
+        "centered_total_effect_rms": 3.655674023997919,
+        "native_accuracy": 1.0,
+        "all_target_accuracy": 0.9791666666666666,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.6570455082577062,
+            "relative_effect_norm": 0.7984879985361937,
+            "single_target_accuracy": 0.9791666666666666,
+            "complement_target_accuracy": 1.0,
+            "single_gold_probability_change": -0.02202517768137413
+          },
+          "1": {
+            "signed_effect_projection": 0.052687973452913206,
+            "relative_effect_norm": 0.25120631818812256,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 0.9791666666666666,
+            "single_gold_probability_change": 2.4082395384562396e-06
+          },
+          "2": {
+            "signed_effect_projection": 0.05292158298794892,
+            "relative_effect_norm": 0.1841992742437791,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 0.9583333333333334,
+            "single_gold_probability_change": -7.78048683443185e-05
+          },
+          "3": {
+            "signed_effect_projection": 0.23734493530143166,
+            "relative_effect_norm": 0.4707613933207529,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 0.9791666666666666,
+            "single_gold_probability_change": -5.306479154510805e-05
+          }
+        }
+      },
+      "hop2_eligibleTrue": {
+        "n": 48,
+        "centered_total_effect_rms": 3.9932966515784147,
+        "native_accuracy": 1.0,
+        "all_target_accuracy": 0.08333333333333333,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.6246345557764411,
+            "relative_effect_norm": 0.8070569924205757,
+            "single_target_accuracy": 0.020833333333333332,
+            "complement_target_accuracy": 0.020833333333333332,
+            "single_gold_probability_change": -0.03363892328746485
+          },
+          "1": {
+            "signed_effect_projection": 0.07228492881529812,
+            "relative_effect_norm": 0.23293595218286287,
+            "single_target_accuracy": 0.020833333333333332,
+            "complement_target_accuracy": 0.08333333333333333,
+            "single_gold_probability_change": -0.007823854950650928
+          },
+          "2": {
+            "signed_effect_projection": 0.04771820934789498,
+            "relative_effect_norm": 0.180388743687257,
+            "single_target_accuracy": 0.0,
+            "complement_target_accuracy": 0.041666666666666664,
+            "single_gold_probability_change": 0.0019580978549938433
+          },
+          "3": {
+            "signed_effect_projection": 0.25536230606036564,
+            "relative_effect_norm": 0.5444797101674632,
+            "single_target_accuracy": 0.020833333333333332,
+            "complement_target_accuracy": 0.020833333333333332,
+            "single_gold_probability_change": -0.015596359367824227
+          }
+        }
+      },
+      "hop3_eligibleFalse": {
+        "n": 48,
+        "centered_total_effect_rms": 2.4236145994817635,
+        "native_accuracy": 0.9791666666666666,
+        "all_target_accuracy": 0.9583333333333334,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.2967872832210893,
+            "relative_effect_norm": 0.5983813271063899,
+            "single_target_accuracy": 1.0,
+            "complement_target_accuracy": 0.9583333333333334,
+            "single_gold_probability_change": -0.015849070189935314
+          },
+          "1": {
+            "signed_effect_projection": 0.05695859921900342,
+            "relative_effect_norm": 0.2944986518774823,
+            "single_target_accuracy": 0.9791666666666666,
+            "complement_target_accuracy": 0.9791666666666666,
+            "single_gold_probability_change": -0.01726835363674306
+          },
+          "2": {
+            "signed_effect_projection": 0.02139594855468247,
+            "relative_effect_norm": 0.12171976381792786,
+            "single_target_accuracy": 0.9791666666666666,
+            "complement_target_accuracy": 0.9583333333333334,
+            "single_gold_probability_change": 0.00013306812405020305
+          },
+          "3": {
+            "signed_effect_projection": 0.6248581690052247,
+            "relative_effect_norm": 0.8391547376097527,
+            "single_target_accuracy": 0.9583333333333334,
+            "complement_target_accuracy": 0.9375,
+            "single_gold_probability_change": -0.02121747040846825
+          }
+        }
+      },
+      "hop3_eligibleTrue": {
+        "n": 48,
+        "centered_total_effect_rms": 5.185145014541545,
+        "native_accuracy": 0.9375,
+        "all_target_accuracy": 0.8333333333333334,
+        "heads": {
+          "0": {
+            "signed_effect_projection": 0.5330051094541688,
+            "relative_effect_norm": 0.6552097537890675,
+            "single_target_accuracy": 0.3333333333333333,
+            "complement_target_accuracy": 0.3958333333333333,
+            "single_gold_probability_change": -0.44025049647388054
+          },
+          "1": {
+            "signed_effect_projection": 0.03528523160558741,
+            "relative_effect_norm": 0.178498753145281,
+            "single_target_accuracy": 0.0,
+            "complement_target_accuracy": 0.8125,
+            "single_gold_probability_change": 0.00010109277915024834
+          },
+          "2": {
+            "signed_effect_projection": 0.00047038031030938643,
+            "relative_effect_norm": 0.06111227487301437,
+            "single_target_accuracy": 0.0,
+            "complement_target_accuracy": 0.8333333333333334,
+            "single_gold_probability_change": 0.0007006482366211306
+          },
+          "3": {
+            "signed_effect_projection": 0.4312392786299343,
+            "relative_effect_norm": 0.571719689735655,
+            "single_target_accuracy": 0.3541666666666667,
+            "complement_target_accuracy": 0.3333333333333333,
+            "single_gold_probability_change": -0.45483259005303117
+          }
+        }
+      }
+    }
+  },
+  "input_rows_sha256": "0916e7ec0ba7a42064310eeca41d5af64224d8e6374a63020db31c709ba86061",
+  "script_sha256": "84d278d43c2cb63981dcd1157f52f7f28bffdb567e57855ed9e826f932d2b57e",
+  "independent_constants": 387968,
+  "wall_seconds": 19.240639116615057
+}

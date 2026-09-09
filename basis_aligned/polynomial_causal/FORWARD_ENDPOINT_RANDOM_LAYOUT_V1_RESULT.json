@@ -1,0 +1,259 @@
+{
+  "experiment": "forward_endpoint_random_layout_v1",
+  "runner_sha256": "f3dfb7c69d29f439eaa513fdbd052b8431d0b4df2067f1b71e1c299fd240f845",
+  "bound_sha256": "d12d0f8854c9fa555011bf28d4e934d95b331d26b1a322bba94f58c54ef88275",
+  "package_sha256": "e69bff6562c48bd1b59366f118157720734d353626b0a1576626bdd437a1421a",
+  "checkpoint_sha256": "c9388cc8b1ba7e95c6a043cbf4d01592987447867a50781d3babe31ce3f8358b",
+  "controls": {
+    "passed": true,
+    "algebra": {
+      "passed": true,
+      "checks": {
+        "exhaustive_162_function_orders": true,
+        "shared_endpoint_multiple_consumers": true,
+        "native_message_False": true,
+        "native_message_True": true,
+        "identity": true,
+        "live_edit": true,
+        "hooks_restored": true
+      },
+      "exhaustive_function_orders": 162
+    },
+    "generator": {
+      "passed": true,
+      "checks": {
+        "iid_maps_answers": true,
+        "iid_deranged_permutation": true,
+        "iid_disjoint_partition": true,
+        "iid_semantic_parser_agreement": true,
+        "iid_eligible_groups_nonempty": true,
+        "ood_three_8cycles_maps_answers": true,
+        "ood_three_8cycles_deranged_permutation": true,
+        "ood_three_8cycles_disjoint_partition": true,
+        "ood_three_8cycles_semantic_parser_agreement": true,
+        "ood_three_8cycles_eligible_groups_nonempty": true
+      },
+      "counts": {
+        "iid": {
+          "hop0_eligibleFalse_parity-1": 384,
+          "hop1_eligibleFalse_parity-1": 384,
+          "hop2_eligibleFalse_parity-1": 191,
+          "hop3_eligibleFalse_parity-1": 191,
+          "hop3_eligibleTrue_parity0": 89,
+          "hop2_eligibleTrue_parity0": 89,
+          "hop3_eligibleTrue_parity1": 104,
+          "hop2_eligibleTrue_parity1": 104
+        },
+        "ood_three_8cycles": {
+          "hop0_eligibleFalse_parity-1": 384,
+          "hop1_eligibleFalse_parity-1": 384,
+          "hop2_eligibleTrue_parity0": 88,
+          "hop3_eligibleTrue_parity1": 94,
+          "hop2_eligibleTrue_parity1": 94,
+          "hop3_eligibleFalse_parity-1": 202,
+          "hop2_eligibleFalse_parity-1": 202,
+          "hop3_eligibleTrue_parity0": 88
+        }
+      }
+    }
+  },
+  "oracle_max_abs_logit": 1.4210854715202004e-13,
+  "oracle_max_relative_rms": 1.0952362224700966e-15,
+  "path_oracle_max_abs": 1.1102230246251565e-15,
+  "identity_max_abs_logit": 0.0,
+  "program_independent_constants": 387968,
+  "derived_dictionary_bytes": 24576,
+  "native_coefficients_removed": 0,
+  "populations": {
+    "iid": {
+      "eligible_groups": {
+        "2": {
+          "n": 193,
+          "native_accuracy": 1.0,
+          "removal_gold_loss": 0.011889666554911664,
+          "target_accuracy": 0.06217616580310881,
+          "target_probability_gain": 0.06608770669480968
+        },
+        "3": {
+          "n": 193,
+          "native_accuracy": 0.9844559585492227,
+          "removal_gold_loss": 0.888115965467292,
+          "target_accuracy": 0.8808290155440415,
+          "target_probability_gain": 0.8598473874030723
+        }
+      },
+      "parity_groups": {
+        "2_0": {
+          "n": 89,
+          "native_accuracy": 1.0,
+          "removal_gold_loss": 0.019769542862172546,
+          "target_accuracy": 0.033707865168539325,
+          "target_probability_gain": 0.040519026815174504,
+          "other_group_gold_change": -0.00274977569966602
+        },
+        "2_1": {
+          "n": 104,
+          "native_accuracy": 1.0,
+          "removal_gold_loss": 0.00514631086889033,
+          "target_accuracy": 0.057692307692307696,
+          "target_probability_gain": 0.0660119552849675,
+          "other_group_gold_change": -0.003371594360101959
+        },
+        "3_0": {
+          "n": 89,
+          "native_accuracy": 0.9775280898876404,
+          "removal_gold_loss": 0.8739819998575069,
+          "target_accuracy": 0.8764044943820225,
+          "target_probability_gain": 0.859686494754589,
+          "other_group_gold_change": -0.01675727790707502
+        },
+        "3_1": {
+          "n": 104,
+          "native_accuracy": 0.9903846153846154,
+          "removal_gold_loss": 0.9002113783448963,
+          "target_accuracy": 0.8846153846153846,
+          "target_probability_gain": 0.8495904417352147,
+          "other_group_gold_change": -0.0018594021441137591
+        }
+      },
+      "controls": {
+        "0": {
+          "n": 384,
+          "map_all_gold_change": 2.7218732360593617e-10
+        },
+        "1": {
+          "n": 384,
+          "map_all_gold_change": -0.007551260103832937
+        },
+        "2": {
+          "n": 191,
+          "map_all_gold_change": -0.009653653043429725
+        },
+        "3": {
+          "n": 191,
+          "map_all_gold_change": -0.03862143953548522
+        }
+      },
+      "raw_query_composition_max_abs": 2.1316282072803006e-13,
+      "join_counts": [
+        14,
+        13,
+        13,
+        11,
+        10,
+        12,
+        11,
+        12,
+        13,
+        11,
+        12,
+        13,
+        13,
+        13,
+        13,
+        9
+      ]
+    },
+    "ood_three_8cycles": {
+      "eligible_groups": {
+        "2": {
+          "n": 182,
+          "native_accuracy": 1.0,
+          "removal_gold_loss": 0.008589392414048845,
+          "target_accuracy": 0.054945054945054944,
+          "target_probability_gain": 0.05384353275288808
+        },
+        "3": {
+          "n": 182,
+          "native_accuracy": 0.9725274725274725,
+          "removal_gold_loss": 0.8828559822916323,
+          "target_accuracy": 0.8626373626373627,
+          "target_probability_gain": 0.8292995957920515
+        }
+      },
+      "parity_groups": {
+        "2_0": {
+          "n": 88,
+          "native_accuracy": 1.0,
+          "removal_gold_loss": 0.0017339548310594003,
+          "target_accuracy": 0.06818181818181818,
+          "target_probability_gain": 0.0708926535845511,
+          "other_group_gold_change": -0.004562408328721265
+        },
+        "2_1": {
+          "n": 94,
+          "native_accuracy": 1.0,
+          "removal_gold_loss": 0.015007248874719813,
+          "target_accuracy": 0.0425531914893617,
+          "target_probability_gain": 0.0316051932846124,
+          "other_group_gold_change": -0.0025419975839154293
+        },
+        "3_0": {
+          "n": 88,
+          "native_accuracy": 0.9659090909090909,
+          "removal_gold_loss": 0.8574924525046864,
+          "target_accuracy": 0.8522727272727273,
+          "target_probability_gain": 0.8178616046446782,
+          "other_group_gold_change": -0.007232336389367836
+        },
+        "3_1": {
+          "n": 94,
+          "native_accuracy": 0.9787234042553191,
+          "removal_gold_loss": 0.9066005633687731,
+          "target_accuracy": 0.8191489361702128,
+          "target_probability_gain": 0.803238255284571,
+          "other_group_gold_change": -0.008840962184871032
+        }
+      },
+      "controls": {
+        "0": {
+          "n": 384,
+          "map_all_gold_change": 2.2164067927631557e-09
+        },
+        "1": {
+          "n": 384,
+          "map_all_gold_change": -0.006062218493683107
+        },
+        "2": {
+          "n": 202,
+          "map_all_gold_change": -0.01611640180819611
+        },
+        "3": {
+          "n": 202,
+          "map_all_gold_change": -0.03660475636611181
+        }
+      },
+      "raw_query_composition_max_abs": 1.4210854715202004e-13,
+      "join_counts": [
+        14,
+        9,
+        13,
+        12,
+        11,
+        12,
+        9,
+        12,
+        12,
+        12,
+        10,
+        11,
+        11,
+        10,
+        11,
+        13
+      ]
+    }
+  },
+  "rows_sha256": "0916e7ec0ba7a42064310eeca41d5af64224d8e6374a63020db31c709ba86061",
+  "independent_worlds": 32,
+  "query_variants": 3072,
+  "predictions": {
+    "pred_a_instrument": false,
+    "pred_b_retarget": false,
+    "pred_c_reuse": false,
+    "pred_d_specificity": false
+  },
+  "terminal": "instrument_invalid",
+  "scope": "token-parsed endpoint family with native context; no structural coefficient reduction",
+  "wall_seconds": 12.499027412384748
+}

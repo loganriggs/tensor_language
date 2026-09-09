@@ -53,6 +53,45 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active dual-value-field experiment — 2026-09-09 17:50 UTC
+
+FORWARD_ENDPOINT_RANDOM_LAYOUT_V1_RESULT.json completes12.50s: numerical controls
+pass1.42e-13, path1.11e-15, identity0, rawquery composition<=2.14e-13. Broad
+hop2+hop3 family FAILS: hop2 endpoint-only removal goldP loss.0086–.0119 vs.25,
+retarget accuracy.055–.062. Receipt instrument_invalid means the failed causal
+route requirement inside A, not code/numerical failure. Separate immutable
+FORWARD_ENDPOINT_RANDOM_LAYOUT_GATE_AUDIT_V1.json classifies existing bars;
+original outcome unchanged. Hop3 raw bars pass (retarget.863–.881, removal.883–.888),
+all controls pass, but do not drop hop2 and relabel the combined outcome a success.
+
+Immediate CPU FINAL_ENDPOINT_READER_AUDIT_V1.json completes19.24s on first4 opened
+worlds/pop,768queries, replay2.77e-13. Final H0/H3 carry most hop3response; each
+alone retargets.33–.45, no singleton adopted. Hop2 centered effectRMS3.99–4.74 is
+large despite weak answer damage, so it is not numerically unread. Full circuit
+dossier explanations/forward_endpoint_field_circuit.md explains evidence limits.
+
+Active DUAL_VALUE_FIELD_INTERCHANGE_V1_PREREGISTRATION.md and
+ dual_value_field_reference.py (7 CPU controls pass). Fresh25909/25910 random
+worlds,32worlds3072queries. Compare original binding-value residual E/8 with
+computed forward endpoint messages at overlapping postL2 record positions.
+Distinct maps sigmaRaw and sigmaJoin=sigmaRaw², no sameentity outputs. Raw consumer
+hypothesis: hop1/2 and backwardhop3; joined consumer: forwardhop3; hop0control.
+Arms native,identity,mapRaw,mapJoin,mapBoth,removeRaw,removeJoin,removeBoth.
+Mechanical A explicitly separate from semantic B/C/D; exact RMS interactions
+retained, no raw-additivity bar. Do not silently enlarge or rescale failed raw E/8.
+Next integrate managed ops/run_dual_value_field_interchange_v1.py with exported
+program and independent native endpoint-message oracle plus captured prefix
+producer identity. No trained dual-field outcome opened. Default random-layout
+seeds remain unchanged; generator now accepts optional seeds for this fresh test.
+All387968 native constants and derived caches/background remain charged.
+
+Hourly1751 review complete; next18:51. Math1648 remains due19:48.
+The hourly ceremony/latency gate failed: before opening unrelated science, integrate
+the dual-field runner using shared field_intervention_metrics.py (5 CPU controls
+pass) for signed panel metrics and mechanical-only correspondence. This bounded
+scorer repair is implemented; avoid another duplicated perexperiment scorer. Both runners healthy;
+inspect live queue. Goal stays active under bilinear handoff and appended criterion.
+
 ## Active arbitrary-layout endpoint family — 2026-09-09 17:39 UTC
 
 JOIN_ENDPOINT_FIELD_SWAP_V1_RESULT.json passesA/B/C/D in3.49s: all single/joint
