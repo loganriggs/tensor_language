@@ -13,6 +13,7 @@ import sys
 
 
 SOURCE_FACTORS = ("q", "k", "q2", "k2", "u")
+SOURCE_GROUPS = ("changed", "unchanged_prefix", "matched_suffix")
 
 
 def _linear(value, weight, F):
@@ -190,3 +191,101 @@ def source_factor_mobius(native, donor, torch):
 def factor_names(mask):
     """Canonical names for a source-factor bit mask."""
     return tuple(name for index, name in enumerate(SOURCE_FACTORS) if int(mask) & (1 << index))
+
+
+def token_role_partition(base_ids, donor_ids, semantic_position, padded_length, torch, *, device=None):
+    """Partition a paired prompt into changed, unchanged-prefix, and matched-suffix sources."""
+    base_ids, donor_ids = tuple(base_ids), tuple(donor_ids)
+    semantic_position, padded_length = int(semantic_position), int(padded_length)
+    if (len(base_ids) != len(donor_ids) or semantic_position != len(base_ids) - 1
+            or padded_length < len(base_ids)):
+        raise ValueError("paired token rows, semantic endpoint, or padded length are inconsistent")
+    suffix_start = semantic_position
+    while suffix_start > 0 and base_ids[suffix_start - 1] == donor_ids[suffix_start - 1]:
+        suffix_start -= 1
+    groups = torch.zeros(len(SOURCE_GROUPS), padded_length, dtype=torch.bool, device=device)
+    for position in range(semantic_position + 1):
+        if position >= suffix_start:
+            group = "matched_suffix"
+        elif base_ids[position] != donor_ids[position]:
+            group = "changed"
+        else:
+            group = "unchanged_prefix"
+        groups[SOURCE_GROUPS.index(group), position] = True
+    if not groups[SOURCE_GROUPS.index("changed")].any():
+        raise ValueError("paired token rows contain no changed source")
+    if not groups[SOURCE_GROUPS.index("matched_suffix")].any():
+        raise ValueError("paired token rows contain no matched suffix")
+    return groups
+
+
+def batch_token_role_partitions(rows, padded_length, torch, *, device=None):
+    """Build exhaustive source-role masks with shape [batch, 3, source]."""
+    masks = [token_role_partition(
+        row["base_ids"], row["donor_ids"], row["base_semantic_position"],
+        padded_length, torch, device=device,
+    ) for row in rows]
+    return torch.stack(masks)
+
+
+def mixed_grouped_query_source_writes(native, donor, selected, source_groups, torch):
+    """Evaluate an exact factor mixture at all queries, aggregated by source role.
+
+    Q/Q2 have shape [batch, query, head_width], K/K2 have
+    [batch, source, head_width], U has [batch, source, output_width], and
+    source_groups is boolean [batch, group, source]. The result is
+    [batch, query, group, output_width]. Causality is imposed internally.
+    """
+    selected = frozenset(selected)
+    unknown = selected - set(SOURCE_FACTORS)
+    if unknown:
+        raise ValueError(f"unknown source factors: {sorted(unknown)}")
+    required = set(SOURCE_FACTORS)
+    for label, factors in (("native", native), ("donor", donor)):
+        if not required.issubset(factors):
+            raise ValueError(f"{label} factors must contain {sorted(required)}")
+        q, k, q2, k2, u = (factors[name] for name in SOURCE_FACTORS)
+        if (q.ndim != 3 or q2.shape != q.shape or k.ndim != 3 or k2.shape != k.shape
+                or u.ndim != 3 or k.shape[0] != q.shape[0] or k.shape[2] != q.shape[2]
+                or u.shape[:2] != k.shape[:2]):
+            raise ValueError(f"{label} grouped source factor shapes are inconsistent")
+    if any(native[name].shape != donor[name].shape for name in SOURCE_FACTORS):
+        raise ValueError("native and donor grouped source factor shapes differ")
+    batch, queries, width = native["q"].shape
+    sources = native["k"].shape[1]
+    if (source_groups.dtype != torch.bool
+            or tuple(source_groups.shape[:1] + source_groups.shape[2:]) != (batch, sources)
+            or source_groups.device != native["q"].device
+            or any(native[name].device != native["q"].device
+                   or donor[name].device != native["q"].device for name in SOURCE_FACTORS)):
+        raise ValueError("source groups must be boolean [batch,group,source] on the factor device")
+    if (source_groups.sum(1) > 1).any():
+        raise ValueError("source groups overlap")
+    chosen = {
+        name: donor[name] if name in selected else native[name]
+        for name in SOURCE_FACTORS
+    }
+    score1 = torch.einsum("bqd,bsd->bqs", chosen["q"], chosen["k"]) / width
+    score2 = torch.einsum("bqd,bsd->bqs", chosen["q2"], chosen["k2"]) / width
+    causal = torch.arange(sources, device=score1.device)[None, :] \
+        <= torch.arange(queries, device=score1.device)[:, None]
+    terms = ((score1 * score2) * causal).unsqueeze(-1) * chosen["u"].unsqueeze(1)
+    return torch.einsum("bqso,bgs->bqgo", terms, source_groups.to(terms.dtype))
+
+
+def grouped_query_source_factor_mobius(native, donor, source_groups, torch):
+    """Complete 32-cell factor Möbius game after exact source-role aggregation."""
+    values, dividends = {}, {}
+    for mask in range(1 << len(SOURCE_FACTORS)):
+        selected = factor_names(mask)
+        values[mask] = mixed_grouped_query_source_writes(
+            native, donor, selected, source_groups, torch)
+        dividend = values[mask].clone()
+        submask = (mask - 1) & mask
+        while submask:
+            dividend -= dividends[submask]
+            submask = (submask - 1) & mask
+        if mask:
+            dividend -= dividends[0]
+        dividends[mask] = dividend
+    return dividends

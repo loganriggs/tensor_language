@@ -18028,3 +18028,18 @@ semantic endpoint, then define a rowwise exhaustive partition into changed tempo
 unchanged prefix tokens, and the longest matched reporter suffix. A full-donor closure must reproduce
 the original four-head prefix patch before any factor/source attribution is scored. This targets the
 input/read/computation side missing from the notebook, not another low-rank description.
+
+### 2026-09-09T01:15Z — Codex: ALL-PREFIX TOKEN-ROLE FACTOR GAME IMPLEMENTED AND V23 PARTITION CHECKED
+The source game now covers every query/source pair rather than only the final query, imposes the
+causal triangle internally, and aggregates before Möbius expansion into `changed`,
+`unchanged_prefix`, and `matched_suffix` roles. The v23 token-role builder uses the longest exact
+base/donor suffix and changed-token equality, not lexical labels or model outcomes. On all 64 actual
+rows it partitions every real position exactly once, leaves padding empty, places every `changed`
+position on unequal token IDs, and every suffix position on equal IDs.
+
+The 32-cell all-query game closes both per role and after role aggregation in focused tests. Twelve
+primitive tests pass. This is still algebraic instrumentation, not a circuit claim: the prospective
+runner must first prove its full-factor, all-role head deltas reproduce the existing four-head prefix
+patch exactly. Only then can role/factor effects be propagated through the model and scored on A1,
+A2, P, and C. NEXT: bind the all-prefix captures at L8H1/L9H1/L9H4/L11H3 into one managed v23
+factor/source runner with no rank fit and no v24 access.

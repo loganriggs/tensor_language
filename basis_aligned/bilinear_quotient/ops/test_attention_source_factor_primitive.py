@@ -218,3 +218,54 @@ def test_five_factor_source_game_rejects_unknown_factors_and_bad_shapes():
     with pytest.raises(ValueError, match="must contain"):
         primitive.mixed_source_terms(
             {name: value for name, value in native.items() if name != "q2"}, donor, (), torch)
+
+
+def _all_query_fixture():
+    native, donor = _five_factor_fixture()
+    native = {**native, "q": native["q"][:, None].repeat(1, 2, 1),
+              "q2": native["q2"][:, None].repeat(1, 2, 1)}
+    donor = {**donor, "q": donor["q"][:, None].repeat(1, 2, 1),
+             "q2": donor["q2"][:, None].repeat(1, 2, 1)}
+    groups = torch.tensor([[[True, False], [False, True], [False, False]],
+                           [[False, True], [True, False], [False, False]]])
+    return native, donor, groups
+
+
+def test_grouped_all_query_game_is_causal_and_closes_exactly():
+    native, donor, groups = _all_query_fixture()
+    base = primitive.mixed_grouped_query_source_writes(native, donor, (), groups, torch)
+    changed = primitive.mixed_grouped_query_source_writes(
+        native, donor, primitive.SOURCE_FACTORS, groups, torch)
+    # Query zero cannot receive source one, whichever group contains it.
+    assert torch.equal(base[0, 0, 1], torch.zeros_like(base[0, 0, 1]))
+    dividends = primitive.grouped_query_source_factor_mobius(native, donor, groups, torch)
+    reconstructed = sum((dividends[mask] for mask in range(1, 32)), torch.zeros_like(base))
+    assert torch.allclose(reconstructed, changed - base, atol=2e-5, rtol=2e-5)
+    assert torch.allclose(reconstructed.sum(2),
+                          (changed - base).sum(2), atol=2e-5, rtol=2e-5)
+
+
+def test_token_role_partition_covers_actual_v23_rows_without_padding_leakage():
+    import circuit_candidate_tense_auxiliary_is_was_fresh_lexicon_v23 as v23
+
+    rows = v23.build_rows()
+    masks = primitive.batch_token_role_partitions(rows, 9, torch)
+    assert masks.shape == (64, 3, 9)
+    assert not (masks.sum(1) > 1).any()
+    for index, row in enumerate(rows):
+        endpoint = row["base_semantic_position"]
+        assert masks[index, :, :endpoint + 1].sum() == endpoint + 1
+        assert masks[index, :, endpoint + 1:].sum() == 0
+        changed = masks[index, primitive.SOURCE_GROUPS.index("changed")].nonzero().flatten()
+        suffix = masks[index, primitive.SOURCE_GROUPS.index("matched_suffix")].nonzero().flatten()
+        assert all(row["base_ids"][position] != row["donor_ids"][position]
+                   for position in changed.tolist())
+        assert all(row["base_ids"][position] == row["donor_ids"][position]
+                   for position in suffix.tolist())
+
+
+def test_grouped_game_rejects_overlapping_source_roles():
+    native, donor, groups = _all_query_fixture()
+    groups[:, 2] = groups[:, 0]
+    with pytest.raises(ValueError, match="overlap"):
+        primitive.mixed_grouped_query_source_writes(native, donor, (), groups, torch)
