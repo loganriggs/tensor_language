@@ -159,8 +159,8 @@ def main() -> None:
                              "C_damage": cd, "C_ub975": cd["ce_ub975"],
                              "P_damage": pd, "P_ub975": pd["ce_ub975"],
                              "siblings": {s: dmg(sib_held[s], units, q, mu)["ce_damage"] for s in SIBLINGS}}
-            except Exception as err:                               # noqa: BLE001 - recorded, never silently dropped
-                arms[arm] = {"error": f"{type(err).__name__}: {err}"}
+            except Exception as arm_err:                           # noqa: BLE001 - recorded, never silently dropped
+                arms[arm] = {"error": f"{type(arm_err).__name__}: {arm_err}"}
             print(f"[{arm}] {round(time.perf_counter() - t0, 1)}s", flush=True)
         meta = {"units": units, "n_units": len(units), "exact_A1": e_a1, "exact_A2": e_a2}
     except Exception as err:                                       # noqa: BLE001 - recorded, never silently dropped
