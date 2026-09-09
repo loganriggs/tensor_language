@@ -94,7 +94,55 @@ This is a decision about an intervention interface, not a rank-compression
 proposal. Materializing A adds 541,696 numerical values; no native coefficients
 are removed, and we do not adopt the expanded representation.
 
-The next relevant distinction is whether record dependence reaches the native
-output or can disappear downstream. A function-only abstraction would predict
-identical outputs after answer-preserving record permutations. That requires
-a full-output test; the summary obstruction alone does not establish it.
+## Record dependence reaches the full query distribution
+
+The [full-output test](../RECORD_ORDER_OUTPUT_INVARIANCE_V1_RESULT.json) now
+completes2.49s on all3072 opened original/reordered pairs. Native/export full
+outputs agree1.42e-13, saved original queries replay, and the token contract
+preserves the represented function and query suffix. Mechanical predictions
+A/C pass; the function-only invariance prediction B fails.
+
+For an invariant predictor r shared by the original and reordered query, the
+paired teacher KL obeys
+
+    .5 KL(p||r) + .5 KL(q||r) = JS(p,q) + KL((p+q)/2 || r).
+
+Thus JS is an attainable lower bound for a single pair, potentially weaker
+than a globally consistent invariant model's optimum. The existing paired-bound
+implementation and controls are reused with identity vocabulary alignment.
+The earlier [entity-symmetry derivation](entity_symmetry_fidelity_bound.md)
+gives the same identity with an additional label alignment; there is none here.
+
+| Population | Reordering | Hop3 paired mean query-KL floor | Argmax disagreements /192 |
+| --- | --- | ---: | ---: |
+| IID | First two records swapped | .005156 | 0 |
+| IID | One-record cyclic shift | .009056 | 3 |
+| OOD three8cycles | First two records swapped | .011555 | 6 |
+| OOD three8cycles | One-record cyclic shift | .019661 | 8 |
+
+Every hop3 group exceeds the registered .001 bound. Additional failures are
+IID cyclic-shift hop2 (.001606) and OOD first-two-swap hop1 (.002946).
+Other groups are not ruled out by this bound; that does not confirm invariance.
+There are19 argmax disagreements across all3072 pairs. These query-only,
+group-specific bounds must not be called all-token mean-KL impossibility.
+
+The [complete correctness census](../RECORD_ORDER_FAILURE_CENSUS_V1.json)
+retains every pair and replays all saved radii exactly. Both-correct pairs
+alone contribute .005136/.006520 IID and .005097/.003292 OOD to the four
+hop3 group means, each still above .001. This is not a filtered replacement
+benchmark: the contributions retain the original192-pair denominator. Errors
+matter, particularly for the OOD shift, but are not the sole obstruction.
+
+We consequently close the function-only output abstraction without record-order
+inputs. This does not reject decompositions with explicit positional operations,
+nor is it an impossibility result for a nonlinear model that retains order.
+All387968 native coefficients remain charged and no surrogate is adopted.
+
+The next [summary mediation experiment](../SUMMARY_LAYOUT_MEDIATION_V1_PREREGISTRATION.md)
+crosses the original/reordered binding prefix with the original/reordered
+document summary at the first layer. Its14 controls pass independent native
+correspondence for allfour cells, unchanged local query inputs, live paths,
+mixed effects and restored hooks. The hypothesis is that summary-only transfer
+predicts the complete order-dependent query effect. Prefix-only and interaction
+terms are diagnostics, not fallback candidates if that hypothesis fails.
+Managed trained-model integration remains unfinished.

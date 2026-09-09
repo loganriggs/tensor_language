@@ -53,6 +53,41 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Record order affects outputs; summary mediation active — 2026-09-09 19:59 UTC
+
+The bilinear circuit reconstruction handoff and appended structural criterion
+remain controlling. Previous turn progressed by executing the registered
+RECORD_ORDER_OUTPUT_INVARIANCE_V1:2.49s managedGPU, A/C true, B false,
+native/export1.42e-13. Across3072 opened pairs, hop3 paired-query KL floors
+are .005156/.009056 IID and .011555/.019661 OOD for record swap/cyclic shift.
+These reject a function-only predictor without record-order inputs at the
+registered .001 per-group paired-query bar. They are not all-token bounds.
+No head/task/adapter rescue and no newly held-out-data claim.
+
+RECORD_ORDER_FAILURE_CENSUS_V1 CPU audit retains every pair, exact saved-radius
+replay0. Both-correct pairs alone contribute .003292–.006520 to all four hop3
+group means using the original denominators, so rare errors do not explain
+the entire obstruction.19 argmax disagreements across3072 pairs. Full proof,
+table and scope: explanations/summary_record_transport.md.
+
+Active successor SUMMARY_LAYOUT_MEDIATION_V1_PREREGISTRATION.md and
+summary_layout_mediation_reference.py,14 CPU controls pass. Cross original/donor
+binding prefix with original/donor first-layer document summary, then execute
+the live suffix. Local query inputs are identical. The independent native hook
+uses the donor's native first-layer final-query state, matching a summary-only
+swap because local terms agree. Allfour cells, mixed effects, live paths and
+restored hooks validate. Test whether summary-only transfer predicts full
+record-order query effect to1% and donorquery KL<=.001,p99<=.01 in every group.
+Prefix-only remains diagnostic. All387968 native coefficients stay charged.
+
+Next implement managed ops/run_summary_layout_mediation_v1.py on all3072 opened
+pairs using the existing initializer executor/scorer and saved native endpoints.
+It is not yet queued. The last output-test enqueue initially failed the required
+three-prediction-label gate; existing saved-native replay was exposed as C before
+model execution, with no scientific threshold change. Preserve that receipt.
+Both runners healthy; inspect current shared queue before enqueue. Clocks remain
+hourly20:51 and mathematical22:49. Overall structural circuit goal is unfinished.
+
 ## Controlling handoff and current continuation — 2026-09-09 19:53 UTC
 
 Follow `basis_aligned/polynomial_causal/explanations/bilinear_circuit_reconstruction_codex_handoff.md`
