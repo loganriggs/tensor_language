@@ -107,7 +107,8 @@ def batch_destination_partitions(base_batch, donor_batch, destinations):
     return tuple(output)
 
 
-def _attention_terms(backend, attention, current, v1):
+def attention_factor_terms(backend, attention, current, v1):
+    """Replay full attention and expose normalized/rotary Q/K factors."""
     heads = backend.model.config.n_head
     head_dim = backend.model.config.n_embd // heads
     batch, length, _width = current.shape
@@ -146,10 +147,18 @@ def _attention_terms(backend, attention, current, v1):
         pattern, value,
         "... n_head seq_q seq_k, ... seq_k n_head d_head -> ... n_head seq_q d_head",
     ).transpose(1, 2)
-    return pattern, value, head_output
+    return {
+        "q": query, "k": key, "q2": query2, "k2": key2,
+        "value": value, "pattern": pattern, "head_output": head_output,
+    }
 
 
-def capture_layer_attention(backend, batch, layer, *, call=None):
+def _attention_terms(backend, attention, current, v1):
+    factors = attention_factor_terms(backend, attention, current, v1)
+    return factors["pattern"], factors["value"], factors["head_output"]
+
+
+def capture_layer_attention(backend, batch, layer, *, call=None, include_qk_factors=False):
     layer = int(layer)
     if not 0 <= layer < len(backend.model.transformer.h):
         raise AttentionSourceDestinationError("attention layer is invalid")
@@ -159,10 +168,13 @@ def capture_layer_attention(backend, batch, layer, *, call=None):
     def capture_inputs(_module, arguments):
         current = arguments[0]
         v1 = arguments[1] if len(arguments) > 1 else None
-        pattern, value, reconstructed = _attention_terms(backend, attention, current, v1)
-        captured["pattern"] = pattern.detach().clone()
-        captured["value"] = value.detach().clone()
-        captured["reconstructed"] = reconstructed.detach().clone()
+        factors = attention_factor_terms(backend, attention, current, v1)
+        captured["pattern"] = factors["pattern"].detach().clone()
+        captured["value"] = factors["value"].detach().clone()
+        captured["reconstructed"] = factors["head_output"].detach().clone()
+        if include_qk_factors:
+            for name in ("q", "k", "q2", "k2"):
+                captured[name] = factors[name].detach().clone()
 
     def capture_native(_module, arguments):
         flattened = arguments[0]
@@ -181,7 +193,10 @@ def capture_layer_attention(backend, batch, layer, *, call=None):
     finally:
         for handle in handles:
             handle.remove()
-    if set(captured) != {"pattern", "value", "reconstructed", "head_output"}:
+    expected = {"pattern", "value", "reconstructed", "head_output"}
+    if include_qk_factors:
+        expected |= {"q", "k", "q2", "k2"}
+    if set(captured) != expected:
         raise AttentionSourceDestinationError("attention source capture is incomplete")
     captured["reconstruction_max_abs"] = float(
         (captured["reconstructed"].float() - captured["head_output"].float()).abs().max()

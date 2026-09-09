@@ -5,6 +5,7 @@ import torch.nn.functional as F
 import pytest
 
 import attention_source_factor_primitive as primitive
+import attention_source_destination_eval as attention_eval
 
 
 def apply_rotary_emb(value, _cos, _sin):
@@ -22,7 +23,8 @@ class FakeAttention:
         self.lamb = .25
 
     def rotary(self, value):
-        return torch.ones_like(value), torch.zeros_like(value)
+        half = value[..., :value.shape[-1] // 2]
+        return torch.ones_like(half), torch.zeros_like(half)
 
 
 def test_source_term_is_exact_score_times_projected_value():
@@ -269,3 +271,24 @@ def test_grouped_game_rejects_overlapping_source_roles():
     groups[:, 2] = groups[:, 0]
     with pytest.raises(ValueError, match="overlap"):
         primitive.mixed_grouped_query_source_writes(native, donor, (), groups, torch)
+
+
+def test_public_attention_factor_replay_exposes_exact_full_query_factors():
+    generator = torch.Generator().manual_seed(23)
+    batch, length, width, heads, head_width = 2, 4, 18, 9, 2
+    attention = FakeAttention(width)
+    attention.squared_attn = True
+    for layer in (attention.c_q, attention.c_k, attention.c_q2,
+                  attention.c_k2, attention.c_v, attention.c_proj):
+        layer.weight.data.copy_(torch.randn(layer.weight.shape, generator=generator))
+    state = torch.randn(batch, length, width, generator=generator)
+    first = torch.randn(batch, length, heads, head_width, generator=generator)
+    config = type("Config", (), {"n_head": heads, "n_embd": width})()
+    model = type("Model", (), {"config": config})()
+    backend = type("Backend", (), {"model": model})()
+    factors = attention_eval.attention_factor_terms(backend, attention, state, first)
+    assert set(factors) == {"q", "k", "q2", "k2", "value", "pattern", "head_output"}
+    expected = torch.einsum("bhqs,bshd->bqhd", factors["pattern"], factors["value"])
+    assert torch.allclose(factors["head_output"], expected, atol=1e-5, rtol=1e-5)
+    for name in ("q", "k", "q2", "k2", "value"):
+        assert factors[name].shape == (batch, length, heads, head_width)

@@ -1,0 +1,25 @@
+{
+  "candidate_id": "cross_task.temporal_iswas.v23_four_head_input_factor_source_atlas_v1",
+  "created_utc": "2026-09-09T01:17:00Z",
+  "decision": "novel_source_resolved_extension",
+  "nearest_prior_work": [
+    {
+      "artifact": "circuits/followups/temporal_iswas_v15_aligned_attention_pattern_value_factorial_v1_retry1_result.json",
+      "difference": "valid aggregate pattern/value/interaction factorial was null; it did not split Q1/K1/Q2/K2 or token-source roles"
+    },
+    {
+      "artifact": "circuits/followups/temporal_iswas_l11h3_task_typed_source_qk_factorial_v2_result.json",
+      "difference": "older task-typed L11H3 routing result did not test the v23 four-head circuit, actual v23 token groups, or all-prefix union closure"
+    },
+    {
+      "artifact": "circuits/followups/temporal_iswas_v23_aligned_four_head_reader_contracted_confirmation_v1_result.json",
+      "difference": "identified full head-output writers but did not decompose their input routing or token sources"
+    }
+  ],
+  "forbidden_claims": [
+    "a source attribution is a directed upstream circuit edge without a reciprocal intervention",
+    "a QK or value factor is semantic merely because its Shapley allocation is large",
+    "v23 input attribution establishes v24 construction transfer",
+    "the four-head interface is a standalone token-to-logit program"
+  ]
+}
