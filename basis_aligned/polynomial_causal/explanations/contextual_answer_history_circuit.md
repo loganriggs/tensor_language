@@ -133,3 +133,26 @@ This rejects both a one-sided rescue and independent-error accounting. Receipt:
 `HOP_STATE_FACTORIAL_V1_RESULT.json`; this is diagnostic reuse, not fresh confirmation.
 The next object is the actual upstream producer dependency, not another semantic
 state vocabulary inferred from a sensitivity screen.
+
+## Which upstream producer supplies the final retrieval factors?
+
+`UPSTREAM_PRODUCER_FACTOR_V1_RESULT.json` is a valid15-path/3-joint atlas on128 fresh
+documents, with all native projection/full-forward reassembly within1.25e-14. The
+MLP contribution dominates: removing its K1/K2/V inputs loses .859–.957 repeated
+higher-hop gold probability and .567–.671 novel-hop1 probability. In comparison,
+removing direct embedding/first-attention inputs usually changes these probabilities
+by less than .03. Thus the MLP supplies both lookup uses, not a selective single
+reader path. Zero pairs pass the registered target/control criteria; A/D true,B/C false.
+
+These are normalized reader-edge cuts: the original final RMS gain is still computed
+from the complete live residual. They are not upstream MLP removals. All4 heads and
+positions were included without selection. Joint all-reader effects cannot be added
+from singleton effects: relative errors .226–.228 for embedding,1.218–1.221 for
+attention and2.627–2.638 for MLP. The complete coupled product must remain.
+
+The successor HOP_MLP_TOKEN_CONTEXT_V1 tests the MLP's known token-token/mixed/
+context-context terms on fresh lookup documents, with actual recomputation of the
+final normalization. It reuses the algebra documented in the older
+MLP0_TOKEN_CONTEXT_TENSOR_FACTORIAL_FINDINGS.md; no rediscovery of that identity is
+claimed. The new issue is whether mixed token/context dependence is necessary and
+sufficient for both source-defined lookup uses. All original coefficients count.

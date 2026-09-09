@@ -53,6 +53,19 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Latest result and continuation — 2026-09-09 15:02 UTC
+
+UPSTREAM_PRODUCER_FACTOR_V1_RESULT.json is a valid null for selective paths (A/D
+true,B/C false). The MLP supplies dominant final Q/K/V inputs for both repeated
+higher-hop history and fresh hop1 lookup; no one of15 reader paths is selective.
+Joint-reader effects are strongly nonadditive. These cuts preserve the native live
+RMS gain and are not upstream state removals. Report is contextual_answer_history_circuit.md.
+Active successor: HOP_MLP_TOKEN_CONTEXT_V1_PREREGISTRATION.md, hop_mlp_terms_reference.py,
+and managed ops/run_hop_mlp_token_context_v1.py. Eleven CPU controls pass. It reuses
+known TT/X/CC algebra to test source-defined lookup sufficiency and all8 true term
+interventions with downstream normalization recomputed. Inspect queue/result before
+action. Review clocks remain1449/1348, due1549/1648. Full goal remains active.
+
 ## Latest restart delta — 2026-09-09 14:49 UTC
 
 Strategic review is now HOURLY_STRATEGIC_REVIEW_2026-09-09_1449.md (next15:49 UTC).

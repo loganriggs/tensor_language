@@ -1,0 +1,942 @@
+{
+  "experiment": "upstream_producer_factor_v1",
+  "runner_sha256": "1d94ac028e389a8b1e81afaed940e636fa4321cadaa89fecccd78ea4ed40e1d6",
+  "bound_sha256": "30b7f28ba71fc227969331492f8f11445b4c25ac885d994e39cb0c5919cde674",
+  "checkpoint_sha256": "02a3f0e793849899629af95d88be4f60b5ff1b42ee39116cb2a7d8512cb212ff",
+  "controls": {
+    "passed": true,
+    "checks": {
+      "normalized_reassembly": true,
+      "reassembled_q1": true,
+      "reassembled_k1": true,
+      "reassembled_q2": true,
+      "reassembled_k2": true,
+      "reassembled_v": true,
+      "native_forward": true,
+      "cut_E_1": true,
+      "cut_E_5": true,
+      "cut_A_1": true,
+      "cut_A_5": true,
+      "cut_M_1": true,
+      "cut_M_5": true,
+      "live_producers": true,
+      "causal_cut": true
+    }
+  },
+  "scope": "normalized reader-edge cuts with native live RMS gain; not upstream state removal",
+  "populations": {
+    "iid": {
+      "groups": {
+        "high_repeated": {
+          "n": 337,
+          "native_gold_probability": 0.9996279301292582,
+          "native_accuracy": 1.0,
+          "arms": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 1.0
+            },
+            "E_q1": {
+              "gold_probability_loss": 0.00605303037049244,
+              "accuracy": 1.0
+            },
+            "E_k1": {
+              "gold_probability_loss": 7.927325155958594e-06,
+              "accuracy": 1.0
+            },
+            "E_q2": {
+              "gold_probability_loss": -0.00026240256954131294,
+              "accuracy": 1.0
+            },
+            "E_k2": {
+              "gold_probability_loss": -8.590855935583582e-06,
+              "accuracy": 1.0
+            },
+            "E_v": {
+              "gold_probability_loss": 0.00014581609294934248,
+              "accuracy": 1.0
+            },
+            "A_q1": {
+              "gold_probability_loss": 0.0005864278280970543,
+              "accuracy": 1.0
+            },
+            "A_k1": {
+              "gold_probability_loss": 0.0001415137162523958,
+              "accuracy": 1.0
+            },
+            "A_q2": {
+              "gold_probability_loss": 0.025120653027769158,
+              "accuracy": 1.0
+            },
+            "A_k2": {
+              "gold_probability_loss": 4.074436655131279e-05,
+              "accuracy": 1.0
+            },
+            "A_v": {
+              "gold_probability_loss": -6.051027414677017e-06,
+              "accuracy": 1.0
+            },
+            "M_q1": {
+              "gold_probability_loss": 0.20588166654496903,
+              "accuracy": 0.9703264094955489
+            },
+            "M_k1": {
+              "gold_probability_loss": 0.9196520866398458,
+              "accuracy": 0.8635014836795252
+            },
+            "M_q2": {
+              "gold_probability_loss": 0.7789805536862118,
+              "accuracy": 0.5786350148367952
+            },
+            "M_k2": {
+              "gold_probability_loss": 0.9573803104458879,
+              "accuracy": 0.14540059347181009
+            },
+            "M_v": {
+              "gold_probability_loss": 0.9279091373202842,
+              "accuracy": 0.712166172106825
+            },
+            "E_joint": {
+              "gold_probability_loss": 0.0021987272468939685,
+              "accuracy": 1.0
+            },
+            "A_joint": {
+              "gold_probability_loss": 0.04189870055693076,
+              "accuracy": 0.9970326409495549
+            },
+            "M_joint": {
+              "gold_probability_loss": 0.9567272402401598,
+              "accuracy": 0.03857566765578635
+            }
+          }
+        },
+        "high_novel": {
+          "n": 1189,
+          "native_gold_probability": 0.0582372981833316,
+          "native_accuracy": 0.0656013456686291,
+          "arms": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.0656013456686291
+            },
+            "E_q1": {
+              "gold_probability_loss": 0.00022403472524859722,
+              "accuracy": 0.05971404541631623
+            },
+            "E_k1": {
+              "gold_probability_loss": 0.00017880150714792936,
+              "accuracy": 0.07653490328006729
+            },
+            "E_q2": {
+              "gold_probability_loss": 0.0014565355015165734,
+              "accuracy": 0.05887300252312868
+            },
+            "E_k2": {
+              "gold_probability_loss": -7.366294266475451e-06,
+              "accuracy": 0.06980656013456686
+            },
+            "E_v": {
+              "gold_probability_loss": -9.624949510232588e-05,
+              "accuracy": 0.07401177460050462
+            },
+            "A_q1": {
+              "gold_probability_loss": 0.00010165348934978575,
+              "accuracy": 0.054667788057190914
+            },
+            "A_k1": {
+              "gold_probability_loss": -3.7194792758053386e-05,
+              "accuracy": 0.0672834314550042
+            },
+            "A_q2": {
+              "gold_probability_loss": 0.000808443299747376,
+              "accuracy": 0.06644238856181665
+            },
+            "A_k2": {
+              "gold_probability_loss": 8.013313349202122e-05,
+              "accuracy": 0.07064760302775441
+            },
+            "A_v": {
+              "gold_probability_loss": 0.00015384350902746652,
+              "accuracy": 0.054667788057190914
+            },
+            "M_q1": {
+              "gold_probability_loss": 0.006149768030181759,
+              "accuracy": 0.04878048780487805
+            },
+            "M_k1": {
+              "gold_probability_loss": 0.012115759992293296,
+              "accuracy": 0.04625735912531539
+            },
+            "M_q2": {
+              "gold_probability_loss": 0.005608029107944615,
+              "accuracy": 0.0479394449116905
+            },
+            "M_k2": {
+              "gold_probability_loss": 0.012616433618309277,
+              "accuracy": 0.034482758620689655
+            },
+            "M_v": {
+              "gold_probability_loss": 0.012407040464108142,
+              "accuracy": 0.05382674516400336
+            },
+            "E_joint": {
+              "gold_probability_loss": 0.0021287766519524076,
+              "accuracy": 0.05550883095037847
+            },
+            "A_joint": {
+              "gold_probability_loss": 0.0014584542022415894,
+              "accuracy": 0.061396131202691336
+            },
+            "M_joint": {
+              "gold_probability_loss": 0.015142578463371166,
+              "accuracy": 0.04625735912531539
+            }
+          }
+        },
+        "hop1_novel": {
+          "n": 618,
+          "native_gold_probability": 0.7213662295251415,
+          "native_accuracy": 0.7313915857605178,
+          "arms": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.7313915857605178
+            },
+            "E_q1": {
+              "gold_probability_loss": 0.007383532624324851,
+              "accuracy": 0.7411003236245954
+            },
+            "E_k1": {
+              "gold_probability_loss": 0.001192439839226292,
+              "accuracy": 0.7362459546925566
+            },
+            "E_q2": {
+              "gold_probability_loss": 0.006191465148745011,
+              "accuracy": 0.7475728155339806
+            },
+            "E_k2": {
+              "gold_probability_loss": 0.0009978913627647142,
+              "accuracy": 0.7249190938511327
+            },
+            "E_v": {
+              "gold_probability_loss": 0.004023599307585101,
+              "accuracy": 0.7216828478964401
+            },
+            "A_q1": {
+              "gold_probability_loss": 0.008329081223735029,
+              "accuracy": 0.7184466019417476
+            },
+            "A_k1": {
+              "gold_probability_loss": 0.0017536089026902854,
+              "accuracy": 0.7297734627831716
+            },
+            "A_q2": {
+              "gold_probability_loss": 0.009418134574770299,
+              "accuracy": 0.7055016181229773
+            },
+            "A_k2": {
+              "gold_probability_loss": 0.003833098501017834,
+              "accuracy": 0.7249190938511327
+            },
+            "A_v": {
+              "gold_probability_loss": -0.0006181114170283689,
+              "accuracy": 0.7362459546925566
+            },
+            "M_q1": {
+              "gold_probability_loss": 0.574344391941576,
+              "accuracy": 0.25080906148867316
+            },
+            "M_k1": {
+              "gold_probability_loss": 0.6688825988285324,
+              "accuracy": 0.043689320388349516
+            },
+            "M_q2": {
+              "gold_probability_loss": 0.6016889264290607,
+              "accuracy": 0.18608414239482202
+            },
+            "M_k2": {
+              "gold_probability_loss": 0.6705771551719346,
+              "accuracy": 0.042071197411003236
+            },
+            "M_v": {
+              "gold_probability_loss": 0.6529867455581869,
+              "accuracy": 0.05339805825242718
+            },
+            "E_joint": {
+              "gold_probability_loss": 0.02624163801741706,
+              "accuracy": 0.7330097087378641
+            },
+            "A_joint": {
+              "gold_probability_loss": 0.02012011542813765,
+              "accuracy": 0.7038834951456311
+            },
+            "M_joint": {
+              "gold_probability_loss": 0.6781980088198056,
+              "accuracy": 0.040453074433656956
+            }
+          }
+        }
+      },
+      "passing_paths": [],
+      "joint_additivity": {
+        "E": {
+          "target_rms": 1.092277690421526,
+          "error_rms": 0.24663748871989927,
+          "relative_l2": 0.22580108600837417,
+          "passed": false
+        },
+        "A": {
+          "target_rms": 2.4183577101651736,
+          "error_rms": 2.9452525763429587,
+          "relative_l2": 1.2178730069431285,
+          "passed": false
+        },
+        "M": {
+          "target_rms": 3.253700902848352,
+          "error_rms": 8.583163187891657,
+          "relative_l2": 2.6379693291346453,
+          "passed": false
+        }
+      },
+      "centered_effect_rms": {
+        "E_q1": 0.5809636748505703,
+        "E_k1": 0.061923902165517165,
+        "E_q2": 0.6436570623626257,
+        "E_k2": 0.13641795834733883,
+        "E_v": 0.3330273558780474,
+        "A_q1": 2.2121782799439034,
+        "A_k1": 0.47530417212031756,
+        "A_q2": 2.27992338872253,
+        "A_k2": 0.5269117381280868,
+        "A_v": 0.23763462954797043,
+        "M_q1": 1.7467209563612096,
+        "M_k1": 2.9207366071673553,
+        "M_q2": 1.7335083132327749,
+        "M_k2": 2.885016414393759,
+        "M_v": 3.0430570184493697,
+        "E_joint": 1.092277690421526,
+        "A_joint": 2.4183577101651736,
+        "M_joint": 3.2537009028483515
+      },
+      "full_distribution_changes": {
+        "native": {
+          "mean_kl": 0.0,
+          "p99_kl": 0.0,
+          "max_kl": 0.0,
+          "max_abs_logit": 0.0,
+          "top1_agreement": 1.0,
+          "passed": true
+        },
+        "E_q1": {
+          "mean_kl": 0.002922935109521781,
+          "p99_kl": 0.048471195723837415,
+          "max_kl": 1.3684792740846734,
+          "max_abs_logit": 20.570958410409176,
+          "top1_agreement": 0.9414225941422594,
+          "passed": false
+        },
+        "E_k1": {
+          "mean_kl": 0.0002626496328032169,
+          "p99_kl": 0.004562094587585071,
+          "max_kl": 0.028803946212910304,
+          "max_abs_logit": 3.0538798950908586,
+          "top1_agreement": 0.9742416317991632,
+          "passed": true
+        },
+        "E_q2": {
+          "mean_kl": 0.003421577525171032,
+          "p99_kl": 0.07030134455803352,
+          "max_kl": 0.9054634928198171,
+          "max_abs_logit": 21.899811683490096,
+          "top1_agreement": 0.9450836820083682,
+          "passed": false
+        },
+        "E_k2": {
+          "mean_kl": 0.00024852699692436565,
+          "p99_kl": 0.004741422829561238,
+          "max_kl": 0.08150861110148384,
+          "max_abs_logit": 5.982639198573793,
+          "top1_agreement": 0.9869900627615062,
+          "passed": true
+        },
+        "E_v": {
+          "mean_kl": 0.0011759877668398944,
+          "p99_kl": 0.018669318520306826,
+          "max_kl": 0.19278339314539433,
+          "max_abs_logit": 11.544296957390344,
+          "top1_agreement": 0.952928870292887,
+          "passed": false
+        },
+        "A_q1": {
+          "mean_kl": 0.381313561792646,
+          "p99_kl": 13.007491147048682,
+          "max_kl": 29.989382583037532,
+          "max_abs_logit": 164.72545159912124,
+          "top1_agreement": 0.8918671548117155,
+          "passed": false
+        },
+        "A_k1": {
+          "mean_kl": 0.0005986394169947052,
+          "p99_kl": 0.009079005071809613,
+          "max_kl": 0.10300960450596988,
+          "max_abs_logit": 20.47847826476746,
+          "top1_agreement": 0.9653504184100419,
+          "passed": true
+        },
+        "A_q2": {
+          "mean_kl": 0.3993084225776184,
+          "p99_kl": 13.525957634894585,
+          "max_kl": 29.61670747766317,
+          "max_abs_logit": 167.67039160652652,
+          "top1_agreement": 0.8945475941422594,
+          "passed": false
+        },
+        "A_k2": {
+          "mean_kl": 0.0006345272362497069,
+          "p99_kl": 0.01174010622696026,
+          "max_kl": 0.27081756583703076,
+          "max_abs_logit": 26.014485230510815,
+          "top1_agreement": 0.977706589958159,
+          "passed": false
+        },
+        "A_v": {
+          "mean_kl": 0.0009220649697362098,
+          "p99_kl": 0.016516147176150842,
+          "max_kl": 0.14958129941822443,
+          "max_abs_logit": 13.633693121841276,
+          "top1_agreement": 0.9539095188284519,
+          "passed": false
+        },
+        "M_q1": {
+          "mean_kl": 0.24512475915921056,
+          "p99_kl": 4.722933098442651,
+          "max_kl": 18.803148744586803,
+          "max_abs_logit": 61.21776651179476,
+          "top1_agreement": 0.8180570083682008,
+          "passed": false
+        },
+        "M_k1": {
+          "mean_kl": 0.46823811372070395,
+          "p99_kl": 6.2357306522577876,
+          "max_kl": 22.84424449345107,
+          "max_abs_logit": 161.01824865616464,
+          "top1_agreement": 0.7737316945606695,
+          "passed": false
+        },
+        "M_q2": {
+          "mean_kl": 0.24839539002585712,
+          "p99_kl": 3.8685635668645424,
+          "max_kl": 10.440969247837323,
+          "max_abs_logit": 64.39871481373221,
+          "top1_agreement": 0.8201490585774058,
+          "passed": false
+        },
+        "M_k2": {
+          "mean_kl": 0.4445891316824762,
+          "p99_kl": 5.310133663684211,
+          "max_kl": 18.63145609067788,
+          "max_abs_logit": 149.58489225963893,
+          "top1_agreement": 0.7574529288702929,
+          "passed": false
+        },
+        "M_v": {
+          "mean_kl": 0.5911875150370771,
+          "p99_kl": 10.873947497344146,
+          "max_kl": 28.180440126189765,
+          "max_abs_logit": 164.01209469012997,
+          "top1_agreement": 0.7592834728033473,
+          "passed": false
+        },
+        "E_joint": {
+          "mean_kl": 0.008837701467729225,
+          "p99_kl": 0.15564083116037947,
+          "max_kl": 1.6048938826152654,
+          "max_abs_logit": 34.90420345777454,
+          "top1_agreement": 0.9211558577405857,
+          "passed": false
+        },
+        "A_joint": {
+          "mean_kl": 0.491543576665229,
+          "p99_kl": 15.487924151043979,
+          "max_kl": 31.146972350994616,
+          "max_abs_logit": 172.26138143759903,
+          "top1_agreement": 0.8689853556485355,
+          "passed": false
+        },
+        "M_joint": {
+          "mean_kl": 0.8087946433238193,
+          "p99_kl": 15.329315849004377,
+          "max_kl": 30.721646906519492,
+          "max_abs_logit": 172.4767745854515,
+          "top1_agreement": 0.7342442468619247,
+          "passed": false
+        }
+      },
+      "exact": true,
+      "max_reassembly_error": 1.2434497875801753e-14,
+      "token_sha256": "84c0c323a901624b7ca8d310e0749038897c5fcd3525a4bc629379c9c8682fcb"
+    },
+    "ood_short_cycles": {
+      "groups": {
+        "high_repeated": {
+          "n": 305,
+          "native_gold_probability": 0.9285901188112595,
+          "native_accuracy": 0.940983606557377,
+          "arms": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.940983606557377
+            },
+            "E_q1": {
+              "gold_probability_loss": 0.020713212355208198,
+              "accuracy": 0.940983606557377
+            },
+            "E_k1": {
+              "gold_probability_loss": -0.0006133809767690748,
+              "accuracy": 0.9442622950819672
+            },
+            "E_q2": {
+              "gold_probability_loss": -0.02345716130696091,
+              "accuracy": 0.9770491803278688
+            },
+            "E_k2": {
+              "gold_probability_loss": -0.001192189194075245,
+              "accuracy": 0.9475409836065574
+            },
+            "E_v": {
+              "gold_probability_loss": -0.0006287507019024511,
+              "accuracy": 0.9475409836065574
+            },
+            "A_q1": {
+              "gold_probability_loss": -0.0001486573186721684,
+              "accuracy": 0.9442622950819672
+            },
+            "A_k1": {
+              "gold_probability_loss": -0.003088825188151684,
+              "accuracy": 0.9475409836065574
+            },
+            "A_q2": {
+              "gold_probability_loss": 0.026986689398385236,
+              "accuracy": 0.9311475409836065
+            },
+            "A_k2": {
+              "gold_probability_loss": -0.005554133197123664,
+              "accuracy": 0.9475409836065574
+            },
+            "A_v": {
+              "gold_probability_loss": -0.0003662828982188947,
+              "accuracy": 0.9442622950819672
+            },
+            "M_q1": {
+              "gold_probability_loss": 0.21799359083597114,
+              "accuracy": 0.8918032786885246
+            },
+            "M_k1": {
+              "gold_probability_loss": 0.858746142127495,
+              "accuracy": 0.8131147540983606
+            },
+            "M_q2": {
+              "gold_probability_loss": 0.734186711918902,
+              "accuracy": 0.5311475409836065
+            },
+            "M_k2": {
+              "gold_probability_loss": 0.887925364410919,
+              "accuracy": 0.15737704918032788
+            },
+            "M_v": {
+              "gold_probability_loss": 0.8647682201304182,
+              "accuracy": 0.659016393442623
+            },
+            "E_joint": {
+              "gold_probability_loss": -0.008293248320222107,
+              "accuracy": 0.9704918032786886
+            },
+            "A_joint": {
+              "gold_probability_loss": 0.034714276001664615,
+              "accuracy": 0.9442622950819672
+            },
+            "M_joint": {
+              "gold_probability_loss": 0.8885331761337647,
+              "accuracy": 0.04590163934426229
+            }
+          }
+        },
+        "high_novel": {
+          "n": 1181,
+          "native_gold_probability": 0.0515176934601253,
+          "native_accuracy": 0.04657070279424217,
+          "arms": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.04657070279424217
+            },
+            "E_q1": {
+              "gold_probability_loss": 0.0002563479849925414,
+              "accuracy": 0.04995766299745978
+            },
+            "E_k1": {
+              "gold_probability_loss": 1.4288048870848585e-05,
+              "accuracy": 0.05842506350550381
+            },
+            "E_q2": {
+              "gold_probability_loss": 0.001473623947027768,
+              "accuracy": 0.04233700254022015
+            },
+            "E_k2": {
+              "gold_probability_loss": 1.1147957098750106e-05,
+              "accuracy": 0.05080440304826418
+            },
+            "E_v": {
+              "gold_probability_loss": 0.00010707989927830704,
+              "accuracy": 0.05249788314987299
+            },
+            "A_q1": {
+              "gold_probability_loss": 0.00010351917833027078,
+              "accuracy": 0.057578323454699404
+            },
+            "A_k1": {
+              "gold_probability_loss": 7.139629674325806e-05,
+              "accuracy": 0.04995766299745978
+            },
+            "A_q2": {
+              "gold_probability_loss": 0.00010717919350913017,
+              "accuracy": 0.06943268416596104
+            },
+            "A_k2": {
+              "gold_probability_loss": 8.548525815498488e-05,
+              "accuracy": 0.04911092294665537
+            },
+            "A_v": {
+              "gold_probability_loss": -0.00022000794736452012,
+              "accuracy": 0.0558848433530906
+            },
+            "M_q1": {
+              "gold_probability_loss": 0.003873090182155566,
+              "accuracy": 0.04318374259102455
+            },
+            "M_k1": {
+              "gold_probability_loss": 0.008726213402846307,
+              "accuracy": 0.04403048264182896
+            },
+            "M_q2": {
+              "gold_probability_loss": 0.0032193943848781007,
+              "accuracy": 0.04995766299745978
+            },
+            "M_k2": {
+              "gold_probability_loss": 0.009155014724980225,
+              "accuracy": 0.03217612193056731
+            },
+            "M_v": {
+              "gold_probability_loss": 0.008859614055082905,
+              "accuracy": 0.04995766299745978
+            },
+            "E_joint": {
+              "gold_probability_loss": 0.0016286696190345629,
+              "accuracy": 0.04487722269263336
+            },
+            "A_joint": {
+              "gold_probability_loss": 0.00022955208336608145,
+              "accuracy": 0.05419136325148179
+            },
+            "M_joint": {
+              "gold_probability_loss": 0.011123266259136655,
+              "accuracy": 0.04826418289585097
+            }
+          }
+        },
+        "hop1_novel": {
+          "n": 624,
+          "native_gold_probability": 0.63574571830522,
+          "native_accuracy": 0.6362179487179487,
+          "arms": {
+            "native": {
+              "gold_probability_loss": 0.0,
+              "accuracy": 0.6362179487179487
+            },
+            "E_q1": {
+              "gold_probability_loss": -0.0005717136251510953,
+              "accuracy": 0.6474358974358975
+            },
+            "E_k1": {
+              "gold_probability_loss": 0.0010852275607134794,
+              "accuracy": 0.6314102564102564
+            },
+            "E_q2": {
+              "gold_probability_loss": 0.008387912636550664,
+              "accuracy": 0.6346153846153846
+            },
+            "E_k2": {
+              "gold_probability_loss": -0.00030314761615186426,
+              "accuracy": 0.6298076923076923
+            },
+            "E_v": {
+              "gold_probability_loss": -0.0027800597775423297,
+              "accuracy": 0.6474358974358975
+            },
+            "A_q1": {
+              "gold_probability_loss": 0.011108482043076304,
+              "accuracy": 0.6201923076923077
+            },
+            "A_k1": {
+              "gold_probability_loss": -0.0011865111270549316,
+              "accuracy": 0.6490384615384616
+            },
+            "A_q2": {
+              "gold_probability_loss": -0.0012520652193299413,
+              "accuracy": 0.6506410256410257
+            },
+            "A_k2": {
+              "gold_probability_loss": 0.0037786840464717796,
+              "accuracy": 0.6346153846153846
+            },
+            "A_v": {
+              "gold_probability_loss": 0.0032158957125230795,
+              "accuracy": 0.6362179487179487
+            },
+            "M_q1": {
+              "gold_probability_loss": 0.4884926056439271,
+              "accuracy": 0.23397435897435898
+            },
+            "M_k1": {
+              "gold_probability_loss": 0.5820221507161047,
+              "accuracy": 0.05448717948717949
+            },
+            "M_q2": {
+              "gold_probability_loss": 0.5143545028527611,
+              "accuracy": 0.18269230769230768
+            },
+            "M_k2": {
+              "gold_probability_loss": 0.58332851672658,
+              "accuracy": 0.057692307692307696
+            },
+            "M_v": {
+              "gold_probability_loss": 0.5673146462600873,
+              "accuracy": 0.0641025641025641
+            },
+            "E_joint": {
+              "gold_probability_loss": 0.013940259022644673,
+              "accuracy": 0.6410256410256411
+            },
+            "A_joint": {
+              "gold_probability_loss": 0.016804547480333724,
+              "accuracy": 0.6121794871794872
+            },
+            "M_joint": {
+              "gold_probability_loss": 0.5911832831889445,
+              "accuracy": 0.049679487179487176
+            }
+          }
+        }
+      },
+      "passing_paths": [],
+      "joint_additivity": {
+        "E": {
+          "target_rms": 1.0754934431199468,
+          "error_rms": 0.24479155775891343,
+          "relative_l2": 0.22760860080075124,
+          "passed": false
+        },
+        "A": {
+          "target_rms": 2.394089193773096,
+          "error_rms": 2.9223213617575907,
+          "relative_l2": 1.2206401371170297,
+          "passed": false
+        },
+        "M": {
+          "target_rms": 3.2105920718421395,
+          "error_rms": 8.433849042213613,
+          "relative_l2": 2.626882784699125,
+          "passed": false
+        }
+      },
+      "centered_effect_rms": {
+        "E_q1": 0.5695442503574448,
+        "E_k1": 0.0615485862584902,
+        "E_q2": 0.6231912505700103,
+        "E_k2": 0.13619315795860432,
+        "E_v": 0.33389293422460853,
+        "A_q1": 2.1910471944412704,
+        "A_k1": 0.46788810196902453,
+        "A_q2": 2.2564324869496195,
+        "A_k2": 0.5265895907725434,
+        "A_v": 0.25982363361972,
+        "M_q1": 1.7225188929268374,
+        "M_k1": 2.882831827224997,
+        "M_q2": 1.682773105589375,
+        "M_k2": 2.8426201855471653,
+        "M_v": 3.0031384182024987,
+        "E_joint": 1.0754934431199468,
+        "A_joint": 2.394089193773096,
+        "M_joint": 3.2105920718421395
+      },
+      "full_distribution_changes": {
+        "native": {
+          "mean_kl": 0.0,
+          "p99_kl": 0.0,
+          "max_kl": 0.0,
+          "max_abs_logit": 0.0,
+          "top1_agreement": 1.0,
+          "passed": true
+        },
+        "E_q1": {
+          "mean_kl": 0.0036567407412461325,
+          "p99_kl": 0.05466709564949312,
+          "max_kl": 2.972406378765267,
+          "max_abs_logit": 16.746239739770562,
+          "top1_agreement": 0.9381537656903766,
+          "passed": false
+        },
+        "E_k1": {
+          "mean_kl": 0.0002868421673091712,
+          "p99_kl": 0.004700388338597531,
+          "max_kl": 0.05767524626883777,
+          "max_abs_logit": 1.7995262994288481,
+          "top1_agreement": 0.9709728033472803,
+          "passed": true
+        },
+        "E_q2": {
+          "mean_kl": 0.004813479450373712,
+          "p99_kl": 0.08432866640441221,
+          "max_kl": 1.906045453189728,
+          "max_abs_logit": 31.28461605960429,
+          "top1_agreement": 0.9384152719665272,
+          "passed": false
+        },
+        "E_k2": {
+          "mean_kl": 0.00028231845809698763,
+          "p99_kl": 0.00545236512969899,
+          "max_kl": 0.1152691972317133,
+          "max_abs_logit": 5.439127236995105,
+          "top1_agreement": 0.9863362970711297,
+          "passed": true
+        },
+        "E_v": {
+          "mean_kl": 0.0013093920756223807,
+          "p99_kl": 0.02240758830217555,
+          "max_kl": 0.14350842878875816,
+          "max_abs_logit": 10.90926376732584,
+          "top1_agreement": 0.9518174686192469,
+          "passed": false
+        },
+        "A_q1": {
+          "mean_kl": 0.3946042794630287,
+          "p99_kl": 13.806290798141266,
+          "max_kl": 34.38163010584677,
+          "max_abs_logit": 116.68213328810879,
+          "top1_agreement": 0.8887944560669456,
+          "passed": false
+        },
+        "A_k1": {
+          "mean_kl": 0.0006878010358283511,
+          "p99_kl": 0.010614017633778524,
+          "max_kl": 0.4041542426502627,
+          "max_abs_logit": 18.86074630340201,
+          "top1_agreement": 0.9665925732217573,
+          "passed": false
+        },
+        "A_q2": {
+          "mean_kl": 0.41379151966388966,
+          "p99_kl": 14.275342119904288,
+          "max_kl": 35.71787077048807,
+          "max_abs_logit": 119.62423570782522,
+          "top1_agreement": 0.8933708158995816,
+          "passed": false
+        },
+        "A_k2": {
+          "mean_kl": 0.0008604046305024835,
+          "p99_kl": 0.015288805048520518,
+          "max_kl": 0.45204853232348724,
+          "max_abs_logit": 27.701950638431995,
+          "top1_agreement": 0.9745685146443515,
+          "passed": false
+        },
+        "A_v": {
+          "mean_kl": 0.0009496331448829292,
+          "p99_kl": 0.018563353925283507,
+          "max_kl": 0.1360644209864087,
+          "max_abs_logit": 12.923654445790959,
+          "top1_agreement": 0.9509021966527197,
+          "passed": false
+        },
+        "M_q1": {
+          "mean_kl": 0.2551027476013368,
+          "p99_kl": 5.297773232089756,
+          "max_kl": 19.200054516656948,
+          "max_abs_logit": 55.862009957039376,
+          "top1_agreement": 0.8124346234309623,
+          "passed": false
+        },
+        "M_k1": {
+          "mean_kl": 0.4869280458331248,
+          "p99_kl": 7.145725765767297,
+          "max_kl": 24.983158238808404,
+          "max_abs_logit": 108.96604134196822,
+          "top1_agreement": 0.7679785564853556,
+          "passed": false
+        },
+        "M_q2": {
+          "mean_kl": 0.2411220130438382,
+          "p99_kl": 3.7801502636020947,
+          "max_kl": 13.137146154018994,
+          "max_abs_logit": 51.62405171041645,
+          "top1_agreement": 0.8223064853556485,
+          "passed": false
+        },
+        "M_k2": {
+          "mean_kl": 0.45198294048296056,
+          "p99_kl": 5.804155487625367,
+          "max_kl": 23.385414148209506,
+          "max_abs_logit": 105.80471650086587,
+          "top1_agreement": 0.7543148535564853,
+          "passed": false
+        },
+        "M_v": {
+          "mean_kl": 0.6059331072659211,
+          "p99_kl": 11.938953014633395,
+          "max_kl": 32.128571001882996,
+          "max_abs_logit": 116.47176391611059,
+          "top1_agreement": 0.757060669456067,
+          "passed": false
+        },
+        "E_joint": {
+          "mean_kl": 0.010218919708685943,
+          "p99_kl": 0.1777673678268526,
+          "max_kl": 2.5011685664392282,
+          "max_abs_logit": 37.600523311761606,
+          "top1_agreement": 0.9165141213389121,
+          "passed": false
+        },
+        "A_joint": {
+          "mean_kl": 0.5055406896447322,
+          "p99_kl": 16.28314515619745,
+          "max_kl": 37.91800988732153,
+          "max_abs_logit": 122.64397730515604,
+          "top1_agreement": 0.863755230125523,
+          "passed": false
+        },
+        "M_joint": {
+          "mean_kl": 0.8244017194738723,
+          "p99_kl": 16.255389776041476,
+          "max_kl": 38.118469247882985,
+          "max_abs_logit": 122.76071143129606,
+          "top1_agreement": 0.7314330543933054,
+          "passed": false
+        }
+      },
+      "exact": true,
+      "max_reassembly_error": 1.1546319456101628e-14,
+      "token_sha256": "78fb12915aed2f038803e6c1552c7cb17c04cc0fafec1912ba479b7a1dbcbbbf"
+    }
+  },
+  "common_selective_paths": [],
+  "tested_single_paths": 15,
+  "native_opaque_parameters_retained": 400640,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_selective_path": false,
+    "pred_c_additive_joint": false,
+    "pred_d_live_edges": true
+  },
+  "terminal": "no_selective_single_reader_path",
+  "wall_seconds": 6.39975643530488
+}
