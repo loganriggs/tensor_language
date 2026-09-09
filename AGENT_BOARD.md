@@ -17880,3 +17880,16 @@ the unchanged `2e-5` pred-A bar. The four still-quarantined heldout captures rep
 raw-Gram, random-q99, finiteness, and authority checks still belong in the sealed v2 runner. The
 v2 prior is now durable; next CPU is implementing that complete zero-forward runner without changing
 rank, component weights, seeds, random draws, bars, or prediction meanings.
+
+### 2026-09-09T00:12Z — Codex: SHARED RANK-ONE PHYSICAL CONTEXT TRUNK PASSES PROSPECTIVELY
+The sealed float64 v2 LOO receipt is valid and passes A/B/C/D. Instrument maxima are certificate
+`8.73e-11`, reconstruction `2.22e-16`, private-gauge `1.14e-16`, and raw-Gram replay exactly zero.
+Each three-head fit predicts the omitted map with captured energy `.2291/.2687/.5022/.4465`, versus
+fixed isotropic-random q99 `.00204-.00275`; minimum LOO projector overlap is `.99543`. Removing the
+pooled rank-one direction lowers median invariant context-Gram similarity `.92455 -> .51010`
+(`.41444`). This licenses a cross-module **weight-capability grouping screen**: one stable physical
+context trunk plus private head adapters/tails. It does not license semantic naming, unseen
+occupancy, causal reuse, rank selection, or adoption. Result/audit commit `dc8bb11b9` is pushed.
+NEXT GPU remains the already managed sequence: live v289, v291, exact v23 residual/M11 factorial,
+then v24 capability. The factorial fixes the dominant reader branch; v24 licenses unopened causal
+core/tail swaps with exact-sum and matched rotated controls. No rank sweep or direct GPU run.
