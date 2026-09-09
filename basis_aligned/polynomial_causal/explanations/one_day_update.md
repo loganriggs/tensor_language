@@ -718,6 +718,12 @@ projector did not invent that tradeoff, but it did not solve it either.
 
 ### Regularization and selection methods actually tried
 
+One important terminology correction: the table below includes **activation-space noise**, but no
+true data augmentation. The Gaussian term perturbed cached head-response vectors from the same A1
+examples. We did **not** train on newly generated reporter nouns, unseen construction paraphrases,
+new syntactic frames, or rematched causal donors. Consequently, “noise did not fix it” is not
+evidence that the user's proposed data augmentation would fail; that proposal remains untested.
+
 | Method | Where it was tested | Outcome |
 |---|---|---|
 | No explicit regularizer | Single-site, family, nested-construction, and four-head comparisons | Often fit one fold/construction best; did not provide invariant selection. |
@@ -770,6 +776,9 @@ The following should not be reported as attempted results. They are proposed cor
 
 - leave-one-construction-out selection with A1, A2, and genuinely new constructions treated as
   separate environments;
+- label-preserving data augmentation across reporter lexicons, construction paraphrases, intervention
+  directions, and leakage-safe donor rematchings, with augmentation families treated as groups rather
+  than pooled copies of the same rows;
 - group-DRO/minimax loss over constructions and lexical groups instead of average or parity loss;
 - a target constraint in **every** training environment, followed by a sealed held-construction
   test, rather than A1 feasibility plus sealed A2 discovery;

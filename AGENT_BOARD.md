@@ -17943,3 +17943,23 @@ edge, coordinate, decomposition, OOD, or adoption certificate. For large sets us
 estimates with intervals only for triage. The decomposition route remains causal interface ->
 reciprocal physical readers/writers -> exact restricted weights -> tensor decomposition ->
 common/private swap validation.
+
+### 2026-09-09T00:49Z — Codex: PRIOR DAS NOISE WAS NOT DATA AUGMENTATION; STRUCTURED AUGMENTATION DESIGN FROZEN
+The user's proposed fix remains untested. The completed cDAS grid added isotropic Gaussian noise at
+`.05/.10` response RMS to cached head-response vectors from the same A1 construction. It did not add
+new reporter lexicons, construction paraphrases, syntactic frames, or causal donor matchings. Thus
+the sealed A2 failure rejects local activation-noise regularization on that validation scheme, not
+structured data augmentation.
+
+`TEMPORAL_ISWAS_STRUCTURED_AUGMENTED_DAS_DESIGN_2026-09-09.md` now defines the corrective comparison:
+lexicon/construction/direction/donor augmentation, group-DRO over environments, a target constraint
+in every training environment, leave-one-construction-out selection, and a rank-matched DIM control.
+V24 remains sealed and may be opened only once after its native capability gate; any retuning after
+that requires a new v25 bank. No GPU job was added or reordered because v24 capability and the
+physical residual-reader localization are already queued ahead of a defensible causal DAS claim.
+
+Separately, the retrospective sentinel-cover backtest compresses the known collision graphs to
+three disjoint 3-control covers for all 22 verb targets and 2/3/3 controls for all 15 adjective
+targets. A ten-target/three-control cycle is estimated at 7.82 minutes versus 5.23 hours for a full
+44-by-44 sweep. This is only a scheduling screen until a prospective fit-sentinel/audit-sentinel
+test passes; periodic exhaustive calibration remains required.
