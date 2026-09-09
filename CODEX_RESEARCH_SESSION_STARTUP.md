@@ -53,6 +53,24 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active join-head/port continuation — 2026-09-09 15:38 UTC
+
+SUFFIX_JOIN_WRITER_V1_RESULT.json completed7.84s: A/B/D true,C false. L2 (zero-based)
+and all-prefix joint cuts pass the selective writer gate in both orientations and
+both populations. L2 S→J loss .891–.971; lowerhop and matched nonjoining controls
+small. Source ports fromhop0 reuse exactly; all-prefix-cut rescue recovers~100%
+behavior but three groups fail strict query-distribution gates (p99 up to .0504).
+
+Active next: SUFFIX_JOIN_HEAD_PORT_V1_PREREGISTRATION.md and
+suffix_join_head_port_reference.py (nine CPU controls pass). Managed
+ops/run_suffix_join_head_port_v1.py still needs integration. Test individual L2
+writing heads and all8 final K1/K2/V restore subsets after L2-only cuts, on fresh
+seeds13909/13910. Direct final-query all-port closure should be exact; do not claim
+restored logits at the changed J positions. Test forward-value/backward-key port
+semantics rather than assuming names identify fields. All weights remain charged;
+no compact native join implementation yet. Latest report is
+explanations/cold_query_composition_reconstruction.md. Reviews due1549/1648, goalactive.
+
 ## Active join-writer test — 2026-09-09 15:33 UTC
 
 CAUSAL_SUFFIX_JOIN_V1_RESULT.json completed: A/B/D true,C false. All12 order/topology

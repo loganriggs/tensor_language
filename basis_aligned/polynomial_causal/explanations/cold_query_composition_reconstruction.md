@@ -151,3 +151,34 @@ world's hop0 execution, reused for every queryhop. These are explicit causal
 reference activations, not an extracted runtime cache. A successful rescue must
 recover both effect and full distribution, not only task accuracy. Ten synthetic
 masked-attention/rescue controls pass; managed integration is complete.
+
+
+## Upstream causal writer localized to layer2
+
+SUFFIX_JOIN_WRITER_V1 passes A/B/D and fails C. Cutting the four pair-to-pair S→J
+edges across all heads of layer2 (zero-based) loses .891–.971 hop3 gold probability
+across IID/OOD and both binding orientations. Lower-hop and adjacent nonjoining
+source controls remain small. The same selectivity gate passes for the joint
+three-prefix-layer cut. Layers0/1 individually do not pass the shared writer bar.
+This connects the nominated join source to a specific upstream attention operation.
+It does not yet identify the writing heads or prove middle-entity equality matching.
+
+Native final source ports from the same world's hop0 execution can be reused
+exactly across the other query hops. Restoring K1/K2/V atJ after all3 prefix layers
+were cut recovers .9991–1.0025 of the behavioral loss, but three of four groups miss
+the strict full-distribution gate. Mean KL is .00036–.00206; p99 is .0053–.0504.
+The native errors/background cannot be discarded just because rescue accuracy is high.
+These ports are labeled causal reference activations, not an extracted runtime cache.
+
+The new SUFFIX_JOIN_HEAD_PORT_V1 protocol isolates only layer2. It tests each of its
+four heads' edge contributions and all8 combinations of final K1/K2/V restoration.
+A proposed directional distinction is falsifiable: later B2 needs a new value from
+B3, whereas later B3 needs a new key from B2. Native port names alone do not prove
+that distinction, and failure will retain a coupled representation. With only L2
+edges cut, restoring all source ports should exactly restore the final query logits:
+other destinations within L2 never consume its changed outputs. This exact statement
+does not cover logits at the changed J positions themselves.
+
+Nine synthetic head-mask/port/closure controls pass. The next protocol and reference
+are implemented; managed runner integration is outstanding. All400640 parameters
+remain native and charged. Full reconstruction and compact extraction remain open.
