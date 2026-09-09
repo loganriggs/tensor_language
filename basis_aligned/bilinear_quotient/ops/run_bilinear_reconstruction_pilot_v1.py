@@ -25,7 +25,7 @@ OUT = POLY / "BILINEAR_RECONSTRUCTION_PILOT_V1_RESULT.json"
 PREREG = POLY / "BILINEAR_RECONSTRUCTION_PILOT_PREREGISTRATION.md"
 REFERENCE = POLY / "bilinear_reconstruction_reference.py"
 CHECKPOINT = ROOT / "runs_hop/attn-mlp-attn-rms-seed0/model.pt"
-EXPECTED_REFERENCE = 'cb6617faa3ecaeb58d0e7e59570db0a5b5d0f16a04987fe3931dadb89d6839d8'
+EXPECTED_REFERENCE = '47a8da0150d98137255600e25c0a41e897451d8270e629f688abafaaf62cb101'
 EXPECTED_PREREG = '1d0e501b394a186d3e1eaeaa660e1a2535d3b17409b8721f9db598aaf95456ed'
 
 
@@ -110,7 +110,7 @@ def phase_b(R, torch):
         ilift, iupdate, irows, icolumns = R.exact_span(joined)
         # Reader observability is assessed on the intervention-closed state, not assumed.
         folded = f["readers"]*ilift
-        observable_rank = folded.rank()
+        observable_rank = folded.to_DM().rank()
         same_positive_span = True if positive_lift is None else positive_lift*f["update"][positive_rows, :] == f["update"]
         if kind == "planted":
             positive_lift, positive_rows = lift, rows
@@ -218,8 +218,10 @@ def common_factor_screen(model):
 def phase_c(R, torch):
     from hop_ablate import load
     from hop_data import sample_docs
-    device = 'cuda'
-    if not torch.cuda.is_available():
+    device = os.environ.get('PILOT_DEVICE','cuda')
+    if device not in ('cpu','cuda'):
+        raise ValueError('PILOT_DEVICE must be cpu or cuda')
+    if device == 'cuda' and not torch.cuda.is_available():
         return dict(status='not_run_no_gpu',passed=False)
     model, config = load('attn-mlp-attn-rms-seed0')
     weights_before = digest(CHECKPOINT)
@@ -314,6 +316,7 @@ def phase_c(R, torch):
               and all(r['passed'] for r in decode_closure.values()) and weights_before==digest(CHECKPOINT))
     sharing_candidate = rank<128 or factor_screen['distinct_unordered_products']<factor_screen['native_products']
     return dict(status='local_sharing_candidate_requires_followup' if sharing_candidate else 'no_local_shared_operation',
+                device=device,
                 passed=passed,checkpoint_sha256=weights_before,config=config,native_closure=native_closure,
                 local_rank=rank,relative_smallest_singular=float(singular[-1]/singular[0]),
                 frozen_basis_sha256=basis_sha,common_factors=factor_screen,records=records,
@@ -371,7 +374,7 @@ def main():
             t=time.perf_counter()
             result['phases']['C']=phase_c(R,torch)
             result['phases']['C']['seconds']=time.perf_counter()-t
-            if torch.cuda.is_available():
+            if os.environ.get('PILOT_DEVICE','cuda')=='cuda' and torch.cuda.is_available():
                 result['environment'].update(gpu=torch.cuda.get_device_name(),
                                              peak_gpu_allocated_bytes=torch.cuda.max_memory_allocated())
         result['predictions']={

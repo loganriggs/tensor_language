@@ -321,7 +321,10 @@ def exact_fixture(kind):
                 for o in range(4):
                     reader[h*40+o*10+qi, row] += q1[i, a]*q2[j, b]*out[o, v]/16
         # Exact key-product maps: shared values cannot make these functions equal.
-        router_coefficients.append(s.kronecker_product(k1, k2))
+        router = s.zeros(16,10)
+        for i,j,a,b in itertools.product(range(4),repeat=4):
+            router[i*4+j,quadratic.index(tuple(sorted((a,b))))] += k1[i,a]*k2[j,b]
+        router_coefficients.append(router)
     hadamard = s.Matrix([[1]])
     while hadamard.rows < 128:
         hadamard = hadamard.row_join(hadamard).col_join(hadamard.row_join(-hadamard))

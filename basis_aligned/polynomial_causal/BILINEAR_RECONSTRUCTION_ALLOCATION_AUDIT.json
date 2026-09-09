@@ -1,0 +1,122 @@
+{
+  "weight_scalars": 400640,
+  "buffer_scalars": 145920,
+  "buffers": {
+    "layers.0.mask": {
+      "shape": [
+        240,
+        240
+      ],
+      "bytes": 460800
+    },
+    "layers.0.rotary.cos_cached": {
+      "shape": [
+        1,
+        240,
+        1,
+        32
+      ],
+      "bytes": 61440
+    },
+    "layers.0.rotary.sin_cached": {
+      "shape": [
+        1,
+        240,
+        1,
+        32
+      ],
+      "bytes": 61440
+    },
+    "layers.2.mask": {
+      "shape": [
+        240,
+        240
+      ],
+      "bytes": 460800
+    },
+    "layers.2.rotary.cos_cached": {
+      "shape": [
+        1,
+        240,
+        1,
+        32
+      ],
+      "bytes": 61440
+    },
+    "layers.2.rotary.sin_cached": {
+      "shape": [
+        1,
+        240,
+        1,
+        32
+      ],
+      "bytes": 61440
+    }
+  },
+  "states": {
+    "direct_step": {
+      "allocated_tensor_shapes": [
+        [
+          1,
+          64,
+          4,
+          32
+        ],
+        [
+          1,
+          64,
+          4,
+          32
+        ],
+        [
+          1,
+          64,
+          4,
+          32
+        ],
+        [
+          1,
+          64,
+          4,
+          32
+        ],
+        [
+          1,
+          64,
+          4,
+          32
+        ],
+        [
+          1,
+          64,
+          4,
+          32
+        ]
+      ],
+      "scalars": 49152,
+      "bytes": 393216
+    },
+    "recurrent_step": {
+      "allocated_tensor_shapes": [
+        [
+          1,
+          4,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          4,
+          32,
+          32,
+          32
+        ]
+      ],
+      "scalars": 262144,
+      "bytes": 2097152
+    }
+  },
+  "process_scope": "CPU; actual persistent cache tensors after 64 tokens; transient workspace/allocator peak not measured",
+  "largest_explicit_pilot_state_tensor_bytes": 8388608
+}

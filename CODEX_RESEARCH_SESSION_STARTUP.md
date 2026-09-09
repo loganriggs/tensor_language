@@ -53,7 +53,41 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
-## Current authoritative delta — 2026-09-09 03:10 UTC
+## New direction and completed bounded pilot — 2026-09-09 04:04 UTC
+
+The user redirected Codex to
+`basis_aligned/polynomial_causal/explanations/bilinear_circuit_reconstruction_codex_handoff.md`.
+Read its appended success-criterion correction: bytes/quantization/rank are not interpretability
+success. The target is a previously unspecified reusable operation with explicit inputs/consumers,
+held-out extraction and joint-intervention evidence, and lower structural description cost including
+adapters and opaque parameters. The user also authorized GPU use wherever advantageous; the original
+two-CPU-hour budget is not a user-imposed hardware restriction.
+
+The requested bounded A/B/C pilot is complete. Its report is
+`basis_aligned/polynomial_causal/explanations/bilinear_reconstruction_pilot_report.md`; the immutable
+receipt is `basis_aligned/polynomial_causal/BILINEAR_RECONSTRUCTION_PILOT_V1_RESULT.json`.
+Execution and controls pass; scientific discovery does not. Tiny FP64 logits close to 3.11e-15;
+full existing small-checkpoint logits/edits close to 3.69e-13. The planted shared update has natural
+rank 4 but needs rank 8 for independently edited source histories, matching elementary cubic reuse.
+The trained contextual update bank is rank 128/128, and all 512 MLP products and 1,024 factors are
+exactly distinct under the registered proportionality/product grammar. This is a local sharing null,
+not a theorem ruling out compact nonlinear circuits. No new circuit meets the revised criterion.
+
+The bounded pilot recommends stopping this local span/duplicate-factor discovery method and retaining
+the reference executor. Do not relaunch it, an SAE campaign or a broad rank sweep automatically.
+A possible next hypothesis is a joint nonlinear matching/routing operation shared by multiple
+consumers; it is a proposal, not an experiment already started or a discovered mechanism.
+The final pilot used two CPU threads and zero GPU execution because the trained small model completed
+in 19.12 seconds while the GPU lane was occupied by v297. The owned pending GPU pilot was removed;
+there is no duplicate queued reconstruction job. Existing Supervisor-managed runners remain intact.
+
+The older v26 capability has landed as an honest null: reported-source targets and their controls
+failed; three other complete structure pairs passed. No v26 causal continuation is eligible.
+Newest review clocks: hourly `HOURLY_STRATEGIC_REVIEW_2026-09-09_0340.md` (next after 04:40 UTC during
+active research); mathematical `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-09_0226.md` (next after 05:26).
+Treat newer files, board, Git and runner state as authoritative over this snapshot.
+
+## Previous authoritative delta — 2026-09-09 03:10 UTC
 
 The pushed research edge is commit `71b0496f0`. Treat Git, immutable results, the append-only
 board, and live managed-runner state as newer authority if they have advanced beyond this snapshot.

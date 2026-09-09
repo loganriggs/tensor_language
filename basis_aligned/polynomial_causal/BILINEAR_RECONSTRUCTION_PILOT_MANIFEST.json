@@ -1,0 +1,15 @@
+{
+  "schema": "bilinear_reconstruction_pilot_final_artifact_manifest_v1",
+  "sources_match_executed_receipt": true,
+  "artifacts": {
+    "basis_aligned/polynomial_causal/bilinear_reconstruction_reference.py": "47a8da0150d98137255600e25c0a41e897451d8270e629f688abafaaf62cb101",
+    "basis_aligned/bilinear_quotient/ops/run_bilinear_reconstruction_pilot_v1.py": "b686468b2dbe68e66244e6170aec74ac837750acfa268154307fcf61847caa16",
+    "basis_aligned/polynomial_causal/BILINEAR_RECONSTRUCTION_PILOT_PREREGISTRATION.md": "1d0e501b394a186d3e1eaeaa660e1a2535d3b17409b8721f9db598aaf95456ed",
+    "basis_aligned/polynomial_causal/BILINEAR_RECONSTRUCTION_ARCHITECTURE_CONTRACT.md": "3496a3c3701f29249b9fbb0f9a26d8add59a02b580cf3e2e4434c6a6919411cd",
+    "basis_aligned/polynomial_causal/BILINEAR_RECONSTRUCTION_PILOT_V1_RESULT.json": "4f1510d3908940da8af0fe00f9614d98cce421eb3b148a78ef43824f3416f675",
+    "basis_aligned/polynomial_causal/BILINEAR_RECONSTRUCTION_ALLOCATION_AUDIT.json": "dc24425101f79b0f47d2bbe0c93ad34933bac21c62cb0952fe42b4d432ae73e7",
+    "basis_aligned/polynomial_causal/explanations/bilinear_reconstruction_pilot_report.md": "32a864784c397a0541c877d10700069e3f0196d4cefcae685aa553002bbdb0e1"
+  },
+  "execution": "PILOT_DEVICE=cpu CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 /venv/main/bin/python basis_aligned/bilinear_quotient/ops/run_bilinear_reconstruction_pilot_v1.py",
+  "note": "Immutable result already exists; do not overwrite or rerun merely to recreate it."
+}
