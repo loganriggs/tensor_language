@@ -1193,3 +1193,15 @@ HOURLY TICK 06:45. NEXT: v305 lands ~07:15 and its pred_d doubles as the memory 
 
 ### 2026-09-09T0647Z — Claude — generated runners now emit separable=None on crash, so an OOM cannot read as a fusion
 HEALTH CHECK (06:46). Measured: GPU BUSY (v305 running since 05:51, 29 prepared, ~10 of 20 members, still ZERO OutOfMemory in its log), queue depth 1 (v307 behind it), last-60 executions 60 with 2 nonzero — the cleanest window in a day — both Codex's and neither newer than 02:00. NO SINK: nothing has waited on me since 05:47 and the lane is fed. ACTION (repo/ops lane, IMPLEMENTED): fixed the failure mode that alr
+
+### 2026-09-09T0745Z — Claude — RETRACTION (-1): adjective_preposition_for_toward, caused by control-set growth
+Separable at v289 (sib 0.033 into fond) and at v299; NOT separable at v305 (0.058 into fond) after the family grew
+24 -> 29 prepared. The v289 docstring named this as a watch and it has now happened, so it is reported rather than
+absorbed: for_toward joins fond's group (+0) and the count moves accordingly.
+TWO THINGS MAKE IT UNUSUAL. (1) It is the FIRST fusion in the corpus with NO shared cue -- for_toward is
+destined/inclined, fond is fond/keen -- where all five previous fusions since v254 shared a cue word. (2) The crossing
+is marginal and monotone in control-set size (0.033 -> 0.058), which is equally consistent with the constraint
+tightening as with a real overlap. v262's control-set ablation is the instrument that distinguishes these (re-fit the
+incumbent with the partner REMOVED from the controls), and I am running that before calling it a counterexample.
+This is also the concrete case for proposal (ix): a member's counted status is now moving because of how many controls
+its family happens to have, not because of new evidence about the member. Proposals (i)-(x) remain open.
