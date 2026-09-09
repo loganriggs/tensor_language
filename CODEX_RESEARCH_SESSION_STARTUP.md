@@ -53,6 +53,30 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active exact value-producer split — 2026-09-09 16:35 UTC
+
+JOIN_CONTRIBUTION_CONTEXT_V1_RESULT.json passesA/B and failsC/D. Two disjoint
+native joins are selectively causal (own goldP loss.423–.987, controls pass),
+joint own-write replay4.97e-14 and reuse across8 queries exactly0. Shuffling other
+facts while keeping selected facts/positions/fullmap fixed breaks quantitative
+cross-context transfer: joint query-effect errors.167–.263. All native weights
+and donor prefix retained, not a smaller extracted program.
+
+Immediate CPU JOIN_CONTEXT_FACTOR_AUDIT_V1.json performed. Native-score/value
+factor interchange on opened cases locates most transfer variation in payloads;
+donor scores still have3–11% query-effect errors, not1%. No fit or promotion.
+
+Active successor: JOIN_VALUE_PRODUCERS_V1_PREREGISTRATION.md and
+join_value_producer_reference.py. Five CPU controls pass exact x2=E/4+Y0/4+Y1/2,
+three V terms under shared live RMS/routing, and joint reconstruction. Test fixed
+forward E/current-value vs backward Y0+Y1/origin-key hypothesis; all8 subsets
+for causal interpretation, no best-subset search. Fresh18909/18910 generator and
+ops/run_join_value_producers_v1.py remain to be integrated. Full native background
+and coefficients charged. Inspect live files/queue before continuing.
+
+Latest strategic1550 (due16:50), math1348 (due16:48). Active durable goal follows
+bilinear reconstruction handoff, overriding stale better_math_ideas goal text.
+
 ## Shared kernel rejected; causal contribution separation — 2026-09-09 16:23 UTC
 
 SHARED_JOIN_KERNEL_V2_COVERAGE_RESULT.json is valid: A/D true,B/C false.590/590 cells,

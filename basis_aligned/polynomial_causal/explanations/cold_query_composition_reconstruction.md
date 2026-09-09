@@ -312,3 +312,49 @@ hops. Entire heads are not identified with that operation. The next scientific
 object is a causal join contribution with its necessary contextual inputs, not a
 refitted whole-head equality lookup. The failure audit has begun that separation
 by distinguishing exact-native matched support from learned score amplitudes.
+
+## Two simultaneous join writes: causal reuse and contextual limits
+
+`JOIN_CONTRIBUTION_CONTEXT_V1_RESULT.json` tests32 fresh worlds (16 IID24-cycle,
+16 two12-cycle), two arrangements of two disjoint query chains, and eight query
+forks perarrangement. One selected writer is H1/forward and the other H2/backward.
+Donor/recipient serializations preserve all six chain facts and their positions,
+as well as the full function, while shuffling the other18 facts. This tests an
+explicit additive write, not a whole-head semantic replacement.
+
+Instrument and selectivity gates A/B pass. Joint restoration of the native writes
+closes all logits at4.97e-14. Both writes are exactly unchanged across the eight
+query forks. Removing each loses.423–.987 gold probability on its own hop3 query;
+other-query and lowerhop controls all meet their registered absolute.10 bar.
+Thus the two computations can be selectively removed together in one context,
+with an explicit additive L2 interface and live downstream recomputation.
+
+Cross-context distribution and quantitative effect gates C/D fail. Joint transfer
+has all-position meanKL.0069–.0173 and query meanKL.00335–.01136 across the four
+population/arrangement groups. Joint query-effect relative errors.167–.263 exceed
+.01. Forward transfer alone passes the registered query-distribution gates pooled
+over all eight query forks, but neither direction passes the stricter causal-vector
+comparison. Identical local facts/positions do not determine a context-independent
+native write at the requested precision. All400640 parameters and donor-prefix
+execution remain required; this is not an independently extracted smaller program.
+
+The immediate `JOIN_CONTEXT_FACTOR_AUDIT_V1.json` successor uses those opened cases
+for exact score/value factor diagnosis, not fresh identification. Since each write
+is A V O, its donor-minus-recipient difference splits exactly into score change,
+value change and their interaction. Mixed factors are run through the full native
+downstream reader. Donor scores with recipient values pass all pooled query KL
+gates, but query-effect errors remain3–11%. Donor values reproduce the backward
+transfer failures. Value-change write RMS is.946–.968 of total write-change RMS;
+these correlated terms are not additive variance fractions. Native write replay
+from the CPU factor implementation closes at3.77e-15.
+
+Next, `JOIN_VALUE_PRODUCERS_V1_PREREGISTRATION.md` tests an exact producer split:
+pre-L2 x2=E/4+Y0/4+Y1/2. The three corresponding V terms share the live L2 RMS gain
+and original selected routing. The fixed semantic hypothesis is forward current
+value from E and backward origin key from Y0+Y1. All8 subsets are an exact causal
+factorial, not a best-subset search; a fixed single/joint candidate must pass the
+original distribution and effect bars on fresh18909/18910 inputs. The primitive
+`join_value_producer_reference.py` is implemented and passes five CPU controls,
+including nonzero term closure and exact joint restoration. Fresh generator and
+managed runner integration remain. No native dependency or coefficient is hidden
+or counted as eliminated by this diagnostic representation.
