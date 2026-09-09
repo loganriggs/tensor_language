@@ -1,0 +1,277 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "tol_pool": 0.05,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_broad_circuit_v447",
+  "finished_utc": "2026-09-09T22:53:20.817644+00:00",
+  "groups": {
+    "four_cells_six_tokens": {
+      "cells": [
+        "verb_preposition_about_against",
+        "verb_preposition_about_into",
+        "verb_preposition_at_over",
+        "verb_preposition_at_to"
+      ],
+      "n_units": 30,
+      "per_shape": {
+        "verb_preposition_about_against": {
+          "A1_damage": {
+            "ce_damage": 1.2311,
+            "ce_lb975": 1.1668,
+            "ce_ub975": 1.2925,
+            "margin_damage": 2.9889,
+            "top1_change_rate": 0.1562
+          },
+          "C_damage": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0048,
+            "margin_damage": -0.0371,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0048,
+          "joint_extraction": 1.012,
+          "n_held": 16,
+          "units_recovery": 0.946
+        },
+        "verb_preposition_about_into": {
+          "A1_damage": {
+            "ce_damage": 1.5967,
+            "ce_lb975": 1.4272,
+            "ce_ub975": 1.7652,
+            "margin_damage": 5.091,
+            "top1_change_rate": 0.7188
+          },
+          "C_damage": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0048,
+            "margin_damage": -0.0371,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0048,
+          "joint_extraction": 0.991,
+          "n_held": 16,
+          "units_recovery": 0.969
+        },
+        "verb_preposition_at_over": {
+          "A1_damage": {
+            "ce_damage": 1.1518,
+            "ce_lb975": 1.1055,
+            "ce_ub975": 1.1981,
+            "margin_damage": 3.1869,
+            "top1_change_rate": 0.1875
+          },
+          "C_damage": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0048,
+            "margin_damage": -0.0371,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0048,
+          "joint_extraction": 0.937,
+          "n_held": 16,
+          "units_recovery": 0.917
+        },
+        "verb_preposition_at_to": {
+          "A1_damage": {
+            "ce_damage": 2.0054,
+            "ce_lb975": 1.393,
+            "ce_ub975": 2.6655,
+            "margin_damage": 3.661,
+            "top1_change_rate": 0.5
+          },
+          "C_damage": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0048,
+            "margin_damage": -0.0371,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0048,
+          "joint_extraction": 0.981,
+          "n_held": 16,
+          "units_recovery": 1.041
+        }
+      }
+    },
+    "seven_cells_six_tokens": {
+      "cells": [
+        "verb_preposition_about_against",
+        "verb_preposition_about_into",
+        "verb_preposition_from_about",
+        "verb_preposition_into_with",
+        "verb_preposition_on_about",
+        "verb_preposition_on_into",
+        "verb_preposition_with_against"
+      ],
+      "n_units": 30,
+      "per_shape": {
+        "verb_preposition_about_against": {
+          "A1_damage": {
+            "ce_damage": 0.941,
+            "ce_lb975": 0.72,
+            "ce_ub975": 1.1692,
+            "margin_damage": 2.0388,
+            "top1_change_rate": 0.1562
+          },
+          "C_damage": {
+            "ce_damage": -0.0083,
+            "ce_lb975": -0.0218,
+            "ce_ub975": 0.0036,
+            "margin_damage": -0.0252,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0036,
+          "joint_extraction": 0.691,
+          "n_held": 16,
+          "units_recovery": 0.958
+        },
+        "verb_preposition_about_into": {
+          "A1_damage": {
+            "ce_damage": 1.4351,
+            "ce_lb975": 1.271,
+            "ce_ub975": 1.6147,
+            "margin_damage": 4.1061,
+            "top1_change_rate": 0.7188
+          },
+          "C_damage": {
+            "ce_damage": -0.0083,
+            "ce_lb975": -0.0218,
+            "ce_ub975": 0.0036,
+            "margin_damage": -0.0252,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0036,
+          "joint_extraction": 0.827,
+          "n_held": 16,
+          "units_recovery": 0.979
+        },
+        "verb_preposition_from_about": {
+          "A1_damage": {
+            "ce_damage": 1.3514,
+            "ce_lb975": 1.3055,
+            "ce_ub975": 1.3983,
+            "margin_damage": 4.2201,
+            "top1_change_rate": 0.6562
+          },
+          "C_damage": {
+            "ce_damage": -0.0083,
+            "ce_lb975": -0.0218,
+            "ce_ub975": 0.0036,
+            "margin_damage": -0.0252,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0036,
+          "joint_extraction": 0.794,
+          "n_held": 16,
+          "units_recovery": 0.952
+        },
+        "verb_preposition_into_with": {
+          "A1_damage": {
+            "ce_damage": 1.2468,
+            "ce_lb975": 0.9158,
+            "ce_ub975": 1.6064,
+            "margin_damage": 2.3928,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0083,
+            "ce_lb975": -0.0218,
+            "ce_ub975": 0.0036,
+            "margin_damage": -0.0252,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0036,
+          "joint_extraction": 0.683,
+          "n_held": 16,
+          "units_recovery": 1.016
+        },
+        "verb_preposition_on_about": {
+          "A1_damage": {
+            "ce_damage": 0.8128,
+            "ce_lb975": 0.6423,
+            "ce_ub975": 0.9731,
+            "margin_damage": 3.9581,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0083,
+            "ce_lb975": -0.0218,
+            "ce_ub975": 0.0036,
+            "margin_damage": -0.0252,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0036,
+          "joint_extraction": 0.79,
+          "n_held": 16,
+          "units_recovery": 0.994
+        },
+        "verb_preposition_on_into": {
+          "A1_damage": {
+            "ce_damage": 1.0847,
+            "ce_lb975": 0.9967,
+            "ce_ub975": 1.1729,
+            "margin_damage": 2.0875,
+            "top1_change_rate": 0.5938
+          },
+          "C_damage": {
+            "ce_damage": -0.0083,
+            "ce_lb975": -0.0218,
+            "ce_ub975": 0.0036,
+            "margin_damage": -0.0252,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0036,
+          "joint_extraction": 0.552,
+          "n_held": 16,
+          "units_recovery": 0.947
+        },
+        "verb_preposition_with_against": {
+          "A1_damage": {
+            "ce_damage": 0.4392,
+            "ce_lb975": 0.3591,
+            "ce_ub975": 0.5206,
+            "margin_damage": 1.6758,
+            "top1_change_rate": 0.2812
+          },
+          "C_damage": {
+            "ce_damage": -0.0083,
+            "ce_lb975": -0.0218,
+            "ce_ub975": 0.0036,
+            "margin_damage": -0.0252,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0036,
+          "joint_extraction": 0.506,
+          "n_held": 16,
+          "units_recovery": 0.963
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_seven_cells_cover": false,
+    "pred_b_beats_mixed_seven": false,
+    "pred_c_sizes_match": false,
+    "pred_d_units_available": true,
+    "pred_e_control_clean": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_broad_circuit_v447",
+  "seconds": 135.3
+}
