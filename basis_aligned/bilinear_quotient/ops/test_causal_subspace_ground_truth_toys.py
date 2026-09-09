@@ -52,3 +52,26 @@ def test_rotated_solution_is_gauge_invariant():
     basis, _ = target.exact_minimum_subspace(scenario.deltas, scenario.readers)
     q, _ = np.linalg.qr(np.asarray([[1.0, 2.0, 3.0], [0.0, 2.0, 1.0], [2.0, 0.0, 1.0]]))
     assert target.projector_distance(basis, basis @ q) < 1e-10
+
+
+def test_environment_augmentation_breaks_exact_causal_nuisance_alias():
+    report = target.evaluate_environment_confounding()
+    assert report["exact_certificate"]["attained_rank"] == 2
+    assert report["one_environment_rank"] == 2
+    assert report["one_environment_training_error"] < 1e-10
+    assert report["one_environment_full_error"] > .4
+    assert report["one_environment_projector_distance"] > .9
+    assert report["augmented_rank"] == 2
+    assert report["augmented_full_error"] < 1e-10
+    assert report["augmented_projector_distance"] < 1e-10
+
+
+def test_bilinear_context_model_recovers_rare_subset_direction():
+    report = target.evaluate_bilinear_context_gate()
+    assert report["rare_fraction"] == .125
+    assert report["exact_certificate"]["attained_rank"] == 2
+    assert report["pooled_linear_rank"] == 1
+    assert report["pooled_linear_full_error"] > .5
+    assert report["contextual_bilinear_rank"] == 2
+    assert report["contextual_bilinear_full_error"] < 1e-10
+    assert report["contextual_bilinear_projector_distance"] < 1e-10

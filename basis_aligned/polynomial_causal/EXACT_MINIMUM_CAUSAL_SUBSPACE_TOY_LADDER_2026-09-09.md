@@ -7,9 +7,9 @@ estimator recovers the smallest subspace whose intervention preserves the desire
 the full declared population. Synthetic models let us know that answer exactly, distinguish
 estimation failure from non-identifiability, and create memorization failures deliberately.
 
-The first CPU-only ladder has four rungs: basis-aligned rank one, rotated rank three, a shared/private
-two-task tensor, and a subset-gated factor. It is an algebraic benchmark, not evidence about the
-language model.
+The CPU-only ladder now has six rungs: basis-aligned rank one, rotated rank three, a shared/private
+two-task tensor, a subset-gated factor, exact environment confounding, and a bilinear rare-context
+reader. It is an algebraic benchmark, not evidence about the language model.
 
 ## Exact linear certificate
 
@@ -53,6 +53,15 @@ observed training rows changes the question and can make a memorized lower-rank 
 4. `subset_gated`: common rows read one factor, while a rare subset reads that factor plus a second.
    Training only on common rows certifies rank one on its restricted population yet fails the full
    population. This is a controlled analogue of construction memorization.
+5. `environment_confounding`: in environment A, causal factor two and a nuisance always occur with
+   the same coefficient. A rank-two response fit has exactly zero training error but cannot decide
+   between them. Environment B reverses only the nuisance coefficient. Combining A and B recovers
+   the true rank-two causal subspace exactly. This is a constructive reason structured augmentation
+   can solve a failure that isotropic noise cannot.
+6. `bilinear_context_gate`: seven-eighths of rows read one direction; a rare context activates a
+   second direction through `y = x^T u1 + g x^T u2`. Pooled linear response regression can return
+   only one input direction. Regression on `[x, g*x]` recovers the exact rank-two union, showing that
+   some apparent memorization is actually model-class misspecification.
 
 ## Metrics and next rungs
 
@@ -65,8 +74,7 @@ common-only subset it can only identify rank one and must fail the hidden rare-s
 
 Next comparisons should include delta-SVD, optimized orthogonal projectors, sparse or group
 projectors, and tensor-factor methods. The ladder should then add finite samples, observation noise,
-correlated nuisance, nearly degenerate singular values, nonlinear MLP readers, and bilinear
-attention-like context gates.
+nearly degenerate singular values, nonlinear MLP readers, and attention-like vector gates.
 
 Success requires more than behavioral fit: correct minimum rank, small projector distance to the
 identifiable ground truth, held-population response preservation, and rejection of spurious nuisance

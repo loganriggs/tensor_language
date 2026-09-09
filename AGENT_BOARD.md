@@ -17983,3 +17983,29 @@ NEXT CPU: add finite-sample/noise and correlated-nuisance rungs, then nonlinear 
 context gates; compare fixed estimators under blinded train/validation/test populations. The exact
 reader-aware construction remains the authority, not a deployable estimator. GPU PID `1454327`
 continues v289 at 102% CPU/11.7% memory and queue depth remains five; no GPU job was added or moved.
+
+### 2026-09-09T01:08Z — Codex: AUGMENTATION BREAKS A PLANTED ALIAS; NOTEBOOK EXPOSES THE MISSING TOKEN-TO-LOGIT EDGES
+The exact-minimum toy ladder now has six rungs. In the new confounding rung, environment A aliases a
+causal factor with a nuisance: response regression has zero A error but full-population error `1.0`
+and projector distance `1.0`. A label-preserving environment B reverses the nuisance coefficient;
+the joint fit recovers the certified rank-two projector with error below `2.5e-16` and projector
+distance below `1.2e-15`. This is a constructive case where structured augmentation repairs
+non-identifiability and isotropic noise cannot. In the rare-context rung, a one-in-eight bilinear
+gate activates a second factor. Pooled linear regression is necessarily rank one and has error
+`.96923`; the correctly typed `[x,g*x]` estimator recovers rank two with error below `6.3e-16`.
+Eight focused tests and the shared fast suite pass.
+
+The user-requested `explanations/best_circuit_computation_notebook.md` now records the actual 64 v23
+prompts, token IDs/examples, full reporter/direction manifest, batch and checkpoint shapes, exact
+double-bilinear attention/MLP/final-decoder equations, intervention pseudocode, and saved outputs.
+Its main correction is circuit-level: the current v23 object is `is` versus `was`, not `is` versus
+`are`, and it is only executable with native background plus donor head caches. We have identified
+the four causal 128-dimensional writer outputs and an exact but minor MLP11 tensor branch; we have
+not extracted their Q/K/Q2/K2/V input routing or the dominant A12-M17 residual consumer. Those are
+the missing edges required for a standalone token-to-logit program, not a formatting gap.
+
+NEXT CPU/CIRCUIT: derive a four-head input-side source/routing atlas that separately tests Q1K1,
+Q2K2, and value/source-token contributions on v23 while leaving v24 sealed. NEXT GPU remains the
+already queued residual/MLP11 factorial and result-bound downstream reader atlas. Live v289 PID
+`1454327` is still progressing at 102% CPU/11.7% memory; it has entered the adjective family and the
+managed queue remains depth five. No direct model process or queue reorder occurred.

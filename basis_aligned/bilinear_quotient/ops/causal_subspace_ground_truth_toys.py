@@ -94,6 +94,31 @@ def response_regression_subspace(
     return orthogonal_basis(fitted_map, tolerance=tolerance)
 
 
+def contextual_response_regression_subspace(
+    deltas: np.ndarray,
+    context_gate: np.ndarray,
+    responses: np.ndarray,
+    *,
+    tolerance: float = 1e-10,
+) -> np.ndarray:
+    """Recover base and context-interaction readers from y = xB + g*xC.
+
+    The returned activation subspace is the union of the fitted base and
+    interaction input row spaces. This is the smallest model class in the toy
+    ladder that can represent a subset-conditional reader.
+    """
+    deltas = np.asarray(deltas, dtype=np.float64)
+    gate = np.asarray(context_gate, dtype=np.float64).reshape(-1, 1)
+    responses = np.asarray(responses, dtype=np.float64)
+    if deltas.shape[0] != gate.shape[0] or deltas.shape[0] != responses.shape[0]:
+        raise ValueError("deltas, context_gate, and responses must align by row")
+    design = np.hstack([deltas, gate * deltas])
+    fitted, _, _, _ = np.linalg.lstsq(design, responses, rcond=tolerance)
+    dimension = deltas.shape[1]
+    coefficient_union = np.hstack([fitted[:dimension], fitted[dimension:]])
+    return orthogonal_basis(coefficient_union, tolerance=tolerance)
+
+
 def preservation_error(
     deltas: np.ndarray,
     readers: dict[str, np.ndarray],
@@ -186,6 +211,86 @@ def make_scenarios() -> dict[str, ToyScenario]:
     }
 
 
+def _coefficient_grid() -> np.ndarray:
+    return np.asarray([
+        [1.0, 0.0], [-1.0, 0.0], [0.0, 1.0], [0.0, -1.0],
+        [1.0, 1.0], [1.0, -1.0], [-1.0, 1.0], [-1.0, -1.0],
+    ])
+
+
+def evaluate_environment_confounding() -> dict:
+    """A nuisance is unidentifiable in one environment and canceled by augmentation."""
+    rotation = _rotation(12, 2718)
+    causal = rotation[:, :2]
+    nuisance = rotation[:, 2]
+    coefficients = _coefficient_grid()
+    environment_a = (
+        coefficients[:, :1] * causal[:, 0]
+        + coefficients[:, 1:] * (causal[:, 1] + nuisance)
+    )
+    environment_b = (
+        coefficients[:, :1] * causal[:, 0]
+        + coefficients[:, 1:] * (causal[:, 1] - nuisance)
+    )
+    response = coefficients.copy()
+    readers = {"true": causal.T}
+    allowed = np.vstack([environment_a, environment_b])
+    exact, certificate = exact_minimum_subspace(allowed, readers)
+    one_environment = response_regression_subspace(environment_a, response)
+    augmented = response_regression_subspace(
+        allowed, np.vstack([response, response]))
+    return {
+        "description": (
+            "One environment aliases causal factor two with a nuisance; a sign-reversed "
+            "augmentation makes the two directions identifiable."
+        ),
+        "exact_certificate": certificate,
+        "one_environment_rank": int(one_environment.shape[1]),
+        "one_environment_training_error": preservation_error(
+            environment_a, readers, one_environment),
+        "one_environment_full_error": preservation_error(allowed, readers, one_environment),
+        "one_environment_projector_distance": projector_distance(one_environment, exact),
+        "augmented_rank": int(augmented.shape[1]),
+        "augmented_full_error": preservation_error(allowed, readers, augmented),
+        "augmented_projector_distance": projector_distance(augmented, exact),
+    }
+
+
+def evaluate_bilinear_context_gate() -> dict:
+    """A scalar context gate activates a second, rotated causal direction."""
+    rotation = _rotation(12, 3141)
+    causal = rotation[:, :2]
+    nuisance = rotation[:, 8:10]
+    allowed = _changes(causal, nuisance)
+    repeats = 8
+    deltas = np.repeat(allowed, repeats, axis=0)
+    gate = np.tile(np.asarray([0.0] * (repeats - 1) + [1.0]), allowed.shape[0])
+    responses = (
+        deltas @ causal[:, 0]
+        + gate * (deltas @ causal[:, 1])
+    )[:, None]
+    readers = {
+        "common_context": causal[:, 0][None, :],
+        "rare_context": (causal[:, 0] + causal[:, 1])[None, :],
+    }
+    exact, certificate = exact_minimum_subspace(allowed, readers)
+    pooled = response_regression_subspace(deltas, responses)
+    contextual = contextual_response_regression_subspace(deltas, gate, responses)
+    return {
+        "description": (
+            "A rare one-in-eight context activates a second reader through a bilinear gate."
+        ),
+        "rare_fraction": float(gate.mean()),
+        "exact_certificate": certificate,
+        "pooled_linear_rank": int(pooled.shape[1]),
+        "pooled_linear_full_error": preservation_error(allowed, readers, pooled),
+        "pooled_linear_projector_distance": projector_distance(pooled, exact),
+        "contextual_bilinear_rank": int(contextual.shape[1]),
+        "contextual_bilinear_full_error": preservation_error(allowed, readers, contextual),
+        "contextual_bilinear_projector_distance": projector_distance(contextual, exact),
+    }
+
+
 def evaluate_ladder() -> dict:
     results = {}
     for name, scenario in make_scenarios().items():
@@ -222,6 +327,14 @@ def evaluate_ladder() -> dict:
             report["common_only_full_test_error"] = preservation_error(
                 scenario.deltas, scenario.readers, common)
         results[name] = report
+    results["environment_confounding"] = {
+        "difficulty": 5,
+        **evaluate_environment_confounding(),
+    }
+    results["bilinear_context_gate"] = {
+        "difficulty": 6,
+        **evaluate_bilinear_context_gate(),
+    }
     return {
         "schema": "causal_subspace_ground_truth_toys_v1",
         "criterion": "universal_linear_response_preservation",

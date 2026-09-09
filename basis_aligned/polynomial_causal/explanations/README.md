@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [best_circuit_computation_notebook.md](best_circuit_computation_notebook.md) — notebook-style,
+  code-and-output walkthrough of the actual v23 prompts and token IDs, tensor shapes, native block
+  equations, four-head patch, measured outputs, exact MLP11 contraction, and the precise boundary
+  between the extracted partial circuit and the still-native input routing/downstream suffix
 - [one_day_update.md](one_day_update.md) — the high-level one-day account of circuit breadth and quality, constrained
   DAS, exact transport and weight tensors, preserved failures, active trajectory, and the requested final discussion
   of SAE/occupancy versus folding a causal subspace into weights and decomposing the restricted tensor
