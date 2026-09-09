@@ -117,3 +117,19 @@ are mixed. This licenses a narrower falsifiable candidate, not semantic labeling
 from sensitivity alone: `HOP_STATE_COMPILER_V1_PREREGISTRATION.md` substitutes one
 causal role/hop state codebook into these first-factor projections. It must preserve
 all29-way distributions and single/joint native-corresponding removals on fresh text.
+
+## Shared hop-state replacement — rejected
+
+The fixed30-state causal role/most-recent-hop compiler passed its numerical control
+and reduced charged constants387968→375424, but failed full-output and removal tests.
+Query KL was2.465 IID,2.514 short-cycle OOD and1.485 short-history OOD; joint-removal
+relative errors .936/.961/.927. These savings do not establish interpretability.
+`HOP_STATE_COMPILER_V1_RESULT.json` preserves A/D true, B/C false and the frozen books.
+
+A CPU diagnostic on the same already opened panels replaces Q1 alone, K1 alone, or
+both, without fitting anything. Neither side passes: query-only KL .822–1.573 and
+key-only1.497–2.624. The Q/K output interaction has49–56% of the joint-error norm.
+This rejects both a one-sided rescue and independent-error accounting. Receipt:
+`HOP_STATE_FACTORIAL_V1_RESULT.json`; this is diagnostic reuse, not fresh confirmation.
+The next object is the actual upstream producer dependency, not another semantic
+state vocabulary inferred from a sensitivity screen.

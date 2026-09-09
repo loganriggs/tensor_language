@@ -1,0 +1,213 @@
+{
+  "experiment": "hop_state_factorial_v1",
+  "scope": "post-null diagnostic on already opened populations; no held-out circuit claim",
+  "parent_sha256": "8bf2ca8104ccd3811780c2c1c7cd3a928955c4d4608fc6587d472cd0c05aea04",
+  "books_sha256": "d0abacca9752ffda015e7238538b3e49d92846e19561a4b65c08720fa48cb548",
+  "predictions": {
+    "query_code_alone_sufficient": false,
+    "key_code_alone_sufficient": false,
+    "interaction_below_tenth_of_joint_error": false
+  },
+  "populations": {
+    "iid": {
+      "distribution": {
+        "Q": {
+          "all": {
+            "mean_kl": 0.3929992919212665,
+            "p99_kl": 11.680644684750698,
+            "max_kl": 48.16061244465797,
+            "max_abs_logit": 64.01410961248101,
+            "top1_agreement": 0.8493723849372385,
+            "passed": false
+          },
+          "query": {
+            "mean_kl": 1.5524855499341152,
+            "p99_kl": 25.673985788557534,
+            "max_kl": 48.16061244465797,
+            "max_abs_logit": 64.01410961248101,
+            "top1_agreement": 0.5755208333333334,
+            "passed": false
+          }
+        },
+        "K": {
+          "all": {
+            "mean_kl": 0.5871969876863334,
+            "p99_kl": 8.813818758258426,
+            "max_kl": 33.82878660498359,
+            "max_abs_logit": 85.81068325156804,
+            "top1_agreement": 0.7756276150627615,
+            "passed": false
+          },
+          "query": {
+            "mean_kl": 2.4951081248856535,
+            "p99_kl": 21.681204063313423,
+            "max_kl": 33.82878660498359,
+            "max_abs_logit": 85.81068325156804,
+            "top1_agreement": 0.2552083333333333,
+            "passed": false
+          }
+        },
+        "QK": {
+          "all": {
+            "mean_kl": 0.5799094329871931,
+            "p99_kl": 8.565617792932983,
+            "max_kl": 33.156815019945185,
+            "max_abs_logit": 85.85188194221699,
+            "top1_agreement": 0.774581589958159,
+            "passed": false
+          },
+          "query": {
+            "mean_kl": 2.464610879326417,
+            "p99_kl": 21.624162999081754,
+            "max_kl": 33.156815019945185,
+            "max_abs_logit": 85.85188194221699,
+            "top1_agreement": 0.2421875,
+            "passed": false
+          }
+        }
+      },
+      "centered_error_rms": {
+        "Q": 1.4020795370219608,
+        "K": 2.7809351356715917,
+        "QK": 2.80120140404905
+      },
+      "interaction_rms": 1.369963285966638,
+      "interaction_over_joint_error": 0.4890627585672339,
+      "cpu_parent_query_kl_difference": 8.881784197001252e-16
+    },
+    "ood_short_cycles": {
+      "distribution": {
+        "Q": {
+          "all": {
+            "mean_kl": 0.3919422482962518,
+            "p99_kl": 11.863537021283772,
+            "max_kl": 49.14115781051824,
+            "max_abs_logit": 67.86678450761873,
+            "top1_agreement": 0.8514644351464435,
+            "passed": false
+          },
+          "query": {
+            "mean_kl": 1.5734351038479517,
+            "p99_kl": 22.4622989225771,
+            "max_kl": 49.14115781051824,
+            "max_abs_logit": 67.86678450761873,
+            "top1_agreement": 0.5651041666666666,
+            "passed": false
+          }
+        },
+        "K": {
+          "all": {
+            "mean_kl": 0.6162279636076315,
+            "p99_kl": 10.370898823265104,
+            "max_kl": 36.26708008263429,
+            "max_abs_logit": 99.7091048407937,
+            "top1_agreement": 0.7853033472803347,
+            "passed": false
+          },
+          "query": {
+            "mean_kl": 2.624145732071572,
+            "p99_kl": 24.50941966419797,
+            "max_kl": 36.26708008263429,
+            "max_abs_logit": 99.7091048407937,
+            "top1_agreement": 0.28125,
+            "passed": false
+          }
+        },
+        "QK": {
+          "all": {
+            "mean_kl": 0.5859036726464157,
+            "p99_kl": 10.106375376356317,
+            "max_kl": 36.239510610796096,
+            "max_abs_logit": 99.85682378113313,
+            "top1_agreement": 0.7894874476987448,
+            "passed": false
+          },
+          "query": {
+            "mean_kl": 2.5137361581138156,
+            "p99_kl": 24.284304828991374,
+            "max_kl": 36.239510610796096,
+            "max_abs_logit": 99.85682378113313,
+            "top1_agreement": 0.2838541666666667,
+            "passed": false
+          }
+        }
+      },
+      "centered_error_rms": {
+        "Q": 1.4130136589150684,
+        "K": 2.7747274813748533,
+        "QK": 2.783282377695648
+      },
+      "interaction_rms": 1.4050631219589673,
+      "interaction_over_joint_error": 0.5048223397017493,
+      "cpu_parent_query_kl_difference": 8.881784197001252e-16
+    },
+    "ood_short_history": {
+      "distribution": {
+        "Q": {
+          "all": {
+            "mean_kl": 0.1679625109197832,
+            "p99_kl": 2.8360955606750773,
+            "max_kl": 15.413076353402555,
+            "max_abs_logit": 30.767894276893557,
+            "top1_agreement": 0.8783783783783784,
+            "passed": false
+          },
+          "query": {
+            "mean_kl": 0.8215340008702949,
+            "p99_kl": 13.470168288788763,
+            "max_kl": 15.413076353402555,
+            "max_abs_logit": 30.767894276893557,
+            "top1_agreement": 0.55078125,
+            "passed": false
+          }
+        },
+        "K": {
+          "all": {
+            "mean_kl": 0.2663461534736429,
+            "p99_kl": 4.3641793576413255,
+            "max_kl": 18.85426275429174,
+            "max_abs_logit": 46.474507975871944,
+            "top1_agreement": 0.8451576576576577,
+            "passed": false
+          },
+          "query": {
+            "mean_kl": 1.4967183049609554,
+            "p99_kl": 12.842668965777978,
+            "max_kl": 18.85426275429174,
+            "max_abs_logit": 46.474507975871944,
+            "top1_agreement": 0.34375,
+            "passed": false
+          }
+        },
+        "QK": {
+          "all": {
+            "mean_kl": 0.2632318112242034,
+            "p99_kl": 4.081669174460593,
+            "max_kl": 18.678793473564937,
+            "max_abs_logit": 46.45728452827305,
+            "top1_agreement": 0.8468468468468469,
+            "passed": false
+          },
+          "query": {
+            "mean_kl": 1.4849007216140429,
+            "p99_kl": 12.884120487920237,
+            "max_kl": 18.678793473564937,
+            "max_abs_logit": 46.45728452827305,
+            "top1_agreement": 0.33984375,
+            "passed": false
+          }
+        }
+      },
+      "centered_error_rms": {
+        "Q": 0.9597247307940762,
+        "K": 1.6716534344844778,
+        "QK": 1.6825757760386153
+      },
+      "interaction_rms": 0.9489345271194084,
+      "interaction_over_joint_error": 0.5639772904335631,
+      "cpu_parent_query_kl_difference": 4.440892098500626e-16
+    }
+  },
+  "wall_seconds": 9.491187114268541,
+  "gpu_seconds": 0
+}

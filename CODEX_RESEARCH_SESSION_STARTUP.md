@@ -53,6 +53,22 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Latest restart delta — 2026-09-09 14:49 UTC
+
+Strategic review is now HOURLY_STRATEGIC_REVIEW_2026-09-09_1449.md (next15:49 UTC).
+Mathematical review remains THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-09_1348.md
+(next16:48 UTC). Newer live receipts override the historical active-successor text.
+HOP_STATE_COMPILER_V1 is validly rejected: queryKL1.485–2.514, joint errors .927–.961,
+despite lower charged constants375424. CPU HOP_STATE_FACTORIAL_V1 uses frozen books
+on opened panels and rejects both one-sided Q/K replacements; interaction49–56% of
+joint error. Stop semantic codebook guessing. Active continuation is an exact
+upstream-producer/final-factor dependency atlas, preserving live RMS gains and all
+background and asking which producer actually feeds the answer-history computation.
+The source circuit report records all stronger-null results. Full goal remains active.
+Next protocol: UPSTREAM_PRODUCER_FACTOR_V1_PREREGISTRATION.md. Its reusable exact
+executor upstream_producer_reference.py passes15 CPU controls; managed runner
+integration is the immediate outstanding work. No new trained atlas outcome opened.
+
 ## New direction and completed bounded pilot — 2026-09-09 04:04 UTC
 
 ### Active-goal restart — 2026-09-09 14:07 UTC
