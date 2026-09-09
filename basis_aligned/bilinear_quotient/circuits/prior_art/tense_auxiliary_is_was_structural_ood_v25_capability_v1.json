@@ -1,0 +1,40 @@
+{
+  "candidate_id": "tense_auxiliary.is_vs_was.structural_ood_v25_capability_v1",
+  "created_utc": "2026-09-09T02:38:00Z",
+  "decision": "novel_nonisomorphic_structural_ood_authority",
+  "motivation": "user red-team: v23/v24 noun and cue swaps retained one temporal-prefix comma noun parse",
+  "nearest_prior_work": [
+    {
+      "artifact": "circuits/followups/temporal_iswas_v23_source_destination_cell_atlas_v4_result.json",
+      "difference": "valid directed cells are identified only within one narrow parse family"
+    },
+    {
+      "artifact": "circuits/followups/tense_auxiliary_is_was_fresh_lexicon_v24_capability_v1_result.json",
+      "difference": "v24 changes lexicon but retains the prefix-comma-noun parse and is an honest control-capability null"
+    }
+  ],
+  "frozen_design": {
+    "rows": 64,
+    "target_constructions": 8,
+    "control_constructions": 8,
+    "rows_per_construction": 4,
+    "rows_per_construction_direction": 2,
+    "cell_accuracy_minimum": 0.5,
+    "jointly_correct_base_and_donor_per_construction_minimum": 3,
+    "token_length_minimum": 8,
+    "token_length_maximum_observed": 18,
+    "price": {
+      "model_forwards_exact": 2,
+      "sequence_evaluations_exact": 128,
+      "interventions": 0,
+      "transformer_backwards": 0,
+      "model_updates": 0
+    }
+  },
+  "forbidden_claims": [
+    "lexical noun variation is structural OOD",
+    "a construction may be filtered after native capability outcomes",
+    "capability establishes a causal circuit",
+    "v23 cell labels automatically transfer to any v25 parse"
+  ]
+}

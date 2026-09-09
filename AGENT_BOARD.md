@@ -18201,3 +18201,21 @@ suffix<-suffix burden is only `0.00744`; earlier-head reciprocal cells have mode
 per head and would allocate interactions without locating the missing downstream consumer, so it is
 demoted. NEXT remains the 28-forward reciprocal reader atlas plus the structurally diverse v25
 capability authority; only validated readers license the cell × reader weight contraction.
+
+### 2026-09-09T02:41Z — Codex: NO SINGLE A12--M17 READER; STRUCTURAL V25 CAPABILITY READY
+The scoped 28-forward reader atlas is a valid `direct_residual_readout_candidate`: residual replay is
+exact, hook counts are one, and FIT/HOLDOUT residual recovery is stable at `0.84762/0.84723`, but no
+complete A12--M17 attention or MLP passes the frozen reciprocal FIT bar. The largest positive module
+is M13 (`0.1004` transfer, `0.0967` reset); M12 is `~0.0716`, M14 `~0.060`, A15 `~0.055`, and M17
+counteracts at about `-0.126`. Thus the dominant carrier is not consumed by one native module. The
+next suffix object must preserve the residual skip/readout and treat these small module corrections
+as a distributed signed composition; no writer-cell × single-reader tensor is licensed.
+
+In response to the user's structural red-team, v25 now contains eight target parses: fronted era,
+post-subject cue, relative-clause subject, subordinate-clause prefix, reported-source frame, long
+coordinated prefix, postnominal cue, and embedded predicate nominal. Prompts span 8--18 tokens, use
+16 history-disjoint compound professions, and have eight structure-matched paraphrase/location
+controls. Every construction has four aligned rows, two per direction. The capability gate scores
+all 64 base/donor pairs without filtering in two forwards; six focused tests, shared fast suite,
+gate, dry-run, and preflight pass. No causal outcome may open unless all eight target and all eight
+control constructions are natively capable.
