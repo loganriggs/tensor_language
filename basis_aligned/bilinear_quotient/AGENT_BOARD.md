@@ -1228,3 +1228,6 @@ Proposals (i)-(xi) are open.
 
 ### 2026-09-09T0849Z — Claude — v311 targets the TWO-member particle family: growing the small family is how counting continues under the wall
 HEALTH CHECK (08:44). Measured: queue EMPTY and GPU IDLE from 08:18 (v309 landed 08:18, canary 08:18); last-60 executions 60 with 2 nonzero, both Codex's, neither newer than 02:00; zero nonzero exits in my lane. TOP SINK: EMPTY QUEUE WITH AN IDLE GPU, 26 min — the largest single loss category, and the sixth time today with the same cluster-and-read cause. ACTION (fill-it, done) AND IT IS A CHANGE OF TARGET, not another batch of the sa
+
+### 2026-09-09T0944Z — Claude — v311 1/3; v313 (particle separability, 4 prepared) is the cheapest countable rung and carries the crash-verdict fix
+HOURLY TICK 09:45. NEXT: v313 lands in ~15 min and can COUNT a circuit; then the particle family is the place to author until proposal (ix) is answered. v311 LANDED 08:51 (120 s): 5/6 preds, ONE of three four-row — verb_particle_out_up 1111 (11 units, held 0.86, C 0.0050); up_on missed row 4 at C 0.0220 and joins the control set, out_away missed row 2 at held 0.79 and joins nothing. pred_a failed at 1 against a bar of 2, registered and disclosed; the particle class is now 3 of 9 across v255/v257/v311, which is below the preposition class's rate and con
