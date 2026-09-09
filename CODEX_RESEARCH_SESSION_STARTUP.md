@@ -53,6 +53,25 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active middle-entity matching test — 2026-09-09 15:50 UTC
+
+Latest strategic review HOURLY_STRATEGIC_REVIEW_2026-09-09_1550.md; next after16:50.
+Mathematical review remains1348, next after16:48 UTC. Full goal remains active.
+SUFFIX_JOIN_HEAD_PORT_V1_RESULT.json passes all4 predicates: L2H1 forward-value,
+L2H2 primary backward-key, with H3's smaller contribution retained. All final source
+ports together give exactly0 query-logit replay error, reused fromhop0. This is a
+native intervention interface, not a smaller standalone semantic join implementation.
+Full per-example logits are in SUFFIX_JOIN_HEAD_PORT_V1_QUERY_LOGITS.pt.
+
+Active managed successor: SUFFIX_JOIN_MIDDLE_MATCH_V1_PREREGISTRATION.md,
+suffix_join_middle_match_reference.py and ops/run_suffix_join_middle_match_v1.py.
+Four valid permutation column-swap cases break/restore the shared middle equality;
+frozen L2H1/H2 edges must gate both joint routing score and full-query removal effect.
+Fourteen structural plus nine reused head/port controls pass. Inspect live queue/
+result before acting. If it passes, move toward joint read-route-write replacement,
+not another source-mask census. All native coefficients remain charged; strict
+native-distribution failures in earlier tests remain preserved in the report.
+
 ## Active join-head/port continuation — 2026-09-09 15:38 UTC
 
 SUFFIX_JOIN_WRITER_V1_RESULT.json completed7.84s: A/B/D true,C false. L2 (zero-based)

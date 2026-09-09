@@ -1,0 +1,1699 @@
+{
+  "experiment": "suffix_join_head_port_v1",
+  "runner_sha256": "5b87bc0186cee58f38229678fe2c1935d529393adec3865c6728e9558b144ae2",
+  "bound_sha256": "bdff72eab5911c5ed3186e46667b6f8ed580fcc54f6bc3c5434c4bdb109d9a8c",
+  "checkpoint_sha256": "c9388cc8b1ba7e95c6a043cbf4d01592987447867a50781d3babe31ce3f8358b",
+  "controls": {
+    "passed": true,
+    "checks": {
+      "identity": true,
+      "all_head_explicit": true,
+      "query_port_closure": true,
+      "local_queries_not_claimed_restored": true,
+      "head_0": true,
+      "head_1": true,
+      "head_2": true,
+      "head_3": true,
+      "hooks_restored": true
+    }
+  },
+  "populations": {
+    "iid": {
+      "groups": {
+        "B2_later": {
+          "hops": {
+            "0": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999930109,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999930093,
+                  "gold_probability_loss": 1.5404344466674047e-15
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999930109,
+                  "gold_probability_loss": -7.864079757761526e-17
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999926049,
+                  "gold_probability_loss": 4.0597617860053486e-13
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999930007,
+                  "gold_probability_loss": 1.0079899877742568e-14
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999930318,
+                  "gold_probability_loss": -2.0886070650760757e-14
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999930115,
+                  "gold_probability_loss": -6.059967342745646e-16
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999930141,
+                  "gold_probability_loss": -3.2520282762978545e-15
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999930128,
+                  "gold_probability_loss": -1.915134717478395e-15
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999926086,
+                  "gold_probability_loss": 4.022800611143869e-13
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999926897,
+                  "gold_probability_loss": 3.2122915438748123e-13
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999926213,
+                  "gold_probability_loss": 3.894199777458122e-13
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999931456,
+                  "gold_probability_loss": -1.3470706032118565e-13
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999926953,
+                  "gold_probability_loss": 3.1546987244723823e-13
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999999999993041,
+                  "gold_probability_loss": -3.0091669896611016e-14
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999931034,
+                  "gold_probability_loss": -9.256484467812243e-14
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999930109,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "1": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999882983890583,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999882855582571,
+                  "gold_probability_loss": 1.2830801208544665e-08
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999882883880312,
+                  "gold_probability_loss": 1.0001027293352985e-08
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999887809990274,
+                  "gold_probability_loss": -4.826099691407348e-07
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999883070004408,
+                  "gold_probability_loss": -8.611382456650643e-09
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999879987909667,
+                  "gold_probability_loss": 2.99598091650181e-07
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999988351140538,
+                  "gold_probability_loss": -5.2751479460063276e-08
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999882680152844,
+                  "gold_probability_loss": 3.037377393581379e-08
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999988298334928,
+                  "gold_probability_loss": 5.413039923703641e-11
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999988532976808,
+                  "gold_probability_loss": -2.3458774974412697e-07
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999887215324396,
+                  "gold_probability_loss": -4.231433810934308e-07
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999887511965652,
+                  "gold_probability_loss": -4.5280750682330506e-07
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999791887771231,
+                  "gold_probability_loss": 9.109611935201786e-06
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.99998884812888,
+                  "gold_probability_loss": -5.497398215768371e-07
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999850418842277,
+                  "gold_probability_loss": 3.256504830651911e-06
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999986620509031,
+                  "gold_probability_loss": 1.6778800275424333e-06
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999882983890583,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "2": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9985767469887832,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9986228206837152,
+                  "gold_probability_loss": -4.607369493208011e-05
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9984314038408127,
+                  "gold_probability_loss": 0.00014534314797019546
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999994169558745,
+                  "gold_probability_loss": -0.0014226699670914246
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9987328599430448,
+                  "gold_probability_loss": -0.0001561129542619564
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9984114550919919,
+                  "gold_probability_loss": 0.00016529189679121564
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9985148187137121,
+                  "gold_probability_loss": 6.192827507098726e-05
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9996946890984123,
+                  "gold_probability_loss": -0.0011179421096293742
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.998721908915951,
+                  "gold_probability_loss": -0.0001451619271680115
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999999525503434,
+                  "gold_probability_loss": -0.00142277851465081
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999986183006726,
+                  "gold_probability_loss": -0.0014218713118895564
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999916947562637,
+                  "gold_probability_loss": -0.0014149477674806205
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999885183551402,
+                  "gold_probability_loss": -0.00141177136635721
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999757135421236,
+                  "gold_probability_loss": -0.0013989665533402824
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998716370660677,
+                  "gold_probability_loss": -0.001294890077284792
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998421772720892,
+                  "gold_probability_loss": -0.0012654302833062954
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9985767469887832,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "3": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.991079060572632,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9919025196676086,
+                  "gold_probability_loss": -0.000823459094976435
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9914138667449498,
+                  "gold_probability_loss": -0.0003348061723177226
+                },
+                "target_h1": {
+                  "accuracy": 0.0,
+                  "gold_probability": 0.019819918287908574,
+                  "gold_probability_loss": 0.9712591422847234
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.990668393594797,
+                  "gold_probability_loss": 0.00041066697783523803
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9910370592619566,
+                  "gold_probability_loss": 4.2001310675394976e-05
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9916579918990687,
+                  "gold_probability_loss": -0.000578931326436459
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9895401645379659,
+                  "gold_probability_loss": 0.0015388960346663
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9906569220479292,
+                  "gold_probability_loss": 0.0004221385247028299
+                },
+                "ports_none": {
+                  "accuracy": 0.0,
+                  "gold_probability": 0.019327575320977612,
+                  "gold_probability_loss": 0.9717514852516546
+                },
+                "ports_k1": {
+                  "accuracy": 0.0,
+                  "gold_probability": 0.0198629528505219,
+                  "gold_probability_loss": 0.9712161077221103
+                },
+                "ports_k2": {
+                  "accuracy": 0.0,
+                  "gold_probability": 0.018357102319284207,
+                  "gold_probability_loss": 0.9727219582533478
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9976623423312782,
+                  "gold_probability_loss": -0.0065832817586461536
+                },
+                "ports_k1+k2": {
+                  "accuracy": 0.0,
+                  "gold_probability": 0.018828948967728003,
+                  "gold_probability_loss": 0.9722501116049042
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9980264334641963,
+                  "gold_probability_loss": -0.006947372891564055
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9901366559470132,
+                  "gold_probability_loss": 0.0009424046256190297
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.991079060572632,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            }
+          },
+          "passing_heads": [
+            1
+          ],
+          "all_head_cut_loss": 0.9717514852516546,
+          "port_rescue_fractions": {
+            "ports_none": 0.0,
+            "ports_k1": 0.0005509407885346309,
+            "ports_k2": -0.000998684351320503,
+            "ports_v": 1.006774655720687,
+            "ports_k1+k2": -0.0005131212669260484,
+            "ports_k1+v": 1.0071493308700885,
+            "ports_k2+v": 0.9990301999637542,
+            "ports_all": 1.0
+          }
+        },
+        "B3_later": {
+          "hops": {
+            "0": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999801163,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999801362,
+                  "gold_probability_loss": -1.9623191960249642e-14
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999999999980076,
+                  "gold_probability_loss": 4.0407492167086424e-14
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999801258,
+                  "gold_probability_loss": -9.293491901966414e-15
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999800675,
+                  "gold_probability_loss": 4.9002468749392847e-14
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999806173,
+                  "gold_probability_loss": -5.007152100352149e-13
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999801178,
+                  "gold_probability_loss": -1.457167719820518e-15
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999803366,
+                  "gold_probability_loss": -2.2006470719778312e-13
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999801611,
+                  "gold_probability_loss": -4.456157665089222e-14
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999811683,
+                  "gold_probability_loss": -1.051871552822566e-12
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999813536,
+                  "gold_probability_loss": -1.237172401561774e-12
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999602324,
+                  "gold_probability_loss": 1.988398797466336e-11
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999811996,
+                  "gold_probability_loss": -1.0829994308754938e-12
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999808805,
+                  "gold_probability_loss": -7.63838066871377e-13
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999812497,
+                  "gold_probability_loss": -1.1331768856592817e-12
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999999999976818,
+                  "gold_probability_loss": 3.298676147049188e-12
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999999999801163,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "1": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999777909673883,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999777463977394,
+                  "gold_probability_loss": 4.456964895529122e-08
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999778874996217,
+                  "gold_probability_loss": -9.653223345211052e-08
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999776771539169,
+                  "gold_probability_loss": 1.1381347148527639e-07
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999776969671279,
+                  "gold_probability_loss": 9.400026046435528e-08
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999751468848888,
+                  "gold_probability_loss": 2.64408249954264e-06
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999775841395779,
+                  "gold_probability_loss": 2.068278103598923e-07
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999726669094621,
+                  "gold_probability_loss": 5.124057926258567e-06
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999778985031176,
+                  "gold_probability_loss": -1.0753572928188608e-07
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999735633596739,
+                  "gold_probability_loss": 4.227607714267963e-06
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999771082124057,
+                  "gold_probability_loss": 6.827549824002058e-07
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999760242478527,
+                  "gold_probability_loss": 1.766719535658175e-06
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999975373048252,
+                  "gold_probability_loss": 2.4179191362485217e-06
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999786473397304,
+                  "gold_probability_loss": -8.563723422362149e-07
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999977607130964,
+                  "gold_probability_loss": 1.8383642444441683e-07
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.99997593089184,
+                  "gold_probability_loss": 1.860075548310025e-06
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999777909673883,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "2": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999632294755543,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999629627228298,
+                  "gold_probability_loss": 2.667527243723396e-07
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999621735593252,
+                  "gold_probability_loss": 1.055916229143287e-06
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999960646996044,
+                  "gold_probability_loss": 2.5824795102796783e-06
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999954685011838,
+                  "gold_probability_loss": 8.544463716307626e-06
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999273831413964,
+                  "gold_probability_loss": 3.5846334157929594e-05
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999623117868527,
+                  "gold_probability_loss": 9.176887016566307e-07
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999605261545689,
+                  "gold_probability_loss": 2.7033209854185336e-06
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999627645988708,
+                  "gold_probability_loss": 4.6487668360859863e-07
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999952427518274,
+                  "gold_probability_loss": 1.0801957280382376e-05
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999412028445417,
+                  "gold_probability_loss": 2.202663101251214e-05
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999516832717187,
+                  "gold_probability_loss": 1.154620383560003e-05
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999942615185453,
+                  "gold_probability_loss": 2.061429010128078e-05
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999243108045212,
+                  "gold_probability_loss": 3.8918671033264886e-05
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999211471979222,
+                  "gold_probability_loss": 4.2082277631997254e-05
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999676178869175,
+                  "gold_probability_loss": -4.388411363145939e-06
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999632294755543,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "3": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.912858562827612,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9135826565208998,
+                  "gold_probability_loss": -0.0007240936932879239
+                },
+                "control_h0": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9131160360586784,
+                  "gold_probability_loss": -0.00025747323106644097
+                },
+                "target_h1": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9125275127430816,
+                  "gold_probability_loss": 0.0003310500845303114
+                },
+                "control_h1": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9139297810136114,
+                  "gold_probability_loss": -0.0010712181859995026
+                },
+                "target_h2": {
+                  "accuracy": 0.3125,
+                  "gold_probability": 0.2677425499979,
+                  "gold_probability_loss": 0.645116012829712
+                },
+                "control_h2": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9105692426725085,
+                  "gold_probability_loss": 0.002289320155103353
+                },
+                "target_h3": {
+                  "accuracy": 0.7291666666666666,
+                  "gold_probability": 0.7116899235728654,
+                  "gold_probability_loss": 0.20116863925474646
+                },
+                "control_h3": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9120416052261057,
+                  "gold_probability_loss": 0.0008169576015062109
+                },
+                "ports_none": {
+                  "accuracy": 0.020833333333333332,
+                  "gold_probability": 0.011391871863298287,
+                  "gold_probability_loss": 0.9014666909643138
+                },
+                "ports_k1": {
+                  "accuracy": 0.4166666666666667,
+                  "gold_probability": 0.40679097850621687,
+                  "gold_probability_loss": 0.5060675843213951
+                },
+                "ports_k2": {
+                  "accuracy": 0.1875,
+                  "gold_probability": 0.1785642695110591,
+                  "gold_probability_loss": 0.7342942933165529
+                },
+                "ports_v": {
+                  "accuracy": 0.0,
+                  "gold_probability": 0.007067991287696841,
+                  "gold_probability_loss": 0.9057905715399152
+                },
+                "ports_k1+k2": {
+                  "accuracy": 0.9791666666666666,
+                  "gold_probability": 0.9709118675503733,
+                  "gold_probability_loss": -0.05805330472276132
+                },
+                "ports_k1+v": {
+                  "accuracy": 0.3541666666666667,
+                  "gold_probability": 0.3124788537697329,
+                  "gold_probability_loss": 0.600379709057879
+                },
+                "ports_k2+v": {
+                  "accuracy": 0.125,
+                  "gold_probability": 0.12077350335078785,
+                  "gold_probability_loss": 0.7920850594768241
+                },
+                "ports_all": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.912858562827612,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            }
+          },
+          "passing_heads": [
+            2
+          ],
+          "all_head_cut_loss": 0.9014666909643138,
+          "port_rescue_fractions": {
+            "ports_none": 0.0,
+            "ports_k1": 0.4386175447258664,
+            "ports_k2": 0.18544489699218256,
+            "ports_v": -0.0047964951106247485,
+            "ports_k1+k2": 1.0643987241066675,
+            "ports_k1+v": 0.3339967909234196,
+            "ports_k2+v": 0.12133740778650663,
+            "ports_all": 1.0
+          }
+        }
+      },
+      "all_port_query_exact": true,
+      "source_ports_reused_exactly": true,
+      "all_port_query_max_abs": 0.0,
+      "token_sha256": "5bea12825c27f3546b8a3b0ff2ebc6ec73b200140e18d03a6e9288ca3445a1ad"
+    },
+    "ood_two_12cycles": {
+      "groups": {
+        "B2_later": {
+          "hops": {
+            "0": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 4.625929269271485e-18
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 4.625929269271485e-18
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "1": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998707961023583,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998710241377368,
+                  "gold_probability_loss": -2.2803537840417518e-07
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998707910346686,
+                  "gold_probability_loss": 5.067689904288593e-09
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998180512248526,
+                  "gold_probability_loss": 5.274487750594562e-05
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998726994598807,
+                  "gold_probability_loss": -1.9033575223726766e-06
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999871884354059,
+                  "gold_probability_loss": -1.0882517005895524e-06
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998706009123716,
+                  "gold_probability_loss": 1.9518998678006808e-07
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998692814068582,
+                  "gold_probability_loss": 1.5146955001793527e-06
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998706143541317,
+                  "gold_probability_loss": 1.8174822663299026e-07
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998139708914997,
+                  "gold_probability_loss": 5.6825210858720464e-05
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998547387503586,
+                  "gold_probability_loss": 1.6057351999813434e-05
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998443750927603,
+                  "gold_probability_loss": 2.6421009598128858e-05
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998324048691004,
+                  "gold_probability_loss": 3.8391233257985734e-05
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998691614958785,
+                  "gold_probability_loss": 1.6346064799985238e-06
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998626488045841,
+                  "gold_probability_loss": 8.147297774291351e-06
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998492724780211,
+                  "gold_probability_loss": 2.1523624337269526e-05
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998707961023583,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "2": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999771464307981,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9997471155455959,
+                  "gold_probability_loss": 2.434876238510686e-05
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9997408832036673,
+                  "gold_probability_loss": 3.058110431366131e-05
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999951727395283,
+                  "gold_probability_loss": -0.0002237084315475669
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9997891279057591,
+                  "gold_probability_loss": -1.7663597778170653e-05
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9997721991162495,
+                  "gold_probability_loss": -7.348082684821566e-07
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9997784013813078,
+                  "gold_probability_loss": -6.937073326935643e-06
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998365307509628,
+                  "gold_probability_loss": -6.50664429817117e-05
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9997713086169564,
+                  "gold_probability_loss": 1.5569102446849614e-07
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999954881965089,
+                  "gold_probability_loss": -0.0002240238885278615
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999970095210408,
+                  "gold_probability_loss": -0.00022554521305990136
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999892258636427,
+                  "gold_probability_loss": -0.00021776155566177735
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999889744993364,
+                  "gold_probability_loss": -0.00021751019135555585
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999742188258294,
+                  "gold_probability_loss": -0.00020275451784839324
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999766966070255,
+                  "gold_probability_loss": -0.00020523229904455034
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999396012536003,
+                  "gold_probability_loss": -0.0001681369456193807
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999771464307981,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "3": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9835763314938696,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9849620209027138,
+                  "gold_probability_loss": -0.0013856894088443196
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.983115395452088,
+                  "gold_probability_loss": 0.0004609360417815502
+                },
+                "target_h1": {
+                  "accuracy": 0.0625,
+                  "gold_probability": 0.03754877566989851,
+                  "gold_probability_loss": 0.9460275558239711
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9854206021808024,
+                  "gold_probability_loss": -0.0018442706869329732
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.982329316774646,
+                  "gold_probability_loss": 0.0012470147192235835
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9837977724312911,
+                  "gold_probability_loss": -0.00022144093742170606
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9842069551464974,
+                  "gold_probability_loss": -0.0006306236526277218
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9843070310408782,
+                  "gold_probability_loss": -0.0007306995470088493
+                },
+                "ports_none": {
+                  "accuracy": 0.0625,
+                  "gold_probability": 0.03736451353831902,
+                  "gold_probability_loss": 0.9462118179555506
+                },
+                "ports_k1": {
+                  "accuracy": 0.0625,
+                  "gold_probability": 0.03680620730108468,
+                  "gold_probability_loss": 0.9467701241927848
+                },
+                "ports_k2": {
+                  "accuracy": 0.0625,
+                  "gold_probability": 0.03750549906288341,
+                  "gold_probability_loss": 0.946070832430986
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9945839426172055,
+                  "gold_probability_loss": -0.011007611123336014
+                },
+                "ports_k1+k2": {
+                  "accuracy": 0.0625,
+                  "gold_probability": 0.036939748816706815,
+                  "gold_probability_loss": 0.9466365826771627
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9877407586379494,
+                  "gold_probability_loss": -0.004164427144079987
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9929517537082413,
+                  "gold_probability_loss": -0.009375422214371933
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9835763314938696,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            }
+          },
+          "passing_heads": [
+            1
+          ],
+          "all_head_cut_loss": 0.9462118179555506,
+          "port_rescue_fractions": {
+            "ports_none": 0.0,
+            "ports_k1": -0.000590043610362529,
+            "ports_k2": 0.00014899996162516204,
+            "ports_v": 1.0116333477498938,
+            "ports_k1+k2": -0.00044891081843575966,
+            "ports_k1+v": 1.00440115739949,
+            "ports_k2+v": 1.0099083757320102,
+            "ports_all": 1.0
+          }
+        },
+        "B3_later": {
+          "hops": {
+            "0": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": -4.625929269271485e-18
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": -4.625929269271485e-18
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": -4.625929269271485e-18
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 6.013708050052931e-17
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": -4.625929269271485e-18
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": -4.625929269271485e-18
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 1.0,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "1": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9996226773106169,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9996277919090034,
+                  "gold_probability_loss": -5.114598386398809e-06
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9996397468630542,
+                  "gold_probability_loss": -1.706955243730111e-05
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9996231401003576,
+                  "gold_probability_loss": -4.627897406730049e-07
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999598081767442,
+                  "gold_probability_loss": 2.4595543174935525e-05
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999557982754132,
+                  "gold_probability_loss": 6.469455648496168e-05
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9996308097193124,
+                  "gold_probability_loss": -8.132408695409507e-06
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998329368320323,
+                  "gold_probability_loss": -0.0002102595214155146
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9996066211341091,
+                  "gold_probability_loss": 1.605617650780646e-05
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998243168621359,
+                  "gold_probability_loss": -0.00020163955151906304
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999823140358688,
+                  "gold_probability_loss": -0.00020046304807129026
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9974623869898155,
+                  "gold_probability_loss": 0.0021602903208015473
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998268920178567,
+                  "gold_probability_loss": -0.0002042147072397263
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9993775992510009,
+                  "gold_probability_loss": 0.0002450780596160024
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9998258289302706,
+                  "gold_probability_loss": -0.00020315161965378295
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9989429587772202,
+                  "gold_probability_loss": 0.0006797185333968364
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9996226773106169,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "2": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999918734822364,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999916989863357,
+                  "gold_probability_loss": 1.74495900768142e-07
+                },
+                "control_h0": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999919803723375,
+                  "gold_probability_loss": -1.0689010082609585e-07
+                },
+                "target_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999919168482352,
+                  "gold_probability_loss": -4.33659987503221e-08
+                },
+                "control_h1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999913863832429,
+                  "gold_probability_loss": 4.870989935383078e-07
+                },
+                "target_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999899730152221,
+                  "gold_probability_loss": 1.9004670143892473e-06
+                },
+                "control_h2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999919410157019,
+                  "gold_probability_loss": -6.753346529220217e-08
+                },
+                "target_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999918211979105,
+                  "gold_probability_loss": 5.2284326109338273e-08
+                },
+                "control_h3": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999917985849393,
+                  "gold_probability_loss": 7.489729728776817e-08
+                },
+                "ports_none": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9987880718085567,
+                  "gold_probability_loss": 0.0012038016736798985
+                },
+                "ports_k1": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9997451410693028,
+                  "gold_probability_loss": 0.00024673241293356185
+                },
+                "ports_k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.999991422218959,
+                  "gold_probability_loss": 4.512632775302561e-07
+                },
+                "ports_v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999832803957006,
+                  "gold_probability_loss": 8.593086536043404e-06
+                },
+                "ports_k1+k2": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999923185145096,
+                  "gold_probability_loss": -4.450322731372469e-07
+                },
+                "ports_k1+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999868384134706,
+                  "gold_probability_loss": 5.035068765972539e-06
+                },
+                "ports_k2+v": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999912823944751,
+                  "gold_probability_loss": 5.910877613109674e-07
+                },
+                "ports_all": {
+                  "accuracy": 1.0,
+                  "gold_probability": 0.9999918734822364,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            },
+            "3": {
+              "n_query_variants": 48,
+              "arms": {
+                "full": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9222647208002117,
+                  "gold_probability_loss": 0.0
+                },
+                "target_h0": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9212768479662845,
+                  "gold_probability_loss": 0.000987872833927265
+                },
+                "control_h0": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9205893242870958,
+                  "gold_probability_loss": 0.001675396513116147
+                },
+                "target_h1": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9218558768833095,
+                  "gold_probability_loss": 0.0004088439169022045
+                },
+                "control_h1": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9213699759579296,
+                  "gold_probability_loss": 0.0008947448422822792
+                },
+                "target_h2": {
+                  "accuracy": 0.4166666666666667,
+                  "gold_probability": 0.3859536555125918,
+                  "gold_probability_loss": 0.5363110652876198
+                },
+                "control_h2": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9220853687476875,
+                  "gold_probability_loss": 0.00017935205252423434
+                },
+                "target_h3": {
+                  "accuracy": 0.8541666666666666,
+                  "gold_probability": 0.8148318358224031,
+                  "gold_probability_loss": 0.10743288497780874
+                },
+                "control_h3": {
+                  "accuracy": 0.9583333333333334,
+                  "gold_probability": 0.9265682587019494,
+                  "gold_probability_loss": -0.004303537901737579
+                },
+                "ports_none": {
+                  "accuracy": 0.041666666666666664,
+                  "gold_probability": 0.0342578393482997,
+                  "gold_probability_loss": 0.8880068814519121
+                },
+                "ports_k1": {
+                  "accuracy": 0.4583333333333333,
+                  "gold_probability": 0.4289869477184938,
+                  "gold_probability_loss": 0.4932777730817179
+                },
+                "ports_k2": {
+                  "accuracy": 0.5208333333333334,
+                  "gold_probability": 0.4722650550500322,
+                  "gold_probability_loss": 0.44999966575017963
+                },
+                "ports_v": {
+                  "accuracy": 0.020833333333333332,
+                  "gold_probability": 0.02639506327561765,
+                  "gold_probability_loss": 0.8958696575245941
+                },
+                "ports_k1+k2": {
+                  "accuracy": 0.9583333333333334,
+                  "gold_probability": 0.9470352464262418,
+                  "gold_probability_loss": -0.02477052562603017
+                },
+                "ports_k1+v": {
+                  "accuracy": 0.375,
+                  "gold_probability": 0.3487037814752097,
+                  "gold_probability_loss": 0.5735609393250022
+                },
+                "ports_k2+v": {
+                  "accuracy": 0.4166666666666667,
+                  "gold_probability": 0.40006537010356863,
+                  "gold_probability_loss": 0.5221993506966432
+                },
+                "ports_all": {
+                  "accuracy": 0.9375,
+                  "gold_probability": 0.9222647208002117,
+                  "gold_probability_loss": 0.0
+                }
+              },
+              "all_port_distribution": {
+                "mean_kl": 0.0,
+                "p99_kl": 0.0,
+                "max_kl": 0.0,
+                "max_abs_logit": 0.0,
+                "top1_agreement": 1.0,
+                "passed": true
+              }
+            }
+          },
+          "passing_heads": [
+            2
+          ],
+          "all_head_cut_loss": 0.8880068814519121,
+          "port_rescue_fractions": {
+            "ports_none": 0.0,
+            "ports_k1": 0.4445113169897995,
+            "ports_k2": 0.49324754666943615,
+            "ports_v": -0.008854408943122399,
+            "ports_k1+k2": 1.027894519900037,
+            "ports_k1+v": 0.354103046603404,
+            "ports_k2+v": 0.4119422252192066,
+            "ports_all": 1.0
+          }
+        }
+      },
+      "all_port_query_exact": true,
+      "source_ports_reused_exactly": true,
+      "all_port_query_max_abs": 0.0,
+      "token_sha256": "dce7e347a6701f5062be990ffa823165d870e5fad939459b8d80fe89621005be"
+    }
+  },
+  "common_heads_by_orientation": {
+    "B2_later": [
+      1
+    ],
+    "B3_later": [
+      2
+    ]
+  },
+  "independent_worlds": 32,
+  "correlated_query_variants": 768,
+  "query_logits_artifact": "basis_aligned/polynomial_causal/SUFFIX_JOIN_HEAD_PORT_V1_QUERY_LOGITS.pt",
+  "query_logits_sha256": "98d074c3687df8e1ce7d4d01689f35eca89ebd8842e2e7496369dbda9d7da4ca",
+  "native_parameters_retained": 400640,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_localized_heads": true,
+    "pred_c_directional_ports": true,
+    "pred_d_exact_joint_ports": true
+  },
+  "terminal": "join_heads_nominated",
+  "wall_seconds": 10.965832211077213
+}

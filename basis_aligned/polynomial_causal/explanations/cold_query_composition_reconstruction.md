@@ -179,6 +179,31 @@ edges cut, restoring all source ports should exactly restore the final query log
 other destinations within L2 never consume its changed outputs. This exact statement
 does not cover logits at the changed J positions themselves.
 
-Nine synthetic head-mask/port/closure controls pass. The next protocol and reference
-are implemented; managed runner integration is outstanding. All400640 parameters
+Nine synthetic head-mask/port/closure controls pass. The head/port experiment has
+now completed; the results are below. All400640 parameters
 remain native and charged. Full reconstruction and compact extraction remain open.
+
+
+## Directional writing heads and source-port use — all predictions pass
+
+SUFFIX_JOIN_HEAD_PORT_V1 passes A/B/C/D on32 fresh worlds,768 correlated order/hop
+variants. In both IID and two12-cycle OOD, the forward B2-later writer is L2H1
+(hop3 loss .971/.946); the primary backward B3-later writer is L2H2 (.645/.536).
+H3's backward contribution (.201/.107) is preserved and has not been discarded
+from a claimed two-head replacement. Matched-edge and lower-hop controls pass.
+
+Forward value-only port restoration recovers1.007/1.012 of the removed effect;
+restoring only the two key ports recovers approximately zero. Backward key-pair
+restoration recovers1.064/1.028, while value-only restores approximately zero.
+Restoring K1 or K2 alone is insufficient for the full backward effect. Fractions
+slightly above1 reflect changed native background/probabilities, not superadditive
+proof or exact fidelity. All3 ports together reproduce the final query logits with
+observed max error0, using ports reused fromhop0 on the same binding world.
+
+This identifies directional writers and consumers consistent with the proposed
+EC+CE join. The original sources and complete native background remain live and
+priced. Next, SUFFIX_JOIN_MIDDLE_MATCH_V1 independently relabels the shared middle
+entity in the key/value columns of a valid permutation. Both changes together
+restore the join; either alone breaks it. It tests both the native joint routing
+score and the signed full-query effect of cutting the frozen H1/H2 source edges.
+The field correspondence is being tested causally, not assumed from attention names.
