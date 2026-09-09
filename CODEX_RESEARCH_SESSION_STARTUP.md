@@ -53,6 +53,44 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Shared producer is additive; downstream response is coupled — 2026-09-09 23:03 UTC
+
+The bilinear reconstruction handoff and its appended criterion remain the
+controlling direction, overriding stale better_math_ideas goal wording.
+Three new scored receipts: BILIN18_VALUE_COMPONENT_FACTORIAL_V1 (GPU3.238s),
+BILIN18_SHARED_RESPONSE_COMMAND_MODES_V1 (GPU1.765s), and
+BILIN18_SHARED_VALUE_PRODUCER_INCIDENCE_V1 (CPU1.061s). First two are valid
+nulls; incidence is an exact positive producer certificate on795 positions.
+
+Shared/context effects are not opposing (cosines .381–.943); independent
+contributions fail (all-token interaction10.4–12.0%). Shared-only deletion
+also fails KLmean .001504/.001407, so no contextual-only fallback.
+Best command-independent full response has relative error .374/.373;
+best additive-command response has an M11 floor .0728/.0721. At the later
+iswas query these bounds are .478/.514 and .137/.154. L2 bounds are not KL
+bounds. Native/parent replay and future-command zero pass. All native errors
+and545902902 parameters remain. These opened worlds are not fresh/OOD proof.
+
+Exact token incidence shows ANY token-only shared-value producer has U11=0.
+Interaction in its removal response arises downstream. Next registered
+BILIN18_ROUTED_SHARED_COMMAND_INTERACTION_V1 captures native shared reads
+at the fixed L9H1/H4,L11H3,L15H5 union and both command queries. Exact
+S11=P11U00+P01U10+P10U01 distinguishes joint routing from crossed routing
+and payload. Primitive shared_read_command_convolution.py passes eight toy
+controls; trained capture/scorer is still pending. Reuse parent native
+forward and command_response_modes.py, do not mutate hash-bound old helpers.
+Managed32forward run only after native-capture implementation and preflight.
+The primitive's crossed-only fixture was strengthened before trained work
+because norm1 did not exceed its strict>1 negative-control bar; bar unchanged.
+Non-additive effects do not disprove composition with an explicit joint term.
+
+Canonical dossier: explanations/shared_first_value_payload.md.
+New mathematical review2249 and hourly review2303; next clocks01:49 Sep10
+and00:03 Sep10. Both runners healthy, concurrent Claude v447 completed22:53;
+preserve its files. No own GPU job remains. Concrete continuation is the
+registered reader-convolution protocol with implemented/controlled algebra;
+next integrate scoped native capture and streaming statistics. Goal active.
+
 ## Shared-only payload fails on full bilin18; component factorial next — 2026-09-09 22:35 UTC
 
 The bilinear reconstruction handoff and appended structural criterion control,

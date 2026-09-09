@@ -2,7 +2,7 @@
 
 The new full-model screen rejects replacing the contextual values in four
 previously identified heads with the shared first-layer token values alone.
-This is a result on the actual545.9-million-parameter bilin18 model, separate
+This is a result on the actual 545.9-million-parameter bilin18 model, separate
 from the four-layer associative-lookup experiments. No smaller circuit has
 been extracted from this replacement.
 
@@ -75,14 +75,58 @@ cannot be deleted under the registered fidelity standard. It establishes
 neither a new circuit satisfying those properties nor a whole-model
 impossibility theorem.
 
-The [next factorial](../BILIN18_VALUE_COMPONENT_FACTORIAL_V1_PREREGISTRATION.md)
-separately removes contextual values, shared first values, and both at the
-same fixed consumers. It tests whether their signed command effects oppose
-one another and whether their joint effect is additive. This is a causal
-role test, not a replacement nomination. Removing a shared input at selected
-consumers is distinct from deleting its producer everywhere. The new
-primitive passes seven controls, including whole-head-zero equivalence and
-restoration after an exception; the trained factorial is not yet run.
+## Component cuts and command interactions
+
+The [component factorial](../BILIN18_VALUE_COMPONENT_FACTORIAL_V1_RESULT.json)
+now completed on the managed GPU in 3.238 seconds. Native replay and the
+independent whole-head-zero oracle agree exactly. Shared and contextual
+command effects have positive cosines (.381–.943), rejecting the proposed
+opposition despite negative mixture coefficients. Their independent-effect
+approximation also fails: full-token joint interaction is 10.4–12.0% of the
+complete joint effect. Removing only the shared inputs gives mean KL
+.001504/.001407, still above .001. Neither component-only replacement passes.
+These are consumer-local cuts, not deletion of the shared producer everywhere.
+
+The [full-response command-mode screen](../BILIN18_SHARED_RESPONSE_COMMAND_MODES_V1_RESULT.json)
+completed in 1.765 seconds. For each world and token, it decomposes the full
+centered-logit shared-removal response over the four command cells. Orthogonal
+projection gives an exact lower bound for any command-independent response:
+37.4%/37.3% relative RMS error over all tokens, 24.5%/22.3% at the temporal
+query, and 47.8%/51.4% at the is/was query. These are L2 response bounds,
+not KL bounds or fitted predictors. Reconstruction, Parseval, parent KL
+replay, and the earlier query's future-command zero all pass.
+
+The [integer producer audit](../BILIN18_SHARED_VALUE_PRODUCER_INCIDENCE_V1_RESULT.json)
+provides a positive exact result: all 795 aligned source positions satisfy
+count(token00)+count(token11)=count(token01)+count(token10). Consequently,
+any token-only value map has zero mixed command mode on these worlds.
+The full removal response nevertheless has a mixed term, giving a lower
+bound of 7.2–7.3% for any additive command response over all tokens, and
+13.7–15.4% at the later query. The interaction therefore arises downstream
+of shared-value production. This does not identify which reader creates it.
+
+## Next: locate the interaction in the native read
+
+The [mathematical review](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-09_2249.md)
+derives an exact routing/payload convolution. If S=P U is the native shared
+read and hats denote balanced command modes, then
+
+    S_hat11 = P_hat11 U_hat00 + P_hat01 U_hat10 + P_hat10 U_hat01,
+
+because U_hat11=0. The first term is joint routing; the other two cross
+single-command routing with the other command's payload. The
+[registered next screen](../BILIN18_ROUTED_SHARED_COMMAND_INTERACTION_V1_PREREGISTRATION.md)
+keeps every fixed head and both queries, validates the native contraction,
+and tests whether the crossed terms alone suffice. Its primitive passes
+eight planted controls; trained capture and scoring are pending. One initial
+toy negative control had effect norm exactly equal to its strict >1 bar;
+its planted payload amplitude was doubled before any trained run, preserving
+the bar. No scientific threshold or trained result changed.
+
+Non-additivity does not invalidate circuit compositionality: a reusable
+computation can predict its interaction explicitly. All these results use
+the same opened cohort and all 545902902 native parameters; fresh/OOD
+prediction, independent extraction, and structural reduction remain unproved.
 
 The preceding small-model [query-interface work](join_write_response_curve.md)
 closed independent squared channels, proper linear blocks, and a single

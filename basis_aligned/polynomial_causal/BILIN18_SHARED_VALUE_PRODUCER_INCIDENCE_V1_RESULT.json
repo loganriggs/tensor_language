@@ -1,0 +1,34 @@
+{
+  "scope": "All opened token incidences; exact producer property for every token-only map, conditional on the inspected native architecture.",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_zero_producer_mixed_mode": true
+  },
+  "worlds": 32,
+  "aligned_source_positions": 795,
+  "nonzero_incidence_positions": [],
+  "controls": {
+    "independent_token_positive": true,
+    "constant_token_positive": true,
+    "xor_negative": true
+  },
+  "additive_command_response_relative_lower_bounds": {
+    "FIT/ALL": {
+      "all": 0.07276424902893393,
+      "iswas": 0.1369570028028361,
+      "temporal": 0.0
+    },
+    "HOLDOUT/ALL": {
+      "all": 0.07214680213960857,
+      "iswas": 0.15364867043294184,
+      "temporal": 0.0
+    }
+  },
+  "consequence": "Any observed mixed shared-removal response is generated downstream of the token-only producer.",
+  "source_sha256": "736db317960263e4a63c8b9e1bfab6ff328eb1f900010d884f81737d294e004c",
+  "builder_sha256": "72da11860ce5bf1c03ea126bc10fcb6c46dd2648169edb00a1e9e1dbeee8a0d0",
+  "runner_sha256": "21f06761e98ee7693d2fe3ce3f63f1c9f42274060943e3e9b60b1099d62e99f4",
+  "prereg_sha256": "d471ee2a271f65e63eb6796e464ef083ec89cf47b0556b9962ca8c2e8dd34a0e",
+  "native_parameters_retained": 545902902,
+  "wall_seconds": 1.0610469691455364
+}
