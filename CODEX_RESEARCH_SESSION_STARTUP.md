@@ -53,6 +53,45 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Controlling handoff and current continuation — 2026-09-09 19:53 UTC
+
+Follow `basis_aligned/polynomial_causal/explanations/bilinear_circuit_reconstruction_codex_handoff.md`
+and its appended structural success criterion. The older durable goal's reference
+to better_math_ideas is superseded by the user's explicit correction. Bytes,
+quantization, ordinary recurrence and CSE alone do not satisfy this criterion.
+GPU use is authorized where useful; use the managed runner for every GPU job.
+
+QUERY_INITIALIZER_FACTORIZATION_V1 completes4.03s, all four predictions pass on
+1536 fresh requests. Full native outputs, independent removals and mixed effects
+close <=2.99e-13; document/local cache reuse closes4.44e-15. This is exact partial
+extraction with all387968 native export coefficients retained, not structural
+model simplification. The literal summary/local source partition remains fixed.
+
+SUMMARY_RECORD_TRANSPORT_BOUND_V1 completes .23s CPU: native-token summary
+correspondence3.11e-15. At affine transport norm cap1e6, relative operator error
+is at least .11069 for the fixed record swap and .11749 for the cyclic shift.
+SUMMARY_PERMUTATION_CLOSURE_V1 completes .059s: exact nonzero dyadic minor modulo
+2147483647 certifies full46-dimensional slice rank for the stored FP64 operator,
+hence minimal linear permutation closure1058, the full incidence domain.
+These concern all-bijections affine summary transport, not nonlinear encodings,
+unrounded interval certificates, native output fidelity or full-model impossibility.
+Proof and prices: explanations/summary_record_transport.md.
+
+The next action is RECORD_ORDER_OUTPUT_INVARIANCE_V1_PREREGISTRATION.md. On the
+opened16 initializer worlds, test native full-query output under the same two
+answer-preserving reorderings. Paired JS>.001 in any population/hop/permutation
+group rejects a function-only abstraction at that paired mean query-KL bar;
+smaller JS means not ruled out, not confirmed. Reuse existing exported/native
+execution and entity-symmetry paired-bound machinery with identity label mapping.
+No new fitting, task filtering, adapter rescue or fresh-data claim.
+
+record_order_reference.py is implemented. RECORD_ORDER_TOKEN_CONTRACT_V1.json
+passes3072 reordered requests, identity/inverse/function/suffix preservation and
+malformed-permutation rejection. Managed full-output integration remains unfinished;
+do not claim it queued or complete. Unrelated v435 occupies the shared GPU queue.
+Both Supervisor runners are healthy. Latest reviews hourly1951 and math1949;
+next20:51 and22:49 UTC. Preserve the active overall goal and live shared Git work.
+
 ## Instruction already computed; exact initializer factorization active — 2026-09-09 19:29 UTC
 
 LATE_HOP_INSTRUCTION_V1_RESULT.json completes5.16s managedGPU,A true,B/C/D false.

@@ -110,3 +110,23 @@ through the biasfree downstream network, giving uniformoutput as an exact
 control. Fresh integration remains. All387968 native coefficients remaincharged;
 this is partial extraction/CSE infrastructure, not a claimed novel structural
 reduction or completion of the full research goal.
+
+## Fresh extraction and the limits of summary reuse
+
+Fresh integration has now completed: all four predictions pass on1536 requests
+in4.03 seconds. Full outputs close2.56e-13, removals2.77e-13, mixed effects2.98e-13
+and cache reuse4.44e-15. At hop3, removing the document summary lowers gold
+probability by .058/.069 IID/OOD; removing the local term lowers it by .703/.691.
+This is a measured dependency, not proof of a task-selective semantic operation.
+
+The stronger question of transport under record reordering has a scoped null:
+the summary alone fails the fixed norm-bounded linear transports, and its exact
+linear closure under all record permutations retains all1058 centered incidence
+coordinates for the stored numerical operator. The
+[derivation and receipts](summary_record_transport.md) distinguish this from nonlinear or full-model
+impossibility. All opaque coefficients remain charged.
+
+The next preregistered output test checks whether this position dependence
+survives downstream computation. Its answer-preserving token contract passes
+3072 requests; managed full-output integration remains unfinished. No invariant
+output claim follows merely from the represented function being unchanged.
