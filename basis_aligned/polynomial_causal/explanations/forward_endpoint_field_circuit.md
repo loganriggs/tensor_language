@@ -168,3 +168,19 @@ factorial. It tests full distribution and causal-effect prediction, not just tas
 accuracy. Its primitives pass9 CPU controls; trained integration remains. This
 is a different global reuse hypothesis, with all native coefficients and caches
 charged. Structural simplification remains unachieved.
+
+## Global gate reuse fails; identity-sensitive fidelity is required
+
+`GLOBAL_ENTITY_GATE_REUSE_V1_RESULT.json` completes2.70s,A true,B/C/D false.
+All native capability groups pass and numerical/factorial replay closes near2e-13,
+but payload-only mean all-positionKL is8.835/10.389 and queryKL1.084/.848. Query
+causal-vector errors.410–.820 and hop3 semantic failures reject global gate reuse.
+No selected layer/head/normalizer transfer is adopted.
+
+A [separate mathematical bound](entity_symmetry_fidelity_bound.md) proves that an
+exactly entity-equivariant model cannot meet the0.001 mean queryKL target on these
+pairs: its unavoidable floors are.014390/.006391. Identity-dependent confidence
+changes contribute even when both task answers are correct. This is not a bound
+against smaller nonsymmetric programs, nor enough by itself to reject the
+all-position meanKL bar. The complete20-pair answer-disagreement discovery corpus
+is preserved for subsequent causal explanation, with no filtering of evaluation.

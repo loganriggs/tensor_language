@@ -1,0 +1,330 @@
+{
+  "experiment": "global_entity_gate_reuse_v1",
+  "runner_sha256": "8e4f1ec91fe687dcfc5e22c114e20fbcb3a505e51e40b1703a933372b93fe287",
+  "bound_sha256": "b24a5d75d005167a99a734cbe3756ee9810acb009e7fa3f01372c262106d28ec",
+  "package_sha256": "e69bff6562c48bd1b59366f118157720734d353626b0a1576626bdd437a1421a",
+  "checkpoint_sha256": "c9388cc8b1ba7e95c6a043cbf4d01592987447867a50781d3babe31ce3f8358b",
+  "controls": {
+    "passed": true,
+    "algebra": {
+      "passed": true,
+      "checks": {
+        "old_native_closure": true,
+        "new_native_closure": true,
+        "bilinear_factorial_closure": true,
+        "payload_live": true,
+        "gate_live": true,
+        "interaction_live": true,
+        "special_tokens_unchanged": true,
+        "identity_renaming": true,
+        "graph_power_conjugation": true
+      }
+    },
+    "metrics": {
+      "passed": true,
+      "checks": {
+        "signed_gain_and_damage": true,
+        "separate_control_panel": true,
+        "logit_offset_invariance": true,
+        "empty_panel_rejected": true,
+        "mechanical_only_gate": true
+      }
+    },
+    "valid_conjugate_pairs": 1536
+  },
+  "native_oracle_max_abs": 1.9895196601282805e-13,
+  "native_oracle_max_relative_rms": 8.552129362769683e-16,
+  "factorial_max_abs": 2.3447910280083306e-13,
+  "native_capability_licensed": true,
+  "populations": {
+    "iid": {
+      "distribution": {
+        "all_mean_kl": 8.835256502919055,
+        "token_p95_kl": 35.50545275577118,
+        "query_mean_kl": 1.0842602227525482
+      },
+      "groups": {
+        "0": {
+          "payload": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": 0.9999978895599505,
+            "gold_probability_change": -0.9999999912110176,
+            "removal_gold_loss": 0.9999999912110176,
+            "centered_effect_rms": 17.296403966279694
+          },
+          "gates": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": -2.9860334938552197e-06,
+            "gold_probability_change": -2.9860334938552197e-06,
+            "removal_gold_loss": 2.9860334938552197e-06,
+            "centered_effect_rms": 7.406776944612552
+          },
+          "renamed_native": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": 0.9999999999934969,
+            "gold_probability_change": -0.9999999914506988,
+            "removal_gold_loss": 0.9999999914506988,
+            "centered_effect_rms": 17.54558122402828
+          },
+          "query_effect_relative_rms": 0.4104013476826364
+        },
+        "1": {
+          "payload": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.875,
+            "target_probability_gain": 0.8666365872140971,
+            "gold_probability_change": -0.9815117172978377,
+            "removal_gold_loss": 0.9815117172978377,
+            "centered_effect_rms": 12.020817240842659
+          },
+          "gates": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.8541666666666666,
+            "target_probability_gain": -0.15658967608766428,
+            "gold_probability_change": -0.15658967608766428,
+            "removal_gold_loss": 0.15658967608766428,
+            "centered_effect_rms": 8.63124395525425
+          },
+          "renamed_native": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": 0.9991663496382999,
+            "gold_probability_change": -0.9998651145667253,
+            "removal_gold_loss": 0.9998651145667253,
+            "centered_effect_rms": 11.460573149068507
+          },
+          "query_effect_relative_rms": 0.767207495147178
+        },
+        "2": {
+          "payload": {
+            "n": 192,
+            "native_accuracy": 0.9947916666666666,
+            "target_accuracy": 0.8958333333333334,
+            "target_probability_gain": 0.8871432610003848,
+            "gold_probability_change": -0.9884688032621275,
+            "removal_gold_loss": 0.9884688032621275,
+            "centered_effect_rms": 12.966546104575164
+          },
+          "gates": {
+            "n": 192,
+            "native_accuracy": 0.9947916666666666,
+            "target_accuracy": 0.828125,
+            "target_probability_gain": -0.17238710667140453,
+            "gold_probability_change": -0.17238710667140453,
+            "removal_gold_loss": 0.17238710667140453,
+            "centered_effect_rms": 9.823623128783172
+          },
+          "renamed_native": {
+            "n": 192,
+            "native_accuracy": 0.9947916666666666,
+            "target_accuracy": 0.9947916666666666,
+            "target_probability_gain": 0.9946265652574725,
+            "gold_probability_change": -0.9927400449633561,
+            "removal_gold_loss": 0.9927400449633561,
+            "centered_effect_rms": 12.146126152747234
+          },
+          "query_effect_relative_rms": 0.7918067058633851
+        },
+        "3": {
+          "payload": {
+            "n": 192,
+            "native_accuracy": 0.9583333333333334,
+            "target_accuracy": 0.7604166666666666,
+            "target_probability_gain": 0.7329785227382604,
+            "gold_probability_change": -0.9277765489634975,
+            "removal_gold_loss": 0.9277765489634975,
+            "centered_effect_rms": 9.58633549865694
+          },
+          "gates": {
+            "n": 192,
+            "native_accuracy": 0.9583333333333334,
+            "target_accuracy": 0.765625,
+            "target_probability_gain": -0.19751380200361934,
+            "gold_probability_change": -0.19751380200361934,
+            "removal_gold_loss": 0.19751380200361934,
+            "centered_effect_rms": 6.6180753351079
+          },
+          "renamed_native": {
+            "n": 192,
+            "native_accuracy": 0.9583333333333334,
+            "target_accuracy": 0.9583333333333334,
+            "target_probability_gain": 0.9453227887035492,
+            "gold_probability_change": -0.9406913997201171,
+            "removal_gold_loss": 0.9406913997201171,
+            "centered_effect_rms": 8.70184257801271
+          },
+          "query_effect_relative_rms": 0.7623631886174841
+        }
+      },
+      "term_centered_rms": {
+        "payload": 10.166335530697468,
+        "gate": 7.961021913096943,
+        "interaction": 13.586095868673938
+      }
+    },
+    "ood_three_8cycles": {
+      "distribution": {
+        "all_mean_kl": 10.388875350953544,
+        "token_p95_kl": 40.01972487045686,
+        "query_mean_kl": 0.8475461327073971
+      },
+      "groups": {
+        "0": {
+          "payload": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": 0.9996221925395609,
+            "gold_probability_change": -0.9999999704786063,
+            "removal_gold_loss": 0.9999999704786063,
+            "centered_effect_rms": 16.86765388800464
+          },
+          "gates": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": -1.143250973183301e-05,
+            "gold_probability_change": -1.143250973183301e-05,
+            "removal_gold_loss": 1.143250973183301e-05,
+            "centered_effect_rms": 7.440936787101104
+          },
+          "renamed_native": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": 0.9999999999941016,
+            "gold_probability_change": -0.9999999934276619,
+            "removal_gold_loss": 0.9999999934276619,
+            "centered_effect_rms": 17.642890694790587
+          },
+          "query_effect_relative_rms": 0.41118563338214925
+        },
+        "1": {
+          "payload": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.875,
+            "target_probability_gain": 0.872973283420254,
+            "gold_probability_change": -0.9963680993666624,
+            "removal_gold_loss": 0.9963680993666624,
+            "centered_effect_rms": 11.892040588814531
+          },
+          "gates": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.8958333333333334,
+            "target_probability_gain": -0.10510447231023194,
+            "gold_probability_change": -0.10510447231023194,
+            "removal_gold_loss": 0.10510447231023194,
+            "centered_effect_rms": 9.328093164282256
+          },
+          "renamed_native": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": 0.9998868700094027,
+            "gold_probability_change": -0.9997100317371398,
+            "removal_gold_loss": 0.9997100317371398,
+            "centered_effect_rms": 11.854941009346339
+          },
+          "query_effect_relative_rms": 0.7673994984158419
+        },
+        "2": {
+          "payload": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.9322916666666666,
+            "target_probability_gain": 0.9196791191454973,
+            "gold_probability_change": -0.9947505298371556,
+            "removal_gold_loss": 0.9947505298371556,
+            "centered_effect_rms": 13.374170682682418
+          },
+          "gates": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.9114583333333334,
+            "target_probability_gain": -0.10524570957301689,
+            "gold_probability_change": -0.10524570957301689,
+            "removal_gold_loss": 0.10524570957301689,
+            "centered_effect_rms": 10.152834179434928
+          },
+          "renamed_native": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": 0.9996635433470781,
+            "gold_probability_change": -0.9998920403655595,
+            "removal_gold_loss": 0.9998920403655595,
+            "centered_effect_rms": 12.096140881110081
+          },
+          "query_effect_relative_rms": 0.8197764024538864
+        },
+        "3": {
+          "payload": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7760416666666666,
+            "target_probability_gain": 0.7643287094754507,
+            "gold_probability_change": -0.9658438948976954,
+            "removal_gold_loss": 0.9658438948976954,
+            "centered_effect_rms": 9.1311534682103
+          },
+          "gates": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.734375,
+            "target_probability_gain": -0.24640393214588277,
+            "gold_probability_change": -0.24640393214588277,
+            "removal_gold_loss": 0.24640393214588277,
+            "centered_effect_rms": 6.126874023995747
+          },
+          "renamed_native": {
+            "n": 192,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.984375,
+            "target_probability_gain": 0.9600168749391282,
+            "gold_probability_change": -0.967442847445338,
+            "removal_gold_loss": 0.967442847445338,
+            "centered_effect_rms": 8.427385260735416
+          },
+          "query_effect_relative_rms": 0.7178968123171803
+        }
+      },
+      "term_centered_rms": {
+        "payload": 10.238638925188377,
+        "gate": 10.026965584335725,
+        "interaction": 14.954139803563088
+      }
+    }
+  },
+  "gate_bytes_per_context": [
+    334560
+  ],
+  "cache_bytes_per_context": [
+    439008
+  ],
+  "paired_contexts": 2,
+  "independent_program_constants": 387968,
+  "native_coefficients_removed": 0,
+  "independent_worlds": 16,
+  "query_pairs": 1536,
+  "rows_sha256": "72ed2b2c451e4f36c164ac6b0a1add0005bf9a9ea9f544c05527ec3b65a263c5",
+  "predictions": {
+    "pred_a_mechanical": true,
+    "pred_b_distribution": false,
+    "pred_c_effect": false,
+    "pred_d_semantics": false
+  },
+  "terminal": "global_gate_reuse_not_established",
+  "scope": "paired-context whole-model gate interchange; no standalone gate simplification",
+  "wall_seconds": 2.7009870223701
+}

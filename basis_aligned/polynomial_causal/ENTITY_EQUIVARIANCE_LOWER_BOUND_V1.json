@@ -1,0 +1,94 @@
+{
+  "scope": "exact lower bound on paired original/renamed query distribution fidelity; no model execution or fitting",
+  "formula": "0.5 KL(p||r)+0.5 KL(q||r) = JS(p,q)+KL((p+q)/2||r), q=aligned renamed native",
+  "controls": {
+    "passed": true,
+    "checks": {
+      "radius_identity": true,
+      "mixture_attains_bound": true,
+      "identical_zero": true,
+      "forward_vocabulary_alignment": true,
+      "wrong_inverse_alignment_live": true,
+      "disjoint_limit_log2": true
+    }
+  },
+  "token_alignment_valid": true,
+  "populations": {
+    "iid": {
+      "pairs": 768,
+      "minimum_paired_mean_query_kl": 0.014390373352964963,
+      "all_token_mean_kl_lower_bound_from_queries_only": 0.0002821641833914699,
+      "strict_equivariance_ruled_out_at_1e3_query_bar": true,
+      "hop_groups": {
+        "0": {
+          "pairs": 192,
+          "minimum_paired_mean_query_kl": 2.9649496372902227e-09,
+          "pair_radius_p95": 2.5134909127927377e-11,
+          "native_argmax_equivariance_rate": 1.0,
+          "strict_equivariance_not_ruled_out_by_pairwise_bound": true
+        },
+        "1": {
+          "pairs": 192,
+          "minimum_paired_mean_query_kl": 0.00033822792360832326,
+          "pair_radius_p95": 0.0005544949067539128,
+          "native_argmax_equivariance_rate": 1.0,
+          "strict_equivariance_not_ruled_out_by_pairwise_bound": true
+        },
+        "2": {
+          "pairs": 192,
+          "minimum_paired_mean_query_kl": 0.007208403374855478,
+          "pair_radius_p95": 0.0007586098040855465,
+          "native_argmax_equivariance_rate": 0.9895833333333334,
+          "strict_equivariance_not_ruled_out_by_pairwise_bound": false
+        },
+        "3": {
+          "pairs": 192,
+          "minimum_paired_mean_query_kl": 0.05001485914844642,
+          "pair_radius_p95": 0.4163105892965648,
+          "native_argmax_equivariance_rate": 0.921875,
+          "strict_equivariance_not_ruled_out_by_pairwise_bound": false
+        }
+      }
+    },
+    "ood_three_8cycles": {
+      "pairs": 768,
+      "minimum_paired_mean_query_kl": 0.006390947771276829,
+      "all_token_mean_kl_lower_bound_from_queries_only": 0.00012531270139758488,
+      "strict_equivariance_ruled_out_at_1e3_query_bar": true,
+      "hop_groups": {
+        "0": {
+          "pairs": 192,
+          "minimum_paired_mean_query_kl": 2.278405902583724e-09,
+          "pair_radius_p95": 1.1984046310874055e-11,
+          "native_argmax_equivariance_rate": 1.0,
+          "strict_equivariance_not_ruled_out_by_pairwise_bound": true
+        },
+        "1": {
+          "pairs": 192,
+          "minimum_paired_mean_query_kl": 0.00012213037015893456,
+          "pair_radius_p95": 0.00020116995727602254,
+          "native_argmax_equivariance_rate": 1.0,
+          "strict_equivariance_not_ruled_out_by_pairwise_bound": true
+        },
+        "2": {
+          "pairs": 192,
+          "minimum_paired_mean_query_kl": 0.00014803849257370513,
+          "pair_radius_p95": 0.00029426868312009004,
+          "native_argmax_equivariance_rate": 1.0,
+          "strict_equivariance_not_ruled_out_by_pairwise_bound": true
+        },
+        "3": {
+          "pairs": 192,
+          "minimum_paired_mean_query_kl": 0.025293619943968778,
+          "pair_radius_p95": 0.14451824140743227,
+          "native_argmax_equivariance_rate": 0.984375,
+          "strict_equivariance_not_ruled_out_by_pairwise_bound": false
+        }
+      }
+    }
+  },
+  "input_rows_sha256": "72ed2b2c451e4f36c164ac6b0a1add0005bf9a9ea9f544c05527ec3b65a263c5",
+  "reference_sha256": "db20558f9c35b7eb7969b86a1e2c3777daa5b260c42af32f1babc4694c2ab45c",
+  "primary_reference": "https://www.cise.ufl.edu/~anand/sp06/jensen-shannon.pdf",
+  "limits": "pairwise bound need not be attainable by one globally consistent equivariant model; all-token floor uses only final queries; not a bound on nonsymmetric models"
+}

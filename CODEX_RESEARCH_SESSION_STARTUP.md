@@ -53,6 +53,41 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Native entity-symmetry obstruction and failure corpus — 2026-09-09 18:24 UTC
+
+GLOBAL_ENTITY_GATE_REUSE_V1_RESULT.json completes2.70s,A true,B/C/D false.
+Nativeoracle1.99e-13/factorial2.34e-13, native capability licensed. Payloadonly
+allmeanKL8.835/10.389,queryKL1.084/.848,queryeffecterrors.410–.820. Hop3 payload
+accuracy.760/.776 andgatesonly.766/.734 fail. Global gate reuse CLOSED; no selected
+layer/head/normalizer repair.387968 coefficients,334560byte gatecache/context,
+439008 totalcache/context, pairedcontexts2, no weights removed.
+
+Immediate CPU ENTITY_EQUIVARIANCE_LOWER_BOUND_V1.json: six controls and correct
+vocabulary alignment pass. Any exactly entity-equivariant surrogate has paired
+mean queryKL>=.014390 IID/.006391 OOD; hop3 floors.050015/.025294. This exceeds
+.001 querybar, but query-only all-token floor.000282/.000125 does not rule out
+all-token meanbar alone. Proof/primary citation in explanations/entity_symmetry_fidelity_bound.md.
+Small-bound label corrected to not_ruled_out_by_pairwise_bound; initial misleading
+can_meet-labelled bytes retained in _INITIAL_LABELS.json, numerical values unchanged.
+Not a bound against identity-dependent smaller models; full goal remains active.
+
+Immediate CPU ENTITY_SYMMETRY_COUNTEREXAMPLES_V1.json preserves all1536pairs.
+20 answer-disagreements total: IID16 correctnesschanges+1 bothwrong/different,
+OOD3 correctnesschanges. Both-correct pairs still contribute.003881/.004801 to
+populationmeanJS, so this is not solely rare task errors. Complete native paired
+query logits/tokens remain in GLOBAL_ENTITY_GATE_REUSE_V1_ROWS.pt.
+Next highest-information action: causal final-reader source-contribution audit
+on all20 disagreement pairs in both contexts, with corresponding binding positions
+matched by recordordinal, no cross-context hidden-state patching. Determine whether
+wrong outputs depend on an irrelevant binding or wrong content at the expected
+carrier. This is opened-case discovery, not fresh promotion or a restored symmetry
+claim. Claim before implementing; use exported token-derived state, independent
+native single-source removals, shared metrics, and retain everyselected case.
+Do not discard confidence-only symmetry deviations or reduce fidelity to accuracy.
+
+Hourly1751 next18:51; math1648 next19:48. Both managed runners healthy; inspect
+currentqueues. Bilinear handoff/appended criterion overrides stale goal wording.
+
 ## Active whole-model entity/gate reuse — 2026-09-09 18:15 UTC
 
 SOURCE_PORT_FIELD_INTERCHANGE_V1_RESULT.json completes12.58s,A/C true,B/D false.

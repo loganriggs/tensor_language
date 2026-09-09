@@ -1,11 +1,11 @@
 # Reconstructing composition without earlier answers
 
-Current result (18:15 UTC): [joined endpoint interchange](forward_endpoint_field_circuit.md)
-remains supported, but independent raw/join fields fail both physical-state and
-value-only read-interface tests. Exact input-root lineage exposes omitted local
-payload processing without adopting an enlarged field. The active whole-model
-entity-renaming test asks whether native nonlinear gates can be reused with new
-payloads. All native weights remain charged; structural reduction is unfinished.
+Current result (18:24 UTC): whole-model gate reuse under entity renaming fails.
+The [native symmetry bound](entity_symmetry_fidelity_bound.md) also rules out a
+perfectly label-equivariant replacement at the0.001 queryKL target on these pairs.
+A faithful smaller program must retain some identity-dependent behavior. All20
+answer-disagreement pairs are preserved for causal explanation; confident correct
+pairs also contribute to the symmetry defect. Structural reduction is unfinished.
 
 The existing `attn4-rms-seed0` checkpoint is a better target for studying composed
 lookup than the weak checkpoint used in the bounded reconstruction pilot. A fresh
