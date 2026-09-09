@@ -110,3 +110,36 @@ to native route-removal vectors. If it fails, no scalar/entity fit or selected
 cell/head/hop rescue follows. Native trained-case integration is unfinished.
 All387968 export coefficients and background computation remain charged; no
 structural reduction or completion of the four-property goal is claimed.
+
+## Matched pair transport fails full-output fidelity
+
+[MATCHER_PAIR_TRANSPORT_V1](../MATCHER_PAIR_TRANSPORT_V1_RESULT.json) completes
+in6.79 seconds with mechanical/composition predictions A/C passing and pair
+portability B failing. Full native/export output agreement is1.42e-13. The
+native oracle changes score cells directly; the compiled executor applies
+their residual write delta with live final-layer normalization.
+
+On hop3, joint-transfer query KL is9.994/12.019 for the forward IID/OOD groups
+and3.145/2.697 backward. Query changes relative to native route-removal RMS
+are1.227/1.292 forward and .921/.788 backward. Matched aggregate score norms
+did not make the gate interchangeable. No individual arm, scalar/entity fit,
+selected role or selected hop is adopted as a rescue.
+
+The [pointwise audit](../MATCHER_PAIR_POINTWISE_V1.json) retains all192 matched
+source pairs and every source-role cell. There are108 value-to-value score
+sign flips. Full score-vector relative changes span1.432–1.610, with cosines
+between -.349 and .005 despite similar overall RMS. This explains the missing
+information in the earlier aggregate comparison.
+
+Sign-flip cases account for most transfer KL, but that observation is not a
+causal sign-only explanation. Same-sign IID pairs still have mean hop3 KL .087
+forward and .537 backward. Native value content and the downstream reader are
+coupled to the gate; no learned sign correction follows from this census.
+
+The next question concerns the downstream operation on the entire join write,
+using the earlier independent port-restoration evidence. With one attention
+layer remaining, its read has an exact cubic numerator and a live RMS factor.
+The [response-curve derivation](join_write_response_curve.md) gives an executable
+test of the fixed forward-linear/backward-quadratic hypotheses. Twelve CPU
+controls pass; the trained-case audit remains next. Exact curve closure is
+intervention infrastructure, not a structurally reduced model.

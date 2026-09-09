@@ -1,0 +1,5271 @@
+{
+  "scope": "opened pointwise sign and amplitude diagnostic; no fitted sign/gain adapter or corrected candidate",
+  "groups": {
+    "iid": {
+      "B2_later": {
+        "pairs": 48,
+        "relative_joint_score_change": 1.4317811441179458,
+        "joint_score_cosine": 0.004830121983758761,
+        "value_value_sign_flips": 27,
+        "categories": {
+          "value_value_sign_flip": {
+            "pairs": 27,
+            "hop3_mean_query_kl": 17.698509053205463,
+            "contribution_to_all_pair_hop3_mean_kl": 9.955411342428073
+          },
+          "value_value_same_sign": {
+            "pairs": 21,
+            "hop3_mean_query_kl": 0.08725187235093673,
+            "contribution_to_all_pair_hop3_mean_kl": 0.038172694153534824
+          }
+        }
+      },
+      "B3_later": {
+        "pairs": 48,
+        "relative_joint_score_change": 1.4792497263244357,
+        "joint_score_cosine": -0.11746309953401325,
+        "value_value_sign_flips": 21,
+        "categories": {
+          "value_value_sign_flip": {
+            "pairs": 21,
+            "hop3_mean_query_kl": 6.496798201268284,
+            "contribution_to_all_pair_hop3_mean_kl": 2.842349213054874
+          },
+          "value_value_same_sign": {
+            "pairs": 27,
+            "hop3_mean_query_kl": 0.5371870353424285,
+            "contribution_to_all_pair_hop3_mean_kl": 0.30216770738011606
+          }
+        }
+      }
+    },
+    "ood_two_12cycles": {
+      "B2_later": {
+        "pairs": 48,
+        "relative_joint_score_change": 1.6100691772953666,
+        "joint_score_cosine": -0.34902349566762986,
+        "value_value_sign_flips": 30,
+        "categories": {
+          "value_value_sign_flip": {
+            "pairs": 30,
+            "hop3_mean_query_kl": 19.230704245912897,
+            "contribution_to_all_pair_hop3_mean_kl": 12.019190153695561
+          },
+          "value_value_same_sign": {
+            "pairs": 18,
+            "hop3_mean_query_kl": 0.0006184797612690138,
+            "contribution_to_all_pair_hop3_mean_kl": 0.00023192991047588018
+          }
+        }
+      },
+      "B3_later": {
+        "pairs": 48,
+        "relative_joint_score_change": 1.5732228427226107,
+        "joint_score_cosine": -0.2803274348880028,
+        "value_value_sign_flips": 30,
+        "categories": {
+          "value_value_sign_flip": {
+            "pairs": 30,
+            "hop3_mean_query_kl": 4.313439545717927,
+            "contribution_to_all_pair_hop3_mean_kl": 2.695899716073704
+          },
+          "value_value_same_sign": {
+            "pairs": 18,
+            "hop3_mean_query_kl": 0.001992428460081339,
+            "contribution_to_all_pair_hop3_mean_kl": 0.0007471606725305021
+          }
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "population": "iid",
+      "world": 0,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 7,
+      "middle": 1,
+      "foil": 15,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.0249409876152845,
+        -0.0020415671199867018,
+        -0.09533601435428128,
+        0.5780078325783197
+      ],
+      "donor_joint_cells": [
+        0.00071178477034431,
+        -0.002039579280881882,
+        -0.0004198469781107506,
+        -0.26530687377627005
+      ],
+      "relative_joint_score_change": 1.4479826691480835,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 9.080866563958644
+    },
+    {
+      "population": "iid",
+      "world": 0,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 7,
+      "middle": 1,
+      "foil": 15,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        0.004735499418472076,
+        -0.0018780251762760107,
+        0.012965456745149602,
+        0.5656411102146841
+      ],
+      "donor_joint_cells": [
+        -0.0025738751023874915,
+        -5.3240259175759494e-06,
+        0.00047660528161652525,
+        -0.23086613762362815
+      ],
+      "relative_joint_score_change": 1.4079588512378625,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 7.569598461152887
+    },
+    {
+      "population": "iid",
+      "world": 0,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 7,
+      "middle": 1,
+      "foil": 15,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.004951218889576712,
+        0.003306890456905822,
+        -0.07574913727608464,
+        0.5488932663648362
+      ],
+      "donor_joint_cells": [
+        0.008163632318530654,
+        -0.006436039961595779,
+        -0.0005059862021751693,
+        -0.26457517968937244
+      ],
+      "relative_joint_score_change": 1.4745782751236696,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 6.618878389158013
+    },
+    {
+      "population": "iid",
+      "world": 1,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 16,
+      "foil": 18,
+      "answer": 22,
+      "expected_answer": 22,
+      "base_joint_cells": [
+        -0.0001851663372890977,
+        0.0008873423173919459,
+        0.014465481259107463,
+        0.4728565758925755
+      ],
+      "donor_joint_cells": [
+        -0.00010378080108858932,
+        0.015197308453673978,
+        -0.0016171758240554816,
+        -0.2732491304391446
+      ],
+      "relative_joint_score_change": 1.5777845887472148,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 17.209903674871956
+    },
+    {
+      "population": "iid",
+      "world": 1,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 16,
+      "foil": 18,
+      "answer": 22,
+      "expected_answer": 22,
+      "base_joint_cells": [
+        0.0041114979520086555,
+        0.0002925302319962799,
+        0.017206463291266193,
+        0.5280610075306441
+      ],
+      "donor_joint_cells": [
+        0.0021245283407662127,
+        0.01637639049923986,
+        -0.002772911186255815,
+        -0.26866982415766966
+      ],
+      "relative_joint_score_change": 1.5087252362403492,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 14.432558680574331
+    },
+    {
+      "population": "iid",
+      "world": 1,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 16,
+      "foil": 18,
+      "answer": 22,
+      "expected_answer": 22,
+      "base_joint_cells": [
+        0.00019683465153571978,
+        0.0009975743508297422,
+        0.02232897406359918,
+        0.5085989513994764
+      ],
+      "donor_joint_cells": [
+        -0.0003291307603065815,
+        0.006474769415027997,
+        -0.002023877687496431,
+        -0.27991086553650885
+      ],
+      "relative_joint_score_change": 1.5496379034175576,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 10.081688718765333
+    },
+    {
+      "population": "iid",
+      "world": 2,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 20,
+      "foil": 13,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.0015494783074826858,
+        -0.0017969324751041145,
+        0.03229921477002627,
+        -0.4916053827846383
+      ],
+      "donor_joint_cells": [
+        0.0032279752232261655,
+        0.00867482546501191,
+        0.0021165064369803913,
+        -0.4002719546374885
+      ],
+      "relative_joint_score_change": 0.19642784582074085,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.4336212616836749
+    },
+    {
+      "population": "iid",
+      "world": 2,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 20,
+      "foil": 13,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.0016198253207988834,
+        -0.004412588930809628,
+        0.008352640519304089,
+        -0.5086998146436172
+      ],
+      "donor_joint_cells": [
+        0.0024137715321809,
+        -0.0001240834669049109,
+        0.005104400337968174,
+        -0.36037019001862397
+      ],
+      "relative_joint_score_change": 0.29172988577868814,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.0011914679204763
+    },
+    {
+      "population": "iid",
+      "world": 2,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 20,
+      "foil": 13,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.005609196303566511,
+        0.0023377460669243874,
+        0.005495730154783862,
+        -0.485084200829448
+      ],
+      "donor_joint_cells": [
+        0.011688825973385745,
+        0.015057429033192403,
+        0.007860826336905867,
+        -0.36862658843803736
+      ],
+      "relative_joint_score_change": 0.2418444861095797,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.004847921087802132
+    },
+    {
+      "population": "iid",
+      "world": 3,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 13,
+      "middle": 1,
+      "foil": 16,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        -0.010261515041643757,
+        -0.017807405248304473,
+        0.12248099648264985,
+        0.6458836171937246
+      ],
+      "donor_joint_cells": [
+        -0.0002245182431458235,
+        0.02377617520076661,
+        0.005563130060884351,
+        1.1136050846814327
+      ],
+      "relative_joint_score_change": 0.7358916555966609,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.11454877732308658
+    },
+    {
+      "population": "iid",
+      "world": 3,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 13,
+      "middle": 1,
+      "foil": 16,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        0.036967583244721415,
+        -0.0021515154795663455,
+        0.17382471242916725,
+        1.3033471212458019
+      ],
+      "donor_joint_cells": [
+        0.0001804661767490284,
+        0.03178812727644302,
+        0.011308648593489724,
+        0.4397419783806264
+      ],
+      "relative_joint_score_change": 0.6691363560132259,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.25193813016073685
+    },
+    {
+      "population": "iid",
+      "world": 3,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 13,
+      "middle": 1,
+      "foil": 16,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        0.010182151514461777,
+        -0.0017135094493211113,
+        0.19216691019347656,
+        0.6874522363345357
+      ],
+      "donor_joint_cells": [
+        0.0018393750068538839,
+        0.0116748158439739,
+        0.02899410026603242,
+        1.2898195118478704
+      ],
+      "relative_joint_score_change": 0.874482571733052,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.0038096417406753656
+    },
+    {
+      "population": "iid",
+      "world": 4,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 16,
+      "foil": 20,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.001024325163130805,
+        -0.005396758726670974,
+        0.03740680183309247,
+        0.5411366492092006
+      ],
+      "donor_joint_cells": [
+        0.008663609499953711,
+        0.010257903581437312,
+        -0.0016214550174671546,
+        -0.44237714467494255
+      ],
+      "relative_joint_score_change": 1.814787390722902,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 31.06633040350077
+    },
+    {
+      "population": "iid",
+      "world": 4,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 16,
+      "foil": 20,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.0039349914679718614,
+        -0.004795280473672176,
+        0.029807697731844506,
+        0.5257097347757012
+      ],
+      "donor_joint_cells": [
+        -0.007158954555222003,
+        0.005121024114778568,
+        -0.001561606955552747,
+        -0.43956393270851635
+      ],
+      "relative_joint_score_change": 1.8341373039244062,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 33.511785662145336
+    },
+    {
+      "population": "iid",
+      "world": 4,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 16,
+      "foil": 20,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.0047403896906594994,
+        -0.00014829134744644392,
+        0.0434599955657054,
+        0.5690872386757176
+      ],
+      "donor_joint_cells": [
+        0.0008479507651847922,
+        0.011089169343911362,
+        0.010996738054064457,
+        -0.44312562890271195
+      ],
+      "relative_joint_score_change": 1.7744830790073134,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 6.412510366517675
+    },
+    {
+      "population": "iid",
+      "world": 5,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 18,
+      "middle": 9,
+      "foil": 20,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        0.0001262798671084842,
+        -0.0006747154733229413,
+        -0.006941568320106648,
+        -0.3562030321612561
+      ],
+      "donor_joint_cells": [
+        -0.006894220136523432,
+        -0.0030633963096636857,
+        0.0011428131285937965,
+        -0.42568561785873027
+      ],
+      "relative_joint_score_change": 0.19744306457231844,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.00043323350974569606
+    },
+    {
+      "population": "iid",
+      "world": 5,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 18,
+      "middle": 9,
+      "foil": 20,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.02824487958000843,
+        -0.02169601297654148,
+        0.024101590245019656,
+        -0.33295174064403016
+      ],
+      "donor_joint_cells": [
+        0.004528647853983074,
+        -0.017628232581220066,
+        -0.003307499077447499,
+        -0.41179728413675265
+      ],
+      "relative_joint_score_change": 0.26739538323359907,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.20379963180735e-05
+    },
+    {
+      "population": "iid",
+      "world": 5,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 18,
+      "middle": 9,
+      "foil": 20,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.004168627422812776,
+        -0.0009452346215579137,
+        0.018859437132526396,
+        -0.3274736579689619
+      ],
+      "donor_joint_cells": [
+        0.005110103702521164,
+        -0.007650945766460217,
+        0.001849584257261914,
+        -0.4305152868394152
+      ],
+      "relative_joint_score_change": 0.32026716757188084,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 5.821446054001489e-08
+    },
+    {
+      "population": "iid",
+      "world": 6,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 1,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.004312850706827431,
+        0.0004112909920123398,
+        0.0057839718232900895,
+        -0.4011542120030292
+      ],
+      "donor_joint_cells": [
+        0.01218177854244745,
+        -0.007344492561453692,
+        0.1575516984812775,
+        1.0477454881331734
+      ],
+      "relative_joint_score_change": 3.631102774621898,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 16.229885633580366
+    },
+    {
+      "population": "iid",
+      "world": 6,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 1,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.021440230599357034,
+        -0.00580692536763416,
+        0.0008590309915495122,
+        -0.41171025973177355
+      ],
+      "donor_joint_cells": [
+        0.05070069731523206,
+        -0.00813631971423157,
+        0.07272561519129096,
+        0.9073127748158162
+      ],
+      "relative_joint_score_change": 3.2046414089299744,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 17.39966316397843
+    },
+    {
+      "population": "iid",
+      "world": 6,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 1,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.019153945014344483,
+        -0.004441036782800799,
+        -0.00031017404653048257,
+        -0.4295270904008798
+      ],
+      "donor_joint_cells": [
+        0.025430206963837104,
+        -0.0022294276946461804,
+        -0.02135974546278853,
+        1.0585478821431358
+      ],
+      "relative_joint_score_change": 3.461205476912171,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 10.682252652111357
+    },
+    {
+      "population": "iid",
+      "world": 7,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 19,
+      "answer": 4,
+      "expected_answer": 4,
+      "base_joint_cells": [
+        -0.020992953760218053,
+        -0.0008069650843011174,
+        -0.002309323984977526,
+        -0.3188316320491753
+      ],
+      "donor_joint_cells": [
+        -0.021686095701862005,
+        0.024363734519020564,
+        0.005432915538257924,
+        -0.27572224410312796
+      ],
+      "relative_joint_score_change": 0.15811074608673792,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.40564330075573e-06
+    },
+    {
+      "population": "iid",
+      "world": 7,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 19,
+      "answer": 4,
+      "expected_answer": 4,
+      "base_joint_cells": [
+        -0.0005212370443734684,
+        -0.004403979794382847,
+        -0.003433890690465178,
+        -0.2588918331378049
+      ],
+      "donor_joint_cells": [
+        -0.003991551959458016,
+        0.015342121208073538,
+        -0.0010336411334904995,
+        -0.309168641274365
+      ],
+      "relative_joint_score_change": 0.20922741746299378,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.0477041333060005e-05
+    },
+    {
+      "population": "iid",
+      "world": 7,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 19,
+      "answer": 4,
+      "expected_answer": 4,
+      "base_joint_cells": [
+        -0.004413662243313767,
+        -0.005463221442799233,
+        -0.0035467749264477635,
+        -0.2670963663219103
+      ],
+      "donor_joint_cells": [
+        -0.006047197413620277,
+        0.011827811600516033,
+        0.0024322932537381974,
+        -0.30250225588867036
+      ],
+      "relative_joint_score_change": 0.1492709452514257,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 8.232908673685497e-05
+    },
+    {
+      "population": "iid",
+      "world": 8,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 7,
+      "foil": 10,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        -0.0009032610188160096,
+        0.0637097052430706,
+        -0.0012054629418088575,
+        -0.3371006064340251
+      ],
+      "donor_joint_cells": [
+        -0.0009698417520756674,
+        0.020536157170209495,
+        -0.005165660615919543,
+        -0.4464382415766023
+      ],
+      "relative_joint_score_change": 0.3428427648450957,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 7.108836408919335e-06
+    },
+    {
+      "population": "iid",
+      "world": 8,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 7,
+      "foil": 10,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        0.010322587184253931,
+        -0.006596941875814885,
+        0.0006666691001391463,
+        -0.3899418723564168
+      ],
+      "donor_joint_cells": [
+        0.00658964573401758,
+        -0.005125677065615327,
+        -0.0015586064444552952,
+        -0.5070700471319135
+      ],
+      "relative_joint_score_change": 0.30045511578534545,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.0710093537303382e-06
+    },
+    {
+      "population": "iid",
+      "world": 8,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 12,
+      "middle": 7,
+      "foil": 10,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        -0.0024476951129151527,
+        0.08034067643432183,
+        -0.0018487690159392116,
+        -0.41313695055782007
+      ],
+      "donor_joint_cells": [
+        -0.0022285790402104,
+        0.013451110587857753,
+        -0.002868826180313244,
+        -0.46562603257604623
+      ],
+      "relative_joint_score_change": 0.20202981348512464,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 3.964681692152908e-06
+    },
+    {
+      "population": "iid",
+      "world": 9,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 15,
+      "middle": 13,
+      "foil": 14,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.010888069640976545,
+        -0.003912481561699505,
+        0.007099796747561203,
+        -0.26424692885454226
+      ],
+      "donor_joint_cells": [
+        0.004115356655382122,
+        0.01955972983220706,
+        0.11672755135095349,
+        0.31704599436730274
+      ],
+      "relative_joint_score_change": 2.238118265756584,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 21.61838618276822
+    },
+    {
+      "population": "iid",
+      "world": 9,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 15,
+      "middle": 13,
+      "foil": 14,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.008555034457304609,
+        0.0005960065526618037,
+        0.00751753237488301,
+        -0.2629076323109644
+      ],
+      "donor_joint_cells": [
+        -0.02804716659961926,
+        0.0031706671139406354,
+        0.030662343555821016,
+        0.3559558560374739
+      ],
+      "relative_joint_score_change": 2.357479472577756,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 24.979413782051882
+    },
+    {
+      "population": "iid",
+      "world": 9,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 15,
+      "middle": 13,
+      "foil": 14,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.02082046661466407,
+        -0.005010516980551658,
+        0.00641668504781613,
+        -0.26471396211758486
+      ],
+      "donor_joint_cells": [
+        -0.005285299501432676,
+        -0.004854012810253575,
+        0.08972258028548215,
+        0.31118575377336066
+      ],
+      "relative_joint_score_change": 2.1926043554724792,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 17.702715962837427
+    },
+    {
+      "population": "iid",
+      "world": 10,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 22,
+      "middle": 15,
+      "foil": 14,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        -0.006125468679205271,
+        0.0013142758477107746,
+        0.016731686236081417,
+        -0.3261066442914047
+      ],
+      "donor_joint_cells": [
+        0.03737315739764564,
+        -0.006853245609273305,
+        0.2139963432468947,
+        0.31748028351716695
+      ],
+      "relative_joint_score_change": 2.0655307985000047,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 27.31380719565831
+    },
+    {
+      "population": "iid",
+      "world": 10,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 22,
+      "middle": 15,
+      "foil": 14,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        0.008019793812712431,
+        -0.0010072032234743325,
+        0.0015022642817681408,
+        -0.3230372112840232
+      ],
+      "donor_joint_cells": [
+        0.013718259231440872,
+        0.0067567215589540664,
+        -0.0401818069680833,
+        0.3884641705151404
+      ],
+      "relative_joint_score_change": 2.2058007845043797,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 21.913699989987983
+    },
+    {
+      "population": "iid",
+      "world": 10,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 22,
+      "middle": 15,
+      "foil": 14,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        -0.002205644680575713,
+        -0.0023149751724336875,
+        0.0016747273661918685,
+        -0.3214774113579916
+      ],
+      "donor_joint_cells": [
+        0.005083117276002873,
+        0.003336034511553269,
+        0.08278318192270681,
+        0.30050542715130746
+      ],
+      "relative_joint_score_change": 1.951232590942381,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 15.434961431514235
+    },
+    {
+      "population": "iid",
+      "world": 11,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 13,
+      "middle": 14,
+      "foil": 7,
+      "answer": 3,
+      "expected_answer": 3,
+      "base_joint_cells": [
+        0.037465209323989536,
+        0.0009078615705468412,
+        0.08791948585120131,
+        0.3152321633659647
+      ],
+      "donor_joint_cells": [
+        0.0036488168251858424,
+        0.0009400381078383806,
+        -0.003299348742267071,
+        -0.23520349497822324
+      ],
+      "relative_joint_score_change": 1.696914139824258,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 23.869434371944646
+    },
+    {
+      "population": "iid",
+      "world": 11,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 13,
+      "middle": 14,
+      "foil": 7,
+      "answer": 3,
+      "expected_answer": 3,
+      "base_joint_cells": [
+        0.0160100572454161,
+        -0.0013324955708711986,
+        -0.0390031375958079,
+        0.36960347762536094
+      ],
+      "donor_joint_cells": [
+        0.0008540485009319345,
+        -0.0016517536493273624,
+        -0.00032870793717801376,
+        -0.25313332101768976
+      ],
+      "relative_joint_score_change": 1.6777312306562058,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 23.43465807513583
+    },
+    {
+      "population": "iid",
+      "world": 11,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 13,
+      "middle": 14,
+      "foil": 7,
+      "answer": 3,
+      "expected_answer": 3,
+      "base_joint_cells": [
+        -0.0012602147813911932,
+        -0.0010411437526935856,
+        0.10159853899346807,
+        0.30823619957084764
+      ],
+      "donor_joint_cells": [
+        -0.00021693625651797837,
+        -0.000590366217181307,
+        -0.0011633759474238166,
+        -0.2594663353123953
+      ],
+      "relative_joint_score_change": 1.7776134691884589,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 13.241981724989516
+    },
+    {
+      "population": "iid",
+      "world": 12,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 17,
+      "foil": 15,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        -0.008648461451783367,
+        0.0011064280887609008,
+        -0.0004607586181537159,
+        -0.2454421825111086
+      ],
+      "donor_joint_cells": [
+        -0.0045491881776628055,
+        0.00033223127851596544,
+        0.0010629236970099746,
+        -0.37405813788874065
+      ],
+      "relative_joint_score_change": 0.5239982142517975,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 3.041890543596997e-06
+    },
+    {
+      "population": "iid",
+      "world": 12,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 17,
+      "foil": 15,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.0009468204033409287,
+        0.001668502504783021,
+        0.0010075907230683756,
+        -0.30265046915871185
+      ],
+      "donor_joint_cells": [
+        0.0009228508684579264,
+        0.017841711089694175,
+        0.0025120549260541406,
+        -0.36016804622930465
+      ],
+      "relative_joint_score_change": 0.19747395664975326,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 3.483718167458046e-09
+    },
+    {
+      "population": "iid",
+      "world": 12,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 17,
+      "foil": 15,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.0008879953481428532,
+        -0.00667361238814045,
+        0.0010495065910860538,
+        -0.277726522072533
+      ],
+      "donor_joint_cells": [
+        -0.011314103795880427,
+        0.00517350618282931,
+        0.0019757355696210554,
+        -0.38978217796250925
+      ],
+      "relative_joint_score_change": 0.4079863467253575,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.00033935008609518814
+    },
+    {
+      "population": "iid",
+      "world": 13,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 0,
+      "middle": 11,
+      "foil": 9,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.0029263129374978198,
+        0.012272205135368246,
+        -0.0028913525002794024,
+        -0.1957443363112123
+      ],
+      "donor_joint_cells": [
+        -0.0035698918828906065,
+        -0.00014484712111435387,
+        -0.004629432529011073,
+        -0.32063462712118646
+      ],
+      "relative_joint_score_change": 0.6398459470022578,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 5.792097517813636e-06
+    },
+    {
+      "population": "iid",
+      "world": 13,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 0,
+      "middle": 11,
+      "foil": 9,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.0012615629314974139,
+        0.01971124584232375,
+        0.02890339148449371,
+        -0.2026042786428423
+      ],
+      "donor_joint_cells": [
+        -0.001344085985088189,
+        0.0027980272640402795,
+        0.005008457182402823,
+        -0.32880951018571375
+      ],
+      "relative_joint_score_change": 0.6302442842997689,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.01905386792867681
+    },
+    {
+      "population": "iid",
+      "world": 13,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 0,
+      "middle": 11,
+      "foil": 9,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.011541244924517914,
+        0.020960073934146044,
+        0.027087834574244327,
+        -0.21977901467535577
+      ],
+      "donor_joint_cells": [
+        0.0076678553221364186,
+        0.002197533375986397,
+        0.005477151051797596,
+        -0.31162610214618025
+      ],
+      "relative_joint_score_change": 0.43227283871799,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.002357377947318073
+    },
+    {
+      "population": "iid",
+      "world": 14,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 6,
+      "middle": 16,
+      "foil": 21,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        0.0064038518275422365,
+        -0.0006180303190446691,
+        0.023684838497814185,
+        0.4983508479499601
+      ],
+      "donor_joint_cells": [
+        0.0027067060355713385,
+        0.0005874158173067034,
+        0.0016358027012315104,
+        -0.2380147168517231
+      ],
+      "relative_joint_score_change": 1.4764980828019338,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 20.678146013461827
+    },
+    {
+      "population": "iid",
+      "world": 14,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 6,
+      "middle": 16,
+      "foil": 21,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        0.007929698163536952,
+        0.00186921320628318,
+        -0.009386328701056785,
+        0.534753146560957
+      ],
+      "donor_joint_cells": [
+        0.005008866155582049,
+        -0.0019530775732340537,
+        0.0041976182864806935,
+        -0.25696646301162684
+      ],
+      "relative_joint_score_change": 1.480378297690255,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 16.759428659608933
+    },
+    {
+      "population": "iid",
+      "world": 14,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 6,
+      "middle": 16,
+      "foil": 21,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        -0.002318695895490726,
+        0.0003126919142547262,
+        0.0020053954895590973,
+        0.5189639475608485
+      ],
+      "donor_joint_cells": [
+        -0.003277668808776835,
+        0.002983293500629296,
+        0.003143901511636393,
+        -0.234551103539569
+      ],
+      "relative_joint_score_change": 1.451946660515762,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 19.062968196237403
+    },
+    {
+      "population": "iid",
+      "world": 15,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 15,
+      "middle": 16,
+      "foil": 2,
+      "answer": 6,
+      "expected_answer": 6,
+      "base_joint_cells": [
+        -0.003695135496013238,
+        -0.006997295821090578,
+        0.034990032206586356,
+        0.5247895495267163
+      ],
+      "donor_joint_cells": [
+        -0.00017203765521164833,
+        -2.7019986918266477e-05,
+        0.0003732321333421352,
+        -0.2523143571194923
+      ],
+      "relative_joint_score_change": 1.4788834168686895,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 22.754411770074864
+    },
+    {
+      "population": "iid",
+      "world": 15,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 15,
+      "middle": 16,
+      "foil": 2,
+      "answer": 6,
+      "expected_answer": 6,
+      "base_joint_cells": [
+        0.0037405617128639644,
+        -0.001869570549140421,
+        0.032077997945449604,
+        0.5503302874308145
+      ],
+      "donor_joint_cells": [
+        0.0009077263642555368,
+        -0.00018439253147402114,
+        0.002218851807026321,
+        -0.2535093521487755
+      ],
+      "relative_joint_score_change": 1.4591503603002047,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 12.206634148507408
+    },
+    {
+      "population": "iid",
+      "world": 15,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 15,
+      "middle": 16,
+      "foil": 2,
+      "answer": 6,
+      "expected_answer": 6,
+      "base_joint_cells": [
+        -0.0043206661993925415,
+        -0.009066328667935303,
+        0.004788604788609563,
+        0.525423524079852
+      ],
+      "donor_joint_cells": [
+        0.0042351035285800856,
+        0.0014800310972431173,
+        -0.002256401152083723,
+        -0.2556530682155542
+      ],
+      "relative_joint_score_change": 1.486517581546062,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 16.593174561453882
+    },
+    {
+      "population": "iid",
+      "world": 0,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 7,
+      "middle": 1,
+      "foil": 15,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.0037951793927492278,
+        -0.037621727948033735,
+        0.007335018904427903,
+        0.8633767895919484
+      ],
+      "donor_joint_cells": [
+        0.0009922748321265077,
+        -0.006055338053968841,
+        0.0031807591028217594,
+        -0.4982801976722985
+      ],
+      "relative_joint_score_change": 1.5760027262909655,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 1.4450945202185987
+    },
+    {
+      "population": "iid",
+      "world": 0,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 7,
+      "middle": 1,
+      "foil": 15,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        0.005761202546099263,
+        -0.0017139435801724907,
+        0.004905093956365914,
+        0.5901890891725005
+      ],
+      "donor_joint_cells": [
+        0.005635556414832063,
+        0.008883043357985749,
+        -0.0018006638954943027,
+        -0.4189204124271598
+      ],
+      "relative_joint_score_change": 1.7097914313480354,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 0.6310439687787107
+    },
+    {
+      "population": "iid",
+      "world": 0,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 7,
+      "middle": 1,
+      "foil": 15,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.012098490820453226,
+        0.01922164116352855,
+        0.009468023619150388,
+        0.7448622035796919
+      ],
+      "donor_joint_cells": [
+        0.0003364733989359138,
+        0.0040816160474609784,
+        -0.0021538957363218124,
+        -0.4483469725086346
+      ],
+      "relative_joint_score_change": 1.6013376989130423,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 0.23691731631408539
+    },
+    {
+      "population": "iid",
+      "world": 1,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 16,
+      "foil": 18,
+      "answer": 22,
+      "expected_answer": 22,
+      "base_joint_cells": [
+        -0.00033060952327500367,
+        0.015808600001705263,
+        1.4293018967988764e-05,
+        0.6775768129721358
+      ],
+      "donor_joint_cells": [
+        0.004970067602643903,
+        -0.008759416946728778,
+        -0.005358428772762991,
+        0.8390640170058292
+      ],
+      "relative_joint_score_change": 0.2412643344747246,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 8.7739353451497e-06
+    },
+    {
+      "population": "iid",
+      "world": 1,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 16,
+      "foil": 18,
+      "answer": 22,
+      "expected_answer": 22,
+      "base_joint_cells": [
+        0.01470725025928862,
+        0.014421095305664038,
+        -0.0338815942979229,
+        0.5175054628341563
+      ],
+      "donor_joint_cells": [
+        -0.02665082532300324,
+        -0.005622176989594168,
+        -0.01191668383878273,
+        0.48642816451549936
+      ],
+      "relative_joint_score_change": 0.11496567700916183,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 3.8188877309838074e-07
+    },
+    {
+      "population": "iid",
+      "world": 1,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 16,
+      "foil": 18,
+      "answer": 22,
+      "expected_answer": 22,
+      "base_joint_cells": [
+        0.0037377260747669897,
+        0.02357337179028243,
+        0.012082681486269278,
+        0.5706412287393217
+      ],
+      "donor_joint_cells": [
+        -0.007386241387871311,
+        0.004605133958100928,
+        0.005332092326628392,
+        0.9014988991303546
+      ],
+      "relative_joint_score_change": 0.5805617177540101,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.49622046116726e-08
+    },
+    {
+      "population": "iid",
+      "world": 2,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 20,
+      "foil": 13,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        -0.0053681091770887,
+        -0.1289992054371092,
+        9.304775966473612e-05,
+        0.8990786231196494
+      ],
+      "donor_joint_cells": [
+        0.0004923214562105417,
+        0.00852936077040434,
+        -0.0009651895579120328,
+        0.7554935208439519
+      ],
+      "relative_joint_score_change": 0.21899405712735406,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.0002309079334294967
+    },
+    {
+      "population": "iid",
+      "world": 2,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 20,
+      "foil": 13,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        -0.023010167598492354,
+        -0.01805050576320938,
+        0.009762217130337102,
+        0.756273109358262
+      ],
+      "donor_joint_cells": [
+        0.006074689142533362,
+        -0.004618445365016499,
+        0.0012954024961430873,
+        0.475496657564452
+      ],
+      "relative_joint_score_change": 0.3735295999860408,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.07431742144249567
+    },
+    {
+      "population": "iid",
+      "world": 2,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 20,
+      "foil": 13,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        -0.02266823192708361,
+        -0.021737347825430606,
+        0.007032801040539288,
+        0.7572150395989393
+      ],
+      "donor_joint_cells": [
+        0.0016751724811736018,
+        0.010941480432450476,
+        1.066647360101948e-05,
+        0.5355449954663136
+      ],
+      "relative_joint_score_change": 0.29752490490014993,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.009430037710451918
+    },
+    {
+      "population": "iid",
+      "world": 3,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 13,
+      "middle": 1,
+      "foil": 16,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        -0.016073593389365565,
+        -0.056315006291551076,
+        0.012763746221061493,
+        -1.2589090943335037
+      ],
+      "donor_joint_cells": [
+        0.0057641170032975905,
+        0.016956937070890517,
+        0.018711829473961845,
+        1.0263596506755501
+      ],
+      "relative_joint_score_change": 1.8142436643209845,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 14.00524355870559
+    },
+    {
+      "population": "iid",
+      "world": 3,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 13,
+      "middle": 1,
+      "foil": 16,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        -0.03652458438974335,
+        0.06331487169753514,
+        -0.007915218234851973,
+        -0.8594825763697855
+      ],
+      "donor_joint_cells": [
+        0.00016234232621284834,
+        0.016854782551865025,
+        -0.0055894372248464705,
+        0.7755012882642162
+      ],
+      "relative_joint_score_change": 1.8966104757025,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 16.016293730204012
+    },
+    {
+      "population": "iid",
+      "world": 3,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 13,
+      "middle": 1,
+      "foil": 16,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        0.009078480489184571,
+        -0.019611679621090703,
+        0.02748879556181615,
+        -1.0771562258298495
+      ],
+      "donor_joint_cells": [
+        0.0038999936831175964,
+        0.009105755691160433,
+        0.02854357080150654,
+        0.8054396242392254
+      ],
+      "relative_joint_score_change": 1.7470362957658254,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 17.29879505730748
+    },
+    {
+      "population": "iid",
+      "world": 4,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 16,
+      "foil": 20,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.003305729285972543,
+        0.005467137928018824,
+        0.00017635987369825113,
+        -0.6592453936836606
+      ],
+      "donor_joint_cells": [
+        0.0034631477179087574,
+        -0.04877953336811822,
+        4.904945886622133e-05,
+        0.8945324392437557
+      ],
+      "relative_joint_score_change": 2.3582287625408824,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 1.6105678416773006
+    },
+    {
+      "population": "iid",
+      "world": 4,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 16,
+      "foil": 20,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.006312224008125088,
+        0.042648932118808026,
+        0.003181548211692124,
+        -0.49237567524944825
+      ],
+      "donor_joint_cells": [
+        -0.0029778973700172024,
+        0.013351307841249827,
+        0.009603794169024595,
+        0.6703155414208575
+      ],
+      "relative_joint_score_change": 2.353133104173059,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 3.3941946296021954
+    },
+    {
+      "population": "iid",
+      "world": 4,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 16,
+      "foil": 20,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.000599013774337341,
+        0.010349797259284208,
+        0.0040386017260338955,
+        -0.4997251798237723
+      ],
+      "donor_joint_cells": [
+        -0.06423411425711018,
+        -0.01274770319420948,
+        0.0017332364703684748,
+        0.7255852964840679
+      ],
+      "relative_joint_score_change": 2.455229439474907,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 1.1130185199484468
+    },
+    {
+      "population": "iid",
+      "world": 5,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 18,
+      "middle": 9,
+      "foil": 20,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.0007668252259945008,
+        -0.0006228402990689185,
+        0.0002510201390953333,
+        -0.24724198867027186
+      ],
+      "donor_joint_cells": [
+        -0.0022393526036232196,
+        -0.16246425315892818,
+        0.00030909815241657003,
+        0.7246601771253628
+      ],
+      "relative_joint_score_change": 3.9850742975570084,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 14.127679428910248
+    },
+    {
+      "population": "iid",
+      "world": 5,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 18,
+      "middle": 9,
+      "foil": 20,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.0018420751153812958,
+        0.0006510533600752195,
+        -0.002262687711945992,
+        -0.1951504379190518
+      ],
+      "donor_joint_cells": [
+        -0.0010676852074367653,
+        -0.039288705006050924,
+        0.0024180291557567577,
+        0.4884184008955343
+      ],
+      "relative_joint_score_change": 3.5084254218729405,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 7.184888063716842
+    },
+    {
+      "population": "iid",
+      "world": 5,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 18,
+      "middle": 9,
+      "foil": 20,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.001199985070396574,
+        0.013091590759894911,
+        0.003187887951551137,
+        -0.19959929110070865
+      ],
+      "donor_joint_cells": [
+        -0.003396853563916433,
+        -0.02893721190049804,
+        0.0006486556560384749,
+        0.6709756283228964
+      ],
+      "relative_joint_score_change": 4.356731283079679,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 8.475032302753169
+    },
+    {
+      "population": "iid",
+      "world": 6,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 1,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        -0.00027990182664104743,
+        -0.021722315372738128,
+        -1.3453667795161725e-05,
+        -0.8352836432998223
+      ],
+      "donor_joint_cells": [
+        -0.004988212829543074,
+        -0.08309250561833778,
+        -0.00013327674383254367,
+        1.0487449709640628
+      ],
+      "relative_joint_score_change": 2.2559959934490617,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 3.3636002991887795
+    },
+    {
+      "population": "iid",
+      "world": 6,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 1,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.010947938874956207,
+        0.00032087220990581006,
+        -0.0032853649917986465,
+        -0.5999289822989151
+      ],
+      "donor_joint_cells": [
+        -0.009169879690330522,
+        0.012675777419291042,
+        0.0034398642990307727,
+        0.7989379717783103
+      ],
+      "relative_joint_score_change": 2.3316564109311946,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 3.598124103039623
+    },
+    {
+      "population": "iid",
+      "world": 6,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 1,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        -0.0032314250553031245,
+        -0.0018223247794294881,
+        -0.0015594978358080313,
+        -0.47244729794235735
+      ],
+      "donor_joint_cells": [
+        0.02990722037850634,
+        -0.008718272430590611,
+        -0.0011620288334182488,
+        0.6535979268848635
+      ],
+      "relative_joint_score_change": 2.384420560647174,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 0.0033599678283186916
+    },
+    {
+      "population": "iid",
+      "world": 7,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 19,
+      "answer": 4,
+      "expected_answer": 4,
+      "base_joint_cells": [
+        -0.000383097787628148,
+        -0.016626716139117197,
+        -0.00017962959763425935,
+        0.9647931768992495
+      ],
+      "donor_joint_cells": [
+        0.0007424385724367639,
+        0.014265899698550992,
+        1.7999164002597972e-05,
+        0.21127106271637594
+      ],
+      "relative_joint_score_change": 0.7815601907574947,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 4.397633616721526
+    },
+    {
+      "population": "iid",
+      "world": 7,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 19,
+      "answer": 4,
+      "expected_answer": 4,
+      "base_joint_cells": [
+        -0.00015290550345042143,
+        0.02090977835785666,
+        0.0001561357989079543,
+        0.6479272302169483
+      ],
+      "donor_joint_cells": [
+        -0.007091170641966684,
+        0.025044852263704752,
+        0.005085774571714576,
+        0.09659171016008165
+      ],
+      "relative_joint_score_change": 0.8506044227808316,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 6.210730560081769
+    },
+    {
+      "population": "iid",
+      "world": 7,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 21,
+      "foil": 19,
+      "answer": 4,
+      "expected_answer": 4,
+      "base_joint_cells": [
+        0.000668472330461249,
+        -0.0015163232032944947,
+        0.0054534556610224385,
+        0.7710513999511843
+      ],
+      "donor_joint_cells": [
+        -0.0038477737524274945,
+        0.007230350479961073,
+        -0.008337894725480221,
+        0.14375582782501883
+      ],
+      "relative_joint_score_change": 0.813833199023888,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.870695147580372
+    },
+    {
+      "population": "iid",
+      "world": 8,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 7,
+      "foil": 10,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        -0.009745514023306737,
+        -0.005298184402070964,
+        0.0021564042782973784,
+        -0.4468196360209928
+      ],
+      "donor_joint_cells": [
+        -0.003798278764485318,
+        -0.002041863449238908,
+        0.004839173488058764,
+        -0.1783059501406597
+      ],
+      "relative_joint_score_change": 0.6009736210095339,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.9803566635091939
+    },
+    {
+      "population": "iid",
+      "world": 8,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 7,
+      "foil": 10,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        0.002135722082354843,
+        0.0016719243490926543,
+        0.0014871391755484256,
+        -0.4091648941766044
+      ],
+      "donor_joint_cells": [
+        0.00012526599329855208,
+        3.60434307917749e-05,
+        -0.00014158369159898162,
+        -0.16841088146656924
+      ],
+      "relative_joint_score_change": 0.5884341412610612,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.8145317753353315
+    },
+    {
+      "population": "iid",
+      "world": 8,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 12,
+      "middle": 7,
+      "foil": 10,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        0.006826314621825174,
+        0.020132683925024923,
+        -0.011952496471123938,
+        -0.4788104157966579
+      ],
+      "donor_joint_cells": [
+        -0.010855611952546798,
+        0.0036532360779504888,
+        -0.01559408206500521,
+        -0.1714583595440579
+      ],
+      "relative_joint_score_change": 0.6431007430714181,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.001941202836548089
+    },
+    {
+      "population": "iid",
+      "world": 9,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 15,
+      "middle": 13,
+      "foil": 14,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.0007358953841619954,
+        0.021945686844131725,
+        -0.0018558128079522278,
+        0.7400541380611033
+      ],
+      "donor_joint_cells": [
+        0.0015991024096008017,
+        -0.022196655177232145,
+        0.0017049304043032032,
+        -0.9437022472542171
+      ],
+      "relative_joint_score_change": 2.2749607105264937,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 6.259420471398223
+    },
+    {
+      "population": "iid",
+      "world": 9,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 15,
+      "middle": 13,
+      "foil": 14,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.006322849748528546,
+        0.008422485329860896,
+        -0.0017229591360383117,
+        0.6186642892922978
+      ],
+      "donor_joint_cells": [
+        -0.00438538354336833,
+        -0.0001876860342211497,
+        -0.0035130095890318343,
+        -0.6353440278619392
+      ],
+      "relative_joint_score_change": 2.0267116508704994,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 6.041678114028421
+    },
+    {
+      "population": "iid",
+      "world": 9,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 15,
+      "middle": 13,
+      "foil": 14,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.004897534595610796,
+        0.018739015895423386,
+        0.002968009514134005,
+        0.4259673474723271
+      ],
+      "donor_joint_cells": [
+        -0.0008703687857504028,
+        -0.018317254735853206,
+        0.0018214806340801654,
+        -0.6563102458949416
+      ],
+      "relative_joint_score_change": 2.5395933348733806,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 3.962878105321403
+    },
+    {
+      "population": "iid",
+      "world": 10,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 22,
+      "middle": 15,
+      "foil": 14,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        0.0009362945240166179,
+        -0.01052106309444688,
+        6.405728220876608e-06,
+        -0.5492843182601828
+      ],
+      "donor_joint_cells": [
+        0.0006047862604407868,
+        -0.006507386411065921,
+        0.002378626429395352,
+        -0.9831709281650998
+      ],
+      "relative_joint_score_change": 0.7898124259354464,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.00011968902543756435
+    },
+    {
+      "population": "iid",
+      "world": 10,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 22,
+      "middle": 15,
+      "foil": 14,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        -0.002601421483209209,
+        0.004228056296896292,
+        -0.0109934439636003,
+        -0.40820173018758193
+      ],
+      "donor_joint_cells": [
+        0.004571369570033431,
+        0.0004711800024505751,
+        -0.005180681350588257,
+        -0.5977462387824346
+      ],
+      "relative_joint_score_change": 0.46477899927103744,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 3.182982821507024e-06
+    },
+    {
+      "population": "iid",
+      "world": 10,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 22,
+      "middle": 15,
+      "foil": 14,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        -0.004393783602992373,
+        0.0040966868268675705,
+        -0.00931004380939006,
+        -0.4203437764360121
+      ],
+      "donor_joint_cells": [
+        -0.00034032334285905594,
+        -0.011949581047331933,
+        0.0012246187203106482,
+        -0.8458259812471037
+      ],
+      "relative_joint_score_change": 1.0129479616638082,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 6.303716267557989e-07
+    },
+    {
+      "population": "iid",
+      "world": 11,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 13,
+      "middle": 14,
+      "foil": 7,
+      "answer": 3,
+      "expected_answer": 3,
+      "base_joint_cells": [
+        0.0005236776185870327,
+        -0.02323146731126223,
+        0.0021846222542476587,
+        -0.7051399505037259
+      ],
+      "donor_joint_cells": [
+        -0.00022943578614078856,
+        -0.021914755905035853,
+        0.002919364025406246,
+        -0.512103089169149
+      ],
+      "relative_joint_score_change": 0.2736173975658694,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.03397414699987208
+    },
+    {
+      "population": "iid",
+      "world": 11,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 13,
+      "middle": 14,
+      "foil": 7,
+      "answer": 3,
+      "expected_answer": 3,
+      "base_joint_cells": [
+        0.009076859796759373,
+        0.018602352784417787,
+        -0.004159445300729847,
+        -0.46282550303730746
+      ],
+      "donor_joint_cells": [
+        0.013794000067707106,
+        0.008394055342915053,
+        -0.0068105113051380095,
+        -0.3966588891025255
+      ],
+      "relative_joint_score_change": 0.14497472049530732,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.10523072402020855
+    },
+    {
+      "population": "iid",
+      "world": 11,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 13,
+      "middle": 14,
+      "foil": 7,
+      "answer": 3,
+      "expected_answer": 3,
+      "base_joint_cells": [
+        0.0029704236876583424,
+        -0.020175616613384212,
+        -0.0099413601202607,
+        -0.6146972159663583
+      ],
+      "donor_joint_cells": [
+        0.0015309207141241468,
+        0.005614563408077373,
+        -0.009894883268690466,
+        -0.34818060287024977
+      ],
+      "relative_joint_score_change": 0.4353089795140232,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.0027443831422404607
+    },
+    {
+      "population": "iid",
+      "world": 12,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 17,
+      "foil": 15,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        -0.005637762790184245,
+        0.048627535760251306,
+        0.004796222441933521,
+        0.7290340173499386
+      ],
+      "donor_joint_cells": [
+        -0.01342599190998914,
+        -0.005389124748363977,
+        0.006387086793990319,
+        -0.6463861742068079
+      ],
+      "relative_joint_score_change": 1.8838367303961392,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 6.0237602383841065
+    },
+    {
+      "population": "iid",
+      "world": 12,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 17,
+      "foil": 15,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        -0.0006388552577916202,
+        -0.004718269231545781,
+        0.001103330971610825,
+        0.5807022212793593
+      ],
+      "donor_joint_cells": [
+        0.0022491151153619677,
+        0.005371175465100429,
+        0.009574716572230444,
+        -0.5364035327893439
+      ],
+      "relative_joint_score_change": 1.9237873720209353,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 17.72801570560205
+    },
+    {
+      "population": "iid",
+      "world": 12,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 17,
+      "foil": 15,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.003776191444023139,
+        0.0025435383797193134,
+        -0.0006360859559336165,
+        0.43823831181403433
+      ],
+      "donor_joint_cells": [
+        0.006387157318340066,
+        0.0165512150976801,
+        -0.0034625776942154916,
+        -0.44292592869295094
+      ],
+      "relative_joint_score_change": 2.0108590774229325,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 3.9131562837063725
+    },
+    {
+      "population": "iid",
+      "world": 13,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 0,
+      "middle": 11,
+      "foil": 9,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.01876397051756303,
+        0.03245953599193525,
+        0.014672729844505766,
+        -0.3366539733996618
+      ],
+      "donor_joint_cells": [
+        0.01674469161424413,
+        0.03552786985547655,
+        0.010638165255662125,
+        -0.3099806046943483
+      ],
+      "relative_joint_score_change": 0.0802992452187305,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.1637965798992197e-07
+    },
+    {
+      "population": "iid",
+      "world": 13,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 0,
+      "middle": 11,
+      "foil": 9,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.022185713790332115,
+        0.026246526485242488,
+        -0.009949722427778071,
+        -0.2937674355537389
+      ],
+      "donor_joint_cells": [
+        -0.02216026054883351,
+        0.05133566738441879,
+        -0.05349320524193112,
+        -0.25576758794991405
+      ],
+      "relative_joint_score_change": 0.2128954318409758,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.0019133984875687174
+    },
+    {
+      "population": "iid",
+      "world": 13,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 0,
+      "middle": 11,
+      "foil": 9,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.003487197518487518,
+        0.017583699964456006,
+        -0.01835930742861022,
+        -0.249544602943954
+      ],
+      "donor_joint_cells": [
+        0.009196923129980016,
+        0.011652319162759734,
+        -0.03860327402186174,
+        -0.2298700674932881
+      ],
+      "relative_joint_score_change": 0.11721889373861559,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.00016069810118639664
+    },
+    {
+      "population": "iid",
+      "world": 14,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 6,
+      "middle": 16,
+      "foil": 21,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        5.3847609640258944e-05,
+        0.0069051863691476055,
+        0.003221805478892391,
+        -0.6429382477141725
+      ],
+      "donor_joint_cells": [
+        -0.001330184933578971,
+        -0.017589346422565513,
+        -8.766779203126878e-05,
+        -0.6548610026912642
+      ],
+      "relative_joint_score_change": 0.042734083967229115,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.8427094028070633e-06
+    },
+    {
+      "population": "iid",
+      "world": 14,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 6,
+      "middle": 16,
+      "foil": 21,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        0.0046845586206325585,
+        0.0033419922343979123,
+        -0.007458901488577245,
+        -0.5072301008442942
+      ],
+      "donor_joint_cells": [
+        0.0004353869600379852,
+        0.002363937056921323,
+        0.0008772769975230767,
+        -0.513924482675212
+      ],
+      "relative_joint_score_change": 0.02275964998359784,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.4220740707262954e-08
+    },
+    {
+      "population": "iid",
+      "world": 14,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 6,
+      "middle": 16,
+      "foil": 21,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        -0.002969937111063785,
+        0.010415438002768215,
+        0.0011756734568250493,
+        -0.5108334934659481
+      ],
+      "donor_joint_cells": [
+        0.006220288137926615,
+        -0.013627680519778952,
+        0.002598287351091263,
+        -0.5347816757689421
+      ],
+      "relative_joint_score_change": 0.06886438626111323,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 3.24305947106471e-10
+    },
+    {
+      "population": "iid",
+      "world": 15,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 15,
+      "middle": 16,
+      "foil": 2,
+      "answer": 6,
+      "expected_answer": 6,
+      "base_joint_cells": [
+        -0.005047292242735266,
+        0.010598066661975204,
+        -0.0001041023868884901,
+        -0.6766728256655634
+      ],
+      "donor_joint_cells": [
+        -0.004596439151455385,
+        -0.003934338646220975,
+        -0.006905117066513968,
+        -0.5818252185670498
+      ],
+      "relative_joint_score_change": 0.14213924853777032,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.4078336619231935e-05
+    },
+    {
+      "population": "iid",
+      "world": 15,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 15,
+      "middle": 16,
+      "foil": 2,
+      "answer": 6,
+      "expected_answer": 6,
+      "base_joint_cells": [
+        0.016160844105886703,
+        0.01509446354796901,
+        0.008233509400505865,
+        -0.549523511960108
+      ],
+      "donor_joint_cells": [
+        0.005388405223006155,
+        0.019840467720150096,
+        0.010851770517162126,
+        -0.5437684593330653
+      ],
+      "relative_joint_score_change": 0.024293420019663926,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 5.089500540120075e-07
+    },
+    {
+      "population": "iid",
+      "world": 15,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 15,
+      "middle": 16,
+      "foil": 2,
+      "answer": 6,
+      "expected_answer": 6,
+      "base_joint_cells": [
+        -0.00034349733471396776,
+        0.014262023334333266,
+        -0.0023775209654224145,
+        -0.4349057885058932
+      ],
+      "donor_joint_cells": [
+        -0.0022661413111845674,
+        0.011205317426780334,
+        0.0032923712093295416,
+        -0.37896995250868193
+      ],
+      "relative_joint_score_change": 0.12946984606863954,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.625638666676068e-08
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 0,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 15,
+      "middle": 21,
+      "foil": 22,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.002276228705522435,
+        0.004728068015863544,
+        0.004170273006930926,
+        -0.26470898436140156
+      ],
+      "donor_joint_cells": [
+        0.0007300518149997641,
+        0.016074738080839045,
+        -0.0024216442288731575,
+        -0.30257379523780886
+      ],
+      "relative_joint_score_change": 0.15145386933377145,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 5.956756697297629e-07
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 0,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 15,
+      "middle": 21,
+      "foil": 22,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.005173968371333676,
+        0.0035306235167713905,
+        0.01285534457473285,
+        -0.2725529861732483
+      ],
+      "donor_joint_cells": [
+        0.012525210298763306,
+        0.018827460564079322,
+        0.0067183746251366135,
+        -0.31216567469393924
+      ],
+      "relative_joint_score_change": 0.1594927101334627,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.2817439593458891e-07
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 0,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 15,
+      "middle": 21,
+      "foil": 22,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.003414143985533019,
+        0.002060412239321272,
+        0.007152290734174912,
+        -0.2767264740373599
+      ],
+      "donor_joint_cells": [
+        -0.0008268060791016438,
+        0.010166514807223822,
+        0.009147557600893655,
+        -0.2988116135786009
+      ],
+      "relative_joint_score_change": 0.08664731497658262,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.946976739686441e-06
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 1,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 10,
+      "middle": 4,
+      "foil": 16,
+      "answer": 20,
+      "expected_answer": 20,
+      "base_joint_cells": [
+        -0.0018206615431446355,
+        -0.010800002427015445,
+        -0.001901287296281539,
+        -0.37487808149046875
+      ],
+      "donor_joint_cells": [
+        0.008345334319291985,
+        -0.017368837391452726,
+        -0.014956940036743869,
+        0.45709938426882707
+      ],
+      "relative_joint_score_change": 2.2188608667594396,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 27.285740177900493
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 1,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 10,
+      "middle": 4,
+      "foil": 16,
+      "answer": 20,
+      "expected_answer": 20,
+      "base_joint_cells": [
+        -0.006826460617468686,
+        -0.005287720441922872,
+        0.007817772008013188,
+        -0.43158193135552864
+      ],
+      "donor_joint_cells": [
+        0.002049983135074067,
+        -0.018949413017826506,
+        -0.01712455187945511,
+        0.5399888947719929
+      ],
+      "relative_joint_score_change": 2.2514233796356873,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 21.074595803576834
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 1,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 10,
+      "middle": 4,
+      "foil": 16,
+      "answer": 20,
+      "expected_answer": 20,
+      "base_joint_cells": [
+        1.996178889538082e-05,
+        -4.830159708129065e-05,
+        0.002872516939752948,
+        -0.41929633777133457
+      ],
+      "donor_joint_cells": [
+        -0.00033837328830473273,
+        -0.004750355847407857,
+        -0.00042473347971956344,
+        0.477430353468597
+      ],
+      "relative_joint_score_change": 2.1386404356537394,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 19.194019296698684
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 2,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 1,
+      "foil": 10,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        0.02933608623855148,
+        0.0065072618661887556,
+        0.08943456548129632,
+        0.6021567633602758
+      ],
+      "donor_joint_cells": [
+        -0.003185251177668107,
+        0.016084966702637045,
+        0.01691866161534895,
+        -0.36701973042293834
+      ],
+      "relative_joint_score_change": 1.5955233602178485,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 10.93636018954349
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 2,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 1,
+      "foil": 10,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        -0.019874660201054533,
+        -0.0034259173217764316,
+        0.03864419518473859,
+        1.1115156430310955
+      ],
+      "donor_joint_cells": [
+        -0.0006511534555732897,
+        0.006003924362186611,
+        -0.005876767705982192,
+        -0.38373185138753574
+      ],
+      "relative_joint_score_change": 1.3449331712386512,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 10.135469074127894
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 2,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 1,
+      "foil": 10,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        -0.00309767790661656,
+        -0.0010555828795273405,
+        0.02935378989890913,
+        0.5755558724556391
+      ],
+      "donor_joint_cells": [
+        5.912363351418441e-05,
+        -0.00011788918432312172,
+        0.0023724964034092704,
+        -0.4234061327853595
+      ],
+      "relative_joint_score_change": 1.7340080342484658,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 5.9733950963491935
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 3,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 11,
+      "middle": 7,
+      "foil": 16,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        0.006457459169747352,
+        -0.000388191572729103,
+        -0.010768412180714913,
+        -0.37335112137953824
+      ],
+      "donor_joint_cells": [
+        0.012063268291578118,
+        0.005569844086157323,
+        -0.025923718101466785,
+        0.5968525293955761
+      ],
+      "relative_joint_score_change": 2.5975753771393566,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 28.43009953988207
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 3,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 11,
+      "middle": 7,
+      "foil": 16,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        0.005587093964098224,
+        -0.00044554776920817314,
+        0.001705905302924005,
+        -0.3336379858467646
+      ],
+      "donor_joint_cells": [
+        0.010853578192859115,
+        0.007152632326451909,
+        -0.013903289511378866,
+        0.6058366300029434
+      ],
+      "relative_joint_score_change": 2.815941108350411,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 30.180810491604067
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 3,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 11,
+      "middle": 7,
+      "foil": 16,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        0.004497723327193423,
+        0.0009012580987161694,
+        -0.0009200865418580851,
+        -0.366917432185615
+      ],
+      "donor_joint_cells": [
+        0.008901034840454411,
+        0.022096265172924196,
+        0.0008088943267757274,
+        0.5571589559596536
+      ],
+      "relative_joint_score_change": 2.5189765270166626,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 20.977469436966814
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 4,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 20,
+      "middle": 17,
+      "foil": 14,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        0.005827941969820195,
+        -0.011470199422311115,
+        0.001040191650358771,
+        -0.37479127216080327
+      ],
+      "donor_joint_cells": [
+        -0.0014535142700772266,
+        -0.00276504596022713,
+        0.14021000481077422,
+        0.6367569136257482
+      ],
+      "relative_joint_score_change": 2.7229419490472457,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 22.303248194827038
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 4,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 20,
+      "middle": 17,
+      "foil": 14,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        0.001503453850105766,
+        -0.004764629230619619,
+        0.007918693758184811,
+        -0.3464347317412418
+      ],
+      "donor_joint_cells": [
+        0.0013560841561767048,
+        -0.0033168038568344377,
+        -0.02391495126264685,
+        0.584092125660804
+      ],
+      "relative_joint_score_change": 2.6866026998086396,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 26.715277980062538
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 4,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 20,
+      "middle": 17,
+      "foil": 14,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        -0.0003228117714083501,
+        -0.0008760566137351629,
+        0.0027800782653024506,
+        -0.34546293293891334
+      ],
+      "donor_joint_cells": [
+        -0.0032205831497096105,
+        0.004864102929961482,
+        0.17353881816051028,
+        0.6844640027088195
+      ],
+      "relative_joint_score_change": 3.021941562241113,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 16.039709183495507
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 5,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 23,
+      "foil": 12,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        -0.0007819727229542136,
+        -0.001134839637534219,
+        -0.008129594512667192,
+        -0.26304440802376206
+      ],
+      "donor_joint_cells": [
+        -0.0008461851914948436,
+        6.892584185068568e-06,
+        -0.0005644480902895462,
+        -0.2935573910354221
+      ],
+      "relative_joint_score_change": 0.11953178002582855,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.6859435200409977e-12
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 5,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 23,
+      "foil": 12,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        0.0026042992512540506,
+        -0.0009104157044180745,
+        -0.00433315378877964,
+        -0.26451733142543804
+      ],
+      "donor_joint_cells": [
+        0.002907878798704135,
+        0.00011910453130908163,
+        -0.0006877965716474865,
+        -0.3277455919511117
+      ],
+      "relative_joint_score_change": 0.23941876141038168,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.6222827079007426e-10
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 5,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 23,
+      "foil": 12,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        0.008656994310454202,
+        0.0003191005665641073,
+        -0.0023045298926147686,
+        -0.28015639690417377
+      ],
+      "donor_joint_cells": [
+        0.009874336074873367,
+        -0.000963163547886305,
+        -0.0007833521934277979,
+        -0.3090724146523752
+      ],
+      "relative_joint_score_change": 0.1034960970325468,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 6.634202902110891e-09
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 6,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 4,
+      "middle": 2,
+      "foil": 16,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        0.005091059843284612,
+        -0.00710446547737259,
+        0.00038993059648687305,
+        -0.2601348413656455
+      ],
+      "donor_joint_cells": [
+        -0.011061864268645966,
+        -0.003815997060339498,
+        0.006981351522977504,
+        0.48809747805365283
+      ],
+      "relative_joint_score_change": 2.875508574272027,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 38.25387726044101
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 6,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 4,
+      "middle": 2,
+      "foil": 16,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        0.00940726454039661,
+        0.0059886018945574816,
+        0.009711316253944842,
+        -0.2942325840123116
+      ],
+      "donor_joint_cells": [
+        0.03796322778519889,
+        0.004783375187942788,
+        0.05914975472026112,
+        0.6010360854697145
+      ],
+      "relative_joint_score_change": 3.0450647865117535,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 35.329724898900885
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 6,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 4,
+      "middle": 2,
+      "foil": 16,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        0.012478046186479737,
+        0.007730156481942338,
+        0.005630808827493117,
+        -0.2812136553406022
+      ],
+      "donor_joint_cells": [
+        0.0361981176967925,
+        0.0060543325959896924,
+        0.06417651820770405,
+        0.4768037809210197
+      ],
+      "relative_joint_score_change": 2.700654260936296,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 17.20090922571162
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 7,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 2,
+      "middle": 8,
+      "foil": 1,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        -0.0034432805033284635,
+        0.005879957684139331,
+        0.0010554742134813516,
+        0.4749853502896459
+      ],
+      "donor_joint_cells": [
+        -0.0005059176968672407,
+        0.0004310937484706557,
+        0.08195436586621148,
+        0.6703921762506102
+      ],
+      "relative_joint_score_change": 0.4454017725526405,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.0007489866490673917
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 7,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 2,
+      "middle": 8,
+      "foil": 1,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        0.027626883353545538,
+        0.009018345428311104,
+        0.0001264370969996833,
+        0.4508294864095914
+      ],
+      "donor_joint_cells": [
+        0.04016988210110024,
+        0.0031800272877289325,
+        0.1578329762978454,
+        0.742127583054696
+      ],
+      "relative_joint_score_change": 0.7338720057932423,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.004972764022515031
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 7,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 2,
+      "middle": 8,
+      "foil": 1,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        0.0006818626996539235,
+        -0.0024074365157382587,
+        0.006577913862215396,
+        0.4611205877244858
+      ],
+      "donor_joint_cells": [
+        -0.0012872360641092405,
+        0.0010030261848250665,
+        0.11011880743806533,
+        0.6517027837305978
+      ],
+      "relative_joint_score_change": 0.47038202302155646,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.0009721883243928686
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 8,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 8,
+      "middle": 0,
+      "foil": 10,
+      "answer": 9,
+      "expected_answer": 9,
+      "base_joint_cells": [
+        0.010466083068364817,
+        0.00046325337547865376,
+        0.09614467330597744,
+        0.6233230582855098
+      ],
+      "donor_joint_cells": [
+        -0.0012246594677022226,
+        0.0009376085743024585,
+        -0.0036885570244790766,
+        -0.27287532646866786
+      ],
+      "relative_joint_score_change": 1.4296833424475675,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 13.711012600401746
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 8,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 8,
+      "middle": 0,
+      "foil": 10,
+      "answer": 9,
+      "expected_answer": 9,
+      "base_joint_cells": [
+        0.07243838802501744,
+        3.9333073905156284e-05,
+        0.10920916057704677,
+        0.5946456993090007
+      ],
+      "donor_joint_cells": [
+        -0.0006263643642183512,
+        0.0027069484355138345,
+        0.002070813548093283,
+        -0.2706973655305722
+      ],
+      "relative_joint_score_change": 1.4369989094511948,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 12.604822440066679
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 8,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 8,
+      "middle": 0,
+      "foil": 10,
+      "answer": 9,
+      "expected_answer": 9,
+      "base_joint_cells": [
+        0.001232363724973138,
+        0.006191507264761491,
+        -0.020043701178200243,
+        0.5839597188967505
+      ],
+      "donor_joint_cells": [
+        -0.0014416344999485474,
+        0.007128502800758897,
+        0.0034708392253571738,
+        -0.24845399381459385
+      ],
+      "relative_joint_score_change": 1.4251186983082114,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 3.2607469470414916
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 9,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 19,
+      "foil": 6,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.010993504726638874,
+        -0.00048221597231812497,
+        8.064094246099386e-05,
+        -0.37764635131244706
+      ],
+      "donor_joint_cells": [
+        0.006097984103931688,
+        0.001891314750857929,
+        -0.004328726605361851,
+        -0.4426237139372327
+      ],
+      "relative_joint_score_change": 0.17298174432653324,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.6966413554686296e-08
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 9,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 19,
+      "foil": 6,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        -0.017583195112779882,
+        0.0473871094059949,
+        0.008669289521999794,
+        -0.3940055814902579
+      ],
+      "donor_joint_cells": [
+        -0.0007287665645751802,
+        0.03187173342575155,
+        0.01606451219676293,
+        -0.4130196557033195
+      ],
+      "relative_joint_score_change": 0.07720580443942196,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.066607385280091e-07
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 9,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 3,
+      "middle": 19,
+      "foil": 6,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        -0.009972915061705376,
+        0.06170060808393473,
+        0.010429635510320782,
+        -0.42299865406120457
+      ],
+      "donor_joint_cells": [
+        -0.0308207444098664,
+        0.011423246201737224,
+        0.014371746497202648,
+        -0.45626822626038305
+      ],
+      "relative_joint_score_change": 0.1494273423198693,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.3751619095814326e-07
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 10,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 13,
+      "middle": 8,
+      "foil": 20,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        0.0006165689794413187,
+        0.0019406082421681643,
+        -0.05922264372249282,
+        0.43596819136951587
+      ],
+      "donor_joint_cells": [
+        0.004671435951033614,
+        0.010464378745115044,
+        -0.0054671556298903756,
+        -0.3557931230165647
+      ],
+      "relative_joint_score_change": 1.8038220972370815,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 28.996305549283075
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 10,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 13,
+      "middle": 8,
+      "foil": 20,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        -0.017946917806138014,
+        0.001857590969566353,
+        0.010425635397102853,
+        0.4431052150964354
+      ],
+      "donor_joint_cells": [
+        -0.014607558911589278,
+        0.008902741399616864,
+        -0.0010623231460911106,
+        -0.3398241049956777
+      ],
+      "relative_joint_score_change": 1.765241995005502,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 25.269905150935724
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 10,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 13,
+      "middle": 8,
+      "foil": 20,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        -0.004637229380415358,
+        0.02215193955422063,
+        -0.0015177094171663786,
+        0.5003963230767914
+      ],
+      "donor_joint_cells": [
+        -0.0013217220931064139,
+        0.00807427181199424,
+        -0.0016261217769023245,
+        -0.3290088609675839
+      ],
+      "relative_joint_score_change": 1.6560479977112224,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 15.233337687582473
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 11,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 7,
+      "middle": 0,
+      "foil": 11,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        -0.038281996693823234,
+        -0.004448427990757996,
+        -0.003985823357134263,
+        0.7016488774061038
+      ],
+      "donor_joint_cells": [
+        -0.02269162980101911,
+        -0.015341577517114109,
+        -0.002474700890905548,
+        -0.24543269003312682
+      ],
+      "relative_joint_score_change": 1.348014370824861,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 16.478282859415366
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 11,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 7,
+      "middle": 0,
+      "foil": 11,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        -0.0018904364207412007,
+        -0.005955806494190537,
+        0.020509152114058477,
+        0.7064608150750028
+      ],
+      "donor_joint_cells": [
+        0.0002061804206070886,
+        -0.003074548306949468,
+        0.00228649090683327,
+        -0.257267191934009
+      ],
+      "relative_joint_score_change": 1.3637886988471195,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 16.706290803522823
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 11,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 7,
+      "middle": 0,
+      "foil": 11,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        -0.030582863536231714,
+        0.02380644357585542,
+        0.08217722302066673,
+        0.6552351733938001
+      ],
+      "donor_joint_cells": [
+        -0.015120972967809065,
+        -0.00583995716557653,
+        1.2455769387066497e-05,
+        -0.3007357325960286
+      ],
+      "relative_joint_score_change": 1.4513547809466247,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 15.640746794464508
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 12,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 14,
+      "middle": 20,
+      "foil": 0,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.0021620135398862446,
+        0.0003598834740706104,
+        -0.004734002459689616,
+        -0.3721718938691537
+      ],
+      "donor_joint_cells": [
+        -0.005299349355853558,
+        -0.0018806840674609332,
+        0.1037070823348137,
+        0.7017303858324494
+      ],
+      "relative_joint_score_change": 2.8999083129666854,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 19.810901132634285
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 12,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 14,
+      "middle": 20,
+      "foil": 0,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.044603834075960046,
+        -0.005234360704964939,
+        -0.010366711717756744,
+        -0.4343253407510743
+      ],
+      "donor_joint_cells": [
+        0.09545424444169065,
+        0.008511835834385367,
+        0.03826447567768118,
+        0.6882530725759696
+      ],
+      "relative_joint_score_change": 2.57545286618861,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 20.460941976829126
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 12,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 14,
+      "middle": 20,
+      "foil": 0,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.008909399354810903,
+        0.021578989435389603,
+        -0.0006361696865618676,
+        -0.41542917164976406
+      ],
+      "donor_joint_cells": [
+        0.028914792971919023,
+        -0.0009546045133652542,
+        0.04245057518971676,
+        0.644528994935019
+      ],
+      "relative_joint_score_change": 2.5517537411882936,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 12.246642728584469
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 13,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 18,
+      "middle": 12,
+      "foil": 17,
+      "answer": 2,
+      "expected_answer": 2,
+      "base_joint_cells": [
+        -0.006920067162232585,
+        -0.003968701769699861,
+        0.0014786116896502264,
+        -0.30023992046351644
+      ],
+      "donor_joint_cells": [
+        -0.012287689395895463,
+        0.0038526037934868036,
+        0.00198326028414417,
+        -0.19961218922470214
+      ],
+      "relative_joint_score_change": 0.3365249808045531,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.000442166016538237
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 13,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 18,
+      "middle": 12,
+      "foil": 17,
+      "answer": 2,
+      "expected_answer": 2,
+      "base_joint_cells": [
+        0.015646012836713675,
+        -0.00013285493083874442,
+        0.0019162109883060028,
+        -0.34771041119819274
+      ],
+      "donor_joint_cells": [
+        0.014386191951792061,
+        -0.0016618592148214834,
+        0.0004823768080955415,
+        -0.22343986191146445
+      ],
+      "relative_joint_score_change": 0.3570991090155417,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.0034005990396843784
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 13,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 18,
+      "middle": 12,
+      "foil": 17,
+      "answer": 2,
+      "expected_answer": 2,
+      "base_joint_cells": [
+        -0.00020836978004006268,
+        -0.005158137309477838,
+        0.00011418864262497183,
+        -0.3227143637747361
+      ],
+      "donor_joint_cells": [
+        0.0002222670975833925,
+        0.0022346384171623166,
+        0.003826943682954162,
+        -0.23567040937032954
+      ],
+      "relative_joint_score_change": 0.2709084929353867,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.0003656357869467762
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 14,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 22,
+      "middle": 11,
+      "foil": 15,
+      "answer": 21,
+      "expected_answer": 21,
+      "base_joint_cells": [
+        -0.0017179154204726497,
+        -0.016362675776216768,
+        0.008319867532497157,
+        -0.30588331326509216
+      ],
+      "donor_joint_cells": [
+        -0.003010132896501631,
+        0.030573824480502266,
+        0.000976334826348299,
+        -0.2727604038549777
+      ],
+      "relative_joint_score_change": 0.18903933801748,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 3.721425533657486e-10
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 14,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 22,
+      "middle": 11,
+      "foil": 15,
+      "answer": 21,
+      "expected_answer": 21,
+      "base_joint_cells": [
+        0.004725864038597711,
+        -0.028280161338269147,
+        0.017712058271074027,
+        -0.29702866333337163
+      ],
+      "donor_joint_cells": [
+        0.007667982420844318,
+        0.022319106349099928,
+        0.004098075236917901,
+        -0.25641690088472474
+      ],
+      "relative_joint_score_change": 0.2219871093557538,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.7626671665649157e-08
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 14,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 22,
+      "middle": 11,
+      "foil": 15,
+      "answer": 21,
+      "expected_answer": 21,
+      "base_joint_cells": [
+        -0.0003519040183533329,
+        0.0028002287594595826,
+        0.014423468088454483,
+        -0.34225464346605716
+      ],
+      "donor_joint_cells": [
+        -0.00047696930868159764,
+        -0.004923079963329167,
+        0.00459771484337315,
+        -0.2837737553644576
+      ],
+      "relative_joint_score_change": 0.174567346440254,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.00022711909661783701
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 15,
+      "order": 1,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 17,
+      "middle": 1,
+      "foil": 7,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.003807658811728502,
+        0.0016673101568171343,
+        0.10960376485684092,
+        0.5950915794859258
+      ],
+      "donor_joint_cells": [
+        -0.00022342779584442113,
+        -0.004327378579900379,
+        -0.0006900618056235504,
+        -0.2055078628388898
+      ],
+      "relative_joint_score_change": 1.3355991496683914,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 22.855210851172895
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 15,
+      "order": 4,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 17,
+      "middle": 1,
+      "foil": 7,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.0011603604621441353,
+        0.0027535228128680042,
+        0.03147086554254708,
+        0.6196978816349261
+      ],
+      "donor_joint_cells": [
+        0.0018154936907263165,
+        -0.0046132915288059845,
+        0.005479013188273546,
+        -0.21581443629485617
+      ],
+      "relative_joint_score_change": 1.3472188848297184,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 19.13655493231085
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 15,
+      "order": 5,
+      "case": "base",
+      "orientation": "B2_later",
+      "entity": 17,
+      "middle": 1,
+      "foil": 7,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        0.011410168141516238,
+        -0.0016849581170744674,
+        0.04867610050294709,
+        0.6241895531327821
+      ],
+      "donor_joint_cells": [
+        -0.0026276995984956817,
+        -0.006624729372385318,
+        0.007481603236648719,
+        -0.22529698527044872
+      ],
+      "relative_joint_score_change": 1.3583957007198388,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 4.47871907305336
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 0,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 15,
+      "middle": 21,
+      "foil": 22,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.0016767085922110001,
+        -0.0079792330358573,
+        0.000719606246520106,
+        -0.8597127763426369
+      ],
+      "donor_joint_cells": [
+        -0.0033702621726905907,
+        -0.053447816477284985,
+        0.0006014408103041513,
+        0.9737266261033406
+      ],
+      "relative_joint_score_change": 2.1331784710489066,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 1.8474631457929926
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 0,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 15,
+      "middle": 21,
+      "foil": 22,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.0024161146110591616,
+        0.006833691743362246,
+        -0.00033741728670809315,
+        -0.6390331788352973
+      ],
+      "donor_joint_cells": [
+        0.007759484244127424,
+        0.049033534300091865,
+        -3.843924975160694e-05,
+        0.8106127070519737
+      ],
+      "relative_joint_score_change": 2.26936922094847,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 0.20988595754615005
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 0,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 15,
+      "middle": 21,
+      "foil": 22,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.012624872379776251,
+        0.015845139820460003,
+        -0.0050662948176548196,
+        -0.5498954446572758
+      ],
+      "donor_joint_cells": [
+        0.031017397643140623,
+        0.004051153428555245,
+        0.001651776308827176,
+        0.6143146225555536
+      ],
+      "relative_joint_score_change": 2.117252578790884,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 0.0024585638397004545
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 1,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 10,
+      "middle": 4,
+      "foil": 16,
+      "answer": 20,
+      "expected_answer": 20,
+      "base_joint_cells": [
+        -0.0032068187852501637,
+        -0.0650607140764408,
+        -0.00019463151889124916,
+        -1.3349239465698781
+      ],
+      "donor_joint_cells": [
+        0.010975418077401884,
+        0.00941035579810615,
+        -0.0016506322425672995,
+        0.9526357490344555
+      ],
+      "relative_joint_score_change": 1.712528909368857,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 5.381559238472228
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 1,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 10,
+      "middle": 4,
+      "foil": 16,
+      "answer": 20,
+      "expected_answer": 20,
+      "base_joint_cells": [
+        0.008309381894746724,
+        0.029351127318572215,
+        -0.019057050710222446,
+        -0.9027417744279701
+      ],
+      "donor_joint_cells": [
+        -0.008179827834775853,
+        0.019698251282537056,
+        0.006570908001381847,
+        0.7184750337508616
+      ],
+      "relative_joint_score_change": 1.7948060366259162,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 2.494187883752974
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 1,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 10,
+      "middle": 4,
+      "foil": 16,
+      "answer": 20,
+      "expected_answer": 20,
+      "base_joint_cells": [
+        -0.0037973097499206716,
+        -0.00958694047871447,
+        0.009691849669248968,
+        -0.8609513299991279
+      ],
+      "donor_joint_cells": [
+        0.002513122772679644,
+        0.022336133268889134,
+        0.010829254096631087,
+        0.6538656080636376
+      ],
+      "relative_joint_score_change": 1.7596374518345754,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 6.674550619232107
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 2,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 1,
+      "foil": 10,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        -0.00268255013675807,
+        -0.05535961051572964,
+        -3.979334841316963e-05,
+        -1.1449772426511566
+      ],
+      "donor_joint_cells": [
+        -0.0011205943121519106,
+        -0.0064553629143422175,
+        -0.0005502033354802308,
+        0.20132181984877806
+      ],
+      "relative_joint_score_change": 1.175230686265142,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 5.067693995390248
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 2,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 1,
+      "foil": 10,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        0.031611400729327714,
+        0.03770334019233588,
+        -0.018930842138367612,
+        -0.8197217199778984
+      ],
+      "donor_joint_cells": [
+        -0.00606321854843783,
+        -0.000212346896926907,
+        -0.01105382013022155,
+        0.10523351806110386
+      ],
+      "relative_joint_score_change": 1.127970171821691,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 4.685991015325568
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 2,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 1,
+      "foil": 10,
+      "answer": 0,
+      "expected_answer": 0,
+      "base_joint_cells": [
+        -0.00017725598724640417,
+        -0.023990539223050982,
+        -0.02698744390626991,
+        -0.9302393381757258
+      ],
+      "donor_joint_cells": [
+        -0.0023420011191634406,
+        0.003423596647425351,
+        -0.028807686205931767,
+        0.12950172612899588
+      ],
+      "relative_joint_score_change": 1.1387409055919475,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 5.1529456730690715
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 3,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 11,
+      "middle": 7,
+      "foil": 16,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        0.010041553596915873,
+        -0.013434831461386933,
+        0.003441543246647139,
+        -0.7074585943641504
+      ],
+      "donor_joint_cells": [
+        0.0007408463156931638,
+        0.002329911792298137,
+        0.002575284291504703,
+        -0.8124168362228582
+      ],
+      "relative_joint_score_change": 0.1505595327588194,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 3.565793486590748e-07
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 3,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 11,
+      "middle": 7,
+      "foil": 16,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        0.0016811535094409414,
+        0.01241847835174312,
+        0.0045311536765867775,
+        -0.5682248329257423
+      ],
+      "donor_joint_cells": [
+        0.0017841784658527036,
+        0.002740535622838065,
+        0.005596117268545887,
+        -0.5705247714957177
+      ],
+      "relative_joint_score_change": 0.017602365971294505,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.3689555218945096e-08
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 3,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 11,
+      "middle": 7,
+      "foil": 16,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        0.004489600867086968,
+        0.029028640451232015,
+        0.004128849556118715,
+        -0.657125384164703
+      ],
+      "donor_joint_cells": [
+        -0.001645237367943726,
+        0.012744230921905823,
+        0.002990138229231376,
+        -0.7087232361515833
+      ],
+      "relative_joint_score_change": 0.08279964952221626,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 3.126066104759141e-09
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 4,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 20,
+      "middle": 17,
+      "foil": 14,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        -8.860565239970628e-05,
+        0.0054019948267950615,
+        0.00020825155617213873,
+        0.5572653541842562
+      ],
+      "donor_joint_cells": [
+        0.0010742646220103576,
+        -0.027766511455147573,
+        0.00044805860172641895,
+        -1.2536686350227986
+      ],
+      "relative_joint_score_change": 3.250072605380171,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 1.8299898480196632
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 4,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 20,
+      "middle": 17,
+      "foil": 14,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        -0.00022852000669101622,
+        -0.0005991243702338026,
+        -1.530309443095802e-07,
+        0.4298913717583079
+      ],
+      "donor_joint_cells": [
+        -0.002754112519251232,
+        0.0007368003494734378,
+        0.007967255048001283,
+        -0.927699060199674
+      ],
+      "relative_joint_score_change": 3.158042697949671,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 5.206132368032663
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 4,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 20,
+      "middle": 17,
+      "foil": 14,
+      "answer": 8,
+      "expected_answer": 8,
+      "base_joint_cells": [
+        0.004730842493059409,
+        -0.0011164653040672222,
+        0.00042529714816710504,
+        0.501039758303484
+      ],
+      "donor_joint_cells": [
+        0.0007359564514832613,
+        -0.010117306376826918,
+        0.002321220618303593,
+        -0.8186816992120529
+      ],
+      "relative_joint_score_change": 2.633916690359113,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 2.7615193610487907
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 5,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 23,
+      "foil": 12,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        0.01084565265582113,
+        -0.011245554116415268,
+        -0.0024606038416618453,
+        -0.32593356928261796
+      ],
+      "donor_joint_cells": [
+        0.0048228776521353515,
+        -0.0010441709175477863,
+        0.0022022957591885163,
+        -0.47183160381136036
+      ],
+      "relative_joint_score_change": 0.4488041308183213,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 8.793996088206642e-06
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 5,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 23,
+      "foil": 12,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        -0.0010687394845082198,
+        -0.006009456877851536,
+        0.001363465590700757,
+        -0.2706286386879459
+      ],
+      "donor_joint_cells": [
+        -0.005731359087359202,
+        0.012018944477320053,
+        0.001621502737098521,
+        -0.3765836601384767
+      ],
+      "relative_joint_score_change": 0.3974100501550684,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 2.407660405753592e-06
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 5,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 23,
+      "foil": 12,
+      "answer": 13,
+      "expected_answer": 13,
+      "base_joint_cells": [
+        0.007601857303509324,
+        0.013043845771380654,
+        -0.0022296103300850985,
+        -0.2437766201866047
+      ],
+      "donor_joint_cells": [
+        0.011513199121662716,
+        0.026391169190722062,
+        -0.0041031861142796,
+        -0.3880459535850588
+      ],
+      "relative_joint_score_change": 0.5934413712017989,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.5418128530283336e-07
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 6,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 4,
+      "middle": 2,
+      "foil": 16,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -8.358099635962519e-05,
+        -0.016534614711524457,
+        0.00041029406800908546,
+        -0.6764064784335152
+      ],
+      "donor_joint_cells": [
+        -0.0011079876601329224,
+        0.004289335083398962,
+        -0.000823524307995786,
+        -0.7205803262591169
+      ],
+      "relative_joint_score_change": 0.07221668285248709,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 6.321082816465812e-06
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 6,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 4,
+      "middle": 2,
+      "foil": 16,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.007279767417038426,
+        0.0011701238501518976,
+        0.013136339559588312,
+        -0.6092685014574769
+      ],
+      "donor_joint_cells": [
+        -0.003220500015005946,
+        -0.004669974850737235,
+        0.014345787768211209,
+        -0.5808303485088345
+      ],
+      "relative_joint_score_change": 0.048139721107052225,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.0013357614700795738
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 6,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 4,
+      "middle": 2,
+      "foil": 16,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        0.005239693504545403,
+        0.0073394581101979195,
+        0.009272159137100082,
+        -0.4449796292184522
+      ],
+      "donor_joint_cells": [
+        0.00015899163934175246,
+        0.01132202393498471,
+        0.004251434138159263,
+        -0.46226735712075717
+      ],
+      "relative_joint_score_change": 0.0429602905812118,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 4.103729335685e-07
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 7,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 2,
+      "middle": 8,
+      "foil": 1,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        0.00011105112876735042,
+        0.014616848769906437,
+        -0.00048136062471967,
+        -0.5916047948495379
+      ],
+      "donor_joint_cells": [
+        -0.0061670935007278145,
+        -0.0293633588615295,
+        -0.0003217223371031553,
+        0.8227061560408515
+      ],
+      "relative_joint_score_change": 2.3910833142171852,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 4.024210528749942
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 7,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 2,
+      "middle": 8,
+      "foil": 1,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        0.010808162464438562,
+        0.010204674274021263,
+        0.012018193532290828,
+        -0.4607597537760531
+      ],
+      "donor_joint_cells": [
+        0.017488750460069043,
+        0.024579468316379596,
+        0.005594921750096379,
+        0.6137473189142482
+      ],
+      "relative_joint_score_change": 2.33032417214401,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 4.088801818635264
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 7,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 2,
+      "middle": 8,
+      "foil": 1,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        -0.0006210428002043855,
+        0.01532254230402304,
+        0.0036425403435636286,
+        -0.3967929409220841
+      ],
+      "donor_joint_cells": [
+        0.0076809282723268885,
+        -0.003402364694023141,
+        0.00227202231996998,
+        0.5224277314738841
+      ],
+      "relative_joint_score_change": 2.315377186752885,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 2.4986595532609335
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 8,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 8,
+      "middle": 0,
+      "foil": 10,
+      "answer": 9,
+      "expected_answer": 9,
+      "base_joint_cells": [
+        -0.0003313674458950667,
+        -0.02689331832047963,
+        7.457199718866568e-05,
+        0.7590593561637241
+      ],
+      "donor_joint_cells": [
+        0.0011975324744454017,
+        -0.01312936725207303,
+        -0.0010838497006221996,
+        -0.22715694410418844
+      ],
+      "relative_joint_score_change": 1.298575187833092,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 4.296260854643915
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 8,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 8,
+      "middle": 0,
+      "foil": 10,
+      "answer": 9,
+      "expected_answer": 9,
+      "base_joint_cells": [
+        0.038180961546581314,
+        0.04659118493832608,
+        0.00011614999744903944,
+        0.5340462838041059
+      ],
+      "donor_joint_cells": [
+        -0.008867938700785337,
+        -0.002827627446054596,
+        0.003343578415761127,
+        -0.1743181980851835
+      ],
+      "relative_joint_score_change": 1.3241666328961563,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 3.0550020223514123
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 8,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 8,
+      "middle": 0,
+      "foil": 10,
+      "answer": 9,
+      "expected_answer": 9,
+      "base_joint_cells": [
+        0.001274154999841747,
+        -0.0007528473905916103,
+        -0.002938205724238463,
+        0.6070235535394797
+      ],
+      "donor_joint_cells": [
+        -0.009659864234442496,
+        0.005655528486294919,
+        -0.0014622870862938896,
+        -0.19497384366062126
+      ],
+      "relative_joint_score_change": 1.3213442903685286,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 1.5610632028829565
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 9,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 19,
+      "foil": 6,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.0027984357595390147,
+        -0.00364175302459461,
+        -0.0005516644798448381,
+        -0.2989322722012793
+      ],
+      "donor_joint_cells": [
+        0.003282992167277993,
+        -0.03217883698319196,
+        -0.00012458404547848782,
+        -0.8222771265498643
+      ],
+      "relative_joint_score_change": 1.753106042256808,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.5871037638055966e-05
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 9,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 19,
+      "foil": 6,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.0033984018684416256,
+        0.005051226651850478,
+        -0.0027070521700002345,
+        -0.22471772198475556
+      ],
+      "donor_joint_cells": [
+        0.007028159608421067,
+        0.0019933595501390546,
+        0.0009625122086348531,
+        -0.6029690373021512
+      ],
+      "relative_joint_score_change": 1.6827009274114046,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.004844247412690911
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 9,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 3,
+      "middle": 19,
+      "foil": 6,
+      "answer": 16,
+      "expected_answer": 16,
+      "base_joint_cells": [
+        0.0029961605731486725,
+        0.018335371553931792,
+        -0.006530422509111773,
+        -0.225619386478853
+      ],
+      "donor_joint_cells": [
+        0.0076710412373941165,
+        -0.022507943136806395,
+        -0.004198482742015742,
+        -0.6791869539638256
+      ],
+      "relative_joint_score_change": 2.0109432323180285,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.00135848585073078
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 10,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 13,
+      "middle": 8,
+      "foil": 20,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        0.003931812836145918,
+        -0.013945459764511786,
+        -0.0005414598722166924,
+        -0.548543205841296
+      ],
+      "donor_joint_cells": [
+        0.002141806350020322,
+        -0.09541642875942796,
+        -2.4255085860017325e-05,
+        0.7762951055439175
+      ],
+      "relative_joint_score_change": 2.4189140065713133,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 2.921622524916623
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 10,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 13,
+      "middle": 8,
+      "foil": 20,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        -0.00873136659856578,
+        0.016552333340762664,
+        0.014265134767539355,
+        -0.4262081443532846
+      ],
+      "donor_joint_cells": [
+        -0.023576330775854006,
+        -0.013251395179249224,
+        0.012304823965581363,
+        0.5493752350600136
+      ],
+      "relative_joint_score_change": 2.286838103778225,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 0.3276932731916824
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 10,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 13,
+      "middle": 8,
+      "foil": 20,
+      "answer": 11,
+      "expected_answer": 11,
+      "base_joint_cells": [
+        -0.0026580183608048607,
+        0.009781618935737089,
+        0.005139809167759906,
+        -0.42055291404505896
+      ],
+      "donor_joint_cells": [
+        -0.06061613529983612,
+        -0.016610206584958,
+        0.001458619978433136,
+        0.60735031126367
+      ],
+      "relative_joint_score_change": 2.4479793591058363,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 0.007632574323535755
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 11,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 7,
+      "middle": 0,
+      "foil": 11,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        0.0019615516640049072,
+        -0.0030633224092309636,
+        -7.80046063166301e-07,
+        0.8992294482746702
+      ],
+      "donor_joint_cells": [
+        0.0009507942526849395,
+        0.014015943417340353,
+        -0.003973176675961805,
+        -0.32380906808749754
+      ],
+      "relative_joint_score_change": 1.3602252754122302,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 6.1540519127264846
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 11,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 7,
+      "middle": 0,
+      "foil": 11,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        -0.014745895349401088,
+        0.03611835450362226,
+        0.0018768641945144599,
+        0.6188332173094967
+      ],
+      "donor_joint_cells": [
+        -0.0013840935671447375,
+        0.01690887446664467,
+        0.00014235166548911047,
+        -0.24508756754425043
+      ],
+      "relative_joint_score_change": 1.3937893338673257,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 6.857354765400211
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 11,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 7,
+      "middle": 0,
+      "foil": 11,
+      "answer": 19,
+      "expected_answer": 19,
+      "base_joint_cells": [
+        0.007673104897476108,
+        -0.02072138480235542,
+        0.005841849238320542,
+        0.7543134614902733
+      ],
+      "donor_joint_cells": [
+        -0.007499227691620777,
+        0.011661132643248974,
+        -6.978032105186551e-05,
+        -0.2566049727588762
+      ],
+      "relative_joint_score_change": 1.3404294593144968,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 4.924430545372743
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 12,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 14,
+      "middle": 20,
+      "foil": 0,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        -0.008703018962059618,
+        -0.15183183156553245,
+        -0.002416583217213077,
+        0.858745370536081
+      ],
+      "donor_joint_cells": [
+        -0.005428401461924612,
+        -0.05080673061850331,
+        0.00018495974831185996,
+        0.893621856359634
+      ],
+      "relative_joint_score_change": 0.1226421634091623,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.8461374693533655e-07
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 12,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 14,
+      "middle": 20,
+      "foil": 0,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.03181540732759427,
+        -0.03705300687983875,
+        8.251517966837864e-05,
+        0.6758082740448378
+      ],
+      "donor_joint_cells": [
+        0.03873750989841474,
+        0.051568181054226975,
+        -0.0029080705844490105,
+        0.6735100062391935
+      ],
+      "relative_joint_score_change": 0.13130896083135196,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.0272512438595783e-08
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 12,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 14,
+      "middle": 20,
+      "foil": 0,
+      "answer": 7,
+      "expected_answer": 7,
+      "base_joint_cells": [
+        0.008055997534960783,
+        -0.010552015597299779,
+        0.0020686951646639484,
+        0.6489057443939843
+      ],
+      "donor_joint_cells": [
+        -0.005888884985767348,
+        -0.0012055096743228291,
+        0.008972911178073414,
+        0.56857615431039
+      ],
+      "relative_joint_score_change": 0.1268862919864635,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 1.4821539086963814e-08
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 13,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 18,
+      "middle": 12,
+      "foil": 17,
+      "answer": 2,
+      "expected_answer": 2,
+      "base_joint_cells": [
+        -0.0051231684325052556,
+        0.005175492939841694,
+        0.00015771189443916737,
+        -0.46969215737072484
+      ],
+      "donor_joint_cells": [
+        -0.0007084957939314052,
+        -0.0011059467856712538,
+        0.005527378578579089,
+        0.4362101206633497
+      ],
+      "relative_joint_score_change": 1.9285861789940206,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 9.937720223071958
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 13,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 18,
+      "middle": 12,
+      "foil": 17,
+      "answer": 2,
+      "expected_answer": 2,
+      "base_joint_cells": [
+        -0.008877655369115365,
+        0.02413584989844403,
+        0.0003112344614746548,
+        -0.3679595209303793
+      ],
+      "donor_joint_cells": [
+        -0.0009012614772792743,
+        -0.001042474623013687,
+        0.0019106657741536316,
+        0.35767274689829404
+      ],
+      "relative_joint_score_change": 1.9685517067646874,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 7.882102526003972
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 13,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 18,
+      "middle": 12,
+      "foil": 17,
+      "answer": 2,
+      "expected_answer": 2,
+      "base_joint_cells": [
+        -0.0013935902993407528,
+        0.03894451630055018,
+        -0.0036817803270350847,
+        -0.45353541229718136
+      ],
+      "donor_joint_cells": [
+        0.0028005690496957143,
+        0.0020926131304196075,
+        -8.982952599798263e-05,
+        0.4753240122015438
+      ],
+      "relative_joint_score_change": 2.0420976055347704,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 9.694761383278822
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 14,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 22,
+      "middle": 11,
+      "foil": 15,
+      "answer": 21,
+      "expected_answer": 21,
+      "base_joint_cells": [
+        0.0016977279096588895,
+        0.00825885915409083,
+        -0.006411386571596578,
+        -0.32518282239685603
+      ],
+      "donor_joint_cells": [
+        -0.0014146803059305194,
+        -0.00034316631986754527,
+        3.8107603046381673e-06,
+        -0.5919106162453203
+      ],
+      "relative_joint_score_change": 0.8205236380667174,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.010855096022973073
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 14,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 22,
+      "middle": 11,
+      "foil": 15,
+      "answer": 21,
+      "expected_answer": 21,
+      "base_joint_cells": [
+        0.0016724478473495333,
+        0.0127568959932479,
+        0.007128058511777153,
+        -0.2676840543099793
+      ],
+      "donor_joint_cells": [
+        0.006307232111207419,
+        0.019296878467348618,
+        -0.008359139079986278,
+        -0.4545542281154274
+      ],
+      "relative_joint_score_change": 0.7000768188970448,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.007661482244174561
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 14,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 22,
+      "middle": 11,
+      "foil": 15,
+      "answer": 21,
+      "expected_answer": 21,
+      "base_joint_cells": [
+        -0.000798143551928783,
+        -0.0011297076734464806,
+        0.006090326184427802,
+        -0.23456002521584407
+      ],
+      "donor_joint_cells": [
+        0.0009568705851674613,
+        3.971490879536575e-06,
+        0.0009135089187137008,
+        -0.43308993287957576
+      ],
+      "relative_joint_score_change": 0.8464273329248035,
+      "value_value_sign_flip": false,
+      "hop3_joint_query_kl": 0.009774087846879408
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 15,
+      "order": 0,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 17,
+      "middle": 1,
+      "foil": 7,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        0.007173809229547037,
+        -0.02856159491200945,
+        -0.00284634768605801,
+        0.8154293335040564
+      ],
+      "donor_joint_cells": [
+        -0.003976097261163117,
+        -0.006031312945501608,
+        -0.00288642474562569,
+        -0.5175068405348202
+      ],
+      "relative_joint_score_change": 1.633858990364198,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 8.276412437059951
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 15,
+      "order": 2,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 17,
+      "middle": 1,
+      "foil": 7,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.027531462824200235,
+        0.01719084169807081,
+        0.018339421391875194,
+        0.5764387557398029
+      ],
+      "donor_joint_cells": [
+        0.0179399508565049,
+        0.021568182326940057,
+        0.020996387243217014,
+        -0.46666192487682223
+      ],
+      "relative_joint_score_change": 1.8075243782836832,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 6.305451037163032
+    },
+    {
+      "population": "ood_two_12cycles",
+      "world": 15,
+      "order": 3,
+      "case": "base",
+      "orientation": "B3_later",
+      "entity": 17,
+      "middle": 1,
+      "foil": 7,
+      "answer": 10,
+      "expected_answer": 10,
+      "base_joint_cells": [
+        -0.0011090519656972064,
+        0.006456179846497816,
+        0.00717356066525981,
+        0.6821394606830431
+      ],
+      "donor_joint_cells": [
+        0.006112293127578637,
+        0.01149558145790736,
+        0.007004153497807004,
+        -0.4254336968845384
+      ],
+      "relative_joint_score_change": 1.6235622444876303,
+      "value_value_sign_flip": true,
+      "hop3_joint_query_kl": 5.275577518982212
+    }
+  ],
+  "pairs": 192,
+  "value_value_sign_flips": 108,
+  "native_coefficients_removed": 0,
+  "limits": "Sign correlation with damage does not establish a causal sign-only explanation; all changes and native values remain coupled in the model"
+}

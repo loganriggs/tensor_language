@@ -53,6 +53,47 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Pair transport rejected; exact join-read degree audit active — 2026-09-09 20:43 UTC
+
+The bilinear reconstruction handoff and appended structural criterion control
+the work. Previous turn progressed through the managed pair-transport screen,
+a complete CPU pointwise audit, and an implemented response-curve primitive.
+The overall structural circuit goal remains active and unfinished.
+
+MATCHER_PAIR_TRANSPORT_V1 completes6.79s, A/C true and B false. Native/export
+full outputs close1.42e-13. Hop3 joint gate transfer queryKL9.994/12.019 forward
+IID/OOD and3.145/2.697 backward; querychange/removal ratios1.227/1.292 forward,
+.921/.788 backward. No single-factor, scalar/entity, role or hop rescue.
+MATCHER_PAIR_POINTWISE_V1 retains192 matched source pairs:108 value-to-value
+sign flips, full joint-score relative changes1.432–1.610 and cosines -.349–.005.
+Near-equal RMS had hidden pointwise differences. Sign-flip cases dominate KL,
+but same-sign IID pairs still give .087/.537 meanKL. No fitted sign correction
+or causal sign-only conclusion is licensed. Dossier: join_matcher_factors.md.
+
+Active JOIN_WRITE_READ_DEGREE_V1_PREREGISTRATION.md and
+join_write_read_degree_reference.py,12 CPU controls pass. A source-only L2 write
+leaves the final query fixed, so its final read has a cubic numerator C0..C3
+times the live RMS gain cubed. The norm is represented with a stable completed
+square; no normalization clamping. Exact curve scales -1,0,.5,1,2 must match
+physical source edits and native L2 attention-cell scaling. Removal partitions
+into normalization, linear, quadratic and cubic contributions. These are
+algebraic attributions, not independently editable circuit variables.
+
+Prior independent port tests motivate fixed forward-linear/backward-quadratic
+read hypotheses: retain C0 and the normalizer plus C1 forward or C2 backward.
+Require1% query-effect prediction at every nonzero registered scale and every
+population/orientation/hop group, floor1e-6. No degree/head/scale-range fit or
+selection after failure. All32 opened worlds/six orders/four hops,768 requests.
+No trained degree-audit outcomes opened. All native weights/background and
+per-query response caches remain charged; exact curve closure alone is not
+structural reduction. Derivation: explanations/join_write_response_curve.md.
+
+Next implement managed ops/run_join_write_read_degree_v1.py. Extract native
+selected writes with join_contribution_context_reference.contributions; use
+the existing matcher pair native score-cell oracle and source-edit executor.
+The new job is not yet queued. Both runners healthy; inspect live shared queue.
+Next hourly20:51 and mathematical22:49 UTC. Preserve all prior nulls.
+
 ## Coupled matcher pair nominated; native transport next — 2026-09-09 20:28 UTC
 
 The controlling direction is the bilinear circuit reconstruction handoff and
