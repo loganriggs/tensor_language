@@ -1,0 +1,229 @@
+{
+  "experiment": "hop_composition_capability_v1",
+  "models": {
+    "attn4-rms-seed0": {
+      "checkpoint_sha256": "c9388cc8b1ba7e95c6a043cbf4d01592987447867a50781d3babe31ce3f8358b",
+      "config": {
+        "spec": [
+          "attn",
+          "attn",
+          "attn",
+          "attn"
+        ],
+        "d_model": 128,
+        "n_head": 4,
+        "vocab": 29,
+        "norm": "rms"
+      },
+      "parameters": 400640,
+      "panels": {
+        "iid": {
+          "0": {
+            "n": 191,
+            "accuracy": 1.0,
+            "gold_probability": 0.999999977677624
+          },
+          "1": {
+            "n": 195,
+            "accuracy": 1.0,
+            "gold_probability": 0.9973682851436697
+          },
+          "2": {
+            "n": 190,
+            "accuracy": 1.0,
+            "gold_probability": 0.999933587698015
+          },
+          "3": {
+            "n": 192,
+            "accuracy": 0.9947916666666666,
+            "gold_probability": 0.9882936614584296
+          }
+        },
+        "unique_queries": {
+          "0": {
+            "n": 183,
+            "accuracy": 1.0,
+            "gold_probability": 0.9999999322626778
+          },
+          "1": {
+            "n": 201,
+            "accuracy": 1.0,
+            "gold_probability": 0.9976796635851267
+          },
+          "2": {
+            "n": 200,
+            "accuracy": 1.0,
+            "gold_probability": 0.9996352574596377
+          },
+          "3": {
+            "n": 184,
+            "accuracy": 0.9619565217391305,
+            "gold_probability": 0.9560898811350325
+          }
+        },
+        "short_cycles": {
+          "0": {
+            "n": 192,
+            "accuracy": 1.0,
+            "gold_probability": 0.9999999808460371
+          },
+          "1": {
+            "n": 173,
+            "accuracy": 0.976878612716763,
+            "gold_probability": 0.9673353649717114
+          },
+          "2": {
+            "n": 203,
+            "accuracy": 0.9458128078817734,
+            "gold_probability": 0.9323987604115175
+          },
+          "3": {
+            "n": 200,
+            "accuracy": 0.92,
+            "gold_probability": 0.9081143816078964
+          }
+        },
+        "cold_first_query": {
+          "0": {
+            "n": 16,
+            "accuracy": 1.0,
+            "gold_probability": 0.9999999999990885
+          },
+          "1": {
+            "n": 16,
+            "accuracy": 1.0,
+            "gold_probability": 0.9994490577373998
+          },
+          "2": {
+            "n": 16,
+            "accuracy": 1.0,
+            "gold_probability": 0.9999872754204449
+          },
+          "3": {
+            "n": 16,
+            "accuracy": 1.0,
+            "gold_probability": 0.9860407002118556
+          }
+        }
+      }
+    },
+    "attn-mlp-attn-rms-seed0": {
+      "checkpoint_sha256": "02a3f0e793849899629af95d88be4f60b5ff1b42ee39116cb2a7d8512cb212ff",
+      "config": {
+        "spec": [
+          "attn",
+          "mlp",
+          "attn"
+        ],
+        "d_model": 128,
+        "n_head": 4,
+        "vocab": 29,
+        "norm": "rms"
+      },
+      "parameters": 400640,
+      "panels": {
+        "iid": {
+          "0": {
+            "n": 191,
+            "accuracy": 1.0,
+            "gold_probability": 0.999996465860877
+          },
+          "1": {
+            "n": 195,
+            "accuracy": 0.7846153846153846,
+            "gold_probability": 0.7861598813100575
+          },
+          "2": {
+            "n": 190,
+            "accuracy": 0.3157894736842105,
+            "gold_probability": 0.271962028935504
+          },
+          "3": {
+            "n": 192,
+            "accuracy": 0.25,
+            "gold_probability": 0.26888876876969303
+          }
+        },
+        "unique_queries": {
+          "0": {
+            "n": 183,
+            "accuracy": 1.0,
+            "gold_probability": 0.9999992362521556
+          },
+          "1": {
+            "n": 201,
+            "accuracy": 0.7263681592039801,
+            "gold_probability": 0.7327433285054731
+          },
+          "2": {
+            "n": 200,
+            "accuracy": 0.075,
+            "gold_probability": 0.06384934711632241
+          },
+          "3": {
+            "n": 184,
+            "accuracy": 0.06521739130434782,
+            "gold_probability": 0.06293401141139467
+          }
+        },
+        "short_cycles": {
+          "0": {
+            "n": 192,
+            "accuracy": 1.0,
+            "gold_probability": 0.99999865216733
+          },
+          "1": {
+            "n": 173,
+            "accuracy": 0.7167630057803468,
+            "gold_probability": 0.7003889792209459
+          },
+          "2": {
+            "n": 203,
+            "accuracy": 0.27586206896551724,
+            "gold_probability": 0.27553671395977947
+          },
+          "3": {
+            "n": 200,
+            "accuracy": 0.24,
+            "gold_probability": 0.2510202982526443
+          }
+        },
+        "cold_first_query": {
+          "0": {
+            "n": 16,
+            "accuracy": 1.0,
+            "gold_probability": 0.999989792483585
+          },
+          "1": {
+            "n": 16,
+            "accuracy": 0.8125,
+            "gold_probability": 0.7830660075046769
+          },
+          "2": {
+            "n": 16,
+            "accuracy": 0.125,
+            "gold_probability": 0.04822063555274314
+          },
+          "3": {
+            "n": 16,
+            "accuracy": 0.0625,
+            "gold_probability": 0.045096593075183516
+          }
+        }
+      }
+    }
+  },
+  "predictions": {
+    "strong_novel_higher_hops": true,
+    "short_cycle_higher_hops": true
+  },
+  "panel_token_sha256": {
+    "iid": "550b78ccadef427292daf4668c699c92a7b89477b11acb4f47d71ced10630fad",
+    "unique_queries": "60fff97eee4038b3b424dfc84085a83b9a27736c38093d9936e93ae19a376108",
+    "short_cycles": "eefe67d729f57a159b570585101ea3f87c447f752b2607d51ec7dd34d44c1270",
+    "cold_first_query": "4ac41137d77b68bccba411ee18f4bff1d0fe517df13466d648f4a305d2067244"
+  },
+  "scope": "capability only; no mechanistic conclusion from prior linear probes",
+  "wall_seconds": 3.9383707009255886,
+  "gpu_seconds": 0
+}

@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [cold_query_composition_reconstruction.md](cold_query_composition_reconstruction.md) — stronger existing checkpoint passes multi-hop capability without any previous answers; fresh OOD comparison, honest prior-mechanism limits, and the next exact composition-source test
+
 - [contextual_answer_history_circuit.md](contextual_answer_history_circuit.md) — contextual answer-history reuse explains the small model's longer-hop floor; matched causal removals, unique-query and short-cycle OOD, complete full-output readout decomposition, and portable export/replay with native dependencies explicitly priced
 - [equality_router_reconstruction_report.md](equality_router_reconstruction_report.md) — the nonlinear successor to the reconstruction pilot: explicit shared equality/type routing, preserved positional-control failure, exact-position rejection on full outputs and joint removals, and the norm-gain counterexample
 - [bilinear_reconstruction_pilot_report.md](bilinear_reconstruction_pilot_report.md) — the new user-directed bounded reconstruction pilot: faithful token-to-logit execution and exact causal controls, preserved local trained-model sharing null, structural success criterion, costs, and stop recommendation

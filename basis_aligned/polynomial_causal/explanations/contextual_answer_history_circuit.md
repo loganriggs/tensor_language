@@ -156,3 +156,19 @@ final normalization. It reuses the algebra documented in the older
 MLP0_TOKEN_CONTEXT_TENSOR_FACTORIAL_FINDINGS.md; no rediscovery of that identity is
 claimed. The new issue is whether mixed token/context dependence is necessary and
 sufficient for both source-defined lookup uses. All original coefficients count.
+
+## Closure of the weak-checkpoint simplification branch
+
+HOP_MLP_TOKEN_CONTEXT_V1 completed validly (A/D true,B/C false). The mixed term
+alone has query KL2.731/2.733 on IID/OOD and near-chance lookup probability. Mixed
+plus context-context retains .886/.834 repeated higher-hop gold probability, but
+only .259/.236 novel-hop1 probability; full terms give .999/.938 and .737/.631.
+All8 candidate/native term interventions replay within3.09e-12 with downstream
+normalization recomputed. The three terms cooperate; the shared mixed-term-only
+hypothesis is closed without threshold or branch tuning. All400640 parameters remain.
+
+This closes the current weak-model simplification branch, not the overall goal.
+The existing equally sized four-attention checkpoint passes fresh cold and unique
+multi-hop capability gates. Reconstruction now moves to that actual composition
+setting; see [cold_query_composition_reconstruction.md](cold_query_composition_reconstruction.md).
+The earlier source-history result and all failed stronger claims remain preserved.

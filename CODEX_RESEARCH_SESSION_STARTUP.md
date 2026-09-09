@@ -53,6 +53,26 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active reconstruction target — 2026-09-09 15:09 UTC
+
+Read explanations/cold_query_composition_reconstruction.md under polynomial_causal.
+HOP_COMPOSITION_CAPABILITY_V1_RESULT.json verifies the existing attn4-rms-seed0
+checkpoint on cold first queries (all64 correct,16 perhop), unique queries(hop3 .962)
+and short-cycle OOD(hop3 .920). Same400640 parameters as the weak pilot. No earlier
+answers exist in the cold population. Old attention-trace and linear-probe stories
+are not causal algorithm certificates. The weak model's MLP term test is a valid
+null: A/D true,B/C false; X-only queryKL2.731/2.733. Close that simplification branch.
+
+Active successor: COLD_COMPOSITION_SOURCE_V1_PREREGISTRATION.md and
+cold_composition_source_reference.py. Ten CPU parser/fold/removal controls pass.
+The managed ops/run_cold_composition_source_v1.py remains to be integrated. Test128
+fresh binding worlds, each forked into4 cold queries, with exact final source
+partition and answer-binding sufficiency versus earlier-chain sources. Charge all
+native background; no model outcome opened. Board claim is recorded. Review clocks
+remain1449/1348, due1549/1648 UTC. Full goal stays active under the reconstruction
+handoff, not the empty better_math_ideas.md. Completed managed MLP job is terminal;
+inspect live shared queue before adding the successor.
+
 ## Latest result and continuation — 2026-09-09 15:02 UTC
 
 UPSTREAM_PRODUCER_FACTOR_V1_RESULT.json is a valid null for selective paths (A/D
