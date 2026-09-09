@@ -1,0 +1,126 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "joint_min": 0.8,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_broad_circuit_v389",
+  "finished_utc": "2026-09-09T15:26:23.556603+00:00",
+  "held_out": {
+    "M_question": {
+      "A1_damage": {
+        "ce_damage": 1.8067,
+        "ce_lb975": 1.7772,
+        "ce_ub975": 1.8363,
+        "margin_damage": 4.5434,
+        "top1_change_rate": 1.0
+      },
+      "C_damage": {
+        "ce_damage": 0.001,
+        "ce_lb975": -0.0025,
+        "ce_ub975": 0.0046,
+        "margin_damage": 0.0043,
+        "top1_change_rate": 0.0312
+      },
+      "C_ub975": 0.0046,
+      "fit_shapes": [
+        "A_locative",
+        "B_agreement",
+        "C_report",
+        "D_denial",
+        "J_temporal",
+        "P_longparen",
+        "R_relclause_subject",
+        "S_conjoined_subject",
+        "T_clause_between",
+        "U_competing_cue"
+      ],
+      "n_units": 12,
+      "transfer_extraction": 0.951,
+      "units_recovery": 0.819
+    },
+    "T_clause_between": {
+      "A1_damage": {
+        "ce_damage": 0.7405,
+        "ce_lb975": 0.6671,
+        "ce_ub975": 0.8098,
+        "margin_damage": 1.5322,
+        "top1_change_rate": 0.0
+      },
+      "C_damage": {
+        "ce_damage": -0.0014,
+        "ce_lb975": -0.0053,
+        "ce_ub975": 0.0025,
+        "margin_damage": 0.005,
+        "top1_change_rate": 0.0312
+      },
+      "C_ub975": 0.0025,
+      "fit_shapes": [
+        "A_locative",
+        "B_agreement",
+        "C_report",
+        "D_denial",
+        "J_temporal",
+        "M_question",
+        "P_longparen",
+        "R_relclause_subject",
+        "S_conjoined_subject",
+        "U_competing_cue"
+      ],
+      "n_units": 13,
+      "transfer_extraction": 0.996,
+      "units_recovery": 0.98
+    },
+    "U_competing_cue": {
+      "A1_damage": {
+        "ce_damage": 0.7605,
+        "ce_lb975": 0.6697,
+        "ce_ub975": 0.8523,
+        "margin_damage": 1.4338,
+        "top1_change_rate": 0.0
+      },
+      "C_damage": {
+        "ce_damage": 0.0015,
+        "ce_lb975": -0.0014,
+        "ce_ub975": 0.0043,
+        "margin_damage": 0.0081,
+        "top1_change_rate": 0.0312
+      },
+      "C_ub975": 0.0043,
+      "fit_shapes": [
+        "A_locative",
+        "B_agreement",
+        "C_report",
+        "D_denial",
+        "J_temporal",
+        "M_question",
+        "P_longparen",
+        "R_relclause_subject",
+        "S_conjoined_subject",
+        "T_clause_between"
+      ],
+      "n_units": 12,
+      "transfer_extraction": 0.96,
+      "units_recovery": 0.817
+    }
+  },
+  "predictions": {
+    "pred_a_all_transfer": true,
+    "pred_b_units_transfer": true,
+    "pred_c_control_clean": true,
+    "pred_d_competing_cue_transfers": true,
+    "pred_e_some_holdout_resists": false
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_broad_circuit_v389",
+  "seconds": 365.6
+}
