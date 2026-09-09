@@ -1,0 +1,864 @@
+{
+  "scope": "opened-case diagnostic; all rows retained; no model access, fit, or identification claim",
+  "rows_sha256": "21cdf20b14c6b7ca33f3fd3c20731adb8b29e0bd7f585e40063841c0f08ee4e8",
+  "script_sha256": "115f7099c73a78eb075286cf9174ce1d0c6eeb1bf9e5525eaf317a3ab6749128",
+  "populations": {
+    "iid": {
+      "0": {
+        "n": 16,
+        "arms": {
+          "native": {
+            "winner_counts": {
+              "original": 15,
+              "unrelated": 1
+            },
+            "desired_rank_counts": {
+              "2": 3,
+              "6": 2,
+              "10": 2,
+              "3": 2,
+              "4": 2,
+              "16": 1,
+              "14": 1,
+              "7": 1,
+              "12": 1,
+              "19": 1
+            },
+            "mean_desired_probability": 0.004921665781710422,
+            "mean_original_probability": 0.900234779203688,
+            "mean_desired_vs_best_other_logit_margin": -10.231064745095743
+          },
+          "both_swap": {
+            "winner_counts": {
+              "desired": 11,
+              "other_chain_entity": 2,
+              "unrelated": 2,
+              "original": 1
+            },
+            "desired_rank_counts": {
+              "1": 11,
+              "2": 4,
+              "21": 1
+            },
+            "mean_desired_probability": 0.6748412500038157,
+            "mean_original_probability": 0.0866611230042965,
+            "mean_desired_vs_best_other_logit_margin": 2.723565791128739
+          },
+          "swap_b_cut_a": {
+            "winner_counts": {
+              "desired": 11,
+              "unrelated": 3,
+              "other_chain_entity": 1,
+              "original": 1
+            },
+            "desired_rank_counts": {
+              "1": 11,
+              "3": 1,
+              "21": 1,
+              "2": 3
+            },
+            "mean_desired_probability": 0.6374935050716753,
+            "mean_original_probability": 0.1043670319528241,
+            "mean_desired_vs_best_other_logit_margin": 2.12165657502859
+          }
+        },
+        "paired_outcome_counts": {
+          "joint_True_single_True": 11,
+          "joint_False_single_False": 5
+        },
+        "rows": [
+          {
+            "world": 0,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 6,
+            "desired_answer": 3,
+            "joint_winner": 3
+          },
+          {
+            "world": 1,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 21,
+            "desired_answer": 8,
+            "joint_winner": 11
+          },
+          {
+            "world": 2,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 23,
+            "desired_answer": 4,
+            "joint_winner": 4
+          },
+          {
+            "world": 3,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 22,
+            "desired_answer": 23,
+            "joint_winner": 23
+          },
+          {
+            "world": 4,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 17,
+            "desired_answer": 0,
+            "joint_winner": 0
+          },
+          {
+            "world": 5,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 20,
+            "desired_answer": 0,
+            "joint_winner": 0
+          },
+          {
+            "world": 6,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 18,
+            "desired_answer": 13,
+            "joint_winner": 13
+          },
+          {
+            "world": 7,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 14,
+            "desired_answer": 21,
+            "joint_winner": 21
+          },
+          {
+            "world": 8,
+            "native_correct": false,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 10,
+            "desired_answer": 21,
+            "joint_winner": 19
+          },
+          {
+            "world": 9,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 15,
+            "desired_answer": 22,
+            "joint_winner": 10
+          },
+          {
+            "world": 10,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 1,
+            "desired_answer": 19,
+            "joint_winner": 19
+          },
+          {
+            "world": 11,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 2,
+            "desired_answer": 8,
+            "joint_winner": 8
+          },
+          {
+            "world": 12,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 5,
+            "desired_answer": 16,
+            "joint_winner": 8
+          },
+          {
+            "world": 13,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 15,
+            "desired_answer": 7,
+            "joint_winner": 15
+          },
+          {
+            "world": 14,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 14,
+            "desired_answer": 10,
+            "joint_winner": 10
+          },
+          {
+            "world": 15,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 22,
+            "desired_answer": 3,
+            "joint_winner": 3
+          }
+        ]
+      },
+      "1": {
+        "n": 16,
+        "arms": {
+          "native": {
+            "winner_counts": {
+              "original": 15,
+              "unrelated": 1
+            },
+            "desired_rank_counts": {
+              "6": 2,
+              "10": 2,
+              "13": 1,
+              "17": 1,
+              "5": 2,
+              "2": 4,
+              "8": 2,
+              "11": 1,
+              "4": 1
+            },
+            "mean_desired_probability": 0.034745576684569617,
+            "mean_original_probability": 0.8792327581336604,
+            "mean_desired_vs_best_other_logit_margin": -10.732388572830864
+          },
+          "both_swap": {
+            "winner_counts": {
+              "desired": 9,
+              "original": 4,
+              "unrelated": 3
+            },
+            "desired_rank_counts": {
+              "1": 9,
+              "2": 5,
+              "19": 1,
+              "3": 1
+            },
+            "mean_desired_probability": 0.5724877093837674,
+            "mean_original_probability": 0.24319806545568556,
+            "mean_desired_vs_best_other_logit_margin": 1.585124846026087
+          },
+          "swap_a_cut_b": {
+            "winner_counts": {
+              "desired": 10,
+              "original": 3,
+              "unrelated": 3
+            },
+            "desired_rank_counts": {
+              "1": 10,
+              "2": 3,
+              "19": 1,
+              "4": 1,
+              "3": 1
+            },
+            "mean_desired_probability": 0.6278873794794555,
+            "mean_original_probability": 0.19197542107045676,
+            "mean_desired_vs_best_other_logit_margin": 2.254978541938426
+          }
+        },
+        "paired_outcome_counts": {
+          "joint_True_single_True": 9,
+          "joint_False_single_True": 1,
+          "joint_False_single_False": 6
+        },
+        "rows": [
+          {
+            "world": 0,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 3,
+            "desired_answer": 6,
+            "joint_winner": 6
+          },
+          {
+            "world": 1,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 8,
+            "desired_answer": 21,
+            "joint_winner": 21
+          },
+          {
+            "world": 2,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 4,
+            "desired_answer": 23,
+            "joint_winner": 23
+          },
+          {
+            "world": 3,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 23,
+            "desired_answer": 22,
+            "joint_winner": 22
+          },
+          {
+            "world": 4,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 0,
+            "desired_answer": 17,
+            "joint_winner": 17
+          },
+          {
+            "world": 5,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 0,
+            "desired_answer": 20,
+            "joint_winner": 20
+          },
+          {
+            "world": 6,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": true,
+            "original_answer": 13,
+            "desired_answer": 18,
+            "joint_winner": 13
+          },
+          {
+            "world": 7,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 21,
+            "desired_answer": 14,
+            "joint_winner": 21
+          },
+          {
+            "world": 8,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 21,
+            "desired_answer": 10,
+            "joint_winner": 15
+          },
+          {
+            "world": 9,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 22,
+            "desired_answer": 15,
+            "joint_winner": 15
+          },
+          {
+            "world": 10,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 19,
+            "desired_answer": 1,
+            "joint_winner": 19
+          },
+          {
+            "world": 11,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 8,
+            "desired_answer": 2,
+            "joint_winner": 2
+          },
+          {
+            "world": 12,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 16,
+            "desired_answer": 5,
+            "joint_winner": 16
+          },
+          {
+            "world": 13,
+            "native_correct": false,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 7,
+            "desired_answer": 15,
+            "joint_winner": 1
+          },
+          {
+            "world": 14,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 10,
+            "desired_answer": 14,
+            "joint_winner": 4
+          },
+          {
+            "world": 15,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 3,
+            "desired_answer": 22,
+            "joint_winner": 22
+          }
+        ]
+      }
+    },
+    "ood_two_12cycles": {
+      "0": {
+        "n": 16,
+        "arms": {
+          "native": {
+            "winner_counts": {
+              "original": 15,
+              "desired": 1
+            },
+            "desired_rank_counts": {
+              "20": 1,
+              "5": 1,
+              "13": 1,
+              "21": 1,
+              "15": 2,
+              "18": 1,
+              "6": 1,
+              "4": 2,
+              "14": 2,
+              "1": 1,
+              "7": 1,
+              "2": 1,
+              "10": 1
+            },
+            "mean_desired_probability": 0.026778060210615816,
+            "mean_original_probability": 0.8963067001025739,
+            "mean_desired_vs_best_other_logit_margin": -11.380010983997789
+          },
+          "both_swap": {
+            "winner_counts": {
+              "unrelated": 2,
+              "desired": 10,
+              "other_chain_entity": 2,
+              "original": 2
+            },
+            "desired_rank_counts": {
+              "22": 1,
+              "1": 10,
+              "3": 1,
+              "21": 1,
+              "16": 1,
+              "2": 1,
+              "28": 1
+            },
+            "mean_desired_probability": 0.5804668107797407,
+            "mean_original_probability": 0.0817827016477254,
+            "mean_desired_vs_best_other_logit_margin": -1.0096618172258256
+          },
+          "swap_b_cut_a": {
+            "winner_counts": {
+              "unrelated": 1,
+              "desired": 9,
+              "other_chain_entity": 1,
+              "original": 5
+            },
+            "desired_rank_counts": {
+              "22": 1,
+              "1": 9,
+              "4": 1,
+              "21": 1,
+              "16": 1,
+              "2": 2,
+              "28": 1
+            },
+            "mean_desired_probability": 0.5663268526743793,
+            "mean_original_probability": 0.23176217394819007,
+            "mean_desired_vs_best_other_logit_margin": -1.538066009537747
+          }
+        },
+        "paired_outcome_counts": {
+          "joint_False_single_False": 6,
+          "joint_True_single_True": 9,
+          "joint_True_single_False": 1
+        },
+        "rows": [
+          {
+            "world": 0,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 5,
+            "desired_answer": 10,
+            "joint_winner": 0
+          },
+          {
+            "world": 1,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 22,
+            "desired_answer": 13,
+            "joint_winner": 13
+          },
+          {
+            "world": 2,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 1,
+            "desired_answer": 18,
+            "joint_winner": 21
+          },
+          {
+            "world": 3,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 11,
+            "desired_answer": 5,
+            "joint_winner": 2
+          },
+          {
+            "world": 4,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 12,
+            "desired_answer": 13,
+            "joint_winner": 13
+          },
+          {
+            "world": 5,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 13,
+            "desired_answer": 8,
+            "joint_winner": 8
+          },
+          {
+            "world": 6,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 4,
+            "desired_answer": 17,
+            "joint_winner": 19
+          },
+          {
+            "world": 7,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 18,
+            "desired_answer": 13,
+            "joint_winner": 18
+          },
+          {
+            "world": 8,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 17,
+            "desired_answer": 8,
+            "joint_winner": 8
+          },
+          {
+            "world": 9,
+            "native_correct": false,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 19,
+            "desired_answer": 3,
+            "joint_winner": 3
+          },
+          {
+            "world": 10,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 14,
+            "desired_answer": 1,
+            "joint_winner": 1
+          },
+          {
+            "world": 11,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 3,
+            "desired_answer": 4,
+            "joint_winner": 4
+          },
+          {
+            "world": 12,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 0,
+            "desired_answer": 5,
+            "joint_winner": 5
+          },
+          {
+            "world": 13,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": false,
+            "original_answer": 4,
+            "desired_answer": 5,
+            "joint_winner": 5
+          },
+          {
+            "world": 14,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 5,
+            "desired_answer": 17,
+            "joint_winner": 5
+          },
+          {
+            "world": 15,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 0,
+            "desired_answer": 12,
+            "joint_winner": 12
+          }
+        ]
+      },
+      "1": {
+        "n": 16,
+        "arms": {
+          "native": {
+            "winner_counts": {
+              "original": 15,
+              "desired": 1
+            },
+            "desired_rank_counts": {
+              "21": 1,
+              "1": 1,
+              "16": 4,
+              "9": 2,
+              "6": 1,
+              "7": 2,
+              "2": 2,
+              "4": 1,
+              "12": 1,
+              "14": 1
+            },
+            "mean_desired_probability": 0.05066110613109812,
+            "mean_original_probability": 0.8893481476136821,
+            "mean_desired_vs_best_other_logit_margin": -12.05256615573992
+          },
+          "both_swap": {
+            "winner_counts": {
+              "unrelated": 4,
+              "desired": 8,
+              "original": 3,
+              "other_chain_entity": 1
+            },
+            "desired_rank_counts": {
+              "11": 1,
+              "1": 8,
+              "2": 3,
+              "27": 1,
+              "16": 1,
+              "9": 1,
+              "15": 1
+            },
+            "mean_desired_probability": 0.4770837022445364,
+            "mean_original_probability": 0.1877145740319759,
+            "mean_desired_vs_best_other_logit_margin": 0.3356417478253861
+          },
+          "swap_a_cut_b": {
+            "winner_counts": {
+              "unrelated": 4,
+              "desired": 8,
+              "original": 3,
+              "other_chain_entity": 1
+            },
+            "desired_rank_counts": {
+              "11": 1,
+              "1": 8,
+              "2": 3,
+              "27": 1,
+              "16": 2,
+              "10": 1
+            },
+            "mean_desired_probability": 0.48365899310298605,
+            "mean_original_probability": 0.18147980628116883,
+            "mean_desired_vs_best_other_logit_margin": 0.24758142795179378
+          }
+        },
+        "paired_outcome_counts": {
+          "joint_False_single_False": 8,
+          "joint_True_single_True": 8
+        },
+        "rows": [
+          {
+            "world": 0,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 10,
+            "desired_answer": 5,
+            "joint_winner": 16
+          },
+          {
+            "world": 1,
+            "native_correct": false,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 13,
+            "desired_answer": 22,
+            "joint_winner": 22
+          },
+          {
+            "world": 2,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 18,
+            "desired_answer": 1,
+            "joint_winner": 18
+          },
+          {
+            "world": 3,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 5,
+            "desired_answer": 11,
+            "joint_winner": 20
+          },
+          {
+            "world": 4,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 13,
+            "desired_answer": 12,
+            "joint_winner": 12
+          },
+          {
+            "world": 5,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 8,
+            "desired_answer": 13,
+            "joint_winner": 13
+          },
+          {
+            "world": 6,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 17,
+            "desired_answer": 4,
+            "joint_winner": 17
+          },
+          {
+            "world": 7,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 13,
+            "desired_answer": 18,
+            "joint_winner": 13
+          },
+          {
+            "world": 8,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 8,
+            "desired_answer": 17,
+            "joint_winner": 15
+          },
+          {
+            "world": 9,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 3,
+            "desired_answer": 19,
+            "joint_winner": 19
+          },
+          {
+            "world": 10,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 1,
+            "desired_answer": 14,
+            "joint_winner": 14
+          },
+          {
+            "world": 11,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 4,
+            "desired_answer": 3,
+            "joint_winner": 15
+          },
+          {
+            "world": 12,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 5,
+            "desired_answer": 0,
+            "joint_winner": 0
+          },
+          {
+            "world": 13,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 5,
+            "desired_answer": 4,
+            "joint_winner": 4
+          },
+          {
+            "world": 14,
+            "native_correct": true,
+            "joint_correct": false,
+            "single_correct": false,
+            "original_answer": 17,
+            "desired_answer": 5,
+            "joint_winner": 11
+          },
+          {
+            "world": 15,
+            "native_correct": true,
+            "joint_correct": true,
+            "single_correct": true,
+            "original_answer": 12,
+            "desired_answer": 0,
+            "joint_winner": 0
+          }
+        ]
+      }
+    }
+  }
+}

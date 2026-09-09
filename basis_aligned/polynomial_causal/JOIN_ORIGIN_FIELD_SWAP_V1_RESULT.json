@@ -1,0 +1,101 @@
+{
+  "experiment": "join_origin_field_swap_v1",
+  "runner_sha256": "1e5c12dfc3884607ba4623972c4344de26facbbbc84f17f3586e10298bebf46e",
+  "bound_sha256": "2a9d49b8846592f4c8b066b3b7cc364d8cf8164a75eace01b6a121148addea83",
+  "package_sha256": "e69bff6562c48bd1b59366f118157720734d353626b0a1576626bdd437a1421a",
+  "checkpoint_sha256": "c9388cc8b1ba7e95c6a043cbf4d01592987447867a50781d3babe31ce3f8358b",
+  "controls": {
+    "passed": true,
+    "checks": {
+      "iid_valid_map_answers": true,
+      "ood_two_12cycles_valid_map_answers": true,
+      "native_hook_correspondence_False": true,
+      "native_hook_correspondence_True": true,
+      "swap_live": true,
+      "hooks_restored": true,
+      "disjoint_destinations": true
+    }
+  },
+  "oracle_max_abs_logit": 1.4210854715202004e-13,
+  "oracle_max_relative_rms": 8.280904331127384e-16,
+  "path_oracle_max_abs": 2.1094237467877974e-15,
+  "identity_max_abs_logit": 0.0,
+  "program_independent_constants": 387968,
+  "populations": {
+    "iid": {
+      "queries": {
+        "0": {
+          "native_accuracy": 0.9375,
+          "own_cut_gold_loss": 0.5626043363357527,
+          "joint_target_accuracy": 0.6875,
+          "joint_target_probability_gain": 0.6699195842221053,
+          "single_arm": "swap_b_cut_a",
+          "single_target_accuracy": 0.6875,
+          "single_target_probability_gain": 0.6325718392899649
+        },
+        "1": {
+          "native_accuracy": 0.9375,
+          "own_cut_gold_loss": 0.4853182793288069,
+          "joint_target_accuracy": 0.5625,
+          "joint_target_probability_gain": 0.5377421326991978,
+          "single_arm": "swap_a_cut_b",
+          "single_target_accuracy": 0.625,
+          "single_target_probability_gain": 0.5931418027948858
+        }
+      },
+      "lowerhop_gold_changes": {
+        "0_0": 4.579669976578771e-16,
+        "0_1": -2.248589483284935e-06,
+        "0_2": 1.3964531101612332e-07,
+        "1_0": 5.746791931215967e-14,
+        "1_1": -2.703613781671055e-07,
+        "1_2": -2.9403955192269793e-05
+      },
+      "raw_query_composition_max_abs": 1.2789769243681803e-13
+    },
+    "ood_two_12cycles": {
+      "queries": {
+        "0": {
+          "native_accuracy": 0.9375,
+          "own_cut_gold_loss": 0.4332652424524192,
+          "joint_target_accuracy": 0.625,
+          "joint_target_probability_gain": 0.5536887505691248,
+          "single_arm": "swap_b_cut_a",
+          "single_target_accuracy": 0.5625,
+          "single_target_probability_gain": 0.5395487924637634
+        },
+        "1": {
+          "native_accuracy": 0.9375,
+          "own_cut_gold_loss": 0.633083388469678,
+          "joint_target_accuracy": 0.5,
+          "joint_target_probability_gain": 0.42642259611343825,
+          "single_arm": "swap_a_cut_b",
+          "single_target_accuracy": 0.5,
+          "single_target_probability_gain": 0.43299788697188796
+        }
+      },
+      "lowerhop_gold_changes": {
+        "0_0": -8.800370016048831e-10,
+        "0_1": 1.8712926729003154e-08,
+        "0_2": -1.089430268774727e-06,
+        "1_0": -1.942890293094024e-16,
+        "1_1": 1.7084444527415421e-06,
+        "1_2": 2.1127766808154425e-06
+      },
+      "raw_query_composition_max_abs": 9.947598300641403e-14
+    }
+  },
+  "rows": "basis_aligned/polynomial_causal/JOIN_ORIGIN_FIELD_SWAP_V1_ROWS.pt",
+  "rows_sha256": "21cdf20b14c6b7ca33f3fd3c20731adb8b29e0bd7f585e40063841c0f08ee4e8",
+  "independent_worlds": 32,
+  "query_variants": 256,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_retarget": false,
+    "pred_c_reuse": false,
+    "pred_d_specificity": true
+  },
+  "terminal": "origin_field_interchange_not_established",
+  "scope": "explicit native-background field manipulation; no semantic parameter reduction",
+  "wall_seconds": 5.1126981265842915
+}

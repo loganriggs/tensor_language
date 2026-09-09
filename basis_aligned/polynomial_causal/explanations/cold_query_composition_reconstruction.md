@@ -474,3 +474,38 @@ not a claim that edited intermediate joins must remain the square of the origina
 function. Fresh22909/22910 inputs, no fitting or donor/head selection.
 `join_origin_field_swap_reference.py` passes seven CPU controls, including an
 independent native pattern/value-hook correspondence. Managed integration remains.
+
+## Origin interchange is selective but fails reliable semantic retargeting
+
+`JOIN_ORIGIN_FIELD_SWAP_V1_RESULT.json` completes in5.11s: instrument and
+specificity/composition pass, semantic retargeting and isolated reuse fail.
+Native hop3 accuracy is.9375 in every query/population group. Joint swaps reach
+only.50–.6875 desired-answer accuracy against the frozen.80 bar; isolated singles
+reach.50–.6875. Desired-probability gains are.426–.670. Lowerhop mean goldP changes
+are at most2.95e-5, and raw query composition closes within1.28e-13.
+
+The exported program's independent native intervention correspondence closes at
+1.42e-13 over all logits, relative RMS8.28e-16; independently hooked paths close
+at2.11e-15, identity exactly0. Thus execution is valid, but the edited contextual
+copy is not established as a reliably interchangeable origin field. This is not
+an extraction or semantic parameter-reduction success;387968 native constants
+remain necessary. Do not relax the bar to generic damage or partial retargeting.
+
+`JOIN_ORIGIN_FIELD_SWAP_FAILURE_AUDIT_V1.json` uses only saved outputs, retaining
+all cases. Of64 hop3 query cases,38 retarget; the26 failures include10 original
+answers,5 other selected-chain entities and11 unrelated tokens. Joint/single
+correctness differs on only2 cases: one rescue and one loss. Some desired ranks
+reach21–28. This is broader than residual original-answer competition and is not
+resolved by removing the other selected route. This opened-case diagnosis does
+not establish a fresh intervention claim or justify a donor/head/gain sweep.
+
+The distinct next test is `JOIN_ENDPOINT_FIELD_SWAP_V1_PREREGISTRATION.md`.
+Earlier producer evidence localized forward endpoint transport mainly to the
+original embedding term (.969–.999 task-effect recovery). Exchange just its
+source-value embedding contribution between two forward joins, under recipient
+scores/gains and with all other producers retained. Singles should retarget their
+own query while preserving the other, and their joint use tests reuse. This is a
+semantic interchange test, not an attempt to improve the failed backward donor.
+Fresh23909/23910 worlds and all bars are fixed before trained outcomes.
+`join_endpoint_field_swap_reference.py` passes7 CPU controls, including an
+independent native L2 pattern/value-input hook oracle. Managed integration remains.

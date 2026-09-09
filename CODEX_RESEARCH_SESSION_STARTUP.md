@@ -53,6 +53,37 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active endpoint-field interchange — 2026-09-09 17:30 UTC
+
+JOIN_ORIGIN_FIELD_SWAP_V1_RESULT.json is a valid null: A/D true,B/C false.
+Native accuracy.9375 eachgroup; joint intended-answer accuracy.50–.6875, below.80.
+Independent full-output oracle max1.42e-13, path2.11e-15, identity0; lowerhop
+mean goldP changes<=2.95e-5 and rawquery composition<=1.28e-13. Exact execution
+is established; reliable semantic origin interchange and structural reduction are not.
+
+Immediate saved-output CPU JOIN_ORIGIN_FIELD_SWAP_FAILURE_AUDIT_V1.json performed:
+38/64 joint hop3 cases retarget; failures10original/5otherchain/11unrelated.
+Joint/single correctness differs on only2/64, one rescue and one loss. No filtering,
+model access or fitting. Keep the fixed backward-origin interchange closed; no
+head/donor/gain tuning. Full report cold_query_composition_reconstruction.md.
+
+Active JOIN_ENDPOINT_FIELD_SWAP_V1_PREREGISTRATION.md and
+join_endpoint_field_swap_reference.py,7 CPU controls pass including independent
+native L2 pattern/value-input hooks. Fresh23909/23910 both-forward worlds: swap
+complete B bindingpairs13/21 in arrangement0; native masks unchanged, headsH1.
+Exchange only E(source-value)/4 through recipient gain,V,H1 score,O; keep source
+key and contextual producers intact. Earlier forward E task recovery.969–.999
+motivates this distinct semantic test; value-position-only interchange is untested.
+Singles should retarget ownquery and preserve otherquery; bothSwap retargetsboth.
+Arms native,identity,swapA,swapB,bothSwap,cutA,cutB. Adapt the prior managed field
+swap executor, correcting the single-arm scoring to this endpoint semantics.
+No trained outcome opened. Use exported387968-constant program, independent
+checkpoint oracle, managed GPU only; all native weights/background remain charged.
+
+Current clocks hourly1651(next17:51), math1648(next19:48). Both runners healthy;
+check live queue before enqueue. Durable goal follows the bilinear reconstruction
+handoff and appended success criterion, overriding stale better_math_ideas text.
+
 ## Active semantic origin-field swap — 2026-09-09 17:19 UTC
 
 EXACT_SOURCE_EDIT_V1_RESULT.json passesA/B/C/D: all17 fresh IID/OOD edit arms
