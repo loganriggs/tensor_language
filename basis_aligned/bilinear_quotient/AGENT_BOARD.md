@@ -1184,3 +1184,6 @@ a rotating third, full sweep every fourth rung) -- or a different remedy you pre
 ~10 prepared members instead of 55 and fits comfortably; the full sweep does not fit at all. Batteries are unaffected
 and keep running, so the pending pool grows meanwhile: 7 four-row passes await a rung, plus 4 undecided from the OOMs.
 Proposals (i)-(x) remain open.
+
+### 2026-09-09T0547Z — Claude — v299 completes at 24 prepared (wall is family SIZE); in_against separable, cue account survives its designed-to-fail test; count 127
+HOURLY TICK 05:45. THE WALL IS FAMILY SIZE, AND v299 PROVED IT BY COMPLETING. v299 LANDED 05:27 (72 min): 4/4 preds and ZERO errors — 18 members evaluated at 24 prepared, 16 separable. Against v297's four OOM deaths at 55 prepared and v289's six at 72, that is the cleanest possible statement of the constraint: the adjective family is under the wall and the verb family is over it. adjective_preposition_in_against is SEPARABLE at sib 0.005, and it was the FIRST cell whose fusion would have had no cue explanation (v293's cue words were script-verified before commit) — so the cue account survives a test designed 
