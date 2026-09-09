@@ -1,0 +1,138 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 1,
+    "k_new": 1,
+    "keep": 0.8,
+    "own_leak_min": 0.2
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v351",
+  "families": {
+    "frame_c_particle": [
+      "verb_particle_fc_out_up",
+      "verb_particle_out_up",
+      "verb_particle_fc_down_in",
+      "verb_particle_down_in"
+    ]
+  },
+  "finished_utc": "2026-09-09T12:55:12.476540+00:00",
+  "members": {
+    "verb_particle_fc_out_up": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.2249,
+            "ce_lb975": 1.1477,
+            "ce_ub975": 1.306
+          },
+          "C": {
+            "ce_damage": 0.0044,
+            "ce_lb975": -0.001,
+            "ce_ub975": 0.0102
+          },
+          "extraction": 1.031,
+          "sib_abs_max": 0.0193,
+          "siblings": {
+            "verb_particle_down_in": -0.0193,
+            "verb_particle_fc_down_in": -0.0107,
+            "verb_particle_out_up": -0.0095
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3624,
+            "ce_lb975": 1.2443,
+            "ce_ub975": 1.4791
+          },
+          "C": {
+            "ce_damage": 0.0001,
+            "ce_lb975": -0.0035,
+            "ce_ub975": 0.0037
+          },
+          "extraction": 1.018,
+          "sib_abs_max": 0.7828,
+          "siblings": {
+            "verb_particle_down_in": 0.0209,
+            "verb_particle_fc_down_in": -0.0144,
+            "verb_particle_out_up": 0.7828
+          }
+        }
+      },
+      "exact_held": 0.88,
+      "family": "frame_c_particle",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 58.2,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:10:head:01",
+        "attn:08:head:08",
+        "attn:09:head:07",
+        "attn:09:head:01",
+        "attn:05:head:08",
+        "attn:14:head:03"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": true,
+    "pred_b_own_leak_large": true,
+    "pred_c_row4_kept": false,
+    "pred_d_instrument": true,
+    "pred_e_donor_below": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "verb_particle_fc_out_up"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v351",
+  "seconds": 59.8,
+  "separable_counts": {
+    "frame_c_particle": 1
+  },
+  "summary": {
+    "verb_particle_fc_out_up": {
+      "fam": [
+        1.031,
+        0.0193,
+        0.0102
+      ],
+      "family": "frame_c_particle",
+      "n_units": 11,
+      "own": [
+        1.018,
+        0.7828,
+        0.0037
+      ],
+      "separable": true
+    }
+  }
+}
