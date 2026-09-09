@@ -11,6 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [equality_router_reconstruction_report.md](equality_router_reconstruction_report.md) — the nonlinear successor to the reconstruction pilot: explicit shared equality/type routing, preserved positional-control failure, exact-position rejection on full outputs and joint removals, and the norm-gain counterexample
 - [bilinear_reconstruction_pilot_report.md](bilinear_reconstruction_pilot_report.md) — the new user-directed bounded reconstruction pilot: faithful token-to-logit execution and exact causal controls, preserved local trained-model sharing null, structural success criterion, costs, and stop recommendation
 - [best_circuit_computation_notebook.md](best_circuit_computation_notebook.md) — notebook-style,
   code-and-output walkthrough of the actual v23 prompts and token IDs, tensor shapes, native block

@@ -1,0 +1,59 @@
+{
+  "terminal": "amplitude_only_explanation_rejected",
+  "supported_heads": 0,
+  "rows": [
+    {
+      "head": 0,
+      "raw_relative_residual": 0.9348874609492335,
+      "normalized_relative_residual": 0.9606874594286693,
+      "restored_relative_residual": 0.9881397423867199,
+      "query_gain_min": 49.02355826682687,
+      "query_gain_max": 334.5363675764157,
+      "key_gain_min": 6.003583920651322,
+      "key_gain_max": 145.19861826242254,
+      "supports_amplitude_hypothesis": false
+    },
+    {
+      "head": 1,
+      "raw_relative_residual": 0.9502467127521519,
+      "normalized_relative_residual": 0.9457271953994094,
+      "restored_relative_residual": 0.9363719751435952,
+      "query_gain_min": 8.099708851756475,
+      "query_gain_max": 123.1545811897712,
+      "key_gain_min": 12.76074826822713,
+      "key_gain_max": 111.69185136110367,
+      "supports_amplitude_hypothesis": false
+    },
+    {
+      "head": 2,
+      "raw_relative_residual": 0.8767962365516322,
+      "normalized_relative_residual": 0.918771848216511,
+      "restored_relative_residual": 0.8829838890425965,
+      "query_gain_min": 10.98649806265676,
+      "query_gain_max": 684.6108491498428,
+      "key_gain_min": 10.577189637285322,
+      "key_gain_max": 97.86029271110083,
+      "supports_amplitude_hypothesis": false
+    },
+    {
+      "head": 3,
+      "raw_relative_residual": 0.7006441848386163,
+      "normalized_relative_residual": 0.8133517268107302,
+      "restored_relative_residual": 0.6454609148692892,
+      "query_gain_min": 9.557296045502788,
+      "query_gain_max": 213.31431705409483,
+      "key_gain_min": 9.694971159894148,
+      "key_gain_max": 131.50189557028426,
+      "supports_amplitude_hypothesis": false
+    }
+  ],
+  "extra_gain_constants": 232,
+  "scope": "CPU weight-domain diagnostic; no full-output or causal claim; native FP32 RoPE lag approximation retained only for this geometric screen.",
+  "seconds": 0.08085103332996368,
+  "hashes": {
+    "runs_hop/attn-mlp-attn-rms-seed0/model.pt": "02a3f0e793849899629af95d88be4f60b5ff1b42ee39116cb2a7d8512cb212ff",
+    "basis_aligned/bilinear_quotient/ops/analyze_equality_router_gain_v1.py": "45ce913969ab6ef4adb98a52b8953ab8ff9374cd7fb61044e26a4313437cb04a",
+    "basis_aligned/polynomial_causal/equality_router_reference.py": "0a235c2d529bba55c81d039e3e1706cdc57279c7a20a7e9a65fbb367052df19e",
+    "basis_aligned/polynomial_causal/EQUALITY_ROUTER_V2_ABSOLUTE_POSITION_RESULT.json": "139c7dd77232a5c3d23299dd60638a41e87f330629e5b503a3b093015e148422"
+  }
+}

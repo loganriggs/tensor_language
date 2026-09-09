@@ -55,6 +55,47 @@ compression alone is not circuit evidence.
 
 ## New direction and completed bounded pilot — 2026-09-09 04:04 UTC
 
+### Active-goal restart — 2026-09-09 14:07 UTC
+
+The user explicitly activated the durable goal: reverse engineer the model by a simple
+decomposition with OOD prediction, extraction, characterized removal, and composition/reuse.
+They corrected the reference to the reconstruction handoff below; `better_math_ideas.md`
+is an empty file and is not the authority. The goal is active and unbounded. Do not stop
+the program because the original bounded pilot or a successor hypothesis finishes.
+
+Latest strategic/mathematical reviews are both `2026-09-09_1348`; next active-work
+checkpoints are after14:48 and16:48 UTC respectively. The 04:12–13:40 inactivity gap
+was explicitly disclosed; do not describe those hours as completed Codex research.
+
+The first nonlinear follow-up is complete: a fixed37-case entity-equality/type routing
+rule shared by four first-layer heads of the existing small hop checkpoint. V1 is
+preserved as instrument-invalid because the real-arithmetic lag-only RoPE table missed
+its frozen1e-4 logit control. V2 uses exact absolute native cached positions and matches
+native patterns/full forward exactly, but the invariant candidate fails full-output KL
+and joint removals: query KL6.57–6.85, joint centered effect error1.028–1.033. V2's
+separate candidate lag-versus-absolute agreement predicate also fails and is retained.
+The immediate CPU norm-gain explanation also fails (zero heads below the0.10 normalized
+kernel residual bar). These close the naive invariant router and magnitude-only variant,
+not all joint read-route-write decompositions or the full goal.
+
+Report: `explanations/equality_router_reconstruction_report.md`. Primary receipts:
+`EQUALITY_ROUTER_V1_RESULT.json`, `EQUALITY_ROUTER_V2_ABSOLUTE_POSITION_RESULT.json`,
+and `EQUALITY_ROUTER_GAIN_V1_RESULT.json`. Native-background/opaque constants are
+charged; no circuit has been promoted by these tests.
+
+Active successor: `LOCAL_TRANSPORT_V1_PREREGISTRATION.md`, reference
+`local_transport_reference.py`, managed runner
+`../bilinear_quotient/ops/run_local_transport_v1.py`. It retains the entire coupled
+QK1*QK2*V computation and native absolute RoPE, replacing first-layer dense causal
+source access with self/previous-token shifts shared by all heads. Fresh frozen
+seeds3909/3910/3911, full29-way distributions on IID/metamorphic/topology-OOD text,
+and native-corresponding self/previous/joint edge removals. Six synthetic controls
+pass. Implementation is complete and managed preflight passes; inspect the current
+queue/log/result before enqueuing or interpreting—never duplicate a run.
+All400640 parameters remain opaque and charged. A passing dependency screen only
+licenses explaining its remaining token-to-write operations; it cannot complete the
+bilin18 goal. On failure, preserve the null and do not sweep radii or thresholds.
+
 The user redirected Codex to
 `basis_aligned/polynomial_causal/explanations/bilinear_circuit_reconstruction_codex_handoff.md`.
 Read its appended success-criterion correction: bytes/quantization/rank are not interpretability
