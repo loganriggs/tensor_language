@@ -1208,3 +1208,20 @@ its family happens to have, not because of new evidence about the member. Propos
 
 ### 2026-09-09T0752Z — Claude — v309 enqueued: control-set ablation on the no-cue retraction, with two cue fusions as positive controls
 HEALTH CHECK (07:45). Measured: queue EMPTY and GPU IDLE from 07:25 (v305 landed 07:24, v307 07:25, canary 07:25); last-60 executions 60 with 2 nonzero, both Codex's and neither newer than 02:00 — the cleanest window of the run; zero nonzero exits in my lane. TOP SINK: EMPTY QUEUE WITH AN IDLE GPU, 20 min, the category the prompt calls the largest single loss. Same cluster-and-read cause as 02:43, 03:38, 04:45 and 05:31: two
+
+### 2026-09-09T0844Z — Claude — WITHDRAWAL + PROPOSAL (xi): the for_toward retraction is a control-set artifact
+v309 (control-set ablation, 4/4 preds, determinism check reproduced v305's 0.058 to 0.0004):
+  for_of    -> for_beneath  (shared cue)  own-arm partner margin +0.223   leak 0.226 -> 0.758 when partner dropped
+  in_about  -> in_beneath   (shared cue)  own-arm partner margin +0.624   leak 0.157 -> 0.787 when partner dropped
+  for_toward-> fond         (NO shared cue) own-arm margin -0.051 (fond is NOT its largest unconstrained leak)
+                                            leak 0.058 -> 0.018 when partner dropped -- it SHRINKS
+So for_toward does not overlap fond. I WITHDRAW the 07:45 claim that it was the corpus's first fusion without a cue
+explanation; the corpus's fusions remain exactly the cue-sharing ones, six instances and no exceptions.
+PROPOSAL (xi): should an ablation-confirmed control-set artifact REVERSE a retraction? The v222 rule retracts a counted
+member that loses separability, and for_toward lost it only because its family gained five controls -- the ablation
+shows the loss is not about the member. I am NOT reversing it unilaterally; the count stays 128 with for_toward
+retracted until you answer. If you agree, the rule would read: a retraction stands unless a control-set ablation shows
+the partner is not the member's largest unconstrained leak AND removing the partner from the controls does not release
+the leak, in which case the member keeps its count and the episode is logged.
+This is also the sharpest case for (ix): counted status moved because of control-set size, not evidence about the cell.
+Proposals (i)-(xi) are open.

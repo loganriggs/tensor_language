@@ -1,0 +1,632 @@
+{
+  "bars": {
+    "cross_max": 0.05,
+    "instr_tol": 0.03,
+    "k_recovers": 2,
+    "k_special": 2,
+    "partner_margin": 0.05,
+    "recover_by": 0.02
+  },
+  "candidate_id": "corpus.unit_family_separability_spec_v309",
+  "families": {
+    "adjective_preposition": [
+      "adjective_preposition_fond",
+      "adjective_preposition_similar",
+      "identical_distinct_preposition",
+      "adjective_preposition_of_at",
+      "adjective_preposition_to_of",
+      "adjective_preposition_for_of",
+      "same_different_preposition",
+      "adjective_preposition_in_about",
+      "adjective_preposition_of_about",
+      "adjective_preposition_at_about",
+      "adjective_preposition_of_against",
+      "adjective_preposition_at_within",
+      "adjective_preposition_for_beneath",
+      "adjective_preposition_in_beneath",
+      "adjective_preposition_of_toward",
+      "adjective_preposition_of_within",
+      "adjective_preposition_of_under",
+      "adjective_preposition_for_toward",
+      "adjective_preposition_on_off",
+      "adjective_preposition_on_beneath",
+      "adjective_preposition_in_toward",
+      "adjective_preposition_of_through",
+      "adjective_preposition_in_across",
+      "adjective_preposition_in_against",
+      "adjective_preposition_at_past",
+      "adjective_preposition_from_past",
+      "adjective_preposition_in_past",
+      "adjective_preposition_on_past",
+      "adjective_preposition_of_amid"
+    ]
+  },
+  "finished_utc": "2026-09-09T08:18:08.017844+00:00",
+  "members": {
+    "adjective_preposition_for_of": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7123,
+            "ce_lb975": 0.6035,
+            "ce_ub975": 0.8273
+          },
+          "C": {
+            "ce_damage": 0.012,
+            "ce_lb975": 0.0022,
+            "ce_ub975": 0.0221
+          },
+          "extraction": 0.922,
+          "sib_abs_max": 0.2262,
+          "siblings": {
+            "adjective_preposition_at_about": -0.0073,
+            "adjective_preposition_at_past": -0.0018,
+            "adjective_preposition_at_within": 0.0005,
+            "adjective_preposition_fond": 0.0001,
+            "adjective_preposition_for_beneath": 0.2262,
+            "adjective_preposition_for_toward": 0.0143,
+            "adjective_preposition_from_past": -0.0068,
+            "adjective_preposition_in_about": -0.0106,
+            "adjective_preposition_in_across": 0.0099,
+            "adjective_preposition_in_against": -0.0096,
+            "adjective_preposition_in_beneath": -0.0118,
+            "adjective_preposition_in_past": 0.0079,
+            "adjective_preposition_in_toward": 0.0089,
+            "adjective_preposition_of_about": -0.0041,
+            "adjective_preposition_of_against": 0.0105,
+            "adjective_preposition_of_amid": 0.0014,
+            "adjective_preposition_of_at": 0.0037,
+            "adjective_preposition_of_through": 0.0039,
+            "adjective_preposition_of_toward": -0.0017,
+            "adjective_preposition_of_under": 0.0225,
+            "adjective_preposition_of_within": -0.0075,
+            "adjective_preposition_on_beneath": -0.0012,
+            "adjective_preposition_on_off": 0.0013,
+            "adjective_preposition_on_past": 0.003,
+            "adjective_preposition_similar": 0.0016,
+            "adjective_preposition_to_of": 0.0087,
+            "identical_distinct_preposition": 0.0026,
+            "same_different_preposition": -0.0095
+          }
+        },
+        "fam_minus_partner": {
+          "A1": {
+            "ce_damage": 0.9527,
+            "ce_lb975": 0.7615,
+            "ce_ub975": 1.1558
+          },
+          "C": {
+            "ce_damage": 0.0047,
+            "ce_lb975": -0.003,
+            "ce_ub975": 0.0121
+          },
+          "extraction": 0.983,
+          "sib_abs_max": 0.7584,
+          "siblings": {
+            "adjective_preposition_at_about": 0.0045,
+            "adjective_preposition_at_past": 0.0034,
+            "adjective_preposition_at_within": 0.0064,
+            "adjective_preposition_fond": 0.0048,
+            "adjective_preposition_for_beneath": 0.7584,
+            "adjective_preposition_for_toward": -0.0024,
+            "adjective_preposition_from_past": 0.0023,
+            "adjective_preposition_in_about": 0.0045,
+            "adjective_preposition_in_across": -0.0061,
+            "adjective_preposition_in_against": -0.0015,
+            "adjective_preposition_in_beneath": 0.0042,
+            "adjective_preposition_in_past": 0.0047,
+            "adjective_preposition_in_toward": 0.0011,
+            "adjective_preposition_of_about": 0.0046,
+            "adjective_preposition_of_against": 0.0016,
+            "adjective_preposition_of_amid": 0.0056,
+            "adjective_preposition_of_at": 0.0027,
+            "adjective_preposition_of_through": 0.0056,
+            "adjective_preposition_of_toward": 0.0095,
+            "adjective_preposition_of_under": 0.0058,
+            "adjective_preposition_of_within": -0.009,
+            "adjective_preposition_on_beneath": 0.0045,
+            "adjective_preposition_on_off": -0.0016,
+            "adjective_preposition_on_past": -0.0004,
+            "adjective_preposition_similar": -0.0039,
+            "adjective_preposition_to_of": 0.0011,
+            "identical_distinct_preposition": -0.0015,
+            "same_different_preposition": -0.001
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9886,
+            "ce_lb975": 0.8689,
+            "ce_ub975": 1.1168
+          },
+          "C": {
+            "ce_damage": -0.0013,
+            "ce_lb975": -0.0032,
+            "ce_ub975": 0.0005
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 0.6696,
+          "siblings": {
+            "adjective_preposition_at_about": -0.002,
+            "adjective_preposition_at_past": -0.0109,
+            "adjective_preposition_at_within": 0.0083,
+            "adjective_preposition_fond": 0.1302,
+            "adjective_preposition_for_beneath": 0.6696,
+            "adjective_preposition_for_toward": 0.216,
+            "adjective_preposition_from_past": -0.0106,
+            "adjective_preposition_in_about": -0.0201,
+            "adjective_preposition_in_across": 0.0009,
+            "adjective_preposition_in_against": 0.0328,
+            "adjective_preposition_in_beneath": 0.0125,
+            "adjective_preposition_in_past": 0.0165,
+            "adjective_preposition_in_toward": 0.004,
+            "adjective_preposition_of_about": 0.0535,
+            "adjective_preposition_of_against": 0.1677,
+            "adjective_preposition_of_amid": 0.1238,
+            "adjective_preposition_of_at": 0.1267,
+            "adjective_preposition_of_through": 0.435,
+            "adjective_preposition_of_toward": 0.0606,
+            "adjective_preposition_of_under": 0.4465,
+            "adjective_preposition_of_within": 0.0117,
+            "adjective_preposition_on_beneath": 0.0062,
+            "adjective_preposition_on_off": -0.0361,
+            "adjective_preposition_on_past": 0.0168,
+            "adjective_preposition_similar": -0.0044,
+            "adjective_preposition_to_of": 0.0874,
+            "identical_distinct_preposition": 0.0203,
+            "same_different_preposition": 0.0032
+          }
+        }
+      },
+      "exact_held": 0.9,
+      "family": "adjective_preposition",
+      "leak_fam": 0.2262,
+      "leak_fam_minus": 0.7584,
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "own_partner_margin": 0.2231,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "partner": "adjective_preposition_for_beneath",
+      "seconds": 499.6,
+      "separable": false,
+      "units": [
+        "attn:08:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:16:head:08",
+        "attn:04:head:01",
+        "attn:14:head:08"
+      ]
+    },
+    "adjective_preposition_for_toward": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.18,
+            "ce_lb975": 1.0602,
+            "ce_ub975": 1.2908
+          },
+          "C": {
+            "ce_damage": 0.0027,
+            "ce_lb975": -0.0055,
+            "ce_ub975": 0.01
+          },
+          "extraction": 0.985,
+          "sib_abs_max": 0.0576,
+          "siblings": {
+            "adjective_preposition_at_about": -0.0215,
+            "adjective_preposition_at_past": -0.0096,
+            "adjective_preposition_at_within": -0.0103,
+            "adjective_preposition_fond": -0.0576,
+            "adjective_preposition_for_beneath": 0.013,
+            "adjective_preposition_for_of": 0.0218,
+            "adjective_preposition_from_past": -0.0186,
+            "adjective_preposition_in_about": -0.012,
+            "adjective_preposition_in_across": -0.0117,
+            "adjective_preposition_in_against": -0.0106,
+            "adjective_preposition_in_beneath": -0.0029,
+            "adjective_preposition_in_past": -0.0136,
+            "adjective_preposition_in_toward": 0.0067,
+            "adjective_preposition_of_about": -0.0084,
+            "adjective_preposition_of_against": -0.0092,
+            "adjective_preposition_of_amid": -0.0102,
+            "adjective_preposition_of_at": -0.0099,
+            "adjective_preposition_of_through": -0.0099,
+            "adjective_preposition_of_toward": -0.019,
+            "adjective_preposition_of_under": -0.0043,
+            "adjective_preposition_of_within": -0.0163,
+            "adjective_preposition_on_beneath": -0.0042,
+            "adjective_preposition_on_off": -0.0126,
+            "adjective_preposition_on_past": -0.0013,
+            "adjective_preposition_similar": 0.0136,
+            "adjective_preposition_to_of": -0.0132,
+            "identical_distinct_preposition": -0.0034,
+            "same_different_preposition": 0.0011
+          }
+        },
+        "fam_minus_partner": {
+          "A1": {
+            "ce_damage": 1.1864,
+            "ce_lb975": 1.0661,
+            "ce_ub975": 1.3021
+          },
+          "C": {
+            "ce_damage": 0.0014,
+            "ce_lb975": -0.0057,
+            "ce_ub975": 0.0076
+          },
+          "extraction": 0.987,
+          "sib_abs_max": 0.0298,
+          "siblings": {
+            "adjective_preposition_at_about": -0.0277,
+            "adjective_preposition_at_past": -0.0138,
+            "adjective_preposition_at_within": -0.0106,
+            "adjective_preposition_fond": -0.0177,
+            "adjective_preposition_for_beneath": 0.0039,
+            "adjective_preposition_for_of": 0.0176,
+            "adjective_preposition_from_past": -0.007,
+            "adjective_preposition_in_about": -0.0145,
+            "adjective_preposition_in_across": -0.0102,
+            "adjective_preposition_in_against": -0.0143,
+            "adjective_preposition_in_beneath": -0.0073,
+            "adjective_preposition_in_past": -0.0096,
+            "adjective_preposition_in_toward": 0.002,
+            "adjective_preposition_of_about": -0.012,
+            "adjective_preposition_of_against": -0.0151,
+            "adjective_preposition_of_amid": -0.0147,
+            "adjective_preposition_of_at": -0.0139,
+            "adjective_preposition_of_through": -0.0106,
+            "adjective_preposition_of_toward": -0.0184,
+            "adjective_preposition_of_under": -0.0042,
+            "adjective_preposition_of_within": -0.0298,
+            "adjective_preposition_on_beneath": -0.0054,
+            "adjective_preposition_on_off": -0.009,
+            "adjective_preposition_on_past": -0.0029,
+            "adjective_preposition_similar": 0.0146,
+            "adjective_preposition_to_of": -0.0123,
+            "identical_distinct_preposition": -0.006,
+            "same_different_preposition": -0.0014
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.1637,
+            "ce_lb975": 1.0697,
+            "ce_ub975": 1.2524
+          },
+          "C": {
+            "ce_damage": -0.0059,
+            "ce_lb975": -0.0095,
+            "ce_ub975": -0.0021
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.2983,
+          "siblings": {
+            "adjective_preposition_at_about": 0.0533,
+            "adjective_preposition_at_past": 0.1199,
+            "adjective_preposition_at_within": 0.0278,
+            "adjective_preposition_fond": 0.247,
+            "adjective_preposition_for_beneath": 0.0702,
+            "adjective_preposition_for_of": 0.0631,
+            "adjective_preposition_from_past": -0.001,
+            "adjective_preposition_in_about": 0.1155,
+            "adjective_preposition_in_across": 0.026,
+            "adjective_preposition_in_against": 0.0611,
+            "adjective_preposition_in_beneath": 0.0436,
+            "adjective_preposition_in_past": 0.0226,
+            "adjective_preposition_in_toward": 0.1269,
+            "adjective_preposition_of_about": 0.0689,
+            "adjective_preposition_of_against": 0.1037,
+            "adjective_preposition_of_amid": 0.0499,
+            "adjective_preposition_of_at": -0.0157,
+            "adjective_preposition_of_through": 0.1047,
+            "adjective_preposition_of_toward": 0.2983,
+            "adjective_preposition_of_under": 0.0366,
+            "adjective_preposition_of_within": 0.0646,
+            "adjective_preposition_on_beneath": 0.0294,
+            "adjective_preposition_on_off": 0.0101,
+            "adjective_preposition_on_past": 0.114,
+            "adjective_preposition_similar": 0.0415,
+            "adjective_preposition_to_of": 0.0265,
+            "identical_distinct_preposition": -0.03,
+            "same_different_preposition": -0.0223
+          }
+        }
+      },
+      "exact_held": 0.881,
+      "family": "adjective_preposition",
+      "leak_fam": 0.0576,
+      "leak_fam_minus": 0.0177,
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 16,
+      "own_partner_margin": -0.0513,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "partner": "adjective_preposition_fond",
+      "seconds": 532.9,
+      "separable": false,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:08:head:01",
+        "attn:13:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:09:head:07",
+        "attn:16:head:08",
+        "attn:09:head:01",
+        "attn:04:head:01",
+        "attn:14:head:03",
+        "attn:10:head:08",
+        "attn:04:head:07",
+        "attn:05:head:03",
+        "attn:11:head:06"
+      ]
+    },
+    "adjective_preposition_in_about": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.3833,
+            "ce_lb975": 1.0101,
+            "ce_ub975": 1.7351
+          },
+          "C": {
+            "ce_damage": 0.0006,
+            "ce_lb975": -0.0056,
+            "ce_ub975": 0.0073
+          },
+          "extraction": 0.951,
+          "sib_abs_max": 0.1569,
+          "siblings": {
+            "adjective_preposition_at_about": 0.0179,
+            "adjective_preposition_at_past": -0.0047,
+            "adjective_preposition_at_within": -0.0091,
+            "adjective_preposition_fond": -0.0029,
+            "adjective_preposition_for_beneath": -0.007,
+            "adjective_preposition_for_of": -0.0205,
+            "adjective_preposition_for_toward": 0.0003,
+            "adjective_preposition_from_past": -0.0241,
+            "adjective_preposition_in_across": 0.0059,
+            "adjective_preposition_in_against": -0.003,
+            "adjective_preposition_in_beneath": 0.1569,
+            "adjective_preposition_in_past": 0.0088,
+            "adjective_preposition_in_toward": 0.0063,
+            "adjective_preposition_of_about": 0.0022,
+            "adjective_preposition_of_against": 0.0164,
+            "adjective_preposition_of_amid": 0.0047,
+            "adjective_preposition_of_at": -0.013,
+            "adjective_preposition_of_through": 0.0009,
+            "adjective_preposition_of_toward": -0.0023,
+            "adjective_preposition_of_under": -0.0089,
+            "adjective_preposition_of_within": -0.0184,
+            "adjective_preposition_on_beneath": -0.002,
+            "adjective_preposition_on_off": -0.0181,
+            "adjective_preposition_on_past": 0.0078,
+            "adjective_preposition_similar": -0.0134,
+            "adjective_preposition_to_of": -0.0018,
+            "identical_distinct_preposition": 0.0062,
+            "same_different_preposition": 0.0101
+          }
+        },
+        "fam_minus_partner": {
+          "A1": {
+            "ce_damage": 1.4387,
+            "ce_lb975": 1.3072,
+            "ce_ub975": 1.5702
+          },
+          "C": {
+            "ce_damage": 0.0006,
+            "ce_lb975": -0.0033,
+            "ce_ub975": 0.0043
+          },
+          "extraction": 1.002,
+          "sib_abs_max": 0.7867,
+          "siblings": {
+            "adjective_preposition_at_about": 0.0087,
+            "adjective_preposition_at_past": -0.0004,
+            "adjective_preposition_at_within": 0.0011,
+            "adjective_preposition_fond": 0.0035,
+            "adjective_preposition_for_beneath": 0.0018,
+            "adjective_preposition_for_of": 0.0056,
+            "adjective_preposition_for_toward": -0.0054,
+            "adjective_preposition_from_past": 0.0009,
+            "adjective_preposition_in_across": 0.0019,
+            "adjective_preposition_in_against": -0.0029,
+            "adjective_preposition_in_beneath": 0.7867,
+            "adjective_preposition_in_past": -0.0003,
+            "adjective_preposition_in_toward": 0.0016,
+            "adjective_preposition_of_about": 0.0095,
+            "adjective_preposition_of_against": 0.0005,
+            "adjective_preposition_of_amid": 0.0009,
+            "adjective_preposition_of_at": 0.0017,
+            "adjective_preposition_of_through": 0.0024,
+            "adjective_preposition_of_toward": 0.0021,
+            "adjective_preposition_of_under": 0.0041,
+            "adjective_preposition_of_within": -0.0038,
+            "adjective_preposition_on_beneath": -0.0011,
+            "adjective_preposition_on_off": 0.0,
+            "adjective_preposition_on_past": 0.0009,
+            "adjective_preposition_similar": -0.0058,
+            "adjective_preposition_to_of": -0.0025,
+            "identical_distinct_preposition": 0.0063,
+            "same_different_preposition": 0.0016
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.4312,
+            "ce_lb975": 1.2885,
+            "ce_ub975": 1.5906
+          },
+          "C": {
+            "ce_damage": -0.0054,
+            "ce_lb975": -0.0124,
+            "ce_ub975": -0.0003
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.9628,
+          "siblings": {
+            "adjective_preposition_at_about": 0.3392,
+            "adjective_preposition_at_past": 0.0367,
+            "adjective_preposition_at_within": 0.2494,
+            "adjective_preposition_fond": -0.0753,
+            "adjective_preposition_for_beneath": 0.0727,
+            "adjective_preposition_for_of": 0.0252,
+            "adjective_preposition_for_toward": 0.174,
+            "adjective_preposition_from_past": 0.0505,
+            "adjective_preposition_in_across": 0.0369,
+            "adjective_preposition_in_against": 0.1468,
+            "adjective_preposition_in_beneath": 0.9628,
+            "adjective_preposition_in_past": 0.2417,
+            "adjective_preposition_in_toward": 0.1612,
+            "adjective_preposition_of_about": 0.2467,
+            "adjective_preposition_of_against": 0.078,
+            "adjective_preposition_of_amid": 0.0064,
+            "adjective_preposition_of_at": 0.0033,
+            "adjective_preposition_of_through": 0.08,
+            "adjective_preposition_of_toward": 0.0314,
+            "adjective_preposition_of_under": 0.0773,
+            "adjective_preposition_of_within": 0.1343,
+            "adjective_preposition_on_beneath": 0.0491,
+            "adjective_preposition_on_off": 0.0196,
+            "adjective_preposition_on_past": -0.08,
+            "adjective_preposition_similar": -0.0528,
+            "adjective_preposition_to_of": 0.0259,
+            "identical_distinct_preposition": -0.1211,
+            "same_different_preposition": -0.0349
+          }
+        }
+      },
+      "exact_held": 0.896,
+      "family": "adjective_preposition",
+      "leak_fam": 0.1569,
+      "leak_fam_minus": 0.7867,
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "own_partner_margin": 0.6236,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "partner": "adjective_preposition_in_beneath",
+      "seconds": 496.2,
+      "separable": false,
+      "units": [
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:14:head:03",
+        "attn:10:head:08",
+        "attn:05:head:03",
+        "attn:05:head:08"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_all_three_arms_complete": true,
+    "pred_b_partner_special_unconstrained": true,
+    "pred_c_extraction_recovers": true,
+    "pred_d_instrument_reproduces": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "adjective_preposition_for_toward",
+      "adjective_preposition_in_about",
+      "adjective_preposition_for_of"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v267 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_family_separability_spec_v309",
+  "seconds": 1539.2,
+  "separable_counts": {
+    "adjective_preposition": 0
+  },
+  "summary": {
+    "adjective_preposition_for_of": {
+      "fam": [
+        0.922,
+        0.2262,
+        0.0221
+      ],
+      "family": "adjective_preposition",
+      "n_units": 8,
+      "own": [
+        0.989,
+        0.6696,
+        0.0005
+      ],
+      "separable": false
+    },
+    "adjective_preposition_for_toward": {
+      "fam": [
+        0.985,
+        0.0576,
+        0.01
+      ],
+      "family": "adjective_preposition",
+      "n_units": 16,
+      "own": [
+        0.995,
+        0.2983,
+        -0.0021
+      ],
+      "separable": false
+    },
+    "adjective_preposition_in_about": {
+      "fam": [
+        0.951,
+        0.1569,
+        0.0073
+      ],
+      "family": "adjective_preposition",
+      "n_units": 11,
+      "own": [
+        1.006,
+        0.9628,
+        -0.0003
+      ],
+      "separable": false
+    }
+  }
+}
