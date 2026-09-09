@@ -53,6 +53,43 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active whole-model entity/gate reuse — 2026-09-09 18:15 UTC
+
+SOURCE_PORT_FIELD_INTERCHANGE_V1_RESULT.json completes12.58s,A/C true,B/D false.
+Native port correspondence1.71e-13, full-port finalquery/physicalstate1.42e-13.
+V-only raw retarget.615–.750, removal.569–.790; rawV collateraljoinedconsumer
+loss.168–.203 and jointjoinedaccuracy.742–.755 fail. Key-only cells barely retarget;
+addingkeys does not consistently help. Fixed V-only candidate and physical raw/
+join field candidates stayclosed; no alternate subset or expanded-field adoption.
+Full endpoint dossier explains evidence and limitations.
+
+CPU FROZEN_PAYLOAD_LINEAGE_V1_AUDIT.json completes.73s on eight openedworlds,
+onequery/world. Complete key/localvalue/transferredvalue/query-root partition
+replays nativeprefix2.84e-14. Diagonal local lineage vs individual-root propagation
+exactly0; local versus E/8 cosine.629–.654. This diagnoses omitted local payload
+processing, not an adopted larger rawfield. Gatecache250920bytes/input (prefix3),
+387968 constants retained, zero removed. frozen_payload_lineage_reference.py
+propagates arbitrary payloads under native P/RMS gates; not true token Jacobian.
+
+Active GLOBAL_ENTITY_GATE_REUSE_V1_PREREGISTRATION.md and
+ gated_payload_model_reference.py,9 CPU controls pass. Full four-attention model
+is linear in embeddingpayload E conditional on allnative gates G: logits=T(G)E.
+Fresh27909/27910 randomworlds,first8/pop,all96queries/world;16worlds1536pairs.
+Rename allentitytokens byfixed24-cycle sigma: keys,values,queryentity; graph F
+becomes sigma F sigma^-1 withsameorder/topology, answers renamebysigma.
+Fourarms native=T(Gold)Eold, payloadonly=T(Gold)Enew, gatesonly=T(Gnew)Eold,
+renamednative=T(Gnew)Enew. Test whole-distribution KL and signed queryeffect,
+plus semantic separation; no fitting or layer/head selection afterfailure.
+Paired-context gate interchange is explicitly priced, not recipient-only gate
+extraction. All387968 coefficients and allfourlayer gatecache retained.
+Next integrate managed ops/run_global_entity_gate_reuse_v1.py with shared metrics,
+independent native checkpoint oracle, graph/label checks and fixed bars inprereg.
+No trained renamed outcome opened. Do not conflate linearity in E with linearity
+in each gate: T(G) contains composed multiplications acrosslayers.
+
+Hourly1751 next18:51; math1648 next19:48. Both managed runners healthy; inspect
+livequeue before enqueue. Durable goal follows bilinear handoff/appended criterion.
+
 ## Active source-port field test — 2026-09-09 18:03 UTC
 
 DUAL_VALUE_FIELD_INTERCHANGE_V1_RESULT.json completes15.05s,A/C true,B/D false.

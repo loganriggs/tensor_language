@@ -1,0 +1,63 @@
+{
+  "scope": "opened first4worlds/pop,onequery/world; exact frozen-payload lineage, not token-input derivative or semantic field adoption",
+  "controls": {
+    "passed": true,
+    "checks": {
+      "native_payload_closure": true,
+      "sum_all_roots": true,
+      "causal_diagonal_recurrence": true,
+      "future_to_past_zero": true,
+      "frozen_payload_is_not_input_intervention": true
+    }
+  },
+  "full_root_partition_max_abs": 2.842170943040401e-14,
+  "diagonal_vs_individual_root_max_abs": 0.0,
+  "passed": true,
+  "populations": {
+    "iid": {
+      "worlds": 4,
+      "value_positions": 96,
+      "local_lineage_rms": 0.21095613017723136,
+      "residual_E_over8_rms": 0.13375702685112525,
+      "additional_local_transport_relative_norm": 0.757148023343384,
+      "local_vs_residual_cosine": 0.6535338058643246,
+      "local_to_residual_norm_ratio": 1.5771592352454902,
+      "binding_part_squared_norms": {
+        "key_roots": 66983.31912163133,
+        "local_value_roots": 546.8465831037295,
+        "transferred_value_roots": 3021.396410627402,
+        "query_roots": 0.0
+      }
+    },
+    "ood_three_8cycles": {
+      "worlds": 4,
+      "value_positions": 96,
+      "local_lineage_rms": 0.21847398146812233,
+      "residual_E_over8_rms": 0.13375702685112525,
+      "additional_local_transport_relative_norm": 0.7774968170078668,
+      "local_vs_residual_cosine": 0.6291133757582269,
+      "local_to_residual_norm_ratio": 1.6333645163277213,
+      "binding_part_squared_norms": {
+        "key_roots": 73891.57855742454,
+        "local_value_roots": 586.5170605490191,
+        "transferred_value_roots": 4981.963067157384,
+        "query_roots": 0.0
+      }
+    }
+  },
+  "per_input_native_gate_cache_bytes": [
+    250920,
+    250920,
+    250920,
+    250920,
+    250920,
+    250920,
+    250920,
+    250920
+  ],
+  "independent_program_constants": 387968,
+  "native_coefficients_removed": 0,
+  "input_rows_sha256": "108f984f581ff5df14486a028d141459684c980424013a1890478a4d3b95a219",
+  "reference_sha256": "12d56305c9466ce66576f2122b528df7ee2cf9966e46f3d337823b57c4f3e68a",
+  "wall_seconds": 0.7302027978003025
+}

@@ -139,3 +139,32 @@ positions generally differ. Nineteen CPU checks cover every port subset, live
 edits, restored hooks and this scope distinction. Managed integration remains;
 no alternate port subset may be selected posthoc. All opaque weights and caches
 remain charged, and structural simplification is still unachieved.
+
+## Value-only interface also fails; selected-field branch closes
+
+`SOURCE_PORT_FIELD_INTERCHANGE_V1_RESULT.json` completes12.58s with A/C true and
+B/D false. Full native port correspondence1.71e-13 and all-port finalquery versus
+physical-state1.42e-13 validate the instrument. V-only raw retargeting is.615–.750,
+with removal loss.569–.790. Raw V-only edits damage the joined consumer by
+.168–.203 goldP; joint joined-answer accuracy.742–.755 fails. Key-only cells give
+almost no retargeting, and adding keys does not consistently improve it. No
+alternate factorial cell is adopted. The joined interface remains supported
+within its registered scope; the independent raw/join abstraction does not.
+
+The selected-field interchange branch is now closed as specified. An exact
+[payload-lineage audit](../FROZEN_PAYLOAD_LINEAGE_V1_AUDIT.json) changes the object
+to exhaustive input-root transport, rather than enlarging a failed field and
+calling it identified. Under native attention/RMS gates, key roots, local value
+roots, transferred value roots and query roots reconstruct the prefix to2.84e-14.
+Causality makes the own-position lineage an exact self/residual recurrence;
+individual-root comparison error is0. On eight opened worlds its cosine with
+bare E/8 is only.629–.654. This is a missing-lineage diagnosis, not adoption of a
+larger raw field. Gates remain opaque; the frozen transport is not the actual
+input Jacobian because it excludes changes to routing and normalization.
+
+The next [whole-model gate-reuse test](../GLOBAL_ENTITY_GATE_REUSE_V1_PREREGISTRATION.md)
+uses graph-preserving entity renaming and a complete old/new payload×gate
+factorial. It tests full distribution and causal-effect prediction, not just task
+accuracy. Its primitives pass9 CPU controls; trained integration remains. This
+is a different global reuse hypothesis, with all native coefficients and caches
+charged. Structural simplification remains unachieved.
