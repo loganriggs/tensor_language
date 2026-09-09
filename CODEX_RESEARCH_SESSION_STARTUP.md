@@ -53,6 +53,48 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## User redirects to weight-based two-circuit mathematics — 2026-09-09 23:37 UTC
+
+User reports insufficient progress in current iswas direction and explicitly
+requests mathematics from the original handoff/pilot, bilinear MLP/attention
+folding, and constraints from two circuits using the same module. Pause the
+command-mode/matcher sequence; TWO_MATCHER_COMMAND_PRODUCT is parked unrun.
+Follow bilinear_circuit_reconstruction_codex_handoff.md and appended structural
+criterion, not stale better_math_ideas goal wording. Goal active; prior turn
+progress includes a valid numerical repair, a scoped null and new mathematical
+reference plus saved trained-weight audit.
+
+Newest explanation weight_tensor_two_circuit_math_2026-09-09.md is first in
+README. Re-read its exact normalized-observable and additive-edit construction:
+Q_k=sym[L^T diag((CD)_k)R]; U contains both reader-form ranges and writer maps;
+state=(U^T x,||x||²). Explicit norm update preserves independent/joint writes.
+Eight CPU controls pass on a rotated64D planted module using6linear features
+plus1norm scalar, error4.44e-15. This is no trained reduction claim.
+Saved v17 MLP11 factor audit: antisymmetric expanded-tensor norm40.4% is
+functionally zero; fixedtop32 symmetric residual16.4% versus old18.9%.
+Both saved attention writer maps folded through the same numerator tensor;
+joint cross identity2.00e-11, direct/symmetric2.38e-13. Scope is savedU8 only;
+v18 broader input-interface failure remains binding. No native weight saving.
+
+Next BILIN18_MLP1_JOINT_READER_WEIGHT_V1_PREREGISTRATION.md restores the existing
+pooled rank8 projector and task rank4 readers via the COMPLETE rank-ladder
+recipe, not the older top2 default. FixedMLP1, bothtasks, full1152-dimensional
+input quadratic forms withbias/nativeepsilon, eight native capture forwards
+expected. Reuse subspace_weight_atlas, pooled_response_projector and ladder;
+serialize reader maps and inspect joint function/input/factor sharing separately.
+No native runner authored/enqueued yet. Mathematical implementation and controls
+exist; the registered restoration/weight-object test is the next active work.
+
+Upstream mixed-state V1 remains invalid (.000122 FP32 roundoff exceeds absolute
+bars); V2 per-coordinate/command-mode half-ULP audit passes with identical
+outputs. Read mixed retention1.03675/1.00586, outputmixed .79251/.82384,
+separate-mode changes1.65–8.50%; common upstream-variable B/C fail. Both immutable
+results and rounding controls retained. No boundary scan or candidate rescue.
+The user-requested daily update remains research_update_2026-09-09.md, cutoff2306.
+This extra math session is user-requested; regular clocks remain hourly0003 and
+math0149 Sep10. Both managed runners healthy, no own GPU job pending; preserve
+concurrent work. Publish only owned files. Full structural goal remains unmet.
+
 ## Native shared read needs joint routing; daily report — 2026-09-09 23:14 UTC
 
 Previous turn PROGRESS, and this continuation produces a managed native read

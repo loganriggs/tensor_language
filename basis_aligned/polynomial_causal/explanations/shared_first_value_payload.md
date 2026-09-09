@@ -158,3 +158,22 @@ It tests whether one upstream component mediates the four readers and whether
 its output effect is selective. This cross-cell internal intervention is
 explicitly priced; it is not yet an independently identified semantic variable.
 Six algebra controls pass; native integration is pending.
+
+## Upstream-state test closes; weight mathematics takes priority
+
+The first upstream-state run is preserved as invalid: rounding its exact
+FP64 projection toFP32 left mixed-state error .000122, above the registered
+absolute bar. The [rounding-audited repeat](../BILIN18_UPSTREAM_MIXED_COMMAND_STATE_V2_ROUNDING_RESULT.json)
+validates every coordinate against its representational spacing, preserves
+the relative bound and scientific criteria, and repeats the same outputs.
+It rejects the proposed common joint variable: mixed-read retention is
+1.03675/1.00586 and late-output mixed retention .79251/.82384. Separate
+command modes change1.65–8.50%, also failing selectivity. No nearby boundary
+or head subset is adopted. The small full-token KL .000432/.000412 does not
+turn this cross-cell edit into a standalone reduced program.
+
+The user has redirected work to mathematical weight decomposition using
+two circuits' constraints on one module. The command-matcher protocol is
+parked unrun. See [the new mathematical explanation](weight_tensor_two_circuit_math_2026-09-09.md)
+for the exact normalized-observable construction, attention folds, controls,
+saved trained-weight audit, and next native joint-reader object.

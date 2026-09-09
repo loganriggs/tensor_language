@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": {
+    "full_direct_and_four_edits": true,
+    "weight_and_writer_closure": true,
+    "joint_update_composes": true,
+    "discarded_direction_preserves_numerator": true,
+    "frozen_norm_negative": true,
+    "missing_edit_projection_negative": true,
+    "shared_quadratic": true,
+    "different_products_shared_linear_input": true
+  },
+  "max_full_output_error": 4.440892098500626e-15,
+  "native_state_width": 64,
+  "retained_linear_coordinates": 6,
+  "retained_norm_scalars": 1,
+  "scope": "Planted rotated module with two reader families and independent additive edits; no trained reduction claim."
+}

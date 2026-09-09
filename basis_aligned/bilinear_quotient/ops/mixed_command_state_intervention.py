@@ -37,4 +37,28 @@ def controls():
         'cell_order':torch.equal(remove_mixed(rows.flip(0),cells[::-1]),changed.flip(0))}
     try:remove_mixed(rows,('00',)*4);checks['bad_cells_rejected']=False
     except ValueError:checks['bad_cells_rejected']=True
+    import torch.nn.functional as F
+    from jacclust.tt_model import GPT,GPTConfig
+    with torch.random.fork_rng(devices=[]):
+        torch.manual_seed(60911)
+        model=GPT(GPTConfig(vocab_size=8,n_layer=3,n_head=2,n_embd=16,bilinear=True,squared_attn=True,bilinear_attn=True)).double().eval()
+        for block in model.transformer.h:block.attn.c_proj.weight.data.normal_(std=.1)
+        model.lm_head.weight.data.normal_(std=.1)
+        tokens=torch.randint(8,(4,7))
+    def forward(manual=False):
+        x=F.rms_norm(model.transformer.wte(tokens),(16,));x0=x;first=None
+        for layer,block in enumerate(model.transformer.h):
+            x,first=block(x,first,x0)
+            if manual and layer==1:x=remove_mixed(x,cells)
+        return model.lm_head(F.rms_norm(x,(16,))),first
+    with torch.inference_mode():
+        native,first=forward();oracle,_=forward(manual=True);audit=[]
+        with at_boundary(model,1,cells,audit):actual,edited_first=forward()
+        checks['native_hook_oracle']=torch.equal(actual,oracle) and len(audit)==1
+        checks['first_value_unchanged']=torch.equal(first,edited_first)
+        checks['native_intervention_live']=float((actual-native).norm())>1e-6
+        try:
+            with at_boundary(model,1,cells):raise RuntimeError('planted cleanup check')
+        except RuntimeError:pass
+        checks['restored']=torch.equal(native,forward()[0]) and not model.transformer.h[1]._forward_hooks
     return {'passed':all(checks.values()),'checks':checks}

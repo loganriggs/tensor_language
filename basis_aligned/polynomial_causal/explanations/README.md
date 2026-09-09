@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Weight tensors, two circuits, and explicit normalization](weight_tensor_two_circuit_math_2026-09-09.md): user-requested mathematical redirection; exact reader-conditioned forms, shared-input versus shared-function distinction, attention folds, norm/edit closure, executed controls and saved trained-weight audit.
+
 - [Today’s research update — 9 September](research_update_2026-09-09.md): high-level account first, then explanations of the models, computations, positive circuit evidence, failed simplifications, and the latest full-bilin18 routing result.
 
 - [Shared first-value payload](shared_first_value_payload.md): full-model shared/contextual value interventions and command-interaction analysis; exact producer certificate and native reader test.
