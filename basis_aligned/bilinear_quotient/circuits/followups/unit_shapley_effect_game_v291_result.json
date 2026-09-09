@@ -1,0 +1,132 @@
+{
+  "bars": {
+    "all_pairs_at_most": 0.0,
+    "backward_max": 0.02,
+    "direct_share_min": 0.5,
+    "identity_tol": 1e-06,
+    "noop_tol": 0.02
+  },
+  "cases": {
+    "verb_preposition_by_with": {
+      "E_empty": 0.20622331608513036,
+      "E_full": 0.24786677779853994,
+      "F_full_with_source": 0.8923785182966105,
+      "backward_control": "attn:07:head:00",
+      "direct_share": 0.831992564379659,
+      "downstream": [
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:14:head:08",
+        "attn:14:head:03",
+        "attn:08:head:01",
+        "attn:07:head:00"
+      ],
+      "efficiency_residual": 0.0,
+      "forwards": 128,
+      "max_pair_interaction": 0.0004588789294454644,
+      "min_pair_interaction": -0.0054505045660608875,
+      "n_dropped": 0,
+      "n_rows": 16,
+      "noop_abs_diff": 0.0003785182966105083,
+      "pair_interactions": {
+        "attn:07:head:08|attn:07:head:00": -0.0017421775156788062,
+        "attn:07:head:08|attn:08:head:01": -0.0054505045660608875,
+        "attn:07:head:08|attn:14:head:03": 0.0004588789294454644,
+        "attn:07:head:08|attn:14:head:08": -0.001369029062864919,
+        "attn:08:head:01|attn:07:head:00": -9.066041090903532e-06,
+        "attn:13:head:08|attn:07:head:00": -0.00010245325071416012,
+        "attn:13:head:08|attn:07:head:08": -0.004193650337324099,
+        "attn:13:head:08|attn:08:head:01": -0.0011598401920488062,
+        "attn:13:head:08|attn:14:head:03": -0.00021105805617403772,
+        "attn:13:head:08|attn:14:head:08": -0.0003186800833260284,
+        "attn:14:head:03|attn:07:head:00": 5.090107712612396e-06,
+        "attn:14:head:03|attn:08:head:01": -7.560785101844852e-05,
+        "attn:14:head:08|attn:07:head:00": 9.648320805712499e-05,
+        "attn:14:head:08|attn:08:head:01": -4.1740920850665e-05,
+        "attn:14:head:08|attn:14:head:03": -0.00011859004144085597
+      },
+      "parent_extraction_held": 0.892,
+      "shapley": {
+        "attn:07:head:00": 0.00022148110315873962,
+        "attn:07:head:08": 0.017812488327392,
+        "attn:08:head:01": 0.003924428677876605,
+        "attn:13:head:08": 0.009670036543649719,
+        "attn:14:head:03": 0.0013809273902196603,
+        "attn:14:head:08": 0.008634099671112849
+      },
+      "single_deletion": {
+        "attn:07:head:00": 0.0010278766225025326,
+        "attn:07:head:08": 0.023672219340287265,
+        "attn:08:head:01": 0.007133568156365316,
+        "attn:13:head:08": 0.01244286518048246,
+        "attn:14:head:03": 0.0013078299871671362,
+        "attn:14:head:08": 0.009320440388312895
+      },
+      "source": "attn:06:head:03"
+    },
+    "verb_preposition_on_across": {
+      "E_empty": 0.052067686764488474,
+      "E_full": 0.07695947276684612,
+      "F_full_with_source": 0.883143146230794,
+      "backward_control": "attn:08:head:01",
+      "direct_share": 0.676559816388439,
+      "downstream": [
+        "attn:08:head:08",
+        "attn:13:head:08",
+        "attn:07:head:08",
+        "attn:14:head:08",
+        "attn:08:head:01"
+      ],
+      "efficiency_residual": -3.469446951953614e-18,
+      "forwards": 64,
+      "max_pair_interaction": 0.0033909018413190405,
+      "min_pair_interaction": -0.006464716978639011,
+      "n_dropped": 0,
+      "n_rows": 16,
+      "noop_abs_diff": 0.00014314623079403344,
+      "pair_interactions": {
+        "attn:07:head:08|attn:08:head:01": -0.004015226909202956,
+        "attn:07:head:08|attn:14:head:08": -0.0012420359981725332,
+        "attn:08:head:08|attn:07:head:08": -0.005808893344824024,
+        "attn:08:head:08|attn:08:head:01": 0.0033909018413190405,
+        "attn:08:head:08|attn:13:head:08": -0.006464716978639011,
+        "attn:08:head:08|attn:14:head:08": -0.001983052739929582,
+        "attn:13:head:08|attn:07:head:08": -0.004875916702078908,
+        "attn:13:head:08|attn:08:head:01": -0.004672418385581214,
+        "attn:13:head:08|attn:14:head:08": -0.0012373322271378162,
+        "attn:14:head:08|attn:08:head:01": -0.0022134215185753824
+      },
+      "parent_extraction_held": 0.883,
+      "shapley": {
+        "attn:07:head:08": 0.008364069818563408,
+        "attn:08:head:01": 0.004871147348855324,
+        "attn:08:head:08": 0.00439138688481344,
+        "attn:13:head:08": 0.00345500783076715,
+        "attn:14:head:08": 0.003810174119358321
+      },
+      "single_deletion": {
+        "attn:07:head:08": 0.015397260396911888,
+        "attn:08:head:01": 0.008005177699653206,
+        "attn:08:head:08": 0.008951297314652329,
+        "attn:13:head:08": 0.01131027300679635,
+        "attn:14:head:08": 0.0066317871227210765
+      },
+      "source": "attn:06:head:03"
+    }
+  },
+  "findings_valid": true,
+  "finished_utc": "2026-09-09T01:56:33.246446+00:00",
+  "instrument_checks": {
+    "pred_a_identity_efficiency": true,
+    "pred_b_noop_through_new_path": true,
+    "pred_c_full_set_matches_parent": true
+  },
+  "predictions": {
+    "pred_a_identity_efficiency": true,
+    "pred_b_noop_through_new_path": true,
+    "pred_c_full_set_matches_parent": true,
+    "pred_d_direct_share_generalises": true,
+    "pred_e_no_complementary_pair": false
+  },
+  "seconds": 5.0
+}
