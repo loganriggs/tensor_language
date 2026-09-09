@@ -59,7 +59,7 @@ import circuit_unit_greedy as g
 import run_unit_selective_removal_four_sets_v51 as v51
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "circuits/followups/unit_correlative_das_v419_result.json"
+OUT = ROOT / "circuits/followups/unit_possessive_das_v419_result.json"
 TARGET_CELL = "possessive_adjacent"
 SIBLINGS = ("possessive_medial", "possessive_attractor", "possessive_long_simple", "possessive_number")
 POOL, TARGET, MIN_GAIN, MAX_UNITS = 40, 0.88, 0.005, 30
@@ -70,7 +70,7 @@ MODEL_FORWARDS_MAX, EXAMPLE_EVALUATIONS_MAX = 200000, 6400000
 
 
 def _plan():
-    return {"candidate_id": "corpus.unit_correlative_das_v419", "cell": TARGET_CELL, "rank": RANK,
+    return {"candidate_id": "corpus.unit_possessive_das_v419", "cell": TARGET_CELL, "rank": RANK,
             "siblings": list(SIBLINGS),
             "model_forwards_max": MODEL_FORWARDS_MAX, "example_evaluations_max": EXAMPLE_EVALUATIONS_MAX,
             "model_backwards": STEPS, "model_updates": 0, "fit_parameters": MAX_UNITS * 128,
@@ -149,8 +149,8 @@ def main() -> None:
         result_body = {"error": f"{type(err).__name__}: {err}"}
 
     predictions = PREDS({"result": result_body})
-    result = {"predictions": predictions, "schema": "unit_correlative_das_v419",
-              "candidate_id": "corpus.unit_correlative_das_v419", "bars": BARS, "rank": RANK,
+    result = {"predictions": predictions, "schema": "unit_possessive_das_v419",
+              "candidate_id": "corpus.unit_possessive_das_v419", "bars": BARS, "rank": RANK,
               "cell": TARGET_CELL, "result": result_body,
               "seconds": round(time.perf_counter() - t0, 1),
               "finished_utc": datetime.now(timezone.utc).isoformat()}

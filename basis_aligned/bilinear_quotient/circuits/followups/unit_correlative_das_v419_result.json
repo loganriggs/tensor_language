@@ -1,0 +1,62 @@
+{
+  "bars": {
+    "c_ub": 0.01,
+    "floor": 0.8,
+    "k_sibs": 3,
+    "rank": 1,
+    "sib_max": 0.05
+  },
+  "candidate_id": "corpus.unit_correlative_das_v419",
+  "cell": "possessive_adjacent",
+  "finished_utc": "2026-09-09T17:57:55.517650+00:00",
+  "predictions": {
+    "pred_a_A1_absolute": true,
+    "pred_b_A2_absolute": true,
+    "pred_c_C_spared": true,
+    "pred_d_most_siblings_spared": false,
+    "pred_e_all_siblings_spared": false
+  },
+  "rank": 1,
+  "result": {
+    "A1_absolute": 0.865,
+    "A1_normalised": 0.986,
+    "A2_absolute": 0.922,
+    "A2_normalised": 1.029,
+    "C_damage": {
+      "ce_damage": 0.0,
+      "ce_lb975": -0.0042,
+      "ce_ub975": 0.0047
+    },
+    "C_ub975": 0.0047,
+    "P_damage": {
+      "ce_damage": 0.5503,
+      "ce_lb975": 0.4657,
+      "ce_ub975": 0.6309
+    },
+    "P_ub975": 0.6309,
+    "exact_A1": 0.877,
+    "exact_A2": 0.896,
+    "n_units": 11,
+    "siblings": {
+      "possessive_attractor": 0.2947,
+      "possessive_long_simple": 0.591,
+      "possessive_medial": 0.5548,
+      "possessive_number": 0.6788
+    },
+    "units": [
+      "attn:04:head:05",
+      "attn:03:head:04",
+      "attn:09:head:06",
+      "attn:10:head:05",
+      "attn:09:head:07",
+      "attn:15:head:01",
+      "attn:02:head:06",
+      "attn:10:head:01",
+      "attn:12:head:04",
+      "attn:06:head:01",
+      "attn:05:head:03"
+    ]
+  },
+  "schema": "unit_correlative_das_v419",
+  "seconds": 54.4
+}
