@@ -1,0 +1,1210 @@
+{
+  "scope": "Opened exact input partition of the entity/complement query interaction; no root reselection or structural reduction.",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_task": false,
+    "pred_c_document": false
+  },
+  "populations": {
+    "iid": {
+      "nomination": {
+        "I": {
+          "task": {
+            "full_gold_change": -0.2080762321735396,
+            "selected_ratio": 0.19451815721158014,
+            "complement_absolute_ratio": 0.18415026883979047,
+            "denominator_valid": true,
+            "nomination_passed": false
+          },
+          "document": {
+            "full_gold_change": -0.2080762321735396,
+            "selected_ratio": 0.18415026883979047,
+            "complement_absolute_ratio": 0.19451815721158014,
+            "denominator_valid": true,
+            "nomination_passed": false
+          }
+        },
+        "J": {
+          "task": {
+            "full_gold_change": -0.1465347142269082,
+            "selected_ratio": 0.3612140576172813,
+            "complement_absolute_ratio": 0.18103242299130384,
+            "denominator_valid": true,
+            "nomination_passed": false
+          },
+          "document": {
+            "full_gold_change": -0.1465347142269082,
+            "selected_ratio": 0.18103242299130384,
+            "complement_absolute_ratio": 0.3612140576172813,
+            "denominator_valid": true,
+            "nomination_passed": false
+          }
+        }
+      },
+      "groups": {
+        "I": {
+          "0": {
+            "0": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 0.0,
+                  "gold_probability_change": 0.0,
+                  "removal_gold_loss": -0.0,
+                  "centered_effect_rms": 0.011664667703807467
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 0.0,
+                  "gold_probability_change": 0.0,
+                  "removal_gold_loss": -0.0,
+                  "centered_effect_rms": 0.008078418083056278
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 0.0,
+                  "gold_probability_change": 0.0,
+                  "removal_gold_loss": -0.0,
+                  "centered_effect_rms": 0.006813960158037609
+                }
+              },
+              "mixed_effect_rms": 0.011664667703807476,
+              "task_full_relative_error": 0.5841538165560863,
+              "document_full_relative_error": 0.6925544977521696
+            },
+            "1": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 3.0885389911208816e-05,
+                  "gold_probability_change": 3.0885389911208816e-05,
+                  "removal_gold_loss": -3.0885389911208816e-05,
+                  "centered_effect_rms": 0.4202708151922537
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 2.8748793667567746e-05,
+                  "gold_probability_change": 2.8748793667567746e-05,
+                  "removal_gold_loss": -2.8748793667567746e-05,
+                  "centered_effect_rms": 0.2589682110289629
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 2.8740580095134444e-05,
+                  "gold_probability_change": 2.8740580095134444e-05,
+                  "removal_gold_loss": -2.8740580095134444e-05,
+                  "centered_effect_rms": 0.2604565736120479
+                }
+              },
+              "mixed_effect_rms": 0.4202708151922537,
+              "task_full_relative_error": 0.6197350950788757,
+              "document_full_relative_error": 0.6161936581546763
+            },
+            "2": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 0.00036800615002906614,
+                  "gold_probability_change": 0.00036800615002906614,
+                  "removal_gold_loss": -0.00036800615002906614,
+                  "centered_effect_rms": 1.6397058856462303
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 0.00028203576338572955,
+                  "gold_probability_change": 0.00028203576338572955,
+                  "removal_gold_loss": -0.00028203576338572955,
+                  "centered_effect_rms": 1.2056827557785126
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 0.00011693098121097478,
+                  "gold_probability_change": 0.00011693098121097478,
+                  "removal_gold_loss": -0.00011693098121097478,
+                  "centered_effect_rms": 0.4413303924955923
+                }
+              },
+              "mixed_effect_rms": 1.6397058856462303,
+              "task_full_relative_error": 0.26915216708004824,
+              "document_full_relative_error": 0.7353042800741897
+            },
+            "3": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.78125,
+                  "target_probability_gain": -0.2080762321735396,
+                  "gold_probability_change": -0.2080762321735396,
+                  "removal_gold_loss": 0.2080762321735396,
+                  "centered_effect_rms": 1.9481792172031145
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.9375,
+                  "target_probability_gain": -0.04047460524192582,
+                  "gold_probability_change": -0.04047460524192582,
+                  "removal_gold_loss": 0.04047460524192582,
+                  "centered_effect_rms": 0.9778484052950177
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.9375,
+                  "target_probability_gain": -0.03831729409392798,
+                  "gold_probability_change": -0.03831729409392798,
+                  "removal_gold_loss": 0.03831729409392798,
+                  "centered_effect_rms": 1.0081107772460458
+                }
+              },
+              "mixed_effect_rms": 1.9481792172031145,
+              "task_full_relative_error": 0.5174630590163726,
+              "document_full_relative_error": 0.5019293895860651
+            }
+          },
+          "1": {
+            "0": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -7.28583859910259e-16,
+                  "gold_probability_change": -7.28583859910259e-16,
+                  "removal_gold_loss": 7.28583859910259e-16,
+                  "centered_effect_rms": 0.003977170898293049
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -1.3183898417423734e-16,
+                  "gold_probability_change": -1.3183898417423734e-16,
+                  "removal_gold_loss": 1.3183898417423734e-16,
+                  "centered_effect_rms": 0.003028871355448889
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -5.828670879282072e-16,
+                  "gold_probability_change": -5.828670879282072e-16,
+                  "removal_gold_loss": 5.828670879282072e-16,
+                  "centered_effect_rms": 0.001580243682326691
+                }
+              },
+              "mixed_effect_rms": 0.003977170898293042,
+              "task_full_relative_error": 0.3973285842468831,
+              "document_full_relative_error": 0.7615642960549879
+            },
+            "1": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -0.0011700672112307277,
+                  "gold_probability_change": -0.0011700672112307277,
+                  "removal_gold_loss": 0.0011700672112307277,
+                  "centered_effect_rms": 0.15811015284442806
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -0.0005214857791051263,
+                  "gold_probability_change": -0.0005214857791051263,
+                  "removal_gold_loss": 0.0005214857791051263,
+                  "centered_effect_rms": 0.13266482426134615
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -0.000644462877322817,
+                  "gold_probability_change": -0.000644462877322817,
+                  "removal_gold_loss": 0.000644462877322817,
+                  "centered_effect_rms": 0.05281903655060489
+                }
+              },
+              "mixed_effect_rms": 0.15811015284442806,
+              "task_full_relative_error": 0.3340647997638453,
+              "document_full_relative_error": 0.8390658150326447
+            },
+            "2": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 5.54552411456688e-08,
+                  "gold_probability_change": 5.54552411456688e-08,
+                  "removal_gold_loss": -5.54552411456688e-08,
+                  "centered_effect_rms": 0.2522697461593866
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -1.90158701805776e-07,
+                  "gold_probability_change": -1.90158701805776e-07,
+                  "removal_gold_loss": 1.90158701805776e-07,
+                  "centered_effect_rms": 0.182843392856973
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 4.2164501282485056e-07,
+                  "gold_probability_change": 4.2164501282485056e-07,
+                  "removal_gold_loss": -4.2164501282485056e-07,
+                  "centered_effect_rms": 0.07459098006649897
+                }
+              },
+              "mixed_effect_rms": 0.25226974615938663,
+              "task_full_relative_error": 0.29567945107207405,
+              "document_full_relative_error": 0.7247931852337562
+            },
+            "3": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.0014728649232295414,
+                  "gold_probability_change": 0.0014728649232295414,
+                  "removal_gold_loss": -0.0014728649232295414,
+                  "centered_effect_rms": 0.15933560879309397
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.0011132139410799037,
+                  "gold_probability_change": 0.0011132139410799037,
+                  "removal_gold_loss": -0.0011132139410799037,
+                  "centered_effect_rms": 0.1165185934029623
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.0003801567318381057,
+                  "gold_probability_change": 0.0003801567318381057,
+                  "removal_gold_loss": -0.0003801567318381057,
+                  "centered_effect_rms": 0.08332759903424256
+                }
+              },
+              "mixed_effect_rms": 0.159335608793094,
+              "task_full_relative_error": 0.5229690943877329,
+              "document_full_relative_error": 0.7312777996428161
+            }
+          }
+        },
+        "J": {
+          "0": {
+            "0": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 0.0,
+                  "gold_probability_change": 0.0,
+                  "removal_gold_loss": -0.0,
+                  "centered_effect_rms": 0.010296065734574863
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 0.0,
+                  "gold_probability_change": 0.0,
+                  "removal_gold_loss": -0.0,
+                  "centered_effect_rms": 0.007338303172628669
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 0.0,
+                  "gold_probability_change": 0.0,
+                  "removal_gold_loss": -0.0,
+                  "centered_effect_rms": 0.005897322062643366
+                }
+              },
+              "mixed_effect_rms": 0.010296065734574878,
+              "task_full_relative_error": 0.5727743212477512,
+              "document_full_relative_error": 0.7127288579739879
+            },
+            "1": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 3.2083413674825756e-05,
+                  "gold_probability_change": 3.2083413674825756e-05,
+                  "removal_gold_loss": -3.2083413674825756e-05,
+                  "centered_effect_rms": 0.5176322301971076
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 3.200738599597533e-05,
+                  "gold_probability_change": 3.200738599597533e-05,
+                  "removal_gold_loss": -3.200738599597533e-05,
+                  "centered_effect_rms": 0.31783750556700097
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 3.1431401940323206e-05,
+                  "gold_probability_change": 3.1431401940323206e-05,
+                  "removal_gold_loss": -3.1431401940323206e-05,
+                  "centered_effect_rms": 0.2436775703858554
+                }
+              },
+              "mixed_effect_rms": 0.5176322301971076,
+              "task_full_relative_error": 0.4707542462977361,
+              "document_full_relative_error": 0.6140218615173416
+            },
+            "2": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 1.4562152391730393e-05,
+                  "gold_probability_change": 1.4562152391730393e-05,
+                  "removal_gold_loss": -1.4562152391730393e-05,
+                  "centered_effect_rms": 1.0519981320515301
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 3.892694928141205e-06,
+                  "gold_probability_change": 3.892694928141205e-06,
+                  "removal_gold_loss": -3.892694928141205e-06,
+                  "centered_effect_rms": 0.7636329940863634
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 1.2068233769983033e-05,
+                  "gold_probability_change": 1.2068233769983033e-05,
+                  "removal_gold_loss": -1.2068233769983033e-05,
+                  "centered_effect_rms": 0.2917153449986002
+                }
+              },
+              "mixed_effect_rms": 1.0519981320515301,
+              "task_full_relative_error": 0.27729644769398776,
+              "document_full_relative_error": 0.7258881654068925
+            },
+            "3": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.84375,
+                  "target_probability_gain": -0.1465347142269082,
+                  "gold_probability_change": -0.1465347142269082,
+                  "removal_gold_loss": 0.1465347142269082,
+                  "centered_effect_rms": 1.0198238508225117
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.9375,
+                  "target_probability_gain": -0.05293039870769027,
+                  "gold_probability_change": -0.05293039870769027,
+                  "removal_gold_loss": 0.05293039870769027,
+                  "centered_effect_rms": 0.5699324618752825
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.9375,
+                  "target_probability_gain": -0.026527534368835474,
+                  "gold_probability_change": -0.026527534368835474,
+                  "removal_gold_loss": 0.026527534368835474,
+                  "centered_effect_rms": 0.4767881410508918
+                }
+              },
+              "mixed_effect_rms": 1.0198238508225117,
+              "task_full_relative_error": 0.4675200924810215,
+              "document_full_relative_error": 0.5588538269776873
+            }
+          },
+          "1": {
+            "0": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -1.8041124150158794e-16,
+                  "gold_probability_change": -1.8041124150158794e-16,
+                  "removal_gold_loss": 1.8041124150158794e-16,
+                  "centered_effect_rms": 0.006424282730755079
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 7.424616477180734e-16,
+                  "gold_probability_change": 7.424616477180734e-16,
+                  "removal_gold_loss": -7.424616477180734e-16,
+                  "centered_effect_rms": 0.004200068211954995
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -8.951173136040325e-16,
+                  "gold_probability_change": -8.951173136040325e-16,
+                  "removal_gold_loss": 8.951173136040325e-16,
+                  "centered_effect_rms": 0.0027464689639051716
+                }
+              },
+              "mixed_effect_rms": 0.006424282730755068,
+              "task_full_relative_error": 0.42751371304952857,
+              "document_full_relative_error": 0.6537801009049381
+            },
+            "1": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -0.00039056816489832155,
+                  "gold_probability_change": -0.00039056816489832155,
+                  "removal_gold_loss": 0.00039056816489832155,
+                  "centered_effect_rms": 0.4151245887987405
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -0.0002842319571138771,
+                  "gold_probability_change": -0.0002842319571138771,
+                  "removal_gold_loss": 0.0002842319571138771,
+                  "centered_effect_rms": 0.32946158645306844
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -0.00010587758085568028,
+                  "gold_probability_change": -0.00010587758085568028,
+                  "removal_gold_loss": 0.00010587758085568028,
+                  "centered_effect_rms": 0.10194223237628644
+                }
+              },
+              "mixed_effect_rms": 0.4151245887987405,
+              "task_full_relative_error": 0.24557020982852446,
+              "document_full_relative_error": 0.7936450775090013
+            },
+            "2": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 8.69918142652748e-07,
+                  "gold_probability_change": 8.69918142652748e-07,
+                  "removal_gold_loss": -8.69918142652748e-07,
+                  "centered_effect_rms": 0.17072155625133453
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 8.611410897974014e-07,
+                  "gold_probability_change": 8.611410897974014e-07,
+                  "removal_gold_loss": -8.611410897974014e-07,
+                  "centered_effect_rms": 0.12395595273852958
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 4.2261344712635207e-07,
+                  "gold_probability_change": 4.2261344712635207e-07,
+                  "removal_gold_loss": -4.2261344712635207e-07,
+                  "centered_effect_rms": 0.0551636996138958
+                }
+              },
+              "mixed_effect_rms": 0.17072155625133453,
+              "task_full_relative_error": 0.3231208807204411,
+              "document_full_relative_error": 0.7260708926296492
+            },
+            "3": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.0003510543327305939,
+                  "gold_probability_change": 0.0003510543327305939,
+                  "removal_gold_loss": -0.0003510543327305939,
+                  "centered_effect_rms": 0.140372979270805
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.000429329393013227,
+                  "gold_probability_change": 0.000429329393013227,
+                  "removal_gold_loss": -0.000429329393013227,
+                  "centered_effect_rms": 0.08376610018619568
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": -6.813651770164967e-05,
+                  "gold_probability_change": -6.813651770164967e-05,
+                  "removal_gold_loss": 6.813651770164967e-05,
+                  "centered_effect_rms": 0.06752235708211951
+                }
+              },
+              "mixed_effect_rms": 0.14037297927080497,
+              "task_full_relative_error": 0.4810210443126431,
+              "document_full_relative_error": 0.5967394909001371
+            }
+          }
+        }
+      }
+    },
+    "ood_two_12cycles": {
+      "nomination": {
+        "I": {
+          "task": {
+            "full_gold_change": -0.2996776328896744,
+            "selected_ratio": 0.24297681134666346,
+            "complement_absolute_ratio": 0.020503558278063733,
+            "denominator_valid": true,
+            "nomination_passed": false
+          },
+          "document": {
+            "full_gold_change": -0.2996776328896744,
+            "selected_ratio": 0.020503558278063733,
+            "complement_absolute_ratio": 0.24297681134666346,
+            "denominator_valid": true,
+            "nomination_passed": false
+          }
+        },
+        "J": {
+          "task": {
+            "full_gold_change": -0.08053647989099189,
+            "selected_ratio": 0.22854843065680847,
+            "complement_absolute_ratio": 0.11817681204331856,
+            "denominator_valid": true,
+            "nomination_passed": false
+          },
+          "document": {
+            "full_gold_change": -0.08053647989099189,
+            "selected_ratio": 0.11817681204331856,
+            "complement_absolute_ratio": 0.22854843065680847,
+            "denominator_valid": true,
+            "nomination_passed": false
+          }
+        }
+      },
+      "groups": {
+        "I": {
+          "0": {
+            "0": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 1.2004286453759505e-15,
+                  "gold_probability_change": 1.2004286453759505e-15,
+                  "removal_gold_loss": -1.2004286453759505e-15,
+                  "centered_effect_rms": 0.012100756467977605
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 1.2906342661267445e-15,
+                  "gold_probability_change": 1.2906342661267445e-15,
+                  "removal_gold_loss": -1.2906342661267445e-15,
+                  "centered_effect_rms": 0.009872309063851016
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -9.020562075079397e-17,
+                  "gold_probability_change": -9.020562075079397e-17,
+                  "removal_gold_loss": 9.020562075079397e-17,
+                  "centered_effect_rms": 0.006711703911063437
+                }
+              },
+              "mixed_effect_rms": 0.012100756467977604,
+              "task_full_relative_error": 0.5546515979248721,
+              "document_full_relative_error": 0.8158423062207854
+            },
+            "1": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 1.6977300462441003e-06,
+                  "gold_probability_change": 1.6977300462441003e-06,
+                  "removal_gold_loss": -1.6977300462441003e-06,
+                  "centered_effect_rms": 0.5478075629255982
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -5.979111709214502e-09,
+                  "gold_probability_change": -5.979111709214502e-09,
+                  "removal_gold_loss": 5.979111709214502e-09,
+                  "centered_effect_rms": 0.39097684092828633
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 1.7531073233933991e-06,
+                  "gold_probability_change": 1.7531073233933991e-06,
+                  "removal_gold_loss": -1.7531073233933991e-06,
+                  "centered_effect_rms": 0.2833840603677768
+                }
+              },
+              "mixed_effect_rms": 0.5478075629255982,
+              "task_full_relative_error": 0.5173058561921782,
+              "document_full_relative_error": 0.7137120174833874
+            },
+            "2": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 2.983440470540055e-07,
+                  "gold_probability_change": 2.983440470540055e-07,
+                  "removal_gold_loss": -2.983440470540055e-07,
+                  "centered_effect_rms": 1.9492680760993752
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 6.416058484885745e-07,
+                  "gold_probability_change": 6.416058484885745e-07,
+                  "removal_gold_loss": -6.416058484885745e-07,
+                  "centered_effect_rms": 1.4079532801333372
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 3.8456763593042176e-07,
+                  "gold_probability_change": 3.8456763593042176e-07,
+                  "removal_gold_loss": -3.8456763593042176e-07,
+                  "centered_effect_rms": 0.552180114423331
+                }
+              },
+              "mixed_effect_rms": 1.9492680760993752,
+              "task_full_relative_error": 0.2832756157009883,
+              "document_full_relative_error": 0.7222984346774676
+            },
+            "3": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 0.6875,
+                  "target_probability_gain": -0.2996776328896744,
+                  "gold_probability_change": -0.2996776328896744,
+                  "removal_gold_loss": 0.2996776328896744,
+                  "centered_effect_rms": 2.2598749858248577
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": -0.07281471567144909,
+                  "gold_probability_change": -0.07281471567144909,
+                  "removal_gold_loss": 0.07281471567144909,
+                  "centered_effect_rms": 1.11396944635732
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -0.006144457810585629,
+                  "gold_probability_change": -0.006144457810585629,
+                  "removal_gold_loss": 0.006144457810585629,
+                  "centered_effect_rms": 1.208064833178952
+                }
+              },
+              "mixed_effect_rms": 2.2598749858248577,
+              "task_full_relative_error": 0.53457153194605,
+              "document_full_relative_error": 0.49293410181745917
+            }
+          },
+          "1": {
+            "0": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 5.224987109642143e-14,
+                  "gold_probability_change": 5.224987109642143e-14,
+                  "removal_gold_loss": -5.224987109642143e-14,
+                  "centered_effect_rms": 0.008766976332122397
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 4.476280457410553e-14,
+                  "gold_probability_change": 4.476280457410553e-14,
+                  "removal_gold_loss": -4.476280457410553e-14,
+                  "centered_effect_rms": 0.006838108415406339
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 7.514822097931528e-15,
+                  "gold_probability_change": 7.514822097931528e-15,
+                  "removal_gold_loss": -7.514822097931528e-15,
+                  "centered_effect_rms": 0.0027086764809618616
+                }
+              },
+              "mixed_effect_rms": 0.00876697633212241,
+              "task_full_relative_error": 0.30896358999364054,
+              "document_full_relative_error": 0.7799848153292381
+            },
+            "1": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 3.877239107788477e-06,
+                  "gold_probability_change": 3.877239107788477e-06,
+                  "removal_gold_loss": -3.877239107788477e-06,
+                  "centered_effect_rms": 0.1436237247132267
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 4.460812960894317e-06,
+                  "gold_probability_change": 4.460812960894317e-06,
+                  "removal_gold_loss": -4.460812960894317e-06,
+                  "centered_effect_rms": 0.13012788378141188
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -5.935493220671217e-07,
+                  "gold_probability_change": -5.935493220671217e-07,
+                  "removal_gold_loss": 5.935493220671217e-07,
+                  "centered_effect_rms": 0.06175816370835961
+                }
+              },
+              "mixed_effect_rms": 0.1436237247132267,
+              "task_full_relative_error": 0.4299997359884101,
+              "document_full_relative_error": 0.9060333454047237
+            },
+            "2": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 1.1090564793581753e-05,
+                  "gold_probability_change": 1.1090564793581753e-05,
+                  "removal_gold_loss": -1.1090564793581753e-05,
+                  "centered_effect_rms": 0.2670905101107738
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 1.807275141535447e-05,
+                  "gold_probability_change": 1.807275141535447e-05,
+                  "removal_gold_loss": -1.807275141535447e-05,
+                  "centered_effect_rms": 0.18928072081051503
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -7.139703191657437e-06,
+                  "gold_probability_change": -7.139703191657437e-06,
+                  "removal_gold_loss": 7.139703191657437e-06,
+                  "centered_effect_rms": 0.08732863558519237
+                }
+              },
+              "mixed_effect_rms": 0.2670905101107738,
+              "task_full_relative_error": 0.3269627046987683,
+              "document_full_relative_error": 0.7086763237376431
+            },
+            "3": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.002743970756596068,
+                  "gold_probability_change": 0.002743970756596068,
+                  "removal_gold_loss": -0.002743970756596068,
+                  "centered_effect_rms": 0.3432408762710728
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.0006055753337396797,
+                  "gold_probability_change": 0.0006055753337396797,
+                  "removal_gold_loss": -0.0006055753337396797,
+                  "centered_effect_rms": 0.16468663020129387
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.002383876431663659,
+                  "gold_probability_change": 0.002383876431663659,
+                  "removal_gold_loss": -0.002383876431663659,
+                  "centered_effect_rms": 0.1931467312033137
+                }
+              },
+              "mixed_effect_rms": 0.3432408762710728,
+              "task_full_relative_error": 0.5627148296019876,
+              "document_full_relative_error": 0.4797990029347012
+            }
+          }
+        },
+        "J": {
+          "0": {
+            "0": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 1.734723475976807e-16,
+                  "gold_probability_change": 1.734723475976807e-16,
+                  "removal_gold_loss": -1.734723475976807e-16,
+                  "centered_effect_rms": 0.01126200614612279
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 8.326672684688674e-17,
+                  "gold_probability_change": 8.326672684688674e-17,
+                  "removal_gold_loss": -8.326672684688674e-17,
+                  "centered_effect_rms": 0.008695515634180587
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 9.020562075079397e-17,
+                  "gold_probability_change": 9.020562075079397e-17,
+                  "removal_gold_loss": -9.020562075079397e-17,
+                  "centered_effect_rms": 0.0035244566053358162
+                }
+              },
+              "mixed_effect_rms": 0.011262006146122779,
+              "task_full_relative_error": 0.3129510461641127,
+              "document_full_relative_error": 0.772110716452966
+            },
+            "1": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -1.6908903329934666e-07,
+                  "gold_probability_change": -1.6908903329934666e-07,
+                  "removal_gold_loss": 1.6908903329934666e-07,
+                  "centered_effect_rms": 0.2512943891849881
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -7.290919872351975e-08,
+                  "gold_probability_change": -7.290919872351975e-08,
+                  "removal_gold_loss": 7.290919872351975e-08,
+                  "centered_effect_rms": 0.17760263148937264
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -9.572988953973627e-08,
+                  "gold_probability_change": -9.572988953973627e-08,
+                  "removal_gold_loss": 9.572988953973627e-08,
+                  "centered_effect_rms": 0.1048222907069601
+                }
+              },
+              "mixed_effect_rms": 0.2512943891849881,
+              "task_full_relative_error": 0.4171294514251822,
+              "document_full_relative_error": 0.7067512810985693
+            },
+            "2": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -2.9091733362920924e-07,
+                  "gold_probability_change": -2.9091733362920924e-07,
+                  "removal_gold_loss": 2.9091733362920924e-07,
+                  "centered_effect_rms": 0.865924934072971
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -1.8402901290348606e-07,
+                  "gold_probability_change": -1.8402901290348606e-07,
+                  "removal_gold_loss": 1.8402901290348606e-07,
+                  "centered_effect_rms": 0.6459580567054534
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -8.705173405038069e-08,
+                  "gold_probability_change": -8.705173405038069e-08,
+                  "removal_gold_loss": 8.705173405038069e-08,
+                  "centered_effect_rms": 0.22276456233306074
+                }
+              },
+              "mixed_effect_rms": 0.865924934072971,
+              "task_full_relative_error": 0.2572562049752557,
+              "document_full_relative_error": 0.7459746581809585
+            },
+            "3": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 0.9375,
+                  "target_probability_gain": -0.08053647989099189,
+                  "gold_probability_change": -0.08053647989099189,
+                  "removal_gold_loss": 0.08053647989099189,
+                  "centered_effect_rms": 0.9875097630654543
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -0.01840648608970981,
+                  "gold_probability_change": -0.01840648608970981,
+                  "removal_gold_loss": 0.01840648608970981,
+                  "centered_effect_rms": 0.507310334775632
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -0.009517544446708253,
+                  "gold_probability_change": -0.009517544446708253,
+                  "removal_gold_loss": 0.009517544446708253,
+                  "centered_effect_rms": 0.4842894860167589
+                }
+              },
+              "mixed_effect_rms": 0.9875097630654543,
+              "task_full_relative_error": 0.4904148841155907,
+              "document_full_relative_error": 0.5137269055455472
+            }
+          },
+          "1": {
+            "0": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -3.880923360455313e-14,
+                  "gold_probability_change": -3.880923360455313e-14,
+                  "removal_gold_loss": 3.880923360455313e-14,
+                  "centered_effect_rms": 0.01054643885740802
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -2.5167368189471517e-14,
+                  "gold_probability_change": -2.5167368189471517e-14,
+                  "removal_gold_loss": 2.5167368189471517e-14,
+                  "centered_effect_rms": 0.007903819974677128
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -1.3579415369946446e-14,
+                  "gold_probability_change": -1.3579415369946446e-14,
+                  "removal_gold_loss": 1.3579415369946446e-14,
+                  "centered_effect_rms": 0.003362302109918107
+                }
+              },
+              "mixed_effect_rms": 0.010546438857408013,
+              "task_full_relative_error": 0.3188092355512304,
+              "document_full_relative_error": 0.7494302182509005
+            },
+            "1": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -5.28165355968141e-07,
+                  "gold_probability_change": -5.28165355968141e-07,
+                  "removal_gold_loss": 5.28165355968141e-07,
+                  "centered_effect_rms": 0.19506685495513842
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -5.133403810780868e-07,
+                  "gold_probability_change": -5.133403810780868e-07,
+                  "removal_gold_loss": 5.133403810780868e-07,
+                  "centered_effect_rms": 0.1750333866873799
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": -1.0313104590112254e-07,
+                  "gold_probability_change": -1.0313104590112254e-07,
+                  "removal_gold_loss": 1.0313104590112254e-07,
+                  "centered_effect_rms": 0.04332543476827503
+                }
+              },
+              "mixed_effect_rms": 0.19506685495513842,
+              "task_full_relative_error": 0.22210556877148058,
+              "document_full_relative_error": 0.8972994757496551
+            },
+            "2": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 1.3724574649275761e-05,
+                  "gold_probability_change": 1.3724574649275761e-05,
+                  "removal_gold_loss": -1.3724574649275761e-05,
+                  "centered_effect_rms": 0.15605581004896074
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 8.28868040946007e-06,
+                  "gold_probability_change": 8.28868040946007e-06,
+                  "removal_gold_loss": -8.28868040946007e-06,
+                  "centered_effect_rms": 0.10724115633586989
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 1.0,
+                  "target_accuracy": 1.0,
+                  "target_probability_gain": 5.523024078479127e-06,
+                  "gold_probability_change": 5.523024078479127e-06,
+                  "removal_gold_loss": -5.523024078479127e-06,
+                  "centered_effect_rms": 0.05724946502079169
+                }
+              },
+              "mixed_effect_rms": 0.1560558100489607,
+              "task_full_relative_error": 0.3668525061824379,
+              "document_full_relative_error": 0.6871974603330963
+            },
+            "3": {
+              "factorial": {
+                "full": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.0015399935468017557,
+                  "gold_probability_change": 0.0015399935468017557,
+                  "removal_gold_loss": -0.0015399935468017557,
+                  "centered_effect_rms": 0.17219979423928497
+                },
+                "task": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.000946042046237135,
+                  "gold_probability_change": 0.000946042046237135,
+                  "removal_gold_loss": -0.000946042046237135,
+                  "centered_effect_rms": 0.10620427978239094
+                },
+                "document": {
+                  "n": 32,
+                  "native_accuracy": 0.96875,
+                  "target_accuracy": 0.96875,
+                  "target_probability_gain": 0.0006312542797543693,
+                  "gold_probability_change": 0.0006312542797543693,
+                  "removal_gold_loss": -0.0006312542797543693,
+                  "centered_effect_rms": 0.08196773008466969
+                }
+              },
+              "mixed_effect_rms": 0.17219979423928497,
+              "task_full_relative_error": 0.47600364708200066,
+              "document_full_relative_error": 0.6167503291833898
+            }
+          }
+        }
+      }
+    }
+  },
+  "oracle_max_abs": 7.105427357601002e-14,
+  "local_replay_max_abs": 0.0,
+  "lineage_max_abs": 5.10702591327572e-15,
+  "mixed_partition_max_abs": 4.618527782440651e-14,
+  "independent_worlds": 32,
+  "requests": 512,
+  "opaque_export_constants": 387968,
+  "source_sha256": "f790aa9c396b12e57d207f821be9217413255d1ac170b553999426163687b048",
+  "rows_sha256": "c4866f1202dcab9fed8236b983da8577c985b6f15dd7b787d5472537bfe42a6d",
+  "runner_sha256": "7fd563b63adcd1344bbdbfb6d3000ba0838a8055a2bba843102be275edcd95d4",
+  "prereg_sha256": "636ef0d131ff92c37efbef2e246c61bd830aeefcfd1c5b334c353a667487ed7a",
+  "wall_seconds": 5.047721557319164
+}

@@ -249,3 +249,57 @@ its failed nomination into a pass. J is not yet an identified advance-then-read
 algorithm. The next [query-lineage protocol](../ENDPOINT_ROUTE_QUERY_LINEAGE_V1_PREREGISTRATION.md)
 tests which query payloads feed I and J, keeping mixed query terms explicit.
 No reduced structural description has yet been established.
+
+
+## Query roots must remain coupled in this interface
+
+The [query-lineage screen](../ENDPOINT_ROUTE_QUERY_LINEAGE_V1_RESULT.json)
+transports the original query-entity payload L through the frozen native prefix;
+C is the exact remainder of the final query state. Native queries are then
+replaced only at Q1/Q2, using the original query gain. The512-request CPU run
+(4.847 seconds) passes10 controls, native correspondence1.42e-13, saved replay
+9.24e-14 and prefix-lineage closure2.13e-14. Zero query gives zero route.
+
+The proposed I-local/J-complement assignment fails: forward-hop3 task-effect
+ratios are .0284/.00161 for I-local and .0963/.0357 for J-complement IID/OOD.
+Selected-term full-vector errors are .922–.945 for I and .700–.734 for J.
+Mixed query terms have RMS .667–.724 of the complete routes; they cannot be
+silently dropped. Payload lineage is not an input Jacobian or an entity code:
+its context-dependent gates can transform information from the query token.
+
+The [mixed-input screen](../ENDPOINT_MIXED_QUERY_INPUTS_V1_RESULT.json) splits
+C into task-token roots H (delimiter/instruction) and binding-document roots D.
+The exact entity/complement interaction is LH+LD. On512 opened cases, CPU5.048
+seconds, native correspondence7.11e-14, local replay0, root closure5.11e-15 and
+mixed partition4.62e-14 all pass. Both fixed dominance hypotheses fail. Task
+term effect ratios .195–.361 and document ratios .021–.184 do not explain the
+full mixed-node removal. Probability effects of additive logits need not add.
+Neither a selected route nor a different root subset is adopted.
+
+The [additivity bound](../QUERY_ROOT_ADDITIVITY_BOUND_V1_RESULT.json) changes
+from testing a chosen approximation to constraining a whole function class.
+For a program additive across two query-root blocks, the mixed four-corner
+contrast is zero. The native contrast is therefore a signed sum of four
+approximation errors; at least one corner has RMS error >=contrast_RMS/4.
+This remains true for arbitrary nonlinear functions inside either block.
+
+On forward-hop3 I/J groups, each of L|HD, H|LD and D|LH has a lower bound
+of7.8–9.4% relative to the fixed native route RMS. Across all query/hop groups,
+84/96 partition tests exceed1%; no reference was floored. Stored-table replay
+closes4.62e-14, CPU .0257 seconds. This is a bound on the specified binary
+Q-root intervention cube with a fixed native-route denominator. It is not the
+previous per-intervention error bar or a whole-model impossibility result.
+The inequality is exact; its RHS is FP64 evaluated, not interval-certified.
+The separate4e-9 contrast-slack check leaves the forward conclusions unchanged.
+
+Further root-dominance tests are now demoted. The next
+[common-channel protocol](../QUERY_COMMON_SQUARED_CHANNELS_V1_PREREGISTRATION.md)
+asks whether changing coordinates can remove the coupling while preserving
+both the query norm and all route readers. For a positive root Gram G, this
+is simultaneous diagonalization by congruence. The whitening/commutation
+criterion in [Jiang and Li, Theorems3.2/3.3](https://arxiv.org/pdf/1507.05703)
+gives a finite exact test of the compiled3x3 forms. The implemented rational
+primitive passes nonorthogonal positive, noncommuting negative, singular and
+indefinite controls. No trained-form result is yet available. Even a positive
+local test would need cross-context identification and structural pricing;
+all387968 native coefficients are still required by the current executor.

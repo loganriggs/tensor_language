@@ -1,0 +1,1005 @@
+{
+  "scope": "Additive-separation lower bounds on fixed-gain binary Q-root intervention cube, not whole-model impossibility.",
+  "controls": {
+    "sharp_scalar_bound": true,
+    "additive_zero_contrast": true
+  },
+  "instrument_passed": true,
+  "partition_max_abs": 4.618527782440651e-14,
+  "numeric_status": "Real-arithmetic triangle inequality; FP64 evaluated RHS, not an interval certificate.",
+  "populations": {
+    "iid": {
+      "I": {
+        "0": {
+          "0": {
+            "n": 32,
+            "native_route_rms": 0.12040200088595161,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.008078418083056269,
+            "LD_contrast_rms": 0.00681396015803761,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.002019604520764067,
+                "relative_to_native_route_lower_bound": 0.016773845167881364,
+                "contrast_slack_4e9_relative_bound": 0.01677383686237155,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.002019604520764067,
+                "relative_to_native_route_lower_bound": 0.016773845167881364,
+                "contrast_slack_4e9_relative_bound": 0.01677383686237155,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.0017034900395094025,
+                "relative_to_native_route_lower_bound": 0.014148353241429927,
+                "contrast_slack_4e9_relative_bound": 0.014148344935920114,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "1": {
+            "n": 32,
+            "native_route_rms": 0.408204143410841,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.25896821102896284,
+            "LD_contrast_rms": 0.26045657361204794,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.06511414340301198,
+                "relative_to_native_route_lower_bound": 0.15951367582635542,
+                "contrast_slack_4e9_relative_bound": 0.15951367337660075,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.06474205275724071,
+                "relative_to_native_route_lower_bound": 0.15860214503526107,
+                "contrast_slack_4e9_relative_bound": 0.15860214258550642,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.06511414340301198,
+                "relative_to_native_route_lower_bound": 0.15951367582635542,
+                "contrast_slack_4e9_relative_bound": 0.15951367337660075,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "2": {
+            "n": 32,
+            "native_route_rms": 1.7873054813704197,
+            "reference_floored": false,
+            "LH_contrast_rms": 1.2056827557785126,
+            "LD_contrast_rms": 0.44133039249559236,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.30142068894462815,
+                "relative_to_native_route_lower_bound": 0.16864531110457587,
+                "contrast_slack_4e9_relative_bound": 0.1686453105450744,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.30142068894462815,
+                "relative_to_native_route_lower_bound": 0.16864531110457587,
+                "contrast_slack_4e9_relative_bound": 0.1686453105450744,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.11033259812389809,
+                "relative_to_native_route_lower_bound": 0.06173124811282981,
+                "contrast_slack_4e9_relative_bound": 0.061731247553328365,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "3": {
+            "n": 32,
+            "native_route_rms": 2.6920318220291315,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.9778484052950176,
+            "LD_contrast_rms": 1.0081107772460458,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.25202769431151145,
+                "relative_to_native_route_lower_bound": 0.09361987932280251,
+                "contrast_slack_4e9_relative_bound": 0.09361987895133586,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.2444621013237544,
+                "relative_to_native_route_lower_bound": 0.09080951396016186,
+                "contrast_slack_4e9_relative_bound": 0.09080951358869523,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.25202769431151145,
+                "relative_to_native_route_lower_bound": 0.09361987932280251,
+                "contrast_slack_4e9_relative_bound": 0.09361987895133586,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          }
+        },
+        "1": {
+          "0": {
+            "n": 32,
+            "native_route_rms": 0.12013439074839048,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.003028871355448903,
+            "LD_contrast_rms": 0.0015802436823266852,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.0007572178388622258,
+                "relative_to_native_route_lower_bound": 0.006303089682688308,
+                "contrast_slack_4e9_relative_bound": 0.006303081358677225,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.0007572178388622258,
+                "relative_to_native_route_lower_bound": 0.006303089682688308,
+                "contrast_slack_4e9_relative_bound": 0.006303081358677225,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.0003950609205816713,
+                "relative_to_native_route_lower_bound": 0.0032884914812535827,
+                "contrast_slack_4e9_relative_bound": 0.0032884831572425,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              }
+            }
+          },
+          "1": {
+            "n": 32,
+            "native_route_rms": 0.19487506893595935,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.13266482426134615,
+            "LD_contrast_rms": 0.0528190365506049,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.03316620606533654,
+                "relative_to_native_route_lower_bound": 0.17019214539052072,
+                "contrast_slack_4e9_relative_bound": 0.17019214025902799,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.03316620606533654,
+                "relative_to_native_route_lower_bound": 0.17019214539052072,
+                "contrast_slack_4e9_relative_bound": 0.17019214025902799,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.013204759137651225,
+                "relative_to_native_route_lower_bound": 0.06776012554992669,
+                "contrast_slack_4e9_relative_bound": 0.06776012041843396,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "2": {
+            "n": 32,
+            "native_route_rms": 0.5709363489385737,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.182843392856973,
+            "LD_contrast_rms": 0.07459098006649897,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.04571084821424325,
+                "relative_to_native_route_lower_bound": 0.08006294974776816,
+                "contrast_slack_4e9_relative_bound": 0.08006294799625943,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.04571084821424325,
+                "relative_to_native_route_lower_bound": 0.08006294974776816,
+                "contrast_slack_4e9_relative_bound": 0.08006294799625943,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.018647745016624744,
+                "relative_to_native_route_lower_bound": 0.032661688209715004,
+                "contrast_slack_4e9_relative_bound": 0.032661686458206274,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "3": {
+            "n": 32,
+            "native_route_rms": 0.6739121371826305,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.11651859340296233,
+            "LD_contrast_rms": 0.08332759903424256,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.029129648350740583,
+                "relative_to_native_route_lower_bound": 0.04322469761788313,
+                "contrast_slack_4e9_relative_bound": 0.04322469613401017,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.029129648350740583,
+                "relative_to_native_route_lower_bound": 0.04322469761788313,
+                "contrast_slack_4e9_relative_bound": 0.04322469613401017,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.02083189975856064,
+                "relative_to_native_route_lower_bound": 0.030911892825748563,
+                "contrast_slack_4e9_relative_bound": 0.0309118913418756,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          }
+        }
+      },
+      "J": {
+        "0": {
+          "0": {
+            "n": 32,
+            "native_route_rms": 0.21153527903721603,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.00733830317262868,
+            "LD_contrast_rms": 0.0058973220626433774,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.00183457579315717,
+                "relative_to_native_route_lower_bound": 0.008672670589544582,
+                "contrast_slack_4e9_relative_bound": 0.008672665862200734,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.00183457579315717,
+                "relative_to_native_route_lower_bound": 0.008672670589544582,
+                "contrast_slack_4e9_relative_bound": 0.008672665862200734,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.0014743305156608444,
+                "relative_to_native_route_lower_bound": 0.006969667293186878,
+                "contrast_slack_4e9_relative_bound": 0.00696966256584303,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              }
+            }
+          },
+          "1": {
+            "n": 32,
+            "native_route_rms": 0.4157730719120565,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.31783750556700097,
+            "LD_contrast_rms": 0.24367757038585544,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.07945937639175024,
+                "relative_to_native_route_lower_bound": 0.1911123681635576,
+                "contrast_slack_4e9_relative_bound": 0.19111236575839943,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.07945937639175024,
+                "relative_to_native_route_lower_bound": 0.1911123681635576,
+                "contrast_slack_4e9_relative_bound": 0.19111236575839943,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.06091939259646386,
+                "relative_to_native_route_lower_bound": 0.14652077470122793,
+                "contrast_slack_4e9_relative_bound": 0.14652077229606975,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "2": {
+            "n": 32,
+            "native_route_rms": 0.9917138142032698,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.7636329940863634,
+            "LD_contrast_rms": 0.29171534499860013,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.19090824852159086,
+                "relative_to_native_route_lower_bound": 0.19250336718861188,
+                "contrast_slack_4e9_relative_bound": 0.19250336618025646,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.19090824852159086,
+                "relative_to_native_route_lower_bound": 0.19250336718861188,
+                "contrast_slack_4e9_relative_bound": 0.19250336618025646,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.07292883624965003,
+                "relative_to_native_route_lower_bound": 0.07353818733304641,
+                "contrast_slack_4e9_relative_bound": 0.07353818632469099,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "3": {
+            "n": 32,
+            "native_route_rms": 1.5290428677848464,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.5699324618752825,
+            "LD_contrast_rms": 0.4767881410508919,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.14248311546882061,
+                "relative_to_native_route_lower_bound": 0.09318451331272264,
+                "contrast_slack_4e9_relative_bound": 0.09318451265871873,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.14248311546882061,
+                "relative_to_native_route_lower_bound": 0.09318451331272264,
+                "contrast_slack_4e9_relative_bound": 0.09318451265871873,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.11919703526272298,
+                "relative_to_native_route_lower_bound": 0.0779553260239237,
+                "contrast_slack_4e9_relative_bound": 0.07795532536991981,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          }
+        },
+        "1": {
+          "0": {
+            "n": 32,
+            "native_route_rms": 0.20720277055710365,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.00420006821195498,
+            "LD_contrast_rms": 0.0027464689639051516,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.001050017052988745,
+                "relative_to_native_route_lower_bound": 0.005067582108895439,
+                "contrast_slack_4e9_relative_bound": 0.005067577282705146,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.001050017052988745,
+                "relative_to_native_route_lower_bound": 0.005067582108895439,
+                "contrast_slack_4e9_relative_bound": 0.005067577282705146,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.0006866172409762879,
+                "relative_to_native_route_lower_bound": 0.0033137454635871334,
+                "contrast_slack_4e9_relative_bound": 0.00331374063739684,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              }
+            }
+          },
+          "1": {
+            "n": 32,
+            "native_route_rms": 0.36242066321220023,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.32946158645306844,
+            "LD_contrast_rms": 0.10194223237628645,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.08236539661326711,
+                "relative_to_native_route_lower_bound": 0.22726462636883787,
+                "contrast_slack_4e9_relative_bound": 0.2272646236096133,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.08236539661326711,
+                "relative_to_native_route_lower_bound": 0.22726462636883787,
+                "contrast_slack_4e9_relative_bound": 0.2272646236096133,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.025485558094071614,
+                "relative_to_native_route_lower_bound": 0.07032037817101398,
+                "contrast_slack_4e9_relative_bound": 0.0703203754117894,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "2": {
+            "n": 32,
+            "native_route_rms": 0.5383411441644455,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.12395595273852958,
+            "LD_contrast_rms": 0.05516369961389582,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.030988988184632395,
+                "relative_to_native_route_lower_bound": 0.057563848724083926,
+                "contrast_slack_4e9_relative_bound": 0.05756384686652574,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.030988988184632395,
+                "relative_to_native_route_lower_bound": 0.057563848724083926,
+                "contrast_slack_4e9_relative_bound": 0.05756384686652574,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.013790924903473955,
+                "relative_to_native_route_lower_bound": 0.025617445467369448,
+                "contrast_slack_4e9_relative_bound": 0.02561744360981126,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "3": {
+            "n": 32,
+            "native_route_rms": 0.43910121475788066,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.08376610018619567,
+            "LD_contrast_rms": 0.06752235708211951,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.020941525046548917,
+                "relative_to_native_route_lower_bound": 0.04769179483617694,
+                "contrast_slack_4e9_relative_bound": 0.047691792558797685,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.020941525046548917,
+                "relative_to_native_route_lower_bound": 0.04769179483617694,
+                "contrast_slack_4e9_relative_bound": 0.047691792558797685,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.016880589270529878,
+                "relative_to_native_route_lower_bound": 0.038443503919336215,
+                "contrast_slack_4e9_relative_bound": 0.03844350164195695,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "ood_two_12cycles": {
+      "I": {
+        "0": {
+          "0": {
+            "n": 32,
+            "native_route_rms": 0.11785238374439903,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.009872309063851023,
+            "LD_contrast_rms": 0.006711703911063455,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.0024680772659627557,
+                "relative_to_native_route_lower_bound": 0.020942107300227195,
+                "contrast_slack_4e9_relative_bound": 0.020942098815036076,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.0024680772659627557,
+                "relative_to_native_route_lower_bound": 0.020942107300227195,
+                "contrast_slack_4e9_relative_bound": 0.020942098815036076,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.0016779259777658637,
+                "relative_to_native_route_lower_bound": 0.01423752260628846,
+                "contrast_slack_4e9_relative_bound": 0.01423751412109734,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "1": {
+            "n": 32,
+            "native_route_rms": 0.5211053359616218,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.39097684092828633,
+            "LD_contrast_rms": 0.2833840603677768,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.09774421023207158,
+                "relative_to_native_route_lower_bound": 0.1875709256588196,
+                "contrast_slack_4e9_relative_bound": 0.18757092373982182,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.09774421023207158,
+                "relative_to_native_route_lower_bound": 0.1875709256588196,
+                "contrast_slack_4e9_relative_bound": 0.18757092373982182,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.0708460150919442,
+                "relative_to_native_route_lower_bound": 0.13595334801400277,
+                "contrast_slack_4e9_relative_bound": 0.13595334609500495,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "2": {
+            "n": 32,
+            "native_route_rms": 2.2471058522775755,
+            "reference_floored": false,
+            "LH_contrast_rms": 1.4079532801333372,
+            "LD_contrast_rms": 0.552180114423331,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.3519883200333343,
+                "relative_to_native_route_lower_bound": 0.1566407384309792,
+                "contrast_slack_4e9_relative_bound": 0.15664073798596231,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.3519883200333343,
+                "relative_to_native_route_lower_bound": 0.1566407384309792,
+                "contrast_slack_4e9_relative_bound": 0.15664073798596231,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.13804502860583276,
+                "relative_to_native_route_lower_bound": 0.061432365754339475,
+                "contrast_slack_4e9_relative_bound": 0.06143236530932261,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "3": {
+            "n": 32,
+            "native_route_rms": 3.358680993361288,
+            "reference_floored": false,
+            "LH_contrast_rms": 1.11396944635732,
+            "LD_contrast_rms": 1.208064833178952,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.302016208294738,
+                "relative_to_native_route_lower_bound": 0.08992107583057103,
+                "contrast_slack_4e9_relative_bound": 0.0899210755328351,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.27849236158933,
+                "relative_to_native_route_lower_bound": 0.08291718151851672,
+                "contrast_slack_4e9_relative_bound": 0.08291718122078079,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.302016208294738,
+                "relative_to_native_route_lower_bound": 0.08992107583057103,
+                "contrast_slack_4e9_relative_bound": 0.0899210755328351,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          }
+        },
+        "1": {
+          "0": {
+            "n": 32,
+            "native_route_rms": 0.12499413753595269,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.006838108415406332,
+            "LD_contrast_rms": 0.002708676480961862,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.001709527103851583,
+                "relative_to_native_route_lower_bound": 0.013676858271531839,
+                "contrast_slack_4e9_relative_bound": 0.013676850271156624,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.001709527103851583,
+                "relative_to_native_route_lower_bound": 0.013676858271531839,
+                "contrast_slack_4e9_relative_bound": 0.013676850271156624,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.0006771691202404655,
+                "relative_to_native_route_lower_bound": 0.005417607046135968,
+                "contrast_slack_4e9_relative_bound": 0.005417599045760752,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              }
+            }
+          },
+          "1": {
+            "n": 32,
+            "native_route_rms": 0.255472013625403,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.13012788378141188,
+            "LD_contrast_rms": 0.06175816370835961,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.03253197094535297,
+                "relative_to_native_route_lower_bound": 0.12734064480759286,
+                "contrast_slack_4e9_relative_bound": 0.1273406408932698,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.03253197094535297,
+                "relative_to_native_route_lower_bound": 0.12734064480759286,
+                "contrast_slack_4e9_relative_bound": 0.1273406408932698,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.015439540927089903,
+                "relative_to_native_route_lower_bound": 0.060435351442169334,
+                "contrast_slack_4e9_relative_bound": 0.06043534752784625,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "2": {
+            "n": 32,
+            "native_route_rms": 0.9629210858897674,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.18928072081051503,
+            "LD_contrast_rms": 0.08732863558519237,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.04732018020262876,
+                "relative_to_native_route_lower_bound": 0.049142324221619384,
+                "contrast_slack_4e9_relative_bound": 0.049142323183112686,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.04732018020262876,
+                "relative_to_native_route_lower_bound": 0.049142324221619384,
+                "contrast_slack_4e9_relative_bound": 0.049142323183112686,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.021832158896298092,
+                "relative_to_native_route_lower_bound": 0.022672843305871253,
+                "contrast_slack_4e9_relative_bound": 0.022672842267364553,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "3": {
+            "n": 32,
+            "native_route_rms": 1.2087748292753637,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.1646866302012939,
+            "LD_contrast_rms": 0.19314673120331372,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.04828668280082843,
+                "relative_to_native_route_lower_bound": 0.03994679706374704,
+                "contrast_slack_4e9_relative_bound": 0.039946796236463106,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.041171657550323475,
+                "relative_to_native_route_lower_bound": 0.03406065096094453,
+                "contrast_slack_4e9_relative_bound": 0.03406065013366059,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.04828668280082843,
+                "relative_to_native_route_lower_bound": 0.03994679706374704,
+                "contrast_slack_4e9_relative_bound": 0.039946796236463106,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          }
+        }
+      },
+      "J": {
+        "0": {
+          "0": {
+            "n": 32,
+            "native_route_rms": 0.1564259383953689,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.008695515634180598,
+            "LD_contrast_rms": 0.003524456605335822,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.0021738789085451495,
+                "relative_to_native_route_lower_bound": 0.013897176714073072,
+                "contrast_slack_4e9_relative_bound": 0.013897170321271404,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.0021738789085451495,
+                "relative_to_native_route_lower_bound": 0.013897176714073072,
+                "contrast_slack_4e9_relative_bound": 0.013897170321271404,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.0008811141513339555,
+                "relative_to_native_route_lower_bound": 0.005632788016952319,
+                "contrast_slack_4e9_relative_bound": 0.0056327816241506495,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              }
+            }
+          },
+          "1": {
+            "n": 32,
+            "native_route_rms": 0.24596256974280134,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.17760263148937264,
+            "LD_contrast_rms": 0.10482229070696014,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.04440065787234316,
+                "relative_to_native_route_lower_bound": 0.18051794595727363,
+                "contrast_slack_4e9_relative_bound": 0.18051794189161438,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.04440065787234316,
+                "relative_to_native_route_lower_bound": 0.18051794595727363,
+                "contrast_slack_4e9_relative_bound": 0.18051794189161438,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.026205572676740035,
+                "relative_to_native_route_lower_bound": 0.10654292929262665,
+                "contrast_slack_4e9_relative_bound": 0.1065429252269674,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "2": {
+            "n": 32,
+            "native_route_rms": 0.7880930839159078,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.6459580567054534,
+            "LD_contrast_rms": 0.2227645623330607,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.16148951417636334,
+                "relative_to_native_route_lower_bound": 0.2049117261300504,
+                "contrast_slack_4e9_relative_bound": 0.20491172486116477,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.16148951417636334,
+                "relative_to_native_route_lower_bound": 0.2049117261300504,
+                "contrast_slack_4e9_relative_bound": 0.20491172486116477,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.05569114058326517,
+                "relative_to_native_route_lower_bound": 0.07066568876171943,
+                "contrast_slack_4e9_relative_bound": 0.07066568749283378,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "3": {
+            "n": 32,
+            "native_route_rms": 1.4334423039062991,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.5073103347756321,
+            "LD_contrast_rms": 0.48428948601675886,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.12682758369390804,
+                "relative_to_native_route_lower_bound": 0.08847763411773737,
+                "contrast_slack_4e9_relative_bound": 0.088477633420116,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.12682758369390804,
+                "relative_to_native_route_lower_bound": 0.08847763411773737,
+                "contrast_slack_4e9_relative_bound": 0.088477633420116,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.12107237150418972,
+                "relative_to_native_route_lower_bound": 0.08446267504053231,
+                "contrast_slack_4e9_relative_bound": 0.08446267434291094,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          }
+        },
+        "1": {
+          "0": {
+            "n": 32,
+            "native_route_rms": 0.14921336880297376,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.007903819974677118,
+            "LD_contrast_rms": 0.0033623021099181026,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.0019759549936692795,
+                "relative_to_native_route_lower_bound": 0.013242479608368038,
+                "contrast_slack_4e9_relative_bound": 0.013242472906555674,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.0019759549936692795,
+                "relative_to_native_route_lower_bound": 0.013242479608368038,
+                "contrast_slack_4e9_relative_bound": 0.013242472906555674,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.0008405755274795256,
+                "relative_to_native_route_lower_bound": 0.005633379463400825,
+                "contrast_slack_4e9_relative_bound": 0.00563337276158846,
+                "ruled_out_at_fixed_native_1pct": false,
+                "slack_robust_at_1pct": false
+              }
+            }
+          },
+          "1": {
+            "n": 32,
+            "native_route_rms": 0.31327952710948115,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.1750333866873799,
+            "LD_contrast_rms": 0.04332543476827503,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.04375834667184497,
+                "relative_to_native_route_lower_bound": 0.13967828372184957,
+                "contrast_slack_4e9_relative_bound": 0.13967828052981207,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.04375834667184497,
+                "relative_to_native_route_lower_bound": 0.13967828372184957,
+                "contrast_slack_4e9_relative_bound": 0.13967828052981207,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.010831358692068757,
+                "relative_to_native_route_lower_bound": 0.03457410317235172,
+                "contrast_slack_4e9_relative_bound": 0.034574099980314216,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "2": {
+            "n": 32,
+            "native_route_rms": 0.5242842558898317,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.10724115633586988,
+            "LD_contrast_rms": 0.05724946502079168,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.02681028908396747,
+                "relative_to_native_route_lower_bound": 0.05113693341499299,
+                "contrast_slack_4e9_relative_bound": 0.05113693150763073,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.02681028908396747,
+                "relative_to_native_route_lower_bound": 0.05113693341499299,
+                "contrast_slack_4e9_relative_bound": 0.05113693150763073,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.01431236625519792,
+                "relative_to_native_route_lower_bound": 0.027298867159202638,
+                "contrast_slack_4e9_relative_bound": 0.027298865251840384,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          },
+          "3": {
+            "n": 32,
+            "native_route_rms": 0.5384545669600558,
+            "reference_floored": false,
+            "LH_contrast_rms": 0.10620427978239096,
+            "LD_contrast_rms": 0.0819677300846697,
+            "partitions": {
+              "L_vs_HD": {
+                "absolute_rms_error_lower_bound": 0.02655106994559774,
+                "relative_to_native_route_lower_bound": 0.049309768316195525,
+                "contrast_slack_4e9_relative_bound": 0.04930976645902862,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "H_vs_LD": {
+                "absolute_rms_error_lower_bound": 0.02655106994559774,
+                "relative_to_native_route_lower_bound": 0.049309768316195525,
+                "contrast_slack_4e9_relative_bound": 0.04930976645902862,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              },
+              "D_vs_LH": {
+                "absolute_rms_error_lower_bound": 0.020491932521167426,
+                "relative_to_native_route_lower_bound": 0.03805693883674977,
+                "contrast_slack_4e9_relative_bound": 0.038056936979582866,
+                "ruled_out_at_fixed_native_1pct": true,
+                "slack_robust_at_1pct": true
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "source_sha256": "c4866f1202dcab9fed8236b983da8577c985b6f15dd7b787d5472537bfe42a6d",
+  "full_source_sha256": "f790aa9c396b12e57d207f821be9217413255d1ac170b553999426163687b048",
+  "runner_sha256": "86c41a48e90aa6d9e571e35d62df8cb52f34bf9615df1ad9390af2bb19cceeab",
+  "prereg_sha256": "60bead652b6b3acc0decff6ad599dcb5dc5fcca21d2cda781347815c7dbedb47",
+  "wall_seconds": 0.02570730820298195
+}

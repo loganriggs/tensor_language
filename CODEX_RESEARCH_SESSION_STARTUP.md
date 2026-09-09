@@ -53,6 +53,56 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Query-root separation bounded; exact common-channel test next — 2026-09-09 22:02 UTC
+
+The user's bilinear reconstruction handoff and appended structural criterion
+control. This goal turn made progress: two native CPU screens, one saved-row
+function-class bound, an implemented exact rational primitive and the2158
+hourly review. The overall structural circuit goal remains active and unfinished.
+
+ENDPOINT_ROUTE_QUERY_LINEAGE_V1 CPU4.847s,512 opened requests: native1.42e-13,
+saved9.24e-14,lineage2.13e-14,zero-query routes0,10 controls. Fixed I-local/
+J-complement assignment fails; forward-hop3 task ratios .0284/.00161 for I
+and .0963/.0357 for J. Selected-vector errors .922–.945 I,.700–.734 J; mixed
+query terms remain large. Payload origin does not prove an entity identity.
+
+ENDPOINT_MIXED_QUERY_INPUTS_V1 CPU5.048s,512 requests: native7.11e-14,
+local replay0,root closure5.11e-15,mixed partition4.62e-14. Entity x complement
+splits exactly into entity x task-token (LH) and entity x document (LD).
+Both fixed dominance hypotheses fail; neither a pure route/root nor a selected
+population is adopted. Gold probabilities of additive logits need not add.
+
+QUERY_ROOT_ADDITIVITY_BOUND_V1 CPU .0257s: four-corner triangle inequality
+bounds arbitrary additive programs over root blocks. All forward-hop3 I/J
+bipartitions have fixed-native-route relative lower bounds7.8–9.4%;84/96
+partition groups exceed1%, no floored references. Exact stored-table replay
+4.62e-14. The bound uses a fixed native-route RMS denominator on binary Q-root
+gates, not the prior per-intervention denominator or a whole-model impossibility.
+FP64 RHS is not interval-certified;4e-9 contrast slack does not change targets.
+Stop further root-dominance probes. Existing I nomination remains FAILED
+(.48058 IID below .5), and the16/63 backup census is not a repaired nomination.
+
+Next action: QUERY_COMMON_SQUARED_CHANNELS_V1_PREREGISTRATION.md. Test whether
+any invertible coordinate change separates the norm and all centered I/J
+readers into three shared squared channels. First fixed context only:
+N.populations()['iid'][0],token row3 (forward hop3). Compile its3x3 Gram and
+all58 symmetric route/output forms, validate held-out amplitude vectors using
+existing Q/interaction/native oracles, then run exact dyadic congruence scan.
+simultaneous_congruence_reference.py is implemented; nonorthogonal positive,
+noncommuting negative,singular/indefinite controls pass. Trained matrices are
+not yet compiled or opened. Any exact obstruction rules out this grammar even
+locally; no jitter,new context,rank/feature count or output subset rescue.
+Jiang/Li Theorems3.2/3.3 mapped in the protocol. This does not rule out general
+coupled bilinear features or prove any native structural reduction.
+
+Hourly2158 complete:11 receipts this hour,median5.41min all/5.98min native
+screen intervals; focus/novelty PASS,ceremony PASS on latency proxy only.
+Authoring/publication still dominates seconds of compute; reuse machinery.
+All387968 opaque native constants,gates and remainder remain priced. Dossier:
+explanations/join_write_response_curve.md. Next mathematical22:49 UTC, hourly
+22:58 UTC. Both managed runners healthy; concurrent Claude v441/v443 work
+must be preserved. No own GPU job pending. Stage/push only owned artifacts.
+
 ## Exact endpoint routes show backup; query-lineage test next — 2026-09-09 21:40 UTC
 
 The bilinear reconstruction handoff and appended structural criterion control;
