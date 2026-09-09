@@ -1,0 +1,117 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cost_min": 0.05,
+    "joint_min": 0.8,
+    "keep_frac": 0.85,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_broad_circuit_v373",
+  "final_loss": 7e-05,
+  "finished_utc": "2026-09-09T14:05:49.403512+00:00",
+  "joint_units": [
+    "attn:06:head:03",
+    "attn:07:head:08",
+    "attn:08:head:08",
+    "attn:08:head:01",
+    "attn:13:head:08",
+    "attn:14:head:03",
+    "attn:04:head:01",
+    "attn:16:head:08",
+    "attn:09:head:07",
+    "attn:11:head:03",
+    "attn:04:head:03",
+    "attn:11:head:06",
+    "attn:15:head:01"
+  ],
+  "n_joint_units": 13,
+  "per_shape": {
+    "A": {
+      "A1_damage": {
+        "ce_damage": 0.815,
+        "ce_lb975": 0.7114,
+        "ce_ub975": 0.9224,
+        "margin_damage": 1.6588,
+        "top1_change_rate": 0.25
+      },
+      "C_damage": {
+        "ce_damage": -0.0027,
+        "ce_lb975": -0.0078,
+        "ce_ub975": 0.0018,
+        "margin_damage": -0.0355,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0018,
+      "cell": "verb_preposition_about_for",
+      "joint_extraction": 1.001,
+      "n_held": 16,
+      "specialist_extraction": 0.998,
+      "units_recovery": 0.957
+    },
+    "B": {
+      "A1_damage": {
+        "ce_damage": 0.8036,
+        "ce_lb975": 0.7623,
+        "ce_ub975": 0.8435,
+        "margin_damage": 2.1397,
+        "top1_change_rate": 0.8438
+      },
+      "C_damage": {
+        "ce_damage": -0.0027,
+        "ce_lb975": -0.0078,
+        "ce_ub975": 0.0018,
+        "margin_damage": -0.0355,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0018,
+      "cell": "verb_preposition_fb_about_for",
+      "joint_extraction": 0.988,
+      "n_held": 16,
+      "specialist_extraction": 0.998,
+      "units_recovery": 0.806
+    },
+    "C": {
+      "A1_damage": {
+        "ce_damage": 1.1075,
+        "ce_lb975": 1.0015,
+        "ce_ub975": 1.2215,
+        "margin_damage": 2.4455,
+        "top1_change_rate": 0.5312
+      },
+      "C_damage": {
+        "ce_damage": -0.0027,
+        "ce_lb975": -0.0078,
+        "ce_ub975": 0.0018,
+        "margin_damage": -0.0355,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0018,
+      "cell": "verb_preposition_fc_about_for",
+      "joint_extraction": 1.025,
+      "n_held": 16,
+      "specialist_extraction": 0.998,
+      "units_recovery": 0.874
+    }
+  },
+  "pooled_control_rows": 48,
+  "pooled_fit_rows": 48,
+  "predictions": {
+    "pred_a_joint_covers": true,
+    "pred_b_cost_bounded": true,
+    "pred_c_control_clean": true,
+    "pred_d_units_shared": true,
+    "pred_e_generality_costs": false
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_broad_circuit_v373",
+  "seconds": 38.6
+}
