@@ -183,8 +183,8 @@ positions do not become examples.
 
 ## Cell 4 — The native computation before the intervention
 
-Let $$x_{ell,t}\in\mathbb R^{1152}$$ be the residual state at token position $$t$$ entering block
-$$\ell$$. The model first forms the learned residual mixture and RMS-normalizes it:
+Let $x_{\ell,t}\in\mathbb R^{1152}$ be the residual state at token position $t$ entering block
+$\ell$. The model first forms the learned residual mixture and RMS-normalizes it:
 
 $$
 \widetilde{x}_{\ell,t}
@@ -193,7 +193,7 @@ $$
 n_{\ell,t}=\operatorname{RMSNorm}(\widetilde{x}_{\ell,t}).
 $$
 
-This checkpoint uses double-bilinear, squared attention. For head $$h$$:
+This checkpoint uses double-bilinear, squared attention. For head $h$:
 
 $$
 q^{(1)}_{t,h}=W^{Q1}_{\ell,h}n_{\ell,t},\quad
@@ -259,7 +259,7 @@ The identified writers are
 routes = ("L8H1", "L9H1", "L9H4", "L11H3")
 ```
 
-For a base row $$b$$ and matched donor row $$d$$, the actual intervention replaces each selected
+For a base row $b$ and matched donor row $d$, the actual intervention replaces each selected
 pre-`c_proj` head result at every position through the semantic endpoint:
 
 $$
@@ -392,17 +392,17 @@ tokens and earlier residual states
 ```
 
 The shared-weight result is more precise than “similar directions.” After contracting one occupied
-MLP11 reader mode, each head has a map $$M_h\in\mathbb R^{1152\times128}$$. Their raw matrices are
+MLP11 reader mode, each head has a map $M_h\in\mathbb R^{1152\times128}$. Their raw matrices are
 not copies, because the 128-dimensional private coordinates have independent gauges. Their physical
-context-side Grams $$M_hM_h^{\mathsf T}$$ are similar, supporting
+context-side Grams $M_hM_h^{\mathsf T}$ are similar, supporting
 
 $$
 M_h=UA_h+E_h,
 $$
 
-where $$U$$ is a shared residual-context direction, $$A_h$$ is a head-private adapter, and $$E_h$$
+where $U$ is a shared residual-context direction, $A_h$ is a head-private adapter, and $E_h$
 is a private tail. This is currently a weight-capability grouping result. The common core and private
-tails have not yet passed causal swaps, so it would be premature to call $$U$$ the extracted tense
+tails have not yet passed causal swaps, so it would be premature to call $U$ the extracted tense
 variable.
 
 ## Cell 9 — Exact local computation through MLP11
@@ -418,8 +418,8 @@ self tensor:  [4 heads, 4 readers, 128 head coordinates, 128 head coordinates]
               [4, 4, 128, 128]
 ```
 
-For context $$x\in\mathbb R^{1152}$$, head result $$z_h\in\mathbb R^{128}$$, and reader coordinate
-$$a$$, the exact restricted MLP response is
+For context $x\in\mathbb R^{1152}$, head result $z_h\in\mathbb R^{128}$, and reader coordinate
+$a$, the exact restricted MLP response is
 
 $$
 y_{h,a}(x,z_h)
@@ -428,7 +428,7 @@ y_{h,a}(x,z_h)
 $$
 
 The four per-head formula relative errors are between
-$$3.06\times10^{-7}$$ and $$8.78\times10^{-7}$$. This is the strongest current “write out the
+$3.06\times10^{-7}$ and $8.78\times10^{-7}$. This is the strongest current “write out the
 computation” result: it is an exact checkpoint-derived local tensor, not an activation regression.
 
 But MLP11 is only a minor branch. When all four heads are removed, restoring the complete induced
