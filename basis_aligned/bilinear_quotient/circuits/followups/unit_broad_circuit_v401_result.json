@@ -1,0 +1,132 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "joint_min": 0.8,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_broad_circuit_v401",
+  "final_loss": 0.00021,
+  "finished_utc": "2026-09-09T16:13:27.140915+00:00",
+  "joint_units": [
+    "attn:11:head:02",
+    "attn:07:head:08",
+    "attn:02:head:02",
+    "attn:04:head:07",
+    "attn:06:head:03",
+    "attn:09:head:07",
+    "attn:05:head:06",
+    "attn:16:head:08"
+  ],
+  "n_joint_units": 8,
+  "per_shape": {
+    "A_inspect": {
+      "A1_damage": {
+        "ce_damage": 0.4974,
+        "ce_lb975": 0.4281,
+        "ce_ub975": 0.5776,
+        "margin_damage": 2.6467,
+        "top1_change_rate": 0.4062
+      },
+      "C_damage": {
+        "ce_damage": -0.0075,
+        "ce_lb975": -0.0164,
+        "ce_ub975": 0.0007,
+        "margin_damage": -0.0511,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0007,
+      "cell": "determiner_number_crates",
+      "joint_extraction": 0.996,
+      "n_held": 16,
+      "specialist_extraction": 0.898,
+      "units_recovery": 0.898
+    },
+    "B_agreement": {
+      "A1_damage": {
+        "ce_damage": 0.5721,
+        "ce_lb975": 0.499,
+        "ce_ub975": 0.6613,
+        "margin_damage": 2.5159,
+        "top1_change_rate": 0.375
+      },
+      "C_damage": {
+        "ce_damage": -0.0075,
+        "ce_lb975": -0.0164,
+        "ce_ub975": 0.0007,
+        "margin_damage": -0.0511,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0007,
+      "cell": "determiner_number_fb_crates",
+      "joint_extraction": 0.988,
+      "n_held": 16,
+      "specialist_extraction": null,
+      "units_recovery": 0.913
+    },
+    "C_report": {
+      "A1_damage": {
+        "ce_damage": 0.6103,
+        "ce_lb975": 0.5427,
+        "ce_ub975": 0.686,
+        "margin_damage": 2.7444,
+        "top1_change_rate": 0.375
+      },
+      "C_damage": {
+        "ce_damage": -0.0075,
+        "ce_lb975": -0.0164,
+        "ce_ub975": 0.0007,
+        "margin_damage": -0.0511,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0007,
+      "cell": "determiner_number_fc_crates",
+      "joint_extraction": 0.986,
+      "n_held": 16,
+      "specialist_extraction": null,
+      "units_recovery": 0.9
+    },
+    "D_denial": {
+      "A1_damage": {
+        "ce_damage": 0.5487,
+        "ce_lb975": 0.4844,
+        "ce_ub975": 0.6231,
+        "margin_damage": 2.3366,
+        "top1_change_rate": 0.3438
+      },
+      "C_damage": {
+        "ce_damage": -0.0075,
+        "ce_lb975": -0.0164,
+        "ce_ub975": 0.0007,
+        "margin_damage": -0.0511,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0007,
+      "cell": "determiner_number_fd_crates",
+      "joint_extraction": 0.974,
+      "n_held": 16,
+      "specialist_extraction": null,
+      "units_recovery": 0.914
+    }
+  },
+  "pooled_control_rows": 64,
+  "pooled_fit_rows": 64,
+  "predictions": {
+    "pred_a_joint_covers": true,
+    "pred_b_units_transfer": true,
+    "pred_c_control_clean": true,
+    "pred_d_counted_shape_kept": true,
+    "pred_e_some_shape_resists": false
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_broad_circuit_v401",
+  "seconds": 38.7
+}
