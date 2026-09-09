@@ -1,0 +1,94 @@
+{
+  "arms": {
+    "fam": {
+      "A1_absolute": 0.878,
+      "A2_absolute": 0.843,
+      "C_damage": {
+        "ce_damage": -0.0027,
+        "ce_lb975": -0.0176,
+        "ce_ub975": 0.0104
+      },
+      "C_ub975": 0.0104,
+      "P_damage": {
+        "ce_damage": 1.4223,
+        "ce_lb975": 1.0428,
+        "ce_ub975": 1.8072
+      },
+      "P_ub975": 1.8072,
+      "n_controls": 3,
+      "siblings": {
+        "correlative_but_and": 0.0053,
+        "correlative_or_and": 0.0047
+      }
+    },
+    "own": {
+      "A1_absolute": 0.88,
+      "A2_absolute": 0.845,
+      "C_damage": {
+        "ce_damage": -0.0063,
+        "ce_lb975": -0.0198,
+        "ce_ub975": 0.0064
+      },
+      "C_ub975": 0.0064,
+      "P_damage": {
+        "ce_damage": 1.4243,
+        "ce_lb975": 1.0755,
+        "ce_ub975": 1.7807
+      },
+      "P_ub975": 1.7807,
+      "n_controls": 1,
+      "siblings": {
+        "correlative_but_and": 0.2289,
+        "correlative_or_and": 0.2315
+      }
+    }
+  },
+  "bars": {
+    "c_ub": 0.01,
+    "cost": 0.1,
+    "floor": 0.8,
+    "rank": 1,
+    "sib_max": 0.05,
+    "tol": 0.05
+  },
+  "candidate_id": "corpus.unit_correlative_das_sibcontrol_v423",
+  "cell": "correlative_pair",
+  "finished_utc": "2026-09-09T18:54:33.295704+00:00",
+  "meta": {
+    "exact_A1": 0.88,
+    "exact_A2": 0.889,
+    "n_units": 12,
+    "units": [
+      "attn:08:head:01",
+      "attn:07:head:08",
+      "attn:14:head:08",
+      "attn:16:head:08",
+      "attn:09:head:07",
+      "attn:10:head:05",
+      "attn:13:head:08",
+      "attn:08:head:08",
+      "attn:15:head:01",
+      "attn:11:head:07",
+      "attn:09:head:05",
+      "attn:05:head:06"
+    ]
+  },
+  "predictions": {
+    "pred_a_own_arm_reproduces": true,
+    "pred_b_fam_spares_siblings": true,
+    "pred_c_fam_keeps_A1": true,
+    "pred_d_cost_of_control": true,
+    "pred_e_C_still_spared": false
+  },
+  "rank": 1,
+  "schema": "unit_correlative_das_sibcontrol_v423",
+  "seconds": 58.4,
+  "siblings": [
+    "correlative_but_and",
+    "correlative_or_and"
+  ],
+  "v417_reference": {
+    "A1_absolute": 0.88,
+    "max_sibling": 0.2315
+  }
+}
