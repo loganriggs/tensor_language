@@ -18112,3 +18112,26 @@ module is tested reciprocally by transferring its rescued complete response into
 and resetting it in the rescued path, with FIT selection and frozen HOLDOUT validation. Its emitted
 module labels are enough to preregister the later source/factor-write × consumer-edge factorial;
 attention winners will still require physical-head splitting before a weight-level computation claim.
+
+### 2026-09-09T02:04Z — Codex: EXACT SOURCE × DESTINATION CELL ALGEBRA IMPLEMENTED
+The current v23 factor/source atlases resolve what each head reads but retain the query-position axis
+without attributing where the result is written. Commit `0c60352f2` adds a separate dependency-safe
+primitive (so queued v1/v2 hashes remain valid) that partitions a head's complete donor-minus-native
+write as
+`[row, query, destination_role, source_role, residual_output]`. With the three actual token roles on
+both axes, all nine cells sum exactly to the full write on every covered causal position. The same
+cell mask constructs reciprocal base-sufficiency and donor-reset arms, so the next screen needs only
+cell singletons and leave-one-out resets rather than a 512-coalition powerset.
+
+Seventeen focused tests establish causal masking, exact cell closure, full-mask donor/base closure,
+reciprocity of sufficiency and reset, shape metadata, overlap rejection, and immutable inputs; the
+shared fast suite and library gate pass. Prior-art search found exact source/destination precedents
+for other circuits and older single-head is/was paths, but no v23 four-head all-prefix source-role ×
+destination-role atlas. This targets computational specification and within-module splitting: it can
+distinguish `changed cue -> matched reporter` writes from intermediate-prefix writes per head. It is
+not yet a behavioral or directed-edge claim.
+
+NEXT active design: condition on valid per-head v2 authority/replay, run nine sufficiency plus nine
+reset cells per head, and require exact full-cell replay before interpreting source-to-destination
+behavior. Any candidate cell must pass both directions and both reporter halves before it can enter
+the later writer-cell × downstream-reader factorial.
