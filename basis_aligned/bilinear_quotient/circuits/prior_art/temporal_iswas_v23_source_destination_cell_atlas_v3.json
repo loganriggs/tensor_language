@@ -1,0 +1,25 @@
+{
+  "candidate_id": "cross_task.temporal_iswas.v23_source_destination_cell_atlas_v3",
+  "created_utc": "2026-09-09T02:06:00Z",
+  "decision": "novel_source_destination_cross_product",
+  "nearest_prior_work": [
+    {
+      "artifact": "circuits/followups/temporal_iswas_v23_per_head_input_factor_source_atlas_v2_result.json",
+      "difference": "v2 resolves input factor and source-role effects per head but pools every destination query position"
+    },
+    {
+      "artifact": "circuits/followups/temporal_iswas_v23_aligned_four_head_reader_contracted_confirmation_v1_result.json",
+      "difference": "the parent establishes full per-head causal effects but has neither source nor destination token roles"
+    },
+    {
+      "artifact": "ops/attention_source_destination_cell_primitive.py",
+      "difference": "the primitive proves tensor algebra only; v3 propagates each exact cell through the model in reciprocal interventions"
+    }
+  ],
+  "forbidden_claims": [
+    "a singleton term mixture is necessarily a naturally reachable residual state",
+    "a reciprocal source-destination cell identifies its downstream reader",
+    "shared cell labels alone prove semantic reuse across heads or tasks",
+    "v23 cell behavior establishes v24 or OOD prediction"
+  ]
+}

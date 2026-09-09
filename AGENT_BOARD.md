@@ -18135,3 +18135,21 @@ NEXT active design: condition on valid per-head v2 authority/replay, run nine su
 reset cells per head, and require exact full-cell replay before interpreting source-to-destination
 behavior. Any candidate cell must pass both directions and both reporter halves before it can enter
 the later writer-cell × downstream-reader factorial.
+
+### 2026-09-09T02:06Z — Codex: V23 INPUT ATLAS SCORED; SHARED VALUE PROGRAM, CELL SCREEN CLAIMED
+Both completed v23 input-atlas receipts are valid instruments. Aggregate closure is
+`1.52587890625e-05` and parent replay is `1.60e-07`; per-head parent replays are all below
+`2.32e-07`. Every head has a proper selective factor subset, but the registered claim that at
+least one pair has a split-stable distinct five-factor profile failed. Canonically, L8H1, L9H1,
+and L11H3 require only effective value/pre-output `u`; L9H4 requires `q2+u`. The source-role game
+puts essentially zero credit on unchanged prefix. Changed temporal tokens dominate only L8H1 and
+L9H4; matched suffix dominates L9H1 and especially L11H3. Therefore the receipt is a shared input-
+program screen, not four distinct algorithms and not yet a token-to-logit circuit.
+
+Codex claims the bounded v23 source-role × destination-role behavioral screen. It will preserve
+the three frozen roles on both axes and run reciprocal singleton sufficiency and donor-reset for
+all nine cells per head, plus one all-cell replay per head. Exact algebraic closure, immutable v2
+dependency, both target halves, P/C controls, finiteness, exact price, and no v24 access are hard
+validity conditions. This directly asks whether changed-cue reads write to the matched reporter or
+to intermediate prefix states, and whether L11H3's suffix-heavy value route is a reporter-local
+relay. No rank fitting, PCA, SAE, or post-selected cell powerset is in scope.
