@@ -1,0 +1,61 @@
+{
+  "bars": {
+    "c_ub": 0.01,
+    "floor": 0.8,
+    "p_ub": 0.08,
+    "rank": 1,
+    "sib_max": 0.05
+  },
+  "candidate_id": "corpus.unit_correlative_das_v417",
+  "cell": "correlative_pair",
+  "finished_utc": "2026-09-09T17:53:33.080704+00:00",
+  "predictions": {
+    "pred_a_A1_absolute": true,
+    "pred_b_A2_absolute": true,
+    "pred_c_C_spared": true,
+    "pred_d_P_spared": false,
+    "pred_e_siblings": false
+  },
+  "rank": 1,
+  "result": {
+    "A1_absolute": 0.88,
+    "A1_normalised": 1.0,
+    "A2_absolute": 0.845,
+    "A2_normalised": 0.951,
+    "C_damage": {
+      "ce_damage": -0.0063,
+      "ce_lb975": -0.0198,
+      "ce_ub975": 0.0064
+    },
+    "C_ub975": 0.0064,
+    "P_damage": {
+      "ce_damage": 1.4243,
+      "ce_lb975": 1.0755,
+      "ce_ub975": 1.7807
+    },
+    "P_ub975": 1.7807,
+    "exact_A1": 0.88,
+    "exact_A2": 0.889,
+    "n_units": 12,
+    "siblings": {
+      "correlative_but_and": 0.2289,
+      "correlative_or_and": 0.2315
+    },
+    "units": [
+      "attn:08:head:01",
+      "attn:07:head:08",
+      "attn:14:head:08",
+      "attn:16:head:08",
+      "attn:09:head:07",
+      "attn:10:head:05",
+      "attn:13:head:08",
+      "attn:08:head:08",
+      "attn:15:head:01",
+      "attn:11:head:07",
+      "attn:09:head:05",
+      "attn:05:head:06"
+    ]
+  },
+  "schema": "unit_correlative_das_v417",
+  "seconds": 47.0
+}
