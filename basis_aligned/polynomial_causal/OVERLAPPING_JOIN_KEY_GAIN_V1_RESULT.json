@@ -1,0 +1,843 @@
+{
+  "scope": "Opened direction/gain diagnosis; no sufficient source-field replacement or structural reduction.",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_direction_dominance": false
+  },
+  "controls": {
+    "passed": true,
+    "checks": {
+      "native_False_False": true,
+      "zero_write_False_False": true,
+      "native_False_True": true,
+      "zero_write_False_True": true,
+      "native_True_False": true,
+      "zero_write_True_False": true,
+      "native_True_True": true,
+      "zero_write_True_True": true,
+      "equal_norm_gain_identity": true,
+      "equal_norm_direction_live": true,
+      "equal_norm_direction_full": true,
+      "radial_full_cancellation": true,
+      "radial_direction_live": true,
+      "hooks_restored": true
+    }
+  },
+  "populations": {
+    "iid": {
+      "nomination": {
+        "0": {
+          "full_gold_change": -0.23731625349319097,
+          "direction_gold_change": -0.4009516920221964,
+          "gain_gold_change": 0.03600858837947753,
+          "direction_ratio": 1.68952478441895,
+          "absolute_gain_ratio": 0.15173249977381206,
+          "denominator_valid": true,
+          "direction_dominance_passed": false
+        },
+        "1": {
+          "full_gold_change": -0.6129563304939216,
+          "direction_gold_change": -0.6492499599786176,
+          "gain_gold_change": 0.05049931955174815,
+          "direction_ratio": 1.0592107915019826,
+          "absolute_gain_ratio": 0.08238648830179415,
+          "denominator_valid": true,
+          "direction_dominance_passed": true
+        }
+      },
+      "groups": {
+        "0": {
+          "0": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.6334625674835495
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.684270084637246
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.6838046717077566
+              }
+            },
+            "full_effect_rms": 0.6838046717077566,
+            "direction_full_relative_error": 0.2766062700204045,
+            "gain_full_relative_error": 1.9114061341310198,
+            "interaction_rms": 0.7131370198051215,
+            "interaction_over_full_rms": 1.0428957995038397,
+            "effect_denominator_floored": false
+          },
+          "1": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 3.107287788311347e-05,
+                "gold_probability_change": 3.107287788311347e-05,
+                "removal_gold_loss": -3.107287788311347e-05,
+                "centered_effect_rms": 0.6636074183801246
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -1.4406882699553869e-05,
+                "gold_probability_change": -1.4406882699553869e-05,
+                "removal_gold_loss": 1.4406882699553869e-05,
+                "centered_effect_rms": 0.7245007079764456
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 2.9832362903391835e-05,
+                "gold_probability_change": 2.9832362903391835e-05,
+                "removal_gold_loss": -2.9832362903391835e-05,
+                "centered_effect_rms": 0.7341213702367843
+              }
+            },
+            "full_effect_rms": 0.7341213702367843,
+            "direction_full_relative_error": 0.6393701003026289,
+            "gain_full_relative_error": 1.3455541042098844,
+            "interaction_rms": 0.4036607831586318,
+            "interaction_over_full_rms": 0.5498556499294315,
+            "effect_denominator_floored": false
+          },
+          "2": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 0.59375,
+                "target_probability_gain": -0.4369086166432454,
+                "gold_probability_change": -0.4369086166432454,
+                "removal_gold_loss": 0.4369086166432454,
+                "centered_effect_rms": 3.449686391687129
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0010636077068112183,
+                "gold_probability_change": 0.0010636077068112183,
+                "removal_gold_loss": -0.0010636077068112183,
+                "centered_effect_rms": 2.917336105577649
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 0.59375,
+                "target_probability_gain": -0.4130716571454425,
+                "gold_probability_change": -0.4130716571454425,
+                "removal_gold_loss": 0.4130716571454425,
+                "centered_effect_rms": 3.2590087062224917
+              }
+            },
+            "full_effect_rms": 3.2590087062224917,
+            "direction_full_relative_error": 0.18540994021145174,
+            "gain_full_relative_error": 1.7818326357899377,
+            "interaction_rms": 2.7049871703567905,
+            "interaction_over_full_rms": 0.8300030512935125,
+            "effect_denominator_floored": false
+          },
+          "3": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 0.96875,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 0.59375,
+                "target_probability_gain": -0.4009516920221964,
+                "gold_probability_change": -0.4009516920221964,
+                "removal_gold_loss": 0.4009516920221964,
+                "centered_effect_rms": 4.88693324153226
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.03600858837947753,
+                "gold_probability_change": 0.03600858837947753,
+                "removal_gold_loss": -0.03600858837947753,
+                "centered_effect_rms": 4.7233637944849125
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 0.75,
+                "target_probability_gain": -0.23731625349319097,
+                "gold_probability_change": -0.23731625349319097,
+                "removal_gold_loss": 0.23731625349319097,
+                "centered_effect_rms": 4.207015055076835
+              }
+            },
+            "full_effect_rms": 4.207015055076835,
+            "direction_full_relative_error": 0.21953292096984595,
+            "gain_full_relative_error": 2.0291193467122834,
+            "interaction_rms": 4.0562155299612686,
+            "interaction_over_full_rms": 0.9641552209484993,
+            "effect_denominator_floored": false
+          }
+        },
+        "1": {
+          "0": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 1.0950962359146388e-13,
+                "gold_probability_change": 1.0950962359146388e-13,
+                "removal_gold_loss": -1.0950962359146388e-13,
+                "centered_effect_rms": 0.6218874944075501
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -2.653433028854124e-14,
+                "gold_probability_change": -2.653433028854124e-14,
+                "removal_gold_loss": 2.653433028854124e-14,
+                "centered_effect_rms": 0.654957271542065
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 9.294648384283732e-14,
+                "gold_probability_change": 9.294648384283732e-14,
+                "removal_gold_loss": -9.294648384283732e-14,
+                "centered_effect_rms": 0.6829294256730254
+              }
+            },
+            "full_effect_rms": 0.6829294256730254,
+            "direction_full_relative_error": 0.27899560233333603,
+            "gain_full_relative_error": 1.8679448034422006,
+            "interaction_rms": 0.6926902045000366,
+            "interaction_over_full_rms": 1.0142925146582928,
+            "effect_denominator_floored": false
+          },
+          "1": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0028701610303316846,
+                "gold_probability_change": 0.0028701610303316846,
+                "removal_gold_loss": -0.0028701610303316846,
+                "centered_effect_rms": 0.6324341786530036
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 0.96875,
+                "target_probability_gain": -0.008954462853316261,
+                "gold_probability_change": -0.008954462853316261,
+                "removal_gold_loss": 0.008954462853316261,
+                "centered_effect_rms": 0.8513646527789894
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -0.0008157169875445298,
+                "gold_probability_change": -0.0008157169875445298,
+                "removal_gold_loss": 0.0008157169875445298,
+                "centered_effect_rms": 0.5472077019979884
+              }
+            },
+            "full_effect_rms": 0.5472077019979884,
+            "direction_full_relative_error": 0.9549436657216749,
+            "gain_full_relative_error": 1.8859329832838672,
+            "interaction_rms": 0.44658755689557506,
+            "interaction_over_full_rms": 0.8161207440337102,
+            "effect_denominator_floored": false
+          },
+          "2": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -2.072936979467116e-05,
+                "gold_probability_change": -2.072936979467116e-05,
+                "removal_gold_loss": 2.072936979467116e-05,
+                "centered_effect_rms": 1.210565794660101
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -2.6116184048064622e-05,
+                "gold_probability_change": -2.6116184048064622e-05,
+                "removal_gold_loss": 2.6116184048064622e-05,
+                "centered_effect_rms": 0.7202156540036019
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -3.073875716583241e-05,
+                "gold_probability_change": -3.073875716583241e-05,
+                "removal_gold_loss": 3.073875716583241e-05,
+                "centered_effect_rms": 1.2707918421421454
+              }
+            },
+            "full_effect_rms": 1.2707918421421454,
+            "direction_full_relative_error": 0.33613390087703066,
+            "gain_full_relative_error": 1.3936937795300608,
+            "interaction_rms": 0.6474294249217554,
+            "interaction_over_full_rms": 0.509469295797806,
+            "effect_denominator_floored": false
+          },
+          "3": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 0.96875,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 0.3125,
+                "target_probability_gain": -0.6492499599786176,
+                "gold_probability_change": -0.6492499599786176,
+                "removal_gold_loss": 0.6492499599786176,
+                "centered_effect_rms": 1.8478389413104563
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.05049931955174815,
+                "gold_probability_change": 0.05049931955174815,
+                "removal_gold_loss": -0.05049931955174815,
+                "centered_effect_rms": 1.2439832627355776
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 0.3125,
+                "target_probability_gain": -0.6129563304939216,
+                "gold_probability_change": -0.6129563304939216,
+                "removal_gold_loss": 0.6129563304939216,
+                "centered_effect_rms": 1.7843882815538565
+              }
+            },
+            "full_effect_rms": 1.7843882815538565,
+            "direction_full_relative_error": 0.12462562312426072,
+            "gain_full_relative_error": 1.5980874857569176,
+            "interaction_rms": 1.1511224690146726,
+            "interaction_over_full_rms": 0.6451076152620033,
+            "effect_denominator_floored": false
+          }
+        }
+      },
+      "source_gain_ratio": {
+        "min": 0.9978025851311579,
+        "mean": 1.103747981353354,
+        "max": 1.6895246630799474
+      }
+    },
+    "ood_two_12cycles": {
+      "nomination": {
+        "0": {
+          "full_gold_change": -0.4121598284886907,
+          "direction_gold_change": -0.5813233308432344,
+          "gain_gold_change": 0.0005427647606979433,
+          "direction_ratio": 1.410431804998641,
+          "absolute_gain_ratio": 0.0013168793346216084,
+          "denominator_valid": true,
+          "direction_dominance_passed": false
+        },
+        "1": {
+          "full_gold_change": -0.7569803173245496,
+          "direction_gold_change": -0.8014297220392479,
+          "gain_gold_change": 0.035449557245823285,
+          "direction_ratio": 1.0587193665375594,
+          "absolute_gain_ratio": 0.046830223236338855,
+          "denominator_valid": true,
+          "direction_dominance_passed": true
+        }
+      },
+      "groups": {
+        "0": {
+          "0": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -1.0824674490095276e-14,
+                "gold_probability_change": -1.0824674490095276e-14,
+                "removal_gold_loss": 1.0824674490095276e-14,
+                "centered_effect_rms": 0.4738151768957917
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 1.1796119636642288e-16,
+                "gold_probability_change": 1.1796119636642288e-16,
+                "removal_gold_loss": -1.1796119636642288e-16,
+                "centered_effect_rms": 0.4075902222001564
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -1.362104873336989e-14,
+                "gold_probability_change": -1.362104873336989e-14,
+                "removal_gold_loss": 1.362104873336989e-14,
+                "centered_effect_rms": 0.5176517870934123
+              }
+            },
+            "full_effect_rms": 0.5176517870934123,
+            "direction_full_relative_error": 0.32258823509000106,
+            "gain_full_relative_error": 1.6205650070818005,
+            "interaction_rms": 0.40227643530850415,
+            "interaction_over_full_rms": 0.777117833529109,
+            "effect_denominator_floored": false
+          },
+          "1": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -2.875628712165068e-07,
+                "gold_probability_change": -2.875628712165068e-07,
+                "removal_gold_loss": 2.875628712165068e-07,
+                "centered_effect_rms": 0.8450932946860585
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 1.2606675255655286e-06,
+                "gold_probability_change": 1.2606675255655286e-06,
+                "removal_gold_loss": -1.2606675255655286e-06,
+                "centered_effect_rms": 0.892320337497034
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 8.656099412633622e-07,
+                "gold_probability_change": 8.656099412633622e-07,
+                "removal_gold_loss": -8.656099412633622e-07,
+                "centered_effect_rms": 0.8039634798456354
+              }
+            },
+            "full_effect_rms": 0.8039634798456354,
+            "direction_full_relative_error": 0.5832341889307529,
+            "gain_full_relative_error": 1.720476930624654,
+            "interaction_rms": 0.5976146650831393,
+            "interaction_over_full_rms": 0.7433355868327303,
+            "effect_denominator_floored": false
+          },
+          "2": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 0.34375,
+                "target_probability_gain": -0.6722467834804928,
+                "gold_probability_change": -0.6722467834804928,
+                "removal_gold_loss": 0.6722467834804928,
+                "centered_effect_rms": 4.461605181236609
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 9.258071897208509e-06,
+                "gold_probability_change": 9.258071897208509e-06,
+                "removal_gold_loss": -9.258071897208509e-06,
+                "centered_effect_rms": 3.4192582601136894
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 0.46875,
+                "target_probability_gain": -0.5882090302882982,
+                "gold_probability_change": -0.5882090302882982,
+                "removal_gold_loss": 0.5882090302882982,
+                "centered_effect_rms": 4.291367870176774
+              }
+            },
+            "full_effect_rms": 4.291367870176774,
+            "direction_full_relative_error": 0.11095929850479648,
+            "gain_full_relative_error": 1.7133597690703883,
+            "interaction_rms": 3.1913338242579394,
+            "interaction_over_full_rms": 0.7436635405779087,
+            "effect_denominator_floored": false
+          },
+          "3": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 0.4375,
+                "target_probability_gain": -0.5813233308432344,
+                "gold_probability_change": -0.5813233308432344,
+                "removal_gold_loss": 0.5813233308432344,
+                "centered_effect_rms": 5.378500478050081
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0005427647606979433,
+                "gold_probability_change": 0.0005427647606979433,
+                "removal_gold_loss": -0.0005427647606979433,
+                "centered_effect_rms": 5.025862750062146
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 0.625,
+                "target_probability_gain": -0.4121598284886907,
+                "gold_probability_change": -0.4121598284886907,
+                "removal_gold_loss": 0.4121598284886907,
+                "centered_effect_rms": 4.729460828546755
+              }
+            },
+            "full_effect_rms": 4.729460828546755,
+            "direction_full_relative_error": 0.2335246148631435,
+            "gain_full_relative_error": 1.980932793230527,
+            "interaction_rms": 4.27610198576645,
+            "interaction_over_full_rms": 0.9041415376476201,
+            "effect_denominator_floored": false
+          }
+        },
+        "1": {
+          "0": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -3.560624017850955e-13,
+                "gold_probability_change": -3.560624017850955e-13,
+                "removal_gold_loss": 3.560624017850955e-13,
+                "centered_effect_rms": 0.4871518933182834
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -3.1792901644678295e-12,
+                "gold_probability_change": -3.1792901644678295e-12,
+                "removal_gold_loss": 3.1792901644678295e-12,
+                "centered_effect_rms": 0.39824688653008977
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -3.752394228673239e-12,
+                "gold_probability_change": -3.752394228673239e-12,
+                "removal_gold_loss": 3.752394228673239e-12,
+                "centered_effect_rms": 0.5387216650148102
+              }
+            },
+            "full_effect_rms": 0.5387216650148102,
+            "direction_full_relative_error": 0.2917230859441564,
+            "gain_full_relative_error": 1.5873281813352718,
+            "interaction_rms": 0.40850916424938366,
+            "interaction_over_full_rms": 0.7582935507859205,
+            "effect_denominator_floored": false
+          },
+          "1": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -2.632441009609715e-06,
+                "gold_probability_change": -2.632441009609715e-06,
+                "removal_gold_loss": 2.632441009609715e-06,
+                "centered_effect_rms": 0.7278887180095585
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -4.77531072816742e-06,
+                "gold_probability_change": -4.77531072816742e-06,
+                "removal_gold_loss": 4.77531072816742e-06,
+                "centered_effect_rms": 0.9529266781665519
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -1.55568053265831e-07,
+                "gold_probability_change": -1.55568053265831e-07,
+                "removal_gold_loss": 1.55568053265831e-07,
+                "centered_effect_rms": 0.6677574168577574
+              }
+            },
+            "full_effect_rms": 0.6677574168577574,
+            "direction_full_relative_error": 0.9368865071262937,
+            "gain_full_relative_error": 1.723850637437856,
+            "interaction_rms": 0.4532694298515831,
+            "interaction_over_full_rms": 0.6787935534801203,
+            "effect_denominator_floored": false
+          },
+          "2": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -0.00048599977064188796,
+                "gold_probability_change": -0.00048599977064188796,
+                "removal_gold_loss": 0.00048599977064188796,
+                "centered_effect_rms": 1.7894006241416696
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -1.1799507013052907e-05,
+                "gold_probability_change": -1.1799507013052907e-05,
+                "removal_gold_loss": 1.1799507013052907e-05,
+                "centered_effect_rms": 1.1092090859439034
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 1.0,
+                "target_accuracy": 1.0,
+                "target_probability_gain": -0.0003533731479238994,
+                "gold_probability_change": -0.0003533731479238994,
+                "removal_gold_loss": 0.0003533731479238994,
+                "centered_effect_rms": 1.7316451852940904
+              }
+            },
+            "full_effect_rms": 1.7316451852940904,
+            "direction_full_relative_error": 0.2274669907707817,
+            "gain_full_relative_error": 1.5231789981849648,
+            "interaction_rms": 0.941392698814704,
+            "interaction_over_full_rms": 0.5436406411714328,
+            "effect_denominator_floored": false
+          },
+          "3": {
+            "factorial": {
+              "native": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 0.96875,
+                "target_probability_gain": 0.0,
+                "gold_probability_change": 0.0,
+                "removal_gold_loss": -0.0,
+                "centered_effect_rms": 0.0
+              },
+              "direction": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 0.09375,
+                "target_probability_gain": -0.8014297220392479,
+                "gold_probability_change": -0.8014297220392479,
+                "removal_gold_loss": 0.8014297220392479,
+                "centered_effect_rms": 2.7420381874494635
+              },
+              "gain": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 0.96875,
+                "target_probability_gain": 0.035449557245823285,
+                "gold_probability_change": 0.035449557245823285,
+                "removal_gold_loss": -0.035449557245823285,
+                "centered_effect_rms": 1.7208474880256663
+              },
+              "full": {
+                "n": 32,
+                "native_accuracy": 0.96875,
+                "target_accuracy": 0.125,
+                "target_probability_gain": -0.7569803173245496,
+                "gold_probability_change": -0.7569803173245496,
+                "removal_gold_loss": 0.7569803173245496,
+                "centered_effect_rms": 2.823538562375486
+              }
+            },
+            "full_effect_rms": 2.823538562375486,
+            "direction_full_relative_error": 0.135531603719595,
+            "gain_full_relative_error": 1.5350392074281414,
+            "interaction_rms": 1.7455687162939761,
+            "interaction_over_full_rms": 0.6182202501337197,
+            "effect_denominator_floored": false
+          }
+        }
+      },
+      "source_gain_ratio": {
+        "min": 0.9983635945932293,
+        "mean": 1.1167145645372638,
+        "max": 1.6240685657953187
+      }
+    }
+  },
+  "oracle_max_abs": 1.1368683772161603e-13,
+  "saved_replay_max_abs": 0.0,
+  "reuse_max_abs": 0.0,
+  "source_support_valid": true,
+  "independent_worlds": 32,
+  "requests": 512,
+  "opaque_export_constants": 387968,
+  "source_sha256": "9816f643cb7f42c578ab9a7db1006fdeedb94a4670e81a2cd508660352228678",
+  "rows_sha256": "83f2ac14394f78c7b6e9e084328c617f9b631bd0c865fb347c29bcdf2fda23a7",
+  "runner_sha256": "46ad3154f4d8309c35043276b8ad6a5aa7d6dae5a6af84871619108d0b910fd9",
+  "prereg_sha256": "01c72ee82970897cb20afe2658bad1b62ae330ee86d40fd60a5523f180363cd1",
+  "reference_sha256": "6a23ac67b5881e7af3edebd5b8af3e657c3dd4cb9291b464dce4b3f8ef0ed638",
+  "wall_seconds": 1.646692667156458
+}

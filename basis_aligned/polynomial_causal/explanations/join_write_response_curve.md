@@ -183,3 +183,69 @@ separates direction K(x-v) from RMS gain g(x-v), before interpreting a changed
 key as address information. It is a confound diagnostic, not a replacement for
 the failed composition or full-source sufficiency tests. No structural
 simplification has yet been established by these response decompositions.
+
+
+## Directional key changes and normalization are coupled
+
+The [direction/gain audit](../OVERLAPPING_JOIN_KEY_GAIN_V1_RESULT.json) passes
+14 controls and native correspondence1.14e-13, with saved-query replay and
+source reuse exactly0 on512 opened requests. CPU1.647 seconds. Direction-only
+key cuts overshoot full-key hop3 gold effects by ratios1.690/1.410 forward,
+versus1.059/1.059 backward. Gain-only changes partly offset the damage. The
+fixed direction-dominance nomination fails across the two consumers; it cannot
+be rescued by retaining only the backward query. Direction-only full-vector
+errors are .220/.234 forward and .125/.136 backward. This is explicit coupling,
+not evidence that address information is absent.
+
+The [producer split](../OVERLAPPING_JOIN_ADDRESS_PRODUCERS_V1_RESULT.json) then
+isolates E, the direct earlier source-value embedding; O, the existing L1
+previous-key path; and exact remainder R within the L2H2 write. With final
+source gain and values fixed, their key response is quadratic. Native/oracle
+error1.56e-13, saved full-direction replay1.42e-14, reuse0, and vanishing
+three-way interaction2.84e-13 verify the512-request CPU screen (3.540 seconds).
+The fixed E-forward/O-backward address split fails: E/full forward task ratios
+are -.00554/-.00021, while O/full is1.183/1.160. O also accounts for the backward
+query, with ratios1.014/1.010. The E+O sufficient interface fails, with hop3
+full-vector errors .119–.165. No path expansion or new origin-field interchange
+claim follows. This points to a shared computation involving O, rather than
+the proposed two independent address payloads.
+
+## An explicit origin-key × endpoint-value interaction
+
+The [interaction screen](../ORIGIN_ENDPOINT_INTERACTION_V1_RESULT.json) groups
+O through the final keys with the direct forward endpoint field F through the
+final values, at the same two source positions. It is an additive interaction
+node in the expanded native read, with original source gains and queries:
+
+    I = native - O_key_cut - F_value_cut + both_cuts.
+
+Equivalently, it multiplies the change in key-pair score caused by O by the
+projected endpoint payload F, summed over all four final heads. This gives
+explicit producers and consumers across L1, L2H1/H2 and L3. O's input remains
+contextual; the formula alone does not prove a pure three-edge lookup.
+
+Seven controls and full-position native projection-hook correspondence1.14e-13
+validate the node knockout native-I on512 opened requests, CPU1.859 seconds.
+It is not a physical L2 source removal. The registered circuit nomination
+**fails**: IID forward-hop3 gold loss .48058 is below .5; OOD loss .66782 and
+all other query/hop selectivity panels pass. The largest control mean absolute
+gold change is .01444. No rescaling, sample selection or threshold relaxation
+is allowed. All387968 native export coefficients and the remainder remain.
+
+The [saved-output route census](../ENDPOINT_ROUTE_PARTITION_V1_RESULT.json)
+partitions total endpoint read T into I and J, where J is the remaining read
+with O removed from keys. CPU .0246 seconds; exact knockout/partition replay
+1.14e-13. On32 IID target cases,13 fail only the I single knockout,7 only the
+J single knockout,1 either single,10 only the joint, and1 is a native error.
+On32 OOD cases,21 fail only I,4 only J,6 only the joint, and1 survives all
+knockouts. No nonmonotone joint rescue occurs in these target cases; all other
+query/hop groups and both order strata remain in the receipt.
+
+Thus16/63 initially correct target cases exhibit backup behavior: both single
+knockouts preserve correctness but their joint removal fails. Total endpoint
+read removal lowers target goldP by .93313/.95114. This explains why a partial
+route need not be individually necessary on every example, but does not turn
+its failed nomination into a pass. J is not yet an identified advance-then-read
+algorithm. The next [query-lineage protocol](../ENDPOINT_ROUTE_QUERY_LINEAGE_V1_PREREGISTRATION.md)
+tests which query payloads feed I and J, keeping mixed query terms explicit.
+No reduced structural description has yet been established.

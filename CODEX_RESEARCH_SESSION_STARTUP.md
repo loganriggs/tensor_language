@@ -53,6 +53,58 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Exact endpoint routes show backup; query-lineage test next — 2026-09-09 21:40 UTC
+
+The bilinear reconstruction handoff and appended structural criterion control;
+do not revert to better_math_ideas. This goal turn made progress through three
+native CPU screens and one saved-output census. The complete structural circuit
+objective remains active and unfinished; no failed gate was relaxed.
+
+OVERLAPPING_JOIN_KEY_GAIN_V1 CPU1.647s,512 requests: exact native1.14e-13,
+saved replay/source reuse0,14 controls. Direction-dominance nomination fails:
+forward direction/full task ratios1.690/1.410, backward1.059/1.059. Gain partly
+offsets direction damage; full-vector direction errors .220/.234 forward and
+.125/.136 backward. Carry both direction and normalization in the explanation.
+
+OVERLAPPING_JOIN_ADDRESS_PRODUCERS_V1 CPU3.540s,512 requests: native1.56e-13,
+saved1.42e-14,reuse0; exact quadratic three-way closure2.84e-13. Fixed E-forward/
+O-backward address split fails. E contributes almost none of the forward task
+effect; existing previous-key path O accounts for both query effects. E+O
+full-vector errors .119–.165 reject a sufficient two-path replacement. No
+producer expansion or renewed origin-field interchange claim follows.
+
+ORIGIN_ENDPOINT_INTERACTION_V1 CPU1.859s,512 requests: exact additive node
+I = native - O_key_cut - F_value_cut + both_cuts. O through L2H2 keys interacts
+with direct endpoint F through L2H1 values at the shared source. All final
+heads retained, native gains fixed. Seven controls/native correspondence1.14e-13.
+The node knockout is an expanded-read intervention, not a physical L2 source
+removal. Circuit nomination FAILS: IID target loss .48058 misses .5; OOD .66782
+and all other query/hop selectivity panels pass (max mean abs goldchange .01444).
+Do not rescale, reselect cases or promote the near miss to a passed screen.
+
+ENDPOINT_ROUTE_PARTITION_V1 CPU .0246s uses saved arms to split total endpoint
+read T into I and remaining read J. Exact knockout/partition replay1.14e-13.
+Among63 initially correct target cases,16 tolerate either single-node knockout
+but fail the joint:10 IID/6 OOD. IID32 census:13 only I single fails,7 only J,
+1 both singles fail,10 joint-only,1 native error. OOD32:21 only I,4 only J,
+6 joint-only,1 survives all. Full endpoint-read removal gold losses .933/.951.
+This is backup evidence, not a new passing nomination or identified algorithm
+for J. Full all-hop/order/correctness census preserved.
+
+Next claimed action: ENDPOINT_ROUTE_QUERY_LINEAGE_V1_PREREGISTRATION.md. Use
+existing frozen payload lineage to split final query into original query-entity
+root L (position49) and complement C. At native query gain, keep all source
+features/skip fixed and evaluate Q from L+C,L,C,0. Decompose each exact I/J
+route into local, complement and mixed-query terms. Fixed task nomination tests
+I-local versus J-complement without assuming payload origin proves entity
+identity. Small native Q-port oracle and bounded CPU screen next; derived
+outcomes not opened. No GPU job pending for this claim.
+
+All387968 opaque export constants/native gates/remainders remain priced.
+Canonical dossier: explanations/join_write_response_curve.md. Next hourly21:58,
+mathematical22:49 UTC. Preserve prior metadata overlays and concurrent work;
+stage/push only owned artifacts. Overall goal is unfinished.
+
 ## Overlapping joins couple through keys and values; direction/gain audit next — 2026-09-09 21:19 UTC
 
 The user's bilinear reconstruction handoff and appended structural criterion
