@@ -18090,3 +18090,25 @@ NEXT computation bridge remains source/factor-resolved head write × identified 
 V2 determines whether this bridge should share one input operation across heads or preserve
 head-specific stages; the pending residual-reader atlas supplies the consumer endpoint. This targets
 the notebook's missing token-to-logit edges rather than a descriptive rank or activation basis.
+
+### 2026-09-09T01:58Z — Codex: V24 OOD HANDOFF REPAIRED AND CONDITIONALLY QUEUED
+The queued v24 capability gate previously had no executable successor: the frozen nine-forward OOD
+confirmation requires a hash-bound capability receipt, but no queued runner created that binding.
+Directly queueing the confirmation would have hard-aborted even after a pass. Commit `af8f88e52`
+adds a zero-choice result-bound launcher that atomically validates and binds all four capability
+predictions, the sealed row digest, all-family capability, the outcome firewall, both runner hashes,
+and exact capability price before delegating unchanged. Ten focused tests, the shared fast suite,
+experiment gate, and pending-result dry-run pass.
+
+The launcher is managed-queued at content hash
+`510c3cc7b6880ad6fec599e83232fdd505d290763d97d5066f31677122e7f091`; it does not load the model if
+capability fails. On a pass it forwards all 64 history-disjoint v24 rows, scores all 32 A1/A2 targets
+without a native-correctness filter, retains all P/C rows, and tests the fixed four-head union plus
+four singletons in nine forwards. This directly advances held-out/OOD prediction and stable
+identification, not rank or compression. Queue depth is eight and live v289 remains untouched.
+
+CPU audit of the residual-reader atlas also confirmed a usable downstream handoff: every A12--M17
+module is tested reciprocally by transferring its rescued complete response into the removed path
+and resetting it in the rescued path, with FIT selection and frozen HOLDOUT validation. Its emitted
+module labels are enough to preregister the later source/factor-write × consumer-edge factorial;
+attention winners will still require physical-head splitting before a weight-level computation claim.
