@@ -26,6 +26,17 @@ REGISTERED BEFORE THE RUN (bars in BARS; each coded predicate is the sentence he
     pred_a_new_separable   verb_particle_fc_out_up is separable at the registered cross bar (k_new = 1 of 1). The
                            frame-bound account predicts it; a fusion would bound that account by mapping pair.
                                                                                                           prior 80%
+    pred_b_own_leak_large  in the OWN arm -- own C only, no sibling controls -- verb_particle_fc_out_up's leak into
+                           its frame-A donor is LARGE: |own-arm leak into verb_particle_out_up| >= own_leak_min = 0.20.
+                           This is the predicate that keeps pred_e honest. A cell can pass "separable" either because
+                           the controls did real work or because it never touched its donor in the first place, and
+                           only the second is uninteresting. v341 measured own-arm donor leaks of 0.6577 and 1.0611
+                           for the two frame-B cells whose fam-arm leaks were 0.0026 and 0.0243, and v345 measured
+                           0.5494, so 0.20 sits well below every observation while still being a real floor. Worked
+                           example: an own-arm leak of 0.55 with a fam-arm leak of 0.02 means the frame change made
+                           two circuits out of cells that heavily collide when uncontrolled -- the interesting case;
+                           an own-arm leak of 0.05 would mean the two never interacted and the separability verdict
+                           says nothing about frames.                                                     prior 85%
     pred_c_row4_kept       fam-arm own-C UB975 <= 0.01 on k_d = 1 of the 1 evaluated member.            prior 70%
     pred_d_instrument      the evaluated member's own-arm extraction is within 0.03 of its v349 cdas
                            extraction_held. Fails automatically on an error receipt.                      prior 90%
@@ -38,7 +49,7 @@ REGISTERED BEFORE THE RUN (bars in BARS; each coded predicate is the sentence he
                            change even though found/settled, woke/calmed and cared/voted all did.          prior 75%
 COUNTING. A separable fc_out_up is +1 on 143. A fused one is +0 and is the first mapping pair to fail the frame
 change, which I would report as a bound on the account rather than as a null.
-BARS = {"cross_max": 0.05, "keep": 0.8, "ext_floor": 0.5, "c_ub_max": 0.01, "k_d": 1, "k_new": 1, "instr_tol": 0.03}
+BARS = {"cross_max": 0.05, "keep": 0.8, "ext_floor": 0.5, "c_ub_max": 0.01, "k_d": 1, "k_new": 1, "instr_tol": 0.03, "own_leak_min": 0.2}
 MODEL_FORWARDS_MAX, EXAMPLE_EVALUATIONS_MAX = 20000, 640000
 """
 from __future__ import annotations
@@ -145,7 +156,7 @@ def _parent_cdas(n):
     raise KeyError(n)
 LAM, STEPS, LR, CW = 30.0, 120, 0.05, 1.0
 NEW_MEMBERS = tuple(n for n in EVAL if n not in COUNTED)
-BARS = {"cross_max": 0.05, "keep": 0.8, "ext_floor": 0.5, "c_ub_max": 0.01, "k_d": 1, "k_new": 1, "instr_tol": 0.03}
+BARS = {"cross_max": 0.05, "keep": 0.8, "ext_floor": 0.5, "c_ub_max": 0.01, "k_d": 1, "k_new": 1, "instr_tol": 0.03, "own_leak_min": 0.2}
 MODEL_FORWARDS_MAX, EXAMPLE_EVALUATIONS_MAX = 20000, 640000
 
 
@@ -174,7 +185,12 @@ def PREDS(R):
         sibs = good[CELL]["arms"]["fam"]["siblings"]
         if DONOR in sibs:
             e = abs(sibs[DONOR]) < B["cross_max"]
-    return {"pred_a_new_separable": bool(a), "pred_c_row4_kept": bool(c),
+    b = False
+    if CELL in good:
+        osib = good[CELL]["arms"]["own"]["siblings"]
+        if DONOR in osib:
+            b = abs(osib[DONOR]) >= B["own_leak_min"]
+    return {"pred_a_new_separable": bool(a), "pred_b_own_leak_large": bool(b), "pred_c_row4_kept": bool(c),
             "pred_d_instrument": bool(d), "pred_e_donor_below": bool(e)}
 
 
