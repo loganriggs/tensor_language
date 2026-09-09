@@ -176,3 +176,30 @@ A [separate metadata overlay](../QUERY_HOP_METADATA_CORRECTION_V1.json) also fix
 answer fields were already correct; no registered pair-transport scores change.
 The cross-layer runner uses the shared token-derived hop-fork helper and needs
 no such overlay.
+
+
+## Physical removal does not restore matched-context invariance
+
+The [causal-balance receipt](../ENDPOINT_RENAMING_CAUSAL_BALANCE_V1_RESULT.json)
+uses the saved physical endpoint removals and all384 matched pairs, aligning
+outputs by the known middle/foil transposition. This also aligns hop2's renamed
+answer. The exact accounting deltaL=deltaRemoval+deltaCut closes3.55e-15;
+CPU runtime .062 seconds. The invariant-removal hypothesis fails every group.
+At hop3 removal-vector changes are .35972 IID/.30900 OOD relative to the base
+removal. Removal and remaining-computation changes have cosines -.474/-.322,
+but native output change is1.95/2.48 times the removal change. Thus an opposing
+remainder does not establish the proposed compensation to a smaller total.
+
+Paired native query JS floors are .02533/.05155 at hop3, above the .001 query
+bar. A single label-equivariant distribution on these paired contexts therefore
+cannot provide the required fidelity. IID hop2 also exceeds the bar (.001541);
+OOD hop2 does not (.000329). Hop0/1 floors do not rule invariance out. These are
+restricted paired query bounds, not an all-token bound or a general rejection
+of context-dependent programs. The [existing derivation](entity_symmetry_fidelity_bound.md)
+applies unchanged. Large logit changes can coexist with tiny probability
+changes on saturated hop0 outputs.
+
+The next route explicitly permits context-dependent strengths and asks how
+adjacent joins compose at a shared destination. See the
+[response/composition dossier](join_write_response_curve.md); another constant
+or invariant gate is not a valid continuation of these nulls.

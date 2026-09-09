@@ -127,3 +127,59 @@ with all final readers; see [matcher dossier](join_matcher_factors.md). It finds
 sign compensation at hop3 but fails both grouped-vector portability and agreement
 with physical removal. Neither exact response compilation nor conditional
 path attribution has yet supplied a structurally simpler sufficient circuit.
+
+
+## Two joins writing into the same binding
+
+For a->b->c->d with b->c serialized after its two neighbors, the existing native
+L2H1 forward join and L2H2 backward join write into the same two positions.
+Queries a and F^-1(a) use different two-edge tails there. This tests composition
+of context-dependent computations, without assuming invariant gate strengths.
+
+The [overlap screen](../OVERLAPPING_JOIN_NORMALIZER_V1_RESULT.json) uses512
+opened requests from32 worlds, two overlapping orders, two origins and four
+hops. Native execution and the complete single-write response curves agree to
+1.42e-13/1.03e-13; source writes are identical across the eight query forks.
+The CPU run takes5.224 seconds. Native hop3 accuracy is .969–1 and each
+intended join removal has a large effect, but the writes are not independently
+selective: backward removal changes the other, forward query's gold probability
+by mean absolute .17580 IID/.35091 OOD. Forward removal's OOD cross-change .05944
+also exceeds the .05 bar. No subset of eligible groups is adopted.
+
+A fixed composition hypothesis retained both complete univariate cubic
+numerators and the exact joint RMS denominator, omitting only mixed numerator
+terms around native state. For source state x and writes u,v it uses
+
+    g(x+(a-1)u+(b-1)v)^3 * [P(x+(a-1)u)+P(x+(b-1)v)-P(x)].
+
+The axes a=1 or b=1 are exact. The joint hypothesis fails every registered
+panel: at both-cut, interaction-relative errors are4.784/4.693 forward and
+2.322/2.178 backward IID/OOD. Shared normalization alone is insufficient;
+mixed key/value numerator products are required. This is a different overlap
+from the earlier raw/endpoint field test, which also found that freezing RMS
+did not restore independent field semantics. Neither null is rescued here.
+
+## The backward writer affects both readers through keys and values
+
+The [native port factorial](../OVERLAPPING_JOIN_PORTS_V1_RESULT.json) then uses
+all eight K1/K2/V subsets, with K1+K2 fixed as the address hypothesis. Native
+projection-hook correspondence1.28e-13, saved full-cut replay1.42e-13 and query
+reuse0 validate the instrument on the same512 requests; CPU2.622 seconds.
+All opaque export coefficients and routing are still retained.
+
+For the backward query, key-pair effects recover1.054 IID/1.043 OOD of the full
+cut's signed gold-probability effect; V-only is .045/.035 in absolute ratio.
+For the forward query, the key-pair cut overshoots the full cut: ratios1.351/
+1.176, and the IID value effect is .169 of the full effect. The registered
+shared-address nomination therefore fails; no backward-query-only success
+replaces it. Value-only cuts improve gold probability on both origins, so
+keys and values have partially opposing effects under these interventions.
+Probability effects are nonlinear; their factorial interaction is retained.
+
+Key-pair-only full-vector errors are .187/.187 on the forward query and
+.092/.111 on the backward query. The sufficient-port hypothesis fails too.
+The next [key gain protocol](../OVERLAPPING_JOIN_KEY_GAIN_V1_PREREGISTRATION.md)
+separates direction K(x-v) from RMS gain g(x-v), before interpreting a changed
+key as address information. It is a confound diagnostic, not a replacement for
+the failed composition or full-source sufficiency tests. No structural
+simplification has yet been established by these response decompositions.

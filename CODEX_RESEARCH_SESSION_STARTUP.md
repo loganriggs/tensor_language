@@ -53,6 +53,51 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Overlapping joins couple through keys and values; direction/gain audit next — 2026-09-09 21:19 UTC
+
+The user's bilinear reconstruction handoff and appended structural criterion
+control. Previous goal turn made progress: three completed bounded CPU receipts,
+shared two-write response primitive, canonical explanations and next protocol.
+The full structural circuit objective remains active and unfinished.
+
+ENDPOINT_RENAMING_CAUSAL_BALANCE_V1 .062s, accounting3.55e-15; invariant
+physical-removal hypothesis fails. Hop3 removal changes .360/.309 IID/OOD;
+native output change is1.95/2.48 times removal change, not the proposed smaller
+compensated total. Paired native query JS floors .02533/.05155 exceed .001.
+Do not pursue another constant/invariant gate or endpoint amplitude.
+
+OVERLAPPING_JOIN_NORMALIZER_V1 5.224s CPU: two adjacent
+joins arrive at the same late binding;512 opened requests/32worlds/two orders/
+two query origins/four hops. Fixed L2H1/H2 writes reuse exactly across queries.
+Native/axis correspondence1.42e-13/1.03e-13. Native capability passes, but
+selectivity and shared-normalizer-only composition fail. Backward join removal
+changes forward-query goldP mean absolute .176/.351. Both-cut interaction
+prediction errors4.784/4.693 forward and2.322/2.178 backward. Mixed numerator
+terms matter; no head/scale/field rescue. Complete univariate degrees retained.
+
+OVERLAPPING_JOIN_PORTS_V1 2.622s CPU, same512 requests, full8-subset native
+K1/K2/V factorial. Oracle1.28e-13, saved full physical-cut replay1.42e-13,
+query reuse0. Fixed key-pair candidate overshoots forward-query gold effect
+by ratios1.351/1.176; backward-query ratios1.054/1.043. V-only partly offsets
+key damage. Overall shared-address nomination and sufficient-port hypotheses
+fail. Full-vector errors .187/.187 forward, .092/.111 backward. Do not adopt
+a backward-only subset or call source-port hybrids residual-space edits.
+All387968 opaque export constants/background remain priced.
+
+Next concrete action: OVERLAPPING_JOIN_KEY_GAIN_V1_PREREGISTRATION.md. Before
+interpreting keys as address information, split K(x-v) direction from shared
+RMS gain g(x-v), retaining both query origins and all heads/hops. Exact2x2
+native/direction/gain/full-key factorial; use existing source-port executor,
+cohort and scorer with small native projection hooks. Protocol fixes direction-
+dominance task bars and zero/equal-norm/radial controls. No derived outcomes
+opened and no job running for this claim yet; implement bounded CPU audit next.
+
+Dossiers: explanations/join_matcher_factors.md and join_write_response_curve.md.
+Next hourly21:58, mathematical22:49 UTC; prior2058 ceremony failure repaired
+with shared helper/executor reuse. This block produced three CPU receipts
+within roughly12 minutes of research before publication; no GPU work needed.
+Preserve immutable result sources, metadata overlays and concurrent Claude work.
+
 ## Degree and grouped-path nulls; physical causal balance next — 2026-09-09 21:03 UTC
 
 The bilinear reconstruction handoff and its appended structural criterion

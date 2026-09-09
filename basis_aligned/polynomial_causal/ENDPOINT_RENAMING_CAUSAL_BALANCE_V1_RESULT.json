@@ -1,0 +1,197 @@
+{
+  "scope": "Opened fixed-label physical-removal accounting, not a new replacement or filtered cohort.",
+  "pred_a_instrument": true,
+  "pred_b_invariant_causal_field": false,
+  "oracle_max_abs": 3.552713678800501e-15,
+  "controls": {
+    "passed": true,
+    "checks": {
+      "radius_identity": true,
+      "mixture_attains_bound": true,
+      "identical_zero": true,
+      "forward_vocabulary_alignment": true,
+      "wrong_inverse_alignment_live": true,
+      "disjoint_limit_log2": true
+    }
+  },
+  "populations": {
+    "iid": {
+      "0": {
+        "pairs": 48,
+        "native_delta_rms": 1.7192762487868547,
+        "removal_delta_rms": 0.3271620602227599,
+        "cut_delta_rms": 1.7272711602972115,
+        "base_removal_rms": 0.3457406037071669,
+        "removal_relative_change": 0.9462645021001278,
+        "removal_cut_cosine": -0.11908549714014027,
+        "native_over_removal_delta_rms": 5.25512110914152,
+        "removal_projection_on_native_delta": 0.013444277744978403,
+        "cut_projection_on_native_delta": 0.9865557222550214,
+        "floors": {
+          "removal_base": false,
+          "removal_delta": false,
+          "projection": false
+        },
+        "minimum_paired_mean_query_kl": 9.637130470921298e-17,
+        "invariant_output_ruled_out_at_query_1e3": false,
+        "causal_field_transport_passed": false,
+        "compensating_remainder_diagnostic": false
+      },
+      "1": {
+        "pairs": 48,
+        "native_delta_rms": 2.7410640401647512,
+        "removal_delta_rms": 0.701235716821842,
+        "cut_delta_rms": 2.6824350452853496,
+        "base_removal_rms": 0.9455204781381734,
+        "removal_relative_change": 0.7416399041960963,
+        "removal_cut_cosine": -0.04618698860910924,
+        "native_over_removal_delta_rms": 3.9089053429677967,
+        "removal_projection_on_native_delta": 0.05388388574395955,
+        "cut_projection_on_native_delta": 0.9461161142560406,
+        "floors": {
+          "removal_base": false,
+          "removal_delta": false,
+          "projection": false
+        },
+        "minimum_paired_mean_query_kl": 0.00012202727370159458,
+        "invariant_output_ruled_out_at_query_1e3": false,
+        "causal_field_transport_passed": false,
+        "compensating_remainder_diagnostic": false
+      },
+      "2": {
+        "pairs": 48,
+        "native_delta_rms": 3.308744407565886,
+        "removal_delta_rms": 1.1396014881254046,
+        "cut_delta_rms": 3.3633040146354527,
+        "base_removal_rms": 2.503255703622915,
+        "removal_relative_change": 0.45524773457065565,
+        "removal_cut_cosine": -0.21690467805865432,
+        "native_over_removal_delta_rms": 2.90342232968529,
+        "removal_projection_on_native_delta": 0.042687485305223524,
+        "cut_projection_on_native_delta": 0.9573125146947764,
+        "floors": {
+          "removal_base": false,
+          "removal_delta": false,
+          "projection": false
+        },
+        "minimum_paired_mean_query_kl": 0.0015405114399299994,
+        "invariant_output_ruled_out_at_query_1e3": true,
+        "causal_field_transport_passed": false,
+        "compensating_remainder_diagnostic": false
+      },
+      "3": {
+        "pairs": 48,
+        "native_delta_rms": 2.6913511253809435,
+        "removal_delta_rms": 1.379549899339255,
+        "cut_delta_rms": 3.054979504723962,
+        "base_removal_rms": 3.8351004739627474,
+        "removal_relative_change": 0.3597167554553762,
+        "removal_cut_cosine": -0.47368489445767176,
+        "native_over_removal_delta_rms": 1.9508907410090675,
+        "removal_projection_on_native_delta": -0.012864933503511856,
+        "cut_projection_on_native_delta": 1.0128649335035118,
+        "floors": {
+          "removal_base": false,
+          "removal_delta": false,
+          "projection": false
+        },
+        "minimum_paired_mean_query_kl": 0.02532940012774942,
+        "invariant_output_ruled_out_at_query_1e3": true,
+        "causal_field_transport_passed": false,
+        "compensating_remainder_diagnostic": false
+      }
+    },
+    "ood_two_12cycles": {
+      "0": {
+        "pairs": 48,
+        "native_delta_rms": 2.0210688720575067,
+        "removal_delta_rms": 0.30666097912454143,
+        "cut_delta_rms": 1.989250289407005,
+        "base_removal_rms": 0.3264321132441118,
+        "removal_relative_change": 0.9394326314188789,
+        "removal_cut_cosine": 0.02750845562708733,
+        "native_over_removal_delta_rms": 6.59056420489908,
+        "removal_projection_on_native_delta": 0.0271308267335267,
+        "cut_projection_on_native_delta": 0.9728691732664732,
+        "floors": {
+          "removal_base": false,
+          "removal_delta": false,
+          "projection": false
+        },
+        "minimum_paired_mean_query_kl": 4.362150134981294e-15,
+        "invariant_output_ruled_out_at_query_1e3": false,
+        "causal_field_transport_passed": false,
+        "compensating_remainder_diagnostic": false
+      },
+      "1": {
+        "pairs": 48,
+        "native_delta_rms": 2.9402728499571755,
+        "removal_delta_rms": 0.7609228195649907,
+        "cut_delta_rms": 2.8654469476636293,
+        "base_removal_rms": 0.8559560328065622,
+        "removal_relative_change": 0.8889741883938004,
+        "removal_cut_cosine": -0.03315592963331079,
+        "native_over_removal_delta_rms": 3.864088149752283,
+        "removal_projection_on_native_delta": 0.05861178689315729,
+        "cut_projection_on_native_delta": 0.9413882131068427,
+        "floors": {
+          "removal_base": false,
+          "removal_delta": false,
+          "projection": false
+        },
+        "minimum_paired_mean_query_kl": 1.2431251974849213e-06,
+        "invariant_output_ruled_out_at_query_1e3": false,
+        "causal_field_transport_passed": false,
+        "compensating_remainder_diagnostic": false
+      },
+      "2": {
+        "pairs": 48,
+        "native_delta_rms": 3.3381917058960693,
+        "removal_delta_rms": 1.1374778666589465,
+        "cut_delta_rms": 3.4442670076820834,
+        "base_removal_rms": 2.7198663510016363,
+        "removal_relative_change": 0.4182109412251272,
+        "removal_cut_cosine": -0.2569450738521049,
+        "native_over_removal_delta_rms": 2.9347311308141433,
+        "removal_projection_on_native_delta": 0.025773020688409327,
+        "cut_projection_on_native_delta": 0.9742269793115907,
+        "floors": {
+          "removal_base": false,
+          "removal_delta": false,
+          "projection": false
+        },
+        "minimum_paired_mean_query_kl": 0.00032911931755034404,
+        "invariant_output_ruled_out_at_query_1e3": false,
+        "causal_field_transport_passed": false,
+        "compensating_remainder_diagnostic": false
+      },
+      "3": {
+        "pairs": 48,
+        "native_delta_rms": 3.126164640849075,
+        "removal_delta_rms": 1.2624456213426896,
+        "cut_delta_rms": 3.2947859821780057,
+        "base_removal_rms": 4.085614464377638,
+        "removal_relative_change": 0.30899773641147954,
+        "removal_cut_cosine": -0.3217316849694911,
+        "native_over_removal_delta_rms": 2.4762766712471973,
+        "removal_projection_on_native_delta": 0.026146760930929172,
+        "cut_projection_on_native_delta": 0.9738532390690707,
+        "floors": {
+          "removal_base": false,
+          "removal_delta": false,
+          "projection": false
+        },
+        "minimum_paired_mean_query_kl": 0.0515466997330619,
+        "invariant_output_ruled_out_at_query_1e3": true,
+        "causal_field_transport_passed": false,
+        "compensating_remainder_diagnostic": false
+      }
+    }
+  },
+  "source_sha256": "50374731a2cbdb44169c2c3c67dceac958235548eb5dbf497206f608029c7498",
+  "runner_sha256": "5a0cfc8a980d12603df2af43e1f6e7038c500dbc9f7d2ff184c7f80289892727",
+  "prereg_sha256": "cfb54990a33482c2fc1c56d58c6ca8a6f5f550d6449098e58326e0b79fe7489c",
+  "independent_worlds": 32,
+  "pairs": 384,
+  "wall_seconds": 0.062131475657224655
+}
