@@ -1,0 +1,36 @@
+{
+  "scope": "Exact necessary-condition certificate on stored FP64 forms in one opened context; no ideal-real interval certificate.",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_single_linear_gate_rejected": true
+  },
+  "certificate": {
+    "terminal": "no_common_linear_gate",
+    "form_index": 0,
+    "determinant": "-7370428493052054541059572673006603847730133559961/49039857307708443467467104868809893875799651909875269632"
+  },
+  "controls": {
+    "passed": true,
+    "checks": {
+      "shared_gate_not_rejected": true,
+      "shared_gate_despite_irreducible_block": true,
+      "nonorthogonal_shared_gate_not_rejected": true,
+      "full_rank_quadratic_rejected": true,
+      "nonorthogonal_full_rank_rejected": true,
+      "amplitude_and_joint_edits_0": true,
+      "amplitude_and_joint_edits_1": true,
+      "amplitude_and_joint_edits_2": true,
+      "amplitude_and_joint_edits_3": true,
+      "amplitude_and_joint_edits_4": true,
+      "amplitude_and_joint_edits_5": true
+    },
+    "scope": "Planted common multiplication only; trained route determinants unopened."
+  },
+  "opaque_export_constants": 387968,
+  "source_sha256": "3f195fe72cc86a62b96ba08733c89e4768a6462608b97a0cbf4483fe1b4e3151",
+  "parent_sha256": "da65d2dd43eb1586c619c430863db1a6dc9741cc0c44460811c56b3480fa0a73",
+  "runner_sha256": "bf39c784cc1487f67eece9078ec455ba0583a4c7a8c6d435d9fcedc80ebf465e",
+  "reference_sha256": "42478a01602b2de7d979383a0135d35182403ee18be3042912069c335b75a509",
+  "prereg_sha256": "1dd6e245e06a849493bd81b44fe41c9226c177521fc68281f49b9ecbbd1b3bf4",
+  "wall_seconds": 0.0043563805520534515
+}

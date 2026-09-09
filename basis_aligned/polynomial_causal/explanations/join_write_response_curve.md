@@ -348,3 +348,20 @@ exact determinant falsifier are implemented; the trained determinant scan
 is pending. Singular forms alone will be reported as inconclusive, never
 as proof of a shared factor. No extracted circuit or structural saving is
 claimed from either the certificates or the toy.
+
+
+## Single shared linear gate also rejected
+
+The [trained determinant screen](../QUERY_SHARED_LINEAR_GATE_V1_RESULT.json)
+now completes in .00436 seconds of saved-artifact CPU. The very first form
+has an exact nonzero determinant, so it cannot be a product of two linear
+forms; a single common linear gate across all58 outputs is therefore excluded
+in this fixed interface. Eleven planted, coordinate-change and root-edit
+controls pass. The certificate concerns the stored dyadic artifact, not an
+interval proof of ideal-real native arithmetic. This does not license adding
+factors or selecting outputs to rescue the nomination.
+
+The next research branch examines the actual18-layer model's
+[shared first-value payload](shared_first_value_payload.md), with live
+producer deletions and full-token output scoring. It preserves these local
+query-factor nulls and the distinction between coupling and lack of reuse.

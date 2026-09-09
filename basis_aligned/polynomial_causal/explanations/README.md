@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Shared first-value payload](shared_first_value_payload.md): current full-model reconstruction screen; contextual-value deletion fails full-output fidelity and composition, with the next shared/contextual causal factorial prepared.
+
 - [Forward endpoint field circuit](forward_endpoint_field_circuit.md): selective single/joint swaps pass on registered IID/OOD cases; exact shared message formula, explicit background and cost limits.
 
 - [cold_query_composition_reconstruction.md](cold_query_composition_reconstruction.md) — stronger existing checkpoint passes multi-hop capability without any previous answers; fresh OOD comparison, honest prior-mechanism limits, and the next exact composition-source test

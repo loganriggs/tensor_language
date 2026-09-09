@@ -53,6 +53,50 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Shared-only payload fails on full bilin18; component factorial next — 2026-09-09 22:35 UTC
+
+The bilinear reconstruction handoff and appended structural criterion control,
+overriding the durable goal's stale better_math_ideas wording. This turn is
+PROGRESS: trained query-gate certificate, managed full-model screen, and a
+new implemented causal intervention primitive. Overall goal remains active.
+
+QUERY_SHARED_LINEAR_GATE_V1 saved CPU .00436s: first exact3x3 determinant
+nonzero, so no shared linear gate for all58 centered route forms in the fixed
+small-model query interface. Eleven controls pass. Close these simple query
+block/squared/single-gate grammars; no factor-count/output-selection rescue.
+
+BILIN18_SHARED_FIRST_VALUE_ONLY_V1 managedGPU3.228s tests the actual545.9M
+bilin18 and fixed licensed union L9H1/H4,L11H3,L15H5. All128 already-opened
+dual-command sequences; full token count is3180 (1572FIT+1608HOLDOUT),
+all50304 outputs,128forwards/512sequence evaluations. Nine controls and A
+pass; fidelityB and compositionC fail. All-four contextual-value deletion:
+KLmean .048704/.042429, p99 .760107/.611856; joint interaction/effect
+.18940/.17981. Paired command-vector errors .828/.853 temporal and .634/.605
+iswas. Native full-vocabulary accuracy is lower than old answer/foil capability;
+retain native errors. No head/group/lambda fallback, no589824-weight saving.
+Result SHA447e72dbe5b032976c6aaac902fd8aea587eb3a4c2cc9fa91ca382975401014c.
+Runner SHAba85983fc445adb1f858f857af9a71827f1fcff52a956ed9e82edc1677506b63,
+managed log completed22:29:19 UTC. The initial enqueue failed only model-free
+__file__ lint; module-scope path resolution repaired it, no bars changed.
+
+Next BILIN18_VALUE_COMPONENT_FACTORIAL_V1_PREREGISTRATION.md: consumer-local
+context/shared/both deletions on the same fixed union and opened cohort,
+with all upstream/downstream states recomputed. Test signed opposing command
+effects and additive joint contribution; no new replacement nomination.
+shared_value_component_intervention.py passes seven controls, including
+parent contextual-cut replay, direct whole-head-zero, live arms, method/hook
+restoration and exception cleanup. Trained factorial not yet run. Integrate
+with parent's streaming scorer and native forward, bind hashes and enqueue
+129forward/516sequence audit through managed runner. No new executor stack.
+All545902902 native parameters remain priced. The smaller model's387968
+export count must not be confused with this full-model parameter count.
+
+Dossier explanations/shared_first_value_payload.md is first in README;
+query history join_write_response_curve.md updated. Both Supervisor runners
+healthy; no own live job remains. Preserve Claude files and queue ownership.
+Clocks: next math22:49 UTC, hourly22:58; latest reviews19:49/21:58. Do not
+emit early duplicates. Stage/push only owned artifacts. Continue from evidence.
+
 ## Coupled query block certified; shared multiplication test next — 2026-09-09 22:17 UTC
 
 The user's bilinear reconstruction handoff and appended structural criterion
