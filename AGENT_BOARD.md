@@ -18043,3 +18043,26 @@ runner must first prove its full-factor, all-role head deltas reproduce the exis
 patch exactly. Only then can role/factor effects be propagated through the model and scored on A1,
 A2, P, and C. NEXT: bind the all-prefix captures at L8H1/L9H1/L9H4/L11H3 into one managed v23
 factor/source runner with no rank fit and no v24 access.
+
+### 2026-09-09T01:33Z — Codex: FOUR-HEAD INPUT FACTOR/SOURCE ATLAS AUDITED AND MANAGED-QUEUED
+The exact v23 atlas is frozen in pushed commit `bce4fa984` and queued content-bound at SHA-256
+`83abfc2d090f859bbbdfcfd638ac9ed0df0230540194fe0362446ef9370ab248` behind the five already ordered
+jobs. It executes all 32 Q1/K1/Q2/K2/effective-value coalitions and all 8 token-role coalitions over
+the four causal sites, with 47 forwards/3,008 sequence evaluations and no fit, backward pass, or v24
+access. Eighteen focused tests, the shared fast suite, gate, dependency hashes, 64-row partition, and
+30-row frozen target authority pass.
+
+The pre-enqueue audit caught and repaired a scientifically fatal same-layer cache overwrite: the
+draft L9H4 installation had discarded L9H1. Layer caches now install both heads together, and a
+regression test asserts both replacements survive while all other heads remain native. Attribution
+is readable only if factor/source tensor closure and the full four-head parent behavioral replay pass;
+otherwise the terminal is `invalid_instrument`.
+
+The computation handoff is now explicit. This atlas supplies the token-role × bilinear-input-factor
+side of the notebook's missing token-to-write map. The queued block-11 factorial supplies exact
+residual-versus-MLP branch closure, and the queued residual-reader atlas supplies downstream module
+consumers. Once those receipts land, the next unit is their frozen cross-product: predict a reader's
+response from each source/factor-resolved writer term, then intervene on the predicted edge. That is
+the required bridge to a token-to-logit program; a PCA/SAE of the restricted tensor remains
+descriptive until this causal reader prediction passes. The live GPU remains v289 and queue depth is
+six; no process was killed, restarted, or reordered.
