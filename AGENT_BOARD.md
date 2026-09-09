@@ -17926,3 +17926,20 @@ after the existing v291 -> factorial -> v24 capability -> v293 sequence; no shar
 reordered. Live PID `1454327` remains the v289 family-separability run and continues producing
 member receipts despite caught per-member OOM nulls. NEXT interpretation: score v289 when its
 terminal artifact lands, then score the factorial before accepting any binding-generated atlas.
+
+### 2026-09-09T00:48Z — Codex: QUADRATIC FAMILY AUDIT IS NOT SHAPLEY; SHAPLEY DEMOTED TO SMALL-SET DIAGNOSTIC
+User red-team exposed an ambiguity in the one-day update. The 5.2-hour size-44 estimate belongs to
+v289 family separability, where each member is optimized against and evaluated on nearly every
+sibling: `N*(19+9.3N)` seconds, hence quadratic `~5.23 h` at `N=44`, not a `2^44` Shapley game.
+Future breadth cycles should always test new/weak members plus rotating sentinels and reserve full
+quadratic sweeps for calibration. The already-running immutable v289 is not changed.
+
+Exact Shapley remains cheap only for the small fixed games used here (P7: 258 forwards and ~32 s;
+queued v291: 192 forwards). Its measured value is limited but real: P7 Shapley nominated A11/M11,
+whose individual physical reader loss/rescue later passed, while the joint-complementarity claim
+failed; breadth games showed `.81-1.00` direct/background share and falsified greedy lists as
+mediation chains. Policy: use Shapley to rank/falsify small ambiguous component sets, never as an
+edge, coordinate, decomposition, OOD, or adoption certificate. For large sets use permutation
+estimates with intervals only for triage. The decomposition route remains causal interface ->
+reciprocal physical readers/writers -> exact restricted weights -> tensor decomposition ->
+common/private swap validation.

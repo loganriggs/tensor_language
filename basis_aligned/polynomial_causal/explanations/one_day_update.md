@@ -430,6 +430,39 @@ one v289-style audit is about 5.2 hours. A proposed efficiency repair would alwa
 weakest members, rotate through the remainder, and retain periodic full sweeps. It has not been
 silently applied to the already registered v289 run.
 
+This 5.2-hour estimate is **not a Shapley computation and is not exponential in 44 players**. In the
+v289 protocol, every candidate member is separately optimized against nearly every sibling as a
+control and then evaluated on those siblings. The measured approximation is
+
+```text
+total seconds ~= family_size * (19 + 9.3 * family_size),
+```
+
+which is quadratic and gives about `5.23` hours at size 44. The scientific question is family
+separability under a shared control set, but exhaustive re-auditing is not the right default as the
+family grows. New members, previously weakest boundaries, and a rotating sentinel panel should be
+tested every cycle; a complete quadratic audit should be occasional calibration rather than the
+inner loop.
+
+Exact Shapley accounting has a different cost: an arbitrary `n`-component black-box game needs
+`2^n` coalition values. We used it only for small fixed sets. The seven-player P7 game required 258
+forwards and ran in about 31--32 seconds; the queued two-case game uses five and six downstream
+players and requires 192 forwards. For larger sets, permutation sampling can estimate Shapley values
+with confidence intervals, but approximate attribution should only rank follow-ups. It cannot pass
+a circuit-identification gate unless the uncertainty is smaller than the decision margin.
+
+Shapley has been useful but secondary. In the P7 game it nominated A11 and M11; the subsequent
+physical reader-input loss/output-rescue experiment validated both individual reader interfaces,
+although the registered joint-complementarity prediction failed. In the breadth games it showed
+that `81--100%` of several source effects traveled through the direct/unlisted background, warning
+that greedy downstream unit lists were not mediation chains. Those are useful route-selection and
+falsification results. Shapley itself did not identify a residual coordinate, prove a directed edge,
+produce an executable circuit, or establish OOD composition. The default decomposition path is
+therefore: causal transfer/necessity to fix an interface, reciprocal reader/writer localization,
+fold that interface into exact weights, decompose the restricted tensor, and validate common/private
+parts by swaps. Shapley is reserved for small ambiguous interaction sets after the pieces are already
+operationally defined.
+
 At the close of the window, v289 is the verified live managed GPU job. The queue behind it contains
 a Shapley effect game, the seven-forward v23 residual/M11 factorial, the two-forward v24 native
 capability gate, and another breadth job. The v23 downstream reader atlas and v24 causal confirmation
