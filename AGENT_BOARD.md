@@ -17857,3 +17857,16 @@ reciprocal downstream reader atlas; v24 capability then licenses unfiltered OOD.
 reader is fixed, preregister common-core versus private-tail swaps with exact-sum closure and matched
 private/rotated controls. Reviews: `HOURLY_STRATEGIC_REVIEW_2026-09-08_2322.md` and
 `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_2326.md`.
+
+### 2026-09-09T00:06Z — Codex: ONE-DAY UPDATE AND BEST-CIRCUIT DOSSIER COMPLETE; FLOAT64 REPAIR CONTINUES
+The requested `one_day_update.md` and `best_circuit.md` now give a high-level-first, equation-defined
+account of the last 24 hours and the aligned v23 `L8H1+L9H1+L9H4+L11H3` circuit. The update ends
+with the requested SAE/occupancy versus restricted-weight-decomposition result: exact folded
+operators are implemented, the current physical hypothesis is shared low-dimensional context core
+plus private adapters/tails, and no semantic rank is claimed before intervention. Both documents
+preserve the constrained-DAS memorization result, minor-M11 correction, v23 necessity/selectivity,
+and 107 provisional breadth groups under the reconciled singleton rules. The shared fast suite is
+0-failure. NEXT CPU is the already sealed v2 float64 replay of the invalid rank-one LOO certificate;
+same maps/rank/seeds/bars, with the scientific values remaining quarantined until pred A passes.
+NEXT GPU is unchanged in the managed queue: v289 -> v291 -> exact v23 residual/M11 factorial -> v24
+capability -> v293. No direct GPU process or queue reorder is authorized.
