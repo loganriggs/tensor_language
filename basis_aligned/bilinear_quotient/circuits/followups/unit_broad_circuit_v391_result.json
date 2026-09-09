@@ -1,0 +1,108 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "joint_min": 0.8,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_broad_circuit_v391",
+  "finished_utc": "2026-09-09T15:31:15.526706+00:00",
+  "held_out": {
+    "C_report": {
+      "A1_damage": {
+        "ce_damage": 0.9234,
+        "ce_lb975": 0.8714,
+        "ce_ub975": 0.9741,
+        "margin_damage": 2.0632,
+        "top1_change_rate": 0.5312
+      },
+      "C_damage": {
+        "ce_damage": 0.0029,
+        "ce_lb975": -0.0036,
+        "ce_ub975": 0.0089,
+        "margin_damage": 0.0312,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0089,
+      "fit_shapes": [
+        "A_locative",
+        "B_agreement",
+        "D_denial",
+        "E_spread"
+      ],
+      "n_units": 15,
+      "transfer_extraction": 0.823,
+      "units_recovery": 0.898
+    },
+    "D_denial": {
+      "A1_damage": {
+        "ce_damage": 0.4365,
+        "ce_lb975": 0.3827,
+        "ce_ub975": 0.4896,
+        "margin_damage": 1.345,
+        "top1_change_rate": 0.1562
+      },
+      "C_damage": {
+        "ce_damage": -0.0093,
+        "ce_lb975": -0.0154,
+        "ce_ub975": -0.0033,
+        "margin_damage": -0.014,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": -0.0033,
+      "fit_shapes": [
+        "A_locative",
+        "B_agreement",
+        "C_report",
+        "E_spread"
+      ],
+      "n_units": 12,
+      "transfer_extraction": 0.939,
+      "units_recovery": 0.709
+    },
+    "E_spread": {
+      "A1_damage": {
+        "ce_damage": 1.1188,
+        "ce_lb975": 0.96,
+        "ce_ub975": 1.293,
+        "margin_damage": 2.404,
+        "top1_change_rate": 0.1875
+      },
+      "C_damage": {
+        "ce_damage": -0.0001,
+        "ce_lb975": -0.0042,
+        "ce_ub975": 0.0037,
+        "margin_damage": -0.0144,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0037,
+      "fit_shapes": [
+        "A_locative",
+        "B_agreement",
+        "C_report",
+        "D_denial"
+      ],
+      "n_units": 16,
+      "transfer_extraction": 1.027,
+      "units_recovery": 0.953
+    }
+  },
+  "predictions": {
+    "pred_a_all_transfer": true,
+    "pred_b_units_transfer": false,
+    "pred_c_control_clean": true,
+    "pred_d_battery_failures_transfer": true,
+    "pred_e_some_holdout_resists": false
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_broad_circuit_v391",
+  "seconds": 181.5
+}
