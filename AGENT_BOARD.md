@@ -17963,3 +17963,23 @@ three disjoint 3-control covers for all 22 verb targets and 2/3/3 controls for a
 targets. A ten-target/three-control cycle is estimated at 7.82 minutes versus 5.23 hours for a full
 44-by-44 sweep. This is only a scheduling screen until a prospective fit-sentinel/audit-sentinel
 test passes; periodic exhaustive calibration remains required.
+
+### 2026-09-09T00:55Z — Codex: EXACT MINIMUM-SUBSPACE TOY AUTHORITY IMPLEMENTED; DIM FAILS ABOVE RANK ONE
+The objective is now separated from DAS. For allowed changes `V` and downstream readers `R`, every
+exact orthogonal intervention satisfies `R P V = R V`, hence `rank(P) >= rank(R V)`. The projector
+onto `V rowspace(R V)` attains the bound, giving a mathematical minimum-rank authority rather than
+an optimizer-dependent answer.
+
+`causal_subspace_ground_truth_toys.py` implements four deterministic CPU rungs: basis-aligned rank
+one, rotated rank three, two-task shared-plus-private (`2 + 2` with one-dimensional intersection and
+rank-three union), and a subset-gated rank-two computation whose common-only population appears rank
+one. DIM is exact on rung 1 and has universal response error exactly `1.0` on rungs 2-4. A data-only
+response-regression estimator, which sees paired state/response changes but not reader weights,
+recovers every full-population certified projector to Frobenius distance below `1.5e-15`. Common-only
+training has zero common error but full-population error `1.0`, reproducing memorization as a known
+identifiability failure. Six focused tests pass.
+
+NEXT CPU: add finite-sample/noise and correlated-nuisance rungs, then nonlinear MLP and bilinear
+context gates; compare fixed estimators under blinded train/validation/test populations. The exact
+reader-aware construction remains the authority, not a deployable estimator. GPU PID `1454327`
+continues v289 at 102% CPU/11.7% memory and queue depth remains five; no GPU job was added or moved.
