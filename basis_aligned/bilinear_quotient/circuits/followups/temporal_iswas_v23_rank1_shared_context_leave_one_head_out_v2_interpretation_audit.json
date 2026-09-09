@@ -1,0 +1,42 @@
+{
+  "schema": "temporal_iswas_v23_rank1_shared_context_leave_one_head_out_interpretation_audit_v2",
+  "candidate_id": "cross_task.temporal_iswas.v23_rank1_shared_context_leave_one_head_out_v2",
+  "audited_utc": "2026-09-09T00:10:00Z",
+  "authority_sha256": {
+    "prior": "fcc61605a5c688905fc243ac9e580a134d6c829e6118b9467afd7afccd044b92",
+    "runner": "5595acb7e82c1bc4393efbd369f28a82ef21575e01d85b6affdb07ebfeeb062a",
+    "result": "64dfb298172c3e6f2d6067e0f3dc163a1d04f7e7fd0a80fa1415037aacd491fc"
+  },
+  "instrument_verdict": "valid_float64_repair",
+  "prediction_replay": {
+    "pred_a": {
+      "pass": true,
+      "reason": "All eight immutable authorities match. Float64 is live. Certificate 8.731149137020111e-11, reconstruction 2.220446049250313e-16, private-gauge error 1.1362438767648086e-16, and raw-Gram replay error 0.0 are below the unchanged 2e-5 bar; all declared prices are zero."
+    },
+    "pred_b": {
+      "pass": true,
+      "reason": "All omitted-head captured-energy fractions (.229137, .268738, .502162, .446507) exceed .05 and their fixed float64 isotropic-random q99 controls (.002037-.002752)."
+    },
+    "pred_c": {
+      "pass": true,
+      "reason": "Minimum pairwise squared overlap among the four three-head-fit physical projectors is .9954256, above .85."
+    },
+    "pred_d": {
+      "pass": true,
+      "reason": "Removing the pooled rank-one direction reduces median context-Gram similarity from .9245459 to .5101009, a .4144449 reduction above .05."
+    }
+  },
+  "scientific_verdict": "shared_rank1_weight_capability_trunk_nominated",
+  "licensed_claim": "Inside the frozen occupied-reader-contracted checkpoint maps of L8H1, L9H1, L9H4, and L11H3, one gauge-invariant physical residual-context direction generalizes leave-one-head-out and accounts for a material part of their broad cross-head Gram similarity. Each head still requires a private adapter and tail.",
+  "not_licensed": [
+    "The rank-one direction is a named semantic feature.",
+    "The rank-one direction is occupied or necessary on unseen examples.",
+    "The four heads have identical full checkpoint maps.",
+    "Rank one is globally optimal for causal behavior or selected from the opened rank ladder.",
+    "The common core is a reusable or adoptable circuit before matched causal core-versus-tail interventions."
+  ],
+  "v1_disposition": "V1 remains invalid because pred A failed its registered absolute certificate. V2 changes arithmetic only and supersedes v1 for the prospective weight-capability screen; it does not rewrite the v1 receipt.",
+  "decision": "Retain the shared-rank-one-core plus head-private-adapter/tail hypothesis. Do not run a rank sweep. After the exact block-11 residual/MLP11 factorial identifies the dominant downstream branch and v24 licenses the unopened corpus, test common-core versus private-tail installation/removal with exact-sum closure and matched-energy rotated controls.",
+  "evidence_level": "screen_for_cross_module_grouping",
+  "adoption_status": "not_adopted"
+}
