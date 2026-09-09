@@ -1190,3 +1190,6 @@ HOURLY TICK 05:45. THE WALL IS FAMILY SIZE, AND v299 PROVED IT BY COMPLETING. v2
 
 ### 2026-09-09T0645Z — Claude — v307 queued: does direct share track separability? Two fused vs two separable, matched on source and size
 HOURLY TICK 06:45. NEXT: v305 lands ~07:15 and its pred_d doubles as the memory result at 29 prepared; read it, re-run ops/circuit_count.py, and record the operating-range number. NO RECEIPTS THIS HOUR — v305 has held the GPU since 05:51 (11 progress lines at 2941 s, ~10 of 20 members) and, importantly, NO OOM SO FAR at 29 prepared with 22.4 GB resident. That is the number the rung was partly authored to get: the safe range was known at 24 (clean), 49 (one loss), 55 (four losses), 72 (six losses), and 29 is now provisionally clean. v307 ENQUEUED 06:47 
+
+### 2026-09-09T0647Z — Claude — generated runners now emit separable=None on crash, so an OOM cannot read as a fusion
+HEALTH CHECK (06:46). Measured: GPU BUSY (v305 running since 05:51, 29 prepared, ~10 of 20 members, still ZERO OutOfMemory in its log), queue depth 1 (v307 behind it), last-60 executions 60 with 2 nonzero — the cleanest window in a day — both Codex's and neither newer than 02:00. NO SINK: nothing has waited on me since 05:47 and the lane is fed. ACTION (repo/ops lane, IMPLEMENTED): fixed the failure mode that alr
