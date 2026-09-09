@@ -1,0 +1,487 @@
+{
+  "scope": "first4 openedworlds/pop,768queries; frozen gains are diagnostic interventions, not native semantic repair",
+  "saved_live_replay_max_abs": 3.268496584496461e-13,
+  "passed": true,
+  "populations": {
+    "iid": {
+      "groups": {
+        "raw_h1": {
+          "live_raw": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7083333333333334,
+            "target_probability_gain": 0.6848544692924446,
+            "gold_probability_change": -0.9150883529766825,
+            "removal_gold_loss": 0.9150883529766825,
+            "centered_effect_rms": 10.349195288102798
+          },
+          "live_join": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": 0.0031670291678124567,
+            "gold_probability_change": 0.0031670291678124567,
+            "removal_gold_loss": -0.0031670291678124567,
+            "centered_effect_rms": 3.5021453846638075
+          },
+          "live_both": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7083333333333334,
+            "target_probability_gain": 0.6771289802703674,
+            "gold_probability_change": -0.9093445645221149,
+            "removal_gold_loss": 0.9093445645221149,
+            "centered_effect_rms": 10.374680834628249
+          },
+          "fixed_raw": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6979166666666666,
+            "target_probability_gain": 0.6801442592235615,
+            "gold_probability_change": -0.9158830619372761,
+            "removal_gold_loss": 0.9158830619372761,
+            "centered_effect_rms": 10.3370027853957
+          },
+          "fixed_join": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.9895833333333334,
+            "target_probability_gain": -0.004851427825711542,
+            "gold_probability_change": -0.004851427825711542,
+            "removal_gold_loss": 0.004851427825711542,
+            "centered_effect_rms": 3.2176915682746996
+          },
+          "fixed_both": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6875,
+            "target_probability_gain": 0.6653885051494444,
+            "gold_probability_change": -0.9143181537845422,
+            "removal_gold_loss": 0.9143181537845422,
+            "centered_effect_rms": 10.614062936154271
+          }
+        },
+        "raw_h2": {
+          "live_raw": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.65625,
+            "target_probability_gain": 0.6292353233408718,
+            "gold_probability_change": -0.8482259438870337,
+            "removal_gold_loss": 0.8482259438870337,
+            "centered_effect_rms": 11.381404779527506
+          },
+          "live_join": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.96875,
+            "target_probability_gain": -0.04486592438527521,
+            "gold_probability_change": -0.04486592438527521,
+            "removal_gold_loss": 0.04486592438527521,
+            "centered_effect_rms": 4.797840788070251
+          },
+          "live_both": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6145833333333334,
+            "target_probability_gain": 0.6138342841588019,
+            "gold_probability_change": -0.9169675736434071,
+            "removal_gold_loss": 0.9169675736434071,
+            "centered_effect_rms": 12.188233994989584
+          },
+          "fixed_raw": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6458333333333334,
+            "target_probability_gain": 0.6336902270038354,
+            "gold_probability_change": -0.849813650442227,
+            "removal_gold_loss": 0.849813650442227,
+            "centered_effect_rms": 11.476611091835977
+          },
+          "fixed_join": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.9583333333333334,
+            "target_probability_gain": -0.0619408484182328,
+            "gold_probability_change": -0.0619408484182328,
+            "removal_gold_loss": 0.0619408484182328,
+            "centered_effect_rms": 4.780179759968092
+          },
+          "fixed_both": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6354166666666666,
+            "target_probability_gain": 0.6279392657646814,
+            "gold_probability_change": -0.9324484524238451,
+            "removal_gold_loss": 0.9324484524238451,
+            "centered_effect_rms": 12.51421751463764
+          }
+        },
+        "raw_h3": {
+          "live_raw": {
+            "n": 44,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7272727272727273,
+            "target_probability_gain": 0.7317322326177503,
+            "gold_probability_change": -0.897653261052268,
+            "removal_gold_loss": 0.897653261052268,
+            "centered_effect_rms": 6.41038702905837
+          },
+          "live_join": {
+            "n": 44,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": -0.006721510453652702,
+            "gold_probability_change": -0.006721510453652702,
+            "removal_gold_loss": 0.006721510453652702,
+            "centered_effect_rms": 2.507258156167113
+          },
+          "live_both": {
+            "n": 44,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7954545454545454,
+            "target_probability_gain": 0.7302747021481264,
+            "gold_probability_change": -0.9158346353036664,
+            "removal_gold_loss": 0.9158346353036664,
+            "centered_effect_rms": 6.6835035388818955
+          },
+          "fixed_raw": {
+            "n": 44,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7272727272727273,
+            "target_probability_gain": 0.7311696552680484,
+            "gold_probability_change": -0.9055062135301384,
+            "removal_gold_loss": 0.9055062135301384,
+            "centered_effect_rms": 6.507957726007678
+          },
+          "fixed_join": {
+            "n": 44,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.9772727272727273,
+            "target_probability_gain": -0.026944562532874573,
+            "gold_probability_change": -0.026944562532874573,
+            "removal_gold_loss": 0.026944562532874573,
+            "centered_effect_rms": 2.6574652302323503
+          },
+          "fixed_both": {
+            "n": 44,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6818181818181818,
+            "target_probability_gain": 0.6964889883935202,
+            "gold_probability_change": -0.9219122465915276,
+            "removal_gold_loss": 0.9219122465915276,
+            "centered_effect_rms": 6.830253766799141
+          }
+        },
+        "join_h3": {
+          "live_raw": {
+            "n": 52,
+            "native_accuracy": 0.9807692307692307,
+            "target_accuracy": 0.7115384615384616,
+            "target_probability_gain": -0.25863057417253354,
+            "gold_probability_change": -0.25863057417253354,
+            "removal_gold_loss": 0.25863057417253354,
+            "centered_effect_rms": 6.212058470847517
+          },
+          "live_join": {
+            "n": 52,
+            "native_accuracy": 0.9807692307692307,
+            "target_accuracy": 0.9038461538461539,
+            "target_probability_gain": 0.8923981559595047,
+            "gold_probability_change": -0.9619468525761102,
+            "removal_gold_loss": 0.9619468525761102,
+            "centered_effect_rms": 5.507775236582884
+          },
+          "live_both": {
+            "n": 52,
+            "native_accuracy": 0.9807692307692307,
+            "target_accuracy": 0.75,
+            "target_probability_gain": 0.6927789330835773,
+            "gold_probability_change": -0.9679898903429839,
+            "removal_gold_loss": 0.9679898903429839,
+            "centered_effect_rms": 8.134197958636717
+          },
+          "fixed_raw": {
+            "n": 52,
+            "native_accuracy": 0.9807692307692307,
+            "target_accuracy": 0.7307692307692307,
+            "target_probability_gain": -0.2410351262248301,
+            "gold_probability_change": -0.2410351262248301,
+            "removal_gold_loss": 0.2410351262248301,
+            "centered_effect_rms": 6.349900124931533
+          },
+          "fixed_join": {
+            "n": 52,
+            "native_accuracy": 0.9807692307692307,
+            "target_accuracy": 0.8846153846153846,
+            "target_probability_gain": 0.8705298745434324,
+            "gold_probability_change": -0.9623330776083514,
+            "removal_gold_loss": 0.9623330776083514,
+            "centered_effect_rms": 5.994362612566213
+          },
+          "fixed_both": {
+            "n": 52,
+            "native_accuracy": 0.9807692307692307,
+            "target_accuracy": 0.7115384615384616,
+            "target_probability_gain": 0.7027850421300391,
+            "gold_probability_change": -0.9663448040275505,
+            "removal_gold_loss": 0.9663448040275505,
+            "centered_effect_rms": 8.46848666428124
+          }
+        }
+      },
+      "interactions": {
+        "live": {
+          "centered_rms": 2.6422572596489458,
+          "centered_max_abs": 41.20700508937534
+        },
+        "fixed": {
+          "centered_rms": 1.8384519914775652,
+          "centered_max_abs": 29.70273898786189
+        }
+      }
+    },
+    "ood_three_8cycles": {
+      "groups": {
+        "raw_h1": {
+          "live_raw": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.75,
+            "target_probability_gain": 0.7335079227599697,
+            "gold_probability_change": -0.9062392406932195,
+            "removal_gold_loss": 0.9062392406932195,
+            "centered_effect_rms": 10.717570977050377
+          },
+          "live_join": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": -0.0017474230925775061,
+            "gold_probability_change": -0.0017474230925775061,
+            "removal_gold_loss": 0.0017474230925775061,
+            "centered_effect_rms": 3.185252345267447
+          },
+          "live_both": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7291666666666666,
+            "target_probability_gain": 0.7210841747063595,
+            "gold_probability_change": -0.9094411303746387,
+            "removal_gold_loss": 0.9094411303746387,
+            "centered_effect_rms": 10.80701593346793
+          },
+          "fixed_raw": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7604166666666666,
+            "target_probability_gain": 0.7298557322905843,
+            "gold_probability_change": -0.9066105230492929,
+            "removal_gold_loss": 0.9066105230492929,
+            "centered_effect_rms": 11.054318401057436
+          },
+          "fixed_join": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": -0.004318461549257625,
+            "gold_probability_change": -0.004318461549257625,
+            "removal_gold_loss": 0.004318461549257625,
+            "centered_effect_rms": 3.3507851210498036
+          },
+          "fixed_both": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6979166666666666,
+            "target_probability_gain": 0.690419723722703,
+            "gold_probability_change": -0.9240459493411302,
+            "removal_gold_loss": 0.9240459493411302,
+            "centered_effect_rms": 11.379044265276711
+          }
+        },
+        "raw_h2": {
+          "live_raw": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6770833333333334,
+            "target_probability_gain": 0.6666058562912306,
+            "gold_probability_change": -0.8946794338718383,
+            "removal_gold_loss": 0.8946794338718383,
+            "centered_effect_rms": 10.902467671629307
+          },
+          "live_join": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.9375,
+            "target_probability_gain": -0.0690068383849412,
+            "gold_probability_change": -0.0690068383849412,
+            "removal_gold_loss": 0.0690068383849412,
+            "centered_effect_rms": 4.19881779580718
+          },
+          "live_both": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6458333333333334,
+            "target_probability_gain": 0.6389289175170693,
+            "gold_probability_change": -0.9249791222307034,
+            "removal_gold_loss": 0.9249791222307034,
+            "centered_effect_rms": 11.132027239906874
+          },
+          "fixed_raw": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6666666666666666,
+            "target_probability_gain": 0.6708020220721057,
+            "gold_probability_change": -0.894149230277877,
+            "removal_gold_loss": 0.894149230277877,
+            "centered_effect_rms": 11.237240993777435
+          },
+          "fixed_join": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.8958333333333334,
+            "target_probability_gain": -0.11385350337688926,
+            "gold_probability_change": -0.11385350337688926,
+            "removal_gold_loss": 0.11385350337688926,
+            "centered_effect_rms": 4.35190888471188
+          },
+          "fixed_both": {
+            "n": 96,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6458333333333334,
+            "target_probability_gain": 0.6272779006735567,
+            "gold_probability_change": -0.9254750794254437,
+            "removal_gold_loss": 0.9254750794254437,
+            "centered_effect_rms": 11.877839103267073
+          }
+        },
+        "raw_h3": {
+          "live_raw": {
+            "n": 47,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7659574468085106,
+            "target_probability_gain": 0.7238208371904744,
+            "gold_probability_change": -0.8617187073204846,
+            "removal_gold_loss": 0.8617187073204846,
+            "centered_effect_rms": 6.625845833487661
+          },
+          "live_join": {
+            "n": 47,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.8723404255319149,
+            "target_probability_gain": -0.08709366969351999,
+            "gold_probability_change": -0.08709366969351999,
+            "removal_gold_loss": 0.08709366969351999,
+            "centered_effect_rms": 3.0024852393787502
+          },
+          "live_both": {
+            "n": 47,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7659574468085106,
+            "target_probability_gain": 0.7278140757580294,
+            "gold_probability_change": -0.8704815494191109,
+            "removal_gold_loss": 0.8704815494191109,
+            "centered_effect_rms": 7.085265107621798
+          },
+          "fixed_raw": {
+            "n": 47,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7872340425531915,
+            "target_probability_gain": 0.7300197630244006,
+            "gold_probability_change": -0.8662990799658491,
+            "removal_gold_loss": 0.8662990799658491,
+            "centered_effect_rms": 6.71159058310961
+          },
+          "fixed_join": {
+            "n": 47,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.9148936170212766,
+            "target_probability_gain": -0.06476195434929026,
+            "gold_probability_change": -0.06476195434929026,
+            "removal_gold_loss": 0.06476195434929026,
+            "centered_effect_rms": 3.1447562623161662
+          },
+          "fixed_both": {
+            "n": 47,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7659574468085106,
+            "target_probability_gain": 0.733046628251683,
+            "gold_probability_change": -0.8834249483089046,
+            "removal_gold_loss": 0.8834249483089046,
+            "centered_effect_rms": 7.298199753072562
+          }
+        },
+        "join_h3": {
+          "live_raw": {
+            "n": 49,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7755102040816326,
+            "target_probability_gain": -0.2207098635102747,
+            "gold_probability_change": -0.2207098635102747,
+            "removal_gold_loss": 0.2207098635102747,
+            "centered_effect_rms": 6.169155938685337
+          },
+          "live_join": {
+            "n": 49,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.8163265306122449,
+            "target_probability_gain": 0.7862494979995105,
+            "gold_probability_change": -0.9466466401264408,
+            "removal_gold_loss": 0.9466466401264408,
+            "centered_effect_rms": 5.283991864385126
+          },
+          "live_both": {
+            "n": 49,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7346938775510204,
+            "target_probability_gain": 0.7108431278619691,
+            "gold_probability_change": -0.9490901310361867,
+            "removal_gold_loss": 0.9490901310361867,
+            "centered_effect_rms": 7.90493382752419
+          },
+          "fixed_raw": {
+            "n": 49,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7959183673469388,
+            "target_probability_gain": -0.22089177583716038,
+            "gold_probability_change": -0.22089177583716038,
+            "removal_gold_loss": 0.22089177583716038,
+            "centered_effect_rms": 6.269541075348529
+          },
+          "fixed_join": {
+            "n": 49,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7346938775510204,
+            "target_probability_gain": 0.7375585953381255,
+            "gold_probability_change": -0.9454670872758075,
+            "removal_gold_loss": 0.9454670872758075,
+            "centered_effect_rms": 6.1173015023658825
+          },
+          "fixed_both": {
+            "n": 49,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7346938775510204,
+            "target_probability_gain": 0.7068155108973844,
+            "gold_probability_change": -0.9480257555186915,
+            "removal_gold_loss": 0.9480257555186915,
+            "centered_effect_rms": 8.773435998401688
+          }
+        }
+      },
+      "interactions": {
+        "live": {
+          "centered_rms": 2.5168812522557094,
+          "centered_max_abs": 36.59987344942152
+        },
+        "fixed": {
+          "centered_rms": 1.7725527276965753,
+          "centered_max_abs": 25.377954226683944
+        }
+      }
+    }
+  },
+  "input_rows_sha256": "ef9ed86e89f3d21a1b7eb3c8d097cabb39b7a8511b020538cb2aec80392eabda",
+  "script_sha256": "9e5eb8595390ca1849c4d444c33d4ccb6db76195bd735eb1904f11caff0ffca6",
+  "independent_constants": 387968,
+  "wall_seconds": 24.8909295424819
+}

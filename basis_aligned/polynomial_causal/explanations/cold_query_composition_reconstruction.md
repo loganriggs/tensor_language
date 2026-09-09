@@ -1,11 +1,11 @@
 # Reconstructing composition without earlier answers
 
-Current result (17:50 UTC): the [forward endpoint field](forward_endpoint_field_circuit.md)
-passes fixed-layout single/joint interchange, but the broader randomly serialized
-hop2+hop3 consumer claim fails. Hop3 endpoint-only removal and retargeting remain
-strong; hop2 task effect is weak despite substantial logit changes. The active
-successor tests original-value versus computed-endpoint fields at the same state.
-Structural-description reduction remains unfinished.
+Current result (18:03 UTC): the [forward endpoint field](forward_endpoint_field_circuit.md)
+passes registered joined-field interchange, but a raw/computed two-field state
+abstraction fails selective and joint semantics. Holding normalization gains
+fixed does not repair it. The active source-port factorial tests content versus
+source-selection effects without changing the failed field definitions. Every
+native weight/background remains charged; structural reduction is unfinished.
 
 The existing `attn4-rms-seed0` checkpoint is a better target for studying composed
 lookup than the weak checkpoint used in the bounded reconstruction pilot. A fresh

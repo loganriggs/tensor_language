@@ -3,8 +3,8 @@ import torch
 from forward_endpoint_random_layout_reference import populations as random_worlds
 
 
-def populations():
-    out=random_worlds(seeds=(25909,25910))
+def populations(seeds=(25909,25910)):
+    out=random_worlds(seeds=seeds)
     for worlds in out.values():
         for w in worlds:
             raw=w['sigma'];joined=raw[raw];w['raw_map']=raw;w['join_map']=joined

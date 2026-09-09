@@ -53,6 +53,40 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active source-port field test — 2026-09-09 18:03 UTC
+
+DUAL_VALUE_FIELD_INTERCHANGE_V1_RESULT.json completes15.05s,A/C true,B/D false.
+Native correspondence1.99e-13, prefixidentity3.55e-15. Raw E/8 removal isstrong
+(.611–.768 goldP loss), but raw retarget.620–.711 and collateraljoinedconsumer
+loss.210–.240 fail; jointforwardhop3 targetaccuracy.725–.728. Joined-only gate
+passes independently. Physical overlapping raw/join field abstraction CLOSED
+as specified; no scale/producer enlargement. Shared field_intervention_metrics.py
+is used by the completed runner, implementing the hourly scorer correction.
+
+CPU DUAL_VALUE_NORMALIZATION_AUDIT_V1.json completed24.89s on first4openedworlds/
+pop,768queries; saved live replay3.27e-13. Fixed final source gains reduce
+interactionRMS2.64/2.52→1.84/1.77 but do not restore raw/joint semantics. Fixedgain
+is a diagnostic different intervention, not an adopted native repair.
+Canonical dossier explanations/forward_endpoint_field_circuit.md updated.
+
+Active SOURCE_PORT_FIELD_INTERCHANGE_V1_PREREGISTRATION.md and
+source_port_interchange_reference.py.19 CPU checks pass all8 native K1/K2/V
+projection-hook comparisons, live subsets, emptyidentity, hooksrestored,
+full-port finalquery=physicalsource edit and binding-output inequality control.
+Fresh26909/26910 dual-field worlds, first8worlds/pop, all96queries/world retained:
+16independentworlds1536variants. All8 source-port cells for raw/join/joint mapping,
+plus V-only raw/join/both removals and native (28namedarms). V-only is the fixed
+semantic candidate; no best-subset/head/dose selection. Queries and residualskip
+staynative everywhere, even atchangedbindings. All-output native port oracle
+required; physical source-edit correspondence applies only to unchangedfinalquery.
+Next integrate managed ops/run_source_port_field_interchange_v1.py using shared
+field_intervention_metrics.py and exported387968-constant program. No trained
+port-factorial outcome opened. Generator now accepts optional fresh seeds with
+prior defaults unchanged. All native background and derived caches stay charged.
+
+Hourly1751 next18:51; math1648 next19:48. Both managed runners healthy; recheck
+livequeues/processes. Goal remains the full bilinear handoff/appended criterion.
+
 ## Active dual-value-field experiment — 2026-09-09 17:50 UTC
 
 FORWARD_ENDPOINT_RANDOM_LAYOUT_V1_RESULT.json completes12.50s: numerical controls

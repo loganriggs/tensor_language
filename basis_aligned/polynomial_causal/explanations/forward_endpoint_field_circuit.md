@@ -108,3 +108,34 @@ source normalization preserves their overlapping interactions. Raw-value-only
 causal strength is untested and may fail through redundancy. Mechanical and
 semantic gates are reported separately. Seven CPU controls pass; managed trained
 integration remains. No structural parameter saving has been established.
+
+## Original and computed fields are not independently editable as specified
+
+`DUAL_VALUE_FIELD_INTERCHANGE_V1_RESULT.json` completes15.05s with mechanical A
+and joined-field C true, raw-field B and joint D false. All-position native
+correspondence is1.99e-13; captured prefix identity3.55e-15. Removing literal raw
+E/8 has strong task effects (.611–.768 goldP loss), but its mapped endpoint is
+correct only.620–.711 of the time. Raw edits also damage the joined consumer
+by.210–.240 mean goldP. Joined-only interchange passes its independent gate;
+joint forwardhop3 retargeting falls to.725–.728. The two named state components
+therefore fail the registered independent-field semantics. No scale or producer
+expansion is adopted. Their overlapping raw-logit interaction RMS is2.018–2.112.
+
+`DUAL_VALUE_NORMALIZATION_AUDIT_V1.json` is a diagnostic on the first4 opened
+worlds/population, not another semantic confirmation. Live outputs replay within
+3.27e-13. Holding final source gains fixed reduces interaction RMS from2.64/2.52
+to1.84/1.77, but raw retargeting remains.646–.787 and joint outcomes still fail.
+Those RMS changes are not additive variance fractions. Frozen gains are neither
+a native execution claim nor an adopted repair. Normalization does not by itself
+explain the failure.
+
+The next [source-port protocol](../SOURCE_PORT_FIELD_INTERCHANGE_V1_PREREGISTRATION.md)
+tests all K1/K2/V source-port combinations on fresh worlds. V-only is the fixed
+candidate, allowing us to distinguish an edit's content effect from its changes
+to source selection. It preserves query projections and residual skip at every
+position and checks the corresponding native projection-hook oracle. Consequently
+full-port finalquery agrees with physical source edits, while changed binding
+positions generally differ. Nineteen CPU checks cover every port subset, live
+edits, restored hooks and this scope distinction. Managed integration remains;
+no alternate port subset may be selected posthoc. All opaque weights and caches
+remain charged, and structural simplification is still unachieved.

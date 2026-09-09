@@ -1,0 +1,427 @@
+{
+  "experiment": "dual_value_field_interchange_v1",
+  "runner_sha256": "7c0fa04daf9e6babd861cb7c8b7c2de5f538ba0fbc1ff4a945dcb9b2a50b29ec",
+  "bound_sha256": "476ee992b5a37c98b1084ec341843828fa496e60503dd20f47c847a8fb3ee6cf",
+  "package_sha256": "e69bff6562c48bd1b59366f118157720734d353626b0a1576626bdd437a1421a",
+  "checkpoint_sha256": "c9388cc8b1ba7e95c6a043cbf4d01592987447867a50781d3babe31ce3f8358b",
+  "controls": {
+    "passed": true,
+    "fields": {
+      "passed": true,
+      "checks": {
+        "distinct_maps_and_consumer_partition": true,
+        "prefix_producer_identity": true,
+        "raw_identity": true,
+        "raw_live": true,
+        "field_support_overlap": true,
+        "query_state_unchanged": true,
+        "hooks_restored": true
+      }
+    },
+    "metrics": {
+      "passed": true,
+      "checks": {
+        "signed_gain_and_damage": true,
+        "separate_control_panel": true,
+        "logit_offset_invariance": true,
+        "empty_panel_rejected": true,
+        "mechanical_only_gate": true
+      }
+    }
+  },
+  "oracle_max_abs_logit": 1.9895196601282805e-13,
+  "oracle_max_relative_rms": 1.0299745309893562e-15,
+  "prefix_identity_max_abs": 3.552713678800501e-15,
+  "identity_max_abs_logit": 2.842170943040401e-14,
+  "program_independent_constants": 387968,
+  "derived_dictionary_bytes": 24576,
+  "native_coefficients_removed": 0,
+  "populations": {
+    "iid": {
+      "groups": {
+        "raw_h1": {
+          "own_map": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6927083333333334,
+            "target_probability_gain": 0.6762418078971061,
+            "gold_probability_change": -0.8954527396424523,
+            "removal_gold_loss": 0.8954527396424523,
+            "centered_effect_rms": 10.049881585721828
+          },
+          "own_remove": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.3645833333333333,
+            "target_probability_gain": -0.6903684354269622,
+            "gold_probability_change": -0.6903684354269622,
+            "removal_gold_loss": 0.6903684354269622,
+            "centered_effect_rms": 7.586251651906744
+          },
+          "other_map": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 1.0,
+            "target_probability_gain": 0.00020287141767933703,
+            "gold_probability_change": 0.00020287141767933703,
+            "removal_gold_loss": -0.00020287141767933703,
+            "centered_effect_rms": 2.9781772361164744
+          },
+          "both_map": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7083333333333334,
+            "target_probability_gain": 0.6801685795863405,
+            "gold_probability_change": -0.885136832150604,
+            "removal_gold_loss": 0.885136832150604,
+            "centered_effect_rms": 10.271711071376144
+          }
+        },
+        "raw_h2": {
+          "own_map": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6276041666666666,
+            "target_probability_gain": 0.6129454994311878,
+            "gold_probability_change": -0.8740306227637267,
+            "removal_gold_loss": 0.8740306227637267,
+            "centered_effect_rms": 11.168860648542264
+          },
+          "own_remove": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.390625,
+            "target_probability_gain": -0.6223092876016049,
+            "gold_probability_change": -0.6223092876016049,
+            "removal_gold_loss": 0.6223092876016049,
+            "centered_effect_rms": 7.955305832843477
+          },
+          "other_map": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.9817708333333334,
+            "target_probability_gain": -0.026328297733420686,
+            "gold_probability_change": -0.026328297733420686,
+            "removal_gold_loss": 0.026328297733420686,
+            "centered_effect_rms": 4.145598487205421
+          },
+          "both_map": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6067708333333334,
+            "target_probability_gain": 0.6017077161884642,
+            "gold_probability_change": -0.9242727198514511,
+            "removal_gold_loss": 0.9242727198514511,
+            "centered_effect_rms": 11.718491743689995
+          }
+        },
+        "raw_h3": {
+          "own_map": {
+            "n": 195,
+            "native_accuracy": 0.9846153846153847,
+            "target_accuracy": 0.6615384615384615,
+            "target_probability_gain": 0.6394727290963516,
+            "gold_probability_change": -0.8583731787864848,
+            "removal_gold_loss": 0.8583731787864848,
+            "centered_effect_rms": 6.912360620964957
+          },
+          "own_remove": {
+            "n": 195,
+            "native_accuracy": 0.9846153846153847,
+            "target_accuracy": 0.2512820512820513,
+            "target_probability_gain": -0.7374284794525341,
+            "gold_probability_change": -0.7374284794525341,
+            "removal_gold_loss": 0.7374284794525341,
+            "centered_effect_rms": 4.698631138585638
+          },
+          "other_map": {
+            "n": 195,
+            "native_accuracy": 0.9846153846153847,
+            "target_accuracy": 0.9897435897435898,
+            "target_probability_gain": 0.000842002468158083,
+            "gold_probability_change": 0.000842002468158083,
+            "removal_gold_loss": -0.000842002468158083,
+            "centered_effect_rms": 2.624561975616754
+          },
+          "both_map": {
+            "n": 195,
+            "native_accuracy": 0.9846153846153847,
+            "target_accuracy": 0.6512820512820513,
+            "target_probability_gain": 0.6211797561468212,
+            "gold_probability_change": -0.8490111205183338,
+            "removal_gold_loss": 0.8490111205183338,
+            "centered_effect_rms": 7.209855722588947
+          }
+        },
+        "join_h3": {
+          "own_map": {
+            "n": 189,
+            "native_accuracy": 0.9947089947089947,
+            "target_accuracy": 0.8624338624338624,
+            "target_probability_gain": 0.8530302840425704,
+            "gold_probability_change": -0.9674685213036015,
+            "removal_gold_loss": 0.9674685213036015,
+            "centered_effect_rms": 5.409234579519587
+          },
+          "own_remove": {
+            "n": 189,
+            "native_accuracy": 0.9947089947089947,
+            "target_accuracy": 0.10582010582010581,
+            "target_probability_gain": -0.8901199510651264,
+            "gold_probability_change": -0.8901199510651264,
+            "removal_gold_loss": 0.8901199510651264,
+            "centered_effect_rms": 3.8983219503006126
+          },
+          "other_map": {
+            "n": 189,
+            "native_accuracy": 0.9947089947089947,
+            "target_accuracy": 0.7513227513227513,
+            "target_probability_gain": -0.23980964216975753,
+            "gold_probability_change": -0.23980964216975753,
+            "removal_gold_loss": 0.23980964216975753,
+            "centered_effect_rms": 6.793802223206077
+          },
+          "both_map": {
+            "n": 189,
+            "native_accuracy": 0.9947089947089947,
+            "target_accuracy": 0.7248677248677249,
+            "target_probability_gain": 0.6868880030901107,
+            "gold_probability_change": -0.9708642166240431,
+            "removal_gold_loss": 0.9708642166240431,
+            "centered_effect_rms": 8.489329899047274
+          }
+        }
+      },
+      "hop0_controls": {
+        "map_raw": {
+          "n": 384,
+          "native_accuracy": 1.0,
+          "target_accuracy": 1.0,
+          "target_probability_gain": -2.7962001926858566e-11,
+          "gold_probability_change": -2.7962001926858566e-11,
+          "removal_gold_loss": 2.7962001926858566e-11,
+          "centered_effect_rms": 3.6695207906974083
+        },
+        "map_join": {
+          "n": 384,
+          "native_accuracy": 1.0,
+          "target_accuracy": 1.0,
+          "target_probability_gain": -8.15895325837849e-12,
+          "gold_probability_change": -8.15895325837849e-12,
+          "removal_gold_loss": 8.15895325837849e-12,
+          "centered_effect_rms": 1.9573673545929193
+        },
+        "map_both": {
+          "n": 384,
+          "native_accuracy": 1.0,
+          "target_accuracy": 1.0,
+          "target_probability_gain": -3.76000165609273e-11,
+          "gold_probability_change": -3.76000165609273e-11,
+          "removal_gold_loss": 3.76000165609273e-11,
+          "centered_effect_rms": 4.079778042608106
+        }
+      },
+      "joint_interaction_max_abs": 41.481450969090176,
+      "joint_interaction_centered_rms": 2.111791881664346
+    },
+    "ood_three_8cycles": {
+      "groups": {
+        "raw_h1": {
+          "own_map": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7109375,
+            "target_probability_gain": 0.6935061681284802,
+            "gold_probability_change": -0.8963668493698255,
+            "removal_gold_loss": 0.8963668493698255,
+            "centered_effect_rms": 10.454493623120744
+          },
+          "own_remove": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.3229166666666667,
+            "target_probability_gain": -0.7165642082747773,
+            "gold_probability_change": -0.7165642082747773,
+            "removal_gold_loss": 0.7165642082747773,
+            "centered_effect_rms": 7.863580954158711
+          },
+          "other_map": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.9947916666666666,
+            "target_probability_gain": -0.006288613666116354,
+            "gold_probability_change": -0.006288613666116354,
+            "removal_gold_loss": 0.006288613666116354,
+            "centered_effect_rms": 2.9099128048511367
+          },
+          "both_map": {
+            "n": 384,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.6979166666666666,
+            "target_probability_gain": 0.6864468113847991,
+            "gold_probability_change": -0.890091773245205,
+            "removal_gold_loss": 0.890091773245205,
+            "centered_effect_rms": 10.54788530236488
+          }
+        },
+        "raw_h2": {
+          "own_map": {
+            "n": 384,
+            "native_accuracy": 0.9973958333333334,
+            "target_accuracy": 0.6197916666666666,
+            "target_probability_gain": 0.6113110447034287,
+            "gold_probability_change": -0.8664648880500003,
+            "removal_gold_loss": 0.8664648880500003,
+            "centered_effect_rms": 10.668383036801936
+          },
+          "own_remove": {
+            "n": 384,
+            "native_accuracy": 0.9973958333333334,
+            "target_accuracy": 0.4192708333333333,
+            "target_probability_gain": -0.6107151047266447,
+            "gold_probability_change": -0.6107151047266447,
+            "removal_gold_loss": 0.6107151047266447,
+            "centered_effect_rms": 7.615005163462325
+          },
+          "other_map": {
+            "n": 384,
+            "native_accuracy": 0.9973958333333334,
+            "target_accuracy": 0.9557291666666666,
+            "target_probability_gain": -0.04548306127033001,
+            "gold_probability_change": -0.04548306127033001,
+            "removal_gold_loss": 0.04548306127033001,
+            "centered_effect_rms": 3.972888800769404
+          },
+          "both_map": {
+            "n": 384,
+            "native_accuracy": 0.9973958333333334,
+            "target_accuracy": 0.5989583333333334,
+            "target_probability_gain": 0.5929834551869045,
+            "gold_probability_change": -0.9061700353286066,
+            "removal_gold_loss": 0.9061700353286066,
+            "centered_effect_rms": 11.220019673129913
+          }
+        },
+        "raw_h3": {
+          "own_map": {
+            "n": 204,
+            "native_accuracy": 0.9852941176470589,
+            "target_accuracy": 0.696078431372549,
+            "target_probability_gain": 0.672253104356092,
+            "gold_probability_change": -0.8546560741867447,
+            "removal_gold_loss": 0.8546560741867447,
+            "centered_effect_rms": 6.994118066002908
+          },
+          "own_remove": {
+            "n": 204,
+            "native_accuracy": 0.9852941176470589,
+            "target_accuracy": 0.17647058823529413,
+            "target_probability_gain": -0.7682012526826537,
+            "gold_probability_change": -0.7682012526826537,
+            "removal_gold_loss": 0.7682012526826537,
+            "centered_effect_rms": 4.868060605378531
+          },
+          "other_map": {
+            "n": 204,
+            "native_accuracy": 0.9852941176470589,
+            "target_accuracy": 0.9117647058823529,
+            "target_probability_gain": -0.05509008570423907,
+            "gold_probability_change": -0.05509008570423907,
+            "removal_gold_loss": 0.05509008570423907,
+            "centered_effect_rms": 2.720749103272851
+          },
+          "both_map": {
+            "n": 204,
+            "native_accuracy": 0.9852941176470589,
+            "target_accuracy": 0.7009803921568627,
+            "target_probability_gain": 0.6721985429827234,
+            "gold_probability_change": -0.8559442484204379,
+            "removal_gold_loss": 0.8559442484204379,
+            "centered_effect_rms": 7.348310976959236
+          }
+        },
+        "join_h3": {
+          "own_map": {
+            "n": 180,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.8444444444444444,
+            "target_probability_gain": 0.8160491906321856,
+            "gold_probability_change": -0.952585983641494,
+            "removal_gold_loss": 0.952585983641494,
+            "centered_effect_rms": 5.45007787116098
+          },
+          "own_remove": {
+            "n": 180,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.06111111111111111,
+            "target_probability_gain": -0.9120381319424988,
+            "gold_probability_change": -0.9120381319424988,
+            "removal_gold_loss": 0.9120381319424988,
+            "centered_effect_rms": 3.9293566111023557
+          },
+          "other_map": {
+            "n": 180,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7944444444444444,
+            "target_probability_gain": -0.2101774474580928,
+            "gold_probability_change": -0.2101774474580928,
+            "removal_gold_loss": 0.2101774474580928,
+            "centered_effect_rms": 6.826261624389263
+          },
+          "both_map": {
+            "n": 180,
+            "native_accuracy": 1.0,
+            "target_accuracy": 0.7277777777777777,
+            "target_probability_gain": 0.7116923150615331,
+            "gold_probability_change": -0.9581684612697057,
+            "removal_gold_loss": 0.9581684612697057,
+            "centered_effect_rms": 8.517844588705485
+          }
+        }
+      },
+      "hop0_controls": {
+        "map_raw": {
+          "n": 384,
+          "native_accuracy": 1.0,
+          "target_accuracy": 1.0,
+          "target_probability_gain": 5.060090295267808e-10,
+          "gold_probability_change": 5.060090295267808e-10,
+          "removal_gold_loss": -5.060090295267808e-10,
+          "centered_effect_rms": 3.49005592559594
+        },
+        "map_join": {
+          "n": 384,
+          "native_accuracy": 1.0,
+          "target_accuracy": 1.0,
+          "target_probability_gain": 1.221301738271267e-09,
+          "gold_probability_change": 1.221301738271267e-09,
+          "removal_gold_loss": -1.221301738271267e-09,
+          "centered_effect_rms": 1.5158183282261928
+        },
+        "map_both": {
+          "n": 384,
+          "native_accuracy": 1.0,
+          "target_accuracy": 1.0,
+          "target_probability_gain": 1.0211779240496914e-09,
+          "gold_probability_change": 1.0211779240496914e-09,
+          "removal_gold_loss": -1.0211779240496914e-09,
+          "centered_effect_rms": 3.6470841678376815
+        }
+      },
+      "joint_interaction_max_abs": 35.833584546358324,
+      "joint_interaction_centered_rms": 2.0176743294371393
+    }
+  },
+  "rows_sha256": "ef9ed86e89f3d21a1b7eb3c8d097cabb39b7a8511b020538cb2aec80392eabda",
+  "independent_worlds": 32,
+  "query_variants": 3072,
+  "predictions": {
+    "pred_a_mechanical": true,
+    "pred_b_raw": false,
+    "pred_c_join": true,
+    "pred_d_joint": false
+  },
+  "terminal": "dual_value_fields_not_established",
+  "scope": "literal raw E/8 and composed endpoint with native context; no structural coefficient reduction",
+  "wall_seconds": 15.04676654189825
+}
