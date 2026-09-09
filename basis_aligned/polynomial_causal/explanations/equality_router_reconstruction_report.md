@@ -77,3 +77,19 @@ Primary receipts: `../EQUALITY_ROUTER_V1_RESULT.json`,
 `../EQUALITY_ROUTER_V2_ABSOLUTE_POSITION_RESULT.json`, and
 `../EQUALITY_ROUTER_GAIN_V1_RESULT.json`. Preregistrations and executors are committed
 alongside them. The original reconstruction compiler and its null remain unchanged.
+
+## Local-transport successor: rejected
+
+`LOCAL_TRANSPORT_V1_RESULT.json` has since landed. Its compiled two-shift program
+passes dense-restricted replay and both branches have nonzero native removal effects,
+but query KL is 1.579, 1.468, and 1.351 on fresh cycles, renaming, and short-cycle OOD.
+Joint-removal relative errors are 0.665, 0.652, and 0.639. Thus local source transport
+also fails the fixed hypothesis; increasing the radius is not the registered successor.
+
+The next contextual hypothesis is answer-history reuse in the final attention layer.
+A token-only generator audit shows about 21% repeated `(entity, hop)` queries, which
+could explain the weak checkpoint's higher-hop floor without chaining several lookups.
+`CONTEXTUAL_HISTORY_V1_PREREGISTRATION.md` tests this with separate initial-binding,
+matching-history and control-history removals, fresh unique-query and short-cycle OOD,
+and an exact full-vocabulary readout decomposition. This is prospective; generator
+coverage alone does not identify a learned circuit.

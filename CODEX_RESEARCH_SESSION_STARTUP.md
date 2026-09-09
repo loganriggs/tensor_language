@@ -92,9 +92,20 @@ seeds3909/3910/3911, full29-way distributions on IID/metamorphic/topology-OOD te
 and native-corresponding self/previous/joint edge removals. Six synthetic controls
 pass. Implementation is complete and managed preflight passes; inspect the current
 queue/log/result before enqueuing or interpreting—never duplicate a run.
-All400640 parameters remain opaque and charged. A passing dependency screen only
-licenses explaining its remaining token-to-write operations; it cannot complete the
-bilin18 goal. On failure, preserve the null and do not sweep radii or thresholds.
+All400640 parameters remain opaque and charged. Local transport has now landed:
+`LOCAL_TRANSPORT_V1_RESULT.json` is a valid null, query KL1.35–1.58 and joint-removal
+relative errors0.639–0.665. No radius or threshold sweep is licensed.
+
+The active successor is `CONTEXTUAL_HISTORY_V1_PREREGISTRATION.md` and managed
+`ops/run_contextual_history_v1.py` (under bilinear_quotient). It asks whether the
+small checkpoint's higher-hop floor comes from repeated-query answer retrieval.
+The explicit final readout is partitioned into residual, initial binding, earlier
+matching answer and other sources, with matched nonmatching-history controls.
+Full upstream native computation is retained and counted; final W_O is physically
+folded into the vocabulary readout in `contextual_history_reference.py`. Nine CPU
+controls and model-free preflight pass. Inspect its queue/log/receipt before acting.
+This is a contextual read-route-write hypothesis, not more first-layer symmetry or
+locality fitting. Reviews remain1348, due1448/1648 during active work.
 
 The user redirected Codex to
 `basis_aligned/polynomial_causal/explanations/bilinear_circuit_reconstruction_codex_handoff.md`.
