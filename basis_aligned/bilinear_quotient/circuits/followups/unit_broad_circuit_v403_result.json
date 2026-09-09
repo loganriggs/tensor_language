@@ -1,0 +1,80 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "joint_min": 0.8,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_broad_circuit_v403",
+  "finished_utc": "2026-09-09T16:16:41.874664+00:00",
+  "held_out": {
+    "C_report": {
+      "A1_damage": {
+        "ce_damage": 0.5598,
+        "ce_lb975": 0.4935,
+        "ce_ub975": 0.6323,
+        "margin_damage": 2.6701,
+        "top1_change_rate": 0.375
+      },
+      "C_damage": {
+        "ce_damage": -0.0018,
+        "ce_lb975": -0.0058,
+        "ce_ub975": 0.002,
+        "margin_damage": 0.0009,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.002,
+      "fit_shapes": [
+        "A_inspect",
+        "B_agreement",
+        "D_denial"
+      ],
+      "n_units": 7,
+      "transfer_extraction": 0.983,
+      "units_recovery": 0.876
+    },
+    "D_denial": {
+      "A1_damage": {
+        "ce_damage": 0.5519,
+        "ce_lb975": 0.4843,
+        "ce_ub975": 0.6274,
+        "margin_damage": 2.3415,
+        "top1_change_rate": 0.375
+      },
+      "C_damage": {
+        "ce_damage": 0.0026,
+        "ce_lb975": -0.0056,
+        "ce_ub975": 0.0105,
+        "margin_damage": -0.0421,
+        "top1_change_rate": 0.0312
+      },
+      "C_ub975": 0.0105,
+      "fit_shapes": [
+        "A_inspect",
+        "B_agreement",
+        "C_report"
+      ],
+      "n_units": 8,
+      "transfer_extraction": 0.974,
+      "units_recovery": 0.914
+    }
+  },
+  "predictions": {
+    "pred_a_all_transfer": true,
+    "pred_b_units_transfer": true,
+    "pred_c_control_clean": false,
+    "pred_d_units_reach_085": true,
+    "pred_e_some_holdout_resists": false
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_broad_circuit_v403",
+  "seconds": 70.6
+}
