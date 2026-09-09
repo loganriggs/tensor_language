@@ -53,6 +53,35 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Query-factor and common-address nulls; late instruction active — 2026-09-09 19:15 UTC
+
+HOP_QUERY_FACTOR_TRANSFER_V1_RESULT.json completes3.45s managedGPU,A/D true,
+B/C false on4608fresh ordered transitions. Nativecapability>=.9635,oracle1.56e-13,
+explicitmixedcomposition1.63e-13. Q1errors.594–1.659,Q2 .826–1.970; neither
+nativefactor supplies independenthopcontrol. Mixedterm/targetRMS.911–2.562.
+
+Immediate CPU HOP_COMMON_ADDRESS_BOUND_V1.json: bestpossible scalar-modulated
+shared binding-message pattern pernativehead fails, residual.435–.611; all1536
+world/query/head cases exceed1%,savedreadoracle4.55e-13. This is a fixed causal-
+response lowerbound, not rankselection or arbitrary-grouping impossibility.
+Next saved-output READ_AFTER_ADVANCE_AUDIT_V1.json rejects nativeonehop read at
+F^(h-1)(q) as higherhop reader: h2errors.823/.820,h3 1.401/1.404 IID/OOD.
+All768 comparisons retained, identityexact0, no newnativeexecution or fitting.
+
+Active LATE_HOP_INSTRUCTION_V1_PREREGISTRATION.md and
+hop_instruction_field_reference.py,18 CPUcontrols pass. Fresh33909/33910 first8
+worlds/pop,all24queries/all12ordered hopchanges. Test literal E(hop)/8 atfinalquery
+as late instruction: swap onlyembeddingdifference, recompute finalRMS/QKV/residual,
+predict fullnewhop distributions/effects. Removingliteralinstruction musterase
+hopdependence. Computed-only isdiagnostic; fullstatejoint isdonorpositivecontrol,
+not an alternatecandidate. No scale/producer/head/rank rescue. All387968 weights
+staycharged. Next integrate managed ops/run_late_hop_instruction_v1.py using
+exact_source_edit_reference.py andsharedmetrics; no trainedfreshoutcomesopened.
+Canonical circuit record: explanations/hop_instruction_circuits.md.
+
+Hourly1851 next19:51; math1648 next19:48. Both runnershealthy, sharedlaneactive;
+inspect livequeues beforeenqueue. Bilinear handoff/appendedcriterion controls.
+
 ## Fresh content confirmation fails; query-factor study active — 2026-09-09 19:00 UTC
 
 FRESH_ERROR_CONTENT_V1_RESULT.json completes2.60s managedGPU,A/B/D true,C false.

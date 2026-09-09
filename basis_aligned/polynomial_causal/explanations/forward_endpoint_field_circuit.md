@@ -263,5 +263,8 @@ Q1/Q2 query interchange can therefore test whether either query factor supplies
 hop control, with both-factor donor-read equality as a positive control. The
 primitive passes13 checks, including independent native hooks and a live check
 that this partial binding read is not the full donor output. Fresh integration
-remains; neither query alternative is supported yet. Structural simplification
-and the full four-property goal remain outstanding.
+has since completed: both single-query-factor alternatives failed, as did a
+common-address lower bound and a read-after-advance rewrite. The current results
+and the new literal hop-instruction test are recorded in
+[hop_instruction_circuits.md](hop_instruction_circuits.md). Structural
+simplification and the full four-property goal remain outstanding.
