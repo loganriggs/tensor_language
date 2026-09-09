@@ -27,6 +27,7 @@ PRIOR = ROOT / "circuits/prior_art/temporal_iswas_v23_residual_carrier_downstrea
 FACTORIAL_PRIOR = ROOT / "circuits/prior_art/temporal_iswas_v23_block11_residual_mlp_factorial_rescue_v1.json"
 FACTORIAL_RESULT = ROOT / "circuits/followups/temporal_iswas_v23_block11_residual_mlp_factorial_rescue_v1_result.json"
 BINDING = ROOT / "circuits/bindings/temporal_iswas_v23_residual_carrier_downstream_module_reader_atlas_v1.json"
+PRECISION_AUDIT = ROOT / "circuits/audits/temporal_iswas_v23_block11_factorial_precision_audit_v1.json"
 NECESSITY = ROOT / "circuits/followups/temporal_iswas_v23_four_head_necessity_occupied_mode_rescue_v1_result.json"
 CONFIRMATION = ROOT / "circuits/followups/temporal_iswas_v23_aligned_four_head_reader_contracted_confirmation_v1_result.json"
 HELPER = ROOT / "ops/residual_reader_module_atlas.py"
@@ -44,6 +45,7 @@ EXPECTED = {"prior": "26523fe81959412e9e959183b7eda6fcaec8412114bde4f0ccb98747ad
     "builder": "a4830fd110b8cd854a5f28bfae776f697a15d4f791355990e02ea030fdca4c05",
     "shared": "9ab2a9edb60f4e3e4befebf11f55225659559a2a504075567218eab9bf903d06",
     "boundary": "d027438fbd9f65b336793cd628c8d55f41510adcf36266198b43449d36cdc8b9"}
+EXPECTED_PRECISION_AUDIT_SHA256 = "9b8ddd4ea12c03dd91f3affbe1e343f5de2f16e2c2f1d1ab3302e082cfa0faa3"
 ROUTES = ("L8H1", "L9H1", "L9H4", "L11H3")
 MODULES = tuple(name for layer in range(12, 18) for name in (f"A{layer}", f"M{layer}"))
 BARS = {"replay": 1e-4, "fit_projection": .15, "fit_cosine": .85,
@@ -76,11 +78,15 @@ def finite(value):
 
 def eligibility(binding, predecessor):
     """Require a result-conditioned, runner-bound license for this causal successor."""
-    required = (component.PREDICTION_KEYS[0], component.PREDICTION_KEYS[1],
-                component.PREDICTION_KEYS[3])
+    required = (component.PREDICTION_KEYS[0], component.PREDICTION_KEYS[1])
+    audit = json.loads(PRECISION_AUDIT.read_text()) if PRECISION_AUDIT.exists() else {}
     return bool(
-        binding.get("schema") == "temporal_iswas_v23_residual_reader_atlas_binding_v1"
+        binding.get("schema") == "temporal_iswas_v23_residual_reader_atlas_binding_v2"
         and binding.get("factorial_result_sha256") == sha(FACTORIAL_RESULT)
+        and binding.get("precision_audit_sha256") == EXPECTED_PRECISION_AUDIT_SHA256
+        and sha(PRECISION_AUDIT) == EXPECTED_PRECISION_AUDIT_SHA256
+        and audit.get("downstream_reader_license") is True
+        and audit.get("original_factorial_relabelled") is False
         and binding.get("factorial_runner_sha256") == EXPECTED["component"]
         and binding.get("atlas_runner_sha256") == sha(SELF)
         and all(predecessor.get("predictions", {}).get(key) is True for key in required)

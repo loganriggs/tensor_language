@@ -12,21 +12,24 @@ def test_price_and_module_inventory():
     assert experiment.PRICE["sequence_evaluations_exact"] == 28*64
     assert experiment.MODULES[0] == "A12" and experiment.MODULES[-1] == "M17"
 
-def test_executor_is_fail_closed_before_factorial_binding():
-    assert not experiment.FACTORIAL_RESULT.exists()
+def test_executor_has_factorial_and_audit_but_remains_fail_closed_before_binding():
+    assert experiment.FACTORIAL_RESULT.exists()
+    assert experiment.PRECISION_AUDIT.exists()
     assert not experiment.BINDING.exists()
 
 def test_eligibility_binds_both_runners_and_required_predecessor_predictions(monkeypatch):
     predictions = {key: True for key in experiment.component.PREDICTION_KEYS}
     predecessor = {"predictions": predictions}
     binding = {
-        "schema": "temporal_iswas_v23_residual_reader_atlas_binding_v1",
+        "schema": "temporal_iswas_v23_residual_reader_atlas_binding_v2",
         "factorial_result_sha256": "factorial-result",
+        "precision_audit_sha256": experiment.EXPECTED_PRECISION_AUDIT_SHA256,
         "factorial_runner_sha256": experiment.EXPECTED["component"],
         "atlas_runner_sha256": "atlas-runner",
     }
     observed = {
         experiment.FACTORIAL_RESULT: "factorial-result",
+        experiment.PRECISION_AUDIT: experiment.EXPECTED_PRECISION_AUDIT_SHA256,
         experiment.SELF: "atlas-runner",
     }
     monkeypatch.setattr(experiment, "sha", lambda path: observed[path])

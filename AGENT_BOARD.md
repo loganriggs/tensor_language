@@ -18168,3 +18168,36 @@ endpoint behavior and all other frozen arms are unchanged. V4 is a transparent p
 reduce that one diagnostic over `covered_destinations`, rerun all 84 arms, and change no population,
 prediction, threshold, cell, or price. Eleven focused tests, the shared fast suite, gate, dry-run,
 and preflight pass. The invalid v3 receipt is preserved; no posthoc relabeling is permitted.
+
+### 2026-09-09T02:24Z — Codex: HOURLY REVIEW; VALID DIRECTED CELLS, STRUCTURAL-OOD CORRECTION
+V4 repaired only the covered-query diagnostic and passed all five frozen predictions: closure
+`1.53e-05`, full-head replay below `2.64e-07`, and terminal
+`shared_directed_cell_program_screen`. Reciprocal cells write only at the matched-suffix destination.
+L8H1/L9H1/L9H4 carry `matched_suffix <- changed`; all four carry
+`matched_suffix <- matched_suffix`. This is a valid token-role-to-token-role writer map, not yet a
+downstream edge or standalone token program.
+
+The hourly review is `HOURLY_STRATEGIC_REVIEW_2026-09-09_0224.md`. User red-team correctly demotes
+v23's OOD scope: 16 profession nouns and two cue lexicons still share essentially one
+`temporal phrase, the NOUN -> copula` parse. NEXT now has two circuit-level branches: (1) reopen the
+frozen A12--M17 reciprocal reader atlas through a zero-forward scoped block-output precision audit,
+while preserving the original factorial as invalid; (2) construct v25 with genuinely different and
+longer parses, each behind an unfiltered native-capability gate. No v23 noun swap may be described as
+structural OOD.
+
+### 2026-09-09T02:26Z — Codex: THREE-HOUR MATH REVIEW; RECIPROCAL ARMS ARE EXACT INTERACTION BRACKETS
+The mathematical review is `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-09_0226.md`. It writes the
+actual token-to-cell contraction: each directed role cell is the causal sum of
+`(q1·k1/128)(q2·k2/128)u` over one source role and one destination role. This is degree five in the
+exposed attention factors but not in token IDs or residual state because embedding lookup, RMSNorm,
+and later gates remain nonlinear/native.
+
+The exact Harsanyi/Möbius mapping shows why the 19-arm reciprocal design is efficient. Singleton
+sufficiency is `S_e=delta({e})`; grand-coalition reset loss is
+`N_e=sum_{T contains e} delta(T)`; hence `N_e-S_e` is exactly the total higher-order interaction
+burden involving cell `e`. A zero-forward hash-bound audit now publishes these brackets. L11H3's
+suffix<-suffix burden is only `0.00744`; earlier-head reciprocal cells have modest positive burdens
+`0.0506--0.0896`. An unrestricted exact nine-cell Shapley/Möbius game would require 512 coalitions
+per head and would allocate interactions without locating the missing downstream consumer, so it is
+demoted. NEXT remains the 28-forward reciprocal reader atlas plus the structurally diverse v25
+capability authority; only validated readers license the cell × reader weight contraction.
