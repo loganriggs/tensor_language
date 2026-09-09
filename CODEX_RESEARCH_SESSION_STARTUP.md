@@ -53,6 +53,47 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Wrong-source content paths pass an opened-case screen — 2026-09-09 18:43 UTC
+
+Follow the bilinear circuit reconstruction handoff and its appended structural
+success criterion; stale durable-goal wording mentioning better_math_ideas is
+superseded by the user. Full predictive/extraction/removal/composition objective
+and reduced structural description remain unachieved.
+
+FINAL_SOURCE_FAILURE_ATLAS_V1.json: all20 answer-disagreement pairs,40 states,
+960 binding cuts. Of21 wrong states,16 can be repaired by an off-chain read cut;
+20 strongest wrong-support sources are off-chain. Every strongest source carries
+the wrong answer as its raw value (15) or an earlier forward-join endpoint (6).
+Export/native correspondence5.68e-14. Initial native-baseline delta check is
+preserved separately; canonical candidate uses independently exported baseline.
+
+BAD_SOURCE_CONTENT_MEDIATION_V1_RESULT.json: all42 predeclared primary/paired
+states, six arms, all four gates pass in0.90s CPU. Removing nominated E/8 or L2H1
+joined-endpoint content through final V, under native fixed P/RMS/Q/K/residual,
+repairs12/15 raw and5/6 joined errors. Each field explains about92.5% of the mean
+whole-source wrong-minus-gold margin; wrongP loss is.689/.688. All19 correct peers
+stay correct. Native all-output oracle5.68e-14; additive path composition3.55e-14.
+This is a defined content-path intervention, not physical state deletion with
+recomputed RMS, and does not revive rejected global field interchanges.
+
+Immediate successor BAD_SOURCE_CONTENT_SPECIFICITY_AUDIT_V1.json rules out a
+large cancellation hidden by the pooled mean on these19 peers: mean absolute
+goldP change.00471, max absolute.02182, worst loss.01147. Opposite joined path is
+absent for4/15 raw primaries; among11 present controls only1 repairs. Opposite raw
+path repairs1/6 joined primaries. Four remaining primary failures change to other
+wrong answers, all retained. This successor CPU analysis actually completed.
+
+Next research decision: prospectively validate the fixed raw/join error-content
+rule on a fresh complete cohort, counting uncovered errors and unsupported source
+types rather than filtering them out. Freeze source nomination and all gates
+before opening outputs. Discovery selection used known errors/gold labels, so
+current17/21 is not a deployable error detector or fresh identification. Use
+shared intervention/scoring helpers; keep independent native correspondence and
+all387968 coefficients/background charged. No structural saving is established.
+
+Both managed runners healthy; last own GPU job completed. These small audits
+were CPU-only. Hourly1751 next18:51; math1648 next19:48; inspect live state.
+
 ## Native entity-symmetry obstruction and failure corpus — 2026-09-09 18:24 UTC
 
 GLOBAL_ENTITY_GATE_REUSE_V1_RESULT.json completes2.70s,A true,B/C/D false.

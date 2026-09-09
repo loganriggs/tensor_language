@@ -1,0 +1,430 @@
+{
+  "scope": "post-screen saved-case diagnostic; registered gates unchanged",
+  "correct_peers": {
+    "n": 19,
+    "mean_absolute_gold_probability_change": 0.004712913247545157,
+    "maximum_absolute_gold_probability_change": 0.021820375165544692,
+    "maximum_gold_probability_loss": 0.011469420406392983,
+    "individual": [
+      {
+        "population": "iid",
+        "row": 139,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 12,
+        "field": "raw",
+        "answer": 16,
+        "foil": 22,
+        "gold_probability_change": 0.021820375165544692
+      },
+      {
+        "population": "iid",
+        "row": 159,
+        "primary_side": "old",
+        "side": "renamed",
+        "binding": 20,
+        "field": "raw",
+        "answer": 1,
+        "foil": 4,
+        "gold_probability_change": 1.3970022161302609e-06
+      },
+      {
+        "population": "iid",
+        "row": 279,
+        "primary_side": "old",
+        "side": "renamed",
+        "binding": 22,
+        "field": "raw",
+        "answer": 8,
+        "foil": 19,
+        "gold_probability_change": 0.00010629240510517945
+      },
+      {
+        "population": "iid",
+        "row": 355,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 17,
+        "field": "raw",
+        "answer": 18,
+        "foil": 2,
+        "gold_probability_change": 9.12825128707162e-06
+      },
+      {
+        "population": "iid",
+        "row": 447,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 23,
+        "field": "raw",
+        "answer": 5,
+        "foil": 1,
+        "gold_probability_change": 0.011078560766164647
+      },
+      {
+        "population": "iid",
+        "row": 462,
+        "primary_side": "old",
+        "side": "renamed",
+        "binding": 10,
+        "field": "join",
+        "answer": 10,
+        "foil": 5,
+        "gold_probability_change": 8.001403732804668e-06
+      },
+      {
+        "population": "iid",
+        "row": 463,
+        "primary_side": "old",
+        "side": "renamed",
+        "binding": 16,
+        "field": "raw",
+        "answer": 0,
+        "foil": 6,
+        "gold_probability_change": 0.016434726769706032
+      },
+      {
+        "population": "iid",
+        "row": 487,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 19,
+        "field": "raw",
+        "answer": 4,
+        "foil": 11,
+        "gold_probability_change": 0.00011209006115942
+      },
+      {
+        "population": "iid",
+        "row": 515,
+        "primary_side": "old",
+        "side": "renamed",
+        "binding": 11,
+        "field": "raw",
+        "answer": 7,
+        "foil": 14,
+        "gold_probability_change": -2.2019918320514975e-05
+      },
+      {
+        "population": "iid",
+        "row": 526,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 23,
+        "field": "join",
+        "answer": 19,
+        "foil": 12,
+        "gold_probability_change": 0.0
+      },
+      {
+        "population": "iid",
+        "row": 567,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 23,
+        "field": "join",
+        "answer": 11,
+        "foil": 12,
+        "gold_probability_change": 0.00022527541501959902
+      },
+      {
+        "population": "iid",
+        "row": 587,
+        "primary_side": "old",
+        "side": "renamed",
+        "binding": 21,
+        "field": "raw",
+        "answer": 15,
+        "foil": 21,
+        "gold_probability_change": -5.195563992843599e-05
+      },
+      {
+        "population": "iid",
+        "row": 623,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 23,
+        "field": "raw",
+        "answer": 6,
+        "foil": 12,
+        "gold_probability_change": -0.000840905068189679
+      },
+      {
+        "population": "iid",
+        "row": 671,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 23,
+        "field": "raw",
+        "answer": 18,
+        "foil": 12,
+        "gold_probability_change": -0.004850707955719069
+      },
+      {
+        "population": "iid",
+        "row": 675,
+        "primary_side": "old",
+        "side": "renamed",
+        "binding": 16,
+        "field": "join",
+        "answer": 3,
+        "foil": 10,
+        "gold_probability_change": 4.796270496321142e-07
+      },
+      {
+        "population": "iid",
+        "row": 707,
+        "primary_side": "old",
+        "side": "renamed",
+        "binding": 17,
+        "field": "raw",
+        "answer": 15,
+        "foil": 14,
+        "gold_probability_change": 0.017100482565310493
+      },
+      {
+        "population": "ood_three_8cycles",
+        "row": 631,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 16,
+        "field": "raw",
+        "answer": 18,
+        "foil": 15,
+        "gold_probability_change": -0.011469420406392983
+      },
+      {
+        "population": "ood_three_8cycles",
+        "row": 667,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 10,
+        "field": "join",
+        "answer": 14,
+        "foil": 1,
+        "gold_probability_change": -1.1105766244412507e-06
+      },
+      {
+        "population": "ood_three_8cycles",
+        "row": 699,
+        "primary_side": "renamed",
+        "side": "old",
+        "binding": 19,
+        "field": "raw",
+        "answer": 14,
+        "foil": 20,
+        "gold_probability_change": 0.005412422705887154
+      }
+    ]
+  },
+  "opposite_field": {
+    "raw": {
+      "primary_n": 15,
+      "opposite_present_n": 11,
+      "opposite_absent_n": 4,
+      "present_repaired": 1,
+      "present_mean_wrong_probability_loss": -0.005446821804213676
+    },
+    "join": {
+      "primary_n": 6,
+      "opposite_present_n": 6,
+      "opposite_absent_n": 0,
+      "present_repaired": 1,
+      "present_mean_wrong_probability_loss": 0.07205403412191973
+    }
+  },
+  "remaining_primary_failures": [
+    {
+      "population": "iid",
+      "row": 479,
+      "primary_side": "old",
+      "side": "old",
+      "binding": 21,
+      "field": "raw",
+      "answer": 18,
+      "foil": 19,
+      "arms": {
+        "native": {
+          "prediction": 19,
+          "gold_probability_change": 0.0,
+          "wrong_probability_loss": 0.0,
+          "margin_reduction": 0.0
+        },
+        "whole": {
+          "prediction": 21,
+          "gold_probability_change": 0.05569843369009356,
+          "wrong_probability_loss": 0.3507827880080191,
+          "margin_reduction": 5.014845692953523
+        },
+        "nominated": {
+          "prediction": 21,
+          "gold_probability_change": 0.09248662972410335,
+          "wrong_probability_loss": 0.3514881695447054,
+          "margin_reduction": 5.429791594419617
+        },
+        "opposite": {
+          "prediction": 19,
+          "gold_probability_change": -0.013186077618778741,
+          "wrong_probability_loss": -0.026977447541246202,
+          "margin_reduction": -0.1754456839573484
+        },
+        "joint": {
+          "prediction": 21,
+          "gold_probability_change": 0.07952479510590116,
+          "wrong_probability_loss": 0.35116432256676583,
+          "margin_reduction": 5.2543459104622725
+        },
+        "identity": {
+          "prediction": 19,
+          "gold_probability_change": 0.0,
+          "wrong_probability_loss": 0.0,
+          "margin_reduction": 0.0
+        }
+      }
+    },
+    {
+      "population": "iid",
+      "row": 479,
+      "primary_side": "renamed",
+      "side": "renamed",
+      "binding": 12,
+      "field": "join",
+      "answer": 22,
+      "foil": 11,
+      "arms": {
+        "native": {
+          "prediction": 11,
+          "gold_probability_change": 0.0,
+          "wrong_probability_loss": 0.0,
+          "margin_reduction": 0.0
+        },
+        "whole": {
+          "prediction": 23,
+          "gold_probability_change": 0.006746247822291884,
+          "wrong_probability_loss": 0.48379018272894564,
+          "margin_reduction": 4.949212790654299
+        },
+        "nominated": {
+          "prediction": 23,
+          "gold_probability_change": 0.07446764039143386,
+          "wrong_probability_loss": 0.48492987238392715,
+          "margin_reduction": 5.724211349812466
+        },
+        "opposite": {
+          "prediction": 11,
+          "gold_probability_change": 0.011644696871396382,
+          "wrong_probability_loss": 0.006064689209962726,
+          "margin_reduction": 0.09731861340713266
+        },
+        "joint": {
+          "prediction": 23,
+          "gold_probability_change": 0.08951219164309324,
+          "wrong_probability_loss": 0.4849959062728023,
+          "margin_reduction": 5.821529963219601
+        },
+        "identity": {
+          "prediction": 11,
+          "gold_probability_change": 0.0,
+          "wrong_probability_loss": 0.0,
+          "margin_reduction": 0.0
+        }
+      }
+    },
+    {
+      "population": "iid",
+      "row": 487,
+      "primary_side": "renamed",
+      "side": "renamed",
+      "binding": 19,
+      "field": "raw",
+      "answer": 18,
+      "foil": 15,
+      "arms": {
+        "native": {
+          "prediction": 15,
+          "gold_probability_change": 0.0,
+          "wrong_probability_loss": 0.0,
+          "margin_reduction": 0.0
+        },
+        "whole": {
+          "prediction": 14,
+          "gold_probability_change": 0.021701081798743964,
+          "wrong_probability_loss": 0.44620004909679845,
+          "margin_reduction": 3.5416541656019316
+        },
+        "nominated": {
+          "prediction": 7,
+          "gold_probability_change": 0.05664470197438829,
+          "wrong_probability_loss": 0.4549306490579177,
+          "margin_reduction": 4.540376046889359
+        },
+        "opposite": {
+          "prediction": 15,
+          "gold_probability_change": -0.004995802349844425,
+          "wrong_probability_loss": -0.13683975753549016,
+          "margin_reduction": -0.3590523088472528
+        },
+        "joint": {
+          "prediction": 14,
+          "gold_probability_change": 0.07812042050751347,
+          "wrong_probability_loss": 0.4475016520439292,
+          "margin_reduction": 4.181323738042107
+        },
+        "identity": {
+          "prediction": 15,
+          "gold_probability_change": 0.0,
+          "wrong_probability_loss": 0.0,
+          "margin_reduction": 0.0
+        }
+      }
+    },
+    {
+      "population": "iid",
+      "row": 515,
+      "primary_side": "old",
+      "side": "old",
+      "binding": 11,
+      "field": "raw",
+      "answer": 2,
+      "foil": 23,
+      "arms": {
+        "native": {
+          "prediction": 23,
+          "gold_probability_change": 0.0,
+          "wrong_probability_loss": 0.0,
+          "margin_reduction": 0.0
+        },
+        "whole": {
+          "prediction": 10,
+          "gold_probability_change": 0.16826296283950704,
+          "wrong_probability_loss": 0.7182379657990358,
+          "margin_reduction": 6.396910883671
+        },
+        "nominated": {
+          "prediction": 10,
+          "gold_probability_change": 0.1638430470245415,
+          "wrong_probability_loss": 0.7151091309027512,
+          "margin_reduction": 5.829313944577277
+        },
+        "opposite": {
+          "prediction": 23,
+          "gold_probability_change": 0.0,
+          "wrong_probability_loss": 0.0,
+          "margin_reduction": 0.0
+        },
+        "joint": {
+          "prediction": 10,
+          "gold_probability_change": 0.1638430470245415,
+          "wrong_probability_loss": 0.7151091309027512,
+          "margin_reduction": 5.829313944577277
+        },
+        "identity": {
+          "prediction": 23,
+          "gold_probability_change": 0.0,
+          "wrong_probability_loss": 0.0,
+          "margin_reduction": 0.0
+        }
+      }
+    }
+  ]
+}

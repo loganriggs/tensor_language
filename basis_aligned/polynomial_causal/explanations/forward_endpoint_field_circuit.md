@@ -184,3 +184,41 @@ changes contribute even when both task answers are correct. This is not a bound
 against smaller nonsymmetric programs, nor enough by itself to reject the
 all-position meanKL bar. The complete20-pair answer-disagreement discovery corpus
 is preserved for subsequent causal explanation, with no filtering of evaluation.
+
+## Wrong-source reads carry identifiable direct or composed content
+
+The [source atlas](../FINAL_SOURCE_FAILURE_ATLAS_V1.json) tests all24 initial
+binding reads in both contexts of all20 answer-disagreement pairs. There are21
+wrong states. An off-chain binding cut repairs16; the strongest wrong-versus-gold
+source is off-chain in20. That source's raw value equals the wrong output in15
+cases; its two-step endpoint equals it in6, each with an earlier forward join.
+These are selected discovery cases, not a fresh population estimate.
+
+The [registered content-path screen](../BAD_SOURCE_CONTENT_MEDIATION_V1_RESULT.json)
+then tests all21 nominated sources plus their paired contexts. It removes either
+the direct E/8 term at the binding value or the existing L2H1 joined-endpoint term
+at the binding's two positions, transmitted through final V under fixed native
+attention and RMS gains. The residual, Q and K remain native. All four registered
+gates pass: raw/join paths explain6.995/7.141 mean wrong-minus-gold margin versus
+7.558/7.713 for the whole binding read; wrong-answer probability falls.689/.688.
+Content removal repairs12/15 raw and5/6 joined cases, including every16 cases
+repaired by the nominated whole binding cut. Opposite-field removal repairs only
+one case in each group. Four raw cases have no opposite joined path, so those
+inert controls do not count as evidence for specificity.
+
+All19 correctly answered peers remain correct. A subsequent
+[individual specificity audit](../BAD_SOURCE_CONTENT_SPECIFICITY_AUDIT_V1.json)
+reports mean absolute goldP change.00471, maximum absolute change.02182 and worst
+loss.01147; the small signed mean is not hiding a large individual loss here.
+All four remaining primary failures are retained: removing this content lowers
+support for the original wrong answer but exposes another wrong answer.
+
+The exported candidate and independent native hooks agree on every output within
+5.68e-14. Raw/join path effects compose additively within3.55e-14 under the defined
+fixed-gain intervention. This does not imply additive probability changes or
+additive physical state edits with live normalization. The independently executed
+program retains387968 constants and all native routing machinery. Thus this
+screen localizes content behind particular errors; it establishes neither fresh
+identification, a deployable repair rule, nor reduced structural description.
+The next test must freeze the nomination rule on a fresh complete cohort and
+count unsupported/uncovered errors instead of selecting another successful subset.
