@@ -18249,3 +18249,19 @@ to float32. It reruns all four forwards and preserves every scientific bar, incl
 miss. Five focused tests, shared fast suite, gate, dry-run, and preflight pass. A valid V2 would
 establish the quantitative direct/response decomposition but is expected to remain a nonselective
 direct-route miss unless the P value materially fails to reproduce.
+
+### 2026-09-09T03:05Z — Codex: DIRECT V2 VALID; FRESH STRUCTURAL V26 CAPABILITY CLAIMED
+Direct-readout v2 is valid with float64 state closure `7.28e-12` and exact reconstructed-logit
+replay. The terminal is `distributed_downstream_response`: analytic identity carry explains a
+signed `0.83266`, the complete later response contributes `0.17281`, and final-decoder interaction
+is `-0.00547`. The dominant-direct selective claim remains honestly false because P leak is
+`0.155885` against the frozen `0.15` bar. This is an exact decomposition of the rescued v23 state,
+not a structure-general circuit claim.
+
+The user's structural red-team is accepted: noun swaps in one prefix-comma-subject template do not
+constitute syntax generalization. V26 is a new 64-row authority over the four complete structure
+pairs that passed v25 at family level—fronted era, subordinate clause, reported source, and
+postnominal temporal modifier—with 16 new compound professions, no reused row/text, four examples
+per direction, and no row filtering. Its capability-only gate requires every direction/side cell
+to reach 3/4 and every construction to have 6/8 jointly correct base/donor rows. Six focused tests,
+the shared fast suite, and model-free dry-run pass; price is exactly two forwards / 128 sequences.

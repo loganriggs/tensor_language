@@ -1,0 +1,38 @@
+{
+  "candidate_id": "tense_auxiliary.is_vs_was.structural_holdout_v26_capability_v1",
+  "created_utc": "2026-09-09T03:00:00Z",
+  "decision": "fresh_construction_level_holdout_after_v25_capability_screen",
+  "motivation": "test genuinely different syntax on new rows without selecting individual examples",
+  "nearest_prior_work": [
+    {
+      "artifact": "circuits/followups/tense_auxiliary_is_was_structural_ood_v25_capability_v1_result.json",
+      "difference": "v25 identified four supported construction families; v26 uses fresh lexical items and texts within those families"
+    },
+    {
+      "artifact": "circuits/followups/temporal_iswas_v23_source_destination_cell_atlas_v4_result.json",
+      "difference": "v23 causal cells were established only on the narrow temporal-prefix grammar"
+    }
+  ],
+  "frozen_design": {
+    "rows": 64,
+    "target_constructions": 4,
+    "control_constructions": 4,
+    "rows_per_construction": 8,
+    "rows_per_construction_direction": 4,
+    "cell_accuracy_minimum": 0.75,
+    "jointly_correct_base_and_donor_per_construction_minimum": 6,
+    "price": {
+      "model_forwards_exact": 2,
+      "sequence_evaluations_exact": 128,
+      "interventions": 0,
+      "transformer_backwards": 0,
+      "model_updates": 0
+    }
+  },
+  "forbidden_claims": [
+    "v25 successful individual rows may be reused or filtered",
+    "capability establishes a causal circuit",
+    "v23 causal cells automatically transfer to v26 grammar",
+    "failure of one unsupported v25 family invalidates the four family-level holdouts"
+  ]
+}
