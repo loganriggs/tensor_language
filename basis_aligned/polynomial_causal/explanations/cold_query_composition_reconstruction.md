@@ -383,3 +383,32 @@ independent forward route present and removed. Its reference passes five CPU
 controls including all-source Y1 identity, single/conditional-joint replay and
 future-token invariance. All native coefficients and normalization dependencies
 remain charged. A semantic path result will not erase the quantitative failures.
+
+## Origin-copy path and a derived composition boundary
+
+`JOIN_ORIGIN_WRITER_V1_RESULT.json` passes A/B and fails C/D on fresh19909/19910
+worlds. The explicit preceding-key→value-position L1 path feeding L2H2 restores
+.883–.988 of the backward task effect; its exact complement restores at most.107.
+Native single/conditional-joint restoration closes at4.26e-14. Quantitative query
+effect errors.311–.403 still prevent a sufficient replacement claim. Source identity
+is now explicit across two attention layers, but semantic task effect is not the
+same as exact native execution.
+
+The identical raw query-effect vectors with the independent forward route present
+and removed motivate a different grouping criterion. The1648 mathematical review
+derives an exact restriction for this checkpoint's one-layer suffix: disjoint
+post-L2 source-state edits give at most pairwise interactions in Boolean edit bits.
+At unchanged query positions the effects are additive. Pair interactions are
+restricted to changed query positions reading another changed source. Multiple
+producer edits entering the same RMS-normalized source state can interact at
+higher order. Log probabilities may be nonadditive even when logits are additive.
+
+This is an application of anchored function decomposition/Boolean inversion,
+with a model-specific dependency-support proof, not a learned parameter reduction.
+The full native prefix/reader remains charged. It does not apply unchanged with
+another suffix layer, source softmax or post-attention normalization. The CPU
+reference verifies integer and FP64 disjoint/overlap controls. The fresh trained
+`SOURCE_SUPPORT_INTERACTION_V1_PREREGISTRATION.md` audit now tests withheld triple
+prediction, pair-support localization, overlapping producer edits and nonlinear
+log-probability controls. The goal remains a smaller independently executable
+program; this step establishes which circuit groupings permit exact composition.

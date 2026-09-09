@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "checks": {
+    "generator_disjoint_supports": true,
+    "generator_valid_maps": true,
+    "generator_answers": true,
+    "disjoint_third_zero": true,
+    "pair_support_only_later_changed_queries": true,
+    "every_pair_live": true,
+    "seven_eval_joint_prediction": true,
+    "overlap_third_live": true,
+    "integer_disjoint_third_zero": true,
+    "integer_overlap_third_nonzero": true
+  },
+  "details": {
+    "fp64_third_max": 4.163336342344337e-16,
+    "pair_outside_max": 3.885780586188048e-16,
+    "pair_live_maxima": [
+      0.0017055875084754368,
+      0.002029586028331809,
+      0.0011375807678130623
+    ],
+    "overlap_third_max": 0.001120663946500039,
+    "integer_overlap_third_max": 416
+  },
+  "code_sha256": "6e3d482b021fb59324dc25d2ea013ce83700393d9bb3a50c19df0d16fd86b466"
+}
