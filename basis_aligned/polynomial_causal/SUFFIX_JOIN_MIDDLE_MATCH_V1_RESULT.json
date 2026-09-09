@@ -1,0 +1,259 @@
+{
+  "experiment": "suffix_join_middle_match_v1",
+  "runner_sha256": "9e131dfa5c0887d35e1f5fea8bbcae9d4237aa2c0b1730c5ac28df3a160c6d82",
+  "bound_sha256": "1e0e883c5b227732272db6bd263dc2d7a45200b4ca43dd572809932976ba66c2",
+  "checkpoint_sha256": "c9388cc8b1ba7e95c6a043cbf4d01592987447867a50781d3babe31ce3f8358b",
+  "controls": {
+    "passed": true,
+    "checks": {
+      "iid_unique_keys_values": true,
+      "iid_answers": true,
+      "iid_same_mask_four_cases": true,
+      "iid_query_unchanged": true,
+      "iid_conjugation": true,
+      "iid_middle_truth_table": true,
+      "iid_no_short_cycle": true,
+      "ood_two_12cycles_unique_keys_values": true,
+      "ood_two_12cycles_answers": true,
+      "ood_two_12cycles_same_mask_four_cases": true,
+      "ood_two_12cycles_query_unchanged": true,
+      "ood_two_12cycles_conjugation": true,
+      "ood_two_12cycles_middle_truth_table": true,
+      "ood_two_12cycles_no_short_cycle": true,
+      "head_identity": true,
+      "head_all_head_explicit": true,
+      "head_query_port_closure": true,
+      "head_local_queries_not_claimed_restored": true,
+      "head_head_0": true,
+      "head_head_1": true,
+      "head_head_2": true,
+      "head_head_3": true,
+      "head_hooks_restored": true
+    }
+  },
+  "populations": {
+    "iid": {
+      "groups": {
+        "B2_later": {
+          "cases": {
+            "base": {
+              "n_order_variants": 48,
+              "accuracy": 0.9375,
+              "native_gold_probability": 0.9381646730711296,
+              "route_gold_probability_loss": 0.9070744994762981,
+              "joint_score_rms": 0.23371812918637289,
+              "centered_removal_effect_rms": 3.926933683030379
+            },
+            "keys": {
+              "n_order_variants": 48,
+              "accuracy": 0.9791666666666666,
+              "native_gold_probability": 0.9709888052227816,
+              "route_gold_probability_loss": -0.0005631738689499963,
+              "joint_score_rms": 0.01603107860987852,
+              "centered_removal_effect_rms": 0.15485367432165678
+            },
+            "values": {
+              "n_order_variants": 48,
+              "accuracy": 1.0,
+              "native_gold_probability": 0.9954103650436101,
+              "route_gold_probability_loss": 0.0001706506769676245,
+              "joint_score_rms": 0.013833282014217647,
+              "centered_removal_effect_rms": 0.1065653720350561
+            },
+            "both": {
+              "n_order_variants": 48,
+              "accuracy": 0.9791666666666666,
+              "native_gold_probability": 0.9678194198261186,
+              "route_gold_probability_loss": 0.9535680194486481,
+              "joint_score_rms": 0.2406210497499887,
+              "centered_removal_effect_rms": 4.0114340583413
+            }
+          },
+          "mismatch_ratios": {
+            "keys": {
+              "score": 0.06859150663958517,
+              "effect": 0.03943373808191169
+            },
+            "values": {
+              "score": 0.05918788611895241,
+              "effect": 0.027137043972899632
+            }
+          },
+          "matched_score_min_rms": 0.23371812918637289,
+          "matched_effect_min_rms": 3.926933683030379,
+          "score_gate": true,
+          "effect_gate": true
+        },
+        "B3_later": {
+          "cases": {
+            "base": {
+              "n_order_variants": 48,
+              "accuracy": 0.9166666666666666,
+              "native_gold_probability": 0.9141764761168183,
+              "route_gold_probability_loss": 0.6709684847493849,
+              "joint_score_rms": 0.3156023958725118,
+              "centered_removal_effect_rms": 2.544309117115146
+            },
+            "keys": {
+              "n_order_variants": 48,
+              "accuracy": 0.9583333333333334,
+              "native_gold_probability": 0.9644463907336488,
+              "route_gold_probability_loss": -2.9897091580256482e-05,
+              "joint_score_rms": 0.010176381388862527,
+              "centered_removal_effect_rms": 0.028478822540480578
+            },
+            "values": {
+              "n_order_variants": 48,
+              "accuracy": 0.9791666666666666,
+              "native_gold_probability": 0.9531307264673744,
+              "route_gold_probability_loss": -7.772768514982774e-05,
+              "joint_score_rms": 0.008191656682677703,
+              "centered_removal_effect_rms": 0.02325469957712759
+            },
+            "both": {
+              "n_order_variants": 48,
+              "accuracy": 0.9166666666666666,
+              "native_gold_probability": 0.8929213429224605,
+              "route_gold_probability_loss": 0.6821736736846105,
+              "joint_score_rms": 0.30893818892610836,
+              "centered_removal_effect_rms": 2.69333619587478
+            }
+          },
+          "mismatch_ratios": {
+            "keys": {
+              "score": 0.032939862256059604,
+              "effect": 0.011193145655497696
+            },
+            "values": {
+              "score": 0.026515519855776,
+              "effect": 0.009139887689234407
+            }
+          },
+          "matched_score_min_rms": 0.30893818892610836,
+          "matched_effect_min_rms": 2.544309117115146,
+          "score_gate": true,
+          "effect_gate": true
+        }
+      },
+      "token_sha256": "f425754dfbc4cb9463706b875bc0281cabe4413286100b153e38d231c726f088"
+    },
+    "ood_two_12cycles": {
+      "groups": {
+        "B2_later": {
+          "cases": {
+            "base": {
+              "n_order_variants": 48,
+              "accuracy": 0.9583333333333334,
+              "native_gold_probability": 0.9514624471648383,
+              "route_gold_probability_loss": 0.9028174490778268,
+              "joint_score_rms": 0.2333257029886833,
+              "centered_removal_effect_rms": 4.231602565198659
+            },
+            "keys": {
+              "n_order_variants": 48,
+              "accuracy": 1.0,
+              "native_gold_probability": 0.9650240904261844,
+              "route_gold_probability_loss": -4.6112672836542044e-05,
+              "joint_score_rms": 0.014494718378883992,
+              "centered_removal_effect_rms": 0.17035386239085445
+            },
+            "values": {
+              "n_order_variants": 48,
+              "accuracy": 0.9166666666666666,
+              "native_gold_probability": 0.9237904729667178,
+              "route_gold_probability_loss": -0.0022796663048318924,
+              "joint_score_rms": 0.01390314508779466,
+              "centered_removal_effect_rms": 0.16262316621876866
+            },
+            "both": {
+              "n_order_variants": 48,
+              "accuracy": 0.9375,
+              "native_gold_probability": 0.9327742131285875,
+              "route_gold_probability_loss": 0.9001335518860314,
+              "joint_score_rms": 0.22404593348096732,
+              "centered_removal_effect_rms": 3.938442405139379
+            }
+          },
+          "mismatch_ratios": {
+            "keys": {
+              "score": 0.06469529776185523,
+              "effect": 0.04325412050422653
+            },
+            "values": {
+              "score": 0.062054887012603296,
+              "effect": 0.04129123889346644
+            }
+          },
+          "matched_score_min_rms": 0.22404593348096732,
+          "matched_effect_min_rms": 3.938442405139379,
+          "score_gate": true,
+          "effect_gate": true
+        },
+        "B3_later": {
+          "cases": {
+            "base": {
+              "n_order_variants": 48,
+              "accuracy": 0.9791666666666666,
+              "native_gold_probability": 0.960765699625674,
+              "route_gold_probability_loss": 0.6755494415466708,
+              "joint_score_rms": 0.31779730032090553,
+              "centered_removal_effect_rms": 2.3521094142682712
+            },
+            "keys": {
+              "n_order_variants": 48,
+              "accuracy": 1.0,
+              "native_gold_probability": 0.963330006701805,
+              "route_gold_probability_loss": 2.9820979738940285e-05,
+              "joint_score_rms": 0.017726159171373847,
+              "centered_removal_effect_rms": 0.0503584325618481
+            },
+            "values": {
+              "n_order_variants": 48,
+              "accuracy": 0.9583333333333334,
+              "native_gold_probability": 0.9408054458614212,
+              "route_gold_probability_loss": 6.466101004255012e-05,
+              "joint_score_rms": 0.01900182420857809,
+              "centered_removal_effect_rms": 0.0398328768027531
+            },
+            "both": {
+              "n_order_variants": 48,
+              "accuracy": 0.9791666666666666,
+              "native_gold_probability": 0.944321673942702,
+              "route_gold_probability_loss": 0.707302523241366,
+              "joint_score_rms": 0.3070280810092155,
+              "centered_removal_effect_rms": 2.765864112669547
+            }
+          },
+          "mismatch_ratios": {
+            "keys": {
+              "score": 0.057734651218569785,
+              "effect": 0.02140990221643849
+            },
+            "values": {
+              "score": 0.06188953188294117,
+              "effect": 0.016934959131203894
+            }
+          },
+          "matched_score_min_rms": 0.3070280810092155,
+          "matched_effect_min_rms": 2.3521094142682712,
+          "score_gate": true,
+          "effect_gate": true
+        }
+      },
+      "token_sha256": "c608742b536118204a548f4905bd324ba600f0139405dbc2092d3feb1668a388"
+    }
+  },
+  "row_artifact": "basis_aligned/polynomial_causal/SUFFIX_JOIN_MIDDLE_MATCH_V1_ROWS.pt",
+  "row_artifact_sha256": "dde40c697c3f34eb2023425b4dc02aa1b95fd9247c960d864c39e17b270ae265",
+  "independent_worlds": 32,
+  "correlated_order_case_variants": 768,
+  "native_parameters_retained": 400640,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_joint_score_gate": true,
+    "pred_c_causal_effect_gate": true,
+    "pred_d_matched_use": true
+  },
+  "terminal": "middle_entity_matching_supported",
+  "wall_seconds": 1.8962768577039242
+}

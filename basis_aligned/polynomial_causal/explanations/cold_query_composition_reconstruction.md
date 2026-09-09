@@ -207,3 +207,38 @@ entity in the key/value columns of a valid permutation. Both changes together
 restore the join; either alone breaks it. It tests both the native joint routing
 score and the signed full-query effect of cutting the frozen H1/H2 source edges.
 The field correspondence is being tested causally, not assumed from attention names.
+
+
+## Shared middle-entity matching — all predictions pass
+
+SUFFIX_JOIN_MIDDLE_MATCH_V1 passes A/B/C/D on32 fresh worlds and768 correlated
+order/intervention variants. Swapping the middle label only in binding keys or
+only in binding values preserves a valid permutation but breaks the old pair's
+join. Joint native score RMS falls to2.7–6.9% of the smaller matched-case RMS;
+centered full-query ablation-effect RMS falls to0.9–4.3%. Swapping both columns
+conjugates the function, restores matching, and restores a live causal route.
+Matched-route gold-probability losses are .900–.954 forward and .671–.707 backward.
+All native per-case capability gates pass, with no correctness filtering.
+
+This supplies causal evidence for the equality on the shared middle entity, beyond
+source location and port semantics. It does not claim each native dot-product factor
+has one semantic field: the measured object is the complete product-attention score
+and its full-vocabulary effect. A CPU inspection of saved score cells finds98.7–99.7%
+of matched score energy in binding-value→binding-value cells. The other cells remain
+in the recorded evidence; small scores are not exact zeros.
+
+The next SHARED_JOIN_KERNEL_V1 candidate moves from localization to replacement.
+It proposes causal local key/value records, one equality rule reused with swapped
+fields by the two heads, the original live RMS gains, and small role/lag/entity
+coefficients fitted only on native routing scores. The full native prefix and value/
+readout computations remain charged. It would physically remove32768 selected Q/K
+weights and add6576 coefficients, for a new26192-constant reduction beyond generic
+readout folding. Every input position and full29-way distribution must pass fresh
+prediction and single/joint-removal tests, including fixed-point failures.
+
+The record grammar extends the confirmed binding-value mechanism to other cold
+input roles and is explicitly a new hypothesis. Same-binding joins are excluded
+before fit, matching the distinct-edge operation. No unseen coefficient, teacher
+activation cache or function-answer oracle is allowed at runtime. The parser and
+fixed8-pass weighted fit core pass CPU controls; physical executor/managed integration
+is outstanding. No learned weights have been removed or fidelity established yet.

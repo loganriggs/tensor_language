@@ -53,6 +53,29 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active shared-kernel compilation — 2026-09-09 16:00 UTC
+
+SUFFIX_JOIN_MIDDLE_MATCH_V1_RESULT.json passes all4 gates: valid permutation
+single-column label mismatch reduces joint score to2.7–6.9% and full-query causal
+effect to0.9–4.3%; both-column renaming restores a live matched route. The frozen
+L2H1/H2 therefore have evidence for middle-entity matching, directional write use,
+and a reusable final key/value interface. This is still not a compact replacement.
+
+Active next: SHARED_JOIN_KERNEL_V1_PREREGISTRATION.md and
+shared_join_kernel_reference.py. The causal record parser and8-pass weighted ALS
+core are implemented; native weight-removal executor and managed
+ops/run_shared_join_kernel_v1.py remain to be integrated. One shared field-equality
+rule with swapped adapters, live RMS gains, and role/lag/entity coefficients would
+remove32768 Q/K weights and add6576 constants. No fitting outcome opened; fixed
+calibration15909 and fresh15910/11/12 panels. Same initial binding pairs are excluded
+prospectively; unsupported matched cells must fail closed. All remaining native
+weights/values/readout are charged. Fresh full-distribution and single/joint-removal
+success is required, not task accuracy alone. Do not add a feature/rank/head sweep.
+
+Latest strategic review1550 (next16:50); mathematical1348 (next16:48). Goal remains
+active under the reconstruction handoff. Read the current cold-query report and
+live queue/result before acting. Middle-match receipts and row tensors are preserved.
+
 ## Active middle-entity matching test — 2026-09-09 15:50 UTC
 
 Latest strategic review HOURLY_STRATEGIC_REVIEW_2026-09-09_1550.md; next after16:50.
