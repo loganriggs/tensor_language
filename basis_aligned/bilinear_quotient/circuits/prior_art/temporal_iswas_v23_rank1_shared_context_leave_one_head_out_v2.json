@@ -1,0 +1,46 @@
+{
+  "schema": "temporal_iswas_v23_rank1_shared_context_leave_one_head_out_prior_v2",
+  "candidate_id": "cross_task.temporal_iswas.v23_rank1_shared_context_leave_one_head_out_v2",
+  "registered_utc": "2026-09-08T23:44:00Z",
+  "question": "Does one shared residual-context direction learned from three confirmed circuit heads predict the restricted checkpoint map of the omitted fourth head?",
+  "evidence_status": "Prospective instrument-only repair of invalid v1. V1 failed pred_a because its float32 discarded-energy certificate differed by 0.046875 against the frozen 2e-5 absolute bar. Its visible B/C/D values are quarantined and were not used to change any scientific choice.",
+  "repair": {
+    "changed": "The shared-context SVD now preserves caller-supplied float64. The same immutable float32 artifact is converted exactly to float64 before all decompositions, gauge rotations, Gram calculations, and random controls.",
+    "unchanged": "Maps, rank one, equal weights, four LOO folds, rotation seed 2308, random seed 2401, 256 random draws, all scientific and instrument bars, prediction meanings, zero-forward price, and no-rank-selection rule.",
+    "bar_policy": "The absolute 2e-5 certificate bar is not relaxed."
+  },
+  "authority": {
+    "v1_result_sha256": "821c97b231d9e0337380e015906f5c74672caa91b0ebd9db492618b5da1a62dc",
+    "v1_audit_sha256": "6487f738d46ca25a047c3d5f3f14c36d548f3a5f57ed150a1ef98213aee10834",
+    "v1_runner_sha256": "290343b4ed60e4f5a083a3b450a095927a29593a35d2fb0c945380f6e3019b94",
+    "grouping_arrays_sha256": "e8dde195577c4ff8778ef471eee744469e8f95a346611376f5f964dae6ba215c",
+    "grouping_result_sha256": "f9b5c7206c6c67d5bb1096b1f65c230be4327efd5c0372a75d3577c5e6114717",
+    "gauge_audit_sha256": "757ede89805372cd0634851fc12e0bd8e82d010240c52e8499b2dcb451d43868",
+    "translation_library_sha256": "32636472a76af0a22a8be5fd8d1e9c44ff671097f34cf31245417365a28255e7"
+  },
+  "frozen_design": {
+    "maps": "Four occupied-reader-contracted maps, shape 1152x128, in route order L8H1, L9H1, L9H4, L11H3.",
+    "rank": 1,
+    "component_weights": "Equal physical Frobenius weight.",
+    "leave_one_out": "Fit on three maps and score omitted-map captured energy for every head.",
+    "gauge_check": "Four seed-2308 independent private orthogonal rotations.",
+    "random_control": "Per omitted map, q99 of 256 seed-2401 isotropic physical rank-one projectors.",
+    "removal": "Remove the pooled rank-one direction and compare median pairwise context-Gram similarity.",
+    "price": {"checkpoint_loads": 0, "model_forwards": 0, "sequence_evaluations": 0, "transformer_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+  },
+  "bars": {
+    "replay_certificate_and_gauge_max_abs": 0.00002,
+    "heldout_captured_energy_fraction_min_each": 0.05,
+    "heldout_exceeds_random_q99_each": true,
+    "leave_one_out_projector_overlap_min_pair": 0.85,
+    "context_gram_median_reduction_min": 0.05
+  },
+  "predictions": {
+    "pred_a_authority_shapes_replay_certificates_gauge_invariance_and_zero_forward_price": "All v1 repair authorities and immutable input hashes match; 4x1152x128 shapes, exact reconstruction, absolute SVD certificates, gauge invariance, raw Gram replay, finiteness, float64 liveness, and zero-forward price pass within 2e-5.",
+    "pred_b_rank1_context_core_predicts_every_omitted_head_beyond_random": "Every omitted-head capture is at least 0.05 and exceeds its frozen isotropic-random q99.",
+    "pred_c_three_head_fits_identify_one_stable_physical_direction": "Every pair of LOO physical projectors has squared overlap at least 0.85.",
+    "pred_d_removing_the_common_direction_reduces_cross_head_context_similarity": "Pooled rank-one removal lowers median pairwise context-Gram similarity by at least 0.05."
+  },
+  "null": "A failure leaves v1 and v2 scientifically invalid. With valid A, B or C failure rejects universal rank-one shared capability; D failure rejects rank one as a material explanation of broad common Gram geometry.",
+  "decision": "A--C nominate but do not identify or adopt a shared rank-one checkpoint capability. No higher rank is selected. Causal common-core/private-tail swaps remain gated behind downstream reader identification and unopened v24."
+}

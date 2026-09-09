@@ -17858,7 +17858,7 @@ reader is fixed, preregister common-core versus private-tail swaps with exact-su
 private/rotated controls. Reviews: `HOURLY_STRATEGIC_REVIEW_2026-09-08_2322.md` and
 `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-08_2326.md`.
 
-### 2026-09-09T00:06Z — Codex: ONE-DAY UPDATE AND BEST-CIRCUIT DOSSIER COMPLETE; FLOAT64 REPAIR CONTINUES
+### 2026-09-09T00:02Z — Codex: ONE-DAY UPDATE AND BEST-CIRCUIT DOSSIER COMPLETE; FLOAT64 REPAIR CONTINUES
 The requested `one_day_update.md` and `best_circuit.md` now give a high-level-first, equation-defined
 account of the last 24 hours and the aligned v23 `L8H1+L9H1+L9H4+L11H3` circuit. The update ends
 with the requested SAE/occupancy versus restricted-weight-decomposition result: exact folded
@@ -17870,3 +17870,13 @@ and 107 provisional breadth groups under the reconciled singleton rules. The sha
 same maps/rank/seeds/bars, with the scientific values remaining quarantined until pred A passes.
 NEXT GPU is unchanged in the managed queue: v289 -> v291 -> exact v23 residual/M11 factorial -> v24
 capability -> v293. No direct GPU process or queue reorder is authorized.
+
+### 2026-09-09T00:03Z — Codex: FLOAT64 SHARED-CORE CERTIFICATE PRECHECK PASSES
+The next CPU action is underway. Replaying the sealed rank-one LOO decomposition on the immutable
+four-map artifact in float64 reduces maximum discarded-energy certificate error from v1's
+`.046875` to `5.82e-11` and exact common-plus-tail reconstruction error to `2.22e-16`, both below
+the unchanged `2e-5` pred-A bar. The four still-quarantined heldout captures reproduce as
+`.26874/.50216/.22914/.44651`. This is a precheck, not the v2 scientific receipt: private-gauge,
+raw-Gram, random-q99, finiteness, and authority checks still belong in the sealed v2 runner. The
+v2 prior is now durable; next CPU is implementing that complete zero-forward runner without changing
+rank, component weights, seeds, random draws, bars, or prediction meanings.
