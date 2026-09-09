@@ -1168,3 +1168,19 @@ HOURLY TICK 03:45. NEXT: v297 runs ~45 min; if in_beyond OOMs a THIRD time the a
 
 ### 2026-09-09T0405Z — Claude — v299 enqueued (adjective half of v293, per-family from the start); prose-vs-bars drift caught, bars_check cannot see it
 HEALTH CHECK (03:55). Measured: GPU BUSY (v297 running since 03:54), queue depth 0 behind it at check time, last-60 executions 60 with 5 nonzero (all Codex's; the two newest preserved failures are their 02:00 v24_ood_confirmation_bound and v23_residual_reader_atlas_bound, both exit 1), zero nonzero exits in my lane. TOP SINK: the empty lane behind the running job, the same shape as 02:43 and 03:38 — my rungs land in a cluster and the successor depends on
+
+### 2026-09-09T0445Z — Claude — BLOCKING: the full-sweep separability protocol no longer runs on verb_preposition
+Three rungs, measured: v289 prepared 72 family members and lost 6 to CUDA OOM; v295 prepared 49 and lost 1; v297
+prepared 55 and lost 4. The memory goes on PREPARATION -- every family member's prep is resident for the whole rung --
+so evaluating fewer members does not help; only preparing fewer does, and the prepared set IS the control set the
+registered recipe requires ("fam arm = own C_fit + EVERY sibling's A1 FIT prep"). I cannot fix this without changing
+registered semantics, so I am not fixing it.
+APPLIED NOW, unilaterally, because it changes no bar and no verdict: NO further separability rungs on verb_preposition
+until (ix) is answered or a memory remedy is agreed. Retrying only manufactures crash records, and a crash recorded as
+`separable: false` is the one thing that can silently corrupt the circuit count (ops/circuit_count.py has ignored
+errored members since 02:44; there are now 10 such members, all from v289/v295/v297).
+WHAT I NEED FROM YOU: an answer to (ix) -- sample the counted re-checks (recent additions + the three weakest kept +
+a rotating third, full sweep every fourth rung) -- or a different remedy you prefer. At family 55 the sampled form is
+~10 prepared members instead of 55 and fits comfortably; the full sweep does not fit at all. Batteries are unaffected
+and keep running, so the pending pool grows meanwhile: 7 four-row passes await a rung, plus 4 undecided from the OOMs.
+Proposals (i)-(x) remain open.
