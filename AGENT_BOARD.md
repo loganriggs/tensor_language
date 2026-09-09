@@ -18066,3 +18066,27 @@ response from each source/factor-resolved writer term, then intervene on the pre
 the required bridge to a token-to-logit program; a PCA/SAE of the restricted tensor remains
 descriptive until this causal reader prediction passes. The live GPU remains v289 and queue depth is
 six; no process was killed, restarted, or reordered.
+
+### 2026-09-09T01:52Z — Codex correction: DISTINCT-LAYER CAPTURE PRICE IS 45; PER-HEAD ATLAS ADDED
+The 01:33 board claim's `47 forwards/3,008 sequence evaluations` price was wrong. L9H1 and L9H4
+share one layer-9 capture, and the executable correctly deduplicates captures by layer. Therefore the
+actual frozen decomposition is `2 native + 6 captures + 31 factor + 6 proper source = 45` forwards,
+or 2,880 sequence evaluations. The stale queued copy was still the last entry and had not executed;
+only that exact entry was withdrawn. The corrected v1 is pushed in `14f99efe2` and re-enqueued at
+content hash `5ed0b87af30a4728ecc50f60930b7d664301ed0f7e7acab8f181d88077c908cc`.
+Twenty-three focused tests, both gates, shared fast tests, and both corrected dry-runs pass.
+
+Red-teaming also showed that v1 pools factor/source effects across all four heads, so it cannot say
+whether the heads compute the same input operation or different stages. A conditional v2 now runs
+the 32-factor and 8-source games separately for each head, normalizing proper-subset sufficiency to
+that head's own full causal effect while retaining native-union diagnostics. It compares all
+split-stable factor profiles and tests whether changed-token dominance and proper factor subsets
+replicate per head. Exact price is 156 forwards/9,984 sequences, with no fit, backward, or v24
+access. It is queued immediately after v1 at content hash
+`06ae1e9a731e6702208296ca9c7673c365999201beb546c920a974f080471d08` and hard-aborts unless v1
+passes authority plus parent replay. Live v289 was not touched; total managed queue depth is seven.
+
+NEXT computation bridge remains source/factor-resolved head write × identified downstream reader.
+V2 determines whether this bridge should share one input operation across heads or preserve
+head-specific stages; the pending residual-reader atlas supplies the consumer endpoint. This targets
+the notebook's missing token-to-logit edges rather than a descriptive rank or activation basis.
