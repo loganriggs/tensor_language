@@ -27,7 +27,7 @@ for f in glob.glob("circuits/followups/*_result.json"):
         if n not in INSTRUMENT: passes.add(n)
 
 last, leak = {}, {}
-for f in sorted(glob.glob("circuits/followups/unit_family_separability_spec_v2*_result.json"),
+for f in sorted(glob.glob("circuits/followups/unit_family_separability_spec_v*_result.json"),
                 key=lambda p: int(re.search(r"spec_v(\d+)_", p).group(1))):
     for n, m in json.load(open(f)).get("members", {}).items():
         if "separable" in m and "error" not in m:   # an errored member (e.g. CUDA OOM at v289) is NOT a verdict
