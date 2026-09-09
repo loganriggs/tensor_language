@@ -1,0 +1,51 @@
+{
+  "scope": "fixed L2H1/H2,query position3/source1,full normalized-state bilinear forms; not a reachable-state or behavioral impossibility",
+  "candidate": "second native QK function equals one scalar times first, permitting exact reuse as a signed square",
+  "controls_passed": true,
+  "mechanical_passed": true,
+  "heads": {
+    "1": {
+      "best_scalar_second_from_first": 0.004250014958846797,
+      "relative_coefficient_error": 0.9999896238715897,
+      "stored_forms_nonproportional": true,
+      "minor_flat_indices": [
+        3265,
+        6063
+      ],
+      "minor_float_hex": [
+        "-0x1.27bd5f8874a83p-7",
+        "0x1.4fb5196644da9p-20",
+        "-0x1.3eb6f5693b491p-9",
+        "-0x1.ed089d0e460b3p-8"
+      ],
+      "exact_minor_numerator": "739375833671827953831808784358183097",
+      "exact_minor_denominator": "10889035741470030830827987437816582766592",
+      "native_product_oracle_max_abs": 1.3877787807814457e-16,
+      "first_form_frobenius": 0.19997345728186278,
+      "second_form_frobenius": 0.18656547302668616
+    },
+    "2": {
+      "best_scalar_second_from_first": -0.008345208343318783,
+      "relative_coefficient_error": 0.9999600792565068,
+      "stored_forms_nonproportional": true,
+      "minor_flat_indices": [
+        867,
+        5227
+      ],
+      "minor_float_hex": [
+        "-0x1.38872be7a83cep-7",
+        "0x1.1dfcf3defd363p-9",
+        "0x1.a17ae6a0f59a0p-11",
+        "0x1.55252aa125371p-7"
+      ],
+      "exact_minor_numerator": "-67147701421661103519324680840227",
+      "exact_minor_denominator": "664613997892457936451903530140172288",
+      "native_product_oracle_max_abs": 1.1102230246251565e-16,
+      "first_form_frobenius": 0.22471686902444182,
+      "second_form_frobenius": 0.20987605139958285
+    }
+  },
+  "native_coefficients_removed": 0,
+  "numeric_status": "nonzero minors certify stored FP64 folded forms; native correspondence is numerical, not interval-certified",
+  "limits": "Best scalar is a function-comparison diagnostic, not a trained replacement or a relative-logit error bound; no alternative head/lag selected"
+}

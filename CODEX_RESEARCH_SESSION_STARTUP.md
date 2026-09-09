@@ -53,6 +53,49 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Initializer route closed; contextual matcher factors active — 2026-09-09 20:15 UTC
+
+Follow the bilinear reconstruction handoff and appended structural criterion.
+The durable goal's older better_math_ideas wording is superseded. The previous
+turn made progress through a managed causal screen and three CPU consequences.
+
+SUMMARY_LAYOUT_MEDIATION_V1 completes8.48s: A/C true, B false, full-output
+oracle2.13e-13, mixed3.55e-13. Summary-only transfer leaves hop3 order-effect
+errors1.0001–1.0008. Prefix-only diagnostic errors .00655–.01640; both cyclic
+shift groups miss1%, so no alternative arm is adopted. SUMMARY_VARIATION_VS_REMOVAL_V1
+shows summary variation is small relative to removal at hop3 but reaches .412
+of removal magnitude at other hops. SUMMARY_INVARIANT_INTERCHANGE_BOUND_V1
+retains all3072 native summary swaps: every effect exceeds the1e-6 floor, so
+an invariant summary encoding's identity/zero prediction fails all cases at
+the1% relative-effect bar. This is not a factual constant-bias replacement test.
+Stop initializer reduction at exact partial extraction/CSE infrastructure;
+do not rescue it by adding a fitted bias, field, head or rank. No structural
+model reduction was adopted. Dossier: explanations/summary_record_transport.md.
+
+Return to the already identified contextual L2H1 forward/L2H2 backward join.
+JOIN_MATCHER_COMMON_FACTOR_V1 CPU audit checks its complete QK bilinear forms
+at fixed query3/source1 positions. Native product oracle1.39e-16; exact nonzero
+stored coefficient minors show nonproportionality, best scalar residuals
+.999990/.999960. This rejects copying one complete QK function into the other,
+not semantic sharing on the actual restricted input/intervention domain.
+
+Active MATCHER_FACTOR_TRUTH_TABLE_V1_PREREGISTRATION.md and
+matcher_factor_truth_table_reference.py, six CPU controls pass. Use the opened
+SUFFIX_JOIN_MIDDLE_MATCH_V1 cohort:32worlds,all6orders,all4 label-intervention
+cases, original pair masks and H1/H2 orientations. Test each QK factor's middle
+matching truth table separately at fixed .10 mismatch/matched RMS bars, all
+four pair cells retained, joint-score replay as positive control. No new fit,
+head/order selection, causal identification or fresh-data claim. All native
+weights stay charged. Dossier: explanations/join_matcher_factors.md.
+
+Next implement managed ops/run_matcher_factor_truth_table_v1.py, reusing the
+old middle-match generator, native score receipt and current factor primitive.
+No such job is queued yet. Positive nomination requires native factor interchange
+and fresh confirmation; a null preserves the coupled product. The two CPU
+audits and common-factor audit were actually performed after the main screen,
+and the next primitive is implemented. Both runners healthy; inspect shared
+queue before enqueue. Next hourly20:51; next mathematical22:49. Goal active.
+
 ## Record order affects outputs; summary mediation active — 2026-09-09 19:59 UTC
 
 The bilinear circuit reconstruction handoff and appended structural criterion

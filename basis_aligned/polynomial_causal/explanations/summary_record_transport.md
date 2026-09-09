@@ -145,4 +145,57 @@ correspondence for allfour cells, unchanged local query inputs, live paths,
 mixed effects and restored hooks. The hypothesis is that summary-only transfer
 predicts the complete order-dependent query effect. Prefix-only and interaction
 terms are diagnostics, not fallback candidates if that hypothesis fails.
-Managed trained-model integration remains unfinished.
+The managed experiment has now completed; its outcome is below.
+
+## The summary does not mediate the main order effect
+
+[SUMMARY_LAYOUT_MEDIATION_V1](../SUMMARY_LAYOUT_MEDIATION_V1_RESULT.json)
+completes in8.48s with mechanical and mixed-effect predictions A/C passing.
+All four exported/native output cells close2.13e-13 and mixed effects3.55e-13;
+local states agree exactly and earlier summary-bit effects are exactly zero.
+Summary-only mediation B fails. On hop3, its relative order-effect errors are
+1.0001–1.0008, and donor-query mean KL ranges .0301–.1566. It leaves essentially
+the whole order effect unexplained.
+
+The prefix-only diagnostic is much closer: relative errors .00655–.01640 and
+mean KL1.92e-6–2.31e-5. However, both cyclic-shift vector errors exceed1%, so
+this arm is not an adopted substitute. Mixed-effect RMS is .0020–.0117 of the
+native order-effect RMS. Those are magnitudes of correlated terms, not variance
+fractions or proof of independent mechanisms.
+
+The matched [variation/removal audit](../SUMMARY_VARIATION_VS_REMOVAL_V1.json)
+compares all saved cases and checks endpoint correspondence1.85e-13. At hop3,
+swapping summaries changes logits by .0046–.0165 times the effect of removing
+the summary. Native summaries deviate from their exact record-orbit mean by
+2.2–3.0% of raw summary RMS. But the variation/removal ratio reaches .412 in
+other hop groups. Neither a small raw residual nor a small probability effect
+licenses dropping it under the causal-vector criterion.
+
+The orbit mean is analytically simple: uniformly moving complete records makes
+each position see every key and every value once. Both incidence matrices
+average to11^T/24, so the mean summary is the affine operator's offset and is
+independent of the represented bijection. This is a known averaging baseline,
+not a newly discovered semantic computation. A factual constant-bias replacement
+has not been tested or adopted.
+
+There is a stronger reason not to call an invariant summary a faithful causal
+abstraction. If its encoding identifies the original and reordered document,
+interchanging their encoded summaries while holding the recipient prefix fixed
+is the identity. It must predict zero output effect. In the
+[interchange witness audit](../SUMMARY_INVARIANT_INTERCHANGE_BOUND_V1.json),
+all3072 native summary swaps have centered query-effect RMS above1e-6, ranging
+.001749–1.321614. The zero prediction therefore has100% relative error in every
+case and fails every group at the registered1% bar. Every case norm is saved,
+with a complete maximal effect vector and metadata for each group.
+
+This obstruction concerns supported summary interchanges, not merely factual
+output approximation. It does not rule out order-sensitive summaries, weaker
+absolute-error contracts or other full-model decompositions. The earlier
+linear transport closure overpreserved weakly causal details for the purpose
+of predicting whole-document reorderings; the interchange witnesses show those
+details are nevertheless live under the more specific causal intervention.
+
+We stop the initializer reduction route at exact partial extraction/CSE.
+No smaller structural circuit has been adopted. The next investigation returns
+to the already localized contextual middle-entity join and asks what each of
+its two QK factors computes, using the existing causal label interventions.
