@@ -24,6 +24,8 @@ PARENT_RESULT = ROOT / "circuits/followups/temporal_iswas_v23_per_head_input_fac
 CELL_LIBRARY = Path(celllib.__file__).resolve()
 PARENT_SCRIPT = Path(parent_run.__file__).resolve()
 OUT = ROOT / "circuits/followups/temporal_iswas_v23_source_destination_cell_atlas_v3_result.json"
+CANDIDATE_ID = "cross_task.temporal_iswas.v23_source_destination_cell_atlas_v3"
+SCHEMA = "temporal_iswas_v23_source_destination_cell_atlas_result_v3"
 EXPECTED = {
     "authority": "75773926c4fbc4d4f3246dfab331a5fc35c218d9636767502aa461962370366b",
     "prior": "db19c68a06c9f1e9e65e3c2d6887624d8b2b1c48fc83025274511077b94cdf4a",
@@ -125,7 +127,7 @@ def main():
         and ROUTES == ((8, 1), (9, 1), (9, 4), (11, 3))
     )
     dryrun = {
-        "candidate_id": "cross_task.temporal_iswas.v23_source_destination_cell_atlas_v3",
+        "candidate_id": CANDIDATE_ID,
         "dryrun": True, "gpu_accessed": False, "model_loaded": False,
         "queue_touched": False, "static_authority_ok": static_authority,
         "dependency": dependency, "counts": counts, "target_rows": len(target_rows),
@@ -201,7 +203,11 @@ def main():
         full_mask = torch.ones(3, 3, dtype=torch.bool, device=backend.device)
         reset_to_base = celllib.compose_cell_intervention(
             decomposition, full_mask, "reset", torch)
-        closure_error = max(closure_error, float((reset_to_base - decomposition["base"]).abs().max()))
+        # Destination roles cover real causal queries only. Padding queries are deliberately
+        # outside the partition and cannot be included in a full-cell closure diagnostic.
+        covered = decomposition["covered_destinations"]
+        closure_error = max(closure_error, float(
+            (reset_to_base - decomposition["base"])[covered].abs().max()))
 
     def cache_for(layer, head, replacement):
         base_capture = captures["base"][layer]
@@ -308,7 +314,7 @@ def main():
     terminal = "invalid_instrument" if not (A and B) else (
         "shared_directed_cell_program_screen" if C and D and E else "resolved_cell_atlas")
     result = {
-        "schema": "temporal_iswas_v23_source_destination_cell_atlas_result_v3",
+        "schema": SCHEMA,
         "candidate_id": dryrun["candidate_id"], "started_utc": started_utc,
         "finished_utc": now(), "serial_seconds": time.perf_counter() - started,
         "authority_sha256": observed, "parent_dependency": dependency,

@@ -18153,3 +18153,18 @@ dependency, both target halves, P/C controls, finiteness, exact price, and no v2
 validity conditions. This directly asks whether changed-cue reads write to the matched reporter or
 to intermediate prefix states, and whether L11H3's suffix-heavy value route is a reporter-local
 relay. No rank fitting, PCA, SAE, or post-selected cell powerset is in scope.
+
+### 2026-09-09T02:17Z — Codex: CELL V3 INVALID ON PADDED-QUERY DIAGNOSTIC; V4 REPAIR READY
+V3 completed all 84 scientific arms. All four all-cell head behaviors replay v2 within `2.64e-07`,
+and its descriptive outcomes place reciprocal writes only at the matched-suffix destination:
+`matched_suffix <- changed` in L8H1/L9H1/L9H4 and `matched_suffix <- matched_suffix` in all four
+heads. These outcomes are not yet evidence because registered prediction B failed and terminal is
+`invalid_instrument`.
+
+The exact failure is isolated: the all-cell reset closure took a max over the padded query tail,
+although destination roles intentionally cover only real causal queries through each semantic
+endpoint. Uncovered padding remains donor-valued and inflated the scalar to `34.4392`; the evaluated
+endpoint behavior and all other frozen arms are unchanged. V4 is a transparent prospective repair:
+reduce that one diagnostic over `covered_destinations`, rerun all 84 arms, and change no population,
+prediction, threshold, cell, or price. Eleven focused tests, the shared fast suite, gate, dry-run,
+and preflight pass. The invalid v3 receipt is preserved; no posthoc relabeling is permitted.

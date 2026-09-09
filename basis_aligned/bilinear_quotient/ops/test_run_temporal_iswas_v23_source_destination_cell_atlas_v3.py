@@ -70,3 +70,11 @@ def test_model_free_dryrun_has_no_result_or_queue_side_effects():
     assert payload["cells_per_head"] == 9 and payload["capture_forwards"] == 6
     assert run.OUT.exists() == result_existed
     assert {path: path.read_bytes() for path in queue_paths} == before
+
+
+def test_padding_queries_are_outside_the_destination_partition():
+    import torch
+    values = torch.tensor([[[1.0], [2.0], [99.0]]])
+    covered = torch.tensor([[True, True, False]])
+    assert values[covered].abs().max().item() == 2.0
+    assert values.abs().max().item() == 99.0
