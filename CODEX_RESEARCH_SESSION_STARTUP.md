@@ -53,6 +53,27 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Shared kernel rejected; causal contribution separation — 2026-09-09 16:23 UTC
+
+SHARED_JOIN_KERNEL_V2_COVERAGE_RESULT.json is valid: A/D true,B/C false.590/590 cells,
+exact native/folded replay1.14e-13; physical361776 constants. Full all-token meanKL
+36.27/82.94/80.37. No smaller extracted circuit established. Both-heads-removed
+candidate/native replay closes, so retained executor is correct. Fixed local-record
+kernel CLOSED: no role/head/lag/feature/rank/iteration or regularization rescue.
+
+Immediate CPU successor already performed: SHARED_JOIN_KERNEL_FAILURE_AUDIT_V1.json.
+Reusing opened cases, exact-native-score match support still fails (queryKL.130/
+.475/5.814). Sparse calibration entity combinations also explain huge learned
+coefficients/outliers; ordinary RMS gains rule out tiny-norm explanation. No new
+fit chosen. Read cold_query_composition_reconstruction.md for full diagnosis and
+native causal findings that survive. Next object is the causal join contribution
+with explicit contextual inputs and consumers, not equating entire heads with a
+local token equality rule. This diagnostic is not new held-out identification.
+
+Bqrunner healthy; inspect live queue/processes. Latest reviews1550/1348, due16:50/
+16:48. Durable goal active under bilinear reconstruction handoff and appended
+success criterion, overriding the stale goal text's better_math_ideas reference.
+
 ## Active shared-kernel coverage repair — 2026-09-09 16:18 UTC
 
 SHARED_JOIN_KERNEL_V1_RESULT.json is instrument-invalid:555 calibrated cells leave

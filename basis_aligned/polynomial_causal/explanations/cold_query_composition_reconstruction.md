@@ -263,3 +263,52 @@ freeze. The repeated calibration prefix is counted, not called96 independent
 worlds. No feature, head, role, lag or fitting-iteration sweep is allowed. A valid
 failure closes this fixed local-record kernel. The causal middle-match evidence
 remains distinct from the untested claim that entire native heads implement it.
+
+## Shared-kernel v2: valid rejection and failure diagnosis
+
+`SHARED_JOIN_KERNEL_V2_COVERAGE_RESULT.json` passes instrument and physical
+accounting gates (A/D), and fails distribution and intervention gates (B/C).
+The managed run takes1.83s. All590 possible cells are observed, values are finite,
+and exact native/folded replay closes at1.14e-13. With both replaced heads removed,
+native and candidate agree below8.6e-14: the retained computation is correct.
+
+| Held population | Full mean KL, all positions | Full mean KL, query | Native / candidate query accuracy |
+|---|---:|---:|---:|
+| IID64 |36.274|1767.451|1.000 / .625|
+| Two12cycles64 |82.944|4135.141|.969 / .578|
+| Fixed-point32 |80.368|4023.867|.000 / .063|
+
+All single/joint removal-effect gates fail. The prospective reduction from387968
+to361776 arbitrary constants is physically real but behaviorally unusable. It is
+not a successful extraction or simpler explanation. The fixed local-record kernel
+is closed; no role/head/lag/feature or fitting-iteration rescue follows.
+
+`SHARED_JOIN_KERNEL_FAILURE_AUDIT_V1.json` is a CPU diagnosis on those already
+opened cases, explicitly not new held-out evidence. Retaining the exact native
+scores wherever the rule permits a match, while zeroing its complement, still
+fails fidelity: all-position meanKL1.050/1.167/1.090, query meanKL.130/.475/5.814.
+IID query accuracy remains.984, illustrating why task accuracy cannot substitute
+for full native distribution. CPU/native saved-GPU replay error is below4.5e-13.
+Thus the rule's support erasure is itself insufficient, independently of fitting.
+
+The huge fitted outliers also have a concrete coefficient explanation. In the
+worst IID score case the fitted rule gives-215876 versus native-.0362, despite
+ordinary RMS gains2.62 and3.01. Its theta=-2027 was calibrated only on entities1/3
+with nearly clamped gamma; a new entity14 has gamma1.709. The largest OOD and
+fixed-point cases use theta2764, calibrated on only entity14 (gamma≈1e-6), then
+reuse it with order-one gamma for other entities. This is a failure of the proposed
+separable positive entity factor, not evidence of tiny-norm singularities or an
+executor fault. No regularization or additional fit is selected after the fact.
+
+A separate algebraic sensitivity check confirms that scaling native L2 residuals
+by2 leaves RMS-normalized scores unchanged to2.5e-15, while the proposed fixed
+rule scales by1/16. This synthetic rescaling is not a legal token counterfactual;
+it exposes a dependence that the semantic ansatz did not explain. The observed
+held-token failures above are the actual rejection evidence.
+
+What survives is narrower and useful: causal middle-entity matching, directional
+writing by L2H1/H2, and native final-source key/value consumers reused across query
+hops. Entire heads are not identified with that operation. The next scientific
+object is a causal join contribution with its necessary contextual inputs, not a
+refitted whole-head equality lookup. The failure audit has begun that separation
+by distinguishing exact-native matched support from learned score amplitudes.
