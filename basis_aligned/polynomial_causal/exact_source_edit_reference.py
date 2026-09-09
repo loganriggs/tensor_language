@@ -8,6 +8,43 @@ import torch
 from torch import nn
 
 
+@torch.no_grad()
+def make_edits(model,tokens,masks,heads):
+    from join_contribution_context_reference import contributions
+    from join_value_producer_reference import producer_writes,KINDS
+    writes=contributions(model,tokens,masks,heads)
+    parts,_=producer_writes(model,tokens,masks,heads)
+    empty=torch.zeros_like(writes[0]);out={}
+    for mask in range(8):
+        out['disjoint_'+str(mask)]=-sum((writes[j] for j in range(3) if mask&(1<<j)),empty)
+        out['overlap_'+str(mask)]=-sum((parts[1][k] for j,k in enumerate(KINDS) if mask&(1<<j)),empty)
+    out['half_joint']=-.5*sum(writes.values())
+    return out
+
+
+def export_package(program,config):
+    state={k:v.detach().cpu().clone() for k,v in program.state_dict().items()}
+    fixed={k:v.detach().cpu().clone() for k,v in program.named_buffers() if k not in state}
+    return {'program_type':'exact_source_edit_v1','config':config,'dtype':'float64',
+            'n_ctx':program.background.layers[-1].mask.shape[0],'state_dict':state,'fixed_buffers':fixed}
+
+
+def load_package(package):
+    from deep_model import DeepModel
+    assert package['program_type']=='exact_source_edit_v1' and package['dtype']=='float64'
+    cfg=package['config']
+    model=DeepModel(cfg['vocab'],cfg['d_model'],cfg['n_head'],cfg['spec'],package['n_ctx'],norm=cfg['norm']).double().eval()
+    program=SourceEditProgram(model)
+    program.load_state_dict(package['state_dict'],strict=True)
+    buffers=dict(program.named_buffers())
+    expected={k for k in buffers if k not in package['state_dict']}
+    assert expected==set(package['fixed_buffers'])
+    for k,v in package['fixed_buffers'].items():
+        assert buffers[k].shape==v.shape
+        buffers[k].copy_(v)
+    return program.eval()
+
+
 class SourceEditProgram(nn.Module):
     def __init__(self, model):
         super().__init__()
@@ -92,4 +129,6 @@ def controls():
         checks['context_not_mutated']=bool(torch.equal(program.edit(context,delta*0),context['logits']))
         checks['final_O_absent']=not hasattr(program.background.layers[-1],'o')
         checks['constant_count']=program.independent_constant_count()==sum(p.numel() for p in model.parameters())-16*16+8*16
+        loaded=load_package(export_package(program,{'vocab':8,'d_model':16,'n_head':4,'spec':['attn']*4,'norm':'rms'}))
+        checks['package_roundtrip']=bool(torch.allclose(loaded.edit(loaded.prepare(tokens),delta),program.edit(context,delta),atol=1e-9,rtol=1e-10))
     return {'passed':all(checks.values()),'checks':checks,'errors':errors}

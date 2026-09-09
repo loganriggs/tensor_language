@@ -6,9 +6,9 @@ of the pointwise RMS nonlinearity. Overlapping edits do not have that guarantee.
 import torch
 
 
-def populations():
+def populations(seeds=(20909,20910)):
     out={}
-    for pop,seed in (('iid',20909),('ood_three_8cycles',20910)):
+    for pop,seed in zip(('iid','ood_three_8cycles'),seeds):
         g=torch.Generator().manual_seed(seed);worlds=[]
         for world in range(16):
             perm=torch.randperm(24,generator=g);fmap=torch.empty(24,dtype=torch.long)
