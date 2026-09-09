@@ -1,0 +1,25 @@
+{
+  "candidate_id": "cross_task.temporal_iswas.v23_direct_residual_readout_factorial_v1",
+  "created_utc": "2026-09-09T02:47:00Z",
+  "decision": "novel_exact_identity_response_telescope",
+  "nearest_prior_work": [
+    {
+      "artifact": "circuits/followups/temporal_iswas_v23_residual_carrier_downstream_module_reader_atlas_v1_result.json",
+      "difference": "the valid parent excludes any dominant single A12--M17 module but does not isolate identity-carried final residual from their joint response"
+    },
+    {
+      "artifact": "ops/run_bracket_l13h8_direct_readout_baseline_program_v1.py",
+      "difference": "the bracket program uses a different task, layer-13 term, population, and fitted scalar; this test uses an exact block-11 residual correction and no fit"
+    },
+    {
+      "artifact": "ops/run_task14_head11_3_attention_mlp_path_factorial.py",
+      "difference": "the agreement screen restores grouped module paths; this test analytically separates the checkpoint residual identity coefficient from the complete downstream response"
+    }
+  ],
+  "forbidden_claims": [
+    "direct residual readout means later modules have zero effect",
+    "an analytic residual carry is a standalone token-to-logit circuit",
+    "decoder additivity may be assumed across RMSNorm and softcap",
+    "v23 direct readout establishes structural OOD"
+  ]
+}

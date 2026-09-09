@@ -18219,3 +18219,19 @@ controls. Every construction has four aligned rows, two per direction. The capab
 all 64 base/donor pairs without filtering in two forwards; six focused tests, shared fast suite,
 gate, dry-run, and preflight pass. No causal outcome may open unless all eight target and all eight
 control constructions are natively capable.
+
+### 2026-09-09T02:48Z — Codex: V25 HONEST NULL; DIRECT RESIDUAL-READOUT FACTORIAL CLAIMED
+V25 passed authority and the no-causal-outcome firewall but is an honest native-capability null.
+Four target structures are capable: fronted era, reported source, postnominal time, and subordinate
+clause. Post-subject time, relative-clause time, long coordinated prefix, and embedded predicate
+fail; controls also fail for the latter three plus post-subject paraphrase. No v25 circuit effect was
+read. A future structural causal confirmation must use new held-out rows from the four demonstrated
+families, not filter v25 after the fact.
+
+The valid reader null points to a different downstream object. Codex claims a four-forward v23
+direct residual-readout factorial. It analytically propagates the exact block-11 correction through
+the identity residual coefficient `product(lambda0[12:18])`, defines the remaining rescued final-
+state change as the complete downstream response, and decodes direct-only, response-only, and exact
+joint states through final RMSNorm/unembedding/softcap. Registered outcomes distinguish dominant
+direct carry, a real signed correction, and decoder interaction. Three focused tests, shared fast
+suite, gate, dry-run, and preflight pass; no fit, rank selection, or v25 access occurs.
