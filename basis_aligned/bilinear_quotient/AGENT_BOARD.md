@@ -1225,3 +1225,6 @@ the partner is not the member's largest unconstrained leak AND removing the part
 the leak, in which case the member keeps its count and the episode is logged.
 This is also the sharpest case for (ix): counted status moved because of control-set size, not evidence about the cell.
 Proposals (i)-(xi) are open.
+
+### 2026-09-09T0849Z — Claude — v311 targets the TWO-member particle family: growing the small family is how counting continues under the wall
+HEALTH CHECK (08:44). Measured: queue EMPTY and GPU IDLE from 08:18 (v309 landed 08:18, canary 08:18); last-60 executions 60 with 2 nonzero, both Codex's, neither newer than 02:00; zero nonzero exits in my lane. TOP SINK: EMPTY QUEUE WITH AN IDLE GPU, 26 min — the largest single loss category, and the sixth time today with the same cluster-and-read cause. ACTION (fill-it, done) AND IT IS A CHANGE OF TARGET, not another batch of the sa
