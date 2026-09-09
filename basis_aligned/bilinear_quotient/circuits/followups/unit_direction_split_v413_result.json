@@ -1,0 +1,87 @@
+{
+  "bars": {
+    "floor": 0.8,
+    "gain": 0.03,
+    "k_cells": 3
+  },
+  "candidate_id": "corpus.unit_direction_split_v413",
+  "cells": {
+    "determiner_number_barrels": {
+      "dirA_both": 0.329,
+      "dirA_n_units": 13,
+      "dirA_only": 0.586,
+      "dirB_both": 0.528,
+      "dirB_n_units": 4,
+      "dirB_only": 0.885
+    },
+    "determiner_number_barrels_d": {
+      "dirA_both": 0.787,
+      "dirA_n_units": 13,
+      "dirA_only": 0.399,
+      "dirB_both": 0.968,
+      "dirB_n_units": 4,
+      "dirB_only": 0.937
+    },
+    "determiner_number_crates": {
+      "dirA_both": 0.819,
+      "dirA_n_units": 13,
+      "dirA_only": 0.53,
+      "dirB_both": 0.978,
+      "dirB_n_units": 4,
+      "dirB_only": 0.884
+    },
+    "determiner_number_ropes": {
+      "dirA_both": 0.768,
+      "dirA_n_units": 13,
+      "dirA_only": 0.567,
+      "dirB_both": 0.987,
+      "dirB_n_units": 4,
+      "dirB_only": 0.904
+    },
+    "determiner_number_ropes_d": {
+      "dirA_both": 0.796,
+      "dirA_n_units": 13,
+      "dirA_only": 0.63,
+      "dirB_both": 0.981,
+      "dirB_n_units": 4,
+      "dirB_only": 0.906
+    }
+  },
+  "finished_utc": "2026-09-09T16:55:28.643635+00:00",
+  "predictions": {
+    "pred_a_dirA_selection": false,
+    "pred_b_dirA_improves": false,
+    "pred_c_dirB_control": true,
+    "pred_d_no_error": true,
+    "pred_e_outlier_stays_low": true
+  },
+  "recipe": {
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "pooled_dirA_units": [
+      "attn:11:head:02",
+      "attn:07:head:08",
+      "attn:04:head:07",
+      "attn:03:head:06",
+      "attn:15:head:01",
+      "attn:16:head:08",
+      "attn:10:head:05",
+      "attn:04:head:00",
+      "attn:04:head:04",
+      "attn:04:head:03",
+      "attn:13:head:06",
+      "attn:12:head:08",
+      "attn:00:head:03"
+    ],
+    "pooled_dirB_units": [
+      "attn:11:head:02",
+      "attn:07:head:08",
+      "attn:04:head:07",
+      "attn:02:head:02"
+    ],
+    "target": 0.88
+  },
+  "schema": "unit_direction_split_v413",
+  "seconds": 30.9
+}
