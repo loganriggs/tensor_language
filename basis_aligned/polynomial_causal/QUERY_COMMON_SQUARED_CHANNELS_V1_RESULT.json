@@ -1,0 +1,81 @@
+{
+  "scope": "Exact dyadic obstruction for compiled forms in one fixed opened context; numerical native correspondence, no ideal-real interval certificate.",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_common_squared_channels": false
+  },
+  "certificate": {
+    "simultaneously_diagonalizable": false,
+    "pairs_checked": 1,
+    "positive_principal_minors": [
+      "1486387284145605/36028797018963968",
+      "22993029773115590334619194864282135/21267647932558653966460912964485513216",
+      "81671478123849172624288381419231165509923261045169/1532495540865888858358347027150309183618739122183602176"
+    ],
+    "witness": {
+      "forms": [
+        0,
+        1
+      ],
+      "entry": [
+        0,
+        1
+      ],
+      "value": "-251836014711642868167926717978407772297025145005881285288725202493/7067388259113537318333190002971674063309935587502475832486424805170479104"
+    }
+  },
+  "whitened_normalized_commutator_diagnostic": 0.030859456774076463,
+  "compiler_max_abs": 1.7763568394002505e-15,
+  "native_max_abs": 8.881784197001252e-15,
+  "norm_max_abs": 5.551115123125783e-17,
+  "lineage_max_abs": 8.881784197001252e-16,
+  "controls": {
+    "passed": true,
+    "checks": {
+      "nonorthogonal_common_basis": true,
+      "noncommuting_negative": true,
+      "singular_rejected": true,
+      "indefinite_rejected": true
+    },
+    "negative_witness": {
+      "forms": [
+        0,
+        1
+      ],
+      "entry": [
+        0,
+        1
+      ],
+      "value": "-1"
+    }
+  },
+  "metadata": {
+    "world": 0,
+    "order": 1,
+    "case": "base",
+    "orientation": "B2_later",
+    "entity": 7,
+    "middle": 1,
+    "foil": 15,
+    "answer": 10,
+    "expected_answer": 10,
+    "query": 0,
+    "hop": 3
+  },
+  "opaque_export_constants": 387968,
+  "coefficients_sha256": "3f195fe72cc86a62b96ba08733c89e4768a6462608b97a0cbf4483fe1b4e3151",
+  "package_sha256": "e69bff6562c48bd1b59366f118157720734d353626b0a1576626bdd437a1421a",
+  "source_sha256": {
+    "query_direction_reference": "b5896fdbad32950072845bd0cf686267d345e906a7c444b74877012a1c29e4ce",
+    "simultaneous_congruence_reference": "40eea4889022a94d2e77054bd588a4706efc5ad95d6a0d86f9d835103458f46f",
+    "key_payload_interaction_reference": "d778f34b67fb3e1809ce7e83ae0352fa74ce2fd22901970c3dfdc057763e693c",
+    "frozen_payload_lineage_reference": "12d56305c9466ce66576f2122b528df7ee2cf9966e46f3d337823b57c4f3e68a",
+    "overlapping_join_normalizer_reference": "00ac5c3121ec3d5a384b6218b04a6ec0bca7993cbda135a4283d3e8a335ed140",
+    "join_origin_writer_reference": "de1d72a82b85684ee51f16821b5cfce4ef308dc73e401a5f5a15636e5cf7175c",
+    "forward_endpoint_program_reference": "262dbb8127a8ae0029e5e025a5d4db65392b6ce41226a1f5b3bfbe8ac98ea693",
+    "frozen_query_read_reference": "af3477f175b27d57cea6071e9a5b0e4da148cd5fda8979da17aefe957701df23"
+  },
+  "prereg_sha256": "1844ffa57989a745558a674dd96810a41ebaf23cf151eed7cd72ee25ac84c83c",
+  "runner_sha256": "044fdc5a70e76d3784242b30c13108207a5e86f31410778962ebc4643b7694c8",
+  "wall_seconds": 0.08745177835226059
+}

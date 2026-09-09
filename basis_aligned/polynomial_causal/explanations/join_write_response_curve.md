@@ -300,6 +300,51 @@ is simultaneous diagonalization by congruence. The whitening/commutation
 criterion in [Jiang and Li, Theorems3.2/3.3](https://arxiv.org/pdf/1507.05703)
 gives a finite exact test of the compiled3x3 forms. The implemented rational
 primitive passes nonorthogonal positive, noncommuting negative, singular and
-indefinite controls. No trained-form result is yet available. Even a positive
-local test would need cross-context identification and structural pricing;
+indefinite controls. The trained-form audit and its consequence are now below;
 all387968 native coefficients are still required by the current executor.
+
+## Changing coordinates does not separate this query interface
+
+The [fixed-context audit](../QUERY_COMMON_SQUARED_CHANNELS_V1_RESULT.json)
+compiles the query norm Gram and all58 centered I/J output quadratic forms
+from six root/pair evaluations. Four additional amplitude vectors, including
+zero and signed inputs, match the independent native Q-projection oracle
+within8.88e-15; coefficient replay1.78e-15, norm5.55e-17, lineage8.88e-16.
+Execution took .087 seconds on CPU. The source is the first registered IID
+world/order, forward query/hop3; no context or output subset was selected.
+
+Exact rational principal minors certify the stored Gram positive definite.
+The very first two forms, centered output coordinates0/1 of I, have a nonzero
+congruence commutator. Thus no invertible linear coordinate change turns
+the norm and all readers into three independent squared channels, even in
+this single context. This is an exact statement about the stored FP64
+coefficient artifact. Its relationship to ideal-real native execution is
+numerically checked, not interval-certified.
+
+The [block and approximation bound](../QUERY_COUPLED_BLOCK_BOUND_V1_RESULT.json)
+strengthens the result in .011 seconds of saved-artifact CPU analysis. The
+exact equations XB_k=B_kX, B_k=adj(G)A_k, have rank8 in nine unknowns after
+the first11 equations. Identity spans the nullspace. Any proper common block
+split would provide a nonscalar commuting projector, so even a1+2 split is
+impossible for this norm-and-reader interface. Six planted and coordinate
+change controls pass. This rules out an exact block split, not every kind
+of approximate block model.
+
+For the original witness pair, let U,V be the Gram-whitened forms and
+c=||UV-VU||F/(2||U||F||V||F)=.0308595. Commuting approximations with at most
+e relative Frobenius error in each form require c<=2e+e². Consequently at
+least one error is >=sqrt(1+c)-1=.0153125. A rational trace calculation
+certifies that the bound exceeds1% without relying on a rounded Cholesky
+factor. The metric is per-form whitened coefficient error; it is not the
+previous route-logit error or a KL bound.
+
+These results close independent query-channel proposals at this interface.
+They do not mean that coupling precludes reuse. The elementary circuit
+(z0²,z0*z1,z0*z2) shares the gate z0 while its complete reader family has
+only a scalar commutant. The next [shared-gate protocol](../QUERY_SHARED_LINEAR_GATE_V1_PREREGISTRATION.md)
+therefore asks whether the contracted trained route functions share a
+linear multiplicative gate. Its planted coupled-but-shared control and
+exact determinant falsifier are implemented; the trained determinant scan
+is pending. Singular forms alone will be reported as inconclusive, never
+as proof of a shared factor. No extracted circuit or structural saving is
+claimed from either the certificates or the toy.

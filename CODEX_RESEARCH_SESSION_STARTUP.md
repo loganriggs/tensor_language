@@ -53,6 +53,44 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Coupled query block certified; shared multiplication test next — 2026-09-09 22:17 UTC
+
+The user's bilinear reconstruction handoff and appended structural criterion
+control, overriding the durable goal's stale better_math_ideas wording.
+This turn made progress through one native coefficient audit and one exact
+saved-artifact bound. No extracted structurally smaller circuit; goal active.
+
+QUERY_COMMON_SQUARED_CHANNELS_V1 CPU .087s: fixed first IID world/order,
+forward hop3, all58 centered forms and3x3 norm Gram. Native8.88e-15,
+compiler1.78e-15, norm5.55e-17, lineage8.88e-16. Exact positive Gram;
+first lexicographic pair I:0/I:1 obstructs simultaneous congruence. No
+three independent squared channels under any invertible coordinate change.
+Coefficient artifact SHA3f195fe72cc86a62b96ba08733c89e4768a6462608b97a0cbf4483fe1b4e3151.
+
+QUERY_COUPLED_BLOCK_BOUND_V1 CPU .011s: exact commutant rank8/nullity1
+in11 equations, so no proper common1+2 block split either. Six controls pass.
+Exact trace-rational commutator bound exceeds1%: numerical lower bound
+.0153125 per-form relative Frobenius error after whitening the fixed Gram.
+This is not a route-logit or KL error bound. Both exact certificates concern
+stored FP64 coefficients; native agreement is not an ideal-real interval proof.
+All387968 opaque export coefficients and root/context production remain priced.
+
+Next QUERY_SHARED_LINEAR_GATE_V1_PREREGISTRATION.md tests a distinct circuit
+operation: shared multiplication f_k(z)=g(z)*h_k(z) across the contracted
+I/J readers. Block inseparability does not exclude such reuse: the planted
+(z0²,z0*z1,z0*z2) example is irreducible as a block family yet shares z0.
+shared_query_gate_reference.py implements its controls and exact necessary
+condition: one nonsingular3x3 form rejects a common linear factor; all
+singular forms are inconclusive. Trained determinant outcomes remain unopened.
+Next implement/execute the small hash-bound saved-coefficient audit, then
+interpret without increasing gate count or selecting outputs to rescue it.
+Prior raw MLP-factor scans remain closed. No new GPU job required.
+
+Canonical dossier explanations/join_write_response_curve.md updated. Both
+Supervisor bqrunners healthy at22:08; preserve concurrent Claude work.
+Review clocks unchanged: latest hourly21:58, next22:58; mathematical19:49,
+next22:49. Use actual elapsed time before any new review. Push owned files.
+
 ## Query-root separation bounded; exact common-channel test next — 2026-09-09 22:02 UTC
 
 The user's bilinear reconstruction handoff and appended structural criterion
