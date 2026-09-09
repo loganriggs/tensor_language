@@ -77,7 +77,7 @@ MODEL_FORWARDS_MAX, EXAMPLE_EVALUATIONS_MAX = 200000, 6400000
 
 
 def _plan():
-    return {"candidate_id": "corpus.unit_broad_circuit_v375", "shapes": len(SHAPES),
+    return {"candidate_id": "corpus.unit_broad_circuit_v375", "groups": len(GROUPS), "cells": sum(len(v) for v in GROUPS.values()),
             "model_forwards_max": MODEL_FORWARDS_MAX, "example_evaluations_max": EXAMPLE_EVALUATIONS_MAX,
             "model_backwards": STEPS, "model_updates": 0, "fit_parameters": MAX_UNITS * 128,
             "gpu_accessed": False, "model_loaded": False, "execution_policy": "managed_queue_only"}
