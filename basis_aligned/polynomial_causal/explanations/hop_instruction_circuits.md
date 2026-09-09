@@ -69,3 +69,44 @@ The primitive passes18 controls, including all physical-state oracles and
 unchanged earlier outputs. Fresh33909/33910 integration remains. All387968
 native coefficients and any instruction adapter stay charged. No simplification
 is established by the preregistration or by exact control execution alone.
+
+## Late instruction fails; the first-layer query has two exact inputs
+
+[LATE_HOP_INSTRUCTION_V1_RESULT.json](../LATE_HOP_INSTRUCTION_V1_RESULT.json)
+completes5.16s with mechanical checks passing1.81e-13, but every scientific gate
+fails. Directembedding-swap queryKL ranges2.728–39.576; causal-vector errors
+.620–1.012. Erasing the literal embedding leaves.648–.987 of the nativehop
+difference norm. The instruction has already shaped earlier computation. The
+computed-only diagnostic is not adopted as a replacement explanation.
+
+The next [local-initializer screen](../LOCAL_QUERY_INITIALIZER_V1_RESULT.json)
+physically computes first-layer finalquery state using only delimiter, queryentity
+andhop tokens, then runs the rest of the model. It removes192 of204 incoming
+head/source edges at this site. On768 opened inputs native masked execution
+closes1.56e-13, but full fidelity fails: hop3queryKL.143/.118 andhop2 .0053/.0061
+forIID/OOD, with centeredvectorerrors.027–.348 over allhops. Verysmall hop0/1 KL
+coexists with substantial vectorchange; no probability-only success is claimed.
+
+The omitted term is nevertheless an exact reusable computation. First-layer
+queries depend only on the original hop token, and unnormalized attention adds
+source messages independently. Consequently
+
+\[
+x_{1,\mathrm{query}}=S(\mathrm{document},\mathrm{hop})
+                       +L(\mathrm{entity},\mathrm{hop}).
+\]
+
+S sums binding-source contributions; L includes the three local-token sources
+and residual. At fixed positions, S can be shared acrossqueryentities and L
+acrossdocuments. Neither claim erases tokenidentity, position or native weights.
+The explicit sourcepartition fixes the removal meaning; arbitrary offsets are
+not silently reassigned between the components.
+
+[QUERY_INITIALIZER_FACTORIZATION_V1](../QUERY_INITIALIZER_FACTORIZATION_V1_PREREGISTRATION.md)
+extracts both terms and tests native output, separate removals, jointremoval and
+reuse onfresh data. Its12 primitive controls pass, including independent native
+oracles for allfour keep masks. The neither-kept query iszero and remainszero
+through the biasfree downstream network, giving uniformoutput as an exact
+control. Fresh integration remains. All387968 native coefficients remaincharged;
+this is partial extraction/CSE infrastructure, not a claimed novel structural
+reduction or completion of the full research goal.

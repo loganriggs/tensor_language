@@ -53,6 +53,41 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Instruction already computed; exact initializer factorization active — 2026-09-09 19:29 UTC
+
+LATE_HOP_INSTRUCTION_V1_RESULT.json completes5.16s managedGPU,A true,B/C/D false.
+Fulloracle1.81e-13, earlieroutputsexact0. Directembedding-swap queryKL2.728–39.576,
+effecterrors.620–1.012; instructionerasure ratios.648–.987. LiteralE(hop)/8 isnot
+a sufficient lateinstruction. No computed-only or expandedfield rescue.
+
+Immediate CPU LOCAL_QUERY_INITIALIZER_V1_RESULT.json onopened first4worlds/pop,
+768states,6controls/nativeoracle1.56e-13. Physically local firstlayer queryinit
+using onlylast3tokens removes192of204 sourceedges butfailsfullnativefidelity.
+Hop3queryKL.143/.118,hop2 .0053/.0061; allhopvectorerrors.027–.348 exceed1%.
+Tinyhop0/1 KL doesnot implyvectorfidelity orselectivity. Thislocal-onlycandidate
+staysclosed; allnativeweights wouldremainretained, noadoption.
+
+Active QUERY_INITIALIZER_FACTORIZATION_V1_PREREGISTRATION.md and
+query_initializer_factorization_reference.py,12CPUcontrols pass. Exactfirstlayer
+finalquery state = S(bindingdocument,hop)+L(queryentity,hop), fixedpositions/length.
+S isindependent ofqueryentity; L useslast3tokens only andisindependent ofdocument.
+The sourcepartition definesremovals, no fittedadditivegauge. Bothcomputations
+are extracted directly fromoriginaltoken/position projections, no fullquery
+attention computedthen discarded. Keepboth,summary-only,local-only,neither have
+independentnative mask/residualoracle. Zerojointquery isabsorbing inthisbiasfree
+network; zero/uniformoutput isexpectedcontrol.
+
+Next managed ops/run_query_initializer_factorization_v1.py: fresh34909/34910
+first8worlds/pop,1536requests. Reuse4 summaries/document across24queryconsumers,
+localstates acrossdocuments, validatefullnative outputs andallremoval/joint
+effects. Reportperhop probabilityandvectorbehavior withoutinventedselectivity.
+All387968 nativeconstants,caches/adapters charged; no novelstructuralreduction
+claimed fromsource-additivity/CSE. This ispartialextraction machinery, notgoal
+completion. No freshtrainedoutcomesopened. Canonicalhopdossier current.
+
+Hourly1851 next19:51; mathematical1648 next19:48. Bothmanagedrunnershealthy;
+inspect livequeues. Bilinearhandoff/appendedcriterion remainscontrolling.
+
 ## Query-factor and common-address nulls; late instruction active — 2026-09-09 19:15 UTC
 
 HOP_QUERY_FACTOR_TRANSFER_V1_RESULT.json completes3.45s managedGPU,A/D true,
