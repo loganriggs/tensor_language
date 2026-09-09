@@ -53,6 +53,31 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active semantic origin-field swap — 2026-09-09 17:19 UTC
+
+EXACT_SOURCE_EDIT_V1_RESULT.json passesA/B/C/D: all17 fresh IID/OOD edit arms
+maxerror1.14e-13, CPU export replay136example-arms2.06e-13 with original checkpoint
+reads blocked. Package EXACT_SOURCE_EDIT_V1_PROGRAM.pt, usage EXACT_SOURCE_EDIT_V1_README.md.
+Program387968 constants (onlygeneric12672 fold saving), cache1510008bytes.
+Sparse editor~.98ms is slower than nativecachedsuffix~.51ms; no speed orsemantic
+parameter reduction claim. Fullnative1.84ms, prep1.88ms. Allweights stillcharged.
+
+Active JOIN_ORIGIN_FIELD_SWAP_V1_PREREGISTRATION.md and
+join_origin_field_swap_reference.py. Seven CPU controls pass direct receiver-path
+contraction vs independent native L1 pattern/value hooks. Fresh22909/22910 data
+use arrangement0 transformed to two backward joins (bindingpairs11/19 swapped);
+all functions/answers preserved. Swap copied origin value reads while keeping
+receiver L1/L2 scores,gains and exact complement. Joint exchange should swap
+hop3 answers; singles with the other join removed test reuse, lowerhops specificity.
+No fit/head/source/donor selection. Exported program supplies candidateweights;
+original model is only an independent intervention oracle. New managed
+ops/run_join_origin_field_swap_v1.py remains to be integrated. Do not confuse
+path edits with whole-token swaps or whole-upstream-layer ablation.
+
+Current clocks hourly1651(next17:51), math1648(next19:48). Goal remains active
+under bilinear reconstruction handoff; all prior quantitative simplification
+failures remain in cold_query_composition_reconstruction.md.
+
 ## Active exact source-edit executor — 2026-09-09 17:01 UTC
 
 SOURCE_SUPPORT_INTERACTION_V1_RESULT.json passes all4 gates. Fresh IID/three8cycle

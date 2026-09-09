@@ -447,3 +447,30 @@ overlapping and half-dose tests, independent CPU export/replay, and preparation/
 edit/cache pricing against both full native and cached native suffix baselines.
 Managed trained runner and export integration remain. This is reusable intervention
 infrastructure on the path toward the goal, not an adopted compact circuit model.
+
+## Exact edit executor and export verified
+
+`EXACT_SOURCE_EDIT_V1_RESULT.json` passes all four gates. All17 disjoint,
+overlapping and half-dose edit arms on384fresh query variants (32independent
+worlds) close within1.14e-13 across all logits. Preparation closes at9.95e-14.
+FreshCPU export replay136example-arms closes at2.06e-13, with original checkpoint
+reads blocked. The exported program recomputes every runtime state and native
+write from supplied tokens and its own weights; test fixtures are separate.
+Usage and limits are in `EXACT_SOURCE_EDIT_V1_README.md`.
+
+The performance result is a useful negative: sparse edits take.972/.990ms for2/6
+changed positions, versus.511/.503ms for the native cached suffix. Full native
+forward is1.841ms; program preparation1.882ms. Cache1510008bytes, fixed buffers
+2334720bytes,387968 independent constants. The12672 constant saving is entirely
+generic final-readout folding; new semantic parameter saving remainszero. All
+native prefix/readers stay explicitly charged. Do not adopt this as a speed win.
+
+The next test uses that precise execution interface for semantic origin-field
+interchange. `JOIN_ORIGIN_FIELD_SWAP_V1_PREREGISTRATION.md` fixes two backward
+joins and exchanges only their copied L1 value reads, preserving recipient gates,
+gains and complements. If they denote origins, joint exchange should swap the two
+hop3 answers, with lowerhop specificity and consistent single transfers. This is
+not a claim that edited intermediate joins must remain the square of the original
+function. Fresh22909/22910 inputs, no fitting or donor/head selection.
+`join_origin_field_swap_reference.py` passes seven CPU controls, including an
+independent native pattern/value-hook correspondence. Managed integration remains.
