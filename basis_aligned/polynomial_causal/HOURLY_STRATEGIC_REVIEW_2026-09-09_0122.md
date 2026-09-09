@@ -47,6 +47,6 @@ Genuinely different alternatives remain: (a) the queued residual/MLP factorial l
 
 `CIRCUIT_FOCUS: PASS` — every material action advanced circuit computation, identification machinery, or an explicit full-computation explanation.
 
-`CEREMONY_BUDGET: PASS` — validation caught a four-head-to-three-head intervention bug; the focused safeguards are smaller than the 47-forward scientific screen and directly protect validity.
+`CEREMONY_BUDGET: PASS` — validation caught a four-head-to-three-head intervention bug; the focused safeguards are smaller than the 45-forward scientific screen and directly protect validity.
 
 `NOVELTY_LESSON_GATE: PASS` — prior v15 pattern/value and L11H3 QK work were searched; the new screen changes the object to all-prefix, four-head, token-source-resolved five-factor writes rather than repeating either null.

@@ -12,8 +12,8 @@ import run_temporal_iswas_v23_four_head_input_factor_source_atlas_v1 as run
 def test_enumeration_price_and_sites_are_frozen():
     assert run.ROUTES == ((8, 1), (9, 1), (9, 4), (11, 3))
     assert run.ROUTES_BY_LAYER == {8: (1,), 9: (1, 4), 11: (3,)}
-    assert run.PRICE["model_forwards_exact"] == 2 + 8 + 31 + 6
-    assert run.PRICE["sequence_evaluations_exact"] == 47 * 64
+    assert run.PRICE["model_forwards_exact"] == 2 + 6 + 31 + 6
+    assert run.PRICE["sequence_evaluations_exact"] == 45 * 64
     assert len(run.source.SOURCE_FACTORS) == 5
     assert len(run.source.SOURCE_GROUPS) == 3
 
@@ -59,5 +59,6 @@ def test_model_free_dryrun_has_no_result_or_queue_side_effect(tmp_path):
     assert payload["dryrun"] and not payload["gpu_accessed"] and not payload["model_loaded"]
     assert payload["authority_ok"]
     assert payload["partition_ok"] and payload["target_rows"] == 30
+    assert payload["capture_forwards"] == 6
     assert run.ROOT.joinpath("queue.txt").read_bytes() == before_queue
     assert run.OUT.exists() == result_existed

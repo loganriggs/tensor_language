@@ -60,8 +60,8 @@ BARS = {
     "distributed_factor_count": 3,
 }
 PRICE = {
-    "checkpoint_loads": 1, "model_forwards_exact": 47,
-    "sequence_evaluations_exact": 3008, "transformer_backwards": 0,
+    "checkpoint_loads": 1, "model_forwards_exact": 45,
+    "sequence_evaluations_exact": 2880, "transformer_backwards": 0,
     "model_updates": 0, "fit_parameters": 0,
 }
 PREDICTION_KEYS = (
@@ -160,6 +160,7 @@ def main():
         "authority_ok": authority_ok, "counts": counts, "target_rows": len(target_rows),
         "routes": [f"L{layer}H{head}" for layer, head in ROUTES],
         "factor_arms": 32, "source_arms": 8, "source_proper_extra_arms": 6,
+        "capture_forwards": 6,
         "partition_ok": partition_ok, "bars": BARS, "price": PRICE,
     }
     if os.environ.get("BQLIB_DRYRUN") == "1" or os.environ.get("BQLIB_NO_MODEL") == "1":

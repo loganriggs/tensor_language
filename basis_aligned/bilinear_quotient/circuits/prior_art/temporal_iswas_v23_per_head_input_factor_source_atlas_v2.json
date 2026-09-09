@@ -1,0 +1,25 @@
+{
+  "candidate_id": "cross_task.temporal_iswas.v23_per_head_input_factor_source_atlas_v2",
+  "created_utc": "2026-09-09T01:41:00Z",
+  "decision": "novel_per_head_extension",
+  "nearest_prior_work": [
+    {
+      "artifact": "circuits/followups/temporal_iswas_v23_four_head_input_factor_source_atlas_v1_result.json",
+      "difference": "v1 tests factor and token-source coalitions only after pooling all four heads; it cannot distinguish shared from head-specific input computations"
+    },
+    {
+      "artifact": "circuits/followups/temporal_iswas_v23_aligned_four_head_reader_contracted_confirmation_v1_result.json",
+      "difference": "the parent has selective full-output singleton effects for every head but no Q1/K1/Q2/K2/value or token-role decomposition"
+    },
+    {
+      "artifact": "circuits/followups/temporal_iswas_l11h3_task_typed_source_qk_factorial_v2_result.json",
+      "difference": "the older experiment covers only L11H3, a different row authority, and neither all-prefix token roles nor the other three v23 writers"
+    }
+  ],
+  "forbidden_claims": [
+    "similar Shapley profiles prove the heads implement one semantic variable",
+    "different Shapley profiles prove native heads are indivisible circuit units",
+    "a token-role response term is a directed upstream edge without reciprocal intervention",
+    "per-head v23 attribution establishes v24 or OOD identification"
+  ]
+}

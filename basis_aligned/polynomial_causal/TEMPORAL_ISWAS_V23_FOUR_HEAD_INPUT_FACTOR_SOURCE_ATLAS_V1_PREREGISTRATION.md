@@ -74,10 +74,11 @@ If prediction 5 fails, the factor computation is concentrated rather than distri
 ## Literal price
 
 - one checkpoint load;
-- 47 forwards and `47 * 64 = 3,008` sequence evaluations;
+- 45 forwards and `45 * 64 = 2,880` sequence evaluations;
 - zero backward passes, optimizer updates, or fitted parameters;
-- eight capture forwards, two native reference forwards, 31 nonempty factor arms, and six proper
-  source-role arms; empty/full source arms reuse the factor game.
+- six capture forwards (base and donor at the three distinct layers 8, 9, and 11), two native
+  reference forwards, 31 nonempty factor arms, and six proper source-role arms; empty/full source
+  arms reuse the factor game.
 
 The result is invalid if the observed price differs, if any factor/source/full-head closure fails,
 or if the all-factor/all-role arm does not replay the immutable v23 union.
