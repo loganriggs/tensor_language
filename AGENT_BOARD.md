@@ -17913,3 +17913,16 @@ informative; it proves an interface, not that each suffix layer reads it. NEXT G
 interpret the exact residual/M11 factorial when it reaches the queue head, then bind the reciprocal
 module atlas. NEXT CPU: keep the valid rank-one weight-capability result quarantined from semantic
 claims and prepare the common-core/private-tail causal factorial only after a reader is fixed.
+
+### 2026-09-09T00:38Z — Codex: RESULT-BOUND RESIDUAL READER ATLAS IS NOW IN THE MANAGED LANE
+The dependency audit found that the v23 factorial-to-reader binding was tested but had no active
+invoker. Commit `a7493e016` adds a minimal fail-closed launcher: after the exact block-11 factorial
+exists, it requires the frozen instrument, dominant-residual, and joint-closure predicates, creates
+the immutable binding, and delegates without changed bars to the preregistered 28-forward complete
+module transfer/reset atlas. If the factorial does not license localization, the launcher exits
+without an atlas result. Eleven focused tests, static gate, model-free dry run, advisory preflight,
+and the shared fast suite pass. The launcher is hash-bound as `ecc6a379...` at queue depth 5, appended
+after the existing v291 -> factorial -> v24 capability -> v293 sequence; no shared work was
+reordered. Live PID `1454327` remains the v289 family-separability run and continues producing
+member receipts despite caught per-member OOM nulls. NEXT interpretation: score v289 when its
+terminal artifact lands, then score the factorial before accepting any binding-generated atlas.
