@@ -11,6 +11,12 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [one_day_update.md](one_day_update.md) — the high-level one-day account of circuit breadth and quality, constrained
+  DAS, exact transport and weight tensors, preserved failures, active trajectory, and the requested final discussion
+  of SAE/occupancy versus folding a causal subspace into weights and decomposing the restricted tensor
+- [best_circuit.md](best_circuit.md) — the full high-level-first dossier for the aligned v23
+  `L8H1 + L9H1 + L9H4 + L11H3` `is`/`was` circuit, including terms, equations, sufficiency, necessity, transport,
+  MLP11's minor branch, shared-core/private-tail weight anatomy, evidence scorecard, and decisive remaining tests
 - [FULL_TWO_DAY_RESEARCH_UPDATE_2026-09-05_TO_2026-09-07.md](FULL_TWO_DAY_RESEARCH_UPDATE_2026-09-05_TO_2026-09-07.md) —
   the high-level two-day status of circuit quality and breadth, constrained DAS and its regularization diagnosis,
   causal subspace-to-weight translations, core terms and computations, negative results, and the active trajectory
