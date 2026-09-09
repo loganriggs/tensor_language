@@ -1,0 +1,155 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "joint_min": 0.8,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_broad_circuit_v427",
+  "final_loss": 6e-05,
+  "finished_utc": "2026-09-09T18:58:42.790236+00:00",
+  "joint_units": [
+    "attn:05:head:03",
+    "attn:04:head:05",
+    "attn:15:head:01",
+    "attn:03:head:04",
+    "attn:12:head:04",
+    "attn:10:head:05",
+    "attn:09:head:06",
+    "attn:10:head:01",
+    "attn:09:head:07"
+  ],
+  "n_joint_units": 9,
+  "per_shape": {
+    "adjacent": {
+      "A1_damage": {
+        "ce_damage": 0.5006,
+        "ce_lb975": 0.4412,
+        "ce_ub975": 0.5581,
+        "margin_damage": 2.0813,
+        "top1_change_rate": 0.0
+      },
+      "C_damage": {
+        "ce_damage": -0.0022,
+        "ce_lb975": -0.0061,
+        "ce_ub975": 0.0013,
+        "margin_damage": 0.015,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0013,
+      "cell": "possessive_adjacent",
+      "joint_extraction": 0.995,
+      "n_held": 16,
+      "specialist_extraction": null,
+      "units_recovery": 0.807
+    },
+    "attractor": {
+      "A1_damage": {
+        "ce_damage": 0.3773,
+        "ce_lb975": 0.2998,
+        "ce_ub975": 0.4544,
+        "margin_damage": 1.0551,
+        "top1_change_rate": 0.0625
+      },
+      "C_damage": {
+        "ce_damage": -0.0022,
+        "ce_lb975": -0.0061,
+        "ce_ub975": 0.0013,
+        "margin_damage": 0.015,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0013,
+      "cell": "possessive_attractor",
+      "joint_extraction": 1.073,
+      "n_held": 16,
+      "specialist_extraction": null,
+      "units_recovery": 1.074
+    },
+    "long_simple": {
+      "A1_damage": {
+        "ce_damage": 0.5912,
+        "ce_lb975": 0.5151,
+        "ce_ub975": 0.6677,
+        "margin_damage": 2.1817,
+        "top1_change_rate": 0.0625
+      },
+      "C_damage": {
+        "ce_damage": -0.0022,
+        "ce_lb975": -0.0061,
+        "ce_ub975": 0.0013,
+        "margin_damage": 0.015,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0013,
+      "cell": "possessive_long_simple",
+      "joint_extraction": 0.998,
+      "n_held": 16,
+      "specialist_extraction": null,
+      "units_recovery": 0.857
+    },
+    "medial": {
+      "A1_damage": {
+        "ce_damage": 0.5602,
+        "ce_lb975": 0.4934,
+        "ce_ub975": 0.6249,
+        "margin_damage": 1.9646,
+        "top1_change_rate": 0.0625
+      },
+      "C_damage": {
+        "ce_damage": -0.0022,
+        "ce_lb975": -0.0061,
+        "ce_ub975": 0.0013,
+        "margin_damage": 0.015,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0013,
+      "cell": "possessive_medial",
+      "joint_extraction": 1.0,
+      "n_held": 16,
+      "specialist_extraction": null,
+      "units_recovery": 0.847
+    },
+    "their_vs_his": {
+      "A1_damage": {
+        "ce_damage": 0.6795,
+        "ce_lb975": 0.5885,
+        "ce_ub975": 0.7745,
+        "margin_damage": 2.0937,
+        "top1_change_rate": 0.0625
+      },
+      "C_damage": {
+        "ce_damage": -0.0022,
+        "ce_lb975": -0.0061,
+        "ce_ub975": 0.0013,
+        "margin_damage": 0.015,
+        "top1_change_rate": 0.0
+      },
+      "C_ub975": 0.0013,
+      "cell": "possessive_number",
+      "joint_extraction": 1.014,
+      "n_held": 16,
+      "specialist_extraction": null,
+      "units_recovery": 0.852
+    }
+  },
+  "pooled_control_rows": 80,
+  "pooled_fit_rows": 79,
+  "predictions": {
+    "pred_a_joint_covers": true,
+    "pred_b_units_transfer": true,
+    "pred_c_control_clean": true,
+    "pred_d_counted_shape_kept": true,
+    "pred_e_some_shape_resists": false
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_broad_circuit_v427",
+  "seconds": 44.2
+}
