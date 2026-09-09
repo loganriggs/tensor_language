@@ -1,0 +1,242 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "tol": 0.03,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_broad_circuit_v443",
+  "finished_utc": "2026-09-09T21:53:30.918487+00:00",
+  "groups": {
+    "prep_size2": {
+      "cells": [
+        "verb_preposition_about_against",
+        "verb_preposition_about_into"
+      ],
+      "n_units": 30,
+      "per_shape": {
+        "verb_preposition_about_against": {
+          "A1_damage": {
+            "ce_damage": 1.2045,
+            "ce_lb975": 1.0723,
+            "ce_ub975": 1.3253,
+            "margin_damage": 2.9706,
+            "top1_change_rate": 0.0938
+          },
+          "C_damage": {
+            "ce_damage": -0.0105,
+            "ce_lb975": -0.0196,
+            "ce_ub975": -0.0021,
+            "margin_damage": -0.0612,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": -0.0021,
+          "joint_extraction": 1.003,
+          "n_held": 16,
+          "units_recovery": 0.955
+        },
+        "verb_preposition_about_into": {
+          "A1_damage": {
+            "ce_damage": 1.7324,
+            "ce_lb975": 1.5754,
+            "ce_ub975": 1.8936,
+            "margin_damage": 5.3249,
+            "top1_change_rate": 0.75
+          },
+          "C_damage": {
+            "ce_damage": -0.0105,
+            "ce_lb975": -0.0196,
+            "ce_ub975": -0.0021,
+            "margin_damage": -0.0612,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": -0.0021,
+          "joint_extraction": 1.015,
+          "n_held": 16,
+          "units_recovery": 0.986
+        }
+      }
+    },
+    "prep_size3": {
+      "cells": [
+        "verb_preposition_about_against",
+        "verb_preposition_about_into",
+        "verb_preposition_at_over"
+      ],
+      "n_units": 30,
+      "per_shape": {
+        "verb_preposition_about_against": {
+          "A1_damage": {
+            "ce_damage": 1.2553,
+            "ce_lb975": 1.0757,
+            "ce_ub975": 1.4217,
+            "margin_damage": 3.0797,
+            "top1_change_rate": 0.125
+          },
+          "C_damage": {
+            "ce_damage": -0.0111,
+            "ce_lb975": -0.0266,
+            "ce_ub975": 0.0015,
+            "margin_damage": -0.0209,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0015,
+          "joint_extraction": 1.017,
+          "n_held": 16,
+          "units_recovery": 0.955
+        },
+        "verb_preposition_about_into": {
+          "A1_damage": {
+            "ce_damage": 1.6496,
+            "ce_lb975": 1.3919,
+            "ce_ub975": 1.9084,
+            "margin_damage": 5.2348,
+            "top1_change_rate": 0.7188
+          },
+          "C_damage": {
+            "ce_damage": -0.0111,
+            "ce_lb975": -0.0266,
+            "ce_ub975": 0.0015,
+            "margin_damage": -0.0209,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0015,
+          "joint_extraction": 1.011,
+          "n_held": 16,
+          "units_recovery": 0.968
+        },
+        "verb_preposition_at_over": {
+          "A1_damage": {
+            "ce_damage": 1.2831,
+            "ce_lb975": 1.1275,
+            "ce_ub975": 1.4263,
+            "margin_damage": 3.1973,
+            "top1_change_rate": 0.2812
+          },
+          "C_damage": {
+            "ce_damage": -0.0111,
+            "ce_lb975": -0.0266,
+            "ce_ub975": 0.0015,
+            "margin_damage": -0.0209,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0015,
+          "joint_extraction": 0.976,
+          "n_held": 16,
+          "units_recovery": 0.919
+        }
+      }
+    },
+    "prep_size4": {
+      "cells": [
+        "verb_preposition_about_against",
+        "verb_preposition_about_into",
+        "verb_preposition_at_over",
+        "verb_preposition_at_to"
+      ],
+      "n_units": 30,
+      "per_shape": {
+        "verb_preposition_about_against": {
+          "A1_damage": {
+            "ce_damage": 1.2311,
+            "ce_lb975": 1.1668,
+            "ce_ub975": 1.2925,
+            "margin_damage": 2.9889,
+            "top1_change_rate": 0.1562
+          },
+          "C_damage": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0048,
+            "margin_damage": -0.0371,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0048,
+          "joint_extraction": 1.012,
+          "n_held": 16,
+          "units_recovery": 0.946
+        },
+        "verb_preposition_about_into": {
+          "A1_damage": {
+            "ce_damage": 1.5967,
+            "ce_lb975": 1.4272,
+            "ce_ub975": 1.7652,
+            "margin_damage": 5.091,
+            "top1_change_rate": 0.7188
+          },
+          "C_damage": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0048,
+            "margin_damage": -0.0371,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0048,
+          "joint_extraction": 0.991,
+          "n_held": 16,
+          "units_recovery": 0.969
+        },
+        "verb_preposition_at_over": {
+          "A1_damage": {
+            "ce_damage": 1.1518,
+            "ce_lb975": 1.1055,
+            "ce_ub975": 1.1981,
+            "margin_damage": 3.1869,
+            "top1_change_rate": 0.1875
+          },
+          "C_damage": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0048,
+            "margin_damage": -0.0371,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0048,
+          "joint_extraction": 0.937,
+          "n_held": 16,
+          "units_recovery": 0.917
+        },
+        "verb_preposition_at_to": {
+          "A1_damage": {
+            "ce_damage": 2.0054,
+            "ce_lb975": 1.393,
+            "ce_ub975": 2.6655,
+            "margin_damage": 3.661,
+            "top1_change_rate": 0.5
+          },
+          "C_damage": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.011,
+            "ce_ub975": 0.0048,
+            "margin_damage": -0.0371,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0048,
+          "joint_extraction": 0.981,
+          "n_held": 16,
+          "units_recovery": 1.041
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_small_pools_cover": true,
+    "pred_b_lower_at_three": false,
+    "pred_c_units_available": true,
+    "pred_d_falls_across_two_to_four": false,
+    "pred_e_control_clean": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_broad_circuit_v443",
+  "seconds": 141.0
+}
