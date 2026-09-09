@@ -48,8 +48,8 @@ readers, writers and shared updates remains the central unfinished task.
 
 Protocol: [`COLD_COMPOSITION_SOURCE_V1_PREREGISTRATION.md`](../COLD_COMPOSITION_SOURCE_V1_PREREGISTRATION.md).
 Reference: [`cold_composition_source_reference.py`](../cold_composition_source_reference.py).
-Ten independent parser/extraction controls pass. Managed runner integration is
-underway; no trained result for this source test has been opened yet.
+Ten independent parser/extraction controls pass. The source test and its
+counterbalanced follow-up have now completed; their results are below.
 
 ## Final-source test and the binding-order clue
 
@@ -110,7 +110,8 @@ and native intermediate implementation remain unverified by this algebra.
 
 The source-order nomination and failure-mode nomination therefore have one concrete
 candidate explanation. They are not merely separate descriptions of attention plots.
-The counterbalanced native experiment is still needed to test that explanation.
+The counterbalanced native experiment below tests its source prediction; the
+underlying native writer computation remains to be established.
 
 The integer reference checks all27 three-node functions, all6 source orders, and
 all8 subsets of retained original facts (1296 cases), plus single/joint source-write
@@ -122,3 +123,31 @@ Reference: [causal_edge_join_reference.py](../causal_edge_join_reference.py).
 Receipt: [CAUSAL_EDGE_JOIN_REFERENCE_CONTROLS.json](../CAUSAL_EDGE_JOIN_REFERENCE_CONTROLS.json).
 These are candidate algebra and intervention controls, with zero trained-model calls.
 They do not establish extraction, compact native replacement or the overall goal.
+
+
+## Counterbalanced source test — nomination supported, strict fidelity failed
+
+CAUSAL_SUFFIX_JOIN_V1 passes A/B/D and fails C. All12 population/order groups pass
+the prospective causal source criteria. Removing the later suffix binding J loses
+.856–.978 mean correct-answer probability; removing the other chain bindings has
+absolute mean effect at most .019. This resolves the first audit's ambiguity about
+B1 versus B2: the relevant location follows the later of B2/B3 across all6 orders,
+including when B1 is last. The test covers32 IID24-cycle and32 two12-cycle worlds,
+with384 correlated order variants and no per-row correctness filter.
+
+Retaining J plus query sources gives100% task accuracy on those384 variants, but
+its native-to-candidate KL is .0043–.526, missing the strict full-distribution bar.
+It removes native errors as well as other source contributions. Better task answers
+are not faithful prediction of the original model; native background remains part
+of the exact decomposition and its price. Native/extracted all-arm logits agree
+within1e-13. The32 fixed-point controls all fail natively, mean correct-answer
+probability .00082, as the distinct-edge join hypothesis predicted. This supports
+a failure-mode prediction; it is not full-distribution prediction on those controls.
+
+The next SUFFIX_JOIN_WRITER_V1 test cuts the actual S→J pair-to-pair attention edges
+in each prefix layer and jointly, with matched nonjoining edges and queryhop0/1/2
+controls. It also restores only native final K1/K2/V atJ from the same binding
+world's hop0 execution, reused for every queryhop. These are explicit causal
+reference activations, not an extracted runtime cache. A successful rescue must
+recover both effect and full distribution, not only task accuracy. Ten synthetic
+masked-attention/rescue controls pass; managed integration is complete.

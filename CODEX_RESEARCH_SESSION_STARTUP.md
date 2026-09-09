@@ -53,6 +53,23 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active join-writer test — 2026-09-09 15:33 UTC
+
+CAUSAL_SUFFIX_JOIN_V1_RESULT.json completed: A/B/D true,C false. All12 order/topology
+groups support J=the later B2/B3 binding: removeJ loss .856–.978, other-chain |loss|
+<=.019. keepJ+Q answers all384 positive variants correctly but fails native full-
+distribution fidelity (KL .0043–.526). All32 fixed-point controls fail as predicted
+(mean goldP.00082). This nominates a causal source; it does not identify join writers
+or provide a compact full-native replacement. Report: cold_query_composition_reconstruction.md.
+
+Active successor: SUFFIX_JOIN_WRITER_V1_PREREGISTRATION.md,
+suffix_join_writer_reference.py and managed ops/run_suffix_join_writer_v1.py.
+Ten synthetic controls pass. Cut earlier→later suffix-pair edges in each prefix
+layer/all3, with source/hop controls, then rescue final native K1/K2/V atJ using
+ports from the same world's hop0. Fresh32worlds×6orders×4hops. These are causal
+reference ports, never claimed as independent extracted runtime. Inspect queue/result
+before acting. Review clocks1449/1348 remain due1549/1648; full goal remains active.
+
 ## Latest cold-composition continuation — 2026-09-09 15:20 UTC
 
 COLD_COMPOSITION_SOURCE_V1_RESULT.json passes A/D but rejects direct-answer-binding
