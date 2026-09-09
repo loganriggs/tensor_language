@@ -1,0 +1,141 @@
+{
+  "scope": "opened score-level factor interchange through a fixed native multiplicative reader; not full-output causal identification",
+  "mixed_identity_max_abs": 1.7763568394002505e-15,
+  "joint_replay_max_abs": 0.0,
+  "groups": {
+    "iid": {
+      "B2_later": {
+        "base_joint_rms": 0.23371812918637289,
+        "arms": {
+          "10": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.25115628290502845,
+              "values": 0.4168100118043432,
+              "both": 1.037024892049982
+            },
+            "consumer_conditioned_suppression_passed": false
+          },
+          "01": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.20368959133683737,
+              "values": 0.16072185737737446,
+              "both": 1.0020065911932514
+            },
+            "consumer_conditioned_suppression_passed": false
+          },
+          "11": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.06859150663958517,
+              "values": 0.05918788611895241,
+              "both": 1.0295352379708262
+            },
+            "consumer_conditioned_suppression_passed": true
+          }
+        }
+      },
+      "B3_later": {
+        "base_joint_rms": 0.3156023958725118,
+        "arms": {
+          "10": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.31286369310501766,
+              "values": 0.27355147051589945,
+              "both": 2.528149744771873
+            },
+            "consumer_conditioned_suppression_passed": false
+          },
+          "01": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.09734199519012018,
+              "values": 0.13566826051703226,
+              "both": 2.369316146206343
+            },
+            "consumer_conditioned_suppression_passed": false
+          },
+          "11": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.03224430968189892,
+              "values": 0.025955622611897846,
+              "both": 0.9788841687086067
+            },
+            "consumer_conditioned_suppression_passed": true
+          }
+        }
+      }
+    },
+    "ood_two_12cycles": {
+      "B2_later": {
+        "base_joint_rms": 0.2333257029886833,
+        "arms": {
+          "10": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.23182994468267262,
+              "values": 0.2282342181517728,
+              "both": 0.9945642067049137
+            },
+            "consumer_conditioned_suppression_passed": false
+          },
+          "01": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.2122297805616127,
+              "values": 0.13176605083336593,
+              "both": 0.9703002187614188
+            },
+            "consumer_conditioned_suppression_passed": false
+          },
+          "11": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.062122253113224356,
+              "values": 0.05958685609732841,
+              "both": 0.9602282586579582
+            },
+            "consumer_conditioned_suppression_passed": true
+          }
+        }
+      },
+      "B3_later": {
+        "base_joint_rms": 0.31779730032090553,
+        "arms": {
+          "10": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.6628290739209626,
+              "values": 0.5763684634992942,
+              "both": 1.3620649924207244
+            },
+            "consumer_conditioned_suppression_passed": false
+          },
+          "01": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.07132603985335438,
+              "values": 0.2295992145500787,
+              "both": 2.4196295982986746
+            },
+            "consumer_conditioned_suppression_passed": false
+          },
+          "11": {
+            "rms_over_base": {
+              "base": 1.0,
+              "keys": 0.055778193060401444,
+              "values": 0.05979227699351258,
+              "both": 0.9661129301576337
+            },
+            "consumer_conditioned_suppression_passed": true
+          }
+        }
+      }
+    }
+  },
+  "native_coefficients_removed": 0,
+  "input_sha256": "d0dd9dd724a054e9a7915b0331d8b5df354004f1ad159b5dfe408edb884a62bf"
+}

@@ -1,0 +1,1174 @@
+{
+  "scope": "opened complete role-cell diagnostic; exact permutation-averaged energy baseline is not a valid native intervention or adopted circuit",
+  "controls_passed": true,
+  "role_parity_valid": true,
+  "product_replay_max_abs": 0.0,
+  "groups": {
+    "iid": {
+      "B2_later": {
+        "cases": {
+          "base": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.05462416391037808,
+              "independent_global_energy": 0.02396129145588432,
+              "global_squared_factor_covariance": 0.030662872454493763,
+              "exact_role_permutation_mean_square": 0.021676050003892333,
+              "within_row_role_covariance": 0.03294811390648575,
+              "native_to_role_permuted_rms": 1.5874583121316281
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.1357888823900941,
+                  "mean": 0.033083556635968424
+                },
+                "factor2": {
+                  "rms": 0.12029454930543716,
+                  "mean": 0.002351667368240494
+                },
+                "joint": {
+                  "rms": 0.012366019136253039,
+                  "mean": 0.001913319313049779
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.13568394774587964,
+                  "mean": 0.009527290286878059
+                },
+                "factor2": {
+                  "rms": 0.08728392596936034,
+                  "mean": -0.007124812416096605
+                },
+                "joint": {
+                  "rms": 0.016314811674971896,
+                  "mean": 0.001670452059102156
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.3213203870300096,
+                  "mean": 0.1935565543476615
+                },
+                "factor2": {
+                  "rms": 0.16303433868511555,
+                  "mean": 0.09243591578560557
+                },
+                "joint": {
+                  "rms": 0.05184774607817919,
+                  "mean": 0.018878437303325845
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.5028940736004199,
+                  "mean": 0.2006793984784763
+                },
+                "factor2": {
+                  "rms": 0.9627350809954885,
+                  "mean": -0.3834510205409097
+                },
+                "joint": {
+                  "rms": 0.46410060909123685,
+                  "mean": 0.05592735915569744
+                }
+              }
+            }
+          },
+          "keys": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.00025699548139610466,
+              "independent_global_energy": 0.0003397723219373192,
+              "global_squared_factor_covariance": -8.277684054121455e-05,
+              "exact_role_permutation_mean_square": 0.0002786185586545528,
+              "within_row_role_covariance": -2.162307725844814e-05,
+              "native_to_role_permuted_rms": 0.9604123214291803
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.12796330222701655,
+                  "mean": 0.0008681462485962804
+                },
+                "factor2": {
+                  "rms": 0.10722560708646418,
+                  "mean": 0.007723723885503
+                },
+                "joint": {
+                  "rms": 0.014071339506668583,
+                  "mean": 0.0027957614955946143
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.11366432880251251,
+                  "mean": -0.011389163592535114
+                },
+                "factor2": {
+                  "rms": 0.14442701382104384,
+                  "mean": 0.0026715057793444217
+                },
+                "joint": {
+                  "rms": 0.012193165942536582,
+                  "mean": 0.003379212211750391
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.16604951449099206,
+                  "mean": 0.02511994608171955
+                },
+                "factor2": {
+                  "rms": 0.13991268949752586,
+                  "mean": 0.04514629258855083
+                },
+                "joint": {
+                  "rms": 0.016241821509065685,
+                  "mean": 0.008486491135080477
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.12724026386061305,
+                  "mean": 0.03510555109988536
+                },
+                "factor2": {
+                  "rms": 0.14993592668156802,
+                  "mean": -0.0009644487804814916
+                },
+                "joint": {
+                  "rms": 0.02043304354319013,
+                  "mean": 0.004565976420121053
+                }
+              }
+            }
+          },
+          "values": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.00019135969128487745,
+              "independent_global_energy": 0.0005003394850045035,
+              "global_squared_factor_covariance": -0.0003089797937196261,
+              "exact_role_permutation_mean_square": 0.00029448022561796313,
+              "within_row_role_covariance": -0.00010312053433308567,
+              "native_to_role_permuted_rms": 0.8061152965575282
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.16552337019617686,
+                  "mean": 0.03401591480763999
+                },
+                "factor2": {
+                  "rms": 0.11620646821212739,
+                  "mean": 0.006982513817581327
+                },
+                "joint": {
+                  "rms": 0.009264906482619137,
+                  "mean": 0.00010984600819781757
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.13408895574158644,
+                  "mean": 0.005378918597148231
+                },
+                "factor2": {
+                  "rms": 0.12184394326470692,
+                  "mean": -0.01917111090573947
+                },
+                "joint": {
+                  "rms": 0.016967773640315986,
+                  "mean": 0.0021853751420956497
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.1917929340641865,
+                  "mean": -0.018270740755875994
+                },
+                "factor2": {
+                  "rms": 0.09359451547642313,
+                  "mean": 0.01950510094358481
+                },
+                "joint": {
+                  "rms": 0.016889431464296074,
+                  "mean": 0.006461185486799605
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.21565705992655437,
+                  "mean": -0.0033162528518182327
+                },
+                "factor2": {
+                  "rms": 0.1584512116999357,
+                  "mean": 0.03686662905141066
+                },
+                "joint": {
+                  "rms": 0.010317074949406707,
+                  "mean": 0.0005115539758302048
+                }
+              }
+            }
+          },
+          "both": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.05789848958278654,
+              "independent_global_energy": 0.019567829238451535,
+              "global_squared_factor_covariance": 0.03833066034433501,
+              "exact_role_permutation_mean_square": 0.020696077437103073,
+              "within_row_role_covariance": 0.03720241214568347,
+              "native_to_role_permuted_rms": 1.6725903885424611
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.11484933839574656,
+                  "mean": 0.0008340178639275354
+                },
+                "factor2": {
+                  "rms": 0.10474648792399241,
+                  "mean": 0.00819475990109988
+                },
+                "joint": {
+                  "rms": 0.012191985501536048,
+                  "mean": 0.00251376541148762
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.11364271442513472,
+                  "mean": -0.022896443996503313
+                },
+                "factor2": {
+                  "rms": 0.13597629775268405,
+                  "mean": -0.006599611456712586
+                },
+                "joint": {
+                  "rms": 0.01104330955914469,
+                  "mean": 0.004835907919093871
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.2658457955217906,
+                  "mean": 0.13103534975032602
+                },
+                "factor2": {
+                  "rms": 0.10753467231030725,
+                  "mean": 0.03809288297528892
+                },
+                "joint": {
+                  "rms": 0.047633240169205567,
+                  "mean": 0.016195368591775994
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.4963118166764629,
+                  "mean": 0.08568611170843386
+                },
+                "factor2": {
+                  "rms": 0.9335320525032113,
+                  "mean": -0.9219321303160889
+                },
+                "joint": {
+                  "rms": 0.47859631587136164,
+                  "mean": -0.08516499396569616
+                }
+              }
+            }
+          }
+        },
+        "mismatch_ratios": {
+          "keys": {
+            "native_mismatch_ratio": 0.06859150663958517,
+            "role_permuted_energy_mismatch_ratio": 0.11602751749780035
+          },
+          "values": {
+            "native_mismatch_ratio": 0.05918788611895241,
+            "role_permuted_energy_mismatch_ratio": 0.11928450927324608
+          }
+        }
+      },
+      "B3_later": {
+        "cases": {
+          "base": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.09960487228046967,
+              "independent_global_energy": 0.12960498986867844,
+              "global_squared_factor_covariance": -0.030000117588208766,
+              "exact_role_permutation_mean_square": 0.061003839552856966,
+              "within_row_role_covariance": 0.03860103272761271,
+              "native_to_role_permuted_rms": 1.2777965357729808
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.2588669038603201,
+                  "mean": -0.027878331598474557
+                },
+                "factor2": {
+                  "rms": 0.08831350196178939,
+                  "mean": -0.003391852184406111
+                },
+                "joint": {
+                  "rms": 0.010112258233335595,
+                  "mean": -0.001490847462543311
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.40376695046291894,
+                  "mean": 0.02014526221092347
+                },
+                "factor2": {
+                  "rms": 0.10732201083138389,
+                  "mean": -0.04622814750231328
+                },
+                "joint": {
+                  "rms": 0.028525821990372055,
+                  "mean": 0.002612314667156551
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.23815786090653562,
+                  "mean": -0.10179090449983241
+                },
+                "factor2": {
+                  "rms": 0.0906426973707667,
+                  "mean": -0.018339098110840477
+                },
+                "joint": {
+                  "rms": 0.009108682894694981,
+                  "mean": 0.00023912358344293185
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 1.1402568008642935,
+                  "mean": -0.18866588362854828
+                },
+                "factor2": {
+                  "rms": 1.1310078794781462,
+                  "mean": 0.6605569262061882
+                },
+                "joint": {
+                  "rms": 0.6304129921971775,
+                  "mean": -0.07918234824285118
+                }
+              }
+            }
+          },
+          "keys": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.00010355873817158762,
+              "independent_global_energy": 0.00044639349733622164,
+              "global_squared_factor_covariance": -0.000342834759164634,
+              "exact_role_permutation_mean_square": 0.0001779605824537752,
+              "within_row_role_covariance": -7.440184428218757e-05,
+              "native_to_role_permuted_rms": 0.7628365015876113
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.3451667692361956,
+                  "mean": -0.12995078009116642
+                },
+                "factor2": {
+                  "rms": 0.058319015831685396,
+                  "mean": 0.02333014752382002
+                },
+                "joint": {
+                  "rms": 0.01227516062134934,
+                  "mean": -0.0004607010297389062
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.3932814108557792,
+                  "mean": -0.17055260517606766
+                },
+                "factor2": {
+                  "rms": 0.066097776789669,
+                  "mean": 0.0014119676060644945
+                },
+                "joint": {
+                  "rms": 0.009492539009838452,
+                  "mean": -0.0018176276192370536
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.20959156603830092,
+                  "mean": -0.04595349314554336
+                },
+                "factor2": {
+                  "rms": 0.10681630490915246,
+                  "mean": -0.016923884280194704
+                },
+                "joint": {
+                  "rms": 0.011909992589351213,
+                  "mean": 0.00013282832715213872
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.17079452690760838,
+                  "mean": -0.05653035248252308
+                },
+                "factor2": {
+                  "rms": 0.03753122465767132,
+                  "mean": -0.006010440020153875
+                },
+                "joint": {
+                  "rms": 0.005621313376313346,
+                  "mean": 0.0017376453270004394
+                }
+              }
+            }
+          },
+          "values": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 6.710323920685826e-05,
+              "independent_global_energy": 0.00038969280504726845,
+              "global_squared_factor_covariance": -0.0003225895658404102,
+              "exact_role_permutation_mean_square": 0.0005778236302704806,
+              "within_row_role_covariance": -0.0005107203910636223,
+              "native_to_role_permuted_rms": 0.3407799958006316
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.2565996296200882,
+                  "mean": -0.035487095687787976
+                },
+                "factor2": {
+                  "rms": 0.09137065548488324,
+                  "mean": -0.002867097383021544
+                },
+                "joint": {
+                  "rms": 0.009592782426129608,
+                  "mean": -0.001194847926162104
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.2257548649930833,
+                  "mean": -0.03431440526309435
+                },
+                "factor2": {
+                  "rms": 0.11932811267002699,
+                  "mean": -0.0464900550673343
+                },
+                "joint": {
+                  "rms": 0.008892999113459919,
+                  "mean": 0.001630149572728168
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.2348411518453242,
+                  "mean": -0.10262883791961892
+                },
+                "factor2": {
+                  "rms": 0.09011764340481956,
+                  "mean": -0.018506494883636603
+                },
+                "joint": {
+                  "rms": 0.008452508687965496,
+                  "mean": 0.0006695715960526302
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.14959223949672995,
+                  "mean": -0.0047155969963702665
+                },
+                "factor2": {
+                  "rms": 0.03707994194273771,
+                  "mean": 0.004530005883079724
+                },
+                "joint": {
+                  "rms": 0.0050853855114672344,
+                  "mean": 0.0012627334887610837
+                }
+              }
+            }
+          },
+          "both": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.0954428045769438,
+              "independent_global_energy": 0.10709149974289914,
+              "global_squared_factor_covariance": -0.011648695165955333,
+              "exact_role_permutation_mean_square": 0.0677084283664854,
+              "within_row_role_covariance": 0.027734376210458406,
+              "native_to_role_permuted_rms": 1.1872720107756487
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.35327981316715734,
+                  "mean": -0.13431892844246793
+                },
+                "factor2": {
+                  "rms": 0.056267498862631424,
+                  "mean": 0.019557335442684707
+                },
+                "joint": {
+                  "rms": 0.012658503435129809,
+                  "mean": -0.0013405249819458509
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.400414611434046,
+                  "mean": 0.020392625912013164
+                },
+                "factor2": {
+                  "rms": 0.09449430149768606,
+                  "mean": -0.035272579096106656
+                },
+                "joint": {
+                  "rms": 0.0315118782729013,
+                  "mean": -0.004337414377383361
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.2097942316737072,
+                  "mean": -0.0431520338010582
+                },
+                "factor2": {
+                  "rms": 0.1079999235196876,
+                  "mean": -0.01501219029869911
+                },
+                "joint": {
+                  "rms": 0.011981952432632255,
+                  "mean": -0.000867008380104849
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.9451989335827607,
+                  "mean": -0.4910670235742686
+                },
+                "factor2": {
+                  "rms": 1.1737914806458936,
+                  "mean": 0.7788462096856313
+                },
+                "joint": {
+                  "rms": 0.6168260816001331,
+                  "mean": 0.006166334584347316
+                }
+              }
+            }
+          }
+        },
+        "mismatch_ratios": {
+          "keys": {
+            "native_mismatch_ratio": 0.032939862256059604,
+            "role_permuted_energy_mismatch_ratio": 0.05401113754280626
+          },
+          "values": {
+            "native_mismatch_ratio": 0.026515519855776003,
+            "role_permuted_energy_mismatch_ratio": 0.09732380147312754
+          }
+        }
+      }
+    },
+    "ood_two_12cycles": {
+      "B2_later": {
+        "cases": {
+          "base": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.054440883675163254,
+              "independent_global_energy": 0.027173632279766345,
+              "global_squared_factor_covariance": 0.02726725139539691,
+              "exact_role_permutation_mean_square": 0.02397806190174916,
+              "within_row_role_covariance": 0.030462821773414094,
+              "native_to_role_permuted_rms": 1.5067997673389868
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.20531953656721802,
+                  "mean": -0.019056435401534576
+                },
+                "factor2": {
+                  "rms": 0.1690291165888464,
+                  "mean": -0.01636180287237877
+                },
+                "joint": {
+                  "rms": 0.016949793214726575,
+                  "mean": 0.0025098435697002972
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.10929046199830798,
+                  "mean": 0.038086829300674634
+                },
+                "factor2": {
+                  "rms": 0.11626204092334108,
+                  "mean": 0.03497484434512218
+                },
+                "joint": {
+                  "rms": 0.014068575395433627,
+                  "mean": 0.0024903022283764126
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.3486658186943523,
+                  "mean": 0.07882776466120628
+                },
+                "factor2": {
+                  "rms": 0.12780008044165392,
+                  "mean": 0.038890017497115084
+                },
+                "joint": {
+                  "rms": 0.0352893619172222,
+                  "mean": 0.013994462883512457
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.511430531461708,
+                  "mean": 0.3013084930710231
+                },
+                "factor2": {
+                  "rms": 0.967456806487183,
+                  "mean": -0.12192324521852516
+                },
+                "joint": {
+                  "rms": 0.46479347600030846,
+                  "mean": 0.012579958172588728
+                }
+              }
+            }
+          },
+          "keys": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.0002100968608831574,
+              "independent_global_energy": 0.00040101475751106754,
+              "global_squared_factor_covariance": -0.00019091789662791013,
+              "exact_role_permutation_mean_square": 0.00030138713527279185,
+              "within_row_role_covariance": -9.129027438963444e-05,
+              "native_to_role_permuted_rms": 0.8349249255589865
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.13933020086454254,
+                  "mean": -0.01024950878252648
+                },
+                "factor2": {
+                  "rms": 0.16999774373994261,
+                  "mean": -0.004223093536049019
+                },
+                "joint": {
+                  "rms": 0.01991331839477391,
+                  "mean": 0.0036868024389397976
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.11715697664846393,
+                  "mean": 0.04582173671941328
+                },
+                "factor2": {
+                  "rms": 0.14990085332246164,
+                  "mean": 0.061022059015940884
+                },
+                "joint": {
+                  "rms": 0.01045372515406508,
+                  "mean": 0.0029794425107393338
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.1205141924918476,
+                  "mean": -0.01934784778710921
+                },
+                "factor2": {
+                  "rms": 0.13342739751795527,
+                  "mean": 0.009549934497320771
+                },
+                "joint": {
+                  "rms": 0.014212785786008727,
+                  "mean": 0.0022649107397340294
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.12262290372797022,
+                  "mean": 0.01588704314339037
+                },
+                "factor2": {
+                  "rms": 0.18210450905695494,
+                  "mean": 0.05401752012860967
+                },
+                "joint": {
+                  "rms": 0.011513624305373348,
+                  "mean": 0.004146882720991679
+                }
+              }
+            }
+          },
+          "values": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.0001932974433322688,
+              "independent_global_energy": 0.0005396854415533365,
+              "global_squared_factor_covariance": -0.00034638799822106763,
+              "exact_role_permutation_mean_square": 0.00031907401278529206,
+              "within_row_role_covariance": -0.00012577656945302325,
+              "native_to_role_permuted_rms": 0.778336393716057
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.2475561619947363,
+                  "mean": -0.035488225245773525
+                },
+                "factor2": {
+                  "rms": 0.1571658056344332,
+                  "mean": -0.0026962434436447885
+                },
+                "joint": {
+                  "rms": 0.012537820708077383,
+                  "mean": 0.001606340288582445
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.10816994993984208,
+                  "mean": 0.03595630575425068
+                },
+                "factor2": {
+                  "rms": 0.11376278577549598,
+                  "mean": 0.033945007532443595
+                },
+                "joint": {
+                  "rms": 0.013956082148508542,
+                  "mean": 0.0023057731618806644
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.1648985538949627,
+                  "mean": -0.07056571819043077
+                },
+                "factor2": {
+                  "rms": 0.14222755256613712,
+                  "mean": -0.0012943972029846702
+                },
+                "joint": {
+                  "rms": 0.016348539149796976,
+                  "mean": 0.0020089117102252804
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.10560039572630331,
+                  "mean": -0.006738928158670904
+                },
+                "factor2": {
+                  "rms": 0.1403271998443043,
+                  "mean": -0.02620624663021882
+                },
+                "joint": {
+                  "rms": 0.012407492250765985,
+                  "mean": -0.00026298733000053944
+                }
+              }
+            }
+          },
+          "both": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.05019658030935804,
+              "independent_global_energy": 0.020014736496181493,
+              "global_squared_factor_covariance": 0.030181843813176543,
+              "exact_role_permutation_mean_square": 0.020704408609040395,
+              "within_row_role_covariance": 0.029492171700317642,
+              "native_to_role_permuted_rms": 1.5570610850087114
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.13483246280342884,
+                  "mean": -0.006789492963970686
+                },
+                "factor2": {
+                  "rms": 0.16656182344834317,
+                  "mean": -0.00836979898943871
+                },
+                "joint": {
+                  "rms": 0.019137516710299583,
+                  "mean": 0.004323905794101044
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.11995862078096038,
+                  "mean": 0.04967048644666628
+                },
+                "factor2": {
+                  "rms": 0.142835249503055,
+                  "mean": 0.057283476405891494
+                },
+                "joint": {
+                  "rms": 0.010969391940416325,
+                  "mean": 0.00358378833494147
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.2968590501334304,
+                  "mean": 0.11784182541620532
+                },
+                "factor2": {
+                  "rms": 0.12979267986377324,
+                  "mean": 0.04713828027806948
+                },
+                "joint": {
+                  "rms": 0.04965211298370196,
+                  "mean": 0.019909021981408998
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.47626313255735087,
+                  "mean": 0.046003739896984454
+                },
+                "factor2": {
+                  "rms": 0.9254692378888716,
+                  "mean": -0.21476225746197367
+                },
+                "joint": {
+                  "rms": 0.44478581003479234,
+                  "mean": 0.03616614884727059
+                }
+              }
+            }
+          }
+        },
+        "mismatch_ratios": {
+          "keys": {
+            "native_mismatch_ratio": 0.06469529776185523,
+            "role_permuted_energy_mismatch_ratio": 0.12065100399367487
+          },
+          "values": {
+            "native_mismatch_ratio": 0.062054887012603296,
+            "role_permuted_energy_mismatch_ratio": 0.1241407320562553
+          }
+        }
+      },
+      "B3_later": {
+        "cases": {
+          "base": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.10099512409125583,
+              "independent_global_energy": 0.11245811887904483,
+              "global_squared_factor_covariance": -0.011462994787789005,
+              "exact_role_permutation_mean_square": 0.08070577541959233,
+              "within_row_role_covariance": 0.0202893486716635,
+              "native_to_role_permuted_rms": 1.1186594514158865
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.44254510056644675,
+                  "mean": -0.21979866061497275
+                },
+                "factor2": {
+                  "rms": 0.04037696445514987,
+                  "mean": 0.005906075555054228
+                },
+                "joint": {
+                  "rms": 0.010928210330094524,
+                  "mean": 0.0019197020496460855
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.5143057571318024,
+                  "mean": 0.19461305387459613
+                },
+                "factor2": {
+                  "rms": 0.07096288864091146,
+                  "mean": -0.026836774100257404
+                },
+                "joint": {
+                  "rms": 0.03117721671539484,
+                  "mean": -0.001363222811916833
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.2847576283752815,
+                  "mean": -0.13521771569091348
+                },
+                "factor2": {
+                  "rms": 0.048540231245102726,
+                  "mean": -0.018298393892405933
+                },
+                "joint": {
+                  "rms": 0.007805989079149733,
+                  "mean": 0.0005675950414532413
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.9287890445698833,
+                  "mean": 0.18700150336988822
+                },
+                "factor2": {
+                  "rms": 1.1280369334418219,
+                  "mean": 0.8111070960078218
+                },
+                "joint": {
+                  "rms": 0.6346874177706551,
+                  "mean": -0.17375365382503627
+                }
+              }
+            }
+          },
+          "keys": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.0003142167189688812,
+              "independent_global_energy": 0.0004006464859091807,
+              "global_squared_factor_covariance": -8.642976694029947e-05,
+              "exact_role_permutation_mean_square": 0.00023299238276552162,
+              "within_row_role_covariance": 8.122433620335958e-05,
+              "native_to_role_permuted_rms": 1.1612982813122203
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.39479952751375874,
+                  "mean": -0.1737689544598453
+                },
+                "factor2": {
+                  "rms": 0.041098494335644886,
+                  "mean": 0.006515533760149013
+                },
+                "joint": {
+                  "rms": 0.011425561873847136,
+                  "mean": 0.0011463265237908525
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.5346933737372254,
+                  "mean": -0.07770015975089657
+                },
+                "factor2": {
+                  "rms": 0.06460780422052594,
+                  "mean": 0.0011733079816732123
+                },
+                "joint": {
+                  "rms": 0.030929877599353173,
+                  "mean": 0.0032924057384893014
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.2752743571612092,
+                  "mean": -0.12703611831256909
+                },
+                "factor2": {
+                  "rms": 0.04366422404144744,
+                  "mean": -0.013001367694961822
+                },
+                "joint": {
+                  "rms": 0.007901245938417449,
+                  "mean": 0.0014731852867119206
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.3866243234822754,
+                  "mean": 0.09715993250123019
+                },
+                "factor2": {
+                  "rms": 0.042902584364971776,
+                  "mean": -0.006461231944550645
+                },
+                "joint": {
+                  "rms": 0.010355500762980419,
+                  "mean": 0.0007618233980435703
+                }
+              }
+            }
+          },
+          "values": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.0003610693232537043,
+              "independent_global_energy": 0.0007701380142475143,
+              "global_squared_factor_covariance": -0.00040906869099381,
+              "exact_role_permutation_mean_square": 0.0003067903382796239,
+              "within_row_role_covariance": 5.427898497408038e-05,
+              "native_to_role_permuted_rms": 1.0848618991432333
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.43639120254767494,
+                  "mean": -0.21588822869502175
+                },
+                "factor2": {
+                  "rms": 0.03936046950722601,
+                  "mean": 0.0044181254500061376
+                },
+                "joint": {
+                  "rms": 0.011377981846673806,
+                  "mean": 0.002047064519179788
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.5491380617139597,
+                  "mean": -0.10706194314238558
+                },
+                "factor2": {
+                  "rms": 0.10171361190661656,
+                  "mean": 0.031240591028041515
+                },
+                "joint": {
+                  "rms": 0.03372365661034095,
+                  "mean": 0.00048106469264593086
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.2833423898013511,
+                  "mean": -0.13185736252287172
+                },
+                "factor2": {
+                  "rms": 0.049450016254612796,
+                  "mean": -0.019672536393344955
+                },
+                "joint": {
+                  "rms": 0.0073663367341967505,
+                  "mean": 0.0005848990927393107
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.3277288343038449,
+                  "mean": -0.08041534618832587
+                },
+                "factor2": {
+                  "rms": 0.061556830180025945,
+                  "mean": 0.013896544101773644
+                },
+                "joint": {
+                  "rms": 0.01110274245660996,
+                  "mean": 0.0016932872076732752
+                }
+              }
+            }
+          },
+          "both": {
+            "rows": 48,
+            "energy": {
+              "joint_mean_square": 0.09426624252820143,
+              "independent_global_energy": 0.09339568865205487,
+              "global_squared_factor_covariance": 0.0008705538761465542,
+              "exact_role_permutation_mean_square": 0.06558746419149526,
+              "within_row_role_covariance": 0.028678778336706165,
+              "native_to_role_permuted_rms": 1.198857813541354
+            },
+            "roles": {
+              "key_from_key": {
+                "factor1": {
+                  "rms": 0.40326819601153835,
+                  "mean": -0.1765883244622913
+                },
+                "factor2": {
+                  "rms": 0.04275336674731355,
+                  "mean": 0.007858415051396431
+                },
+                "joint": {
+                  "rms": 0.013281837965060156,
+                  "mean": 0.0004535117034045277
+                }
+              },
+              "key_from_value": {
+                "factor1": {
+                  "rms": 0.40187079643140694,
+                  "mean": 0.08573722213881939
+                },
+                "factor2": {
+                  "rms": 0.08741577670050293,
+                  "mean": -0.032703911374688144
+                },
+                "joint": {
+                  "rms": 0.024165825790943594,
+                  "mean": -0.0006577181009727481
+                }
+              },
+              "value_from_key": {
+                "factor1": {
+                  "rms": 0.27906671734334226,
+                  "mean": -0.13162989449535328
+                },
+                "factor2": {
+                  "rms": 0.04166322929160279,
+                  "mean": -0.00872288147428912
+                },
+                "joint": {
+                  "rms": 0.007092550058511309,
+                  "mean": 0.001313249711740987
+                }
+              },
+              "value_from_value": {
+                "factor1": {
+                  "rms": 0.8128669329387369,
+                  "mean": -0.07473642732864848
+                },
+                "factor2": {
+                  "rms": 1.1810524433286702,
+                  "mean": 0.9537736212817204
+                },
+                "joint": {
+                  "rms": 0.61339568916857,
+                  "mean": -0.04272688070319919
+                }
+              }
+            }
+          }
+        },
+        "mismatch_ratios": {
+          "keys": {
+            "native_mismatch_ratio": 0.057734651218569785,
+            "role_permuted_energy_mismatch_ratio": 0.05960194623491249
+          },
+          "values": {
+            "native_mismatch_ratio": 0.06188953188294117,
+            "role_permuted_energy_mismatch_ratio": 0.06839280551089262
+          }
+        }
+      }
+    }
+  },
+  "input_sha256": "d0dd9dd724a054e9a7915b0331d8b5df354004f1ad159b5dfe408edb884a62bf",
+  "native_coefficients_removed": 0
+}

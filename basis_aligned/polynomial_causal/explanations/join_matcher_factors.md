@@ -52,3 +52,61 @@ not yet an independent causal-factor identification or a reduced executable
 model. A positive nomination requires native factor interchange and fresh
 confirmation; a null retains the coupled product rather than fitting a new
 mixture after inspection. All opaque weights remain charged.
+
+## Individual factors fail; selectivity belongs to their product
+
+[MATCHER_FACTOR_TRUTH_TABLE_V1](../MATCHER_FACTOR_TRUTH_TABLE_V1_RESULT.json)
+completed in .836 seconds on768 opened cases. Mechanical prediction A and
+joint-score replay D pass with exact zero discrepancy. Individual-factor
+predictions B/C fail. Factor1 mismatch/matched RMS ratios span .399–.800;
+factor2 ratios span .087–.333, but neither passes both mismatch cases in any
+complete population/orientation group. The joint ratios remain .0265–.0686.
+Do not promote one near-threshold factor or silently drop source-role cells.
+
+The [role-overlap audit](../MATCHER_FACTOR_ROLE_OVERLAP_V1.json) retains all
+four destination/source key/value cells. It compares native product energy
+with the exact average obtained by permuting factor2's four cells within each
+row, preserving both individual row norms. The latter is
+`mean_rows(mean_cells(a²) * mean_cells(b²))`; explicit enumeration of all24
+permutations checks the formula. It is a diagnostic energy baseline, not a
+valid native circuit intervention.
+
+For the forward join, mismatch ratios rise from .059–.069 native to .116–.124
+under this baseline. Matched responses align on the same role cells more
+strongly than mismatches. Backward results are less uniform, especially OOD,
+so role alignment is not a universal explanation of product selectivity.
+
+## Interchanging one factor also fails through its actual consumer
+
+Raw-factor norms can preserve irrelevant directions, so a second
+[saved-score audit](../MATCHER_FACTOR_INTERCHANGE_SCORE_V1.json) interchanges
+factor1, factor2 or both while retaining the other recipient factor. All
+roles, worlds and orientations are retained. Native joint replay is exact,
+and the mixed identity `(a'-a)(b'-b)` closes1.78e-15.
+
+Neither individual transfer suppresses both mismatch cases below .10 in a
+complete group; joint transfer does. This rules out the tested individual
+gate interpretation even through the fixed native multiplicative consumer.
+The full-factor null has not been revised into a selected-cell success.
+
+Matched-both donors expose a composition issue. In the backward join, either
+single-factor hybrid can have score RMS around2.4 times baseline (maximum2.53),
+while transferring both gives .966–.979. Forward joint ratios are .960–1.030.
+These are aggregate norms, not equal per-case scores or full-output predictions.
+They nominate the pair as a unit that should travel together, but do not yet
+establish a portable semantic matcher.
+
+The next [pair transport experiment](../MATCHER_PAIR_TRANSPORT_V1_PREREGISTRATION.md)
+will transfer the matched donor factors individually and jointly into the
+recipient's selected native score cells, keeping its values and other routes
+fixed. The same binding gate is reused across query hops0–3. A compiled score
+change becomes an explicit L2 write delta followed by the exact final-layer
+source-edit executor; the native oracle changes attention cells directly.
+Thirteen controls pass all four cells, route removal, identity, live individual
+routes and mixed effects, query independence and restored hooks.
+
+Joint portability must pass full-output KL and quantitative change relative
+to native route-removal vectors. If it fails, no scalar/entity fit or selected
+cell/head/hop rescue follows. Native trained-case integration is unfinished.
+All387968 export coefficients and background computation remain charged; no
+structural reduction or completion of the four-property goal is claimed.

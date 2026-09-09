@@ -1,0 +1,203 @@
+{
+  "experiment": "matcher_factor_truth_table_v1",
+  "scope": "opened semantic factor screen, not a causal factor replacement",
+  "predictions": {
+    "pred_a_mechanical": true,
+    "pred_b_factor1": false,
+    "pred_c_factor2": false,
+    "pred_d_joint": true
+  },
+  "controls": {
+    "passed": true,
+    "checks": {
+      "native_product": true,
+      "factors_live": true,
+      "predicate_positive": true,
+      "constant_negative": true,
+      "dead_negative": true,
+      "both_mismatches_required": true
+    }
+  },
+  "populations": {
+    "iid": {
+      "B2_later": {
+        "factor1": {
+          "rms": {
+            "base": 0.3134477606556622,
+            "keys": 0.13514502614689622,
+            "values": 0.17935323469768016,
+            "both": 0.2928755893895726
+          },
+          "mismatch_ratios": {
+            "keys": 0.4614417556224912,
+            "values": 0.6123871063187548
+          },
+          "individual_predicate_nominated": false
+        },
+        "factor2": {
+          "rms": {
+            "base": 0.4938441793964737,
+            "keys": 0.13639358116184977,
+            "values": 0.12471628761019302,
+            "both": 0.4776262082116834
+          },
+          "mismatch_ratios": {
+            "keys": 0.2855655297319872,
+            "values": 0.26111692672215947
+          },
+          "individual_predicate_nominated": false
+        },
+        "joint": {
+          "rms": {
+            "base": 0.23371812918637289,
+            "keys": 0.01603107860987852,
+            "values": 0.013833282014217647,
+            "both": 0.2406210497499887
+          },
+          "mismatch_ratios": {
+            "keys": 0.06859150663958517,
+            "values": 0.05918788611895241
+          },
+          "individual_predicate_nominated": true
+        }
+      },
+      "B3_later": {
+        "factor1": {
+          "rms": {
+            "base": 0.6298699395171203,
+            "keys": 0.29449522987887533,
+            "values": 0.22041825792507375,
+            "both": 0.5528456229208225
+          },
+          "mismatch_ratios": {
+            "keys": 0.5326898100829359,
+            "values": 0.3986976631207617
+          },
+          "individual_predicate_nominated": false
+        },
+        "factor2": {
+          "rms": {
+            "base": 0.5715575672375329,
+            "keys": 0.07174318699859747,
+            "values": 0.08955990579556639,
+            "both": 0.591934461735615
+          },
+          "mismatch_ratios": {
+            "keys": 0.1255222415221419,
+            "values": 0.15669446251657498
+          },
+          "individual_predicate_nominated": false
+        },
+        "joint": {
+          "rms": {
+            "base": 0.3156023958725118,
+            "keys": 0.010176381388862527,
+            "values": 0.008191656682677703,
+            "both": 0.30893818892610836
+          },
+          "mismatch_ratios": {
+            "keys": 0.032939862256059604,
+            "values": 0.026515519855776
+          },
+          "individual_predicate_nominated": true
+        }
+      }
+    },
+    "ood_two_12cycles": {
+      "B2_later": {
+        "factor1": {
+          "rms": {
+            "base": 0.330616680922556,
+            "keys": 0.12519855147025827,
+            "values": 0.16682908024813436,
+            "both": 0.294754868833736
+          },
+          "mismatch_ratios": {
+            "keys": 0.42475482072827003,
+            "values": 0.5659926192508072
+          },
+          "individual_predicate_nominated": false
+        },
+        "factor2": {
+          "rms": {
+            "base": 0.4985963390844688,
+            "keys": 0.15994875845935974,
+            "values": 0.13925108761982655,
+            "both": 0.4799698426869822
+          },
+          "mismatch_ratios": {
+            "keys": 0.3332475173105244,
+            "values": 0.2901246604167186
+          },
+          "individual_predicate_nominated": false
+        },
+        "joint": {
+          "rms": {
+            "base": 0.2333257029886833,
+            "keys": 0.014494718378883992,
+            "values": 0.01390314508779466,
+            "both": 0.22404593348096732
+          },
+          "mismatch_ratios": {
+            "keys": 0.06469529776185523,
+            "values": 0.062054887012603296
+          },
+          "individual_predicate_nominated": true
+        }
+      },
+      "B3_later": {
+        "factor1": {
+          "rms": {
+            "base": 0.5924720613845929,
+            "keys": 0.40835585279943865,
+            "values": 0.41221323097896445,
+            "both": 0.5154503512300752
+          },
+          "mismatch_ratios": {
+            "keys": 0.7922312048579163,
+            "values": 0.7997147154818213
+          },
+          "individual_predicate_nominated": false
+        },
+        "factor2": {
+          "rms": {
+            "base": 0.5660144671474908,
+            "keys": 0.04901645338350706,
+            "values": 0.06732282832797709,
+            "both": 0.5928933434758753
+          },
+          "mismatch_ratios": {
+            "keys": 0.08659929423806487,
+            "values": 0.11894188618050686
+          },
+          "individual_predicate_nominated": false
+        },
+        "joint": {
+          "rms": {
+            "base": 0.31779730032090553,
+            "keys": 0.017726159171373847,
+            "values": 0.01900182420857809,
+            "both": 0.3070280810092155
+          },
+          "mismatch_ratios": {
+            "keys": 0.057734651218569785,
+            "values": 0.06188953188294117
+          },
+          "individual_predicate_nominated": true
+        }
+      }
+    }
+  },
+  "native_score_max_abs": 0.0,
+  "native_score_max_relative_rms": 0.0,
+  "independent_worlds": 32,
+  "cases": 768,
+  "native_parameters_retained": 400640,
+  "native_coefficients_removed": 0,
+  "runner_sha256": "7b1b0c2b8c9922c9580cf978cefdf4ff32afb20a818657900d4cde6c28bbdd6b",
+  "bound_sha256": "b9595845a43cd8fac835343b29135906b8c1731097df24a51957b60ea3c01cf2",
+  "input_sha256": "dde40c697c3f34eb2023425b4dc02aa1b95fd9247c960d864c39e17b270ae265",
+  "rows_sha256": "d0dd9dd724a054e9a7915b0331d8b5df354004f1ad159b5dfe408edb884a62bf",
+  "wall_seconds": 0.8359498344361782,
+  "terminal": "no_global_individual_matcher"
+}

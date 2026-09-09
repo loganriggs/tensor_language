@@ -53,6 +53,49 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Coupled matcher pair nominated; native transport next — 2026-09-09 20:28 UTC
+
+The controlling direction is the bilinear circuit reconstruction handoff and
+its appended structural criterion. The previous turn progressed through one
+managed factor screen and two executed CPU diagnostics, then implemented the
+next native intervention primitive. Overall structural circuit goal is unfinished.
+
+MATCHER_FACTOR_TRUTH_TABLE_V1 completes .836s: A/D true, B/C false. Native and
+saved joint scores replay exactly0 on all768 opened cases. Neither individual
+factor passes both mismatches in any full population/orientation group;
+factor1 ratios .399–.800, factor2 .087–.333, joint .0265–.0686. No best-cell
+or near-threshold individual-factor success is claimed. Coupled product remains.
+
+MATCHER_FACTOR_ROLE_OVERLAP_V1 passes exact replay and24-permutation energy
+control. Forward native mismatch ratios .059–.069 versus .116–.124 under the
+norm-preserving role-permutation energy baseline show role co-location helps
+selectivity; backward results are not uniform. This is not a shuffled native
+intervention. MATCHER_FACTOR_INTERCHANGE_SCORE_V1 then tests factors through
+their native multiplicative consumer: neither individual swap suppresses both
+mismatches; both do. Matched backward single-factor hybrids can reach2.37–2.53
+times base score RMS, while joint transfer remains .966–.979. Those aggregate
+norms do not establish pointwise or output invariance. Joint replay0, mixed1.78e-15.
+
+Active MATCHER_PAIR_TRANSPORT_V1_PREREGISTRATION.md and
+matcher_pair_transport_reference.py,13 CPU controls pass. Matched base/both-label
+donor pairs from the opened32 worlds/six orders, fork recipients into all four
+query hops,768 recipient requests. Transfer factor1/factor2/joint product only
+at the original four pair cells with native H1/H2 orientations; keep recipient
+values and all other computation fixed. Reuse the binding-only factors across
+query hops. Include native and zero-score route-removal controls. Exact compiled
+L2 score-write delta uses the final source-edit executor; independent native
+oracle replaces attention cells. The joint pair must preserve full outputs at
+meanKL<=.001,p99<=.01 and change query vectors by<=1% of native route-removal
+effect in every population/orientation/hop group. Native mixed effects must
+replay. Single-factor arms remain diagnostics, not fallback candidates.
+
+Next implement managed ops/run_matcher_pair_transport_v1.py. It is not queued
+yet. All387968 native export constants/background remain charged; no reduced
+program is adopted. Canonical dossier: explanations/join_matcher_factors.md.
+Initializer reduction and complete single-QK copying routes stay closed.
+Both managed runners healthy; inspect shared queue before enqueue. Next hourly
+20:51 and mathematical22:49 UTC. No new trained pair-transport outcomes opened.
+
 ## Initializer route closed; contextual matcher factors active — 2026-09-09 20:15 UTC
 
 Follow the bilinear reconstruction handoff and appended structural criterion.
