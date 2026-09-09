@@ -53,6 +53,23 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Active shared-kernel coverage repair — 2026-09-09 16:18 UTC
+
+SHARED_JOIN_KERNEL_V1_RESULT.json is instrument-invalid:555 calibrated cells leave
+14/16/9 unseen on held panels. No held model outputs were evaluated; exact error0
+is an empty maximum. The physical executor has361776 constants and22 CPU controls
+pass, but fidelity/removal are untested. Preserve this invalid receipt.
+
+Active V2_COVERAGE makes one concrete instrument repair: original256 calibration
+inputs plus96 complete entity×hop query forks of one new world. Synthetic support
+audit passes590/590 possible cells. Same grammar/6576 coefficients/8ALS passes,
+fresh16910/11/12 held seeds, unchanged full-distribution/removal thresholds.
+Implementation and CPU controls complete; inspect managed queue/result next.
+Valid failure closes this fixed kernel, no posthoc feature/head/lag/rank sweep.
+Latest reviews1550/1348, next16:50/16:48. Goal remains active under the bilinear
+reconstruction handoff, not better_math_ideas.md. Current dossier remains
+explanations/cold_query_composition_reconstruction.md.
+
 ## Active shared-kernel compilation — 2026-09-09 16:00 UTC
 
 SUFFIX_JOIN_MIDDLE_MATCH_V1_RESULT.json passes all4 gates: valid permutation

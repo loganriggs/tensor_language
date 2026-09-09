@@ -242,3 +242,24 @@ before fit, matching the distinct-edge operation. No unseen coefficient, teacher
 activation cache or function-answer oracle is allowed at runtime. The parser and
 fixed8-pass weighted fit core pass CPU controls; physical executor/managed integration
 is outstanding. No learned weights have been removed or fidelity established yet.
+
+## Shared-kernel compilation: first instrument failure
+
+`SHARED_JOIN_KERNEL_V1_RESULT.json` physically removes the L2H1/H2 Q/K rows
+and counts361776 arbitrary constants, compared with387968 after the generic
+final-readout fold (400640 original). Twenty-two CPU parser/fitting/executor
+controls pass. This does not establish trained fidelity: the random256-example
+calibration observes555 role/lag cells, but the held IID/OOD/fixed-point panels
+require14/16/9 unseen cells. Evaluation correctly refuses to invent coefficients.
+No held model outputs were evaluated. B/C are therefore untested, not measured
+scientific failures; the reported exact-error0 is an empty maximum, not closure.
+The matched calibration score residual.7838 is diagnostic only.
+
+V2 makes one declared coverage repair, preserving the same semantic rule and8
+ALS passes: append96 entity×hop forks of one independent calibration world to
+original256 inputs. A CPU audit establishes590/590 structurally possible role/lag
+cells before training. New held seeds16910/11/12 are unopened until coefficients
+freeze. The repeated calibration prefix is counted, not called96 independent
+worlds. No feature, head, role, lag or fitting-iteration sweep is allowed. A valid
+failure closes this fixed local-record kernel. The causal middle-match evidence
+remains distinct from the untested claim that entire native heads implement it.
