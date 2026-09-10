@@ -1,0 +1,102 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "p_max": 0.23,
+    "tol_pool": 0.05,
+    "tol_pool_wide": 0.15,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_correlative_p_interchange_v505",
+  "finished_utc": "2026-09-10T13:09:48.980130+00:00",
+  "groups": {
+    "fit_canonical": {
+      "cells": [
+        "correlative_pair"
+      ],
+      "hypotheses": {
+        "A2_extraction": 0.935,
+        "A2_units_recovery": 0.965,
+        "C_same_answer_effect": 0.0204,
+        "P_damage": {
+          "ce_damage": 1.7902,
+          "ce_lb975": 1.3244,
+          "ce_ub975": 2.2625,
+          "margin_damage": 7.6149,
+          "top1_change_rate": 0.5312
+        },
+        "P_same_answer_effect": 0.0191,
+        "P_units_recovery": 0.025,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 15.8228
+      },
+      "n_units": 26,
+      "per_shape": {
+        "correlative_disjoint_either_not": {
+          "A1_damage": {
+            "ce_damage": 0.0717,
+            "ce_lb975": 0.0167,
+            "ce_ub975": 0.1236,
+            "margin_damage": -0.0411,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0073,
+            "ce_lb975": -0.0243,
+            "ce_ub975": 0.01,
+            "margin_damage": -0.0155,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": 0.01,
+          "cross_abs_recovery": -0.021,
+          "joint_extraction": -0.022,
+          "n_held": 16,
+          "units_recovery": 0.973
+        },
+        "correlative_pair": {
+          "A1_damage": {
+            "ce_damage": 1.5739,
+            "ce_lb975": 1.146,
+            "ce_ub975": 2.0035,
+            "margin_damage": 7.4709,
+            "top1_change_rate": 0.5625
+          },
+          "C_damage": {
+            "ce_damage": -0.0073,
+            "ce_lb975": -0.0243,
+            "ce_ub975": 0.01,
+            "margin_damage": -0.0155,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": 0.01,
+          "cross_abs_recovery": 0.968,
+          "joint_extraction": 1.001,
+          "n_held": 16,
+          "units_recovery": 0.967
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_reproduces_fit": true,
+    "pred_b_P_effect_small": true,
+    "pred_c_C_effect_small": true,
+    "pred_d_P_and_C_comparable": true,
+    "pred_e_units_available": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_correlative_p_interchange_v505",
+  "seconds": 33.5
+}
