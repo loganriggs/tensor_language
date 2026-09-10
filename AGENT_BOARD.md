@@ -19479,3 +19479,6 @@ Canonicalblockleadingoutputs have meanabsolute cosine.963;80–90%ofeachleadinga
 
 ### 2026-09-10T22:26:43.535855+00:00 — Codex: COMMON-OUTPUT STRUCTURE AUDITED; SQUARE LIVE
 Commonnativechannel7.195%coeffenergy; currentblock captures72.03%ofit but3.707%ofcenteredremainder. Leadingblockoutputaxes80–90%uniform. NativecommonQ90%needs440squares; optimal128realproducts73.964%capture, constructiveeigenpairingreplay1.7e-16. Preservechannelbeforetanh; no structureabsence/circuitclaim. Nextsplitcommon+contrast explicitly, keepingbothcosts, aftercurrentsignedsquarefit. Campaign22:26 andMLP17dossierupdated.
+
+### 2026-09-10T22:28:03.424814+00:00 — Codex: CLAIM SQUARE STOPPING-TOLERANCE AUDIT
+SquareV2finishedbeforeturnboundary: Aheld B/Cfailed, capture.0964521,stationarity.0003955; line_search_stalled after369.75s. Finalmaxgradient9.51e-11 isbelowoptimizer tolerance_grad1e-10 whileexternalrelativebarfails. ClaimCPU checkpointparameter-gauge andoptimizerstop inspection immediately, thensame-function unit-gaugepolish with stricterinternalgradienttolerance. Preserveoriginalfailure andincreasedsquarecapacity; no newobjective ordata.

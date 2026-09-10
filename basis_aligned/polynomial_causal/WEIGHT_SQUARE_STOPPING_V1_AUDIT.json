@@ -1,0 +1,15 @@
+{
+  "terminal_reason": "line_search_stalled",
+  "internal_tolerance_grad": 1e-10,
+  "final_gradient_max": 9.506701166960536e-11,
+  "internal_stop_satisfied": true,
+  "external_relative_stationarity": 0.0003955190775080491,
+  "external_relative_bar": 0.0001,
+  "external_stop_failed": true,
+  "parameter_row_norm_min": 53.0187487909248,
+  "parameter_row_norm_median": 66.96445903881737,
+  "parameter_row_norm_max": 2037.4501255776815,
+  "narrow_result": "Current internal absolutegradient stopping condition is satisfied while registered relative convergence condition fails. More identical optimizer calls cannot resolve this mismatch.",
+  "next_action": "Normalize raw square readers without changing their normalized function, fresh L-BFGS with tighter internal tolerance; retain original objective and external convergence bars. Check exact function replay before nativepolish.",
+  "scope": "Optimizer/parameterization audit only; not proof of convergence, no structuralnegative."
+}

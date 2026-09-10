@@ -1006,3 +1006,25 @@ The256signed-square weight fit is now running. Its execution uses the same
 registered objective, seed and optimization settings; a revised storage guard
 uses the measured checkpoint size. No research artifacts were deleted. The
 22:18hourly review is recorded; next reviews are23:18strategic and22:49mathematical.
+
+
+## Signed squares finished; stopping mismatch identified — 22:28 UTC
+
+The256signed-square fit stopped after369.75seconds and10015closures with9.6452%
+coefficient capture, versus8.6989%for the earlier penalizedproductfit. It hasmore
+parameters, so this is not a matched-capacity win. Numericalchecks passed;
+convergence andthe registeredone-percentage-pointgain prediction bothfailed.
+[Receipt](../../WEIGHT_STRUCTURAL_BASELINE_V2_square_RESULT.json).
+
+The immediate CPUaudit found a concrete stopping mismatch: finalmaximumgradient
+9.51e-11 is belowL-BFGS'sinternal1e-10tolerance, whileourrelative stationarity
+0.0003955 exceeds1e-4. Rawreaderrow norms range53–2037, median67; the objective
+uses normalizedreaders, so large rawscales can make absolutegradients small.
+Repeatedidentical calls cannotfix that stopcondition. The nextpolish should
+normalize the rawparameters without changingthe function and use a tighter
+internal tolerance, preservingthe externalconvergencebars andoriginalfailure.
+[Executed stopping audit](../../WEIGHT_SQUARE_STOPPING_V1_AUDIT.json).
+
+No nativepolish hasrun yet. The managedsquarejob is complete; the stoppingaudit
+is the concretecontinuation. The common-output/contrast findings above remain
+unchanged andcontinue to motivate a different structuralfactorization next.

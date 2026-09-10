@@ -1,0 +1,63 @@
+{
+  "schema": "weight.structural.baseline.v2",
+  "kind": "square",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_converged": false,
+    "pred_c_capture_gain": false
+  },
+  "best": {
+    "phase": "lbfgs",
+    "adam_done": 2000,
+    "lbfgs_done": 710,
+    "closures": 9991,
+    "squared_relative_error": 0.903547867273294,
+    "optimization_loss": 0.9044910806901968,
+    "component_energy_over_native_total": 0.09432134169028664,
+    "penalty": 0.01,
+    "cancellation_ratio": 0.9974159321256448,
+    "captured_energy_fraction": 0.09645213272670605,
+    "relative_stationarity": 0.0003955190775080491,
+    "gradient_max_abs": 9.506701166960536e-11,
+    "gram_condition": 9.709362502077056,
+    "regularized_gram_condition": 9.485959300092015,
+    "lbfgs_actual_inner_iterations": 7057,
+    "relative_progress_over_five_lbfgs_checks": 2.950066928287145e-07
+  },
+  "last": {
+    "phase": "lbfgs",
+    "adam_done": 2000,
+    "lbfgs_done": 734,
+    "closures": 10015,
+    "squared_relative_error": 0.903547867273294,
+    "optimization_loss": 0.9044910806901968,
+    "component_energy_over_native_total": 0.09432134169028664,
+    "penalty": 0.01,
+    "cancellation_ratio": 0.9974159321256448,
+    "captured_energy_fraction": 0.09645213272670605,
+    "relative_stationarity": 0.0003955190775080491,
+    "gradient_max_abs": 9.506701166960536e-11,
+    "gram_condition": 9.709362502077056,
+    "regularized_gram_condition": 9.485959300092015,
+    "lbfgs_actual_inner_iterations": 7057,
+    "relative_progress_over_five_lbfgs_checks": 0.0
+  },
+  "converged": false,
+  "terminal_reason": "line_search_stalled",
+  "replay_absolute_error": 0.0,
+  "price": {
+    "body_forwards": 0,
+    "parameter_numbers": 589824,
+    "closures": 10015,
+    "fit_seconds": 369.7542303353548,
+    "checkpoint_bytes": 49596817
+  },
+  "checkpoint_sha256": "522c12cee47a223369de826c7d32dd6481cae87d85d2c442584baf626b7545be",
+  "wall_seconds": 370.57578371092677,
+  "scope": "Weight-only first seed/first chunk. Unequal capacities and penalty granularity. Not global optimum, stable identification, or circuit.",
+  "registered_predictions": {
+    "pred_a_instrument": "Dense controls and native saved objective replay within1e-10",
+    "pred_b_converged": "Five checks plateau and full gradient thresholds",
+    "pred_c_capture_gain": "Capture at least0.09698912596, unmatched capacity screen"
+  }
+}
