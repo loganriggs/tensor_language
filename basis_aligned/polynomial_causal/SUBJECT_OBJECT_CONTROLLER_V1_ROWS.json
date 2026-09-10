@@ -1,0 +1,2744 @@
+{
+  "schema": 1,
+  "corners": [
+    [
+      -1,
+      -1,
+      -1
+    ],
+    [
+      -1,
+      -1,
+      1
+    ],
+    [
+      -1,
+      1,
+      -1
+    ],
+    [
+      -1,
+      1,
+      1
+    ],
+    [
+      1,
+      -1,
+      -1
+    ],
+    [
+      1,
+      -1,
+      1
+    ],
+    [
+      1,
+      1,
+      -1
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "terms": [
+    "1",
+    "c",
+    "s",
+    "o",
+    "cs",
+    "co",
+    "so",
+    "cso"
+  ],
+  "worlds": [
+    {
+      "world_id": "king_defend",
+      "split": "fit",
+      "rows": [
+        {
+          "row_id": "controller:king_defend:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The king persuaded the king to defend",
+          "ids": [
+            464,
+            5822,
+            25562,
+            262,
+            5822,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:king_defend:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The king persuaded the kings to defend",
+          "ids": [
+            464,
+            5822,
+            25562,
+            262,
+            21557,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:king_defend:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The kings persuaded the king to defend",
+          "ids": [
+            464,
+            21557,
+            25562,
+            262,
+            5822,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:king_defend:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The kings persuaded the kings to defend",
+          "ids": [
+            464,
+            21557,
+            25562,
+            262,
+            21557,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:king_defend:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The king promised the king to defend",
+          "ids": [
+            464,
+            5822,
+            8072,
+            262,
+            5822,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:king_defend:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The king promised the kings to defend",
+          "ids": [
+            464,
+            5822,
+            8072,
+            262,
+            21557,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:king_defend:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The kings promised the king to defend",
+          "ids": [
+            464,
+            21557,
+            8072,
+            262,
+            5822,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:king_defend:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The kings promised the kings to defend",
+          "ids": [
+            464,
+            21557,
+            8072,
+            262,
+            21557,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "king_introduce",
+      "split": "fit",
+      "rows": [
+        {
+          "row_id": "controller:king_introduce:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The king persuaded the king to introduce",
+          "ids": [
+            464,
+            5822,
+            25562,
+            262,
+            5822,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:king_introduce:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The king persuaded the kings to introduce",
+          "ids": [
+            464,
+            5822,
+            25562,
+            262,
+            21557,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:king_introduce:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The kings persuaded the king to introduce",
+          "ids": [
+            464,
+            21557,
+            25562,
+            262,
+            5822,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:king_introduce:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The kings persuaded the kings to introduce",
+          "ids": [
+            464,
+            21557,
+            25562,
+            262,
+            21557,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:king_introduce:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The king promised the king to introduce",
+          "ids": [
+            464,
+            5822,
+            8072,
+            262,
+            5822,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:king_introduce:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The king promised the kings to introduce",
+          "ids": [
+            464,
+            5822,
+            8072,
+            262,
+            21557,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:king_introduce:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The kings promised the king to introduce",
+          "ids": [
+            464,
+            21557,
+            8072,
+            262,
+            5822,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:king_introduce:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The kings promised the kings to introduce",
+          "ids": [
+            464,
+            21557,
+            8072,
+            262,
+            21557,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "man_defend",
+      "split": "held",
+      "rows": [
+        {
+          "row_id": "controller:man_defend:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The man persuaded the man to defend",
+          "ids": [
+            464,
+            582,
+            25562,
+            262,
+            582,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:man_defend:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The man persuaded the men to defend",
+          "ids": [
+            464,
+            582,
+            25562,
+            262,
+            1450,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:man_defend:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The men persuaded the man to defend",
+          "ids": [
+            464,
+            1450,
+            25562,
+            262,
+            582,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:man_defend:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The men persuaded the men to defend",
+          "ids": [
+            464,
+            1450,
+            25562,
+            262,
+            1450,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:man_defend:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The man promised the man to defend",
+          "ids": [
+            464,
+            582,
+            8072,
+            262,
+            582,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:man_defend:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The man promised the men to defend",
+          "ids": [
+            464,
+            582,
+            8072,
+            262,
+            1450,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:man_defend:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The men promised the man to defend",
+          "ids": [
+            464,
+            1450,
+            8072,
+            262,
+            582,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:man_defend:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The men promised the men to defend",
+          "ids": [
+            464,
+            1450,
+            8072,
+            262,
+            1450,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "man_introduce",
+      "split": "held",
+      "rows": [
+        {
+          "row_id": "controller:man_introduce:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The man persuaded the man to introduce",
+          "ids": [
+            464,
+            582,
+            25562,
+            262,
+            582,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:man_introduce:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The man persuaded the men to introduce",
+          "ids": [
+            464,
+            582,
+            25562,
+            262,
+            1450,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:man_introduce:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The men persuaded the man to introduce",
+          "ids": [
+            464,
+            1450,
+            25562,
+            262,
+            582,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:man_introduce:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The men persuaded the men to introduce",
+          "ids": [
+            464,
+            1450,
+            25562,
+            262,
+            1450,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:man_introduce:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The man promised the man to introduce",
+          "ids": [
+            464,
+            582,
+            8072,
+            262,
+            582,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:man_introduce:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The man promised the men to introduce",
+          "ids": [
+            464,
+            582,
+            8072,
+            262,
+            1450,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:man_introduce:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The men promised the man to introduce",
+          "ids": [
+            464,
+            1450,
+            8072,
+            262,
+            582,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:man_introduce:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The men promised the men to introduce",
+          "ids": [
+            464,
+            1450,
+            8072,
+            262,
+            1450,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "boy_defend",
+      "split": "fit",
+      "rows": [
+        {
+          "row_id": "controller:boy_defend:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The boy persuaded the boy to defend",
+          "ids": [
+            464,
+            2933,
+            25562,
+            262,
+            2933,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:boy_defend:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The boy persuaded the boys to defend",
+          "ids": [
+            464,
+            2933,
+            25562,
+            262,
+            6510,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:boy_defend:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The boys persuaded the boy to defend",
+          "ids": [
+            464,
+            6510,
+            25562,
+            262,
+            2933,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:boy_defend:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The boys persuaded the boys to defend",
+          "ids": [
+            464,
+            6510,
+            25562,
+            262,
+            6510,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:boy_defend:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The boy promised the boy to defend",
+          "ids": [
+            464,
+            2933,
+            8072,
+            262,
+            2933,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:boy_defend:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The boy promised the boys to defend",
+          "ids": [
+            464,
+            2933,
+            8072,
+            262,
+            6510,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:boy_defend:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The boys promised the boy to defend",
+          "ids": [
+            464,
+            6510,
+            8072,
+            262,
+            2933,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:boy_defend:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The boys promised the boys to defend",
+          "ids": [
+            464,
+            6510,
+            8072,
+            262,
+            6510,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "boy_introduce",
+      "split": "fit",
+      "rows": [
+        {
+          "row_id": "controller:boy_introduce:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The boy persuaded the boy to introduce",
+          "ids": [
+            464,
+            2933,
+            25562,
+            262,
+            2933,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:boy_introduce:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The boy persuaded the boys to introduce",
+          "ids": [
+            464,
+            2933,
+            25562,
+            262,
+            6510,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:boy_introduce:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The boys persuaded the boy to introduce",
+          "ids": [
+            464,
+            6510,
+            25562,
+            262,
+            2933,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:boy_introduce:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The boys persuaded the boys to introduce",
+          "ids": [
+            464,
+            6510,
+            25562,
+            262,
+            6510,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:boy_introduce:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The boy promised the boy to introduce",
+          "ids": [
+            464,
+            2933,
+            8072,
+            262,
+            2933,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:boy_introduce:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The boy promised the boys to introduce",
+          "ids": [
+            464,
+            2933,
+            8072,
+            262,
+            6510,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:boy_introduce:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The boys promised the boy to introduce",
+          "ids": [
+            464,
+            6510,
+            8072,
+            262,
+            2933,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:boy_introduce:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The boys promised the boys to introduce",
+          "ids": [
+            464,
+            6510,
+            8072,
+            262,
+            6510,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "father_defend",
+      "split": "held",
+      "rows": [
+        {
+          "row_id": "controller:father_defend:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The father persuaded the father to defend",
+          "ids": [
+            464,
+            2988,
+            25562,
+            262,
+            2988,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:father_defend:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The father persuaded the fathers to defend",
+          "ids": [
+            464,
+            2988,
+            25562,
+            262,
+            17150,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:father_defend:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The fathers persuaded the father to defend",
+          "ids": [
+            464,
+            17150,
+            25562,
+            262,
+            2988,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:father_defend:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The fathers persuaded the fathers to defend",
+          "ids": [
+            464,
+            17150,
+            25562,
+            262,
+            17150,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:father_defend:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The father promised the father to defend",
+          "ids": [
+            464,
+            2988,
+            8072,
+            262,
+            2988,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:father_defend:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The father promised the fathers to defend",
+          "ids": [
+            464,
+            2988,
+            8072,
+            262,
+            17150,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:father_defend:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The fathers promised the father to defend",
+          "ids": [
+            464,
+            17150,
+            8072,
+            262,
+            2988,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:father_defend:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The fathers promised the fathers to defend",
+          "ids": [
+            464,
+            17150,
+            8072,
+            262,
+            17150,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "father_introduce",
+      "split": "held",
+      "rows": [
+        {
+          "row_id": "controller:father_introduce:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The father persuaded the father to introduce",
+          "ids": [
+            464,
+            2988,
+            25562,
+            262,
+            2988,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:father_introduce:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The father persuaded the fathers to introduce",
+          "ids": [
+            464,
+            2988,
+            25562,
+            262,
+            17150,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:father_introduce:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The fathers persuaded the father to introduce",
+          "ids": [
+            464,
+            17150,
+            25562,
+            262,
+            2988,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:father_introduce:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The fathers persuaded the fathers to introduce",
+          "ids": [
+            464,
+            17150,
+            25562,
+            262,
+            17150,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:father_introduce:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The father promised the father to introduce",
+          "ids": [
+            464,
+            2988,
+            8072,
+            262,
+            2988,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:father_introduce:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The father promised the fathers to introduce",
+          "ids": [
+            464,
+            2988,
+            8072,
+            262,
+            17150,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:father_introduce:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The fathers promised the father to introduce",
+          "ids": [
+            464,
+            17150,
+            8072,
+            262,
+            2988,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:father_introduce:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The fathers promised the fathers to introduce",
+          "ids": [
+            464,
+            17150,
+            8072,
+            262,
+            17150,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "brother_defend",
+      "split": "fit",
+      "rows": [
+        {
+          "row_id": "controller:brother_defend:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The brother persuaded the brother to defend",
+          "ids": [
+            464,
+            3956,
+            25562,
+            262,
+            3956,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:brother_defend:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The brother persuaded the brothers to defend",
+          "ids": [
+            464,
+            3956,
+            25562,
+            262,
+            9397,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:brother_defend:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The brothers persuaded the brother to defend",
+          "ids": [
+            464,
+            9397,
+            25562,
+            262,
+            3956,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:brother_defend:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The brothers persuaded the brothers to defend",
+          "ids": [
+            464,
+            9397,
+            25562,
+            262,
+            9397,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:brother_defend:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The brother promised the brother to defend",
+          "ids": [
+            464,
+            3956,
+            8072,
+            262,
+            3956,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:brother_defend:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The brother promised the brothers to defend",
+          "ids": [
+            464,
+            3956,
+            8072,
+            262,
+            9397,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:brother_defend:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The brothers promised the brother to defend",
+          "ids": [
+            464,
+            9397,
+            8072,
+            262,
+            3956,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:brother_defend:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The brothers promised the brothers to defend",
+          "ids": [
+            464,
+            9397,
+            8072,
+            262,
+            9397,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "brother_introduce",
+      "split": "fit",
+      "rows": [
+        {
+          "row_id": "controller:brother_introduce:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The brother persuaded the brother to introduce",
+          "ids": [
+            464,
+            3956,
+            25562,
+            262,
+            3956,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:brother_introduce:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The brother persuaded the brothers to introduce",
+          "ids": [
+            464,
+            3956,
+            25562,
+            262,
+            9397,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:brother_introduce:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The brothers persuaded the brother to introduce",
+          "ids": [
+            464,
+            9397,
+            25562,
+            262,
+            3956,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:brother_introduce:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The brothers persuaded the brothers to introduce",
+          "ids": [
+            464,
+            9397,
+            25562,
+            262,
+            9397,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:brother_introduce:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The brother promised the brother to introduce",
+          "ids": [
+            464,
+            3956,
+            8072,
+            262,
+            3956,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:brother_introduce:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The brother promised the brothers to introduce",
+          "ids": [
+            464,
+            3956,
+            8072,
+            262,
+            9397,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:brother_introduce:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The brothers promised the brother to introduce",
+          "ids": [
+            464,
+            9397,
+            8072,
+            262,
+            3956,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:brother_introduce:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The brothers promised the brothers to introduce",
+          "ids": [
+            464,
+            9397,
+            8072,
+            262,
+            9397,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "son_defend",
+      "split": "held",
+      "rows": [
+        {
+          "row_id": "controller:son_defend:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The son persuaded the son to defend",
+          "ids": [
+            464,
+            3367,
+            25562,
+            262,
+            3367,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:son_defend:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The son persuaded the sons to defend",
+          "ids": [
+            464,
+            3367,
+            25562,
+            262,
+            11989,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:son_defend:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The sons persuaded the son to defend",
+          "ids": [
+            464,
+            11989,
+            25562,
+            262,
+            3367,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:son_defend:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The sons persuaded the sons to defend",
+          "ids": [
+            464,
+            11989,
+            25562,
+            262,
+            11989,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:son_defend:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The son promised the son to defend",
+          "ids": [
+            464,
+            3367,
+            8072,
+            262,
+            3367,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:son_defend:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The son promised the sons to defend",
+          "ids": [
+            464,
+            3367,
+            8072,
+            262,
+            11989,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:son_defend:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The sons promised the son to defend",
+          "ids": [
+            464,
+            11989,
+            8072,
+            262,
+            3367,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:son_defend:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The sons promised the sons to defend",
+          "ids": [
+            464,
+            11989,
+            8072,
+            262,
+            11989,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "son_introduce",
+      "split": "held",
+      "rows": [
+        {
+          "row_id": "controller:son_introduce:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The son persuaded the son to introduce",
+          "ids": [
+            464,
+            3367,
+            25562,
+            262,
+            3367,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:son_introduce:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The son persuaded the sons to introduce",
+          "ids": [
+            464,
+            3367,
+            25562,
+            262,
+            11989,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:son_introduce:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The sons persuaded the son to introduce",
+          "ids": [
+            464,
+            11989,
+            25562,
+            262,
+            3367,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:son_introduce:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The sons persuaded the sons to introduce",
+          "ids": [
+            464,
+            11989,
+            25562,
+            262,
+            11989,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:son_introduce:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The son promised the son to introduce",
+          "ids": [
+            464,
+            3367,
+            8072,
+            262,
+            3367,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:son_introduce:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The son promised the sons to introduce",
+          "ids": [
+            464,
+            3367,
+            8072,
+            262,
+            11989,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:son_introduce:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The sons promised the son to introduce",
+          "ids": [
+            464,
+            11989,
+            8072,
+            262,
+            3367,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:son_introduce:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The sons promised the sons to introduce",
+          "ids": [
+            464,
+            11989,
+            8072,
+            262,
+            11989,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "prince_defend",
+      "split": "fit",
+      "rows": [
+        {
+          "row_id": "controller:prince_defend:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The prince persuaded the prince to defend",
+          "ids": [
+            464,
+            19716,
+            25562,
+            262,
+            19716,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:prince_defend:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The prince persuaded the princes to defend",
+          "ids": [
+            464,
+            19716,
+            25562,
+            262,
+            42676,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:prince_defend:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The princes persuaded the prince to defend",
+          "ids": [
+            464,
+            42676,
+            25562,
+            262,
+            19716,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:prince_defend:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The princes persuaded the princes to defend",
+          "ids": [
+            464,
+            42676,
+            25562,
+            262,
+            42676,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:prince_defend:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The prince promised the prince to defend",
+          "ids": [
+            464,
+            19716,
+            8072,
+            262,
+            19716,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:prince_defend:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The prince promised the princes to defend",
+          "ids": [
+            464,
+            19716,
+            8072,
+            262,
+            42676,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:prince_defend:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The princes promised the prince to defend",
+          "ids": [
+            464,
+            42676,
+            8072,
+            262,
+            19716,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:prince_defend:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The princes promised the princes to defend",
+          "ids": [
+            464,
+            42676,
+            8072,
+            262,
+            42676,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "prince_introduce",
+      "split": "fit",
+      "rows": [
+        {
+          "row_id": "controller:prince_introduce:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The prince persuaded the prince to introduce",
+          "ids": [
+            464,
+            19716,
+            25562,
+            262,
+            19716,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:prince_introduce:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The prince persuaded the princes to introduce",
+          "ids": [
+            464,
+            19716,
+            25562,
+            262,
+            42676,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:prince_introduce:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The princes persuaded the prince to introduce",
+          "ids": [
+            464,
+            42676,
+            25562,
+            262,
+            19716,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:prince_introduce:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The princes persuaded the princes to introduce",
+          "ids": [
+            464,
+            42676,
+            25562,
+            262,
+            42676,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:prince_introduce:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The prince promised the prince to introduce",
+          "ids": [
+            464,
+            19716,
+            8072,
+            262,
+            19716,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:prince_introduce:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The prince promised the princes to introduce",
+          "ids": [
+            464,
+            19716,
+            8072,
+            262,
+            42676,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:prince_introduce:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The princes promised the prince to introduce",
+          "ids": [
+            464,
+            42676,
+            8072,
+            262,
+            19716,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:prince_introduce:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The princes promised the princes to introduce",
+          "ids": [
+            464,
+            42676,
+            8072,
+            262,
+            42676,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "actor_defend",
+      "split": "held",
+      "rows": [
+        {
+          "row_id": "controller:actor_defend:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The actor persuaded the actor to defend",
+          "ids": [
+            464,
+            8674,
+            25562,
+            262,
+            8674,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:actor_defend:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The actor persuaded the actors to defend",
+          "ids": [
+            464,
+            8674,
+            25562,
+            262,
+            10544,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:actor_defend:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The actors persuaded the actor to defend",
+          "ids": [
+            464,
+            10544,
+            25562,
+            262,
+            8674,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:actor_defend:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The actors persuaded the actors to defend",
+          "ids": [
+            464,
+            10544,
+            25562,
+            262,
+            10544,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:actor_defend:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The actor promised the actor to defend",
+          "ids": [
+            464,
+            8674,
+            8072,
+            262,
+            8674,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:actor_defend:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The actor promised the actors to defend",
+          "ids": [
+            464,
+            8674,
+            8072,
+            262,
+            10544,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:actor_defend:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The actors promised the actor to defend",
+          "ids": [
+            464,
+            10544,
+            8072,
+            262,
+            8674,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:actor_defend:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The actors promised the actors to defend",
+          "ids": [
+            464,
+            10544,
+            8072,
+            262,
+            10544,
+            284,
+            4404
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    },
+    {
+      "world_id": "actor_introduce",
+      "split": "held",
+      "rows": [
+        {
+          "row_id": "controller:actor_introduce:-1:-1:-1",
+          "factors": [
+            -1,
+            -1,
+            -1
+          ],
+          "text": "The actor persuaded the actor to introduce",
+          "ids": [
+            464,
+            8674,
+            25562,
+            262,
+            8674,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:actor_introduce:-1:-1:1",
+          "factors": [
+            -1,
+            -1,
+            1
+          ],
+          "text": "The actor persuaded the actors to introduce",
+          "ids": [
+            464,
+            8674,
+            25562,
+            262,
+            10544,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:actor_introduce:-1:1:-1",
+          "factors": [
+            -1,
+            1,
+            -1
+          ],
+          "text": "The actors persuaded the actor to introduce",
+          "ids": [
+            464,
+            10544,
+            25562,
+            262,
+            8674,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:actor_introduce:-1:1:1",
+          "factors": [
+            -1,
+            1,
+            1
+          ],
+          "text": "The actors persuaded the actors to introduce",
+          "ids": [
+            464,
+            10544,
+            25562,
+            262,
+            10544,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:actor_introduce:1:-1:-1",
+          "factors": [
+            1,
+            -1,
+            -1
+          ],
+          "text": "The actor promised the actor to introduce",
+          "ids": [
+            464,
+            8674,
+            8072,
+            262,
+            8674,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:actor_introduce:1:-1:1",
+          "factors": [
+            1,
+            -1,
+            1
+          ],
+          "text": "The actor promised the actors to introduce",
+          "ids": [
+            464,
+            8674,
+            8072,
+            262,
+            10544,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 0
+        },
+        {
+          "row_id": "controller:actor_introduce:1:1:-1",
+          "factors": [
+            1,
+            1,
+            -1
+          ],
+          "text": "The actors promised the actor to introduce",
+          "ids": [
+            464,
+            10544,
+            8072,
+            262,
+            8674,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        },
+        {
+          "row_id": "controller:actor_introduce:1:1:1",
+          "factors": [
+            1,
+            1,
+            1
+          ],
+          "text": "The actors promised the actors to introduce",
+          "ids": [
+            464,
+            10544,
+            8072,
+            262,
+            10544,
+            284,
+            10400
+          ],
+          "semantic_position": 6,
+          "expected_plural": 1
+        }
+      ]
+    }
+  ],
+  "positive_answer_id": 2405,
+  "negative_answer_id": 2241,
+  "controls": {
+    "passed": true,
+    "coefficients": {
+      "1": "0",
+      "c": "0",
+      "s": "1/2",
+      "o": "1/2",
+      "cs": "1/2",
+      "co": "-1/2",
+      "so": "0",
+      "cso": "0"
+    },
+    "bilinear_matrix_determinant": "-1/2",
+    "bilinear_matrix_rank": 2,
+    "first_noun_rule_errors": 2,
+    "nearest_noun_rule_errors": 2,
+    "model_forwards": 0,
+    "scope": "Exact task specification and finite-grid algebra, not native discovery."
+  },
+  "audit": {
+    "worlds": 16,
+    "rows": 128,
+    "fit_worlds": 8,
+    "held_worlds": 8,
+    "equal_length_worlds": 16,
+    "opposite_number_token_multiset_matches": 32,
+    "lexical_preflight_note": "uncle/uncles rejected before native access because uncles is two tokens; son/sons used."
+  },
+  "builder_sha256": "a1a0ee45c2f350f7a7726a40fc93e476c6084a9e4c57778a81fa303aa5a9590f"
+}
