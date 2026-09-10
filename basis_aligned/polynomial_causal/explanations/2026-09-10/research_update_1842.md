@@ -21,19 +21,19 @@ All results below concern this research thread. They are not an inventory of eve
 
 The **unembedding** is the weight matrix converting the model's final state into token scores. Each row is a **reader**: a vector that asks the final state a particular linear question, one per output token. Folding a reader backward means algebraically composing it with earlier weights to expose which earlier quantities it reads.
 
-For a bilinear layer with input \(u\), the computation is
+For a bilinear layer with input $u$, the computation is
 
-\[
+$$
 m(u)=D[(Lu)\odot(Ru)]+b.
-\]
+$$
 
-Here \(L\) and \(R\) produce two lists of features, \(\odot\) multiplies matching entries, and \(D\) combines those products into the output. A reader \(w\) therefore reads
+Here $L$ and $R$ produce two lists of features, $\odot$ multiplies matching entries, and $D$ combines those products into the output. A reader $w$ therefore reads
 
-\[
+$$
 w^\top m(u)=(w^\top D)[(Lu)\odot(Ru)]+w^\top b.
-\]
+$$
 
-The vector \(w^\top D\) gives explicit coefficients on the layer's feature products. This is an exact weight identity. It does not, by itself, show that a small subset of those products is a reusable circuit.
+The vector $w^\top D$ gives explicit coefficients on the layer's feature products. This is an exact weight identity. It does not, by itself, show that a small subset of those products is a reusable circuit.
 
 **Individual-token path.** Folding token readers through the last two bilinear layers, while retaining live intervening attention, predicted the tested full-vocabulary intervention effects with roughly **4.6–5.6% relative error**. The associated cross-entropy prediction error was below **0.0034 nats**. Cross-entropy measures how much probability the model assigns to the correct token; lower is better. These are local predictions using native weights and context, not an independently extracted model. The edited earlier-layer contribution also slightly opposed the desired task effect, so accurate prediction was not evidence of a helpful task-specific branch.
 
@@ -57,7 +57,7 @@ Details: [OV input readers](attention_ov_input_reader_overlap.md) and [QK/value 
 
 ## How much did the shared grammatical direction achieve?
 
-Call the unit direction \(e\). A **scalar coordinate** is the single number \(e^\top h\) measuring a state along that direction. A **scalar write intervention** replaces that number in a module's output while initially preserving its other coordinates. Later layers remain free to respond.
+Call the unit direction $e$. A **scalar coordinate** is the single number $e^\top h$ measuring a state along that direction. A **scalar write intervention** replaces that number in a module's output while initially preserving its other coordinates. Later layers remain free to respond.
 
 At the final state alone, transferring this scalar recovered about **59–62%** of the grammatical cue's effect. Transferring only the last bilinear layer's output scalar recovered just **7–10%**. Much of the useful scalar had already arrived from earlier computation.
 
@@ -71,26 +71,26 @@ Primary discussion: [scalar writes and live feedback](gerund_scalar_writes_and_l
 
 ## What did the mathematical cycle actually contribute?
 
-The scheduled **16:49 mathematical review** produced an executable local response rule. If the normalized input of a fixed bilinear layer changes from \(u\) to \(u+\delta e\), then
+The scheduled **16:49 mathematical review** produced an executable local response rule. If the normalized input of a fixed bilinear layer changes from $u$ to $u+\delta e$, then
 
-\[
+$$
 m(u+\delta e)-m(u)=\delta F_eu+\delta^2a,
-\]
+$$
 
 where
 
-\[
+$$
 F_e=D\operatorname{diag}(Re)L+D\operatorname{diag}(Le)R,
 \qquad a=D[(Le)\odot(Re)].
-\]
+$$
 
-The first term depends on the existing context \(u\); the second is fixed by the weights and direction. This explains why a shared direction can be reused while its effect still depends on the sentence.
+The first term depends on the existing context $u$; the second is fixed by the weights and direction. This explains why a shared direction can be reused while its effect still depends on the sentence.
 
 For two selected output readers, we compiled a small conditional response program and verified its algebra to roughly **10⁻¹³** in double precision. But native-context reuse tests failed the broader claim: even an exact prediction for those two readers left approximately **99–101% error** when used as a replacement for the full-vocabulary response.
 
 The review also constructed pairs of synthetic inputs with equal selected reader states and equal norm, but different full output responses. These are mathematical counterexamples to the proposed state being sufficient. They are not evidence that those synthetic states occur naturally in text.
 
-A later program included the actual output normalization and score cap. Along a local scalar edit, the token numerator is quadratic in \(\delta\), and the squared norm is quartic. For two tokens, **11 context-dependent coefficients** predicted the tested local scores within roughly **8×10⁻⁶**. That program still requires initialization from the original model's contextual state.
+A later program included the actual output normalization and score cap. Along a local scalar edit, the token numerator is quadratic in $\delta$, and the squared norm is quartic. For two tokens, **11 context-dependent coefficients** predicted the tested local scores within roughly **8×10⁻⁶**. That program still requires initialization from the original model's contextual state.
 
 **The math helped identify an exact conditional computation and falsify overly small state descriptions. It did not supply an independent producer for that state.**
 
@@ -121,18 +121,18 @@ Receipt: [lexical/form experiment](../../LEXICAL_FORM_INTERCHANGE_V1_RESULT.json
 
 We decomposed the final state into the shared scalar and its perpendicular remainder:
 
-\[
+$$
 h=se+h_\perp.
-\]
+$$
 
-For token reader \(U_t\), define \(a_t=U_te\) and \(c_t=U_th_\perp\). The actual output score is
+For token reader $U_t$, define $a_t=U_te$ and $c_t=U_th_\perp$. The actual output score is
 
-\[
+$$
 z_t=30\tanh\left(\frac{a_ts+c_t}{30\rho}\right),
 \qquad \rho=\sqrt{\operatorname{mean}(h^2)+\epsilon}.
-\]
+$$
 
-Here \(\rho\) is the final root-mean-square normalization factor; the hyperbolic tangent caps extreme scores smoothly. This separates three possible sources of change: the shared scalar, the other coordinates' token contributions, and normalization.
+Here $\rho$ is the final root-mean-square normalization factor; the hyperbolic tangent caps extreme scores smoothly. This separates three possible sources of change: the shared scalar, the other coordinates' token contributions, and normalization.
 
 At **18:13**, saved-state CPU tests checked whether simpler combinations explained F's unwanted lexical drift. Scalar-only prediction left **83–95% relative error**. Giving it the actual changed norm still left **82–107%**. The complementary contribution plus the changed norm also failed. The full formula reproduced the native scores within **6.3×10⁻⁶**.
 
