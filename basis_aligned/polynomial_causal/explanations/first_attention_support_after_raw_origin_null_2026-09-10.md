@@ -1,5 +1,11 @@
 # Moving from mixed-input importance to an exact attention support rule
 
+**Update, 10 September, 04:32 UTC:** the first-attention native test has now
+completed. Its token-derived implementation is faithful, but its behavioral
+carrier criterion fails. The mathematical audit below quantifies why an exact
+implementation of this interface still leaves most of the behavior unexplained.
+The earlier sections preserve the reasoning that preceded this result.
+
 The latest native test rejects a simple localization of MLP4's mixed cue/context
 input to either attention4 or the earlier residual stream. Neither group alone
 reproduces the effect. More importantly, this mixed correction is small on the
@@ -146,3 +152,126 @@ continuation already completed after the raw-origin null.
 - [Exact first-attention support implementation](../token_local_attention_support.py)
 - [Executed native-factor controls on the tiny model](../TOKEN_LOCAL_ATTENTION_SUPPORT_V1_CONTROLS.json)
 - [Token-based support and edge-count audit](../TOKEN_LOCAL_ATTENTION_SUPPORT_V1_ROW_AUDIT.json)
+
+## Completed first-attention test and mathematical reassessment
+
+The concern about slow circuit progress is justified. Recent work has produced
+faithful local algebra and several useful falsifications, but no new bilin18
+computation satisfying all four requested properties. The original
+[handoff](bilinear_circuit_reconstruction_codex_handoff.md) and
+[pilot report](bilinear_reconstruction_pilot_report.md) already distinguished
+an exact executor from discovery. The pilot's proposed successor was a shared
+read–route–write operation: compute a match, select information, and deliver it
+to several consumers. Accumulator rank or local reconstruction was insufficient.
+
+The latest test computed the complete first-attention cue-write difference
+directly from tokens and weights. It swapped that write into the receiving
+model while preserving the receiving first-value stream. It used all nine
+heads and all valid positions on 72 previously opened pairs, in both directions.
+There were 40 model forwards, 720 sequence evaluations and eight independent
+token-factor productions; execution took 1.63 seconds. Instrument and compiled
+effect-fidelity gates pass; the across-panel behavioral carrier gate fails.
+There is no head, position, gain or first-value follow-up to rescue this result.
+
+### The distinction can be quantified exactly
+
+Let `t` be the natural output change between a pair of texts, `d` the output
+change caused by swapping the native component, and `d_hat` the change caused
+by its compiled replacement. All three use the same receiving baseline and
+output coordinates. Define
+
+    r = ||d|| / ||t||
+    p = <d,t> / ||t||²
+    e = ||d_hat-d|| / ||d||.
+
+Here `r` measures effect size, `p` measures signed alignment with the natural
+change, and `e` measures compiler fidelity. Expanding a squared distance gives
+
+    E = ||d-t|| / ||t|| = sqrt(1 + r² - 2p).
+
+The triangle inequality then gives the interval
+
+    max(0, E-e*r) <= ||d_hat-t|| / ||t|| <= E+e*r.
+
+These are derived identities/bounds, not a fitted correction or new success
+threshold. They show why improving `e` cannot repair a large `E`: an exact
+compiler faithfully reproduces the component's limited behavioral effect.
+For example, a component producing exactly 1% of the target vector has perfect
+compiler fidelity but 99% error against the target.
+
+The executed CPU audit reconstructs `E` from the saved native norms and signed
+projections. No model was loaded, no population was changed, and no new native
+outcomes were obtained. A separate two-coordinate calculation checks the
+identity and bound.
+
+| Existing panel | Error versus natural full-vocabulary change | Error versus natural answer-margin change |
+|---|---:|---:|
+| has/had A2 | 94.2–96.2% | 99.2–99.7% |
+| has/had held-out | 93.2–94.6% | 98.9–99.6% |
+| is/was A2 | 60.9–62.0% | 70.4–71.2% |
+| is/was held-out | 75.4–77.6% | 93.3–94.1% |
+
+Ranges cover the two swap directions. Full-vocabulary vectors have their mean
+logit removed; an answer margin is the preferred-token logit minus its foil.
+Errors are Euclidean relative errors, not percentages of decisions explained.
+Compiler uncertainty changes any listed relative error by at most 0.00000473.
+Thus numerical compilation error is much too small to explain this failure.
+Previously opened held-out panels are not fresh OOD evidence.
+
+### What weight folding should identify instead
+
+For a bilinear MLP with linear maps `L`, `R`, output map `D`, bias `b`, and
+raw input `x`, a scalar downstream reader `c` gives the exact local expression
+
+    cᵀ f(x) = xᵀ Q_c x / (||x||²/d + epsilon) + cᵀ b
+    Q_c = sym(Lᵀ diag(Dᵀ c) R).
+
+The reader specifies which output is consumed; `sym(A)=(A+Aᵀ)/2`. This is
+the weight-defined quadratic-form approach developed by
+[Pearce and colleagues](https://arxiv.org/html/2410.08417v2), with the actual
+input normalization kept explicit here. It is already implemented in this
+project; deriving it again would not constitute new circuit progress.
+
+For two consumers we need to compare their functions jointly. Shared inputs,
+shared products and shared routing are different claims. For example,
+`a*b` and `a*c` share the calculation of `a` but have distinct products.
+Identical values with different matching rules share payload computation,
+but need not share routing or independently editable memory. Attention makes
+this explicit: a consumer reads `sum_s routing(t,s)*payload(s)`. Reassociating
+that sum into a recurrent state is established
+[linear-attention algebra](https://proceedings.mlr.press/v119/katharopoulos20a.html);
+it does not identify what the learned matcher computes.
+
+There is also a precise module-splitting test. If candidate input groups have
+linear maps `U_A,U_B`, the quadratic numerator contains the mixed term
+`2*aᵀ U_Aᵀ Q_c U_B*b`. It separates additively across these groups for every
+input exactly when that cross matrix vanishes for every relevant reader.
+The normalization may still couple the groups and must remain an explicit
+shared operation. Nonzero cross terms identify a required interaction in
+this coordinate/domain proposal; they do not by themselves name its semantics.
+
+The useful research target remains a shared operation with explicit producers
+and multiple actual consumers, tested through independently recomputed and
+joint interventions. A fold into a later weight matrix cannot cross omitted
+nonlinear layers. A good local tensor fit cannot supply missing inputs or
+explain the native background. The preceding response-ladder and shared-product
+nulls already demonstrate these limits; they should not be rerun under new names.
+
+The broader ledger reinforces the denominator issue: the old v23 direct-carry
+projection of 0.833 is relative to its conditional joint intervention, not the
+natural text-pair change, and its selectivity gate failed. It is not an 83%
+solution to the user's goal. The smaller associative-retrieval model's earlier
+endpoint-field positive also later failed broader layout/field tests; it is a
+different model and cannot fill the bilin18 evidence gap.
+
+This reassessment closes the weak local write branch and supplies an executed
+effect-geometry audit for comparing future candidates. It does not claim a new
+trained algorithm, selective extraction, OOD success or structural savings.
+All 545,902,902 native parameters remain necessary in these executions.
+
+- [Native first-attention result](../BILIN18_FIRST_ATTENTION_CUE_MESSAGE_V1_RESULT.json)
+- [Frozen first-attention protocol](../BILIN18_FIRST_ATTENTION_CUE_MESSAGE_V1_PREREGISTRATION.md)
+- [Executed geometry audit](../CAUSAL_EFFECT_GEOMETRY_AUDIT_V1_RESULT.json)
+- [Audit implementation](../causal_effect_geometry_audit_v1.py)
+- [Old direct-carry result](../../bilinear_quotient/circuits/followups/temporal_iswas_v23_direct_residual_readout_factorial_v2_result.json)
+- [Later endpoint-field limitations](forward_endpoint_field_circuit.md)

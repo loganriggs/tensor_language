@@ -53,6 +53,42 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## First-attention carrier fails; mathematical progress audit executed — 2026-09-10 04:33 UTC
+
+FIRST_ATTENTION_CUE_MESSAGE_V1 completed validly: instrument and compiled fidelity
+pass, across-panel cue-carrier fails. 40 forwards / 720 sequences / eight independent
+token-factor productions in 1.626s. All nine heads/all valid positions; receiving
+firstV preserved. Signed margin projection has .003–.014, is A2 .290–.298,
+is held-out .062–.071. Close this first-attention WRITE branch; no head, token,
+gain or firstV rescue. Runner SHA b906ebea79c73430a19905b32d69e67d4f7b8e74a78e88a02570199b1d1fc883.
+
+User requested mathematical reconsideration using original handoff/pilot.
+Executed causal_effect_geometry_audit_v1.py (zero model forwards). For natural
+paired target t and native component effect d, r=||d||/||t|| and
+p=<d,t>/||t||² give natural-target error E=sqrt(1+r²-2p). Compiler relative
+error e only changes E by at most e*r. Native answer-margin E is .704–.712
+for is A2 and .933–.941 for is held-out; has .989–.997. Maximum compiler
+uncertainty 4.722e-6. This is post-result diagnosis, not changed bars or a
+new candidate. Identity and triangle-bound controls pass. Saved receipt:
+CAUSAL_EFFECT_GEOMETRY_AUDIT_V1_RESULT.json.
+
+Append-only board claim plus executed CPU audit is the continuation receipt.
+Broader ledger inspected: v23 direct-carry .833 is conditional-joint-relative
+and failed selectivity; it is not natural-effect sufficiency. Smaller-model
+endpoint-field result has later broader-layout/field failures. Do not resurrect
+either as an established solution. Original handoff/pilot's shared read–route–write
+objective controls, not stale better_math goal wording. Weight folding and joint
+reader cross-block algebra already exist; repeating them is not new discovery.
+Next candidate must identify an operation with actual producers and consumers,
+carry substantial behavior, and then face extraction/joint-intervention tests;
+no particular new native interface is preregistered or queued yet.
+
+Current explanation is updated in place:
+explanations/first_attention_support_after_raw_origin_null_2026-09-10.md.
+All 545902902 native weights remain, zero structural savings. Hourly0414 is
+complete; next hourly05:14, mathematical review04:49. Both managed runners
+healthy. Preserve Claude fbd82f8ec/v471 and newer shared work. Goal remains active.
+
 ## Raw origin fails; first-attention support rule executed — 2026-09-10 04:08 UTC
 
 Previous turnPROGRESS (cdf442f60). CurrentRAW_INTERACTION_ORIGIN_V1 completed
