@@ -53,6 +53,39 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Directional coupling is internal; additive-model bound executed — 2026-09-10 09:00 UTC
+
+Preregistration/result unit 834f09bb1 follows directional preregistration 4176f6a83.
+MLP8_COUPLING_DIRECTIONS_V1_RESULT.json is valid A; both one-way hypotheses B/C
+and small interaction D fail all 32 worlds. All bridges exact. Mixed vocabulary
+interaction / directional coupling norm = 0.420819–0.671962. 512 forwards / 8192
+sequences, 9.05565 executor seconds. Runner SHA
+c50d7a2bdcba42520bd06ebe20cfcfcea55c9164d13a98679d95ec7884a3a231.
+
+MLP8_COUPLING_READOUT_V1_RESULT.json valid A; final-reader B fails 32/32, internal C
+passes 32/32. Additive endpoint a=x10+x01-x00, actual final RMS/unembedding/softcap
+recomputed. I_reader=Z10+Z01-Z00-D(a); I_internal=D(a)-Z11; I=sum. Reader remainder
+<=0.006006 of interaction across all readouts; mixed vocabulary <=0.002885.
+Decoder bridges maxabs2.002716e-5; parent cube replay exact. 512 forwards / 8192
+sequences plus 192 decoder batches / 6144 states, 19.02963 seconds. Runner SHA
+956bf14bb370bc1b3beb17d6bea5cc955204e7680df12640b6eba5d39e8720dd.
+
+Post-result CPU additive_switch_lower_bound_v1 executed with append-only board claim.
+Any additive output model B+F(a)+G(b) has worst-corner error >=||I||/4, attained by
+the alternating quarter-interaction correction. 32 random controls pass <=8.89e-16.
+Saved directional mixed-vocabulary measurements imply 0.105205–0.167991 minimum
+worst-corner error / coupling norm, excluding uniform <=.10 in every world. This is
+a bound on the fixed intervention tables, not arbitrary text or all nonlinear
+programs. Do not reopen additive architectural split/rank/head/dose rescues.
+
+Original handoff/pilot revisited. Next object: explicit INTERNAL joint computation,
+its input products and consumer uses; not another whole-module grouping or final
+reader-only explanation. No new native job registered. Actual CPU continuation
+completed; all native weights and counterfactual dependencies retained, saving0.
+Explanation: explanations/coupled_response_and_additive_limits_2026-09-10.md.
+Full goal active. Continuous clock phase markers before work and turn_boundary
+before final. Next hourly09:14 UTC; mathematical10:49 UTC (no duplicate review).
+
 ## Later response groups coupled; native recurrence repair complete — 2026-09-10 08:40:40 UTC
 
 PreviousgoalturnPROGRESS96166ca07; firstprereg9d83c3e30, repairfbca0e18c.

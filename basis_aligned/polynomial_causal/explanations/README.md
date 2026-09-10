@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Coupled response and the limits of additive explanations](coupled_response_and_additive_limits_2026-09-10.md): latest mathematical review and native test locate the directional interaction inside the layers; a sharp four-corner bound excludes uniformly 10%-accurate independent additive output branches on the registered domain.
+
 - [Noun-number selection and cross-token interactions](noun_number_selection_and_cross_token_interactions_2026-09-10.md): latest: native local-value removal with downstream recomputation passes partial causal materiality and within-bank factor selectivity; direct-carry prediction fails, leaving extraction and fresh-reader transfer open.
 
 - [Position and content in shared attention](position_and_content_in_shared_attention_2026-09-10.md): exact rounded-rotation transport is tested; native about/for phase portability fails; executed answer/complement and joint-reader mathematics clarify the distinction between a task circuit and its complete host heads.

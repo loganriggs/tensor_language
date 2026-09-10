@@ -1,0 +1,529 @@
+{
+  "parent_sha256": "d56cd3ea1bf75b8223108f48e35368085fc6d4fc3228c34f738173b06b35f4d0",
+  "controls": {
+    "passed": true,
+    "random_fixtures": 32,
+    "additive_closure_max_abs": 8.881784197001252e-16,
+    "bound_attainment_max_abs": 8.881784197001252e-16
+  },
+  "reports": [
+    {
+      "world_id": "male:husband:defend",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.053746678005011386,
+          "readers": 0.07126065138278383,
+          "vocabulary": 0.13736565437339157
+        },
+        "mixed": {
+          "margin": 0.06290158558875783,
+          "readers": 0.08578500123045762,
+          "vocabulary": 0.14020019030672867
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:husband:defend",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.11841427184379688,
+          "readers": 0.139475614809487,
+          "vocabulary": 0.11074000844605161
+        },
+        "mixed": {
+          "margin": 0.09075085719372497,
+          "readers": 0.16299558733432395,
+          "vocabulary": 0.10809265123376205
+        }
+      }
+    },
+    {
+      "world_id": "male:husband:introduce",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.13918924325718818,
+          "readers": 0.1475637163792801,
+          "vocabulary": 0.11845125465653142
+        },
+        "mixed": {
+          "margin": 0.1752124626293106,
+          "readers": 0.18242392107486144,
+          "vocabulary": 0.11821332537089149
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:husband:introduce",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.21533436779679802,
+          "readers": 0.20689761862591835,
+          "vocabulary": 0.12837711744795263
+        },
+        "mixed": {
+          "margin": 0.25299845386697434,
+          "readers": 0.2617954768106998,
+          "vocabulary": 0.12729206881762478
+        }
+      }
+    },
+    {
+      "world_id": "male:gentleman:defend",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.05445894679875292,
+          "readers": 0.058163637148278484,
+          "vocabulary": 0.1290468504435144
+        },
+        "mixed": {
+          "margin": 0.049223132413276624,
+          "readers": 0.05476199361054688,
+          "vocabulary": 0.12456145324072754
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:gentleman:defend",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.07882509116927446,
+          "readers": 0.09006816262177972,
+          "vocabulary": 0.13163957407297266
+        },
+        "mixed": {
+          "margin": 0.08640713043591322,
+          "readers": 0.09678879413580004,
+          "vocabulary": 0.13126732686637063
+        }
+      }
+    },
+    {
+      "world_id": "male:gentleman:introduce",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.17539676212551417,
+          "readers": 0.17022055927196345,
+          "vocabulary": 0.11695107436247584
+        },
+        "mixed": {
+          "margin": 0.21336087534590337,
+          "readers": 0.19827300348566482,
+          "vocabulary": 0.11643575179950566
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:gentleman:introduce",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.19138782566707885,
+          "readers": 0.12596351333874378,
+          "vocabulary": 0.1320612820025202
+        },
+        "mixed": {
+          "margin": 0.1860000113875553,
+          "readers": 0.11888150031837459,
+          "vocabulary": 0.13317677115968474
+        }
+      }
+    },
+    {
+      "world_id": "male:monk:defend",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.0655408528661003,
+          "readers": 0.07202130192554998,
+          "vocabulary": 0.16087900747738398
+        },
+        "mixed": {
+          "margin": 0.09492496527899791,
+          "readers": 0.10189979705984316,
+          "vocabulary": 0.16799053878952952
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:monk:defend",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.09771144033613553,
+          "readers": 0.09012141920275152,
+          "vocabulary": 0.11848672986438172
+        },
+        "mixed": {
+          "margin": 0.12253446348220873,
+          "readers": 0.11404952632140805,
+          "vocabulary": 0.11481841085748791
+        }
+      }
+    },
+    {
+      "world_id": "male:monk:introduce",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.05528602215975493,
+          "readers": 0.06700189197143958,
+          "vocabulary": 0.13297692655063867
+        },
+        "mixed": {
+          "margin": 0.05939637816818691,
+          "readers": 0.07104109275269968,
+          "vocabulary": 0.133199219823077
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:monk:introduce",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.13765882985746178,
+          "readers": 0.1435891333206578,
+          "vocabulary": 0.11655538307714397
+        },
+        "mixed": {
+          "margin": 0.1702012811288529,
+          "readers": 0.16825210663128626,
+          "vocabulary": 0.11431066886791376
+        }
+      }
+    },
+    {
+      "world_id": "male:dad:defend",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.03281239134814185,
+          "readers": 0.05001964533784743,
+          "vocabulary": 0.14074612107377085
+        },
+        "mixed": {
+          "margin": 0.02145690724674984,
+          "readers": 0.04378684670110815,
+          "vocabulary": 0.14348838790208526
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:dad:defend",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.07308283493028198,
+          "readers": 0.07024228718771382,
+          "vocabulary": 0.11865069651336535
+        },
+        "mixed": {
+          "margin": 0.035377844572689034,
+          "readers": 0.038279269954994324,
+          "vocabulary": 0.11555090386445695
+        }
+      }
+    },
+    {
+      "world_id": "male:dad:introduce",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.05357892239022374,
+          "readers": 0.07063366903162993,
+          "vocabulary": 0.14532586576552728
+        },
+        "mixed": {
+          "margin": 0.03519956571451244,
+          "readers": 0.06735919449793565,
+          "vocabulary": 0.14783723917341776
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:dad:introduce",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.09729818038139677,
+          "readers": 0.17722838736438565,
+          "vocabulary": 0.1327370609993902
+        },
+        "mixed": {
+          "margin": 0.08866219647065546,
+          "readers": 0.19628947668294802,
+          "vocabulary": 0.1283905195745196
+        }
+      }
+    },
+    {
+      "world_id": "female:queen:defend",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.13712441832082173,
+          "readers": 0.09700498203900522,
+          "vocabulary": 0.14285109435242196
+        },
+        "mixed": {
+          "margin": 0.39320919359471107,
+          "readers": 0.10308724285299654,
+          "vocabulary": 0.14565307472773797
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:queen:defend",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.18972676211899817,
+          "readers": 0.13134167988483547,
+          "vocabulary": 0.12819648985350424
+        },
+        "mixed": {
+          "margin": 0.19360019178600416,
+          "readers": 0.1308366783034894,
+          "vocabulary": 0.12681717062598397
+        }
+      }
+    },
+    {
+      "world_id": "female:queen:introduce",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.11295189127862747,
+          "readers": 0.13987102579220215,
+          "vocabulary": 0.14695721256697702
+        },
+        "mixed": {
+          "margin": 0.1240430377427595,
+          "readers": 0.15411490415744034,
+          "vocabulary": 0.15073533849169254
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:queen:introduce",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.09478792225552629,
+          "readers": 0.15704889646387304,
+          "vocabulary": 0.13899294291246914
+        },
+        "mixed": {
+          "margin": 0.09779182189360015,
+          "readers": 0.21082696693693226,
+          "vocabulary": 0.1378684550035829
+        }
+      }
+    },
+    {
+      "world_id": "female:woman:defend",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.05394082298135333,
+          "readers": 0.11049070918338398,
+          "vocabulary": 0.13359059586816616
+        },
+        "mixed": {
+          "margin": 0.050688270564094536,
+          "readers": 0.11808187039604714,
+          "vocabulary": 0.13374267446474364
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:woman:defend",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.21332293875795166,
+          "readers": 0.12009875145168132,
+          "vocabulary": 0.1551779072368564
+        },
+        "mixed": {
+          "margin": 0.22488700727246627,
+          "readers": 0.12385377516698527,
+          "vocabulary": 0.15827051868953843
+        }
+      }
+    },
+    {
+      "world_id": "female:woman:introduce",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.09067710044100047,
+          "readers": 0.10936345065620873,
+          "vocabulary": 0.1162918666108055
+        },
+        "mixed": {
+          "margin": 0.09756163822899398,
+          "readers": 0.12094358003883161,
+          "vocabulary": 0.11449890130739268
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:woman:introduce",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.25045468805848314,
+          "readers": 0.09780147167924855,
+          "vocabulary": 0.16388182837969564
+        },
+        "mixed": {
+          "margin": 0.3379995454920597,
+          "readers": 0.09665578830771134,
+          "vocabulary": 0.1661834940510456
+        }
+      }
+    },
+    {
+      "world_id": "female:girl:defend",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.11874645111126444,
+          "readers": 0.14319546215156076,
+          "vocabulary": 0.13197749806719386
+        },
+        "mixed": {
+          "margin": 0.15242965059190636,
+          "readers": 0.16588877054222934,
+          "vocabulary": 0.13269732897840833
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:girl:defend",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.15201824262561733,
+          "readers": 0.11581642612460363,
+          "vocabulary": 0.13393245984302468
+        },
+        "mixed": {
+          "margin": 0.15817975371863993,
+          "readers": 0.13102700679634072,
+          "vocabulary": 0.13417495415141084
+        }
+      }
+    },
+    {
+      "world_id": "female:girl:introduce",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.18364036860310123,
+          "readers": 0.1659678779551108,
+          "vocabulary": 0.13533938858136868
+        },
+        "mixed": {
+          "margin": 0.3785532370412552,
+          "readers": 0.19959089623509274,
+          "vocabulary": 0.13575446441285932
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:girl:introduce",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.11386028659308894,
+          "readers": 0.08048999032734469,
+          "vocabulary": 0.1253746533398581
+        },
+        "mixed": {
+          "margin": 0.1476515055314364,
+          "readers": 0.06724685447341935,
+          "vocabulary": 0.12466966317329584
+        }
+      }
+    },
+    {
+      "world_id": "female:mother:defend",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.07290632982683776,
+          "readers": 0.10775167373596388,
+          "vocabulary": 0.12024270835204993
+        },
+        "mixed": {
+          "margin": 0.06350398023902795,
+          "readers": 0.11359854111036438,
+          "vocabulary": 0.11966749061779819
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:mother:defend",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.21605228528787926,
+          "readers": 0.09984235213607605,
+          "vocabulary": 0.1092865430188974
+        },
+        "mixed": {
+          "margin": 0.2130098336890155,
+          "readers": 0.08893475843233897,
+          "vocabulary": 0.1052048107144604
+        }
+      }
+    },
+    {
+      "world_id": "female:mother:introduce",
+      "layout": "original",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.08254718789046253,
+          "readers": 0.15032619918530543,
+          "vocabulary": 0.126419266718018
+        },
+        "mixed": {
+          "margin": 0.07992809773224775,
+          "readers": 0.17987702881012604,
+          "vocabulary": 0.1265080959896054
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:mother:introduce",
+      "layout": "fronted_pp",
+      "sharp_worst_corner_bound_over_coupling_total": {
+        "full": {
+          "margin": 0.25831126609307137,
+          "readers": 0.15518343618495153,
+          "vocabulary": 0.12379421383665964
+        },
+        "mixed": {
+          "margin": 0.15908907675927533,
+          "readers": 0.12719115164934092,
+          "vocabulary": 0.1192922692665597
+        }
+      }
+    }
+  ],
+  "mixed_vocabulary_bound_range": [
+    0.1052048107144604,
+    0.16799053878952952
+  ],
+  "worlds_excluding_uniform_10_percent_additive_output_error": 32,
+  "scope": "Sharp minimax norm bound for any Y_ab=B+F(a)+G(b), normalized by the parent directional-coupling total, on these fixed intervention tables. Does not rule out shared nonlinear readers, internal additive writes, context-dependent joint operations, or smaller nonlinear programs. Native measurements are numerical, not exact arithmetic certificates of the trained model."
+}
