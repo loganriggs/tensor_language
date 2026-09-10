@@ -53,3 +53,7 @@ The evidence now says: the two output branches often access overlapping value-in
 The original P/R donor dissociation and failed selective removal remain unchanged. The token/hierarchy backward-unembedding findings are also preserved: an explicit conditional token-reader fold predicts a separate small opposing MLP16 effect, while coarse group means are insufficient. No four-property circuit or structural model reduction is claimed.
 
 Evidence: [registered test](../../CORRELATIVE_THREE_FACTOR_V1_PREREGISTRATION.md), [native result](../../CORRELATIVE_THREE_FACTOR_V1_RESULT.json), [paired audit](../../CORRELATIVE_THREE_FACTOR_AUDIT_V1_RESULT.json), [factor executor](../../correlative_three_factor_executor_v1.py).
+
+## Follow-up through 19:56
+
+The corrected joint QK experiments are separate from folding unembedding through MLP17 into final attention. V2 removes positional coordinates before fitting task spaces. The weight pullback compares sym(Q1ᵀWQ2) readers on a common input; average overlaps .164 query/.285 key, with native denominators retained as distinct state-dependent factors. No fully disjoint or mostly shared claim passed. [Full explanation and receipts](unsupervised_products_and_position_corrected_qk.md).

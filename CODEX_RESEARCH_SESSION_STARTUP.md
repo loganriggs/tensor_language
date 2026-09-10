@@ -82,7 +82,7 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 19:45
+## Current handoff — updated 10 September 2026, 19:56
 
 Full goal remains active. LATEST links the current explanation and primary receipts.
 UNSUPERVISED_JOINT32_V1_RESULT.json (19:31): all-token weight-only joint fit,
@@ -91,14 +91,22 @@ Two stable products have pronoun-related loadings. STABLE_JOINT32_PRIOR_V1_AUDIT
 compares existing §§1583/1589–1591: one product's readers span the old gender axis
 at .961 projection length, but the two-product zero-reflection tensor leaves .9035
 full-vocabulary coefficient error. Do not call this a newly discovered gender circuit.
-Next bounded screen compares the two products' reflection effect on natural contexts.
+STABLE_JOINT32_REFLECTION_V1_RESULT.json (19:48) now holds its instrument but
+fails sufficiency/selectivity: full-vocabulary response error .853/.856, target-CE
+response error .306/.326, other-target absolute removal CE .01161/.01204 > .01.
+UNEMBEDDING_SUPPORT_FEASIBILITY_V1_AUDIT.json tests the math1949 consequence:
+small exact token-support writes are infeasible for three specified groups.
+This restricts residual-writer coefficients, not behavioral selectivity.
 No sparsity penalty; exact output loadings all dense. Native remainder retained.
 
 CORRELATIVE_JOINT_QK_SUBSPACES_V2_RESULT.json (19:34) compares pre-position joint
 QK1×QK2 spaces. A2 own-routing error improves .628 to .149; A1 .157, C .272.
 Overall own-routing/selectivity hypotheses still fail. These are the same opened
 rows, not independent confirmation; edits act on joint-feature ports, not native
-raw-input vectors. Both unembedding and QK directions remain active.
+raw-input vectors. JOINT_QK_INPUT_PULLBACK_V1_AUDIT.json folds the fixed QK readers through actual
+weights: average overlap .164 queries/.285 keys, greater than product-coordinate
+overlap .072/.166. These are separate task-QK readers, not unembedding through
+MLP17 through final attention. Both unembedding and QK directions remain active.
 
 User mathematical authorities: explanations/2026-09-10/unembedding_folding_in_math.md
 and unembedding_factors_how.md. Follow unsupervised all-token factor discovery,
@@ -125,8 +133,8 @@ Latest hourly review:
 [19:14](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-10_1914.md).
 Next hourly review is due **20:14 UTC** at the first safe boundary.
 Latest mathematical review:
-[16:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_1649.md).
-Next mathematical review is due **19:49 UTC**. Derive later deadlines from the
+[19:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_1949.md).
+Next mathematical review is due **22:49 UTC**. Derive later deadlines from the
 newest authoritative review files, not this snapshot. Do not duplicate reviews.
 
 Hourly reviews restate seven circuit targets: explicit computation;

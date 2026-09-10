@@ -1,0 +1,168 @@
+{
+  "scope": "Numerical fixed-group bounds on linear numerator writes Uw; not exact cospark of trained U, not final probability or behavior bounds.",
+  "groups": {
+    "six_pronouns": {
+      "max_fraction_squared_loading_in_group": 0.10448456649466675,
+      "min_fraction_squared_loading_outside_group": 0.8955154335053332,
+      "witness_fraction": 0.10448456649467623,
+      "witness_absolute_error": 9.478529072737274e-15,
+      "outside_gram_min_eigenvalue": 23.220076652637154,
+      "outside_gram_min_to_max_eigenvalue": 0.0003328890425056926,
+      "outside_numerical_rank": 1152,
+      "token_ids": [
+        339,
+        673,
+        484,
+        679,
+        1375,
+        1119
+      ],
+      "tokens": [
+        " he",
+        " she",
+        " they",
+        " He",
+        " She",
+        " They"
+      ],
+      "recovered_pair_loading_fractions": [
+        0.017775187620082858,
+        0.016169138828479958
+      ]
+    },
+    "stable_native_0_top12_absolute": {
+      "max_fraction_squared_loading_in_group": 0.20487845058650428,
+      "min_fraction_squared_loading_outside_group": 0.7951215494134958,
+      "witness_fraction": 0.20487845058651796,
+      "witness_absolute_error": 1.3683498778505054e-14,
+      "outside_gram_min_eigenvalue": 23.21787312311536,
+      "outside_gram_min_to_max_eigenvalue": 0.00033289146606607796,
+      "outside_numerical_rank": 1152,
+      "token_ids": [
+        607,
+        673,
+        3347,
+        5223,
+        1375,
+        25144,
+        7091,
+        9360,
+        2332,
+        48052,
+        24906,
+        2415
+      ],
+      "tokens": [
+        " her",
+        " she",
+        "She",
+        " herself",
+        " She",
+        " hers",
+        "she",
+        "Her",
+        " Her",
+        " SHE",
+        " HER",
+        " woman"
+      ],
+      "recovered_pair_loading_fractions": [
+        0.07328439924931907,
+        0.0002846382234714051
+      ]
+    },
+    "stable_native_9_top12_absolute": {
+      "max_fraction_squared_loading_in_group": 0.22238021339199418,
+      "min_fraction_squared_loading_outside_group": 0.7776197866080058,
+      "witness_fraction": 0.22238021339200909,
+      "witness_absolute_error": 1.4904744105592727e-14,
+      "outside_gram_min_eigenvalue": 23.211867158277503,
+      "outside_gram_min_to_max_eigenvalue": 0.0003327947741421489,
+      "outside_numerical_rank": 1152,
+      "token_ids": [
+        465,
+        339,
+        683,
+        6653,
+        679,
+        2399,
+        1544,
+        14363,
+        2241,
+        38400,
+        33700,
+        10978
+      ],
+      "tokens": [
+        " his",
+        " he",
+        " him",
+        "His",
+        " He",
+        " His",
+        "He",
+        "his",
+        " himself",
+        "him",
+        " HIS",
+        " Him"
+      ],
+      "recovered_pair_loading_fractions": [
+        0.00024318285717974078,
+        0.07882957062955567
+      ]
+    }
+  },
+  "analytic_control": {
+    "max_fraction_squared_loading_in_group": 0.6666666666666665,
+    "min_fraction_squared_loading_outside_group": 0.3333333333333335,
+    "witness_fraction": 0.6666666666666666,
+    "witness_absolute_error": 1.1102230246251565e-16,
+    "outside_gram_min_eigenvalue": 0.38196601125010526,
+    "outside_gram_min_to_max_eigenvalue": 0.1458980337503155,
+    "outside_numerical_rank": 2
+  },
+  "reflection_paired": {
+    "native": {
+      "response_error_interval": [
+        0.8069732632895615,
+        0.9046094616325504
+      ],
+      "target_ce_response_error_interval": [
+        0.24442666133862326,
+        0.4121681399849823
+      ],
+      "removal_class_absolute_ce_interval": [
+        0.14903217538159333,
+        0.25049485164194163
+      ],
+      "removal_nonclass_absolute_ce_interval": [
+        0.01048935722925521,
+        0.012809871691422522
+      ]
+    },
+    "random": {
+      "response_error_interval": [
+        0.8088741765470392,
+        0.908612409716914
+      ],
+      "target_ce_response_error_interval": [
+        0.27693215262337356,
+        0.42310799909857894
+      ],
+      "removal_class_absolute_ce_interval": [
+        0.12738329257477413,
+        0.21184150248950842
+      ],
+      "removal_nonclass_absolute_ce_interval": [
+        0.011126262046720284,
+        0.012991623173968297
+      ]
+    }
+  },
+  "interpretation": "Every specified complement has full numerical column rank. No nonzero residual writer can be supported exactly on these groups, subject to numerical rank qualification. The extremal concentration bound applies to any residual writer, not only fitted products.",
+  "complexity": "One O(V d^2) Gram and O(d^3) factorization; each size-s group O(s d^2+s^3), plus O(d^3) complement spectral diagnostic; O(Vd+d^2) storage.",
+  "cpu_seconds": 1.6134090460836887,
+  "native_forwards": 0,
+  "source_sha256": "1059135fe4b43525488bf042fe5634876c01de23b5bbb512cf781721bc41314a"
+}
