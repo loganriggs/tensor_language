@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "errors": {
+    "four_corner_identity": 1.4566126083082054e-13,
+    "three_corner_prediction_remainder": 8.526512829121202e-14,
+    "gauge_parts": 0.0,
+    "normalized_corners_identity": 7.105427357601002e-15
+  },
+  "local_only": {
+    "local": 1.0,
+    "inherited": 0.0
+  },
+  "inherited_only": {
+    "local": 0.0,
+    "inherited": 3.0
+  },
+  "normalization_input_nonadditivity_norm": 0.3839519885551572,
+  "normalization_inherited_output_norm": 8.344753137461808,
+  "native_model_loaded": false,
+  "gpu_accessed": false,
+  "scope": "Exact local partition only; no native semantic interaction or downstream fidelity established.",
+  "source_sha256": "c5f92bb2a4746413d551b488a8d9452f722426fa7de1b5554c4c6be7fe0874bb"
+}

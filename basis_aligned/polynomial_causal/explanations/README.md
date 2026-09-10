@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Behavior-guided products and semantic squares](behavior_guided_products_and_semantic_squares_2026-09-10.md): shared128 beats random but fails native sufficiency; exact four-corner algebra and deterministic row squares prepare a test of where cue/context interactions are constructed.
+
 - [Bilinear products after response nulls](bilinear_products_after_response_nulls_2026-09-10.md): normalization-preserving approximation fails; exact product swaps/removals, cancellation counterexample, and a tested weight-tensor Gram formula return the work to within-module sharing and splitting.
 
 - [Mixed chain and nonlinear response](mixed_chain_and_nonlinear_response_2026-09-10.md): both intervening module types are required; a receiving-context derivative also fails finite-response prediction, with a certified scalar-repair error floor; normalization-preserving factor-response test prepared.

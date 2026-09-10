@@ -53,6 +53,50 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Shared products fail; semantic-square math executed — 2026-09-10 03:31 UTC
+
+Previous goal turn PROGRESS (d9597e5da). Current SHARED_PRODUCTS_V1 valid
+managed result03:24:31,80forwards/1392seq/4backwards in2.071s. A/C/Dpass Bfail:
+shared128full-vectorerror.700–.820, own128.566–.731, cross.720–.924,
+random.973–.990. Shared beatsrandom byregistered.05 inbothframes/all8cells,
+but allsharedsufficiencycellsfail. Sharedstaticremoval retains.828–.894 signed
+nativecuecontrast. Maxauditerror2.167e-5, allpass. RunnerSHA
+178acfd7538249fadccaaaa951d12eeb611d96edb91814e9ad1f1936f16109f1.
+No budget, subset-family, score or gain rescue. All545902902weights remain,
+saving0. Fitting used24originalpairs ONLY, evaluation72openedpairs. Fixed
+sharedminnormalizedsaliency128; tasksets overlap26, notsemanticidentification.
+
+source_margin_gradient.py enables reverseAD atdetachedsourceMLP4output inside
+UNCHANGED nativebackend/no_grad; freezes/restores parameterflags andgradmode,
+saves lm_head outputwithoutdetach, autograd.grad onlysource. Never use
+inference_mode aroundthishelper. Eighttinychecks pass; centraldiff2.03e-12.
+Initialtinyheadzero causeddead-gradient checkfail; plantedheadinitialized
+before native. Callbackexception cleanup tested, noparametergrads accumulated.
+Completedhelper/runner/protocol/result hashes immutable.
+
+Next changedobject: semantic_square_bilinear.py plusexecutedcontrols and
+SEMANTIC_SQUARE_ROWS_V1_AUDIT.json (builderaudit_semantic_square_rows_v1.py).
+For fourobservednormalizedinputs, u=n10-n00,v=n01-n00,
+w=n11-n10-n01+n00,a=n00+u+v. Exact mixedMLPoutput = B(u,v)+B(v,u)
+plusB(a,w)+B(w,a)+B(w,w). Firstpart constructsinteractioninsideMLP;
+secondresponds toinputnonadditivity, which includesupstreamANDnormalization.
+MaxCPUidentityerror1.457e-13; local-only/inherited-only/RMScontrols pass.
+This is not the oldone-pairLeft/Rightresponsefactorial. No native squaredomain
+or componentfidelity protocol is registeredyet, noownedGPUjobpending.
+
+Manifest creates46disjointsquares from92of96pairs:11fit,35eval; twois_fit
+andtwois_a2pairsunused forcompatiblepartneravailability. Fixedcuepositions,
+cuetokens/answers/length; contextpositionsdisjoint. DeterministicrowIDs and
+nooutcomes used. Context islexical-background BUNDLE, not necessarilya noun.
+Allrowsopened; nofreshOOD. Threecornerinputa maynotbenativelynormalized or
+reachable; donotclaimrawtext extraction. Nativefourthinputneededforinherited
+term cannotbeusedasheldoutprediction. Nexttestshould askwhereconjunctionis
+formed usingthese objects, notrevive sparsebudgetselection.
+
+New explanation behavior_guided_products_and_semantic_squares_2026-09-10.md.
+CPUalgebra/rowaudit isactualcontinuation afterthenativenull. Goalactive,
+originalhandoff/pilot authority, clocks04:14hourly/04:49math unchanged.
+
 ## Product-subset math after normalization-response null — 2026-09-10 03:14 UTC
 
 Current goal remains active; original handoff/pilot and appended structural

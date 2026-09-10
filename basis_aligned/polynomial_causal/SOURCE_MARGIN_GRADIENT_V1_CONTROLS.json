@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": {
+    "primal_exact": true,
+    "central_difference": true,
+    "live_gradient": true,
+    "padded_gradient_zero": true,
+    "grad_mode_restored": true,
+    "parameter_flags_restored": true,
+    "hooks_restored": true,
+    "no_weight_gradients": true
+  },
+  "central_difference_abs_error": 2.0280999102340047e-12,
+  "tiny_complete_forwards": 4,
+  "tiny_partial_exception_forwards": 1,
+  "tiny_backwards": 1,
+  "source_sha256": "c0fc4e672e167f9d93fe83ed2f6e4fd2aa09719492c47fb439d74f4b9c0f2217"
+}
