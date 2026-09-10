@@ -53,6 +53,36 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## MLP9 mediator rejected; broader group control executed — 2026-09-10 08:25:13 UTC
+
+PreviousgoalturnPROGRESS8ff0131cd; preregistrationebdc63b1d.
+MLP8_MLP9_BYPASS_FACTORIAL_V1_RESULT.json validA/D; Bmediator/Cremainingfailall32.
+MLP8sourceS0/S1 crossed withMLP9writeM0/M1, A9nativeheldinEVERYarm. Fullvocabulary
+metrics included. All5bridgesexact;448forwards7168seq,7.91374s. RunnerSHA
+6b9a9f270e02b31236176173bc7c81bd17c0187270d0f010f4394d0705dfaeea.
+Taskremainingpasses8/16original,0/16fronted; mediator0/32. Remainingvocabularyerrors
+.366–.480; MLP9dominanceerrors .807–.895vocabulary. Interaction32/32pass, max
+.00076521mixed/.00583117fullincludingvocabulary. Do notpromotetask-onlypreservation.
+
+Post-resultCPUmlp9_consumer_scope_bounds_v1 executed. FromT=M+R+I, mediatornorm/T
+liesbetween remainingerror +/-interactionnorm; envelope.36545–.48010vocabulary.
+This isnot signedexplainedfraction. Sequentialgroupcontrol outputcube[[5,2],[4,0]]
+forattentionlive×MLPlive undereditedsource; lateeffects total5,A1,M3,I1; directcarry1.
+ReplayingfulleditMLPwrite underAclamp gives1 insteadactual2, so livegroups mustrecompute.
+
+STOP automaticadjacent-layerwalking. Nextbroadercandidate: sourceMLP8fullmixedremoved,
+A9nativealways; groupsA10..17 andM9..17 eachlive vsclampednativewrites. Fourarms
+(frozen/frozen,live/frozen,frozen/live,live/live) withnativeprefix andlivegroupsreally
+recomputed. Define late-response effects relativeallfrozen, whose finalstate should
+bridge the prior directcarry prediction; alllivebridgespriorbypass. Nativeidentity
+clamps required. KeepfirstVtuplesnative; groupsdiagnosticnotsemanticunits. No new
+nativegroupjobregistered. CPUcontinuationexecuted; explanation25updated.
+Fullgoalactive, all545902902weights/nativecounterfactualinputs retained,saving0.
+Continuousclock RESEARCH_ACTIVITY_2026-09-10_0814.jsonl: markrestore beforefirstreads,
+then scientificdesign, implementation, validation, science, publication BEFOREactions
+(prefer a separate marker tool call before composing a long edit). Markturn_boundary
+beforefinal; excludeinter-turngap. Next hourly09:14 UTC; math10:49 UTC.
+
 ## Direct carry rejected; MLP9 response control and hourly review executed — 2026-09-10 08:16:50 UTC
 
 PreviousgoalturnPROGRESS83b6d5fa3; preregistration9a15028b8.

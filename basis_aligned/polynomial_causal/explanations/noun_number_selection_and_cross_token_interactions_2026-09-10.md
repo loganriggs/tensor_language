@@ -1,6 +1,6 @@
 # Noun-number selection: what the model does, and what the math rules out
 
-**Latest result:** direct residual carry fails to explain MLP8’s bypass effect, including an 83–92% error on the full vocabulary interaction. Later computations remain necessary. We verified an exact normalized bilinear-response identity for testing MLP9 next. Section 24 gives the native results; the 08:14 hourly review records seven valid screens and the remaining extraction gap.
+**Latest result:** MLP9 does not account for the bypass alone. In eight original groups its remaining routes preserve the task answers closely, yet fail the full-vocabulary check. Norm bounds show a substantial MLP9 vocabulary effect. We are stopping the adjacent-layer search and preparing a broader comparison of later attention and MLP responses. Section 25 explains the evidence and intervention semantics.
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
@@ -721,3 +721,25 @@ The first term is linear in the **normalized** change d, and the second is quadr
 Before splitting that response further, a native test should establish whether MLP9's changed write materially mediates the bypass. It can cross native/edited MLP8 source with native/edited MLP9 output while keeping attention9 native in every arm. The current run has not performed that experiment. The full four-property goal and independent extraction remain unresolved.
 
 The [08:14 hourly review](../HOURLY_STRATEGIC_REVIEW_2026-09-10_0814.md) records seven valid screens, a 7m31 median completion gap, and no independently extracted circuit. Only 49.9% of phase time was recorded; a continuous activity clock and reusable audit now make the missing time explicit. Next hourly review09:14 UTC; mathematical review10:49 UTC.
+
+## 25. MLP9 is not the dominant mediator, and task readouts miss part of its importance
+
+The [next native experiment](../MLP8_MLP9_BYPASS_FACTORIAL_V1_RESULT.json) crosses native/edited MLP8 source with native/edited MLP9 output while keeping attention9 native in every arm. All later computations respond normally. This measures MLP9's contribution and the remaining routes within the previously measured bypass.
+
+All implementation checks pass. Native, source-edited, bypass and both diagonal identity replays match exactly. Execution used 448 forwards over 7,168 sequence instances in 7.91 seconds. Both the reflexive answers and centered full-vocabulary effects were measured.
+
+MLP9 alone does not reproduce the bypass in any group. Nor do the remaining routes pass the combined task-and-vocabulary criterion in any group. There is an instructive difference in measurement scope: the remaining routes pass the task-only criterion in 8/16 original groups, but their full-vocabulary relative error is still 37.8–46.6% across original groups. Fronted groups pass neither criterion; remaining-route vocabulary errors are 36.6–48.0%.
+
+Interaction remains small in all 32 groups: at most 0.0766% on mixed effects and 0.584% on full tables, including vocabulary readouts. Small interaction supports this local additive accounting; it does not make the remaining native network independently understood.
+
+The [executed norm-bound analysis](../MLP9_CONSUMER_SCOPE_BOUNDS_V1_RESULT.json) makes the vocabulary implication precise. Write T=M+R+I for total, MLP9-mediated, remaining and interaction effects. The saved error e=||R−T||/||T|| and interaction magnitude i=||I||/||T|| give
+
+\[
+\max(0,e-i)\leq\frac{\|M\|}{\|T\|}\leq e+i.
+\]
+
+Across the groups, these bounds place MLP9's centered mixed-vocabulary effect at roughly 36.5–48.1% of the total effect's norm. This is a magnitude comparison, not a signed percentage explained. Task-only preservation would miss a substantial vocabulary effect.
+
+We are stopping the adjacent-layer search here. The next candidate partition compares all later attention responses (layers10–17) against all later MLP responses (layers9–17), with attention9 fixed and the MLP8 source edit held constant. Each group is either allowed to recompute or clamped to its native writes. The fully clamped case supplies the direct-carry reference; the two single-live-group cases and fully live case reveal their response and interaction.
+
+The CPU group control has been executed. It demonstrates why a live group must recompute under the other group's clamp: replaying that group's outputs from the fully edited run can give the wrong result. These broad architectural groups are proposed diagnostic partitions, not assumed semantic circuits. No native group experiment has yet been registered, and the independent-extraction goal remains incomplete.
