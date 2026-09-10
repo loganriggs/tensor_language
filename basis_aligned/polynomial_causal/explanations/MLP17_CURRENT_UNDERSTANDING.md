@@ -265,3 +265,10 @@ outputaxes are80–90%uniform, notindependentsemanticwrites. CommonQ needs440
 signedsquaredirections for90%energy; best128realproductcapture73.964%, attained
 byexactpositive/negativeeigenpairing. PreservecommonchannelbeforeRMS/tanh, not
 a removablefinalsoftmaxgauge. [Derivation and receipts](2026-09-10/unsupervised_structure_campaign.md#what-the-blocks-found-common-output-versus-token-contrasts--2226-utc).
+
+### 10 September22:41: converged squares and sparse-core baseline
+Signed256squarefit convergedlocally after17.26spolish, capture9.64522%; both
+originalparameter-gauge andcanonicalstationaritypass1e-4. Moreparameters than
+128products; no global/circuitclaim. Centered128input/256edge spectralbaseline
+captures1.401%, fullprojectedcore6.406%; inputframeunoptimized. Exactconditional
+edgechoice andStiefelframeupdate controls held. [Explanation and receipts](2026-09-10/unsupervised_structure_campaign.md#signed-squares-converged-sparse-core-basis-update-prepared--2241-utc).

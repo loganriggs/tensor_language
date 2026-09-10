@@ -1028,3 +1028,91 @@ internal tolerance, preservingthe externalconvergencebars andoriginalfailure.
 No nativepolish hasrun yet. The managedsquarejob is complete; the stoppingaudit
 is the concretecontinuation. The common-output/contrast findings above remain
 unchanged andcontinue to motivate a different structuralfactorization next.
+
+
+## Signed squares converged; sparse-core basis update prepared — 22:41 UTC
+
+**The signed-square fit now converges locally. A new sparse-interaction method
+has an exact fixed-basis baseline and a tested basis-update calculation.**
+Neither result establishes the four circuit properties.
+
+The stopping repair took17.26additional seconds and492closures, after the
+original369.75second fit. All three new predictions passed. Final capture is
+9.64522%; cancellation ratio0.99745. Relative stationarity is$3.30\times10^{-5}$
+in unit-reader coordinates and$8.09\times10^{-5}$ when transported back to the
+original per-row scales. Both pass the unchanged$10^{-4}$ threshold, alongside
+the maximum-gradient and plateau checks. The function replay is exact.
+[Polish receipt](../../WEIGHT_SQUARE_POLISH_V1_RESULT.json).
+
+The original one-percentage-point improvement prediction remains failed:
+9.645% versus8.699% is a smaller increase. The square representation also uses
+589824parameters versus442368for128products. Local convergence removes one
+uncertainty; it does not prove a global optimum, fair matched-capacity superiority
+or stable semantic factors.
+
+The new method represents the centered output tensor with an orthonormal input
+frame $Q\in\mathbb R^{1152\times128}$ and a sparse set of quadratic edges.
+Each edge joins two projected inputs, or squares one. In coefficient space the
+normalized symmetric features are orthonormal:
+
+$$
+H_{ii}=q_iq_i^{\mathsf T},\qquad
+H_{ij}=\frac{q_iq_j^{\mathsf T}+q_jq_i^{\mathsf T}}{\sqrt2}\quad(i<j).
+$$
+
+For a fixed frame, projecting the target tensor onto each $H_{ij}$ gives its
+optimal output writer. Selecting the256largest writer energies is then the
+exact best256-edge choice in that frame. No nonlinear optimization or hidden
+ridge is needed for this conditional problem.
+
+The initial frame comes from the top128eigenvectors of the centered tensor's
+input marginal, which sums squared quadratic operators over output coordinates.
+This is a spectral initialization: it optimizes one input-mode projection, not
+the final sparse-core score. The native calculation used weights alone and took
+5.80seconds on CPU. Independent dense controls and native trace/projection
+bridges passed.
+[Controls](../../SPARSE_ORTHOGONAL_CORE_V1_CONTROL.json),
+[native baseline](../../SPARSE_ORTHOGONAL_CORE_V1_RESULT.json).
+
+The256selected edges capture1.401% of centered coefficient energy; all8256edges
+in the same frame capture6.406%. The selected graph uses44of128input readers,
+with232off-diagonal edges; one input participates in33.9% of selected energy.
+The registered5%capture and distributed-graph predictions both fail. These
+numbers describe this initial frame, not an optimized sparse-core model.
+The input marginal's top128energy is22.484%, an upper bound on the energy that
+any128-dimensional input subspace can preserve in both slots. A single small
+global dictionary is therefore a substantive restriction, even with better
+optimization; larger or overlapping local subspaces remain distinct hypotheses.
+
+Storage for the centered candidate is442368floating-point coefficients plus
+512edge indices. The exact common channel is additional: a dense symmetric
+1152-dimensional quadratic needs664128independent coefficients. Those costs
+must be included when comparing a complete common-plus-contrast representation.
+The compact centered artifact stores3.56MB of tensors; a larger original archive
+was also retained. Only retired synthetic test fixtures were cleared for space.
+
+The next update must optimize the **frame**, not only its spanned subspace.
+Rotating a frame can change which edges are sparse even when the subspace stays
+identical. In the control, such a rotation preserved full-core energy to
+$3.9\times10^{-17}$ while changing the sparse-core score by0.00881.
+For a Euclidean gradient $G$, the orthonormal-frame tangent projection is
+
+$$
+G_{\mathrm{tan}}=G-Q\operatorname{sym}(Q^{\mathsf T}G).
+$$
+
+This retains the within-subspace rotation component. A QR retraction preserves
+orthogonality after a proposed step. Backtracking accepts sufficient ascent
+on the old selected edges; reselecting the best edges can only improve that
+score, so the old-support score supplies a valid lower bound for acceptance.
+The finite-difference gradient check agrees to$2.5\times10^{-10}$ relative error;
+the test update increases the true sparse score from0.09217to0.15066 while
+preserving orthogonality. [Frame-update control](../../SPARSE_CORE_STIEFEL_V1_CONTROL.json).
+
+This uses the orthogonality-constrained optimization framework described by
+[Edelman, Arias and Smith](https://math.mit.edu/~edelman/publications/geometry_of_algorithms.pdf).
+Our top-edge selection makes the objective piecewise smooth, so smooth-manifold
+convergence results do not automatically cover support changes. The update
+calculation is implemented and checked; a native basis-optimization run and
+restart stability remain pending. It would be premature to call the sparse-core
+hypothesis exhausted from the fixed-frame baseline.

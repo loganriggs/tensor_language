@@ -1,0 +1,39 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_centered_capture": false,
+    "pred_c_distributed_interaction_graph": false
+  },
+  "centered_coefficient_capture": 0.01401104258184285,
+  "full_projected_core_capture": 0.06406053054815872,
+  "input_one_mode_top128_energy": 0.22484354416642433,
+  "active_input_readers": 44,
+  "offdiagonal_edges": 232,
+  "maximum_node_incident_energy_fraction": 0.33905369377046174,
+  "top_node_incident_energy_fractions": [
+    0.33905369377046174,
+    0.15255703543856733,
+    0.11264762802652203,
+    0.09512534646014559,
+    0.09332552920298329,
+    0.08299647771596848,
+    0.07660423171027142,
+    0.07269473523808145
+  ],
+  "native_centered_total": 92104252412.19983,
+  "native_trace_bridge": 2.886579864025407e-15,
+  "writer_bridge": 1.1389211331138544e-15,
+  "basis_orthogonality_error": 3.219646771412954e-15,
+  "price": {
+    "body_forwards": 0,
+    "basis_float_numbers": 147456,
+    "writer_float_numbers": 294912,
+    "edge_indices": 512,
+    "centered_float_numbers": 442368,
+    "additional_exact_common_symmetric_numbers": 664128,
+    "checkpoint_bytes": 12992299
+  },
+  "checkpoint_sha256": "e4b0679b1bd2c001dea81c6d8fdcca63cd434b2bdb25b69a16d602d430837469",
+  "wall_seconds": 5.801653262227774,
+  "scope": "Conditional exact sparseedge choice in a fixedorthogonal spectralinputbasis; basisnotoptimized. Outputcenteredmetric, explicitcommonchannelpreservedseparately. Notglobalbestbasis, circuit, or fullmodeladoption."
+}

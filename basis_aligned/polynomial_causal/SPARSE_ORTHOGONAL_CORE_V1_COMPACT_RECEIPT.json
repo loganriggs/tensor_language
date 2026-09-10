@@ -1,0 +1,8 @@
+{
+  "source_sha256": "e4b0679b1bd2c001dea81c6d8fdcca63cd434b2bdb25b69a16d602d430837469",
+  "compact_sha256": "8ba054bf07dab0c3f6f3b357b157c02db15dbbee4873e7de6630a0470b0ec515",
+  "source_bytes": 12992299,
+  "compact_bytes": 3555195,
+  "all_tensor_values_identical": true,
+  "reason": "Clone basis view to avoid serializing unused full1152x1152 eigenvector backing storage. Original retained."
+}

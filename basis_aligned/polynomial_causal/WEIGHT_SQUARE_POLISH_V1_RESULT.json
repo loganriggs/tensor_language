@@ -1,0 +1,59 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_converged": true,
+    "pred_c_improved_and_retained": true
+  },
+  "initial": {
+    "squared_relative_error": 0.9035478672732941,
+    "optimization_loss": 0.9044910806901969,
+    "component_energy_over_native_total": 0.09432134169028664,
+    "penalty": 0.01,
+    "cancellation_ratio": 0.9974159321256447,
+    "captured_energy_fraction": 0.09645213272670594,
+    "relative_stationarity": 0.0003833854580558968,
+    "gradient_max_abs": 9.20398071853305e-08,
+    "gram_condition": 9.709362502076951,
+    "regularized_gram_condition": 9.485959300091933,
+    "canonical_relative_stationarity": 0.00038338545805589674,
+    "original_gauge_relative_stationarity": 0.0003955190775080766,
+    "canonical_gradient_max": 9.20398071853305e-08,
+    "original_gauge_gradient_max": 9.506701166890092e-11,
+    "closures": 0,
+    "updates": 0
+  },
+  "final": {
+    "squared_relative_error": 0.9035477768777624,
+    "optimization_loss": 0.9044910232465724,
+    "component_energy_over_native_total": 0.09432463688099113,
+    "penalty": 0.01,
+    "cancellation_ratio": 0.9974505193092026,
+    "captured_energy_fraction": 0.09645222312223756,
+    "relative_stationarity": 3.294248788533465e-05,
+    "gradient_max_abs": 8.327124612191817e-09,
+    "gram_condition": 9.726052803689788,
+    "regularized_gram_condition": 9.501949798906193,
+    "canonical_relative_stationarity": 3.2960103513488054e-05,
+    "original_gauge_relative_stationarity": 8.094663219910701e-05,
+    "canonical_gradient_max": 8.327137711080294e-09,
+    "original_gauge_gradient_max": 1.0351792411872758e-10,
+    "closures": 492,
+    "updates": 20,
+    "relative_progress_five_checks": 1.1934963832308929e-07
+  },
+  "terminal_reason": "plateau_and_both_gauges_stationary",
+  "initial_bridge": 1.1102230246251565e-16,
+  "initial_stationarity_bridge": 6.94999613415348e-14,
+  "final_replay_error": 0.0,
+  "price": {
+    "body_forwards": 0,
+    "parameter_numbers": 589824,
+    "closures": 492,
+    "lbfgs_actual_inner_iterations": 307,
+    "fit_seconds": 17.261031661182642,
+    "checkpoint_bytes": 4724711
+  },
+  "checkpoint_sha256": "bae7a97820da1910e474e871539280175f6f9932b1318544ec8cbeddcc436fbd",
+  "wall_seconds": 18.83505390584469,
+  "scope": "Sameobjective stoppingrepair. Bothcoordinate gauges must converge; no globaloptimum/circuitclaim. Compactfunction saved, optimizerhistorynotretained."
+}
