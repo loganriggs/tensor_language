@@ -19,13 +19,14 @@ sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
 def main():
+    requested_dry=bool(os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'))
     binding=json.loads(BINDING.read_text());assert all(sha(p)==v for p,v in binding.items())
     source=PRODUCER.read_bytes()
     spec=importlib.util.spec_from_loader('r594_managed_frozen',loader=None,origin=str(PRODUCER))
     p=importlib.util.module_from_spec(spec);p.__file__=str(PRODUCER)
     exec(compile(source,str(PRODUCER),'exec'),p.__dict__)
     dry=p.build_dryrun()
-    if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):
+    if requested_dry:
         print(json.dumps(dict(dryrun=True,model_loaded=False,gpu_accessed=False,
             phase_counts=dry['phase_counts'],streaming_storage=dry['streaming_storage'])));return
     assert not OUT.exists() and not RAW.exists()
