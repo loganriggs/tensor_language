@@ -1,6 +1,22 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 17:37 UTC
+## Latest follow-up — 10 September, 17:48 UTC
+
+**The shared first-layer value stream transfers 84%/81% of the primed-word
+preference, but preservation fails.** It explains only49%/61% of the context-gate
+change. The agreement control changes by .705 nats in average absolute CE;
+seven examples worsen and nine improve. This is partial lexical transfer through
+a known channel, not a complete circuit. The [updated explanation](gerund_scalar_writes_and_live_feedback.md)
+separates word probability from grammatical-form preference and gives all controls.
+
+The token-only value producer and replay checks are exact. All32 native lexical
+pairs are correct at both endpoints. Paired CPU audits are complete. Next:
+distinguish lexical identity from inflection using individual token readers and
+shared form contrasts; retain the failed probability-preservation result.
+Reviews remain hourly18:14 and mathematical19:49 UTC. Full goal stays open.
+
+
+## Previous follow-up — 10 September, 17:37 UTC
 
 **Two explicit paths: individual token readers, and shared unembedding structure
 plus token-specific remainders.** Both fold backward through the same weight

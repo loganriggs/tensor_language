@@ -1,0 +1,286 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.readout.token_context_first_value",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "readout.token_context_first_value.v1",
+   "revision": 1,
+   "status": "rejected",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "shared_value_context",
+    "domain": "Opened A1/A2/G16 contexts, cyclic primed-verb change at position3",
+    "read": "known per-token first-value cache from attention0, reused by attention1\u201317",
+    "operation": "ordinary token stream x first-value cache factorial with native consumers live",
+    "write": "MLP17 context gate and actual primed-word preference",
+    "endpoint": "Partial lexical transfer held, context sufficiency and joint lexical probability preservation failed"
+   },
+   "alternative_explanations": [
+    "Other token-stream computations remain necessary",
+    "Changing a word probability does not isolate grammatical-form preference",
+    "Native routing and downstream nonlinear interactions remain opaque"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "cyclic ordinary token input and first-value cache returned after attention0 varied independently"
+     ],
+     "holds_fixed": [
+      "grammatical frame and final token",
+      "recipient token-context reader and e"
+     ],
+     "control_ids": [
+      "own_cache_noop",
+      "static_value_producer",
+      "saved_u_replay"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_context_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "cyclic ordinary token input and first-value cache returned after attention0 varied independently"
+     ],
+     "holds_fixed": [
+      "grammatical frame and final token",
+      "recipient token-context reader and e"
+     ],
+     "control_ids": [
+      "own_cache_noop",
+      "static_value_producer",
+      "saved_u_replay"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_context_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "G",
+     "role": "invariance",
+     "changes": [
+      "cyclic ordinary token input and first-value cache returned after attention0 varied independently"
+     ],
+     "holds_fixed": [
+      "grammatical frame and final token",
+      "recipient token-context reader and e"
+     ],
+     "control_ids": [
+      "own_cache_noop",
+      "static_value_producer",
+      "saved_u_replay"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_context_panels",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "first_value_broadcast",
+     "tensor_path": "attention0 returned value cache shared by layers1\u201317",
+     "shape": [
+      9,
+      128
+     ],
+     "intervention": "whole-cache cyclic donor swap; ordinary stream held base or donor"
+    }
+   ],
+   "split_plan_ids": [
+    "reused_context_panels"
+   ],
+   "evidence_event_ids": [
+    "readout.token_context_first_value.v1.instrument",
+    "readout.token_context_first_value.v1.context_source",
+    "readout.token_context_first_value.v1.lexical_selectivity"
+   ],
+   "translation_ids": [],
+   "next_missing": "Separate lexical identity and inflection using explicit token and shared-form readers, retain probability-preservation failure; independent consumer extraction, held-out robustness, selective removal and composition."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "reused_context_panels",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "runner",
+   "description": "Opened A1/A2/G16 base contexts, only lexical token3 differs cyclically. Two input-port factorial; actual same-form lexical capability explicitly measured, not assumed from grammar."
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "readout.token_context_first_value.v1.instrument",
+   "claim_id": "readout.token_context_first_value.v1",
+   "stage": "complete",
+   "test_type": "null_control",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "G"
+   ],
+   "site_id": "first_value_broadcast",
+   "split_plan_id": "reused_context_panels",
+   "evaluation_role": "instrument",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "binding",
+    "states"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_a_instrument",
+     "value": true,
+     "bar": true
+    }
+   ],
+   "notes": "Value-only lexical recovery .84174/.80855, all32 pairs both endpoints capable. G absCE .70470 fails; signed average -.08536 does not rescue preservation. Gate transfer .48551/.60670 with .55717/.56737 errors.15forwards240seq. Known V0 producer exact, all consumers remain native; no circuit promotion.",
+   "design_key": "a4b18ff62ad9491af0259ec5e850e6c937cee3414edf181e1e9e1104b966e19f",
+   "execution_key": "4b3dacaa790f45048b562f28faf0e1b71e155193d14cf8804c9fb1405c9fbafa"
+  },
+  {
+   "event_id": "readout.token_context_first_value.v1.context_source",
+   "claim_id": "readout.token_context_first_value.v1",
+   "stage": "complete",
+   "test_type": "das_interchange",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "G"
+   ],
+   "site_id": "first_value_broadcast",
+   "split_plan_id": "reused_context_panels",
+   "evaluation_role": "context_source",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "binding",
+    "states"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_b_shared_context_source",
+     "value": false,
+     "bar": true
+    }
+   ],
+   "notes": "Value-only lexical recovery .84174/.80855, all32 pairs both endpoints capable. G absCE .70470 fails; signed average -.08536 does not rescue preservation. Gate transfer .48551/.60670 with .55717/.56737 errors.15forwards240seq. Known V0 producer exact, all consumers remain native; no circuit promotion.",
+   "design_key": "e17ed8c540d558e915279f1e7bc962ef08349c17233fd40bba89399ba82115ef",
+   "execution_key": "80cff9146a8da31cd6cb56f7e3e09a8d48ff473fc5afe456e49d0fe475cca04b"
+  },
+  {
+   "event_id": "readout.token_context_first_value.v1.lexical_selectivity",
+   "claim_id": "readout.token_context_first_value.v1",
+   "stage": "complete",
+   "test_type": "invariance",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "G"
+   ],
+   "site_id": "first_value_broadcast",
+   "split_plan_id": "reused_context_panels",
+   "evaluation_role": "lexical_selectivity",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "binding",
+    "states"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_c_lexical_behavior",
+     "value": false,
+     "bar": true
+    }
+   ],
+   "notes": "Value-only lexical recovery .84174/.80855, all32 pairs both endpoints capable. G absCE .70470 fails; signed average -.08536 does not rescue preservation. Gate transfer .48551/.60670 with .55717/.56737 errors.15forwards240seq. Known V0 producer exact, all consumers remain native; no circuit promotion.",
+   "design_key": "5f9d88897f2a5f1412965e57d0267f27cabbcb0abe7664b2791ada07dbe75765",
+   "execution_key": "3e25ba74b1136e6cfec03bac23ec2345ea170329e4713b3f15e64d72f100c6c2"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_BROADCAST_V1_PREREGISTRATION.md",
+   "sha256": "e21e693d188c65f31a92f8578e907508a6e7671943d0c00235a4eb64298cb347",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/GERUND_FRESH_TRANSFER_V1_ROWS.json",
+   "sha256": "e5b43e97f8eb198bf4f98f524b5708d732608a1ff4847ecc14f854a3c3d4802b",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_token_context_broadcast_v1.py",
+   "sha256": "a49e50fe12ebf090b26a331011aa8e4b6768c04e2a79fc081072b238b9d6e4d8",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "binding": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_BROADCAST_V1_BINDING.json",
+   "sha256": "26c415438115b1930b0474ed8f9d5f4cf675139bc894b16d762d557c1d511684",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_BROADCAST_V1_RESULT.json",
+   "sha256": "8bfcd1b5c5c95521a32febb19721450639e7a0850a9a6b4c3f3310ef00595110",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "states": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_SOURCE_V1_ARTIFACT.pt",
+   "sha256": "5ce7b8dcbd78f3974642cdc0e3a09b70bdc99365e29520597358e0f25eae4a6a",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_BROADCAST_AUDIT_V1_RESULT.json",
+   "sha256": "11e62d5bf78cb9184830625398cd9dbe15b7726684b6db2ad7de644be63e5cd8",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "auditor": {
+   "path": "basis_aligned/polynomial_causal/audit_token_context_broadcast_v1.py",
+   "sha256": "4d72cd982a9f85979378d9e27434dd65e36d1abc1d6161f8d48ea7dbc03c3f6c",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "control_audit": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_BROADCAST_CONTROL_CE_V1.json",
+   "sha256": "d0efe0dad56863bd0fb2a0d4001911529c7b3bb29ec08c8cd7f8f455a3a617b5",
+   "kind": "evidence",
+   "status": "frozen"
+  }
+ }
+}

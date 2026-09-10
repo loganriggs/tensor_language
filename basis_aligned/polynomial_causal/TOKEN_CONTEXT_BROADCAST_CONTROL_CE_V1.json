@@ -1,0 +1,26 @@
+{
+  "source_sha256": "8bfcd1b5c5c95521a32febb19721450639e7a0850a9a6b4c3f3310ef00595110",
+  "mean_harm": 0.3096674233675003,
+  "mean_improvement": 0.3950297683477402,
+  "mean_signed": -0.08536234498023987,
+  "mean_absolute": 0.7046971917152405,
+  "harm_count": 7,
+  "improvement_count": 9,
+  "witness": {
+    "base_logits": [
+      2.0,
+      1.0,
+      0.0
+    ],
+    "edited_logits": [
+      1.0,
+      0.0,
+      2.0
+    ],
+    "correct_token_ce_change": 1.0,
+    "agreement_log_odds_change": 0.0
+  },
+  "scope": "Registered G preservation failed. These saved CE values do not identify agreement-margin change because edited foil logits were not saved. Synthetic witness demonstrates the distinction only; it does not establish the cause of native G changes.",
+  "native_forwards": 0,
+  "gpu_accessed": false
+}

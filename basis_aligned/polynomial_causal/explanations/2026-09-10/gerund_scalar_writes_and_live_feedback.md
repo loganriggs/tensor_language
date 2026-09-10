@@ -1,6 +1,79 @@
 # Shared grammatical writes work; the scalar-only predictor does not
 
-**Latest result — 10 September, 17:37 UTC:** none of the 36 single-module
+**Latest result — 10 September, 17:48 UTC:** the shared first-layer value stream
+transfers most of the primed-word preference (84%/81%) across the two frames,
+but neither supplies the full context gate nor passes probability preservation.
+This is partial lexical transfer through a known shared input channel, not an
+independently extracted or selectively removable circuit.
+
+## A shared input used across attention layers
+
+The previous test found no sufficient single-module source. We next tested a
+source that crosses module boundaries: the first attention layer produces a
+value vector for each token, and attention layers 1–17 reuse it. This channel
+and its exact token-only producer were already documented in the module dossiers
+and earlier v173/v174 work. The new question is whether it carries the lexical
+context required by the current token readers.
+
+Every cyclic pair differs at exactly one token—the primed verb at position 3.
+We separated its influence into two ports: the ordinary token stream and the
+shared first-value cache returned after attention 0. Four combinations give
+native base, native donor, base with donor values, and donor with base values.
+Attention 0's own output stays with the ordinary stream; later routing, local
+values and MLPs recompute normally. An own-cache no-op is the fifth run.
+
+| Measurement | Frame 1 | Frame 2 |
+|---|---:|---:|
+| Shared-value-only lexical recovery | .842 | .809 |
+| Remaining-stream-only lexical recovery | .174 | .208 |
+| Shared-value-only context-gate transfer | .486 | .607 |
+| Shared-value-only context-gate error | .557 | .567 |
+| Remaining-stream gate-change magnitude | .534 | .599 |
+| Full-vocabulary factorial interaction | .365 | .328 |
+
+Lexical recovery measures the movement from preferring the original primed
+bare verb to preferring the donor's bare verb. All 16 pairs in each frame prefer
+their own verb at both native endpoints. Its paired intervals are [.779,.895]
+and [.748,.871]. These are opened, authored panels; this is not broad OOD or
+a claim that the population recovery exceeds .80 with confidence.
+
+The context-gate source hypothesis fails: each branch retains substantial
+influence. Shared-value-only full-vocabulary effect errors are .480/.560, and
+the factorial interaction shows that adding branch effects also misses important
+response. A program could model this interaction explicitly, but we have not
+extracted the contextual consumer program.
+
+The combined lexical-transfer/selectivity prediction also fails. The agreement
+control's mean absolute correct-token CE change is **.705 nats**, versus a .10
+limit (paired interval [.402,1.078]). Seven examples worsen, nine improve:
+mean harm .310 and mean improvement .395 give signed average -.085. Improvement
+on average does not satisfy preservation.
+
+There is an attribution limit here. Correct-token CE is -z_correct+logsumexp(z),
+whereas agreement log-odds is z_correct-z_foil. The former can change when the
+latter is fixed. For example, logits [2,1,0] becoming [1,0,2] increase the first
+token's CE by exactly 1 nat while leaving its margin over the second token at 1.
+This CPU witness does not explain the native result: edited foil scores were
+not saved, so the native grammatical-margin effect remains unmeasured. The
+registered probability-preservation failure stands. The next useful test must
+separate lexical identity from grammatical form with explicit token readers
+and shared inflection contrasts, rather than infer either from one token's CE.
+
+All instrument checks hold: exact token-to-first-value reproduction, own-cache
+no-op and saved-state replay; all 48 base and 48 rotated grammatical endpoints
+are correct. The managed job ran 17:48:20–17:48:23, with 15 batched forwards,
+240 sequences and 1.43 seconds of executor time. All native parameters remain.
+The paired CPU audit and the signed-control/counterexample analysis were both
+executed after the result.
+
+Receipts: [registered test](../../TOKEN_CONTEXT_BROADCAST_V1_PREREGISTRATION.md),
+[native result](../../TOKEN_CONTEXT_BROADCAST_V1_RESULT.json),
+[paired audit](../../TOKEN_CONTEXT_BROADCAST_AUDIT_V1_RESULT.json),
+[control interpretation](../../TOKEN_CONTEXT_BROADCAST_CONTROL_CE_V1.json).
+
+## Previous result — 17:37 UTC
+
+**Result — 10 September, 17:37 UTC:** none of the 36 single-module
 output swaps supplies enough of the token-dependent context signal to pass
 in both grammatical frames. All controls pass. This is a source-localization
 null, not a rejection of distributed circuits. The saved-reader CPU audit also

@@ -1,0 +1,187 @@
+{
+  "schema": "token.context_broadcast.audit.v1",
+  "source_sha256": "8bfcd1b5c5c95521a32febb19721450639e7a0850a9a6b4c3f3310ef00595110",
+  "script_sha256": "4d72cd982a9f85979378d9e27434dd65e36d1abc1d6161f8d48ea7dbc03c3f6c",
+  "reports": {
+    "A1": {
+      "arms": {
+        "other": {
+          "gate_transfer_ci95": [
+            0.3549742233736089,
+            0.5961328438878039
+          ],
+          "gate_error_ci95": [
+            0.4680799551386392,
+            0.7081033504000797
+          ],
+          "gate_magnitude_ci95": [
+            0.4355596321324972,
+            0.6669268473679385
+          ],
+          "mean_absolute_ce_ci95": [
+            0.6419857848435641,
+            1.1669001251459121
+          ],
+          "full_effect_error_ci95": [
+            0.6825298050026282,
+            0.8048381209188037
+          ]
+        },
+        "value": {
+          "gate_transfer_ci95": [
+            0.3899850443808023,
+            0.6107456055409693
+          ],
+          "gate_error_ci95": [
+            0.4582923550861474,
+            0.6400648005532371
+          ],
+          "gate_magnitude_ci95": [
+            0.42531571183344025,
+            0.6725467895716892
+          ],
+          "mean_absolute_ce_ci95": [
+            2.6753502935171127,
+            3.849877256900072
+          ],
+          "full_effect_error_ci95": [
+            0.42670673043220597,
+            0.5288499703786305
+          ]
+        }
+      },
+      "interaction_ci95": [
+        0.3363164351629066,
+        0.3902846848846229
+      ],
+      "lexical": {
+        "both_correct": 16,
+        "value_mean_recovery": 0.8417379297316074,
+        "value_recovery_ci95": [
+          0.7793474892154336,
+          0.8950503251515329
+        ],
+        "other_mean_recovery": 0.17417927278438583,
+        "failed_row_indices": []
+      }
+    },
+    "A2": {
+      "arms": {
+        "other": {
+          "gate_transfer_ci95": [
+            0.1501182522240408,
+            0.635941869269626
+          ],
+          "gate_error_ci95": [
+            0.5871680009984298,
+            1.046280349132422
+          ],
+          "gate_magnitude_ci95": [
+            0.4043772819076794,
+            0.8744968733019199
+          ],
+          "mean_absolute_ce_ci95": [
+            0.5941269595175982,
+            1.0929225701838732
+          ],
+          "full_effect_error_ci95": [
+            0.5929303516309663,
+            0.7356077672531707
+          ]
+        },
+        "value": {
+          "gate_transfer_ci95": [
+            0.37312830928684837,
+            0.7641827639020813
+          ],
+          "gate_error_ci95": [
+            0.3937421116476297,
+            0.8639308246156071
+          ],
+          "gate_magnitude_ci95": [
+            0.5968840841703582,
+            0.9387980766457743
+          ],
+          "mean_absolute_ce_ci95": [
+            1.7290361128747462,
+            2.624167771264911
+          ],
+          "full_effect_error_ci95": [
+            0.5153618613115102,
+            0.5975393601594009
+          ]
+        }
+      },
+      "interaction_ci95": [
+        0.2928705441994368,
+        0.3674022514767122
+      ],
+      "lexical": {
+        "both_correct": 16,
+        "value_mean_recovery": 0.8085495121777058,
+        "value_recovery_ci95": [
+          0.7484773760661483,
+          0.870805484149605
+        ],
+        "other_mean_recovery": 0.20797146152472124,
+        "failed_row_indices": []
+      }
+    },
+    "G": {
+      "arms": {
+        "other": {
+          "gate_transfer_ci95": [
+            -0.0642995773826849,
+            0.9702783106028359
+          ],
+          "gate_error_ci95": [
+            0.7847535808378365,
+            1.9564994664891253
+          ],
+          "gate_magnitude_ci95": [
+            0.8062799286873376,
+            1.9542022144685387
+          ],
+          "mean_absolute_ce_ci95": [
+            0.1645235102623701,
+            0.33224674500525
+          ],
+          "full_effect_error_ci95": [
+            0.6891141783576489,
+            0.8135493980899318
+          ]
+        },
+        "value": {
+          "gate_transfer_ci95": [
+            0.2525388899549328,
+            1.153608746749736
+          ],
+          "gate_error_ci95": [
+            0.6266730372029562,
+            1.6120119308394967
+          ],
+          "gate_magnitude_ci95": [
+            0.8129580710365477,
+            1.7250130163040314
+          ],
+          "mean_absolute_ce_ci95": [
+            0.4019411936402321,
+            1.0783438261598348
+          ],
+          "full_effect_error_ci95": [
+            0.4478345763236696,
+            0.5412823797326386
+          ]
+        }
+      },
+      "interaction_ci95": [
+        0.33416231037169764,
+        0.44736876734293746
+      ]
+    }
+  },
+  "native_checkpoint_loaded": false,
+  "native_forwards": 0,
+  "gpu_accessed": false,
+  "scope": "4000 paired resamples of all16 authored groups per opened panel; no outcome filtering or universal OOD claim. Failed lexical endpoints preserved."
+}

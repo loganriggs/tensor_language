@@ -53,6 +53,14 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Shared value stream: partial lexical transfer, failed preservation — 2026-09-10 17:48 UTC
+
+Previous turn PROGRESSc96d2527f; prereg019694f24 pushed. Dossiers channels/v173/v174/v185 and correlative first/local-source failures checked. Current cyclic base prompts differ only at token3. Factorial ordinary token stream versus shared cache returned after attention0, preserving its own output; later native consumers live. Managed run_token_context_broadcast_v1.py SHAa49e50fe12ebf090b26a331011aa8e4b6768c04e2a79fc081072b238b9d6e4d8 ran17:48:20–17:48:23,15forwards240seq,1.425244sec. A held B/C failed. Known token-to-V0 primitive/noop/saved-u replay exact0; all48base/48rotated grammatical endpoints and all32 lexical pairs both-endpoint capable.
+
+Value-only lexical recovery .84174/.80855 (pairedCI .77935–.89505/.74848–.87081), remaining-stream .17418/.20797. Gate transfer .48551/.60670, errors .55717/.56737; remaining-stream magnitude .53379/.59949. G absCE .70470 (CI .40194–1.07834) rejects joint selectivity. Actual CPU control audit:7harmed/9improved, harm .30967/improve .39503, signed -.08536. Do not confuse failure to preserve a word's probability with proven agreement-margin damage: edited foil logits not saved. Actual synthetic equal-margin/different-CE witness demonstrates this limitation only, not a native causal explanation. Full-vocab interaction .36498/.32789, no independent consumer program or structural saving.
+
+Paired and signed-control CPU continuation actually executed. New result/audit/control receipts, explanation/LATEST17:48, MLP17/master/channel dossiers updated. Next discriminating question is lexical identity versus grammatical form via individual token and shared-form readers, preserving original failed probability test; no head/slice/rank rescue. Full original-handoff goal remains active; next hourly18:14/math19:49, existing1614 phase log. Shared GPU runner healthy; no duplicate direct job.
+
 ## Token-context sources: singleton null — 2026-09-10 17:37 UTC
 
 Prereg6c39a3bf9; shared-gate pre-execution correction4817549f9 exposed existing CPU algebra control C because enqueue requires A/B/C. No native arms or A/B bars changed. Accepted run_token_context_source_v1.py SHAae6199b47dce6bbb65093606802357e81dafdae73af54205825ab6d4b076a7cc ran17:37:22–17:37:27,117forwards1872seq,3.510356sec. A/C held B failed, zero nominees among36 complete output sites. Maximum target gate transfers .3591/.3701, best errors .6566/.7107; all48 base grammar contrasts correct, all-chain/no-op/MLP17-output causal-zero exact0. Recipient actual token reader fixed across cyclic same-frame donor contexts. This is an internal context-gate screen, not lexical behavior recovery, new OOD or module circuit identification.

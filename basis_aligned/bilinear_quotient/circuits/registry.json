@@ -1138,6 +1138,42 @@
     "5f90cc140f9255ddfd96e958bd44096f3c539ecc03daa664cea9948bb39ba777"
    ]
   },
+  "subroutine.readout.token_context_first_value": {
+   "file": "subroutine_readout_token_context_first_value.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "44c379f82889c5cddc4d1a47bfc52a20d604828b4198587be85cace3ac343279",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "readout.token_context_first_value.v1",
+   "claim_status": "rejected",
+   "causal_variable_id": "shared_value_context",
+   "interchange_family_count": 2,
+   "invariance_family_count": 1,
+   "negative_event_count": 2,
+   "active_negative_event_count": 2,
+   "latest_blocker": "readout.token_context_first_value.v1.lexical_selectivity",
+   "latest_active_event": "readout.token_context_first_value.v1.lexical_selectivity",
+   "active_event_ids": [
+    "readout.token_context_first_value.v1.instrument",
+    "readout.token_context_first_value.v1.context_source",
+    "readout.token_context_first_value.v1.lexical_selectivity"
+   ],
+   "held_test_types": [
+    "null_control"
+   ],
+   "active_blocking_test_types": [
+    "das_interchange",
+    "invariance"
+   ],
+   "design_keys": [
+    "5f9d88897f2a5f1412965e57d0267f27cabbcb0abe7664b2791ada07dbe75765",
+    "a4b18ff62ad9491af0259ec5e850e6c937cee3414edf181e1e9e1104b966e19f",
+    "e17ed8c540d558e915279f1e7bc962ef08349c17233fd40bba89399ba82115ef"
+   ]
+  },
   "subroutine.readout.token_context_singleton_source": {
    "file": "subroutine_readout_token_context_singleton_source.json",
    "schema_version": 2,
