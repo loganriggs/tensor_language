@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [First-attention support after the raw-origin null](first_attention_support_after_raw_origin_null_2026-09-10.md): neither attention4 nor earlier residual explains the mixed-input correction alone; an exact token-local edge rule now localizes single-cue and mixed reads before contextualization.
+
 - [Native semantic-square result](semantic_square_native_result_2026-09-10.md): valid four-corner test fails context-interaction prediction; preserved numerical correction; exact direct-embedding cancellation and tested raw-input source lineage prepare upstream localization.
 
 - [Behavior-guided products and semantic squares](behavior_guided_products_and_semantic_squares_2026-09-10.md): shared128 beats random but fails native sufficiency; exact four-corner algebra and deterministic row squares prepare a test of where cue/context interactions are constructed.

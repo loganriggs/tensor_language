@@ -53,6 +53,49 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Raw origin fails; first-attention support rule executed — 2026-09-10 04:08 UTC
+
+Previous turnPROGRESS (cdf442f60). CurrentRAW_INTERACTION_ORIGIN_V1 completed
+03:56:50 in2.289s,112forwards/980seq/64localMLPsyntheses; Avalid,B/C/Dfail.
+Attention4-only mixedinputcorrectionfull-vectorerrors.771–.856;earlier-only
+.441–.570. These arefourthcornerinput-edgeedits withproducersretained, not
+independentattention4execution. MLP/identity/directsource/parentreplay0;
+rawrecurrencebitwise,directembeddingmixedzero. RawFP64sourcefoldmax.000411,
+rel5.755e-8 passesregisteredrelativebar. RunnerSHA
+8117626bc1a84c9f91c343ae4bacbe29869b9e80b16e1c3a8d71263eb0929d16.
+All545902902weightsremain,saving0. Completedrunner/protocol/resultimmutable.
+
+Materialitymiss matters: is_a2mixedcorrectiononly.052–.067of fullsourcecue
+logitnorm and.009–.010ofmargin; has.436–.597logit/.123–.290margin. Do not
+continueweakMLP4mixed-inputdecompositionasthemainiswascircuitsearch. No raw
+normalizationthreecornerrescue orsource-subsetwinnerpromotion.
+
+Concretecontinuation: token_local_attention_support.py andexecutedcontrols.
+FIRSTattentionlayerfactors q/k/v/q2/k2 aretokenlocal evenwithnativeRMS/RoPE.
+No softmax meansreadisaSUM ofquery-sourcepairfunctions. Singlecue delta can
+useonlycausaledges touchingchangedcuepositions. Mixedcue/context delta can
+useonlyedges fromquerychangedbyonevariable tosourcechangedbytheother.
+Unchangedqueries havezero mixedread BEFORE followingnorm/MLP; notvalidfor
+latercontextuallayers. Actualtinyfactororacle0,single-edgeerror9.715e-17,
+mixededgeerror5.552e-17, livemixednorm.4954. Softmaxcounterexamplemixed.03918
+atunchangedqueryconfirmsassumptions. Hooks/methodsrestored.
+
+Executed audit_token_local_attention_support_v1.py writes
+TOKEN_LOCAL_ATTENTION_SUPPORT_V1_ROW_AUDIT.json. All46squares:1412causaledges,
+326singlecueedges,82mixededges PERhead. Eval35squares:1247/271/63. All46
+semanticquerypositionshavepossiblemixedread, socounts donotexplainisweakness.
+Countsarecounterfactualsupport,nativecausalimportanceandwholesavingsunproven.
+
+Nextnativeobject shouldtestMAINfirst-layercue-messagecausalrelevance using
+exacttoken-derivededgeprogram BEFORE focusingitsmixedpart. No trained
+first-layerprotocol/jobregisteredyet; CPUtool+audit isexecutedcontinuation.
+This islocalization/executiontool, notdiscoveredtensealgorithm orsmaller
+independentmodel. Existinglookupendpointcircuitisdifferentmodel; sharedfirst-
+valuepayloadnullstillbinding. Originalhandoff/pilotauthority, notstalebetter
+mathgoaltext. Newexplanationfirst_attention_support_after_raw_origin_null_
+2026-09-10.md. Goalactive;clocks04:14hourly/04:49mathunchanged. PreserveClaude
+v465/v467andsharedrunnerchanges. NoownedGPU successor pending.
+
 ## Native semantic square fails; raw-input lineage prepared — 2026-09-10 03:50 UTC
 
 Current turn PROGRESS: SEMANTIC_SQUARE_V1 INVALID preserved; V2 validnative

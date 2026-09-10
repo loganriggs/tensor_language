@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "errors": {
+    "native_factor_read": 0.0,
+    "single_cue_edges": 9.71445146547012e-17,
+    "mixed_cross_edges": 5.551115123125783e-17,
+    "unchanged_query_mixed_zero": 5.551115123125783e-17,
+    "no_causal_opposite_source_zero": 5.551115123125783e-17
+  },
+  "mixed_read_norm": 0.4954074746979337,
+  "allowed_mixed_edges": [
+    [
+      3,
+      0
+    ]
+  ],
+  "single_edit_edge_count": 6,
+  "softmax_counterexample_mixed_value": 0.039180105413622324,
+  "hooks_and_methods_restored": true,
+  "tiny_forwards": 1,
+  "tiny_sequence_instances": 4,
+  "trained_model_loaded": false,
+  "gpu_accessed": false,
+  "scope": "Exact first-layer edge-support control with actual RMS/RoPE factors. No later-layer extension or trained causal-relevance claim.",
+  "source_sha256": "d41eaccfa49df75829a635a5e45dd64bbc66c855f261dddcdd1e4754e190ca70"
+}
