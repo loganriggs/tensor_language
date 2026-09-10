@@ -1,0 +1,55 @@
+{
+  "experiment": "shared_selector_intervention_counterexample_v1",
+  "arithmetic": "exact integers",
+  "natural_worlds": 4,
+  "factor_interchange_cells": 48,
+  "consumer_port_cells": 64,
+  "all_identities_passed": true,
+  "joint_diagonals": [
+    {
+      "s": 0,
+      "p": 0,
+      "target_unchanged": true,
+      "context_change": 1,
+      "nonlinear_consumer_change": 0
+    },
+    {
+      "s": 0,
+      "p": 1,
+      "target_unchanged": true,
+      "context_change": 1,
+      "nonlinear_consumer_change": 1
+    },
+    {
+      "s": 1,
+      "p": 0,
+      "target_unchanged": true,
+      "context_change": -1,
+      "nonlinear_consumer_change": -1
+    },
+    {
+      "s": 1,
+      "p": 1,
+      "target_unchanged": true,
+      "context_change": -1,
+      "nonlinear_consumer_change": 0
+    }
+  ],
+  "target_only_decoder_collision": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0
+    ]
+  ],
+  "exact_factorization_compatible_with_diagonal_output_change": true,
+  "hand_specified_fixture": true,
+  "trained_model_claim": false,
+  "model_forwards": 0,
+  "source_sha256": "eacd0b4750e99aac5fd996f6d4b73cac267cc26946afa17c6fe08335fcd8f167"
+}

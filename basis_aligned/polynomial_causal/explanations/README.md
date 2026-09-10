@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Selector–payload interchange](induction_selector_payload_interchange_2026-09-10.md): valid induction transfer reaches 86–91% for selector and 77–86% for payload, but joint invariance and controls fail. Exact math distinguishes shared-producer edits from consumer-specific edits; no circuit promotion.
+
 - [Induction value producers](induction_value_producers_2026-09-10.md): trained equality-message screen; neither shared-first nor local values alone reproduce the full causal effect. Includes an explicit correction of an infeasible absolute probability-loss criterion, without changing the failed verdict.
 
 - [Shared computation and editable memory](shared_computation_and_editable_memory_2026-09-10.md): original handoff/pilot follow-up; exact edit-policy compiler distinguishes shared feature computation from separate consumer histories, including execution on all three original pilot fixtures. Mathematical tool, no new trained circuit.

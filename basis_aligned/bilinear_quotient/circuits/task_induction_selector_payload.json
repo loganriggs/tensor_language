@@ -2318,6 +2318,286 @@
    ],
    "translation_ids": [],
    "next_missing": "adapt the already validated R557 selector-score/payload-value algebra and R558 interaction lattice to the frozen R578 rows in a separately preregistered factor experiment; do not repeat the native-capability screen"
+  },
+  {
+   "claim_id": "induction_selector_and_payload.v11",
+   "revision": 11,
+   "status": "site_live",
+   "supersedes": "induction_selector_and_payload.v10",
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "the final query selects A rather than C or vice versa",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "payload assignment",
+      "filler and pair positions"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_source_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "the B and D payload assignments to A and C are exchanged",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "query and selector",
+      "source identities and positions",
+      "neutral X-to-E pair"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_payload_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "selector_payload_joint_answer_preserved",
+     "role": "invariance",
+     "changes": [
+      "selector and target payload assignment change together"
+     ],
+     "holds_fixed": [
+      "correct answer",
+      "source and payload token sets",
+      "neutral pair and filler"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "two_valid_sources_selector_swap",
+      "payload_swap_match_preserved",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "the selected earlier source is replaced, breaking its only query match"
+     ],
+     "holds_fixed": [
+      "query token",
+      "both target payload tokens",
+      "contrast and neutral pairs"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "contrast_target_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral X source is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral E payload"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_payload_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_payload_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral E payload is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral X source"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "contrast_target_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the unselected target source immediately before the competing payload is replaced"
+     ],
+     "holds_fixed": [
+      "selected target pair",
+      "query",
+      "both answer-token identities"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "filler identities or the source-to-query lag"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "selector and payload assignment",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "native_three_source_final_token_logits",
+     "tensor_path": "unmodified final-query model logits for R578 prompts",
+     "shape": [
+      "batch",
+      "vocabulary"
+     ],
+     "intervention": "no intervention; measure native B-versus-D margins, factorial interaction, and controls",
+     "ceiling_event_ids": [
+      "induction_selector_payload_native_capability.r580.preregistered.v1"
+     ]
+    },
+    {
+     "site_id": "r594_fixed_equality_partial_output_write",
+     "tensor_path": "attention output at zero-index L5H5/L7H3/L8H3/L8H4, final query",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "centered score/payload/joint partial equality-source output deltas; later layers live; L8 additions aggregated",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "induction_selector_payload_three_source_split_r578_v1",
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.preregistered.v1",
+    "induction_selector_payload_capability_audit.r555.preregistered.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v2",
+    "induction_selector_payload_native_capability.r580.invalid_instrument.v1",
+    "induction_selector_payload_native_capability.r586.complete.held.v1",
+    "induction_selector_payload_native_capability_audit.r587.complete.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "R594 completed the fixed selector/payload factor screen on FIT: intended transfer passes, but all four answer-preserving joint cells and four filler joint controls fail, and all 24 control-coverage keys lack a second active family. No identified factorization, extraction or OOD evidence. Preserve R593 instrument-invalid status and R594 scientific null; do not repeat native capability or rescue this fixed candidate by relaxing bars. Next research must separate shared operation from contextual consumer uses with explicit intervention semantics; full native weights remain charged."
   }
  ],
  "split_plans": [
@@ -3072,6 +3352,58 @@
    "notes": "Frozen before R586 outcomes. Independently reconstructed all raw evidence and scientific gates, and verified the strict envelope plus exact result/receipt byte binding with zero model calls.",
    "design_key": "b2f392fa11ede3720125855fd0e03788df92727ff073efbca341aa5c3cfb7224",
    "execution_key": "586d329fd150ab47ca613c6a8dfbcce1ad9c9894d676b80feede56184f06ccd3"
+  },
+  {
+   "event_id": "induction_selector_payload.r594.complete.failed.v1",
+   "claim_id": "induction_selector_and_payload.v11",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "copy_relation_preserved_nuisance_change"
+   ],
+   "site_id": "r594_fixed_equality_partial_output_write",
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "evaluation_role": "FIT_only_fixed_factorization_screen",
+   "metrics": [
+    {
+     "name": "answer_preserving_joint_failed_cells",
+     "estimate": 4,
+     "ci95": null,
+     "bar": "all four joint cells must pass the original R585 predicates"
+    },
+    {
+     "name": "filler_joint_failed_cells",
+     "estimate": 4,
+     "ci95": null,
+     "bar": "all active controls must pass the original R585 predicates"
+    },
+    {
+     "name": "insufficient_active_control_keys",
+     "estimate": 24,
+     "ci95": null,
+     "bar": "each key requires at least two active control families"
+    }
+   ],
+   "prereg_artifact_id": "r594_instrument_amendment",
+   "result_artifact_id": "r594_factor_result",
+   "input_artifact_ids": [
+    "r594_factor_receipt",
+    "r594_saved_audit"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "639 FIT forwards; no SELECT/FINAL/OOD. Instrument and denominator/capacity checks pass. Intended selector/payload/match transfers pass. Independent CPU implementation verifies all 44,928 observed FP32 layer additions and 35 raw file hashes; not independent-agent review. Raw 6,560,733,847 bytes reside in volatile /dev/shm; compact result and receipt frozen here. This rejects the registered selective-factor candidate, not the existence of induction or bilinear attention algebra.",
+   "design_key": "8a5adf197fe86a59db3e452554ecf92c40c29af23f059add4d8da15852fc8b2c",
+   "execution_key": "6921a311bc1291c7f54a48e9c8982a916d456945819ee92c7178603c44051009"
   }
  ],
  "translations": [],
@@ -3356,6 +3688,30 @@
    "path": "basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_audit_rung587.json",
    "sha256": "72f0261fe32aa3d048c442ea1c08af932af6a368894610833e79aaaabf98bfe9",
    "kind": "audit",
+   "status": "frozen"
+  },
+  "r594_instrument_amendment": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG594_INSTRUMENT_REPAIR_AMENDMENT.md",
+   "sha256": "2ba48978f0c9678d09fc053f6959de4cc8965a26b548109214a47faff3bb9270",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r594_factor_result": {
+   "path": "basis_aligned/polynomial_causal/induction_centered_fixed_geometry_rung594_results.json",
+   "sha256": "5575bcc80f3b9d1f29488f0fad41aa9198bfbfd3fb8ef28388cad6b767c367ee",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r594_factor_receipt": {
+   "path": "basis_aligned/polynomial_causal/induction_centered_fixed_geometry_rung594_receipt.json",
+   "sha256": "79ac929e59d2dccdc69f3059d6da1c6872966f640312c0559f0878cae4692cbc",
+   "kind": "receipt",
+   "status": "frozen"
+  },
+  "r594_saved_audit": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_R594_SAVED_AUDIT_V1_RESULT.json",
+   "sha256": "eaf8cb790af0fb31584f9a6a3b6045a4af3b9013255454b3ed7e7c0d9aa7e863",
+   "kind": "result",
    "status": "frozen"
   }
  },

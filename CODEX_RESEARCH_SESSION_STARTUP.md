@@ -53,6 +53,61 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## R594 valid selector/payload null; consumer-intervention math executed — 2026-09-10 10:54:08 UTC
+
+Previous goal turn PROGRESS da4459b35. Preregistration/implementation 8de748055;
+wrapper mode repair fa70856af. Original bilinear handoff/pilot governs, not
+better_math. R593 remains instrument-invalid; R594 repairs observations only
+and preserves inherited R585/R592 scientific cells, rows and thresholds.
+
+R594 native run 10:35:44–10:37:22: 639 FIT forwards / 20,448 sequences,
+97.0543 wrapper seconds. Terminal factorization_not_identified. No SELECT,
+FINAL or OOD. Instrument, denominator and capacity failures empty. Selector
+mean recovery .858–.911, payload .771–.862; intended transfers pass. All four
+answer-preserving joint cells fail BOTH CE and vocabulary gates, four filler
+joint controls fail CE, all24 coverage keys have only one active family
+(filler) rather than the required two. No threshold, head, dose or control rescue.
+
+Observed rounding repair saves FP32 before/total/after and FP64 actual delta.
+All 44,928 layer additions match correctly rounded post-states exactly;
+17,287 would fail the old absolute 1e-5 check. Saved CPU audit verifies all35
+raw hashes / 6,560,733,847bytes and independently replays joint/filler failure
+scalars. Independent implementation, not independent-agent review. Exact
+compact result/receipt copies plus INDUCTION_R594_MANAGED_RESULT.json and
+INDUCTION_R594_SAVED_AUDIT_V1_RESULT.json are under polynomial_causal.
+
+RAW EVIDENCE IS VOLATILE: /dev/shm/bilin18_induction_r594/
+induction_centered_fixed_geometry_rung594_evidence. Around6.2GiB RAM-backed;
+no durable raw archive. Workspace overlay has less than1GB free; do not delete
+old results or assume raw survives restart. Compact receipts retain raw hashes.
+Runner SHA677cc79fc306d48bdab513fcc2ffd628384b35a0facd12948a9294cd9c2dc793.
+A first10:34 attempt was dry-only because legacy import mutated BQLIB_NO_MODEL;
+fa70856af captures requested mode before imports. FORCE dedup override followed
+verified terminal dry-only handle, not a duplicate native job.
+
+Canonical task.induction.selector_payload now v11 site_live with the failed
+R594 composition event; site_live does not mean identified. Historical claims
+preserved. All545902902 native weights retained, structural saving0.
+
+Three-hour review10:49 executed shared_selector_intervention_counterexample_v1:
+exact hand-specified two-source B(E,U)=[y,c], y=(1-s)p+s(1-p), c=s, outputs
+[y,c,y*c]. Four joint diagonal edits preserve y but change context;48factor
+and64consumer-port cases checked. Same y with different c forbids a y-only
+full-output decoder. Shared-producer and consumer-specific edits differ;
+later joint consumer recomputes. This is an interpretation falsifier, not a
+trained model discovery or reason to weaken R594. Formal causal-abstraction
+and soft-intervention sources mapped with explicit limits in the10:49review.
+
+Next native candidate must identify another consumer or distinguish producer
+from consumer-port edits and predict full-output effects, using independently
+generated features on held-out cases. No native consumer split is selected or
+registered yet. Do not revive weak prefix/head/rank scans or duplicate Claude.
+Actual continuation after native result: saved CPU audit, then claimed/executed
+math counterexample. Full goal active. Both managed runners healthy; no Codex
+successor GPU job queued. Latest explanation:
+explanations/induction_selector_payload_interchange_2026-09-10.md.
+Latest hourly10:14; next11:14 UTC. Latest math10:49; next13:49 UTC.
+
 ## Induction value-producer screen completed; contract audit executed — 2026-09-10 10:20 UTC
 
 Previous goal turn PROGRESS04c4e5fdc. New distinct induction screen prereg20dd1eac4,

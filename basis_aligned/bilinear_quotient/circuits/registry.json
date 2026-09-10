@@ -771,25 +771,26 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "07516aad435a280e2c1dad70167554567bcba5cd7ce5bb730f884b7dd8cf93e7",
+   "record_sha256": "2107cc3b202e6572587a631a3a7cf7848010f4300cbce0e962c860929938c4bf",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "induction_selector_and_payload.v10",
-   "claim_status": "specified",
+   "active_claim_id": "induction_selector_and_payload.v11",
+   "claim_status": "site_live",
    "causal_variable_id": "induction_selector_payload",
    "interchange_family_count": 3,
    "invariance_family_count": 5,
-   "negative_event_count": 3,
-   "active_negative_event_count": 2,
-   "latest_blocker": "induction_selector_payload_capability.r554.complete.null.v1",
-   "latest_active_event": "induction_selector_payload_native_capability_audit.r587.complete.held.v1",
+   "negative_event_count": 4,
+   "active_negative_event_count": 3,
+   "latest_blocker": "induction_selector_payload.r594.complete.failed.v1",
+   "latest_active_event": "induction_selector_payload.r594.complete.failed.v1",
    "active_event_ids": [
     "induction_terminal_collateral_failure.legacy.v1",
     "induction_factor_intervention_semantics.r557.held.v1",
     "induction_selector_payload_capability.r554.complete.null.v1",
     "induction_selector_payload_capability_audit.r555.complete.held.v1",
     "induction_selector_payload_native_capability.r586.complete.held.v1",
-    "induction_selector_payload_native_capability_audit.r587.complete.held.v1"
+    "induction_selector_payload_native_capability_audit.r587.complete.held.v1",
+    "induction_selector_payload.r594.complete.failed.v1"
    ],
    "held_test_types": [
     "capability",
@@ -797,6 +798,7 @@
    ],
    "active_blocking_test_types": [
     "capability",
+    "composition",
     "removal"
    ],
    "design_keys": [
@@ -804,6 +806,7 @@
     "415d71f6164c7dd6f9198c4740e75e6e53cfd0db6baeafecaf3d719f3b0658f2",
     "6eddaff09aca9329ee82c87abd93aedcf390e5284df9b33d433cd0ff2df02c12",
     "7937f22df3bf85532fa659eaf48875e87e3b8372afdf0592ed28e372473c71e5",
+    "8a5adf197fe86a59db3e452554ecf92c40c29af23f059add4d8da15852fc8b2c",
     "965e2d4fc3073623f3b2bce65b83af6a2998ddf3629db3f111b0b62eaeba7081",
     "af9c5d30729500005100497a8d588d2dd1277eb54ba3d35afa91d560c730033b",
     "b2f392fa11ede3720125855fd0e03788df92727ff073efbca341aa5c3cfb7224",
