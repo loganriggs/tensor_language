@@ -1,0 +1,102 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "p_max": 0.23,
+    "tol_pool": 0.05,
+    "tol_pool_wide": 0.15,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_noun_four_hypotheses_v523",
+  "finished_utc": "2026-09-10T16:45:59.456320+00:00",
+  "groups": {
+    "fit_canonical": {
+      "cells": [
+        "noun_preposition_interest"
+      ],
+      "hypotheses": {
+        "A2_extraction": 0.986,
+        "A2_units_recovery": 0.988,
+        "C_same_answer_effect": 0.0075,
+        "P_damage": {
+          "ce_damage": 1.0515,
+          "ce_lb975": 0.9578,
+          "ce_ub975": 1.1436,
+          "margin_damage": 2.1478,
+          "top1_change_rate": 0.0312
+        },
+        "P_same_answer_effect": 0.0332,
+        "P_units_recovery": -0.039,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 4.2405
+      },
+      "n_units": 12,
+      "per_shape": {
+        "noun_preposition_between_with": {
+          "A1_damage": {
+            "ce_damage": -0.0135,
+            "ce_lb975": -0.0197,
+            "ce_ub975": -0.0078,
+            "margin_damage": -0.0159,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0021,
+            "ce_lb975": -0.003,
+            "ce_ub975": 0.0074,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0074,
+          "cross_abs_recovery": -0.011,
+          "joint_extraction": -0.012,
+          "n_held": 16,
+          "units_recovery": 0.913
+        },
+        "noun_preposition_interest": {
+          "A1_damage": {
+            "ce_damage": 1.068,
+            "ce_lb975": 0.9632,
+            "ce_ub975": 1.1631,
+            "margin_damage": 2.1562,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": 0.0021,
+            "ce_lb975": -0.003,
+            "ce_ub975": 0.0074,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0074,
+          "cross_abs_recovery": 0.957,
+          "joint_extraction": 1.001,
+          "n_held": 16,
+          "units_recovery": 0.956
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_A1_holdout": true,
+    "pred_b_A2_carries": true,
+    "pred_c_P_effect_small": true,
+    "pred_d_C_effect_small": true,
+    "pred_e_units_available": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_noun_four_hypotheses_v523",
+  "seconds": 28.3
+}
