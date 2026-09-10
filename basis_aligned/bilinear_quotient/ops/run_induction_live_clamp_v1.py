@@ -121,7 +121,7 @@ def main():
     rowpath=POLY/'INDUCTION_LIVE_CLAMP_V1_ROWS.jsonl'
     with rowpath.open('x') as f:
         for row in rows:f.write(json.dumps(row,sort_keys=True)+'\n')
-    predictions=dict(pred_a_instrument=bool(instrument),pred_b_necessary_joint_invariance=all(joint_pass),pred_c_necessary_filler_control=all(filler_pass))
+    predictions={'pred_a_instrument':bool(instrument),'pred_b_necessary_joint_invariance':all(joint_pass),'pred_c_necessary_filler_control':all(filler_pass)}
     out=dict(terminal='complete' if instrument else 'invalid',predictions=predictions,reports=reports,
              bridges=bridges,first_site_term_bridge=first_error,active_joint_correction_fraction=active,
              observed_layer_transactions=observed,maximum_rounding_residual=maximum_rounding,
