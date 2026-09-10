@@ -13,3 +13,11 @@ The fit should alternate/reduce output coefficients by linear least squares and 
 Other source-file ideas remain available: domain-restricted affine/quadratic behavior and simultaneous block structure. A failed primitive pair, three-product example or globally simple square basis would not reject all of them. Avoid rank sweeps whose only outcome is a nicer reconstruction curve.
 
 QK continuation: first test position-corrected joint input spaces before interpreting the A1-to-A2 failure as semantic. V1 fit after rotary maps at query position5; A2 position8 changes that representation. Fit before those maps or transport the bases using actual rounded transforms, preserving all mixed products and native head-normalization factors. V1 remains a valid post-position product-port result, not raw-input identification.
+
+## Addition from unembedding_factors_how.md
+
+Read the user-provided file in full. Core folded tensor and joint product fit match the existing plan. New explicit requirements: report signed factor-to-token usage, output connection cost, and shared-linear-reader internals as separate graphs. Token support overlap does not prove one factor computes another. Consider biclustering/formal-concept organization only after stable factors; thresholded incidence is approximate and no full lattice is required.
+
+The first fit remains unconstrained least-squares in output writers, without a sparsity penalty. Report that honestly. Add per-factor effective token participation and counts covering90%/99%of squared loadings, signed consumers, plus normalized cross-factor reader overlap. For comparisons across factors, normalize product-function scale; an empirical function RMS must identify its input sample explicitly. No claim that thresholding establishes exact sparsity.
+
+The file proposes a stronger exact identity with factor/connection cost. Our32-product block is partial discovery with the native remainder retained; it does not solve that exact objective. For residual-realizable writes A=UW, arbitrary sparsification of A can leave the allowed output space and change intervention semantics. Any later sparse variant must either retain that constraint or explicitly price and validate a different output interface.
