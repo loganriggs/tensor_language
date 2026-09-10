@@ -53,6 +53,70 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Weight-folded calibration scalar: positive held-out signature, two coupled uses — 2026-09-10 11:40:29 UTC
+
+Previous goal turn PROGRESS87cc1775e. Prereg2c3669e30; reporting-only successor
+c0a52a5bb. Original handoff/pilot authority. Wording correction: live replacement
+is appropriate for replacement semantics; fixed additions are valid when they
+are the intended edits. Induction fixed-interface lane stays closed.
+
+New distinct candidate: MLP17 output direction w from covariance with log(1+FIT
+next-token count), using only48 cachedFineWeb rows. Existing calibration
+necessity/random-control evidence was known; prior literal frequency-axis
+sanity failed (.529). Massive RMS gain and Claude task-specific damping also
+known, not rediscovered here. New computation is exact weight fold
+q(u)=u^T Q u+beta, Q=sym(L^T diag(D^T w/(w^T w))R), beta=w^T b/(w^T w).
+Native normalized inputu, full background retained. Same scalar feeds direct
+vocabulary numerator and finalRMS scale. Four exact readout-use interventions,
+three frozen random-axis controls, native epsilon and30tanh retained.
+
+Data CALIBRATION_TWO_READERS_V1_ROWS.json:48FIT/42FW_HOLDOUT cached rows;
+16 distinctPile documents IDs5001–5020 with skips, first257tokens perdoc.
+FineWeb document grouping UNKNOWN: row-disjoint only; Pile is corpus shift,
+not absence-from-training certification. Top20frequent tokens fixed fromFIT.
+Evaluation producers do not read next-token labels. Tokenprefix64disjoint.
+
+First nativev1 11:32:54–11:33:08 reached finalresultassembly thenfailed due
+st_size() integer-called typo; failedreceipt/source/producer retained. V2 changes
+attribute access andoutput/binding filenames ONLY. V2 11:34:08–11:34:22 complete,
+30bodyforwards118seq length256,9.358executor seconds. Ainstrument/Bheldout
+calibration true; Cnumerator/Ddenominator alone false. Scalar foldrelativeerrors
+2.095e-7FW/2.091e-7Pile; nativefacadeexact; online native/compiledremoval max
+4.26e-5abs/5.82e-7rel. Actual online removal bridges only first heldoutbatch;
+scalar/formula tests cover both fullcohorts. No arbitrary precision bar repair.
+
+Complete removal rareCE+.49968FW/+.57342Pile; frequent-.28681/-.21296nats.
+Random rare absmean.000586/.000404. Both corpus signatures pass. Numerator
+full-vocabulary effecterrors.518/.528; denominator.946/.930: neither satisfies
+.10bar. Joint nonlinear interaction relative.237/.251; rareCE interaction
++.13210/+.13579 beyond separate-effect sum. Retain BOTH scalar uses; no
+one-consumer simplification adopted. This is a positive conditional producer
+and two-use result, not a failed wholecircuit nor allfourproperty completion.
+
+Actual post-native CPU calibration_two_readers_bootstrap_v1 executed:4,000
+row-cluster draws seed9111135, token-weightedmeanreplay<=1e-12. Rare damage95%CI
+[.461,.539]FW/[.500,.651]Pile; interaction[.122,.141]/[.113,.159]. Rareharm and
+frequentbenefit signs in all58evalrows. FW bootstrap lacks document grouping.
+V1/V2 producer w,Q,beta,random,top20 tensors BITWISEIDENTICAL (execution
+repeatability, NOT stability across independently fitted directions).
+
+Canonical subroutine.calibration.quadratic_readout created status site_live:
+compiled-equivalence andremoval eventsheld, withscope/limits explicit. Next
+missing: independent-fit stability, donorinterchange, strongerprovenance,
+independentupstream extraction andstructuraldescription gain. No fullmodel
+parameter saving: all545902902 nativeparameters remain. Standalone q+writer
+has1,328,257scalars; artifact10,656,845bytes includesrandomcontrols. Q isdense;
+do not rebrand opaque-coefficient reduction as discovered simple semantics.
+
+Result CALIBRATION_TWO_READERS_V2_RESULT.json; producer
+CALIBRATION_TWO_READERS_V2_PRODUCER.pt; postCPU
+CALIBRATION_TWO_READERS_BOOTSTRAP_V1_RESULT.json. RunnerSHA
+b8b4c7b6d5b31988da0112146c2cfc66553c81bebdae1ac59ecdbe13cb4261d3.
+Latest explanation explanations/calibration_scalar_and_two_consumers_2026-09-10.md.
+All completed outputs durableinrepo; older induction raw remains volatile.
+Full goal active; actual post-result CPU continuation done; no successorGPU
+job registered yet. Next hourly12:14/math13:49UTC.
+
 ## Live equality replacement and contextual explanations fail — 2026-09-10 11:18:56 UTC
 
 Previous goal turn PROGRESS6ee8f29e4. Current prereg/CPU evidence feb816e45;

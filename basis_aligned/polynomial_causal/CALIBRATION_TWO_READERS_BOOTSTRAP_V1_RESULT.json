@@ -1,0 +1,257 @@
+{
+  "experiment": "calibration_two_readers_bootstrap_v1",
+  "model_forwards": 0,
+  "bootstrap_draws": 4000,
+  "seed": 9111135,
+  "post_result_diagnostic": true,
+  "original_gates_preserved": true,
+  "reports": {
+    "FW_HOLDOUT": {
+      "frequent": {
+        "denominator": {
+          "estimate": -0.0772765292013184,
+          "ci95": [
+            -0.08768167686867667,
+            -0.06773610118914902
+          ],
+          "positive_row_fraction": 0.0
+        },
+        "joint": {
+          "estimate": -0.2868097602633805,
+          "ci95": [
+            -0.310579142622014,
+            -0.2637529625115154
+          ],
+          "positive_row_fraction": 0.0
+        },
+        "numerator": {
+          "estimate": -0.2532124855303365,
+          "ci95": [
+            -0.2738336972613734,
+            -0.23312132478858152
+          ],
+          "positive_row_fraction": 0.0
+        },
+        "random0": {
+          "estimate": 0.0007829079467628304,
+          "ci95": [
+            -7.436208872007204e-05,
+            0.0016973759894842442
+          ],
+          "positive_row_fraction": 0.5476190476190477
+        },
+        "random1": {
+          "estimate": 0.0075436016603013245,
+          "ci95": [
+            0.00607021523392043,
+            0.00913064865454147
+          ],
+          "positive_row_fraction": 0.9047619047619048
+        },
+        "random2": {
+          "estimate": -0.0011839419673188843,
+          "ci95": [
+            -0.004425544194359249,
+            0.001849535621295595
+          ],
+          "positive_row_fraction": 0.2857142857142857
+        },
+        "interaction": {
+          "estimate": 0.043679254468274364,
+          "ci95": [
+            0.03786958255107164,
+            0.049785305334276345
+          ],
+          "positive_row_fraction": 0.9761904761904762
+        }
+      },
+      "rare": {
+        "denominator": {
+          "estimate": 0.0906097897726759,
+          "ci95": [
+            0.07610458523561868,
+            0.10646112843365083
+          ],
+          "positive_row_fraction": 1.0
+        },
+        "joint": {
+          "estimate": 0.4996817759406175,
+          "ci95": [
+            0.4610931647638268,
+            0.5388941948495812
+          ],
+          "positive_row_fraction": 1.0
+        },
+        "numerator": {
+          "estimate": 0.2769726042247032,
+          "ci95": [
+            0.25766532248134705,
+            0.29692263009858705
+          ],
+          "positive_row_fraction": 1.0
+        },
+        "random0": {
+          "estimate": 0.0009267997504894925,
+          "ci95": [
+            0.00021724609846144572,
+            0.0016501954204358904
+          ],
+          "positive_row_fraction": 0.6666666666666666
+        },
+        "random1": {
+          "estimate": -0.00046506735084551973,
+          "ci95": [
+            -0.0016349495332465141,
+            0.0007210478862118458
+          ],
+          "positive_row_fraction": 0.40476190476190477
+        },
+        "random2": {
+          "estimate": 0.00036583209657542064,
+          "ci95": [
+            -0.0008592245245725487,
+            0.0014962801251678355
+          ],
+          "positive_row_fraction": 0.5714285714285714
+        },
+        "interaction": {
+          "estimate": 0.1320993819432385,
+          "ci95": [
+            0.12244790795488011,
+            0.141466438409138
+          ],
+          "positive_row_fraction": 1.0
+        }
+      },
+      "resampling_unit": "cached row; original document grouping unknown"
+    },
+    "PILE_SHIFT": {
+      "frequent": {
+        "denominator": {
+          "estimate": -0.031235140794673145,
+          "ci95": [
+            -0.05838783369305837,
+            0.004203644187484664
+          ],
+          "positive_row_fraction": 0.125
+        },
+        "joint": {
+          "estimate": -0.21296124659018356,
+          "ci95": [
+            -0.258405942199026,
+            -0.17048829057804574
+          ],
+          "positive_row_fraction": 0.0
+        },
+        "numerator": {
+          "estimate": -0.22938020815726,
+          "ci95": [
+            -0.2739884213637407,
+            -0.19063000587079973
+          ],
+          "positive_row_fraction": 0.0
+        },
+        "random0": {
+          "estimate": -0.0047135933661243455,
+          "ci95": [
+            -0.00789945981473959,
+            -0.0014359207615918827
+          ],
+          "positive_row_fraction": 0.3125
+        },
+        "random1": {
+          "estimate": -0.004517172639524969,
+          "ci95": [
+            -0.007621492314532955,
+            -0.002029062090676852
+          ],
+          "positive_row_fraction": 0.1875
+        },
+        "random2": {
+          "estimate": 0.0043464738362269635,
+          "ci95": [
+            0.001344492958189279,
+            0.007671389590468229
+          ],
+          "positive_row_fraction": 0.625
+        },
+        "interaction": {
+          "estimate": 0.04765410236174958,
+          "ci95": [
+            0.0365376260235827,
+            0.05903201722541468
+          ],
+          "positive_row_fraction": 1.0
+        }
+      },
+      "rare": {
+        "denominator": {
+          "estimate": 0.13731953608011033,
+          "ci95": [
+            0.1169250091468414,
+            0.15988727779749584
+          ],
+          "positive_row_fraction": 1.0
+        },
+        "joint": {
+          "estimate": 0.5734220435576075,
+          "ci95": [
+            0.5003791752766069,
+            0.6510034106426916
+          ],
+          "positive_row_fraction": 1.0
+        },
+        "numerator": {
+          "estimate": 0.3003170892432571,
+          "ci95": [
+            0.26335527559044264,
+            0.3401906878010705
+          ],
+          "positive_row_fraction": 1.0
+        },
+        "random0": {
+          "estimate": 0.00017685971915843663,
+          "ci95": [
+            -0.0004279709986550952,
+            0.0008355169038515183
+          ],
+          "positive_row_fraction": 0.5
+        },
+        "random1": {
+          "estimate": -0.0006077327308033468,
+          "ci95": [
+            -0.0030628578377201654,
+            0.0018966091928372757
+          ],
+          "positive_row_fraction": 0.375
+        },
+        "random2": {
+          "estimate": 0.00042600173982163225,
+          "ci95": [
+            -0.001064062457679482,
+            0.0019331432315642613
+          ],
+          "positive_row_fraction": 0.4375
+        },
+        "interaction": {
+          "estimate": 0.13578541823424006,
+          "ci95": [
+            0.11320782661619284,
+            0.15941081474713062
+          ],
+          "positive_row_fraction": 1.0
+        }
+      },
+      "resampling_unit": "one sampled Pile document"
+    }
+  },
+  "producer_repeat_bitwise": {
+    "w": true,
+    "Q": true,
+    "beta": true,
+    "random": true,
+    "top20": true
+  },
+  "source_sha256": "6fb38550cd97d031fd901991c00c59e62bd28d380c3c2a33f228064b4ca7ac79",
+  "input_result_sha256": "b2f394aca60368d61ee0f2d69dcb92f0de0c27245f0d82aab1ceb92755f91e61"
+}

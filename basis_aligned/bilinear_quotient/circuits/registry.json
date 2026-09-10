@@ -561,6 +561,38 @@
    "cert": 1,
    "record_sha256": "010c87a5e19b4886995be145d719c58b9e9ad0742e5a4f90a713ef840f15febb"
   },
+  "subroutine.calibration.quadratic_readout": {
+   "file": "subroutine_calibration_quadratic_readout.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "977576601422b10e730afc0acb2d0f42a00b5c88712b7e66ef6f6605a5e19587",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "calibration_quadratic_readout.v1",
+   "claim_status": "site_live",
+   "causal_variable_id": "calibration_quadratic_scalar",
+   "interchange_family_count": 0,
+   "invariance_family_count": 1,
+   "negative_event_count": 0,
+   "active_negative_event_count": 0,
+   "latest_blocker": null,
+   "latest_active_event": "calibration_quadratic_readout.removal.held.v1",
+   "active_event_ids": [
+    "calibration_quadratic_readout.fold.held.v1",
+    "calibration_quadratic_readout.removal.held.v1"
+   ],
+   "held_test_types": [
+    "compiled_equivalence",
+    "removal"
+   ],
+   "active_blocking_test_types": [],
+   "design_keys": [
+    "a458ac7c61955c452a00b5b10f3cc90cb881eed8722d1023dd6b79e4f73a4dc2",
+    "f106147ccd04262dddd37d5a2f381bf889220e617832d8b50f6abb73627f35f6"
+   ]
+  },
   "subroutine.induction.equality_score": {
    "file": "subroutine_induction_equality_score.json",
    "schema_version": 2,

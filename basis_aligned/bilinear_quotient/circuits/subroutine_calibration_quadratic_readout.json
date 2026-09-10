@@ -1,0 +1,279 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.calibration.quadratic_readout",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": [
+   "mlp17_frequency_correlated_scalar_two_readout_uses"
+  ]
+ },
+ "claims": [
+  {
+   "claim_id": "calibration_quadratic_readout.v1",
+   "revision": 1,
+   "status": "site_live",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "calibration_quadratic_scalar",
+    "domain": "native normalized MLP17 inputs with full native background; row-held-out FineWeb and Pile corpus shift",
+    "read": "u^T Q u+beta using the folded native bilinear weights and FIT-only output direction",
+    "operation": "produce scalar q; use q*w in vocabulary numerator and final RMS denominator with exact softcap",
+    "write": "coupled score and normalization changes at final readout",
+    "endpoint": "full-vocabulary removal effects and frequent/rare next-token cross-entropy"
+   },
+   "alternative_explanations": [
+    "simple frequency-proportional logit bias",
+    "normalization-only gain",
+    "FIT-only correlation"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "complete_projection_removal",
+     "role": "necessity",
+     "changes": [
+      "remove q*w from final MLP output, recomputing final readout"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "random_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "numerator_use_removal",
+     "role": "necessity",
+     "changes": [
+      "remove q*U*w from the vocabulary numerator only"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "random_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "denominator_use_removal",
+     "role": "necessity",
+     "changes": [
+      "replace final RMS denominator with that after removing q*w"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "random_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "random_projection_removal",
+     "role": "invariance",
+     "changes": [
+      "remove each of three frozen random output-axis projections"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "complete_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "mlp17_final_readout",
+     "tensor_path": "MLP17 output and final unembedding/RMS readout",
+     "shape": [
+      1152
+     ],
+     "intervention": "registered full projection removal or separate numerator/denominator use removal"
+    }
+   ],
+   "split_plan_ids": [
+    "calibration_fit48_hold42_pile16"
+   ],
+   "evidence_event_ids": [
+    "calibration_quadratic_readout.fold.held.v1",
+    "calibration_quadratic_readout.removal.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "Conditional producer and held-out removal signature held; both single-consumer sufficiency tests failed, so retain coupled uses. Need independent-fit stability, donor interchange, stronger provenance, independent upstream extraction and reduced structural description cost. All native weights remain; no four-property adoption."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "calibration_fit48_hold42_pile16",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "rows",
+   "description": "48 FIT and42 held-out cached FineWeb rows,16 separate Pile documents; FineWeb document provenance unknown"
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "calibration_quadratic_readout.fold.held.v1",
+   "claim_id": "calibration_quadratic_readout.v1",
+   "test_type": "compiled_equivalence",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "complete_projection_removal",
+    "numerator_use_removal",
+    "denominator_use_removal",
+    "random_projection_removal"
+   ],
+   "site_id": "mlp17_final_readout",
+   "split_plan_id": "calibration_fit48_hold42_pile16",
+   "evaluation_role": "row_holdout_and_corpus_shift_conditional_screen",
+   "metrics": [
+    {
+     "name": "maximum_folded_scalar_relative_error",
+     "estimate": 2.0954305991959483e-07,
+     "ci95": null,
+     "bar": "<=1e-5 on both evaluation cohorts"
+    }
+   ],
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "input_artifact_ids": [
+    "rows",
+    "producer",
+    "bootstrap"
+   ],
+   "seed": 9111130,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Quadratic producer matches scalar on both cohorts; online native/compiled removal bridges tested on first held-out batch. Both single-consumer sufficiency tests fail; joint formula retains both uses. Conditional extraction only, full native background remains.",
+   "design_key": "f106147ccd04262dddd37d5a2f381bf889220e617832d8b50f6abb73627f35f6",
+   "execution_key": "91a820af28a741163a9228ae9a4a77a4761fbe7a028a831ba3ed3fc6839dd421"
+  },
+  {
+   "event_id": "calibration_quadratic_readout.removal.held.v1",
+   "claim_id": "calibration_quadratic_readout.v1",
+   "test_type": "removal",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "complete_projection_removal",
+    "numerator_use_removal",
+    "denominator_use_removal",
+    "random_projection_removal"
+   ],
+   "site_id": "mlp17_final_readout",
+   "split_plan_id": "calibration_fit48_hold42_pile16",
+   "evaluation_role": "row_holdout_and_corpus_shift_conditional_screen",
+   "metrics": [
+    {
+     "name": "rare_ce_damage_FW",
+     "estimate": 0.4996817759406178,
+     "ci95": [
+      0.4610931647638268,
+      0.5388941948495812
+     ],
+     "bar": ">=.10nat"
+    },
+    {
+     "name": "rare_ce_damage_Pile",
+     "estimate": 0.5734220435576081,
+     "ci95": [
+      0.5003791752766069,
+      0.6510034106426916
+     ],
+     "bar": ">=.10nat"
+    }
+   ],
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "input_artifact_ids": [
+    "rows",
+    "producer",
+    "bootstrap"
+   ],
+   "seed": 9111130,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Registered common/rare signature and all random-removal control conditions pass in both cohorts. Row-bootstrap intervals are post-result diagnostics; FineWeb document grouping unknown. Not absence-from-training OOD certification or donor interchange.",
+   "design_key": "a458ac7c61955c452a00b5b10f3cc90cb881eed8722d1023dd6b79e4f73a4dc2",
+   "execution_key": "52b4409d5d91588ca52115878cb4a5ddb7fb801c0b2fd9d24310c6c266bb0ec8"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_TWO_READERS_V1_PREREGISTRATION.md",
+   "sha256": "405f8c8676fc872c0afbe23e69ab79e290608d7014d1a3338cdc2961a4e3aad0",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_TWO_READERS_V1_ROWS.json",
+   "sha256": "9098bc4c850e1c25e0352a1f3f509686c590e02af532b5d2ddb2d10a10f31a41",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_TWO_READERS_V2_RESULT.json",
+   "sha256": "b2f394aca60368d61ee0f2d69dcb92f0de0c27245f0d82aab1ceb92755f91e61",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "producer": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_TWO_READERS_V2_PRODUCER.pt",
+   "sha256": "8bfa3a93a6adf863346e9a2680c93e89b49f485f55f4a7f8ff364318e2f310ba",
+   "kind": "weights",
+   "status": "frozen"
+  },
+  "bootstrap": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_TWO_READERS_BOOTSTRAP_V1_RESULT.json",
+   "sha256": "28f1e456713bcc0e37bae8286eb2f76478530af1ecee54b887ce18ac2d17c39a",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "explanation": {
+   "path": "basis_aligned/polynomial_causal/explanations/calibration_scalar_and_two_consumers_2026-09-10.md",
+   "sha256": "829847c324aeb8410f4d21d2f5f6414dd51afd09127447da7d15b8e1d86a62c2",
+   "kind": "explanation",
+   "status": "frozen"
+  }
+ },
+ "provenance": {
+  "created_by": "Codex",
+  "prior_art": "lowrank_calibrator_confirm and failed calibrator_direction_id2 sanity; this record adds weight fold and two-use held-out test"
+ }
+}
