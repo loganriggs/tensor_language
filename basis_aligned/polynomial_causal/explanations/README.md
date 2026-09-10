@@ -11,7 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
-- [Noun-number selection and cross-token interactions](noun_number_selection_and_cross_token_interactions_2026-09-10.md): updated through attention/MLP factorial and saved-statistics localization: neither group is sufficient alone; their direct-write effects compose; layer 9 leads reader-weighted contributions, with normalization effects small.
+- [Noun-number selection and cross-token interactions](noun_number_selection_and_cross_token_interactions_2026-09-10.md): updated through exact layer9 routing/value partition: no single term suffices; causal order separates earlier-number routing from later contextual values and proves the mixed-value branch uses the local value map.
 
 - [Position and content in shared attention](position_and_content_in_shared_attention_2026-09-10.md): exact rounded-rotation transport is tested; native about/for phase portability fails; executed answer/complement and joint-reader mathematics clarify the distinction between a task circuit and its complete host heads.
 

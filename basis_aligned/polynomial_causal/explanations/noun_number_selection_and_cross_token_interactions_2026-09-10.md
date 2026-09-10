@@ -2,7 +2,7 @@
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
-The useful mathematical lead is **context-dependent combination of noun-number signals**. Making the third noun human reduces the second noun's influence and increases the third noun's influence. We have verified that the former interaction cannot originate in a token-local lookup. A subsequent native intervention now shows that most of the answer interaction is carried in the internal residual state: removing it leaves only 7.1–11.1% of its original magnitude. Raw-vector accounting favored MLP writes, but the subsequent behavioral test rejected them as the main answer carrier: removing all their mixed writes leaves 68–110% of the answer interaction. The subsequent attention test also fails sufficiency alone, leaving 27–43%, while attention and MLP removals compose almost additively. Reader-weighted localization identifies layer 9 attention as the largest individual contributor in every world, primarily through the answer logits rather than normalization. This still does not identify a reusable operation or a circuit satisfying all four requested properties.
+The useful mathematical lead is **context-dependent combination of noun-number signals**. Making the third noun human reduces the second noun's influence and increases the third noun's influence. We have verified that the former interaction cannot originate in a token-local lookup. A subsequent native intervention now shows that most of the answer interaction is carried in the internal residual state: removing it leaves only 7.1–11.1% of its original magnitude. Raw-vector accounting favored MLP writes, but the subsequent behavioral test rejected them as the main answer carrier: removing all their mixed writes leaves 68–110% of the answer interaction. The subsequent attention test also fails sufficiency alone, leaving 27–43%, while attention and MLP removals compose almost additively. Reader-weighted localization identifies layer 9 attention as the largest individual contributor in every world, primarily through the answer logits rather than normalization. The latest exact routing/value split needs multiple terms. Causal source support distinguishes reading earlier number-bearing positions from reading later contextual positions, and proves that the already-mixed value term comes from the local contextual value map. This still does not identify an independently executable circuit satisfying all four requested properties.
 
 ## Relation to the original handoff and pilot
 
@@ -270,3 +270,56 @@ Layer 9 attention is the largest individual signed contributor in every one of t
 The next informative native question is how the relevant attention writes are formed: their query/key routing, value content, and upstream producers. Layer 9 supplies a candidate within-module interface for that question. It was localized from opened data; this is not fresh OOD identification, and no particular head, token edge, or rank has been chosen or registered yet. Shared use of layer 9 by another task would not by itself establish the same reusable computation.
 
 [CPU audit receipt](../THIRD_NOUN_READER_ROUTE_AUDIT_V1_RESULT.json). All native weights and input-producing computations remain retained and charged. Neither attention nor MLP alone passes the registered sufficiency bar; preserve those failures. The positive composition result applies to synthetic final-state source edits, while independent extraction, selective unrelated-behavior removal, new OOD semantic prediction, and reusable learned-program composition remain incomplete.
+
+
+## 11. Layer9 needs multiple routing/value terms; causal support distinguishes their inputs
+
+For a head and source position, let P be its native routing weight and V its native mixed value vector. P is the product of the two normalized, rotary-positioned query/key dot products; it is not a softmax probability. The exact conditional interaction is
+
+\[
+(PV)_{oh}=P_{oh}V_0+P_0V_{oh}+P_oV_h+P_hV_o.
+\]
+
+The four coefficients are defined by symmetric averaging over the object-number/category square while keeping the other factors fixed. They can already contain upstream nonlinear computation. We grouped the terms into routing-inherited, value-inherited, and routing–value cross branches, summed every head/source, and applied the actual output projection and residual carry.
+
+The [native test](../THIRD_NOUN_L9_ROUTE_VALUE_V1_RESULT.json) confirms the exact factorization and layer9 materiality, but **none of the three branches passes the registered 10% local-effect error bar**. Their answer-effect errors relative to the complete layer9 contribution are:
+
+| Branch used alone | Relative answer-effect error |
+|---|---:|
+| Routing-inherited | 0.919–1.127 |
+| Value-inherited | 0.372–0.760 |
+| Routing–value cross | 0.340–1.055 |
+
+The full-vector fidelity tests fail too. Thus no single branch should be promoted, and the bar was not relaxed. The layer9 contribution remains 18.21–38.06% of the natural mixed answer effect. This local decomposition does not explain the entire model behavior.
+
+Algebraic closure error was 1.40e−15 relative; agreement with the actual native mixed write was 3.51e−6. Read-only captures retained native normalization, RoPE, shared-value mixing and upstream producers. Cost was 16 forwards / 256 prefixes and 80 decoder batches / 1,280 final states in 0.943 seconds. [Protocol](../THIRD_NOUN_L9_ROUTE_VALUE_V1_PREREGISTRATION.md), [partition code](../attention_route_value_partition_v1.py), and [controls](../ATTENTION_ROUTE_VALUE_PARTITION_V1_CONTROLS.json).
+
+Causal order gives a more informative split than picking the largest branch. Using zero-based positions, object number changes token 4 and human/inanimate category changes token 7:
+
+- At positions 0–3, values can know neither edited factor. Their value and cross terms vanish.
+- At positions 4–6, values can know object number but cannot know the later category. Therefore V_h=V_oh=0 and the cross term reduces to **P_h V_o**: category-dependent routing of earlier number-bearing information.
+- At positions 7–9, values can know both factors. Both inherited mixed values and the two cross terms are possible.
+
+The category's influence on routing to positions 4–6 must enter from the later query side; the earlier keys cannot depend on a future category token. This does not make P_h a standalone category detector: it is a finite-table component of a contextual routing computation.
+
+The [executed CPU source audit](../THIRD_NOUN_CAUSAL_SOURCE_SPLIT_V1_RESULT.json) verifies both predicted early-source zeros exactly in the saved reader numerators. In fixed-native-normalization, pre-softcap reader accounting, the earlier-number cross branch has signed projection −0.155 to 0.549 onto layer9's complete linear effect. The later-context value branch has 0.294 to 1.046. Negative or greater-than-one values reflect cancellation. These are diagnostic linear contributions, not physical single-edge removals or successful standalone circuits.
+
+Head6 has the largest signed contribution in seven worlds, head7 in the remaining world, under that same diagnostic. This does not license a universal head6 circuit. More importantly, the causal split identifies different information dependencies within a native module without assuming that head boundaries are semantic boundaries.
+
+There is an exact weight consequence for the contextual value branch. Native values are
+
+\[
+V_s=(1-\lambda)W_Vu_s+\lambda V^{(1)}_s,
+\]
+
+where u_s is the current normalized contextual input and V^(1) is the shared first-layer value. The first-layer value is a function of the token at its own position, so its oh component vanishes on this disjoint-edit domain. Hence
+
+\[
+(V_s)_{oh}=(1-\lambda)W_V(u_s)_{oh}.
+\]
+
+For each head, W_O can be folded with W_V when evaluating this specific branch, while the contextual normalized input and routing coefficient P_0 remain explicit. This identifies where its mixed value must be produced; it does not remove the upstream computation or its normalization.
+
+A CPU checkpoint read confirms layer9 lambda=**−0.65625**, so the local coefficient is **1.65625**. The native combination adds an amplified local value and subtracts a shared value; the coefficients are not probabilities. The shared value can still contribute to other terms such as earlier-number routing. [Coefficient receipt](../THIRD_NOUN_L9_VALUE_MIX_COEFFICIENT_V1.json).
+
+All native weights remain charged, and no head/source/rank is promoted from these diagnostics. The next useful target is the producer of the later contextual mixed value, or a full producer-level test of the earlier-number routing term. Neither next native experiment has been registered or queued yet. The post-result causal-source audit and checkpoint coefficient read have actually been executed; no extra native forward was needed.

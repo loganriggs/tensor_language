@@ -53,6 +53,39 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Layer9 routing/value partition and causal-source support — 2026-09-10 06:06:40 UTC
+
+Previous turnPROGRESS c46e16885; prereg/runnerc1b46d894.
+THIRD_NOUN_L9_ROUTE_VALUE_V1 validA/Bmateriality, C/D/Eallfail. Localmarginerrors:
+routing .919–1.127,value .372–.760,cross .340–1.055; fullvectoralsofails.
+No branchwinner, head/source/rankselection orbarrescue. Exactconditionalpartition
+Poh(PV)=PohV0+P0Voh+PoVh+PhVo; actualpostRMS/RoPE/nativevaluemix/all9heads/all10sources.
+Factorclosure1.40e-15,nativemixedwritebridge3.51e-6.16forwards/256seq+
+80decoderbatches/1280states,.943s. NativeL9naturalprojection.1821–.3806 remains
+partialmateriality, notwholecircuitsufficiency. RunnerSHA
+9d30e9c2aa68314be0d8e0616271d22e756ca877e679329cdb1c4f771f0bf9d4.
+Completedartifactsimmutable. Nativeprefix/firstV/pattern/currentnormallretained.
+
+Post-resultclaim+EXECUTED third_noun_causal_source_split_v1.py:
+metadataall256tokensverifyoat4/hat7; valuebranchbefore7 andcrossbefore4zeroexact.
+Sources4–6 cannotknowh: crossisPhVo only, categoryinformationentersquerynotearlierkey.
+Sources7–9 canknowbothandcarrymixedcontextualvalues. Earlier-numbercrosssigned
+projection -.1547–.5486; later-contextvalue .2940–1.0458 under fixednativeRMS,
+PRE-softcaplinearreader accounting. Notphysicaledgeablation orfull-outputeffect.
+Head6largest7worlds/head7one underthisdiagnostic; notuniversalhead6circuit.
+
+CPUcheckpointmmap nativeL9attn.lamb=-.65625,localcoefficient1.65625.
+SharedfirstVistoken-local, PohV1=0 onthisdisjointdomain; hencePohVlocal=
+1.65625 W_V Poh(normalizedcontextinput). W_O/W_Vfoldforthisbranchlegalonlywith
+actualcontextualnorminputandP0routingretained. SharedVcanstillserveothercrosspieces.
+CoefficientreceiptTHIRD_NOUN_L9_VALUE_MIX_COEFFICIENT_V1.json. No newnativeforward.
+
+Nextusefulobject contextualmixed-valueproducer orproducer-level earlier-number
+routingtest; neither nextnativeprotocol norjobselectedyet. Existingexplanation
+section11updated. All545902902weightsremain,saving0;fullgoalactive.
+Clocks06:14hourly/07:49math. Bothmanagedrunnershealthy; preserveClaudework.
+ExecutedCPUsourceaudit+scalarread ispost-resultcontinuationreceipt.
+
 ## Attention direct-write factorial; reader-weighted layer9 localization — 2026-09-10 05:54:14 UTC
 
 Previous goalturnPROGRESS9c34f680c. New prereg/runner842ae2f51.
