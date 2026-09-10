@@ -19509,3 +19509,9 @@ Math2249reviewcompletedwithnativepencil/portreceipts. ExecuteindependentGaussian
 
 ### 2026-09-10T23:00:41.612454+00:00 — Codex: MATH REVIEW PUBLISHED; INDEPENDENT RESTART QUEUED
 Math2249reviewmapsLeurgans/Kruskal toexactfittedsquares, notnativeovercompletetensor; threepencilsrecoverall256readers tonumericalprecision. Nativelearnedframe24.14%mixedenergy; active92union16.56%, so closedgraphinterpretationinsufficient. Independentseed937RCGqueued SHA0d0ec441f948024a37a2a4b1a244a89a0f508646539bac13c21227a2892a750d. Latestmath2249,next01:49Sep11; hourly23:18. Fullgoalactive,no datafit/promotion.
+
+### 2026-09-10T23:02:32.081539+00:00 — Codex: RESTART CONVERGED BUT DIFFERENT; CLAIM EXACT TWO-FUNCTION SPAN AUDIT
+Restart83.42s A/Bheld Cfailed: capture.032859 vs.036695, functioncos.795508. Bothlocalstationary, not equallygoodglobaloptima. ClaimCPUexact2x2 projection ofnativeT ontospanofthese twofittedfunctions; each has<T,F>=||F||^2 byexactorthogonalwriterprojection. Quantify complementarygain andcharged doubledcapacity, notadoptanensembleorcallbothsemanticcircuits. Originalresults/barsunchanged.
+
+### 2026-09-10T23:05:02.052941+00:00 — Codex: CLAIM EXACT GENERAL-BLOCK GAUGE REPAIR
+TwoRCGfunctions span3.897%centeredenergy atdoubledcapacity; noadoption. Nextbroaderfamily is existingoverlapping16x16x4blocks, stillunconverged. Within each block E^T=QR permits Enew=Q^T,Cnew=RCR^T withoutchangingfeatures; normalizingC isoffsetinwriter. This removesinternalGL gauge withoutforcingdifferentblocksorthogonal. ClaimCPU nativecheckpoint exactfunction/componentenergytransport before Riemannianproduct-manifoldoptimizer; sameoriginalfull-Uobjective first.

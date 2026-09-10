@@ -281,3 +281,10 @@ identification oruniqueapproximation. Learned128inputframe has24.14%mixed
 interactionenergy inthenativecenteredtensor; active92readerunion has16.56%.
 Graphcomponents needexplicitnativeinterfaces beforeextraction. [Review and
 receipts](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_2249.md).
+
+### 10 September23:06: restart dependence and block gauge
+Second sparse-frame fit converged at3.2859%centeredcapture versus3.6695%;
+functioncosine.7955 failsreproducibility. Different-qualitylocalfits, notproof
+ofmultipleequallygoodglobaloptima. Broaderblockfunction/penalty arepreserved
+bywithin-blockQR/coretransport, errors2.53e-15/2.22e-16; differentblocks remain
+allowedtooverlap. [Latest calculation](2026-09-10/unsupervised_structure_campaign.md#restart-disagrees-broader-block-conditioning-repaired--2306-utc).

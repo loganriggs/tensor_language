@@ -1203,3 +1203,35 @@ raw factor names, so signs, permutations and unused reader directions do not
 create a false disagreement. This is the first independent restart in this
 family; native results are pending.
 [Restart preregistration](../../SPARSE_CORE_RCG_RESTART_V1_PREREGISTRATION.md).
+
+
+## Restart disagrees; broader block conditioning repaired — 23:06 UTC
+
+The independent sparse-frame restart also converged locally, in 83.42 seconds.
+It captured 3.2859% of centered coefficient energy versus 3.6695% for the first
+fit. Their full-function cosine is 0.7955, below the registered 0.95 bar, and
+the second fit retains only 89.55% of the first fit's capture, below the 99% bar.
+Numerical and convergence checks passed; both reproducibility clauses failed.
+[Restart result](../../SPARSE_CORE_RCG_RESTART_V1_RESULT.json).
+
+This is initialization dependence among different-quality local fits. It does
+not prove multiple equally good global optima or the absence of a useful sparse
+representation. The exact best scalar combination of these two fitted functions
+captures 3.8967%, only a 0.2272-percentage-point improvement over the first.
+That combination approximately doubles centered-model storage before any
+deduplication. It is a diagnostic of complementary fit, not an adopted model or
+a claim that each difference is a semantic computation.
+[Two-function span calculation](../../SPARSE_CORE_TWO_FUNCTION_SPAN_V1_AUDIT.json).
+
+The broader overlapping block model remains unconverged. I have now executed
+a conditioning repair for that representation: orthonormalize the readers
+inside each block while transferring their coordinate change into its quadratic
+cores. This preserves the represented function; it does not force different
+blocks to be orthogonal or disjoint. Core normalization is offset in its writer.
+On the saved native fit, function replay agrees to relative error 2.53e-15 and
+the component-energy penalty agrees to 2.22e-16.
+[Gauge repair control](../../MULTIOUTPUT_BLOCK_ORTHOGONAL_GAUGE_V1_CONTROL.json).
+
+The transformed initial state is saved. The next step is a manifold-aware
+optimizer for this broader family, first preserving its original full-U objective
+and penalty. No newly optimized block fit has run yet.

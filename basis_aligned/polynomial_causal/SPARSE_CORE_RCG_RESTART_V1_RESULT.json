@@ -1,0 +1,44 @@
+{
+  "function_comparison": {
+    "cosine": 0.7955078866822337,
+    "relative_squared_difference_to_second": 0.38990145219032185,
+    "norm_ratio": 0.9462866980714846
+  },
+  "quality_clause": false,
+  "cosine_clause": false,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_converged": true,
+    "pred_c_reproduced_function": false
+  },
+  "initial_capture": 0.0004815771578932614,
+  "final": {
+    "iteration": 975,
+    "captured_energy": 0.03285899674621854,
+    "relative_stationarity": 6.22836916445652e-05,
+    "gradient_max": 8.753675542200625e-09,
+    "support_margin": 1.823894308558273e-06,
+    "orthogonality_error": 2.220446049250313e-15,
+    "relative_progress_five_checks": 8.500115254079512e-09
+  },
+  "terminal_reason": "plateau_stationarity_and_support_gap",
+  "maximum_score_decrease": 0.0,
+  "initial_bridge": 1.6263032587282567e-19,
+  "final_replay": 0.0,
+  "writer_bridge": 1.1822050516132413e-15,
+  "price": {
+    "body_forwards": 0,
+    "centered_float_numbers": 442368,
+    "edge_indices": 512,
+    "additional_exact_common_numbers": 664128,
+    "iterations": 975,
+    "full_core_selections": 976,
+    "backtracks": 513,
+    "direction_restarts": 151,
+    "fit_seconds": 83.42056212201715,
+    "checkpoint_bytes": 5930365
+  },
+  "checkpoint_sha256": "1f51f19451dcd48f246b99545b26f4edacda097eb60825f57fad9ac750b913d2",
+  "wall_seconds": 84.25348640233278,
+  "scope": "IndependentGaussianQR seed937 restart, sameweightobjective. Functioncomparison removescoordinategauge. No globaloptimumorsemanticcircuitclaim."
+}
