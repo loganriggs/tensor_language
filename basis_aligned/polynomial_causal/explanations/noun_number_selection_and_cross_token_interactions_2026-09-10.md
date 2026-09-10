@@ -1,6 +1,6 @@
 # Noun-number selection: what the model does, and what the math rules out
 
-**Latest result:** actually removing the raw interaction and recomputing normalization reproduces full partial-component removal in all 16 original sentence groups, but only 5 of 16 reordered groups. Normalization therefore remains part of the operation we must explain. We derived and checked an exact interface using six inner products and folded linear readers; section 20 gives the computation and its limits.
+**Latest result:** a weight-based split of MLP8 identifies two material branches feeding the partial attention9 value computation: one multiplies separate signals, and one processes an existing interaction. Neither branch works alone, but their measured effects compose closely in all 32 groups. MLP8 is only a partial source, and reordered sentences reveal cancellation between its branches. Section 21 explains the equations, interventions and limits.
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
@@ -625,3 +625,27 @@ A downstream linear reader W can be folded into the three vectors: the answer is
 The [executable CPU check](../rms_regeneration_gram_v1.py) verifies this identity and folded readers across 32 random fixtures, including residual width 1152, plus planted orthogonal and nonorthogonal controls. Maximum coefficient discrepancy is 1.17e-15; folded-reader discrepancy is 4.33e-15. This establishes a candidate transparent interface, not its discovery in the native model. The vectors are still context dependent and require native counterfactual inputs. The next native check can compare this Gram interface with the freshly measured raw-removal producer; it must preserve the failed structural cases.
 
 This helps specify and potentially extract an operation while retaining its nonlinear dependence. It does not yet establish OOD semantic prediction, selective reuse across tasks, or an independently generated residual state. All 545,902,902 native parameters remain charged; no structural saving is claimed.
+
+## 21. The preceding bilinear MLP contributes through both multiplication branches
+
+The [07:49 mathematical review](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_0749.md) changes the next step. The Gram representation follows from general properties of normalization; another native replay of that identity would mainly validate execution. We instead tested whether MLP8 supplies the mixed value consumed by attention9.
+
+Write the actual MLP8 left and right projected inputs as four conditional components: mean, object-number, attractor-kind, and their interaction. The mixed output is exactly
+
+\[
+D(L_oR_h+L_hR_o)+D(L_0R_{oh}+L_{oh}R_0).
+\]
+
+Products inside parentheses are coordinatewise; D is the learned output projection. The first branch multiplies separate signals to create an interaction at this MLP. The second processes an interaction already present in its normalized input. These are distinct parts inside one native module. Their names do not establish semantic interpretation of the input vectors.
+
+We removed the whole mixed MLP8 write, the first branch, or the second branch from the raw input used by the partial attention9 value producer. Each removal includes the native residual scaling. RMS normalization and the later model recompute; native routing and other consumers remain in the background. This is more informative about this path than the earlier final-residual accounting, which omitted its subsequent nonlinear response.
+
+The [native result](../MATURE_VALUE_MLP8_ORIGIN_V1_RESULT.json) is valid. The weight-based MLP partition matches the observed mixed MLP write within 1.44e-5 relative error. Execution used 320 forwards over 5,120 sequence instances in 5.67 seconds. The unchanged native answer logits replay exactly.
+
+The MLP8 path is material: its effect magnitude is about 44–56% of full partial-component removal in original layouts, and 46–101.2% in fronted layouts, across the two readout objects. **These are vector norm ratios, not percentages explained.** MLP8 does not reproduce the full partial-component effect within 10% in any group. Nor does either multiplication branch alone reproduce the MLP8 effect within 10% in any group.
+
+Both branches are needed. Their effects sum to the complete MLP8 path effect within the registered tolerance in all 32 groups; the largest full-table composition error is 0.246%. This establishes approximate composition for these particular removals, not arbitrary interventions or reuse across tasks.
+
+The [executed signed accounting](../MLP8_VALUE_BRANCH_ACCOUNTING_V1_RESULT.json) clarifies the structural difference. In original layouts, the new-product branch's projection onto the complete MLP8 margin effect is 25.6–48.5%; the inherited branch contributes 51.5–74.4%. In fronted layouts, the respective ranges are −17.3–125.1% and −25.2–117.3%. Negative values and values above 100% indicate cancellation; they cannot be read as positive fractions of a circuit. The small interaction remainder closes the accounting.
+
+This gives a weight-defined, testable split of a material upstream contributor, but does not make MLP8 a complete circuit. Its other consumers remain untested here. A useful next native comparison is whether actual MLP8 branch removal, with every downstream consumer allowed to respond, agrees with the isolated value-path effect. Agreement would support that path as a dominant consumer; disagreement would require identifying the other consumers instead of treating the native MLP boundary as a single operation. No such successor run is registered yet. OOD prediction, independent inputs, selective reuse and structural savings remain unresolved.

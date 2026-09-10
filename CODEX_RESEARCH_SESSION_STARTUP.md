@@ -53,6 +53,34 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## MLP8 value-path source partition completed — 2026-09-10 07:55:46 UTC
+
+PreviousgoalturnPROGRESS8c929f718; preregistration/mathreview fc415323c.
+MATURE_VALUE_MLP8_ORIGIN_V1_RESULT.json validA/E; Bsource/Cnew/Dinherited fail.
+No world passes B/C/D; all32compositionpass. MLP8mixed source effect norm/fullC
+.440–.557original,.464–1.012fronted; these are norm ratios, not explained fractions.
+MLP8new=Down(Lo*Rh+Lh*Ro), inherited=Down(L0*Roh+Loh*R0). Subtract branch times
+native block9lambda0 from raw L9input, recompute native RMS and partial valueCprime,
+install B+Cprime keepingnativeP0/background, fullsuffix. Other MLP8consumers untouched.
+MLPcomponentbridge<=1.439e-5; exactnativebaseline;320forwards5120seq,5.66846s.
+RunnerSHA68dfc323ae3467b8399500ecdd3d3210ff482c72cc57ada23045816c0e9f7bd5.
+Fulltablecompositionmax.00245455. Capturev3exposes MLP8input/output, oldversionsimmutable.
+
+Post-resultCPUmlp8_value_branch_accounting_v1 executed. New/inherited margin signed
+projection relativeMLP8effect .2559–.4850/.5149–.7440 original; -.1732–1.2513/
+-.2516–1.1732fronted. Cancellationexplicit, neitherfailedbranchpromoted.
+Review THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_0749.md searchedprimaryliterature:
+Gramorthogonalinvariants are generic; CP uniqueness condition cannotcertify supplied
+4608termfactorization; WFAlineartransitionassumptions fail. NativeGram-onlyreplay
+demoted in favor of actual upstream source test. Fullgoalactive/all545902902weights
+and nativecounterfactualinputs retained, saving0. Explanationsection21.
+
+Next meaningfulconsumerquestion: actualMLP8branchremoval with alldownstream consumers
+live vs currentisolatedvalue-pathremoval. Agreement <=.10 onbothreadoutscouldsupport
+valuepathdominance; disagreementrequiresotherconsumers ratherthan namingwholeMLPa
+singlecircuit. This isnot yetregistered; preserveall32worlds and failedglobal-source
+verdict. Post-resultCPUcontinuationactuallyexecuted. Clocks math10:49/hourly08:14 UTC.
+
 ## Raw mixed removal completed; exact Gram continuation executed — 2026-09-10 07:47:38 UTC
 
 Previous goal turn PROGRESS e73097a53; current preregistration 1b24746d6.
