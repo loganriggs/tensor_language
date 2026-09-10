@@ -1,6 +1,26 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 17:48 UTC
+## Latest follow-up — 10 September, 18:03 UTC
+
+**Lexical and grammatical commands transfer, but are not yet separately
+selective or reliably composable.** The lexical command mostly preserves form
+margins; the grammatical command changes lexical margins too much. The joint
+command gets14/16 and13/16 four-token choices correct. Two native ing-corner
+comparisons in frame2 also fail capability; all failures remain in the results.
+
+The predefined lexical–form interaction coordinate accounts for58–81% of the
+form command's squared lexical-margin drift. This is observed-score accounting,
+not an identified causal producer. [The updated explanation](gerund_scalar_writes_and_live_feedback.md)
+provides the two commands, exact weight decomposition, controls and limits.
+
+The newly measured agreement-margin change is .233 nats and also fails its
+preservation limit; the prior .705-nat probability change replays. Native checks
+and the CPU audits passed. Next: explicit lexical–form coupling and its producers,
+not new directions or relaxed thresholds. Full four-property goal stays open.
+Next reviews: hourly18:14 UTC; mathematical19:49 UTC.
+
+
+## Previous follow-up — 10 September, 17:48 UTC
 
 **The shared first-layer value stream transfers 84%/81% of the primed-word
 preference, but preservation fails.** It explains only49%/61% of the context-gate

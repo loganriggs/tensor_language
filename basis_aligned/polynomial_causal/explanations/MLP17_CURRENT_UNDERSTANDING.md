@@ -197,3 +197,28 @@ TOKEN_CONTEXT_BROADCAST_AUDIT_V1_RESULT.json and
 TOKEN_CONTEXT_BROADCAST_CONTROL_CE_V1.json in polynomial_causal; updated dated
 gerund_scalar_writes_and_live_feedback.md. Next lexical/form readout separation,
 not a head-index slice or rank rescue of the failed whole-source test.
+
+
+### Lexical/form command reuse and coupling, 10 September18:03 UTC
+
+Fixed lexical command: first-value position3 cyclic donor. Fixed form command:
+all36 output e scalars from original-lemma ing cue, reused without adapters for
+the cyclic lemma. Native2lemma x2cue grid, both singles in both contexts andjoint.
+A instrument held; B/C/D/E failed. A1native16/16everycorner; A2Y/Z15/16, shop
+and laugh contexts prefer traveling in their respective four-token comparisons.
+L recovery .84174/.84124 and .80855/.78531; form drift .0462–.0976. F recovery
+.95175/.95041 and .86341/.86437; lexical drift .1149–.1688 fails. Joint correct
+14/16,13/16; four-token error .17660/.19757; full additive error .12298/.08285.
+G agreement-margin meanabs .23328(CI .16004–.30963)fails .10 and old CE .70470
+replays. This resolves the previous missing-foil limitation; no threshold rescue.
+Exact four-reader Hadamard decomposition and MLP17 product fold held1.16e-14.
+Actual CPU score-coordinate accounting: interaction contributes58–81% of F's
+squared lexical drift, descriptive not causal mediation. Selected-score addition
+error .04706/.04069 versus ACTUAL joint command, not native joint target; saved
+state addition+exact norm/softcap .04604/.06495 does not fix joint choice failure.
+23forwards368seq,1.55786sec. Saved7,476,061bytes reader/product coefficients and
+finalstates for CPU reuse; no independent producers or structural saving.
+Primary LEXICAL_FORM_INTERCHANGE_V1_RESULT.json, its AUDIT_V1 and
+LEXICAL_FORM_DRIFT_COMPONENTS_V1_RESULT.json in polynomial_causal; current dated
+gerund_scalar_writes_and_live_feedback.md. Next investigate explicit coupled
+lexical/form operations and their producers, not independent-axis relabeling.

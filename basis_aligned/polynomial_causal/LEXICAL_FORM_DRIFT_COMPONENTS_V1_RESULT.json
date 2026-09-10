@@ -1,0 +1,68 @@
+{
+  "source_sha256": "9b119da12dce54a0d4a38c8175733c197643e76115154202400534371ab7a8cd",
+  "reports": {
+    "A1": {
+      "LB": {
+        "main_axis_squared": 9.55522870807492,
+        "interaction_squared": 16.071736688778614,
+        "interaction_fraction": 0.6271416236723797,
+        "main_fraction": 0.37285837632762037,
+        "identity_abs_error": 3.552713678800501e-15
+      },
+      "LY": {
+        "main_axis_squared": 7.561483094130554,
+        "interaction_squared": 22.524753143610763,
+        "interaction_fraction": 0.7486730133214489,
+        "main_fraction": 0.25132698667855113,
+        "identity_abs_error": 0.0
+      },
+      "FB": {
+        "main_axis_squared": 13.104940188545482,
+        "interaction_squared": 23.281189492406135,
+        "interaction_fraction": 0.6398369295263079,
+        "main_fraction": 0.3601630704736923,
+        "identity_abs_error": 7.105427357601002e-15
+      },
+      "FX": {
+        "main_axis_squared": 12.877209582342472,
+        "interaction_squared": 17.660730455893756,
+        "interaction_fraction": 0.5783209487536142,
+        "main_fraction": 0.4216790512463858,
+        "identity_abs_error": 3.552713678800501e-15
+      }
+    },
+    "A2": {
+      "LB": {
+        "main_axis_squared": 4.583852348262421,
+        "interaction_squared": 6.000190168186289,
+        "interaction_fraction": 0.5669091142501899,
+        "main_fraction": 0.43309088574981014,
+        "identity_abs_error": 0.0
+      },
+      "LY": {
+        "main_axis_squared": 3.07150600531648,
+        "interaction_squared": 5.723211549340309,
+        "interaction_fraction": 0.6507555829703568,
+        "main_fraction": 0.34924441702964326,
+        "identity_abs_error": 0.0
+      },
+      "FB": {
+        "main_axis_squared": 3.3937731270438776,
+        "interaction_squared": 14.60926507149694,
+        "interaction_fraction": 0.8114888670669516,
+        "main_fraction": 0.18851113293304847,
+        "identity_abs_error": 0.0
+      },
+      "FX": {
+        "main_axis_squared": 5.749722695005195,
+        "interaction_squared": 13.163245166702984,
+        "interaction_fraction": 0.6959904581318369,
+        "main_fraction": 0.30400954186816304,
+        "identity_abs_error": 0.0
+      }
+    }
+  },
+  "scope": "Exact orthogonal accounting of observed cross-task margin drift, not causal mediation or an independently identified interaction producer. Components were fixed in the preregistered four-token Hadamard basis.",
+  "native_forwards": 0,
+  "gpu_accessed": false
+}

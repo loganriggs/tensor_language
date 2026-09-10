@@ -1,6 +1,109 @@
 # Shared grammatical writes work; the scalar-only predictor does not
 
-**Latest result — 10 September, 17:48 UTC:** the shared first-layer value stream
+**Latest result — 10 September, 18:03 UTC:** the fixed lexical and grammatical
+commands show substantial reuse, but fail the complete separation/composition
+tests. The lexical command mostly preserves form margins. The form command
+changes lexical margins too much, and their joint command chooses the intended
+word/form in only 14/16 and 13/16 cases. The predefined interaction reader
+accounts for much of the measured cross-task drift; its producer remains open.
+
+## Testing two reusable commands and their joint effect
+
+For each pair of verbs, we evaluated four native contexts: original or cyclic
+next verb, each with a bare-verb or an “-ing” grammatical cue. The four scored
+tokens are the two verbs in both forms. The lexical command L changes only the
+primed token's first-value vector. The form command F sets all 36 output e
+scalars to the original verb's ing-cue values. We reuse that SAME F command
+with the second verb; we do not supply a second set of context-specific scalars.
+The joint command installs L and F together on the original base context.
+
+| Test | Frame 1 | Frame 2 |
+|---|---:|---:|
+| L lexical recovery, bare / ing cue | .842 / .841 | .809 / .785 |
+| F form recovery, original / cyclic verb | .952 / .950 | .863 / .864 |
+| L drift in form margins, relative error | .090 / .098 | .050 / .046 |
+| F drift in lexical margins, relative error | .115 / .117 | .119 / .169 |
+| Joint four-token effect error versus native joint change | .177 | .198 |
+| Joint correct choices among four tokens | 14/16 | 13/16 |
+| Error from adding singleton full-vocabulary effects | .123 | .083 |
+
+The recovery bars were .80; the preservation bars were .10. All L preservation
+point estimates pass, but lexical recovery in the second frame's ing cue misses
+.80. All F recovery point estimates pass, but every F preservation case fails.
+The joint test additionally required all 16 correct choices and full-vocabulary
+addition error at most .10. It fails. None of these thresholds was relaxed.
+
+Native capability also limits the claims. Frame 1 has 16/16 correct four-token
+choices at every corner. Frame 2 has 15/16 at each ing corner: the shop context
+prefers traveling over shopping, and a laugh context prefers traveling over
+laughing. These are retained failures; the positive bare-cue capability result
+from the previous run did not establish ing-cue capability. Consequently all
+three combined reuse/selectivity/composition predicates fail as registered.
+
+## What the structured readers reveal
+
+For four unembedding rows ordered [word0-bare, word0-ing, word1-bare, word1-ing],
+we use the exact decomposition
+
+    U(word,form) = mean + sign_word*lexical + sign_form*form
+                       + sign_word*sign_form*interaction.
+
+The components are fixed averages and contrasts, with no fitting. Each folds
+through MLP17 to a reader of its native products. Reconstructing the original
+rows is exact; reconstructing their folded product readers has maximum error
+1.16e-14. Normalization and softcap remain explicit. Applying the same contrast
+basis to FINAL scores measures final-score interaction, which can include
+nonlinearity at readout as well as earlier computation.
+
+This makes the preservation failure more informative. Write the four final-score
+coordinates as mean, ell, phi and iota. The two lexical margins are
+2*(ell-iota) and 2*(ell+iota). Therefore their squared change is exactly
+
+    8*(change_in_ell^2 + change_in_iota^2).
+
+The paired CPU audit finds that iota accounts for **58–81% of the form command's
+squared lexical-margin drift**, depending on frame and starting verb. The rest
+is change in the common lexical coordinate. This is orthogonal accounting of
+observed scores, not a percentage causally mediated by an identified module.
+It favors investigating an explicitly coupled readout operation over assuming
+two independent semantic effects. The arbitrary upstream computation is still
+charged and unexplained.
+
+## Composition and the agreement control
+
+On the four selected scores, adding the singleton effects predicts the ACTUAL
+joint intervention with .047/.041 relative error. That is much better than the
+full-vocabulary result, but it predicts the imperfect joint command, not the
+native joint lexical/grammatical change. We must retain its 14/16 and 13/16
+choice failures. A CPU diagnostic adds the saved residual-state changes and
+then recomputes exact normalization/softcap; errors are .046/.065. It does not
+provide a normalization-only repair or an independently initialized program.
+All required singleton states still come from the native model.
+
+We now measured the previously missing runs/run readouts. The lexical value
+swap changes their margin by **.233 nats in average absolute value**, exceeding
+the new .10 margin limit; its paired interval is [.160,.310]. The original
+probability-preservation failure also replays at .705 nats. Thus there is a real
+change in grammatical-form preference under this intervention, in addition to
+word-probability movement. The natural cyclic context change moves that margin
+by .466 nats, reported for scale; it does not change the registered verdict.
+
+All numerical instruments pass. The managed run finished18:03:20 after23batched
+forwards/368sequences and1.56seconds of executor time. Final states, selected
+scores and folded readers were saved (7,476,061bytes). The paired audit,
+readout/state composition diagnostic and drift-component accounting were all
+executed on CPU with no checkpoint load or extra model forwards. The full
+four-property goal remains open: reusable partial commands are not sufficient
+independent circuits, and selected-score accuracy is not full-model prediction.
+
+Receipts: [preregistration](../../LEXICAL_FORM_INTERCHANGE_V1_PREREGISTRATION.md),
+[native result](../../LEXICAL_FORM_INTERCHANGE_V1_RESULT.json),
+[paired/state audit](../../LEXICAL_FORM_INTERCHANGE_AUDIT_V1_RESULT.json),
+[drift components](../../LEXICAL_FORM_DRIFT_COMPONENTS_V1_RESULT.json).
+
+## Previous result — 17:48 UTC
+
+**Result — 10 September, 17:48 UTC:** the shared first-layer value stream
 transfers most of the primed-word preference (84%/81%) across the two frames,
 but neither supplies the full context gate nor passes probability preservation.
 This is partial lexical transfer through a known shared input channel, not an
