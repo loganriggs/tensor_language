@@ -1,0 +1,325 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.signed_reader_pair",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": [
+   "native_MLP17_signed_reader_pair_product"
+  ]
+ },
+ "claims": [
+  {
+   "claim_id": "signed_reader_pair.calibration.v1",
+   "revision": 1,
+   "status": "rejected",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "native_signed_reader_pair",
+    "domain": "conditional MLP17 native normalized inputs; reused FW rows and Pile documents",
+    "read": "a=e1^T u,b=e2^T u for frozen weight-witness reader pair",
+    "operation": "multiply a*b and write native v12=D[(Le1)*(Re2)+(Le2)*(Re1)]",
+    "write": "complete native MLP cross-term vector",
+    "endpoint": "frequent/rare CE and full-vocabulary removal response"
+   },
+   "alternative_explanations": [
+    "large continuous coefficient but small natural activation",
+    "writer serves effects outside fitted calibration direction"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "full_pair",
+     "role": "necessity",
+     "changes": [
+      "remove native a*b*v12"
+     ],
+     "holds_fixed": [
+      "native upstream background and normalized input",
+      "evaluation text and all remaining MLP terms"
+     ],
+     "control_ids": [
+      "independent_facade_replay",
+      "online_native_writer_edits"
+     ],
+     "builder_artifact_id": "plan",
+     "split_plan_id": "reader_pair_reused_FW42_Pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "writer_projection",
+     "role": "invariance",
+     "changes": [
+      "retain only calibration-projected writer for full-pair removal effect"
+     ],
+     "holds_fixed": [
+      "native upstream background and normalized input",
+      "evaluation text and all remaining MLP terms"
+     ],
+     "control_ids": [
+      "independent_facade_replay",
+      "online_native_writer_edits"
+     ],
+     "builder_artifact_id": "plan",
+     "split_plan_id": "reader_pair_reused_FW42_Pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "random_pairs",
+     "role": "invariance",
+     "changes": [
+      "remove three fixed random native bilinear reader-pair terms"
+     ],
+     "holds_fixed": [
+      "native upstream background and normalized input",
+      "evaluation text and all remaining MLP terms"
+     ],
+     "control_ids": [
+      "independent_facade_replay",
+      "online_native_writer_edits"
+     ],
+     "builder_artifact_id": "plan",
+     "split_plan_id": "reader_pair_reused_FW42_Pile16",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "mlp17_signed_pair",
+     "tensor_path": "MLP17 full native bilinear tensor cross term",
+     "shape": [
+      1152
+     ],
+     "intervention": "remove full/projection/complement term with native final readout"
+    }
+   ],
+   "split_plan_ids": [
+    "reader_pair_reused_FW42_Pile16"
+   ],
+   "evidence_event_ids": [],
+   "translation_ids": [],
+   "next_missing": "Calibration claim rejected: Bnecessity andCprojection sufficiency fail. Native component/random specificity remain valid but do not identify semantics. No alternative pair/gain/rank rescue. Fullnative remainder/upstream dependencies retained; no independent extraction or structural saving."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "reader_pair_reused_FW42_Pile16",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "rows",
+   "description": "Reused42FineWeb rows and16Pile documents; no fresh discovery/OOD certification"
+  }
+ ],
+ "evidence_events": [
+  {
+   "claim_id": "signed_reader_pair.calibration.v1",
+   "stage": "complete",
+   "site_id": "mlp17_signed_pair",
+   "split_plan_id": "reader_pair_reused_FW42_Pile16",
+   "evaluation_role": "conditional_reused_native_text_screen",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "input_artifact_ids": [
+    "component",
+    "rows",
+    "audit"
+   ],
+   "seed": 9111236,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "signed_reader_pair.execution.v1",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "full_pair",
+    "writer_projection"
+   ],
+   "metrics": [
+    {
+     "name": "maximum_online_abs_logit_error",
+     "estimate": 5.057767077509823e-05,
+     "ci95": null,
+     "bar": "<=1e-3abs and<=1e-5rel"
+    }
+   ],
+   "notes": "Native full vector, projection and complement edits valid; independent facade exact; no output-axis fit for fullwriter.",
+   "design_key": "9327273e42f3d24cb378e865a49ab264764340b4a57c7e08dd9c75abe27c7ecc",
+   "execution_key": "e32d2a6fd2c363c444a724d9ecac41f6f3c8625bcec5bcf677a9d725959937d7"
+  },
+  {
+   "claim_id": "signed_reader_pair.calibration.v1",
+   "stage": "complete",
+   "site_id": "mlp17_signed_pair",
+   "split_plan_id": "reader_pair_reused_FW42_Pile16",
+   "evaluation_role": "conditional_reused_native_text_screen",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "input_artifact_ids": [
+    "component",
+    "rows",
+    "audit"
+   ],
+   "seed": 9111236,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "signed_reader_pair.calibration.v1",
+   "test_type": "removal",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "full_pair"
+   ],
+   "metrics": [
+    {
+     "name": "FW_HOLDOUT_rare_CE",
+     "estimate": 0.01551912274337397,
+     "ci95": null,
+     "bar": ">=.10 andfrequent<=-.02 bothcorpora"
+    },
+    {
+     "name": "PILE_SHIFT_rare_CE",
+     "estimate": 0.015870944317611713,
+     "ci95": null,
+     "bar": ">=.10 andfrequent<=-.02 bothcorpora"
+    }
+   ],
+   "notes": "Rare damage~.016 below.10; frequent also misses. Component has a small real effect but fails its registered calibration role.",
+   "design_key": "96019546ff16a85a97e472a5b5b6e5a79cf2ceb3c8c50077809da845e3b7da34",
+   "execution_key": "ec0894b185e9194137c102721e23825e8149576830f45a7044786754ee839700"
+  },
+  {
+   "claim_id": "signed_reader_pair.calibration.v1",
+   "stage": "complete",
+   "site_id": "mlp17_signed_pair",
+   "split_plan_id": "reader_pair_reused_FW42_Pile16",
+   "evaluation_role": "conditional_reused_native_text_screen",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "input_artifact_ids": [
+    "component",
+    "rows",
+    "audit"
+   ],
+   "seed": 9111236,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "signed_reader_pair.projection.v1",
+   "test_type": "invariance",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "writer_projection"
+   ],
+   "metrics": [
+    {
+     "name": "FW_HOLDOUT_projection_error",
+     "estimate": 0.8315123884842606,
+     "ci95": null,
+     "bar": "<=.10"
+    },
+    {
+     "name": "PILE_SHIFT_projection_error",
+     "estimate": 0.79131571948392,
+     "ci95": null,
+     "bar": "<=.10"
+    }
+   ],
+   "notes": "Writer calibration normfraction.7249 does not give operational sufficiency: full effect errors.832/.791; complement material, semantics unassigned.",
+   "design_key": "a02cbfb7421f90601a5c5e05e948fc0ddbb8b1ed583928ca2cc14ddc9748d634",
+   "execution_key": "83ea5acd2af39a22eb42adf60f2ec1e35923288260dedc31c657ffd528f3d7ad"
+  },
+  {
+   "claim_id": "signed_reader_pair.calibration.v1",
+   "stage": "complete",
+   "site_id": "mlp17_signed_pair",
+   "split_plan_id": "reader_pair_reused_FW42_Pile16",
+   "evaluation_role": "conditional_reused_native_text_screen",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "input_artifact_ids": [
+    "component",
+    "rows",
+    "audit"
+   ],
+   "seed": 9111236,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "signed_reader_pair.random.v1",
+   "test_type": "null_control",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "random_pairs"
+   ],
+   "metrics": [
+    {
+     "name": "FW_HOLDOUT_random_rare_abs_mean",
+     "estimate": 2.0993634022599867e-05,
+     "ci95": null,
+     "bar": "<=.10full rare damage"
+    },
+    {
+     "name": "PILE_SHIFT_random_rare_abs_mean",
+     "estimate": 9.32483066717893e-06,
+     "ci95": null,
+     "bar": "<=.10full rare damage"
+    }
+   ],
+   "notes": "Both random conditions pass; cannot replace the failed necessity/sufficiency gates.",
+   "design_key": "45cbe6025b1c6ee625d535c8b88353b0a20844c6bb23e4c555220d1d7087f6c1",
+   "execution_key": "b714775cb4987edefaa7b218860bcca28034fc2b3957015c74cfa3ec34eca522"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/SIGNED_READER_PAIR_V1_PREREGISTRATION.md",
+   "sha256": "858f7088774e7d0fa51f94847cd89c2e7e8a362022cf47c2aa05a2afbc560a28",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/SIGNED_READER_PAIR_V1_RESULT.json",
+   "sha256": "ef12cdf1f2757d39feff526b9ba22c6fef001352a1865c220406cfcac19fd5e9",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "component": {
+   "path": "basis_aligned/polynomial_causal/SIGNED_READER_PAIR_V1_COMPONENT.pt",
+   "sha256": "37700c905e7e9fba6b7a15e6a89e5b8d8b8ae4fa173b26be40930aa61422ea3c",
+   "kind": "weights",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/SIGNED_READER_PAIR_AUDIT_V1_RESULT.json",
+   "sha256": "b3618f6168214f624d7a3d6571dd99ee3a1325181cb2e9db551e4a4a37b6b5da",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_TWO_READERS_V1_ROWS.json",
+   "sha256": "9098bc4c850e1c25e0352a1f3f509686c590e02af532b5d2ddb2d10a10f31a41",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "explanation": {
+   "path": "basis_aligned/polynomial_causal/explanations/native_reader_pair_and_calibration_screen_2026-09-10.md",
+   "sha256": "e75f7e24e8890815e22f9779e79dd998cebba52c253429eae7b32b54e64d6fa7",
+   "kind": "explanation",
+   "status": "frozen"
+  }
+ },
+ "provenance": {
+  "created_by": "Codex",
+  "parent_claim": "subroutine.calibration.quadratic_readout / calibration_quadratic_readout.v5",
+  "prior_art": "Selected from prior weight-only equal-energy witness; full native writer differs from fitted q projection."
+ }
+}

@@ -1,0 +1,273 @@
+{
+  "experiment": "signed_reader_pair_audit_v1",
+  "model_forwards": 0,
+  "post_result": true,
+  "registered_gates_unchanged": true,
+  "seed": 9111242,
+  "bootstrap_draws": 4000,
+  "reports": {
+    "FW_HOLDOUT": {
+      "all": {
+        "full": {
+          "estimate": 0.00916279052259237,
+          "ci95": [
+            0.007190938449893321,
+            0.011344060814499188
+          ],
+          "positive_rows": 42,
+          "rows": 42
+        },
+        "calibration": {
+          "estimate": 0.01259446542231076,
+          "ci95": [
+            0.010186413108147312,
+            0.015142298939681244
+          ],
+          "positive_rows": 39,
+          "rows": 42
+        },
+        "complement": {
+          "estimate": 0.011319482545194168,
+          "ci95": [
+            0.008693267516683478,
+            0.014089358975630534
+          ],
+          "positive_rows": 37,
+          "rows": 42
+        },
+        "interaction": {
+          "estimate": -0.014751157444912557,
+          "ci95": [
+            -0.016069127073461118,
+            -0.013532203611778464
+          ],
+          "positive_rows": 0,
+          "rows": 42
+        }
+      },
+      "frequent": {
+        "full": {
+          "estimate": -0.015489626820076203,
+          "ci95": [
+            -0.019808174954562482,
+            -0.011386020768020979
+          ],
+          "positive_rows": 3,
+          "rows": 42
+        },
+        "calibration": {
+          "estimate": 0.01605445567603359,
+          "ci95": [
+            -0.00427573440577926,
+            0.03784368467951491
+          ],
+          "positive_rows": 30,
+          "rows": 42
+        },
+        "complement": {
+          "estimate": -0.014406940580165842,
+          "ci95": [
+            -0.03826391032768682,
+            0.007427160388362515
+          ],
+          "positive_rows": 10,
+          "rows": 42
+        },
+        "interaction": {
+          "estimate": -0.017137141915943947,
+          "ci95": [
+            -0.018772270052981675,
+            -0.015539942806852372
+          ],
+          "positive_rows": 0,
+          "rows": 42
+        }
+      },
+      "rare": {
+        "full": {
+          "estimate": 0.015519122743374102,
+          "ci95": [
+            0.012762811135749761,
+            0.018587940193461456
+          ],
+          "positive_rows": 42,
+          "rows": 42
+        },
+        "calibration": {
+          "estimate": 0.011702348141168545,
+          "ci95": [
+            0.005388608272177935,
+            0.018481756844865634
+          ],
+          "positive_rows": 26,
+          "rows": 42
+        },
+        "complement": {
+          "estimate": 0.01795273436647332,
+          "ci95": [
+            0.01113202150104468,
+            0.024668080587065853
+          ],
+          "positive_rows": 32,
+          "rows": 42
+        },
+        "interaction": {
+          "estimate": -0.014135959764267762,
+          "ci95": [
+            -0.015679538957919934,
+            -0.012712112891712623
+          ],
+          "positive_rows": 0,
+          "rows": 42
+        }
+      },
+      "natural_scale": {
+        "ab_mean": -0.07308880795543107,
+        "ab_sd": 13.655229996302744,
+        "constructed_witness_abs_ab": 288.0,
+        "witness_ab_over_natural_sd": 21.09082015300937,
+        "pair_q_mean": -31.4681173867346,
+        "old_q_mean": 29756.327450604276,
+        "pair_q_RMS_over_old_q_RMS": 0.15907384189103774,
+        "scope": "RMS ratio is not additive variance share; large continuous witness coordinates need not be typical native activations"
+      }
+    },
+    "PILE_SHIFT": {
+      "all": {
+        "full": {
+          "estimate": 0.011578410358416363,
+          "ci95": [
+            0.005980852435893245,
+            0.0169148365990893
+          ],
+          "positive_rows": 15,
+          "rows": 16
+        },
+        "calibration": {
+          "estimate": 0.010805206025240974,
+          "ci95": [
+            0.005464587063659806,
+            0.016320450942369214
+          ],
+          "positive_rows": 12,
+          "rows": 16
+        },
+        "complement": {
+          "estimate": 0.011045774576191478,
+          "ci95": [
+            0.006835554577357016,
+            0.015448073197344132
+          ],
+          "positive_rows": 15,
+          "rows": 16
+        },
+        "interaction": {
+          "estimate": -0.010272570243016088,
+          "ci95": [
+            -0.011579588800393798,
+            -0.009055092439078547
+          ],
+          "positive_rows": 0,
+          "rows": 16
+        }
+      },
+      "frequent": {
+        "full": {
+          "estimate": -0.0016064106494482495,
+          "ci95": [
+            -0.011646991862753028,
+            0.006861932123991029
+          ],
+          "positive_rows": 9,
+          "rows": 16
+        },
+        "calibration": {
+          "estimate": 0.001065186832151553,
+          "ci95": [
+            -0.02196809203329712,
+            0.026837417312913246
+          ],
+          "positive_rows": 9,
+          "rows": 16
+        },
+        "complement": {
+          "estimate": 0.011879203310596022,
+          "ci95": [
+            -0.013812195219490928,
+            0.034115442898217906
+          ],
+          "positive_rows": 9,
+          "rows": 16
+        },
+        "interaction": {
+          "estimate": -0.014550800792195825,
+          "ci95": [
+            -0.017192111514376215,
+            -0.012169687253776859
+          ],
+          "positive_rows": 0,
+          "rows": 16
+        }
+      },
+      "rare": {
+        "full": {
+          "estimate": 0.015870944317610998,
+          "ci95": [
+            0.008802212087467036,
+            0.02481034915084853
+          ],
+          "positive_rows": 15,
+          "rows": 16
+        },
+        "calibration": {
+          "estimate": 0.013976228455094698,
+          "ci95": [
+            0.0022117638429590887,
+            0.027562590798254138
+          ],
+          "positive_rows": 10,
+          "rows": 16
+        },
+        "complement": {
+          "estimate": 0.010774438230945234,
+          "ci95": [
+            0.0002212049125712243,
+            0.02131709064304435
+          ],
+          "positive_rows": 9,
+          "rows": 16
+        },
+        "interaction": {
+          "estimate": -0.008879722368428933,
+          "ci95": [
+            -0.010191566387312927,
+            -0.007565514857992676
+          ],
+          "positive_rows": 0,
+          "rows": 16
+        }
+      },
+      "natural_scale": {
+        "ab_mean": 3.6599572856203872,
+        "ab_sd": 13.797866219165419,
+        "constructed_witness_abs_ab": 288.0,
+        "witness_ab_over_natural_sd": 20.8727926061469,
+        "pair_q_mean": 1575.7811451045661,
+        "old_q_mean": 31080.463182945932,
+        "pair_q_RMS_over_old_q_RMS": 0.15858903358627421,
+        "scope": "RMS ratio is not additive variance share; large continuous witness coordinates need not be typical native activations"
+      }
+    }
+  },
+  "projection_scalar_coefficient": 430.54632120862595,
+  "gauge_control": {
+    "passed": true,
+    "writer_max_abs": 7.993605777301127e-15,
+    "term_max_abs": 6.039613253960852e-14,
+    "reader_max_abs": 2.984279490192421e-13,
+    "scope": "Consistent orthogonal change of local MLP input/output and vocabulary-reader coordinates; not an untransformed native RoPE gauge or semantic identification"
+  },
+  "uncertainty_scope": "Row bootstrap; FineWeb document grouping unknown, Pile one row per document",
+  "source_sha256": "09c4e9c894ffba61008099b4654a5dc530f7251bee4fa2958136cb5519a52d43",
+  "input_result_sha256": "ef12cdf1f2757d39feff526b9ba22c6fef001352a1865c220406cfcac19fd5e9"
+}

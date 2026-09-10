@@ -667,6 +667,45 @@
     "ea7b31a99a4b3bf22d7a3b5367fea0062f922a46c61266a7a50ff0ec0ff4ca73"
    ]
   },
+  "subroutine.signed_reader_pair": {
+   "file": "subroutine_signed_reader_pair.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "1d9ba0fc1e63d3ae875e828176d1fb3833f7dfed613dd5b3d4d7c7c943c3abfa",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "signed_reader_pair.calibration.v1",
+   "claim_status": "rejected",
+   "causal_variable_id": "native_signed_reader_pair",
+   "interchange_family_count": 0,
+   "invariance_family_count": 2,
+   "negative_event_count": 2,
+   "active_negative_event_count": 2,
+   "latest_blocker": "signed_reader_pair.projection.v1",
+   "latest_active_event": "signed_reader_pair.random.v1",
+   "active_event_ids": [
+    "signed_reader_pair.execution.v1",
+    "signed_reader_pair.calibration.v1",
+    "signed_reader_pair.projection.v1",
+    "signed_reader_pair.random.v1"
+   ],
+   "held_test_types": [
+    "compiled_equivalence",
+    "null_control"
+   ],
+   "active_blocking_test_types": [
+    "invariance",
+    "removal"
+   ],
+   "design_keys": [
+    "45cbe6025b1c6ee625d535c8b88353b0a20844c6bb23e4c555220d1d7087f6c1",
+    "9327273e42f3d24cb378e865a49ab264764340b4a57c7e08dd9c75abe27c7ecc",
+    "96019546ff16a85a97e472a5b5b6e5a79cf2ceb3c8c50077809da845e3b7da34",
+    "a02cbfb7421f90601a5c5e05e948fc0ddbb8b1ed583928ca2cc14ddc9748d634"
+   ]
+  },
   "task.bracket.pending_opener": {
    "file": "task_bracket_pending_opener.json",
    "schema_version": 2,

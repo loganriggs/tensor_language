@@ -53,6 +53,57 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Native signed reader-pair fails calibration screen — 2026-09-10 12:46:43 UTC
+
+Previous turn PROGRESSd9e65295c. Original handoff/pilot authority. Prereg52bcc33e7.
+Newobject was FULL nativeMLPcrosswriter, not another fittedqprojection/energy
+coefficient. Frozenwitnessreaderse1/e2, a=e1·u,b=e2·u,
+v12=D[(Le1)*(Re2)+(Le2)*(Re1)], term=a*b*v12. Pairselectedfrompreviousweights,
+not thisnativeoutcome. No nextpair/gain/rankrescue afterfailure.
+
+Managedsigned_reader_pair12:40:25–12:40:41,22bodyforwards86seq,10.585s.
+Ainstrument/Dspecificityheld; Bcalibrationnecessity/Cprojection sufficiencyfail.
+FullpairrareCE+.015519FW/+.015871Pile<.10; frequent-.015490/-.001606 misses-.02.
+All-token CE+.009163/.011578; randomrareabsmeans2.10e-5/9.32e-6, so smallreal
+component butnotregisteredcalibrator. Writer vnorm593.9098, calibrationprojection
+normfraction.724936, yet projectioneffecterrors.831512/.791316>.10; complement
+relativeeffect.829428/.772636. Fullpair versusoldqerrornorm/fullpair5.92/6.51,
+not oldq-relative fidelity. Preserveallfailedbars; no semanticrenamepromotion.
+
+Nativeonlinefull/projection/complement max5.06e-5abs/6.92e-7rel, independent
+facadeexact. Orthogonality/weightcoefficientcorrespondence pass. CPUmixed
+finite-difference identity1.87e-14; inputsigngaugezero (signchangescancel).
+Artifact SIGNED_READER_PAIR_V1_COMPONENT.pt contains3-vector core3456scalars
+plusprojection/random controls. Full545902902 nativeparams remain, no wholesaving.
+Result SIGNED_READER_PAIR_V1_RESULT.json. RunnerSHA
+919d61170d4f19c4b46435c10541e5b85ba8c7ec9f9aedda586c5c55dc2fa180.
+
+Actualpost-native CPU signed_reader_pair_audit_v1 executed:4krowbootstrap full
+meanCE CI[.007191,.011344]FW/[.005981,.016915]Pile, harmful42/42and15/16rows.
+Joint-minus-separate CE interaction-.014751/-.010273, negativeall58rows;
+CI[-.016069,-.013532]/[-.011580,-.009055]. No assumption ofadditivelosses.
+FWdocumentgroupingunknown; reusedcorpusshifttext only.
+
+Naturalabmean-.07309FW/3.65996Pile, SD13.655/13.798. Continuouswitnessusedabsab288,
+about21timesnaturalSD; thereforeglobalwitnessnotdominanceontext. Projectedpairq
+RMS/fullqRMS.159074/.158589 (not variancefractions), means-31.47/1575.78 vsoldq
+means29756/31080. Consistentorthogonal changeoflocalMLP, inputreaders andoutput
+reader tested: writer8.0e-15, term6.04e-14, readout2.98e-13. Not a freeglobal
+rotationthroughuntransformedRoPE, andnotsemanticidentification.
+
+NEWcanonical subroutine.signed_reader_pair with claim signed_reader_pair.calibration.v1
+REJECTED, four events: executionheld/calibrationfailed/projectionfailed/randomheld.
+Parent subroutine.calibration.quadratic_readout v5 conditionalpositivesremain,
+notinvalidatedbythischildscreen. Exactnativecomponentrecordretained; noidentified
+languagecircuit, standaloneupstreamextraction orstructuralgain.
+
+Latestexplanation explanations/native_reader_pair_and_calibration_screen_2026-09-10.md.
+Next researchmustnotrefineclosedpair/calibrationaxis/energyfits. Need a different
+explicitinputoperation orsemanticcandidate supportedonnativeinputs; global
+coefficient/witnessmagnitudealoneinsufficient. Actualpost-resultCPUcontinuation
+complete, no successorGPUjobregistered. Fullgoalactive. Hour13:14/math13:49 due.
+PreserveunrelatedClaudequeue/logs/results. Workspacecommitsmustbepushed.
+
 ## Vocabulary-reader energy fails; continuous equal-energy witness executed — 2026-09-10 12:33:26 UTC
 
 Previous turn PROGRESS320b4a83c. Original handoff/pilot authority. Preregc435cb51a.
