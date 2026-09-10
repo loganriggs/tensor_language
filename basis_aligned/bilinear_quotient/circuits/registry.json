@@ -746,6 +746,42 @@
     "e0186150bfc36131c663b0e27ff37b877e86324fe36a57641ff68c60a45306d8"
    ]
   },
+  "subroutine.correlative.score_half_task_split": {
+   "file": "subroutine_correlative_score_half_task_split.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "9925c0ed3f00c809c1dde9a1f12af6625a7bcd319ffa2c5d4f6b9d34c171cc8f",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "correlative.score_half_task_split.v1",
+   "claim_status": "rejected",
+   "causal_variable_id": "stored_score_half_dependency",
+   "interchange_family_count": 3,
+   "invariance_family_count": 0,
+   "negative_event_count": 1,
+   "active_negative_event_count": 1,
+   "latest_blocker": "correlative.score_half_task_split.v1.score_half_contrast",
+   "latest_active_event": "correlative.score_half_task_split.v1.native_bridge",
+   "active_event_ids": [
+    "correlative.score_half_task_split.v1.score_half_contrast",
+    "correlative.score_half_task_split.v1.value_dependence",
+    "correlative.score_half_task_split.v1.native_bridge"
+   ],
+   "held_test_types": [
+    "compiled_equivalence",
+    "das_interchange"
+   ],
+   "active_blocking_test_types": [
+    "das_interchange"
+   ],
+   "design_keys": [
+    "b154ad58133ee573b523af0be8be8ae1527857a95498d4639f3fee665c03304a",
+    "f4439a64bf6f100c61425ad81a789b94eff10ac95f3e723ca0e4361f4035c8f6",
+    "f50869d4ae0fc3492055e27f6ae86d14192eb493f319d93f8782994a569a7307"
+   ]
+  },
   "subroutine.correlative.separable_value_sources": {
    "file": "subroutine_correlative_separable_value_sources.json",
    "schema_version": 2,

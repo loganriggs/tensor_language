@@ -53,6 +53,20 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## QK1/QK2/value branch factorial completed — 2026-09-10 15:17 UTC
+
+Previous goal turn PROGRESS78b9c5b5e; prereg7505012a3. Follow the original handoff/pilot and user’s OV/QK input-sharing question. Existing module dossiers and route/value precedents checked. Fixed26heads/14q blocks, reused A1/A2/C16pairs, no fit/head/rank/gain changes.
+
+Managed run_correlative_three_factor_v1.py SHA70d2efd9eb50428ab94ae828ca80f5f9622f0d3b80b36ea161c0c996e627fa27 ran15:17:04–15:17:09,54forwards864seq,2.506977sec. CORRELATIVE_THREE_FACTOR_V1_RESULT.json A/B/D held, C failed: no opposite global stored-QK-half task split. Native both endpoints correctall48, full P/R and prior P route/value replays held. Max native logit bridge<=1.48e-5; factor relative error<=2.37e-7.
+
+Own P-A1/P-A2/R-C conditional recovery losses when factor stays recipient: QK1 .06575/.06540/.03198, QK2 .05938/.06422/.01303, value .81049/.78021/.89233. QK1-QK2 .00637/.00118/.01895 all same sign and far below.20. QK labels can exchange independently per head, so these are stored ports, not canonical semantic units. Contextual values already contain earlier routing; no upstream-QK irrelevance claim. Value-only full-vocabulary errors .2087/.2212/.2533 remain substantial.
+
+Complete endpoint factor lattice interaction .3956/.3343/.3638, triple term .0725/.0534/.0790; norms not additive causal shares. Claimed CPU audit_correlative_three_factor_v1 ACTUALLY EXECUTED4000pairedresamples perpanel. QK differenceCI [.00045,.01242]/[-.00467,.00774]/[.01132,.02683]; valueCIs all>.72. Canonical score_half_task_split rejected; original P/R swap partition and removal failure preserved. Descriptive R-C QK1+value error .0951 versusQK2+value .1947 is not independently validated; do not promote or select more layers/gains from these outcomes.
+
+Latest explanation2026-09-10/attention_qk1_qk2_value_dependencies.md is linked first in LATEST follow-up and dated index; component dossier updated. No successor GPU queued. Actual post-result CPU audit is the continuation receipt. Next work must explain head-specific routing modes or contextual-value producers, respecting per-head factor exchange and full-block cancellations. Full goal remains active.
+
+Hourly15:14 completed: two native receipts in14:14–15:14 with2480sec gap; coarse clock75.44%coverage,1914.75science/801.03review/884.21unrecordedseconds. User reports/dossier repair account for substantial work but do not count as native receipts. Next hour16:14/math16:49. Managed runners healthy.
+
 ## Two backward unembedding views completed — 2026-09-10 14:59 UTC
 
 User steering: check module dossiers whenever a component looks interesting; investigate attention P/R OV/QK input sharing; then pursue both token and hierarchical unembedding readers folded farther backward. Original bilinear handoff/pilot remains authority.

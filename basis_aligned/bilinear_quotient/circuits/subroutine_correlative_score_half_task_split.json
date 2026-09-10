@@ -1,0 +1,338 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.correlative.score_half_task_split",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "correlative.score_half_task_split.v1",
+   "revision": 1,
+   "status": "rejected",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "stored_score_half_dependency",
+    "domain": "Existing capable A1/A2/C panels,16pairs each",
+    "read": "native normalized rotated QK1/QK2 scores and mixed value vectors in selected heads",
+    "operation": "complete three-factor donor/live lattice projected through fixed P and R",
+    "write": "live selected head-output differences with all later computation recomputed",
+    "endpoint": "opposite global score-half dependency hypothesis failed; value dependence held and parent partition replayed"
+   },
+   "alternative_explanations": [
+    "head-specific roles obscured by arbitrary QK ordering",
+    "task information already transported into contextual values by earlier routing"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "which of QK1/QK2/value receives donor state inside P or R output branch"
+     ],
+     "holds_fixed": [
+      "saved26heads and14q blocks",
+      "all existing rows and checkpoint"
+     ],
+     "control_ids": [
+      "native_endpoint_capability",
+      "parent_full_branch_interchange",
+      "prior_route_value_replay"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "recombined_reused",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "which of QK1/QK2/value receives donor state inside P or R output branch"
+     ],
+     "holds_fixed": [
+      "saved26heads and14q blocks",
+      "all existing rows and checkpoint"
+     ],
+     "control_ids": [
+      "native_endpoint_capability",
+      "parent_full_branch_interchange",
+      "prior_route_value_replay"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "recombined_reused",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "interchange",
+     "changes": [
+      "which of QK1/QK2/value receives donor state inside P or R output branch"
+     ],
+     "holds_fixed": [
+      "saved26heads and14q blocks",
+      "all existing rows and checkpoint"
+     ],
+     "control_ids": [
+      "native_endpoint_capability",
+      "parent_full_branch_interchange",
+      "prior_route_value_replay"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "recombined_reused",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "correlative_14_attention_blocks",
+     "tensor_path": "selected attention.squared_attention factors at layers3..16",
+     "shape": [
+      26,
+      128
+     ],
+     "intervention": "QK1/QK2/value donor factors through P or R"
+    }
+   ],
+   "split_plan_ids": [
+    "recombined_reused"
+   ],
+   "evidence_event_ids": [
+    "correlative.score_half_task_split.v1.score_half_contrast",
+    "correlative.score_half_task_split.v1.value_dependence",
+    "correlative.score_half_task_split.v1.native_bridge"
+   ],
+   "translation_ids": [],
+   "next_missing": "No global stored-QK-half division of labor. Head-specific input modes or contextual-value producer remain unexplained. QK label exchange symmetry and per-head cancellations must be handled; do not promote complement or scalar overlap to a semantic circuit."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "recombined_reused",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "rows",
+   "description": "Previously opened authored A1/A2/C; no new OOD data or fit."
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "correlative.score_half_task_split.v1.score_half_contrast",
+   "claim_id": "correlative.score_half_task_split.v1",
+   "stage": "complete",
+   "test_type": "das_interchange",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "C"
+   ],
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "recombined_reused",
+   "evaluation_role": "score_half_contrast",
+   "input_artifact_ids": [
+    "rows",
+    "interface",
+    "audit",
+    "executor"
+   ],
+   "seed": 9111350,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_score_half_contrast",
+     "estimate": 0.006373431533575058,
+     "ci95": [
+      0.00045415952226903784,
+      0.012420578645651407
+     ],
+     "bar": "abs>=.20 with opposite C sign and A1/A2 agreement<=.15"
+    },
+    {
+     "name": "A2_score_half_contrast",
+     "estimate": 0.0011775791645050049,
+     "ci95": [
+      -0.00467125000213855,
+      0.007735171348576843
+     ],
+     "bar": "abs>=.20 with opposite C sign and A1/A2 agreement<=.15"
+    },
+    {
+     "name": "C_score_half_contrast",
+     "estimate": 0.01894720457494259,
+     "ci95": [
+      0.011321043601128622,
+      0.026830944871835526
+     ],
+     "bar": "abs>=.20 with opposite C sign and A1/A2 agreement<=.15"
+    }
+   ],
+   "notes": "Whole stored score labels are exchangeable per head. Conditional losses do not add. Current value dependence does not imply upstream routing is irrelevant. Native parameters retained.",
+   "sections": [],
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "design_key": "b154ad58133ee573b523af0be8be8ae1527857a95498d4639f3fee665c03304a",
+   "execution_key": "9b4a94659039bd0ca4c28b57a9e37113a04a6e18a92a209f06992a240fdd98ac"
+  },
+  {
+   "event_id": "correlative.score_half_task_split.v1.value_dependence",
+   "claim_id": "correlative.score_half_task_split.v1",
+   "stage": "complete",
+   "test_type": "das_interchange",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "C"
+   ],
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "recombined_reused",
+   "evaluation_role": "value_dependence",
+   "input_artifact_ids": [
+    "rows",
+    "interface",
+    "audit",
+    "executor"
+   ],
+   "seed": 9111350,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_value_dependence",
+     "estimate": 0.8104851245880127,
+     "ci95": [
+      0.7359859894961118,
+      0.8863646125420929
+     ],
+     "bar": ">=.50"
+    },
+    {
+     "name": "A2_value_dependence",
+     "estimate": 0.7802077531814575,
+     "ci95": [
+      0.7259707384742796,
+      0.8331501104868949
+     ],
+     "bar": ">=.50"
+    },
+    {
+     "name": "C_value_dependence",
+     "estimate": 0.8923336267471313,
+     "ci95": [
+      0.8711947239935398,
+      0.9156315548345446
+     ],
+     "bar": ">=.50"
+    }
+   ],
+   "notes": "Whole stored score labels are exchangeable per head. Conditional losses do not add. Current value dependence does not imply upstream routing is irrelevant. Native parameters retained.",
+   "sections": [],
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "design_key": "f50869d4ae0fc3492055e27f6ae86d14192eb493f319d93f8782994a569a7307",
+   "execution_key": "f7319f2c91a07b2ce236d7c1e7f0c7758d165f04a5562c6f42df77a147676336"
+  },
+  {
+   "event_id": "correlative.score_half_task_split.v1.native_bridge",
+   "claim_id": "correlative.score_half_task_split.v1",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "C"
+   ],
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "recombined_reused",
+   "evaluation_role": "native_bridge",
+   "input_artifact_ids": [
+    "rows",
+    "interface",
+    "audit",
+    "executor"
+   ],
+   "seed": 9111350,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_native_bridge",
+     "estimate": 1.239776611328125e-05,
+     "ci95": null,
+     "bar": "maxabs<=1e-3 and relative<=1e-5"
+    },
+    {
+     "name": "A2_native_bridge",
+     "estimate": 1.4781951904296875e-05,
+     "ci95": null,
+     "bar": "maxabs<=1e-3 and relative<=1e-5"
+    },
+    {
+     "name": "C_native_bridge",
+     "estimate": 1.430511474609375e-05,
+     "ci95": null,
+     "bar": "maxabs<=1e-3 and relative<=1e-5"
+    }
+   ],
+   "notes": "Whole stored score labels are exchangeable per head. Conditional losses do not add. Current value dependence does not imply upstream routing is irrelevant. Native parameters retained.",
+   "sections": [],
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "design_key": "f4439a64bf6f100c61425ad81a789b94eff10ac95f3e723ca0e4361f4035c8f6",
+   "execution_key": "c7c10e86cd165c6c7d46707a08cbb9b77df21826c304ea1db78d49de0acfe40d"
+  }
+ ],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_THREE_FACTOR_V1_PREREGISTRATION.md",
+   "sha256": "57c13251efbe6de0987fbb16d34347daad41854138171dfeca10bdac21bc6fee",
+   "kind": "plan",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_THREE_FACTOR_V1_RESULT.json",
+   "sha256": "429faa73cce9ee17feb5c1c20ca1c94bb3c1d11209552990fb32960ed403ec7e",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_THREE_FACTOR_AUDIT_V1_RESULT.json",
+   "sha256": "f38b7e61115bf398d67440bd2fc5b5135af7167d2dac83d4c70a1743f4c25e39",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_RECOMBINED_ROWS_V1.json",
+   "sha256": "d05a851c75fab409490d3452d062ec55cdcecc2e20592bfd2c570aa5fa659a85",
+   "kind": "rows",
+   "status": "frozen"
+  },
+  "interface": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_ARTIFACT.pt",
+   "sha256": "0da9d27fd71bbe9fd689b0091a5299790d3617e674004f73623829541913d12d",
+   "kind": "interface",
+   "status": "frozen"
+  },
+  "runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_correlative_three_factor_v1.py",
+   "sha256": "70d2efd9eb50428ab94ae828ca80f5f9622f0d3b80b36ea161c0c996e627fa27",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "executor": {
+   "path": "basis_aligned/polynomial_causal/correlative_three_factor_executor_v1.py",
+   "sha256": "6ba0a885aed79e803b25d0517432d59f292e55825d63992c81b0a71dea244711",
+   "kind": "executor",
+   "status": "frozen"
+  }
+ }
+}

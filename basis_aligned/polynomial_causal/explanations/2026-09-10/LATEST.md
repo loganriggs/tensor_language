@@ -1,9 +1,10 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 14:59 UTC
+## Latest follow-up — 10 September, 15:17 UTC
 
 The requested attention weight audit and both backward-unembedding views have now run. [The full new explanation](unembedding_token_and_hierarchy_backward_folds.md) defines the fold and reports its limits.
 
+- **QK1/QK2/value test:** the two tasks do not show opposite dependence on the stored score halves. Holding recipient values loses .78–.89 of native cue recovery, while holding either current score loses .013–.066. Contextual values dominate this intervention, but full-vocabulary factor interactions remain large. [New factor analysis](attention_qk1_qk2_value_dependencies.md).
 - **Attention input sharing:** in 19 of 26 selected heads, the complementary branch can read the saved scalar’s full value-input function. The same within-head QK factors serve both branches. This is per-head access, not global semantic equivalence; cross-head cancellations matter. [Weight audit](attention_ov_input_reader_overlap.md).
 - **Individual token readers:** the exact MLP16–MLP17 fold predicts live vocabulary effects within 4.6–5.6% error on the three reused panels, with CE-change prediction error below .0034 nats. The edited MLP16 contribution slightly opposes the task, so this is not target-circuit extraction.
 - **Unembedding hierarchy:** a fixed 16-leaf hierarchy has recognizable groups but its shared means leave 94–98% effect error. Most token-specific response remains necessary. This does not rule out other structured reader decompositions.
