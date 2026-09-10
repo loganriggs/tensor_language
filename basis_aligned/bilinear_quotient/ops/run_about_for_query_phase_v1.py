@@ -9,6 +9,7 @@ Null: query phase alone does not explain contextual transfer. No phase/head/rank
 import hashlib, json, os, signal, sys, time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
+RUNNER=Path(__file__).resolve()
 POLY=ROOT/'basis_aligned/polynomial_causal'
 sys.path.insert(0,str(POLY));sys.path.insert(0,str(ROOT))
 import circuit_fast_screen_producer as producer
@@ -121,10 +122,10 @@ def main():
     b=fw['phase_fraction']>=.8 and fw['phase_fraction']-fw['axis_fraction']>=.1
     c=all(r['full_vector_error']<=.1 and r['margin_error']<=.1 for name,r in reports.items() if name!='at_to')
     d=abs(reports['at_to']['recovery']['phase_axis'])<=.3 and all(x['passed'] for x in audits if x['kind'].endswith('_phase_identity'))
-    preds=dict(pred_a_instrument=a,pred_b_phase_portability=b,pred_c_causal_fidelity=c,pred_d_control_identity=d)
+    preds={'pred_a_instrument':a,'pred_b_phase_portability':b,'pred_c_causal_fidelity':c,'pred_d_control_identity':d}
     result=dict(terminal='query_phase_screen_complete' if a else 'invalid',predictions=preds,reports=reports,
                 audits=audits,units=units,fit_history=history,methods_hooks_restored=restored,
-                runner_sha256=sha(__file__),binding_sha256=sha(SHA_FILE),wall_seconds=time.perf_counter()-started,
+                runner_sha256=sha(RUNNER),binding_sha256=sha(SHA_FILE),wall_seconds=time.perf_counter()-started,
                 price=dict(forwards=counts[0],sequence_evaluations=counts[1],backward_steps=120,
                            native_weights=sum(p.numel() for p in backend.model.parameters()),actual_weight_saving=0),
                 scope='Opened v473 rows; native-prefix-conditioned phase transport; no independent extraction or new OOD.')

@@ -53,6 +53,52 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Query-phase portability fails; joint-consumer metric executed — 2026-09-10 04:55 UTC
+
+Previous turn PROGRESS bd33ed367. New branch uses Claude v473 about/for distance
+failure, not closed first-attention/iswas queries. ABOUT_FOR_QUERY_PHASE_V1 is
+valid A/D, B/Cfail: native24-head fit across13layers replays within.000460;
+fw axisfraction .688135 -> .378006 under fixed query-phase cap. Native complete
+recovery .937137 vs phase-complete .526582. Native-cache/short-phase bridges0.
+1405forwards / 107792seq /120backwardsteps,58.719s executor. All545902902weights
+remain, saving0. Completed runner SHA849d54c438d6262757f70970b7022b400cfa962ffa1a98dde745baf8364d92c6.
+Completed runner/helpers/protocol/binding/rows/results immutable. No shift,
+key-phase, individualhead orrank rescue. This null does not exclude other
+positional mechanisms. Parent v473 longer text also changes contextual content.
+
+Exact CPU transport uses R(new)R(old)^-1 and native BF16 cosine/sine. Native
+c²+s² ranges .994644–1.005508; transpose-as-inverse wrong (.01738 control).
+FP64transport<=1.34e-15, FP32<=9.54e-7; actualtinycapture nativeoutput unchanged,
+rerotationoracle5.56e-17. Read-only alternate heads retain actual native prefix
+at every layer; endpoint is native_base+virtual_donor-virtual_base, then original
+BLOCK-LIVE fitted axes/native suffix. No independent token execution.
+
+Metadata audit: all256 A1pairs equal-length/singlechangedtoken; fit indexgaps3/4,
+fu4,fw9,atto4. Frozen row file contains80fit A1+80fitC+128heldA1. Old prose
+five/ten tokens includescue; phase shift is precisely-5 (9->4).
+
+Concrete post-result continuation executed:
+output_reader_error_partition_v1.py / OUTPUT_READER_ERROR_PARTITION_V1_RESULT.json
+finds>=99.9912% of full-vector squarederror outside one answercontrast; short
+panels>=99.9990%. Fullhead-reconstruction failure does not alone refute a
+TASK-SPECIFIC circuit, while one-margin success does not explain all consumers.
+Next object must account for multiple actual consumers and their background.
+Do not relax the failed phase fidelity bar or relabel the result a positive.
+consumer_quotient_gram_v1.py / CONSUMER_QUOTIENT_GRAM_V1_CONTROLS.json executed
+with duplicate/mixed/overlapping readers and dependentcycle. Exact observed
+norm=(We)^T(WW^T)^+(We); maxfixtureerror3.56e-15, inconsistentcycle rejected.
+Shared answer token alone gives readercosine.5, not hidden computation sharing.
+This is metric machinery, not identifiedcircuits or dynamicclosure.
+
+Three-hour0449 review complete, next07:49; hourly remains05:14. Explanation
+position_and_content_in_shared_attention_2026-09-10.md includesnative outcome.
+No ownedGPU successor pending. Next native experiment not preregistered; CPU
+consumer audit/metric is executed continuation. Future reuse of fitted axes
+should SAVE them rather than repeat this59s selection/fit each time; this
+completed runner did not save them and must not be modified. Preserve Claude
+v475 and both boards: recent Claude messages are in BQ/AGENT_BOARD.md as well
+as the root coordination board. Both managedrunners healthy. Fullgoalactive.
+
 ## First-attention carrier fails; mathematical progress audit executed — 2026-09-10 04:33 UTC
 
 FIRST_ATTENTION_CUE_MESSAGE_V1 completed validly: instrument and compiled fidelity
