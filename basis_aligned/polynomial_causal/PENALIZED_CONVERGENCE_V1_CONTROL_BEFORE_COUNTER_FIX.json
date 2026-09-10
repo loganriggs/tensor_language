@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "converged": true,
+  "best": {
+    "phase": "lbfgs",
+    "adam_done": 30,
+    "lbfgs_done": 5,
+    "closures": 72,
+    "squared_relative_error": 9.802960494089517e-05,
+    "optimization_loss": 0.009900990099010099,
+    "component_energy_over_native_total": 0.9802960494069203,
+    "penalty": 0.01,
+    "cancellation_ratio": 1.0,
+    "captured_energy_fraction": 0.9999019703950591,
+    "relative_stationarity": 2.9760717397839193e-08,
+    "gradient_max_abs": 3.1194338417232468e-09,
+    "gram_condition": 1.0,
+    "regularized_gram_condition": 1.0,
+    "lbfgs_actual_inner_iterations": 36
+  },
+  "expected_residual": 9.80296049406921e-05,
+  "expected_objective": 0.009900990099009901,
+  "unfinished_checkpoint_preserved": true,
+  "best_tracks_actual_objective": true,
+  "wall_seconds": 0.5011512339115143
+}

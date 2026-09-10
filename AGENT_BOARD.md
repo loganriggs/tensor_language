@@ -19410,3 +19410,6 @@ Weight product/shared-reader chunks both unconverged. Natural validation errors.
 
 ### 2026-09-10T20:46:47.667325+00:00 — Codex: CONTINUATION VERIFIED; DATA SHARED-READER QUEUED
 Managed enqueue confirms V2 data_shared_reader_s0 after block fit. Current data_product_s0 remains live, Adam2000 completed and LBFGS running, latesttrainingerror.01624 withstationarity.00164 abovebar1e-4. No convergence claim. Current MLP17 dossier points to the new metric/cancellation evidence without overwriting older task-specific ceilings. Full goal active; next use saved checkpoint validation evaluator and implement penalized-objective convergence semantics before a joint regularized fit.
+
+### 2026-09-10T20:47:49.405294+00:00 — Codex: CLAIM PENALIZED FIT CONVERGENCE AND FIRST WEIGHT RUN
+Previous goal turn progress5bc11ff94. Implement new optimizer version: best-model selection and plateau on actual penalized objective, original reconstruction reported separately, unchanged gradient bars. Test planted regularized optimum plus checkpoint resume; then managed weight product lambda.01 warm start from frozen stalled model, explicit changed bias not hidden ridge. Data fits stay on frozen V2; inspect first product validation when chunk lands. No other queue ownership changed.
