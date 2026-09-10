@@ -53,6 +53,43 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Controller and third-noun screens; cross-token support audit — 2026-09-10 05:27 UTC
+
+Original handoff/pilot remain the authority, not stale better_math goal wording.
+SUBJECT_OBJECT_CONTROLLER_V1 validA, Enearest passes, B/C/D/Ffail: all128 paired
+reflexive preferences follow second/object noun; all32 promised opposite-number
+cases fail grammatical-controller labels. 8forwards/128seq/.505s, nofit. Controller
+additivity audit (published ef310a3b1) drops interactions yet preservesall128 signs;
+interaction/nonconstantRMS .062–.158. This is opened per-world diagnosis, not OOD.
+
+THIRD_NOUN_ANIMACY_V1 now completed validA; allfour controller/object/nearestnoun/
+nearesthuman gates FAIL. Rawcorrect173/211/173/219 of256 is not promotion. Both
+animacy-conditional gates alsofail. 16forwards/256seq/.558s,nofit. Runner SHA
+b7b5ad733bb5eaa4254a0bccd695da4318e625906033e3cf9c3917596bf98954.
+Completed helper/rows/protocol/binding/runner/resultimmutable; no phrase/rule/bar rescue.
+All545902902nativeweights remain, saving0. No ownedGPUjob pending.
+
+Concrete post-result continuation: factorial_semantic_support_v1.py reuses existing
+dealiased_boolean_spectrum Walsh kernel with explicit signedfactor/bit ordering;
+audit_factorial_semantic_support_v1.py executedCPU and saved
+FACTORIAL_SEMANTIC_SUPPORT_V1_RESULT.json. Both native margin tables replay
+within1.78e-15, allthirdnoun rule predicatesexact. Every64 object-number x human-
+category (oh) square cancels for ANY token-local lookup, editspositions4/7;
+noneof64 attractor-number x human-category (ah) squaresdoes, bothposition7.
+Native oh/o RMSratio.2318626; outputmixed canstill arise solelyinfinalRMS:
+additivestatecounterexample rawmixed0,normalizedmixed.0207664. Thus do not call
+ah learnedmultiplication oroh attentiongating without localization.
+
+Highest-information next native question: where disjoint-token oh interaction
+forms in residual versus normalization/readout, then producer/consumer math only
+ifmaterial internaloperationexists. No protocolfor thisnextnativejobselectedyet.
+Do not resurrect iswas/phase/firstattention orpromote failedsimple selectors.
+New explanation noun_number_selection_and_cross_token_interactions_2026-09-10.md.
+Hourly0514 complete, next06:14; mathematical0449 complete,next07:49. Hourmedian
+receiptgap17m19>10m; ceremonybudgetunestablished/fail. Required bounded reuse repair
+is the executed shared transform/scorer/supportaudit, notanother nativeframework.
+Bothboardsupdated; bqrunner/bqrunner2healthy. Fullgoal remainsactive.
+
 ## Query-phase portability fails; joint-consumer metric executed — 2026-09-10 04:55 UTC
 
 Previous turn PROGRESS bd33ed367. New branch uses Claude v473 about/for distance

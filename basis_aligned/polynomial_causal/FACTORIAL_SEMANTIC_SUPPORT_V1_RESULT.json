@@ -1,0 +1,207 @@
+{
+  "passed": true,
+  "source_hashes": {
+    "SUBJECT_OBJECT_CONTROLLER_V1_ROWS.json": "7a6d5c480b65467b4370d7572b08a72ab76eddefee87a6b730a611f86bdaef9e",
+    "SUBJECT_OBJECT_CONTROLLER_V1_RESULT.json": "e528fdf3439efff6991b458bf8af2d8d2f70f35c989579b8b05c6ae8f5f1dc2d",
+    "THIRD_NOUN_ANIMACY_V1_ROWS.json": "44e74b821586c653ac7e85683637a2f92812515051897cfa22d320c139f9ce24",
+    "THIRD_NOUN_ANIMACY_V1_RESULT.json": "c3e7b7279fe9d113eeeb95cd7f6e2642707b9e3a239afb17a5c0ab34e1910ab4"
+  },
+  "model_forwards": 0,
+  "coefficient_replay_max_abs": 1.7763568394002505e-15,
+  "permuted_row_error": 0.0,
+  "rule_replay": {
+    "controller": {
+      "passed": false,
+      "raw_correct": 173
+    },
+    "nearest_human": {
+      "passed": false,
+      "raw_correct": 219
+    },
+    "nearest_noun": {
+      "passed": false,
+      "raw_correct": 173
+    },
+    "object": {
+      "passed": false,
+      "raw_correct": 211
+    }
+  },
+  "support_certificates": {
+    "oh": {
+      "squares": 64,
+      "universal_token_local_zero_count": 64,
+      "first_edit_position_sets": [
+        [
+          4
+        ]
+      ],
+      "second_edit_position_sets": [
+        [
+          7
+        ]
+      ],
+      "unmatched_position_sets": [
+        []
+      ]
+    },
+    "ah": {
+      "squares": 64,
+      "universal_token_local_zero_count": 0,
+      "first_edit_position_sets": [
+        [
+          7
+        ]
+      ],
+      "second_edit_position_sets": [
+        [
+          7
+        ]
+      ],
+      "unmatched_position_sets": [
+        [
+          7
+        ]
+      ]
+    }
+  },
+  "coefficient_statistics": {
+    "1": {
+      "mean": -0.3167461846023798,
+      "rms": 0.3860159529436626
+    },
+    "c": {
+      "mean": -0.33070254512131214,
+      "rms": 0.36378049156165143
+    },
+    "s": {
+      "mean": 0.328503904864192,
+      "rms": 0.39065287519223335
+    },
+    "cs": {
+      "mean": 0.07341544888913631,
+      "rms": 0.08479011289669904
+    },
+    "o": {
+      "mean": 1.3665874805301428,
+      "rms": 1.3778284856283896
+    },
+    "co": {
+      "mean": -0.056399205699563026,
+      "rms": 0.07874727965168206
+    },
+    "so": {
+      "mean": 0.0016731377691030502,
+      "rms": 0.08147485479055906
+    },
+    "cso": {
+      "mean": -0.09537954069674015,
+      "rms": 0.101078612019177
+    },
+    "a": {
+      "mean": 0.8396242950111628,
+      "rms": 0.8642965761769958
+    },
+    "ca": {
+      "mean": -0.13271073810756207,
+      "rms": 0.143438511122728
+    },
+    "sa": {
+      "mean": 0.08302132971584797,
+      "rms": 0.12380239900537877
+    },
+    "csa": {
+      "mean": -0.05906744860112667,
+      "rms": 0.06285163148468109
+    },
+    "oa": {
+      "mean": 0.04361560381948948,
+      "rms": 0.06091179380822771
+    },
+    "coa": {
+      "mean": 0.10401552356779575,
+      "rms": 0.10921236145838552
+    },
+    "soa": {
+      "mean": 0.14966490305960178,
+      "rms": 0.15286962599781292
+    },
+    "csoa": {
+      "mean": -0.06867953203618526,
+      "rms": 0.07344399058677618
+    },
+    "h": {
+      "mean": -0.06058567948639393,
+      "rms": 0.15329208456363572
+    },
+    "ch": {
+      "mean": 0.0945329051464796,
+      "rms": 0.10050380571450147
+    },
+    "sh": {
+      "mean": -0.25255546160042286,
+      "rms": 0.2548020173494
+    },
+    "csh": {
+      "mean": -0.024614768102765083,
+      "rms": 0.027110878539459884
+    },
+    "oh": {
+      "mean": -0.3130217883735895,
+      "rms": 0.3194669176446145
+    },
+    "coh": {
+      "mean": 0.048106877133250237,
+      "rms": 0.05048997517493694
+    },
+    "soh": {
+      "mean": -0.0309686828404665,
+      "rms": 0.04705919461519298
+    },
+    "csoh": {
+      "mean": 0.01217726431787014,
+      "rms": 0.014688511514967008
+    },
+    "ah": {
+      "mean": 0.28674727864563465,
+      "rms": 0.2916489571835574
+    },
+    "cah": {
+      "mean": -0.023472396656870842,
+      "rms": 0.03144280000598859
+    },
+    "sah": {
+      "mean": 0.018097804859280586,
+      "rms": 0.026170265951358688
+    },
+    "csah": {
+      "mean": -0.033344266936182976,
+      "rms": 0.03487373805970701
+    },
+    "oah": {
+      "mean": 0.1006533745676279,
+      "rms": 0.1054574021504977
+    },
+    "coah": {
+      "mean": -0.019185809418559074,
+      "rms": 0.021854962125272638
+    },
+    "soah": {
+      "mean": 0.04288758523762226,
+      "rms": 0.04878831828555788
+    },
+    "csoah": {
+      "mean": -0.0020753350108861923,
+      "rms": 0.012402824637028157
+    }
+  },
+  "oh_to_o_rms_ratio": 0.23186261641187833,
+  "normalized_decoder_counterexample": {
+    "raw_mixed": 0.0,
+    "normalized_mixed": 0.020766406262360565
+  },
+  "shared_helper_sha256": "906def82b108bc9b8be09e24349b4758ee6ce2be178c187482782dd36c8f8449",
+  "walsh_kernel_sha256": "dcdb60fa6c068d1a371b725d41430df16fc8ff28982d819a17c3d5aaa39d12bd",
+  "script_sha256": "93a8063996cf0b28560ccaae35da7392b3a5c6a13d9540dc261cc06bd9f7f71b",
+  "scope": "Post-outcome finite-domain diagnostic, not an identified circuit or held-out predictor. oh must arise after token-local lookup, but may be decoder-created. ah can originate in lookup."
+}
