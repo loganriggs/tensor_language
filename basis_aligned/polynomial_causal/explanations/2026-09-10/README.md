@@ -2,11 +2,13 @@
 
 ## [Read the latest update → LATEST.md](LATEST.md)
 
-**LATEST.md is the consolidated update requested by Logan, with a new follow-up at the top.** Its main report covers work since 9 September at 23:06 UTC through 10 September at 14:17 UTC; the follow-up at the top adds the weight audit and unembedding experiment completed at 14:59 UTC, followed by the attention-factor test at 15:17 UTC the token-function weight screen at 15:33 UTC, and the shared gerund-state test at 15:49 UTC. It starts with the high-level sequence, defines terms and computations, and assesses whether the mathematical review cycles helped.
+**LATEST.md is the consolidated update requested by Logan, with a new follow-up at the top.** Its main report covers work since 9 September at 23:06 UTC through 10 September at 14:17 UTC; the follow-up at the top adds the weight audit and unembedding experiment completed at 14:59 UTC, followed by the attention-factor test at 15:17 UTC the token-function weight screen at 15:33 UTC, the shared gerund-state test at 15:49 UTC, and distributed scalar-write interventions at 16:06 UTC. It starts with the high-level sequence, defines terms and computations, and assesses whether the mathematical review cycles helped.
 
 The files below are supporting experiment notes, not newer consolidated updates.
 
-### Latest follow-up: 10 September, 15:49 UTC
+### Latest follow-up: 10 September, 16:06 UTC
+
+- [Distributed grammatical writes and live feedback](gerund_scalar_writes_and_live_feedback.md): strong joint swaps and narrow selective removal; scalar-only prediction fails because later computation changes other state coordinates.
 
 - [A shared grammatical component from unembedding contrasts](shared_gerund_component_from_unembedding.md): partial cross-verb scalar transfer and registered selective removal; sufficient transfer and last-MLP production fail.
 

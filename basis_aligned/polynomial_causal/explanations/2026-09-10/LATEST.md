@@ -1,8 +1,10 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 15:49 UTC
+## Latest follow-up — 10 September, 16:06 UTC
 
 The requested attention weight audit and both backward-unembedding views have now run. [The full new explanation](unembedding_token_and_hierarchy_backward_folds.md) defines the fold and reports its limits.
+
+- **Distributed grammatical writes:** swapping the fixed scalar in attention and MLP outputs recovers 94%/102% of the cue effect and passes the registered preservation/removal tests. But a scalar-only predictor misses 65–67% of the full-vocabulary effect: later computations change the rest of the state. This is a useful distributed intervention, not an independently extracted one-scalar circuit. [New backward-source and feedback result](gerund_scalar_writes_and_live_feedback.md).
 
 - **Shared grammatical component:** an unembedding-derived bare/-ing direction transfers 59–62% of the cue effect on held-out verbs; cross-verb cue changes work similarly. Removal damages the target while preserving the registered unrelated control. The 80% sufficiency test fails, and most of the state is carried into the last MLP from earlier computation. [New causal result](shared_gerund_component_from_unembedding.md).
 

@@ -865,6 +865,45 @@
     "ea7b31a99a4b3bf22d7a3b5367fea0062f922a46c61266a7a50ff0ec0ff4ca73"
    ]
   },
+  "subroutine.readout.gerund_scalar_write_network": {
+   "file": "subroutine_readout_gerund_scalar_write_network.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "f5d5723658887ed4f913d64ac81ac7395ae54f34f41c62c9956e4291f93ad52a",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "readout.gerund_scalar_write_network.v1.scalar_prediction",
+   "claim_status": "rejected",
+   "causal_variable_id": "frozen_background_scalar_edit_predictor",
+   "interchange_family_count": 2,
+   "invariance_family_count": 2,
+   "negative_event_count": 1,
+   "active_negative_event_count": 1,
+   "latest_blocker": "readout.gerund_scalar_write_network.v1.edit_prediction",
+   "latest_active_event": "readout.gerund_scalar_write_network.v1.edit_prediction",
+   "active_event_ids": [
+    "readout.gerund_scalar_write_network.v1.joint_interchange",
+    "readout.gerund_scalar_write_network.v1.selective_zero",
+    "readout.gerund_scalar_write_network.v1.instrument",
+    "readout.gerund_scalar_write_network.v1.edit_prediction"
+   ],
+   "held_test_types": [
+    "compiled_equivalence",
+    "das_interchange",
+    "removal"
+   ],
+   "active_blocking_test_types": [
+    "compiled_equivalence"
+   ],
+   "design_keys": [
+    "0fa5a1cefbdf5fb0af895081005f204c6989b6420b4616a8237108b278df1f04",
+    "a6977efc30e4101ce08da5bef37487616b010edde6862ca5cd08411b5f34a58b",
+    "c8655b1b5d1872e65ea88e512a7c22dd66204a566e386d7777cf7fb0241cfba2",
+    "ff0e8807c61e8b8506907de9b2e830ab0d14da97ea8ebe53f105e494c2a6f709"
+   ]
+  },
   "subroutine.readout.gerund_shared_scalar": {
    "file": "subroutine_readout_gerund_shared_scalar.json",
    "schema_version": 2,

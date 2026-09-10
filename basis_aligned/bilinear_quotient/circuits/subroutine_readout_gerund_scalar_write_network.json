@@ -1,0 +1,486 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.readout.gerund_scalar_write_network",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "readout.gerund_scalar_write_network.v1.ports",
+   "revision": 1,
+   "status": "site_live",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "distributed_gerund_e_ports",
+    "domain": "Existing16-verb A1/A2/P and reused C; no new-data/OOD claim",
+    "read": "current e projections of attention and MLP outputs at final semantic positions",
+    "operation": "live donor/zero replacement through every selected group port; trained residual-mix weighted accumulation",
+    "write": "e-scaled delta at36 output sites with remaining model live",
+    "endpoint": "Joint donor recovery and registered narrow selective zero removal held; no independent producer"
+   },
+   "alternative_explanations": [
+    "changed complementary state carries essential grammatical computation",
+    "context-dependent native producers remain necessary"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "old e and all rows",
+      "checkpoint and unchanged native output complement/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "existing_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "old e and all rows",
+      "checkpoint and unchanged native output complement/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "existing_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "P",
+     "role": "invariance",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "old e and all rows",
+      "checkpoint and unchanged native output complement/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "existing_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "invariance",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "old e and all rows",
+      "checkpoint and unchanged native output complement/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "existing_panels",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "all36_output_ports",
+     "tensor_path": "transformer.h.[0..17].attn and .mlp output at semantic position",
+     "shape": [
+      36,
+      1152
+     ],
+     "intervention": "same fixed e projection across attention, MLP or both groups"
+    }
+   ],
+   "split_plan_ids": [
+    "existing_panels"
+   ],
+   "evidence_event_ids": [
+    "readout.gerund_scalar_write_network.v1.joint_interchange",
+    "readout.gerund_scalar_write_network.v1.selective_zero",
+    "readout.gerund_scalar_write_network.v1.instrument"
+   ],
+   "translation_ids": [],
+   "next_missing": "Independent producers and live complement responses, new constructions/control families and composition prediction; scalar-only closure failed."
+  },
+  {
+   "claim_id": "readout.gerund_scalar_write_network.v1.scalar_prediction",
+   "revision": 1,
+   "status": "rejected",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "frozen_background_scalar_edit_predictor",
+    "domain": "Existing16-verb A1/A2/P and reused C; no new-data/OOD claim",
+    "read": "current e projections of attention and MLP outputs at final semantic positions",
+    "operation": "predict final state by native weighted scalar changes along e, then native nonlinear readout",
+    "write": "e-scaled delta at36 output sites with remaining model live",
+    "endpoint": "Full-vocabulary edit prediction fails by65-67% for joint swaps"
+   },
+   "alternative_explanations": [
+    "changed complementary state carries essential grammatical computation",
+    "context-dependent native producers remain necessary"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "old e and all rows",
+      "checkpoint and unchanged native output complement/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "existing_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "old e and all rows",
+      "checkpoint and unchanged native output complement/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "existing_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "P",
+     "role": "invariance",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "old e and all rows",
+      "checkpoint and unchanged native output complement/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "existing_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "invariance",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "old e and all rows",
+      "checkpoint and unchanged native output complement/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "existing_panels",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "all36_output_ports",
+     "tensor_path": "transformer.h.[0..17].attn and .mlp output at semantic position",
+     "shape": [
+      36,
+      1152
+     ],
+     "intervention": "same fixed e projection across attention, MLP or both groups"
+    }
+   ],
+   "split_plan_ids": [
+    "existing_panels"
+   ],
+   "evidence_event_ids": [
+    "readout.gerund_scalar_write_network.v1.edit_prediction"
+   ],
+   "translation_ids": [],
+   "next_missing": "Independent producers and live complement responses, new constructions/control families and composition prediction; scalar-only closure failed."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "existing_panels",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "rows",
+   "description": "All rows previously opened by parent. New interventions on fixed weight-derived direction."
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "readout.gerund_scalar_write_network.v1.joint_interchange",
+   "claim_id": "readout.gerund_scalar_write_network.v1.ports",
+   "stage": "complete",
+   "test_type": "das_interchange",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "site_id": "all36_output_ports",
+   "split_plan_id": "existing_panels",
+   "evaluation_role": "joint_interchange",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "audit",
+    "runner",
+    "helper"
+   ],
+   "seed": 9111380,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_recovery",
+     "value": 0.935773491859436,
+     "bar": ">=.80"
+    },
+    {
+     "name": "A2_recovery",
+     "value": 1.0166926383972168,
+     "bar": ">=.80"
+    },
+    {
+     "name": "P_meanabsCE",
+     "value": 0.04036475718021393,
+     "bar": "<=.10"
+    },
+    {
+     "name": "C_meanabsCE",
+     "value": 0.00962141901254654,
+     "bar": "<=.10"
+    }
+   ],
+   "notes": "Scalar accumulation identity is not program closure. P zero-removal damage .985 reported; not an unrelated control for removal.",
+   "design_key": "0fa5a1cefbdf5fb0af895081005f204c6989b6420b4616a8237108b278df1f04",
+   "execution_key": "9f4729e55d40a76de92789ce148516b6966f8c8c0f4e77244885584ce4c25399"
+  },
+  {
+   "event_id": "readout.gerund_scalar_write_network.v1.selective_zero",
+   "claim_id": "readout.gerund_scalar_write_network.v1.ports",
+   "stage": "complete",
+   "test_type": "removal",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "site_id": "all36_output_ports",
+   "split_plan_id": "existing_panels",
+   "evaluation_role": "selective_zero",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "audit",
+    "runner",
+    "helper"
+   ],
+   "seed": 9111380,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_mean_CE",
+     "value": 0.9765936806797981,
+     "bar": ">=.10"
+    },
+    {
+     "name": "A2_mean_CE",
+     "value": 1.2678009569644928,
+     "bar": ">=.10"
+    },
+    {
+     "name": "C_mean_absolute_CE",
+     "value": 0.0433370266109705,
+     "bar": "<=.10"
+    }
+   ],
+   "notes": "Scalar accumulation identity is not program closure. P zero-removal damage .985 reported; not an unrelated control for removal.",
+   "design_key": "a6977efc30e4101ce08da5bef37487616b010edde6862ca5cd08411b5f34a58b",
+   "execution_key": "0d30e38aa871157a790b95d63edc08c2481e8914f645518689f4c347a1b0d5a6"
+  },
+  {
+   "event_id": "readout.gerund_scalar_write_network.v1.instrument",
+   "claim_id": "readout.gerund_scalar_write_network.v1.ports",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "site_id": "all36_output_ports",
+   "split_plan_id": "existing_panels",
+   "evaluation_role": "instrument",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "audit",
+    "runner",
+    "helper"
+   ],
+   "seed": 9111380,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "body_forwards",
+     "value": 48,
+     "bar": "48"
+    },
+    {
+     "name": "capable_pairs",
+     "value": 64,
+     "bar": "64/64 paired answer/foil margins positive"
+    }
+   ],
+   "notes": "Scalar accumulation identity is not program closure. P zero-removal damage .985 reported; not an unrelated control for removal.",
+   "design_key": "c8655b1b5d1872e65ea88e512a7c22dd66204a566e386d7777cf7fb0241cfba2",
+   "execution_key": "20786411b80ba1193ab991e0d718ad8a69c62a80ecb106f19622f49bf64a7fff"
+  },
+  {
+   "event_id": "readout.gerund_scalar_write_network.v1.edit_prediction",
+   "claim_id": "readout.gerund_scalar_write_network.v1.scalar_prediction",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "site_id": "all36_output_ports",
+   "split_plan_id": "existing_panels",
+   "evaluation_role": "edit_prediction",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "audit",
+    "runner",
+    "helper"
+   ],
+   "seed": 9111380,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_all_swap_error",
+     "value": 0.653669183793186,
+     "bar": "<=.10, also every other group donor/zero arm on both targets"
+    },
+    {
+     "name": "A2_all_swap_error",
+     "value": 0.6696041102213092,
+     "bar": "<=.10, also every other group donor/zero arm on both targets"
+    }
+   ],
+   "notes": "Scalar accumulation identity is not program closure. P zero-removal damage .985 reported; not an unrelated control for removal.",
+   "design_key": "ff0e8807c61e8b8506907de9b2e830ab0d14da97ea8ebe53f105e494c2a6f709",
+   "execution_key": "b355f9a3fc6668cf35dfd3e9671aae2b1be3d51cea5e893f6013d1c7e9c15f9f"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SCALAR_NETWORK_V1_PREREGISTRATION.md",
+   "sha256": "39bb7da01b07c6eefbc22a5e47c0234bc56730dae280ca76fdc3daa0246bce5f",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SHARED_READER_V1_ROWS.json",
+   "sha256": "f120e88fcad6ce2bcdc9add3c3407de5481bbcaf0e69c3d8f45e3f88dda3c30a",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "component": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SHARED_READER_V1_COMPONENT.pt",
+   "sha256": "b58366e161c343ac27192eac3315f5067eb7104383ec9eb37ef91bf0cfab05da",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SCALAR_NETWORK_V1_RESULT.json",
+   "sha256": "95a4449e266342ed857200b73d412080f33a4dcb2b6d75d03034cb31ed5d3042",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SCALAR_NETWORK_AUDIT_V1_RESULT.json",
+   "sha256": "e0ce2969625f2c8b110e6d00dd7825266fab6cbc688d1d5ec4711aec4851bc7a",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_gerund_scalar_network_v1.py",
+   "sha256": "377bf0d922c1dda2948831ae3e5e4b1063907e52dae25f32f49d0cf75d82c4e9",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "helper": {
+   "path": "basis_aligned/polynomial_causal/gerund_scalar_network_v1.py",
+   "sha256": "88c6f65a3e924cab5a9f8ab2ac5950b84900847d28307e5b9a4bf45aca85123b",
+   "kind": "evidence",
+   "status": "frozen"
+  }
+ }
+}
