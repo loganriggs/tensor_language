@@ -53,6 +53,45 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Causal prefix binding fails; direction certificate executed — 2026-09-10 09:52 UTC
+
+Previous goal turn PROGRESSea9eb8c9d; preregistration94f0d2e6d. CAUSAL_PREFIX_BINDING_V1
+valid A; B full-prefix necessity, C new binding and D inherited query interaction
+fail all32worlds. E effect composition passes10/32. All native/zero/full-vs-joint
+output bridges EXACT0; max local relative closure4.027763e-15. 384forwards6144seq,
+2880attention patches,9.828953executor seconds. Runner SHA
+8674579d024c5b21c87e554ce7254b13ccf12389fe2e10c3760ecf2fb3b6def1.
+Full removal leaves .865049–.991193 of native mixed-vocabulary magnitude; removal
+effect norm .149614–.431299. This is the natural language-factor signal, different
+from the preceding same-source-edit prefix-context test. Do not conflate denominators.
+
+Causal algebra: prefix M=M0+e Me because late factor l has not appeared. For query
+lift Phi=q1 tensor q2, mixed coefficient is Phi_l Me + Phi_el M0. e=object number,
+l=attractor kind in original; reversed in fronted. Query PRODUCT features and all
+later computation recompute after each edit. Prefix late-flip/native factor checks
+bitwise. Grouped4x4 cross reads avoid dense query-lift/memory tensors. New helper
+causal_prefix_binding_v1 and source_stage_native_v2 are bound/immutable; v2 adds a
+general attention_context callback to the shared source executor, preserving v1.
+CPU algebra32fixtures<=1.12e-15; native-class zero/full-joint exact, live sensitive.
+
+Post-result CPU prefix_effect_direction_certificate_v1 executed under board claim.
+With m=||E||/||y||, r=||y-E||/||y||, p=(1+m²-r²)/2, cosine=p/m. Native vocabulary
+signed projection .023773–.178963; best signed single-effect-axis error floor
+.835776–.987296. Controls32fixtures<=2.23e-16. This is a geometric obstruction,
+not a native gain fit/intervention or an impossibility theorem for nonlinear models.
+
+CLOSE this prefix-binding explanation at current interface per preregistration.
+No eight-term, head, layer, position, rank or gain refinement of this weak route.
+Reuse the causal-support algebra and normalized read tools for a different candidate;
+independent source/query generation and four-property evidence remain missing.
+Read-only Claude v495: correlative rank1 direction fails discharged-correlative
+transfer (.686) despite native capability. Do not duplicate his active lane.
+Actual CPU continuation completed; no successor GPU job registered. All native
+parameters/counterfactuals retained, saving0. Full goal active. Explanation updated.
+Next hourly10:14/math10:49 UTC. Mark science immediately after restoration BEFORE
+candidate reasoning, then implementation/validation/execution/publication before
+their work; separate marker calls before composing long edits. turn_boundary at end.
+
 ## Prefix context tested; exact normalized read fold executed — 2026-09-10 09:30 UTC
 
 Previous goal turn PROGRESS0e762a321; prefix protocol/helpers committed bdea2fd51.

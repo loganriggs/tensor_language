@@ -1,26 +1,18 @@
 # Why the current response needs a joint computation
 
-Updated September 10, 2026, 09:30 UTC.
+Updated September 10, 2026, 09:52 UTC.
 
-Latest: a native test now treats attention's earlier-token memory as an explicit
-context input. Neither that memory nor the remaining context alone explains the
-full-vocabulary response. The interchange machinery is valid with exact replays.
-An executed weight fold keeps both inputs and both normalization steps explicit;
-details follow in the final section. There is still no independently extracted
-semantic circuit.
+**The candidate that combines earlier-token memory with a later query does not
+explain the target behavior at this interface.** Its exact decomposition works,
+but removing the complete mixed prefix operation leaves 86.5–99.1% of the model's
+original mixed full-vocabulary signal. Its effect points largely away from that
+signal. The final sections give the native test and a geometric bound closing
+one-direction repairs. No head, layer, factor or gain refinement is being promoted.
 
-The next source-reuse test is also complete. Swapping the full MLP8 mixed source
-between original and fronted sentence layouts fails both simple reuse rules in
-all 16 pairs. The same source displacement has different effects in the two
-recipient contexts. An executed bound puts the unavoidable error of a single
-context-free effect prediction at 14.5–22.4% of the larger native source effect.
-This still permits one shared nonlinear operation with explicit context inputs;
-the new section below explains that distinction.
-
-The mathematical review gives a useful exclusion: **we cannot explain the measured
-response as two independent additive output branches, and final normalization does
-not account for the missing interaction.** We still have not extracted a reusable
-semantic circuit satisfying the four requested properties.
+The preceding tests established that the response is constructed internally and
+depends on both source and context. They also produced faithful memory-interchange
+tools and an exact weight fold with live normalization. Those are useful tools;
+they have not produced an independently extracted reusable semantic circuit.
 
 I returned to the original [handoff](bilinear_circuit_reconstruction_codex_handoff.md)
 and [pilot report](bilinear_reconstruction_pilot_report.md). The pilot established
@@ -332,3 +324,91 @@ valid screens in the preceding hour, one preserved invalid run, and no extracted
 circuit. Its throughput repair produced the reusable prefix-memory primitive and
 shared source-stage executor used above. Next hourly review10:14 UTC; mathematical
 review10:49 UTC.
+
+## Causal support gives an exact binding decomposition, but the native candidate fails
+
+Before the first jointly informed token, prefix memory cannot know the factor
+introduced at that token. In the original layout the memory knows object number
+but not attractor kind; in the fronted layout it knows attractor kind but not
+object number. Call the earlier factor e and the later factor l, each encoded
+as−1 or+1, while holding the other three sentence factors fixed.
+
+The memory has the form M=M0+e Me. The query-product feature
+Phi=q1 tensor q2 can have constant, early, late and joint components:
+
+\[
+\Phi=\Phi_0+e\Phi_e+l\Phi_l+el\Phi_{el}.
+\]
+
+Multiplying and collecting the joint coefficient gives exactly two operations:
+
+\[
+[\Phi M]_{el}=\underbrace{\Phi_l M_e}_{\text{new cross-token binding}}
++\underbrace{\Phi_{el}M_0}_{\text{interaction already in the query}}.
+\]
+
+The brackets mean the coefficient of el, rather than the full per-row component
+el times that coefficient. Multiplication here is the attention tensor contraction,
+including the native head scale and output projection. We average the query
+**product**, not each query factor separately. This distinction preserves terms
+that separate factor averages would lose.
+
+The [native operation screen](../CAUSAL_PREFIX_BINDING_V1_RESULT.json) removes either
+term, their joint sum, or the independently computed complete mixed prefix read at
+attention9–17. Each operation acts at the same three-position interface. Query
+features are recomputed from the current four counterfactual rows after every
+earlier edit. Prefix states stay native by causality and are checked bitwise under
+the late-factor flip. These are explicit conditional-program interventions, not
+deletions of native weight rows or independently generated single-text features.
+
+The implementation passes in all32groups. Native, zero-edit and full-cut versus
+joint-cut output replays are exact; the largest local relative decomposition error
+is4.03e-15. The run used384forwards over6,144sequence instances and2,880patched
+attention calls, taking9.83executor seconds. No model was fitted or trained.
+
+The scientific predicates fail:
+
+| Measurement | Result |
+| --- | --- |
+| Complete prefix operation meets necessity criterion | 0/32groups |
+| New binding alone reproduces full prefix effect | 0/32groups |
+| Inherited query interaction alone reproduces full prefix effect | 0/32groups |
+| Independent effect sum meets composition criterion | 10/32groups |
+| Native mixed-vocabulary norm remaining after full removal | 86.5–99.1% |
+| Full removal-effect norm / native mixed-vocabulary norm | 15.0–43.1% |
+
+The last two rows have different meanings. An intervention can make a sizable
+output change while removing little of the target signal, because its change
+points in another direction. Also, this test concerns the original language-factor
+interaction; the previous prefix-context test concerned the response to a specified
+MLP8 source change. Their denominators and questions are different.
+
+## The measured prefix effect cannot be rescued by its magnitude
+
+Let y be the native mixed output vector and E the full-prefix removal effect.
+The saved measurements are m=||E||/||y|| and r=||y−E||/||y||. Expanding the latter
+squared norm recovers the signed projection without requiring an unsaved vocabulary
+vector:
+
+\[
+p=\frac{\langle y,E\rangle}{\|y\|^2}=\frac{1+m^2-r^2}{2},\qquad
+\cos\theta=p/m.
+\]
+
+Every scalar multiple of this single effect direction has relative prediction
+error at least sqrt(1−cos²theta). The
+[executed certificate](../PREFIX_EFFECT_DIRECTION_CERTIFICATE_V1_RESULT.json)
+checks the identity on32random vector fixtures within2.23e-16.
+
+For the native centered mixed-vocabulary signal, signed projection p is only
+**2.38–17.90%**, despite the15–43%effect norm. The best possible signed rescaling of
+that one direction still leaves **83.58–98.73%relative error**. This is a geometric
+bound, not a fitted or executed gain intervention. It rules out that one-direction
+repair, not every use of prefix memory or every nonlinear program.
+
+The preregistered consequence now applies: stop refining this weak prefix-binding
+candidate. Retain the exact causal-support algebra, weight fold and live query
+intervention tools. They can test a different candidate, but none establishes the
+required reusable computation here. All545,902,902native parameters and
+counterfactual feature producers remain retained and charged in these experiments; structural
+saving and independently extracted circuit count are still zero for this route.
