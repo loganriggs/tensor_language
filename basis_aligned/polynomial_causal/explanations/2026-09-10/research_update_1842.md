@@ -49,6 +49,8 @@ We examined **OV**, the path that transforms values into attention outputs, and 
 
 The weight audit found that the remaining branch still read the full 128-dimensional value-input space in **19 of 26 examined heads**, and 127 dimensions in the other seven. Thus, the proposed branch separation usually did not correspond to disjoint value-input spaces. Moreover, overlap within one head does not settle whether contributions cancel or combine across heads.
 
+**Scope correction:** I interpreted the proposed split too literally. We have not tested whether the two behaviors use different input subspaces through the joint QK1×QK2 computation. Both may use both factors.
+
 The subsequent intervention experiment did **not** support assigning one behavior branch to QK1 and the other to QK2. In its conditional comparisons, removing value information caused much larger losses, around **0.78–0.89**, than removing either individual query/key half, around **0.013–0.066**. The interaction terms remained substantial. These measurements do not make routing irrelevant: the tested values already contain effects of upstream computation.
 
 Later, replacing only the shared first-layer value at the lexical cue transferred about **84% and 81%** of the lexical effect across two sentence frames. That is evidence for a useful cross-layer information path. Its agreement-control failure prevents treating it as a selective lexical circuit.

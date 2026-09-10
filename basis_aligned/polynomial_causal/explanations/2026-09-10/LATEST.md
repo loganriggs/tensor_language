@@ -4,6 +4,8 @@
 
 Covers work since the previous consolidated report through 14:17, with completed science through 18:13 and subsequent audits. Main finding: reusable lexical/form interventions and exact local formulas, but contextual coupling and selectivity failures still prevent independent circuit extraction.
 
+**Subsequent experiment, 18:50:** [Last-layer output versus incoming context](terminal_complement_sources.md). Both source-only explanations failed; the repaired instrument passed. The 18:42 consolidated report above remains the latest requested rundown.
+
 ---
 
 ## Previous updates, preserved for reference

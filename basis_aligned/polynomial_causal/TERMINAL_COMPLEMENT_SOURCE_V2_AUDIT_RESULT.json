@@ -1,0 +1,194 @@
+{
+  "panels": {
+    "A1": {
+      "FB": {
+        "00": {
+          "relative_l2": 0.8315927743459509,
+          "paired_95_interval": [
+            0.5652523135735914,
+            1.1638631328318652
+          ]
+        },
+        "01": {
+          "relative_l2": 0.7101783274298513,
+          "paired_95_interval": [
+            0.4907362037166455,
+            0.9915546429459237
+          ]
+        },
+        "10": {
+          "relative_l2": 0.3421845955767681,
+          "paired_95_interval": [
+            0.2387213063233462,
+            0.493902922199823
+          ]
+        },
+        "11": {
+          "relative_l2": 2.436085495489347e-06,
+          "paired_95_interval": [
+            1.5968306395693738e-06,
+            3.7662533492865346e-06
+          ]
+        }
+      },
+      "FX": {
+        "00": {
+          "relative_l2": 0.9022123644513088,
+          "paired_95_interval": [
+            0.6472721136835844,
+            1.2139374657807969
+          ]
+        },
+        "01": {
+          "relative_l2": 0.8032445717944687,
+          "paired_95_interval": [
+            0.548767042616002,
+            1.116455958707498
+          ]
+        },
+        "10": {
+          "relative_l2": 0.3685084666565155,
+          "paired_95_interval": [
+            0.2529683144032522,
+            0.5335013180892925
+          ]
+        },
+        "11": {
+          "relative_l2": 2.509616313256093e-06,
+          "paired_95_interval": [
+            1.7251291434670224e-06,
+            3.6907350766835643e-06
+          ]
+        }
+      }
+    },
+    "A2": {
+      "FB": {
+        "00": {
+          "relative_l2": 0.9510920159203056,
+          "paired_95_interval": [
+            0.5387813692934426,
+            1.7230688870559676
+          ]
+        },
+        "01": {
+          "relative_l2": 0.8212083392013585,
+          "paired_95_interval": [
+            0.45362273676210385,
+            1.525702771756675
+          ]
+        },
+        "10": {
+          "relative_l2": 0.3727828669749711,
+          "paired_95_interval": [
+            0.23199624637079677,
+            0.637578319680972
+          ]
+        },
+        "11": {
+          "relative_l2": 3.6251939840887612e-06,
+          "paired_95_interval": [
+            2.156773220841894e-06,
+            6.859392638676122e-06
+          ]
+        }
+      },
+      "FX": {
+        "00": {
+          "relative_l2": 0.9504110306534713,
+          "paired_95_interval": [
+            0.6151009576945303,
+            1.516322905444161
+          ]
+        },
+        "01": {
+          "relative_l2": 0.8332511655000079,
+          "paired_95_interval": [
+            0.5570400700526862,
+            1.2945846108121166
+          ]
+        },
+        "10": {
+          "relative_l2": 0.36257056371637114,
+          "paired_95_interval": [
+            0.26488196114817386,
+            0.5501716570797276
+          ]
+        },
+        "11": {
+          "relative_l2": 3.5610748600660105e-06,
+          "paired_95_interval": [
+            2.5495244186878396e-06,
+            5.679418483496047e-06
+          ]
+        }
+      }
+    }
+  },
+  "state_replay_bitwise": true,
+  "source_predictions": {
+    "pred_a_instrument": true,
+    "pred_b_mlp_complement_sufficient": false,
+    "pred_c_carried_complement_sufficient": false
+  },
+  "rounding_diagnostics": {
+    "A1": {
+      "B": {
+        "native_down_reader_error": 0.0009259527105314191,
+        "post_scalar_reader_error": 0.0009259527105314191,
+        "scalar_cast_reader_change": 0.0
+      },
+      "X": {
+        "native_down_reader_error": 0.0011473190215838258,
+        "post_scalar_reader_error": 0.0011473190215838258,
+        "scalar_cast_reader_change": 0.0
+      },
+      "Y": {
+        "native_down_reader_error": 0.0014650082866864977,
+        "post_scalar_reader_error": 0.0014650082866864977,
+        "scalar_cast_reader_change": 0.0
+      },
+      "FB": {
+        "native_down_reader_error": 0.001401642887685739,
+        "post_scalar_reader_error": 0.0015099222500793985,
+        "scalar_cast_reader_change": 0.00022732539764547255
+      },
+      "FX": {
+        "native_down_reader_error": 0.0015533345840594848,
+        "post_scalar_reader_error": 0.0016373410580854397,
+        "scalar_cast_reader_change": 0.00023054622033669148
+      }
+    },
+    "A2": {
+      "B": {
+        "native_down_reader_error": 0.0022085701803007396,
+        "post_scalar_reader_error": 0.0022085701803007396,
+        "scalar_cast_reader_change": 0.0
+      },
+      "X": {
+        "native_down_reader_error": 0.0019203157844458474,
+        "post_scalar_reader_error": 0.0019203157844458474,
+        "scalar_cast_reader_change": 0.0
+      },
+      "Y": {
+        "native_down_reader_error": 0.002098283990562777,
+        "post_scalar_reader_error": 0.002098283990562777,
+        "scalar_cast_reader_change": 0.0
+      },
+      "FB": {
+        "native_down_reader_error": 0.0039006843653623946,
+        "post_scalar_reader_error": 0.003920380557246972,
+        "scalar_cast_reader_change": 0.00031089292860997375
+      },
+      "FX": {
+        "native_down_reader_error": 0.002072763763862895,
+        "post_scalar_reader_error": 0.0022383600944522186,
+        "scalar_cast_reader_change": 0.00034303735992580187
+      }
+    }
+  },
+  "scope": "Post-result paired intervals on reused sixteen-row panels, not OOD or independent confirmation. Original V1 instrument failure retained.",
+  "cpu_seconds": 0.046389225870370865,
+  "artifact_sha256": "31ff598937611f6171b163c9b86b5a9fefcd2193bce670934e28639508192a89",
+  "audit_sha256": "06cdd12bfaa0f1d674bca0e2b70f0013285bff3a3c415bc6a68aec13cf26d473"
+}

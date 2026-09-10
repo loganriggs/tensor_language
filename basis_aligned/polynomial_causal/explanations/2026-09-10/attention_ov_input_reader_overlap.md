@@ -1,5 +1,8 @@
 # Folding the attention partition back to its input readers
 
+**Correction following the user's clarification:** this experiment tested whole stored score factors. It did **not** test whether the correlative and disjoint behaviors read different input subspaces through the joint QK1×QK2 product. Both circuits may use both factors, with distinct paired input directions. The failed whole-half hypothesis does not count against that proposal. The OV audit likewise did not identify those joint routing subspaces.
+
+
 The weight analysis supports Logan’s distinction between **shared output modules** and **shared input computations**. The existing projector/remainder split often reads overlapping value features. It does not yet identify two separate semantic algorithms.
 
 At one block, concatenate the selected head outputs and write the saved direction as q, with head slice q_h. Let O_h be that head’s output matrix and w=Oq the saved residual writer. The exact head contributions to the two branches are

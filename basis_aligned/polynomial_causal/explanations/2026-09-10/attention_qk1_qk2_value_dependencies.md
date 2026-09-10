@@ -1,6 +1,9 @@
 # Which attention factors carry the two behaviors?
 
-The new test does **not** support a simple division where one stored query–key factor serves the correlative behavior and the other serves the disjoint behavior. At the tested sites, changing the value payload matters much more for both behaviors. This narrows the proposed split; it does not imply that upstream attention routing is unimportant.
+**Correction following the user's clarification:** this experiment tested whole stored score factors. It did **not** test whether the correlative and disjoint behaviors read different input subspaces through the joint QK1×QK2 product. Both circuits may use both factors, with distinct paired input directions. The failed whole-half hypothesis does not count against that proposal. The OV audit likewise did not identify those joint routing subspaces.
+
+
+The new test does **not** support a simple division where one stored query–key factor serves the correlative behavior and the other serves the disjoint behavior. At the tested sites, changing the value payload matters much more for both behaviors. This rejects only that whole-factor assignment; the user’s proposed joint input-subspace split remains untested.
 
 ## What was tested
 

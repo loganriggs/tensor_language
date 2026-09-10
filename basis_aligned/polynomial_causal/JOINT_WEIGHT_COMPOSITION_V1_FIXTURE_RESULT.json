@@ -1,0 +1,23 @@
+{
+  "full_unembedding_fold_max": 0.0,
+  "product_antipodal_max": 0.0,
+  "full_output_gram_max": 0.0,
+  "centered_output_gram_max": 0.0,
+  "shared_input_pair": [
+    0,
+    1
+  ],
+  "opposite_output_profile_pair": [
+    2,
+    3
+  ],
+  "joint_routing": {
+    "task_A": 32.0,
+    "task_B": 48.0,
+    "whole_half_ablation_both_tasks_zero": true,
+    "input_A_removal_selective_on_supported_inputs": true,
+    "mixed_input_cross_term": 80.0
+  },
+  "scope": "Planted algebra fixtures only. No native task subspaces identified; normalized/mixed native input effects require separate testing.",
+  "implementation_sha256": "44aa58e7bce1b614df8938b412e28dfcf1cb6b3f542b6f2e64447102766613a1"
+}
