@@ -900,3 +900,109 @@ Its implicit tensor contractions motivate this implementation. Our partial
 symmetry, explicit component penalty and conditional writer projection are
 adaptations checked separately; the paper's performance results do not prove
 our native benchmark will succeed.
+
+
+## What the blocks found: common output versus token contrasts — 22:26 UTC
+
+**The block fit mostly models a shared vocabulary-wide output component. Its
+remaining token-specific structure is much less well reconstructed.** This is
+a weight-only finding that changes what to factor next; it is not a claim that
+we have found independent circuits.
+
+First, the two completed optimizer/representation screens:
+
+| Fit | Time | Coefficient capture | Relative stationarity | Registered verdict |
+|---|---:|---:|---:|---|
+| Joint Gauss–Newton,128products |120.21s|8.6816%|0.001625|Numerical checks pass; convergence and reference-quality fail|
+|16blocks,16readers and4outputs each|540.15s|8.6230%|0.009316|Numerical checks pass; convergence and capture-gain fail|
+
+Gauss–Newton accepted305steps and rejected38, using19977inner iterations.
+Its coordinate bridges hold and it slightly improves on the120second ALS fit,
+but it remains behind the earlier converged penalizedL-BFGS result. Continued
+improvement and unfinished gradients prevent any absence-of-structure claim.
+[GN receipt](../../WEIGHT_PRODUCT_GN_V1_RESULT.json),
+[GN red team](../../WEIGHT_PRODUCT_GN_V1_REDTEAM.json),
+[block receipt](../../WEIGHT_STRUCTURAL_BASELINE_V1_multioutput_block_RESULT.json).
+
+The block geometry is not completely collapsed. Each block's leading output
+function accounts for81.4% of its energy on average, leaving other output uses;
+11–14 of its16input axes are needed for90% of the input-mode energy. Mean
+subspace overlap is4.88%, versus1.39% in an independent random geometry control.
+The largest principal cosine is0.974. These compare fitted subspaces, not
+semantic tasks or independent fitting restarts.
+[Geometry audit](../../MULTIOUTPUT_BLOCK_GEOMETRY_V1.json).
+
+However, the leading output functions across blocks are very similar: mean
+absolute cosine0.963. Between80.3% and89.5% of each leading output axis is aligned
+with the uniform vocabulary vector. Removing that uniform part for this
+comparison lowers mean cosine to0.768. The extra output rows beyond the GPT-2
+tokenizer vocabulary contribute under0.5% of each leading axis's energy, so
+those rows do not explain the effect. Signed token lists include pronouns and
+function words, but these are descriptions of weights, not task identifications.
+[Canonical output modes](../../MULTIOUTPUT_BLOCK_OUTPUT_MODES_V1.json).
+
+There is an exact decomposition that exposes this common channel. Define the
+mean unembedding row and the centered unembedding by
+
+$$
+\bar u=\frac1V\sum_{v=1}^{V}U_{v:},\qquad
+U_c=U-\mathbf1\bar u.
+$$
+
+For the quadratic part of the last bilinear layer,
+
+$$
+Q_{\mathrm{common}}
+=\operatorname{sym}\!\left(L^{\mathsf T}
+\operatorname{diag}(\bar uD)R\right),
+$$
+
+and its folded output separates exactly as
+
+$$
+U B_{\mathrm{quadratic}}(x)
+=\mathbf1\,x^{\mathsf T}Q_{\mathrm{common}}x
++U_c B_{\mathrm{quadratic}}(x).
+$$
+
+The two output components are orthogonal in the coefficient-Frobenius metric,
+so their squared energies and squared reconstruction errors add. The native
+common channel accounts for7.195% of total folded coefficient energy; the
+centered remainder accounts for92.805%. The block fit's relative squared error
+is27.97% on the common channel but96.293% on the centered remainder. Equivalently,
+it captures72.03% of the common channel and only3.707% of the remaining energy.
+This explains why the overall8.623% capture can conceal weak progress on token
+contrasts. These are coefficient scores, not probability or causal scores.
+
+This common scalar quadratic has an exact signed eigendecomposition. Its
+complexity is still substantial:440signed-square directions are needed to
+capture90% of its coefficient energy. At128real products, the best possible
+capture for this isolated scalar is73.964%. This is an attained spectral bound,
+not an optimizer result. Each symmetric real product has at most one positive
+and one negative eigenvalue, so128products can retain at most128eigendirections
+of each sign. Selecting the largest of each sign is optimal in Frobenius norm;
+pairing a positive direction and a negative direction constructs those products:
+
+$$
+p\,uu^{\mathsf T}-n\,vv^{\mathsf T}
+=\operatorname{sym}\!\left[
+(\sqrt p\,u+\sqrt n\,v)(\sqrt p\,u-\sqrt n\,v)^{\mathsf T}
+\right].
+$$
+
+The constructed128-product approximation agrees with the spectral error bound
+to$1.7\times10^{-16}$. Direct native and block polynomial evaluations agree
+with the folded matrices to relative errors below$1.9\times10^{-15}$.
+[Common-channel derivation and numerical receipt](../../COMMON_OUTPUT_QUADRATIC_V1_AUDIT.json).
+
+**Preserve this channel; do not silently remove it.** It enters before the
+native finalRMS andtanh, so a common shift there is not generally a harmless
+shift of the final softmax scores. Bias and incoming residual contributions
+also remain part of the full model. The useful next structural comparison is
+an explicit common-channel component plus a separately factored token-contrast
+remainder, with both components and their costs retained.
+
+The256signed-square weight fit is now running. Its execution uses the same
+registered objective, seed and optimization settings; a revised storage guard
+uses the measured checkpoint size. No research artifacts were deleted. The
+22:18hourly review is recorded; next reviews are23:18strategic and22:49mathematical.

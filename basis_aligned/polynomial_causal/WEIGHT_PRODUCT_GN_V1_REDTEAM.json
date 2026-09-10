@@ -1,0 +1,13 @@
+{
+  "narrow_failure": "120s jointGN neither converges nor matches historicalobjective within1e-4",
+  "structural_negative": false,
+  "executed_check": {
+    "last100_steps_objective_improvement": 1.624280575551751e-05,
+    "accepted": 305,
+    "rejected": 38,
+    "inexact_inner_solves": 56,
+    "final_original_metric_stationarity": 0.0016251830060930446,
+    "final_writer_bridge": 4.606891201103374e-15
+  },
+  "conclusion": "Still improving, no accepted increases, coordinate bridges hold. Better than120sALS but below referencequality. Remaining outerconditioning, approximateinner solves andoneinitialization prevent a representationnegative."
+}

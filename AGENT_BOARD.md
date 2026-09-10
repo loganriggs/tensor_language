@@ -19464,3 +19464,18 @@ Previous goal turn progressd00fef449; multioutputblockweightfit verifiedlive. Na
 
 ### 2026-09-10T22:15:44.855147+00:00 — Codex: JOINT GN CONTROLS HELD; NATIVE BENCHMARK QUEUED
 Exact augmenteddenseJacobian normalaction/diagonal/gradient relativeerrors<4.3e-16; dampedPCG/directsolve4.7e-11. NearplantedLM decreased.024885→.008871 in6acceptedsteps, numericalresolutionstopnotconvergence. Native120s matchedinitializationweightbenchmark managedqueued SHAead7842d5cb39a3228ecb223b74022cb26372e0601362e3270fd9f7b0dbfebcf behindliveblockfit. No data. This changesoptimizer only, blocks/squares coverage separate. Campaign22:15 maps mathematics andlimits.
+
+### 2026-09-10T22:16:47.918837+00:00 — Codex: CLAIM BLOCK GEOMETRY AND NEGATIVE-RESULT AUDIT
+Previous turn progress83ca41f7e. Multioutputblock completed540.15s: Aheld B/Cfailed; capture.0862302,stationarity.009316. Claim CPU-only savedfunction analysis: QR-canonical inputsubspaces, withinblock outputfunction spectra andcoreusage, crossblock principaloverlap, initializationcomparison, penalty/cancellation andplateauaudit. Tests whether learnedblocks contain several independent quadratic writes orcollapsed equivalentfeatures; no circuitclaim fromoverlap. Dossierpriorhistory checked. NativeGNnext; no data.
+
+### 2026-09-10T22:19:35.885939+00:00 — Codex: HOURLY2218; CLAIM SIGNED SQUARE EXECUTION
+GN Aheld B/Cfailed,120.21s,305accepted38rejected,obj.91422509,stationarity.001625. It slightlybeatsALSbudgetbutnotearlierL-BFGS. Blockgeometry usesmultipleoutputfunctions and11–14inputaxes at90%one-modeenergy; learnedsubspaceoverlap exceedsrandomcontrol, no semanticclaim. NewV2squareexecution uses unchangedstructure/objective/seed and80MB guard, justified byactual49.3MB blockcheckpoint andslightlysmalleroptimizer. V1squarewasneverrun. Preservefrozenblockhelper. Hourly2218recordsuseroverride,0promotions, next23:18/math22:49.
+
+### 2026-09-10T22:20:45.791604+00:00 — Codex: CLAIM CANONICAL BLOCK OUTPUT USES
+Aftergeometryaudit, compare canonical all-token outputfunctionmodes acrossblocks, notrawgauge-dependentwritercolumns. Determinewhether overlappinginputsubspaces write commonoutputs or differentones; inspect signedtokenloadings asunlabelledweightdescriptions. This is distinctfrom globaloutputrankbound anddoesnotpromote tokenlists tocircuits. CPUonly, no data. SquareV2managedqueued.
+
+### 2026-09-10T22:23:08.768220+00:00 — Codex: CLAIM EXACT COMMON-OUTPUT SPLIT
+Canonicalblockleadingoutputs have meanabsolute cosine.963;80–90%ofeachleadingaxis is uniform acrossvocabulary. Centering lowersmeancosine to.768; paddedtokensaccount<.5%, notdominant. Claim exactnativeU=ones*meanrow+centeredU audit: foldmeanrow toQmean, measurecoefficientenergy andsignedspectralcomplexity, compare fittedcommoncomponent. Preservecommonchannel explicitly: pre-tanh uniformshift isnot a discardablefinalsoftmaxgauge. PriorfullUtraceaudit concernedinputtrace, notthisoutputsplit. CPUonly, no label/datafit.
+
+### 2026-09-10T22:26:43.535855+00:00 — Codex: COMMON-OUTPUT STRUCTURE AUDITED; SQUARE LIVE
+Commonnativechannel7.195%coeffenergy; currentblock captures72.03%ofit but3.707%ofcenteredremainder. Leadingblockoutputaxes80–90%uniform. NativecommonQ90%needs440squares; optimal128realproducts73.964%capture, constructiveeigenpairingreplay1.7e-16. Preservechannelbeforetanh; no structureabsence/circuitclaim. Nextsplitcommon+contrast explicitly, keepingbothcosts, aftercurrentsignedsquarefit. Campaign22:26 andMLP17dossierupdated.

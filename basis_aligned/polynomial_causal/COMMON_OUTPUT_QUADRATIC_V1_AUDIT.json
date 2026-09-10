@@ -1,0 +1,33 @@
+{
+  "schema": "common.output.quadratic.v1",
+  "native_common_energy_fraction": 0.07195127741258997,
+  "native_centered_energy_fraction": 0.92804872258741,
+  "native_common_best_signed_square_capture": {
+    "1": 0.0806310911783299,
+    "8": 0.19672137129697512,
+    "32": 0.32313187399277915,
+    "64": 0.43603720032532567,
+    "128": 0.58798917899085,
+    "256": 0.766177893672169,
+    "512": 0.9310760965450063,
+    "1152": 1.0000000000000002
+  },
+  "native_common_best_real_product_capture": {
+    "1": 0.10954855284960223,
+    "8": 0.24777106863109402,
+    "32": 0.4181602601010785,
+    "64": 0.5587248836475838,
+    "128": 0.7396421113415731,
+    "256": 0.9152529057194467
+  },
+  "block_fit_centered_relative_squared_error": 0.9629324342123963,
+  "native_common_rank90": 440,
+  "positive_eigenvalues": 495,
+  "negative_eigenvalues": 657,
+  "block_fit_common_relative_squared_error": 0.27965552383530196,
+  "rank128_product_construction_squared_error": 0.2603578886584271,
+  "rank128_product_bound_replay_error": 1.6653345369377348e-16,
+  "native_fold_relative_error": 1.8228559511897298e-15,
+  "block_fold_relative_error": 1.4293890532685029e-15,
+  "scope": "Exact all-vocabulary output mean plus centered remainder, no discarded channels and no data. Signed eigendecomposition solves the isolated scalar quadratic exactly, not the remaining token tensor. Uniform pre-tanh shift affects native saturated logits and must be preserved. Rank counts concern one quadratic input matrix, not total circuit rank."
+}

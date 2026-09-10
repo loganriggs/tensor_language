@@ -256,3 +256,12 @@ not new identified modules or repairs to the earlier removal failures.
 
 ### 10 September21:20: converged penalty and larger input panel
 Explicit energy-penalized128-product fit convergedlocally, capture8.699%coefficientenergy withcancellation1.219. This is a changedbias, notconvergence oftheoriginalfit. Naturalshared-reader validation.01944 beatscurrentfreeproducts/blocksbutremainsunconverged. NewPilepanel1048576tokens captured; newdatafitpending. See [appended optimization/data explanation](2026-09-10/unsupervised_structure_campaign.md#your-questions-one-million-tokens-optimization-and-cost--2114-utc) anditsprimaryreceipts. No causalpromotion orrevisionofearlierremoval/OODfailures.
+
+### 10 September22:26: exact common-output channel
+The full-U last-bilinear quadratic has an exact vocabulary-mean output summand
+accounting for7.195%of coefficientenergy. Current16x16x4blockfit captures72.03%
+of thischannel butonly3.707%ofcenteredremainder; stillunconverged. Leadingblock
+outputaxes are80–90%uniform, notindependentsemanticwrites. CommonQ needs440
+signedsquaredirections for90%energy; best128realproductcapture73.964%, attained
+byexactpositive/negativeeigenpairing. PreservecommonchannelbeforeRMS/tanh, not
+a removablefinalsoftmaxgauge. [Derivation and receipts](2026-09-10/unsupervised_structure_campaign.md#what-the-blocks-found-common-output-versus-token-contrasts--2226-utc).

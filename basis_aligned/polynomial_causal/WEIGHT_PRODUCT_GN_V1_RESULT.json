@@ -1,0 +1,41 @@
+{
+  "schema": "weight.product.gn.v1",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_converged": false,
+    "pred_c_reference_quality": false
+  },
+  "final": {
+    "squared_relative_error": 0.9131835578939237,
+    "optimization_loss": 0.9142250885720484,
+    "component_energy_over_native_total": 0.10415306781247627,
+    "penalty": 0.01,
+    "cancellation_ratio": 1.2291857930227714,
+    "captured_energy_fraction": 0.08681644210607631,
+    "relative_stationarity": 0.0016251830060930446,
+    "gradient_max_abs": 1.3885304434277225e-06,
+    "gram_condition": 6.465892243603783,
+    "regularized_gram_condition": 6.292165937864007
+  },
+  "initial": 0.9310119752572525,
+  "initial_bridge_error": 0.0,
+  "final_bridge_error": 1.1102230246251565e-16,
+  "writer_relative_bridge_error": 4.606891201103374e-15,
+  "maximum_accepted_increase": 0.0,
+  "relative_progress_last_five": 5.649262575043986e-06,
+  "terminal_reason": "budget_limit",
+  "price": {
+    "fit_seconds": 120.20864297449589,
+    "accepted": 305,
+    "rejected": 38,
+    "inner_iterations": 19977,
+    "inexact_inner_solves": 56,
+    "body_forwards": 0,
+    "parameter_numbers": 442368,
+    "warm_start_source_seconds": 540.0881669595838,
+    "checkpoint_bytes": 5938273
+  },
+  "checkpoint_sha256": "7947fdd2cd77825759615a6b3758d5ac15d85f51c4ed493434b1c18fec96b85b",
+  "wall_seconds": 121.1035336367786,
+  "scope": "Weight-only joint GN with exact conditional writer projection. No global optimum or circuit claim."
+}

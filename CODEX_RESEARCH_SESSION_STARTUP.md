@@ -82,7 +82,7 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 22:15
+## Current handoff — updated 10 September 2026, 22:26
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
@@ -148,7 +148,7 @@ normal.0130643/QR.0130386; QR not1%better, fewerclosuresinmatched240s.
 TERMINAL_PROBABILITY_REDTEAM_V1 completed: A/Bheld Cfailed. FisherKL predictions
 within.64–2.38%; normonly accountsfor.67–1.04%of fullKL. Preserve diagnostic,
 but user now defers probability/data-guided fitting until weight-first search exhausted.
-Native WEIGHT_PRODUCT_ALS_V1 completed: numericalchecksheld, convergence/referencequalityfailed;120.25s,517sweeps,113698CGiterations,obj.91425633. Redteam shows continuedouterprogress despite accurateinnersolves; no structuralnegative. New multioutput16x16x4 blockweightfit running, source/bindingfrozen. Signed-squarewrapperprepared butnotqueued; checkdiskbeforeexecution. See campaign22:08 formath/prices. Next strongerweight-onlysolvers anddistinctrepresentations; no newdatafit. JointGN core andstepacceptance controls nowpass; WEIGHT_PRODUCT_GN_V1 managedqueued behindblockfit. See campaign22:15 andregisteredbenchmark; nativeGNresultpending.
+Native WEIGHT_PRODUCT_ALS_V1 completed: numericalchecksheld, convergence/referencequalityfailed;120.25s,517sweeps,113698CGiterations,obj.91425633. Redteam shows continuedouterprogress despite accurateinnersolves; no structuralnegative. New multioutput16x16x4 blockweightfit running, source/bindingfrozen. Signed-squarewrapperprepared butnotqueued; checkdiskbeforeexecution. See campaign22:08 formath/prices. Next strongerweight-onlysolvers anddistinctrepresentations; no newdatafit. JointGN core andstepacceptance controls nowpass; WEIGHT_PRODUCT_GN_V1 managedqueued behindblockfit. GNcompleted Aheld B/Cfailed,obj.91422509,stationarity.001625. Blockcompleted Aheld B/Cfailed,capture.0862302. CPUblockgeometry andexactcommon-outputsplit audited: commonchannel7.195%nativeenergy, blockcommonerror.279656, centerederror.962932. Preservecommonbeforetanh. SignedsquareV2managedrunning; noV1squarerun. See campaign22:26.
 FullU output-function andtrace red-team audits complete, coefficientmetric-only bounds.
 
 32original configs remain frozen:4representations x2metrics x4starts. Only first
@@ -183,8 +183,8 @@ not be changed retroactively. Build small wrappers for new semantics.
 ## Review clocks and throughput
 
 Latest hourly review:
-[21:18](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-10_2118.md).
-Next hourly review is due **22:18 UTC** at the first safe boundary.
+[22:18](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-10_2218.md).
+Next hourly review is due **23:18 UTC** at the first safe boundary.
 Latest mathematical review:
 [19:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_1949.md).
 Next mathematical review is due **22:49 UTC**. Derive later deadlines from the

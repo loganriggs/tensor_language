@@ -1,0 +1,3892 @@
+{
+  "mean_absolute_centered_leading_output_cosine": 0.7676375605241633,
+  "maximum_absolute_centered_leading_output_cosine": 0.9098953783397153,
+  "scope": "Canonical left singular modes of each learned block tensor. Sign arbitrary; top tokens describe weights only, not behavioral tasks. Fit unconverged, no independent restart.",
+  "mean_absolute_leading_output_cosine": 0.9627482462994387,
+  "minimum_absolute_leading_output_cosine": 0.9050819344593253,
+  "maximum_absolute_leading_output_cosine": 0.9852641803859287,
+  "strongest_pairs": [
+    {
+      "blocks": [
+        2,
+        7
+      ],
+      "absolute_cosine": 0.9852641803859287
+    },
+    {
+      "blocks": [
+        7,
+        10
+      ],
+      "absolute_cosine": 0.9843591193058341
+    },
+    {
+      "blocks": [
+        2,
+        10
+      ],
+      "absolute_cosine": 0.9827836532698253
+    },
+    {
+      "blocks": [
+        4,
+        8
+      ],
+      "absolute_cosine": 0.9827218698900158
+    },
+    {
+      "blocks": [
+        2,
+        9
+      ],
+      "absolute_cosine": 0.981949968069963
+    },
+    {
+      "blocks": [
+        9,
+        13
+      ],
+      "absolute_cosine": 0.9815794694135556
+    },
+    {
+      "blocks": [
+        2,
+        13
+      ],
+      "absolute_cosine": 0.9809594014446332
+    },
+    {
+      "blocks": [
+        1,
+        7
+      ],
+      "absolute_cosine": 0.9807812386385228
+    }
+  ],
+  "blocks": [
+    {
+      "block": 0,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.8924324757295277,
+          "uniform_output_energy": 0.879258926786621,
+          "outside_gpt2_vocab_energy": 0.0030571314613756324,
+          "largest_absolute_ids": [
+            23652,
+            34258,
+            21903,
+            46497,
+            13618
+          ],
+          "positive": [
+            {
+              "id": 23652,
+              "text": " Proced",
+              "loading": 0.0113172541264441
+            },
+            {
+              "id": 34258,
+              "text": " Fixes",
+              "loading": 0.011056612460843177
+            },
+            {
+              "id": 21903,
+              "text": " Depths",
+              "loading": 0.011007329218933251
+            },
+            {
+              "id": 46497,
+              "text": " Detected",
+              "loading": 0.010846641952617116
+            },
+            {
+              "id": 13618,
+              "text": " Reached",
+              "loading": 0.010798961876848118
+            },
+            {
+              "id": 34775,
+              "text": " Gained",
+              "loading": 0.010728016368429842
+            },
+            {
+              "id": 38481,
+              "text": " Unsure",
+              "loading": 0.010688565094663592
+            },
+            {
+              "id": 28924,
+              "text": " Thumbnails",
+              "loading": 0.010460691838983517
+            },
+            {
+              "id": 24517,
+              "text": " Identified",
+              "loading": 0.01043882347259011
+            },
+            {
+              "id": 37044,
+              "text": " Deaths",
+              "loading": 0.0103981981466709
+            }
+          ],
+          "negative": [
+            {
+              "id": 12,
+              "text": "-",
+              "loading": -0.0025307486310606267
+            },
+            {
+              "id": 367,
+              "text": " H",
+              "loading": -0.002273813919630937
+            },
+            {
+              "id": 11,
+              "text": ",",
+              "loading": -0.0022712857187097216
+            },
+            {
+              "id": 440,
+              "text": " O",
+              "loading": -0.0022635538790684944
+            },
+            {
+              "id": 509,
+              "text": " K",
+              "loading": -0.002249330243970762
+            },
+            {
+              "id": 257,
+              "text": " a",
+              "loading": -0.002202115464479749
+            },
+            {
+              "id": 327,
+              "text": " C",
+              "loading": -0.0022018833401720914
+            },
+            {
+              "id": 262,
+              "text": " the",
+              "loading": -0.002170384398912153
+            },
+            {
+              "id": 399,
+              "text": " N",
+              "loading": -0.002166630346828773
+            },
+            {
+              "id": 406,
+              "text": " L",
+              "loading": -0.002091329157059215
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.061947550399305586,
+          "uniform_output_energy": 0.0016804168495295829,
+          "outside_gpt2_vocab_energy": 0.00045919532792016457,
+          "largest_absolute_ids": [
+            82,
+            276,
+            66,
+            400,
+            278
+          ],
+          "positive": [
+            {
+              "id": 24807,
+              "text": "inventory",
+              "loading": 0.020465250686144347
+            },
+            {
+              "id": 48277,
+              "text": "errors",
+              "loading": 0.01974490923025002
+            },
+            {
+              "id": 47768,
+              "text": "reply",
+              "loading": 0.01925831607668735
+            },
+            {
+              "id": 48205,
+              "text": "objects",
+              "loading": 0.0189338751401954
+            },
+            {
+              "id": 26238,
+              "text": "rendered",
+              "loading": 0.018898487784343405
+            },
+            {
+              "id": 47945,
+              "text": "multipl",
+              "loading": 0.01886682655405493
+            },
+            {
+              "id": 26060,
+              "text": "usage",
+              "loading": 0.018693170485476942
+            },
+            {
+              "id": 28968,
+              "text": "offset",
+              "loading": 0.01851369933301616
+            },
+            {
+              "id": 47960,
+              "text": "remote",
+              "loading": 0.018465641193734866
+            },
+            {
+              "id": 38124,
+              "text": "prototype",
+              "loading": 0.018088506871300078
+            }
+          ],
+          "negative": [
+            {
+              "id": 82,
+              "text": "s",
+              "loading": -0.03617271328417645
+            },
+            {
+              "id": 276,
+              "text": "ed",
+              "loading": -0.02912435167694808
+            },
+            {
+              "id": 66,
+              "text": "c",
+              "loading": -0.028087893687781765
+            },
+            {
+              "id": 400,
+              "text": "th",
+              "loading": -0.026638711760674852
+            },
+            {
+              "id": 278,
+              "text": "ing",
+              "loading": -0.026588437960766313
+            },
+            {
+              "id": 72,
+              "text": "i",
+              "loading": -0.026209924110545853
+            },
+            {
+              "id": 83,
+              "text": "t",
+              "loading": -0.026199239674772827
+            },
+            {
+              "id": 78,
+              "text": "o",
+              "loading": -0.025871034483302597
+            },
+            {
+              "id": 274,
+              "text": "es",
+              "loading": -0.025672817844533513
+            },
+            {
+              "id": 76,
+              "text": "m",
+              "loading": -0.025615157965328293
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 1,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.8446681619338257,
+          "uniform_output_energy": 0.859275909297967,
+          "outside_gpt2_vocab_energy": 0.0031178893329147596,
+          "largest_absolute_ids": [
+            49819,
+            49968,
+            48876,
+            49687,
+            48551
+          ],
+          "positive": [
+            {
+              "id": 49819,
+              "text": " DRAGON",
+              "loading": 0.010680310138843678
+            },
+            {
+              "id": 49968,
+              "text": " RELE",
+              "loading": 0.010654415239408735
+            },
+            {
+              "id": 48876,
+              "text": " VIDEOS",
+              "loading": 0.010584253562046791
+            },
+            {
+              "id": 49687,
+              "text": " JUSTICE",
+              "loading": 0.010473736858617654
+            },
+            {
+              "id": 48551,
+              "text": " DEFENSE",
+              "loading": 0.01039212728275634
+            },
+            {
+              "id": 23054,
+              "text": " ACTIONS",
+              "loading": 0.010372111744493174
+            },
+            {
+              "id": 41153,
+              "text": " PHOTO",
+              "loading": 0.010240965696492993
+            },
+            {
+              "id": 45463,
+              "text": "BALL",
+              "loading": 0.01019748210858512
+            },
+            {
+              "id": 43790,
+              "text": " GEAR",
+              "loading": 0.010106632722117044
+            },
+            {
+              "id": 24890,
+              "text": " INFO",
+              "loading": 0.01004855809454184
+            }
+          ],
+          "negative": [
+            {
+              "id": 262,
+              "text": " the",
+              "loading": -0.005167568079506025
+            },
+            {
+              "id": 11,
+              "text": ",",
+              "loading": -0.004881909572359251
+            },
+            {
+              "id": 257,
+              "text": " a",
+              "loading": -0.004735617128195997
+            },
+            {
+              "id": 290,
+              "text": " and",
+              "loading": -0.0045994379591852924
+            },
+            {
+              "id": 13,
+              "text": ".",
+              "loading": -0.004272272674038048
+            },
+            {
+              "id": 287,
+              "text": " in",
+              "loading": -0.004076764092312464
+            },
+            {
+              "id": 318,
+              "text": " is",
+              "loading": -0.0038547749955553778
+            },
+            {
+              "id": 366,
+              "text": " \"",
+              "loading": -0.003748710909414086
+            },
+            {
+              "id": 198,
+              "text": "\n",
+              "loading": -0.003723478283392358
+            },
+            {
+              "id": 357,
+              "text": " (",
+              "loading": -0.0036787808923425492
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.06417800883283588,
+          "uniform_output_energy": 5.806510493031193e-05,
+          "outside_gpt2_vocab_energy": 0.0011785665625307635,
+          "largest_absolute_ids": [
+            468,
+            318,
+            3073,
+            3544,
+            3382
+          ],
+          "positive": [
+            {
+              "id": 468,
+              "text": " has",
+              "loading": 0.036874888261870575
+            },
+            {
+              "id": 318,
+              "text": " is",
+              "loading": 0.0340200398922811
+            },
+            {
+              "id": 3073,
+              "text": " looks",
+              "loading": 0.03326202244299902
+            },
+            {
+              "id": 3544,
+              "text": " uses",
+              "loading": 0.03270109105008671
+            },
+            {
+              "id": 3382,
+              "text": " wants",
+              "loading": 0.032435601863569655
+            },
+            {
+              "id": 4539,
+              "text": " runs",
+              "loading": 0.03219436647032394
+            },
+            {
+              "id": 1595,
+              "text": " doesn",
+              "loading": 0.03202688796502158
+            },
+            {
+              "id": 4394,
+              "text": " offers",
+              "loading": 0.03192990920666689
+            },
+            {
+              "id": 7584,
+              "text": " puts",
+              "loading": 0.03190997400762764
+            },
+            {
+              "id": 6622,
+              "text": " holds",
+              "loading": 0.03161082458538629
+            }
+          ],
+          "negative": [
+            {
+              "id": 30495,
+              "text": " knit",
+              "loading": -0.014115928493667306
+            },
+            {
+              "id": 2480,
+              "text": "iple",
+              "loading": -0.013932921675096004
+            },
+            {
+              "id": 40988,
+              "text": "icipated",
+              "loading": -0.013640037110151488
+            },
+            {
+              "id": 5712,
+              "text": "itect",
+              "loading": -0.013416159873469275
+            },
+            {
+              "id": 17796,
+              "text": "bank",
+              "loading": -0.01337377321187498
+            },
+            {
+              "id": 33505,
+              "text": " succumb",
+              "loading": -0.012967604551837037
+            },
+            {
+              "id": 23813,
+              "text": "xon",
+              "loading": -0.012628405834060222
+            },
+            {
+              "id": 40712,
+              "text": "lip",
+              "loading": -0.012572944231891264
+            },
+            {
+              "id": 7836,
+              "text": "RL",
+              "loading": -0.012430466587421493
+            },
+            {
+              "id": 29135,
+              "text": " defer",
+              "loading": -0.012382048980441008
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 2,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.8370597060747149,
+          "uniform_output_energy": 0.869305441822697,
+          "outside_gpt2_vocab_energy": 0.0034236938322019786,
+          "largest_absolute_ids": [
+            11910,
+            39488,
+            8438,
+            33746,
+            22880
+          ],
+          "positive": [
+            {
+              "id": 11910,
+              "text": "ngth",
+              "loading": 0.010593386801639825
+            },
+            {
+              "id": 39488,
+              "text": "VALUE",
+              "loading": 0.010570679410131402
+            },
+            {
+              "id": 8438,
+              "text": "everal",
+              "loading": 0.01045798139258569
+            },
+            {
+              "id": 33746,
+              "text": "WARE",
+              "loading": 0.010356099976752582
+            },
+            {
+              "id": 22880,
+              "text": "\ufffd",
+              "loading": 0.010342018787767006
+            },
+            {
+              "id": 11139,
+              "text": "\\/",
+              "loading": 0.010337623246347705
+            },
+            {
+              "id": 45463,
+              "text": "BALL",
+              "loading": 0.010334994656594003
+            },
+            {
+              "id": 37485,
+              "text": "FTWARE",
+              "loading": 0.010322494461565083
+            },
+            {
+              "id": 3907,
+              "text": "\u00ad",
+              "loading": 0.010263772428230537
+            },
+            {
+              "id": 36977,
+              "text": "netflix",
+              "loading": 0.010246342444590086
+            }
+          ],
+          "negative": [
+            {
+              "id": 12,
+              "text": "-",
+              "loading": -0.009055343022852715
+            },
+            {
+              "id": 290,
+              "text": " and",
+              "loading": -0.007172144959006252
+            },
+            {
+              "id": 11,
+              "text": ",",
+              "loading": -0.006665849150453738
+            },
+            {
+              "id": 13,
+              "text": ".",
+              "loading": -0.005890273050676089
+            },
+            {
+              "id": 14,
+              "text": "/",
+              "loading": -0.005868678545980421
+            },
+            {
+              "id": 284,
+              "text": " to",
+              "loading": -0.005568981954009062
+            },
+            {
+              "id": 287,
+              "text": " in",
+              "loading": -0.0053627419658541535
+            },
+            {
+              "id": 351,
+              "text": " with",
+              "loading": -0.005130338235604271
+            },
+            {
+              "id": 393,
+              "text": " or",
+              "loading": -0.00502585376090219
+            },
+            {
+              "id": 286,
+              "text": " of",
+              "loading": -0.004818493780422983
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.11301886328201853,
+          "uniform_output_energy": 0.0013500170494017431,
+          "outside_gpt2_vocab_energy": 0.0004270052719661354,
+          "largest_absolute_ids": [
+            1511,
+            1315,
+            1478,
+            1105,
+            1596
+          ],
+          "positive": [
+            {
+              "id": 1214,
+              "text": "ross",
+              "loading": 0.014125904475364277
+            },
+            {
+              "id": 37922,
+              "text": " <!--",
+              "loading": 0.013570440163805202
+            },
+            {
+              "id": 2475,
+              "text": "lim",
+              "loading": 0.012994478264548012
+            },
+            {
+              "id": 16993,
+              "text": "wd",
+              "loading": 0.012903072611396888
+            },
+            {
+              "id": 17845,
+              "text": "swer",
+              "loading": 0.012716475688222007
+            },
+            {
+              "id": 30907,
+              "text": "cation",
+              "loading": 0.012690455986754105
+            },
+            {
+              "id": 18300,
+              "text": "git",
+              "loading": 0.012555507586410617
+            },
+            {
+              "id": 12993,
+              "text": "cf",
+              "loading": 0.012355199775026316
+            },
+            {
+              "id": 927,
+              "text": "stem",
+              "loading": 0.01230823821581867
+            },
+            {
+              "id": 1198,
+              "text": "nce",
+              "loading": 0.012303236046444342
+            }
+          ],
+          "negative": [
+            {
+              "id": 1511,
+              "text": " 13",
+              "loading": -0.05047397105877182
+            },
+            {
+              "id": 1315,
+              "text": " 15",
+              "loading": -0.049334247998286056
+            },
+            {
+              "id": 1478,
+              "text": " 14",
+              "loading": -0.04931632776341678
+            },
+            {
+              "id": 1105,
+              "text": " 12",
+              "loading": -0.04874361447808451
+            },
+            {
+              "id": 1596,
+              "text": " 17",
+              "loading": -0.048673426605668736
+            },
+            {
+              "id": 1467,
+              "text": " 16",
+              "loading": -0.04843609395139557
+            },
+            {
+              "id": 807,
+              "text": " 8",
+              "loading": -0.04795773423808364
+            },
+            {
+              "id": 1679,
+              "text": " 25",
+              "loading": -0.047480857515781016
+            },
+            {
+              "id": 767,
+              "text": " 7",
+              "loading": -0.04727191839554897
+            },
+            {
+              "id": 718,
+              "text": " 6",
+              "loading": -0.04722788911813061
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 3,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.620078033861096,
+          "uniform_output_energy": 0.8026990434264658,
+          "outside_gpt2_vocab_energy": 0.0027898148102867715,
+          "largest_absolute_ids": [
+            607,
+            673,
+            5223,
+            3347,
+            1375
+          ],
+          "positive": [
+            {
+              "id": 607,
+              "text": " her",
+              "loading": 0.033743858383438796
+            },
+            {
+              "id": 673,
+              "text": " she",
+              "loading": 0.032055030122612314
+            },
+            {
+              "id": 5223,
+              "text": " herself",
+              "loading": 0.024188736321622835
+            },
+            {
+              "id": 3347,
+              "text": "She",
+              "loading": 0.02309822898084725
+            },
+            {
+              "id": 1375,
+              "text": " She",
+              "loading": 0.022875529416959705
+            },
+            {
+              "id": 25144,
+              "text": " hers",
+              "loading": 0.021668510577430578
+            },
+            {
+              "id": 7091,
+              "text": "she",
+              "loading": 0.019816094083876645
+            },
+            {
+              "id": 2332,
+              "text": " Her",
+              "loading": 0.019210656858434483
+            },
+            {
+              "id": 9360,
+              "text": "Her",
+              "loading": 0.0175378795065834
+            },
+            {
+              "id": 24906,
+              "text": " HER",
+              "loading": 0.014521253848761458
+            }
+          ],
+          "negative": [
+            {
+              "id": 32038,
+              "text": " Sending",
+              "loading": -0.013102848384210442
+            },
+            {
+              "id": 29798,
+              "text": " donating",
+              "loading": -0.011798115567051414
+            },
+            {
+              "id": 37889,
+              "text": " STATS",
+              "loading": -0.011694905525627389
+            },
+            {
+              "id": 48551,
+              "text": " DEFENSE",
+              "loading": -0.011341725538365918
+            },
+            {
+              "id": 15975,
+              "text": " installing",
+              "loading": -0.011304098370585375
+            },
+            {
+              "id": 22488,
+              "text": " acquiring",
+              "loading": -0.011025794725169367
+            },
+            {
+              "id": 15685,
+              "text": " Reincarnated",
+              "loading": -0.010858931480872103
+            },
+            {
+              "id": 42887,
+              "text": " SERV",
+              "loading": -0.010837103193389224
+            },
+            {
+              "id": 14771,
+              "text": " investing",
+              "loading": -0.010831999941236884
+            },
+            {
+              "id": 25485,
+              "text": " upgrading",
+              "loading": -0.01081026015325092
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.18927151383400467,
+          "uniform_output_energy": 0.02314244090517703,
+          "outside_gpt2_vocab_energy": 1.7093797741164922e-06,
+          "largest_absolute_ids": [
+            607,
+            673,
+            3347,
+            1375,
+            5223
+          ],
+          "positive": [
+            {
+              "id": 49454,
+              "text": "matically",
+              "loading": 0.018946074292124304
+            },
+            {
+              "id": 8148,
+              "text": " respectively",
+              "loading": 0.017840903089933
+            },
+            {
+              "id": 11252,
+              "text": "rell",
+              "loading": 0.017035718704087335
+            },
+            {
+              "id": 45779,
+              "text": "redibly",
+              "loading": 0.016400855103742343
+            },
+            {
+              "id": 38979,
+              "text": "hoe",
+              "loading": 0.016122461400387127
+            },
+            {
+              "id": 17506,
+              "text": "itus",
+              "loading": 0.016070639172280778
+            },
+            {
+              "id": 1144,
+              "text": "ared",
+              "loading": 0.01581708114194656
+            },
+            {
+              "id": 6391,
+              "text": "hew",
+              "loading": 0.014684567040663387
+            },
+            {
+              "id": 12657,
+              "text": "omed",
+              "loading": 0.014191265427078398
+            },
+            {
+              "id": 29644,
+              "text": " brethren",
+              "loading": 0.014114000983443268
+            }
+          ],
+          "negative": [
+            {
+              "id": 607,
+              "text": " her",
+              "loading": -0.11433537379051259
+            },
+            {
+              "id": 673,
+              "text": " she",
+              "loading": -0.11064063719773562
+            },
+            {
+              "id": 3347,
+              "text": "She",
+              "loading": -0.0946291339057394
+            },
+            {
+              "id": 1375,
+              "text": " She",
+              "loading": -0.08683513508748421
+            },
+            {
+              "id": 5223,
+              "text": " herself",
+              "loading": -0.08459060623883424
+            },
+            {
+              "id": 25144,
+              "text": " hers",
+              "loading": -0.08361859466624022
+            },
+            {
+              "id": 7091,
+              "text": "she",
+              "loading": -0.0816641051657341
+            },
+            {
+              "id": 9360,
+              "text": "Her",
+              "loading": -0.07054964842384516
+            },
+            {
+              "id": 2332,
+              "text": " Her",
+              "loading": -0.06823539008293403
+            },
+            {
+              "id": 48052,
+              "text": " SHE",
+              "loading": -0.0632510886574785
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 4,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.9178505129562996,
+          "uniform_output_energy": 0.8134098282944666,
+          "outside_gpt2_vocab_energy": 0.004001241145256338,
+          "largest_absolute_ids": [
+            11910,
+            8438,
+            10144,
+            37467,
+            3330
+          ],
+          "positive": [
+            {
+              "id": 11910,
+              "text": "ngth",
+              "loading": 0.011490634711019618
+            },
+            {
+              "id": 8438,
+              "text": "everal",
+              "loading": 0.01147391035982702
+            },
+            {
+              "id": 10144,
+              "text": "emale",
+              "loading": 0.011315712594689673
+            },
+            {
+              "id": 37467,
+              "text": "zsche",
+              "loading": 0.011293631395490524
+            },
+            {
+              "id": 3330,
+              "text": "estern",
+              "loading": 0.011279083832987303
+            },
+            {
+              "id": 45463,
+              "text": "BALL",
+              "loading": 0.011214945444960472
+            },
+            {
+              "id": 48551,
+              "text": " DEFENSE",
+              "loading": 0.011202745552741573
+            },
+            {
+              "id": 45325,
+              "text": " IMAGES",
+              "loading": 0.01118815073367999
+            },
+            {
+              "id": 26642,
+              "text": "tnc",
+              "loading": 0.011179479706853979
+            },
+            {
+              "id": 45528,
+              "text": " Adin",
+              "loading": 0.011135185030335223
+            }
+          ],
+          "negative": [
+            {
+              "id": 12,
+              "text": "-",
+              "loading": -0.004587171601471639
+            },
+            {
+              "id": 367,
+              "text": " H",
+              "loading": -0.0042339096323367135
+            },
+            {
+              "id": 317,
+              "text": " A",
+              "loading": -0.0039533393859241235
+            },
+            {
+              "id": 262,
+              "text": " the",
+              "loading": -0.0038947538424796728
+            },
+            {
+              "id": 366,
+              "text": " \"",
+              "loading": -0.003867738973831807
+            },
+            {
+              "id": 509,
+              "text": " K",
+              "loading": -0.0038459138111560784
+            },
+            {
+              "id": 311,
+              "text": " S",
+              "loading": -0.00379084893194388
+            },
+            {
+              "id": 347,
+              "text": " B",
+              "loading": -0.003746026554743277
+            },
+            {
+              "id": 357,
+              "text": " (",
+              "loading": -0.0037350009232202234
+            },
+            {
+              "id": 309,
+              "text": " T",
+              "loading": -0.003654857013535887
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.03635841570339836,
+          "uniform_output_energy": 0.007109566823379994,
+          "outside_gpt2_vocab_energy": 0.0006029404600691186,
+          "largest_absolute_ids": [
+            34507,
+            24524,
+            25776,
+            48875,
+            1056
+          ],
+          "positive": [
+            {
+              "id": 24524,
+              "text": "Legendary",
+              "loading": 0.020977551890290054
+            },
+            {
+              "id": 48875,
+              "text": "Dex",
+              "loading": 0.01883853528588083
+            },
+            {
+              "id": 1056,
+              "text": "hip",
+              "loading": 0.018059070723094862
+            },
+            {
+              "id": 46623,
+              "text": " folklore",
+              "loading": 0.017934743353517107
+            },
+            {
+              "id": 25877,
+              "text": "Cour",
+              "loading": 0.01735766855141529
+            },
+            {
+              "id": 49322,
+              "text": "Deploy",
+              "loading": 0.017292269093707204
+            },
+            {
+              "id": 45981,
+              "text": " Dare",
+              "loading": 0.01703219586168273
+            },
+            {
+              "id": 9877,
+              "text": " signature",
+              "loading": 0.01681339066073828
+            },
+            {
+              "id": 1150,
+              "text": "med",
+              "loading": 0.01670805948021087
+            },
+            {
+              "id": 32217,
+              "text": " Pluto",
+              "loading": 0.016680365195172003
+            }
+          ],
+          "negative": [
+            {
+              "id": 34507,
+              "text": "-.",
+              "loading": -0.024683321397417267
+            },
+            {
+              "id": 25776,
+              "text": " ol",
+              "loading": -0.01890266611883288
+            },
+            {
+              "id": 269,
+              "text": " c",
+              "loading": -0.01799931472093176
+            },
+            {
+              "id": 8057,
+              "text": " elsewhere",
+              "loading": -0.017867867440373074
+            },
+            {
+              "id": 15554,
+              "text": " hammer",
+              "loading": -0.017795417799426668
+            },
+            {
+              "id": 7874,
+              "text": ".-",
+              "loading": -0.01769076353963973
+            },
+            {
+              "id": 299,
+              "text": " n",
+              "loading": -0.017405244497769718
+            },
+            {
+              "id": 14004,
+              "text": ",''",
+              "loading": -0.017183255467473214
+            },
+            {
+              "id": 36484,
+              "text": "gc",
+              "loading": -0.016913611147628377
+            },
+            {
+              "id": 5381,
+              "text": " tight",
+              "loading": -0.01657267392980811
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 5,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.7312642069371406,
+          "uniform_output_energy": 0.825502419065153,
+          "outside_gpt2_vocab_energy": 0.0043006553433692024,
+          "largest_absolute_ids": [
+            465,
+            339,
+            683,
+            679,
+            2399
+          ],
+          "positive": [
+            {
+              "id": 465,
+              "text": " his",
+              "loading": 0.023692979408373827
+            },
+            {
+              "id": 339,
+              "text": " he",
+              "loading": 0.02211692155351702
+            },
+            {
+              "id": 683,
+              "text": " him",
+              "loading": 0.019894172587315073
+            },
+            {
+              "id": 679,
+              "text": " He",
+              "loading": 0.01946710867180405
+            },
+            {
+              "id": 2399,
+              "text": " His",
+              "loading": 0.016977567140167155
+            },
+            {
+              "id": 1544,
+              "text": "He",
+              "loading": 0.016749063410878524
+            },
+            {
+              "id": 6653,
+              "text": "His",
+              "loading": 0.016337866775427746
+            },
+            {
+              "id": 2241,
+              "text": " himself",
+              "loading": 0.016000898400308848
+            },
+            {
+              "id": 14363,
+              "text": "his",
+              "loading": 0.015579212723337071
+            },
+            {
+              "id": 38400,
+              "text": "him",
+              "loading": 0.0115885558639196
+            }
+          ],
+          "negative": [
+            {
+              "id": 36726,
+              "text": "Reloaded",
+              "loading": -0.011612853010394138
+            },
+            {
+              "id": 37771,
+              "text": "WARN",
+              "loading": -0.011429672713972463
+            },
+            {
+              "id": 41215,
+              "text": "conservancy",
+              "loading": -0.011328741357704574
+            },
+            {
+              "id": 37337,
+              "text": " Gamergate",
+              "loading": -0.011284621940480072
+            },
+            {
+              "id": 14531,
+              "text": "groupon",
+              "loading": -0.011243082230998205
+            },
+            {
+              "id": 36119,
+              "text": "querque",
+              "loading": -0.011175233256559572
+            },
+            {
+              "id": 45449,
+              "text": "CLASSIFIED",
+              "loading": -0.011163138765076146
+            },
+            {
+              "id": 41386,
+              "text": "Pok\u00e9",
+              "loading": -0.0111420835361343
+            },
+            {
+              "id": 47826,
+              "text": "hillary",
+              "loading": -0.01108137072265697
+            },
+            {
+              "id": 32506,
+              "text": "RANT",
+              "loading": -0.011073007150161488
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.1586724598430083,
+          "uniform_output_energy": 0.00774065643814013,
+          "outside_gpt2_vocab_energy": 4.606011868406804e-05,
+          "largest_absolute_ids": [
+            465,
+            339,
+            683,
+            6653,
+            679
+          ],
+          "positive": [
+            {
+              "id": 36622,
+              "text": "sed",
+              "loading": 0.02358956429283732
+            },
+            {
+              "id": 39816,
+              "text": "CG",
+              "loading": 0.019938493510743078
+            },
+            {
+              "id": 10071,
+              "text": "ova",
+              "loading": 0.018194282810345196
+            },
+            {
+              "id": 8294,
+              "text": " convent",
+              "loading": 0.01779024010344064
+            },
+            {
+              "id": 48157,
+              "text": " nun",
+              "loading": 0.017149746255950893
+            },
+            {
+              "id": 8580,
+              "text": "woman",
+              "loading": 0.016863359653782228
+            },
+            {
+              "id": 6621,
+              "text": " sister",
+              "loading": 0.01672497340488143
+            },
+            {
+              "id": 6926,
+              "text": " Women",
+              "loading": 0.01632806125725942
+            },
+            {
+              "id": 12262,
+              "text": " spokeswoman",
+              "loading": 0.01605807034722888
+            },
+            {
+              "id": 41807,
+              "text": "leanor",
+              "loading": 0.01587557964915999
+            }
+          ],
+          "negative": [
+            {
+              "id": 465,
+              "text": " his",
+              "loading": -0.11924116405757515
+            },
+            {
+              "id": 339,
+              "text": " he",
+              "loading": -0.10851178130348375
+            },
+            {
+              "id": 683,
+              "text": " him",
+              "loading": -0.1050861372980738
+            },
+            {
+              "id": 6653,
+              "text": "His",
+              "loading": -0.10096770029571361
+            },
+            {
+              "id": 679,
+              "text": " He",
+              "loading": -0.0971335136573635
+            },
+            {
+              "id": 2399,
+              "text": " His",
+              "loading": -0.09580838177517613
+            },
+            {
+              "id": 1544,
+              "text": "He",
+              "loading": -0.0948701895075115
+            },
+            {
+              "id": 14363,
+              "text": "his",
+              "loading": -0.09470572354658842
+            },
+            {
+              "id": 2241,
+              "text": " himself",
+              "loading": -0.09420176715308139
+            },
+            {
+              "id": 38400,
+              "text": "him",
+              "loading": -0.07639819887854843
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 6,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.8296035164335414,
+          "uniform_output_energy": 0.8515991387327579,
+          "outside_gpt2_vocab_energy": 0.0035488368138741197,
+          "largest_absolute_ids": [
+            262,
+            257,
+            511,
+            428,
+            340
+          ],
+          "positive": [
+            {
+              "id": 262,
+              "text": " the",
+              "loading": 0.017911922240321575
+            },
+            {
+              "id": 257,
+              "text": " a",
+              "loading": 0.014226831988267715
+            },
+            {
+              "id": 511,
+              "text": " their",
+              "loading": 0.01257199924087263
+            },
+            {
+              "id": 428,
+              "text": " this",
+              "loading": 0.011956098823243586
+            },
+            {
+              "id": 340,
+              "text": " it",
+              "loading": 0.01156712568044633
+            },
+            {
+              "id": 534,
+              "text": " your",
+              "loading": 0.011521455510338985
+            },
+            {
+              "id": 663,
+              "text": " its",
+              "loading": 0.011453797822726134
+            },
+            {
+              "id": 465,
+              "text": " his",
+              "loading": 0.011427339388501488
+            },
+            {
+              "id": 281,
+              "text": " an",
+              "loading": 0.011386519517880667
+            },
+            {
+              "id": 674,
+              "text": " our",
+              "loading": 0.011106396145036265
+            }
+          ],
+          "negative": [
+            {
+              "id": 45463,
+              "text": "BALL",
+              "loading": -0.010706433751664038
+            },
+            {
+              "id": 27551,
+              "text": " 00000000",
+              "loading": -0.010575418224030768
+            },
+            {
+              "id": 16040,
+              "text": "ullivan",
+              "loading": -0.010286438162334986
+            },
+            {
+              "id": 30952,
+              "text": "Enlarge",
+              "loading": -0.010242287805134712
+            },
+            {
+              "id": 48416,
+              "text": " shenan",
+              "loading": -0.010192016995245768
+            },
+            {
+              "id": 15862,
+              "text": " REUTERS",
+              "loading": -0.010141382927455178
+            },
+            {
+              "id": 41153,
+              "text": " PHOTO",
+              "loading": -0.010078365818875133
+            },
+            {
+              "id": 16529,
+              "text": " ----------------------------------------------------------------",
+              "loading": -0.010064713502315343
+            },
+            {
+              "id": 49423,
+              "text": "SHIP",
+              "loading": -0.010020070751401286
+            },
+            {
+              "id": 11548,
+              "text": " entreprene",
+              "loading": -0.010010722791107074
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.07778979847701899,
+          "uniform_output_energy": 0.001162164582896482,
+          "outside_gpt2_vocab_energy": 0.0011744361035351172,
+          "largest_absolute_ids": [
+            6,
+            4458,
+            20520,
+            3256,
+            11537
+          ],
+          "positive": [
+            {
+              "id": 6,
+              "text": "'",
+              "loading": 0.10284533662942394
+            },
+            {
+              "id": 4458,
+              "text": "'.",
+              "loading": 0.05792920692227677
+            },
+            {
+              "id": 20520,
+              "text": "']",
+              "loading": 0.05470500382056382
+            },
+            {
+              "id": 3256,
+              "text": "',",
+              "loading": 0.0527956379662938
+            },
+            {
+              "id": 11537,
+              "text": "')",
+              "loading": 0.04901683734034004
+            },
+            {
+              "id": 30960,
+              "text": "'?",
+              "loading": 0.04550073535521368
+            },
+            {
+              "id": 10354,
+              "text": "':",
+              "loading": 0.042148533116148655
+            },
+            {
+              "id": 338,
+              "text": "'s",
+              "loading": 0.041804143435315286
+            },
+            {
+              "id": 29653,
+              "text": "'\"",
+              "loading": 0.041428031291472815
+            },
+            {
+              "id": 29001,
+              "text": "'-",
+              "loading": 0.04020409464071129
+            }
+          ],
+          "negative": [
+            {
+              "id": 564,
+              "text": " \ufffd",
+              "loading": -0.031185158696697895
+            },
+            {
+              "id": 23834,
+              "text": " [\u2026]",
+              "loading": -0.02546205099216722
+            },
+            {
+              "id": 38418,
+              "text": "\u2026)",
+              "loading": -0.024616706125698596
+            },
+            {
+              "id": 13700,
+              "text": "\u300d",
+              "loading": -0.023994955473413605
+            },
+            {
+              "id": 447,
+              "text": "\ufffd",
+              "loading": -0.02356774349683331
+            },
+            {
+              "id": 32485,
+              "text": " \ud83d\ude42",
+              "loading": -0.020760300202034895
+            },
+            {
+              "id": 7398,
+              "text": "\u2026\u2026",
+              "loading": -0.020074344747586258
+            },
+            {
+              "id": 1399,
+              "text": "\u2026",
+              "loading": -0.018804772484311158
+            },
+            {
+              "id": 30864,
+              "text": "\u2026..",
+              "loading": -0.01776738341578347
+            },
+            {
+              "id": 27332,
+              "text": " \ufffd",
+              "loading": -0.017593397548360996
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 7,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.8519773869742473,
+          "uniform_output_energy": 0.8679612180150779,
+          "outside_gpt2_vocab_energy": 0.004039929275362359,
+          "largest_absolute_ids": [
+            11,
+            16040,
+            13,
+            42311,
+            49687
+          ],
+          "positive": [
+            {
+              "id": 11,
+              "text": ",",
+              "loading": 0.011834119537530078
+            },
+            {
+              "id": 13,
+              "text": ".",
+              "loading": 0.010559064907316439
+            },
+            {
+              "id": 12,
+              "text": "-",
+              "loading": 0.007831649111139798
+            },
+            {
+              "id": 8,
+              "text": ")",
+              "loading": 0.007820836610977757
+            },
+            {
+              "id": 25,
+              "text": ":",
+              "loading": 0.007620147379698416
+            },
+            {
+              "id": 26,
+              "text": ";",
+              "loading": 0.006690586764375987
+            },
+            {
+              "id": 828,
+              "text": "),",
+              "loading": 0.005854850768801894
+            },
+            {
+              "id": 30,
+              "text": "?",
+              "loading": 0.005206244495477007
+            },
+            {
+              "id": 14,
+              "text": "/",
+              "loading": 0.0051733289055215185
+            },
+            {
+              "id": 737,
+              "text": ").",
+              "loading": 0.0050089901940390535
+            }
+          ],
+          "negative": [
+            {
+              "id": 16040,
+              "text": "ullivan",
+              "loading": -0.010888257020519413
+            },
+            {
+              "id": 42311,
+              "text": "arnaev",
+              "loading": -0.010445070773850791
+            },
+            {
+              "id": 49687,
+              "text": " JUSTICE",
+              "loading": -0.010398059255538973
+            },
+            {
+              "id": 16080,
+              "text": " corrid",
+              "loading": -0.010278267801029287
+            },
+            {
+              "id": 23652,
+              "text": " Proced",
+              "loading": -0.010231263762865308
+            },
+            {
+              "id": 43491,
+              "text": "paio",
+              "loading": -0.010179973602586797
+            },
+            {
+              "id": 45228,
+              "text": "uliffe",
+              "loading": -0.010120542404574741
+            },
+            {
+              "id": 31739,
+              "text": "dylib",
+              "loading": -0.01011896711171489
+            },
+            {
+              "id": 48688,
+              "text": "]+",
+              "loading": -0.010110240138343636
+            },
+            {
+              "id": 28235,
+              "text": "aeper",
+              "loading": -0.010062816633712099
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.06766783073070697,
+          "uniform_output_energy": 0.0001943608434391166,
+          "outside_gpt2_vocab_energy": 6.432504205240113e-05,
+          "largest_absolute_ids": [
+            11,
+            13,
+            25,
+            26,
+            8
+          ],
+          "positive": [
+            {
+              "id": 23834,
+              "text": " [\u2026]",
+              "loading": 0.022797292699371217
+            },
+            {
+              "id": 26894,
+              "text": " [...]",
+              "loading": 0.021100503545067005
+            },
+            {
+              "id": 46156,
+              "text": "dimension",
+              "loading": 0.018968818302506223
+            },
+            {
+              "id": 31266,
+              "text": "wikipedia",
+              "loading": 0.018866438808275914
+            },
+            {
+              "id": 564,
+              "text": " \ufffd",
+              "loading": 0.018344135279141048
+            },
+            {
+              "id": 38002,
+              "text": "biased",
+              "loading": 0.017900808295131816
+            },
+            {
+              "id": 11485,
+              "text": " ..",
+              "loading": 0.01763846393921207
+            },
+            {
+              "id": 35967,
+              "text": "iband",
+              "loading": 0.017339599566634806
+            },
+            {
+              "id": 35770,
+              "text": "ordes",
+              "loading": 0.017333120712710436
+            },
+            {
+              "id": 46510,
+              "text": "ritch",
+              "loading": 0.01731310220703562
+            }
+          ],
+          "negative": [
+            {
+              "id": 11,
+              "text": ",",
+              "loading": -0.07032405178757443
+            },
+            {
+              "id": 13,
+              "text": ".",
+              "loading": -0.0649793015450072
+            },
+            {
+              "id": 25,
+              "text": ":",
+              "loading": -0.04925384374499611
+            },
+            {
+              "id": 26,
+              "text": ";",
+              "loading": -0.04699659956270571
+            },
+            {
+              "id": 8,
+              "text": ")",
+              "loading": -0.04621991608908019
+            },
+            {
+              "id": 12,
+              "text": "-",
+              "loading": -0.03787839290398193
+            },
+            {
+              "id": 828,
+              "text": "),",
+              "loading": -0.037670173735114956
+            },
+            {
+              "id": 1,
+              "text": "\"",
+              "loading": -0.03323843505236842
+            },
+            {
+              "id": 30,
+              "text": "?",
+              "loading": -0.03129625237145591
+            },
+            {
+              "id": 737,
+              "text": ").",
+              "loading": -0.028582829002084593
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 8,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.7888914465105413,
+          "uniform_output_energy": 0.8044220215010074,
+          "outside_gpt2_vocab_energy": 0.004869471552996351,
+          "largest_absolute_ids": [
+            44806,
+            49819,
+            48080,
+            33023,
+            23054
+          ],
+          "positive": [
+            {
+              "id": 44806,
+              "text": " SHARES",
+              "loading": 0.012363556895703638
+            },
+            {
+              "id": 49819,
+              "text": " DRAGON",
+              "loading": 0.01231985188698361
+            },
+            {
+              "id": 48080,
+              "text": " Frieza",
+              "loading": 0.012292181290093691
+            },
+            {
+              "id": 33023,
+              "text": "hovah",
+              "loading": 0.012124936686657836
+            },
+            {
+              "id": 23054,
+              "text": " ACTIONS",
+              "loading": 0.012122187766625542
+            },
+            {
+              "id": 11910,
+              "text": "ngth",
+              "loading": 0.011946514695243425
+            },
+            {
+              "id": 49516,
+              "text": "BILITIES",
+              "loading": 0.011915632444638837
+            },
+            {
+              "id": 33746,
+              "text": "WARE",
+              "loading": 0.011906889329192132
+            },
+            {
+              "id": 30626,
+              "text": " FANTASY",
+              "loading": 0.011784478363541144
+            },
+            {
+              "id": 35266,
+              "text": "\ufffd",
+              "loading": 0.011784336010611468
+            }
+          ],
+          "negative": [
+            {
+              "id": 554,
+              "text": " In",
+              "loading": -0.004610461293989799
+            },
+            {
+              "id": 383,
+              "text": " The",
+              "loading": -0.004577314018608965
+            },
+            {
+              "id": 317,
+              "text": " A",
+              "loading": -0.003482728156251108
+            },
+            {
+              "id": 287,
+              "text": " in",
+              "loading": -0.003382562666341265
+            },
+            {
+              "id": 12,
+              "text": "-",
+              "loading": -0.0032384047960903506
+            },
+            {
+              "id": 520,
+              "text": " St",
+              "loading": -0.0032306276377287095
+            },
+            {
+              "id": 775,
+              "text": " We",
+              "loading": -0.003226287878056418
+            },
+            {
+              "id": 1439,
+              "text": " All",
+              "loading": -0.0031611199888633428
+            },
+            {
+              "id": 679,
+              "text": " He",
+              "loading": -0.003018132788252744
+            },
+            {
+              "id": 314,
+              "text": " I",
+              "loading": -0.0030159387603462613
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.1264236772791205,
+          "uniform_output_energy": 0.004425968231758651,
+          "outside_gpt2_vocab_energy": 0.00019866818408040805,
+          "largest_absolute_ids": [
+            2735,
+            1675,
+            3406,
+            5514,
+            1892
+          ],
+          "positive": [
+            {
+              "id": 2735,
+              "text": " Now",
+              "loading": 0.022188132250109533
+            },
+            {
+              "id": 1675,
+              "text": " To",
+              "loading": 0.02179254410030804
+            },
+            {
+              "id": 3406,
+              "text": " Your",
+              "loading": 0.02171473430596375
+            },
+            {
+              "id": 5514,
+              "text": " Only",
+              "loading": 0.021501505398394266
+            },
+            {
+              "id": 1892,
+              "text": " Not",
+              "loading": 0.021489162994299038
+            },
+            {
+              "id": 1439,
+              "text": " All",
+              "loading": 0.021354510583638
+            },
+            {
+              "id": 2080,
+              "text": " With",
+              "loading": 0.02133888198224506
+            },
+            {
+              "id": 4874,
+              "text": " Once",
+              "loading": 0.021215665744432243
+            },
+            {
+              "id": 2293,
+              "text": " After",
+              "loading": 0.02116774777954898
+            },
+            {
+              "id": 3827,
+              "text": " Over",
+              "loading": 0.021132260493458857
+            }
+          ],
+          "negative": [
+            {
+              "id": 42062,
+              "text": "\ufffd\ufffd",
+              "loading": -0.013677328200404494
+            },
+            {
+              "id": 39482,
+              "text": "Acknowled",
+              "loading": -0.011929593237803564
+            },
+            {
+              "id": 42709,
+              "text": "PHOTOS",
+              "loading": -0.01161841219489928
+            },
+            {
+              "id": 39520,
+              "text": "Animation",
+              "loading": -0.011588791321427526
+            },
+            {
+              "id": 21253,
+              "text": "\ufffd\ufffd",
+              "loading": -0.011456139045577962
+            },
+            {
+              "id": 48393,
+              "text": "Characters",
+              "loading": -0.01145082763464896
+            },
+            {
+              "id": 23854,
+              "text": "Trivia",
+              "loading": -0.011390338116992284
+            },
+            {
+              "id": 8955,
+              "text": "\ufffd\ufffd",
+              "loading": -0.01125937732062587
+            },
+            {
+              "id": 46245,
+              "text": "Adds",
+              "loading": -0.01112301929791188
+            },
+            {
+              "id": 36970,
+              "text": "Charges",
+              "loading": -0.01103093191368719
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 9,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.9131592070917545,
+          "uniform_output_energy": 0.8387398771943348,
+          "outside_gpt2_vocab_energy": 0.0025915470844938863,
+          "largest_absolute_ids": [
+            16040,
+            17761,
+            45463,
+            36406,
+            3330
+          ],
+          "positive": [
+            {
+              "id": 16040,
+              "text": "ullivan",
+              "loading": 0.010527693323673383
+            },
+            {
+              "id": 17761,
+              "text": "minecraft",
+              "loading": 0.01046150109041873
+            },
+            {
+              "id": 45463,
+              "text": "BALL",
+              "loading": 0.01042874111439104
+            },
+            {
+              "id": 36406,
+              "text": "ONSORED",
+              "loading": 0.010368605447418968
+            },
+            {
+              "id": 3330,
+              "text": "estern",
+              "loading": 0.010368115282798974
+            },
+            {
+              "id": 7589,
+              "text": "essage",
+              "loading": 0.010265816192597655
+            },
+            {
+              "id": 3907,
+              "text": "\u00ad",
+              "loading": 0.010169364522493281
+            },
+            {
+              "id": 29940,
+              "text": "FINE",
+              "loading": 0.01016375902539818
+            },
+            {
+              "id": 46025,
+              "text": "GROUND",
+              "loading": 0.010124594871249474
+            },
+            {
+              "id": 15862,
+              "text": " REUTERS",
+              "loading": 0.010116818191953135
+            }
+          ],
+          "negative": [
+            {
+              "id": 262,
+              "text": " the",
+              "loading": -0.006039682019401109
+            },
+            {
+              "id": 257,
+              "text": " a",
+              "loading": -0.004955972811491809
+            },
+            {
+              "id": 287,
+              "text": " in",
+              "loading": -0.004617991250080721
+            },
+            {
+              "id": 366,
+              "text": " \"",
+              "loading": -0.004344248810498142
+            },
+            {
+              "id": 290,
+              "text": " and",
+              "loading": -0.004287332335617795
+            },
+            {
+              "id": 309,
+              "text": " T",
+              "loading": -0.0042342089030622185
+            },
+            {
+              "id": 314,
+              "text": " I",
+              "loading": -0.0041909276028254845
+            },
+            {
+              "id": 360,
+              "text": " D",
+              "loading": -0.004157431453940779
+            },
+            {
+              "id": 399,
+              "text": " N",
+              "loading": -0.0041295782462129945
+            },
+            {
+              "id": 327,
+              "text": " C",
+              "loading": -0.004106196041867735
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.047434732886887154,
+          "uniform_output_energy": 0.02600695766764695,
+          "outside_gpt2_vocab_energy": 4.951216541807138e-05,
+          "largest_absolute_ids": [
+            3146,
+            640,
+            922,
+            1107,
+            670
+          ],
+          "positive": [
+            {
+              "id": 42927,
+              "text": " complicit",
+              "loading": 0.013837931918520641
+            },
+            {
+              "id": 25963,
+              "text": " extrad",
+              "loading": 0.01322154968307002
+            },
+            {
+              "id": 33850,
+              "text": " slaughtered",
+              "loading": 0.012943745676633431
+            },
+            {
+              "id": 12,
+              "text": "-",
+              "loading": 0.012554063015887306
+            },
+            {
+              "id": 43195,
+              "text": " impede",
+              "loading": 0.012299465060338877
+            },
+            {
+              "id": 42774,
+              "text": " extinguished",
+              "loading": 0.012216956786283855
+            },
+            {
+              "id": 5712,
+              "text": "itect",
+              "loading": 0.011983152414544344
+            },
+            {
+              "id": 447,
+              "text": "\ufffd",
+              "loading": 0.011924498167361573
+            },
+            {
+              "id": 48311,
+              "text": "ilantro",
+              "loading": 0.01175091537585689
+            },
+            {
+              "id": 38811,
+              "text": "ucket",
+              "loading": 0.011739217945454081
+            }
+          ],
+          "negative": [
+            {
+              "id": 3146,
+              "text": " numbers",
+              "loading": -0.021469574970729457
+            },
+            {
+              "id": 640,
+              "text": " time",
+              "loading": -0.021460036843800216
+            },
+            {
+              "id": 922,
+              "text": " good",
+              "loading": -0.02100583876937724
+            },
+            {
+              "id": 1107,
+              "text": " really",
+              "loading": -0.020642827467624674
+            },
+            {
+              "id": 670,
+              "text": " work",
+              "loading": -0.020383092515535616
+            },
+            {
+              "id": 1807,
+              "text": " thought",
+              "loading": -0.01977965676984994
+            },
+            {
+              "id": 1109,
+              "text": " fact",
+              "loading": -0.019746257438815515
+            },
+            {
+              "id": 1517,
+              "text": " thing",
+              "loading": -0.01947886211417669
+            },
+            {
+              "id": 1271,
+              "text": " number",
+              "loading": -0.019157449733349173
+            },
+            {
+              "id": 2099,
+              "text": " type",
+              "loading": -0.01892142279987105
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 10,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.8263852543402551,
+          "uniform_output_energy": 0.8866194173888311,
+          "outside_gpt2_vocab_energy": 0.003203582902270708,
+          "largest_absolute_ids": [
+            13,
+            42451,
+            48551,
+            616,
+            23054
+          ],
+          "positive": [
+            {
+              "id": 13,
+              "text": ".",
+              "loading": 0.011117418106894822
+            },
+            {
+              "id": 616,
+              "text": " my",
+              "loading": 0.010458373431202605
+            },
+            {
+              "id": 314,
+              "text": " I",
+              "loading": 0.010008444107455494
+            },
+            {
+              "id": 3589,
+              "text": " myself",
+              "loading": 0.00777456430436987
+            },
+            {
+              "id": 502,
+              "text": " me",
+              "loading": 0.007476970802959164
+            },
+            {
+              "id": 526,
+              "text": ".\"",
+              "loading": 0.005870688454364397
+            },
+            {
+              "id": 2011,
+              "text": " My",
+              "loading": 0.005808508572750872
+            },
+            {
+              "id": 2014,
+              "text": ".)",
+              "loading": 0.00495841822979418
+            },
+            {
+              "id": 737,
+              "text": ").",
+              "loading": 0.004815021585293135
+            },
+            {
+              "id": 40,
+              "text": "I",
+              "loading": 0.004802344480492696
+            }
+          ],
+          "negative": [
+            {
+              "id": 42451,
+              "text": "WAYS",
+              "loading": -0.010548380127126162
+            },
+            {
+              "id": 48551,
+              "text": " DEFENSE",
+              "loading": -0.010500837434605602
+            },
+            {
+              "id": 23054,
+              "text": " ACTIONS",
+              "loading": -0.010387197711059738
+            },
+            {
+              "id": 45463,
+              "text": "BALL",
+              "loading": -0.010296446907087083
+            },
+            {
+              "id": 49516,
+              "text": "BILITIES",
+              "loading": -0.010281739525893422
+            },
+            {
+              "id": 42311,
+              "text": "arnaev",
+              "loading": -0.010195499712507211
+            },
+            {
+              "id": 41853,
+              "text": " 000000",
+              "loading": -0.010000375511188587
+            },
+            {
+              "id": 49819,
+              "text": " DRAGON",
+              "loading": -0.009944261049237615
+            },
+            {
+              "id": 49687,
+              "text": " JUSTICE",
+              "loading": -0.009784767718429031
+            },
+            {
+              "id": 25664,
+              "text": "FILE",
+              "loading": -0.009779584382967329
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.07582539603902155,
+          "uniform_output_energy": 0.001572404211071418,
+          "outside_gpt2_vocab_energy": 2.7722503592974853e-05,
+          "largest_absolute_ids": [
+            616,
+            3589,
+            314,
+            502,
+            3666
+          ],
+          "positive": [
+            {
+              "id": 5309,
+              "text": "ucky",
+              "loading": 0.016923709777033558
+            },
+            {
+              "id": 34023,
+              "text": "doi",
+              "loading": 0.01674965435886524
+            },
+            {
+              "id": 16838,
+              "text": "pleted",
+              "loading": 0.01615664422171807
+            },
+            {
+              "id": 42101,
+              "text": " routed",
+              "loading": 0.015972270764737517
+            },
+            {
+              "id": 48526,
+              "text": "Meta",
+              "loading": 0.01585435304868574
+            },
+            {
+              "id": 15829,
+              "text": "umper",
+              "loading": 0.015748912754436826
+            },
+            {
+              "id": 32767,
+              "text": " Hut",
+              "loading": 0.015744401511539337
+            },
+            {
+              "id": 1236,
+              "text": "ann",
+              "loading": 0.015619359599774094
+            },
+            {
+              "id": 22436,
+              "text": "ohan",
+              "loading": 0.015343217717051893
+            },
+            {
+              "id": 31386,
+              "text": "_-_",
+              "loading": 0.015106061507691398
+            }
+          ],
+          "negative": [
+            {
+              "id": 616,
+              "text": " my",
+              "loading": -0.12770759832930437
+            },
+            {
+              "id": 3589,
+              "text": " myself",
+              "loading": -0.11976807351452767
+            },
+            {
+              "id": 314,
+              "text": " I",
+              "loading": -0.0960682062536222
+            },
+            {
+              "id": 502,
+              "text": " me",
+              "loading": -0.09558085279936479
+            },
+            {
+              "id": 3666,
+              "text": "My",
+              "loading": -0.07995967232629898
+            },
+            {
+              "id": 2011,
+              "text": " My",
+              "loading": -0.07969754025292941
+            },
+            {
+              "id": 6164,
+              "text": " mine",
+              "loading": -0.07929320405179824
+            },
+            {
+              "id": 1820,
+              "text": "my",
+              "loading": -0.07571929969749328
+            },
+            {
+              "id": 17615,
+              "text": " MY",
+              "loading": -0.07326010089040182
+            },
+            {
+              "id": 40,
+              "text": "I",
+              "loading": -0.06820110262672331
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 11,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.8847830154297454,
+          "uniform_output_energy": 0.8484216682649628,
+          "outside_gpt2_vocab_energy": 0.0032715521264826872,
+          "largest_absolute_ids": [
+            373,
+            318,
+            547,
+            481,
+            389
+          ],
+          "positive": [
+            {
+              "id": 373,
+              "text": " was",
+              "loading": 0.013863937395331613
+            },
+            {
+              "id": 318,
+              "text": " is",
+              "loading": 0.012813331909572439
+            },
+            {
+              "id": 547,
+              "text": " were",
+              "loading": 0.011848328496580419
+            },
+            {
+              "id": 481,
+              "text": " will",
+              "loading": 0.011595233977144494
+            },
+            {
+              "id": 389,
+              "text": " are",
+              "loading": 0.01109543726453344
+            },
+            {
+              "id": 550,
+              "text": " had",
+              "loading": 0.010984949746680326
+            },
+            {
+              "id": 468,
+              "text": " has",
+              "loading": 0.01062916378206546
+            },
+            {
+              "id": 561,
+              "text": " would",
+              "loading": 0.010385914891913744
+            },
+            {
+              "id": 714,
+              "text": " could",
+              "loading": 0.010375110191962907
+            },
+            {
+              "id": 750,
+              "text": " did",
+              "loading": 0.010316730721688932
+            }
+          ],
+          "negative": [
+            {
+              "id": 35266,
+              "text": "\ufffd",
+              "loading": -0.010668281263084669
+            },
+            {
+              "id": 16040,
+              "text": "ullivan",
+              "loading": -0.010019953127686361
+            },
+            {
+              "id": 42311,
+              "text": "arnaev",
+              "loading": -0.009944080727268904
+            },
+            {
+              "id": 19227,
+              "text": "avorite",
+              "loading": -0.00981768319653936
+            },
+            {
+              "id": 49687,
+              "text": " JUSTICE",
+              "loading": -0.009804499980691838
+            },
+            {
+              "id": 45321,
+              "text": "pmwiki",
+              "loading": -0.009773187862528026
+            },
+            {
+              "id": 23054,
+              "text": " ACTIONS",
+              "loading": -0.00974555032962123
+            },
+            {
+              "id": 48551,
+              "text": " DEFENSE",
+              "loading": -0.009707366958019213
+            },
+            {
+              "id": 48416,
+              "text": " shenan",
+              "loading": -0.009680157304017995
+            },
+            {
+              "id": 12662,
+              "text": " Citiz",
+              "loading": -0.009652117840817546
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.0674416854000998,
+          "uniform_output_energy": 0.013041680211728628,
+          "outside_gpt2_vocab_energy": 8.894224134255845e-06,
+          "largest_absolute_ids": [
+            481,
+            714,
+            561,
+            743,
+            318
+          ],
+          "positive": [
+            {
+              "id": 429,
+              "text": "nt",
+              "loading": 0.0174352889350896
+            },
+            {
+              "id": 12683,
+              "text": "sign",
+              "loading": 0.013826255810569035
+            },
+            {
+              "id": 32431,
+              "text": "shake",
+              "loading": 0.013432856578797569
+            },
+            {
+              "id": 21836,
+              "text": " Anyway",
+              "loading": 0.012978137624960527
+            },
+            {
+              "id": 49285,
+              "text": "CHA",
+              "loading": 0.01267271398816796
+            },
+            {
+              "id": 19312,
+              "text": "edit",
+              "loading": 0.012614074062311905
+            },
+            {
+              "id": 48668,
+              "text": "itatively",
+              "loading": 0.012596713676922083
+            },
+            {
+              "id": 41549,
+              "text": "drawn",
+              "loading": 0.012595915277755125
+            },
+            {
+              "id": 3219,
+              "text": "inary",
+              "loading": 0.012192180363883314
+            },
+            {
+              "id": 33080,
+              "text": "emporary",
+              "loading": 0.012114523807713903
+            }
+          ],
+          "negative": [
+            {
+              "id": 481,
+              "text": " will",
+              "loading": -0.07400923592248598
+            },
+            {
+              "id": 714,
+              "text": " could",
+              "loading": -0.07112666734341781
+            },
+            {
+              "id": 561,
+              "text": " would",
+              "loading": -0.0681025509918383
+            },
+            {
+              "id": 743,
+              "text": " may",
+              "loading": -0.06627810657306558
+            },
+            {
+              "id": 318,
+              "text": " is",
+              "loading": -0.0662588393620364
+            },
+            {
+              "id": 389,
+              "text": " are",
+              "loading": -0.06607179351355084
+            },
+            {
+              "id": 460,
+              "text": " can",
+              "loading": -0.06548419332061661
+            },
+            {
+              "id": 1244,
+              "text": " might",
+              "loading": -0.06479681544355392
+            },
+            {
+              "id": 2314,
+              "text": " cannot",
+              "loading": -0.062304882964179666
+            },
+            {
+              "id": 373,
+              "text": " was",
+              "loading": -0.061465861970390806
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 12,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.7310804270575288,
+          "uniform_output_energy": 0.8316849939576657,
+          "outside_gpt2_vocab_energy": 0.0023518172374873093,
+          "largest_absolute_ids": [
+            447,
+            338,
+            6,
+            1,
+            470
+          ],
+          "positive": [
+            {
+              "id": 447,
+              "text": "\ufffd",
+              "loading": 0.03347965946336611
+            },
+            {
+              "id": 338,
+              "text": "'s",
+              "loading": 0.03020081857185672
+            },
+            {
+              "id": 6,
+              "text": "'",
+              "loading": 0.027329943311577055
+            },
+            {
+              "id": 1,
+              "text": "\"",
+              "loading": 0.022498689853664818
+            },
+            {
+              "id": 470,
+              "text": "'t",
+              "loading": 0.02062047618073209
+            },
+            {
+              "id": 366,
+              "text": " \"",
+              "loading": 0.019597744988172308
+            },
+            {
+              "id": 705,
+              "text": " '",
+              "loading": 0.018191423714772142
+            },
+            {
+              "id": 821,
+              "text": "'re",
+              "loading": 0.017939560395412037
+            },
+            {
+              "id": 1549,
+              "text": "'d",
+              "loading": 0.01789309417631375
+            },
+            {
+              "id": 18265,
+              "text": "\u00b4",
+              "loading": 0.017739637020312993
+            }
+          ],
+          "negative": [
+            {
+              "id": 48551,
+              "text": " DEFENSE",
+              "loading": -0.012063691177987706
+            },
+            {
+              "id": 42750,
+              "text": " CrossRef",
+              "loading": -0.011941434310437858
+            },
+            {
+              "id": 18679,
+              "text": "VERTISEMENT",
+              "loading": -0.011374276998059877
+            },
+            {
+              "id": 16040,
+              "text": "ullivan",
+              "loading": -0.011268618853945322
+            },
+            {
+              "id": 35266,
+              "text": "\ufffd",
+              "loading": -0.011194925200593992
+            },
+            {
+              "id": 23054,
+              "text": " ACTIONS",
+              "loading": -0.011117002889474273
+            },
+            {
+              "id": 49968,
+              "text": " RELE",
+              "loading": -0.011070993069754646
+            },
+            {
+              "id": 38865,
+              "text": "FAULT",
+              "loading": -0.011007672063175725
+            },
+            {
+              "id": 35922,
+              "text": "=\"/",
+              "loading": -0.010949563578570168
+            },
+            {
+              "id": 48876,
+              "text": " VIDEOS",
+              "loading": -0.010862879128169555
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.14188248417410487,
+          "uniform_output_energy": 0.03406194961037601,
+          "outside_gpt2_vocab_energy": 0.0008866613083451932,
+          "largest_absolute_ids": [
+            366,
+            705,
+            564,
+            10148,
+            9962
+          ],
+          "positive": [
+            {
+              "id": 366,
+              "text": " \"",
+              "loading": 0.11059853007763576
+            },
+            {
+              "id": 705,
+              "text": " '",
+              "loading": 0.09536864367295242
+            },
+            {
+              "id": 564,
+              "text": " \ufffd",
+              "loading": 0.07914618953385287
+            },
+            {
+              "id": 10148,
+              "text": " ''",
+              "loading": 0.07085906721463929
+            },
+            {
+              "id": 9962,
+              "text": "\u2026\"",
+              "loading": 0.06910394497746211
+            },
+            {
+              "id": 27896,
+              "text": " \"...",
+              "loading": 0.06818278628351558
+            },
+            {
+              "id": 24018,
+              "text": " \"'",
+              "loading": 0.06473277706799097
+            },
+            {
+              "id": 12878,
+              "text": " \"[",
+              "loading": 0.0642624627611423
+            },
+            {
+              "id": 29368,
+              "text": " \"\u2026",
+              "loading": 0.06363638726666387
+            },
+            {
+              "id": 338,
+              "text": "'s",
+              "loading": 0.06320652931790557
+            }
+          ],
+          "negative": [
+            {
+              "id": 44807,
+              "text": "_.",
+              "loading": -0.016254893418221075
+            },
+            {
+              "id": 44572,
+              "text": " Goff",
+              "loading": -0.01603242504940466
+            },
+            {
+              "id": 20895,
+              "text": "uo",
+              "loading": -0.01532845394822215
+            },
+            {
+              "id": 25081,
+              "text": "\ufffd\ufffd",
+              "loading": -0.014727422609087793
+            },
+            {
+              "id": 49293,
+              "text": "urated",
+              "loading": -0.014618964772793376
+            },
+            {
+              "id": 23440,
+              "text": "raine",
+              "loading": -0.01424885604988652
+            },
+            {
+              "id": 12240,
+              "text": "></",
+              "loading": -0.014048876876431872
+            },
+            {
+              "id": 7146,
+              "text": "div",
+              "loading": -0.013937750709680508
+            },
+            {
+              "id": 10379,
+              "text": "fil",
+              "loading": -0.013855607154211125
+            },
+            {
+              "id": 37330,
+              "text": "sup",
+              "loading": -0.01371160938412509
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 13,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.8849991420488719,
+          "uniform_output_energy": 0.895310321979637,
+          "outside_gpt2_vocab_energy": 0.003233112745251647,
+          "largest_absolute_ids": [
+            33746,
+            19351,
+            45463,
+            39890,
+            24598
+          ],
+          "positive": [
+            {
+              "id": 33746,
+              "text": "WARE",
+              "loading": 0.010654437368648536
+            },
+            {
+              "id": 19351,
+              "text": "--------------------",
+              "loading": 0.010436010982601452
+            },
+            {
+              "id": 45463,
+              "text": "BALL",
+              "loading": 0.010422225269855675
+            },
+            {
+              "id": 39890,
+              "text": "jriwal",
+              "loading": 0.010077068750624987
+            },
+            {
+              "id": 24598,
+              "text": "0000000",
+              "loading": 0.010065185288757179
+            },
+            {
+              "id": 35613,
+              "text": "LOAD",
+              "loading": 0.010010870772767758
+            },
+            {
+              "id": 46025,
+              "text": "GROUND",
+              "loading": 0.009982672642969625
+            },
+            {
+              "id": 39860,
+              "text": "Textures",
+              "loading": 0.00979654563505612
+            },
+            {
+              "id": 49423,
+              "text": "SHIP",
+              "loading": 0.009778481007218306
+            },
+            {
+              "id": 14531,
+              "text": "groupon",
+              "loading": 0.009774705577032508
+            }
+          ],
+          "negative": [
+            {
+              "id": 262,
+              "text": " the",
+              "loading": -0.002636388342366678
+            },
+            {
+              "id": 198,
+              "text": "\n",
+              "loading": -0.0024336165762707212
+            },
+            {
+              "id": 11,
+              "text": ",",
+              "loading": -0.0023820691578258432
+            },
+            {
+              "id": 366,
+              "text": " \"",
+              "loading": -0.0023673782625518165
+            },
+            {
+              "id": 317,
+              "text": " A",
+              "loading": -0.0023594665533770557
+            },
+            {
+              "id": 257,
+              "text": " a",
+              "loading": -0.0022784381588369664
+            },
+            {
+              "id": 287,
+              "text": " in",
+              "loading": -0.0022078914255368883
+            },
+            {
+              "id": 360,
+              "text": " D",
+              "loading": -0.0021921614492246572
+            },
+            {
+              "id": 290,
+              "text": " and",
+              "loading": -0.0021846029075324644
+            },
+            {
+              "id": 327,
+              "text": " C",
+              "loading": -0.002176985385737562
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.05106742852221019,
+          "uniform_output_energy": 0.004702434377867492,
+          "outside_gpt2_vocab_energy": 0.00034495488488603144,
+          "largest_absolute_ids": [
+            41153,
+            38688,
+            44932,
+            41430,
+            45148
+          ],
+          "positive": [
+            {
+              "id": 44932,
+              "text": "dozen",
+              "loading": 0.015809796244652504
+            },
+            {
+              "id": 41430,
+              "text": "worst",
+              "loading": 0.015743341554335044
+            },
+            {
+              "id": 47945,
+              "text": "multipl",
+              "loading": 0.014682050553972153
+            },
+            {
+              "id": 39098,
+              "text": "instance",
+              "loading": 0.014514227967374178
+            },
+            {
+              "id": 40850,
+              "text": "delay",
+              "loading": 0.014374568929379298
+            },
+            {
+              "id": 33780,
+              "text": "accessible",
+              "loading": 0.01431464446300888
+            },
+            {
+              "id": 47768,
+              "text": "reply",
+              "loading": 0.014222317576125028
+            },
+            {
+              "id": 24807,
+              "text": "inventory",
+              "loading": 0.013776423789274066
+            },
+            {
+              "id": 35636,
+              "text": "transform",
+              "loading": 0.013775789478003992
+            },
+            {
+              "id": 26060,
+              "text": "usage",
+              "loading": 0.013757824919742569
+            }
+          ],
+          "negative": [
+            {
+              "id": 41153,
+              "text": " PHOTO",
+              "loading": -0.01626740351628082
+            },
+            {
+              "id": 38688,
+              "text": " PROG",
+              "loading": -0.016144699183950586
+            },
+            {
+              "id": 45148,
+              "text": " CLIENT",
+              "loading": -0.015598097503102154
+            },
+            {
+              "id": 44513,
+              "text": " SECTION",
+              "loading": -0.015529960087127653
+            },
+            {
+              "id": 34957,
+              "text": " DISTR",
+              "loading": -0.015294641562920675
+            },
+            {
+              "id": 39219,
+              "text": " EDITION",
+              "loading": -0.015288923734284067
+            },
+            {
+              "id": 47466,
+              "text": " SOFTWARE",
+              "loading": -0.01527077656462061
+            },
+            {
+              "id": 49968,
+              "text": " RELE",
+              "loading": -0.015215085283248535
+            },
+            {
+              "id": 33278,
+              "text": " ANG",
+              "loading": -0.015080032448828905
+            },
+            {
+              "id": 45325,
+              "text": " IMAGES",
+              "loading": -0.014965196924475913
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 14,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.6131478541150199,
+          "uniform_output_energy": 0.8544924708875655,
+          "outside_gpt2_vocab_energy": 0.0033517051722761135,
+          "largest_absolute_ids": [
+            49687,
+            39219,
+            45463,
+            46025,
+            41853
+          ],
+          "positive": [
+            {
+              "id": 49687,
+              "text": " JUSTICE",
+              "loading": 0.01129005582974386
+            },
+            {
+              "id": 39219,
+              "text": " EDITION",
+              "loading": 0.010468827361145377
+            },
+            {
+              "id": 45463,
+              "text": "BALL",
+              "loading": 0.010279115633723194
+            },
+            {
+              "id": 46025,
+              "text": "GROUND",
+              "loading": 0.010238018364085125
+            },
+            {
+              "id": 41853,
+              "text": " 000000",
+              "loading": 0.010212011550132126
+            },
+            {
+              "id": 41230,
+              "text": "govtrack",
+              "loading": 0.010100922601690538
+            },
+            {
+              "id": 30952,
+              "text": "Enlarge",
+              "loading": 0.00992990510397519
+            },
+            {
+              "id": 42311,
+              "text": "arnaev",
+              "loading": 0.009897425450945145
+            },
+            {
+              "id": 48876,
+              "text": " VIDEOS",
+              "loading": 0.009813688669510606
+            },
+            {
+              "id": 11273,
+              "text": " enthusi",
+              "loading": 0.009627158257633339
+            }
+          ],
+          "negative": [
+            {
+              "id": 290,
+              "text": " and",
+              "loading": -0.006463216366476468
+            },
+            {
+              "id": 11,
+              "text": ",",
+              "loading": -0.005776588950884003
+            },
+            {
+              "id": 351,
+              "text": " with",
+              "loading": -0.005249517853487087
+            },
+            {
+              "id": 13,
+              "text": ".",
+              "loading": -0.004715303841964198
+            },
+            {
+              "id": 416,
+              "text": " by",
+              "loading": -0.0046001627581607266
+            },
+            {
+              "id": 981,
+              "text": " while",
+              "loading": -0.004568632897633624
+            },
+            {
+              "id": 284,
+              "text": " to",
+              "loading": -0.00455074848062688
+            },
+            {
+              "id": 318,
+              "text": " is",
+              "loading": -0.00452433902311468
+            },
+            {
+              "id": 329,
+              "text": " for",
+              "loading": -0.004458614759270157
+            },
+            {
+              "id": 475,
+              "text": " but",
+              "loading": -0.004254992164329632
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.3307530886135946,
+          "uniform_output_energy": 0.024997151678888354,
+          "outside_gpt2_vocab_energy": 9.533365784736503e-06,
+          "largest_absolute_ids": [
+            5819,
+            4036,
+            20038,
+            2811,
+            2708
+          ],
+          "positive": [
+            {
+              "id": 4036,
+              "text": " actual",
+              "loading": 0.015662738514648843
+            },
+            {
+              "id": 20038,
+              "text": " abundance",
+              "loading": 0.015576781249180167
+            },
+            {
+              "id": 2811,
+              "text": " average",
+              "loading": 0.015570074584822863
+            },
+            {
+              "id": 2708,
+              "text": " article",
+              "loading": 0.015303592548514443
+            },
+            {
+              "id": 2104,
+              "text": " entire",
+              "loading": 0.01511690602357988
+            },
+            {
+              "id": 1785,
+              "text": " event",
+              "loading": 0.01502173380448936
+            },
+            {
+              "id": 3224,
+              "text": " additional",
+              "loading": 0.014890270246257878
+            },
+            {
+              "id": 4459,
+              "text": " opinion",
+              "loading": 0.014855248506434285
+            },
+            {
+              "id": 12209,
+              "text": " occasional",
+              "loading": 0.014807439448264436
+            },
+            {
+              "id": 1468,
+              "text": " old",
+              "loading": 0.014757125741907334
+            }
+          ],
+          "negative": [
+            {
+              "id": 5819,
+              "text": "uster",
+              "loading": -0.016698348098315503
+            },
+            {
+              "id": 1523,
+              "text": "ural",
+              "loading": -0.014828659325226597
+            },
+            {
+              "id": 8044,
+              "text": "sex",
+              "loading": -0.014444501234720008
+            },
+            {
+              "id": 1271,
+              "text": " number",
+              "loading": -0.014392663650295973
+            },
+            {
+              "id": 4411,
+              "text": "hem",
+              "loading": -0.01340901805842577
+            },
+            {
+              "id": 1676,
+              "text": "pro",
+              "loading": -0.013372918471843517
+            },
+            {
+              "id": 5019,
+              "text": " mere",
+              "loading": -0.013324405095108457
+            },
+            {
+              "id": 4996,
+              "text": " variety",
+              "loading": -0.013310382495468844
+            },
+            {
+              "id": 2588,
+              "text": "lex",
+              "loading": -0.013258413964709427
+            },
+            {
+              "id": 1728,
+              "text": " certain",
+              "loading": -0.013145693632948074
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": 15,
+      "modes": [
+        {
+          "mode": 0,
+          "energy_fraction": 0.8603818441344732,
+          "uniform_output_energy": 0.8382070162768829,
+          "outside_gpt2_vocab_energy": 0.002932304070018377,
+          "largest_absolute_ids": [
+            45463,
+            33746,
+            35266,
+            30626,
+            42451
+          ],
+          "positive": [
+            {
+              "id": 45463,
+              "text": "BALL",
+              "loading": 0.01123436597077655
+            },
+            {
+              "id": 33746,
+              "text": "WARE",
+              "loading": 0.01087621049827196
+            },
+            {
+              "id": 35266,
+              "text": "\ufffd",
+              "loading": 0.01081343573140948
+            },
+            {
+              "id": 30626,
+              "text": " FANTASY",
+              "loading": 0.010764033847531967
+            },
+            {
+              "id": 42451,
+              "text": "WAYS",
+              "loading": 0.01050065198446491
+            },
+            {
+              "id": 49656,
+              "text": "OGR",
+              "loading": 0.010457105786035311
+            },
+            {
+              "id": 48551,
+              "text": " DEFENSE",
+              "loading": 0.010325460936871055
+            },
+            {
+              "id": 39219,
+              "text": " EDITION",
+              "loading": 0.010316141843827755
+            },
+            {
+              "id": 15862,
+              "text": " REUTERS",
+              "loading": 0.010313343995077441
+            },
+            {
+              "id": 41153,
+              "text": " PHOTO",
+              "loading": 0.010099490213685886
+            }
+          ],
+          "negative": [
+            {
+              "id": 11,
+              "text": ",",
+              "loading": -0.005068920265799979
+            },
+            {
+              "id": 290,
+              "text": " and",
+              "loading": -0.005047837522866868
+            },
+            {
+              "id": 302,
+              "text": " re",
+              "loading": -0.004767641413332985
+            },
+            {
+              "id": 262,
+              "text": " the",
+              "loading": -0.00455599373192713
+            },
+            {
+              "id": 13,
+              "text": ".",
+              "loading": -0.004495270949753613
+            },
+            {
+              "id": 287,
+              "text": " in",
+              "loading": -0.004419378512979705
+            },
+            {
+              "id": 264,
+              "text": " s",
+              "loading": -0.004305064984069583
+            },
+            {
+              "id": 314,
+              "text": " I",
+              "loading": -0.004295222590498049
+            },
+            {
+              "id": 366,
+              "text": " \"",
+              "loading": -0.0042923768068634524
+            },
+            {
+              "id": 318,
+              "text": " is",
+              "loading": -0.004225229921055719
+            }
+          ]
+        },
+        {
+          "mode": 1,
+          "energy_fraction": 0.07259205918631387,
+          "uniform_output_energy": 0.00039434662080700846,
+          "outside_gpt2_vocab_energy": 0.00011693304351840305,
+          "largest_absolute_ids": [
+            4637,
+            1627,
+            1502,
+            3275,
+            3164
+          ],
+          "positive": [
+            {
+              "id": 29152,
+              "text": "pract",
+              "loading": 0.01675571302106438
+            },
+            {
+              "id": 44313,
+              "text": "burning",
+              "loading": 0.01630317557054911
+            },
+            {
+              "id": 18011,
+              "text": "legal",
+              "loading": 0.016207304794379485
+            },
+            {
+              "id": 46480,
+              "text": "lethal",
+              "loading": 0.01619508425989664
+            },
+            {
+              "id": 46115,
+              "text": "require",
+              "loading": 0.01598285119727709
+            },
+            {
+              "id": 32629,
+              "text": "paying",
+              "loading": 0.015627951389215678
+            },
+            {
+              "id": 8897,
+              "text": "requ",
+              "loading": 0.015616931079582659
+            },
+            {
+              "id": 30171,
+              "text": "mort",
+              "loading": 0.015590676978790198
+            },
+            {
+              "id": 12795,
+              "text": "claimed",
+              "loading": 0.015587486513922775
+            },
+            {
+              "id": 39624,
+              "text": "quiet",
+              "loading": 0.015402293579206217
+            }
+          ],
+          "negative": [
+            {
+              "id": 4637,
+              "text": " connection",
+              "loading": -0.023815471546289296
+            },
+            {
+              "id": 1627,
+              "text": " line",
+              "loading": -0.02352515368166611
+            },
+            {
+              "id": 1502,
+              "text": " order",
+              "loading": -0.02315578105184496
+            },
+            {
+              "id": 3275,
+              "text": " message",
+              "loading": -0.022849024230691347
+            },
+            {
+              "id": 3164,
+              "text": " approach",
+              "loading": -0.022190467495816418
+            },
+            {
+              "id": 966,
+              "text": " point",
+              "loading": -0.0216638190001322
+            },
+            {
+              "id": 4931,
+              "text": " presence",
+              "loading": -0.021437698921018603
+            },
+            {
+              "id": 4067,
+              "text": " location",
+              "loading": -0.021310664036841568
+            },
+            {
+              "id": 12941,
+              "text": " distinction",
+              "loading": -0.021286362403115246
+            },
+            {
+              "id": 4588,
+              "text": " influence",
+              "loading": -0.020962620180219577
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
