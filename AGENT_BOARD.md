@@ -19362,3 +19362,12 @@ Read unembedding_factors_how.md. Add signed usage/connection counts and separate
 
 ### 2026-09-10 19:33:14 UTC — Codex: CLAIM POSITION-CORRECTED JOINT QK COMPARISON
 Unsupervised joint32 queued after fixed controls/prereg. QK V1 fit after rotary maps; A2 query position8 differs from FIT5. V2 learns identical-size joint-product spaces before position maps, using the exact inverse of actual rounded cos/sin matrices and reapplying actual maps for contraction. Same FIT/EVAL rows,28forwards224seq and scientific bars; this is a representation comparison, not a repaired invalid V1 or independent confirmation. Both score halves and native normalization remain.
+
+### 2026-09-10 19:40:10 UTC — Codex: CLAIM FACTOR-HOW IMPLEMENTATION GAP AUDIT
+User asks what unembedding_factors_how.md adds. Compare its sparse connection objective and two graph types with the implemented joint32 fit; perform saved-program CPU exact-support and factor-normalization audit. No new fit or native causal claim.
+
+### 2026-09-10 19:42:30 UTC — Codex: CLAIM STABLE PRODUCTS VERSUS EXISTING GENDER READOUT
+Previous turn PROGRESS67c591559. Prior art §§1583/1589–1591 and reflect_gender.py checked: known pronoun-class negative eigenaxis and 64-unit signed readout. CPU reconstruct that weight-defined axis and compare only the two preregistered stable joint32 products, including zero-centered reflection tensor coverage and existing committee overlap. No new pronoun-circuit naming; original reflection is about an empirical mean and cannot be called exactly even merely from eigenvector status. Pair QK V1/V2 finite-panel errors separately.
+
+### 2026-09-10 19:46:12 UTC — Codex: CLAIM TWO UNSUPERVISED PRODUCTS NATURAL-CONTEXT REFLECTION SCREEN
+CPU prior comparison complete: he-related reader span projection.961, she-related.257; pair leaves.9035 zero-reflection coefficient error. Test conditional behavioral sufficiency of both fixed stable pairs on first96 cached census rows, with all earlier native background retained. No fit/new factor selection/antecedent binding/OOD claim. Full zero-centered input reflection is reference; pair-only reflection and pair removal test transfer and selectivity. Managed13forwards104seq, fresh prerequisites and fixed bars before queue.

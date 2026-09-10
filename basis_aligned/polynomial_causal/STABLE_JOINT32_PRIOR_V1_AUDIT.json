@@ -1,0 +1,347 @@
+{
+  "scope": "Post-fit prior-art comparison. Reconstructs old weight-defined axis in FP64; zero-centered reflection is not the historical empirical-mean reflection and is not a behavior test.",
+  "old_axis_definition": "Smallest eigenvector of normalized six-pronoun mean-unembedding quadratic at MLP17; reflect_gender.py.",
+  "smallest_eigenvalues": [
+    -161.8833143520126,
+    -133.56546585190952,
+    -102.91137158563093
+  ],
+  "axis_eigen_residual": 7.100443449988978e-16,
+  "stable_components": {
+    "native": {
+      "components": [
+        {
+          "index": 0,
+          "old_axis_abs_cosines": [
+            0.22676128854269634,
+            0.20210558052211114
+          ],
+          "old_axis_projection_into_reader_span": 0.2574791395097608,
+          "top_positive": [
+            " her",
+            " she",
+            "She",
+            " herself",
+            " She",
+            " hers",
+            "she",
+            "Her",
+            " Her",
+            " SHE",
+            " HER",
+            " woman"
+          ],
+          "top_negative": [
+            "itus",
+            "matically",
+            " respectively",
+            "hoe",
+            "hew",
+            "ared",
+            "bered",
+            "rell",
+            " Teams",
+            " mustache",
+            " Masonic",
+            " brethren"
+          ]
+        },
+        {
+          "index": 9,
+          "old_axis_abs_cosines": [
+            0.8501698125912287,
+            0.8536557269553848
+          ],
+          "old_axis_projection_into_reader_span": 0.9614976600956863,
+          "top_positive": [
+            "sed",
+            "CG",
+            "ova",
+            "leanor",
+            " convent",
+            "woman",
+            " spokeswoman",
+            " nun",
+            "WN",
+            "kaya",
+            " Percent",
+            " Fiorina"
+          ],
+          "top_negative": [
+            " his",
+            " he",
+            " him",
+            "His",
+            " He",
+            " His",
+            "He",
+            "his",
+            " himself",
+            "him",
+            " HIS",
+            " Him"
+          ]
+        }
+      ],
+      "zero_centered_reflection": {
+        "relative_tensor_error": 0.9035002853591443,
+        "projection_recovery": 0.18209300109580134,
+        "relative_tensor_norm": 0.424851465615523
+      }
+    },
+    "random": {
+      "components": [
+        {
+          "index": 29,
+          "old_axis_abs_cosines": [
+            0.22543897785734063,
+            0.20107245737983562
+          ],
+          "old_axis_projection_into_reader_span": 0.2558837513099933,
+          "top_positive": [
+            "itus",
+            "matically",
+            " respectively",
+            "hoe",
+            "hew",
+            "ared",
+            "bered",
+            "rell",
+            " Teams",
+            " mustache",
+            " Masonic",
+            " brethren"
+          ],
+          "top_negative": [
+            " her",
+            " she",
+            "She",
+            " herself",
+            " She",
+            " hers",
+            "she",
+            "Her",
+            " Her",
+            " SHE",
+            " HER",
+            " woman"
+          ]
+        },
+        {
+          "index": 4,
+          "old_axis_abs_cosines": [
+            0.8572689906136067,
+            0.8530573188461885
+          ],
+          "old_axis_projection_into_reader_span": 0.9606963253954182,
+          "top_positive": [
+            "sed",
+            "CG",
+            "ova",
+            "leanor",
+            " convent",
+            "woman",
+            " spokeswoman",
+            " nun",
+            "WN",
+            "kaya",
+            " Percent",
+            "atalie"
+          ],
+          "top_negative": [
+            " his",
+            " he",
+            " him",
+            "His",
+            " He",
+            " His",
+            "He",
+            "his",
+            " himself",
+            "him",
+            " HIS",
+            " Him"
+          ]
+        }
+      ],
+      "zero_centered_reflection": {
+        "relative_tensor_error": 0.9032524174179611,
+        "projection_recovery": 0.18288866056414604,
+        "relative_tensor_norm": 0.42619508525988775
+      }
+    }
+  },
+  "native64_zero_centered_reflection": {
+    "relative_tensor_error": 0.7210070003920342,
+    "projection_recovery": 0.4732764001985804,
+    "relative_tensor_norm": 0.6829376948239714
+  },
+  "reflection_identity_relative_error": 1.5677328457004068e-14,
+  "historical_centering_correction": "For eigenaxis coordinate s and center mu, reflecting s to 2mu-s changes the class quadratic by 4 lambda mu (mu-s). Exact invariance requires this term vanish; eigenvector status alone is insufficient.",
+  "qk_paired": {
+    "1": {
+      "A1": {
+        "A": {
+          "relative_error": 0.15332660344094665,
+          "error_interval": [
+            0.11744752100198828,
+            0.1998684704245706
+          ],
+          "relative_effect": 1.1218024851771278,
+          "effect_interval": [
+            1.0858507460531857,
+            1.1662901428050332
+          ]
+        },
+        "B": {
+          "relative_error": 0.653917179388236,
+          "error_interval": [
+            0.5995001824107409,
+            0.6856634068633916
+          ],
+          "relative_effect": 0.3689638494069352,
+          "effect_interval": [
+            0.3307110154276984,
+            0.42686681721500497
+          ]
+        }
+      },
+      "A2": {
+        "A": {
+          "relative_error": 0.6281954825427845,
+          "error_interval": [
+            0.6190759334815319,
+            0.6379204694021946
+          ],
+          "relative_effect": 0.3852555969299686,
+          "effect_interval": [
+            0.37452589427183397,
+            0.3999992725089958
+          ]
+        },
+        "B": {
+          "relative_error": 0.9160949959303658,
+          "error_interval": [
+            0.899046264346871,
+            0.9298462408176611
+          ],
+          "relative_effect": 0.10153905491314338,
+          "effect_interval": [
+            0.08728481767294605,
+            0.12120759855999498
+          ]
+        }
+      },
+      "C": {
+        "A": {
+          "relative_error": 0.5755779608048927,
+          "error_interval": [
+            0.5558432899167108,
+            0.5993399760567639
+          ],
+          "relative_effect": 0.6138495231953068,
+          "effect_interval": [
+            0.5438789501427626,
+            0.6844845916694366
+          ]
+        },
+        "B": {
+          "relative_error": 0.27169216318309874,
+          "error_interval": [
+            0.2209166290212276,
+            0.3262313775055734
+          ],
+          "relative_effect": 1.056177177659407,
+          "effect_interval": [
+            0.9653243889405833,
+            1.1470188655418
+          ]
+        }
+      }
+    },
+    "2": {
+      "A1": {
+        "A": {
+          "relative_error": 0.1567625473192744,
+          "error_interval": [
+            0.12015565013672758,
+            0.20305182916312783
+          ],
+          "relative_effect": 1.125110255553481,
+          "effect_interval": [
+            1.0888348127490466,
+            1.1690080455593945
+          ]
+        },
+        "B": {
+          "relative_error": 0.6886693595337757,
+          "error_interval": [
+            0.6357752161193869,
+            0.716456061846073
+          ],
+          "relative_effect": 0.32814592756190125,
+          "effect_interval": [
+            0.2963454169072081,
+            0.3812756164590113
+          ]
+        }
+      },
+      "A2": {
+        "A": {
+          "relative_error": 0.14898015405445497,
+          "error_interval": [
+            0.11514875089295246,
+            0.18457014414489364
+          ],
+          "relative_effect": 0.8982531506824077,
+          "effect_interval": [
+            0.8684602900572338,
+            0.9162417067748915
+          ]
+        },
+        "B": {
+          "relative_error": 0.8057737662961132,
+          "error_interval": [
+            0.7749925950619078,
+            0.8226187691042902
+          ],
+          "relative_effect": 0.20691876261720474,
+          "effect_interval": [
+            0.18850252998669703,
+            0.23671375302202202
+          ]
+        }
+      },
+      "C": {
+        "A": {
+          "relative_error": 0.556697791864448,
+          "error_interval": [
+            0.5418000919499459,
+            0.5771305545974043
+          ],
+          "relative_effect": 0.619638371061422,
+          "effect_interval": [
+            0.5566399644342489,
+            0.6832523061735897
+          ]
+        },
+        "B": {
+          "relative_error": 0.272250645078104,
+          "error_interval": [
+            0.2201961572099468,
+            0.3307968301020415
+          ],
+          "relative_effect": 1.0588904995840227,
+          "effect_interval": [
+            0.968686725490723,
+            1.1510063190850124
+          ]
+        }
+      }
+    }
+  },
+  "qk_scope": "Same previously opened rows; intervals resample authored groups, not independent OOD confirmation.",
+  "native_forwards": 0,
+  "cpu_seconds": 2.0753146409988403,
+  "source_sha256": "7f9f919ec66e7b659f01d4f4e308ecb21697ab9585d67c89088edaed9c87f0b9"
+}

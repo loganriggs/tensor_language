@@ -231,3 +231,7 @@ lexical/form operations and their producers, not independent-axis relabeling.
 
 ### MLP17 terminal complementary sources, 18:50 UTC
 V2 instrument held; MLP-only complement (.710–.833 error) and carried-only (.342–.373) both fail .20 lexical-drift sufficiency. Actual last-MLP complement clamp matches the physical readout counterfactual. V1 precision-check failure preserved, shared V1/V2 states bitwise equal. See polynomial_causal/explanations/2026-09-10/terminal_complement_sources.md and TERMINAL_COMPLEMENT_SOURCE_V2_RESULT.json. No independent producer or circuit promotion.
+
+## Unsupervised products and existing gender readout, 10 September 19:45
+
+The old pronoun-class eigenaxis, signed reflection response and 64-unit committee are already documented in bilinear_quotient/BILIN18_CONNECTION.md §§1583 and 1589–1591 and reflect_gender.py. The all-token joint32 fit recovers two stable pronoun-related products without labels. One reader pair spans the old axis at .961 projection length, the other .257; together they leave .9035 full-vocabulary coefficient error in zero-centered reflection. This is partial unsupervised recovery, not a new complete gender circuit. The historical mean-centered reflection is not exactly class-form invariant merely because its axis is an eigenvector: the change includes $4\lambda\mu(\mu-s)$. Measured historical results remain intact. [Current explanation and receipts](2026-09-10/unsupervised_products_and_position_corrected_qk.md).

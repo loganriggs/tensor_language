@@ -1,6 +1,6 @@
 # Latest consolidated research update
 
-**Newest experiment follow-up, through19:14:** [Joint unembedding and QK results](joint_unembedding_and_qk_results.md). Both ran; current direction is unsupervised joint factor discovery plus position-corrected QK spaces. The18:42report below remains the latest consolidated requested rundown.
+**Newest experiment follow-up, through 19:45:** [Unsupervised products and position-corrected QK](unsupervised_products_and_position_corrected_qk.md). Both runs completed. Two stable pronoun-related products partly overlap known MLP17 work; correcting position maps improves cross-frame QK transfer. Full sufficiency and separation remain unproven. The 18:42 report remains the latest consolidated requested rundown.
 
 **[Read the new report — 10 September, 18:42 UTC](research_update_1842.md).**
 

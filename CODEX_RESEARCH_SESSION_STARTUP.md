@@ -82,28 +82,28 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated10 September2026,19:14 review
+## Current handoff — updated 10 September 2026, 19:45
 
-Full goal remains active. Read the latest linked follow-up in LATEST. Both
-user experiments ran: FULL_UNEMBEDDING_SUBTERMS_V1_RESULT.json (19:00),
-CORRELATIVE_JOINT_QK_SUBSPACES_V1_RESULT.json (19:07), and the source-file
-UNEMBEDDING_JOINT_FAMILY_V1_RESULT.json (19:12). All instruments held; joint
-scientific hypotheses failed. The terminal-source V1 instrument failure is
-preserved separately; V2 held its instrument and rejected both source shortcuts.
+Full goal remains active. LATEST links the current explanation and primary receipts.
+UNSUPERVISED_JOINT32_V1_RESULT.json (19:31): all-token weight-only joint fit,
+32 products, two starts. Instrument held; gain and overall stability failed.
+Two stable products have pronoun-related loadings. STABLE_JOINT32_PRIOR_V1_AUDIT.json
+compares existing §§1583/1589–1591: one product's readers span the old gender axis
+at .961 projection length, but the two-product zero-reflection tensor leaves .9035
+full-vocabulary coefficient error. Do not call this a newly discovered gender circuit.
+Next bounded screen compares the two products' reflection effect on natural contexts.
+No sparsity penalty; exact output loadings all dense. Native remainder retained.
 
-User authority: explanations/2026-09-10/unembedding_folding_in_math.md.
-The main unembedding route must be UNSUPERVISED joint factor discovery over
-all token quadratics. The four-word family tested that file's example only.
-See UNSUPERVISED_JOINT_QUADRATIC_DISCOVERY_PLAN.md and implemented, CPU-checked
-joint_quadratic_fit_v1.py. Native joint optimizer not yet run. Retain remainders;
-379–391-product coefficient lower bounds are not behavioral impossibility.
+CORRELATIVE_JOINT_QK_SUBSPACES_V2_RESULT.json (19:34) compares pre-position joint
+QK1×QK2 spaces. A2 own-routing error improves .628 to .149; A1 .157, C .272.
+Overall own-routing/selectivity hypotheses still fail. These are the same opened
+rows, not independent confirmation; edits act on joint-feature ports, not native
+raw-input vectors. Both unembedding and QK directions remain active.
 
-The QK question is different input subspaces through JOINT QK1×QK2, both factors
-used by both tasks; whole-half ablation did not test it. Joint-space V1 has
-partial original-frame transfer but cross-frame/selectivity failures. It fit
-after rotary maps, so compare pre-position spaces or transport bases next.
-Projected joint features are compiled-port edits, not automatically native
-input-vector or weight edits. Both unembedding and QK directions stay active.
+User mathematical authorities: explanations/2026-09-10/unembedding_folding_in_math.md
+and unembedding_factors_how.md. Follow unsupervised all-token factor discovery,
+then inspect consumers and shared readers; the earlier four-word family was only
+an illustrative program test. Sparse output support and computational DAGs differ.
 
 Reusable saved states (avoid recapture):
 
