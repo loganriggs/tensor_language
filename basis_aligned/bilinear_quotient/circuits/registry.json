@@ -624,10 +624,10 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "bb214ce9b7d81bb4695ec4f3d835b8e2b94891e9d9ab204f1897368e138a4a70",
+   "record_sha256": "d520bf967512e458c7e340177da803aa41404069b93e75ff015fbb238bf235cd",
    "kind": "shared_subroutine",
    "identity_instance": null,
-   "active_claim_id": "correlative.block_scalar_interface.v1",
+   "active_claim_id": "correlative.block_scalar_interface.v2",
    "claim_status": "site_live",
    "causal_variable_id": "correlative_block_scalars",
    "interchange_family_count": 2,
@@ -635,20 +635,60 @@
    "negative_event_count": 0,
    "active_negative_event_count": 0,
    "latest_blocker": null,
-   "latest_active_event": "correlative.folded_program.removal_description.v1",
+   "latest_active_event": "correlative.new_combinations.source_sum.v1",
    "active_event_ids": [
     "correlative.interface.disk_replay.v1",
     "correlative.folded_program.correspondence.v1",
-    "correlative.folded_program.removal_description.v1"
+    "correlative.folded_program.removal_description.v1",
+    "correlative.new_combinations.full_transfer.v1",
+    "correlative.new_combinations.source_sum.v1"
    ],
    "held_test_types": [
-    "compiled_equivalence"
+    "compiled_equivalence",
+    "composition",
+    "ood"
    ],
    "active_blocking_test_types": [],
    "design_keys": [
     "20302a3306a9d0d62adbeec147c748ba9b3cb67a8aeb748fda11e6645ff0944b",
     "36fe394d463bba08689456df36c3af43408a4bb4e66b02e3e3f91d83c91d7bf8",
-    "9390b4c49309e0c2a5a416b31020ba0e45f04ead8b3095561d4dd12ffa1907bf"
+    "9390b4c49309e0c2a5a416b31020ba0e45f04ead8b3095561d4dd12ffa1907bf",
+    "b0669ae3af1e8cc754cf386137d111166cfa933412156c1e4e57f43f7df1453b",
+    "bf1cfe385f60bd61254ef414b47a7d5b8fc8e37ef5634dc55b113e69d98faa65"
+   ]
+  },
+  "subroutine.correlative.separable_value_sources": {
+   "file": "subroutine_correlative_separable_value_sources.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "139e6ed4ea9f434c3ff5fb1899da793135c636454e5870866c33f33ea7674aec",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "correlative.separable_value_sources.v1",
+   "claim_status": "rejected",
+   "causal_variable_id": "correlative_separable_value_source_effects",
+   "interchange_family_count": 2,
+   "invariance_family_count": 2,
+   "negative_event_count": 3,
+   "active_negative_event_count": 3,
+   "latest_blocker": "correlative.new_combinations.endpoint_additivity.v1",
+   "latest_active_event": "correlative.new_combinations.endpoint_additivity.v1",
+   "active_event_ids": [
+    "correlative.new_combinations.first_sufficiency.v1",
+    "correlative.new_combinations.local_sufficiency.v1",
+    "correlative.new_combinations.endpoint_additivity.v1"
+   ],
+   "held_test_types": [],
+   "active_blocking_test_types": [
+    "composition",
+    "das_interchange"
+   ],
+   "design_keys": [
+    "69eb4ab5175b644cb154741fa15cea50fcbe8c01589e900c7918ddea3255f585",
+    "aaf9d2b400f04e20cd7b34802732f00e95b5a6c711f2d0148dcd169efe07936f",
+    "f3c054d3611d92822a088c74d2c2a19c66c150670b275ed323bdf2b821e19d5a"
    ]
   },
   "subroutine.induction.equality_score": {

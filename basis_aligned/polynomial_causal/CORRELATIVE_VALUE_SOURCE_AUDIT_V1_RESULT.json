@@ -1,0 +1,138 @@
+{
+  "schema": "correlative.value_source_audit.v1",
+  "panels": {
+    "A1": {
+      "rows": 16,
+      "groups": 16,
+      "arms": {
+        "full": {
+          "raw_recovery": 0.9693452103178419,
+          "recovery_ci95": [
+            0.9493432414477491,
+            0.9887480949225381
+          ],
+          "effect_error_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "first": {
+          "raw_recovery": 0.6166676586904629,
+          "recovery_ci95": [
+            0.5699362122057342,
+            0.6631174886294058
+          ],
+          "effect_error_ci95": [
+            0.4350809210500984,
+            0.4700077310798406
+          ],
+          "endpoint_rescaling": {
+            "optimal_scalar": 1.4845129572169722,
+            "cosine_to_full": 0.9431059447385947,
+            "minimum_relative_error": 0.33249237133913745
+          }
+        },
+        "local": {
+          "raw_recovery": 0.3584024782530237,
+          "recovery_ci95": [
+            0.31783996775083484,
+            0.39671966634182404
+          ],
+          "effect_error_ci95": [
+            0.597102657120285,
+            0.6390562837622191
+          ],
+          "endpoint_rescaling": {
+            "optimal_scalar": 1.9273089536668744,
+            "cosine_to_full": 0.8959833390535051,
+            "minimum_relative_error": 0.44408766717679937
+          }
+        }
+      },
+      "task_margin_interaction_relative": 0.13924194939198004,
+      "full_vocabulary_interaction_relative": 0.3132500553441654,
+      "full_vocabulary_interaction_ci95": [
+        0.30067370141373984,
+        0.3269776339670588
+      ],
+      "raw_recovery_additivity_difference": -0.005724926625644666,
+      "two_endpoint_vectors": {
+        "coefficients": [
+          1.0476701599105436,
+          0.6917243192701856
+        ],
+        "minimum_relative_error": 0.29010510053617794,
+        "gram_condition_number": 15.187180170620003
+      }
+    },
+    "A2": {
+      "rows": 16,
+      "groups": 16,
+      "arms": {
+        "full": {
+          "raw_recovery": 0.8987524333219263,
+          "recovery_ci95": [
+            0.8848298759653132,
+            0.9130284943340097
+          ],
+          "effect_error_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "first": {
+          "raw_recovery": 0.6223221497104705,
+          "recovery_ci95": [
+            0.5912393598278898,
+            0.6546657986070479
+          ],
+          "effect_error_ci95": [
+            0.3658177106123238,
+            0.3995564040497953
+          ],
+          "endpoint_rescaling": {
+            "optimal_scalar": 1.3835246189280106,
+            "cosine_to_full": 0.9616658714852936,
+            "minimum_relative_error": 0.2742239078206544
+          }
+        },
+        "local": {
+          "raw_recovery": 0.25631335331460325,
+          "recovery_ci95": [
+            0.23406882621658567,
+            0.2794648314153185
+          ],
+          "effect_error_ci95": [
+            0.6585419596770021,
+            0.7002588145852847
+          ],
+          "endpoint_rescaling": {
+            "optimal_scalar": 2.163545532426626,
+            "cosine_to_full": 0.871041241482321,
+            "minimum_relative_error": 0.4912098895960229
+          }
+        }
+      },
+      "task_margin_interaction_relative": 0.09298791650056024,
+      "full_vocabulary_interaction_relative": 0.285858479726708,
+      "full_vocabulary_interaction_ci95": [
+        0.2751981210462617,
+        0.2955109436844971
+      ],
+      "raw_recovery_additivity_difference": 0.020116930296852575,
+      "two_endpoint_vectors": {
+        "coefficients": [
+          1.1427711045322264,
+          0.49004393984617595
+        ],
+        "minimum_relative_error": 0.2535328876357004,
+        "gram_condition_number": 16.8906452430819
+      }
+    }
+  },
+  "bootstrap_draws": 4000,
+  "bootstrap_seed": 9111284,
+  "vector_oracle_abs_error": 8.881784197001252e-16,
+  "source_sha256": "5b8c08ed905b36bb2ed78a1a0f9c0c88751b665442b43e9ea290f3214cfdd279",
+  "scope": "Post-result statistics on16authored groups per panel. Endpoint-vector rescaling bounds are geometry of already observed effects; they do not bound nonlinear native input-dose changes, arbitrary context-dependent adapters or undiscovered programs. No new acceptance gates or gain rescue."
+}

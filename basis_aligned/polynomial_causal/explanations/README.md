@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Correlative new combinations and value sources](correlative_new_combinations_and_value_sources_2026-09-10.md): frozen interface transfers to new reporter/noun combinations; first-only and contextual-only values fail sufficiency. Exact source addition coexists with29–31%nonlinear vocabulary interaction, with audited endpoint-space bounds.
+
 - [Correlative replay and folded program](correlative_replay_and_folded_program_2026-09-10.md): saved26-head/14-layer interface reproduces prior metrics; weight-derived scalar producers and residual writers match native joint donor/mean edits. Conditional extraction, with upstream dependencies and removal/OOD limits explicit.
 
 - [Weight folding and shared-circuit mathematics](weight_folding_and_shared_circuit_math_2026-09-10.md): original handoff/pilot reassessment; trained-weight counterexample to numerator-only attention sharing, exact normalization-aware fold, and independent native rotary checks. Mathematical tool; no new circuit.

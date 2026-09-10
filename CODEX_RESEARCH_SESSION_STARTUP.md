@@ -53,6 +53,70 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Correlative new-combination transfer holds; value-source simplifications fail — 2026-09-10 13:41 UTC
+
+Previous goal turn PROGRESSd748d572e. Original handoff/pilot authority. Preregb0731c641.
+Fixed existing26head/14block interface, no refit/head/gain/mix/rank change. Old
+correlative generator seed merely permutes32fixed lexical cases; a seed-only run
+would not be new data. New A1 reporter/nounoffset5(old11), A2offset13(old19),
+disjointC reporter/objectoffset3(old0),16groupsseed9111280.112unique tokenized
+prompts, zerooverlap versus384in complete original sourcebanks. Existing vocab/
+templates; unseen combinations relative to interface sources, not training OOD
+or global benchmark novelty. Shared BehaviourSpec generator/validation reused;
+initial CPU role-label collision fixed before data/result freeze, no model rows
+selected or filtered. Rows CORRELATIVE_RECOMBINED_ROWS_V1.json, builder
+correlative_recombined_rows_v1.py.
+
+Managedrun13:32:13–13:32:17,36bodyforwards576seq,1.896executor seconds.
+RunnerSHA effacd6090bf01aa5339808d7beb6429338b5c3e1d86a29810f8edd75fbd09b1.
+Ainstrument/Efullgeneralizationtrue; Bfirst/Clocal/Dendpointadditivityfalse.
+Native bothendpointscorrectall64rows; fullrawrecoveries.969345A1/.898752A2,
+P/Cnormalizedmovement.020615/.022178<=.23. Full/summed-first+local jointlogits
+EXACT0; source-sumscalederror<1e-10, fullscalarworst.12755<=1.
+
+First-only swaps: recoveries.616668/.622322, fullcenteredvocabularyeffecterrors
+.453098/.382446. Local-only:.358402/.256313, errors.618916/.678767. Both miss
+>=.8recovery and<=.15error onboth targets; controls small. Close both fixed
+source-only transfer simplifications with no gain/mixture/head rescue. Fullprogram
+s=s_first+s_local retains native complete contextual routing; first value path
+alone would NOT make routing token-only. Exact fullsource addition is a live
+same-hook identity, not independently editable shared-memory proof.
+
+Endpointinteraction||z_full-z_first-z_local+z_base||/||full_effect||=.313250/.285858,
+above.10. Actual post-result CPU audit_correlative_value_source_v1 executed4000
+bootstrapdraws over16authoredgroups perpanel, finitepanel uncertainty only.
+FullrecoveryCI[.949343,.988748]/[.884830,.913028]; firstCI[.569936,.663117]/
+[.591239,.654666]. InteractionCI[.300674,.326978]/[.275198,.295511]. Meanrecovery
+nonadditivity only-.005725/+.020117 hides row andvocabulary changes: rowtaskmargin
+interactionrelative.13924/.09299. Fullvocabulary outcome necessary.
+
+PostCPU geometric bound uses saved norm/error statistics to recover dotproducts.
+Best constant endpoint rescaling first floor.33249/.27422, local.44409/.49121;
+best constant linearcombination of BOTH observed endpointvectors floor.29011/.25353.
+2x2Gramcondition15.19/16.89; independent vectororacle8.88e-16. These are bounds
+on observed endpoint-vector predictions, NOT nonlinear physical intervention
+amplitudes, context-dependent adapters or arbitrary alternative programs.
+
+Canonical parent subroutine.correlative.block_scalar_interface v2 site_live:
+new-combination ood eventheld(scopeexplicit), same-hook source-sum compositionheld.
+Separate child subroutine.correlative.separable_value_sources rejected, with
+first/local sufficiency andendpointadditivity failed events. Registry API only
+permits linear claim-revision ancestry; rejected alternative therefore has its
+own record, not a revision superseding viable parent. Earliermeanremoval remains
+inconclusive. Fullcore76032coefficients retained; hypotheticalsingle-source46080
+notadopted. All545902902 nativeparams required; no structural saving/independent
+upstream extraction or overallgoal completion.
+
+Explanation explanations/correlative_new_combinations_and_value_sources_2026-09-10.md.
+Result CORRELATIVE_VALUE_SOURCE_V1_RESULT.json; postCPU
+CORRELATIVE_VALUE_SOURCE_AUDIT_V1_RESULT.json. Actualpost-resultCPU continuationdone.
+Next high-information hypothesis is grammatical cue binding: outer both/neither
+with an already completed inner correlative makes mostrecentcue and still-open
+cue disagree. Test native capability and fixed interface on that structural shift;
+no fit or valuebranch rescue. That structural dataset/test is NOT yet authored/run.
+Next hourly14:14/math13:49UTC. Fullgoalactive, no successorGPUqueued; preserve
+Claude processes/queues/results and shared dirty work.
+
 ## Replayable correlative interface and native folded program — 2026-09-10 13:22 UTC
 
 Previous goal turn PROGRESS4a12e25c0; current original handoff/pilot authority.
