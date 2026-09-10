@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "random_fixtures": 32,
+  "source_memory_recipient_comparisons": 256,
+  "maximum_output_error": 7.105427357601002e-15,
+  "maximum_same_edit_interaction_error": 6.217248937900877e-15,
+  "epsilon_correction_omission_relative_error": 0.37427295584786724,
+  "rounded_rotations_not_assumed_orthogonal": true,
+  "scope": "FP64 controls of an exact real-arithmetic prefix read with explicit raw source+background and key/value memory. Does not assert deployed-FP32 equivalence or independent semantic extraction. Query matrices remain for norm evaluation; no structural saving claimed."
+}

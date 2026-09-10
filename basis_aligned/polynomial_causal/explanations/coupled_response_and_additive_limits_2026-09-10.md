@@ -1,6 +1,13 @@
 # Why the current response needs a joint computation
 
-Updated September 10, 2026, 09:12 UTC.
+Updated September 10, 2026, 09:30 UTC.
+
+Latest: a native test now treats attention's earlier-token memory as an explicit
+context input. Neither that memory nor the remaining context alone explains the
+full-vocabulary response. The interchange machinery is valid with exact replays.
+An executed weight fold keeps both inputs and both normalization steps explicit;
+details follow in the final section. There is still no independently extracted
+semantic circuit.
 
 The next source-reuse test is also complete. Swapping the full MLP8 mixed source
 between original and fronted sentence layouts fails both simple reuse rules in
@@ -227,3 +234,101 @@ its separate consumers. Calling an activation portable, or insisting its effect
 be context-free, is insufficient. No position, gain, head or rank sweep follows
 from this null. All native weights and counterfactual inputs remain charged, and
 the four-property circuit goal is still incomplete.
+
+## Attention's prefix memory is an explicit context operand
+
+The original handoff supplies a concrete context state: for each head,
+
+\[
+M=\sum_{s\ \mathrm{before\ the\ interface}}k_{1,s}\otimes k_{2,s}\otimes v_s.
+\]
+
+The symbol tensor-product here means storing every product of a first-key,
+second-key and value coordinate. The query reads M using q1 tensor q2. We avoid
+allocating this large array and retain the original key/value factors instead.
+The values include the model's actual shared-first-value mixture.
+
+The [new native test](../MLP8_PREFIX_CONTEXT_V1_RESULT.json) crosses prefix-memory
+context with recipient context while applying the same MLP8 source change. It
+swaps memories at attention9–17. Only contributions from positions before the
+three-position source interface are replaced; attention among the three current
+positions and all MLP computations remain live. Queries are recomputed after the
+source edit, using the donor's actual rounded positional phases to align time
+relative to the interface. The hybrid is an explicitly defined intervention.
+
+All native-memory source-interchange grids and full-vocabulary identity runs replay
+**exactly**. Prefix keys, values and earlier outputs remain unchanged; first-value
+state and cleanup checks pass. The run used 320 forwards over 5,120 sequence
+instances, with 2,304 patched attention calls and 4,608 additional prefix reads,
+in 8.34 executor seconds. The two factor banks retain about56.95 MiB per pair,
+plus small positional tables; source captures, scratch space and all weights are
+additional. No dense accumulator or reduced model is claimed.
+
+Neither memory-following nor remaining-context-following passes the full criterion
+in any pair. There is a useful scope distinction: remaining-context errors are
+3.76–8.80% for the correct margin and 5.60–9.78% for the three-answer vector, but
+**14.83–19.16% for the full vocabulary**. Thus the task readouts alone would permit
+an explanation that fails the stated full-output requirement. Memory-following
+vocabulary errors are25.65–41.72%. Small interaction passes10/16pairs; vocabulary
+interaction is7.32–10.75% of the larger diagonal same-source-edit effect.
+
+These percentages concern the response to the same source change. They do not
+measure how much prefix memory contributes to the entire model prediction. Both
+the source/background state and prefix memory must remain explicit in the next
+joint explanation. The result does not license an automatic layer or head search.
+
+## Fold that joint read through the weights, preserving normalization
+
+For one head, let r=b+c be the current raw residual, split into background b and
+source-induced change c at that head's input. At later layers, c includes preceding
+transport and computation; this formula does not generate it independently.
+Let Q1,Q2 be its query weight matrices, R the actual rounded
+positional transform, D the residual width, and h the head width. Prefix keys
+already include their native normalization and positional transforms. Define
+
+\[
+a_s=Q_1^T R^T k_{1,s},\qquad
+b_s=Q_2^T R^T k_{2,s},\qquad p_s=O v_s.
+\]
+
+These are two input read vectors and a projected payload for each prefix position.
+To avoid confusion, the subscripted b_s is a read vector; the unsubscripted b in
+r=b+c is residual background. The prefix output is exactly, over real arithmetic,
+
+\[
+y_{prefix}(r,M)=\sum_s
+\frac{(a_s^T r)(b_s^T r)}{h^2\,\nu_1(r)\nu_2(r)}\,p_s,
+\]
+
+with
+
+\[
+\nu_j(r)^2=\frac{\|Q_jr\|^2}{h}
++\epsilon_q\left(\frac{\|r\|^2}{D}+\epsilon_{in}\right).
+\]
+
+Here epsilon_in belongs to the input RMS normalization and epsilon_q to query
+normalization. The input-normalization scale cancels from numerator and denominator,
+but leaves the displayed epsilon correction. That correction cannot simply be
+dropped. No orthogonality of the rounded positional transform is assumed.
+
+The [executed fold](../NORMALIZED_PREFIX_READ_FOLD_V1_CONTROLS.json) checks256
+source × memory × recipient combinations across32 random fixtures. Maximum output
+error is7.11e-15 and joint-interaction error6.22e-15 in FP64. Deliberately enlarging
+the epsilon terms makes an incorrect omission fail by37.43%, establishing a live
+normalization control. This is separate from deployed-FP32 fidelity on the trained
+model, which has not been established for this new folded evaluator.
+
+The formula supplies explicit source, background, memory, operation and output
+roles. Query weights still evaluate the norms; context-generated read vectors,
+payloads and their producers remain charged. Consequently it is a useful exact
+representation for inspecting joint input products, not itself a discovered
+shared semantic operation or a structural saving. The remaining scientific task
+is to identify which of these inputs implement a reusable computation and predict
+its fresh-data and intervention behavior.
+
+The [09:14 hourly review](../HOURLY_STRATEGIC_REVIEW_2026-09-10_0914.md) records five
+valid screens in the preceding hour, one preserved invalid run, and no extracted
+circuit. Its throughput repair produced the reusable prefix-memory primitive and
+shared source-stage executor used above. Next hourly review10:14 UTC; mathematical
+review10:49 UTC.

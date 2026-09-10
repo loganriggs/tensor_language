@@ -53,6 +53,48 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Prefix context tested; exact normalized read fold executed — 2026-09-10 09:30 UTC
+
+Previous goal turn PROGRESS0e762a321; prefix protocol/helpers committed bdea2fd51.
+MLP8_PREFIX_CONTEXT_V1_RESULT.json valid A; memory B and remaining-context C fail
+all16pairs. Small interaction D passes10/16. Native-memory source/recipient and
+own-source full-vocabulary identities EXACT0. Source and prefix K1/K2/mixed-V and
+first-V9 unchanged where required; all methods/hooks restored. 320forwards5120seq,
+2304patched attention calls/4608prefix contractions,8.3419867executor seconds.
+Runner SHA a6765d01562f3a392f66c9f6875a1cf0e88c2ac2ec6607b5e7781ffd86f013f1.
+Remaining-context task errors<=.097826, but vocabulary .148311–.191600. Memory
+vocabulary .256458–.417237; interaction vocabulary .073156–.107533. No task-only
+promotion, smaller-error winner, automatic layer/head walk or rank/gain rescue.
+
+Reusable prefix_memory_port_v1 stores factored native earlier K1/K2/mixed-V at
+layers9..17; reads donor memory at its suffix phases using LIVE raw-query outputs,
+native QK RMS and rounded RoPE; replaces only prefix contributions to last3queries.
+Recipient within-suffix computation stays live. First mature noun roles differ;
+this is a declared timing-aligned context port, not a natural-text equivalence.
+Factor banks14929920FP32scalars/pair plus6912BF16phases; native weights/scratch extra.
+source_stage_native_v1 shares capture/source patch/memory execution for future use.
+CPU class identity0, independent loop5.97e-8, accumulator6.67e-16; extended controls
+activate external shared-first-V mixing and preserve it. Bound helpers immutable.
+
+Post-result CPU normalized_prefix_read_fold_v1 executed under board claim. For raw
+r=b+c, a_s=Q1^T R^T k1_s, b_s=Q2^T R^T k2_s, payload=O v_s. Prefix output is sum
+(a_s^T r)(b_s^T r)payload/[h^2 nu1 nu2], with nu_j²=||Qjr||²/h + eps_q*(||r||²/D+
+eps_in). The epsilon correction survives algebraic cancellation of input RMS.
+256source/memory/recipient cases, maxoutput7.11e-15/interactions6.22e-15; omitting
+correction fails by.37427 in deliberately sensitive control. Rounded rotations
+not assumed orthogonal. CPU exact-real/FP64 control, not trained FP32 adoption.
+Query norm weights and context-generated factors remain charged; saving0.
+
+Both raw source/background and prefix context remain inputs to a joint operation.
+Next object is their explicit read/product/payload structure and independently
+generated reusable inputs, not another context-free fit or native compiler replay
+alone. No successor GPU job registered; actual CPU continuation completed.
+Full four-property goal active. Explanation coupled_response_and_additive_limits
+updated. Hourly09:14 completed:5valid+1invalid; median completiongap671s, 94.44%
+phasecoverage, review+validation789.89s <science1402.62s (unknown200.05s). Throughput
+repair produced shared prefix/source primitives. Next hourly10:14/math10:49 UTC.
+Continuous phase clock before work and turn_boundary before final.
+
 ## Full-source reuse needs context; same-edit bound executed — 2026-09-10 09:12 UTC
 
 Previous goal turn PROGRESS d3d68d741; current preregistration 10ca05f1a.
