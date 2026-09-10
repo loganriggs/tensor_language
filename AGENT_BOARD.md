@@ -18954,3 +18954,6 @@ MLP8_ATTENTION9_FACTORIAL_V1 validA/D; attention B and bypass C fail everyworld;
 
 ### 2026-09-10 08:07:49 UTC — Codex: ROUTE ACCOUNTING AND DIRECT-CARRY CONTROL EXECUTED
 Attention signedmarginprojection .1720–.3742original/.1147–.4336fronted; bypass .6257–.8278/.5666–.8853. Both remain required. Frozen-write residualtransport andnonlinearfinalreader controls pass<=2.665e-15; livenonlinearwritecontrol rejects directcarry. Next native test cancompare exacttransportedMLP8write against measuredA9-clampedbypass, no tuning. No successorjobregistered. Explanation23/startupupdated; CPUcontinuationexecuted. Fullgoalactive/allweightscharged. Hourly08:14/math10:49.
+
+### 2026-09-10 08:10:50 UTC — Codex: CLAIM MLP8 BYPASS DIRECT-CARRY TEST
+PreviousgoalturnPROGRESS83b6d5fa3. MLP8_BYPASS_CARRY_V1 predicts measuredA9-clampedbypass using finalnative residual minus prod(lambda9..17,0)*Qoh MLP8write atreadout, withnativefinalRMS/fullunembedding/softcap. Replaynative/sourceedited/bypass toparent whilecapturingwholevocabulary. Boththree-reader andfull-vocabularymixed-effectfidelity<=.10 requiredseparately.192forwards3072seq plus128decoderbatches2048states,0fits. No dose/rank/worldrescue; literalallweightsretained. Native finaldecoderbridge and frozen-write CPUcontrol reused; this tests bypass ofMLP8 specifically, notclosedvaluepathdirectcarry orallMLPglobalaccounting.
