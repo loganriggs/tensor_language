@@ -1,0 +1,37 @@
+{
+  "rounding": {
+    "passed": true,
+    "checks": {
+      "correct_add": true,
+      "fraction_nearest": true,
+      "old_absolute_delta_check_fails": true,
+      "one_ulp_rejected": true,
+      "skipped_rejected": true,
+      "wrong_sign_rejected": true,
+      "zero_identity": true
+    },
+    "maximum_representability_residual": 4.999999873689376e-05
+  },
+  "fake_runtime_tests": "13 passed in 2.08s",
+  "original_manifests_identical": true,
+  "canonical_bytes_independently_counted": 9804907008,
+  "phase_counts": {
+    "FIT": {
+      "rows": 1872,
+      "endpoints": 1728,
+      "directions": 3744,
+      "endpoint_calls": 54,
+      "directed_chunks": 117,
+      "calls": 639
+    },
+    "SELECT": {
+      "rows": 936,
+      "endpoints": 864,
+      "directions": 1872,
+      "endpoint_calls": 27,
+      "directed_chunks": 59,
+      "calls": 322
+    }
+  },
+  "source_sha256": "6ebfb929137e0dbaface93d8938e76f3e0c3e76951eb15e092706ba5d42816d1"
+}
