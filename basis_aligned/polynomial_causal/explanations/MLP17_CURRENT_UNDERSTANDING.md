@@ -237,3 +237,18 @@ V2 instrument held; MLP-only complement (.710–.833 error) and carried-only (.3
 The old pronoun-class eigenaxis, signed reflection response and 64-unit committee are already documented in bilinear_quotient/BILIN18_CONNECTION.md §§1583 and 1589–1591 and reflect_gender.py. The all-token joint32 fit recovers two stable pronoun-related products without labels. One reader pair spans the old axis at .961 projection length, the other .257; together they leave .9035 full-vocabulary coefficient error in zero-centered reflection. This is partial unsupervised recovery, not a new complete gender circuit. The historical mean-centered reflection is not exactly class-form invariant merely because its axis is an eigenvector: the change includes $4\lambda\mu(\mu-s)$. Measured historical results remain intact. [Current explanation and receipts](2026-09-10/unsupervised_products_and_position_corrected_qk.md).
 
 The follow-up STABLE_JOINT32_REFLECTION_V1_RESULT.json used 127 pronoun targets on cached natural contexts: instrument held; two-product reflection sufficiency and selective removal failed. Full-vocabulary response errors .853/.856, target-CE errors .306/.326. Other-target absolute removal CE .01161/.01204 exceeds .01. Preserve partial causal relevance and the failed joint claim; no rank rescue. Math1949 supplies fixed-group unembedding support bounds, which do not excuse behavioral failures.
+
+
+## Unsupervised structural campaign, 10 September 20:46
+
+The new campaign confirms that coefficient geometry and natural-state output
+geometry can rank the same partial fits differently. Two unconverged weight
+fits have validation squared errors .09341 (free products) and .08208 (shared
+readers) in the full-unembedding metric on 6,400 stored states. The affine
+calibration baseline reaches .03156 with more parameters. These are different
+metrics/panels from historical causal-response ceilings and do not overturn them.
+The free-product parameterization contains severe cancellation; an exact
+pair-to-block rewrite preserves its function while reducing that cancellation.
+The data-weighted fit and explicit cancellation-penalty route are active research,
+not new identified modules or repairs to the earlier removal failures.
+[Current derivation, prices, convergence limits and primary receipts](2026-09-10/unsupervised_structure_campaign.md).

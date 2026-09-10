@@ -31,7 +31,7 @@ The list below separates **representation**, **fitting metric**, and **validatio
 |---|---|---|---|
 | 1 | Few shared bilinear products | Free $(a_j^\top x)(b_j^\top x)$, common vocabulary writers | Larger weight chunk complete but unconverged; data fit running |
 | 2 | Signed square features suffice | $(a_j^\top x)^2$ with signed output coefficients | Implemented and controlled; native runs pending |
-| 3 | Many products reuse a small reader dictionary | $a_j=E\alpha_j$, $b_j=E\beta_j$ | Weight chunk complete but unconverged; data counterpart prepared |
+| 3 | Many products reuse a small reader dictionary | $a_j=E\alpha_j$, $b_j=E\beta_j$ | Weight chunk complete but unconverged; data counterpart queued |
 | 4 | A sparse multiplication graph over shared readers | Compute $h=E^\top x$ once; retain selected $h_i h_j$ edges | Planned |
 | 5 | Small dense interaction blocks are meaningful units | Several low-rank quadratic blocks, one/few output codes per block | Implemented and controlled; data run queued |
 | 6 | Common input subspace plus sparse interaction core | Symmetric-input Tucker form with explicit core sparsity | Planned; plain dense Tucker is a control |
@@ -160,6 +160,6 @@ The original data-fit runner failed before optimization because it requested `Do
 - Completed: managed 1,000-sequence capture V2; all 64,000 state pairs saved, rounding errors below 0.016%. V1 direct-FP16 storage overflow is preserved.
 - Implemented and checked: four representations under weight and data objectives, with four starts each (32 configurations); resumable Adam/L-BFGS optimization and explicit stationarity/plateau gates.
 - Completed chunks, not converged fits: weight-product native start and weight shared-reader random start. Both checkpoints replay; neither passed stationarity. CPU stall, regrouping, regularization-path and validation checks are complete.
-- Running since20:39:01: repaired V2 natural-state product fit. V2 natural-state block fit is queued; the data shared-reader counterpart is prepared next. Other configurations remain pending, not completed.
+- Running since20:39:01: repaired V2 natural-state product fit. V2 natural-state block and shared-reader fits are queued. Other configurations remain pending, not completed.
 - Implemented and controlled, but no joint native fit yet: explicit component-energy regularization. Convergence tracking must use its penalized objective while reporting reconstruction separately.
 - Pending: joint decomposition of the longer unembedding → last bilinear → last attention path. The earlier position-corrected QK work was a separate two-behavior experiment.

@@ -113,7 +113,7 @@ convergence/best-model tracking must use optimization_loss, and report ordinary
 reconstruction separately. Do not silently reuse unpenalized stopping semantics.
 
 V2 data_product_s0 chunk0 running since20:39:01; data_block_s0 queued;
-data_shared_reader_s0 wrapper/binding prepared. Verify current queue before acting.
+data_shared_reader_s0 is also verified queued. Verify current queue before acting.
 Native-state baseline errors train/validation: constant.29557/.29653,
 affine.02932/.03156. Data product earlytrainingerror~.017, validationpending.
 Use evaluate_structured_fit_validation_v1.py with checkpoint filename after chunks
