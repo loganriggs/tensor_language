@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "tensor_hooks": {
+    "passed": true,
+    "identity_bitwise": true,
+    "all_positions_subtracted": true,
+    "wrong_incoming_rejected": true,
+    "cleanup_after_exception": true
+  },
+  "attention_hooks": {
+    "passed": true,
+    "all_positions_changed": true,
+    "first_value_identity": true,
+    "hook_cleanup": true
+  },
+  "factorial": {
+    "passed": true,
+    "additive": [
+      2.0,
+      1.0,
+      1.0,
+      0.0
+    ],
+    "coupled": [
+      4.0,
+      3.0,
+      3.0,
+      -2.0
+    ],
+    "effect_order": [
+      "total",
+      "attention_at_native_source",
+      "bypass_at_native_attention",
+      "interaction"
+    ],
+    "subtraction_is_not_native_background_bypass": true
+  }
+}
