@@ -1,6 +1,6 @@
 # Noun-number selection: what the model does, and what the math rules out
 
-**Latest result:** genuine interchange at the common two-position interface places most of the observed structural effect change in the supplied write, but the strict producer-only prediction still fails. The reader-only prediction also fails, while the registered interaction bound passes. The next mathematical split is inside the write producer: contextual values versus the attention routing that reads them. Section 17 gives the evidence and the explicit contraction to test next.
+**Latest result:** the weight-based contraction now reproduces the native common component, but exchanging its inputs shows that contextual values and routing cannot be treated as independently portable units. Both simple factor rules fail, and their interaction exceeds the registered limit in 15 of 16 pairs. The useful object is their joint contraction. Section 18 explains this result and its limits.
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
@@ -533,3 +533,30 @@ W_{O,h}W_{V,h}(u_s)_{oh}.
 Here u_s is the actual normalized contextual input, (u_s)_oh its mixed component, P_0 the conditional mean of native attention routing, and W_V/W_O the checkpoint's value/output maps for head h. The local coefficient is1−λ=1.65625. This formula retains the normalized producers and position-dependent routing; it permits folding the adjacent linear maps without treating that rewrite as interpretability by itself.
 
 The [new contraction helper](../mature_value_route_contract_v1.py) and [CPU controls](../MATURE_VALUE_ROUTE_CONTRACT_V1_CONTROLS.json) verify the conditional routing identity to1.33e−15 and check the shared causal shape in all32 native row geometries. A native value-versus-routing factorial can now test the two inputs to this contraction while retaining both recipient contexts. It has not yet been registered or run. No independent extraction, new structural-transfer success, or reduction in opaque native weights is claimed.
+
+## 18. The weight contraction is faithful; values and routing remain coupled
+
+We ran the full value × routing × recipient experiment: each factor takes the original or fronted context, giving eight combinations per lexical/action pair. The value factor uses the actual W_V projection of the mixed normalized input; the routing factor uses the conditional mean of the native product-attention kernel after its normalizations and positional rotations. W_O and the local coefficient1.65625 finish the write. The recipient's native background and suffix remain explicit.
+
+The [registered native test](../MATURE_VALUE_ROUTE_V1_PREREGISTRATION.md) passes its instrument checks. The compiled common write agrees with the observed component to at most **1.90e−5 relative error**. Native, removed and homogeneous-producer interchange outputs replay within **8.59e−6 absolute** and **2.88e−7 relative** error. Only after those checks were the hybrid producers interpreted. Execution used448forwards over7168sequence instances in7.184seconds. [Native result](../MATURE_VALUE_ROUTE_V1_RESULT.json).
+
+The scientific predictions fail:
+
+- Neither **value-following** nor **routing-following** passes any of the16pairs across both recipients and both readout objects.
+- Correct-margin value-following errors range from4.38–65.16%; routing-following errors range from63.23–909.71%, with the registered direction-specific denominator.
+- The small-interaction requirement passes only dad/defend. Value–routing interaction reaches64.67% of the larger diagonal-effect norm for the correct margin and53.10% for the centered three-reader vector.
+
+Thus faithful factorization does not make the factors independently reusable semantic units. Even at the write interface, a bilinear contraction L obeys
+
+\[
+L(P_1,V_1)-L(P_1,V_0)-L(P_0,V_1)+L(P_0,V_0)
+=L(P_1-P_0,V_1-V_0).
+\]
+
+Changing both factors can produce a contribution absent from either separate change. This identity is at the attention-write interface; the live suffix can further change the resulting output effects. Our native test measured those effects rather than assuming the suffix was linear.
+
+The [post-result CPU audit](../MATURE_FACTOR_PATH_ATTRIBUTION_V1_RESULT.json) averages the six possible orders of changing value, routing and recipient. Each path telescopes from the all-original effect to the all-fronted effect, so the three averaged contributions sum exactly to the observed structural change. Their signed projections onto the correct-margin change are81.33–124.20% for values,−22.02–14.68% for routing, and−3.19–9.56% for recipient context. These are path-averaged signed attributions, with interactions distributed among the factors; they do not remove the interaction or rescue the failed one-factor rules.
+
+This directs the next producer question toward the normalized contextual value while keeping its routing partner. One useful distinction is whether the mixed value already exists in the incoming residual vector or is generated by its normalization. That can be tested with the existing factor algebra, retaining the native joint routing. No such native test is registered yet. The contraction still requires native counterfactual inputs and all original weights; it is a faithful local program, not an independently extracted semantic circuit.
+
+The [07:14 hourly review](../HOURLY_STRATEGIC_REVIEW_2026-09-10_0714.md) records five prior tests, median successive completion interval8m10.5 and a leading21m45 gap. Preparation/review time was not retrospectively measurable. A reusable phase clock now records the current block prospectively; this does not establish a past overhead budget. Next hourly review08:14 UTC; mathematical review07:49 UTC.

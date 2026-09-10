@@ -53,6 +53,39 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Native value/routing contraction valid; separate-factor rules fail — 2026-09-10 07:24:53 UTC
+
+Previous goal turn PROGRESS3ce1462d1; current preregistration/implementation8b19c2005.
+`MATURE_VALUE_ROUTE_V1_RESULT.json` validA; Bvalue/Crouting/Dinteraction fail.
+All16pairs tested2value×2routing×2recipient. No pair passes either one-factor
+rule acrossbothrecipients/readouts; smallinteractionpassesonlydad:defend (1/16).
+Correct-marginvaluefollowingerrors.0438–.6516; routing.6323–9.0971; interaction
+up to.6467margin/.5310centeredthree-readers. No value-onlypromotionfromsmallererrors.
+Native compiledcomponentbridge<=1.902e-5relative; alloutputbridges<=8.584e-6absolute
+and2.874e-7relative.448forwards7168seq,7.184s. RunnerSHA
+`d2fb56603d1e3be2a4317c241baa04261b44088f2eebb979e0f66182cc132b8d`.
+Reusable `mature_value_route_native_v1.py` captures/compiles the2query×3source
+nativebilinearproducer; normalizedinputs, nativeRMS/RoPE/P0 and W_V/W_O remain.
+
+Executed CPU continuation: `mature_factor_path_attribution_v1.py` /
+`MATURE_FACTOR_PATH_ATTRIBUTION_V1_RESULT.json`. Sixchangeorders telescope to
+allfronted-minus-alloriginal effect; margin signedprojections value.8133–1.2420,
+routing-.2202–.1468,recipient-.0319–.0956. Signedcancellation/interactiondistribution
+explicit. This doesnotrescuefailedfactorinvariance. Keepjointvalue-routingunit.
+Next useful producer question: does mixednormalizedvalue preexist in residual
+input, or arise fromRMSnormalization? Preserve routing, useexactscalar×vector
+factorpartition ratherthanhead/rank/gain orfrontedtextrepair. No successor native
+experimentregistered yet. Check prior normalization lessons before implementing.
+All545902902weights/fourcounterfactualinputs/native suffix remain; independent
+semanticextraction andfullgoal incomplete. Existingexplanationsection18 updated.
+
+Hourly0714completed with5priorreceipts, median8m10.5 butleading21m45; executor17.393s.
+CIRCUIT_FOCUS/NOVELTYpass; prior CEREMONY_BUDGETunestablished/fail. Boundedrepair
+`research_phase_clock_v1.py` implemented/executed; currentphase boundaries in
+`MATURE_VALUE_ROUTE_V1_PHASES.jsonl`, excludesinitialdesign/hourreview andfinalgit
+fromanyprecommit summary. No retrospectivetimingclaim. Nextclocks08:14hourly,
+07:49mathematical. Fullgoalactive; post-resultCPUcontinuationactuallyexecuted.
+
 ## True interchange: both simple rules fail; producer split prepared — 2026-09-10 07:12:13 UTC
 
 Previous goal turn PROGRESS0c8b2fbf2; current preregistration/implementationdf3ba4abc.
