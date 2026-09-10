@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "reports": {
+    "fit": {
+      "world_ids": [
+        "king_defend",
+        "king_introduce",
+        "boy_defend",
+        "boy_introduce",
+        "brother_defend",
+        "brother_introduce",
+        "prince_defend",
+        "prince_introduce"
+      ],
+      "mean_coefficients": {
+        "1": 0.012079481035470963,
+        "c": -0.25331354513764376,
+        "s": 0.8014131970703602,
+        "o": 2.3225329108536243,
+        "cs": 0.004531871527433395,
+        "co": -0.1296983249485493,
+        "so": 0.016427043825387955,
+        "cso": -0.1338532604277134
+      },
+      "interaction_to_nonconstant_rms_ratios": [
+        0.0688389984195284,
+        0.10867473646203347,
+        0.12597130305672166,
+        0.12724523122923745,
+        0.12218096915814446,
+        0.062005024770182035,
+        0.09528986178218608,
+        0.1121666712799029
+      ],
+      "object_coefficient_dominance_margins": [
+        1.2192246913909912,
+        0.13619017601013006,
+        0.745816707611084,
+        0.37842726707458496,
+        0.10029768943786621,
+        -0.006345689296721968,
+        0.9491314888000488,
+        0.2211736440658605
+      ],
+      "dominance_certificate_worlds": 7,
+      "additive_grid_sign_matches_object": 64,
+      "grid_values": 64,
+      "parseval_max_error": 4.163336342344337e-17
+    },
+    "held": {
+      "world_ids": [
+        "man_defend",
+        "man_introduce",
+        "father_defend",
+        "father_introduce",
+        "son_defend",
+        "son_introduce",
+        "actor_defend",
+        "actor_introduce"
+      ],
+      "mean_coefficients": {
+        "1": -0.13775989413261414,
+        "c": -0.14335136115550987,
+        "s": 0.7386337667703629,
+        "o": 2.526124194264412,
+        "cs": 0.011275142431259155,
+        "co": -0.14365276694297788,
+        "so": 0.057032346725463895,
+        "cso": -0.18388427793979645
+      },
+      "interaction_to_nonconstant_rms_ratios": [
+        0.11759709548861029,
+        0.13513343191744046,
+        0.15756164062713307,
+        0.08904143902621425,
+        0.1373508132134906,
+        0.11578115773186645,
+        0.09845617633686835,
+        0.08145527177990122
+      ],
+      "object_coefficient_dominance_margins": [
+        0.7756459712982178,
+        0.772120475769043,
+        1.2905497550964355,
+        0.8216304779052734,
+        0.5463294386863708,
+        0.6833782196044922,
+        0.46175193786621094,
+        0.5040723085403451
+      ],
+      "dominance_certificate_worlds": 8,
+      "additive_grid_sign_matches_object": 64,
+      "grid_values": 64,
+      "parseval_max_error": 5.551115123125783e-17
+    }
+  },
+  "source_sha256": "e528fdf3439efff6991b458bf8af2d8d2f70f35c989579b8b05c6ae8f5f1dc2d",
+  "script_sha256": "7f5d95214ca3ae4086c5bc9066355db6bc509021931ee66f07138f999bd37f66",
+  "model_forwards": 0,
+  "scope": "Per-world projection of already observed eight-corner tables. No unseen-input or independent-execution claim."
+}
