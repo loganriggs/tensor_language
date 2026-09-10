@@ -53,6 +53,51 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Vocabulary-reader energy fails; continuous equal-energy witness executed — 2026-09-10 12:33:26 UTC
+
+Previous turn PROGRESS320b4a83c. Original handoff/pilot authority. Preregc435cb51a.
+No outputaxis/rank/activation fit. Tested qE=alpha*Var_vocab(Uu)+gamma||u||²+beta,
+K=centeredU^TcenteredU/V; coefficients determinedfromweights beforeevaluation.
+alpha590.3611252,gamma-7.53044237. Globalanisotropicresidual.99049663: Bfails.
+Nativeapproximationevaluateddespiteglobalmismatch (different equality domains).
+
+Managedreader_energy12:27:52–12:28:04,18bodyforwards70seq,6.364s. A/Dheld,
+Bglobal/Cnative false. Gramdirectvariancebridge5.39e-16rel, Q/beta nativeweight
+replayvalid, independentfacadeexact, onlineenergyreplacement<4.19e-5abs/5.86e-7rel.
+Scalarerrors.969886FW/.965297Pile; centeredfullvocabularyeffecterrors
+.978599/.973470. CE+.321785/.362658 versusremove+.338463/.380282; proposed
+meanq432/608 versusnative29756/31080. Clearfailure, no coefficient tuning,
+shiftedvocab/rankrescue or confidence/entropy label. Earlierqpositives retained.
+Result CALIBRATION_READER_ENERGY_V1_RESULT.json; savedGram
+CALIBRATION_READER_ENERGY_V1_GRAM.pt. RunnerSHA
+ d4aa822965864dfc6ea5e4287d13bda116a394f1c66546dbc820c2784cd9fe7f.
+
+Actualpost-native CPUcalibration_reader_energy_witness_v1 executed. EighsavedK,
+findlargestoffdiagonalQ ineigenbasis (indices1151,1150, Ktop2eigenvalues
+.20990849/.06805523). u+/-=sqrt(r²/2)*(ei+/-ej),r²576. Sameenergy80.05355268,
+norm²576, butq191220.3211 and-56774.3599; difference247994.6810 matches
+2r²ei^TQej. Eigendecompresidual2.54e-15, energyreportedFP64difference0,
+normrelative1.97e-16. LegalcontinuousRMSinputs a=sqrt(2eps)*u invertto u
+within1.78e-15. Artifact CALIBRATION_READER_ENERGY_V1_WITNESS.pt andresult
+CALIBRATION_READER_ENERGY_WITNESS_V1_RESULT.json. This is numericalrealization
+ofexactsign-flip construction onstoredFP64Gram, NOTexactrationalcertificate,
+observednaturaltext orfullmodelreachable-state impossibility. Analytically,
+equalenergy/norm anddifferentq rulesoutanydecoderofthose summaries ondomain
+containingbothpoints. Relative-sign interaction isinformationlostbyenergy.
+
+Canonical subroutine.calibration.quadratic_readout v5 site_live withfailed
+reader_energy compiled-equivalence event, instrumentationvalid. Do notmisread
+helper identified=True asidentity/circuit—itmeanscoefficientfitnondegenerate.
+Globalresidual andnativegatesexplicitlyfalse. All545902902 nativeparams remain;
+U alone57950208, savedK additional10.6MB. No structural saving ornewcircuit.
+Nextinput-operation mustretainrelevantsignedinteractions andpassindependent
+causaltests; witnessselection ispost-resultweightmath, not a prevalidatednew
+natural circuit. No energycoefficient rescue or spectral/rank-only detour.
+
+Latestexplanation explanations/calibration_reader_energy_failure_and_lost_information_2026-09-10.md.
+Fullgoalactive; actualpost-resultCPUcontinuationcomplete; no successorGPUjob.
+Next hourly13:14/math13:49UTC. PreserveunrelatedClaudequeues/logs/results.
+
 ## Direct-token producer split fails; reader-energy hypothesis prepared — 2026-09-10 12:22:43 UTC
 
 Previous turn PROGRESS057945893. Original handoff/pilot authority. Prereg and

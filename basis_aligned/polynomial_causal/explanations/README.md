@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Reader energy failure and lost information](calibration_reader_energy_failure_and_lost_information_2026-09-10.md): weight-defined vocabulary spread fails globally and on native inputs; an executed continuous-input sign-flip witness isolates information lost by the energy summary.
+
 - [Calibration input terms and reader energy](calibration_input_terms_and_reader_energy_2026-09-10.md): exact direct-token/context split; all single-term gates fail, with a measurable class tradeoff. Executed mathematical controls prepare a specific vocabulary-score-spread hypothesis.
 
 - [Scalar units and remaining dependencies](calibration_scalar_units_and_remaining_dependencies_2026-09-10.md): common-frequency repair fails; context matching survives donor rescaling. Exact math exposes the retained MLP and upstream dependencies needed for extraction.

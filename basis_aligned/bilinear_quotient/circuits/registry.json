@@ -567,18 +567,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "788066f6fc94276e058493b42424cf0e9f5b5f3dc607eab654b569389111af92",
+   "record_sha256": "d99b67d357b1dab7a58165371ecf637a30b4dcd4353c23c968c195f7d0d918b3",
    "kind": "shared_subroutine",
    "identity_instance": null,
-   "active_claim_id": "calibration_quadratic_readout.v4",
+   "active_claim_id": "calibration_quadratic_readout.v5",
    "claim_status": "site_live",
    "causal_variable_id": "calibration_quadratic_scalar",
    "interchange_family_count": 2,
-   "invariance_family_count": 5,
-   "negative_event_count": 4,
-   "active_negative_event_count": 4,
-   "latest_blocker": "calibration_quadratic_readout.token_context_single.failed.v1",
-   "latest_active_event": "calibration_quadratic_readout.token_context_single.failed.v1",
+   "invariance_family_count": 6,
+   "negative_event_count": 5,
+   "active_negative_event_count": 5,
+   "latest_blocker": "calibration_quadratic_readout.reader_energy.failed.v1",
+   "latest_active_event": "calibration_quadratic_readout.reader_energy.failed.v1",
    "active_event_ids": [
     "calibration_quadratic_readout.fold.held.v1",
     "calibration_quadratic_readout.removal.held.v1",
@@ -590,7 +590,8 @@
     "calibration_quadratic_readout.dimensionless_execution.held.v1",
     "calibration_quadratic_readout.token_context_sum.held.v1",
     "calibration_quadratic_readout.token_context_cross.failed.v1",
-    "calibration_quadratic_readout.token_context_single.failed.v1"
+    "calibration_quadratic_readout.token_context_single.failed.v1",
+    "calibration_quadratic_readout.reader_energy.failed.v1"
    ],
    "held_test_types": [
     "compiled_equivalence",
@@ -611,6 +612,7 @@
     "8e138b57dfdb11208076307cb9d5181eabf4bb6164a2daa8337d82e4288bc66b",
     "99cf8b7bf10e9b8a5b0c03943a0f9d66dc2fbcbcb7fee86b37978ff6dc290e8a",
     "a458ac7c61955c452a00b5b10f3cc90cb881eed8722d1023dd6b79e4f73a4dc2",
+    "cc994c9e05d683e93d29d32c7022fdd768d28120720f6d7f5ee381c56d1d6af5",
     "cd161c1e702fcd7e5d87b0b6648ebe603cfb32fa2585d0d1a741dde6e1da21fe",
     "dfa70fe31f94fcc18a244bd7d45985f223e7beb82b401644a217792c603760b6",
     "f106147ccd04262dddd37d5a2f381bf889220e617832d8b50f6abb73627f35f6"
