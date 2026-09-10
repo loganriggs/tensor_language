@@ -1,0 +1,175 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "tol_pool": 0.05,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_category_contrast_v487",
+  "finished_utc": "2026-09-10T07:46:39.612186+00:00",
+  "groups": {
+    "fit_cat": {
+      "cells": [
+        "verb_preposition_cat_at_that"
+      ],
+      "n_units": 27,
+      "per_shape": {
+        "verb_preposition_about_for": {
+          "A1_damage": {
+            "ce_damage": -0.0853,
+            "ce_lb975": -0.1472,
+            "ce_ub975": -0.0195,
+            "margin_damage": -0.1387,
+            "top1_change_rate": 0.1562
+          },
+          "C_damage": {
+            "ce_damage": 0.0029,
+            "ce_lb975": -0.0048,
+            "ce_ub975": 0.0106,
+            "margin_damage": -0.0209,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0106,
+          "cross_abs_recovery": -0.094,
+          "joint_extraction": -0.105,
+          "n_held": 16,
+          "units_recovery": 0.899
+        },
+        "verb_preposition_at_to": {
+          "A1_damage": {
+            "ce_damage": 0.1591,
+            "ce_lb975": 0.1079,
+            "ce_ub975": 0.2147,
+            "margin_damage": 0.7465,
+            "top1_change_rate": 0.125
+          },
+          "C_damage": {
+            "ce_damage": 0.0029,
+            "ce_lb975": -0.0048,
+            "ce_ub975": 0.0106,
+            "margin_damage": -0.0209,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0106,
+          "cross_abs_recovery": 0.131,
+          "joint_extraction": 0.132,
+          "n_held": 16,
+          "units_recovery": 0.992
+        },
+        "verb_preposition_cat_at_that": {
+          "A1_damage": {
+            "ce_damage": 1.6666,
+            "ce_lb975": 1.5893,
+            "ce_ub975": 1.7415,
+            "margin_damage": 5.9116,
+            "top1_change_rate": 0.625
+          },
+          "C_damage": {
+            "ce_damage": 0.0029,
+            "ce_lb975": -0.0048,
+            "ce_ub975": 0.0106,
+            "margin_damage": -0.0209,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0106,
+          "cross_abs_recovery": 0.968,
+          "joint_extraction": 1.001,
+          "n_held": 16,
+          "units_recovery": 0.967
+        }
+      }
+    },
+    "fit_prep": {
+      "cells": [
+        "verb_preposition_at_to"
+      ],
+      "n_units": 12,
+      "per_shape": {
+        "verb_preposition_about_for": {
+          "A1_damage": {
+            "ce_damage": -0.026,
+            "ce_lb975": -0.034,
+            "ce_ub975": -0.018,
+            "margin_damage": -0.0414,
+            "top1_change_rate": 0.0938
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 0.014,
+          "joint_extraction": 0.015,
+          "n_held": 16,
+          "units_recovery": 0.924
+        },
+        "verb_preposition_at_to": {
+          "A1_damage": {
+            "ce_damage": 1.2777,
+            "ce_lb975": 0.9241,
+            "ce_ub975": 1.6574,
+            "margin_damage": 3.3402,
+            "top1_change_rate": 0.5
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 0.997,
+          "joint_extraction": 1.009,
+          "n_held": 16,
+          "units_recovery": 0.988
+        },
+        "verb_preposition_cat_at_that": {
+          "A1_damage": {
+            "ce_damage": 0.3137,
+            "ce_lb975": 0.2113,
+            "ce_ub975": 0.4235,
+            "margin_damage": 0.5203,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 0.086,
+          "joint_extraction": 0.124,
+          "n_held": 16,
+          "units_recovery": 0.694
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_both_in_distribution": true,
+    "pred_b_prep_to_category": false,
+    "pred_c_category_to_prep": false,
+    "pred_d_units_available": false,
+    "pred_e_different_mapping": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_category_contrast_v487",
+  "seconds": 64.5
+}
