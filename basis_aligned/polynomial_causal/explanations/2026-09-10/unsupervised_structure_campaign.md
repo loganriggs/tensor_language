@@ -829,3 +829,74 @@ The immediate practical bottleneck is disk headroom for resumable optimizer
 checkpoints, alongside incomplete algorithm and restart coverage. The managed
 runner is healthy. Neither a time-limited first chunk nor one random start will
 be labelled an exhausted structural hypothesis.
+
+
+## Joint Gauss–Newton implemented and queued — 22:15 UTC
+
+**A stronger weight-only optimizer is now implemented and queued for a native
+benchmark.** The small exact checks pass; native convergence and fit quality
+remain unmeasured. The multi-output block fit is still running and unconverged.
+This adds solver coverage for products, not another structural hypothesis.
+
+The difference from ALS is that a proposed step changes both sets of input
+readers and the output writers together. Write one product component as
+
+$$
+F_j=z_j\otimes\operatorname{sym}(a_jb_j^{\mathsf T}).
+$$
+
+The first-order change contains all three coupled contributions:
+
+$$
+\delta F_j
+=\delta z_j\otimes\operatorname{sym}(a_jb_j^{\mathsf T})
++z_j\otimes\operatorname{sym}(\delta a_jb_j^{\mathsf T})
++z_j\otimes\operatorname{sym}(a_j\delta b_j^{\mathsf T}).
+$$
+
+Here $z_j$ is the output writer in exactly transformed coordinates:
+$z_j=Cw_j/\sqrt{E}$, where $C^{\mathsf T}C=U^{\mathsf T}U$ and $E$ is native
+folded coefficient energy. This preserves the weight objective while avoiding
+an additional output-metric conditioning problem in the linear solve.
+
+Let $J$ map parameter changes to these tensor changes. We calculate $Jv$ and
+$J^{\mathsf T}(Jv)$ through product contractions. Neither the full token tensor
+nor the Jacobian or Hessian is stored. The explicit component-energy penalty
+is included as additional residuals $\sqrt{\lambda}F_j$, so its curvature is
+included too. This is a **Gauss–Newton approximation**, not the exact nonlinear
+Hessian; no claim of global convergence follows.
+
+The damped update solves approximately
+
+$$
+\left(J^{\mathsf T}J+\mu D\right)\delta=-J^{\mathsf T}r,
+\qquad D=\operatorname{diag}(J^{\mathsf T}J),
+$$
+
+using preconditioned conjugate gradients. Damping limits risky steps. Each trial
+then normalizes the readers and solves its output writers exactly. We accept
+only actual objective improvement with a positive predicted improvement;
+rejected steps increase damping. This is joint linearization followed by an
+exact conditional writer projection. It avoids pretending that detaching an
+optimal writer produces the full reduced Hessian.
+
+The independent dense small-model check found relative errors below
+$4.3\times10^{-16}$ for the normal-matrix action, its diagonal and the gradient.
+The damped iterative solution agreed with a direct solve to
+$4.7\times10^{-11}$. A separate near-planted fit decreased the penalized objective
+from0.024885 to0.008871 in six accepted steps, with exact projection replay.
+Its numerical-resolution stop is not counted as a convergence certificate.
+[Jacobian control](../../SYMMETRIC_PRODUCT_GAUSS_NEWTON_V1_CONTROL.json),
+[step acceptance control](../../SYMMETRIC_PRODUCT_LM_V1_CONTROL.json).
+
+The native120second benchmark uses the same frozen initialization and objective
+as the previous ALS and Adam/L-BFGS comparisons. It records actual accepted and
+rejected steps, inner iterations, unfinished inner solves, gradient thresholds
+and reference-quality predictions. The540second initialization cost remains
+charged. [Preregistration](../../WEIGHT_PRODUCT_GN_V1_PREREGISTRATION.md).
+
+The algorithmic source is the [matrix-free Gauss–Newton/ALS comparison](https://arxiv.org/abs/1910.12331).
+Its implicit tensor contractions motivate this implementation. Our partial
+symmetry, explicit component penalty and conditional writer projection are
+adaptations checked separately; the paper's performance results do not prove
+our native benchmark will succeed.

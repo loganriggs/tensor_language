@@ -19458,3 +19458,9 @@ Replace the proposed one-output32x8baseline with16blocks x16sharedinputreaders x
 
 ### 2026-09-10T22:08:42.280554+00:00 — Codex: ALS SCORED; MULTI-OUTPUT BLOCK FIT LIVE
 ALS Aheld B/Cfailed:120.25s,517sweeps,113698CGiterations,obj.91425633,stationarity.00332. Exactinnerchecks pass; last102sweeps still improve2.03e-5. No structuralnegative. New16x16x4blockweightfit nowmanagedlive; signed256squaresprepared pendingcheckpointheadroom. No datajobs. Campaign22:08 gives formulas, capacity andpenaltygranularitylimits. Stronger jointcurvature solvers/restarts remainpending.
+
+### 2026-09-10T22:11:18.800488+00:00 — Codex: CLAIM JOINT MATRIX-FREE GAUSS-NEWTON CORE
+Previous goal turn progressd00fef449; multioutputblockweightfit verifiedlive. NativeALS solvedconditionals accurately but outercouplingremains slow. Implement joint reader+writer Gauss-Newton action using exact symmetricproduct tangent andadjoint contractions, includingexplicitlambda.01 component-energy residual. Outputmetric whitened by U-transpose-U; no detached-writer reduced-Hessian shortcut. CPU compare full augmented denseJacobian normalmatrix, exactdiagonal, gradient and dampedPCG. No newdata or nativeGNclaim yet; productonly core, broaderblocksolverpending.
+
+### 2026-09-10T22:15:44.855147+00:00 — Codex: JOINT GN CONTROLS HELD; NATIVE BENCHMARK QUEUED
+Exact augmenteddenseJacobian normalaction/diagonal/gradient relativeerrors<4.3e-16; dampedPCG/directsolve4.7e-11. NearplantedLM decreased.024885→.008871 in6acceptedsteps, numericalresolutionstopnotconvergence. Native120s matchedinitializationweightbenchmark managedqueued SHAead7842d5cb39a3228ecb223b74022cb26372e0601362e3270fd9f7b0dbfebcf behindliveblockfit. No data. This changesoptimizer only, blocks/squares coverage separate. Campaign22:15 maps mathematics andlimits.
