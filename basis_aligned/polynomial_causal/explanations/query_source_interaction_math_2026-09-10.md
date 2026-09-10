@@ -1,5 +1,10 @@
 # What the mathematics says about the shared attention circuit
 
+Follow-up: [complete query swaps and normalization tests](query_background_and_value_path_2026-09-10.md)
+show that these queries transfer little of the paired tense change. The
+source-atlas observations below remain valid, but do not establish a shared
+semantic computation; further per-source query-carrier search is closed.
+
 10 September 2026. The original report is
 [bilinear_reconstruction_pilot_report.md](bilinear_reconstruction_pilot_report.md),
 alongside the [handoff](bilinear_circuit_reconstruction_codex_handoff.md).

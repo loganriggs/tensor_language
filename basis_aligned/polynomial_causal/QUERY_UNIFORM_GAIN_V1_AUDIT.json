@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "panels": {
+    "has_a2__base": {
+      "native_write_norm": 6359.685205982892,
+      "uniform_gain_relative_errors": {
+        "0.5": 0.0,
+        "2.0": 0.0
+      },
+      "analytic_uniform_gain_derivative_relative_norm": 1.0055742691827627e-20,
+      "zero_gain_write_norm": 0.0
+    },
+    "has_a2__donor": {
+      "native_write_norm": 6376.072197466104,
+      "uniform_gain_relative_errors": {
+        "0.5": 0.0,
+        "2.0": 0.0
+      },
+      "analytic_uniform_gain_derivative_relative_norm": 1.0271889572361908e-20,
+      "zero_gain_write_norm": 0.0
+    },
+    "has_heldout__base": {
+      "native_write_norm": 3733.8920511482715,
+      "uniform_gain_relative_errors": {
+        "0.5": 0.0,
+        "2.0": 0.0
+      },
+      "analytic_uniform_gain_derivative_relative_norm": 1.2096262443728308e-20,
+      "zero_gain_write_norm": 0.0
+    },
+    "has_heldout__donor": {
+      "native_write_norm": 3559.4870848341657,
+      "uniform_gain_relative_errors": {
+        "0.5": 0.0,
+        "2.0": 0.0
+      },
+      "analytic_uniform_gain_derivative_relative_norm": 1.2507254090298882e-20,
+      "zero_gain_write_norm": 0.0
+    },
+    "is_a2__base": {
+      "native_write_norm": 5078.235945945159,
+      "uniform_gain_relative_errors": {
+        "0.5": 0.0,
+        "2.0": 0.0
+      },
+      "analytic_uniform_gain_derivative_relative_norm": 8.293276206887818e-21,
+      "zero_gain_write_norm": 0.0
+    },
+    "is_a2__donor": {
+      "native_write_norm": 5051.574040775746,
+      "uniform_gain_relative_errors": {
+        "0.5": 0.0,
+        "2.0": 0.0
+      },
+      "analytic_uniform_gain_derivative_relative_norm": 8.533375887071032e-21,
+      "zero_gain_write_norm": 0.0
+    },
+    "is_heldout__base": {
+      "native_write_norm": 3529.0760574432916,
+      "uniform_gain_relative_errors": {
+        "0.5": 0.0,
+        "2.0": 0.0
+      },
+      "analytic_uniform_gain_derivative_relative_norm": 6.856785207896882e-21,
+      "zero_gain_write_norm": 0.0
+    },
+    "is_heldout__donor": {
+      "native_write_norm": 3548.741353314441,
+      "uniform_gain_relative_errors": {
+        "0.5": 0.0,
+        "2.0": 0.0
+      },
+      "analytic_uniform_gain_derivative_relative_norm": 6.737730402886146e-21,
+      "zero_gain_write_norm": 0.0
+    }
+  },
+  "source_sha256": "92da8b2ab6a580953e45feece9ca0d5694c2c090293ab1c0493ee70b3ff60449",
+  "bank_sha256": "d315383dc23d82bdcc9637961a3f9075a0ddf7abf2269b90006524cd5eb5ed94",
+  "model_forwards": 0,
+  "scope": "Conditional native query-read banks with native keys/values fixed. Positive uniform source gains nearly cancel in numerator/denominator, while zero kills the read. Does not attribute final-logit interactions or imply semantic redundancy."
+}

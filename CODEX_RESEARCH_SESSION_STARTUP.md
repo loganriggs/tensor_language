@@ -53,6 +53,42 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Query carrier closes; direct MLP4-to-value fold executed — 2026-09-10 02:21 UTC
+
+Previous goal turn PROGRESS. Native query partition/interchange24forwards,
+432seq,2.548s, A/Dpass B/Cfail. BILIN18_L9_QUERY_PARTITION_NATIVE_V1_RESULT.json.
+RunnerSHA2305f1f4f45daea71f8238ef7e43693fb529259ca47dae76efd384041e4142ab.
+Full contextual query swaps atL9H1/H4 have abs signed projections<.012 on
+every panel/direction in both full-logit and margin frames. Stop per-source
+tense-carrier search attheseQports; contextual query computation still matters
+as background. Do not infer irrelevance or exclude untested joint Q/K edits.
+
+Local source/rest numerator-cross explanation fails: errors1.236–1.339
+in residual-write frame; normalization remainder projects1.215–1.312 with
+opposing cross contribution. These are cancelling vectors, not variance shares.
+Actualbank947936entries/4034332compressedbytes saved as
+BILIN18_L9_QUERY_PARTITION_NATIVE_V1_BANK.npz, hash inresult, numpy no-pickle.
+CPU QUERY_UNIFORM_GAIN_V1_AUDIT.json confirms scales.5/2 leave write unchanged
+atFP64 precision; zero kills it; exact uniformderivative<=1.251e-20 relative.
+This qualifies prior zero-cut interaction as normalization geometry, not
+proof of semantic cooperation. Native comparison identitymax1.53e-5.
+
+Concrete continuation: mlp_value_lineage_fold.py executed five CPU controls,
+allpass max5.69e-14. For direct MLP4 change gamma*delta_m at V9 input,
+deltaV=Wv*gamma*delta_m/s1 + Wv*u*(1/s1-1/s0). FoldWvDown into the exact
+midpoint bilinear difference. Norm term and source dependencies retained;
+Downbias cancels in difference but remains in nativebackground. Native
+fullMLP4 intervention also changes later writes, which this fold DOES NOT
+include. Next hypothesis is DIRECT residual lineage versus these intervening
+nonlinear writes. No nativevalue-path run registered yet. Prior restricted
+MLP4-to-localV9 fractions.870/.954has and1.156/.982is supportthisbranch;
+originaltotal-mediationnull remains. No newsource/rank/prototype rescue.
+
+New explanation query_background_and_value_path_2026-09-10.md gives outcomes,
+formulas and limitations. All545902902 nativeparams charged, saving0,
+goalactive. Bothrunnershealthy,noownedjobpending. Clocks03:06hourly/04:49math.
+Originalbilinearhandoff controls, not stalegoalbetter_math_ideas. PreserveClaude.
+
 ## Query-source tensor and trained atlas complete — 2026-09-10 02:05 UTC
 
 Previous goal turn PROGRESS: exact normalized source-gain attention tool,

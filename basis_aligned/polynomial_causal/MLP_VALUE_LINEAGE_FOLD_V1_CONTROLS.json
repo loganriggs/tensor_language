@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "normalized_value_delta": true,
+    "folded_bilinear_secant": true,
+    "folded_direct_content": true,
+    "zero_delta_identity": true,
+    "normalization_term_live": true
+  },
+  "value_error": 1.7763568394002505e-15,
+  "fold_error": 5.684341886080802e-14,
+  "content_error": 2.55351295663786e-15,
+  "normalization_term_norm": 10.401630627917054,
+  "model_forwards": 0,
+  "scope": "Planted direct residual-lineage source edge only. Native MLP4 intervention also changes later attention/MLP writes; those are not folded by this identity. Down bias cancels in MLP difference but remains in native residual context."
+}

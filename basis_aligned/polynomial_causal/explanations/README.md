@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Query background and the value path](query_background_and_value_path_2026-09-10.md): complete native query swaps transfer little tense change; normalization explains much of the local source interaction; exact MLP-to-value weight folding prepares the next path test.
+
 - [Query-source interaction mathematics](query_source_interaction_math_2026-09-10.md): original pilot revisited; exact normalized source tensors, trained-model19-source atlas, and large source/rest interactions explain why single-module importance is insufficient.
 
 - [Shared attention query rules](shared_attention_query_rules_2026-09-10.md): two native shared-router/source hypotheses fail; exact normalized weight folding passes, and projected source-edit algebra prepares contextual producer identification.
