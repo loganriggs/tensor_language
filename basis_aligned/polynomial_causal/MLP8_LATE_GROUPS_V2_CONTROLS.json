@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "ordered_recurrence": {
+    "passed": true,
+    "ordered_recurrence_bitwise": true,
+    "closed_form_absolute_discrepancy": 0.09375,
+    "scope": "Native operation order is replayed; real-arithmetic transport is not a bitwise floating-point identity."
+  },
+  "inherited": {
+    "passed": true,
+    "native_clamp": {
+      "passed": true,
+      "checks": {
+        "identity_clamps": true,
+        "first_value_payload_preserved": true,
+        "both_frozen_gives_direct_lineage": true,
+        "source_still_live": true,
+        "hooks_restored": true
+      },
+      "direct_lineage_max_error": 2.636779683484747e-16,
+      "tiny_model_forwards": 3
+    },
+    "sequential_groups": {
+      "passed": true,
+      "edited_output_cube": [
+        [
+          5.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0
+        ]
+      ],
+      "native_output": 6.0,
+      "direct_carry_effect": 1.0,
+      "late_response_effects": {
+        "total": 5.0,
+        "attention": 1.0,
+        "mlp": 3.0,
+        "interaction": 1.0
+      },
+      "wrong_full_edit_write_replay": 1.0,
+      "scope": "Synthetic sequential group interventions only; broad groups are not assumed semantic circuits."
+    }
+  }
+}
