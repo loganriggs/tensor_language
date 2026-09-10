@@ -99,9 +99,9 @@ def main():
     instrument &= all(a['untouched_outputs_bitwise'] and a['finite'] and a['value_mix_relative']<=1e-6 for a in audits)
     instrument &= all(b['max_abs']<=1e-3 and b['relative']<=1e-5 for b in bridges.values())
     capable=all(r['native_accuracy']>=.85 for r in reports)
-    preds=dict(pred_a_instrument=bool(instrument),pred_b_equality_specificity=capable and all(r['specificity_passed'] for r in reports),
-        pred_c_shared=capable and all(r['shared_passed'] for r in reports),pred_d_local=capable and all(r['local_passed'] for r in reports),
-        pred_e_composition=all(r['composition_passed'] for r in reports))
+    preds={'pred_a_instrument':bool(instrument),'pred_b_equality_specificity':capable and all(r['specificity_passed'] for r in reports),
+        'pred_c_shared':capable and all(r['shared_passed'] for r in reports),'pred_d_local':capable and all(r['local_passed'] for r in reports),
+        'pred_e_composition':all(r['composition_passed'] for r in reports)}
     out=dict(terminal='complete' if instrument else 'invalid',predictions=preds,reports=reports,bridges=bridges,
         native_capability=capable,
         reader_rows=[{k:r[k] for k in ('group_id','condition','answer','foil','neutral_id')} for r in bank],
