@@ -1,0 +1,68 @@
+{
+  "schema": "fullu.output.functions.v1",
+  "captured_energy": {
+    "1": 0.08171101408678814,
+    "2": 0.08882049725522864,
+    "4": 0.100885708286579,
+    "8": 0.11718580411643088,
+    "16": 0.141394963931839,
+    "32": 0.17821177671895233,
+    "64": 0.23839836012702914,
+    "128": 0.3404720263529283,
+    "256": 0.5048358464561372,
+    "512": 0.7379431221365341,
+    "1024": 0.9754865168909033,
+    "1152": 1.0000000000000009
+  },
+  "leading_functions": [
+    {
+      "mode": 0,
+      "coefficient_energy_fraction": 0.08171101408678814,
+      "form_energy_replay_error": 3.1086244689504383e-15,
+      "best_single_real_product_capture": 0.10998651814582482,
+      "best_rank8_symmetric_capture": 0.1955309266607981,
+      "positive_inertia": 495,
+      "negative_inertia": 657
+    },
+    {
+      "mode": 1,
+      "coefficient_energy_fraction": 0.0071094831684404905,
+      "form_energy_replay_error": 1.3322676295501878e-15,
+      "best_single_real_product_capture": 0.16767430509062084,
+      "best_rank8_symmetric_capture": 0.27855001511097516,
+      "positive_inertia": 583,
+      "negative_inertia": 569
+    },
+    {
+      "mode": 2,
+      "coefficient_energy_fraction": 0.006888969179578936,
+      "form_energy_replay_error": 1.9984014443252818e-15,
+      "best_single_real_product_capture": 0.10063128950987343,
+      "best_rank8_symmetric_capture": 0.19516502718403023,
+      "positive_inertia": 591,
+      "negative_inertia": 561
+    },
+    {
+      "mode": 3,
+      "coefficient_energy_fraction": 0.005176241851771432,
+      "form_energy_replay_error": 3.552713678800501e-15,
+      "best_single_real_product_capture": 0.06067164729297694,
+      "best_rank8_symmetric_capture": 0.1532222135109664,
+      "positive_inertia": 563,
+      "negative_inertia": 589
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_output_sharing": false,
+    "pred_c_single_product_functions": false
+  },
+  "toy_relative_error": 3.427652629095417e-16,
+  "native_trace_relative_error": 7.771561172376096e-16,
+  "eigen_replay_relative_error": 3.369026384478824e-15,
+  "minimum_output_eigenvalue": 8579392.751077134,
+  "native_total": 99245061353.4728,
+  "wall_seconds": 4.44439822435379,
+  "body_forwards": 0,
+  "scope": "Optimal output-mode relaxation in all-token coefficient Frobenius metric. Arbitrary quadratic functions are charged as dense unless further factored. Not an activation-PCA rerun, fresh/OOD prediction, or identified circuit."
+}

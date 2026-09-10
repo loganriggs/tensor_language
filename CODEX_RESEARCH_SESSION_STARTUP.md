@@ -82,7 +82,7 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 20:44
+## Current handoff — updated 10 September 2026, 21:20
 
 Full goal active. User explicitly requests a broad unsupervised structural search,
 substantial data/optimization, convergence and red-team review of negatives.
@@ -108,24 +108,31 @@ LBFGS step0. Fresh/centered/projected refinements fail1e-8 improvement bar.
 Exact pair regrouping reduces cancellation8.17x, misses10xbar, costs130vs128products.
 Fixed-reader penalty.01 reduces cancellation to1.245 while retaining80%of captured
 coefficient energy. energy_regularized_quadratic_v1.py and8dense/gradientcontrols
-implemented; joint native penalized fit is NOT yet running. Before using it,
-convergence/best-model tracking must use optimization_loss, and report ordinary
-reconstruction separately. Do not silently reuse unpenalized stopping semantics.
+implemented; joint native penalized fit has now CONVERGED LOCALLY. New convergent_quadratic_fit_v2 tracks
+optimization_loss, reports reconstruction separately and preserves gradient bars.
+Planted/resume and nonstationary-stall controls pass. Sources/bindings are frozen.
 
-V2 data_product_s0 chunk0 running since20:39:01; data_block_s0 queued;
-data_shared_reader_s0 is also verified queued. Verify current queue before acting.
-Native-state baseline errors train/validation: constant.29557/.29653,
-affine.02932/.03156. Data product earlytrainingerror~.017, validationpending.
-Use evaluate_structured_fit_validation_v1.py with checkpoint filename after chunks
-finish. Test rows remain unopened. Weight/shared fits are partial candidates,
-not circuits. Read original priors/dossiers before interpreting components.
+Penalized weight product V1 completed21:07:47: all3predictionsPASS, localconvergence
+in57.04s/3931closures, capture.086989,cancellation1.219, validation.091166.
+Original540s warm-start cost remains charged; changed objective not originalfitconvergence.
+V2 data_shared_reader_s0 completed, validation.019442, unconverged. Productchunk1
+completed21:16:52, train.01621265, stillunconverged; avoidmoreidenticalzero-progresschunks.
+Blockvalidation.024394; firstproductvalidation.025849; secondproductvalidation.029441
+worsened despite tinytraininggain; firstfunctionfrozen. Affine.031560.
+MILLION_TOKEN_PANEL_V1 rows prepared:2048distinct Pile-10kdocumentprefixes,1048576tokens,
+32sampledinputs/document,1600/224/224splits. Managedcapture completed21:18:19 in27.74s, all3instrumentchecksheld.
+MILLION_TOKEN_PANEL_V1_RESULT.json is authoritative; newdatasetfitpending. Input-onlycache~164MB; all819200trainingpositions
+contribute mean/secondmoment. Pile isnotverified pretrainingdistribution; covariancenotfourthmoment.
+See appended21:14/21:18campaignanswers foroptimizerdetails, costs and primaryliterature.
+QR/SVDvariableprojection andmatrix-freeGaussNewton remainproposed,notexecuted.
+FullU output-function andtrace red-team audits complete, coefficientmetric-only bounds.
 
 32original configs remain frozen:4representations x2metrics x4starts. Only first
 chunks described above have executed. Each540-second fit chunk saves optimizer
 state; ending a chunk is not convergence. V1 cores/bindings must stay frozen.
 Use corrected V2 runner for data configurations. States~296MB and unfinished
 optimizer checkpoints are local-only; most artifacts are not off-box backed up.
-Disk~240MBfree before pendingdata checkpoints; monitor before further queueing.
+Disk~238MBfree after million-token capture; monitor before further queueing.
 
 The previous fixed two-product causal screen held its instrument but failed
 sufficiency/selectivity. Math1949 gives tested limits on exact sparse output-token
@@ -152,8 +159,8 @@ not be changed retroactively. Build small wrappers for new semantics.
 ## Review clocks and throughput
 
 Latest hourly review:
-[20:14](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-10_2014.md).
-Next hourly review is due **21:14 UTC** at the first safe boundary.
+[21:18](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-10_2118.md).
+Next hourly review is due **22:18 UTC** at the first safe boundary.
 Latest mathematical review:
 [19:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_1949.md).
 Next mathematical review is due **22:49 UTC**. Derive later deadlines from the

@@ -252,3 +252,7 @@ pair-to-block rewrite preserves its function while reducing that cancellation.
 The data-weighted fit and explicit cancellation-penalty route are active research,
 not new identified modules or repairs to the earlier removal failures.
 [Current derivation, prices, convergence limits and primary receipts](2026-09-10/unsupervised_structure_campaign.md).
+
+
+### 10 September21:20: converged penalty and larger input panel
+Explicit energy-penalized128-product fit convergedlocally, capture8.699%coefficientenergy withcancellation1.219. This is a changedbias, notconvergence oftheoriginalfit. Naturalshared-reader validation.01944 beatscurrentfreeproducts/blocksbutremainsunconverged. NewPilepanel1048576tokens captured; newdatafitpending. See [appended optimization/data explanation](2026-09-10/unsupervised_structure_campaign.md#your-questions-one-million-tokens-optimization-and-cost--2114-utc) anditsprimaryreceipts. No causalpromotion orrevisionofearlierremoval/OODfailures.

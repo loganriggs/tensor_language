@@ -1,0 +1,44 @@
+{
+  "schema": "fullu.trace.metric.v1",
+  "full_coefficient_metric": {
+    "total_energy": 99245061353.47293,
+    "minimum_eigenvalue": 8579392.751076767,
+    "captured": {
+      "1": 0.08171101408678852,
+      "4": 0.10088570828657936,
+      "32": 0.1782117767189526,
+      "128": 0.3404720263529284,
+      "512": 0.7379431221365338
+    }
+  },
+  "traceless_coefficient_metric": {
+    "total_energy": 98952545314.4774,
+    "minimum_eigenvalue": 8579379.884841528,
+    "captured": {
+      "1": 0.07907117663562356,
+      "4": 0.09829128291566103,
+      "32": 0.17581579679849155,
+      "128": 0.33854364783071667,
+      "512": 0.737175515784247
+    }
+  },
+  "residual_output_coefficient_metric": {
+    "total_energy": 162753289.2360611,
+    "minimum_eigenvalue": 19488.491255507935,
+    "captured": {
+      "1": 0.012036884809426903,
+      "4": 0.03667222951972222,
+      "32": 0.10974110600564134,
+      "128": 0.274947996942267,
+      "512": 0.7029266051855336
+    }
+  },
+  "isotropic_coefficient_energy_fraction": 0.0029474115387332325,
+  "uniform_sphere_constant_energy": 336978476922.83185,
+  "uniform_sphere_traceless_energy": 197562100870.49908,
+  "normalized_identity_control_max_error": 4.440892098500626e-16,
+  "trace_split_replay_error": 2.9949466773329864e-15,
+  "wall_seconds": 3.749672271311283,
+  "body_forwards": 0,
+  "scope": "Exact known trace/radial split; isotropic term retains ||x||^2/d rather than assuming exact unit RMS. Natural states need not be uniform on the sphere. Output spectra are descriptive mathematical bounds in their stated metrics, not behavior or structural impossibility."
+}

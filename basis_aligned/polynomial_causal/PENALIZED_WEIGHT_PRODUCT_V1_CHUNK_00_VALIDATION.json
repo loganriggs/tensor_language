@@ -1,0 +1,39 @@
+{
+  "schema": "structured.fit.validation.v1",
+  "checkpoint": "PENALIZED_WEIGHT_PRODUCT_V1_CHECKPOINT.pt",
+  "checkpoint_sha256": "d5e6d26a75139414e75a56d09fd00dc61355dc388893fc7e81681e6a041a2f84",
+  "config": {
+    "kind": "product",
+    "metric": "weight",
+    "penalty": 0.01,
+    "initialization": "frozen_stalled_unit_gauge",
+    "seed": 9116501
+  },
+  "chunk": 0,
+  "converged": true,
+  "fit_diagnostics": {
+    "phase": "lbfgs",
+    "adam_done": 2000,
+    "lbfgs_done": 170,
+    "closures": 3931,
+    "squared_relative_error": 0.9130108740379348,
+    "optimization_loss": 0.9140457259720446,
+    "component_energy_over_native_total": 0.10348519341097807,
+    "penalty": 0.01,
+    "cancellation_ratio": 1.2186280930717481,
+    "captured_energy_fraction": 0.0869891259620652,
+    "relative_stationarity": 7.244480109934022e-05,
+    "gradient_max_abs": 1.6866416449834687e-09,
+    "gram_condition": 8.381160974677792,
+    "regularized_gram_condition": 8.142483969301349,
+    "lbfgs_actual_inner_iterations": 1682,
+    "relative_progress_over_five_lbfgs_checks": 3.210663966214185e-07
+  },
+  "validation_states": 6400,
+  "validation_squared_relative_error": 0.09116641019995417,
+  "error_relative_to_train_mean_baseline": 0.3074404047900313,
+  "error_relative_to_affine_baseline": 2.8886776944307115,
+  "parameter_numbers": 442368,
+  "wall_seconds": 1.5583468414843082,
+  "scope": "Fixed validation rows, historically opened corpus. Neither fresh/OOD nor causal. Unfinished fits remain unfinished; no final method ranking from this evaluation."
+}

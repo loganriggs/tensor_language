@@ -1,0 +1,45 @@
+{
+  "schema": "million.token.training.metric.audit.v1",
+  "input_sha256": "9258d41635ec210b01444c60beb561a70a36015412fd48dd6489835b8d643c33",
+  "training_moment_tokens": 819200,
+  "mean_squared_norm": 545.7121965907928,
+  "mean_energy_fraction": 0.47370851476905296,
+  "metrics": {
+    "second_moment": {
+      "trace": 1151.9999737746818,
+      "minimum_eigenvalue": 0.05428356782085172,
+      "maximum_eigenvalue": 573.0674028091396,
+      "condition": 10556.922210794877,
+      "top_energy_fraction": {
+        "1": 0.4974543540408318,
+        "8": 0.7305573830811486,
+        "32": 0.7798736298808899,
+        "64": 0.8085500683691264,
+        "128": 0.842427568843067,
+        "256": 0.8842599479527818,
+        "512": 0.9346884647586902,
+        "1024": 0.990961747755927
+      },
+      "relative_asymmetry": 0.0
+    },
+    "centered_covariance": {
+      "trace": 606.28777718389,
+      "minimum_eigenvalue": 0.054004908783815614,
+      "maximum_eigenvalue": 166.09019756369236,
+      "condition": 3075.46482910581,
+      "top_energy_fraction": {
+        "1": 0.27394614210293805,
+        "8": 0.49160539094042865,
+        "32": 0.5831088457405738,
+        "64": 0.6370012527959221,
+        "128": 0.7009949204033826,
+        "256": 0.7803068297005148,
+        "512": 0.8760196421267741,
+        "1024": 0.9828588564974037
+      },
+      "relative_asymmetry": 0.0
+    }
+  },
+  "wall_seconds": 0.25212131440639496,
+  "scope": "Only training mean and second moment inspected. Top covariance directions are geometry, not circuits or full quadratic loss. FP32 matrix products accumulatedFP64; tiny negative eigenvalues within relative1e-6 accepted as roundoff. No validation/test or fitting."
+}

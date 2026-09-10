@@ -1,0 +1,33 @@
+{
+  "schema": "structured.fit.validation.v1",
+  "checkpoint": "STRUCTURED_FIT_V2_data_shared_reader_s0_CHECKPOINT.pt",
+  "checkpoint_sha256": "d45894e7298f39898de6650134f8877dca9836cac11fba7d4e0097d880b47104",
+  "config": {
+    "kind": "shared_reader",
+    "metric": "data",
+    "seed": 9116100,
+    "initialization": "random"
+  },
+  "chunk": 0,
+  "converged": false,
+  "fit_diagnostics": {
+    "phase": "lbfgs",
+    "adam_done": 2000,
+    "lbfgs_done": 448,
+    "closures": 7074,
+    "squared_relative_error": 0.017843336428608435,
+    "captured_energy_fraction": 0.9821566635713915,
+    "relative_stationarity": 0.0021144981446617438,
+    "gradient_max_abs": 1.6080685450610931e-06,
+    "gram_condition": 128281462.6211295,
+    "lbfgs_actual_inner_iterations": 4477,
+    "relative_progress_over_five_lbfgs_checks": 8.955173394644168e-07
+  },
+  "validation_states": 6400,
+  "validation_squared_relative_error": 0.019442108714888683,
+  "error_relative_to_train_mean_baseline": 0.06556460608865981,
+  "error_relative_to_affine_baseline": 0.6160381400805022,
+  "parameter_numbers": 237568,
+  "wall_seconds": 1.5474581941962242,
+  "scope": "Fixed validation rows, historically opened corpus. Neither fresh/OOD nor causal. Unfinished fits remain unfinished; no final method ranking from this evaluation."
+}
