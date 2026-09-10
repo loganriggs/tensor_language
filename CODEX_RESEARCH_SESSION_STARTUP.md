@@ -53,6 +53,35 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Native mixed-state dependence passes; source Gram audit executed — 2026-09-10 05:35:40 UTC
+
+Previous goal turn PROGRESS (9d0b6d524). New prereg/runner commit138aac63f.
+THIRD_NOUN_MIXED_STATE_V1 completed validA/B/C on all256 frozen prefixes.
+Remove P_oh from final rawstate per fixed c/s/a square, decode unchanged model:
+remaining mixed-margin RMSratio .0708–.1112, signed removedprojection .8983–.9381;
+all8worlds pass nativefloor.05 and ratio<=.25. This is synthetic four-state
+interaction removal, not an independently generated/selective circuit.
+16nativeforwards/256seq +32decoderbatches/512states, .919s, nofit/backward.
+RunnerSHA cc08ca2bf95ebee640e55d33b0b250da3e5b2a553f4f9e891232240298de1a2c.
+Parentmarginbridge0; finaldecodermax1.05e-5/rel1.58e-6; rawtelescope rel8.56e-8,
+mixedtelescope2.22e-6. Firstattentionquerymixed zero controlpasses (roundoff);
+following normalization/MLP firstcreatesmixed. Nativecompleted artifactsimmutable.
+
+Post-result continuation CLAIM+EXECUTED third_noun_source_gram_audit_v1.py:
+36transportednativewrite Grams, signedprojections sum1, cancellationcontrolpasses,
+rawsquarednormclosure<=9.40e-7. AllMLPwrites .8535–.9522 signedprojection;
+attention .0478–.1465; layers12–17 .8053–.9164. LastMLP17largestallworlds
+(.4099–.6428) but alonevectorerror .497–.714. Sumindividualnorms/sumnorm2.28–3.06.
+These are contextual nativewrite contributions, not independent causal sources;
+attention canremain necessary toproduceMLPinputs. Do notclaim MLP17is thecircuit.
+
+Nextinformationtarget: inherited versus newlyformed interaction in normalized
+bilinearMLP inputs, with attention producers retained. No nextnativeprotocol orGPUjob
+chosen/queued yet. Avoid firstattention/iswas/phase resurrection or selectorrescue.
+Updated existing explanation noun_number_selection_and_cross_token_interactions_2026-09-10.md.
+Clocks06:14hourly/07:49math. All545902902nativeweights charged,saving0;fullgoalactive.
+Bothmanagedrunnershealthy. CPUsourceaudit is actualpost-result continuationreceipt.
+
 ## Controller and third-noun screens; cross-token support audit — 2026-09-10 05:27 UTC
 
 Original handoff/pilot remain the authority, not stale better_math goal wording.

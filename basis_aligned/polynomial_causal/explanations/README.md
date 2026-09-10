@@ -11,7 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
-- [Noun-number selection and cross-token interactions](noun_number_selection_and_cross_token_interactions_2026-09-10.md): two registered native screens reject a grammatical selector and four third-noun rules; exact token-support certificates and a normalization counterexample identify the next localization question.
+- [Noun-number selection and cross-token interactions](noun_number_selection_and_cross_token_interactions_2026-09-10.md): updated with a positive native internal-interaction removal test: only 7.1–11.1% of the answer interaction remains; exact source accounting points mainly to MLP writes while preserving upstream dependencies.
 
 - [Position and content in shared attention](position_and_content_in_shared_attention_2026-09-10.md): exact rounded-rotation transport is tested; native about/for phase portability fails; executed answer/complement and joint-reader mathematics clarify the distinction between a task circuit and its complete host heads.
 

@@ -2,7 +2,7 @@
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
-The useful mathematical lead is **context-dependent combination of noun-number signals**. Making the third noun human reduces the second noun's influence and increases the third noun's influence. We have verified that the former interaction cannot originate in a token-local lookup. We also constructed a counterexample showing why it could still be created by final normalization, rather than an internal bilinear routing operation. No new circuit satisfying all four requested properties has been identified.
+The useful mathematical lead is **context-dependent combination of noun-number signals**. Making the third noun human reduces the second noun's influence and increases the third noun's influence. We have verified that the former interaction cannot originate in a token-local lookup. A subsequent native intervention now shows that most of the answer interaction is carried in the internal residual state: removing it leaves only 7.1–11.1% of its original magnitude. Native source accounting points mainly to MLP writes. This still does not identify a reusable operation or a circuit satisfying all four requested properties.
 
 ## Relation to the original handoff and pilot
 
@@ -104,7 +104,7 @@ x(o,h)=(1+o/4,\ 1+h/3).
 
 Its mixed coefficient is zero. Reading its first coordinate after root-mean-square normalization produces mixed coefficient **0.0207664**. A nonlinear decoder can create interaction even when the incoming state combines factors additively.
 
-The next informative native measurement is therefore where the cross-token interaction forms: compare residual states, normalized states, and decoded outputs before attributing it to attention or a bilinear MLP. This measurement is not yet registered or queued. Only a material, localized internal operation would justify producer/consumer weight folding and subsequent extraction, removal, and shared-use tests.
+The next informative native measurement is therefore where the cross-token interaction forms: compare residual states, normalized states, and decoded outputs before attributing it to attention or a bilinear MLP. That measurement has now been registered and executed; its result is below. Only an identified producer/consumer operation would justify claiming extraction, selective removal, and reusable composition.
 
 ## Evidence, cost, and current limits
 
@@ -117,4 +117,64 @@ The subsequent CPU audit reused the existing Walsh transform with explicit facto
 - [Shared factorial helper](../factorial_semantic_support_v1.py), [executed audit](../audit_factorial_semantic_support_v1.py), and [audit receipt](../FACTORIAL_SEMANTIC_SUPPORT_V1_RESULT.json).
 - [Hourly review](../HOURLY_STRATEGIC_REVIEW_2026-09-10_0514.md): median valid-receipt interval exceeded the ten-minute target; this shared replay/support tool is the required bounded workflow repair.
 
-OOD behavior was tested for the simple rules and failed. Independent circuit extraction, selective removal, and reusable composition remain unestablished. The progress is a better specified candidate computation and a mathematical test that prevents mistaking lexical or decoder interactions for the desired internal circuit.
+OOD behavior was tested for the simple rules and failed. Independent circuit extraction, selective removal, and reusable composition remain unestablished. The positive internal-state test below improves localization without promoting the failed behavioral selectors.
+
+
+## 5. Native interaction removal passes: most of the answer effect is internal
+
+We subsequently registered and executed [THIRD_NOUN_MIXED_STATE_V1](../THIRD_NOUN_MIXED_STATE_V1_PREREGISTRATION.md). For every fixed combination of verb, subject number and third-noun number, the projector
+
+\[
+P_{oh}x=(x-\operatorname{flip}_o x-\operatorname{flip}_h x+
+\operatorname{flip}_{oh}x)/4
+\]
+
+isolates the part of the final residual that depends jointly on object number and human category. A flip exchanges the two factor settings while keeping the other settings fixed. This retains interactions with the fixed context too; it is more complete than removing only the mean oh coefficient.
+
+We decoded both x and x−P_oh x using the unchanged final normalization, vocabulary weights and softcap. Across all eight worlds:
+
+- Native mixed answer-margin root-mean-square magnitude was 0.243–0.465 logit units.
+- Removing the internal mixed state left **7.08–11.11%** of that mixed margin magnitude, passing the predeclared 25% maximum in every world.
+- The removed effect's signed projection onto the original mixed answer effect was **89.83–93.81%**.
+- Full-vocabulary mixed-output magnitude remaining was 7.32–44.02%. The answer effect and the complete output vector are different observables.
+
+The native parent replay was exact. Independently decoding the saved final state differed by at most 1.05e−5 logits, relative error 1.58e−6, within both registered tolerances. There were 16 native forwards over 256 prefixes plus 32 decoder batches over 512 saved/edited final states; executor time was 0.919 seconds. No fitting or backward passes occurred.
+
+This rejects the idea that the answer interaction is created mainly by the final decoder acting on an interaction-free residual. It does **not** identify a neuron or extracted semantic variable. The removed component uses four observed states for each context. It is a synthetic, factor-specific state edit, with all native producers and decoder retained. Selectivity on unrelated behaviors remains untested.
+
+## 6. Exact native source accounting points to MLP writes
+
+The native residual recurrence gives
+
+\[
+x_{18}=k_e e+\sum_{l=0}^{17}k_l(A_l+M_l),\qquad
+k_l=\prod_{j=l+1}^{17}\lambda_{0,j}.
+\]
+
+Here e is the normalized token embedding, A_l and M_l are actual attention and MLP writes at the readout position, and each k_l is the product of later residual-carry coefficients. The embedding coefficient k_e also includes repeated embedding injection. This accounts for the writes actually made in the native run; their contextual input dependencies remain present.
+
+Apply P_oh to each transported write to obtain vectors d_i. Save their Gram matrix G_ij=⟨d_i,d_j⟩, which records their lengths and mutual alignment. If t=Σ_i d_i is the final mixed state, a source's signed contribution is
+
+\[
+p_i=\frac{\langle d_i,t\rangle}{\|t\|^2}
+=\frac{\sum_jG_{ij}}{\sum_{jk}G_{jk}}.
+\]
+
+These signed contributions sum to one; they can be negative because writes can cancel. The executed CPU audit found:
+
+| Native write group | Signed projection onto final mixed state, across worlds |
+|---|---:|
+| All MLP writes | 85.35–95.22% |
+| All attention writes | 4.78–14.65% |
+| All writes in layers 12–17 | 80.53–91.64% |
+| Last MLP alone | 40.99–64.28% |
+
+The last MLP is the largest individual source in every world, but by itself its relative vector error is 49.70–71.39%. The sum of individual write lengths is 2.28–3.06 times the length of their sum, demonstrating substantial cancellation. Choosing the largest write is therefore not an extracted circuit.
+
+The first attention write at this unchanged query satisfies the registered cross-source zero check, up to floating-point roundoff. The immediately following normalization/MLP produces a nonzero mixed state. This is consistent with attention transporting separate source information and a later token-local nonlinear operation combining it. It does not yet distinguish that normalization from the bilinear product, nor identify which input coordinates carry the two factors.
+
+The next meaningful decomposition is **inherited interaction versus newly formed interaction at a producer/consumer interface**. MLP dominance in direct-write accounting does not make upstream attention unnecessary. A future test must preserve those dependencies, distinguish normalization effects, and validate an explicit computation before claiming shared reusable factors. No successor GPU job is currently queued.
+
+The source telescope's relative error was 8.56e−8 for the raw final state and 2.22e−6 for the mixed state. CPU Gram accounting reproduced squared mixed-state norms within 9.40e−7 relative error and passed a cancellation control with both positive and negative contributions. These are numerical identities and native attribution, not independent causal-source interventions.
+
+Receipts: [native mixed-state result](../THIRD_NOUN_MIXED_STATE_V1_RESULT.json), [CPU source audit](../third_noun_source_gram_audit_v1.py), and [source audit result](../THIRD_NOUN_SOURCE_GRAM_AUDIT_V1_RESULT.json). All 545,902,902 native parameters remain charged, with zero structural savings. The CPU source analysis was claimed and executed after interpreting the native result.
