@@ -11,7 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
-- [Noun-number selection and cross-token interactions](noun_number_selection_and_cross_token_interactions_2026-09-10.md): updated through exact layer9 routing/value partition: no single term suffices; causal order separates earlier-number routing from later contextual values and proves the mixed-value branch uses the local value map.
+- [Noun-number selection and cross-token interactions](noun_number_selection_and_cross_token_interactions_2026-09-10.md): latest: native local-value removal with downstream recomputation passes partial causal materiality and within-bank factor selectivity; direct-carry prediction fails, leaving extraction and fresh-reader transfer open.
 
 - [Position and content in shared attention](position_and_content_in_shared_attention_2026-09-10.md): exact rounded-rotation transport is tested; native about/for phase portability fails; executed answer/complement and joint-reader mathematics clarify the distinction between a task circuit and its complete host heads.
 

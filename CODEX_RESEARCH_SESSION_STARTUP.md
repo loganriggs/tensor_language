@@ -53,6 +53,38 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Live value partial causality/selectivity; shared scorer executed — 2026-09-10 06:19:51 UTC
+
+Previous goalturnPROGRESS68242ceaa; prereg/runnereca250445.
+THIRD_NOUN_L9_VALUE_LIVE_V1 validA/B/D; Cdirectcarryfails. CompileW_V Poh(native
+normalizedL9input), removeatlocalc_v allheads/positions, native1.65625mixingand
+fullsuffixrecompute. Natural mixedanswer signedprojection .1570–.2533;
+nonmixed/mixed answerchange .1373–.2332 passesfactorselectivity. This iswithin-
+bank factorselectivity, notunrelatedtaskcontrols. Remainingnaturalinteraction
+magnitude .7489–.8440: partialcomponent, notsufficiency.
+Directcarryerror margin.0950–.3744/fullmixedvocabulary.8583–.9204; preserveCnull.
+Q/K/Q2/K2andsharedfirstVbitwiseunchanged, identityexact; weightcommute4.74e-6,
+localwriteoracle<=1.66e-5; parent0/nativefinaldecoder2.67e-5abs/4.62e-7rel.
+48forwards/768seq +32decoderbatches/512states,2.015s,0fits. RunnerSHA
+ a71a17c063568039c5e41a1807c5e3d7335516e461d1df624e275cac5ef9ad89.
+Completed artifactsimmutable. Correction stillusesfourcapturednativeinputs;
+all545902902parametersremain/saving0, noindependentproducer orOODclaim.
+
+Hourly0614complete:5validscreens through06:14:16; consecutivegapmedian9m36,
+executor5.916s. CIRCUIT_FOCUS/NOVELTYpass, CEREMONY_BUDGETunmeasured/fail.
+Required boundedreuse repair CLAIM+EXECUTED factorial_effect_metrics_v1.py and
+ audit_live_value_factor_metrics_v1.py: reuseWalshkernel, native/direct projection,
+spillratio andParseval spectrumreplay<=2.78e-17; target/spillcontrolpasses.
+Timed CPUread/analysis/validation only, notearlieragentthinking/reportingtime.
+LIVE_VALUE_FACTOR_METRICS_V1_RESULT.json storescoefficientsand remainingratios;
+largestspilltermvariesworld(co,oa,h,o), notoneuniformrepair.
+
+Nextpriority freshlexical/different-reflexive-reader transfer ofSAME frozen
+weightcompiledvalueoperator beforemoreproducerdecomposition. No nextnative
+rows/protocol/jobselectedyet. Keeporiginalhandoff/pilotauthority, notstalegoaltext.
+Existingexplanationsection12updated. Nextclocks07:14hourly/07:49math. Bothmanaged
+runnershealthy; preserveClaudework. Fullgoalactive; post-resultCPUauditexecuted.
+
 ## Layer9 routing/value partition and causal-source support — 2026-09-10 06:06:40 UTC
 
 Previous turnPROGRESS c46e16885; prereg/runnerc1b46d894.
