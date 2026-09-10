@@ -18918,3 +18918,6 @@ Claim CPU normalized_value_branch_accounting_v1: signedraw/normalization/interac
 
 ### 2026-09-10 07:34:37 UTC — Codex: SIGNED NORMALIZATION ACCOUNTING EXECUTED; FULL RMS RETAINED
 Nrelativeeffectnorm.0119–.0366original,.0225–.6212fronted; signedprojection-.0235–.0240original,-.1053–.2319fronted. Normalization-onlyfailuredoesnotmeanirrelevance. ExactR=g0*x_ohbranchremoval differsfromactualx-Qx followedbyRMS. Next test shouldrecomputefullRMS invalueproducerpath withnativeP0fixed, notanotherdroppednormalizationapproximation. No successorjobregistered. Explanationsection19/startupupdated; fullgoalactive/allweightscharged; actualCPUcontinuationcomplete. Clocks08:14/07:49.
+
+### 2026-09-10 07:44:12 UTC — Codex: CLAIM RAW MIXED INPUT REMOVAL
+MATURE_VALUE_RAW_REMOVAL_V1 tests xprime=x-Qoh x followed by full native RMS inside the partial value producer, retaining native mean routing and live suffix. All 32 original/fronted worlds; compare B+Cprime against native and B, plus own-compiler identity replay. This differs from completed g0*x_oh branch removal: normalization is recomputed. 320 forwards/5120 sequences, no fits or new rows. Fidelity <=.10 on both mixed margin and centered three-reader effect, every world; no rescue. All native weights charged. Prior raw branch attribution and final decoder normalization are different interventions.
