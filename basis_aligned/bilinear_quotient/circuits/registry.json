@@ -865,6 +865,44 @@
     "ea7b31a99a4b3bf22d7a3b5367fea0062f922a46c61266a7a50ff0ec0ff4ca73"
    ]
   },
+  "subroutine.readout.gerund_mlp_scalar_consumers": {
+   "file": "subroutine_readout_gerund_mlp_scalar_consumers.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "a480292b0c7da0d06eb7d31338cb36197576f1b896a11fdca5395e2fd3436d09",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "readout.gerund_mlp_scalar_consumers.v1.closure",
+   "claim_status": "rejected",
+   "causal_variable_id": "blocked_MLP_scalar_closure",
+   "interchange_family_count": 0,
+   "invariance_family_count": 2,
+   "negative_event_count": 1,
+   "active_negative_event_count": 1,
+   "latest_blocker": "readout.gerund_mlp_scalar_consumers.v1.conditional_closure",
+   "latest_active_event": "readout.gerund_mlp_scalar_consumers.v1.conditional_closure",
+   "active_event_ids": [
+    "readout.gerund_mlp_scalar_consumers.v1.instrument",
+    "readout.gerund_mlp_scalar_consumers.v1.consumer_necessity",
+    "readout.gerund_mlp_scalar_consumers.v1.agreement_mediation",
+    "readout.gerund_mlp_scalar_consumers.v1.conditional_closure"
+   ],
+   "held_test_types": [
+    "compiled_equivalence",
+    "removal"
+   ],
+   "active_blocking_test_types": [
+    "compiled_equivalence"
+   ],
+   "design_keys": [
+    "20164164807747dcb162ae14bafbfd0ff934e4ffc0b0976101e60503d35bdd39",
+    "87332723d11b3c19b3803dd015cb21b55f200bf2cb039f7341bf996414969f89",
+    "92d357a151f755365c098a8f4261ebb5c10744e713dc59e31cb9e5a68dc5aa37",
+    "f7c2534dc2a56f9eb7f0534f9bb389faef9bc5a4614445129393b7cc91a49b0a"
+   ]
+  },
   "subroutine.readout.gerund_scalar_write_network": {
    "file": "subroutine_readout_gerund_scalar_write_network.json",
    "schema_version": 2,

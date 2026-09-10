@@ -1,0 +1,467 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.readout.gerund_mlp_scalar_consumers",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "readout.gerund_mlp_scalar_consumers.v1.reads",
+   "revision": 1,
+   "status": "site_live",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "post_RMS_gerund_scalar_reads",
+    "domain": "Reused fresh A1/A2/G/C16 each; no new data",
+    "read": "e projection at18 normalized MLP inputs",
+    "operation": "Hold scalar at original recipient; exact bilinear correction before existing all36 output scalar swap/zero",
+    "write": "Changed complementary MLP outputs with prescribed output e coordinate unchanged",
+    "endpoint": "Target recovery loss .2914/.2905 and agreement base-zero damage reduction69.6% held; conditional closure .1529/.0845 fails joint.10 bound"
+   },
+   "alternative_explanations": [
+    "RMS-induced input complement changes and attention remain live",
+    "context reader and upstream producers remain native"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "necessity",
+     "changes": [
+      "block post-RMS e read at all18 MLPs"
+     ],
+     "holds_fixed": [
+      "old e, all36 output ports and frozen rows",
+      "native normalized complement, attention and other token positions"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "necessity",
+     "changes": [
+      "block post-RMS e read at all18 MLPs"
+     ],
+     "holds_fixed": [
+      "old e, all36 output ports and frozen rows",
+      "native normalized complement, attention and other token positions"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "G",
+     "role": "invariance",
+     "changes": [
+      "block post-RMS e read at all18 MLPs"
+     ],
+     "holds_fixed": [
+      "old e, all36 output ports and frozen rows",
+      "native normalized complement, attention and other token positions"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "invariance",
+     "changes": [
+      "block post-RMS e read at all18 MLPs"
+     ],
+     "holds_fixed": [
+      "old e, all36 output ports and frozen rows",
+      "native normalized complement, attention and other token positions"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_fresh_panels",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "all18_MLP_scalar_reads",
+     "tensor_path": "transformer.h.[0..17].mlp normalized input at semantic position",
+     "shape": [
+      18,
+      1152
+     ],
+     "intervention": "restore natural base e input scalar, then original output e edit"
+    }
+   ],
+   "split_plan_ids": [
+    "reused_fresh_panels"
+   ],
+   "evidence_event_ids": [
+    "readout.gerund_mlp_scalar_consumers.v1.instrument",
+    "readout.gerund_mlp_scalar_consumers.v1.consumer_necessity",
+    "readout.gerund_mlp_scalar_consumers.v1.agreement_mediation"
+   ],
+   "translation_ids": [],
+   "next_missing": "Independent context-gate producers, downstream consumer composition and broader OOD; no selective-removal rescue."
+  },
+  {
+   "claim_id": "readout.gerund_mlp_scalar_consumers.v1.closure",
+   "revision": 1,
+   "status": "rejected",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "blocked_MLP_scalar_closure",
+    "domain": "Reused fresh A1/A2/G/C16 each; no new data",
+    "read": "e projection at18 normalized MLP inputs",
+    "operation": "Hold scalar at original recipient; exact bilinear correction before existing all36 output scalar swap/zero",
+    "write": "Changed complementary MLP outputs with prescribed output e coordinate unchanged",
+    "endpoint": "Target recovery loss .2914/.2905 and agreement base-zero damage reduction69.6% held; conditional closure .1529/.0845 fails joint.10 bound"
+   },
+   "alternative_explanations": [
+    "RMS-induced input complement changes and attention remain live",
+    "context reader and upstream producers remain native"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "necessity",
+     "changes": [
+      "block post-RMS e read at all18 MLPs"
+     ],
+     "holds_fixed": [
+      "old e, all36 output ports and frozen rows",
+      "native normalized complement, attention and other token positions"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "necessity",
+     "changes": [
+      "block post-RMS e read at all18 MLPs"
+     ],
+     "holds_fixed": [
+      "old e, all36 output ports and frozen rows",
+      "native normalized complement, attention and other token positions"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "G",
+     "role": "invariance",
+     "changes": [
+      "block post-RMS e read at all18 MLPs"
+     ],
+     "holds_fixed": [
+      "old e, all36 output ports and frozen rows",
+      "native normalized complement, attention and other token positions"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "invariance",
+     "changes": [
+      "block post-RMS e read at all18 MLPs"
+     ],
+     "holds_fixed": [
+      "old e, all36 output ports and frozen rows",
+      "native normalized complement, attention and other token positions"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_fresh_panels",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "all18_MLP_scalar_reads",
+     "tensor_path": "transformer.h.[0..17].mlp normalized input at semantic position",
+     "shape": [
+      18,
+      1152
+     ],
+     "intervention": "restore natural base e input scalar, then original output e edit"
+    }
+   ],
+   "split_plan_ids": [
+    "reused_fresh_panels"
+   ],
+   "evidence_event_ids": [
+    "readout.gerund_mlp_scalar_consumers.v1.conditional_closure"
+   ],
+   "translation_ids": [],
+   "next_missing": "Independent context-gate producers, downstream consumer composition and broader OOD; no selective-removal rescue."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "reused_fresh_panels",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "rows",
+   "description": "Previously opened fresh A1/A2/G/C16; new post-RMS consumer intervention, no fitting."
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "readout.gerund_mlp_scalar_consumers.v1.instrument",
+   "claim_id": "readout.gerund_mlp_scalar_consumers.v1.reads",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "G",
+    "C"
+   ],
+   "site_id": "all18_MLP_scalar_reads",
+   "split_plan_id": "reused_fresh_panels",
+   "evaluation_role": "instrument",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "runner",
+    "helper",
+    "executor",
+    "binding"
+   ],
+   "seed": 9111420,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_a_instrument",
+     "value": true,
+     "bar": true
+    }
+   ],
+   "notes": "All native weights retained. This is conditional scalar-read mediation, not independent circuit extraction; G remains a failed original selectivity control. Full per-row metrics and paired intervals in result/audit.",
+   "design_key": "f7c2534dc2a56f9eb7f0534f9bb389faef9bc5a4614445129393b7cc91a49b0a",
+   "execution_key": "d59b069bdde2a341fd8e900cd2cc6529c1bcbc13572fb260c8a3f065ad468f24"
+  },
+  {
+   "event_id": "readout.gerund_mlp_scalar_consumers.v1.consumer_necessity",
+   "claim_id": "readout.gerund_mlp_scalar_consumers.v1.reads",
+   "stage": "complete",
+   "test_type": "removal",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "G",
+    "C"
+   ],
+   "site_id": "all18_MLP_scalar_reads",
+   "split_plan_id": "reused_fresh_panels",
+   "evaluation_role": "consumer_necessity",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "runner",
+    "helper",
+    "executor",
+    "binding"
+   ],
+   "seed": 9111420,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_c_essential_consumers",
+     "value": true,
+     "bar": true
+    }
+   ],
+   "notes": "All native weights retained. This is conditional scalar-read mediation, not independent circuit extraction; G remains a failed original selectivity control. Full per-row metrics and paired intervals in result/audit.",
+   "design_key": "92d357a151f755365c098a8f4261ebb5c10744e713dc59e31cb9e5a68dc5aa37",
+   "execution_key": "06deb945d17b5173ad45ecc9219b153c78213573354d3cba11eda4729e942052"
+  },
+  {
+   "event_id": "readout.gerund_mlp_scalar_consumers.v1.agreement_mediation",
+   "claim_id": "readout.gerund_mlp_scalar_consumers.v1.reads",
+   "stage": "complete",
+   "test_type": "removal",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "G",
+    "C"
+   ],
+   "site_id": "all18_MLP_scalar_reads",
+   "split_plan_id": "reused_fresh_panels",
+   "evaluation_role": "agreement_mediation",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "runner",
+    "helper",
+    "executor",
+    "binding"
+   ],
+   "seed": 9111420,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_e_agreement_damage_mediation",
+     "value": true,
+     "bar": true
+    }
+   ],
+   "notes": "All native weights retained. This is conditional scalar-read mediation, not independent circuit extraction; G remains a failed original selectivity control. Full per-row metrics and paired intervals in result/audit.",
+   "design_key": "20164164807747dcb162ae14bafbfd0ff934e4ffc0b0976101e60503d35bdd39",
+   "execution_key": "fea2673ab9bbeeef5bfbbcb8cf23b6ed45a3b9196f0d623501626a6e606aeaa6"
+  },
+  {
+   "event_id": "readout.gerund_mlp_scalar_consumers.v1.conditional_closure",
+   "claim_id": "readout.gerund_mlp_scalar_consumers.v1.closure",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "G",
+    "C"
+   ],
+   "site_id": "all18_MLP_scalar_reads",
+   "split_plan_id": "reused_fresh_panels",
+   "evaluation_role": "conditional_closure",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "runner",
+    "helper",
+    "executor",
+    "binding"
+   ],
+   "seed": 9111420,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_d_conditional_closure",
+     "value": false,
+     "bar": true
+    }
+   ],
+   "notes": "All native weights retained. This is conditional scalar-read mediation, not independent circuit extraction; G remains a failed original selectivity control. Full per-row metrics and paired intervals in result/audit.",
+   "design_key": "87332723d11b3c19b3803dd015cb21b55f200bf2cb039f7341bf996414969f89",
+   "execution_key": "149c1489b462992b12a991c86dfcf6e2d3d5b1adb136113fadafba5e04099bfa"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/GERUND_MLP_CONSUMER_V1_PREREGISTRATION.md",
+   "sha256": "b71c04ef9f87fd92d78d369bc54788a7b14df645bc25e8c2f574dbdc671f5a8f",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/GERUND_FRESH_TRANSFER_V1_ROWS.json",
+   "sha256": "e5b43e97f8eb198bf4f98f524b5708d732608a1ff4847ecc14f854a3c3d4802b",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "component": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SHARED_READER_V1_COMPONENT.pt",
+   "sha256": "b58366e161c343ac27192eac3315f5067eb7104383ec9eb37ef91bf0cfab05da",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_gerund_mlp_consumer_v1.py",
+   "sha256": "6838667d18f4a16d34082f496f61fdbe14def1d6393456ff9907b651c5316439",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "helper": {
+   "path": "basis_aligned/polynomial_causal/bilinear_scalar_consumer_v1.py",
+   "sha256": "65bc778783b98d5efa7449f21508d686ffb95030fbac3475e795bbd17bba69a7",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "executor": {
+   "path": "basis_aligned/polynomial_causal/scalar_write_network_executor_v1.py",
+   "sha256": "ba27edf3d663b3c170fb7dd0912e058f1064415624c349dfc15b30794a0d2b1d",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "binding": {
+   "path": "basis_aligned/polynomial_causal/GERUND_MLP_CONSUMER_V1_BINDING.json",
+   "sha256": "7f1b806522adc4e6f01c73d9fcf0750e12d1cb2b3899fe5e352cb3211c4a41ec",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/GERUND_MLP_CONSUMER_V1_RESULT.json",
+   "sha256": "7459bc847f210401265642360138ba8c883d6220973229f5a19670e9f504949f",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/GERUND_MLP_CONSUMER_AUDIT_V1_RESULT.json",
+   "sha256": "de93ccc5b10699b8a7314113f17008f6cddffc38fca0a58302876de1c818ba90",
+   "kind": "evidence",
+   "status": "frozen"
+  }
+ }
+}

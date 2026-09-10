@@ -1,6 +1,14 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 16:31 UTC
+## Latest follow-up — 10 September, 16:42 UTC
+
+**MLP consumers explain a substantial part of the missing response.** Holding
+the fixed grammatical scalar at its original value inside each MLP reduces
+target recovery by 29 percentage points in both constructions. It removes 70%
+of the agreement damage on the tested base endpoint. The scalar-only predictor
+is much closer on this altered computation, but still fails its joint error
+bound. This is conditional consumer evidence, not independent extraction or a
+selective repair. [Updated math, controls and results](gerund_scalar_writes_and_live_feedback.md).
 
 **New verbs and cues transfer, but broader selectivity fails.** The fixed
 unembedding-derived grammatical direction recovers 95%/86% of the new target

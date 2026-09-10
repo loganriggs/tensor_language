@@ -1,6 +1,90 @@
 # Shared grammatical writes work; the scalar-only predictor does not
 
-**Latest result — 10 September, 16:31 UTC:** the fixed distributed direction
+**Latest result — 10 September, 16:42 UTC:** MLPs read the grammatical scalar
+and write consequential changes into other directions. Holding those scalar
+reads at their original values reduces target recovery by **29 percentage
+points in both constructions**. It also removes about **70% of the agreement
+damage on the tested base endpoint**. This identifies an important use of the
+shared scalar, while the remaining prediction error still prevents a closed
+scalar-only explanation.
+
+## What the MLP consumer test changed
+
+We kept the same distributed output swaps and zeros. At each MLP's final token
+position, we additionally held its grammatical input scalar at the natural
+recipient value. Everything else in that MLP input remained live. This operation
+acts after the model's RMS normalization; we did not renormalize the edited
+input. It therefore tests a specific internal read, not a naturally occurring
+residual state. Attention and normalization-induced changes to other coordinates
+can still transmit effects.
+
+Let u be that normalized MLP input, e the fixed grammatical direction, and
+delta the change needed to restore its original scalar. The exact bilinear
+output change is
+
+    Delta m = D[delta*((Le)*(Ru)+(Lu)*(Re)) + delta^2*(Le)*(Re)].
+
+Here * multiplies corresponding coordinates. The first term combines the scalar
+change with the current context; the second is the scalar's squared contribution.
+We add this weight-computed correction to the actual MLP output, then perform
+the original output-scalar intervention. Because that final operation fixes the
+output coordinate along e, differences between the two arms travel through the
+other output directions. The earlier v184/v185 work already derived this kind
+of expansion; the new evidence is this grammatical consumer intervention.
+
+| Measurement | New frame 1 | New frame 2 |
+|---|---:|---:|
+| Original distributed swap recovery | .952 | .863 |
+| Recovery with MLP scalar reads held fixed | .660 | .573 |
+| Recovery lost | **.291** | **.291** |
+| Original scalar-prediction relative error | .649 | .645 |
+| Error with MLP scalar reads held fixed | .153 | .084 |
+
+The loss intervals are [.256,.324] and [.262,.319]. Both clear the registered
+.20 necessity threshold for this intervention. The prediction-error criterion
+required at most .10 in both frames, so it **still fails**: frame 1 has interval
+[.149,.156]. This smaller error compares the predictor with an altered model
+whose scalar reads were blocked; it is not an improved predictor of the
+unchanged model's original intervention.
+
+For agreement, base-endpoint zero-removal CE damage falls from .387 to .118
+nats. The reduction is .269, interval [.248,.291], or 69.6% of its original
+signed mean. The remaining damage is still above .10. This experiment tested
+the base endpoint only; the earlier .548 figure averaged base and donor, so
+these numbers must not be compared as if they were the same measure. Blocking
+also changes target zero effects; it is not a selective repair of agreement.
+
+## Shared scalar, different contextual reads
+
+Folding an output reader v through the same correction gives a context reader
+
+    k_v = L^T[(D^T v)*(Re)] + R^T[(D^T v)*(Le)] = 2 Q(v)e.
+
+For u=se+z, with z perpendicular to e, the scalar-dependent contribution to
+that output is s*(k_v^T z) + s^2*a_v, where
+a_v=(D^T v)^T[(Le)*(Re)]. Thus a shared scalar can combine with a different
+contextual quantity for each token or structured output reader.
+
+The direct weight maps for output e and the runs/run agreement contrast have
+per-layer cosines from −.020 to .736, median .205. They are generally distinct
+context readers. This is a diagnostic of immediate MLP output functions, not
+proof that two complete behavioral circuits are separate; later layers still
+transform their writes. No layer was selected from these values.
+
+The instrument passed: 28 forwards over 448 sequence instances, all 64 native
+pairs capable, exact replay of previous swap/base-zero results, and maximum
+relative direct-versus-folded MLP error 1.60e-6. Executor time was 1.72 seconds.
+All native weights and contextual input producers remain necessary. The next
+missing piece is predicting these context reads and their downstream use without
+depending on the rest of the original model.
+
+Evidence: [consumer preregistration](../../GERUND_MLP_CONSUMER_V1_PREREGISTRATION.md),
+[native result](../../GERUND_MLP_CONSUMER_V1_RESULT.json), and
+[executed paired audit](../../GERUND_MLP_CONSUMER_AUDIT_V1_RESULT.json).
+
+## Earlier fresh-transfer result
+
+**Fresh-transfer result — 10 September, 16:31 UTC:** the fixed distributed direction
 transfers to new verbs and grammatical cues, recovering **95.2%/86.3%** of the
 target effect. However, a closer subject–verb agreement control fails both
 preservation and selective removal. The earlier positive selectivity result
