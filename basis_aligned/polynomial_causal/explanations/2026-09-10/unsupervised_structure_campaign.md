@@ -1294,3 +1294,110 @@ correspond to stable native functions with explicit interfaces. The earlier
 22:49 math review's uniqueness result applies to the exact fitted square tensor,
 not to the native tensor or the best approximation problem.
 [Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-10_2318.md).
+
+
+## Block result and overlapping token factors — 23:28 UTC
+
+The overlapping-block manifold run finished240seconds without convergence.
+Numerical checks and the registered improvement/retention prediction passed;
+convergence failed. Penalized objective improved by5.30e-5 and raw full-tensor
+capture rose from8.6230% to8.6285%. The final projected stationarity was0.00368
+against the1e-4 bar. This is not a structural negative.
+
+The last500steps still improved the objective by1.22e-6; gradients oscillated,
+with best stationarity1.78e-4 across the entire run. No accepted objective
+increase or ill-conditioned writer solve occurred. Removing the internal
+coordinate freedom helped the representation stay numerically controlled,
+while coupled nonconvex optimization remains unfinished. The checkpoint is
+resumable. Its final function captures71.98%of the common-output component but
+only3.7167%of the centered component, so the earlier common-output story remains.
+[Result](../../MULTIOUTPUT_MANIFOLD_V1_RESULT.json),
+[negative-result audit](../../MULTIOUTPUT_MANIFOLD_V1_REDTEAM.json),
+[common/centered accounting](../../MULTIOUTPUT_MANIFOLD_V1_OUTPUT_SPLIT.json).
+
+The next native job tests a genuinely different structural assumption:
+**sparse overlapping token usage of shared quadratic functions**. The MLP17
+dossier already records a failed16-leaf whole-token mean hierarchy. Here a token
+can use several functions and each function can serve many tokens; there are
+no hard token clusters. This targets shared summands rather than proportional
+whole-token functions.
+
+First take the centered coefficient tensor's optimal128-dimensional output
+projection, computed exactly through its small output covariance. Write
+
+$$
+T_{128}(t,i,j)=\sum_{a=1}^{128} A_{ta}H_{aij},
+\qquad \langle H_a,H_b\rangle_F=\delta_{ab}.
+$$
+
+The quadratic functions $H_a$ are initially unrestricted inside input space;
+we have not assumed one product per function. $A_{ta}$ describes how much token
+$t$ uses function$a$. Any orthogonal rotation$R$ permits
+
+$$
+A'=AR,\qquad H'=R^\top H,\qquad A'H'=AH.
+$$
+
+This preserves the projected tensor and its fit error. We choose a rotation
+that maximizes the varimax criterion
+
+$$
+\mathcal V(R)=\sum_a\left[
+\frac{1}{V}\sum_t (AR)_{ta}^4
+-\left(\frac{1}{V}\sum_t (AR)_{ta}^2\right)^2\right].
+$$
+
+It favors concentrated signed loadings: a factor used strongly by some tokens
+and weakly by others. The first experiment uses raw loadings with one global
+numerical rescaling, not row normalization or token frequency weights. This
+can favor large-weight rows, so we report that limitation and the padded-row
+energy. Orthogonal function bases also exclude oblique/overcomplete dictionaries.
+
+The [modern statistical analysis of varimax](https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Rohe23.pdf)
+provides recovery results under specified latent-factor distributions, including
+leptokurtic assumptions. We have not established those conditions for learned
+vocabulary weights, so no such recovery guarantee is claimed here.
+
+CPU controls passed: the implicit projection matches dense tensor SVD to1.50e-15;
+joint rotation preserves the tensor to3.91e-16; the gradient matches a finite
+difference to7.75e-10. A planted overlapping sparse factor mixture is recovered
+with minimum axis alignment0.99994 and local convergence.20 uninterrupted steps
+match10+10 resumed steps exactly. Diagnostic cadence was repaired before native
+registration so rapidly converging controls do not outrun the plateau history.
+
+The native run has now completed in62.24seconds and converged locally. Numerical
+and convergence predictions passed; the structural prediction failed overall.
+Median effective factor count fell from38.18 to28.62, meeting the25%reduction
+clause. But each token's strongest4factors retained only32.39%of loading energy,
+below the50%bar (initial25.26%). The fixed rank128 projection captures28.999%of
+centered native coefficient energy; rotation leaves this unchanged. Effective
+factor count is $(\sum_a A_{ta}^2)^2/\sum_a A_{ta}^4$, not a literal nonzero count.
+[Result](../../OUTPUT_VARIMAX_V1_RESULT.json).
+
+The executed red-team audit finds aggregate top8/top16/top32/top64 retention of
+43.87%/59.21%/77.56%/94.19%. The median token needs53factors for90%of its own
+projected loading energy (10th–90thpercentiles44–60). Keeping only four loadings
+per token captures9.392%of the full centered native tensor, because the input
+functions are orthonormal and the outside-projection residual is orthogonal.
+This exact accounting does not make the resulting program cheap: the global
+quadratic dictionary and remainder still cost storage and computation.
+
+The four functions with highest output loading energy need461–476signed-square
+directions for90%coefficient energy. Their best single real product captures
+8.95–13.60%. These are exact spectral statements about those four scalar forms,
+not lower bounds on shared input computations across functions. Sparse token
+usage did not automatically make the input computation simple.
+[Executed function/sparsity audit](../../OUTPUT_VARIMAX_V1_AUDIT.json).
+
+The strongest remaining assumptions are the fixed128-dimensional output
+subspace, orthogonal function axes, one rotation initialization and raw loading
+norm weighting. A specific probe found the raw solution far from stationary
+for the equal-token criterion (relative gradient0.613). Accordingly, an equal-row
+normalized varimax comparison is now queued. Only the rotation objective uses
+unit-norm token rows; the original tensor is preserved with unnormalized
+loadings and inverse-rotated functions. Report both raw-energy and equal-token
+metrics under both rotations. This is a change in the structural prior, not
+proof that the new fit will be better, and it does not rewrite V1's failed bar.
+[Next preregistration](../../OUTPUT_VARIMAX_NORMALIZED_V1_PREREGISTRATION.md).
+No data or circuit identification is claimed. Common output and the outside
+projection remainder remain explicit.

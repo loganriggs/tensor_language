@@ -288,3 +288,9 @@ functioncosine.7955 failsreproducibility. Different-qualitylocalfits, notproof
 ofmultipleequallygoodglobaloptima. Broaderblockfunction/penalty arepreserved
 bywithin-blockQR/coretransport, errors2.53e-15/2.22e-16; differentblocks remain
 allowedtooverlap. [Latest calculation](2026-09-10/unsupervised_structure_campaign.md#restart-disagrees-broader-block-conditioning-repaired--2306-utc).
+
+### 10 September 23:28: block optimization and a different output-sharing hypothesis
+Overlapping-block manifold fit A/C held, B failed after240seconds: full capture8.6285%, centered3.7167%, common71.98%. Still improving; no structural negative. Resumable checkpoint retained. New varimax test rotates exact centered output-rank128 factors and their token loadings together, preserving the projected tensor while testing sparse overlapping usage. Distinct from failed16-leaf whole-reader mean clustering. Controls passed; native job queued, no result yet. [Details](2026-09-10/unsupervised_structure_campaign.md#block-result-and-overlapping-token-factors--2328-utc).
+
+### 10 September 23:32: output varimax result and red-team audit
+Raw varimax converged62.24s; A/B held, C failed. Median factor participation38.18→28.62 satisfies25%reduction, top4loading retention32.39%fails50%. Median53factors needed for90%per-token projection energy; fixed outputrank128captures28.999%centered native energy. Leading4functions need461–476signed-square axes for90%; not a joint-computation lower bound. Raw solution has equal-token objective gradient0.613, so equal-row-normalized comparison queued with same tensor projection. No data, no promoted circuit. Receipts OUTPUT_VARIMAX_V1_RESULT.json and OUTPUT_VARIMAX_V1_AUDIT.json.

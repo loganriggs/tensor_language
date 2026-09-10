@@ -1,0 +1,55 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_converged": false,
+    "pred_c_improved_and_retained": true
+  },
+  "initial": {
+    "iteration": 0,
+    "optimization_loss": 0.9145668976451572,
+    "squared_relative_error": 0.9137697876842368,
+    "captured_energy_fraction": 0.08623021231576322,
+    "component_energy_over_native_total": 0.07971099609203725,
+    "relative_stationarity": 0.004707525879525481,
+    "gradient_max_abs": 3.0776662934190375e-07,
+    "orthogonality_error": 2.6645352591003757e-15,
+    "sphere_error": 2.220446049250313e-16,
+    "gram_diagonal_error": 1.5543122344752192e-15,
+    "regularized_gram_condition": 15.135823576181709
+  },
+  "final": {
+    "iteration": 6659,
+    "optimization_loss": 0.9145139183127093,
+    "squared_relative_error": 0.9137153091501415,
+    "captured_energy_fraction": 0.08628469084985846,
+    "component_energy_over_native_total": 0.0798609162567801,
+    "relative_stationarity": 0.0036795905249153533,
+    "gradient_max_abs": 1.149258213261511e-06,
+    "orthogonality_error": 3.1086244689504383e-15,
+    "sphere_error": 2.220446049250313e-16,
+    "gram_diagonal_error": 1.3322676295501878e-15,
+    "regularized_gram_condition": 14.94105091500725,
+    "relative_progress_five_checks": 1.3432019029373974e-06
+  },
+  "terminal_reason": "budget_limit",
+  "objective_improvement": 5.2979332447855576e-05,
+  "raw_capture_retained_clause": true,
+  "maximum_objective_increase": 0.0,
+  "initial_bridge": 2.220446049250313e-16,
+  "initial_raw_bridge": 2.220446049250313e-16,
+  "final_replay": 0.0,
+  "price": {
+    "body_forwards": 0,
+    "float_numbers": 377344,
+    "iterations": 6659,
+    "objective_evaluations": 17217,
+    "backtracks": 3898,
+    "direction_restarts": 1091,
+    "fit_seconds": 240.02666703611612,
+    "inherited_fit_seconds": 540.148,
+    "checkpoint_bytes": 8059056
+  },
+  "checkpoint_sha256": "c515a7c3c2146ba9e7c47e3b8099ecc373ea368360853772ca5d6cec1a10ce7a",
+  "wall_seconds": 240.9553804062307,
+  "scope": "Samefull-U lambda.01 overlapping16x16x4block representation. Newmanifoldcoordinates; projectedgradientnotnumericallyidenticaltooldrawgaugegradient. No data/globaloptimum/circuitclaim."
+}

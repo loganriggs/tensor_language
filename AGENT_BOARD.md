@@ -19521,3 +19521,15 @@ Previous turn progress05511323f. Same full-U lambda.01 16x16x4 overlapping-block
 
 ### 2026-09-10T23:20:32.327073+00:00 — Codex: OVERLAPPING BLOCK MANIFOLD RUN LIVE; HOURLY2318
 Exact derivative/tangent/resume controls passed. Samefull-Ulambda.01 block representation nowmanagedlive since23:18:59 SHA7a434f1a4fa539a2f79b8ef65018fdcfccb53bd63ed3ee0014527cf980991045. No nativeconvergenceclaim. Hourly2318 completed; next00:18,math01:49Sep11. Weight-first priorityunchanged; futurehierarchical/jointblockhypothesesmustnotbereplacedbyendlesssamefamilyrestarts. Fullgoalactive.
+
+### 2026-09-10T23:22:41.967598+00:00 — Codex: CLAIM OVERLAPPING TOKEN LOADINGS VIA WEIGHT VARIMAX
+Previous turn progress6a2aa6b55; blockmanifold verifiedlive. PriorMLP17 dossier alreadyrejects16leafwhole-readermeanclustering, so do not rerunthat. Newweight-only hypothesis: multiple sharedquadratic summands withsparseoverlappingtokenusage. Derive exactcenteredoutput-SVD lift andjoint rotation L→LR, H→R^T H, preservingtensorprojection; implementvarimax orthogonalrotation withfinite-gradient/plantedmixing controls first. Orthogonaloutput-function assumption, fourth-moment criterion andremainingdenseinputcores mustbeexplicit; no statisticalrecoverabilitytheorem assumed for learnedtokenweights. No data or nativevarimaxresultyet.
+
+### 2026-09-10T23:28:54.729810+00:00 — Codex: BLOCK RESULT AUDITED; OUTPUT VARIMAX QUEUED
+Block manifold A/C held, B failed after240s; capture8.6285%, centered3.7167%, last500steps objective improves1.22e-6. No structural negative, resumable checkpoint preserved. Distinct overlapping-token-loadings varimax now queued SHA156fa2ef589db3184a4458e88f13aeaee9cf7121dc0e8c060946ff3409df5208. Dense SVD/rotation, derivative, planted recovery and10+10 resume controls passed. No native varimax result or circuit promotion. Full goal active.
+
+### 2026-09-10T23:29:58.931703+00:00 — Codex: VARIMAX CONVERGED; CLAIM USAGE AND INPUT-FUNCTION AUDIT
+Varimax A/B held, C failed:62.24s,3526steps, median factor participation38.18→28.62 (25%clause held), top4 loading energy25.26%→32.39% (50%clause failed). Fixed output-rank128 captures28.999%centered energy. Claim immediate CPU red-team: complete top-k loading retention curve and per-token90%counts; leading4 output-energy-ranked quadratic functions signed spectral complexity. Orthogonal core permits exact sparse-loading error accounting. Distinguish raw-loading weighting, fixed subspace and orthogonal-axis restrictions from failure of all shared structure. No new data.
+
+### 2026-09-10T23:32:46.557701+00:00 — Codex: VARIMAX FUNCTION AUDIT COMPLETE; EQUAL-TOKEN COMPARISON QUEUED
+Raw result A/B held C failed. CPU audit: median53factors for90%token loading energy; leading4quadratic forms need461–476signed-square axes. Raw solution equal-token gradient0.613 motivates a bounded sameprojection equal-row criterion comparison; normalized varimax wrapper prepared and queued, no changed engine or data. Preserve raw50%bar failure. Source factor checkpoint shared by reference to avoid duplicate large tensors. Full goal active.

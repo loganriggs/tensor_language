@@ -1,0 +1,28 @@
+{
+  "dense_projection_relative_error": 1.5048971381424732e-15,
+  "orthogonal_function_error": 6.661338147750939e-16,
+  "rotation_replay_relative_error": 3.91408317325698e-16,
+  "finite_gradient_absolute_error": 7.754223929623549e-10,
+  "planted_minimum_axis_alignment": 0.9999409122023075,
+  "planted_converged": true,
+  "resume_max_difference": 0.0,
+  "before": {
+    "nonzero_token_rows": 1219,
+    "zero_token_rows": 1781,
+    "median_token_factor_participation": 1.9764853099824742,
+    "mean_token_factor_participation": 2.0575639017967857,
+    "median_factor_token_participation": 238.52800603551913,
+    "token_top4_energy_fraction": 0.9999999999999997,
+    "padded_row_energy_fraction": 0.0
+  },
+  "after": {
+    "nonzero_token_rows": 1219,
+    "zero_token_rows": 1781,
+    "median_token_factor_participation": 1.0001209204032424,
+    "mean_token_factor_participation": 1.075968045238722,
+    "median_factor_token_participation": 115.77053033281007,
+    "token_top4_energy_fraction": 1.0,
+    "padded_row_energy_fraction": 0.0
+  },
+  "passed": true
+}

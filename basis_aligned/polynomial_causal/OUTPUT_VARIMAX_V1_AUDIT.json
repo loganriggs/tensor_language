@@ -1,0 +1,63 @@
+{
+  "instrument_passed": true,
+  "topk_loading_energy": {
+    "1": 0.17211559447669633,
+    "2": 0.2394408825044627,
+    "4": 0.32387247700399074,
+    "8": 0.4387261258575674,
+    "16": 0.5921300282862553,
+    "32": 0.7755833189363962,
+    "64": 0.9418890108708889,
+    "96": 0.9929345055946086,
+    "128": 1.0
+  },
+  "median_factors_for_90percent_per_token": 53.0,
+  "q10_factors_for_90percent": 44.0,
+  "q90_factors_for_90percent": 60.0,
+  "four_sparse_loading_centered_tensor_capture": 0.09391831962865488,
+  "leading_functions": [
+    {
+      "factor": 0,
+      "loading_energy_fraction": 0.029764911258783448,
+      "quadratic_norm_squared": 1.0000000000000007,
+      "best_single_real_product_capture": 0.08946757240015807,
+      "best_rank16_square_capture": 0.18850495942596313,
+      "signed_square_rank90": 476
+    },
+    {
+      "factor": 1,
+      "loading_energy_fraction": 0.01859838400235437,
+      "quadratic_norm_squared": 1.0000000000000002,
+      "best_single_real_product_capture": 0.1360218340935241,
+      "best_rank16_square_capture": 0.23945086521874392,
+      "signed_square_rank90": 465
+    },
+    {
+      "factor": 4,
+      "loading_energy_fraction": 0.014214563373578343,
+      "quadratic_norm_squared": 1.0000000000000009,
+      "best_single_real_product_capture": 0.13568078145151763,
+      "best_rank16_square_capture": 0.2449054790463097,
+      "signed_square_rank90": 461
+    },
+    {
+      "factor": 2,
+      "loading_energy_fraction": 0.014214045301275414,
+      "quadratic_norm_squared": 1.0,
+      "best_single_real_product_capture": 0.10397838032785345,
+      "best_rank16_square_capture": 0.23636999772488648,
+      "signed_square_rank90": 462
+    }
+  ],
+  "equal_token_row_normalized_relative_stationarity": 0.6131555335752296,
+  "top4_replay_error": 1.1102230246251565e-15,
+  "redteam": {
+    "narrow_failure": "Converged raw-varimax rotation fails50%top4-loading-energy bar within fixed128-dimensional output subspace",
+    "structural_negative": false,
+    "orthogonal_basis_restriction": true,
+    "one_rotation_initialization": true,
+    "raw_loadings_prioritizes_large_norm_tokens": true,
+    "fixed_output_subspace": true,
+    "scope": "Normalized-gradient probe changes the criterion, not evidence that its optimized structure is better. Spectral complexity is exact for these four selected scalar quadratic forms, not a lower bound on joint input reuse."
+  }
+}
