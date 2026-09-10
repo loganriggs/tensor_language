@@ -1,0 +1,204 @@
+{
+  "source_sha256": "1ce03a9da95cc21e2c30136c13ed1b858b072510a21888444ab7a35fe04b0e75",
+  "script_sha256": "3feb20ac4b0e3e0988050b3ec60ec0b866a41bc3c9a1679b135b25736ddd9904",
+  "routing_identity": {
+    "formula": "Q_oh(P d)=mean_oh(P) d when d(o,h)=oh d_oh",
+    "max_absolute_error": 4.440892098500626e-16,
+    "passed": true
+  },
+  "reports": [
+    {
+      "world_id": "male:husband:defend",
+      "nuisance_signed_projections": {
+        "mixed": 0.7216917419287824,
+        "spill": 0.2824383304582831,
+        "interaction": -0.004130072387065451
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.7796912252579463,
+      "mixed_natural_projection": 0.16796311905427436,
+      "mixed_gender_ratio": 0.23086440830844185,
+      "composition_reader_error": 0.0011530359471466538
+    },
+    {
+      "world_id": "male:husband:introduce",
+      "nuisance_signed_projections": {
+        "mixed": 0.6112296828405409,
+        "spill": 0.38689957542179426,
+        "interaction": 0.0018707417376648391
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.9522779444385697,
+      "mixed_natural_projection": 0.15932764492422272,
+      "mixed_gender_ratio": 0.21408928229816662,
+      "composition_reader_error": 0.0013873039836763874
+    },
+    {
+      "world_id": "male:gentleman:defend",
+      "nuisance_signed_projections": {
+        "mixed": 0.6082571286633163,
+        "spill": 0.39368226528918177,
+        "interaction": -0.0019393939524980366
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.715985938931645,
+      "mixed_natural_projection": 0.2519987649281436,
+      "mixed_gender_ratio": 0.1624604730055336,
+      "composition_reader_error": 0.00044289280341318826
+    },
+    {
+      "world_id": "male:gentleman:introduce",
+      "nuisance_signed_projections": {
+        "mixed": 0.43942888508914846,
+        "spill": 0.5607664658940426,
+        "interaction": -0.00019535098319099916
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.4999780954617454,
+      "mixed_natural_projection": 0.182556980206624,
+      "mixed_gender_ratio": 0.1868858254215505,
+      "composition_reader_error": 0.00047788857418783794
+    },
+    {
+      "world_id": "male:monk:defend",
+      "nuisance_signed_projections": {
+        "mixed": 0.644669841639737,
+        "spill": 0.36189719553521094,
+        "interaction": -0.006567037174947903
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.681927289463419,
+      "mixed_natural_projection": 0.1502305737136481,
+      "mixed_gender_ratio": 0.19978034920616752,
+      "composition_reader_error": 0.001911882332708432
+    },
+    {
+      "world_id": "male:monk:introduce",
+      "nuisance_signed_projections": {
+        "mixed": 0.5943462318384294,
+        "spill": 0.4083993043966247,
+        "interaction": -0.0027455362350541344
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.7054215362477064,
+      "mixed_natural_projection": 0.14771981839692683,
+      "mixed_gender_ratio": 0.39610726354212905,
+      "composition_reader_error": 0.0006836967304498078
+    },
+    {
+      "world_id": "male:dad:defend",
+      "nuisance_signed_projections": {
+        "mixed": -0.13098440783495255,
+        "spill": 1.1091872788594312,
+        "interaction": 0.021797128975521295
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.6957237063215446,
+      "mixed_natural_projection": 0.21502777996279435,
+      "mixed_gender_ratio": 0.1438073259220093,
+      "composition_reader_error": 0.013421551274990659
+    },
+    {
+      "world_id": "male:dad:introduce",
+      "nuisance_signed_projections": {
+        "mixed": -0.1863319160134135,
+        "spill": 1.1831035749874157,
+        "interaction": 0.003228341025997893
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.315391815809709,
+      "mixed_natural_projection": 0.1390544660972276,
+      "mixed_gender_ratio": 0.16943948395645847,
+      "composition_reader_error": 0.006486522104713834
+    },
+    {
+      "world_id": "female:queen:defend",
+      "nuisance_signed_projections": {
+        "mixed": 0.6888085662276254,
+        "spill": 0.31427906356079655,
+        "interaction": -0.0030876297884220244
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.7840371046191996,
+      "mixed_natural_projection": 0.23510212469878927,
+      "mixed_gender_ratio": 0.10939018540656872,
+      "composition_reader_error": 0.0009573222243619934
+    },
+    {
+      "world_id": "female:queen:introduce",
+      "nuisance_signed_projections": {
+        "mixed": 0.07417737603308934,
+        "spill": 0.9248646553977563,
+        "interaction": 0.0009579685691543411
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.44359763452961537,
+      "mixed_natural_projection": 0.19624414579349928,
+      "mixed_gender_ratio": 0.13621089069557776,
+      "composition_reader_error": 0.0016134587910791173
+    },
+    {
+      "world_id": "female:woman:defend",
+      "nuisance_signed_projections": {
+        "mixed": 0.21199637174697378,
+        "spill": 0.7814005305487793,
+        "interaction": 0.00660309770424691
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.8284333074346086,
+      "mixed_natural_projection": 0.2711583287892239,
+      "mixed_gender_ratio": 0.22200393686633138,
+      "composition_reader_error": 0.002104781086191126
+    },
+    {
+      "world_id": "female:woman:introduce",
+      "nuisance_signed_projections": {
+        "mixed": 0.07328879791969287,
+        "spill": 0.9235196044522885,
+        "interaction": 0.0031915976280185885
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.44263077669658274,
+      "mixed_natural_projection": 0.239518406593878,
+      "mixed_gender_ratio": 0.29431898026827036,
+      "composition_reader_error": 0.0018140530910259137
+    },
+    {
+      "world_id": "female:girl:defend",
+      "nuisance_signed_projections": {
+        "mixed": 0.5978504893793481,
+        "spill": 0.4036758661018315,
+        "interaction": -0.001526355481179628
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.7050412139132719,
+      "mixed_natural_projection": 0.20482141933542325,
+      "mixed_gender_ratio": 0.12067442622865017,
+      "composition_reader_error": 0.001740292390293203
+    },
+    {
+      "world_id": "female:girl:introduce",
+      "nuisance_signed_projections": {
+        "mixed": 0.3532928302650838,
+        "spill": 0.6475352121032918,
+        "interaction": -0.0008280423683755322
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.5268874912521517,
+      "mixed_natural_projection": 0.14190280887108978,
+      "mixed_gender_ratio": 0.23701937476615592,
+      "composition_reader_error": 0.0007291583905800067
+    },
+    {
+      "world_id": "female:mother:defend",
+      "nuisance_signed_projections": {
+        "mixed": -0.020722787575782865,
+        "spill": 1.003166077596263,
+        "interaction": 0.017556709979519896
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.7390945687952346,
+      "mixed_natural_projection": 0.22580731284098163,
+      "mixed_gender_ratio": 0.13197636106203042,
+      "composition_reader_error": 0.0066884566749235205
+    },
+    {
+      "world_id": "female:mother:introduce",
+      "nuisance_signed_projections": {
+        "mixed": -0.16292349584564925,
+        "spill": 1.160843269036835,
+        "interaction": 0.0020802268088141694
+      },
+      "mixed_only_remaining_nuisance_norm_ratio": 0.3942596460380328,
+      "mixed_natural_projection": 0.17308773969049543,
+      "mixed_gender_ratio": 0.1747354581611042,
+      "composition_reader_error": 0.002468464453242389
+    }
+  ],
+  "scope": "Signed nuisance contributions on opened outcomes; cancellation is allowed. Synthetic matrix identity validates algebra, not independent native production or gender selectivity."
+}

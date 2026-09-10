@@ -53,6 +53,37 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Live mixed-write split passes fidelity/selectivity/composition — 2026-09-10 06:46:07 UTC
+
+Previous goal turn PROGRESS6cc3d8bbe; current preregistration/implementation5545c4470.
+`THIRD_NOUN_VALUE_WRITE_FACTORIAL_V1_RESULT.json` valid A/B/C/E; D gender fails.
+At layer9 attention output, split the original local-value intervention's all-position
+write difference D into Dm=Qoh D and Ds=D-Dm. Recompute the native suffix after
+removing each part or both. Across all16 frozen fresh lexical worlds:
+- Mixed-only target-effect error .00653–.09228 versus the original local-value edit.
+- Factor spill .06386–.22375; all16 pass <=.25, including six parent failures.
+- Natural mixed-effect projection .1391–.2712: still a partial component.
+- Composition error <=.01458 correct margin and <=.01343 centered three-reader vector.
+- Gender still fails monk/introduce (.3961) and woman/introduce (.2943).
+All native/edited parent and full-write replays exact. Installed mixed-write impurity
+<=2.85e-6; early delta zero. 160 forwards/2560 sequences,2.535s. Managed runner SHA
+`ce8ef4120e372f0d1e8ffb1fe88b6296f8475a24a23f650b9135af4a276e9e38`.
+
+Executed CPU continuation: `third_noun_write_factor_attribution_v1.py` and
+`THIRD_NOUN_WRITE_FACTOR_ATTRIBUTION_V1_RESULT.json`. For a pure mixed value
+correction d=oh*d_oh, Qoh(P*d)=mean_oh(P)*d. Synthetic matrix identity error4.44e-16.
+This interprets Dm as the value interaction read through conditionally averaged
+routing; the other routing factors produce Ds. Saved nuisance attribution shows
+cancellation; do not call signed projections positive fractions of a mechanism.
+
+Next highest-information step: freeze the mixed-write operation and test structural
+OOD transfer before further extraction. This bank was already open when Dm was
+registered, so its repaired selectivity is not new OOD evidence. Do not tune gender
+thresholds or discard failures. Full independent producer/suffix extraction remains
+missing; all545902902 native weights charged. No successor GPU job registered yet.
+Explanation section14 updated. Full goal active; CPU audit is completed continuation.
+Hourly review next07:14 UTC; mathematical review07:49 UTC. Both runners healthy.
+
 ## Fresh value transfer: material effect persists, selectivity fails — 2026-09-10 06:38:38 UTC
 
 Latest preregistration/implementation commit: `48080763f`.

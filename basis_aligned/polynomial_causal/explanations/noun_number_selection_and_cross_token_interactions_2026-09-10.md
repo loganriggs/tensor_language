@@ -1,6 +1,6 @@
 # Noun-number selection: what the model does, and what the math rules out
 
-**Latest result, 06:36 UTC:** the same layer 9 value intervention has a material effect on all 16 fresh noun/action groups, including female reflexives. However, six groups fail the registered factor-selectivity requirement and two fail the gender control. The computation is partly transferable, but we have not isolated a clean reusable number circuit. Section 13 explains the test and why a mathematically pure input interaction can still produce unwanted output effects.
+**Latest result, 06:43 UTC:** splitting the layer 9 attention write now isolates a partial effect that passes factor selectivity in all 16 noun/action groups, preserves the original target effect within 10%, and composes with its complementary write. The gender control still fails in two groups. This is evidence for a useful split within attention, with native inputs and downstream computations still required. Section 14 explains the split; a new structural OOD test is needed because this intervention was developed after opening the lexical bank.
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
@@ -392,3 +392,39 @@ because h²=1. A pure input interaction creates an unwanted object-number main e
 More generally, the live suffix's finite response is an integral of its Jacobian along the removed-value path. Both the input correction and that reader depend on sentence context. A projector over the input sentence table therefore need not commute with the downstream computation. A useful weight-based split must account for the producer **and its consumers**; merely making the input factors orthogonal is insufficient.
 
 The next mathematical target is to distinguish context-dependent downstream reading from a mixed producer that bundles different variables. This calls for a discriminating reader/producer test, not threshold changes or removal of the six failing groups. The CPU geometry audit and toy falsifier are completed continuation work; no successor GPU experiment is registered yet. Independent production still requires replacement of the four native counterfactual input states, and all 545902902 native parameters remain charged.
+
+## 14. Splitting the attention write fixes factor selectivity, but not gender selectivity
+
+The next test intervened at the output of layer 9 attention. Let D be the complete change in its write caused by the original local-value removal, measured at every position. We split it into D_m=Q_oh D, the intended interaction, and D_s=D-D_m, the other factors. Here Q_oh is the same four-corner projector previously denoted P_oh; Q distinguishes it from attention routing below.
+
+We removed D_m alone, D_s alone, and both together, with the native downstream layers recomputing. Removing both exactly recreates the original local-value edit at this interface, providing a positive control. The [registered factorial](../THIRD_NOUN_VALUE_WRITE_FACTORIAL_V1_PREREGISTRATION.md) passes instrument validity, mixed-effect fidelity, factor selectivity and composition. It fails gender selectivity:
+
+| Measurement | Result across all 16 groups |
+| --- | --- |
+| Intended mixed answer effect: difference from the original intervention | 0.65–9.23% relative error; all below 10% |
+| Other factor effects / intended effect, after removing D_m alone | 6.39–22.37%; all below 25% |
+| D_m effect's signed projection onto the natural interaction | 13.91–27.12%; still a partial contribution |
+| Joint removal versus sum of separate effects | At most 1.46% error for the correct margin and 1.34% for the centered three-answer vector |
+| Gender effect / number effect | Fails for monk/introduce (.3961) and woman/introduce (.2943) |
+
+The full-write replay and both parent-output replays pass the registered absolute and relative bounds. The run used 160 transformer forwards over 2560 sequence instances in 2.535 seconds. All three write patches cover all positions, preserve the shared first-layer value, and use the original native suffix. [Native result](../THIRD_NOUN_VALUE_WRITE_FACTORIAL_V1_RESULT.json).
+
+This locates a removable source of unwanted factor effects in the way attention reads the value correction. It does not show that later layers produce no unwanted effects: D_m alone still has nonzero spill. It also does not make all of D_s unimportant; the fidelity test permits up to 10% difference in the target effect.
+
+There is a useful exact interpretation in the bilinear attention algebra. Fix the other sentence factors and write the pure value correction as d(o,h)=oh d_oh. Let P(o,h) denote the complete linear map from these value corrections to attention writes, with the native queries, keys, value-mixing coefficient and output weights included. Expand that map as
+
+\[
+P(o,h)=P_0+oP_o+hP_h+ohP_{oh}.
+\]
+
+Then
+
+\[
+P(o,h)d(o,h)=ohP_0d_{oh}+hP_od_{oh}+oP_hd_{oh}+P_{oh}d_{oh}.
+\]
+
+Consequently, **D_m=P_0d**: the selected write reads the mixed value through routing averaged over the four o/h corners. The remaining terms describe routing-dependent conversion into other factors. This is a conditional identity; P_0 may still depend on the verb, other noun numbers, lexical world and positions. It does not mean attention routing is globally constant or that we can discard the producer of d.
+
+The [executed CPU audit](../THIRD_NOUN_WRITE_FACTOR_ATTRIBUTION_V1_RESULT.json) verifies the matrix-valued identity to 4.44e−16 and attributes the saved unwanted output effects to the two edits and their interaction. Removing only D_m leaves 31.5–95.2% of the original unwanted-effect magnitude, depending on the group. Signed contributions reveal cancellation: the D_s contribution can exceed 100% where D_m partially opposes it. Therefore these components should not be presented as a simple positive percentage partition.
+
+This is the kind of within-module split the original handoff calls for: one native attention module contains separable contributions with different downstream roles. However, its production still uses native counterfactual inputs; its gender control fails; and its apparent factor-selectivity improvement is measured on an already opened bank. The next useful test is to freeze this exact split and test structural OOD transfer, before claiming a reusable extracted unit. All 545902902 native parameters remain charged. The post-result CPU attribution and routing identity are completed; no structural-transfer GPU job is registered yet.
