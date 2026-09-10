@@ -2,7 +2,7 @@
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
-The useful mathematical lead is **context-dependent combination of noun-number signals**. Making the third noun human reduces the second noun's influence and increases the third noun's influence. We have verified that the former interaction cannot originate in a token-local lookup. A subsequent native intervention now shows that most of the answer interaction is carried in the internal residual state: removing it leaves only 7.1–11.1% of its original magnitude. Native source accounting points mainly to MLP writes. This still does not identify a reusable operation or a circuit satisfying all four requested properties.
+The useful mathematical lead is **context-dependent combination of noun-number signals**. Making the third noun human reduces the second noun's influence and increases the third noun's influence. We have verified that the former interaction cannot originate in a token-local lookup. A subsequent native intervention now shows that most of the answer interaction is carried in the internal residual state: removing it leaves only 7.1–11.1% of its original magnitude. Raw-vector accounting favored MLP writes, but the subsequent behavioral test rejected them as the main answer carrier: removing all their mixed writes leaves 68–110% of the answer interaction. The relevant source must be judged through its actual readers. This still does not identify a reusable operation or a circuit satisfying all four requested properties.
 
 ## Relation to the original handoff and pilot
 
@@ -144,6 +144,8 @@ This rejects the idea that the answer interaction is created mainly by the final
 
 ## 6. Exact native source accounting points to MLP writes
 
+These are vector-space measurements. The behavioral test in section 7 shows why they cannot select the answer-carrying circuit by themselves.
+
 The native residual recurrence gives
 
 \[
@@ -173,8 +175,71 @@ The last MLP is the largest individual source in every world, but by itself its 
 
 The first attention write at this unchanged query satisfies the registered cross-source zero check, up to floating-point roundoff. The immediately following normalization/MLP produces a nonzero mixed state. This is consistent with attention transporting separate source information and a later token-local nonlinear operation combining it. It does not yet distinguish that normalization from the bilinear product, nor identify which input coordinates carry the two factors.
 
-The next meaningful decomposition is **inherited interaction versus newly formed interaction at a producer/consumer interface**. MLP dominance in direct-write accounting does not make upstream attention unnecessary. A future test must preserve those dependencies, distinguish normalization effects, and validate an explicit computation before claiming shared reusable factors. No successor GPU job is currently queued.
+The next decomposition tested was **inherited interaction versus newly formed interaction at a producer/consumer interface**; section 7 gives its completed outcome. MLP dominance in direct-write accounting does not make upstream attention unnecessary. A future test must preserve those dependencies, distinguish normalization effects, and validate an explicit computation before claiming shared reusable factors. No successor GPU job is currently queued.
 
 The source telescope's relative error was 8.56e−8 for the raw final state and 2.22e−6 for the mixed state. CPU Gram accounting reproduced squared mixed-state norms within 9.40e−7 relative error and passed a cancellation control with both positive and negative contributions. These are numerical identities and native attribution, not independent causal-source interventions.
 
 Receipts: [native mixed-state result](../THIRD_NOUN_MIXED_STATE_V1_RESULT.json), [CPU source audit](../third_noun_source_gram_audit_v1.py), and [source audit result](../THIRD_NOUN_SOURCE_GRAM_AUDIT_V1_RESULT.json). All 545,902,902 native parameters remain charged, with zero structural savings. The CPU source analysis was claimed and executed after interpreting the native result.
+
+
+## 7. Symmetric MLP factorization is exact, but fails the behavioral carrier test
+
+We split each MLP's actual Left and Right activations into four components while holding the other three sentence factors fixed:
+
+\[
+L=L_0+L_o+L_h+L_{oh},\qquad R=R_0+R_o+R_h+R_{oh}.
+\]
+
+The subscripts indicate which factor flips change that component's sign. These components are computed symmetrically from all four corners. No sentence is privileged as the baseline. The joint component of their elementwise product is exactly
+
+\[
+P_{oh}(L\odot R)=
+\underbrace{L_o\odot R_h+L_h\odot R_o}_{\text{formed at the product}}
++
+\underbrace{L_0\odot R_{oh}+L_{oh}\odot R_0}_{\text{inherited at the input}}.
+\]
+
+Applying the native Down weights and residual-carry coefficients gives two sets of output writes across all 18 MLPs. “Inherited” includes interactions introduced by the MLP input's normalization; it does not establish an upstream semantic variable. “Formed at the product” names this algebraic interface, not a newly discovered algorithm.
+
+The partition passed its instrument checks: exact factor algebra relative error at most 2.01e−17, and agreement with native FP32 mixed MLP writes within 1.55e−5 relative error. CPU controls verified pure new/inherited examples, factor rescaling, and row permutation. No neuron, layer, rank, or phrase was selected to improve the outcome.
+
+We then removed each transported branch from the final native residual and decoded it with the unchanged model:
+
+| Removed contribution | Remaining native answer-interaction RMS ratio |
+|---|---:|
+| All MLP mixed writes | **0.681–1.103** |
+| Product-formed branch only | 0.765–1.030 |
+| Input-inherited branch only | 0.693–1.191 |
+
+Every branch failed the registered requirement of at most 0.25 in every world. In particular, the complete MLP branch fails despite accounting for 85–95% of the final mixed state's signed vector projection. This rejects using that vector projection as evidence that MLPs carry the main answer interaction. It does not refute the previous positive removal of the *whole* internal mixed state.
+
+The run used 16 native forwards / 256 prefixes and 64 decoder batches / 1,024 states in 1.078 seconds. Parent replay was exact; the decoder bridge again passed both absolute and relative tolerances. No parameters were fit or removed from storage. [Protocol](../THIRD_NOUN_MLP_FACTOR_PARTITION_V1_PREREGISTRATION.md), [result](../THIRD_NOUN_MLP_FACTOR_PARTITION_V1_RESULT.json), and [factor algebra](../symmetric_factor_interaction_v1.py).
+
+## 8. Replace vector-size ranking with exact reader-weighted edit accounting
+
+For a final state x, source writes d_i and edit amounts alpha_i, define
+
+\[
+x'=x+\sum_i\alpha_i d_i.
+\]
+
+Let W contain the actual vocabulary-reader rows under study. Before softcap, the decoder depends on its reader numerators and a common normalization denominator:
+
+\[
+W x'=Wx+\sum_i\alpha_i Wd_i,
+\]
+
+\[
+\|x'\|^2=\|x\|^2+2\sum_i\alpha_i\langle x,d_i\rangle
++\sum_{ij}\alpha_i\alpha_j\langle d_i,d_j\rangle.
+\]
+
+The native decoder applies root-mean-square normalization using sqrt(||x'||²/D+epsilon), followed by 30 tanh(logit/30). These equations therefore predict finite, simultaneous source edits exactly over this fixed-state interface, rather than approximating their effects with a derivative. The Gram matrix is shared by all readers, while each reader has its own numerator. Cross-terms between sources must be retained for joint edits.
+
+The [executed CPU implementation](../rms_softcap_edit_statistics_v1.py) reproduced direct decoding within 8.89e−16 and orthogonal-coordinate invariance within 3.22e−15. It preserved the native FP32 epsilon when evaluating in FP64, handled exact state cancellation, and demonstrated a 0.149 output error when source cross-terms were deliberately omitted. These are known decoder identities made executable, not discovered learned sharing.
+
+A concrete counterexample explains the failed vector ranking. Let a large source be (0,100), a small source (1,0), and the reader see only the first coordinate. The large source accounts for 99.99% of the total vector's signed projection, but removing the small source eliminates the reader output. Removing the large source instead increases it by changing normalization. Large vector contribution can have the wrong relationship to behavioral importance.
+
+The two completed native removal reports also constrain the remaining attention contribution. Subtracting the all-MLP removal effect from the total mixed-state removal effect gives **57.87–97.56%** signed projection for removing the remaining attention component *after the MLP component is already absent*, up to audited numerical closure. This is conditional evidence, not an attention-only intervention in the native background. The latter has not yet been run; no attention head is selected from these figures.
+
+The next native measurement should retain these reader and norm statistics and test the attention contribution in both backgrounds before naming its producer. This prevents another source-size ranking from masquerading as circuit localization. [CPU controls and conditional diagnostic](../RMS_SOFTCAP_EDIT_STATISTICS_V1_CONTROLS.json). All native weights and contextual producers remain charged; independent extraction, new OOD prediction, selective unrelated-behavior removal, and reusable circuit composition are still incomplete.

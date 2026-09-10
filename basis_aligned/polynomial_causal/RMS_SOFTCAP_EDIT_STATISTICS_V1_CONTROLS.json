@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "direct_decoder_max_abs": 8.881784197001252e-16,
+  "orthogonal_coordinate_error": 3.219646771412954e-15,
+  "zero_state_epsilon_passed": true,
+  "omitted_source_cross_term_error": 0.149004895365211,
+  "reader_vs_vector_counterexample": {
+    "large_source_vector_projection": 0.9999000099990001,
+    "native_reader": 0.014141427522401398,
+    "without_large": 1.4131667588906753,
+    "without_small": 0.0
+  },
+  "scope": "Exact decoder algebra on fixed state/write interfaces; no discovered circuit or model compression.",
+  "script_sha256": "571cefe481a8e09bb81ad9ea4f6c38a1ca50c7f34476738254914042687f28dc",
+  "model_forwards": 0,
+  "native_conditional_attention_diagnostics": [
+    {
+      "world_id": "king_defend_third",
+      "conditional_attention_removed_signed_projection": 0.6742304026755642
+    },
+    {
+      "world_id": "king_introduce_third",
+      "conditional_attention_removed_signed_projection": 0.8458801137419305
+    },
+    {
+      "world_id": "man_defend_third",
+      "conditional_attention_removed_signed_projection": 0.5787459186962771
+    },
+    {
+      "world_id": "man_introduce_third",
+      "conditional_attention_removed_signed_projection": 0.6794704555414612
+    },
+    {
+      "world_id": "father_defend_third",
+      "conditional_attention_removed_signed_projection": 0.7734924353876603
+    },
+    {
+      "world_id": "father_introduce_third",
+      "conditional_attention_removed_signed_projection": 0.9755812795794596
+    },
+    {
+      "world_id": "actor_defend_third",
+      "conditional_attention_removed_signed_projection": 0.7602433354802494
+    },
+    {
+      "world_id": "actor_introduce_third",
+      "conditional_attention_removed_signed_projection": 0.600552482998018
+    }
+  ],
+  "conditional_scope": "Difference of total-mixed removal and MLP-mixed removal: attention removal conditional on MLP mixed state already absent. Not attention-only removal in native background.",
+  "native_sources_sha256": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/THIRD_NOUN_MIXED_STATE_V1_RESULT.json": "373b2a86290ca448e9281fad35a8ddcc3055e6d79b6fcab5adccc521829f20f8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/THIRD_NOUN_MLP_FACTOR_PARTITION_V1_RESULT.json": "17db508064779fd4364b7cbf154579bb1367133d59b5c6c7d6c74f26d410e732"
+  }
+}

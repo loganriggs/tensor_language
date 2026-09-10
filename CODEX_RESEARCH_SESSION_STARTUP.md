@@ -53,6 +53,37 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## MLP factor partition fails behavior; exact decoder edit statistics executed — 2026-09-10 05:45:40 UTC
+
+Previous goal turnPROGRESS c8536531f. New prereg/runner bddb67047.
+THIRD_NOUN_MLP_FACTOR_PARTITION_V1 validA, B/C/Dallfail: removingallMLPmixed
+leaves naturalmixedmarginRMSratio .681–1.103; newonly .765–1.030; inheritedonly
+.693–1.191. No new/inheritedwinner orMLP17rescue. This rejects MLPbehaviorcarrier
+inference from85–95% RAWVECTORprojection. Wholemixedstateremovalpositive remains.
+Exact symmetric factor algebra new=LoRh+LhRo, inherited=L0Roh+LohR0;
+all18nativeLeft/Right/Down, inputnormalizationretained. Factorclosure<=2.01e-17,
+nativewritebridge<=1.542e-5rel; parentreplay0,decoder1.05e-5abs/1.58e-6rel.
+16forwards/256seq +64decoderbatches/1024states,1.078s. RunnerSHA
+7642a21007674fbaab6651a5145e93cfd744a0deb05c31b27ad5ccdbf29c4309.
+Preflight ABS-VS-REL warning heuristic: code/protocol enforce BOTHabsANDrelative.
+Completedrunner/helper/rows/protocol/binding/results immutable.
+
+Concretepost-resultclaim+executedCPU rms_softcap_edit_statistics_v1.py:
+Wx'=Wx+sumalpha Wd; norm²'=norm²+2alpha·base-source+alpha^TGramalpha.
+SharednormGram plusindividualreader numerators exactly predict fixed-sourcejoint
+edits through nativeRMS/softcap. Directerror<=8.89e-16,gauge<=3.22e-15;
+zero-stateepsiloncontrolpass; omittedsourcecross-termerror.149. Notnewsemantic
+sharing orindependentactivationproducer. Counterexample largevector99.99% yet
+smalldirectioneliminatesreader. ControlsreceiptRMS_SOFTCAP_EDIT_STATISTICS_V1_CONTROLS.json.
+
+Conditional nativeattention remainder from totalstateeffect minusMLPeffect has
+signedprojection .5787–.9756 afterMLPmixedalreadyremoved (numericalclosureaudited).
+NOTattention-onlyremovalinnativebackground. Nextnative should capture exactreader/
+normstatistics and testattention inbothbackgroundsbeforeheadselection. No nextGPU
+protocol/job chosenyet. Do notrepeat normrankings orresurrect failedMLP/iswas routes.
+Existingexplanation updatedsections7/8. All545902902weightsremain,saving0;
+fullgoalactive. Clocks06:14hourly/07:49math; bothmanagedrunnershealthy.
+
 ## Native mixed-state dependence passes; source Gram audit executed — 2026-09-10 05:35:40 UTC
 
 Previous goal turn PROGRESS (9d0b6d524). New prereg/runner commit138aac63f.
