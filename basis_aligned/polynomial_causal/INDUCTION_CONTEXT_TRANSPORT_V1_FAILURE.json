@@ -1,0 +1,10 @@
+{
+  "experiment": "induction_context_transport_v1",
+  "status": "implementation_failure",
+  "exception": "NumPy Boolean scalar in adequate_scale is not JSON serializable",
+  "location": "first per-row JSONL write, after all 864 rows computed",
+  "scientific_result_published": false,
+  "rows_file_bytes": 0,
+  "source_sha256": "e7dfaed301991ccd953a6f7fcfc3ea9517f1c0d551bd2b9a791a1545a2bca6b1",
+  "repair": "v2 converts the RMS scale to a Python float before comparison; no scientific change"
+}
