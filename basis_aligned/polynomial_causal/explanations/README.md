@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Calibration input terms and reader energy](calibration_input_terms_and_reader_energy_2026-09-10.md): exact direct-token/context split; all single-term gates fail, with a measurable class tradeoff. Executed mathematical controls prepare a specific vocabulary-score-spread hypothesis.
+
 - [Scalar units and remaining dependencies](calibration_scalar_units_and_remaining_dependencies_2026-09-10.md): common-frequency repair fails; context matching survives donor rescaling. Exact math exposes the retained MLP and upstream dependencies needed for extraction.
 
 - [Calibration context dependence and stability](calibration_context_dependence_and_stability_2026-09-10.md): exact donor-response math and useful context pairing pass; disjoint-fit causal stability fails despite similar directions. Includes the RMS-aware constant-term audit and current limits.

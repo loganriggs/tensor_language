@@ -1,0 +1,160 @@
+{
+  "experiment": "calibration_token_context_audit_v1",
+  "model_forwards": 0,
+  "post_result": true,
+  "registered_gates_unchanged": true,
+  "reports": {
+    "FW_HOLDOUT": {
+      "no_interaction": {
+        "all": {
+          "estimate": 0.0028348175935561937,
+          "ci95": [
+            0.001249122136538011,
+            0.0044442116365084414
+          ],
+          "positive_rows": 27,
+          "rows": 42
+        },
+        "frequent": {
+          "estimate": -0.04539268773880237,
+          "ci95": [
+            -0.04856289876392676,
+            -0.041826875264239755
+          ],
+          "positive_rows": 1,
+          "rows": 42
+        },
+        "rare": {
+          "estimate": 0.015269705491604755,
+          "ci95": [
+            0.01259617467389327,
+            0.018148867298962104
+          ],
+          "positive_rows": 42,
+          "rows": 42
+        },
+        "frequent_fraction": 0.20498511904761904,
+        "zero_mean_at_frequent_fraction": 0.2517161733729752
+      },
+      "context": {
+        "all": {
+          "estimate": 0.0031336547882636727,
+          "ci95": [
+            0.0014849114082883374,
+            0.004812166528503126
+          ],
+          "positive_rows": 28,
+          "rows": 42
+        },
+        "frequent": {
+          "estimate": -0.04665928077503999,
+          "ci95": [
+            -0.04992997713482378,
+            -0.04303633946452113
+          ],
+          "positive_rows": 1,
+          "rows": 42
+        },
+        "rare": {
+          "estimate": 0.015972170228310573,
+          "ci95": [
+            0.01319225289015894,
+            0.018945939084839263
+          ],
+          "positive_rows": 42,
+          "rows": 42
+        },
+        "frequent_fraction": 0.20498511904761904,
+        "zero_mean_at_frequent_fraction": 0.25501836493387514
+      }
+    },
+    "PILE_SHIFT": {
+      "no_interaction": {
+        "all": {
+          "estimate": 0.00800331198295022,
+          "ci95": [
+            0.002704119839425381,
+            0.01236564908387832
+          ],
+          "positive_rows": 15,
+          "rows": 16
+        },
+        "frequent": {
+          "estimate": -0.02738476340659003,
+          "ci95": [
+            -0.03691870454173044,
+            -0.017715091543417848
+          ],
+          "positive_rows": 1,
+          "rows": 16
+        },
+        "rare": {
+          "estimate": 0.01952447827482021,
+          "ci95": [
+            0.013415366335667542,
+            0.026068142126939423
+          ],
+          "positive_rows": 15,
+          "rows": 16
+        },
+        "frequent_fraction": 0.24560546875,
+        "zero_mean_at_frequent_fraction": 0.4162181603237813
+      },
+      "context": {
+        "all": {
+          "estimate": 0.008794224947259163,
+          "ci95": [
+            0.0031546901220539194,
+            0.013482144224646853
+          ],
+          "positive_rows": 15,
+          "rows": 16
+        },
+        "frequent": {
+          "estimate": -0.027160719225477407,
+          "ci95": [
+            -0.03729583633524655,
+            -0.016886764763133444
+          ],
+          "positive_rows": 2,
+          "rows": 16
+        },
+        "rare": {
+          "estimate": 0.020499944635858865,
+          "ci95": [
+            0.014078180295516782,
+            0.02736525568662077
+          ],
+          "positive_rows": 15,
+          "rows": 16
+        },
+        "frequent_fraction": 0.24560546875,
+        "zero_mean_at_frequent_fraction": 0.43012293524700607
+      }
+    }
+  },
+  "bootstrap_draws": 4000,
+  "seed": 9111218,
+  "uncertainty_scope": "row clusters; FineWeb original document grouping unknown",
+  "next_operation_controls": {
+    "passed": true,
+    "gram_max_abs": 2.6645352591003757e-15,
+    "planted_equality_max_abs": 3.552713678800501e-15,
+    "planted_certificate": {
+      "identified": true,
+      "slope": 2.3,
+      "isotropic": -0.7000000000000002,
+      "relative_anisotropic_residual": 1.718900278196876e-16
+    },
+    "perturbed_certificate": {
+      "identified": true,
+      "slope": 2.3772865146730626,
+      "isotropic": -0.7580324112779887,
+      "relative_anisotropic_residual": 0.14544210925495427
+    },
+    "isotropic_reader_rejected": true,
+    "scope": "Exact equality q=a*spread+b*norm\u00b2+beta requires zero matrix residual; finite-sample fit does not certify it. Spread is not entropy. No trained-model result yet."
+  },
+  "source_sha256": "d2f9d3e2c8032da7bc16217192dc3ba2dade4d8e5db099bcd80e34ad7a07b72c",
+  "input_result_sha256": "53b29da4e8dad4ddc8a803469fafcc26592eb8c183ce8ad02fed30391400a152"
+}

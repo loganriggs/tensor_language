@@ -537,6 +537,291 @@
    ],
    "translation_ids": [],
    "next_missing": "Common-reference split stability also FAILED (.282/.252 second-fit errors); stop fitting-direction refinements. Context pairing survives dimensionless mean/donor controls and online correspondence. Scale accounts for only part of raw-donor damage, not registered90%. Need stable computation with explicit producer inputs, semantic variable/transfer, independent upstream extraction and structural simplicity. tau denominator still needs full MLP complement; all nativeweights retained; reused evaluation texts."
+  },
+  {
+   "claim_id": "calibration_quadratic_readout.v4",
+   "revision": 4,
+   "status": "site_live",
+   "supersedes": "calibration_quadratic_readout.v3",
+   "causal_variable": {
+    "id": "calibration_quadratic_scalar",
+    "domain": "native normalized MLP17 inputs with full native background; row-held-out FineWeb and Pile corpus shift",
+    "read": "u^T Q u+beta using the folded native bilinear weights and FIT-only output direction",
+    "operation": "produce scalar q; use q*w in vocabulary numerator and final RMS denominator with exact softcap",
+    "write": "coupled score and normalization changes at final readout",
+    "endpoint": "full-vocabulary removal effects and frequent/rare next-token cross-entropy"
+   },
+   "alternative_explanations": [
+    "simple frequency-proportional logit bias",
+    "normalization-only gain",
+    "FIT-only correlation",
+    "useful constant offset",
+    "unstable fitted coordinate",
+    "context scale or difficulty rather than frequency semantics"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "complete_projection_removal",
+     "role": "necessity",
+     "changes": [
+      "remove q*w from final MLP output, recomputing final readout"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "random_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "numerator_use_removal",
+     "role": "necessity",
+     "changes": [
+      "remove q*U*w from the vocabulary numerator only"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "random_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "denominator_use_removal",
+     "role": "necessity",
+     "changes": [
+      "replace final RMS denominator with that after removing q*w"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "random_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "random_projection_removal",
+     "role": "invariance",
+     "changes": [
+      "remove each of three frozen random output-axis projections"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "complete_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "cyclic_donor_scalar",
+     "role": "interchange",
+     "changes": [
+      "replace q by next row scalar at identical position, recomputing both readout uses"
+     ],
+     "holds_fixed": [
+      "all native upstream computation",
+      "evaluation rows and original FIT frequency classes"
+     ],
+     "control_ids": [
+      "native_formula_replay",
+      "independent_online_donor_bridge"
+     ],
+     "builder_artifact_id": "context_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "fit_mean_scalar",
+     "role": "necessity",
+     "changes": [
+      "replace q by the frozen full-FIT mean"
+     ],
+     "holds_fixed": [
+      "all native upstream computation",
+      "evaluation rows and original FIT frequency classes"
+     ],
+     "control_ids": [
+      "native_formula_replay",
+      "independent_online_donor_bridge"
+     ],
+     "builder_artifact_id": "context_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "disjoint_half_fit_axes",
+     "role": "invariance",
+     "changes": [
+      "refit covariance direction separately on two24-row FIT halves with own frequency counts"
+     ],
+     "holds_fixed": [
+      "all native upstream computation",
+      "evaluation rows and original FIT frequency classes"
+     ],
+     "control_ids": [
+      "native_formula_replay",
+      "independent_online_donor_bridge"
+     ],
+     "builder_artifact_id": "context_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "shared_frequency_reference",
+     "role": "invariance",
+     "changes": [
+      "freeze full48FIT frequency table for both24-row fits"
+     ],
+     "holds_fixed": [
+      "original q producer and output direction for mean/donor edits",
+      "native upstream background and frozen evaluation rows"
+     ],
+     "control_ids": [
+      "unchanged_raw_arm_replay",
+      "online_native_donor_bridge"
+     ],
+     "builder_artifact_id": "common_reference_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "dimensionless_mean",
+     "role": "necessity",
+     "changes": [
+      "replace q by recipient background RMS times FIT mean tau"
+     ],
+     "holds_fixed": [
+      "original q producer and output direction for mean/donor edits",
+      "native upstream background and frozen evaluation rows"
+     ],
+     "control_ids": [
+      "unchanged_raw_arm_replay",
+      "online_native_donor_bridge"
+     ],
+     "builder_artifact_id": "dimensionless_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "dimensionless_donor",
+     "role": "interchange",
+     "changes": [
+      "replace q by recipient RMS times donor q divided by donor retained-background RMS"
+     ],
+     "holds_fixed": [
+      "original q producer and output direction for mean/donor edits",
+      "native upstream background and frozen evaluation rows"
+     ],
+     "control_ids": [
+      "unchanged_raw_arm_replay",
+      "online_native_donor_bridge"
+     ],
+     "builder_artifact_id": "dimensionless_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "token_context_sum",
+     "role": "invariance",
+     "changes": [
+      "reconstruct q from direct-injection quadratic, complement quadratic and interaction"
+     ],
+     "holds_fixed": [
+      "frozen original q output direction and native background",
+      "native contextual RMS and all input rows"
+     ],
+     "control_ids": [
+      "raw_input_native_normalization_exact",
+      "online_cross_removal_bridge"
+     ],
+     "builder_artifact_id": "token_context_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "token_context_cross_removal",
+     "role": "necessity",
+     "changes": [
+      "remove only 2TQC/rho\u00b2 from q"
+     ],
+     "holds_fixed": [
+      "frozen original q output direction and native background",
+      "native contextual RMS and all input rows"
+     ],
+     "control_ids": [
+      "raw_input_native_normalization_exact",
+      "online_cross_removal_bridge"
+     ],
+     "builder_artifact_id": "token_context_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "token_context_single_term",
+     "role": "invariance",
+     "changes": [
+      "keep only token, complement or interaction term plus beta"
+     ],
+     "holds_fixed": [
+      "frozen original q output direction and native background",
+      "native contextual RMS and all input rows"
+     ],
+     "control_ids": [
+      "raw_input_native_normalization_exact",
+      "online_cross_removal_bridge"
+     ],
+     "builder_artifact_id": "token_context_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "mlp17_final_readout",
+     "tensor_path": "MLP17 output and final unembedding/RMS readout",
+     "shape": [
+      1152
+     ],
+     "intervention": "registered full projection removal or separate numerator/denominator use removal; fixed mean and cyclic donor scalar replacements with live final readout"
+    }
+   ],
+   "split_plan_ids": [
+    "calibration_fit48_hold42_pile16"
+   ],
+   "evidence_event_ids": [
+    "calibration_quadratic_readout.fold.held.v1",
+    "calibration_quadratic_readout.removal.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "Direct-token/context quadratic split valid but interaction necessity and all cross-corpus single-term sufficiency gates FAILED. Complement dominates yet FW scalar/effect errors.1056/.1121 exceed.10. Preserve class tradeoff and prior context positives; no threshold/gain rescue. Next explicit input-operation candidate is vocabulary-score spread; CPU Gram/proportionality controls executed, trained comparison untested. Stable identification, semantic transfer, independent extraction and structural savings remain open."
   }
  ],
  "split_plans": [
@@ -929,6 +1214,129 @@
    "notes": "First4rows percohort online adjusted donor matches exact formula, native epsilon rescales as eps/R\u00b2; allRfinitepositive. CPU local producer closure shows tau additionally needs MLP complement and upstream residual. Conditional interface, no free extraction.",
    "design_key": "8e138b57dfdb11208076307cb9d5181eabf4bb6164a2daa8337d82e4288bc66b",
    "execution_key": "01dc23d043da9a1bff6f5c89781a54461e4d438562d1f0af0de46215e2043940"
+  },
+  {
+   "claim_id": "calibration_quadratic_readout.v4",
+   "stage": "complete",
+   "site_id": "mlp17_final_readout",
+   "split_plan_id": "calibration_fit48_hold42_pile16",
+   "evaluation_role": "reused_evaluation_conditional_producer_followup",
+   "prereg_artifact_id": "token_context_plan",
+   "result_artifact_id": "token_context_result",
+   "input_artifact_ids": [
+    "rows",
+    "producer",
+    "token_context_audit"
+   ],
+   "seed": 9111218,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "calibration_quadratic_readout.token_context_sum.held.v1",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "token_context_sum"
+   ],
+   "metrics": [
+    {
+     "name": "maximum_source_sum_relative_error",
+     "estimate": 1.0446115693446404e-07,
+     "ci95": null,
+     "bar": "<=1e-5"
+    }
+   ],
+   "notes": "Native rawinput normalization exact; independent facade exact; onlinecross bridges<3.47e-5abs. T directinjection route, C retains indirectcurrenttoken effects androunding. No upstream deletion equivalence or cost saving.",
+   "design_key": "4dffff1cf31000f65b46c87b5ecb9f3d57dbf8521b8d6191e4c461d5d4be176c",
+   "execution_key": "3bfa719fa42cb4e704faafc3a00968e225ab9c30de240a1f31e45b59fa2dbe52"
+  },
+  {
+   "claim_id": "calibration_quadratic_readout.v4",
+   "stage": "complete",
+   "site_id": "mlp17_final_readout",
+   "split_plan_id": "calibration_fit48_hold42_pile16",
+   "evaluation_role": "reused_evaluation_conditional_producer_followup",
+   "prereg_artifact_id": "token_context_plan",
+   "result_artifact_id": "token_context_result",
+   "input_artifact_ids": [
+    "rows",
+    "producer",
+    "token_context_audit"
+   ],
+   "seed": 9111218,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "calibration_quadratic_readout.token_context_cross.failed.v1",
+   "test_type": "removal",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "token_context_cross_removal"
+   ],
+   "metrics": [
+    {
+     "name": "FW_HOLDOUT_mean_CE_damage",
+     "estimate": 0.0028348175935559716,
+     "ci95": null,
+     "bar": ">=.005bothcorpora"
+    },
+    {
+     "name": "PILE_SHIFT_mean_CE_damage",
+     "estimate": 0.008003311982950123,
+     "ci95": null,
+     "bar": ">=.005bothcorpora"
+    }
+   ],
+   "notes": "FW.002835 fails, Pile.008003 passes. Rare damage+.01527/+.01952 and frequentbenefit-.04539/-.02738 partly cancel. Postbootstrap does not alter gate; not inert.",
+   "design_key": "061a68254ed3c5275d391d7b61400b8b0b8f574a3f6b9b7dd85ee69e139d1ff7",
+   "execution_key": "87dd1da476b401fe2654969553c519de6225f30053ac102d749615293398e130"
+  },
+  {
+   "claim_id": "calibration_quadratic_readout.v4",
+   "stage": "complete",
+   "site_id": "mlp17_final_readout",
+   "split_plan_id": "calibration_fit48_hold42_pile16",
+   "evaluation_role": "reused_evaluation_conditional_producer_followup",
+   "prereg_artifact_id": "token_context_plan",
+   "result_artifact_id": "token_context_result",
+   "input_artifact_ids": [
+    "rows",
+    "producer",
+    "token_context_audit"
+   ],
+   "seed": 9111218,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "calibration_quadratic_readout.token_context_single.failed.v1",
+   "test_type": "compiled_equivalence",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "token_context_single_term"
+   ],
+   "metrics": [
+    {
+     "name": "FW_context_scalar_error",
+     "estimate": 0.10564924376120943,
+     "ci95": null,
+     "bar": "<=.10"
+    },
+    {
+     "name": "FW_context_effect_error",
+     "estimate": 0.11207792011437114,
+     "ci95": null,
+     "bar": "<=.10"
+    }
+   ],
+   "notes": "All three cross-corpus sufficiency gates fail. Context-only passes Pile but misses FW. Token-only and interaction-only lose most effect. No bestterm selection, mixture or threshold rescue.",
+   "design_key": "13304efce34b712874590a698b802b9ca1dc1d17b3c73994f6146d81f6abcfec",
+   "execution_key": "6e85504baebf5edd218927ffb024341a0b08cdd632c54dd1e7f809d4e0b66dd1"
   }
  ],
  "translations": [],
@@ -1032,6 +1440,30 @@
   "dimensionless_explanation": {
    "path": "basis_aligned/polynomial_causal/explanations/calibration_scalar_units_and_remaining_dependencies_2026-09-10.md",
    "sha256": "f44b5422c48080ff2d14e6a2bcda9e7a5a429e4a5f9968a055216c800417591e",
+   "kind": "explanation",
+   "status": "frozen"
+  },
+  "token_context_plan": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_TOKEN_CONTEXT_V1_PREREGISTRATION.md",
+   "sha256": "497d61cc1df512af614bf9cc30828e6d174d264463db53a037376b135a954ac0",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "token_context_result": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_TOKEN_CONTEXT_V1_RESULT.json",
+   "sha256": "53b29da4e8dad4ddc8a803469fafcc26592eb8c183ce8ad02fed30391400a152",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "token_context_audit": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_TOKEN_CONTEXT_AUDIT_V1_RESULT.json",
+   "sha256": "17ac4d48066719b5e3785a7d0e86f71b4345074632d5ff394f44117465b44b43",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "token_context_explanation": {
+   "path": "basis_aligned/polynomial_causal/explanations/calibration_input_terms_and_reader_energy_2026-09-10.md",
+   "sha256": "0508877a00c3e3811d2b6aef4b64a479ed0e4d15a334b8fef2cbdf3ac0d3f2d4",
    "kind": "explanation",
    "status": "frozen"
   }

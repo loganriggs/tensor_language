@@ -53,6 +53,62 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Direct-token producer split fails; reader-energy hypothesis prepared — 2026-09-10 12:22:43 UTC
+
+Previous turn PROGRESS057945893. Original handoff/pilot authority. Prereg and
+hour12:14review committedad87aadc1. No scalar-fitting refinement. Priorart
+Claudev185 answer-axis responsegates known; this tests fullcorpuscalibrationq.
+Managedrun token_context12:16:59–12:17:13,18bodyforwards70seq,9.088s.
+Ainstrument true; Binteractionnecessity/Ctoken/Dcontext/Einteraction
+cross-corpus sufficiency ALLFALSE. Preserve failures; no bar/gain/mixture rescue.
+
+Rawinput a=T+C, T=B*x0, Bnative lambda recursion145.121540092. C contains other
+nativecomputation, indirectcurrenttoken effects androunding. q=beta+(TQT+2TQC+
+CQC)/rho²; eventoken-numerator keepscontextualrho. Nativea renormalizationexact;
+independentfacadeexact; foldedq~2.09e-7rel, source-sum~1.04e-7rel; onlinecross
+removal bridges<3.47e-5abs/6.89e-7rel. Compiledterm edits mappedtooutputprojector,
+not equivalentto deletingupstreamnativeinjections.
+
+TermRMS/fullq:token.006845/.006095FW/Pile,interaction.10029/.09339,
+context.9120/.9261; NOT additivevariance fractions. Context-only FWscalarerror
+.105649/effecterror.112078 fail.10; Pile.097899/.086883 passesindividualcell.
+Token andinteraction-only losemosteffect. Noacceptedconditionalreduction;
+removingbranches fromexpandedformula wouldnot automaticallybeat originalq(u).
+Crossremoval meanCE+.00283482FW/+.00800331Pile: BfailsFW. Frequent CE
+-.04539269/-.02738476, rare+.01526971/+.01952448. Scientificgatefails, notinert.
+
+Actualpost-native CPUcalibration_token_context_audit_v1 executed4000rowbootstrap:
+FWmeanCI[.001249,.004444], rareCI[.012596,.018149]; PilemeanCI[.002704,.012366],
+rareCI[.013415,.026068]. FWrowgroupingunknown. Classweightedmeanreplays1e-12;
+zeroaggregateeffect wouldoccurat frequentfraction.251716FW/.416218Pile ifclass
+conditional effectsfixed. No posthocrescore or mixturechange.
+
+Nextdistinctinput-operation hypothesis: vocabulary-score spread E(u)=u^T K u,
+K=U^T(I-11^T/V)U/V. This is NOTentropy orvariance-preservation objective;
+it proposes reuse oftheactualvocabularyreader forq. Exact globalform
+Q=alpha*K+gamma*I requires tracelessQ proportionaltotracelessK; then
+q=alphaE+gamma||u||²+beta. Nativeepsilon/radius termmuststayexplicit.
+CPU reader_energy_certificate_v1 controlsactuallyexecuted:Gram2.66e-15,
+plantedQ=2.3K-.7I closure3.55e-15; perturbedrelativecoefficientresidual.14544,
+isotropicreaderdegeneracyrejected. Helper identified flagmeanscoefficientfit
+well-defined, NOT exactequalityoridentifiedcircuit; inspectresidualexplicitly.
+TRAINEDweightcomparison notyetperformed, no nativeenergyclaim. Nextaction
+should firstcomparefrozenQ toactualU Gram throughmanagedGPU (largecontraction)
+beforeanyapproximationfit/nativeadoptiontest. ChargeUreuse andupstreaminputs.
+
+Canonical subroutine.calibration.quadratic_readout v4 site_live: sumcompiledheld,
+crossnecessity/singletermsufficiencyfailed; earlierpositivesretained. All545902902
+nativeparameters remain; stableidentity/semantictransfer/extraction/structuralgain
+open. Latestexplanation explanations/calibration_input_terms_and_reader_energy_2026-09-10.md.
+Result CALIBRATION_TOKEN_CONTEXT_V1_RESULT.json; postCPU
+CALIBRATION_TOKEN_CONTEXT_AUDIT_V1_RESULT.json. RunnerSHA
+11921b31f7e245760c3d05a20ba45ec0d03d7fab177b72488c4c4f75c5b694f3.
+
+Hour12:14review complete:4validreceipts inpriorhour(onecandidate+followups),
+median515secgap; focus/ceremony/noveltyPASS undercoarseclock91.70%coverage.
+Next hourly13:14/math13:49UTC. Fullgoalactive, actualpost-resultCPUcontinuation
+complete, no successorGPUregistered. PreserveunrelatedClaudequeue/logs/work.
+
 ## Scalar units control held; frequency-reference repair closed — 2026-09-10 12:09:53 UTC
 
 Previous goal turn PROGRESSaacb26913. Current original handoff/pilot authority.
