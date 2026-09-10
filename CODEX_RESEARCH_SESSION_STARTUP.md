@@ -82,22 +82,28 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 18:14 review
+## Current handoff — updated10 September2026,19:14 review
 
-The full goal is active and unbounded. The last native run is
-`LEXICAL_FORM_INTERCHANGE_V1_RESULT.json` (18:03); the next CPU result is
-`LEXICAL_FORM_READOUT_FACTORS_V1_RESULT.json` (18:13). Both live under
-`basis_aligned/polynomial_causal/`. Read their exact verdicts and the current
-explanation; no program meeting all four requirements has been extracted.
-No successor GPU experiment was queued at this handoff; verify live state.
+Full goal remains active. Read the latest linked follow-up in LATEST. Both
+user experiments ran: FULL_UNEMBEDDING_SUBTERMS_V1_RESULT.json (19:00),
+CORRELATIVE_JOINT_QK_SUBSPACES_V1_RESULT.json (19:07), and the source-file
+UNEMBEDDING_JOINT_FAMILY_V1_RESULT.json (19:12). All instruments held; joint
+scientific hypotheses failed. The terminal-source V1 instrument failure is
+preserved separately; V2 held its instrument and rejected both source shortcuts.
 
-Current decision: the scalar-only, scalar-plus-actual-norm, and
-complement-plus-actual-norm readout shortcuts failed. Complementary contextual
-changes must be explained. Next discriminate the last bilinear MLP's explicit
-product-read contribution from complementary information carried into it.
-This is a consumer/producer test, not another whole-layer rank approximation.
-The command's old native capability, selectivity and joint-choice failures stay
-in the ledger. Do not tune heads, ranks, directions or thresholds to erase them.
+User authority: explanations/2026-09-10/unembedding_folding_in_math.md.
+The main unembedding route must be UNSUPERVISED joint factor discovery over
+all token quadratics. The four-word family tested that file's example only.
+See UNSUPERVISED_JOINT_QUADRATIC_DISCOVERY_PLAN.md and implemented, CPU-checked
+joint_quadratic_fit_v1.py. Native joint optimizer not yet run. Retain remainders;
+379–391-product coefficient lower bounds are not behavioral impossibility.
+
+The QK question is different input subspaces through JOINT QK1×QK2, both factors
+used by both tasks; whole-half ablation did not test it. Joint-space V1 has
+partial original-frame transfer but cross-frame/selectivity failures. It fit
+after rotary maps, so compare pre-position spaces or transport bases next.
+Projected joint features are compiled-port edits, not automatically native
+input-vector or weight edits. Both unembedding and QK directions stay active.
 
 Reusable saved states (avoid recapture):
 
@@ -116,8 +122,8 @@ not be changed retroactively. Build small wrappers for new semantics.
 ## Review clocks and throughput
 
 Latest hourly review:
-[18:14](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-10_1814.md).
-Next hourly review is due **19:14 UTC** at the first safe boundary.
+[19:14](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-10_1914.md).
+Next hourly review is due **20:14 UTC** at the first safe boundary.
 Latest mathematical review:
 [16:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_1649.md).
 Next mathematical review is due **19:49 UTC**. Derive later deadlines from the

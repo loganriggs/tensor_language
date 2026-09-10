@@ -1,0 +1,119 @@
+{
+  "product_lower_bounds": {
+    " is": {
+      "rank_needed_at_10pct_frobenius_error": 757,
+      "real_product_count_lower_bound": 379,
+      "coefficient_norm": 1265.5088946817777,
+      "minimum_rank6_relative_error": 0.7783324617920937,
+      "scope": "Every sum of k real linear-form products has rank<=2k. Necessary condition on this full-input coefficient norm, not an activation-domain or behavioral bound."
+    },
+    " are": {
+      "rank_needed_at_10pct_frobenius_error": 766,
+      "real_product_count_lower_bound": 383,
+      "coefficient_norm": 1368.6828348228262,
+      "minimum_rank6_relative_error": 0.7992937033839359,
+      "scope": "Every sum of k real linear-form products has rank<=2k. Necessary condition on this full-input coefficient norm, not an activation-domain or behavioral bound."
+    },
+    " was": {
+      "rank_needed_at_10pct_frobenius_error": 773,
+      "real_product_count_lower_bound": 387,
+      "coefficient_norm": 1320.845020353102,
+      "minimum_rank6_relative_error": 0.8146083088058172,
+      "scope": "Every sum of k real linear-form products has rank<=2k. Necessary condition on this full-input coefficient norm, not an activation-domain or behavioral bound."
+    },
+    " were": {
+      "rank_needed_at_10pct_frobenius_error": 781,
+      "real_product_count_lower_bound": 391,
+      "coefficient_norm": 1434.4985123758286,
+      "minimum_rank6_relative_error": 0.8246206677282443,
+      "scope": "Every sum of k real linear-form products has rank<=2k. Necessary condition on this full-input coefficient norm, not an activation-domain or behavioral bound."
+    }
+  },
+  "shared_output_span_rank_needed_at_10pct_family_frobenius_error": 4,
+  "joint_routing_paired": {
+    "A1": {
+      "A": {
+        "relative_error": 0.15332660344094665,
+        "error_interval": [
+          0.11592791310818251,
+          0.20005996246038146
+        ],
+        "relative_effect": 1.1218024851771278,
+        "effect_interval": [
+          1.0789698324955437,
+          1.165733932137705
+        ]
+      },
+      "B": {
+        "relative_error": 0.653917179388236,
+        "error_interval": [
+          0.6061867693746602,
+          0.6865576765625718
+        ],
+        "relative_effect": 0.3689638494069352,
+        "effect_interval": [
+          0.3302670040811658,
+          0.4177583001002639
+        ]
+      }
+    },
+    "A2": {
+      "A": {
+        "relative_error": 0.6281954825427845,
+        "error_interval": [
+          0.6190236412311657,
+          0.6388071959260065
+        ],
+        "relative_effect": 0.3852555969299686,
+        "effect_interval": [
+          0.37262279729360137,
+          0.4000188615365718
+        ]
+      },
+      "B": {
+        "relative_error": 0.9160949959303658,
+        "error_interval": [
+          0.8991860959125181,
+          0.9299491256474904
+        ],
+        "relative_effect": 0.10153905491314338,
+        "effect_interval": [
+          0.08748490356325134,
+          0.12079587450612785
+        ]
+      }
+    },
+    "C": {
+      "A": {
+        "relative_error": 0.5755779608048927,
+        "error_interval": [
+          0.5569272778741032,
+          0.5993081326076601
+        ],
+        "relative_effect": 0.6138495231953068,
+        "effect_interval": [
+          0.5427693081731285,
+          0.6829861470097592
+        ]
+      },
+      "B": {
+        "relative_error": 0.27169216318309874,
+        "error_interval": [
+          0.21935304103614756,
+          0.3252767139939796
+        ],
+        "relative_effect": 1.056177177659407,
+        "effect_interval": [
+          0.9619722183660561,
+          1.144567607203152
+        ]
+      }
+    }
+  },
+  "position_scope": "V1 bases fit after rotary transforms: A1 query position5 versus A2 position8. Cross-frame failure can mix semantic failure with coordinate rotation; it does not prove raw-input subspaces absent. Next must identify pre-rotary joint spaces or transport the bases with the native position maps.",
+  "native_forwards": 0,
+  "checkpoint_loaded": false,
+  "cpu_seconds": 0.45358747616410255,
+  "audit_sha256": "aa5cc80745176689bdd26e3eec86ff081c3f7550de47fa668deee18ae0c00bb7",
+  "program_sha256": "333403227f27d5de5802d1573edc866708797061bd0e4adc799cea02f654aa41"
+}

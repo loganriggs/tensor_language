@@ -1,5 +1,7 @@
 # Latest consolidated research update
 
+**Newest experiment follow-up, through19:14:** [Joint unembedding and QK results](joint_unembedding_and_qk_results.md). Both ran; current direction is unsupervised joint factor discovery plus position-corrected QK spaces. The18:42report below remains the latest consolidated requested rundown.
+
 **[Read the new report — 10 September, 18:42 UTC](research_update_1842.md).**
 
 Covers work since the previous consolidated report through 14:17, with completed science through 18:13 and subsequent audits. Main finding: reusable lexical/form interventions and exact local formulas, but contextual coupling and selectivity failures still prevent independent circuit extraction.

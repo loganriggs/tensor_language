@@ -1,5 +1,7 @@
 # 10 September research explanations
 
+- [Latest experiment follow-up: joint unembedding and QK](joint_unembedding_and_qk_results.md), through19:14.
+
 **Newest consolidated explanation: [Research update — 18:42 UTC](research_update_1842.md).** Covers the interval after the previous report through 14:17; high-level findings first, computations and mathematical-cycle outcomes afterward.
 
 ## [Read the latest update → LATEST.md](LATEST.md)
