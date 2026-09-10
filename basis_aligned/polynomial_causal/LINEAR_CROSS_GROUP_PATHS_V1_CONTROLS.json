@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "random_matrix_interaction_max_error": 1.2212453270876722e-15,
+  "pure_serial_path_reader_effects": {
+    "total": 1.0,
+    "attention_alone": 0.0,
+    "mlp_alone": 0.0,
+    "interaction": 1.0
+  },
+  "folded_MA_reader": 1.0,
+  "reversed_AM_reader": 0.0,
+  "sign_only_linearity_test_rejects_cubic": false,
+  "scope": "Exact linear-control path identity, not a claim that the native transformer is linear or that an approximate Jacobian replaces it."
+}

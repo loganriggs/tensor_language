@@ -1,6 +1,6 @@
 # Noun-number selection: what the model does, and what the math rules out
 
-**Latest result:** MLP9 does not account for the bypass alone. In eight original groups its remaining routes preserve the task answers closely, yet fail the full-vocabulary check. Norm bounds show a substantial MLP9 vocabulary effect. We are stopping the adjacent-layer search and preparing a broader comparison of later attention and MLP responses. Section 25 explains the evidence and intervention semantics.
+**Latest result:** later attention and MLP responses do not separate additively. Their joint contribution is 25–39% of the mixed vocabulary response beyond direct carry. After repairing a floating-point validation error, the native recurrence matches bitwise in every group. A linear control shows why a useful computational unit can span attention and MLP modules. Section 26 gives the evidence and the next coupling-direction question.
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
@@ -743,3 +743,25 @@ Across the groups, these bounds place MLP9's centered mixed-vocabulary effect at
 We are stopping the adjacent-layer search here. The next candidate partition compares all later attention responses (layers10–17) against all later MLP responses (layers9–17), with attention9 fixed and the MLP8 source edit held constant. Each group is either allowed to recompute or clamped to its native writes. The fully clamped case supplies the direct-carry reference; the two single-live-group cases and fully live case reveal their response and interaction.
 
 The CPU group control has been executed. It demonstrates why a live group must recompute under the other group's clamp: replaying that group's outputs from the fully edited run can give the wrong result. These broad architectural groups are proposed diagnostic partitions, not assumed semantic circuits. No native group experiment has yet been registered, and the independent-extraction goal remains incomplete.
+
+## 26. Later attention and MLP responses are coupled
+
+We tested later attention layers10–17 and MLP layers9–17 as two groups. The MLP8 mixed source write is removed and attention9 stays native. Each later group either recomputes or uses its native writes. The fully frozen case supplies the direct-carry reference; the fully live case is the measured bypass.
+
+The first run is recorded as **invalid**. Its closed-form raw-state comparison exceeded the absolute tolerance: maximum discrepancy 0.013671875, despite relative discrepancy around 8e-8 and passing output comparisons. We did not relax that tolerance. The repaired version independently replays each native floating-point residual multiplication and addition, including the edited source write. That replay matches the actual frozen final state **bitwise in all 32 groups**. The original closed-form discrepancy remains recorded as a diagnostic.
+
+The [valid version 2 result](../MLP8_LATE_GROUPS_V2_RESULT.json) uses unchanged scientific predictions and output tolerances. Native identity and full-bypass replays match exactly; the closed-form carry prediction matches frozen outputs within 2.58e-5 maximum absolute logit error. The corrected run used 384 forwards over 6,144 sequence instances plus 64 decoder batches in 9.69 seconds. The invalid run consumed an additional 9.78 seconds and is retained separately.
+
+Neither attention-only nor MLP-only responses pass the task-and-vocabulary fidelity criterion in any group. Their joint contribution is substantial: its centered mixed-vocabulary norm is **24.7–38.6% of the full late-response norm**. Thus an additive separation by module type fails. This denominator is the response beyond direct carry, not the model's entire behavior.
+
+There is an important mathematical distinction. A large group interaction need not mean a nonlinear source response. In a linear residual chain with attention map A followed by MLP map M, a source displacement d produces
+
+\[
+(I+M)(I+A)d=d+Ad+Md+MAd.
+\]
+
+The cross-group term MAd is already linear in d. An [executed control](../linear_cross_group_paths_v1.py) plants A mapping coordinate1 to2 and M mapping2 to3. A reader of coordinate3 sees only MAd: both isolated group effects are zero, but their joint effect is one. Folding the maps as MA preserves that effect; reversing them to AM loses it. Random-matrix checks agree within 1.23e-15. This supports testing cross-module computations rather than assuming native module types define circuit boundaries. It does not show that the actual transformer is linear.
+
+The next candidate comparison concerns coupling direction. Under the same source edit, obtain attention writes while MLP writes are held native, and MLP writes while attention writes are held native. These two banks can define explicit directional cuts: install the first bank while MLPs recompute, install the second while attention recomputes, install both, or let both groups recompute. Every arm keeps attention9 native. The banks represent those particular counterfactual cuts; they are not interchangeable with outputs from the fully edited run.
+
+Those four combinations would distinguish predominantly attention-to-MLP response, predominantly MLP-to-attention response, and dependence on both directions. In the nonlinear model, their interaction should not automatically be called a count of alternating paths. No native directional-cut experiment is registered yet. The coupled response, native input dependencies and full four-property goal remain unresolved.

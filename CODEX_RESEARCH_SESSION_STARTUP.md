@@ -53,6 +53,39 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Later response groups coupled; native recurrence repair complete — 2026-09-10 08:40:40 UTC
+
+PreviousgoalturnPROGRESS96166ca07; firstprereg9d83c3e30, repairfbca0e18c.
+MLP8_LATE_GROUPS_V1_RESULT.json INVALID: closed-form rawstateabs.013671875 failed
+while relative~8e-8 andoutputbridgespassed. Preservedunchanged. V2 replacesonlyrawstate
+validation withindependentnativeorderedrecurrence; BITWISE32/32. No tolerance/science/
+row/group/interventionchange. frozen_write_recurrence_v1.py capturesnativeoperationorder.
+MLP8_LATE_GROUPS_V2_RESULT.json validA; Battention/CMLP/Dinteractionfailall32.
+Mixedvocabularyinteraction.247207–.386367 oflate-response norm. Attentiononlyvocaberror
+.962–1.022; MLPonly.300–.452; neitherpasses. Native/bypassidentityexact; closed-form
+carryoutputmaxabs2.57492e-5,rawclosedformdiagretained. Corrected384forwards6144seq+
+64decoderbatches1024states,9.68820s; invalidv1extra9.78265s separatelycharged.
+RunnerV2SHA2c2f94c08f99e8cca9a3233f8bad47cfc6702bb47fa4c2310cbcadd914098fe3.
+
+Post-resultCPUlinear_cross_group_paths_v1 executed. Forlinearresidualmaps, group
+interaction=M*A*delta (firstorderin source), randommatrixerror1.222e-15. Plantedreader
+seesonlyMApath: total1,Aalone0,Malone0,interaction1; reversedAM0. Signoddnessalone
+cannotprove linearity(cubiccounterexample). No fittedJacobianresponse/dose-rescueadopted.
+Retaincoupledresponse; nativegroupinteractiondoesnotprove nonlinearsourcecomputation.
+
+Nextcandidate directionalcut comparison (NOTREGISTERED): sourceM8mixedremoved/A9native.
+Capture bankA fromA10..17live/M9..17nativefrozen, bankM fromMLPlive/Anativefrozen.
+Fourarms: bothbanksclamped (independent source responses); bankAinstalled/MLPlive
+(allowsA-to-M whileblockingM-to-A); bankMinstalled/Alive (allowsM-to-A whileblocking
+A-to-M); bothlive(parentbypass). Banksarecounterfactualcut definitions, notfullyedited
+writesreplayedunderanotherbackground. CapturesreplaypriorgroupZ10/Z01; bothliveZ11.
+Test directionalresponse relativebothbanksbaseline, task/fullvocab andinteraction.
+No automatichead/rank/adjacentlayer/doserescan. Nonlinearsuffix meansinteractionisnot
+literalalternatingpathcount. Allnativeweights/inputcounterfactuals remain,saving0.
+CPUcontinuationexecuted; explanation26updated; fullgoalactive/no successorjobregistered.
+Continuousclock RESEARCH_ACTIVITY_2026-09-10_0814.jsonl: phasebeforeactions, separate
+markercall beforecomposinglongedits; turn_boundarybeforefinal. Next09:14hourly/10:49math.
+
 ## MLP9 mediator rejected; broader group control executed — 2026-09-10 08:25:13 UTC
 
 PreviousgoalturnPROGRESS8ff0131cd; preregistrationebdc63b1d.
