@@ -1,0 +1,15 @@
+{
+  "experiment": "calibration_dimensionless_donor_v1",
+  "model_forwards": 0,
+  "trained_model_claim": false,
+  "controls": {
+    "passed": true,
+    "arbitrary_replacement_max_abs": 2.220446049250313e-15,
+    "equal_tau_raw_swap_error_norm": 31.803868603182437,
+    "equal_tau_adjusted_swap_max_abs": 8.881784197001252e-16,
+    "epsilon_rescaling_error_witness": 34.10604060444393,
+    "zero_background_rejected": true
+  },
+  "identity": "R=RMS_without_epsilon(g)>0; tau=q/R; z=30tanh(U(g/R+tau*w)/(30sqrt(mean((g/R+tau*w)^2)+eps/R^2)))",
+  "native_test_required": "Compare fixed raw and scale-adjusted donor swaps, plus FIT mean tau, with independent online edits on both cohorts; no semantic interpretation from algebra alone."
+}
