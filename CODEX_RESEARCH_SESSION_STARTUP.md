@@ -82,36 +82,49 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 19:56
+## Current handoff — updated 10 September 2026, 20:24
 
-Full goal remains active. LATEST links the current explanation and primary receipts.
-UNSUPERVISED_JOINT32_V1_RESULT.json (19:31): all-token weight-only joint fit,
-32 products, two starts. Instrument held; gain and overall stability failed.
-Two stable products have pronoun-related loadings. STABLE_JOINT32_PRIOR_V1_AUDIT.json
-compares existing §§1583/1589–1591: one product's readers span the old gender axis
-at .961 projection length, but the two-product zero-reflection tensor leaves .9035
-full-vocabulary coefficient error. Do not call this a newly discovered gender circuit.
-STABLE_JOINT32_REFLECTION_V1_RESULT.json (19:48) now holds its instrument but
-fails sufficiency/selectivity: full-vocabulary response error .853/.856, target-CE
-response error .306/.326, other-target absolute removal CE .01161/.01204 > .01.
-UNEMBEDDING_SUPPORT_FEASIBILITY_V1_AUDIT.json tests the math1949 consequence:
-small exact token-support writes are infeasible for three specified groups.
-This restricts residual-writer coefficients, not behavioral selectivity.
-No sparsity penalty; exact output loadings all dense. Native remainder retained.
+Full goal active. User explicitly requests a broad unsupervised structural search,
+substantial data/optimization, convergence and red-team review of negatives.
+Read explanations/2026-09-10/unsupervised_structure_campaign.md first (25 hypotheses).
+Standing user instruction: red-team every future negative in this campaign using
+that document's red-team gate before drawing structural conclusions. Record the
+narrow failed claim, the strongest plausible methodological explanation, and an
+executed discriminating check (or explicitly mark the audit pending). Preserve
+the original result and thresholds; neither an unfinished fit nor unstable
+individual factors establishes absence of shared computational structure.
+The prior joint32 fit was only a short pilot; two matched terms are not a census
+of structure. SHARED_READER_BLOCK_STABILITY_V1_CONTROL.json proves that identical
+blocks can fail individual-term matching. Preserve the earlier scientific nulls.
 
-CORRELATIVE_JOINT_QK_SUBSPACES_V2_RESULT.json (19:34) compares pre-position joint
-QK1×QK2 spaces. A2 own-routing error improves .628 to .149; A1 .157, C .272.
-Overall own-routing/selectivity hypotheses still fail. These are the same opened
-rows, not independent confirmation; edits act on joint-feature ports, not native
-raw-input vectors. JOINT_QK_INPUT_PULLBACK_V1_AUDIT.json folds the fixed QK readers through actual
-weights: average overlap .164 queries/.285 keys, greater than product-coordinate
-overlap .072/.166. These are separate task-QK readers, not unembedding through
-MLP17 through final attention. Both unembedding and QK directions remain active.
+UNSUPERVISED_DATA_V2_RESULT.json:250forwards1000seq512000processed tokens,
+64000stored MLP17 input/output pairs, fixed800/100/100row splits. Native outputs
+reached148904, overflowing direct FP16 in preserved V1. V2 stores scaled FP16:
+decode x*x_scale, y*y_scale in FP32, then cast for fitting. Errors<1.55e-4.
+Rows historically opened; not fresh/document-level/OOD. States about296MB local;
+only~300MBdisk free before fit checkpoints. Keep research artifacts; monitor disk.
 
-User mathematical authorities: explanations/2026-09-10/unembedding_folding_in_math.md
-and unembedding_factors_how.md. Follow unsupervised all-token factor discovery,
-then inspect consumers and shared readers; the earlier four-word family was only
-an illustrative program test. Sparse output support and computational DAGs differ.
+STRUCTURED_QUADRATIC_CAMPAIGN_V1_CONFIGS.json defines32 fits: product/square/
+shared_reader/block x weight/data metrics x4starts. Native product seed0 uses128
+products; shared-reader64 dictionary; block32x8squares. Core and controls committed.
+First weight_product_s0 chunk0 running since20:20:55; data_product_s0 next,
+weight_shared_reader_s0 and data_block_s0 queued. Verify current
+runner/queue before acting. Wrappers and binding files are under ops/ and POLY.
+Each chunk permits540 fit seconds then saves optimizer/model/history checkpoint.
+A timeout means optimization_unfinished, never structure absent. Continue same
+configuration via a new numbered wrapper/chunk; do not change frozen core files.
+Convergence needs five L-BFGS loss checks plus full-gradient gates. Weight fit's
+loss flattens before its gradient settles; rising Gram condition must be audited.
+Do not call it converged from loss alone. Shared/different representations and
+four starts are required before broad structural claims. Test split remains unused.
+
+The previous fixed two-product causal screen held its instrument but failed
+sufficiency/selectivity. Math1949 gives tested limits on exact sparse output-token
+supports through U, not behavioral impossibility. QK V2/input pullback is a separate
+26-head/two-behavior experiment; it is NOT unembedding→MLP17→last-attention folding.
+The longer backward-folded path remains authorized and pending in the campaign.
+User authorities: unembedding_folding_in_math.md, unembedding_factors_how.md,
+and original bilinear reconstruction handoff/pilot; not better_math_ideas.md.
 
 Reusable saved states (avoid recapture):
 
@@ -130,8 +143,8 @@ not be changed retroactively. Build small wrappers for new semantics.
 ## Review clocks and throughput
 
 Latest hourly review:
-[19:14](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-10_1914.md).
-Next hourly review is due **20:14 UTC** at the first safe boundary.
+[20:14](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-10_2014.md).
+Next hourly review is due **21:14 UTC** at the first safe boundary.
 Latest mathematical review:
 [19:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_1949.md).
 Next mathematical review is due **22:49 UTC**. Derive later deadlines from the

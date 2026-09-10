@@ -1,4 +1,4 @@
-# Unsupervised structure campaign — 10 September, 20:06 UTC
+# Unsupervised structure campaign — 10 September, updated 20:24 UTC
 
 The user requested a broad structural search with substantial unlabeled data, enough optimization to establish convergence, and red-team review of negative results. This supersedes treating the short joint32 run as the main search. The four-property goal remains OOD prediction, extraction, selective manipulation, and composition/reuse; a better tensor fit only nominates components for those tests.
 
@@ -53,6 +53,7 @@ The list below separates **representation**, **fitting metric**, and **validatio
 | 22 | Weak coefficient modes carry meaningful computations | Compare components by held-out causal response, not only coefficient energy | Planned; existing low-variance/high-loss lesson applies |
 | 23 | Antipodal symmetry should be explicit | Preserve $f(-x)=f(x)$; use paired-state controls and signed outputs | Native/product forms already even; expanded controls planned |
 | 24 | Dense output support is an interface constraint | Test support feasibility and optimal concentration before sparse token wiring | Three-group numerical bound complete |
+| 25 | Avoid large cancelling components | Scale-invariant component-energy/cancellation penalty; compare explicit blocks | Planned following conditioning diagnostics |
 
 CP/Tucker and block-term decompositions supply established representation families, not automatic mechanism identification. [Kolda–Bader](https://www.kolda.net/publication/koba09/), [De Lathauwer: block terms and simultaneous block diagonalization](https://ftp.esat.kuleuven.be/sista/delathauwer/reports/ldl-12-61.pdf).
 
@@ -62,7 +63,7 @@ Capture MLP17's normalized input and native output from 1,000 cached corpus sequ
 
 These corpus rows were historically opened. The splits measure generalization within this campaign; they are not fresh document-level or OOD confirmation. The source lacks a dependable document grouping guarantee, which will be stated rather than inferred from row separation. Later promotion needs a separate corpus/construction holdout.
 
-States are stored in FP16 to fit local disk constraints; capture reports the measured rounding floor relative to native FP32 values. Optimization can use FP32/FP64 after loading. No metric may claim accuracy below the measured data floor. The first wave combines weight-only fits (no activations) with explicitly labeled activation-weighted fits, keeping their evidential roles distinct.
+States are stored as scaled FP16 plus per-state FP32 scales to fit local disk constraints; capture reports the measured rounding floor relative to native FP32 values. Optimization can use FP32/FP64 after loading. No metric may claim accuracy below the measured data floor. The first wave combines weight-only fits (no activations) with explicitly labeled activation-weighted fits, keeping their evidential roles distinct.
 
 ## Optimization and convergence policy
 
@@ -87,8 +88,14 @@ Before interpreting a negative as evidence against a structural hypothesis:
 
 This is adversarial examination of the method, not a requirement to obtain a positive answer. A valid negative remains useful. The scientific target is a recovered executable computation with the four properties, rather than a favorable fit or a preferred interpretation.
 
+For each future negative, record the narrow failed claim, the strongest plausible methodological explanation, and an executed check that distinguishes them. If that check has not run, label the structural interpretation **red-team audit pending**. Keep the original metric and threshold visible when testing a different representation or metric.
+
+The first larger weight-product fit already illustrates why this matters. At 20:28 its loss was unchanged across successive checks, but relative stationarity was about $10^{-2}$ against the registered $10^{-4}$ bar, and the Gram condition number had risen above $10^6$. That is a stalled optimization trajectory requiring numerical/parameterization investigation, not a converged negative. Candidate checks include a mathematically equivalent objective without its constant term and an explicitly registered penalty against large cancelling components; neither repair has run yet.
+
 ## Execution ledger
 
 - Completed: short joint32 fit, stable-product causal screen, fixed-support feasibility, shared-reader block counterexample. Their failures remain intact.
-- In preparation: managed 1,000-sequence data capture; convergence-controlled larger weight fits; shared-reader/block implementations.
+- Completed: managed 1,000-sequence capture V2; all 64,000 state pairs saved, rounding errors below 0.016%. V1 direct-FP16 storage overflow is preserved.
+- Implemented and checked: four representations under weight and data objectives, with four starts each (32 configurations); resumable Adam/L-BFGS optimization and explicit stationarity/plateau gates.
+- Running: weight-product native-start chunk0, started20:20:55, more than6,000 objective evaluations; not yet converged. Natural-state product fit, shared-reader fit and natural-state block fit are queued. Configurations not yet queued remain planned, not completed.
 - Pending: joint decomposition of the longer unembedding → last bilinear → last attention path. The earlier position-corrected QK work was a separate two-behavior experiment.

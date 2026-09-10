@@ -1,5 +1,6 @@
-# Latest consolidated research update
+# Latest research state
 
+**Active campaign, 20:24:** [Broad unsupervised structural search](unsupervised_structure_campaign.md). 25 hypotheses; 64,000 unlabeled state pairs captured; 32 first-wave configurations defined. Larger convergence-controlled fits are running/queued. Negative results require red-team checks of optimization, geometry, data and gauges.
 **Newest experiment follow-up, through 19:56:** [Unsupervised products and position-corrected QK](unsupervised_products_and_position_corrected_qk.md). The bilinear-plus-unembedding factorization yielded two causally relevant but insufficient pronoun-related products. The separate QK study now includes input-weight pullbacks; it is not the unembedding → MLP17 → final-attention path. The 19:49 math review derives tested limits on exact sparse token writes. The 18:42 report remains the latest consolidated requested rundown.
 
 **[Read the new report — 10 September, 18:42 UTC](research_update_1842.md).**
