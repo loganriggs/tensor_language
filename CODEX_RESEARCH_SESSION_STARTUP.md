@@ -53,6 +53,39 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Product-subset math after normalization-response null — 2026-09-10 03:14 UTC
+
+Current goal remains active; original handoff/pilot and appended structural
+criterion override the stale better_math_ideas wording. NORM_PRESERVING_RESPONSE_V1
+completed03:00:25, A/Cpass Bfail,48forwards/864seq in2.821s. Full-vector effect
+errors.332–.510 inall8cells; nativefactororacle<=3.741e-5. Actual changed RMS,
+projections andRoPE retained. Close response-approximation ladder; no degree,
+module-subset or gain rescue. All545902902nativeparams remain, saving0.
+
+Concrete continuation executed: bilinear_product_subsets.py and
+BILINEAR_PRODUCT_SUBSETS_V1_CONTROLS.json. Ten algebra checks pass,max2.843e-14:
+exact subset/full interchange, disjoint union, weight removal, signed score
+conservation, factor-rescaling/permutation, and factorized symmetric tensorGram
+against a dense oracle. Planted100,-100,1 cancellation shows BOTH energy-only
+and signed local-write ranking fail to identify the simplest sufficient subset.
+Do not turn the diagnostic score into a circuit-identification claim.
+
+Next object: MLP4's native product subsets shared/private acrosshas/had andis/was,
+with full downstream native recomputation. Native neurons are candidate terms,
+not semantic units. Prior rank16hidden compiler/groups coverMLP0/1/2/3/6 output
+interfaces; Tier4v118 captures downstreamcross/self terms. No newnative subset,
+budget or protocol fixed yet; no ownedGPU successor queued. This turn's CPU
+implementation/control receipt fulfills continuation after the last native null.
+Do not drift into another global rank/energy scan. Subset selection must face
+held-out causal fidelity and matched controls; bothscore rules alone are killed.
+
+New explanation bilinear_products_after_response_nulls_2026-09-10.md explains
+math and limits. Hourly0314 performed late from0306: five valid receipts since
+0206, medianinterreceipt12m07s, no identifiedcircuit. CEREMONY_BUDGET not established
+forwholehour; reuse sourcecapture/subset machinery, no newforwardframework.
+Next clocks04:14hourly,04:49math. Bothmanagedrunnershealthy. Native row families
+alreadyopened; no freshOOD or adoption claim. Preserve Claude/livequeue files.
+
 ## Mixed chain and receiving tangent fail; nonlinear norm test prepared — 2026-09-10 02:52 UTC
 
 Previous goal turn PROGRESS: two managed native screens, CPU direction bound,
