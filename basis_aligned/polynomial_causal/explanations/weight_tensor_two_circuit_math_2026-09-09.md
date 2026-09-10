@@ -489,3 +489,42 @@ ordinary and constrained edits, and recomputes the full suffix. No new fit is
 allowed. The intervention primitive passes seven controls; the native test is
 not yet run. The [saved-reader result](../BILIN18_MLP1_DUAL_READER_EDIT_V1_RESULT.json)
 is a local tool-feasibility result, not circuit identification or adoption.
+
+## Native outcome: useful task separation, failed control comparison
+
+The18-forward native test has now run. Its numerical and intervention checks
+pass, including identical full-vocabulary outputs for the two equivalent joint
+implementations. On the48 target pairs, the constrained edits retain over98%
+of the ordinary own-task effects. Their signed projections onto the native
+margin-change vectors are0.5200 for temporal and0.5747 for is/was, versus
+0.5229 and0.5831 for the ordinary edits. These are effect projections, not
+prediction accuracies or fractions of all model behavior explained.
+
+Cross-task margin-change RMS is0.454% and2.760% of the respective intended
+own-task RMS. Thus the local constraints coexist with a useful task split in
+the native suffix. However, the **registered control predicate fails**: on the
+16 temporal P controls, the temporal edit's mean teacher KL rises from
+0.000157899 to0.000167102 nats/token, exceeding the permitted1e-6 increase.
+All P top-token predictions stay unchanged. The small magnitude does not
+turn the failed no-worse criterion into a pass, and iswas-specific controls
+remain untested. No circuit is promoted.
+
+[Native behavioral receipt](../BILIN18_MLP1_DUAL_READER_NATIVE_V1_RESULT.json).
+Execution took2.43seconds after data preparation, with no fitting or updates.
+
+The next question moves from coordinates to operations. Let `u` be the native
+pre-attention state at layer1, and `a` its new attention write. Neither stream
+is assumed to be purely token or context information. Each task reader sees
+three explicit numerator operations: `u` multiplied with itself, `a` multiplied
+with itself, and the symmetric `u`-times-`a` cross term. All three retain the
+same full normalization denominator. The next hypothesis is that the cross
+operation supplies both task-typed effects while meeting the original control
+bar; the other pieces are measured without being fallback candidates.
+
+This connects directly to earlier source-pair work, including an earlier
+failed attempt to promote attention1's contribution as a portable MLP1 path.
+The proposed test edits a node of an explicitly expanded output computation.
+It does not claim that removing that node equals removing attention at its
+physical input, or that separately normalized paths add. Seven new algebra
+and capture controls pass; the native cross-program test is still pending.
+See the [fixed protocol](../BILIN18_MLP1_ATTENTION_CROSS_PROGRAM_V1_PREREGISTRATION.md).

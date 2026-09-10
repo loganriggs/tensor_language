@@ -1115,3 +1115,24 @@ alone, but not a linear-plus-norm state: isotropic forms are a counterexample.
 The exact modular commutator successor tests that remaining representation
 class. See [mathematical explanation](weight_tensor_two_circuit_math_2026-09-09.md)
 and [native receipt](../BILIN18_MLP1_JOINT_READER_WEIGHT_V1_RESULT.json).
+
+### MLP1 independent-reader native test — September10
+
+A minimum-norm dual write map changes one task's four reader coordinates while
+preserving the other's. On the saved readers this costs at most1.056784 times
+an unconstrained write norm. The native18-forward screen is mechanically valid
+and retains own-task signed margin projections0.5200/0.5747 versus ordinary
+0.5229/0.5831. Cross/own margin RMS is0.00454/0.02760. Both ordinary and dual
+patches already have small cross-task effects; the dual map is not an identified
+new semantic circuit.
+
+The registered control comparison fails: temporal-P mean KL0.000167102 exceeds
+ordinary0.000157899 plus1e-6, despite zero P top1 flips. No promotion and no bar
+repair. Other-task control families and pristine OOD remain untested. Native
+zero/joint-oracle full-logit replay is exact. All weights/background remain.
+The next registered question is the explicit attention-times-pre-attention
+numerator operation, with the full shared norm retained and the same original
+control bar. It does not repeat the failed portable attention-input path claim.
+
+[Native result](../BILIN18_MLP1_DUAL_READER_NATIVE_V1_RESULT.json) and
+[cross-program protocol](../BILIN18_MLP1_ATTENTION_CROSS_PROGRAM_V1_PREREGISTRATION.md).

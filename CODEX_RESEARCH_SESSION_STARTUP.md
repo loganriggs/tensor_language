@@ -53,6 +53,37 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Dual-reader behavioral screen fails P criterion; actual bilinear cross program next — 2026-09-10 00:24 UTC
+
+Previous goal turn is PROGRESS. Managed BILIN18_MLP1_DUAL_READER_NATIVE_V1
+finished validly in2.430s,18forwards/576sequences. A/B pass,C fails. Nativezero
+andjoint replay0; ownsigned effect .5200/.5747 versusordinary.5229/.5831,
+cross/ownRMS .00454/.02760. No Ptop1flips, but temporaldual KL.000167102
+exceedsordinary.000157899+1e-6. Preserve this miss; no promotion/thresholdrepair.
+RunnerSHA12f00093193f40dbc5c141f5208fe71189e0e911ccb6c397c241a39e7038001f.
+Rows saved in BILIN18_MLP1_DUAL_READER_NATIVE_V1_ROWS.json with exact prior
+hashes; onebuildpermodule reducedpreparation to8.174s. No refit or datachange.
+
+Next BILIN18_MLP1_ATTENTION_CROSS_PROGRAM_V1_PREREGISTRATION.md fixes
+pre-attentionstream u and full newattention1write a. CDown folds outputreader;
+three numerator terms pre/cross/attention share FULL norm denominator. This
+is a computational output-node edit, not sourceknockout or independent norm.
+Old rungs487–491, failed readerpath492, September2normalizationcorrection and
+MLP10source-pair507 checked. Native implementation must retain that distinction.
+
+mlp1_attention_cross_program.py implements components and read-only earlystream
+capture by wte/attention0/MLP0/attention1/MLP1hooks with nativelambda reentry.
+Seven CPU controls pass, algebra8.53e-14. Native runner pending: reuse saved
+48target+16Pcontrol rows, previous capture/scorer, source frames during4native
+forwards. Five patcharms percohort: fullnative dual, pre, cross, attention,
+sumcompiled. Controlpatchcohort duplicates16rows with A/B labels/uniqueIDs,
+using cached16rowbase/donor references:14forwards/528sequence evaluations.
+B requirescross>=90%fullsigned effect AND<=.15effectvectorerror bothtasks;
+C keeps the ORIGINAL ordinary P KL+1e-6 andzero-flip bars, no fallbackterm
+promotion. No models/weights fitted, native suffix recomputed, allweightspriced.
+Bind newprotocol/primitive/parent sources before managedenqueue. No own job
+pending; bothrunnershealthy. Goal active; clocks01:05hourly/01:49math unchanged.
+
 ## Exact quotient obstruction complete; two-reader native selectivity next — 2026-09-10 00:05 UTC
 
 Previous turn is PROGRESS: managed native weight audit, exact coefficient
