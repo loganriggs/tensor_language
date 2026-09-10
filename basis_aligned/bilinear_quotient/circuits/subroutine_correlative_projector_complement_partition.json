@@ -1,0 +1,542 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.correlative.projector_complement_partition",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "partition_plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "correlative.projector_complement_partition.v1",
+   "revision": 1,
+   "status": "site_live",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "correlative_projector_complement",
+    "domain": "Reused capable short-frame both/neither A1/A2 and disjoint either/not C,16groups each",
+    "read": "full native selected26head output coordinates at14blocks",
+    "operation": "fixed P=q q^T versus R=I-P decomposition with saved per-block direction",
+    "write": "live donor or saved FIT-mean replacement of P, R or full selected heads",
+    "endpoint": "double donor-swap dissociation held; selective mean removal and additive full-vocabulary endpoint effects failed"
+   },
+   "alternative_explanations": [
+    "conditional coordinate program retaining opaque upstream model",
+    "task-specific cue association without reusable semantic operation"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "both/neither cue in bare frame"
+     ],
+     "holds_fixed": [
+      "frozen interface and original checkpoint",
+      "preselected new reporter/noun combinations and all other prompt factors"
+     ],
+     "control_ids": [
+      "native_endpoint_capability",
+      "full_selected_head_swap_ceiling"
+     ],
+     "builder_artifact_id": "source_rows",
+     "split_plan_id": "correlative_new_combinations_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "both/neither cue in report frame"
+     ],
+     "holds_fixed": [
+      "frozen interface and original checkpoint",
+      "preselected new reporter/noun combinations and all other prompt factors"
+     ],
+     "control_ids": [
+      "native_endpoint_capability",
+      "full_selected_head_swap_ceiling"
+     ],
+     "builder_artifact_id": "source_rows",
+     "split_plan_id": "correlative_new_combinations_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "interchange",
+     "changes": [
+      "disjoint either/not cue and or/but readout"
+     ],
+     "holds_fixed": [
+      "frozen interface and original checkpoint",
+      "preselected new reporter/noun combinations and all other prompt factors"
+     ],
+     "control_ids": [
+      "native_endpoint_capability",
+      "full_selected_head_swap_ceiling"
+     ],
+     "builder_artifact_id": "source_rows",
+     "split_plan_id": "correlative_new_combinations_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "correlative_14_attention_blocks",
+     "tensor_path": "attention c_proj outputs at layers3..16",
+     "shape": [
+      14,
+      1152
+     ],
+     "intervention": "live donor or mean scalar replacement through frozen residual writers"
+    }
+   ],
+   "split_plan_ids": [
+    "correlative_new_combinations_v1"
+   ],
+   "evidence_event_ids": [],
+   "translation_ids": [],
+   "next_missing": "Explain the private/shared consumer dependencies. Swap partition supported but independent selective removal and endpoint addition failed. Complement3314coordinates remains opaque; allnativeweights retained. No refit/newmean/gain rescue."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "correlative_v505_internal_held_reused",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "rows",
+   "description": "Original v505 internal held rows2/3mod4,16perpanel; group-disjoint from interface FIT but all originate in authored FIT namespace. Panels reused; A1/A2/P share groups and A1/P identical base prompts."
+  },
+  {
+   "split_plan_id": "correlative_new_combinations_v1",
+   "partition_artifact_id": "source_rows",
+   "builder_artifact_id": "source_rows",
+   "description": "16groups seed9111280;112unique selected tokenized prompts disjoint from384original source-bank prompts. New factor combinations, existing templates/vocabulary; no model-training OOD or worldwide novelty claim."
+  }
+ ],
+ "evidence_events": [
+  {
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_new_combinations_v1",
+   "evaluation_role": "fixed_projector_complement_donor_and_mean_split",
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "source_rows",
+    "partition_audit"
+   ],
+   "seed": 9111280,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "partition_plan",
+   "result_artifact_id": "partition_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "claim_id": "correlative.projector_complement_partition.v1",
+   "family_ids": [
+    "A1",
+    "A2",
+    "C"
+   ],
+   "event_id": "correlative.projector_complement.double_interchange.v1",
+   "test_type": "das_interchange",
+   "verdict": "held",
+   "failure_kind": null,
+   "metrics": [
+    {
+     "name": "A1_projector_raw_recovery",
+     "estimate": 0.969345211982727,
+     "ci95": [
+      0.9493708960213728,
+      0.9897126436145822
+     ],
+     "bar": ">=.8"
+    },
+    {
+     "name": "A1_complement_raw_recovery",
+     "estimate": -0.004481957294046879,
+     "ci95": [
+      -0.010293913225127417,
+      0.0009326562632147005
+     ],
+     "bar": "absolute<=.23"
+    },
+    {
+     "name": "A2_projector_raw_recovery",
+     "estimate": 0.8987523317337036,
+     "ci95": [
+      0.8847660407377766,
+      0.9128042749736738
+     ],
+     "bar": ">=.8"
+    },
+    {
+     "name": "A2_complement_raw_recovery",
+     "estimate": 0.05159083381295204,
+     "ci95": [
+      0.04246797042284494,
+      0.061424973289649874
+     ],
+     "bar": "absolute<=.23"
+    },
+    {
+     "name": "C_projector_raw_recovery",
+     "estimate": -0.02521246299147606,
+     "ci95": [
+      -0.04392139959532495,
+      -0.0058480590639780295
+     ],
+     "bar": "absolute<=.23"
+    },
+    {
+     "name": "C_complement_raw_recovery",
+     "estimate": 0.9819666147232056,
+     "ci95": [
+      0.9582263039341619,
+      1.0077066470098688
+     ],
+     "bar": ">=.8"
+    }
+   ],
+   "notes": "All48nativepairs endpointcorrect and fullheadrecovery>=.8. Both task-specific swaps and cross-task inertness held. This is conditional task-score double dissociation, not full-state or independently removable semantic-circuit identification.",
+   "design_key": "1573305c43a05da83f56418c9b5d33409d521d09f011b59403cc7dc8cb350525",
+   "execution_key": "66a6dfc870197b5346965d6d26aa72fc5d437d82144a49492456a434895e08bb"
+  },
+  {
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_new_combinations_v1",
+   "evaluation_role": "fixed_projector_complement_donor_and_mean_split",
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "source_rows",
+    "partition_audit"
+   ],
+   "seed": 9111280,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "partition_plan",
+   "result_artifact_id": "partition_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "claim_id": "correlative.projector_complement_partition.v1",
+   "family_ids": [
+    "A1",
+    "A2",
+    "C"
+   ],
+   "event_id": "correlative.projector_complement.selective_mean_removal.v1",
+   "test_type": "removal",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "metrics": [
+    {
+     "name": "A1_projector_mean_ce_damage",
+     "estimate": 1.2889353036880493,
+     "ci95": [
+      0.8035565281286836,
+      1.7908524941653012
+     ],
+     "bar": ">=.5 nats"
+    },
+    {
+     "name": "A1_complement_mean_absolute_ce_change",
+     "estimate": 0.1361694484949112,
+     "ci95": [
+      0.08137342671398073,
+      0.1941641577053815
+     ],
+     "bar": "<=.1 nats"
+    },
+    {
+     "name": "A2_projector_mean_ce_damage",
+     "estimate": 1.3924980163574219,
+     "ci95": [
+      0.837752109579742,
+      1.9925963222049177
+     ],
+     "bar": ">=.5 nats"
+    },
+    {
+     "name": "A2_complement_mean_absolute_ce_change",
+     "estimate": 0.0798550695180893,
+     "ci95": [
+      0.04766591303050518,
+      0.11718329277355224
+     ],
+     "bar": "<=.1 nats"
+    },
+    {
+     "name": "C_projector_mean_absolute_ce_change",
+     "estimate": 0.17179933190345764,
+     "ci95": [
+      0.12387114763259888,
+      0.2171788833104074
+     ],
+     "bar": "<=.1 nats"
+    },
+    {
+     "name": "C_complement_mean_ce_damage",
+     "estimate": 3.18155574798584,
+     "ci95": [
+      2.861620532721281,
+      3.5420568503439425
+     ],
+     "bar": ">=.5 nats"
+    }
+   ],
+   "notes": "Intended damage holds. Preservation fails P-onC absoluteCE.171799 andR-onA1.136169. Signed changes.051285/-.117694 hide cancellation or improvement; preservation uses meanabsolute per-row changes. No newmean/refitrescue.",
+   "design_key": "39c941c54a027f14d76f85d3cd79bd698a505992303bc02bdb93e584bdf6bd48",
+   "execution_key": "607d3f48406b1b89649993588a8dbea5cf436efb1dc8ecdca3b8f832796ff603"
+  },
+  {
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_new_combinations_v1",
+   "evaluation_role": "fixed_projector_complement_donor_and_mean_split",
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "source_rows",
+    "partition_audit"
+   ],
+   "seed": 9111280,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "partition_plan",
+   "result_artifact_id": "partition_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "claim_id": "correlative.projector_complement_partition.v1",
+   "family_ids": [
+    "A1",
+    "A2",
+    "C"
+   ],
+   "event_id": "correlative.projector_complement.endpoint_addition.v1",
+   "test_type": "composition",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "metrics": [
+    {
+     "name": "A1_interaction",
+     "estimate": 0.20653549472603475,
+     "ci95": [
+      0.1980085683813265,
+      0.2148499528250343
+     ],
+     "bar": "<=.10"
+    },
+    {
+     "name": "A2_interaction",
+     "estimate": 0.26555391333884665,
+     "ci95": [
+      0.2518047552914694,
+      0.2795725556221175
+     ],
+     "bar": "<=.10"
+    },
+    {
+     "name": "C_interaction",
+     "estimate": 0.11866633577151992,
+     "ci95": [
+      0.11136065207065018,
+      0.1255315971101369
+     ],
+     "bar": "<=.10"
+    }
+   ],
+   "notes": "ExactP+R=I and near-orthogonality do not imply additive nonlinear multi-block output effects. Interactions.2065/.2656/.1187 allfail.",
+   "design_key": "a81257313603ac4cfcd76d33d760b09e23366b35134617b5b582f161ecc01a62",
+   "execution_key": "7939d6c364dc4046a06216f294aec00928f112aa4101c4e805dc2d0434788307"
+  },
+  {
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_new_combinations_v1",
+   "evaluation_role": "fixed_projector_complement_donor_and_mean_split",
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "source_rows",
+    "partition_audit"
+   ],
+   "seed": 9111280,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "partition_plan",
+   "result_artifact_id": "partition_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "claim_id": "correlative.projector_complement_partition.v1",
+   "family_ids": [
+    "A1",
+    "A2",
+    "C"
+   ],
+   "event_id": "correlative.projector_complement.compiled_bridge.v1",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "metrics": [
+    {
+     "name": "A1_projector_scalar_bridge",
+     "estimate": 1.2874603271484375e-05,
+     "ci95": null,
+     "bar": "maxabs<=1e-3 AND relativeL2<=1e-5"
+    },
+    {
+     "name": "A2_projector_scalar_bridge",
+     "estimate": 1.4781951904296875e-05,
+     "ci95": null,
+     "bar": "maxabs<=1e-3 AND relativeL2<=1e-5"
+    },
+    {
+     "name": "C_projector_scalar_bridge",
+     "estimate": 1.5497207641601562e-05,
+     "ci95": null,
+     "bar": "maxabs<=1e-3 AND relativeL2<=1e-5"
+    }
+   ],
+   "notes": "Existing head-space P swap reproduces folded scalar port; nativebridge, finitecounts andqorthogonality pass. Allnativeweights stay charged.",
+   "design_key": "126ecec7bc47279932a6ee2a636a12f11f96ffbab7710850c2025eb602a258e0",
+   "execution_key": "4fefc83d4201d416039b7aba55c6a5ce74fce1fd7bf04b609a4ab124cc2a555b"
+  }
+ ],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_FOLDED_PROGRAM_V1_PREREGISTRATION.md",
+   "sha256": "c130adc4256536b1b853b468deeb93d9a03bb8cde888dfd6ff1ed7d878fcf4ad",
+   "kind": "plan",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_FOLDED_PROGRAM_V1_RESULT.json",
+   "sha256": "cc979644b2d2ea21b06a5afdecac7682cfbcb2cda7189c0213fdec3625c0b5d0",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "interface": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_ARTIFACT.pt",
+   "sha256": "0da9d27fd71bbe9fd689b0091a5299790d3617e674004f73623829541913d12d",
+   "kind": "interface",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_ROWS.json",
+   "sha256": "35ebbe96aec3cc7ea38a48a1a71cc82638c43865d37f1be1cbb04edbb69600c8",
+   "kind": "rows",
+   "status": "frozen"
+  },
+  "maps": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_WEIGHT_PORTS_V1_MAPS.pt",
+   "sha256": "ce6b3bb2e5da8a7cec59fe9e5142837a023b643bf9bed49b523f179030113e82",
+   "kind": "maps",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_FOLDED_EFFECTS_V1_RESULT.json",
+   "sha256": "32c4b1c681ede27477bcb47fb07581f25183c89a33f28f29fbc09df92cb2bb8a",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "replay_plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_PREREGISTRATION.md",
+   "sha256": "8c274653ffda866dc734d7cbccd5cc4bfc5b14dfa2fb25bd35f3a36201513064",
+   "kind": "replay_plan",
+   "status": "frozen"
+  },
+  "replay_result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_RESULT.json",
+   "sha256": "07f5e36ca0798467340095ace87f7f861a31da3d977f158e2923d234865ca27b",
+   "kind": "replay_result",
+   "status": "frozen"
+  },
+  "executor": {
+   "path": "basis_aligned/polynomial_causal/correlative_native_folded_executor_v1.py",
+   "sha256": "3b5bf51c1736f44b7550693e110b3f63e9d978518435d73f93a197dca9839d60",
+   "kind": "executor",
+   "status": "frozen"
+  },
+  "source_plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_VALUE_SOURCE_V1_PREREGISTRATION.md",
+   "sha256": "d42b8147abcbe674271695706e93c111b35e616ff97fde68588475d63031aad9",
+   "kind": "source_plan",
+   "status": "frozen"
+  },
+  "source_result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_VALUE_SOURCE_V1_RESULT.json",
+   "sha256": "5b8c08ed905b36bb2ed78a1a0f9c0c88751b665442b43e9ea290f3214cfdd279",
+   "kind": "source_result",
+   "status": "frozen"
+  },
+  "source_rows": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_RECOMBINED_ROWS_V1.json",
+   "sha256": "d05a851c75fab409490d3452d062ec55cdcecc2e20592bfd2c570aa5fa659a85",
+   "kind": "source_rows",
+   "status": "frozen"
+  },
+  "source_audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_VALUE_SOURCE_AUDIT_V1_RESULT.json",
+   "sha256": "80eab244798810daaf8b522bd2d4e6b8bacd99326bd4b5249b43dd77948224fe",
+   "kind": "source_audit",
+   "status": "frozen"
+  },
+  "factor_plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_ROUTE_VALUE_V1_PREREGISTRATION.md",
+   "sha256": "ff19bed2b665b556a991c69eccc68cfe96e54f4ab4a7a3093d25b9a2dc7ec5c0",
+   "kind": "factor_plan",
+   "status": "frozen"
+  },
+  "factor_result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_ROUTE_VALUE_V1_RESULT.json",
+   "sha256": "0a0af0a140ed92bbfe236eb5f615f574673411f9d6452a3ce2853485a4779101",
+   "kind": "factor_result",
+   "status": "frozen"
+  },
+  "factor_audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_ROUTE_VALUE_AUDIT_V1_RESULT.json",
+   "sha256": "e4329b373310358dab0af1d46dd18a8f112b69447832182a6dd13750f4f1b0f4",
+   "kind": "factor_audit",
+   "status": "frozen"
+  },
+  "factor_explanation": {
+   "path": "basis_aligned/polynomial_causal/explanations/correlative_routing_value_product_2026-09-10.md",
+   "sha256": "46797d80ec5014fb81ae1a62f718066ffacf87909e5aeb99b70d0c81523660af",
+   "kind": "factor_explanation",
+   "status": "frozen"
+  },
+  "factor_executor": {
+   "path": "basis_aligned/polynomial_causal/correlative_factor_executor_v1.py",
+   "sha256": "265e245023332793fdd457815088c60a89f335ce7b718a9a23377e74ad1372d8",
+   "kind": "factor_executor",
+   "status": "frozen"
+  },
+  "partition_plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_COMPLEMENT_SPLIT_V1_PREREGISTRATION.md",
+   "sha256": "1cbda5d64eec542c0bcadad2996b13899435f30cb3108cace68a695c0b776e13",
+   "kind": "partition_plan",
+   "status": "frozen"
+  },
+  "partition_result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_COMPLEMENT_SPLIT_V1_RESULT.json",
+   "sha256": "3650c9bde03dfed48b6e1ce184829e75fa01ed660776964ec64b1e0a5264c74b",
+   "kind": "partition_result",
+   "status": "frozen"
+  },
+  "partition_audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_COMPLEMENT_SPLIT_AUDIT_V1_RESULT.json",
+   "sha256": "19b8624efabf426a07f9a6a0c006612197148b5b35fab31c092856405ecc89aa",
+   "kind": "partition_audit",
+   "status": "frozen"
+  },
+  "partition_explanation": {
+   "path": "basis_aligned/polynomial_causal/explanations/correlative_shared_heads_selective_swaps_2026-09-10.md",
+   "sha256": "63be6159a3fceaf5def86c9d3b6f19c6989a915469400f6b2ea4d7301b51923b",
+   "kind": "partition_explanation",
+   "status": "frozen"
+  }
+ }
+}

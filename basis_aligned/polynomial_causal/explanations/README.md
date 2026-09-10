@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Shared heads and selective swaps](correlative_shared_heads_selective_swaps_2026-09-10.md): fixed correlative directions and their remainder pass a double donor-swap dissociation across two behaviors. Selective mean removal and additive endpoint effects fail, so independently removable circuits remain unproven.
+
 - [Routing and value product](correlative_routing_value_product_2026-09-10.md): on capable short frames, values carry most of the cue effect but neither operand alone is sufficient. Exact product terms and live interventions both require substantial interaction; no new fit or extraction claim.
 
 - [Context math and a capability correction](correlative_context_math_and_capability_correction_2026-09-10.md): matched either/only test exposes native answer failures; prior positive-effect counts did not establish correct grammatical completion. Four-corner math rejects additive cue/context separation of the frozen14 scalar coordinates.

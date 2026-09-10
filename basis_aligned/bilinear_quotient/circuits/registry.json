@@ -669,6 +669,45 @@
     "bf1cfe385f60bd61254ef414b47a7d5b8fc8e37ef5634dc55b113e69d98faa65"
    ]
   },
+  "subroutine.correlative.projector_complement_partition": {
+   "file": "subroutine_correlative_projector_complement_partition.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "f9980aeee9bde2aac1628d61bc6eae84b5016ddefa95bc44faaa74f46a679221",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "correlative.projector_complement_partition.v1",
+   "claim_status": "site_live",
+   "causal_variable_id": "correlative_projector_complement",
+   "interchange_family_count": 3,
+   "invariance_family_count": 0,
+   "negative_event_count": 2,
+   "active_negative_event_count": 2,
+   "latest_blocker": "correlative.projector_complement.endpoint_addition.v1",
+   "latest_active_event": "correlative.projector_complement.compiled_bridge.v1",
+   "active_event_ids": [
+    "correlative.projector_complement.double_interchange.v1",
+    "correlative.projector_complement.selective_mean_removal.v1",
+    "correlative.projector_complement.endpoint_addition.v1",
+    "correlative.projector_complement.compiled_bridge.v1"
+   ],
+   "held_test_types": [
+    "compiled_equivalence",
+    "das_interchange"
+   ],
+   "active_blocking_test_types": [
+    "composition",
+    "removal"
+   ],
+   "design_keys": [
+    "126ecec7bc47279932a6ee2a636a12f11f96ffbab7710850c2025eb602a258e0",
+    "1573305c43a05da83f56418c9b5d33409d521d09f011b59403cc7dc8cb350525",
+    "39c941c54a027f14d76f85d3cd79bd698a505992303bc02bdb93e584bdf6bd48",
+    "a81257313603ac4cfcd76d33d760b09e23366b35134617b5b582f161ecc01a62"
+   ]
+  },
   "subroutine.correlative.route_value_factor_sufficiency": {
    "file": "subroutine_correlative_route_value_factor_sufficiency.json",
    "schema_version": 2,

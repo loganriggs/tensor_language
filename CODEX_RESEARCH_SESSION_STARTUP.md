@@ -53,6 +53,59 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Shared correlative heads: double swaps held, selective mean removal failed — 2026-09-10 14:21 UTC
+
+Previous turn PROGRESS1743405c1, prereg06bf85ce0. Original handoff/pilot. Fixed
+saved26heads/14block q; P=q q^T, R=I-P. No newfit/head/rank/gain/mean. Existing
+short-frame recombined A1/A2 anddisjointC reused16groups each,seed9111280;
+all48pairs bothnativeendpointscorrect, no newdata/trainingOOD claim. C isanswer-
+changing either/not->or/but, not target-preservingP removalcontrol. Complement
+3314coordinates remains opaque/highcapacity; naming it doesnotexplainproducer.
+
+Managed14:17:37–14:17:41,30bodyforwards480seq,1.583506executorsec.
+RunnerSHA f58e87cb8bde2f36e7120714460a1802f63c332b9f883864a3df01fed55d077b.
+Ainstrument/Bcapability/CdoubleinterchangeTRUE; Dselectivemeanremoval/EadditionFALSE.
+Nativebaselineexact0, P-vs-foldedscalar fullvocabmax1.54972e-5/rel6.15737e-7.
+Scalarworstscaled.087172<=1; qorthmax2.38419e-7. Originalg.forward_unitsdict-q
+CURRENT-live complement semantics reused, no new interventioncompiler.
+
+Rawdonor recovery P A1.969345/A2.898752/C-.025212; complement-.004482/.051591/
+.981967; fullset.972746/.965723/.965580. Doubleinterchange>=.8intended andabs<=.23
+cross holds. Task-margin result, not full-vocabulary equivalence or independent
+consumer identification. Meanreplacement intendedCEdamageP A1+1.288935/A2+1.392498,
+complementC+3.181556 all>=.5. PreservationFAIL: P-onCmeanabsCE.171799>.1,
+complement-onA1.136169>.1. Signedmeans+.051285/-.117694 maskcancellation or
+improvement. Complement-onA2meanabs.079855. FullmeanCdamage+2.535752, not additive.
+Endpoint fullvocabinteraction.206535/.265554/.118666 all>.10 despiteP+R=I.
+
+Claimed post-resultCPU audit_correlative_complement_split_v1 ACTUALLYEXECUTED
+using newshared paired_panel_bootstrap_v1(4000draws seeds9111314/15/16).
+P-onC signedCECI[-.043877,.138776] versusmeanabsoluteCI[.123871,.217179];10/16
+worsen,6improve. R-onA1 absoluteCI[.081373,.194164]crossesbar thoughpointfails.
+InteractionCI[.198009,.214850]/[.251805,.279573]/[.111361,.125532]. Finiteauthored
+panels only; no thresholdchange/newmeanrescue. Nativecounterexample establishes
+why independentlyswappable coordinates neednot be independentlyremovable.
+Sharedcontext contribution is an alternativeexplanation, not identifiedconsumermap.
+
+Canonical subroutine.correlative.projector_complement_partition site_live: double
+interchange/compiledbridgeheld, selectivemeanremoval/compositionfailed. Existing
+parent and rejected factor-onlyrecords preserved. Result
+CORRELATIVE_COMPLEMENT_SPLIT_V1_RESULT.json, audit
+CORRELATIVE_COMPLEMENT_SPLIT_AUDIT_V1_RESULT.json. Explanation
+explanations/correlative_shared_heads_selective_swaps_2026-09-10.md.
+All545902902nativeparametersretained, no independentextraction/saving. Nextuseful
+work mustexplainprivate/shared downstreamconsumers or contextproducer, not claim
+R asonesimplecircuit or refit a newmean/direction to erase these misses.
+ActualCPUaudit is continuationreceipt, no successorGPUqueued. Fullgoalactive.
+
+Hourly14:14reviewcomplete(14:15safe boundary):4managedreceiptsduring13:14–14:14,
+medianreceiptgap903s>600target.89.01%clockcoverage,science2938.41/review265.96/
+unrecorded395.63s, coarse mixedlabels. Focus/ceremony/noveltyPASSwithlimitations
+and explicitpriorartcorrection. Throughputrepair: sharedpairedbootstraphelper
+implementedandusednow; reusednativecomplementexecutor. Thisruncompleted14:17:41,
+605safter14:07:36, smallmiss nothidden. Next hourly15:14/math16:49UTC. Bothrunners
+healthy; preserveClaude/sharedlogs/canaries/task14. No closedlane rescues.
+
 ## Correlative routing/value factor test: both partial simplifications fail — 2026-09-10 14:10 UTC
 
 Previous turn PROGRESS7ae6a5b12; prereg5bd19ba99. Original handoff/pilot. No long-
