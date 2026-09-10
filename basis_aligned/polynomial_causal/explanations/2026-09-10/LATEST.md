@@ -1,6 +1,13 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 16:54 UTC
+## Latest follow-up — 10 September, 17:04 UTC
+
+**The local formula transfers to native states, but its proposed replacement
+fails.** Reusing one context gives25–26% selected-response error; borrowing the
+next verb's context also fails the joint criterion. Even exact native context
+leaves99–101% full-vocabulary effect error when the output is represented by
+the two chosen readers. This closes that behavioral replacement proposal while
+preserving the exact local equation. [Native test and limits](gerund_scalar_writes_and_live_feedback.md).
 
 **The mathematical review produced a small composable response program.**
 Two initialized context scalars predict the last MLP's response to repeated

@@ -1,6 +1,71 @@
 # Shared grammatical writes work; the scalar-only predictor does not
 
-**Latest mathematical result — 10 September, 16:54 UTC:** we now have a saved,
+**Latest native result — 10 September, 17:04 UTC:** the small program correctly
+predicts its two selected readouts on native sentence states, but it does not
+yet provide a useful replacement for the intervention. Context substitution
+fails, and even the exact two-reader output leaves almost all of the full
+vocabulary effect unexplained.
+
+## Testing the program on native contexts
+
+The intervention now changes the grammatical scalar at the last MLP's
+normalized input to its natural donor value. The input complement stays at the
+recipient value, and the model computes the actual MLP output and final logits.
+This is a local MLP17 intervention, distinct from the earlier all-layer edits.
+
+We separate the context gate from the scalar itself:
+
+    s = e^T u;
+    tau = K u - 2*a*s;
+    response = delta*(tau + 2*a*s) + delta^2*a.
+
+The test compares native tau with two fixed alternatives: the gate from the
+first old base sentence, or the next verb's gate in the same new frame. Neither
+uses a fit or a chosen best donor. The initial scalar s remains native in all
+cases; even a successful gate replacement would not extract its producer.
+
+| Response context | Selected-reader error, frame 1 / 2 | Full-vocabulary effect error, frame 1 / 2 |
+|---|---:|---:|
+| Exact native context | 4.6e-7 / 3.7e-7 | .990 / 1.009 |
+| One old reference context | .261 / .250 | .996 / 1.001 |
+| Next verb in the same frame | .198 / .086 | .991 / 1.010 |
+
+The context criterion required at most .10 error in both target frames. Both
+substitution hypotheses fail. Reference-context intervals are [.220,.293] and
+[.226,.270]; the first-frame cyclic interval is [.111,.290]. No new gate, donor,
+rank, or threshold was chosen to repair the result.
+
+For the full-vocabulary comparison, the two predicted reader changes are
+converted into their fixed minimum-norm physical output vector. That vector
+preserves those two linear readouts but omits all other output directions. It
+then passes through the real final normalization, unembedding and softcap.
+The exact-context row shows that fixing the context alone cannot rescue this
+writer: its full-effect intervals are [.987,.994] and [1.008,1.011]. An error
+near1 means about as much error norm as the effect being predicted, not a
+percentage of incorrect tokens.
+
+The actual local intervention changes correct-token CE by +.715/+.420 nats and
+recovers .098/.074 of the full native cue-induced task margin. The exact-reader
+writer's CE prediction errors are .775/.468 nats. Matching the chosen internal
+readouts therefore misses behaviorally important changes. On the agreement
+control, even exact-context full-effect error is .871. Its earlier selectivity
+failure remains unchanged.
+
+All64 native pairs are capable, native bridges pass, and the exact FP64 formula
+passes its registered checks. The managed experiment used13 body forwards over
+193 sequence instances, including one fixed reference, in1.33seconds. The CPU
+paired audit is complete. This validates the local equation while rejecting
+the proposed contextual simplifications and behavioral replacement. The next
+question is which omitted token-specific outputs and normalization effects
+carry the discrepancy, using the existing calibration dossiers as prior art.
+
+Evidence: [native protocol](../../NATIVE_RESPONSE_GATE_V1_PREREGISTRATION.md),
+[result](../../NATIVE_RESPONSE_GATE_V1_RESULT.json), and
+[paired audit](../../NATIVE_RESPONSE_GATE_AUDIT_V1_RESULT.json).
+
+## Earlier mathematical result
+
+**10 September, 16:54 UTC:** we now have a saved,
 small executable program for the last MLP's response along two chosen output
 readers. It predicts repeated edits along the grammatical direction and composes
 them exactly, once two context scalars are initialized. This is a local response

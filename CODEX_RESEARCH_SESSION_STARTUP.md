@@ -53,6 +53,14 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Native response context and behavioral replacement failed — 2026-09-10 17:04 UTC
+
+Previous turn PROGRESS6bd1f09ed. Prereg4f4caf73b pushed. Fixed program K/a, e/g readers, minimum-norm reader writer; reference gate from first old A1 base by row order, cyclic gate from next verb. No fit/rank/direction/site changes. Managed run_native_response_gate_v1.py SHA41a80210771446c5163ca5caadd9831d66af91b5899602d4621d7b4789090994 ran17:04:10–17:04:13,13forwards193seq,1.33336sec. Actual last-MLP post-RMS donor-minus-base scalar input intervention. All64 native pairs capable, instruments held; B reference/C cyclic/D full-effect prediction failed.
+
+Exact selected-reader response errors4.57e-7/3.74e-7, but reference-context .26068/.24985 and cyclic .19779/.08618 fail joint.10. Even exact-context two-reader physical writer full-vocab errors .99009/1.00935, CE predictionMAE .77457/.46752. Actual local cue recovery .09755/.07401, correct-CE damage+.71521/+.41998; this is local MLP17, not prior all-layer intervention. Exact G full-effect error .87138, prior selective-removal failure unchanged. Actual paired CPU audit completed: referenceCI .21984–.29342/.22624–.27020, exact full-effectCI .98670–.99386/1.00793–1.01076. All native weights and initial scalar/background remain dependencies.
+
+Canonical gerund_native_response_gate rejected; selected local equation/transducer retains its narrower mathematical validity. Existing explanation/LATEST17:04 and MLP17/master dossiers updated. Do not promote exact chosen readouts to behavioral replacement or fit a rank/prototype to erase failure. Next test omitted token-specific numerator versus normalization effects, after checking existing calibration/two-consumer dossiers; then identify genuine context producers. Actual paired CPU continuation performed, no successorGPUqueued. Full original-handoff goal active. Next hourly17:14/math19:49; use1614 prospective phase log.
+
 ## Mathematical16:49: exact selected-reader response state, full-output witness — 2026-09-10 16:54 UTC
 
 Previous turn PROGRESSa27671861; Claude052847e19 preserved. THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_1649.md started16:49:42. Original handoff/pilot; two unembedding views. Reused v184/v185 finite differences, current consumer evidence and module dossiers. New exact kernel consequence: chosen-reader response needs q=K u, update q+2delta*a, response delta*q+delta^2*a. Repeated same-e post-RMS commands compose; initial u producer and every other native consumer remain outside the program.

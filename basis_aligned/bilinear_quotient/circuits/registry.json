@@ -903,6 +903,44 @@
     "f7c2534dc2a56f9eb7f0534f9bb389faef9bc5a4614445129393b7cc91a49b0a"
    ]
   },
+  "subroutine.readout.gerund_native_response_gate": {
+   "file": "subroutine_readout_gerund_native_response_gate.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "fb0f4e6f74b8766be0181d85dbc93f92ff97a3926e939cca77840c1b283cf2aa",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "readout.gerund_native_response_gate.v1",
+   "claim_status": "rejected",
+   "causal_variable_id": "fixed_context_two_reader_replacement",
+   "interchange_family_count": 2,
+   "invariance_family_count": 2,
+   "negative_event_count": 3,
+   "active_negative_event_count": 3,
+   "latest_blocker": "readout.gerund_native_response_gate.v1.full_effect",
+   "latest_active_event": "readout.gerund_native_response_gate.v1.full_effect",
+   "active_event_ids": [
+    "readout.gerund_native_response_gate.v1.instrument",
+    "readout.gerund_native_response_gate.v1.reference_context",
+    "readout.gerund_native_response_gate.v1.lexical_context",
+    "readout.gerund_native_response_gate.v1.full_effect"
+   ],
+   "held_test_types": [
+    "compiled_equivalence"
+   ],
+   "active_blocking_test_types": [
+    "compiled_equivalence",
+    "cross_family_transfer"
+   ],
+   "design_keys": [
+    "390d90b8b2d17778f809e250198f8e03b7e1e0666bbeb8711b9817cc9812a257",
+    "430c7d8c1f68387e66d2fb1ca05dfa9307e75598f6ca5a549b918c44f62ae712",
+    "56ef9962516e0b1f37b907bc5df989fdb333e03d6a76c88153ccb1573f4d8cd9",
+    "8f0d7aaf938d19894218ccbcbbe72709101096d8ce135302d710834aa6994349"
+   ]
+  },
   "subroutine.readout.gerund_scalar_write_network": {
    "file": "subroutine_readout_gerund_scalar_write_network.json",
    "schema_version": 2,
