@@ -53,6 +53,33 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## MLP8 all-consumer comparison completed — 2026-09-10 08:01:25 UTC
+
+PreviousgoalturnPROGRESSe3e20feef; currentpreregistration587efef7f.
+MATURE_VALUE_MLP8_CONSUMERS_V1_RESULT.json validA/E; Bvaluepath/Cnew/Dinherited fail.
+All32worlds failB/C/D, composition32/32. ActualMLP8output full/new/inherited mixed
+writes removed, allnativeconsumers live. Fullsource value-path errors .526–.791
+original,.566–.898fronted acrossbothreadouts; fulltablecompositionmax.013074.
+Nativebaselineexact;320forwards5120seq,5.42232s. RunnerSHA
+15847a86c4eaae66c56f473443506763ecb280f186b91f2c2a904cf247f343af.
+Shared module_output_delta_v1.py checksincomingtensorbitwise and restoresonerror.
+
+Post-resultCPUmlp8_consumer_effect_geometry_v1 executed. Value-path margin signed
+projectionontotal .2120–.4722original,.1410–.4542fronted; positivepartialalignment,
+not full mediation. Synthetic F(x,a)=x+a+2xa gives total4,isolatedattention3,bypass3,
+interaction-2: totalminusisolatedpath isnotnative-backgroundbypass. This prevents
+mislabeling residual effect as another circuit without joint interventions.
+
+Next native candidate: sourceS0/S1 (fullmixedMLP8removal) crossed with wholeattention9
+outputA0/A1, allfour F_s(A_t) withsource-consistentnative prefix andlivesuffix.
+Native A captured ineachsource state; diagonalreplaysall-consumerparent. Offdiagonal
+clampswholeattentionoutput preservingfirstV tuplefield (unchangedbyMLP8). Testattention
+vsbypassdominance andinteraction explicitly; no chosenhead/position/signedgain. The
+background includes residual andlatercomputations; do notcallitonesemanticmodule.
+No successorGPUjobregistered; actualpost-resultCPUcontinuationcomplete. Explanation22.
+Fullgoalactive, all545902902weights andnativecounterfactualinputs retained, saving0.
+Next hourly08:14 UTC; math10:49 UTC. Readlivequeue beforestartingnativework.
+
 ## MLP8 value-path source partition completed — 2026-09-10 07:55:46 UTC
 
 PreviousgoalturnPROGRESS8c929f718; preregistration/mathreview fc415323c.

@@ -1,0 +1,1567 @@
+{
+  "controls": {
+    "passed": true,
+    "additive": [
+      2.0,
+      1.0,
+      1.0,
+      0.0
+    ],
+    "coupled": [
+      4.0,
+      3.0,
+      3.0,
+      -2.0
+    ],
+    "effect_order": [
+      "total",
+      "attention_at_native_source",
+      "bypass_at_native_attention",
+      "interaction"
+    ],
+    "subtraction_is_not_native_background_bypass": true
+  },
+  "reports": [
+    {
+      "world_id": "male:husband:defend",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.3313505570476525,
+            "relative_norm": 0.3356274415249532,
+            "cosine": 0.9872570477018558,
+            "relative_difference": 0.6707791480131748
+          },
+          "readers": {
+            "signed_projection": 0.34035422539209986,
+            "relative_norm": 0.34555823852648165,
+            "cosine": 0.984940271843691,
+            "relative_difference": 0.6623458654127201
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.27895443687950305,
+            "relative_norm": 0.2938013091310696,
+            "cosine": 0.9494662828580417,
+            "relative_difference": 0.7269183829620242
+          },
+          "readers": {
+            "signed_projection": 0.28680046670674875,
+            "relative_norm": 0.3008144558775847,
+            "cosine": 0.9534131791307965,
+            "relative_difference": 0.7189495138404574
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.3783629464616056,
+            "relative_norm": 0.3788662820186937,
+            "cosine": 0.9986714691146275,
+            "relative_difference": 0.6219435398229145
+          },
+          "readers": {
+            "signed_projection": 0.3859333438748329,
+            "relative_norm": 0.3890542049699037,
+            "cosine": 0.991978338608852,
+            "relative_difference": 0.6160328616681889
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:husband:defend",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.4030711653164439,
+            "relative_norm": 0.42209200545754855,
+            "cosine": 0.9549367438966628,
+            "relative_difference": 0.6099338738242757
+          },
+          "readers": {
+            "signed_projection": 0.41061830421675016,
+            "relative_norm": 0.43333677049353236,
+            "cosine": 0.9475731859751761,
+            "relative_difference": 0.6054288960962004
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.5108852944332685,
+            "relative_norm": 0.5861420913439872,
+            "cosine": 0.8716065643090746,
+            "relative_difference": 0.5672670996793012
+          },
+          "readers": {
+            "signed_projection": 0.4472441118280135,
+            "relative_norm": 0.5344098874700886,
+            "cosine": 0.836893407689891,
+            "relative_difference": 0.6253844450973861
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.4592933020994413,
+            "relative_norm": 0.5153543942068668,
+            "cosine": 0.891218367908352,
+            "relative_difference": 0.5890700700506214
+          },
+          "readers": {
+            "signed_projection": 0.46100607660224396,
+            "relative_norm": 0.5236899491392749,
+            "cosine": 0.8803034645975987,
+            "relative_difference": 0.5934972701074608
+          }
+        }
+      }
+    },
+    {
+      "world_id": "male:husband:introduce",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.27896859071398655,
+            "relative_norm": 0.2811593543572021,
+            "cosine": 0.9922081068644358,
+            "relative_difference": 0.7218818470598811
+          },
+          "readers": {
+            "signed_projection": 0.28191194723156876,
+            "relative_norm": 0.28493460197887766,
+            "cosine": 0.9893917596307485,
+            "relative_difference": 0.7192800796224819
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.2688566232691244,
+            "relative_norm": 0.27503560260826,
+            "cosine": 0.9775338927741057,
+            "relative_difference": 0.7334380247599929
+          },
+          "readers": {
+            "signed_projection": 0.25827750617946305,
+            "relative_norm": 0.2661486762758596,
+            "cosine": 0.9704256650585846,
+            "relative_difference": 0.7444999029714283
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.2878904256655053,
+            "relative_norm": 0.2886265114218619,
+            "cosine": 0.9974496945802713,
+            "relative_difference": 0.7124074759325195
+          },
+          "readers": {
+            "signed_projection": 0.28513500098716205,
+            "relative_norm": 0.293565225512023,
+            "cosine": 0.9712832999543547,
+            "relative_difference": 0.7182691275946647
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:husband:introduce",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.21615375064687423,
+            "relative_norm": 0.22205796861089513,
+            "cosine": 0.9734113664060094,
+            "relative_difference": 0.7854949014028346
+          },
+          "readers": {
+            "signed_projection": 0.2252980056778418,
+            "relative_norm": 0.23783134380596951,
+            "cosine": 0.9473015712413718,
+            "relative_difference": 0.7784392954758065
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.32656473548218434,
+            "relative_norm": 0.3873567891336205,
+            "cosine": 0.8430592793083441,
+            "relative_difference": 0.7049225568270173
+          },
+          "readers": {
+            "signed_projection": 0.31917199281382463,
+            "relative_norm": 0.38894702534657744,
+            "cosine": 0.8206053061581364,
+            "relative_difference": 0.7161953664317453
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.21928274846739623,
+            "relative_norm": 0.2272983826413627,
+            "cosine": 0.9647351904539779,
+            "relative_difference": 0.7830064225896151
+          },
+          "readers": {
+            "signed_projection": 0.22704310676910033,
+            "relative_norm": 0.2400354196311837,
+            "cosine": 0.945873351182729,
+            "relative_difference": 0.7768724407129639
+          }
+        }
+      }
+    },
+    {
+      "world_id": "male:gentleman:defend",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.40072944279822176,
+            "relative_norm": 0.403282739221287,
+            "cosine": 0.9936687188050858,
+            "relative_difference": 0.6009809332727463
+          },
+          "readers": {
+            "signed_projection": 0.4106372989526492,
+            "relative_norm": 0.41638061591695047,
+            "cosine": 0.986206569795154,
+            "relative_difference": 0.5933786475818629
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.32864911091557875,
+            "relative_norm": 0.33010745972678557,
+            "cosine": 0.9955821997709053,
+            "relative_difference": 0.6720660035562831
+          },
+          "readers": {
+            "signed_projection": 0.3285992584503415,
+            "relative_norm": 0.3315102001856145,
+            "cosine": 0.9912191488115807,
+            "relative_difference": 0.6728302132978445
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.475992799648136,
+            "relative_norm": 0.47904246527056155,
+            "cosine": 0.9936338303104233,
+            "relative_difference": 0.5267789709510292
+          },
+          "readers": {
+            "signed_projection": 0.49127325015647566,
+            "relative_norm": 0.4977714197537192,
+            "cosine": 0.9869454746910568,
+            "relative_difference": 0.5150047436778442
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:gentleman:defend",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.2560705374531973,
+            "relative_norm": 0.2672320548952221,
+            "cosine": 0.9582328645176902,
+            "relative_difference": 0.7478448343454198
+          },
+          "readers": {
+            "signed_projection": 0.2597369926038904,
+            "relative_norm": 0.27867327818280324,
+            "cosine": 0.9320484342725853,
+            "relative_difference": 0.7471176686207931
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.31098993893548404,
+            "relative_norm": 0.3159729910697235,
+            "cosine": 0.9842294997513257,
+            "relative_difference": 0.6912735010215417
+          },
+          "readers": {
+            "signed_projection": 0.30151058073959497,
+            "relative_norm": 0.3105795566577209,
+            "cosine": 0.9707998297900833,
+            "relative_difference": 0.7024517773730211
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.3665974697798785,
+            "relative_norm": 0.37558388813160265,
+            "cosine": 0.9760734721704162,
+            "relative_difference": 0.6386456900851168
+          },
+          "readers": {
+            "signed_projection": 0.35111695450458064,
+            "relative_norm": 0.3688440506351121,
+            "cosine": 0.9519387771064569,
+            "relative_difference": 0.6586440804256543
+          }
+        }
+      }
+    },
+    {
+      "world_id": "male:gentleman:introduce",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.28029710456955514,
+            "relative_norm": 0.28112582199389446,
+            "cosine": 0.9970521476168158,
+            "relative_difference": 0.7200260541484818
+          },
+          "readers": {
+            "signed_projection": 0.282863548716746,
+            "relative_norm": 0.28646668045416424,
+            "cosine": 0.9874221611682523,
+            "relative_difference": 0.7185652799690061
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.28157626997505647,
+            "relative_norm": 0.2848971742539802,
+            "cosine": 0.988343498711001,
+            "relative_difference": 0.7197317972326844
+          },
+          "readers": {
+            "signed_projection": 0.27506442639996387,
+            "relative_norm": 0.28017516622810834,
+            "cosine": 0.9817587693550844,
+            "relative_difference": 0.7268901367958025
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.29025880311157853,
+            "relative_norm": 0.29114241035662364,
+            "cosine": 0.9969650342457398,
+            "relative_difference": 0.7101030185016168
+          },
+          "readers": {
+            "signed_projection": 0.28881572785981185,
+            "relative_norm": 0.2943746159590687,
+            "cosine": 0.981116279061134,
+            "relative_difference": 0.7134598508685864
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:gentleman:introduce",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.1867726325901174,
+            "relative_norm": 0.2069869915137833,
+            "cosine": 0.9023399549129646,
+            "relative_difference": 0.8181065636429599
+          },
+          "readers": {
+            "signed_projection": 0.1851356237240822,
+            "relative_norm": 0.21151693133886626,
+            "cosine": 0.8752756696695869,
+            "relative_difference": 0.8212601078798645
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.26035376793002385,
+            "relative_norm": 0.2633116567785941,
+            "cosine": 0.988766586011582,
+            "relative_difference": 0.7406925764009252
+          },
+          "readers": {
+            "signed_projection": 0.2477918471957148,
+            "relative_norm": 0.2520373949013526,
+            "cosine": 0.9831550881276983,
+            "relative_difference": 0.7536173790705937
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.4725203064693294,
+            "relative_norm": 0.541740956108923,
+            "cosine": 0.8722255556663577,
+            "relative_difference": 0.590290310429666
+          },
+          "readers": {
+            "signed_projection": 0.3601337602241516,
+            "relative_norm": 0.45861125602401337,
+            "cosine": 0.7852702163186649,
+            "relative_difference": 0.7000405443284126
+          }
+        }
+      }
+    },
+    {
+      "world_id": "male:monk:defend",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.31678394202986804,
+            "relative_norm": 0.3303328128710591,
+            "cosine": 0.9589841810644477,
+            "relative_difference": 0.6896026995303672
+          },
+          "readers": {
+            "signed_projection": 0.32221739133420885,
+            "relative_norm": 0.33936743687544224,
+            "cosine": 0.9494646696243636,
+            "relative_difference": 0.6861016502989841
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.2637007725571017,
+            "relative_norm": 0.28157672302207853,
+            "cosine": 0.9365148146014359,
+            "relative_difference": 0.7428888919842919
+          },
+          "readers": {
+            "signed_projection": 0.25984265859063677,
+            "relative_norm": 0.2780068666508681,
+            "cosine": 0.9346627359278769,
+            "relative_difference": 0.7467278625602234
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.34899388008559024,
+            "relative_norm": 0.3687120979077883,
+            "cosine": 0.9465213701039735,
+            "relative_difference": 0.661786106663159
+          },
+          "readers": {
+            "signed_projection": 0.3293626690560556,
+            "relative_norm": 0.3647135730425104,
+            "cosine": 0.9030721459265943,
+            "relative_difference": 0.6886876303879165
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:monk:defend",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.30640395690429134,
+            "relative_norm": 0.30985669919586306,
+            "cosine": 0.9888569706560092,
+            "relative_difference": 0.6951282329383355
+          },
+          "readers": {
+            "signed_projection": 0.30101637146689825,
+            "relative_norm": 0.3057813629180472,
+            "cosine": 0.9844169984538068,
+            "relative_difference": 0.7010488563390016
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.3353769581723,
+            "relative_norm": 0.3380998288534343,
+            "cosine": 0.9919465481826237,
+            "relative_difference": 0.6660011846281669
+          },
+          "readers": {
+            "signed_projection": 0.3079172091570766,
+            "relative_norm": 0.31461677838588553,
+            "cosine": 0.9787056200143537,
+            "relative_difference": 0.6950894179368293
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.22550336928718034,
+            "relative_norm": 0.24830867502775625,
+            "cosine": 0.9081574345397853,
+            "relative_difference": 0.7814412706785323
+          },
+          "readers": {
+            "signed_projection": 0.24998011718301222,
+            "relative_norm": 0.2867069024971808,
+            "cosine": 0.8719012866649428,
+            "relative_difference": 0.7630469275041367
+          }
+        }
+      }
+    },
+    {
+      "world_id": "male:monk:introduce",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.25017052224962055,
+            "relative_norm": 0.25561788513233036,
+            "cosine": 0.9786894298108687,
+            "relative_difference": 0.7516644588513444
+          },
+          "readers": {
+            "signed_projection": 0.25049949943854666,
+            "relative_norm": 0.2562736558735661,
+            "cosine": 0.9774687865776255,
+            "relative_difference": 0.7514500567687182
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.2838371951207704,
+            "relative_norm": 0.293905173313917,
+            "cosine": 0.9657441273332297,
+            "relative_difference": 0.7202123719148005
+          },
+          "readers": {
+            "signed_projection": 0.24843252733048057,
+            "relative_norm": 0.26625976065926066,
+            "cosine": 0.9330457096309267,
+            "relative_difference": 0.7576471510441821
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.2275400614913064,
+            "relative_norm": 0.23611008024688168,
+            "cosine": 0.9637032915044782,
+            "relative_difference": 0.7750276427402937
+          },
+          "readers": {
+            "signed_projection": 0.21132191002420264,
+            "relative_norm": 0.22514589533804197,
+            "cosine": 0.9385998785672575,
+            "relative_difference": 0.7924940719899193
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:monk:introduce",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.3258307081490457,
+            "relative_norm": 0.33824909989506946,
+            "cosine": 0.9632862533858148,
+            "relative_difference": 0.6802580666789136
+          },
+          "readers": {
+            "signed_projection": 0.27472531547955864,
+            "relative_norm": 0.2904072448724545,
+            "cosine": 0.9460002129086574,
+            "relative_difference": 0.73135882910873
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.38584510708269787,
+            "relative_norm": 0.39164019926520344,
+            "cosine": 0.9852030200337496,
+            "relative_difference": 0.6178121328649127
+          },
+          "readers": {
+            "signed_projection": 0.27603790032785475,
+            "relative_norm": 0.3026964721279811,
+            "cosine": 0.9119296911103245,
+            "relative_difference": 0.7345402327871606
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.18169583947514875,
+            "relative_norm": 0.19361709355641268,
+            "cosine": 0.938428710697537,
+            "relative_difference": 0.8210334341346491
+          },
+          "readers": {
+            "signed_projection": 0.21715663915845748,
+            "relative_norm": 0.2448802849896431,
+            "cosine": 0.886786942312003,
+            "relative_difference": 0.7909823485133496
+          }
+        }
+      }
+    },
+    {
+      "world_id": "male:dad:defend",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.392018072636275,
+            "relative_norm": 0.3953967478791773,
+            "cosine": 0.991454974627321,
+            "relative_difference": 0.6101659142896134
+          },
+          "readers": {
+            "signed_projection": 0.4081952732643725,
+            "relative_norm": 0.416003124137742,
+            "cosine": 0.9812312686604147,
+            "relative_difference": 0.5972169227036495
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.3374779812557112,
+            "relative_norm": 0.351060288590197,
+            "cosine": 0.9613106130886232,
+            "relative_difference": 0.6695426526470215
+          },
+          "readers": {
+            "signed_projection": 0.32775459446272126,
+            "relative_norm": 0.3480177505124199,
+            "cosine": 0.9417755099564225,
+            "relative_difference": 0.6823541351426562
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.4147318908272281,
+            "relative_norm": 0.41790235454040675,
+            "cosine": 0.9924133863359887,
+            "relative_difference": 0.5875190177993899
+          },
+          "readers": {
+            "signed_projection": 0.42665121147419627,
+            "relative_norm": 0.43566331674937725,
+            "cosine": 0.9793140598973924,
+            "relative_difference": 0.5800862889369782
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:dad:defend",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.1409921690060066,
+            "relative_norm": 0.21423654304064016,
+            "cosine": 0.6581144701315532,
+            "relative_difference": 0.8740211429719483
+          },
+          "readers": {
+            "signed_projection": 0.16015632561567786,
+            "relative_norm": 0.2409496553810975,
+            "cosine": 0.6646879214762392,
+            "relative_difference": 0.858920302005322
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.01058550772638491,
+            "relative_norm": 0.14654294433625753,
+            "cosine": 0.07223485084410067,
+            "relative_difference": 1.000151898004483
+          },
+          "readers": {
+            "signed_projection": 0.06360834990770892,
+            "relative_norm": 0.18727714463680348,
+            "cosine": 0.33964822579427917,
+            "relative_difference": 0.952814792647499
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.3850560463030812,
+            "relative_norm": 0.4021544440538635,
+            "cosine": 0.9574830068308477,
+            "relative_difference": 0.6257923811186181
+          },
+          "readers": {
+            "signed_projection": 0.3634640987966941,
+            "relative_norm": 0.3966703780028334,
+            "cosine": 0.9162874743172728,
+            "relative_difference": 0.6560634048562095
+          }
+        }
+      }
+    },
+    {
+      "world_id": "male:dad:introduce",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.22403396172579226,
+            "relative_norm": 0.2284542038063709,
+            "cosine": 0.9806515178669022,
+            "relative_difference": 0.7772537550795227
+          },
+          "readers": {
+            "signed_projection": 0.23148776969944618,
+            "relative_norm": 0.23844847178214823,
+            "cosine": 0.9708083594301183,
+            "relative_difference": 0.7706374856547984
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.22662574927943163,
+            "relative_norm": 0.23392605263120553,
+            "cosine": 0.9687922603332979,
+            "relative_difference": 0.7755449049157336
+          },
+          "readers": {
+            "signed_projection": 0.21486660478308198,
+            "relative_norm": 0.22538208548427452,
+            "cosine": 0.9533437598707185,
+            "relative_difference": 0.7880760590774707
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.23624611501536538,
+            "relative_norm": 0.24126751907552113,
+            "cosine": 0.9791874012739197,
+            "relative_difference": 0.76532201440317
+          },
+          "readers": {
+            "signed_projection": 0.23824784388582224,
+            "relative_norm": 0.2514685120680168,
+            "cosine": 0.9474261486121226,
+            "relative_difference": 0.7659900291714364
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:male:dad:introduce",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.14842761412945313,
+            "relative_norm": 0.1696825313012575,
+            "cosine": 0.8747371517338577,
+            "relative_difference": 0.8555331280376557
+          },
+          "readers": {
+            "signed_projection": 0.14617462949983048,
+            "relative_norm": 0.1681904003935262,
+            "cosine": 0.8691020959449293,
+            "relative_difference": 0.8578687264289764
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.16159771106096602,
+            "relative_norm": 0.17776628010485268,
+            "cosine": 0.9090459167264462,
+            "relative_difference": 0.8416682411855545
+          },
+          "readers": {
+            "signed_projection": 0.1494469818292286,
+            "relative_norm": 0.16236669011022695,
+            "cosine": 0.9204288251966739,
+            "relative_difference": 0.8529179200831071
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.2484154213318366,
+            "relative_norm": 0.2607119975987355,
+            "cosine": 0.9528346359962127,
+            "relative_difference": 0.7557379856989126
+          },
+          "readers": {
+            "signed_projection": 0.22543775033103255,
+            "relative_norm": 0.2553838360970325,
+            "cosine": 0.8827408726266371,
+            "relative_difference": 0.7838018901977533
+          }
+        }
+      }
+    },
+    {
+      "world_id": "female:queen:defend",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.40863649654258605,
+            "relative_norm": 0.41758489822273537,
+            "cosine": 0.9785710601167947,
+            "relative_difference": 0.5975819225332376
+          },
+          "readers": {
+            "signed_projection": 0.42605013883573956,
+            "relative_norm": 0.4358468882419427,
+            "cosine": 0.9775224977612669,
+            "relative_difference": 0.5812591782662062
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.35626604940568335,
+            "relative_norm": 0.36150031793690257,
+            "cosine": 0.9855207083603924,
+            "relative_difference": 0.6466454832882659
+          },
+          "readers": {
+            "signed_projection": 0.3564467422393474,
+            "relative_norm": 0.3636076016368835,
+            "cosine": 0.980306078956272,
+            "relative_difference": 0.6475469121920295
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.4571619795060211,
+            "relative_norm": 0.46403199305962783,
+            "cosine": 0.9851949571228725,
+            "relative_difference": 0.5486362470442946
+          },
+          "readers": {
+            "signed_projection": 0.4819946685191899,
+            "relative_norm": 0.4943331760863474,
+            "cosine": 0.9750400981280644,
+            "relative_difference": 0.5295053842419697
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:queen:defend",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.3148742101323232,
+            "relative_norm": 0.31885921561412756,
+            "cosine": 0.9875023041936261,
+            "relative_difference": 0.68696635952382
+          },
+          "readers": {
+            "signed_projection": 0.3121528284376369,
+            "relative_norm": 0.3260890259687526,
+            "cosine": 0.9572625987957928,
+            "relative_difference": 0.6942826484811326
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.39069235575520933,
+            "relative_norm": 0.39254251066524365,
+            "cosine": 0.9952867400096391,
+            "relative_difference": 0.6104956274773427
+          },
+          "readers": {
+            "signed_projection": 0.38981661424859126,
+            "relative_norm": 0.3957867029699817,
+            "cosine": 0.9849158936452617,
+            "relative_difference": 0.6140145647707929
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.42090512779588346,
+            "relative_norm": 0.4470846112547897,
+            "cosine": 0.9414440067945287,
+            "relative_difference": 0.5983931767902101
+          },
+          "readers": {
+            "signed_projection": 0.42307571739063987,
+            "relative_norm": 0.448198488909585,
+            "cosine": 0.9439472195007486,
+            "relative_difference": 0.5955925206712684
+          }
+        }
+      }
+    },
+    {
+      "world_id": "female:queen:introduce",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.31260831340200756,
+            "relative_norm": 0.3277673550911276,
+            "cosine": 0.9537506055631885,
+            "relative_difference": 0.6944168865022062
+          },
+          "readers": {
+            "signed_projection": 0.31569313201886173,
+            "relative_norm": 0.3306136083560042,
+            "cosine": 0.9548703502819035,
+            "relative_difference": 0.6913169273151454
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.2525141123718355,
+            "relative_norm": 0.26087672412369295,
+            "cosine": 0.967944201308307,
+            "relative_difference": 0.7503522109288666
+          },
+          "readers": {
+            "signed_projection": 0.25534753182523234,
+            "relative_norm": 0.26356127564790155,
+            "cosine": 0.9688355438314005,
+            "relative_difference": 0.7475088510316679
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.34341303755611824,
+            "relative_norm": 0.35988190501950956,
+            "cosine": 0.9542381341387572,
+            "relative_difference": 0.665348713418937
+          },
+          "readers": {
+            "signed_projection": 0.3514741035843773,
+            "relative_norm": 0.37832256059251,
+            "cosine": 0.9290328946651133,
+            "relative_difference": 0.6634604379196386
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:queen:introduce",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.2213485209566926,
+            "relative_norm": 0.23213428910207504,
+            "cosine": 0.9535365146308064,
+            "relative_difference": 0.7817859593671025
+          },
+          "readers": {
+            "signed_projection": 0.22426422383842426,
+            "relative_norm": 0.24323573498511172,
+            "cosine": 0.9220036021933673,
+            "relative_difference": 0.7814314909810706
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.25276143857590005,
+            "relative_norm": 0.25382219075543794,
+            "cosine": 0.9958208847840261,
+            "relative_difference": 0.7475980386331212
+          },
+          "readers": {
+            "signed_projection": 0.2562304517026904,
+            "relative_norm": 0.2589543905099748,
+            "cosine": 0.9894810093703374,
+            "relative_difference": 0.744712342424249
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.2267978102131403,
+            "relative_norm": 0.23685450276717437,
+            "cosine": 0.9575406317526515,
+            "relative_difference": 0.7762115916776848
+          },
+          "readers": {
+            "signed_projection": 0.23427066015863401,
+            "relative_norm": 0.24926506254522374,
+            "cosine": 0.9398455514243224,
+            "relative_difference": 0.7704490580748388
+          }
+        }
+      }
+    },
+    {
+      "world_id": "female:woman:defend",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.47218040299670605,
+            "relative_norm": 0.48755550696048333,
+            "cosine": 0.9684649158008107,
+            "relative_difference": 0.5416175462206535
+          },
+          "readers": {
+            "signed_projection": 0.4927453890897712,
+            "relative_norm": 0.5118486169435847,
+            "cosine": 0.9626779730931284,
+            "relative_difference": 0.5258309885196174
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.3918152926538089,
+            "relative_norm": 0.39833232105948996,
+            "cosine": 0.9836392176553812,
+            "relative_difference": 0.6124035048013875
+          },
+          "readers": {
+            "signed_projection": 0.3816354090447977,
+            "relative_norm": 0.389081466043264,
+            "cosine": 0.9808624731622702,
+            "relative_difference": 0.6229876155500846
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.5074443914632415,
+            "relative_norm": 0.5275558868961112,
+            "cosine": 0.9618779812103013,
+            "relative_difference": 0.5132508459537689
+          },
+          "readers": {
+            "signed_projection": 0.5434964751239121,
+            "relative_norm": 0.5705207740055609,
+            "cosine": 0.9526322263571326,
+            "relative_difference": 0.4883656451103825
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:woman:defend",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.41599998039592023,
+            "relative_norm": 0.4524102493544135,
+            "cosine": 0.9195193543681859,
+            "relative_difference": 0.6104711892702901
+          },
+          "readers": {
+            "signed_projection": 0.290026910955268,
+            "relative_norm": 0.4033237250314102,
+            "cosine": 0.7190921162217302,
+            "relative_difference": 0.763293000926038
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.38397208602193783,
+            "relative_norm": 0.39004415047073465,
+            "cosine": 0.9844323663321998,
+            "relative_difference": 0.6198308376263327
+          },
+          "readers": {
+            "signed_projection": 0.3618182438656352,
+            "relative_norm": 0.3785954175168817,
+            "cosine": 0.9556857455875086,
+            "relative_difference": 0.6478410317612736
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.3748374562297243,
+            "relative_norm": 0.42175941359964336,
+            "cosine": 0.8887471011744629,
+            "relative_difference": 0.6543745796563818
+          },
+          "readers": {
+            "signed_projection": 0.26929241406217586,
+            "relative_norm": 0.3907482575402869,
+            "cosine": 0.6891711194244066,
+            "relative_difference": 0.7836449276594718
+          }
+        }
+      }
+    },
+    {
+      "world_id": "female:woman:introduce",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.32739903248194263,
+            "relative_norm": 0.33590285272246506,
+            "cosine": 0.9746836915149734,
+            "relative_difference": 0.6767811030925767
+          },
+          "readers": {
+            "signed_projection": 0.31553425611538477,
+            "relative_norm": 0.3209091557712797,
+            "cosine": 0.9832510242876155,
+            "relative_difference": 0.6869600963862935
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.2731168393008953,
+            "relative_norm": 0.2796950040151117,
+            "cosine": 0.9764809359488561,
+            "relative_difference": 0.7293802963264244
+          },
+          "readers": {
+            "signed_projection": 0.24656669995808397,
+            "relative_norm": 0.25504966644320404,
+            "cosine": 0.9667399428377252,
+            "relative_difference": 0.7562518974763774
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.35287604188848726,
+            "relative_norm": 0.3570284383292889,
+            "cosine": 0.9883695638917934,
+            "relative_difference": 0.6493975839182621
+          },
+          "readers": {
+            "signed_projection": 0.36199967124361415,
+            "relative_norm": 0.36599570522618047,
+            "cosine": 0.9890817462459106,
+            "relative_difference": 0.640276123056905
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:woman:introduce",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.2073988461279547,
+            "relative_norm": 0.28356301555419494,
+            "cosine": 0.7314030206746633,
+            "relative_difference": 0.8158494294502382
+          },
+          "readers": {
+            "signed_projection": 0.1318172453844056,
+            "relative_norm": 0.26609140412767085,
+            "cosine": 0.4953833282083761,
+            "relative_difference": 0.8984264825692887
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.2193908269071514,
+            "relative_norm": 0.23949963395054086,
+            "cosine": 0.9160382556261354,
+            "relative_difference": 0.7864975656975298
+          },
+          "readers": {
+            "signed_projection": 0.2009963822560952,
+            "relative_norm": 0.25103243903662675,
+            "cosine": 0.8006789203317621,
+            "relative_difference": 0.8130341450003732
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.26889455794669304,
+            "relative_norm": 0.29108772064277005,
+            "cosine": 0.9237578189589349,
+            "relative_difference": 0.7395559108110876
+          },
+          "readers": {
+            "signed_projection": 0.1903280138989892,
+            "relative_norm": 0.2894294222295262,
+            "cosine": 0.65759732522305,
+            "relative_difference": 0.8385185523613291
+          }
+        }
+      }
+    },
+    {
+      "world_id": "female:girl:defend",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.36600146387686344,
+            "relative_norm": 0.3821238872566459,
+            "cosine": 0.9578083864488842,
+            "relative_difference": 0.6434405469492912
+          },
+          "readers": {
+            "signed_projection": 0.39324927670709203,
+            "relative_norm": 0.4127486205815069,
+            "cosine": 0.9527573372699758,
+            "relative_difference": 0.6195666795250956
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.295322588078729,
+            "relative_norm": 0.3232893312759708,
+            "cosine": 0.9134931453294124,
+            "relative_difference": 0.716847832918121
+          },
+          "readers": {
+            "signed_projection": 0.2922261378787018,
+            "relative_norm": 0.3261501824444307,
+            "cosine": 0.8959864308170087,
+            "relative_difference": 0.7224414618162028
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.39397834059541814,
+            "relative_norm": 0.41262311565806836,
+            "cosine": 0.9548140316062642,
+            "relative_difference": 0.6183050657923931
+          },
+          "readers": {
+            "signed_projection": 0.42830049408929366,
+            "relative_norm": 0.467749566324687,
+            "cosine": 0.9156619800946862,
+            "relative_difference": 0.6018211267630486
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:girl:defend",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.4374545123549046,
+            "relative_norm": 0.44237542167988764,
+            "cosine": 0.988876169235858,
+            "relative_difference": 0.5663806043612805
+          },
+          "readers": {
+            "signed_projection": 0.4363377914449005,
+            "relative_norm": 0.4754748861801878,
+            "cosine": 0.9176884082149908,
+            "relative_difference": 0.5944752177326331
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.510947884949859,
+            "relative_norm": 0.5172565563684088,
+            "cosine": 0.9878035931282493,
+            "relative_difference": 0.49563956178495966
+          },
+          "readers": {
+            "signed_projection": 0.5324502005702789,
+            "relative_norm": 0.547465237129965,
+            "cosine": 0.9725735342788139,
+            "relative_difference": 0.4845800085901302
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.33137165964232157,
+            "relative_norm": 0.42192507483801583,
+            "cosine": 0.7853803421603723,
+            "relative_difference": 0.717828286912979
+          },
+          "readers": {
+            "signed_projection": 0.2330029973522876,
+            "relative_norm": 0.3789299294817915,
+            "cosine": 0.6148973180105688,
+            "relative_difference": 0.8231536288886177
+          }
+        }
+      }
+    },
+    {
+      "world_id": "female:girl:introduce",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.21201102945872125,
+            "relative_norm": 0.2228286829294843,
+            "cosine": 0.9514530475675506,
+            "relative_difference": 0.7909681175740564
+          },
+          "readers": {
+            "signed_projection": 0.2273672174606161,
+            "relative_norm": 0.24027354408268445,
+            "cosine": 0.9462848618172173,
+            "relative_difference": 0.7765287767139228
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.18348688285945436,
+            "relative_norm": 0.1956665200912722,
+            "cosine": 0.9377530850646476,
+            "relative_difference": 0.8193360857216772
+          },
+          "readers": {
+            "signed_projection": 0.1720387834094306,
+            "relative_norm": 0.19457769106116768,
+            "cosine": 0.8841649958491299,
+            "relative_difference": 0.8329363187182042
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.2507849736356854,
+            "relative_norm": 0.2642436836740909,
+            "cosine": 0.9490670510974067,
+            "relative_difference": 0.7538267553558192
+          },
+          "readers": {
+            "signed_projection": 0.29203248873920196,
+            "relative_norm": 0.31447635344685365,
+            "cosine": 0.9286309941537635,
+            "relative_difference": 0.717516828652002
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:girl:introduce",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.40530524341431867,
+            "relative_norm": 0.44994890221682143,
+            "cosine": 0.9007806029027938,
+            "relative_difference": 0.6259740631827212
+          },
+          "readers": {
+            "signed_projection": 0.40050918981134737,
+            "relative_norm": 0.478776817786269,
+            "cosine": 0.8365258611793083,
+            "relative_difference": 0.6543766970383736
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.48562158822191287,
+            "relative_norm": 0.505184263046896,
+            "cosine": 0.9612761595007026,
+            "relative_difference": 0.5328864449265055
+          },
+          "readers": {
+            "signed_projection": 0.5171937337714914,
+            "relative_norm": 0.54889579462138,
+            "cosine": 0.9422439356239627,
+            "relative_difference": 0.5166228080621812
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.3113565503604835,
+            "relative_norm": 0.3155029655842153,
+            "cosine": 0.9868577614918645,
+            "relative_difference": 0.6905280737026319
+          },
+          "readers": {
+            "signed_projection": 0.25481714439859376,
+            "relative_norm": 0.2957005904906392,
+            "cosine": 0.8617403975277498,
+            "relative_difference": 0.7601345607320621
+          }
+        }
+      }
+    },
+    {
+      "world_id": "female:mother:defend",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.3657869333962282,
+            "relative_norm": 0.367923763916041,
+            "cosine": 0.994192192162123,
+            "relative_difference": 0.6354478965750775
+          },
+          "readers": {
+            "signed_projection": 0.3896964878950231,
+            "relative_norm": 0.3954896116929926,
+            "cosine": 0.9853520203143374,
+            "relative_difference": 0.6140187759075677
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.3596610756787117,
+            "relative_norm": 0.362779982431561,
+            "cosine": 0.9914027595129572,
+            "relative_difference": 0.6420959151837209
+          },
+          "readers": {
+            "signed_projection": 0.3633397335098231,
+            "relative_norm": 0.3685422968940853,
+            "cosine": 0.9858834021817654,
+            "relative_difference": 0.6396436176343212
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.3553910424434523,
+            "relative_norm": 0.3590304250548603,
+            "cosine": 0.9898633030589206,
+            "relative_difference": 0.6466225802028328
+          },
+          "readers": {
+            "signed_projection": 0.37538516504016006,
+            "relative_norm": 0.38410855231496616,
+            "cosine": 0.9772892656978566,
+            "relative_difference": 0.6298960627604996
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:mother:defend",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.4542128661689758,
+            "relative_norm": 0.6533119131719516,
+            "cosine": 0.6952465690755391,
+            "relative_difference": 0.7199935579951003
+          },
+          "readers": {
+            "signed_projection": 0.23593094198590145,
+            "relative_norm": 0.400041142448901,
+            "cosine": 0.5897666938495906,
+            "relative_difference": 0.8295607462265914
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.7447114520243038,
+            "relative_norm": 0.8140423458626072,
+            "cosine": 0.914831342385713,
+            "relative_difference": 0.41622354187250055
+          },
+          "readers": {
+            "signed_projection": 0.3585601743295731,
+            "relative_norm": 0.466963429337945,
+            "cosine": 0.7678549363874925,
+            "relative_difference": 0.7077672609551163
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.4273145465094636,
+            "relative_norm": 0.6313896362513063,
+            "cosine": 0.6767842263717226,
+            "relative_difference": 0.737579676880152
+          },
+          "readers": {
+            "signed_projection": 0.3772842083750433,
+            "relative_norm": 0.6114131581971461,
+            "cosine": 0.6170691672510432,
+            "relative_difference": 0.7869292428589254
+          }
+        }
+      }
+    },
+    {
+      "world_id": "female:mother:introduce",
+      "layout": "original",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.2326508670407454,
+            "relative_norm": 0.23384702058424062,
+            "cosine": 0.9948848886741992,
+            "relative_difference": 0.7677126382668422
+          },
+          "readers": {
+            "signed_projection": 0.2552608083857486,
+            "relative_norm": 0.2598413774165388,
+            "cosine": 0.9823716719933819,
+            "relative_difference": 0.746321595993461
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.23186207031687234,
+            "relative_norm": 0.23286248795797918,
+            "cosine": 0.9957038265378004,
+            "relative_difference": 0.7684404971526652
+          },
+          "readers": {
+            "signed_projection": 0.24311855768547302,
+            "relative_norm": 0.24513491699329173,
+            "cosine": 0.9917744916450483,
+            "relative_difference": 0.7575315255211243
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.2371789933029873,
+            "relative_norm": 0.23898113957776682,
+            "cosine": 0.9924590439314016,
+            "relative_difference": 0.7633832579169609
+          },
+          "readers": {
+            "signed_projection": 0.2605632530708835,
+            "relative_norm": 0.26970433079481226,
+            "cosine": 0.966107041377533,
+            "relative_difference": 0.7427071562249218
+          }
+        }
+      }
+    },
+    {
+      "world_id": "fronted_pp:female:mother:introduce",
+      "layout": "fronted_pp",
+      "arms": {
+        "full": {
+          "margin": {
+            "signed_projection": 0.1748593707614735,
+            "relative_norm": 0.2182156341479155,
+            "cosine": 0.8013145870334233,
+            "relative_difference": 0.8354036877244616
+          },
+          "readers": {
+            "signed_projection": 0.16639513021580643,
+            "relative_norm": 0.2123953866005704,
+            "cosine": 0.7834215840512967,
+            "relative_difference": 0.8439914334977535
+          }
+        },
+        "new": {
+          "margin": {
+            "signed_projection": 0.18083450995329461,
+            "relative_norm": 0.20142304534777772,
+            "cosine": 0.8977846087127971,
+            "relative_difference": 0.8239552313630782
+          },
+          "readers": {
+            "signed_projection": 0.1900592569354703,
+            "relative_norm": 0.20978591851621947,
+            "cosine": 0.9059676563600046,
+            "relative_difference": 0.8147954453338294
+          }
+        },
+        "inherited": {
+          "margin": {
+            "signed_projection": 0.2791966347784703,
+            "relative_norm": 0.3070774905747229,
+            "cosine": 0.9092057977155177,
+            "relative_difference": 0.7320541753591249
+          },
+          "readers": {
+            "signed_projection": 0.288740845075707,
+            "relative_norm": 0.3363995533719977,
+            "cosine": 0.8583270761849416,
+            "relative_difference": 0.7319036612543114
+          }
+        }
+      }
+    }
+  ],
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MATURE_VALUE_MLP8_CONSUMERS_V1_RESULT.json": "f750ae588026143213202c5a6de871ac8610c622142c9324821d24afc2234789",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MATURE_VALUE_MLP8_ORIGIN_V1_RESULT.json": "f96752e46954c5f24c663770e9807e06448ca3671d35ba0e7e9afc3b7dfc03e7"
+  },
+  "scope": "Opened path-versus-total geometry and synthetic source/attention factorial. Not native mediator identification."
+}
