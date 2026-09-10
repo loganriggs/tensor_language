@@ -2,7 +2,7 @@
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
-The useful mathematical lead is **context-dependent combination of noun-number signals**. Making the third noun human reduces the second noun's influence and increases the third noun's influence. We have verified that the former interaction cannot originate in a token-local lookup. A subsequent native intervention now shows that most of the answer interaction is carried in the internal residual state: removing it leaves only 7.1–11.1% of its original magnitude. Raw-vector accounting favored MLP writes, but the subsequent behavioral test rejected them as the main answer carrier: removing all their mixed writes leaves 68–110% of the answer interaction. The relevant source must be judged through its actual readers. This still does not identify a reusable operation or a circuit satisfying all four requested properties.
+The useful mathematical lead is **context-dependent combination of noun-number signals**. Making the third noun human reduces the second noun's influence and increases the third noun's influence. We have verified that the former interaction cannot originate in a token-local lookup. A subsequent native intervention now shows that most of the answer interaction is carried in the internal residual state: removing it leaves only 7.1–11.1% of its original magnitude. Raw-vector accounting favored MLP writes, but the subsequent behavioral test rejected them as the main answer carrier: removing all their mixed writes leaves 68–110% of the answer interaction. The subsequent attention test also fails sufficiency alone, leaving 27–43%, while attention and MLP removals compose almost additively. Reader-weighted localization identifies layer 9 attention as the largest individual contributor in every world, primarily through the answer logits rather than normalization. This still does not identify a reusable operation or a circuit satisfying all four requested properties.
 
 ## Relation to the original handoff and pilot
 
@@ -240,6 +240,33 @@ The [executed CPU implementation](../rms_softcap_edit_statistics_v1.py) reproduc
 
 A concrete counterexample explains the failed vector ranking. Let a large source be (0,100), a small source (1,0), and the reader see only the first coordinate. The large source accounts for 99.99% of the total vector's signed projection, but removing the small source eliminates the reader output. Removing the large source instead increases it by changing normalization. Large vector contribution can have the wrong relationship to behavioral importance.
 
-The two completed native removal reports also constrain the remaining attention contribution. Subtracting the all-MLP removal effect from the total mixed-state removal effect gives **57.87–97.56%** signed projection for removing the remaining attention component *after the MLP component is already absent*, up to audited numerical closure. This is conditional evidence, not an attention-only intervention in the native background. The latter has not yet been run; no attention head is selected from these figures.
+The two completed native removal reports also constrain the remaining attention contribution. Subtracting the all-MLP removal effect from the total mixed-state removal effect gives **57.87–97.56%** signed projection for removing the remaining attention component *after the MLP component is already absent*, up to audited numerical closure. This is conditional evidence, not an attention-only intervention in the native background. That attention-only test has since run; section 9 reports its outcome. No attention head is selected from these figures.
 
 The next native measurement should retain these reader and norm statistics and test the attention contribution in both backgrounds before naming its producer. This prevents another source-size ranking from masquerading as circuit localization. [CPU controls and conditional diagnostic](../RMS_SOFTCAP_EDIT_STATISTICS_V1_CONTROLS.json). All native weights and contextual producers remain charged; independent extraction, new OOD prediction, selective unrelated-behavior removal, and reusable circuit composition are still incomplete.
+
+
+## 9. Attention contributes substantially; joint direct-write edits compose
+
+The [registered attention/MLP factorial](../THIRD_NOUN_ATTENTION_READER_V1_PREREGISTRATION.md) decoded the final native state with neither, either, or both sets of transported mixed writes removed. Attention-only removal leaves **26.88–43.28%** of the original answer-interaction magnitude, failing the registered 25% maximum in every world. Its signed removal projection is 57.86–97.55%; a large signed projection does not ensure the remaining vector is small.
+
+Removing both attention and MLP mixed writes leaves 7.08–11.11%, reproducing the earlier whole-state result. The two removal effects compose almost additively: the mixed part of
+
+\[
+y_{AM}-y_A-y_M+y_0
+\]
+
+has only **0.0062–0.0139%** of the original mixed answer effect's magnitude. This passes the prospective composition bar. Full-vocabulary mixed nonadditivity is also small, 0.0029–0.0254%. These are compositions of fixed native-write edits at the final residual interface, not independently extracted circuits or upstream interventions with downstream recomputation.
+
+The run validated the exact reader/norm statistics against all four full-vocabulary GPU decodes. Maximum two-answer discrepancy was 3.10e−6 logits, relative error at most 1.09e−7. Native parent replay was exact; the MLP arm replayed exactly and the joint-removal ratio differed from the earlier test by at most 1.18e−6. Executor cost: 16 forwards / 256 prefixes, 64 decoder batches / 1,024 states, 0.961 seconds, no fitting. [Native receipt](../THIRD_NOUN_ATTENTION_READER_V1_RESULT.json).
+
+## 10. Reader-weighted layer localization, with no additional model calls
+
+The run saved actual reader projections and shared norm statistics for each of 18 attention-layer writes plus the aggregate MLP write. The subsequent [CPU audit](../third_noun_reader_route_audit_v1.py) reused these to evaluate individual attention-layer edits and to separate numerator changes from denominator changes in the final decoder.
+
+A numerator-only diagnostic changes the two answer projections while keeping the native normalization denominator; a denominator-only diagnostic does the reverse. These diagnostic combinations need not correspond to a physical residual vector. The denominator-only effect is **0.0566–0.1550%** of the original mixed answer effect's magnitude. Thus the substantial attention effect principally changes answer evidence, not a global normalization scale.
+
+Layer 9 attention is the largest individual signed contributor in every one of the eight worlds, at **18.21–38.06%** of the original mixed answer effect. Layers 10 and 12 are often next, but their order depends on the lexical world. This is a distributed computation: layer 9 alone is not a sufficient circuit. The sum of individual attention-layer effects matches their joint effect to within 0.00565% of the original mixed answer magnitude on this frozen interface.
+
+The next informative native question is how the relevant attention writes are formed: their query/key routing, value content, and upstream producers. Layer 9 supplies a candidate within-module interface for that question. It was localized from opened data; this is not fresh OOD identification, and no particular head, token edge, or rank has been chosen or registered yet. Shared use of layer 9 by another task would not by itself establish the same reusable computation.
+
+[CPU audit receipt](../THIRD_NOUN_READER_ROUTE_AUDIT_V1_RESULT.json). All native weights and input-producing computations remain retained and charged. Neither attention nor MLP alone passes the registered sufficiency bar; preserve those failures. The positive composition result applies to synthetic final-state source edits, while independent extraction, selective unrelated-behavior removal, new OOD semantic prediction, and reusable learned-program composition remain incomplete.

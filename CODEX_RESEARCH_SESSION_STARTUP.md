@@ -53,6 +53,36 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Attention direct-write factorial; reader-weighted layer9 localization — 2026-09-10 05:54:14 UTC
+
+Previous goalturnPROGRESS9c34f680c. New prereg/runner842ae2f51.
+THIRD_NOUN_ATTENTION_READER_V1 validA, BfailsALL8worlds, Cpasses: Aonlyremoval
+remainingmixedmarginratio .2688–.4328; signedprojection .5786–.9755. AMremoval
+remaining.0708–.1112. Mixeddecoderjointinteraction ratio6.20e-5–1.40e-4;
+fullvocabulary2.91e-5–2.54e-4. NeitherA norMsufficientalone; do notpromoteB.
+Compositionhereis syntheticfinalstate transported-native-write edits, not
+upstreammoduleinterventions orindependentlyextractedcircuits.
+16nativeforwards/256seq+64decoderbatches/1024states,.961s,nofit.
+RunnerSHA b122c0bc6020136f12fb1df8efa5cb8b9beec66599bdcf977eb96d97cddcaf96.
+Stats-vs-GPUdecoder max3.10e-6/rel1.09e-7, parent0; Mreplay0,AMratio1.18e-6.
+19fixed-sourceexactper-rowreader/normstatistics savedinresult (~2.2MB), enabling
+CPUcounterfactuals withoutanothernativeforward. Completedartifactsimmutable.
+
+Post-resultclaim+EXECUTED third_noun_reader_route_audit_v1.py (zero nativecalls):
+A-only numeratorvsnormcounterfactuals; norm-onlyeffect .000566–.001550 ofnatural
+mixedmarginmagnitude. Mainattentioneffect viareader numerator, notnormscale.
+Layer9attention largestindividualsignedsourceall8worlds .1821–.3806;
+10/12oftennext, orderlexicaldependent. Layeradditivityerror<=5.65e-5ofnatural
+mixedanswer. Descriptiveopened-data finalwrite edits, not upstreamcausality.
+No layer9-sufficiency orsharedsemanticunitclaim; nohead/token/rankchosen.
+
+Nextnativequestion: formationoftheseattentionwrites viaQ/Krouting,valuecontent,
+andupstreamproducers; layer9iscandidatewithin-moduleinterface. No nextGPUprotocol
+orjobselectedyet. Existingexplanationupdatedsections9/10. All545902902weights
+charged,saving0; fullgoalactive. Clocks06:14hourly/07:49math. PreserveClaude
+v479/v481; v481wasrunningafterownedresult, bothmanagedrunnershealthy.
+CPUaudit is actualpost-resultcontinuationreceipt.
+
 ## MLP factor partition fails behavior; exact decoder edit statistics executed — 2026-09-10 05:45:40 UTC
 
 Previous goal turnPROGRESS c8536531f. New prereg/runner bddb67047.

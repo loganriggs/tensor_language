@@ -1,0 +1,782 @@
+{
+  "passed": true,
+  "model_forwards": 0,
+  "reports": [
+    {
+      "world_id": "king_defend_third",
+      "attention_removal_replay_ratio_error": 6.417060313679279e-07,
+      "attention_full": {
+        "signed_projection": 0.6741736779427806,
+        "effect_norm_ratio": 0.6864829627438465
+      },
+      "numerator_only": {
+        "signed_projection": 0.6738568785166059,
+        "effect_norm_ratio": 0.6861153574456811
+      },
+      "norm_only": {
+        "signed_projection": 0.0003094532750721456,
+        "effect_norm_ratio": 0.0007100030994777422
+      },
+      "numerator_norm_interaction": {
+        "signed_projection": -7.3461511024952525e-06,
+        "effect_norm_ratio": 8.095395305230616e-06
+      },
+      "layers": {
+        "attn:00": {
+          "signed_projection": -4.5318944415882916e-13,
+          "effect_norm_ratio": 1.977596016036357e-12
+        },
+        "attn:01": {
+          "signed_projection": 3.290839821591059e-05,
+          "effect_norm_ratio": 3.438229004645525e-05
+        },
+        "attn:02": {
+          "signed_projection": -0.0002471279599350812,
+          "effect_norm_ratio": 0.00030723453714029354
+        },
+        "attn:03": {
+          "signed_projection": 0.0015265172212450759,
+          "effect_norm_ratio": 0.0016304599759075062
+        },
+        "attn:04": {
+          "signed_projection": 0.009699133502288206,
+          "effect_norm_ratio": 0.011090135065748042
+        },
+        "attn:05": {
+          "signed_projection": 0.0013368597803475018,
+          "effect_norm_ratio": 0.014025756733028664
+        },
+        "attn:06": {
+          "signed_projection": -0.002776690455225654,
+          "effect_norm_ratio": 0.005522647730229085
+        },
+        "attn:07": {
+          "signed_projection": 0.016217243733084634,
+          "effect_norm_ratio": 0.01678775700502773
+        },
+        "attn:08": {
+          "signed_projection": 0.015152010580493971,
+          "effect_norm_ratio": 0.01683707014275759
+        },
+        "attn:09": {
+          "signed_projection": 0.25807168081597376,
+          "effect_norm_ratio": 0.28205019322425856
+        },
+        "attn:10": {
+          "signed_projection": 0.12004031849406993,
+          "effect_norm_ratio": 0.12424074872290387
+        },
+        "attn:11": {
+          "signed_projection": 0.0026971666533854056,
+          "effect_norm_ratio": 0.00488108900208045
+        },
+        "attn:12": {
+          "signed_projection": 0.17861946689133135,
+          "effect_norm_ratio": 0.19245061011283363
+        },
+        "attn:13": {
+          "signed_projection": 0.03337324168282287,
+          "effect_norm_ratio": 0.03650003495384961
+        },
+        "attn:14": {
+          "signed_projection": -0.005982864124096348,
+          "effect_norm_ratio": 0.0068606729953735795
+        },
+        "attn:15": {
+          "signed_projection": 0.04609218009205996,
+          "effect_norm_ratio": 0.04664489060370986
+        },
+        "attn:16": {
+          "signed_projection": -0.0007029724857433781,
+          "effect_norm_ratio": 0.0013701897621731384
+        },
+        "attn:17": {
+          "signed_projection": 0.0010013223640064509,
+          "effect_norm_ratio": 0.0031707045772748697
+        }
+      },
+      "layer_additivity_error_ratio": 2.518484097988584e-05,
+      "largest_signed_layer": "attn:09"
+    },
+    {
+      "world_id": "king_introduce_third",
+      "attention_removal_replay_ratio_error": 5.200933272386798e-07,
+      "attention_full": {
+        "signed_projection": 0.8457988546268999,
+        "effect_norm_ratio": 0.8758107629083725
+      },
+      "numerator_only": {
+        "signed_projection": 0.8455141974491592,
+        "effect_norm_ratio": 0.8755888332456147
+      },
+      "norm_only": {
+        "signed_projection": 0.00027596583444785964,
+        "effect_norm_ratio": 0.0010945261288188184
+      },
+      "numerator_norm_interaction": {
+        "signed_projection": -8.691343292910656e-06,
+        "effect_norm_ratio": 1.0784490967854753e-05
+      },
+      "layers": {
+        "attn:00": {
+          "signed_projection": 1.682758846164502e-14,
+          "effect_norm_ratio": 1.1549734859094533e-12
+        },
+        "attn:01": {
+          "signed_projection": 1.780636090700907e-05,
+          "effect_norm_ratio": 4.3604937488104424e-05
+        },
+        "attn:02": {
+          "signed_projection": -0.00012656268069146566,
+          "effect_norm_ratio": 0.00017745349564200205
+        },
+        "attn:03": {
+          "signed_projection": 0.0004782689960978646,
+          "effect_norm_ratio": 0.0008584685421124399
+        },
+        "attn:04": {
+          "signed_projection": 0.01291411927162348,
+          "effect_norm_ratio": 0.01467893229613074
+        },
+        "attn:05": {
+          "signed_projection": 0.01769671967034281,
+          "effect_norm_ratio": 0.025336807610490335
+        },
+        "attn:06": {
+          "signed_projection": -0.006683620303833897,
+          "effect_norm_ratio": 0.009433246078821319
+        },
+        "attn:07": {
+          "signed_projection": 0.023972050502555416,
+          "effect_norm_ratio": 0.02454231477254818
+        },
+        "attn:08": {
+          "signed_projection": 0.009392691730563101,
+          "effect_norm_ratio": 0.010476702454285296
+        },
+        "attn:09": {
+          "signed_projection": 0.3334412113536566,
+          "effect_norm_ratio": 0.39098162421702937
+        },
+        "attn:10": {
+          "signed_projection": 0.13999309249260547,
+          "effect_norm_ratio": 0.14208423348347293
+        },
+        "attn:11": {
+          "signed_projection": 0.012411109940138243,
+          "effect_norm_ratio": 0.013504274359145177
+        },
+        "attn:12": {
+          "signed_projection": 0.2379932760193004,
+          "effect_norm_ratio": 0.25779769026836274
+        },
+        "attn:13": {
+          "signed_projection": 0.020404046555944126,
+          "effect_norm_ratio": 0.04254910679210885
+        },
+        "attn:14": {
+          "signed_projection": -0.001314024498039441,
+          "effect_norm_ratio": 0.005574075359069367
+        },
+        "attn:15": {
+          "signed_projection": 0.04683606244245598,
+          "effect_norm_ratio": 0.04955805247553924
+        },
+        "attn:16": {
+          "signed_projection": 0.00038042470807064,
+          "effect_norm_ratio": 0.0022756505529689017
+        },
+        "attn:17": {
+          "signed_projection": -0.002033242866879518,
+          "effect_norm_ratio": 0.004461719038765161
+        }
+      },
+      "layer_additivity_error_ratio": 2.7588475390708184e-05,
+      "largest_signed_layer": "attn:09"
+    },
+    {
+      "world_id": "man_defend_third",
+      "attention_removal_replay_ratio_error": 6.952380628977295e-07,
+      "attention_full": {
+        "signed_projection": 0.5786292116889602,
+        "effect_norm_ratio": 0.5870310287868147
+      },
+      "numerator_only": {
+        "signed_projection": 0.5786711118509444,
+        "effect_norm_ratio": 0.5871142200233378
+      },
+      "norm_only": {
+        "signed_projection": -5.944940779346819e-05,
+        "effect_norm_ratio": 0.000566081694582535
+      },
+      "numerator_norm_interaction": {
+        "signed_projection": -1.754924580916871e-05,
+        "effect_norm_ratio": 1.9445377241795928e-05
+      },
+      "layers": {
+        "attn:00": {
+          "signed_projection": -7.544637406841824e-14,
+          "effect_norm_ratio": 9.103369823280934e-13
+        },
+        "attn:01": {
+          "signed_projection": 1.3304320004782345e-05,
+          "effect_norm_ratio": 2.322120215861664e-05
+        },
+        "attn:02": {
+          "signed_projection": -3.843726667657809e-05,
+          "effect_norm_ratio": 0.0002171514951663728
+        },
+        "attn:03": {
+          "signed_projection": 0.0021311102806306184,
+          "effect_norm_ratio": 0.0023930204965172965
+        },
+        "attn:04": {
+          "signed_projection": 0.01294300696560511,
+          "effect_norm_ratio": 0.01364090545463276
+        },
+        "attn:05": {
+          "signed_projection": 0.012439238473012119,
+          "effect_norm_ratio": 0.013664355738527142
+        },
+        "attn:06": {
+          "signed_projection": 0.007434022277850278,
+          "effect_norm_ratio": 0.00898410906323015
+        },
+        "attn:07": {
+          "signed_projection": 0.02120045149422179,
+          "effect_norm_ratio": 0.021891696554902154
+        },
+        "attn:08": {
+          "signed_projection": 0.011180575964731317,
+          "effect_norm_ratio": 0.012325928974303848
+        },
+        "attn:09": {
+          "signed_projection": 0.1821023904010257,
+          "effect_norm_ratio": 0.19870025349656562
+        },
+        "attn:10": {
+          "signed_projection": 0.12694984324222047,
+          "effect_norm_ratio": 0.13075079604530454
+        },
+        "attn:11": {
+          "signed_projection": 0.014511081872560207,
+          "effect_norm_ratio": 0.016747966049225578
+        },
+        "attn:12": {
+          "signed_projection": 0.10082007960333503,
+          "effect_norm_ratio": 0.11880022710609842
+        },
+        "attn:13": {
+          "signed_projection": 0.04789732868964946,
+          "effect_norm_ratio": 0.0516649364294322
+        },
+        "attn:14": {
+          "signed_projection": 0.001520782213266884,
+          "effect_norm_ratio": 0.0034329239393972393
+        },
+        "attn:15": {
+          "signed_projection": 0.03908198770207458,
+          "effect_norm_ratio": 0.039964760828396714
+        },
+        "attn:16": {
+          "signed_projection": -0.00024648269421229335,
+          "effect_norm_ratio": 0.001691852890425122
+        },
+        "attn:17": {
+          "signed_projection": -0.0013615099814620745,
+          "effect_norm_ratio": 0.005753719627843492
+        }
+      },
+      "layer_additivity_error_ratio": 5.647068732962838e-05,
+      "largest_signed_layer": "attn:09"
+    },
+    {
+      "world_id": "man_introduce_third",
+      "attention_removal_replay_ratio_error": 4.2841227049228436e-07,
+      "attention_full": {
+        "signed_projection": 0.6793596997398426,
+        "effect_norm_ratio": 0.7117617456494194
+      },
+      "numerator_only": {
+        "signed_projection": 0.6796632378387112,
+        "effect_norm_ratio": 0.7121464138406449
+      },
+      "norm_only": {
+        "signed_projection": -0.0003188785143683521,
+        "effect_norm_ratio": 0.0007145738967601088
+      },
+      "numerator_norm_interaction": {
+        "signed_projection": -1.5340415499734427e-05,
+        "effect_norm_ratio": 1.742381384642229e-05
+      },
+      "layers": {
+        "attn:00": {
+          "signed_projection": 4.078136945529478e-13,
+          "effect_norm_ratio": 1.3305025248718604e-12
+        },
+        "attn:01": {
+          "signed_projection": 4.8373580981342136e-05,
+          "effect_norm_ratio": 5.4026560059923386e-05
+        },
+        "attn:02": {
+          "signed_projection": 0.00019446462727457656,
+          "effect_norm_ratio": 0.0002683808724280562
+        },
+        "attn:03": {
+          "signed_projection": 0.001405127773052189,
+          "effect_norm_ratio": 0.0015779788392977358
+        },
+        "attn:04": {
+          "signed_projection": 0.012110501370326395,
+          "effect_norm_ratio": 0.014223481306344755
+        },
+        "attn:05": {
+          "signed_projection": 0.017117920639432873,
+          "effect_norm_ratio": 0.021054187337053196
+        },
+        "attn:06": {
+          "signed_projection": 0.007678064075141858,
+          "effect_norm_ratio": 0.01129304337363052
+        },
+        "attn:07": {
+          "signed_projection": 0.02595224055161793,
+          "effect_norm_ratio": 0.026907636875280326
+        },
+        "attn:08": {
+          "signed_projection": 0.013194560201030665,
+          "effect_norm_ratio": 0.01502179430014637
+        },
+        "attn:09": {
+          "signed_projection": 0.28592589453984146,
+          "effect_norm_ratio": 0.3390217567620122
+        },
+        "attn:10": {
+          "signed_projection": 0.14262270474329922,
+          "effect_norm_ratio": 0.15159355766366425
+        },
+        "attn:11": {
+          "signed_projection": 0.023674083235432047,
+          "effect_norm_ratio": 0.02602207650087402
+        },
+        "attn:12": {
+          "signed_projection": 0.10059543357971736,
+          "effect_norm_ratio": 0.146113772186861
+        },
+        "attn:13": {
+          "signed_projection": 0.009592925475861824,
+          "effect_norm_ratio": 0.027523181279289505
+        },
+        "attn:14": {
+          "signed_projection": -0.00017542467086910658,
+          "effect_norm_ratio": 0.0037975198593731842
+        },
+        "attn:15": {
+          "signed_projection": 0.04256523031423588,
+          "effect_norm_ratio": 0.04408273512949846
+        },
+        "attn:16": {
+          "signed_projection": 0.0002599074289286611,
+          "effect_norm_ratio": 0.004174281608432606
+        },
+        "attn:17": {
+          "signed_projection": -0.0034445408077194753,
+          "effect_norm_ratio": 0.006144665545885453
+        }
+      },
+      "layer_additivity_error_ratio": 4.4854638900686765e-05,
+      "largest_signed_layer": "attn:09"
+    },
+    {
+      "world_id": "father_defend_third",
+      "attention_removal_replay_ratio_error": 6.478251279307123e-07,
+      "attention_full": {
+        "signed_projection": 0.773435273923343,
+        "effect_norm_ratio": 0.7868583891696114
+      },
+      "numerator_only": {
+        "signed_projection": 0.7738538378225461,
+        "effect_norm_ratio": 0.7873032929049477
+      },
+      "norm_only": {
+        "signed_projection": -0.0004292581232542065,
+        "effect_norm_ratio": 0.0011855665908796279
+      },
+      "numerator_norm_interaction": {
+        "signed_projection": -1.0694224051091946e-05,
+        "effect_norm_ratio": 1.1578667656480825e-05
+      },
+      "layers": {
+        "attn:00": {
+          "signed_projection": 6.198406334439719e-13,
+          "effect_norm_ratio": 1.4692277734396202e-12
+        },
+        "attn:01": {
+          "signed_projection": 3.5884599359412996e-05,
+          "effect_norm_ratio": 4.0923912818096644e-05
+        },
+        "attn:02": {
+          "signed_projection": -0.0002787086727500635,
+          "effect_norm_ratio": 0.00047806028088666954
+        },
+        "attn:03": {
+          "signed_projection": 0.00037457644980056306,
+          "effect_norm_ratio": 0.0006987698930519019
+        },
+        "attn:04": {
+          "signed_projection": 0.010350251477276553,
+          "effect_norm_ratio": 0.01067052763136373
+        },
+        "attn:05": {
+          "signed_projection": 0.01977041197047488,
+          "effect_norm_ratio": 0.02103183519861616
+        },
+        "attn:06": {
+          "signed_projection": 0.002386179289556339,
+          "effect_norm_ratio": 0.006983016250801683
+        },
+        "attn:07": {
+          "signed_projection": 0.013372404428303633,
+          "effect_norm_ratio": 0.013855955613267853
+        },
+        "attn:08": {
+          "signed_projection": 0.0340149335306831,
+          "effect_norm_ratio": 0.0342488127922775
+        },
+        "attn:09": {
+          "signed_projection": 0.30486236678358664,
+          "effect_norm_ratio": 0.31790281276721155
+        },
+        "attn:10": {
+          "signed_projection": 0.15377108306270681,
+          "effect_norm_ratio": 0.15706458978867938
+        },
+        "attn:11": {
+          "signed_projection": 0.005189568587506584,
+          "effect_norm_ratio": 0.0073603015807258655
+        },
+        "attn:12": {
+          "signed_projection": 0.1516313484948042,
+          "effect_norm_ratio": 0.16075953269379126
+        },
+        "attn:13": {
+          "signed_projection": 0.03562286208307578,
+          "effect_norm_ratio": 0.03986124347274519
+        },
+        "attn:14": {
+          "signed_projection": 0.0008580624956877135,
+          "effect_norm_ratio": 0.0053543749630369005
+        },
+        "attn:15": {
+          "signed_projection": 0.04694896175463868,
+          "effect_norm_ratio": 0.047853154720520756
+        },
+        "attn:16": {
+          "signed_projection": -0.002898468063575069,
+          "effect_norm_ratio": 0.005655733859544338
+        },
+        "attn:17": {
+          "signed_projection": -0.0026135459712608253,
+          "effect_norm_ratio": 0.003912579387746484
+        }
+      },
+      "layer_additivity_error_ratio": 3.9797533137286195e-05,
+      "largest_signed_layer": "attn:09"
+    },
+    {
+      "world_id": "father_introduce_third",
+      "attention_removal_replay_ratio_error": 5.380995226622609e-07,
+      "attention_full": {
+        "signed_projection": 0.9754528963000082,
+        "effect_norm_ratio": 1.014134252057157
+      },
+      "numerator_only": {
+        "signed_projection": 0.9753613713661069,
+        "effect_norm_ratio": 1.0140404504938338
+      },
+      "norm_only": {
+        "signed_projection": 7.022960983281331e-05,
+        "effect_norm_ratio": 0.0008220703094926765
+      },
+      "numerator_norm_interaction": {
+        "signed_projection": -2.1295324068541227e-05,
+        "effect_norm_ratio": 2.2837486089624276e-05
+      },
+      "layers": {
+        "attn:00": {
+          "signed_projection": -1.0051018930730162e-12,
+          "effect_norm_ratio": 2.286497261870703e-12
+        },
+        "attn:01": {
+          "signed_projection": 7.250170457392017e-05,
+          "effect_norm_ratio": 7.852795114631553e-05
+        },
+        "attn:02": {
+          "signed_projection": -0.0003117780045647757,
+          "effect_norm_ratio": 0.0005588833824415156
+        },
+        "attn:03": {
+          "signed_projection": 0.0003434900707131263,
+          "effect_norm_ratio": 0.0012724225006180796
+        },
+        "attn:04": {
+          "signed_projection": 0.014464175275764709,
+          "effect_norm_ratio": 0.015392977733916792
+        },
+        "attn:05": {
+          "signed_projection": 0.03480666145529582,
+          "effect_norm_ratio": 0.03648853161116267
+        },
+        "attn:06": {
+          "signed_projection": 0.0024538430847768993,
+          "effect_norm_ratio": 0.010409579857660847
+        },
+        "attn:07": {
+          "signed_projection": 0.021387959270868877,
+          "effect_norm_ratio": 0.022420713402528263
+        },
+        "attn:08": {
+          "signed_projection": 0.046123273790681825,
+          "effect_norm_ratio": 0.047930011239219424
+        },
+        "attn:09": {
+          "signed_projection": 0.34197691001522923,
+          "effect_norm_ratio": 0.3764927304739958
+        },
+        "attn:10": {
+          "signed_projection": 0.16816581313137316,
+          "effect_norm_ratio": 0.1780639240437751
+        },
+        "attn:11": {
+          "signed_projection": 0.016830977338442906,
+          "effect_norm_ratio": 0.020277477591058895
+        },
+        "attn:12": {
+          "signed_projection": 0.26789228555511735,
+          "effect_norm_ratio": 0.28224086606615406
+        },
+        "attn:13": {
+          "signed_projection": 0.01784053135027099,
+          "effect_norm_ratio": 0.02990683920602048
+        },
+        "attn:14": {
+          "signed_projection": 0.0024681998403827386,
+          "effect_norm_ratio": 0.0059069347156331066
+        },
+        "attn:15": {
+          "signed_projection": 0.051994265540577955,
+          "effect_norm_ratio": 0.056555348361722636
+        },
+        "attn:16": {
+          "signed_projection": -0.007078494455317397,
+          "effect_norm_ratio": 0.011501066059519718
+        },
+        "attn:17": {
+          "signed_projection": -0.004025919338729011,
+          "effect_norm_ratio": 0.005167952104019714
+        }
+      },
+      "layer_additivity_error_ratio": 5.101037923902019e-05,
+      "largest_signed_layer": "attn:09"
+    },
+    {
+      "world_id": "actor_defend_third",
+      "attention_removal_replay_ratio_error": 1.0617986595518047e-07,
+      "attention_full": {
+        "signed_projection": 0.76014890573758,
+        "effect_norm_ratio": 0.770845226762519
+      },
+      "numerator_only": {
+        "signed_projection": 0.7606251901683807,
+        "effect_norm_ratio": 0.7714480516851165
+      },
+      "norm_only": {
+        "signed_projection": -0.00048305972858982,
+        "effect_norm_ratio": 0.0015499600437442118
+      },
+      "numerator_norm_interaction": {
+        "signed_projection": -6.77529778911436e-06,
+        "effect_norm_ratio": 7.898736009608843e-06
+      },
+      "layers": {
+        "attn:00": {
+          "signed_projection": -3.0085335739178545e-13,
+          "effect_norm_ratio": 1.3360340334675493e-12
+        },
+        "attn:01": {
+          "signed_projection": -2.5927733038384087e-05,
+          "effect_norm_ratio": 4.146225016750547e-05
+        },
+        "attn:02": {
+          "signed_projection": 0.0003317099708955222,
+          "effect_norm_ratio": 0.0003571174687319864
+        },
+        "attn:03": {
+          "signed_projection": 0.004723465109057698,
+          "effect_norm_ratio": 0.005721122990048446
+        },
+        "attn:04": {
+          "signed_projection": 0.02435408683531772,
+          "effect_norm_ratio": 0.03126677482280121
+        },
+        "attn:05": {
+          "signed_projection": 0.06596392868603103,
+          "effect_norm_ratio": 0.08203064208918391
+        },
+        "attn:06": {
+          "signed_projection": 0.013222482732220861,
+          "effect_norm_ratio": 0.014847249924942536
+        },
+        "attn:07": {
+          "signed_projection": 0.03551941845989625,
+          "effect_norm_ratio": 0.0366298253272624
+        },
+        "attn:08": {
+          "signed_projection": 0.012523919387518088,
+          "effect_norm_ratio": 0.01669350611059396
+        },
+        "attn:09": {
+          "signed_projection": 0.38062912671532473,
+          "effect_norm_ratio": 0.39542401531502214
+        },
+        "attn:10": {
+          "signed_projection": 0.0919290506181874,
+          "effect_norm_ratio": 0.10111127011271388
+        },
+        "attn:11": {
+          "signed_projection": 0.028529156548158713,
+          "effect_norm_ratio": 0.03494702355731686
+        },
+        "attn:12": {
+          "signed_projection": 0.060329425736096245,
+          "effect_norm_ratio": 0.21155976240480276
+        },
+        "attn:13": {
+          "signed_projection": 0.00853016297328052,
+          "effect_norm_ratio": 0.023162663226597054
+        },
+        "attn:14": {
+          "signed_projection": 0.011349892942298056,
+          "effect_norm_ratio": 0.013958393188817602
+        },
+        "attn:15": {
+          "signed_projection": 0.027742164611428387,
+          "effect_norm_ratio": 0.02858905416163243
+        },
+        "attn:16": {
+          "signed_projection": 0.005172322551137312,
+          "effect_norm_ratio": 0.009828607444361117
+        },
+        "attn:17": {
+          "signed_projection": -0.010697298662364558,
+          "effect_norm_ratio": 0.01305508612354463
+        }
+      },
+      "layer_additivity_error_ratio": 2.4322037612694187e-05,
+      "largest_signed_layer": "attn:09"
+    },
+    {
+      "world_id": "actor_introduce_third",
+      "attention_removal_replay_ratio_error": 4.769491268041826e-07,
+      "attention_full": {
+        "signed_projection": 0.6004434180977704,
+        "effect_norm_ratio": 0.6158669068339888
+      },
+      "numerator_only": {
+        "signed_projection": 0.6004770189694266,
+        "effect_norm_ratio": 0.6159579847989095
+      },
+      "norm_only": {
+        "signed_projection": -4.6024743750325194e-05,
+        "effect_norm_ratio": 0.0006781908026205375
+      },
+      "numerator_norm_interaction": {
+        "signed_projection": -1.2423872093961361e-05,
+        "effect_norm_ratio": 1.3036801515843261e-05
+      },
+      "layers": {
+        "attn:00": {
+          "signed_projection": -2.963136605173767e-13,
+          "effect_norm_ratio": 1.944934301849551e-12
+        },
+        "attn:01": {
+          "signed_projection": -2.1361208182539037e-06,
+          "effect_norm_ratio": 1.1217665759117038e-05
+        },
+        "attn:02": {
+          "signed_projection": 0.0003991875620354592,
+          "effect_norm_ratio": 0.00043388179198562845
+        },
+        "attn:03": {
+          "signed_projection": 0.003011503553955006,
+          "effect_norm_ratio": 0.003902700468643727
+        },
+        "attn:04": {
+          "signed_projection": 0.014069747129583204,
+          "effect_norm_ratio": 0.01858576887742896
+        },
+        "attn:05": {
+          "signed_projection": 0.04561334953148198,
+          "effect_norm_ratio": 0.0542045763181965
+        },
+        "attn:06": {
+          "signed_projection": 0.003481515998555173,
+          "effect_norm_ratio": 0.003963938341098353
+        },
+        "attn:07": {
+          "signed_projection": 0.02645353845002645,
+          "effect_norm_ratio": 0.027203689417529625
+        },
+        "attn:08": {
+          "signed_projection": 0.01301652932144838,
+          "effect_norm_ratio": 0.014388189077493497
+        },
+        "attn:09": {
+          "signed_projection": 0.27968541936603597,
+          "effect_norm_ratio": 0.30743944034032283
+        },
+        "attn:10": {
+          "signed_projection": 0.08314090380192071,
+          "effect_norm_ratio": 0.09260902098174012
+        },
+        "attn:11": {
+          "signed_projection": 0.03769469244861865,
+          "effect_norm_ratio": 0.041664726930200416
+        },
+        "attn:12": {
+          "signed_projection": 0.02629314514230601,
+          "effect_norm_ratio": 0.20022257393850768
+        },
+        "attn:13": {
+          "signed_projection": 0.03682227709733507,
+          "effect_norm_ratio": 0.05480171165020096
+        },
+        "attn:14": {
+          "signed_projection": -0.0005747685812418027,
+          "effect_norm_ratio": 0.003177009847853986
+        },
+        "attn:15": {
+          "signed_projection": 0.03035534177250003,
+          "effect_norm_ratio": 0.03244183987974638
+        },
+        "attn:16": {
+          "signed_projection": 0.003536217699767286,
+          "effect_norm_ratio": 0.0063076560564901685
+        },
+        "attn:17": {
+          "signed_projection": -0.002576679411175385,
+          "effect_norm_ratio": 0.0040112513242135765
+        }
+      },
+      "layer_additivity_error_ratio": 2.5340163702392236e-05,
+      "largest_signed_layer": "attn:09"
+    }
+  ],
+  "edited_over_native_norm_range": [
+    0.9983466744007008,
+    1.0014251053662118
+  ],
+  "source_sha256": "4a4b685a5f78ec3a69330bf3b0beda60ae8f3f482900bf535eb4cd31c4f403f3",
+  "script_sha256": "4b87f6a8ec8850784d699cf73e314148909075a58e49656bdf851095069fb2b2",
+  "decoder_helper_sha256": "571cefe481a8e09bb81ad9ea4f6c38a1ca50c7f34476738254914042687f28dc",
+  "scope": "Post-outcome fixed-native-write localization. Separate numerator/norm edits are decoder diagnostics, not physical residual interventions. Layer edits do not recompute their native downstream producers. No sufficiency threshold changed or circuit promoted."
+}
