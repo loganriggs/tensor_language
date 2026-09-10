@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Shared attention query rules](shared_attention_query_rules_2026-09-10.md): two native shared-router/source hypotheses fail; exact normalized weight folding passes, and projected source-edit algebra prepares contextual producer identification.
+
 - [Shared nonlinear factors after removal](shared_nonlinear_factors_after_removal_2026-09-10.md): actual weight-removal failure, shared-square counterexample, joint-factor grammar test, and normalization limits on attention folding.
 
 - [Weight tensors, two circuits, and explicit normalization](weight_tensor_two_circuit_math_2026-09-09.md): user-requested mathematical redirection; exact reader-conditioned forms, shared-input versus shared-function distinction, attention folds, norm/edit closure, executed controls and saved trained-weight audit.

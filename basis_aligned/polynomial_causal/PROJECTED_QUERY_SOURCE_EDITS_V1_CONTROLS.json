@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "checks": {
+    "source_lineage_closure": true,
+    "all_single_joint_signed_and_zero_gains": true,
+    "zero_source_query_is_zero": true,
+    "joint_source_deletion_orders_agree": true,
+    "cross_source_norm_terms_are_live": true
+  },
+  "max_query_replay_error": 5.551115123125783e-16,
+  "discard_cross_gram_max_error": 0.18042943611024706,
+  "control_design_note": "Initial unscaled reader gave cross-Gram effect .007922, below the fixed .01 liveness bar. Scaled the planted reader by .1 to exercise norm coupling; no native source-bank run or scientific bar changed.",
+  "native_source_sha256": "2d7dabb074e1ad2994490eae54c869da0ff4700c71161bd8417474c925027893",
+  "native_direct_embedding_coefficient": 34.576060521151575,
+  "native_attention_and_mlp_coefficients_by_layer": [
+    0.00021727780274810994,
+    0.017114805385697276,
+    0.008658873871024708,
+    0.015079399394437587,
+    0.03257659278460778,
+    0.5054307729005814,
+    1.0309982299804688,
+    1.2689208984375,
+    0.90234375
+  ],
+  "source_count": 19,
+  "projected_channels": 512,
+  "intervention_state_scalars_per_endpoint": 9918,
+  "implemented_dense_gram_scalars": 361,
+  "model_forwards": 0,
+  "scope": "Native coefficient audit plus planted FP64 query-source algebra. No native source bank captured yet, no circuit identification, no native weight reduction; Gram-based norm may suffer cancellation."
+}

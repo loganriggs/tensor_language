@@ -53,6 +53,53 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Two query simplifications fail; projected source edits executed — 2026-09-10 01:45 UTC
+
+Previous goal turn PROGRESS: two valid managed native screens, weight-fold oracle,
+unfiltered fit/eval manifest, reusable scorer, and executed query-source algebra.
+BILIN18_L9_SHARED_QUERY_ROUTER_V1_RESULT.json: A/D pass,B/C fail;36forwards/624seq,
+2.284s. One equal-task mean Q/Q2 prototype for L9H1/H4; task means diagnostic.
+HasA1/A2 sharedKL.011315/.007206; isA1/A2 .000876/.003011. Only isA1 passesall
+basicfidelity. Own-taskmeans fail3/4distributionpanels. Foldedpatternsmax2.69e-7,
+relative2.49e-7. RunnerSHA e6adb596e63e44b7b84f911304e4dcd56cec547d0bc1609da78bdca8d86f2edd.
+
+BILIN18_L9_EMBEDDING_QUERY_V1_RESULT.json: A/D pass,B/C fail;32forwards/576seq,
+2.180s. Query-only source RMS(alpha*e), e=RMS(Wte[token]); direct skip/reentry
+alpha34.5760605212. No contextual query norm retained. KL.0255-.0461,
+paired-effecterrors.2705-.3043; allpanels change predictions. Identityquery
+full-logitmax1.53e-5, projection6.42e-6, nativecontrast/removalmetricsreplay0.
+RunnerSHA b9f36bf756b0f50bbcf68c08efe6e1640e78b92a29b5df06ae54798d3cabc78e.
+ResultSHA2d7dabb074e1ad2994490eae54c869da0ff4700c71161bd8417474c925027893.
+This rejects the specific raw directembedding query replacement, not every possible
+nonlinear token-only query program. No prototype/head/rank/offset/dose rescue.
+
+These screens use the original UNFILTERED has/had and is/was shared-path96pairs,
+not the will/had MLP1 cohort. Fit24/eval72, zero token-sequence overlap acrossfit
+and each of4evalpanels. Texts opened historically, allnativeerrorsretained. Manifest
+BILIN18_L9_SHARED_QUERY_ROUTER_V1_ROWS.json records sole legacy hashdrift inshared
+producer; both taskbuildersvalidate andcurrentbackend/checkpointare separatelybound.
+Do not claim the old whole-executor authority replayed or refilter tocapable rows.
+
+Concrete continuation: projected_query_source_edits.py executed;5CPUcontrols
+pass5.55e-16. Pre-attention9 has19sources: directembedding plusattention/MLPwrites
+at0..8, each multiplied by transportedlambda coefficient. Store their four-head
+queryprojections p_s and sourceGram G. Gainsz givep=sum z_s p_s,rho=z^T Gz and
+headquery=p/sqrt(mean_head(p²)+eps_head*(rho/1152+eps_residual)). This supports
+source-edge removals/jointedits withrecomputednorm, not global upstreammodulecuts.
+Native coefficientauditmatchesalpha. Initialtoy crossGram liveness.007922missed
+.01bar; plantedreader scaled.1 beforeanynativebankrun, giving.1804, barunchanged.
+No native19-sourcebank captured yet. Gramnorm cancellation must beaudited; actual
+denseeditstate10089scalars, hypotheticalpacked9918, bothlargerthanone1152residual.
+All nativeinitialization/weights/background remaincharged. No identified/adoptedcircuit.
+
+Next scientific object is contextualqueryproducer attribution usingthese explicit
+sourceedges; anotherfixedprototype or globalrank/square-bankobstructionisdemoted.
+The new explanation shared_attention_query_rules_2026-09-10.md starts with the
+native outcomes and gives the formulas, data, prices and precise limitations.
+No ownGPUjob pending; bothrunnershealthy. Latesthourly0106(next02:06); regular
+mathematicalreviewstilldue01:49. Goalactive. Originalbilinearhandoff controls,
+not stalegoalwordingbetter_math_ideas. Preserve allClaude work.
+
 ## Native operand-domain null and information bound — 2026-09-10 01:09 UTC
 
 Previous goal turn PROGRESS: one managed causal-equivalence screen and one executed
