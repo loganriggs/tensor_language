@@ -1,0 +1,411 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "jac_min": 0.5,
+    "joint_min": 0.8,
+    "tol_pool": 0.05,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_headset_overlap_v513",
+  "finished_utc": "2026-09-10T13:54:08.969513+00:00",
+  "groups": {
+    "adj_missed__0": {
+      "cells": [
+        "adjective_preposition_of_at"
+      ],
+      "n_units": 18,
+      "per_shape": {
+        "adjective_preposition_of_at": {
+          "A1_damage": {
+            "ce_damage": 0.9702,
+            "ce_lb975": 0.7427,
+            "ce_ub975": 1.2136,
+            "margin_damage": 2.3486,
+            "top1_change_rate": 0.2812
+          },
+          "C_damage": {
+            "ce_damage": 0.0009,
+            "ce_lb975": -0.015,
+            "ce_ub975": 0.0174,
+            "margin_damage": 0.01,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0174,
+          "cross_abs_recovery": 0.958,
+          "joint_extraction": 0.999,
+          "n_held": 16,
+          "units_recovery": 0.959
+        }
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:08:head:08",
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:13:head:08",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:06:head:00",
+        "attn:09:head:07",
+        "attn:03:head:06",
+        "attn:14:head:03",
+        "attn:16:head:08",
+        "attn:11:head:06",
+        "attn:13:head:03",
+        "attn:10:head:08",
+        "attn:03:head:07",
+        "attn:14:head:08",
+        "attn:05:head:08"
+      ]
+    },
+    "adj_missed__1": {
+      "cells": [
+        "adjective_preposition_in_beneath"
+      ],
+      "n_units": 30,
+      "per_shape": {
+        "adjective_preposition_in_beneath": {
+          "A1_damage": {
+            "ce_damage": 2.2484,
+            "ce_lb975": 2.0721,
+            "ce_ub975": 2.409,
+            "margin_damage": 4.0989,
+            "top1_change_rate": 0.75
+          },
+          "C_damage": {
+            "ce_damage": -0.004,
+            "ce_lb975": -0.0127,
+            "ce_ub975": 0.0038,
+            "margin_damage": 0.0493,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0038,
+          "cross_abs_recovery": 0.872,
+          "joint_extraction": 0.982,
+          "n_held": 16,
+          "units_recovery": 0.888
+        }
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:13:head:08",
+        "attn:08:head:01",
+        "attn:11:head:03",
+        "attn:09:head:07",
+        "attn:14:head:03",
+        "attn:05:head:08",
+        "attn:05:head:06",
+        "attn:09:head:01",
+        "attn:07:head:00",
+        "attn:04:head:05",
+        "attn:14:head:08",
+        "attn:02:head:03",
+        "attn:13:head:03",
+        "attn:04:head:01",
+        "attn:05:head:04",
+        "attn:10:head:08",
+        "attn:11:head:06",
+        "attn:05:head:03",
+        "attn:16:head:08",
+        "attn:03:head:06",
+        "attn:12:head:08",
+        "attn:11:head:01",
+        "attn:04:head:03",
+        "attn:14:head:00",
+        "attn:09:head:05",
+        "attn:09:head:00",
+        "attn:16:head:00"
+      ]
+    },
+    "np_reached__0": {
+      "cells": [
+        "noun_preposition_interest"
+      ],
+      "n_units": 12,
+      "per_shape": {
+        "noun_preposition_interest": {
+          "A1_damage": {
+            "ce_damage": 1.068,
+            "ce_lb975": 0.9632,
+            "ce_ub975": 1.1631,
+            "margin_damage": 2.1562,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": 0.0021,
+            "ce_lb975": -0.003,
+            "ce_ub975": 0.0074,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0074,
+          "cross_abs_recovery": 0.957,
+          "joint_extraction": 1.001,
+          "n_held": 16,
+          "units_recovery": 0.956
+        }
+      },
+      "units": [
+        "attn:08:head:08",
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:08:head:01",
+        "attn:14:head:03",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:14:head:08",
+        "attn:10:head:08",
+        "attn:05:head:06",
+        "attn:07:head:00"
+      ]
+    },
+    "np_reached__1": {
+      "cells": [
+        "noun_preposition_between_with"
+      ],
+      "n_units": 12,
+      "per_shape": {
+        "noun_preposition_between_with": {
+          "A1_damage": {
+            "ce_damage": 0.644,
+            "ce_lb975": 0.4969,
+            "ce_ub975": 0.7969,
+            "margin_damage": 1.3173,
+            "top1_change_rate": 0.1562
+          },
+          "C_damage": {
+            "ce_damage": -0.0066,
+            "ce_lb975": -0.0109,
+            "ce_ub975": -0.002,
+            "margin_damage": 0.0256,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": -0.002,
+          "cross_abs_recovery": 0.999,
+          "joint_extraction": 1.004,
+          "n_held": 16,
+          "units_recovery": 0.995
+        }
+      },
+      "units": [
+        "attn:08:head:08",
+        "attn:08:head:01",
+        "attn:11:head:03",
+        "attn:06:head:03",
+        "attn:14:head:08",
+        "attn:16:head:08",
+        "attn:13:head:08",
+        "attn:13:head:06",
+        "attn:07:head:08",
+        "attn:10:head:01",
+        "attn:09:head:01",
+        "attn:14:head:03"
+      ]
+    },
+    "particle_missed__0": {
+      "cells": [
+        "verb_particle_up_down"
+      ],
+      "n_units": 15,
+      "per_shape": {
+        "verb_particle_up_down": {
+          "A1_damage": {
+            "ce_damage": 1.4731,
+            "ce_lb975": 1.4086,
+            "ce_ub975": 1.5359,
+            "margin_damage": 3.2203,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0002,
+            "ce_lb975": -0.003,
+            "ce_ub975": 0.0032,
+            "margin_damage": 0.0234,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0032,
+          "cross_abs_recovery": 0.968,
+          "joint_extraction": 0.996,
+          "n_held": 16,
+          "units_recovery": 0.972
+        }
+      },
+      "units": [
+        "attn:13:head:08",
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:08:head:01",
+        "attn:08:head:08",
+        "attn:16:head:08",
+        "attn:13:head:03",
+        "attn:11:head:03",
+        "attn:14:head:03",
+        "attn:09:head:01",
+        "attn:09:head:07",
+        "attn:10:head:08",
+        "attn:12:head:08",
+        "attn:04:head:01"
+      ]
+    },
+    "particle_missed__1": {
+      "cells": [
+        "verb_particle_out_away"
+      ],
+      "n_units": 17,
+      "per_shape": {
+        "verb_particle_out_away": {
+          "A1_damage": {
+            "ce_damage": 0.5202,
+            "ce_lb975": 0.4911,
+            "ce_ub975": 0.5455,
+            "margin_damage": 1.1265,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0009,
+            "ce_lb975": -0.0049,
+            "ce_ub975": 0.0034,
+            "margin_damage": -0.0095,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0034,
+          "cross_abs_recovery": 0.99,
+          "joint_extraction": 1.012,
+          "n_held": 16,
+          "units_recovery": 0.978
+        }
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:13:head:08",
+        "attn:12:head:08",
+        "attn:09:head:01",
+        "attn:09:head:08",
+        "attn:07:head:00",
+        "attn:10:head:02",
+        "attn:13:head:03",
+        "attn:05:head:08",
+        "attn:14:head:00",
+        "attn:09:head:00",
+        "attn:14:head:03",
+        "attn:10:head:05",
+        "attn:09:head:07"
+      ]
+    },
+    "vp_reached__0": {
+      "cells": [
+        "verb_preposition_at_to"
+      ],
+      "n_units": 12,
+      "per_shape": {
+        "verb_preposition_at_to": {
+          "A1_damage": {
+            "ce_damage": 1.2777,
+            "ce_lb975": 0.9241,
+            "ce_ub975": 1.6574,
+            "margin_damage": 3.3402,
+            "top1_change_rate": 0.5
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 0.997,
+          "joint_extraction": 1.009,
+          "n_held": 16,
+          "units_recovery": 0.988
+        }
+      },
+      "units": [
+        "attn:13:head:08",
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:11:head:03",
+        "attn:09:head:07",
+        "attn:10:head:08",
+        "attn:16:head:08",
+        "attn:14:head:03",
+        "attn:11:head:06"
+      ]
+    },
+    "vp_reached__1": {
+      "cells": [
+        "verb_preposition_about_for"
+      ],
+      "n_units": 13,
+      "per_shape": {
+        "verb_preposition_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.7692,
+            "ce_lb975": 0.6975,
+            "ce_ub975": 0.8458,
+            "margin_damage": 1.717,
+            "top1_change_rate": 0.2812
+          },
+          "C_damage": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.006,
+            "margin_damage": 0.0184,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.006,
+          "cross_abs_recovery": 0.972,
+          "joint_extraction": 0.994,
+          "n_held": 16,
+          "units_recovery": 0.978
+        }
+      },
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:08:head:08",
+        "attn:08:head:01",
+        "attn:13:head:08",
+        "attn:14:head:03",
+        "attn:11:head:03",
+        "attn:16:head:08",
+        "attn:11:head:06",
+        "attn:15:head:01",
+        "attn:04:head:01",
+        "attn:02:head:08",
+        "attn:12:head:08"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_fits_hold": true,
+    "pred_b_reached_overlap": true,
+    "pred_c_missed_overlap": false,
+    "pred_d_separation": true,
+    "pred_e_sets_nonempty": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_headset_overlap_v513",
+  "seconds": 236.8
+}
