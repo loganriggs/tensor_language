@@ -1,8 +1,10 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 15:33 UTC
+## Latest follow-up — 10 September, 15:49 UTC
 
 The requested attention weight audit and both backward-unembedding views have now run. [The full new explanation](unembedding_token_and_hierarchy_backward_folds.md) defines the fold and reports its limits.
+
+- **Shared grammatical component:** an unembedding-derived bare/-ing direction transfers 59–62% of the cue effect on held-out verbs; cross-verb cue changes work similarly. Removal damages the target while preserving the registered unrelated control. The 80% sufficiency test fails, and most of the state is carried into the last MLP from earlier computation. [New causal result](shared_gerund_component_from_unembedding.md).
 
 - **Token functions after folding:** no qualifying shared pair among 518 sampled readers. Closest scaled substitutes leave a median 97% quadratic-function error; old cluster means leave 96%. The only close pair was a literal duplicate involving a padded output ID. This rejects proportional whole-token functions as the tested source of new sharing, while shared subterms remain open. [New weight-function analysis](token_readers_as_bilinear_functions.md).
 

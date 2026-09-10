@@ -1,0 +1,377 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.readout.gerund_shared_scalar",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "readout.gerund_shared_scalar.v1",
+   "revision": 1,
+   "status": "site_live",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "weight_gerund_contrast",
+    "domain": "16 lexical test groups in two authored frames; can/may P and reused either/not C",
+    "read": "fixed eight-pair unembedding mean contrast applied to final residual and MLP17 input/output",
+    "operation": "scalar e.T h=e.T r+u.T Q u+e.T bias; transfer own or next-verb donor cue delta",
+    "write": "add e times scalar delta at terminal residual; or zero-remove e projection",
+    "endpoint": "partial target transfer and registered selective removal; >=.8 sufficiency and last-MLP production failed"
+   },
+   "alternative_explanations": [
+    "generic morphology rather than a pure gerund variable",
+    "multiple upstream producers or context-dependent normalization supply the carried scalar"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "can/are grammatical cue, can/may same-answer cue, or unrelated either/not cue as specified in frozen rows"
+     ],
+     "holds_fixed": [
+      "weight-derived e and checkpoint",
+      "fixed test verb sets, templates and partner permutation"
+     ],
+     "control_ids": [
+      "native_pair_capability",
+      "terminal_online_bridge"
+     ],
+     "builder_artifact_id": "helper",
+     "split_plan_id": "fixed_lexical",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "can/are grammatical cue, can/may same-answer cue, or unrelated either/not cue as specified in frozen rows"
+     ],
+     "holds_fixed": [
+      "weight-derived e and checkpoint",
+      "fixed test verb sets, templates and partner permutation"
+     ],
+     "control_ids": [
+      "native_pair_capability",
+      "terminal_online_bridge"
+     ],
+     "builder_artifact_id": "helper",
+     "split_plan_id": "fixed_lexical",
+     "status": "frozen"
+    },
+    {
+     "family_id": "P",
+     "role": "invariance",
+     "changes": [
+      "can/are grammatical cue, can/may same-answer cue, or unrelated either/not cue as specified in frozen rows"
+     ],
+     "holds_fixed": [
+      "weight-derived e and checkpoint",
+      "fixed test verb sets, templates and partner permutation"
+     ],
+     "control_ids": [
+      "native_pair_capability",
+      "terminal_online_bridge"
+     ],
+     "builder_artifact_id": "helper",
+     "split_plan_id": "fixed_lexical",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "invariance",
+     "changes": [
+      "can/are grammatical cue, can/may same-answer cue, or unrelated either/not cue as specified in frozen rows"
+     ],
+     "holds_fixed": [
+      "weight-derived e and checkpoint",
+      "fixed test verb sets, templates and partner permutation"
+     ],
+     "control_ids": [
+      "native_pair_capability",
+      "terminal_online_bridge"
+     ],
+     "builder_artifact_id": "helper",
+     "split_plan_id": "fixed_lexical",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "final_residual_and_mlp17",
+     "tensor_path": "transformer.h.17.mlp and final residual before RMSNorm",
+     "shape": [
+      1152
+     ],
+     "intervention": "scalar donor cue delta or zero projection, final native nonlinear readout retained"
+    }
+   ],
+   "split_plan_ids": [
+    "fixed_lexical"
+   ],
+   "evidence_event_ids": [
+    "readout.gerund_shared_scalar.v1.scalar_sufficiency",
+    "readout.gerund_shared_scalar.v1.selective_zero_removal",
+    "readout.gerund_shared_scalar.v1.mlp_producer",
+    "readout.gerund_shared_scalar.v1.instrument_capability"
+   ],
+   "translation_ids": [],
+   "next_missing": "Trace incoming-state producer beyond MLP17. Need broader control/construction tests, independent extraction, stable identification and composition. No sufficiency or model-saving promotion."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "fixed_lexical",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "helper",
+   "description": "8 weight-pair FIT verbs,16 distinct TEST verbs repeated across A1/A2/P; C previously opened. No pretraining-OOD claim."
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "readout.gerund_shared_scalar.v1.scalar_sufficiency",
+   "claim_id": "readout.gerund_shared_scalar.v1",
+   "stage": "complete",
+   "test_type": "cross_family_transfer",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "site_id": "final_residual_and_mlp17",
+   "split_plan_id": "fixed_lexical",
+   "evaluation_role": "scalar_sufficiency",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "audit",
+    "lexical",
+    "runner",
+    "helper"
+   ],
+   "seed": 9111370,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_scalar_final_recovery",
+     "value": 0.5864241123199463,
+     "bar": ">=.80"
+    },
+    {
+     "name": "A1_cross_verb_recovery",
+     "value": 0.5841833353042603,
+     "bar": ">=.80"
+    },
+    {
+     "name": "A2_scalar_final_recovery",
+     "value": 0.6214783787727356,
+     "bar": ">=.80"
+    },
+    {
+     "name": "A2_cross_verb_recovery",
+     "value": 0.6199524998664856,
+     "bar": ">=.80"
+    }
+   ],
+   "notes": "All native weights retained. Partial live scalar, not independently executable producer. P zero-removal absolute CE .22092 reported, not in E gate.",
+   "design_key": "04c65fe2376c27940f7d170cd66e4e62180a9a08fd433ff64d77f1b06f385068",
+   "execution_key": "fd3a1031bfb9a4815dedbbc07afba1b36d433340aeec67960e13fc75388cf077"
+  },
+  {
+   "event_id": "readout.gerund_shared_scalar.v1.selective_zero_removal",
+   "claim_id": "readout.gerund_shared_scalar.v1",
+   "stage": "complete",
+   "test_type": "removal",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "site_id": "final_residual_and_mlp17",
+   "split_plan_id": "fixed_lexical",
+   "evaluation_role": "selective_zero_removal",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "audit",
+    "lexical",
+    "runner",
+    "helper"
+   ],
+   "seed": 9111370,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_mean_CE_damage",
+     "value": 0.5646073818206787,
+     "bar": ">=.10"
+    },
+    {
+     "name": "A2_mean_CE_damage",
+     "value": 0.6859946846961975,
+     "bar": ">=.10"
+    },
+    {
+     "name": "C_mean_absolute_CE_change",
+     "value": 0.02318006381392479,
+     "bar": "<=.10"
+    }
+   ],
+   "notes": "All native weights retained. Partial live scalar, not independently executable producer. P zero-removal absolute CE .22092 reported, not in E gate.",
+   "design_key": "be7106c324258ebf66287ccbd643e77c07f0e197611bca90ef456510573fdf71",
+   "execution_key": "c4d85754b687d41915bd082c341c3692923c51b2385a4e3ba6f291258262d9c5"
+  },
+  {
+   "event_id": "readout.gerund_shared_scalar.v1.mlp_producer",
+   "claim_id": "readout.gerund_shared_scalar.v1",
+   "stage": "complete",
+   "test_type": "das_interchange",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "site_id": "final_residual_and_mlp17",
+   "split_plan_id": "fixed_lexical",
+   "evaluation_role": "mlp_producer",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "audit",
+    "lexical",
+    "runner",
+    "helper"
+   ],
+   "seed": 9111370,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_MLP_scalar_recovery",
+     "value": 0.07133933901786804,
+     "bar": ">=.80"
+    },
+    {
+     "name": "A2_MLP_scalar_recovery",
+     "value": 0.09989943355321884,
+     "bar": ">=.80"
+    }
+   ],
+   "notes": "All native weights retained. Partial live scalar, not independently executable producer. P zero-removal absolute CE .22092 reported, not in E gate.",
+   "design_key": "03039b497dcc11cf8cd1d925b2f69cc9999dc98c778901a62938cf20db7e75f3",
+   "execution_key": "7bb2f67f7155ea2da32d38223944370a97017a230cbde181d2c8c293800020d6"
+  },
+  {
+   "event_id": "readout.gerund_shared_scalar.v1.instrument_capability",
+   "claim_id": "readout.gerund_shared_scalar.v1",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "site_id": "final_residual_and_mlp17",
+   "split_plan_id": "fixed_lexical",
+   "evaluation_role": "instrument_capability",
+   "input_artifact_ids": [
+    "rows",
+    "component",
+    "audit",
+    "lexical",
+    "runner",
+    "helper"
+   ],
+   "seed": 9111370,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "both_endpoint_correct_pairs",
+     "value": 64,
+     "bar": "64/64 paired-answer margins positive"
+    },
+    {
+     "name": "online_logit_max_abs",
+     "value": 2.8133392333984375e-05,
+     "bar": "<=1e-3 and relative<=1e-5"
+    }
+   ],
+   "notes": "All native weights retained. Partial live scalar, not independently executable producer. P zero-removal absolute CE .22092 reported, not in E gate.",
+   "design_key": "29f30fb1307c368bf366565d2d02d1fcd38e2cf66b52f35c0f7ed9aa991e7de9",
+   "execution_key": "3c2c36e574776f6edb9b64a950980f1efd9d9daf98ac1a93c8f775e20d0be197"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SHARED_READER_V1_PREREGISTRATION.md",
+   "sha256": "a5f51fafbdd7092be44048a725f6c6bdaac9ebf606dfe7dc5e3b69bf0baa2b3f",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SHARED_READER_V1_ROWS.json",
+   "sha256": "f120e88fcad6ce2bcdc9add3c3407de5481bbcaf0e69c3d8f45e3f88dda3c30a",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SHARED_READER_V1_RESULT.json",
+   "sha256": "e6ed1a954636979fe2d301a956ced577a01f35471a295dd5ba33a5a0a7e4fdd4",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "component": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SHARED_READER_V1_COMPONENT.pt",
+   "sha256": "b58366e161c343ac27192eac3315f5067eb7104383ec9eb37ef91bf0cfab05da",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SHARED_READER_AUDIT_V1_RESULT.json",
+   "sha256": "f737c717887d613fc7ed5ec35dd57baeb86cd96abe3fbfa18317fd7c49ea4454",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "lexical": {
+   "path": "basis_aligned/polynomial_causal/GERUND_SHARED_READER_LEXICAL_AUDIT_V1_RESULT.json",
+   "sha256": "a56b52de9651aa8bcee05b6561b7e6e9e9697e37e59ddfcd3e8177837ebfb12a",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_gerund_shared_reader_v1.py",
+   "sha256": "81722dc21a791f08de4f7f313da71661ea29bbb95a8897b2a5ee764e88c2e719",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "helper": {
+   "path": "basis_aligned/polynomial_causal/gerund_shared_reader_v1.py",
+   "sha256": "23d60c79c090f62cd1115bc441dff90cd3f51bcbaa18eb2c594e5a99db94593c",
+   "kind": "evidence",
+   "status": "frozen"
+  }
+ }
+}

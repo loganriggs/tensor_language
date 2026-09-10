@@ -865,6 +865,45 @@
     "ea7b31a99a4b3bf22d7a3b5367fea0062f922a46c61266a7a50ff0ec0ff4ca73"
    ]
   },
+  "subroutine.readout.gerund_shared_scalar": {
+   "file": "subroutine_readout_gerund_shared_scalar.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "17f2f86647588ddc0260e75881a9fc00fe3ff4793a85e6befcfbc285ebeeed7e",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "readout.gerund_shared_scalar.v1",
+   "claim_status": "site_live",
+   "causal_variable_id": "weight_gerund_contrast",
+   "interchange_family_count": 2,
+   "invariance_family_count": 2,
+   "negative_event_count": 2,
+   "active_negative_event_count": 2,
+   "latest_blocker": "readout.gerund_shared_scalar.v1.mlp_producer",
+   "latest_active_event": "readout.gerund_shared_scalar.v1.instrument_capability",
+   "active_event_ids": [
+    "readout.gerund_shared_scalar.v1.scalar_sufficiency",
+    "readout.gerund_shared_scalar.v1.selective_zero_removal",
+    "readout.gerund_shared_scalar.v1.mlp_producer",
+    "readout.gerund_shared_scalar.v1.instrument_capability"
+   ],
+   "held_test_types": [
+    "compiled_equivalence",
+    "removal"
+   ],
+   "active_blocking_test_types": [
+    "cross_family_transfer",
+    "das_interchange"
+   ],
+   "design_keys": [
+    "03039b497dcc11cf8cd1d925b2f69cc9999dc98c778901a62938cf20db7e75f3",
+    "04c65fe2376c27940f7d170cd66e4e62180a9a08fd433ff64d77f1b06f385068",
+    "29f30fb1307c368bf366565d2d02d1fcd38e2cf66b52f35c0f7ed9aa991e7de9",
+    "be7106c324258ebf66287ccbd643e77c07f0e197611bca90ef456510573fdf71"
+   ]
+  },
   "subroutine.readout.mlp16_17_token_fold": {
    "file": "subroutine_readout_mlp16_17_token_fold.json",
    "schema_version": 2,
