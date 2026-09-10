@@ -1,0 +1,292 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.readout.gerund_selected_response",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "readout.gerund_selected_response.v1.selected",
+   "revision": 1,
+   "status": "specified",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "two_selected_reader_response_state",
+    "domain": "Synthetic post-RMS MLP17 contexts; repeated same-e edits, no natural-text claim",
+    "read": "q=K u for e and runs/run output readers",
+    "operation": "response=delta*q+delta^2*a; state=q+2*delta*a",
+    "write": "Two selected MLP output-response scalars; no absolute or full-model prediction",
+    "endpoint": "Selected local response and sequential composition held near1e-13; full-output closure rejected by16 equal-state witnesses"
+   },
+   "alternative_explanations": [
+    "Initial context producer remains native",
+    "Other output directions distinguish equal-state contexts"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "synthetic_contexts",
+     "role": "interchange",
+     "changes": [
+      "context reflection and repeated scalar edit commands"
+     ],
+     "holds_fixed": [
+      "frozen MLP17 weights, e and two readers",
+      "equal e/K features and norm across reflection pairs"
+     ],
+     "control_ids": [
+      "direct_FP64_response",
+      "coefficient_identity",
+      "serialized_reload"
+     ],
+     "builder_artifact_id": "runner",
+     "split_plan_id": "synthetic_reflections",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "MLP17_selected_response",
+     "tensor_path": "transformer.h.17.mlp post-RMS input to selected output readers",
+     "shape": [
+      2,
+      1152
+     ],
+     "intervention": "delta e shifts on normalized-input port, without intervening normalization"
+    }
+   ],
+   "split_plan_ids": [
+    "synthetic_reflections"
+   ],
+   "evidence_event_ids": [
+    "readout.gerund_selected_response.v1.response",
+    "readout.gerund_selected_response.v1.composition"
+   ],
+   "translation_ids": [],
+   "next_missing": "Native-text context-state producer and downstream closure; no behavioral OOD, removal or full-circuit extraction claim."
+  },
+  {
+   "claim_id": "readout.gerund_selected_response.v1.full_output",
+   "revision": 1,
+   "status": "rejected",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "two_reader_full_output_closure",
+    "domain": "Synthetic post-RMS MLP17 contexts; repeated same-e edits, no natural-text claim",
+    "read": "q=K u for e and runs/run output readers",
+    "operation": "response=delta*q+delta^2*a; state=q+2*delta*a",
+    "write": "Two selected MLP output-response scalars; no absolute or full-model prediction",
+    "endpoint": "Selected local response and sequential composition held near1e-13; full-output closure rejected by16 equal-state witnesses"
+   },
+   "alternative_explanations": [
+    "Initial context producer remains native",
+    "Other output directions distinguish equal-state contexts"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "synthetic_contexts",
+     "role": "interchange",
+     "changes": [
+      "context reflection and repeated scalar edit commands"
+     ],
+     "holds_fixed": [
+      "frozen MLP17 weights, e and two readers",
+      "equal e/K features and norm across reflection pairs"
+     ],
+     "control_ids": [
+      "direct_FP64_response",
+      "coefficient_identity",
+      "serialized_reload"
+     ],
+     "builder_artifact_id": "runner",
+     "split_plan_id": "synthetic_reflections",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "MLP17_selected_response",
+     "tensor_path": "transformer.h.17.mlp post-RMS input to selected output readers",
+     "shape": [
+      2,
+      1152
+     ],
+     "intervention": "delta e shifts on normalized-input port, without intervening normalization"
+    }
+   ],
+   "split_plan_ids": [
+    "synthetic_reflections"
+   ],
+   "evidence_event_ids": [
+    "readout.gerund_selected_response.v1.full_output"
+   ],
+   "translation_ids": [],
+   "next_missing": "Native-text context-state producer and downstream closure; no behavioral OOD, removal or full-circuit extraction claim."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "synthetic_reflections",
+   "partition_artifact_id": "plan",
+   "builder_artifact_id": "runner",
+   "description": "Seed9111440,16 equal-feature/norm reflection pairs; post-RMS synthetic domain, no natural-text reachability claim."
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "readout.gerund_selected_response.v1.response",
+   "claim_id": "readout.gerund_selected_response.v1.selected",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "synthetic_contexts"
+   ],
+   "site_id": "MLP17_selected_response",
+   "split_plan_id": "synthetic_reflections",
+   "evaluation_role": "response",
+   "input_artifact_ids": [
+    "runner",
+    "helper",
+    "binding",
+    "program"
+   ],
+   "seed": 9111440,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "relative_error",
+     "value": 1.0082350485157306e-13,
+     "bar": "<=1e-10"
+    }
+   ],
+   "notes": "Zero native forwards. A local conditional response program on synthetic internal states; no behavior-circuit promotion. Separate reload uses only saved program. Full-output collision is a domain-limited witness, not universal impossibility.",
+   "design_key": "27f06be6e1f88ce3aecc974c0b7a4d5256f1c65a414b6ec2ae1dd39b0ad437b5",
+   "execution_key": "4ed984ccf995be3941c2e87a48dc41470ed5ed1cb293cda67340cdf35ae00275"
+  },
+  {
+   "event_id": "readout.gerund_selected_response.v1.composition",
+   "claim_id": "readout.gerund_selected_response.v1.selected",
+   "stage": "complete",
+   "test_type": "composition",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "synthetic_contexts"
+   ],
+   "site_id": "MLP17_selected_response",
+   "split_plan_id": "synthetic_reflections",
+   "evaluation_role": "composition",
+   "input_artifact_ids": [
+    "runner",
+    "helper",
+    "binding",
+    "program"
+   ],
+   "seed": 9111440,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "relative_error",
+     "value": 1.5945805106522662e-13,
+     "bar": "<=1e-10"
+    }
+   ],
+   "notes": "Zero native forwards. A local conditional response program on synthetic internal states; no behavior-circuit promotion. Separate reload uses only saved program. Full-output collision is a domain-limited witness, not universal impossibility.",
+   "design_key": "fd1a4f488624cce0da07e1b969f05427a87483eefc0da42d96a5531023c824ef",
+   "execution_key": "7d9d09778bc632a574107ce38de240d0c6f1941b3e9ae70688a6095d51fdcfd4"
+  },
+  {
+   "event_id": "readout.gerund_selected_response.v1.full_output",
+   "claim_id": "readout.gerund_selected_response.v1.full_output",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "synthetic_contexts"
+   ],
+   "site_id": "MLP17_selected_response",
+   "split_plan_id": "synthetic_reflections",
+   "evaluation_role": "full_output",
+   "input_artifact_ids": [
+    "runner",
+    "helper",
+    "binding",
+    "program"
+   ],
+   "seed": 9111440,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "closure_witness_pairs",
+     "value": 16,
+     "bar": "fewer than15 pairs with minimum error>=.10 would avoid registered witness"
+    }
+   ],
+   "notes": "Zero native forwards. A local conditional response program on synthetic internal states; no behavior-circuit promotion. Separate reload uses only saved program. Full-output collision is a domain-limited witness, not universal impossibility.",
+   "design_key": "8efa236c02e93df236e13b46f5f1debabe553be1e50c8bfdf2437f31186a7aba",
+   "execution_key": "c35212c18dcfc82fbe82107180f9dd6da29086fa1b31cf3dbe79f277e8787e13"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/SELECTED_READER_RESPONSE_V1_PREREGISTRATION.md",
+   "sha256": "4555ff0a6ae36f2284d36a2cb0457d8f24056bae8e97bcc3322876c4efdddcf4",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/SELECTED_READER_RESPONSE_V1_PREREGISTRATION.md",
+   "sha256": "4555ff0a6ae36f2284d36a2cb0457d8f24056bae8e97bcc3322876c4efdddcf4",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "program": {
+   "path": "basis_aligned/polynomial_causal/SELECTED_READER_RESPONSE_V1_PROGRAM.pt",
+   "sha256": "bc663b940d8beb8918f0addc2652ae0829555abad6cce4b4a9f68ea5a2b3fb19",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/SELECTED_READER_RESPONSE_V1_RESULT.json",
+   "sha256": "1b6377a1d9e6fdfafa933cb8c9092ea6efcd25e8133093e0702127dc89c07987",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "reload": {
+   "path": "basis_aligned/polynomial_causal/SELECTED_READER_RESPONSE_V1_RELOAD_AUDIT.json",
+   "sha256": "a495598ca29382a642f82d378ed249f2ad514f1abdf027231678a22eaa5dd55e",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "runner": {
+   "path": "basis_aligned/polynomial_causal/run_selected_reader_response_v1.py",
+   "sha256": "f2458383ed22495bb694c804101030bb5544c66e1ca494cd519981671d0b8a9a",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "helper": {
+   "path": "basis_aligned/polynomial_causal/selected_reader_response_v1.py",
+   "sha256": "b774b9715a7ab45d5c355ce2a2d2cbdc26d5e0516adeec88f0e98b0b704ed240",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "binding": {
+   "path": "basis_aligned/polynomial_causal/SELECTED_READER_RESPONSE_V1_BINDING.json",
+   "sha256": "2d1511aac022a779e48a3473b70f539836068ccac8a6a9f3a31bf748b7e4cd01",
+   "kind": "evidence",
+   "status": "frozen"
+  }
+ }
+}

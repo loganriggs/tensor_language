@@ -1,6 +1,54 @@
 # Shared grammatical writes work; the scalar-only predictor does not
 
-**Latest result — 10 September, 16:42 UTC:** MLPs read the grammatical scalar
+**Latest mathematical result — 10 September, 16:54 UTC:** we now have a saved,
+small executable program for the last MLP's response along two chosen output
+readers. It predicts repeated edits along the grammatical direction and composes
+them exactly, once two context scalars are initialized. This is a local response
+program; equal-state counterexamples show that it cannot predict all other
+output directions.
+
+## What the mathematical cycle produced
+
+For the two readers, collect the weight-derived context maps into a matrix K,
+and their squared-term coefficients into a two-entry vector a. Initialize the
+two context values q=Ku from the normalized MLP input. For an input edit of
+size delta along e, the whole response program is
+
+    predicted change = delta*q + delta^2*a;
+    updated context state = q + 2*delta*a.
+
+The second equation makes repeated same-direction edits compose: applying two
+commands in sequence predicts the same response as their combined command.
+The program predicts changes in the two selected MLP readouts, not absolute
+MLP outputs, normalized token probabilities, or a sentence's answer. It still
+needs the initial full input to compute q; those upstream producers have not
+been extracted.
+
+The trained MLP17 test matched direct evaluation within 1.01e-13 relative error
+and composition within 1.59e-13. A separate reload test used only the saved
+program, with new synthetic contexts and commands, and also passed. It stores
+2,306 float64 coefficients:18,448 raw tensor bytes, or20,613 bytes in its saved
+file. These are local program costs, not a reduction in the full model's bill.
+
+The same test constructed context pairs with identical q, identical grammatical
+scalar, and identical norm. Their other output responses still differed. Any
+program using only those shared features must leave at least 11–24% relative
+full-output error on these pairs. The contexts are synthetic internal states,
+not natural-text OOD examples. Thus local selected-reader extraction and
+composition are established, while full-output closure is explicitly rejected.
+
+This mathematical cycle supplied both a reusable executable operation and a
+test that prevents overstating its scope. The [review and proof](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_1649.md)
+compare exact reduction methods with the actual normalized model. The
+[native-weight result](../../SELECTED_READER_RESPONSE_V1_RESULT.json),
+[saved program](../../SELECTED_READER_RESPONSE_V1_PROGRAM.pt), and
+[independent reload check](../../SELECTED_READER_RESPONSE_V1_RELOAD_AUDIT.json)
+record what ran. The next missing part is producing the context state and
+handling the remaining downstream readers.
+
+## Earlier native consumer result
+
+**10 September, 16:42 UTC:** MLPs read the grammatical scalar
 and write consequential changes into other directions. Holding those scalar
 reads at their original values reduces target recovery by **29 percentage
 points in both constructions**. It also removes about **70% of the agreement

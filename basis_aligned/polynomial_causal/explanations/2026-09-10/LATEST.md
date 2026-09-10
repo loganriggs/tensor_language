@@ -1,6 +1,14 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 16:42 UTC
+## Latest follow-up — 10 September, 16:54 UTC
+
+**The mathematical review produced a small composable response program.**
+Two initialized context scalars predict the last MLP's response to repeated
+grammatical-direction edits for two chosen output readers. Direct-weight and
+saved-program checks pass. Equal-state context pairs nevertheless differ in
+other output responses, giving an 11–24% error lower bound for that restricted
+state. This is local conditional extraction, not full-circuit extraction or
+natural-text OOD evidence. [Program, proof and limits](gerund_scalar_writes_and_live_feedback.md).
 
 **MLP consumers explain a substantial part of the missing response.** Holding
 the fixed grammatical scalar at its original value inside each MLP reduces

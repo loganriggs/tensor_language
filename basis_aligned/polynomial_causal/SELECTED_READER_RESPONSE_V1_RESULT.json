@@ -1,0 +1,58 @@
+{
+  "schema": "selected_reader.response.v1",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_selected_reader_program": true,
+    "pred_c_full_output_closure_witness": true
+  },
+  "checks": {
+    "fold_relative": 1.845255534138759e-13,
+    "features_relative": 2.349601114066246e-16,
+    "squared_norm_relative": 1.208657738231572e-16,
+    "selected_response_relative": 1.0082350485157306e-13,
+    "composition_relative": 1.5945805106522662e-13,
+    "state_update_relative": 2.508876320754195e-16,
+    "coefficient_identity_relative": 3.924643149640392e-15
+  },
+  "pair_minimum_relative_errors": [
+    0.1432287523466912,
+    0.15985567998628122,
+    0.24163826529407645,
+    0.14368793727622356,
+    0.16027146085857347,
+    0.13631033509970344,
+    0.11532792988393355,
+    0.10866587142005081,
+    0.13421910104579143,
+    0.15240852743143143,
+    0.12590847853928003,
+    0.12141929242541938,
+    0.16264577965281832,
+    0.11313459998744493,
+    0.11796435893001377,
+    0.17240116232174454
+  ],
+  "qualifying_pairs": 16,
+  "controls": {
+    "delta_max_abs": 1.7763568394002505e-14,
+    "reader_max_abs": 2.220446049250313e-15,
+    "gpu_accessed": false
+  },
+  "price": {
+    "native_forwards": 0,
+    "cpu_only": true,
+    "compiled_coefficients": 2306,
+    "initial_input_width": 1152,
+    "response_state_width": 2,
+    "whole_model_weight_saving": 0
+  },
+  "reader_labels": [
+    "fixed_gerund_e",
+    "runs_minus_run"
+  ],
+  "program_sha256": "bc663b940d8beb8918f0addc2652ae0829555abad6cce4b4a9f68ea5a2b3fb19",
+  "runner_sha256": "f2458383ed22495bb694c804101030bb5544c66e1ca494cd519981671d0b8a9a",
+  "binding_sha256": "2d1511aac022a779e48a3473b70f539836068ccac8a6a9f3a31bf748b7e4cd01",
+  "wall_seconds": 1.7925369516015053,
+  "scope": "Exact local selected-reader response and repeated same-direction composition, conditional on initialized context state. Synthetic equal-state normalized-context witnesses are not natural-text OOD or full-model extraction."
+}
