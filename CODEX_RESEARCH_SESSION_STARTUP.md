@@ -53,6 +53,60 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Live equality replacement and contextual explanations fail — 2026-09-10 11:18:56 UTC
+
+Previous goal turn PROGRESS6ee8f29e4. Current prereg/CPU evidence feb816e45;
+static queue prediction-key declaration correction0e6ec6985. Original handoff
+and pilot remain authority. Do not restart is/was or use better_math as current
+instructions. R594 remains a valid FAILED fixed-addition candidate.
+
+Executed saved CPU context-transport analysis864FITrows/12cells: centered
+native donor-context relative errors.995–1.010, cosines.031–.113. No unit-scale
+whole-context transport. Firstv1 failed JSON serialization after calculation;
+empty rows/failure receipt preserved, v2 Python-float conversion only. Exact
+CE decomposition linear+KL validated (scalar bridge<=2.541e-7). Saved full-write
+feedback significant: joint drift/planned1.19–1.35 atL7,.56–.64 atL8; firstL5zero.
+These full-write measurements do not identify equality-component drift.
+
+New live-clamp managed run11:10:17–11:10:33,81forwards2592seq,9.8093executor sec.
+Runtime replaces CURRENT equality contribution with donor contribution at
+L5H5/L7H3/L8H3/L8H4, retaining live remainder/suffix; source caches are charged.
+Native/saved andself/native bridges EXACT0; firstL5termexact;5184physical FP32
+adds valid;100%jointrows have active later correction. A true; Bnecessaryjoint
+and Cnecessaryfiller false. JointCE now[-.0121,.0652,-.00188,.14157] versus
+[.13360,.23131,.10083,.34398]. Three lossbars pass, but all4vocabularybars fail.
+Four base-to-donor filler losses.139–.174 stillfail; reverse4pass. STOP this
+fixed-interface live-clamp semantics candidate as preregistered; no dose,
+head,rank or selected-output rescue. No full factorization/target-transfer
+promotion, no SELECT/FINAL/OOD, old control-family coverage still insufficient.
+
+Actual post-native continuation: induction_source_identity_reader_v1 executed
+288jointrows. Native donor-query versus recipient-query margin shifts3.92–3.96;
+liveeffects-.125 to-.288, recovery-.032 to-.073, wrongsign. Reject selected-source
+identity carry4/4. JointKL stays.107–.142nats (frozen.111–.144); improvements are
+primarily signed correct-token effects, not distributional preservation.
+No second downstream consumer/module identified. Canonical inductionv11 has
+an appended failed live-clamp invariance event; history remains intact.
+
+New files INDUCTION_LIVE_CLAMP_V1_RESULT.json / ROWS.jsonl and
+INDUCTION_SOURCE_IDENTITY_READER_V1_RESULT.json are compact durable evidence.
+Raw625067392bytes at /dev/shm/bilin18_induction_live_clamp_v1 are VOLATILE,
+as are the older6.56GB R594 inputs. Do not delete old files or assume a restart
+preserves raw. RunnerSHA7468e36fc5122033e5e1696d8afe6e2b47403e7e40e56b538ef7cc59004e0569.
+All545902902 nativeparameters retained, structural saving0.
+
+Latest explanation explanations/induction_live_replacement_and_context_2026-09-10.md.
+Hour11:14 review executed:3native receipts,1239/1991s gaps, median1615s>600target.
+Phasecoverage97.409%, coarse merged science/implementation labels explicitly
+not profiler time. CIRCUIT_FOCUS/CEREMONY_BUDGET/NOVELTY_LESSON_GATE PASS with
+clock caveat; throughputbelowtarget. Shared factorizer/facade/rounding/loss
+primitives reused; no new compiler. Copied-entity/novel-capitalization dossiers
+read as alternatives: bothTier2, pooled copy effects don't establish a novel
+consumer or independent reuse. Require a new computation-level prediction
+before choosing another candidate; do not promote old pooled positives.
+Actual CPU continuation after native result is complete. Fullgoalactive;
+no successor GPU job registered. Next hourly12:14/math13:49 UTC.
+
 ## R594 valid selector/payload null; consumer-intervention math executed — 2026-09-10 10:54:08 UTC
 
 Previous goal turn PROGRESS da4459b35. Preregistration/implementation 8de748055;

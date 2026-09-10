@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Live replacement and remaining context effects](induction_live_replacement_and_context_2026-09-10.md): correcting stale contributions improves joint answer loss but leaves vocabulary/control failures. Whole-context transport and selected-source identity hypotheses also fail; this fixed induction interface is closed.
+
 - [Selector–payload interchange](induction_selector_payload_interchange_2026-09-10.md): valid induction transfer reaches 86–91% for selector and 77–86% for payload, but joint invariance and controls fail. Exact math distinguishes shared-producer edits from consumer-specific edits; no circuit promotion.
 
 - [Induction value producers](induction_value_producers_2026-09-10.md): trained equality-message screen; neither shared-first nor local values alone reproduce the full causal effect. Includes an explicit correction of an infeasible absolute probability-loss criterion, without changing the failed verdict.

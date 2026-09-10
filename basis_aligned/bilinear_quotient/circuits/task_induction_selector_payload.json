@@ -3404,6 +3404,57 @@
    "notes": "639 FIT forwards; no SELECT/FINAL/OOD. Instrument and denominator/capacity checks pass. Intended selector/payload/match transfers pass. Independent CPU implementation verifies all 44,928 observed FP32 layer additions and 35 raw file hashes; not independent-agent review. Raw 6,560,733,847 bytes reside in volatile /dev/shm; compact result and receipt frozen here. This rejects the registered selective-factor candidate, not the existence of induction or bilinear attention algebra.",
    "design_key": "8a5adf197fe86a59db3e452554ecf92c40c29af23f059add4d8da15852fc8b2c",
    "execution_key": "6921a311bc1291c7f54a48e9c8982a916d456945819ee92c7178603c44051009"
+  },
+  {
+   "event_id": "induction_live_equality_clamp.v1.complete.failed",
+   "claim_id": "induction_selector_and_payload.v11",
+   "test_type": "invariance",
+   "stage": "complete",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "selector_payload_joint_answer_preserved",
+    "copy_relation_preserved_nuisance_change"
+   ],
+   "site_id": null,
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "evaluation_role": "FIT_only_necessary_invariance_gate_new_live_replacement_semantics",
+   "metrics": [
+    {
+     "name": "joint_vocabulary_failed_cells",
+     "estimate": 4,
+     "ci95": null,
+     "bar": "all four cells must satisfy the unchanged R594 vocabulary limits"
+    },
+    {
+     "name": "filler_failed_cells",
+     "estimate": 4,
+     "ci95": null,
+     "bar": "all eight directional filler cells must satisfy the unchanged loss/margin/vocabulary/correctness limits"
+    },
+    {
+     "name": "active_live_correction_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "at least .75 of joint rows must have a later live correction above relative 1e-5"
+    }
+   ],
+   "prereg_artifact_id": "live_clamp_v1_prereg",
+   "result_artifact_id": "live_clamp_v1_result",
+   "input_artifact_ids": [
+    "r594_factor_result",
+    "r594_factor_receipt",
+    "live_clamp_v1_source_reader",
+    "r594_context_transport_v2"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "New consumer-port operation at L5H5/L7H3/L8H3/L8H4: replace CURRENT equality contribution with frozen donor contribution; live remainder and suffix retained. Different semantics from the valid R594 fixed addition. Native/self replay exact;81forwards2592sequences,5184rounded additions valid. Joint CE improves,3/4 pass, but4/4 vocabulary and4/8 filler controls fail. Full original factorization predicates and active-control coverage not promoted; no SELECT/FINAL/OOD. Post-result source-identity reader hypothesis fails all4cells with wrong-sign effects. Stop this fixed-interface semantics candidate; no head/rank/gain rescue. Raw625MB volatile; compact results frozen.",
+   "design_key": "ba2e85a19c2bba945f546ce2fc5d8fa594eae15debad4fc28f818ed1c73dafa4",
+   "execution_key": "ffebda5bbfdbde05f42295d5541e9e8bd7e41b189458b614949f64aadf1d3ac7"
   }
  ],
  "translations": [],
@@ -3711,6 +3762,30 @@
   "r594_saved_audit": {
    "path": "basis_aligned/polynomial_causal/INDUCTION_R594_SAVED_AUDIT_V1_RESULT.json",
    "sha256": "eaf8cb790af0fb31584f9a6a3b6045a4af3b9013255454b3ed7e7c0d9aa7e863",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "live_clamp_v1_prereg": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_LIVE_CLAMP_V1_PREREGISTRATION.md",
+   "sha256": "a092ff0e0a13f052a45a082193e34527f997811f7a7da097a13a86541b34cb4c",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "live_clamp_v1_result": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_LIVE_CLAMP_V1_RESULT.json",
+   "sha256": "7641ad403f2e4ade72455943164446f1311711e8b0adcd1a1e3cc586036f21ea",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "live_clamp_v1_source_reader": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_SOURCE_IDENTITY_READER_V1_RESULT.json",
+   "sha256": "a0f7a46bf2a7e1f2b155eeb414f4dcc93424763dc2dd0afce1b3898fa2936022",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r594_context_transport_v2": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_CONTEXT_TRANSPORT_V2_RESULT.json",
+   "sha256": "7b0f2dcf478b83c0dd66646e42846c37b3d264cfb7c8c519bd09344ec0276640",
    "kind": "result",
    "status": "frozen"
   }

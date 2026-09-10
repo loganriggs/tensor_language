@@ -1,0 +1,105 @@
+{
+  "experiment": "induction_source_identity_reader_v1",
+  "post_result_exploratory": true,
+  "rows": 288,
+  "model_forwards": 0,
+  "reports": {
+    "selector_payload_joint_answer_preserved|payload_B|s0p0|base_to_donor": {
+      "groups": 72,
+      "mean_native_source_margin_change": 3.9207158166811698,
+      "positive_native_fraction": 0.9861111111111112,
+      "live": {
+        "mean_source_margin_change": -0.12467382103204727,
+        "positive_effect_fraction": 0.3888888888888889,
+        "mean_recovery": -0.03179873953159448,
+        "carry_viable": false,
+        "mean_ce_damage": -0.012099357360040284,
+        "mean_linear_loss_change": -0.11951177668856063,
+        "mean_kl": 0.10741241932852032
+      },
+      "frozen": {
+        "mean_source_margin_change": -0.1553032346483734,
+        "positive_effect_fraction": 0.4027777777777778,
+        "mean_recovery": -0.03961093889733518,
+        "carry_viable": false,
+        "mean_ce_damage": 0.13360401658787216,
+        "mean_linear_loss_change": 0.02291063733635954,
+        "mean_kl": 0.1106933792515126
+      }
+    },
+    "selector_payload_joint_answer_preserved|payload_B|s1p1|donor_to_base": {
+      "groups": 72,
+      "mean_native_source_margin_change": 3.9207158166811698,
+      "positive_native_fraction": 0.9861111111111112,
+      "live": {
+        "mean_source_margin_change": -0.2878018390490777,
+        "positive_effect_fraction": 0.3194444444444444,
+        "mean_recovery": -0.07340543219801579,
+        "carry_viable": false,
+        "mean_ce_damage": 0.06519362963289677,
+        "mean_linear_loss_change": -0.07643887711706797,
+        "mean_kl": 0.14163250674996475
+      },
+      "frozen": {
+        "mean_source_margin_change": -0.3172949295904901,
+        "positive_effect_fraction": 0.3333333333333333,
+        "mean_recovery": -0.08092780615226425,
+        "carry_viable": false,
+        "mean_ce_damage": 0.2313142290536922,
+        "mean_linear_loss_change": 0.08725092617585653,
+        "mean_kl": 0.1440633028778357
+      }
+    },
+    "selector_payload_joint_answer_preserved|payload_D|s0p1|donor_to_base": {
+      "groups": 72,
+      "mean_native_source_margin_change": 3.9631043992057027,
+      "positive_native_fraction": 0.9861111111111112,
+      "live": {
+        "mean_source_margin_change": -0.15318919925226104,
+        "positive_effect_fraction": 0.4305555555555556,
+        "mean_recovery": -0.038653838965979216,
+        "carry_viable": false,
+        "mean_ce_damage": -0.001883608497934835,
+        "mean_linear_loss_change": -0.14400635671867837,
+        "mean_kl": 0.14212274822074347
+      },
+      "frozen": {
+        "mean_source_margin_change": -0.18648812298973402,
+        "positive_effect_fraction": 0.4305555555555556,
+        "mean_recovery": -0.04705607125240267,
+        "carry_viable": false,
+        "mean_ce_damage": 0.10083425327117533,
+        "mean_linear_loss_change": -0.03733989599513367,
+        "mean_kl": 0.138174149266309
+      }
+    },
+    "selector_payload_joint_answer_preserved|payload_D|s1p0|base_to_donor": {
+      "groups": 72,
+      "mean_native_source_margin_change": 3.9631043992057027,
+      "positive_native_fraction": 0.9861111111111112,
+      "live": {
+        "mean_source_margin_change": -0.2459157201099313,
+        "positive_effect_fraction": 0.2916666666666667,
+        "mean_recovery": -0.06205128488646892,
+        "carry_viable": false,
+        "mean_ce_damage": 0.14156599956452914,
+        "mean_linear_loss_change": 0.015913770723156424,
+        "mean_kl": 0.12565222884137275
+      },
+      "frozen": {
+        "mean_source_margin_change": -0.2645370116871264,
+        "positive_effect_fraction": 0.2916666666666667,
+        "mean_recovery": -0.06674994777834914,
+        "carry_viable": false,
+        "mean_ce_damage": 0.34397987934039054,
+        "mean_linear_loss_change": 0.20400251215725898,
+        "mean_kl": 0.13997736718313158
+      }
+    }
+  },
+  "source_identity_carry_viable": false,
+  "no_downstream_module_identified": true,
+  "original_verdicts_preserved": true,
+  "source_sha256": "1a99991da37fba9a169e440e408d3d79cc9b5b215272c365c6b59e8ec3199a03",
+  "live_result_sha256": "7641ad403f2e4ade72455943164446f1311711e8b0adcd1a1e3cc586036f21ea"
+}
