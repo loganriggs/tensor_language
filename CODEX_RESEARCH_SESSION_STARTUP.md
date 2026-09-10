@@ -53,6 +53,12 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Latest consolidated explanation — 10 September 2026
+
+Read [the latest user-requested update](basis_aligned/polynomial_causal/explanations/2026-09-10/LATEST.md) first for the high-level account, terms, computations and mathematical-review contributions. It covers work since 9 September 23:06 UTC through the 10 September 14:17 native result and subsequent CPU analysis. The [dated index](basis_aligned/polynomial_causal/explanations/2026-09-10/README.md) groups 29 supporting notes; both indexes identify LATEST.md as the consolidated report. Historical explanation paths preserve their recorded content through compatibility links.
+
+The report-only loss-cancellation audit is complete in REPORT_LOSS_CANCELLATION_AUDIT_V1_RESULT.json: positive and negative CE contributions explain the gap between signed and absolute preservation metrics without changing any experimental verdict. The downstream-MLP investigation remains prior-art reading and derivation only; no protocol, implementation or GPU receipt is claimed. The research goal remains active.
+
 ## Shared correlative heads: double swaps held, selective mean removal failed — 2026-09-10 14:21 UTC
 
 Previous turn PROGRESS1743405c1, prereg06bf85ce0. Original handoff/pilot. Fixed

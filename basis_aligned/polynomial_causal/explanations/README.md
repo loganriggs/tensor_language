@@ -9,65 +9,13 @@ House style: define every specialized term on first use, give its computational 
 abbreviations, and distinguish a diagnostic attribution from an executable compression. Numerical headlines should
 state what was actually measured and what unit is being used.
 
-## Start here
+## [Read the latest update → 10 September](2026-09-10/LATEST.md)
 
-- [Shared heads and selective swaps](correlative_shared_heads_selective_swaps_2026-09-10.md): fixed correlative directions and their remainder pass a double donor-swap dissociation across two behaviors. Selective mean removal and additive endpoint effects fail, so independently removable circuits remain unproven.
+**The consolidated report is [2026-09-10/LATEST.md](2026-09-10/LATEST.md).** It covers progress since the previous requested update, defines the terms and computations, and explains what the mathematical cycles contributed.
 
-- [Routing and value product](correlative_routing_value_product_2026-09-10.md): on capable short frames, values carry most of the cue effect but neither operand alone is sufficient. Exact product terms and live interventions both require substantial interaction; no new fit or extraction claim.
+Today's supporting explanations are grouped in [the 10 September folder](2026-09-10/README.md), with a reading guide by research topic. Individual experiment notes are supporting detail; `LATEST.md` is the main update.
 
-- [Context math and a capability correction](correlative_context_math_and_capability_correction_2026-09-10.md): matched either/only test exposes native answer failures; prior positive-effect counts did not establish correct grammatical completion. Four-corner math rejects additive cue/context separation of the frozen14 scalar coordinates.
-
-- [Correlative new combinations and value sources](correlative_new_combinations_and_value_sources_2026-09-10.md): frozen interface transfers to new reporter/noun combinations; first-only and contextual-only values fail sufficiency. Exact source addition coexists with29–31%nonlinear vocabulary interaction, with audited endpoint-space bounds.
-
-- [Correlative replay and folded program](correlative_replay_and_folded_program_2026-09-10.md): saved26-head/14-layer interface reproduces prior metrics; weight-derived scalar producers and residual writers match native joint donor/mean edits. Conditional extraction, with upstream dependencies and removal/OOD limits explicit.
-
-- [Weight folding and shared-circuit mathematics](weight_folding_and_shared_circuit_math_2026-09-10.md): original handoff/pilot reassessment; trained-weight counterexample to numerator-only attention sharing, exact normalization-aware fold, and independent native rotary checks. Mathematical tool; no new circuit.
-
-- [Native reader pair and calibration screen](native_reader_pair_and_calibration_screen_2026-09-10.md): exact full native bilinear product has a small causal effect, but fails the calibration role and output-projection sufficiency. Natural-scale and local coordinate audits explain the limits.
-
-- [Reader energy failure and lost information](calibration_reader_energy_failure_and_lost_information_2026-09-10.md): weight-defined vocabulary spread fails globally and on native inputs; an executed continuous-input sign-flip witness isolates information lost by the energy summary.
-
-- [Calibration input terms and reader energy](calibration_input_terms_and_reader_energy_2026-09-10.md): exact direct-token/context split; all single-term gates fail, with a measurable class tradeoff. Executed mathematical controls prepare a specific vocabulary-score-spread hypothesis.
-
-- [Scalar units and remaining dependencies](calibration_scalar_units_and_remaining_dependencies_2026-09-10.md): common-frequency repair fails; context matching survives donor rescaling. Exact math exposes the retained MLP and upstream dependencies needed for extraction.
-
-- [Calibration context dependence and stability](calibration_context_dependence_and_stability_2026-09-10.md): exact donor-response math and useful context pairing pass; disjoint-fit causal stability fails despite similar directions. Includes the RMS-aware constant-term audit and current limits.
-
-- [Calibration scalar and two consumers](calibration_scalar_and_two_consumers_2026-09-10.md): positive conditional weight-derived producer; common/rare removal signature holds on held-out rows and Pile, while neither vocabulary nor normalization use alone is sufficient. Full native background remains; no whole-model adoption.
-
-- [Live replacement and remaining context effects](induction_live_replacement_and_context_2026-09-10.md): correcting stale contributions improves joint answer loss but leaves vocabulary/control failures. Whole-context transport and selected-source identity hypotheses also fail; this fixed induction interface is closed.
-
-- [Selector–payload interchange](induction_selector_payload_interchange_2026-09-10.md): valid induction transfer reaches 86–91% for selector and 77–86% for payload, but joint invariance and controls fail. Exact math distinguishes shared-producer edits from consumer-specific edits; no circuit promotion.
-
-- [Induction value producers](induction_value_producers_2026-09-10.md): trained equality-message screen; neither shared-first nor local values alone reproduce the full causal effect. Includes an explicit correction of an infeasible absolute probability-loss criterion, without changing the failed verdict.
-
-- [Shared computation and editable memory](shared_computation_and_editable_memory_2026-09-10.md): original handoff/pilot follow-up; exact edit-policy compiler distinguishes shared feature computation from separate consumer histories, including execution on all three original pilot fixtures. Mathematical tool, no new trained circuit.
-
-- [Coupled response and the limits of additive explanations](coupled_response_and_additive_limits_2026-09-10.md): latest: exact early-memory/late-query decomposition passes execution but fails the native explanatory target; a geometric bound closes one-direction repairs of this prefix-binding candidate.
-
-- [Noun-number selection and cross-token interactions](noun_number_selection_and_cross_token_interactions_2026-09-10.md): latest: native local-value removal with downstream recomputation passes partial causal materiality and within-bank factor selectivity; direct-carry prediction fails, leaving extraction and fresh-reader transfer open.
-
-- [Position and content in shared attention](position_and_content_in_shared_attention_2026-09-10.md): exact rounded-rotation transport is tested; native about/for phase portability fails; executed answer/complement and joint-reader mathematics clarify the distinction between a task circuit and its complete host heads.
-
-- [First-attention support after the raw-origin null](first_attention_support_after_raw_origin_null_2026-09-10.md): updated with the valid first-attention carrier failure and an executed mathematical audit separating compiler fidelity from behavioral sufficiency; original handoff/pilot revisited.
-
-- [Native semantic-square result](semantic_square_native_result_2026-09-10.md): valid four-corner test fails context-interaction prediction; preserved numerical correction; exact direct-embedding cancellation and tested raw-input source lineage prepare upstream localization.
-
-- [Behavior-guided products and semantic squares](behavior_guided_products_and_semantic_squares_2026-09-10.md): shared128 beats random but fails native sufficiency; exact four-corner algebra and deterministic row squares prepare a test of where cue/context interactions are constructed.
-
-- [Bilinear products after response nulls](bilinear_products_after_response_nulls_2026-09-10.md): normalization-preserving approximation fails; exact product swaps/removals, cancellation counterexample, and a tested weight-tensor Gram formula return the work to within-module sharing and splitting.
-
-- [Mixed chain and nonlinear response](mixed_chain_and_nonlinear_response_2026-09-10.md): both intervening module types are required; a receiving-context derivative also fails finite-response prediction, with a certified scalar-repair error floor; normalization-preserving factor-response test prepared.
-
-- [MLP4 value folding and intervening computation](mlp4_value_folding_and_intervening_computation_2026-09-10.md): direct native weight fold is numerically correct but misses most of the partial value-path effect; exact finite-change math and tested module clamps prepare attention-versus-MLP dependency testing.
-
-- [Query background and the value path](query_background_and_value_path_2026-09-10.md): complete native query swaps transfer little tense change; normalization explains much of the local source interaction; exact MLP-to-value weight folding prepares the next path test.
-
-- [Query-source interaction mathematics](query_source_interaction_math_2026-09-10.md): original pilot revisited; exact normalized source tensors, trained-model19-source atlas, and large source/rest interactions explain why single-module importance is insufficient.
-
-- [Shared attention query rules](shared_attention_query_rules_2026-09-10.md): two native shared-router/source hypotheses fail; exact normalized weight folding passes, and projected source-edit algebra prepares contextual producer identification.
-
-- [Shared nonlinear factors after removal](shared_nonlinear_factors_after_removal_2026-09-10.md): actual weight-removal failure, shared-square counterexample, joint-factor grammar test, and normalization limits on attention folding.
+## Earlier reports and project foundations
 
 - [Weight tensors, two circuits, and explicit normalization](weight_tensor_two_circuit_math_2026-09-09.md): user-requested mathematical redirection; exact reader-conditioned forms, shared-input versus shared-function distinction, attention folds, norm/edit closure, executed controls and saved trained-weight audit.
 
@@ -274,7 +222,7 @@ state what was actually measured and what unit is being used.
   full-state site; the multi-output/interactions acceptance rule; and the canonical evidence organization for
   scaling to hundreds of circuits without duplicating work
 - [explanation_2026-09-03_1353.md](explanation_2026-09-03_1353.md) — why weight-DAS requires several meaningful
-  counterfactual datasets per circuit; corrects the cross-tree identity error in the62-record audit, distinguishes
+  counterfactual datasets per circuit; corrects the cross-tree identity error in the 62-record audit, distinguishes
   answer-changing interchange from necessity and invariance tests, defines induction/bracket/successor/increment
   pilots and their17-family contract, and specifies the canonical evidence organization needed to avoid duplicate work
 - [explanation_2026-09-03_1318.md](explanation_2026-09-03_1318.md) — full plain-language update: the exact
@@ -317,20 +265,20 @@ state what was actually measured and what unit is being used.
   boundary, the first three unhealthy fit receipts and what they do and do not imply, plus the separate
   gauge-invariant gradient-image/natural-excitation falsifier with computational definitions
 - [explanation_2026-09-03_0545.md](explanation_2026-09-03_0545.md) — rung521's exact fail-closed attention8 result:
-  whole-module swaps are live and highly reproducible, but all24 target/control cells reach only1.262--1.790x versus
+  whole-module swaps are live and highly reproducible, but all 24 target/control cells reach only 1.262--1.790x versus
   the frozen3x selectivity requirement; explains why more donors do not fix stable broadness, corrects the unsupported
   block-6 label, and defines rung522's held-out selective-projector test with a percentage graph
 - [explanation_2026-09-03_0418.md](explanation_2026-09-03_0418.md) — rung520's exact source-star strong null:
-  83/88 grouped MLP10 source interventions are active and two of3,828 pairs match four task effects across both
+  83/88 grouped MLP10 source interventions are active and two of 3,828 pairs match four task effects across both
   document halves, but no pair matches even one complete32-circuit half; explains the 851%/968% nonlinear
   multiple-mediator error, the post-result 0.016 cross-half fingerprint power warning, and the power-gated
   shared/private attention8 DAS successor with a percentage graph
 - [explanation_2026-09-03_0338.md](explanation_2026-09-03_0338.md) — rung519's valid exact-interaction strong null:
-  9/46 semantic MLP0 terms recover at least15% of one target circuit effect in both halves and3 are stable, but none
+  9/46 semantic MLP0 terms recover at least15% of one target circuit effect in both halves and 3 are stable, but none
   is top4 or twice the circuit median in both halves; explains the preserved float32 instrument failure and starts the
   shared attention Q/K/Q2/K2/value-factor pivot with a percentage graph
 - [explanation_2026-09-03_0259.md](explanation_2026-09-03_0259.md) — rung518's valid task-conditioned null: two of
-  990 head-by-source pairs match aggregate copy-task effects across both document halves, but none matches the32
+  990 head-by-source pairs match aggregate copy-task effects across both document halves, but none matches the 32
   circuit effects; explains the preserved support-gate failure and starts an exact one-circuit MLP0 interaction atlas
 - [explanation_2026-09-03_0217.md](explanation_2026-09-03_0217.md) — rung517's exact cross-head source-relation
   factorial: all five attention-source relations have stable MLP0 effects, but the effect is diffuse and redundant
@@ -340,11 +288,11 @@ state what was actually measured and what unit is being used.
   before named circuit coordinates can explain it, with a percentage funnel and the MLP0 pivot
 - [explanation_2026-09-03_0130.md](explanation_2026-09-03_0130.md) — the completed equality-score gauge arc: validated Z2 sign gauge, exhaustive six-grain negative below the action, and the fixed-direction / near-rank-1 constructive residue
 - [explanation_2026-09-03_0050.md](explanation_2026-09-03_0050.md) — rung514's planted-identifiable strong null:
-  none of113,568 fixed-factor or two/three-term signed consumer programs passes either independent document search;
+  none of 113,568 fixed-factor or two/three-term signed consumer programs passes either independent document search;
   defines the joint-Gram computation, explains the vacuous permutation floor, and starts the finite downstream-
   outcome quotient across exact attention11/MLP11 terms
 - [explanation_2026-09-03_0024.md](explanation_2026-09-03_0024.md) — rung513's exact internal-consumer strong null:
-  all612 attention11/MLP11 interaction responses are material but0 pass the fixed cross-action relation; explains the
+  all 612 attention11/MLP11 interaction responses are material but0 pass the fixed cross-action relation; explains the
   32-corner computation, distributed Q/value/Q2 mismatch, cancellation, and the multi-term causal successor
 - [overview.md](overview.md) — THE OVERVIEW OF EVERYTHING: the full program compendium (moved here 2026-09-02 from /workspace/tensor_language/PROGRAM_COMPENDIUM.md at the user's request) — timeline of all 16 eras since 06-01, era chapters, the graveyard and dropped-threads registries, what stands, the retraction log, method families, and the module map with the § namespace appendix
 - [explanation_2026-09-03_0005.md](explanation_2026-09-03_0005.md) — rung512's valid first-consumer null:18/42
@@ -359,7 +307,7 @@ state what was actually measured and what unit is being used.
 - [explanation_2026-09-02_2244.md](explanation_2026-09-02_2244.md) — rung509's pre-model ground-truth failure of
   both the free and convex-hull coupled dictionaries, a percentage graph of the failed recovery gates, and rung510's
   directly observed all-62-circuit equivalence plus bidirectional physical-substitution test
-- [explanation_2026-09-02_2158.md](explanation_2026-09-02_2158.md) — rung508's exact finite-removal test of all21
+- [explanation_2026-09-02_2158.md](explanation_2026-09-02_2158.md) — rung508's exact finite-removal test of all 21
   MLP10 source-family interactions, the lawful zero-group result, and the coupled Left/Right/output successor
 - [explanation_2026-09-02_2139.md](explanation_2026-09-02_2139.md) — rung507's exact 22-source/253-term MLP10
   computation, the BF16 subtraction-cancellation repair, the two-term gradient shortlist, its lawful finite causal
@@ -467,14 +415,14 @@ state what was actually measured and what unit is being used.
   candidate-consequence roles, records the safe hash-convention repair, and explains rung446's measured split between
   downstream weighting and joint product coupling
 - [explanation_2026-09-01_2259.md](explanation_2026-09-01_2259.md) — reports the clean45-candidate prospective-bank
-  freeze, defines the35-candidate teaching/10-candidate sealed-family split, and corrects rung443 to a fixed
+  freeze, defines the 35-candidate teaching/10-candidate sealed-family split, and corrects rung443 to a fixed
   reconstruction baseline rather than relabeling it a removal/composition rule
 - [explanation_2026-09-01_2249.md](explanation_2026-09-01_2249.md) — clarifies that “dropped” means proposed but
   unexecuted, reports the response-metric Archetypal-SAE strong null, and restores the remaining20:54 work as a
   six-step prospective removal/composition and learned-simplicity queue
 - [explanation_2026-09-01_2205.md](explanation_2026-09-01_2205.md) — audits every proposed action from the 20:54
   plan, reports the completed negative Archetypal-Q/K hull test, defines queued/conditional/closed/withdrawn, and
-  records rung440's leakage-safe archive audit:130 receipts are broad enough, but only16.9% expose candidate arms and
+  records rung440's leakage-safe archive audit:130 receipts are broad enough, but only 16.9% expose candidate arms and
   58.5% expose price, so an arm-level manifest is required before learned-simplicity fitting
 - [explanation_2026-09-01_2147.md](explanation_2026-09-01_2147.md) — the pre-registered +29,968-byte repair of the
   sub-500M tier fails its position-level consequence; FP32 quadratic coefficients explain only 3.9% of the squared
