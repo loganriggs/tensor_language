@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": {
+    "all_gain_oracles": true,
+    "zero_gain_read": true,
+    "cross_source_denominator_live": true,
+    "rounded_rotation_nonorthogonal": true
+  },
+  "max_abs_error": 1.2212453270876722e-15,
+  "discard_cross_terms_error": 0.8092082938578837,
+  "model_forwards": 3,
+  "capture_forward_unchanged": true,
+  "tiny_native_read_max_error": 6.938893903907228e-17,
+  "tiny_full_replay_max_error": 1.1102230246251565e-16,
+  "hooks_restored": true,
+  "model_forward_scope": "Three tiny CPU control forwards; zero trained-checkpoint forwards"
+}

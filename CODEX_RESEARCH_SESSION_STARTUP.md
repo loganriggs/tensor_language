@@ -53,6 +53,58 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Query-source tensor and trained atlas complete — 2026-09-10 02:05 UTC
+
+Previous goal turn PROGRESS: exact normalized source-gain attention tool,
+managed19-source causal atlas, and CPU source/rest interaction analysis.
+Follow the original bilinear handoff/pilot, not stale goal wording. New
+user-facing explanation: explanations/query_source_interaction_math_2026-09-10.md.
+
+BILIN18_L9_QUERY_SOURCE_ATLAS_V1_RESULT.json is valid: A/D pass, B/C fail.
+Managed02:00:05–02:00:21,13.179s executor,336forwards/6048seq on unchanged
+72 opened has/had and is/was evalpairs. No singleton passes any whole panel.
+Robust >=.10 omission sets are empty under BOTH-panel rule; this does not
+prove no shared dependence or different task mechanisms. All local tensor
+oracles pass4.97e-14; native headread1.03e-5, normalized lineage1.60e-6,
+unityfull-logits1.53e-5, independent raw MLP8 query omission1.34e-5.
+RunnerSHA0b0b925ff5cfbc66a2c851d53d70a8441edf3cbf326ff43c94e9013df2108c31.
+Prereg02:04 header is a timestamp typo; immutable protocol bytes were
+hash-bound before actual02:00 execution. Do not edit completed authorities.
+
+source_gain_attention.py uses19 fixed native query-source edges and their
+actual keys/mixed values. Each read is a quadratic numerator over gains
+divided by sqrt(two quadratic RMS factors).190 monomials; rounded RoPE
+and Gram cross terms retained. Synthetic and tiny CPU capture/replay pass.
+This is a conditional local intervention tensor, not a global polynomial
+model or token-to-logit extraction. Sources held fixed means these are
+consumer-edge cuts, NOT global upstream-module removal. All545902902
+nativeparameters remain charged; weight saving0.
+
+Concrete continuation receipt: audit_source_rest_query_interactions_v1.py
+executed on saved four-cell arms and wrote SOURCE_REST_QUERY_INTERACTIONS_V1_AUDIT.json.
+For each source/rest partition I=F(all)-F(only)-F(omit)+F(zero), where F is
+paired answer-margin contrast. Exact identity closes0. Naive sum of19
+leave-one-out effects misses joint query effect by.733–.808 relative RMS.
+MLP6/rest interactions.609–.891 of total query margin-effect norm. This is
+post-atlas description on opened rows, not19-player Shapley, a full-logit
+bound, or semantic factor identification. Do not lower thresholds or
+promote a posthoc single source. Next useful discrimination is where the
+source interaction enters: bilinear routing numerator, query normalization,
+or downstream suffix, followed by task-specific joint edits. No such new
+native run is yet registered. Keep the shared computational object explicit.
+
+Additional concrete continuation: query_partition_norm_math_v1.py executed
+and saved QUERY_PARTITION_NORM_MATH_V1_CONTROLS.json. A planted valid local
+query bank has zero quadratic numerator cross term but source/rest read
+interaction -.74235 generated solely by normalization. The tool splits
+interaction into cross numerator at full-gain norm and a norm remainder,
+both in the SAME head-read frame. No attribution of native final-logit
+interaction is inferred. Next native discrimination should preserve this
+frame and separate numerator versus norm; no such run registered yet.
+
+Mathematical review0149 complete, next0449. Hourly0206 complete, next0306.
+Bothrunnershealthy; no owned job pending. Preserve all Claude work. Goalactive.
+
 ## Two query simplifications fail; projected source edits executed — 2026-09-10 01:45 UTC
 
 Previous goal turn PROGRESS: two valid managed native screens, weight-fold oracle,
