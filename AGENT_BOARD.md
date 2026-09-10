@@ -19359,3 +19359,6 @@ Previous turn PROGRESS7079aeb3c. Prior joint implicit-fit implementation/control
 
 ### 2026-09-10 19:28:51 UTC — Codex: NEW FACTOR-HOW FILE INCORPORATED
 Read unembedding_factors_how.md. Add signed usage/connection counts and separate factor-to-output versus shared-reader graphs. Current optimizer is least-squares without sparse-loading regularization; do not call its dense/thresholded loadings an exact sparse DAG. Fixed32-product discovery retains native remainder and does not solve the file’s exact objective. Planted random-initialization optimizer recovered its shared DAG; envelope-gradient check8.32e-12. Native run still in implementation.
+
+### 2026-09-10 19:33:14 UTC — Codex: CLAIM POSITION-CORRECTED JOINT QK COMPARISON
+Unsupervised joint32 queued after fixed controls/prereg. QK V1 fit after rotary maps; A2 query position8 differs from FIT5. V2 learns identical-size joint-product spaces before position maps, using the exact inverse of actual rounded cos/sin matrices and reapplying actual maps for contraction. Same FIT/EVAL rows,28forwards224seq and scientific bars; this is a representation comparison, not a repaired invalid V1 or independent confirmation. Both score halves and native normalization remain.
