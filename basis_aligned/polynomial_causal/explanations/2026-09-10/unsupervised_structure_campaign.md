@@ -1,4 +1,4 @@
-# Unsupervised structure campaign — 10 September, updated 21:28 UTC
+# Unsupervised structure campaign — 10 September, updated 21:43 UTC
 
 The user requested a broad structural search with substantial unlabeled data, enough optimization to establish convergence, and red-team review of negative results. This supersedes treating the short joint32 run as the main search. The four-property goal remains OOD prediction, extraction, selective manipulation, and composition/reuse; a better tensor fit only nominates components for those tests.
 
@@ -548,3 +548,82 @@ weighting being particularly important for the coefficient-trained models.
 These are whole-function comparisons, not a claim that individual components
 are stable across independent nonlinear fitting restarts.
 [Writer geometry](../../PILE_WRITER_GEOMETRY_V1_AUDIT.json).
+
+
+### Physical model replacement: useful structure, insufficient preservation — 21:43 UTC
+
+The shared-reader program now has an executable implementation that computes
+its64 input projections once, mixes them into128 product pairs, and writes the
+products back into the residual stream. The native output bias is included. It
+uses238,720 scalar coefficients versus15,926,400 in the native last MLP. All
+other layers and the unembedding remain native; this is not a comparably large
+saving for the whole model and does not supply independent circuit producers.
+
+We physically installed the frozen implementations in MLP17 and ran the224 Pile
+validation documents through the model, retaining its actual final RMS and
+score saturation. Both no-op and native-factor controls reproduced the native
+scores and cross-entropy exactly. The full run took12.34seconds,226bodyforwards /
+904sequences. At7,168 sampled next-token positions:
+
+| Installed MLP17 | Mean CE added above native | Mean absolute token CE change | Native top1 agreement | Native-to-candidate KL |
+|---|---:|---:|---:|---:|
+| Shared readers, original writers | +0.05828 | 0.25275 | 87.25% | 0.05855 |
+| Shared readers, Pile-fitted writers | +0.05879 | 0.23836 | 87.65% | 0.05281 |
+| Free products, Pile-fitted writers | +0.05414 | 0.22544 | 87.79% | 0.04773 |
+
+Positive CE added is damage; native CE was3.26115. The shared-refit mean CE
+increase has a document-bootstrap95% interval[0.04968,0.06796]. The registered
+preservation screen required mean absolute token CE change<=0.05 and top1
+agreement>=95%; **it fails**. Writer refitting improved shared-reader KL by9.81%,
+just short of the separately registered10% threshold; that check also remains
+failed. The local reconstruction gains therefore did not establish prediction
+preservation. [Physical screen](../../PHYSICAL_QUADRATIC_V1_RESULT.json),
+[compiled arithmetic controls](../../PHYSICAL_QUADRATIC_V1_COMPILE_CONTROL.json).
+
+This is a negative result for these frozen replacements at these thresholds,
+not evidence that the layer has no useful structure. The native prediction
+metric differs from the fitted all-U quadratic metric. To red-team that
+explanation, a separate native diagnostic is queued to split numerator and RMS
+changes and test a probability-sensitive local error measure. No fitted rescue
+or circuit adoption is being claimed while that diagnostic is pending.
+
+For final residual $h$, replacement displacement $\delta h$, unembedding $U$
+and $r=\sqrt{\|h\|^2/d+\epsilon}$, the unsaturated scores and their exact
+first-order change are
+
+$$
+q=Uh/r,\qquad
+\dot q=U\delta h/r-q\frac{h^\top\delta h}{\|h\|^2+d\epsilon}.
+$$
+
+The actual scores are $s=30\tanh(q/30)$, so
+
+$$
+\dot s=[1-\tanh^2(q/30)]\odot\dot q.
+$$
+
+For native probabilities $p=\operatorname{softmax}(s)$, the local quadratic
+approximation to native-to-candidate KL is
+
+$$
+D_{\rm KL}(p\,\|\,p_{\rm changed})
+\approx\frac12\left[\sum_t p_t\dot s_t^2
+-\left(\sum_t p_t\dot s_t\right)^2\right].
+$$
+
+This accounts for RMS, saturation, and the relative probability of each token.
+A common additive shift of the final scores changes no probabilities. Thus
+uniform squared error in all unembedding coordinates is not the same fitting
+objective. The derivative matched autodiff to$8.9\times10^{-16}$ on the CPU
+control; at a0.001 perturbation dose, its KL approximation differed by0.151%.
+These controls establish the formula, not its accuracy for the actual finite
+replacement. [Metric controls](../../TERMINAL_PROBABILITY_METRIC_V1_CONTROL.json),
+[registered native red team](../../TERMINAL_PROBABILITY_REDTEAM_V1_PREREGISTRATION.md).
+
+Separately, the matched nonlinear optimizer comparison on the new Pile training
+inputs is running. Both arms use the same frozen shared-reader initialization,
+same objective and240seconds of fresh L-BFGS, comparing normal equations against
+QR/direct residual evaluation. The normal-equation arm has completed: training
+error0.01257, validation0.01306, **not converged**. QR is still running. No optimizer
+advantage or convergence claim is made before that comparison finishes.
+[Registered comparison](../../PILE_QR_REFINEMENT_V1_PREREGISTRATION.md).

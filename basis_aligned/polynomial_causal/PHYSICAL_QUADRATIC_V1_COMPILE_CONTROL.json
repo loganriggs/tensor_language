@@ -1,0 +1,30 @@
+{
+  "schema": "physical.quadratic.compile.control.v1",
+  "passed": true,
+  "checks": {
+    "shared_original": {
+      "fp64_shared_arithmetic_relative_l2": 1.2687857585101966e-14,
+      "fp32_shared_arithmetic_relative_l2": 1.7299479644033402e-06,
+      "stored_numbers": 238720,
+      "source_sha256": "b2c4abaf195afc0f296fc0282372ef111c15bf03d1094f34e750a3648db4bb80",
+      "writer_origin": "Original training fit"
+    },
+    "shared_refit": {
+      "fp64_shared_arithmetic_relative_l2": 1.1239061507756325e-14,
+      "fp32_shared_arithmetic_relative_l2": 1.7378274425970976e-06,
+      "stored_numbers": 238720,
+      "source_sha256": "b2c4abaf195afc0f296fc0282372ef111c15bf03d1094f34e750a3648db4bb80",
+      "writer_origin": "Pile training only"
+    },
+    "product_refit": {
+      "fp64_shared_arithmetic_relative_l2": 0.0,
+      "fp32_shared_arithmetic_relative_l2": 5.537479961412691e-07,
+      "stored_numbers": 443520,
+      "source_sha256": "da8c3570cffdd07c82b5aec23532d8f2360120ff633cbd3a5d4ec0da25807100",
+      "writer_origin": "Pile training only"
+    }
+  },
+  "artifact_sha256": "748c7804ff70b85744f3d015236bc637d166a5a2e471972b9b4cf32d1b2b7735",
+  "artifact_bytes": 3689604,
+  "scope": "Shared64 input projections are computed once; frozen coefficients absorb row normalizers. Full native output bias included. Random-state arithmetic control, not native capability or behavioral preservation."
+}

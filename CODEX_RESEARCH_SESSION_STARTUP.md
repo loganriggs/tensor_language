@@ -82,7 +82,7 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 21:28
+## Current handoff — updated 10 September 2026, 21:43
 
 Full goal active. User explicitly requests a broad unsupervised structural search,
 substantial data/optimization, convergence and red-team review of negatives.
@@ -130,7 +130,15 @@ Shared-reader frozen/refit Pilevalidation.015637/.014018; affine.023747.
 Matched>=64 sharedwriterrefit improves10.83%. No nonlinearreadertraining yet.
 QR/SVD andnormal-equation functionbridges held; qr_seconds are asynchronoushosttimings,
 not GPUbenchmarks. Writergeometryaudit completed: sharedfunction cosine.98575.
-NativeQRoptimizerrefinement andmatrix-freeGaussNewton remainpending.
+PHYSICAL_QUADRATIC_V1 completed21:36:02: A heldexactly, B/C failed. Shared-refit
+MAE tokenCE.23836/top1.87653; mean CE damage+.05879; KL9.81% reduction misses10%bar.
+Do not turn localreconstruction into a circuit/prediction claim. Native MLP17
+replacedbyactualshared64 execution,238720coefficients vsnative15926400; backgroundretained.
+PILE_QR_REFINEMENT_V1 running since21:37:22: matched240s normal/QR freshLBFGS onPile.
+Normalarm done train.0125669/validation.0130643, unconverged. QR pending; frozen sources.
+TERMINAL_PROBABILITY_REDTEAM_V1 queued: native finalRMS/tanh/FisherKL diagnostic,
+plus tiny preMLPradius cache forlatertraining; no test access. CPU derivativecontrols held.
+Matrix-freeGaussNewton andprobability-aware fitting remainpending.
 FullU output-function andtrace red-team audits complete, coefficientmetric-only bounds.
 
 32original configs remain frozen:4representations x2metrics x4starts. Only first

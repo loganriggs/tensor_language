@@ -1,0 +1,12 @@
+{
+  "schema": "terminal.probability.metric.control.v1",
+  "passed": true,
+  "jvp_max_absolute_error": 8.881784197001252e-16,
+  "finite_dose_kl_relative_errors": {
+    "0.1": 0.1334931863061718,
+    "0.01": 0.014954867306346709,
+    "0.001": 0.0015089284551302443
+  },
+  "common_score_shift_quadratic_max_absolute_error": 1.7763568394002505e-15,
+  "scope": "Exact RMS/tanh score differential, softmax probability Hessian and small-dose KL only. Finite native replacement errors still require measurement."
+}
