@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Native semantic-square result](semantic_square_native_result_2026-09-10.md): valid four-corner test fails context-interaction prediction; preserved numerical correction; exact direct-embedding cancellation and tested raw-input source lineage prepare upstream localization.
+
 - [Behavior-guided products and semantic squares](behavior_guided_products_and_semantic_squares_2026-09-10.md): shared128 beats random but fails native sufficiency; exact four-corner algebra and deterministic row squares prepare a test of where cue/context interactions are constructed.
 
 - [Bilinear products after response nulls](bilinear_products_after_response_nulls_2026-09-10.md): normalization-preserving approximation fails; exact product swaps/removals, cancellation counterexample, and a tested weight-tensor Gram formula return the work to within-module sharing and splitting.

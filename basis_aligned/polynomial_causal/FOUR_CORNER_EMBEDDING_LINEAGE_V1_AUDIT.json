@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "native_lambdas": [
+    [
+      6.09375,
+      6.09375
+    ],
+    [
+      0.0126953125,
+      8.0
+    ],
+    [
+      1.9765625,
+      8.0
+    ],
+    [
+      0.57421875,
+      8.0
+    ],
+    [
+      0.462890625,
+      8.0
+    ]
+  ],
+  "raw_pre_mlp4_coefficients": {
+    "embedding": 18.113786441961565,
+    "attn0": 0.006669752241577953,
+    "mlp0": 0.006669752241577953,
+    "attn1": 0.525371253490448,
+    "mlp1": 0.525371253490448,
+    "attn2": 0.26580047607421875,
+    "mlp2": 0.26580047607421875,
+    "attn3": 0.462890625,
+    "mlp3": 0.462890625,
+    "attn4": 1.0
+  },
+  "panels": {
+    "has_a2": {
+      "squares": 16,
+      "token_positions_certified": 144
+    },
+    "has_fit": {
+      "squares": 8,
+      "token_positions_certified": 40
+    },
+    "has_heldout": {
+      "squares": 8,
+      "token_positions_certified": 40
+    },
+    "is_a2": {
+      "squares": 7,
+      "token_positions_certified": 65
+    },
+    "is_fit": {
+      "squares": 3,
+      "token_positions_certified": 15
+    },
+    "is_heldout": {
+      "squares": 4,
+      "token_positions_certified": 22
+    }
+  },
+  "total_token_positions_certified": 326,
+  "trained_forwards": 0,
+  "gpu_accessed": false,
+  "square_manifest_sha256": "37c486e49dac4406ed966e833212f2f1cf111ed805a0538e891a0c3c19469603",
+  "lineage_source_sha256": "157f30560e4076d193dee9cd76b4cb9c6111d506922d8cbf57f74ff20f2b4b14",
+  "lambda_tensor_sha256": [
+    "63be180888d32dc845c5f0dd0288754923ab3f67f57a6b0acbc877fe94646ee6",
+    "58cc010daad97dc5788da731fd352ef449ba9c7a66a742c6f06d66f4e0228ef6",
+    "4c5a1423ca47df1571e65298df01a3d8d409b5e2dada5b0d04a671c6edaf9558",
+    "36c536a84c968bb66054ae3fffc562fbfa6c0f7435cc9b0ed05b9e6c655ee59c",
+    "c990bda43aab84feb26e13397f4c069d713dd6d03c911106409ba0d5a3ce888c"
+  ],
+  "checkpoint": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin",
+  "claim": "At every certified position the two diagonal token multisets match; any per-token lookup, including embedding RMS, has zero mixed difference in real arithmetic. Paired equal-edge subtraction is bitwise zero for identical native values.",
+  "limits": "Transport coefficients are not importance. This does not cancel contextual attention/MLP writes or final-input normalization, and does not remove embedding dependence of other terms."
+}

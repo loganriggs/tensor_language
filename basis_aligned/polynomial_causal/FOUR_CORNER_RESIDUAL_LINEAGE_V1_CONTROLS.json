@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "errors": {
+    "raw_source_sum": 4.440892098500626e-16,
+    "mixed_source_sum": 3.8163916471489756e-16
+  },
+  "recurrence_bitwise": true,
+  "embedding_mixed_exact_zero": true,
+  "raw_mixed_norm": 0.11646834348053592,
+  "overlapping_edit_embedding_mixed_norm": 6.337773810254495,
+  "coefficients": {
+    "embedding": 0.7226899814555054,
+    "attn0": 0.2400999836444859,
+    "mlp0": 0.2400999836444859,
+    "attn1": 0.34299998247623475,
+    "mlp1": 0.34299998247623475,
+    "attn2": 0.4899999833106996,
+    "mlp2": 0.4899999833106996,
+    "attn3": 0.699999988079071,
+    "mlp3": 0.699999988079071,
+    "attn4": 1.0
+  },
+  "mixed_source_norms": {
+    "embedding": 0.0,
+    "attn0": 0.05969532739626292,
+    "mlp0": 0.020250012847993364,
+    "attn1": 0.005928685517416636,
+    "mlp1": 0.012118267427555562,
+    "attn2": 0.012333294026207432,
+    "mlp2": 0.01827579153209021,
+    "attn3": 0.057050515872983314,
+    "mlp3": 0.029244429936454732,
+    "attn4": 0.055123488620641446
+  },
+  "hooks_restored": true,
+  "tiny_forwards": 1,
+  "tiny_sequence_instances": 4,
+  "trained_model_loaded": false,
+  "gpu_accessed": false,
+  "scope": "Source lineage and disjoint-token algebra only; no trained interaction localization or independent extraction.",
+  "source_sha256": "157f30560e4076d193dee9cd76b4cb9c6111d506922d8cbf57f74ff20f2b4b14"
+}

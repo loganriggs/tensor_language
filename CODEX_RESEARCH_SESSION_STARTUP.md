@@ -53,6 +53,52 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Native semantic square fails; raw-input lineage prepared — 2026-09-10 03:50 UTC
+
+Current turn PROGRESS: SEMANTIC_SQUARE_V1 INVALID preserved; V2 validnative
+null. V1 128forwards/1120seq/2.987s:48localFP64/FP32absoluteoracles and2small
+legacycross-batchmarginrelativechecksfailed. NativeMLPFP64roundoffmax.004272,
+rel2.024e-7; full-logitoraclesalready<=2.146e-5. Do noteraseorrelabelV1.
+V2 numericallycorrectscontrols ONLY: FP32weightreplay; explicitr_i native-minus-
+FP64roundoff inknowncornerindependentoracle andfourthdependentexactsumcontrol;
+originalparentbatchANDsemanticreadoutreplay; full-logitreadoutbridge. Candidate
+local/transport/inherited/full/identityunchanged; V1margin drift0.
+
+V2 completed03:42:24,144forwards/1408seq+16localMLPoracles,3.544s; A/Dpass,
+Btotal andCinteraction fail. Totalfull-vectorerror has.432–.620,is.054–.150;
+5of16cellspassbothframes. Interactioncorrection error.598–.852;0of16pass.
+is_a2totalcuepassesbutinteractiondoesnot; do notpromoteweakcontextvariation
+intoexplainedcomposition. Inherited-onlydiagnosticalsofails. FP32weight,
+exactsum/localindependentlogits andoriginalparentmarginreplay0. Readoutbridge
+max3.434e-5; FP64identitymax2.297e-11. Sciencebarsunchanged,noanchor/norm/gain
+rescue. RunnerSHA8387c7528a578d8a0c464f8522bc667541d4524f2eeb1850bf56b4c7be12f0df.
+Allnewcompletedrunners/protocols/resultsnowimmutable; all545902902paramsretained.
+
+Concrete continuation: four_corner_residual_lineage.py andcontrols pass on
+actualtinybackend; rawsource/mixedsourceclosures<=4.441e-16, normalizedinput
+recurrencebitwise. RawpreMLP4=alpha*e + attention0..4 + MLP0..3 transported
+bynative residuallambdas (ten terms). Coefficient18.11378644forembedding;
+source0:.00666975,1:.52537125,2:.26580048,3:.462890625,attention4:1.
+These aretransportweights,notimportance. Actualtrainedsourcebanknotcapturedyet.
+
+CPU audit_four_corner_embedding_lineage_v1.py executed, saves
+FOUR_CORNER_EMBEDDING_LINEAGE_V1_AUDIT.json: all326validtokenpositions in46
+squares havematchingdiagonaltokenmultisets, soANYper-tokenlookup/RMS haszero
+mixed difference. No trainedforward;fivecheckpointlambda tensors readviammap,
+BF16bytehash viauint8view. Pairedequal-edge subtraction makesembeddingzero
+bitwise; naivefourtermassociation initiallylefttinyroundoff incontrol andwas
+correctedbeforeanynativecapture. Overlapping-tokeneditcounterexample live.
+Embeddings stillfeedcontextualwrites andfullnormbackground; noablation/extraction
+claim fromzero DIRECT embeddingmixedterm.
+
+Nextscientificobject: originofinheritedcue/contextinteraction inrawsourcewrites,
+particularlyincomingresidualversusnewattention4, withnormalizationexplicit.
+Thisissource-contributionlocalization, NOT renormalizedthreecornerprediction
+rescue. Distinguishcapturededgeeditsfromglobalproducerremovals. No nativeorigin
+protocol/jobregisteredyet; CPUcapture+tokenidentityauditareexecutedcontinuation.
+Newexplanationsemantic_square_native_result_2026-09-10.md. Goalactive;original
+handoff/pilotauthority. Nextclocks04:14hourly/04:49mathunchanged. PreserveClaude.
+
 ## Shared products fail; semantic-square math executed — 2026-09-10 03:31 UTC
 
 Previous goal turn PROGRESS (d9597e5da). Current SHARED_PRODUCTS_V1 valid
