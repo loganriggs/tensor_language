@@ -1,0 +1,38 @@
+{
+  "schema": "pile.writer.geometry.v1",
+  "results": {
+    "data_product": {
+      "coefficient_function_cosine": 0.9032813167763314,
+      "new_to_old_coefficient_norm": 0.3720002691894382,
+      "coefficient_change_relative_l2": 0.68289268138401,
+      "difference_identity_relative_error": 4.947893563457224e-16
+    },
+    "data_shared_reader": {
+      "coefficient_function_cosine": 0.9857489357814946,
+      "new_to_old_coefficient_norm": 0.9056621502877429,
+      "coefficient_change_relative_l2": 0.18631405962970823,
+      "difference_identity_relative_error": 6.705415897729603e-13
+    },
+    "data_block": {
+      "coefficient_function_cosine": 0.9932903248371339,
+      "new_to_old_coefficient_norm": 0.8555630130242217,
+      "coefficient_change_relative_l2": 0.17984199455119743,
+      "difference_identity_relative_error": 6.382083719731997e-16
+    },
+    "weight_product": {
+      "coefficient_function_cosine": 0.7828967910334018,
+      "new_to_old_coefficient_norm": 1.3548819380992685,
+      "coefficient_change_relative_l2": 0.8451269863485633,
+      "difference_identity_relative_error": 5.673062767083749e-13
+    },
+    "penalized_weight_product": {
+      "coefficient_function_cosine": 0.7637029244875744,
+      "new_to_old_coefficient_norm": 1.3931260622656048,
+      "coefficient_change_relative_l2": 0.9016270456787916,
+      "difference_identity_relative_error": 9.328746697751745e-16
+    }
+  },
+  "source_sha256": "e4c4a2d18ea9fdf471e94e1d10045b05c107db8298c3f867003c5b83d07d660b",
+  "wall_seconds": 1.2423234209418297,
+  "scope": "Exact all-input coefficient-function geometry weighted by all-U. Natural-state error measured separately by transfer receipt. Rotating a function in coefficient space is not causal identification or evidence of a new semantic component."
+}

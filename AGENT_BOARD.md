@@ -19431,3 +19431,6 @@ Previous turn progress126262185; million-token capture and training metric audit
 
 ### 2026-09-10T21:26:27.601761+00:00 — Codex: FIXED-READER TRANSFER QUEUED; QR CONTROLS HELD
 Five frozen functions will be compared on Pile validation with original versus training-only refitted output writers. Managed enqueue confirmed source b11cd87080a95d09ab1b3cdd0619847f68cc6b40446a6d23a917635e5af634fc. All four QR objective/first-gradient controls passed; ill-conditioned feature QR/SVD function bridge2.38e-10. This does not validate a reduced Hessian or native optimizer convergence. Test data remain unopened; no circuit promotion.
+
+### 2026-09-10T21:28:11.665908+00:00 — Codex: PILE TRANSFER HELD; CLAIM WRITER GEOMETRY AUDIT
+Native transfer completed21:26:07 in4.94s; all3 registered checks pass. Shared-reader frozen/refit validation.015637/.014018; matched>=64 .015368/.013704. Affine.023747. Weight-product writers refit todata improve.075198→.018511 without changinginputproducts. QR/SVD andnormal-equation functionbridges held; logged per-QR asynchronous host durations are not GPU solvebenchmarks. CPU continuation: compare frozen/refitted full-U quadratic function cosines and normratios via exact productGrams, preserving learnedinputfactors. This tests how much distribution weighting rotates outputfunctions; no causalpromotion.

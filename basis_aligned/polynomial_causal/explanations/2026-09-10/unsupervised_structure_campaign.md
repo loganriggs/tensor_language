@@ -1,4 +1,4 @@
-# Unsupervised structure campaign — 10 September, updated 21:26 UTC
+# Unsupervised structure campaign — 10 September, updated 21:28 UTC
 
 The user requested a broad structural search with substantial unlabeled data, enough optimization to establish convergence, and red-team review of negative results. This supersedes treating the short joint32 run as the main search. The four-property goal remains OOD prediction, extraction, selective manipulation, and composition/reuse; a better tensor fit only nominates components for those tests.
 
@@ -506,3 +506,45 @@ $2.38\times10^{-10}$. These are implementation controls, not a native optimizer
 speedup or convergence result. The queued native comparison checks QR against
 SVD and normal equations before using the new writer fits.
 [Controls](../../STABLE_EMPIRICAL_QUADRATIC_V1_CONTROL.json).
+
+
+### Fixed-reader transfer completed, 21:26:07 UTC
+
+All three registered checks passed. The five-model comparison took4.94seconds
+end to end. The same input products were retained; only the output writers were
+refitted on Pile training inputs. Lower full-U validation squared error is better:
+
+| Frozen input representation | Original writers | Pile-fitted writers |
+|---|---:|---:|
+| Data products128 | 0.02136 | 0.01481 |
+| Data shared readers64 / products128 | **0.01564** | **0.01402** |
+| Data blocks32x8 | 0.02040 | 0.01830 |
+| Weight products128 | 0.07520 | 0.01851 |
+| Penalized weight products128 | 0.07468 | 0.01871 |
+
+The new training-fitted affine baseline validates at0.02375. On matched
+positions64..511, shared readers improve from0.015368 to0.013704, a10.83% error
+reduction, passing the registered10% recalibration threshold. The unchanged
+shared-reader function also passed the transfer threshold. These observations
+support reusable input functions across these two corpus panels and show that
+input-distribution weighting can help substantially through the output writer
+solve alone. They do not yet identify individual semantic circuits or establish
+OOD behavior, extraction, selective removal or composition.
+[Full comparison](../../PILE_FIXED_READER_TRANSFER_V1_RESULT.json).
+
+QR and SVD predictions agreed within$7.8\times10^{-14}$; QR and normal equations
+within$1.5\times10^{-9}$ on these training matrices. Thus the conditional writer
+solve is accurate here even for ill-conditioned features. This does not yet
+show that QR improves the nonlinear optimizer. The individual `qr_seconds`
+fields time asynchronous host submission and **must not be used as GPU solver
+benchmarks**; only the end-to-end wall time is meaningful for this run.
+
+An exact coefficient-function audit then compared old and refitted output
+functions with readers unchanged. Shared readers retained cosine0.98575 and
+90.57% of the old coefficient norm; blocks retained cosine0.99329 and85.56%.
+The weight-only product functions changed more, to cosines0.78290 and0.76370
+for unpenalized and penalized fits. This is consistent with different output
+weighting being particularly important for the coefficient-trained models.
+These are whole-function comparisons, not a claim that individual components
+are stable across independent nonlinear fitting restarts.
+[Writer geometry](../../PILE_WRITER_GEOMETRY_V1_AUDIT.json).

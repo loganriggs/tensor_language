@@ -82,7 +82,7 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 21:20
+## Current handoff — updated 10 September 2026, 21:28
 
 Full goal active. User explicitly requests a broad unsupervised structural search,
 substantial data/optimization, convergence and red-team review of negatives.
@@ -125,8 +125,11 @@ MILLION_TOKEN_PANEL_V1_RESULT.json is authoritative; newdatasetfitpending. Input
 contribute mean/secondmoment. Pile isnotverified pretrainingdistribution; covariancenotfourthmoment.
 See appended21:14/21:18campaignanswers foroptimizerdetails, costs and primaryliterature.
 QR variableprojection objective implemented and toy first-gradient/SVDcontrols held.
-PILE_FIXED_READER_TRANSFER_V1 queued21:26: fivefrozenfunctions, training-onlywriterrefits,
-Pilevalidation fullposition andmatched>=64. Inspectresult/runner beforecontinuing.
+PILE_FIXED_READER_TRANSFER_V1 completed21:26:07 in4.94s, all3predictionsPASS.
+Shared-reader frozen/refit Pilevalidation.015637/.014018; affine.023747.
+Matched>=64 sharedwriterrefit improves10.83%. No nonlinearreadertraining yet.
+QR/SVD andnormal-equation functionbridges held; qr_seconds are asynchronoushosttimings,
+not GPUbenchmarks. Writergeometryaudit completed: sharedfunction cosine.98575.
 NativeQRoptimizerrefinement andmatrix-freeGaussNewton remainpending.
 FullU output-function andtrace red-team audits complete, coefficientmetric-only bounds.
 
