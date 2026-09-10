@@ -1,3 +1,13 @@
+# Latest consolidated research update
+
+**[Read the new report — 10 September, 18:42 UTC](research_update_1842.md).**
+
+Covers work since the previous consolidated report through 14:17, with completed science through 18:13 and subsequent audits. Main finding: reusable lexical/form interventions and exact local formulas, but contextual coupling and selectivity failures still prevent independent circuit extraction.
+
+---
+
+## Previous updates, preserved for reference
+
 # Research update since the last requested explanation
 
 ## Latest follow-up — 10 September, 18:13 UTC; workflow review18:14

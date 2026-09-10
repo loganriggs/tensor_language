@@ -11,7 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## [Read the latest update → 10 September](2026-09-10/LATEST.md)
 
-**The consolidated report is [2026-09-10/LATEST.md](2026-09-10/LATEST.md).** It covers progress since the previous requested update, defines the terms and computations, and explains what the mathematical cycles contributed.
+**The newest consolidated report is [10 September, 18:42 UTC](2026-09-10/research_update_1842.md).** It covers progress since the previous requested update, defines the terms and computations, and explains what the mathematical cycles contributed.
 
 Today's supporting explanations are grouped in [the 10 September folder](2026-09-10/README.md), with a reading guide by research topic. Individual experiment notes are supporting detail; `LATEST.md` is the main update.
 

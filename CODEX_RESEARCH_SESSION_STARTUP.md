@@ -27,10 +27,10 @@ desktop picker even when the CLI catalog already exposes it. The explicit CLI co
 the verified path for this account. If the command ever reports an access error, that is an
 account/workspace rollout issue rather than a repository or GPU-instance problem.
 
-For a clean session, paste the prompt in **Suggested first prompt in a new session** at the end of
-this document. A resumed session keeps its history, but should still read this file because it is
-the durable authority for the periodic clocks and managed runners. To diagnose a stale picker,
-query the actual catalog:
+For a clean session, ask Codex to read this guide and continue the durable research goal.
+A resumed session keeps its history but should reread the current pointers and clocks.
+The guide remains the restart authority for research reviews and managed runners.
+To diagnose a stale picker, query the actual catalog:
 
 ```bash
 codex debug models | jq '.models[] | select(.slug == "gpt-6-astra")'

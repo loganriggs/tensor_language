@@ -1,5 +1,7 @@
 # 10 September research explanations
 
+**Newest consolidated explanation: [Research update — 18:42 UTC](research_update_1842.md).** Covers the interval after the previous report through 14:17; high-level findings first, computations and mathematical-cycle outcomes afterward.
+
 ## [Read the latest update → LATEST.md](LATEST.md)
 
 **LATEST.md is the consolidated update requested by Logan, with a new follow-up at the top.** Its main report covers work since 9 September at 23:06 UTC through 10 September at 14:17 UTC; the follow-up at the top adds the weight audit and unembedding experiment completed at 14:59 UTC, followed by the attention-factor test at 15:17 UTC the token-function weight screen at 15:33 UTC, the shared gerund-state test at 15:49 UTC, and distributed scalar-write interventions at 16:06 UTC. It starts with the high-level sequence, defines terms and computations, and assesses whether the mathematical review cycles helped.
