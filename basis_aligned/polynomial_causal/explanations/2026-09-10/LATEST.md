@@ -1,6 +1,6 @@
 # Latest research state
 
-**Active campaign, 20:24:** [Broad unsupervised structural search](unsupervised_structure_campaign.md). 25 hypotheses; 64,000 unlabeled state pairs captured; 32 first-wave configurations defined. Larger convergence-controlled fits are running/queued. Negative results require red-team checks of optimization, geometry, data and gauges.
+**Active campaign, 20:44:** [Broad unsupervised structural search and executed red-team checks](unsupervised_structure_campaign.md). Two weight fits remain unconverged; CPU checks found severe component cancellation, an exact block rewrite and a useful regularization tradeoff. The repaired natural-state fit is running. Constant/affine baselines and validation results distinguish coefficient fitting from behavior on natural states. No circuit promotion yet.
 **Newest experiment follow-up, through 19:56:** [Unsupervised products and position-corrected QK](unsupervised_products_and_position_corrected_qk.md). The bilinear-plus-unembedding factorization yielded two causally relevant but insufficient pronoun-related products. The separate QK study now includes input-weight pullbacks; it is not the unembedding → MLP17 → final-attention path. The 19:49 math review derives tested limits on exact sparse token writes. The 18:42 report remains the latest consolidated requested rundown.
 
 **[Read the new report — 10 September, 18:42 UTC](research_update_1842.md).**

@@ -82,41 +82,50 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 20:24
+## Current handoff — updated 10 September 2026, 20:44
 
 Full goal active. User explicitly requests a broad unsupervised structural search,
 substantial data/optimization, convergence and red-team review of negatives.
 Read explanations/2026-09-10/unsupervised_structure_campaign.md first (25 hypotheses).
-Standing user instruction: red-team every future negative in this campaign using
-that document's red-team gate before drawing structural conclusions. Record the
-narrow failed claim, the strongest plausible methodological explanation, and an
-executed discriminating check (or explicitly mark the audit pending). Preserve
-the original result and thresholds; neither an unfinished fit nor unstable
-individual factors establishes absence of shared computational structure.
-The prior joint32 fit was only a short pilot; two matched terms are not a census
-of structure. SHARED_READER_BLOCK_STABILITY_V1_CONTROL.json proves that identical
-blocks can fail individual-term matching. Preserve the earlier scientific nulls.
+Standing user instruction: red-team every future negative using that document's
+red-team gate before drawing structural conclusions. Record the narrow failed
+claim, strongest plausible methodological explanation and executed discriminating
+check; otherwise mark audit pending. Preserve original results and thresholds.
+The prior joint32 fit was a short pilot, not a census of two mechanisms.
 
 UNSUPERVISED_DATA_V2_RESULT.json:250forwards1000seq512000processed tokens,
-64000stored MLP17 input/output pairs, fixed800/100/100row splits. Native outputs
-reached148904, overflowing direct FP16 in preserved V1. V2 stores scaled FP16:
-decode x*x_scale, y*y_scale in FP32, then cast for fitting. Errors<1.55e-4.
-Rows historically opened; not fresh/document-level/OOD. States about296MB local;
-only~300MBdisk free before fit checkpoints. Keep research artifacts; monitor disk.
+64000stored MLP17 pairs, fixed800/100/100row splits. Decode scaled FP16 as
+x.float()*x_scale and y.float()*y_scale before casting to FP64. Native bias key
+is transformer.h.17.mlp.Down_bias, not Down.bias. DataV1 fit failed before
+optimization on that key; V2 execution repair passed64-state native replay.
+Data capture itself remains valid. No fresh/document-level/OOD claim.
 
-STRUCTURED_QUADRATIC_CAMPAIGN_V1_CONFIGS.json defines32 fits: product/square/
-shared_reader/block x weight/data metrics x4starts. Native product seed0 uses128
-products; shared-reader64 dictionary; block32x8squares. Core and controls committed.
-First weight_product_s0 chunk0 running since20:20:55; data_product_s0 next,
-weight_shared_reader_s0 and data_block_s0 queued. Verify current
-runner/queue before acting. Wrappers and binding files are under ops/ and POLY.
-Each chunk permits540 fit seconds then saves optimizer/model/history checkpoint.
-A timeout means optimization_unfinished, never structure absent. Continue same
-configuration via a new numbered wrapper/chunk; do not change frozen core files.
-Convergence needs five L-BFGS loss checks plus full-gradient gates. Weight fit's
-loss flattens before its gradient settles; rising Gram condition must be audited.
-Do not call it converged from loss alone. Shared/different representations and
-four starts are required before broad structural claims. Test split remains unused.
+Two V1 weight chunks finished but neither converged: product_s0 coefficient
+error.91262749; shared_reader_s0 .94666619. Saved checkpoints+CHUNK00 JSON exist.
+CPU validation errors on natural states are.093409/.082079 respectively, showing
+metric-dependent ranking. Stall audit: product cancellation ratio14264.96, saved
+LBFGS step0. Fresh/centered/projected refinements fail1e-8 improvement bar.
+Exact pair regrouping reduces cancellation8.17x, misses10xbar, costs130vs128products.
+Fixed-reader penalty.01 reduces cancellation to1.245 while retaining80%of captured
+coefficient energy. energy_regularized_quadratic_v1.py and8dense/gradientcontrols
+implemented; joint native penalized fit is NOT yet running. Before using it,
+convergence/best-model tracking must use optimization_loss, and report ordinary
+reconstruction separately. Do not silently reuse unpenalized stopping semantics.
+
+V2 data_product_s0 chunk0 running since20:39:01; data_block_s0 queued;
+data_shared_reader_s0 wrapper/binding prepared. Verify current queue before acting.
+Native-state baseline errors train/validation: constant.29557/.29653,
+affine.02932/.03156. Data product earlytrainingerror~.017, validationpending.
+Use evaluate_structured_fit_validation_v1.py with checkpoint filename after chunks
+finish. Test rows remain unopened. Weight/shared fits are partial candidates,
+not circuits. Read original priors/dossiers before interpreting components.
+
+32original configs remain frozen:4representations x2metrics x4starts. Only first
+chunks described above have executed. Each540-second fit chunk saves optimizer
+state; ending a chunk is not convergence. V1 cores/bindings must stay frozen.
+Use corrected V2 runner for data configurations. States~296MB and unfinished
+optimizer checkpoints are local-only; most artifacts are not off-box backed up.
+Disk~240MBfree before pendingdata checkpoints; monitor before further queueing.
 
 The previous fixed two-product causal screen held its instrument but failed
 sufficiency/selectivity. Math1949 gives tested limits on exact sparse output-token

@@ -19398,3 +19398,12 @@ Previous turn progress f4e964188, live fit now completed chunk0 with optimizatio
 
 ### 2026-09-10T20:32:55.682032+00:00 — Codex: DATA FIT INSTRUMENT REPAIR; OWN QUEUED BLOCK CANCELLED
 Data product v1 failed before optimization due to wrong checkpoint key Down.bias; actual native parameter is Down_bias, confirmed architecture and checkpoint. Cancelled only own pending data_block v1 before same failure. Weight shared-reader job continues. Claim new data-only v2 runner and replay check, unchanged objectives/bars/configs; preserve original failure.
+
+### 2026-09-10T20:34:49.415297+00:00 — Codex: CLAIM EXACT PAIR-TO-BLOCK REGROUPING
+Stall audit held CPU/gradient instruments. Sum of component energies / joint energy14264.96; most correlated input pair cosine−.9999974 with output cosine+.9999996, saved LBFGS step0. Fresh/centered/projected refinements all fail the registered1e−8 headroom bar. CPU next: algebraically regroup disjoint cancelling pairs using reader averages/differences and two shared writers; test exact function replay and reduced cancellation without fitting or changing the total function. Increased multiplication count will be priced, no circuit promotion.
+
+### 2026-09-10T20:40:33.365355+00:00 — Codex: CLAIM NATURAL-STATE CONSTANT/AFFINE BASELINES
+Repaired data product running, train squared error~.0171 at350Adamsteps, not converged. Existing readout-L15-17 dossier warns simple calibration/local linearity. CPU-only train/validation constant and affine baselines on fixed unlabeled states before interpreting98% noncentered energy as structure. Test split remains unopened; charge1152-vector mean vs1152x1152 affine parameters. This is confound control, not a circuit claim.
+
+### 2026-09-10T20:45:44.492427+00:00 — Codex: RED-TEAM RECEIPTS; CLAIM DATA SHARED-READER SUCCESSOR
+Weight product/shared-reader chunks both unconverged. Natural validation errors.09341/.08208; constant.29653, affine.03156. Data product V2 running~.017train, validationpending. Stall/cancellation audit and exact pair-block rewrite executed;8.17xreduction misses10xbar. Fixed-reader penalty.01 retains80%capturedcoefficientenergy at cancellation1.245; new jointobjective dense/gradientcontrols pass, nativepenalizedfitpending. Claim queued V2 data_shared_reader_s0 after data_block, completing metric counterpart of weightdictionary probe. See campaign20:44. No circuit promotion; full goal active.

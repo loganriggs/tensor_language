@@ -1,0 +1,53 @@
+{
+  "controls": [
+    {
+      "kind": "product",
+      "metric": "weight",
+      "dense_error": 0.0,
+      "max_block_gradient_error": 9.072131934573235e-12
+    },
+    {
+      "kind": "product",
+      "metric": "data",
+      "dense_error": 0.0,
+      "max_block_gradient_error": 3.945482829337266e-12
+    },
+    {
+      "kind": "square",
+      "metric": "weight",
+      "dense_error": 0.0,
+      "max_block_gradient_error": 7.094669686805166e-12
+    },
+    {
+      "kind": "square",
+      "metric": "data",
+      "dense_error": 2.7755575615628914e-16,
+      "max_block_gradient_error": 1.247890679678676e-11
+    },
+    {
+      "kind": "shared_reader",
+      "metric": "weight",
+      "dense_error": 1.1102230246251565e-16,
+      "max_block_gradient_error": 1.0483940104943912e-11
+    },
+    {
+      "kind": "shared_reader",
+      "metric": "data",
+      "dense_error": 4.440892098500626e-16,
+      "max_block_gradient_error": 6.19862494666279e-12
+    },
+    {
+      "kind": "block",
+      "metric": "weight",
+      "dense_error": 2.220446049250313e-16,
+      "max_block_gradient_error": 1.3483596184027391e-11
+    },
+    {
+      "kind": "block",
+      "metric": "data",
+      "dense_error": 0.0,
+      "max_block_gradient_error": 3.5629776906631605e-11
+    }
+  ],
+  "passed": true
+}

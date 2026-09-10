@@ -1,0 +1,32 @@
+{
+  "schema": "cancelling.product.blocks.v1",
+  "pairs": [
+    [
+      22,
+      127
+    ]
+  ],
+  "original_products": 128,
+  "expanded_products": 130,
+  "original_cancellation_ratio": 14264.95668128156,
+  "regrouped_cancellation_ratio": 1746.6611571287747,
+  "reduction_factor": 8.166985693281699,
+  "fixed_gaussian_states": 256,
+  "residual_function_replay_relative_error": 5.328134575278925e-14,
+  "coefficient_energy_replay_relative_error": 1.6517698320228646e-10,
+  "predictions": {
+    "function_replay": true,
+    "cancellation_reduction": false
+  },
+  "price": {
+    "original_scalar_products": 128,
+    "expanded_scalar_products": 130,
+    "explicit_program_parameter_numbers": 449280,
+    "shared_block_reader_vectors": 256,
+    "shared_block_writer_vectors": 128,
+    "artifact_bytes": 3596838
+  },
+  "artifact_sha256": "593ba3e289efb02810a72bb6be0be75e51e59c252609573bc7190409125cc895",
+  "wall_seconds": 0.759740274399519,
+  "scope": "Same fitted function regrouped exactly. No better reconstruction, convergence, causal identification or simplicity claim; expanded arithmetic costs more products."
+}

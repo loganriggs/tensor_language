@@ -1,0 +1,29 @@
+{
+  "schema": "natural.state.baselines.v1",
+  "results": {
+    "train": {
+      "states": 51200,
+      "native_energy": 8.667685280275226e+16,
+      "constant_squared_relative_error": 0.29557236462364433,
+      "affine_squared_relative_error": 0.029317106377872264,
+      "affine_error_relative_to_mean_centered_energy": 0.09918757599412946
+    },
+    "validation": {
+      "states": 6400,
+      "native_energy": 1.1075370144943908e+16,
+      "constant_squared_relative_error": 0.29653360059233896,
+      "affine_squared_relative_error": 0.03155991074245507,
+      "affine_error_relative_to_mean_centered_energy": 0.10642945918915346
+    }
+  },
+  "centered_input_gram_condition": 2300.0236398076445,
+  "normal_equation_relative_residual": 2.0529977504393727e-15,
+  "price": {
+    "constant_parameter_numbers": 1152,
+    "affine_parameter_numbers": 1328256,
+    "product128_parameter_numbers": 442368,
+    "body_forwards": 0
+  },
+  "scope": "Historically opened corpus, fixed row train/validation splits only. Test unopened. Full unembedding output metric before final RMS/tanh. Affine baseline is larger than product128; neither is an identified circuit.",
+  "wall_seconds": 8.867765244096518
+}
