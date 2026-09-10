@@ -1139,3 +1139,67 @@ omitted edge energies. The registered capture target is5%of centered coefficient
 energy. A time limit is unfinished optimization, not evidence against a sparse
 interaction representation. Native results are pending.
 [Preregistration](../../SPARSE_CORE_RCG_V1_PREREGISTRATION.md).
+
+
+## Sparse frame converged; what the math review establishes — 23:00 UTC
+
+**The sparse-frame optimizer converged locally in74.30seconds, improving
+centered coefficient capture from1.401%to3.6695%.** Numerical and convergence
+checks passed; the registered5%capture target failed. It took865iterations,
+with no score decreases. Final relative stationarity is$8.49\times10^{-5}$,
+and the gap between retained and omitted edges is positive. This is a real
+optimization improvement within the orthogonal sparse-core family, not a proof
+that the family is sufficient or globally optimized.
+[Native result](../../SPARSE_CORE_RCG_V1_RESULT.json).
+
+The [22:49 mathematical review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_2249.md)
+produced two concrete checks.
+
+**First: can the fitted square factors be recovered from their joint tensor?**
+Yes, under the numerical rank conditions observed here. Two independent input
+factor matrices and distinguishable output writers meet a classical tensor
+uniqueness condition. In the square model the two input factors coincide, but
+each still has256independent columns. Three fixed pairs of random output mixtures
+recovered every fitted reader with cosine at least0.9999999999999976, given the
+fitted input span. This avoids fitting each token slice independently.
+[Spectral recovery audit](../../SQUARE_PENCIL_IDENTIFIABILITY_V1_AUDIT.json).
+
+That is uniqueness of this exact fitted tensor. It does not show that another
+good approximation to native weights will be the same. Native projected slices
+differ substantially from the fitted slices and do not satisfy the same exact
+real diagonalization pattern. Multiple starts and perturbation tests are still
+needed. Signed squares, distinct-reader products and multi-output blocks also
+have different identifiability conditions; the theorem is not transferred blindly.
+
+**Second: do graph components describe isolated native computations?**
+For an input projector $P=EE^{\mathsf T}$, native quadratic interactions can be
+split into within-span, mixed and outside terms. The mixed energy is
+
+$$
+2\left[\operatorname{tr}(E^{\mathsf T}SE)
+-\sum_v\|E^{\mathsf T}Q_vE\|_F^2\right],
+\qquad S=\sum_v Q_v^2.
+$$
+
+For the learned128input frame, the native centered tensor has5.88%inside,
+24.14%mixed and69.98%outside energy. Restricting to the92readers actually used by
+the fitted graph still leaves16.56%of total native energy in mixed interactions.
+The surrogate graph has disconnected components, but its active union has a
+substantial native boundary. Extraction must describe these input/output
+connections; graph sparsity alone does not make a closed circuit.
+[Boundary calculation](../../SPARSE_CORE_NATIVE_PORTS_V1_AUDIT.json).
+
+These checks improve what we can claim and what to test next. They neither name
+semantic tasks nor satisfy OOD prediction, extraction, selective removal and
+composition. An open component with explicit interfaces can still be useful;
+nonzero mixed energy is not a rejection of all circuit decompositions.
+
+An independently initialized sparse-frame run is now queued: Gaussian frame,
+seed937, same128readers,256edges, centered weight metric and convergence bars.
+Its initial capture is0.0482%, versus1.401%for the spectral initialization. The
+registered comparison asks for at least99%of the previous converged fit quality
+and full coefficient-function cosine at least0.95. Functions are compared before
+raw factor names, so signs, permutations and unused reader directions do not
+create a false disagreement. This is the first independent restart in this
+family; native results are pending.
+[Restart preregistration](../../SPARSE_CORE_RCG_RESTART_V1_PREREGISTRATION.md).

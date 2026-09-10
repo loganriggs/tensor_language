@@ -1,0 +1,57 @@
+{
+  "rank": 256,
+  "input_smallest_over_largest_singular": 0.09437862618677385,
+  "writer_smallest_over_largest_singular": 0.018985956213558676,
+  "numerical_full_column_rank_at_1e_minus10": true,
+  "kruskal_sufficient_sum_if_exact_full_ranks": 768,
+  "kruskal_required_sum": 514,
+  "recovery": [
+    {
+      "seed": 31,
+      "minimum_matched_reader_cosine": 0.999999999999998,
+      "mean_matched_reader_cosine": 1.0,
+      "maximum_eigen_imaginary_relative": 0.0,
+      "minimum_ratio_spacing": 1.7729131041033241e-06,
+      "fitted_first_slice_condition": 2213.7954754756106,
+      "surrogate_relative_squared_replay_error": -7.703230909457834e-16,
+      "native_projected_slice_relative_errors": [
+        0.7951340844518026,
+        0.6918536153282572
+      ],
+      "native_pencil_complex_eigenvalue_fraction": 0.9140625,
+      "native_first_slice_condition": 464.1186316167446
+    },
+    {
+      "seed": 37,
+      "minimum_matched_reader_cosine": 0.9999999999999976,
+      "mean_matched_reader_cosine": 1.0,
+      "maximum_eigen_imaginary_relative": 0.0,
+      "minimum_ratio_spacing": 1.4391722827175601e-05,
+      "fitted_first_slice_condition": 22994.98330117943,
+      "surrogate_relative_squared_replay_error": 3.851615454728917e-16,
+      "native_projected_slice_relative_errors": [
+        0.7713561576083876,
+        0.6950880746873537
+      ],
+      "native_pencil_complex_eigenvalue_fraction": 0.921875,
+      "native_first_slice_condition": 4706.747768654862
+    },
+    {
+      "seed": 41,
+      "minimum_matched_reader_cosine": 0.9999999999999978,
+      "mean_matched_reader_cosine": 1.0,
+      "maximum_eigen_imaginary_relative": 0.0,
+      "minimum_ratio_spacing": 1.6953757257409663e-05,
+      "fitted_first_slice_condition": 2072.0353067057817,
+      "surrogate_relative_squared_replay_error": -7.703230909457834e-16,
+      "native_projected_slice_relative_errors": [
+        0.7204441272344243,
+        0.7300423726533262
+      ],
+      "native_pencil_complex_eigenvalue_fraction": 0.8671875,
+      "native_first_slice_condition": 3065.0007911138455
+    }
+  ],
+  "collinear_writer_rotation_counterexample_error": 0.0,
+  "scope": "Leurgans/Kruskal sufficientconditions for the exactfittedsquaretensor, numericalrank evidence notsymboliccertificate. NativeT remains~90.35%coefficienterror away; itsprojectedpencils are reported separately. No globalbestapproximation orsemanticcircuitidentification."
+}

@@ -19500,3 +19500,12 @@ Previous turn progresse159f2958. Implement RiemannianPolak-Ribiere+CG withprojec
 
 ### 2026-09-10T22:47:13.293886+00:00 — Codex: SPARSE RCG NATIVE QUEUED
 RCGplantedcontrol27.5→97.9%capture in40steps; split20+20state exactlymatches40. Managed240snative128reader/256edgebenchmarkqueued SHAde4b10eb6f52ac3301a70ba9f6147b3528152340fc0f4394d51048ee261cae25. No nativeconvergenceclaim. Full goalactive; mathematicalreviewdue22:49, hourly23:18.
+
+### 2026-09-10T22:50:59.434194+00:00 — Codex: MATH2249 CLAIM IDENTIFIABILITY AND OPEN-PORT AUDIT
+RCGcompleted74.30s A/Bheld Cfailed,capture.0366952,station8.49e-5. Mathematicalreviewdue. Leurgans/Ross/Abel andKruskal conditions map toconvergedsignedsquares T=[UW,A,A], notnativeovercompleteproducts. Claim CPUrank/condition audit andtwo-slice pencil recovery ofexactlearnedsurrogate; threefixedrandommixtures andactualnativeprojectedpencils reportedseparately. Do notmistake uniquenessofapproximateT foruniquebestfit/nativecircuits. Alsoderive closedblockcommutator/crossport energy frominputmarginal; avoidequating openinterfaces withfailureofallcircuits. Primaryreferencesread; no data.
+
+### 2026-09-10T22:57:30.288730+00:00 — Codex: CLAIM INDEPENDENT SPARSE-FRAME RESTART
+Math2249reviewcompletedwithnativepencil/portreceipts. ExecuteindependentGaussianQR frame seed937, samecenteredmetric/128readers/256edges/RCG. Native240s, Ainitialandcomparisonbridges, Bunchangedconvergence, Ccapture>=99%firstconvergedfit AND fullcoefficientfunctioncosine>=.95. Comparefunctionsgauge-invariantly, notunusedreadercolumns. Compute/freeze initialCPUscore; no semanticlabels/datafit. Firstfitlocalconvergence notglobalidentifiability.
+
+### 2026-09-10T23:00:41.612454+00:00 — Codex: MATH REVIEW PUBLISHED; INDEPENDENT RESTART QUEUED
+Math2249reviewmapsLeurgans/Kruskal toexactfittedsquares, notnativeovercompletetensor; threepencilsrecoverall256readers tonumericalprecision. Nativelearnedframe24.14%mixedenergy; active92union16.56%, so closedgraphinterpretationinsufficient. Independentseed937RCGqueued SHA0d0ec441f948024a37a2a4b1a244a89a0f508646539bac13c21227a2892a750d. Latestmath2249,next01:49Sep11; hourly23:18. Fullgoalactive,no datafit/promotion.

@@ -272,3 +272,12 @@ originalparameter-gauge andcanonicalstationaritypass1e-4. Moreparameters than
 128products; no global/circuitclaim. Centered128input/256edge spectralbaseline
 captures1.401%, fullprojectedcore6.406%; inputframeunoptimized. Exactconditional
 edgechoice andStiefelframeupdate controls held. [Explanation and receipts](2026-09-10/unsupervised_structure_campaign.md#signed-squares-converged-sparse-core-basis-update-prepared--2241-utc).
+
+### 10 September23:00: fitted identifiability and native interfaces
+Sparsecenteredframefit convergedlocally at3.6695%capture. Signedsquarefactors
+have numericalfullcolumnranks; two-slice recoverymatchesall256readers tocosine
+>1-3e-15 for threefixedmixtures. This concerns theexactfittedtensor, notnative
+identification oruniqueapproximation. Learned128inputframe has24.14%mixed
+interactionenergy inthenativecenteredtensor; active92readerunion has16.56%.
+Graphcomponents needexplicitnativeinterfaces beforeextraction. [Review and
+receipts](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_2249.md).

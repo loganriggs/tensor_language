@@ -1,0 +1,37 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_converged": true,
+    "pred_c_centered_capture": false
+  },
+  "initial_capture": 0.014011042581842844,
+  "final": {
+    "iteration": 865,
+    "captured_energy": 0.03669516364827038,
+    "relative_stationarity": 8.485550214197795e-05,
+    "gradient_max": 1.7868964807157112e-08,
+    "support_margin": 2.05252210018121e-06,
+    "orthogonality_error": 2.55351295663786e-15,
+    "relative_progress_five_checks": 5.527126357529566e-08
+  },
+  "terminal_reason": "plateau_stationarity_and_support_gap",
+  "maximum_score_decrease": 0.0,
+  "initial_bridge": 5.204170427930421e-18,
+  "final_replay": 0.0,
+  "writer_bridge": 1.184246876797582e-15,
+  "price": {
+    "body_forwards": 0,
+    "centered_float_numbers": 442368,
+    "edge_indices": 512,
+    "additional_exact_common_numbers": 664128,
+    "iterations": 865,
+    "full_core_selections": 866,
+    "backtracks": 452,
+    "direction_restarts": 132,
+    "fit_seconds": 74.29727631807327,
+    "checkpoint_bytes": 5928541
+  },
+  "checkpoint_sha256": "4686c8d9786fc015c5291b4b1643489abbf0ceb1f4b1fdd1c78d6a41a1bb8920",
+  "wall_seconds": 74.87542838603258,
+  "scope": "Weight-only frameoptimization, exactconditionaloutput/edges. Commonchannelpreservedseparately. No globaloptimumorsemanticcircuitclaim."
+}
