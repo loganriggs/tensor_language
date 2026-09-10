@@ -1,6 +1,6 @@
 # Noun-number selection: what the model does, and what the math rules out
 
-**Latest result:** the mixed value largely inherits its signal from the incoming residual state in the original layout, but normalization contributes materially in some fronted cases. The raw-state branch passes fidelity in16/16 original groups and6/16 fronted groups; normalization alone passes none. We must retain the full normalization operation when tracing the producer upstream. Section 19 explains the exact split and its causal limits.
+**Latest result:** actually removing the raw interaction and recomputing normalization reproduces full partial-component removal in all 16 original sentence groups, but only 5 of 16 reordered groups. Normalization therefore remains part of the operation we must explain. We derived and checked an exact interface using six inner products and folded linear readers; section 20 gives the computation and its limits.
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
@@ -590,3 +590,38 @@ The universal raw-origin and normalization-origin predictions both fail. In orig
 The [post-result signed accounting](../NORMALIZED_VALUE_BRANCH_ACCOUNTING_V1_RESULT.json) makes this distinction explicit. In the original layout, the normalization branch's effect magnitude is1.19–3.66% of the full component's effect; in the fronted layout it is2.25–62.12%. Its signed projection ranges from−2.35% to2.40% in the original layout and−10.53% to23.19% when fronted. It can oppose the raw contribution or point partly in another direction. The denominator is the previously identified partial component, not the model's entire behavior.
 
 This is a decomposition of the value producer with routing held fixed. Removing R is not the same as removing x_oh before RMS: the latter also changes g. A genuine upstream intervention must recompute the complete normalization and account for that response. The next producer trace should retain this known primitive and test raw-state changes through it, rather than approximate it away or infer causal source importance from raw vector norms. No successor native test has yet been registered. Independent state production, structural semantic generality, and the full four-property goal remain unresolved.
+
+## 20. Actual raw-input removal and a small exact normalization interface
+
+We now performed the intervention that section 19 distinguished from attribution. Subtract the raw mixed component from the layer 9 attention input, recompute native RMS normalization, rebuild the partial value contribution with the original routing, and install it in the original background. The remaining model then recomputes normally. This changes the value-producing path; queries and keys retain their native inputs.
+
+The [registered native test](../MATURE_VALUE_RAW_REMOVAL_V1_RESULT.json) passes its implementation checks. Native and full-component-removal outputs replay exactly; reconstructing the unchanged component differs from native answer logits by at most 8.59e-6. It used 320 forwards over 5,120 sequence instances, taking 5.01 seconds inside the executor.
+
+Raw-input removal matches full-component removal within 10% on both measured output objects in **16/16 original groups and 5/16 fronted groups**. The worst original error is 3.81%; fronted errors reach 68.00% on the correct margin and 62.53% on the centered three-answer vector. Neither universal prediction passes: raw inheritance does not explain every case, and normalization alone does not reproduce the component in any group. These denominators concern the identified partial component, not the model's entire behavior. The earlier 6/16 count concerned removing an algebraic branch, a different intervention.
+
+There is a useful exact mathematical consequence. Holding the other factors fixed, the residual after removing its mixed term has the form
+
+\[
+x'(o,h)=a+ob+hc,\qquad o,h\in\{-1,+1\}.
+\]
+
+Here a is the mean vector, b the object-number coefficient, and c the attractor-kind coefficient. Its squared RMS is
+
+\[
+\frac{\|x'\|^2}{d}
+=\frac{\|a\|^2+\|b\|^2+\|c\|^2
++2o\langle a,b\rangle+2h\langle a,c\rangle
++2oh\langle b,c\rangle}{d}.
+\]
+
+Thus **six inner products determine the normalization scales** at all four corners. A Gram matrix is simply the table of those pairwise inner products. Applying the inverse square root to the four scalar norms gives four scale coefficients. The normalized mixed coefficient is exactly
+
+\[
+(RMS(x'))_{oh}=g_{oh}a+g_hb+g_oc.
+\]
+
+A downstream linear reader W can be folded into the three vectors: the answer is the same scalar combination of Wa, Wb and Wc. The scalar normalization must remain explicit. If the three vectors are mutually orthogonal, their norms are constant across corners and normalization creates no mixed term. Nonorthogonal vectors can generate one even though the raw mixed coefficient is zero.
+
+The [executable CPU check](../rms_regeneration_gram_v1.py) verifies this identity and folded readers across 32 random fixtures, including residual width 1152, plus planted orthogonal and nonorthogonal controls. Maximum coefficient discrepancy is 1.17e-15; folded-reader discrepancy is 4.33e-15. This establishes a candidate transparent interface, not its discovery in the native model. The vectors are still context dependent and require native counterfactual inputs. The next native check can compare this Gram interface with the freshly measured raw-removal producer; it must preserve the failed structural cases.
+
+This helps specify and potentially extract an operation while retaining its nonlinear dependence. It does not yet establish OOD semantic prediction, selective reuse across tasks, or an independently generated residual state. All 545,902,902 native parameters remain charged; no structural saving is claimed.

@@ -53,6 +53,29 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Raw mixed removal completed; exact Gram continuation executed — 2026-09-10 07:47:38 UTC
+
+Previous goal turn PROGRESS e73097a53; current preregistration 1b24746d6.
+MATURE_VALUE_RAW_REMOVAL_V1_RESULT.json valid A; B necessity and C regeneration fail.
+xprime=x-Qoh x, native RMS recomputed inside partial value producer, native P0/background retained.
+Raw-removal fidelity16/16 original,5/16 fronted; no regeneration-only pass. Maximum errors
+.680047 margin/.625274 centered readers fronted, <=.038022 original. Native/full replay
+exact; identity maxabs8.58307e-6.320forwards5120seq,5.0131s. RunnerSHA
+6600a9501f1d8dee3776e04c0489b87a717122df94ed4c611cc79555e9c8d77c.
+Registered spill/projection diagnostics saved separately; no revised verdicts.
+
+Post-result CPU continuation executed: rms_regeneration_gram_v1.py and
+RMS_REGENERATION_GRAM_V1_CONTROLS.json. xprime=a+ob+hc; six Gram entries determine
+four RMS scales, normalized mixed coefficient=g_oh*a+g_h*b+g_o*c. Arbitrary linear
+readers fold into these three vectors exactly; 32fixtures plus planted controls,
+max errors1.166e-15 mixed/4.330e-15 folded. This is not fixed semantic coordinates,
+native identification, or free input generation. All545902902weights remain.
+Next native instrument can reconstruct the regenerated common write through this explicit
+Gram interface before tracing which upstream writes produce the context-dependent vectors.
+No successor native job registered. Explanation section20. Full goal active.
+Next mathematical review07:49 UTC; hourly08:14 UTC. Existing phase clock begins late
+and merges implementation/validation/native execution; do not infer a ceremony-budget pass.
+
 ## Normalization-origin partition is structure-dependent — 2026-09-10 07:34:37 UTC
 
 PreviousgoalturnPROGRESS4136ff3f0; currentpreregistration/implementationb66e647df.
