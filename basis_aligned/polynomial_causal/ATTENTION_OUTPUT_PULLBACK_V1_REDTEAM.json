@@ -1,0 +1,13 @@
+{
+  "narrow_failures": [
+    "O-only pullback did not improve top128 coefficient output capture by5points or beat matched left-scramble by2points",
+    "Native within-head concentration did not reach50%or exceed scrambled head grouping by10points"
+  ],
+  "structural_negative": false,
+  "mean_squared_O_singular_value": 62.50986230318214,
+  "native_attention_port_energy_after_global_gain_normalization": 0.9809783251959332,
+  "left_scrambled_attention_port_energy_after_global_gain_normalization": 1.0021747829346763,
+  "within_head_native": 0.11860337561298608,
+  "within_head_scrambled": 0.11245042735406645,
+  "interpretation": "Most raw attention-port energy inflation is coordinate gain, not evidence of causal dominance. Exact output spectrum shows small learned-alignment gain; native head partition is not concentrated. This does not test live routing/value composition or optimized cross-head subspaces. Next use shared-source value constraints, preserving cross-source terms and full normalizations."
+}

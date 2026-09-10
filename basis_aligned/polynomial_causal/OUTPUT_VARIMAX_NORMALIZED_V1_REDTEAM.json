@@ -1,0 +1,14 @@
+{
+  "narrow_failure": "Locally converged equal-token rotation still fails mean top4energy>=.50",
+  "structural_negative": false,
+  "raw_energy_top4_improvement_over_raw_rotation": 0.0025667782364866554,
+  "equal_token_top4_improvement_over_raw_rotation": 0.0051343922393776165,
+  "median_effective_factor_change": -1.0113150381271012,
+  "matched_quadratic_function_absolute_cosine": {
+    "minimum": 0.17412602263650256,
+    "median": 0.8935145429882075,
+    "mean": 0.7488272869267381,
+    "fraction_ge_0_9": 0.484375
+  },
+  "interpretation": "Changing raw-vs-equal-token weighting yields modest sparsity change and does not remove the density. Axis comparison uses exact orthonormal quadratic-function coordinates; it compares different objectives, not restart stability. Fixed outputrank128, orthogonal dictionary and varimax criterion remain unexhausted assumptions. Broaden to upstream weight pullback rather than further weighting variants."
+}

@@ -82,15 +82,18 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 23:32
+## Current handoff — updated 10 September 2026, 23:48
 
-LATEST CONTINUATION: MULTIOUTPUT_MANIFOLD_V1 A/C held, B failed after240s;
-full capture8.6285%, centered3.7167%, still unconverged. Raw OUTPUT_VARIMAX_V1
-A/B held C failed after62.24s: participation38.18→28.62, top4loading32.39%.
-Audit median53factors for90%; leading4inputforms need461–476signed-square axes.
-OUTPUT_VARIMAX_NORMALIZED_V1 nowqueued: equal-token rotation objective, same
-centeredrank128tensor, no data. Inspect result/runner for newer evidence. Latest
-hourly23:18,next00:18; math22:49,next01:49Sep11. Red-team audits complete.
+LATEST CONTINUATION: equal-token varimax completed A/B held C failed147.82s,
+median27.61factors/top4=.32056. ATTENTION_OUTPUT_PULLBACK_V1 completed A held
+B/C failed: top128capture30.54%vs29.00%original; same-head11.86%vs11.25%control.
+Red-team scale/alignment checks complete. Next shared-source attention quadratic
+symmetry split is derived and implemented with dense/low-rank CPU controls:
+SHARED_SOURCE_ATTENTION_QUADRATIC_V1_MATH.md and shared_source_attention_quadratic_v1.py.
+It distinguishes one-source rank1 inputs from live cross-source determinant
+terms. Native four-function channel measurement specified but not yet run;
+no own GPU successor currently queued. Latest hourly23:18,next00:18;
+math22:49,next01:49Sep11. Full goal active, weight-first; no new data fitting.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

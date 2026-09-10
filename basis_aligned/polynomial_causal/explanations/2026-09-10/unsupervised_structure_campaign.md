@@ -1401,3 +1401,82 @@ proof that the new fit will be better, and it does not rewrite V1's failed bar.
 [Next preregistration](../../OUTPUT_VARIMAX_NORMALIZED_V1_PREREGISTRATION.md).
 No data or circuit identification is claimed. Common output and the outside
 projection remainder remain explicit.
+
+
+## Attention pullback and shared-source constraints — 23:48 UTC
+
+**Equal-token weighting did not resolve the dense token usage.** Its varimax fit
+converged in147.82seconds. Median effective factors per token is27.61, compared
+with28.62for raw varimax. Equal-token top4energy rises only31.54%→32.06%, still
+below50%. Raw-energy top4retention is32.64%. Both numerical and convergence
+predictions held; the structural bar failed. Matching quadratic functions
+across these different objectives gives median absolute cosine0.894; this is
+not an independent-start stability test. The weighting hypothesis was tested
+and had modest impact; fixed subspace and orthogonal dictionaries remain limits.
+[Result](../../OUTPUT_VARIMAX_NORMALIZED_V1_RESULT.json),
+[red-team comparison](../../OUTPUT_VARIMAX_NORMALIZED_V1_REDTEAM.json).
+
+**Folding through attention17's output map alone also produced only small gains.**
+This is an actual terminal-path weight fold, unlike the earlier separate QK
+experiment. With $b$ the residual before attention output, $z$ the concatenated
+head outputs and $O$ the attention output matrix, the MLP-input numerator splits
+exactly into
+
+$$
+b^\top Q_vb+2b^\top Q_vOz+z^\top O^\top Q_vOz.
+$$
+
+The native input RMS squared divides this expression; the bias, residual,
+final RMS and tanh remain explicit. $z$ still includes routing and values.
+We have not folded the whole computation into a token-to-logit polynomial.
+
+| Weight-coordinate description | Top128 centered output capture | Within-head quadratic energy |
+|---|---:|---:|
+| Original MLP input | 29.00% | Not assigned attention heads |
+| Native attention output map $O$ | 30.54% | 11.86% |
+| Left-rotated $PO$, same singular values and head Gram | 29.18% | 11.36% |
+| Right-rotated $OP$, same pulled-back spectrum | 30.54% | 11.25% |
+
+All exact checks passed; both structure predictions failed. The learned
+alignment gives a small gain, and the native head partition is close to the
+scrambled control. This does not reject optimized cross-head groupings or the
+full routing/value fold. The apparently huge3833×attention-port coefficient
+energy is mostly coordinate gain: after normalizing the output map's overall
+scale, the ratio is0.981. It is not evidence that attention dominates behavior.
+[Native result](../../ATTENTION_OUTPUT_PULLBACK_V1_RESULT.json),
+[red-team scale/alignment audit](../../ATTENTION_OUTPUT_PULLBACK_V1_REDTEAM.json).
+
+The next algebraic step addresses a limitation of treating head outputs as
+independent variables. At one source position, every head reads the same
+source-state tuple through its own value matrix. If $a_{hp}$ is the head's
+routing weight to source$p$ and $x_p$ its shared normalized value-source tuple,
+then the lifted pre-value input is
+
+$$
+Z_{hi}=\sum_p a_{hp}x_{pi}.
+$$
+
+For one source,$Z=ax^\top$ has rank1. Some quadratic coefficient directions
+therefore vanish on all such inputs, although they count in an unrestricted
+coefficient norm. Crucially, they need not vanish with multiple sources:
+
+$$
+Z_{hi}Z_{kj}-Z_{hj}Z_{ki}
+=\sum_{p<q}(a_{hp}a_{kq}-a_{hq}a_{kp})
+(x_{pi}x_{qj}-x_{pj}x_{qi}).
+$$
+
+This separates routing contrasts from source-value contrasts. It supplies a
+possible shared arithmetic structure; it does not permit deleting cross-source
+interactions. The controlled two-source determinant example equals1, despite
+each individual source having zero determinant.
+
+The symmetry split, native-shaped value mixture, one/multiple-source replay and
+an efficient128×128-block energy contraction are implemented and tested to
+numerical precision. Native coefficient mass in these channels has not yet been
+measured. The next weight-only measurement is specified for the four already
+fixed leading quadratic functions, with shared-source-coordinate controls.
+[Full derivation and executable consequence](../../SHARED_SOURCE_ATTENTION_QUADRATIC_V1_MATH.md),
+[CPU controls](../../SHARED_SOURCE_ATTENTION_QUADRATIC_V1_CONTROL.json).
+This advances the fuller attention fold; QK normalization, live routing,
+residual interfaces and the four circuit properties remain unresolved.

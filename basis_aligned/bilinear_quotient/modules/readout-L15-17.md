@@ -45,3 +45,6 @@ final ~0.2 neither sparse nor linear (§660 law certified band-wide). Token augm
 
 ## Open
 - Nothing pressing beyond the standing §1069 middle-attention remainder upstream.
+
+## September10 terminal weight-fold update
+The entire centered unembedding has now been pulled through MLP17 and attention17 c_proj. Exact checks held, strong output-sharing/head-concentration bars failed: top128coefficient capture30.54%vs29.00%before O; within-head blocks11.86%vs11.25%with scrambled head coordinates. This coefficient-space result does not establish task inertness or close the layer. A further source-coherence decomposition is controlled but not yet measured on native weights. [Current MLP17 record](../../polynomial_causal/explanations/MLP17_CURRENT_UNDERSTANDING.md), [source-constraint math](../../polynomial_causal/SHARED_SOURCE_ATTENTION_QUADRATIC_V1_MATH.md).
