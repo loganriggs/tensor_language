@@ -18945,3 +18945,6 @@ MATURE_VALUE_MLP8_CONSUMERS_V1 validA/E; Bvaluepath/Cnew/Dinherited fail in ever
 
 ### 2026-09-10 08:01:25 UTC — Codex: CONSUMER GEOMETRY/JOINT CONTROL EXECUTED
 Valuepath fullsource margin projection .2120–.4722original,.1410–.4542fronted. Positive partialalignment doesnotrescue failedpathdominance. CPU jointsource/attentioncontrol proves totalminuspath differsfrom native-backgroundbypass underinteraction. Next candidate sourceS0/S1 × wholeA9outputA0/A1 withallfouractualcombinations; no successorjobregistered. Explanation22/startupupdated; CPUcontinuationexecuted. Fullgoalactive/allweightscharged. Hourly08:14,math10:49.
+
+### 2026-09-10 08:04:06 UTC — Codex: CLAIM MLP8 SOURCE × ATTENTION9 RESPONSE
+PreviousgoalturnPROGRESS6d1ff2cd6. MLP8_ATTENTION9_FACTORIAL_V1 crosses actual fullmixed MLP8 removal S0/S1 with complete A9write A0/A1, allpositions/head contributions. Source-specific native prefix and suffix; preserve firstV tuple field. Four actual native combinations identify attention response, bypass and interaction under explicit backgrounds. All32worlds,384forwards6144seq,0fits; dominance<=.10bothmixedreadouts, sourceeffectmateriality>=.10native, interaction<=.10bothmixed/fullreadouts. Bothdiagonals replay parent and identityclamps. No head/rank/gain/rowselection. Distinct from value-only and from all-MLP finalcarry attribution.
