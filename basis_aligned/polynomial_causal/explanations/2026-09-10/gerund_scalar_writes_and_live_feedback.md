@@ -1,5 +1,96 @@
 # Shared grammatical writes work; the scalar-only predictor does not
 
+**Latest result — 10 September, 17:37 UTC:** none of the 36 single-module
+output swaps supplies enough of the token-dependent context signal to pass
+in both grammatical frames. All controls pass. This is a source-localization
+null, not a rejection of distributed circuits. The saved-reader CPU audit also
+shows why both unembedding views must retain token-specific information.
+
+## The two backward-unembedding paths
+
+The user’s distinction is the working plan:
+
+1. **Individual tokens.** Start from each token's unembedding vector u_t, or a
+   specified contrast u_answer-u_foil. Fold that reader backward to expose the
+   products and earlier state it reads. Compare different tokens after folding.
+2. **Shared structure.** Decompose the same vectors into clusters, hierarchy
+   contrasts, shared directions and token-specific remainders. Fold each piece
+   backward and test whether the shared pieces correspond to reusable operations.
+
+For example, a hierarchy can represent a token reader exactly as
+
+    u_t = root_mean + sum(child_mean - parent_mean along its path) + remainder_t.
+
+For a bilinear MLP m(x)=D[(Lx)*(Rx)]+b, a reader v gives
+
+    v·m(x) = x^T Q(v) x + v·b,
+    Q(v) = sym(L^T diag(D^T v) R).
+
+Here sym(A)=(A+A^T)/2. Crucially, Q is linear in the reader v. Therefore every
+shared component and remainder can be folded separately and summed exactly.
+The same principle applies to a fixed-input attention output reader through OV;
+its QK routing and normalization remain explicit. Further backward substitution
+can expose common products across readers, but exact rewriting alone does not
+establish fewer independent computations.
+
+The previous fixed 16-leaf means-only experiment failed. That closes its
+particular approximation, while shared subterms and hierarchy contrasts remain
+open. We retain remainders so a cluster does not silently erase a word's actual
+computation. The circuit test is whether a shared piece has explicit producers
+and consumers and passes held-out prediction, extraction, selective manipulation
+and composition—not whether words merely cluster near one another.
+
+## Which earlier outputs produce the required context signal?
+
+The local token-score program below needs context-dependent coefficients.
+For its fixed normalized grammatical direction e, the token contrast's linear
+MLP17 response reads k_v=2Q17(v)e from the MLP's normalized input u. Remove the
+part along e to obtain
+
+    a_v = e^T Q17(v)e,
+    k_perp = k_v - 2*a_v*e,
+    tau = k_perp·u.
+
+Tau is the context signal: it contributes delta*tau when we edit the input by
+delta*e. We changed the primed verb while keeping each grammatical frame fixed,
+using the next of the 16 existing base contexts as donor. The recipient's token
+reader stays fixed when applied to both contexts.
+
+We restored each of the 36 attention/MLP outputs individually at the final token
+position, then let the later model recompute. A candidate had to transfer at
+least .50 of the natural gate change, leave at most .50 relative gate error in
+both target frames, and change agreement-control CE by at most .10 nats on
+average in absolute value. **No site passed.** Even the largest target transfers
+were only .359 and .370; the smallest errors were .657 and .711. These are
+internal gate measurements, not recovered lexical behavior.
+
+All 48 base grammatical contrasts were correct. Restoring every cached output
+reproduced the donor context gate exactly. Own-cache restoration changed no
+logits, and changing MLP17's output had exactly zero effect on its own input
+gate. The managed GPU run used 117 batched forwards, 1,872 sequences and 3.51
+seconds of executor time. Every native weight remains required.
+
+The CPU follow-up reports paired intervals for all sites, with no selected
+site promoted. It also splits the saved token-specific readers into their
+panel mean and individual remainder. Keeping only the mean leaves .649/.905
+relative gate-change error in the two target frames; keeping both reconstructs
+the gate changes within 2.3e-13. These are descriptive results on already opened
+rows, not a new held-out cluster discovery. Their cross terms even have opposite
+signs between frames, so component magnitudes are not additive causal shares.
+The agreement panel uses one fixed token contrast, so its zero remainder is
+expected by construction, not extra evidence of shared computation.
+
+This leaves distributed production and shared subterms as the next questions;
+it does not license a post-hoc best-layer subset or identify any whole module
+as a semantic circuit. The exact MLP16 product-reader coefficients were saved
+for reuse, without claiming MLP16 is the producer.
+
+Receipts: [registered test](../../TOKEN_CONTEXT_SOURCE_V1_PREREGISTRATION.md),
+[native result](../../TOKEN_CONTEXT_SOURCE_V1_RESULT.json),
+[CPU audit](../../TOKEN_CONTEXT_SOURCE_AUDIT_V1_RESULT.json).
+
+## Previous result — 17:17 UTC
+
 **Latest result — 10 September, 17:17 UTC:** both token-specific score changes
 and final normalization are needed for this grammatical MLP response. Supplying
 the correct norm does not repair the old two-reader writer. A different, exact

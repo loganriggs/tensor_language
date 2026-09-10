@@ -154,3 +154,23 @@ The frozen local response program is valid on native MLP17 scalar-input edits: s
 ### Grammatical token numerators and RMS,10 September17:17
 
 Existing calibration two-consumer algebra reused on the current grammatical MLP17 scalar-input response. Neither norm-only (.93533/.97952 error), numerator-only (.47626/.58483), nor old two-reader numerator with true norm (.87871/.91634) meets the joint.10 full-effect bound. Missing normalization alone therefore does not repair omitted token readers. Endpoint interaction .04486/.06194 is descriptive, not independent-circuit composition. A conditional program folds actual answer/foil numerators and shared quartic RMS into11 context coefficients; max native tokenerror8.03e-6, margin8.73e-6, sequential composition5.33e-15. Initial h/u-derived coefficients and full-vocabulary probabilities remain native-dependent. A/E held B/C/D failed. V1 publication st_size() bug preserved; V2 same science12forwards192seq in1.37302sec, V1/V2 saved states exactly equal. Paired/saved-state CPU audit actually performed with no model load; cache3,010,885bytes retained for future CPU reuse. Canonical gerund_token_norm_program specified conditional token scores, rejected isolated simplifications. See updated gerund_scalar_writes_and_live_feedback.md. Next identify upstream producers of required token/context readers and norm moments; no fitted output-rank rescue.
+
+
+### Token-context source census, 10 September 17:37 UTC
+
+Actual answer-minus-foil reader v is folded to k_perp=2Q17(v)e-2(e^T Q17(v)e)e.
+Tau=k_perp·u17 supplies the context part of the local scalar-input response.
+Same-frame cyclic-verb donors with the recipient reader fixed tested all36
+single attention/MLP output sites. A/C held, B failed: no shared-source nominee,
+maximum target transfers .3591/.3701, minimum errors .6566/.7107. All48 base
+endpoints correct; all-chain/no-op/MLP17-output causal-zero controls exactly0.
+117forwards1872seq,3.51036sec. No single module promoted. CPU paired intervals
+for all sites and saved mean-plus-token-remainder accounting actually executed;
+mean-only target gate errors .64924/.90508 on already opened rows. No independent
+producer, new OOD or structural saving. Both user-directed unembedding paths
+remain explicit; cluster/hierarchy remainder cannot be silently dropped.
+Primary receipts: TOKEN_CONTEXT_SOURCE_V1_RESULT.json and
+TOKEN_CONTEXT_SOURCE_AUDIT_V1_RESULT.json in polynomial_causal; explanation
+2026-09-10/gerund_scalar_writes_and_live_feedback.md. Do not repeat singleton
+whole-module localization as a new circuit discovery or select a head subset
+from this null without a different registered hypothesis and dossier lookup.

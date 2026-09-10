@@ -1,6 +1,23 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 17:17 UTC
+## Latest follow-up — 10 September, 17:37 UTC
+
+**Two explicit paths: individual token readers, and shared unembedding structure
+plus token-specific remainders.** Both fold backward through the same weight
+maps. The [updated explanation](gerund_scalar_writes_and_live_feedback.md)
+now states the hierarchy formula and the circuit tests that sharing must pass.
+
+The context-source experiment found **no qualifying single module among 36**.
+All controls held; no individual output supplied enough context signal in both
+target frames. A saved-reader CPU audit leaves .649/.905 gate error when only
+the mean reader is retained. Shared plus token-specific pieces are exact, but
+their upstream production remains unexplained. This is a localization null and
+an accounting result, not an extracted circuit. Full goal remains open.
+
+Next scheduled reviews: hourly18:14 UTC; mathematical19:49 UTC.
+
+
+## Previous follow-up — 10 September, 17:17 UTC
 
 **Both token readers and the shared norm matter.** Normalization alone leaves
 94–98% effect error, and supplying the true norm still leaves88–92% for the old

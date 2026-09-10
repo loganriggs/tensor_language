@@ -1138,6 +1138,42 @@
     "5f90cc140f9255ddfd96e958bd44096f3c539ecc03daa664cea9948bb39ba777"
    ]
   },
+  "subroutine.readout.token_context_singleton_source": {
+   "file": "subroutine_readout_token_context_singleton_source.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "adede2a4dbf6b0cdedf600f6e5907326859b570b5a4342dbe7339e3a89f0df1e",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "readout.token_context_singleton_source.v1",
+   "claim_status": "rejected",
+   "causal_variable_id": "token_context_source",
+   "interchange_family_count": 2,
+   "invariance_family_count": 1,
+   "negative_event_count": 1,
+   "active_negative_event_count": 1,
+   "latest_blocker": "readout.token_context_singleton_source.v1.singleton_source",
+   "latest_active_event": "readout.token_context_singleton_source.v1.algebra",
+   "active_event_ids": [
+    "readout.token_context_singleton_source.v1.instrument",
+    "readout.token_context_singleton_source.v1.singleton_source",
+    "readout.token_context_singleton_source.v1.algebra"
+   ],
+   "held_test_types": [
+    "compiled_equivalence",
+    "null_control"
+   ],
+   "active_blocking_test_types": [
+    "das_interchange"
+   ],
+   "design_keys": [
+    "1c91b4ca2518b9abf0d87d08ce9cd3b8ce8fee4a259a646bd51d3ff5cc9e3e8b",
+    "760914e0901e3ae5312435f0b2ee3dcd43319b204879d9cc36a5bdeee0bc20b2",
+    "9268c1ba4b7de31a83e2c093b9e395a2e0ffbb962bf64a64defe951d87e7451a"
+   ]
+  },
   "subroutine.readout.whole_token_quadratic_sharing": {
    "file": "subroutine_readout_whole_token_quadratic_sharing.json",
    "schema_version": 2,

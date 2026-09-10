@@ -1,0 +1,278 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.readout.token_context_singleton_source",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "readout.token_context_singleton_source.v1",
+   "revision": 1,
+   "status": "rejected",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "token_context_source",
+    "domain": "Already opened A1/A2/G16 base contexts; cyclic same-frame primed-verb changes",
+    "read": "k_perp=2Q17(v)e-2(e^T Q17(v)e)e applied to normalized MLP17 input",
+    "operation": "live recomputation after each of36 individual whole-module output donor restores",
+    "write": "context gate tau needed by local token response program",
+    "endpoint": "No site meets >=.5 gate transfer and <=.5 gate error on both targets with G absCE<=.1"
+   },
+   "alternative_explanations": [
+    "Signal may be produced jointly across modules",
+    "Whole-module swaps can mix distinct computations",
+    "Internal gate transfer is not lexical behavior recovery"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "one whole module output replaced by cyclic next-context value"
+     ],
+     "holds_fixed": [
+      "grammatical frame and final token",
+      "recipient answer-minus-foil reader and e"
+     ],
+     "control_ids": [
+      "own_cache_noop",
+      "all_chain_restore",
+      "mlp17_output_causal_zero"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_context_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "one whole module output replaced by cyclic next-context value"
+     ],
+     "holds_fixed": [
+      "grammatical frame and final token",
+      "recipient answer-minus-foil reader and e"
+     ],
+     "control_ids": [
+      "own_cache_noop",
+      "all_chain_restore",
+      "mlp17_output_causal_zero"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_context_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "G",
+     "role": "invariance",
+     "changes": [
+      "one whole module output replaced by cyclic next-context value"
+     ],
+     "holds_fixed": [
+      "grammatical frame and final token",
+      "recipient answer-minus-foil reader and e"
+     ],
+     "control_ids": [
+      "own_cache_noop",
+      "all_chain_restore",
+      "mlp17_output_causal_zero"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_context_panels",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "all36_output_sites",
+     "tensor_path": "attention and MLP final-position outputs at all18 blocks",
+     "shape": [
+      18,
+      2,
+      1152
+     ],
+     "intervention": "one output at a time; all-chain and own-cache controls"
+    }
+   ],
+   "split_plan_ids": [
+    "reused_context_panels"
+   ],
+   "evidence_event_ids": [
+    "readout.token_context_singleton_source.v1.instrument",
+    "readout.token_context_singleton_source.v1.singleton_source",
+    "readout.token_context_singleton_source.v1.algebra"
+   ],
+   "translation_ids": [],
+   "next_missing": "Distributed/shared-subterm context production with explicit operations; independent initialization, held-out behavioral tests, selective removal and composition."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "reused_context_panels",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "runner",
+   "description": "Opened A1/A2/G16 base contexts, same-frame cyclic next verb, recipient reader fixed. No new lexical capability or OOD claim."
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "readout.token_context_singleton_source.v1.instrument",
+   "claim_id": "readout.token_context_singleton_source.v1",
+   "stage": "complete",
+   "test_type": "null_control",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "G"
+   ],
+   "site_id": "all36_output_sites",
+   "split_plan_id": "reused_context_panels",
+   "evaluation_role": "instrument",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "binding"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_a_instrument",
+     "value": true,
+     "bar": true
+    }
+   ],
+   "notes": "117forwards1872seq, all48 base grammatical endpoints capable. Zero nominees; target maxima .3591/.3701 transfer and minima .6566/.7107 error. Whole-module screen only; no semantic module promotion. CPU audit includes all sites and report-only shared/remainder accounting.",
+   "design_key": "1c91b4ca2518b9abf0d87d08ce9cd3b8ce8fee4a259a646bd51d3ff5cc9e3e8b",
+   "execution_key": "ddbd6a4c4c7910dcdab525abdb9bcd398f34a705630d2e8aeec47f2e6fd0ffca"
+  },
+  {
+   "event_id": "readout.token_context_singleton_source.v1.singleton_source",
+   "claim_id": "readout.token_context_singleton_source.v1",
+   "stage": "complete",
+   "test_type": "das_interchange",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "G"
+   ],
+   "site_id": "all36_output_sites",
+   "split_plan_id": "reused_context_panels",
+   "evaluation_role": "singleton_source",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "binding"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_b_shared_source_nomination",
+     "value": false,
+     "bar": true
+    }
+   ],
+   "notes": "117forwards1872seq, all48 base grammatical endpoints capable. Zero nominees; target maxima .3591/.3701 transfer and minima .6566/.7107 error. Whole-module screen only; no semantic module promotion. CPU audit includes all sites and report-only shared/remainder accounting.",
+   "design_key": "9268c1ba4b7de31a83e2c093b9e395a2e0ffbb962bf64a64defe951d87e7451a",
+   "execution_key": "84a8e271825dbce6f37f6d99b8830e0d84c192bcc7eaebc22644864201feae96"
+  },
+  {
+   "event_id": "readout.token_context_singleton_source.v1.algebra",
+   "claim_id": "readout.token_context_singleton_source.v1",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "G"
+   ],
+   "site_id": "all36_output_sites",
+   "split_plan_id": "reused_context_panels",
+   "evaluation_role": "algebra",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "binding"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_c_fold_controls",
+     "value": true,
+     "bar": true
+    }
+   ],
+   "notes": "117forwards1872seq, all48 base grammatical endpoints capable. Zero nominees; target maxima .3591/.3701 transfer and minima .6566/.7107 error. Whole-module screen only; no semantic module promotion. CPU audit includes all sites and report-only shared/remainder accounting.",
+   "design_key": "760914e0901e3ae5312435f0b2ee3dcd43319b204879d9cc36a5bdeee0bc20b2",
+   "execution_key": "129bac9635b1af94aab1af08ad954443bb6a0a97af31f23a0a4ae8be57abc1c3"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_SOURCE_V1_PREREGISTRATION.md",
+   "sha256": "8c04dc48bf356bc7e023fa7be33e9a058ace156e93acfa69eca8597f153b4206",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/GERUND_FRESH_TRANSFER_V1_ROWS.json",
+   "sha256": "e5b43e97f8eb198bf4f98f524b5708d732608a1ff4847ecc14f854a3c3d4802b",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_token_context_source_v1.py",
+   "sha256": "ae6199b47dce6bbb65093606802357e81dafdae73af54205825ab6d4b076a7cc",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "binding": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_SOURCE_V1_BINDING.json",
+   "sha256": "96cd8de596b5955c13a7a842292c811549c9f9a4e7183be8a6785f26aefe79c2",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_SOURCE_V1_RESULT.json",
+   "sha256": "104b14b8a6719ff65b0cd0b916ed2b9353f18e26eff817f8a9921d976b6d984b",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "states": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_SOURCE_V1_ARTIFACT.pt",
+   "sha256": "5ce7b8dcbd78f3974642cdc0e3a09b70bdc99365e29520597358e0f25eae4a6a",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/TOKEN_CONTEXT_SOURCE_AUDIT_V1_RESULT.json",
+   "sha256": "0a520c5c9de217860d14135b6f706aa69b31a0464ed6dd1388e3f5b670fe8598",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "auditor": {
+   "path": "basis_aligned/polynomial_causal/audit_token_context_source_v1.py",
+   "sha256": "46bd1d9967bedb41c6acad48dc5875cfbfef48d26b8207f00892ef0dda75dbf2",
+   "kind": "evidence",
+   "status": "frozen"
+  }
+ }
+}
