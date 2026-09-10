@@ -1,6 +1,6 @@
 # Noun-number selection: what the model does, and what the math rules out
 
-**Latest result:** we have located a common causal interface for studying the structural failure: layer 9's mixed writes at the final “to” and action-word positions. Those two positions preserve the full component's effect within 3.94% in every original and fronted group. This allows a later test of whether the effect follows the supplied write or its receiving context. It does not repair the failed structural or gender selectivity. Sections 15–16 explain the boundary and the new localization.
+**Latest result:** genuine interchange at the common two-position interface places most of the observed structural effect change in the supplied write, but the strict producer-only prediction still fails. The reader-only prediction also fails, while the registered interaction bound passes. The next mathematical split is inside the write producer: contextual values versus the attention routing that reads them. Section 17 gives the evidence and the explicit contraction to test next.
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
@@ -488,3 +488,48 @@ Let E_ij be the causal answer effect when the write comes from layout i and the 
 - **Effect follows the reader:** E_10 resembles E_00, and E_01 resembles E_11.
 
 Neither outcome is guaranteed. The interaction E_11−E_10−E_01+E_00 can make both simple descriptions fail. The [new CPU accounting core](../cross_context_effect_attribution_v1.py) correctly distinguishes planted producer-only, reader-only and interacting examples. Its [control receipt](../COMMON_SUFFIX_CONTINUATION_V1.json) also summarizes the completed native localization. No native cross-layout interchange has been run or registered yet; these are prospective predictions, not findings. Independent extraction and all remaining native weights are still unresolved.
+
+## 17. Interchange points toward the write producer, with a remaining reader contribution
+
+We performed genuine component replacements in both directions. For recipient layout r, define B_r=A_r−C_r: its native layer 9 attention write with its own common component removed. A donor component C_p is then installed as B_r+T C_p, where T maps the two matching token roles. The measured causal effect is
+
+\[
+E_{pr}=z_r(B_r+TC_p)-z_r(B_r).
+\]
+
+Thus the donor is tested against a fixed recipient background. We did not merely subtract an unrelated donor write from the unmodified recipient. All 16 lexical/action pairs, both directions, the original weights and native suffix were retained, with no fitted alignment or gain.
+
+The [registered interchange](../THIRD_NOUN_COMMON_INTERCHANGE_V1_PREREGISTRATION.md) is valid. Native and removed-component outputs replay exactly. It used 256 forwards over 4096 sequence instances in 4.274 seconds. The strict producer-following and reader-following predictions both fail; the small-interaction prediction passes in every pair. Each following rule required errors below10% in both directions for both the correct mixed answer margin and the centered three-reader mixed vector.
+
+For the correct answer margin, producer-following errors range from **3.67–24.35%**, whereas reader-following errors range from **61.99–909.43%**. These have the registered direction-specific diagonal effect as denominator; the larger percentages can reflect comparison with a small diagonal effect. The interaction is at most **9.09%** of the larger diagonal-effect norm for the margin and **9.84%** for the centered three-reader vector. Smaller producer-following errors do not turn its failed universal prediction into a pass. [Native result](../THIRD_NOUN_COMMON_INTERCHANGE_V1_RESULT.json).
+
+To describe the measured structural change without discarding the reader contribution, the [CPU attribution](../COMMON_INTERCHANGE_CHANGE_ATTRIBUTION_V1_RESULT.json) uses the exact symmetric decomposition
+
+\[
+\Delta E=E_{11}-E_{00}=\Delta_P+\Delta_R,
+\]
+\[
+\Delta_P=\tfrac12[(E_{10}-E_{00})+(E_{11}-E_{01})],\qquad
+\Delta_R=\tfrac12[(E_{01}-E_{00})+(E_{11}-E_{10})].
+\]
+
+The producer term's signed projection onto the observed margin change is **90.62–103.25%**. The reader term ranges from **−3.25% to9.38%**, with reader-change magnitude1.94–11.05% of the total change. Values above100% or below0 indicate cancellation. This is an attribution of this measured two-context contrast, not proof that readers never matter or that the producer executes independently.
+
+There is now a bounded weight-based object to investigate inside that producer. In both layouts, a mixed value can first occur at the third-to-last token. The three source stages are: the token where both cues first become available, “to,” and the action. The output queries are the final two stages. Their causal pattern has the same shape:
+
+\[
+\begin{pmatrix}1&1&0\\1&1&1\end{pmatrix}.
+\]
+
+The zero prevents “to” from reading the future action token. The first source is an attractor in one layout and an object in the other: this is alignment by information availability, not an assertion that the noun roles are identical.
+
+For these positions the ideal mixed-write contraction is
+
+\[
+C_q=(1-\lambda)\sum_{h,s}(P_0)_{hqs}\,
+W_{O,h}W_{V,h}(u_s)_{oh}.
+\]
+
+Here u_s is the actual normalized contextual input, (u_s)_oh its mixed component, P_0 the conditional mean of native attention routing, and W_V/W_O the checkpoint's value/output maps for head h. The local coefficient is1−λ=1.65625. This formula retains the normalized producers and position-dependent routing; it permits folding the adjacent linear maps without treating that rewrite as interpretability by itself.
+
+The [new contraction helper](../mature_value_route_contract_v1.py) and [CPU controls](../MATURE_VALUE_ROUTE_CONTRACT_V1_CONTROLS.json) verify the conditional routing identity to1.33e−15 and check the shared causal shape in all32 native row geometries. A native value-versus-routing factorial can now test the two inputs to this contraction while retaining both recipient contexts. It has not yet been registered or run. No independent extraction, new structural-transfer success, or reduction in opaque native weights is claimed.

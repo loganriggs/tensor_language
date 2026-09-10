@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "conditional_mean_routing_identity_max_abs": 1.3322676295501878e-15,
+  "sources": [
+    "first_joint_information",
+    "to",
+    "action"
+  ],
+  "queries": [
+    "to",
+    "action"
+  ],
+  "causal_pattern_mask": [
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "scope": "Synthetic exact contraction and fixed information-stage geometry. First joint-information token has different noun roles across layouts; no native factor swap or independent producer claimed.",
+  "native_row_geometries_checked": 32,
+  "script_sha256": "da8bbd20dcdcd680146d6fc4dfb9dedc1445bb258b7277b9fb669fbc2fcfafac"
+}

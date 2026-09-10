@@ -53,6 +53,39 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## True interchange: both simple rules fail; producer split prepared — 2026-09-10 07:12:13 UTC
+
+Previous goal turn PROGRESS0c8b2fbf2; current preregistration/implementationdf3ba4abc.
+`THIRD_NOUN_COMMON_INTERCHANGE_V1_RESULT.json` valid A/D; Bproducer/Creader fail.
+True replacement uses B_r=A_r-C_r and installs B_r+T C_p; E_pr compares that
+with removed-C background. All16pairedworlds, bothdirections, fullnative suffix.
+Producer rule passes3/16pairs jointly onbothreadouts; reader0/16; smallinteraction
+16/16. Correct-marginproducer errors.0367–.2435; reader.6199–9.0943. Interaction
+<=.09086margin/.09841centeredthree-readers. Native/removedparent grids exact.
+256forwards4096seq,4.274s; runnerSHA
+`7323959c4f4ca11d8924439fc78bc3e45d9eb61c5f98bbe5a4cb9cade29951c4`.
+Do not promote producer-only because its errors are smaller.
+
+Executed CPU continuation: `common_interchange_change_attribution_v1.py` /
+`COMMON_INTERCHANGE_CHANGE_ATTRIBUTION_V1_RESULT.json`. Exact symmetricproducer
+change projects .9062–1.0325 onto totalstructuraleffectchange; reader -.0325–.0938,
+readerchangenorm .0194–.1105total. Signedcancellationallowed; this describes the
+opened2x2contrast, notzero-reader dependence. `mature_value_route_contract_v1.py`
+plus `MATURE_VALUE_ROUTE_CONTRACT_V1_CONTROLS.json` derive/test next boundedobject:
+C_q=(1-lambda)sum_hs P0_hqs W_Oh W_Vh(u_s)_oh. Commonqueries to/action, sources
+first-joint-information/to/action; causal mask [[1,1,0],[1,1,1]] inbothlayouts.
+Matrixidentityerror1.33e-15,32rowgeometrieschecked. Completionnounrolesdiffer;
+alignment isbyinformationstage, notnounidentity. Actualnative own-factorbridge
+must pass before interpreting cross-factor swaps. Localcoefficient1.65625.
+
+Next highest-information experiment: separate native contextual value production
+from conditionally averaged attention routing using a2x2factorial, retainingboth
+recipientcontexts (2x2x2 effects) because reader-only/producer-onlyarebothfalse.
+No nativefactorial isregistered/executedyet. No gain/head/rank/rowrescue; all545902902
+weights/fourcounterfactualinputs/native suffixremain. Existingexplanationsection17
+updated. Fullgoalactive, actualpost-resultCPUcontinuationcomplete. Hourlyreview
+next07:14 UTC; mathematicalreview07:49 UTC. Verifyliveboards/queuesonresume.
+
 ## Common mature interface localized; cross-context accounting tested — 2026-09-10 07:03:05 UTC
 
 Previous goal turn PROGRESS7ff6ac79c; current preregistration/implementationd2abbb742.
