@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Correlative replay and folded program](correlative_replay_and_folded_program_2026-09-10.md): saved26-head/14-layer interface reproduces prior metrics; weight-derived scalar producers and residual writers match native joint donor/mean edits. Conditional extraction, with upstream dependencies and removal/OOD limits explicit.
+
 - [Weight folding and shared-circuit mathematics](weight_folding_and_shared_circuit_math_2026-09-10.md): original handoff/pilot reassessment; trained-weight counterexample to numerator-only attention sharing, exact normalization-aware fold, and independent native rotary checks. Mathematical tool; no new circuit.
 
 - [Native reader pair and calibration screen](native_reader_pair_and_calibration_screen_2026-09-10.md): exact full native bilinear product has a small causal effect, but fails the calibration role and output-projection sufficiency. Natural-scale and local coordinate audits explain the limits.

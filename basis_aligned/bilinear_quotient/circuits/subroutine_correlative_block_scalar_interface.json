@@ -1,0 +1,309 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.correlative.block_scalar_interface",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "interface",
+  "aliases": [
+   "conditional_correlative_route_read_write_program"
+  ]
+ },
+ "claims": [
+  {
+   "claim_id": "correlative.block_scalar_interface.v1",
+   "revision": 1,
+   "status": "site_live",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "correlative_block_scalars",
+    "domain": "14 conditional scalar ports from26heads on reused internally held correlative rows",
+    "read": "complete native normalized QK routing, normalized local/first-layer attention inputs, frozen fitted head readers",
+    "operation": "sum over selected heads and sources of routing times folded local/first value read",
+    "write": "one residual writer per block times donor-minus-live scalar; mean replacement uses frozen FIT means",
+    "endpoint": "full-vocabulary correspondence to original joint head-space swaps and mean replacements"
+   },
+   "alternative_explanations": [
+    "conditional coordinate program retaining opaque upstream model",
+    "task-specific cue association without reusable semantic operation"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "both/neither cue in bare frame"
+     ],
+     "holds_fixed": [
+      "frozen new interface and original checkpoint",
+      "matched semantic position and registered other prompt factors"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "original_head_space_intervention_reference"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "correlative_v505_internal_held_reused",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "both/neither cue in report frame"
+     ],
+     "holds_fixed": [
+      "frozen new interface and original checkpoint",
+      "matched semantic position and registered other prompt factors"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "original_head_space_intervention_reference"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "correlative_v505_internal_held_reused",
+     "status": "frozen"
+    },
+    {
+     "family_id": "P",
+     "role": "invariance",
+     "changes": [
+      "lexical reporter with answer preserved"
+     ],
+     "holds_fixed": [
+      "frozen new interface and original checkpoint",
+      "matched semantic position and registered other prompt factors"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "original_head_space_intervention_reference"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "correlative_v505_internal_held_reused",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "invariance",
+     "changes": [
+      "disjoint either/not cue and or/but readout"
+     ],
+     "holds_fixed": [
+      "frozen new interface and original checkpoint",
+      "matched semantic position and registered other prompt factors"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "original_head_space_intervention_reference"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "correlative_v505_internal_held_reused",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "correlative_14_attention_blocks",
+     "tensor_path": "attention c_proj outputs at layers3..16",
+     "shape": [
+      14,
+      1152
+     ],
+     "intervention": "live donor or mean scalar replacement through frozen residual writers"
+    }
+   ],
+   "split_plan_ids": [
+    "correlative_v505_internal_held_reused"
+   ],
+   "evidence_event_ids": [],
+   "translation_ids": [],
+   "next_missing": "Independent input producer, new factor/OOD prediction, established unrelated removal budget, independent shared-semantic reuse and structural saving. All545902902 native parameters retained; totalrank14, not one global scalar."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "correlative_v505_internal_held_reused",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "rows",
+   "description": "Original v505 internal held rows2/3mod4,16perpanel; group-disjoint from interface FIT but all originate in authored FIT namespace. Panels reused; A1/A2/P share groups and A1/P identical base prompts."
+  }
+ ],
+ "evidence_events": [
+  {
+   "claim_id": "correlative.block_scalar_interface.v1",
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_v505_internal_held_reused",
+   "evaluation_role": "conditional_interface_replay_on_reused_panels",
+   "input_artifact_ids": [
+    "interface",
+    "rows",
+    "maps",
+    "audit"
+   ],
+   "seed": 0,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "correlative.interface.disk_replay.v1",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1"
+   ],
+   "prereg_artifact_id": "replay_plan",
+   "result_artifact_id": "replay_result",
+   "metrics": [
+    {
+     "name": "disk_reload_margin_maxabs",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=1e-5"
+    }
+   ],
+   "notes": "New fit identity with all original v505 predicates and frozen repeat checks passed; missing historical tensors prevent identity claim.",
+   "design_key": "9390b4c49309e0c2a5a416b31020ba0e45f04ead8b3095561d4dd12ffa1907bf",
+   "execution_key": "bf4c01a83ee07564b47ad5a94c53e304f2d048a14eb69a8ac977fb37915d8454"
+  },
+  {
+   "claim_id": "correlative.block_scalar_interface.v1",
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_v505_internal_held_reused",
+   "evaluation_role": "conditional_interface_replay_on_reused_panels",
+   "input_artifact_ids": [
+    "interface",
+    "rows",
+    "maps",
+    "audit"
+   ],
+   "seed": 0,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "correlative.folded_program.correspondence.v1",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "joint_donor_mean_fullvocab_maxabs",
+     "estimate": 1.52587890625e-05,
+     "ci95": null,
+     "bar": "<=1e-3 and relativeL2<=1e-5; scalar and margin gates also pass"
+    }
+   ],
+   "notes": "All5compiler gates pass28forwards448seq. Native baselineexact0; actual local/first value maps and14live residual writers, allnativebackground remains. No independent upstream extraction or saving.",
+   "design_key": "36fe394d463bba08689456df36c3af43408a4bb4e66b02e3e3f91d83c91d7bf8",
+   "execution_key": "cde6806f6451d8097211bb747331b0c0edd013c06b47d81b85e9e5727d4413e9"
+  },
+  {
+   "claim_id": "correlative.block_scalar_interface.v1",
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_v505_internal_held_reused",
+   "evaluation_role": "conditional_interface_replay_on_reused_panels",
+   "input_artifact_ids": [
+    "interface",
+    "rows",
+    "maps",
+    "audit"
+   ],
+   "seed": 0,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "correlative.folded_program.removal_description.v1",
+   "test_type": "removal",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "C"
+   ],
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "audit",
+   "metrics": [
+    {
+     "name": "C_base_only_mean_replacement_CE",
+     "estimate": 0.06333279982209206,
+     "ci95": [
+      -0.019556876737624403,
+      0.14861870044842365
+     ],
+     "bar": "Descriptive: no prospective behavioral selectivity acceptance gate in compiler protocol"
+    }
+   ],
+   "notes": "Native mean-edit correspondence held, unrelated selectivity not established.16authored groups; reused text, interval includes0. P removal damage alone is not unrelated collateral: P retains target variable and shares all16baseprompts withA1. No rescoring of prior v505 removal.",
+   "design_key": "20302a3306a9d0d62adbeec147c748ba9b3cb67a8aeb748fda11e6645ff0944b",
+   "execution_key": "c2a67225663d322d1ce9653ca7cc80604509713cde50cada8aeb6532b8758203"
+  }
+ ],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_FOLDED_PROGRAM_V1_PREREGISTRATION.md",
+   "sha256": "c130adc4256536b1b853b468deeb93d9a03bb8cde888dfd6ff1ed7d878fcf4ad",
+   "kind": "plan",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_FOLDED_PROGRAM_V1_RESULT.json",
+   "sha256": "cc979644b2d2ea21b06a5afdecac7682cfbcb2cda7189c0213fdec3625c0b5d0",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "interface": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_ARTIFACT.pt",
+   "sha256": "0da9d27fd71bbe9fd689b0091a5299790d3617e674004f73623829541913d12d",
+   "kind": "interface",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_ROWS.json",
+   "sha256": "35ebbe96aec3cc7ea38a48a1a71cc82638c43865d37f1be1cbb04edbb69600c8",
+   "kind": "rows",
+   "status": "frozen"
+  },
+  "maps": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_WEIGHT_PORTS_V1_MAPS.pt",
+   "sha256": "ce6b3bb2e5da8a7cec59fe9e5142837a023b643bf9bed49b523f179030113e82",
+   "kind": "maps",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_FOLDED_EFFECTS_V1_RESULT.json",
+   "sha256": "32c4b1c681ede27477bcb47fb07581f25183c89a33f28f29fbc09df92cb2bb8a",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "replay_plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_PREREGISTRATION.md",
+   "sha256": "8c274653ffda866dc734d7cbccd5cc4bfc5b14dfa2fb25bd35f3a36201513064",
+   "kind": "replay_plan",
+   "status": "frozen"
+  },
+  "replay_result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_RESULT.json",
+   "sha256": "07f5e36ca0798467340095ace87f7f861a31da3d977f158e2923d234865ca27b",
+   "kind": "replay_result",
+   "status": "frozen"
+  },
+  "executor": {
+   "path": "basis_aligned/polynomial_causal/correlative_native_folded_executor_v1.py",
+   "sha256": "3b5bf51c1736f44b7550693e110b3f63e9d978518435d73f93a197dca9839d60",
+   "kind": "executor",
+   "status": "frozen"
+  }
+ }
+}

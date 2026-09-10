@@ -618,6 +618,39 @@
     "f106147ccd04262dddd37d5a2f381bf889220e617832d8b50f6abb73627f35f6"
    ]
   },
+  "subroutine.correlative.block_scalar_interface": {
+   "file": "subroutine_correlative_block_scalar_interface.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "bb214ce9b7d81bb4695ec4f3d835b8e2b94891e9d9ab204f1897368e138a4a70",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "correlative.block_scalar_interface.v1",
+   "claim_status": "site_live",
+   "causal_variable_id": "correlative_block_scalars",
+   "interchange_family_count": 2,
+   "invariance_family_count": 2,
+   "negative_event_count": 0,
+   "active_negative_event_count": 0,
+   "latest_blocker": null,
+   "latest_active_event": "correlative.folded_program.removal_description.v1",
+   "active_event_ids": [
+    "correlative.interface.disk_replay.v1",
+    "correlative.folded_program.correspondence.v1",
+    "correlative.folded_program.removal_description.v1"
+   ],
+   "held_test_types": [
+    "compiled_equivalence"
+   ],
+   "active_blocking_test_types": [],
+   "design_keys": [
+    "20302a3306a9d0d62adbeec147c748ba9b3cb67a8aeb748fda11e6645ff0944b",
+    "36fe394d463bba08689456df36c3af43408a4bb4e66b02e3e3f91d83c91d7bf8",
+    "9390b4c49309e0c2a5a416b31020ba0e45f04ead8b3095561d4dd12ffa1907bf"
+   ]
+  },
   "subroutine.induction.equality_score": {
    "file": "subroutine_induction_equality_score.json",
    "schema_version": 2,

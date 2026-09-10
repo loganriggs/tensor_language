@@ -53,6 +53,71 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Replayable correlative interface and native folded program — 2026-09-10 13:22 UTC
+
+Previous goal turn PROGRESS4a12e25c0; current original handoff/pilot authority.
+Prereg fdde35ac6; saved interface/maps and native protocol03671c902. No calibration,
+is/was or induction rescue. Reconstructed unchanged v505 recipe under a NEW fit
+identity because historical unit IDs/directions were not saved. Four old summary
+metrics repeat exactly at stored precision; original five predicates all hold.
+The new artifact preserves selected unit order, per-block q, FIT means, histories
+and actual rows. Disk reload margin replay0, native/head/MLP bridges0. This cannot
+prove identity with missing historical fitted tensors.
+
+Managed reconstruction13:09:12–13:09:49:1420bodyforwards22636seq,34.290s.
+26heads, layers3..16,14blocks. Rank1 PER BLOCK means totalrank14. q3328scalars,
+means3328. Artifact CORRELATIVE_REPLAYABLE_INTERFACE_V1_ARTIFACT.pt SHA
+0da9d27fd71bbe9fd689b0091a5299790d3617e674004f73623829541913d12d.
+Frozen runnerSHA d06eeeefc51a4a0b14aed1f9bc21e9996fd811345a0daa025c907a440aee55f9.
+
+CPU weight maps fold q_h into actual local/first value readers and c_proj writer:
+s_l=sum_h,sum_j p_h(t,j)*(r_local_h*x_lj+r_first_h*x_0j),
+w_l=sum_h O_h q_h; delta_residual=w_l*(s_donor-s_live).
+Actual normalized attention0 input supplies first values; native full normalized
+QK routing/rotary and upstream remain. Negative and >1 lambdas retained.14writers,
+26reader pairs,76032core coefficients. CPU synthetic identities1.14s,
+scalarmax5.26e-13/writermax1.25e-14. MAPS artifactSHA
+ce6b3bb2e5da8a7cec59fe9e5142837a023b643bf9bed49b523f179030113e82.
+
+Managed folded program13:17:10–13:17:14:28bodyforwards448seq,1.637s.
+ALL5predicates hold. Four panels16rows: internal heldA1/A2/P/disjointC.
+Complete14block donor swaps and FIT-mean replacements match original head-space
+block-live edits. Native baselineexact0, full-vocab prediction-position bridges
+max1.526e-5/relative6.08e-7, marginsmax7.63e-6. Scalar worstscalederror.1893<=1.
+224block/context collections x16rows=3584scalarchecks (earlier board entry's2688
+was arithmetic error, explicitly corrected). Fullnativebackground stillcomputed.
+Frozen runnerSHA de3426e530867870c0a59980c4a89abb985ea3f7d9eed0cb2ba7296f115c1320.
+
+Post-result actual CPU audit_correlative_folded_effects_v1 completed4000authored-
+group bootstraps and internal split audit. Raw donor recovery.967603A1/.902151A2;
+Pmovement.019102/C.020375 in A1separation units15.822812. Prior1.001/.935 divide
+by selected fullhead-set recovery, different quantities. Base-only mean CE damage
+A1+1.79409,A2+1.59363,positiveall16each; C+.063333 CI[-.019557,.148619]. No prospective
+selectivity bar registered here; unrelated removal remains unestablished.
+P carries target variable and ALL16baseprompts equalA1, so P-removal harm alone
+is not unrelated collateral (earlier commentary interpretation corrected).
+FIT/held have zero row/group overlap internally, but all originate authored FIT
+namespace, old panels reused. A1/A2/P share16groups, no pooled independence/OOD claim.
+New meanCEs base-only; earlier v505 removal averaged both sides.
+
+Canonical subroutine.correlative.block_scalar_interface site_live, NOT promoted
+weights_translated/adopted. Events: disk replayheld, compiled correspondenceheld,
+unrelated removalinconclusive. All545902902 nativeparams retained, no structural
+saving or independent upstream extraction. Need input-operation semantics/new
+factor combinations and selective/reuse evidence; do not refit the saved interface.
+Reusable helpers correlative_route_read_write_v1.py and
+correlative_native_folded_executor_v1.py, full receipts CORRELATIVE_*_V1*.json/pt.
+Explanation explanations/correlative_replay_and_folded_program_2026-09-10.md.
+
+Hourly13:14 review complete:4managedreceipts in12:14–13:14 (3calibration hypotheses
+failed plus interface reconstruction); median757sec gap misses600target. Shared
+replay/executor block repairs repeated missing-artifact work; no unrelated new
+candidate until that repair. Native compiled executor now passes. Coarseclock
+76.15%coverage,2650.67science/90.81review,858.52unrecorded; labels include authoring.
+Focus/noveltyPASS, ceremonyPASS under incomplete coarse labels. Next hourly14:14,
+mathematical13:49UTC. Fullgoalactive, actual post-resultCPU continuationcomplete,
+no successorGPU queued. Preserve Claude queues/logs/current work.
+
 ## Normalized routing fold and false-sharing control — 2026-09-10 13:02 UTC
 
 Original handoff/pilot mathematical reassessment, following prior PROGRESS4a72003f4.

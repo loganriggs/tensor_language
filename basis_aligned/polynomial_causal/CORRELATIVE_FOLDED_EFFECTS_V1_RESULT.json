@@ -1,0 +1,158 @@
+{
+  "schema": "correlative.folded_effects.v1",
+  "panels": {
+    "A1": {
+      "rows": 16,
+      "groups": 16,
+      "group_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "internal_fit_group_overlap": [],
+      "internal_fit_row_overlap": 0,
+      "authored_split_labels": [
+        "FIT"
+      ],
+      "donor_raw_recovery": 0.9676033704585305,
+      "donor_absolute_margin_movement_over_A1_scale": 0.9632216101321279,
+      "mean_replacement_ce_damage": 1.7940893983468413,
+      "mean_replacement_ce_ci95": [
+        1.1347840224159882,
+        2.4240336917340755
+      ],
+      "mean_replacement_ce_positive_rows": 16,
+      "mean_replacement_margin_damage": 7.807927876710892,
+      "folded_vs_original_ce_maxabs": 4.649162292480469e-06
+    },
+    "A2": {
+      "rows": 16,
+      "groups": 16,
+      "group_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "internal_fit_group_overlap": [],
+      "internal_fit_row_overlap": 0,
+      "authored_split_labels": [
+        "FIT"
+      ],
+      "donor_raw_recovery": 0.9021506322192251,
+      "donor_absolute_margin_movement_over_A1_scale": 0.8540072927599149,
+      "mean_replacement_ce_damage": 1.5936295432038605,
+      "mean_replacement_ce_ci95": [
+        0.9660970380995423,
+        2.2416895777801984
+      ],
+      "mean_replacement_ce_positive_rows": 16,
+      "mean_replacement_margin_damage": 6.834906190633774,
+      "folded_vs_original_ce_maxabs": 6.4373016357421875e-06
+    },
+    "C": {
+      "rows": 16,
+      "groups": 16,
+      "group_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "internal_fit_group_overlap": [],
+      "internal_fit_row_overlap": 0,
+      "authored_split_labels": [
+        "FIT"
+      ],
+      "donor_raw_recovery": null,
+      "donor_absolute_margin_movement_over_A1_scale": 0.020375304200887918,
+      "mean_replacement_ce_damage": 0.06333279982209206,
+      "mean_replacement_ce_ci95": [
+        -0.019556876737624403,
+        0.14861870044842365
+      ],
+      "mean_replacement_ce_positive_rows": 9,
+      "mean_replacement_margin_damage": -0.07943567633628845,
+      "folded_vs_original_ce_maxabs": 4.410743713378906e-06
+    },
+    "P": {
+      "rows": 16,
+      "groups": 16,
+      "group_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "internal_fit_group_overlap": [],
+      "internal_fit_row_overlap": 0,
+      "authored_split_labels": [
+        "FIT"
+      ],
+      "donor_raw_recovery": null,
+      "donor_absolute_margin_movement_over_A1_scale": 0.019101950339274736,
+      "mean_replacement_ce_damage": 1.7940893983468413,
+      "mean_replacement_ce_ci95": [
+        1.1469036733498796,
+        2.4357932267477738
+      ],
+      "mean_replacement_ce_positive_rows": 16,
+      "mean_replacement_margin_damage": 7.807927876710892,
+      "folded_vs_original_ce_maxabs": 4.649162292480469e-06
+    }
+  },
+  "A1_scale": 15.8228120803833,
+  "bootstrap_draws": 4000,
+  "bootstrap_seed": 9111274,
+  "source_sha256": "cc979644b2d2ea21b06a5afdecac7682cfbcb2cda7189c0213fdec3625c0b5d0",
+  "scope": "Exploratory post-result group bootstrap on reused authored panels. P still carries target variable; P removal damage alone is not unrelated collateral. C is disjoint readout. Internal split differs from original FIT namespace; no fresh OOD claim."
+}
