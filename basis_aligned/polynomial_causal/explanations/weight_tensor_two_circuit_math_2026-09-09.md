@@ -1,15 +1,31 @@
 # Weight-based decomposition with two circuits and explicit normalization
 
+Updated September10,00:44 UTC. **No simpler circuit satisfying all four requested
+properties has been identified yet.** The current results are:
+
+- An exact weight certificate rules out a smaller linear-input-plus-norm state
+  for the fixed MLP1 task readers. It does not rule out nonlinear circuits.
+- Two-reader constraints give independent local writes at only5.7% extra worst-case
+  write magnitude. Native interchanges retain over98% of the ordinary task effects,
+  but fail the registered no-worse control comparison.
+- The explicit attention-times-pre-attention cross term passes the control limits
+  but supplies only about8%/20% of the complete temporal/iswas interchange effects.
+  It is insufficient, and the other terms are not promoted as fallbacks.
+- The next test removes a fixed quadratic computation directly through the weights,
+  with bias preserved. Its controls pass; native removal/selectivity is pending.
+
+All original weights and retained background remain charged. The formulas, proofs,
+numerical evidence and limitations follow below.
+
 The original direction is in
 [bilinear_circuit_reconstruction_codex_handoff.md](bilinear_circuit_reconstruction_codex_handoff.md).
 The [pilot report](bilinear_reconstruction_pilot_report.md) records the first
 implementation and its negative discovery result. They are different documents:
 the handoff proposes the approach; the report evaluates the bounded pilot.
 
-**The weight-based route remains viable. The pilot ruled out particular local
-span and duplicate-factor proposals, not decomposing a bilinear module after
-folding in its actual writers and readers.** The next work should use both
-circuits to constrain that decomposition and retain normalization explicitly.
+**The pilot ruled out particular local span and duplicate-factor proposals.**
+The follow-up tests reader-conditioned weight functions and their causal edits,
+using both circuits as constraints and retaining normalization explicitly.
 The recent is/was command-mode sequence is paused at the user's request.
 
 ## What the existing work actually establishes
@@ -528,3 +544,68 @@ It does not claim that removing that node equals removing attention at its
 physical input, or that separately normalized paths add. Seven new algebra
 and capture controls pass; the native cross-program test is still pending.
 See the [fixed protocol](../BILIN18_MLP1_ATTENTION_CROSS_PROGRAM_V1_PREREGISTRATION.md).
+
+## The attention cross term is selective but insufficient
+
+The native cross-program test is complete and valid. It used19 forwards and
+528 sequence evaluations; a pre-execution clarification kept each labeled P
+control batch at its original16-row size. No example or scientific bar changed.
+
+The cross term meets the original control limits, with mean KL4.638e-5 and
+6.605e-5 nats/token and no P top-token changes. But it supplies only about
+**7.9% of the temporal effect and19.9% of the is/was effect**, measured relative
+to the complete task-reader interchange. The effect-vector errors are91.9%
+and79.6%, far above the15% limit. The hypothesis therefore fails; neither of
+the other measured terms is promoted as a fallback.
+
+The component algebra agrees to1.55e-11 in FP64. Reconstructing the native
+normalized input differs by at most6.18e-7, and recombining all three components
+reproduces full-vocabulary final logits within1.53e-5. Thus the negative result
+is not explained by omitting the shared denominator or a broken decomposition.
+
+There is also a distinction between summing writes and summing their behavioral
+effects. Summing the measured singleton margin effects misses the joint effect
+by38.9% relative error for temporal and10.5% for is/was. The full nonlinear
+suffix remains essential. This is not a failure of composition when the program
+explicitly recomputes that suffix.
+
+[Native cross-program result](../BILIN18_MLP1_ATTENTION_CROSS_PROGRAM_V1_RESULT.json)
+and [saved effect-sum audit](../BILIN18_MLP1_COMPONENT_EFFECT_ADDITIVITY_V1.json).
+
+## Moving from interchange to removal through the weights
+
+The next test addresses a requirement that donor interchanges cannot establish
+by themselves. If a component is `g(x)`, changing it to `g(x)+k` while subtracting
+`k` from background leaves the model and every difference `g(x')-g(x)` unchanged.
+Yet removing the component changes. Interchange evidence alone therefore does
+not identify a circuit's natural zero or establish that it is independently
+removable.
+
+We can fix a precise, weight-defined candidate instead. Write the native MLP as
+`y=b+W*phi(n)`, where `phi(n)=(Left*n)*(Right*n)`. For task reader `C_t` and its
+dual output writer `R_t`, define
+
+\[
+g_t(n)=R_t C_t W\,\phi(n).
+\]
+
+The original output bias stays in background. Removing this homogeneous
+quadratic computation requires the fixed weight change
+
+\[
+W_{\mathrm{without}\ t}=W-R_t(C_tW).
+\]
+
+This has no donor reference, no new fitted offset, and no need for cached
+activations to implement the edit. The two task edits commute in exact
+arithmetic and preserve the opposite local reader. Whether either edit removes
+the intended behavior while protecting unrelated behavior is a new empirical
+question, not an implication of these identities.
+
+Seven constructed controls pass, including the static-weight/output-subtraction
+identity, bias preservation, joint edits, weight restoration and the constant-
+offset counterexample. The native [weight-defined removal test](../BILIN18_MLP1_WEIGHT_DEFINED_REMOVAL_V1_PREREGISTRATION.md)
+is registered and its primitive implemented. It will evaluate both endpoints
+of the existing target and control pairs, retain native errors, and leave the
+stored checkpoint unchanged. It is still pending; no circuit or structural
+reduction has been established.

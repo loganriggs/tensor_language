@@ -1136,3 +1136,21 @@ control bar. It does not repeat the failed portable attention-input path claim.
 
 [Native result](../BILIN18_MLP1_DUAL_READER_NATIVE_V1_RESULT.json) and
 [cross-program protocol](../BILIN18_MLP1_ATTENTION_CROSS_PROGRAM_V1_PREREGISTRATION.md).
+
+### Attention cross-program null and next removal falsifier
+
+The fixed MLP1 pre-attention/attention numerator program passes its native
+instrument and original P control bars, but the nominated cross term supplies
+only7.9%/19.9% of the full task-reader effects. Its effect-vector errors are
+.9193/.7956, so it is not sufficient and no other component is promoted.
+Nineteen forwards/528 sequences,2.237seconds; shared normalization explicit,
+parent replay exact, full compiled-logit error1.53e-5.
+
+Next test the actual removal criterion using the fixed homogeneous quadratic
+reader components. A static Down edit subtracts each dual-writer/reader product
+from Down while retaining the native bias. This supplies a concrete weight-level
+removal correspondence, not a donor-response-only definition. Interchange alone
+cannot determine a component's zero under constant reassignment to background.
+Seven weight/output, commutation, opposite-reader and restoration controls pass;
+native behavior is pending. No fitted offset, dose/rank/site rescue or current
+circuit promotion. See the [removal protocol](../BILIN18_MLP1_WEIGHT_DEFINED_REMOVAL_V1_PREREGISTRATION.md).

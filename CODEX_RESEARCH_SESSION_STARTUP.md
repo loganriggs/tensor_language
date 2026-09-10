@@ -53,6 +53,41 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Cross-program null; fixed-weight removal is the next requirement — 2026-09-10 00:43 UTC
+
+Previous goal turn is PROGRESS. BILIN18_MLP1_ATTENTION_CROSS_PROGRAM_V1
+finishes validly in2.237s with19forwards/528sequences; pre-runaddendum kept
+controlbatchgeometry16, replacingplanned14forwards/32-rowduplication. A/Cpass,
+Bfails. Cross .04111/.11447 versusfull .52002/.57473 signednativeeffects,
+effectvectorerrors .91927/.79564. P KL4.638e-5/6.605e-5 withzero flips passes
+the ORIGINAL ordinaryparent KL+1e-6 bars. Do not promote another descriptive
+component. Parent replay0; componentalgebra1.55e-11, norm6.18e-7,
+reader6.35e-4, fullcompiledlogits1.53e-5. RunnerSHA
+f132c485bc2b953b7324775cdc485eb99537fedb966f7fd661ba7171cc0053f8.
+ResultSHA6131b05a703f96c7b93bfd15a1ae5ba94005c32ec14a6cf86a2aa06571c80a4c.
+CPU singletoneffectsum relativeerror .3894temporal/.1045iswas: downstream
+nonlinearity matters, not proof of failed nonlinearcomposition. Allweightspriced.
+
+Next BILIN18_MLP1_WEIGHT_DEFINED_REMOVAL_V1_PREREGISTRATION.md addresses
+actualremoval. Freeze sameC/dualwriter, natural homogeneousquadratic component
+withphi=(Left n)*(Right n), originalDown_biasretained. StaticDown edit
+W_without_t=W-dual_t(C_tW), singles/joint, preserves opposite localreader.
+Interchanges alone leave constant reallocation unidentified; this fixes a
+weight-definedzero and tests it, without offsetfitting or newdata. Seven CPU
+controls inquadratic_reader_weight_removal.py pass, identity3.55e-15, including
+restoration/commutation and affine-origin counterexample. Native runnerpending.
+
+Use same48target+16Ppairs, bothbase/donor, native/A/B/AB =16forwards and512
+sequenceevaluations. Biasunchanged, checkpointneverwritten, in-memoryweights
+scopedandrestored aftereacharm. A:weight/output FP64identity1e-8/1e-9,
+nativeMLPoracle1e-3/1e-5, identicalinputs andparentnativecontrast/top1replay.
+B:owncuecontrastabsprojection<=.1 andRMSretention<=.25; othertask contrast
+relativeerror<=.1 andendpointtop1unchanged. C:bothremoved suppressbothtasks,
+and everyPsingle/joint KLmean<=.001,p99<=.01,zero endpointflips. No rank,
+dose,site,offset,biasrepair. This is a newremoval test, not relaxation of the
+failedinterchangebar. Reuseexistingnativecapture andsavedrowmanifest/scorer.
+Bothrunnershealthy; noownjobpending. Clocks01:05hourly/01:49math. Goalactive.
+
 ## Dual-reader behavioral screen fails P criterion; actual bilinear cross program next — 2026-09-10 00:24 UTC
 
 Previous goal turn is PROGRESS. Managed BILIN18_MLP1_DUAL_READER_NATIVE_V1

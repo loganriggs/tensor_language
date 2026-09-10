@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": {
+    "static_weight_equals_output_program": true,
+    "opposite_reader_preserved": true,
+    "removed_quadratic_reader_zero": true,
+    "joint_edits_commute": true,
+    "bias_unchanged_and_weight_edit_live": true,
+    "weights_restored_on_normal_and_exception": true,
+    "interchange_does_not_fix_removal_origin": true
+  },
+  "max_weight_output_identity_error": 3.552713678800501e-15,
+  "scope": "Fixed homogeneous quadratic component, original bias retained; semantic absence not assumed."
+}

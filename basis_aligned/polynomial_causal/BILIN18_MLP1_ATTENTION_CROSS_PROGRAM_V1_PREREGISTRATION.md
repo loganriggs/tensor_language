@@ -72,3 +72,16 @@ contractions. No structural saving or independent extraction is claimed from
 retaining native background or evaluating an algebraic identity. A pass would
 license reverse/removal/fresh-OOD/joint-task tests of this specific operation,
 with all remaining opaque coefficients charged.
+
+## Pre-execution batching clarification — September10, before native integration
+
+Keep each P edit at the parent's16-row batch geometry. Run the temporal and
+iswas control arms as separate labeled batches, reusing the same native source
+captures. This replaces the proposed concatenated32-row patch batch and its
+artificial row-ID duplication. It avoids introducing a new FP32 GEMM geometry
+into the strict parent-KL replay comparison and directly reuses the parent
+intervention/scorer. No candidate outcomes have been opened, and no scientific
+bar, population, edit or selection changes. Correct price: four source forwards
+plus five48-row target forwards and ten16-row labeled-control forwards =
+**19 forwards and528 sequence evaluations**. All earlier14-forward/duplicated-ID
+instructions in this protocol are superseded by this clarification.
