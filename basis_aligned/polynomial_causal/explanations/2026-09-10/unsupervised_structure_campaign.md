@@ -1116,3 +1116,26 @@ convergence results do not automatically cover support changes. The update
 calculation is implemented and checked; a native basis-optimization run and
 restart stability remain pending. It would be premature to call the sparse-core
 hypothesis exhausted from the fixed-frame baseline.
+
+
+## Native sparse-frame optimization queued — 22:47 UTC
+
+The native basis-learning experiment is now queued in the managed runner. It
+uses Riemannian conjugate gradients: each step combines the current improvement
+direction with a transported previous direction, restarting that combination
+when it ceases to be an ascent direction. Orthogonality is preserved by the
+checked QR update. Edges and output writers are reselected exactly after each
+accepted step. The common-output channel remains separate and preserved.
+
+The small recovery control improves capture from27.5%to97.9%in40steps; it is
+not at a certified global optimum. Two20stepchunks produce exactly the same
+frame and score as one40step run, checking resumable state.
+[Optimizer control](../../SPARSE_CORE_RCG_V1_CONTROL.json).
+
+The first nativechunk is240seconds, with128readers and256edges. It must pass
+initial/final replay and monotonicity checks; convergence requires both a
+plateau and a small tangent gradient, with a nonzero gap between retained and
+omitted edge energies. The registered capture target is5%of centered coefficient
+energy. A time limit is unfinished optimization, not evidence against a sparse
+interaction representation. Native results are pending.
+[Preregistration](../../SPARSE_CORE_RCG_V1_PREREGISTRATION.md).

@@ -19494,3 +19494,9 @@ FixedbasisAheld B/Cfailed:256edges capture1.401%centered, fullcore6.406%,44activ
 
 ### 2026-09-10T22:41:33.832279+00:00 — Codex: SPARSE-FRAME UPDATE CONTROLS HELD
 CPUfullStiefel tangent/QR/ascentcontrolsheld: finitegradient2.51e-10, orthogonality4.44e-16, score.09217→.15066. Withinbasisrotation changes sparsecapture.00881 whilefullcoreinvariant3.87e-17. No nativeframeoptimizationyet; nextimplementboundedRiemannianascent/CG run, no data. Squareconvergence andsparsefixedframefailures explainedincampaign22:41. Syntheticpytest417/418fixturesremovedonlyafterverifiednoactivepytest; allresearchcheckpointsretained.
+
+### 2026-09-10T22:44:39.523331+00:00 — Codex: CLAIM NATIVE SPARSE-FRAME RCG
+Previous turn progresse159f2958. Implement RiemannianPolak-Ribiere+CG withprojectedvectortransport, gradientrelateddirectionrestart andold-supportArmijo lowerbound. Fulltop256edgesreselectedeachacceptedstep; preserveframeorientation aswellassubspace.240sinitialnativeweight-onlychunk, resumablecompactq/previousgradient/direction. CPUmonotonic/orthogonality/planted/resumecontrols; Ainitial/native/replay/monotonic<=1e-10, Bgradient+plateau+strictsupportgap, Ccenteredcapture>=.05. Basisstartimmutable128frame; no data/commonchanneldiscard.
+
+### 2026-09-10T22:47:13.293886+00:00 — Codex: SPARSE RCG NATIVE QUEUED
+RCGplantedcontrol27.5→97.9%capture in40steps; split20+20state exactlymatches40. Managed240snative128reader/256edgebenchmarkqueued SHAde4b10eb6f52ac3301a70ba9f6147b3528152340fc0f4394d51048ee261cae25. No nativeconvergenceclaim. Full goalactive; mathematicalreviewdue22:49, hourly23:18.
