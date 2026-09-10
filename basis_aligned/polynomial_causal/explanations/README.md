@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Mixed chain and nonlinear response](mixed_chain_and_nonlinear_response_2026-09-10.md): both intervening module types are required; a receiving-context derivative also fails finite-response prediction, with a certified scalar-repair error floor; normalization-preserving factor-response test prepared.
+
 - [MLP4 value folding and intervening computation](mlp4_value_folding_and_intervening_computation_2026-09-10.md): direct native weight fold is numerically correct but misses most of the partial value-path effect; exact finite-change math and tested module clamps prepare attention-versus-MLP dependency testing.
 
 - [Query background and the value path](query_background_and_value_path_2026-09-10.md): complete native query swaps transfer little tense change; normalization explains much of the local source interaction; exact MLP-to-value weight folding prepares the next path test.

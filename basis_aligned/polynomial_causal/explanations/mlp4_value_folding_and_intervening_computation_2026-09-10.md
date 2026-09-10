@@ -1,5 +1,9 @@
 # The MLP4 value path needs intervening computation
 
+Follow-up: [the intervening-chain and derivative experiments](mixed_chain_and_nonlinear_response_2026-09-10.md)
+have now run. Neither module type can be dropped, and the receiving-context
+derivative also fails to predict the finite partial-path effect.
+
 10 September2026. **The direct weight fold works algebraically, but it does
 not reproduce the trained model's MLP4-to-value computation.** It projects
 only12.5–20.5% onto that path's centered-logit effect, with81–88% relative

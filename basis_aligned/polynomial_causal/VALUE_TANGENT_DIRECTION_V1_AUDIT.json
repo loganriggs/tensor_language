@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "identity_max_error": 3.885780586188048e-16,
+  "cells": {
+    "has_a2__base": {
+      "cosine": 0.9126341726328949,
+      "best_possible_scalar_relative_error": 0.40877728281140013,
+      "observed_relative_error": 0.41269041513687393,
+      "oracle_scalar_for_bound_only": 0.9415094798994269
+    },
+    "has_a2__donor": {
+      "cosine": 0.8941974504230621,
+      "best_possible_scalar_relative_error": 0.4476727819031389,
+      "observed_relative_error": 0.44913080922116005,
+      "oracle_scalar_for_bound_only": 0.9611329534581928
+    },
+    "has_heldout__base": {
+      "cosine": 0.8991750972120623,
+      "best_possible_scalar_relative_error": 0.4375890132917853,
+      "observed_relative_error": 0.4785949800178974,
+      "oracle_scalar_for_bound_only": 0.8226652793426822
+    },
+    "has_heldout__donor": {
+      "cosine": 0.8860173887739812,
+      "best_possible_scalar_relative_error": 0.46365201044548043,
+      "observed_relative_error": 0.47969134703746946,
+      "oracle_scalar_for_bound_only": 0.8780935609019312
+    },
+    "is_a2__base": {
+      "cosine": 0.9612402631681686,
+      "best_possible_scalar_relative_error": 0.2757120898045459,
+      "observed_relative_error": 0.4221225285379061,
+      "oracle_scalar_for_bound_only": 1.498193799137543
+    },
+    "is_a2__donor": {
+      "cosine": 0.9587282870874085,
+      "best_possible_scalar_relative_error": 0.2843238849242946,
+      "observed_relative_error": 0.43384874531332485,
+      "oracle_scalar_for_bound_only": 1.519301456457329
+    },
+    "is_heldout__base": {
+      "cosine": 0.9234793094364677,
+      "best_possible_scalar_relative_error": 0.38364823086096034,
+      "observed_relative_error": 0.38418529695650333,
+      "oracle_scalar_for_bound_only": 0.9784833975415066
+    },
+    "is_heldout__donor": {
+      "cosine": 0.9272756912037906,
+      "best_possible_scalar_relative_error": 0.374379209495576,
+      "observed_relative_error": 0.37460458751103815,
+      "oracle_scalar_for_bound_only": 0.9861821570490623
+    }
+  },
+  "all_scalar_floors_exceed_registered_point_one": true,
+  "source_sha256": "4c7958e69f0e7dcccb72e44ce29445176be8c4290ed57696a959db857564c0f6",
+  "model_forwards": 0,
+  "scope": "Exact finite-cohort best scalar bound for each aggregate centered-logit effect vector. Allows an oracle scalar perpanel/direction; no scalar is installed or promoted. Not a bound for a nonlinear/vector correction or future population."
+}

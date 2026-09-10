@@ -53,6 +53,48 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Mixed chain and receiving tangent fail; nonlinear norm test prepared — 2026-09-10 02:52 UTC
+
+Previous goal turn PROGRESS: two managed native screens, CPU direction bound,
+factor-response algebra and prospective next protocol. INTERVENING_CHAIN_V1
+A/Dpass B/Cfail;80forwards/1440seq,3.884s. MLP-onlyfullvectorerrors .346–.456;
+attention-only .725–.801. Identity/parentreplay0, residualonlyrawV<=1.40e-5.
+RunnerSHAf7fe0e33bc0755fc68b14752fb3d0ff0c83e197d55a0683cd9c8fb5bd85b937a.
+Actual unfrozen modules recompute; this is not postcomputed-source deletion.
+
+VALUE_TANGENT_V1 A/Cpass Bfail;48forwards/864seq including8JVP,3.391s.
+RunnerSHA879dbb834d13ae551268306b87c0a57de6031e178774a561e906111480001c01.
+Receiver-only derivative uses unchanged native/no_grad backend viaforwardAD;
+do not wrap in inference_mode or detach observedc_v9output. Tinybackend
+centraldifferror1.81e-11; nativeprimal/identity/parentreplay0. Full-logiteffect
+errors .375–.480, margin .161–.440, localV .472–.549. No scalar/dose rescue.
+Both screens use unchanged72openedpairs andexistingpartialvaluepath. The
+prior hasfull-logitcarrier miss remains failed; no newtextOOD/adoption.
+
+Concrete continuation: audit_value_tangent_direction_v1.py executed,
+VALUE_TANGENT_DIRECTION_V1_AUDIT.json. Best possible scalar perpanel/direction
+still gives.276–.464 relativefull-vectorerror, identityclosure3.89e-16.
+This bounds fixed scalar corrections on these vectors only. No gaininstalled.
+polynomial_factor_response.py executed5controls; attentioncentraldiff4.43e-11,
+singlefactor4.15e-16, MLPidentity4.44e-16. Mixed module-enable paths canexist
+in a strictly linear source map; JVPnull, not clampingalone, tests nonlinearity.
+
+Next BILIN18_MLP4_NORM_PRESERVING_RESPONSE_V1_PREREGISTRATION.md: retainACTUAL
+changed RMS/projections/headRMS/RoPE, simplifyonlyfirst-order changes ofthe
+multilinear factors insideattention/MLPs5..8. ForMLP keepL0deltaR+deltaLR0,
+dropdeltaLdeltaR; attentionanalogousfivefactorfirst-orderresponse withmask.
+Both types/allfourlayers use the SAME rule, no posthocsubset/higherdegree
+rescue.48forwards/864seq, compare inducedlocalV9 viareceivingnativeH1/H4
+readerbackground; relativeeffect<=.10 full-logit/margin everycell, identity
+and parentreplay. This differs from the failed raw-input tangent by keeping
+normalization nonlinear. Native hookintegration/execution stillpending;
+not queued. Allweights/receivingfactors/sourcegeneration remaincharged.
+
+New explanation mixed_chain_and_nonlinear_response_2026-09-10.md. Goalactive;
+all545902902 nativeparams retained, saving0. LatestClaude v461ranbeforeJVP;
+preserveitschanges. Runnershealthy/noownjobpending. Clocks03:06hourly/04:49math.
+Originalbilinearhandoff/pilot controls, not stalegoalbetter_math_ideas.
+
 ## Direct value fold fails; intervening chain registered — 2026-09-10 02:33 UTC
 
 Previous turn PROGRESS: managed nativefold48forwards/864seq in2.864s,

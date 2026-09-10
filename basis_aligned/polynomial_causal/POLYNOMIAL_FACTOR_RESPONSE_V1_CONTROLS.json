@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "attention_finite_difference": true,
+    "all_single_factor_changes_exact": true,
+    "joint_factor_nonlinearity_live": true,
+    "mlp_cross_change_partition": true,
+    "linear_source_map_has_mixed_module_paths": true
+  },
+  "attention_central_difference_error": 4.426117805600427e-11,
+  "single_factor_error": 4.145989107584569e-16,
+  "mlp_partition_error": 4.440892098500626e-16,
+  "joint_factor_remainder_norm": 0.42934702885038256,
+  "model_forwards": 0,
+  "scope": "Product-factor expansion controls. Actual changed RMS/RoPE factors must be computed before use. No native prediction or removed-normalizer claim."
+}
