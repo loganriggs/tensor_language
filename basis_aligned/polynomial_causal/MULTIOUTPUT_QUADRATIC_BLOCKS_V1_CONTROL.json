@@ -1,0 +1,14 @@
+{
+  "schema": "multioutput.quadratic.blocks.control.v1",
+  "passed": true,
+  "cross_max_absolute_error": 1.7763568394002505e-15,
+  "gram_max_absolute_error": 3.3306690738754696e-16,
+  "dense_loss_absolute_error": 6.661338147750939e-16,
+  "gradient_finite_difference_errors": [
+    1.9020605132157725e-12,
+    5.150584819757498e-12
+  ],
+  "core_symmetry_max_error": 0.0,
+  "core_unit_norm_error": 3.3306690738754696e-16,
+  "scope": "Signed overlapping input blocks, multiple quadratic features and output writers per block. No native model fit, orthogonality assumption, data or causal identification."
+}

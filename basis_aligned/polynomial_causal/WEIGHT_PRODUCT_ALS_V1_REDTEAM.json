@@ -1,0 +1,14 @@
+{
+  "narrow_failed_claim": "120s ALS converges and matches historical penalized L-BFGS objective within1e-4",
+  "structural_negative": false,
+  "alternative": "Slow progress from alternating coupled reader and writer updates, despite accurately solved conditional problems.",
+  "executed_check": {
+    "last_window_sweeps": 102,
+    "objective_improvement": 2.034252017957261e-05,
+    "mean_cg_iterations_per_reader_solve": 109.95938104448743,
+    "maximum_objective_increase": 0.0,
+    "maximum_true_inner_residual": 9.999034475040877e-10
+  },
+  "reference_objective_gap": 0.00021060566281649873,
+  "conclusion": "Inner solves pass; outer gradient fails and objective is still improving. This rejects this budgeted solver comparison, not product structure. Joint curvature/preconditioning and restart coverage remain untested."
+}

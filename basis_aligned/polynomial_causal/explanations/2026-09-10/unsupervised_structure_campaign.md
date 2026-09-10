@@ -754,3 +754,78 @@ does not supersede the user's weight-first priority or authorize another large
 data-fitting branch before the structural search is exhausted.
 
 A recent candidate is the2026 [NPDo tensor block-diagonalization method](https://arxiv.org/html/2605.12932v1). It optimizes blocks in orthonormal mode bases and provides convergence-to-stationarity results under its stated conditions. The orthogonality requirement is a substantive hypothesis for these weights; it is not a general solution for overlapping, non-orthogonal computational subspaces. It has not been implemented or run here.
+
+
+## Weight-only solver benchmark and broader blocks — 22:08 UTC
+
+**The first native ALS benchmark worked numerically but did not beat the earlier
+optimizer. A broader shared-input block representation is now running.** No text
+inputs enter either fit. FineWeb validation remains separate; no further Pile,
+CE or Fisher fitting has been scheduled.
+
+ALS alternates exact conditional updates of the first input readers, second
+input readers and output writers. It minimizes the same explicit cancellation-
+penalized weight objective, from the same saved initialization, as the earlier
+Adam/L-BFGS fit. The linear subproblems use implicit tensor contractions and
+preconditioned conjugate gradients, so the full token tensor is never allocated.
+
+After120.25seconds,517outer sweeps and113698actual conjugate-gradient iterations,
+the objective was0.91425633 versus the earlier locally converged0.91404573.
+Raw coefficient capture was8.6771%, cancellation ratio1.213. The numerical
+prediction passed: all conditional true residuals were below1e-9, no half-step
+increased the objective, and checkpoint replay was exact. Convergence and the
+registered reference-quality prediction both failed. Relative stationarity was
+0.00332, above1e-4. Both methods inherit the same540second warm-start cost.
+[Native receipt](../../WEIGHT_PRODUCT_ALS_V1_RESULT.json).
+
+The negative-result check found continued objective improvement of2.03e-5 over
+the last102sweeps, despite accurate conditional solves. Thus slower coupled
+optimization remains a live explanation. This is not evidence that product
+structure is absent, nor a general verdict on ALS or structured Gauss–Newton.
+The latter has not yet been implemented for the native fit.
+[Executed red-team audit](../../WEIGHT_PRODUCT_ALS_V1_REDTEAM.json).
+
+The new block model represents the folded quadratic tensor as
+
+$$
+\widehat T_{vij}
+=\sum_{g=1}^{16}\sum_{m=1}^{4}(Uw_{gm})_v
+\left[E_g^{\mathsf T}C_{gm}E_g\right]_{ij}.
+$$
+
+Here each $E_g\in\mathbb R^{16\times1152}$ reads a16-dimensional input subspace;
+its four symmetric matrices $C_{gm}\in\mathbb R^{16\times16}$ specify different
+quadratic computations on those same readers. Each computation has its own
+output vector $w_{gm}$. Blocks may overlap and need not be orthogonal. This
+explicitly allows shared input computation with different output uses. A good
+fit would suggest candidate blocks to examine, not identify semantic circuits.
+
+This model has377344parameters:294912input coefficients,8704symmetric-core
+coefficients and73728output coefficients. It has256input projections and2176
+distinct within-block pair monomials, reused by the four cores. Its output rank
+is at most64, so it still has a significant expressivity restriction. Exact
+implicit Gram contractions and independently checked gradients passed dense
+small-model controls. The native540second first chunk uses the existing
+Adam/L-BFGS optimizer; this broadens the representation, not solver coverage.
+[Control](../../MULTIOUTPUT_QUADRATIC_BLOCKS_V1_CONTROL.json),
+[registered comparison](../../WEIGHT_STRUCTURAL_BASELINES_V1_PREREGISTRATION.md).
+
+A256signed-square arm is also implemented and prepared, but has not been
+submitted yet. It has589824parameters. Polarization gives
+
+$$
+(a^{\mathsf T}x)(b^{\mathsf T}x)
+=\tfrac14\left[((a+b)^{\mathsf T}x)^2-((a-b)^{\mathsf T}x)^2\right].
+$$
+
+Thus128products can be expressed with256squares; allowing independent square
+writers relaxes the paired-output constraint and changes capacity. A win would
+need that qualification. The explicit energy penalty also acts on256square
+features versus64block quadratics, so its granularity differs across families.
+We report reconstruction and penalty separately. No positivity or sparse-token
+assumption is imposed.
+
+The immediate practical bottleneck is disk headroom for resumable optimizer
+checkpoints, alongside incomplete algorithm and restart coverage. The managed
+runner is healthy. Neither a time-limited first chunk nor one random start will
+be labelled an exhausted structural hypothesis.

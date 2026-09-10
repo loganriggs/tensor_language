@@ -1,0 +1,14 @@
+{
+  "schema": "penalized.product.als.control.v1",
+  "passed": true,
+  "penalty": 0.01,
+  "gradient_max_absolute_error": 4.547473508864641e-13,
+  "pcg": {
+    "iterations": 19,
+    "true_relative_residual": 2.341909999412479e-11,
+    "converged": true
+  },
+  "dense_penalized_before": 11958.342538402598,
+  "dense_penalized_after": 7817.881953574676,
+  "scope": "Penalty is explicit sum of component energies. Exact one-reader conditional solve; neither a proximal damping reinterpretation nor a native/global convergence result."
+}
