@@ -1,0 +1,127 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "p_max": 0.23,
+    "tol_pool": 0.05,
+    "tol_pool_wide": 0.15,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_possessive_disjoint_cell_v509",
+  "finished_utc": "2026-09-10T12:49:52.534750+00:00",
+  "groups": {
+    "fit_canonical": {
+      "cells": [
+        "possessive_adjacent"
+      ],
+      "hypotheses": {
+        "A2_extraction": 1.016,
+        "A2_units_recovery": 0.963,
+        "C_same_answer_effect": 0.0188,
+        "P_damage": {
+          "ce_damage": 0.6248,
+          "ce_lb975": 0.5503,
+          "ce_ub975": 0.6992,
+          "margin_damage": 2.5907,
+          "top1_change_rate": 0.0625
+        },
+        "P_same_answer_effect": 0.0814,
+        "P_units_recovery": -0.131,
+        "n_a2": 16,
+        "n_p": 16,
+        "panel_same_answer_effect": {
+          "adjective_preposition_of_at": 0.0013,
+          "possessive_disjoint_my_your": 0.0188
+        },
+        "scale": 4.579
+      },
+      "n_units": 21,
+      "per_shape": {
+        "adjective_preposition_of_at": {
+          "A1_damage": {
+            "ce_damage": 0.0637,
+            "ce_lb975": 0.0581,
+            "ce_ub975": 0.069,
+            "margin_damage": 0.0384,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.0,
+          "joint_extraction": 0.0,
+          "n_held": 16,
+          "units_recovery": 0.465
+        },
+        "possessive_adjacent": {
+          "A1_damage": {
+            "ce_damage": 0.6253,
+            "ce_lb975": 0.5612,
+            "ce_ub975": 0.6937,
+            "margin_damage": 2.4338,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.951,
+          "joint_extraction": 0.988,
+          "n_held": 16,
+          "units_recovery": 0.963
+        },
+        "possessive_disjoint_my_your": {
+          "A1_damage": {
+            "ce_damage": 0.0213,
+            "ce_lb975": 0.018,
+            "ce_ub975": 0.0254,
+            "margin_damage": -0.0435,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.015,
+          "joint_extraction": 0.021,
+          "n_held": 16,
+          "units_recovery": 0.729
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_reproduces_fit": true,
+    "pred_b_new_cell_reachable": false,
+    "pred_c_new_cell_inert": true,
+    "pred_d_P_and_C_comparable": true,
+    "pred_e_units_available": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_possessive_disjoint_cell_v509",
+  "seconds": 32.4
+}
