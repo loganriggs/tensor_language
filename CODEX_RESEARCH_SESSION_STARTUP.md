@@ -53,6 +53,34 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## MLP8 source / attention9 factorial completed — 2026-09-10 08:07:49 UTC
+
+PreviousgoalturnPROGRESS6d1ff2cd6; preregistratione5ba410a0.
+MLP8_ATTENTION9_FACTORIAL_V1_RESULT.json validA/D; Battention/Cbypass fail everyworld.
+SourceS0/S1=fullmixedMLP8removal; crossed withwholeA9writeA0/A1 atallpositions.
+Bothdiagonalidentityclamps andnative/source-editedreplayexact; firstVbitwiseunchanged.
+384forwards6144seq,5.60494s. RunnerSHA
+17823e91aba1599876c0e0a9b417774cac40bbf776accc5f0342a86209c7f98d.
+Neitherroutealone<=.10fidelity; interaction32/32pass, max.00064146mixed/.00335469full.
+The bypass is sourcechange withA9nativeheld; includesresidual/latercomputations.
+
+Post-resultCPUsource_attention_route_accounting_v1 executed. Correct-margin signed
+attentionprojection .17196–.37422original,.11468–.43358fronted; bypass .62567–.82783/
+.56658–.88530. Small signedinteractionclosesaccounting, notindependentsemanticcircuits.
+Synthetic frozen-write residualcarry verified: deltafinal=prod(lambda9..17,0)*deltaMLP8,
+fixedlaterwrites/embeddinginjections; nonlinearfinalRMS/readersoftcap retained.
+Maxstate1.777e-15/reader2.665e-15; live-nonlinear-writefalsifiererror1.30492.
+
+Nextnativequestion: directresidualcarry prediction for the measuredbypass (F00-F10),
+comparedwith actualsource/A9factorial outputs. Captureactualnativefinalresidual and
+MLP8fullmixedwrite; subtract exacttransport atsemanticreadout, usefullnativefinal
+RMS/unembedding/softcap. Preserve all32worlds andparentbypasseffects; no gain/rank
+rescue. Old all-MLP finalcarry andvaluepathdirectcarry aredifferenttargets. Passing
+would support an explicit final reader route; failingrequireslaterconsumerresponse.
+No successorjobregistered; post-resultCPUcontinuationactuallyexecuted. Explanation23.
+All545902902weights/nativecounterfactual inputs charged,saving0; fullgoalactive.
+Next hourly08:14 UTC; mathematical10:49 UTC. ReadlivequeuebeforeGPUwork.
+
 ## MLP8 all-consumer comparison completed — 2026-09-10 08:01:25 UTC
 
 PreviousgoalturnPROGRESSe3e20feef; currentpreregistration587efef7f.
