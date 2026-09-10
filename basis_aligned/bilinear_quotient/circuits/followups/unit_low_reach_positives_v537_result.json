@@ -1,0 +1,247 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "gain_range": 0.2,
+    "joint_min": 0.8,
+    "low_reach": 0.75,
+    "p_max": 0.23,
+    "pos_min": 0.35,
+    "range_min": 0.2,
+    "tol_pool": 0.05,
+    "tol_pool_wide": 0.15,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_low_reach_positives_v537",
+  "finished_utc": "2026-09-10T19:48:31.648133+00:00",
+  "groups": {
+    "about_for": {
+      "cells": [
+        "verb_preposition_about_for"
+      ],
+      "effects": {
+        "at_over": 0.0279,
+        "at_to": 0.003,
+        "fb_about_for": 0.7144,
+        "fc_about_for": 0.7414,
+        "fd_about_for": 0.5433,
+        "fe_about_for": 0.8246,
+        "fg_about_for": 0.585,
+        "fh_about_for": 0.634
+      },
+      "n_units": 13,
+      "per_shape": {
+        "verb_preposition_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.7692,
+            "ce_lb975": 0.6975,
+            "ce_ub975": 0.8458,
+            "margin_damage": 1.717,
+            "top1_change_rate": 0.2812
+          },
+          "C_damage": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.006,
+            "margin_damage": 0.0184,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.006,
+          "cross_abs_recovery": 0.972,
+          "joint_extraction": 0.994,
+          "n_held": 16,
+          "units_recovery": 0.978
+        },
+        "verb_preposition_at_over": {
+          "A1_damage": {
+            "ce_damage": -0.1016,
+            "ce_lb975": -0.1163,
+            "ce_ub975": -0.0874,
+            "margin_damage": 0.0024,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.006,
+            "margin_damage": 0.0184,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.006,
+          "cross_abs_recovery": 0.015,
+          "joint_extraction": 0.023,
+          "n_held": 16,
+          "units_recovery": 0.656
+        },
+        "verb_preposition_at_to": {
+          "A1_damage": {
+            "ce_damage": -0.0105,
+            "ce_lb975": -0.0156,
+            "ce_ub975": -0.0056,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.006,
+            "margin_damage": 0.0184,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.006,
+          "cross_abs_recovery": -0.001,
+          "joint_extraction": -0.001,
+          "n_held": 16,
+          "units_recovery": 0.859
+        },
+        "verb_preposition_fb_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.4377,
+            "ce_lb975": 0.3879,
+            "ce_ub975": 0.4877,
+            "margin_damage": 1.334,
+            "top1_change_rate": 0.4062
+          },
+          "C_damage": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.006,
+            "margin_damage": 0.0184,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.006,
+          "cross_abs_recovery": 0.468,
+          "joint_extraction": 0.607,
+          "n_held": 16,
+          "units_recovery": 0.771
+        },
+        "verb_preposition_fc_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.478,
+            "ce_lb975": 0.4212,
+            "ce_ub975": 0.5368,
+            "margin_damage": 1.4261,
+            "top1_change_rate": 0.4688
+          },
+          "C_damage": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.006,
+            "margin_damage": 0.0184,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.006,
+          "cross_abs_recovery": 0.478,
+          "joint_extraction": 0.587,
+          "n_held": 16,
+          "units_recovery": 0.815
+        },
+        "verb_preposition_fd_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.3677,
+            "ce_lb975": 0.3259,
+            "ce_ub975": 0.4066,
+            "margin_damage": 1.0739,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.006,
+            "margin_damage": 0.0184,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.006,
+          "cross_abs_recovery": 0.5,
+          "joint_extraction": 0.72,
+          "n_held": 16,
+          "units_recovery": 0.694
+        },
+        "verb_preposition_fe_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.541,
+            "ce_lb975": 0.5065,
+            "ce_ub975": 0.5757,
+            "margin_damage": 1.54,
+            "top1_change_rate": 0.1562
+          },
+          "C_damage": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.006,
+            "margin_damage": 0.0184,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.006,
+          "cross_abs_recovery": 0.599,
+          "joint_extraction": 0.678,
+          "n_held": 16,
+          "units_recovery": 0.884
+        },
+        "verb_preposition_fg_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.338,
+            "ce_lb975": 0.3199,
+            "ce_ub975": 0.3546,
+            "margin_damage": 1.1831,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.006,
+            "margin_damage": 0.0184,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.006,
+          "cross_abs_recovery": 0.341,
+          "joint_extraction": 0.403,
+          "n_held": 16,
+          "units_recovery": 0.846
+        },
+        "verb_preposition_fh_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.4265,
+            "ce_lb975": 0.3803,
+            "ce_ub975": 0.4771,
+            "margin_damage": 1.2316,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0016,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.006,
+            "margin_damage": 0.0184,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.006,
+          "cross_abs_recovery": 0.594,
+          "joint_extraction": 0.727,
+          "n_held": 16,
+          "units_recovery": 0.817
+        }
+      },
+      "scale": 3.8039
+    }
+  },
+  "predictions": {
+    "pred_a_fit_holds": true,
+    "pred_b_low_reach_present": true,
+    "pred_c_all_positives_move": true,
+    "pred_d_effect_flat_across_reach": false,
+    "pred_e_anchors_reproduce": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_low_reach_positives_v537",
+  "seconds": 34.2
+}
