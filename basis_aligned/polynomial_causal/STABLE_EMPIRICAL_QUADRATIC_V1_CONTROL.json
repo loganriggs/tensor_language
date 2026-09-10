@@ -1,0 +1,57 @@
+{
+  "schema": "stable.empirical.quadratic.control.v1",
+  "controls": {
+    "product": {
+      "loss_absolute_error": 1.1102230246251565e-16,
+      "writer_relative_error": 6.627653885290576e-16,
+      "gradient_max_absolute_errors": [
+        7.806255641895632e-18,
+        8.673617379884035e-18
+      ],
+      "finite_difference_absolute_errors": [
+        8.017722336745026e-12,
+        8.5235126248695e-12
+      ]
+    },
+    "square": {
+      "loss_absolute_error": 0.0,
+      "writer_relative_error": 2.3479249553277508e-15,
+      "gradient_max_absolute_errors": [
+        8.326672684688674e-17
+      ],
+      "finite_difference_absolute_errors": [
+        2.8870449867574033e-12
+      ]
+    },
+    "shared_reader": {
+      "loss_absolute_error": 0.0,
+      "writer_relative_error": 1.0321432731218701e-15,
+      "gradient_max_absolute_errors": [
+        2.0816681711721685e-17,
+        6.071532165918825e-17,
+        3.8163916471489756e-17
+      ],
+      "finite_difference_absolute_errors": [
+        8.666266055473715e-12,
+        8.285271774211012e-12,
+        2.7518353264491258e-12
+      ]
+    },
+    "block": {
+      "loss_absolute_error": 2.220446049250313e-16,
+      "writer_relative_error": 4.0639341156742694e-16,
+      "gradient_max_absolute_errors": [
+        6.938893903907228e-18,
+        6.288372600415926e-18
+      ],
+      "finite_difference_absolute_errors": [
+        1.5908138521758541e-12,
+        5.282031322745295e-12
+      ]
+    }
+  },
+  "ill_conditioned_feature_condition": 10000000.000261633,
+  "ill_conditioned_qr_svd_function_relative_error": 2.3792125109209257e-10,
+  "passed": true,
+  "scope": "First derivatives and full-rank conditional writer solution only. Does not validate a reduced Hessian or guarantee global convergence."
+}

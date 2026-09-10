@@ -124,7 +124,10 @@ MILLION_TOKEN_PANEL_V1 rows prepared:2048distinct Pile-10kdocumentprefixes,10485
 MILLION_TOKEN_PANEL_V1_RESULT.json is authoritative; newdatasetfitpending. Input-onlycache~164MB; all819200trainingpositions
 contribute mean/secondmoment. Pile isnotverified pretrainingdistribution; covariancenotfourthmoment.
 See appended21:14/21:18campaignanswers foroptimizerdetails, costs and primaryliterature.
-QR/SVDvariableprojection andmatrix-freeGaussNewton remainproposed,notexecuted.
+QR variableprojection objective implemented and toy first-gradient/SVDcontrols held.
+PILE_FIXED_READER_TRANSFER_V1 queued21:26: fivefrozenfunctions, training-onlywriterrefits,
+Pilevalidation fullposition andmatched>=64. Inspectresult/runner beforecontinuing.
+NativeQRoptimizerrefinement andmatrix-freeGaussNewton remainpending.
 FullU output-function andtrace red-team audits complete, coefficientmetric-only bounds.
 
 32original configs remain frozen:4representations x2metrics x4starts. Only first

@@ -1,4 +1,4 @@
-# Unsupervised structure campaign — 10 September, updated 21:03 UTC
+# Unsupervised structure campaign — 10 September, updated 21:26 UTC
 
 The user requested a broad structural search with substantial unlabeled data, enough optimization to establish convergence, and red-team review of negative results. This supersedes treating the short joint32 run as the main search. The four-property goal remains OOD prediction, extraction, selective manipulation, and composition/reuse; a better tensor fit only nominates components for those tests.
 
@@ -481,3 +481,28 @@ training convergence; neither longer fitting nor a smaller training loss alone
 selects the useful structure. [Second-chunk validation](../../STRUCTURED_FIT_V2_data_product_s0_CHUNK_01_VALIDATION.json).
 
 The first training-only metric audit confirms substantial input anisotropy: the mean accounts for47.37% of input squared norm; after centering, the leading32 covariance directions account for58.31% of variance. Both moment matrices are numerically positive definite. This supports testing input preconditioning and separating mean/affine effects; covariance modes alone neither identify circuits nor determine quadratic fourth-moment error. [Training metric audit](../../MILLION_TOKEN_TRAINING_METRIC_V1_AUDIT.json).
+
+
+### Fixed-reader transfer and solver follow-up, 21:26 UTC
+
+A new managed experiment is queued to evaluate five frozen factorized functions
+on the Pile validation panel and then refit only their output writers on Pile
+training inputs. It reports all sampled positions and positions64..511
+separately, because the original training panel excluded the first64 positions.
+Constant and affine controls use the same new training inputs. The question is
+whether the same input products remain useful across corpus and position
+coverage, with or without output recalibration. No test split is used.
+[Registered comparison](../../PILE_FIXED_READER_TRANSFER_V1_PREREGISTRATION.md).
+
+A QR-based variable-projection objective is now implemented. It solves the
+writers using QR and evaluates the direct residual after whitening output space
+by the full unembedding metric. There is no hidden ridge and no derivative
+through QR: the envelope theorem supplies the first gradient. Across all four
+small representation controls, objective discrepancies were at most
+$2.22\times10^{-16}$ and finite-difference gradient discrepancies below
+$9\times10^{-12}$. A deliberately ill-conditioned feature matrix with condition
+number $10^7$ agreed with the full SVD solution in function space to
+$2.38\times10^{-10}$. These are implementation controls, not a native optimizer
+speedup or convergence result. The queued native comparison checks QR against
+SVD and normal equations before using the new writer fits.
+[Controls](../../STABLE_EMPIRICAL_QUADRATIC_V1_CONTROL.json).
