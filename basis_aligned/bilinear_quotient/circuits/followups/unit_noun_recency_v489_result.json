@@ -1,0 +1,48 @@
+{
+  "candidate_id": "corpus.unit_noun_recency_v489",
+  "cells": {
+    "noun_preposition_neu_interest": {
+      "A1": {
+        "base_axis_mean": -0.77,
+        "base_axis_min": -1.649,
+        "donor_axis_mean": 0.837,
+        "dropped": 0,
+        "n": 32
+      },
+      "A2": {
+        "base_axis_mean": -0.831,
+        "base_axis_min": -1.781,
+        "donor_axis_mean": 0.857,
+        "dropped": 0,
+        "n": 32
+      },
+      "distractor": " delay (neutral, selects neither answer)"
+    },
+    "noun_preposition_rec_interest": {
+      "A1": {
+        "base_axis_mean": null,
+        "base_axis_min": null,
+        "donor_axis_mean": null,
+        "dropped": 32,
+        "n": 32,
+        "note": "all rows dropped (max() iterable argument is empty)"
+      },
+      "A2": {
+        "base_axis_mean": null,
+        "base_axis_min": null,
+        "donor_axis_mean": null,
+        "dropped": 32,
+        "n": 32,
+        "note": "all rows dropped (max() iterable argument is empty)"
+      },
+      "distractor": "the OTHER cue noun"
+    }
+  },
+  "contrast": "v475: in possessive_number the model RESISTED a number attractor on 32/32 rows. Two families, opposite results -- recency governs PP selection from a noun cue, but not number agreement.",
+  "finished_utc": "2026-09-10T07:52:34.777408+00:00",
+  "instrument": "CPU capability screen (g.prepare valid_only=True); no GPU battery -- the screen alone adjudicates",
+  "registered_reading": "A recency reader and a governance reader predict OPPOSITE tokens on every row of the distractor cell, so a full drop IS the recency finding. The neutral-distractor cell holds the frame, length, cue pair, suffix and readout pair fixed and changes one word, so it separates 'follows the nearest noun' from 'this frame is too heavy'.",
+  "result": "competing cue noun: 32/32 rows dropped on BOTH A1 and A2. neutral distractor, same frame: 0/32 dropped, margins +/-0.8. One word differs between the two cells, so the collapse is attributable to the competing cue noun and not to the frame: THE MODEL FOLLOWS THE NEAREST NOUN.",
+  "schema": "unit_noun_recency_v489",
+  "scope": "Behavioural, not causal. It says the model is a recency reader for this behaviour, and therefore that in this family 'the cue' and 'the nearest noun' cannot be separated behaviourally at all -- which bounds what any circuit here can be claimed to be. It does not say what a fitted direction encodes."
+}
