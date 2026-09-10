@@ -109,3 +109,7 @@ tier, not as the high-fidelity frontier. Therefore:
 Primary new artifacts: `mlp16_rank2_quadratic_current_gate_results.json`,
 `mixed64_mlp04_mlp16_factored_composition_results.json`,
 `a16_transfer_mixed64_mlp04_mlp16_factored_results.json`, ledger §§2486–2492.
+
+## 10 September: user-directed backward unembedding reader test
+
+The proposed [token/hierarchy backward-fold experiment](../UNEMBEDDING_BACKWARD_VIEWS_V1_PREREGISTRATION.md) uses MLP16 as an upstream product source for MLP17, retaining its full native width. It does not refit or revisit the old whole-layer surrogate. Earlier MLP16-to-MLP17 channel quadratics already failed their improvement bars in [mlp17_channel_results.json](../../bilinear_quotient/mlp17_channel_results.json). The distinct question is whether exact token and weight-cluster readers propagated through both MLPs predict a donor MLP16 interchange when attention17 is live. Attention-fixed exactness is only the instrument control. A result must be added here when it lands.

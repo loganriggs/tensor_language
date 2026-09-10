@@ -1,6 +1,8 @@
 # What we currently understand about MLP17
 
-*Created 2026-09-01 from the late-layer duplicate-work audit.*
+*Created 2026-09-01; updated 2026-09-10 after the component-dossier audit.*
+
+**Calibration and quadratic output readers were already known.** The September 10 work extends their intervention tests; it does not discover the calibration direction or quadratic folding for the first time. Read the additions below before another MLP17 experiment.
 
 ## Short version
 
@@ -89,3 +91,25 @@ forms are specifically distribution-fragile. The strong null fired.
 Therefore the overlap result is not evidence that MLP17 is a generalizing four-quadratic-function compiler. Close
 this whole-layer R4k2 family without rank or output tuning. The older activation-conditioned Down-map rank and its
 frequency-calibration causal direction remain valid narrower facts; they do not license a whole-layer replacement.
+
+## Existing normalized response and context-gate analysis
+
+The v181–v186 series studied MLP17 as a response to answer-axis perturbations, including both/neither correlative tasks. In [v184](../../bilinear_quotient/circuits/followups/unit_tier5_mlp17_gain_terms_v184_result.json), its normalized bilinear response was already expanded into a rescaled base product, a base-by-perturbation cross product, and a perturbation-square term. The cross-damping and small-rescaling predictions passed; the registered quadratic-magnitude and symmetric-half predictions failed. In the two both/neither cells, the cross term was −1354.1/−1720.5 along the pushed axis, versus total counter-writes −1066.7/−2285.1. These are that experiment's residual-vector projection units, not CE or recovered fractions.
+
+[v185](../../bilinear_quotient/circuits/followups/unit_tier5_mlp17_gate_anatomy_v185_result.json) traced the gate to context and earlier writers; all five registered predictions passed. MLP9 ranked first in both both/neither cells, but removing it changed the measured counter-write by only 7.2%/−2.6%, illustrating the distinction between direct algebraic contribution and live causal effect. [v186](../../bilinear_quotient/circuits/followups/unit_tier5_mlp17_self_saturation_v186_result.json) retained its instrument, slot-gate and self-saturation predictions while failing the causal-single-token and self-term-overlap predictions. Do not turn the positive diagnostics into a complete token circuit.
+
+Source caveat: v184's analytical helper uses epsilon 1e−6 and a 5% on-axis bridge; the current native float32 RMSNorm default is approximately 1.19e−7. Reuse the decomposition, not an unqualified claim of exact numerical interchange with the current stricter harness.
+
+Other prior components are distinct: [subword isolation](../../bilinear_quotient/mlp17_subword_isolation_results.json) found no measurable loss of subword probability under its rank-one removal, while rank-eight removal exceeded whole-layer mean-removal damage. [The MLP16-to-MLP17 channel quadratic](../../bilinear_quotient/mlp17_channel_results.json) added only .0027 loss-recovery fraction over the linear baseline and failed all three predictions. Thus “fold farther back” must specify a new reader or causal question, rather than repeat a generic channel-quadratic fit.
+
+## September 10 extension: an existing calibration component with two explicit uses
+
+[The two-consumer result](../CALIBRATION_TWO_READERS_V2_RESULT.json) folds one FIT-selected calibration scalar through MLP17 weights and tests its unembedding-numerator and final-RMS-denominator uses separately. Held-out rare-token CE damage under full removal was +.500/+ .573 nats on FineWeb/Pile; frequent-token changes were −.287/−.213. Instrument and held-out calibration passed; neither isolated consumer met the 10% full-vocabulary-effect error limit. This is a more explicit conditional producer/readout test of a previously known component.
+
+[Independent-fit stability](../CALIBRATION_STABILITY_CONTEXT_V1_RESULT.json) failed its operational-stability predicate; [a common reference](../CALIBRATION_COMMON_REFERENCE_V1_RESULT.json) did not repair it. [Token/context simplifications](../CALIBRATION_TOKEN_CONTEXT_V1_RESULT.json) and [reader-energy replacement](../CALIBRATION_READER_ENERGY_V1_RESULT.json) also failed their sufficiency tests. These nulls prevent claiming an independently extracted scalar algorithm. All native parameters remain required. See the [six supporting calibration notes](2026-09-10/README.md).
+
+The fitted September 10 axis must not be declared identical to an older axis without comparing the actual saved tensors. “Frequency-correlated” does not mean a literal log-frequency bias: the old [layerwise-axis receipt](../../bilinear_quotient/layerwise_calib_axis_results.json) records .5288 for that constructed log-frequency direction diagnostic, not a general identity.
+
+## User-directed next question: token and structured unembedding readers
+
+Logan requested two views on September 10: individual token rows of the unembedding, and clusters/hierarchical structure of those rows, each folded backward beyond MLP17. The elementary contraction U_t Down17 and the resulting quadratic form are known algebra. New evidence must concern shared reader structure, its retained token-specific remainder, transfer into earlier computations, and live causal prediction. Preserve RMS normalization, the final softcap, intervening attention, and every remaining opaque weight. A conditional fold with attention held fixed cannot establish a live two-layer circuit without the corresponding live-attention test.

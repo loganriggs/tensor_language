@@ -1,5 +1,11 @@
 # Module dossiers — read the relevant one BEFORE designing an experiment
 
+## Required lookup for every component finding
+
+Reaffirmed by Logan on 10 September 2026: before treating any attention head, MLP, readout direction or weight factor as new, read its dossier, follow its primary receipts, and search aliases in the ledger and circuit records. Record what was already known, what the proposed test changes, and which closed result it must not repeat. Update the dossier with the result in the same commit. Missing or stale coverage is documentation work to do before another experiment, not evidence that the component is unexplored.
+
+For newer per-MLP evidence, use the [MLP dossier index](../../polynomial_causal/explanations/MLP_MODULE_DOSSIER_INDEX.md). For the last bilinear layer, read [MLP17's current dossier](../../polynomial_causal/explanations/MLP17_CURRENT_UNDERSTANDING.md) alongside `readout-L15-17.md`. Also check [component records](../circuits/MODULE_DOSSIERS.md) and the task circuit dossier/registry. Historical claims such as “inert” or “closed” are limited to their measured tasks and interventions.
+
 One self-contained doc per module of bilin18. Each holds: wiring, established facts (with §refs
 into BILIN18_CONNECTION.md and the key numbers inline), how understood on the benchmark
 (0=mean-ablate, 1=full), the experiments/files that established it, module-specific method traps,

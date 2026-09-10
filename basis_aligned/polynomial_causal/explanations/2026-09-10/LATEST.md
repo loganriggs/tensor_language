@@ -2,7 +2,9 @@
 
 **10 September 2026.** This continues the [previous consolidated update](../research_update_2026-09-09.md), which ended at 23:06 UTC on 9 September. It covers the subsequent work through the native experiment completed at 14:17 UTC today, plus the CPU audits of those results. It summarizes the research sequence rather than claiming uninterrupted experimentation throughout that interval.
 
-**We have made progress on explicit computations and causal tests, but we have not found the smaller, independently executable collection of circuits that meets all four requirements.** The strongest new results are a weight-derived scalar with two tested consumers, and a partition inside shared attention heads that transfers two different behaviors separately. Both still depend on the original model, and stronger independence tests have exposed limitations.
+**We have made progress on explicit computations and causal tests, but we have not found the smaller, independently executable collection of circuits that meets all four requirements.** The strongest new results are an explicit two-consumer test of a previously known calibration scalar, and a partition inside shared attention heads that transfers two different behaviors separately. Both still depend on the original model, and stronger independence tests have exposed limitations.
+
+**Prior-work clarification, 10 September:** calibration, quadratic folding and normalized MLP17 response analysis predate this update. See [the updated module dossier](../MLP17_CURRENT_UNDERSTANDING.md). The new claim is the specific two-consumer test and its later limitations.
 
 ## The high-level rundown
 
@@ -10,7 +12,7 @@ The work moved through five stages:
 
 1. **We pursued the original handoff's weight-based ideas beyond the stagnant is/was refinement.** Several exact weight folds worked, but the proposed simpler contextual query and value paths did not explain enough of the real behavior. This established that algebraic correctness and explanatory sufficiency are different requirements.
 2. **We tried more explicit behavioral operations.** Noun-number selection and induction copying gave useful causal components, but the clean proposed algorithms or their selective controls failed. We retained the observed components without calling them complete circuits.
-3. **We found a useful scalar produced by the last bilinear MLP.** Its weight-derived formula predicts a calibration effect, and the same scalar serves both vocabulary scoring and normalization. However, its fitted direction was insufficiently stable and simpler proposed producers failed.
+3. **We extended an existing calibration-scalar finding from the last bilinear MLP.** Its weight-derived formula predicts a calibration effect, and the same scalar serves both vocabulary scoring and normalization. However, its fitted direction was insufficiently stable and simpler proposed producers failed.
 4. **We built a replayable, weight-folded correlative interface.** A correlative is a paired construction such as “both … and” or “neither … nor.” A saved set of directions across 26 attention heads transfers this cue on new word combinations. We can now express and execute its scalar reads and writes directly from the weights.
 5. **We tested whether that interface separates into reusable parts.** Its first/local value sources and routing/value operands are individually insufficient. A different split—saved correlative directions versus the rest of the same heads—does transfer two behaviors separately. But selective mean replacement and additive final effects fail.
 

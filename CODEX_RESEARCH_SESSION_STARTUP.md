@@ -53,6 +53,10 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Component-dossier check — user instruction, 10 September 2026
+
+Before pursuing an interesting finding in a module, read [modules/INDEX.md](basis_aligned/bilinear_quotient/modules/INDEX.md), its relevant module dossier, the [per-MLP index](basis_aligned/polynomial_causal/explanations/MLP_MODULE_DOSSIER_INDEX.md), and the associated primary results and task records. Search aliases, not only current terminology. State the prior result and the precise new question before designing another run; update stale module evidence in the same commit. In particular, MLP17 calibration, quadratic output forms and normalized context-gated response were already known. The updated MLP17 dossier separates those facts from the recent two-consumer tests and failed simplifications.
+
 ## Latest consolidated explanation — 10 September 2026
 
 Read [the latest user-requested update](basis_aligned/polynomial_causal/explanations/2026-09-10/LATEST.md) first for the high-level account, terms, computations and mathematical-review contributions. It covers work since 9 September 23:06 UTC through the 10 September 14:17 native result and subsequent CPU analysis. The [dated index](basis_aligned/polynomial_causal/explanations/2026-09-10/README.md) groups 29 supporting notes; both indexes identify LATEST.md as the consolidated report. Historical explanation paths preserve their recorded content through compatibility links.

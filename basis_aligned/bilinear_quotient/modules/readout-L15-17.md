@@ -1,5 +1,7 @@
 # Readout (L15-17) — near-linear read, the merge, and the frequency calibrator
 
+**Current evidence:** read the [updated MLP17 dossier](../../polynomial_causal/explanations/MLP17_CURRENT_UNDERSTANDING.md), including failed whole-layer transfer, normalized response experiments and September 10 calibration tests. The historical “inert,” “fully isolated” and “closed” statements below apply to their original measurements; they do not establish universal task irrelevance or a complete circuit under the current four-property criterion.
+
 **One line:** attention inert; MLPs are near-linear reads that rotate the stream into the token
 basis; block 17 holds the rank-1 frequency calibration; the grammar/content merge into logits is
 additive-linear.
