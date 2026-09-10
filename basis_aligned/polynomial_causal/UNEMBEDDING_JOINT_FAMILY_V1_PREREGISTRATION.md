@@ -1,0 +1,13 @@
+# Joint output-family arithmetic program from the user math file
+
+Authority: explanations/2026-09-10/unembedding_folding_in_math.md, first experiment. Fixed leading-space tokens is,are,was,were. Quadratic numerator S_v=sym(L^T diag(U_v D)R), bias/residual/final RMS/softcap kept separate. Test a concrete DAG, not separate word eigenspectra or duplicate primitive pairs.
+
+Means P=(S_is+S_are)/2, T=(S_was+S_were)/2. Number contrasts Np=(S_is-S_are)/2, Nt=(S_was-S_were)/2, N=(Np+Nt)/2. Fit the best single real product to each of P,T,N using the largest positive and most negative eigencomponents (a rank-one solution allowed). Factor S*=sym(ab^T) with a=sqrt(lambda+)e+ +sqrt(mu)e-, b=sqrt(lambda+)e+ -sqrt(mu)e-. This is a fixed single-product hypothesis, no rank sweep.
+
+- pred_a: algebra fixture for the supplied three-product DAG exact<=1e-10, weight matrices versus direct output fold and quadratic products rel<=1e-9; finite tensors; full-vocabulary projection identities <=1e-8. No tiny-denominator pass (relevant function norm>1e-8).
+- pred_b shared arithmetic program: Np versus Nt mismatch <=.10 relative to RMS of their Frobenius norms; joint three-product P*±N*,T*±N* reconstructs all4 S_v with relative Frobenius error<=.10. Exact identity separately reported at1e-10. Failure means this specified3-product program insufficient, not all DAGs impossible.
+- pred_c reused linear reader across means: each mean's one-product error<=.10 and at least one normalized factor pairing across P*/T* has absolute cosine>=.99. Freeze pairing by max absolute cosine, no semantic label assumed.
+
+Construct all-vocabulary least-squares coefficients over these three product functions in coefficient/Frobenius geometry. With H_j=sym(a_j b_j^T), G_ij=<H_i,H_j>, cross_kj=<native_product_k,H_j>, residual writers W=D cross pinv(G), retaining every50304 row via U W. This gives a full-vocabulary component and explicit removal write W p(u); original remainder retained. This projection does not rescue failed B/C or establish causal sufficiency. Use pinv rtol1e-10, report conditioning and literal factors/writers. No native removal run unless cheap hypothesis passes.
+
+Price0 model forwards, managed GPU weights only, full1152-dimensional eigenproblems for3 matrices, three output products, up to6 linear forms,1152x3 residual writer plus existingU if all-vocabulary output required. Save product factors, full residual writers, fixed4-reader coefficients and selected matrices for CPU independent reload. Stream vocabulary, never allocate Vxdxd; per-new-tensor<=256MiB. Report full-vocabulary coefficient energy as diagnostic only. Domains normalized MLP input for this polynomial; native input/output normalization and context producers remain unextracted.
