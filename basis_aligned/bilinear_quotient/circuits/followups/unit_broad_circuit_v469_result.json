@@ -1,0 +1,213 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "tol_pool": 0.05,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_broad_circuit_v469",
+  "finished_utc": "2026-09-10T04:15:10.512193+00:00",
+  "groups": {
+    "fit_AE": {
+      "cells": [
+        "verb_preposition_about_for",
+        "verb_preposition_fb_about_for",
+        "verb_preposition_fc_about_for",
+        "verb_preposition_fd_about_for",
+        "verb_preposition_fe_about_for"
+      ],
+      "n_units": 24,
+      "per_shape": {
+        "verb_preposition_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.9268,
+            "ce_lb975": 0.7833,
+            "ce_ub975": 1.0783,
+            "margin_damage": 1.8403,
+            "top1_change_rate": 0.2812
+          },
+          "C_damage": {
+            "ce_damage": -0.0034,
+            "ce_lb975": -0.0095,
+            "ce_ub975": 0.0024,
+            "margin_damage": -0.0058,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0024,
+          "cross_abs_recovery": 1.078,
+          "joint_extraction": 1.019,
+          "n_held": 16,
+          "units_recovery": 1.058
+        },
+        "verb_preposition_at_to": {
+          "A1_damage": {
+            "ce_damage": 0.0259,
+            "ce_lb975": 0.0119,
+            "ce_ub975": 0.0414,
+            "margin_damage": 0.1143,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0034,
+            "ce_lb975": -0.0095,
+            "ce_ub975": 0.0024,
+            "margin_damage": -0.0058,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0024,
+          "cross_abs_recovery": 0.017,
+          "joint_extraction": 0.016,
+          "n_held": 16,
+          "units_recovery": 1.038
+        },
+        "verb_preposition_fb_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.9653,
+            "ce_lb975": 0.9335,
+            "ce_ub975": 0.9949,
+            "margin_damage": 2.4884,
+            "top1_change_rate": 0.9062
+          },
+          "C_damage": {
+            "ce_damage": -0.0034,
+            "ce_lb975": -0.0095,
+            "ce_ub975": 0.0024,
+            "margin_damage": -0.0058,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0024,
+          "cross_abs_recovery": 0.914,
+          "joint_extraction": 0.984,
+          "n_held": 16,
+          "units_recovery": 0.929
+        },
+        "verb_preposition_fc_about_for": {
+          "A1_damage": {
+            "ce_damage": 1.2401,
+            "ce_lb975": 1.1295,
+            "ce_ub975": 1.3577,
+            "margin_damage": 2.744,
+            "top1_change_rate": 0.5
+          },
+          "C_damage": {
+            "ce_damage": -0.0034,
+            "ce_lb975": -0.0095,
+            "ce_ub975": 0.0024,
+            "margin_damage": -0.0058,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0024,
+          "cross_abs_recovery": 0.999,
+          "joint_extraction": 1.01,
+          "n_held": 16,
+          "units_recovery": 0.989
+        },
+        "verb_preposition_fd_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.71,
+            "ce_lb975": 0.6758,
+            "ce_ub975": 0.7425,
+            "margin_damage": 1.8132,
+            "top1_change_rate": 0.375
+          },
+          "C_damage": {
+            "ce_damage": -0.0034,
+            "ce_lb975": -0.0095,
+            "ce_ub975": 0.0024,
+            "margin_damage": -0.0058,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0024,
+          "cross_abs_recovery": 0.894,
+          "joint_extraction": 1.048,
+          "n_held": 16,
+          "units_recovery": 0.853
+        },
+        "verb_preposition_fe_about_for": {
+          "A1_damage": {
+            "ce_damage": 1.2371,
+            "ce_lb975": 1.0985,
+            "ce_ub975": 1.3856,
+            "margin_damage": 2.6435,
+            "top1_change_rate": 0.1875
+          },
+          "C_damage": {
+            "ce_damage": -0.0034,
+            "ce_lb975": -0.0095,
+            "ce_ub975": 0.0024,
+            "margin_damage": -0.0058,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0024,
+          "cross_abs_recovery": 1.087,
+          "joint_extraction": 1.054,
+          "n_held": 16,
+          "units_recovery": 1.031
+        },
+        "verb_preposition_fn_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.3284,
+            "ce_lb975": 0.2902,
+            "ce_ub975": 0.3682,
+            "margin_damage": 1.7091,
+            "top1_change_rate": 0.125
+          },
+          "C_damage": {
+            "ce_damage": -0.0034,
+            "ce_lb975": -0.0095,
+            "ce_ub975": 0.0024,
+            "margin_damage": -0.0058,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0024,
+          "cross_abs_recovery": 0.559,
+          "joint_extraction": 0.662,
+          "n_held": 16,
+          "units_recovery": 0.844
+        },
+        "verb_preposition_fq_about_for": {
+          "A1_damage": {
+            "ce_damage": 0.5304,
+            "ce_lb975": 0.4467,
+            "ce_ub975": 0.6175,
+            "margin_damage": 1.2464,
+            "top1_change_rate": 0.125
+          },
+          "C_damage": {
+            "ce_damage": -0.0034,
+            "ce_lb975": -0.0095,
+            "ce_ub975": 0.0024,
+            "margin_damage": -0.0058,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0024,
+          "cross_abs_recovery": 0.625,
+          "joint_extraction": 0.622,
+          "n_held": 16,
+          "units_recovery": 1.005
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_in_distribution": true,
+    "pred_b_nocomma_transfer": false,
+    "pred_c_no_loss": false,
+    "pred_d_different_mapping": true,
+    "pred_e_units_available": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_broad_circuit_v469",
+  "seconds": 58.9
+}
