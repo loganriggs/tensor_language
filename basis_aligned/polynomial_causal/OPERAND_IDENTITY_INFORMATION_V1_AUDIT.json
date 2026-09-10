@@ -1,0 +1,42 @@
+{
+  "source_sha256": "f83913271aea0b32569458512a817332900ed27d612843f5e2a7580d64738ac7",
+  "panels": {
+    "P": {
+      "rows": 16,
+      "irreducible_squared_error": 0.07836308398327674,
+      "actual_symmetric_squared_error": 0.11922962392418412,
+      "nonlinear_midpoint_excess_squared_error": 0.04086653994090739,
+      "operand_blind_relative_joint_rms_floor": 0.20852455662845265,
+      "actual_symmetric_relative_joint_rms": 0.2572133666165293,
+      "irreducible_fraction_of_actual_squared_error": 0.6572450822549466,
+      "identity_closure_abs": 0.0,
+      "both_minus_single_sum_margin_rms": 0.20460589218264064
+    },
+    "temporal": {
+      "rows": 24,
+      "irreducible_squared_error": 3.1912918678010556,
+      "actual_symmetric_squared_error": 3.2367033881077987,
+      "nonlinear_midpoint_excess_squared_error": 0.045411520306743114,
+      "operand_blind_relative_joint_rms_floor": 0.1396897223352583,
+      "actual_symmetric_relative_joint_rms": 0.1406800916385255,
+      "irreducible_fraction_of_actual_squared_error": 0.9859698233475478,
+      "identity_closure_abs": 0.0,
+      "both_minus_single_sum_margin_rms": 2.059793001289435
+    },
+    "iswas": {
+      "rows": 24,
+      "irreducible_squared_error": 0.24057376389839646,
+      "actual_symmetric_squared_error": 0.24325692840852753,
+      "nonlinear_midpoint_excess_squared_error": 0.002683164510131064,
+      "operand_blind_relative_joint_rms_floor": 0.14543781872107364,
+      "actual_symmetric_relative_joint_rms": 0.14624661749857104,
+      "irreducible_fraction_of_actual_squared_error": 0.9889698331402716,
+      "identity_closure_abs": 0.0,
+      "both_minus_single_sum_margin_rms": 0.12525216498000866
+    }
+  },
+  "model_forwards": 0,
+  "new_data": false,
+  "adoption": false,
+  "scope": "Best possible identical prediction for the two operand labels on these saved margin-effect pairs. Decoder may vary freely by row. Not a lower bound for predictors retaining operand identity, full-distribution KL, or unseen data."
+}

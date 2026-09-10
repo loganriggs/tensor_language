@@ -1,6 +1,6 @@
 # Weight-based decomposition with two circuits and explicit normalization
 
-Updated September 10, 00:59 UTC. **No simpler circuit satisfying all four requested
+Updated September 10, 01:09 UTC. **No simpler circuit satisfying all four requested
 properties has been identified yet.** The current results are:
 
 - An exact weight certificate rules out a smaller linear-input-plus-norm state
@@ -18,6 +18,12 @@ properties has been identified yet.** The current results are:
   input state. Full-rank, noncommuting quadratic forms can still share a square-feature
   library. Eight symbolic checks pass; this is a mathematical tool, not trained-model
   discovery. See [the factorization note](shared_nonlinear_factors_after_removal_2026-09-10.md).
+
+The native operand follow-up now confirms a causal-domain limit: the symmetric
+extension misses distinct Left/Right edit effects by23–35% in full-logit relative
+error. A saved-margin bound shows that forgetting operand identity alone forces
+about14% target error. Ordinary tied-input symmetric execution remains valid.
+Details and the explicitly limited claim are in the factorization note linked above.
 
 All original weights and retained background remain charged. The formulas, proofs,
 numerical evidence and limitations follow below.

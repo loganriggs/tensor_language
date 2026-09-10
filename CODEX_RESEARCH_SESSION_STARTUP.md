@@ -53,6 +53,38 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Native operand-domain null and information bound — 2026-09-10 01:09 UTC
+
+Previous goal turn PROGRESS: one managed causal-equivalence screen and one executed
+CPU information bound. BILIN18_MLP1_OPERAND_DOMAIN_V1_RESULT.json is valid, terminal
+`symmetric_function_loses_native_operand_interventions`; A passes, B/C fail.
+Runner SHA24ebff62eb300c8937bea70ee8a0ee630ff68d878cf65c7d23bd4f071bd20f23.
+Result SHA f83913271aea0b32569458512a817332900ed27d612843f5e2a7580d64738ac7.
+Managed01:06:14→18,2.083s,16forwards/512sequences, same48+16openedpairs, no fits.
+Symmetric mixed output averages native Left-donor/Right-base and reverse. Actual
+independent branch hooks yield distinct effects: full-logit causal errors .234-.353
+on targets, versus .01. Both-operand/direct-donor final replay0; local oracle max
+.000578. Hooks restored. Independent-operand interventions expose the antisymmetric
+part that vanishes on ordinary tied inputs. No existing symmetric rewrite restricted
+to tied-input edits is invalidated; no universal native-neuron API is imposed on
+future circuits. Translation can retain operand identity, with its cost charged.
+
+Concrete continuation: audit_operand_identity_information_v1.py executed on saved
+margin effects. Any common prediction for Left/Right has exact finite-cohort least-
+squares floor13.97%temporal/14.54%iswas/20.85%P relative joint RMS. It explains
+98.6%/98.9% of target squared error of the actual symmetric candidate. Identity
+closure0. This is not a KL/full-logit/population bound or a bound for typed edits.
+See OPERAND_IDENTITY_INFORMATION_V1_AUDIT.json and the updated explanation
+shared_nonlinear_factors_after_removal_2026-09-10.md. No new trained circuit adopted.
+
+Hourly review0106 is complete; next02:06, regular mathematical review still01:49.
+Three prior native screens averaged over10min receipt gaps; current claim-to-result
+is about3min through shared capture/row/scoring reuse. No new forward framework.
+No own GPU job pending; Claude v455 began01:06:18, do not interfere or duplicate.
+Continue original bilinear handoff's explicit shared producers and consumer branches;
+command-mode path parked. A further global square-bank/rank obstruction was demoted
+as low circuit information. Goal remains active; all native weights remain charged.
+
 ## Weight removal fails; shared nonlinear factor math executed — 2026-09-10 00:59 UTC
 
 The previous goal turn is PROGRESS. The managed removal runner completed at 00:49:18,

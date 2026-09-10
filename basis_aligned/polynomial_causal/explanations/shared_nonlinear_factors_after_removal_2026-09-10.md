@@ -1,6 +1,6 @@
 # Shared nonlinear computation after the removal test
 
-September 10, 2026, 00:59 UTC.
+September 10, 2026. Updated 01:09 UTC.
 
 The current MLP1 task directions do not meet the requested circuit standard. A new
 static weight-removal experiment is mechanically valid but fails selective removal.
@@ -154,3 +154,71 @@ pass in [the small reference](../shared_quadratic_factor_math_v1.py), with zero 
 forwards. It separates smaller state, reusable arithmetic, normalization fidelity and
 causal reuse before another expensive candidate is proposed. None of the four final
 circuit properties is newly passed by this fixture.
+
+## Native follow-up: ordinary function equality loses operand identity
+
+The next test has now run on the trained model. For captured normalized base and
+donor inputs b and d, define the two independently edited MLP outputs
+
+    y_L = W[(L d)⊙(R b)] + bias
+    y_R = W[(L b)⊙(R d)] + bias.
+
+These are actual native Left- or Right-projection swaps, followed by the complete
+live suffix. A symmetric extension produces y_S=(y_L+y_R)/2 for either assignment.
+The missing oriented component is (y_L−y_R)/2. In a scalar output reader it is
+dᵀ skew(Lᵀ diag(CW) R)b. It is invisible when both inputs are the same.
+
+The [registered native screen](../BILIN18_MLP1_OPERAND_DOMAIN_V1_RESULT.json)
+completes in 2.083 seconds with 16 forwards/512 sequence evaluations. All instrument
+checks pass. Swapping both operands and directly injecting the donor MLP output
+give identical final logits. The largest local native/FP64 oracle error is .000578,
+within the combined registered absolute and relative limits. Hooks are restored.
+
+The symmetric extension fails both registered behavioral prediction criteria:
+
+| Panel | Full centered-logit causal error versus Left edit | Versus Right edit | Mean teacher KL, Left / Right |
+|---|---:|---:|---:|
+| Temporal | 33.39% | 23.42% | .004795 / .004197 |
+| Is/was | 29.94% | 35.34% | .001174 / .001028 |
+| P controls | 32.32% | 31.34% | .002234 / .001873 |
+
+The limits were 1% causal-vector error and .001 mean KL, with additional p99 and
+top1 requirements. These KL values compare the symmetric candidate with the actual
+edited reference, not with native unedited behavior. One temporal Left-reference
+prediction changes its top token. All original contexts are retained.
+
+### Is the error merely a bad symmetric approximation?
+
+A saved-data calculation tests a stronger, precise question. Suppose a predictor
+returns the same margin change p_i for Left and Right edits of pair i. Let their
+actual changes be l_i and r_i. Then
+
+    Σ[(p_i−l_i)²+(p_i−r_i)²]
+      = 2Σ[p_i−(l_i+r_i)/2]² + (1/2)Σ(l_i−r_i)².
+
+Even allowing a different optimal prediction for every row cannot remove the last
+term. Relative to combined squared native margin effects, the resulting RMS floors
+are **13.97% temporal, 14.54% is/was, and 20.85% P**. The actual symmetric model's
+corresponding errors are 14.07%, 14.62%, and 25.72%. Thus 98.6%/98.9% of its target
+margin squared error is unavoidable if it forgets which operand was changed.
+These margin floors are different measurements from the full-logit errors above.
+
+The [zero-forward audit](../OPERAND_IDENTITY_INFORMATION_V1_AUDIT.json) verifies
+the squared-error identity on the saved floating-point values, with zero numerical
+closure discrepancy. This is a finite-cohort bound for a predictor that identifies
+the two edit labels. It is not a population theorem or a bound on decoders that
+retain operand identity.
+
+### Consequence for the decomposition
+
+Keep the intervention interface explicit. A symmetric factorization remains valid
+for ordinary tied-input execution and tied-input changes. A program claiming to
+predict independent native operand edits must also preserve or translate their
+orientation; ordinary function equality alone is insufficient. Retaining the
+oriented term gives exact local reconstruction but does not simplify its weights.
+
+These native operand edits are a diagnostic domain chosen for this screen, **not a
+new requirement that every discovered circuit support every native-neuron edit**.
+A circuit may instead specify semantically meaningful producer/consumer edits and
+demonstrate their correspondence. This result prevents an unjustified extension of
+a rewrite's causal claims; it does not close weight-based circuit decomposition.
