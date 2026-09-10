@@ -53,6 +53,35 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Fresh value transfer: material effect persists, selectivity fails — 2026-09-10 06:38:38 UTC
+
+Latest preregistration/implementation commit: `48080763f`.
+`THIRD_NOUN_VALUE_TRANSFER_V1_RESULT.json` is valid; A passes, B/C/D fail.
+The frozen layer 9 local-value operator transfers a material partial effect to all
+16 fresh noun/action worlds (projection .1286–.2689), but six fail factor spill;
+both male and female panels pass only 5/8. Gender control fails monk/introduce
+(.3985) and woman/introduce (.3003), against unchanged .25. Reference native and
+edited replay exact. Managed runner SHA
+`56f1e00018740b0f505be23f17655432ebe5bb8f9298d05f69fcaa6c64371ed8`;
+70 forwards/1120 sequences, 1.328s. No clean reusable number circuit promoted.
+
+Post-result CPU continuation is executed: `third_noun_reader_geometry_v1.py` /
+`THIRD_NOUN_READER_GEOMETRY_V1_RESULT.json` and
+`CONTEXTUAL_READER_FACTOR_SPILL_V1_CONTROL.json`. Orthogonal reader coordinates
+N=z_t-(z_m+z_f)/2 and G=z_m-z_f verify answer-pair and centered-energy identities.
+Number energy 89.36–99.11% and answer-effect cosine .9817–.9983 do NOT override
+failed selectivity. Exact toy d=oh, J=1+.3h gives Jd=oh+.3o: input interaction
+purity does not guarantee output factor selectivity under contextual readers.
+
+Next highest-information question: distinguish contextual downstream reading from
+an upstream value producer bundling different variables; design a producer/reader
+causal test with explicit opposing predictions. No successor GPU job registered.
+Do not tune thresholds, remove failed groups, or declare independent extraction:
+four native counterfactual input states and all 545902902 parameters remain.
+Existing explanation section 13 holds the result and derivation. Hourly review
+next due 07:14 UTC; mathematical review 07:49 UTC. Both bqrunners healthy at startup.
+Full durable goal remains active; CPU audit/control are actual continuation receipts.
+
 ## Live value partial causality/selectivity; shared scorer executed — 2026-09-10 06:19:51 UTC
 
 Previous goalturnPROGRESS68242ceaa; prereg/runnereca250445.

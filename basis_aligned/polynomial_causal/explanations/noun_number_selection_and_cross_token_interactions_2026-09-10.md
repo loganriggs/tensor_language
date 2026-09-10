@@ -1,5 +1,7 @@
 # Noun-number selection: what the model does, and what the math rules out
 
+**Latest result, 06:36 UTC:** the same layer 9 value intervention has a material effect on all 16 fresh noun/action groups, including female reflexives. However, six groups fail the registered factor-selectivity requirement and two fail the gender control. The computation is partly transferable, but we have not isolated a clean reusable number circuit. Section 13 explains the test and why a mathematically pure input interaction can still produce unwanted output effects.
+
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
 The useful mathematical lead is **context-dependent combination of noun-number signals**. Making the third noun human reduces the second noun's influence and increases the third noun's influence. We have verified that the former interaction cannot originate in a token-local lookup. A subsequent native intervention now shows that most of the answer interaction is carried in the internal residual state: removing it leaves only 7.1–11.1% of its original magnitude. Raw-vector accounting favored MLP writes, but the subsequent behavioral test rejected them as the main answer carrier: removing all their mixed writes leaves 68–110% of the answer interaction. The subsequent attention test also fails sufficiency alone, leaving 27–43%, while attention and MLP removals compose almost additively. Reader-weighted localization identifies layer 9 attention as the largest individual contributor in every world, primarily through the answer logits rather than normalization. The latest exact routing/value split needs multiple terms. Causal source support distinguishes reading earlier number-bearing positions from reading later contextual positions, and proves that the already-mixed value term comes from the local contextual value map. The latest live-interface test establishes a partial causal contribution: removing the local mixed value changes 16–25% of the natural interaction while largely preserving the other factor components. Its downstream response cannot be replaced by direct residual carry alone. Independent extraction and the full four-property goal remain incomplete.
@@ -347,4 +349,46 @@ The correction still requires four native inputs per fixed context. It has not b
 
 The post-result [shared effect scorer](../factorial_effect_metrics_v1.py) reproduced the existing metrics within2.78e−17 and verified the exact finite-table Parseval identity. Its [audit](../LIVE_VALUE_FACTOR_METRICS_V1_RESULT.json) shows that the largest remaining non-target term varies by world: object number, human category, verb×object number, or object×third-noun number. There is no single spill term to remove uniformly. This is descriptive analysis of opened cases, not a tuned correction.
 
-The [06:14 hourly review](../HOURLY_STRATEGIC_REVIEW_2026-09-10_0614.md) records five native screens and a9m36 median consecutive-receipt interval. Whole-session validation/reporting overhead remains unmeasured; the small shared scorer and its timed CPU analysis/validation stages are a bounded reuse repair, not proof that the whole overhead budget is met. Next reviews are07:14 hourly and07:49 mathematical. No fresh-transfer GPU job has yet been registered or queued.
+The [06:14 hourly review](../HOURLY_STRATEGIC_REVIEW_2026-09-10_0614.md) records five native screens and a9m36 median consecutive-receipt interval. Whole-session validation/reporting overhead remains unmeasured; the small shared scorer and its timed CPU analysis/validation stages are a bounded reuse repair, not proof that the whole overhead budget is met. Next reviews are07:14 hourly and07:49 mathematical. The fresh-transfer test has now completed, as described below.
+
+## 13. Fresh nouns preserve the causal effect, but expose failed selectivity
+
+We froze the local-value operation and tested 512 fresh prefixes: husband, gentleman, monk, dad, queen, woman, girl and mother, each with defend and introduce, across the same 32 combinations of sentence factors. Male groups use themselves versus himself; female groups use themselves versus herself. The human attractor rotates within each gender panel, and the inanimate alternatives are rock, lamp, chair and desk. This tests a new lexical bank and another answer reader within the same sentence construction; it does not establish arbitrary structural OOD generalization.
+
+The [registered test](../THIRD_NOUN_VALUE_TRANSFER_V1_PREREGISTRATION.md) completed validly. Native and edited reference outputs replayed exactly, queries/keys/shared first values were preserved, and the run used 70 forwards over 1120 sequence instances in 1.328 seconds, with no fitting.
+
+Every fresh group has a live native interaction and passes the materiality requirement: the intervention's signed projection onto the native interaction is **12.86–26.89%**. But the requirement that unwanted factor effects stay below 25% of the target effect fails in six groups: monk/defend, dad/both actions, and queen/girl/mother with introduce. Each gender panel therefore passes the complete transfer test in only **5 of 8** groups. The failure is selectivity, not disappearance of the target effect. We retain the original thresholds, including the close misses. [Full result](../THIRD_NOUN_VALUE_TRANSFER_V1_RESULT.json).
+
+To check whether the two answer readers really isolate number, let the three actual output logits be z_t, z_m and z_f for themselves, himself and herself. Define
+
+\[
+N=z_t-(z_m+z_f)/2,\qquad G=z_m-z_f.
+\]
+
+N measures plural versus average singular preference; G measures the difference between the singular gender answers. The two reader coefficient vectors are orthogonal. Their answer margins satisfy exactly
+
+\[
+z_t-z_m=N-G/2,\qquad z_t-z_f=N+G/2.
+\]
+
+The registered gender-effect/number-effect norm ratio must be at most .25 in every group. It fails for monk/introduce (**.3985**) and woman/introduce (**.3003**). Thus use of both answer readers does not establish a gender-independent hidden variable.
+
+The subsequent [CPU geometry audit](../THIRD_NOUN_READER_GEOMETRY_V1_RESULT.json) verifies these identities and the centered three-logit energy identity
+
+\[
+\|z-\bar z\mathbf1\|^2=\tfrac23 N^2+\tfrac12 G^2.
+\]
+
+Applied to the mixed intervention effects, number accounts for 89.36–99.11% of this energy, and the two answer-effect vectors have cosine .9817–.9983. These attractive similarities coexist with failed selectivity. Energy concentration and similar outputs cannot substitute for the intervention control, or prove that two consumers share an identified internal computation.
+
+**Why the input decomposition does not guarantee selective output behavior.** Let o and h be the ±1 object-number and human-category factors. Even a perfectly isolated input correction d=oh can be read by a context-dependent multiplier J=1+βh. Its output effect is
+
+\[
+Jd=(1+\beta h)oh=oh+\beta o,
+\]
+
+because h²=1. A pure input interaction creates an unwanted object-number main effect. The [executed four-corner control](../CONTEXTUAL_READER_FACTOR_SPILL_V1_CONTROL.json), with β=.3, gives exactly 30% spill. This is a counterexample to automatic selectivity, not proof that this multiplier explains the native model.
+
+More generally, the live suffix's finite response is an integral of its Jacobian along the removed-value path. Both the input correction and that reader depend on sentence context. A projector over the input sentence table therefore need not commute with the downstream computation. A useful weight-based split must account for the producer **and its consumers**; merely making the input factors orthogonal is insufficient.
+
+The next mathematical target is to distinguish context-dependent downstream reading from a mixed producer that bundles different variables. This calls for a discriminating reader/producer test, not threshold changes or removal of the six failing groups. The CPU geometry audit and toy falsifier are completed continuation work; no successor GPU experiment is registered yet. Independent production still requires replacement of the four native counterfactual input states, and all 545902902 native parameters remain charged.

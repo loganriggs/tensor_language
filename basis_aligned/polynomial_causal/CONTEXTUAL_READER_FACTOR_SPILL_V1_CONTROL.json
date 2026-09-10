@@ -1,0 +1,41 @@
+{
+  "equation": "d=oh; J=1+0.3h; effect=J*d=oh+0.3o",
+  "rows": [
+    {
+      "o": -1,
+      "h": -1,
+      "removed_value": 1,
+      "reader": 0.7,
+      "effect": 0.7
+    },
+    {
+      "o": -1,
+      "h": 1,
+      "removed_value": -1,
+      "reader": 1.3,
+      "effect": -1.3
+    },
+    {
+      "o": 1,
+      "h": -1,
+      "removed_value": -1,
+      "reader": 0.7,
+      "effect": -0.7
+    },
+    {
+      "o": 1,
+      "h": 1,
+      "removed_value": 1,
+      "reader": 1.3,
+      "effect": 1.3
+    }
+  ],
+  "coefficients": {
+    "": 0.0,
+    "o": 0.30000000000000004,
+    "h": 0.0,
+    "oh": 1.0
+  },
+  "spill_to_target_ratio": 0.30000000000000004,
+  "scope": "Exact toy falsifier: pure mixed input removal need not produce a pure mixed output effect under a contextual reader. Not an attribution of the native failure."
+}
