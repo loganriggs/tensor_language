@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "subtraction": {
+    "passed": true,
+    "identity_bitwise": true,
+    "all_positions_subtracted": true,
+    "wrong_incoming_rejected": true,
+    "cleanup_after_exception": true
+  },
+  "inherited_partition": {
+    "passed": true,
+    "factor_partition": {
+      "passed": true,
+      "closure_max_abs": 4.440892098500626e-16,
+      "factor_rescaling_error": 2.220446049250313e-16,
+      "row_permutation_error": 2.220446049250313e-16,
+      "new_only_and_inherited_only": true,
+      "scope": "Interface algebra only, not identified semantics or standalone execution."
+    },
+    "native_contract": {
+      "passed": true,
+      "factorized_output_map_error": 7.105427357601002e-15,
+      "conditional_contract": {
+        "passed": true,
+        "conditional_mean_routing_identity_max_abs": 1.3322676295501878e-15,
+        "sources": [
+          "first_joint_information",
+          "to",
+          "action"
+        ],
+        "queries": [
+          "to",
+          "action"
+        ],
+        "causal_pattern_mask": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "scope": "Synthetic exact contraction and fixed information-stage geometry. First joint-information token has different noun roles across layouts; no native factor swap or independent producer claimed."
+      }
+    }
+  }
+}
