@@ -1,0 +1,181 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "gain_range": 0.2,
+    "joint_min": 0.8,
+    "low_reach": 0.75,
+    "p_max": 0.23,
+    "pos_min": 0.35,
+    "range_min": 0.2,
+    "tol_pool": 0.05,
+    "tol_pool_wide": 0.15,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_possessive_detectability_v539",
+  "finished_utc": "2026-09-10T20:57:44.885102+00:00",
+  "groups": {
+    "about_for": {
+      "cells": [
+        "possessive_adjacent"
+      ],
+      "effects": {
+        "possessive_argument": 0.8567,
+        "possessive_attractor": 0.3627,
+        "possessive_disjoint_my_your": 0.0188,
+        "possessive_long_simple": 1.0043,
+        "possessive_number_attractor_conflict": 1.3775
+      },
+      "n_units": 21,
+      "per_shape": {
+        "possessive_adjacent": {
+          "A1_damage": {
+            "ce_damage": 0.6253,
+            "ce_lb975": 0.5612,
+            "ce_ub975": 0.6937,
+            "margin_damage": 2.4338,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.951,
+          "joint_extraction": 0.988,
+          "n_held": 16,
+          "units_recovery": 0.963
+        },
+        "possessive_argument": {
+          "A1_damage": {
+            "ce_damage": 0.6733,
+            "ce_lb975": 0.6036,
+            "ce_ub975": 0.742,
+            "margin_damage": 1.9941,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.855,
+          "joint_extraction": 0.888,
+          "n_held": 16,
+          "units_recovery": 0.963
+        },
+        "possessive_attractor": {
+          "A1_damage": {
+            "ce_damage": 0.2861,
+            "ce_lb975": 0.1752,
+            "ce_ub975": 0.3994,
+            "margin_damage": 0.8366,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.803,
+          "joint_extraction": 0.838,
+          "n_held": 16,
+          "units_recovery": 0.958
+        },
+        "possessive_disjoint_my_your": {
+          "A1_damage": {
+            "ce_damage": 0.0213,
+            "ce_lb975": 0.018,
+            "ce_ub975": 0.0254,
+            "margin_damage": -0.0435,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.015,
+          "joint_extraction": 0.021,
+          "n_held": 16,
+          "units_recovery": 0.729
+        },
+        "possessive_long_simple": {
+          "A1_damage": {
+            "ce_damage": 0.6317,
+            "ce_lb975": 0.5654,
+            "ce_ub975": 0.6999,
+            "margin_damage": 2.24,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.875,
+          "joint_extraction": 0.914,
+          "n_held": 16,
+          "units_recovery": 0.957
+        },
+        "possessive_number_attractor_conflict": {
+          "A1_damage": {
+            "ce_damage": 0.3967,
+            "ce_lb975": 0.3452,
+            "ce_ub975": 0.4502,
+            "margin_damage": 3.0368,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.772,
+          "joint_extraction": 0.804,
+          "n_held": 16,
+          "units_recovery": 0.96
+        }
+      },
+      "scale": 4.579
+    }
+  },
+  "predictions": {
+    "pred_a_fit_holds": true,
+    "pred_b_positives_move": true,
+    "pred_c_low_reach_calibrated": false,
+    "pred_d_disjoint_inert": true,
+    "pred_e_reach_reproduces": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_possessive_detectability_v539",
+  "seconds": 34.0
+}
