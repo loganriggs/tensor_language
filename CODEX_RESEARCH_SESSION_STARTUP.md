@@ -82,7 +82,13 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 23:06
+## Current handoff — updated 10 September 2026, 23:20
+
+LATEST CONTINUATION: MULTIOUTPUT_MANIFOLD_V1 managed240s run started23:18:59.
+Same full-Ulambda.01 overlapping16x16x4 block family, exact within-block QR
+coordinate repair. CPU finitegradient/tangent/resume controls passed; native
+result pending. Read its preregistration and result if present, not stale queue
+narrative. Latest hourly23:18,next00:18; latest math22:49,next01:49Sep11.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

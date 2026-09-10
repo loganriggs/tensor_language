@@ -1235,3 +1235,62 @@ the component-energy penalty agrees to 2.22e-16.
 The transformed initial state is saved. The next step is a manifold-aware
 optimizer for this broader family, first preserving its original full-U objective
 and penalty. No newly optimized block fit has run yet.
+
+
+## Overlapping-block optimizer now running — 23:20 UTC
+
+The broader block model now has a checked manifold optimizer and a native
+weight-only run. It keeps the previous representation, coefficient norm and
+explicit penalty, so this tests whether better coordinates resolve its
+unfinished optimization. No token data or labels enter this step.
+
+For block $g$, the quadratic features are
+
+$$
+\phi_{gm}(x)=(E_gx)^\top C_{gm}(E_gx),\qquad
+E_gE_g^\top=I,\qquad C_{gm}=C_{gm}^\top.
+$$
+
+The rows of $E_g$ define a shared input subspace. Each symmetric $C_{gm}$ specifies
+one quadratic interaction within it; each feature has its own output writer.
+The QR coordinate change absorbs scaling and internal changes of basis into
+these dense cores. It adds no orthogonality restriction between different blocks.
+Normalizing each core is offset in the corresponding writer.
+
+Let $G$ be the Gram matrix of the64 quadratic features and $K$ their inner
+products with the native residual-output coefficient tensor. The exact
+conditional writer solve is
+
+$$
+W=K\bigl(G+\lambda\operatorname{diag}(G)\bigr)^{-1},
+\qquad \lambda=0.01.
+$$
+
+Here $K$ has residual-output rows; the full unembedding metric is used in the
+objective. The same metric weights the explicit component-energy penalty, so
+it cancels in this conditional solve. Since the frame rows are orthonormal and
+the cores have unit Frobenius norm, $G_{jj}=1$ and the regularized Gram condition
+is at most6401. That bound prevents a particular linear-solve degeneracy; it
+is not a guarantee of fast or global nonlinear optimization.
+
+The remaining variables are optimized jointly by Riemannian conjugate gradient:
+project gradients onto the allowed frame/core directions, take a descent step,
+and restore the constraints by QR and normalization. A backtracking line search
+requires an actual decrease of the full penalized objective. The writer is
+solved anew at every evaluation. We test projected gradient size as well as
+loss flattening; merely stopping at the time limit is not convergence.
+
+CPU checks passed: finite directional derivative error2.59e-11, tangent constraint
+errors below9e-16, and exactly identical40-step versus20+20 resumed parameters.
+A small random problem decreased its objective by0.769. These validate the
+implementation; they are not native-model results. The managed240-second run
+started23:18:59; no completed native result is claimed here.
+[Registered predictions](../../MULTIOUTPUT_MANIFOLD_V1_PREREGISTRATION.md),
+[CPU controls](../../MULTIOUTPUT_MANIFOLD_V1_CONTROL.json).
+
+The23:18 hourly review is complete. The remaining identification bottlenecks
+are local minima, common-output dominance, and whether fitted subcomputations
+correspond to stable native functions with explicit interfaces. The earlier
+22:49 math review's uniqueness result applies to the exact fitted square tensor,
+not to the native tensor or the best approximation problem.
+[Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-10_2318.md).

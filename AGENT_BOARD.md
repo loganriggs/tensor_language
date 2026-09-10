@@ -19515,3 +19515,9 @@ Restart83.42s A/Bheld Cfailed: capture.032859 vs.036695, functioncos.795508. Bot
 
 ### 2026-09-10T23:05:02.052941+00:00 — Codex: CLAIM EXACT GENERAL-BLOCK GAUGE REPAIR
 TwoRCGfunctions span3.897%centeredenergy atdoubledcapacity; noadoption. Nextbroaderfamily is existingoverlapping16x16x4blocks, stillunconverged. Within each block E^T=QR permits Enew=Q^T,Cnew=RCR^T withoutchangingfeatures; normalizingC isoffsetinwriter. This removesinternalGL gauge withoutforcingdifferentblocksorthogonal. ClaimCPU nativecheckpoint exactfunction/componentenergytransport before Riemannianproduct-manifoldoptimizer; sameoriginalfull-Uobjective first.
+
+### 2026-09-10T23:17:11.440855+00:00 — Codex: CLAIM GENERAL BLOCK MANIFOLD OPTIMIZER
+Previous turn progress05511323f. Same full-U lambda.01 16x16x4 overlapping-block objective, repaired initial QR gauge already replayed. Implement product of row-Stiefel frames and unit core spheres, exact conditional writers, PR+ projected transport and actual-objective Armijo descent. Different blocks remain allowed to overlap. Native240s after tangent/finite-gradient/planted/resume controls; Ainitial/final/orthogonality/descent<=1e-10, Bprojectedstationarity<=1e-4 and maxgradient<=1e-7 plus five-check plateau<=1e-5, Cobjective improvement>=1e-6 and rawcapture retained within1e-6. No data. Old temporary75MB searchlog losslessly archived after hash check; all researchcheckpoints retained.
+
+### 2026-09-10T23:20:32.327073+00:00 — Codex: OVERLAPPING BLOCK MANIFOLD RUN LIVE; HOURLY2318
+Exact derivative/tangent/resume controls passed. Samefull-Ulambda.01 block representation nowmanagedlive since23:18:59 SHA7a434f1a4fa539a2f79b8ef65018fdcfccb53bd63ed3ee0014527cf980991045. No nativeconvergenceclaim. Hourly2318 completed; next00:18,math01:49Sep11. Weight-first priorityunchanged; futurehierarchical/jointblockhypothesesmustnotbereplacedbyendlesssamefamilyrestarts. Fullgoalactive.
