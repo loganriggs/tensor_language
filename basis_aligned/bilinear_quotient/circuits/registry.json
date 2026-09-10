@@ -898,6 +898,35 @@
     "5f90cc140f9255ddfd96e958bd44096f3c539ecc03daa664cea9948bb39ba777"
    ]
   },
+  "subroutine.readout.whole_token_quadratic_sharing": {
+   "file": "subroutine_readout_whole_token_quadratic_sharing.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "016ed4ccf20784481a6a47fe79ffbfa3e73f628baa51395a909ef6399a02edd8",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "readout.whole_token_quadratic_sharing.v1",
+   "claim_status": "rejected",
+   "causal_variable_id": "proportional_token_quadratic",
+   "interchange_family_count": 0,
+   "invariance_family_count": 0,
+   "negative_event_count": 1,
+   "active_negative_event_count": 1,
+   "latest_blocker": "readout.whole_token_quadratic_sharing.v1.weight_screen",
+   "latest_active_event": "readout.whole_token_quadratic_sharing.v1.weight_screen",
+   "active_event_ids": [
+    "readout.whole_token_quadratic_sharing.v1.weight_screen"
+   ],
+   "held_test_types": [],
+   "active_blocking_test_types": [
+    "compiled_equivalence"
+   ],
+   "design_keys": [
+    "63fcec1b66d9106b2f447f826aff9eddeea572102773f98b12eff13aff1e1542"
+   ]
+  },
   "subroutine.signed_reader_pair": {
    "file": "subroutine_signed_reader_pair.json",
    "schema_version": 2,

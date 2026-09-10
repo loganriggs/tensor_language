@@ -1,8 +1,10 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 15:17 UTC
+## Latest follow-up — 10 September, 15:33 UTC
 
 The requested attention weight audit and both backward-unembedding views have now run. [The full new explanation](unembedding_token_and_hierarchy_backward_folds.md) defines the fold and reports its limits.
+
+- **Token functions after folding:** no qualifying shared pair among 518 sampled readers. Closest scaled substitutes leave a median 97% quadratic-function error; old cluster means leave 96%. The only close pair was a literal duplicate involving a padded output ID. This rejects proportional whole-token functions as the tested source of new sharing, while shared subterms remain open. [New weight-function analysis](token_readers_as_bilinear_functions.md).
 
 - **QK1/QK2/value test:** the two tasks do not show opposite dependence on the stored score halves. Holding recipient values loses .78–.89 of native cue recovery, while holding either current score loses .013–.066. Contextual values dominate this intervention, but full-vocabulary factor interactions remain large. [New factor analysis](attention_qk1_qk2_value_dependencies.md).
 - **Attention input sharing:** in 19 of 26 selected heads, the complementary branch can read the saved scalar’s full value-input function. The same within-head QK factors serve both branches. This is per-head access, not global semantic equivalence; cross-head cancellations matter. [Weight audit](attention_ov_input_reader_overlap.md).

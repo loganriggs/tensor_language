@@ -1,0 +1,340 @@
+{
+  "schema": "unembedding.quadratic_reader_geometry.audit.v1",
+  "source_sha256": "2df275ec4e6f4f32d4759e2caf29f2fd4dc1e8bdcab6f652a398dcc7376535c5",
+  "script_sha256": "d96d60976c20ce685830dd3418de16a93d23cd69176b3cc3e9a0d5cf9a2ec680",
+  "candidate_reader_count": 0,
+  "unique_candidate_pairs": [],
+  "error_quantiles_order": [
+    0,
+    0.1,
+    0.5,
+    0.9,
+    1
+  ],
+  "geometry": {
+    "unembedding": {
+      "nearest_trace_free_partner_error_quantiles": [
+        0.0,
+        0.9264507591724396,
+        0.968210905790329,
+        0.9879174649715423,
+        0.9981833100318909
+      ],
+      "fixed_centroid_error_quantiles": [
+        0.6161975264549255,
+        0.9172194719314575,
+        0.9553060829639435,
+        0.9815171957015991,
+        1.0172837972640991
+      ]
+    },
+    "quadratic": {
+      "nearest_trace_free_partner_error_quantiles": [
+        0.0,
+        0.9327381610870361,
+        0.9710128009319305,
+        0.9843681931495667,
+        0.9944929480552673
+      ],
+      "fixed_centroid_error_quantiles": [
+        0.7114523649215698,
+        0.922150582075119,
+        0.9583414494991302,
+        0.9844568729400635,
+        1.0288736820220947
+      ]
+    },
+    "trace_free": {
+      "nearest_trace_free_partner_error_quantiles": [
+        0.0,
+        0.9360712945461274,
+        0.9722138345241547,
+        0.9847268700599671,
+        0.9945805668830872
+      ],
+      "fixed_centroid_error_quantiles": [
+        0.7160695195198059,
+        0.9241888582706451,
+        0.9592002630233765,
+        0.984870308637619,
+        1.0284174680709839
+      ]
+    }
+  },
+  "same_leaf_nearest_fraction": 0.7799227799227799,
+  "same_leaf_random_partner_expectation": 0.5575752597029193,
+  "sample_leaf_counts": {
+    "0": 3,
+    "1": 1,
+    "2": 2,
+    "3": 5,
+    "4": 12,
+    "5": 9,
+    "6": 9,
+    "7": 7,
+    "8": 0,
+    "9": 1,
+    "10": 7,
+    "11": 18,
+    "12": 8,
+    "13": 16,
+    "14": 36,
+    "15": 384
+  },
+  "closest_trace_free_exemplars": [
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 50274,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 1.0,
+        "relative_error": 0.0
+      },
+      "token_id": 196,
+      "trace_free": {
+        "optimal_alpha": 1.0,
+        "relative_error": 0.0
+      },
+      "unembedding": {
+        "optimal_alpha": 1.0,
+        "relative_error": 0.0
+      },
+      "token_text": "\b",
+      "partner_text": ""
+    },
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 196,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 1.0,
+        "relative_error": 0.0
+      },
+      "token_id": 50274,
+      "trace_free": {
+        "optimal_alpha": 1.0,
+        "relative_error": 0.0
+      },
+      "unembedding": {
+        "optimal_alpha": 1.0,
+        "relative_error": 0.0
+      },
+      "token_text": "",
+      "partner_text": "\b"
+    },
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 196,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 0.9987612962722778,
+        "relative_error": 0.11568067222833633
+      },
+      "token_id": 40278,
+      "trace_free": {
+        "optimal_alpha": 0.998450517654419,
+        "relative_error": 0.11760535091161728
+      },
+      "unembedding": {
+        "optimal_alpha": 1.0010520219802856,
+        "relative_error": 0.12248343229293823
+      },
+      "token_text": "*/(",
+      "partner_text": "\b"
+    },
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 196,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 0.9798409342765808,
+        "relative_error": 0.2575858235359192
+      },
+      "token_id": 30478,
+      "trace_free": {
+        "optimal_alpha": 0.9786420464515686,
+        "relative_error": 0.26180893182754517
+      },
+      "unembedding": {
+        "optimal_alpha": 0.9819141626358032,
+        "relative_error": 0.26207345724105835
+      },
+      "token_text": "\\\":",
+      "partner_text": "\b"
+    },
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 196,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 0.9836400747299194,
+        "relative_error": 0.35538968443870544
+      },
+      "token_id": 47530,
+      "trace_free": {
+        "optimal_alpha": 0.9827332496643066,
+        "relative_error": 0.3608097732067108
+      },
+      "unembedding": {
+        "optimal_alpha": 0.9794955253601074,
+        "relative_error": 0.37399083375930786
+      },
+      "token_text": "\u25ac",
+      "partner_text": "\b"
+    },
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 196,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 0.9862582683563232,
+        "relative_error": 0.3720707893371582
+      },
+      "token_id": 42728,
+      "trace_free": {
+        "optimal_alpha": 0.9863380193710327,
+        "relative_error": 0.3773682117462158
+      },
+      "unembedding": {
+        "optimal_alpha": 1.0089188814163208,
+        "relative_error": 0.3775182366371155
+      },
+      "token_text": " largeDownload",
+      "partner_text": "\b"
+    },
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 196,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 0.9739322066307068,
+        "relative_error": 0.5977577567100525
+      },
+      "token_id": 38122,
+      "trace_free": {
+        "optimal_alpha": 0.9758411049842834,
+        "relative_error": 0.6033123731613159
+      },
+      "unembedding": {
+        "optimal_alpha": 1.0713486671447754,
+        "relative_error": 0.5782871246337891
+      },
+      "token_text": "fml",
+      "partner_text": "\b"
+    },
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 30478,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 0.9239429831504822,
+        "relative_error": 0.6134686470031738
+      },
+      "token_id": 47432,
+      "trace_free": {
+        "optimal_alpha": 0.9218006730079651,
+        "relative_error": 0.6206388473510742
+      },
+      "unembedding": {
+        "optimal_alpha": 0.9327574968338013,
+        "relative_error": 0.6348675489425659
+      },
+      "token_text": " \u795e",
+      "partner_text": "\\\":"
+    },
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 30478,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 0.9280471205711365,
+        "relative_error": 0.6437947750091553
+      },
+      "token_id": 13426,
+      "trace_free": {
+        "optimal_alpha": 0.9263688325881958,
+        "relative_error": 0.6506839394569397
+      },
+      "unembedding": {
+        "optimal_alpha": 0.9904882311820984,
+        "relative_error": 0.6336089968681335
+      },
+      "token_text": "\\\\\\\\",
+      "partner_text": "\\\":"
+    },
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 30478,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 0.8067769408226013,
+        "relative_error": 0.8040173649787903
+      },
+      "token_id": 42924,
+      "trace_free": {
+        "optimal_alpha": 0.804625391960144,
+        "relative_error": 0.8094227313995361
+      },
+      "unembedding": {
+        "optimal_alpha": 0.9829345941543579,
+        "relative_error": 0.7605688571929932
+      },
+      "token_text": "\".[",
+      "partner_text": "\\\":"
+    },
+    {
+      "candidate": false,
+      "leaf": 15,
+      "partner_id": 196,
+      "partner_leaf": 15,
+      "quadratic": {
+        "optimal_alpha": 0.7602395415306091,
+        "relative_error": 0.8123825192451477
+      },
+      "token_id": 12054,
+      "trace_free": {
+        "optimal_alpha": 0.7601318955421448,
+        "relative_error": 0.8169495463371277
+      },
+      "unembedding": {
+        "optimal_alpha": 0.780850350856781,
+        "relative_error": 0.818598210811615
+      },
+      "token_text": " scrut",
+      "partner_text": "\b"
+    },
+    {
+      "candidate": false,
+      "leaf": 3,
+      "partner_id": 290,
+      "partner_leaf": 3,
+      "quadratic": {
+        "optimal_alpha": 0.59004807472229,
+        "relative_error": 0.8267436623573303
+      },
+      "token_id": 393,
+      "trace_free": {
+        "optimal_alpha": 0.5890552997589111,
+        "relative_error": 0.8281090259552002
+      },
+      "unembedding": {
+        "optimal_alpha": 0.5207372903823853,
+        "relative_error": 0.8705226182937622
+      },
+      "token_text": " or",
+      "partner_text": " and"
+    }
+  ],
+  "decoder_status": "gpt2 local cache",
+  "scope": "Descriptive accounting of frozen weight screen; nearest partners selected on weights, no independent validation. Frobenius similarity is not pointwise relative response or behavioral equivalence."
+}

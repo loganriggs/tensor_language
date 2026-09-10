@@ -53,6 +53,14 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Token quadratic reader equivalence screen — 2026-09-10 15:33 UTC
+
+Previous result d5599cdda; prereg d69d2310e/9a9ece905. Original handoff/pilot and user's two unembedding views remain authority. Mandatory MLP17/readout dossier and old quadratic/calibration/signed-reader/hierarchy checks completed. New run_unembedding_quadratic_reader_geometry_v1.py SHA0f44002aba84f635d88f21372e136eaa86961dd52cd4e6a3f7ee5c0550ed2aea compares518 frozen whole-token MLP17 quadratic functions via exact product Gram, with trace-free and raw-U controls. No hierarchy refit or causal promotion.
+
+Managed15:32:48–15:32:51, .712913seconds, zero model forwards, peak CUDA426727936bytes. A trained FP64 bridge and C CPU algebra held; B sharing failed, zero qualifying readers. Median closest-partner full/trace-free error .9710/.9722; old centroid errors .9583/.9592, raw U .9553. Only close pair before raw-reader control IDs196/50274 are literal identical U rows;50274 is padded beyond tokenizer50257, not linguistic discovery. CPU accounting and duplicate audit ACTUALLY EXECUTED after result; no threshold/sample/rank rescue. Native all weights remain, no saving/extraction/OOD/removal/composition evidence.
+
+Explanation2026-09-10/token_readers_as_bilinear_functions.md linked first in LATEST15:33follow-up, MLP17 dossier updated. Next candidate should concern shared subterms with explicit inputs/consumers, not require entire token functions to be proportional or treat coarse proximity as operational equivalence. No successor GPU queued; actual claimed CPU analysis is continuation receipt. Full goal active. Next hour16:14/math16:49; both runners healthy. Weight-only jobs do not count as native causal screens in the throughput audit.
+
 ## QK1/QK2/value branch factorial completed — 2026-09-10 15:17 UTC
 
 Previous goal turn PROGRESS78b9c5b5e; prereg7505012a3. Follow the original handoff/pilot and user’s OV/QK input-sharing question. Existing module dossiers and route/value precedents checked. Fixed26heads/14q blocks, reused A1/A2/C16pairs, no fit/head/rank/gain changes.

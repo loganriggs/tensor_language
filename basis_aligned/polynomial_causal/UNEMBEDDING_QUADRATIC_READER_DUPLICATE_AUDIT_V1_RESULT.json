@@ -1,0 +1,20 @@
+{
+  "schema": "unembedding.quadratic_reader_geometry.duplicate_audit.v1",
+  "source_sha256": "2df275ec4e6f4f32d4759e2caf29f2fd4dc1e8bdcab6f652a398dcc7376535c5",
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "ids": [
+    196,
+    50274
+  ],
+  "tokenizer_vocabulary_size": 50257,
+  "model_vocabulary_size": 50304,
+  "sample_ids_outside_tokenizer": [
+    50274
+  ],
+  "rows_equal": true,
+  "optimal_scale_fp64": 1.0,
+  "relative_row_error_fp64": 0.0,
+  "valid_selected_pair_rows": 516,
+  "valid_selected_pairs_full_and_trace_free_error_le_0_1": 0,
+  "scope": "No re-selection after excluding padded ID. Float32 zero geometry is not proof of literal row identity. No native forwards."
+}

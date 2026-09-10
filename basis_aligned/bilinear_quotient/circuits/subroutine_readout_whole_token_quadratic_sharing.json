@@ -1,0 +1,122 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.readout.whole_token_quadratic_sharing",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "readout.whole_token_quadratic_sharing.v1",
+   "revision": 1,
+   "status": "rejected",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "proportional_token_quadratic",
+    "domain": "518 fixed output rows, Euclidean native MLP17 input; weight-only nomination",
+    "read": "raw normalized MLP17 input products",
+    "operation": "compare Q_t=sym(L.T diag(U_t D) R), full and trace-free, under optimal signed scalar",
+    "write": "pre-final-normalization token MLP contribution; skip, bias and other native computation retained",
+    "endpoint": "No qualifying distinct raw-reader pair; no native causal experiment"
+   },
+   "alternative_explanations": [
+    "shared subterms combine differently across token functions",
+    "function-space reuse limited to input domains rather than all coefficients"
+   ],
+   "counterfactual_families": [],
+   "candidate_sites": [
+    {
+     "site_id": "mlp17_token_quadratics",
+     "tensor_path": "transformer.h.17.mlp and lm_head.weight",
+     "shape": [
+      518,
+      1152,
+      1152
+     ],
+     "intervention": "weight-only proposed whole-function substitution; not installed"
+    }
+   ],
+   "split_plan_ids": [],
+   "evidence_event_ids": [
+    "readout.whole_token_quadratic_sharing.v1.weight_screen"
+   ],
+   "translation_ids": [],
+   "next_missing": "Whole-token proportionality screen rejected. Shared subterms with explicit inputs/consumers require a different specified operation and held-out native causal validation."
+  }
+ ],
+ "split_plans": [],
+ "evidence_events": [
+  {
+   "event_id": "readout.whole_token_quadratic_sharing.v1.weight_screen",
+   "claim_id": "readout.whole_token_quadratic_sharing.v1",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "mlp17_token_quadratics",
+   "evaluation_role": "weight_only_nomination",
+   "input_artifact_ids": [
+    "runner",
+    "hierarchy",
+    "audit",
+    "duplicate"
+   ],
+   "seed": 9111360,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "qualifying_token_readers",
+     "value": 0,
+     "bar": ">=16, full and trace-free error <=.10, raw-U error >.50"
+    }
+   ],
+   "notes": "Instrument A/C held. Zero model forwards. No behavior/circuit identification claim.",
+   "design_key": "63fcec1b66d9106b2f447f826aff9eddeea572102773f98b12eff13aff1e1542",
+   "execution_key": "1163303a903ac7c517781598175ca35355e369e0d9fd050859471031c72fcd68"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/UNEMBEDDING_QUADRATIC_READER_GEOMETRY_V1_PREREGISTRATION.md",
+   "sha256": "c6e59e2ddf0a3ffa75c40acb42be6c9a3cd8a6458507cdc65cdad85e2cbb97ad",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/UNEMBEDDING_QUADRATIC_READER_GEOMETRY_V1_RESULT.json",
+   "sha256": "2df275ec4e6f4f32d4759e2caf29f2fd4dc1e8bdcab6f652a398dcc7376535c5",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/UNEMBEDDING_QUADRATIC_READER_GEOMETRY_AUDIT_V1_RESULT.json",
+   "sha256": "35d20d26aacc20e38c65246990b717b77ea2befc60392fc87ebade1266d57307",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "duplicate": {
+   "path": "basis_aligned/polynomial_causal/UNEMBEDDING_QUADRATIC_READER_DUPLICATE_AUDIT_V1_RESULT.json",
+   "sha256": "8b4018eeda484dab65399aadea4169f86b9033a7492ebd5e7454893d86e0b021",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_unembedding_quadratic_reader_geometry_v1.py",
+   "sha256": "0f44002aba84f635d88f21372e136eaa86961dd52cd4e6a3f7ee5c0550ed2aea",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "hierarchy": {
+   "path": "basis_aligned/polynomial_causal/UNEMBEDDING_BACKWARD_VIEWS_V1_HIERARCHY.pt",
+   "sha256": "f8b31e49338004828c1a4c3752a53e7f6d9f194b30f7f8f0464236814a43e8f4",
+   "kind": "evidence",
+   "status": "frozen"
+  }
+ }
+}

@@ -2,11 +2,13 @@
 
 ## [Read the latest update → LATEST.md](LATEST.md)
 
-**LATEST.md is the consolidated update requested by Logan, with a new follow-up at the top.** Its main report covers work since 9 September at 23:06 UTC through 10 September at 14:17 UTC; the follow-up at the top adds the weight audit and unembedding experiment completed at 14:59 UTC, followed by the attention-factor test at 15:17 UTC. It starts with the high-level sequence, defines terms and computations, and assesses whether the mathematical review cycles helped.
+**LATEST.md is the consolidated update requested by Logan, with a new follow-up at the top.** Its main report covers work since 9 September at 23:06 UTC through 10 September at 14:17 UTC; the follow-up at the top adds the weight audit and unembedding experiment completed at 14:59 UTC, followed by the attention-factor test at 15:17 UTC and the token-function weight screen at 15:33 UTC. It starts with the high-level sequence, defines terms and computations, and assesses whether the mathematical review cycles helped.
 
 The files below are supporting experiment notes, not newer consolidated updates.
 
-### Latest follow-up: 10 September, 15:17 UTC
+### Latest follow-up: 10 September, 15:33 UTC
+
+- [Token readers compared as bilinear functions](token_readers_as_bilinear_functions.md): exact input-function comparison; no qualifying shared pair in the frozen sample, with a padded-token duplicate caught by the raw-reader control.
 
 - [QK1/QK2/value dependencies of both attention branches](attention_qk1_qk2_value_dependencies.md): full factor lattice; global opposite-score-half split failed, contextual value dependence held.
 - [Token and hierarchical unembedding readers folded backward](unembedding_token_and_hierarchy_backward_folds.md): the requested experiment has completed; token-program prediction held and shared-mean hierarchy sufficiency failed.
