@@ -1,0 +1,47 @@
+{
+  "candidate_id": "corpus.unit_correlative_recency_v493",
+  "cells": {
+    "correlative_open_neu": {
+      "A1": {
+        "base_axis_mean": -6.977,
+        "base_axis_min": -11.334,
+        "donor_axis_mean": 6.856,
+        "dropped": 0,
+        "n": 32
+      },
+      "A2": {
+        "base_axis_mean": -7.267,
+        "base_axis_min": -11.81,
+        "donor_axis_mean": 7.216,
+        "dropped": 0,
+        "n": 32
+      },
+      "interposed": "no correlative"
+    },
+    "correlative_open_rec": {
+      "A1": {
+        "base_axis_mean": -2.623,
+        "base_axis_min": -7.873,
+        "donor_axis_mean": 2.595,
+        "dropped": 0,
+        "n": 32
+      },
+      "A2": {
+        "base_axis_mean": -3.608,
+        "base_axis_min": -7.949,
+        "donor_axis_mean": 3.533,
+        "dropped": 0,
+        "n": 32
+      },
+      "interposed": "a DISCHARGED either ... or"
+    }
+  },
+  "contrast": "v489: noun_preposition collapsed entirely (32/32 dropped) when a competing cue noun was interposed. v475: possessive_number resisted a number attractor 32/32. Three behaviours, three outcomes -- recency dominance is behaviour-specific and is not a general property of these circuits, which qualifies the standing 'recency readers' note rather than confirming it.",
+  "finished_utc": "2026-09-10T08:49:09.352913+00:00",
+  "instrument": "CPU capability screen (g.prepare valid_only=True); the screen alone adjudicates the categorical question",
+  "observation_not_attributed": "Margins fall from +/-7.0 and +/-7.3 without a correlative to +/-2.6 and +/-3.6 with the discharged one -- roughly a 60% cost. I do NOT attribute that to the discharged correlative: the two interpositions also differ in length and lexis, so the comparison confounds them. Attributing it needs a length-matched correlative-free interposition, which is a separate cell.",
+  "registered_reading": "A recency reader answers from the nearest correlative, which here is a DISCHARGED either/or, on both sides -- so a capability collapse is the recency outcome. The correlative-free control in the same frame separates that from 'this frame is too heavy'.",
+  "result": "NO collapse in either cell: 32/32 rows kept on both hypotheses of both cells. The model tracks the STILL-OPEN correlative, not the nearest one.",
+  "schema": "unit_correlative_recency_v493",
+  "scope": "Behavioural, not causal. It says what the MODEL does; it does not say what a fitted direction encodes."
+}
