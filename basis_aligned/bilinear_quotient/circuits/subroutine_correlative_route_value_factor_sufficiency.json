@@ -1,0 +1,505 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.correlative.route_value_factor_sufficiency",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "factor_plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "correlative.route_value_factor_sufficiency.v1",
+   "revision": 1,
+   "status": "rejected",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "correlative_route_value_operands",
+    "domain": "Reused short-frame recombined A1/A2/P/disjointC, all64pairs native endpointcorrect, fixed26head14block interface",
+    "read": "native complete masked attention scores P and folded local-plus-first scalar values U",
+    "operation": "attempt full scalar effect using donorP/liveU, liveP/donorU, or additive singleton endpoint effects",
+    "write": "saved14block residual writers; recompute current recipient operands after preceding edits",
+    "endpoint": "full-vocabulary effect fidelity and raw target/control interchange"
+   },
+   "alternative_explanations": [
+    "conditional coordinate program retaining opaque upstream model",
+    "task-specific cue association without reusable semantic operation"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "both/neither cue in bare frame"
+     ],
+     "holds_fixed": [
+      "frozen interface and original checkpoint",
+      "preselected new reporter/noun combinations and all other prompt factors"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "original_head_space_intervention_reference"
+     ],
+     "builder_artifact_id": "source_rows",
+     "split_plan_id": "correlative_new_combinations_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "both/neither cue in report frame"
+     ],
+     "holds_fixed": [
+      "frozen interface and original checkpoint",
+      "preselected new reporter/noun combinations and all other prompt factors"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "original_head_space_intervention_reference"
+     ],
+     "builder_artifact_id": "source_rows",
+     "split_plan_id": "correlative_new_combinations_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "P",
+     "role": "invariance",
+     "changes": [
+      "lexical reporter with answer preserved"
+     ],
+     "holds_fixed": [
+      "frozen interface and original checkpoint",
+      "preselected new reporter/noun combinations and all other prompt factors"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "original_head_space_intervention_reference"
+     ],
+     "builder_artifact_id": "source_rows",
+     "split_plan_id": "correlative_new_combinations_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "invariance",
+     "changes": [
+      "disjoint either/not cue and or/but readout"
+     ],
+     "holds_fixed": [
+      "frozen interface and original checkpoint",
+      "preselected new reporter/noun combinations and all other prompt factors"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "original_head_space_intervention_reference"
+     ],
+     "builder_artifact_id": "source_rows",
+     "split_plan_id": "correlative_new_combinations_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "correlative_14_attention_blocks",
+     "tensor_path": "attention c_proj outputs at layers3..16",
+     "shape": [
+      14,
+      1152
+     ],
+     "intervention": "live donor or mean scalar replacement through frozen residual writers"
+    }
+   ],
+   "split_plan_ids": [
+    "correlative_new_combinations_v1"
+   ],
+   "evidence_event_ids": [],
+   "translation_ids": [],
+   "next_missing": "Route-only, value-only and additive-endpoint simplifications rejected at frozen bars. Preserve full coupled P*U operation; need independently explained producers, selective removal/reuse and structural saving. No gain/head/rank rescue."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "correlative_v505_internal_held_reused",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "rows",
+   "description": "Original v505 internal held rows2/3mod4,16perpanel; group-disjoint from interface FIT but all originate in authored FIT namespace. Panels reused; A1/A2/P share groups and A1/P identical base prompts."
+  },
+  {
+   "split_plan_id": "correlative_new_combinations_v1",
+   "partition_artifact_id": "source_rows",
+   "builder_artifact_id": "source_rows",
+   "description": "16groups seed9111280;112unique selected tokenized prompts disjoint from384original source-bank prompts. New factor combinations, existing templates/vocabulary; no model-training OOD or worldwide novelty claim."
+  }
+ ],
+ "evidence_events": [
+  {
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_new_combinations_v1",
+   "evaluation_role": "frozen_route_value_operand_sufficiency_reused_short_rows",
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "source_rows",
+    "factor_audit",
+    "factor_executor"
+   ],
+   "seed": 9111280,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "factor_plan",
+   "result_artifact_id": "factor_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "claim_id": "correlative.route_value_factor_sufficiency.v1",
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "event_id": "correlative.route_value.route_sufficiency.v1",
+   "test_type": "das_interchange",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "metrics": [
+    {
+     "name": "A1_route_raw_recovery",
+     "estimate": 0.15886011719703674,
+     "ci95": [
+      0.09905093703695904,
+      0.2199469350574139
+     ],
+     "bar": ">=.8"
+    },
+    {
+     "name": "A1_route_full_effect_error",
+     "estimate": 0.8288744557140844,
+     "ci95": [
+      0.7498262012835473,
+      0.9058083566212295
+     ],
+     "bar": "<=.15"
+    },
+    {
+     "name": "A2_route_raw_recovery",
+     "estimate": 0.11854463070631027,
+     "ci95": [
+      0.07602657654201996,
+      0.16262123752940477
+     ],
+     "bar": ">=.8"
+    },
+    {
+     "name": "A2_route_full_effect_error",
+     "estimate": 0.8596894477369105,
+     "ci95": [
+      0.7931491975479866,
+      0.9215531924132032
+     ],
+     "bar": "<=.15"
+    }
+   ],
+   "notes": "Instrument and native/joint reference valid; all64pairs both endpointcorrect. Arm fails frozen recovery/error conjunction; all control movements small. Close fixed factor-only simplification, no tuning rescue.",
+   "design_key": "ac1d5e8a5b592dfeebfc30afb6ef496cf5a2adbd9ae2ad7c96049ec259386f94",
+   "execution_key": "a82ade8e5ea0740f03fe89606b5efc2d81144735ab0a7f4875d8f3a5bffce39d"
+  },
+  {
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_new_combinations_v1",
+   "evaluation_role": "frozen_route_value_operand_sufficiency_reused_short_rows",
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "source_rows",
+    "factor_audit",
+    "factor_executor"
+   ],
+   "seed": 9111280,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "factor_plan",
+   "result_artifact_id": "factor_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "claim_id": "correlative.route_value_factor_sufficiency.v1",
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "event_id": "correlative.route_value.value_sufficiency.v1",
+   "test_type": "das_interchange",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "metrics": [
+    {
+     "name": "A1_value_raw_recovery",
+     "estimate": 0.8528933525085449,
+     "ci95": [
+      0.8176023304675856,
+      0.8871241242455796
+     ],
+     "bar": ">=.8"
+    },
+    {
+     "name": "A1_value_full_effect_error",
+     "estimate": 0.20866451441785255,
+     "ci95": [
+      0.14595121507774544,
+      0.26067900867572114
+     ],
+     "bar": "<=.15"
+    },
+    {
+     "name": "A2_value_raw_recovery",
+     "estimate": 0.7799746990203857,
+     "ci95": [
+      0.7407437581064081,
+      0.8198845405197682
+     ],
+     "bar": ">=.8"
+    },
+    {
+     "name": "A2_value_full_effect_error",
+     "estimate": 0.22123383217361955,
+     "ci95": [
+      0.15947519561127957,
+      0.2710719042604399
+     ],
+     "bar": "<=.15"
+    }
+   ],
+   "notes": "Instrument and native/joint reference valid; all64pairs both endpointcorrect. Arm fails frozen recovery/error conjunction; all control movements small. Close fixed factor-only simplification, no tuning rescue.",
+   "design_key": "7da2c73131eb71a723e39732ebf805aa2f480157475c2a43853b6439547669cc",
+   "execution_key": "506e863a61f5236ff9fac30737c7fc798a2fd8cf5d15860594faa521f0aa99ff"
+  },
+  {
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_new_combinations_v1",
+   "evaluation_role": "frozen_route_value_operand_sufficiency_reused_short_rows",
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "source_rows",
+    "factor_audit",
+    "factor_executor"
+   ],
+   "seed": 9111280,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "factor_plan",
+   "result_artifact_id": "factor_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "claim_id": "correlative.route_value_factor_sufficiency.v1",
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "event_id": "correlative.route_value.endpoint_additivity.v1",
+   "test_type": "composition",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "metrics": [
+    {
+     "name": "A1_interaction",
+     "estimate": 0.34818354867861034,
+     "ci95": [
+      0.3157898428947508,
+      0.37917471282563464
+     ],
+     "bar": "<=.10"
+    },
+    {
+     "name": "A2_interaction",
+     "estimate": 0.30632915004831607,
+     "ci95": [
+      0.2857652977639695,
+      0.326675802444626
+     ],
+     "bar": "<=.10"
+    }
+   ],
+   "notes": "Singleton endpoint effects fail addition. Native scalar product also has substantial cross term, .384/.302 in stacked-write relative norm. Native fixed-state algebra is not a causal allocation of nonlinear live endpoint interaction.",
+   "design_key": "1110b688c4583fa6a2ff231373ba8003f85dcc4328f3693a187b9264019e4c00",
+   "execution_key": "5f01c06ec0222054d4b3a124718d58d2ebbdaeb75dade67abbe64aad69e9f372"
+  },
+  {
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_new_combinations_v1",
+   "evaluation_role": "frozen_route_value_operand_sufficiency_reused_short_rows",
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "source_rows",
+    "factor_audit",
+    "factor_executor"
+   ],
+   "seed": 9111280,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "factor_plan",
+   "result_artifact_id": "factor_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "claim_id": "correlative.route_value_factor_sufficiency.v1",
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "C"
+   ],
+   "event_id": "correlative.route_value.joint_bridge.v1",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "metrics": [
+    {
+     "name": "A1_joint_bridge_abs",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=1e-3 AND relativeL2<=1e-5"
+    },
+    {
+     "name": "A2_joint_bridge_abs",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=1e-3 AND relativeL2<=1e-5"
+    },
+    {
+     "name": "C_joint_bridge_abs",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=1e-3 AND relativeL2<=1e-5"
+    },
+    {
+     "name": "P_joint_bridge_abs",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=1e-3 AND relativeL2<=1e-5"
+    }
+   ],
+   "notes": "Joint P/U operand swap matches existing scalar donor executor; native bridge and scalar checks valid. This supports conditional port identity, not independent producer extraction.",
+   "design_key": "e0186150bfc36131c663b0e27ff37b877e86324fe36a57641ff68c60a45306d8",
+   "execution_key": "8b10b84198b9108d0a5008fdd10011634751c910afca4a2d7a7fbcbd4673ca5a"
+  }
+ ],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_FOLDED_PROGRAM_V1_PREREGISTRATION.md",
+   "sha256": "c130adc4256536b1b853b468deeb93d9a03bb8cde888dfd6ff1ed7d878fcf4ad",
+   "kind": "plan",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_FOLDED_PROGRAM_V1_RESULT.json",
+   "sha256": "cc979644b2d2ea21b06a5afdecac7682cfbcb2cda7189c0213fdec3625c0b5d0",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "interface": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_ARTIFACT.pt",
+   "sha256": "0da9d27fd71bbe9fd689b0091a5299790d3617e674004f73623829541913d12d",
+   "kind": "interface",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_ROWS.json",
+   "sha256": "35ebbe96aec3cc7ea38a48a1a71cc82638c43865d37f1be1cbb04edbb69600c8",
+   "kind": "rows",
+   "status": "frozen"
+  },
+  "maps": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_WEIGHT_PORTS_V1_MAPS.pt",
+   "sha256": "ce6b3bb2e5da8a7cec59fe9e5142837a023b643bf9bed49b523f179030113e82",
+   "kind": "maps",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_FOLDED_EFFECTS_V1_RESULT.json",
+   "sha256": "32c4b1c681ede27477bcb47fb07581f25183c89a33f28f29fbc09df92cb2bb8a",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "replay_plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_PREREGISTRATION.md",
+   "sha256": "8c274653ffda866dc734d7cbccd5cc4bfc5b14dfa2fb25bd35f3a36201513064",
+   "kind": "replay_plan",
+   "status": "frozen"
+  },
+  "replay_result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_REPLAYABLE_INTERFACE_V1_RESULT.json",
+   "sha256": "07f5e36ca0798467340095ace87f7f861a31da3d977f158e2923d234865ca27b",
+   "kind": "replay_result",
+   "status": "frozen"
+  },
+  "executor": {
+   "path": "basis_aligned/polynomial_causal/correlative_native_folded_executor_v1.py",
+   "sha256": "3b5bf51c1736f44b7550693e110b3f63e9d978518435d73f93a197dca9839d60",
+   "kind": "executor",
+   "status": "frozen"
+  },
+  "source_plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_VALUE_SOURCE_V1_PREREGISTRATION.md",
+   "sha256": "d42b8147abcbe674271695706e93c111b35e616ff97fde68588475d63031aad9",
+   "kind": "source_plan",
+   "status": "frozen"
+  },
+  "source_result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_VALUE_SOURCE_V1_RESULT.json",
+   "sha256": "5b8c08ed905b36bb2ed78a1a0f9c0c88751b665442b43e9ea290f3214cfdd279",
+   "kind": "source_result",
+   "status": "frozen"
+  },
+  "source_rows": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_RECOMBINED_ROWS_V1.json",
+   "sha256": "d05a851c75fab409490d3452d062ec55cdcecc2e20592bfd2c570aa5fa659a85",
+   "kind": "source_rows",
+   "status": "frozen"
+  },
+  "source_audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_VALUE_SOURCE_AUDIT_V1_RESULT.json",
+   "sha256": "80eab244798810daaf8b522bd2d4e6b8bacd99326bd4b5249b43dd77948224fe",
+   "kind": "source_audit",
+   "status": "frozen"
+  },
+  "factor_plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_ROUTE_VALUE_V1_PREREGISTRATION.md",
+   "sha256": "ff19bed2b665b556a991c69eccc68cfe96e54f4ab4a7a3093d25b9a2dc7ec5c0",
+   "kind": "factor_plan",
+   "status": "frozen"
+  },
+  "factor_result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_ROUTE_VALUE_V1_RESULT.json",
+   "sha256": "0a0af0a140ed92bbfe236eb5f615f574673411f9d6452a3ce2853485a4779101",
+   "kind": "factor_result",
+   "status": "frozen"
+  },
+  "factor_audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_ROUTE_VALUE_AUDIT_V1_RESULT.json",
+   "sha256": "e4329b373310358dab0af1d46dd18a8f112b69447832182a6dd13750f4f1b0f4",
+   "kind": "factor_audit",
+   "status": "frozen"
+  },
+  "factor_explanation": {
+   "path": "basis_aligned/polynomial_causal/explanations/correlative_routing_value_product_2026-09-10.md",
+   "sha256": "46797d80ec5014fb81ae1a62f718066ffacf87909e5aeb99b70d0c81523660af",
+   "kind": "factor_explanation",
+   "status": "frozen"
+  },
+  "factor_executor": {
+   "path": "basis_aligned/polynomial_causal/correlative_factor_executor_v1.py",
+   "sha256": "265e245023332793fdd457815088c60a89f335ce7b718a9a23377e74ad1372d8",
+   "kind": "factor_executor",
+   "status": "frozen"
+  }
+ }
+}

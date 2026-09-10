@@ -53,6 +53,52 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Correlative routing/value factor test: both partial simplifications fail — 2026-09-10 14:10 UTC
+
+Previous turn PROGRESS7ae6a5b12; prereg5bd19ba99. Original handoff/pilot. No long-
+frame capability rescue. All existing short-frame recombined A1/A2/P/disjointC
+rows reused,16groups each,seed9111280; no new-data/OOD claim. Saved26head14block
+interface, no fit/head/rank/gain/mix changes. Priorartv173/v174 split cue-token
+first-value versus residual paths/head-index channels, not this scalar P/U port.
+The earlier first/localsource test retained complete routing; differentquestion.
+
+Exact scalar s=sum(P*U), with native masked two-QK scoresP and folded complete
+local+first valueU. New correlative_factor_executor_v1 exposes donorP/liveU,
+liveP/donorU andjointPdUd; each branch recomputes CURRENTrecipient afterearlier
+blockedits. Samefixedwriters, nativebackgroundcomplete.28forwards448seq,
+managed14:07:32–14:07:36,1.653936executorsec. RunnerSHA
+1ae9ea4981e267cf6ff10f5009490a53fea4b3b8a65cd06f1da1d2e3a2dc4140.
+Ainstrument/Bnative+jointreferenceTRUE; Croute/Dvalue/EadditiveendpointsFALSE.
+Nativeboth-endpointscorrectall64, nativebaselineandjoint-versus-oldscalarlogits
+EXACT0. Scalarworstscaled.127548; nativeproductidentityscaled2.63364e-10<=1.
+
+Joint rawrecoveries .969345/.898752 unchanged. Routingonly .158860/.118545,
+fullvocaberror.828874/.859689. Valueonly .852893/.779975, error.208665/.221234.
+Both fail >=.8recovery AND<=.15error onboth targets; allcontrolmovements<=.024778.
+Endpointinteraction .348184/.306329>.10. Close both fixed operand-only
+simplifications without dose/gain/head/rankrescue. Fullcoupled operation survives.
+
+Actual post-resultCPU audit_correlative_route_value_v1 executed4000pairedgroup
+bootstraps plus native scalar product audit. InteractionCI[.315790,.379175]/
+[.285765,.326676]. Value recoveryCI[.817602,.887124]/[.740744,.819885]; value
+fullvocaberrorCI[.145951,.260679]/[.159475,.271072] (finitepanel, not population).
+Native delta_s=deltaP*Ub+Pb*deltaU+deltaP*deltaU. Write-weighted stackedlayer
+crossomissionerror.384333/.302085, identityrelative1.53e-16/1.69e-16. Native
+fixed-state terms doNOTallocate percentages of nonlinear live endpoint effect;
+partial interventionsfollowdifferenttrajectories. Full P and U producers remain
+context-dependent, not token-only features or independent extractedprograms.
+
+Result CORRELATIVE_ROUTE_VALUE_V1_RESULT.json; postCPU
+CORRELATIVE_ROUTE_VALUE_AUDIT_V1_RESULT.json. New canonicalalternative
+subroutine.correlative.route_value_factor_sufficiency rejected, jointcompiled
+identityheld; viable parentv3unchanged. Explanation
+explanations/correlative_routing_value_product_2026-09-10.md. All545902902native
+params plus76032corecoefficients required, saving0. Nextproducer explanation
+must account for coupled context-dependent routing/value terms and explicit
+consumers; no another partial-factor rescaling rescue. ActualclaimedCPU audit
+is turn-boundary continuation receipt; no successorGPUqueued. Fullgoalactive.
+Next hourly14:14/math16:49UTC. PreserveClaudejobs/sharedwork.
+
 ## Matched context null and native-capability correction — 2026-09-10 14:01 UTC
 
 Previous result PROGRESS0038109ea; current prereg2b5bb7247. Original handoff/pilot.
