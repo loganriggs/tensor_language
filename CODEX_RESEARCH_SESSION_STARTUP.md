@@ -53,6 +53,34 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Weight removal fails; shared nonlinear factor math executed — 2026-09-10 00:59 UTC
+
+The previous goal turn is PROGRESS. The managed removal runner completed at 00:49:18,
+with a valid instrument, restored original weights/bias, 16 forwards/512 sequences,
+and 4.084 seconds executor time. Its immutable result is
+`BILIN18_MLP1_WEIGHT_DEFINED_REMOVAL_V1_RESULT.json`, terminal
+`task_reader_quadratics_not_independently_removable`. Own signed contrast retention
+is .738652 temporal and .405691 iswas; P controls change 3/2 endpoint predictions,
+joint 7. B/C fail. Close this homogeneous reader split; no rank/site/dose/offset rescue.
+Runner SHA: 4149ae5e98693e0e360e0270e19bf16b9e1f405c6abc6319ac73c6c7ad188e15.
+
+The concrete continuation is CPU math already executed in
+`shared_quadratic_factor_math_v1.py`: eight exact symbolic controls distinguish a
+shared nonorthogonal square-feature library from the excluded smaller linear-plus-norm
+state. A planted pair has full rank and invertible raw commutator yet shares two squares;
+a third consumer fails the necessary inverse-reference commutator criterion. A raw-dot
+attention gauge fails normalized routing. No trained factor discovery is claimed.
+The user-facing derivation and removal summary are in
+`explanations/shared_nonlinear_factors_after_removal_2026-09-10.md`.
+
+Continue the user's original bilinear handoff/pilot joint read–route–write direction,
+not better_math_ideas or the parked is/was command-mode loop. Shared producers and
+consumer-specific branches need separately specified interventions; all normalization,
+adapters and opaque weights remain charged. A native square-bank test is NOT yet
+registered or enqueued. Do not turn this toy into a native positive or launch a rank
+sweep. Both runners are healthy, with no owned GPU job pending. The program goal
+remains active. Review clocks remain 01:05 hourly and 01:49 mathematical.
+
 ## Cross-program null; fixed-weight removal is the next requirement — 2026-09-10 00:43 UTC
 
 Previous goal turn is PROGRESS. BILIN18_MLP1_ATTENTION_CROSS_PROGRAM_V1

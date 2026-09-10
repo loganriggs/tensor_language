@@ -1,6 +1,6 @@
 # Weight-based decomposition with two circuits and explicit normalization
 
-Updated September10,00:44 UTC. **No simpler circuit satisfying all four requested
+Updated September 10, 00:59 UTC. **No simpler circuit satisfying all four requested
 properties has been identified yet.** The current results are:
 
 - An exact weight certificate rules out a smaller linear-input-plus-norm state
@@ -11,8 +11,13 @@ properties has been identified yet.** The current results are:
 - The explicit attention-times-pre-attention cross term passes the control limits
   but supplies only about8%/20% of the complete temporal/iswas interchange effects.
   It is insufficient, and the other terms are not promoted as fallbacks.
-- The next test removes a fixed quadratic computation directly through the weights,
-  with bias preserved. Its controls pass; native removal/selectivity is pending.
+- Actual weight removal is now tested and fails: temporal/iswas cue effects retain
+  about 74%/41%, and control predictions change. The local reader split is not an
+  independently removable pair of circuits.
+- A new exact counterexample distinguishes shared nonlinear arithmetic from smaller
+  input state. Full-rank, noncommuting quadratic forms can still share a square-feature
+  library. Eight symbolic checks pass; this is a mathematical tool, not trained-model
+  discovery. See [the factorization note](shared_nonlinear_factors_after_removal_2026-09-10.md).
 
 All original weights and retained background remain charged. The formulas, proofs,
 numerical evidence and limitations follow below.

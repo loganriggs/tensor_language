@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "checks": {
+    "exact_shared_square_replay": true,
+    "full_rank_forms": true,
+    "invertible_raw_commutator_despite_shared_squares": true,
+    "third_consumer_rejects_two_square_bank": true,
+    "norm_metric_retained_exactly": true,
+    "norm_is_not_sum_of_transformed_squares": true,
+    "attention_gauge_preserves_raw_dot": true,
+    "attention_gauge_changes_normalized_dot": true
+  },
+  "Q0": "Matrix([[1, 1], [1, 2]])",
+  "Q1": "Matrix([[2, 2], [2, 5]])",
+  "raw_commutator_determinant": 1,
+  "third_consumer_relative_commutator": "Matrix([[-1, -2], [1, 1]])",
+  "transformed_norm_metric": "Matrix([[1, -1], [-1, 2]])",
+  "attention_normalized_dot_squared": [
+    "1/2",
+    "16/17"
+  ],
+  "scope": "Exact small fixtures only; no native fit, discovery, extraction or causal adoption.",
+  "model_forwards": 0
+}
