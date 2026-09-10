@@ -1,0 +1,37 @@
+{
+  "experiment": "edit_policy_original_pilot_v1",
+  "fixtures": {
+    "planted": {
+      "reachable_width": 8,
+      "observable_memory_width": 8,
+      "coefficient_identities_exact": true,
+      "seconds": 0.5699322931468487,
+      "compiled_update_constants": 320,
+      "compiled_reader_constants": 640
+    },
+    "perturbed": {
+      "reachable_width": 11,
+      "observable_memory_width": 11,
+      "coefficient_identities_exact": true,
+      "seconds": 0.6957178115844727,
+      "compiled_update_constants": 440,
+      "compiled_reader_constants": 880
+    },
+    "independent_routers": {
+      "reachable_width": 38,
+      "observable_memory_width": 37,
+      "coefficient_identities_exact": true,
+      "seconds": 1.0542809888720512,
+      "compiled_update_constants": 1480,
+      "compiled_reader_constants": 2960
+    }
+  },
+  "model_forwards": 0,
+  "semantic_discovery": false,
+  "bindings": {
+    "bilinear_reconstruction_reference.py": "47a8da0150d98137255600e25c0a41e897451d8270e629f688abafaaf62cb101",
+    "edit_policy_memory_compiler_v1.py": "6303479a2cbb0e18e857ec9b0e427fd31b6a532444f9a3de1eebcc660939e0e7",
+    "audit_edit_policy_original_pilot_v1.py": "ccbabc24917b33a2c900130ae41b16678fd58618bbdf5d9d6da30efda9990602"
+  },
+  "first_attempt": "Generic Matrix elimination stopped after >120 CPU seconds; two fixtures completed, third did not. Domain arithmetic and pivot solve used for this receipt."
+}

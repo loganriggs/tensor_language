@@ -53,6 +53,40 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Edit-policy memory compilation executed — 2026-09-10 10:06 UTC
+
+Previous goal turn a099664e4 closed the weak prefix-binding candidate. Current
+prior-art audit found contextual history/hop-state and four-attention endpoint
+stronger semantic reuse candidates already closed; do not revive their old
+positive source decompositions as new identified circuits. Claude's correlative
+lane remains his. Original handoff/pilot is the user authority, not better_math.
+
+Actual CPU continuation: edit_policy_memory_compiler_v1 implements additive
+s'=s+U_g phi, all query-reader coefficients H, reachable basis E. Required
+linear observable memory rank(HE); select H rows C and solve HE=DCE, then
+z'=z+C U_g phi and reads Dz, with no original-state reconstruction. Explicit
+external producers/edit masks remain charged.17 exact rational controls and
+57 prefix replays: four shared cubic features require4/8/12 states with all
+three histories tied/A-B tied/all independent; partial readers6. Dense gauge,
+separate/joint removal, producer removal, unregistered-edit rejection pass.
+Global fixed gate supplied as side information needs only4 plus metadata;
+do not overstate the independent-history lower bound or nonlinear minimality.
+
+audit_edit_policy_original_pilot_v1 actually compiles the SAME original pilot
+fixtures: planted8 reachable/8 observable; perturbed11/11; independent routers
+38/37. Exact coefficient identities all pass, total2.32s. Initial generic
+symbolic elimination stopped after>120 CPU seconds; bound v1 preserved, audit
+uses exact-domain pivot solve. All receipts retain source hashes. The37-state
+quotient implements the pilot's existing observable-rank finding; it is NOT
+semantic discovery or evidence that independent routers share computation.
+All native parameters retained, no native circuit promotion or GPU forwards.
+
+Explanation: explanations/shared_computation_and_editable_memory_2026-09-10.md.
+Managed bqrunner and CPU bqrunner2 both RUNNING; no Codex GPU job queued. Next
+research must identify independently generated shared features with real consumer
+uses, not another exact fixture, rank scan, or prefix subdivision. Full goal
+active. Next hourly10:14/math10:49 UTC. Continuous clock and turn_boundary remain.
+
 ## Causal prefix binding fails; direction certificate executed — 2026-09-10 09:52 UTC
 
 Previous goal turn PROGRESSea9eb8c9d; preregistration94f0d2e6d. CAUSAL_PREFIX_BINDING_V1

@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Shared computation and editable memory](shared_computation_and_editable_memory_2026-09-10.md): original handoff/pilot follow-up; exact edit-policy compiler distinguishes shared feature computation from separate consumer histories, including execution on all three original pilot fixtures. Mathematical tool, no new trained circuit.
+
 - [Coupled response and the limits of additive explanations](coupled_response_and_additive_limits_2026-09-10.md): latest: exact early-memory/late-query decomposition passes execution but fails the native explanatory target; a geometric bound closes one-direction repairs of this prefix-binding candidate.
 
 - [Noun-number selection and cross-token interactions](noun_number_selection_and_cross_token_interactions_2026-09-10.md): latest: native local-value removal with downstream recomputation passes partial causal materiality and within-bank factor selectivity; direct-carry prediction fails, leaving extraction and fresh-reader transfer open.

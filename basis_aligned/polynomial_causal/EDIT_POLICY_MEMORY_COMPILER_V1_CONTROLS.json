@@ -1,0 +1,35 @@
+{
+  "experiment": "edit_policy_memory_compiler_v1",
+  "passed": true,
+  "checks": {
+    "natural_all_prefixes_exact": true,
+    "a_b_tied_all_prefixes_exact": true,
+    "independent_all_prefixes_exact": true,
+    "policy_changes_required_state": true,
+    "reader_blind_state_removed": true,
+    "dense_gauge_exact": true,
+    "dense_gauge_width": true,
+    "unregistered_edit_rejected": true,
+    "base_replay": true,
+    "a_removal_replay": true,
+    "b_removal_replay": true,
+    "joint_replay": true,
+    "branch_effects_compose_at_this_linear_reader": true,
+    "shared_producer_removal": true,
+    "distinct_histories_observable": true,
+    "global_gate_side_information_exception": true,
+    "feature_span_exact": true
+  },
+  "state_widths": {
+    "natural": 4,
+    "a_b_tied": 8,
+    "independent": 12,
+    "independent_partial_readers": 6
+  },
+  "exact_prefix_replays": 57,
+  "shared_feature_count": 4,
+  "model_forwards": 0,
+  "native_parameters_removed": 0,
+  "scope": "Exact rational planted additive feature stream; linear memory encoders; no trained circuit discovery.",
+  "source_sha256": "6303479a2cbb0e18e857ec9b0e427fd31b6a532444f9a3de1eebcc660939e0e7"
+}
