@@ -1,0 +1,189 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "one_cell_max": 0.75,
+    "tol_pool": 0.05,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_one_cell_fit_control_v481",
+  "finished_utc": "2026-09-10T05:51:22.945440+00:00",
+  "groups": {
+    "fit_one": {
+      "cells": [
+        "verb_preposition_at_to"
+      ],
+      "n_units": 12,
+      "per_shape": {
+        "verb_preposition_about_for": {
+          "A1_damage": {
+            "ce_damage": -0.026,
+            "ce_lb975": -0.034,
+            "ce_ub975": -0.018,
+            "margin_damage": -0.0414,
+            "top1_change_rate": 0.0938
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 0.014,
+          "joint_extraction": 0.015,
+          "n_held": 16,
+          "units_recovery": 0.924
+        },
+        "verb_preposition_at_to": {
+          "A1_damage": {
+            "ce_damage": 1.2777,
+            "ce_lb975": 0.9241,
+            "ce_ub975": 1.6574,
+            "margin_damage": 3.3402,
+            "top1_change_rate": 0.5
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 0.997,
+          "joint_extraction": 1.009,
+          "n_held": 16,
+          "units_recovery": 0.988
+        },
+        "verb_preposition_coord_at_to": {
+          "A1_damage": {
+            "ce_damage": 0.861,
+            "ce_lb975": 0.606,
+            "ce_ub975": 1.1347,
+            "margin_damage": 1.513,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 1.36,
+          "joint_extraction": 1.206,
+          "n_held": 16,
+          "units_recovery": 1.128
+        },
+        "verb_preposition_fb_at_to": {
+          "A1_damage": {
+            "ce_damage": 1.4712,
+            "ce_lb975": 1.2131,
+            "ce_ub975": 1.747,
+            "margin_damage": 2.7522,
+            "top1_change_rate": 0.4688
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 1.249,
+          "joint_extraction": 0.981,
+          "n_held": 16,
+          "units_recovery": 1.273
+        },
+        "verb_preposition_fd_at_to": {
+          "A1_damage": {
+            "ce_damage": 1.0077,
+            "ce_lb975": 0.8643,
+            "ce_ub975": 1.1597,
+            "margin_damage": 2.1062,
+            "top1_change_rate": 0.5
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 1.1,
+          "joint_extraction": 0.914,
+          "n_held": 16,
+          "units_recovery": 1.203
+        },
+        "verb_preposition_fj_at_to": {
+          "A1_damage": {
+            "ce_damage": 1.4526,
+            "ce_lb975": 1.1052,
+            "ce_ub975": 1.8256,
+            "margin_damage": 3.1698,
+            "top1_change_rate": 0.3125
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 1.233,
+          "joint_extraction": 1.09,
+          "n_held": 16,
+          "units_recovery": 1.131
+        },
+        "verb_preposition_fm_at_to": {
+          "A1_damage": {
+            "ce_damage": 0.8484,
+            "ce_lb975": 0.7244,
+            "ce_ub975": 0.9876,
+            "margin_damage": 2.8563,
+            "top1_change_rate": 0.5
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 1.057,
+          "joint_extraction": 1.0,
+          "n_held": 16,
+          "units_recovery": 1.057
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_own_cell_in_distribution": true,
+    "pred_b_one_cell_transfers": true,
+    "pred_c_fit_size_explains": false,
+    "pred_d_units_available": true,
+    "pred_e_different_mapping": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_one_cell_fit_control_v481",
+  "seconds": 29.8
+}
