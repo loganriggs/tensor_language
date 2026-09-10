@@ -2,6 +2,7 @@
 # BQGATE: all36 module-output context-source screens,117forwards1872seq.
 """pred_a instrument/no-op/all-chain/causal-zero; pred_b one common source
 transfer>=.50,error<=.50 on both target frames,G absCE<=.10. Nomination only.
+pred_c existing CPU bilinear controls <=1e-10.
 Fixed TOKEN_CONTEXT_SOURCE_V1_PREREGISTRATION.md; no fitting or rank changes.
 """
 import json,os,signal,sys,time
@@ -85,7 +86,7 @@ def main():
         valid=valid and checks[name+'_final_tokens_match'] and checks[name+'_gate_norm']>1e-4 and checks[name+'_noop']['max_abs']<=1e-3 and checks[name+'_noop']['relative_l2']<=1e-5 and checks[name+'_all_chain_scaled']<=1 and checks[name+'_causal_zero']<=1e-7
     nominees=[key(s) for s in SITES if all(reports[n]['arms'][key(s)]['gate_transfer']>=.5 and reports[n]['arms'][key(s)]['gate_error']<=.5 for n in ['A1','A2']) and reports['G']['arms'][key(s)]['mean_absolute_ce']<=.1] if valid else []
     artifact=POLY/'TOKEN_CONTEXT_SOURCE_V1_ARTIFACT.pt';assert not artifact.exists();torch.save(artifacts,artifact)
-    result=dict(schema='token.context_source.v1',predictions={'pred_a_instrument':valid,'pred_b_shared_source_nomination':valid and bool(nominees)},nominees=nominees,reports=reports,checks=checks,
+    result=dict(schema='token.context_source.v1',predictions={'pred_a_instrument':valid,'pred_b_shared_source_nomination':valid and bool(nominees),'pred_c_fold_controls':tiny['delta_max_abs']<=1e-10 and tiny['reader_max_abs']<=1e-10},nominees=nominees,reports=reports,checks=checks,
         engine_bridges=engine.bridges,controls=tiny,artifact_sha256=digest(artifact),runner_sha256=digest(RUNNER),binding_sha256=digest(BIND),wall_seconds=time.perf_counter()-tic,
         price=dict(body_forwards=engine.counts[0],sequences=engine.counts[1],native_parameters=sum(p.numel() for p in model.parameters()),artifact_bytes=artifact.stat().st_size,native_weight_saving=0),
         scope='Whole-module output source screen for lexical context-gate initialization. Internal gate transfer is not lexical behavior recovery, independent producer or semantic circuit identification.')

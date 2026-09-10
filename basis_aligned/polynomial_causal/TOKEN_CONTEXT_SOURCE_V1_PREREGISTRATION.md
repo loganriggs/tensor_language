@@ -40,6 +40,9 @@ Predictions:
   cyclic pair; all three gate difference norms>1e-4; no-op logits maxabs<=1e-3
   and rel<=1e-5; all-chain gate error<=1e-3+1e-5*abs(reference) elementwise;
   MLP17-output gate change maxabs<=1e-7. Frozen hashes checked.
+* C algebra: existing model-free bilinear finite-difference and reader
+  controls have max absolute errors<=1e-10. This reports controls already run
+  by the source rather than adding another native arm.
 * B shared source nomination: A and at least one identical module-output site
   has gate transfer>=.50 and relative gate error<=.50 on BOTH A1/A2, with G
   mean absolute CE change<=.10. All36 sites reported; no top-site promotion,
