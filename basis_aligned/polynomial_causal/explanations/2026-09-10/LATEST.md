@@ -1,6 +1,21 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 18:03 UTC
+## Latest follow-up — 10 September, 18:13 UTC; workflow review18:14
+
+**The lexical/form coupling requires changed contextual state.** Scalar-only
+readout leaves83–95%lexical-drift error; supplying the true norm still leaves
+82–107%. Complement-only also fails. The full readout matches the measured
+scores, with partially opposing scalar/context contributions. These are CPU
+tests on saved states; they do not repair prior selectivity or joint-choice
+failures. [Equations, tests and limits](gerund_scalar_writes_and_live_feedback.md).
+
+The [hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-10_1814.md) completed.
+The startup guide is now215active lines with all4335historical lines preserved.
+Next: test producers of the complementary change. Reviews due19:14/19:49 UTC.
+Full four-property goal remains open.
+
+
+## Previous follow-up — 10 September, 18:03 UTC
 
 **Lexical and grammatical commands transfer, but are not yet separately
 selective or reliably composable.** The lexical command mostly preserves form

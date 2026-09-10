@@ -1111,7 +1111,7 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "57dbfce9bac95b507f312614c7ec43d9e87e0585e4b7082a975ebff9d559e687",
+   "record_sha256": "7cde73a0d24e5970f6797354a6d7fbf703077a51f3b21d310ad7660b84e3fcf0",
    "kind": "shared_subroutine",
    "identity_instance": null,
    "active_claim_id": "readout.lexical_form_commands.v1",
@@ -1119,27 +1119,30 @@
    "causal_variable_id": "lexical_form_commands",
    "interchange_family_count": 2,
    "invariance_family_count": 1,
-   "negative_event_count": 4,
-   "active_negative_event_count": 4,
-   "latest_blocker": "readout.lexical_form_commands.v1.agreement_margin",
-   "latest_active_event": "readout.lexical_form_commands.v1.agreement_margin",
+   "negative_event_count": 5,
+   "active_negative_event_count": 5,
+   "latest_blocker": "readout.lexical_form_commands.v1.coupled_readout_factors",
+   "latest_active_event": "readout.lexical_form_commands.v1.coupled_readout_factors",
    "active_event_ids": [
     "readout.lexical_form_commands.v1.instrument",
     "readout.lexical_form_commands.v1.lexical_reuse",
     "readout.lexical_form_commands.v1.form_reuse",
     "readout.lexical_form_commands.v1.joint",
-    "readout.lexical_form_commands.v1.agreement_margin"
+    "readout.lexical_form_commands.v1.agreement_margin",
+    "readout.lexical_form_commands.v1.coupled_readout_factors"
    ],
    "held_test_types": [
     "null_control"
    ],
    "active_blocking_test_types": [
+    "compiled_equivalence",
     "composition",
     "cross_family_transfer",
     "invariance"
    ],
    "design_keys": [
     "4c94df0c036352e9cf652ed7a8c404f3f208e4e9bda65f61fecc2bb33135fe13",
+    "74c19003af6d85cc5cc6629747b7dd3542be2fe8753b13b4cb0671ad3c1a89c7",
     "7e2f7089dc00cb8a828e3483a5c3aec29a950e3004f8e86bb12eae8ec29032b5",
     "803d26253315f12123dca5d4e22c05c19562b31c2a5ef5d2e9f630e1208224cf",
     "96363aafd9f1f41212c8c364f2327135ac88ea96280b9ab8d8b1aa4540cda4c0",

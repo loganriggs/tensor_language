@@ -296,6 +296,55 @@
    "notes": "23forwards368seq; A1native16 per corner,A2ingY/Z15. L recovery .8417/.8412 and .8085/.7853, form drift .0462-.0976. F recovery .9517/.9504 and .8634/.8644, lexical drift .1149-.1688. Joint14/16,13/16; full additive error .123/.083. G margin .2333 fails and prior CE .7047 repeats. All native dependencies remain; no promotion.",
    "design_key": "7e2f7089dc00cb8a828e3483a5c3aec29a950e3004f8e86bb12eae8ec29032b5",
    "execution_key": "206ec0fee254c8a9ae8ee21a9fdf1c57735455f4acba61743e94e52eae942811"
+  },
+  {
+   "event_id": "readout.lexical_form_commands.v1.coupled_readout_factors",
+   "claim_id": "readout.lexical_form_commands.v1",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2"
+   ],
+   "site_id": "lexical_form_ports",
+   "split_plan_id": "reused_context_panels",
+   "evaluation_role": "readout_factor_explanation",
+   "input_artifact_ids": [
+    "states",
+    "readout_factor_runner",
+    "readout_factor_binding"
+   ],
+   "seed": 9111581,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "readout_factor_plan",
+   "result_artifact_id": "readout_factor_result",
+   "metrics": [
+    {
+     "name": "pred_a_instrument",
+     "value": true,
+     "bar": true
+    },
+    {
+     "name": "pred_b_physical_scalar",
+     "value": false,
+     "bar": true
+    },
+    {
+     "name": "pred_c_scalar_actual_norm",
+     "value": false,
+     "bar": true
+    },
+    {
+     "name": "pred_d_complement_actual_norm",
+     "value": false,
+     "bar": true
+    }
+   ],
+   "notes": "CPU saved-state explanation of F-induced lexical drift, not a new native intervention: Aheld B/C/Dfailed. Physical scalar error .8316-.9511, scalar+actual norm .8182-1.0723, complement+norm .8780-1.3573; full readout bridges <=6.3e-6. Actual cancellation and physical no-op reload audits complete.640 conditional coefficients, no independent context producer. Original command failures unchanged.",
+   "design_key": "74c19003af6d85cc5cc6629747b7dd3542be2fe8753b13b4cb0671ad3c1a89c7",
+   "execution_key": "db3ef031b19a7b5e0f24d881f8caade09e6467c173423b6491dc64bb32db38e7"
   }
  ],
  "translations": [],
@@ -351,6 +400,54 @@
   "drift": {
    "path": "basis_aligned/polynomial_causal/LEXICAL_FORM_DRIFT_COMPONENTS_V1_RESULT.json",
    "sha256": "544396ac9b9f13cc35003fda45491948777e5620d3161b45a575e8ad05f239c6",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "readout_factor_plan": {
+   "path": "basis_aligned/polynomial_causal/LEXICAL_FORM_READOUT_FACTORS_V1_PREREGISTRATION.md",
+   "sha256": "4d43b6a1cb26f0a5cf08e20f583f4027837404354a50f3ca908105da2bae5a26",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "readout_factor_runner": {
+   "path": "basis_aligned/polynomial_causal/run_lexical_form_readout_factors_v1.py",
+   "sha256": "8e344167cf747d4236dcd6c2fe0ff45096fdc214aa3c8612a3926aac6893bd6f",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "readout_factor_binding": {
+   "path": "basis_aligned/polynomial_causal/LEXICAL_FORM_READOUT_FACTORS_V1_BINDING.json",
+   "sha256": "4bb8db7630eb09e9c893f776b080323bb14254c1d9d241ad5e4619d11ebf2e8a",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "readout_factor_result": {
+   "path": "basis_aligned/polynomial_causal/LEXICAL_FORM_READOUT_FACTORS_V1_RESULT.json",
+   "sha256": "034e1eee6faefa3a54c914f9911f90c3719e0799e3038a1d46d52ba9b128f80f",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "readout_factor_program": {
+   "path": "basis_aligned/polynomial_causal/LEXICAL_FORM_READOUT_FACTORS_V1_PROGRAM.pt",
+   "sha256": "ec31df4dd66d47b16cb5a1ed2254cca00c7c2daf826e8fb43591b8939873b01b",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "readout_factor_cancellation": {
+   "path": "basis_aligned/polynomial_causal/LEXICAL_FORM_NUMERATOR_CANCELLATION_V1_RESULT.json",
+   "sha256": "91907274ca729ca52125efaa8eae0835b7ea1a320020a5f311c7dc2bb38aa463",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "readout_factor_cancellation_auditor": {
+   "path": "basis_aligned/polynomial_causal/audit_lexical_form_numerator_cancellation_v1.py",
+   "sha256": "4eec00125cfb88f11d774390952a28178758c7b3c8984f54319f9834e3ef8aaf",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "readout_factor_reload": {
+   "path": "basis_aligned/polynomial_causal/LEXICAL_FORM_READOUT_RELOAD_V1_RESULT.json",
+   "sha256": "a4e5a9d766b3822273cb740bd53452c7193abd9b9e4556578d45d1c3b1d9152f",
    "kind": "evidence",
    "status": "frozen"
   }

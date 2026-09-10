@@ -222,3 +222,8 @@ Primary LEXICAL_FORM_INTERCHANGE_V1_RESULT.json, its AUDIT_V1 and
 LEXICAL_FORM_DRIFT_COMPONENTS_V1_RESULT.json in polynomial_causal; current dated
 gerund_scalar_writes_and_live_feedback.md. Next investigate explicit coupled
 lexical/form operations and their producers, not independent-axis relabeling.
+
+
+### 18:13 coupled-readout null
+
+`LEXICAL_FORM_READOUT_FACTORS_V1_RESULT.json` rejects physical scalar-only, scalar+actual-norm and complement+actual-norm explanations of F lexical drift (all .20 bars fail). Full saved-state readout bridges hold. Required complementary changes must be explained upstream; this does not reopen generic MLP17 rank approximations. Details and exact cancellation limits are in the current dated `gerund_scalar_writes_and_live_feedback.md`.

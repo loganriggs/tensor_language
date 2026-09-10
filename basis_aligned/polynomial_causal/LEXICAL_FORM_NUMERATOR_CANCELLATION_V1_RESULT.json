@@ -1,0 +1,55 @@
+{
+  "schema": "lexical.form_numerator_cancellation.v1",
+  "reports": {
+    "A1_FB": {
+      "identity_max_abs": 3.1086244689504383e-15,
+      "scalar_complement_cosine": -0.3040272991265556,
+      "term_norm_over_total": {
+        "scalar": 0.8734301014611053,
+        "complement": 0.813353991652809,
+        "norm": 0.220912696069215
+      },
+      "sum_term_norm_over_total": 1.9076967891831293,
+      "scope": "Softcap secant gain depends on both native endpoints; these terms are exact accounting, not independent counterfactual effects or an extracted predictor."
+    },
+    "A1_FX": {
+      "identity_max_abs": 2.1371793224034263e-15,
+      "scalar_complement_cosine": -0.3988184296604547,
+      "term_norm_over_total": {
+        "scalar": 0.9428787107357125,
+        "complement": 0.8664144402300236,
+        "norm": 0.2530490094569441
+      },
+      "sum_term_norm_over_total": 2.06234216042268,
+      "scope": "Softcap secant gain depends on both native endpoints; these terms are exact accounting, not independent counterfactual effects or an extracted predictor."
+    },
+    "A2_FB": {
+      "identity_max_abs": 2.6645352591003757e-15,
+      "scalar_complement_cosine": -0.6240140310376961,
+      "term_norm_over_total": {
+        "scalar": 1.3571865962822958,
+        "complement": 1.0418103921230195,
+        "norm": 0.2697100892638636
+      },
+      "sum_term_norm_over_total": 2.668707077669179,
+      "scope": "Softcap secant gain depends on both native endpoints; these terms are exact accounting, not independent counterfactual effects or an extracted predictor."
+    },
+    "A2_FX": {
+      "identity_max_abs": 2.7755575615628914e-15,
+      "scalar_complement_cosine": -0.5824945361197286,
+      "term_norm_over_total": {
+        "scalar": 1.3258433448640603,
+        "complement": 1.0638678520572773,
+        "norm": 0.24298985819094235
+      },
+      "sum_term_norm_over_total": 2.63270105511228,
+      "scope": "Softcap secant gain depends on both native endpoints; these terms are exact accounting, not independent counterfactual effects or an extracted predictor."
+    }
+  },
+  "states_sha256": "95fa749af567573c70d759db2762e1f69160b59280348479f560741552c96b7a",
+  "program_sha256": "ec31df4dd66d47b16cb5a1ed2254cca00c7c2daf826e8fb43591b8939873b01b",
+  "script_sha256": "4eec00125cfb88f11d774390952a28178758c7b3c8984f54319f9834e3ef8aaf",
+  "native_forwards": 0,
+  "gpu_accessed": false,
+  "checkpoint_loaded": false
+}

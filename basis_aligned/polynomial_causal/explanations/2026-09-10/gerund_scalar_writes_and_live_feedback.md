@@ -1,6 +1,69 @@
 # Shared grammatical writes work; the scalar-only predictor does not
 
-**Latest result — 10 September, 18:03 UTC:** the fixed lexical and grammatical
+**Latest scientific result — 10 September, 18:13 UTC:** the lexical/form
+interaction needs the grammatical scalar AND the changed complementary state.
+Its token-specific scalar readout alone is insufficient, even when supplied with
+the true changed norm. This directs the next test toward the complementary
+change's producers, rather than another readout approximation.
+
+## Can fixed scalar-reader coefficients explain the cross-task effect?
+
+From the saved final state, write h=s*e+h_perp. A token numerator is
+
+    U_t*h = a_t*s + c_t,
+    a_t = U_t*e,   c_t = U_t*h_perp.
+
+Its score is30*tanh((a_t*s+c_t)/(30*rho)), where rho is the final RMS. The a_t
+coefficients are fixed by weights, while c_t depends on the remaining context.
+We tested the eight choices of base/edited s, c and rho. A separate physical
+scalar-only curve keeps h_perp fixed and predicts its own norm from
+rho(s)^2=(||h_perp||^2+s^2)/1152+eps32. No model run or checkpoint load was needed.
+
+| Predicted change | Frame1, original / cyclic verb | Frame2, original / cyclic verb |
+|---|---:|---:|
+| Physical scalar-only | .832 / .902 | .951 / .950 |
+| Scalar plus actual changed norm | .818 / .876 | 1.045 / 1.072 |
+| Complement plus actual changed norm | .878 / .949 | 1.357 / 1.322 |
+| All three changed quantities | 2.7e-6 / 2.6e-6 | 3.7e-6 / 3.1e-6 |
+
+Entries are relative errors in the two lexical-margin changes under F. All
+three simplifying hypotheses fail the registered .20 bound. The reference norms
+are4.24–6.03, so this is not a zero-effect denominator. Native-score bridges are
+within6.3e-6; a separately reloaded physical curve reproduces its base score.
+The physical scalar-only curve also leaves35%selected-four-score effect error.
+Its640 stored coefficients are a conditional readout summary, not an extracted
+context producer or a repair of the earlier command failures.
+
+A further CPU check makes the cancellation explicit. Before softcap, the change
+splits exactly into a scalar term, complementary numerator term and norm term:
+
+    delta_p = a*delta_s/rho1 + delta_c/rho1
+              + (a*s0+c0)*(1/rho1-1/rho0).
+
+Multiplying each token's terms by its endpoint softcap secant gives exact final
+score accounting. This secant is delta_score/delta_p, using the derivative when
+delta_p is zero. After taking lexical margins, the scalar and complement terms
+partly oppose one another: cosine ranges from-.30 to-.62. The sum of their norms
+and the norm term is1.91–2.67times the norm of the net change. The secant uses both
+native endpoints, so this is an accounting identity, not an independently
+predictive or separately intervened set of causal effects. It cannot rescue the
+failed scalar/complement-only tests.
+
+Receipts: [registered test](../../LEXICAL_FORM_READOUT_FACTORS_V1_PREREGISTRATION.md),
+[CPU result and paired intervals](../../LEXICAL_FORM_READOUT_FACTORS_V1_RESULT.json),
+[cancellation audit](../../LEXICAL_FORM_NUMERATOR_CANCELLATION_V1_RESULT.json),
+[physical-curve reload](../../LEXICAL_FORM_READOUT_RELOAD_V1_RESULT.json).
+
+The [18:14 hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-10_1814.md)
+records four native receipts and14.95-minute median spacing. Publication and
+restoration were taking too much time. The active startup guide is now215lines;
+all4335old lines are preserved with an identical hash in session_history.
+Results now live once in this explanation, with short links elsewhere.
+Next reviews: hourly19:14 UTC, mathematical19:49 UTC. The full goal remains open.
+
+## Previous result — 18:03 UTC
+
+**Result — 10 September, 18:03 UTC:** the fixed lexical and grammatical
 commands show substantial reuse, but fail the complete separation/composition
 tests. The lexical command mostly preserves form margins. The form command
 changes lexical margins too much, and their joint command chooses the intended
