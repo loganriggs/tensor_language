@@ -1,0 +1,42 @@
+{
+  "transport": {
+    "passed": true,
+    "fp64_errors": {
+      "rotate_oracle": 0.0,
+      "inverse": 8.881784197001252e-16,
+      "transport": 1.3322676295501878e-15,
+      "round_trip": 1.3322676295501878e-15,
+      "pair_dot": 1.4210854715202004e-14,
+      "two_score_product": 2.7755575615628914e-17
+    },
+    "fp32_transport_max_abs": 9.5367431640625e-07,
+    "transpose_as_inverse_counterexample": 0.017377246288189152,
+    "native_rotation_squared_scale_range": [
+      0.9946441650390625,
+      1.0055084228515625
+    ],
+    "same_gap_absolute_phase_coefficient_difference": 0.0060272216796875,
+    "native_table_dtype": "torch.bfloat16",
+    "positions": 512,
+    "head_width": 128,
+    "trained_model_forwards": 0,
+    "gpu_accessed": false,
+    "scope": "Native rotary primitive controls; no learned distance mechanism or circuit identified."
+  },
+  "capture": {
+    "passed": true,
+    "native_cache_error": 0.0,
+    "identity_read_error": 0.0,
+    "rerotation_oracle_error": 5.551115123125783e-17,
+    "live_phase_read_max_change": 1.120084733099747,
+    "native_outputs_unchanged": true,
+    "methods_restored": true,
+    "tiny_forwards": 3,
+    "trained_forwards": 0,
+    "gpu_accessed": false
+  },
+  "hashes": {
+    "rotary_phase_transport.py": "d2754767521bcad970c87ecb17a6320daf4a005a36f9449399ce8d857028610c",
+    "rotary_phase_capture.py": "7c03891d7559a92aace1796ceaae2de40604c64a2bd1da49effc55c156b64e0f"
+  }
+}
