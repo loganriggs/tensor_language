@@ -32,8 +32,7 @@ No fitted change to the old hierarchy, model, rank, threshold or native task.
 
 Predictions registered before execution:
 
-* A instrument: CPU FP64 dense-form, half-exchange and rescaling controls
-  <=1e-10 relative; trained first two token forms and centroid zero, explicitly
+* A trained instrument: trained first two token forms and centroid zero, explicitly
   materialized in FP64, agree with FP32 contracted Gram <=1e-5 relative;
   no negative squared norms beyond 1e-5 of largest norm; finite outputs.
 * B sharing candidates: at least 16 of 518 token readers have a selected partner
@@ -41,6 +40,10 @@ Predictions registered before execution:
   optimal relative error >.50. This distinguishes a potentially new common
   bilinear computation from near-duplicate unembedding rows. Zero is the strong
   null; 1-15 is a smaller descriptive candidate set, not this prediction passing.
+* C algebra controls: CPU FP64 dense-form, trace-free, half-exchange and
+  compensating rescaling identities all <=1e-10 relative. Separately reported
+  from the trained precision bridge; this is an instrument claim, not a second
+  scientific sharing hypothesis.
 
 Also report fixed-centroid errors in U, Q and Q° without a new success threshold.
 No extraction, OOD, removal, composition, semantic label or gain claim follows

@@ -2,7 +2,8 @@
 # BQGATE: weight-only reader equivalence; 518 frozen tokens, no model forward or fit.
 """pred_a Gram bridges<=1e-5, CPU controls<=1e-10; pred_b >=16 distinct
 token readers with full/trace-free errors<=.10 and raw U error>.50.
-Null zero candidates. Native weights retained; no causal promotion.
+pred_c CPU dense/gauge algebra controls<=1e-10. Null zero candidates.
+Native weights retained; no causal promotion.
 """
 import json, os, signal, sys, time
 from pathlib import Path
@@ -94,7 +95,7 @@ def main():
         instrument=finite and max(bridge.values())<=1e-5 and min(min_ratios.values())>0 and float(cosine.abs().max())<=1+1e-5
         count=sum(row['candidate'] for row in rows)
         torch.cuda.synchronize()
-    result={'schema':'unembedding.quadratic_reader_geometry.v1','predictions':{'pred_a_instrument':instrument,'pred_b_sharing_candidates':instrument and count>=16},
+    result={'schema':'unembedding.quadratic_reader_geometry.v1','predictions':{'pred_a_instrument':instrument,'pred_b_sharing_candidates':instrument and count>=16,'pred_c_algebra_controls':max(tiny.values())<=1e-10},
             'candidate_count':count,'rows':rows,'centroid_relative_errors':centroid_errors,
             'controls':tiny,'trained_fp64_bridges':bridge,'minimum_diagonal_relative':min_ratios,
             'runner_sha256':digest(RUNNER),'binding_sha256':digest(BIND),'wall_seconds':time.perf_counter()-tic,
