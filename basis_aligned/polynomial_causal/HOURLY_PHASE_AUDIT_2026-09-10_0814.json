@@ -1,0 +1,140 @@
+{
+  "bucket_seconds": {
+    "implementation": 648.010447,
+    "validation": 129.271278,
+    "science": 844.810638,
+    "publication": 174.992667
+  },
+  "recorded_seconds": 1797.08503,
+  "unrecorded_seconds": 1802.91497,
+  "coverage_fraction": 0.4991902861111111,
+  "intervals": [
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_ROUTE_V1_PHASES.jsonl",
+      "category": "implementation",
+      "start": "2026-09-10T07:16:05.328462+00:00",
+      "end": "2026-09-10T07:19:06.121865+00:00",
+      "seconds": 180.793403
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_ROUTE_V1_PHASES.jsonl",
+      "category": "validation",
+      "start": "2026-09-10T07:19:06.121865+00:00",
+      "end": "2026-09-10T07:20:26.420473+00:00",
+      "seconds": 80.298608
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_ROUTE_V1_PHASES.jsonl",
+      "category": "science",
+      "start": "2026-09-10T07:20:26.420473+00:00",
+      "end": "2026-09-10T07:23:26.109302+00:00",
+      "seconds": 179.688829
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_ROUTE_V1_PHASES.jsonl",
+      "category": "publication",
+      "start": "2026-09-10T07:23:26.109302+00:00",
+      "end": "2026-09-10T07:25:18.125067+00:00",
+      "seconds": 112.015765
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_NORMALIZATION_V1_PHASES.jsonl",
+      "category": "implementation",
+      "start": "2026-09-10T07:27:43.258263+00:00",
+      "end": "2026-09-10T07:29:28.913108+00:00",
+      "seconds": 105.654845
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_NORMALIZATION_V1_PHASES.jsonl",
+      "category": "validation",
+      "start": "2026-09-10T07:29:28.913108+00:00",
+      "end": "2026-09-10T07:30:17.885778+00:00",
+      "seconds": 48.97267
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_NORMALIZATION_V1_PHASES.jsonl",
+      "category": "science",
+      "start": "2026-09-10T07:30:17.885778+00:00",
+      "end": "2026-09-10T07:33:34.442756+00:00",
+      "seconds": 196.556978
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_NORMALIZATION_V1_PHASES.jsonl",
+      "category": "publication",
+      "start": "2026-09-10T07:33:34.442756+00:00",
+      "end": "2026-09-10T07:34:37.419658+00:00",
+      "seconds": 62.976902
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_RAW_REMOVAL_V1_PHASES.jsonl",
+      "category": "implementation",
+      "start": "2026-09-10T07:44:12.545798+00:00",
+      "end": "2026-09-10T07:46:23.764688+00:00",
+      "seconds": 131.21889
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_MLP8_ORIGIN_V1_PHASES.jsonl",
+      "category": "implementation",
+      "start": "2026-09-10T07:50:57.984002+00:00",
+      "end": "2026-09-10T07:52:59.100476+00:00",
+      "seconds": 121.116474
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_MLP8_ORIGIN_V1_PHASES.jsonl",
+      "category": "science",
+      "start": "2026-09-10T07:52:59.100476+00:00",
+      "end": "2026-09-10T07:54:18.617663+00:00",
+      "seconds": 79.517187
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_MLP8_CONSUMERS_V1_PHASES.jsonl",
+      "category": "implementation",
+      "start": "2026-09-10T07:58:08.741960+00:00",
+      "end": "2026-09-10T07:58:39.362155+00:00",
+      "seconds": 30.620195
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MATURE_VALUE_MLP8_CONSUMERS_V1_PHASES.jsonl",
+      "category": "science",
+      "start": "2026-09-10T07:58:39.362155+00:00",
+      "end": "2026-09-10T08:00:20.573807+00:00",
+      "seconds": 101.211652
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MLP8_ATTENTION9_FACTORIAL_V1_PHASES.jsonl",
+      "category": "implementation",
+      "start": "2026-09-10T08:04:06.137896+00:00",
+      "end": "2026-09-10T08:04:47.970256+00:00",
+      "seconds": 41.83236
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MLP8_ATTENTION9_FACTORIAL_V1_PHASES.jsonl",
+      "category": "science",
+      "start": "2026-09-10T08:04:47.970256+00:00",
+      "end": "2026-09-10T08:06:43.389009+00:00",
+      "seconds": 115.418753
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MLP8_BYPASS_CARRY_V1_PHASES.jsonl",
+      "category": "implementation",
+      "start": "2026-09-10T08:10:50.808481+00:00",
+      "end": "2026-09-10T08:11:27.582761+00:00",
+      "seconds": 36.77428
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MLP8_BYPASS_CARRY_V1_PHASES.jsonl",
+      "category": "science",
+      "start": "2026-09-10T08:11:27.582761+00:00",
+      "end": "2026-09-10T08:13:12.715250+00:00",
+      "seconds": 105.132489
+    },
+    {
+      "source": "basis_aligned/polynomial_causal/MLP8_BYPASS_CARRY_V1_PHASES.jsonl",
+      "category": "science",
+      "start": "2026-09-10T08:13:12.715250+00:00",
+      "end": "2026-09-10T08:14:20+00:00",
+      "seconds": 67.28475
+    }
+  ],
+  "scope": "Recorded labels only. Merged or late-start phases cannot establish a complete ceremony budget."
+}

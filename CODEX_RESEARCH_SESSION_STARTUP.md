@@ -53,6 +53,36 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Direct carry rejected; MLP9 response control and hourly review executed — 2026-09-10 08:16:50 UTC
+
+PreviousgoalturnPROGRESS83b6d5fa3; preregistration9a15028b8.
+MLP8_BYPASS_CARRY_V1_RESULT.json validA; Btask/Cvocabularyfail all32worlds.
+Directcarryscaleprod(lambda9..17)=1.4817735440233635. FinalnativeRMS/fullvocabhead/
+softcap retained. Errororiginalmargin.393–.588,fronted.175–.757; vocabulary.829–.916.
+Native/source/bypassparentreplayexact; fullnativedecodermaxabs2.67029e-5.
+192forwards3072seq+128decoderbatches2048states,4.25978s. RunnerSHA
+ a97161051e936c3b1b89612e926c781da921de331f19f35560292bc755f3d4a0.
+No directcarry promotion or gain/rank/approximation ladder.
+
+Post-resultCPUbilinear_normalized_source_response_v1 executed. Exact finite response
+with native-normalizedinputs: Down[(Lu)(Rd)+(Ld)(Ru)]+Down[(Ld)(Rd)]. Both terms kept;
+closure<=3.886e-15, planted quadratic omission errors.352–.456. This is notnative
+MLP9dominance evidence. Next boundednative question sourceS0/S1 × MLP9writeM0/M1
+insideA9-clampedbypass. A9nativeinEVERYarm; sourceS1=fullmixedMLP8outputremoved.
+Bothdiagonalsreplaynative andpriorbypass; identifyMLP9response vsremainingroutes before
+promoting its exactweightbranches. Ifweak, stopautomaticadjacent-layerwalking and
+comparebroaderlate-responsepartition. No successorjobregistered; CPUcontinuationdone.
+Allweights/nativecounterfactualinputs retained,saving0; fullgoalactive.
+
+Hourly08:14reviewcomplete:7validscreens,median451s,max891s,executor38.300s. CIRCUIT_FOCUS/
+NOVELTYpass; CEREMONY_BUDGETunestablished/fail. Phaseaudit49.9%coverage. Actualrepair:
+research_phase_audit_v1.py pluscontinuous RESEARCH_ACTIVITY_2026-09-10_0814.jsonl.
+At NEXT TURN START, before research reads, append restore/design event(categoryreview)
+with research_phase_clock_v1.py to that continuous file. Mark implementation/validation/
+science/publication BEFORE their actions. Mark turn_boundary(categorypublication) before
+final; auditor excludes that inter-turngap. Do not combinecontinuous/per-jobintervals.
+Next hourly09:14 UTC; mathematical10:49 UTC. Explanationsection24updated.
+
 ## MLP8 source / attention9 factorial completed — 2026-09-10 08:07:49 UTC
 
 PreviousgoalturnPROGRESS6d1ff2cd6; preregistratione5ba410a0.

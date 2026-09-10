@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "width": 8,
+      "closure_max_abs": 7.91033905045424e-16,
+      "quadratic_omission_relative_error": 0.4557795947640766
+    },
+    {
+      "width": 32,
+      "closure_max_abs": 1.7763568394002505e-15,
+      "quadratic_omission_relative_error": 0.43220762228373527
+    },
+    {
+      "width": 128,
+      "closure_max_abs": 3.885780586188048e-15,
+      "quadratic_omission_relative_error": 0.3520765552442439
+    }
+  ],
+  "scope": "Exact normalized finite-response algebra; cross term is linear in normalized delta, not in raw source perturbation. No native consumer dominance claimed."
+}

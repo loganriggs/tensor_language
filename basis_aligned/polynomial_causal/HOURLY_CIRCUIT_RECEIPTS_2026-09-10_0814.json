@@ -1,0 +1,100 @@
+{
+  "receipts": [
+    {
+      "name": "mature_value_route_v1",
+      "completed_utc": "2026-09-10 07:20:32",
+      "seconds_since_midnight": 26432,
+      "executor_seconds": 7.184429038316011,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_value_following": false,
+        "pred_c_routing_following": false,
+        "pred_d_small_interaction": false
+      }
+    },
+    {
+      "name": "mature_value_normalization_v1",
+      "completed_utc": "2026-09-10 07:30:22",
+      "seconds_since_midnight": 27022,
+      "executor_seconds": 5.146536737680435,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_raw_origin": false,
+        "pred_c_normalization_origin": false,
+        "pred_d_composition": true
+      }
+    },
+    {
+      "name": "mature_value_raw_removal_v1",
+      "completed_utc": "2026-09-10 07:45:13",
+      "seconds_since_midnight": 27913,
+      "executor_seconds": 5.013102080672979,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_raw_necessity": false,
+        "pred_c_regeneration": false
+      }
+    },
+    {
+      "name": "mature_value_mlp8_origin_v1",
+      "completed_utc": "2026-09-10 07:53:27",
+      "seconds_since_midnight": 28407,
+      "executor_seconds": 5.6684554778039455,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_source_necessity": false,
+        "pred_c_new": false,
+        "pred_d_inherited": false,
+        "pred_e_composition": true
+      }
+    },
+    {
+      "name": "mature_value_mlp8_consumers_v1",
+      "completed_utc": "2026-09-10 07:58:57",
+      "seconds_since_midnight": 28737,
+      "executor_seconds": 5.42231747508049,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_value_path": false,
+        "pred_c_new": false,
+        "pred_d_inherited": false,
+        "pred_e_composition": true
+      }
+    },
+    {
+      "name": "mlp8_attention9_factorial_v1",
+      "completed_utc": "2026-09-10 08:05:07",
+      "seconds_since_midnight": 29107,
+      "executor_seconds": 5.604938726872206,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_attention": false,
+        "pred_c_bypass": false,
+        "pred_d_interaction": true
+      }
+    },
+    {
+      "name": "mlp8_bypass_carry_v1",
+      "completed_utc": "2026-09-10 08:11:55",
+      "seconds_since_midnight": 29515,
+      "executor_seconds": 4.2597811706364155,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_task": false,
+        "pred_c_vocabulary": false
+      }
+    }
+  ],
+  "successive_gaps_seconds": [
+    590,
+    891,
+    494,
+    330,
+    370,
+    408
+  ],
+  "median_gap_seconds": 451.0,
+  "max_gap_seconds": 891,
+  "total_executor_seconds": 38.29956070706248,
+  "scope": "Completion timestamps and executor durations only; not complete preparation/review timing."
+}

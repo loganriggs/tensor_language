@@ -1,6 +1,6 @@
 # Noun-number selection: what the model does, and what the math rules out
 
-**Latest result:** the four-combination test separates MLP8’s effect into attention9’s response and routes bypassing that response. Both are needed; their interaction is small in all 32 groups. The bypass has the larger signed contribution, so the next question is whether it is direct residual carry or depends on later computations. Section 23 gives the native evidence and the exact transport control.
+**Latest result:** direct residual carry fails to explain MLP8’s bypass effect, including an 83–92% error on the full vocabulary interaction. Later computations remain necessary. We verified an exact normalized bilinear-response identity for testing MLP9 next. Section 24 gives the native results; the 08:14 hourly review records seven valid screens and the remaining extraction gap.
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
@@ -693,3 +693,31 @@ The next useful distinction is inside the bypass. Does the MLP write travel dire
 \]
 
 The final RMS, output weights and softcap can still be evaluated exactly. Our [CPU control](../source_attention_route_accounting_v1.py) verifies this transport, including negative residual coefficients and fixed embedding injections, to 2.67e-15 at the nonlinear reader. A planted live nonlinear write makes the same prediction fail, demonstrating why the fixed-write assumption matters. Native direct-carry dominance has not yet been tested for this source/bypass comparison.
+
+## 24. Direct residual carry does not explain the bypass
+
+We evaluated the section 23 transport prediction using native MLP8 writes, actual residual coefficients and the final raw residual. The transport multiplier is 1.481773544. Final RMS normalization, all vocabulary output weights and the softcap remain native. We also replayed the actual source edit with attention9 held native, so the predicted and observed bypass effects share the same baseline.
+
+The [test](../MLP8_BYPASS_CARRY_V1_RESULT.json) is valid. Native, source-edited and bypass outputs replay exactly. Decoding the captured native final state reproduces the full vocabulary logits within 2.68e-5 maximum absolute error. The run used 192 forwards over 3,072 sequence instances and 128 separate final-decoder batches, taking 4.26 seconds inside the executor.
+
+Direct carry fails both registered fidelity criteria in every group:
+
+| Relative error against the measured bypass effect | Original layouts | Fronted layouts |
+| --- | --- | --- |
+| Correct-margin interaction | 39.3–58.8% | 17.5–75.7% |
+| Centered three-answer interaction | 41.0–56.6% | 34.2–71.7% |
+| Centered full-vocabulary interaction | 84.0–91.6% | 82.9–89.9% |
+
+These errors rule out this direct-carry explanation; they do not prove that direct carry contributes nothing. We must retain later computations. A fitted gain or lower-rank response approximation would not identify those computations.
+
+The next candidate consumer is MLP9. After recomputing its normalization exactly, write u for its native normalized input and d for the finite change. Its response has the exact weight-based form
+
+\[
+M(u+d)-M(u)=D[(Lu)(Rd)+(Ld)(Ru)]+D[(Ld)(Rd)].
+\]
+
+The first term is linear in the **normalized** change d, and the second is quadratic. Because normalization is recomputed, the first term is not generally linear in the original source perturbation. The [executed CPU control](../bilinear_normalized_source_response_v1.py) verifies the complete identity to 3.89e-15; dropping the quadratic term fails the planted examples by 35–46%. No such approximation is adopted.
+
+Before splitting that response further, a native test should establish whether MLP9's changed write materially mediates the bypass. It can cross native/edited MLP8 source with native/edited MLP9 output while keeping attention9 native in every arm. The current run has not performed that experiment. The full four-property goal and independent extraction remain unresolved.
+
+The [08:14 hourly review](../HOURLY_STRATEGIC_REVIEW_2026-09-10_0814.md) records seven valid screens, a 7m31 median completion gap, and no independently extracted circuit. Only 49.9% of phase time was recorded; a continuous activity clock and reusable audit now make the missing time explicit. Next hourly review09:14 UTC; mathematical review10:49 UTC.
