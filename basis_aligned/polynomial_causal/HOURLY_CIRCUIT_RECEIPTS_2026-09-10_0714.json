@@ -1,0 +1,89 @@
+{
+  "interval": "2026-09-10 (06:14:16,07:14:50] UTC",
+  "receipts": [
+    {
+      "completed_utc": "06:36:01",
+      "seconds_of_day": 23761,
+      "runner": "run_third_noun_value_transfer_v1",
+      "exit": 0,
+      "result": "THIRD_NOUN_VALUE_TRANSFER_V1_RESULT.json",
+      "executor_seconds": 1.3283711709082127,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_male_transfer": false,
+        "pred_c_female_transfer": false,
+        "pred_d_gender_selectivity": false
+      }
+    },
+    {
+      "completed_utc": "06:43:28",
+      "seconds_of_day": 24208,
+      "runner": "run_third_noun_value_write_factorial_v1",
+      "exit": 0,
+      "result": "THIRD_NOUN_VALUE_WRITE_FACTORIAL_V1_RESULT.json",
+      "executor_seconds": 2.53486605361104,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_mixed_fidelity": true,
+        "pred_c_mixed_selectivity": true,
+        "pred_d_mixed_gender": false,
+        "pred_e_composition": true
+      }
+    },
+    {
+      "completed_utc": "06:52:00",
+      "seconds_of_day": 24720,
+      "runner": "run_third_noun_write_structure_v1",
+      "exit": 0,
+      "result": "THIRD_NOUN_WRITE_STRUCTURE_V1_RESULT.json",
+      "executor_seconds": 4.381652660667896,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_structure_transfer": false,
+        "pred_c_fidelity": true,
+        "pred_d_gender": false,
+        "pred_e_composition": true
+      }
+    },
+    {
+      "completed_utc": "07:00:34",
+      "seconds_of_day": 25234,
+      "runner": "run_third_noun_common_suffix_v1",
+      "exit": 0,
+      "result": "THIRD_NOUN_COMMON_SUFFIX_V1_RESULT.json",
+      "executor_seconds": 4.874085780233145,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_common_fidelity": true,
+        "pred_c_noun_fidelity": false,
+        "pred_d_composition": true,
+        "pred_e_common_selectivity": false,
+        "pred_f_common_gender": false
+      }
+    },
+    {
+      "completed_utc": "07:08:23",
+      "seconds_of_day": 25703,
+      "runner": "run_third_noun_common_interchange_v1",
+      "exit": 0,
+      "result": "THIRD_NOUN_COMMON_INTERCHANGE_V1_RESULT.json",
+      "executor_seconds": 4.274477940052748,
+      "predictions": {
+        "pred_a_instrument": true,
+        "pred_b_producer_following": false,
+        "pred_c_reader_following": false,
+        "pred_d_small_interaction": true
+      }
+    }
+  ],
+  "intra_window_gap_seconds": [
+    447,
+    512,
+    514,
+    469
+  ],
+  "median_intra_window_gap_seconds": 490.5,
+  "leading_gap_seconds": 1305,
+  "executor_seconds": 17.39345360547304,
+  "ceremony_vs_science_minutes": "not independently recorded; no inferred split"
+}
