@@ -829,6 +829,39 @@
     "ea7b31a99a4b3bf22d7a3b5367fea0062f922a46c61266a7a50ff0ec0ff4ca73"
    ]
   },
+  "subroutine.readout.mlp16_17_token_fold": {
+   "file": "subroutine_readout_mlp16_17_token_fold.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "dc13f73232f4ec3a688efc8769cc3fdabf4df6c0010bae96b9e4f5036e8df20b",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "readout.mlp16_17_token_fold.v1",
+   "claim_status": "site_live",
+   "causal_variable_id": "mlp16_product_to_readout",
+   "interchange_family_count": 3,
+   "invariance_family_count": 0,
+   "negative_event_count": 1,
+   "active_negative_event_count": 1,
+   "latest_blocker": "readout.mlp16_17_token_fold.v1.hierarchy_only",
+   "latest_active_event": "readout.mlp16_17_token_fold.v1.hierarchy_only",
+   "active_event_ids": [
+    "readout.mlp16_17_token_fold.v1.live_prediction",
+    "readout.mlp16_17_token_fold.v1.hierarchy_only"
+   ],
+   "held_test_types": [
+    "compiled_equivalence"
+   ],
+   "active_blocking_test_types": [
+    "null_control"
+   ],
+   "design_keys": [
+    "29a4bdbd415c66b8b79fc473aa559d2abd8a76ab939b9baa1f27c8fecf2a3a96",
+    "5f90cc140f9255ddfd96e958bd44096f3c539ecc03daa664cea9948bb39ba777"
+   ]
+  },
   "subroutine.signed_reader_pair": {
    "file": "subroutine_signed_reader_pair.json",
    "schema_version": 2,

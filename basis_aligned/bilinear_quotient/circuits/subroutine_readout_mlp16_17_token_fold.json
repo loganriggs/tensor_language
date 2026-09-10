@@ -1,0 +1,290 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.readout.mlp16_17_token_fold",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": [
+   "two backward unembedding views"
+  ]
+ },
+ "claims": [
+  {
+   "claim_id": "readout.mlp16_17_token_fold.v1",
+   "revision": 1,
+   "status": "site_live",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "mlp16_product_to_readout",
+    "domain": "Existing A1/A2/C 16-pair panels; no new OOD evidence",
+    "read": "full native MLP16 product vector and fixed native residual/attention17 background",
+    "operation": "two-MLP exact reader contraction with RMS and softcap; evaluated with live attention17",
+    "write": "predicted normalized final state and vocabulary scores under donor MLP16 output interchange",
+    "endpoint": "live effect prediction holds within 10%; 16-leaf hierarchy-only prediction fails; signed target swap recovery is slightly negative"
+   },
+   "alternative_explanations": [
+    "known algebra applied to a small opposing contribution, not a target-sufficient circuit",
+    "native context and dense weights account for the prediction; no structural simplification"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "MLP16 semantic-position output replaced by paired donor output"
+     ],
+     "holds_fixed": [
+      "original checkpoint and all other module weights",
+      "existing row panel and donor assignment"
+     ],
+     "control_ids": [
+      "native_endpoint_capability",
+      "attention17_fixed_exactness",
+      "root_and_shuffled_hierarchy"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "recombined_reused",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "MLP16 semantic-position output replaced by paired donor output"
+     ],
+     "holds_fixed": [
+      "original checkpoint and all other module weights",
+      "existing row panel and donor assignment"
+     ],
+     "control_ids": [
+      "native_endpoint_capability",
+      "attention17_fixed_exactness",
+      "root_and_shuffled_hierarchy"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "recombined_reused",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "interchange",
+     "changes": [
+      "MLP16 semantic-position output replaced by paired donor output"
+     ],
+     "holds_fixed": [
+      "original checkpoint and all other module weights",
+      "existing row panel and donor assignment"
+     ],
+     "control_ids": [
+      "native_endpoint_capability",
+      "attention17_fixed_exactness",
+      "root_and_shuffled_hierarchy"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "recombined_reused",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "mlp16_to_mlp17_readout",
+     "tensor_path": "transformer.h.16.mlp -> transformer.h.17.mlp -> lm_head",
+     "shape": [
+      2,
+      1152,
+      4608
+     ],
+     "intervention": "donor MLP16 output swap with attention17 live or fixed"
+    }
+   ],
+   "split_plan_ids": [
+    "recombined_reused"
+   ],
+   "evidence_event_ids": [
+    "readout.mlp16_17_token_fold.v1.live_prediction",
+    "readout.mlp16_17_token_fold.v1.hierarchy_only"
+   ],
+   "translation_ids": [],
+   "next_missing": "Identify reusable readers with lower structural cost and independently produced context. Keep token residuals; fixed hierarchy failed. Do not claim this small opposing MLP16 contribution extracts the target task."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "recombined_reused",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "rows",
+   "description": "Previously opened authored A1/A2/C panels, 16 groups each; no new split selection or OOD claim."
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "readout.mlp16_17_token_fold.v1.live_prediction",
+   "claim_id": "readout.mlp16_17_token_fold.v1",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "C"
+   ],
+   "site_id": "mlp16_to_mlp17_readout",
+   "split_plan_id": "recombined_reused",
+   "evaluation_role": "live_prediction",
+   "input_artifact_ids": [
+    "rows",
+    "hierarchy",
+    "audit",
+    "runner",
+    "fold"
+   ],
+   "seed": 9111340,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_relative_live_error",
+     "estimate": 0.04555673051693716,
+     "ci95": [
+      0.0379627519510825,
+      0.05595548815743276
+     ],
+     "bar": "<=.10"
+    },
+    {
+     "name": "A2_relative_live_error",
+     "estimate": 0.05609043196960575,
+     "ci95": [
+      0.047296782012196385,
+      0.06548349793506582
+     ],
+     "bar": "<=.10"
+    },
+    {
+     "name": "C_relative_live_error",
+     "estimate": 0.046084220732228724,
+     "ci95": [
+      0.04138674151271534,
+      0.05054186675331593
+     ],
+     "bar": "<=.10"
+    }
+   ],
+   "sections": [],
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "notes": "All native weights retained plus 47,545,895 folded map coefficients. Not an independently extracted semantic circuit; normalized full-vocabulary effects, not explained task fractions.",
+   "design_key": "29a4bdbd415c66b8b79fc473aa559d2abd8a76ab939b9baa1f27c8fecf2a3a96",
+   "execution_key": "00da1408bec856c25da4b047c66a71e5839c49bfad7d7c9591d0ed53b51d985d"
+  },
+  {
+   "event_id": "readout.mlp16_17_token_fold.v1.hierarchy_only",
+   "claim_id": "readout.mlp16_17_token_fold.v1",
+   "stage": "complete",
+   "test_type": "null_control",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "C"
+   ],
+   "site_id": "mlp16_to_mlp17_readout",
+   "split_plan_id": "recombined_reused",
+   "evaluation_role": "hierarchy_only",
+   "input_artifact_ids": [
+    "rows",
+    "hierarchy",
+    "audit",
+    "runner",
+    "fold"
+   ],
+   "seed": 9111340,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "A1_relative_live_error",
+     "estimate": 0.9436648490782941,
+     "ci95": [
+      0.9359395227367512,
+      0.9514304975316646
+     ],
+     "bar": "<=.10 and improve root/shuffle by >=.10"
+    },
+    {
+     "name": "A2_relative_live_error",
+     "estimate": 0.9617705423637742,
+     "ci95": [
+      0.9551466444218133,
+      0.9681713971727063
+     ],
+     "bar": "<=.10 and improve root/shuffle by >=.10"
+    },
+    {
+     "name": "C_relative_live_error",
+     "estimate": 0.9764256818641238,
+     "ci95": [
+      0.9715110836259369,
+      0.981298084772375
+     ],
+     "bar": "<=.10 and improve root/shuffle by >=.10"
+    }
+   ],
+   "sections": [],
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "notes": "All native weights retained plus 47,545,895 folded map coefficients. Not an independently extracted semantic circuit; normalized full-vocabulary effects, not explained task fractions.",
+   "design_key": "5f90cc140f9255ddfd96e958bd44096f3c539ecc03daa664cea9948bb39ba777",
+   "execution_key": "35d93c7654504cfe72663e8a216a8c16bd73c5def5556439846706140d278133"
+  }
+ ],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/UNEMBEDDING_BACKWARD_VIEWS_V1_PREREGISTRATION.md",
+   "sha256": "49dfe357988cd84d218cbf7fcf4ac6dda7cfefc96e99fedda2baabdfe377ad37",
+   "kind": "plan",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/UNEMBEDDING_BACKWARD_VIEWS_V1_RESULT.json",
+   "sha256": "ab35c92b42ae8685cda73d3358069063ec5a05af7d559e3757db4090c961a8ab",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/UNEMBEDDING_BACKWARD_VIEWS_AUDIT_V1_RESULT.json",
+   "sha256": "79ffdded815dbd6eabbd0260d5780cb8de5fd2ec8bd63d902d708f07b5a91907",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_RECOMBINED_ROWS_V1.json",
+   "sha256": "d05a851c75fab409490d3452d062ec55cdcecc2e20592bfd2c570aa5fa659a85",
+   "kind": "rows",
+   "status": "frozen"
+  },
+  "hierarchy": {
+   "path": "basis_aligned/polynomial_causal/UNEMBEDDING_BACKWARD_VIEWS_V1_HIERARCHY.pt",
+   "sha256": "f8b31e49338004828c1a4c3752a53e7f6d9f194b30f7f8f0464236814a43e8f4",
+   "kind": "hierarchy",
+   "status": "frozen"
+  },
+  "runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_unembedding_backward_views_v1.py",
+   "sha256": "2c34dd287a5477e0536b7f05445e8eddb240e8450b56b202b4b6c87abbdfbf1f",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "fold": {
+   "path": "basis_aligned/polynomial_causal/unembedding_backward_views_v1.py",
+   "sha256": "4c6b35e5215a0f4dc81885dd49d66a3bd35c7c82d1265941909f603027e761dc",
+   "kind": "fold",
+   "status": "frozen"
+  }
+ }
+}

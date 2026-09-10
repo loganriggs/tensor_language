@@ -1,0 +1,170 @@
+{
+  "schema": "unembedding.backward_views.audit.v1",
+  "source_sha256": "ab35c92b42ae8685cda73d3358069063ec5a05af7d559e3757db4090c961a8ab",
+  "source_script_sha256": "d688921e2266ad22b0483c12daf07b0b7135cd0726ddfced4ef9c086945e2d9b",
+  "reports": {
+    "A1": {
+      "arms": {
+        "folded_token_program": {
+          "live_effect_error_ci95": [
+            0.0379627519510825,
+            0.05595548815743276
+          ],
+          "ce_mae_ci95": [
+            0.002077430789358914,
+            0.004858077119570226
+          ],
+          "mean_signed_ce_error": 0.003119086381047964
+        },
+        "hierarchy": {
+          "live_effect_error_ci95": [
+            0.9359395227367512,
+            0.9514304975316646
+          ],
+          "ce_mae_ci95": [
+            0.0604473878745921,
+            0.16150220859562978
+          ],
+          "mean_signed_ce_error": 0.08810070576146245
+        },
+        "root": {
+          "live_effect_error_ci95": [
+            1.0004959747025766,
+            1.0016715689199815
+          ],
+          "ce_mae_ci95": [
+            0.04005567104322836,
+            0.11902541700983421
+          ],
+          "mean_signed_ce_error": 0.04379559447988868
+        },
+        "shuffled": {
+          "live_effect_error_ci95": [
+            1.0024335731097307,
+            1.0046415546154646
+          ],
+          "ce_mae_ci95": [
+            0.04033718710998073,
+            0.11952099046902732
+          ],
+          "mean_signed_ce_error": 0.043255125638097525
+        }
+      },
+      "live_ce_change_ci95": [
+        -0.0984404252259992,
+        0.0062971659237518905
+      ],
+      "live_effect_norm": 294.093927934293,
+      "mlp16_swap_recovery": -0.02162458747625351
+    },
+    "A2": {
+      "arms": {
+        "folded_token_program": {
+          "live_effect_error_ci95": [
+            0.047296782012196385,
+            0.06548349793506582
+          ],
+          "ce_mae_ci95": [
+            0.0013592627132311464,
+            0.0030987445730715994
+          ],
+          "mean_signed_ce_error": -5.7093799114227295e-05
+        },
+        "hierarchy": {
+          "live_effect_error_ci95": [
+            0.9551466444218133,
+            0.9681713971727063
+          ],
+          "ce_mae_ci95": [
+            0.04654890267411247,
+            0.12582048466429116
+          ],
+          "mean_signed_ce_error": 0.07838714914396405
+        },
+        "root": {
+          "live_effect_error_ci95": [
+            1.0004522575287687,
+            1.0016684158734206
+          ],
+          "ce_mae_ci95": [
+            0.042370625003241,
+            0.10321781114907938
+          ],
+          "mean_signed_ce_error": 0.06730856280773878
+        },
+        "shuffled": {
+          "live_effect_error_ci95": [
+            1.0012423694575645,
+            1.0048238538840193
+          ],
+          "ce_mae_ci95": [
+            0.04274633701425046,
+            0.10377910595852884
+          ],
+          "mean_signed_ce_error": 0.06772919325158
+        }
+      },
+      "live_ce_change_ci95": [
+        -0.1049841255415231,
+        -0.03701073323609307
+      ],
+      "live_effect_norm": 197.6896911223239,
+      "mlp16_swap_recovery": -0.029282046481966972
+    },
+    "C": {
+      "arms": {
+        "folded_token_program": {
+          "live_effect_error_ci95": [
+            0.04138674151271534,
+            0.05054186675331593
+          ],
+          "ce_mae_ci95": [
+            0.0017836628947407007,
+            0.0034035258926451207
+          ],
+          "mean_signed_ce_error": -0.0015195030719041824
+        },
+        "hierarchy": {
+          "live_effect_error_ci95": [
+            0.9715110836259369,
+            0.981298084772375
+          ],
+          "ce_mae_ci95": [
+            0.07426727237179875,
+            0.12140806657262147
+          ],
+          "mean_signed_ce_error": 0.0827173013240099
+        },
+        "root": {
+          "live_effect_error_ci95": [
+            1.0008172866133926,
+            1.0031823486142926
+          ],
+          "ce_mae_ci95": [
+            0.07219181046821177,
+            0.14391964417882264
+          ],
+          "mean_signed_ce_error": 0.09834099002182484
+        },
+        "shuffled": {
+          "live_effect_error_ci95": [
+            1.0019654273133975,
+            1.0078218233026732
+          ],
+          "ce_mae_ci95": [
+            0.07944540046155453,
+            0.14867996466346087
+          ],
+          "mean_signed_ce_error": 0.10335785709321499
+        }
+      },
+      "live_ce_change_ci95": [
+        -0.14276629760861398,
+        -0.05784227619878946
+      ],
+      "live_effect_norm": 161.0340764512075,
+      "mlp16_swap_recovery": -0.0347474180161953
+    }
+  },
+  "scope": "4000 paired group resamples per existing authored panel. Conditional finite-panel uncertainty; no fresh OOD or universal guarantee. Frozen predicates unchanged."
+}

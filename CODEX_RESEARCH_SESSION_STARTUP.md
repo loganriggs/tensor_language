@@ -53,6 +53,18 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Two backward unembedding views completed — 2026-09-10 14:59 UTC
+
+User steering: check module dossiers whenever a component looks interesting; investigate attention P/R OV/QK input sharing; then pursue both token and hierarchical unembedding readers folded farther backward. Original bilinear handoff/pilot remains authority.
+
+CPU CORRELATIVE_OV_PULLBACK_V1_RESULT: 19/26 per-head complementary writers full rank at relative1e-6, saved value reader membership residual <=1.99e-15; seven single-head blocks rank127 with squared overlap .061–.210. Same QK1/QK2 routing in both branches by construction. Per-head overlap does not prove full-block redundancy; cancellations and distinct head routing remain.
+
+Managed run_unembedding_backward_views_v1.py SHA2c34dd287a5477e0536b7f05445e8eddb240e8450b56b202b4b6c87abbdfbf1f ran14:58:58–14:59:01,12forwards192seq,1.338765sec. UNEMBEDDING_BACKWARD_VIEWS_V1_RESULT.json A/B/C/E held; D shared hierarchy failed. 518 individual token-reader contractions and 16-leaf hierarchy from all50304weights. Exact MLP16–MLP17 fold preserves RMS/softcap and compares native versus fixed attention17. Full-vocabulary live effect error .04556/.05609/.04608; CE MAE .00335/.00216/.00256. Hierarchy error .94366/.96177/.97643, root/shuffle ~1.0. Native MLP16 swap recovery -.02162/-.02928/-.03475: an accurately predicted opposing contribution, not target sufficiency. 47,545,895 extra folded coefficients and all545,902,902nativeparameters remain.
+
+Claimed CPU paired audit ACTUALLY EXECUTED: token error95%CI [.03796,.05596]/[.04730,.06548]/[.04139,.05054]. Hierarchy CIs all>.93. Cluster inspection saved: recognizable function-word, number and inflection groups, but largest leaf35758rows (~71%vocab). Null applies to this fixed shared-mean predictor, not all hierarchical structure. No depth/gain/rank rescue. Canonical subroutine.readout.mlp16_17_token_fold site_live preserves hierarchy failure and limited scope. MLP16/17 and module lookup dossiers updated.
+
+Latest readable summary is explanations/2026-09-10/LATEST.md, with follow-up first; detail unembedding_token_and_hierarchy_backward_folds.md. The earlier immediate-MLP mixed-response draft remains UNEXECUTED/UNQUEUED and was superseded as next action by user steering. No pending GPU job for this completed experiment; actual post-result CPU audit is the continuation receipt. Next work should identify operationally shared token-specific readers or task-specific QK factors, not declare a broad complement or cluster mean to be a circuit. Hourly15:14/math16:49 remain the next review clocks. Full goal active.
+
 ## Component-dossier check — user instruction, 10 September 2026
 
 Before pursuing an interesting finding in a module, read [modules/INDEX.md](basis_aligned/bilinear_quotient/modules/INDEX.md), its relevant module dossier, the [per-MLP index](basis_aligned/polynomial_causal/explanations/MLP_MODULE_DOSSIER_INDEX.md), and the associated primary results and task records. Search aliases, not only current terminology. State the prior result and the precise new question before designing another run; update stale module evidence in the same commit. In particular, MLP17 calibration, quadratic output forms and normalized context-gated response were already known. The updated MLP17 dossier separates those facts from the recent two-consumer tests and failed simplifications.

@@ -2,9 +2,17 @@
 
 ## [Read the latest update → LATEST.md](LATEST.md)
 
-**LATEST.md is the consolidated update requested by Logan.** It covers the work since the previous update at 23:06 UTC on 9 September, through the native run completed at 14:17 UTC on 10 September and its subsequent CPU audits. It starts with the high-level sequence, defines terms and computations, and assesses whether the mathematical review cycles helped.
+**LATEST.md is the consolidated update requested by Logan, with a new follow-up at the top.** Its main report covers work since 9 September at 23:06 UTC through 10 September at 14:17 UTC; the follow-up at the top adds the weight audit and unembedding experiment completed at 14:59 UTC. It starts with the high-level sequence, defines terms and computations, and assesses whether the mathematical review cycles helped.
 
 The files below are supporting experiment notes, not newer consolidated updates.
+
+### Latest follow-up: 10 September, 14:59 UTC
+
+- [Token and hierarchical unembedding readers folded backward](unembedding_token_and_hierarchy_backward_folds.md): the requested experiment has completed; token-program prediction held and shared-mean hierarchy sufficiency failed.
+
+### Attention follow-up
+
+- [Attention OV input-reader overlap](attention_ov_input_reader_overlap.md): user-directed weight pullback of the two branches, with shared QK factors and limits of per-head overlap.
 
 ### Current correlative work
 

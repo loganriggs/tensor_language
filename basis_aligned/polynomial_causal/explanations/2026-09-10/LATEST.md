@@ -1,5 +1,18 @@
 # Research update since the last requested explanation
 
+## Latest follow-up — 10 September, 14:59 UTC
+
+The requested attention weight audit and both backward-unembedding views have now run. [The full new explanation](unembedding_token_and_hierarchy_backward_folds.md) defines the fold and reports its limits.
+
+- **Attention input sharing:** in 19 of 26 selected heads, the complementary branch can read the saved scalar’s full value-input function. The same within-head QK factors serve both branches. This is per-head access, not global semantic equivalence; cross-head cancellations matter. [Weight audit](attention_ov_input_reader_overlap.md).
+- **Individual token readers:** the exact MLP16–MLP17 fold predicts live vocabulary effects within 4.6–5.6% error on the three reused panels, with CE-change prediction error below .0034 nats. The edited MLP16 contribution slightly opposes the task, so this is not target-circuit extraction.
+- **Unembedding hierarchy:** a fixed 16-leaf hierarchy has recognizable groups but its shared means leave 94–98% effect error. Most token-specific response remains necessary. This does not rule out other structured reader decompositions.
+- **Prior-work correction:** MLP17 calibration, quadratic output readers and context-gated normalized responses were already documented. The module dossiers and startup now make those checks explicit; the new tests extend prior knowledge.
+
+All native weights remain required. The full four-property goal is still open.
+
+## Consolidated report through 14:17 UTC
+
 **10 September 2026.** This continues the [previous consolidated update](../research_update_2026-09-09.md), which ended at 23:06 UTC on 9 September. It covers the subsequent work through the native experiment completed at 14:17 UTC today, plus the CPU audits of those results. It summarizes the research sequence rather than claiming uninterrupted experimentation throughout that interval.
 
 **We have made progress on explicit computations and causal tests, but we have not found the smaller, independently executable collection of circuits that meets all four requirements.** The strongest new results are an explicit two-consumer test of a previously known calibration scalar, and a partition inside shared attention heads that transfers two different behaviors separately. Both still depend on the original model, and stronger independence tests have exposed limitations.

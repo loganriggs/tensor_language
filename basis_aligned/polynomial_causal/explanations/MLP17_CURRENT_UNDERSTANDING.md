@@ -113,3 +113,9 @@ The fitted September 10 axis must not be declared identical to an older axis wit
 ## User-directed next question: token and structured unembedding readers
 
 Logan requested two views on September 10: individual token rows of the unembedding, and clusters/hierarchical structure of those rows, each folded backward beyond MLP17. The elementary contraction U_t Down17 and the resulting quadratic form are known algebra. New evidence must concern shared reader structure, its retained token-specific remainder, transfer into earlier computations, and live causal prediction. Preserve RMS normalization, the final softcap, intervening attention, and every remaining opaque weight. A conditional fold with attention held fixed cannot establish a live two-layer circuit without the corresponding live-attention test.
+
+### Result: two backward unembedding views, 10 September 14:59 UTC
+
+The [registered test](../UNEMBEDDING_BACKWARD_VIEWS_V1_PREREGISTRATION.md) has completed: instrument, capability, live prediction and signed CE prediction held; the fixed hierarchy failed. Full-vocabulary effect error of the two-MLP fold versus live attention17 is .04556/.05609/.04608 on A1/A2/C; CE-change MAE .00335/.00216/.00256 nats. The 16-leaf unembedding shared-mean predictor leaves .94366/.96177/.97643 relative error. Its token-specific remainder remains required. Explicit contractions cover 518 token readers; the compiled state is scored on all 50,304 tokens.
+
+The native MLP16 donor swap has negative task recovery −.02162/−.02928/−.03475. Thus this predicts a small opposing contribution, not target-circuit sufficiency. All native weights plus 47,545,895 temporary folded coefficients remain charged. The largest weight cluster holds 35,758 rows; the hierarchy null is limited to this fixed coarse mean predictor. No conclusion that all structured unembedding decompositions fail. [Full explanation and receipts](2026-09-10/unembedding_token_and_hierarchy_backward_folds.md).

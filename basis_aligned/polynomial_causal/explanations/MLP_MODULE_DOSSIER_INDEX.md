@@ -45,7 +45,7 @@ recover 80% of that module's loss benefit on the old held-out evaluation (§713)
 | 14 | 512 | not yet consolidated | p768 input replacement and compositions already screened |
 | 15 | 4 | not yet consolidated | late input replacement, sequential refit, and mode spectra already screened |
 | 16 | 1 | [MLP16_CURRENT_UNDERSTANDING.md](MLP16_CURRENT_UNDERSTANDING.md) | old reported-13,832/corrected-14,984-number quadratic replacement must be rerun before another late-core design |
-| 17 | 4 | [MLP17_CURRENT_UNDERSTANDING.md](MLP17_CURRENT_UNDERSTANDING.md) | rank-2 forms, output projections, functional Down rank, names, and causal checks already exist |
+| 17 | 4 | [MLP17_CURRENT_UNDERSTANDING.md](MLP17_CURRENT_UNDERSTANDING.md) | rank-2 forms, output projections, calibration, normalized context-gated response and two-layer token-reader folds already tested; fixed hierarchy-only prediction failed |
 
 The missing dedicated files are documentation debt, not permission to ignore the linked ledger results. A new
 experiment on any unconsolidated module must first promote its relevant ledger sections and receipts into a
