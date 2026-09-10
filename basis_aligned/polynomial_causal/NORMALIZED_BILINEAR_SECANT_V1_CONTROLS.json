@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "rms_finite_difference": true,
+    "bilinear_finite_difference": true,
+    "secant_symmetric": true,
+    "finite_step_is_not_receiving_tangent": true,
+    "identical_endpoint_zero": true
+  },
+  "rms_error": 1.7763568394002505e-15,
+  "mlp_error": 3.552713678800501e-14,
+  "symmetry_error": 5.329070518200751e-15,
+  "finite_vs_tangent_error": 58.55887847763216,
+  "model_forwards": 0,
+  "scope": "Exact-real pair-conditioned operator with both native endpoints supplied; useful for accounting finite intervention propagation. Not a fixed shared task operator, independent prediction, or structural reduction."
+}

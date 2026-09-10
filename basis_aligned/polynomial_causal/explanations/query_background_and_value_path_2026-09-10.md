@@ -1,5 +1,9 @@
 # The query is background computation; test the value path next
 
+Follow-up: the [native value-fold test](mlp4_value_folding_and_intervening_computation_2026-09-10.md)
+has now run. The direct fold is numerically valid but misses most of the
+MLP4-to-value effect; the intervening computations must be investigated.
+
 10 September2026. **The new experiment closes the strong query-carrier
 hypothesis at the shared layer9 heads.** Their contextual queries matter
 for normal execution, but swapping those complete queries between paired

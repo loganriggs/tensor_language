@@ -53,6 +53,44 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Direct value fold fails; intervening chain registered — 2026-09-10 02:33 UTC
+
+Previous turn PROGRESS: managed nativefold48forwards/864seq in2.864s,
+exact finite-change CPU operator, tested intermediate-output clamps and
+next native protocol. BILIN18_MLP4_VALUE_LINEAGE_NATIVE_V1_RESULT.json
+A/Dpass B/Cfail. RunnerSHA7919d9bbc758d037cf212027175d88aa4e942fb773f90c8ca1fcfeea03331f24.
+Gamma4 .03257659278460778. Direct/fullvalue centered-effect projections
+.125–.205, relativeerrors .810–.880; marginerrors .708–.872. Foldedcontent
+FP64error9.88e-15, nativevalue1.595e-5, directfold/rawdirect logits1.335e-5,
+identity0; recurrencebitwise andhooksrestored. Laterwritesmatter. Fullvalue
+carrierB misseshasfull-logit .057–.078 versus .10 (margin .110–.167), while
+is passes. AllvalidMLP4 tokenpositions are swapped here; earlier selected
+bank taskscope/results are different and their nulls remain preserved.
+
+Concrete continuation: normalized_bilinear_secant.py executed5controls,
+errors<=3.56e-14. RMS exactpair operator is diagonal minusrankone, then
+bilinear midpoint response; finite-step receivingtangent failsplantedfixture.
+It conditions onbothendpoints: not independentprediction or fixedsharedgate.
+intervening_write_clamp.py alsoimplemented/tested5controls; sourceperturbation
+withbothinterveningmoduletypesfixed recoversdirectlineage2.64e-16, sharedfirst
+valuepayloadpreserved. No newforwardframework.
+
+BILIN18_MLP4_INTERVENING_CHAIN_V1_PREREGISTRATION.md is the next80forward/
+1440seq test. DuringMLP4swap, freeze receiving-nativeattention5..8, MLP5..8,
+both, orneither; every unfrozenmodule recomputes on CURRENT input. Theninsert
+eachinduced localV9 inreceiverH1/H4 whileQ/K/otherbackgroundnative. This tests
+real dependencies rather than droppingafter-computation source terms.
+B MLP-only andC attention-only independentlyrequire<=.10 relativeeffecterror
+againstfullvalue inbothcentered-logit/marginframes/allpanels/directions.
+Residualonly isoracle, notfallbackpromotion. Identityclamps andparentreplay
+required. Explainexistingpartialpath only; failedhascarrierB isnotrelaxed.
+Native runner integration and execution stillpending; do not claim queued.
+
+New explanation mlp4_value_folding_and_intervening_computation_2026-09-10.md.
+All545902902 nativeparameters and1,179,648foldedcoefficients charged; saving0.
+Goalactive, originalbilinearhandoffcontrols. Noownjobpending; clocks03:06/
+04:49. PreserveClaude/sharedwork. Source/rank/dose/thresholdrescuesclosed.
+
 ## Query carrier closes; direct MLP4-to-value fold executed — 2026-09-10 02:21 UTC
 
 Previous goal turn PROGRESS. Native query partition/interchange24forwards,
