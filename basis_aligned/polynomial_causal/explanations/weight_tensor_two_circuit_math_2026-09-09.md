@@ -439,3 +439,53 @@ counterexample all pass. The native certificate has been queued with zero
 model forwards and an independent integer determinant replay. This tests one
 representation class; it is not a claim that the model lacks smaller nonlinear
 circuits or domain-specific semantic computations.
+
+## Exact result and what the two readers now let us construct
+
+The exact test has finished. Its determinant is **12,024 modulo65,521**,
+which is nonzero. Independent GPU and CPU elimination agree, and all controls
+pass. Thus these fixed MLP1 reader functions admit **no proper linear-coordinate
+plus norm representation over all real inputs**. This closes that representation
+class, including the norm exception above. It does not rule out a smaller
+nonlinear arithmetic program, an appropriate task-domain representation, or
+an exact edit-response engine with native initialization retained.
+
+[Certificate result](../BILIN18_MLP1_NORM_OBSERVABLE_OBSTRUCTION_V1_RESULT.json).
+The run used no model forwards and took2.86seconds including independent
+integer verification. It treats the saved binary coefficients as exact rational
+numbers; it is not a theorem about bitwise equality of every native FP32 trace.
+
+A different use of two circuits sharing the module is now concrete. Stack their
+output readers as `C=[C_A;C_B]`. Their **dual write map** is
+
+\[
+D=C^T(CC^T)^{-1},\qquad CD=I.
+\]
+
+Its columns specify the smallest output changes that set the requested reader
+coordinates. Changing the module output by `D_A z` changes A's coordinates by
+`z` and leaves B's coordinates unchanged. The corresponding component maps
+`P_A=D_A C_A` and `P_B=D_B C_B` are generally *oblique projectors*: they select
+components along complementary directions rather than perpendicular directions.
+They satisfy `P_A P_B=P_B P_A=0`; local removals therefore commute.
+
+This is information the second circuit supplies: preserving its reads adds
+constraints to the first circuit's write. Ordinary separate orthogonal patches
+can alter the other reader; their largest cross-reader gain here is0.3234.
+The constrained alternative requires at most **5.68% more write magnitude**
+than an unconstrained edit, across every possible four-coordinate edit amplitude.
+All saved-reader algebra checks pass, maximum edit-replay error8.22e-15.
+
+This construction does not guarantee that the final behavior of the other task
+is preserved. Later layers can read different coordinates and react nonlinearly.
+It also does not discover new semantic features or reduce the model's opaque
+weights. Its immediate value is a precise, inexpensive candidate intervention
+for deciding whether the shared native module can be separated along the two
+existing task computations.
+
+The [native selectivity protocol](../BILIN18_MLP1_DUAL_READER_NATIVE_V1_PREREGISTRATION.md)
+fixes48 previously opened target pairs and16 temporal P-control pairs, compares
+ordinary and constrained edits, and recomputes the full suffix. No new fit is
+allowed. The intervention primitive passes seven controls; the native test is
+not yet run. The [saved-reader result](../BILIN18_MLP1_DUAL_READER_EDIT_V1_RESULT.json)
+is a local tool-feasibility result, not circuit identification or adoption.

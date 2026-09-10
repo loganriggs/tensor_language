@@ -1,0 +1,60 @@
+{
+  "identity_max_abs": {
+    "right_inverse": 2.220446049250313e-15,
+    "a_idempotence": 2.0816681711721685e-17,
+    "b_idempotence": 2.0816681711721685e-17,
+    "a_after_b": 3.3966021184897444e-18,
+    "b_after_a": 4.580754178751256e-18,
+    "sum_joint_projector": 2.7755575615628914e-17,
+    "joint_idempotence": 2.7755575615628914e-17
+  },
+  "task_principal_cosines": [
+    0.32338524668134483,
+    0.1056694958693529,
+    0.06731611291328267,
+    0.020370641001572164
+  ],
+  "reader_condition_number": 1.3985320155067875,
+  "worst_write_norm_gain": {
+    "temporal": 1.056783743818326,
+    "iswas": 1.0567837438183252
+  },
+  "ordinary_patch_cross_reader_operator_norm": {
+    "a_to_b": 0.32338532296669265,
+    "b_to_a": 0.3233851703964494
+  },
+  "edit_replay": {
+    "max_abs": 8.215650382226158e-15,
+    "relative_frobenius": 1.5134991495174958e-15
+  },
+  "controls": {
+    "passed": true,
+    "checks": {
+      "independent_readers": true,
+      "joint_edits": true,
+      "removals_commute": true,
+      "ordinary_patch_cross_talk": true,
+      "rank_deficiency_rejected": true,
+      "near_collinear_large_gain": true
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_write_norm_gain_at_most_two": true
+  },
+  "terminal": "dual_writer_tool_feasible",
+  "authority_sha256": {
+    "basis_aligned/polynomial_causal/BILIN18_MLP1_JOINT_READER_WEIGHT_V1_READERS.json": "2d26a6cb4487597000e65cceb9cf62145fdd68ce856e064c2169b912b9d603fc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/dual_reader_edit_reference.py": "ac91e0dcebbb5177200623ff41ff818b1b4072fdf38d6908009d14c5c7ea9333",
+    "basis_aligned/polynomial_causal/BILIN18_MLP1_DUAL_READER_EDIT_V1_PREREGISTRATION.md": "8486855bf8ade19e4f8c57a0bd1f0c7dec16776b03572e1dc849f560a2236e5d"
+  },
+  "price": {
+    "model_forwards": 0,
+    "model_updates": 0,
+    "reader_scalars": 9216,
+    "writer_scalars": 9216,
+    "retained_background": "entire native model",
+    "adoption": false
+  },
+  "wall_seconds": 0.14261681586503983
+}

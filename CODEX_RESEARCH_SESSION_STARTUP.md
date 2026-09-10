@@ -53,6 +53,46 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Exact quotient obstruction complete; two-reader native selectivity next — 2026-09-10 00:05 UTC
+
+Previous turn is PROGRESS: managed native weight audit, exact coefficient
+certificate, new mathematical intervention tool and seven native-hook controls.
+BILIN18_MLP1_NORM_OBSERVABLE_OBSTRUCTION_V1_RESULT.json is valid:
+2.857s, zero forwards, determinant12024 modulo65521; independentCPU replay
+12024 in1.279s. Saved matrix SHA bdca9a6f0ca638482cefb7fdf08168745df0cb8eb10cb7b663c120f177724729.
+This rules out every proper linear-coordinate-plus-norm representation of the
+fixed dyadic-real reader functions over all real inputs, not nonlinear circuits
+or domain-specific representations. No additional input-rank/module/pair scans.
+
+Next output-side two-reader constraint: D=C^T(CC^T)^-1, CD=I. Its task blocks
+give minimum-norm local writes that preserve the other reader. Saved MLP1
+reader analysis BILIN18_MLP1_DUAL_READER_EDIT_V1_RESULT.json passes instrument
+and prospective2xwrite-gain bar; actualworstgain1.056784,condition1.3985,
+maxediterror8.22e-15. This is local edit-tool feasibility, not semantic discovery
+or final behavior invariance. No new native weight savings.
+Native row audit now confirms all64base/donor alignments, zero target token
+sequence overlap with reader-fit data, and exact restoredfitrowhashes. Existing
+texts remain opened. BILIN18_MLP1_DUAL_READER_NATIVE_V1_ROW_AUDIT.json binds
+expected row hashes. Legacy repeatedbuild_rows cost dominates CPU preparation;
+build each unchanged builder once per process or freeze row JSON for native
+preflight. Do not refit/readjust selection to speed up the audit.
+
+Active protocol BILIN18_MLP1_DUAL_READER_NATIVE_V1_PREREGISTRATION.md fixes
+48opened temporal-v12/iswas-v11targets (24each) and16temporalPcontrols,
+18nativeforwards, no fits. Both counts restored CPU. Compare ordinary/dual
+single-task writes, dualjoint versus orthogonaljoint, zero replay. Hook primitive
+dual_reader_output_intervention.py passes7controls. Native runner integration
+pending; reuse existing v1.cap, backend.native, atlasrun.states, comp.margins,
+das.head_logits and exact old row builders; no new executor stack. Scalar
+joint final effects need not add. Other-task-specific controls and freshOOD
+remain untested. Bind sources and prereg before managedenqueue.
+
+Updated explanation weight_tensor_two_circuit_math_2026-09-09.md has proof,
+exactresult and within-module split derivation. Hourly0005complete; next01:05.
+Regular math remains01:49. Both runners healthy, no owned GPU job pending.
+Goal active; concrete continuation is implemented/controlled native edit
+primitive plus registered test. Preserve all concurrent Claude files.
+
 ## MLP1 full-input audit valid; exact norm-quotient certificate queued — 2026-09-09 23:58 UTC
 
 BILIN18_MLP1_JOINT_READER_WEIGHT_V1_RESULT.json is valid:72.514s,8forwards,
