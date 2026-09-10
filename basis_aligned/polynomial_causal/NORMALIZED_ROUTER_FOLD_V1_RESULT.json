@@ -1,0 +1,227 @@
+{
+  "schema": "normalized_router_fold.v1",
+  "predictions": {
+    "pred_a_fp64_fp32_bridges": true,
+    "pred_b_identical_numerator_different_router": true,
+    "pred_c_valid_sign_gauge": true,
+    "pred_d_same_token_bridge": true
+  },
+  "cells": [
+    {
+      "t": 0,
+      "s": 0,
+      "n": 64,
+      "fp64_bridge": {
+        "relative_l2": 2.407791421229384e-15,
+        "max_abs": 8.673617379884035e-17
+      },
+      "fp32_bridge": {
+        "relative_l2": 4.2098151936137036e-07,
+        "max_abs": 9.90154880439395e-09
+      },
+      "scaled_numerator_matrices": [
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        },
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        }
+      ],
+      "scaled_numerator_values": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      },
+      "scaled_router": {
+        "relative_l2": 0.5391333662249964,
+        "max_abs": 0.022101208106164845
+      },
+      "signed_numerator_matrices": [
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        },
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        }
+      ],
+      "signed_router": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      },
+      "native_router_rms": 0.009155898748035048,
+      "scaled_router_rms": 0.004245534677360687,
+      "same_token_bridge": {
+        "relative_l2": 2.274820860382701e-15,
+        "max_abs": 1.1275702593849246e-16
+      },
+      "same_token_scaled_router": {
+        "relative_l2": 0.534154989613968,
+        "max_abs": 0.028053510739066482
+      }
+    },
+    {
+      "t": 1,
+      "s": 0,
+      "n": 64,
+      "fp64_bridge": {
+        "relative_l2": 2.7993916354522165e-15,
+        "max_abs": 9.71445146547012e-17
+      },
+      "fp32_bridge": {
+        "relative_l2": 4.5243141354280674e-07,
+        "max_abs": 1.0433663076526642e-08
+      },
+      "scaled_numerator_matrices": [
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        },
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        }
+      ],
+      "scaled_numerator_values": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      },
+      "scaled_router": {
+        "relative_l2": 0.5276058605050653,
+        "max_abs": 0.021851330646928353
+      },
+      "signed_numerator_matrices": [
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        },
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        }
+      ],
+      "signed_router": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      },
+      "native_router_rms": 0.009116736422772822,
+      "scaled_router_rms": 0.004340048322973009
+    },
+    {
+      "t": 31,
+      "s": 7,
+      "n": 64,
+      "fp64_bridge": {
+        "relative_l2": 2.291934064156346e-15,
+        "max_abs": 6.591949208711867e-17
+      },
+      "fp32_bridge": {
+        "relative_l2": 5.049566356926797e-07,
+        "max_abs": 1.8043763582234473e-08
+      },
+      "scaled_numerator_matrices": [
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        },
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        }
+      ],
+      "scaled_numerator_values": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      },
+      "scaled_router": {
+        "relative_l2": 0.5427765860031744,
+        "max_abs": 0.01559622362902395
+      },
+      "signed_numerator_matrices": [
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        },
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        }
+      ],
+      "signed_router": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      },
+      "native_router_rms": 0.009584913098157706,
+      "scaled_router_rms": 0.004402344023341144
+    },
+    {
+      "t": 127,
+      "s": 32,
+      "n": 64,
+      "fp64_bridge": {
+        "relative_l2": 3.9120543600395355e-15,
+        "max_abs": 7.37257477290143e-17
+      },
+      "fp32_bridge": {
+        "relative_l2": 6.805508246777181e-07,
+        "max_abs": 1.3936085047246138e-08
+      },
+      "scaled_numerator_matrices": [
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        },
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        }
+      ],
+      "scaled_numerator_values": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      },
+      "scaled_router": {
+        "relative_l2": 0.5534214887597946,
+        "max_abs": 0.009564142504573988
+      },
+      "signed_numerator_matrices": [
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        },
+        {
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        }
+      ],
+      "signed_router": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      },
+      "native_router_rms": 0.006040997954898125,
+      "scaled_router_rms": 0.0027088611993804604
+    }
+  ],
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "site": "attn0.head0",
+  "seed": 9111260,
+  "domain": "local continuous normalized residual pairs, not native text",
+  "epsilon": 1.1920928955078125e-07,
+  "model_forwards": 0,
+  "gpu_accessed": false,
+  "native_parameters_retained": 545902902,
+  "folded_signature_scalars": 7962624,
+  "original_four_maps_scalars": 589824,
+  "per_matrix_bytes": 10616832,
+  "fitted_parameters": 0,
+  "hashes": {
+    "audit_normalized_router_fold_v1.py": "f068f123c31567abaac7932480d39c1a1b890079b525f78f8f5f98568a1a5d07",
+    "folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "NORMALIZED_ROUTER_FOLD_V1_PREREGISTRATION.md": "b53b2c0c16cdacff999b20d8419c417f7c05c94b5a753f68d8b1451b720b9d57",
+    "tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "seconds": 1.81120989844203,
+  "finished_utc": "2026-09-10T12:58:35.672459+00:00"
+}

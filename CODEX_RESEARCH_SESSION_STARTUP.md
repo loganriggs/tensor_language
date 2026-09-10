@@ -53,6 +53,48 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Normalized routing fold and false-sharing control — 2026-09-10 13:02 UTC
+
+Original handoff/pilot mathematical reassessment, following prior PROGRESS4a72003f4.
+No calibration/iswas/induction rescue or generic rank/commutant sweep. New CPU
+circuit-analysis control: fixed trained attn0.head0,64 continuous query/source pairs
+at four frozen causal position pairs. Actual architecture separately RMS-normalizes
+Q1,K1,Q2,K2 before rotary and score products. Correct weight fold needs two
+Q_i^T R_t^T R_s K_i/d numerator matrices AND four Q_i^T Q_i/d,K_i^T K_i/d
+norm matrices plus FP32 epsilon. Whole model is not a polynomial tensor.
+
+Paired reciprocal Q1/K1 scales2 and1/2 repeated over rotary planes commute with
+native rotary. Both numerator matrices remain exactly unchanged, while complete
+normalized router relative L2 changes.528–.553; same-token.534. Valid paired-sign
+control exactly invariant. All four frozen instrument predicates held; FP64
+fold/direct max9.71e-17, FP32 max1.80e-8. Main CPU execution1.811s; no model
+forwards, GPU, training or checkpoint mutation. All545902902 parameters retained;
+six diagnostic1152^2 FP64 matrices60.75MiB, no structural saving. Domain is local
+continuous normalized residual pairs, not tokens or naturally reachable states.
+
+Post-result continuation claim and CPU audit actually completed using native
+Rotary/apply_rotary_emb: max3.73e-9, relative<=1.59e-7. Native BF16 rotary product
+for(31,7) differs from(24,0), despite equal lag24: matrixrel.001778 and routerrel
+.002158. Exact compiler retains both positions/actual tables. This known rounding
+caveat is now exercised, not semantic evidence. Previous normalization-aware
+negative results stand; no claim that this explains them away.
+
+Files NORMALIZED_ROUTER_FOLD_V1_PREREGISTRATION.md, folded_normalized_router_v1.py,
+audit_normalized_router_fold_v1.py, NORMALIZED_ROUTER_FOLD_V1_RESULT.json,
+audit_normalized_router_native_bridge_v1.py, NORMALIZED_ROUTER_NATIVE_BRIDGE_V1_RESULT.json.
+Explanation explanations/weight_folding_and_shared_circuit_math_2026-09-10.md
+connects MLP/attention folding, shared inputs versus shared products, producer/call
+edits and all four outstanding success requirements. Mathematical tool only, no
+new circuit registry promotion. Prior substantive two-reader results remain in
+weight_tensor_two_circuit_math_2026-09-09.md.
+
+Read-only correlativev505 receipt lacks chosen unit IDs/fitted direction (only
+n_units and metrics), so weight folding that specific successful interface needs
+its frozen artifacts; do not silently refit or overwrite Claude's lane. Latest
+Claudev509 says possessive control reachability fails. No successor GPU claimed.
+Full goal active; actual post-result CPU continuation complete. Next hourly13:14,
+math13:49 UTC. bqrunner/bqrunner2 Supervisor healthy. Preserve shared dirty files.
+
 ## Native signed reader-pair fails calibration screen — 2026-09-10 12:46:43 UTC
 
 Previous turn PROGRESSd9e65295c. Original handoff/pilot authority. Prereg52bcc33e7.

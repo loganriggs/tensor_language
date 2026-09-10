@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Weight folding and shared-circuit mathematics](weight_folding_and_shared_circuit_math_2026-09-10.md): original handoff/pilot reassessment; trained-weight counterexample to numerator-only attention sharing, exact normalization-aware fold, and independent native rotary checks. Mathematical tool; no new circuit.
+
 - [Native reader pair and calibration screen](native_reader_pair_and_calibration_screen_2026-09-10.md): exact full native bilinear product has a small causal effect, but fails the calibration role and output-projection sufficiency. Natural-scale and local coordinate audits explain the limits.
 
 - [Reader energy failure and lost information](calibration_reader_energy_failure_and_lost_information_2026-09-10.md): weight-defined vocabulary spread fails globally and on native inputs; an executed continuous-input sign-flip witness isolates information lost by the energy summary.

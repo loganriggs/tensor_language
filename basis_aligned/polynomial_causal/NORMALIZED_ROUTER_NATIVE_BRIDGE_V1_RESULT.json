@@ -1,0 +1,60 @@
+{
+  "schema": "normalized_router_native_bridge.v1",
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "cells": [
+    {
+      "t": 0,
+      "s": 0,
+      "native_vs_direct": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      }
+    },
+    {
+      "t": 1,
+      "s": 0,
+      "native_vs_direct": {
+        "relative_l2": 6.851262668305935e-08,
+        "max_abs": 1.862645149230957e-09
+      }
+    },
+    {
+      "t": 31,
+      "s": 7,
+      "native_vs_direct": {
+        "relative_l2": 1.0393727478685832e-07,
+        "max_abs": 3.725290298461914e-09
+      }
+    },
+    {
+      "t": 127,
+      "s": 32,
+      "native_vs_direct": {
+        "relative_l2": 1.5809298758995283e-07,
+        "max_abs": 2.7939677238464355e-09
+      }
+    }
+  ],
+  "native_helper_bridge_pass": true,
+  "equal_relative_lag_matrix_discrepancy": {
+    "relative_l2": 0.0017775215750590084,
+    "max_abs": 0.004364013671875
+  },
+  "equal_relative_lag_router_discrepancy": {
+    "relative_l2": 0.0021579114254564047,
+    "max_abs": 6.0360878705978394e-05
+  },
+  "position31_orthogonality_error": {
+    "relative_l2": 0.001818919054887653,
+    "max_abs": 0.004302978515625
+  },
+  "scope": "Post-result instrument audit and descriptive rounding identities; no semantic gates.",
+  "hashes": {
+    "audit_normalized_router_native_bridge_v1.py": "f47ed29e0e1f231aecd8996969f50bb1db3168c91c68db6987f3b509370f0d81",
+    "folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "finished_utc": "2026-09-10T13:00:01.851639+00:00",
+  "model_forwards": 0,
+  "gpu_accessed": false
+}
