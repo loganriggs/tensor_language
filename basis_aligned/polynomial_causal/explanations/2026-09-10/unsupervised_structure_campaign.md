@@ -1,4 +1,4 @@
-# Unsupervised structure campaign — 10 September, updated 21:43 UTC
+# Unsupervised structure campaign — 10 September, updated 21:53 UTC
 
 The user requested a broad structural search with substantial unlabeled data, enough optimization to establish convergence, and red-team review of negative results. This supersedes treating the short joint32 run as the main search. The four-property goal remains OOD prediction, extraction, selective manipulation, and composition/reuse; a better tensor fit only nominates components for those tests.
 
@@ -627,3 +627,130 @@ QR/direct residual evaluation. The normal-equation arm has completed: training
 error0.01257, validation0.01306, **not converged**. QR is still running. No optimizer
 advantage or convergence claim is made before that comparison finishes.
 [Registered comparison](../../PILE_QR_REFINEMENT_V1_PREREGISTRATION.md).
+
+
+## User correction: weight-first search, methods and bottlenecks — 21:53 UTC
+
+**The main discovery route returns to the weights.** The model was trained only
+on FineWeb, per the user. Pile is a shifted-corpus/OOD panel, not in-distribution
+calibration data. Moreover, once a surrogate has been fitted on Pile training
+rows, its performance on Pile validation is within-corpus generalization for
+that surrogate, not a clean OOD transfer result. Earlier frozen, unadapted
+functions and later Pile-adapted functions must remain distinguished.
+
+I allocated too much of the recent work to data fitting, physical replacement
+and probability diagnostics before adequately testing the weight-only structural
+hypotheses. No further data/CE/Fisher fitting is queued. The corrected order is:
+search different structures in the folded weights; use FineWeb and separately
+labelled OOD data to validate them; incorporate data into discovery only after
+that weight-first search has been substantially exhausted. Existing results are
+preserved, not reinterpreted as completing the intended search.
+
+### Actual coverage, rather than the size of the hypothesis list
+
+| Representation | Assumption being tested | What has actually run |
+|---|---|---|
+| Shared bilinear products, a symmetric CP-like model | Many token interaction matrices reuse a small set of input products | Weight-only128-product fit, plus an explicit energy-penalized weight fit; only the latter converged locally |
+| Shared input-reader dictionary | All products can be assembled from the same small input subspace | Weight-only64-reader/128-product fit; unconverged |
+| Signed squares | Products may be more cleanly represented as squared projections with signed output coefficients | Implemented and toy-controlled; no native weight-only campaign result yet |
+| Quadratic blocks | Several input interactions share a common output writer | Implemented; data-fitted32x8 blocks ran, but the weight-only case has not |
+| Output-mode spectral relaxation | A few output patterns suffice even if each input function is an arbitrary quadratic | Exact weight-only spectrum/bounds ran; these are diagnostics, not an identified factorization |
+| Sparse interaction core, general multi-output blocks, simultaneous block structure, hierarchical/coupled decompositions | Different kinds of shared computation beyond few rank-one terms | Mostly plans; not an executed broad comparison |
+
+The four representations in the code are **not four advanced optimizers**. Most
+fits use the same custom variable-projection scheme: solve output writers by
+least squares, then optimize input factors with Adam/L-BFGS. The QR variant
+improves the way the conditional solve is expressed, but is not a different
+structural hypothesis. Its completed matched Pile comparison did not converge
+or meet the1% validation-advantage threshold: normal0.013064 versus QR0.013039.
+That failure does not settle how a structured Gauss–Newton solver would perform.
+
+### Algorithms that fit the different structural hypotheses
+
+- **Shared products / signed squares:** use symmetry-aware alternating least
+  squares as a transparent baseline, then damped Gauss–Newton or
+  Levenberg–Marquardt with structured matrix-vector products and preconditioning.
+  These methods exploit the tensor least-squares problem rather than treating
+  every parameter as an unrelated generic optimization variable. The square
+  model ties the two input factors and cannot blindly reuse an untied-product
+  update. [Structured damped Gauss–Newton](https://arxiv.org/abs/1205.2584),
+  [matrix-free Gauss–Newton versus ALS](https://arxiv.org/abs/1910.12331).
+- **Multiple interacting blocks:** block-term decomposition with block-specific
+  input subspaces and multiple output coordinates, fitted with structured
+  nonlinear least squares. Our current one-writer-per-block model is a narrow
+  special case. [Block-term algorithms](https://www.tensorlab.com/doc/btd.html).
+- **A shared basis with selected interaction edges:** Tucker-style factorization
+  with an explicitly sparse core, fitted with alternating subspace/core updates
+  and proximal or group-sparsity steps. The sparse core, not just a small Tucker
+  rank, expresses which projected inputs interact. Unrestricted Tucker is a
+  control, not automatically a circuit decomposition.
+- **Separate or overlapping subsystems:** approximate joint block diagonalization
+  of the token quadratic matrices, using an appropriate common change of input
+  basis. Orthogonal-only methods impose a stronger hypothesis than a general
+  invertible basis. [Non-orthogonal tensor/block diagonalization](https://arxiv.org/abs/1402.1673).
+- **Shared structure across unembedding groups or multiple folded paths:**
+  coupled factorizations with explicit shared factors and separate residuals.
+  This is closer to the requested reuse/splitting question than decomposing each
+  token independently. [Structured data fusion](https://tensorlab.net/doc/sdf-basic.html).
+
+These are established algorithm families to implement or adapt and benchmark;
+I have not yet run a broad state-of-the-art comparison. There is no justified
+claim that one generic package or the newest paper is best for this particular
+partially symmetric, signed, implicitly represented tensor.
+
+### Assumptions that can hide structure
+
+**A fixed small product count is a hypothesis, not a census.** A computation may
+have a compact shared subspace or interaction graph but require many rank-one
+terms. A single global64-dimensional dictionary may miss a union of different
+local subspaces. Thirty-two blocks with one writer each also force output rank
+at most32; the measured coefficient-space output spectrum already limits how
+well that restricted class can fit, independently of its optimizer.
+
+**Signs and non-orthogonality matter.** The native products are signed and need
+not be independent or orthogonal. Nonnegative decompositions and orthogonal
+block algorithms would add assumptions that have not been justified here.
+Signed squares are legitimate, but changing products to squares alone does not
+discover new information: a product equals a difference of two squares. What
+changes is capacity, sharing and optimization geometry.
+
+**The identifiable object may be a block or subspace.** Rotations, rescalings,
+factor permutations and exchange of product operands can preserve the same
+function. Individual-factor cosine matching is therefore too restrictive as the
+only stability test. Conversely, good function reconstruction alone cannot name
+or selectively manipulate a semantic circuit.
+
+**Coefficient error is a discovery score, not the final success criterion.**
+Weight-based structure remains worth finding even when its importance is uneven
+on natural inputs. FineWeb validation and later OOD/intervention checks decide
+whether a candidate supports the four requested properties; that does not make
+data-fitting the default discovery algorithm.
+
+### Actual bottlenecks and the concrete next implementation
+
+The largest gaps are algorithm coverage and conditioning, not absence of a GPU.
+Large cancelling components can flatten optimization, and one start or one
+time-limited chunk is not enough to reject a representation. The full50304-token
+tensor is about267GB in FP32 if naively materialized. Exact output-space reduction
+and the native4608-product representation avoid that allocation; a dense Hessian
+over all reader parameters is also unnecessary. Implicit contractions and
+preconditioned linear solves are the appropriate computational tools.
+
+As the first concrete return to weight-only solvers, I implemented the exact
+linear normal operator for updating one product-reader family while holding the
+other readers and output writers fixed. It works directly from L,R,D,U and small
+Gram matrices, with no text inputs and no full tensor. A block-Jacobi-preconditioned
+conjugate-gradient solve matched a dense direct solution to$3.1\times10^{-16}$
+relative error on the control and converged in12 iterations. The independently
+computed dense-tensor gradient agreed within$1.2\times10^{-13}$.
+This is a tested **building block for weight-only ALS**, not a completed native
+ALS benchmark or a solver for every hypothesis on the list.
+[Control receipt](../../SYMMETRIC_PRODUCT_ALS_V1_CONTROL.json).
+
+The completed probability diagnostic remains useful background: it reproduced
+physical replacement damage, and the local Fisher expression predicted KL within
+0.64–2.38%; normalization-only changes accounted for only0.67–1.04% of KL. It
+does not supersede the user's weight-first priority or authorize another large
+data-fitting branch before the structural search is exhausted.
+
+A recent candidate is the2026 [NPDo tensor block-diagonalization method](https://arxiv.org/html/2605.12932v1). It optimizes blocks in orthonormal mode bases and provides convergence-to-stationarity results under its stated conditions. The orthogonality requirement is a substantive hypothesis for these weights; it is not a general solution for overlapping, non-orthogonal computational subspaces. It has not been implemented or run here.

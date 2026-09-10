@@ -82,7 +82,16 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 21:43
+## Current handoff — updated 10 September 2026, 21:53
+
+USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
+substantially different weight-only assumptions with appropriate stronger solvers
+before incorporating data into discovery. FineWeb is the model's training corpus
+per user; Pile is shifted-corpus/OOD validation, and Pile-adapted fits are not clean
+OOD evidence for those fitted surrogates. Stop expanding data/CE/Fisher fitting.
+Use FineWeb for in-distribution validation, Pile for separately labelled transfer.
+Do not substitute more data experiments for the still-mostly-unrun25hypothesis list.
+No own data jobs remain queued. Existing completed data results are historical.
 
 Full goal active. User explicitly requests a broad unsupervised structural search,
 substantial data/optimization, convergence and red-team review of negatives.
@@ -134,11 +143,14 @@ PHYSICAL_QUADRATIC_V1 completed21:36:02: A heldexactly, B/C failed. Shared-refit
 MAE tokenCE.23836/top1.87653; mean CE damage+.05879; KL9.81% reduction misses10%bar.
 Do not turn localreconstruction into a circuit/prediction claim. Native MLP17
 replacedbyactualshared64 execution,238720coefficients vsnative15926400; backgroundretained.
-PILE_QR_REFINEMENT_V1 running since21:37:22: matched240s normal/QR freshLBFGS onPile.
-Normalarm done train.0125669/validation.0130643, unconverged. QR pending; frozen sources.
-TERMINAL_PROBABILITY_REDTEAM_V1 queued: native finalRMS/tanh/FisherKL diagnostic,
-plus tiny preMLPradius cache forlatertraining; no test access. CPU derivativecontrols held.
-Matrix-freeGaussNewton andprobability-aware fitting remainpending.
+PILE_QR_REFINEMENT_V1 completed: Aheld B/Cfailed; bothunconverged. Validation
+normal.0130643/QR.0130386; QR not1%better, fewerclosuresinmatched240s.
+TERMINAL_PROBABILITY_REDTEAM_V1 completed: A/Bheld Cfailed. FisherKL predictions
+within.64–2.38%; normonly accountsfor.67–1.04%of fullKL. Preserve diagnostic,
+but user now defers probability/data-guided fitting until weight-first search exhausted.
+New symmetric_product_als_v1.py exact implicit one-reader normal operator and
+block-Jacobi PCG pass CPU dense/gradient/direct-solve controls. Notyet nativeALS.
+Next: stronger weight-only solvers and genuinely different representations.
 FullU output-function andtrace red-team audits complete, coefficientmetric-only bounds.
 
 32original configs remain frozen:4representations x2metrics x4starts. Only first

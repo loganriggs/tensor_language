@@ -1,0 +1,16 @@
+{
+  "schema": "symmetric.product.als.control.v1",
+  "passed": true,
+  "gradient_max_absolute_error": 1.1368683772161603e-13,
+  "normal_matrix_symmetry_max_absolute_error": 1.7763568394002505e-15,
+  "pcg": {
+    "iterations": 12,
+    "true_relative_residual": 1.713802460219561e-16,
+    "converged": true
+  },
+  "pcg_direct_solution_relative_l2": 3.013814728703436e-16,
+  "block_preconditioner_replay_max_absolute_error": 2.220446049250313e-16,
+  "dense_loss_before": 4108.712933486635,
+  "dense_loss_after": 1881.73810830104,
+  "scope": "Exact weight-only one-reader-family least squares, fixed other readers/writers. No data, native model fit, square-factor tying, global optimum or circuit identification claim."
+}
