@@ -53,6 +53,60 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Calibration context matching held; disjoint-fit operational stability failed — 2026-09-10 11:57:03 UTC
+
+Previous goal turn PROGRESSe3a58d068. Original handoff/pilot remain authority;
+no is/was restart and no better_math direction. Current prereg bbced3733,
+static prediction-key syntax repair dd4b1fb24 (enqueue rejection before any
+native run; formulas/gates unchanged). Managed stability/context run completed
+11:51:52–11:52:06:32bodyforwards126sequences,8.718s. Ainstrument/Ccontextpairing
+held; Boperationalstability FAILED. RunnerSHA
+64087109789e56908a12b2a4c07dc6ce74c291735507114fa846e970fbf50f38.
+
+Reused frozen48FIT/42FW/16Pile rows. Additional directions fitted on separate
+24-row halves, each with own frequency histogram. Thus row-sample and frequency
+reference sensitivity combined; not certified document-independent fitting.
+Original fullFIT direction replays EXACTLY. Cosine between splits .952817;
+first-fit centered vocabulary removal errors .11055/.10423 FW/Pile, second
+.34043/.30775 exceeds registered.20. Both fits retain broad rareharm/common
+benefit signature; do not select better fit or call geometry stable identification.
+
+Exact scalar replacement: retain g=h-q*w; set h(s)=g+s*w. A=Ug,B=Uw,
+c=mean(g²)+eps32,d=mean(g*w),e=mean(w²),
+z(s)=30tanh((A+sB)/(30sqrt(c+2ds+es²))). Pre-softcap derivative numerator
+Bc-Ad+s(Bd-Ae); not necessarily monotonic. Native epsilon/softcap retained.
+Independent native facade exact; first4rows eachcohort online native/compiled
+DONOR bridges max4.83e-5abs/6.87e-7rel. This is numerical scalar interchange,
+not a semantic donor-task transfer or upstream standalone extraction.
+
+Original scalar fitmean36071.094. Replacing q with this constant adds meanCE
++.181974FW/+.201214Pile; cyclic donor row at identicalposition +.287392/+.394611.
+All58rows harmed by both edits; C .005nat both edits/bothcorpora passes.
+Donor shift preserves empirical scalar marginal at eachposition, breaks pairing.
+qSD21922FW/23150Pile; centeredenergy fractions .352/.357.
+
+Actual post-native CPU continuation calibration_context_math_audit_v1 executed.
+4000rowbootstrap meanreplacement CI [.161667,.202175]FW/[.158267,.246775]Pile;
+FW document grouping unknown. Donor effect descriptive only because cyclic
+edges share sources/recipients. Exact RMS-aware quadratic split verified2.37e-16:
+q=beta+trQ+u^T(Q-trQ/n I)u-trQ*eps/(mean(x²)+eps), u=RMS(x).
+Constant beta+trQ=-517.543, far frompositive fitmean36071: empiricalmean cannot
+be identified with isotropicconstant. No rank approximation or semantic proof.
+
+Canonical subroutine.calibration.quadratic_readout revisionv2 site_live:
+conditional donorcompiled and contextpairing eventsheld; fitstabilityfailed.
+All545902902 nativeweights retained, no fullmodel saving. Current remaining:
+stable identification, disentangle sample/reference sensitivity, semantic
+variable/transfer, independent upstream extraction, structural simplicity.
+No successor native job registered; actual post-result CPU continuation complete.
+Next hourly12:14/math13:49UTC. Managed runners healthy; unrelated lane belongs
+toClaude, preservequeues/logs/canaries andunrelated task14 modifications.
+
+Result CALIBRATION_STABILITY_CONTEXT_V1_RESULT.json, compactaxes
+CALIBRATION_STABILITY_CONTEXT_V1_AXES.pt (20911bytes), postCPU
+CALIBRATION_CONTEXT_MATH_AUDIT_V1_RESULT.json. Latest explanation
+explanations/calibration_context_dependence_and_stability_2026-09-10.md.
+
 ## Weight-folded calibration scalar: positive held-out signature, two coupled uses — 2026-09-10 11:40:29 UTC
 
 Previous goal turn PROGRESS87cc1775e. Prereg2c3669e30; reporting-only successor

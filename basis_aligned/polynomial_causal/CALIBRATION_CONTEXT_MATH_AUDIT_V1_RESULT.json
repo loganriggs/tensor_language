@@ -1,0 +1,121 @@
+{
+  "experiment": "calibration_context_math_audit_v1",
+  "model_forwards": 0,
+  "controls": {
+    "passed": true,
+    "path_max_abs": 8.881784197001252e-16,
+    "derivative_max_abs": 1.4822409966086525e-10,
+    "nonmonotonic_counterexample_derivatives": [
+      0.49944476646656427,
+      -0.49944476646656427
+    ]
+  },
+  "post_result": true,
+  "registered_gates_unchanged": true,
+  "bootstrap_draws": 4000,
+  "seed": 9111153,
+  "reports": {
+    "FW_HOLDOUT": {
+      "mean": {
+        "estimate": 0.18197413351078356,
+        "positive_row_count": 42,
+        "rows": 42,
+        "min_row_effect": 0.05971079854960637,
+        "max_row_effect": 0.32236124907868646,
+        "ci95": [
+          0.16166677637685273,
+          0.20217455803732026
+        ]
+      },
+      "donor": {
+        "estimate": 0.28739248281201074,
+        "positive_row_count": 42,
+        "rows": 42,
+        "min_row_effect": 0.12820196071488343,
+        "max_row_effect": 0.5288690897213657
+      },
+      "remove_A": {
+        "estimate": 0.30035888450369785,
+        "positive_row_count": 42,
+        "rows": 42,
+        "min_row_effect": 0.14110414116547831,
+        "max_row_effect": 0.5506066794986424
+      },
+      "remove_B": {
+        "estimate": 0.4909347045343412,
+        "positive_row_count": 42,
+        "rows": 42,
+        "min_row_effect": 0.254182576726933,
+        "max_row_effect": 0.7793126320801456
+      },
+      "remove_ref": {
+        "estimate": 0.33846271476189616,
+        "positive_row_count": 42,
+        "rows": 42,
+        "min_row_effect": 0.18247621431540217,
+        "max_row_effect": 0.5576839366247803
+      },
+      "scope": "Mean replacement: row-cluster bootstrap; FineWeb original document grouping unknown. Donor effects descriptive only: cyclic edges share source/recipient rows."
+    },
+    "PILE_SHIFT": {
+      "mean": {
+        "estimate": 0.2012138957163501,
+        "positive_row_count": 16,
+        "rows": 16,
+        "min_row_effect": 0.033408284945777744,
+        "max_row_effect": 0.3994997625660268,
+        "ci95": [
+          0.15826674840941357,
+          0.2467750518754665
+        ]
+      },
+      "donor": {
+        "estimate": 0.39461055388102184,
+        "positive_row_count": 16,
+        "rows": 16,
+        "min_row_effect": 0.17413674415451919,
+        "max_row_effect": 0.6962128237110434
+      },
+      "remove_A": {
+        "estimate": 0.34600959427829403,
+        "positive_row_count": 16,
+        "rows": 16,
+        "min_row_effect": 0.1944094711329205,
+        "max_row_effect": 0.4977751135521511
+      },
+      "remove_B": {
+        "estimate": 0.4707724538820307,
+        "positive_row_count": 16,
+        "rows": 16,
+        "min_row_effect": 0.3626720752812074,
+        "max_row_effect": 0.6104082885458395
+      },
+      "remove_ref": {
+        "estimate": 0.38028200696369197,
+        "positive_row_count": 16,
+        "rows": 16,
+        "min_row_effect": 0.24553781306461797,
+        "max_row_effect": 0.5155623724835681
+      },
+      "scope": "Mean replacement: row-cluster bootstrap; FineWeb original document grouping unknown. Donor effects descriptive only: cyclic edges share source/recipient rows."
+    }
+  },
+  "mathematics": {
+    "identity": "q=beta+tr(Q)+u^T(Q-tr(Q)/D*I)u-tr(Q)*eps/(mean(x^2)+eps), u=RMS(x)",
+    "isotropic_alpha": -0.4487493359082639,
+    "trace_Q": -516.95923496632,
+    "beta": -0.5833608392681157,
+    "constant_limit": -517.5425958055881,
+    "fit_mean_q": 36071.094318844735,
+    "traceless_matrix_trace": 1.1790568521519162e-13,
+    "quadratic_split_relative_error": 2.371580551038305e-16,
+    "split_axes_cosine_to_original": {
+      "A": 0.9971110914995126,
+      "B": 0.9716628136352068
+    },
+    "scope": "Algebraic decomposition only. A constant limit is not the empirical mean unless the anisotropic quadratic averages to zero; no such distributional assumption is made. No rank approximation."
+  },
+  "source_sha256": "c4116af9fe8eb6fc421ebd730f87b5a229e05d3355cd29379b1203b1df7ce5a5",
+  "input_result_sha256": "fbffc573c28da6c0f6717c82135b5806da64b4d8e8a82565d466fe46d6089a96",
+  "producer_sha256": "8bfa3a93a6adf863346e9a2680c93e89b49f485f55f4a7f8ff364318e2f310ba"
+}

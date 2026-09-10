@@ -129,6 +129,183 @@
    ],
    "translation_ids": [],
    "next_missing": "Conditional producer and held-out removal signature held; both single-consumer sufficiency tests failed, so retain coupled uses. Need independent-fit stability, donor interchange, stronger provenance, independent upstream extraction and reduced structural description cost. All native weights remain; no four-property adoption."
+  },
+  {
+   "claim_id": "calibration_quadratic_readout.v2",
+   "revision": 2,
+   "status": "site_live",
+   "supersedes": "calibration_quadratic_readout.v1",
+   "causal_variable": {
+    "id": "calibration_quadratic_scalar",
+    "domain": "native normalized MLP17 inputs with full native background; row-held-out FineWeb and Pile corpus shift",
+    "read": "u^T Q u+beta using the folded native bilinear weights and FIT-only output direction",
+    "operation": "produce scalar q; use q*w in vocabulary numerator and final RMS denominator with exact softcap",
+    "write": "coupled score and normalization changes at final readout",
+    "endpoint": "full-vocabulary removal effects and frequent/rare next-token cross-entropy"
+   },
+   "alternative_explanations": [
+    "simple frequency-proportional logit bias",
+    "normalization-only gain",
+    "FIT-only correlation",
+    "useful constant offset",
+    "unstable fitted coordinate",
+    "context scale or difficulty rather than frequency semantics"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "complete_projection_removal",
+     "role": "necessity",
+     "changes": [
+      "remove q*w from final MLP output, recomputing final readout"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "random_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "numerator_use_removal",
+     "role": "necessity",
+     "changes": [
+      "remove q*U*w from the vocabulary numerator only"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "random_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "denominator_use_removal",
+     "role": "necessity",
+     "changes": [
+      "replace final RMS denominator with that after removing q*w"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "random_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "random_projection_removal",
+     "role": "invariance",
+     "changes": [
+      "remove each of three frozen random output-axis projections"
+     ],
+     "holds_fixed": [
+      "original upstream computation",
+      "FIT direction and token-frequency classes",
+      "input tokens"
+     ],
+     "control_ids": [
+      "independent_native_replay",
+      "online_removal_bridge",
+      "complete_projection_removal"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "cyclic_donor_scalar",
+     "role": "interchange",
+     "changes": [
+      "replace q by next row scalar at identical position, recomputing both readout uses"
+     ],
+     "holds_fixed": [
+      "all native upstream computation",
+      "evaluation rows and original FIT frequency classes"
+     ],
+     "control_ids": [
+      "native_formula_replay",
+      "independent_online_donor_bridge"
+     ],
+     "builder_artifact_id": "context_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "fit_mean_scalar",
+     "role": "necessity",
+     "changes": [
+      "replace q by the frozen full-FIT mean"
+     ],
+     "holds_fixed": [
+      "all native upstream computation",
+      "evaluation rows and original FIT frequency classes"
+     ],
+     "control_ids": [
+      "native_formula_replay",
+      "independent_online_donor_bridge"
+     ],
+     "builder_artifact_id": "context_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    },
+    {
+     "family_id": "disjoint_half_fit_axes",
+     "role": "invariance",
+     "changes": [
+      "refit covariance direction separately on two24-row FIT halves with own frequency counts"
+     ],
+     "holds_fixed": [
+      "all native upstream computation",
+      "evaluation rows and original FIT frequency classes"
+     ],
+     "control_ids": [
+      "native_formula_replay",
+      "independent_online_donor_bridge"
+     ],
+     "builder_artifact_id": "context_plan",
+     "split_plan_id": "calibration_fit48_hold42_pile16",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "mlp17_final_readout",
+     "tensor_path": "MLP17 output and final unembedding/RMS readout",
+     "shape": [
+      1152
+     ],
+     "intervention": "registered full projection removal or separate numerator/denominator use removal; fixed mean and cyclic donor scalar replacements with live final readout"
+    }
+   ],
+   "split_plan_ids": [
+    "calibration_fit48_hold42_pile16"
+   ],
+   "evidence_event_ids": [
+    "calibration_quadratic_readout.fold.held.v1",
+    "calibration_quadratic_readout.removal.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "Conditional donor execution and useful recipient pairing held; disjoint-row fit operational stability FAILED despite cosine.953 (second-fit effect errors.340/.308). Preserve original two-use/removal positives. Need stable identification with data/histogram sensitivity separated, semantic donor-task transfer, independent upstream extraction and reduced structural cost. Reused evaluation texts; all native weights retained."
   }
  ],
  "split_plans": [
@@ -231,6 +408,157 @@
    "notes": "Registered common/rare signature and all random-removal control conditions pass in both cohorts. Row-bootstrap intervals are post-result diagnostics; FineWeb document grouping unknown. Not absence-from-training OOD certification or donor interchange.",
    "design_key": "a458ac7c61955c452a00b5b10f3cc90cb881eed8722d1023dd6b79e4f73a4dc2",
    "execution_key": "52b4409d5d91588ca52115878cb4a5ddb7fb801c0b2fd9d24310c6c266bb0ec8"
+  },
+  {
+   "claim_id": "calibration_quadratic_readout.v2",
+   "stage": "complete",
+   "failure_kind": null,
+   "site_id": "mlp17_final_readout",
+   "split_plan_id": "calibration_fit48_hold42_pile16",
+   "evaluation_role": "reused_row_holdout_and_corpus_shift_conditional_followup",
+   "prereg_artifact_id": "context_plan",
+   "result_artifact_id": "context_result",
+   "input_artifact_ids": [
+    "rows",
+    "producer",
+    "context_axes",
+    "context_audit"
+   ],
+   "seed": 9111153,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "calibration_quadratic_readout.donor_execution.held.v1",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "family_ids": [
+    "cyclic_donor_scalar"
+   ],
+   "metrics": [
+    {
+     "name": "max_online_donor_absolute_logit_error",
+     "estimate": 4.820886260681334e-05,
+     "ci95": null,
+     "bar": "<=1e-3abs and <=1e-5rel"
+    }
+   ],
+   "notes": "Online native and quadratic-donor scalar edits agree with exact two-use path on first4rows percohort. Numerical interchange correspondence only, not semantic donor-task transfer.",
+   "design_key": "99cf8b7bf10e9b8a5b0c03943a0f9d66dc2fbcbcb7fee86b37978ff6dc290e8a",
+   "execution_key": "5cc9f0da065a7c465917f73e91d49a83b5591ca7ea52e5bd969f5f1e77bf2a00"
+  },
+  {
+   "claim_id": "calibration_quadratic_readout.v2",
+   "stage": "complete",
+   "failure_kind": "scientific_null",
+   "site_id": "mlp17_final_readout",
+   "split_plan_id": "calibration_fit48_hold42_pile16",
+   "evaluation_role": "reused_row_holdout_and_corpus_shift_conditional_followup",
+   "prereg_artifact_id": "context_plan",
+   "result_artifact_id": "context_result",
+   "input_artifact_ids": [
+    "rows",
+    "producer",
+    "context_axes",
+    "context_audit"
+   ],
+   "seed": 9111153,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "calibration_quadratic_readout.fit_stability.failed.v1",
+   "test_type": "seed_stability",
+   "verdict": "failed",
+   "family_ids": [
+    "disjoint_half_fit_axes"
+   ],
+   "metrics": [
+    {
+     "name": "split_axis_cosine",
+     "estimate": 0.9528173004364663,
+     "ci95": null,
+     "bar": "absolute>=.90"
+    },
+    {
+     "name": "second_fit_FW_effect_error",
+     "estimate": 0.3404331074789937,
+     "ci95": null,
+     "bar": "<=.20"
+    },
+    {
+     "name": "second_fit_Pile_effect_error",
+     "estimate": 0.3077482334810554,
+     "ci95": null,
+     "bar": "<=.20"
+    }
+   ],
+   "notes": "Disjoint fitting rows use their own frequency histograms: sample and target-reference sensitivity are combined. Both removal signatures survive, but registered full-effect stability fails. No better-axis post-selection.",
+   "design_key": "dfa70fe31f94fcc18a244bd7d45985f223e7beb82b401644a217792c603760b6",
+   "execution_key": "21d1a2a38a5cf69844bddc5135571733ed21d368fabdf30167bcd86c8f085d22"
+  },
+  {
+   "claim_id": "calibration_quadratic_readout.v2",
+   "stage": "complete",
+   "failure_kind": null,
+   "site_id": "mlp17_final_readout",
+   "split_plan_id": "calibration_fit48_hold42_pile16",
+   "evaluation_role": "reused_row_holdout_and_corpus_shift_conditional_followup",
+   "prereg_artifact_id": "context_plan",
+   "result_artifact_id": "context_result",
+   "input_artifact_ids": [
+    "rows",
+    "producer",
+    "context_axes",
+    "context_audit"
+   ],
+   "seed": 9111153,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "calibration_quadratic_readout.context_pairing.held.v1",
+   "test_type": "null_control",
+   "verdict": "held",
+   "family_ids": [
+    "fit_mean_scalar",
+    "cyclic_donor_scalar"
+   ],
+   "metrics": [
+    {
+     "name": "FW_HOLDOUT_mean_replacement_ce",
+     "estimate": 0.18197413351078362,
+     "ci95": [
+      0.16166677637685273,
+      0.20217455803732026
+     ],
+     "bar": ">=.005nat"
+    },
+    {
+     "name": "PILE_SHIFT_mean_replacement_ce",
+     "estimate": 0.20121389571635007,
+     "ci95": [
+      0.15826674840941357,
+      0.2467750518754665
+     ],
+     "bar": ">=.005nat"
+    },
+    {
+     "name": "FW_HOLDOUT_donor_replacement_ce",
+     "estimate": 0.28739248281201046,
+     "ci95": null,
+     "bar": ">=.005nat"
+    },
+    {
+     "name": "PILE_SHIFT_donor_replacement_ce",
+     "estimate": 0.39461055388102206,
+     "ci95": null,
+     "bar": ">=.005nat"
+    }
+   ],
+   "notes": "Both replacements hurt all58rows. Mean-replacement bootstrap descriptive with FW document grouping unknown; donor rows share sources, so no independent-row donor CI claimed. Useful context matching, semantics and stable identification open.",
+   "design_key": "5c082d6db492b925525e53ccb0fb3d1b3fde42b71d1c97d773aca06d9c769e1d",
+   "execution_key": "7babef73f44e40be59c3bd009b237fc966dcb8496f0083de0f2da0cf74f09815"
   }
  ],
  "translations": [],
@@ -268,6 +596,36 @@
   "explanation": {
    "path": "basis_aligned/polynomial_causal/explanations/calibration_scalar_and_two_consumers_2026-09-10.md",
    "sha256": "829847c324aeb8410f4d21d2f5f6414dd51afd09127447da7d15b8e1d86a62c2",
+   "kind": "explanation",
+   "status": "frozen"
+  },
+  "context_plan": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_STABILITY_CONTEXT_V1_PREREGISTRATION.md",
+   "sha256": "529159e02184519da663972af6450cb7265f1bacd568104feb8a3326188eccb9",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "context_result": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_STABILITY_CONTEXT_V1_RESULT.json",
+   "sha256": "fbffc573c28da6c0f6717c82135b5806da64b4d8e8a82565d466fe46d6089a96",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "context_axes": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_STABILITY_CONTEXT_V1_AXES.pt",
+   "sha256": "fc07a500547edcd3f0177fcc23456781185a187c6a6d10775617bb234913782c",
+   "kind": "weights",
+   "status": "frozen"
+  },
+  "context_audit": {
+   "path": "basis_aligned/polynomial_causal/CALIBRATION_CONTEXT_MATH_AUDIT_V1_RESULT.json",
+   "sha256": "210fb785fa7ee677f1e4e08472da97abb97776de3f1c3322a5eb7a787c1d7b0d",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "context_explanation": {
+   "path": "basis_aligned/polynomial_causal/explanations/calibration_context_dependence_and_stability_2026-09-10.md",
+   "sha256": "b35bc5512670d33f421d9e305c7bf591bbb4211c79721e74906c231393f28ee3",
    "kind": "explanation",
    "status": "frozen"
   }

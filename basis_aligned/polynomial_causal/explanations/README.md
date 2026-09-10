@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Calibration context dependence and stability](calibration_context_dependence_and_stability_2026-09-10.md): exact donor-response math and useful context pairing pass; disjoint-fit causal stability fails despite similar directions. Includes the RMS-aware constant-term audit and current limits.
+
 - [Calibration scalar and two consumers](calibration_scalar_and_two_consumers_2026-09-10.md): positive conditional weight-derived producer; common/rare removal signature holds on held-out rows and Pile, while neither vocabulary nor normalization use alone is sufficient. Full native background remains; no whole-model adoption.
 
 - [Live replacement and remaining context effects](induction_live_replacement_and_context_2026-09-10.md): correcting stale contributions improves joint answer loss but leaves vocabulary/control failures. Whole-context transport and selected-source identity hypotheses also fail; this fixed induction interface is closed.
