@@ -53,6 +53,38 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Normalization-origin partition is structure-dependent — 2026-09-10 07:34:37 UTC
+
+PreviousgoalturnPROGRESS4136ff3f0; currentpreregistration/implementationb66e647df.
+`MATURE_VALUE_NORMALIZATION_V1_RESULT.json` validA/D; Braw/ Cnormalization fail.
+Actualu=g*x, fullconditional u_oh=g0*x_oh+g_oh*x0+go*xh+gh*xo. InheritedR=g0*x_oh
+versusN=otherthree, propagatedthrough unchangednativeP0/W_V/W_O tocommonwrite,
+fullnative suffixrecomputed. Rfidelity16/16original,6/16fronted; N0/32; composition32/32.
+Rawerrorsoriginal<=.0369; frontedup to.6211margin/.5701readers. NativeRMSrecurrence
+bitwise; FP64ubridge5.544e-8,componentbridge1.907e-5,outputbridges6.676e-6abs/
+2.920e-7rel.320forwards5120seq,5.147s. RunnerSHA
+`d40266b140c3da893c5071ea6b22fcd4fdc0f4f4c39832ba5cff5a4c9d070927`.
+Completedv1sourcespreserved; `mature_value_route_native_v2.py` exposesrawresidual
+andnormalizedinput; `rms_mixed_input_partition_v1.py` exactsyntheticcontrols pass.
+
+ExecutedCPUcontinuation: `normalized_value_branch_accounting_v1.py` /
+`NORMALIZED_VALUE_BRANCH_ACCOUNTING_V1_RESULT.json`. Nmargin-effectnorm/fullcomponent
+.0119–.0366original,.0225–.6212fronted; Nsignedprojection-.0235–.0240original,
+-.1053–.2319fronted. Cancellation/orthogonalityexplain whyNcanmatterwithoutbeing
+sufficientalone. Fullgoalstillincomplete; normalizationcannotbedroppeduniversally.
+
+Next producer question requires a genuine raw-input perturbation, not interpreting
+R=g0*x_oh removal asrawstateablation. KeepfullRMS: candidate x'=x-Qoh x, recompute
+u'=RMS(x'), then commonC'=L(P0,W_V Qoh u') withnative meanrouting fixed; install
+B+C' atcommonwrite. Compare withnative/fullCremoval to testwhetherrawmixedstate
+isnecessary for thispartialproducer despite regeneratednormalizationinteractions.
+This is a value-producer path test, notglobalrawresidualablation changingQK.
+No successor nativejobregistered yet; do not infer circuitimportance fromrawnorms,
+fitgains or chooseonlypassingworlds. All545902902weights/fournativecounterfactual
+inputs/native suffixremain. Explanationsection19updated. Post-resultCPUcontinuation
+actuallyexecuted. Phaseclockin MATURE_VALUE_NORMALIZATION_V1_PHASES.jsonl. Next
+hourly08:14 UTC; mathematical07:49 UTC. Fullgoalactive; verifylivequeueonresume.
+
 ## Native value/routing contraction valid; separate-factor rules fail — 2026-09-10 07:24:53 UTC
 
 Previous goal turn PROGRESS3ce1462d1; current preregistration/implementation8b19c2005.
