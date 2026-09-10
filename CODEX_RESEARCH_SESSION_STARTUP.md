@@ -53,6 +53,36 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Common mature interface localized; cross-context accounting tested — 2026-09-10 07:03:05 UTC
+
+Previous goal turn PROGRESS7ff6ac79c; current preregistration/implementationd2abbb742.
+`THIRD_NOUN_COMMON_SUFFIX_V1_RESULT.json` valid A/B/D; C/E/F fail. Same16original
+and16fronted worlds. Full mixed attention-write role swap could leak future cue
+information: original attractor7 maps to fronted attractor2 beforeobject8, reverse
+fronted object8 maps to originalobject4 beforecategory7. Causal role audit executed.
+Only to/action are common mature roles. Their mixed-write branch C preserves the
+full mixed component's effect with .002071–.039322relative error acrossall32;
+remaining noun branch N alone failsall32 (.9853–1.0190error). Composition errors
+<=.000937correctmargin and<=.001053centeredthree-reader. Parentbaseline/fullmixed
+replays exact;320forwards5120seq,4.874s. RunnerSHA
+`446a65c6a82c7e597316a2549c1cb26fd04a17a63bf4edce64bc8f082ff02d44`.
+Commonfactorselectivity16/16original,10/16fronted; gender14/16original,3/16fronted.
+Do not promote a semantic circuit or erase fronting/gender failures.
+
+Post-result CPU continuation executed: `cross_context_effect_attribution_v1.py`
+controls and `COMMON_SUFFIX_CONTINUATION_V1.json`. For E[producer,recipient],
+producer-following predicts E10~E11 andE01~E00; reader-following predicts E10~E00
+andE01~E11, eachdirection relativeerror<=.10. Exact symmetricchange/interaction
+accounting distinguishes planted producer-only,reader-only,interacting fixtures.
+No nativecross-contextoutput yet. Next highest-information action is preregister
+and implement the now-licensed common to/action write interchange across original
+andfronted layouts, fullnative recipient suffix live, no fittedgain/rolemap.
+This distinguishes the wholewrite producer from recipientcontext/laterreaders,
+not valueproduction from attentionrouting inside the producer. Both remaincharged.
+No successor nativejob registered yet. Explanationsection16 updated, fullgoalactive;
+all545902902nativeparameters/fourcounterfactualinputs remain. ActualCPUcontinuation
+complete. Hourly review07:14 UTC; mathematicalreview07:49 UTC. Verify livequeues.
+
 ## Structural transfer: longer phrase passes, fronting fails — 2026-09-10 06:55:03 UTC
 
 Previous goal turn PROGRESS5c618f7e6; current preregistration/implementationfa15a4af8.

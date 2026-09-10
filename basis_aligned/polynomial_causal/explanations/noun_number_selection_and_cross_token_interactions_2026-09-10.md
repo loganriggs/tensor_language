@@ -1,6 +1,6 @@
 # Noun-number selection: what the model does, and what the math rules out
 
-**Latest result:** the frozen attention-write split transfers to all 16 groups with a longer intervening phrase, but moving the category cue before the object breaks transfer in 9 of 16 groups. Its decomposition remains faithful and composable in both layouts. Some effects change direction, so the failure is not merely reduced strength. This is a useful construction-dependent partial operation; a structurally general extracted circuit remains unproven. Section 15 gives the new test and diagnosis.
+**Latest result:** we have located a common causal interface for studying the structural failure: layer 9's mixed writes at the final “to” and action-word positions. Those two positions preserve the full component's effect within 3.94% in every original and fronted group. This allows a later test of whether the effect follows the supplied write or its receiving context. It does not repair the failed structural or gender selectivity. Sections 15–16 explain the boundary and the new localization.
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
@@ -462,3 +462,29 @@ In the longer layout, the effect aligns closely with the native interaction: cos
 Comparison with the original lexical bank also shows that eight fronted intervention-effect vectors have negative cosine with their original counterparts, while every native-interaction vector retains positive cosine. Thus the operation's behavioral role changes substantially across structures. This output-space diagnosis does not yet say whether the change originates in the value producer, averaged routing, or later readers.
 
 The useful distinction is now clearer: **the algebraic split transfers more reliably than its proposed semantic role**. Faithful decomposition and predictable joint edits do not by themselves identify a shared number computation. The next discriminating question is where the structural change alters that role; another gain, threshold, or row selection would not answer it. The paired CPU audit is completed continuation work. No further native experiment is registered yet, and independent extraction plus the full four-property goal remain open.
+
+## 16. A common causal interface at the final two positions
+
+Before exchanging writes between structures, we checked when each token position can know both factors. In the original layout, the object comes before the attractor; the first possible joint interaction is at the attractor. In the fronted layout, the attractor comes before the object; the first possible interaction is at the object.
+
+Consequently, mapping the whole write by noun role would be a poor test of reusable causal computation. An original attractor-position write may contain object-number information, but the fronted attractor position has not seen that object yet. The reverse map has the same problem at the object. Such patches can be executed, but they can inject future information; agreement would not establish a naturally available shared computation. The [CPU role audit](../THIRD_NOUN_CAUSAL_ROLE_ALIGNMENT_V1.json) checks this for all 16 paired worlds.
+
+The shared roles that have seen both cues in either layout are **“to” and the final action word**. We therefore divided the mixed attention write into C, retaining these two positions, and N, retaining every other position. Causal support limits N to the noun where the second factor becomes available. We tested removing C, N and their sum, with the native suffix recomputed. This division was fixed from role and causal information, without searching positions by their measured effects.
+
+The [registered common-suffix test](../THIRD_NOUN_COMMON_SUFFIX_V1_PREREGISTRATION.md) passes instrumentation, common-interface fidelity and composition:
+
+- C alone reproduces the complete mixed component's answer effect with **0.21–3.93% relative error**, across all 32 original/fronted worlds.
+- N alone fails the same fidelity test in every world: **98.53–101.90% relative error**.
+- The separate effects compose with at most **0.094%** error for the correct margin and **0.106%** for the centered three-answer vector.
+- Original and fronted baseline/full-component output grids replay exactly. The run used 320 forwards over 5120 sequence instances in 4.874 seconds.
+
+This is sufficiency relative to the previously identified **partial intervention effect**, not sufficiency for the model's entire natural interaction. The common write still passes factor selectivity in only 10/16 fronted groups, versus 16/16 original groups; gender control passes 3/16 fronted and 14/16 original groups. The localization does not erase those failures. [Native result](../THIRD_NOUN_COMMON_SUFFIX_V1_RESULT.json).
+
+We can now pose the producer-versus-reader question without the earlier role-mapping defect. Hold the recipient layout fixed and supply the common write from either layout, at the matching “to” and action positions. Both donor and recipient positions have already seen both cues, and the residual-vector coordinates are those of the same checkpoint.
+
+Let E_ij be the causal answer effect when the write comes from layout i and the surrounding recipient computation is layout j. Here “producer” includes the computation of the selected layer 9 write; “reader” includes its recipient background and later layers. Two opposing predictions are:
+
+- **Effect follows the producer:** E_10 resembles E_11, and E_01 resembles E_00.
+- **Effect follows the reader:** E_10 resembles E_00, and E_01 resembles E_11.
+
+Neither outcome is guaranteed. The interaction E_11−E_10−E_01+E_00 can make both simple descriptions fail. The [new CPU accounting core](../cross_context_effect_attribution_v1.py) correctly distinguishes planted producer-only, reader-only and interacting examples. Its [control receipt](../COMMON_SUFFIX_CONTINUATION_V1.json) also summarizes the completed native localization. No native cross-layout interchange has been run or registered yet; these are prospective predictions, not findings. Independent extraction and all remaining native weights are still unresolved.

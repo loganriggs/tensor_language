@@ -1,0 +1,40 @@
+{
+  "controls": {
+    "passed": true,
+    "producer_only_identified": true,
+    "reader_only_identified": true,
+    "multiplicative_case_rejects_both_single_factor_rules": true,
+    "symmetric_change_decomposition_error": 0.0,
+    "scope": "Exact synthetic accounting only; no native interchange has been observed."
+  },
+  "native_common_interface_summary": {
+    "mixed_fidelity_error": [
+      0.0020711305954184867,
+      0.03932148632501319
+    ],
+    "noun_fidelity_error": [
+      0.9853165438643198,
+      1.0190290868026526
+    ],
+    "composition_margin_error": [
+      6.897429551281217e-05,
+      0.0009362764452864062
+    ],
+    "composition_reader_error": [
+      7.603342224377026e-05,
+      0.001052739670956759
+    ],
+    "common_write_norm_fraction": [
+      0.9166292639446398,
+      0.9824014421431695
+    ],
+    "installed_full_impurity": [
+      1.2710508374217672e-06,
+      3.7470206705066224e-06
+    ]
+  },
+  "source_sha256": "2cb04e957449a533a1dc9ce59d2c1ed65bb637a04a0c8f4011c2bcf5262b86a2",
+  "core_sha256": "8bae5625e15720fb3d1aad01c0edf2eaeaea406d08b62f740cda1fbc678a4de2",
+  "reference_bridge_maxabs": 0.0,
+  "scope": "Completed common-interface receipt analysis and prospective interchange scorer controls; no cross-context native result."
+}
