@@ -53,6 +53,43 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Induction value-producer screen completed; contract audit executed — 2026-09-10 10:20 UTC
+
+Previous goal turn PROGRESS04c4e5fdc. New distinct induction screen prereg20dd1eac4,
+queue-literal correction f5935dc7e. R593 donor-factor test stays instrument-invalid
+and scientifically unresolved; not repaired or rescored here. Fixed native heads
+L5H5/L7H3/L8H3/L8H4, all72 R578 FIT groups x4 core conditions. Value mixture
+(1-lambda)local+lambda first-layer; remove equality-source shared/local/full/joint
+at final query beforeO, later states live; neutral one-source control. No SELECT,
+FINAL or OOD. INDUCTION_VALUE_PRODUCER_SPLIT_V1_RESULT valid A; B/C/D/E false.
+63forwards2016seq,162attention transactions,6.067636s; runnerSHA
+c4ae8d7578180171b8dff8dab848db36a387a5a97840d5ee2c5495ee02abd1cd.
+Zero bitwise; full/joint2.146e-5abs/7.453e-7rel; mixture3.635e-8. Shared branch
+fullvocaberrors.8853–.9202/local.3516–.3861; task margin ranking reverses
+(shared.365–.459,local.717–.767). Compositionvocab.1182–.1903. Neither branch
+is sufficient at the frozen10%bar; do not adopt the smaller error/readout subset.
+
+Specification error OWNED: new absolute goldP-loss>=.10 is impossible from native
+meanP.0336–.0374; new nativeaccuracy>=.85 fails s0p0 .7778. Prior R586 had these
+same values and valid .75 criterion. Post-native actual CPU continuation
+induction_probability_contract_audit_v1 matches all288core cases to prior FIT
+R586: accuraciesexact,meanPdiff<=2.32e-8,margin<=1.77e-5. Implements reusable
+probability_loss_feasibility (loss ceiling=native mean); no gate change/rescore.
+Full removal actually reduces meanP93.85–95.94%relatively, descriptive only:
+impossible absolute bar does NOT imply weak causal message. Independently failed
+branch-fidelity remains useful. Whole coupled operation still potentially relevant.
+
+New explanation explanations/induction_value_producers_2026-09-10.md. All545902902
+nativeparams retained,0saving, no independent extraction or OOD circuit promoted.
+Hour10:14review completed:2 native screens,1248s gap; phasecoverage96.25%, science
+1363.89s versusreview+validation902.44s. NOVELTY_LESSON_GATE corrected FAIL due
+missed known capability-contract conflict; CPU feasibility repair executed before
+new research. Throughput low; reuse existing model/capture/score/queue primitives,
+avoid another compiler. Next hourly11:14/math10:49UTC. No successor GPU job queued.
+Full goal active; actual CPU continuation receipt completed. Next candidate must
+retain joint producer dependence and use actual prior capabilities/feasible units,
+not repeat this screen with relaxed bars or reopen weak prefix/subspace routes.
+
 ## Edit-policy memory compilation executed — 2026-09-10 10:06 UTC
 
 Previous goal turn a099664e4 closed the weak prefix-binding candidate. Current

@@ -1,0 +1,76 @@
+{
+  "experiment": "induction_probability_contract_audit_v1",
+  "checks": {
+    "impossible_loss_rejected": true,
+    "feasible_not_guaranteed": true,
+    "boundary": true,
+    "prior_all_panels_already_below_loss_bar": true,
+    "accuracy_replayed": true
+  },
+  "panels": {
+    "s0p0": {
+      "prior_probability_loss_ceiling": {
+        "upper_bound": 0.03736977867658,
+        "required_mean_loss": 0.1,
+        "feasible": false
+      },
+      "prior_correct_fraction": 0.7777777777777778,
+      "new_correct_fraction": 0.7777777777777778,
+      "prior_capability_accuracy_bar": 0.75,
+      "new_capability_accuracy_bar": 0.85,
+      "probability_mean_replay_abs": 1.0041432699225972e-08,
+      "margin_replay_max_abs": 1.2516975402832031e-05,
+      "full_removal_relative_probability_loss": 0.94799220702343
+    },
+    "s0p1": {
+      "prior_probability_loss_ceiling": {
+        "upper_bound": 0.03424950202340807,
+        "required_mean_loss": 0.1,
+        "feasible": false
+      },
+      "prior_correct_fraction": 0.8888888888888888,
+      "new_correct_fraction": 0.8888888888888888,
+      "prior_capability_accuracy_bar": 0.75,
+      "new_capability_accuracy_bar": 0.85,
+      "probability_mean_replay_abs": 2.3198628407161692e-08,
+      "margin_replay_max_abs": 1.7642974853515625e-05,
+      "full_removal_relative_probability_loss": 0.9385438750880752
+    },
+    "s1p0": {
+      "prior_probability_loss_ceiling": {
+        "upper_bound": 0.03567443035966299,
+        "required_mean_loss": 0.1,
+        "feasible": false
+      },
+      "prior_correct_fraction": 0.9444444444444444,
+      "new_correct_fraction": 0.9444444444444444,
+      "prior_capability_accuracy_bar": 0.75,
+      "new_capability_accuracy_bar": 0.85,
+      "probability_mean_replay_abs": 1.496052531163583e-08,
+      "margin_replay_max_abs": 1.2874603271484375e-05,
+      "full_removal_relative_probability_loss": 0.9548459537005256
+    },
+    "s1p1": {
+      "prior_probability_loss_ceiling": {
+        "upper_bound": 0.03356306191113704,
+        "required_mean_loss": 0.1,
+        "feasible": false
+      },
+      "prior_correct_fraction": 0.8611111111111112,
+      "new_correct_fraction": 0.8611111111111112,
+      "prior_capability_accuracy_bar": 0.75,
+      "new_capability_accuracy_bar": 0.85,
+      "probability_mean_replay_abs": 1.7787006520442183e-09,
+      "margin_replay_max_abs": 1.0013580322265625e-05,
+      "full_removal_relative_probability_loss": 0.9593734698755817
+    }
+  },
+  "maximum_native_margin_replay_abs": 1.7642974853515625e-05,
+  "model_forwards": 0,
+  "decision": "Original .10 absolute probability-loss bar was infeasible from already available native evidence. Preserve failed experiment; no rescoring/promotion. Both branch-fidelity errors independently exceed .10.",
+  "bindings": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung586_results.json": "14e7414bc7cf6b4a6a221079ac378752602b021b8b411124149dcc2c311666b8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_VALUE_PRODUCER_SPLIT_V1_RESULT.json": "b354b92ed889294743157088f3f8b8ad6b9729e97060c6e08107572fb5d1f056",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/induction_probability_contract_audit_v1.py": "7a73bcd009aa6ba3af958cf2f4db8b3305604f8051853b068d3599b400fd8d43"
+  }
+}
