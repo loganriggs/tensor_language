@@ -53,6 +53,39 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Structural transfer: longer phrase passes, fronting fails — 2026-09-10 06:55:03 UTC
+
+Previous goal turn PROGRESS5c618f7e6; current preregistration/implementationfa15a4af8.
+`THIRD_NOUN_WRITE_STRUCTURE_V1_RESULT.json` valid A/C/E; B structural transfer and
+D gender fail. Same16 lexical worlds in each of two new layouts,1024 new prefixes.
+Longer intervening phrase13tokens (object4/category10):16/16 transfer,13/16gender.
+Fronted phrase11tokens (category2/object8):7/16transfer,3/16gender. All32 have native
+mixed-marginRMS>=.05 and all32 pass mixed-effect fidelity<=.10 and composition.
+Fronting has8 materiality failures and5 spill failures with overlap; do not filter
+or retune. Native/reference full/mixed/spill grids replay exactly. Shared dynamic
+executor controls pass; installed mixed impurity<=3.75e-6.266forwards4256seq,4.382s.
+Runner SHA `681ed6fc110b29625c75e27758ad016bf78c41aa9662c84eb4c08786a37d09ef`.
+
+CPU continuation executed: `third_noun_structure_geometry_v1.py` and
+`THIRD_NOUN_STRUCTURE_GEOMETRY_V1_RESULT.json`. Signed projection decomposes as
+(effect/native norm ratio)*cosine. Longer effect/native cosine .9677–.9953;
+fronted -.3495–.9815, with4 negative. Eight fronted effect vectors oppose their
+original-layout counterparts, while native-interaction cosine remains positive
+in all16. This rejects mere uniform positive-gain repair; it does not localize
+whether producer, averaged routing, or later readers change the semantic role.
+
+Next question: localize where structural rearrangement changes the role of the
+selected value-write operation. Algebraic fidelity/composition alone do not imply
+shared semantic computation. Do not retry fronted text/threshold/gain selection.
+Use existing partial operation as a hypothesis, not an identified universal number
+circuit. New helper `attention_write_factorial_executor_v1.py` and geometry-aware
+`live_value_factorial_executor_v2.py` support other equal-length signed cubes;
+completed v1 sources are preserved. No successor native job registered yet.
+Explanation section15 updated. All545902902 parameters/native counterfactual inputs
+and suffix remain; fullgoalactive. CPU audit is completed continuation receipt.
+Hourly review due07:14 UTC; mathematical review07:49 UTC. Both runners healthy;
+Claude v483completed and v485queued/running independently—inspect live state.
+
 ## Live mixed-write split passes fidelity/selectivity/composition — 2026-09-10 06:46:07 UTC
 
 Previous goal turn PROGRESS6cc3d8bbe; current preregistration/implementation5545c4470.

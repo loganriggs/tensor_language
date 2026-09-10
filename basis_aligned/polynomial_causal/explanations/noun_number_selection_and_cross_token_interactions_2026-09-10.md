@@ -1,6 +1,6 @@
 # Noun-number selection: what the model does, and what the math rules out
 
-**Latest result, 06:43 UTC:** splitting the layer 9 attention write now isolates a partial effect that passes factor selectivity in all 16 noun/action groups, preserves the original target effect within 10%, and composes with its complementary write. The gender control still fails in two groups. This is evidence for a useful split within attention, with native inputs and downstream computations still required. Section 14 explains the split; a new structural OOD test is needed because this intervention was developed after opening the lexical bank.
+**Latest result:** the frozen attention-write split transfers to all 16 groups with a longer intervening phrase, but moving the category cue before the object breaks transfer in 9 of 16 groups. Its decomposition remains faithful and composable in both layouts. Some effects change direction, so the failure is not merely reduced strength. This is a useful construction-dependent partial operation; a structurally general extracted circuit remains unproven. Section 15 gives the new test and diagnosis.
 
 The new tests move beyond the stagnant is/was investigation. We first specified a simple computation—choose the noun whose number controls a reflexive—and checked whether the model actually performs it. It does not reliably switch the controlling noun with the verb. In short two-noun sentences, all 128 measured preferences follow the second noun. Adding a third noun then breaks each of four simple rules we had registered in advance.
 
@@ -428,3 +428,37 @@ Consequently, **D_m=P_0d**: the selected write reads the mixed value through rou
 The [executed CPU audit](../THIRD_NOUN_WRITE_FACTOR_ATTRIBUTION_V1_RESULT.json) verifies the matrix-valued identity to 4.44e−16 and attributes the saved unwanted output effects to the two edits and their interaction. Removing only D_m leaves 31.5–95.2% of the original unwanted-effect magnitude, depending on the group. Signed contributions reveal cancellation: the D_s contribution can exceed 100% where D_m partially opposes it. Therefore these components should not be presented as a simple positive percentage partition.
 
 This is the kind of within-module split the original handoff calls for: one native attention module contains separable contributions with different downstream roles. However, its production still uses native counterfactual inputs; its gender control fails; and its apparent factor-selectivity improvement is measured on an already opened bank. The next useful test is to freeze this exact split and test structural OOD transfer, before claiming a reusable extracted unit. All 545902902 native parameters remain charged. The post-result CPU attribution and routing identity are completed; no structural-transfer GPU job is registered yet.
+
+## 15. Longer phrases transfer; moving the category cue to the front does not
+
+We froze the mixed-write split and tested two new structures with the same nouns and actions:
+
+- “The husband persuaded the husbands **in the room near the lamp** to defend …”
+- “**Near the lamp,** the husband persuaded the husbands to defend …”
+
+Each structure has 16 noun/action groups and 32 counterfactual combinations per group: 1024 new prefixes total. The longer structure has 13 tokens; the fronted structure has 11. Within every group, paired edits retain equal lengths, and opposite subject/object-number assignments retain the same token multiset. The fronted structure changes both syntactic arrangement and evidence order: the category cue now precedes the object. This test does not isolate those two changes from each other.
+
+The generalized executor first reproduced the original reference's baseline and all three intervention output grids exactly. It then used the same layer, weights, all-position intervention and thresholds on the new bank. The [registered structural test](../THIRD_NOUN_WRITE_STRUCTURE_V1_PREREGISTRATION.md) is mechanically valid, with 266 forwards over 4256 sequence instances in 4.382 seconds.
+
+| Registered requirement | Longer intervening phrase | Fronted phrase |
+| --- | --- | --- |
+| Live native interaction, RMS at least .05 | 16/16 | 16/16 |
+| Partial materiality and factor selectivity together | 16/16 | 7/16 |
+| Mixed-write effect within 10% of the original local-value effect | 16/16 | 16/16 |
+| Gender effect below 25% of number effect | 13/16 | 3/16 |
+| Two edits compose within the registered tolerance | 16/16 | 16/16 |
+
+The all-world structural-transfer and gender predictions therefore **fail**. The result supports the longer-layout branch under the unchanged criteria, without rescuing the failed fronted branch. Fronting yields eight materiality failures and five factor-selectivity failures, with overlap; all native interactions remain above the registered floor. [Full result](../THIRD_NOUN_WRITE_STRUCTURE_V1_RESULT.json).
+
+The subsequent [paired geometry audit](../THIRD_NOUN_STRUCTURE_GEOMETRY_V1_RESULT.json) separates effect size from direction. Let n be the native mixed answer vector across the 32 cases and e the mixed intervention effect. The reported signed projection is exactly
+
+\[
+\frac{e^\mathsf T n}{\|n\|^2}
+=\frac{\|e\|}{\|n\|}\cos(e,n).
+\]
+
+In the longer layout, the effect aligns closely with the native interaction: cosine .9677–.9953. In the fronted layout it ranges from −.3495 to .9815. Four groups have a negative projection: removing the component changes the answer interaction in the opposite direction to the native interaction. These effects are not absent; their effect/native norm ratios exceed .05. A positive gain cannot repair the negative alignment, because multiplying e by a positive scalar preserves its direction.
+
+Comparison with the original lexical bank also shows that eight fronted intervention-effect vectors have negative cosine with their original counterparts, while every native-interaction vector retains positive cosine. Thus the operation's behavioral role changes substantially across structures. This output-space diagnosis does not yet say whether the change originates in the value producer, averaged routing, or later readers.
+
+The useful distinction is now clearer: **the algebraic split transfers more reliably than its proposed semantic role**. Faithful decomposition and predictable joint edits do not by themselves identify a shared number computation. The next discriminating question is where the structural change alters that role; another gain, threshold, or row selection would not answer it. The paired CPU audit is completed continuation work. No further native experiment is registered yet, and independent extraction plus the full four-property goal remain open.
