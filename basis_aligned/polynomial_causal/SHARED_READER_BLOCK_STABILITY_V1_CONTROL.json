@@ -1,0 +1,27 @@
+{
+  "original_program": [
+    "z0=x0*x1",
+    "z1=x0*x2"
+  ],
+  "alternate_program": [
+    "f0=x0*(x1+x2)/sqrt(2)",
+    "f1=x0*(-x1+x2)/sqrt(2)",
+    "z0=(f0-f1)/sqrt(2)",
+    "z1=(f0+f1)/sqrt(2)"
+  ],
+  "tensor_relative_error": 2.220446049250313e-16,
+  "individual_full_term_cosines": [
+    [
+      0.5,
+      0.5
+    ],
+    [
+      0.5,
+      0.5
+    ]
+  ],
+  "input_function_span_overlap": 1.0,
+  "native_forwards": 0,
+  "scope": "Constructive counterexample only. Identical shared-reader block can fail every individual-term .95 match. It does not establish such a block in the checkpoint or rescore the existing fixed screen.",
+  "source_sha256": "ff17c408154d66f9bea0894febd5c18e07618886f37563ea84f31f194e5b4c64"
+}
