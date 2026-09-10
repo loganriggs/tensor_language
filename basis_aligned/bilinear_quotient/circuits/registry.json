@@ -567,24 +567,27 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "7fcd425af8dd792f10edaaa095175c95ff041e4bd4ebfc60c5b68a48b1c2e711",
+   "record_sha256": "5b75a244d9dc7d46d181bdc64446d9ce5a99f5548f2075354a1f7e0467cf7bc7",
    "kind": "shared_subroutine",
    "identity_instance": null,
-   "active_claim_id": "calibration_quadratic_readout.v2",
+   "active_claim_id": "calibration_quadratic_readout.v3",
    "claim_status": "site_live",
    "causal_variable_id": "calibration_quadratic_scalar",
-   "interchange_family_count": 1,
-   "invariance_family_count": 2,
-   "negative_event_count": 1,
-   "active_negative_event_count": 1,
-   "latest_blocker": "calibration_quadratic_readout.fit_stability.failed.v1",
-   "latest_active_event": "calibration_quadratic_readout.context_pairing.held.v1",
+   "interchange_family_count": 2,
+   "invariance_family_count": 3,
+   "negative_event_count": 2,
+   "active_negative_event_count": 2,
+   "latest_blocker": "calibration_quadratic_readout.common_reference.failed.v1",
+   "latest_active_event": "calibration_quadratic_readout.dimensionless_execution.held.v1",
    "active_event_ids": [
     "calibration_quadratic_readout.fold.held.v1",
     "calibration_quadratic_readout.removal.held.v1",
     "calibration_quadratic_readout.donor_execution.held.v1",
     "calibration_quadratic_readout.fit_stability.failed.v1",
-    "calibration_quadratic_readout.context_pairing.held.v1"
+    "calibration_quadratic_readout.context_pairing.held.v1",
+    "calibration_quadratic_readout.common_reference.failed.v1",
+    "calibration_quadratic_readout.dimensionless_pairing.held.v1",
+    "calibration_quadratic_readout.dimensionless_execution.held.v1"
    ],
    "held_test_types": [
     "compiled_equivalence",
@@ -596,8 +599,11 @@
    ],
    "design_keys": [
     "5c082d6db492b925525e53ccb0fb3d1b3fde42b71d1c97d773aca06d9c769e1d",
+    "88e8b80fb31b32e5809d895a7428f14cd26155c8eb7238c5b44c6caaa425696a",
+    "8e138b57dfdb11208076307cb9d5181eabf4bb6164a2daa8337d82e4288bc66b",
     "99cf8b7bf10e9b8a5b0c03943a0f9d66dc2fbcbcb7fee86b37978ff6dc290e8a",
     "a458ac7c61955c452a00b5b10f3cc90cb881eed8722d1023dd6b79e4f73a4dc2",
+    "cd161c1e702fcd7e5d87b0b6648ebe603cfb32fa2585d0d1a741dde6e1da21fe",
     "dfa70fe31f94fcc18a244bd7d45985f223e7beb82b401644a217792c603760b6",
     "f106147ccd04262dddd37d5a2f381bf889220e617832d8b50f6abb73627f35f6"
    ]

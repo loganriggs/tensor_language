@@ -53,6 +53,62 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Scalar units control held; frequency-reference repair closed — 2026-09-10 12:09:53 UTC
+
+Previous goal turn PROGRESSaacb26913. Current original handoff/pilot authority.
+Two managed native runs plus post-result CPU math completed; fullgoal active.
+Prereg aff1ead87; common-reference result and nextprereg05c978e13.
+
+1. Shared frequency-reference stability: same48-row histogram for both24-row
+fits, all other science fixed.32bodyforwards126seq,12:00:27–12:00:41,8.693s.
+A/C/Dtrue,Bfalse. Second-fit centered effecterrors .28238656FW/.25150400Pile
+still>.20; firstfit .19707877/.17854945, mutualcosine.948579. Originalaxis,
+rawmean/rawdonor control CEreplay EXACT0. Reference mismatch insufficient;
+CLOSE this repair and stop scalar-direction fitting refinements. No bestfit
+selection. Result CALIBRATION_COMMON_REFERENCE_V1_RESULT.json. RunnerSHA
+52f9e454a486f125bb6f229fd8d568ca9a9e445ec96fc7770d2ca351a3163c45.
+
+2. New mechanism control: raw scalar donor may swap background scale. Exact
+units R=sqrt(mean(g²))>0, g=h-qw; tau=q/R. Transfer q_new=R_rec*q_d/R_d.
+Finalnormalized read uses g/R+tau*w and eps/R², native30tanh. CPU same-tau,
+8xscale donor falsifier: rawlogit errornorm31.8, adjustedmax8.9e-16; epsilon
+rescaling andzeroRdomain falsifierspassed. No native claim fromtoy alone.
+
+Managed dimensionless_donor:34forwards134seq,12:05:02–12:05:18,11.253s.
+A/B/Dtrue,C90%-scale-explanation FALSE. OriginalcontrolsCEreplayexact0.
+Mean_tau replacement CE+.10997083FW/+.17120510Pile; adjusted donor
++.22607047/+.33309719. Retains .786626/.844116 of rawdonordamage, so this
+scale-only alternative cannot explain mosteffect. Both adjusted edits harm
+all58rows. FITmean_tau18.37103; evaltau mean16.14737/17.17448,
+SD11.34163/12.25074; backgroundRMS allfinitepositive599–6161FW/611–6010Pile.
+Adjustedonline bridgesfirst4rows eachcohort max4.10e-5abs/6.54e-7rel;
+fullcohortoffline scoring, numericalinterchange only, not semantictransfer.
+RunnerSHA2b67b4470dae2d7af9a24c22415f8413f32f19235b76eba7b9c967dc769bac67.
+
+Actual post-native CPU calibration_dimensionless_audit_v1 executed.
+4000rowbootstrap mean_tau CI [.098464,.121879]FW/[.129213,.215138]Pile;
+FWdocumentgroupingunknown, no independent cyclic-donor-edgeCI. Explicit
+local producer closure: a=preMLPresidual,rho=RMS_eps(a),u=a/rho;
+g=rho*u+(I-Pw)M(u); tau=(u^TQ u+beta)/sqrt(mean(g²)). gdegree<=2 in(u,rho),
+normsquare<=4, validinputsconstrainedbynormalization. KeepnativefactoredDAG;
+no quartictensor expansion. CPUreadoutequality1.78e-15; omittingMLPcomplement
+norm giveserror26.93. Thus tau requiresoriginalMLPcomplement andupstreama;
+no independent extraction forfree. All545902902 nativeparams retained.
+
+Canonical subroutine.calibration.quadratic_readout v3 site_live: commonreference
+stabilityfailed; adjustedcontextpairing andcompiledinterchangeheld. Cfailure
+is failure ofalternative90%-scale explanation, not failure ofcandidate pairing.
+No furtherfit-direction refinements; next identification object must address
+producer inputs andstablecomputation, semanticmeaning, upstream extraction
+andstructuralsimplicity. Do not reinterpret repeatedheldouttexts aspristineOOD.
+Actualpost-resultCPUcontinuationdone; no successorGPUjobregistered. Next
+hourly12:14/math13:49UTC. Runners healthy, preserveunrelatedClaude work.
+
+Latest explanation explanations/calibration_scalar_units_and_remaining_dependencies_2026-09-10.md.
+Receipts CALIBRATION_DIMENSIONLESS_DONOR_V1_RESULT.json and
+CALIBRATION_DIMENSIONLESS_AUDIT_V1_RESULT.json. Compactaxes21kB include
+frozenmean_tau; completeddata durableinrepo. Previouscalibration results retained.
+
 ## Calibration context matching held; disjoint-fit operational stability failed — 2026-09-10 11:57:03 UTC
 
 Previous goal turn PROGRESSe3a58d068. Original handoff/pilot remain authority;

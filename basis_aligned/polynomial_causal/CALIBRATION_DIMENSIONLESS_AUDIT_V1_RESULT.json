@@ -1,0 +1,69 @@
+{
+  "experiment": "calibration_dimensionless_audit_v1",
+  "model_forwards": 0,
+  "registered_gates_unchanged": true,
+  "post_result": true,
+  "seed": 9111206,
+  "bootstrap_draws": 4000,
+  "reports": {
+    "FW_HOLDOUT": {
+      "mean_tau": {
+        "estimate": 0.10997082794700207,
+        "positive_rows": 42,
+        "rows": 42,
+        "min_row": 0.0393047091043357,
+        "max_row": 0.2026210832792441,
+        "ci95": [
+          0.09846355551540897,
+          0.12187928720362706
+        ]
+      },
+      "donor_tau": {
+        "estimate": 0.22607046840933367,
+        "positive_rows": 42,
+        "rows": 42,
+        "min_row": 0.09978015716842936,
+        "max_row": 0.4350831895337386
+      },
+      "adjusted_to_raw_donor_damage_ratio": 0.786626240872177,
+      "mean_tau_uncertainty_scope": "row bootstrap; FineWeb document grouping unknown; Pile one row per document",
+      "donor_uncertainty_scope": "descriptive; no independent-row CI because cyclic pairs share rows"
+    },
+    "PILE_SHIFT": {
+      "mean_tau": {
+        "estimate": 0.17120510073651976,
+        "positive_rows": 16,
+        "rows": 16,
+        "min_row": 0.042485514035893956,
+        "max_row": 0.34632085783830036,
+        "ci95": [
+          0.12921266552641555,
+          0.21513790079760475
+        ]
+      },
+      "donor_tau": {
+        "estimate": 0.3330971873555589,
+        "positive_rows": 16,
+        "rows": 16,
+        "min_row": 0.1715692865673093,
+        "max_row": 0.642627471846958
+      },
+      "adjusted_to_raw_donor_damage_ratio": 0.844116266226347,
+      "mean_tau_uncertainty_scope": "row bootstrap; FineWeb document grouping unknown; Pile one row per document",
+      "donor_uncertainty_scope": "descriptive; no independent-row CI because cyclic pairs share rows"
+    }
+  },
+  "closure_control": {
+    "passed": true,
+    "errors": {
+      "background": 1.4210854715202004e-14,
+      "readout": 1.7763568394002505e-15
+    },
+    "missing_complement_error_norm": 26.9344958036509,
+    "producer": "u=a/sqrt(mean(a\u00b2)+eps); q=u^TQ u+beta; g=rho*u+(I-Pw)M(u); tau=q/sqrt(mean(g\u00b2))",
+    "polynomial_accounting": "g degree<=2 in (u,rho), mean(g\u00b2) degree<=4; keep native factored DAG, do not materialize quartic coefficient tensor",
+    "scope": "Exact-arithmetic local interface control; full MLP complement and upstream input still required, no trained extraction claim"
+  },
+  "source_sha256": "416231b44f4e3031ddde596016ae14aff96967718e1d6647f0d37ccb4387e983",
+  "input_result_sha256": "7eb491a4295ef2931a4d01def53eb39e9bd3328d7514230d0b84581341c90686"
+}
