@@ -1,0 +1,7 @@
+{
+  "utc": "2026-09-10T20:32:55.682032+00:00",
+  "failure": "data_product_s0 chunk0 stopped before optimization: checkpoint key Down.bias does not exist; actual key Down_bias",
+  "failed_log": "basis_aligned/bilinear_quotient/runlogs/run_structured_fit_v1_data_product_s0_c00.log",
+  "cancelled_unexecuted_wrapper": "85aef4f4cb79be40f6831aef50f4cd33aa611744b32ac26700d569ad14f42ed9\t/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_structured_fit_v1_data_block_s0_c00.py",
+  "repair": "New v2 data runner will use actual Down_bias key; all v1 files, thresholds and weight jobs unchanged."
+}

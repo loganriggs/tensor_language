@@ -1,0 +1,116 @@
+{
+  "schema": "structured.fit.stall.audit.v1",
+  "checkpoint_sha256": "4a8e487aa8bc2e794d637ecc818efe8afb8330be36beba4a4717c94f5555b9d1",
+  "independent_native_total": 99245061353.47287,
+  "cpu_replay_error": 4.558353694505968e-12,
+  "projected_gradient_relative_error": 6.860490271163069e-09,
+  "gradient_norm": 1.027899731352486e-05,
+  "sum_component_energy_over_joint_energy": 14264.956680593597,
+  "most_correlated_pair": [
+    22,
+    127
+  ],
+  "pair_input_cosine": -0.9999974176354237,
+  "pair_writer_cosine": 0.9999996103589646,
+  "gram_condition": 1078730.1244152668,
+  "parameter_row_norms": {
+    "a": {
+      "min": 5.336793064122653,
+      "max": 20.604038327738255
+    },
+    "b": {
+      "min": 5.2377012694766645,
+      "max": 20.657905497964546
+    }
+  },
+  "saved_optimizer_direction_norm": 0.00010385488886397873,
+  "saved_optimizer_step": 0.0,
+  "directional_probes": [
+    {
+      "step": 1e-05,
+      "plus_loss": 0.9126274919675018,
+      "minus_loss": 0.9126274921730083,
+      "observed_central_slope": -1.0275325035280503e-05,
+      "predicted_slope": -1.027899731352486e-05,
+      "decrease": -2.519928710142949e-10
+    },
+    {
+      "step": 0.0001,
+      "plus_loss": 0.9126275264516814,
+      "minus_loss": 0.9126275285030299,
+      "observed_central_slope": -1.0256742122294327e-05,
+      "predicted_slope": -1.027899731352486e-05,
+      "decrease": -3.473617249394323e-08
+    },
+    {
+      "step": 0.001,
+      "plus_loss": 0.9126310549832081,
+      "minus_loss": 0.9126310716269114,
+      "observed_central_slope": -8.321851652226542e-06,
+      "predicted_slope": -1.027899731352486e-05,
+      "decrease": -3.56326769912485e-06
+    },
+    {
+      "step": 0.01,
+      "plus_loss": 0.9129428129012426,
+      "minus_loss": 0.912939935710304,
+      "observed_central_slope": 0.00014385954693052483,
+      "predicted_slope": -1.027899731352486e-05,
+      "decrease": -0.0003153211857336302
+    },
+    {
+      "step": 0.1,
+      "plus_loss": 0.9150772618641133,
+      "minus_loss": 0.9150251541560863,
+      "observed_central_slope": 0.00026053854013496913,
+      "predicted_slope": -1.027899731352486e-05,
+      "decrease": -0.002449770148604369
+    },
+    {
+      "step": 1.0,
+      "plus_loss": 0.9182777446976282,
+      "minus_loss": 0.9179325662718264,
+      "observed_central_slope": 0.00017258921290091989,
+      "predicted_slope": -1.027899731352486e-05,
+      "decrease": -0.005650252982119297
+    }
+  ],
+  "fresh_lbfgs_probes": [
+    {
+      "variant": "original",
+      "closures": 62,
+      "squared_relative_error": 0.9126274913324972,
+      "captured_energy_fraction": 0.08737250866750279,
+      "relative_stationarity": 0.004526414527264134,
+      "gradient_max_abs": 2.7719565087625137e-07,
+      "gram_condition": 1078744.0431439907,
+      "decrease": 3.8301173344024164e-10
+    },
+    {
+      "variant": "centered",
+      "closures": 62,
+      "squared_relative_error": 0.9126274912653569,
+      "captured_energy_fraction": 0.08737250873464308,
+      "relative_stationarity": 0.010516674902168028,
+      "gradient_max_abs": 1.0943704568603168e-06,
+      "gram_condition": 1078745.866710215,
+      "decrease": 4.5015202676523813e-10
+    },
+    {
+      "variant": "projected",
+      "closures": 62,
+      "squared_relative_error": 0.9126274915012504,
+      "captured_energy_fraction": 0.08737250849874956,
+      "relative_stationarity": 0.01853813489231103,
+      "gradient_max_abs": 1.8170905071494546e-06,
+      "gram_condition": 1078738.8181649735,
+      "decrease": 2.1425849983103262e-10
+    }
+  ],
+  "predictions": {
+    "instrument": true,
+    "remaining_optimization_headroom": false
+  },
+  "scope": "Numerical optimization diagnostic only. No structural absence or circuit identification claim.",
+  "wall_seconds": 36.88899438455701
+}

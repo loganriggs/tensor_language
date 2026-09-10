@@ -19392,3 +19392,9 @@ DataV2 complete250forwards1000seq64000pairs, direct-half overflow repaired with 
 
 ### 2026-09-10 20:29:04 UTC — Codex: STANDING NEGATIVE-RESULT RED-TEAM RULE; THREE SUCCESSORS VERIFIED
 User instruction persisted in startup and unsupervised_structure_campaign.md. Every structural negative needs a narrow claim, strongest methodological alternative and discriminating executed check, otherwise audit pending. Weight product still running: flat loss but stationarity fails, conditioning above1e6; no absence claim. Managed queue confirms data_product_s0, weight_shared_reader_s0, data_block_s0 chunk0. These are actual continuation receipts; remaining configurations and longer backward fold stay unfinished. Preserve frozen v1 and test any numerical repair as a new version.
+
+### 2026-09-10 20:30:21 UTC — Codex: CLAIM CHECKPOINT CONDITIONING AND DESCENT AUDIT
+Previous turn progress f4e964188, live fit now completed chunk0 with optimization unfinished; data fit running. CPU-only audit of saved product Gram/writer cancellation and gradient-descent/finite-difference behavior. Check whether flat loss is a numerical stopping artifact before resuming unchanged LBFGS. Full loss, thresholds and original checkpoint remain frozen; no structural negative. Existing dossier and campaign conditioning lessons searched.
+
+### 2026-09-10T20:32:55.682032+00:00 — Codex: DATA FIT INSTRUMENT REPAIR; OWN QUEUED BLOCK CANCELLED
+Data product v1 failed before optimization due to wrong checkpoint key Down.bias; actual native parameter is Down_bias, confirmed architecture and checkpoint. Cancelled only own pending data_block v1 before same failure. Weight shared-reader job continues. Claim new data-only v2 runner and replay check, unchanged objectives/bars/configs; preserve original failure.
