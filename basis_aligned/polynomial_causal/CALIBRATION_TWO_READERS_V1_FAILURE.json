@@ -1,0 +1,12 @@
+{
+  "status": "implementation_failure",
+  "experiment": "calibration_two_readers_v1",
+  "runner_sha256": "caf8c5b333c2cc033eadadfca8969db9f4177b1bac0bbd940f6b017f2bdbae27",
+  "start_utc": "2026-09-10 11:32:54 UTC",
+  "terminal_utc": "2026-09-10 11:33:08 UTC",
+  "exception": "TypeError: int object is not callable; producer_path.stat().st_size() at final result assembly",
+  "scientific_receipt_written": false,
+  "producer_artifact_retained": "CALIBRATION_TWO_READERS_V1_PRODUCER.pt",
+  "producer_sha256": "c3bd6bd5537c41d28ca71ba1fad5f25b2cf32919dd5af11c56e72be8cc5a1a85",
+  "repair": "v2 changes only file-size attribute access and output/binding namespaces; same scientific plan"
+}
