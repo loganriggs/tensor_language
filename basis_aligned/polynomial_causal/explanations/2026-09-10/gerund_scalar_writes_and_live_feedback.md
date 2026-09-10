@@ -1,6 +1,88 @@
 # Shared grammatical writes work; the scalar-only predictor does not
 
-**Latest native result — 10 September, 17:04 UTC:** the small program correctly
+**Latest result — 10 September, 17:17 UTC:** both token-specific score changes
+and final normalization are needed for this grammatical MLP response. Supplying
+the correct norm does not repair the old two-reader writer. A different, exact
+local program that retains the actual answer/foil readers and the shared norm
+polynomial does predict their scores and successive edits accurately. Its
+initial coefficients still depend on the native model.
+
+## Token readers and a shared normalization computation
+
+The final score of a token is obtained by reading the residual with that token's
+unembedding vector, dividing by the residual's RMS magnitude, and applying the
+model's softcap. The first quantity is its numerator; the second is a denominator
+shared by every token. Existing calibration work already studied these two uses.
+The new test applies that split to the specific grammatical input edit whose
+two-reader output replacement just failed.
+
+We compared the actual edit with changing only its token numerators, changing
+only its final RMS, or giving the old two-reader writer the true edited RMS.
+
+| Retained change | Full-vocabulary effect error, frame 1 | Frame 2 |
+|---|---:|---:|
+| Token numerators only | .476 | .585 |
+| Final RMS only | .935 | .980 |
+| Old two-reader numerator plus true RMS | .879 | .916 |
+| Full numerator and RMS computation | 1.04e-5 | 9.77e-6 |
+
+All three simplification hypotheses fail the .10 criterion. For the old writer
+with true norm, paired intervals are [.873,.884] and [.911,.922]. Therefore
+missing normalization alone cannot explain its failure; omitted token-specific
+numerator information also matters. These error norms are not additive causal
+percentages. The numerator/RMS endpoint interaction is .045/.062 of the full
+effect norm on these rows, but their producers have not been separated into
+independently executable circuits.
+
+## A local score program with the required readers
+
+The bilinear response gives the final state along this one edit direction as
+
+    h(delta) = h0 + delta*b + delta^2*a.
+
+Here h0 is the native final state, b is the context-dependent linear response,
+and a is the weight-derived quadratic response. Folding a token vector U_t
+backward gives three numerator coefficients:
+
+    n_t(delta) = U_t*h0 + delta*(U_t*b) + delta^2*(U_t*a).
+
+The squared RMS is a degree-four polynomial rho(delta). Its five coefficients
+come from h0·h0, 2h0·b, 2h0·a+b·b, 2b·a, and a·a, divided by the residual width;
+the native epsilon is added to the constant. The predicted score is
+
+    score_t(delta) = 30*tanh(n_t(delta)/(30*sqrt(rho(delta)))).
+
+Thus two token numerators and one shared norm polynomial require **11 numbers
+per initialized context**. The token-specific coefficients preserve differences
+between words, while the same normalization computation is reused by both.
+Shifting the polynomials' argument updates the state for the next edit.
+
+On all64 native test rows, maximum answer/foil score error is8.03e-6 and maximum
+margin error8.73e-6. Sequential-edit composition error is5.33e-15. A separate
+CPU reload test on saved states also passes. The two scores determine the
+answer-versus-foil log-odds, but not full-vocabulary probabilities or CE: those
+still require the other scores. This is a conditional local score program,
+not a model that produces its initial state from a sentence. h0, b and their
+required context moments are still computed using native dependencies.
+
+The successful managed run used12 forwards/192 sequence instances in1.37seconds.
+Its3,010,885-byte state cache enables further CPU analysis. An initial run saved
+states but failed on an artifact-size reporting call; its bytes and log are
+preserved. The repaired run's states match them exactly. No scientific bars or
+intervention choices changed. All native weights remain required.
+
+The next extraction question is how to compute the needed token/context readers
+and shared norm moments from upstream operations. This result identifies the
+required readout information; it does not justify another fitted output rank.
+
+Evidence: [protocol](../../GERUND_READOUT_FACTORIAL_V1_PREREGISTRATION.md),
+[successful native result](../../GERUND_READOUT_FACTORIAL_V2_RESULT.json),
+[paired and saved-state audit](../../GERUND_READOUT_FACTORIAL_AUDIT_V1_RESULT.json),
+and [hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-10_1714.md).
+
+## Earlier native context result
+
+**10 September, 17:04 UTC:** the small program correctly
 predicts its two selected readouts on native sentence states, but it does not
 yet provide a useful replacement for the intervention. Context substitution
 fails, and even the exact two-reader output leaves almost all of the full

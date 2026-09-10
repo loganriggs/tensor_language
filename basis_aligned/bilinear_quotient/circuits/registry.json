@@ -1066,6 +1066,45 @@
     "be7106c324258ebf66287ccbd643e77c07f0e197611bca90ef456510573fdf71"
    ]
   },
+  "subroutine.readout.gerund_token_norm_program": {
+   "file": "subroutine_readout_gerund_token_norm_program.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "897cc597c4f18a79c78dc708295b84cd79370694615ebcd44abeca2ea6f3a7b8",
+   "kind": "shared_subroutine",
+   "identity_instance": null,
+   "active_claim_id": "readout.gerund_token_norm_program.v1.isolated_readout_simplifications",
+   "claim_status": "rejected",
+   "causal_variable_id": "isolated_readout_simplifications",
+   "interchange_family_count": 2,
+   "invariance_family_count": 2,
+   "negative_event_count": 3,
+   "active_negative_event_count": 3,
+   "latest_blocker": "readout.gerund_token_norm_program.v1.true_norm_repair",
+   "latest_active_event": "readout.gerund_token_norm_program.v1.true_norm_repair",
+   "active_event_ids": [
+    "readout.gerund_token_norm_program.v1.instrument",
+    "readout.gerund_token_norm_program.v1.token_program",
+    "readout.gerund_token_norm_program.v1.norm_only",
+    "readout.gerund_token_norm_program.v1.numerator_only",
+    "readout.gerund_token_norm_program.v1.true_norm_repair"
+   ],
+   "held_test_types": [
+    "compiled_equivalence"
+   ],
+   "active_blocking_test_types": [
+    "compiled_equivalence"
+   ],
+   "design_keys": [
+    "0717e9593bc872a2a0db63a8fac4740e90936e1ff3c54ce2ec8900b0ab787914",
+    "2494a8594f7f511f10fb319e56db28763d73ee1cbe1ed8591fcb6e89872242e8",
+    "3d8dcbf9e09440e4d75990b8c16881422c9119a6615505de75c2b94e513ad33a",
+    "70b303a60142685860b3273fe5d12a6723d060a92899658f34c40be56a777b76",
+    "a83925b31bfa021b2e2bb2967d27489a210d840f91147e62c15a38c0c5887560"
+   ]
+  },
   "subroutine.readout.mlp16_17_token_fold": {
    "file": "subroutine_readout_mlp16_17_token_fold.json",
    "schema_version": 2,

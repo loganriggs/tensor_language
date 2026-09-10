@@ -1,6 +1,17 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 17:04 UTC
+## Latest follow-up — 10 September, 17:17 UTC
+
+**Both token readers and the shared norm matter.** Normalization alone leaves
+94–98% effect error, and supplying the true norm still leaves88–92% for the old
+two-reader writer. A local program retaining actual answer/foil numerators plus
+the norm polynomial predicts native scores within8.1e-6 and composes successive
+edits. Its11 coefficients per context still need native initialization, so this
+is not a full circuit extraction. [Updated explanation and receipts](gerund_scalar_writes_and_live_feedback.md).
+
+The17:14 hourly review records three valid native receipts and16.25-minute median
+spacing; phase coverage improved to75%, but the ceremony budget remains
+unverified. [Review and workflow changes](../../HOURLY_STRATEGIC_REVIEW_2026-09-10_1714.md).
 
 **The local formula transfers to native states, but its proposed replacement
 fails.** Reusing one context gives25–26% selected-response error; borrowing the

@@ -1,0 +1,495 @@
+{
+ "schema_version": 2,
+ "tag": "subroutine.readout.gerund_token_norm_program",
+ "identity": {
+  "kind": "shared_subroutine",
+  "instance": null,
+  "identity_artifact_id": "plan",
+  "aliases": []
+ },
+ "claims": [
+  {
+   "claim_id": "readout.gerund_token_norm_program.v1.token_program",
+   "revision": 1,
+   "status": "specified",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "token_program",
+    "domain": "Reused A1/A2/G/C64 base contexts; fixed MLP17 post-RMS scalar-input edits",
+    "read": "actual token numerators and shared final RMS polynomial",
+    "operation": "degree2 token numerators divided by square root of degree4 RMS polynomial, then native softcap",
+    "write": "answer/foil scores and same-direction command update; factorial full-vocabulary effects separately",
+    "endpoint": "Conditional token program and instrument held; norm-only, numerator-only and true-norm repair of old writer failed"
+   },
+   "alternative_explanations": [
+    "Initial context coefficients still require native computation",
+    "Exact task scores do not reproduce the full vocabulary probability distribution"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "native versus edited numerator and denominator; same-e token-program commands"
+     ],
+     "holds_fixed": [
+      "native rows, e and MLP17 weights",
+      "actual token readers, final epsilon and softcap"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_native_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "native versus edited numerator and denominator; same-e token-program commands"
+     ],
+     "holds_fixed": [
+      "native rows, e and MLP17 weights",
+      "actual token readers, final epsilon and softcap"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_native_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "G",
+     "role": "invariance",
+     "changes": [
+      "native versus edited numerator and denominator; same-e token-program commands"
+     ],
+     "holds_fixed": [
+      "native rows, e and MLP17 weights",
+      "actual token readers, final epsilon and softcap"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_native_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "invariance",
+     "changes": [
+      "native versus edited numerator and denominator; same-e token-program commands"
+     ],
+     "holds_fixed": [
+      "native rows, e and MLP17 weights",
+      "actual token readers, final epsilon and softcap"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_native_panels",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "MLP17_final_readout",
+     "tensor_path": "MLP17 normalized input to final token scores and RMS",
+     "shape": [
+      1152
+     ],
+     "intervention": "fixed delta e and numerator/denominator endpoint split"
+    }
+   ],
+   "split_plan_ids": [
+    "reused_native_panels"
+   ],
+   "evidence_event_ids": [
+    "readout.gerund_token_norm_program.v1.instrument",
+    "readout.gerund_token_norm_program.v1.token_program"
+   ],
+   "translation_ids": [],
+   "next_missing": "Upstream producers of token/context gates and shared norm moments, independent extraction and behavioral OOD/removal/composition."
+  },
+  {
+   "claim_id": "readout.gerund_token_norm_program.v1.isolated_readout_simplifications",
+   "revision": 1,
+   "status": "rejected",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "isolated_readout_simplifications",
+    "domain": "Reused A1/A2/G/C64 base contexts; fixed MLP17 post-RMS scalar-input edits",
+    "read": "actual token numerators and shared final RMS polynomial",
+    "operation": "degree2 token numerators divided by square root of degree4 RMS polynomial, then native softcap",
+    "write": "answer/foil scores and same-direction command update; factorial full-vocabulary effects separately",
+    "endpoint": "Conditional token program and instrument held; norm-only, numerator-only and true-norm repair of old writer failed"
+   },
+   "alternative_explanations": [
+    "Initial context coefficients still require native computation",
+    "Exact task scores do not reproduce the full vocabulary probability distribution"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "native versus edited numerator and denominator; same-e token-program commands"
+     ],
+     "holds_fixed": [
+      "native rows, e and MLP17 weights",
+      "actual token readers, final epsilon and softcap"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_native_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "native versus edited numerator and denominator; same-e token-program commands"
+     ],
+     "holds_fixed": [
+      "native rows, e and MLP17 weights",
+      "actual token readers, final epsilon and softcap"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_native_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "G",
+     "role": "invariance",
+     "changes": [
+      "native versus edited numerator and denominator; same-e token-program commands"
+     ],
+     "holds_fixed": [
+      "native rows, e and MLP17 weights",
+      "actual token readers, final epsilon and softcap"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_native_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "invariance",
+     "changes": [
+      "native versus edited numerator and denominator; same-e token-program commands"
+     ],
+     "holds_fixed": [
+      "native rows, e and MLP17 weights",
+      "actual token readers, final epsilon and softcap"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "rows",
+     "split_plan_id": "reused_native_panels",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "MLP17_final_readout",
+     "tensor_path": "MLP17 normalized input to final token scores and RMS",
+     "shape": [
+      1152
+     ],
+     "intervention": "fixed delta e and numerator/denominator endpoint split"
+    }
+   ],
+   "split_plan_ids": [
+    "reused_native_panels"
+   ],
+   "evidence_event_ids": [
+    "readout.gerund_token_norm_program.v1.norm_only",
+    "readout.gerund_token_norm_program.v1.numerator_only",
+    "readout.gerund_token_norm_program.v1.true_norm_repair"
+   ],
+   "translation_ids": [],
+   "next_missing": "Upstream producers of token/context gates and shared norm moments, independent extraction and behavioral OOD/removal/composition."
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "reused_native_panels",
+   "partition_artifact_id": "rows",
+   "builder_artifact_id": "runner",
+   "description": "Already opened A1/A2/G/C16; same fixed scalar-input intervention and native replay, new numerator/RMS factorial. No fitting."
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "readout.gerund_token_norm_program.v1.instrument",
+   "claim_id": "readout.gerund_token_norm_program.v1.token_program",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "G",
+    "C"
+   ],
+   "site_id": "MLP17_final_readout",
+   "split_plan_id": "reused_native_panels",
+   "evaluation_role": "instrument",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "helper",
+    "binding"
+   ],
+   "seed": 9111480,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_a_instrument",
+     "value": true,
+     "bar": true
+    }
+   ],
+   "notes": "V1 failed only at publication; saved V1/V2 states match exactly.12forwards192seq, all64 capable. Norm-only errors .9353/.9795, numerator-only .4763/.5848, projected+true-norm .8787/.9163. Token maxerror8.03e-6; no independent initialization/full-CE program.",
+   "design_key": "a83925b31bfa021b2e2bb2967d27489a210d840f91147e62c15a38c0c5887560",
+   "execution_key": "589f0d583362559f07d9e97508764abcd1a9b3fc6ccf6c650fdecea2fd474745"
+  },
+  {
+   "event_id": "readout.gerund_token_norm_program.v1.token_program",
+   "claim_id": "readout.gerund_token_norm_program.v1.token_program",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "G",
+    "C"
+   ],
+   "site_id": "MLP17_final_readout",
+   "split_plan_id": "reused_native_panels",
+   "evaluation_role": "token_program",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "helper",
+    "binding"
+   ],
+   "seed": 9111480,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_e_token_moment_program",
+     "value": true,
+     "bar": true
+    }
+   ],
+   "notes": "V1 failed only at publication; saved V1/V2 states match exactly.12forwards192seq, all64 capable. Norm-only errors .9353/.9795, numerator-only .4763/.5848, projected+true-norm .8787/.9163. Token maxerror8.03e-6; no independent initialization/full-CE program.",
+   "design_key": "70b303a60142685860b3273fe5d12a6723d060a92899658f34c40be56a777b76",
+   "execution_key": "707488a4f2d8139e50984fd687a12866da8125914c22b9cf9ae79c3192ab8537"
+  },
+  {
+   "event_id": "readout.gerund_token_norm_program.v1.norm_only",
+   "claim_id": "readout.gerund_token_norm_program.v1.isolated_readout_simplifications",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "G",
+    "C"
+   ],
+   "site_id": "MLP17_final_readout",
+   "split_plan_id": "reused_native_panels",
+   "evaluation_role": "norm_only",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "helper",
+    "binding"
+   ],
+   "seed": 9111480,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_b_norm_only",
+     "value": false,
+     "bar": true
+    }
+   ],
+   "notes": "V1 failed only at publication; saved V1/V2 states match exactly.12forwards192seq, all64 capable. Norm-only errors .9353/.9795, numerator-only .4763/.5848, projected+true-norm .8787/.9163. Token maxerror8.03e-6; no independent initialization/full-CE program.",
+   "design_key": "3d8dcbf9e09440e4d75990b8c16881422c9119a6615505de75c2b94e513ad33a",
+   "execution_key": "71532753c203491d43ed8f8ea80bf3ab4ddde6da32631d4244e25ee39edb27e6"
+  },
+  {
+   "event_id": "readout.gerund_token_norm_program.v1.numerator_only",
+   "claim_id": "readout.gerund_token_norm_program.v1.isolated_readout_simplifications",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "G",
+    "C"
+   ],
+   "site_id": "MLP17_final_readout",
+   "split_plan_id": "reused_native_panels",
+   "evaluation_role": "numerator_only",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "helper",
+    "binding"
+   ],
+   "seed": 9111480,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_c_numerator_only",
+     "value": false,
+     "bar": true
+    }
+   ],
+   "notes": "V1 failed only at publication; saved V1/V2 states match exactly.12forwards192seq, all64 capable. Norm-only errors .9353/.9795, numerator-only .4763/.5848, projected+true-norm .8787/.9163. Token maxerror8.03e-6; no independent initialization/full-CE program.",
+   "design_key": "0717e9593bc872a2a0db63a8fac4740e90936e1ff3c54ce2ec8900b0ab787914",
+   "execution_key": "4c01ee1b222642dbfe299e1f59900bfd48e39626510dc3640a6582b50530bc5b"
+  },
+  {
+   "event_id": "readout.gerund_token_norm_program.v1.true_norm_repair",
+   "claim_id": "readout.gerund_token_norm_program.v1.isolated_readout_simplifications",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "G",
+    "C"
+   ],
+   "site_id": "MLP17_final_readout",
+   "split_plan_id": "reused_native_panels",
+   "evaluation_role": "true_norm_repair",
+   "input_artifact_ids": [
+    "rows",
+    "runner",
+    "helper",
+    "binding"
+   ],
+   "seed": 9111480,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "plan",
+   "result_artifact_id": "result",
+   "metrics": [
+    {
+     "name": "pred_d_true_norm_repair",
+     "value": false,
+     "bar": true
+    }
+   ],
+   "notes": "V1 failed only at publication; saved V1/V2 states match exactly.12forwards192seq, all64 capable. Norm-only errors .9353/.9795, numerator-only .4763/.5848, projected+true-norm .8787/.9163. Token maxerror8.03e-6; no independent initialization/full-CE program.",
+   "design_key": "2494a8594f7f511f10fb319e56db28763d73ee1cbe1ed8591fcb6e89872242e8",
+   "execution_key": "4a5e36aceec6be07346f64e5db9054c9bc8e62db332c50c4eb5f3edd0b899dd3"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "plan": {
+   "path": "basis_aligned/polynomial_causal/GERUND_READOUT_FACTORIAL_V1_PREREGISTRATION.md",
+   "sha256": "3da5308afbf2c852a4cd3be36b184453ab54e9e97161576f7438b65f578f3539",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "rows": {
+   "path": "basis_aligned/polynomial_causal/GERUND_FRESH_TRANSFER_V1_ROWS.json",
+   "sha256": "e5b43e97f8eb198bf4f98f524b5708d732608a1ff4847ecc14f854a3c3d4802b",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "result": {
+   "path": "basis_aligned/polynomial_causal/GERUND_READOUT_FACTORIAL_V2_RESULT.json",
+   "sha256": "1ea7db89c33c5603d762ac1be76ea7c0656325b76a09f5b45cfb5e445bd6c4ad",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "states": {
+   "path": "basis_aligned/polynomial_causal/GERUND_READOUT_FACTORIAL_V2_STATES.pt",
+   "sha256": "a8f1210d766b7cbe8b8d2da26175b8e0db910a90efb0a0dd41a835a8997f77e1",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "audit": {
+   "path": "basis_aligned/polynomial_causal/GERUND_READOUT_FACTORIAL_AUDIT_V1_RESULT.json",
+   "sha256": "2c1c64ab7b623f777456ae4c5d9f90664ff4beb744e256c6c92e21710001495b",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "helper": {
+   "path": "basis_aligned/polynomial_causal/quadratic_readout_state_v1.py",
+   "sha256": "73d4b6f55fe2c68f84a6337466e788df43582138e3c5bda0fc1520b385dbbf5e",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_gerund_readout_factorial_v2.py",
+   "sha256": "0f218d92d8af515e508e5592f106cab4274f235e27adb3c045c9404a6e5801a8",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "binding": {
+   "path": "basis_aligned/polynomial_causal/GERUND_READOUT_FACTORIAL_V2_BINDING.json",
+   "sha256": "066ec832acaa63db4562849d2e48f875482a67ede451d3081224019c2fb0e13c",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "failure": {
+   "path": "basis_aligned/polynomial_causal/GERUND_READOUT_FACTORIAL_V1_FAILURE.md",
+   "sha256": "1000db52c198154b1fdf3cd41cd634e088b4ced755d3bc76f94a9838a703167d",
+   "kind": "evidence",
+   "status": "frozen"
+  }
+ }
+}
