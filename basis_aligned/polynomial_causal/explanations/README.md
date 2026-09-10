@@ -11,7 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
-- [Coupled response and the limits of additive explanations](coupled_response_and_additive_limits_2026-09-10.md): latest mathematical review and native test locate the directional interaction inside the layers; a sharp four-corner bound excludes uniformly 10%-accurate independent additive output branches on the registered domain.
+- [Coupled response and the limits of additive explanations](coupled_response_and_additive_limits_2026-09-10.md): internal coupling, full-source interchange failure, and sharp bounds distinguish portable effects from shared nonlinear operations with explicit context inputs.
 
 - [Noun-number selection and cross-token interactions](noun_number_selection_and_cross_token_interactions_2026-09-10.md): latest: native local-value removal with downstream recomputation passes partial causal materiality and within-bank factor selectivity; direct-carry prediction fails, leaving extraction and fresh-reader transfer open.
 

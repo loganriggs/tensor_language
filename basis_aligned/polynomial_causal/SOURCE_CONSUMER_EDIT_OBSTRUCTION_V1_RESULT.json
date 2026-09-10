@@ -1,0 +1,386 @@
+{
+  "controls": {
+    "passed": true,
+    "random_fixtures": 32,
+    "offset_and_midpoint_max_error": 4.440892098500626e-16,
+    "shared_square": {
+      "effect_table": [
+        [
+          1.0,
+          7.0
+        ],
+        [
+          4.0,
+          16.0
+        ]
+      ],
+      "same_source_edit_effects": [
+        3.0,
+        9.0
+      ],
+      "interaction": 6.0,
+      "common_effect_minimax_error": 3.0
+    }
+  },
+  "parent_sha256": "537a042e74d7a88abcd24b294250cb9f12fcb486af0fd90b8a5730b67df800d7",
+  "reports": [
+    {
+      "pair_id": "male:husband:defend",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.6683463177766191,
+          "edit_norm_fronted": 0.5487029834625626,
+          "common_effect_minimax_over_larger_edit": 0.10297948223870676,
+          "edit_cosine": 0.9936825416109162
+        },
+        "readers": {
+          "edit_norm_original": 0.5017442563022637,
+          "edit_norm_fronted": 0.4067238200158083,
+          "common_effect_minimax_over_larger_edit": 0.1135043321357994,
+          "edit_cosine": 0.9903357484699072
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.11828299824302853,
+        "readers": 0.13230426911831167,
+        "vocabulary": 0.17796962509386355
+      }
+    },
+    {
+      "pair_id": "male:husband:introduce",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.6719509755218254,
+          "edit_norm_fronted": 0.6004355117799233,
+          "common_effect_minimax_over_larger_edit": 0.06269427974856347,
+          "edit_cosine": 0.9975407454577355
+        },
+        "readers": {
+          "edit_norm_original": 0.49273188157247194,
+          "edit_norm_fronted": 0.43988686800171717,
+          "common_effect_minimax_over_larger_edit": 0.07086085587183905,
+          "edit_cosine": 0.9951931218295219
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.07938212610541061,
+        "readers": 0.08972256730724137,
+        "vocabulary": 0.17954375510465045
+      }
+    },
+    {
+      "pair_id": "male:gentleman:defend",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.3865095733414687,
+          "edit_norm_fronted": 0.340514272321097,
+          "common_effect_minimax_over_larger_edit": 0.07140979645080621,
+          "edit_cosine": 0.9964608168427752
+        },
+        "readers": {
+          "edit_norm_original": 0.2981498174917816,
+          "edit_norm_fronted": 0.25579378843441036,
+          "common_effect_minimax_over_larger_edit": 0.09025859110804639,
+          "edit_cosine": 0.9927706912909005
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.06580128310654992,
+        "readers": 0.08653567732035607,
+        "vocabulary": 0.1924315668030105
+      }
+    },
+    {
+      "pair_id": "male:gentleman:introduce",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.2715932161957653,
+          "edit_norm_fronted": 0.2807235004347097,
+          "common_effect_minimax_over_larger_edit": 0.06754690504861198,
+          "edit_cosine": 0.991114755624802
+        },
+        "readers": {
+          "edit_norm_original": 0.2059171458656624,
+          "edit_norm_fronted": 0.20989160280754446,
+          "common_effect_minimax_over_larger_edit": 0.07906027926925654,
+          "edit_cosine": 0.9874404004215341
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.04624870036772443,
+        "readers": 0.05432755885431093,
+        "vocabulary": 0.14468296593277105
+      }
+    },
+    {
+      "pair_id": "male:monk:defend",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.3711284199980037,
+          "edit_norm_fronted": 0.30070332783953707,
+          "common_effect_minimax_over_larger_edit": 0.12896590835763624,
+          "edit_cosine": 0.9811659615592945
+        },
+        "readers": {
+          "edit_norm_original": 0.3036006139267907,
+          "edit_norm_fronted": 0.2457952926212999,
+          "common_effect_minimax_over_larger_edit": 0.12825504545749225,
+          "edit_cosine": 0.9817530052414097
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.08133467898584304,
+        "readers": 0.08886857325290723,
+        "vocabulary": 0.21866109793920077
+      }
+    },
+    {
+      "pair_id": "male:monk:introduce",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.35711504405302674,
+          "edit_norm_fronted": 0.30738675348895395,
+          "common_effect_minimax_over_larger_edit": 0.1090402127657781,
+          "edit_cosine": 0.9836372377183841
+        },
+        "readers": {
+          "edit_norm_original": 0.2955583178849982,
+          "edit_norm_fronted": 0.2723639322719574,
+          "common_effect_minimax_over_larger_edit": 0.09979499740148635,
+          "edit_cosine": 0.9817272138816049
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.07986763876591664,
+        "readers": 0.08340023996557076,
+        "vocabulary": 0.16945786516029748
+      }
+    },
+    {
+      "pair_id": "male:dad:defend",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.7476652731039289,
+          "edit_norm_fronted": 0.764938972234555,
+          "common_effect_minimax_over_larger_edit": 0.045844356707976264,
+          "edit_cosine": 0.9959603358804667
+        },
+        "readers": {
+          "edit_norm_original": 0.5458015826810011,
+          "edit_norm_fronted": 0.5485825716409043,
+          "common_effect_minimax_over_larger_edit": 0.0842379086399882,
+          "edit_cosine": 0.9857485525415178
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.06510185481041329,
+        "readers": 0.1156248472035373,
+        "vocabulary": 0.17550797439085675
+      }
+    },
+    {
+      "pair_id": "male:dad:introduce",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.5012436776003242,
+          "edit_norm_fronted": 0.5064725590311675,
+          "common_effect_minimax_over_larger_edit": 0.03547737325611031,
+          "edit_cosine": 0.9975103017251897
+        },
+        "readers": {
+          "edit_norm_original": 0.36609944652917065,
+          "edit_norm_fronted": 0.3767258008049087,
+          "common_effect_minimax_over_larger_edit": 0.10448159494203384,
+          "edit_cosine": 0.9779428446913512
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.03144041454739833,
+        "readers": 0.09407194146474453,
+        "vocabulary": 0.1455915184026729
+      }
+    },
+    {
+      "pair_id": "female:queen:defend",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.5922217078791416,
+          "edit_norm_fronted": 0.4470723460522003,
+          "common_effect_minimax_over_larger_edit": 0.13336917431816575,
+          "edit_cosine": 0.9926621460264164
+        },
+        "readers": {
+          "edit_norm_original": 0.5218632249527817,
+          "edit_norm_fronted": 0.39067598150730687,
+          "common_effect_minimax_over_larger_edit": 0.14353205512712572,
+          "edit_cosine": 0.987167894504564
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.10894414281915557,
+        "readers": 0.12707864722771278,
+        "vocabulary": 0.19365837005222392
+      }
+    },
+    {
+      "pair_id": "female:queen:introduce",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.4872985257424703,
+          "edit_norm_fronted": 0.41453077118287085,
+          "common_effect_minimax_over_larger_edit": 0.10219367372487352,
+          "edit_cosine": 0.98855311621712
+        },
+        "readers": {
+          "edit_norm_original": 0.42376090483366324,
+          "edit_norm_fronted": 0.3417161123466017,
+          "common_effect_minimax_over_larger_edit": 0.1325353256337829,
+          "edit_cosine": 0.9796765490766229
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.09605246761906526,
+        "readers": 0.12847991395634495,
+        "vocabulary": 0.20447683155008634
+      }
+    },
+    {
+      "pair_id": "female:woman:defend",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.7006086642111535,
+          "edit_norm_fronted": 0.5216447185356667,
+          "common_effect_minimax_over_larger_edit": 0.14166994785400888,
+          "edit_cosine": 0.9899057330642664
+        },
+        "readers": {
+          "edit_norm_original": 0.6189406177501442,
+          "edit_norm_fronted": 0.4428191727008579,
+          "common_effect_minimax_over_larger_edit": 0.16283443110132456,
+          "edit_cosine": 0.9824656701229216
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.1625472333688755,
+        "readers": 0.1984629667701169,
+        "vocabulary": 0.2110608728259659
+      }
+    },
+    {
+      "pair_id": "female:woman:introduce",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.5391702478202303,
+          "edit_norm_fronted": 0.4538223012793121,
+          "common_effect_minimax_over_larger_edit": 0.10107938511298628,
+          "edit_cosine": 0.9906078342867126
+        },
+        "readers": {
+          "edit_norm_original": 0.5760104489310925,
+          "edit_norm_fronted": 0.4617212925427304,
+          "common_effect_minimax_over_larger_edit": 0.12604924774174014,
+          "edit_cosine": 0.984914193925625
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.09637898482015485,
+        "readers": 0.1327510717483659,
+        "vocabulary": 0.16731809635916908
+      }
+    },
+    {
+      "pair_id": "female:girl:defend",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.4617525661272035,
+          "edit_norm_fronted": 0.3960013399044766,
+          "common_effect_minimax_over_larger_edit": 0.11318520143900034,
+          "edit_cosine": 0.9819455112417659
+        },
+        "readers": {
+          "edit_norm_original": 0.3676011890109138,
+          "edit_norm_fronted": 0.3118848355763562,
+          "common_effect_minimax_over_larger_edit": 0.1285115628216121,
+          "edit_cosine": 0.9746071682969792
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.10556066610596605,
+        "readers": 0.12282086748753691,
+        "vocabulary": 0.22419272271856855
+      }
+    },
+    {
+      "pair_id": "female:girl:introduce",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.4281880668466967,
+          "edit_norm_fronted": 0.44787031180064857,
+          "common_effect_minimax_over_larger_edit": 0.10027867881759496,
+          "edit_cosine": 0.9799739406802566
+        },
+        "readers": {
+          "edit_norm_original": 0.3290388016192244,
+          "edit_norm_fronted": 0.35137883800748126,
+          "common_effect_minimax_over_larger_edit": 0.11491430870930172,
+          "edit_cosine": 0.9739545761496861
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.10000981565054541,
+        "readers": 0.1066824457103764,
+        "vocabulary": 0.174421665890565
+      }
+    },
+    {
+      "pair_id": "female:mother:defend",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.7049918075506791,
+          "edit_norm_fronted": 0.6797976316144797,
+          "common_effect_minimax_over_larger_edit": 0.04792446939605722,
+          "edit_cosine": 0.9958984756569236
+        },
+        "readers": {
+          "edit_norm_original": 0.5407328009155099,
+          "edit_norm_fronted": 0.5278377936624722,
+          "common_effect_minimax_over_larger_edit": 0.06433353356224358,
+          "edit_cosine": 0.9918114650359706
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.049170218406715364,
+        "readers": 0.06341898655660208,
+        "vocabulary": 0.1762240159864869
+      }
+    },
+    {
+      "pair_id": "female:mother:introduce",
+      "task_edit_geometry": {
+        "margin": {
+          "edit_norm_original": 0.5622302560812285,
+          "edit_norm_fronted": 0.5609920073018686,
+          "common_effect_minimax_over_larger_edit": 0.04216825185935065,
+          "edit_cosine": 0.9964382579897842
+        },
+        "readers": {
+          "edit_norm_original": 0.4423871697003327,
+          "edit_norm_fronted": 0.4358063055789171,
+          "common_effect_minimax_over_larger_edit": 0.07371090454505065,
+          "edit_cosine": 0.9890816303412551
+        }
+      },
+      "common_effect_lower_bound_over_native_effect_scale": {
+        "margin": 0.03433056941418409,
+        "readers": 0.058375642127082114,
+        "vocabulary": 0.1450760607034556
+      }
+    }
+  ],
+  "vocabulary_common_effect_bound_range": [
+    0.14468296593277105,
+    0.22419272271856855
+  ],
+  "pairs_excluding_uniform_10_percent_context_free_effect": 16,
+  "scope": "Sharp context-free effect prediction bound on the fixed source-stage interface, normalized by larger native source effect. Removal-reference offsets cancel. This does not exclude a shared nonlinear operation that reads explicit context, nor prove semantic circuit identity."
+}

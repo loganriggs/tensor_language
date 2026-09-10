@@ -53,6 +53,42 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Full-source reuse needs context; same-edit bound executed — 2026-09-10 09:12 UTC
+
+Previous goal turn PROGRESS d3d68d741; current preregistration 10ca05f1a.
+MLP8_SOURCE_STAGE_INTERCHANGE_V1_RESULT.json valid A; producer B, reader C and
+small-interaction D fail all 16 original/fronted pairs; task-only B/C also0/16.
+Source C=Q_oh MLP8 output; swap three mature positions (first jointly informed,
+to, action) with recipient background retained and ALL consumers live. This differs
+from prior partial attention9 interchange. First mature noun roles differ across
+layouts; no claim they are the same noun role. Mixed source earlier is exactly0.
+Native/removal/self-identity replay exactly0; first-value intact. 256 forwards /
+4096 sequences, 5.432528 executor seconds; no fits. Runner SHA
+f97b37cf22654ab0005b5e6d9e5efdfbc7d7de0df518ab85ebc653e93b7abd9e.
+Producer vocabulary errors .275277–.409812; reader .867600–1.601885;
+interaction/max native effect .289366–.448385. No smaller-error winner promoted.
+
+Do not infer native bilinear product creation from a module-clamp switch square:
+clamped outputs do not evaluate the same function on the current input. Two gated
+linear maps already produce a*b. This motivated direct source reuse before another
+product attribution. source_stage_interface_v1 controls and pair validation pass.
+
+Post-result CPU source_consumer_edit_obstruction_v1 executed under board claim.
+For same source change C0→C1, d0=E10-E00 and d1=E11-E01; d1-d0 is interaction and
+removal-reference offsets cancel. Any common effect prediction has worst-recipient
+error >=||d1-d0||/2, attained by midpoint. Bound .144683–.224193 of larger native
+mixed-vocabulary source effect, all16 pairs >.10. Random32 controls <=4.45e-16.
+Shared-square counterexample: F(b,c)=(b+c)^2, c1→2 yields effects3 or9 for b0 or3.
+So context-dependent effects do NOT refute shared arithmetic with explicit context.
+
+Next scientific target is explicit source AND context operands of an internal
+shared operation, with separate consumer uses; not another source position/gain/
+head/rank sweep or context-free response fit. No successor native job registered.
+Actual CPU continuation completed. Full goal active, all native parameters and
+counterfactual inputs retained, saving0. Explanation updated in
+explanations/coupled_response_and_additive_limits_2026-09-10.md. Continuous phase
+clock before work, turn_boundary before final. Next hourly09:14/math10:49 UTC.
+
 ## Directional coupling is internal; additive-model bound executed — 2026-09-10 09:00 UTC
 
 Preregistration/result unit 834f09bb1 follows directional preregistration 4176f6a83.

@@ -1,6 +1,14 @@
 # Why the current response needs a joint computation
 
-September 10, 2026, 09:00 UTC.
+Updated September 10, 2026, 09:12 UTC.
+
+The next source-reuse test is also complete. Swapping the full MLP8 mixed source
+between original and fronted sentence layouts fails both simple reuse rules in
+all 16 pairs. The same source displacement has different effects in the two
+recipient contexts. An executed bound puts the unavoidable error of a single
+context-free effect prediction at 14.5–22.4% of the larger native source effect.
+This still permits one shared nonlinear operation with explicit context inputs;
+the new section below explains that distinction.
 
 The mathematical review gives a useful exclusion: **we cannot explain the measured
 response as two independent additive output branches, and final normalization does
@@ -145,3 +153,77 @@ rank or intervention-amplitude sweep is licensed by these results. All 545,902,9
 native parameters and counterfactual input dependencies remain charged; structural
 saving is zero. Fresh/OOD prediction, independent extraction, selective removal and
 reuse of an identified computation remain open.
+
+## Full-source interchange reveals different consumer responses
+
+The directional switches above are interventions on module execution. A clamped
+MLP uses recorded output rather than evaluating its bilinear function on its current
+input. Thus interaction across those switches must not be directly labeled a newly
+formed bilinear input product. Even two gated linear identity maps can produce the
+switch function a*b. This is consistent with the earlier linear-path control.
+
+I therefore tested a source interface directly before attempting another product
+attribution. The [full-source interchange](../MLP8_SOURCE_STAGE_INTERCHANGE_V1_RESULT.json)
+uses the MLP8 object-number × noun-kind component C in both sentence layouts. It
+maps three positions: the first token where both factors are available, `to`, and
+the final action. The first position has different noun roles in the two layouts;
+this map specifies information timing, not equal grammatical roles. The mixed
+source is exactly zero before those positions in every tested group.
+
+For recipient r, remove its own component C_r from the native MLP output, leaving
+background B_r. Then install either its own component or the mapped donor C_p.
+Every downstream attention and MLP computation responds normally. The effect is
+
+\[
+E_{pr}=z_r(B_r+T C_p)-z_r(B_r).
+\]
+
+The earlier COMMON_INTERCHANGE test swapped a partial attention9 output. This
+experiment instead delivers the MLP8 source to **all** consumers. It used 256
+forwards over 4,096 sequence instances in 5.43 executor seconds, with zero fitting.
+Native outputs, prior full-source removals and self-interchanges replay exactly.
+The shared first-value state stays unchanged. All instrument checks pass.
+
+Neither effects following the producer alone nor effects following the recipient
+alone meet the 10% criterion in any of the 16 pairs, including the task-only checks.
+Full-vocabulary producer-following errors are 27.5–41.0%; recipient-following errors
+are 86.8–160.2%. Source–recipient interaction is 28.9–44.8% of the larger native
+source-effect norm. We do not promote the producer rule merely because its errors
+are smaller. These are previously opened layouts, not fresh OOD evidence.
+
+## What the second consumer tells us
+
+The four measurements isolate the effect of the *same* source displacement C0→C1
+in each recipient:
+
+\[
+d_0=E_{10}-E_{00},\qquad d_1=E_{11}-E_{01}.
+\]
+
+Their difference is exactly the measured source–recipient interaction. Changing
+the removal-reference offset in either recipient cancels out of these differences.
+For any common context-free effect prediction h,
+
+\[
+\max(\|d_0-h\|,\|d_1-h\|)\geq\tfrac12\|d_1-d_0\|.
+\]
+
+The midpoint h=(d0+d1)/2 attains the bound. The
+[executed analysis](../SOURCE_CONSUMER_EDIT_OBSTRUCTION_V1_RESULT.json) verifies
+offset cancellation and midpoint attainment within 4.45e-16 on 32 random fixtures.
+On the native centered mixed-vocabulary effects, the bound is **14.47–22.42% of
+the larger native source-effect norm**, in every pair. It excludes a uniformly
+10%-accurate context-free effect prediction at this interface. It does not exclude
+a context-aware program or a different justified interface.
+
+Crucially, different effects do not imply different arithmetic. One shared square
+operation F(b,c)=(b+c)^2 gives source effect 2bc+c^2 relative to F(b,0). With c going
+from 1 to 2, its effect is 3 when b=0 and 9 when b=3. The same operation is reused;
+the context operand differs. This exact counterexample is included in the control.
+
+That is the stronger target for the next decomposition: identify both the source
+operand and the context operand of an internal shared operation, then account for
+its separate consumers. Calling an activation portable, or insisting its effect
+be context-free, is insufficient. No position, gain, head or rank sweep follows
+from this null. All native weights and counterfactual inputs remain charged, and
+the four-property circuit goal is still incomplete.
