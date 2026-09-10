@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [Context math and a capability correction](correlative_context_math_and_capability_correction_2026-09-10.md): matched either/only test exposes native answer failures; prior positive-effect counts did not establish correct grammatical completion. Four-corner math rejects additive cue/context separation of the frozen14 scalar coordinates.
+
 - [Correlative new combinations and value sources](correlative_new_combinations_and_value_sources_2026-09-10.md): frozen interface transfers to new reporter/noun combinations; first-only and contextual-only values fail sufficiency. Exact source addition coexists with29–31%nonlinear vocabulary interaction, with audited endpoint-space bounds.
 
 - [Correlative replay and folded program](correlative_replay_and_folded_program_2026-09-10.md): saved26-head/14-layer interface reproduces prior metrics; weight-derived scalar producers and residual writers match native joint donor/mean edits. Conditional extraction, with upstream dependencies and removal/OOD limits explicit.

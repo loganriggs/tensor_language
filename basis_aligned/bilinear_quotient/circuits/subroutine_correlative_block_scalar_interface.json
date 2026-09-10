@@ -227,6 +227,115 @@
    "evidence_event_ids": [],
    "translation_ids": [],
    "next_missing": "Independent upstream producer and grammatical cue-binding semantics; broader structural OOD, selective removal and independent reuse; reduced structural description. Both single-value-source and additive-endpoint simplifications rejected; retain full native nonlinear program."
+  },
+  {
+   "claim_id": "correlative.block_scalar_interface.v3",
+   "revision": 3,
+   "status": "site_live",
+   "supersedes": "correlative.block_scalar_interface.v2",
+   "causal_variable": {
+    "id": "correlative_block_scalars",
+    "domain": "Frozen14scalar interface: short-frame new combinations supported; matched long either/only contexts fail native endpoint capability and simple additive coordinate semantics",
+    "read": "complete native normalized QK routing, normalized local/first-layer attention inputs, frozen fitted head readers",
+    "operation": "sum over selected heads and sources of routing times folded local/first value read",
+    "write": "one residual writer per block times donor-minus-live scalar; mean replacement uses frozen FIT means",
+    "endpoint": "full-vocabulary correspondence to original joint head-space swaps and mean replacements"
+   },
+   "alternative_explanations": [
+    "conditional coordinate program retaining opaque upstream model",
+    "task-specific cue association without reusable semantic operation"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1_either",
+     "role": "interchange",
+     "changes": [
+      "outer both/neither cue; separately same-answer either/only inner word swap"
+     ],
+     "holds_fixed": [
+      "saved26heads/14scalar interface and checkpoint",
+      "reporter, all other words, token count, cue position and final token"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "full26head_swap_ceiling"
+     ],
+     "builder_artifact_id": "matched_builder",
+     "split_plan_id": "correlative_matched_context_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A1_only",
+     "role": "interchange",
+     "changes": [
+      "outer both/neither cue; separately same-answer either/only inner word swap"
+     ],
+     "holds_fixed": [
+      "saved26heads/14scalar interface and checkpoint",
+      "reporter, all other words, token count, cue position and final token"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "full26head_swap_ceiling"
+     ],
+     "builder_artifact_id": "matched_builder",
+     "split_plan_id": "correlative_matched_context_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2_either",
+     "role": "interchange",
+     "changes": [
+      "outer both/neither cue; separately same-answer either/only inner word swap"
+     ],
+     "holds_fixed": [
+      "saved26heads/14scalar interface and checkpoint",
+      "reporter, all other words, token count, cue position and final token"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "full26head_swap_ceiling"
+     ],
+     "builder_artifact_id": "matched_builder",
+     "split_plan_id": "correlative_matched_context_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2_only",
+     "role": "interchange",
+     "changes": [
+      "outer both/neither cue; separately same-answer either/only inner word swap"
+     ],
+     "holds_fixed": [
+      "saved26heads/14scalar interface and checkpoint",
+      "reporter, all other words, token count, cue position and final token"
+     ],
+     "control_ids": [
+      "native_no_edit_bridge",
+      "full26head_swap_ceiling"
+     ],
+     "builder_artifact_id": "matched_builder",
+     "split_plan_id": "correlative_matched_context_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "correlative_14_attention_blocks",
+     "tensor_path": "attention c_proj outputs at layers3..16",
+     "shape": [
+      14,
+      1152
+     ],
+     "intervention": "live donor or mean scalar replacement through frozen residual writers"
+    }
+   ],
+   "split_plan_ids": [
+    "correlative_matched_context_v1"
+   ],
+   "evidence_event_ids": [],
+   "translation_ids": [],
+   "next_missing": "Independent context-dependent producer and selective/reuse evidence; no rank/gain rescue. Matched long-frame native completion fails, so small context-swap movement does not establish invariance. v493 kept-row count measures positive cue effect, not endpoint accuracy. All native weights remain; short-frame results preserved."
   }
  ],
  "split_plans": [
@@ -241,6 +350,12 @@
    "partition_artifact_id": "source_rows",
    "builder_artifact_id": "source_rows",
    "description": "16groups seed9111280;112unique selected tokenized prompts disjoint from384original source-bank prompts. New factor combinations, existing templates/vocabulary; no model-training OOD or worldwide novelty claim."
+  },
+  {
+   "split_plan_id": "correlative_matched_context_v1",
+   "partition_artifact_id": "matched_rows",
+   "builder_artifact_id": "matched_builder",
+   "description": "16authored groups/frame,seed9111290; only/either one-token contrast, both/neither swaps,4panels64rows. Old discharged template intentionally reused, no model filtering or training OOD claim."
   }
  ],
  "evidence_events": [
@@ -457,6 +572,234 @@
    "notes": "Same-hook first+local donor scalars reconstruct complete live14block swap, exact numericallogits0 here. Not additive endpoint behavior or independent semantic-circuit reuse.",
    "design_key": "b0669ae3af1e8cc754cf386137d111166cfa933412156c1e4e57f43f7df1453b",
    "execution_key": "9ef3c9a5485af7875e3a01e3c705964ce8a2b86fa1444d3a92d1a9fefcac69f6"
+  },
+  {
+   "claim_id": "correlative.block_scalar_interface.v3",
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_matched_context_v1",
+   "evaluation_role": "matched_context_fixed_interface",
+   "family_ids": [
+    "A1_either",
+    "A1_only",
+    "A2_either",
+    "A2_only"
+   ],
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "matched_rows",
+    "matched_math_audit",
+    "matched_endpoint_audit"
+   ],
+   "seed": 9111290,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "matched_plan",
+   "result_artifact_id": "matched_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "correlative.matched_context.capability.v1",
+   "test_type": "capability",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "metrics": [
+    {
+     "name": "A1_either_both_endpoint_correct",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "16/16"
+    },
+    {
+     "name": "A1_only_both_endpoint_correct",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "16/16"
+    },
+    {
+     "name": "A2_either_both_endpoint_correct",
+     "estimate": 8,
+     "ci95": null,
+     "bar": "16/16"
+    },
+    {
+     "name": "A2_only_both_endpoint_correct",
+     "estimate": 3,
+     "ci95": null,
+     "bar": "16/16"
+    }
+   ],
+   "notes": "Ainstrumentholds, Bfails. All64positive donor-effect denominators but both endpoints correct0/0/3/8 among16each. Fullheadraw>=.8allfour; incorrect native answers remain. Historical n/dropped counts cannot establish correct completion.",
+   "design_key": "1ccd4c7c44e907f96ce539aa8f1620ecfc667b55b0a01652d4d64610ee353635",
+   "execution_key": "7edde33db9b33a2306a43edcb717aa6864ff0bb1874633dc36664bfaff32d7bb"
+  },
+  {
+   "claim_id": "correlative.block_scalar_interface.v3",
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_matched_context_v1",
+   "evaluation_role": "matched_context_fixed_interface",
+   "family_ids": [
+    "A1_either",
+    "A1_only",
+    "A2_either",
+    "A2_only"
+   ],
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "matched_rows",
+    "matched_math_audit",
+    "matched_endpoint_audit"
+   ],
+   "seed": 9111290,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "matched_plan",
+   "result_artifact_id": "matched_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "correlative.matched_context.cross_family_transfer.v1",
+   "test_type": "cross_family_transfer",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "metrics": [
+    {
+     "name": "A1_either_normalized_scalar_recovery",
+     "estimate": 0.6810312647160645,
+     "ci95": null,
+     "bar": ">=.8 for neutral only panels"
+    },
+    {
+     "name": "A1_only_normalized_scalar_recovery",
+     "estimate": 0.761223002944947,
+     "ci95": null,
+     "bar": ">=.8 for neutral only panels"
+    },
+    {
+     "name": "A2_either_normalized_scalar_recovery",
+     "estimate": 0.7533291221525841,
+     "ci95": null,
+     "bar": ">=.8 for neutral only panels"
+    },
+    {
+     "name": "A2_only_normalized_scalar_recovery",
+     "estimate": 0.7526065712761657,
+     "ci95": null,
+     "bar": ">=.8 for neutral only panels"
+    }
+   ],
+   "notes": "C and Dfail: neutral.761/.753<.8; only-minus-either.08019/-.00072<.15. Native capability failure separately blocks semantic interpretation; no outcome filtering/refit.",
+   "design_key": "57e65c1959c7aec191be6ef2ec898d9be76768fe701d700841c2a2ea4e5557b4",
+   "execution_key": "9430b3ca82a68edbe1bb72d37c855d952751b802b5285e402c5e542dcdbc076b"
+  },
+  {
+   "claim_id": "correlative.block_scalar_interface.v3",
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_matched_context_v1",
+   "evaluation_role": "matched_context_fixed_interface",
+   "family_ids": [
+    "A1_either",
+    "A1_only",
+    "A2_either",
+    "A2_only"
+   ],
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "matched_rows",
+    "matched_math_audit",
+    "matched_endpoint_audit"
+   ],
+   "seed": 9111290,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "matched_plan",
+   "result_artifact_id": "matched_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "correlative.matched_context.invariance.v1",
+   "test_type": "invariance",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "metrics": [
+    {
+     "name": "A1_either_context_margin_movement",
+     "estimate": 0.03923738922005408,
+     "ci95": null,
+     "bar": "<=.23 AND native capability"
+    },
+    {
+     "name": "A1_only_context_margin_movement",
+     "estimate": 0.04081410727117219,
+     "ci95": null,
+     "bar": "<=.23 AND native capability"
+    },
+    {
+     "name": "A2_either_context_margin_movement",
+     "estimate": 0.055664419407507056,
+     "ci95": null,
+     "bar": "<=.23 AND native capability"
+    },
+    {
+     "name": "A2_only_context_margin_movement",
+     "estimate": 0.06280820355978477,
+     "ci95": null,
+     "bar": "<=.23 AND native capability"
+    }
+   ],
+   "notes": "All measured movements.039\u2013.063 below.23; Efalse because Bfalse. Does not establish semantic context invariance, and does not mean measured collateral damage was large.",
+   "design_key": "51b9293d7cc8001fac203523ed8fbb26d155df973939c3a96823b97d8eb6a43f",
+   "execution_key": "7c219b0305fbde343ff791723a87a651546aa87ef4fa94f455e9619387ab5bc8"
+  },
+  {
+   "claim_id": "correlative.block_scalar_interface.v3",
+   "stage": "complete",
+   "site_id": "correlative_14_attention_blocks",
+   "split_plan_id": "correlative_matched_context_v1",
+   "evaluation_role": "matched_context_fixed_interface",
+   "family_ids": [
+    "A1_either",
+    "A1_only",
+    "A2_either",
+    "A2_only"
+   ],
+   "input_artifact_ids": [
+    "interface",
+    "maps",
+    "matched_rows",
+    "matched_math_audit",
+    "matched_endpoint_audit"
+   ],
+   "seed": 9111290,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "matched_plan",
+   "result_artifact_id": "matched_result",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "event_id": "correlative.matched_context.null_control.v1",
+   "test_type": "null_control",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "metrics": [
+    {
+     "name": "A1_mixed_scalar_rows_above_bridge_error",
+     "estimate": 224,
+     "ci95": null,
+     "bar": "0 for exact additive fixed-coordinate explanation"
+    },
+    {
+     "name": "A2_mixed_scalar_rows_above_bridge_error",
+     "estimate": 224,
+     "ci95": null,
+     "bar": "0 for exact additive fixed-coordinate explanation"
+    }
+   ],
+   "notes": "Four-corner D rejects additive cue-only+context-only fixed scalars in448/448layer-row comparisons. Exact minimum scalar four-corner L2=abs(D)/2, max-error>=abs(D)/4; independent oracle1.33e-15. Mathematical alternative only, not universal rejection of nonlinear/contextual representations or parent short-frame interface.",
+   "design_key": "96924727fc0bb0185069507223dd18432674c27c0744765de6c44eae7ae61712",
+   "execution_key": "e9e0bec7e5db351050cba3830028dc0a3e2e2547013451d01fe562a06e33abee"
   }
  ],
  "artifacts": {
@@ -536,6 +879,48 @@
    "path": "basis_aligned/polynomial_causal/CORRELATIVE_VALUE_SOURCE_AUDIT_V1_RESULT.json",
    "sha256": "80eab244798810daaf8b522bd2d4e6b8bacd99326bd4b5249b43dd77948224fe",
    "kind": "source_audit",
+   "status": "frozen"
+  },
+  "matched_rows": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_MATCHED_CONTEXT_ROWS_V1.json",
+   "sha256": "fc633c40d8e075db76be67573d4079c19f3cffbfafecccab01763e52f1dc3b44",
+   "kind": "matched_rows",
+   "status": "frozen"
+  },
+  "matched_builder": {
+   "path": "basis_aligned/polynomial_causal/correlative_matched_context_rows_v1.py",
+   "sha256": "ebb51585d85dad0e089d109073f13fb762cd4bffacba5d1bed480d8b8ffdf418",
+   "kind": "matched_builder",
+   "status": "frozen"
+  },
+  "matched_plan": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_MATCHED_CONTEXT_V1_PREREGISTRATION.md",
+   "sha256": "d13d0766a5481133ebb2c7c200e403111c75d765b7739aeaec5b472d642d5f07",
+   "kind": "matched_plan",
+   "status": "frozen"
+  },
+  "matched_result": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_MATCHED_CONTEXT_V1_RESULT.json",
+   "sha256": "a8dab69e4731fa9f589b23e9accdda3cbdc4abd8266cad14697d7da7a5718576",
+   "kind": "matched_result",
+   "status": "frozen"
+  },
+  "matched_math_audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_MATCHED_CONTEXT_AUDIT_V1_RESULT.json",
+   "sha256": "ee242c3eab17dbca273fd12c00fc2ad1f0ae5dfece251c599cdfd63f638f4197",
+   "kind": "matched_math_audit",
+   "status": "frozen"
+  },
+  "matched_endpoint_audit": {
+   "path": "basis_aligned/polynomial_causal/CORRELATIVE_ENDPOINT_CAPABILITY_AUDIT_V1_RESULT.json",
+   "sha256": "2f1766dc2069f1a1a028236a849add1f01d887713aea0e43085de642d5bba206",
+   "kind": "matched_endpoint_audit",
+   "status": "frozen"
+  },
+  "matched_explanation": {
+   "path": "basis_aligned/polynomial_causal/explanations/correlative_context_math_and_capability_correction_2026-09-10.md",
+   "sha256": "191d354ea4e8fdb5429160338499f8c9aa40aefef578aea5a77f6f1ea9f36bbe",
+   "kind": "matched_explanation",
    "status": "frozen"
   }
  }

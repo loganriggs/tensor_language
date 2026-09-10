@@ -624,35 +624,47 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "d520bf967512e458c7e340177da803aa41404069b93e75ff015fbb238bf235cd",
+   "record_sha256": "b6a2ba90448b016efcefe240ed1356c5d1d10a2417de8bb15ddd5ac90ee32d1b",
    "kind": "shared_subroutine",
    "identity_instance": null,
-   "active_claim_id": "correlative.block_scalar_interface.v2",
+   "active_claim_id": "correlative.block_scalar_interface.v3",
    "claim_status": "site_live",
    "causal_variable_id": "correlative_block_scalars",
-   "interchange_family_count": 2,
-   "invariance_family_count": 2,
-   "negative_event_count": 0,
-   "active_negative_event_count": 0,
-   "latest_blocker": null,
-   "latest_active_event": "correlative.new_combinations.source_sum.v1",
+   "interchange_family_count": 4,
+   "invariance_family_count": 0,
+   "negative_event_count": 3,
+   "active_negative_event_count": 3,
+   "latest_blocker": "correlative.matched_context.null_control.v1",
+   "latest_active_event": "correlative.matched_context.null_control.v1",
    "active_event_ids": [
     "correlative.interface.disk_replay.v1",
     "correlative.folded_program.correspondence.v1",
     "correlative.folded_program.removal_description.v1",
     "correlative.new_combinations.full_transfer.v1",
-    "correlative.new_combinations.source_sum.v1"
+    "correlative.new_combinations.source_sum.v1",
+    "correlative.matched_context.capability.v1",
+    "correlative.matched_context.cross_family_transfer.v1",
+    "correlative.matched_context.invariance.v1",
+    "correlative.matched_context.null_control.v1"
    ],
    "held_test_types": [
     "compiled_equivalence",
     "composition",
     "ood"
    ],
-   "active_blocking_test_types": [],
+   "active_blocking_test_types": [
+    "capability",
+    "cross_family_transfer",
+    "null_control"
+   ],
    "design_keys": [
+    "1ccd4c7c44e907f96ce539aa8f1620ecfc667b55b0a01652d4d64610ee353635",
     "20302a3306a9d0d62adbeec147c748ba9b3cb67a8aeb748fda11e6645ff0944b",
     "36fe394d463bba08689456df36c3af43408a4bb4e66b02e3e3f91d83c91d7bf8",
+    "51b9293d7cc8001fac203523ed8fbb26d155df973939c3a96823b97d8eb6a43f",
+    "57e65c1959c7aec191be6ef2ec898d9be76768fe701d700841c2a2ea4e5557b4",
     "9390b4c49309e0c2a5a416b31020ba0e45f04ead8b3095561d4dd12ffa1907bf",
+    "96924727fc0bb0185069507223dd18432674c27c0744765de6c44eae7ae61712",
     "b0669ae3af1e8cc754cf386137d111166cfa933412156c1e4e57f43f7df1453b",
     "bf1cfe385f60bd61254ef414b47a7d5b8fc8e37ef5634dc55b113e69d98faa65"
    ]

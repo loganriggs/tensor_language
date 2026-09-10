@@ -53,6 +53,54 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Matched context null and native-capability correction — 2026-09-10 14:01 UTC
+
+Previous result PROGRESS0038109ea; current prereg2b5bb7247. Original handoff/pilot.
+The prior proposed completed-inner-correlative test was stale: v493/v495/v497
+already ran it. New test changes only either to only, identical token count,
+outer cue position, final token and other wording. Old discharged template reused,
+16groupsseed9111290,4panels64rows, no model filtering/refit/head/rank/gain change.
+Rows CORRELATIVE_MATCHED_CONTEXT_ROWS_V1.json. Managed13:56:06–13:56:10,
+24bodyforwards384seq,1.615894executorsec. RunnerSHA
+ e4528d90e3838b8e2df52fe3f5f7ac62894c1f0dcb4d9460c0db6f3aefbd6aa3.
+Ainstrumenttrue, B/C/D/Efalse. Nativebasebridgeexact0, scalarworstscaled.39272<=1.
+Fullheadrawrecoveries A1only/either.931347/.884107,A2.928117/.895187.
+Fixedscalar normalizedrecoveries A1.761223/.681031,A2.752607/.753329.
+Neutral misses.8; deficits.080192/-.000723 miss.15. Same-answer contextmovement
+.039–.063 small, but invariance predicate requires native capability and cannothold.
+
+CRITICAL: BOTH native endpoints correct A1only0/16,either0/16,A2only3/16,either8/16.
+All64positive effect denominators do NOT mean correct endpoint answers. Existing
+v493 g.prepare(valid_only=True) onlykeeps positive cue effects. Its32/32kept and
+averaged +/-axes cannot support stated still-open-correlative tracking. New same-
+template examples prefer and after neither. Old32-row accuracy unrecoverable from
+stored aggregate alone. CPU exact always-and counterexample: ownanswer margins
+base[75,-22],donor[-22,75], axesmeans-/+26.5, allpositive denominators yet0/2
+correctpairs. Shared circuit_endpoint_capability_v1.summarize distinguishes these
+metrics without modifying hash-bound original helper. Audit executed postresult,
+CORRELATIVE_ENDPOINT_CAPABILITY_AUDIT_V1_RESULT.json. This is the actual claimed
+nextCPUcontinuation; no successorGPUqueued or refit rescue.
+
+Mathreview THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_1349.md complete(due13:49,
+recorded13:54). CLUE/Hankel/causal-abstraction assumptions explicitly mapped; none
+solves fullnormalized model. Fourcorner mixedD rejects s(c,k)=a(c)+b(k) onfixed
+coordinates; minL2overfourcorners=abs(D)/2,maxerror>=abs(D)/4. CPUaudit all448
+layer-row D exceed summed measured native/fold scalar bridgeerrors. This isNOT
+rejection of nonlinear encoding/different circuit or numerical universalcertificate.
+Write-weighted mixed/cuenorm.416234A1/.280685A2 in stackedblocknorm, notlogits.
+Oracle1.33e-15;4000pairedgroupbootstraps give deficitCI[.073589,.087471]/
+[-.007256,.006561]. CORRELATIVE_MATCHED_CONTEXT_AUDIT_V1_RESULT.json.
+
+Parent subroutine.correlative.block_scalar_interface v3 site_live; matchedcapability/
+transferfailed, contextinvarianceinconclusive, additive-coordinate nullfailed.
+Short-frame new-combination transfer preserved. All545902902 nativeparams plus
+76032corecoefficients remain; no independent producer/extraction/structural saving.
+Explanation explanations/correlative_context_math_and_capability_correction_2026-09-10.md.
+Next action should use explicit endpoint capability and identify a context-dependent
+producer/consumer operation; do not refit or relabel failed longframe as a discovered
+parser. Original recurrence/rankfixtures and closed is/was/calibration/induction
+lanes remain closed. Next hourly14:14/math16:49UTC. Fullgoalactive.
+
 ## Correlative new-combination transfer holds; value-source simplifications fail — 2026-09-10 13:41 UTC
 
 Previous goal turn PROGRESSd748d572e. Original handoff/pilot authority. Preregb0731c641.
