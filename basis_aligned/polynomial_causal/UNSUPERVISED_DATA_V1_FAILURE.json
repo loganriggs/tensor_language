@@ -1,0 +1,6 @@
+{
+  "terminal": "invalid_capture",
+  "runner_sha256": "2122ce67e900a72ff8a5c43fc236c1a945a9e8d3e95d506bae1525f028577603",
+  "observation": "Managed20:07:55\u201320:07:57 exit1; assertion on finite FP16 conversion before first progress print. No state artifact or scientific fit result produced.",
+  "diagnosis_scope": "V1 did not separately report native finiteness; V2 distinguishes native nonfiniteness from storage overflow and preserves the relative error bar."
+}
