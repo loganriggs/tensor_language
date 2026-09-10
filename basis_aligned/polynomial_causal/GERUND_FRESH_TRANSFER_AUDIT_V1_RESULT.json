@@ -1,0 +1,159 @@
+{
+  "schema": "gerund.fresh_transfer.audit.v1",
+  "source_sha256": "5a8a6cfab65af8c1910ae0502af36265e73723873b6f75b06a1ae42d8be16ec2",
+  "script_sha256": "3f81584cfa46d124a96ed75bb29b2cbce51d15ad1fc280d3a5f980ef8ed905ef",
+  "predictions_unchanged": {
+    "pred_a_instrument": true,
+    "pred_b_native_capability": true,
+    "pred_c_fresh_transfer": true,
+    "pred_d_preservation": false,
+    "pred_e_selective_removal": false
+  },
+  "reports": {
+    "A1": {
+      "recovery_ci95": [
+        0.9255690480582416,
+        0.978125122655183
+      ],
+      "swap_signed_ce_ci95": [
+        2.130662127956748,
+        2.9717692524194717
+      ],
+      "swap_absolute_ce_ci95": [
+        2.130662127956748,
+        2.9717692524194717
+      ],
+      "zero_signed_ce_ci95": [
+        0.5184637181460857,
+        0.8274936949834227
+      ],
+      "zero_absolute_ce_ci95": [
+        0.5912537166848779,
+        0.8653164306655526
+      ],
+      "zero_base_mean_ce": 0.2684832960367203,
+      "zero_donor_mean_ce": 1.0682859271764755
+    },
+    "A2": {
+      "recovery_ci95": [
+        0.8314541472122073,
+        0.8982014501467347
+      ],
+      "swap_signed_ce_ci95": [
+        3.0308123171329497,
+        3.5083826169371606
+      ],
+      "swap_absolute_ce_ci95": [
+        3.0308123171329497,
+        3.5083826169371606
+      ],
+      "zero_signed_ce_ci95": [
+        1.0300770802423358,
+        1.2640791917219758
+      ],
+      "zero_absolute_ce_ci95": [
+        1.0300770802423358,
+        1.2640791917219758
+      ],
+      "zero_base_mean_ce": 0.9360850900411606,
+      "zero_donor_mean_ce": 1.3622523546218872
+    },
+    "P": {
+      "recovery_ci95": [
+        -0.011784076171170454,
+        6.478964132839571e-06
+      ],
+      "swap_signed_ce_ci95": [
+        0.05284171067178249,
+        0.08484054319560529
+      ],
+      "swap_absolute_ce_ci95": [
+        0.05284171067178249,
+        0.08484054319560529
+      ],
+      "zero_signed_ce_ci95": [
+        0.07730746455490589,
+        0.5278465012088419
+      ],
+      "zero_absolute_ce_ci95": [
+        0.3005223907530308,
+        0.6320158954709769
+      ],
+      "zero_base_mean_ce": 0.2684832960367203,
+      "zero_donor_mean_ce": 0.3249931335449219
+    },
+    "G": {
+      "recovery_ci95": [
+        0.12867434080690146,
+        0.1381808004924096
+      ],
+      "swap_signed_ce_ci95": [
+        0.08430879823863506,
+        0.1318360675126314
+      ],
+      "swap_absolute_ce_ci95": [
+        0.08430879823863506,
+        0.1318360675126314
+      ],
+      "zero_signed_ce_ci95": [
+        0.513956106826663,
+        0.5834558080881834
+      ],
+      "zero_absolute_ce_ci95": [
+        0.513956106826663,
+        0.5834558080881834
+      ],
+      "zero_base_mean_ce": 0.3868173211812973,
+      "zero_donor_mean_ce": 0.7089352160692215
+    },
+    "C": {
+      "recovery_ci95": [
+        -0.0005621364069156698,
+        0.003113455749371497
+      ],
+      "swap_signed_ce_ci95": [
+        -0.0035742949694395065,
+        0.009525651764124635
+      ],
+      "swap_absolute_ce_ci95": [
+        0.005626903101801872,
+        0.01461212057620287
+      ],
+      "zero_signed_ce_ci95": [
+        0.008637663070112466,
+        0.05410042777657509
+      ],
+      "zero_absolute_ce_ci95": [
+        0.026048906380310655,
+        0.06267847847193479
+      ],
+      "zero_base_mean_ce": 0.03494708612561226,
+      "zero_donor_mean_ce": 0.025638610124588013
+    },
+    "R": {
+      "recovery_ci95": [
+        0.8994172873906792,
+        0.9730126130394637
+      ],
+      "swap_signed_ce_ci95": [
+        3.326688317209482,
+        3.9900267250835895
+      ],
+      "swap_absolute_ce_ci95": [
+        3.326688317209482,
+        3.9900267250835895
+      ],
+      "zero_signed_ce_ci95": [
+        0.8769922945648432,
+        1.0859161539003253
+      ],
+      "zero_absolute_ce_ci95": [
+        0.8769922945648432,
+        1.0859161539003253
+      ],
+      "zero_base_mean_ce": 1.0284894853830338,
+      "zero_donor_mean_ce": 0.9246978759765625
+    }
+  },
+  "scope": "4000 paired resamples of 16 authored contexts per panel. G uses one runs/run readout, not 16 agreement contrasts. Descriptive intervals do not override capability gates or change thresholds."
+}

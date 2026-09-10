@@ -1,5 +1,90 @@
 # Shared grammatical writes work; the scalar-only predictor does not
 
+**Latest result — 10 September, 16:31 UTC:** the fixed distributed direction
+transfers to new verbs and grammatical cues, recovering **95.2%/86.3%** of the
+target effect. However, a closer subject–verb agreement control fails both
+preservation and selective removal. The earlier positive selectivity result
+therefore remains limited to its original control. This is useful shared
+grammatical information, but it is not an isolated gerund circuit.
+
+## The two unembedding paths
+
+The token path follows an individual output vector u_t backward to ask what
+produces that token's score. The structure path first writes the same vector as
+
+    u_t = sum_j a_tj*s_j + r_t,
+
+where s_j are shared directions, a_tj are token-specific coefficients, and r_t
+is the remaining token-specific vector. A cluster mean is one special case;
+hierarchical parent/child differences and overlapping grammatical directions
+are other possibilities. Retaining r_t makes this an exact decomposition.
+Deleting it is a separate hypothesis that needs testing.
+
+For a bilinear MLP m = D[(Lx)*(Rx)] + b, a reader v has quadratic form
+
+    Q(v) = sym(L^T diag(D^T v) R),
+    v^T m = x^T Q(v) x + v^T b.
+
+Because Q is linear in v, both views fold through the same calculation:
+
+    Q(u_t) = sum_j a_tj*Q(s_j) + Q(r_t).
+
+This exposes shared input products and their token-specific differences.
+Earlier residual paths and attention can then be expanded with their actual
+normalization and routing retained. The decomposition is additive before the
+final softcap, given the shared normalized state; applying the softcap separately
+to each summand would be incorrect. Shared weight terms still require causal
+tests before they count as reusable circuits.
+
+The coarse cluster-mean test already failed. The grammatical direction below
+is a more specific shared component, and the new agreement failure shows why
+its consumers and task-specific branches need to be distinguished.
+
+## New verbs, new cues, and a closer control
+
+The next experiment kept the direction and all 36 output sites fixed. Sixteen
+new verbs were disjoint from both the eight weight-construction verbs and the
+sixteen earlier test verbs. Cues changed to might/were and would/was, with
+different sentence frames. A new control used he/they with runs/run agreement
+across the same sixteen preceding contexts. It tests one agreement contrast,
+not sixteen different agreement readouts. The tokenizer-driven correction to
+that control was recorded before any model execution.
+
+| Measurement | New frame 1 | New frame 2 | Agreement control |
+|---|---:|---:|---:|
+| Donor cue recovery | .952 | .863 | .133 |
+| Swap mean absolute CE change | 2.549 | 3.264 | .108 |
+| Zero-removal mean CE damage | .668 | 1.149 | .548 |
+
+Target swaps intentionally change the answer, so their positive CE change is
+expected. Control preservation required absolute CE change at most .10 and
+absolute mean recovery at most .10: agreement fails both. Zero removal damages
+agreement by .548 nats, far above its .10 preservation limit. We retain it as a
+failed control rather than rename it as a target after seeing the result.
+
+Paired 95% intervals are [.926,.978]/[.831,.898] for target recovery,
+[.129,.138] for agreement recovery, and [.514,.583] for agreement removal
+damage. The agreement swap-CE interval [.084,.132] crosses .10, but this does
+not overturn its registered point-estimate failure or the other failed bars.
+The modal-paraphrase and unrelated either/not controls pass swap preservation;
+either/not also retains its earlier removal result.
+
+All 96 native pairs have positive intended-answer margins at both endpoints.
+Instrument checks and the old intervention replay pass. The managed run used
+36 forwards, 576 sequence instances, and 1.76 executor seconds. No new fitting,
+selected sites, relaxed thresholds, or independently extracted producers were
+introduced. New experimental text is not proof of pretraining OOD.
+
+The next question is whether shared grammatical information has distinct
+context-dependent consumers. A decomposition must explain those branches
+before it supports separate removal or predictable composition.
+
+Evidence: [frozen new-data plan](../../GERUND_FRESH_TRANSFER_V1_PREREGISTRATION.md),
+[native result](../../GERUND_FRESH_TRANSFER_V1_RESULT.json), and
+[executed paired audit](../../GERUND_FRESH_TRANSFER_AUDIT_V1_RESULT.json).
+
+## Earlier experiment: distributed writes and scalar feedback
+
 **10 September, 16:06 UTC.** Applying the same grammatical direction inside
 attention and MLP outputs is stronger than editing it only at the final readout.
 The distributed swap recovers **94%/102%** of the bare-verb versus -ing cue effect

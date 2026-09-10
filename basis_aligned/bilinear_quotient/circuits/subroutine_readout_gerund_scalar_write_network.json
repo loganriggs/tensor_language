@@ -239,6 +239,157 @@
    ],
    "translation_ids": [],
    "next_missing": "Independent producers and live complement responses, new constructions/control families and composition prediction; scalar-only closure failed."
+  },
+  {
+   "claim_id": "readout.gerund_scalar_write_network.v2.fresh_transfer",
+   "revision": 2,
+   "status": "site_live",
+   "supersedes": "readout.gerund_scalar_write_network.v1.ports",
+   "causal_variable": {
+    "id": "distributed_gerund_e_ports",
+    "domain": "16 new verbs and two new cues/frames; closer runs/run agreement G, modal P, old C and replay R",
+    "read": "current e projections of attention and MLP outputs at final semantic positions",
+    "operation": "live donor/zero replacement through every selected group port; trained residual-mix weighted accumulation",
+    "write": "e-scaled delta at36 output sites with remaining model live",
+    "endpoint": "Fresh transfer held .95175/.86341; broader swap preservation and selective removal failed on G. No independent producer."
+   },
+   "alternative_explanations": [
+    "changed complementary state carries essential grammatical computation",
+    "context-dependent native producers remain necessary"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "A1",
+     "role": "interchange",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "frozen e and all36 output sites",
+      "checkpoint and live native complements/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "fresh_rows",
+     "split_plan_id": "fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "A2",
+     "role": "interchange",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "frozen e and all36 output sites",
+      "checkpoint and live native complements/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "fresh_rows",
+     "split_plan_id": "fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "P",
+     "role": "invariance",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "frozen e and all36 output sites",
+      "checkpoint and live native complements/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "fresh_rows",
+     "split_plan_id": "fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "G",
+     "role": "invariance",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "frozen e and all36 output sites",
+      "checkpoint and live native complements/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "fresh_rows",
+     "split_plan_id": "fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "C",
+     "role": "invariance",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "frozen e and all36 output sites",
+      "checkpoint and live native complements/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "fresh_rows",
+     "split_plan_id": "fresh_panels",
+     "status": "frozen"
+    },
+    {
+     "family_id": "R",
+     "role": "interchange",
+     "changes": [
+      "fixed group donor or zero e-projection edits"
+     ],
+     "holds_fixed": [
+      "frozen e and all36 output sites",
+      "checkpoint and live native complements/routing"
+     ],
+     "control_ids": [
+      "parent_replay",
+      "native_pair_capability",
+      "all_port_scalar_identity"
+     ],
+     "builder_artifact_id": "fresh_rows",
+     "split_plan_id": "fresh_panels",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "all36_output_ports",
+     "tensor_path": "transformer.h.[0..17].attn and .mlp output at semantic position",
+     "shape": [
+      36,
+      1152
+     ],
+     "intervention": "same fixed e projection across attention, MLP or both groups"
+    }
+   ],
+   "split_plan_ids": [
+    "fresh_panels"
+   ],
+   "evidence_event_ids": [],
+   "translation_ids": [],
+   "next_missing": "Explain shared grammatical consumers and task-specific branches. Broader selectivity failed; scalar-only prediction remains rejected."
   }
  ],
  "split_plans": [
@@ -247,6 +398,12 @@
    "partition_artifact_id": "rows",
    "builder_artifact_id": "rows",
    "description": "All rows previously opened by parent. New interventions on fixed weight-derived direction."
+  },
+  {
+   "split_plan_id": "fresh_panels",
+   "partition_artifact_id": "fresh_rows",
+   "builder_artifact_id": "fresh_rows",
+   "description": "New16 target pairs and cues; one G runs/run readout across16 contexts, P modal, reused C/R. Frozen before execution."
   }
  ],
  "evidence_events": [
@@ -436,6 +593,166 @@
    "notes": "Scalar accumulation identity is not program closure. P zero-removal damage .985 reported; not an unrelated control for removal.",
    "design_key": "ff0e8807c61e8b8506907de9b2e830ab0d14da97ea8ebe53f105e494c2a6f709",
    "execution_key": "b355f9a3fc6668cf35dfd3e9671aae2b1be3d51cea5e893f6013d1c7e9c15f9f"
+  },
+  {
+   "event_id": "readout.gerund_scalar_write_network.v2.fresh_transfer.transfer",
+   "claim_id": "readout.gerund_scalar_write_network.v2.fresh_transfer",
+   "stage": "complete",
+   "test_type": "cross_family_transfer",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "G",
+    "C",
+    "R"
+   ],
+   "site_id": "all36_output_ports",
+   "split_plan_id": "fresh_panels",
+   "evaluation_role": "fresh_transfer",
+   "input_artifact_ids": [
+    "fresh_rows",
+    "component",
+    "fresh_runner",
+    "fresh_executor",
+    "fresh_binding"
+   ],
+   "seed": 9111401,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "fresh_plan",
+   "result_artifact_id": "fresh_result",
+   "metrics": [
+    {
+     "name": "pred_c_fresh_transfer",
+     "value": true,
+     "bar": true
+    }
+   ],
+   "notes": "New target recovery .95175/.86341; G recovery .13342, swap absCE .10793, zero absCE .54788. Full values and paired intervals in fresh_result/fresh_audit. No refit; retain G as failed control and preserve original narrow results.",
+   "design_key": "48e288274b08c568f45e5b8cd1ac06203d81ac4756c73bb8bb89bf620ab7a927",
+   "execution_key": "d705940f48aa4156f74946ff67b3091e1f5c0d065425b0630c55f4b64154c391"
+  },
+  {
+   "event_id": "readout.gerund_scalar_write_network.v2.fresh_transfer.preservation",
+   "claim_id": "readout.gerund_scalar_write_network.v2.fresh_transfer",
+   "stage": "complete",
+   "test_type": "invariance",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "G",
+    "C",
+    "R"
+   ],
+   "site_id": "all36_output_ports",
+   "split_plan_id": "fresh_panels",
+   "evaluation_role": "fresh_preservation",
+   "input_artifact_ids": [
+    "fresh_rows",
+    "component",
+    "fresh_runner",
+    "fresh_executor",
+    "fresh_binding"
+   ],
+   "seed": 9111401,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "fresh_plan",
+   "result_artifact_id": "fresh_result",
+   "metrics": [
+    {
+     "name": "pred_d_preservation",
+     "value": false,
+     "bar": true
+    }
+   ],
+   "notes": "New target recovery .95175/.86341; G recovery .13342, swap absCE .10793, zero absCE .54788. Full values and paired intervals in fresh_result/fresh_audit. No refit; retain G as failed control and preserve original narrow results.",
+   "design_key": "329d03529272a5afce785e303e2d7b9ace90003c5d3f8a2cfebf95b1ae8560ec",
+   "execution_key": "34d3a50544491778a528b55e00555d743f3d9d81d80fe90e512d8c8a40c94b69"
+  },
+  {
+   "event_id": "readout.gerund_scalar_write_network.v2.fresh_transfer.removal",
+   "claim_id": "readout.gerund_scalar_write_network.v2.fresh_transfer",
+   "stage": "complete",
+   "test_type": "removal",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "G",
+    "C",
+    "R"
+   ],
+   "site_id": "all36_output_ports",
+   "split_plan_id": "fresh_panels",
+   "evaluation_role": "fresh_removal",
+   "input_artifact_ids": [
+    "fresh_rows",
+    "component",
+    "fresh_runner",
+    "fresh_executor",
+    "fresh_binding"
+   ],
+   "seed": 9111401,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "fresh_plan",
+   "result_artifact_id": "fresh_result",
+   "metrics": [
+    {
+     "name": "pred_e_selective_removal",
+     "value": false,
+     "bar": true
+    }
+   ],
+   "notes": "New target recovery .95175/.86341; G recovery .13342, swap absCE .10793, zero absCE .54788. Full values and paired intervals in fresh_result/fresh_audit. No refit; retain G as failed control and preserve original narrow results.",
+   "design_key": "24dd540e48322a5711257a6c04651191443e80dda9cf37dce027dbcc959acf66",
+   "execution_key": "bb56c9bd84395c5a2354f4564d9d803623fcfa493aea37a919517af1e84851ab"
+  },
+  {
+   "event_id": "readout.gerund_scalar_write_network.v2.fresh_transfer.instrument",
+   "claim_id": "readout.gerund_scalar_write_network.v2.fresh_transfer",
+   "stage": "complete",
+   "test_type": "compiled_equivalence",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "A1",
+    "A2",
+    "P",
+    "G",
+    "C",
+    "R"
+   ],
+   "site_id": "all36_output_ports",
+   "split_plan_id": "fresh_panels",
+   "evaluation_role": "fresh_instrument",
+   "input_artifact_ids": [
+    "fresh_rows",
+    "component",
+    "fresh_runner",
+    "fresh_executor",
+    "fresh_binding"
+   ],
+   "seed": 9111401,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "prereg_artifact_id": "fresh_plan",
+   "result_artifact_id": "fresh_result",
+   "metrics": [
+    {
+     "name": "pred_a_instrument",
+     "value": true,
+     "bar": true
+    }
+   ],
+   "notes": "New target recovery .95175/.86341; G recovery .13342, swap absCE .10793, zero absCE .54788. Full values and paired intervals in fresh_result/fresh_audit. No refit; retain G as failed control and preserve original narrow results.",
+   "design_key": "e7667addb910e8da34442f0942829acdfe8bb903d60864a6fe577160161d6381",
+   "execution_key": "1e55e3ebef115549beeac973641ffdc1575864fec45b0e3c38590953b3dc0d1c"
   }
  ],
  "translations": [],
@@ -479,6 +796,48 @@
   "helper": {
    "path": "basis_aligned/polynomial_causal/gerund_scalar_network_v1.py",
    "sha256": "88c6f65a3e924cab5a9f8ab2ac5950b84900847d28307e5b9a4bf45aca85123b",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "fresh_plan": {
+   "path": "basis_aligned/polynomial_causal/GERUND_FRESH_TRANSFER_V1_PREREGISTRATION.md",
+   "sha256": "327ebac4bc7d0ff29c15a8abd887ec3486901af636153726aec388936f6cdf8a",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "fresh_rows": {
+   "path": "basis_aligned/polynomial_causal/GERUND_FRESH_TRANSFER_V1_ROWS.json",
+   "sha256": "e5b43e97f8eb198bf4f98f524b5708d732608a1ff4847ecc14f854a3c3d4802b",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "fresh_result": {
+   "path": "basis_aligned/polynomial_causal/GERUND_FRESH_TRANSFER_V1_RESULT.json",
+   "sha256": "5a8a6cfab65af8c1910ae0502af36265e73723873b6f75b06a1ae42d8be16ec2",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "fresh_audit": {
+   "path": "basis_aligned/polynomial_causal/GERUND_FRESH_TRANSFER_AUDIT_V1_RESULT.json",
+   "sha256": "5b5652754f10c2f99ea4b130b8d5b374775d32d0f6ae1176d28fc81b6a5e8c57",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "fresh_binding": {
+   "path": "basis_aligned/polynomial_causal/GERUND_FRESH_TRANSFER_V1_BINDING.json",
+   "sha256": "ec69ce4cd76754a3b30623934f231dfdb4f8d397d9b0d6fc3caa40588be61d84",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "fresh_runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_gerund_fresh_transfer_v1.py",
+   "sha256": "ade70f7b02fa5af9c05da6dfa5c1a5f8e7ee3f98ac68dfdc03425393e2db3028",
+   "kind": "evidence",
+   "status": "frozen"
+  },
+  "fresh_executor": {
+   "path": "basis_aligned/polynomial_causal/scalar_write_network_executor_v1.py",
+   "sha256": "ba27edf3d663b3c170fb7dd0912e058f1064415624c349dfc15b30794a0d2b1d",
    "kind": "evidence",
    "status": "frozen"
   }

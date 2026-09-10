@@ -53,6 +53,12 @@ The current circuit-scale priority is to identify high-quality causal circuits a
 circuit-finding machinery.  Low rank, activation reconstruction, variance preservation, or
 compression alone is not circuit evidence.
 
+## Fresh grammatical transfer held; closer agreement selectivity failed — 2026-09-10 16:31 UTC
+
+Prereg d83563192 pushed before execution. Managed run_gerund_fresh_transfer_v1.py SHAade70f7b02fa5af9c05da6dfa5c1a5f8e7ee3f98ac68dfdc03425393e2db3028 ran16:31:40–16:31:43,36forwards576seq,1.76018sec. Fixed old e/all36 output ports, reusable extracted executor, sixteen new verbs and two new cues/frames. All96 native pairs capable and old R replay held. A/B/C held; D/E failed. New target recovery .95175/.86341. G he/they runs/run agreement recovery .13342, swapabsCE .10793 and zeroabsCE .54788 violate .10 preservation bars. P/C swap controls pass and C removal remains narrow positive. G uses one agreement readout across16 contexts; tokenizer correction was recorded before model execution, no outcome filter.
+
+Actual paired CPU audit completed: target recovery intervals [.92557,.97813]/[.83145,.89820], G recovery [.12867,.13818], G removal [.51396,.58346]. Keep G as failed control; do not relabel it to erase failure. Canonical scalar-write-network revision preserves original narrow positives and rejected scalar-only prediction. Explanation gerund_scalar_writes_and_live_feedback.md and LATEST16:31 updated, including the user's two paths: individual token readers and structured shared readers plus token-specific remainder. Both fold linearly through reader contractions; nonlinear normalization/routing remain explicit. No independent producer or saving. Next explain shared versus task-specific consumers; no direction/gain/rank rescue. Full original-handoff goal active. Completed CPU continuation receipt, no new GPU job queued. Next hourly17:14/math16:49; use prospective1614 phase log.
+
 ## Distributed gerund scalar writes: intervention held, closure failed — 2026-09-10 16:06 UTC
 
 Previous turn PROGRESS6f70f0f04; prereg8bf0a960d pushed. Same user-directed unembedding e and existing A1/A2/P/C. Read v185 weighted-write/causal-feedback precedent and grouped module dossiers. New global interface swaps/zeros e projections at all attention outputs, all MLP outputs, or both; native complements and routing remain live. Trained beta_l products and gamma145.12154 give exact scalar accounting. Same final token cancels direct x0 cue contribution. No individual native module promoted or selected.

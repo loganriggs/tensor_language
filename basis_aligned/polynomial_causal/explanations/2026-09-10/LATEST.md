@@ -1,6 +1,14 @@
 # Research update since the last requested explanation
 
-## Latest follow-up — 10 September, 16:06 UTC
+## Latest follow-up — 10 September, 16:31 UTC
+
+**New verbs and cues transfer, but broader selectivity fails.** The fixed
+unembedding-derived grammatical direction recovers 95%/86% of the new target
+effects. Removing it also damages subject–verb agreement by .548 nats, so the
+closer control rejects a separately removable gerund circuit. All native
+capability and replay checks hold. The [updated explanation](gerund_scalar_writes_and_live_feedback.md)
+also spells out the two paths: individual token readers, and shared structured
+readers plus their token-specific remainders, folded through the same weights.
 
 The requested attention weight audit and both backward-unembedding views have now run. [The full new explanation](unembedding_token_and_hierarchy_backward_folds.md) defines the fold and reports its limits.
 

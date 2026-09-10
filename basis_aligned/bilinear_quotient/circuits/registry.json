@@ -871,36 +871,47 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "f5d5723658887ed4f913d64ac81ac7395ae54f34f41c62c9956e4291f93ad52a",
+   "record_sha256": "097e70cf94e9985da0c8d695a33e685edc276aece1cdc7dc1ffe4584d0256c77",
    "kind": "shared_subroutine",
    "identity_instance": null,
-   "active_claim_id": "readout.gerund_scalar_write_network.v1.scalar_prediction",
-   "claim_status": "rejected",
-   "causal_variable_id": "frozen_background_scalar_edit_predictor",
-   "interchange_family_count": 2,
-   "invariance_family_count": 2,
-   "negative_event_count": 1,
-   "active_negative_event_count": 1,
-   "latest_blocker": "readout.gerund_scalar_write_network.v1.edit_prediction",
-   "latest_active_event": "readout.gerund_scalar_write_network.v1.edit_prediction",
+   "active_claim_id": "readout.gerund_scalar_write_network.v2.fresh_transfer",
+   "claim_status": "site_live",
+   "causal_variable_id": "distributed_gerund_e_ports",
+   "interchange_family_count": 3,
+   "invariance_family_count": 3,
+   "negative_event_count": 3,
+   "active_negative_event_count": 3,
+   "latest_blocker": "readout.gerund_scalar_write_network.v2.fresh_transfer.removal",
+   "latest_active_event": "readout.gerund_scalar_write_network.v2.fresh_transfer.instrument",
    "active_event_ids": [
     "readout.gerund_scalar_write_network.v1.joint_interchange",
     "readout.gerund_scalar_write_network.v1.selective_zero",
     "readout.gerund_scalar_write_network.v1.instrument",
-    "readout.gerund_scalar_write_network.v1.edit_prediction"
+    "readout.gerund_scalar_write_network.v1.edit_prediction",
+    "readout.gerund_scalar_write_network.v2.fresh_transfer.transfer",
+    "readout.gerund_scalar_write_network.v2.fresh_transfer.preservation",
+    "readout.gerund_scalar_write_network.v2.fresh_transfer.removal",
+    "readout.gerund_scalar_write_network.v2.fresh_transfer.instrument"
    ],
    "held_test_types": [
     "compiled_equivalence",
+    "cross_family_transfer",
     "das_interchange",
     "removal"
    ],
    "active_blocking_test_types": [
-    "compiled_equivalence"
+    "compiled_equivalence",
+    "invariance",
+    "removal"
    ],
    "design_keys": [
     "0fa5a1cefbdf5fb0af895081005f204c6989b6420b4616a8237108b278df1f04",
+    "24dd540e48322a5711257a6c04651191443e80dda9cf37dce027dbcc959acf66",
+    "329d03529272a5afce785e303e2d7b9ace90003c5d3f8a2cfebf95b1ae8560ec",
+    "48e288274b08c568f45e5b8cd1ac06203d81ac4756c73bb8bb89bf620ab7a927",
     "a6977efc30e4101ce08da5bef37487616b010edde6862ca5cd08411b5f34a58b",
     "c8655b1b5d1872e65ea88e512a7c22dd66204a566e386d7777cf7fb0241cfba2",
+    "e7667addb910e8da34442f0942829acdfe8bb903d60864a6fe577160161d6381",
     "ff0e8807c61e8b8506907de9b2e830ab0d14da97ea8ebe53f105e494c2a6f709"
    ]
   },
