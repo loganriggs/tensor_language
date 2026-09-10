@@ -102,7 +102,7 @@ def main():
     essential=live_ok and all(reports[k]['recovery_loss']>=.2 for k in ['A1','A2'])
     closure=live_ok and all(reports[k]['arms']['blocked_swap']['scalar_prediction_error']<=.1 for k in ['A1','A2'])
     ga=reports['G']['arms']; mediation=instrument and ga['live_zero']['mean_ce']>=.1 and ga['blocked_zero']['mean_ce']<=.5*ga['live_zero']['mean_ce']
-    result=dict(schema='gerund.mlp_consumer.v1',predictions=dict(pred_a_instrument=instrument,pred_b_live_target=live_ok,pred_c_essential_consumers=essential,pred_d_conditional_closure=closure,pred_e_agreement_damage_mediation=mediation),
+    result=dict(schema='gerund.mlp_consumer.v1',predictions={'pred_a_instrument':instrument,'pred_b_live_target':live_ok,'pred_c_essential_consumers':essential,'pred_d_conditional_closure':closure,'pred_e_agreement_damage_mediation':mediation},
                 reports=reports,checks=checks,engine_bridges=engine.bridges,scalar_checks=engine.scalar_checks,context_readers=readers,controls=tiny,
                 price=dict(body_forwards=engine.counts[0],sequences=engine.counts[1],output_hook_visits=engine.visits,consumer_hook_visits=consumer_visits,native_parameters=sum(p.numel() for p in model.parameters()),native_weight_saving=0),
                 runner_sha256=digest(RUNNER),binding_sha256=digest(BIND),wall_seconds=time.perf_counter()-tic,
