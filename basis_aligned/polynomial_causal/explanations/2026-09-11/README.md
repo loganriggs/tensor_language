@@ -2,6 +2,8 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [First native dictionary result: overfit and an encoder lesson](explanation_2026-09-11_0808.md): first native fit, exact weight-generalization audit, and overcomplete synthetic discovery/encoding separation.
+
 - [Converged small-block fits and a compact full-rank alternative](explanation_2026-09-11_0608.md): completed native comparison, input ceiling, structured-transform controls and failed-start audit.
 
 - [Weights-first methods, assumptions, and bottlenecks](explanation_2026-09-11_0531.md): current method inventory, completed unconverged block run, and exact penalty audit.

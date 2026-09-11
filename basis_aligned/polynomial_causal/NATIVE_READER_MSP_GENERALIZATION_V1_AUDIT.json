@@ -1,0 +1,76 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_objective_gap": true,
+    "pred_c_alignment": false,
+    "pred_d_alignment_gap": false
+  },
+  "bases": {
+    "identity": {
+      "train": {
+        "fourth_moment": 0.0026542207909448015,
+        "top128_energy": 0.4693199836349043,
+        "near_alignment_share": 0.0,
+        "fraction_readers_with_alignment_over_point9": 0.0,
+        "median_atom_effective_readers": 542.082120023525,
+        "weighted_atom_effective_readers": 524.7941110275235
+      },
+      "test": {
+        "fourth_moment": 0.002637148018276319,
+        "top128_energy": 0.46905635740555773,
+        "near_alignment_share": 0.0,
+        "fraction_readers_with_alignment_over_point9": 0.0,
+        "median_atom_effective_readers": 272.9797070264074,
+        "weighted_atom_effective_readers": 267.19804384199375
+      }
+    },
+    "pca": {
+      "train": {
+        "fourth_moment": 0.005018229745130869,
+        "top128_energy": 0.5243432840464038,
+        "near_alignment_share": 0.0,
+        "fraction_readers_with_alignment_over_point9": 0.0,
+        "median_atom_effective_readers": 533.2291192217521,
+        "weighted_atom_effective_readers": 333.8719735995547
+      },
+      "test": {
+        "fourth_moment": 0.003481815723419851,
+        "top128_energy": 0.4754407884448348,
+        "near_alignment_share": 0.0,
+        "fraction_readers_with_alignment_over_point9": 0.0,
+        "median_atom_effective_readers": 272.1875854113176,
+        "weighted_atom_effective_readers": 200.13491215312717
+      }
+    },
+    "msp": {
+      "train": {
+        "fourth_moment": 0.10075956926657226,
+        "top128_energy": 0.5485200417524686,
+        "near_alignment_share": 0.005570238901967252,
+        "fraction_readers_with_alignment_over_point9": 0.0008138020833333334,
+        "median_atom_effective_readers": 1.0453014572606423,
+        "weighted_atom_effective_readers": 1.6393761241958853
+      },
+      "test": {
+        "fourth_moment": 0.004101870462789766,
+        "top128_energy": 0.4731186248859361,
+        "near_alignment_share": 0.0,
+        "fraction_readers_with_alignment_over_point9": 0.0,
+        "median_atom_effective_readers": 269.0390252574169,
+        "weighted_atom_effective_readers": 165.7447210163991
+      }
+    }
+  },
+  "replay_errors": [
+    5.551115123125783e-16,
+    4.440892098500626e-16,
+    1.6653345369377348e-16
+  ],
+  "source": {
+    "path": "/dev/shm/bilin18_full_reader_msp_v1_s0.pt",
+    "sha256": "14304ced3a96be4ca9ea25de62d03beb385d85e2f30c35a51055f09197b70376",
+    "bytes": 22511801
+  },
+  "seconds": 1.581456083804369,
+  "scope": "Frozen first-start weight generalization, no basis or text fitting"
+}

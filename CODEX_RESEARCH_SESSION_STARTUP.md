@@ -82,7 +82,7 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 07:54 UTC
+## Current handoff — 11 September 08:10 UTC
 
 Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 [method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
@@ -97,8 +97,9 @@ families or infer convergence from an elapsed budget.
 - **Live:** `run_full_reader_dictionary_msp_v1.py`, sourceSHA
   `47855b088b7437906d27c0036bf52a2e51f6056630a97d329bfbf693bfaf8bdb`.
   Full1152input basis; nativeL/Rweights only; paired3072/1536product holdout;
-  two900second fits; exactfull-Uscore. No native result yet. Protect its turn
-  in the managed lane. No automatic third identical structured continuation.
+  two900second fits; firststart54.85%train/47.31%heldoutreader capture, belowPCA;
+  foldedcapture29.56%, combinedconvergencecriterionmissed. Secondstartlive.
+  See LATEST forobjectiveoverfit audit. No automatic identicalcontinuation.
 - **Queued after orthogonal dictionary:** `run_oblique_reader_dictionary_v1.py`,
   sourceSHA `2eecedbb95ccb50591a2e8a60c53074beee5e0f8cd53eb6dfed26da57672469a`.
   Ordinary/Tyler shape x two starts,900seconds each; cached training shapes,

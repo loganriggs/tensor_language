@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 07:54 UTC. Use this index before opening a structural family
+Updated 11 September 08:10 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -104,3 +104,7 @@ Oblique full-rank reader extension: [registered comparison](OBLIQUE_READER_DICTI
 Current07:54: structured continuation completed3.5097/3.3098%capture, both unconverged. Full-reader MSP is live; oblique comparison remains queued. [07:51math review](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md) explains the assumptions and existing conditional writer solve. [Output-metric control](CONDITIONAL_WRITER_METRIC_V1_CONTROL.json) passes; native dictionary writer refitting is pending, not a completed improvement.
 
 [Conditional Down followup](READER_CONDITIONAL_WRITER_V1_PREREGISTRATION.md) is queued after oblique: eight frozen dictionaries including identity/PCA controls, same output parameter count, exact PSD Gram solve with rank/conditioning diagnostics. [Spectral-vs-existing-solver CPU control](CONDITIONAL_WRITER_SPECTRAL_V1_CONTROL.json) passes<=2.84e-15. Full weights fit Down; held-out reader-vector scores remain basis-only evidence. No native conditional result yet.
+
+First native MSPstart[receipt](FULL_READER_DICTIONARY_MSP_V1_SEED_0.json): train54.85%/heldout47.31%, belowPCAheldout47.54%; fullcoefficientcapture29.56%, combinedconvergencecriterionmissed. [Generalization audit](NATIVE_READER_MSP_GENERALIZATION_V1_AUDIT.json) shows fourth-moment criterion concentrated byindividualtrainingreaders (medianparticipation1.045); near-perfectalignmenthypothesisC/Dmissed. Secondstartlive.
+
+Overcomplete native-input dictionary is still untested natively. [Library plantedcontrol](OVERCOMPLETE_READER_LIBRARY_V1_CONTROL.json) getsoneof2recovery successes; sparsefitslocallystationary, densecontrolunconverged evenafter[exact recoding](OVERCOMPLETE_READER_RECODE_V1_AUDIT.json). [Exhaustive2-support audit](TWO_SUPPORT_ORACLE_V1_CONTROL.json) shows greedyOMP obscuredgoodfeaturediscovery:98.09%to99.96%withsamefeatures. Supportheuristics anddictionarylearning mustbe auditedseparately. No currentnativeMSP/obliquesourcechange.

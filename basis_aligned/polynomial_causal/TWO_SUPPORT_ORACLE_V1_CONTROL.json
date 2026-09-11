@@ -1,0 +1,29 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_truth": true,
+    "pred_c_greedy_miss": true,
+    "pred_d_recovered": true
+  },
+  "arms": [
+    {
+      "name": "truth",
+      "omp_capture": 0.9812295765447656,
+      "oracle_gain": 0.018770423455234386,
+      "capture": 1.0,
+      "pair_count": 276,
+      "direct_error": 4.0692218205192184e-32,
+      "normal_error": 5.150413435678289e-16
+    },
+    {
+      "name": "recovered937",
+      "omp_capture": 0.9808977237586304,
+      "oracle_gain": 0.018739961739928312,
+      "capture": 0.9996376854985587,
+      "pair_count": 276,
+      "direct_error": 2.780978572425319e-17,
+      "normal_error": 7.585670442249179e-16
+    }
+  ],
+  "scope": "Fixed two-sparse synthetic support oracle, no native basis fitting"
+}

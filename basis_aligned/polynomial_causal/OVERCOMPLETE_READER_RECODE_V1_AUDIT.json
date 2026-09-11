@@ -1,0 +1,64 @@
+{
+  "predictions": {
+    "pred_a_code": true,
+    "pred_b_dictionary": false,
+    "pred_c_objective": true
+  },
+  "arms": [
+    {
+      "kind": "sparse",
+      "seed": 0,
+      "source": "/dev/shm/bilin18_overcomplete_reader_library_v1_sparse_s0.npz",
+      "cache": "/dev/shm/bilin18_overcomplete_reader_library_v1_sparse_s0_recoded.npz",
+      "before_objective": 36.241588516713,
+      "after_objective": 36.241588515089205,
+      "relative_change": -4.4804774709485406e-11,
+      "prior_objective_replay": 0.0,
+      "before_stationarity": {
+        "code_kkt_max": 6.094819433873078e-06,
+        "dictionary_proximal_gradient_max": 3.1747295581639616e-08
+      },
+      "after_stationarity": {
+        "code_kkt_max": 8.673617379884035e-16,
+        "dictionary_proximal_gradient_max": 2.542775864942702e-07
+      }
+    },
+    {
+      "kind": "sparse",
+      "seed": 937,
+      "source": "/dev/shm/bilin18_overcomplete_reader_library_v1_sparse_s937.npz",
+      "cache": "/dev/shm/bilin18_overcomplete_reader_library_v1_sparse_s937_recoded.npz",
+      "before_objective": 35.00124736112108,
+      "after_objective": 35.001247360822894,
+      "relative_change": -8.519306795343101e-12,
+      "prior_objective_replay": 0.0,
+      "before_stationarity": {
+        "code_kkt_max": 6.730394109165372e-06,
+        "dictionary_proximal_gradient_max": 1.083429833566163e-08
+      },
+      "after_stationarity": {
+        "code_kkt_max": 6.036837696399289e-16,
+        "dictionary_proximal_gradient_max": 4.474775780187858e-08
+      }
+    },
+    {
+      "kind": "dense",
+      "seed": 0,
+      "source": "/dev/shm/bilin18_overcomplete_reader_library_v1_dense_s0.npz",
+      "cache": "/dev/shm/bilin18_overcomplete_reader_library_v1_dense_s0_recoded.npz",
+      "before_objective": 51.342285681638096,
+      "after_objective": 51.34225306904481,
+      "relative_change": -6.351994823421654e-07,
+      "prior_objective_replay": 0.0,
+      "before_stationarity": {
+        "code_kkt_max": 0.0004573236130690772,
+        "dictionary_proximal_gradient_max": 3.103340631031262e-06
+      },
+      "after_stationarity": {
+        "code_kkt_max": 6.314393452555578e-16,
+        "dictionary_proximal_gradient_max": 1.1690976965216725e-05
+      }
+    }
+  ],
+  "scope": "Exact conditional code update; dictionaries, OMP scores and original misses unchanged"
+}

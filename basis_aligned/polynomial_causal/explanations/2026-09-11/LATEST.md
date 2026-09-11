@@ -1,9 +1,11 @@
 # Latest research update
 
-**11 September, 07:54 UTC:** [Methods, assumptions, bottlenecks and completed structured continuation](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md).
+**11 September, 08:08 UTC:** [First native reader-dictionary result: overfit, plus an encoder lesson](explanation_2026-09-11_0808.md).
 
-The longer structured fits reached3.5097%and3.3098%coefficient capture; both remain unconverged. A full-rank sparse reader dictionary is now fitting from weights alone. Its oblique counterpart is queued. The math review explains how to separate reader error from fixed-output-weight error using our existing exact conditional solver; a CPU control passed, native application is pending.
+First native MSP start:54.85%fitting-reader capture,47.31%held-out versusPCA47.54%; full folded coefficient capture29.56%. Its fourth-moment training criterion is concentrated in individual readers. Combined convergence criterion missed. Second start is live; oblique and conditional output comparisons remain queued.
 
-[Detailed experiment narrative through07:20](explanation_2026-09-11_0608.md#reader-metric0720) · [Current method index](../../WEIGHT_ONLY_METHODS_INDEX.md) · [Hourly07:22review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_0722.md).
+An overcomplete synthetic control separates feature discovery from greedy encoding: exact support selection raises a frozen recovered dictionary from98.09%to99.96%held-out reconstruction. This is not yet a native overcomplete result.
 
-Weights first. FineWeb validation follows frozen discovery; Pile is separately labelled OOD. Inspect runner and receipts before resubmitting jobs.
+[Method index](../../WEIGHT_ONLY_METHODS_INDEX.md) · [07:51math review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md) · [07:22hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_0722.md).
+
+Weights first; frozen-candidate FineWeb validation follows. Pile is separately labelled OOD.
