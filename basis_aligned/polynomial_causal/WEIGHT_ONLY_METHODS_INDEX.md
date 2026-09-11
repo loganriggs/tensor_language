@@ -237,3 +237,9 @@ Restart follow-up [SHARED_READER_RESTARTS_V1_AUDIT.json](SHARED_READER_RESTARTS_
 ### 11 September13:54 — Output-sharing symmetric LL1 clarification
 
 Shared-inputgroups are notoutput-sharingLL1. Userrequests latterinterpretation and fullerexplanation. [13:51mathreview](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1351.md) maps ranks/gauges andLL1literature; [conditionaltool](symmetric_ll1_conditional_v1.py), [CPUcontrols](SYMMETRIC_LL1_CONDITIONAL_V1_CONTROL.json) verify signedinputeigen truncation/fixedquadraticoutputsolve, nearplanted2blockrecovery4.63e-13. No nativeLL1fit orverifiedgenericuniqueness. Native shared-inputpilotdraft unbound/notqueued.
+
+### 11 September14:04 — Matched native shared-input/LL1 pilot queued
+
+[MATCHED_SHARED_GROUPS_V1_PREREGISTRATION.md](MATCHED_SHARED_GROUPS_V1_PREREGISTRATION.md),21dependencybinding, managedsource60c9dd7feed04cd47dd0e8bfb41ef80b7ea4102854607711b7faf41c5b069f9a. Fourarms:64shared-inputrank8groups vs64output-sharing symmetricrank16LL1groups,1,253,376/1,254,400floats, spectral/nativeweightedstarts,120softsecondsperfit. Whole-group penalty.01, exactconditionalinitialization andjointamplitudes. NormalizedcontrolsFD<=3.83e-10. Cached64groupceilingssharedinput28.8318%,LL1output23.8398%; no9.14Mcomparison or convergence/circuitclaim. Originalshared-onlydraft superseded/unrun.
+
+An independent [LL1projectedoutputkernel](symmetric_ll1_projected_v1.py) eliminates alloutputvectors by a groupGram solve. V1control serializationfailed onnumpybool; [failure](SYMMETRIC_LL1_PROJECTED_V1_FAILURE.json) preserved, [control-onlyV2repair](symmetric_ll1_projected_v2_control.py) passesdensegradient<=6.54e-16,packedFD3.38e-11, normal1.36e-16, signedgroup-scaleinvariance. This changes only a controlserializer, not the kernel or anyqueuedsource. No nativeprojectedfitqueued; decide afterpilotresults.

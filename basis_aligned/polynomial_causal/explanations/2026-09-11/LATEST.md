@@ -1,5 +1,7 @@
 # Latest research update
 
+**14:04 queue update:** matched native shared-input versus output-sharing LL1 pilot is queued (four arms, approximately1.25Mparameters each). No native result yet. [Protocol](../../MATCHED_SHARED_GROUPS_V1_PREREGISTRATION.md).
+
 **Current completion: both penalized starts finished at 13:29:35; capture 64.6851/64.6855%, convergence missed, function cosine 0.74484. Details in the requested report below.**
 
 **Latest requested full report: [11 September, 13:27 UTC](../for_logan/research_update_2026-09-11_1327.md).** Requested reports now live in [for_logan](../for_logan/README.md); the dated notes below are historical or automatic updates.

@@ -1,0 +1,32 @@
+{
+  "predictions": {
+    "pred_a_dense": true,
+    "pred_b_normalized_fd": true
+  },
+  "rows": [
+    {
+      "family": "ll1",
+      "raw_gradient_errors": [
+        4.494620180438296e-16,
+        1.3618540539177536e-16,
+        2.3937693989029673e-16
+      ],
+      "loss_error": 4.440892098500626e-16,
+      "normalized_fd_error": 3.8204051033829955e-10,
+      "initial_function_replay": 2.974583528009781e-16,
+      "initial_loss_replay": 4.440892098500626e-16
+    },
+    {
+      "family": "shared",
+      "raw_gradient_errors": [
+        1.8932867055732856e-16,
+        3.0494671269066414e-16,
+        2.297480935795036e-16
+      ],
+      "loss_error": 4.440892098500626e-16,
+      "normalized_fd_error": 7.725764472610308e-11,
+      "initial_function_replay": 1.5677667144281603e-16,
+      "initial_loss_replay": 2.220446049250313e-16
+    }
+  ]
+}

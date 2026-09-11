@@ -1,0 +1,6 @@
+{
+  "status": "control_report_serialization_failure",
+  "exception": "TypeError: Object of type bool is not JSON serializable (numpy.bool_)",
+  "scope": "V1 numerical kernel unchanged; result not published. V2 casts finite-difference error to Python float before predicate, preserving all numerical bars.",
+  "repair": "symmetric_ll1_projected_v2_control.py"
+}

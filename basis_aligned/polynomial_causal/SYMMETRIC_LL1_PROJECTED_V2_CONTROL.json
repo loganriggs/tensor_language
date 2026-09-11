@@ -1,0 +1,30 @@
+{
+  "predictions": {
+    "pred_a_dense": true,
+    "pred_b_normalized_fd": true,
+    "pred_c_scale_gauge": true,
+    "pred_d_normal": true
+  },
+  "gradient_errors": [
+    6.165706817787027e-16,
+    6.537461111867774e-16
+  ],
+  "normalized_fd_error": 3.3847038019563236e-11,
+  "scale_function_error": 8.306760750154813e-17,
+  "details": {
+    "residual": 0.960273600333823,
+    "component_energy": 0.04351389155133775,
+    "fitted_energy": 0.038965951657329925,
+    "cross_energy": 0.03934617566175345,
+    "group_energy": 0.03802240044235082,
+    "group_energy_by_group": [
+      0.01808805671570488,
+      0.008141978177094467,
+      0.011792365549551478
+    ],
+    "output_normal_residual": 1.3557566528403543e-16,
+    "output_stationarity": 2.655166497765322e-17,
+    "reduced_identity_error": 0.0
+  },
+  "scope": "Exact conditional group outputs and first reduced gradient. No native projected fit, global convergence, Hessian or identifiability guarantee."
+}

@@ -82,25 +82,29 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 13:30 UTC
+## Current handoff — 11 September 14:04 UTC
 
 Use [the latest requested report](basis_aligned/polynomial_causal/explanations/for_logan/LATEST.md),
 [current state](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md).
 
-- Both penalized starts completed13:29:35. Numerical/energy gains held;
-  convergence/stability missed. Do not enqueue an identical continuation.
-- Shared-input group conditional/objective tools are implemented and planted-tested.
-  Their native64group/rank8pilot is draft, unbound and notqueued.
-- User clarifies output-sharing LL1 as a distinct candidate. Read the requested
-  report appendix/browser brief and13:51mathreview. Symmetric LL1 conditional
-  CPU controls pass; implicit native/zero-case controller remains to implement.
-- The managed runner is healthy; queue was empty after its canary13:29:56.
-  Recheck live state before choosing GPU work.
-- Requested fuller reports belong in `explanations/for_logan/`, with `LATEST.md`
-  pointing unambiguously to the newest. Automatic notes remain dated.
-- Disk cleanup preserved research artifacts and active editor, reclaiming1.45GiB.
-  Receipt `DISK_CLEANUP_2026-09-11_1327.json` records scope and actual time.
+- **Queued native comparison:** `run_matched_shared_groups_v1.py`, SHA
+  `60c9dd7feed04cd47dd0e8bfb41ef80b7ea4102854607711b7faf41c5b069f9a`.
+  Four arms: shared-input64/rank8 and output-sharing symmetricLL1 64/rank16,
+  spectral/nativeweightedinitializations,120softseconds each.21bounddependencies.
+  Queued behindClaudev585 whilev583waslive; recheck currentrunner.
+- The older shared-input-only pilot remains unrun/superseded. Do not enqueue it.
+- Shared-group and normalizedLL1gradientcontrols pass. An exactjointLL1output
+  projection kernel also passes controls after a separately recorded control-only
+  JSONserialization repair. No nativeprojectedfitqueued; decide frompilotresults.
+- Both previous penalized dictionary starts completed13:29:35 and miss
+  convergence/stability; no identicalcontinuation.
+- User clarifies output-sharing LL1 as a distinct candidate. Read the latest
+  requestedreport's CP/LL1appendix and standalonebrowserbrief in `for_logan`.
+  SymmetricLL1conditionaltoycontrols pass; no nativeLL1result yet at this snapshot.
+- Requestedfullerreports stay in`explanations/for_logan/`; automaticnotes staydated.
+- Diskcleanup reclaimed1.45GiB without removingresearch/model/history/activeeditor.
+  Receipt `DISK_CLEANUP_2026-09-11_1327.json` records actualscope/time.
 
 User correction: discover from weights first. No new data/CE/Fisher-guided fits
 until distinct weight-only assumptions and adequate optimization have been
