@@ -1,0 +1,45 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_substantial_single_source_kernel": true,
+    "pred_c_source_alignment": false
+  },
+  "maps": {
+    "native": {
+      "total": 2.8331629255789983e+18,
+      "symmetric": 1.603842246663488e+18,
+      "antisymmetric": 1.2293206789155103e+18,
+      "head_diagonal": 3.7013213123772454e+17,
+      "antisymmetric_fraction": 0.4339039833596159,
+      "head_diagonal_fraction": 0.13064272721346679,
+      "seconds": 0.7778124511241913
+    },
+    "independent_source_permutations": {
+      "total": 2.8331629255789983e+18,
+      "symmetric": 1.602180532446615e+18,
+      "antisymmetric": 1.2309823931323832e+18,
+      "head_diagonal": 3.7013213123772454e+17,
+      "antisymmetric_fraction": 0.4344905060060441,
+      "head_diagonal_fraction": 0.13064272721346679,
+      "seconds": 0.7610069438815117
+    }
+  },
+  "antisymmetric_fraction_difference": -0.0005865226464282225,
+  "native_value_mix": -0.0888671875,
+  "errors": {
+    "total_invariance": 0.0,
+    "head_diagonal_invariance": 0.0,
+    "energy_closure": 0.0,
+    "negative_energy": 0.0
+  },
+  "price": {
+    "body_forwards": 0,
+    "output_rows": 50304,
+    "native_products": 4608,
+    "output_rank_truncation": false,
+    "source_tuple_width": 2304,
+    "persistent_large_arrays": 0
+  },
+  "wall_seconds": 2.101936649531126,
+  "scope": "Full centered output tensor, exact weight contractions. One-source coefficient kernel may be live across sources. No task/data/causal or full-circuit-extraction claim; all interfaces and common output remain required."
+}

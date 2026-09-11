@@ -1,0 +1,157 @@
+{
+  "scope": "Exact saved covariance audit; no model/data access. A diagonal surrogate is a numerical explanation control, not an adopted program.",
+  "relative_offdiagonal_gram_norm": 0.06153382368557959,
+  "maximum_absolute_cross_pair_correlation": 0.05251516188474934,
+  "rms_offdiagonal_correlation": 0.010499127622409133,
+  "correlation_eigenvalue_range": [
+    0.8979634033770454,
+    1.1450518413496926
+  ],
+  "diagonal_only_top4_capture": 0.16998735479495464,
+  "full_top4_capture": 0.17224783753454317,
+  "top4_gain_over_diagonal": 0.0022604827395885374,
+  "leading_modes": [
+    {
+      "mode": 0,
+      "largest_native_pair_loading_squared": 0.9627886476221571,
+      "leading_native_pairs": [
+        {
+          "heads": [
+            2,
+            3
+          ],
+          "loading_squared": 0.9627886476221571
+        },
+        {
+          "heads": [
+            0,
+            3
+          ],
+          "loading_squared": 0.026131937056445433
+        },
+        {
+          "heads": [
+            1,
+            3
+          ],
+          "loading_squared": 0.0028026432550181607
+        },
+        {
+          "heads": [
+            3,
+            8
+          ],
+          "loading_squared": 0.002651004824812847
+        }
+      ]
+    },
+    {
+      "mode": 1,
+      "largest_native_pair_loading_squared": 0.7497042910986376,
+      "leading_native_pairs": [
+        {
+          "heads": [
+            3,
+            4
+          ],
+          "loading_squared": 0.7497042910986376
+        },
+        {
+          "heads": [
+            2,
+            4
+          ],
+          "loading_squared": 0.16581823009512703
+        },
+        {
+          "heads": [
+            0,
+            3
+          ],
+          "loading_squared": 0.030052262759021522
+        },
+        {
+          "heads": [
+            0,
+            2
+          ],
+          "loading_squared": 0.017784358657387804
+        }
+      ]
+    },
+    {
+      "mode": 2,
+      "largest_native_pair_loading_squared": 0.5957467232293764,
+      "leading_native_pairs": [
+        {
+          "heads": [
+            2,
+            4
+          ],
+          "loading_squared": 0.5957467232293764
+        },
+        {
+          "heads": [
+            3,
+            4
+          ],
+          "loading_squared": 0.19411054061984387
+        },
+        {
+          "heads": [
+            0,
+            2
+          ],
+          "loading_squared": 0.1262302213733409
+        },
+        {
+          "heads": [
+            0,
+            4
+          ],
+          "loading_squared": 0.04524235582041024
+        }
+      ]
+    },
+    {
+      "mode": 3,
+      "largest_native_pair_loading_squared": 0.5757515406002897,
+      "leading_native_pairs": [
+        {
+          "heads": [
+            0,
+            2
+          ],
+          "loading_squared": 0.5757515406002897
+        },
+        {
+          "heads": [
+            0,
+            3
+          ],
+          "loading_squared": 0.22619217576136808
+        },
+        {
+          "heads": [
+            2,
+            4
+          ],
+          "loading_squared": 0.10877922784510062
+        },
+        {
+          "heads": [
+            0,
+            4
+          ],
+          "loading_squared": 0.0205961330041073
+        }
+      ]
+    }
+  ],
+  "redteam": {
+    "narrow_failed_claim": "Four shared linear routing contrasts retain50%of complete antisymmetric coefficient energy",
+    "unconverged_optimizer_explanation": false,
+    "reason": "Exact covariance eigendecomposition; instrument matches trace and dense toy. Other coefficient metrics/nonlinear factor structures remain outside this claim.",
+    "positive_claim_limit": "Simple alternating pair does not by itself mean a new semantic unit; inspect native pair concentration and off-diagonal covariance."
+  }
+}

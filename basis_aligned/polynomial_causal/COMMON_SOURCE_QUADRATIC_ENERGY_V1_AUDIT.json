@@ -1,0 +1,36 @@
+{
+  "maps": {
+    "native": {
+      "common": {
+        "total": 3.043977472473557e+17,
+        "symmetric": 1.8430342190555005e+17,
+        "antisymmetric": 1.2009432534180566e+17
+      },
+      "full_unembedding": {
+        "total": 3.137560672826354e+18,
+        "symmetric": 1.788145668569038e+18,
+        "antisymmetric": 1.3494150042573158e+18
+      },
+      "common_fraction": 0.09701732619345664,
+      "full_antisymmetric_fraction": 0.43008411468956415
+    },
+    "independent_source_permutations": {
+      "common": {
+        "total": 3.043977472473557e+17,
+        "symmetric": 1.8370796978603462e+17,
+        "antisymmetric": 1.2068977746132109e+17
+      },
+      "full_unembedding": {
+        "total": 3.137560672826354e+18,
+        "symmetric": 1.7858885022326497e+18,
+        "antisymmetric": 1.3516721705937044e+18
+      },
+      "common_fraction": 0.09701732619345664,
+      "full_antisymmetric_fraction": 0.4308035163431919
+    }
+  },
+  "scalar_fold_relative_error": 1.3426634038442458e-15,
+  "permutation_total_invariance": 0.0,
+  "passed": true,
+  "scope": "Exact all-U completion: centered and vocabulary-common outputs remain orthogonal after folding. Includes the common function; no natural-state weighting, radial simplification or causal importance claim."
+}

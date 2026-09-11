@@ -19542,3 +19542,24 @@ O-pullback A held B/C failed: top12830.54% vs residual29.00% and left-scramble29
 
 ### 2026-09-10T23:48:00.583210+00:00 — Codex: SOURCE-COHERENCE ALGEBRA IMPLEMENTED AND CONTROLLED
 O-pullback negative-result audit includes exact coordinate-gain normalization:3833xraw energy becomes.981xafter global O scaling; no causal dominance claim. Next shared-source value symmetry split and128x128low-rank energy contraction implemented; dense controls <=4e-16. One-source antisymmetric part vanishes; explicit two-source determinant=1 and Cauchy-Binet source-pair factorization passes. Native four-output-function measurement is specified in math note but not run; next implementation has begun. No own GPU job queued. Full goal active.
+
+### 2026-09-10T23:50:36.027881+00:00 — Codex: CLAIM NATIVE SHARED-SOURCE CHANNEL MEASUREMENT
+Previous turn progress843ff6621. Use fixed four varimax quadratics0,1,4,2. Fold native O17 and mixed current/base value maps; exact low-rank energy split, common signed permutation invariance and independent-per-head source permutation comparison. A<=1e-10 normalized bridges/nonnegativity, B antisymmetric coefficient fraction>=.10 in every selected form, C absolute mean native-vs-independent-permutation fraction difference>=.05. This is formal coefficient geometry for four fixed native output combinations, not full-tensor or in-distribution causal importance. No data.
+
+### 2026-09-10T23:52:32.018282+00:00 — Codex: FOUR-FORM KERNEL MEASURED; CLAIM FULL-TENSOR CONTRACTED NORM
+Four forms A/B held C failed: antisymmetric fractions40.89–43.60%, native-minus-permuted mean−.00114. Value mixing coefficient−.088867 means current1.088867 and subtracted base. Generic source-rank constraint significant; no learned alignment advantage. Claim exact hidden-Gram contraction of the full centered U tensor after O17/value fold, removing the four-form/outputrank128 truncation. Dense combined-output control next; no data.
+
+### 2026-09-10T23:56:57.103312+00:00 — Codex: FULL SOURCE RESULT; CLAIM ROUTING-CONTRAST MODE FACTORIZATION
+Full centered tensor A/B held C failed: antisymmetric43.3904%vs43.4491%source-scramble. This is generic large one-source kernel, live cross-source term retained. Next exact36x36 routing-head-wedge covariance for full native output/source tensor; no outputrank truncation. CPU dense wedge-Gram control before native execution. Its eigendecomposition tests reuse of few routing contrasts; leading head wedge simple-pair approximation is analytic. All value/QK/native-background costs stay explicit.
+
+### 2026-09-11T00:00:03.885158+00:00 — Codex: ROUTING FACTORIZATION SCORED; CLAIM DIAGONAL BASELINE AUDIT
+Exact routing-wedge covariance A/C held B failed: best4capture17.22%, rank90=31of36; leading4eachsinglepaircapture98.36–99.9996%. Claim immediate CPU covariance-diagonal/null comparison, normalized correlations and native-head pair loadings. Check whether passing simple-pair property is largely native coordinate/norm imbalance rather than new grouping. Dossier already contains attention17.2/17.3 specialists; do not rediscover them from coefficient energy.
+
+### 2026-09-11T00:02:27.982125+00:00 — Codex: ROUTING MODE AUDIT; CLAIM JOINT QK/NORMALIZER GRAM CONTROL
+Routing covariance mostly diagonal: offdiagonalFrob6.15%, maxnormalizedcrosspaircorr.0525; exact4capture17.22%vsdiagonal16.999%. Leading mode96.28%onknownheadpair17.2/17.3, not rediscovery of a circuit. Next implement exact coefficient Grams for joint QK1×QK2 biquadratic numerators and both branch-normalizer quartic products. Purpose: test whether the two heads actually supply different routing functions, retaining query/key normalization; no single-branch split or attention-output independence assumption. Dense synthetic controls first, no native QK claim.
+
+### 2026-09-11T00:03:59.956022+00:00 — Codex: CLAIM COMMON-OUTPUT COMPLETION OF SOURCE ENERGY
+The full source contraction currently covers the centered unembedding, with the common output held separate. Complete the entire-U accounting by folding the exact mean-output scalar through O/value and adding its orthogonal vocabulary contribution to the centered energy, including the same source-permutation control. CPU scalar contraction reuses checked128x128energy helper. Prior radial/input-trace audit alreadyexists; this is output-mean completion, not another radial discovery.
+
+### 2026-09-11T00:07:10.819097+00:00 — Codex: FULL SOURCE FACTORIZATION PUBLISHED; JOINT QK TOOL BEGUN
+Full-U antisymmetric43.01%vs43.08%control. Centered routing36mode exact factorization A/C held B failed;4capture17.22%, all-U upperbound24.59%. Diagonal baseline explains most top-mode concentration, known17.2/17.3pair not promoted. Joint QK product and full denominator polynomial Gram controls executed; next native routing comparison not yet run. New dated explanation2026-09-11/explanation_2026-09-11_0005.md, latest pointers updated. Full goal active; no own GPU job queued.

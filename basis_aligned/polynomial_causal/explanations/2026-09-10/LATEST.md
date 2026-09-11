@@ -1,5 +1,7 @@
 # Latest research state
 
+**Continued on11September:** [Read the newest update](../2026-09-11/LATEST.md). The notes below preserve10September’s state.
+
 **Newest update, 23:48:** [Attention pullback and shared-source constraints](unsupervised_structure_campaign.md#attention-pullback-and-shared-source-constraints--2348-utc). Equal-token varimax converged but still failed sparse usage. The exact U→MLP17→attention-output fold produced only small gains. A new tested algebra separates one-source terms from cross-source routing/value contrasts; native channel sizes remain unmeasured. No data fitting or identified circuits.
 
 **Current update, 22:26 — common output versus token contrasts:** [What the weight-only block fit found](unsupervised_structure_campaign.md#what-the-blocks-found-common-output-versus-token-contrasts--2226-utc). The exact common vocabulary-output channel accounts for7.20% of native coefficient energy. The block fit captures72.0% of that channel but only3.71% of the centered remainder. Both block and Gauss–Newton fits remain unconverged. Signed squares have now finished; see the newer optimizer result above. The common channel is preserved before nativeRMS/tanh; no data fitting or circuit identification is claimed.

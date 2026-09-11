@@ -9,11 +9,13 @@ House style: define every specialized term on first use, give its computational 
 abbreviations, and distinguish a diagnostic attribution from an executable compression. Numerical headlines should
 state what was actually measured and what unit is being used.
 
-## [Read the latest update → 10 September](2026-09-10/LATEST.md)
+## [Read the latest update → 11 September](2026-09-11/LATEST.md)
+
+**Newest focused update:** [Full unembedding/value fold and routing-contrast factorization](2026-09-11/explanation_2026-09-11_0005.md).
 
 **The newest consolidated report is [10 September, 18:42 UTC](2026-09-10/research_update_1842.md).** It covers progress since the previous requested update, defines the terms and computations, and explains what the mathematical cycles contributed.
 
-Today's supporting explanations are grouped in [the 10 September folder](2026-09-10/README.md), with a reading guide by research topic. Individual experiment notes are supporting detail; `LATEST.md` is the main update.
+New explanations are in [the 11 September folder](2026-09-11/README.md). The [10 September folder](2026-09-10/README.md) preserves the preceding campaign and topic guide. Individual experiment notes are supporting detail; `LATEST.md` is the main update.
 
 ## Earlier reports and project foundations
 

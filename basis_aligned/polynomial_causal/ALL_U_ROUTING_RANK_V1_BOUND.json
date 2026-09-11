@@ -1,0 +1,17 @@
+{
+  "common_fraction_of_full_antisymmetric_energy": 0.08899732473917657,
+  "all_U_top4_routing_capture_upper_bound": 0.24591556554103705,
+  "all_U_rank_at_least_for90percent": 30,
+  "upper_bound_curve": {
+    "1": 0.13706137289122092,
+    "2": 0.17424461307958822,
+    "4": 0.24591556554103705,
+    "8": 0.3757520277603824,
+    "16": 0.5943854135931552,
+    "24": 0.7816953928240375,
+    "32": 0.9364255754297719,
+    "36": 0.9999999999999997
+  },
+  "derivation": "For any rank-r orthogonal routing projector P, tr(P(G_center+G_common)) <= sum_top_r_eigenvalues(G_center)+tr(G_common), because G_common is positive semidefinite. Normalize by full antisymmetric energy. This is an upper bound, not an achieved all-U approximation.",
+  "scope": "Includes entire unembedding and complete mixed-value source lift. Bounds linear routing-mode rank in coefficient norm; not total arithmetic-circuit complexity, physical importance or usefulness of weak circuits."
+}

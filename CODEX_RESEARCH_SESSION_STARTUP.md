@@ -65,7 +65,7 @@ token-specific remainders, folded backward through the actual model.
 3. Read the protocol and latest relevant tail of [AGENT_BOARD.md](AGENT_BOARD.md).
    Claim work before building. Claude shares this checkout and runner.
 4. Read the single current result summary:
-   [LATEST.md](basis_aligned/polynomial_causal/explanations/2026-09-10/LATEST.md).
+   [LATEST.md](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md).
    Follow its explanation and primary receipts. Use the
    [explanation index](basis_aligned/polynomial_causal/explanations/README.md)
    when the dated location changes. Do not reread the archived startup history
@@ -82,18 +82,18 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 10 September 2026, 23:48
+## Current handoff — updated 11 September 2026, 00:07
 
-LATEST CONTINUATION: equal-token varimax completed A/B held C failed147.82s,
-median27.61factors/top4=.32056. ATTENTION_OUTPUT_PULLBACK_V1 completed A held
-B/C failed: top128capture30.54%vs29.00%original; same-head11.86%vs11.25%control.
-Red-team scale/alignment checks complete. Next shared-source attention quadratic
-symmetry split is derived and implemented with dense/low-rank CPU controls:
-SHARED_SOURCE_ATTENTION_QUADRATIC_V1_MATH.md and shared_source_attention_quadratic_v1.py.
-It distinguishes one-source rank1 inputs from live cross-source determinant
-terms. Native four-function channel measurement specified but not yet run;
-no own GPU successor currently queued. Latest hourly23:18,next00:18;
-math22:49,next01:49Sep11. Full goal active, weight-first; no new data fitting.
+LATEST CONTINUATION: full centered source/value tensor antisymmetric43.39%,
+source-permuted43.45%; all-U including common43.01%vs43.08%. All exact checks
+held; large special alignment claim failed. ROUTING_WEDGE_COVARIANCE_V1 A/C
+held B failed: best4capture17.22%, rank90=31of36. All-U upper bound4capture24.59%,
+rank>=30for90%. Mostly native-pair/diagonal geometry;17.2/17.3alreadyknown.
+Next joint_router_polynomial_gram_v1.py implements full QK1×QK2 numerator and
+squared query/key denominator Grams; dense CPU controls passed, no native QK
+comparison yet. No own GPU successor queued. Newest explanation in2026-09-11.
+Latest hourly23:18Sep10,next00:18Sep11; math22:49,next01:49Sep11. Full goal active,
+weight-first, no new data fitting. All negative receipts have executed audits.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

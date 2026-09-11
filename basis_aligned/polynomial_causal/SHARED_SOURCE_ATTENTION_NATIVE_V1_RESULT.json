@@ -1,0 +1,142 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_substantial_single_source_kernel": true,
+    "pred_c_source_alignment": false
+  },
+  "forms": [
+    {
+      "form": 0,
+      "energies": {
+        "native": {
+          "total": 45039359.23449547,
+          "symmetric": 26623754.127414186,
+          "antisymmetric": 18415605.107081283
+        },
+        "common_permutation": {
+          "total": 45039359.23449545,
+          "symmetric": 26623754.127414178,
+          "antisymmetric": 18415605.107081275
+        },
+        "independent_permutations": {
+          "total": 45039359.23449546,
+          "symmetric": 26512937.875971947,
+          "antisymmetric": 18526421.358523514
+        }
+      },
+      "antisymmetric_fraction": 0.40887804400593786,
+      "independent_permutation_fraction": 0.41133847535588836,
+      "difference": -0.002460431349950498,
+      "errors": {
+        "q_norm": 1.5543122344752192e-15,
+        "common_permutation": 3.3084753973220193e-16,
+        "independent_total": 1.1102230246251565e-16,
+        "energy_closure": 0.0,
+        "negative_energy": 0.0
+      }
+    },
+    {
+      "form": 1,
+      "energies": {
+        "native": {
+          "total": 41359011.868553594,
+          "symmetric": 23394783.957283653,
+          "antisymmetric": 17964227.91126994
+        },
+        "common_permutation": {
+          "total": 41359011.868553594,
+          "symmetric": 23394783.957283653,
+          "antisymmetric": 17964227.91126994
+        },
+        "independent_permutations": {
+          "total": 41359011.868553594,
+          "symmetric": 23385565.63489056,
+          "antisymmetric": 17973446.233663034
+        }
+      },
+      "antisymmetric_fraction": 0.4343485760337674,
+      "independent_permutation_fraction": 0.4345714614939518,
+      "difference": -0.0002228854601843966,
+      "errors": {
+        "q_norm": 8.881784197001252e-16,
+        "common_permutation": 0.0,
+        "independent_total": 0.0,
+        "energy_closure": 0.0,
+        "negative_energy": 0.0
+      }
+    },
+    {
+      "form": 4,
+      "energies": {
+        "native": {
+          "total": 34930092.34852283,
+          "symmetric": 19700217.346492402,
+          "antisymmetric": 15229875.002030425
+        },
+        "common_permutation": {
+          "total": 34930092.348522834,
+          "symmetric": 19700217.346492406,
+          "antisymmetric": 15229875.00203043
+        },
+        "independent_permutations": {
+          "total": 34930092.348522834,
+          "symmetric": 19676081.8769039,
+          "antisymmetric": 15254010.471618935
+        }
+      },
+      "antisymmetric_fraction": 0.4360101556580765,
+      "independent_permutation_fraction": 0.4367011206102355,
+      "difference": -0.0006909649521590344,
+      "errors": {
+        "q_norm": 1.7763568394002505e-15,
+        "common_permutation": 2.1329976807916768e-16,
+        "independent_total": 2.220446049250313e-16,
+        "energy_closure": 0.0,
+        "negative_energy": 0.0
+      }
+    },
+    {
+      "form": 2,
+      "energies": {
+        "native": {
+          "total": 35850078.08581611,
+          "symmetric": 20489668.023388576,
+          "antisymmetric": 15360410.062427532
+        },
+        "common_permutation": {
+          "total": 35850078.0858161,
+          "symmetric": 20489668.023388572,
+          "antisymmetric": 15360410.062427528
+        },
+        "independent_permutations": {
+          "total": 35850078.0858161,
+          "symmetric": 20447142.88943979,
+          "antisymmetric": 15402935.19637631
+        }
+      },
+      "antisymmetric_fraction": 0.42846238788263047,
+      "independent_permutation_fraction": 0.4296485815039383,
+      "difference": -0.0011861936213078406,
+      "errors": {
+        "q_norm": 1.5543122344752192e-15,
+        "common_permutation": 2.078260632818987e-16,
+        "independent_total": 2.220446049250313e-16,
+        "energy_closure": 0.0,
+        "negative_energy": 0.0
+      }
+    }
+  ],
+  "mean_fraction_difference": -0.0011401188459004424,
+  "native_value_mix": -0.0888671875,
+  "price": {
+    "body_forwards": 0,
+    "forms": 4,
+    "head_count": 9,
+    "head_width": 128,
+    "source_tuple_width": 2304,
+    "full_lifted_matrix_width": 20736,
+    "persistent_large_arrays": 0
+  },
+  "wall_seconds": 0.6198777183890343,
+  "scope": "Four fixed native output-combination quadratics. Antisymmetric coefficient directions vanish for one source but may be live with multiple sources; no data, circuit significance, full-tensor estimate or global simplification claim."
+}

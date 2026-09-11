@@ -1480,3 +1480,8 @@ fixed leading quadratic functions, with shared-source-coordinate controls.
 [CPU controls](../../SHARED_SOURCE_ATTENTION_QUADRATIC_V1_CONTROL.json).
 This advances the fuller attention fold; QK normalization, live routing,
 residual interfaces and the four circuit properties remain unresolved.
+
+
+## Continued on11September
+
+[The new update](../2026-09-11/explanation_2026-09-11_0005.md) completes the full-U mixed-value fold, factors the36-dimensional routing-contrast mode, audits the failed few-contrast claim, and records the next joint QK/normalizer tool.
