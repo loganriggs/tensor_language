@@ -1,0 +1,49 @@
+{
+  "pred_a": true,
+  "rows": [
+    {
+      "relation": "add_s",
+      "retained_remainder_trace": -33.16817466300455,
+      "radial_coefficient_correction": 0.028791818283858114,
+      "equal_unit_rms_scalar_shift": 33.16817466300455,
+      "trace_identity_error": 0.0
+    },
+    {
+      "relation": "add_es",
+      "retained_remainder_trace": -198.9975665977308,
+      "radial_coefficient_correction": 0.17274094322719688,
+      "equal_unit_rms_scalar_shift": 198.9975665977308,
+      "trace_identity_error": 0.0
+    },
+    {
+      "relation": "y_to_ies",
+      "retained_remainder_trace": -3.4599570052975324,
+      "radial_coefficient_correction": 0.003003434900431886,
+      "equal_unit_rms_scalar_shift": 3.4599570052975324,
+      "trace_identity_error": 0.0
+    },
+    {
+      "relation": "add_ed",
+      "retained_remainder_trace": 46.205173216252874,
+      "radial_coefficient_correction": -0.040108657305775064,
+      "equal_unit_rms_scalar_shift": -46.205173216252874,
+      "trace_identity_error": 0.0
+    },
+    {
+      "relation": "add_ing",
+      "retained_remainder_trace": 82.51396540976964,
+      "radial_coefficient_correction": -0.07162670608486948,
+      "equal_unit_rms_scalar_shift": -82.51396540976964,
+      "trace_identity_error": 0.0
+    },
+    {
+      "relation": "initial_capital",
+      "retained_remainder_trace": 256.89367251566387,
+      "radial_coefficient_correction": -0.22299797961429155,
+      "equal_unit_rms_scalar_shift": -256.89367251566387,
+      "trace_identity_error": 0.0
+    }
+  ],
+  "source_sha256": "c367ffa2671b63ce1c73d4582581f66f9447dc1c9d2aaf3840b7a52b39a8b077",
+  "scope": "Weight-only trace-leak accounting, not an executed corrected model or validation repair. Explicit original radial term was retained, but truncated remainder need not remain traceless. Known trace-preserving repair is prior art."
+}

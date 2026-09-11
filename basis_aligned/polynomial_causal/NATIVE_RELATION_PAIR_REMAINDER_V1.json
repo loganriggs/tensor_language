@@ -1,0 +1,51 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "maximum_energy_identity_error": 2.1941180789085728e-16,
+  "cells": [
+    {
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "n": 8,
+      "difference_fraction": 0.11086946352402828,
+      "base_donor_error_cosine": 0.7830947347287647,
+      "common_error_rms": 942.5615150111119,
+      "difference_error_rms": 332.83800749685787
+    },
+    {
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "n": 8,
+      "difference_fraction": 0.11931482441780102,
+      "base_donor_error_cosine": 0.7622550074332612,
+      "common_error_rms": 912.5126126077112,
+      "difference_error_rms": 335.87349710573477
+    },
+    {
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "n": 8,
+      "difference_fraction": 0.041422731847662285,
+      "base_donor_error_cosine": 0.973709322384002,
+      "common_error_rms": 1008.5643996494917,
+      "difference_error_rms": 209.65703523244215
+    },
+    {
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "n": 8,
+      "difference_fraction": 0.032309906688136665,
+      "base_donor_error_cosine": 0.9691639288630872,
+      "common_error_rms": 1015.8513649182747,
+      "difference_error_rms": 185.62218170946923
+    }
+  ],
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/NATIVE_TOKEN_RELATION_FOLD_V1.pt": "c367ffa2671b63ce1c73d4582581f66f9447dc1c9d2aaf3840b7a52b39a8b077",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FROZEN_BRANCH_MORPHOLOGY_V1_ENDPOINTS.pt": "e7e196aa127f03a61cfaf90cc168ee3f52cf7c9de47150bf604dd39313f906a1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FROZEN_BRANCH_MORPHOLOGY_V1_ROWS.json": "0fb48d8078b030beee027ae8fc8ffaf2eeaf9fe1ec6e5e951f67e58c6443a30e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/NATIVE_RELATION_PHYSICAL_V1_RESULT.json": "c8e19f4013a5b593b4bb89a71c1c2e14419ed67a6abb3c633f0222a94ed9c0fc"
+  },
+  "scope": "Paired error accounting in physical dual-writer norm on existing validation rows. No empirical offset inserted, no factors refitted, no repair of absolute replacement failure. Shared pair error does not establish a globally invariant feature, OOD robustness or native semantic hierarchy."
+}

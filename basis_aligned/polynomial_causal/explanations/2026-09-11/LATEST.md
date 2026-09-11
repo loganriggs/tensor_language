@@ -84,3 +84,7 @@ Frozen branch 1 distinguishes present/past on all 32 tested pairs, but the two-b
 ### 20:24 — Suffix-directed writes transfer a small part of two grammatical behaviors
 
 A weights-only atlas finds broad suffix preferences. The frozen bank then moves subject–verb and count-noun answers correctly with small control effects, but transfers only 3.6–4.5% of the native answer change, below its 10% bar. Exact local accounting finds a larger native last-MLP signal (25–33% of the full change), mostly unexplained by this bank. No sufficiency or circuit promotion. [Math, red-team and results](../../BRANCH_TOKEN_RELATIONS_V1_MATH.md).
+
+### 20:38 — Full-native fold yields a stronger change predictor
+
+Forty-eight weight-derived squares transfer 18–21% of grammatical answer changes and match the exact native readout-span effects within 4–6% error, with small control effects. Ordinary replacement fails on count nouns; broad-text absolute prediction also remains poor. Executed remainder accounting rejects a simple invariant-offset explanation. No data fitting, replacement adoption or OOD promotion. [Primary math and all receipts](../../BRANCH_TOKEN_RELATIONS_V1_MATH.md). Hourly review completed at the 20:27 boundary; next due 21:27, math due 22:51.

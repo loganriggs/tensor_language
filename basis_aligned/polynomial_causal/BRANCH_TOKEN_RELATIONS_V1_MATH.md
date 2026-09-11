@@ -82,3 +82,65 @@ The run also saved native-MLP-output-only swaps. A subsequent exact two-token CP
 Native last-MLP-only swaps transfer **25.2–33.0%** of the full-model margin change across the four task/direction means. The two branches reproduce only **12.8–17.9% of those local MLP swap effects**, missing the separate 50% local-coverage bar. Holding the base normalization denominator fixed changes these effects only modestly. Local accounting A/B pass and C fails. These alternate denominators do not change the original screen verdict.
 
 Unlike the tense screen, there is a sizeable positive native MLP contribution to explain. The next weights-first question is whether folding the broad suffix contrast through the **entire native last bilinear layer**, rather than just this approximate node, reveals a larger compact computation. Such a fold would preserve bias, radial terms and final normalization interfaces. It would test a new output readout of the original weights, not fit the current validation examples or redefine the present small bank as sufficient.
+
+## Full-native readout fold: absolute values and changes differ
+
+That next fold is now executed for all six spelling relations. For each relation, average the transformed-minus-base unembedding rows and normalize the resulting physical readout $r$. Its native scalar MLP output is
+
+$$
+f_r(x)=x^\top Q_rx+\beta_r,\qquad
+Q_r=\operatorname{sym}\!\left(L^\top\operatorname{diag}(D^\top r)R\right),
+\qquad \beta_r=r^\top b.
+$$
+
+Here $R$ in the equation denotes the native right input matrix. The trace term $\alpha_r\lVert x\rVert^2$, with $\alpha_r=\operatorname{tr}(Q_r)/1152$, and the bias are retained exactly. Complete eigenanalysis of the traceless remainder gives the optimal signed-square approximation. One real product can retain the largest positive and largest-magnitude negative eigenvalues together; $M$ products can retain up to $M$ eigenvalues of each sign. These are scalar coefficient-Frobenius optima at fixed readouts, not general circuit or arbitrary-output-mixture lower bounds.
+
+| Fixed suffix readout | One-product capture | 16-product capture | Products for 90% |
+|---|---:|---:|---:|
+| `s` | 19.81% | 45.44% | 202 |
+| `es` | 16.30% | 39.61% | 215 |
+| `y` → `ies` | 16.10% | 38.48% | 216 |
+
+All exact folding and leading-product checks pass within $4.11\times10^{-15}$. The one/16-product 90% bars fail. This is not an iterative optimization failure. It also does not establish that the large coefficient remainder matters equally on native model states. [Fold, spectra and compact factors](NATIVE_TOKEN_RELATION_FOLD_V1.json).
+
+We therefore evaluated the already frozen leading product and **16 signed squares** per readout on 384 FineWeb, 384 corpus-shift and 128 grammatical-screen endpoints, with no data fitting or rank selection. Sixteen squares and sixteen general products are different budgets; the natural-input test uses the saved sixteen-square approximation. Exact folding replays cached native MLP outputs within $1.03\times10^{-6}$ relative error. The first validation script stopped on an old receipt's nested cache-hash schema; V2 repairs that lookup only, with the same factors, computations and bars. [Preserved failure](NATIVE_TOKEN_RELATION_VALIDATION_V1_FAILURE.json) · [Completed validation](NATIVE_TOKEN_RELATION_VALIDATION_V2.json).
+
+The general-text absolute-value bar fails. Suffix full-output relative RMS errors are **35–52% on FineWeb** and **39–57% on the corpus-shift panel**. The retained trace/bias terms do not make these accurate general predictors.
+
+However, **paired grammatical changes pass**: all three readouts predict the native scalar differences with **0.93–8.43% relative RMS error**, and every pair has the correct sign. For the `s` readout specifically, the errors are 0.93%/1.38% for the two subject–verb directions and 6.43%/5.45% for count nouns. Prediction of a difference can be much better than prediction of its endpoints when the approximation error is shared between paired contexts. These results validate frozen weights on the existing constructed panel; they are not fresh OOD confirmation or a physical circuit replacement.
+
+The next physical screen uses the three suffix readouts as rows of a matrix $A$. Their dual output writers are
+
+$$
+V=A^\top(AA^\top)^{-1},\qquad AV=I.
+$$
+
+Consequently, $VA$ is the orthogonal projector onto their joint physical readout span. Using dual writers avoids simply adding three overlapping projections. The compact scalar program supplies 16 signed squares per readout, 48 total, plus the exact radial/bias terms. The native complement remains required. Its donor-difference write is tested separately from absolute replacement, so accurate differences cannot conceal an inaccurate ordinary replacement. The source is bound and queued through the managed runner; no physical-screen result is claimed in this paragraph.
+
+### Physical screen completed: useful changes, failed ordinary replacement
+
+The managed tail-only screen completed at 20:34:48: zero model-body forwards, 512 tail rows and 0.485 seconds inside execution. The readout Gram condition number is 24.76; the dual-writer identity agrees within $5.24\times10^{-16}$. Earlier native margins and the old bank intervention replay within $5.73\times10^{-6}$ nats. [Physical result](NATIVE_RELATION_PHYSICAL_V1_RESULT.json).
+
+| Task / direction | Exact native span recovery | 48-square recovery | Relative error in intervention effect |
+|---|---:|---:|---:|
+| Verb base → suffixed | 19.13% | 19.84% | 3.93% |
+| Verb suffixed → base | 19.77% | 20.68% | 4.91% |
+| Noun base → suffixed | 21.96% | 20.58% | 6.31% |
+| Noun suffixed → base | 18.79% | 17.77% | 5.41% |
+
+Recovery uses the original full-native donor margin gap. The approximation's intervention-effect signs agree with the exact span on every task pair. Mean absolute swap CE on pronoun and unrelated controls is 0.00804 and 0.00590 nats, respectively. **A/B/C/E pass:** native-span transfer, approximate-effect fidelity and these controls hold. This is a stronger change predictor than the previous two-branch surrogate, with no factor fitting to the prompts.
+
+**D fails:** replacing the native three-coordinate output with its approximate absolute output changes count-noun CE by 0.15930 nats on average, above the 0.05 allowance. Verb/pronoun replacement changes are 0.03908 and unrelated-control change is 0.01304. We cannot adopt this as an ordinary layer replacement or claim that it supplies the whole grammatical computation. Native complementary computation remains installed. The tested object is a compact, conditional predictor of a substantial signed causal change.
+
+A follow-up tests the tempting explanation that all omitted computation is merely constant across each pair. Let $e_b=f(x_b)-\widehat f(x_b)$ and $e_d=f(x_d)-\widehat f(x_d)$. Split them into
+
+$$
+e_{\mathrm{common}}=\tfrac12(e_b+e_d),\qquad
+e_{\mathrm{difference}}=\tfrac12(e_d-e_b).
+$$
+
+Using the dual-writer metric $V^\top V$, the summed endpoint error energy is exactly twice the sum of these two energies. The [executed accounting](NATIVE_RELATION_PAIR_REMAINDER_V1.json) holds within $2.20\times10^{-16}$. However, the difference component carries 11.1–11.9% of paired error energy on verbs and 3.2–4.1% on nouns, above the registered 1% bar. Base/donor error cosine is only 0.76–0.78 on verbs, though 0.97 on nouns. A passes, B/C fail. Shared error contributes to the difference/absolute split, but the stronger invariant-offset explanation is unsupported. No empirical offset was fitted or inserted.
+
+The next priority is a frozen test on different lexical items and grammatical constructions, followed by explicit removal/composition checks if transfer survives. General-text prediction and ordinary replacement remain separate unresolved requirements. Successful task differences do not exhaust the native tensor or establish a unique hierarchy.
+
+One final weight-only audit identifies a narrower approximation detail to check before interpreting replacement failure: truncating a traceless matrix does not preserve its trace. The original explicit radial term was retained, but the retained sixteen-square remainder adds trace -33.17, -199.00 and -3.46 for the three suffix readouts. The known trace-preserving repair subtracts this retained trace times $\lVert x\rVert^2/1152$ from the approximation. Its algebraic trace identity passes exactly; it has not yet been evaluated as a corrected physical replacement. This correction comes from weights, not an empirical offset, and is existing radial-repair methodology applied to this new program. It leaves donor differences unchanged when input radii are equal. [Trace-leak audit](NATIVE_RELATION_TRACE_LEAK_V1.json). Preserve every existing replacement/prediction failure until that separate check is executed.
