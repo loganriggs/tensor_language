@@ -55,3 +55,7 @@ The frozen 128-prefix screen passes suppression and own-token specificity, but i
 ### 18:54 UTC — Matched local graph refits queued
 
 The [graph-edit study](../../RESIDUAL_PARENT_EDGE_V1_MATH.md) now releases shared readers and input spaces inside the complete affected five-group component. CPU objective/injection/gradient checks pass. Original and added-connection fits are separately queued for20minutes each on lane1; both use the same fixed59group background and five-dimensional output span. No fit results or new circuit claim yet.
+
+### 19:03 UTC — Four-domain corpus-shift validation queued
+
+The original frozen two-branch suppression candidate will be tested on128documents across four Pile domains, separately from the pending graph refits. Rows and per-domain checks are frozen; no fitting or outcome yet. [Scope and protocol](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md). Bothlocalrefits and thisshortvalidation are queued behind peer609.
