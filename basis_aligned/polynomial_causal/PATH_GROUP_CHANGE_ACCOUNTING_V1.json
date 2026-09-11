@@ -1,0 +1,212 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "maximum_replay_error": 7.625798023878974e-16,
+  "reports": [
+    {
+      "name": "centered8",
+      "level_relative_rms": 0.028613760394707016,
+      "globally_centered_relative_rms": 0.06794493727968398,
+      "mean_energy_fraction": [
+        0.9554596186564538,
+        0.9560255223080717
+      ],
+      "families": [
+        {
+          "family": "A1",
+          "paired_write_relative_rms": 0.05831742795140051,
+          "paired_change_norm_over_endpoint_norm": [
+            0.24585974978129546,
+            0.2427637793562267
+          ],
+          "first_order_prediction_relative_rms": [
+            0.10575578682992919,
+            0.10520686672783269
+          ],
+          "first_order_replica_relative_rms": 0.06669282474507293,
+          "fp64_exact_swap_replica_relative_rms": 0.06798167979920827
+        },
+        {
+          "family": "A2",
+          "paired_write_relative_rms": 0.05038279456777952,
+          "paired_change_norm_over_endpoint_norm": [
+            0.11259958263837258,
+            0.11263267851800556
+          ],
+          "first_order_prediction_relative_rms": [
+            0.04130935226670479,
+            0.0406651102514435
+          ],
+          "first_order_replica_relative_rms": 0.019957614599889106,
+          "fp64_exact_swap_replica_relative_rms": 0.018987280205812137
+        },
+        {
+          "family": "past",
+          "paired_write_relative_rms": 0.29182402604595403,
+          "paired_change_norm_over_endpoint_norm": [
+            0.06479621592546833,
+            0.05696735305147723
+          ],
+          "first_order_prediction_relative_rms": [
+            0.01371070522932435,
+            0.012864811648996239
+          ],
+          "first_order_replica_relative_rms": 0.27177377087132215,
+          "fp64_exact_swap_replica_relative_rms": 0.2703287026557642
+        },
+        {
+          "family": "progressive",
+          "paired_write_relative_rms": 0.17170662948994805,
+          "paired_change_norm_over_endpoint_norm": [
+            0.1526088638419904,
+            0.13926418351480202
+          ],
+          "first_order_prediction_relative_rms": [
+            0.10170655848598474,
+            0.08817885046010497
+          ],
+          "first_order_replica_relative_rms": 0.6162773898201616,
+          "fp64_exact_swap_replica_relative_rms": 0.6262191473203663
+        }
+      ]
+    },
+    {
+      "name": "full96",
+      "level_relative_rms": 0.015509278835194104,
+      "globally_centered_relative_rms": 0.06310330619102883,
+      "mean_energy_fraction": [
+        0.9637542926964757,
+        0.9642096389607961
+      ],
+      "families": [
+        {
+          "family": "A1",
+          "paired_write_relative_rms": 0.037754747077851016,
+          "paired_change_norm_over_endpoint_norm": [
+            0.24894264950011413,
+            0.24696725220903992
+          ],
+          "first_order_prediction_relative_rms": [
+            0.11363989823876705,
+            0.11160714602571987
+          ],
+          "first_order_replica_relative_rms": 0.07038976588910802,
+          "fp64_exact_swap_replica_relative_rms": 0.07220691677194362
+        },
+        {
+          "family": "A2",
+          "paired_write_relative_rms": 0.03948438341191177,
+          "paired_change_norm_over_endpoint_norm": [
+            0.10584647831329434,
+            0.10566470577802432
+          ],
+          "first_order_prediction_relative_rms": [
+            0.044334026710948174,
+            0.04423229133866383
+          ],
+          "first_order_replica_relative_rms": 0.024119855575694724,
+          "fp64_exact_swap_replica_relative_rms": 0.0231743516671799
+        },
+        {
+          "family": "past",
+          "paired_write_relative_rms": 0.2575208258581259,
+          "paired_change_norm_over_endpoint_norm": [
+            0.06187755824412543,
+            0.05690614192111582
+          ],
+          "first_order_prediction_relative_rms": [
+            0.01358716506270492,
+            0.013651115661052508
+          ],
+          "first_order_replica_relative_rms": 0.2874445888420152,
+          "fp64_exact_swap_replica_relative_rms": 0.2878847195016568
+        },
+        {
+          "family": "progressive",
+          "paired_write_relative_rms": 0.14497465293560718,
+          "paired_change_norm_over_endpoint_norm": [
+            0.14648505989270041,
+            0.13314274004922913
+          ],
+          "first_order_prediction_relative_rms": [
+            0.147165724663136,
+            0.0865629286393257
+          ],
+          "first_order_replica_relative_rms": 0.5081265969747312,
+          "fp64_exact_swap_replica_relative_rms": 0.5660417337103445
+        }
+      ]
+    },
+    {
+      "name": "stable18",
+      "level_relative_rms": 0.2818562988420027,
+      "globally_centered_relative_rms": 0.3186196661045624,
+      "mean_energy_fraction": [
+        0.9649754590544907,
+        0.9788495689279196
+      ],
+      "families": [
+        {
+          "family": "A1",
+          "paired_write_relative_rms": 0.2942824560511602,
+          "paired_change_norm_over_endpoint_norm": [
+            0.28723251161262536,
+            0.2617543107443419
+          ],
+          "first_order_prediction_relative_rms": [
+            0.030421634833096865,
+            0.035379770110010686
+          ],
+          "first_order_replica_relative_rms": 0.3820002668250408,
+          "fp64_exact_swap_replica_relative_rms": 0.4035104493220345
+        },
+        {
+          "family": "A2",
+          "paired_write_relative_rms": 0.6216181994255394,
+          "paired_change_norm_over_endpoint_norm": [
+            0.05273047376263494,
+            0.05127423776031069
+          ],
+          "first_order_prediction_relative_rms": [
+            0.008077849886688032,
+            0.011662302787240458
+          ],
+          "first_order_replica_relative_rms": 0.5478395909520977,
+          "fp64_exact_swap_replica_relative_rms": 0.5480242815080871
+        },
+        {
+          "family": "past",
+          "paired_write_relative_rms": 0.24006271423223396,
+          "paired_change_norm_over_endpoint_norm": [
+            0.15335995771734404,
+            0.11226697754724183
+          ],
+          "first_order_prediction_relative_rms": [
+            0.008910509596000375,
+            0.008915301470415719
+          ],
+          "first_order_replica_relative_rms": 0.22389813607792233,
+          "fp64_exact_swap_replica_relative_rms": 0.22290765280647676
+        },
+        {
+          "family": "progressive",
+          "paired_write_relative_rms": 0.3094958805599233,
+          "paired_change_norm_over_endpoint_norm": [
+            0.17168211467821545,
+            0.12307140084885794
+          ],
+          "first_order_prediction_relative_rms": [
+            0.014902387687876864,
+            0.02429714478802643
+          ],
+          "first_order_replica_relative_rms": 0.44894977100046257,
+          "fp64_exact_swap_replica_relative_rms": 0.4401947681310557
+        }
+      ]
+    }
+  ],
+  "source_native_receipt_sha256": "e9fe77dab585e3ed3dde0046c805f8cb60a0811a515409228a4d2c624781de17",
+  "script_sha256": "aed2644538658019c4d1f7ba4bbc8454ecb68bfa36ed4b0344b8089e8a6248a0",
+  "scope": "Diagnostic fp64 analytical native tail with native fp32 epsilon; original fp32 behavioral verdict retained. Centering and pair differences are diagnostics, not intervention changes."
+}

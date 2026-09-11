@@ -132,3 +132,7 @@ New words/constructions confirm small neighboring binary-choice changes and near
 ### Converged path structure passes coefficient checks, misses native replication
 
 [Primary results](../../COUPLED_SPARSE_PATH_V1_MATH.md#converged-fits-and-reproducible-coefficient-structure): allfourfitsconverged;18edgepairs passbothfull/centeredcosine screens. Quote-AA isold150alias. Frozenbank native-cache replica write/swap/CE criteria fail; executed accounting points more to writer differences. No circuit promotion. Next method comparisons concern output sharing and deeper composed functions.
+
+### 23:01 — Shared output groups clarify the replication limit
+
+[Mathematical review and native tests](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_2256.md): output subspaces are highly reproducible, but full computations differ. Leading-eight group and full96program replicate native write levels/removal effects, while past/progressive swaps fail. Executed change/readout accounting preserves these misses; selecting18matchededges was a different, less stable intervention boundary. No identified circuits. Next math review01:56September12.
