@@ -183,3 +183,20 @@ cosines). No new behavior or identified circuit; head17.4 enrichment was post ho
 Primary receipts in polynomial_causal: JOINT_QK_VALUE_PORTS_V1_RESULT.json,
 JOINT_QK_VALUE_STREAM_CLOSURE_V1_AUDIT.json, JOINT_QK_SOURCE_BOUND_V1_RESULT.json,
 JOINT_QK_SOURCE_SPACE_COMPARISON_V1_AUDIT.json. Explanation0243 defines the metrics.
+
+
+## 11 September 02:55 — exact conditional normalized source edits
+
+For the frozen QK spectral source spaces, numerator-only source-removal accounting
+has10.8–33.3% routing-effect error on formal probes. Recomputing key normalizers
+is essential to the exact local formula. A compiled predictor now uses only
+baseline score/norm/value ports plus source/query/norm projections; no edited
+endpoint enters prediction. Six native-weight edit cases across all9heads and
+both distances, including order and gauge checks, pass at6.42e-15. Price per
+head/position:92 dynamic numbers,595 small-core numbers,97,920 projection-map
+numbers plus native background. This is a conditional intervention tool, not a
+semantic circuit or full-model simplification. The next position-shared source
+influence method is implemented and CPU-controlled; native selection pending.
+Receipts: NORMALIZED_QK_SOURCE_EDIT_V1_RESULT.json,
+COMPILED_QK_SOURCE_EDIT_V1_RESULT.json,
+JOINT_QK_POSITION_INFLUENCE_V1_CONTROL.json in polynomial_causal.

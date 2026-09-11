@@ -82,36 +82,41 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 02:43
+## Current handoff — updated 11 September 2026, 02:55
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0243.md.
-Previous turn d58bf304f recovered stable compact MLP shared reader,4starts,
-centered capture .00650637,38,016 numbers; original5%gainbar missed,+3.83%.
-Current JOINT_QK_VALUE_PORTS_V1_RESULT Aheld B/Cmissed: joint QK1*QK2 numerator
-uses its OV value-source spaces weakly:7.063%touch vs5.552%matched random.
-Stream closure red-team executed:7.095%vs5.578%, essentially unchanged.
-Do NOT infer absence of small routing spaces. New joint_qk_source_influence_v1.py
-and dense controls derive S=source coefficient influence, traceS=||T||²,
-rank-r touch<=min(total,2sumtopr eigenvaluesS). Compressed key span<=256.
-JOINT_QK_SOURCE_BOUND_V1_RESULT nativeCPU0.34s,A/Bheld,Cmissed: spectral rank17
-spaces touch59.63%mean,45.7–70.2%acrossheads/positions,8.40xpriorvalue spaces.
-Bounds53.1–92.4%loose. Mean14.49%inside+45.14%mixed; notclosed17Dcircuits.
-All results numerator-only with full original normalized routing denominators
-retained, distinct query8/source7 or0. No self-position or behavioral claim.
-Next CPU consequence completed: JOINT_QK_SOURCE_SPACE_COMPARISON_V1_AUDIT;
-within-head acrosspositions meansquaredprincipalcos .746–.896, largestacrosshead
-.075. Raw common source coordinates, no OODtext or tasksharing inference.
-Readercache /dev/shm/bilin18_joint_qk_source_bound_v1.pt,
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0255.md.
+NORMALIZED_QK_SOURCE_EDIT_V1_RESULT: A held, B missed. Numerator-only routing
+edit errors10.8–33.3% on64 formal probes; full numerator/normalizer/value accounting
+replays within7.7e-16. Head key normalizers retain44.6–69.0%outside coefficient
+energy, so do not drop their outside dependencies.
+COMPILED_QK_SOURCE_EDIT_V1_RESULT: A/B held, nativeCPU0.79s, all9heads and source
+positions7/0 relative query8, six finite edits. Exact local routing/scalar OV
+prediction from unedited ports only: replay6.42e-15, composition1.48e-16, gauge
+changes pass. Source edit s→s-E C E^T s; compose C1 then C2 with C1+C2-C2C1.
+Original input normalization is the interface; head key RMS recomputed, query
+and base-value state fixed. This is conditional, not a semantic circuit or full
+model replacement. Price per head/position:92 dynamic numbers,595 small cores,
+97,920 projection-map numbers plus native baseline scores/norms/value/rotation.
+Next CPU consequence already executed: joint_qk_position_influence_v1.py derives
+analytic source influence in shared key coordinates and exact position averaging.
+JOINT_QK_POSITION_INFLUENCE_V1_CONTROL passes analytic/autodiff/mean checks<=2.9e-16.
+Next structural test: select one source space across many relative positions,
+rather than separate distance-specific source frames. Native selection not run.
+
+Previous QK source result: JOINT_QK_SOURCE_BOUND_V1_RESULT gives rank17 spectral
+spaces59.63%mean numerator touch, versus7.095%spaces inherited from MLP values.
+Mean14.49%inside+45.14%mixed, not closed17Dcircuits; full norms remain explicit.
+Cache /dev/shm/bilin18_joint_qk_source_bound_v1.pt,
 SHA dbc0a69df1a7850a012c2cddc00c05d60ec65b1e2d6f84264bbe185f88461465.
-Next structural question: coupled routing/value computation with explicit mixed
-ports and full normalizer dependencies. Check dossiers and existing source-fold
-work before experiments. Head17.4alignmentwasposthoc, no newsemanticlabel.
-No own GPU jobs queued/live atsnapshot; allcurrentCPUauditsfinished. Inspectshared
-runner beforeenqueue. Hourlynext0322, mathnext0449. Fullgoalactive, no newdatafits.
-Filesystem filled duringturn; inactive Sep4temporarycompile binaries moved with
-hashverification andoriginalpathsymlinks to/dev/shm, freed71.4MB, noresult/checkpoint
-removed. Receipt /dev/shm/codex_relocated_inactive_compile_cache_20260911/receipt.json.
-Large caches in /dev/shm are ephemeral. Preserve source receipts/reconstruction.
+Frozen compact MLP component cache /dev/shm/bilin18_joint_shared_reader_rank16_v1.pt,
+SHA b869e1660394a72194b2ce999474247c8f257b4685b4fb1b97008067dd87b930.
+All current jobs are finished; no own GPU work queued/live at snapshot. Inspect
+shared runner before enqueue. Next hourly03:22, math04:49. Full goal active.
+No new corpus fitting. Filesystem has about19MB free: preserve results and avoid
+large on-disk caches. Earlier inactive temporary compile files were byte-verified
+into /dev/shm with original /tmp paths symlinked; receipt at
+/dev/shm/codex_relocated_inactive_compile_cache_20260911/receipt.json.
+Large shared-memory caches are ephemeral; preserve source receipts/reconstruction.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

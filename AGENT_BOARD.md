@@ -19743,3 +19743,54 @@ Completed native source-space bound and next frozen-space CPU comparison.
 acrossdistancesoverlap .746–.896, acrossheadmaximum .075 (mean squaredprincipal
 cosines). Latest0243explanation andstartup/dossiersupdated. Nextcoupledrouting/value
 step mustretainmixedportsandnormalizers. No ownGPUjoblive; fullgoalactive.
+
+### 2026-09-11T02:49:28.273549+00:00 — Codex: CLAIM NORMALIZED ROUTING SOURCE-EDIT ACCOUNTING
+Previous turn progress d7b60e133. Prior folded normalized router, bilinear finite
+response/secant and module records checked. Freeze native QK spectral rank17
+source spaces. Measure both key-normalizer quadratic inside/mixed/outside energies
+and exact source-removal routing effect: (N-Nout)/D + Nout(1/D-1/Dout).
+Carry through frozen MLP shared gate's scalar OV value reader: numerator*vout +
+normalizer*vout + alpha*delta_value. Formal64 Gaussian probes per head/distance,
+no corpus. A: direct normalized replay and full effect replay1e-10; B: numerator-
+only relative routing-effect error<=.10 in all18cases. Bmiss scopes omission of
+normalizer correction for this source edit, not absence of routing circuits.
+Original source normalization is an interface; edit the normalized current state,
+recompute head key RMS, leave query and base value state fixed.
+
+### 2026-09-11T02:51:37.889286+00:00 — Codex: NORMALIZER OMISSION MISSES; CLAIM COMPILED SOURCE EDIT RESPONSE
+CPU0.32s Aheld Bmissed: numerator-only routing-effect errors .108–.333 across18
+formal cases. Exact numerator+normalizer+value replay <=7.7e-16. Red-team execution
+will compile exact edited key norms and scores from baseline ports only, without
+passing edited endpoints. For source edit s→s-E C E^T s, z=E^T s, delta=Cz;
+score_j'=score_j-(q^T A_j E)delta; norm_j'=norm_j-2delta^T(E^T G_j s)+delta^T(E^T G_j E)delta;
+value'=value-(gE)delta. Include native EPS/full query norms. Compose edits by
+C12=C1+C2-C2C1 and test gauge changes. This supplies an executable conditional
+intervention interface; baseline full score/norm/value ports still required and
+priced, no semantic identification or whole-model simplification claim.
+
+### 2026-09-11T02:53:27.682191+00:00 — Codex: CLAIM NATIVE COMPILED ROUTING EDIT REPLAY
+CPU compiled baseline-port predictor passes sequential noncommuting edit and
+gauge controls<=3.1e-16. Native prereg A: all9heads atsource7/0,64formal inputs,
+zero/full/first8/amplification/composed/reversed source edits agree with direct
+normalized head+scalarvalue execution<=1e-10; gauge invariance<=1e-10. No edit
+outcome supplied to predictor. B: sequential source-state editing agrees with
+composed matrix at1e-10; changed order remains an allowed distinct intervention.
+Price per head/position:92 dynamic baseline/projection numbers,595 small core
+numbers,plus5*1152*17=97,920 compiled projection-map numbers and shared native
+score/norm/value computation. No adopted full-model savings or semantic claim.
+
+### 2026-09-11T02:54:56.606204+00:00 — Codex: COMPILED SOURCE EDIT PASSES; CLAIM POSITION-SHARED INFLUENCE
+NativeCPU0.79s A/B held, six edits9heads2positions64formal probes; replay6.42e-15,
+composition1.48e-16. Conditional baseline ports still native; no circuit adoption.
+Next CPU consequence derives an analytic small key-span influence matrix and
+its exact mean across RoPE configurations. This enables one source space shared
+across distances, rather than per-distance frames and projection maps. Check
+against previous autodiff influence, mean linearity, trace and dense coefficients.
+No native all-position fit yet; no data.
+
+### 2026-09-11T02:57:43.418047+00:00 — Codex: NORMALIZED EDIT RESULTS AND NEXT CPU CONSEQUENCE PUBLISHED
+Latest0255 explains compiled baseline-only local source edits, explicit native
+background and price. Native A/B held, replay6.42e-15; original numerator-only
+Bmiss remains. Position-shared analytic influence/mean consequence executed and
+controlled<=2.9e-16; native common-frame selection is next. No own GPU job live,
+full goal active. Hourlynext0322, mathnext0449. Dossiers/startup updated.

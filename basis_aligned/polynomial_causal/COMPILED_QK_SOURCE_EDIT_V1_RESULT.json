@@ -1,0 +1,727 @@
+{
+  "predictions": {
+    "pred_a_compiled_replay": true,
+    "pred_b_composition": true
+  },
+  "rows": [
+    {
+      "head": 0,
+      "source_position": 7,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 4.3607358936639653e-16,
+          "routing_relative_error": 4.118128533808608e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 2.6433573214262172e-15,
+          "routing_relative_error": 3.255526687406802e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.162195819595675e-15,
+          "routing_relative_error": 2.323814106436899e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 1.9232668446863374e-15,
+          "routing_relative_error": 1.5576340853150459e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 2.6200111968686603e-15,
+          "routing_relative_error": 2.573753461361778e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 2.6119621334188344e-15,
+          "routing_relative_error": 2.5956302045822906e-15
+        }
+      ],
+      "gauge_relative_error": 1.4431568651019906e-15,
+      "sequential_source_relative_error": 1.2847372461009464e-16,
+      "order_effect_relative_to_composed": 0.14695763593642908
+    },
+    {
+      "head": 0,
+      "source_position": 0,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 4.473244828125781e-16,
+          "routing_relative_error": 4.085939650921743e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 2.999499325107177e-15,
+          "routing_relative_error": 3.0379476854552974e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.874167140583842e-15,
+          "routing_relative_error": 2.69810855448773e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 2.813925145057296e-15,
+          "routing_relative_error": 2.1714637132157257e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 2.527650032587632e-15,
+          "routing_relative_error": 2.6749591924936695e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 3.1223688574368388e-15,
+          "routing_relative_error": 3.33499248777101e-15
+        }
+      ],
+      "gauge_relative_error": 1.7154842728677585e-15,
+      "sequential_source_relative_error": 1.2893326420108894e-16,
+      "order_effect_relative_to_composed": 0.28278681940582423
+    },
+    {
+      "head": 1,
+      "source_position": 7,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 4.804277050510407e-16,
+          "routing_relative_error": 3.5353717926087277e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 1.7984303690475623e-15,
+          "routing_relative_error": 2.8487355356984387e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.34746302770647e-15,
+          "routing_relative_error": 2.216177310234315e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 1.8665153215362276e-15,
+          "routing_relative_error": 2.0643800945653335e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 3.122979453751123e-15,
+          "routing_relative_error": 2.925508247302135e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 2.647428718584289e-15,
+          "routing_relative_error": 2.6722554626757493e-15
+        }
+      ],
+      "gauge_relative_error": 1.0902322724349079e-15,
+      "sequential_source_relative_error": 1.3143984545352792e-16,
+      "order_effect_relative_to_composed": 0.1595301184680021
+    },
+    {
+      "head": 1,
+      "source_position": 0,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 3.556279058070457e-16,
+          "routing_relative_error": 3.1597145509504883e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 2.6281339017494687e-15,
+          "routing_relative_error": 1.9389968251742767e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.7298211737088485e-15,
+          "routing_relative_error": 2.084973323896638e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 1.954542207545599e-15,
+          "routing_relative_error": 1.6999829817975416e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 3.2695387997438116e-15,
+          "routing_relative_error": 2.327310556852871e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 2.608015175557531e-15,
+          "routing_relative_error": 2.0615694586163007e-15
+        }
+      ],
+      "gauge_relative_error": 1.123114407124662e-15,
+      "sequential_source_relative_error": 1.3814650467548688e-16,
+      "order_effect_relative_to_composed": 0.15949583556917743
+    },
+    {
+      "head": 2,
+      "source_position": 7,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 3.265104443995823e-16,
+          "routing_relative_error": 2.962620196095702e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 3.2859065354638305e-15,
+          "routing_relative_error": 3.903410299939475e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.8640817137902864e-15,
+          "routing_relative_error": 1.6725525491822517e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 2.5324122450525406e-15,
+          "routing_relative_error": 1.8846923036480824e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 3.2679710017771714e-15,
+          "routing_relative_error": 2.5280021678425523e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 2.3653840713079198e-15,
+          "routing_relative_error": 2.7730487880116846e-15
+        }
+      ],
+      "gauge_relative_error": 2.3182418107501953e-15,
+      "sequential_source_relative_error": 1.356387764847402e-16,
+      "order_effect_relative_to_composed": 0.25646424507424687
+    },
+    {
+      "head": 2,
+      "source_position": 0,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 3.213849255656493e-16,
+          "routing_relative_error": 2.9672904446193554e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 3.099536903254425e-15,
+          "routing_relative_error": 3.5130108174441338e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.2443172298666145e-15,
+          "routing_relative_error": 2.0476154657779253e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 2.4419032154006647e-15,
+          "routing_relative_error": 1.5117220620660209e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 3.299393723260667e-15,
+          "routing_relative_error": 2.240787631414621e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 3.552907355894136e-15,
+          "routing_relative_error": 2.2886708233397795e-15
+        }
+      ],
+      "gauge_relative_error": 1.860790977124057e-15,
+      "sequential_source_relative_error": 1.3604720512080842e-16,
+      "order_effect_relative_to_composed": 0.2938452207772189
+    },
+    {
+      "head": 3,
+      "source_position": 7,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 3.987005742068668e-16,
+          "routing_relative_error": 4.410817142241686e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 2.7010759334252858e-15,
+          "routing_relative_error": 2.1490219503262492e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.631325489894462e-15,
+          "routing_relative_error": 1.992564882190229e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 1.969703667232146e-15,
+          "routing_relative_error": 1.5153681604531132e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 3.5755007612889945e-15,
+          "routing_relative_error": 2.7249564426345523e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 3.629112780024411e-15,
+          "routing_relative_error": 2.9774751593896442e-15
+        }
+      ],
+      "gauge_relative_error": 1.8135384576115443e-15,
+      "sequential_source_relative_error": 1.348676555778963e-16,
+      "order_effect_relative_to_composed": 0.33126874666095907
+    },
+    {
+      "head": 3,
+      "source_position": 0,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 4.558198849171764e-16,
+          "routing_relative_error": 3.635600825585356e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 4.801373669522697e-15,
+          "routing_relative_error": 2.9533855460170607e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 3.1180717520276315e-15,
+          "routing_relative_error": 2.7157561919280803e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 2.8565993742001866e-15,
+          "routing_relative_error": 2.310592288788909e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 3.756524656033735e-15,
+          "routing_relative_error": 2.870175694838518e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 2.8652558108567285e-15,
+          "routing_relative_error": 2.396483913560016e-15
+        }
+      ],
+      "gauge_relative_error": 2.1127690910545997e-15,
+      "sequential_source_relative_error": 1.3204545972985835e-16,
+      "order_effect_relative_to_composed": 0.23310206926870933
+    },
+    {
+      "head": 4,
+      "source_position": 7,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 3.7795686753394267e-16,
+          "routing_relative_error": 3.97565318390837e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 2.8732324252884138e-15,
+          "routing_relative_error": 3.520779756571589e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.0077230001859827e-15,
+          "routing_relative_error": 2.46493095487786e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 2.664691722319045e-15,
+          "routing_relative_error": 1.968273545721523e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 2.924974766236376e-15,
+          "routing_relative_error": 2.7212492736973204e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 2.555309321575614e-15,
+          "routing_relative_error": 2.158952021585675e-15
+        }
+      ],
+      "gauge_relative_error": 1.7767122293708235e-15,
+      "sequential_source_relative_error": 1.3366381875234983e-16,
+      "order_effect_relative_to_composed": 0.23818563053571506
+    },
+    {
+      "head": 4,
+      "source_position": 0,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 3.1175802763266503e-16,
+          "routing_relative_error": 3.5168017607305864e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 3.934837346264041e-15,
+          "routing_relative_error": 3.0953021326448436e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.663075560338605e-15,
+          "routing_relative_error": 2.6134667649516046e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 2.574714627388377e-15,
+          "routing_relative_error": 1.9727611472980993e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 3.660517211723868e-15,
+          "routing_relative_error": 2.4376992159308443e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 3.4850647506600863e-15,
+          "routing_relative_error": 2.278877218770375e-15
+        }
+      ],
+      "gauge_relative_error": 2.4302294633202187e-15,
+      "sequential_source_relative_error": 1.4103864197768478e-16,
+      "order_effect_relative_to_composed": 0.251655630552637
+    },
+    {
+      "head": 5,
+      "source_position": 7,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 2.826544198894464e-16,
+          "routing_relative_error": 4.495867741540819e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 4.0002533816495686e-15,
+          "routing_relative_error": 3.529657566463462e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.253844399690562e-15,
+          "routing_relative_error": 2.8633620502623618e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 2.2515975254589524e-15,
+          "routing_relative_error": 2.4424991759581314e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 2.922697214126494e-15,
+          "routing_relative_error": 2.7603363357516323e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 2.480406351001384e-15,
+          "routing_relative_error": 2.713010430717428e-15
+        }
+      ],
+      "gauge_relative_error": 1.7468723186020372e-15,
+      "sequential_source_relative_error": 1.316570201216715e-16,
+      "order_effect_relative_to_composed": 0.17966899302134012
+    },
+    {
+      "head": 5,
+      "source_position": 0,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 6.030189653123731e-16,
+          "routing_relative_error": 4.626776460048574e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 1.842144505569408e-15,
+          "routing_relative_error": 2.5111154906554346e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 1.9500362297256337e-15,
+          "routing_relative_error": 2.437275027003587e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 2.0491087496569888e-15,
+          "routing_relative_error": 2.1005875787647134e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 1.9322019717917455e-15,
+          "routing_relative_error": 2.918337717146908e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 1.616438866906094e-15,
+          "routing_relative_error": 2.3640155622876782e-15
+        }
+      ],
+      "gauge_relative_error": 2.425682747086471e-15,
+      "sequential_source_relative_error": 1.3397750992056924e-16,
+      "order_effect_relative_to_composed": 0.48708488423452445
+    },
+    {
+      "head": 6,
+      "source_position": 7,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 4.664029292592547e-16,
+          "routing_relative_error": 3.8305928120549043e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 6.4132001435376784e-15,
+          "routing_relative_error": 4.246510273336982e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 3.560390753742151e-15,
+          "routing_relative_error": 3.2292981785632553e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 2.324169562817829e-15,
+          "routing_relative_error": 2.5606343112286642e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 2.971969667173788e-15,
+          "routing_relative_error": 2.733822205754977e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 2.9511367265867344e-15,
+          "routing_relative_error": 2.7512120427122584e-15
+        }
+      ],
+      "gauge_relative_error": 2.727078494417355e-15,
+      "sequential_source_relative_error": 1.2680250437809949e-16,
+      "order_effect_relative_to_composed": 0.2993236292132458
+    },
+    {
+      "head": 6,
+      "source_position": 0,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 3.4046571058849706e-16,
+          "routing_relative_error": 3.39464710015342e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 4.6963503213446274e-15,
+          "routing_relative_error": 3.938273147484797e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 3.558498055810204e-15,
+          "routing_relative_error": 2.8615010844039677e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 1.9426814549812476e-15,
+          "routing_relative_error": 2.7240349225307e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 3.4083822346694767e-15,
+          "routing_relative_error": 3.1036156577901365e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 4.40424423097917e-15,
+          "routing_relative_error": 3.494713162478312e-15
+        }
+      ],
+      "gauge_relative_error": 2.9043655921058747e-15,
+      "sequential_source_relative_error": 1.2822197830673287e-16,
+      "order_effect_relative_to_composed": 0.35268300608772984
+    },
+    {
+      "head": 7,
+      "source_position": 7,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 2.9064235556184596e-16,
+          "routing_relative_error": 3.5427823490626196e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 2.2011357018337187e-15,
+          "routing_relative_error": 2.712375918893369e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 1.6757673454591136e-15,
+          "routing_relative_error": 1.9032720340922363e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 2.0804161492460634e-15,
+          "routing_relative_error": 1.5724248263062789e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 2.4271514711505195e-15,
+          "routing_relative_error": 2.1911359779728482e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 1.9522142188973037e-15,
+          "routing_relative_error": 2.0501810094553155e-15
+        }
+      ],
+      "gauge_relative_error": 1.6304302302275488e-15,
+      "sequential_source_relative_error": 1.4381795533565172e-16,
+      "order_effect_relative_to_composed": 0.2413520475474407
+    },
+    {
+      "head": 7,
+      "source_position": 0,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 2.8385653834068805e-16,
+          "routing_relative_error": 3.1180274129876024e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 2.7031170899580663e-15,
+          "routing_relative_error": 2.8603927074758717e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 1.6698330039583143e-15,
+          "routing_relative_error": 1.5239765228227214e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 1.3182254799109738e-15,
+          "routing_relative_error": 1.8234513379666087e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 2.1254174095558798e-15,
+          "routing_relative_error": 2.19446800397811e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 1.6847432706511387e-15,
+          "routing_relative_error": 2.125574903166825e-15
+        }
+      ],
+      "gauge_relative_error": 1.2025611836263093e-15,
+      "sequential_source_relative_error": 1.475837601512682e-16,
+      "order_effect_relative_to_composed": 0.2192289339069331
+    },
+    {
+      "head": 8,
+      "source_position": 7,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 3.0159489963425415e-16,
+          "routing_relative_error": 4.563682990113126e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 4.260332435831463e-15,
+          "routing_relative_error": 3.875683964717758e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.1576397189248727e-15,
+          "routing_relative_error": 2.745406360584274e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 1.932969379910822e-15,
+          "routing_relative_error": 2.0805757360118604e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 4.017506169964279e-15,
+          "routing_relative_error": 2.971992306893561e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 5.1328618956353375e-15,
+          "routing_relative_error": 3.31333054823736e-15
+        }
+      ],
+      "gauge_relative_error": 1.253784128755578e-15,
+      "sequential_source_relative_error": 1.3077547201575357e-16,
+      "order_effect_relative_to_composed": 0.23172601128277479
+    },
+    {
+      "head": 8,
+      "source_position": 0,
+      "edits": [
+        {
+          "edit": "zero",
+          "contribution_relative_error": 4.051050498674994e-16,
+          "routing_relative_error": 4.0286366566576477e-16
+        },
+        {
+          "edit": "full",
+          "contribution_relative_error": 3.2387288457229814e-15,
+          "routing_relative_error": 2.4022829257943702e-15
+        },
+        {
+          "edit": "first8",
+          "contribution_relative_error": 2.8990354376283137e-15,
+          "routing_relative_error": 1.911840177050697e-15
+        },
+        {
+          "edit": "amplify",
+          "contribution_relative_error": 1.5797920893641132e-15,
+          "routing_relative_error": 1.4923657597495093e-15
+        },
+        {
+          "edit": "composed",
+          "contribution_relative_error": 4.384273489181165e-15,
+          "routing_relative_error": 2.1733075701008226e-15
+        },
+        {
+          "edit": "reversed",
+          "contribution_relative_error": 3.2061895447698997e-15,
+          "routing_relative_error": 2.339251844803547e-15
+        }
+      ],
+      "gauge_relative_error": 1.2627198082782032e-15,
+      "sequential_source_relative_error": 1.2923421250395709e-16,
+      "order_effect_relative_to_composed": 0.22959554424832357
+    }
+  ],
+  "maximum_replay_error": 6.4132001435376784e-15,
+  "maximum_composition_error": 1.475837601512682e-16,
+  "wall_seconds": 0.7869419232010841,
+  "body_forwards": 0,
+  "corpus_access": false,
+  "formal_probes": 64,
+  "seed": 1277,
+  "price": {
+    "dynamic_port_numbers": 92,
+    "small_core_numbers": 595,
+    "projection_map_numbers": 97920,
+    "native_score_norm_value_ports_required": true,
+    "per_head_and_position": true
+  },
+  "source_sha256": "6c54e275e2a2c7080e6f02a0f24b0b08ceca6fd01e2537f47ee508a61f8b94e0",
+  "predictor_sha256": "8908379cc6968c757e60a4fc54bee64bf9c82c52420b583be102fb73edac7f1a",
+  "scope": "Conditional exact normalized routing/scalar OV response from baseline-only ports. Six finite edits and gauge/order tests. Native background still required; no semantic selectivity, natural-data prediction or full-model adoption."
+}
