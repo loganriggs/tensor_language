@@ -1,0 +1,115 @@
+{
+  "bars": {
+    "ext_min": 0.8,
+    "jac_max": 0.7,
+    "k_beats": 3,
+    "k_differ": 4,
+    "k_strong": 5,
+    "k_weak": 3,
+    "margin": 0.05,
+    "tol": 0.05
+  },
+  "candidate_id": "corpus.unit_direction_split_v587",
+  "cells": {
+    "adjective_preposition_in_with": {
+      "jaccard": 0.444,
+      "n_units_a": 9,
+      "n_units_b": 4,
+      "n_units_ctrl": 5,
+      "parent_dirA": 0.7,
+      "parent_dirB": 1.063,
+      "seconds": 16.7,
+      "strong_own_fit": 0.993,
+      "strong_size_control": 1.063,
+      "weak_is_dirA": true,
+      "weak_own_fit": 0.85,
+      "weak_size_control": 0.7
+    },
+    "adjective_preposition_under_for": {
+      "jaccard": 0.571,
+      "n_units_a": 4,
+      "n_units_b": 7,
+      "n_units_ctrl": 6,
+      "parent_dirA": 1.301,
+      "parent_dirB": 0.791,
+      "seconds": 19.6,
+      "strong_own_fit": 1.034,
+      "strong_size_control": 1.301,
+      "weak_is_dirA": false,
+      "weak_own_fit": 0.908,
+      "weak_size_control": 0.791
+    },
+    "adjective_preposition_with_for": {
+      "jaccard": 0.235,
+      "n_units_a": 4,
+      "n_units_b": 17,
+      "n_units_ctrl": 7,
+      "parent_dirA": 1.132,
+      "parent_dirB": 0.722,
+      "seconds": 20.9,
+      "strong_own_fit": 1.003,
+      "strong_size_control": 1.132,
+      "weak_is_dirA": false,
+      "weak_own_fit": 0.875,
+      "weak_size_control": 0.722
+    },
+    "verb_preposition_from_with": {
+      "jaccard": 0.333,
+      "n_units_a": 18,
+      "n_units_b": 6,
+      "n_units_ctrl": 8,
+      "parent_dirA": 0.672,
+      "parent_dirB": 1.102,
+      "seconds": 22.7,
+      "strong_own_fit": 0.949,
+      "strong_size_control": 1.102,
+      "weak_is_dirA": true,
+      "weak_own_fit": 0.912,
+      "weak_size_control": 0.672
+    },
+    "verb_preposition_in_amid": {
+      "jaccard": 0.375,
+      "n_units_a": 9,
+      "n_units_b": 24,
+      "n_units_ctrl": 16,
+      "parent_dirA": 1.087,
+      "parent_dirB": 0.772,
+      "seconds": 35.3,
+      "strong_own_fit": 0.931,
+      "strong_size_control": 1.082,
+      "weak_is_dirA": false,
+      "weak_own_fit": 0.906,
+      "weak_size_control": 0.763
+    },
+    "verb_preposition_off_with": {
+      "jaccard": 0.056,
+      "n_units_a": 3,
+      "n_units_b": 16,
+      "n_units_ctrl": 6,
+      "parent_dirA": 1.099,
+      "parent_dirB": 0.581,
+      "seconds": 20.0,
+      "strong_own_fit": 0.78,
+      "strong_size_control": 1.099,
+      "weak_is_dirA": false,
+      "weak_own_fit": 0.694,
+      "weak_size_control": 0.581
+    }
+  },
+  "finished_utc": "2026-09-11T14:53:58.241037+00:00",
+  "predictions": {
+    "pred_a_weak_direction_recovers": true,
+    "pred_b_strong_direction_holds": true,
+    "pred_c_beats_size_control": true,
+    "pred_d_unit_sets_differ": true,
+    "pred_e_all_measured": true
+  },
+  "recipe": {
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "target": 0.88
+  },
+  "schema": "unit_direction_split_v587",
+  "seconds": 135.2
+}
