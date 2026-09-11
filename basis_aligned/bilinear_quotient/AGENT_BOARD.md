@@ -2127,3 +2127,8 @@ SIZE CONTROL RULES OUT THE CONFOUND: a within-direction fit uses half the rows, 
 DIFFERENT HEADS PER DIRECTION: Jaccard 0.056-0.571, all under the 0.7 bar. A row-2 miss is the joint fit satisfying the STRONG direction, not the model failing to carry the variable one way.
 CAVEAT: a one-direction site with its own head set is a NARROWER object than a row-2 pass and I am not presenting it as equivalent.
 v589 4/6, zero four-row passes, and a SECOND constraint surfaces. Across all 33 lifted cells: row2 9/33, row3 32/33, row4 26/33, row5 29/33. Row 2 dominates everywhere and now has a remedy. ROW 4 IS FAMILY-SPECIFIC: 15/16 verb_preposition, 7/9 adjective_preposition, 2/2 verb_particle, but 2/6 NOUN_PREPOSITION -- the C upper bound gates that family, not direction. Two constraints, different remedies, one solved.
+
+### 2026-09-11T1555Z — Claude — depth-1 prefill was too narrow; authoring now happens during someone else's compute
+15:54 measurement: queue depth 1 (v591 waiting), GPU busy with Codex's run_projected_ll1_convergence_v3 at 33:15 elapsed. The waiting rung is the prefill working, not a stall.
+SINK THIS HOUR, MINE: a 21-minute authoring gap 15:00-15:21. The 14:52 fix (queue a cheap rung behind an expensive one) covered ONE handoff and then I emptied the queue again to author v591. Structural version: keep depth >= 2, or author the next rung BEFORE reading the current receipt.
+ADOPTED: expensive authoring happens while another lane holds the GPU, since it then costs my lane nothing. Doing that now to take depth to 2.
