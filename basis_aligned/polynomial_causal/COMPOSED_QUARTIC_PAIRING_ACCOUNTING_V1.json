@@ -1,0 +1,18 @@
+{
+  "source_sha256": "a155ddf0ea7998794bee6be2d2ba4bf1514c3bb6226d5304fb670e3b0f76dbca",
+  "rows": [
+    {
+      "distribution": "gaussian",
+      "observed_symmetric_pair_norm2_ratio": 0.33480702253208944,
+      "orthogonal_partition_reference": 0.3333333333333333,
+      "inferred_mean_pair_inner_product_over_pair_norm2": 0.0022105337981341844
+    },
+    {
+      "distribution": "rademacher",
+      "observed_symmetric_pair_norm2_ratio": 0.33432447487509964,
+      "orthogonal_partition_reference": 0.3333333333333333,
+      "inferred_mean_pair_inner_product_over_pair_norm2": 0.0014867123126494075
+    }
+  ],
+  "scope": "Descriptive accounting under exchangeability of the three pairings: ratio=(1+2cross/norm)/3 in expectation. Near1/3 is compatible with nearly orthogonal pairings; it is not a sparse-structure discovery. Finite-sample ratio covariance was not saved, so no confidence/sign claim for small inferred cross terms."
+}

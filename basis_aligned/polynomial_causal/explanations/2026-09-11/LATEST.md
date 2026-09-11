@@ -124,3 +124,7 @@ New words/constructions confirm small neighboring binary-choice changes and near
 ### 22:22 — Deeper two-MLP coefficient objective implemented
 
 [Quartic contraction method](../../COMPOSED_QUARTIC_CONTRACTION_V1_MATH.md) evaluates the actual symmetric two-bilinear composition without a huge tensor. Exact small-tensor/gradient controls pass. Independent synthetic vectors give a coefficient-loss estimator, distinct from text-weighted fitting and independent native-product coordinates. Native uncertainty/cost check submitted behind the live sparse path fit; no new sparse or circuit result.
+
+### 22:27 — First path pilot interpreted; convergence continuation accepted
+
+[Path method/results](../../COUPLED_SPARSE_PATH_V1_MATH.md): small joint gains miss10%bar, three of four arms remain unconverged; same-objective active-edge continuation accepted. [Quartic oracle](../../COMPOSED_QUARTIC_CONTRACTION_V1_MATH.md) passes native checks with<0.3%estimated sampling error in~3seconds; not a sparse-fit result. [Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_2227.md) completed; next23:27, math22:51.

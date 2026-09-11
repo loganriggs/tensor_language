@@ -1,0 +1,36 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "permutation_error": 0.0,
+  "diagonal_error": 3.739866839428649e-16,
+  "discrepancy_in_estimated_standard_errors": 0.4695001814957299,
+  "results": [
+    {
+      "distribution": "gaussian",
+      "seed": 11411,
+      "probes": 4096,
+      "estimated_norm2": 3.654882852008951e+20,
+      "estimated_standard_error": 1.0626665067100963e+18,
+      "relative_standard_error": 0.0029075254932616748,
+      "unsymmetrized_pair_partition_norm2": 1.091638647352043e+21,
+      "symmetric_to_pair_norm2_ratio": 0.33480702253208944,
+      "seconds": 1.4484134688973427
+    },
+    {
+      "distribution": "rademacher",
+      "seed": 11412,
+      "probes": 4096,
+      "estimated_norm2": 3.648246762898002e+20,
+      "estimated_standard_error": 9.319570518550422e+17,
+      "relative_standard_error": 0.002554534033533241,
+      "unsymmetrized_pair_partition_norm2": 1.0912293406759859e+21,
+      "symmetric_to_pair_norm2_ratio": 0.33432447487509964,
+      "seconds": 1.4403947815299034
+    }
+  ],
+  "lambda17_0": 1.0234375,
+  "wall_seconds": 3.6114999800920486,
+  "peak_gpu_bytes": 493361152,
+  "scope": "Native full-U homogeneous quartic coefficient oracle and sampling cost. Estimated SE not rigorous error bound. No text, sparse fit, full normalized model equivalence or circuit claim."
+}

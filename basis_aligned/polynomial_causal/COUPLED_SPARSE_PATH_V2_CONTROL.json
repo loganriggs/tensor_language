@@ -1,0 +1,56 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "rows": [
+    {
+      "mode": "joint",
+      "orthogonal": false,
+      "coefficient_error": 3.579381997793597e-17,
+      "gradient_errors": [
+        5.97209089223138e-17,
+        4.838752958618449e-17,
+        7.95606897158831e-17,
+        2.979865777052973e-17
+      ],
+      "relative_loss_error": 0.0
+    },
+    {
+      "mode": "joint",
+      "orthogonal": true,
+      "coefficient_error": 1.169218175454388e-16,
+      "gradient_errors": [
+        1.182271832947015e-16,
+        2.0353455146018804e-16,
+        1.4447843160572457e-16,
+        2.581416873915522e-16
+      ],
+      "relative_loss_error": 2.220446049250313e-16
+    },
+    {
+      "mode": "independent",
+      "orthogonal": false,
+      "coefficient_error": 1.5843625902808664e-17,
+      "gradient_errors": [
+        7.262213691708153e-18,
+        5.1947859032752107e-17,
+        7.879321932842248e-17,
+        4.779827350375372e-17
+      ],
+      "relative_loss_error": 0.0
+    },
+    {
+      "mode": "independent",
+      "orthogonal": true,
+      "coefficient_error": 1.0589048375781719e-17,
+      "gradient_errors": [
+        1.1358308708716683e-16,
+        6.621057808498368e-17,
+        1.4579500523189176e-16,
+        5.169764080638839e-17
+      ],
+      "relative_loss_error": 0.0
+    }
+  ],
+  "scope": "Same full-U sparse path fixed-support objective/gradients, active-column evaluation only; no convergence or native speed claim yet."
+}

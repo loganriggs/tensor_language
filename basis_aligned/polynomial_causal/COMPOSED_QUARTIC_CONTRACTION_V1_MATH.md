@@ -71,3 +71,9 @@ A single pair-partition tensor, $Q(P(x_1,x_2),P(x_3,x_4))$, is not yet fully sym
 [Native preregistration](COMPOSED_QUARTIC_NATIVE_V1_PREREGISTRATION.md) uses4096Gaussian and4096random-sign probes to measure full-U coefficient norm uncertainty and actual evaluation cost. It is queued separately behind the live shared/independent sparse path fit. Check the runner or result for its latest status. It is not a native sparse fit and does not advance behavioral certification by itself.
 
 [Kernel](composed_quartic_contraction_v1.py) · [CPU control](check_composed_quartic_contraction_v1.py) · [Native runner](../bilinear_quotient/ops/run_composed_quartic_native_v1.py).
+
+## Native oracle result and interpretation
+
+[Native check](COMPOSED_QUARTIC_NATIVE_V1_RESULT.json) completed22:25:30, A/B/C held. Gaussian/random-sign4096-probe estimates are3.6549e20/3.6482e20, with estimated relative standard errors0.291/0.255%. Each distribution plus its unsymmetrized pair reference takes about1.45seconds. Full run3.61seconds, peak allocatedGPU memory493MB. Native diagonal error3.74e-16; permutation replay0. These measurements price the reference objective, not the backward pass or a full sparse optimization.
+
+The observed fully symmetric/pair-partition norm-squared ratios0.33481/0.33432 are near1/3. For exchangeable pairings with common norm-squared $N$ and pair inner product $C$, the expectation ratio is $(1+2C/N)/3$. [Executed descriptive accounting](COMPOSED_QUARTIC_PAIRING_ACCOUNTING_V1.json) gives inferred $C/N$ around0.00221/0.00149. Ratio covariance was not retained, so no sign/significance claim follows. Generic near-orthogonality can explain the reduction; this is not a discovered sparse circuit or evidence that the learned composition has a special cancellation.
