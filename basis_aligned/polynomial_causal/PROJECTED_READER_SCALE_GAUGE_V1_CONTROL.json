@@ -1,0 +1,47 @@
+{
+  "predictions": {
+    "pred_a_same_function_chart": true,
+    "pred_b_rowwise_invariance": true,
+    "pred_c_global_inflation": true
+  },
+  "arms": [
+    {
+      "multiplier": 1.0,
+      "loss": 0.7645181666172043,
+      "global_code_stationarity": 1.8765910913641397,
+      "rowwise_code_stationarity": 0.3865509583905676,
+      "dictionary_stationarity": 2.3232271707413106,
+      "writer_solve": {
+        "rank": 6,
+        "size": 6,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 0.11150187735046611,
+        "maximum_eigenvalue": 22.35152353666532,
+        "retained_condition": 200.45871933089816,
+        "normal_residual": 2.3830742557334745e-15
+      }
+    },
+    {
+      "multiplier": 1000.0,
+      "loss": 0.7645181666172043,
+      "global_code_stationarity": 712331.9396243222,
+      "rowwise_code_stationarity": 0.3865509583905682,
+      "dictionary_stationarity": 2.32322717074133,
+      "writer_solve": {
+        "rank": 6,
+        "size": 6,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 0.11150187735046357,
+        "maximum_eigenvalue": 22.351523536665326,
+        "retained_condition": 200.4587193309028,
+        "normal_residual": 1.8903934175634734e-15
+      }
+    }
+  ],
+  "loss_replay": 0.0,
+  "writer_replay": 2.7119335349343507e-14,
+  "feature_gradient_replay": 1.5263042178828328e-14,
+  "rowwise_relative_error": 1.57966925262896e-15,
+  "global_metric_inflation": 379588.2560150655,
+  "scope": "Small exact reciprocal Left/Right gauge. Does not change or rescue native convergence; feature gradient can independently remain nonzero. Rowwise metric needs nonzero rows and is not a global optimum certificate."
+}

@@ -1,0 +1,98 @@
+{
+  "predictions": {
+    "pred_a_dense_projection": true,
+    "pred_b_known_gauges": true,
+    "pred_c_isolated_change": true,
+    "pred_d_finite_rotation": true
+  },
+  "tangents": [
+    {
+      "name": "reader_scaling",
+      "dense_remaining_energy": 0.0,
+      "dense_replay_error": 0.0,
+      "raw_tangent_energy": 1.5450000000000002,
+      "projected_energy": 1.5450000000000002,
+      "remaining_energy": 0.0,
+      "remaining_fraction": 0.0,
+      "projection_energy_identity_error": 0.0,
+      "writer_solve": {
+        "rank": 3,
+        "size": 3,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 0.5,
+        "maximum_eigenvalue": 1.0,
+        "retained_condition": 2.0,
+        "normal_residual": 0.0
+      }
+    },
+    {
+      "name": "complete_block_rotation",
+      "dense_remaining_energy": 0.0,
+      "dense_replay_error": 0.0,
+      "raw_tangent_energy": 6.0,
+      "projected_energy": 6.0,
+      "remaining_energy": 0.0,
+      "remaining_fraction": 0.0,
+      "projection_energy_identity_error": 0.0,
+      "writer_solve": {
+        "rank": 3,
+        "size": 3,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 0.5,
+        "maximum_eigenvalue": 1.0,
+        "retained_condition": 2.0,
+        "normal_residual": 0.0
+      }
+    },
+    {
+      "name": "isolated_square_rotation",
+      "dense_remaining_energy": 2.0,
+      "dense_replay_error": 0.0,
+      "raw_tangent_energy": 2.0,
+      "projected_energy": 0.0,
+      "remaining_energy": 2.0,
+      "remaining_fraction": 1.0,
+      "projection_energy_identity_error": 0.0,
+      "writer_solve": {
+        "rank": 1,
+        "size": 1,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 1.0,
+        "maximum_eigenvalue": 1.0,
+        "retained_condition": 1.0,
+        "normal_residual": 0.0
+      }
+    }
+  ],
+  "finite_rotations": [
+    {
+      "name": "complete_block",
+      "angle": 0.3,
+      "relative_error": 5.317492576453159e-32,
+      "writer_solve": {
+        "rank": 3,
+        "size": 3,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 0.5,
+        "maximum_eigenvalue": 1.0,
+        "retained_condition": 2.0,
+        "normal_residual": 0.0
+      }
+    },
+    {
+      "name": "isolated_square",
+      "angle": 0.3,
+      "relative_error": 0.1670374732355767,
+      "writer_solve": {
+        "rank": 1,
+        "size": 1,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 1.0,
+        "maximum_eigenvalue": 1.0,
+        "retained_condition": 1.0,
+        "normal_residual": 0.0
+      }
+    }
+  ],
+  "scope": "Small polynomial identifiability control. Complete-block coordinates can rotate without changing the computation; isolated square direction cannot. No native unit identification or behavioral claim."
+}

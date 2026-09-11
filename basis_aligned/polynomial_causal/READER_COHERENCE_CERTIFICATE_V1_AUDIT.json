@@ -1,0 +1,34 @@
+{
+  "arms": [
+    {
+      "seed": 0,
+      "source": {
+        "path": "/dev/shm/bilin18_overcomplete_ols_reencode_v1_learned_s0.pt",
+        "sha256": "1d2485263a29615d72470011f2de4a6e553f0c44cd5c9866d89b5983362cc311",
+        "bytes": 33092013
+      },
+      "mutual_coherence": 0.7284016997537385,
+      "median_nearest_absolute_cosine": 0.11190117282570461,
+      "strict_sparsity_threshold": 1.1864344223373482,
+      "maximum_actual_support": 128,
+      "sufficient_condition_holds": false,
+      "unit_norm_error": 5.551115123125783e-16
+    },
+    {
+      "seed": 937,
+      "source": {
+        "path": "/dev/shm/bilin18_overcomplete_ols_reencode_v1_learned_s937.pt",
+        "sha256": "7b4b1ab2551ddf346098705723fc129c2c8899adaf4049238b3865adbc7032d8",
+        "bytes": 33092033
+      },
+      "mutual_coherence": 0.6926942631748709,
+      "median_nearest_absolute_cosine": 0.11246395398869372,
+      "strict_sparsity_threshold": 1.22181917273043,
+      "maximum_actual_support": 128,
+      "sufficient_condition_holds": false,
+      "unit_norm_error": 5.551115123125783e-16
+    }
+  ],
+  "theorem": "For a fixed unit-atom dictionary, k < (1+1/mu)/2 suffices for unique sparsest exact codes and their basis-pursuit recovery.",
+  "scope": "Failure of this sufficient bound does not imply nonunique codes. It does not certify the learned dictionary, noisy approximation, Lasso with nonzero penalty, folded product decomposition or circuits."
+}
