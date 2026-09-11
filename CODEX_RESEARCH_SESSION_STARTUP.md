@@ -82,7 +82,7 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 09:20 UTC
+## Current handoff — 11 September 10:12 UTC
 
 Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 [method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
@@ -93,12 +93,23 @@ Current receipts/processes override this snapshot; executed sources and bindings
   `fb66e5c5e223ee20f5e704ae20e577c909bd94527d3215ef5821a77651391768`,
   started09:15:37. Weight-only2304-feature dictionary, two starts,1800softfitseconds
   each, FP64jointchecks, savedstate; protocol `OVERCOMPLETE_L1_READER_V1`.
-  No native final result yet. Fixedpenalty/nativepairing limitations are explicit.
+  First start completed unconverged; second start remains live. See the method
+  index for partial scores. Fixed penalty/native pairing limitations remain.
 - **Queued afterward:** `run_frozen_radial_fineweb_v1.py`, SHA
   `18e3a6fcb42f3c61ce8be9df271a74f68ede4894d8189cea8588712053f4e94d`.
   Protocol `FROZEN_RADIAL_FINEWEB_V1`:64cachedFineWebrows/8192positions,
   eightfrozenalternatives,10bodyforwards/80sequences, nofitting. This diagnoses
   radial-metric transfer in known weak candidates; not structural promotion.
+- **Queued next:** `run_overcomplete_ols_reencode_v1.py`, SHA
+  `7a50b7f23e57545c03882b49636c411c4c1b7ee54ccd815be8e8f22d26e2c41c`.
+  Four frozen initial/learned dictionaries, same Lasso penalty and 128-term
+  budget, OLS support completion, full-U scoring, no text or dictionary fitting.
+  Protocol `OVERCOMPLETE_OLS_REENCODE_V1`; preserve original parent misses.
+- **Optimizer control completed:** `ACTIVE_ORTHANT_DICTIONARY_V1_CONTROL.json`.
+  Coupled dictionary/code L-BFGS-B plus global sparse-code refresh converged on
+  both planted starts. Native-scale performance and convergence remain untested;
+  no native polish job is queued. Reuse this implementation before authoring
+  another optimizer. Fixed-orthant solver success alone is not full convergence.
 - **Completed:** orthogonalMSP, obliqueMSP and exactconditionalDown comparison.
   Latestsummary [09:18](basis_aligned/polynomial_causal/explanations/2026-09-11/explanation_2026-09-11_0902.md#update0918).
   Ordinarybasesbothconverged but refittedfunctions unstable. Do not enqueue an
