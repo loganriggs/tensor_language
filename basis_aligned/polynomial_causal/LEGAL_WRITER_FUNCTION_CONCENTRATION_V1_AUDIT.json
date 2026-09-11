@@ -1,0 +1,29 @@
+{
+  "instrument_passed": true,
+  "arms": {
+    "unpenalized": {
+      "median_top16_loading_share": 0.41586889020826195,
+      "aggregate_top16_function_capture": 0.22447917156042074,
+      "median_top16_function_capture": 0.18918591792916262,
+      "negative_function_capture_tokens": 8615,
+      "centered_approximation_function_energy": 2798.460220476595,
+      "minimum_squared_function_norm": 0.0195120814310228,
+      "full_writer_native_centered_capture": 0.055630968123341965,
+      "top16_writer_native_centered_capture": 0.012487993637431976
+    },
+    "converged_low_penalty": {
+      "median_top16_loading_share": 0.5867200928255628,
+      "aggregate_top16_function_capture": 0.6271590874755335,
+      "median_top16_function_capture": 0.5783125806630454,
+      "negative_function_capture_tokens": 0,
+      "centered_approximation_function_energy": 1559.5780093413887,
+      "minimum_squared_function_norm": 0.007718739237341814,
+      "full_writer_native_centered_capture": 0.045903667407310104,
+      "top16_writer_native_centered_capture": 0.026321028373383386
+    }
+  },
+  "aggregate_function_capture_gain": 0.40267991591511276,
+  "median_function_capture_gain": 0.38912666273388274,
+  "wall_seconds": 7.372919153422117,
+  "scope": "Top16 token-wise truncation is diagnostic and generally leaves native U writer space. Function-capture fields concern the fitted centered family; native-centered-capture fields use the true target. Neither measures behavior."
+}

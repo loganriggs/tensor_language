@@ -19653,3 +19653,18 @@ First nativefixedwriter arm180s endsunconverged: feasibility.002122 vsstationari
 
 ### 2026-09-11T01:46:00.383136+00:00 — Codex: WRITER RED-TEAM COMPLETE; CLAIM SAME-OBJECTIVE REPAIR
 V1Aheld B/Cnotheld duebothunconverged. Sourcecenteredcapture1.22%,same-support1.89%,unrestricted5.56%; errorsnotsolelyshrinkage. FullUunpenalized6.9925%,lowpenalty6.0660%withtop16concentration58.67vs41.59%; originalfeasibilitybar narrowlymissed1.479e-5. QueueV2residualbalancing, sameobjectivesandthresholds, fullstatesaving. Initialprimalwarmstart resetsmissingV1dual explicitly. CPUfixedobjectiveagreement1.1e-11/exactresume0.
+
+### 2026-09-11T01:51:26.914543+00:00 — Codex: THREE-HOURLY MATH CLAIM SHARED INPUT FACTOR
+Previous turn progress e0ef1bd69. Writerrepair nowlive since01:48:25. Scheduled0149mathreview: investigate common linear-factor subspace (one input signal reused by arbitrarily many output directions), not another small output-rank tensor. For unitreader a, exact projection Q→P Q+Q P−P Q P equals f(x)−f((I−P)x), native residualwriter automatic. Derive implicit score/gradient and spectral upperbound, planted/gradient/identity controls, then nativefull/centered readersearch. Prior campaigns/dossier/code searched: existing rank128inside/mixed port audit is different from optimizing one shared-input gate with full output width.
+
+### 2026-09-11T02:02:12.110714+00:00 — Codex: WRITER LOW-PENALTY CONVERGED; CLAIM FUNCTION-SPACE CONCENTRATION AUDIT
+RepairV2A/Cheld,Bnotheld:lowerpenaltyconverged fullcapture6.0660%vs6.9925baseline,top16loadings58.67vs41.59%; strongerpenaltyfeas5.52e-5unfinished, fullstatesaved. Positiveaudit now computes exactquadraticfunction error aftertop16loadingretention pertoken, usingproductGram includingcancellation. This is a descriptiveattributiondiagnostic, not legal sparsewriterexecution. Shared-input native mathconsequencequeuedindependently.
+
+### 2026-09-11T02:05:23.533695+00:00 — Codex: SHARED INPUT NATIVE A/B/C HELD; CLAIM PARTNER-OBJECTIVE AUDIT
+Native4.16s, all8startsconverged; centeredreaderstable,1.0488%capture vs1.1309%bound. Dmiss:rank16partner55.26%,rank90=279. Strongestalternate: readeroptimized unrestrictedpartner energy, notrank16partner energy. Execute CPU cross-evaluation of both returnedreaders underfull/centered exactrank16conditional objective; scopeDonlytofixedreturnedreader. CheckoldMLP17readout artifacts before attributing a newcomponent.
+
+### 2026-09-11T02:09:09.507707+00:00 — Codex: CLAIM JOINT SHARED READER/RANKED PARTNER OBJECTIVE
+Crossmetric audit executed: fullselectedreader givescenteredrank16capture.0062663 vscenteredselected.0057951 (+8.13%). SourceDfailure doesnotrejectjointconstraint. Implement exact variable-projection score halfsumtopr singularvalues² of whitened M_a sqrt(I+aa^T), differentiate throughscore, checkdense native coefficient error andfinite-difference tangentgradient on CPU. Nativejointoptimization remainsnotqueued.
+
+### 2026-09-11T02:10:37.370490+00:00 — Codex: MATH/NATIVE RESULTS PUBLISHED; JOINT OBJECTIVE CPU CONSEQUENCE COMPLETE
+Math0149completedwithnative sharedreader4.16s A/B/Cheld,Dmissscoped byexecutedcrossmetric audit. Next jointreader/rank16partner objective implementedandCPUcontrolled(dense5.6e-17,gradient2.4e-11); nativefitnotqueued. WriterlowpenaltyconvergedCheld; positiveconcentrationaudit survivesnative target. Latest0206explanation, startup/dossiersupdated. Fullgoalactive; nextmath0449/hourly0222.

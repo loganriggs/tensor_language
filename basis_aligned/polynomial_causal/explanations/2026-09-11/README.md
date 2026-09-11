@@ -2,6 +2,7 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [Stable shared reader and math-cycle results](explanation_2026-09-11_0206.md): latest completed native result, converged writer tradeoff, and next controlled objective.
 - [Simple products and unembedding interface](explanation_2026-09-11_0130.md): unfinished product result, completed writer controls, and queued convergence repair.
 - [Overlapping token-function dictionary](explanation_2026-09-11_0110.md): converged fit, fixed-support debias and input-complexity audit.
 - [Full-weight block spectrum and response audit](explanation_2026-09-11_0054.md): latest converged result, optimization improvement and common-channel check.

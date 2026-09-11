@@ -82,24 +82,25 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 01:47
+## Current handoff — updated 11 September 2026, 02:10
 
-Read explanations/2026-09-11/LATEST.md and updated explanation_2026-09-11_0130.md.
-SPARSE_PRODUCT_DICTIONARY_V1 completedunconverged1.2205%centeredcapture.
-PRODUCT_WRITER_REDTEAM_V1 completed01:45:09,Aheld B/Cnotheld,bothADMMunconverged.
-Same-supportdebias1.8895%,unrestrictedcenteredOLS5.5631%. FullUOLS6.9925%;
-lowpenaltywriter6.0660%,top16loadingconcentration58.67vs41.59%baseline, feasibility
-1.479e-5 narrowlymisses1e-5; highpenaltyfeasibility.002122. No negativeaboutstructure.
-PRODUCT_WRITER_REPAIR_V2 queuedbehindClaudev557, SHA
-0c2491f907b3e4503b233b49504599d6df924b39ad01577cfbf8fd38427d798f.
-Sameobjectives,adaptiveADMMrho,540sperunfinishedarm,primalwarmstart resetsmissing
-V1dual explicitly. Fullstatesavedforfutureexactresume. Checksamequeue/process/result;
-frozenbindingsunchanged. CPUsolveragreement1.1e-11/exactresume0. Legaljointatom
-bridge1152whitenedoutputs tested1.2e-15; no newjointnativeproductfit yet.
-Earlierarbitrarysparsewriterinterfacegap29.63%fullapproximationenergy; nativelegal
-parameterization fixesoutputspace, not normalizationorbehavior. Fullgoalactive.
-Hourly01:22,next02:22; math22:49,next01:49 (dueverysoon). No newdatafitting.
-Sharedmemorycachesephemeral; checkdisk beforewrites.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0206.md.
+PRODUCT_WRITER_REPAIR_V2 completed01:59:39,A/Cheld,Bnotheld:lowpenaltyconverged
+fullcapture6.0660%vs6.9925%OLS,top16loadingconcentration58.67vs41.59%. Highpenalty
+feasibility5.52e-5unfinished,fullstateinsharedmemory. Positivefunctionaudit passes:
+top16capturesnativecentered2.632%vs1.249%unpenalized. Truncationdiagnosticgenerally
+leavesnativeUspace; untruncatedwritersarelegal. Originaljointproductfitunfinished.
+SHARED_INPUT_FACTOR_NATIVE_V1 completed02:02:46,4.16s,A/B/Cheld,Dfailed. All8starts
+converged,centeredreaderstable,capture1.0488%vsanalytic1.1309%ceiling. Partner16
+retains55.26%,rank90=279. Exactlocalinput-removal/compositionreplays<3.8e-15.
+Fullreadercenteredrank16capture.0062663 beatscenteredreader.0057951, soDmissdoesnot
+rejectjointreader+smallpartneroptimization. shared_input_ranked_partner_v1.py
+implemented; densecapture5.6e-17/finitegradient2.4e-11controls pass. Next nativejoint
+rank16partner optimization notqueued; this is the next researchimplementation.
+No ownGPUjobsqueued/live atlastcheck; inspectcurrentsharedrunnerbeforeenqueue.
+Math0149complete,next0449; hourly0122,next0222. Fullgoalactive, no newdatafitting.
+Alllargecachesin/dev/shm are ephemeral. LatestMLP17dossier recordsnewfacts and
+knowncalibration overlap limits; no semantic/circuitidentification claim.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
@@ -203,8 +204,8 @@ Latest hourly review:
 [01:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0122.md).
 Next hourly review is due **02:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
-[22:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_2249.md).
-Next mathematical review is due **01:49 UTC on11September**. Derive later deadlines from the
+[01:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0149.md).
+Next mathematical review is due **04:49 UTC on11September**. Derive later deadlines from the
 newest authoritative review files, not this snapshot. Do not duplicate reviews.
 
 Hourly reviews restate seven circuit targets: explicit computation;

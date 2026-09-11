@@ -1,0 +1,32 @@
+{
+  "comparisons": {
+    "full": {
+      "full": {
+        "unrestricted_partner_native_capture": 0.016583663567101243,
+        "rank16_partner_native_capture": 0.013194476448477944,
+        "rank16_share_of_component": 0.7956309771414571
+      },
+      "centered": {
+        "unrestricted_partner_native_capture": 0.01567365904882398,
+        "rank16_partner_native_capture": 0.011295978481697192,
+        "rank16_share_of_component": 0.7206982394161974
+      }
+    },
+    "centered": {
+      "full": {
+        "unrestricted_partner_native_capture": 0.00990376477307231,
+        "rank16_partner_native_capture": 0.006266262704505802,
+        "rank16_share_of_component": 0.6327152197256705
+      },
+      "centered": {
+        "unrestricted_partner_native_capture": 0.010487583724119735,
+        "rank16_partner_native_capture": 0.00579509071233967,
+        "rank16_share_of_component": 0.5525668127932943
+      }
+    }
+  },
+  "centered_rank16_gain_using_full_reader": 0.00047117199216613163,
+  "alternative_reader_improves_centered_rank16": true,
+  "wall_seconds": 2.8871627189219,
+  "scope": "Fixed readers only; exact conditional partner rank16 optimum. The source D miss does not test joint reader-plus-rank16 optimization. No behavioral result."
+}

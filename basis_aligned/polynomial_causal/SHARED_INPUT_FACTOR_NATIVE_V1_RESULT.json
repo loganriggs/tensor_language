@@ -1,0 +1,274 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_all_starts_converged": true,
+    "pred_c_centered_coverage_and_stability": true,
+    "pred_d_simple_partner": false
+  },
+  "objectives": {
+    "full": {
+      "total_energy": 99245061353.473,
+      "analytic_one_reader_upper_bound": 0.02067277552350998,
+      "fits": [
+        {
+          "seed": null,
+          "converged": true,
+          "steps": 35,
+          "capture": 0.016583663567101205,
+          "tangent_stationarity": 7.2271720089492664e-09,
+          "history": [
+            {
+              "step": 0,
+              "capture": 0.01448053035805485,
+              "tangent_stationarity": 0.007136387258327714,
+              "rate": 24.18639913307133
+            },
+            {
+              "step": 20,
+              "capture": 0.016583663491418474,
+              "tangent_stationarity": 1.4037022863984863e-06,
+              "rate": 24.18639913307133
+            }
+          ]
+        },
+        {
+          "seed": 1103,
+          "converged": true,
+          "steps": 42,
+          "capture": 0.016583663567100646,
+          "tangent_stationarity": 8.161839068476647e-09,
+          "history": [
+            {
+              "step": 0,
+              "capture": 0.001724968338411208,
+              "tangent_stationarity": 0.0019522661044935072,
+              "rate": 24.18639913307133
+            },
+            {
+              "step": 20,
+              "capture": 0.01658364407012145,
+              "tangent_stationarity": 2.2700769055375287e-05,
+              "rate": 24.18639913307133
+            },
+            {
+              "step": 40,
+              "capture": 0.016583663567097767,
+              "tangent_stationarity": 1.1875203315926032e-08,
+              "rate": 24.18639913307133
+            }
+          ]
+        },
+        {
+          "seed": 1109,
+          "converged": true,
+          "steps": 45,
+          "capture": 0.016583663567100244,
+          "tangent_stationarity": 8.770259254393198e-09,
+          "history": [
+            {
+              "step": 0,
+              "capture": 0.0017312636096349003,
+              "tangent_stationarity": 0.002175006641284194,
+              "rate": 24.18639913307133
+            },
+            {
+              "step": 20,
+              "capture": 0.016583447457725994,
+              "tangent_stationarity": 7.579140226523826e-05,
+              "rate": 24.18639913307133
+            },
+            {
+              "step": 40,
+              "capture": 0.016583663567043553,
+              "tangent_stationarity": 3.927275637571487e-08,
+              "rate": 24.18639913307133
+            }
+          ]
+        },
+        {
+          "seed": 1117,
+          "converged": true,
+          "steps": 42,
+          "capture": 0.01658366356710032,
+          "tangent_stationarity": 9.038375687194996e-09,
+          "history": [
+            {
+              "step": 0,
+              "capture": 0.0016732614363872153,
+              "tangent_stationarity": 0.0019846450205770463,
+              "rate": 24.18639913307133
+            },
+            {
+              "step": 20,
+              "capture": 0.016583269383084097,
+              "tangent_stationarity": 0.00011208512182212546,
+              "rate": 24.18639913307133
+            },
+            {
+              "step": 40,
+              "capture": 0.016583663567096528,
+              "tangent_stationarity": 1.3762451145932912e-08,
+              "rate": 24.18639913307133
+            }
+          ]
+        }
+      ],
+      "best": 0,
+      "best_capture": 0.016583663567101205,
+      "absolute_reader_cosines": [
+        1.0000000000000002,
+        0.9999999999999971,
+        0.9999999999999922,
+        0.9999999999998405
+      ],
+      "partner_rank16_capture": 0.7956309771414738,
+      "partner_rank90": 105,
+      "selected_component_full_energy": 1645846708.182315,
+      "selected_component_common_energy": 733667857.6920084,
+      "common_fraction_of_component": 0.44576925302009224,
+      "deletion_relative_error": 3.688826555435787e-15,
+      "composition_relative_error": 3.6943265394033625e-15
+    },
+    "centered": {
+      "total_energy": 92104252412.19458,
+      "analytic_one_reader_upper_bound": 0.011308570444841798,
+      "fits": [
+        {
+          "seed": null,
+          "converged": true,
+          "steps": 36,
+          "capture": 0.01048758372411698,
+          "tangent_stationarity": 9.933752070456457e-09,
+          "history": [
+            {
+              "step": 0,
+              "capture": 0.01032630870201972,
+              "tangent_stationarity": 0.0020362484453144004,
+              "rate": 44.21425346720691
+            },
+            {
+              "step": 20,
+              "capture": 0.010487583643326238,
+              "tangent_stationarity": 9.829259695474112e-07,
+              "rate": 44.21425346720691
+            }
+          ]
+        },
+        {
+          "seed": 1103,
+          "converged": true,
+          "steps": 46,
+          "capture": 0.010487583724117192,
+          "tangent_stationarity": 9.80524476059223e-09,
+          "history": [
+            {
+              "step": 0,
+              "capture": 0.0017327664383341957,
+              "tangent_stationarity": 0.0017561272241493322,
+              "rate": 44.21425346720691
+            },
+            {
+              "step": 20,
+              "capture": 0.010487547248790592,
+              "tangent_stationarity": 2.096744771618407e-05,
+              "rate": 44.21425346720691
+            },
+            {
+              "step": 40,
+              "capture": 0.01048758372395344,
+              "tangent_stationarity": 4.525623397450498e-08,
+              "rate": 44.21425346720691
+            }
+          ]
+        },
+        {
+          "seed": 1109,
+          "converged": true,
+          "steps": 49,
+          "capture": 0.010487583724119722,
+          "tangent_stationarity": 8.120870774030295e-09,
+          "history": [
+            {
+              "step": 0,
+              "capture": 0.0017187287160522703,
+              "tangent_stationarity": 0.0016942421769051794,
+              "rate": 44.21425346720691
+            },
+            {
+              "step": 20,
+              "capture": 0.010487382532010767,
+              "tangent_stationarity": 5.084936142183528e-05,
+              "rate": 44.21425346720691
+            },
+            {
+              "step": 40,
+              "capture": 0.010487583723384732,
+              "tangent_stationarity": 9.40016906551788e-08,
+              "rate": 44.21425346720691
+            }
+          ]
+        },
+        {
+          "seed": 1117,
+          "converged": true,
+          "steps": 58,
+          "capture": 0.010487583724118964,
+          "tangent_stationarity": 8.661369090492966e-09,
+          "history": [
+            {
+              "step": 0,
+              "capture": 0.0016818615974087887,
+              "tangent_stationarity": 0.0018207907553339506,
+              "rate": 44.21425346720691
+            },
+            {
+              "step": 20,
+              "capture": 0.010426571592451549,
+              "tangent_stationarity": 0.0009086981292184416,
+              "rate": 44.21425346720691
+            },
+            {
+              "step": 40,
+              "capture": 0.010487583517046983,
+              "tangent_stationarity": 1.57155832333671e-06,
+              "rate": 44.21425346720691
+            }
+          ]
+        }
+      ],
+      "best": 2,
+      "best_capture": 0.010487583724119722,
+      "absolute_reader_cosines": [
+        0.999999999999952,
+        0.9999999999954778,
+        1.0,
+        0.9999999999999957
+      ],
+      "partner_rank16_capture": 0.552566812793306,
+      "partner_rank90": 279,
+      "selected_component_full_energy": 1555533253.933949,
+      "selected_component_common_energy": 589582195.4133841,
+      "common_fraction_of_component": 0.3790225595771281,
+      "deletion_relative_error": 3.737516442627107e-15,
+      "composition_relative_error": 3.744811561018002e-15
+    }
+  },
+  "maximum_instrument_error": 1.6209256159527285e-13,
+  "full_centered_reader_cosine": 0.9363113608009221,
+  "cache": {
+    "path": "/dev/shm/bilin18_shared_input_factor_native_v1.pt",
+    "sha256": "5bfaa51c4cff7b68788804895581fa2e238e73b167f3ceb7ab55c2f73b94cc9b",
+    "bytes": 21310217,
+    "ephemeral": true
+  },
+  "price": {
+    "reader_numbers": 1152,
+    "full_partner_numbers": 1327104,
+    "rank16_reader_and_partner_numbers": 38016,
+    "native_background_required": true,
+    "body_forwards": 0,
+    "corpus_access": false
+  },
+  "wall_seconds": 4.163847666233778,
+  "scope": "One shared scalar input and native-compatible linear partner, exact postnorm removal and cross-term composition. Coefficient coverage/stability only; not semantic selectivity or full-model circuit adoption."
+}

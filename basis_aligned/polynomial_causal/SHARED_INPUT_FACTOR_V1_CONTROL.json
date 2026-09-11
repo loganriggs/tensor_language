@@ -1,0 +1,37 @@
+{
+  "instrument_passed": true,
+  "score_identity_error": 2.140007664181589e-16,
+  "gradient_error": 1.1368208926744177e-16,
+  "exact_deletion_identity_error": 4.727144530042023e-16,
+  "orthogonal_two_reader_composition_error": 5.086280740687649e-16,
+  "planted_capture": 1.0,
+  "planted_reader_cosine": 1.0000000000000002,
+  "planted_fit": {
+    "converged": true,
+    "steps": 1,
+    "capture": 1.0,
+    "tangent_stationarity": 1.3384901958749976e-15,
+    "history": []
+  },
+  "random_planted_fit": {
+    "converged": true,
+    "steps": 22,
+    "capture": 1.0,
+    "tangent_stationarity": 9.254773470864374e-09,
+    "history": [
+      {
+        "step": 0,
+        "capture": 0.18302353574090016,
+        "tangent_stationarity": 0.5088745170873121,
+        "rate": 0.4999999999999997
+      },
+      {
+        "step": 20,
+        "capture": 1.0,
+        "tangent_stationarity": 2.3840034139036042e-08,
+        "rate": 0.4999999999999997
+      }
+    ]
+  },
+  "scope": "Local quadratic input edit after normalization, without renormalizing. Composition includes the shared cross term. No behavioral/circuit identity claim."
+}

@@ -363,3 +363,19 @@ withmoreconcentratedloadings, butconstraintconvergenceunmet. Same-objective repa
 queued; no circuit identification or native physical replacement claim.
 [Source](../SPARSE_PRODUCT_DICTIONARY_V1_RESULT.json),
 [writer audit](../PRODUCT_WRITER_REDTEAM_V1_RESULT.json).
+
+## 11 September: stable shared-input component with an exact local edit interface
+
+Weight-only one-reader factor f_a(x)=(a^T x)M_a x equalsnativef(x)-f((I-aa^T)x)
+afterinputnormalizationwithout renormalization. Full/centered searches eachconverge
+from4starts; centeredreaderstable,capture1.0488%ofcenteredcoefficientenergy.
+Anyone-readerfactor ceiling1.1309%centered. Partner16retains55.26%,rank90=279;
+inputreuseidentified numerically butpartnernotyet small. Fullcomponentselected
+usingcenteredobjective has37.9%commonoutputenergy, so do notrenameoldcalibration.
+Olderactivation-whitened readoutJSONs lackreader vectors; directidentityunestablished.
+Crossmetricfixedreader audit showsrank16objective choosesdifferently: full-selected
+readercenteredcapture.0062663 vs.0057951. Jointsmallpartnerobjective nowCPUcontrolled,
+nativenotyetfit. Foursemanticcircuitpropertiesremainuntested.
+[Receipt](../SHARED_INPUT_FACTOR_NATIVE_V1_RESULT.json),
+[audit](../SHARED_INPUT_PARTNER_OBJECTIVE_V1_AUDIT.json),
+[explanation](2026-09-11/explanation_2026-09-11_0206.md).
