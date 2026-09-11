@@ -1,0 +1,110 @@
+{
+  "baseline": {
+    "initial_loss": 0.9824535429758756,
+    "loss": 0.00030199048000810225,
+    "gradient_inf": 8.551379271964609e-10,
+    "relative_coefficient_error": 0.01734920429020591,
+    "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 509,
+    "seconds": 8.212076935917139,
+    "graph_replay": 6.14473447080951e-16,
+    "inner_normal_residual": 2.880601138140435e-13
+  },
+  "replay_loss_error": 0.0,
+  "rows": [
+    {
+      "consumers": [
+        0,
+        2
+      ],
+      "initial_loss": 0.0003019904800074067,
+      "loss": 1.020016766526218e-06,
+      "gradient_inf": 1.1454761276345954e-08,
+      "relative_coefficient_error": 4.174416565129903e-06,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 180,
+      "seconds": 1.9749810434877872,
+      "graph_replay": 5.445043476888497e-16,
+      "inner_normal_residual": 1.4719666577924692e-12,
+      "price": {
+        "old_floats": 105,
+        "graph_floats": 86,
+        "saved_float_fraction": 0.18095238095238098,
+        "int64_indices": 18,
+        "graph_numeric_bytes_fp64": 832,
+        "old_numeric_bytes_fp64": 840,
+        "old_linear_readers": 9,
+        "graph_linear_readers": 6,
+        "old_variable_products": 9,
+        "graph_variable_products": 12,
+        "coefficient_multiplications": 86,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+      },
+      "error_reduction_fraction": 0.9997593885866289
+    },
+    {
+      "consumers": [
+        0,
+        1
+      ],
+      "initial_loss": 0.020432007325811553,
+      "loss": 0.004014489260782792,
+      "gradient_inf": 1.4273998467967967e-08,
+      "relative_coefficient_error": 0.06334619773462927,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 383,
+      "seconds": 1.6090350523591042,
+      "graph_replay": 6.937652566941619e-16,
+      "inner_normal_residual": 9.073510748919091e-12,
+      "price": {
+        "old_floats": 105,
+        "graph_floats": 86,
+        "saved_float_fraction": 0.18095238095238098,
+        "int64_indices": 18,
+        "graph_numeric_bytes_fp64": 832,
+        "old_numeric_bytes_fp64": 840,
+        "old_linear_readers": 9,
+        "graph_linear_readers": 6,
+        "old_variable_products": 9,
+        "graph_variable_products": 12,
+        "coefficient_multiplications": 86,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+      },
+      "error_reduction_fraction": -2.651245133495251
+    },
+    {
+      "consumers": [
+        1,
+        2
+      ],
+      "initial_loss": 0.02043200732581202,
+      "loss": 0.0008752065465903125,
+      "gradient_inf": 3.147554097539115e-07,
+      "relative_coefficient_error": 0.029565305345220918,
+      "termination": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 1000,
+      "seconds": 2.988564155995846,
+      "graph_replay": 6.583376952884572e-16,
+      "inner_normal_residual": 1.5336379065666344e-13,
+      "price": {
+        "old_floats": 105,
+        "graph_floats": 86,
+        "saved_float_fraction": 0.18095238095238098,
+        "int64_indices": 18,
+        "graph_numeric_bytes_fp64": 832,
+        "old_numeric_bytes_fp64": 840,
+        "old_linear_readers": 9,
+        "graph_linear_readers": 6,
+        "old_variable_products": 9,
+        "graph_variable_products": 12,
+        "coefficient_multiplications": 86,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+      },
+      "error_reduction_fraction": -0.704130336508362
+    }
+  ],
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "scope": "Controlled consumer-topology moves on a known planted target, followed by joint reader/writer fitting and core elimination. A single selected failed start; no native/global recovery claim."
+}

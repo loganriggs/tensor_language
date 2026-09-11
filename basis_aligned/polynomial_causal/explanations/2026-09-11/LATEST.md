@@ -1,5 +1,9 @@
 # Latest research update
 
+**16:22 live:** [four matched native joint-reader fits](../../SHARED_READER_JOINT_FIT_V1_PREREGISTRATION.md), using bounded coordinates and fresh-gradient checks. First arm running, three queued. Native kernel preflight passed; independent planted recovery remains unreliable. [Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1622.md) records a publication/validation overhead failure and narrows the next block to live-fit evidence.
+
+**16:10 result:** [joint reader fitting and false convergence signal](../../SHARED_READER_VARIABLE_PROJECTION_V2_MATH.md). Checked gradients, but independent planted recovery is unreliable; raw coordinate norms can hide a large gradient. A native GPU preflight is queued. Earlier projected LL1 completed with convergence/stability misses.
+
 **15:52 method result:** [joint-compatible parents and converged interaction coefficients](../../LL1_COMPATIBLE_PARENTS_AND_CORE_SOLVE_V1_MATH.md). The linear coefficient subproblem now converges, but most graph loss remains; shared readers and private spaces need joint fitting. Second projected LL1 arm remains live.
 
 **15:42 graph result:** [joint multi-parent execution and repair](../../LL1_JOINT_PARENT_GRAPH_V1_MATH.md) now accounts for overlapping parents correctly. A tested marginal-space repair halves approximation loss; the final bar still misses. The projected LL1 spectral arm ended unconverged at11.8891%capture; second arm is live.

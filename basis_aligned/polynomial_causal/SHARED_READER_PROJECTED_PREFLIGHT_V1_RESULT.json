@@ -1,0 +1,52 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "rows": [
+    {
+      "label": "spectral",
+      "initial_objective": 0.8872784590223587,
+      "cpu_objective": 0.8872784590223589,
+      "cpu_replay": 2.220446049250313e-16,
+      "displaced_objective": 0.8872788417553708,
+      "finite_derivative": 0.0008468208195777649,
+      "analytic_derivative": 0.0008468209762216619,
+      "relative_finite_difference_error": 1.849787633541224e-07,
+      "executor_replay": 1.256639182918012e-15,
+      "inner_normal_residual": 7.612983093261512e-12,
+      "inner_iterations": 59,
+      "uncached_evaluation_seconds": [
+        0.7003202065825462,
+        0.2810457646846771,
+        0.2794707231223583,
+        0.2800517976284027,
+        0.2779163829982281
+      ],
+      "median_evaluation_seconds": 0.2800517976284027,
+      "peak_allocated_gib": 0.3780789375305176
+    },
+    {
+      "label": "native",
+      "initial_objective": 0.8876022987585279,
+      "cpu_objective": 0.8876022987585279,
+      "cpu_replay": 0.0,
+      "displaced_objective": 0.8876027420040783,
+      "finite_derivative": 0.0008457675454431879,
+      "analytic_derivative": 0.0008457676017061398,
+      "relative_finite_difference_error": 6.652294526029561e-08,
+      "executor_replay": 1.2878330716288474e-15,
+      "inner_normal_residual": 7.658630105197567e-12,
+      "inner_iterations": 58,
+      "uncached_evaluation_seconds": [
+        0.28894277289509773,
+        0.2827012427151203,
+        0.28079304471611977,
+        0.2807443365454674,
+        0.2772388830780983
+      ],
+      "median_evaluation_seconds": 0.28079304471611977,
+      "peak_allocated_gib": 0.39583539962768555
+    }
+  ],
+  "scope": "Native weight-only numeric/runtime preflight; zero optimizer steps and zero model-body forwards."
+}

@@ -277,3 +277,9 @@ Managed wrapper V3 runs the [registered projected comparison](PROJECTED_LL1_CONV
 ### 11 September — Joint-compatible parents and converged all-core solves
 
 [Matched result and derivation](LL1_COMPATIBLE_PARENTS_AND_CORE_SOLVE_V1_MATH.md): joint membership selection removes only4–7%graph loss. All64symmetric cores can be solved together with a matrix-free SPD operator, including cross-group cancellation; four matched solves converge in38–57iterations. Graphs improve but still miss.001capture-gap bar. Fixed interaction coefficients are no longer the optimization uncertainty; shared-reader/private-space movement is next.
+
+### 11 September — Joint reader/core fitting and coordinate stopping confound
+
+[New objective and red-team](SHARED_READER_VARIABLE_PROJECTION_V2_MATH.md): move shared/private readers and output directions while solving allcores. Gradient checks hold; plantednear4/4,independent0/4. Same-function coordinate reset rescuesone while raw optimizerrestart stopsimmediately; raw norms reachedmillions. Four-cycle recovery1/4stillmisses. Nativekernelpreflight is managed/queued, nooptimizationhidden. Earlier projectedLL1finished11.8891/11.8510%capture withoutconvergence; .90849functioncos/7matchedgroups missstability.
+
+**16:22 continuation:** native joint-reader preflight passed at~.28s/evaluation. Bounded/re-encoded controller preserves function but plantedindependent1/4stillmisses; no credible negativecurvature in two tested misses. Four matched original/shared-graph20-minute native arms are live/queued under [this protocol](SHARED_READER_JOINT_FIT_V1_PREREGISTRATION.md). Results pending.

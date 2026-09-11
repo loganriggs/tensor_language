@@ -1,0 +1,432 @@
+{
+  "rows": [
+    {
+      "seed": 2914,
+      "cycles": [
+        {
+          "cycle": 0,
+          "loss": 0.011665544139454958,
+          "gradient_inf": 5.651674692014953e-05,
+          "steps": 1000,
+          "seconds": 2.3853375241160393,
+          "termination": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "relative_coefficient_error": 0.10763888921249587,
+          "baseline_objective_replay": 0.0,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 12.471968087127983,
+              "max_row_norm": 18.38830876198024
+            },
+            {
+              "min_row_norm": 8.514558871440826,
+              "max_row_norm": 25.216020200953558
+            },
+            {
+              "min_row_norm": 26.37280448850601,
+              "max_row_norm": 50.7790692747894
+            }
+          ],
+          "reencoding_function_error": 3.107556506339073e-14,
+          "reencoding_objective_error": 1.1129985821867194e-14,
+          "reencoded_gradient_inf": 0.0007430194005009066,
+          "inner_normal_residual": 1.4561244235065795e-15
+        },
+        {
+          "cycle": 1,
+          "loss": 0.007265137593440428,
+          "gradient_inf": 5.241521187989858e-05,
+          "steps": 1000,
+          "seconds": 2.3081053756177425,
+          "termination": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "relative_coefficient_error": 0.08498068155018847,
+          "baseline_objective_replay": null,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 1.067652888758233,
+              "max_row_norm": 1.112236505571102
+            },
+            {
+              "min_row_norm": 1.1534664906219527,
+              "max_row_norm": 2.4283626966261576
+            },
+            {
+              "min_row_norm": 1.019573325124479,
+              "max_row_norm": 1.8642069042744633
+            }
+          ],
+          "reencoding_function_error": 9.84476538082898e-15,
+          "reencoding_objective_error": 8.347489366400396e-15,
+          "reencoded_gradient_inf": 5.344115185769248e-05,
+          "inner_normal_residual": 2.476936814052224e-12
+        },
+        {
+          "cycle": 2,
+          "loss": 0.007265131656157051,
+          "gradient_inf": 4.0704670630927645e-07,
+          "steps": 160,
+          "seconds": 0.3594334237277508,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "relative_coefficient_error": 0.08498057185405229,
+          "baseline_objective_replay": null,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 1.0000000425576074,
+              "max_row_norm": 1.0000000584177027
+            },
+            {
+              "min_row_norm": 1.0000000279877803,
+              "max_row_norm": 1.0000004448832418
+            },
+            {
+              "min_row_norm": 1.0000000110357377,
+              "max_row_norm": 1.0000001126711864
+            }
+          ],
+          "reencoding_function_error": 6.079000890951168e-15,
+          "reencoding_objective_error": 6.260617024800297e-15,
+          "reencoded_gradient_inf": 4.070467091980426e-07,
+          "inner_normal_residual": 9.65403206867561e-12
+        },
+        {
+          "cycle": 3,
+          "loss": 0.007265131656157504,
+          "gradient_inf": 4.0729125374682157e-07,
+          "steps": 1,
+          "seconds": 0.009711559861898422,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "relative_coefficient_error": 0.08498057185385317,
+          "baseline_objective_replay": null,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 0.9999999999999999,
+              "max_row_norm": 1.0
+            },
+            {
+              "min_row_norm": 0.9999999999999997,
+              "max_row_norm": 1.0
+            },
+            {
+              "min_row_norm": 1.0,
+              "max_row_norm": 1.0
+            }
+          ],
+          "reencoding_function_error": 4.879747346548355e-15,
+          "reencoding_objective_error": 5.100954381109801e-15,
+          "reencoded_gradient_inf": 4.07291255057773e-07,
+          "inner_normal_residual": 6.612799474174288e-12
+        }
+      ],
+      "recovered": false
+    },
+    {
+      "seed": 2915,
+      "cycles": [
+        {
+          "cycle": 0,
+          "loss": 0.0014053275331250667,
+          "gradient_inf": 9.631509293426462e-09,
+          "steps": 553,
+          "seconds": 1.1618068143725395,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "relative_coefficient_error": 0.0370421307853251,
+          "baseline_objective_replay": 0.0,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 8.758488824143294,
+              "max_row_norm": 10.70601260394147
+            },
+            {
+              "min_row_norm": 8.02738184701839,
+              "max_row_norm": 12.737734894581502
+            },
+            {
+              "min_row_norm": 13.957421195478272,
+              "max_row_norm": 23.458018978683935
+            }
+          ],
+          "reencoding_function_error": 6.1113678233841905e-15,
+          "reencoding_objective_error": 6.724655554624093e-15,
+          "reencoded_gradient_inf": 1.1828761179927303e-07,
+          "inner_normal_residual": 1.3628073430550051e-12
+        },
+        {
+          "cycle": 1,
+          "loss": 0.0014053275330633867,
+          "gradient_inf": 2.4701146045906633e-07,
+          "steps": 15,
+          "seconds": 0.051996372640132904,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "relative_coefficient_error": 0.03704213129647763,
+          "baseline_objective_replay": null,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 1.0000000000000238,
+              "max_row_norm": 1.0000000000002025
+            },
+            {
+              "min_row_norm": 1.0000000000000382,
+              "max_row_norm": 1.0000000000001419
+            },
+            {
+              "min_row_norm": 1.000000000000009,
+              "max_row_norm": 1.0000000000000298
+            }
+          ],
+          "reencoding_function_error": 5.163871674075019e-15,
+          "reencoding_objective_error": 9.043764001570587e-15,
+          "reencoded_gradient_inf": 2.4701146643150194e-07,
+          "inner_normal_residual": 9.570868860659237e-12
+        },
+        {
+          "cycle": 2,
+          "loss": 0.0014053275330633407,
+          "gradient_inf": 2.3042574421306801e-07,
+          "steps": 4,
+          "seconds": 0.046165551990270615,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "relative_coefficient_error": 0.037042131296053785,
+          "baseline_objective_replay": null,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 0.9999999999999999,
+              "max_row_norm": 1.0
+            },
+            {
+              "min_row_norm": 0.9999999999999998,
+              "max_row_norm": 1.0
+            },
+            {
+              "min_row_norm": 1.0,
+              "max_row_norm": 1.0
+            }
+          ],
+          "reencoding_function_error": 9.392368217767593e-15,
+          "reencoding_objective_error": 1.2753470154946989e-14,
+          "reencoded_gradient_inf": 2.3042574048196697e-07,
+          "inner_normal_residual": 2.874984402998299e-12
+        },
+        {
+          "cycle": 3,
+          "loss": 0.0014053275330578325,
+          "gradient_inf": 1.0203426935926557e-07,
+          "steps": 3,
+          "seconds": 0.0127030611038208,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "relative_coefficient_error": 0.03704213128630059,
+          "baseline_objective_replay": null,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 1.0000000000000002,
+              "max_row_norm": 1.0000000000000002
+            },
+            {
+              "min_row_norm": 0.9999999999999996,
+              "max_row_norm": 1.0
+            },
+            {
+              "min_row_norm": 0.9999999999999999,
+              "max_row_norm": 1.0
+            }
+          ],
+          "reencoding_function_error": 7.667290735847053e-15,
+          "reencoding_objective_error": 1.855069917122698e-14,
+          "reencoded_gradient_inf": 1.0203426488796881e-07,
+          "inner_normal_residual": 6.338941279494493e-12
+        }
+      ],
+      "recovered": false
+    },
+    {
+      "seed": 2916,
+      "cycles": [
+        {
+          "cycle": 0,
+          "loss": 0.00030199048000810225,
+          "gradient_inf": 8.551379271964609e-10,
+          "steps": 509,
+          "seconds": 1.0737625248730183,
+          "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+          "relative_coefficient_error": 0.01734920429020591,
+          "baseline_objective_replay": 0.0,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 2303642.795083289,
+              "max_row_norm": 5254796.383170077
+            },
+            {
+              "min_row_norm": 807258.6357958185,
+              "max_row_norm": 3218645.124297688
+            },
+            {
+              "min_row_norm": 874649.112108402,
+              "max_row_norm": 3004809.8793473975
+            }
+          ],
+          "reencoding_function_error": 1.2778110385482541e-15,
+          "reencoding_objective_error": 6.955699037580754e-16,
+          "reencoded_gradient_inf": 0.0007878323256788283,
+          "inner_normal_residual": 2.880601138140435e-13
+        },
+        {
+          "cycle": 1,
+          "loss": 1.020016766526218e-06,
+          "gradient_inf": 1.1454761276345954e-08,
+          "steps": 180,
+          "seconds": 0.28931472077965736,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "relative_coefficient_error": 4.174416565129903e-06,
+          "baseline_objective_replay": null,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 1.05986674022653,
+              "max_row_norm": 1.1334616696997906
+            },
+            {
+              "min_row_norm": 1.006064073662406,
+              "max_row_norm": 1.025355046053266
+            },
+            {
+              "min_row_norm": 1.000218853504414,
+              "max_row_norm": 1.0060733610485735
+            }
+          ],
+          "reencoding_function_error": 7.171522935370643e-16,
+          "reencoding_objective_error": 2.318826808491532e-16,
+          "reencoded_gradient_inf": 1.1447127721190103e-08,
+          "inner_normal_residual": 1.4719666577924692e-12
+        }
+      ],
+      "recovered": true
+    },
+    {
+      "seed": 2917,
+      "cycles": [
+        {
+          "cycle": 0,
+          "loss": 0.015708762242970537,
+          "gradient_inf": 7.209164654690793e-10,
+          "steps": 279,
+          "seconds": 0.5577327199280262,
+          "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+          "relative_coefficient_error": 0.12531559706279327,
+          "baseline_objective_replay": 0.0,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 1755777.8485557598,
+              "max_row_norm": 2519722.80185856
+            },
+            {
+              "min_row_norm": 748274.1857770291,
+              "max_row_norm": 6460759.800888673
+            },
+            {
+              "min_row_norm": 6521745.930754478,
+              "max_row_norm": 21640054.330134716
+            }
+          ],
+          "reencoding_function_error": 2.0933739969414056e-15,
+          "reencoding_objective_error": 1.1587952819525071e-15,
+          "reencoded_gradient_inf": 0.0014898261832119082,
+          "inner_normal_residual": 6.5573696241027285e-12
+        },
+        {
+          "cycle": 1,
+          "loss": 0.010055304347112975,
+          "gradient_inf": 0.008814343245841842,
+          "steps": 1000,
+          "seconds": 2.620448261499405,
+          "termination": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "relative_coefficient_error": 0.0997835073044246,
+          "baseline_objective_replay": null,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 1.0382704744873166,
+              "max_row_norm": 1.0799700509065566
+            },
+            {
+              "min_row_norm": 1.1076383897091988,
+              "max_row_norm": 2.2411473242615516
+            },
+            {
+              "min_row_norm": 1.0589727842845733,
+              "max_row_norm": 1.424445378068204
+            }
+          ],
+          "reencoding_function_error": 1.0642234458056694e-14,
+          "reencoding_objective_error": 2.6876070813308672e-14,
+          "reencoded_gradient_inf": 0.009334149609102515,
+          "inner_normal_residual": 2.509831207351998e-12
+        },
+        {
+          "cycle": 2,
+          "loss": 0.009843971563702614,
+          "gradient_inf": 0.0002696063721391716,
+          "steps": 1000,
+          "seconds": 2.7062650360167027,
+          "termination": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "relative_coefficient_error": 0.09840337283876695,
+          "baseline_objective_replay": null,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 1.0022222705503212,
+              "max_row_norm": 1.0024957997875301
+            },
+            {
+              "min_row_norm": 1.0013406192946734,
+              "max_row_norm": 1.0626557812436692
+            },
+            {
+              "min_row_norm": 1.0003401805152228,
+              "max_row_norm": 1.002160724645442
+            }
+          ],
+          "reencoding_function_error": 1.8998665079691784e-14,
+          "reencoding_objective_error": 4.5291895234278456e-14,
+          "reencoded_gradient_inf": 0.0002698819686170172,
+          "inner_normal_residual": 8.792214005885842e-12
+        },
+        {
+          "cycle": 3,
+          "loss": 0.009843951221660154,
+          "gradient_inf": 1.3598768904352544e-06,
+          "steps": 721,
+          "seconds": 1.8194516003131866,
+          "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "relative_coefficient_error": 0.0984066290488917,
+          "baseline_objective_replay": null,
+          "raw_row_scales": [
+            {
+              "min_row_norm": 1.000000158529412,
+              "max_row_norm": 1.0000002889989363
+            },
+            {
+              "min_row_norm": 1.0000000653494445,
+              "max_row_norm": 1.0000011290218727
+            },
+            {
+              "min_row_norm": 1.0000000096840813,
+              "max_row_norm": 1.0000001368080336
+            }
+          ],
+          "reencoding_function_error": 4.879357668949642e-15,
+          "reencoding_objective_error": 3.8859540585356456e-14,
+          "reencoded_gradient_inf": 1.3599782090632917e-06,
+          "inner_normal_residual": 6.667914629014682e-12
+        }
+      ],
+      "recovered": false
+    }
+  ],
+  "raw_restart": {
+    "loss": 0.00030199048000810225,
+    "gradient_inf": 8.551379271964609e-10,
+    "steps": 0,
+    "seconds": 0.00014269351959228516,
+    "termination": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "relative_coefficient_error": 0.01734920429020591
+  },
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "scope": "Same topology/function re-encoded between L-BFGS solves. Finite tolerance gradients depend on numerical coordinates; original independent-start failure remains recorded. Not a global convergence theorem."
+}

@@ -82,29 +82,38 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 15:21 live run
+## Current handoff — 11 September 16:22 matched joint fits
 
 Use [the latest requested report](basis_aligned/polynomial_causal/explanations/for_logan/LATEST.md),
 [current state](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md).
 
-- Managed `run_projected_ll1_convergence_v3.py` started15:21:15, SHA
-  `fe66af8d88555577609e6965fccc3c6bcc77d50ecfc4387823013adf82f0fc5c`.
-  Two1200-second budgets, exact equilibrated output solves, explicit local
-  gradient/progress criteria. V1/V2 wrapper gate failures had no native execution.
-  Recheck the same live run; do not launch a duplicate or edit bound sources.
-- The original matched pilot completed: LL1 capture11.66/11.64%, shared-input
-  8.53/8.54%, all unconverged. Whole-function similarity did not identify groups.
-- One shared-parent graph proposal largely recovers prior square150. Its native
-  physical interface is saved; frozen text tests do not establish a quote circuit.
-- Joint shared-square-bank kernel passes controls, but eigen-square clustering
-  has negligible native savings. The uv/uw counterexample exposes its limitation.
-- Subspace-based proposals find15/17 mixed parents, usually with two consumers.
-  Some groups have multiple parents; joint accounting must avoid double-counting.
-  Read `LL1_SUBSPACE_PARENTS_V1_MATH.md` and the live run protocol.
-- Requested fuller reports stay in `explanations/for_logan/`; latest remains the
-  13:27 report with CP/LL1 and hierarchy/DAG appendices. No new requested report
-  has been manufactured. General DAG discovery remains incomplete.
+- The output-eliminated LL1 run completed16:01:20:11.8891/11.8510%capture,
+  both unconverged; functioncos.90849 and7/64groupmatches missstability.
+  Read PROJECTED_LL1_CONVERGENCE_V3_RESULT.json; do not restart this completed run.
+- Joint multi-parent graphs now execute correctly. Compatible parent selection
+  and converged matched all-core solves leave most approximation loss.
+- New all-core variable-projection kernel moves shared/private readers and output
+  directions jointly. Dense gradient/FD checks pass. Planted near4/4recover,
+  independent0/4; coordinate re-encoding recovers1/4 after cycles.
+- Raw parameter norms reachedmillions and caused false gradient stopping.
+  Same-function re-encoding exposes a large gradient; raw optimizerrestart doesnot.
+  Read SHARED_READER_VARIABLE_PROJECTION_V2_MATH.md before fitting or claiming
+  convergence. A new controller must bound/reset redundant coordinate scales.
+- Native kernel preflight completed with all bars held at~.28s/evaluation.
+  The bounded/re-encoded controller preserves function but still recovers only
+  1/4independent planted starts; no global guarantee or absent-structure claim.
+- Four run_shared_reader_joint_fit_v1_<label>_<family>.py arms are managed:
+  spectral-original started16:22:02; spectral-graph/native-original/native-graph
+  queued. Each has20minutes, matched initial CPU objective and fresh-coordinate
+  convergence checks. Read SHARED_READER_JOINT_FIT_V1_PREREGISTRATION.md and
+  current queue/results. Helper and25dependencies frozen; no duplicate GPU runs.
+- Hourly1622 records CEREMONY_BUDGET failure. Next block should interpret the
+  live fits using existing receipts and reduce repeated validation/publication,
+  not start another unrelated toy suite or reporting framework.
+- Requested fuller reports remain in explanations/for_logan/; latest remains
+  the13:27report with CP/LL1 and hierarchy/DAG appendices. General reliable DAG
+  discovery and the four behavioral properties remain unfinished.
 
 User correction: discover from weights first. No new data/CE/Fisher-guided fits
 until distinct weight-only assumptions and adequate optimization have been
@@ -129,8 +138,8 @@ or historical handoff block for every small control. No new publisher framework.
 ## Review clocks and throughput
 
 Latest hourly review:
-[15:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1522.md).
-Next hourly review is due **16:22 UTC on11September** at the first safe boundary.
+[16:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1622.md).
+Next hourly review is due **17:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [13:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1351.md).
 Next mathematical review is due **16:51 UTC on11September**. Derive later deadlines from the
