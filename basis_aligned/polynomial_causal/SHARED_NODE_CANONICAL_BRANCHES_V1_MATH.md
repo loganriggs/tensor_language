@@ -57,3 +57,64 @@ The native-original matched fit also completed at 17:22:16: coefficient capture
 11.85428%, numeric and improvement bars held, convergence missed (fresh gradient
 1.986e-4; recent relative progress 4.680e-5). The native-graph comparison remains
 in progress at this note's publication. This adds no convergence or circuit claim.
+
+## Native behavioral screen completed at 17:59 UTC
+
+The [first native screen](SHARED_NODE_PARENT1_FINEWEB_V1_RESULT.json) passes
+execution and native-capability checks, but **fails the predicted support
+direction**. Removing the branches improves target likelihood rather than
+damaging it. The original prediction remains failed.
+
+| Prefix family | Remove branch0: mean CE added | Remove branch1 | Remove both |
+|---|---:|---:|---:|
+| Branch0 weight-token family | −0.0420 | −0.0316 | −0.0714 |
+| Branch1 weight-token family | −0.0322 | −0.0543 | −0.0849 |
+| Nearby control targets | +0.0103 | +0.0066 | +0.0171 |
+
+Positive CE added is damage; negative is improvement. Native top20 fractions
+are66.7% and91.7% in the two target families. Mean absolute control CE changes
+are0.0150 and0.0081, below the registered0.05 limit. Native and branch0 physical
+endpoint logits replay within8.31e-7 relative error. Execution used the registered
+11 body forwards and88 sequences, taking1.31 seconds inside the run.
+
+These observations suggest suppression, but do not establish two distinct
+behaviors. Paired own-minus-other95% intervals are[-0.0356,0.0141] and
+[-0.0584,0.0248], both including zero. The resampling units are cached prefixes;
+raw source-document identity has not been independently verified.
+
+## The sign comes mainly from the branch write
+
+The [executed sign audit](SHARED_NODE_PARENT1_SIGN_AUDIT_V1.json) uses frozen
+endpoint states and native target-token unembedding rows. Both own families
+have a negative forward raw target contribution on87.5% of examples. Thus
+positive token loadings in the weight-only writer list did not imply positive
+contributions in context: the product of the input reads supplied the sign.
+
+For the post-MLP state $h$ and removed contribution $\delta$, first evaluate the
+target-score change at the old RMS denominator, then change to the new denominator.
+Including the native tanh soft cap at both steps defines a direct score change
+$d$ and an RMS correction $r$. Let $z$ denote the change in the log sum of
+exponentiated logits. Then
+
+$$
+\Delta\mathrm{CE}=-d-r+z.
+$$
+
+| Own-family removal | Direct target-score gain $d$ | RMS correction $r$ | Implied log-normalizer change $z$ | CE added |
+|---|---:|---:|---:|---:|
+| Branch0 | +0.1203 | −0.0047 | +0.0736 | −0.0420 |
+| Branch1 | +0.1255 | −0.0103 | +0.0608 | −0.0543 |
+
+The RMS correction is smaller than the direct score gain; changing competing
+token scores offsets part of that gain. The log-normalizer change is inferred
+from measured CE and recomputed target scores, rather than independently replayed
+over the vocabulary. FP64 accounting is exact and FP32/FP64 target scores differ
+by at most3.20e-6. All registered sign-audit bars hold; they explain the failed
+direction on these rows and do not validate an inhibitory circuit on new inputs.
+
+The [separate-prefix follow-up](SHARED_NODE_PARENT1_SUPPRESSION_V1_PREREGISTRATION.md)
+freezes the same factors on128 other cached FineWeb prefixes,384 endpoints. It
+tests suppression as a new hypothesis and requires paired evidence of own-versus-other
+branch specificity. No weights are fitted to the panel, and no OOD or isolated
+sufficiency claim is made. Related MLP17 calibration and earlier quote-suppression
+findings remain relevant controls, not grounds to declare this a novel circuit.

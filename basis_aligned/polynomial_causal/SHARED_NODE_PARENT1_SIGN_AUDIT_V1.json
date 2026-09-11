@@ -1,0 +1,97 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "fp64_accounting_error": 0.0,
+  "fp32_fp64_target_score_error": 3.191694602833195e-06,
+  "rows": [
+    {
+      "branch": 0,
+      "family": 0,
+      "fraction_negative_forward_target": 0.875,
+      "mean_forward_raw_target_contribution": -392.6650807899402,
+      "mean_direct_target_score_gain": 0.12031643825869054,
+      "mean_rms_target_score_change": -0.004723729634035112,
+      "mean_implied_log_normalizer_change": 0.07357477356807646,
+      "mean_ce_added": -0.04201793505657897,
+      "mean_absolute_direct": 0.12657747510989537,
+      "mean_absolute_rms": 0.0048876066621532654
+    },
+    {
+      "branch": 0,
+      "family": 1,
+      "fraction_negative_forward_target": 0.7083333333333334,
+      "mean_forward_raw_target_contribution": -424.4089936178855,
+      "mean_direct_target_score_gain": 0.11147414670383671,
+      "mean_rms_target_score_change": -0.003807866747956671,
+      "mean_implied_log_normalizer_change": 0.07544894010086341,
+      "mean_ce_added": -0.032217339855016625,
+      "mean_absolute_direct": 0.12582640594013564,
+      "mean_absolute_rms": 0.00727565029890372
+    },
+    {
+      "branch": 0,
+      "family": 2,
+      "fraction_negative_forward_target": 0.5,
+      "mean_forward_raw_target_contribution": -2.065920281467333,
+      "mean_direct_target_score_gain": 0.0009053705947115603,
+      "mean_rms_target_score_change": 0.00021807175122471692,
+      "mean_implied_log_normalizer_change": 0.01139252067886457,
+      "mean_ce_added": 0.010269078332928294,
+      "mean_absolute_direct": 0.005254180402958927,
+      "mean_absolute_rms": 0.0014626049426636663
+    },
+    {
+      "branch": 1,
+      "family": 0,
+      "fraction_negative_forward_target": 0.7083333333333334,
+      "mean_forward_raw_target_contribution": -292.44425748772727,
+      "mean_direct_target_score_gain": 0.08214471044626505,
+      "mean_rms_target_score_change": -0.009105836453114266,
+      "mean_implied_log_normalizer_change": 0.041467875627110545,
+      "mean_ce_added": -0.031570998366040236,
+      "mean_absolute_direct": 0.08956928611788333,
+      "mean_absolute_rms": 0.009865905430571031
+    },
+    {
+      "branch": 1,
+      "family": 1,
+      "fraction_negative_forward_target": 0.875,
+      "mean_forward_raw_target_contribution": -487.74129783210464,
+      "mean_direct_target_score_gain": 0.1254958033991909,
+      "mean_rms_target_score_change": -0.010322594974623142,
+      "mean_implied_log_normalizer_change": 0.060826348699341594,
+      "mean_ce_added": -0.05434685972522616,
+      "mean_absolute_direct": 0.14146043291091293,
+      "mean_absolute_rms": 0.011528938701336866
+    },
+    {
+      "branch": 1,
+      "family": 2,
+      "fraction_negative_forward_target": 0.5416666666666666,
+      "mean_forward_raw_target_contribution": 8.002563530425846,
+      "mean_direct_target_score_gain": -0.0018525636393507728,
+      "mean_rms_target_score_change": -0.0011774650008415748,
+      "mean_implied_log_normalizer_change": 0.0035434041732746095,
+      "mean_ce_added": 0.006573432813466958,
+      "mean_absolute_direct": 0.0038591252415338534,
+      "mean_absolute_rms": 0.0018123648673853225
+    }
+  ],
+  "own_minus_other_ce_added_95": [
+    [
+      -0.035589772942123295,
+      -0.05838311681201906
+    ],
+    [
+      0.014112123673180401,
+      0.024820102585246667
+    ]
+  ],
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_FINEWEB_V1_ROWS.pt": "c68108ce542eddd07f1614fb41dead2923bb51a35398fd592c9af126216307a6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_FINEWEB_V1_ENDPOINTS.pt": "689822a6f602480adc8fb7635aed061ab81f96874313638ebe945e13490abd3a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_CANONICAL_BRANCHES_V1_SPECTRAL.pt": "b1e90771d51ea355e1b1f636ece07816034dc3aeeb220513262ee69292beeeb3"
+  },
+  "scope": "Post-result accounting on frozen historical FineWeb endpoints. Log-normalizer change inferred from measured CE plus recomputed target scores, not independent full-vocab replay. No fitting; original support prediction remains failed, inhibitory interpretation unvalidated."
+}

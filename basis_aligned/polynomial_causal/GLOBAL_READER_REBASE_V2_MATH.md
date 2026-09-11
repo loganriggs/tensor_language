@@ -97,3 +97,55 @@ did hide comparable computation, but defining consistent consumers does not by
 itself establish a distinguished circuit. The frozen native branch screen remains
 queued with its original named-node intervention. Its behavioral outcome and the
 retained-history optimization comparison should guide the next experiment.
+
+## Two parents: preserving the other read changes the intervention
+
+The [two-parent extension](global_multi_parent_rebase_v1.py) now exposes both
+fixed readers together, globally, in each fitted graph. It preserves the entire
+quadratic function and reuses the rank-deficiency repair.
+
+Let $R$ have the two readers as rows. Its dual columns are
+
+$$
+V=R^\top(RR^\top)^{-1},\qquad RV=I.
+$$
+
+Write $z=Rx$ and keep private reads perpendicular to the row space of $R$.
+Setting only $z_i$ to zero while holding the other read fixed corresponds to
+
+$$
+x'=x-v_i(r_i^\top x).
+$$
+
+This is an **oblique projection**: the removal direction $v_i$ preserves the
+other reader, rather than necessarily point along $r_i$. The identity
+$r_j^\top v_i=0$ for $j\ne i$ makes these deletions commute. Removing both gives
+the orthogonal projection off their joint span:
+
+$$
+x'=\left[I-R^\top(RR^\top)^{-1}R\right]x.
+$$
+
+Individually subtracting $r_i(r_i^\top x)$ instead changes the other reader
+whenever their inner product is nonzero. These actual readers have cosine0.06898
+and Gram condition1.148. Nevertheless, their single-removal outcomes differ by
+7.4–10.2% relative output norm between the orthogonal and node-preserving
+definitions. Small reader overlap is not an exact interchange contract.
+
+The [receipt](GLOBAL_MULTI_PARENT_REBASE_V1_RESULT.json) passes all registered
+bars: coefficient/executor/dual/input-intervention/commutation checks agree
+within7.05e-14; scope differences exceed1% in both fits; joint-removal cross-start
+cosine is0.9587. The preceding specificity control still prevents interpreting
+this agreement alone as a distinguished circuit.
+
+The graph computes $z_0^2,z_0z_1,z_1^2$ once for their output consumers, alongside
+each group's private quadratics and two shared/private mixed terms. Summing the
+two individual removals counts $z_0z_1$ twice. Subtracting its vector contribution
+once gives the exact joint effect. The naive sum has8.77% / 8.89% relative
+execution error in the two fits. This local polynomial identity does not make
+native RMS, tanh, or CE effects additive; they require downstream evaluation.
+
+The two-parent version costs1,258,944 floating coefficients,1026 linear reads,
+and1155 variable products, versus1,254,400/1024/1024 in the original64-group
+representation. It provides a precise executable interface and adds cost;
+it is not yet a simpler adopted decomposition or a behavioral result.

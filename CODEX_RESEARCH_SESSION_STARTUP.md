@@ -111,7 +111,10 @@ and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX
   hold, all fits remain unconverged, and zero frozen cross-start node matches
   meet stability bars. See SHARED_READER_JOINT_FIT_V1_AGGREGATE.json and
   SHARED_READER_CROSS_START_V1_RESULT.json. The separately audited retained-history
-  comparison and frozen parent1 branch-removal screen are queued after peer work. Check
+  comparison is live from17:59:14. The first frozen parent1 screen completed:
+  execution/capability held, support direction failed; sign accounting indicates
+  suppression. A separate128-prefix suppression/specificity screen is audited
+  and queued. Read SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md. Check
   livequeue/results beforeaction. Allboundhelpers remainfrozen.
 - Frozen cross-start correspondence has been scored; descriptive rematching
   does not repair its miss. Do not call current nodes identified circuits.
@@ -119,6 +122,10 @@ and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX
   SHARED_FACTOR_OUTPUT_MIXTURES_V1_MATH.md for exact output-basis search, full-native
   reader lifting, and graph-node versus global input-removal scope. The queued
   behavioral screen is validation of frozen weights, with no data fitting.
+- GLOBAL_READER_REBASE_V2_MATH.md adds exact global single/two-parent interfaces:
+  nonorthogonal node deletion uses dual readers and oblique input removal.
+  Execution/composition holds, but generic controls prevent a special-circuit
+  interpretation of improved cross-start agreement. Costs increase; no adoption.
 - Requested fuller reports remain in explanations/for_logan/; latest remains
   the13:27report with CP/LL1 and hierarchy/DAG appendices. General reliable DAG
   discovery and the four behavioral properties remain unfinished.

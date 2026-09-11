@@ -1,0 +1,61 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "reader_cosine": 0.06898300667625189,
+  "reader_gram_condition": 1.148188501758665,
+  "joint_function_cosine": 0.9587070324095917,
+  "rows": [
+    {
+      "maximum_replay": 6.238802003571941e-14,
+      "single_orthogonal_scope_differences": [
+        0.07508473849027025,
+        0.10244256380178039
+      ],
+      "naive_joint_relative_error": 0.08772228377744126,
+      "pair_correction_over_joint_energy": 0.007565423551440004,
+      "price": {
+        "old_floats": 1254400,
+        "graph_floats": 1258944,
+        "saved_float_fraction": -0.0036224489795917414,
+        "int64_indices": 326,
+        "graph_numeric_bytes_fp64": 10074160,
+        "old_numeric_bytes_fp64": 10035200,
+        "old_linear_readers": 1024,
+        "graph_linear_readers": 1026,
+        "old_variable_products": 1024,
+        "graph_variable_products": 1155,
+        "coefficient_multiplications": 1258944,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+      }
+    },
+    {
+      "maximum_replay": 7.046172324400269e-14,
+      "single_orthogonal_scope_differences": [
+        0.07399032549477932,
+        0.1020284683380634
+      ],
+      "naive_joint_relative_error": 0.08886980434589954,
+      "pair_correction_over_joint_energy": 0.007828987973121867,
+      "price": {
+        "old_floats": 1254400,
+        "graph_floats": 1258944,
+        "saved_float_fraction": -0.0036224489795917414,
+        "int64_indices": 326,
+        "graph_numeric_bytes_fp64": 10074160,
+        "old_numeric_bytes_fp64": 10035200,
+        "old_linear_readers": 1024,
+        "graph_linear_readers": 1026,
+        "old_variable_products": 1024,
+        "graph_variable_products": 1155,
+        "coefficient_multiplications": 1258944,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+      }
+    }
+  ],
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_READER_JOINT_FIT_V1_SPECTRAL_GRAPH.pt": "b299cade29ca4446a29ea807579ac8ab53246a6303d284207af9ee06b26e6f5c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_READER_JOINT_FIT_V1_NATIVE_GRAPH.pt": "e3698e546c8c39b8dea75ff1d0cd29f80fc1d10591ffb30e8fb2f0deb27d517b"
+  },
+  "scope": "Exact local quadratic multi-parent interface; node deletion is oblique input removal. Generic consistency, not semantic identification, native behavior, or cheaper execution."
+}

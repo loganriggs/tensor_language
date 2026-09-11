@@ -572,3 +572,14 @@ have at least1% own quadratic energy touching the same input direction. These
 are different intervention scopes, not15 semantic circuits. The frozen native
 behavioral screen retains named-node branch removal. [Derivation and receipts](../SHARED_FACTOR_OUTPUT_MIXTURES_V1_MATH.md).
 Cross-start fitted node stability also misses; no new circuit identity is added.
+## 11 September 18:10 — Frozen shared-parent branch screen
+
+Parent1's two frozen spectral-graph branches pass native execution/capability,
+but the support prediction fails: own removals improve mean CE by0.0420/0.05435
+on24 prefix units. Both branches have negative own-target contributions on87.5%
+of these examples; direct writes dominate RMS corrections. Paired own-versus-other
+intervals include zero, so two distinct inhibitory behaviors are not established.
+The separate128-prefix screen is queued with unchanged factors and new registered
+suppression/specificity hypotheses. Earlier calibration and quote-suppression
+findings remain relevant; no novel circuit identity or OOD/sufficiency claim.
+[Primary result and sign accounting](../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md#native-behavioral-screen-completed-at-1759-utc).

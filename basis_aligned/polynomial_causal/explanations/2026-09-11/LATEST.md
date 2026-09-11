@@ -1,5 +1,7 @@
 # Latest research update
 
+**18:10:** [Native branch screen](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md#native-behavioral-screen-completed-at-1759-utc) passed execution/capability but failed the predicted support direction: removals improved target CE. Sign accounting supports direct suppression; branch specificity is unresolved. A separate128-prefix follow-up is queued, and the optimizer comparison is live. [Two-parent composition](../../GLOBAL_READER_REBASE_V2_MATH.md#two-parents-preserving-the-other-read-changes-the-intervention) now has a checked exact interface.
+
 **17:44:** [All four joint fits completed](../../SHARED_READER_VARIABLE_PROJECTION_V2_MATH.md#matched-four-arm-completion-at-1742-utc): matched price/capture bars hold, convergence and cross-start node stability do not. [New exact output-basis and full-native reader checks](../../SHARED_FACTOR_OUTPUT_MIXTURES_V1_MATH.md) distinguish hidden branches from intervention-scope differences. Retained-history and frozen native-removal jobs remain queued.
 
 **17:33:** [Canonical shared-node branches](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md): 10 of 12 fitted readers need multiple algebraic branches at 95% energy. One frozen native removal screen is audited and queued; no behavioral result yet. The [requested report](../for_logan/research_update_2026-09-11_1327.md#hierarchy-and-dag-discovery) clarifies dense/sparse Tucker versus joint graph discovery.
