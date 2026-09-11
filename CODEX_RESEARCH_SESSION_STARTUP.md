@@ -82,11 +82,11 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 08:10 UTC
+## Current handoff — 11 September 08:26 UTC
 
 Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 [method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
-and [hourly07:22 review](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0722.md).
+and [hourly08:22 review](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0822.md).
 Current receipts/processes override this snapshot. Do not repeat completed
 families or infer convergence from an elapsed budget.
 
@@ -94,13 +94,12 @@ families or infer convergence from an elapsed budget.
   `18bb149033110806564a10b0e7e6939387bd71b41158609b5dd99213ddb03a20`.
   Starts finished3.5097/3.3098%capture, both unconverged. Check
   `STRUCTURED_BILINEAR_CONTINUE_V1_RESULT.json` and per-seed receipts.
-- **Live:** `run_full_reader_dictionary_msp_v1.py`, sourceSHA
+- **Completed, no promotion:** `run_full_reader_dictionary_msp_v1.py`, sourceSHA
   `47855b088b7437906d27c0036bf52a2e51f6056630a97d329bfbf693bfaf8bdb`.
   Full1152input basis; nativeL/Rweights only; paired3072/1536product holdout;
-  two900second fits; firststart54.85%train/47.31%heldoutreader capture, belowPCA;
-  foldedcapture29.56%, combinedconvergencecriterionmissed. Secondstartlive.
-  See LATEST forobjectiveoverfit audit. No automatic identicalcontinuation.
-- **Queued after orthogonal dictionary:** `run_oblique_reader_dictionary_v1.py`,
+  bothstarts47.31%heldoutreader capture, belowPCA; combinedconvergencecriterion
+  missed. Foldedfunctioncosine.346betweenstarts. SeeLATEST; noidenticalcontinuation.
+- **Live:** `run_oblique_reader_dictionary_v1.py`,
   sourceSHA `2eecedbb95ccb50591a2e8a60c53074beee5e0f8cd53eb6dfed26da57672469a`.
   Ordinary/Tyler shape x two starts,900seconds each; cached training shapes,
   exact sparse encoding, same program price. Protocol and binding prefix
@@ -110,6 +109,10 @@ families or infer convergence from an elapsed budget.
   `edd39ca049917a5be54bfa866046f58efe4ff8dedb24a88afa8ccbdf7a837c78`.
   Eight frozen dictionaries; exact conditional Down comparison with numerical
   rank diagnostics, same parameter count. Protocol prefix `READER_CONDITIONAL_WRITER_V1`.
+- **Queued after conditional writers:** `run_overcomplete_l1_reader_v1.py`,
+  sourceSHA `fb66e5c5e223ee20f5e704ae20e577c909bd94527d3215ef5821a77651391768`.
+  Protocol prefix `OVERCOMPLETE_L1_READER_V1`; existingproximaloptimizer,2304
+  features,twostarts1800fitseconds,FP64checks,savedstate,nativenormalizedweights only.
 - **Ready:** `sparse_reader_program_v1.py` consumes savedbasis/codes plus
   Down/bias, with exact feature-edit and interaction algebra. Synthetic
   controls are not native circuit evidence. All queued/executed bindings frozen.
@@ -142,8 +145,8 @@ or historical handoff block for every small control. No new publisher framework.
 ## Review clocks and throughput
 
 Latest hourly review:
-[07:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0722.md).
-Next hourly review is due **08:22 UTC on11September** at the first safe boundary.
+[08:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0822.md).
+Next hourly review is due **09:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [07:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md).
 Next mathematical review is due **10:51 UTC on11September**. Derive later deadlines from the

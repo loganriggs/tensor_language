@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 08:10 UTC. Use this index before opening a structural family
+Updated 11 September 08:26 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -123,3 +123,7 @@ Lasso(alpha.05), top2support, thenexactLS gives99.6613%onrecoveredfeatures
 <=8.1e-16; allfourpredictionsheld. Thisis animplementedscalableencoderalternative,
 notnativegainornewfeaturediscovery. Theexistingproxcorealreadyallowsrectangular
 dictionaries; reuseitforfurtherL1readerworkinsteadofcreatinganotheroptimizer.
+
+Completed[orthogonal MSP result](FULL_READER_DICTIONARY_MSP_V1_RESULT.json): bothconvergence/heldoutgainmisses. [Function stability](READER_DICTIONARY_FUNCTION_STABILITY_V1_AUDIT.json) cosine.34613misses.9, so lowatomalignment.2374isnotmerelyagaugechangeofthesamefunction. Nativeobliqueisnowlive; conditionalwritercomparisonqueued.
+
+[Overcomplete L1 native protocol](OVERCOMPLETE_L1_READER_V1_PREREGISTRATION.md) isqueuedafterconditionalwriters:2304features,alpha.05,twostarts1800fitsecondseach,sampled-dictionarybaselines,existingproximaloptimizer,FP64jointchecksandrecoverablecheckpoints. [Rectangularexecutor](RECTANGULAR_SPARSE_READER_V1_CONTROL.json) and[conditionalencoder](LASSO_READER_ENCODING_V1_CONTROL.json) controlspass. Price9,142,272matrixcoefficients+indicesisbiggerthancompleteMSP. No nativeL1resultyet.

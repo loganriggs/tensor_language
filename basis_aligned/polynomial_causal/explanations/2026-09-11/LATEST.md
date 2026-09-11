@@ -1,11 +1,11 @@
 # Latest research update
 
-**11 September, 08:08 UTC:** [First native reader-dictionary result: overfit, plus an encoder lesson](explanation_2026-09-11_0808.md).
+**11 September, 08:22 UTC:** [Completed dictionary results and the next discovery method](explanation_2026-09-11_0808.md#update0822).
 
-First native MSP start:54.85%fitting-reader capture,47.31%held-out versusPCA47.54%; full folded coefficient capture29.56%. Its fourth-moment training criterion is concentrated in individual readers. Combined convergence criterion missed. Second start is live; oblique and conditional output comparisons remain queued.
+Both orthogonal MSP starts missed held-out reader improvement and combined convergence. Their complete fitted functions were also unstable across starts (cosine0.346). A noniterative sample-alignment baseline reproduces nearly all of the training score.
 
-An overcomplete synthetic control separates feature discovery from greedy encoding: exact support selection raises a frozen recovered dictionary from98.09%to99.96%held-out reconstruction. This is not yet a native overcomplete result.
+An overcomplete L1 reader experiment is now queued, using a different objective and the existing proximal optimizer. The oblique geometry comparison is live; exact output-weight refits are ahead of L1 in the managed queue. These remain weight-only discovery tests, not identified circuits.
 
-[Method index](../../WEIGHT_ONLY_METHODS_INDEX.md) · [07:51math review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md) · [07:22hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_0722.md).
+[Method index](../../WEIGHT_ONLY_METHODS_INDEX.md) · [08:22hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_0822.md) · [07:51math review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md).
 
 Weights first; frozen-candidate FineWeb validation follows. Pile is separately labelled OOD.

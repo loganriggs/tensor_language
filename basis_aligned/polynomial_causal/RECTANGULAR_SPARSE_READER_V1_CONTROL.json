@@ -1,0 +1,20 @@
+{
+  "predictions": {
+    "pred_a_execution": true,
+    "pred_b_interaction": true,
+    "pred_c_dose": true
+  },
+  "execution_error": 2.7228018777706365e-16,
+  "interaction_error": 2.3914182310296667e-16,
+  "dose_error": 8.492148426172487e-16,
+  "price": {
+    "float_coefficients": 425,
+    "code_nonzeros": 60,
+    "runtime_coo_index_entries": 120,
+    "products": 10,
+    "input_features": 24,
+    "scope": "Program buffers only; residual, unembedding and other native operations separately retained.",
+    "input_dimension": 12
+  },
+  "scope": "Rectangular synthetic feature execution; internal feature edits can leave the realizable input-feature subspace"
+}
