@@ -269,3 +269,7 @@ An independent [LL1projectedoutputkernel](symmetric_ll1_projected_v1.py) elimina
 Managed wrapper V3 runs the [registered projected comparison](PROJECTED_LL1_CONVERGENCE_V1_PREREGISTRATION.md), two1200-second budgets with measured local stopping. Exact output elimination now uses diagonal equilibration; [control](EQUILIBRATED_LL1_PROJECTED_V1_CONTROL.json) passes. V1/V2 enqueue-format failures are preserved, with no native execution. V3 source fe66af8d88555577609e6965fccc3c6bcc77d50ecfc4387823013adf82f0fc5c started15:21:15; results pending.
 
 [Shared subspace parent census](LL1_SUBSPACE_PARENTS_V1_MATH.md) finds15/17 mixed-parent proposals in frozen pilot starts; only1/0 have three consumers, so broad-sharing prediction fails. Some groups use several proposed parents. Their overlapping components require joint accounting before they can form an executable graph. Proposal readers are now durable; no new circuit claim.
+
+### 11 September — Executable multi-parent graph and marginal-space repair
+
+[Joint graph results](LL1_JOINT_PARENT_GRAPH_V1_MATH.md): shared readers and shared/shared products execute once; full cores prevent overlap double-counting. Storage saves1.43/1.52%, but approximation bars miss. A mixed-only control exposes private-space selection failure; using the full quadratic marginal removes56–61% of loss at unchanged size. Joint parent-span incompatibility remains measured. Spectral projected LL1 completed20minutes at11.8891%capture without convergence; second arm live.

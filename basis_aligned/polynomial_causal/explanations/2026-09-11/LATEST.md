@@ -1,5 +1,7 @@
 # Latest research update
 
+**15:42 graph result:** [joint multi-parent execution and repair](../../LL1_JOINT_PARENT_GRAPH_V1_MATH.md) now accounts for overlapping parents correctly. A tested marginal-space repair halves approximation loss; the final bar still misses. The projected LL1 spectral arm ended unconverged at11.8891%capture; second arm is live.
+
 **15:21 live run:** projected LL1 with exact equilibrated output solves, two20-minute budgets and explicit convergence criteria. [Protocol](../../PROJECTED_LL1_CONVERGENCE_V1_PREREGISTRATION.md). The [subspace census](../../LL1_SUBSPACE_PARENTS_V1_MATH.md) finds mixed shared-parent proposals, but broad sharing misses and joint graph accounting remains open.
 
 **Shared-bank follow-up:** the joint shared-square kernel works, but nearly identical eigen-square clustering offers negligible native sharing. An exact counterexample confirms that mixed products can hide shared linear parents from this rule. [Results and next method constraint](../../SHARED_SQUARE_LL1_V1_MATH.md). Frozen square150 text checks do not establish a quotation circuit.

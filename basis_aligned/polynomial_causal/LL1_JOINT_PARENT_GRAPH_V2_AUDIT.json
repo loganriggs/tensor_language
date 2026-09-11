@@ -1,0 +1,304 @@
+{
+  "control": {
+    "rows": [
+      {
+        "method": "private_restriction",
+        "coefficient_error": 0.4162900703389017,
+        "executor_error": 0.49449010939254884
+      },
+      {
+        "method": "full_marginal",
+        "coefficient_error": 2.857725454941293e-16,
+        "executor_error": 2.6331726693205925e-16
+      }
+    ],
+    "private_restriction_norm": 5.987787292432021e-16,
+    "private_marginal_norm": 0.9999999999999997,
+    "v2_held": true,
+    "scope": "Zero private/private energy is analytically degenerate. A numerical V1 success on this seed would not remove that ambiguity."
+  },
+  "rows": [
+    {
+      "label": "spectral",
+      "price": {
+        "old_floats": 1254400,
+        "graph_floats": 1236418,
+        "saved_float_fraction": 0.014335140306122485,
+        "int64_indices": 131,
+        "graph_numeric_bytes_fp64": 9892392,
+        "old_numeric_bytes_fp64": 10035200,
+        "old_linear_readers": 1024,
+        "graph_linear_readers": 1008,
+        "old_variable_products": 1024,
+        "graph_variable_products": 1051,
+        "coefficient_multiplications": 1236418,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately.",
+        "graph_scalar_additions": 1235436,
+        "old_scalar_additions": 1252160
+      },
+      "executor_error": 1.5422916055503087e-15,
+      "squared_change_over_native": 0.0011965113122608697,
+      "graph_capture": 0.11539140883226626,
+      "capture_loss": 0.0012124962674416317,
+      "v1_capture_loss": 0.0031188312910451765,
+      "loss_reduction_fraction": 0.6112337749967545,
+      "minimum_joint_membership": 0.08615519599899468,
+      "affected_groups": 19,
+      "groups_below_090_joint_membership": 4,
+      "group_memberships": [
+        {
+          "group": 2,
+          "parents": 2,
+          "minimum_squared_membership": 0.35435502775754574
+        },
+        {
+          "group": 4,
+          "parents": 2,
+          "minimum_squared_membership": 0.9796501339291835
+        },
+        {
+          "group": 6,
+          "parents": 2,
+          "minimum_squared_membership": 0.14742442025611371
+        },
+        {
+          "group": 7,
+          "parents": 2,
+          "minimum_squared_membership": 0.9720462315475488
+        },
+        {
+          "group": 10,
+          "parents": 2,
+          "minimum_squared_membership": 0.9766652020181824
+        },
+        {
+          "group": 13,
+          "parents": 4,
+          "minimum_squared_membership": 0.08615519599899468
+        },
+        {
+          "group": 16,
+          "parents": 2,
+          "minimum_squared_membership": 0.9819488791732165
+        },
+        {
+          "group": 19,
+          "parents": 1,
+          "minimum_squared_membership": 0.9781792024313065
+        },
+        {
+          "group": 22,
+          "parents": 1,
+          "minimum_squared_membership": 0.9948984206398754
+        },
+        {
+          "group": 25,
+          "parents": 1,
+          "minimum_squared_membership": 0.9819611469621524
+        },
+        {
+          "group": 26,
+          "parents": 1,
+          "minimum_squared_membership": 0.9793666982049177
+        },
+        {
+          "group": 28,
+          "parents": 1,
+          "minimum_squared_membership": 0.9813294429020688
+        },
+        {
+          "group": 35,
+          "parents": 1,
+          "minimum_squared_membership": 0.9948984206398748
+        },
+        {
+          "group": 39,
+          "parents": 1,
+          "minimum_squared_membership": 0.983422056650617
+        },
+        {
+          "group": 40,
+          "parents": 2,
+          "minimum_squared_membership": 0.6635435053102918
+        },
+        {
+          "group": 43,
+          "parents": 1,
+          "minimum_squared_membership": 0.9787665738259785
+        },
+        {
+          "group": 46,
+          "parents": 1,
+          "minimum_squared_membership": 0.9834220566506163
+        },
+        {
+          "group": 48,
+          "parents": 2,
+          "minimum_squared_membership": 0.981313212006323
+        },
+        {
+          "group": 62,
+          "parents": 2,
+          "minimum_squared_membership": 0.9813132120063224
+        }
+      ],
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": false
+    },
+    {
+      "label": "native",
+      "price": {
+        "old_floats": 1254400,
+        "graph_floats": 1235315,
+        "saved_float_fraction": 0.015214445153061251,
+        "int64_indices": 129,
+        "graph_numeric_bytes_fp64": 9883552,
+        "old_numeric_bytes_fp64": 10035200,
+        "old_linear_readers": 1024,
+        "graph_linear_readers": 1007,
+        "old_variable_products": 1024,
+        "graph_variable_products": 1049,
+        "coefficient_multiplications": 1235315,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately.",
+        "graph_scalar_additions": 1234324,
+        "old_scalar_additions": 1252160
+      },
+      "executor_error": 1.232770271208405e-15,
+      "squared_change_over_native": 0.001510767799829437,
+      "graph_capture": 0.1148662603593476,
+      "capture_loss": 0.0015297761749709093,
+      "v1_capture_loss": 0.0034989668642818744,
+      "loss_reduction_fraction": 0.5627920371046784,
+      "minimum_joint_membership": 0.06146960194536738,
+      "affected_groups": 24,
+      "groups_below_090_joint_membership": 2,
+      "group_memberships": [
+        {
+          "group": 1,
+          "parents": 1,
+          "minimum_squared_membership": 0.9829799463121198
+        },
+        {
+          "group": 2,
+          "parents": 1,
+          "minimum_squared_membership": 0.9930870349937477
+        },
+        {
+          "group": 3,
+          "parents": 1,
+          "minimum_squared_membership": 0.9803481788893107
+        },
+        {
+          "group": 6,
+          "parents": 2,
+          "minimum_squared_membership": 0.06146960194536738
+        },
+        {
+          "group": 10,
+          "parents": 1,
+          "minimum_squared_membership": 0.9756560896845191
+        },
+        {
+          "group": 15,
+          "parents": 3,
+          "minimum_squared_membership": 0.975494308773799
+        },
+        {
+          "group": 17,
+          "parents": 1,
+          "minimum_squared_membership": 0.9864400120932292
+        },
+        {
+          "group": 19,
+          "parents": 1,
+          "minimum_squared_membership": 0.9765560511130793
+        },
+        {
+          "group": 20,
+          "parents": 2,
+          "minimum_squared_membership": 0.9893072338047719
+        },
+        {
+          "group": 25,
+          "parents": 1,
+          "minimum_squared_membership": 0.9751028928805033
+        },
+        {
+          "group": 26,
+          "parents": 2,
+          "minimum_squared_membership": 0.9784486812867969
+        },
+        {
+          "group": 27,
+          "parents": 1,
+          "minimum_squared_membership": 0.9803481788893114
+        },
+        {
+          "group": 29,
+          "parents": 1,
+          "minimum_squared_membership": 0.9861699385750707
+        },
+        {
+          "group": 34,
+          "parents": 1,
+          "minimum_squared_membership": 0.9756560896845192
+        },
+        {
+          "group": 37,
+          "parents": 2,
+          "minimum_squared_membership": 0.15913984389321445
+        },
+        {
+          "group": 40,
+          "parents": 2,
+          "minimum_squared_membership": 0.9782180849326512
+        },
+        {
+          "group": 41,
+          "parents": 1,
+          "minimum_squared_membership": 0.9861328349126105
+        },
+        {
+          "group": 43,
+          "parents": 2,
+          "minimum_squared_membership": 0.9791478032865663
+        },
+        {
+          "group": 46,
+          "parents": 1,
+          "minimum_squared_membership": 0.9751028928805052
+        },
+        {
+          "group": 47,
+          "parents": 1,
+          "minimum_squared_membership": 0.9829799463121187
+        },
+        {
+          "group": 48,
+          "parents": 1,
+          "minimum_squared_membership": 0.9819463241996479
+        },
+        {
+          "group": 52,
+          "parents": 1,
+          "minimum_squared_membership": 0.9925670169198528
+        },
+        {
+          "group": 55,
+          "parents": 2,
+          "minimum_squared_membership": 0.9861545055610551
+        },
+        {
+          "group": 62,
+          "parents": 2,
+          "minimum_squared_membership": 0.9893072338047724
+        }
+      ],
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": false
+    }
+  ],
+  "scope": "Weights-only private-subspace proposal repair. Fixed parent incidence and parameter count; no continuous refitting, no behavioral identification, and V1 miss preserved."
+}

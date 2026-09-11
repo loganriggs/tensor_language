@@ -1,0 +1,64 @@
+{
+  "control": {
+    "coefficient_error": 7.806881356144584e-16,
+    "executor_error": 8.914526540849123e-16,
+    "nonorthogonal_parent_cosine": 0.19996001199600144,
+    "max_parent_condition": 1.2246938571469375,
+    "held": true
+  },
+  "rows": [
+    {
+      "label": "spectral",
+      "price": {
+        "old_floats": 1254400,
+        "graph_floats": 1236418,
+        "saved_float_fraction": 0.014335140306122485,
+        "int64_indices": 131,
+        "graph_numeric_bytes_fp64": 9892392,
+        "old_numeric_bytes_fp64": 10035200,
+        "old_linear_readers": 1024,
+        "graph_linear_readers": 1008,
+        "old_variable_products": 1024,
+        "graph_variable_products": 1051,
+        "coefficient_multiplications": 1236418,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+      },
+      "max_parent_condition": 17.05433960968512,
+      "executor_error": 2.16710187233609e-15,
+      "squared_change_over_native": 0.003062315740752851,
+      "before_capture": 0.11660390509970789,
+      "graph_capture": 0.11348507380866271,
+      "capture_loss": 0.0031188312910451765,
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": false
+    },
+    {
+      "label": "native",
+      "price": {
+        "old_floats": 1254400,
+        "graph_floats": 1235315,
+        "saved_float_fraction": 0.015214445153061251,
+        "int64_indices": 129,
+        "graph_numeric_bytes_fp64": 9883552,
+        "old_numeric_bytes_fp64": 10035200,
+        "old_linear_readers": 1024,
+        "graph_linear_readers": 1007,
+        "old_variable_products": 1024,
+        "graph_variable_products": 1049,
+        "coefficient_multiplications": 1235315,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+      },
+      "max_parent_condition": 11.940000820925787,
+      "executor_error": 1.5349025887172773e-15,
+      "squared_change_over_native": 0.003457975824175272,
+      "before_capture": 0.11639603653431851,
+      "graph_capture": 0.11289706967003664,
+      "capture_loss": 0.0034989668642818744,
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": false
+    }
+  ],
+  "scope": "Weight-only approximate graph of frozen unconverged LL1 pilot. Exact graph execution does not imply exact native reconstruction or identified behavioral circuits."
+}
