@@ -200,3 +200,23 @@ influence method is implemented and CPU-controlled; native selection pending.
 Receipts: NORMALIZED_QK_SOURCE_EDIT_V1_RESULT.json,
 COMPILED_QK_SOURCE_EDIT_V1_RESULT.json,
 JOINT_QK_POSITION_INFLUENCE_V1_CONTROL.json in polynomial_causal.
+
+
+## 11 September 03:10 — source variables shared across positions
+
+A weight-only common rank17 source space per attention17 head is highly stable
+across odd/even distance splits (mean squared principal cosine>0.9998). Mean
+validation numerator touch is41.64%:5.95%inside and35.69%mixed. Per-head coverage
+34.9–49.7%; common/separate spectral retention77.6–92.0%. Registered all-head
+retention/coverage targets failed; numerical and split-stability clauses passed.
+Discovery-space bounds below45% for heads1/4/8 are scoped to discovery positions.
+No claim that QK source variables form closed or semantically identified circuits.
+
+A fixed adapter using the native common frames and raw query/key vectors passes
+local normalized source-edit replay across five position pairs at4.69e-15. It
+uses24,531additional stored numbers per head, plus native background, and92dynamic
+prepared ports. This is not a whole-model saving. Next: validate frozen features
+on FineWeb without refitting; no new data-guided discovery.
+Receipts: POSITION_SHARED_QK_SOURCE_V1_RESULT.json,
+POSITION_SHARED_QK_SOURCE_V1_REDTEAM.json, SHARED_POSITION_QK_EDIT_V1_RESULT.json.
+Explanation0310 defines the metrics and retained interfaces.

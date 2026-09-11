@@ -2,6 +2,7 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [Source features shared across positions](explanation_2026-09-11_0310.md): latest stable source-space result, coverage tradeoff and smaller fixed adapter.
 - [Executable local edits with normalization](explanation_2026-09-11_0255.md): latest conditional prediction tool, composition checks, literal price and next shared-position method.
 - [Joint QK source structure and red-team result](explanation_2026-09-11_0243.md): latest native source-space discovery, weak value alignment, mixed interfaces and bounds.
 - [Joint compact shared reader and upstream fold](explanation_2026-09-11_0226.md): latest converged result, stable function, missed gain target and exact OV pullback.

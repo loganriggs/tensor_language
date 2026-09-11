@@ -1,17 +1,16 @@
 # Latest research update
 
-**11 September, 02:55 UTC:** [An executable local edit program, including normalization](explanation_2026-09-11_0255.md).
-A compiled predictor now calculates finite source edits from unedited routing,
-norm and value ports. All six edit cases across nine heads and two distances
-passed, including composition order and basis changes; maximum relative error
-6.42e-15. Omitting normalizer changes had produced10.8–33.3% routing-effect error.
-This is a conditional intervention tool with native background, not an isolated
-semantic circuit or an adopted model simplification. No text data was fitted.
+**11 September, 03:10 UTC:** [Source features shared across positions](explanation_2026-09-11_0310.md).
+One source space per attention head is stable across odd/even distance splits
+(mean squared principal cosine>0.9998). It averages41.6%joint-numerator touch on
+validation distances, mostly mixed interactions. The all-head retention and
+coverage targets failed; head-resolved bounds and the red-team audit are recorded.
 
-The next CPU consequence is implemented and controlled: common-coordinate source
-influence averaged across positions, to select a shared source frame. Native
-all-position selection remains pending.
+A fixed edit adapter now uses24,531numbers per head and reuses native query/key
+vectors across positions. Five-position native replay passed at4.69e-15. This is
+an additional conditional intervention tool, not a whole-model saving or semantic
+circuit. No text data was used to fit these source features.
 
-[Joint QK source structure and bounds](explanation_2026-09-11_0243.md) ·
-[Stable MLP component](explanation_2026-09-11_0226.md) ·
+[Exact normalized edit formulas](explanation_2026-09-11_0255.md) ·
+[Earlier QK source structure](explanation_2026-09-11_0243.md) ·
 [Methods and assumptions](explanation_2026-09-11_0022.md).

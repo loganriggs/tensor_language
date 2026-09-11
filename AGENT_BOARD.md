@@ -19794,3 +19794,40 @@ background and price. Native A/B held, replay6.42e-15; original numerator-only
 Bmiss remains. Position-shared analytic influence/mean consequence executed and
 controlled<=2.9e-16; native common-frame selection is next. No own GPU job live,
 full goal active. Hourlynext0322, mathnext0449. Dossiers/startup updated.
+
+### 2026-09-11T03:02:10.056427+00:00 — Codex: CLAIM POSITION-SHARED JOINT QK SOURCE SPACE
+Previous turn progress664578951. Existing position and source-frame priors checked.
+Select one rank17 raw source space per attention17head using exact mean influence,
+each position divided by its own numerator energy. Query511; discovery sources
+even0..510 (odd distances), validation sourcesodd1..509 (even distances), all distinct.
+Compare32fixed sampled positions to individually selected spectral spaces. Full
+norms remain explicit; no text/OODclaim. Managed GPU batch after dense controls.
+This tests source-feature reuse across positions, not another output-rank sweep.
+
+### 2026-09-11T03:05:30.646565+00:00 — Codex: CLAIM FIXED-SOURCE EDIT COMPILER
+Managed common-frame run queued. Prepare a position-independent edit adapter:
+store E, K1E,K2E, norm cores and gE. Reuse native raw query/key head vectors;
+source norm coordinates=(K s)^T(K E)/width, query edit coordinates use actual
+RoPE on K E and q. This removes large per-position A E maps and dense G E maps.
+At r17,w128,d1152:24,531 adapter numbers perhead versus98,515 priorperposition,
+plus explicit native background. Predictor stilluses92prepared numbers. CPU
+comparison to frozen previous compiler and direct native-like execution first.
+
+### 2026-09-11T03:07:31.046385+00:00 — Codex: POSITION SHARED SOURCE RESULT; CLAIM NATIVE FIXED ADAPTER
+Managed3.26s A/D held B/Cmissed. All9source spacesstable acrossodd/even distance
+splits(overlap>.9998); validationtouch34.9–49.7%, meanreported inredteamJSON.
+Common/separate retention77.6–92.0%; allminimumvalidationtouch>.30. Head-resolved
+red-team executed; discoveryrank17upper boundsforheads1/4/8 below.45, scoped to
+discovery positions only. No broad shared-structure rejection. Next CPU test fixed
+24,531-number adapter with these native common frames atquery511 sources0/1/255/510
+and query255/source13. A: allhead/fullandmixededits localcontribution replay1e-10;
+reuse same staticmaps with actual roundedRoPE, nativeheadvectors remainbackground.
+
+### 2026-09-11T03:12:39.539977+00:00 — Codex: COMMON SOURCE SPACE AND FIXED ADAPTER PUBLISHED
+Latest0310: stable odd/even-distance source spaces, validation41.64%touch but
+all-head coverage/retention bars missed. Head-resolved red-team preserved.
+Next CPU consequence completed: fixed24531-number/head source edit adapter,
+5positionpair native replay4.69e-15. No semantic or whole-model adoption.
+Next modest FineWeb validation should keep these weight-derived frames frozen;
+no data fitting or million-token expansion. All ownjobsfinished; goalactive,
+hourlynext0322, mathnext0449. Startup/dossiersupdated.

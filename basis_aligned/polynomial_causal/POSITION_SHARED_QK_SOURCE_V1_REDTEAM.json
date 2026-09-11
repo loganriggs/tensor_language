@@ -1,0 +1,124 @@
+{
+  "original_predictions": {
+    "pred_a_instrument": true,
+    "pred_b_shared_retention": false,
+    "pred_c_validation_coverage": false,
+    "pred_d_split_stability": true
+  },
+  "head_audit": [
+    {
+      "head": 0,
+      "retention_missed": false,
+      "validation_mean_missed": true,
+      "validation_minimum_missed": false,
+      "discovery_upper_bound_below_45_percent": false,
+      "discovery_upper_bound": 0.517639187890924,
+      "discovery_touch": 0.4481811288530756,
+      "validation_touch": 0.4479221060031383,
+      "train_validation_touch_gap": -0.00025902284993728486,
+      "common_to_separate_ratio": 0.9071585852693095
+    },
+    {
+      "head": 1,
+      "retention_missed": true,
+      "validation_mean_missed": true,
+      "validation_minimum_missed": false,
+      "discovery_upper_bound_below_45_percent": true,
+      "discovery_upper_bound": 0.38820214177719214,
+      "discovery_touch": 0.3489485278924206,
+      "validation_touch": 0.3487719311577896,
+      "train_validation_touch_gap": -0.000176596734630996,
+      "common_to_separate_ratio": 0.8912394175968301
+    },
+    {
+      "head": 2,
+      "retention_missed": false,
+      "validation_mean_missed": false,
+      "validation_minimum_missed": false,
+      "discovery_upper_bound_below_45_percent": false,
+      "discovery_upper_bound": 0.5864818321436759,
+      "discovery_touch": 0.4970322931792292,
+      "validation_touch": 0.4967906995947457,
+      "train_validation_touch_gap": -0.00024159358448350154,
+      "common_to_separate_ratio": 0.9054112780813831
+    },
+    {
+      "head": 3,
+      "retention_missed": true,
+      "validation_mean_missed": false,
+      "validation_minimum_missed": false,
+      "discovery_upper_bound_below_45_percent": false,
+      "discovery_upper_bound": 0.519654020143467,
+      "discovery_touch": 0.45199069818216014,
+      "validation_touch": 0.45170108258953584,
+      "train_validation_touch_gap": -0.0002896155926243038,
+      "common_to_separate_ratio": 0.8549696312569975
+    },
+    {
+      "head": 4,
+      "retention_missed": true,
+      "validation_mean_missed": true,
+      "validation_minimum_missed": false,
+      "discovery_upper_bound_below_45_percent": true,
+      "discovery_upper_bound": 0.4278727510141477,
+      "discovery_touch": 0.37944524660453494,
+      "validation_touch": 0.37897741531219253,
+      "train_validation_touch_gap": -0.00046783129234240217,
+      "common_to_separate_ratio": 0.7757105223547158
+    },
+    {
+      "head": 5,
+      "retention_missed": false,
+      "validation_mean_missed": true,
+      "validation_minimum_missed": false,
+      "discovery_upper_bound_below_45_percent": false,
+      "discovery_upper_bound": 0.47717600306766017,
+      "discovery_touch": 0.41680621293917375,
+      "validation_touch": 0.41667087797988994,
+      "train_validation_touch_gap": -0.000135334959283806,
+      "common_to_separate_ratio": 0.9198800487710425
+    },
+    {
+      "head": 6,
+      "retention_missed": true,
+      "validation_mean_missed": true,
+      "validation_minimum_missed": false,
+      "discovery_upper_bound_below_45_percent": false,
+      "discovery_upper_bound": 0.4554555300105073,
+      "discovery_touch": 0.40183768621414573,
+      "validation_touch": 0.401574074339937,
+      "train_validation_touch_gap": -0.00026361187420870236,
+      "common_to_separate_ratio": 0.858037288613933
+    },
+    {
+      "head": 7,
+      "retention_missed": false,
+      "validation_mean_missed": true,
+      "validation_minimum_missed": false,
+      "discovery_upper_bound_below_45_percent": false,
+      "discovery_upper_bound": 0.4806861581004508,
+      "discovery_touch": 0.4212425415423952,
+      "validation_touch": 0.42107913427650234,
+      "train_validation_touch_gap": -0.00016340726589286758,
+      "common_to_separate_ratio": 0.9168008241730603
+    },
+    {
+      "head": 8,
+      "retention_missed": false,
+      "validation_mean_missed": true,
+      "validation_minimum_missed": false,
+      "discovery_upper_bound_below_45_percent": true,
+      "discovery_upper_bound": 0.43349192380025314,
+      "discovery_touch": 0.38458246675805174,
+      "validation_touch": 0.38440780738622066,
+      "train_validation_touch_gap": -0.00017465937183108737,
+      "common_to_separate_ratio": 0.9155948686272657
+    }
+  ],
+  "validation_mean_touch": 0.41643279207110573,
+  "validation_mean_inside": 0.05950816014376262,
+  "validation_mean_mixed": 0.3569246319273432,
+  "mean_retention": 0.8827558294160597,
+  "maximum_split_touch_gap": 0.00046783129234240217,
+  "scope": "Executed head-resolved and same-rank influence-bound red-team. Discovery bounds do not certify validation or32sample targets. Influence selection is not true-touch optimization. Original B/C failures preserved; no broad negative about shared source structure."
+}
