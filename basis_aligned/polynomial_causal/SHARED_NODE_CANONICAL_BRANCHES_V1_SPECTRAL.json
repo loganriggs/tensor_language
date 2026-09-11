@@ -1,0 +1,311 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "label": "spectral",
+  "nodes_needing_two_at_95": 10,
+  "nodes_with_strong_second_branch": 3,
+  "maximum_replay": 7.520748076724143e-15,
+  "rows": [
+    {
+      "parent": 0,
+      "consumers": 3,
+      "rank95": 3,
+      "second_over_first": 0.37940878683721896,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.8242181886698596,
+          "squared_relative_error": 0.17578181133013754,
+          "identity_error": 2.858824288409778e-15
+        },
+        {
+          "rank": 2,
+          "capture": 0.9428652438372164,
+          "squared_relative_error": 0.05713475616278085,
+          "identity_error": 2.824129818890242e-15
+        },
+        {
+          "rank": 3,
+          "capture": 1.0,
+          "squared_relative_error": -3.084418661758105e-15,
+          "identity_error": 3.084418661758105e-15
+        }
+      ],
+      "executor_replay": 2.7383912934741506e-15,
+      "energy_replay": 6.247850669383907e-16,
+      "exact_standalone_floats": 8064,
+      "exact_variable_products": 3
+    },
+    {
+      "parent": 1,
+      "consumers": 2,
+      "rank95": 2,
+      "second_over_first": 0.929128707078259,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.5366879466209966,
+          "squared_relative_error": 0.46331205337900405,
+          "identity_error": 6.661338147750939e-16
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": 2.029891117809065e-15,
+          "identity_error": 2.029891117809065e-15
+        }
+      ],
+      "executor_replay": 2.9444381203878586e-15,
+      "energy_replay": 6.766303726030217e-16,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    },
+    {
+      "parent": 2,
+      "consumers": 2,
+      "rank95": 2,
+      "second_over_first": 0.24965318498521918,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.9413299957312034,
+          "squared_relative_error": 0.05867000426879797,
+          "identity_error": 1.366962099069724e-15
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": 1.231607232946381e-15,
+          "identity_error": 1.231607232946381e-15
+        }
+      ],
+      "executor_replay": 1.8366189243360186e-15,
+      "energy_replay": 2.463214465892762e-15,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    },
+    {
+      "parent": 3,
+      "consumers": 2,
+      "rank95": 1,
+      "second_over_first": 0.1377362929625705,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.9813819224817282,
+          "squared_relative_error": 0.018618077518275423,
+          "identity_error": 3.615163723935666e-15
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": 3.53014535442871e-15,
+          "identity_error": 3.53014535442871e-15
+        }
+      ],
+      "executor_replay": 2.8504195955643305e-15,
+      "energy_replay": 2.4557532900373635e-15,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    },
+    {
+      "parent": 4,
+      "consumers": 2,
+      "rank95": 2,
+      "second_over_first": 0.303392936875922,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.9157112733803917,
+          "squared_relative_error": 0.08428872661960937,
+          "identity_error": 1.124100812432971e-15
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": 7.261537051665444e-16,
+          "identity_error": 7.261537051665444e-16
+        }
+      ],
+      "executor_replay": 2.923710117807331e-15,
+      "energy_replay": 4.5384606572909024e-15,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    },
+    {
+      "parent": 5,
+      "consumers": 2,
+      "rank95": 2,
+      "second_over_first": 0.2777087550748994,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.928399808270724,
+          "squared_relative_error": 0.07160019172927384,
+          "identity_error": 2.192690473634684e-15
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": -2.363496387536248e-15,
+          "identity_error": 2.363496387536248e-15
+        }
+      ],
+      "executor_replay": 3.4186570301532524e-15,
+      "energy_replay": 1.3807037720292887e-15,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    },
+    {
+      "parent": 6,
+      "consumers": 2,
+      "rank95": 2,
+      "second_over_first": 0.38625197473382605,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.8701776802338149,
+          "squared_relative_error": 0.1298223197661889,
+          "identity_error": 3.83026943495679e-15
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": 4.441808306162365e-15,
+          "identity_error": 4.441808306162365e-15
+        }
+      ],
+      "executor_replay": 1.5441223908408351e-15,
+      "energy_replay": 2.892340292384796e-15,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    },
+    {
+      "parent": 7,
+      "consumers": 2,
+      "rank95": 2,
+      "second_over_first": 0.4450672250674536,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.8346654351421823,
+          "squared_relative_error": 0.16533456485781967,
+          "identity_error": 1.942890293094024e-15
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": -1.2962590010231495e-15,
+          "identity_error": 1.2962590010231495e-15
+        }
+      ],
+      "executor_replay": 6.250111039629362e-15,
+      "energy_replay": 6.913381338790131e-15,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    },
+    {
+      "parent": 8,
+      "consumers": 2,
+      "rank95": 2,
+      "second_over_first": 0.7140116056222534,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.6623338670688952,
+          "squared_relative_error": 0.337666132931104,
+          "identity_error": 8.326672684688674e-16
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": -1.6957767803199769e-15,
+          "identity_error": 1.6957767803199769e-15
+        }
+      ],
+      "executor_replay": 3.001659696038704e-15,
+      "energy_replay": 2.119720975399971e-15,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    },
+    {
+      "parent": 9,
+      "consumers": 2,
+      "rank95": 1,
+      "second_over_first": 0.111759873621102,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.9876638129472582,
+          "squared_relative_error": 0.012336187052737944,
+          "identity_error": 3.755676325489787e-15
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": -3.5167952337944536e-15,
+          "identity_error": 3.5167952337944536e-15
+        }
+      ],
+      "executor_replay": 1.2392907583563368e-15,
+      "energy_replay": 1.4577389570132451e-15,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    },
+    {
+      "parent": 10,
+      "consumers": 2,
+      "rank95": 2,
+      "second_over_first": 0.502110961476774,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.7986484200383854,
+          "squared_relative_error": 0.20135157996161415,
+          "identity_error": 4.718447854656915e-16
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": -7.452214969696062e-16,
+          "identity_error": 7.452214969696062e-16
+        }
+      ],
+      "executor_replay": 3.8629439939580115e-15,
+      "energy_replay": 1.703363421644814e-15,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    },
+    {
+      "parent": 11,
+      "consumers": 2,
+      "rank95": 2,
+      "second_over_first": 0.4785600937839797,
+      "rank_results": [
+        {
+          "rank": 1,
+          "capture": 0.8136565658342664,
+          "squared_relative_error": 0.18634343416573126,
+          "identity_error": 2.3869795029440866e-15
+        },
+        {
+          "rank": 2,
+          "capture": 1.0,
+          "squared_relative_error": -5.350655514626801e-16,
+          "identity_error": 5.350655514626801e-16
+        }
+      ],
+      "executor_replay": 7.520748076724143e-15,
+      "energy_replay": 4.681823575298451e-15,
+      "exact_standalone_floats": 5760,
+      "exact_variable_products": 2
+    }
+  ],
+  "source_sha256": "b299cade29ca4446a29ea807579ac8ab53246a6303d284207af9ee06b26e6f5c",
+  "artifact": {
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_CANONICAL_BRANCHES_V1_SPECTRAL.pt",
+    "sha256": "b1e90771d51ea355e1b1f636ece07816034dc3aeeb220513262ee69292beeeb3"
+  },
+  "scope": "Exact standalone node factorization; independently executing all node-removal banks double-counts shared-pair terms. It is not a replacement of the whole DAG. Common background/U and adapters remain; branches have no behavioral labels."
+}

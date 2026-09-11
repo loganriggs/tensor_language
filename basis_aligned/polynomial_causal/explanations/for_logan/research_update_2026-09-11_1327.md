@@ -563,3 +563,29 @@ The existing feature dictionary already learns a limited form of shared readers.
 While this discussion was underway, the native matched-budget pilot completed. At about 1.25 million parameters per arm, output-sharing LL1 captured **11.66% / 11.64%** of coefficient energy, versus **8.53% / 8.54%** for the shared-input family. All four fits reached their 120-second limits; these are optimization/cost pilots, not converged comparisons or circuit discoveries. LL1 passed the registered 10% capture bar; the shared-input family missed it. Whole-function agreement between starts was 0.901 for LL1 and 0.864 for shared input, which does not establish agreement of individual groups. [Completed pilot receipt](../../MATCHED_SHARED_GROUPS_V1_RESULT.json).
 
 **Recommendation for browser Codex:** consider native products and symmetric LL1 as initial graph proposals, keep the input/output bases adjustable, and search for shared arithmetic while refitting to weights. Compare sparse-core Tucker as one structural hypothesis. Do not require sparsification before DAG discovery, and do not assume a final pass over frozen factors can recover every useful organization. The immediate method question is which graph moves expose shared input and quadratic nodes reliably, with acceptable error and literal cost, before any data-guided fitting.
+
+### Clarification at 17:32: what has now been implemented?
+
+The recommendation above still applies. We now have a **restricted shared graph**
+whose shared input readers, private input readers, output directions, and quadratic
+cores are jointly fitted to the weights. Its topology is proposed before that
+numerical fit. We have not implemented the general alternating search over graph
+topologies, reusable sums, and distributive rewrites described above. In particular,
+jointly optimizing weights on a fixed graph is not the same as discovering arbitrary
+hierarchy during optimization.
+
+An exact analysis now finds that 10 of the fitted spectral graph's 12 shared readers
+need at least two distinct output/partner branches to retain 95% of their own
+coefficient energy. This makes the meaning of branching more concrete: most do not
+collapse to one product merely because we change their output basis. It is still
+conditional on the selected reader and graph, and is not evidence of two semantic
+tasks. [Derivation, results, and frozen behavioral-screen protocol](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md).
+
+For choosing the next representation, **dense Tucker is a possible coordinate
+system, sparse Tucker is a structural hypothesis, and an arithmetic DAG is the
+executable object we ultimately want to search.** There is no requirement to pass
+through them in that order. The essential additional search operations are to
+change the basis, expose common factors or sums, share them, and jointly refit the
+changed graph against the original folded weight tensor. Each approximate rewrite
+must earn its error/cost tradeoff; each claimed circuit must subsequently earn its
+behavioral interpretation.

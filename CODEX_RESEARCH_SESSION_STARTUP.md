@@ -107,15 +107,17 @@ and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX
   gap.000160538 with1.16446%floats saved, but bothunconverged. Postfit12parents
   retain twoeffectiveconsumers and exact joint-removal accounting. See
   SHARED_READER_POSTFIT_INTERFACE_V1_SPECTRAL.json and the primary method note.
-- Native-original started17:02:12; native-graph remainsqueued. The separately
-  audited retained-history20minute comparison isqueuedafterpeerwork. Check
+- Native-original completed17:22:16 (11.85428% capture, unconverged);
+  native-graph is live. The separately audited retained-history20minute comparison
+  and frozen parent1 branch-removal screen are queued after peer work. Check
   livequeue/results beforeaction. Allboundhelpers remainfrozen.
 - Cross-start node correspondence is frozen before the nativegraphfit finishes:
   SHARED_READER_CROSS_START_MATCHING_V1_FROZEN.json. Score fixedmatches and
   report later rematching separately; do not call current nodes identifiedcircuits.
-- Hourly1622 records CEREMONY_BUDGET failure. Next block should interpret the
-  live fits using existing receipts and reduce repeated validation/publication,
-  not start another unrelated toy suite or reporting framework.
+- Hourly1722 records all three workflow gates held. Use existing tools to
+  interpret native-graph completion and the frozen cross-start matches. Read
+  SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md for the completed branching analysis;
+  the behavioral screen is validation of frozen weights, with no data fitting.
 - Requested fuller reports remain in explanations/for_logan/; latest remains
   the13:27report with CP/LL1 and hierarchy/DAG appendices. General reliable DAG
   discovery and the four behavioral properties remain unfinished.
@@ -143,8 +145,8 @@ or historical handoff block for every small control. No new publisher framework.
 ## Review clocks and throughput
 
 Latest hourly review:
-[16:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1622.md).
-Next hourly review is due **17:22 UTC on11September** at the first safe boundary.
+[17:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1722.md).
+Next hourly review is due **18:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [16:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1651.md).
 Next mathematical review is due **19:51 UTC on11September**. Derive later deadlines from the
