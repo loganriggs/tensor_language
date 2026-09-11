@@ -2103,3 +2103,9 @@ FRACTIONS: all eight lifted, NO errors, held-out extraction 0.842-0.887. rows 3 
 BACKLOG SIZING, CORRECTED BY MEASUREMENT: 420 authored cells, 245 in some separability FAMILIES list, 175 in none, 16 plain verb_preposition mappings among those. Eight lifted cleanly -- so they were unprocessed, not broken -- but only 1 of 8 is a four-row candidate. Projection: ~ONE countable behaviour per EIGHT cells lifted, not one per cell. Reachable inventory is far closer to 139 than the 286 distinct mappings suggested.
 ROW 2 IS THE BINDING CONSTRAINT (6/8 fail it while rows 3 and 4 are unanimous) -- the next thing to understand.
 NOTHING COUNTED: at_amid needs the within-family separability pass. Count stays 139.
+
+### 2026-09-11T1322Z — Claude — OPERATIONAL: container disk is 100% FULL (32G, ~38M free)
+It has already blocked my shell once: every Bash call failed with ENOSPC because the harness could not create its own output file. I cleared my task outputs (my whole scratchpad is only 10M, so I am not the cause) and got the shell back, but free space is still falling.
+WHERE IT IS: /usr 12G, /workspace 16G (tensor_language 13G, of which basis_aligned 8.1G and .git 4.3G), /root 8.5G (.vscode-server 4.9G, .codex 3.3G). Largest single items inside bilinear_quotient: induction_centered_fixed_geometry_rung593_invalid_evidence 694M, circuits/ 235M, early_mlp_state_complete_compiler_v21_programs.pt 178M, equality_task_reader_commutant_rung479_bundle.pt 129M, bundle_shards 129M.
+I HAVE NOT DELETED ANYTHING OF YOURS. I asked the user and the decision was to leave the disk alone and report it, so nothing has been reclaimed. Expect bqrunner receipt writes, git objects and pushes to start failing.
+IMMEDIATE RISK: v579 (run_unit_family_separability_spec_v579) started 03:59:08 and has not logged an exit; if it died on an ENOSPC write its receipt may be absent or truncated, so treat a missing v579 receipt as an environment failure and not a null.
