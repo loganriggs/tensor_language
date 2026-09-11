@@ -1,0 +1,335 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "strong_inert": 0.1,
+    "tol_pool": 0.05,
+    "tol_pool_wide": 0.15,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_possessive_census_five_v563",
+  "finished_utc": "2026-09-11T03:01:26.586648+00:00",
+  "groups": {
+    "adjacent": {
+      "cells": [
+        "possessive_adjacent"
+      ],
+      "n_units": 21,
+      "per_shape": {
+        "possessive_adjacent": {
+          "A1_damage": {
+            "ce_damage": 0.6253,
+            "ce_lb975": 0.5612,
+            "ce_ub975": 0.6937,
+            "margin_damage": 2.4338,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.951,
+          "joint_extraction": 0.988,
+          "n_held": 16,
+          "units_recovery": 0.963
+        },
+        "possessive_disjoint_my_your": {
+          "A1_damage": {
+            "ce_damage": 0.0213,
+            "ce_lb975": 0.018,
+            "ce_ub975": 0.0254,
+            "margin_damage": -0.0435,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.0054,
+            "margin_damage": -0.0085,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0054,
+          "cross_abs_recovery": 0.015,
+          "joint_extraction": 0.021,
+          "n_held": 16,
+          "units_recovery": 0.729
+        }
+      }
+    },
+    "gender": {
+      "cells": [
+        "possessive_gender"
+      ],
+      "n_units": 14,
+      "per_shape": {
+        "possessive_gender": {
+          "A1_damage": {
+            "ce_damage": 0.523,
+            "ce_lb975": 0.4936,
+            "ce_ub975": 0.5544,
+            "margin_damage": 3.0432,
+            "top1_change_rate": 0.3438
+          },
+          "C_damage": {
+            "ce_damage": 0.0019,
+            "ce_lb975": -0.0033,
+            "ce_ub975": 0.0082,
+            "margin_damage": -0.0043,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0082,
+          "cross_abs_recovery": 0.975,
+          "joint_extraction": 0.99,
+          "n_held": 16,
+          "units_recovery": 0.985
+        },
+        "possessive_person_our_your": {
+          "A1_damage": {
+            "ce_damage": 0.0293,
+            "ce_lb975": 0.0248,
+            "ce_ub975": 0.0333,
+            "margin_damage": 0.0414,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0019,
+            "ce_lb975": -0.0033,
+            "ce_ub975": 0.0082,
+            "margin_damage": -0.0043,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0082,
+          "cross_abs_recovery": -0.0,
+          "joint_extraction": -0.0,
+          "n_held": 16,
+          "units_recovery": 0.64
+        }
+      }
+    },
+    "number_his_their": {
+      "cells": [
+        "possessive_number_his_their"
+      ],
+      "n_units": 16,
+      "per_shape": {
+        "possessive_number_his_their": {
+          "A1_damage": {
+            "ce_damage": 1.0212,
+            "ce_lb975": 0.8658,
+            "ce_ub975": 1.1686,
+            "margin_damage": 3.2214,
+            "top1_change_rate": 0.2188
+          },
+          "C_damage": {
+            "ce_damage": 0.0085,
+            "ce_lb975": -0.0073,
+            "ce_ub975": 0.0239,
+            "margin_damage": 0.0393,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": 0.0239,
+          "cross_abs_recovery": 0.969,
+          "joint_extraction": 0.995,
+          "n_held": 16,
+          "units_recovery": 0.974
+        },
+        "possessive_pronoun_mine_yours": {
+          "A1_damage": {
+            "ce_damage": 0.023,
+            "ce_lb975": 0.0178,
+            "ce_ub975": 0.0277,
+            "margin_damage": 0.0149,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": 0.0085,
+            "ce_lb975": -0.0073,
+            "ce_ub975": 0.0239,
+            "margin_damage": 0.0393,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": 0.0239,
+          "cross_abs_recovery": 0.004,
+          "joint_extraction": 0.005,
+          "n_held": 16,
+          "units_recovery": 0.887
+        }
+      }
+    },
+    "number_its_their": {
+      "cells": [
+        "possessive_number_its_their"
+      ],
+      "n_units": 10,
+      "per_shape": {
+        "possessive_gender": {
+          "A1_damage": {
+            "ce_damage": -0.0005,
+            "ce_lb975": -0.0112,
+            "ce_ub975": 0.0107,
+            "margin_damage": -0.0352,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0007,
+            "ce_lb975": -0.0036,
+            "ce_ub975": 0.0048,
+            "margin_damage": -0.0099,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": 0.0048,
+          "cross_abs_recovery": -0.0,
+          "joint_extraction": -0.0,
+          "n_held": 16,
+          "units_recovery": 0.498
+        },
+        "possessive_number_its_their": {
+          "A1_damage": {
+            "ce_damage": 0.6643,
+            "ce_lb975": 0.5197,
+            "ce_ub975": 0.8047,
+            "margin_damage": 1.7077,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0007,
+            "ce_lb975": -0.0036,
+            "ce_ub975": 0.0048,
+            "margin_damage": -0.0099,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": 0.0048,
+          "cross_abs_recovery": 0.985,
+          "joint_extraction": 1.004,
+          "n_held": 16,
+          "units_recovery": 0.981
+        }
+      }
+    },
+    "pronoun_number_hers_theirs": {
+      "cells": [
+        "possessive_pronoun_number_hers_theirs"
+      ],
+      "n_units": 18,
+      "per_shape": {
+        "possessive_number_its_their": {
+          "A1_damage": {
+            "ce_damage": 0.4559,
+            "ce_lb975": 0.3368,
+            "ce_ub975": 0.5672,
+            "margin_damage": 0.2387,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0043,
+            "ce_lb975": -0.0286,
+            "ce_ub975": 0.0181,
+            "margin_damage": -0.0355,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0181,
+          "cross_abs_recovery": 0.151,
+          "joint_extraction": 0.178,
+          "n_held": 16,
+          "units_recovery": 0.85
+        },
+        "possessive_pronoun_number_hers_theirs": {
+          "A1_damage": {
+            "ce_damage": 0.7253,
+            "ce_lb975": 0.6784,
+            "ce_ub975": 0.7747,
+            "margin_damage": 1.9759,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0043,
+            "ce_lb975": -0.0286,
+            "ce_ub975": 0.0181,
+            "margin_damage": -0.0355,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0181,
+          "cross_abs_recovery": 0.941,
+          "joint_extraction": 0.964,
+          "n_held": 16,
+          "units_recovery": 0.976
+        }
+      }
+    },
+    "pronoun_person_ours_theirs": {
+      "cells": [
+        "possessive_pronoun_person_ours_theirs"
+      ],
+      "n_units": 25,
+      "per_shape": {
+        "possessive_number_attractor_conflict": {
+          "A1_damage": {
+            "ce_damage": 0.0176,
+            "ce_lb975": 0.0043,
+            "ce_ub975": 0.0335,
+            "margin_damage": -0.1313,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.009,
+            "ce_lb975": -0.0058,
+            "ce_ub975": 0.0235,
+            "margin_damage": 0.0338,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0235,
+          "cross_abs_recovery": 0.017,
+          "joint_extraction": 0.02,
+          "n_held": 16,
+          "units_recovery": 0.867
+        },
+        "possessive_pronoun_person_ours_theirs": {
+          "A1_damage": {
+            "ce_damage": 0.602,
+            "ce_lb975": 0.518,
+            "ce_ub975": 0.68,
+            "margin_damage": 1.642,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": 0.009,
+            "ce_lb975": -0.0058,
+            "ce_ub975": 0.0235,
+            "margin_damage": 0.0338,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0235,
+          "cross_abs_recovery": 0.949,
+          "joint_extraction": 0.975,
+          "n_held": 16,
+          "units_recovery": 0.973
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_fits_hold": true,
+    "pred_b_some_reachable": true,
+    "pred_c_reached_are_inert": true,
+    "pred_d_rate_low": false,
+    "pred_e_anchor_reproduces": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_possessive_census_five_v563",
+  "seconds": 211.0
+}
