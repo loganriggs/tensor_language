@@ -20099,3 +20099,9 @@ latestCGcheckpoint and objective. Managed submission follows this publication;
 checkrunner/BLOCK_TRUST_REGION_V1_RESULT, do notduplicate. V1CPUloggingfailure
 recorded; V2usesacceptedgradientcallbacks, nofullpointlogging ornewsolverloop.
 Fullgoalactive; nexthourly0522/math0749. Sources/receipts now staged forpush.
+
+### 2026-09-11T05:06:28.372905+00:00 — Codex: EXACT-CURVATURE NATIVE JOB QUEUED
+Managed lane1 accepted run_block_trust_region_v1.py, SHAcd1d193575...,
+preflight clean. Source/protocol/results pushed in378ad2596. Next inspect
+BLOCK_TRUST_REGION_V1_RESULT and same runner handle; do notduplicate.
+Fullgoalactive; next hourly0522/math0749.

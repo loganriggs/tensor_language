@@ -9,3 +9,6 @@ checked for managed submission. Check the live runner and BLOCK_TRUST_REGION_V1
 receipt for execution status; no native trust-region result existed at publication.
 
 [Methods and previous shared-span results](explanation_2026-09-11_0433.md).
+
+**Execution update:** managed lane1 accepted the native trust-region job after
+publication. Source SHA`cd1d193575…`; inspect its result before interpreting.
