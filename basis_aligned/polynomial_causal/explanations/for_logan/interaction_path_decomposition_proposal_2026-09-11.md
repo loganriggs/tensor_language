@@ -1,6 +1,8 @@
 # Project proposal: discover circuits by decomposing composed interaction paths
 
-Requested by Logan, 11 September 2026. **Status: proposal, with existing evidence and two new exact accounting checks; the proposed joint sparse fits have not run.**
+Requested by Logan, 11 September 2026. **Status at writing: proposal, with existing evidence and two new exact accounting checks; the proposed joint sparse fits had not run.**
+
+**Subsequent results:** the first joint sparse fits have now converged. Weight-space correspondences showed stability, but native replica validation failed. See the [current experiment findings](../../COUPLED_SPARSE_PATH_V1_MATH.md); the proposal below preserves the original plan.
 
 ## High-level proposal
 
