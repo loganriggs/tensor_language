@@ -1,0 +1,2848 @@
+{
+  "rows": [
+    {
+      "label": "spectral",
+      "price": {
+        "old_floats": 1254400,
+        "graph_floats": 1239793,
+        "saved_float_fraction": 0.011644610969387736,
+        "int64_indices": 90,
+        "graph_numeric_bytes_fp64": 9919064,
+        "old_numeric_bytes_fp64": 10035200,
+        "old_linear_readers": 1024,
+        "graph_linear_readers": 1011,
+        "old_variable_products": 1024,
+        "graph_variable_products": 1041,
+        "coefficient_multiplications": 1239793,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately.",
+        "graph_scalar_additions": 1238808
+      },
+      "retained_parents": 12,
+      "groups_with_multiple_parents": 6,
+      "executor_error": 2.1395674680902342e-15,
+      "squared_change_over_native": 0.0011104820524153935,
+      "capture_loss": 0.0011254537760257062,
+      "v2_capture_loss": 0.0012124962674416317,
+      "loss_reduction_fraction": 0.07178784277792893,
+      "retained_savings_fraction": 0.8123123123123089,
+      "minimum_joint_membership": 0.95135234098484,
+      "selection": {
+        "retained_source_parents": [
+          0,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "groups": [
+          {
+            "group": 0,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 1,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 2,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  0
+                ],
+                "membership": 0.9797863356632094,
+                "score": 0.004767143565610077
+              },
+              {
+                "ids": [
+                  2
+                ],
+                "membership": 0.9845498267279756,
+                "score": 0.0019567924137822196
+              },
+              {
+                "ids": [
+                  0,
+                  2
+                ],
+                "membership": 0.35435502775754574,
+                "score": 0.006723935979392297
+              }
+            ],
+            "chosen": {
+              "ids": [
+                0
+              ],
+              "membership": 0.9797863356632094,
+              "score": 0.004767143565610077
+            }
+          },
+          {
+            "group": 3,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 4,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  4
+                ],
+                "membership": 0.980391001697209,
+                "score": 0.00057402799870768
+              },
+              {
+                "ids": [
+                  12
+                ],
+                "membership": 0.9873216606212126,
+                "score": 0.00018058572481300853
+              },
+              {
+                "ids": [
+                  4,
+                  12
+                ],
+                "membership": 0.9796501339291835,
+                "score": 0.0007546137235206886
+              }
+            ],
+            "chosen": {
+              "ids": [
+                4,
+                12
+              ],
+              "membership": 0.9796501339291835,
+              "score": 0.0007546137235206886
+            }
+          },
+          {
+            "group": 5,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 6,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  5
+                ],
+                "membership": 0.9793666982049177,
+                "score": 0.0005424794473521192
+              },
+              {
+                "ids": [
+                  12
+                ],
+                "membership": 0.9873216606212135,
+                "score": 0.00018058572481300853
+              },
+              {
+                "ids": [
+                  5,
+                  12
+                ],
+                "membership": 0.14742442025611371,
+                "score": 0.0007230651721651278
+              }
+            ],
+            "chosen": {
+              "ids": [
+                5
+              ],
+              "membership": 0.9793666982049177,
+              "score": 0.0005424794473521192
+            }
+          },
+          {
+            "group": 7,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  6
+                ],
+                "membership": 0.978766573825979,
+                "score": 0.0005263880445107998
+              },
+              {
+                "ids": [
+                  7
+                ],
+                "membership": 0.9725739433560188,
+                "score": 0.00036046321154710996
+              },
+              {
+                "ids": [
+                  6,
+                  7
+                ],
+                "membership": 0.9720462315475488,
+                "score": 0.0008868512560579098
+              }
+            ],
+            "chosen": {
+              "ids": [
+                6,
+                7
+              ],
+              "membership": 0.9720462315475488,
+              "score": 0.0008868512560579098
+            }
+          },
+          {
+            "group": 8,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 9,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 10,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  10
+                ],
+                "membership": 0.9781792024313058,
+                "score": 0.0002873881046336858
+              },
+              {
+                "ids": [
+                  11
+                ],
+                "membership": 0.9861998419125525,
+                "score": 0.00025022118153872493
+              },
+              {
+                "ids": [
+                  10,
+                  11
+                ],
+                "membership": 0.9766652020181824,
+                "score": 0.0005376092861724107
+              }
+            ],
+            "chosen": {
+              "ids": [
+                10,
+                11
+              ],
+              "membership": 0.9766652020181824,
+              "score": 0.0005376092861724107
+            }
+          },
+          {
+            "group": 11,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 12,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 13,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  0
+                ],
+                "membership": 0.9552050091801856,
+                "score": 0.004767143565610077
+              },
+              {
+                "ids": [
+                  1
+                ],
+                "membership": 0.98703295773337,
+                "score": 0.002291536085935326
+              },
+              {
+                "ids": [
+                  2
+                ],
+                "membership": 0.9845498267279752,
+                "score": 0.0019567924137822196
+              },
+              {
+                "ids": [
+                  4
+                ],
+                "membership": 0.980391001697209,
+                "score": 0.00057402799870768
+              },
+              {
+                "ids": [
+                  0,
+                  1
+                ],
+                "membership": 0.5408255856060308,
+                "score": 0.007058679651545403
+              },
+              {
+                "ids": [
+                  0,
+                  2
+                ],
+                "membership": 0.24458137165170388,
+                "score": 0.006723935979392297
+              },
+              {
+                "ids": [
+                  0,
+                  4
+                ],
+                "membership": 0.95135234098484,
+                "score": 0.005341171564317757
+              },
+              {
+                "ids": [
+                  1,
+                  2
+                ],
+                "membership": 0.7116577839913312,
+                "score": 0.004248328499717546
+              },
+              {
+                "ids": [
+                  1,
+                  4
+                ],
+                "membership": 0.9771480394588108,
+                "score": 0.002865564084643006
+              },
+              {
+                "ids": [
+                  2,
+                  4
+                ],
+                "membership": 0.9771645625608361,
+                "score": 0.0025308204124898995
+              },
+              {
+                "ids": [
+                  0,
+                  1,
+                  2
+                ],
+                "membership": 0.1138148072375862,
+                "score": 0.009015472065327622
+              },
+              {
+                "ids": [
+                  0,
+                  1,
+                  4
+                ],
+                "membership": 0.5396403209770403,
+                "score": 0.007632707650253083
+              },
+              {
+                "ids": [
+                  0,
+                  2,
+                  4
+                ],
+                "membership": 0.1949157470863372,
+                "score": 0.007297963978099976
+              },
+              {
+                "ids": [
+                  1,
+                  2,
+                  4
+                ],
+                "membership": 0.6999398318753073,
+                "score": 0.0048223564984252254
+              },
+              {
+                "ids": [
+                  0,
+                  1,
+                  2,
+                  4
+                ],
+                "membership": 0.08615519599899468,
+                "score": 0.009589500064035302
+              }
+            ],
+            "chosen": {
+              "ids": [
+                0,
+                4
+              ],
+              "membership": 0.95135234098484,
+              "score": 0.005341171564317757
+            }
+          },
+          {
+            "group": 14,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 15,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 16,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  3
+                ],
+                "membership": 0.9819611469621519,
+                "score": 0.0006301051345643569
+              },
+              {
+                "ids": [
+                  11
+                ],
+                "membership": 0.9861998419125504,
+                "score": 0.00025022118153872493
+              },
+              {
+                "ids": [
+                  3,
+                  11
+                ],
+                "membership": 0.9819488791732165,
+                "score": 0.0008803263161030818
+              }
+            ],
+            "chosen": {
+              "ids": [
+                3,
+                11
+              ],
+              "membership": 0.9819488791732165,
+              "score": 0.0008803263161030818
+            }
+          },
+          {
+            "group": 17,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 18,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 19,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  10
+                ],
+                "membership": 0.9781792024313065,
+                "score": 0.0002873881046336858
+              }
+            ],
+            "chosen": {
+              "ids": [
+                10
+              ],
+              "membership": 0.9781792024313065,
+              "score": 0.0002873881046336858
+            }
+          },
+          {
+            "group": 20,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 21,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 22,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  8
+                ],
+                "membership": 0.9948984206398754,
+                "score": 0.000328770641190303
+              }
+            ],
+            "chosen": {
+              "ids": [
+                8
+              ],
+              "membership": 0.9948984206398754,
+              "score": 0.000328770641190303
+            }
+          },
+          {
+            "group": 23,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 24,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 25,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  3
+                ],
+                "membership": 0.9819611469621524,
+                "score": 0.0006301051345643569
+              }
+            ],
+            "chosen": {
+              "ids": [
+                3
+              ],
+              "membership": 0.9819611469621524,
+              "score": 0.0006301051345643569
+            }
+          },
+          {
+            "group": 26,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  5
+                ],
+                "membership": 0.9793666982049177,
+                "score": 0.0005424794473521192
+              }
+            ],
+            "chosen": {
+              "ids": [
+                5
+              ],
+              "membership": 0.9793666982049177,
+              "score": 0.0005424794473521192
+            }
+          },
+          {
+            "group": 27,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 28,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  7
+                ],
+                "membership": 0.9813294429020688,
+                "score": 0.00036046321154710996
+              }
+            ],
+            "chosen": {
+              "ids": [
+                7
+              ],
+              "membership": 0.9813294429020688,
+              "score": 0.00036046321154710996
+            }
+          },
+          {
+            "group": 29,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 30,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 31,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 32,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 33,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 34,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 35,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  8
+                ],
+                "membership": 0.9948984206398748,
+                "score": 0.000328770641190303
+              }
+            ],
+            "chosen": {
+              "ids": [
+                8
+              ],
+              "membership": 0.9948984206398748,
+              "score": 0.000328770641190303
+            }
+          },
+          {
+            "group": 36,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 37,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 38,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 39,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  9
+                ],
+                "membership": 0.983422056650617,
+                "score": 0.00030032312861902154
+              }
+            ],
+            "chosen": {
+              "ids": [
+                9
+              ],
+              "membership": 0.983422056650617,
+              "score": 0.00030032312861902154
+            }
+          },
+          {
+            "group": 40,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  0
+                ],
+                "membership": 0.9797863356632098,
+                "score": 0.004767143565610077
+              },
+              {
+                "ids": [
+                  1
+                ],
+                "membership": 0.9870329577333697,
+                "score": 0.002291536085935326
+              },
+              {
+                "ids": [
+                  0,
+                  1
+                ],
+                "membership": 0.6635435053102918,
+                "score": 0.007058679651545403
+              }
+            ],
+            "chosen": {
+              "ids": [
+                0
+              ],
+              "membership": 0.9797863356632098,
+              "score": 0.004767143565610077
+            }
+          },
+          {
+            "group": 41,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 42,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 43,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  6
+                ],
+                "membership": 0.9787665738259785,
+                "score": 0.0005263880445107998
+              }
+            ],
+            "chosen": {
+              "ids": [
+                6
+              ],
+              "membership": 0.9787665738259785,
+              "score": 0.0005263880445107998
+            }
+          },
+          {
+            "group": 44,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 45,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 46,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  9
+                ],
+                "membership": 0.9834220566506163,
+                "score": 0.00030032312861902154
+              }
+            ],
+            "chosen": {
+              "ids": [
+                9
+              ],
+              "membership": 0.9834220566506163,
+              "score": 0.00030032312861902154
+            }
+          },
+          {
+            "group": 47,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 48,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  13
+                ],
+                "membership": 0.9813132120063224,
+                "score": 0.0001793482888095869
+              },
+              {
+                "ids": [
+                  14
+                ],
+                "membership": 0.9838081730772156,
+                "score": 0.00014119937544496752
+              },
+              {
+                "ids": [
+                  13,
+                  14
+                ],
+                "membership": 0.981313212006323,
+                "score": 0.0003205476642545544
+              }
+            ],
+            "chosen": {
+              "ids": [
+                13,
+                14
+              ],
+              "membership": 0.981313212006323,
+              "score": 0.0003205476642545544
+            }
+          },
+          {
+            "group": 49,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 50,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 51,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 52,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 53,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 54,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 55,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 56,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 57,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 58,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 59,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 60,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 61,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 62,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  13
+                ],
+                "membership": 0.9813132120063224,
+                "score": 0.0001793482888095869
+              },
+              {
+                "ids": [
+                  14
+                ],
+                "membership": 0.983808173077216,
+                "score": 0.00014119937544496752
+              },
+              {
+                "ids": [
+                  13,
+                  14
+                ],
+                "membership": 0.9813132120063224,
+                "score": 0.0003205476642545544
+              }
+            ],
+            "chosen": {
+              "ids": [
+                13,
+                14
+              ],
+              "membership": 0.9813132120063224,
+              "score": 0.0003205476642545544
+            }
+          },
+          {
+            "group": 63,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          }
+        ],
+        "removed_single_consumer_parents": [
+          12
+        ]
+      },
+      "pred_a": true,
+      "pred_b": false,
+      "pred_c": false
+    },
+    {
+      "label": "native",
+      "price": {
+        "old_floats": 1254400,
+        "graph_floats": 1236439,
+        "saved_float_fraction": 0.014318399234693913,
+        "int64_indices": 119,
+        "graph_numeric_bytes_fp64": 9892464,
+        "old_numeric_bytes_fp64": 10035200,
+        "old_linear_readers": 1024,
+        "graph_linear_readers": 1008,
+        "old_variable_products": 1024,
+        "graph_variable_products": 1047,
+        "coefficient_multiplications": 1236439,
+        "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately.",
+        "graph_scalar_additions": 1235447
+      },
+      "retained_parents": 16,
+      "groups_with_multiple_parents": 7,
+      "executor_error": 1.3701031478278208e-15,
+      "squared_change_over_native": 0.0014521353915158395,
+      "capture_loss": 0.0014697508347459632,
+      "v2_capture_loss": 0.0015297761749709093,
+      "loss_reduction_fraction": 0.03923798867248507,
+      "retained_savings_fraction": 0.9411055802986645,
+      "minimum_joint_membership": 0.9751028928805033,
+      "selection": {
+        "retained_source_parents": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "groups": [
+          {
+            "group": 0,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 1,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  16
+                ],
+                "membership": 0.9829799463121198,
+                "score": 0.000160067259152548
+              }
+            ],
+            "chosen": {
+              "ids": [
+                16
+              ],
+              "membership": 0.9829799463121198,
+              "score": 0.000160067259152548
+            }
+          },
+          {
+            "group": 2,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  15
+                ],
+                "membership": 0.9930870349937477,
+                "score": 0.0001743452903782918
+              }
+            ],
+            "chosen": {
+              "ids": [
+                15
+              ],
+              "membership": 0.9930870349937477,
+              "score": 0.0001743452903782918
+            }
+          },
+          {
+            "group": 3,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  9
+                ],
+                "membership": 0.9803481788893107,
+                "score": 0.0002710101450764897
+              }
+            ],
+            "chosen": {
+              "ids": [
+                9
+              ],
+              "membership": 0.9803481788893107,
+              "score": 0.0002710101450764897
+            }
+          },
+          {
+            "group": 4,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 5,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 6,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  2
+                ],
+                "membership": 0.9912712627183897,
+                "score": 0.0013953957390295906
+              },
+              {
+                "ids": [
+                  3
+                ],
+                "membership": 0.9764790011851492,
+                "score": 0.0011965642713918838
+              },
+              {
+                "ids": [
+                  2,
+                  3
+                ],
+                "membership": 0.06146960194536738,
+                "score": 0.0025919600104214744
+              }
+            ],
+            "chosen": {
+              "ids": [
+                2
+              ],
+              "membership": 0.9912712627183897,
+              "score": 0.0013953957390295906
+            }
+          },
+          {
+            "group": 7,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 8,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 9,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 10,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  0
+                ],
+                "membership": 0.9756560896845191,
+                "score": 0.0042452963975499036
+              }
+            ],
+            "chosen": {
+              "ids": [
+                0
+              ],
+              "membership": 0.9756560896845191,
+              "score": 0.0042452963975499036
+            }
+          },
+          {
+            "group": 11,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 12,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 13,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 14,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 15,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  10
+                ],
+                "membership": 0.9818809468602865,
+                "score": 0.00021013711747510275
+              },
+              {
+                "ids": [
+                  12
+                ],
+                "membership": 0.9791478032865654,
+                "score": 0.00019382195282422973
+              },
+              {
+                "ids": [
+                  14
+                ],
+                "membership": 0.9765560511130786,
+                "score": 0.00018238440337447215
+              },
+              {
+                "ids": [
+                  10,
+                  12
+                ],
+                "membership": 0.9791478032865658,
+                "score": 0.0004039590702993325
+              },
+              {
+                "ids": [
+                  10,
+                  14
+                ],
+                "membership": 0.9764894426332147,
+                "score": 0.0003925215208495749
+              },
+              {
+                "ids": [
+                  12,
+                  14
+                ],
+                "membership": 0.9755300879218002,
+                "score": 0.00037620635619870185
+              },
+              {
+                "ids": [
+                  10,
+                  12,
+                  14
+                ],
+                "membership": 0.975494308773799,
+                "score": 0.0005863434736738046
+              }
+            ],
+            "chosen": {
+              "ids": [
+                10,
+                12,
+                14
+              ],
+              "membership": 0.975494308773799,
+              "score": 0.0005863434736738046
+            }
+          },
+          {
+            "group": 16,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 17,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  4
+                ],
+                "membership": 0.9864400120932292,
+                "score": 0.0009928567009666902
+              }
+            ],
+            "chosen": {
+              "ids": [
+                4
+              ],
+              "membership": 0.9864400120932292,
+              "score": 0.0009928567009666902
+            }
+          },
+          {
+            "group": 18,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 19,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  14
+                ],
+                "membership": 0.9765560511130793,
+                "score": 0.00018238440337447215
+              }
+            ],
+            "chosen": {
+              "ids": [
+                14
+              ],
+              "membership": 0.9765560511130793,
+              "score": 0.00018238440337447215
+            }
+          },
+          {
+            "group": 20,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  11
+                ],
+                "membership": 0.991179543132692,
+                "score": 0.00019714177553740647
+              },
+              {
+                "ids": [
+                  13
+                ],
+                "membership": 0.9893072338047719,
+                "score": 0.00018288474940512592
+              },
+              {
+                "ids": [
+                  11,
+                  13
+                ],
+                "membership": 0.9893072338047719,
+                "score": 0.00038002652494253236
+              }
+            ],
+            "chosen": {
+              "ids": [
+                11,
+                13
+              ],
+              "membership": 0.9893072338047719,
+              "score": 0.00038002652494253236
+            }
+          },
+          {
+            "group": 21,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 22,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 23,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 24,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 25,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  1
+                ],
+                "membership": 0.9751028928805033,
+                "score": 0.0025466558872712865
+              }
+            ],
+            "chosen": {
+              "ids": [
+                1
+              ],
+              "membership": 0.9751028928805033,
+              "score": 0.0025466558872712865
+            }
+          },
+          {
+            "group": 26,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  6
+                ],
+                "membership": 0.981946324199647,
+                "score": 0.0006247789531961331
+              },
+              {
+                "ids": [
+                  7
+                ],
+                "membership": 0.9861328349126092,
+                "score": 0.0004968269860047951
+              },
+              {
+                "ids": [
+                  6,
+                  7
+                ],
+                "membership": 0.9784486812867969,
+                "score": 0.0011216059392009283
+              }
+            ],
+            "chosen": {
+              "ids": [
+                6,
+                7
+              ],
+              "membership": 0.9784486812867969,
+              "score": 0.0011216059392009283
+            }
+          },
+          {
+            "group": 27,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  9
+                ],
+                "membership": 0.9803481788893114,
+                "score": 0.0002710101450764897
+              }
+            ],
+            "chosen": {
+              "ids": [
+                9
+              ],
+              "membership": 0.9803481788893114,
+              "score": 0.0002710101450764897
+            }
+          },
+          {
+            "group": 28,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 29,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  8
+                ],
+                "membership": 0.9861699385750707,
+                "score": 0.000347248475685777
+              }
+            ],
+            "chosen": {
+              "ids": [
+                8
+              ],
+              "membership": 0.9861699385750707,
+              "score": 0.000347248475685777
+            }
+          },
+          {
+            "group": 30,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 31,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 32,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 33,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 34,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  0
+                ],
+                "membership": 0.9756560896845192,
+                "score": 0.0042452963975499036
+              }
+            ],
+            "chosen": {
+              "ids": [
+                0
+              ],
+              "membership": 0.9756560896845192,
+              "score": 0.0042452963975499036
+            }
+          },
+          {
+            "group": 35,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 36,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 37,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  2
+                ],
+                "membership": 0.9912712627183877,
+                "score": 0.0013953957390295906
+              },
+              {
+                "ids": [
+                  3
+                ],
+                "membership": 0.9573836936038433,
+                "score": 0.0011965642713918838
+              },
+              {
+                "ids": [
+                  2,
+                  3
+                ],
+                "membership": 0.15913984389321445,
+                "score": 0.0025919600104214744
+              }
+            ],
+            "chosen": {
+              "ids": [
+                2
+              ],
+              "membership": 0.9912712627183877,
+              "score": 0.0013953957390295906
+            }
+          },
+          {
+            "group": 38,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 39,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 40,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  4
+                ],
+                "membership": 0.986440012093229,
+                "score": 0.0009928567009666902
+              },
+              {
+                "ids": [
+                  5
+                ],
+                "membership": 0.9925670169198533,
+                "score": 0.0006742023290120506
+              },
+              {
+                "ids": [
+                  4,
+                  5
+                ],
+                "membership": 0.9782180849326512,
+                "score": 0.0016670590299787407
+              }
+            ],
+            "chosen": {
+              "ids": [
+                4,
+                5
+              ],
+              "membership": 0.9782180849326512,
+              "score": 0.0016670590299787407
+            }
+          },
+          {
+            "group": 41,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  7
+                ],
+                "membership": 0.9861328349126105,
+                "score": 0.0004968269860047951
+              }
+            ],
+            "chosen": {
+              "ids": [
+                7
+              ],
+              "membership": 0.9861328349126105,
+              "score": 0.0004968269860047951
+            }
+          },
+          {
+            "group": 42,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 43,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  10
+                ],
+                "membership": 0.9818809468602867,
+                "score": 0.00021013711747510275
+              },
+              {
+                "ids": [
+                  12
+                ],
+                "membership": 0.9791478032865643,
+                "score": 0.00019382195282422973
+              },
+              {
+                "ids": [
+                  10,
+                  12
+                ],
+                "membership": 0.9791478032865663,
+                "score": 0.0004039590702993325
+              }
+            ],
+            "chosen": {
+              "ids": [
+                10,
+                12
+              ],
+              "membership": 0.9791478032865663,
+              "score": 0.0004039590702993325
+            }
+          },
+          {
+            "group": 44,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 45,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 46,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  1
+                ],
+                "membership": 0.9751028928805052,
+                "score": 0.0025466558872712865
+              }
+            ],
+            "chosen": {
+              "ids": [
+                1
+              ],
+              "membership": 0.9751028928805052,
+              "score": 0.0025466558872712865
+            }
+          },
+          {
+            "group": 47,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  16
+                ],
+                "membership": 0.9829799463121187,
+                "score": 0.000160067259152548
+              }
+            ],
+            "chosen": {
+              "ids": [
+                16
+              ],
+              "membership": 0.9829799463121187,
+              "score": 0.000160067259152548
+            }
+          },
+          {
+            "group": 48,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  6
+                ],
+                "membership": 0.9819463241996479,
+                "score": 0.0006247789531961331
+              }
+            ],
+            "chosen": {
+              "ids": [
+                6
+              ],
+              "membership": 0.9819463241996479,
+              "score": 0.0006247789531961331
+            }
+          },
+          {
+            "group": 49,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 50,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 51,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 52,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  5
+                ],
+                "membership": 0.9925670169198528,
+                "score": 0.0006742023290120506
+              }
+            ],
+            "chosen": {
+              "ids": [
+                5
+              ],
+              "membership": 0.9925670169198528,
+              "score": 0.0006742023290120506
+            }
+          },
+          {
+            "group": 53,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 54,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 55,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  8
+                ],
+                "membership": 0.9861699385750712,
+                "score": 0.000347248475685777
+              },
+              {
+                "ids": [
+                  15
+                ],
+                "membership": 0.9930870349937468,
+                "score": 0.0001743452903782918
+              },
+              {
+                "ids": [
+                  8,
+                  15
+                ],
+                "membership": 0.9861545055610551,
+                "score": 0.0005215937660640688
+              }
+            ],
+            "chosen": {
+              "ids": [
+                8,
+                15
+              ],
+              "membership": 0.9861545055610551,
+              "score": 0.0005215937660640688
+            }
+          },
+          {
+            "group": 56,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 57,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 58,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 59,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 60,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 61,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          },
+          {
+            "group": 62,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              },
+              {
+                "ids": [
+                  11
+                ],
+                "membership": 0.9911795431326917,
+                "score": 0.00019714177553740647
+              },
+              {
+                "ids": [
+                  13
+                ],
+                "membership": 0.9893072338047721,
+                "score": 0.00018288474940512592
+              },
+              {
+                "ids": [
+                  11,
+                  13
+                ],
+                "membership": 0.9893072338047724,
+                "score": 0.00038002652494253236
+              }
+            ],
+            "chosen": {
+              "ids": [
+                11,
+                13
+              ],
+              "membership": 0.9893072338047724,
+              "score": 0.00038002652494253236
+            }
+          },
+          {
+            "group": 63,
+            "choices": [
+              {
+                "ids": [],
+                "membership": 1.0,
+                "score": 0
+              }
+            ],
+            "chosen": {
+              "ids": [],
+              "membership": 1.0,
+              "score": 0
+            }
+          }
+        ],
+        "removed_single_consumer_parents": []
+      },
+      "pred_a": true,
+      "pred_b": false,
+      "pred_c": false
+    }
+  ],
+  "scope": "Joint-compatible incidence selection on frozen unconverged pilots. Exact executor, approximate original function; no data fitting or circuit identification."
+}

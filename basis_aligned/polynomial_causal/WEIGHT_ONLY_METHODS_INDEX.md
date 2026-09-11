@@ -273,3 +273,7 @@ Managed wrapper V3 runs the [registered projected comparison](PROJECTED_LL1_CONV
 ### 11 September — Executable multi-parent graph and marginal-space repair
 
 [Joint graph results](LL1_JOINT_PARENT_GRAPH_V1_MATH.md): shared readers and shared/shared products execute once; full cores prevent overlap double-counting. Storage saves1.43/1.52%, but approximation bars miss. A mixed-only control exposes private-space selection failure; using the full quadratic marginal removes56–61% of loss at unchanged size. Joint parent-span incompatibility remains measured. Spectral projected LL1 completed20minutes at11.8891%capture without convergence; second arm live.
+
+### 11 September — Joint-compatible parents and converged all-core solves
+
+[Matched result and derivation](LL1_COMPATIBLE_PARENTS_AND_CORE_SOLVE_V1_MATH.md): joint membership selection removes only4–7%graph loss. All64symmetric cores can be solved together with a matrix-free SPD operator, including cross-group cancellation; four matched solves converge in38–57iterations. Graphs improve but still miss.001capture-gap bar. Fixed interaction coefficients are no longer the optimization uncertainty; shared-reader/private-space movement is next.

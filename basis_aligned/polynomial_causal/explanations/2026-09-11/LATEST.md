@@ -1,5 +1,7 @@
 # Latest research update
 
+**15:52 method result:** [joint-compatible parents and converged interaction coefficients](../../LL1_COMPATIBLE_PARENTS_AND_CORE_SOLVE_V1_MATH.md). The linear coefficient subproblem now converges, but most graph loss remains; shared readers and private spaces need joint fitting. Second projected LL1 arm remains live.
+
 **15:42 graph result:** [joint multi-parent execution and repair](../../LL1_JOINT_PARENT_GRAPH_V1_MATH.md) now accounts for overlapping parents correctly. A tested marginal-space repair halves approximation loss; the final bar still misses. The projected LL1 spectral arm ended unconverged at11.8891%capture; second arm is live.
 
 **15:21 live run:** projected LL1 with exact equilibrated output solves, two20-minute budgets and explicit convergence criteria. [Protocol](../../PROJECTED_LL1_CONVERGENCE_V1_PREREGISTRATION.md). The [subspace census](../../LL1_SUBSPACE_PARENTS_V1_MATH.md) finds mixed shared-parent proposals, but broad sharing misses and joint graph accounting remains open.

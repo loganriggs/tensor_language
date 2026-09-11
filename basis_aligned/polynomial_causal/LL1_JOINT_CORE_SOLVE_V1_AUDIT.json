@@ -1,0 +1,184 @@
+{
+  "control": {
+    "iterations": 9,
+    "seconds": 0.0009234882891178131,
+    "normal_residual": 7.134084389124203e-16,
+    "converged": true,
+    "condition_bound": 301.0,
+    "history": [],
+    "dense_solve_error": 8.08186380623992e-16,
+    "coefficient_error": 6.19964831973396e-16,
+    "objective_error": 1.9224744173128195e-16,
+    "executor_error": 8.537430951769879e-16,
+    "held": true
+  },
+  "rows": [
+    {
+      "label": "spectral",
+      "arms": {
+        "original": {
+          "iterations": 45,
+          "seconds": 1.4347683154046535,
+          "normal_residual": 8.865869060547569e-09,
+          "converged": true,
+          "condition_bound": 6401.0,
+          "history": [
+            {
+              "iteration": 25,
+              "residual": 3.2128320076993796e-06
+            }
+          ],
+          "orthogonality_error": 7.183004433181758e-15,
+          "before_objective": 0.8862453183020271,
+          "after_objective": 0.8862437036446346,
+          "objective_gain": 1.614657392567942e-06,
+          "capture": 0.1166080784347646,
+          "group_energy": 0.28517820793992343,
+          "objective_replay": 1.1102230246251565e-16,
+          "executor_replay": 1.2668494539707065e-15,
+          "price": {
+            "old_floats": 1254400,
+            "graph_floats": 1254400,
+            "saved_float_fraction": 0.0,
+            "int64_indices": 0,
+            "graph_numeric_bytes_fp64": 10035200,
+            "old_numeric_bytes_fp64": 10035200,
+            "old_linear_readers": 1024,
+            "graph_linear_readers": 1024,
+            "old_variable_products": 1024,
+            "graph_variable_products": 1024,
+            "coefficient_multiplications": 1254400,
+            "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+          }
+        },
+        "graph": {
+          "iterations": 57,
+          "seconds": 1.1420070119202137,
+          "normal_residual": 7.986366313249283e-09,
+          "converged": true,
+          "condition_bound": 6401.0,
+          "history": [
+            {
+              "iteration": 25,
+              "residual": 3.347587455333399e-05
+            },
+            {
+              "iteration": 50,
+              "residual": 5.973463953810999e-08
+            }
+          ],
+          "orthogonality_error": 6.952710155549954e-15,
+          "before_objective": 0.8873628275776778,
+          "after_objective": 0.8872784590223589,
+          "objective_gain": 8.43685553189033e-05,
+          "capture": 0.11552606234617133,
+          "group_energy": 0.28045213685284587,
+          "objective_replay": 1.7763568394002505e-15,
+          "executor_replay": 1.3882291482404063e-15,
+          "price": {
+            "old_floats": 1254400,
+            "graph_floats": 1239793,
+            "saved_float_fraction": 0.011644610969387736,
+            "int64_indices": 90,
+            "graph_numeric_bytes_fp64": 9919064,
+            "old_numeric_bytes_fp64": 10035200,
+            "old_linear_readers": 1024,
+            "graph_linear_readers": 1011,
+            "old_variable_products": 1024,
+            "graph_variable_products": 1041,
+            "coefficient_multiplications": 1239793,
+            "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+          }
+        }
+      },
+      "matched_capture_gap": 0.0010820160885932767,
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": false
+    },
+    {
+      "label": "native",
+      "arms": {
+        "original": {
+          "iterations": 38,
+          "seconds": 0.4941283203661442,
+          "normal_residual": 8.483840293530937e-09,
+          "converged": true,
+          "condition_bound": 6401.0,
+          "history": [
+            {
+              "iteration": 25,
+              "residual": 5.89195600102578e-07
+            }
+          ],
+          "orthogonality_error": 7.337114469329625e-15,
+          "before_objective": 0.8862166202564427,
+          "after_objective": 0.8862161377412643,
+          "objective_gain": 4.825151783682813e-07,
+          "capture": 0.11639671632964944,
+          "group_energy": 0.2612854070913645,
+          "objective_replay": 1.1102230246251565e-16,
+          "executor_replay": 1.0739370728687274e-15,
+          "price": {
+            "old_floats": 1254400,
+            "graph_floats": 1254400,
+            "saved_float_fraction": 0.0,
+            "int64_indices": 0,
+            "graph_numeric_bytes_fp64": 10035200,
+            "old_numeric_bytes_fp64": 10035200,
+            "old_linear_readers": 1024,
+            "graph_linear_readers": 1024,
+            "old_variable_products": 1024,
+            "graph_variable_products": 1024,
+            "coefficient_multiplications": 1254400,
+            "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+          }
+        },
+        "graph": {
+          "iterations": 57,
+          "seconds": 0.7537240274250507,
+          "normal_residual": 7.516739044387473e-09,
+          "converged": true,
+          "condition_bound": 6401.0,
+          "history": [
+            {
+              "iteration": 25,
+              "residual": 1.777662779927361e-05
+            },
+            {
+              "iteration": 50,
+              "residual": 6.427639702817027e-08
+            }
+          ],
+          "orthogonality_error": 7.24327588241285e-15,
+          "before_objective": 0.8876771373118195,
+          "after_objective": 0.8876022987585279,
+          "objective_gain": 7.483855329160072e-05,
+          "capture": 0.11496465767138445,
+          "group_energy": 0.25669564299124425,
+          "objective_replay": 1.1102230246251565e-16,
+          "executor_replay": 1.2651427348586527e-15,
+          "price": {
+            "old_floats": 1254400,
+            "graph_floats": 1236439,
+            "saved_float_fraction": 0.014318399234693913,
+            "int64_indices": 119,
+            "graph_numeric_bytes_fp64": 9892464,
+            "old_numeric_bytes_fp64": 10035200,
+            "old_linear_readers": 1024,
+            "graph_linear_readers": 1008,
+            "old_variable_products": 1024,
+            "graph_variable_products": 1047,
+            "coefficient_multiplications": 1236439,
+            "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+          }
+        }
+      },
+      "matched_capture_gap": 0.001432058658264998,
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": false
+    }
+  ],
+  "scope": "Strictly convex conditional core solves at fixed input spans and writers, compared to identically optimized original groups. No global graph/readers/writers convergence or behavioral circuit claim."
+}
