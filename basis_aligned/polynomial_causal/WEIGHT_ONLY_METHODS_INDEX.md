@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 06:54 UTC. Use this index before opening a structural family
+Updated 11 September 07:05 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -77,3 +77,11 @@ reducing squared stage norms5.55/5.66x; [actual gradient audit](STRUCTURED_BALAN
 finds only1.62xrelative-stationarity and1.02xmax-gradient reductions. Both2xtargets
 missed. Not a convergence repair or measured speedup; unchanged continuation
 remains live. Balanced copies are separate, no optimizer-history reuse.
+
+New full-rank shared input dictionary (IDs3/4): [MSP protocol](FULL_READER_DICTIONARY_MSP_V1_PREREGISTRATION.md),
+[planted recovery](ORTHOGONAL_READER_MSP_V1_CONTROL.json), [finite-weight null](READER_MSP_FINITE_SAMPLE_V1_AUDIT.json),
+[2104step dense-control repair](READER_MSP_DENSE_POLISH_V1_AUDIT.json). All1152input
+directions, sparse native-reader coordinates, nativeDownretained; distinct from
+64-reader subspace and outputvarimax. Two native fits queued behindstructured
+continuation; no native dictionary result. Requires held-out weight-vector gain,
+not training concentration alone. Orthogonality/native-product assumptions remain.

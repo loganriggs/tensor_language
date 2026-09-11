@@ -1,11 +1,11 @@
 # Latest research update
 
-**11 September, 06:54 UTC:** [Internal scaling audit and its limits](explanation_2026-09-11_0608.md#stage-balance0654).
+**11 September, 07:05 UTC:** [Full-rank shared-reader dictionary: controls passed, native test queued](explanation_2026-09-11_0608.md#reader-dictionary0705).
 
-Exact internal rescaling reduces squared stage parameter norms 5.55x / 5.66x without changing the fitted function. But the actual objective's stationarity and maximum-gradient measures improve only 1.62x / 1.02x; both 2x targets missed. This is not a convergence fix or a measured speedup.
+A dictionary-learning method recovers planted shared features, while a dense null shows why training-only sparsity is misleading. The native experiment keeps all1152input dimensions and must improve held-out weight-vector sparsity over identity/PCA, converge, and report exact folded coefficient error. No native dictionary result yet.
 
-The unchanged [saved-state continuation](explanation_2026-09-11_0608.md#structured-continuation0648) is live, first start about 2.43% coefficient capture at06:53, still unconverged. Budget30additional minutes/start; checkpoint5minutes. Inspect current per-seed receipts and runner before any resubmission.
+The earlier structured-map continuation remains live: first start about3.17%coefficient capture at07:05, unconverged. The new dictionary job is queued behind it; do not duplicate either job.
 
-[Methods and assumptions](explanation_2026-09-11_0608.md#weights-first-methods) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).
+[Method index](../../WEIGHT_ONLY_METHODS_INDEX.md) · [Dictionary protocol](../../FULL_READER_DICTIONARY_MSP_V1_PREREGISTRATION.md) · [Earlier scaling audit](explanation_2026-09-11_0608.md#stage-balance0654).
 
-Weights first. FineWeb validation and separately labelled Pile OOD remain later stages.
+Weights first. Held-out vectors in this experiment are model weights, not corpus data. FineWeb behavioral validation and separately labelled Pile OOD remain later stages.

@@ -82,11 +82,22 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 06:54 UTC
+## Current handoff — 11 September 07:05 UTC
 
-Read explanations/2026-09-11/LATEST.md and stage-balance0654 in
+Read explanations/2026-09-11/LATEST.md and reader-dictionary0705 in
 explanation_2026-09-11_0608.md. WEIGHT_ONLY_METHODS_INDEX.md links prior art.
 Weights-first; no new data fits. Hourly next0722; math next0749.
+
+Previous progress3acf5a7d0. New full-rank shared-reader dictionary CPU controls
+pass sparse recovery and dense heldout null. Dense1902 first2000step miss
+preserved;2104step identical-run repair converged. Native job queued behind
+existing structured continuation: run_full_reader_dictionary_msp_v1.py SHA
+47855b088b7437906d27c0036bf52a2e51f6056630a97d329bfbf693bfaf8bdb.
+Protocol FULL_READER_DICTIONARY_MSP_V1_PREREGISTRATION.md; two900sec/20000step
+fits, full1152basis, nativeL/Rweightrows, paired3072/1536product holdout,
+128sparsecoordinates, identity/PCA controls, exactfull-U coefficient score.
+No native result yet. Fullgoalactive. No text/activation fits or duplicatejobs.
+
 
 Previous progresse7f27a587. Stage balancing CPU audits completed: exact maps,
 parameter norm-squared5.55/5.66x lower, actual stationarity/maxgradient only
