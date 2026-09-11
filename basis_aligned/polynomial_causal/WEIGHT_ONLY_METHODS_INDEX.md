@@ -98,3 +98,5 @@ effective4594.11/4608, maxpaircos.4645. [Constructive non-bound](PRODUCT_GRAM_NO
 shows orthogonalcomponents can shareinputs and admit fewernewproducts. Do not
 usecurrentdictionaryGramrank as an arithmetic-complexity lower bound.
 Structuredcontinuationseed0completed3.5097%,unconverged; seed937live.
+
+Oblique full-rank reader extension: [registered comparison](OBLIQUE_READER_DICTIONARY_V1_PREREGISTRATION.md), [planted controls](TYLER_OBLIQUE_READER_V1_CONTROL.json), [native training geometry](NATIVE_READER_SHAPE_V1_AUDIT.json), [conditional sparse coding](OBLIQUE_SPARSE_READER_V1_CONTROL.json). Numerical cores ready; native runner not yet queued. Tyler advantage over the simpler covariance baseline missed its toy bar; both preprocessors remain in the planned comparison. Existing orthogonal job unchanged.

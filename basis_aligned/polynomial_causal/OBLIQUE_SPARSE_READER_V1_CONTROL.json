@@ -1,0 +1,23 @@
+{
+  "predictions": {
+    "pred_a_exact_conditional_solve": true,
+    "pred_b_refit_improves": true,
+    "pred_c_executable_replay": true
+  },
+  "encoding": {
+    "normal_equation_relative_residual": 3.4940279438575164e-16,
+    "truncation_squared_error": 594.7388643900977,
+    "refit_squared_error": 220.2316252335889,
+    "aggregate_relative_gain": 0.6297002963486579,
+    "scope": "Exact values for fixed coordinate-threshold supports; support selection is not globally optimal."
+  },
+  "full_coordinate_identity_error": 1.3680330989138615e-14,
+  "execution_relative_error": 2.8987829185707437e-16,
+  "source_hashes": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/audit_oblique_sparse_reader_v1.py": "9c0d64d50f50a72d9bbcffadb8dd1ba58773921f5cf5d27eab442a02b79bbc63",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/oblique_sparse_reader_v1.py": "f3a7a0e5f7344f27738753993369701420b7390e9fc0f0f3da2e977c798df5e6"
+  },
+  "gpu_access": false,
+  "corpus_access": false,
+  "scope": "Synthetic oblique basis encoding and exact program replay, not native factorization or behavioral evidence."
+}

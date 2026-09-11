@@ -1,0 +1,181 @@
+{
+  "predictions": {
+    "pred_a_converged_positive_shape": true,
+    "pred_b_robust_shape_differs": true,
+    "pred_c_nontrivial_covariance_condition": true
+  },
+  "optimization": {
+    "converged": true,
+    "stop": "converged",
+    "history": [
+      {
+        "step": 1,
+        "relative_change": 0.08282404647938783,
+        "seconds": 0.26266295090317726
+      },
+      {
+        "step": 2,
+        "relative_change": 0.03696748451243903,
+        "seconds": 0.5247158296406269
+      },
+      {
+        "step": 3,
+        "relative_change": 0.014555954683719933,
+        "seconds": 0.7834797725081444
+      },
+      {
+        "step": 4,
+        "relative_change": 0.00566632257448485,
+        "seconds": 1.0440341904759407
+      },
+      {
+        "step": 5,
+        "relative_change": 0.0022454592752516236,
+        "seconds": 1.3039362132549286
+      },
+      {
+        "step": 6,
+        "relative_change": 0.0009106373576874061,
+        "seconds": 1.564295805990696
+      },
+      {
+        "step": 7,
+        "relative_change": 0.00037708579868014924,
+        "seconds": 1.8249626718461514
+      },
+      {
+        "step": 8,
+        "relative_change": 0.000158755931543856,
+        "seconds": 2.085093967616558
+      },
+      {
+        "step": 9,
+        "relative_change": 6.766887028874239e-05,
+        "seconds": 2.34510837495327
+      },
+      {
+        "step": 10,
+        "relative_change": 2.9102166162774634e-05,
+        "seconds": 2.6052485406398773
+      },
+      {
+        "step": 11,
+        "relative_change": 1.2595606480497984e-05,
+        "seconds": 2.865222331136465
+      },
+      {
+        "step": 12,
+        "relative_change": 5.476007528754545e-06,
+        "seconds": 3.1275774091482162
+      },
+      {
+        "step": 13,
+        "relative_change": 2.38831202472602e-06,
+        "seconds": 3.386582560837269
+      },
+      {
+        "step": 14,
+        "relative_change": 1.0440011279581586e-06,
+        "seconds": 3.646080806851387
+      },
+      {
+        "step": 15,
+        "relative_change": 4.5710234208511994e-07,
+        "seconds": 3.906156413257122
+      },
+      {
+        "step": 16,
+        "relative_change": 2.0036910740596757e-07,
+        "seconds": 4.166591223329306
+      },
+      {
+        "step": 17,
+        "relative_change": 8.790479240199755e-08,
+        "seconds": 4.427484609186649
+      },
+      {
+        "step": 18,
+        "relative_change": 3.858855683426028e-08,
+        "seconds": 4.6881104446947575
+      },
+      {
+        "step": 19,
+        "relative_change": 1.6947150450614438e-08,
+        "seconds": 4.9479026310145855
+      },
+      {
+        "step": 20,
+        "relative_change": 7.445175667234595e-09,
+        "seconds": 5.208073265850544
+      },
+      {
+        "step": 21,
+        "relative_change": 3.2715654080511725e-09,
+        "seconds": 5.468555819243193
+      },
+      {
+        "step": 22,
+        "relative_change": 1.4378418491403119e-09,
+        "seconds": 5.730125609785318
+      },
+      {
+        "step": 23,
+        "relative_change": 6.320062722726534e-10,
+        "seconds": 5.9899992272257805
+      },
+      {
+        "step": 24,
+        "relative_change": 2.778253860652615e-10,
+        "seconds": 6.250014804303646
+      },
+      {
+        "step": 25,
+        "relative_change": 1.2213901162813444e-10,
+        "seconds": 6.510517921298742
+      },
+      {
+        "step": 26,
+        "relative_change": 5.369722613842761e-11,
+        "seconds": 6.771584212779999
+      },
+      {
+        "step": 27,
+        "relative_change": 2.3609423747291463e-11,
+        "seconds": 7.03237335011363
+      },
+      {
+        "step": 28,
+        "relative_change": 1.0379776231138678e-11,
+        "seconds": 7.292394760996103
+      },
+      {
+        "step": 29,
+        "relative_change": 4.5639547862989625e-12,
+        "seconds": 7.552530005574226
+      }
+    ],
+    "minimum_eigenvalue": 0.06262256340660728,
+    "condition": 172.96110904751072,
+    "seconds": 7.619575243443251
+  },
+  "root_identity_relative_error": 1.0252986081624204e-14,
+  "robust_vs_ordinary_relative_difference": 0.14422705998072238,
+  "ordinary_shape_condition": 103.74625613237465,
+  "matched_gaussian_condition": 6.3594503536600095,
+  "gaussian_scope": "One dimension/sample-count matched isotropic draw, not a confidence interval or native null distribution.",
+  "planted_orthogonal_mean_atom_cosine_ceiling": 0.7134897212646547,
+  "planted_polar_attainment": 0.7134897212646546,
+  "planted_ceiling_replay_error": 1.1102230246251565e-16,
+  "training_vectors": 6144,
+  "heldout_weights_accessed": false,
+  "cache": {
+    "path": "/dev/shm/bilin18_native_reader_shape_v1.pt",
+    "sha256": "9d423cfccc55c5012e2b70186dfc96e07cdb2cae1e465536837fa0121c2bf5ae",
+    "bytes": 42507286
+  },
+  "source_sha256": "377c5d4145cbe564e2f0d280b1672decf23a27b1d65d5e0ae698ae3f11b6ea05",
+  "seconds": 8.647771243005991,
+  "gpu_access": false,
+  "corpus_access": false,
+  "scope": "Native weight geometry only. Whitening is not dictionary identification; sparsity/extraction/OOD remain untested."
+}
