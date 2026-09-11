@@ -493,3 +493,6 @@ multioutput programs. No behavioral identification. [Combined explanation](2026-
 
 
 11September04:48: selecting combinations within the frozen17D common producer spans improves meanone-product capture3.01%to5.38%; all36starts converge, noheadpasses joint gain/sharing screen. Whole-span one-product upperbounds<=20.57%, not a limit on larger/different programs. Returning to unconverged overlapping full-U blocks; standard manifold adapter and saved-state bridge pass, native continuation pending. [Details](2026-09-11/explanation_2026-09-11_0433.md).
+
+
+11September05:03 correction: custom manifold block fit had already run240s (MULTIOUTPUT_MANIFOLD_V1_RESULT), capture8.62847%, unconverged. LibraryCG continuation from that newer state gives8.62854%, still fails stationarity after a line-search stop. Same16x16x4full-U model. Correct reduced-Hessian trust-region solver prepared; native status in current runner. [Latest account](2026-09-11/explanation_2026-09-11_0503.md).

@@ -1,0 +1,1114 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_converged": false,
+    "pred_c_capture_gain": false
+  },
+  "initial_loss": 0.9145139183127093,
+  "initial_capture": 0.08628469084985846,
+  "final": {
+    "loss": 0.9145133300887056,
+    "residual": 0.9137146321852075,
+    "component_energy": 0.07986979034980764,
+    "tangent_stationarity": 2.7525017690105175e-06,
+    "converged": false,
+    "seconds": 35.52264980971813,
+    "iterations": 1054,
+    "evaluations": 1942,
+    "stopping_criterion": "Terminated - min step_size reached after 1054 iterations, 35.50 seconds.",
+    "scalar_history": [
+      {
+        "iteration": 0,
+        "cost": 0.9145139183127093,
+        "gradient_norm": 2.0967133807957737e-05
+      },
+      {
+        "iteration": 5,
+        "cost": 0.914513912301236,
+        "gradient_norm": 1.2446563197792536e-05
+      },
+      {
+        "iteration": 10,
+        "cost": 0.9145139106666097,
+        "gradient_norm": 5.342116249287625e-06
+      },
+      {
+        "iteration": 15,
+        "cost": 0.914513877418644,
+        "gradient_norm": 6.240786125314405e-06
+      },
+      {
+        "iteration": 20,
+        "cost": 0.9145138746639389,
+        "gradient_norm": 7.467257781481186e-06
+      },
+      {
+        "iteration": 25,
+        "cost": 0.9145138704589841,
+        "gradient_norm": 1.2378562171368368e-05
+      },
+      {
+        "iteration": 30,
+        "cost": 0.9145138650942126,
+        "gradient_norm": 7.311612534922485e-06
+      },
+      {
+        "iteration": 35,
+        "cost": 0.9145138603489715,
+        "gradient_norm": 6.794813035322273e-06
+      },
+      {
+        "iteration": 40,
+        "cost": 0.9145138515714498,
+        "gradient_norm": 5.592390789519757e-06
+      },
+      {
+        "iteration": 45,
+        "cost": 0.9145138478500896,
+        "gradient_norm": 3.965400525996266e-06
+      },
+      {
+        "iteration": 50,
+        "cost": 0.9145138464922529,
+        "gradient_norm": 3.1454159074201463e-06
+      },
+      {
+        "iteration": 55,
+        "cost": 0.914513846199258,
+        "gradient_norm": 1.8273395766821278e-06
+      },
+      {
+        "iteration": 60,
+        "cost": 0.9145138432442032,
+        "gradient_norm": 2.08962348211135e-06
+      },
+      {
+        "iteration": 65,
+        "cost": 0.9145138421138874,
+        "gradient_norm": 3.3819362174874117e-06
+      },
+      {
+        "iteration": 70,
+        "cost": 0.9145138414475071,
+        "gradient_norm": 4.069733530850139e-06
+      },
+      {
+        "iteration": 75,
+        "cost": 0.9145138404729579,
+        "gradient_norm": 4.7441217730138135e-06
+      },
+      {
+        "iteration": 80,
+        "cost": 0.9145138399865108,
+        "gradient_norm": 2.4544042928881056e-06
+      },
+      {
+        "iteration": 85,
+        "cost": 0.91451383967146,
+        "gradient_norm": 2.6913228711567604e-06
+      },
+      {
+        "iteration": 90,
+        "cost": 0.9145138387044089,
+        "gradient_norm": 1.5901659022349528e-06
+      },
+      {
+        "iteration": 95,
+        "cost": 0.9145138382381616,
+        "gradient_norm": 4.430759764345458e-06
+      },
+      {
+        "iteration": 100,
+        "cost": 0.9145138378876729,
+        "gradient_norm": 3.300263905692935e-06
+      },
+      {
+        "iteration": 105,
+        "cost": 0.9145138375620637,
+        "gradient_norm": 1.7191164585119115e-06
+      },
+      {
+        "iteration": 110,
+        "cost": 0.9145138371798588,
+        "gradient_norm": 2.8878544045388583e-06
+      },
+      {
+        "iteration": 115,
+        "cost": 0.9145138357276836,
+        "gradient_norm": 7.4477844933350986e-06
+      },
+      {
+        "iteration": 120,
+        "cost": 0.9145138345969366,
+        "gradient_norm": 3.053359738021664e-06
+      },
+      {
+        "iteration": 125,
+        "cost": 0.9145138340275611,
+        "gradient_norm": 3.85060619772725e-06
+      },
+      {
+        "iteration": 130,
+        "cost": 0.9145138336011913,
+        "gradient_norm": 4.085308533260756e-06
+      },
+      {
+        "iteration": 135,
+        "cost": 0.9145138328504522,
+        "gradient_norm": 4.2785886755120345e-06
+      },
+      {
+        "iteration": 140,
+        "cost": 0.9145138305559939,
+        "gradient_norm": 4.469246286448569e-06
+      },
+      {
+        "iteration": 145,
+        "cost": 0.9145138300014202,
+        "gradient_norm": 7.713956566725583e-06
+      },
+      {
+        "iteration": 150,
+        "cost": 0.9145138289699754,
+        "gradient_norm": 2.5941882332238463e-06
+      },
+      {
+        "iteration": 155,
+        "cost": 0.9145138283047443,
+        "gradient_norm": 2.9910212372790703e-06
+      },
+      {
+        "iteration": 160,
+        "cost": 0.9145138280706216,
+        "gradient_norm": 3.4607345470401623e-06
+      },
+      {
+        "iteration": 165,
+        "cost": 0.9145138278006417,
+        "gradient_norm": 2.5006820234490716e-06
+      },
+      {
+        "iteration": 170,
+        "cost": 0.9145138267575439,
+        "gradient_norm": 5.007443258323262e-06
+      },
+      {
+        "iteration": 175,
+        "cost": 0.914513826033152,
+        "gradient_norm": 4.68902178512663e-06
+      },
+      {
+        "iteration": 180,
+        "cost": 0.9145138256103058,
+        "gradient_norm": 1.7761987496668054e-06
+      },
+      {
+        "iteration": 185,
+        "cost": 0.9145138242617903,
+        "gradient_norm": 1.8649633469338925e-06
+      },
+      {
+        "iteration": 190,
+        "cost": 0.9145138238272852,
+        "gradient_norm": 4.556594577051561e-06
+      },
+      {
+        "iteration": 195,
+        "cost": 0.9145138232983027,
+        "gradient_norm": 1.0916340051014234e-06
+      },
+      {
+        "iteration": 200,
+        "cost": 0.9145138228119508,
+        "gradient_norm": 2.7733353293685507e-06
+      },
+      {
+        "iteration": 205,
+        "cost": 0.9145138224226568,
+        "gradient_norm": 3.8692468405762685e-06
+      },
+      {
+        "iteration": 210,
+        "cost": 0.9145138212973664,
+        "gradient_norm": 3.566917379494129e-06
+      },
+      {
+        "iteration": 215,
+        "cost": 0.9145138211843274,
+        "gradient_norm": 2.773868059540808e-06
+      },
+      {
+        "iteration": 220,
+        "cost": 0.9145138211002165,
+        "gradient_norm": 1.5929720180682143e-06
+      },
+      {
+        "iteration": 225,
+        "cost": 0.9145138200774185,
+        "gradient_norm": 1.0653607902292245e-05
+      },
+      {
+        "iteration": 230,
+        "cost": 0.9145138190521082,
+        "gradient_norm": 3.1284407208867074e-06
+      },
+      {
+        "iteration": 235,
+        "cost": 0.914513818503294,
+        "gradient_norm": 3.102710867414934e-06
+      },
+      {
+        "iteration": 240,
+        "cost": 0.91451381584863,
+        "gradient_norm": 1.3858898982730226e-06
+      },
+      {
+        "iteration": 245,
+        "cost": 0.9145138149819985,
+        "gradient_norm": 3.820906234484789e-06
+      },
+      {
+        "iteration": 250,
+        "cost": 0.9145138145767745,
+        "gradient_norm": 4.769877646693247e-06
+      },
+      {
+        "iteration": 255,
+        "cost": 0.9145138126081601,
+        "gradient_norm": 1.4510507277429773e-06
+      },
+      {
+        "iteration": 260,
+        "cost": 0.9145138091985117,
+        "gradient_norm": 2.8067627773331206e-06
+      },
+      {
+        "iteration": 265,
+        "cost": 0.9145138083072271,
+        "gradient_norm": 1.5420554808499066e-06
+      },
+      {
+        "iteration": 270,
+        "cost": 0.9145138077028743,
+        "gradient_norm": 3.1045954916965306e-06
+      },
+      {
+        "iteration": 275,
+        "cost": 0.9145138073264252,
+        "gradient_norm": 2.941876778541576e-06
+      },
+      {
+        "iteration": 280,
+        "cost": 0.9145138067581353,
+        "gradient_norm": 2.4569865823809257e-06
+      },
+      {
+        "iteration": 285,
+        "cost": 0.9145138066264414,
+        "gradient_norm": 1.197042114625668e-06
+      },
+      {
+        "iteration": 290,
+        "cost": 0.9145138061694112,
+        "gradient_norm": 1.010107024216077e-06
+      },
+      {
+        "iteration": 295,
+        "cost": 0.9145138053813084,
+        "gradient_norm": 3.207865599337592e-06
+      },
+      {
+        "iteration": 300,
+        "cost": 0.9145138048345065,
+        "gradient_norm": 1.2671998403336011e-06
+      },
+      {
+        "iteration": 305,
+        "cost": 0.9145138041403067,
+        "gradient_norm": 3.4147821161424767e-06
+      },
+      {
+        "iteration": 310,
+        "cost": 0.9145138039720043,
+        "gradient_norm": 2.585968301406899e-06
+      },
+      {
+        "iteration": 315,
+        "cost": 0.9145138031190632,
+        "gradient_norm": 1.2155851044662726e-06
+      },
+      {
+        "iteration": 320,
+        "cost": 0.9145138028593037,
+        "gradient_norm": 1.9252204600619146e-06
+      },
+      {
+        "iteration": 325,
+        "cost": 0.9145138024810298,
+        "gradient_norm": 1.4992752839833222e-06
+      },
+      {
+        "iteration": 330,
+        "cost": 0.9145138022585523,
+        "gradient_norm": 1.5455552902089453e-06
+      },
+      {
+        "iteration": 335,
+        "cost": 0.9145138014578007,
+        "gradient_norm": 1.0861704696296987e-05
+      },
+      {
+        "iteration": 340,
+        "cost": 0.9145137997774453,
+        "gradient_norm": 5.368262301669462e-06
+      },
+      {
+        "iteration": 345,
+        "cost": 0.9145137984516957,
+        "gradient_norm": 1.3267516841108322e-06
+      },
+      {
+        "iteration": 350,
+        "cost": 0.9145137980977033,
+        "gradient_norm": 2.107285368516738e-06
+      },
+      {
+        "iteration": 355,
+        "cost": 0.9145137972940461,
+        "gradient_norm": 2.7797327666109677e-06
+      },
+      {
+        "iteration": 360,
+        "cost": 0.9145137969769465,
+        "gradient_norm": 1.6230904389462053e-06
+      },
+      {
+        "iteration": 365,
+        "cost": 0.9145137965934543,
+        "gradient_norm": 2.4391187683804046e-06
+      },
+      {
+        "iteration": 370,
+        "cost": 0.9145137964810788,
+        "gradient_norm": 3.017813216385626e-06
+      },
+      {
+        "iteration": 375,
+        "cost": 0.9145137962701754,
+        "gradient_norm": 1.2103577379890511e-06
+      },
+      {
+        "iteration": 380,
+        "cost": 0.9145137955767371,
+        "gradient_norm": 5.6104120924394576e-06
+      },
+      {
+        "iteration": 385,
+        "cost": 0.9145137950415064,
+        "gradient_norm": 2.9985986535091825e-06
+      },
+      {
+        "iteration": 390,
+        "cost": 0.9145137949301432,
+        "gradient_norm": 1.6803885333488658e-06
+      },
+      {
+        "iteration": 395,
+        "cost": 0.9145137939930754,
+        "gradient_norm": 2.5945090282184405e-06
+      },
+      {
+        "iteration": 400,
+        "cost": 0.9145137928571536,
+        "gradient_norm": 3.5787384654202747e-06
+      },
+      {
+        "iteration": 405,
+        "cost": 0.9145137785931031,
+        "gradient_norm": 8.347883945306308e-06
+      },
+      {
+        "iteration": 410,
+        "cost": 0.9145137772031332,
+        "gradient_norm": 2.043315174072724e-06
+      },
+      {
+        "iteration": 415,
+        "cost": 0.9145137765029294,
+        "gradient_norm": 3.6933048228673086e-06
+      },
+      {
+        "iteration": 420,
+        "cost": 0.9145137759861163,
+        "gradient_norm": 2.4143591395824675e-06
+      },
+      {
+        "iteration": 425,
+        "cost": 0.9145137756556533,
+        "gradient_norm": 3.3801601600971354e-06
+      },
+      {
+        "iteration": 430,
+        "cost": 0.9145137756555511,
+        "gradient_norm": 3.384418475439387e-06
+      },
+      {
+        "iteration": 435,
+        "cost": 0.9145137755727243,
+        "gradient_norm": 1.7690610777411628e-06
+      },
+      {
+        "iteration": 440,
+        "cost": 0.9145137753634212,
+        "gradient_norm": 2.5200004325872152e-06
+      },
+      {
+        "iteration": 445,
+        "cost": 0.9145137748734599,
+        "gradient_norm": 1.6275050203550437e-06
+      },
+      {
+        "iteration": 450,
+        "cost": 0.9145137741236496,
+        "gradient_norm": 1.940579887871171e-06
+      },
+      {
+        "iteration": 455,
+        "cost": 0.9145137726812493,
+        "gradient_norm": 2.158364079163578e-06
+      },
+      {
+        "iteration": 460,
+        "cost": 0.9145137722505609,
+        "gradient_norm": 1.7170412388262486e-06
+      },
+      {
+        "iteration": 465,
+        "cost": 0.9145137717883676,
+        "gradient_norm": 9.894622205310234e-06
+      },
+      {
+        "iteration": 470,
+        "cost": 0.9145137709064757,
+        "gradient_norm": 2.320264052355853e-06
+      },
+      {
+        "iteration": 475,
+        "cost": 0.9145137705406009,
+        "gradient_norm": 5.49346286221407e-06
+      },
+      {
+        "iteration": 480,
+        "cost": 0.9145137698455367,
+        "gradient_norm": 4.961868789468813e-06
+      },
+      {
+        "iteration": 485,
+        "cost": 0.9145137690378005,
+        "gradient_norm": 2.133003648492088e-06
+      },
+      {
+        "iteration": 490,
+        "cost": 0.9145137686901814,
+        "gradient_norm": 3.806643232624371e-06
+      },
+      {
+        "iteration": 495,
+        "cost": 0.9145137684336395,
+        "gradient_norm": 1.9585452407713092e-06
+      },
+      {
+        "iteration": 500,
+        "cost": 0.9145137678294756,
+        "gradient_norm": 4.0372378132581925e-06
+      },
+      {
+        "iteration": 505,
+        "cost": 0.9145137589734259,
+        "gradient_norm": 1.0053913008917828e-05
+      },
+      {
+        "iteration": 510,
+        "cost": 0.9145137577788214,
+        "gradient_norm": 2.92640772336313e-06
+      },
+      {
+        "iteration": 515,
+        "cost": 0.914513757450672,
+        "gradient_norm": 1.1161358859230112e-06
+      },
+      {
+        "iteration": 520,
+        "cost": 0.9145137573305412,
+        "gradient_norm": 1.6371750964820285e-06
+      },
+      {
+        "iteration": 525,
+        "cost": 0.9145137571605738,
+        "gradient_norm": 2.3947511784924866e-06
+      },
+      {
+        "iteration": 530,
+        "cost": 0.9145137568015672,
+        "gradient_norm": 3.5749604906748135e-06
+      },
+      {
+        "iteration": 535,
+        "cost": 0.9145137563014487,
+        "gradient_norm": 2.2741598391776786e-06
+      },
+      {
+        "iteration": 540,
+        "cost": 0.9145137558462817,
+        "gradient_norm": 4.297218006858213e-06
+      },
+      {
+        "iteration": 545,
+        "cost": 0.9145137547760517,
+        "gradient_norm": 1.5787714264942464e-06
+      },
+      {
+        "iteration": 550,
+        "cost": 0.9145137540974502,
+        "gradient_norm": 4.499617253524766e-06
+      },
+      {
+        "iteration": 555,
+        "cost": 0.9145137525110475,
+        "gradient_norm": 1.816686772590395e-06
+      },
+      {
+        "iteration": 560,
+        "cost": 0.9145137522039852,
+        "gradient_norm": 2.087951143887354e-06
+      },
+      {
+        "iteration": 565,
+        "cost": 0.9145137513638403,
+        "gradient_norm": 1.6347804045581084e-06
+      },
+      {
+        "iteration": 570,
+        "cost": 0.9145137508018,
+        "gradient_norm": 1.238629814566264e-06
+      },
+      {
+        "iteration": 575,
+        "cost": 0.9145137493388379,
+        "gradient_norm": 2.2915802074208062e-05
+      },
+      {
+        "iteration": 580,
+        "cost": 0.9145137423800659,
+        "gradient_norm": 3.504584751409169e-06
+      },
+      {
+        "iteration": 585,
+        "cost": 0.9145137422649551,
+        "gradient_norm": 2.4192912446052943e-06
+      },
+      {
+        "iteration": 590,
+        "cost": 0.9145137421618492,
+        "gradient_norm": 3.2141352928204187e-06
+      },
+      {
+        "iteration": 595,
+        "cost": 0.9145137415958182,
+        "gradient_norm": 2.662855833958104e-06
+      },
+      {
+        "iteration": 600,
+        "cost": 0.9145137414364355,
+        "gradient_norm": 2.3462465646287407e-06
+      },
+      {
+        "iteration": 605,
+        "cost": 0.9145137411742673,
+        "gradient_norm": 2.7714361664801906e-06
+      },
+      {
+        "iteration": 610,
+        "cost": 0.9145137408510924,
+        "gradient_norm": 1.3797952594426842e-06
+      },
+      {
+        "iteration": 615,
+        "cost": 0.9145137405450177,
+        "gradient_norm": 1.984896978247692e-06
+      },
+      {
+        "iteration": 620,
+        "cost": 0.914513740217142,
+        "gradient_norm": 2.5913756117206404e-06
+      },
+      {
+        "iteration": 625,
+        "cost": 0.9145137401025233,
+        "gradient_norm": 2.4456572560858465e-06
+      },
+      {
+        "iteration": 630,
+        "cost": 0.9145137397096871,
+        "gradient_norm": 2.0322683192581434e-06
+      },
+      {
+        "iteration": 635,
+        "cost": 0.9145137392345075,
+        "gradient_norm": 2.567128839022171e-06
+      },
+      {
+        "iteration": 640,
+        "cost": 0.9145137378975743,
+        "gradient_norm": 4.978602587779299e-06
+      },
+      {
+        "iteration": 645,
+        "cost": 0.9145137376697813,
+        "gradient_norm": 3.695985413576351e-06
+      },
+      {
+        "iteration": 650,
+        "cost": 0.9145137373482428,
+        "gradient_norm": 2.4887986245396306e-06
+      },
+      {
+        "iteration": 655,
+        "cost": 0.9145137372261479,
+        "gradient_norm": 9.616202472371469e-07
+      },
+      {
+        "iteration": 660,
+        "cost": 0.9145137361490138,
+        "gradient_norm": 2.2657702137153877e-06
+      },
+      {
+        "iteration": 665,
+        "cost": 0.9145137359419728,
+        "gradient_norm": 2.5081830233032203e-06
+      },
+      {
+        "iteration": 670,
+        "cost": 0.9145137351538061,
+        "gradient_norm": 1.559656433995708e-06
+      },
+      {
+        "iteration": 675,
+        "cost": 0.9145137346856501,
+        "gradient_norm": 6.173801719087869e-06
+      },
+      {
+        "iteration": 680,
+        "cost": 0.9145137341379614,
+        "gradient_norm": 1.57331335467026e-06
+      },
+      {
+        "iteration": 685,
+        "cost": 0.9145137338381749,
+        "gradient_norm": 1.7043836118348036e-06
+      },
+      {
+        "iteration": 690,
+        "cost": 0.9145137323345722,
+        "gradient_norm": 4.00859397220731e-06
+      },
+      {
+        "iteration": 695,
+        "cost": 0.9145137320241636,
+        "gradient_norm": 2.560213688473324e-06
+      },
+      {
+        "iteration": 700,
+        "cost": 0.9145137317534157,
+        "gradient_norm": 2.7629070781432306e-06
+      },
+      {
+        "iteration": 705,
+        "cost": 0.9145137306485266,
+        "gradient_norm": 1.7410978440977454e-06
+      },
+      {
+        "iteration": 710,
+        "cost": 0.9145137303718369,
+        "gradient_norm": 5.8810443289493604e-06
+      },
+      {
+        "iteration": 715,
+        "cost": 0.9145137300260221,
+        "gradient_norm": 2.500030823174167e-06
+      },
+      {
+        "iteration": 720,
+        "cost": 0.9145137298861669,
+        "gradient_norm": 4.7193445030391e-06
+      },
+      {
+        "iteration": 725,
+        "cost": 0.9145137295008937,
+        "gradient_norm": 1.5442096890425084e-06
+      },
+      {
+        "iteration": 730,
+        "cost": 0.9145137294016367,
+        "gradient_norm": 1.451764310482228e-06
+      },
+      {
+        "iteration": 735,
+        "cost": 0.9145137292670288,
+        "gradient_norm": 2.05201951504828e-06
+      },
+      {
+        "iteration": 740,
+        "cost": 0.9145137292049211,
+        "gradient_norm": 1.9104140985491446e-06
+      },
+      {
+        "iteration": 745,
+        "cost": 0.9145137287615017,
+        "gradient_norm": 1.2545280874985815e-06
+      },
+      {
+        "iteration": 750,
+        "cost": 0.914513727741844,
+        "gradient_norm": 1.2486261472941382e-06
+      },
+      {
+        "iteration": 755,
+        "cost": 0.9145137274807241,
+        "gradient_norm": 3.1470760881758356e-06
+      },
+      {
+        "iteration": 760,
+        "cost": 0.9145137264355788,
+        "gradient_norm": 2.189458075438272e-06
+      },
+      {
+        "iteration": 765,
+        "cost": 0.9145137260175236,
+        "gradient_norm": 3.294623339617299e-06
+      },
+      {
+        "iteration": 770,
+        "cost": 0.9145137256771759,
+        "gradient_norm": 2.994704572452382e-06
+      },
+      {
+        "iteration": 775,
+        "cost": 0.914513725375391,
+        "gradient_norm": 1.2589450227399836e-06
+      },
+      {
+        "iteration": 780,
+        "cost": 0.9145137249310288,
+        "gradient_norm": 1.7399556141251277e-06
+      },
+      {
+        "iteration": 785,
+        "cost": 0.914513724827888,
+        "gradient_norm": 2.9114829742773117e-06
+      },
+      {
+        "iteration": 790,
+        "cost": 0.9145137247470739,
+        "gradient_norm": 1.0658557005616168e-06
+      },
+      {
+        "iteration": 795,
+        "cost": 0.9145137244283165,
+        "gradient_norm": 1.881958232770219e-06
+      },
+      {
+        "iteration": 800,
+        "cost": 0.9145137242020103,
+        "gradient_norm": 4.04393618163109e-06
+      },
+      {
+        "iteration": 805,
+        "cost": 0.9145137232996502,
+        "gradient_norm": 2.9596723187637984e-06
+      },
+      {
+        "iteration": 810,
+        "cost": 0.9145137224364348,
+        "gradient_norm": 3.0279889315238702e-06
+      },
+      {
+        "iteration": 815,
+        "cost": 0.9145137222809305,
+        "gradient_norm": 1.5786057881565493e-06
+      },
+      {
+        "iteration": 820,
+        "cost": 0.9145137219468864,
+        "gradient_norm": 2.4202158325119293e-06
+      },
+      {
+        "iteration": 825,
+        "cost": 0.9145137209915257,
+        "gradient_norm": 4.7111987125882325e-06
+      },
+      {
+        "iteration": 830,
+        "cost": 0.9145137207577503,
+        "gradient_norm": 3.4399335272556765e-06
+      },
+      {
+        "iteration": 835,
+        "cost": 0.9145137205971868,
+        "gradient_norm": 2.607532984476328e-06
+      },
+      {
+        "iteration": 840,
+        "cost": 0.9145137199493316,
+        "gradient_norm": 5.307393796994968e-06
+      },
+      {
+        "iteration": 845,
+        "cost": 0.9145137192655828,
+        "gradient_norm": 1.980034987170963e-06
+      },
+      {
+        "iteration": 850,
+        "cost": 0.9145137186612867,
+        "gradient_norm": 4.0918038085673035e-06
+      },
+      {
+        "iteration": 855,
+        "cost": 0.9145137183339878,
+        "gradient_norm": 2.642991031236658e-06
+      },
+      {
+        "iteration": 860,
+        "cost": 0.9145137181879922,
+        "gradient_norm": 1.6913431009683428e-06
+      },
+      {
+        "iteration": 865,
+        "cost": 0.914513713681246,
+        "gradient_norm": 6.07587735102884e-06
+      },
+      {
+        "iteration": 870,
+        "cost": 0.9145137127473116,
+        "gradient_norm": 1.5494313672125726e-06
+      },
+      {
+        "iteration": 875,
+        "cost": 0.9145137125994249,
+        "gradient_norm": 2.6658178223998246e-06
+      },
+      {
+        "iteration": 880,
+        "cost": 0.9145137119437026,
+        "gradient_norm": 4.764401856656213e-06
+      },
+      {
+        "iteration": 885,
+        "cost": 0.9145137114992506,
+        "gradient_norm": 3.1489754534857845e-06
+      },
+      {
+        "iteration": 890,
+        "cost": 0.9145137069383174,
+        "gradient_norm": 2.4409027790584624e-06
+      },
+      {
+        "iteration": 895,
+        "cost": 0.9145137066547444,
+        "gradient_norm": 3.5323627907458042e-06
+      },
+      {
+        "iteration": 900,
+        "cost": 0.9145137060848735,
+        "gradient_norm": 2.127308704881674e-06
+      },
+      {
+        "iteration": 905,
+        "cost": 0.9145137054598063,
+        "gradient_norm": 2.231304560441831e-06
+      },
+      {
+        "iteration": 910,
+        "cost": 0.9145137051798518,
+        "gradient_norm": 2.446867596617413e-06
+      },
+      {
+        "iteration": 915,
+        "cost": 0.9145137050973164,
+        "gradient_norm": 1.7841687825643288e-06
+      },
+      {
+        "iteration": 920,
+        "cost": 0.9145137049740388,
+        "gradient_norm": 1.0819022329383922e-06
+      },
+      {
+        "iteration": 925,
+        "cost": 0.9145137043120101,
+        "gradient_norm": 2.31611868631468e-06
+      },
+      {
+        "iteration": 930,
+        "cost": 0.914513704149806,
+        "gradient_norm": 1.1182842291490234e-06
+      },
+      {
+        "iteration": 935,
+        "cost": 0.9145137036238722,
+        "gradient_norm": 3.0345346619519534e-06
+      },
+      {
+        "iteration": 940,
+        "cost": 0.9145137023823929,
+        "gradient_norm": 3.175395226995028e-06
+      },
+      {
+        "iteration": 945,
+        "cost": 0.9145137020781438,
+        "gradient_norm": 2.3090228478044914e-06
+      },
+      {
+        "iteration": 950,
+        "cost": 0.9145137019533598,
+        "gradient_norm": 3.694691447314577e-06
+      },
+      {
+        "iteration": 955,
+        "cost": 0.914513701607139,
+        "gradient_norm": 4.264007733632878e-06
+      },
+      {
+        "iteration": 960,
+        "cost": 0.9145136962013778,
+        "gradient_norm": 1.1369268638635206e-05
+      },
+      {
+        "iteration": 965,
+        "cost": 0.9145134917186075,
+        "gradient_norm": 4.638157844003398e-05
+      },
+      {
+        "iteration": 970,
+        "cost": 0.9145133965199024,
+        "gradient_norm": 3.8768120018354974e-05
+      },
+      {
+        "iteration": 975,
+        "cost": 0.9145133480164408,
+        "gradient_norm": 1.2095940607104238e-05
+      },
+      {
+        "iteration": 980,
+        "cost": 0.9145133379982391,
+        "gradient_norm": 2.8950918063447443e-06
+      },
+      {
+        "iteration": 985,
+        "cost": 0.9145133366907415,
+        "gradient_norm": 6.817589097240362e-06
+      },
+      {
+        "iteration": 990,
+        "cost": 0.9145133361244693,
+        "gradient_norm": 3.1820229673290255e-06
+      },
+      {
+        "iteration": 995,
+        "cost": 0.9145133360269303,
+        "gradient_norm": 2.599899578096109e-06
+      },
+      {
+        "iteration": 1000,
+        "cost": 0.914513335921741,
+        "gradient_norm": 1.7952280098960603e-06
+      },
+      {
+        "iteration": 1005,
+        "cost": 0.9145133351022707,
+        "gradient_norm": 1.2929164820578032e-06
+      },
+      {
+        "iteration": 1010,
+        "cost": 0.9145133341034005,
+        "gradient_norm": 3.81402049287376e-06
+      },
+      {
+        "iteration": 1015,
+        "cost": 0.9145133336716569,
+        "gradient_norm": 2.0402572066901855e-06
+      },
+      {
+        "iteration": 1020,
+        "cost": 0.9145133334868526,
+        "gradient_norm": 2.1218006947226723e-06
+      },
+      {
+        "iteration": 1025,
+        "cost": 0.9145133318105709,
+        "gradient_norm": 1.9462769364760915e-06
+      },
+      {
+        "iteration": 1030,
+        "cost": 0.9145133313547206,
+        "gradient_norm": 1.3279347107567868e-06
+      },
+      {
+        "iteration": 1035,
+        "cost": 0.9145133309108636,
+        "gradient_norm": 2.550027775907187e-06
+      },
+      {
+        "iteration": 1040,
+        "cost": 0.914513330828831,
+        "gradient_norm": 2.585834704341168e-06
+      },
+      {
+        "iteration": 1045,
+        "cost": 0.9145133307519216,
+        "gradient_norm": 1.8449116559448449e-06
+      },
+      {
+        "iteration": 1050,
+        "cost": 0.914513330135962,
+        "gradient_norm": 2.1949080868397885e-06
+      },
+      {
+        "iteration": 1053,
+        "cost": 0.9145133300887056,
+        "gradient_norm": 2.7525017690105175e-06
+      }
+    ],
+    "maximum_objective_increase": 0.0
+  },
+  "captured_energy": 0.08628536781479246,
+  "original_relative_stationarity": 0.00047508174364666657,
+  "original_maximum_gradient": 7.36963448587753e-08,
+  "original_five_check_relative_progress": 9.528359548803132e-09,
+  "all_convergence_criteria_held": false,
+  "maximum_instrument_error": 2.6645352591003757e-15,
+  "writer_condition": 14.939252219181038,
+  "cache": {
+    "path": "/dev/shm/bilin18_orthogonal_multioutput_pymanopt_v1.pt",
+    "sha256": "2e7544f1382e9a83b7e04b76fd03133c015c4aa16ac0b670de2dc971d69a7fb5",
+    "bytes": 3030492,
+    "ephemeral": true
+  },
+  "wall_seconds": 36.52621151506901,
+  "inherited_fit_seconds": 780.175,
+  "body_forwards": 0,
+  "corpus_access": false,
+  "binding": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_orthogonal_multioutput_pymanopt_v1.py": "193c68d0640eefd493b430418dc1df39ed93a06e280eb021208d07a542b7ece2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/orthogonal_multioutput_pymanopt_v2.py": "e0f4bb74722063a08dc6785943acc67fcfd36dac6b12cc4c5df7bb71880a9482",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/multioutput_quadratic_blocks_v1.py": "6c638fce1e5769dc9276b7d4a412b3b10782bb54f009de5ed6ae69cebccfbe58",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/energy_regularized_quadratic_v1.py": "fe86606100722051fb5d46e6e971ffcdc14568491651a4dadcdff2abe8cb51d0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/structured_quadratic_models_v1.py": "facc1306668361d5f232d4334d0399a3c1cc991221fd00db61c4353bd0ae7bde",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_quadratic_fit_v1.py": "35930671781b0b802fe50c7d22288ca8f70c68f585d1df7e6c8a4417b3af4695",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V1_CONTROL.json": "4021974c4185e5b2178814b2c658818267189a4b2ebe95309aa7a5d18e030b28",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V2_CONTROL.json": "a342db2a3bcf6ffa33e53bf58bf79744b3bd685b488ba9db11300b3ef500d557",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V1_PREREGISTRATION.md": "267142c5489fe7b51494f39aca49adcab3f89e956f1a8f4092fc8b9f8978e636",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MULTIOUTPUT_MANIFOLD_V1_CHECKPOINT.pt": "c515a7c3c2146ba9e7c47e3b8099ecc373ea368360853772ca5d6cec1a10ce7a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MULTIOUTPUT_MANIFOLD_V1_RESULT.json": "5710e1280a9893246a9d356741c087456a90e881a26d51a0bf81142d589b647a"
+  },
+  "scope": "Standard-library CG continuation of an already manifold-optimized checkpoint. Same full-U lambda.01 objective and overlapping block family, all original convergence conditions plus stricter absolute norm. No global/circuit claim."
+}

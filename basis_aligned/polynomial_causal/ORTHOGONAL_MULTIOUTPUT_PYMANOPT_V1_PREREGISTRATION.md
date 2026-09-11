@@ -42,3 +42,26 @@ The differentiable adapter and CPU controls are implemented. Native wrapper,
 execution binding and managed queue submission are still pending; do not report
 native convergence from the toy control. No duplicate fit may start without
 checking the current runner and result receipt.
+
+
+## Pre-execution correction,11September04:54UTC
+
+Prior-result search found the already completed custom manifoldCG run
+MULTIOUTPUT_MANIFOLD_V1_RESULT.json and its checkpoint. This newer source
+supersedes the older QR-initial cache for native optimization. Initial loss
+.9145139183127093 and residual.9137153091501415 must replay; retain the old
+QRbridge as a historical control. Inherited compute540.148+240.027seconds.
+This is a standard-library CG/line-search continuation in the same coordinates,
+not a novel coordinate repair. Native chunk remains120seconds.
+
+Strengthen convergence before execution: Pymanopt absolute gradient tolerance
+1e-7, with the original relative stationarity<=1e-4 and original maximum
+absolute gradient<=1e-7 also required at the final point. Relative stationarity
+is max(16*norm(bank tangent),8*norm(core tangent))/captured_fraction. Final
+canonical gradient and legacy tests are both reported; a library stop cannot
+replace them. The original5%capture gain bar remains unchanged.
+
+The original plateau criterion is also retained: relative objective change over
+five diagnostics (each five accepted steps, plus final point) <=1e-5. V2adapter
+logs scalar diagnostics only, not large iterate arrays. All three legacy
+conditions and the absolute1e-7norm are required for pred_b.

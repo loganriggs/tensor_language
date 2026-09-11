@@ -20060,3 +20060,42 @@ new adapter; inter-block overlap retained. Native fitting remains pending.
 Next mathematical review0749, hourly0522. No own live GPU job; next protocol,
 standard solver implementation and its controls completed and committed now.
 Full goal active, weights-first continues. Preserve all existing result misses.
+
+### 2026-09-11T04:53:42.439552+00:00 — Codex: PRIOR-RECEIPT CORRECTION BEFORE NATIVE BLOCK RUN
+Previous turn progress38c8c39b9, but summary missed MULTIOUTPUT_MANIFOLD_V1_RESULT.
+Custom manifoldCG already ran240s from QRcache, capture8.628469% and unconverged.
+Use its newer checkpoint c515a7c3... rather than repeating the old initialization.
+The next run changes solver implementation/line search, not representation or
+coordinate family. Preserve original relative stationarity<=1e-4 and maxabs
+bar from oldsolver; new raw1e-5 alone is not sufficient. Pymanopt receives
+absolute tolerance1e-7; final original and canonical criteria both reported.
+All original objective checks refer latest .9145139183127093/.9137153091501415.
+Correct explanations/dossiers after comparing receipts; do not claim this is
+first manifold block fit. Lane1 idle verified; wrapper being built now.
+
+### 2026-09-11T04:58:10.540025+00:00 — Codex: NATIVE BLOCK CONTINUATION LIVE; CURVATURE CONSEQUENCE CLAIM
+Managed run_orthogonal_multioutput_pymanopt_v1 started04:56:43; newer objective
+replays exactly, initialgradient2.10e-5 ->4.04e-6 at500iterations. No duplicate.
+While live, derive and CPU-check exact reduced Hessian-vector products for the
+same conditional-writer objective. Existing detached writer gives correct first
+gradient but not its reduced Hessian; differentiating the64x64 solve supplies
+the missing writer response. This enables an existing trust-region solver if
+CG still fails, without changing model family/penalty or fitting data.
+
+### 2026-09-11T04:59:55.214006+00:00 — Codex: BLOCK CG STOPPED; CLAIM EXACT-CURVATURE TRUST REGION
+StandardCG continuation36.53s AheldB/Cmissed; line-search step belowlimit, capture
+8.628537%, legacyrelativegrad4.75e-4 vs1e-4. Writercondition14.94 healthy, no
+accepted loss increase. Exact reduced HVP CPUcontrol held1.36e-10 finiteerror;
+frozen-writer Hessian control wrong1.398relative. Next existing Pymanopt trust
+regions, differentiating conditional64x64solve, same latestcheckpoint/objective.
+No newdata/no objectivechange; native replay and original convergencecriteria
+remain. First CPU manifold-Hessian/solvercontrols, then managed120secondchunk.
+
+### 2026-09-11T05:04:50.853646+00:00 — Codex: CG NEGATIVE RED-TEAM AND TRUST REGION READY
+CGresult/explanation0503 correct missing previouscustommanifoldreceipt and
+preserve stalled-gradient miss. Exact reducedHVP andmanifoldcontrols pass.
+Standard trust-region wrapper reviewed/dry-runchecked; sourcecd1d193575..., same
+latestCGcheckpoint and objective. Managed submission follows this publication;
+checkrunner/BLOCK_TRUST_REGION_V1_RESULT, do notduplicate. V1CPUloggingfailure
+recorded; V2usesacceptedgradientcallbacks, nofullpointlogging ornewsolverloop.
+Fullgoalactive; nexthourly0522/math0749. Sources/receipts now staged forpush.

@@ -2,6 +2,8 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [Overlapping blocks: optimizer stop and exact curvature](explanation_2026-09-11_0503.md): latest continuation, prior-receipt correction and next solver.
+
 - [Weights-first methods and latest coupled-fit results](explanation_2026-09-11_0433.md): current method coverage, convergence repair, fixed midpoint, and exact scalar-product audit.
 
 - [MLP16 producer fold and joint-selection tradeoff](explanation_2026-09-11_0406.md): latest native fold, exact red-team envelope, routing cost and next controlled objective.

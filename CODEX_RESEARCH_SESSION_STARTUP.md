@@ -82,41 +82,31 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 04:33
+## Current handoff —11September05:03UTC
 
-UPDATE04:48: SIMPLE_PRODUCT_SHARED_SPAN_V1 finished75.74s,A/BheldCmissed.
-All36starts converge, meanoneproduct3.01%->5.38%, noheadpassescombinedscreen.
-Whole-span bound<=20.57%; only5/9heads agree acrossallstarts. See REDTEAM and
-updated finalsection ofexplanation0433. Next ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V1
-PREREGISTRATION and adapterimplemented; CPUdense/gradientcontrols andtoyfitpass.
-Native wrapper/binding/enqueue pending. Reuse existingQRgaugeinitial cache and
-samefull-Ulambda.01objective; no newdatafit. Math0449 complete; next0749/hourly0522. Saved native QR-gauge program bridge through
-new blockadapter is exact; see ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V1_INITIAL_BRIDGE.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0503.md.
+Previous summary missed MULTIOUTPUT_MANIFOLD_V1_RESULT: custom manifoldCG had
+already run240s, capture8.62847%, unconverged. Standard PymanoptCG continuation
+from that newer checkpoint completed36.53s total/35.52s fit; AheldB/Cmissed,
+capture8.62854%, gradient2.75e-6, legacyrelative4.75e-4. Line-search stop, not
+structural negative. See ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V1_RESULT/REDTEAM.
 
+Next exact reduced-Hessian trust regions is ready: run_block_trust_region_v1.py,
+SHAcd1d193575b3b7312dc4b61096fb8c7c953ed879df80a619e72ff5149da14584.
+Protocol/binding/control completed. Check queue/runner and BLOCK_TRUST_REGION_V1
+RESULT before submitting or interpreting; managed submission follows publication.
+Do not duplicate. Same16x16x4full-Ulambda.01model; exact reduced Hessian includes
+writer-solve response. CPUEuclidean/manifold HVP errors~1.4e-10; toyfit converges.
+V1TRadapter CPUhistoryaccess failed because noCGlogginghook; V2 accepted-point
+scalarlogging fixed that, controls pass. Only V2 is used by native wrapper.
 
-Read [LATEST.md](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md)
-and its current explanation_2026-09-11_0433.md for the combined methods/result update.
-Coupled native fit is FINISHED. Original A/D held, B/C missed; same-objective
-repair now converges all36 starts without replacing the original selected frames.
-Fixed midpoint audit:2.94x sharing,90.95% routing retention, post-result positions.
-Next CPU consequence EXECUTED: PRODUCER_SCALAR_PRODUCTS_V1_AUDIT,4.70s,AheldB/Cmissed.
-Leading common functions still dense:mean16-product capture18.20%,median256products
-for90%; private median259. Exact scalar spectral optimum is not a bound on other
-feature selections/shared multioutput programs. No data fit or semantic promotion.
-
-Primary receipts: COUPLED_PRODUCER_NATIVE_V1_RESULT, CONVERGENCE_REPAIR_V1_RESULT,
-COUPLED_PRODUCER_MIDPOINT_V1_AUDIT, PRODUCER_SCALAR_PRODUCTS_V1_AUDIT. See full
-filenames in explanation. Source and caches are hash-bound; cachepaths/hashes in
-receipts. No own job remains live. Next choose weight-only structure with simple
-shared computation in the selection criterion, or resume uncovered overlapping
-block/hierarchical methods; do not repeat an alignment-weight sweep. Check dossiers.
-Hourly0422 completed; next0522, math0449. Preserve original misses. Fullgoalactive.
-
-Disk capacity repaired by archiving unusedCodex0.151.0 (active0.153.4), all6files
-verified before removal. Persistent archive and receipt under
-/root/.codex/packages/standalone/archive; freedabout201MB. About200MBfree04:30.
-Do not delete research artifacts or other agent state. Large /dev/shm caches are
-ephemeral; source and numerical receipts are committed, not full tensor caches.
+Native trust-region chunk120s, inner50/radii.1->1, gradient1e-7 plus original
+relative1e-4/maxentry1e-7/fivecheckplateau1e-5. Sources frozen; save final checkpoint.
+If limits hit, no convergence or absent-structure claim. Next result-dependent
+step must change information, not automatically another identical chunk.
+Full goal active. Weights first, no text fits. Latest hourly0422,next0522;
+math0449 completed,next0749. Disk~180MBfree; preserve research and shared state.
+Large caches in/dev/shm ephemeral. Follow bilinear handoff, not better_math_ideas.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
