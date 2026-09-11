@@ -2,6 +2,8 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [Weights-first methods, assumptions, and bottlenecks](explanation_2026-09-11_0531.md): current method inventory, completed unconverged block run, and exact penalty audit.
+
 - [Optimizer bottleneck and equivalent repair](explanation_2026-09-11_0517.md): latest trust-region result, failed threading hypothesis, measured Hessian-kernel repair and live continuation.
 
 - [Overlapping blocks: optimizer stop and exact curvature](explanation_2026-09-11_0503.md): latest continuation, prior-receipt correction and next solver.

@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated11September05:17UTC. Use this index before opening a structural family
+Updated 11 September 05:31 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -13,7 +13,7 @@ global recovery or semantic circuit identification.
 | Signed squares (2,23) | [Polished256-square fit](WEIGHT_SQUARE_POLISH_V1_RESULT.json) locally converged | Algebraically related to two-reader products; unequal budgets are not independent evidence |
 | Shared input reader and compact partner (3,19) | [Joint rank16partner fit](JOINT_SHARED_READER_RANK16_V1_RESULT.json), converged restarts; [upstream interface](SHARED_READER_UPSTREAM_PORTS_V1_AUDIT.json) | One small component with native background, not a whole-model factorization |
 | Sparse multiplication graph in a shared frame (4,6) | [RCG](SPARSE_CORE_RCG_V1_RESULT.json), [independent restart](SPARSE_CORE_RCG_RESTART_V1_RESULT.json), [joint-function audit](SPARSE_CORE_TWO_FUNCTION_SPAN_V1_AUDIT.json) | Locally converged functions differ; orthogonal-frame restriction remains |
-| Overlapping multi-output blocks (5,10) | [Original fit](WEIGHT_STRUCTURAL_BASELINE_V1_multioutput_block_RESULT.json) → [custom manifoldCG](MULTIOUTPUT_MANIFOLD_V1_RESULT.json) → [libraryCG](ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V1_RESULT.json) → [exact-Hessian trust regions](BLOCK_TRUST_REGION_V1_RESULT.json): all unconverged | **Current live continuation:** [thin-contraction protocol](BLOCK_TRUST_REGION_THIN_V1_PREREGISTRATION.md), wrapper `ops/run_block_trust_region_thin_v1.py`; inspect its result/runner before any further submission |
+| Overlapping multi-output blocks (5,10) | [Original fit](WEIGHT_STRUCTURAL_BASELINE_V1_multioutput_block_RESULT.json) → [custom manifoldCG](MULTIOUTPUT_MANIFOLD_V1_RESULT.json) → [libraryCG](ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V1_RESULT.json) → [exact-Hessian trust regions](BLOCK_TRUST_REGION_V1_RESULT.json): all unconverged | [Thin trust-region continuation](BLOCK_TRUST_REGION_THIN_V1_RESULT.json) completed 600.49 fit seconds, still unconverged; [exact writer/core gauge audit](BLOCK_WRITER_CORE_GAUGE_V1_AUDIT.json) found negligible balancing benefit |
 | Independent blocks under nonorthogonal congruence (7) | [Verified full spectrum](NATIVE_CONGRUENCE_MIXED_V1_RESULT.json), [centered spectrum](CENTERED_CONGRUENCE_V1_RESULT.json) converged; structural bars missed | Does not rule out overlapping blocks; do not repeat as an untried method |
 | Output-rank optimum and bounds (8) | [Full-U spectrum](FULLU_OUTPUT_FUNCTIONS_V1_AUDIT.json) | Bound is on global output rank under coefficient error, not arbitrary shared arithmetic programs |
 | Concentrated output loadings (8,9) | [Varimax](OUTPUT_VARIMAX_V1_RESULT.json), [normalized rotation](OUTPUT_VARIMAX_NORMALIZED_V1_RESULT.json) converged | Rotation within a pre-truncated space cannot recover omitted structure |
@@ -42,7 +42,8 @@ cross-cutting checks; they do not each constitute a separate factorization.
 FineWeb is the training-corpus validation source; Pile is separately labelled
 corpus-shift testing. Never adapt on the supposedly untouched validation set.
 
-Next decision after the live block run: inspect all stopping criteria, preserve
-any limit failure, then compare block functions/stability using the existing
-geometry tools. Convergence or capture alone does not establish OOD prediction,
+The longer block run completed; preserve its limit and gradient failures.
+The exact same-function penalty minimum is already effectively attained.
+Broader adaptive/heterogeneous structure and independent solver coverage remain
+open; no automatic identical chunk is queued. Convergence or capture alone does not establish OOD prediction,
 extraction, selective removal or composition/reuse.

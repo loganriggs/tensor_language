@@ -82,33 +82,21 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff —11September05:17UTC
+## Current handoff — 11 September 05:31 UTC
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0517.md.
-Before selecting weight work, read WEIGHT_ONLY_METHODS_INDEX.md under polynomial_causal;
-its receipt links include earlier runs missed by old summaries. Do not confuse
-coordinate repair, solver continuation and a new representation family.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0531.md.
+WEIGHT_ONLY_METHODS_INDEX.md links current primary receipts and earlier solvers.
+User priority: diverse weight-only discovery with convergence and matched costs;
+frozen-candidate FineWeb validation later, Pile separately OOD. No new data fit.
 
-BLOCK_TRUST_REGION_V1 completed124.12s,AheldB/Cmissed;24outersteps/1134HVPs,
-capture8.62875%, stillunconverged. NativeHVP6.2e-10 correct. CPUthreadcap audit
-Bfailed:2threads use.144CPUtime but1.10walltime. Actual sourcebottleneck was
-Stiefel.weingarten forming(V@X.T)@N; equivalent V@(X.T@N) avoids n*n intermediate.
-ThinStiefel local override matchesfullHessian2.27e-17; host speedup14.68xat16
-threads/44.26xat2. Not an end-to-end solver-speedup claim. Oldsources preserved.
-
-Managed run_block_trust_region_thin_v1.py started05:14:09, sourceSHA
-20bba5bf3a50052723ea15576ab73fa6486798efb870dac516be744c3c6656fe.
-At05:16 passed100acceptedsteps. Check liveprocess/result before any action;
-DO NOT DUPLICATE. NativeHVP7.4e-10 passed. Samefull-Ulambda.01overlapping16x16x4
-family,2BLASthreads,600sbudget,1000outerlimit,inner50/radii.1->1. Alloriginal
-convergencecriteria plusabsolute1e-7remain. Final cache/receipt saved onexit.
-
-Next inspect final status and existing blockgeometry/outputspectrum receipts
-before claiming novel shared functions. Unconvergedfit is not structuralnegative;
-convergedfit is not circuitidentification. Fullgoalactive, no data-guidedfits.
-Latest hourly0422,next0522; math0449,next0749. Preserve shared dirty state and
-hashbound sources. Large /dev/shm caches ephemeral. Bilinearhandoff authority,
-not better_math_ideas. Disk~180MBfree; no large persistentnewstates.
+BLOCK_TRUST_REGION_THIN_V1 completed 600.49 fit seconds / 388 iterations:
+8.63438% capture, instrument held, convergence and gain missed. Latest cache
+/dev/shm/bilin18_block_trust_region_thin_v1.pt, hash in native result. No duplicate
+or automatic identical chunk queued. Exact CPU writer/core penalty gauge audit
+completed: function replay 2.03e-15, optimum attained, but reduction only7.36e-10
+of penalty (1% prediction missed). This cheap repair is exhausted. See report
+for adaptive block-model literature candidate and scope limits; not implemented.
+The last turn completed its board-registered CPU consequence. Full goal active.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
@@ -209,8 +197,8 @@ not be changed retroactively. Build small wrappers for new semantics.
 ## Review clocks and throughput
 
 Latest hourly review:
-[04:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0422.md).
-Next hourly review is due **05:22 UTC on11September** at the first safe boundary.
+[05:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0522.md).
+Next hourly review is due **06:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [04:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0449.md).
 Next mathematical review is due **07:49 UTC on11September**. Derive later deadlines from the

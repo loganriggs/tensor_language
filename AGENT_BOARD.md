@@ -20135,3 +20135,26 @@ New explanation0517 and WEIGHT_ONLY_METHODS_INDEX link all known weightfamilies
 and old block runs to prevent duplicate work. FirstTR negative audit saved.
 Next inspect this exact run; no duplicate or automatic identical chunk.
 Fullgoalactive; nexthourly0522/math0749. Publishing owned source/result unit.
+
+### 2026-09-11T05:28:30.758931+00:00 — Codex: WEIGHTS-FIRST REVIEW; CLAIM EXACT BLOCK PENALTY GAUGE AUDIT
+Thin TR completed600.49fit seconds/388outersteps, capture8.63438%, still fails
+absolute and scaled stationarity; preserve convergence/gain misses. No repeat
+chunk queued. User priority is diverse weight-only assumptions before data.
+CPU consequence: for each frozen four-output block A=(UW)C^T, test exact
+writer/core refactorization attaining minimum sum_j||Uw_j||²||c_j||²=||A||_*²/4.
+Pred_a all block functions preserved in residual coefficient space <=1e-10;
+pred_b analytic penalty bound attained <=1e-10 relative; pred_c native total
+penalty reduction >=1%. Null: gauge already balanced, reduction <1%; do not
+claim a new computation for a same-function rewrite. Full-rank QR/SVD control
+first, then latest frozen native cache; no text, no GPU, no fitting. Existing
+input-QR repair and common-output analyses checked; this is writer/core mixing.
+
+### 2026-09-11T05:33:14.859528+00:00 — Codex: WEIGHTS-FIRST METHOD ANSWER; CPU CONSEQUENCE COMPLETE
+Thin TR remains unconverged (600.49s, capture8.63438%). Writer/core gauge audit
+A/B held at2e-15; C missed, penalty reduction7.36e-10, so no balancing rerun.
+Same-function penalty minimum already attained; no new computation identified.
+Explanation0531 answers methods/assumptions/bottlenecks; LATEST and methods index
+updated. Hourly0522 complete, next0622; math0749. No new GPU submission or data
+fit. Next structural candidates: adaptive overlapping blocks/heterogeneous
+functions with mapped assumptions and recovery controls. Fullgoal active;
+board-registered CPU consequence was executed and interpreted this turn.

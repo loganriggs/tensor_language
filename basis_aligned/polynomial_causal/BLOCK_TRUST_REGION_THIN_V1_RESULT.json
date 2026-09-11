@@ -1,0 +1,402 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_converged": false,
+    "pred_c_capture_gain": false
+  },
+  "initial_loss": 0.9145115632005731,
+  "initial_capture": 0.08628748618069826,
+  "final": {
+    "loss": 0.9144556625267997,
+    "residual": 0.9136561695867261,
+    "component_energy": 0.07994929400735386,
+    "tangent_stationarity": 1.2274950779460512e-06,
+    "converged": false,
+    "seconds": 600.4885748066008,
+    "iterations": 388,
+    "evaluations": 398,
+    "hessian_vectors": 18698,
+    "accepted_points": 380,
+    "stopping_criterion": "Terminated - max time reached after 388 iterations.",
+    "scalar_history": [
+      {
+        "iteration": 0,
+        "cost": 0.9145115632005731
+      },
+      {
+        "iteration": 5,
+        "cost": 0.9145112522950847
+      },
+      {
+        "iteration": 10,
+        "cost": 0.9145109111935389
+      },
+      {
+        "iteration": 15,
+        "cost": 0.9145105173758724
+      },
+      {
+        "iteration": 20,
+        "cost": 0.9145100204831997
+      },
+      {
+        "iteration": 25,
+        "cost": 0.9145093466543596
+      },
+      {
+        "iteration": 30,
+        "cost": 0.9145078249711255
+      },
+      {
+        "iteration": 35,
+        "cost": 0.9144984928489961
+      },
+      {
+        "iteration": 40,
+        "cost": 0.9144871766045526
+      },
+      {
+        "iteration": 45,
+        "cost": 0.9144854010916479
+      },
+      {
+        "iteration": 50,
+        "cost": 0.9144843890486194
+      },
+      {
+        "iteration": 55,
+        "cost": 0.9144831679456593
+      },
+      {
+        "iteration": 60,
+        "cost": 0.9144814370091122
+      },
+      {
+        "iteration": 65,
+        "cost": 0.9144803499490417
+      },
+      {
+        "iteration": 70,
+        "cost": 0.9144795505918032
+      },
+      {
+        "iteration": 75,
+        "cost": 0.914478944826483
+      },
+      {
+        "iteration": 80,
+        "cost": 0.9144783507944225
+      },
+      {
+        "iteration": 85,
+        "cost": 0.9144778457403261
+      },
+      {
+        "iteration": 90,
+        "cost": 0.9144739670912841
+      },
+      {
+        "iteration": 95,
+        "cost": 0.9144650242220161
+      },
+      {
+        "iteration": 100,
+        "cost": 0.9144640163797081
+      },
+      {
+        "iteration": 105,
+        "cost": 0.9144635754334998
+      },
+      {
+        "iteration": 110,
+        "cost": 0.914463159564764
+      },
+      {
+        "iteration": 115,
+        "cost": 0.9144627714592917
+      },
+      {
+        "iteration": 120,
+        "cost": 0.9144625573512385
+      },
+      {
+        "iteration": 125,
+        "cost": 0.9144620871903929
+      },
+      {
+        "iteration": 130,
+        "cost": 0.9144614414651759
+      },
+      {
+        "iteration": 135,
+        "cost": 0.9144610293184134
+      },
+      {
+        "iteration": 140,
+        "cost": 0.914460843629533
+      },
+      {
+        "iteration": 145,
+        "cost": 0.9144606830546946
+      },
+      {
+        "iteration": 150,
+        "cost": 0.9144605424836815
+      },
+      {
+        "iteration": 155,
+        "cost": 0.9144603451719858
+      },
+      {
+        "iteration": 160,
+        "cost": 0.9144602443033129
+      },
+      {
+        "iteration": 165,
+        "cost": 0.9144601391418247
+      },
+      {
+        "iteration": 170,
+        "cost": 0.9144599932283788
+      },
+      {
+        "iteration": 175,
+        "cost": 0.9144597700917607
+      },
+      {
+        "iteration": 180,
+        "cost": 0.9144594685560745
+      },
+      {
+        "iteration": 185,
+        "cost": 0.9144590811394746
+      },
+      {
+        "iteration": 190,
+        "cost": 0.9144587442555282
+      },
+      {
+        "iteration": 195,
+        "cost": 0.9144583574686231
+      },
+      {
+        "iteration": 200,
+        "cost": 0.9144580803568262
+      },
+      {
+        "iteration": 205,
+        "cost": 0.9144578249359376
+      },
+      {
+        "iteration": 210,
+        "cost": 0.9144577053853996
+      },
+      {
+        "iteration": 215,
+        "cost": 0.9144576528749985
+      },
+      {
+        "iteration": 220,
+        "cost": 0.9144576048903803
+      },
+      {
+        "iteration": 225,
+        "cost": 0.9144575551123344
+      },
+      {
+        "iteration": 230,
+        "cost": 0.9144575024602646
+      },
+      {
+        "iteration": 235,
+        "cost": 0.9144574236790415
+      },
+      {
+        "iteration": 240,
+        "cost": 0.9144573151222276
+      },
+      {
+        "iteration": 245,
+        "cost": 0.9144572196535183
+      },
+      {
+        "iteration": 250,
+        "cost": 0.9144571110824243
+      },
+      {
+        "iteration": 255,
+        "cost": 0.9144569818727247
+      },
+      {
+        "iteration": 260,
+        "cost": 0.9144568182137807
+      },
+      {
+        "iteration": 265,
+        "cost": 0.914456721433848
+      },
+      {
+        "iteration": 270,
+        "cost": 0.9144566516350412
+      },
+      {
+        "iteration": 275,
+        "cost": 0.9144565901231582
+      },
+      {
+        "iteration": 280,
+        "cost": 0.9144565349719915
+      },
+      {
+        "iteration": 285,
+        "cost": 0.9144564845605212
+      },
+      {
+        "iteration": 290,
+        "cost": 0.9144564370195076
+      },
+      {
+        "iteration": 295,
+        "cost": 0.914456392351802
+      },
+      {
+        "iteration": 300,
+        "cost": 0.9144563522278006
+      },
+      {
+        "iteration": 305,
+        "cost": 0.9144563114336818
+      },
+      {
+        "iteration": 310,
+        "cost": 0.9144562727141117
+      },
+      {
+        "iteration": 315,
+        "cost": 0.9144562337735535
+      },
+      {
+        "iteration": 320,
+        "cost": 0.9144561934330742
+      },
+      {
+        "iteration": 325,
+        "cost": 0.9144561492119375
+      },
+      {
+        "iteration": 330,
+        "cost": 0.9144561016331029
+      },
+      {
+        "iteration": 335,
+        "cost": 0.9144560503191533
+      },
+      {
+        "iteration": 340,
+        "cost": 0.9144560001010614
+      },
+      {
+        "iteration": 345,
+        "cost": 0.9144559494483805
+      },
+      {
+        "iteration": 350,
+        "cost": 0.9144558984385168
+      },
+      {
+        "iteration": 355,
+        "cost": 0.914455844142114
+      },
+      {
+        "iteration": 360,
+        "cost": 0.9144557922918726
+      },
+      {
+        "iteration": 365,
+        "cost": 0.9144557359498283
+      },
+      {
+        "iteration": 370,
+        "cost": 0.9144556940139197
+      },
+      {
+        "iteration": 375,
+        "cost": 0.9144556713236215
+      },
+      {
+        "iteration": 379,
+        "cost": 0.9144556625267997,
+        "gradient_norm": 1.2274950779460512e-06
+      }
+    ],
+    "maximum_objective_increase": 0.0
+  },
+  "captured_energy": 0.08634383041327387,
+  "original_relative_stationarity": 0.00021569144668166738,
+  "original_maximum_gradient": 6.280833063632162e-08,
+  "original_five_check_relative_progress": 1.5028876097827655e-06,
+  "all_convergence_criteria_held": false,
+  "maximum_instrument_error": 3.1086244689504383e-15,
+  "native_hessian_relative_error": 7.417329532296077e-10,
+  "writer_condition": 15.02779032806649,
+  "cache": {
+    "path": "/dev/shm/bilin18_block_trust_region_thin_v1.pt",
+    "sha256": "2ae42554abbf8746abdabb1ff3dc90060f14529a162e680bba4fac6b008399fe",
+    "bytes": 3026004,
+    "ephemeral": true
+  },
+  "wall_seconds": 601.6095387935638,
+  "inherited_fit_seconds": 938.6745697923004,
+  "body_forwards": 0,
+  "corpus_access": false,
+  "binding": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_block_trust_region_thin_v1.py": "20bba5bf3a50052723ea15576ab73fa6486798efb870dac516be744c3c6656fe",
+    "/dev/shm/bilin18_block_trust_region_v1.pt": "4113ff94b31d9b4442ef6a0a6b5b2fa643ac6937d42f555a4451de97f3532427",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block_trust_region_v3.py": "03eab208e4ea6a2ec98bb69f6d6071415974cca31e01e07731bc06e8d79ed962",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/thin_stiefel_v1.py": "3475ff45d775f5fea37a5aed8f1b9b038d64d962c6ba42661e9b93534b807254",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block_variable_projection_curvature_v1.py": "2e7b2ac1626b66834b3474de38d17eabb01604bcf6b37e6524beaa6c9b68532f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/orthogonal_multioutput_pymanopt_v2.py": "e0f4bb74722063a08dc6785943acc67fcfd36dac6b12cc4c5df7bb71880a9482",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/multioutput_quadratic_blocks_v1.py": "6c638fce1e5769dc9276b7d4a412b3b10782bb54f009de5ed6ae69cebccfbe58",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/energy_regularized_quadratic_v1.py": "fe86606100722051fb5d46e6e971ffcdc14568491651a4dadcdff2abe8cb51d0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/structured_quadratic_models_v1.py": "facc1306668361d5f232d4334d0399a3c1cc991221fd00db61c4353bd0ae7bde",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_quadratic_fit_v1.py": "35930671781b0b802fe50c7d22288ca8f70c68f585d1df7e6c8a4417b3af4695",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/THIN_STIEFEL_V1_CONTROL.json": "2adbbe40aa1255a51a375df02fa78fac236493def7d73cc9c0634e7316e4fb6e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/BLOCK_TRUST_REGION_V3_CONTROL.json": "0b9b061809217959ab6272772679d33e6e197fa52e5053fc8603696717bd42d7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/BLOCK_TRUST_REGION_THIN_V1_PREREGISTRATION.md": "2be7ec919b5f3333d62a512716e4499cf3dab74b17b9a78bf64cfe7ae56a66b8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/BLOCK_TRUST_REGION_V1_RESULT.json": "7395b85cfaf3a8e25fee0a2d7a4ff2aaeb65bf0a7b211f225b68f772a6f5c097",
+    "/venv/main/lib/python3.12/site-packages/pymanopt/manifolds/stiefel.py": "56085dccb036838804ef6a16028fea1d5e9838076c1da2f8a819b42279a0e87d",
+    "/venv/main/lib/python3.12/site-packages/pymanopt/manifolds/manifold.py": "a962d2259a63337fe2af44237e9b8339ac4e41ad1064744f10c3964468616f10",
+    "/venv/main/lib/python3.12/site-packages/pymanopt/optimizers/trust_regions.py": "243cb19c4ce9c8de80118affb2a4dc92ac92f4d0094781646f8318e29ffe745c"
+  },
+  "threadpools": [
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 2,
+      "prefix": "libgomp",
+      "filepath": "/venv/main/lib/python3.12/site-packages/torch/lib/libgomp.so.1",
+      "version": null
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 2,
+      "prefix": "libscipy_openblas",
+      "filepath": "/venv/main/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-61654e39.so",
+      "version": "0.3.34.0.0",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 2,
+      "prefix": "libscipy_openblas",
+      "filepath": "/venv/main/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-5f890258.so",
+      "version": "0.3.31.dev",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    }
+  ],
+  "scope": "Same trust-region algorithm and Hessian, thin Stiefel contraction and2BLASthreads; latest native checkpoint, longer600sbudget. Same full-U lambda.01 objective and overlapping block family, all original convergence conditions plus stricter absolute norm. No global/circuit claim."
+}
