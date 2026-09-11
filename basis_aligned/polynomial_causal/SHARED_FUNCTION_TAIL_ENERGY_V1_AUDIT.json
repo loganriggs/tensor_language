@@ -1,0 +1,22 @@
+{
+  "predictions": {
+    "pred_a_identity": true,
+    "pred_b_not_mean_only": true,
+    "pred_c_tail_amplification": true
+  },
+  "energies": {
+    "error4": 0.48804502435404284,
+    "error16": 0.09941065302560843,
+    "tail_energy": 0.24076871643154754,
+    "cross": 0.14786565489688677
+  },
+  "energy_replay": 1.1102230246251565e-16,
+  "centered_error_reduction": 0.8678572506121274,
+  "tail_coefficient_fraction": 0.015592772327121418,
+  "natural_to_coefficient_energy_ratio": 15.44104610651978,
+  "source": {
+    "path": "/dev/shm/bilin18_shared_function_fineweb_v1.pt",
+    "sha256": "07fd0fac441e4ac25f682ead8612a93cab6513d168760e7a58e5801d6673ff66"
+  },
+  "scope": "Post-result diagnosis on cached FineWeb scalar outputs. Not data-guided factor discovery or a repair of original one/four-product misses."
+}

@@ -1,0 +1,75 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_simple_arithmetic": true,
+    "pred_c_native_agreement": true
+  },
+  "rows": [
+    {
+      "products": 1,
+      "capture": 0.8101617256353186,
+      "spectral_replay": 3.3306690738754696e-16,
+      "parameter_floats": 3456
+    },
+    {
+      "products": 2,
+      "capture": 0.872497909397967,
+      "spectral_replay": 4.440892098500626e-16,
+      "parameter_floats": 5760
+    },
+    {
+      "products": 4,
+      "capture": 0.906711845226468,
+      "spectral_replay": 4.440892098500626e-16,
+      "parameter_floats": 10368
+    },
+    {
+      "products": 8,
+      "capture": 0.915267744973465,
+      "spectral_replay": 4.440892098500626e-16,
+      "parameter_floats": 19584
+    },
+    {
+      "products": 16,
+      "capture": 0.9223046175535894,
+      "spectral_replay": 5.551115123125783e-16,
+      "parameter_floats": 38016
+    }
+  ],
+  "native_function_cosine": 0.9999330774188385,
+  "native_energy_fraction": 0.001081423171729648,
+  "native_radial_fraction": 1.2036838806740271e-05,
+  "native_loading_participation": 8.604457079559953,
+  "top_native_products": [
+    3547,
+    4182,
+    3093,
+    1747,
+    2989,
+    4448,
+    533,
+    3656,
+    336,
+    4607,
+    3374,
+    1572,
+    3534,
+    1211,
+    1577,
+    517
+  ],
+  "top16_loading_squared_share": 0.6609587497268955,
+  "eigen_replay": 3.656934773095626e-15,
+  "covariance_replay": 1.2030837150471762e-15,
+  "executor_replay": 1.2173037679166095e-15,
+  "source": {
+    "path": "/dev/shm/bilin18_canonical_function_agreement_v1.pt",
+    "sha256": "ef8c62f678e626811c97351a8a0ae68383becb5a756e0893216e7123f98427ca"
+  },
+  "scope": "One post-selected native scalar output function. Exact low-product optimum for this fixed readout, not complete-module or behavioral circuit identification.",
+  "cache": {
+    "path": "/dev/shm/bilin18_shared_native_function_products_v1.pt",
+    "sha256": "1233d862eb12f51894daef51c7063fd88530a297d63f754a10aa27c5e83ccdad"
+  },
+  "seconds": 0.6295831426978111
+}

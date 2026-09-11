@@ -1,0 +1,78 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_one_product": false,
+    "pred_c_four_products": false
+  },
+  "rows": [
+    {
+      "products": 1,
+      "relative_mse": 0.48502130613412303,
+      "centered_relative_mse": 0.5143962511278931,
+      "centered_correlation": 0.7040215674853003,
+      "sign_agreement": 0.7642822265625,
+      "mean": 2181.844941208368,
+      "rms": 7530.030516325172
+    },
+    {
+      "products": 2,
+      "relative_mse": 0.4865191060193226,
+      "centered_relative_mse": 0.5112586669912202,
+      "centered_correlation": 0.7051974168894983,
+      "sign_agreement": 0.75830078125,
+      "mean": 2060.5730969516453,
+      "rms": 7597.492829052946
+    },
+    {
+      "products": 4,
+      "relative_mse": 0.48804502435404284,
+      "centered_relative_mse": 0.5057723196946091,
+      "centered_correlation": 0.7112101305031852,
+      "sign_agreement": 0.7620849609375,
+      "mean": 1889.0566900550189,
+      "rms": 7447.40077675056
+    },
+    {
+      "products": 8,
+      "relative_mse": 0.23639123852296356,
+      "centered_relative_mse": 0.12927088482476737,
+      "centered_correlation": 0.9476806420693835,
+      "sign_agreement": 0.8382568359375,
+      "mean": 397.5110204694722,
+      "rms": 9345.24234373918
+    },
+    {
+      "products": 16,
+      "relative_mse": 0.09941065302560843,
+      "centered_relative_mse": 0.06683414488872776,
+      "centered_correlation": 0.9732083770274979,
+      "sign_agreement": 0.9163818359375,
+      "mean": 2329.0424251327145,
+      "rms": 10467.818352199316
+    }
+  ],
+  "native_factor_form_replay": 2.918558180755889e-15,
+  "native_precision_replay": 7.637290151450909e-07,
+  "native_mean": 4998.2266343799265,
+  "native_rms": 12940.175458278953,
+  "native_centered_rms": 11935.90681106467,
+  "source": {
+    "path": "/dev/shm/bilin18_shared_native_function_products_v1.pt",
+    "sha256": "1233d862eb12f51894daef51c7063fd88530a297d63f754a10aa27c5e83ccdad"
+  },
+  "data_source": {
+    "path": "/dev/shm/bilin18_frozen_radial_fineweb_v1.pt",
+    "sha256": "b1107a91d55df69bc05eefade10ffb362a5c1a81c783e7dfa3c746ea2dec72de",
+    "rows": 64,
+    "positions": 8192,
+    "previously_opened": true
+  },
+  "body_forwards": 0,
+  "fit_steps": 0,
+  "seconds": 2.158857498317957,
+  "scope": "Frozen scalar-function validation on cached FineWeb, not fresh/OOD text, full-logit preservation or a selectively manipulable circuit.",
+  "cache": {
+    "path": "/dev/shm/bilin18_shared_function_fineweb_v1.pt",
+    "sha256": "07fd0fac441e4ac25f682ead8612a93cab6513d168760e7a58e5801d6673ff66"
+  }
+}

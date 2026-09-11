@@ -9,3 +9,5 @@ The new explanation distinguishes structural families from solver changes, expla
 [Hourly12:22 review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1222.md) · [Math10:51 review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1051.md) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).
 
 Previous: [11:26 direct fitting and feature removal update](explanation_2026-09-11_1126.md).
+
+**12:46 UTC:** One weight-discovered scalar function agrees across two fit readouts (cosine0.964). In the native weights, one product captures81.0%ofits coefficientenergy, but frozen cached FineWeb error is48.5%;16products reduce error to9.94%. This is a small candidate computation, not an identified behavioral circuit. [Weight result](../../SHARED_NATIVE_FUNCTION_PRODUCTS_V1_AUDIT.json) · [Validation and limits](../../SHARED_FUNCTION_FINEWEB_V1_AUDIT.json).
