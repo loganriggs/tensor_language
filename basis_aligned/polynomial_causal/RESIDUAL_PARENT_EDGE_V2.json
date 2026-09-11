@@ -1,0 +1,1809 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "errors": {
+    "objective_delta": 8.822695178600792e-18,
+    "executor": 1.1295351972610237e-15,
+    "unchanged_groups": 1.579030015376109e-15,
+    "orthogonality": 3.3306690738754696e-15,
+    "old_span": 1.381008384098304e-15,
+    "conditional_normal": 3.2056753788289924e-17,
+    "numerical_global_gap": 9.709183673852053e-10,
+    "projection_identity": 5.094596142119102e-16,
+    "joint_core_normal": 9.926856173648909e-12
+  },
+  "parent": 1,
+  "selected": {
+    "group": 11,
+    "ids": [
+      1
+    ],
+    "bound": {
+      "converged": true,
+      "absolute_loss_gap": 30.766776029750645,
+      "absolute_loss_upper": 2973528.2538323887,
+      "absolute_loss_lower": 2973497.4870563587,
+      "normalized_projection_replay": 2.943652712995818e-17,
+      "splits": 5,
+      "eigenvalue_evaluations": 7,
+      "seconds": 0.00030661746859550476,
+      "normalized_roundoff_margin": 1e-12,
+      "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+      "normalized_objective_gap": 3.0693874404900707e-10
+    },
+    "conditional_delta": 2.9473288073291137e-05,
+    "delta_vs_polish": 2.9473288073291137e-05,
+    "polish_gain": 0.0,
+    "node_energy_fraction": 0.03013742563985411,
+    "orthogonality": 2.220446049250313e-15,
+    "old_span_replay": 1.1339270903403673e-15,
+    "core_normal_residual": 8.283906570923085e-18,
+    "union_dimension": 17
+  },
+  "candidates": [
+    {
+      "group": 0,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 79.70010863501062,
+        "absolute_loss_upper": 6918580.219368584,
+        "absolute_loss_lower": 6918500.51925995,
+        "normalized_projection_replay": 4.3631864112204115e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.007065232843160629,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 7.951125987768257e-10
+      },
+      "conditional_delta": 6.885870096390091e-05,
+      "delta_vs_polish": 6.885870096390332e-05,
+      "polish_gain": 2.402321847052991e-18,
+      "node_energy_fraction": 0.01612034421235051,
+      "orthogonality": 1.5543122344752192e-15,
+      "old_span_replay": 1.0741632255038548e-15,
+      "core_normal_residual": 1.2050867010740748e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 1,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 2.3489626962665224,
+        "absolute_loss_upper": 4256862.23906096,
+        "absolute_loss_lower": 4256859.8900982635,
+        "normalized_projection_replay": 1.116441585097891e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.0002765841782093048,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.3433968483172885e-11
+      },
+      "conditional_delta": 4.2467725512339007e-05,
+      "delta_vs_polish": 4.246772551233961e-05,
+      "polish_gain": 6.005804617632478e-19,
+      "node_energy_fraction": 0.005879997833520453,
+      "orthogonality": 1.9984014443252818e-15,
+      "old_span_replay": 1.2964633692853671e-15,
+      "core_normal_residual": 1.8561852866779084e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 2,
+      "ids": [
+        0,
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 43.04749084508375,
+        "absolute_loss_upper": 2834080.175626579,
+        "absolute_loss_lower": 2834037.1281357342,
+        "normalized_projection_replay": 1.54405931270591e-17,
+        "splits": 6,
+        "eigenvalue_evaluations": 8,
+        "seconds": 0.00033817067742347717,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 4.2945490166647866e-10
+      },
+      "conditional_delta": 2.823840864501006e-05,
+      "delta_vs_polish": 2.823840864501006e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.007403266506631873,
+      "orthogonality": 1.5543122344752192e-15,
+      "old_span_replay": 1.1097960597278851e-15,
+      "core_normal_residual": 1.5785907989067446e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 3,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 1.42730438076104,
+        "absolute_loss_upper": 6170538.656316536,
+        "absolute_loss_lower": 6170537.229012155,
+        "normalized_projection_replay": 1.1655291019579684e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.00026187673211097717,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.42392239467279e-11
+      },
+      "conditional_delta": 6.153796596118965e-05,
+      "delta_vs_polish": 6.153796596118965e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.0030549450409992187,
+      "orthogonality": 2.220446049250313e-15,
+      "old_span_replay": 1.2347885241863388e-15,
+      "core_normal_residual": 5.9802465574163654e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 4,
+      "ids": [
+        1,
+        2
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 74.13252420072608,
+        "absolute_loss_upper": 1855929.152817653,
+        "absolute_loss_lower": 1855855.0202934523,
+        "normalized_projection_replay": 9.428515916977954e-17,
+        "splits": 7,
+        "eigenvalue_evaluations": 9,
+        "seconds": 0.00039599090814590454,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 7.395686778930245e-10
+      },
+      "conditional_delta": 1.8350757190184405e-05,
+      "delta_vs_polish": 1.8350757190185005e-05,
+      "polish_gain": 6.005804617632478e-19,
+      "node_energy_fraction": 0.005529970649172488,
+      "orthogonality": 1.887379141862766e-15,
+      "old_span_replay": 1.0646701992992258e-15,
+      "core_normal_residual": 0.0,
+      "union_dimension": 17
+    },
+    {
+      "group": 5,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 19.157450623305206,
+        "absolute_loss_upper": 11442491.670421248,
+        "absolute_loss_lower": 11442472.512970624,
+        "normalized_projection_replay": 8.805774457525485e-18,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.00029624998569488525,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.9112057200313114e-10
+      },
+      "conditional_delta": 0.00011390246921514675,
+      "delta_vs_polish": 0.00011390246921514675,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.045757994014719104,
+      "orthogonality": 1.9984014443252818e-15,
+      "old_span_replay": 1.2767244712352828e-15,
+      "core_normal_residual": 0.0,
+      "union_dimension": 17
+    },
+    {
+      "group": 6,
+      "ids": [
+        1,
+        3
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 5.4753835505377335,
+        "absolute_loss_upper": 4833180.886652919,
+        "absolute_loss_lower": 4833175.411269369,
+        "normalized_projection_replay": 3.0287909250961017e-16,
+        "splits": 6,
+        "eigenvalue_evaluations": 8,
+        "seconds": 0.0003416873514652252,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 5.462409673875296e-11
+      },
+      "conditional_delta": 4.799636847900717e-05,
+      "delta_vs_polish": 4.7996368479005974e-05,
+      "polish_gain": -1.2011609235264955e-18,
+      "node_energy_fraction": 0.0016701658431517675,
+      "orthogonality": 1.5543122344752192e-15,
+      "old_span_replay": 1.2577997919857892e-15,
+      "core_normal_residual": 1.4432783084241525e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 7,
+      "ids": [
+        1,
+        4,
+        5
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 35.776030612160646,
+        "absolute_loss_upper": 5970360.603766014,
+        "absolute_loss_lower": 5970324.827735402,
+        "normalized_projection_replay": 9.999359999691645e-17,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.00025087594985961914,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.5691259599436213e-10
+      },
+      "conditional_delta": 5.9347803874590205e-05,
+      "delta_vs_polish": 5.934780387459261e-05,
+      "polish_gain": 2.402321847052991e-18,
+      "node_energy_fraction": 0.0008683511745304671,
+      "orthogonality": 3.1086244689504383e-15,
+      "old_span_replay": 1.2171061082118232e-15,
+      "core_normal_residual": 2.912274161937439e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 8,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 0.4097963372833857,
+        "absolute_loss_upper": 818376.2833427627,
+        "absolute_loss_lower": 818375.8735464254,
+        "normalized_projection_replay": 7.339135095090654e-17,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.00036576390266418457,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 4.088253282047411e-12
+      },
+      "conditional_delta": 8.164347962254877e-06,
+      "delta_vs_polish": 8.164347962255477e-06,
+      "polish_gain": 6.005804617632478e-19,
+      "node_energy_fraction": 0.0001286359052177139,
+      "orthogonality": 1.3322676295501878e-15,
+      "old_span_replay": 1.1539399083044103e-15,
+      "core_normal_residual": 7.982656590148333e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 9,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 37.484385094135966,
+        "absolute_loss_upper": 3719201.0380537864,
+        "absolute_loss_lower": 3719163.5536686922,
+        "normalized_projection_replay": 7.848537879244885e-17,
+        "splits": 7,
+        "eigenvalue_evaluations": 9,
+        "seconds": 0.0003800131380558014,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.739556614940087e-10
+      },
+      "conditional_delta": 3.707163288975446e-05,
+      "delta_vs_polish": 3.707163288975446e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.09344341644416025,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.077784038837678e-15,
+      "core_normal_residual": 7.280420025086436e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 10,
+      "ids": [
+        1,
+        8,
+        9
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 3.6312777280801503,
+        "absolute_loss_upper": 3688575.228592971,
+        "absolute_loss_lower": 3688571.597315243,
+        "normalized_projection_replay": 1.6992360097196292e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.0002479143440723419,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.6226734451223756e-11
+      },
+      "conditional_delta": 3.659227656830499e-05,
+      "delta_vs_polish": 3.659227656830499e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.00890163488912819,
+      "orthogonality": 1.9984014443252818e-15,
+      "old_span_replay": 1.2278406115397969e-15,
+      "core_normal_residual": 6.007394593370764e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 11,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 30.766776029750645,
+        "absolute_loss_upper": 2973528.2538323887,
+        "absolute_loss_lower": 2973497.4870563587,
+        "normalized_projection_replay": 2.943652712995818e-17,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.00030661746859550476,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.0693874404900707e-10
+      },
+      "conditional_delta": 2.9473288073291137e-05,
+      "delta_vs_polish": 2.9473288073291137e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.03013742563985411,
+      "orthogonality": 2.220446049250313e-15,
+      "old_span_replay": 1.1339270903403673e-15,
+      "core_normal_residual": 8.283906570923085e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 12,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 0.017920976174504454,
+        "absolute_loss_upper": 4557110.343779728,
+        "absolute_loss_lower": 4557110.325858752,
+        "normalized_projection_replay": 1.2473355047759738e-16,
+        "splits": 3,
+        "eigenvalue_evaluations": 5,
+        "seconds": 0.00021336600184440613,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.7878512567633357e-13
+      },
+      "conditional_delta": 4.532093604229861e-05,
+      "delta_vs_polish": 4.532093604229801e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.0007744178872892629,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.1803178849142948e-15,
+      "core_normal_residual": 1.2205069013807675e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 13,
+      "ids": [
+        0,
+        1,
+        2
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 11.847343921915941,
+        "absolute_loss_upper": 5521367.152351997,
+        "absolute_loss_lower": 5521355.305008075,
+        "normalized_projection_replay": 2.1985128473159097e-16,
+        "splits": 10,
+        "eigenvalue_evaluations": 12,
+        "seconds": 0.00047500431537628174,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.181927173712711e-10
+      },
+      "conditional_delta": 5.4899932818504e-05,
+      "delta_vs_polish": 5.489993281850459e-05,
+      "polish_gain": 6.005804617632478e-19,
+      "node_energy_fraction": 0.00488085768441533,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.1044306827533854e-15,
+      "core_normal_residual": 6.150455519709287e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 14,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 50.6700634963133,
+        "absolute_loss_upper": 6613503.277664677,
+        "absolute_loss_lower": 6613452.607601181,
+        "normalized_projection_replay": 1.6332718222269737e-16,
+        "splits": 2,
+        "eigenvalue_evaluations": 4,
+        "seconds": 0.00017788633704185486,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 5.055000119415467e-10
+      },
+      "conditional_delta": 6.562021274575511e-05,
+      "delta_vs_polish": 6.562021274575511e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.004026071408388871,
+      "orthogonality": 2.220446049250313e-15,
+      "old_span_replay": 1.240338123162355e-15,
+      "core_normal_residual": 2.0855697665556873e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 15,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 32.4613864582482,
+        "absolute_loss_upper": 9372351.843031786,
+        "absolute_loss_lower": 9372319.38164533,
+        "normalized_projection_replay": 7.129406649374704e-17,
+        "splits": 6,
+        "eigenvalue_evaluations": 8,
+        "seconds": 0.00034429505467414856,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.2384469467810206e-10
+      },
+      "conditional_delta": 9.285057307243377e-05,
+      "delta_vs_polish": 9.285057307243377e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.019959126087492077,
+      "orthogonality": 2.220446049250313e-15,
+      "old_span_replay": 1.2127200973381219e-15,
+      "core_normal_residual": 1.0037303765076263e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 17,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 42.00067988773821,
+        "absolute_loss_upper": 5271220.647559612,
+        "absolute_loss_lower": 5271178.646879724,
+        "normalized_projection_replay": 7.360852344741063e-17,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.00030530989170074463,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 4.1901159619327323e-10
+      },
+      "conditional_delta": 5.235231590775644e-05,
+      "delta_vs_polish": 5.235231590775644e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.015259723496895668,
+      "orthogonality": 1.887379141862766e-15,
+      "old_span_replay": 1.1434544582965214e-15,
+      "core_normal_residual": 2.7996007815179897e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 18,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 2.839090173047417,
+        "absolute_loss_upper": 451140.865721153,
+        "absolute_loss_lower": 451138.0266309799,
+        "normalized_projection_replay": 2.2982540208687494e-16,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.0003005713224411011,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.832362972039729e-11
+      },
+      "conditional_delta": 4.336267911940991e-06,
+      "delta_vs_polish": 4.336267911940391e-06,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.001512713717023816,
+      "orthogonality": 2.1094237467877974e-15,
+      "old_span_replay": 1.1096307183972992e-15,
+      "core_normal_residual": 2.501802108826297e-19,
+      "union_dimension": 17
+    },
+    {
+      "group": 19,
+      "ids": [
+        1,
+        8
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 65.0818710996044,
+        "absolute_loss_upper": 5326928.968606219,
+        "absolute_loss_lower": 5326863.88673512,
+        "normalized_projection_replay": 3.083073778534716e-17,
+        "splits": 8,
+        "eigenvalue_evaluations": 10,
+        "seconds": 0.00041577965021133423,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 6.492766013688125e-10
+      },
+      "conditional_delta": 5.2876095922007845e-05,
+      "delta_vs_polish": 5.287609592200724e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.01837773193064626,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.1492591055562308e-15,
+      "core_normal_residual": 2.326393852931374e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 20,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 15.694680614336637,
+        "absolute_loss_upper": 16475011.531613942,
+        "absolute_loss_lower": 16474995.836933328,
+        "normalized_projection_replay": 2.3367790270809225e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.0002507343888282776,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.5657492196636334e-10
+      },
+      "conditional_delta": 0.00016409128862817905,
+      "delta_vs_polish": 0.00016409128862818144,
+      "polish_gain": 2.402321847052991e-18,
+      "node_energy_fraction": 0.006850171693754992,
+      "orthogonality": 1.3322676295501878e-15,
+      "old_span_replay": 9.957253095596862e-16,
+      "core_normal_residual": 7.356183140316959e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 21,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 42.17691202313514,
+        "absolute_loss_upper": 5207080.413689184,
+        "absolute_loss_lower": 5207038.236777161,
+        "normalized_projection_replay": 2.583929154914304e-17,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.00029978156089782715,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 4.207697417411689e-10
+      },
+      "conditional_delta": 5.187484951668583e-05,
+      "delta_vs_polish": 5.187484951668463e-05,
+      "polish_gain": -1.2011609235264955e-18,
+      "node_energy_fraction": 0.027439263096580326,
+      "orthogonality": 3.1086244689504383e-15,
+      "old_span_replay": 1.2502682766049123e-15,
+      "core_normal_residual": 5.4440221355244135e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 22,
+      "ids": [
+        1,
+        6
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 15.305070949785192,
+        "absolute_loss_upper": 4410966.662382039,
+        "absolute_loss_lower": 4410951.3573110895,
+        "normalized_projection_replay": 1.133746512577884e-16,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.0002978295087814331,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.5268805709007152e-10
+      },
+      "conditional_delta": 4.380982911873599e-05,
+      "delta_vs_polish": 4.380982911873239e-05,
+      "polish_gain": -3.603482770579486e-18,
+      "node_energy_fraction": 0.0032650257355614385,
+      "orthogonality": 1.9984014443252818e-15,
+      "old_span_replay": 1.381008384098304e-15,
+      "core_normal_residual": 2.9168832321322677e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 23,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 25.896188102081766,
+        "absolute_loss_upper": 5424337.709055513,
+        "absolute_loss_lower": 5424311.812867411,
+        "normalized_projection_replay": 7.053811661574188e-17,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.0002562478184700012,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.5834827295598957e-10
+      },
+      "conditional_delta": 5.390940150962322e-05,
+      "delta_vs_polish": 5.3909401509622616e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.0025425848376962085,
+      "orthogonality": 1.6653345369377348e-15,
+      "old_span_replay": 1.2433475632611457e-15,
+      "core_normal_residual": 1.7396145018879145e-19,
+      "union_dimension": 17
+    },
+    {
+      "group": 24,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 32.924696121979636,
+        "absolute_loss_upper": 5584977.894818066,
+        "absolute_loss_lower": 5584944.970121943,
+        "normalized_projection_replay": 1.632059534541655e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.00025697797536849976,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.284668132307247e-10
+      },
+      "conditional_delta": 5.5552376023784754e-05,
+      "delta_vs_polish": 5.5552376023784754e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.002679600054667519,
+      "orthogonality": 1.9984014443252818e-15,
+      "old_span_replay": 1.0193693410880052e-15,
+      "core_normal_residual": 0.0,
+      "union_dimension": 17
+    },
+    {
+      "group": 26,
+      "ids": [
+        1,
+        3
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 49.73213415725561,
+        "absolute_loss_upper": 4217088.134955135,
+        "absolute_loss_lower": 4217038.402820977,
+        "normalized_projection_replay": 1.8263216606840878e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.00025120750069618225,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 4.961429427101555e-10
+      },
+      "conditional_delta": 4.171190621015422e-05,
+      "delta_vs_polish": 4.171190621015242e-05,
+      "polish_gain": -1.801741385289743e-18,
+      "node_energy_fraction": 0.006779517572956774,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.1335365282217581e-15,
+      "core_normal_residual": 2.5405202644121193e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 27,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 2.2953327104668784,
+        "absolute_loss_upper": 4068431.503517889,
+        "absolute_loss_lower": 4068429.2081851787,
+        "normalized_projection_replay": 3.397056248396909e-17,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.0003016442060470581,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.2898939383315578e-11
+      },
+      "conditional_delta": 4.0335273637120435e-05,
+      "delta_vs_polish": 4.0335273637120435e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.004269415553488706,
+      "orthogonality": 1.3322676295501878e-15,
+      "old_span_replay": 1.1437130085729022e-15,
+      "core_normal_residual": 6.5999247771614875e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 28,
+      "ids": [
+        1,
+        5
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 6.841860980701659,
+        "absolute_loss_upper": 11336079.872043181,
+        "absolute_loss_lower": 11336073.0301822,
+        "normalized_projection_replay": 6.502330331479032e-17,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.0002577193081378937,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 6.825649246914269e-11
+      },
+      "conditional_delta": 0.00011275447144339817,
+      "delta_vs_polish": 0.00011275447144339817,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.0032484205356890445,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.0721582050266339e-15,
+      "core_normal_residual": 5.247270750785248e-19,
+      "union_dimension": 17
+    },
+    {
+      "group": 29,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 3.7671839253744674,
+        "absolute_loss_upper": 8502476.104427125,
+        "absolute_loss_lower": 8502472.3372432,
+        "normalized_projection_replay": 3.1431887732997876e-17,
+        "splits": 3,
+        "eigenvalue_evaluations": 5,
+        "seconds": 0.0002179965376853943,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.758257613790738e-11
+      },
+      "conditional_delta": 8.45979484741704e-05,
+      "delta_vs_polish": 8.459794847417159e-05,
+      "polish_gain": 1.2011609235264955e-18,
+      "node_energy_fraction": 0.002617301102778409,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.2355912550149089e-15,
+      "core_normal_residual": 5.697708400461294e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 30,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 39.57343232396369,
+        "absolute_loss_upper": 5665035.980749882,
+        "absolute_loss_lower": 5664996.407317557,
+        "normalized_projection_replay": 6.584049735532375e-17,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.00028752535581588745,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.9479663398857057e-10
+      },
+      "conditional_delta": 5.618069189401778e-05,
+      "delta_vs_polish": 5.6180691894014176e-05,
+      "polish_gain": -3.603482770579486e-18,
+      "node_energy_fraction": 0.024021045397550934,
+      "orthogonality": 1.4432899320127035e-15,
+      "old_span_replay": 1.0770759651201578e-15,
+      "core_normal_residual": 2.2297996000230038e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 31,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 1.0030718593891577,
+        "absolute_loss_upper": 5803399.358420579,
+        "absolute_loss_lower": 5803398.355348719,
+        "normalized_projection_replay": 9.601332534726112e-17,
+        "splits": 2,
+        "eigenvalue_evaluations": 4,
+        "seconds": 0.00017512217164039612,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.0006950887999998e-11
+      },
+      "conditional_delta": 5.762098542186637e-05,
+      "delta_vs_polish": 5.762098542186577e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.004679045207701125,
+      "orthogonality": 1.5543122344752192e-15,
+      "old_span_replay": 1.1436760898356714e-15,
+      "core_normal_residual": 2.2120064383718722e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 32,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 12.693415257671122,
+        "absolute_loss_upper": 10020863.319072787,
+        "absolute_loss_lower": 10020850.625657529,
+        "normalized_projection_replay": 2.6527587488084724e-16,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.0002948381006717682,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.2663338313753292e-10
+      },
+      "conditional_delta": 9.97458141605796e-05,
+      "delta_vs_polish": 9.97458141605796e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.003200356844161426,
+      "orthogonality": 2.4424906541753444e-15,
+      "old_span_replay": 1.1086635263244404e-15,
+      "core_normal_residual": 8.336501511792488e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 33,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 26.776098435738575,
+        "absolute_loss_upper": 4859226.0812702635,
+        "absolute_loss_lower": 4859199.305171828,
+        "normalized_projection_replay": 2.03949417037962e-16,
+        "splits": 3,
+        "eigenvalue_evaluations": 5,
+        "seconds": 0.00021843239665031433,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.671265268889725e-10
+      },
+      "conditional_delta": 4.825229589215548e-05,
+      "delta_vs_polish": 4.825229589215548e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.0030133058006685323,
+      "orthogonality": 2.220446049250313e-15,
+      "old_span_replay": 1.165931482442922e-15,
+      "core_normal_residual": 0.0,
+      "union_dimension": 17
+    },
+    {
+      "group": 34,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 47.99020998906572,
+        "absolute_loss_upper": 2093341.3989649676,
+        "absolute_loss_lower": 2093293.4087549783,
+        "normalized_projection_replay": 1.201916309573172e-16,
+        "splits": 7,
+        "eigenvalue_evaluations": 9,
+        "seconds": 0.00036010146141052246,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 4.787649757793399e-10
+      },
+      "conditional_delta": 2.0865958169194623e-05,
+      "delta_vs_polish": 2.0865958169194023e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.009726597011775539,
+      "orthogonality": 2.4424906541753444e-15,
+      "old_span_replay": 1.120368317945237e-15,
+      "core_normal_residual": 0.0,
+      "union_dimension": 17
+    },
+    {
+      "group": 35,
+      "ids": [
+        1,
+        6
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 21.611681626219234,
+        "absolute_loss_upper": 2071652.7877441715,
+        "absolute_loss_lower": 2071631.1760625453,
+        "normalized_projection_replay": 3.687720660119424e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.00025699660181999207,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.1560472922883938e-10
+      },
+      "conditional_delta": 2.0343453816285987e-05,
+      "delta_vs_polish": 2.034345381628719e-05,
+      "polish_gain": 1.2011609235264955e-18,
+      "node_energy_fraction": 0.00022564682726177983,
+      "orthogonality": 1.3322676295501878e-15,
+      "old_span_replay": 1.1138352422861268e-15,
+      "core_normal_residual": 0.0,
+      "union_dimension": 17
+    },
+    {
+      "group": 36,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 66.45050033549825,
+        "absolute_loss_upper": 4184553.7000505608,
+        "absolute_loss_lower": 4184487.249550225,
+        "normalized_projection_replay": 3.190547569688984e-16,
+        "splits": 6,
+        "eigenvalue_evaluations": 8,
+        "seconds": 0.0003191903233528137,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 6.629304641696401e-10
+      },
+      "conditional_delta": 4.1266090052279165e-05,
+      "delta_vs_polish": 4.126609005227976e-05,
+      "polish_gain": 6.005804617632478e-19,
+      "node_energy_fraction": 0.001468362277157737,
+      "orthogonality": 1.4432899320127035e-15,
+      "old_span_replay": 1.3158873334821678e-15,
+      "core_normal_residual": 3.2056753788289924e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 37,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 15.927517744052565,
+        "absolute_loss_upper": 6669779.059114071,
+        "absolute_loss_lower": 6669763.131596327,
+        "normalized_projection_replay": 1.9318732091906016e-16,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.00028743594884872437,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.5889777620672564e-10
+      },
+      "conditional_delta": 6.639977247507804e-05,
+      "delta_vs_polish": 6.639977247507685e-05,
+      "polish_gain": -1.2011609235264955e-18,
+      "node_energy_fraction": 0.001125040940020789,
+      "orthogonality": 1.3322676295501878e-15,
+      "old_span_replay": 1.1345998236661192e-15,
+      "core_normal_residual": 1.6461669560646196e-19,
+      "union_dimension": 17
+    },
+    {
+      "group": 38,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 0.6059155259390276,
+        "absolute_loss_upper": 9034064.626332102,
+        "absolute_loss_lower": 9034064.020416576,
+        "normalized_projection_replay": 9.004007872924231e-17,
+        "splits": 3,
+        "eigenvalue_evaluations": 5,
+        "seconds": 0.00022106245160102844,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 6.04479814042531e-12
+      },
+      "conditional_delta": 8.98302246975826e-05,
+      "delta_vs_polish": 8.98302246975826e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.0018051641076551018,
+      "orthogonality": 1.9984014443252818e-15,
+      "old_span_replay": 1.1608125943972238e-15,
+      "core_normal_residual": 1.8087392991776495e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 39,
+      "ids": [
+        1,
+        7
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 97.32244146976207,
+        "absolute_loss_upper": 5091594.961455567,
+        "absolute_loss_lower": 5091497.639014097,
+        "normalized_projection_replay": 3.273820429941598e-16,
+        "splits": 6,
+        "eigenvalue_evaluations": 8,
+        "seconds": 0.0003223717212677002,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 9.709183673852053e-10
+      },
+      "conditional_delta": 5.065176556137765e-05,
+      "delta_vs_polish": 5.0651765561377055e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.002221625322644981,
+      "orthogonality": 1.5543122344752192e-15,
+      "old_span_replay": 1.2931678105845211e-15,
+      "core_normal_residual": 7.937880967977583e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 40,
+      "ids": [
+        0,
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 57.01708733283416,
+        "absolute_loss_upper": 4436263.753588121,
+        "absolute_loss_lower": 4436206.7365007885,
+        "normalized_projection_replay": 2.0148365389149473e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.00024672970175743103,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 5.688198580946508e-10
+      },
+      "conditional_delta": 4.4090057692331496e-05,
+      "delta_vs_polish": 4.4090057692331496e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.01113956042094696,
+      "orthogonality": 1.9984014443252818e-15,
+      "old_span_replay": 1.1662316055112932e-15,
+      "core_normal_residual": 3.066604147285943e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 41,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 2.647384820824141,
+        "absolute_loss_upper": 6929297.392145184,
+        "absolute_loss_lower": 6929294.744760363,
+        "normalized_projection_replay": 2.0536928317477225e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.0002673827111721039,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.64111186408488e-11
+      },
+      "conditional_delta": 6.881745617462497e-05,
+      "delta_vs_polish": 6.881745617462378e-05,
+      "polish_gain": -1.2011609235264955e-18,
+      "node_energy_fraction": 0.004691604191769521,
+      "orthogonality": 2.4424906541753444e-15,
+      "old_span_replay": 1.1128386645937556e-15,
+      "core_normal_residual": 0.0,
+      "union_dimension": 17
+    },
+    {
+      "group": 42,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 28.821246385569975,
+        "absolute_loss_upper": 5013175.850430565,
+        "absolute_loss_lower": 5013147.029184179,
+        "normalized_projection_replay": 1.0271934400789482e-16,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.0002976953983306885,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.8752954677343e-10
+      },
+      "conditional_delta": 4.983303574669389e-05,
+      "delta_vs_polish": 4.983303574669449e-05,
+      "polish_gain": 6.005804617632478e-19,
+      "node_energy_fraction": 0.0014062201206066294,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.077773309474044e-15,
+      "core_normal_residual": 1.4001458354939895e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 43,
+      "ids": [
+        1,
+        4
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 52.38560659553874,
+        "absolute_loss_upper": 2850590.05385195,
+        "absolute_loss_lower": 2850537.668245354,
+        "normalized_projection_replay": 4.054758189124913e-17,
+        "splits": 7,
+        "eigenvalue_evaluations": 9,
+        "seconds": 0.0003781728446483612,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 5.22614793279995e-10
+      },
+      "conditional_delta": 2.804332719517897e-05,
+      "delta_vs_polish": 2.804332719517957e-05,
+      "polish_gain": 6.005804617632478e-19,
+      "node_energy_fraction": 0.0010693165351406539,
+      "orthogonality": 2.4424906541753444e-15,
+      "old_span_replay": 1.2088101011692972e-15,
+      "core_normal_residual": 3.305399385590337e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 44,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 17.83131485747403,
+        "absolute_loss_upper": 5136806.704514379,
+        "absolute_loss_lower": 5136788.873199522,
+        "normalized_projection_replay": 1.6123994129997073e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.00024848803877830505,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.7789063702362303e-10
+      },
+      "conditional_delta": 5.113366268921065e-05,
+      "delta_vs_polish": 5.113366268920945e-05,
+      "polish_gain": -1.2011609235264955e-18,
+      "node_energy_fraction": 0.003817645573828538,
+      "orthogonality": 1.9984014443252818e-15,
+      "old_span_replay": 1.2600854734471572e-15,
+      "core_normal_residual": 1.303777719568047e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 45,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 26.631168944618633,
+        "absolute_loss_upper": 6154246.887180878,
+        "absolute_loss_lower": 6154220.256011933,
+        "normalized_projection_replay": 3.3753795663390163e-17,
+        "splits": 3,
+        "eigenvalue_evaluations": 5,
+        "seconds": 0.00021373480558395386,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.6568066607024383e-10
+      },
+      "conditional_delta": 6.100816516551951e-05,
+      "delta_vs_polish": 6.100816516551891e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.006684584926037526,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.0938254082517784e-15,
+      "core_normal_residual": 1.4431048830446766e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 46,
+      "ids": [
+        1,
+        7
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 12.780101865828073,
+        "absolute_loss_upper": 4900568.6078616185,
+        "absolute_loss_lower": 4900555.827759753,
+        "normalized_projection_replay": 3.704531565376312e-17,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.00026278942823410034,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.2749819518699283e-10
+      },
+      "conditional_delta": 4.856440720261863e-05,
+      "delta_vs_polish": 4.8564407202618024e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.00223094133929874,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.1205139767749834e-15,
+      "core_normal_residual": 2.0542924926767725e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 47,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 42.34952395430422,
+        "absolute_loss_upper": 5764778.189795213,
+        "absolute_loss_lower": 5764735.840271258,
+        "normalized_projection_replay": 9.311886640124408e-17,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.00025324150919914246,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 4.224917710272299e-10
+      },
+      "conditional_delta": 5.736249404618488e-05,
+      "delta_vs_polish": 5.736249404618548e-05,
+      "polish_gain": 6.005804617632478e-19,
+      "node_energy_fraction": 0.0011449187258239684,
+      "orthogonality": 2.220446049250313e-15,
+      "old_span_replay": 1.2514096196075165e-15,
+      "core_normal_residual": 9.428946527100252e-19,
+      "union_dimension": 17
+    },
+    {
+      "group": 48,
+      "ids": [
+        1,
+        10,
+        11
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 48.5583934927838,
+        "absolute_loss_upper": 7480969.157402008,
+        "absolute_loss_lower": 7480920.5990085155,
+        "normalized_projection_replay": 4.6908735246291114e-17,
+        "splits": 6,
+        "eigenvalue_evaluations": 8,
+        "seconds": 0.0003293231129646301,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 4.844333477547447e-10
+      },
+      "conditional_delta": 7.44597308737629e-05,
+      "delta_vs_polish": 7.44597308737617e-05,
+      "polish_gain": -1.2011609235264955e-18,
+      "node_energy_fraction": 0.0009679630529556531,
+      "orthogonality": 2.886579864025407e-15,
+      "old_span_replay": 1.265642004383587e-15,
+      "core_normal_residual": 6.979812129629926e-20,
+      "union_dimension": 17
+    },
+    {
+      "group": 49,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 69.33294721681195,
+        "absolute_loss_upper": 4472402.094623623,
+        "absolute_loss_lower": 4472332.7616764065,
+        "normalized_projection_replay": 2.7674081779867574e-16,
+        "splits": 3,
+        "eigenvalue_evaluations": 5,
+        "seconds": 0.00020996853709220886,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 6.916866336390343e-10
+      },
+      "conditional_delta": 4.445375921253612e-05,
+      "delta_vs_polish": 4.445375921254092e-05,
+      "polish_gain": 4.804643694105982e-18,
+      "node_energy_fraction": 0.0017292121574788186,
+      "orthogonality": 2.3314683517128287e-15,
+      "old_span_replay": 1.359968807626866e-15,
+      "core_normal_residual": 1.8408270110799184e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 50,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 23.61890665528276,
+        "absolute_loss_upper": 4694315.231316722,
+        "absolute_loss_lower": 4694291.612410068,
+        "normalized_projection_replay": 2.3032908091293e-16,
+        "splits": 3,
+        "eigenvalue_evaluations": 5,
+        "seconds": 0.00020856782793998718,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.356294184861325e-10
+      },
+      "conditional_delta": 4.65551042322928e-05,
+      "delta_vs_polish": 4.65551042322928e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.0031472552714763174,
+      "orthogonality": 1.4432899320127035e-15,
+      "old_span_replay": 1.2602897469285039e-15,
+      "core_normal_residual": 2.7624357794923286e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 51,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 3.776092172155306,
+        "absolute_loss_upper": 8216622.349534603,
+        "absolute_loss_lower": 8216618.573442431,
+        "normalized_projection_replay": 1.7027344967798183e-16,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.00029069557785987854,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.76714475255349e-11
+      },
+      "conditional_delta": 8.131478755196174e-05,
+      "delta_vs_polish": 8.131478755196115e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.005622388965553394,
+      "orthogonality": 2.220446049250313e-15,
+      "old_span_replay": 1.1278617601423417e-15,
+      "core_normal_residual": 1.2635952835833689e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 52,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 22.44872161100453,
+        "absolute_loss_upper": 6871025.128233489,
+        "absolute_loss_lower": 6871002.679511878,
+        "normalized_projection_replay": 4.148718033472778e-16,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.00028930604457855225,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 2.2395529548252692e-10
+      },
+      "conditional_delta": 6.823528897958131e-05,
+      "delta_vs_polish": 6.823528897958192e-05,
+      "polish_gain": 6.005804617632478e-19,
+      "node_energy_fraction": 0.004321015002935201,
+      "orthogonality": 1.9984014443252818e-15,
+      "old_span_replay": 1.176605847935687e-15,
+      "core_normal_residual": 9.66571306393244e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 53,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 65.92986008662886,
+        "absolute_loss_upper": 6442302.335096607,
+        "absolute_loss_lower": 6442236.40523652,
+        "normalized_projection_replay": 2.25794753927058e-17,
+        "splits": 6,
+        "eigenvalue_evaluations": 8,
+        "seconds": 0.00034313276410102844,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 6.577363982091767e-10
+      },
+      "conditional_delta": 6.394697230370582e-05,
+      "delta_vs_polish": 6.394697230370582e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.0010372586561222257,
+      "orthogonality": 2.220446049250313e-15,
+      "old_span_replay": 1.238844943428501e-15,
+      "core_normal_residual": 1.9747107566507936e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 54,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 43.217344330060065,
+        "absolute_loss_upper": 5009606.685789211,
+        "absolute_loss_lower": 5009563.46844488,
+        "normalized_projection_replay": 4.52955081337492e-17,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.0002493858337402344,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 4.3114941185176955e-10
+      },
+      "conditional_delta": 4.9842681910717015e-05,
+      "delta_vs_polish": 4.9842681910717015e-05,
+      "polish_gain": 0.0,
+      "node_energy_fraction": 0.0014056504766418727,
+      "orthogonality": 1.1102230246251565e-15,
+      "old_span_replay": 1.1586178608904379e-15,
+      "core_normal_residual": 1.2266064741395354e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 55,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 11.485920643704793,
+        "absolute_loss_upper": 4502078.578685782,
+        "absolute_loss_lower": 4502067.0927651385,
+        "normalized_projection_replay": 1.0049885753962951e-16,
+        "splits": 2,
+        "eigenvalue_evaluations": 4,
+        "seconds": 0.0001693926751613617,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.1458704848425694e-10
+      },
+      "conditional_delta": 4.480967114607284e-05,
+      "delta_vs_polish": 4.4809671146073135e-05,
+      "polish_gain": 3.002902308816239e-19,
+      "node_energy_fraction": 0.0021874991959708896,
+      "orthogonality": 1.5543122344752192e-15,
+      "old_span_replay": 1.184896796205753e-15,
+      "core_normal_residual": 0.0,
+      "union_dimension": 17
+    },
+    {
+      "group": 56,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 44.01098285269811,
+        "absolute_loss_upper": 6087601.826262534,
+        "absolute_loss_lower": 6087557.81527968,
+        "normalized_projection_replay": 1.5206829037290713e-16,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.0002904832363128662,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 4.390669918780901e-10
+      },
+      "conditional_delta": 6.039992995449818e-05,
+      "delta_vs_polish": 6.039992995449698e-05,
+      "polish_gain": -1.2011609235264955e-18,
+      "node_energy_fraction": 0.007794953173624466,
+      "orthogonality": 2.1094237467877974e-15,
+      "old_span_replay": 1.1327367555655032e-15,
+      "core_normal_residual": 7.234333054877406e-19,
+      "union_dimension": 17
+    },
+    {
+      "group": 57,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 6.052045718667329,
+        "absolute_loss_upper": 6536982.60349158,
+        "absolute_loss_lower": 6536976.551445861,
+        "normalized_projection_replay": 5.094596142119102e-16,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.00025072693824768066,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 6.037705445701116e-11
+      },
+      "conditional_delta": 6.49940367143852e-05,
+      "delta_vs_polish": 6.499403671438459e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.005382813501605972,
+      "orthogonality": 2.4424906541753444e-15,
+      "old_span_replay": 1.1984197833901628e-15,
+      "core_normal_residual": 1.1267993888984671e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 58,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 6.839982968317435,
+        "absolute_loss_upper": 6644610.691098669,
+        "absolute_loss_lower": 6644603.8511157,
+        "normalized_projection_replay": 4.337989140085371e-17,
+        "splits": 5,
+        "eigenvalue_evaluations": 7,
+        "seconds": 0.00029383599758148193,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 6.823775684465072e-11
+      },
+      "conditional_delta": 6.601367401354338e-05,
+      "delta_vs_polish": 6.601367401354458e-05,
+      "polish_gain": 1.2011609235264955e-18,
+      "node_energy_fraction": 0.00477643447845007,
+      "orthogonality": 2.3314683517128287e-15,
+      "old_span_replay": 1.1837944447592196e-15,
+      "core_normal_residual": 7.397402986348234e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 59,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 38.47606034591395,
+        "absolute_loss_upper": 7936196.777370441,
+        "absolute_loss_lower": 7936158.301310095,
+        "normalized_projection_replay": 1.4078314954860205e-17,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.0002544037997722626,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.8384891634758475e-10
+      },
+      "conditional_delta": 7.901727596540909e-05,
+      "delta_vs_polish": 7.901727596541029e-05,
+      "polish_gain": 1.2011609235264955e-18,
+      "node_energy_fraction": 0.002090073534917259,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.2525999195535878e-15,
+      "core_normal_residual": 1.1186750491569881e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 60,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 11.946578178937392,
+        "absolute_loss_upper": 3743720.0886055958,
+        "absolute_loss_lower": 3743708.1420274167,
+        "normalized_projection_replay": 4.794810790552132e-16,
+        "splits": 6,
+        "eigenvalue_evaluations": 8,
+        "seconds": 0.0003404766321182251,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.1918270859385965e-10
+      },
+      "conditional_delta": 3.717873929709636e-05,
+      "delta_vs_polish": 3.717873929709516e-05,
+      "polish_gain": -1.2011609235264955e-18,
+      "node_energy_fraction": 0.0009216245191411265,
+      "orthogonality": 3.3306690738754696e-15,
+      "old_span_replay": 1.246589161709578e-15,
+      "core_normal_residual": 2.6323557171903193e-18,
+      "union_dimension": 17
+    },
+    {
+      "group": 61,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 12.371806766508458,
+        "absolute_loss_upper": 5105433.551208994,
+        "absolute_loss_lower": 5105421.1794022275,
+        "normalized_projection_replay": 4.9463022294358283e-17,
+        "splits": 3,
+        "eigenvalue_evaluations": 5,
+        "seconds": 0.00023225322365760803,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 1.2342491871287204e-10
+      },
+      "conditional_delta": 5.0734426841229035e-05,
+      "delta_vs_polish": 5.073442684122964e-05,
+      "polish_gain": 6.005804617632478e-19,
+      "node_energy_fraction": 0.0030037532791819884,
+      "orthogonality": 1.7763568394002505e-15,
+      "old_span_replay": 1.2575982848077472e-15,
+      "core_normal_residual": 1.2288439566562279e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 62,
+      "ids": [
+        1,
+        10,
+        11
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 88.99559925720348,
+        "absolute_loss_upper": 6658404.083043921,
+        "absolute_loss_lower": 6658315.087444663,
+        "normalized_projection_replay": 1.36647055808142e-16,
+        "splits": 7,
+        "eigenvalue_evaluations": 9,
+        "seconds": 0.0003604777157306671,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 8.878472491066582e-10
+      },
+      "conditional_delta": 6.61693030129847e-05,
+      "delta_vs_polish": 6.61693030129841e-05,
+      "polish_gain": -6.005804617632478e-19,
+      "node_energy_fraction": 0.0017171724115184164,
+      "orthogonality": 1.3322676295501878e-15,
+      "old_span_replay": 1.0242626051285643e-15,
+      "core_normal_residual": 2.0133268516764463e-17,
+      "union_dimension": 17
+    },
+    {
+      "group": 63,
+      "ids": [
+        1
+      ],
+      "bound": {
+        "converged": true,
+        "absolute_loss_gap": 35.40614502885257,
+        "absolute_loss_upper": 6315708.18188427,
+        "absolute_loss_lower": 6315672.775739241,
+        "normalized_projection_replay": 8.462346039831644e-17,
+        "splits": 4,
+        "eigenvalue_evaluations": 6,
+        "seconds": 0.0002551823854446411,
+        "normalized_roundoff_margin": 1e-12,
+        "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate.",
+        "normalized_objective_gap": 3.532225045700078e-10
+      },
+      "conditional_delta": 6.28842629696035e-05,
+      "delta_vs_polish": 6.28842629696047e-05,
+      "polish_gain": 1.2011609235264955e-18,
+      "node_energy_fraction": 0.04800622499902604,
+      "orthogonality": 2.6645352591003757e-15,
+      "old_span_replay": 1.1357993238900533e-15,
+      "core_normal_residual": 2.3437518685548953e-17,
+      "union_dimension": 17
+    }
+  ],
+  "candidate_count": 62,
+  "effective_candidates": 11,
+  "saved_floats": 1137,
+  "old_price": {
+    "old_floats": 1254400,
+    "graph_floats": 1239793,
+    "saved_float_fraction": 0.011644610969387736,
+    "int64_indices": 90,
+    "graph_numeric_bytes_fp64": 9919064,
+    "old_numeric_bytes_fp64": 10035200,
+    "old_linear_readers": 1024,
+    "graph_linear_readers": 1011,
+    "old_variable_products": 1024,
+    "graph_variable_products": 1041,
+    "coefficient_multiplications": 1239793,
+    "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+  },
+  "new_price": {
+    "old_floats": 1254400,
+    "graph_floats": 1238656,
+    "saved_float_fraction": 0.01255102040816325,
+    "int64_indices": 92,
+    "graph_numeric_bytes_fp64": 9909984,
+    "old_numeric_bytes_fp64": 10035200,
+    "old_linear_readers": 1024,
+    "graph_linear_readers": 1010,
+    "old_variable_products": 1024,
+    "graph_variable_products": 1041,
+    "coefficient_multiplications": 1238656,
+    "note": "Logical arrays only; serialization/container overhead excluded. Bias, output whitener/native U, RMS, residual and tail are common background and remain required. Dense coefficient multiply count uses each stored floating coefficient once; variable products are counted separately."
+  },
+  "matched_core_solves": [
+    {
+      "name": "baseline",
+      "objective": 0.8843382162124784,
+      "iterations": 0,
+      "seconds": 0.017302408814430237,
+      "normal_residual": 8.319833241905917e-12,
+      "converged": true,
+      "condition_bound": 6401.0,
+      "history": []
+    },
+    {
+      "name": "new_edge",
+      "objective": 0.8843672209504496,
+      "iterations": 66,
+      "seconds": 0.23866430670022964,
+      "normal_residual": 9.926856173648909e-12,
+      "converged": true,
+      "condition_bound": 6401.0,
+      "history": [
+        {
+          "iteration": 25,
+          "residual": 4.889632033288305e-07
+        },
+        {
+          "iteration": 50,
+          "residual": 5.245112170926466e-10
+        }
+      ]
+    }
+  ],
+  "objective_delta_after_joint_solve": 2.9004737971183303e-05,
+  "final_new_consumer_node_energy_fraction": 0.03069676771065302,
+  "source_sha256": "b299cade29ca4446a29ea807579ac8ab53246a6303d284207af9ee06b26e6f5c",
+  "artifact_sha256": "e49fdb6028cf6de582d71ffce17ef97af8ff47fcdfe7feead093ad22335e6a65",
+  "scope": "Numerically bounded conditional private-space search within each old-span-plus-parent union. No global reader/subspace/topology optimization, formal interval certificate, data fitting, native behavioral or circuit-identification claim."
+}

@@ -286,3 +286,7 @@ Managed wrapper V3 runs the [registered projected comparison](PROJECTED_LL1_CONV
 
 ###16:51 — exact fixed-bank relation diagnostics
 [Math review and receipts](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1651.md): exhaustive<=4group coarsening repairs0/10tojointbar; generalized-mixture and independently whitened span alignment eachfind2/64directionswithin10%error, missing16bar. Exactlinearrestrictions solved; no absent-native-structure claim. StablemodesrecapitulateLL1groups8/18, notnewcircuits; whole-group/prior-squarealiasbar misses. Firstboundednativeoriginalcompletedunconverged; remainingmatchedgraph/nativearmsmanaged.
+
+### 11 September 18:44 — Residual-aware graph incidence and bounded private-space search
+
+[RESIDUAL_PARENT_EDGE_V1_MATH.md](RESIDUAL_PARENT_EDGE_V1_MATH.md): all62possible new consumers of frozen spectral parent1 are scored against the full native residual, preserving oldparents/rank16. Best meaningful addition saves1137floats/one reader but costs2.90e-5 objective versus1e-6bar. A one-dimensional eigenvalue-envelope solver closes conditional private-space numerical bounds for all62and barelychanges the result; all-core fits converge. These are real incidence changes with conditional refits, not general topology convergence. No text fitting or circuit adoption. Earlier [two-branch rotation results](SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md) separately establish that varimax and disjoint token support are different objectives; fixed-subspace overlap can fall only3.93% under orthogonal rotation.

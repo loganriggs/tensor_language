@@ -1,0 +1,35 @@
+{
+  "held": true,
+  "rows": [
+    {
+      "name": "diagonal",
+      "grid_minimum": 1.0,
+      "held": true,
+      "converged": true,
+      "absolute_loss_gap": 1.4000078873976918e-11,
+      "absolute_loss_upper": 1.0000000000000002,
+      "absolute_loss_lower": 0.9999999999860001,
+      "normalized_projection_replay": 1.586032892321652e-17,
+      "splits": 0,
+      "eigenvalue_evaluations": 2,
+      "seconds": 0.0003685988485813141,
+      "normalized_roundoff_margin": 1e-12,
+      "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate."
+    },
+    {
+      "name": "mixed",
+      "grid_minimum": 1.2937041174628414,
+      "held": true,
+      "converged": true,
+      "absolute_loss_gap": 8.226815895184812e-11,
+      "absolute_loss_upper": 1.2937041131834852,
+      "absolute_loss_lower": 1.293704113101217,
+      "normalized_projection_replay": 3.127388801761005e-16,
+      "splits": 13,
+      "eigenvalue_evaluations": 15,
+      "seconds": 0.00035717710852622986,
+      "normalized_roundoff_margin": 1e-12,
+      "bound_scope": "FP64 eigenvalue/chord numerical bound with 1e-12 scaled margin; not a formal interval-arithmetic certificate."
+    }
+  ]
+}

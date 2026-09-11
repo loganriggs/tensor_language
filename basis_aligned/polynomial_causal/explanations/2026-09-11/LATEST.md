@@ -47,3 +47,7 @@ The shared scalar candidate substantially overlaps knownpronoun-related structur
 ### 18:26 UTC — Separate suppression screen passes; contextual gating remains unproven
 
 The frozen 128-prefix screen passes suppression and own-token specificity, but its prospective input-gating test misses. The retained-history optimizer remains unconverged and finishes worse than the restart baseline. [Branch evidence and limits](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md) · [Optimizer result](../../SHARED_READER_VARIABLE_PROJECTION_V2_MATH.md) · [Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1826.md).
+
+### 18:44 UTC — Graph consumer changes now tested against the native weight residual
+
+[Residual-aware graph edits](../../RESIDUAL_PARENT_EDGE_V1_MATH.md) test62new consumers of the existing shared reader. The best meaningful edit savesone reader but exceeds the error allowance. A bounded private-space optimization confirms the local heuristic was not the main issue; broader reader/subspace/topology changes remain open. No circuit promotion or new text fitting.
