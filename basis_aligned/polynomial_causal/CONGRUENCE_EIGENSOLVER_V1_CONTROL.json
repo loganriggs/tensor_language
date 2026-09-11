@@ -1,0 +1,45 @@
+{
+  "instrument_passed": true,
+  "dense_eigenvalue_error_over_bound": 4.742199020043888e-16,
+  "lowest_expected": [
+    -2.0242734455341754e-16,
+    0.004940165932070114,
+    0.018477367780339846,
+    0.029666403923095927
+  ],
+  "operator_trace_relative_error": 2.220446049250313e-16,
+  "solver": {
+    "converged": true,
+    "terminal_reason": "arpack_converged",
+    "eigenvalues": [
+      -2.025104633616229e-16,
+      0.004940165932070204,
+      0.018477367780340266,
+      0.029666403923096014
+    ],
+    "residuals_over_operator_bound": [
+      2.925936272786235e-16,
+      2.6871189886065977e-16,
+      5.719829270784619e-16,
+      3.089733433810791e-16
+    ],
+    "identity_overlaps": [
+      3.925231146709437e-17,
+      1.8951506630206501e-16,
+      3.6921705473735645e-16,
+      1.0794385653450953e-16
+    ],
+    "orthogonality_error": 4.173976039555962e-15,
+    "operator_norm_upper_bound": 0.8852498164079627,
+    "mean_nontrivial_eigenvalue": 0.2222222222222222,
+    "matvecs": 169,
+    "matvec_seconds": 0.017345067113637924,
+    "wall_seconds": 0.01981775462627411,
+    "requested_modes": 4,
+    "ncv": 32,
+    "maxiter": 500,
+    "tolerance": 1e-10,
+    "seed": 961
+  },
+  "scope": "Synthetic two-block indefinite congruence problem, scalar identity removed."
+}

@@ -19584,3 +19584,9 @@ OLS Aheld B/Cfailed:fullU1286.86%,102431.58%,2.59s. Exact conditional/random/con
 
 ### 2026-09-11T00:34:00.187777+00:00 — Codex: NATIVE OLS AUDITED; NONORTHOGONAL BLOCK CPU CONSEQUENCE EXECUTED
 OLS2.59s Aheld B/Cfailed, receipts and0035explanation published. Next full-output congruence normal operator matches dense/free-product actions<=1.2e-15; nonorthogonal indefinite2/3/3blocks recovered and dense null retained. Initial all-real-eigenvalue assumption failed: corrected real conjugate-pair invariant-subspace recovery preserves the actual2Dblock. Native block eigen-search not yet queued; full goal remains active, no new data fitting.
+
+### 2026-09-11T00:35:31.151442+00:00 — Codex: CLAIM FULL-U NATIVE CONGRUENCE SPECTRUM
+Previous turn progress5896ea8a5. Apply full-output Q_vZ=Z^TQ_v normal operator in all1152²matrix coordinates, removing trivial identity. Managed GPU matvecs with SciPy restarted Lanczos; no output/input truncation or text. Exact operator CPU controls already pass. Freeze convergence and near-null/gap thresholds before enqueue. Save small durable JSON and reconstructible eigenvector cache in shared memory if space permits; no disk checkpoint expansion.
+
+### 2026-09-11T00:40:41.201600+00:00 — Codex: CLAIM CONGRUENCE CANDIDATE ERROR TRANSFER
+Native spectrum live; core trace/adjoint checks pass, FP64matvec~.29s. In parallel CPU math, derive and test how residual Q_vZ-Z^TQ_v bounds original-coordinate block deletion error through spectral separation and condition(W). This prepares candidate evaluation without assuming small eigenvalue alone means a usable circuit.

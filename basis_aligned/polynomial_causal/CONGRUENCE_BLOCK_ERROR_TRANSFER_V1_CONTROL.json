@@ -1,0 +1,28 @@
+{
+  "instrument_passed": true,
+  "rows": {
+    "0.0": {
+      "relative_squared_block_error": 6.993861571671126e-32,
+      "relative_squared_algebraic_residual": 2.3485657387818252e-31,
+      "bound_on_relative_squared_error": 8.45483665961455e-30,
+      "condition": 2.9999999999999982,
+      "separation": 1.5
+    },
+    "0.01": {
+      "relative_squared_block_error": 0.002283122096655926,
+      "relative_squared_algebraic_residual": 0.008188120604957834,
+      "bound_on_relative_squared_error": 0.29477234177848133,
+      "condition": 2.9999999999999982,
+      "separation": 1.5
+    },
+    "0.1": {
+      "relative_squared_block_error": 0.19475020703276028,
+      "relative_squared_algebraic_residual": 0.698446300949215,
+      "bound_on_relative_squared_error": 25.14406683417168,
+      "condition": 2.9999999999999982,
+      "separation": 1.5
+    }
+  },
+  "witness_scale_shift_relative_error": 1.1102230246251565e-16,
+  "scope": "Synthetic real block-scalar witness bound. General complex blocks require a Sylvester-separation bound; native block recovery untested."
+}
