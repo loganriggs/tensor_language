@@ -19575,3 +19575,12 @@ User priority reaffirmed: no new data discovery; FineWeb validation, Pile separa
 
 ### 2026-09-11T00:24:00.428187+00:00 — Codex: METHOD AUDIT AND CPU CONTINUATION COMPLETE
 Published weights-first coverage/assumptions explanation0022 and latest pointers. QK self-input correction passes; global sharing failure does not reject task-specific subterms. Native-dictionary OLS CPU selection/gain controls passed (4.1e-14); native run remains pending, no GPU queue change. Hourly0022 complete; next0122, scheduledmath0149. Full program goal active.
+
+### 2026-09-11T00:25:38.535603+00:00 — Codex: CLAIM NATIVE DICTIONARY OLS CAPACITY BASELINE
+Previous turn progress e6ed6bc63. Run weight-only shared OLS over4608nativeMLP17quadratic products with full-U and centered-U metrics, supports32/64/128/256/512/1024. Exact conditional writer replay and output-rank bounds; zero text/forwards. Atrace/conditional/replayedgain errors<=1e-8; BfullU128capture>=.08698912596 (existing penalized free-product capture reference, not matched objective); CfullU1024capture>=.50. Native dictionary restriction is a constructive baseline/initializer, not a substitute for unrun block/hierarchy families. Save indices and metrics only; ~11MB disk free, no large checkpoints.
+
+### 2026-09-11T00:30:25.801314+00:00 — Codex: NATIVE OLS NULL; CLAIM GENERAL CONGRUENCE-BLOCK OPERATOR
+OLS Aheld B/Cfailed:fullU1286.86%,102431.58%,2.59s. Exact conditional/random/conditioning audit executed; no broad structural negative. Next genuinely different family: nonorthogonal joint blocks Q_vZ=Z^TQ_v (Cai/Liu2016), retaining indefinite forms and full output family. Existing toy_consumer_commutant_blocks.py tests orthogonal PSD consumer forms, not this target. Build matrix-free full native-factor normal operator and dense nonorthogonal/indefinite planted controls; native eigen-search not yet queued.
+
+### 2026-09-11T00:34:00.187777+00:00 — Codex: NATIVE OLS AUDITED; NONORTHOGONAL BLOCK CPU CONSEQUENCE EXECUTED
+OLS2.59s Aheld B/Cfailed, receipts and0035explanation published. Next full-output congruence normal operator matches dense/free-product actions<=1.2e-15; nonorthogonal indefinite2/3/3blocks recovered and dense null retained. Initial all-real-eigenvalue assumption failed: corrected real conjugate-pair invariant-subspace recovery preserves the actual2Dblock. Native block eigen-search not yet queued; full goal remains active, no new data fitting.

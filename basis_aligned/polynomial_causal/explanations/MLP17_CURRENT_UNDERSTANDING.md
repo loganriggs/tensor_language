@@ -300,3 +300,11 @@ Equal-token varimax converged147.82s; A/B held C failed, median27.61factors, equ
 
 ### 11 September 00:07: full source/value tensor and routing contrast modes
 Full centered antisymmetric fraction43.39%vs43.45%permuted; including common output43.01%vs43.08%. Exact routing-wedge covariance: best4capture17.22%, rank90=31. Common-output bound limits all-U4mode capture to24.59%, requires at least30for90%. Leading mode96.28%native17.2/17.3pair; weak crosspaircorrelationmax.0525, not new circuit discovery. Joint QK1×QK2 numerator and complete denominator coefficient-Gram controls passed; native QK comparison pending. [Update](2026-09-11/explanation_2026-09-11_0005.md).
+
+
+## 11 September00:35: native-product coefficient selection
+
+Exact multi-output OLS over native4608products gives full-U128capture6.86% and
+1024capture31.58%, with well-conditioned exact writer solves. This is weight-only
+coefficient geometry, unlike the older natural-data own-neuron ceiling. No broad
+structural negative. See [result and next nonorthogonal block method](2026-09-11/explanation_2026-09-11_0035.md).

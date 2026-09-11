@@ -82,15 +82,16 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 00:22
+## Current handoff — updated 11 September 2026, 00:35
 
-Latest method and assumption audit: explanations/2026-09-11/LATEST.md.
-Joint QK signature test completed; global proportional routing17.2/17.3 failed
-on formal continuous probes. Self-input scope repair passed; no negative about
-shared subterms or task-specific input spaces. Next native-dictionary OLS CPU
-controls passed; native capacity run not queued. Weight-first structural search
-not exhausted; no new data discovery. Latest hourly00:22, next01:22; scheduled
-math22:49, next01:49. Full goal active. Check current disk before new checkpoints.
+Latest native OLS result and nonorthogonal block-method controls: explanations/
+2026-09-11/LATEST.md. Full-U128/1024nativeproducts capture6.86%/31.58%; Aheld B/C
+failed, exact conditional/conditioning/random audit complete. Next full-output
+congruence block operator Q_vZ=Z^TQ_v is implemented and controlled for indefinite,
+nonorthogonal planted blocks and a dense null. Complex-conjugate eigenpairs can
+represent real2Dblocks; nullity is not block count. Native eigen-search not queued.
+No new data discovery. Latest hourly00:22,next01:22; math22:49,next01:49.
+Full goal active; check disk before checkpoints, only~10MBfree this turn.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
