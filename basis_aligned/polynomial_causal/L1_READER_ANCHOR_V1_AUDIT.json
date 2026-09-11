@@ -1,0 +1,67 @@
+{
+  "control": {
+    "bound": 0.04875,
+    "attained_objective": 0.04875,
+    "equality_error": 0.0,
+    "maximum_kkt": 1.3877787807814457e-17,
+    "sampled_objective_minimum": 4.376057677395327
+  },
+  "initial_reader_replay_error": 2.220446049250313e-16,
+  "objective_replay_error": null,
+  "current_objective": 0.28875167121446044,
+  "snapshot_iteration": 81,
+  "snapshot_precision": "float64",
+  "last_recorded_check": {
+    "iteration": 80,
+    "objective": 0.28875932880841426,
+    "squared_relative_error": 0.39592026769963296,
+    "captured_energy": 0.604079732300367,
+    "penalty_value": 0.09079919495859781,
+    "code_stationarity": 0.0015349375353546273,
+    "dictionary_stationarity": 1.7440167541086242e-07,
+    "relative_stationarity": 0.0015349375353546273,
+    "median_active": 47.0,
+    "mean_active": 33.39534505208333,
+    "p90_active": 60.0,
+    "atom_norm_max": 1.0000000000000002,
+    "nonzero_codes": 205181
+  },
+  "atom_usage": {
+    "median_squared_code_effective_readers": 2.3323084482287157,
+    "fraction_effective_readers_at_most_three": 0.8793402777777778,
+    "own_initial_reader_squared_code_share": 0.6041991238779365,
+    "median_initial_atom_cosine": 0.8905992510309287,
+    "fraction_initial_atom_cosine_over_point9": 0.3454861111111111,
+    "median_nonzero_reader_count": 88.0
+  },
+  "groups": {
+    "initial_atom_readers": {
+      "count": 2304,
+      "capture": 0.7789436486797878,
+      "mean_objective": 0.15537510294969759,
+      "mean_objective_above_row_bound": 0.10662510294969758,
+      "median_active_codes": 1.0
+    },
+    "other_training_readers": {
+      "count": 3840,
+      "capture": 0.49916316076312695,
+      "mean_objective": 0.36877761217331806,
+      "mean_objective_above_row_bound": 0.32002761217331804,
+      "median_active_codes": 54.0
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_concentrated_usage": true,
+    "pred_c_own_reader_share": true,
+    "pred_d_initial_alignment": false
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_l1_reader_anchor_v1_snapshot.pt",
+    "sha256": "6ed56540da590398bc74c9b10c9824464a9da17b2c9e073a02257ca80d7fe71d",
+    "bytes": 155736074,
+    "live_source": "/dev/shm/bilin18_overcomplete_l1_reader_v1_s0_fit.pt"
+  },
+  "seconds": 0.8787049278616905,
+  "scope": "Intermediate immutable training-only snapshot, not final fit or heldout validation. Squared code contributions are not additive folded function energy. Universal row bound follows triangle inequality and unit atom norms."
+}

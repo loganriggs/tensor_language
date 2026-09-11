@@ -1,9 +1,11 @@
 # Latest research update
 
-**11 September, 09:18 UTC:** [Completed dictionary, output-fit and stability results](explanation_2026-09-11_0902.md#update0918).
+**11 September, 09:47 UTC:** [First overcomplete result, with unfinished optimization](explanation_2026-09-11_0940.md#update0947).
 
-The oblique comparison missed its quality targets. Exact output refitting raises the best coefficient capture to 30.76%, versus refitted PCA at 29.17%, but the two converged ordinary fits still represent different functions (cosine 0.368). Similar reconstruction scores do not establish stable features.
+The first overcomplete dictionary reaches **43.77%** full folded coefficient capture versus its sampled-dictionary baseline of **38.68%**. Joint convergence is missed; historical held-out reader gain is **0.94 percentage points**, below the two-point target. This is a larger dictionary and is not a matched-capacity comparison with earlier methods. The second start is running.
 
-Overcomplete L1 discovery is now running. A small frozen-program FineWeb diagnostic is queued afterward; no text fitting or million-token discovery sweep. Pile remains a separate OOD check.
+Separately, [better support encoding](explanation_2026-09-11_0940.md) raises two complete dictionaries to **33.21% / 33.16%** at unchanged size. Their functions remain different (cosine0.423). The live overcomplete experiment retains its original encoder and protocol.
 
-[Methods and assumptions](explanation_2026-09-11_0902.md) · [Primary receipt index](../../WEIGHT_ONLY_METHODS_INDEX.md).
+A small frozen FineWeb diagnostic is queued afterward. No text-based discovery or new million-token sweep.
+
+[09:22 hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_0922.md) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).

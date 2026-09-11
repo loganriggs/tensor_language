@@ -86,7 +86,7 @@ token-specific remainders, folded backward through the actual model.
 
 Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 [method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
-and [hourly08:22 review](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0822.md).
+and [hourly09:22 review](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0922.md).
 Current receipts/processes override this snapshot; executed sources and bindings stay frozen.
 
 - **Live:** `run_overcomplete_l1_reader_v1.py`, SHA
@@ -133,8 +133,8 @@ or historical handoff block for every small control. No new publisher framework.
 ## Review clocks and throughput
 
 Latest hourly review:
-[08:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0822.md).
-Next hourly review is due **09:22 UTC on11September** at the first safe boundary.
+[09:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0922.md).
+Next hourly review is due **10:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [07:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md).
 Next mathematical review is due **10:51 UTC on11September**. Derive later deadlines from the

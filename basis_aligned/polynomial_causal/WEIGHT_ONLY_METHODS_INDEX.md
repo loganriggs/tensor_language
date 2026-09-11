@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 08:26 UTC. Use this index before opening a structural family
+Updated 11 September 09:40 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -165,3 +165,11 @@ Current09:02: [user-requested methods review](explanations/2026-09-11/explanatio
 [Frozen radial FineWeb protocol](FROZEN_RADIAL_FINEWEB_V1_PREREGISTRATION.md) is queued after the existingweight-only L1discovery, sourceSHA18e3a6fc... . Eightfixedprograms,64historicallyopenedFineWebrows/8192predictionpositions,10bodyforwards/80sequences, no fitting. Native/physicalreplacementreplay, full-Uoutputerror, KL and CEadded. Radial-onlybaseline included; ideal-sphere74% is not FineWeb evidence. No fresh/documentholdout/OOD or circuit claim.
 
 Completed09:15 [oblique comparison](OBLIQUE_READER_DICTIONARY_V1_RESULT.json): Aheld,B/C/Dmiss; ordinarybothconverged, Tylerbothtimeouts. Heldoutreader43.64–43.79%, beloworthogonal/PCA. [Exact Down comparison](READER_CONDITIONAL_WRITER_V1_RESULT.json),17.01s: A/B/Dheld,Cmiss; everyfamilyimproves<1pp, butalllearnedfamiliesbeatrefittedPCA29.1721%by>=1pp inbothstarts. Bestordinary30.7649/30.7081%. [Refitted whole-function stability](REFITTED_READER_FUNCTION_STABILITY_V1_AUDIT.json) Aheld,Bmiss: cosine.367805 despiteconvergedparentbases/exactDown; squaredfunctiondifference/native.38863. Similarcaptureisnotstableidentification. NativeovercompleteL1 isnowlive; FineWebradialdiagnosticqueuedafterit. NoidenticalMSP/obliquecontinuation.
+
+09:40 encoder repair: [zero-padding permutation control](LASSO_PADDING_PERMUTATION_V1_CONTROL.json) holdsallbars; identicalfeatures/rawLassocodes but paddedtopk+LS capture73.12–86.02%. [OLScompletion](LASSO_OLS_COMPLETION_V1_CONTROL.json) matchesexistingOLS/fixescontrol. [64native-reader diagnostic](NATIVE_LASSO_OLS_COMPLETION_V1_AUDIT.json)42.28%legacy,45.52%scaledlambda,47.49%OLS atsame128terms. [Fullordinary0recoding](FULL_OBLIQUE_OLS_COMPLETION_V1_RESULT.json)allbarsheld: full-Ucapture29.9058%to33.2108%, samebasis/Down/price; historicaltestreader47.6138%vsparent43.7888%, notfreshmethodvalidation. CPU84.13s, savednewartifact. LiveL1andFineWebsourcesunchanged.
+
+[L1initialization snapshot](L1_READER_ANCHOR_V1_AUDIT.json): unitatommatchingreader attainsLassorowlowerboundlambda-lambda²/2; iteration81owninitialreader60.42%codeenergy,medianparticipation2.33but88nonzerouses,medianinitialatomcos.8906miss. Intermediatecodeauditonly. OriginalAbooleanincorrectlyacceptedmissingobjective replay; [correction](L1_READER_ANCHOR_REPLAY_V1_AUDIT.json) marksoriginalAunverified. IndependentGramobjectiveagrees5.55e-17butdoesnotinventmissinghistoricaldiag. Review0922keepsL1liveandfeature/encoderfailuresseparate.
+
+[Second-start OLScompletion](FULL_OBLIQUE_OLS_COMPLETION_S937_V1_RESULT.json) A/B/C/Dheld,Efailed: capture29.8454%to33.1620%,historicaltest47.5671%; nativeDownretained. Cross-startwholefunctioncos.423463misses.9 despite replicatedcapturegain. No stableunitclaim; notdirectlycomparable toearlierrefittedDownfunctioncos.3678. Bothparentbaseslocallyconverged; supportselectionremainsspecificgreedyencoder.
+
+FirstovercompleteL1start[fit](OVERCOMPLETE_L1_READER_V1_SEED_0_FIT.json)ends1802.09s/403cycles,jointstationarity.000624381(unconverged). [Beforefitting](OVERCOMPLETE_L1_READER_V1_untrained_SEED_0.json)heldout45.9175%/full38.6816%; [learned](OVERCOMPLETE_L1_READER_V1_learned_SEED_0.json)heldout46.8562%/full43.7746%. Ownbaselinefullgain5.093pp,butheldoutgain.939ppmisses2pp. OriginalcampaignB/Ccannotpass; secondstartliveforremainingcomparisons. NativeL1encoderstilloriginalpaddedtop128, notOLSrepair. Price9.142Mmatrixcoeffvscomplete7.815M; no matchedcapacity/globalfit/circuitclaim.

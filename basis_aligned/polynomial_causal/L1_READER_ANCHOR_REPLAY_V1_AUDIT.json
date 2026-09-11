@@ -1,0 +1,18 @@
+{
+  "predictions": {
+    "pred_a_source": true,
+    "pred_b_independent_objective": true
+  },
+  "gram_objective": 0.2887516712144604,
+  "row_residual_objective": 0.28875167121446044,
+  "absolute_error": 5.551115123125783e-17,
+  "source": {
+    "path": "/dev/shm/bilin18_l1_reader_anchor_v1_snapshot.pt",
+    "sha256": "6ed56540da590398bc74c9b10c9824464a9da17b2c9e073a02257ca80d7fe71d",
+    "bytes": 155736074,
+    "live_source": "/dev/shm/bilin18_overcomplete_l1_reader_v1_s0_fit.pt"
+  },
+  "original_pred_a_status": "unverified: no same-iteration logged objective",
+  "correction": "Original pred_a_instrument=true improperly accepted a missing replay. This independent algebra check validates the computed snapshot objective; it cannot supply the absent historical diagnostic.",
+  "scope": "No fitting, live mutation or changed B/C/D thresholds."
+}
