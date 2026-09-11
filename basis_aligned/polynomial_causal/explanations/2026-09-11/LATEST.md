@@ -1,9 +1,9 @@
 # Latest research update
 
-**11 September, updated 06:42 UTC:** [Weights-first methods, assumptions, and bottlenecks](explanation_2026-09-11_0608.md#weights-first-methods).
+**11 September, 06:48 UTC:** [Initial structured fits complete; saved-state continuation live](explanation_2026-09-11_0608.md#structured-continuation0648).
 
-The first native structured-transform chunk captured 1.4968% of squared coefficient norm and remains unconverged; the second registered start is running. This is unfinished optimization, not evidence against the representation. The numerical preflight repair passed. Earlier small-frame fits converged at 5.94% capture.
+Initial chunks captured 1.4968% / 0.9388% of squared coefficient norm. Both remain unconverged and were still improving. A managed continuation started at 06:47:48, with exact first-start replay and restored optimizer history. Budget: 30 additional minutes per start, five-minute checkpoints. Original quality/convergence misses remain recorded.
 
-[Method/receipt index](../../WEIGHT_ONLY_METHODS_INDEX.md) · [Full combined explanation](explanation_2026-09-11_0608.md).
+[Methods, assumptions and bottlenecks](explanation_2026-09-11_0608.md#weights-first-methods) · [Method/receipt index](../../WEIGHT_ONLY_METHODS_INDEX.md).
 
-Check `STRUCTURED_BILINEAR_NATIVE_V2_RESULT.json` and the managed runner before any continuation. FineWeb validates frozen candidates; Pile is OOD. No new data-guided discovery.
+Read `STRUCTURED_BILINEAR_CONTINUE_V1_RESULT.json`, per-seed receipts and the live runner before any resubmission. Weight-only discovery; FineWeb validation and separately labelled Pile OOD remain later stages.

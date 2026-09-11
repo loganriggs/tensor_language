@@ -504,3 +504,5 @@ multioutput programs. No behavioral identification. [Combined explanation](2026-
 11 September06:10:23x4full-quadraticframe nativefits bothlocallyconverged, capture5.9467/5.9385%, no gain overoldblocks. Commoncapture43.66/44.46%; centered3.02/2.95%. Input-supportceiling18.76%for92readers. [Latest explanation](2026-09-11/explanation_2026-09-11_0608.md) linksreceipts. Compactfull-rankmixed-radixfamily onlyhasplantedcontrols, no nativeclaim.
 
 11 September06:34: nativefullrankstructured-map fit isrunning. Exactfull-Uobjective/parameterchain controls pass; V1stoppedonFDtruncation beforejointfit, V2reuses savedinitialization withverifiedRichardsoncheck. No structuralverdict yet. [Current update](2026-09-11/explanation_2026-09-11_0608.md#native-fit-update0634).
+
+- 11 September06:48: full-rank structured maps completed initial chunks at1.4968/0.9388% full-U coefficient capture; both time-limited and unconverged. Same-objective saved-state continuation is live. See [initial result](../STRUCTURED_BILINEAR_NATIVE_V2_RESULT.json) and [continuation protocol](../STRUCTURED_BILINEAR_CONTINUE_V1_PREREGISTRATION.md); no circuit identification claim.

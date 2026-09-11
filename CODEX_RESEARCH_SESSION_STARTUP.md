@@ -82,22 +82,25 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 06:42 UTC
+## Current handoff — 11 September 06:48 UTC
 
-Read explanations/2026-09-11/LATEST.md and the weights-first-methods section of
-explanation_2026-09-11_0608.md. WEIGHT_ONLY_METHODS_INDEX.md linkspriorart.
-Weights-first; no newdatafits. Fullgoalactive. Hourly0622complete,next0722;
-mathreviewstilldue0749. Do notduplicate currentnativejob.
+Read explanations/2026-09-11/LATEST.md and structured-continuation0648 in
+explanation_2026-09-11_0608.md. WEIGHT_ONLY_METHODS_INDEX.md links prior art.
+Weights-first; no new data fits. Hourly next0722; math next0749.
 
-Managed run_structured_bilinear_native_v2.py started06:32:45, sourceSHA
-38fa1341eb11da7e5d1297eedc3404b0909cfab6aa06ef17219360f83bc6bd08.
-Fourfull1152-widebranches/12mixedradixmaps,276480coefficients/4608products,
-alltoken/full-Uweightobjective, exactchunkedanalyticfactorgradients+autograd
-throughsmallstages. Seeds0/937, init<=60s thenjointL-BFGS<=300s each. Preserve
-optimizerstates andallconvergencefailures. Check STRUCTURED_BILINEAR_NATIVE_V2_RESULT.json,
-perseed/preflightreceipts andmanagedrunner forfinalstatus. Seed0 completed its
-302.5s chunk at1.4968%capture, stationarity.261: unconverged. CPU progress audit
-confirms positive finalincrement; seed937 stillrunning at06:42. No structuralnegative.
+Previous progress973e9d564. Native structured V2 completed06:44:07; both starts
+time-limited at1.4968/0.9388%capture, stationarity.261/.599, not converged.
+Both still improving. Same-objective continuation managed-live from06:47:48:
+run_structured_bilinear_continue_v1.py sourceSHA
+18bb149033110806564a10b0e7e6939387bd71b41158609b5dd99213ddb03a20.
+Loads both model and optimizer, exact native seed0 replay held, history20.
+1800 additional seconds per seed, own checkpoint every300s, same thresholds.
+Inspect STRUCTURED_BILINEAR_CONTINUE_V1_RESULT.json and SEED_0/937 receipts;
+periodic receipts can say running. Never duplicate or restart a live handle.
+Original failed convergence/quality predictions remain failed. CPU resume-next-
+step control exact. All sources and bindings frozen after enqueue. Source
+syntax for prediction keys was repaired before successful enqueue; no failed
+native continuation attempt. Full goal active; no circuit identification yet.
 
 V1factorinitializationseed0completed56.4s; jointfitneverstarted becauseFDstep
 1e-4 gave8.63e-4relativeerror. Savedstate inV1PREFLIGHT_0receipt. Nativeaudit

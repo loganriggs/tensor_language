@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 06:34 UTC. Use this index before opening a structural family
+Updated 11 September 06:48 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -65,7 +65,9 @@ passes execution/gradient/full-mode-rank checks, with276480proposedcoefficients
 atnativewidth4608. [Small planted fit](MIXED_RADIX_PLANTED_V1_RESULT.json) recovers
 2/3starts; [failed-point curvature audit](MIXED_RADIX_CURVATURE_V1_AUDIT.json)
 finds no useful negative-curvature escape. [Native V2 jointfit protocol](STRUCTURED_BILINEAR_NATIVE_V2_PREREGISTRATION.md)
-is nowrunning throughmanagedlane1. V1stoppedbeforejointfit onFDtruncation;
+completed: both starts time-limited, capture1.4968/0.9388%, unconverged.
+[Saved-state continuation](STRUCTURED_BILINEAR_CONTINUE_V1_PREREGISTRATION.md)
+is managed-live from06:47:48, exact first-start replay passed. V1stoppedbeforejointfit onFDtruncation;
 [step-sizeaudit](STRUCTURED_GRADIENT_STEP_AUDIT_V1_RESULT.json) verifiesrepair.
-No finalnativeverdict or globalrecoverabilityclaim; fixedwiring/initialization
+No converged native verdict or globalrecoverabilityclaim; fixedwiring/initialization
 remain limitations. Inspect currentresult/runner before any resubmission.
