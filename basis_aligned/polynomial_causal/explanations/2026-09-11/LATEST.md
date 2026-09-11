@@ -92,3 +92,7 @@ Forty-eight weight-derived squares transfer 18–21% of grammatical answer chang
 ### 20:50 — Change prediction survives new words and harder constructions
 
 The same frozen 48-square program passes transfer, effect-fidelity and swap-control bars on new lexical items, plural attractors, relative clauses and single/several noun cues. Recovery is 12–17% of native answer change, with 4–9% effect error. Ordinary replacement remains failed; restoring the original trace did not repair it. A three-product simplification predicts verb changes much better than noun changes and fails the joint criterion. [Primary results and scope](../../BRANCH_TOKEN_RELATIONS_V1_MATH.md).
+
+### 21:03 — Limited removal passes; composition is accounted for
+
+Removing the fixed component attenuates grammatical contrasts by 13–21%, with small effects on the reused unrelated controls. An exact leading/remainder split composes in state space; its strict task-specificity and CE-additivity criteria fail. Executed CE accounting attributes most nonadditivity to loss curvature, with small extra tail corrections. Ordinary replacement and broader selectivity remain open. [Primary results and caveats](../../BRANCH_TOKEN_RELATIONS_V1_MATH.md).

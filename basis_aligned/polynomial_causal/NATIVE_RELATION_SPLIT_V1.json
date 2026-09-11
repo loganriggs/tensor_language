@@ -1,0 +1,34 @@
+{
+  "pred_a": true,
+  "replay_errors": [
+    1.8470524841579042e-16,
+    0.0,
+    1.6872514042991016e-16,
+    5.551115123125783e-17,
+    1.6168871939242464e-16,
+    5.551115123125783e-17,
+    1.0597861523512162e-15,
+    1.7194301566139057e-15,
+    2.0460186189354223e-15
+  ],
+  "natural_checks": [
+    {
+      "panel": "FROZEN_BRANCH_MORPHOLOGY_V1",
+      "execution_error": 1.7194301566139057e-15
+    },
+    {
+      "panel": "NATIVE_RELATION_HOLDOUT_V1",
+      "execution_error": 2.0460186189354223e-15
+    }
+  ],
+  "source_sha256": "c367ffa2671b63ce1c73d4582581f66f9447dc1c9d2aaf3840b7a52b39a8b077",
+  "artifact_sha256": "726d784c3b95d87ea3368620b8a654fefe806f821cf4887bc3d8f31b3265fb08",
+  "price": {
+    "variable_products": 45,
+    "dense_input_readers": 48,
+    "shared_radius_required": true,
+    "physical_writers": 3,
+    "native_background_retained": true
+  },
+  "scope": "Known signed-square pairing, exact split of one frozen program. Leading part includes original radial/bias; remaining part has its trace removed. No inferred semantic hierarchy, fitting, native full-layer replacement or behavioral result."
+}

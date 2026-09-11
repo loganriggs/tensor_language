@@ -175,3 +175,54 @@ Descriptive construction-specific accounting also retains the result: plural-att
 Ordinary replacement still changes CE too much: mean absolute changes are **0.08663/0.09459/0.08292/0.01833** for verb, noun, adjective and unrelated families. All original replacement failures remain. The trace-corrected program is useful for the tested changes, not an adopted replacement.
 
 The prospectively specified three-product CPU check was then executed on the new cache. Algebra passes; the simplification criteria still fail. Physical-write relative error is about **15% for verbs and 53–55% for nouns**, with all scalar signs correct. [Holdout one-product result](NATIVE_RELATION_ONE_PRODUCT_V1_HOLDOUT.json). These are the saved coefficient-optimal leading products, not the best possible three-product task predictor. The differing errors motivate a concrete next reuse test: separate those leading products from the remaining fixed quadratic terms and measure whether a shared component plus additional terms predicts the two behaviors' effects and their composition. It does not yet establish that split as a semantic hierarchy.
+
+## Exact split, composition and removal
+
+The next test is completed. Each of the three scalar functions is split into its largest positive/negative eigenpair and the remaining fourteen signed squares. The eigenpair becomes one real product using the existing signed-square pairing identity. The original radial term and bias belong to the leading part; both parts receive their specified trace corrections. Their sum is exactly the prior trace-corrected program. This assignment matters for removal and is frozen before its measurement.
+
+The resulting executable artifact uses **three general products plus 42 squares**, or 45 variable products, with the same 48 dense input readers. The saving of three products is a known algebraic rewrite, not a new circuit discovery. Independent leading-eigenpair, trace and full-execution checks agree within $2.05\times10^{-15}$, including both native input panels. [Compiler and artifact receipt](NATIVE_RELATION_SPLIT_V1.json).
+
+Write the physical outputs of these parts as $C(x)$ and $R(x)$. Their individual donor swaps add $\Delta C=C(x_d)-C(x_b)$ or $\Delta R=R(x_d)-R(x_b)$ to the same native base state. The joint swap adds both. Removal subtracts the relevant part at its own endpoint; it does not zero the entire native MLP. The native complement remains installed and required.
+
+The managed screen used zero body forwards, 1,408 tail rows and 0.55 seconds inside execution. Earlier full-program margins replay within $6.20\times10^{-6}$ nats. **A/B/E pass; C/D fail.** [Full result](NATIVE_RELATION_COMPOSITION_V1_RESULT.json).
+
+The leading part supports both grammatical changes. The remaining terms contribute different fractions of the whole swap effect:
+
+| Panel | Remainder fraction, verbs | Remainder fraction, nouns |
+|---|---:|---:|
+| Original | 21.32% | 30.41% |
+| Construction holdout | 7.48% | 26.98% |
+
+The preregistered requirement was at least 20% for nouns and a noun-minus-verb difference of at least ten percentage points on **both** panels. The original difference is only 9.08 points, so C fails. These measurements suggest differing contributions, but do not establish the proposed semantic split or a uniquely identified shared hierarchy.
+
+### Removal has a measurable and limited selective effect
+
+Removing the whole component at both endpoints reduces their grammatical margin contrast by **18.7–20.8% on the original panel** and **13.4–17.7% on the holdout**, exceeding the registered 10% criterion in every task/direction cell. This is attenuation of the counterfactual contrast, not erasure of the behavior or proof that every token's CE worsens.
+
+Mean absolute CE changes on the unrelated controls are **0.03884** for leading-part removal, **0.03172** for remainder removal, and **0.00506** for whole-component removal. All pass 0.05. The same sixteen unrelated controls are reused on both panels, so this is not an independent replication of collateral preservation. Their partial cancellation also shows why whole-component preservation does not imply that every part is harmless alone.
+
+Adjective/pronoun controls preserve the *same grammatical computation*. They are appropriate controls for answer-preserving swaps, but not unrelated behaviors that removal should necessarily preserve. Their removal effects are reported rather than silently excluded from the receipt. Broader controls involving other inflections and nearby grammatical behaviors remain needed before a strong selectivity claim.
+
+### State composition and CE addition are different claims
+
+The two physical writes sum exactly by construction. Their answer-margin effects are nearly additive: mean absolute nonadditivity is **0.11–0.45%** of the whole effect across tasks/panels. However, original-panel cross-entropy nonadditivity is **0.09462/0.12765** nats for verbs/nouns, above the registered 0.05 threshold. Holdout values are 0.01930/0.03399. Therefore D fails, even though the actual composed state and its native tail were evaluated directly.
+
+A subsequent CPU red-team uses the known cross-entropy identity. For capped logits $z_0,z_C,z_R,z_{CR}$, define the hypothetical additive-logit vector
+
+$$
+z_{\mathrm{add}}=z_C+z_R-z_0.
+$$
+
+Then the measured CE cross-term splits exactly into
+
+$$
+\begin{aligned}
+&\mathrm{CE}(z_{CR})-\mathrm{CE}(z_C)-\mathrm{CE}(z_R)+\mathrm{CE}(z_0)\\
+={}&\underbrace{\mathrm{CE}(z_{\mathrm{add}})-\mathrm{CE}(z_C)-\mathrm{CE}(z_R)+\mathrm{CE}(z_0)}_{\text{loss curvature under additive logits}}\\
+&+\underbrace{\mathrm{CE}(z_{CR})-\mathrm{CE}(z_{\mathrm{add}})}_{\text{additional nonlinearity in the model tail}}.
+\end{aligned}
+$$
+
+The split identity holds within $2.23\times10^{-16}$ and GPU CE cross-terms replay within $1.09\times10^{-5}$ nats. The tail correction has mean absolute magnitude **0.00127–0.00602 nats** across task/panel cells and only **3.9–7.1%** of the measured cross-term's RMS. The separately registered accounting A/B/C bars pass. Most of the failure of scalar CE addition is therefore accounted for by the loss function's curvature. No loss correction or empirical offset was fitted, and the original D failure remains. [Accounting and receipt](NATIVE_RELATION_CE_CURVATURE_V1.json).
+
+The supported object is now a fixed, executable weight-derived component with tested cross-construction change prediction, a limited selective-removal result, and explicit joint execution of its parts. It is **not** an adopted replacement, the full text-to-answer circuit, a broadly OOD-validated model, or a completed four-property decomposition. The next priority is stronger neighboring-behavior collateral tests rather than further rank reduction or relabeling the failed specificity criterion.
