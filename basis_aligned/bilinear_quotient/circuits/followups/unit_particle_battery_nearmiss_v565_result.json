@@ -1,0 +1,266 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "p_max": 0.23,
+    "tol_pool": 0.05,
+    "tol_pool_wide": 0.15,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_particle_battery_nearmiss_v565",
+  "errored_groups": [],
+  "finished_utc": "2026-09-11T03:06:38.993741+00:00",
+  "groups": {
+    "away_up": {
+      "cells": [
+        "verb_particle_away_up"
+      ],
+      "hypotheses": {
+        "A2_extraction": 1.113,
+        "A2_units_recovery": 1.007,
+        "C_same_answer_effect": 0.0176,
+        "P_damage": {
+          "ce_damage": 0.5231,
+          "ce_lb975": 0.4853,
+          "ce_ub975": 0.5603,
+          "margin_damage": 1.1486,
+          "top1_change_rate": 0.0625
+        },
+        "P_same_answer_effect": 0.0268,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 2.5085
+      },
+      "n_units": 17,
+      "per_shape": {
+        "verb_particle_away_up": {
+          "A1_damage": {
+            "ce_damage": 0.5576,
+            "ce_lb975": 0.5245,
+            "ce_ub975": 0.591,
+            "margin_damage": 1.2174,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0082,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.022,
+            "margin_damage": 0.0385,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.022,
+          "cross_abs_recovery": 1.016,
+          "joint_extraction": 1.034,
+          "n_held": 16,
+          "units_recovery": 0.983
+        },
+        "verb_particle_on_out": {
+          "A1_damage": {
+            "ce_damage": -0.068,
+            "ce_lb975": -0.0824,
+            "ce_ub975": -0.0536,
+            "margin_damage": -0.0227,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0082,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.022,
+            "margin_damage": 0.0385,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.022,
+          "cross_abs_recovery": -0.007,
+          "joint_extraction": -0.009,
+          "n_held": 16,
+          "units_recovery": 0.772
+        }
+      }
+    },
+    "down_in": {
+      "cells": [
+        "verb_particle_down_in"
+      ],
+      "hypotheses": {
+        "A2_extraction": 0.974,
+        "A2_units_recovery": 0.969,
+        "C_same_answer_effect": 0.011,
+        "P_damage": {
+          "ce_damage": 0.8788,
+          "ce_lb975": 0.6034,
+          "ce_ub975": 1.1534,
+          "margin_damage": 1.9119,
+          "top1_change_rate": 0.1562
+        },
+        "P_same_answer_effect": 0.0175,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 4.2209
+      },
+      "n_units": 12,
+      "per_shape": {
+        "verb_particle_down_in": {
+          "A1_damage": {
+            "ce_damage": 0.8961,
+            "ce_lb975": 0.63,
+            "ce_ub975": 1.1779,
+            "margin_damage": 1.972,
+            "top1_change_rate": 0.1875
+          },
+          "C_damage": {
+            "ce_damage": 0.0006,
+            "ce_lb975": -0.0048,
+            "ce_ub975": 0.0063,
+            "margin_damage": -0.0253,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0063,
+          "cross_abs_recovery": 0.977,
+          "joint_extraction": 0.99,
+          "n_held": 16,
+          "units_recovery": 0.987
+        },
+        "verb_particle_on_away": {
+          "A1_damage": {
+            "ce_damage": -0.0856,
+            "ce_lb975": -0.1238,
+            "ce_ub975": -0.0485,
+            "margin_damage": 0.0097,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": 0.0006,
+            "ce_lb975": -0.0048,
+            "ce_ub975": 0.0063,
+            "margin_damage": -0.0253,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0063,
+          "cross_abs_recovery": 0.018,
+          "joint_extraction": 0.022,
+          "n_held": 16,
+          "units_recovery": 0.815
+        }
+      }
+    },
+    "out_down": {
+      "cells": [
+        "verb_particle_out_down"
+      ],
+      "hypotheses": {
+        "A2_extraction": 0.863,
+        "A2_units_recovery": 0.943,
+        "C_same_answer_effect": 0.0042,
+        "P_damage": {
+          "ce_damage": 0.898,
+          "ce_lb975": 0.8149,
+          "ce_ub975": 0.9791,
+          "margin_damage": 1.9415,
+          "top1_change_rate": 0.1562
+        },
+        "P_same_answer_effect": 0.0568,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 4.3543
+      },
+      "n_units": 21,
+      "per_shape": {
+        "verb_particle_away_up": {
+          "A1_damage": {
+            "ce_damage": 0.0691,
+            "ce_lb975": 0.0484,
+            "ce_ub975": 0.0907,
+            "margin_damage": 0.0188,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0089,
+            "ce_lb975": -0.017,
+            "ce_ub975": -0.0013,
+            "margin_damage": -0.005,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": -0.0013,
+          "cross_abs_recovery": -0.007,
+          "joint_extraction": -0.009,
+          "n_held": 16,
+          "units_recovery": 0.779
+        },
+        "verb_particle_out_down": {
+          "A1_damage": {
+            "ce_damage": 0.9852,
+            "ce_lb975": 0.894,
+            "ce_ub975": 1.0738,
+            "margin_damage": 2.1106,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0089,
+            "ce_lb975": -0.017,
+            "ce_ub975": -0.0013,
+            "margin_damage": -0.005,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": -0.0013,
+          "cross_abs_recovery": 1.013,
+          "joint_extraction": 1.036,
+          "n_held": 16,
+          "units_recovery": 0.978
+        }
+      }
+    }
+  },
+  "per_target": {
+    "away_up": {
+      "A1": 1.034,
+      "A2": 1.113,
+      "C": 0.0176,
+      "P": 0.0268,
+      "measured": true,
+      "passes": false,
+      "provisional": true,
+      "reach": 0.772
+    },
+    "down_in": {
+      "A1": 0.99,
+      "A2": 0.974,
+      "C": 0.011,
+      "P": 0.0175,
+      "measured": true,
+      "passes": true,
+      "provisional": false,
+      "reach": 0.815
+    },
+    "out_down": {
+      "A1": 1.036,
+      "A2": 0.863,
+      "C": 0.0042,
+      "P": 0.0568,
+      "measured": true,
+      "passes": false,
+      "provisional": true,
+      "reach": 0.779
+    }
+  },
+  "predictions": {
+    "pred_a_primary_A1": true,
+    "pred_b_primary_A2": true,
+    "pred_c_primary_P_and_C": true,
+    "pred_d_primary_reach": true,
+    "pred_e_nearmiss_like_primary": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_particle_battery_nearmiss_v565",
+  "seconds": 127.0
+}
