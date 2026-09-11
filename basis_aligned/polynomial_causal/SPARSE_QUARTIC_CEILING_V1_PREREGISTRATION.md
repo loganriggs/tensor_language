@@ -1,0 +1,11 @@
+# Frozen quartic input-subspace versus edge-support diagnostic
+
+11 September 2026. Run after SPARSE_QUARTIC_NATIVE_V1 terminates successfully. The managed queue serializes execution. The producer source and dependencies are frozen in the binding; the consumer requires a completed result, pred_a true, complete two-program artifact, and the artifact SHA256 from that terminal result. Missing/failed producer output is a dependency failure, never permission to use a partial checkpoint.
+
+For each final bank calculate all3876 exact coefficient vectors. Their squared norm is the exact projection energy onto the full symmetric quartic space within those sixteen input directions. Compare the saved128-edge energy, best128 energy, and dense projected energy. The remainder outside this particular subspace is the independently estimated full native norm minus the exact projected energy. This is a ceiling for a fixed bank, not every sixteen-dimensional bank, and not a lower bound for overcomplete or block models.
+
+Predictions: A saved-output replay<=1e-8, finite spectra, orthonormality<=1e-9, exact energy decompositions<=1e-8 and savedenergy<=best128<=denseenergy. B saved128 retain>=80% of dense-bank energy in both starts. C estimated outside-bank energy>=10times discarded inside-bank energy in both starts. Bmiss suggests richer interactions within the bank; Cpass prioritizes different/larger/overlapping input spaces even ifBmisses. No circuit inference from either.
+
+Descriptive full and centered output spectra of the dense projected coefficient tensor are allowed. Save only its leading8 output-mode scalar coefficient vectors, physical writers and input bank for CPU hierarchy diagnostics, not the full dense tensor. Centered output capture fractions use centered projected energy, not the full-U native norm. These modes are not identified circuits and are not selected by text outcomes. Subsequent Gram-rank analysis must account for the proven nonuniqueness of quadratic-pair representations.
+
+No optimization, body forwards or text. Native coefficient and eigenspectrum computation only, with180s alarm. Full norm estimate retains its0.291% estimated relative standard error. All original pilot convergence misses remain, and this diagnostic must not silently repair them.

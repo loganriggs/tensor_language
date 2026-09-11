@@ -1,0 +1,55 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "maximum_replay_error": 2.356265146695833e-15,
+  "reports": [
+    {
+      "seed": 11511,
+      "normalized_report": {
+        "capture": 1.0,
+        "tangent_norm": 5.125530080230368e-08,
+        "relative_stationarity": 5.125530080230368e-08,
+        "converged": true,
+        "iterations": 1,
+        "evaluations": 1,
+        "seconds": 0.015212617814540863,
+        "stopping_criterion": "Terminated - min grad norm reached after 1 iterations, 0.00 seconds.",
+        "maximum_increase": 0.0,
+        "history": [
+          {
+            "iteration": 0,
+            "cost": -1.0,
+            "gradient_norm": 5.125530080230368e-08
+          }
+        ]
+      },
+      "energy_relative_change": 0.0,
+      "support_unchanged": true
+    },
+    {
+      "seed": 11512,
+      "normalized_report": {
+        "capture": 0.9999999999999999,
+        "tangent_norm": 4.5399630944258186e-08,
+        "relative_stationarity": 4.539963094425819e-08,
+        "converged": true,
+        "iterations": 1,
+        "evaluations": 1,
+        "seconds": 0.014963101595640182,
+        "stopping_criterion": "Terminated - min grad norm reached after 1 iterations, 0.00 seconds.",
+        "maximum_increase": 0.0,
+        "history": [
+          {
+            "iteration": 0,
+            "cost": -0.9999999999999999,
+            "gradient_norm": 4.5399630944258186e-08
+          }
+        ]
+      },
+      "energy_relative_change": -1.1102230246251565e-16,
+      "support_unchanged": true
+    }
+  ],
+  "scope": "Explicit unitenergy objective convergence diagnostic; original pilot absolute-scale miss preserved. No new artifact or global optimum claim."
+}

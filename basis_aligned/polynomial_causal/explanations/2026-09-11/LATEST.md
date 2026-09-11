@@ -140,3 +140,9 @@ New words/constructions confirm small neighboring binary-choice changes and near
 ### Deeper sparse quartic fit started
 
 [Exact sparse quartic method](../../SPARSE_QUARTIC_CORE_V1_MATH.md): learned16input directions,128degree-four interactions, exact output coefficients for the fully composed two-MLP path. Two-start GPU pilot is managed-live; no final result. Shared quadratic-pair execution/removal controls pass. Planted cold-start traps are documented; no global recovery or circuit claim.
+
+### Quartic pilot completed; equivalent Gram representations expose simpler hierarchy
+
+[Current findings](../../QUARTIC_GRAM_HIERARCHY_V1_MATH.md): sparse fit captures0.125–0.130%of the full quartic coefficient energy; its fixed16Dspaces are the major limitation. A separate scale check establishes local stationarity. Four centered output-mode Gram optimizations converge: eight squared-quadratic terms have0.8–1.3%coefficient error versus26–38%from canonical matrices. Structural result within projected functions; cross-start/native circuit validation remains open.
+
+Direct cross-start screen: groupfunctioncos0.91282passes, but only2individualterm matches>=0.9miss the4matchbar. No stable circuit naming. [Hourly23:27](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_2327.md) flagged publication/review overhead; the immediate direct-analysis repair is executed. Next hourly00:27September12, math01:56.

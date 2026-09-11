@@ -80,3 +80,9 @@ There is one further multiplication per quartic monomial. The solver uses SciPy'
 This supplies an explicit reuse/removal interface for a future fitted program. Its quadratic nodes are learned-reader products, not yet semantic computations. Removing a node zeros its descendants while holding the declared source/normalization background fixed. Replacing source activations would be a different intervention and must recompute affected native dependencies.
 
 Native graph construction awaits the completed frozen fit. Subsequent coefficient stability and fresh native intervention tests must establish whether these computational nodes predict, extract, selectively remove, or compose across behaviors. Algebraic execution alone proves none of those behavioral properties.
+
+## Completed pilot and representation diagnosis
+
+[Pilot](SPARSE_QUARTIC_NATIVE_V1_RESULT.json) finished23:19:13:0.124815/0.130388%estimated full coefficient capture. Original absolute-scale convergence misses; a separate [unit-energy gradient check](SPARSE_QUARTIC_SCALE_V1_RESULT.json) establishes local stationarity without moving factors or support. The [dense fixed-bank ceiling](SPARSE_QUARTIC_CEILING_V1_RESULT.json) is only0.137852/0.148640%; current128edges retain88–91%of that. These particular input spaces, not their sparse support alone, omit most native coefficient structure. Broader input representations remain open.
+
+[Gram hierarchy method and results](QUARTIC_GRAM_HIERARCHY_V1_MATH.md) develops an additional route: optimize equivalent quadratic-pair matrices before extracting signed squared-quadratic intermediates. All four selected centered native output modes converge under the convex surrogate. Eight-term errors improve from26–38%with canonical matricization to0.8–1.3%with the optimized representation. This is structure inside projected scalar functions, not global model coverage or circuit certification.
