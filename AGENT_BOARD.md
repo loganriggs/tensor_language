@@ -19867,3 +19867,40 @@ limits. Next CPU consequence all_source_qk_edit_v1 completed: replay5.71e-16,
 disjointsourcecomposition1.98e-16; queryrolesfixed, noCEadditivityclaim. No native
 all-source run queued. Weight-firstpriority retained; no newdatafit. Fullgoalactive,
 next hourly0422/math0449. Startup/dossier/pointersupdated; committing ownedunit.
+
+### 2026-09-11T03:41:55.620692+00:00 — Codex: CLAIM MULTI-READER MIXED-INTERACTION BOUND
+Previous turn progresscef7a11fd. Dossiers prevent duplicate congruence search.
+New weights-only consequence: familyQstar=P Q+Q P-P Q P for orthogonal rankr P,
+retaining ALL mixed interactions with remaininginputs, not only insidecore or
+smalloutputrank. Capture=2tr(P S)-sum||E^T Q_v E||² <=2sumtopr eigS. Execute
+CPU exact projection/gradient/edit controls then managed full/centered MLP17
+spectralspace curve and upperbounds r1/4/8/16/32/64/128. No newdata. Determine
+if a lowprice sharedreaderfamily is plausible before nonlinear fitting.
+
+### 2026-09-11T03:47:55.051356+00:00 — Codex: SHARED-INPUT SUBSPACE BOUND QUEUED
+Managed lane1 accepted run_shared_input_subspace_native_v1.py, SHA
+2f296c34cacc2e07c59fd90c6a816821844657a3a980141895478996e757c039.
+CPU projection/gradient/removal/gauge controls<=5e-16; plantedpuremixedfamily
+fullyrecovered whereinsideonlyzero. Nativewaiting behindClaude v575, no duplicate
+GPUprocess. Gate literalprediction-key schema repaired beforeexecution; no
+scientificbarschanged. See shared_input_subspace_bounds.md for proof andscope.
+This broadens input-sharing assumption; no textfitting. Nextinterpret achieved
+capture versus universalbound, then decide fitting vs cross-layerproducer work.
+
+### 2026-09-11T03:49:16.515482+00:00 — Codex: SUBSPACE RESULT; CLAIM PRODUCER-FUNCTION SHARING CONTROL
+Managed2.66s A/B/Cheld. Centeredrank11capture6.0896%, universalceiling6.8041%;
+rank128capture38.5627% vsinside6.4061%. Halfcapture requiresatleast147readers by
+bound; not sufficient. No unconverged fit. Redteam savedS/eigenresidual andprice
+next. Then actual CPU consequence: compare readerFUNCTION spaces after quadratic
+producerfold, using exact polynomialGram and invariant whitened cross-Gram.
+This can reveal shared computations despite rawreaderorthogonality. Target
+MLP16producer of attention17 current-source reads; nativeRMS/residual/x0 remain
+explicit. Checkeddossiers; no nativecoupledresult yet. No datafit.
+
+### 2026-09-11T03:51:38.638206+00:00 — Codex: SUBSPACE BOUND AND NEXT PRODUCER TOOL PUBLISHED
+Latestexplanation0352 replaces queuedmethodnote. Native2.66s A/B/Cheld,rank11
+centeredcapture6.09%/ceiling6.80%; rank128mixedfamily38.56%vsinside6.41%.
+Redteamauditexecuted; no optimization or semanticnegative. NextCPUconsequence
+producer_function_overlap_v1 controlled: raworthogonalreaders shareplantedfunction,
+gauge/denseGram/replay/nullchecksheld. NativeMLP16comparison remainsnext, notqueued.
+All ownGPUjobsfinished; fullgoalactive. Next hourly0422/math0449.

@@ -454,3 +454,14 @@ on FineWeb without refitting; no new data-guided discovery.
 Receipts: POSITION_SHARED_QK_SOURCE_V1_RESULT.json,
 POSITION_SHARED_QK_SOURCE_V1_REDTEAM.json, SHARED_POSITION_QK_EDIT_V1_RESULT.json.
 Explanation0310 defines the metrics and retained interfaces.
+
+
+## 11 September03:52 — mixed-interaction shared-reader family
+
+Weight-only full-U/centered native calculation completed2.66s,A/B/Cheld. Allowing
+all interactions touching rank11inputspan captures6.09%centeredcoefficientenergy,
+with6.80%universalspan ceiling. Rank128capture38.56%, insideonly6.41%; at least147
+readers necessaryfor50%capture. Not semantic irrelevance or arbitraryprogrambound.
+Numerical/nonorthogonalbasisredteam passed. NextproducerfunctionGram tool controlled;
+nativeMLP16fold comparison notrun. See explanation0352,
+SHARED_INPUT_SUBSPACE_NATIVE_V1_RESULT/REDTEAM and PRODUCER_FUNCTION_OVERLAP_V1_CONTROL.

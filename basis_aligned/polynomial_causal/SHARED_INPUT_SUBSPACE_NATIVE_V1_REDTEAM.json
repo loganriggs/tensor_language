@@ -1,0 +1,41 @@
+{
+  "instrument_passed": true,
+  "metrics": {
+    "full": {
+      "eigen_residual_over_total": 8.632254205307221e-17,
+      "full_basis_orthogonality_error": 1.5727256923018192e-13,
+      "minimum_eigenvalue": 4521167.652536034,
+      "nonorthogonal_basis_projector_error": 6.38787963572481e-15,
+      "rank11_reported_bound": 0.0871409391801437,
+      "rank11_residual_padded_bound": 0.08714093918014554,
+      "maximum_relative_improvement_over_spectral": 0.2534404981610192,
+      "rank11_half_capture_ruled_out": true,
+      "rank128_mixed_fraction": 0.3087757831675344
+    },
+    "centered": {
+      "eigen_residual_over_total": 7.217533355845958e-17,
+      "full_basis_orthogonality_error": 1.5660281197478887e-13,
+      "minimum_eigenvalue": 3695203.1606471594,
+      "nonorthogonal_basis_projector_error": 6.4430400567452426e-15,
+      "rank11_reported_bound": 0.06804130987263816,
+      "rank11_residual_padded_bound": 0.06804130987263977,
+      "maximum_relative_improvement_over_spectral": 0.11733699298889189,
+      "rank11_half_capture_ruled_out": true,
+      "rank128_mixed_fraction": 0.32156602723653266
+    }
+  },
+  "largest_dense_partner_reader_count_below_native": 11,
+  "native_weight_numbers": 15925248,
+  "body_forwards": 0,
+  "corpus_access": false,
+  "source_cache_sha256": "6b1e2a821d65a76721fa08cbdcdcbc4debb6f1b0900bb369db493020755b6a1f",
+  "wall_seconds": 0.2105129100382328,
+  "redteam": {
+    "narrow_claim": "Low-dimensional GLOBAL shared reader families cannot capture most Frobenius coefficient energy, even with unrestricted mixed partners.",
+    "optimizer_failure_explanation": "Not applicable to the universal ceiling; spectral frame is not claimed stationary for the extraction objective.",
+    "nonorthogonal_reader_explanation": "Any rank-r span admits an orthonormal basis; native rank11 projector checked after condition10 re-basing.",
+    "metric_limit": "These ceilings do not apply to natural-state or causal-effect weighting. No data-based structural negative.",
+    "surviving_structure": "Many readers with sparse/structured partners; local groups; cross-layer producer sharing; low-energy behavioral components."
+  },
+  "scope": "Numerical eigen-residual and representation/price audit; not a formal floating-point interval certificate or absence-of-circuits theorem."
+}

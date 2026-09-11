@@ -82,28 +82,30 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 03:38
+## Current handoff — updated 11 September 2026, 03:52
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0338.md.
-Frozen weight-derived attention17 source frames passed a32-row FineWeb physical
-key/value intervention prediction atsource32/query127. No refit; rows previously
-opened, no fresh/OOD claim. FROZEN_QK_FINEWEB_V1_RESULT and effect-size audit are
-primary. Effect tiny; no-change also passes absoluteCEbar, but predictor is753x
-better inCEerror. No semantic identification. Full native background retained.
-Managed1.85s run finished03:28:31. No own GPUjob queued/live at snapshot.
-Saved logits/ports /dev/shm/bilin18_frozen_qk_fineweb_v1.pt, hash in result.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0352.md.
+New weights-only SHARED_INPUT_SUBSPACE_NATIVE_V1 completed managed2.66s,A/B/Cheld.
+Full mixed+inside inputreader family Qstar=P Q+Q P-P Q P: centeredrank11capture
+6.0896%, universalrank11ceiling6.8041%; rank128capture38.5627%vsinside6.4061%.
+Atleast147readers necessaryfor50%centeredcapture (not sufficient). SavedS/eigenbasis
+/dev/shm/bilin18_shared_input_subspace_native_v1.pt, hashinresult. Redteamnumerical
+andnonorthogonalbasischeckscompleted. No text or nonlinearoptimization; do not
+retrylowrankfamily expectinglargecapture whenboundrulesitout. No semanticnegative.
 
-Next CPU consequence executed: all_source_qk_edit_v1.py, CONTROL passes5.71e-16.
-Disjoint source key/value read edits add atattention output whilequeries stayfixed,
-including selfkey/value role; downstreamCE doesnotadd. Native all-source run is
-not authored/queued yet. Reuse existing executor for a bounded frozen-frame check
-if it remains highest-information; do notexpanddatafitting. Broader weight-only
-structural families remain unfinished. No basis for declaring structure absent.
+Next CPU consequence completed: producer_function_overlap_v1.py, CONTROLpasses.
+Exact productGram then whitened crossGram compares readerFUNCTIONspaces after
+quadraticproducerfold. Orthogonalrawreaders can haveidenticalproducerfunctions;
+plantedrecovery/gauge/null/replaychecksheld. NativeMLP16comparison notrun/queued.
+Intended next: compare frozenattention17QKsource vsOVsource variables through
+MLP16quadraticproducer, preservingRMS/residual/x0/biasinterfaces. Dossierchecked;
+no promiseofsemanticsharing. This isweights-first cross-layerstructure, no datafit.
 
-Previous source frame/adapter results are in explanation0310; shared-reader result
-in0226; methods/assumptions in0022. Check component dossiers before newclaims.
-Next hourly04:22, math04:49. Fullgoalactive. Filesystem~156MBfree at03:35;
-largecachesin/dev/shm areephemeral. Preserve sharedClaude edits andmanagedrunner.
+All ownGPUjobsfinished at03:52; inspect sharedrunner beforeenqueue. Previous
+frozenFineWebvalidation in0338: tiny source32effect, accurateconditionalprediction,
+no semantic/fresh/OODclaim. All-sourceCPUcompositionpasses butnativeall-source
+run deferred toweight-first priorities. Next hourly04:22, math04:49. Fullgoalactive.
+Filesystemlimited; largecachesin/dev/shm areephemeral. PreserveClaude edits.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

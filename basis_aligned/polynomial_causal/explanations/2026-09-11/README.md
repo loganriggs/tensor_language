@@ -2,6 +2,8 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [Shared input features, mixed interactions and bounds](explanation_2026-09-11_0352.md): latest native weight-only result and next producer-function tool.
+
 - [Frozen weight features on FineWeb](explanation_2026-09-11_0338.md): latest physical-edit validation, weak-effect audit and source-composition control.
 
 - [Source features shared across positions](explanation_2026-09-11_0310.md): latest stable source-space result, coverage tradeoff and smaller fixed adapter.

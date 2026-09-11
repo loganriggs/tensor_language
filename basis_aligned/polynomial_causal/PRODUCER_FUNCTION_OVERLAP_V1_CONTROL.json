@@ -1,0 +1,38 @@
+{
+  "instrument_passed": true,
+  "raw_reader_overlap": {
+    "ranks": [
+      1,
+      1
+    ],
+    "principal_cosines": [
+      0.0
+    ],
+    "mean_squared_cosine": 0.0
+  },
+  "shared_producer_function_overlap": {
+    "ranks": [
+      1,
+      1
+    ],
+    "principal_cosines": [
+      0.9999999999999998
+    ],
+    "mean_squared_cosine": 0.9999999999999996
+  },
+  "independent_function_overlap": {
+    "ranks": [
+      1,
+      1
+    ],
+    "principal_cosines": [
+      0.0
+    ],
+    "mean_squared_cosine": 0.0
+  },
+  "zero_function_handled": true,
+  "invertible_reader_gauge_error": 7.549516567451064e-15,
+  "dense_gram_error": 0.0,
+  "quadratic_pullback_replay_error": 8.561708330921991e-17,
+  "scope": "Planted coefficient-function sharing only. Native MLP16 comparison not run; final normalization, residual and base branches are outside this local numerator control."
+}

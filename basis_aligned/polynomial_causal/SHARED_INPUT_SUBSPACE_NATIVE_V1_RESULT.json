@@ -1,0 +1,215 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_small_family_ceiling": true,
+    "pred_c_spectral_efficiency": true
+  },
+  "metrics": {
+    "full": {
+      "total_energy": 99245061353.473,
+      "curve": [
+        {
+          "rank": 1,
+          "capture": 0.014480530358054858,
+          "inside": 0.006192245165455146,
+          "mixed": 0.008288285192599713,
+          "universal_rank_bound": 0.02067277552350998,
+          "capture_over_bound": 0.7004637737969422,
+          "tangent_stationarity": 0.007136387258327724,
+          "dense_partner_program_numbers": 1328256,
+          "scalar_products": 1152
+        },
+        {
+          "rank": 4,
+          "capture": 0.03504301138727026,
+          "inside": 0.011747535916357637,
+          "mixed": 0.023295475470912624,
+          "universal_rank_bound": 0.04679054730362786,
+          "capture_over_bound": 0.7489335647192406,
+          "tangent_stationarity": 0.006465340872455922,
+          "dense_partner_program_numbers": 5313024,
+          "scalar_products": 4608
+        },
+        {
+          "rank": 8,
+          "capture": 0.056696085617127266,
+          "inside": 0.014720111193317724,
+          "mixed": 0.04197597442380954,
+          "universal_rank_bound": 0.07141619681044493,
+          "capture_over_bound": 0.7938827345792686,
+          "tangent_stationarity": 0.005975422618552934,
+          "dense_partner_program_numbers": 10626048,
+          "scalar_products": 9216
+        },
+        {
+          "rank": 11,
+          "capture": 0.06952140074298878,
+          "inside": 0.017619538437154966,
+          "mixed": 0.05190186230583381,
+          "universal_rank_bound": 0.0871409391801437,
+          "capture_over_bound": 0.7978041250997925,
+          "tangent_stationarity": 0.005918878771190514,
+          "dense_partner_program_numbers": 14610816,
+          "scalar_products": 12672
+        },
+        {
+          "rank": 16,
+          "capture": 0.0890658645311321,
+          "inside": 0.022204637697227525,
+          "mixed": 0.06686122683390458,
+          "universal_rank_bound": 0.11127050222835959,
+          "capture_over_bound": 0.8004445270530273,
+          "tangent_stationarity": 0.005999983911946027,
+          "dense_partner_program_numbers": 21252096,
+          "scalar_products": 18432
+        },
+        {
+          "rank": 32,
+          "capture": 0.14506299268704495,
+          "inside": 0.03214678976768246,
+          "mixed": 0.1129162029193625,
+          "universal_rank_bound": 0.17720978245472738,
+          "capture_over_bound": 0.8185947224674511,
+          "tangent_stationarity": 0.005966496743555669,
+          "dense_partner_program_numbers": 42504192,
+          "scalar_products": 36864
+        },
+        {
+          "rank": 64,
+          "capture": 0.2396807100864128,
+          "inside": 0.04863693232135886,
+          "mixed": 0.19104377776505396,
+          "universal_rank_bound": 0.2883176424077716,
+          "capture_over_bound": 0.8313078176028823,
+          "tangent_stationarity": 0.005749997229989676,
+          "dense_partner_program_numbers": 85008384,
+          "scalar_products": 73728
+        },
+        {
+          "rank": 128,
+          "capture": 0.3937228426542938,
+          "inside": 0.0849470594867594,
+          "mixed": 0.3087757831675344,
+          "universal_rank_bound": 0.4786699021410532,
+          "capture_over_bound": 0.8225351978329997,
+          "tangent_stationarity": 0.005216763809672287,
+          "dense_partner_program_numbers": 170016768,
+          "scalar_products": 147456
+        }
+      ],
+      "minimum_readers_for_half_from_bound": 136,
+      "minimum_readers_for_ninety_percent_from_bound": 303
+    },
+    "centered": {
+      "total_energy": 92104252412.19458,
+      "curve": [
+        {
+          "rank": 1,
+          "capture": 0.010326308702019723,
+          "inside": 0.0009822617428220794,
+          "mixed": 0.009344046959197643,
+          "universal_rank_bound": 0.011308570444841798,
+          "capture_over_bound": 0.9131400606634488,
+          "tangent_stationarity": 0.002036248445314402,
+          "dense_partner_program_numbers": 1328256,
+          "scalar_products": 1152
+        },
+        {
+          "rank": 4,
+          "capture": 0.028718506208095962,
+          "inside": 0.002729466151253407,
+          "mixed": 0.025989040056842556,
+          "universal_rank_bound": 0.03144797235934937,
+          "capture_over_bound": 0.9132069272999744,
+          "tangent_stationarity": 0.0024656089871091026,
+          "dense_partner_program_numbers": 5313024,
+          "scalar_products": 4608
+        },
+        {
+          "rank": 8,
+          "capture": 0.04838753921510452,
+          "inside": 0.004941458822922133,
+          "mixed": 0.04344608039218238,
+          "universal_rank_bound": 0.05332899803802665,
+          "capture_over_bound": 0.9073401150458783,
+          "tangent_stationarity": 0.0031740763990462818,
+          "dense_partner_program_numbers": 10626048,
+          "scalar_products": 9216
+        },
+        {
+          "rank": 11,
+          "capture": 0.06089596093173888,
+          "inside": 0.007145348940899293,
+          "mixed": 0.05375061199083959,
+          "universal_rank_bound": 0.06804130987263816,
+          "capture_over_bound": 0.8949851354379542,
+          "tangent_stationarity": 0.0037006771895047074,
+          "dense_partner_program_numbers": 14610816,
+          "scalar_products": 12672
+        },
+        {
+          "rank": 16,
+          "capture": 0.08042331443971303,
+          "inside": 0.009765701441691477,
+          "mixed": 0.07065761299802155,
+          "universal_rank_bound": 0.0901890158814045,
+          "capture_over_bound": 0.8917196141209364,
+          "tangent_stationarity": 0.003929867234725511,
+          "dense_partner_program_numbers": 21252096,
+          "scalar_products": 18432
+        },
+        {
+          "rank": 32,
+          "capture": 0.1352936406521972,
+          "inside": 0.01760596380545202,
+          "mixed": 0.11768767684674519,
+          "universal_rank_bound": 0.15289960445764922,
+          "capture_over_bound": 0.8848527838387666,
+          "tangent_stationarity": 0.004509556401559304,
+          "dense_partner_program_numbers": 42504192,
+          "scalar_products": 36864
+        },
+        {
+          "rank": 64,
+          "capture": 0.2303948845234705,
+          "inside": 0.030652928323950567,
+          "mixed": 0.19974195619951995,
+          "universal_rank_bound": 0.26104781284742107,
+          "capture_over_bound": 0.8825773409491587,
+          "tangent_stationarity": 0.004299287573560916,
+          "dense_partner_program_numbers": 85008384,
+          "scalar_products": 73728
+        },
+        {
+          "rank": 128,
+          "capture": 0.38562655778468885,
+          "inside": 0.06406053054815619,
+          "mixed": 0.32156602723653266,
+          "universal_rank_bound": 0.44968708833284504,
+          "capture_over_bound": 0.857544207494033,
+          "tangent_stationarity": 0.0037514362759662203,
+          "dense_partner_program_numbers": 170016768,
+          "scalar_products": 147456
+        }
+      ],
+      "minimum_readers_for_half_from_bound": 147,
+      "minimum_readers_for_ninety_percent_from_bound": 315
+    }
+  },
+  "maximum_instrument_error": 2.0539596905464992e-14,
+  "price": {
+    "native_quadratic_weight_numbers": 15925248,
+    "body_forwards": 0,
+    "corpus_access": false,
+    "full_native_background_required": true,
+    "nonlinear_optimization": false
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_shared_input_subspace_native_v1.pt",
+    "sha256": "6b1e2a821d65a76721fa08cbdcdcbc4debb6f1b0900bb369db493020755b6a1f",
+    "bytes": 42489173,
+    "ephemeral": true
+  },
+  "wall_seconds": 2.6575519405305386,
+  "scope": "Weight coefficient projection and universal rank-r mixed-interaction bound. Spectral surrogate exact, extraction objective not optimized. No semantic or natural-state negative."
+}

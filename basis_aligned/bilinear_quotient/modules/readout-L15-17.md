@@ -50,3 +50,14 @@ final ~0.2 neither sparse nor linear (§660 law certified band-wide). Token augm
 The entire centered unembedding has now been pulled through MLP17 and attention17 c_proj. Exact checks held, strong output-sharing/head-concentration bars failed: top128coefficient capture30.54%vs29.00%before O; within-head blocks11.86%vs11.25%with scrambled head coordinates. This coefficient-space result does not establish task inertness or close the layer. A further source-coherence decomposition is controlled but not yet measured on native weights. [Current MLP17 record](../../polynomial_causal/explanations/MLP17_CURRENT_UNDERSTANDING.md), [source-constraint math](../../polynomial_causal/SHARED_SOURCE_ATTENTION_QUADRATIC_V1_MATH.md).
 
 The September11 full source/value contraction includes all output rows:43.01%of formal coefficient energy is in a component vanishing for one source but live across sources, versus43.08%source-permutation control. The centered routing-wedge spectrum needs31of36modes for90%; the leading mode largely follows the already-known17.2/17.3pair. This does not assign a new behavior to that pair. [Latest explanation](../../polynomial_causal/explanations/2026-09-11/explanation_2026-09-11_0005.md).
+
+
+## 11 September03:52 — mixed-interaction shared-reader family
+
+Weight-only full-U/centered native calculation completed2.66s,A/B/Cheld. Allowing
+all interactions touching rank11inputspan captures6.09%centeredcoefficientenergy,
+with6.80%universalspan ceiling. Rank128capture38.56%, insideonly6.41%; at least147
+readers necessaryfor50%capture. Not semantic irrelevance or arbitraryprogrambound.
+Numerical/nonorthogonalbasisredteam passed. NextproducerfunctionGram tool controlled;
+nativeMLP16fold comparison notrun. See explanation0352,
+SHARED_INPUT_SUBSPACE_NATIVE_V1_RESULT/REDTEAM and PRODUCER_FUNCTION_OVERLAP_V1_CONTROL.
