@@ -1,0 +1,350 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_no_worsening": true,
+    "pred_c_gain": false,
+    "pred_d_baseline_gain": true
+  },
+  "arms": [
+    {
+      "family": "baseline",
+      "seed": "identity",
+      "parent_converged": null,
+      "source": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_baseline_identity_readers.pt",
+        "sha256": "ae1045befe626c15961b460c8cdaa60a27fb5f05948457b141b9f165edaf5b40"
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_baseline_identity_down.pt",
+        "sha256": "7d8ab1a43ca03a671f373494410c3ad3d70efd989b8dd1228ed06d317c3d0305",
+        "bytes": 42475009
+      },
+      "diagnostics": {
+        "rank": 4608,
+        "size": 4608,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 6.467903805713331,
+        "maximum_eigenvalue": 2158.168066937238,
+        "retained_condition": 333.6734948084495,
+        "normal_residual": 6.831085289755573e-15
+      },
+      "solve_seconds": 0.849483635276556,
+      "parent_capture_replay": 0.0,
+      "before_capture": 0.23245106138031535,
+      "after_capture": 0.2420903241089124,
+      "gain": 0.009639262728597053,
+      "loss_replay": 9.992007221626409e-16,
+      "executor_replay": 1.2443196983487961e-15,
+      "function_cosine": 0.9812495087846874,
+      "writer_norm_ratio": 1.0584255149119821,
+      "instrument_passed": true
+    },
+    {
+      "family": "baseline",
+      "seed": "pca",
+      "parent_converged": null,
+      "source": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_baseline_pca_readers.pt",
+        "sha256": "19ac1865331169e0f2e02ba902741f33f4294a591295656594cabbb72f2daa9c"
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_baseline_pca_down.pt",
+        "sha256": "a62cb4de05da329841b61917c359dec7301a279750ca0be91f127a6ad54fa1ad",
+        "bytes": 42474910
+      },
+      "diagnostics": {
+        "rank": 4608,
+        "size": 4608,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 8.5225554298151,
+        "maximum_eigenvalue": 7624.694421221296,
+        "retained_condition": 894.6488508067957,
+        "normal_residual": 6.059780340113621e-15
+      },
+      "solve_seconds": 0.8195393308997154,
+      "parent_capture_replay": 0.0,
+      "before_capture": 0.28290807691945474,
+      "after_capture": 0.29172134190850374,
+      "gain": 0.008813264989048997,
+      "loss_replay": 9.992007221626409e-16,
+      "executor_replay": 2.7421282946425132e-15,
+      "function_cosine": 0.9858227488199527,
+      "writer_norm_ratio": 1.0473574325987944,
+      "instrument_passed": true
+    },
+    {
+      "family": "orthogonal",
+      "seed": 0,
+      "parent_converged": false,
+      "source": {
+        "path": "/dev/shm/bilin18_full_reader_msp_v1_s0.pt",
+        "sha256": "14304ced3a96be4ca9ea25de62d03beb385d85e2f30c35a51055f09197b70376",
+        "bytes": 22511801
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_orthogonal_0_down.pt",
+        "sha256": "77939e8fad007892e8e45adfd4622d3f5cbb3b02f1debde47e350e1eac6e9a81",
+        "bytes": 42474910
+      },
+      "diagnostics": {
+        "rank": 4608,
+        "size": 4608,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 11.847411833424284,
+        "maximum_eigenvalue": 9669.374842117168,
+        "retained_condition": 816.1592572343632,
+        "normal_residual": 5.6748552786688755e-15
+      },
+      "solve_seconds": 0.8137266710400581,
+      "parent_capture_replay": 0.0,
+      "before_capture": 0.295626092771075,
+      "after_capture": 0.30318919948715783,
+      "gain": 0.007563106716082846,
+      "loss_replay": 7.771561172376096e-16,
+      "executor_replay": 2.751722299550496e-15,
+      "function_cosine": 0.988214129136185,
+      "writer_norm_ratio": 1.0419371118297325,
+      "instrument_passed": true
+    },
+    {
+      "family": "orthogonal",
+      "seed": 937,
+      "parent_converged": false,
+      "source": {
+        "path": "/dev/shm/bilin18_full_reader_msp_v1_s937.pt",
+        "sha256": "2a6af5c785a9b97d3ae599c3e843d22676510b12c187711f4c25445ac64c7d93",
+        "bytes": 22511757
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_orthogonal_937_down.pt",
+        "sha256": "90905e077719a4ae9438528feac7ded8ca8dfc53f9c6812d519fa1b1cdd24a3b",
+        "bytes": 42474988
+      },
+      "diagnostics": {
+        "rank": 4608,
+        "size": 4608,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 6.381333301656128,
+        "maximum_eigenvalue": 9630.223463192251,
+        "retained_condition": 1509.1240353631033,
+        "normal_residual": 5.729570082091006e-15
+      },
+      "solve_seconds": 0.8168838247656822,
+      "parent_capture_replay": 0.0,
+      "before_capture": 0.29576953118178806,
+      "after_capture": 0.303282828828635,
+      "gain": 0.007513297646846939,
+      "loss_replay": 9.992007221626409e-16,
+      "executor_replay": 2.798159056841518e-15,
+      "function_cosine": 0.9883174000069798,
+      "writer_norm_ratio": 1.0418228235988016,
+      "instrument_passed": true
+    },
+    {
+      "family": "ordinary_covariance",
+      "seed": 0,
+      "parent_converged": true,
+      "source": {
+        "path": "/dev/shm/bilin18_oblique_reader_v1_ordinary_covariance_s0.pt",
+        "sha256": "93f778463f7533399ee7e0ed36fa126e87fbfa1302552918b6be36904afbf6a7",
+        "bytes": 33121244
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_ordinary_covariance_0_down.pt",
+        "sha256": "73ee029096f1cbcd807754b1b816ef81b92967a2b93b39938b6ab4ad43fc3855",
+        "bytes": 42475037
+      },
+      "diagnostics": {
+        "rank": 4608,
+        "size": 4608,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 7.4218312363094805,
+        "maximum_eigenvalue": 9727.23411374257,
+        "retained_condition": 1310.624535108596,
+        "normal_residual": 5.653023981996205e-15
+      },
+      "solve_seconds": 0.817340936511755,
+      "parent_capture_replay": 0.0,
+      "before_capture": 0.2990584806700375,
+      "after_capture": 0.3076492637303906,
+      "gain": 0.008590783060353102,
+      "loss_replay": 8.881784197001252e-16,
+      "executor_replay": 2.8044786459551327e-15,
+      "function_cosine": 0.9867498258525085,
+      "writer_norm_ratio": 1.0446861198903024,
+      "instrument_passed": true
+    },
+    {
+      "family": "ordinary_covariance",
+      "seed": 937,
+      "parent_converged": true,
+      "source": {
+        "path": "/dev/shm/bilin18_oblique_reader_v1_ordinary_covariance_s937.pt",
+        "sha256": "bb93464aa305353c09e2f164d59d90c7147785aa1a4f467561b1121075d78456",
+        "bytes": 33130802
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_ordinary_covariance_937_down.pt",
+        "sha256": "25464a1c442b0b73436fe69328990ad5010137138dce3adf98b91df373ce2f40",
+        "bytes": 42475051
+      },
+      "diagnostics": {
+        "rank": 4608,
+        "size": 4608,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 6.895099821363622,
+        "maximum_eigenvalue": 9807.150103989956,
+        "retained_condition": 1422.336203691164,
+        "normal_residual": 5.755263530735542e-15
+      },
+      "solve_seconds": 0.8175055049359798,
+      "parent_capture_replay": 0.0,
+      "before_capture": 0.29845441593377275,
+      "after_capture": 0.3070814193013882,
+      "gain": 0.00862700336761546,
+      "loss_replay": 8.881784197001252e-16,
+      "executor_replay": 2.68971641621753e-15,
+      "function_cosine": 0.9866748515294812,
+      "writer_norm_ratio": 1.0450958620536375,
+      "instrument_passed": true
+    },
+    {
+      "family": "tyler",
+      "seed": 0,
+      "parent_converged": false,
+      "source": {
+        "path": "/dev/shm/bilin18_oblique_reader_v1_tyler_s0.pt",
+        "sha256": "65023fa9974c90232703e8bbd6ccda735411607b89fcd2005584ba58b8a34efb",
+        "bytes": 33131522
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_tyler_0_down.pt",
+        "sha256": "311cc587d6bcfc2f09b05dd3233d226e168c6d530281db2fd1723eb83bc59bab",
+        "bytes": 42474875
+      },
+      "diagnostics": {
+        "rank": 4608,
+        "size": 4608,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 7.414765619325142,
+        "maximum_eigenvalue": 9669.34820785643,
+        "retained_condition": 1304.066602274677,
+        "normal_residual": 5.792503181000254e-15
+      },
+      "solve_seconds": 0.8172077126801014,
+      "parent_capture_replay": 0.0,
+      "before_capture": 0.29792489109963605,
+      "after_capture": 0.30647884807047454,
+      "gain": 0.008553956970838494,
+      "loss_replay": 8.881784197001252e-16,
+      "executor_replay": 2.6801344520821286e-15,
+      "function_cosine": 0.9867506913591226,
+      "writer_norm_ratio": 1.0443294317894571,
+      "instrument_passed": true
+    },
+    {
+      "family": "tyler",
+      "seed": 937,
+      "parent_converged": false,
+      "source": {
+        "path": "/dev/shm/bilin18_oblique_reader_v1_tyler_s937.pt",
+        "sha256": "e073f2a1dfca8b6effbf93cc55d072dad60e97e7afcd53d30771ccd924508b53",
+        "bytes": 33131672
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_tyler_937_down.pt",
+        "sha256": "c00fb848e26307c95c7e2e8d4a13b6bc061ab987da206ae5b15a8c26c444b0e7",
+        "bytes": 42474953
+      },
+      "diagnostics": {
+        "rank": 4608,
+        "size": 4608,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 6.959448395474108,
+        "maximum_eigenvalue": 9808.257100505987,
+        "retained_condition": 1409.3440375079908,
+        "normal_residual": 5.623996851021446e-15
+      },
+      "solve_seconds": 0.8185608088970184,
+      "parent_capture_replay": 0.0,
+      "before_capture": 0.29746087915518804,
+      "after_capture": 0.3060123760906588,
+      "gain": 0.008551496935470748,
+      "loss_replay": 7.771561172376096e-16,
+      "executor_replay": 2.761107448329618e-15,
+      "function_cosine": 0.9867304869569709,
+      "writer_norm_ratio": 1.0448260909352975,
+      "instrument_passed": true
+    }
+  ],
+  "families": {
+    "orthogonal": {
+      "gain_both": false,
+      "baseline_gain_both": true,
+      "combined": false,
+      "parent_converged_both": false
+    },
+    "ordinary_covariance": {
+      "gain_both": false,
+      "baseline_gain_both": true,
+      "combined": false,
+      "parent_converged_both": true
+    },
+    "tyler": {
+      "gain_both": false,
+      "baseline_gain_both": true,
+      "combined": false,
+      "parent_converged_both": false
+    }
+  },
+  "binding": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_full_reader_dictionary_msp_v1.py": "47855b088b7437906d27c0036bf52a2e51f6056630a97d329bfbf693bfaf8bdb",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_structured_bilinear_native_v2.py": "38fa1341eb11da7e5d1297eedc3404b0909cfab6aa06ef17219360f83bc6bd08",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/orthogonal_reader_msp_v1.py": "1b0c95c9386ee6d99a85b5a20287ecbde8c5d76304198047c85a8c9040aada84",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/structured_branch_amplitudes_v1.py": "b10f1bca98945077cb8c51873b7befee09be71674ebeb54177dc1872585a5c67",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/structured_bilinear_bank_v1.py": "4f43c21a81f72fc9316fccd9493cf852b82f48dc0a4f0c3c07ca6a5962ff12ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mixed_radix_bilinear_v1.py": "a01ac78e8e7cf67b2122bc86cee4e740aea01ae8878601837170473a0e881d43",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/chunked_bilinear_coefficient_v1.py": "5f3210058192454f05aeebdc9666a7d92a05b25d9dcb6e34107ef027cbd0bfa3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FULL_READER_DICTIONARY_MSP_V1_PREREGISTRATION.md": "27faf775a662bd719b6aae29c6ed6f2726dceb5312f5e69c475a9d1ade7011ca",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ORTHOGONAL_READER_MSP_V1_CONTROL.json": "506a090e64a9c68aac79b42a3fe7247faab120b743770c13e859b8f167c3fefa",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/READER_MSP_FINITE_SAMPLE_V1_AUDIT.json": "134f6d0674de9eebb071e63fb36b22ce03c5666e30b5ced3aa21816a550d0056",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/READER_MSP_DENSE_POLISH_V1_AUDIT.json": "228a288d41ba331807343fc5277c7f10b2ef12657fa109abf57ea655ecc798fd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FULLU_OUTPUT_FUNCTIONS_V1_AUDIT.json": "c70c968bfd90bf7a236dad3c9100188ab1c7a543a223b4b5369740ffd3c51a32",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_oblique_reader_dictionary_v1.py": "2eecedbb95ccb50591a2e8a60c53074beee5e0f8cd53eb6dfed26da57672469a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/OBLIQUE_READER_DICTIONARY_V1_PREREGISTRATION.md": "f1442316ee70a934a2a965c73903c5762c8b9c977dbc721783cc6fa183fb47fb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/tyler_reader_shape_v1.py": "fa544c853db6e8d7edae9b2dd73776874ed9748b43e12002d7dfb97b76100f45",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/oblique_sparse_reader_v1.py": "f3a7a0e5f7344f27738753993369701420b7390e9fc0f0f3da2e977c798df5e6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_reader_program_v1.py": "907b73fe6a47176a7c735774ef40e5b9b3f6eb326dae10de47713a2aaa261976",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/OBLIQUE_SPARSE_READER_V1_CONTROL.json": "5c97d02d3a48f1111c7434fbf82d3242acd54175e7f8f5ac3d3b2af027120fbe",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYLER_OBLIQUE_READER_V1_CONTROL.json": "33d0101e80bb621e4ba59532812fac2c6a1ee18a1732814d17a186499f2a1a7a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/NATIVE_READER_SHAPE_V1_AUDIT.json": "6457be1cb946e189545948e7ae8b954371f0a004ff49b08bfe2a7d63d0efdf75",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/NATIVE_READER_METRIC_V1_AUDIT.json": "89557fae73ad75f961adf28c091057ef22757f6cd98c639b2caf413d3027a0c3",
+    "/dev/shm/bilin18_native_reader_shape_v1.pt": "9d423cfccc55c5012e2b70186dfc96e07cdb2cae1e465536837fa0121c2bf5ae",
+    "/dev/shm/bilin18_native_product_energy_v1.pt": "1ba5fdc8fe8455f80e9d8423ae1be1ae210c784493e244578598396c45569910",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_reader_conditional_writer_v1.py": "edd39ca049917a5be54bfa866046f58efe4ff8dedb24a88afa8ccbdf7a837c78",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/conditional_writer_spectral_v1.py": "44d09385bff2c156be930791d0f099868b63915ab07815b6c2439ed2effeea77",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_quadratic_fit_v1.py": "35930671781b0b802fe50c7d22288ca8f70c68f585d1df7e6c8a4417b3af4695",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/READER_CONDITIONAL_WRITER_V1_PREREGISTRATION.md": "7acd89cca923295eb8eb2f89d50f52ffa3d2a4edff4ff997f183aba6597894d9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CONDITIONAL_WRITER_SPECTRAL_V1_CONTROL.json": "f16ab42574dd10ee67f5f17db6aa04b2a25cf6af317d58ee88c90c23b76df291",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CONDITIONAL_WRITER_METRIC_V1_CONTROL.json": "ccf18df0294fa17808a6df4e5b0527ae908b7a9b7bef71b6f4842d15df510043",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FULL_READER_DICTIONARY_MSP_V1_BINDING.json": "2bc66b4168a647d381f47292dcbcb9fb45338ad6bd0ce578694771bb78eb22c5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/OBLIQUE_READER_DICTIONARY_V1_BINDING.json": "43fcac83e1e8c849f7027cef6cd6216224f4e9682e23d5521630e5d4dd0650ea"
+  },
+  "parent_results": {
+    "orthogonal": {
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/FULL_READER_DICTIONARY_MSP_V1_RESULT.json",
+      "sha256": "e562970b0e26f64bfb3a130e1ea926dfe82659f53d03632ffb268f53d56fe418"
+    },
+    "oblique": {
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/OBLIQUE_READER_DICTIONARY_V1_RESULT.json",
+      "sha256": "d5058f76c15906bc96a8c2819a508ba9ef4b44dfcb2a9d9fb95977a78a39860e"
+    }
+  },
+  "wall_seconds": 17.005248103290796,
+  "body_forwards": 0,
+  "corpus_access": false,
+  "full_weights_used_for_writer_fit": true,
+  "coefficients": 7815168,
+  "sparse_indices": 1179648,
+  "scope": "Conditional coefficient optimum of frozen readers; no global reader optimum or circuit validation."
+}

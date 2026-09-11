@@ -1,0 +1,34 @@
+{
+  "family": "ordinary_covariance",
+  "seed": 0,
+  "parent_converged": true,
+  "source": {
+    "path": "/dev/shm/bilin18_oblique_reader_v1_ordinary_covariance_s0.pt",
+    "sha256": "93f778463f7533399ee7e0ed36fa126e87fbfa1302552918b6be36904afbf6a7",
+    "bytes": 33121244
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_reader_writer_v1_ordinary_covariance_0_down.pt",
+    "sha256": "73ee029096f1cbcd807754b1b816ef81b92967a2b93b39938b6ab4ad43fc3855",
+    "bytes": 42475037
+  },
+  "diagnostics": {
+    "rank": 4608,
+    "size": 4608,
+    "rtol": 1e-10,
+    "minimum_eigenvalue": 7.4218312363094805,
+    "maximum_eigenvalue": 9727.23411374257,
+    "retained_condition": 1310.624535108596,
+    "normal_residual": 5.653023981996205e-15
+  },
+  "solve_seconds": 0.817340936511755,
+  "parent_capture_replay": 0.0,
+  "before_capture": 0.2990584806700375,
+  "after_capture": 0.3076492637303906,
+  "gain": 0.008590783060353102,
+  "loss_replay": 8.881784197001252e-16,
+  "executor_replay": 2.8044786459551327e-15,
+  "function_cosine": 0.9867498258525085,
+  "writer_norm_ratio": 1.0446861198903024,
+  "instrument_passed": true
+}

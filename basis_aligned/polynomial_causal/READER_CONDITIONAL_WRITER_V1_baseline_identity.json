@@ -1,0 +1,33 @@
+{
+  "family": "baseline",
+  "seed": "identity",
+  "parent_converged": null,
+  "source": {
+    "path": "/dev/shm/bilin18_reader_writer_v1_baseline_identity_readers.pt",
+    "sha256": "ae1045befe626c15961b460c8cdaa60a27fb5f05948457b141b9f165edaf5b40"
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_reader_writer_v1_baseline_identity_down.pt",
+    "sha256": "7d8ab1a43ca03a671f373494410c3ad3d70efd989b8dd1228ed06d317c3d0305",
+    "bytes": 42475009
+  },
+  "diagnostics": {
+    "rank": 4608,
+    "size": 4608,
+    "rtol": 1e-10,
+    "minimum_eigenvalue": 6.467903805713331,
+    "maximum_eigenvalue": 2158.168066937238,
+    "retained_condition": 333.6734948084495,
+    "normal_residual": 6.831085289755573e-15
+  },
+  "solve_seconds": 0.849483635276556,
+  "parent_capture_replay": 0.0,
+  "before_capture": 0.23245106138031535,
+  "after_capture": 0.2420903241089124,
+  "gain": 0.009639262728597053,
+  "loss_replay": 9.992007221626409e-16,
+  "executor_replay": 1.2443196983487961e-15,
+  "function_cosine": 0.9812495087846874,
+  "writer_norm_ratio": 1.0584255149119821,
+  "instrument_passed": true
+}

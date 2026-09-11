@@ -82,45 +82,33 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 08:26 UTC
+## Current handoff — 11 September 09:20 UTC
 
 Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 [method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
 and [hourly08:22 review](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0822.md).
-Current receipts/processes override this snapshot. Do not repeat completed
-families or infer convergence from an elapsed budget.
+Current receipts/processes override this snapshot; executed sources and bindings stay frozen.
 
-- **Completed, unconverged:** `run_structured_bilinear_continue_v1.py`, sourceSHA
-  `18bb149033110806564a10b0e7e6939387bd71b41158609b5dd99213ddb03a20`.
-  Starts finished3.5097/3.3098%capture, both unconverged. Check
-  `STRUCTURED_BILINEAR_CONTINUE_V1_RESULT.json` and per-seed receipts.
-- **Completed, no promotion:** `run_full_reader_dictionary_msp_v1.py`, sourceSHA
-  `47855b088b7437906d27c0036bf52a2e51f6056630a97d329bfbf693bfaf8bdb`.
-  Full1152input basis; nativeL/Rweights only; paired3072/1536product holdout;
-  bothstarts47.31%heldoutreader capture, belowPCA; combinedconvergencecriterion
-  missed. Foldedfunctioncosine.346betweenstarts. SeeLATEST; noidenticalcontinuation.
-- **Live:** `run_oblique_reader_dictionary_v1.py`,
-  sourceSHA `2eecedbb95ccb50591a2e8a60c53074beee5e0f8cd53eb6dfed26da57672469a`.
-  Ordinary/Tyler shape x two starts,900seconds each; cached training shapes,
-  exact sparse encoding, same program price. Protocol and binding prefix
-  `OBLIQUE_READER_DICTIONARY_V1`. Native runner saves fitted rotations before
-  encoding/scoring. No native oblique result yet; do not duplicate the queue.
-- **Queued after oblique:** `run_reader_conditional_writer_v1.py`, sourceSHA
-  `edd39ca049917a5be54bfa866046f58efe4ff8dedb24a88afa8ccbdf7a837c78`.
-  Eight frozen dictionaries; exact conditional Down comparison with numerical
-  rank diagnostics, same parameter count. Protocol prefix `READER_CONDITIONAL_WRITER_V1`.
-- **Queued after conditional writers:** `run_overcomplete_l1_reader_v1.py`,
-  sourceSHA `fb66e5c5e223ee20f5e704ae20e577c909bd94527d3215ef5821a77651391768`.
-  Protocol prefix `OVERCOMPLETE_L1_READER_V1`; existingproximaloptimizer,2304
-  features,twostarts1800fitseconds,FP64checks,savedstate,nativenormalizedweights only.
-- **Ready:** `sparse_reader_program_v1.py` consumes savedbasis/codes plus
-  Down/bias, with exact feature-edit and interaction algebra. Synthetic
-  controls are not native circuit evidence. All queued/executed bindings frozen.
-- **Latest CPU evidence:** native product energy broad; existing function-Gram
-  nearly full rank. A constructive counterexample proves that this does not
-  bound new factorization or shared intermediate reuse. Canonical index links
-  all results. Cached `/dev/shm/bilin18_native_product_energy_v1.pt` includes
-  UGram and native per-product energies; reuse it if needed.
+- **Live:** `run_overcomplete_l1_reader_v1.py`, SHA
+  `fb66e5c5e223ee20f5e704ae20e577c909bd94527d3215ef5821a77651391768`,
+  started09:15:37. Weight-only2304-feature dictionary, two starts,1800softfitseconds
+  each, FP64jointchecks, savedstate; protocol `OVERCOMPLETE_L1_READER_V1`.
+  No native final result yet. Fixedpenalty/nativepairing limitations are explicit.
+- **Queued afterward:** `run_frozen_radial_fineweb_v1.py`, SHA
+  `18e3a6fcb42f3c61ce8be9df271a74f68ede4894d8189cea8588712053f4e94d`.
+  Protocol `FROZEN_RADIAL_FINEWEB_V1`:64cachedFineWebrows/8192positions,
+  eightfrozenalternatives,10bodyforwards/80sequences, nofitting. This diagnoses
+  radial-metric transfer in known weak candidates; not structural promotion.
+- **Completed:** orthogonalMSP, obliqueMSP and exactconditionalDown comparison.
+  Latestsummary [09:18](basis_aligned/polynomial_causal/explanations/2026-09-11/explanation_2026-09-11_0902.md#update0918).
+  Ordinarybasesbothconverged but refittedfunctions unstable. Do not enqueue an
+  identical MSP continuation. All original convergence/quality misses preserved.
+- **Settled locally:** fixed128-product supportcoefficient fit underfullU,
+  `FOLDED_SUPPORT_CONTINUE_V2_RESULT.json`; V1timeoutpreserved. This isnot a
+  full dictionary solve. No identical continuation.
+- **Reuse:** sparse/rectangular readerexecutors, radial correction wrapper,
+  symmetric-productALS and fixed-support projection, CPinner and cachedUGram.
+  Their source paths and prior controls are indexed; avoid duplicate kernels.
 
 User correction: discover from weights first. No new data/CE/Fisher-guided fits
 until distinct weight-only assumptions and adequate optimization have been

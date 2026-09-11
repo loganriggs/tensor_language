@@ -1,0 +1,48 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_function_stability": false
+  },
+  "captures": [
+    0.30764926373039014,
+    0.30708141930138777
+  ],
+  "capture_replay_errors": [
+    4.440892098500626e-16,
+    4.440892098500626e-16
+  ],
+  "projection_identity_errors": [
+    0.0,
+    0.0
+  ],
+  "function_cosine": 0.36780523395129205,
+  "squared_function_difference_over_native": 0.3886296168054784,
+  "source": [
+    {
+      "readers": {
+        "path": "/dev/shm/bilin18_oblique_reader_v1_ordinary_covariance_s0.pt",
+        "sha256": "93f778463f7533399ee7e0ed36fa126e87fbfa1302552918b6be36904afbf6a7",
+        "bytes": 33121244
+      },
+      "writer": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_ordinary_covariance_0_down.pt",
+        "sha256": "73ee029096f1cbcd807754b1b816ef81b92967a2b93b39938b6ab4ad43fc3855",
+        "bytes": 42475037
+      }
+    },
+    {
+      "readers": {
+        "path": "/dev/shm/bilin18_oblique_reader_v1_ordinary_covariance_s937.pt",
+        "sha256": "bb93464aa305353c09e2f164d59d90c7147785aa1a4f467561b1121075d78456",
+        "bytes": 33130802
+      },
+      "writer": {
+        "path": "/dev/shm/bilin18_reader_writer_v1_ordinary_covariance_937_down.pt",
+        "sha256": "25464a1c442b0b73436fe69328990ad5010137138dce3adf98b91df373ce2f40",
+        "bytes": 42475051
+      }
+    }
+  ],
+  "seconds": 10.654468320310116,
+  "scope": "Two locally converged reader dictionaries with exact conditional Down, whole coefficient-function stability; not raw coordinate alignment, text validation or circuit identification."
+}

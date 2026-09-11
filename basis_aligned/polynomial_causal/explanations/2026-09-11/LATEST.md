@@ -1,9 +1,9 @@
 # Latest research update
 
-**11 September, 09:02 UTC:** [Weights-first discovery: actual methods, assumptions, and bottlenecks](explanation_2026-09-11_0902.md).
+**11 September, 09:18 UTC:** [Completed dictionary, output-fit and stability results](explanation_2026-09-11_0902.md#update0918).
 
-User-requested method review: direct folded-tensor methods versus native-reader proxies; convergence, sparse encoding and metric limitations; current managed weight-only queue. Both ordinary-oblique starts converged but missed reader generalization gains. The exact radial correction improves a hypothetical sphere metric, with a strong radial-only baseline; it has not been validated on FineWeb.
+The oblique comparison missed its quality targets. Exact output refitting raises the best coefficient capture to 30.76%, versus refitted PCA at 29.17%, but the two converged ordinary fits still represent different functions (cosine 0.368). Similar reconstruction scores do not establish stable features.
 
-[Previous 08:22 results](explanation_2026-09-11_0808.md#update0822) · [Method receipts](../../WEIGHT_ONLY_METHODS_INDEX.md).
+Overcomplete L1 discovery is now running. A small frozen-program FineWeb diagnostic is queued afterward; no text fitting or million-token discovery sweep. Pile remains a separate OOD check.
 
-Weights first; frozen-candidate FineWeb validation follows. Pile is separately labelled OOD. No new million-token discovery sweep.
+[Methods and assumptions](explanation_2026-09-11_0902.md) · [Primary receipt index](../../WEIGHT_ONLY_METHODS_INDEX.md).

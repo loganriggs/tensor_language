@@ -1,0 +1,34 @@
+{
+  "family": "tyler",
+  "seed": 0,
+  "parent_converged": false,
+  "source": {
+    "path": "/dev/shm/bilin18_oblique_reader_v1_tyler_s0.pt",
+    "sha256": "65023fa9974c90232703e8bbd6ccda735411607b89fcd2005584ba58b8a34efb",
+    "bytes": 33131522
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_reader_writer_v1_tyler_0_down.pt",
+    "sha256": "311cc587d6bcfc2f09b05dd3233d226e168c6d530281db2fd1723eb83bc59bab",
+    "bytes": 42474875
+  },
+  "diagnostics": {
+    "rank": 4608,
+    "size": 4608,
+    "rtol": 1e-10,
+    "minimum_eigenvalue": 7.414765619325142,
+    "maximum_eigenvalue": 9669.34820785643,
+    "retained_condition": 1304.066602274677,
+    "normal_residual": 5.792503181000254e-15
+  },
+  "solve_seconds": 0.8172077126801014,
+  "parent_capture_replay": 0.0,
+  "before_capture": 0.29792489109963605,
+  "after_capture": 0.30647884807047454,
+  "gain": 0.008553956970838494,
+  "loss_replay": 8.881784197001252e-16,
+  "executor_replay": 2.6801344520821286e-15,
+  "function_cosine": 0.9867506913591226,
+  "writer_norm_ratio": 1.0443294317894571,
+  "instrument_passed": true
+}
