@@ -1,0 +1,29 @@
+{
+  "instrument_passed": true,
+  "maximum_known_optimum_error": 2.220446049250313e-15,
+  "fits": [
+    {
+      "converged": true,
+      "score": 0.8197904407030991,
+      "tangent_stationarity": 3.504976874522885e-08,
+      "orthogonality_error": 6.661338147750939e-16,
+      "iterations": 40,
+      "stopping_criterion": "Terminated - min grad norm reached after 40 iterations, 0.03 seconds.",
+      "seconds": 0.03374938666820526,
+      "pymanopt_version": "2.2.1",
+      "initial_score": 0.3125714494936611
+    },
+    {
+      "converged": true,
+      "score": 0.819790440703098,
+      "tangent_stationarity": 5.039512106525136e-08,
+      "orthogonality_error": 2.220446049250313e-16,
+      "iterations": 24,
+      "stopping_criterion": "Terminated - min grad norm reached after 24 iterations, 0.01 seconds.",
+      "seconds": 0.013591468334197998,
+      "pymanopt_version": "2.2.1",
+      "initial_score": 0.302738690509615
+    }
+  ],
+  "scope": "Standard solver reaches known global spectral optimum on a quadratic control. Native nonlinear trace-quotient problem has no global guarantee."
+}

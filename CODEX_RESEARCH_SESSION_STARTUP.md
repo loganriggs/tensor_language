@@ -105,7 +105,19 @@ reuseinsteadnewsolver. Nativejointfitnotrun/queued. ActualQKtouchseparatefrom
 influencesurrogate; fullnormalizers/backgroundremain. No datafitting authorized
 untilweightstructuralavenuesexhausted. Old B/Cmissespreserved.
 
-All ownGPUjobsfinished at04:06; inspectsharedrunner beforeenqueue. Next hourly
+UPDATE04:16: managedrun_coupled_producer_prepare_v1.py QUEUED behindliveClaude
+v579, SHA44e95d1e208a5ffd5abb400da815173b2f602687fb6b7d28a9d7e8ed794aa348.
+Check COUPLED_PRODUCER_PREPARE_V1_RESULT andrunner; do notduplicatepreparation.
+Then runCPU fit_coupled_producer_native_v1.py withCUDA_VISIBLE_DEVICES empty and
+OMP/OPENBLAS_NUM_THREADS=2. It verifiescachedmatrices andbindings; savesheadwise
+progress to/dev/shm andfinalresult. NoCPUfitstarted at04:16. Nativeprotocol:
+COUPLED_PRODUCER_NATIVE_V1_PREREGISTRATION, weight=.5 AFTERnormalizingeachterm
+by itswithin-keyspanmaximum; fourstarts/head, gradnorm1e-7, limitsnotconvergence.
+Pymanopt2.2.1installed(no-deps), standardGrassmannPRconjugategradient. Known
+spectral andcondition100plantedcontrolsconverge. Exactobjectivebindings frozen.
+Fitcodeandprepcode prepared; onceexecutionbeginsfreezebytes. Interpret36fits,
+held-outdistanceQKtouch andproduceralignment, preservingpredictions. Fullgoalactive.
+ Next hourly
 04:22, math04:49. Fullgoalactive. Filesystem filledduringwrite; relocated48MBof
 verifiedinactiveSep4temporarycompilefiles to/dev/shm, originalpaths aresymlinks.
 Receipt /dev/shm/codex_relocated_inactive_compile_cache_20260911_0403/receipt.json.

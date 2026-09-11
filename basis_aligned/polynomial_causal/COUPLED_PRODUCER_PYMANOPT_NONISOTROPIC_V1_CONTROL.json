@@ -1,0 +1,33 @@
+{
+  "instrument_passed": true,
+  "condition": 99.99999999999989,
+  "fits": [
+    {
+      "seed": 1439,
+      "converged": true,
+      "score": 0.9999999999999991,
+      "tangent_stationarity": 3.150450711884712e-08,
+      "orthogonality_error": 8.881784197001252e-16,
+      "iterations": 36,
+      "stopping_criterion": "Terminated - min grad norm reached after 36 iterations, 0.02 seconds.",
+      "seconds": 0.01938963681459427,
+      "pymanopt_version": "2.2.1",
+      "initial_score": 0.2541081106519791,
+      "subspace_overlap": 0.9999999999999991
+    },
+    {
+      "seed": 1447,
+      "converged": true,
+      "score": 0.9999999999999977,
+      "tangent_stationarity": 5.49348479212362e-08,
+      "orthogonality_error": 6.661338147750939e-16,
+      "iterations": 31,
+      "stopping_criterion": "Terminated - min grad norm reached after 31 iterations, 0.02 seconds.",
+      "seconds": 0.01777646690607071,
+      "pymanopt_version": "2.2.1",
+      "initial_score": 0.30818334849110846,
+      "subspace_overlap": 0.9999999999999979
+    }
+  ],
+  "scope": "Non-isotropic metric, condition100, planted same optimal sharing/routing subspace. No native evidence."
+}

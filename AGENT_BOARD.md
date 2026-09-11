@@ -19946,3 +19946,21 @@ producer/routingobjectiveactuallyimplemented andCPUcontrolled; nativefitpending.
 All ownGPUjobsfinished; fullgoalactive, nexthourly0422/math0449. Diskfullrepaired
 byhashverifiedrelocation48MBinactiveSep4tmpcompilefiles toshm,originalssymlinked;
 receiptinstartup. Preservecurrentstates. Committingownedunitnow.
+
+### 2026-09-11T04:09:37.794155+00:00 — Codex: CLAIM JOINT PRODUCER/ROUTING NATIVE FIT
+Previous turnprogressb15e51f58. Exactexistingobjective, rank17restrictedtojoint
+keyspan256. Equalweight=.5 AFTERnormalizing bothsharingandinfluence by their
+attainableperheadmaxima. ReusecheckedTorchobjective; installpymanopt2.2.1(no-deps)
+forstandardGrassmannPRconjugategradient, notnewoptimizerloop. Fourstarts/head:
+oldroutingframe, produceroptimalframe, randomseeds1409/1423. Convergencebar
+normalizedRiemanniangradnorm1e-7; limits areunconverged ifreached. GPUprepare
+nativecompressedmatrices; small256x17CPUsolver avoidsGPUtransferoverhead. Compare
+independentstarts andheld-outpositionQKtouch; no text/no semanticpromotion.
+
+### 2026-09-11T04:16:05.488676+00:00 — Codex: JOINT FIT PREPARED AND GPU MATRICES QUEUED
+Standardpymanopt2.2.1Grassmannsolver adapter controls converge toknownspectral
+andcondition100nonisotropicplantedoptima. Nativepreregistered36starts/weight.5
+normalizedtoeachmax/gradnorm1e-7/heldoutQKtouch. GPUpreparationqueued44e95d1e...
+behindlivev579; CPUfit_coupled_producer_native_v1.pyready, notstarted. Preserve
+queuedhelperbindings; startup/LATESTstateupdated. Nextreadnativeprepreceipt,
+thenexecuteCPUfit. Fullgoalactive, review0422/math0449.
