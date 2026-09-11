@@ -271,3 +271,44 @@ These are the exact donor-averaged **linearized** effects, not exact full-dose l
 A subsequent CPU control restricts donors further to the **same actual target token**, family and domain. This removes variation in target identity as the sole explanation of the mean alignment. Cells need at least two documents; 253/256 target-family endpoints qualify on FineWeb and 244/256 on the corpus-shift panel. Control-family endpoints are excluded from this particular check. Conditional mean linear costs remain positive: 0.01266/0.02244 nats on FineWeb and 0.01025/0.02142 on the corpus-shift panel. A/B/C hold, with pairwise identity error $6.94\times10^{-17}$. These covered-cell means have no registered uncertainty claim and should not be compared directly with the three-family averages above as an improvement. [Code](branch_exact_token_alignment_v1.py) · [Result](BRANCH_EXACT_TOKEN_ALIGNMENT_V1.json).
 
 The stronger supported interpretation is **context-dependent amplitude alignment within output-token families**, including a positive mean under exact-token conditioning. We still do not know the represented contextual variable. A branch can suppress a token on average yet vary that suppression usefully between contexts; deletion improving selected-token CE and swapping amplitudes worsening CE are therefore compatible. These are post-result diagnostics on existing panels, not fresh OOD confirmation, standalone extraction, semantic task identification, or a full four-property circuit. The next circuit-level question is how much of this alignment comes from the shared reader versus each private partner.
+
+## Shared-reader versus private-partner interchange — 19:42
+
+Write the common scalar as $s=u^\top x$ and each private partner as $p_j=v_j^\top x$, so its branch amplitude is $sp_j$. Using one donor for both ports gives the exact identity
+
+$$
+\Delta(sp_j)=p_j\Delta s+s\Delta p_j+\Delta s\,\Delta p_j.
+$$
+
+The first term changes the shared reader while retaining the current partner; the second changes the private partner; the third accounts for changing both together. This mixed term comes from the **bilinear computation**, even when the downstream loss is linearized. It is not the curvature of CE. Changing the shared graph port affects both consumers; displaying each consumer's contribution does not imply that a common reader can be physically changed for only one of its uses without splitting the node.
+
+For loss sensitivity $g_j$, all-nonself donor expectations within each family/domain stratum are $-\operatorname{Cov}(s,p_jg_j)$, $-\operatorname{Cov}(p_j,sg_j)$, and a mixed remainder that sums with these to $-\operatorname{Cov}(sp_j,g_j)$. Covariances use the sample denominator $n-1$. Explicit all-pair identities hold within $3.04\times10^{-17}$ and reproduce the earlier total exactly. [Code](branch_port_interchange_v1.py) · [Result](BRANCH_PORT_INTERCHANGE_V1.json).
+
+| Mean first-order CE cost | FineWeb branch 0 / 1 | Corpus shift branch 0 / 1 |
+|---|---|---|
+| Shared reader only | -0.02110 / -0.00322 | -0.01490 / 0.00302 |
+| Private partner only | -0.01726 / -0.00834 | -0.01087 / 0.00117 |
+| Mixed term | 0.04637 / 0.02785 | 0.03563 / 0.01242 |
+| Complete product | 0.00801 / 0.01629 | 0.00986 / 0.01661 |
+
+The shared-reader positive-cost prediction **fails**: B/C miss, despite A passing. Complete-product context alignment therefore does not immediately establish that each isolated port is a useful independently manipulable variable. The signs persist qualitatively under the exact-target covered-cell check.
+
+### Red-team: single-port swaps change the mean product
+
+Whole-product permutations preserve the amplitude distribution within a stratum. Swapping just $s$ breaks its correlation with $p_j$ and changes the mean amplitude by
+
+$$
+\overline{\Delta a_j}=-\operatorname{Cov}(s,p_j).
+$$
+
+The same mean shift occurs for private-only swaps; the mixed term contributes twice the opposite shift, so a complete-product swap has zero mean change. This creates a concrete difference between the interventions. Split their linear effects exactly as
+
+$$
+\mathbb E[g_j\Delta a_j]
+=\bar g_j\,\mathbb E[\Delta a_j]
++\mathbb E[(g_j-\bar g_j)\Delta a_j].
+$$
+
+No activation mean is fitted into a model or substituted for a factor; this is statistical accounting of the measured intervention. The mean-shift contribution to the shared-reader cost is -0.02251/-0.01203 on FineWeb and -0.01987/-0.00586 on the corpus-shift panel. It explains 106.7% and 133.3% of branch 0's negative total, respectively. The centered-sensitivity remainders are **0.00141/0.00881** and **0.00496/0.00888** nats. The accounting A/B/C bars pass; identities hold within $1.34\times10^{-15}$. These positive remainder means have no registered confidence claim. [Code](branch_port_mean_accounting_v1.py) · [Receipt](BRANCH_PORT_MEAN_ACCOUNTING_V1.json).
+
+The executed red-team explains why the raw shared-port miss is not evidence that the shared reader carries no useful context. It does **not** repair that miss or establish a standalone shared-reader circuit: the remainder is an accounting term, not a separately validated executable intervention. The supported computation remains the paired product with useful context alignment. Further port-level interpretation must control the changed product distribution and test finite interventions before claiming independent extraction or selective reuse.

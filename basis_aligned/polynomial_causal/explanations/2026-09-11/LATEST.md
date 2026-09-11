@@ -68,3 +68,7 @@ Both [local graph fits](../../RESIDUAL_PARENT_EDGE_V1_MATH.md) converge, but the
 ### 19:36 — Context alignment survives additional controls
 
 Frozen amplitude swaps hurt prediction on both panels. An all-donor first-order check passes, and exact-target/domain conditioning retains positive covered-cell mean effects. This supports useful context variation without identifying its semantic variable. The original four-donor uncertainty and V1 replay failure remain recorded. [Primary explanation](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md).
+
+### 19:42 — Shared-reader intervention has a mean-shift confound
+
+Swapping only one product input fails the expected positive-loss test. Executed accounting shows that breaking the reader/partner correlation changes the mean product and explains the negative shared-reader result; this is not a standalone port validation. Complete-product context alignment remains supported. [Derivation and receipts](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md).
