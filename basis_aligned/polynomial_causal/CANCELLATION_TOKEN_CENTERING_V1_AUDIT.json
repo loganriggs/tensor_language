@@ -1,0 +1,80 @@
+{
+  "predictions": {
+    "pred_a_partition": true,
+    "pred_b_centered_sparse": false,
+    "pred_c_padding": true
+  },
+  "rows": [
+    {
+      "mode": 0,
+      "partition_replay": 1.110223024625184e-16,
+      "centered_top128": 0.033279119789720084,
+      "valid_centered_top128": 0.033409249517921416,
+      "centered_effective_tokens": 13140.174908191215,
+      "centered_energy_fraction": 0.11113076165687984
+    },
+    {
+      "mode": 1,
+      "partition_replay": 1.1102230246256271e-16,
+      "centered_top128": 0.026389816768021906,
+      "valid_centered_top128": 0.026559274880902314,
+      "centered_effective_tokens": 15244.098337634618,
+      "centered_energy_fraction": 0.9992178153133104
+    },
+    {
+      "mode": 2,
+      "partition_replay": 0.0,
+      "centered_top128": 0.037006101521713554,
+      "valid_centered_top128": 0.03747569592083703,
+      "centered_effective_tokens": 12890.210807226375,
+      "centered_energy_fraction": 0.9969394772528916
+    },
+    {
+      "mode": 3,
+      "partition_replay": 1.1102230246253885e-16,
+      "centered_top128": 0.022681847077381415,
+      "valid_centered_top128": 0.0228238134598779,
+      "centered_effective_tokens": 18833.383913022484,
+      "centered_energy_fraction": 0.9908041214460708
+    },
+    {
+      "mode": 4,
+      "partition_replay": 1.1102230246256737e-16,
+      "centered_top128": 0.029323728432983694,
+      "valid_centered_top128": 0.02935115667211054,
+      "centered_effective_tokens": 15297.358221501212,
+      "centered_energy_fraction": 0.999673029761912
+    },
+    {
+      "mode": 5,
+      "partition_replay": 1.1102230246254699e-16,
+      "centered_top128": 0.0363123886492023,
+      "valid_centered_top128": 0.03632774528404776,
+      "centered_effective_tokens": 14261.431064599998,
+      "centered_energy_fraction": 0.9993747944633613
+    },
+    {
+      "mode": 6,
+      "partition_replay": 1.1102230246257755e-16,
+      "centered_top128": 0.03208081455818862,
+      "valid_centered_top128": 0.03208065750064288,
+      "centered_effective_tokens": 15444.061047910021,
+      "centered_energy_fraction": 0.9981981138864993
+    },
+    {
+      "mode": 7,
+      "partition_replay": 1.1102230246253752e-16,
+      "centered_top128": 0.028079241059113923,
+      "valid_centered_top128": 0.028191782484898245,
+      "centered_effective_tokens": 16571.173984600475,
+      "centered_energy_fraction": 0.9976423287109281
+    }
+  ],
+  "eight_mode_padding_fraction": 0.003574062874354665,
+  "eight_mode_group_coverage": 0.9568217050954878,
+  "source": {
+    "path": "/dev/shm/bilin18_cancellation_token_readouts_v1.pt",
+    "sha256": "811354bf78b73a352e6dfab6d7c35c171b30930a5284a74744893d5b6e99568c"
+  },
+  "scope": "Fixed top8 modes only; centering and excluding47extra rows are diagnostics. No output refit or evidence common direction is behaviorally removable through RMS/tanh."
+}

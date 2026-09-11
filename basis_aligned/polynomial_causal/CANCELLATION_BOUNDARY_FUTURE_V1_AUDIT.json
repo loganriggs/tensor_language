@@ -1,0 +1,153 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_future": true,
+    "pred_c_simple_output": false,
+    "pred_d_output_stability": true
+  },
+  "rows": [
+    {
+      "checkpoint": "earlier",
+      "group": "16",
+      "count": 16,
+      "energy": 0.009738265033397309,
+      "output_captures": {
+        "1": 0.9596203659915752,
+        "2": 0.9864714034047072,
+        "4": 0.9960406104409764,
+        "8": 0.9990647008131097,
+        "16": 1.0
+      },
+      "core_cp_replay": 9.694873600728671e-14,
+      "executor_replay": 1.3252515406734061e-14
+    },
+    {
+      "checkpoint": "earlier",
+      "group": "53",
+      "count": 53,
+      "energy": 0.009897388012940638,
+      "output_captures": {
+        "1": 0.6991026113125738,
+        "2": 0.7879673617515149,
+        "4": 0.8928035452625765,
+        "8": 0.9567612986104669,
+        "16": 0.9877435920768827
+      },
+      "core_cp_replay": 1.2281774272358274e-13,
+      "executor_replay": 2.7525664520375124e-14
+    },
+    {
+      "checkpoint": "later",
+      "group": "16",
+      "count": 16,
+      "energy": 0.011093655941240158,
+      "output_captures": {
+        "1": 0.9653404409629425,
+        "2": 0.9888440866586877,
+        "4": 0.9964405544118141,
+        "8": 0.9991517739057204,
+        "16": 1.0
+      },
+      "core_cp_replay": 2.6050863640554553e-13,
+      "executor_replay": 1.0408295612721112e-14
+    },
+    {
+      "checkpoint": "later",
+      "group": "53",
+      "count": 53,
+      "energy": 0.00988820359356727,
+      "output_captures": {
+        "1": 0.6990162666124315,
+        "2": 0.7879883683374496,
+        "4": 0.8928370083134979,
+        "8": 0.9568217050954878,
+        "16": 0.9877873835249485
+      },
+      "core_cp_replay": 3.5798425954087384e-13,
+      "executor_replay": 1.9790214158201135e-14
+    }
+  ],
+  "drift": [
+    {
+      "group": "16",
+      "cosine": 0.9940437187936102,
+      "squared_function_change": 0.00016795765082623998,
+      "dominant_output_cosine": 0.9999711415369572
+    },
+    {
+      "group": "53",
+      "cosine": 0.9991489874755263,
+      "squared_function_change": 1.6839916138887587e-05,
+      "dominant_output_cosine": 0.999999259099354
+    }
+  ],
+  "source": {
+    "path": "/dev/shm/bilin18_projected_product_cancellation_v1_source.pt",
+    "sha256": "8780f0ee1e3e706c11d717cec89e5bbaa9804f92255e2758b4ce1e511164bb76",
+    "iteration": 1227,
+    "loss": 0.3531509294956355
+  },
+  "later_source": {
+    "path": "/dev/shm/bilin18_cancellation_boundary_future_v1_source.pt",
+    "sha256": "8156b2d1a583404df52741a77952b0c60624637c90fc779935ac9d164ef6d7d8",
+    "iteration": 1580,
+    "loss": 0.35314834327257205
+  },
+  "products": [
+    1,
+    10,
+    59,
+    137,
+    299,
+    301,
+    351,
+    554,
+    633,
+    644,
+    775,
+    919,
+    987,
+    1043,
+    1082,
+    1083,
+    1091,
+    1189,
+    1239,
+    1266,
+    1370,
+    1377,
+    1459,
+    1679,
+    1811,
+    2306,
+    2403,
+    2476,
+    2479,
+    2563,
+    2691,
+    2699,
+    2816,
+    2861,
+    2902,
+    2908,
+    2958,
+    3024,
+    3237,
+    3252,
+    3333,
+    3343,
+    3405,
+    3454,
+    3499,
+    3504,
+    3533,
+    3651,
+    3707,
+    4094,
+    4294,
+    4405,
+    4581
+  ],
+  "seconds": 1.5059472918510437,
+  "scope": "Frozen boundary applied to a later optimization snapshot. No independent-start, data/OOD, behavioral or semantic circuit claim; small CP core not automatically cheaper."
+}
