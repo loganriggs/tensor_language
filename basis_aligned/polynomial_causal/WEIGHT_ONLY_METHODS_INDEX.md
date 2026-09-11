@@ -108,3 +108,18 @@ Current07:54: structured continuation completed3.5097/3.3098%capture, both uncon
 First native MSPstart[receipt](FULL_READER_DICTIONARY_MSP_V1_SEED_0.json): train54.85%/heldout47.31%, belowPCAheldout47.54%; fullcoefficientcapture29.56%, combinedconvergencecriterionmissed. [Generalization audit](NATIVE_READER_MSP_GENERALIZATION_V1_AUDIT.json) shows fourth-moment criterion concentrated byindividualtrainingreaders (medianparticipation1.045); near-perfectalignmenthypothesisC/Dmissed. Secondstartlive.
 
 Overcomplete native-input dictionary is still untested natively. [Library plantedcontrol](OVERCOMPLETE_READER_LIBRARY_V1_CONTROL.json) getsoneof2recovery successes; sparsefitslocallystationary, densecontrolunconverged evenafter[exact recoding](OVERCOMPLETE_READER_RECODE_V1_AUDIT.json). [Exhaustive2-support audit](TWO_SUPPORT_ORACLE_V1_CONTROL.json) shows greedyOMP obscuredgoodfeaturediscovery:98.09%to99.96%withsamefeatures. Supportheuristics anddictionarylearning mustbe auditedseparately. No currentnativeMSP/obliquesourcechange.
+
+[Sample-polar null](SAMPLE_POLAR_READER_V1_AUDIT.json): one noniterative polar factor
+of selected1152trainingreaders gives nativequartic.097181vsMSP.100760;
+heldout.002952. IsotropicGaussian train.099462vsheldout.002598, matchingexact
+3/(1152+2). Allregisteredbarsheld. Beforeinterpretinghigh-dimensionalL4fits,
+comparethisbaseline; largetrainingobjective aloneiseasytoproducewithoutsharedfeatures.
+Do notextendMSPmerelytoimprovethatobjective. Queuedobliquecontraststilltestsgeometry.
+
+[Reused proximal encoder](OVERCOMPLETE_PROXIMAL_ENCODER_V1_AUDIT.json) uses unchanged
+quadratic_token_dictionary_v1.conditional onfrozenovercompletetoydictionaries.
+Lasso(alpha.05), top2support, thenexactLS gives99.6613%onrecoveredfeatures
+(vsOMP98.0898%/oracle99.9638%). Bothproxsolvesconverged andmatchedLARSobjective
+<=8.1e-16; allfourpredictionsheld. Thisis animplementedscalableencoderalternative,
+notnativegainornewfeaturediscovery. Theexistingproxcorealreadyallowsrectangular
+dictionaries; reuseitforfurtherL1readerworkinsteadofcreatinganotheroptimizer.

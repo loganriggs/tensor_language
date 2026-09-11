@@ -1,0 +1,45 @@
+{
+  "predictions": {
+    "pred_a_reference": true,
+    "pred_b_converged": true,
+    "pred_c_capture": true,
+    "pred_d_oracle_gap": true
+  },
+  "arms": [
+    {
+      "name": "truth",
+      "proximal_report": {
+        "steps": 470,
+        "relative_stationarity": 9.394766328094443e-10,
+        "converged": true,
+        "resets": 46,
+        "terminal": "stationarity",
+        "maximum_objective_increase": 1.7053025658242404e-13
+      },
+      "seconds": 0.08459912985563278,
+      "reference_objective_error": 8.074503320458068e-16,
+      "lasso_top2_ls_capture": 0.9970379293053937,
+      "oracle_capture": 1.0,
+      "oracle_gap": 0.0029620706946063002,
+      "mean_lasso_active": 2.474609375
+    },
+    {
+      "name": "recovered937",
+      "proximal_report": {
+        "steps": 300,
+        "relative_stationarity": 8.8547454973327e-10,
+        "converged": true,
+        "resets": 7,
+        "terminal": "stationarity",
+        "maximum_objective_increase": 1.1368683772161603e-13
+      },
+      "seconds": 0.04798894003033638,
+      "reference_objective_error": 4.0333658033187264e-16,
+      "lasso_top2_ls_capture": 0.9966132474490088,
+      "oracle_capture": 0.9996376854985587,
+      "oracle_gap": 0.0030244380495498824,
+      "mean_lasso_active": 2.6357421875
+    }
+  ],
+  "scope": "Fixed synthetic dictionaries; two-term execution after Lasso support proposal and exact LS; no native result"
+}

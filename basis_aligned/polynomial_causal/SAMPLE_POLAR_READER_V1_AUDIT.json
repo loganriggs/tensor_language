@@ -1,0 +1,42 @@
+{
+  "predictions": {
+    "pred_a_orthogonal": true,
+    "pred_b_quartic_gap": true,
+    "pred_c_gaussian_exact": true,
+    "pred_d_sparse_overfit": true
+  },
+  "arms": [
+    {
+      "name": "native",
+      "scores": {
+        "train": {
+          "fourth_moment": 0.09718140402704956,
+          "top128_capture": 0.5447329370624002
+        },
+        "test": {
+          "fourth_moment": 0.0029520900399053833,
+          "top128_capture": 0.4718937260989542
+        }
+      },
+      "orthogonality_error": 2.89163808182486e-13
+    },
+    {
+      "name": "isotropic_gaussian",
+      "scores": {
+        "train": {
+          "fourth_moment": 0.09946245071024458,
+          "top128_capture": 0.5395539750236078
+        },
+        "test": {
+          "fourth_moment": 0.0025983060634122233,
+          "top128_capture": 0.46785767706882303
+        }
+      },
+      "orthogonality_error": 2.9311322407330704e-13
+    }
+  ],
+  "gaussian_expected_fourth_moment": 0.0025996533795493936,
+  "seconds": 1.4649345986545086,
+  "iterative_fitting": false,
+  "scope": "One sample-polar finite-weight baseline per matrix, not a distributional confidence interval or no-structure theorem"
+}
