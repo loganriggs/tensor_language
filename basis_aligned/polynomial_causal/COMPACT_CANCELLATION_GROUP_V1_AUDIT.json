@@ -1,0 +1,100 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_four_capture": false,
+    "pred_c_four_replacement": false
+  },
+  "rows": [
+    {
+      "products": 1,
+      "group_capture": 0.856308738365521,
+      "full_error_increase": 0.0013976651334642264,
+      "final_full_capture": 0.6454514053709004,
+      "scalar_curve_replay": 1.0946799022804043e-13,
+      "executor_replay": 1.1012265511969378e-15,
+      "group_float_coefficients": 3456,
+      "old_group_float_coefficients": 22528,
+      "original_group_index_entries": 4096,
+      "new_group_index_entries": 0
+    },
+    {
+      "products": 2,
+      "group_capture": 0.9057797259551956,
+      "full_error_increase": 0.0009156801607734393,
+      "final_full_capture": 0.6459333903435911,
+      "scalar_curve_replay": 1.1668443988810395e-13,
+      "executor_replay": 1.2293505357920286e-15,
+      "group_float_coefficients": 5760,
+      "old_group_float_coefficients": 22528,
+      "original_group_index_entries": 4096,
+      "new_group_index_entries": 0
+    },
+    {
+      "products": 4,
+      "group_capture": 0.9281361214490662,
+      "full_error_increase": 0.0006962829225749894,
+      "final_full_capture": 0.6461527875817896,
+      "scalar_curve_replay": 1.1857181902996672e-13,
+      "executor_replay": 1.0970876359881756e-15,
+      "group_float_coefficients": 10368,
+      "old_group_float_coefficients": 22528,
+      "original_group_index_entries": 4096,
+      "new_group_index_entries": 0
+    },
+    {
+      "products": 8,
+      "group_capture": 0.9448769005525426,
+      "full_error_increase": 0.0005354906282905074,
+      "final_full_capture": 0.6463135798760741,
+      "scalar_curve_replay": 1.2023715356690445e-13,
+      "executor_replay": 1.05637354467214e-15,
+      "group_float_coefficients": 19584,
+      "old_group_float_coefficients": 22528,
+      "original_group_index_entries": 4096,
+      "new_group_index_entries": 0
+    },
+    {
+      "products": 16,
+      "group_capture": 0.9596203659916878,
+      "full_error_increase": 0.0003932275779275814,
+      "final_full_capture": 0.646455842926437,
+      "scalar_curve_replay": 1.1401990462900358e-13,
+      "executor_replay": 1.014912795533818e-15,
+      "group_float_coefficients": 38016,
+      "old_group_float_coefficients": 22528,
+      "original_group_index_entries": 4096,
+      "new_group_index_entries": 0
+    }
+  ],
+  "whole_cp_replay": 3.135512682828079e-16,
+  "source": {
+    "path": "/dev/shm/bilin18_projected_product_cancellation_v1_source.pt",
+    "sha256": "8780f0ee1e3e706c11d717cec89e5bbaa9804f92255e2758b4ce1e511164bb76",
+    "iteration": 1227,
+    "loss": 0.3531509294956355
+  },
+  "removed_products": [
+    2958,
+    2908,
+    1811,
+    554,
+    1189,
+    1,
+    3533,
+    1082,
+    3343,
+    3237,
+    2563,
+    2861,
+    299,
+    1377,
+    1091,
+    3252
+  ],
+  "cache": {
+    "path": "/dev/shm/bilin18_compact_cancellation_group_v1.pt",
+    "sha256": "c35efe0f9b9dfe205a53a9fbaa910cec11a70d32f1cd97a961777523801fb653"
+  },
+  "seconds": 5.378236893564463,
+  "scope": "Fixed selected-group approximation, shared output and dense readers charged; other sparse program features/U/bias/background retained. No native body validation or stable semantic unit."
+}

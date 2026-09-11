@@ -1,0 +1,81 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_local_convergence": true,
+    "pred_c_capture": false
+  },
+  "rows": [
+    {
+      "start": "svd",
+      "initial_capture": 0.9281361214489485,
+      "capture": 0.9281380805072201,
+      "tangent_gradient": 3.530294364096298e-11,
+      "converged": true,
+      "solver_success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 5,
+      "seconds": 0.013033047318458557,
+      "fd_error": 7.087095800083383e-11,
+      "dense_capture_replay": 2.220446049250313e-16,
+      "maximum_capture_decrease": 0.0
+    },
+    {
+      "start": "42",
+      "initial_capture": 0.007200852929795325,
+      "capture": 0.9281380805072207,
+      "tangent_gradient": 1.2888748961753998e-09,
+      "converged": true,
+      "solver_success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 9,
+      "seconds": 0.020527362823486328,
+      "fd_error": 4.763814343000661e-12,
+      "dense_capture_replay": 3.3306690738754696e-16,
+      "maximum_capture_decrease": 0.0
+    },
+    {
+      "start": "43",
+      "initial_capture": 0.08914312251724077,
+      "capture": 0.9281380805072197,
+      "tangent_gradient": 3.191063020044436e-09,
+      "converged": true,
+      "solver_success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 9,
+      "seconds": 0.0056552886962890625,
+      "fd_error": 2.223679573809534e-11,
+      "dense_capture_replay": 6.661338147750939e-16,
+      "maximum_capture_decrease": 0.0
+    }
+  ],
+  "best": {
+    "capture": 0.9281380805072207,
+    "direction": [
+      0.998993489035311,
+      -0.009988723571141531,
+      0.027439982796904874,
+      -0.016837462891606376,
+      -0.016797681099338237,
+      -0.006151296227772524,
+      -0.017408969092723513,
+      0.0003826732423158672,
+      0.004289263229505548,
+      0.0013791672692557337,
+      3.428307201342324e-05,
+      0.0007087983048957975,
+      0.0073137820921214906,
+      0.008941937015378662,
+      0.0001330701059486417,
+      0.009914205423047856
+    ],
+    "start": "42"
+  },
+  "source": {
+    "path": "/dev/shm/bilin18_projected_product_cancellation_v1_source.pt",
+    "sha256": "8780f0ee1e3e706c11d717cec89e5bbaa9804f92255e2758b4ce1e511164bb76",
+    "iteration": 1227,
+    "loss": 0.3531509294956355
+  },
+  "seconds": 0.7564244717359543,
+  "scope": "Fixed16output/32input group, rank1output with four real products; local output optimization only. Does not settle free multi-output factors, other groups or semantic stability."
+}

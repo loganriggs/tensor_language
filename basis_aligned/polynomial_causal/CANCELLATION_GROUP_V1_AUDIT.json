@@ -1,0 +1,130 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_cancellation": true,
+    "pred_c_stability": false,
+    "pred_d_joint_removal": false
+  },
+  "rows": [
+    {
+      "count": 4,
+      "products": [
+        2958,
+        2908,
+        1811,
+        554
+      ],
+      "group_energy": 0.030405130457433326,
+      "individual_energy": 1.4288740629301915,
+      "group_to_individual": 0.021279083472956,
+      "old_group_energy": 0.011106776542684455,
+      "snapshot_cosine": 0.8805558992601098,
+      "deletion_error_increase": 0.030405130457439318,
+      "energy_replay": 2.4651248161222523e-14,
+      "executor_replay": 7.621224541575939e-14,
+      "output_captures": {
+        "1": 0.995389104688771,
+        "2": 0.9986910567124999,
+        "4": 0.9999999999999996,
+        "8": 0.9999999999999996
+      },
+      "core_shape": [
+        4,
+        8,
+        8
+      ],
+      "input_basis_columns": 8,
+      "output_basis_columns": 4
+    },
+    {
+      "count": 8,
+      "products": [
+        2958,
+        2908,
+        1811,
+        554,
+        1189,
+        1,
+        3533,
+        1082
+      ],
+      "group_energy": 0.015289165381621337,
+      "individual_energy": 1.4618464176454782,
+      "group_to_individual": 0.010458804151428452,
+      "old_group_energy": 0.010167624365801979,
+      "snapshot_cosine": 0.8396058089536568,
+      "deletion_error_increase": 0.015289165381627183,
+      "energy_replay": 7.102084697005251e-14,
+      "executor_replay": 4.13939273110755e-14,
+      "output_captures": {
+        "1": 0.9845783323143962,
+        "2": 0.9945189891399574,
+        "4": 0.9987062412384784,
+        "8": 1.0000000000000009
+      },
+      "core_shape": [
+        8,
+        16,
+        16
+      ],
+      "input_basis_columns": 16,
+      "output_basis_columns": 8
+    },
+    {
+      "count": 16,
+      "products": [
+        2958,
+        2908,
+        1811,
+        554,
+        1189,
+        1,
+        3533,
+        1082,
+        3343,
+        3237,
+        2563,
+        2861,
+        299,
+        1377,
+        1091,
+        3252
+      ],
+      "group_energy": 0.009738265033397309,
+      "individual_energy": 1.4834517995053715,
+      "group_to_individual": 0.006564598213871422,
+      "old_group_energy": 0.007315933918118287,
+      "snapshot_cosine": 0.938357759017727,
+      "deletion_error_increase": 0.009738265033402851,
+      "energy_replay": 9.694873600728671e-14,
+      "executor_replay": 5.467864530177535e-14,
+      "output_captures": {
+        "1": 0.9596203659915743,
+        "2": 0.9864714034047063,
+        "4": 0.9960406104409754,
+        "8": 0.9990647008131087
+      },
+      "core_shape": [
+        16,
+        32,
+        32
+      ],
+      "input_basis_columns": 32,
+      "output_basis_columns": 16
+    }
+  ],
+  "current_source": {
+    "path": "/dev/shm/bilin18_projected_product_cancellation_v1_source.pt",
+    "sha256": "8780f0ee1e3e706c11d717cec89e5bbaa9804f92255e2758b4ce1e511164bb76",
+    "iteration": 1227,
+    "loss": 0.3531509294956355
+  },
+  "previous_source": {
+    "path": "/dev/shm/bilin18_native_support_exchange_v1_source.pt",
+    "sha256": "043ead41036ff7a4367496a46dc97da6b6a382e7eb151c117d106a666d69bcb6",
+    "iteration": 729,
+    "loss": 0.3531582020103617
+  },
+  "seconds": 1.5380688421428204,
+  "scope": "Post-result fixed product group inside an unconverged weight-only fit. Core is exact but not automatically a cheaper or identified semantic circuit."
+}
