@@ -1,0 +1,8 @@
+{
+  "stage": "result serialization before file creation",
+  "error": "TypeError: Object of type bool is not JSON serializable",
+  "cause": "NumPy scalar boolean in aggregate/per-anchor predicates",
+  "source_sha256": "68fb7fd3b7b9f8a663c9a99f910b9af2b67e4da44dbf0061e654cc9062fe11f2",
+  "scientific_result_published": false,
+  "repair": "V2 casts comparison predicates and counts to Python bool/int; unchanged search and bars"
+}

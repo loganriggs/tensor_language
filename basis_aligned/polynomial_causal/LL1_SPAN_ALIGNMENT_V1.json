@@ -1,0 +1,145 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "stable_directions": 2,
+  "covered_unstable_anchors": 0,
+  "maximum_replay": 4.440892098500626e-15,
+  "projection_relative_errors": [
+    0.024964225901081234,
+    0.06308986630153064,
+    0.21941167921096413,
+    0.23537687395402243,
+    0.26635459005331247,
+    0.2748957587031187,
+    0.2826573038364057,
+    0.2847709879679328,
+    0.2986916682919105,
+    0.3070129646533856,
+    0.3134862621739297,
+    0.31641385467094985,
+    0.3207730111007304,
+    0.3273830572210263,
+    0.33211121112165654,
+    0.34350117809147945,
+    0.34914635977859476,
+    0.3514331488671931,
+    0.35872360653550406,
+    0.3626153130353682,
+    0.36912355605651964,
+    0.3709778385617944,
+    0.37887079941433355,
+    0.38162113981582524,
+    0.3915263854061401,
+    0.3957544868105181,
+    0.39995680179462545,
+    0.4086695711010082,
+    0.42056790743239175,
+    0.42694696507458507,
+    0.43169607272074695,
+    0.4416154913877123,
+    0.4435390927421835,
+    0.4584463633719728,
+    0.4792295383707179,
+    0.48186183135809657,
+    0.49169707156052034,
+    0.5013868492843128,
+    0.5033595756159147,
+    0.5073929160911758,
+    0.510220799303349,
+    0.5124215774379326,
+    0.5221551642558246,
+    0.5313240375881846,
+    0.5364334293334394,
+    0.5400205458025428,
+    0.5428236549452147,
+    0.5555151994457591,
+    0.5672098520134012,
+    0.572621195494667,
+    0.5873194618491091,
+    0.6108600756595957,
+    0.6128393943543636,
+    0.6307872680071958,
+    0.6408525641895082,
+    0.6485937056695733,
+    0.6669734288129144,
+    0.6906834913776551,
+    0.6981523492083748,
+    0.7268147909318702,
+    0.7608074208660781,
+    0.8146450356942001,
+    0.8477669434381927,
+    0.9864656777982188
+  ],
+  "anchor_projections": [
+    {
+      "group": 1,
+      "energy_fraction": 1.4781071095575246e-05
+    },
+    {
+      "group": 2,
+      "energy_fraction": 1.9354293221656715e-07
+    },
+    {
+      "group": 9,
+      "energy_fraction": 7.012256185296038e-07
+    },
+    {
+      "group": 17,
+      "energy_fraction": 2.5175506246133944e-06
+    },
+    {
+      "group": 25,
+      "energy_fraction": 5.685855857491719e-07
+    },
+    {
+      "group": 34,
+      "energy_fraction": 8.29023878075534e-07
+    },
+    {
+      "group": 38,
+      "energy_fraction": 1.476560719134601e-06
+    },
+    {
+      "group": 41,
+      "energy_fraction": 5.953007413051478e-07
+    },
+    {
+      "group": 53,
+      "energy_fraction": 9.979147873893046e-07
+    },
+    {
+      "group": 56,
+      "energy_fraction": 1.5629209894357547e-06
+    }
+  ],
+  "replay": [
+    {
+      "mode": 0,
+      "predicted_squared_projection_error": 0.0006232125748402151,
+      "exact_cp_squared_projection_error": 0.0006232125748357742,
+      "error": 4.440892098500626e-15
+    },
+    {
+      "mode": 31,
+      "predicted_squared_projection_error": 0.1950242422336106,
+      "exact_cp_squared_projection_error": 0.19502424223360837,
+      "error": 2.220446049250313e-15
+    },
+    {
+      "mode": 63,
+      "predicted_squared_projection_error": 0.9731145334738992,
+      "exact_cp_squared_projection_error": 0.9731145334738999,
+      "error": 6.661338147750939e-16
+    }
+  ],
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PROJECTED_LL1_CONVERGENCE_V3_SPECTRAL.pt": "919950d4a394df5b05d48ecf5e1de20e7c1f8e12b7aba99fab0b7572944f5e58",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_READER_JOINT_FIT_V1_SPECTRAL_ORIGINAL.pt": "2a5956ce353ae2fff904b788ec468d9a836e81b2cd33a65a987a667b6d8e549b"
+  },
+  "artifact": {
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/LL1_SPAN_ALIGNMENT_V1.pt",
+    "sha256": "464681249b7c72926bbaa2267601c57eee4f51c6e9a24cdac285c9a2bbc663eb"
+  },
+  "scope": "Basis-invariant optimal alignment of existing64-dimensional function spans. Not optimization over input readers, new tensor factors, or graph topology; selected here, no held-out or behavioral evidence."
+}

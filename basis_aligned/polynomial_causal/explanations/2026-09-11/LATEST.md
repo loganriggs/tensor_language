@@ -1,5 +1,7 @@
 # Latest research update
 
+**16:51 math:** [exact regrouping and span-alignment tests](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1651.md) do not broadly repair disagreement between two unconverged fits. First joint arm completed; shared-graph arm running. Keep factors adjustable rather than continue reorganizing these frozen banks.
+
 **16:22 live:** [four matched native joint-reader fits](../../SHARED_READER_JOINT_FIT_V1_PREREGISTRATION.md), using bounded coordinates and fresh-gradient checks. First arm running, three queued. Native kernel preflight passed; independent planted recovery remains unreliable. [Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1622.md) records a publication/validation overhead failure and narrows the next block to live-fit evidence.
 
 **16:10 result:** [joint reader fitting and false convergence signal](../../SHARED_READER_VARIABLE_PROJECTION_V2_MATH.md). Checked gradients, but independent planted recovery is unreliable; raw coordinate norms can hide a large gradient. A native GPU preflight is queued. Earlier projected LL1 completed with convergence/stability misses.
