@@ -104,3 +104,7 @@ Frozen component removal fails CE preservation on past/progressive controls, alt
 ### 21:23 — Output split distinguishes grammatical choice from lexical probability
 
 A fixed weight-derived branch largely preserves neighboring binary inflection choices but still changes their probability relative to other words. Intended-effect retention and full CE-preservation bars fail; executed probability accounting explains the difference. Known-panel development only. [Primary explanation](../../NATIVE_RELATION_OUTPUT_SPLIT_V1_MATH.md).
+
+### 21:31 — Frozen output distinction generalizes, broader preservation still fails
+
+New words/constructions confirm small neighboring binary-choice changes and nearly additive branch margins. Full CE preservation and original verb-retention thresholds fail again. Exact-native CPU comparison passes intended change-prediction bars, with private margin errors 4–14%. Native background remains required. [Primary fresh results](../../NATIVE_RELATION_OUTPUT_SPLIT_V1_MATH.md#fresh-lexical-and-construction-validation). Hourly21:27completed; next22:27, math22:51.

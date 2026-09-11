@@ -78,3 +78,34 @@ A separately registered CPU successor recomputed the full vocabulary and both te
 Pair-probability-cost changes have 99.52% and 98.97% of the full CE-change RMS. These ratios are not additive percentages of variance: the terms can correlate or oppose each other. The conclusion is that probability assigned to the lexical pair dominates the remaining CE effects. [Independent accounting](NATIVE_RELATION_OUTPUT_PAIRMASS_V1.json).
 
 This explains the preservation failure without changing its verdict. The useful new distinction is between relative inflection choice and lexical probability allocation. A stronger circuit decomposition should make that distinction explicit and predict both effects on fresh examples. Repeatedly projecting out additional control directions until this particular panel passes would instead fit the test design; that is not the next discovery method.
+
+## Fresh lexical and construction validation
+
+The unchanged output split was next frozen for a new 64-pair panel. Its 16 verbs and 16 nouns have answer/foil token IDs disjoint from all three preceding behavioral panels. Verb agreement uses `the guide/guides`, counting uses `one/many`, past contrasts use `Each week/Last week`, and progressive contrasts use `They usually/They have been`. An infinitive or noun-list introduction supplies lexical context. The same verbs recur across the task and neighboring-control families; this is not 64 independent lexical items. One proposed form, `washes`, was multi-token and was replaced by the `fix` paradigm during pre-outcome row construction. No model outcomes filtered the final rows. [Frozen rows](NATIVE_RELATION_OUTPUT_FRESH_V1_ROWS.json).
+
+The managed run completed at **21:28:06 UTC**, with 18 body forwards, 144 sequences, and 704 tail rows. Native answer-versus-foil capability passes in every family/side/direction: all rates are 100% except one noun cell at 87.5%, above its registered 85% bar. The physical replay and probability identity pass. **A/B/F/G pass; C/D/E fail.** [Fresh result](NATIVE_RELATION_OUTPUT_FRESH_V1_RESULT.json).
+
+- **Intended effect:** private swaps retain 75–77% of the whole verb effect and 88–89% of the noun effect. The original 80%-every-cell retention criterion fails again. Private removal attenuates intended native grammatical contrasts by 13.1–14.9%, but also fails its requirement to retain 80% of the whole component's attenuation on verbs.
+- **Neighboring grammatical choice:** private removal changes binary-choice CE by only **0.00197 nats** for past and **0.00128** for progressive. Their contrast attenuations are about **0.40% / 0.42%**. The prospective binary-choice and pair-probability accounting prediction passes.
+- **Full prediction preservation:** mean absolute target CE changes are **0.12085 / 0.05530 nats**. Both exceed 0.05, so the broader preservation criterion fails again. Pair-probability-cost changes have **99.18% / 98.78%** of full CE-change RMS. The earlier lexical-probability explanation generalizes, including a larger past-family effect; it does not rescue preservation.
+- **Composition:** private and shared swap effects have mean absolute margin nonadditivity **0.00187 nats** for verbs and **0.00075** for nouns, approximately **0.10% / 0.07%** of the whole mean absolute effect. The registered 10% bound passes. No claim that scalar CE changes add is made.
+
+This is independent lexical/construction validation of an already frozen split, not corpus OOD or proof of pretraining disjointness. It confirms a narrower conditional-choice distinction alongside repeated failures of full prediction preservation and the original retention threshold.
+
+### Does the compact program predict the corresponding exact native changes?
+
+The CPU successor compares the same approximate swaps against an exact native readout-span reference. If $m(x)$ is the full native MLP output, its exact scalar readout is $f_{\mathrm{exact}}(x)=A m(x)$. For each fixed writer matrix $V_j$, compare
+
+$$
+\Delta w_{j,\mathrm{exact}}
+=V_j\bigl[f_{\mathrm{exact}}(x_d)-f_{\mathrm{exact}}(x_b)\bigr]
+\quad\text{with}\quad
+\Delta w_{j,\mathrm{approx}}
+=V_j\bigl[f(x_d)-f(x_b)\bigr].
+$$
+
+Each write is added to the same native base state, with the full RMS denominator and logit cap recomputed. Only the two answer logits need to be evaluated for the exact margin comparison; this is an exact selected-logit calculation, not a vocabulary approximation.
+
+GPU approximate effects replay within $8.83\times10^{-6}$ nats. For the whole and private programs, every intended task/direction passes the registered 25% relative effect-error and 90% sign-agreement criteria. All intended signs agree. Private effect errors are **3.82% / 6.34% for the two verb directions**, and **14.05% / 13.20% for nouns**. Their physical write-difference errors are 18.2–21.6%, also below 25%. Thus the approximation predicts the selected native component's causal changes on the new task examples. [Exact-effect result](NATIVE_RELATION_OUTPUT_FRESH_EXACT_V1.json).
+
+The small control effects have weaker relative approximation, including 25–35% private margin error; they are reported rather than hidden in task averages. None of these checks establishes accurate absolute replacement, an isolated text-to-answer program, or the whole four-property objective. The native input and complementary background remain required. This candidate now has a reproducible limited specification: useful number-related conditional changes, nearly additive branch effects, small neighboring binary-choice effects, and non-preserved lexical probability allocation. Further progress should address those missing computations or upstream producers rather than keep modifying this output projection against the same controls.
