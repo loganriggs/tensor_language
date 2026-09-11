@@ -25,6 +25,11 @@ import circuit_fast_screen_canonical_control_v2 as control_v2
 
 canonical_sha256 = builder.canonical_sha256
 
+# keys the control supplies, and keys the row builder derives from them; both must be dropped before rebuilding
+# _row accepts exactly these; everything else in a built row is derived by it and must NOT be passed back.
+_CARRIED_KEYS = ("seed", "task_id", "group_number", "group_id", "reporter", "alternate_reporter",
+                 "adjective", "object_name", "spec")
+
 
 def rows_for(cell_module, control, groups: int = bs.DEFAULT_GROUPS,
              seed: int = bs.DEFAULT_SEED) -> list[dict[str, Any]]:
@@ -45,6 +50,49 @@ def rows_for(cell_module, control, groups: int = bs.DEFAULT_GROUPS,
         out.append(builder._row(**common, transform_id="C",
                                 **control.row_kwargs(case_index, forward)))
     return out
+
+
+def rows_for_any(cell_module, control) -> list[dict[str, Any]]:
+    """As `rows_for`, but for cells with no SPEC attribute.
+
+    The spec-authored path rebuilds the panel from the cell's own `common` dict. Older cells -- including the two
+    standing DAS targets, correlative_pair and possessive_adjacent -- predate BehaviourSpec and expose no SPEC, so
+    that path cannot run. Here the cell's EXISTING C rows are taken as the carrier of every non-control field, and
+    only the control-specific keys are replaced. That is strictly less clever than rebuilding and it is also safer:
+    whatever the old cell put in its rows is preserved untouched, and the only thing that changes is the control.
+    """
+    own = [r for r in cell_module.build_rows()
+           if r.get("family", r.get("transform_id")) == "C"]
+    out: list[dict[str, Any]] = []
+    seed = own[0].get("seed", bs.DEFAULT_SEED) if own else bs.DEFAULT_SEED
+    order = lex._permutation(seed)
+    for group_number, row in enumerate(own):
+        # the case index is the group number mapped through the seed permutation, exactly as the spec path does;
+        # reading group_number directly produced the wrong lexicon slot and the known-good check caught it
+        case_index = order[row.get("group_number", group_number)]
+        forward = row.get("direction_id") == "base_to_donor"
+        kwargs = control.row_kwargs(case_index, forward)
+        carried = {k: row[k] for k in _CARRIED_KEYS if k in row}
+        if "spec" not in carried:
+            # older cells do not store the spec object in the row; take it from the module
+            carried["spec"] = getattr(cell_module, "TASK_SPEC", None)
+        rebuilt = builder._row(**carried, transform_id="C", **kwargs)
+        out.append(rebuilt)
+    return out
+
+
+def verify_against_any(cell_module) -> tuple[bool, str]:
+    """KNOWN-GOOD CHECK for the no-SPEC path: with the canonical control it must reproduce the cell's own C rows."""
+    rebuilt = rows_for_any(cell_module, control_v2)
+    own = [r for r in cell_module.build_rows()
+           if r.get("family", r.get("transform_id")) == "C"]
+    if len(rebuilt) != len(own):
+        return False, f"row count {len(rebuilt)} != {len(own)}"
+    for i, (a, b) in enumerate(zip(rebuilt, own)):
+        if a != b:
+            diff = sorted(k for k in set(a) | set(b) if a.get(k) != b.get(k))
+            return False, f"row {i} differs on {diff[:8]}"
+    return True, f"{len(own)} rows identical"
 
 
 def verify_against_spec(cell_module) -> tuple[bool, str]:
