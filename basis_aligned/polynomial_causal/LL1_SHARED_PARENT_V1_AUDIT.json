@@ -1,0 +1,78 @@
+{
+  "rows": [
+    {
+      "label": "spectral",
+      "source_sha256": "88e93771c4f5423e711013473b83bddf6b959c49224de4ffc3fc97b0279f673e",
+      "pair": [
+        47,
+        59
+      ],
+      "principal_cosine": 0.9947552897798116,
+      "pairwise_cosine_quantiles": [
+        0.13893439067738886,
+        0.306205927218265,
+        0.6772678674735164,
+        0.9665511554596368,
+        0.9947552897798118
+      ],
+      "squared_relative_global_change": 3.103919550732098e-05,
+      "capture_loss": 3.129308027240238e-05,
+      "executor_replay": 1.4460363437996787e-15,
+      "compact_replay": [
+        9.58170843240282e-16,
+        1.3160213974566935e-15
+      ],
+      "orthogonality": [
+        4.908911862707974e-15,
+        5.933095943689846e-15
+      ],
+      "two_group_energy_ratio": 0.9948960098789555,
+      "independent_group_floats": 39200,
+      "shared_graph_floats": 38078,
+      "floats_saved": 1122,
+      "old_variable_products": 32,
+      "new_variable_products": 33,
+      "pred_a": true,
+      "pred_b": false,
+      "pred_c": true
+    },
+    {
+      "label": "native",
+      "source_sha256": "d303c17cfbce9cf2ef20f8eb8a2ecfbe8d71e396dd9c7462edcec98ad5f5356d",
+      "pair": [
+        20,
+        62
+      ],
+      "principal_cosine": 0.9995659348427015,
+      "pairwise_cosine_quantiles": [
+        0.14331227842408953,
+        0.27820385978130563,
+        0.6020860853956957,
+        0.9634772458367438,
+        0.9995659348427018
+      ],
+      "squared_relative_global_change": 3.483806814326925e-06,
+      "capture_loss": 3.5246944589716547e-06,
+      "executor_replay": 1.935371389773849e-15,
+      "compact_replay": [
+        5.703905950116148e-16,
+        1.0041531741283485e-15
+      ],
+      "orthogonality": [
+        6.3636625134892605e-15,
+        6.206528870521893e-15
+      ],
+      "two_group_energy_ratio": 0.9989119167696465,
+      "independent_group_floats": 39200,
+      "shared_graph_floats": 38078,
+      "floats_saved": 1122,
+      "old_variable_products": 32,
+      "new_variable_products": 33,
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": true
+    }
+  ],
+  "seconds": 0.573293250054121,
+  "scope": "One principal-overlap-selected shared-parent move per unconverged native LL1 start. Weight-only; no joint refitting or semantic/behavioral claim. Coefficient constants, reader matrix and writers counted; shared whole-model background unchanged."
+}

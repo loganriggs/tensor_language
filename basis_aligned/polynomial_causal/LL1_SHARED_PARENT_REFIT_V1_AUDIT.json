@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "label": "spectral",
+      "pair": [
+        47,
+        59
+      ],
+      "normal_residual": 1.3663745335219685e-16,
+      "condition": 34.11232235843704,
+      "executor_replay": 3.3468464097462966e-15,
+      "projection_capture_loss": 3.129308027240238e-05,
+      "refitted_capture_loss": 3.0836150478266215e-05,
+      "penalized_objective_gain": 2.8111706651439275e-07,
+      "squared_relative_global_change": 3.131751191716191e-05,
+      "pred_a": true,
+      "pred_b": false,
+      "pred_c": true
+    },
+    {
+      "label": "native",
+      "pair": [
+        20,
+        62
+      ],
+      "normal_residual": 1.888181688570096e-16,
+      "condition": 5.5464647818009905,
+      "executor_replay": 3.801086482949707e-15,
+      "projection_capture_loss": 3.5246944589716547e-06,
+      "refitted_capture_loss": 3.4895904143607917e-06,
+      "penalized_objective_gain": 1.891295042616426e-08,
+      "squared_relative_global_change": 3.50252540443617e-06,
+      "pred_a": true,
+      "pred_b": false,
+      "pred_c": true
+    }
+  ],
+  "selected_parent_cross_start_abs_cosine": 0.01087967574707722,
+  "seconds": 0.6914114654064178,
+  "scope": "Exact conditional joint core solve at fixed graph spans and writers. No convergence of graph topology/readers/whole fit or behavioral claim; original projection-only misses preserved."
+}

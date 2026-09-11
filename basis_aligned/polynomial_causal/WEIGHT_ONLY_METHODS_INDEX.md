@@ -251,3 +251,7 @@ An independent [LL1projectedoutputkernel](symmetric_ll1_projected_v1.py) elimina
 ### 11 September14:19 — Matched group pilot complete / DAG clarification
 
 [MATCHED_SHARED_GROUPS_V1_RESULT.json](MATCHED_SHARED_GROUPS_V1_RESULT.json): LL1 capture11.6604/11.6396%, shared-input8.5285/8.5355%, approximately1.25Mparameters perarm. All120-second endpoints unconverged. LL1registeredbars hold; shared10%capture misses. Completefunctioncosines .90065/.86428 are not groupidentification. [User DAG explanation](explanations/for_logan/research_update_2026-09-11_1327.md#hierarchy-and-dag-discovery) distinguishes dense/sparse Tucker from jointly learning reusable arithmetic. [Exact toy](DENSE_CORE_DAG_V1_CONTROL.json) recovers common linear parent from two dense15monomial quadratics; no native/noisy DAGsearch implemented.
+
+### 11 September — Explicit shared-parent graph proposal and joint refit
+
+[LL1_SHARED_PARENT_GRAPH_V1_MATH.md](LL1_SHARED_PARENT_GRAPH_V1_MATH.md): cross-group principal-space overlap proposes one shared reader, private-core diagonalization gives an executable arrowhead graph. Nativepair move saves1122floats withoneextra variableproduct; projectionbarholdsoneoftwostarts. Exactcorefitgainmisses; jointreader/coreV2reduces mergecaptureloss16.05/26.93%, first25%barfails andhits500iterations. V1QRsign initialfunctionfailure preserved; V2exactobjective/gradient/executorchecksheld. Selectedparents crossstartcos.01088; no stablevariable/nativebehaviorclaim. This implements one actual graphmove/refit, not a general DAGsearch.

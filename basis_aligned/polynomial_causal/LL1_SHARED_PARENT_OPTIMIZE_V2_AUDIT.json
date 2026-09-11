@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "label": "spectral",
+      "pair": [
+        47,
+        59
+      ],
+      "initial_function_replay": 2.040728282739174e-15,
+      "shared_parent_replay": 1.096623668903874e-16,
+      "executable_floats": 38078,
+      "capture_loss": 2.6270683386043667e-05,
+      "projection_capture_loss": 3.129308027240238e-05,
+      "fraction_projection_loss_removed": 0.16049544636192314,
+      "penalized_gain": 5.0269816568918866e-06,
+      "reduced_full_gain_replay": 1.2890147391315943e-17,
+      "finite_difference_error": 4.619976038018614e-11,
+      "executor_replay": 5.381414708839964e-15,
+      "iterations": 500,
+      "evaluations": 518,
+      "termination": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "gradient_inf": 2.1746074580494774e-07,
+      "squared_relative_global_change": 3.0909947560732005e-05,
+      "pred_a": true,
+      "pred_b": false,
+      "pred_c": true,
+      "floats_saved": 1122,
+      "scope": "Fixed-union shared-parent graph optimization; no global or whole-model convergence guarantee."
+    },
+    {
+      "label": "native",
+      "pair": [
+        20,
+        62
+      ],
+      "initial_function_replay": 2.2938723313926104e-15,
+      "shared_parent_replay": 9.914347883225726e-17,
+      "executable_floats": 38078,
+      "capture_loss": 2.5754569454753517e-06,
+      "projection_capture_loss": 3.5246944589716547e-06,
+      "fraction_projection_loss_removed": 0.2693105812562395,
+      "penalized_gain": 9.027443978968929e-07,
+      "reduced_full_gain_replay": 7.396821091016584e-18,
+      "finite_difference_error": 8.787029761312456e-11,
+      "executor_replay": 4.341407915548665e-15,
+      "iterations": 256,
+      "evaluations": 331,
+      "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "gradient_inf": 7.574086498543563e-09,
+      "squared_relative_global_change": 3.7262361355015705e-06,
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": true,
+      "floats_saved": 1122,
+      "scope": "Fixed-union shared-parent graph optimization; no global or whole-model convergence guarantee."
+    }
+  ],
+  "seconds": 1.355125892907381
+}

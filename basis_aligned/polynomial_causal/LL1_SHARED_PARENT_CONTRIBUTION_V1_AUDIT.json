@@ -1,0 +1,31 @@
+{
+  "rows": [
+    {
+      "label": "spectral",
+      "shared_parent_energy_over_pair": 0.02906694896388006,
+      "private_energy_over_pair": 0.9709330510361195,
+      "signed_cross_energy_over_pair": 6.563520771643686e-19,
+      "energy_identity_error": 3.970312865438348e-16,
+      "pair_energy_over_native": 0.006050711690671156,
+      "executable_floats": 38078,
+      "artifact": "LL1_SHARED_PARENT_OPTIMIZE_V2_SPECTRAL_GRAPH.pt",
+      "artifact_sha256": "0de7421c8fd11daf55a656fdd1c4d2d08f168cd1b25021fe025d9fcc193eaaa1",
+      "source_sha256": "0cbfecb2570d86bdd5be640239af9ee21d89fc72de22060c2a65a19864a6efa2",
+      "pred_a": true
+    },
+    {
+      "label": "native",
+      "shared_parent_energy_over_pair": 0.48576788319257963,
+      "private_energy_over_pair": 0.51423211680742,
+      "signed_cross_energy_over_pair": -3.814415339022036e-18,
+      "energy_identity_error": 3.754943709430453e-16,
+      "pair_energy_over_native": 0.0031988786423343923,
+      "executable_floats": 38078,
+      "artifact": "LL1_SHARED_PARENT_OPTIMIZE_V2_NATIVE_GRAPH.pt",
+      "artifact_sha256": "ae9bc3be83b62d8d926ee13096212cbc9985bd46cdf17e789e07125df4f80048",
+      "source_sha256": "6fd61596138ad91353db6feb33711a4930d543af9bcad6c6b41ca28e2d6d8414",
+      "pred_a": true
+    }
+  ],
+  "scope": "Exact coefficient accounting of algebraic shared-parent deletion in fitted pairs. Ratios include signed cross-group interactions; not a native behavioral intervention or identified semantic hierarchy."
+}
