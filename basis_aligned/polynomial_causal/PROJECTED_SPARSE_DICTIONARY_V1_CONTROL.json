@@ -1,0 +1,36 @@
+{
+  "predictions": {
+    "pred_a_dense_gradient": true,
+    "pred_b_writer_solve": true,
+    "pred_c_finite_difference": true
+  },
+  "arms": [
+    {
+      "output_dimension": 7,
+      "output_metric_rank": 4,
+      "candidate_rank": 6,
+      "condition": 703.103525424282,
+      "writer_normal_residual": 5.796463367214396e-15,
+      "loss_error": 1.1657341758564144e-15,
+      "gradient_errors": [
+        8.019680593926267e-14,
+        8.573825065364547e-14
+      ],
+      "directional_fd_error": 5.399899971614275e-11
+    },
+    {
+      "output_dimension": 3,
+      "output_metric_rank": 3,
+      "candidate_rank": 6,
+      "condition": 703.103525424282,
+      "writer_normal_residual": 5.796463367214396e-15,
+      "loss_error": 1.6653345369377348e-16,
+      "gradient_errors": [
+        4.628056485877536e-14,
+        6.932195301006359e-14
+      ],
+      "directional_fd_error": 3.085352806575514e-11
+    }
+  ],
+  "scope": "Integration of prior variable projection and sparse shared-feature chain rule at fixed full product rank. No native cost, global convergence, rank-change smoothness or circuit claim."
+}

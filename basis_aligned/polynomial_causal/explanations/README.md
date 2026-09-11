@@ -11,7 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## [Read the latest update → 11 September](2026-09-11/LATEST.md)
 
-**Newest focused update:** [Better sparse inference helps; the spherical shortcut fails on FineWeb](2026-09-11/explanation_2026-09-11_1021.md).
+**Newest focused update:** [Direct tensor fitting is substantially more effective](2026-09-11/explanation_2026-09-11_1021.md#update1048).
 
 **The newest consolidated report is [10 September, 18:42 UTC](2026-09-10/research_update_1842.md).** It covers progress since the previous requested update, defines the terms and computations, and explains what the mathematical cycles contributed.
 

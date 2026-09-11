@@ -82,25 +82,24 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 10:22 UTC
+## Current handoff — 11 September 10:48 UTC
 
 Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 [method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
 and [hourly10:22 review](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1022.md).
 Current receipts/processes override this snapshot; executed sources and bindings stay frozen.
 
-- **Live:** `run_native_coupled_l1_polish_v1.py`, SHA
-  `d8dda4d7c1443de4cf08d0e87020ad6a061cdb8562761c1cb6b5b0dcc41d34a5`,
-  started10:20:52. Two saved starts,600softfitseconds each, same weight-only L1
-  objective and corrected encoder. Full joint checks, atomic round states;
-  protocol `NATIVE_COUPLED_L1_POLISH_V1`. No native convergence verdict yet.
-- **Queued next:** `run_folded_sparse_dictionary_step_v1.py`, SHA
-  `230c017e26cf1a9b53e9e8755dad0adbc77d2a99bbb8b0dc8bebc793f169d42a`.
-  Full-U gradient/one-step test through all shared features and sparse values
-  of the frozen repaired parents; no text, unchanged supports/Down. Uses all
-  native weights, so historical reader holdout is no longer a held-out metric.
-  Protocol `FOLDED_SPARSE_DICTIONARY_STEP_V1`; reuse the existing chunked CP
-  gradient and new controlled sparse dictionary chain rule.
+- **Live:** `run_projected_sparse_dictionary_fit_v1.py`, SHA
+  `21359b590078914c4e615e0f45e1e5938d48b9ead8916b60b48d4505ce65eba2`,
+  started10:47:24. Two original repaired starts,3600softfitseconds each, full
+  folded objective, exact output solve each evaluation, fixed support graph.
+  Protocol `PROJECTED_SPARSE_DICTIONARY_FIT_V1`; states saved every60seconds.
+  All native weights are in the objective; no historical held-out-weight claim.
+- **Completed:** coupled L1 polish missed all improvement/convergence/stability
+  bars. Direct full-tensor one-step probe passed all bars and establishes usable
+  native gradient cost. See LATEST/method index for receipts. Do not repeat
+  an identical L1 continuation. Reuse projected_sparse_dictionary_v1 and the
+  existing exact output solver/chunked CP gradients for the live route.
 - **Completed:** `OVERCOMPLETE_L1_READER_V1` and `OVERCOMPLETE_OLS_REENCODE_V1`.
   Both parent fits unconverged; repaired encoding improves full tensor capture
   but reader-gain/stability bars miss. Use current LATEST and primary receipts.

@@ -1,0 +1,57 @@
+{
+  "seed": 0,
+  "instrument_passed": true,
+  "accepted": true,
+  "initial_capture": 0.5360370628574236,
+  "final_capture": 0.5596435901051863,
+  "capture_gain": 0.023606527247762688,
+  "gradient_seconds": 1.1320218332111835,
+  "parent_replay": 2.220446049250313e-16,
+  "independent_cp_replay": 3.3306690738754696e-16,
+  "executor_replay": 2.7729917591589715e-15,
+  "fd_error": 5.577021067182386e-10,
+  "analytic_directional_derivative": -0.7652376994180902,
+  "gradient_norms": [
+    0.012706188830313608,
+    0.0018968143491485089
+  ],
+  "initial_diagnostics": {
+    "residual": 0.4639629371425764,
+    "component_energy": 0.49597121250152115,
+    "fitted_energy": 0.5303204283587077,
+    "cross_energy": 0.5331787456080658,
+    "dictionary_relative_stationarity": 1.3145383284519363,
+    "codes_relative_stationarity": 0.334812596281372,
+    "raw_basis_norm_min": 0.9999999999999998,
+    "raw_basis_norm_max": 1.0000000000000002
+  },
+  "reader_squared_error_before": 0.3036617433430407,
+  "reader_squared_error_after": 0.29327159482565307,
+  "trials": [
+    {
+      "step": 0.05,
+      "loss": 0.4403564098948137,
+      "armijo": true
+    }
+  ],
+  "maximum_unit_norm_error": 2.220446049250313e-16,
+  "price": {
+    "float_coefficients": 9143424,
+    "code_nonzeros": 1179648,
+    "runtime_coo_index_entries": 2359296,
+    "products": 4608,
+    "input_features": 2304,
+    "scope": "Program buffers only; residual, unembedding and other native operations separately retained.",
+    "input_dimension": 1152
+  },
+  "source": {
+    "path": "/dev/shm/bilin18_overcomplete_ols_reencode_v1_learned_s0.pt",
+    "sha256": "1d2485263a29615d72470011f2de4a6e553f0c44cd5c9866d89b5983362cc311",
+    "bytes": 33092013
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_folded_sparse_dictionary_step_v1_s0.pt",
+    "sha256": "653ddc3f9ed446f38245141434c757a200f9de584f9e15e0dd10955d400228d3",
+    "bytes": 33037285
+  }
+}
