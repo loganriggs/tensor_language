@@ -82,31 +82,33 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff —11September05:03UTC
+## Current handoff —11September05:17UTC
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0503.md.
-Previous summary missed MULTIOUTPUT_MANIFOLD_V1_RESULT: custom manifoldCG had
-already run240s, capture8.62847%, unconverged. Standard PymanoptCG continuation
-from that newer checkpoint completed36.53s total/35.52s fit; AheldB/Cmissed,
-capture8.62854%, gradient2.75e-6, legacyrelative4.75e-4. Line-search stop, not
-structural negative. See ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V1_RESULT/REDTEAM.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0517.md.
+Before selecting weight work, read WEIGHT_ONLY_METHODS_INDEX.md under polynomial_causal;
+its receipt links include earlier runs missed by old summaries. Do not confuse
+coordinate repair, solver continuation and a new representation family.
 
-Next exact reduced-Hessian trust regions is ready: run_block_trust_region_v1.py,
-SHAcd1d193575b3b7312dc4b61096fb8c7c953ed879df80a619e72ff5149da14584.
-Protocol/binding/control completed. Check queue/runner and BLOCK_TRUST_REGION_V1
-RESULT before submitting or interpreting; managed submission follows publication.
-Do not duplicate. Same16x16x4full-Ulambda.01model; exact reduced Hessian includes
-writer-solve response. CPUEuclidean/manifold HVP errors~1.4e-10; toyfit converges.
-V1TRadapter CPUhistoryaccess failed because noCGlogginghook; V2 accepted-point
-scalarlogging fixed that, controls pass. Only V2 is used by native wrapper.
+BLOCK_TRUST_REGION_V1 completed124.12s,AheldB/Cmissed;24outersteps/1134HVPs,
+capture8.62875%, stillunconverged. NativeHVP6.2e-10 correct. CPUthreadcap audit
+Bfailed:2threads use.144CPUtime but1.10walltime. Actual sourcebottleneck was
+Stiefel.weingarten forming(V@X.T)@N; equivalent V@(X.T@N) avoids n*n intermediate.
+ThinStiefel local override matchesfullHessian2.27e-17; host speedup14.68xat16
+threads/44.26xat2. Not an end-to-end solver-speedup claim. Oldsources preserved.
 
-Native trust-region chunk120s, inner50/radii.1->1, gradient1e-7 plus original
-relative1e-4/maxentry1e-7/fivecheckplateau1e-5. Sources frozen; save final checkpoint.
-If limits hit, no convergence or absent-structure claim. Next result-dependent
-step must change information, not automatically another identical chunk.
-Full goal active. Weights first, no text fits. Latest hourly0422,next0522;
-math0449 completed,next0749. Disk~180MBfree; preserve research and shared state.
-Large caches in/dev/shm ephemeral. Follow bilinear handoff, not better_math_ideas.
+Managed run_block_trust_region_thin_v1.py started05:14:09, sourceSHA
+20bba5bf3a50052723ea15576ab73fa6486798efb870dac516be744c3c6656fe.
+At05:16 passed100acceptedsteps. Check liveprocess/result before any action;
+DO NOT DUPLICATE. NativeHVP7.4e-10 passed. Samefull-Ulambda.01overlapping16x16x4
+family,2BLASthreads,600sbudget,1000outerlimit,inner50/radii.1->1. Alloriginal
+convergencecriteria plusabsolute1e-7remain. Final cache/receipt saved onexit.
+
+Next inspect final status and existing blockgeometry/outputspectrum receipts
+before claiming novel shared functions. Unconvergedfit is not structuralnegative;
+convergedfit is not circuitidentification. Fullgoalactive, no data-guidedfits.
+Latest hourly0422,next0522; math0449,next0749. Preserve shared dirty state and
+hashbound sources. Large /dev/shm caches ephemeral. Bilinearhandoff authority,
+not better_math_ideas. Disk~180MBfree; no large persistentnewstates.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

@@ -1,14 +1,15 @@
 # Latest research update
 
-**11September05:03UTC:** [Overlapping-block continuation and exact curvature](explanation_2026-09-11_0503.md).
+**11September05:17UTC:** [A measured optimizer bottleneck and equivalent repair](explanation_2026-09-11_0517.md).
 
-LibraryCG continuation stopped unconverged after35.52fit seconds; capture
-8.62847%->8.62854%. The report corrects a missed earlier manifold-run receipt.
-An exact reduced-Hessian trust-region continuation is prepared and dry-run
-checked for managed submission. Check the live runner and BLOCK_TRUST_REGION_V1
-receipt for execution status; no native trust-region result existed at publication.
+The first exact-curvature run remained unconverged after24outersteps. A local
+matrix-association repair matches its Hessian within2.3e-17 and speeds up the
+measured host kernel14.7–44.3x. Thread capping alone did not speed it up.
+These are kernel measurements, not whole-fit speedups.
 
-[Methods and previous shared-span results](explanation_2026-09-11_0433.md).
+The longer600-second managed continuation is live; check
+BLOCK_TRUST_REGION_THIN_V1_RESULT.json and the runner for its final status.
+No convergence result was available when this update was written.
 
-**Execution update:** managed lane1 accepted the native trust-region job after
-publication. Source SHA`cd1d193575…`; inspect its result before interpreting.
+[Current weight-only methods and receipts](../../WEIGHT_ONLY_METHODS_INDEX.md) ·
+[Previous exact-curvature explanation](explanation_2026-09-11_0503.md).

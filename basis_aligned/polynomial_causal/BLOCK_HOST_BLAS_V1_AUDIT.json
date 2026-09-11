@@ -1,0 +1,104 @@
+{
+  "predictions": {
+    "pred_a_same_operation": true,
+    "pred_b_wall_speedup": false,
+    "pred_c_cpu_reduction": true
+  },
+  "maximum_relative_output_error": 0.0,
+  "two_vs_sixteen_wall_ratio": 1.101594462840183,
+  "two_vs_sixteen_cpu_ratio": 0.1438036990235439,
+  "wall_speedup": 0.9077750785182349,
+  "rows": [
+    {
+      "threads": 16,
+      "wall_seconds": 1.1855373196303844,
+      "cpu_seconds": 18.118519969,
+      "repeats": 20,
+      "runtime_threads": [
+        16,
+        16
+      ]
+    },
+    {
+      "threads": 2,
+      "wall_seconds": 1.2637615203857422,
+      "cpu_seconds": 2.527542929999999,
+      "repeats": 20,
+      "runtime_threads": [
+        2,
+        2
+      ]
+    },
+    {
+      "threads": 1,
+      "wall_seconds": 1.6903979890048504,
+      "cpu_seconds": 1.6902314390000015,
+      "repeats": 20,
+      "runtime_threads": [
+        1,
+        1
+      ]
+    },
+    {
+      "threads": 1,
+      "wall_seconds": 1.7077330723404884,
+      "cpu_seconds": 1.707486179,
+      "repeats": 20,
+      "runtime_threads": [
+        1,
+        1
+      ]
+    },
+    {
+      "threads": 2,
+      "wall_seconds": 1.3112597651779652,
+      "cpu_seconds": 2.621361583999999,
+      "repeats": 20,
+      "runtime_threads": [
+        2,
+        2
+      ]
+    },
+    {
+      "threads": 16,
+      "wall_seconds": 1.1520028300583363,
+      "cpu_seconds": 17.686570922,
+      "repeats": 20,
+      "runtime_threads": [
+        16,
+        16
+      ]
+    }
+  ],
+  "original_pools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 2,
+      "prefix": "libscipy_openblas",
+      "filepath": "/venv/main/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-61654e39.so",
+      "version": "0.3.34.0.0",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 2,
+      "prefix": "libgomp",
+      "filepath": "/venv/main/lib/python3.12/site-packages/torch/lib/libgomp.so.1",
+      "version": null
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 2,
+      "prefix": "libscipy_openblas",
+      "filepath": "/venv/main/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-5f890258.so",
+      "version": "0.3.31.dev",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    }
+  ],
+  "scope": "Matched-shape host manifold kernels only; both caps forced in this process, CUDA hidden. Not end-to-end native solver speedup or convergence proof."
+}

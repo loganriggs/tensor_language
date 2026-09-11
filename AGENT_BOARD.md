@@ -20105,3 +20105,33 @@ Managed lane1 accepted run_block_trust_region_v1.py, SHAcd1d193575...,
 preflight clean. Source/protocol/results pushed in378ad2596. Next inspect
 BLOCK_TRUST_REGION_V1_RESULT and same runner handle; do notduplicate.
 Fullgoalactive; next hourly0522/math0749.
+
+### 2026-09-11T05:09:08.980280+00:00 — Codex: TRUST REGION RESULT; CLAIM HOST-BLAS TIMING AUDIT
+Previous turn progressc8f323a32. NativeTR124.12s,AheldB/Cmissed, only24outersteps
+and1134HVPs. Initial replayexact/nativeHVP6.2e-10; capture8.62875%, stillunconverged.
+Live process spent~25CPUminutes in102s; fresh NumPy runtime shows16OpenBLASthreads.
+CPU-only matched-shape manifold-gradient/Hessian timing at16vs2vs1threads will
+separate hostoversubscription from actualGPUcurvatureexpense. Predictions:
+A relativeoutputs<=1e-10; B capped2walltime<=half16; C capped2CPUtime<=half16.
+Same saved nativepoint/fixedseed tensors, warmup3,timed20, noGPU/noobjectivefit.
+Only after measurement decide if thread-limit repair merits a native continuation.
+
+### 2026-09-11T05:11:06.398474+00:00 — Codex: THREAD SPEEDUP FAILED; THIN STIEFEL CONTRACTION CLAIM
+Matched CPU kernels16vs2threads: AheldBfailedCheld, wallratio1.10, CPUratio.144.
+Do not claim thread cap speeds execution. Source inspection finds Stiefel
+weingarten computes (tangent@point.T)@normal, materializing16*1152^2 arrays.
+Associativity tangent@(point.T@normal) computes only16*16^2 intermediate instead.
+Override only this local method; keep installedPymanopt/oldsource unchanged.
+Pred_a same native-shaped Hessian <=1e-10 relative; pred_b >=5xhostwall speedup;
+pred_c no n*n intermediate by explicit contraction shapes. Then native
+continuation only if same-Hessian control holds. No changed optimizer/objective.
+
+### 2026-09-11T05:20:22.514732+00:00 — Codex: THIN CONTRACTION VERIFIED; LONGER NATIVE FIT LIVE
+Thin Hessian equivalence2.27e-17; hostkernel speedups14.68x(16threads),44.26x(2).
+Threadcap-alone wall hypothesis failed; no whole-fit speedup claimed. Managed
+run_block_trust_region_thin_v1 source20bba5bf... started05:14:09 and passed100
+accepted steps by05:16. Full600sbudget, same objective/criteria, no data.
+New explanation0517 and WEIGHT_ONLY_METHODS_INDEX link all known weightfamilies
+and old block runs to prevent duplicate work. FirstTR negative audit saved.
+Next inspect this exact run; no duplicate or automatic identical chunk.
+Fullgoalactive; nexthourly0522/math0749. Publishing owned source/result unit.

@@ -1,0 +1,20 @@
+{
+  "instrument_passed": true,
+  "riemannian_hessian_finite_difference_relative_error": 1.4041492469535859e-10,
+  "initial_loss": 0.8193413644741762,
+  "solver": {
+    "loss": 0.11390510676991682,
+    "residual": 0.10672462560423622,
+    "component_energy": 0.7180481165680599,
+    "tangent_stationarity": 4.245269844363576e-08,
+    "converged": true,
+    "seconds": 1.067813627421856,
+    "iterations": 38,
+    "evaluations": 45,
+    "hessian_vectors": 544,
+    "accepted_points": 33,
+    "stopping_criterion": "Terminated - min grad norm reached after 38 iterations, 1.07 seconds.",
+    "maximum_objective_increase": 0.0
+  },
+  "scope": "Correct manifold Hessian and working standard trust-region solver; toy convergence reported independently, native untested."
+}

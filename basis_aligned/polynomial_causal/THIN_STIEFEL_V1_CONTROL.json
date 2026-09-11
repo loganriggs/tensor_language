@@ -1,0 +1,73 @@
+{
+  "predictions": {
+    "pred_a_same_hessian": true,
+    "pred_b_speedup": true,
+    "pred_c_thin_intermediate": true
+  },
+  "maximum_relative_error": 2.269113920131982e-17,
+  "wall_speedups": {
+    "16": 14.684240433482962,
+    "2": 44.26494861788719
+  },
+  "rows": [
+    {
+      "threads": 16,
+      "method": "reference",
+      "wall_seconds": 1.2488068230450153,
+      "repeats": 20
+    },
+    {
+      "threads": 16,
+      "method": "thin",
+      "wall_seconds": 0.08824434131383896,
+      "repeats": 20
+    },
+    {
+      "threads": 16,
+      "method": "thin",
+      "wall_seconds": 0.07853078469634056,
+      "repeats": 20
+    },
+    {
+      "threads": 16,
+      "method": "reference",
+      "wall_seconds": 1.2001592256128788,
+      "repeats": 20
+    },
+    {
+      "threads": 2,
+      "method": "reference",
+      "wall_seconds": 1.3074434362351894,
+      "repeats": 20
+    },
+    {
+      "threads": 2,
+      "method": "thin",
+      "wall_seconds": 0.029208272695541382,
+      "repeats": 20
+    },
+    {
+      "threads": 2,
+      "method": "thin",
+      "wall_seconds": 0.029213231056928635,
+      "repeats": 20
+    },
+    {
+      "threads": 2,
+      "method": "reference",
+      "wall_seconds": 1.2785814255475998,
+      "repeats": 20
+    }
+  ],
+  "reference_intermediate_shape": [
+    16,
+    1152,
+    1152
+  ],
+  "new_intermediate_shape": [
+    16,
+    16,
+    16
+  ],
+  "scope": "Same native-shaped Stiefel Hessian conversion, only matrix association changed; no installed-library mutation. Host-kernel benchmark, not native solver speedup."
+}
