@@ -1,0 +1,27 @@
+{
+  "predictions": {
+    "pred_a_execution": true,
+    "pred_b_projection": true,
+    "pred_c_dose": true,
+    "pred_d_trace": true
+  },
+  "execution_error": 2.207035100887571e-16,
+  "projection_error": 0.0,
+  "input_dose_error": 1.6563797376277862e-15,
+  "trace_error": 1.4210854715202004e-14,
+  "price": {
+    "base": {
+      "float_coefficients": 184,
+      "code_nonzeros": 66,
+      "runtime_coo_index_entries": 132,
+      "products": 11,
+      "input_features": 10,
+      "scope": "Program buffers only; residual, unembedding and other native operations separately retained.",
+      "input_dimension": 7
+    },
+    "additional_float_coefficients": 4,
+    "input_squares_per_example": 7,
+    "radial_output_scalings_per_example": 4
+  },
+  "scope": "Exact synthetic coefficient projection and interface-input dose algebra, not native behavioral validation"
+}

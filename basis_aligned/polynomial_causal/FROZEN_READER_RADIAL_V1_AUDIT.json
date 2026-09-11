@@ -1,0 +1,79 @@
+{
+  "predictions": {
+    "pred_a_execution": true,
+    "pred_b_sphere_gain": true,
+    "pred_c_small_coefficient_gain": true
+  },
+  "arms": [
+    {
+      "name": "orthogonal0",
+      "base": {
+        "path": "/dev/shm/bilin18_full_reader_msp_v1_s0.pt",
+        "sha256": "14304ced3a96be4ca9ea25de62d03beb385d85e2f30c35a51055f09197b70376",
+        "bytes": 22511801
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_frozen_reader_radial_v1_orthogonal0.pt",
+        "sha256": "37d9b490a16b1db8fa4bdb56c412fabeb4bf5ebbd745cb72eda01340620aa6fb"
+      },
+      "execution_replay": 2.25545468557218e-15,
+      "trace_replay": 1.2989410633126331e-17,
+      "coefficient_capture_before": 0.295626092771075,
+      "coefficient_capture_after": 0.2970075762661468,
+      "coefficient_gain": 0.0013814834950718734,
+      "uniform_sphere_capture_before": 0.4466396637073913,
+      "uniform_sphere_capture_after": 0.7406799909211212,
+      "uniform_sphere_capture_gain": 0.29404032721372997,
+      "traceless_coefficient_capture": 0.29492944317132896,
+      "additional_coefficients": 1152
+    },
+    {
+      "name": "orthogonal937",
+      "base": {
+        "path": "/dev/shm/bilin18_full_reader_msp_v1_s937.pt",
+        "sha256": "2a6af5c785a9b97d3ae599c3e843d22676510b12c187711f4c25445ac64c7d93",
+        "bytes": 22511757
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_frozen_reader_radial_v1_orthogonal937.pt",
+        "sha256": "67d952a5a48c84069860bec19d0d8eada141c831a71d73a538a07ced81bf489c"
+      },
+      "execution_replay": 2.3215663950607015e-15,
+      "trace_replay": 1.1265584125749657e-17,
+      "coefficient_capture_before": 0.29576953118178806,
+      "coefficient_capture_after": 0.2971164628932459,
+      "coefficient_gain": 0.0013469317114578742,
+      "uniform_sphere_capture_before": 0.4540339660164717,
+      "uniform_sphere_capture_after": 0.7407201570454984,
+      "uniform_sphere_capture_gain": 0.2866861910290267,
+      "traceless_coefficient_capture": 0.2950386516808491,
+      "additional_coefficients": 1152
+    },
+    {
+      "name": "ordinary0",
+      "base": {
+        "path": "/dev/shm/bilin18_oblique_reader_v1_ordinary_covariance_s0.pt",
+        "sha256": "93f778463f7533399ee7e0ed36fa126e87fbfa1302552918b6be36904afbf6a7",
+        "bytes": 33121244
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_frozen_reader_radial_v1_ordinary0.pt",
+        "sha256": "7f8ad0c2850439133b81a42bc28f63ae6aa715347f4cfc32c04755b6a835ef05"
+      },
+      "execution_replay": 2.353554248559515e-15,
+      "trace_replay": 1.269868451176218e-17,
+      "coefficient_capture_before": 0.2990584806700374,
+      "coefficient_capture_after": 0.30038090722718114,
+      "coefficient_gain": 0.0013224265571437602,
+      "uniform_sphere_capture_before": 0.46045392748144687,
+      "uniform_sphere_capture_after": 0.7419243460320843,
+      "uniform_sphere_capture_gain": 0.2814704185506374,
+      "traceless_coefficient_capture": 0.2983127461185089,
+      "additional_coefficients": 1152
+    }
+  ],
+  "uniform_sphere_target_energy_with_bias": 537155697949.3802,
+  "radial_plus_bias_only_uniform_sphere_capture": 0.6322070088343055,
+  "radial_only_coefficient_capture": 0.0029474115387332317,
+  "scope": "Exact radial projection of frozen weight fits; ideal sphere reference, no natural-input validation or new dictionary fit"
+}

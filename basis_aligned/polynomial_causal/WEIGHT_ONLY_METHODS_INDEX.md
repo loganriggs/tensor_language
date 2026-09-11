@@ -155,3 +155,5 @@ spherefunctionenergy. This is priorwork, notnewdiscoveryoractualactivationstats.
 cosine_U(radial,bias)=+.9722, biasnormonly.398%ofradialnorm. Exactsplitreplay2.90e-15;
 anticorrelation/cancellationbarsfailed. NativeRMSradiusisretainedexactly, not
 replacedbyaconstant; no spectraldenoisingorbodyreplacementqueuedfromthisaudit.
+
+Current09:02: [user-requested methods review](explanations/2026-09-11/explanation_2026-09-11_0902.md) separates joint folded-tensor discovery from native-reader sparsity proxies. Ordinary-oblique seed937 also converged, heldout43.7148%, folded29.8454%; Tyler pending. [Frozen radial correction](FROZEN_READER_RADIAL_V1_AUDIT.json) preserves known radial term in three fits: ideal-sphere capture74.07–74.19%, radial+bias-only63.22%; coefficient gains only0.132–0.138percentage points. No new dictionary fit or FineWeb validation. Prior radial identity remains prior art. Current conditionalDown/L1queue unchanged; no new million-token discovery sweep.

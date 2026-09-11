@@ -1,11 +1,9 @@
 # Latest research update
 
-**11 September, 08:22 UTC:** [Completed dictionary results and the next discovery method](explanation_2026-09-11_0808.md#update0822).
+**11 September, 09:02 UTC:** [Weights-first discovery: actual methods, assumptions, and bottlenecks](explanation_2026-09-11_0902.md).
 
-Both orthogonal MSP starts missed held-out reader improvement and combined convergence. Their complete fitted functions were also unstable across starts (cosine0.346). A noniterative sample-alignment baseline reproduces nearly all of the training score.
+User-requested method review: direct folded-tensor methods versus native-reader proxies; convergence, sparse encoding and metric limitations; current managed weight-only queue. Both ordinary-oblique starts converged but missed reader generalization gains. The exact radial correction improves a hypothetical sphere metric, with a strong radial-only baseline; it has not been validated on FineWeb.
 
-An overcomplete L1 reader experiment is now queued, using a different objective and the existing proximal optimizer. The oblique geometry comparison is live; exact output-weight refits are ahead of L1 in the managed queue. These remain weight-only discovery tests, not identified circuits.
+[Previous 08:22 results](explanation_2026-09-11_0808.md#update0822) · [Method receipts](../../WEIGHT_ONLY_METHODS_INDEX.md).
 
-[Method index](../../WEIGHT_ONLY_METHODS_INDEX.md) · [08:22hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_0822.md) · [07:51math review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md).
-
-Weights first; frozen-candidate FineWeb validation follows. Pile is separately labelled OOD.
+Weights first; frozen-candidate FineWeb validation follows. Pile is separately labelled OOD. No new million-token discovery sweep.
