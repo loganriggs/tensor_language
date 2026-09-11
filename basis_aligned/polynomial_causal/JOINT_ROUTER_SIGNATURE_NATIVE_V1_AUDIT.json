@@ -1,0 +1,29 @@
+{
+  "scope_correction": "Original source8 row used independent query/key slots and is not the physical tied-input self-attention signature. This audit supplies the tied quartic numerator; source7/0 determinant test is unchanged.",
+  "self_numerator_cosine": -0.0004522601614437814,
+  "self_numerator_best_proportional_squared_error": 0.9999997954607464,
+  "self_tied_score_replay_relative_errors": [
+    9.909828332783044e-16,
+    1.5720419668617633e-15
+  ],
+  "instrument_passed": true,
+  "distinct_source_numerator_errors": {
+    "7": 0.9999999108552728,
+    "0": 0.9999999586146535
+  },
+  "distinct_source_counterexample": {
+    "minimum": 0.06544383184429509,
+    "median": 0.697783272707977,
+    "maximum": 0.9999997009827004
+  },
+  "redteam": {
+    "narrow_failure": "Global shared joint-signature/proportional normalized routing for head17.2/17.3 at the registered positions and formal continuous probes",
+    "structural_negative": false,
+    "does_not_reject": [
+      "Task-specific natural-input agreement",
+      "Shared subterms or partially overlapping input spaces",
+      "Alternative cross-head groupings"
+    ],
+    "normalizer_limit": "Coefficient proportionality is sufficient for a common algebraic signature, not necessary for all equivalent rational representations. Continuous counterexamples reject global row proportionality on the formal domain; they do not prove text reachability."
+  }
+}

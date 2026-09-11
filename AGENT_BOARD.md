@@ -19563,3 +19563,15 @@ The full source contraction currently covers the centered unembedding, with the 
 
 ### 2026-09-11T00:07:10.819097+00:00 — Codex: FULL SOURCE FACTORIZATION PUBLISHED; JOINT QK TOOL BEGUN
 Full-U antisymmetric43.01%vs43.08%control. Centered routing36mode exact factorization A/C held B failed;4capture17.22%, all-U upperbound24.59%. Diagonal baseline explains most top-mode concentration, known17.2/17.3pair not promoted. Joint QK product and full denominator polynomial Gram controls executed; next native routing comparison not yet run. New dated explanation2026-09-11/explanation_2026-09-11_0005.md, latest pointers updated. Full goal active; no own GPU job queued.
+
+### 2026-09-11T00:11:40.181367+00:00 — Codex: CLAIM NATIVE JOINT QK SIGNATURE COMPARISON
+Previous turn progressdea626dc3. Evaluate all9attention17heads, focus preselectedknown2/3pair: query position8 andsourcepositions8,7,0 withnativeBF16rotary tables. Exact Gram comparisons use joint QK1×QK2 numerator plus complete squared query/key denominators (epsilon included). Agram/eigen/directscore<=1e-10; Bpair2/3best-proportional squared error<=.10for numerator atallthreepositions andbothdenominators; Cpair2/3two-source routing sine<=.10onall32fixedcontinuous probes. Probes validate/falsify formal identities, are not text data or natural-circuit evidence. Branch roles never interpreted separately.
+
+### 2026-09-11T00:15:12.447759+00:00 — Codex: JOINT QK RESULT; CLAIM SELF-SLOT SCOPE REPAIR
+Joint signature A held B/C failed. Pair2/3 distinct-source numerator proportionalerrors~1 and routing-sine median.6978/max~1 on32formalqueries. Source8 numerator/probe was an independent-slot extension; actual self-attention ties key=query. Preserve original receipt, explicitly scope that row, and compute the correct fully symmetric quartic self numerator plus tied-state score replay separately. Distinct source7/0 counterexample is unaffected. No claim against task-specific sharing or shared subterms.
+
+### 2026-09-11T00:21:12.645434+00:00 — Codex: CLAIM WEIGHTS-FIRST METHOD/CAPACITY AUDIT
+User priority reaffirmed: no new data discovery; FineWeb validation, Pile separately labelled OOD. Publish actual representation/solver coverage and remaining assumptions. Begin CPU multi-output orthogonal least-squares control in native quadratic dictionary coordinates: exact conditional writers and greedy residual-gain selection. This is a constructive capacity/initialization baseline, not global-optimum or circuit identification. Prior search of campaign, MLP17 dossier and scripts found no matching weight-only OLS implementation; older behavioral native-neuron selection is different. Native run not yet queued.
+
+### 2026-09-11T00:24:00.428187+00:00 — Codex: METHOD AUDIT AND CPU CONTINUATION COMPLETE
+Published weights-first coverage/assumptions explanation0022 and latest pointers. QK self-input correction passes; global sharing failure does not reject task-specific subterms. Native-dictionary OLS CPU selection/gain controls passed (4.1e-14); native run remains pending, no GPU queue change. Hourly0022 complete; next0122, scheduledmath0149. Full program goal active.

@@ -1,5 +1,5 @@
 # Latest research update
 
-**11 September, 00:07 UTC:** [Full unembedding/value fold and routing-contrast factorization](explanation_2026-09-11_0005.md). The whole-tensor calculation confirms a large generic source constraint, but a few shared routing contrasts do not suffice. Joint QK numerator/normalizer controls are implemented; native QK results remain pending.
+**11 September, 00:22 UTC:** [Weights-first factorization: methods, assumptions and bottlenecks](explanation_2026-09-11_0022.md). Actual solver coverage, convergence, remaining structural hypotheses, and the FineWeb/Pile distinction. Joint QK result and self-input correction included. Native-dictionary OLS CPU controls passed; native run pending.
 
-[Previous day’s campaign](../2026-09-10/unsupervised_structure_campaign.md) · [Previous consolidated requested report](../2026-09-10/research_update_1842.md).
+[Previous attention-fold update](explanation_2026-09-11_0005.md) · [Previous day’s campaign](../2026-09-10/unsupervised_structure_campaign.md) · [Previous consolidated requested report](../2026-09-10/research_update_1842.md).

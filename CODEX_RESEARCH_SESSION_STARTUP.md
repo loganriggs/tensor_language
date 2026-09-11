@@ -82,18 +82,15 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 00:07
+## Current handoff — updated 11 September 2026, 00:22
 
-LATEST CONTINUATION: full centered source/value tensor antisymmetric43.39%,
-source-permuted43.45%; all-U including common43.01%vs43.08%. All exact checks
-held; large special alignment claim failed. ROUTING_WEDGE_COVARIANCE_V1 A/C
-held B failed: best4capture17.22%, rank90=31of36. All-U upper bound4capture24.59%,
-rank>=30for90%. Mostly native-pair/diagonal geometry;17.2/17.3alreadyknown.
-Next joint_router_polynomial_gram_v1.py implements full QK1×QK2 numerator and
-squared query/key denominator Grams; dense CPU controls passed, no native QK
-comparison yet. No own GPU successor queued. Newest explanation in2026-09-11.
-Latest hourly23:18Sep10,next00:18Sep11; math22:49,next01:49Sep11. Full goal active,
-weight-first, no new data fitting. All negative receipts have executed audits.
+Latest method and assumption audit: explanations/2026-09-11/LATEST.md.
+Joint QK signature test completed; global proportional routing17.2/17.3 failed
+on formal continuous probes. Self-input scope repair passed; no negative about
+shared subterms or task-specific input spaces. Next native-dictionary OLS CPU
+controls passed; native capacity run not queued. Weight-first structural search
+not exhausted; no new data discovery. Latest hourly00:22, next01:22; scheduled
+math22:49, next01:49. Full goal active. Check current disk before new checkpoints.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
@@ -194,8 +191,8 @@ not be changed retroactively. Build small wrappers for new semantics.
 ## Review clocks and throughput
 
 Latest hourly review:
-[22:18](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-10_2218.md).
-Next hourly review is due **23:18 UTC** at the first safe boundary.
+[00:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0022.md).
+Next hourly review is due **01:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [22:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_2249.md).
 Next mathematical review is due **01:49 UTC on11September**. Derive later deadlines from the

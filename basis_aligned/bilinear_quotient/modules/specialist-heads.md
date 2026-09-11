@@ -152,3 +152,13 @@ synergy 1.15x vs capitalized's 1.5x). TWO-CREW MOTIF DEMOTED to "observed someti
 redundancy structure varies by service (capitalized = 2 strong crews; newline = 1 loose
 crew; quotes = owner + helpers). Corpus emits newlines only as bare '\n'.
 Committee-13 joint = .654 (S1419; 16.3's joint marginal +.077 = 5x its solo).
+
+
+## 11 September: joint routing signature scope
+
+The existing attention17.2/17.3 pair does not have globally proportional normalized
+routing on the tested formal continuous inputs (query8, distinct sources7/0).
+This is not a negative about task-conditioned sharing or partial input subspaces.
+The self-position signature was separately corrected for tied query/key inputs.
+See [scope-corrected audit](../../polynomial_causal/JOINT_ROUTER_SIGNATURE_NATIVE_V1_AUDIT.json)
+and [method explanation](../../polynomial_causal/explanations/2026-09-11/explanation_2026-09-11_0022.md).
