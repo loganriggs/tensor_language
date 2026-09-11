@@ -1,0 +1,39 @@
+{
+  "rows": [
+    {
+      "parent": 1,
+      "label": "SPECTRAL",
+      "whole_executor_error": 0.09995043198216748,
+      "max_private_shared_overlap": 0.920848579208966,
+      "bad_groups": [
+        16,
+        25
+      ]
+    },
+    {
+      "parent": 1,
+      "label": "NATIVE",
+      "whole_executor_error": 1.6147391825983706e-15,
+      "max_private_shared_overlap": 4.929756901602768e-15,
+      "bad_groups": []
+    },
+    {
+      "parent": 9,
+      "label": "SPECTRAL",
+      "whole_executor_error": 0.02998076616195934,
+      "max_private_shared_overlap": 0.7306315442712152,
+      "bad_groups": [
+        10,
+        16
+      ]
+    },
+    {
+      "parent": 9,
+      "label": "NATIVE",
+      "whole_executor_error": 1.8025433523012253e-15,
+      "max_private_shared_overlap": 3.0487716200909136e-15,
+      "bad_groups": []
+    }
+  ],
+  "diagnosis": "Rank-deficient projected input span: unpivoted QR completes with directions that need not remain perpendicular to u. This breaks the exact rewrite. V1 instrument invalid; B/C not usable until repair."
+}

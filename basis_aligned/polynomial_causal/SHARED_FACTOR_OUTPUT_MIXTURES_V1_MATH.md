@@ -110,3 +110,9 @@ The queued behavioral screen retains its frozen **named-node branch removal**.
 These analyses neither change that intervention nor replace its bars. A broader
 native input-direction intervention would require its own declared meaning,
 including how normalization and background computation are handled.
+
+Follow-up: an [exact global-consumer rewrite](GLOBAL_READER_REBASE_V2_MATH.md)
+now supplies that consistent local quadratic interface for two readers. Cross-start
+agreement improves to0.954/0.965, but energy-matched prior-reader controls agree
+at least as well. The rewrite is useful for scope accounting; its specificity
+test does not identify the two readers as special circuits.

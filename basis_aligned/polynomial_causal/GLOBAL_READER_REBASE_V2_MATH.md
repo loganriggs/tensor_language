@@ -1,0 +1,99 @@
+# A consistent shared-reader interface, and its specificity control
+
+11 September 2026. **Changing consumer scope repairs much of the apparent
+cross-start disagreement, but a control shows the resulting agreement is common
+among other weight-derived readers.** The exact rewrite is useful infrastructure;
+it does not identify these readers as special circuits.
+
+The completed graph fits had two close input-reader pairs: spectral parent1 versus
+native parent6, and spectral parent9 versus native parent4. Input cosines exceeded
+0.98, while their named-node removal functions agreed at only0.4405 and0.4888.
+The prior scope audit showed why: named-node deletion only changes explicitly
+declared consumers, while other groups can read the same input direction.
+
+## An exact change of consumers
+
+Fix one spectral reader $u$ and use it in both graphs. For every quadratic group,
+choose an orthonormal private basis $V_g$ perpendicular to $u$, retaining all
+directions needed to span the projected old input readers. Then
+
+$$
+z=u^\top x,\qquad y_g=V_g^\top x,
+$$
+
+$$
+x^\top Q_gx=\alpha_g z^2+z\,\beta_g^\top y_g+y_g^\top H_gy_g,
+$$
+
+$$
+\alpha_g=u^\top Q_gu,\qquad
+\beta_g=2V_g^\top Q_gu,\qquad H_g=V_g^\top Q_gV_g.
+$$
+
+Diagonalize the private $H_g$ as in the existing graph executor. Compute the
+shared read and its square once. Unlike the previous approximate merge, permit
+all16 private directions plus the shared reader, rather than forcing the total
+group input dimension to remain16. This preserves the whole fitted function.
+Setting $z=0$ now has the same meaning as replacing the quadratic layer's input
+by $(I-uu^\top)x$, because every private read is perpendicular to $u$.
+
+That equality is local to this layer's quadratic input. It is not automatically
+an upstream intervention through RMS normalization or a claim about native behavior.
+
+The first implementation exposed a rank-deficient QR problem: groups already
+containing $u$ have only15 projected input directions, and unrestricted QR
+completion can reintroduce $u$ as the sixteenth private direction. This caused
+double-counting and up to10% whole-function execution error. The
+[V1 failure](GLOBAL_READER_REBASE_V1_FAILURE.json) and source are preserved.
+[V2](global_reader_rebase_v2.py) detects rank by SVD and completes the basis
+explicitly inside $u^\perp$. No readers, thresholds, or experimental selections
+changed in the repair.
+
+The [repaired result](GLOBAL_READER_REBASE_V2_RESULT.json) passes all registered
+bars. Thin coefficient, executor, and removal checks agree within5.17e-14;
+private/shared overlap is at most4.95e-15. With the same global reader interface:
+
+| Fixed spectral reader | Cross-start removal-function cosine | Relative function difference | Groups above1% own-energy threshold |
+|---|---:|---:|---|
+| 1 | 0.9538 | 30.31% | 15 / 17 |
+| 9 | 0.9647 | 26.51% | 15 / 15 |
+
+High cosine does not mean identical effects, as the relative differences show.
+These group counts measure algebraic overlap, not semantic consumers.
+
+The exact rewrite costs1,256,640 floating coefficients,1025 linear reads and1089
+variable products. The original64-group rank16 representation costs1,254,400,
+1024 and1024 respectively. Thus the rewrite adds0.179% coefficients and65 products
+relative to that representation; it is also larger than the compressed shared
+graphs. No compression or adoption claim follows.
+
+## Is the apparent stability distinctive?
+
+A positive result could arise because many projections of the two fitted layers
+already agree. The [executed control](GLOBAL_READER_AGREEMENT_CONTROLS_V1.json)
+uses the pre-existing256 converged-square readers. Exclude directions with absolute
+cosine at least0.95 to the anchor, then choose16 readers closest in log mean
+cross-start projected energy. This matches contribution scale approximately;
+selected energy ratios are0.843–1.188 and0.869–1.144 for the two anchors.
+
+| Reader | Anchor agreement | Control mean | Control95th percentile |
+|---|---:|---:|---:|
+| 1 | 0.9538 | 0.9670 | 0.9879 |
+| 9 | 0.9647 | 0.9683 | 0.9879 |
+
+Both specificity bars miss: neither anchor exceeds its control mean by0.02,
+and neither exceeds the control95th percentile. Batched projected-inner scores
+agree with explicit partner matrices within3.18e-15. The whole fitted functions
+have cosine0.9076; their high agreement on many strong reader projections is
+therefore a real but broad property.
+
+The existing alias census also records reader1 close to old square126
+(input cosine0.9780) and reader9 close to old square204 (0.9881). Their complete
+node functions are not aliases of those single squares, but these are not newly
+discovered input directions. [Prior census](SHARED_READER_POSTFIT_ALIASES_V1_SPECTRAL.json).
+
+The conclusion is narrower than either initial extreme: inconsistent consumers
+did hide comparable computation, but defining consistent consumers does not by
+itself establish a distinguished circuit. The frozen native branch screen remains
+queued with its original named-node intervention. Its behavioral outcome and the
+retained-history optimization comparison should guide the next experiment.
