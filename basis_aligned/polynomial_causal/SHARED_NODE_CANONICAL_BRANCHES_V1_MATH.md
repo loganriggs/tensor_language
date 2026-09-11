@@ -330,3 +330,34 @@ The finite native-tail screen replayed baseline CE exactly and passed algebra/so
 No mean compensation or parameter fitting was applied. These are descriptive means, not significance claims. The control is adequate under its frozen distance, perturbation-size and mean-shift bars, but examines only a limited range of conditional variation. This closes the current independent-reader screen; it does not prove the reader is globally irrelevant. The useful complete-product result remains. Further tuning of these donor controls would not establish a new circuit. [Finite result](BRANCH_PRIVATE_MATCHED_PORTS_V1_RESULT.json).
 
 The 19:51 mathematical review instead produced an exact arithmetic rewrite of the frozen graph, with parent interventions preserved before its changed internal computations. It saves 25 variable multiplications without altering the represented tensor or increasing stored coefficients. This is a compiler result, not a rescue of the behavioral screen. [Derivation, literature and executed controls](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1951.md).
+
+### Temporal cue response does not establish tense transfer
+
+The descriptive [context atlas](BRANCH_PRODUCT_CONTEXT_ATLAS_V1.json) shows six positive, negative and near-zero examples per branch and panel, with the last 48 context tokens, prediction target, shared/private reader values, and original deletion effect. Branch 1's positive examples suggested present-tense contexts and its negative examples included past-tense biographies. This was a hypothesis selected from inspected examples. Distinct document identifiers do not guarantee independent or nonduplicate text. No factors were fitted to these data.
+
+We froze that hypothesis and reused the historical V6 is/was authority: 64 rows, 16 lexical groups, two tense-changing prompt families A1/A2, answer-preserving paraphrases P and unrelated controls C. Its historical FIT label belongs to the older experiment; these frozen weight-derived branches were only evaluated. This is neither a new behavior discovery nor fresh OOD evidence. [Sealed rows](FROZEN_BRANCH_TENSE_V6_ROWS.json) · [Managed result](FROZEN_BRANCH_TENSE_V6_RESULT.json).
+
+The model/physical intervention replay passed. Branch 1's amplitude was higher for present than past on all 32 A1/A2 pairs, with paired standardized differences 3.62 and 4.10. Nevertheless, the registered screen did not pass. Per-side native capability reached only 6/8 in some A1/P present cells, below 0.85; the older pooled 14/16 capability result remains consistent with this. The new criterion is stricter, not evidence of model regression. Activation and collateral criteria remain formally gated false.
+
+More decisively, replacing both branch amplitudes with their donor values transferred under 1% of the native donor-versus-base answer-margin change, with inconsistent signs:
+
+| Prompt family / direction | Native donor margin gap | Two-branch swap effect | Native MLP-output-only swap effect |
+|---|---:|---:|---:|
+| A1 present → past | 1.89246 | 0.000878 | -0.11113 |
+| A1 past → present | 1.92645 | -0.016725 | -0.33540 |
+| A2 present → past | 3.46660 | 0.016457 | -0.27025 |
+| A2 past → present | 3.55660 | -0.000831 | -0.71061 |
+
+The margin is the donor's answer logit minus its foil logit; a positive effect supports transfer toward the donor. The last column is the executed red-team check: swap the **entire native last-MLP output** while retaining the base residual background. It moves the margin in the opposite direction in all four cell means. Thus the weak branch transfer does not demonstrate that factorization lost a strong positive local MLP tense-transfer signal. That signal is absent under this particular native-output swap too. It also does not establish that the last MLP is irrelevant to tense, or rescue the branch screen.
+
+The CPU computation preserves the full state norm and native capped two-token scores. With base pre-MLP background $b$, base/donor MLP outputs $m_b,m_d$, branch writers $W$ and amplitudes $a_b,a_d$, it compares
+
+$$
+h_b=b+m_b,\qquad
+h_{\mathrm{bank}}=h_b+W(a_d-a_b),\qquad
+h_{\mathrm{MLP}}=b+m_d.
+$$
+
+Each margin uses $30\tanh((Uh)_v/[30\sqrt{\operatorname{mean}(h^2)+\epsilon}])$ for both tokens. A separate explanatory calculation holds the base normalization denominator fixed; its MLP swap effect is still negative in every cell mean, so normalization alone does not explain the sign. This fixed-denominator arm is not native model execution. CPU replay differs from the earlier FP32 GPU margins by at most $7.24\times10^{-6}$ nats, within the registered $10^{-4}$ tolerance. Local accounting A passes; positive-local-transfer B and branch-coverage C fail. No denominator or earlier verdict is changed. [Code](frozen_branch_tense_local_anatomy_v1.py) · [Receipt](FROZEN_BRANCH_TENSE_LOCAL_ANATOMY_V1.json).
+
+The useful distinction is now concrete: a factor can respond reliably to a temporal cue without its output carrying the tested answer change. The current evidence supports context-sensitive products, not an identified is/was circuit. Further rescue of this particular task screen is lower priority than finding what these frozen read/write products actually compute.

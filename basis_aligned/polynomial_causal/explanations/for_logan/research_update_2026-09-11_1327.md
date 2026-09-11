@@ -597,3 +597,15 @@ The practical recommendation is to **alternate representation fitting and graph 
 Our implementation has now gone beyond fitting a completely fixed topology in one narrow way: it tested adding the existing shared reader `parent1` to a third consumer. The matched refits included every affected consumer and allowed their shared/private readers, cores, and output directions within a common output span to move. Both local optimizations converged, but the added edge cost approximately $2.51\times10^{-5}$ in normalized objective, above the registered $10^{-6}$ allowance, despite saving 1,137 stored numbers. We therefore did not adopt that edge. This is a completed local graph-edit test, not a general topology-search algorithm or evidence against other DAGs. [Result and scope](../../RESIDUAL_PARENT_EDGE_V1_MATH.md).
 
 The missing broader search includes shared sums inside readers, reusable quadratic combinations, and distributive rewrites that change which products are computed. Also distinguish **finding a cheaper equivalent program** from **recovering the model's unique internal hierarchy**: equivalent expressions can define different internal deletions. The four behavioral properties are needed to decide which proposed intermediate computations deserve a circuit interpretation.
+
+### Further clarification: what a DAG adds to a quadratic factorization
+
+For the last bilinear layer alone, a graph built from linear combinations and $M$ linear-by-linear products can always be flattened to
+
+$$
+F(x)=\sum_{m=1}^{M} c_m(a_m^\top x)(b_m^\top x).
+$$
+
+Consequently, an unrestricted signed product factorization already includes the functions computed by this degree-respecting graph family at that product count. The DAG exposes **how the readers and output combinations themselves are cheaply computed and reused**. It can make that same function much cheaper than storing every flattened reader independently. This statement excludes divisions, normalization and higher-degree cancellation; it is not a theorem about the whole transformer. Nor is tied-input product rank identical to ordinary CP rank with independent input modes.
+
+There is now one implemented exact arithmetic rewrite as well as the local graph-edge test above. Completing private squares in the existing shared graph reduces variable multiplications from **1,041 to 1,016**, with unchanged stored coefficient counts and tested parent interventions preserved. Synthetic and cached natural-input numerical checks pass. This modest result demonstrates that arithmetic reorganization can help after fitting; it does not imply that all graph discovery should happen afterward, improve the original tensor approximation, or establish semantic hierarchy. The general alternating search remains unfinished. [Derivation, sources and executed checks](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1951.md).

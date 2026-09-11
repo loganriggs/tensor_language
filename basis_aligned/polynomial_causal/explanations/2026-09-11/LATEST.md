@@ -76,3 +76,7 @@ Swapping only one product input fails the expected positive-loss test. Executed 
 ### 19:56 — Math review yields a cheaper equivalent graph
 
 Completing the private squares reduces the frozen graph from1,041 to1,016variable multiplications, with unchanged coefficient counts and parent interventions preserved. Synthetic and cached-natural-input rounding checks pass. This does not improve its native-model fit or identify circuits. The closely matched private-input intervention closed the independent-reader screen at a valid miss. [Mathematical review and controls](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1951.md).
+
+### 20:12 — Temporal cue response is stronger than answer transfer
+
+Frozen branch 1 distinguishes present/past on all 32 tested pairs, but the two-branch swap fails tense transfer and the stricter per-side native capability gate also misses. Executed native-MLP-output-only swaps oppose the answer change in all four cell means, so weak branch transfer is not evidence of losing a strong positive local MLP signal. No circuit promotion or repaired verdict. [Primary explanation and receipts](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md).

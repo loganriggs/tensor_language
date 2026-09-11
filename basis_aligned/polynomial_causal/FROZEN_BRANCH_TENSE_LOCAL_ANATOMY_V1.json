@@ -1,0 +1,480 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "max_previous_replay_error": 7.232460497164084e-06,
+  "cells": [
+    {
+      "family": "A1",
+      "direction": "present_to_past",
+      "means": {
+        "native_gap": 1.8924640884920958,
+        "bank_effect": 0.0008777281189429331,
+        "mlp_only_effect": -0.11113161740379796,
+        "bank_fixed_norm_effect": 0.000709645107249246,
+        "mlp_fixed_norm_effect": -0.13010269061939073,
+        "bank_norm_remainder": 0.0001680830116936871,
+        "mlp_norm_remainder": 0.01897107321559277
+      },
+      "mlp_to_native": -0.05872323711693096,
+      "bank_to_mlp": -0.007898095424578392,
+      "pred_b": false,
+      "pred_c": false
+    },
+    {
+      "family": "A1",
+      "direction": "past_to_present",
+      "means": {
+        "native_gap": 1.9264470634889728,
+        "bank_effect": -0.016725271606201852,
+        "mlp_only_effect": -0.33539838266292565,
+        "bank_fixed_norm_effect": -0.015089442513009255,
+        "mlp_fixed_norm_effect": -0.18891157655427404,
+        "bank_norm_remainder": -0.0016358290931925978,
+        "mlp_norm_remainder": -0.1464868061086516
+      },
+      "mlp_to_native": -0.17410204984064723,
+      "bank_to_mlp": 0.04986688210423095,
+      "pred_b": false,
+      "pred_c": false
+    },
+    {
+      "family": "A2",
+      "direction": "present_to_past",
+      "means": {
+        "native_gap": 3.4666006282543367,
+        "bank_effect": 0.0164572998636614,
+        "mlp_only_effect": -0.2702500471533025,
+        "bank_fixed_norm_effect": 0.01544106574259696,
+        "mlp_fixed_norm_effect": -0.35816039493057916,
+        "bank_norm_remainder": 0.001016234121064441,
+        "mlp_norm_remainder": 0.08791034777727669
+      },
+      "mlp_to_native": -0.07795822943971233,
+      "bank_to_mlp": -0.060896566113551154,
+      "pred_b": false,
+      "pred_c": false
+    },
+    {
+      "family": "A2",
+      "direction": "past_to_present",
+      "means": {
+        "native_gap": 3.556595718304017,
+        "bank_effect": -0.0008308337688905931,
+        "mlp_only_effect": -0.7106096099321567,
+        "bank_fixed_norm_effect": 0.0029926177196745174,
+        "mlp_fixed_norm_effect": -0.3906131620090154,
+        "bank_norm_remainder": -0.0038234514885651105,
+        "mlp_norm_remainder": -0.3199964479231413
+      },
+      "mlp_to_native": -0.19980050200111443,
+      "bank_to_mlp": 0.0011691845385681098,
+      "pred_b": false,
+      "pred_c": false
+    }
+  ],
+  "records": [
+    {
+      "row_id": "7e80a2c6cc5e88d98ab7592bfcbad37b427883925370dc628704a3f29dabe3ba",
+      "family": "A1",
+      "direction": "present_to_past",
+      "native_gap": 2.3928965185578965,
+      "bank_effect": 0.053249503133733,
+      "mlp_only_effect": -0.02248135513964833,
+      "bank_fixed_norm_effect": 0.05327904545939788,
+      "mlp_fixed_norm_effect": -0.026948147914184872,
+      "bank_norm_remainder": -2.9542325664877467e-05,
+      "mlp_norm_remainder": 0.004466792774536543
+    },
+    {
+      "row_id": "a98c7fd2203f1f7d54c74f6afd65a9a254e0e4e3f35b9e8b1c1fdd69505b4993",
+      "family": "A2",
+      "direction": "present_to_past",
+      "native_gap": 4.202078754412341,
+      "bank_effect": 0.08232606184209601,
+      "mlp_only_effect": -0.14123062071485037,
+      "bank_fixed_norm_effect": 0.08092698289133438,
+      "mlp_fixed_norm_effect": -0.2558060779754978,
+      "bank_norm_remainder": 0.0013990789507616341,
+      "mlp_norm_remainder": 0.11457545726064744
+    },
+    {
+      "row_id": "227007ae6146a339991930657276637082aa2d3a40eb73485bc2977295318f0c",
+      "family": "A1",
+      "direction": "past_to_present",
+      "native_gap": 1.69778830482025,
+      "bank_effect": -0.017752767583946394,
+      "mlp_only_effect": -0.25252370942346936,
+      "bank_fixed_norm_effect": -0.01671107512786918,
+      "mlp_fixed_norm_effect": -0.1669296626331338,
+      "bank_norm_remainder": -0.0010416924560772145,
+      "mlp_norm_remainder": -0.08559404679033555
+    },
+    {
+      "row_id": "cc0e1b652b71543bda5c44f69719264cdc65984cfc292af04decf38d5905a215",
+      "family": "A2",
+      "direction": "past_to_present",
+      "native_gap": 3.4377791223934704,
+      "bank_effect": 0.008109171447340913,
+      "mlp_only_effect": -0.5941163943751402,
+      "bank_fixed_norm_effect": 0.011774570388903172,
+      "mlp_fixed_norm_effect": -0.3550641406698034,
+      "bank_norm_remainder": -0.003665398941562259,
+      "mlp_norm_remainder": -0.23905225370533678
+    },
+    {
+      "row_id": "d9c82b419f5ee4b7766a562ba7c788810bd44d33796008649ec3177ad26fcbeb",
+      "family": "A1",
+      "direction": "present_to_past",
+      "native_gap": 1.651004456892018,
+      "bank_effect": -0.008488025573299751,
+      "mlp_only_effect": -0.08090726676203808,
+      "bank_fixed_norm_effect": -0.008689217130401161,
+      "mlp_fixed_norm_effect": -0.09068924614092744,
+      "bank_norm_remainder": 0.00020119155710141,
+      "mlp_norm_remainder": 0.00978197937888936
+    },
+    {
+      "row_id": "7c63179b736de69821bf13e36fe1ef63b6a241c038bef8e832838928b1912f42",
+      "family": "A2",
+      "direction": "present_to_past",
+      "native_gap": 3.183457738339891,
+      "bank_effect": 0.0011619637045860998,
+      "mlp_only_effect": -0.2169359196015055,
+      "bank_fixed_norm_effect": -0.00014530752777019984,
+      "mlp_fixed_norm_effect": -0.3124567498065307,
+      "bank_norm_remainder": 0.0013072712323562996,
+      "mlp_norm_remainder": 0.09552083020502522
+    },
+    {
+      "row_id": "98a7e1f26d6cd9d5d0c789c82c40be8de719c886b34c27f485aefbff66b66df2",
+      "family": "A1",
+      "direction": "past_to_present",
+      "native_gap": 2.128303424012749,
+      "bank_effect": -0.027185281220661217,
+      "mlp_only_effect": -0.3448498366090682,
+      "bank_fixed_norm_effect": -0.0253709851668944,
+      "mlp_fixed_norm_effect": -0.15751391240941448,
+      "bank_norm_remainder": -0.0018142960537668174,
+      "mlp_norm_remainder": -0.18733592419965372
+    },
+    {
+      "row_id": "a53211a8047bc687ee7251029cd66a41be1c61f38f050b672992a08ebbf8d452",
+      "family": "A2",
+      "direction": "past_to_present",
+      "native_gap": 3.8255625049545845,
+      "bank_effect": -0.034004465824073016,
+      "mlp_only_effect": -0.8086050447430724,
+      "bank_fixed_norm_effect": -0.030417596129848512,
+      "mlp_fixed_norm_effect": -0.4217943674539546,
+      "bank_norm_remainder": -0.0035868696942245037,
+      "mlp_norm_remainder": -0.3868106772891178
+    },
+    {
+      "row_id": "0311771ab6bfb14cf6ed1475354067282bd10d3f8a9170ad0cb328e16c1b877d",
+      "family": "A1",
+      "direction": "present_to_past",
+      "native_gap": 1.7787958279112122,
+      "bank_effect": 0.003334625777958067,
+      "mlp_only_effect": -0.07679471955304962,
+      "bank_fixed_norm_effect": 0.003944397687355661,
+      "mlp_fixed_norm_effect": -0.04213881663012131,
+      "bank_norm_remainder": -0.000609771909397594,
+      "mlp_norm_remainder": -0.034655902922928306
+    },
+    {
+      "row_id": "8aba0926f68d723c2f679bae9aaf542bfcbbce6463c066fc1bcb61636e55208c",
+      "family": "A2",
+      "direction": "present_to_past",
+      "native_gap": 3.620662365235174,
+      "bank_effect": -0.0011498366549620442,
+      "mlp_only_effect": -0.2825554039168434,
+      "bank_fixed_norm_effect": -0.0020083839216109567,
+      "mlp_fixed_norm_effect": -0.38320056738226427,
+      "bank_norm_remainder": 0.0008585472666489125,
+      "mlp_norm_remainder": 0.10064516346542085
+    },
+    {
+      "row_id": "2a14c3b1f7cf52903c21df9a3adc986458a6b9fecbb23bf574ca0cbb0cbedad2",
+      "family": "A1",
+      "direction": "past_to_present",
+      "native_gap": 2.6791028872500853,
+      "bank_effect": -0.014841852848570092,
+      "mlp_only_effect": -0.5286594435376948,
+      "bank_fixed_norm_effect": -0.011769354557641165,
+      "mlp_fixed_norm_effect": -0.3043912294393305,
+      "bank_norm_remainder": -0.0030724982909289267,
+      "mlp_norm_remainder": -0.22426821409836428
+    },
+    {
+      "row_id": "48718537573e1a72b0d7cb2a14d09ed222b4a0b7816c64fdc980abd44f374de7",
+      "family": "A2",
+      "direction": "past_to_present",
+      "native_gap": 4.6107130441944255,
+      "bank_effect": 0.015043284467803453,
+      "mlp_only_effect": -0.9624812140232937,
+      "bank_fixed_norm_effect": 0.019874130817242097,
+      "mlp_fixed_norm_effect": -0.5763137875495392,
+      "bank_norm_remainder": -0.0048308463494386444,
+      "mlp_norm_remainder": -0.38616742647375446
+    },
+    {
+      "row_id": "dcbba4e897448c1c493e47039b8c54d29176e14b63dfeb38fdad012957afd40c",
+      "family": "A1",
+      "direction": "present_to_past",
+      "native_gap": 2.206187093344113,
+      "bank_effect": -0.0028690433074434196,
+      "mlp_only_effect": -0.09908454931133193,
+      "bank_fixed_norm_effect": -0.003936257020976441,
+      "mlp_fixed_norm_effect": -0.1738947264040327,
+      "bank_norm_remainder": 0.0010672137135330217,
+      "mlp_norm_remainder": 0.07481017709270077
+    },
+    {
+      "row_id": "ae0858935014394582f412eebd70e371373e3e3a2d6e95b2bbffe3ee70b2ce44",
+      "family": "A2",
+      "direction": "present_to_past",
+      "native_gap": 3.5591367742468147,
+      "bank_effect": 0.010938185944231904,
+      "mlp_only_effect": -0.3300516540999219,
+      "bank_fixed_norm_effect": 0.00890789371239542,
+      "mlp_fixed_norm_effect": -0.47429299456185703,
+      "bank_norm_remainder": 0.0020302922318364836,
+      "mlp_norm_remainder": 0.14424134046193515
+    },
+    {
+      "row_id": "494624ac52395d80e854881cd29e1c14b38557f58fef23950a7f8a7c9522bd7c",
+      "family": "A1",
+      "direction": "past_to_present",
+      "native_gap": 1.586228142256454,
+      "bank_effect": 0.0035175889451775078,
+      "mlp_only_effect": -0.1539630394607201,
+      "bank_fixed_norm_effect": 0.005215891221705959,
+      "mlp_fixed_norm_effect": -0.03845889114570866,
+      "bank_norm_remainder": -0.0016983022765284517,
+      "mlp_norm_remainder": -0.11550414831501143
+    },
+    {
+      "row_id": "8059def93608244ae931531ef9b3be6597dea358ca4eed4fdbc0fa376d40270b",
+      "family": "A2",
+      "direction": "past_to_present",
+      "native_gap": 3.1949587356497204,
+      "bank_effect": 0.007869200408761046,
+      "mlp_only_effect": -0.4860101011289313,
+      "bank_fixed_norm_effect": 0.011901883444275896,
+      "mlp_fixed_norm_effect": -0.27212155415344164,
+      "bank_norm_remainder": -0.00403268303551485,
+      "mlp_norm_remainder": -0.21388854697548965
+    },
+    {
+      "row_id": "09519becf7033f2bb7e97ed6d2ab79ddf77de406be0db84f98a4e6a53714de32",
+      "family": "A1",
+      "direction": "present_to_past",
+      "native_gap": 1.752523819175245,
+      "bank_effect": -0.01059933877389696,
+      "mlp_only_effect": -0.10459765002460131,
+      "bank_fixed_norm_effect": -0.011212947806248152,
+      "mlp_fixed_norm_effect": -0.16707981724273324,
+      "bank_norm_remainder": 0.0006136090323511922,
+      "mlp_norm_remainder": 0.062482167218131934
+    },
+    {
+      "row_id": "7a89854bb11c973acd2eef782f28c3887ea68f24be3347d6f59b49123d7a4819",
+      "family": "A2",
+      "direction": "present_to_past",
+      "native_gap": 3.105776289537923,
+      "bank_effect": 0.008693032957967972,
+      "mlp_only_effect": -0.2784869964959462,
+      "bank_fixed_norm_effect": 0.007494926958802495,
+      "mlp_fixed_norm_effect": -0.3762502319064698,
+      "bank_norm_remainder": 0.0011981059991654774,
+      "mlp_norm_remainder": 0.09776323541052356
+    },
+    {
+      "row_id": "bae22409cee989bec0a439a3e22f659abf58fc7375423c17d003e913bc07d442",
+      "family": "A1",
+      "direction": "past_to_present",
+      "native_gap": 1.9022582843639437,
+      "bank_effect": -0.036209301199404464,
+      "mlp_only_effect": -0.5041363779422952,
+      "bank_fixed_norm_effect": -0.03528879643825,
+      "mlp_fixed_norm_effect": -0.4270185277280589,
+      "bank_norm_remainder": -0.0009205047611544614,
+      "mlp_norm_remainder": -0.07711785021423623
+    },
+    {
+      "row_id": "b738ffb0e1a3305a856a3907f32c12e872f0a991828e1ad04646a264a30ebe67",
+      "family": "A2",
+      "direction": "past_to_present",
+      "native_gap": 3.5336842300342273,
+      "bank_effect": -0.019451196062949094,
+      "mlp_only_effect": -0.9078559903919858,
+      "bank_fixed_norm_effect": -0.016689988908182407,
+      "mlp_fixed_norm_effect": -0.7143563339925647,
+      "bank_norm_remainder": -0.002761207154766687,
+      "mlp_norm_remainder": -0.19349965639942113
+    },
+    {
+      "row_id": "3c08c55c3127227de211fb5b732da0d8a1cd36c5decd356a89aede2047180b32",
+      "family": "A1",
+      "direction": "present_to_past",
+      "native_gap": 1.8249689793300181,
+      "bank_effect": -0.009895032191545639,
+      "mlp_only_effect": -0.12232592284161115,
+      "bank_fixed_norm_effect": -0.010048270989388541,
+      "mlp_fixed_norm_effect": -0.14351411094324007,
+      "bank_norm_remainder": 0.00015323879784290284,
+      "mlp_norm_remainder": 0.021188188101628924
+    },
+    {
+      "row_id": "e41f2e4e3dcc687798a4245ecdadbae277cbc05be9fcdb6ba9980c3d9c8922f6",
+      "family": "A2",
+      "direction": "present_to_past",
+      "native_gap": 3.2541263348930114,
+      "bank_effect": 0.020819574027749255,
+      "mlp_only_effect": -0.22163653382449233,
+      "bank_fixed_norm_effect": 0.020147834784145502,
+      "mlp_fixed_norm_effect": -0.2876041994128098,
+      "bank_norm_remainder": 0.0006717392436037528,
+      "mlp_norm_remainder": 0.06596766558831746
+    },
+    {
+      "row_id": "a754ceef2736412d133ddc20861b5f46e08dc920507643d04a9bce599999774a",
+      "family": "A1",
+      "direction": "past_to_present",
+      "native_gap": 1.7980993153658051,
+      "bank_effect": 0.01708648111961608,
+      "mlp_only_effect": -0.1583840776608625,
+      "bank_fixed_norm_effect": 0.01930486457352032,
+      "mlp_fixed_norm_effect": 0.052601233356456945,
+      "bank_norm_remainder": -0.002218383453904238,
+      "mlp_norm_remainder": -0.21098531101731943
+    },
+    {
+      "row_id": "3a7d0526aae96a183f30f55c8f7faa86ab77098de6d07ba5bcc34e20bbc83592",
+      "family": "A2",
+      "direction": "past_to_present",
+      "native_gap": 3.750912343576579,
+      "bank_effect": 0.029663477549418893,
+      "mlp_only_effect": -0.5918894352504749,
+      "bank_fixed_norm_effect": 0.03459858468963439,
+      "mlp_fixed_norm_effect": -0.17091163418387456,
+      "bank_norm_remainder": -0.0049351071402155,
+      "mlp_norm_remainder": -0.4209778010666003
+    },
+    {
+      "row_id": "71d1695dabea846b9c9ceae85fbf44185fc69c10a3dd87d2c264769bb01d4a2b",
+      "family": "A1",
+      "direction": "present_to_past",
+      "native_gap": 1.7702537452696108,
+      "bank_effect": 0.01636356157222174,
+      "mlp_only_effect": -0.12894615031675016,
+      "bank_fixed_norm_effect": 0.016947833891926223,
+      "mlp_fixed_norm_effect": -0.10618109614458504,
+      "bank_norm_remainder": -0.0005842723197044819,
+      "mlp_norm_remainder": -0.022765054172165122
+    },
+    {
+      "row_id": "bfbed60f266af10fa0f4bb81bc0327b6744336f80e1f8d40c5d889e468ebeca8",
+      "family": "A2",
+      "direction": "present_to_past",
+      "native_gap": 3.578788789303281,
+      "bank_effect": 0.0291545984025241,
+      "mlp_only_effect": -0.22406597234652992,
+      "bank_fixed_norm_effect": 0.028884140095124522,
+      "mlp_fixed_norm_effect": -0.25870518096236417,
+      "bank_norm_remainder": 0.0002704583073995792,
+      "mlp_norm_remainder": 0.03463920861583425
+    },
+    {
+      "row_id": "3f50796b191e6c8ea56244311ab27fe9769a2309414b3222bf1076a351c124e2",
+      "family": "A1",
+      "direction": "past_to_present",
+      "native_gap": 1.8985866076317688,
+      "bank_effect": -0.014585561823135862,
+      "mlp_only_effect": -0.351447479153844,
+      "bank_fixed_norm_effect": -0.012863311146441347,
+      "mlp_fixed_norm_effect": -0.15607124809493023,
+      "bank_norm_remainder": -0.0017222506766945145,
+      "mlp_norm_remainder": -0.19537623105891377
+    },
+    {
+      "row_id": "becd6db9e0774bc39b8538ba046c88ed21c9cc84a7b3b2a02d6e0fa8b052f42a",
+      "family": "A2",
+      "direction": "past_to_present",
+      "native_gap": 3.0012274337627414,
+      "bank_effect": 0.018777684675878703,
+      "mlp_only_effect": -0.6098918179060959,
+      "bank_fixed_norm_effect": 0.022485800579431725,
+      "mlp_fixed_norm_effect": -0.22728191118150765,
+      "bank_norm_remainder": -0.003708115903553022,
+      "mlp_norm_remainder": -0.3826099067245883
+    },
+    {
+      "row_id": "fa01e18199b5fde073b2b2f248e483d268e025435bf48587f6ebb3bd5728fef9",
+      "family": "A1",
+      "direction": "present_to_past",
+      "native_gap": 1.763082267456653,
+      "bank_effect": -0.034074425686183574,
+      "mlp_only_effect": -0.2539153252813531,
+      "bank_fixed_norm_effect": -0.0346074232336715,
+      "mlp_fixed_norm_effect": -0.29037556353530114,
+      "bank_norm_remainder": 0.0005329975474879234,
+      "mlp_norm_remainder": 0.03646023825394806
+    },
+    {
+      "row_id": "bf532f012cb209dd82dcbda4578e74cd0d1733a8d440455dc706b55794908962",
+      "family": "A2",
+      "direction": "present_to_past",
+      "native_gap": 3.2287779800662584,
+      "bank_effect": -0.02028518131490209,
+      "mlp_only_effect": -0.4670372762263302,
+      "bank_fixed_norm_effect": -0.02067956105164548,
+      "mlp_fixed_norm_effect": -0.5169671574368397,
+      "bank_norm_remainder": 0.0003943797367433888,
+      "mlp_norm_remainder": 0.049929881210509564
+    },
+    {
+      "row_id": "03a16f76e27a372b515989af645bbfbd76b675f9e7b923ce3d6552fddc0c4508",
+      "family": "A1",
+      "direction": "past_to_present",
+      "native_gap": 1.721209542210726,
+      "bank_effect": -0.04383147823869038,
+      "mlp_only_effect": -0.38922309751545114,
+      "bank_fixed_norm_effect": -0.04323277346220422,
+      "mlp_fixed_norm_effect": -0.3135103743400727,
+      "bank_norm_remainder": -0.0005987047764861586,
+      "mlp_norm_remainder": -0.07571272317537847
+    },
+    {
+      "row_id": "d4a26b28c6101d9adc505031beb00f9d0c4ef3dc75070ee9ddd1e7f9495fd3cd",
+      "family": "A2",
+      "direction": "past_to_present",
+      "native_gap": 3.097928331866388,
+      "bank_effect": -0.03265382681330564,
+      "mlp_only_effect": -0.7240268816382596,
+      "bank_fixed_norm_effect": -0.029586443124060224,
+      "mlp_fixed_norm_effect": -0.38706156688743754,
+      "bank_norm_remainder": -0.0030673836892454176,
+      "mlp_norm_remainder": -0.33696531475082203
+    }
+  ],
+  "is_was_writer_loadings": [
+    [
+      248.92793884418626,
+      -233.37070212985066
+    ],
+    [
+      151.25693022152117,
+      -190.8990627385187
+    ]
+  ],
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FROZEN_BRANCH_TENSE_V6_ROWS.json": "4f91135332754db4d96e7bda5fd1ca9172849bb32c443c8936566449c04b7d3a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FROZEN_BRANCH_TENSE_V6_ENDPOINTS.pt": "9eab802bf9296fa77ec1a7f1846ec2764711199b04094837fc5e19a69860f3d4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FROZEN_BRANCH_TENSE_V6_RESULT.json": "e40597e8fc9545ee7acb6e6496d0e461b1624ff557b084c9d99bceaa53e9fb88",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_CANONICAL_BRANCHES_V1_SPECTRAL.pt": "b1e90771d51ea355e1b1f636ece07816034dc3aeeb220513262ee69292beeeb3"
+  },
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "scope": "Conditional native MLP17-output swap at the final interface, not upstream sufficiency or a new denominator for the old score. Exact two-token formula retains full state norm and tanh; fixed-norm arm is explanatory, not native execution. No data-fitted factors or repair of original capability/transfer failures."
+}
