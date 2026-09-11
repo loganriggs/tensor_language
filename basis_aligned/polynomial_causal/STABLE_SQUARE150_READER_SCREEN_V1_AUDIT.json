@@ -1,0 +1,91 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "pred_d": true,
+  "native_formula_replay": 2.279289329175844e-13,
+  "native_cached_tail_precision": 4.394595123358158e-07,
+  "quote_effect_prediction_relative_error": 0.18645747058641501,
+  "positive_quote_position_fraction": 1.0,
+  "quote_to_punctuation_absolute_effect_ratio": 83.83234262844329,
+  "median_full_reader_quote_effect_rms": 0.17644291579114038,
+  "square_vs_full_reader_output_relative_error": 0.7151606035234904,
+  "square_to_full_reader_output_energy": 0.5080914178174731,
+  "scalar_abs_quantiles": [
+    0.01294511100520912,
+    0.31129261363219507,
+    0.6582005311829053,
+    1.005411133060142,
+    2.135883966800557
+  ],
+  "quote_tokens": [
+    {
+      "id": 366,
+      "text": " \""
+    },
+    {
+      "id": 705,
+      "text": " '"
+    },
+    {
+      "id": 1,
+      "text": "\""
+    },
+    {
+      "id": 6,
+      "text": "'"
+    }
+  ],
+  "control_tokens": [
+    {
+      "id": 11,
+      "text": ","
+    },
+    {
+      "id": 13,
+      "text": "."
+    },
+    {
+      "id": 26,
+      "text": ";"
+    },
+    {
+      "id": 25,
+      "text": ":"
+    }
+  ],
+  "quote_target_positions": 0,
+  "prediction_positions": 128,
+  "positions": [
+    63,
+    127
+  ],
+  "rows": [
+    {
+      "name": "square_delete",
+      "mean_ce_added": 0.006246256348567832,
+      "mean_abs_position_ce_change": 0.011414140526149353,
+      "mean_kl": 0.0014820152177366106,
+      "mean_quote_score_change": 0.26701943509578996,
+      "mean_abs_quote_score_change": 0.26701943509578996,
+      "mean_abs_control_score_change": 0.0031851601270318497
+    },
+    {
+      "name": "reader_delete",
+      "mean_ce_added": 0.008180152980484294,
+      "mean_abs_position_ce_change": 0.0169767276550496,
+      "mean_kl": 0.002104732854270968,
+      "mean_quote_score_change": 0.2630028466046497,
+      "mean_abs_quote_score_change": 0.26506642936510616,
+      "mean_abs_control_score_change": 0.021996802128342097
+    }
+  ],
+  "data_source_sha256": "b1107a91d55df69bc05eefade10ffb362a5c1a81c783e7dfa3c746ea2dec72de",
+  "program_source_sha256": "6c85d0c69efd6e6819a622d2910f6083cf3f3253e638b2382b0da8af50be11a7",
+  "seconds": 2.0385760739445686,
+  "scope": "Frozen local MLP17-input projection and square deletion on historical FineWeb states. No reader renormalization, no data fitting, no body forwards, no fresh/OOD or selective semantic circuit claim.",
+  "cache": {
+    "path": "/dev/shm/bilin18_stable_square150_reader_screen_v1.pt",
+    "sha256": "f55e7960058af09d8df7c146b881ee62f1fe06684c7046b3c519283ebf248db8"
+  }
+}

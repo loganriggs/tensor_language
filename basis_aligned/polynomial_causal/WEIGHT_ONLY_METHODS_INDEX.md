@@ -259,3 +259,7 @@ An independent [LL1projectedoutputkernel](symmetric_ll1_projected_v1.py) elimina
 ### 11 September — Group instability, stable lower-level atom, prior alias
 
 [LL1_GROUP_MATCHING_V1_AUDIT.json](LL1_GROUP_MATCHING_V1_AUDIT.json) failsgroupstability, but [distributedprojection](LL1_DISTRIBUTED_FUNCTION_V1_AUDIT.json) recoversselectedparentcos.996389. [OLS](LL1_SHARED_FUNCTION_SUPPORT_V1_AUDIT.json) needsONEcomponent;99.6705%parentenergyis square, multiple-groupbarfails. [Alias](LL1_SHARED_SQUARE_ALIAS_V1_AUDIT.json) matchesoldconvergedsquare150(.999108input/.994917function). [Nativeinterface](STABLE_SQUARE150_NATIVE_INTERFACE_V1_AUDIT.json) freezesoldreader andextractsexactnativewrite with.999944oldwriteragreement. This isknownatomrecovery acrossfamilies, notnewhierarchy/circuitidentification. See short[mathrecord](LL1_SHARED_PARENT_GRAPH_V1_MATH.md).
+
+### 11 September — Shared-square graph kernel and proposal limitation
+
+[Shared square bank](SHARED_SQUARE_LL1_V1_MATH.md): exact output projection and shared-reader gradients pass dense controls. Canonical eigen-square clustering removes zero/one readers across native starts; both registered saving bars fail. The executed uv/uw counterexample shows shared linear parents can be invisible to eigen-square merging. No native fit of the uninformative topology was queued. Next graph proposals must go beyond identical squares. Frozen square150 validation is recorded in its MLP17 dossier; quote gating and whole-reader sufficiency predictions fail without invalidating the underlying weight atom.

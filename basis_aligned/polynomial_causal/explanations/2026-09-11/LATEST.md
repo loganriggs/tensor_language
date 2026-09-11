@@ -1,5 +1,7 @@
 # Latest research update
 
+**Shared-bank follow-up:** the joint shared-square kernel works, but nearly identical eigen-square clustering offers negligible native sharing. An exact counterexample confirms that mixed products can hide shared linear parents from this rule. [Results and next method constraint](../../SHARED_SQUARE_LL1_V1_MATH.md). Frozen square150 text checks do not establish a quotation circuit.
+
 **Stability/alias correction:** the selectedsharedparent is99.67%one square and matchespreviouslyknown square150. Groups disagree acrossstarts, but thatatom recurs acrossfactorizationfamilies. Its exactnative reader/writeinterface is saved; no newbehavioralcircuitclaim. [Evidence](../../LL1_SHARED_PARENT_GRAPH_V1_MATH.md#cross-start-matching-changes-the-interpretation).
 
 **Shared-parent graph step:** one actual cross-LL1 reader merge plus joint weight refitting is implemented. Each selected pair saves1122floats; strict bars are mixed and stable identification remains unproven. [Algorithm, results, and durable pair artifacts](../../LL1_SHARED_PARENT_GRAPH_V1_MATH.md).
