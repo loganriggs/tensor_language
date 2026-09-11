@@ -1,0 +1,284 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "p_max": 0.23,
+    "strong_inert": 0.1,
+    "tol_pool": 0.05,
+    "tol_pool_wide": 0.15,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_restructured_frame_separability_v573",
+  "finished_utc": "2026-09-11T03:35:05.059350+00:00",
+  "groups": {
+    "at_to": {
+      "cells": [
+        "verb_preposition_at_to"
+      ],
+      "n_units": 12,
+      "per_shape": {
+        "verb_preposition_at_to": {
+          "A1_damage": {
+            "ce_damage": 1.2777,
+            "ce_lb975": 0.9241,
+            "ce_ub975": 1.6574,
+            "margin_damage": 3.3402,
+            "top1_change_rate": 0.5
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 0.997,
+          "joint_extraction": 1.009,
+          "n_held": 16,
+          "units_recovery": 0.988
+        },
+        "verb_preposition_rs_at_to": {
+          "A1_damage": {
+            "ce_damage": 0.4995,
+            "ce_lb975": 0.4376,
+            "ce_ub975": 0.5538,
+            "margin_damage": 0.9379,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0017,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0022,
+            "margin_damage": -0.0044,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0022,
+          "cross_abs_recovery": 1.181,
+          "joint_extraction": 1.158,
+          "n_held": 16,
+          "units_recovery": 1.02
+        }
+      }
+    },
+    "on_about": {
+      "cells": [
+        "verb_preposition_on_about"
+      ],
+      "n_units": 16,
+      "per_shape": {
+        "verb_preposition_on_about": {
+          "A1_damage": {
+            "ce_damage": 1.1064,
+            "ce_lb975": 0.9631,
+            "ce_ub975": 1.2449,
+            "margin_damage": 5.4809,
+            "top1_change_rate": 0.0938
+          },
+          "C_damage": {
+            "ce_damage": 0.0012,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.0051,
+            "margin_damage": -0.0167,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0051,
+          "cross_abs_recovery": 0.968,
+          "joint_extraction": 0.995,
+          "n_held": 16,
+          "units_recovery": 0.973
+        },
+        "verb_preposition_rs_on_about": {
+          "A1_damage": {
+            "ce_damage": 1.0313,
+            "ce_lb975": 0.9713,
+            "ce_ub975": 1.0967,
+            "margin_damage": 2.8332,
+            "top1_change_rate": 0.4688
+          },
+          "C_damage": {
+            "ce_damage": 0.0012,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.0051,
+            "margin_damage": -0.0167,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0051,
+          "cross_abs_recovery": 0.827,
+          "joint_extraction": 0.851,
+          "n_held": 16,
+          "units_recovery": 0.972
+        }
+      }
+    },
+    "rs_at_to": {
+      "cells": [
+        "verb_preposition_rs_at_to"
+      ],
+      "n_units": 8,
+      "per_shape": {
+        "verb_preposition_at_to": {
+          "A1_damage": {
+            "ce_damage": 0.4783,
+            "ce_lb975": 0.3347,
+            "ce_ub975": 0.6322,
+            "margin_damage": 1.3421,
+            "top1_change_rate": 0.4375
+          },
+          "C_damage": {
+            "ce_damage": 0.0052,
+            "ce_lb975": -0.0087,
+            "ce_ub975": 0.0182,
+            "margin_damage": 0.0219,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0182,
+          "cross_abs_recovery": 0.366,
+          "joint_extraction": 0.487,
+          "n_held": 16,
+          "units_recovery": 0.751
+        },
+        "verb_preposition_rs_at_to": {
+          "A1_damage": {
+            "ce_damage": 0.5396,
+            "ce_lb975": 0.4503,
+            "ce_ub975": 0.6383,
+            "margin_damage": 0.8932,
+            "top1_change_rate": 0.1562
+          },
+          "C_damage": {
+            "ce_damage": 0.0052,
+            "ce_lb975": -0.0087,
+            "ce_ub975": 0.0182,
+            "margin_damage": 0.0219,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0182,
+          "cross_abs_recovery": 1.076,
+          "joint_extraction": 1.044,
+          "n_held": 16,
+          "units_recovery": 1.031
+        }
+      }
+    },
+    "rs_on_about": {
+      "cells": [
+        "verb_preposition_rs_on_about"
+      ],
+      "n_units": 14,
+      "per_shape": {
+        "verb_preposition_on_about": {
+          "A1_damage": {
+            "ce_damage": 0.6792,
+            "ce_lb975": 0.5393,
+            "ce_ub975": 0.8097,
+            "margin_damage": 3.9599,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0034,
+            "ce_lb975": -0.0013,
+            "ce_ub975": 0.0083,
+            "margin_damage": 0.0242,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0083,
+          "cross_abs_recovery": 0.743,
+          "joint_extraction": 0.783,
+          "n_held": 16,
+          "units_recovery": 0.949
+        },
+        "verb_preposition_rs_on_about": {
+          "A1_damage": {
+            "ce_damage": 1.2369,
+            "ce_lb975": 1.1786,
+            "ce_ub975": 1.3022,
+            "margin_damage": 3.3988,
+            "top1_change_rate": 0.5
+          },
+          "C_damage": {
+            "ce_damage": 0.0034,
+            "ce_lb975": -0.0013,
+            "ce_ub975": 0.0083,
+            "margin_damage": 0.0242,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0083,
+          "cross_abs_recovery": 0.962,
+          "joint_extraction": 0.995,
+          "n_held": 16,
+          "units_recovery": 0.967
+        }
+      }
+    }
+  },
+  "per_pool": {
+    "at_to": {
+      "A2": null,
+      "C": null,
+      "P": null,
+      "fit": 1.009,
+      "is_new": false,
+      "reach": {
+        "rs_at_to": 1.02
+      },
+      "rows_pass": false
+    },
+    "on_about": {
+      "A2": null,
+      "C": null,
+      "P": null,
+      "fit": 0.995,
+      "is_new": false,
+      "reach": {
+        "rs_on_about": 0.972
+      },
+      "rows_pass": false
+    },
+    "rs_at_to": {
+      "A2": null,
+      "C": null,
+      "P": null,
+      "fit": 1.044,
+      "is_new": true,
+      "reach": {
+        "at_to": 0.751
+      },
+      "rows_pass": false
+    },
+    "rs_on_about": {
+      "A2": null,
+      "C": null,
+      "P": null,
+      "fit": 0.995,
+      "is_new": true,
+      "reach": {
+        "on_about": 0.949
+      },
+      "rows_pass": false
+    }
+  },
+  "predictions": {
+    "pred_a_fits_hold": true,
+    "pred_b_new_cells_separate": false,
+    "pred_c_originals_separate": false,
+    "pred_d_new_cells_pass_rows": false,
+    "pred_e_all_measured": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.001,
+    "min_gain_module_constant": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.97,
+    "target_module_constant": 0.88
+  },
+  "schema": "unit_restructured_frame_separability_v573",
+  "seconds": 110.8
+}
