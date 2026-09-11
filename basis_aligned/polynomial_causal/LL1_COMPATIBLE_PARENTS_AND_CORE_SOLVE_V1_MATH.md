@@ -84,3 +84,14 @@ The shared-parent and private input spans have so far been proposed geometricall
 That next objective must retain the complete folded weight metric, the same group-energy penalty, explicit graph price, and matched original-space controls. Local convergence of a conditional linear solve is not global recovery of an arithmetic DAG. Frozen FineWeb and the four circuit tests follow candidate discovery; they are not substituted for this weights-first search.
 
 Implementations: [compatible incidence selection](ll1_compatible_parents_v1.py), [selection audit](ll1_compatible_parents_v1_audit.py), [joint core solver](ll1_joint_core_solve_v1.py), [matched solver audit](ll1_joint_core_solve_v1_audit.py). Receipts: [compatible graphs](LL1_COMPATIBLE_PARENTS_V1_AUDIT.json), [converged core solves](LL1_JOINT_CORE_SOLVE_V1_AUDIT.json). The final graph artifact is `LL1_JOINT_CORE_SOLVE_V1_GRAPHS.pt`; it preserves the shared-parent executor and includes the output whitener and bias needed for the physical interface.
+
+
+## Shared-parent removal interface
+
+The emitted graph now has a checked node intervention: set selected computed shared values $z_i$ to zero, preserving private computations and background. This differs from deleting that input direction everywhere in the native model. If $D_i$ is one node's removal effect and $W_{ij}z_i z_j$ is a shared/shared product, then joint removal satisfies
+
+$$
+D_S=\sum_{i\in S}D_i-\sum_{i<j\,;\,i,j\in S}W_{ij}z_i z_j.
+$$
+
+The correction counts products involving two removed parents once. On the frozen pre-fit graphs, naive summation gives7.58%/13.35%relative output error; the corrected formula agrees within2.9e-15. All12/16parents affect at leasttwo groups with individual removal coefficient energy at least1%of the group's energy. Each graph also contains a pair correction of at least1%of joint-removal energy. These exact graph-function properties pass the registered bars but do not establish causal behavior in the native model. [Scorer and interface](shared_parent_intervention_v1.py), [receipt](SHARED_PARENT_INTERVENTION_V1_AUDIT.json). The same scorer can assess the frozen completed native-fit artifacts.
