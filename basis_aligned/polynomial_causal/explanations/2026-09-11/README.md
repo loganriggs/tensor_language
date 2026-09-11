@@ -2,6 +2,8 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [Direct fitting improves the polynomial; individual features are still mixed](explanation_2026-09-11_1126.md): live64.68%fit, exact connection changes, feature-removal spectra and their coordinate counterexample.
+
 - [Better sparse inference helps; the spherical shortcut fails on FineWeb](explanation_2026-09-11_1021.md): completed overcomplete comparison, 53.6% coefficient capture, failed stability, natural-input cancellation and live coupled optimizer.
 
 - [Better sparse encoding improves the full folded factorization](explanation_2026-09-11_0940.md): zero-padding failure, OLS completion, full-tensor improvement and live-dictionary initialization audit.

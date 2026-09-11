@@ -1,0 +1,24 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_simple": true,
+    "pred_c_mixed": true
+  },
+  "rows": [
+    {
+      "name": "identity",
+      "rank1": 1.0,
+      "rank16": 1.0,
+      "rank90": 1
+    },
+    {
+      "name": "rotated",
+      "rank1": 0.007843137254901997,
+      "rank16": 0.12549019607843168,
+      "rank90": 115
+    }
+  ],
+  "function_replay": 8.868873411087075e-16,
+  "removal_replay": 3.0491329794823575e-15,
+  "scope": "Exact diagonal-square function, coordinate counterexample. Dense rotated codes cost more than eliminating identity zero entries. Does not prove native recovery or same-price repair."
+}

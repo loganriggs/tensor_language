@@ -1,17 +1,11 @@
 # Latest research update
 
-**11 September, 10:48 UTC:** [Direct tensor fitting is substantially more effective](explanation_2026-09-11_1021.md#update1048).
+**11 September,11:26UTC:** [Direct fitting improves the polynomial; individual features are still mixed](explanation_2026-09-11_1126.md).
 
-Corrected encoding raises both learned overcomplete dictionaries to **53.60% / 53.61%** full folded coefficient capture, versus initial dictionaries **39.17% / 39.38%**. Joint convergence and stable identification remain unmet: complete-function cosine **0.698**, below **0.9**. This is a larger dictionary, not a matched-capacity comparison with earlier methods.
+The first live full-tensor fit captures about**64.68%** of coefficient energy, versus53.95%initially with the output already optimized. It remains unconverged; the second start and final stability verdict are pending. No new text-based discovery.
 
-A small frozen FineWeb check finds that the exact radial correction worsens output probabilities. Cached-state analysis shows strong radial/traceless cancellation on natural inputs. No text-based discovery or new million-token sweep.
+Exact sparse-connection changes help in a32reader probe, but the combined gain is only**0.001025percentage point**. A full9216reader sweep with a matched-capacity refit control is queued after both parents finish.
 
-The coupled L1 optimizer completed without convergence and added less than0.1percentage point. A direct full-tensor step instead reached **55.96% / 55.94%**, with about one second per gradient.
+Individual shared-feature removal functions remain broad: rank16captures40.4–55.7%for16sampled features. An executed coordinate counterexample shows why this does **not** establish absent underlying structure. No identified circuit or four-property claim.
 
-**Running:** sustained full-tensor fitting of shared features and sparse coefficients, with the output matrix solved exactly at each evaluation. First-start optimization is underway; no final convergence or behavioral result yet.
-
-[10:22 hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1022.md) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).
-
-[10:51 mathematical review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1051.md): when feature changes are real versus compensable coordinate changes; assumptions behind identifiability guarantees.
-
-**11:18 continuation:** a small native connection-swap probe passes, but its32joint swaps add only0.001025percentage point. A [full connection sweep against a same-capacity refit control](../../FULL_SUPPORT_EXCHANGE_V1_PREREGISTRATION.md) is queued after the live continuous fit. This tests its fixed-connection restriction; no new text fitting.
+[Hourly11:22 review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1122.md) · [Math10:51 review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1051.md) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).
