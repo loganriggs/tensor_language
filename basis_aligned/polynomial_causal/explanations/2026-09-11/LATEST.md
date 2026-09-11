@@ -1,14 +1,14 @@
 # Latest research update
 
-**11 September, 03:52 UTC:** [Shared input features, mixed interactions and a global bound](explanation_2026-09-11_0352.md).
+**11 September, 04:06 UTC:** [MLP16 producer folding and the sharing/routing tradeoff](explanation_2026-09-11_0406.md).
 
-Keeping mixed interactions raises rank128token-contrast coefficient capture from
-6.41%to38.56%. But any11-reader global family of this kind is bounded by6.80%;
-the candidate gets6.09%. This is an optimizer-independent limit on one weight
-representation, not absence of circuits. No data was used.
+Frozen QK/OV features show weak producer sharing:5.81%overlap versus5.33%rotated
+controls; strong-sharing predictions missed. Exact joint key-feature selection
+raises overlap to33.63%, but jointQKcoverage falls42.03%to16.63%on8fixedpositions.
+No text or activation fitting. No semantic circuit identification.
 
-The next CPU tool is implemented and controlled: compare reader function spaces
-after folding through a quadratic producer. Native MLP16comparison is not yet run.
+The next joint sharing/routing objective is implemented and CPU-controlled;
+native fitting remains pending. All own GPU jobs finished.
 
-[Previous FineWeb validation](explanation_2026-09-11_0338.md) ·
+[Previous reader-family bounds](explanation_2026-09-11_0352.md) ·
 [Methods and assumptions](explanation_2026-09-11_0022.md).

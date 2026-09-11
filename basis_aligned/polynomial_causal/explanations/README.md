@@ -11,7 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## [Read the latest update → 11 September](2026-09-11/LATEST.md)
 
-**Newest focused update:** [Shared input features, mixed interactions and bounds](2026-09-11/explanation_2026-09-11_0352.md).
+**Newest focused update:** [MLP16 producer folding and the sharing/routing tradeoff](2026-09-11/explanation_2026-09-11_0406.md).
 
 **The newest consolidated report is [10 September, 18:42 UTC](2026-09-10/research_update_1842.md).** It covers progress since the previous requested update, defines the terms and computations, and explains what the mathematical cycles contributed.
 

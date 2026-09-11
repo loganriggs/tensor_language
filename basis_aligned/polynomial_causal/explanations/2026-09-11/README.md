@@ -2,6 +2,8 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [MLP16 producer fold and joint-selection tradeoff](explanation_2026-09-11_0406.md): latest native fold, exact red-team envelope, routing cost and next controlled objective.
+
 - [Shared input features, mixed interactions and bounds](explanation_2026-09-11_0352.md): latest native weight-only result and next producer-function tool.
 
 - [Frozen weight features on FineWeb](explanation_2026-09-11_0338.md): latest physical-edit validation, weak-effect audit and source-composition control.

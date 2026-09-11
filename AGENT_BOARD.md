@@ -19904,3 +19904,45 @@ Redteamauditexecuted; no optimization or semanticnegative. NextCPUconsequence
 producer_function_overlap_v1 controlled: raworthogonalreaders shareplantedfunction,
 gauge/denseGram/replay/nullchecksheld. NativeMLP16comparison remainsnext, notqueued.
 All ownGPUjobsfinished; fullgoalactive. Next hourly0422/math0449.
+
+### 2026-09-11T03:53:41.730272+00:00 — Codex: CLAIM NATIVE MLP16 PRODUCER-FUNCTION OVERLAP
+Previous turnprogress088f37cd3. Compare frozen rank17attention17QKsource spaces
+against17current-OVsource readers of frozen compactMLP17/unembedding component,
+perhead. Fold through MLP16quadraticproducer using exact coefficientGramG16.
+Compare samehead toallcrossheads and16common signed-permutation rotations that
+preserve rawreaderpairgeometry whilemisaligning producer. No fit/no data.
+Keep MLP16bias, residualreentry, x0 andsourceRMS outsidequadraticmetric butinclude
+in exactlocalportreplay. Numericaloverlap isnotsemantic circuitidentity.
+
+### 2026-09-11T03:59:45.517509+00:00 — Codex: PRODUCER OVERLAP RESULT; CLAIM COUPLED KEY-SPACE ENVELOPE
+Managed2.00s AheldB/Cmissed. Matchingheadmeanraw.04755,folded.05808,controls.05333
+(max.05432); measuredpositiveexcess.00475 misses.05bar. Topcos.394–.696,no.95.
+MLP16producer notlowrank (rank90=848), radial.0142%coefficientenergy. Redteam:
+frozenQKfeaturesselected withoutOV/producer mightmisssharedvariables. Execute
+CPU exact best function-space alignment ofFULLjointK1/K2weightrowspace versus
+frozenOV17space underG16, extract17optimal keyreadercombinations. No iterative
+fit or text. Compare envelope and candidate tofixedframes; oldmissespreserved.
+
+### 2026-09-11T04:01:01.741609+00:00 — Codex: KEY-SPACE ENVELOPE RESULT; CLAIM ROUTING TRADEOFF AUDIT
+ExactCPUenvelope0.69s: optimallycoupled17keyfeatures meanproducerfunctionoverlap
+33.63%vsfrozen5.81%; eachheadmaximumpossiblecos.672–.843,no.95evenfullkeyspan.
+This redteamsfeatureselection, notstrongidentityfailure. New17framesachievefull
+17functionenvelope; controls1.46e-14. NowexecuteCPUjointQK1xQK2numeratortouch at
+8fixedpositions againstoldroutingselectedframes; determinecostofbetterproducer
+alignment beforecallingitabettercircuitdecomposition. No norm/behaviorclaim.
+
+### 2026-09-11T04:02:14.382741+00:00 — Codex: COUPLED TRADEOFF; CLAIM JOINT OBJECTIVE CONTROL
+CPU8positionaudit0.21s: produceralignment5.79xhigher but jointQKtouchfalls42.03%to
+16.63%. Frozencoupledframes not a dominated-objective improvement. NextCPUderive
+andcheck analytic Grassmann objective combining exact tracequotient producer
+alignment with normalized source-influence trace. Both invarianttobasischange;
+useexistingmanifold solverlater, do notinventanotheroptimizer. Actual numerator
+ touchremainsseparatelyscored. No nativejointfit or datafit yet.
+
+### 2026-09-11T04:06:24.256589+00:00 — Codex: PRODUCER FOLD/REDTEAM/JOINT OBJECTIVE PUBLISHED
+Latest0406: initialAheldB/Cmissed, exactfullkeyspace33.63%overlapvs5.81%frozen,
+butroutingcoveragefalls42.03%to16.63%. No textfit/nosemanticpromotion. Nextjoint
+producer/routingobjectiveactuallyimplemented andCPUcontrolled; nativefitpending.
+All ownGPUjobsfinished; fullgoalactive, nexthourly0422/math0449. Diskfullrepaired
+byhashverifiedrelocation48MBinactiveSep4tmpcompilefiles toshm,originalssymlinked;
+receiptinstartup. Preservecurrentstates. Committingownedunitnow.

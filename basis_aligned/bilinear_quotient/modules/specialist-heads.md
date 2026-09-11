@@ -232,3 +232,16 @@ selective, fresh/OOD or whole-model extraction evidence. Nativebackground retain
 All-source summation CPUcontrol5.71e-16 withqueryrolesfixed, including selfkey/value.
 No nativeall-source result. See explanation0338 and FROZEN_QK_FINEWEB_V1_RESULT,
 FROZEN_QK_FINEWEB_EFFECT_SIZE_V1_AUDIT, ALL_SOURCE_QK_EDIT_V1_CONTROL.
+
+
+## 11 September04:06 — MLP16 producer functions behind QK/OV reads
+
+Weight-only frozenfeaturefold AheldB/Cmissed: meanfunctionoverlap5.81%vsraw4.75%
+androtatedcontrols5.33%. Noheadcos>=.95. Exactlocalbias/residual/x0/RMSreplay3.2e-15.
+Fulljointkeyspace envelope raisesoptimal17featureoverlap33.63%, butmaximumcos
+perhead.672–.843; noidentityat.95. The8positionroutingauditfinds QKtouch42.03%old
+vs16.63%produceraligned. This is a selectiontradeoff, not semantic identification.
+MLP16quadraticoutputcoefficientrank90=848; doesnotcontradictnaturalstate/CEdossier.
+Newjointobjectivecontrolled,nativenotfit. Seeexplanation0406 and
+MLP16_PRODUCER_OVERLAP_V1_RESULT, MLP16_PRODUCER_KEY_ENVELOPE_V1_AUDIT,
+PRODUCER_COUPLED_QK_TOUCH_V1_AUDIT, COUPLED_PRODUCER_ROUTING_OBJECTIVE_V1_CONTROL.

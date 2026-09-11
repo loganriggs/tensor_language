@@ -82,30 +82,35 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 03:52
+## Current handoff — updated 11 September 2026, 04:06
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0352.md.
-New weights-only SHARED_INPUT_SUBSPACE_NATIVE_V1 completed managed2.66s,A/B/Cheld.
-Full mixed+inside inputreader family Qstar=P Q+Q P-P Q P: centeredrank11capture
-6.0896%, universalrank11ceiling6.8041%; rank128capture38.5627%vsinside6.4061%.
-Atleast147readers necessaryfor50%centeredcapture (not sufficient). SavedS/eigenbasis
-/dev/shm/bilin18_shared_input_subspace_native_v1.pt, hashinresult. Redteamnumerical
-andnonorthogonalbasischeckscompleted. No text or nonlinearoptimization; do not
-retrylowrankfamily expectinglargecapture whenboundrulesitout. No semanticnegative.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0406.md.
+MLP16_PRODUCER_OVERLAP_V1 managed2.00s: AheldB/Cmissed. FrozenQK/OVsourcefeature
+functionoverlap5.81%vsraw4.75%,rotatedcontrols5.33%; positiveexcessmisses.05bar,
+noheadtopcos>=.95. Exactlocalresidual/bias/RMS/x0replay3.2e-15. No textfit.
+Cache /dev/shm/bilin18_mlp16_producer_overlap_v1.pt, hashinresult.
 
-Next CPU consequence completed: producer_function_overlap_v1.py, CONTROLpasses.
-Exact productGram then whitened crossGram compares readerFUNCTIONspaces after
-quadraticproducerfold. Orthogonalrawreaders can haveidenticalproducerfunctions;
-plantedrecovery/gauge/null/replaychecksheld. NativeMLP16comparison notrun/queued.
-Intended next: compare frozenattention17QKsource vsOVsource variables through
-MLP16quadraticproducer, preservingRMS/residual/x0/biasinterfaces. Dossierchecked;
-no promiseofsemanticsharing. This isweights-first cross-layerstructure, no datafit.
+Redteamexecuted: MLP16_PRODUCER_KEY_ENVELOPE_V1_AUDIT exactfulljointkeyspace
+canonicalalignment raisesmean33.63%,5.79xold. Perheadmaximumcos.672–.843,stillno.95.
+Candidate17framescached /dev/shm/bilin18_mlp16_producer_key_envelope_v1.pt.
+NextCPUroutingtradeoffaudit executed: 8fixedpositionsquery511,oldQKtouch42.03%,
+new16.63%; newframesoptimizeproduceralignment atcosttorouting. No adoption.
+NativeG16notlowrank,rank90=848; radialcoefficientfraction.0142%. Checkdossiers.
 
-All ownGPUjobsfinished at03:52; inspect sharedrunner beforeenqueue. Previous
-frozenFineWebvalidation in0338: tiny source32effect, accurateconditionalprediction,
-no semantic/fresh/OODclaim. All-sourceCPUcompositionpasses butnativeall-source
-run deferred toweight-first priorities. Next hourly04:22, math04:49. Fullgoalactive.
-Filesystemlimited; largecachesin/dev/shm areephemeral. PreserveClaude edits.
+NextCPUconsequence completed: coupled_producer_routing_objective_v1.py,CONTROL
+passesgradient/gauge/finite-difference. Combineexactfunctiontracequotient with
+normalizedsourceinfluencetrace on17Dsubspace restrictedtojointkeyspace. Need
+registeredtradeoffweight, nativeinfluencepreparation andexistingmanifoldoptimizer;
+reuseinsteadnewsolver. Nativejointfitnotrun/queued. ActualQKtouchseparatefrom
+influencesurrogate; fullnormalizers/backgroundremain. No datafitting authorized
+untilweightstructuralavenuesexhausted. Old B/Cmissespreserved.
+
+All ownGPUjobsfinished at04:06; inspectsharedrunner beforeenqueue. Next hourly
+04:22, math04:49. Fullgoalactive. Filesystem filledduringwrite; relocated48MBof
+verifiedinactiveSep4temporarycompilefiles to/dev/shm, originalpaths aresymlinks.
+Receipt /dev/shm/codex_relocated_inactive_compile_cache_20260911_0403/receipt.json.
+About46MBfree afterrepair; do notdeletecurrentexperiments orotheragentstate.
+Priorreaderfamilybounds0352 andfrozenFineWebvalidation0338 remaincurrenthistory.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
