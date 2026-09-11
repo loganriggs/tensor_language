@@ -1,0 +1,53 @@
+{
+  "utc": "2026-09-11T16:35:34.826798+00:00",
+  "old_initial": 0.8862435027656561,
+  "new_initial_reference": 0.8862437036446346,
+  "rows": [
+    {
+      "elapsed_seconds": 120,
+      "old_output_projected_objective": 0.884895729244262,
+      "bounded_all_core_objective": 0.8854417567229839,
+      "new_minus_old": 0.0005460274787218999
+    },
+    {
+      "elapsed_seconds": 240,
+      "old_output_projected_objective": 0.8845703667058049,
+      "bounded_all_core_objective": 0.884945437130882,
+      "new_minus_old": 0.0003750704250771175
+    },
+    {
+      "elapsed_seconds": 360,
+      "old_output_projected_objective": 0.8844533941820663,
+      "bounded_all_core_objective": 0.884693683026164,
+      "new_minus_old": 0.00024028884409776907
+    },
+    {
+      "elapsed_seconds": 480,
+      "old_output_projected_objective": 0.8843785930769456,
+      "bounded_all_core_objective": 0.8845691059045381,
+      "new_minus_old": 0.00019051282759252608
+    },
+    {
+      "elapsed_seconds": 600,
+      "old_output_projected_objective": 0.884306713744782,
+      "bounded_all_core_objective": 0.8844796499407463,
+      "new_minus_old": 0.00017293619596436827
+    },
+    {
+      "elapsed_seconds": 720,
+      "old_output_projected_objective": 0.8842305729589996,
+      "bounded_all_core_objective": 0.8844160832066004,
+      "new_minus_old": 0.00018551024760071755
+    }
+  ],
+  "current_endpoint": {
+    "iteration": 1425,
+    "cycle": 7,
+    "loss": 0.8843784733487767,
+    "gradient_inf": 4.844526102282666e-05,
+    "seconds": 796.6596854440868
+  },
+  "completed_reencodings": 7,
+  "latest_fresh_gradient": 5.241147230022402e-05,
+  "scope": "Live, nonterminal descriptive comparison at common elapsed-fit times. Same functional family/weight objective, different elimination/coordinate/controller methods. No causal attribution to resets or bounds, no raw-gradient cross-method comparison, no new capture/convergence claim."
+}

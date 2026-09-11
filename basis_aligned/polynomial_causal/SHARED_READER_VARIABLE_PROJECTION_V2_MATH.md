@@ -77,3 +77,30 @@ The native preflight completed16:08:42 with all bars held: relative finite-diffe
 The bounded controller constrains raw entries to[-1,1] and re-encodes every200acceptediterations or solver termination. Every normalized reader/private basis/unitwriter representation remains feasible. It preserves the same starting functions and prevents raw scale blow-up, but independent planted recovery remains1/4; the2/4bar fails. The JSON C field checks reporting coverage only and provides no scientific recovery evidence. Two failed fresh-coordinate fits have Hessian minimum eigenvalues about−4.2e-8/−6.7e-8, below the credibility of the registered−1e-4negative-curvature test; that proposed saddle escape did not trigger. This is not a proof of global or strict local optimality. [Bounded control](BOUNDED_SHARED_READER_FIT_V1_CONTROL.json), [curvature audit](SHARED_READER_CURVATURE_V1_AUDIT.json).
 
 Four matched native20-minute local-refinement arms are now managed: original versus compatible graph for both pilot starts. Spectral-original started16:22:02; the other three are queued. They use the same full weight metric and penalty, with fresh-coordinate stopping and explicit matched capture/cost comparisons. [Protocol](SHARED_READER_JOINT_FIT_V1_PREREGISTRATION.md). No native result from these fits is claimed yet.
+
+
+## First completed joint fit: convergence still misses; group changes cancel
+
+Spectral-original completed at16:42:07UTC. Its numeric/executor checks and registered objective-improvement bar hold, but fresh-coordinate convergence fails: gradient0.000183719 versus1e-7bar,20-step relative progress3.50e-5 versus1e-6bar. Capture is11.8838721%, slightly below the older output-projected20-minute spectral fit's11.8890983%. Penalized objectives are0.884187035 and0.884135548 respectively. Neither converged. The stronger convergence instrument is not evidence of a faster optimizer. Preserve the older fit as a secondary baseline when evaluating the shared graph. [Completed arm](SHARED_READER_JOINT_FIT_V1_SPECTRAL_ORIGINAL.json), [earlier matched-time observations](JOINT_READER_PROGRESS_COMPARISON_2026-09-11_1634.json).
+
+An existing-tools CPU comparison matched the64signed group tensors using their exact full-unembedding coefficient inner products. Whole-function cosine0.97049 passes the registered0.95bar;54/64groups exceed0.8, passing48/64. Independent CP-inner replay agrees to3.51e-16. These are the same starting family under two optimizers, not independent-start recovery. Their full fitted functions nevertheless differ by24.29% relative to the older fit's norm. Cosine is not a relative-error guarantee. [Comparison and source hashes](JOINT_READER_OPTIMIZER_GROUP_COMPARISON_V1.json).
+
+Let the matched group difference be
+
+$$
+\Delta_g=T_g^{\mathrm{new}}-T_g^{\mathrm{old}},\qquad
+K_{gh}=\langle\Delta_g,\Delta_h\rangle.
+$$
+
+The calculation reuses the group Gram matrices:
+
+$$
+K=G_{\mathrm{old,old}}+G_{\mathrm{new,new}}
+-G_{\mathrm{old,new}}-G_{\mathrm{old,new}}^\top,
+\qquad
+\left\|\sum_g\Delta_g\right\|^2=\mathbf1^\top K\mathbf1.
+$$
+
+The sum of individual difference energies is11.995times the total difference energy: changes in different groups strongly cancel. The10groups below0.8cosine alone contribute a difference with2.132times total energy; the other54contribute2.564times; the cross term is−3.696times. These are interacting energies, not additive explained fractions. Group9 even changes to cosine−0.128 despite both whole fits having almost the same reconstruction score.
+
+The circuit consequence is specific: reconstruction-score similarity cannot justify substituting individual LL1 groups or attaching stable circuit identities to them. The next shared-graph results must be examined as executable node interventions, using the already implemented pair-corrected removal scorer. Whether the shared topology stabilizes these interfaces remains unresolved. Spectral-graph is now running; the two native-start arms remain managed and queued. No behavioral claim or general DAG-search result follows from this fit.
