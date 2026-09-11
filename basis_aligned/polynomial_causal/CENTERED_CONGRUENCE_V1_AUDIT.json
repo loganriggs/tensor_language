@@ -1,0 +1,47 @@
+{
+  "narrow_failure": "The centered family with exact common function retained separately misses registered two-near-null and gap criteria after verified convergence.",
+  "structural_impossibility_claim": false,
+  "executed_checks": {
+    "max_fp64_residual_over_bound": 5.809869763405022e-08,
+    "centered_and_common_total_closure": 2.220446049250313e-15,
+    "eigenvalues_over_exact_mean": [
+      0.03458276226184587,
+      0.042108764492495024,
+      0.04294164960047293,
+      0.04429980408275913
+    ],
+    "gap_ratio": 0.9806042591347321,
+    "common_restoration": [
+      {
+        "centered_cost_in_full_units": 5.567127205663525e-05,
+        "common_cost_in_full_units": 9.743061679465653e-06,
+        "full_rayleigh": 6.541433373610091e-05,
+        "common_fraction_of_constraint_cost": 0.14894383421792226
+      },
+      {
+        "centered_cost_in_full_units": 6.778661768776094e-05,
+        "common_cost_in_full_units": 1.8880312177506514e-05,
+        "full_rayleigh": 8.666692986526745e-05,
+        "common_fraction_of_constraint_cost": 0.21784909430688126
+      },
+      {
+        "centered_cost_in_full_units": 6.912739472248943e-05,
+        "common_cost_in_full_units": 1.966037475444869e-05,
+        "full_rayleigh": 8.878776947693812e-05,
+        "common_fraction_of_constraint_cost": 0.22143111455858014
+      },
+      {
+        "centered_cost_in_full_units": 7.131374950542452e-05,
+        "common_cost_in_full_units": 2.834275539478087e-05,
+        "full_rayleigh": 9.96565049002054e-05,
+        "common_fraction_of_constraint_cost": 0.28440446936366975
+      }
+    ]
+  },
+  "limits": [
+    "No global spectral impossibility certificate.",
+    "Arbitrary approximate block partitions and nonorthogonal conditioning remain outside this threshold screen.",
+    "Overlapping functions need not form globally separated blocks."
+  ],
+  "decision": "Stop additional congruence-metric variants; test nonorthogonal sparse token usage of learned quadratic functions."
+}

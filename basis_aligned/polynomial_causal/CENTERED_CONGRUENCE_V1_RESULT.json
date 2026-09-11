@@ -1,0 +1,127 @@
+{
+  "predictions": {
+    "pred_a_fp64_verified_convergence": true,
+    "pred_b_two_near_null_modes": false,
+    "pred_c_gap_after_two_modes": false
+  },
+  "solver": {
+    "converged": true,
+    "terminal_reason": "arpack_converged",
+    "eigenvalues": [
+      5.998746984573602e-05,
+      7.304209282571315e-05,
+      7.448682754479935e-05,
+      7.684269495793993e-05
+    ],
+    "residuals_over_operator_bound": [
+      6.25032693480314e-08,
+      5.9208193455350925e-08,
+      6.079383810189886e-08,
+      5.4435369779189776e-08
+    ],
+    "identity_overlaps": [
+      1.1052036844613175e-10,
+      1.0605267863473152e-10,
+      2.8349219194743897e-11,
+      1.2996462999053603e-10
+    ],
+    "orthogonality_error": 9.316158892774375e-15,
+    "operator_norm_upper_bound": 0.022617140889687262,
+    "mean_nontrivial_eigenvalue": 0.0017346053772766695,
+    "matvecs": 809,
+    "matvec_seconds": 8.818691071122885,
+    "wall_seconds": 31.323715649545193,
+    "requested_modes": 4,
+    "ncv": 40,
+    "maxiter": 150,
+    "tolerance": 1e-05,
+    "seed": 1009
+  },
+  "fp64_verification": [
+    {
+      "search_eigenvalue": 5.998746984573602e-05,
+      "fp64_rayleigh": 5.9987445380478524e-05,
+      "fp64_residual_over_bound": 5.809869763405022e-08,
+      "search_value_difference_over_bound": 1.0817130961256985e-09,
+      "identity_overlap": 1.1052037008164488e-10
+    },
+    {
+      "search_eigenvalue": 7.304209282571315e-05,
+      "fp64_rayleigh": 7.304208931915875e-05,
+      "fp64_residual_over_bound": 5.475667665250102e-08,
+      "search_value_difference_over_bound": 1.5503968480481382e-10,
+      "identity_overlap": 1.0605267679477945e-10
+    },
+    {
+      "search_eigenvalue": 7.448682754479935e-05,
+      "fp64_rayleigh": 7.448681630611089e-05,
+      "fp64_residual_over_bound": 5.622500651299793e-08,
+      "search_value_difference_over_bound": 4.969102202194644e-10,
+      "identity_overlap": 2.8349219041414658e-11
+    },
+    {
+      "search_eigenvalue": 7.684269495793993e-05,
+      "fp64_rayleigh": 7.684267837425695e-05,
+      "fp64_residual_over_bound": 4.94448573142269e-08,
+      "search_value_difference_over_bound": 7.332351627415254e-10,
+      "identity_overlap": 1.299646299394262e-10
+    }
+  ],
+  "fp64_eigenvalues": [
+    5.9987445380478524e-05,
+    7.304208931915875e-05,
+    7.448681630611089e-05,
+    7.684267837425695e-05
+  ],
+  "native_centered_total": 92104252412.19977,
+  "common_energy": 7140808941.273234,
+  "native_trace_relative_error": 6.661338147750939e-16,
+  "common_total_closure_error": 2.220446049250313e-15,
+  "action_relative_error": 4.326743906361222e-07,
+  "common_restoration": [
+    {
+      "centered_cost_in_full_units": 5.567127205663525e-05,
+      "common_cost_in_full_units": 9.743061679465653e-06,
+      "full_rayleigh": 6.541433373610091e-05,
+      "common_fraction_of_constraint_cost": 0.14894383421792226
+    },
+    {
+      "centered_cost_in_full_units": 6.778661768776094e-05,
+      "common_cost_in_full_units": 1.8880312177506514e-05,
+      "full_rayleigh": 8.666692986526745e-05,
+      "common_fraction_of_constraint_cost": 0.21784909430688126
+    },
+    {
+      "centered_cost_in_full_units": 6.912739472248943e-05,
+      "common_cost_in_full_units": 1.966037475444869e-05,
+      "full_rayleigh": 8.878776947693812e-05,
+      "common_fraction_of_constraint_cost": 0.22143111455858014
+    },
+    {
+      "centered_cost_in_full_units": 7.131374950542452e-05,
+      "common_cost_in_full_units": 2.834275539478087e-05,
+      "full_rayleigh": 9.96565049002054e-05,
+      "common_fraction_of_constraint_cost": 0.28440446936366975
+    }
+  ],
+  "full_vs_centered_principal_cosines": [
+    0.9901915446514028,
+    0.946014069025807,
+    0.8900431066997652,
+    0.51946529012899
+  ],
+  "witness_cache": {
+    "path": "/dev/shm/bilin18_centered_congruence_v1_vectors.pt",
+    "sha256": "35e9822459a0623f4c1dfdc15e173462884bf3c5a49292fc42f21ef33a9d1089",
+    "bytes": 42471298,
+    "ephemeral": true
+  },
+  "price": {
+    "body_forwards": 0,
+    "corpus_access": false,
+    "output_rank_truncation": false,
+    "input_rank_truncation": false
+  },
+  "wall_seconds": 34.089593429118395,
+  "scope": "Centered congruence block screen with the exact common function retained separately. No original-coordinate block or circuit identification."
+}

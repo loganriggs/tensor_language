@@ -82,19 +82,20 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 00:54
+## Current handoff — updated 11 September 2026, 01:19
 
-Latest full-U congruence spectrum and response audit: explanations/2026-09-11/LATEST.md.
-FP64 first run3/4converged in480s; independent mixed search4/4converged in52.5s,
-originalFP64residualbar held; matvec32.84xfaster. Near-null/gap bars failed.
-Independent eigenvalue/subspace agreement and response/common audits executed.
-Leading dyad inputenergy9.45%isotropicmean; fullresponsealignment63.30%, common
-fraction47.82%, centeredalignment32.19%. No new shared product/circuit claim.
-Next structural distinction: explicit exact common channel plus centered blocks;
-response split done, centered spectrum not run. No own GPU job queued.
-Eigenvectors are checksummed ephemeral /dev/shm caches, not off-box artifacts.
-No new data discovery. Latest hourly00:22,next01:22; math22:49,next01:49.
-Full goal active. Disk~1.7MBfree: avoid large disk checkpoints; shared memory has room.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0110.md.
+CENTERED_CONGRUENCE_V1 converged; strict near-null/gap screen failed. Stop further
+congruence-metric variants. TOKEN_FUNCTION_DICTIONARY_V1 completed at01:10:01,
+locally converged95.65s/308cycles:16.56%centeredcapture,median6functions/token.
+CPU fixed-support debias20.72%,same315718links; strongest8inputfunctions remain
+dense (single-productcapture10.6–21.1%,rank90=406–470). All receipts available.
+No own GPU fit live or queued. Next structural question is joint sparse token
+usage plus simple/overlapping input computations, not sparse usage alone.
+One initialization/penalty does not exhaust dictionary learning. All findings
+are weight-only; four circuit properties remain open. Latest hourly00:22,next01:22;
+math22:49,next01:49. Full goal active. Large reconstructible caches in /dev/shm
+are ephemeral; check disk before writes (~222MB free at01:17).
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

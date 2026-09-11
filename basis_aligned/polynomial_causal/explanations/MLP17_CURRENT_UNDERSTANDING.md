@@ -316,3 +316,26 @@ Independent search converged with full-FP64verification; two-near-null and gap b
 failed. Leading approximate dyad responds along a relatively weak input direction,
 with substantial known common-output contribution. This does not rule out approximate
 or overlapping blocks. [Spectrum, response and common-channel audits](2026-09-11/explanation_2026-09-11_0054.md).
+
+
+## 11 September01:10: common channel plus centered blocks
+
+Centered congruence search converged but missed the near-null/gap screen; keeping
+the exact common function separate did not rescue that criterion. The new sparse
+nonorthogonal token-function dictionary is an overlapping-use hypothesis, not
+another independent-block test. [Result and method](2026-09-11/explanation_2026-09-11_0110.md).
+
+## 11 September: overlapping token functions do not yet simplify input computation
+
+The full centered quadratic family admits an exact 1,152-dimensional function
+embedding. A learned 512-function nonorthogonal sparse dictionary locally
+converged in95.65s, capturing16.56%coefficientenergy withmedian6functions/token.
+Frozen-support coefficient debias gives20.72% withsame315718links. The eight
+strongest functions require406–470signed-square eigenmodes for90%of their own
+coefficientenergy. This is distinct from the earlier activation-weighted four
+output directions/rank-two approximation: different target, metric and family.
+Sparse token usage is not itself a simple input program or a causal circuit.
+See [explanation](2026-09-11/explanation_2026-09-11_0110.md),
+[fit](../TOKEN_FUNCTION_DICTIONARY_V1_RESULT.json),
+[debias](../TOKEN_DICTIONARY_DEBIAS_V1_AUDIT.json),
+[input audit](../TOKEN_DICTIONARY_FUNCTIONS_V1_AUDIT.json).

@@ -1,5 +1,5 @@
 # Latest research update
 
-**11 September, 00:54 UTC:** [Full-weight block search: convergence, result and response audit](explanation_2026-09-11_0054.md). Independent search converged and passed FP64 verification; registered near-null and spectral-gap tests fail. Search matvecs are 32.84× faster. Response audit finds weak input directions and substantial known common-output contribution. No data fitting or new circuit identification.
+**11 September, 01:19 UTC:** [Overlapping token functions: results and remaining assumptions](explanation_2026-09-11_0110.md). The new weight-only dictionary converged locally in 95.65 seconds: 16.56% centered coefficient-energy capture, median six functions per token. Exact refitting on the same links raises capture to 20.72%. The eight strongest functions still require hundreds of signed-square modes; sparse token usage alone did not expose simple input computations. No new text/data fitting or identified circuits.
 
-[Native-product selection and block-method setup](explanation_2026-09-11_0035.md) · [Methods and assumptions overview](explanation_2026-09-11_0022.md) · [Previous day’s campaign](../2026-09-10/unsupervised_structure_campaign.md).
+[Methods and assumptions overview](explanation_2026-09-11_0022.md) · [Full-U spectrum and response audit](explanation_2026-09-11_0054.md) · [Previous day’s campaign](../2026-09-10/unsupervised_structure_campaign.md).

@@ -1,0 +1,23 @@
+{
+  "instrument_passed": true,
+  "original_capture": 0.16564238303233625,
+  "debiased_capture": 0.2071795422868934,
+  "capture_gain": 0.04153715925455714,
+  "maximum_relative_solve_residual": 2.8503941442945412e-15,
+  "maximum_support_gram_condition": 45.55044350872673,
+  "rank_deficient_rows": 0,
+  "original_support_links": 315718,
+  "debiased_nonzero_codes": 315718,
+  "maximum_active": 27,
+  "median_active": 6.0,
+  "coefficient_norm_ratio": 1.469569462566719,
+  "coefficient_sign_changes": 336,
+  "cache": {
+    "path": "/dev/shm/bilin18_token_dictionary_debiased_v1.pt",
+    "bytes": 210766093,
+    "sha256": "84c1270e9daf5858020559a9902ce25bdf113860540f029469fa8b2b08af41c7",
+    "ephemeral": true
+  },
+  "wall_seconds": 7.638644751161337,
+  "scope": "Unpenalized refit on frozen learned functions and exact same token supports. Changed coefficients, not convergence of the original penalty-free joint problem."
+}

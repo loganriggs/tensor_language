@@ -19608,3 +19608,21 @@ Mixed native A/Dheld B/Cfailed,52.50s,32.84xmatvecspeed,all4FP64residuals<=5.65e
 
 ### 2026-09-11T00:56:15.055077+00:00 — Codex: CONGRUENCE RESULT PUBLISHED; COMMON-RESPONSE CONTINUATION COMPLETE
 Full native mixed spectrum converged, A/Dheld B/Cfailed; strongest numerical alternative checked by independent FP64 modes. Common-response CPU follow-up complete: leading alignment63.30% falls to32.19%centered, commonresponse47.82%. Latest explanation0054. Next full common-channel-plus-centered-block spectrum remains unrun; no own GPU queued. Four program properties remain open.
+
+### 2026-09-11T00:58:53.975155+00:00 — Codex: CLAIM CENTERED CONGRUENCE PLUS SHARED COMMON CHANNEL
+Previous turn progress9896ea2e4. NativecenteredfamilyQ_v-Qmean plus exact retainedcommon function is a distinct decomposition from globally independentfullQ blocks. Full centered Gram Uc^TUc, allinputs/outputs, existingmixedsolver seed1009; unchanged FP64acceptance and near-null/gap bars. Also measure common-channel residual on each newwitness so the difference fromfullU is explicit. Zero data. Priorcampaign/dossiercommonchannel accounted; not rediscovering it.
+
+### 2026-09-11T01:03:04.608897+00:00 — Codex: CENTERED CONGRUENCE NULL; CLAIM SPARSE TOKEN-FUNCTION DICTIONARY
+Centered Aheld B/Cfailed in34.09s, all4FP64verified; commonrestoration/numerical audit complete. Stop congruence variants. Next nonorthogonal sparse dictionary over exact all-token quadratic Hilbert coordinates, no output projection/truncation before fit. Unlike varimax, functions change and need not be orthogonal; unlike native OLS, atoms are learned combinations, with sparse overlapping token usage. Campaign/dossier/script search found no matching full-function sparse-coding implementation. Implement exact embedding and alternating proximal conditional solvers with stationarity diagnostics before native run.
+
+### 2026-09-11T01:10:45.757797+00:00 — Codex: NEW SPARSE TOKEN-FUNCTION FIT LIVE
+Centered congruence Aheld B/Cfailed published; no further congruence-metric sweep. Exact all-token function embedding and nonorthogonal sparse-code controls pass.512function native dictionary run started01:08:23,540schunk, lambda frozen by weight-only calibration. Current progress not convergence; originalFP64joint stationarity required. Latest explanation0110; no new data fitting or identified circuits.
+
+### 2026-09-11T01:12:49.535956+00:00 — Codex: SPARSE DICTIONARY CONVERGED; CLAIM FROZEN-SUPPORT DEBIAS AUDIT
+Native dictionary A/Bheld Cfailed:95.65s,308cycles,FP64stationarity8.24e-5, capture16.56%vsinitial5.27%, median6mean6.28functions. No outerobjectiveincrease. Preserve30%capturemiss. NextCPUexact coefficient refit on same frozen token supports and fixedlearnedfunctions tests penaltyshrinkage without new links/functions; report solve residuals/conditioning and unchanged support price. No broader negative before this check.
+
+### 2026-09-11T01:18:24.114531+00:00 — Codex: CLAIM LEARNED TOKEN-FUNCTION INPUT COMPLEXITY AUDIT
+Frozen-support debias increases centered capture16.56%→20.72% with same315718links, median6, no ill-conditioned solves. Inspect top8 learned functions by separate component energy: signed token usages and exact input quadratic eigenspectra. Component energy is not additive explained energy. Compare prior MLP17 dossier before naming anything; no new data or semantic circuit claim. This tests whether overlapping token reuse also exposes simple input products.
+
+### 2026-09-11T01:19:00+00:00 — Codex: DICTIONARY RESULTS AND CPU CONTINUATION COMPLETE
+Correction to01:10:45live snapshot: native fit had completed01:10:01. Local convergence95.65s,16.56%centeredcapture,median6; same-support debias20.72%. Next claimed CPU input-function audit executed7.41s: strongest8functions one-productcapture10.6–21.1%, rank90=406–470. Sparse output usage does not by itself simplify input computation. Latest0110explanation and pointers corrected. Next useful hypothesis combines overlapping token usage with explicit simple input products/shared readers; no own GPU queued, full goal active.

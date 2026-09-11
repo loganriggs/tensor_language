@@ -1,0 +1,49 @@
+{
+  "instrument_passed": true,
+  "exact_embedding_gram_error": 4.190215105148029e-16,
+  "atom_function_isometry_error": 5.232903155554618e-16,
+  "orthogonal_soft_threshold_error": 3.023189153627485e-17,
+  "planted_final": {
+    "objective": 0.09500000000000001,
+    "squared_relative_error": 0.00918205804749341,
+    "captured_energy": 0.9908179419525066,
+    "penalty_value": 0.09000000000000001,
+    "code_stationarity": 0.0,
+    "dictionary_stationarity": 0.0,
+    "relative_stationarity": 0.0,
+    "median_active": 1.0,
+    "mean_active": 1.0,
+    "p90_active": 1.0,
+    "atom_norm_max": 1.0,
+    "nonzero_codes": 30
+  },
+  "conditional_report": {
+    "steps": 10,
+    "relative_stationarity": 2.7743164120986982e-17,
+    "converged": true,
+    "resets": 2,
+    "terminal": "stationarity",
+    "maximum_objective_increase": 3.552713678800501e-15
+  },
+  "cycle_report": {
+    "codes": {
+      "steps": 10,
+      "relative_stationarity": 0.0,
+      "converged": true,
+      "resets": 0,
+      "terminal": "stationarity",
+      "maximum_objective_increase": 0.0
+    },
+    "dictionary": {
+      "steps": 10,
+      "relative_stationarity": 0.0,
+      "converged": true,
+      "resets": 0,
+      "terminal": "stationarity",
+      "maximum_objective_increase": 0.0
+    }
+  },
+  "nonorthogonal_reference_objective_error": 9.80013343802897e-16,
+  "nonorthogonal_code_stationarity": 4.96049845518516e-10,
+  "scope": "Exact quadratic embedding and known-optimum sparse-code/dictionary controls. No native fit or global nonconvex recovery claim."
+}
