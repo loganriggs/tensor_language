@@ -128,3 +128,7 @@ New words/constructions confirm small neighboring binary-choice changes and near
 ### 22:27 — First path pilot interpreted; convergence continuation accepted
 
 [Path method/results](../../COUPLED_SPARSE_PATH_V1_MATH.md): small joint gains miss10%bar, three of four arms remain unconverged; same-objective active-edge continuation accepted. [Quartic oracle](../../COMPOSED_QUARTIC_CONTRACTION_V1_MATH.md) passes native checks with<0.3%estimated sampling error in~3seconds; not a sparse-fit result. [Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_2227.md) completed; next23:27, math22:51.
+
+### Converged path structure passes coefficient checks, misses native replication
+
+[Primary results](../../COUPLED_SPARSE_PATH_V1_MATH.md#converged-fits-and-reproducible-coefficient-structure): allfourfitsconverged;18edgepairs passbothfull/centeredcosine screens. Quote-AA isold150alias. Frozenbank native-cache replica write/swap/CE criteria fail; executed accounting points more to writer differences. No circuit promotion. Next method comparisons concern output sharing and deeper composed functions.

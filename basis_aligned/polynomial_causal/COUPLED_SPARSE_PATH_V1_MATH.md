@@ -83,3 +83,37 @@ This is a computation-level intervention: deleting an internal candidate node do
 [PilotV2](COUPLED_SPARSE_PATH_PILOT_V2_RESULT.json) completed22:25:24. Instrument and reuse-incidence predictions hold; convergence and the10%advantage predictions miss. Joint capture2.9343/2.7719% versus independent2.7262/2.7461%, with equal147456fitted-float budgets. Only the second independent arm is fully converged; the other three still have support changes. Joint programs have30/33mixededges and5/13features reused within/across sources. This describes proposed arithmetic incidence, not semantic or causal reuse.
 
 The [active-edge kernel](coupled_sparse_path_v2.py) avoids forming inactive coefficient columns during a fixed-support solve while keeping the original full-column support selection. [CPU objective and all-factor gradient replay](COUPLED_SPARSE_PATH_V2_CONTROL.json) holds within2.59e-16. [Longer continuation](COUPLED_SPARSE_PATH_CONTINUE_V1_PREREGISTRATION.md) starts from these exact final artifacts, retains ranks/costs/criteria, and tests native speed and replay before continuing. Its state is in the managed runner/receipt. Original misses remain; no absent-structure inference is justified yet.
+
+## Converged fits and reproducible coefficient structure
+
+[Continuation](COUPLED_SPARSE_PATH_CONTINUE_V1_RESULT.json) completed22:31:54 with all four arms meeting the original support and gradient conditions. Instrument/convergence/speed predicates hold; the10%joint advantage still misses. Final joint capture2.97992/2.78099% versus independent2.72962/2.74606%. The active-column gradient is2.15times faster for both joint cases. These are local constrained solutions, not globally optimal sparse programs.
+
+[Full coefficient stability and token atlas](SPARSE_PATH_STABILITY_ATLAS_V1.json) passes its registered screen: joint totalfunctioncosine0.94429 and21one-to-one edges above0.9, compared with independent0.87081 and3edges. This comparison multiplies both the source-feature and full-U writer inner products; reader sign gauges compensated in writers change nothing. It is stronger than writer-only similarity, but is still coefficient-space identification evidence.
+
+Common vocabulary writing contributes55.83/58.95%of the joint programs' coefficient energy. [Centering red-team](SPARSE_PATH_CENTERED_STABILITY_V1.json) retains a joint function cosine0.90789 and21original-pair matches above0.9; independent falls to0.77839 and2matches. The full and centered counts of21 are **not the same sets**:18pairs pass both. Earlier commentary saying the same21survived was too strong. [Frozen bank receipt](STABLE_PATH_BANK_V1.json) and [artifact](STABLE_PATH_BANK_V1.pt) preserve the18-pair intersection, unchanged, before native-state validation. Each replica retains57600fitted floats,18products and the original source/normalization dependencies.
+
+The quotient test does not assume common pre-tanh writing is behaviorally irrelevant. It tests whether a common coefficient direction alone explains the stability. The centered screen passing does not establish selective effects.
+
+## Prior-art aliases are recovered components, not new circuits
+
+The atlas's quotation-related attention/attention square matches the already documented square150. [All256-square path alias audit](SPARSE_PATH_PRIOR_SQUARE_ALIAS_V1.json) folds each old reader through the residual and attention-output ports, including rr/ra/aa terms, and checks old fitted and exact native-projection writers. The quote-AA function cosine is0.99722/0.99674 in the two new starts. There are3/1path-piece aliases above0.95across the old bank in total, for either writer reference. Coefficient-shape agreement need not imply equal amplitudes or a complete old-square match.
+
+The known square150 removal/gating results in the dossier remain authoritative, including their failures. These new path pieces are not additional quotation circuits. Other unmatched edges are unassigned computations, not novel circuits merely because this alias bank did not explain them.
+
+## First native-state replication fails
+
+[Developmental native-cache check](STABLE_PATH_NATIVE_CACHE_V1.json) uses the existing64pair/128endpoint morphology and neighboring-inflection cache, with both18edge banks frozen beforehand. It performs no parameter fitting. Instrument passes; physical-write, swap-effect and removal-CE replica criteria fail. This is an already inspected cache for earlier programs, not fresh corpus/OOD evidence.
+
+Physical-write symmetric relativeRMS disagreement is28.19%, above25%. Swap-margin disagreements are40.35/54.80/22.29/44.02%for agreement verbs/count nouns/past/progressive. Signs agree87.5/87.5/100/100%. Bank-removal CE mean absolute disagreements are0.19493/0.25495/0.05739/0.12616nats, all above0.02. These are replica-disagreement statistics, not claims that every change is harmful or intended-task selective. Native sources, remaining model and final normalization/tanh remain present.
+
+[Exact midpoint accounting](STABLE_PATH_REPLICA_ACCOUNTING_V1.json) separates the physical-write difference after weight-metric sign alignment. With feature amplitudes $a_0,a_1$ already divided by the common native input RMS squared,
+
+$$
+a_0W_0^\top-a_1W_1^\top
+=(a_0-a_1)\left(\frac{W_0+W_1}{2}\right)^\top
++\left(\frac{a_0+a_1}{2}\right)(W_0-W_1)^\top.
+$$
+
+The first, reader/amplitude term has norm0.370times the total discrepancy; the writer term0.757times. They have cosine0.518, so these ratios are not additive variance shares. Identity error7.75e-16. The registered reader-dominance hypothesis fails: output-writing differences are larger in this accounting. This does not by itself assign the CE difference to one term or repair the native replication failure.
+
+The current result is therefore **converged sparse path fits with reproducible coefficient structure, but insufficient native behavioral replication for circuit promotion**. A0.9coefficient cosine is a correspondence screen, not a25%error guarantee: even equal-norm tensors atcosine0.9differ by44.7%relativeRMS. Next comparisons should test output grouping/sharing and actual deeper composition, without fitting these validation outcomes or silently tightening a threshold until this cache passes.

@@ -1,0 +1,3531 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pullback_errors": [
+    2.2025804468120477e-15,
+    1.6194473542980597e-15
+  ],
+  "quote_aliases": [
+    {
+      "seed": 11241,
+      "reference": "fitted",
+      "edge": 3,
+      "old_square": 150,
+      "piece": "aa",
+      "cosine": 0.9972710123107879
+    },
+    {
+      "seed": 11241,
+      "reference": "native_projection",
+      "edge": 3,
+      "old_square": 150,
+      "piece": "aa",
+      "cosine": 0.9972183472488672
+    },
+    {
+      "seed": 11242,
+      "reference": "fitted",
+      "edge": 1,
+      "old_square": 150,
+      "piece": "aa",
+      "cosine": 0.9967900579044794
+    },
+    {
+      "seed": 11242,
+      "reference": "native_projection",
+      "edge": 1,
+      "old_square": 150,
+      "piece": "aa",
+      "cosine": 0.9967407390582308
+    }
+  ],
+  "matches": [
+    {
+      "seed": 11241,
+      "reference": "fitted",
+      "matches_at_point95": 3,
+      "rows": [
+        {
+          "edge": 0,
+          "old_square": 154,
+          "old_piece": "aa",
+          "function_cosine": 0.2909904576023873,
+          "input_feature_cosine": 0.31327439891610603,
+          "output_cosine": 0.9288676591805183,
+          "component_norm_ratio": 1.6944743383445053
+        },
+        {
+          "edge": 1,
+          "old_square": 57,
+          "old_piece": "ra",
+          "function_cosine": 0.21335012743844123,
+          "input_feature_cosine": 0.23638415638333204,
+          "output_cosine": 0.9025567986564307,
+          "component_norm_ratio": 1.3665755470320702
+        },
+        {
+          "edge": 2,
+          "old_square": 154,
+          "old_piece": "ra",
+          "function_cosine": 0.2190337864596929,
+          "input_feature_cosine": -0.2339521247392626,
+          "output_cosine": -0.9362333712668947,
+          "component_norm_ratio": 1.2127695559962564
+        },
+        {
+          "edge": 3,
+          "old_square": 150,
+          "old_piece": "aa",
+          "function_cosine": 0.9972710123107879,
+          "input_feature_cosine": 0.9976797603285198,
+          "output_cosine": 0.9995903013832841,
+          "component_norm_ratio": 1.0080480302939807
+        },
+        {
+          "edge": 4,
+          "old_square": 150,
+          "old_piece": "ra",
+          "function_cosine": 0.9951844835042649,
+          "input_feature_cosine": 0.9954223483574807,
+          "output_cosine": 0.9997610412769935,
+          "component_norm_ratio": 1.0072180448897754
+        },
+        {
+          "edge": 5,
+          "old_square": 57,
+          "old_piece": "rr",
+          "function_cosine": 0.28898319982243575,
+          "input_feature_cosine": -0.3210313758274812,
+          "output_cosine": -0.9001712031341517,
+          "component_norm_ratio": 1.9633702151269392
+        },
+        {
+          "edge": 6,
+          "old_square": 57,
+          "old_piece": "aa",
+          "function_cosine": 0.4657835664999672,
+          "input_feature_cosine": 0.4899172874097832,
+          "output_cosine": 0.9507391930637678,
+          "component_norm_ratio": 1.129563053739268
+        },
+        {
+          "edge": 7,
+          "old_square": 88,
+          "old_piece": "ra",
+          "function_cosine": 0.5040880262851966,
+          "input_feature_cosine": -0.6599581912130966,
+          "output_cosine": -0.763818122112571,
+          "component_norm_ratio": 0.7874871805906234
+        },
+        {
+          "edge": 8,
+          "old_square": 57,
+          "old_piece": "ra",
+          "function_cosine": 0.3146471364379921,
+          "input_feature_cosine": -0.33267631643590195,
+          "output_cosine": -0.9458056401758206,
+          "component_norm_ratio": 0.772137122203866
+        },
+        {
+          "edge": 9,
+          "old_square": 88,
+          "old_piece": "rr",
+          "function_cosine": 0.6095027521925115,
+          "input_feature_cosine": 0.6915630029674691,
+          "output_cosine": 0.8813408895171656,
+          "component_norm_ratio": 1.2113257480206028
+        },
+        {
+          "edge": 10,
+          "old_square": 141,
+          "old_piece": "aa",
+          "function_cosine": 0.4225030359767376,
+          "input_feature_cosine": -0.568651852040504,
+          "output_cosine": -0.7429906971386132,
+          "component_norm_ratio": 0.9305449845294211
+        },
+        {
+          "edge": 11,
+          "old_square": 204,
+          "old_piece": "ra",
+          "function_cosine": 0.678479462798689,
+          "input_feature_cosine": 0.7771039039806096,
+          "output_cosine": 0.8730871886285344,
+          "component_norm_ratio": 1.0773228901208993
+        },
+        {
+          "edge": 12,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.39380142948967345,
+          "input_feature_cosine": -0.3993430641000933,
+          "output_cosine": -0.9861231229271309,
+          "component_norm_ratio": 0.7002438352355934
+        },
+        {
+          "edge": 13,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.35009898102687687,
+          "input_feature_cosine": -0.4120192377318386,
+          "output_cosine": -0.8497151321238492,
+          "component_norm_ratio": 1.0286384822161156
+        },
+        {
+          "edge": 14,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.34909392004499196,
+          "input_feature_cosine": -0.35676080172042274,
+          "output_cosine": -0.9785097419939118,
+          "component_norm_ratio": 0.6796738446208781
+        },
+        {
+          "edge": 15,
+          "old_square": 161,
+          "old_piece": "ra",
+          "function_cosine": 0.17790586210724788,
+          "input_feature_cosine": -0.21372542968195948,
+          "output_cosine": -0.8324038106835766,
+          "component_norm_ratio": 0.727663866254437
+        },
+        {
+          "edge": 16,
+          "old_square": 150,
+          "old_piece": "rr",
+          "function_cosine": 0.9930075166597777,
+          "input_feature_cosine": 0.9931700441464766,
+          "output_cosine": 0.9998363548239734,
+          "component_norm_ratio": 1.0043611243008486
+        },
+        {
+          "edge": 17,
+          "old_square": 204,
+          "old_piece": "aa",
+          "function_cosine": 0.7552060389712593,
+          "input_feature_cosine": 0.8831172440474415,
+          "output_cosine": 0.8551594299190122,
+          "component_norm_ratio": 1.1553839826242331
+        },
+        {
+          "edge": 18,
+          "old_square": 39,
+          "old_piece": "aa",
+          "function_cosine": 0.13944669905286136,
+          "input_feature_cosine": 0.22012428767182649,
+          "output_cosine": 0.6334907452863914,
+          "component_norm_ratio": 2.3998117425202854
+        },
+        {
+          "edge": 19,
+          "old_square": 103,
+          "old_piece": "aa",
+          "function_cosine": 0.23331043177091576,
+          "input_feature_cosine": 0.7172348672743357,
+          "output_cosine": 0.3252915361707822,
+          "component_norm_ratio": 0.6462227935493497
+        },
+        {
+          "edge": 20,
+          "old_square": 110,
+          "old_piece": "aa",
+          "function_cosine": 0.4263447859014924,
+          "input_feature_cosine": 0.4456800512429847,
+          "output_cosine": 0.9566162647675904,
+          "component_norm_ratio": 0.7112261427748808
+        },
+        {
+          "edge": 21,
+          "old_square": 208,
+          "old_piece": "aa",
+          "function_cosine": 0.26097744738605344,
+          "input_feature_cosine": 0.36519767192687,
+          "output_cosine": 0.7146196907802675,
+          "component_norm_ratio": 0.5672327906448976
+        },
+        {
+          "edge": 22,
+          "old_square": 110,
+          "old_piece": "rr",
+          "function_cosine": 0.3219263321192396,
+          "input_feature_cosine": -0.334589063052828,
+          "output_cosine": -0.9621543788130663,
+          "component_norm_ratio": 0.9100245460806209
+        },
+        {
+          "edge": 23,
+          "old_square": 0,
+          "old_piece": "aa",
+          "function_cosine": 0.3395755559884623,
+          "input_feature_cosine": 0.36362335524784006,
+          "output_cosine": 0.9338661862272647,
+          "component_norm_ratio": 1.5521616461675394
+        },
+        {
+          "edge": 24,
+          "old_square": 253,
+          "old_piece": "aa",
+          "function_cosine": 0.217588745868596,
+          "input_feature_cosine": 0.2319097468658225,
+          "output_cosine": 0.9382475243461316,
+          "component_norm_ratio": 1.3554612559848893
+        },
+        {
+          "edge": 25,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.26457725685060896,
+          "input_feature_cosine": 0.3074082795669686,
+          "output_cosine": 0.8606705623651592,
+          "component_norm_ratio": 0.7473727447426719
+        },
+        {
+          "edge": 26,
+          "old_square": 65,
+          "old_piece": "aa",
+          "function_cosine": 0.11263248778483768,
+          "input_feature_cosine": 0.1158511037637435,
+          "output_cosine": 0.9722176494281006,
+          "component_norm_ratio": 1.8510704893473164
+        },
+        {
+          "edge": 27,
+          "old_square": 154,
+          "old_piece": "aa",
+          "function_cosine": 0.09888520116704767,
+          "input_feature_cosine": -0.215014458654261,
+          "output_cosine": -0.45990024013246994,
+          "component_norm_ratio": 0.5807615079103987
+        },
+        {
+          "edge": 28,
+          "old_square": 153,
+          "old_piece": "aa",
+          "function_cosine": 0.21214396302690236,
+          "input_feature_cosine": -0.2767095506500574,
+          "output_cosine": -0.76666657341073,
+          "component_norm_ratio": 0.7456601512495395
+        },
+        {
+          "edge": 29,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.33996261058526334,
+          "input_feature_cosine": -0.41876369735672014,
+          "output_cosine": -0.8118244554891997,
+          "component_norm_ratio": 0.5900777055763528
+        },
+        {
+          "edge": 30,
+          "old_square": 110,
+          "old_piece": "rr",
+          "function_cosine": 0.4392981912623089,
+          "input_feature_cosine": 0.4520797764601909,
+          "output_cosine": 0.9717271467041448,
+          "component_norm_ratio": 0.8431720951884083
+        },
+        {
+          "edge": 31,
+          "old_square": 141,
+          "old_piece": "aa",
+          "function_cosine": 0.42052483219590303,
+          "input_feature_cosine": 0.5467742147633622,
+          "output_cosine": 0.7691014331718286,
+          "component_norm_ratio": 0.6261685455929126
+        },
+        {
+          "edge": 32,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.22946280198148206,
+          "input_feature_cosine": 0.3372894863314846,
+          "output_cosine": 0.6803141256409292,
+          "component_norm_ratio": 0.5688758916332303
+        },
+        {
+          "edge": 33,
+          "old_square": 161,
+          "old_piece": "rr",
+          "function_cosine": 0.23352196962312763,
+          "input_feature_cosine": 0.2712427584262763,
+          "output_cosine": 0.8609334714703502,
+          "component_norm_ratio": 0.9544614473867707
+        },
+        {
+          "edge": 34,
+          "old_square": 249,
+          "old_piece": "rr",
+          "function_cosine": 0.5234768899129296,
+          "input_feature_cosine": 0.632746803394746,
+          "output_cosine": 0.8273086281976092,
+          "component_norm_ratio": 1.301476401534127
+        },
+        {
+          "edge": 35,
+          "old_square": 208,
+          "old_piece": "ra",
+          "function_cosine": 0.19750001671923373,
+          "input_feature_cosine": -0.24093876112006313,
+          "output_cosine": -0.8197104351375688,
+          "component_norm_ratio": 0.4744046042787987
+        },
+        {
+          "edge": 36,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.2653743529497036,
+          "input_feature_cosine": 0.29695011802362264,
+          "output_cosine": 0.8936664336620765,
+          "component_norm_ratio": 0.755457999560945
+        },
+        {
+          "edge": 37,
+          "old_square": 253,
+          "old_piece": "ra",
+          "function_cosine": 0.1506309962981936,
+          "input_feature_cosine": 0.1595097181529359,
+          "output_cosine": 0.9443374237159048,
+          "component_norm_ratio": 0.8796725898158317
+        },
+        {
+          "edge": 38,
+          "old_square": 27,
+          "old_piece": "aa",
+          "function_cosine": 0.2831883658879895,
+          "input_feature_cosine": 0.3644711140081948,
+          "output_cosine": 0.7769843891706114,
+          "component_norm_ratio": 1.8193662762334821
+        },
+        {
+          "edge": 39,
+          "old_square": 249,
+          "old_piece": "ra",
+          "function_cosine": 0.39985069839837406,
+          "input_feature_cosine": 0.458102760443085,
+          "output_cosine": 0.8728406220727233,
+          "component_norm_ratio": 0.8185471550860786
+        },
+        {
+          "edge": 40,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.3605516230290799,
+          "input_feature_cosine": 0.36930948542928294,
+          "output_cosine": 0.9762858449464872,
+          "component_norm_ratio": 1.1329460461540322
+        },
+        {
+          "edge": 41,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.2816842004716831,
+          "input_feature_cosine": -0.3104408524071068,
+          "output_cosine": -0.9073683385661088,
+          "component_norm_ratio": 0.6863367126875892
+        },
+        {
+          "edge": 42,
+          "old_square": 104,
+          "old_piece": "aa",
+          "function_cosine": 0.12214027442792556,
+          "input_feature_cosine": 0.1449931087786473,
+          "output_cosine": 0.8423867551828974,
+          "component_norm_ratio": 1.4175934204172658
+        },
+        {
+          "edge": 43,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.20133583278883502,
+          "input_feature_cosine": 0.20899110839478505,
+          "output_cosine": 0.9633703286960459,
+          "component_norm_ratio": 0.43197502536403903
+        },
+        {
+          "edge": 44,
+          "old_square": 154,
+          "old_piece": "ra",
+          "function_cosine": 0.08563863282006126,
+          "input_feature_cosine": 0.1605719765990125,
+          "output_cosine": 0.53333486100082,
+          "component_norm_ratio": 0.3740162639423729
+        },
+        {
+          "edge": 45,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.116632718487563,
+          "input_feature_cosine": -0.13100531520873834,
+          "output_cosine": -0.8902899725993968,
+          "component_norm_ratio": 0.8647405703111174
+        },
+        {
+          "edge": 46,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.2389185013841751,
+          "input_feature_cosine": 0.2515719285190939,
+          "output_cosine": 0.9497025474606623,
+          "component_norm_ratio": 0.558499700838294
+        },
+        {
+          "edge": 47,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.12151173849552076,
+          "input_feature_cosine": -0.20931756891803605,
+          "output_cosine": -0.5805138055234244,
+          "component_norm_ratio": 0.7130507682709346
+        },
+        {
+          "edge": 48,
+          "old_square": 50,
+          "old_piece": "aa",
+          "function_cosine": 0.10207830915740916,
+          "input_feature_cosine": 0.11597775087538113,
+          "output_cosine": 0.8801542398170231,
+          "component_norm_ratio": 1.486060763828921
+        },
+        {
+          "edge": 49,
+          "old_square": 110,
+          "old_piece": "aa",
+          "function_cosine": 0.3403739757008836,
+          "input_feature_cosine": 0.352758276633271,
+          "output_cosine": 0.9648929543182282,
+          "component_norm_ratio": 0.5005178399041891
+        },
+        {
+          "edge": 50,
+          "old_square": 149,
+          "old_piece": "ra",
+          "function_cosine": 0.12555279724839272,
+          "input_feature_cosine": -0.15330174399138458,
+          "output_cosine": -0.8189913172510853,
+          "component_norm_ratio": 0.5673379323602512
+        },
+        {
+          "edge": 51,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.36182723680342027,
+          "input_feature_cosine": -0.4743132743527696,
+          "output_cosine": -0.762844424493825,
+          "component_norm_ratio": 0.8462755444381165
+        },
+        {
+          "edge": 52,
+          "old_square": 141,
+          "old_piece": "rr",
+          "function_cosine": 0.22891260283853326,
+          "input_feature_cosine": 0.3207229410036572,
+          "output_cosine": 0.7137394104774157,
+          "component_norm_ratio": 0.7937483385165814
+        },
+        {
+          "edge": 53,
+          "old_square": 84,
+          "old_piece": "aa",
+          "function_cosine": 0.1168763460583111,
+          "input_feature_cosine": -0.1278616622277361,
+          "output_cosine": -0.9140843629120127,
+          "component_norm_ratio": 0.8615898793025208
+        },
+        {
+          "edge": 54,
+          "old_square": 103,
+          "old_piece": "aa",
+          "function_cosine": 0.14344988998167912,
+          "input_feature_cosine": 0.20216649244018436,
+          "output_cosine": 0.7095631340793138,
+          "component_norm_ratio": 0.3892335416366879
+        },
+        {
+          "edge": 55,
+          "old_square": 248,
+          "old_piece": "aa",
+          "function_cosine": 0.32629712190830246,
+          "input_feature_cosine": 0.4160409029722381,
+          "output_cosine": 0.7842909665304612,
+          "component_norm_ratio": 0.5497367973399455
+        },
+        {
+          "edge": 56,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.1709054541179769,
+          "input_feature_cosine": 0.3079586876094336,
+          "output_cosine": 0.5549622757670877,
+          "component_norm_ratio": 0.3780248758473868
+        },
+        {
+          "edge": 57,
+          "old_square": 84,
+          "old_piece": "aa",
+          "function_cosine": 0.15192007179335423,
+          "input_feature_cosine": 0.19098580000148804,
+          "output_cosine": 0.7954521843622435,
+          "component_norm_ratio": 0.7803090071040332
+        },
+        {
+          "edge": 58,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.07170292691017306,
+          "input_feature_cosine": -0.08371837971807662,
+          "output_cosine": -0.8564777191297079,
+          "component_norm_ratio": 0.43385001074465795
+        },
+        {
+          "edge": 59,
+          "old_square": 249,
+          "old_piece": "aa",
+          "function_cosine": 0.4122062243403235,
+          "input_feature_cosine": 0.5063990520626689,
+          "output_cosine": 0.8139948577338793,
+          "component_norm_ratio": 0.7761637190420162
+        },
+        {
+          "edge": 60,
+          "old_square": 81,
+          "old_piece": "ra",
+          "function_cosine": 0.2724873095989477,
+          "input_feature_cosine": 0.2874737496712032,
+          "output_cosine": 0.9478684920296333,
+          "component_norm_ratio": 0.5990347211314694
+        },
+        {
+          "edge": 61,
+          "old_square": 254,
+          "old_piece": "aa",
+          "function_cosine": 0.11845549055402435,
+          "input_feature_cosine": 0.14151126118162985,
+          "output_cosine": 0.8370746579806578,
+          "component_norm_ratio": 0.4889109863550018
+        },
+        {
+          "edge": 62,
+          "old_square": 155,
+          "old_piece": "aa",
+          "function_cosine": 0.146110667107064,
+          "input_feature_cosine": -0.2703994034432026,
+          "output_cosine": -0.5403512923716731,
+          "component_norm_ratio": 0.631054784246807
+        },
+        {
+          "edge": 63,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.16242960251695768,
+          "input_feature_cosine": -0.1859698523299632,
+          "output_cosine": -0.8734190003483014,
+          "component_norm_ratio": 0.3743853481185176
+        },
+        {
+          "edge": 64,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.12995002780102477,
+          "input_feature_cosine": 0.14013446180354913,
+          "output_cosine": 0.927323844032015,
+          "component_norm_ratio": 0.47918477199544185
+        },
+        {
+          "edge": 65,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.14791319260959226,
+          "input_feature_cosine": -0.16187558184471565,
+          "output_cosine": -0.9137461680383812,
+          "component_norm_ratio": 0.3581218844888094
+        },
+        {
+          "edge": 66,
+          "old_square": 248,
+          "old_piece": "ra",
+          "function_cosine": 0.17295635835155299,
+          "input_feature_cosine": 0.2373295926330759,
+          "output_cosine": 0.728760187183874,
+          "component_norm_ratio": 0.3495927717341746
+        },
+        {
+          "edge": 67,
+          "old_square": 103,
+          "old_piece": "ra",
+          "function_cosine": 0.09718862545388832,
+          "input_feature_cosine": -0.1346286441809461,
+          "output_cosine": -0.7219015391944602,
+          "component_norm_ratio": 0.231956148244148
+        },
+        {
+          "edge": 68,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.19459208840291556,
+          "input_feature_cosine": -0.25313515225524985,
+          "output_cosine": -0.7687280358703317,
+          "component_norm_ratio": 0.6256203059466507
+        },
+        {
+          "edge": 69,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.18352613591075176,
+          "input_feature_cosine": 0.20140960633962868,
+          "output_cosine": 0.9112084534899454,
+          "component_norm_ratio": 0.5250432551305007
+        },
+        {
+          "edge": 70,
+          "old_square": 141,
+          "old_piece": "rr",
+          "function_cosine": 0.1511080293142826,
+          "input_feature_cosine": -0.3653245027950969,
+          "output_cosine": -0.4136268664109728,
+          "component_norm_ratio": 0.5001692560938842
+        },
+        {
+          "edge": 71,
+          "old_square": 116,
+          "old_piece": "ra",
+          "function_cosine": 0.17886678384005855,
+          "input_feature_cosine": 0.22673127430338427,
+          "output_cosine": 0.788893302830031,
+          "component_norm_ratio": 0.40362240439115166
+        },
+        {
+          "edge": 72,
+          "old_square": 104,
+          "old_piece": "aa",
+          "function_cosine": 0.06151260020924932,
+          "input_feature_cosine": -0.07369123046781624,
+          "output_cosine": -0.834734334312876,
+          "component_norm_ratio": 0.7619080004841009
+        },
+        {
+          "edge": 73,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.08352963450676382,
+          "input_feature_cosine": 0.0976674670003674,
+          "output_cosine": 0.8552452221009234,
+          "component_norm_ratio": 0.323999786280926
+        },
+        {
+          "edge": 74,
+          "old_square": 116,
+          "old_piece": "ra",
+          "function_cosine": 0.16255944940832123,
+          "input_feature_cosine": 0.21082735343630715,
+          "output_cosine": 0.77105483116275,
+          "component_norm_ratio": 0.3657066955282215
+        },
+        {
+          "edge": 75,
+          "old_square": 155,
+          "old_piece": "ra",
+          "function_cosine": 0.09800050152242841,
+          "input_feature_cosine": 0.16579645277260532,
+          "output_cosine": 0.5910892536213604,
+          "component_norm_ratio": 0.3670163140849526
+        },
+        {
+          "edge": 76,
+          "old_square": 155,
+          "old_piece": "aa",
+          "function_cosine": 0.05685323299520021,
+          "input_feature_cosine": 0.08654687067045232,
+          "output_cosine": 0.6569068593095913,
+          "component_norm_ratio": 0.4480606580858676
+        },
+        {
+          "edge": 77,
+          "old_square": 4,
+          "old_piece": "aa",
+          "function_cosine": 0.10047874909017582,
+          "input_feature_cosine": -0.12144494537548227,
+          "output_cosine": -0.8273604865111234,
+          "component_norm_ratio": 0.6158487752317444
+        },
+        {
+          "edge": 78,
+          "old_square": 253,
+          "old_piece": "aa",
+          "function_cosine": 0.11562028600259959,
+          "input_feature_cosine": -0.15079273166294777,
+          "output_cosine": -0.766749728103834,
+          "component_norm_ratio": 0.48118357081557184
+        },
+        {
+          "edge": 79,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.1129184292436036,
+          "input_feature_cosine": 0.17285189771816753,
+          "output_cosine": 0.6532669339142312,
+          "component_norm_ratio": 0.40403436544761145
+        },
+        {
+          "edge": 80,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.12963646311254556,
+          "input_feature_cosine": 0.16303702631457068,
+          "output_cosine": 0.7951351054601509,
+          "component_norm_ratio": 0.28517626840642357
+        },
+        {
+          "edge": 81,
+          "old_square": 141,
+          "old_piece": "rr",
+          "function_cosine": 0.27438487744212997,
+          "input_feature_cosine": 0.36486185697344675,
+          "output_cosine": 0.7520240118223668,
+          "component_norm_ratio": 0.3802982771746984
+        },
+        {
+          "edge": 82,
+          "old_square": 249,
+          "old_piece": "ra",
+          "function_cosine": 0.048674934408703685,
+          "input_feature_cosine": -0.12713895456419022,
+          "output_cosine": -0.38284831407929004,
+          "component_norm_ratio": 0.32153119079114545
+        },
+        {
+          "edge": 83,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.0576726706344051,
+          "input_feature_cosine": -0.0887465945179515,
+          "output_cosine": -0.6498578446606104,
+          "component_norm_ratio": 0.2625761866063431
+        },
+        {
+          "edge": 84,
+          "old_square": 41,
+          "old_piece": "aa",
+          "function_cosine": 0.054692345802046814,
+          "input_feature_cosine": 0.1587208104432763,
+          "output_cosine": 0.3445820724409216,
+          "component_norm_ratio": 0.4201966098578108
+        },
+        {
+          "edge": 85,
+          "old_square": 204,
+          "old_piece": "ra",
+          "function_cosine": 0.05556206444102087,
+          "input_feature_cosine": 0.0979035692023311,
+          "output_cosine": 0.5675182722521,
+          "component_norm_ratio": 0.23831629711244
+        },
+        {
+          "edge": 86,
+          "old_square": 191,
+          "old_piece": "ra",
+          "function_cosine": 0.03585382808576528,
+          "input_feature_cosine": -0.042462845085063684,
+          "output_cosine": -0.8443576499394024,
+          "component_norm_ratio": 0.42402798211998033
+        },
+        {
+          "edge": 87,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.18450377950422125,
+          "input_feature_cosine": 0.2971453007082095,
+          "output_cosine": 0.6209210748562372,
+          "component_norm_ratio": 0.3310109140172704
+        },
+        {
+          "edge": 88,
+          "old_square": 249,
+          "old_piece": "rr",
+          "function_cosine": 0.09102897028421626,
+          "input_feature_cosine": 0.17557461874770264,
+          "output_cosine": 0.5184631522112154,
+          "component_norm_ratio": 0.3833360744964258
+        },
+        {
+          "edge": 89,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.0872092388422777,
+          "input_feature_cosine": -0.13602052837353365,
+          "output_cosine": -0.6411476259141377,
+          "component_norm_ratio": 0.26033704628691007
+        },
+        {
+          "edge": 90,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.06549553227251358,
+          "input_feature_cosine": -0.12273521929816807,
+          "output_cosine": -0.5336327473648891,
+          "component_norm_ratio": 0.3072724717861631
+        },
+        {
+          "edge": 91,
+          "old_square": 214,
+          "old_piece": "aa",
+          "function_cosine": 0.012055542862142849,
+          "input_feature_cosine": 0.07796331646279046,
+          "output_cosine": 0.15463096503721202,
+          "component_norm_ratio": 0.49680988175405183
+        },
+        {
+          "edge": 92,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.10547777886065003,
+          "input_feature_cosine": 0.12577031506324046,
+          "output_cosine": 0.8386540083612987,
+          "component_norm_ratio": 0.3448293669392617
+        },
+        {
+          "edge": 93,
+          "old_square": 10,
+          "old_piece": "aa",
+          "function_cosine": 0.006216017442958687,
+          "input_feature_cosine": -0.036562878679933256,
+          "output_cosine": -0.17000897268983947,
+          "component_norm_ratio": 0.5845003454830343
+        },
+        {
+          "edge": 94,
+          "old_square": 104,
+          "old_piece": "aa",
+          "function_cosine": 0.02479558932295515,
+          "input_feature_cosine": 0.04822329254524563,
+          "output_cosine": 0.5141828360162389,
+          "component_norm_ratio": 0.3999413363272126
+        },
+        {
+          "edge": 95,
+          "old_square": 175,
+          "old_piece": "aa",
+          "function_cosine": 0.048048420292582904,
+          "input_feature_cosine": -0.11604059877173965,
+          "output_cosine": -0.4140656011875435,
+          "component_norm_ratio": 0.26633712520824876
+        }
+      ]
+    },
+    {
+      "seed": 11241,
+      "reference": "native_projection",
+      "matches_at_point95": 3,
+      "rows": [
+        {
+          "edge": 0,
+          "old_square": 154,
+          "old_piece": "aa",
+          "function_cosine": 0.2704952721263465,
+          "input_feature_cosine": 0.31327439891610603,
+          "output_cosine": 0.8634451875487736,
+          "component_norm_ratio": 1.5984307551638672
+        },
+        {
+          "edge": 1,
+          "old_square": 48,
+          "old_piece": "ra",
+          "function_cosine": 0.14611180952767494,
+          "input_feature_cosine": 0.1546785268224867,
+          "output_cosine": 0.9446159885874581,
+          "component_norm_ratio": 2.5568861054270497
+        },
+        {
+          "edge": 2,
+          "old_square": 154,
+          "old_piece": "ra",
+          "function_cosine": 0.20291719178288503,
+          "input_feature_cosine": -0.2339521247392626,
+          "output_cosine": -0.8673449408037405,
+          "component_norm_ratio": 1.144029220958741
+        },
+        {
+          "edge": 3,
+          "old_square": 150,
+          "old_piece": "aa",
+          "function_cosine": 0.9972183472488672,
+          "input_feature_cosine": 0.9976797603285198,
+          "output_cosine": 0.9995375138416152,
+          "component_norm_ratio": 0.9948431853195989
+        },
+        {
+          "edge": 4,
+          "old_square": 150,
+          "old_piece": "ra",
+          "function_cosine": 0.9951593642557642,
+          "input_feature_cosine": 0.9954223483574807,
+          "output_cosine": 0.9997358065125318,
+          "component_norm_ratio": 0.9940240722431645
+        },
+        {
+          "edge": 5,
+          "old_square": 218,
+          "old_piece": "rr",
+          "function_cosine": 0.22108940331523302,
+          "input_feature_cosine": 0.22614138772243894,
+          "output_cosine": 0.9776600627683129,
+          "component_norm_ratio": 1.9034414010931282
+        },
+        {
+          "edge": 6,
+          "old_square": 57,
+          "old_piece": "aa",
+          "function_cosine": 0.3739085561065012,
+          "input_feature_cosine": 0.4899172874097832,
+          "output_cosine": 0.7632075162796849,
+          "component_norm_ratio": 1.5186646881074208
+        },
+        {
+          "edge": 7,
+          "old_square": 88,
+          "old_piece": "ra",
+          "function_cosine": 0.6145032122658527,
+          "input_feature_cosine": -0.6599581912130966,
+          "output_cosine": -0.9311244567421897,
+          "component_norm_ratio": 0.7975345564547723
+        },
+        {
+          "edge": 8,
+          "old_square": 57,
+          "old_piece": "ra",
+          "function_cosine": 0.254800060110555,
+          "input_feature_cosine": -0.33267631643590195,
+          "output_cosine": -0.7659098274272503,
+          "component_norm_ratio": 1.038115913924507
+        },
+        {
+          "edge": 9,
+          "old_square": 88,
+          "old_piece": "rr",
+          "function_cosine": 0.6689608271102171,
+          "input_feature_cosine": 0.6915630029674691,
+          "output_cosine": 0.9673172570535628,
+          "component_norm_ratio": 1.2267807870158505
+        },
+        {
+          "edge": 10,
+          "old_square": 149,
+          "old_piece": "aa",
+          "function_cosine": 0.3153323926332653,
+          "input_feature_cosine": -0.43948107197846986,
+          "output_cosine": -0.7175107478774726,
+          "component_norm_ratio": 1.353305868225079
+        },
+        {
+          "edge": 11,
+          "old_square": 204,
+          "old_piece": "ra",
+          "function_cosine": 0.7419506692846678,
+          "input_feature_cosine": 0.7771039039806096,
+          "output_cosine": 0.9547637908960771,
+          "component_norm_ratio": 0.9773682438402342
+        },
+        {
+          "edge": 12,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.3898237828285751,
+          "input_feature_cosine": -0.3993430641000933,
+          "output_cosine": -0.9761626477901412,
+          "component_norm_ratio": 0.6340552427381846
+        },
+        {
+          "edge": 13,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.24612679762212317,
+          "input_feature_cosine": -0.4120192377318386,
+          "output_cosine": -0.5973672466777243,
+          "component_norm_ratio": 1.3895669380996083
+        },
+        {
+          "edge": 14,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.34608164380360923,
+          "input_feature_cosine": -0.35676080172042274,
+          "output_cosine": -0.9700663361408682,
+          "component_norm_ratio": 0.6154295730270798
+        },
+        {
+          "edge": 15,
+          "old_square": 161,
+          "old_piece": "ra",
+          "function_cosine": 0.18153572333141002,
+          "input_feature_cosine": -0.21372542968195948,
+          "output_cosine": -0.8493875698439333,
+          "component_norm_ratio": 0.621092386389144
+        },
+        {
+          "edge": 16,
+          "old_square": 150,
+          "old_piece": "rr",
+          "function_cosine": 0.9930063990867493,
+          "input_feature_cosine": 0.9931700441464766,
+          "output_cosine": 0.999835229565479,
+          "component_norm_ratio": 0.9912045756582007
+        },
+        {
+          "edge": 17,
+          "old_square": 204,
+          "old_piece": "aa",
+          "function_cosine": 0.824485861018705,
+          "input_feature_cosine": 0.8831172440474415,
+          "output_cosine": 0.9336086081163796,
+          "component_norm_ratio": 1.0481867826384512
+        },
+        {
+          "edge": 18,
+          "old_square": 39,
+          "old_piece": "aa",
+          "function_cosine": 0.147631621318456,
+          "input_feature_cosine": 0.22012428767182649,
+          "output_cosine": 0.6706739309864499,
+          "component_norm_ratio": 2.261893130710592
+        },
+        {
+          "edge": 19,
+          "old_square": 208,
+          "old_piece": "aa",
+          "function_cosine": 0.6662626751577282,
+          "input_feature_cosine": 0.7334376055701806,
+          "output_cosine": 0.9084108451730806,
+          "component_norm_ratio": 0.7975330472110145
+        },
+        {
+          "edge": 20,
+          "old_square": 110,
+          "old_piece": "aa",
+          "function_cosine": 0.4244238408558723,
+          "input_feature_cosine": 0.4456800512429847,
+          "output_cosine": 0.9523061211112553,
+          "component_norm_ratio": 0.6439994783347822
+        },
+        {
+          "edge": 21,
+          "old_square": 254,
+          "old_piece": "aa",
+          "function_cosine": 0.19627083975540452,
+          "input_feature_cosine": -0.3566676772904776,
+          "output_cosine": -0.5502905148188055,
+          "component_norm_ratio": 1.6215719853373518
+        },
+        {
+          "edge": 22,
+          "old_square": 110,
+          "old_piece": "rr",
+          "function_cosine": 0.3156299736059507,
+          "input_feature_cosine": -0.334589063052828,
+          "output_cosine": -0.9433361949315006,
+          "component_norm_ratio": 0.8240070178821665
+        },
+        {
+          "edge": 23,
+          "old_square": 0,
+          "old_piece": "aa",
+          "function_cosine": 0.34310755222875117,
+          "input_feature_cosine": 0.36362335524784006,
+          "output_cosine": 0.9435795233639335,
+          "component_norm_ratio": 1.4207029148601606
+        },
+        {
+          "edge": 24,
+          "old_square": 253,
+          "old_piece": "aa",
+          "function_cosine": 0.21480940987712793,
+          "input_feature_cosine": 0.2319097468658225,
+          "output_cosine": 0.9262629655726009,
+          "component_norm_ratio": 0.9982552150174449
+        },
+        {
+          "edge": 25,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.1874696953595463,
+          "input_feature_cosine": 0.3074082795669686,
+          "output_cosine": 0.6098394474723515,
+          "component_norm_ratio": 1.0096107373834189
+        },
+        {
+          "edge": 26,
+          "old_square": 65,
+          "old_piece": "aa",
+          "function_cosine": 0.10866164000626553,
+          "input_feature_cosine": 0.1158511037637435,
+          "output_cosine": 0.9379422075068053,
+          "component_norm_ratio": 3.020627028199557
+        },
+        {
+          "edge": 27,
+          "old_square": 57,
+          "old_piece": "aa",
+          "function_cosine": 0.16631542107577624,
+          "input_feature_cosine": -0.2851112047977562,
+          "output_cosine": -0.5833352680535729,
+          "component_norm_ratio": 0.7264662507462704
+        },
+        {
+          "edge": 28,
+          "old_square": 153,
+          "old_piece": "aa",
+          "function_cosine": 0.22935758392118244,
+          "input_feature_cosine": -0.2767095506500574,
+          "output_cosine": -0.8288748378303755,
+          "component_norm_ratio": 0.7927258545491482
+        },
+        {
+          "edge": 29,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.20373695839024705,
+          "input_feature_cosine": -0.41876369735672014,
+          "output_cosine": -0.4865201059123697,
+          "component_norm_ratio": 0.6189986290093011
+        },
+        {
+          "edge": 30,
+          "old_square": 110,
+          "old_piece": "rr",
+          "function_cosine": 0.44164944235699527,
+          "input_feature_cosine": 0.4520797764601909,
+          "output_cosine": 0.9769281117043862,
+          "component_norm_ratio": 0.7634736081680445
+        },
+        {
+          "edge": 31,
+          "old_square": 141,
+          "old_piece": "aa",
+          "function_cosine": 0.4258899354343864,
+          "input_feature_cosine": 0.5467742147633622,
+          "output_cosine": 0.7789137160001351,
+          "component_norm_ratio": 0.6568583554130034
+        },
+        {
+          "edge": 32,
+          "old_square": 149,
+          "old_piece": "ra",
+          "function_cosine": 0.18812908886379617,
+          "input_feature_cosine": 0.26192385903015053,
+          "output_cosine": 0.718258693806662,
+          "component_norm_ratio": 0.7316615987262044
+        },
+        {
+          "edge": 33,
+          "old_square": 161,
+          "old_piece": "rr",
+          "function_cosine": 0.23243881816119097,
+          "input_feature_cosine": 0.2712427584262763,
+          "output_cosine": 0.8569401797481269,
+          "component_norm_ratio": 0.81467387012811
+        },
+        {
+          "edge": 34,
+          "old_square": 204,
+          "old_piece": "rr",
+          "function_cosine": 0.6012682507608132,
+          "input_feature_cosine": 0.683816878961842,
+          "output_cosine": 0.879282552477569,
+          "component_norm_ratio": 1.0891023855103625
+        },
+        {
+          "edge": 35,
+          "old_square": 254,
+          "old_piece": "ra",
+          "function_cosine": 0.11539730682912377,
+          "input_feature_cosine": 0.22775195240745638,
+          "output_cosine": 0.5066797698518688,
+          "component_norm_ratio": 1.2140010214079526
+        },
+        {
+          "edge": 36,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.23064120224567114,
+          "input_feature_cosine": 0.29695011802362264,
+          "output_cosine": 0.7767001534827592,
+          "component_norm_ratio": 1.02053294472431
+        },
+        {
+          "edge": 37,
+          "old_square": 253,
+          "old_piece": "ra",
+          "function_cosine": 0.1499002984488917,
+          "input_feature_cosine": 0.1595097181529359,
+          "output_cosine": 0.9397565250862594,
+          "component_norm_ratio": 0.6478516050637629
+        },
+        {
+          "edge": 38,
+          "old_square": 27,
+          "old_piece": "aa",
+          "function_cosine": 0.3135767072197284,
+          "input_feature_cosine": 0.3644711140081948,
+          "output_cosine": 0.8603609316832661,
+          "component_norm_ratio": 1.442759790845331
+        },
+        {
+          "edge": 39,
+          "old_square": 249,
+          "old_piece": "ra",
+          "function_cosine": 0.42412530194618814,
+          "input_feature_cosine": 0.458102760443085,
+          "output_cosine": 0.9258300507422543,
+          "component_norm_ratio": 0.6926481807417433
+        },
+        {
+          "edge": 40,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.3587962162134852,
+          "input_feature_cosine": 0.36930948542928294,
+          "output_cosine": 0.9715326314904228,
+          "component_norm_ratio": 1.23718187902741
+        },
+        {
+          "edge": 41,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.25310526617224416,
+          "input_feature_cosine": -0.3104408524071068,
+          "output_cosine": -0.8153091457187672,
+          "component_norm_ratio": 0.927158395143796
+        },
+        {
+          "edge": 42,
+          "old_square": 104,
+          "old_piece": "aa",
+          "function_cosine": 0.10378819213625674,
+          "input_feature_cosine": 0.1449931087786473,
+          "output_cosine": 0.7158146549895985,
+          "component_norm_ratio": 2.243202360502855
+        },
+        {
+          "edge": 43,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.199519175314224,
+          "input_feature_cosine": 0.20899110839478505,
+          "output_cosine": 0.9546778178587937,
+          "component_norm_ratio": 0.39114379275024724
+        },
+        {
+          "edge": 44,
+          "old_square": 57,
+          "old_piece": "ra",
+          "function_cosine": 0.10191423714896801,
+          "input_feature_cosine": 0.19360358947159192,
+          "output_cosine": 0.5264067542710628,
+          "component_norm_ratio": 0.51119620914246
+        },
+        {
+          "edge": 45,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.11946069607627169,
+          "input_feature_cosine": -0.13100531520873834,
+          "output_cosine": -0.9118767119175893,
+          "component_norm_ratio": 0.6318737087798307
+        },
+        {
+          "edge": 46,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.19398006007157087,
+          "input_feature_cosine": 0.2515719285190939,
+          "output_cosine": 0.7710719602678091,
+          "component_norm_ratio": 0.7544659592663018
+        },
+        {
+          "edge": 47,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.2777552247700016,
+          "input_feature_cosine": -0.33686234396806836,
+          "output_cosine": -0.8245362823822493,
+          "component_norm_ratio": 0.47651676054725955
+        },
+        {
+          "edge": 48,
+          "old_square": 50,
+          "old_piece": "aa",
+          "function_cosine": 0.10384406894421182,
+          "input_feature_cosine": 0.11597775087538113,
+          "output_cosine": 0.8953792271398068,
+          "component_norm_ratio": 1.3846256709035345
+        },
+        {
+          "edge": 49,
+          "old_square": 110,
+          "old_piece": "aa",
+          "function_cosine": 0.3391890625491538,
+          "input_feature_cosine": 0.352758276633271,
+          "output_cosine": 0.9615339597028824,
+          "component_norm_ratio": 0.4532077892102675
+        },
+        {
+          "edge": 50,
+          "old_square": 149,
+          "old_piece": "ra",
+          "function_cosine": 0.11557065968002901,
+          "input_feature_cosine": -0.15330174399138458,
+          "output_cosine": -0.7538770053817783,
+          "component_norm_ratio": 0.5687334625859023
+        },
+        {
+          "edge": 51,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.3328649463311132,
+          "input_feature_cosine": -0.4743132743527696,
+          "output_cosine": -0.7017829024189305,
+          "component_norm_ratio": 0.8277299670523713
+        },
+        {
+          "edge": 52,
+          "old_square": 81,
+          "old_piece": "rr",
+          "function_cosine": 0.20376025657512462,
+          "input_feature_cosine": 0.22377209362483638,
+          "output_cosine": 0.9105704526174632,
+          "component_norm_ratio": 1.3835593059982016
+        },
+        {
+          "edge": 53,
+          "old_square": 84,
+          "old_piece": "aa",
+          "function_cosine": 0.11659064717962613,
+          "input_feature_cosine": -0.1278616622277361,
+          "output_cosine": -0.9118499255231406,
+          "component_norm_ratio": 0.9293255879059169
+        },
+        {
+          "edge": 54,
+          "old_square": 103,
+          "old_piece": "aa",
+          "function_cosine": 0.13158971369560124,
+          "input_feature_cosine": 0.20216649244018436,
+          "output_cosine": 0.6508977432772896,
+          "component_norm_ratio": 0.45148100330826474
+        },
+        {
+          "edge": 55,
+          "old_square": 248,
+          "old_piece": "aa",
+          "function_cosine": 0.3388074053262729,
+          "input_feature_cosine": 0.4160409029722381,
+          "output_cosine": 0.8143608066077125,
+          "component_norm_ratio": 0.4335843419229046
+        },
+        {
+          "edge": 56,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.2330696849097666,
+          "input_feature_cosine": 0.3079586876094336,
+          "output_cosine": 0.7568212694988347,
+          "component_norm_ratio": 0.3965526534380578
+        },
+        {
+          "edge": 57,
+          "old_square": 84,
+          "old_piece": "aa",
+          "function_cosine": 0.152956535620798,
+          "input_feature_cosine": 0.19098580000148804,
+          "output_cosine": 0.8008791000147982,
+          "component_norm_ratio": 0.8416546482211171
+        },
+        {
+          "edge": 58,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.0641442794690756,
+          "input_feature_cosine": -0.08371837971807662,
+          "output_cosine": -0.7661911241603431,
+          "component_norm_ratio": 0.5860792119366528
+        },
+        {
+          "edge": 59,
+          "old_square": 249,
+          "old_piece": "aa",
+          "function_cosine": 0.43001666201382427,
+          "input_feature_cosine": 0.5063990520626689,
+          "output_cosine": 0.849165614079009,
+          "component_norm_ratio": 0.6567836496794897
+        },
+        {
+          "edge": 60,
+          "old_square": 81,
+          "old_piece": "ra",
+          "function_cosine": 0.27420875012038504,
+          "input_feature_cosine": 0.2874737496712032,
+          "output_cosine": 0.9538566579870686,
+          "component_norm_ratio": 0.6541484516477425
+        },
+        {
+          "edge": 61,
+          "old_square": 184,
+          "old_piece": "aa",
+          "function_cosine": 0.10005943211522203,
+          "input_feature_cosine": 0.11893195753116499,
+          "output_cosine": 0.84131661659569,
+          "component_norm_ratio": 0.7644880633488025
+        },
+        {
+          "edge": 62,
+          "old_square": 155,
+          "old_piece": "aa",
+          "function_cosine": 0.1374717984358583,
+          "input_feature_cosine": -0.2703994034432026,
+          "output_cosine": -0.5084027430731157,
+          "component_norm_ratio": 1.2018228627932193
+        },
+        {
+          "edge": 63,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.1327219665551704,
+          "input_feature_cosine": -0.1859698523299632,
+          "output_cosine": -0.7136746353902784,
+          "component_norm_ratio": 0.5057496009031318
+        },
+        {
+          "edge": 64,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.13234636117257653,
+          "input_feature_cosine": 0.14013446180354913,
+          "output_cosine": 0.9444240871892703,
+          "component_norm_ratio": 0.5168568951978918
+        },
+        {
+          "edge": 65,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.1302315934676464,
+          "input_feature_cosine": -0.16187558184471565,
+          "output_cosine": -0.8045166045647035,
+          "component_norm_ratio": 0.48377961655047574
+        },
+        {
+          "edge": 66,
+          "old_square": 248,
+          "old_piece": "ra",
+          "function_cosine": 0.18543381257892474,
+          "input_feature_cosine": 0.2373295926330759,
+          "output_cosine": 0.7813345589212519,
+          "component_norm_ratio": 0.2757282259561645
+        },
+        {
+          "edge": 67,
+          "old_square": 103,
+          "old_piece": "ra",
+          "function_cosine": 0.08944774696618417,
+          "input_feature_cosine": -0.1346286441809461,
+          "output_cosine": -0.6644035339608927,
+          "component_norm_ratio": 0.2690513106666904
+        },
+        {
+          "edge": 68,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.1983786214495016,
+          "input_feature_cosine": -0.25313515225524985,
+          "output_cosine": -0.7836865788180447,
+          "component_norm_ratio": 0.6831800228230364
+        },
+        {
+          "edge": 69,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.1870082688687463,
+          "input_feature_cosine": 0.20140960633962868,
+          "output_cosine": 0.9284972661800549,
+          "component_norm_ratio": 0.383653826684439
+        },
+        {
+          "edge": 70,
+          "old_square": 141,
+          "old_piece": "rr",
+          "function_cosine": 0.2584636391117672,
+          "input_feature_cosine": -0.3653245027950969,
+          "output_cosine": -0.7074905656047226,
+          "component_norm_ratio": 0.5246835812790339
+        },
+        {
+          "edge": 71,
+          "old_square": 116,
+          "old_piece": "ra",
+          "function_cosine": 0.1660557385540935,
+          "input_feature_cosine": 0.22673127430338427,
+          "output_cosine": 0.7323900907110763,
+          "component_norm_ratio": 0.39477728227406783
+        },
+        {
+          "edge": 72,
+          "old_square": 69,
+          "old_piece": "aa",
+          "function_cosine": 0.05853746962259935,
+          "input_feature_cosine": -0.06780456582926886,
+          "output_cosine": -0.8633263690530228,
+          "component_norm_ratio": 0.8157922330665449
+        },
+        {
+          "edge": 73,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.07085310323125796,
+          "input_feature_cosine": 0.0976674670003674,
+          "output_cosine": 0.7254524501079918,
+          "component_norm_ratio": 0.4376847636473342
+        },
+        {
+          "edge": 74,
+          "old_square": 116,
+          "old_piece": "ra",
+          "function_cosine": 0.1482651039811878,
+          "input_feature_cosine": 0.21082735343630715,
+          "output_cosine": 0.7032536412595058,
+          "component_norm_ratio": 0.357692471476755
+        },
+        {
+          "edge": 75,
+          "old_square": 155,
+          "old_piece": "ra",
+          "function_cosine": 0.08555633895444674,
+          "input_feature_cosine": 0.16579645277260532,
+          "output_cosine": 0.5160323850341344,
+          "component_norm_ratio": 0.6989703719810254
+        },
+        {
+          "edge": 76,
+          "old_square": 155,
+          "old_piece": "aa",
+          "function_cosine": 0.041446117748130194,
+          "input_feature_cosine": 0.08654687067045232,
+          "output_cosine": 0.47888638176123194,
+          "component_norm_ratio": 0.8533166315322105
+        },
+        {
+          "edge": 77,
+          "old_square": 4,
+          "old_piece": "aa",
+          "function_cosine": 0.09909625616007332,
+          "input_feature_cosine": -0.12144494537548227,
+          "output_cosine": -0.8159767856429802,
+          "component_norm_ratio": 0.5750312367267026
+        },
+        {
+          "edge": 78,
+          "old_square": 253,
+          "old_piece": "aa",
+          "function_cosine": 0.1169110810036309,
+          "input_feature_cosine": -0.15079273166294777,
+          "output_cosine": -0.7753097892340779,
+          "component_norm_ratio": 0.35437679006054557
+        },
+        {
+          "edge": 79,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.11344176385356934,
+          "input_feature_cosine": 0.17285189771816753,
+          "output_cosine": 0.6562945813793405,
+          "component_norm_ratio": 0.295231543118228
+        },
+        {
+          "edge": 80,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.09884383663705006,
+          "input_feature_cosine": 0.16303702631457068,
+          "output_cosine": 0.6062661891681984,
+          "component_norm_ratio": 0.38523885792650125
+        },
+        {
+          "edge": 81,
+          "old_square": 141,
+          "old_piece": "rr",
+          "function_cosine": 0.2413424921913277,
+          "input_feature_cosine": 0.36486185697344675,
+          "output_cosine": 0.6614626538199406,
+          "component_norm_ratio": 0.3989374788457879
+        },
+        {
+          "edge": 82,
+          "old_square": 249,
+          "old_piece": "ra",
+          "function_cosine": 0.049770046303656744,
+          "input_feature_cosine": -0.12713895456419022,
+          "output_cosine": -0.3914618180891894,
+          "component_norm_ratio": 0.2720771710822124
+        },
+        {
+          "edge": 83,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.05178172955530701,
+          "input_feature_cosine": -0.09795642805452474,
+          "output_cosine": -0.5286200261047099,
+          "component_norm_ratio": 0.4686777310220615
+        },
+        {
+          "edge": 84,
+          "old_square": 84,
+          "old_piece": "aa",
+          "function_cosine": 0.053851302731245776,
+          "input_feature_cosine": -0.15189987741823197,
+          "output_cosine": -0.35451840808913127,
+          "component_norm_ratio": 0.41202403828616935
+        },
+        {
+          "edge": 85,
+          "old_square": 204,
+          "old_piece": "ra",
+          "function_cosine": 0.04970704411065274,
+          "input_feature_cosine": 0.0979035692023311,
+          "output_cosine": 0.5077143204853579,
+          "component_norm_ratio": 0.21620517202707346
+        },
+        {
+          "edge": 86,
+          "old_square": 191,
+          "old_piece": "ra",
+          "function_cosine": 0.03672392369841602,
+          "input_feature_cosine": -0.042462845085063684,
+          "output_cosine": -0.864848401581402,
+          "component_norm_ratio": 0.37659632865389325
+        },
+        {
+          "edge": 87,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.20485301175801207,
+          "input_feature_cosine": 0.2971453007082095,
+          "output_cosine": 0.6894035048502196,
+          "component_norm_ratio": 0.32375702542060847
+        },
+        {
+          "edge": 88,
+          "old_square": 249,
+          "old_piece": "rr",
+          "function_cosine": 0.09667712996195599,
+          "input_feature_cosine": 0.17557461874770264,
+          "output_cosine": 0.5506327204439452,
+          "component_norm_ratio": 0.3243759787848858
+        },
+        {
+          "edge": 89,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.07870864884303601,
+          "input_feature_cosine": -0.13602052837353365,
+          "output_cosine": -0.5786527209105506,
+          "component_norm_ratio": 0.28080399318307664
+        },
+        {
+          "edge": 90,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.06531328133188885,
+          "input_feature_cosine": -0.12273521929816807,
+          "output_cosine": -0.532147835848318,
+          "component_norm_ratio": 0.300538795690391
+        },
+        {
+          "edge": 91,
+          "old_square": 214,
+          "old_piece": "aa",
+          "function_cosine": 0.011828177433763298,
+          "input_feature_cosine": 0.07796331646279046,
+          "output_cosine": 0.15171465210062646,
+          "component_norm_ratio": 0.4649938538862699
+        },
+        {
+          "edge": 92,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.10633843215373935,
+          "input_feature_cosine": 0.12577031506324046,
+          "output_cosine": 0.8454970642338752,
+          "component_norm_ratio": 0.376555128624145
+        },
+        {
+          "edge": 93,
+          "old_square": 10,
+          "old_piece": "aa",
+          "function_cosine": 0.006189158164983209,
+          "input_feature_cosine": -0.036562878679933256,
+          "output_cosine": -0.1692743675672341,
+          "component_norm_ratio": 0.5508980928419063
+        },
+        {
+          "edge": 94,
+          "old_square": 104,
+          "old_piece": "aa",
+          "function_cosine": 0.02034199012343525,
+          "input_feature_cosine": 0.04822329254524563,
+          "output_cosine": 0.42182914209661904,
+          "component_norm_ratio": 0.6328678849594233
+        },
+        {
+          "edge": 95,
+          "old_square": 175,
+          "old_piece": "aa",
+          "function_cosine": 0.04385179387358299,
+          "input_feature_cosine": -0.11604059877173965,
+          "output_cosine": -0.37790044465250194,
+          "component_norm_ratio": 0.24194971883579597
+        }
+      ]
+    },
+    {
+      "seed": 11242,
+      "reference": "fitted",
+      "matches_at_point95": 1,
+      "rows": [
+        {
+          "edge": 0,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.15752325737615747,
+          "input_feature_cosine": 0.16834595983230788,
+          "output_cosine": 0.935711540289229,
+          "component_norm_ratio": 1.568025139966891
+        },
+        {
+          "edge": 1,
+          "old_square": 150,
+          "old_piece": "aa",
+          "function_cosine": 0.9967900579044794,
+          "input_feature_cosine": 0.9971793381771494,
+          "output_cosine": 0.9996096185934,
+          "component_norm_ratio": 1.007847547669332
+        },
+        {
+          "edge": 2,
+          "old_square": 88,
+          "old_piece": "aa",
+          "function_cosine": 0.2770122807055275,
+          "input_feature_cosine": -0.2890659887062925,
+          "output_cosine": -0.958301189099724,
+          "component_norm_ratio": 1.1748458901678056
+        },
+        {
+          "edge": 3,
+          "old_square": 218,
+          "old_piece": "rr",
+          "function_cosine": 0.2286717784956261,
+          "input_feature_cosine": 0.23503645987861482,
+          "output_cosine": 0.972920450783356,
+          "component_norm_ratio": 3.279310411909081
+        },
+        {
+          "edge": 4,
+          "old_square": 88,
+          "old_piece": "ra",
+          "function_cosine": 0.19235841334006318,
+          "input_feature_cosine": -0.20126060446721844,
+          "output_cosine": -0.9557678406525641,
+          "component_norm_ratio": 0.9578460529977584
+        },
+        {
+          "edge": 5,
+          "old_square": 48,
+          "old_piece": "aa",
+          "function_cosine": 0.2270693770362314,
+          "input_feature_cosine": 0.24335995214842548,
+          "output_cosine": 0.9330597537993498,
+          "component_norm_ratio": 2.472297594218301
+        },
+        {
+          "edge": 6,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.48399822996932135,
+          "input_feature_cosine": 0.49095049627192006,
+          "output_cosine": 0.9858391704349188,
+          "component_norm_ratio": 0.9376132155608212
+        },
+        {
+          "edge": 7,
+          "old_square": 57,
+          "old_piece": "aa",
+          "function_cosine": 0.4521074131547049,
+          "input_feature_cosine": -0.5804043514992624,
+          "output_cosine": -0.7789524871528801,
+          "component_norm_ratio": 0.8810713841743656
+        },
+        {
+          "edge": 8,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.44158546504929985,
+          "input_feature_cosine": -0.4703451193622421,
+          "output_cosine": -0.9388541453306914,
+          "component_norm_ratio": 1.2907173822058224
+        },
+        {
+          "edge": 9,
+          "old_square": 110,
+          "old_piece": "aa",
+          "function_cosine": 0.645766221932501,
+          "input_feature_cosine": 0.6541153534592227,
+          "output_cosine": 0.9872359951764347,
+          "component_norm_ratio": 1.060724845622983
+        },
+        {
+          "edge": 10,
+          "old_square": 254,
+          "old_piece": "ra",
+          "function_cosine": 0.1524769478825013,
+          "input_feature_cosine": 0.16118694456104415,
+          "output_cosine": 0.9459633861646639,
+          "component_norm_ratio": 1.2531889079777807
+        },
+        {
+          "edge": 11,
+          "old_square": 141,
+          "old_piece": "aa",
+          "function_cosine": 0.5234323423210819,
+          "input_feature_cosine": -0.6206384842556045,
+          "output_cosine": -0.8433771923584277,
+          "component_norm_ratio": 0.955411869216747
+        },
+        {
+          "edge": 12,
+          "old_square": 161,
+          "old_piece": "ra",
+          "function_cosine": 0.19544365216640067,
+          "input_feature_cosine": 0.2315613642577347,
+          "output_cosine": 0.8440253096318178,
+          "component_norm_ratio": 0.8433423505996291
+        },
+        {
+          "edge": 13,
+          "old_square": 88,
+          "old_piece": "ra",
+          "function_cosine": 0.2904461507096113,
+          "input_feature_cosine": 0.6979440487291564,
+          "output_cosine": 0.41614532173240376,
+          "component_norm_ratio": 0.6052562088873025
+        },
+        {
+          "edge": 14,
+          "old_square": 161,
+          "old_piece": "rr",
+          "function_cosine": 0.26362672371113016,
+          "input_feature_cosine": 0.29232856471183805,
+          "output_cosine": 0.9018165021642662,
+          "component_norm_ratio": 1.2883061458845695
+        },
+        {
+          "edge": 15,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.37079172247094894,
+          "input_feature_cosine": -0.38115350068256826,
+          "output_cosine": -0.9728146843907678,
+          "component_norm_ratio": 0.6828609296249912
+        },
+        {
+          "edge": 16,
+          "old_square": 208,
+          "old_piece": "aa",
+          "function_cosine": 0.3651198214099752,
+          "input_feature_cosine": 0.7944417757046925,
+          "output_cosine": 0.4595929274818201,
+          "component_norm_ratio": 0.6655196452096455
+        },
+        {
+          "edge": 17,
+          "old_square": 110,
+          "old_piece": "aa",
+          "function_cosine": 0.3591251871561254,
+          "input_feature_cosine": -0.4085753168175299,
+          "output_cosine": -0.8789693659260162,
+          "component_norm_ratio": 0.8161646647340858
+        },
+        {
+          "edge": 18,
+          "old_square": 57,
+          "old_piece": "ra",
+          "function_cosine": 0.27822876031154575,
+          "input_feature_cosine": -0.3919967010214933,
+          "output_cosine": -0.7097732189748465,
+          "component_norm_ratio": 0.5862624152208129
+        },
+        {
+          "edge": 19,
+          "old_square": 249,
+          "old_piece": "ra",
+          "function_cosine": 0.4947183723039074,
+          "input_feature_cosine": -0.5807737210889342,
+          "output_cosine": -0.8518263728880924,
+          "component_norm_ratio": 1.15235909231344
+        },
+        {
+          "edge": 20,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.3327340352943734,
+          "input_feature_cosine": -0.35210129720649813,
+          "output_cosine": -0.9449951986380603,
+          "component_norm_ratio": 0.8768060326335835
+        },
+        {
+          "edge": 21,
+          "old_square": 39,
+          "old_piece": "aa",
+          "function_cosine": 0.14282014998595652,
+          "input_feature_cosine": 0.2257935440369352,
+          "output_cosine": 0.6325253921458183,
+          "component_norm_ratio": 2.412641483471779
+        },
+        {
+          "edge": 22,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.2750041542385684,
+          "input_feature_cosine": -0.3526411104935767,
+          "output_cosine": -0.7798414480196504,
+          "component_norm_ratio": 0.6582937737024083
+        },
+        {
+          "edge": 23,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.3897606220214488,
+          "input_feature_cosine": 0.4212206849815209,
+          "output_cosine": 0.9253121603905747,
+          "component_norm_ratio": 0.8910598529650453
+        },
+        {
+          "edge": 24,
+          "old_square": 204,
+          "old_piece": "ra",
+          "function_cosine": 0.6405456779680732,
+          "input_feature_cosine": -0.6864428630240405,
+          "output_cosine": -0.9331376469502898,
+          "component_norm_ratio": 0.8557106896629721
+        },
+        {
+          "edge": 25,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.35662797362969134,
+          "input_feature_cosine": 0.3716306844815349,
+          "output_cosine": 0.9596300534957871,
+          "component_norm_ratio": 0.7912986272682808
+        },
+        {
+          "edge": 26,
+          "old_square": 88,
+          "old_piece": "aa",
+          "function_cosine": 0.21409250547219236,
+          "input_feature_cosine": 0.22655080996822718,
+          "output_cosine": 0.9450087841319921,
+          "component_norm_ratio": 0.5141178413103096
+        },
+        {
+          "edge": 27,
+          "old_square": 249,
+          "old_piece": "aa",
+          "function_cosine": 0.4024275464276018,
+          "input_feature_cosine": 0.5333176139791644,
+          "output_cosine": 0.7545738897034137,
+          "component_norm_ratio": 1.3784413384613814
+        },
+        {
+          "edge": 28,
+          "old_square": 0,
+          "old_piece": "aa",
+          "function_cosine": 0.30187468465641226,
+          "input_feature_cosine": 0.32520386794538964,
+          "output_cosine": 0.9282628972515942,
+          "component_norm_ratio": 1.5523722163894178
+        },
+        {
+          "edge": 29,
+          "old_square": 65,
+          "old_piece": "aa",
+          "function_cosine": 0.11124991108058616,
+          "input_feature_cosine": 0.11440743813508227,
+          "output_cosine": 0.9724010334820365,
+          "component_norm_ratio": 1.8574026612196384
+        },
+        {
+          "edge": 30,
+          "old_square": 110,
+          "old_piece": "rr",
+          "function_cosine": 0.35669365373546136,
+          "input_feature_cosine": 0.3684860606236643,
+          "output_cosine": 0.9679976852631976,
+          "component_norm_ratio": 0.8510423702377166
+        },
+        {
+          "edge": 31,
+          "old_square": 204,
+          "old_piece": "aa",
+          "function_cosine": 0.5356834342682424,
+          "input_feature_cosine": 0.6865760827414394,
+          "output_cosine": 0.7802244321260134,
+          "component_norm_ratio": 0.9216724380216925
+        },
+        {
+          "edge": 32,
+          "old_square": 249,
+          "old_piece": "rr",
+          "function_cosine": 0.5225159798949957,
+          "input_feature_cosine": 0.6324526066012601,
+          "output_cosine": 0.8261741266321069,
+          "component_norm_ratio": 1.3049927583199874
+        },
+        {
+          "edge": 33,
+          "old_square": 88,
+          "old_piece": "rr",
+          "function_cosine": 0.4635122607654723,
+          "input_feature_cosine": 0.6872225205925842,
+          "output_cosine": 0.6744718731944218,
+          "component_norm_ratio": 0.7255241582740062
+        },
+        {
+          "edge": 34,
+          "old_square": 218,
+          "old_piece": "ra",
+          "function_cosine": 0.19877675877508538,
+          "input_feature_cosine": -0.20732268983499508,
+          "output_cosine": -0.958779566931573,
+          "component_norm_ratio": 0.8427833401908335
+        },
+        {
+          "edge": 35,
+          "old_square": 110,
+          "old_piece": "rr",
+          "function_cosine": 0.20977269482339078,
+          "input_feature_cosine": 0.22209842700418014,
+          "output_cosine": 0.9445032891630639,
+          "component_norm_ratio": 0.7637636808126509
+        },
+        {
+          "edge": 36,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.26560593203166716,
+          "input_feature_cosine": -0.32896861408998523,
+          "output_cosine": -0.807389886620047,
+          "component_norm_ratio": 0.5089068291609923
+        },
+        {
+          "edge": 37,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.32947263838652047,
+          "input_feature_cosine": 0.33871290436314033,
+          "output_cosine": 0.9727194746418245,
+          "component_norm_ratio": 1.1198829243978685
+        },
+        {
+          "edge": 38,
+          "old_square": 49,
+          "old_piece": "aa",
+          "function_cosine": 0.13874271243082748,
+          "input_feature_cosine": 0.14529590559767916,
+          "output_cosine": 0.9548976060963665,
+          "component_norm_ratio": 1.0557445875731961
+        },
+        {
+          "edge": 39,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.1256943488586864,
+          "input_feature_cosine": -0.2934293281322743,
+          "output_cosine": -0.42836327799525536,
+          "component_norm_ratio": 0.5876910480799755
+        },
+        {
+          "edge": 40,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.24852638692951443,
+          "input_feature_cosine": 0.27116420877325254,
+          "output_cosine": 0.9165161879358945,
+          "component_norm_ratio": 0.8909440081453375
+        },
+        {
+          "edge": 41,
+          "old_square": 141,
+          "old_piece": "aa",
+          "function_cosine": 0.33023835450012096,
+          "input_feature_cosine": 0.4300813063395768,
+          "output_cosine": 0.7678509845284384,
+          "component_norm_ratio": 0.5192571093994532
+        },
+        {
+          "edge": 42,
+          "old_square": 204,
+          "old_piece": "aa",
+          "function_cosine": 0.49379073622312164,
+          "input_feature_cosine": 0.542684232823586,
+          "output_cosine": 0.9099043354437044,
+          "component_norm_ratio": 0.7556971357658919
+        },
+        {
+          "edge": 43,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.20016133352723023,
+          "input_feature_cosine": -0.23466581210279183,
+          "output_cosine": -0.8529633342566005,
+          "component_norm_ratio": 0.41891961733374283
+        },
+        {
+          "edge": 44,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.25467665201819306,
+          "input_feature_cosine": 0.3422545816704435,
+          "output_cosine": 0.744114661008164,
+          "component_norm_ratio": 0.8962826766250012
+        },
+        {
+          "edge": 45,
+          "old_square": 34,
+          "old_piece": "aa",
+          "function_cosine": 0.17440837091832406,
+          "input_feature_cosine": 0.2766634023770205,
+          "output_cosine": 0.6303991399652155,
+          "component_norm_ratio": 0.7660501777496346
+        },
+        {
+          "edge": 46,
+          "old_square": 210,
+          "old_piece": "rr",
+          "function_cosine": 0.2965660632570169,
+          "input_feature_cosine": 0.3278788781568814,
+          "output_cosine": 0.904498834826188,
+          "component_norm_ratio": 0.9812244923382981
+        },
+        {
+          "edge": 47,
+          "old_square": 88,
+          "old_piece": "ra",
+          "function_cosine": 0.14538786319574443,
+          "input_feature_cosine": 0.15773475517063068,
+          "output_cosine": 0.9217237066014403,
+          "component_norm_ratio": 0.3158744540170423
+        },
+        {
+          "edge": 48,
+          "old_square": 48,
+          "old_piece": "aa",
+          "function_cosine": 0.20847311961703283,
+          "input_feature_cosine": 0.21921969887190457,
+          "output_cosine": 0.95097804024833,
+          "component_norm_ratio": 0.9345055926205266
+        },
+        {
+          "edge": 49,
+          "old_square": 110,
+          "old_piece": "rr",
+          "function_cosine": 0.3934689232223364,
+          "input_feature_cosine": -0.40457428103497334,
+          "output_cosine": -0.9725505096759304,
+          "component_norm_ratio": 0.6164254525315452
+        },
+        {
+          "edge": 50,
+          "old_square": 248,
+          "old_piece": "aa",
+          "function_cosine": 0.21983624535021526,
+          "input_feature_cosine": 0.26631909404393933,
+          "output_cosine": 0.8254618248060916,
+          "component_norm_ratio": 0.5546746515217964
+        },
+        {
+          "edge": 51,
+          "old_square": 248,
+          "old_piece": "aa",
+          "function_cosine": 0.32636237240235244,
+          "input_feature_cosine": 0.387158159921276,
+          "output_cosine": 0.8429691175015254,
+          "component_norm_ratio": 0.5478734454933509
+        },
+        {
+          "edge": 52,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.11970977899538943,
+          "input_feature_cosine": 0.2012070863434282,
+          "output_cosine": 0.5949580661938717,
+          "component_norm_ratio": 0.5926392101222124
+        },
+        {
+          "edge": 53,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.20313870018963714,
+          "input_feature_cosine": -0.2259984994937811,
+          "output_cosine": -0.8988497739792604,
+          "component_norm_ratio": 0.5031428572179842
+        },
+        {
+          "edge": 54,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.1282380811009931,
+          "input_feature_cosine": -0.13603370524927408,
+          "output_cosine": -0.9426934366450144,
+          "component_norm_ratio": 0.5800397801008976
+        },
+        {
+          "edge": 55,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.11290969776549346,
+          "input_feature_cosine": -0.12477344997034234,
+          "output_cosine": -0.9049176550967468,
+          "component_norm_ratio": 0.5018458186655284
+        },
+        {
+          "edge": 56,
+          "old_square": 116,
+          "old_piece": "ra",
+          "function_cosine": 0.17437436320162097,
+          "input_feature_cosine": 0.228440844738163,
+          "output_cosine": 0.7633239292276626,
+          "component_norm_ratio": 0.5091831508147474
+        },
+        {
+          "edge": 57,
+          "old_square": 210,
+          "old_piece": "rr",
+          "function_cosine": 0.1874411070321005,
+          "input_feature_cosine": -0.43932356399869116,
+          "output_cosine": -0.42665844127737007,
+          "component_norm_ratio": 0.7467025552284936
+        },
+        {
+          "edge": 58,
+          "old_square": 253,
+          "old_piece": "aa",
+          "function_cosine": 0.17680860549211908,
+          "input_feature_cosine": 0.19606989797766097,
+          "output_cosine": 0.9017631330244461,
+          "component_norm_ratio": 0.7435040957795087
+        },
+        {
+          "edge": 59,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.22622116850553,
+          "input_feature_cosine": 0.27487351372052804,
+          "output_cosine": 0.8230009703136975,
+          "component_norm_ratio": 0.7452211729674164
+        },
+        {
+          "edge": 60,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.3307610374197895,
+          "input_feature_cosine": -0.42971345452467946,
+          "output_cosine": -0.769724647755457,
+          "component_norm_ratio": 0.6358007766952685
+        },
+        {
+          "edge": 61,
+          "old_square": 81,
+          "old_piece": "ra",
+          "function_cosine": 0.2495925350860941,
+          "input_feature_cosine": -0.2669073969291577,
+          "output_cosine": -0.9351278306923083,
+          "component_norm_ratio": 0.5883629687887055
+        },
+        {
+          "edge": 62,
+          "old_square": 205,
+          "old_piece": "aa",
+          "function_cosine": 0.23569681606073595,
+          "input_feature_cosine": 0.25390850481775096,
+          "output_cosine": 0.9282746012383992,
+          "component_norm_ratio": 0.5804524752760734
+        },
+        {
+          "edge": 63,
+          "old_square": 254,
+          "old_piece": "ra",
+          "function_cosine": 0.10254313329807213,
+          "input_feature_cosine": 0.15357320142426922,
+          "output_cosine": 0.6677150202448486,
+          "component_norm_ratio": 0.416333499670802
+        },
+        {
+          "edge": 64,
+          "old_square": 155,
+          "old_piece": "aa",
+          "function_cosine": 0.09824753467431405,
+          "input_feature_cosine": 0.12388283096544155,
+          "output_cosine": 0.7930682073428016,
+          "component_norm_ratio": 0.5979543095529011
+        },
+        {
+          "edge": 65,
+          "old_square": 205,
+          "old_piece": "aa",
+          "function_cosine": 0.13505156237701987,
+          "input_feature_cosine": 0.14632366576053615,
+          "output_cosine": 0.9229645913740059,
+          "component_norm_ratio": 0.5076000628322316
+        },
+        {
+          "edge": 66,
+          "old_square": 249,
+          "old_piece": "aa",
+          "function_cosine": 0.088129991575498,
+          "input_feature_cosine": -0.16453509776350514,
+          "output_cosine": -0.5356303474057057,
+          "component_norm_ratio": 0.5833186560584004
+        },
+        {
+          "edge": 67,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.08537874986088927,
+          "input_feature_cosine": 0.12978607777884485,
+          "output_cosine": 0.6578421300809664,
+          "component_norm_ratio": 0.3147859765940388
+        },
+        {
+          "edge": 68,
+          "old_square": 116,
+          "old_piece": "ra",
+          "function_cosine": 0.2243082205632915,
+          "input_feature_cosine": -0.25772796206054804,
+          "output_cosine": -0.8703293921619368,
+          "component_norm_ratio": 0.37031285089697835
+        },
+        {
+          "edge": 69,
+          "old_square": 248,
+          "old_piece": "ra",
+          "function_cosine": 0.2015445578349586,
+          "input_feature_cosine": 0.26768242977217427,
+          "output_cosine": 0.7529241198478887,
+          "component_norm_ratio": 0.29062740847743396
+        },
+        {
+          "edge": 70,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.21441244822831482,
+          "input_feature_cosine": 0.26500035919603404,
+          "output_cosine": 0.8091024815166502,
+          "component_norm_ratio": 0.44684786830578593
+        },
+        {
+          "edge": 71,
+          "old_square": 84,
+          "old_piece": "aa",
+          "function_cosine": 0.09210795015794268,
+          "input_feature_cosine": -0.1339766285162178,
+          "output_cosine": -0.6874926707593113,
+          "component_norm_ratio": 0.4917042784463479
+        },
+        {
+          "edge": 72,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.32434783964572106,
+          "input_feature_cosine": 0.41738774063046535,
+          "output_cosine": 0.7770900006689049,
+          "component_norm_ratio": 0.4363139025439775
+        },
+        {
+          "edge": 73,
+          "old_square": 249,
+          "old_piece": "ra",
+          "function_cosine": 0.03853215261736987,
+          "input_feature_cosine": 0.12669649061018512,
+          "output_cosine": 0.30412959689565605,
+          "component_norm_ratio": 0.3564606996920004
+        },
+        {
+          "edge": 74,
+          "old_square": 249,
+          "old_piece": "ra",
+          "function_cosine": 0.07526972266717798,
+          "input_feature_cosine": -0.11855013397637588,
+          "output_cosine": -0.6349189169383594,
+          "component_norm_ratio": 0.3541501696353832
+        },
+        {
+          "edge": 75,
+          "old_square": 150,
+          "old_piece": "ra",
+          "function_cosine": 0.13616014624131212,
+          "input_feature_cosine": 0.1422691615249952,
+          "output_cosine": 0.9570601582366831,
+          "component_norm_ratio": 0.14740237868516987
+        },
+        {
+          "edge": 76,
+          "old_square": 175,
+          "old_piece": "aa",
+          "function_cosine": 0.055190800928684745,
+          "input_feature_cosine": -0.17458305501063448,
+          "output_cosine": -0.3161291966469648,
+          "component_norm_ratio": 0.4562277583553955
+        },
+        {
+          "edge": 77,
+          "old_square": 155,
+          "old_piece": "ra",
+          "function_cosine": 0.06009341938028551,
+          "input_feature_cosine": 0.08051646608166939,
+          "output_cosine": 0.7463494401173992,
+          "component_norm_ratio": 0.3336813620049217
+        },
+        {
+          "edge": 78,
+          "old_square": 116,
+          "old_piece": "ra",
+          "function_cosine": 0.17380390292237274,
+          "input_feature_cosine": 0.2184076345285686,
+          "output_cosine": 0.7957775986060528,
+          "component_norm_ratio": 0.30449551883746684
+        },
+        {
+          "edge": 79,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.15935118393754344,
+          "input_feature_cosine": 0.2080373104931421,
+          "output_cosine": 0.7659740628246413,
+          "component_norm_ratio": 0.27925711003960135
+        },
+        {
+          "edge": 80,
+          "old_square": 248,
+          "old_piece": "aa",
+          "function_cosine": 0.16984158518426026,
+          "input_feature_cosine": -0.2097733678832294,
+          "output_cosine": -0.8096432206723343,
+          "component_norm_ratio": 0.2853974881129416
+        },
+        {
+          "edge": 81,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.07891243009198605,
+          "input_feature_cosine": 0.09825746817419828,
+          "output_cosine": 0.8031189034108239,
+          "component_norm_ratio": 0.34240562505129324
+        },
+        {
+          "edge": 82,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.07398494402077971,
+          "input_feature_cosine": -0.15538203674925777,
+          "output_cosine": -0.4761486306179026,
+          "component_norm_ratio": 0.2790747031978077
+        },
+        {
+          "edge": 83,
+          "old_square": 253,
+          "old_piece": "ra",
+          "function_cosine": 0.08441638769397425,
+          "input_feature_cosine": -0.1355881568934692,
+          "output_cosine": -0.6225941087192423,
+          "component_norm_ratio": 0.28276016484359084
+        },
+        {
+          "edge": 84,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.18314527650496662,
+          "input_feature_cosine": -0.22306154923419352,
+          "output_cosine": -0.8210526517624128,
+          "component_norm_ratio": 0.3368831341540587
+        },
+        {
+          "edge": 85,
+          "old_square": 249,
+          "old_piece": "rr",
+          "function_cosine": 0.08573995323044027,
+          "input_feature_cosine": 0.18257364100835144,
+          "output_cosine": 0.4696184660441661,
+          "component_norm_ratio": 0.40015568855271944
+        },
+        {
+          "edge": 86,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.05117496625583901,
+          "input_feature_cosine": 0.06381602820885934,
+          "output_cosine": 0.8019139970345973,
+          "component_norm_ratio": 0.27164760692146256
+        },
+        {
+          "edge": 87,
+          "old_square": 141,
+          "old_piece": "rr",
+          "function_cosine": 0.12689284475529655,
+          "input_feature_cosine": -0.29512618778536465,
+          "output_cosine": -0.4299613182669559,
+          "component_norm_ratio": 0.31298846551061715
+        },
+        {
+          "edge": 88,
+          "old_square": 142,
+          "old_piece": "aa",
+          "function_cosine": 0.056207313329251024,
+          "input_feature_cosine": -0.10798751734213805,
+          "output_cosine": -0.5204982456552711,
+          "component_norm_ratio": 0.5332887593039918
+        },
+        {
+          "edge": 89,
+          "old_square": 175,
+          "old_piece": "aa",
+          "function_cosine": 0.04266911681556652,
+          "input_feature_cosine": -0.12863233599784754,
+          "output_cosine": -0.33171376765077576,
+          "component_norm_ratio": 0.3509830090096712
+        },
+        {
+          "edge": 90,
+          "old_square": 214,
+          "old_piece": "aa",
+          "function_cosine": 0.013583308287853963,
+          "input_feature_cosine": -0.08213221287712659,
+          "output_cosine": -0.1653834447170587,
+          "component_norm_ratio": 0.4886975083294902
+        },
+        {
+          "edge": 91,
+          "old_square": 104,
+          "old_piece": "aa",
+          "function_cosine": 0.02413315692464868,
+          "input_feature_cosine": 0.055814336308926855,
+          "output_cosine": 0.4323827625768769,
+          "component_norm_ratio": 0.4093205726065499
+        },
+        {
+          "edge": 92,
+          "old_square": 84,
+          "old_piece": "aa",
+          "function_cosine": 0.048322722548760556,
+          "input_feature_cosine": -0.12096005048626435,
+          "output_cosine": -0.3994932405740675,
+          "component_norm_ratio": 0.2989488821737833
+        },
+        {
+          "edge": 93,
+          "old_square": 118,
+          "old_piece": "aa",
+          "function_cosine": 0.015170025179060869,
+          "input_feature_cosine": 0.11928540201955626,
+          "output_cosine": 0.12717419669318644,
+          "component_norm_ratio": 0.461187167032435
+        },
+        {
+          "edge": 94,
+          "old_square": 242,
+          "old_piece": "aa",
+          "function_cosine": 0.03629874999698278,
+          "input_feature_cosine": -0.07815116846335943,
+          "output_cosine": -0.46446842332243776,
+          "component_norm_ratio": 0.3480216656071248
+        },
+        {
+          "edge": 95,
+          "old_square": 0,
+          "old_piece": "aa",
+          "function_cosine": 0.0805617122325262,
+          "input_feature_cosine": -0.1635363788317478,
+          "output_cosine": -0.4926225761389215,
+          "component_norm_ratio": 0.3267502320160338
+        }
+      ]
+    },
+    {
+      "seed": 11242,
+      "reference": "native_projection",
+      "matches_at_point95": 1,
+      "rows": [
+        {
+          "edge": 0,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.15499873998139585,
+          "input_feature_cosine": 0.16834595983230788,
+          "output_cosine": 0.9207155320851929,
+          "component_norm_ratio": 1.4198119436592893
+        },
+        {
+          "edge": 1,
+          "old_square": 150,
+          "old_piece": "aa",
+          "function_cosine": 0.9967407390582308,
+          "input_feature_cosine": 0.9971793381771494,
+          "output_cosine": 0.9995601602418674,
+          "component_norm_ratio": 0.9946453289011417
+        },
+        {
+          "edge": 2,
+          "old_square": 88,
+          "old_piece": "aa",
+          "function_cosine": 0.24616966417876668,
+          "input_feature_cosine": -0.2890659887062925,
+          "output_cosine": -0.8516036953378457,
+          "component_norm_ratio": 1.189835490674209
+        },
+        {
+          "edge": 3,
+          "old_square": 218,
+          "old_piece": "rr",
+          "function_cosine": 0.23180024116210213,
+          "input_feature_cosine": 0.23503645987861482,
+          "output_cosine": 0.9862309927651904,
+          "component_norm_ratio": 1.9931233047268169
+        },
+        {
+          "edge": 4,
+          "old_square": 185,
+          "old_piece": "ra",
+          "function_cosine": 0.18009272258143272,
+          "input_feature_cosine": -0.199844422510911,
+          "output_cosine": -0.9011646175494346,
+          "component_norm_ratio": 1.3655561265702756
+        },
+        {
+          "edge": 5,
+          "old_square": 48,
+          "old_piece": "aa",
+          "function_cosine": 0.2278350572508578,
+          "input_feature_cosine": 0.24335995214842548,
+          "output_cosine": 0.9362060406385228,
+          "component_norm_ratio": 2.2200807426132254
+        },
+        {
+          "edge": 6,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.48032461791179293,
+          "input_feature_cosine": 0.49095049627192006,
+          "output_cosine": 0.9783565177328147,
+          "component_norm_ratio": 0.848987945444647
+        },
+        {
+          "edge": 7,
+          "old_square": 57,
+          "old_piece": "aa",
+          "function_cosine": 0.5181315522070788,
+          "input_feature_cosine": -0.5804043514992624,
+          "output_cosine": -0.8927079041855484,
+          "component_norm_ratio": 1.1845748623045818
+        },
+        {
+          "edge": 8,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.37375987331674226,
+          "input_feature_cosine": -0.4703451193622421,
+          "output_cosine": -0.794650264094452,
+          "component_norm_ratio": 1.7436040278015446
+        },
+        {
+          "edge": 9,
+          "old_square": 110,
+          "old_piece": "aa",
+          "function_cosine": 0.6420727887008236,
+          "input_feature_cosine": 0.6541153534592227,
+          "output_cosine": 0.9815895396817805,
+          "component_norm_ratio": 0.9604627925694261
+        },
+        {
+          "edge": 10,
+          "old_square": 49,
+          "old_piece": "ra",
+          "function_cosine": 0.12406442002396537,
+          "input_feature_cosine": -0.12920519217839277,
+          "output_cosine": -0.9602123407909988,
+          "component_norm_ratio": 1.0213951730215047
+        },
+        {
+          "edge": 11,
+          "old_square": 141,
+          "old_piece": "aa",
+          "function_cosine": 0.3677852612485065,
+          "input_feature_cosine": -0.6206384842556045,
+          "output_cosine": -0.5925917753708573,
+          "component_norm_ratio": 1.0022385723025038
+        },
+        {
+          "edge": 12,
+          "old_square": 161,
+          "old_piece": "ra",
+          "function_cosine": 0.19976183497700564,
+          "input_feature_cosine": 0.2315613642577347,
+          "output_cosine": 0.8626734240288236,
+          "component_norm_ratio": 0.7198289448851136
+        },
+        {
+          "edge": 13,
+          "old_square": 208,
+          "old_piece": "ra",
+          "function_cosine": 0.6445734162437972,
+          "input_feature_cosine": 0.7366563922473356,
+          "output_cosine": 0.8749987416485742,
+          "component_norm_ratio": 0.9207536209137046
+        },
+        {
+          "edge": 14,
+          "old_square": 161,
+          "old_piece": "rr",
+          "function_cosine": 0.260917977914358,
+          "input_feature_cosine": 0.29232856471183805,
+          "output_cosine": 0.8925504018793273,
+          "component_norm_ratio": 1.0996246696513337
+        },
+        {
+          "edge": 15,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.36881935744860367,
+          "input_feature_cosine": -0.38115350068256826,
+          "output_cosine": -0.9676399581484187,
+          "component_norm_ratio": 0.6183154077238326
+        },
+        {
+          "edge": 16,
+          "old_square": 208,
+          "old_piece": "aa",
+          "function_cosine": 0.6252588943444353,
+          "input_feature_cosine": 0.7944417757046925,
+          "output_cosine": 0.7870418115787187,
+          "component_norm_ratio": 0.8753090082934311
+        },
+        {
+          "edge": 17,
+          "old_square": 110,
+          "old_piece": "aa",
+          "function_cosine": 0.36463239537935715,
+          "input_feature_cosine": -0.4085753168175299,
+          "output_cosine": -0.8924484186160524,
+          "component_norm_ratio": 0.739018979636131
+        },
+        {
+          "edge": 18,
+          "old_square": 57,
+          "old_piece": "ra",
+          "function_cosine": 0.34103715277224816,
+          "input_feature_cosine": -0.3919967010214933,
+          "output_cosine": -0.8700000583768919,
+          "component_norm_ratio": 0.7882127739687321
+        },
+        {
+          "edge": 19,
+          "old_square": 249,
+          "old_piece": "ra",
+          "function_cosine": 0.5378418074154044,
+          "input_feature_cosine": -0.5807737210889342,
+          "output_cosine": -0.9260780711754076,
+          "component_norm_ratio": 0.9751172231099795
+        },
+        {
+          "edge": 20,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.2799994415397935,
+          "input_feature_cosine": -0.35210129720649813,
+          "output_cosine": -0.7952241123825831,
+          "component_norm_ratio": 1.184459550306744
+        },
+        {
+          "edge": 21,
+          "old_square": 39,
+          "old_piece": "aa",
+          "function_cosine": 0.1511130272538414,
+          "input_feature_cosine": 0.2257935440369352,
+          "output_cosine": 0.6692530909082256,
+          "component_norm_ratio": 2.273985538799446
+        },
+        {
+          "edge": 22,
+          "old_square": 149,
+          "old_piece": "ra",
+          "function_cosine": 0.1799762565151771,
+          "input_feature_cosine": -0.24275954299983873,
+          "output_cosine": -0.741376649054314,
+          "component_norm_ratio": 0.846666701792914
+        },
+        {
+          "edge": 23,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.33968109488378134,
+          "input_feature_cosine": 0.4212206849815209,
+          "output_cosine": 0.8064207361959997,
+          "component_norm_ratio": 1.203714748140235
+        },
+        {
+          "edge": 24,
+          "old_square": 204,
+          "old_piece": "ra",
+          "function_cosine": 0.6752980903834156,
+          "input_feature_cosine": -0.6864428630240405,
+          "output_cosine": -0.9837644569694732,
+          "component_norm_ratio": 0.7763173526345093
+        },
+        {
+          "edge": 25,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.29326235999528477,
+          "input_feature_cosine": 0.3716306844815349,
+          "output_cosine": 0.7891231059254904,
+          "component_norm_ratio": 1.0689493243988804
+        },
+        {
+          "edge": 26,
+          "old_square": 88,
+          "old_piece": "aa",
+          "function_cosine": 0.19460280316314194,
+          "input_feature_cosine": 0.22655080996822718,
+          "output_cosine": 0.8589808316749526,
+          "component_norm_ratio": 0.5206773578553735
+        },
+        {
+          "edge": 27,
+          "old_square": 249,
+          "old_piece": "aa",
+          "function_cosine": 0.4361643229446429,
+          "input_feature_cosine": 0.5333176139791644,
+          "output_cosine": 0.817832210135259,
+          "component_norm_ratio": 1.166426246077521
+        },
+        {
+          "edge": 28,
+          "old_square": 0,
+          "old_piece": "aa",
+          "function_cosine": 0.305182701919273,
+          "input_feature_cosine": 0.32520386794538964,
+          "output_cosine": 0.9384350310695605,
+          "component_norm_ratio": 1.4208956510540642
+        },
+        {
+          "edge": 29,
+          "old_square": 65,
+          "old_piece": "aa",
+          "function_cosine": 0.10724622221863427,
+          "input_feature_cosine": 0.11440743813508227,
+          "output_cosine": 0.9374060285486625,
+          "component_norm_ratio": 3.0309600379983817
+        },
+        {
+          "edge": 30,
+          "old_square": 110,
+          "old_piece": "rr",
+          "function_cosine": 0.356479276877869,
+          "input_feature_cosine": 0.3684860606236643,
+          "output_cosine": 0.967415907875935,
+          "component_norm_ratio": 0.7705999674527736
+        },
+        {
+          "edge": 31,
+          "old_square": 204,
+          "old_piece": "aa",
+          "function_cosine": 0.5936039704372977,
+          "input_feature_cosine": 0.6865760827414394,
+          "output_cosine": 0.8645858563366902,
+          "component_norm_ratio": 0.8361591314968888
+        },
+        {
+          "edge": 32,
+          "old_square": 204,
+          "old_piece": "rr",
+          "function_cosine": 0.6037554437115625,
+          "input_feature_cosine": 0.6863096691559155,
+          "output_cosine": 0.8797128626413124,
+          "component_norm_ratio": 1.0920449456361336
+        },
+        {
+          "edge": 33,
+          "old_square": 88,
+          "old_piece": "rr",
+          "function_cosine": 0.6145689200426385,
+          "input_feature_cosine": 0.6872225205925842,
+          "output_cosine": 0.894279366038096,
+          "component_norm_ratio": 0.7347809615545786
+        },
+        {
+          "edge": 34,
+          "old_square": 218,
+          "old_piece": "ra",
+          "function_cosine": 0.20229749189759696,
+          "input_feature_cosine": -0.20732268983499508,
+          "output_cosine": -0.9757614666228881,
+          "component_norm_ratio": 0.5122330323075348
+        },
+        {
+          "edge": 35,
+          "old_square": 110,
+          "old_piece": "rr",
+          "function_cosine": 0.20877825961890606,
+          "input_feature_cosine": 0.22209842700418014,
+          "output_cosine": 0.9400258364503258,
+          "component_norm_ratio": 0.6915710523454214
+        },
+        {
+          "edge": 36,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.13019963962398087,
+          "input_feature_cosine": -0.32896861408998523,
+          "output_cosine": -0.39578134219322936,
+          "component_norm_ratio": 0.5338494007944925
+        },
+        {
+          "edge": 37,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.3273596083800404,
+          "input_feature_cosine": 0.33871290436314033,
+          "output_cosine": 0.9664810645332608,
+          "component_norm_ratio": 1.2229168947634927
+        },
+        {
+          "edge": 38,
+          "old_square": 49,
+          "old_piece": "aa",
+          "function_cosine": 0.1404495241280809,
+          "input_feature_cosine": 0.14529590559767916,
+          "output_cosine": 0.9666447485243131,
+          "component_norm_ratio": 0.714085257571775
+        },
+        {
+          "edge": 39,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.26007015783123,
+          "input_feature_cosine": 0.33568165120077126,
+          "output_cosine": 0.7747523789308399,
+          "component_norm_ratio": 0.5032822782963196
+        },
+        {
+          "edge": 40,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.2543067295288828,
+          "input_feature_cosine": 0.27116420877325254,
+          "output_cosine": 0.937832948822291,
+          "component_norm_ratio": 0.6510207963752854
+        },
+        {
+          "edge": 41,
+          "old_square": 141,
+          "old_piece": "aa",
+          "function_cosine": 0.28233639162338797,
+          "input_feature_cosine": 0.4300813063395768,
+          "output_cosine": 0.6564721308776561,
+          "component_norm_ratio": 0.5447069695806442
+        },
+        {
+          "edge": 42,
+          "old_square": 204,
+          "old_piece": "aa",
+          "function_cosine": 0.5017913147321429,
+          "input_feature_cosine": 0.542684232823586,
+          "output_cosine": 0.9246469390152036,
+          "component_norm_ratio": 0.6855831146182356
+        },
+        {
+          "edge": 43,
+          "old_square": 110,
+          "old_piece": "ra",
+          "function_cosine": 0.20493607972913544,
+          "input_feature_cosine": -0.23466581210279183,
+          "output_cosine": -0.8733103381900651,
+          "component_norm_ratio": 0.37932241069565126
+        },
+        {
+          "edge": 44,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.25388673517831667,
+          "input_feature_cosine": 0.3422545816704435,
+          "output_cosine": 0.741806680685385,
+          "component_norm_ratio": 0.8766412255065148
+        },
+        {
+          "edge": 45,
+          "old_square": 34,
+          "old_piece": "aa",
+          "function_cosine": 0.12403054797296263,
+          "input_feature_cosine": 0.2766634023770205,
+          "output_cosine": 0.44830847487352576,
+          "component_norm_ratio": 1.0555212450078406
+        },
+        {
+          "edge": 46,
+          "old_square": 210,
+          "old_piece": "rr",
+          "function_cosine": 0.2410952786077008,
+          "input_feature_cosine": 0.3278788781568814,
+          "output_cosine": 0.7353181149178603,
+          "component_norm_ratio": 1.3255163373524295
+        },
+        {
+          "edge": 47,
+          "old_square": 88,
+          "old_piece": "ra",
+          "function_cosine": 0.13121124902446266,
+          "input_feature_cosine": 0.15773475517063068,
+          "output_cosine": 0.8318474193117679,
+          "component_norm_ratio": 0.31990462675332954
+        },
+        {
+          "edge": 48,
+          "old_square": 48,
+          "old_piece": "aa",
+          "function_cosine": 0.21085521150667613,
+          "input_feature_cosine": 0.21921969887190457,
+          "output_cosine": 0.9618442712572285,
+          "component_norm_ratio": 0.839169958702795
+        },
+        {
+          "edge": 49,
+          "old_square": 110,
+          "old_piece": "rr",
+          "function_cosine": 0.38969213382423845,
+          "input_feature_cosine": -0.40457428103497334,
+          "output_cosine": -0.9632152909654472,
+          "component_norm_ratio": 0.5581595585249018
+        },
+        {
+          "edge": 50,
+          "old_square": 248,
+          "old_piece": "aa",
+          "function_cosine": 0.222081679238097,
+          "input_feature_cosine": 0.26631909404393933,
+          "output_cosine": 0.8338931913062766,
+          "component_norm_ratio": 0.4374788897616318
+        },
+        {
+          "edge": 51,
+          "old_square": 248,
+          "old_piece": "aa",
+          "function_cosine": 0.3274214606353522,
+          "input_feature_cosine": 0.387158159921276,
+          "output_cosine": 0.8457046616347424,
+          "component_norm_ratio": 0.4321146928324928
+        },
+        {
+          "edge": 52,
+          "old_square": 141,
+          "old_piece": "ra",
+          "function_cosine": 0.19885801628534716,
+          "input_feature_cosine": 0.27282794456598336,
+          "output_cosine": 0.728877009287637,
+          "component_norm_ratio": 0.3960482607227487
+        },
+        {
+          "edge": 53,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.1457790795866662,
+          "input_feature_cosine": -0.2259984994937811,
+          "output_cosine": -0.6450444578756049,
+          "component_norm_ratio": 0.6796855179137583
+        },
+        {
+          "edge": 54,
+          "old_square": 185,
+          "old_piece": "ra",
+          "function_cosine": 0.12394146684332917,
+          "input_feature_cosine": -0.13298047253314307,
+          "output_cosine": -0.9320275712844901,
+          "component_norm_ratio": 0.3869527564732609
+        },
+        {
+          "edge": 55,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.09480736001233357,
+          "input_feature_cosine": -0.12477344997034234,
+          "output_cosine": -0.7598360070581405,
+          "component_norm_ratio": 0.6779333747448091
+        },
+        {
+          "edge": 56,
+          "old_square": 116,
+          "old_piece": "ra",
+          "function_cosine": 0.17624277910247743,
+          "input_feature_cosine": 0.228440844738163,
+          "output_cosine": 0.7715029214871161,
+          "component_norm_ratio": 0.49802473369042616
+        },
+        {
+          "edge": 57,
+          "old_square": 141,
+          "old_piece": "rr",
+          "function_cosine": 0.27366819447431745,
+          "input_feature_cosine": 0.3814624882430131,
+          "output_cosine": 0.7174183646072569,
+          "component_norm_ratio": 0.6481123553407782
+        },
+        {
+          "edge": 58,
+          "old_square": 253,
+          "old_piece": "aa",
+          "function_cosine": 0.17866107085038663,
+          "input_feature_cosine": 0.19606989797766097,
+          "output_cosine": 0.9112111175308624,
+          "component_norm_ratio": 0.5475677284921219
+        },
+        {
+          "edge": 59,
+          "old_square": 81,
+          "old_piece": "aa",
+          "function_cosine": 0.23006926675926784,
+          "input_feature_cosine": 0.27487351372052804,
+          "output_cosine": 0.8370004939551433,
+          "component_norm_ratio": 0.8137846759716657
+        },
+        {
+          "edge": 60,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.3231898150556456,
+          "input_feature_cosine": -0.42971345452467946,
+          "output_cosine": -0.7521054126944589,
+          "component_norm_ratio": 0.6218676167645419
+        },
+        {
+          "edge": 61,
+          "old_square": 81,
+          "old_piece": "ra",
+          "function_cosine": 0.25147503550791045,
+          "input_feature_cosine": -0.2669073969291577,
+          "output_cosine": -0.9421808402509604,
+          "component_norm_ratio": 0.6424948529077538
+        },
+        {
+          "edge": 62,
+          "old_square": 205,
+          "old_piece": "aa",
+          "function_cosine": 0.23883390186839226,
+          "input_feature_cosine": 0.25390850481775096,
+          "output_cosine": 0.9406297833143524,
+          "component_norm_ratio": 0.4520491482429859
+        },
+        {
+          "edge": 63,
+          "old_square": 208,
+          "old_piece": "ra",
+          "function_cosine": 0.07767360410471978,
+          "input_feature_cosine": -0.12040174360455731,
+          "output_cosine": -0.6451202597183963,
+          "component_norm_ratio": 0.34918122689942444
+        },
+        {
+          "edge": 64,
+          "old_square": 155,
+          "old_piece": "aa",
+          "function_cosine": 0.06650024442227431,
+          "input_feature_cosine": 0.12388283096544155,
+          "output_cosine": 0.5367995218064178,
+          "component_norm_ratio": 1.1387841088696198
+        },
+        {
+          "edge": 65,
+          "old_square": 205,
+          "old_piece": "aa",
+          "function_cosine": 0.1374508783809223,
+          "input_feature_cosine": 0.14632366576053615,
+          "output_cosine": 0.9393619115985347,
+          "component_norm_ratio": 0.3953125980594038
+        },
+        {
+          "edge": 66,
+          "old_square": 249,
+          "old_piece": "aa",
+          "function_cosine": 0.09118379750395265,
+          "input_feature_cosine": -0.16453509776350514,
+          "output_cosine": -0.554190557172281,
+          "component_norm_ratio": 0.49359967034407587
+        },
+        {
+          "edge": 67,
+          "old_square": 210,
+          "old_piece": "ra",
+          "function_cosine": 0.08220211551982422,
+          "input_feature_cosine": 0.12978607777884485,
+          "output_cosine": 0.633366204808935,
+          "component_norm_ratio": 0.42523801434114755
+        },
+        {
+          "edge": 68,
+          "old_square": 116,
+          "old_piece": "ra",
+          "function_cosine": 0.21618104352896111,
+          "input_feature_cosine": -0.25772796206054804,
+          "output_cosine": -0.8387954562655242,
+          "component_norm_ratio": 0.36219768595054747
+        },
+        {
+          "edge": 69,
+          "old_square": 248,
+          "old_piece": "ra",
+          "function_cosine": 0.17912155294265775,
+          "input_feature_cosine": 0.26768242977217427,
+          "output_cosine": 0.6691569300798298,
+          "component_norm_ratio": 0.22922150065120148
+        },
+        {
+          "edge": 70,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.2158827579099245,
+          "input_feature_cosine": 0.26500035919603404,
+          "output_cosine": 0.8146508124172965,
+          "component_norm_ratio": 0.32651575455185783
+        },
+        {
+          "edge": 71,
+          "old_square": 248,
+          "old_piece": "aa",
+          "function_cosine": 0.09195882464944437,
+          "input_feature_cosine": -0.14199136646681934,
+          "output_cosine": -0.6476367326948247,
+          "component_norm_ratio": 0.27077514684743276
+        },
+        {
+          "edge": 72,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.3346726677624276,
+          "input_feature_cosine": 0.41738774063046535,
+          "output_cosine": 0.801826779236265,
+          "component_norm_ratio": 0.4267523675365134
+        },
+        {
+          "edge": 73,
+          "old_square": 249,
+          "old_piece": "ra",
+          "function_cosine": 0.038778659726589046,
+          "input_feature_cosine": 0.12669649061018512,
+          "output_cosine": 0.3060752475449516,
+          "component_norm_ratio": 0.30163424747549056
+        },
+        {
+          "edge": 74,
+          "old_square": 249,
+          "old_piece": "ra",
+          "function_cosine": 0.078936304930746,
+          "input_feature_cosine": -0.11855013397637588,
+          "output_cosine": -0.6658474544320302,
+          "component_norm_ratio": 0.2996790950687893
+        },
+        {
+          "edge": 75,
+          "old_square": 150,
+          "old_piece": "ra",
+          "function_cosine": 0.13623890880938094,
+          "input_feature_cosine": 0.1422691615249952,
+          "output_cosine": 0.9576137748267056,
+          "component_norm_ratio": 0.14547149295264672
+        },
+        {
+          "edge": 76,
+          "old_square": 154,
+          "old_piece": "aa",
+          "function_cosine": 0.04799639071490459,
+          "input_feature_cosine": 0.0671144713345424,
+          "output_cosine": 0.7151422004899538,
+          "component_norm_ratio": 0.1965849874329165
+        },
+        {
+          "edge": 77,
+          "old_square": 155,
+          "old_piece": "ra",
+          "function_cosine": 0.04131690661396812,
+          "input_feature_cosine": 0.08051646608166939,
+          "output_cosine": 0.5131485350097158,
+          "component_norm_ratio": 0.6354850636686663
+        },
+        {
+          "edge": 78,
+          "old_square": 116,
+          "old_piece": "ra",
+          "function_cosine": 0.16895359188351278,
+          "input_feature_cosine": 0.2184076345285686,
+          "output_cosine": 0.7735699910316687,
+          "component_norm_ratio": 0.2978226978569642
+        },
+        {
+          "edge": 79,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.12929166856411323,
+          "input_feature_cosine": 0.2080373104931421,
+          "output_cosine": 0.6214830804033842,
+          "component_norm_ratio": 0.3772427865077152
+        },
+        {
+          "edge": 80,
+          "old_square": 248,
+          "old_piece": "aa",
+          "function_cosine": 0.1617196407836801,
+          "input_feature_cosine": -0.2097733678832294,
+          "output_cosine": -0.7709255107812424,
+          "component_norm_ratio": 0.2250965965325024
+        },
+        {
+          "edge": 81,
+          "old_square": 185,
+          "old_piece": "aa",
+          "function_cosine": 0.07894220771334923,
+          "input_feature_cosine": 0.09825746817419828,
+          "output_cosine": 0.8034219604905197,
+          "component_norm_ratio": 0.2501988684657128
+        },
+        {
+          "edge": 82,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.07688108311000705,
+          "input_feature_cosine": -0.15538203674925777,
+          "output_cosine": -0.49478745882364217,
+          "component_norm_ratio": 0.301014750578226
+        },
+        {
+          "edge": 83,
+          "old_square": 253,
+          "old_piece": "ra",
+          "function_cosine": 0.08835136468512868,
+          "input_feature_cosine": -0.1355881568934692,
+          "output_cosine": -0.6516156477777466,
+          "component_norm_ratio": 0.20824409986489004
+        },
+        {
+          "edge": 84,
+          "old_square": 116,
+          "old_piece": "aa",
+          "function_cosine": 0.17825001850601974,
+          "input_feature_cosine": -0.22306154923419352,
+          "output_cosine": -0.7991068793253744,
+          "component_norm_ratio": 0.329500559677616
+        },
+        {
+          "edge": 85,
+          "old_square": 249,
+          "old_piece": "rr",
+          "function_cosine": 0.08881759468779604,
+          "input_feature_cosine": 0.18257364100835144,
+          "output_cosine": 0.4864754528488221,
+          "component_norm_ratio": 0.3386086042414423
+        },
+        {
+          "edge": 86,
+          "old_square": 84,
+          "old_piece": "ra",
+          "function_cosine": 0.044500270602909016,
+          "input_feature_cosine": 0.06381602820885934,
+          "output_cosine": 0.6973212193223146,
+          "component_norm_ratio": 0.2930037574372251
+        },
+        {
+          "edge": 87,
+          "old_square": 141,
+          "old_piece": "rr",
+          "function_cosine": 0.22211540826139273,
+          "input_feature_cosine": -0.29512618778536465,
+          "output_cosine": -0.7526116537747907,
+          "component_norm_ratio": 0.32832867470829735
+        },
+        {
+          "edge": 88,
+          "old_square": 210,
+          "old_piece": "aa",
+          "function_cosine": 0.05733992668211968,
+          "input_feature_cosine": -0.08020087116678723,
+          "output_cosine": -0.7149539131922208,
+          "component_norm_ratio": 0.3102235013434174
+        },
+        {
+          "edge": 89,
+          "old_square": 175,
+          "old_piece": "aa",
+          "function_cosine": 0.033828435071130473,
+          "input_feature_cosine": -0.12863233599784754,
+          "output_cosine": -0.26298546791295574,
+          "component_norm_ratio": 0.3188449236268978
+        },
+        {
+          "edge": 90,
+          "old_square": 214,
+          "old_piece": "aa",
+          "function_cosine": 0.013366162185697297,
+          "input_feature_cosine": -0.08213221287712659,
+          "output_cosine": -0.16273958435399355,
+          "component_norm_ratio": 0.4574010021307186
+        },
+        {
+          "edge": 91,
+          "old_square": 104,
+          "old_piece": "aa",
+          "function_cosine": 0.019601262381367977,
+          "input_feature_cosine": 0.055814336308926855,
+          "output_cosine": 0.3511868755883241,
+          "component_norm_ratio": 0.6477096052005701
+        },
+        {
+          "edge": 92,
+          "old_square": 84,
+          "old_piece": "aa",
+          "function_cosine": 0.04187578334318441,
+          "input_feature_cosine": -0.12096005048626435,
+          "output_cosine": -0.3461951543079062,
+          "component_norm_ratio": 0.322451380121678
+        },
+        {
+          "edge": 93,
+          "old_square": 118,
+          "old_piece": "aa",
+          "function_cosine": 0.01423999824175428,
+          "input_feature_cosine": 0.11928540201955626,
+          "output_cosine": 0.11937754327574553,
+          "component_norm_ratio": 0.4332900083587119
+        },
+        {
+          "edge": 94,
+          "old_square": 27,
+          "old_piece": "aa",
+          "function_cosine": 0.038897278937061505,
+          "input_feature_cosine": -0.08719035502147847,
+          "output_cosine": -0.4461190567176788,
+          "component_norm_ratio": 0.35834356347588725
+        },
+        {
+          "edge": 95,
+          "old_square": 0,
+          "old_piece": "aa",
+          "function_cosine": 0.08035349694963997,
+          "input_feature_cosine": -0.1635363788317478,
+          "output_cosine": -0.49134937145887636,
+          "component_norm_ratio": 0.2990764577920165
+        }
+      ]
+    }
+  ],
+  "old_square_bank_sha256": "bae7a97820da1910e474e871539280175f6f9932b1318544ec8cbeddcc436fbd",
+  "source_program_sha256": "385a03f62e6644751a4e9671c28d133398168acef18669215a402483552e2412",
+  "scope": "Coefficient-shape alias of source-pair pieces of prior squares, not whole-square identity or matching amplitudes. Old quote behavioral/gating failures remain; no new circuit count."
+}
