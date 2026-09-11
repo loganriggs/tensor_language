@@ -1,0 +1,59 @@
+{
+  "predictions": {
+    "pred_a_sparse_execution": true,
+    "pred_b_live_interaction_identity": true,
+    "pred_c_terminal_dose_readout": true
+  },
+  "errors": {
+    "execution": 3.9775096708196784e-16,
+    "removal_composition": 1.0456392666255912e-15,
+    "interchange": 2.3539203311116165e-16,
+    "empty_removal": 0.0,
+    "all_removal": 0.0
+  },
+  "interaction_fraction": 0.17723841878058347,
+  "dose_errors": [
+    {
+      "dose": -0.5,
+      "max_absolute_error": 2.6645352591003757e-15,
+      "relative_error": 2.8634300064645306e-16
+    },
+    {
+      "dose": 0.0,
+      "max_absolute_error": 0.0,
+      "relative_error": 0.0
+    },
+    {
+      "dose": 0.25,
+      "max_absolute_error": 3.552713678800501e-15,
+      "relative_error": 3.0519748770633724e-16
+    },
+    {
+      "dose": 1.0,
+      "max_absolute_error": 5.10702591327572e-15,
+      "relative_error": 4.279997523079108e-16
+    },
+    {
+      "dose": 2.0,
+      "max_absolute_error": 6.661338147750939e-15,
+      "relative_error": 6.005011122323964e-16
+    }
+  ],
+  "price": {
+    "float_coefficients": 408,
+    "code_nonzeros": 102,
+    "runtime_coo_index_entries": 204,
+    "products": 17,
+    "input_features": 12,
+    "scope": "Program buffers only; residual, unembedding and other native operations separately retained."
+  },
+  "serialized_artifact_bytes": 5977,
+  "source_hashes": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/audit_sparse_reader_program_v1.py": "ab8b505ef5477b1bfa7719484f7cc6205550d460900af2d0f8f50487d081deac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_reader_program_v1.py": "907b73fe6a47176a7c735774ef40e5b9b3f6eb326dae10de47713a2aaa261976",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/quadratic_readout_state_v1.py": "73d4b6f55fe2c68f84a6337466e788df43582138e3c5bda0fc1520b385dbbf5e"
+  },
+  "gpu_access": false,
+  "corpus_access": false,
+  "scope": "Synthetic exact program algebra and analytic FP64 readout; not native float32 rounding, circuit selectivity, extraction or OOD evidence."
+}

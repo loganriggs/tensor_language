@@ -82,11 +82,20 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 07:05 UTC
+## Current handoff — 11 September 07:13 UTC
 
-Read explanations/2026-09-11/LATEST.md and reader-dictionary0705 in
+Read explanations/2026-09-11/LATEST.md and reader-program0713 in
 explanation_2026-09-11_0608.md. WEIGHT_ONLY_METHODS_INDEX.md links prior art.
 Weights-first; no new data fits. Hourly next0722; math next0749.
+
+Previous progress9b6e22896. sparse_reader_program_v1.py now executes queued
+dictionary artifacts with retainedDown/bias and no originalL/R. CPU control
+SPARSE_READER_PROGRAM_V1_CONTROL.json passes direct sparse/dense/reload,
+feature removal/interchange, nonzero pairinteraction and existing quadratic
+readout-state dose identities. FP64synthetic controls only. No nativeartifact
+yet; dictionaryjob stillqueued, structuredcontinuation stilllive. Do not mutate
+queued sources or publish behavioral claims from these algebra checks.
+
 
 Previous progress3acf5a7d0. New full-rank shared-reader dictionary CPU controls
 pass sparse recovery and dense heldout null. Dense1902 first2000step miss

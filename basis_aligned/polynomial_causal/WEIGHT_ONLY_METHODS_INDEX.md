@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 07:05 UTC. Use this index before opening a structural family
+Updated 11 September 07:13 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -85,3 +85,9 @@ directions, sparse native-reader coordinates, nativeDownretained; distinct from
 64-reader subspace and outputvarimax. Two native fits queued behindstructured
 continuation; no native dictionary result. Requires held-out weight-vector gain,
 not training concentration alone. Orthogonality/native-product assumptions remain.
+
+[Shared-reader executor](sparse_reader_program_v1.py) consumes savedbasis/codes
+and retainedDown/bias without originalL/R. [CPU controls](SPARSE_READER_PROGRAM_V1_CONTROL.json)
+verify feature removals, donorinterchange, nonzero pair interactions and exact
+quadratic-dose RMS/tanh prediction. Syntheticprogramalgebra only; no native
+selectivity/OOD or runtime-speed claim. Native queued sources unchanged.
