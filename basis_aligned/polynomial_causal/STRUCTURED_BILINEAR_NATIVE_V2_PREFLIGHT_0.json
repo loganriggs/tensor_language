@@ -1,0 +1,30 @@
+{
+  "chunk_relative_error": 0.0,
+  "parameter_fd_relative_error": 6.091610893947784e-10,
+  "parameter_fd_expected": 0.008873463776576818,
+  "parameter_fd_steps": [
+    {
+      "eps": 1e-05,
+      "derivative": 0.00887354030254528
+    },
+    {
+      "eps": 5e-06,
+      "derivative": 0.008873482904014907
+    }
+  ],
+  "amplitude_solve": {
+    "scales": [
+      0.5988981454807482,
+      0.594381928851391,
+      0.8837032313628514,
+      1.17032844585731
+    ],
+    "relative_solve_error": 6.563063234164872e-17,
+    "condition": 4.144215248300927
+  },
+  "initial_cache": {
+    "path": "/dev/shm/bilin18_structured_bilinear_v2_s0_initial.pt",
+    "sha256": "9a670b69643c75a81109648c93b2428d9391b8adef916a003a8b8143bd97de79",
+    "bytes": 2289451
+  }
+}

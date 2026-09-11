@@ -502,3 +502,5 @@ multioutput programs. No behavioral identification. [Combined explanation](2026-
 11 September05:49: exact fixed-frame writer/core updates settle in4.35s with no meaningful gain; remaininggradient is mainlyinputframes. Conditional rank8 expansions show modest isolated gains in10/16blocks. [Combined explanation](2026-09-11/explanation_2026-09-11_0531.md) linksreceipts; nojointgain orcircuitidentityclaimed. Next23smallfull-quadraticframes implemented/controlled, nativepending.
 
 11 September06:10:23x4full-quadraticframe nativefits bothlocallyconverged, capture5.9467/5.9385%, no gain overoldblocks. Commoncapture43.66/44.46%; centered3.02/2.95%. Input-supportceiling18.76%for92readers. [Latest explanation](2026-09-11/explanation_2026-09-11_0608.md) linksreceipts. Compactfull-rankmixed-radixfamily onlyhasplantedcontrols, no nativeclaim.
+
+11 September06:34: nativefullrankstructured-map fit isrunning. Exactfull-Uobjective/parameterchain controls pass; V1stoppedonFDtruncation beforejointfit, V2reuses savedinitialization withverifiedRichardsoncheck. No structuralverdict yet. [Current update](2026-09-11/explanation_2026-09-11_0608.md#native-fit-update0634).

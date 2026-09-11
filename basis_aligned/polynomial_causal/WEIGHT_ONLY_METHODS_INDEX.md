@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 06:10 UTC. Use this index before opening a structural family
+Updated 11 September 06:34 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -64,5 +64,8 @@ bilinear product bank. [Construction control](MIXED_RADIX_BILINEAR_V1_CONTROL.js
 passes execution/gradient/full-mode-rank checks, with276480proposedcoefficients
 atnativewidth4608. [Small planted fit](MIXED_RADIX_PLANTED_V1_RESULT.json) recovers
 2/3starts; [failed-point curvature audit](MIXED_RADIX_CURVATURE_V1_AUDIT.json)
-finds no useful negative-curvature escape. No native fit or globalrecoverability
-claim; known wiring and near-identity initialization are limitations.
+finds no useful negative-curvature escape. [Native V2 jointfit protocol](STRUCTURED_BILINEAR_NATIVE_V2_PREREGISTRATION.md)
+is nowrunning throughmanagedlane1. V1stoppedbeforejointfit onFDtruncation;
+[step-sizeaudit](STRUCTURED_GRADIENT_STEP_AUDIT_V1_RESULT.json) verifiesrepair.
+No finalnativeverdict or globalrecoverabilityclaim; fixedwiring/initialization
+remain limitations. Inspect currentresult/runner before any resubmission.

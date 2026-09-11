@@ -1,0 +1,52 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_truncation_scaling": true,
+    "pred_c_richardson": true
+  },
+  "expected": 0.008873463776576818,
+  "replay_error": 0.0,
+  "steps": [
+    {
+      "eps": 0.0001,
+      "derivative": 0.008881121495440958,
+      "relative_error": 0.0008629909420888762
+    },
+    {
+      "eps": 3e-05,
+      "derivative": 0.008874152512827749,
+      "relative_error": 7.7617519862817e-05
+    },
+    {
+      "eps": 1e-05,
+      "derivative": 0.00887354030254528,
+      "relative_error": 8.624137133843168e-06
+    },
+    {
+      "eps": 5e-06,
+      "derivative": 0.008873482904014907,
+      "relative_error": 2.155577412594872e-06
+    },
+    {
+      "eps": 1e-06,
+      "derivative": 0.008873464518721619,
+      "relative_error": 8.363642644648165e-08
+    }
+  ],
+  "error_ratio": 100.06693176321306,
+  "richardson_derivative": 0.00887346377117145,
+  "richardson_relative_error": 6.091610893947784e-10,
+  "wall_seconds": 11.816216558218002,
+  "binding": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_structured_gradient_step_audit_v1.py": "beaf4430ea17cf117b96410ab388f514cf2970db60b5218ddd6b5f1525080ea2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/structured_bilinear_bank_v1.py": "4f43c21a81f72fc9316fccd9493cf852b82f48dc0a4f0c3c07ca6a5962ff12ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mixed_radix_bilinear_v1.py": "a01ac78e8e7cf67b2122bc86cee4e740aea01ae8878601837170473a0e881d43",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/chunked_bilinear_coefficient_v1.py": "5f3210058192454f05aeebdc9666a7d92a05b25d9dcb6e34107ef027cbd0bfa3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_BILINEAR_NATIVE_V1_PREFLIGHT_0.json": "4c0832bd2ab51eeec6bda9826aa245176fa25d93f87132f6a45c9da08f94c195",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FULLU_OUTPUT_FUNCTIONS_V1_AUDIT.json": "c70c968bfd90bf7a236dad3c9100188ab1c7a543a223b4b5369740ffd3c51a32",
+    "/dev/shm/bilin18_structured_bilinear_v1_s0_initial.pt": "0a7d8df1bd7409ffa0bb702bbc8f55f420b376b8ef6c8ab7cd87777730a14cbc"
+  },
+  "body_forwards": 0,
+  "corpus_access": false,
+  "scope": "Savednativepoint derivative instrument audit; no optimization or nativefit verdict."
+}

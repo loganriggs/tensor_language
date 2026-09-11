@@ -20278,3 +20278,45 @@ exactHessianFD5.51e-11, no usefulnegativecurvatureescape (B/Cmissed).
 CPUconsequences actuallyexecuted, failedpoint saved. Next nativeinit/wiring
 andjointstructuredfit design; no ownliveGPU ordatajob. Combinedexplanation0608
 isLATEST. Fullgoalactive; reviewclocks0622/0749. Publishingownedfilesonly.
+
+### 2026-09-11T06:17:13.137008+00:00 — Codex: CLAIM STRUCTURED NATIVE OBJECTIVE AND INITIALIZATION
+Previous turn progress5f3eca7c0. NativeL/Rmeanrownorm7.70 andDowncolnorm4.26
+make unscalednearidentitytoyinitializationunrepresentative. Implement exact
+chunkedCP coefficientloss/analyticfactorgradients, thenbackpropthroughsmall
+mixingstages. All4608candidateproducts/full-Uoutputmetric; no denseJacobian.
+CPUcontrols compareloss andall3factorgradients toexplicitdensequadratic
+autograd at<=1e-10, including nonzero component-energy penalty andchunksizes.
+Nativeinitialization fitsstructuredmaps toscalednativeL/R/Downmatrices; this
+is onlyinitialization, not a testthatnativeunitorderingdefinescircuits.
+Thenjointtensoroptimization, withsavedstates/convergencecriteria beforeany
+negativeinterpretation. Managedlane1 only, sourcebinding/controlsfirst.
+
+### 2026-09-11T06:29:51.338550+00:00 — Codex: NATIVE PREFLIGHT FAILED; CLAIM FINITE-DIFFERENCE STEP AUDIT
+run_structured_bilinear_native_v1 exited1at06:27:51, beforejointfit. Native
+factorinitialization56.40s saved. Chunkgradientrelativeerror0, branchsolve
+6.56e-17, but FDrelativeerror8.63e-4>1e-5 atrelativeparameterstep1e-4.
+Preservefailure andsource; do NOTrepeatinitialization. Saved2.29MBpoint/hash
+inSTRUCTURED_BILINEAR_NATIVE_V1_PREFLIGHT_0.json. NextmanagedGPUaudit samepoint
+withsteps1e-4,3e-5,1e-5,5e-6,1e-6. Pred_a exactpoint/expectedgradientreplay
+<=1e-10; pred_b errors1e-4/1e-5 ratio>=20 (truncation signature); pred_c
+Richardson(1e-5,5e-6)relativeerror<=1e-5. Ifheld, repairFDnumerics andresume
+fromsavedpoint; ifmissed, diagnoseanalyticgradient ratherthanrelaxthreshold.
+
+### 2026-09-11T06:32:06.045260+00:00 — Codex: FD TRUNCATION CONFIRMED; RESUME SAVED NATIVE INITIALIZATION
+Samepoint/analyticgradientexactreplay. FDerrorratio100.07for10xstepsizechange,
+Richardsonrelativeerror6.09e-10; all3auditpredictionsheld. V1jointfitneverstarted.
+V2numericalpreflightusesRichardsonsteps1e-5/5e-6 withsame1e-5acceptancebar;
+objective/optimizer/initializationunchanged. Seed0loadsverifiedsavedpoint,
+seed937stillusesregisteredindependentinitialization. FreezeoldV1source/
+failureaudit; no repeated56.4sinitialization. Managedresumptionwrappernext.
+
+### 2026-09-11T06:36:27.338556+00:00 — Codex: NATIVE STRUCTURED RESUMPTION LIVE; HOURLY0622 COMPLETE
+V2source38fa1341...started06:32:45, correctedFD6.09e-10passed. Sameobjective
+andthreshold, savedseed0initializationreused; no morepreflightauditplanned.
+Jointfitnowlive; checkperseed/finalresult before nextaction. V1failuretyped
+receiptpreserved. Hourly0622complete;next0722/math0749. Onecombinedexplanation
+appendix instead ofnewreportpercontrol. Fullgoalactive; managedGPUcontinuation
+verified, no datafit. Publishingownedsource/protocol/controls/failureunit.
+
+### 2026-09-11T06:42:14.137880+00:00 — Codex: WEIGHTS-FIRST METHODS CLARIFICATION AND FIRST-START AUDIT
+User priority reaffirmed: weights first, FineWeb validation, Pile OOD; no new data fits. Native structured seed0 time-limited at 1.4968% capture, stationarity .261 versus 1e-4; CPU progress audit executed and positive final increment verified. Not a structural negative. Seed937 remains managed-live. Added methods/assumptions/bottlenecks appendix to explanation0608; preserve all optimizer states. Publishing the completed implementation and numerical repair unit.

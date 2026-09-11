@@ -1,0 +1,15 @@
+{
+  "status": "failed_native_preflight",
+  "joint_optimization_started": false,
+  "initialized_state_preserved": {
+    "path": "/dev/shm/bilin18_structured_bilinear_v1_s0_initial.pt",
+    "sha256": "0a7d8df1bd7409ffa0bb702bbc8f55f420b376b8ef6c8ab7cd87777730a14cbc",
+    "bytes": 2288619
+  },
+  "parameter_fd_relative_error": 0.0008629909420888762,
+  "threshold": 1e-05,
+  "initialization_seconds": 56.404800575226545,
+  "diagnosis": "Central-difference truncation supported by native step-size audit; Richardson repair preserves threshold.",
+  "audit": "STRUCTURED_GRADIENT_STEP_AUDIT_V1_RESULT.json",
+  "repair": "STRUCTURED_BILINEAR_NATIVE_V2_PREREGISTRATION.md"
+}

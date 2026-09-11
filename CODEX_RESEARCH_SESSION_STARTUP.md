@@ -82,31 +82,35 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 06:10 UTC
+## Current handoff — 11 September 06:42 UTC
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0608.md.
-WEIGHT_ONLY_METHODS_INDEX.md links priorart/currentreceipts. Weights-first,
-FineWeb frozenvalidationlater, Pile OOD. No newdatafits. Fullgoalactive.
+Read explanations/2026-09-11/LATEST.md and the weights-first-methods section of
+explanation_2026-09-11_0608.md. WEIGHT_ONLY_METHODS_INDEX.md linkspriorart.
+Weights-first; no newdatafits. Fullgoalactive. Hourly0622complete,next0722;
+mathreviewstilldue0749. Do notduplicate currentnativejob.
 
-FULL_QUADRATIC_FRAME_V1 native completed421.91s, bothstarts locallyconverged,
-capture5.9467/5.9385%, gainpredictionmissed. Functioncosine.9315, centeredcapture
-3.02/2.95%; differentpenalty than old16x16x4fit. Laststates in/dev/shm paths/hashes
-inresult. full_quadratic_frame_v3.py is memoizedexact-HessianGrassmannsolver;
-V1CGtoyfailure andindependentTRrepair remainrecorded. No automaticcontinuation.
-Cachedinput-supportbound for23x4frames:18.76%full;352globalinputdirections
-necessaryfor50%coefficientcapture withininside-onlysubspacefamily, notanyprogram.
+Managed run_structured_bilinear_native_v2.py started06:32:45, sourceSHA
+38fa1341eb11da7e5d1297eedc3404b0909cfab6aa06ef17219360f83bc6bd08.
+Fourfull1152-widebranches/12mixedradixmaps,276480coefficients/4608products,
+alltoken/full-Uweightobjective, exactchunkedanalyticfactorgradients+autograd
+throughsmallstages. Seeds0/937, init<=60s thenjointL-BFGS<=300s each. Preserve
+optimizerstates andallconvergencefailures. Check STRUCTURED_BILINEAR_NATIVE_V2_RESULT.json,
+perseed/preflightreceipts andmanagedrunner forfinalstatus. Seed0 completed its
+302.5s chunk at1.4968%capture, stationarity.261: unconverged. CPU progress audit
+confirms positive finalincrement; seed937 stillrunning at06:42. No structuralnegative.
 
-Newbroaderfamily implemented/controlsonly: mixed_radix_bilinear_v1.py,
-compactfull-rankmaps B[(Ax)*(Cx)] withsmall2x2/3x3mixingstages. Four1152-wide
-branches cost276480mapcoefficients with4608products; no nativefit yet.
-Planted d24 constructionfullmode-ranks24/24/24; execution/gradchecks<6e-16.
-Planted d8fit usesknownwiring/nearidentitystarts:2/3recoverexactly; seed614
-stationary at1.13%relativeerror. ExactHessian audit replaypassed, no useful
-negativecurvatureescape. Failedpoint saved /dev/shm/bilin18_mixed_radix_failed_seed614.pt.
-Nextdecision: nativeinitialization/wiring andjointstructuredweightfitting; do
-notassume the toycontrolproves native structure orglobalrecoverability.
-The lastturn performedtheseCPUconsequences andpreservedallnegativepredictions.
-No ownGPUjob live/queued. Nexthourly0622, math0749. Sources/bindings frozen.
+V1factorinitializationseed0completed56.4s; jointfitneverstarted becauseFDstep
+1e-4 gave8.63e-4relativeerror. Savedstate inV1PREFLIGHT_0receipt. Nativeaudit
+showed100.07xerrorreduction for10xsmallerstep; Richardson1e-5/5e-6 error6.09e-10.
+V2reusesexactV1initialstate, sameobjective/optimizer/1e-5preflightthreshold.
+Oldsources/failure preserved. Do notredo factorinitialization. Allsourcebindings
+frozen; use newversionsforrepairs. LatestCPUdense/chain/branchcontrols<9e-16.
+
+Previoussmall23x4frames bothlocallyconverged at5.94%coefficientcapture, no gain;
+inputsupportceiling18.76%explainswhythiscannotreconstructmostweights. Mixedradix
+fullrankconstruction andsmallplantedfits2/3recover; failedseed614curvature
+checksfoundno usefulnegativecurvatureescape. Those are syntheticcontrols,
+notnativeevidence. Fullrankdoesnotguaranteefixedwiringmatchesnativeweights.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
@@ -207,8 +211,8 @@ not be changed retroactively. Build small wrappers for new semantics.
 ## Review clocks and throughput
 
 Latest hourly review:
-[05:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0522.md).
-Next hourly review is due **06:22 UTC on11September** at the first safe boundary.
+[06:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0622.md).
+Next hourly review is due **07:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [04:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0449.md).
 Next mathematical review is due **07:49 UTC on11September**. Derive later deadlines from the

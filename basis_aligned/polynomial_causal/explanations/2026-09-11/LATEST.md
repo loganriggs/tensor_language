@@ -1,13 +1,9 @@
 # Latest research update
 
-**11 September, 06:10 UTC:** [Converged small-block fits and a compact full-rank alternative](explanation_2026-09-11_0608.md).
+**11 September, updated 06:42 UTC:** [Weights-first methods, assumptions, and bottlenecks](explanation_2026-09-11_0608.md#weights-first-methods).
 
-Both native small-frame starts converged at about5.94%coefficient capture and
-missed the improvement target. The input-support ceiling is18.76%. A new
-mixed-radix construction allows compact full-rank maps; execution controls pass,
-and2/3small planted fits recover exactly. The failed start's curvature audit
-found no useful saddle-escape direction. No native structured-transform fit yet.
-All this discovery used weights only; the four circuit properties remain open.
+The first native structured-transform chunk captured 1.4968% of squared coefficient norm and remains unconverged; the second registered start is running. This is unfinished optimization, not evidence against the representation. The numerical preflight repair passed. Earlier small-frame fits converged at 5.94% capture.
 
-[Method/receipt index](../../WEIGHT_ONLY_METHODS_INDEX.md) ·
-[Previous methods explanation](explanation_2026-09-11_0531.md).
+[Method/receipt index](../../WEIGHT_ONLY_METHODS_INDEX.md) · [Full combined explanation](explanation_2026-09-11_0608.md).
+
+Check `STRUCTURED_BILINEAR_NATIVE_V2_RESULT.json` and the managed runner before any continuation. FineWeb validates frozen candidates; Pile is OOD. No new data-guided discovery.
