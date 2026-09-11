@@ -116,3 +116,7 @@ New words/constructions confirm small neighboring binary-choice changes and near
 ### 22:01 — User-directed interaction-path proposal
 
 [New proposal for Logan](../for_logan/interaction_path_decomposition_proposal_2026-09-11.md) distinguishes existing folding algebra from the proposed joint sparse path search, with related work and full math. New CPU accounting confirms a surviving numerator interaction with significant verb normalization correction; the all-output six-source-pair identity passes. No new joint sparse fit has run.
+
+### 22:10 — Joint sparse path kernel ready for native comparison
+
+[Method and exact controls](../../COUPLED_SPARSE_PATH_V1_MATH.md): full-output edge selection and reader gradients pass; both tiny planted functions recover, one strict optimizer stop misses. Matched shared/independent full-U pilot has been submitted through lane1; check its current runner/receipt for status. It is not a completed sparse-fit result.

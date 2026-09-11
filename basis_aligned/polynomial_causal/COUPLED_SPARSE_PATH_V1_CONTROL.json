@@ -1,0 +1,67 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "maximum_error": 7.067010566612835e-10,
+  "checks": [
+    {
+      "mode": "joint",
+      "coefficient_columns": 10,
+      "finite_difference_relative_error": 1.749242028457662e-10
+    },
+    {
+      "mode": "independent",
+      "coefficient_columns": 10,
+      "finite_difference_relative_error": 7.067010566612835e-10
+    }
+  ],
+  "known_basis_planted_error": 2.220446049250313e-16,
+  "cold_start": [
+    {
+      "seed": 301,
+      "capture": 0.9999999999999997,
+      "fixed_support_report": {
+        "capture": 0.9999999999999997,
+        "tangent_norm": 2.9150752521869206e-08,
+        "relative_stationarity": 2.9150752521869216e-08,
+        "converged": false,
+        "iterations": 3,
+        "evaluations": 29,
+        "seconds": 0.013843584805727005,
+        "stopping_criterion": "Terminated - min step_size reached after 3 iterations, 0.01 seconds.",
+        "maximum_increase": 0.0,
+        "history": [
+          {
+            "iteration": 0,
+            "cost": -0.9999999999999997,
+            "gradient_norm": 1.5749055163531204e-08
+          }
+        ]
+      },
+      "recovered": true
+    },
+    {
+      "seed": 302,
+      "capture": 0.9999999999999994,
+      "fixed_support_report": {
+        "capture": 0.9999999999999994,
+        "tangent_norm": 6.344161267884229e-09,
+        "relative_stationarity": 6.344161267884233e-09,
+        "converged": true,
+        "iterations": 1,
+        "evaluations": 1,
+        "seconds": 0.0003758370876312256,
+        "stopping_criterion": "Terminated - min grad norm reached after 1 iterations, 0.00 seconds.",
+        "maximum_increase": 0.0,
+        "history": [
+          {
+            "iteration": 0,
+            "cost": -0.9999999999999994,
+            "gradient_norm": 6.344161267884229e-09
+          }
+        ]
+      },
+      "recovered": true
+    }
+  ],
+  "scope": "Exact full-output projection, tangent gradient and support oracle; tiny synthetic cold-start outcomes do not establish native optimization or absent structure."
+}
