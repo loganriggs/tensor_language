@@ -8,7 +8,11 @@ construction". This cell keeps the mapping and the `, of course,` suffix but res
 becomes a complex NP with a relative clause, and a parenthetical `everyone agreed` sits between cue and readout, so
 the cue-to-readout distance and the intervening material both change.
 
-Authored through `circuit_fast_screen_behaviour_spec` (Claude, 2026-09-11).
+SCREENED AND DROPPED, 2026-09-11. CPU capability: A1 5/32, A2 1/32 -- the model does not oblige `by`/`from` after
+profited/suffered in this restructured frame, where it does after aimed/appealed and depended/complained (both
+32/32). One repair was already spent on this batch's A2 opener, so this cell is dropped rather than repaired again.
+Kept in the tree as a recorded null: the restructured frame supports SOME mappings and not this one, which is itself
+a fact about frame-by-mapping capability and should not have to be rediscovered.
 Capability is checked on CPU before the battery: rows where the donor does not beat the base on the
 donor axis are dropped by `g.prepare(valid_only=True)` and counted as `n_dropped` in the receipt.
 """

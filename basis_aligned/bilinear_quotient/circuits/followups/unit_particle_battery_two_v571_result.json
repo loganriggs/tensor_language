@@ -1,0 +1,188 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "p_max": 0.23,
+    "tol_pool": 0.05,
+    "tol_pool_wide": 0.15,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_particle_battery_two_v571",
+  "errored_groups": [],
+  "finished_utc": "2026-09-11T03:28:27.872264+00:00",
+  "groups": {
+    "away_up": {
+      "cells": [
+        "verb_particle_away_up"
+      ],
+      "hypotheses": {
+        "A2_extraction": 1.113,
+        "A2_units_recovery": 1.007,
+        "C_same_answer_effect": 0.022,
+        "P_damage": {
+          "ce_damage": 0.5231,
+          "ce_lb975": 0.4853,
+          "ce_ub975": 0.5603,
+          "margin_damage": 1.1486,
+          "top1_change_rate": 0.0625
+        },
+        "P_same_answer_effect": 0.0268,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 2.5085
+      },
+      "n_units": 17,
+      "per_shape": {
+        "verb_particle_away_up": {
+          "A1_damage": {
+            "ce_damage": 0.5576,
+            "ce_lb975": 0.5245,
+            "ce_ub975": 0.591,
+            "margin_damage": 1.2174,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0082,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.022,
+            "margin_damage": 0.0385,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.022,
+          "cross_abs_recovery": 1.016,
+          "joint_extraction": 1.034,
+          "n_held": 16,
+          "units_recovery": 0.983
+        },
+        "verb_particle_down_in": {
+          "A1_damage": {
+            "ce_damage": -0.0355,
+            "ce_lb975": -0.0404,
+            "ce_ub975": -0.0309,
+            "margin_damage": -0.0055,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": 0.0082,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.022,
+            "margin_damage": 0.0385,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.022,
+          "cross_abs_recovery": 0.013,
+          "joint_extraction": 0.015,
+          "n_held": 16,
+          "units_recovery": 0.888
+        }
+      }
+    },
+    "out_down": {
+      "cells": [
+        "verb_particle_out_down"
+      ],
+      "hypotheses": {
+        "A2_extraction": 0.863,
+        "A2_units_recovery": 0.943,
+        "C_same_answer_effect": 0.0086,
+        "P_damage": {
+          "ce_damage": 0.898,
+          "ce_lb975": 0.8149,
+          "ce_ub975": 0.9791,
+          "margin_damage": 1.9415,
+          "top1_change_rate": 0.1562
+        },
+        "P_same_answer_effect": 0.0568,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 4.3543
+      },
+      "n_units": 21,
+      "per_shape": {
+        "verb_particle_away_up_b": {
+          "A1_damage": {
+            "ce_damage": 0.0503,
+            "ce_lb975": 0.0292,
+            "ce_ub975": 0.0726,
+            "margin_damage": 0.0773,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0089,
+            "ce_lb975": -0.017,
+            "ce_ub975": -0.0013,
+            "margin_damage": -0.005,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": -0.0013,
+          "cross_abs_recovery": 0.006,
+          "joint_extraction": 0.007,
+          "n_held": 16,
+          "units_recovery": 0.877
+        },
+        "verb_particle_out_down": {
+          "A1_damage": {
+            "ce_damage": 0.9852,
+            "ce_lb975": 0.894,
+            "ce_ub975": 1.0738,
+            "margin_damage": 2.1106,
+            "top1_change_rate": 0.0625
+          },
+          "C_damage": {
+            "ce_damage": -0.0089,
+            "ce_lb975": -0.017,
+            "ce_ub975": -0.0013,
+            "margin_damage": -0.005,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": -0.0013,
+          "cross_abs_recovery": 1.013,
+          "joint_extraction": 1.036,
+          "n_held": 16,
+          "units_recovery": 0.978
+        }
+      }
+    }
+  },
+  "per_target": {
+    "away_up": {
+      "A1": 1.034,
+      "A2": 1.113,
+      "C": 0.022,
+      "P": 0.0268,
+      "measured": true,
+      "passes": true,
+      "reach": 0.888
+    },
+    "out_down": {
+      "A1": 1.036,
+      "A2": 0.863,
+      "C": 0.0086,
+      "P": 0.0568,
+      "measured": true,
+      "passes": true,
+      "reach": 0.877
+    }
+  },
+  "predictions": {
+    "pred_a_measured_A1": true,
+    "pred_b_measured_A2": true,
+    "pred_c_measured_P_and_C": true,
+    "pred_d_partners_reached": true,
+    "pred_e_all_measured": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_particle_battery_two_v571",
+  "seconds": 65.8
+}
