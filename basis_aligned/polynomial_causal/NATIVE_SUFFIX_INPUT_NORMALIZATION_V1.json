@@ -1,0 +1,4918 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "max_algebra_relative_error": 9.381126306800562e-14,
+  "max_prior_margin_replay_nats": 2.384185791015625e-06,
+  "cells": [
+    {
+      "family": "A1",
+      "program": "approximate",
+      "n": 16,
+      "normalization_relative_physical_norm": 0.4650197749448495,
+      "numerator_relative_physical_norm": 1.4008797682577316,
+      "numerator_full_physical_cosine": 0.980177170179115,
+      "fixed_actual_margin_cross_rms_ratio": 1.5084995250244888,
+      "margin_cross_sign_agreement": 1.0,
+      "fixed_actual_margin_cross_relative_error": 0.5312186542727544,
+      "actual_margin_cross_meanabs": 0.48090292140841484,
+      "fixed_margin_cross_meanabs": 0.7053584009408951
+    },
+    {
+      "family": "A1",
+      "program": "exact",
+      "n": 16,
+      "normalization_relative_physical_norm": 0.44092522919817856,
+      "numerator_relative_physical_norm": 1.3575156795488297,
+      "numerator_full_physical_cosine": 0.9754707818025584,
+      "fixed_actual_margin_cross_rms_ratio": 1.4808146545748564,
+      "margin_cross_sign_agreement": 1.0,
+      "fixed_actual_margin_cross_relative_error": 0.5042557353609053,
+      "actual_margin_cross_meanabs": 0.48668215051293373,
+      "fixed_margin_cross_meanabs": 0.7010964564979076
+    },
+    {
+      "family": "A2",
+      "program": "approximate",
+      "n": 16,
+      "normalization_relative_physical_norm": 0.09568191466910957,
+      "numerator_relative_physical_norm": 1.0518885698824467,
+      "numerator_full_physical_cosine": 0.9969280942414732,
+      "fixed_actual_margin_cross_rms_ratio": 1.038312699433562,
+      "margin_cross_sign_agreement": 1.0,
+      "fixed_actual_margin_cross_relative_error": 0.08689201120371308,
+      "actual_margin_cross_meanabs": 0.19323992729187012,
+      "fixed_margin_cross_meanabs": 0.20268148183822632
+    },
+    {
+      "family": "A2",
+      "program": "exact",
+      "n": 16,
+      "normalization_relative_physical_norm": 0.09720617589593246,
+      "numerator_relative_physical_norm": 1.0395852178540013,
+      "numerator_full_physical_cosine": 0.9962090403824554,
+      "fixed_actual_margin_cross_rms_ratio": 1.0209916522421452,
+      "margin_cross_sign_agreement": 1.0,
+      "fixed_actual_margin_cross_relative_error": 0.08937349676365593,
+      "actual_margin_cross_meanabs": 0.205855131149292,
+      "fixed_margin_cross_meanabs": 0.21229073405265808
+    },
+    {
+      "family": "past",
+      "program": "approximate",
+      "n": 16,
+      "normalization_relative_physical_norm": 0.23873595839226514,
+      "numerator_relative_physical_norm": 1.1236853108499256,
+      "numerator_full_physical_cosine": 0.9814464061660239,
+      "fixed_actual_margin_cross_rms_ratio": 1.1363406889264502,
+      "margin_cross_sign_agreement": 1.0,
+      "fixed_actual_margin_cross_relative_error": 0.20887136290561958,
+      "actual_margin_cross_meanabs": 0.011748254299163818,
+      "fixed_margin_cross_meanabs": 0.01323959231376648
+    },
+    {
+      "family": "past",
+      "program": "exact",
+      "n": 16,
+      "normalization_relative_physical_norm": 0.2804935780835433,
+      "numerator_relative_physical_norm": 1.1906991668732345,
+      "numerator_full_physical_cosine": 0.9822329282336395,
+      "fixed_actual_margin_cross_rms_ratio": 1.1776223936947408,
+      "margin_cross_sign_agreement": 1.0,
+      "fixed_actual_margin_cross_relative_error": 0.23446291299984368,
+      "actual_margin_cross_meanabs": 0.01244160532951355,
+      "fixed_margin_cross_meanabs": 0.014202892780303955
+    },
+    {
+      "family": "progressive",
+      "program": "approximate",
+      "n": 16,
+      "normalization_relative_physical_norm": 0.27384714278375705,
+      "numerator_relative_physical_norm": 1.1576519032012067,
+      "numerator_full_physical_cosine": 0.9783449001857881,
+      "fixed_actual_margin_cross_rms_ratio": 1.0503417468246827,
+      "margin_cross_sign_agreement": 0.875,
+      "fixed_actual_margin_cross_relative_error": 0.20751267632141954,
+      "actual_margin_cross_meanabs": 0.016222983598709106,
+      "fixed_margin_cross_meanabs": 0.017410993576049805
+    },
+    {
+      "family": "progressive",
+      "program": "exact",
+      "n": 16,
+      "normalization_relative_physical_norm": 0.17752533324557784,
+      "numerator_relative_physical_norm": 1.0525203255853526,
+      "numerator_full_physical_cosine": 0.9863390479759295,
+      "fixed_actual_margin_cross_rms_ratio": 0.9783345946577742,
+      "margin_cross_sign_agreement": 0.9375,
+      "fixed_actual_margin_cross_relative_error": 0.1502188598049554,
+      "actual_margin_cross_meanabs": 0.020845741033554077,
+      "fixed_margin_cross_meanabs": 0.020817726850509644
+    }
+  ],
+  "records": [
+    {
+      "row_id": "13c5ade1e331673de20e14ce904792f7dc3b30c966a88308af0f9cf44fef8b4e",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.3983291543701737,
+        1.1082917916177275,
+        1.2460256972732198
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -956.7885758914554,
+            -1317.7941062410266,
+            -587.760214473391
+          ],
+          "numerator_cross": [
+            -1721.790338951958,
+            -2138.3941532198214,
+            -1047.6688332295969
+          ],
+          "normalization_correction": [
+            765.0017630605121,
+            820.6000469787858,
+            459.9086187562079
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.4292840957641602,
+            0.16784906387329102,
+            0.7102129459381104
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.841828465461731,
+            0.1426999568939209,
+            0.7867012023925781
+          ],
+          "actual_margin_cross": 0.5512220859527588,
+          "fixed_margin_cross": 0.9124273061752319
+        },
+        "exact": {
+          "scalar_cross": [
+            -944.604033673455,
+            -1340.1431514408057,
+            -573.1771604836017
+          ],
+          "numerator_cross": [
+            -1733.2612625154513,
+            -2142.312228842098,
+            -1086.6825439524687
+          ],
+          "normalization_correction": [
+            788.6572288420041,
+            802.1690774012916,
+            513.5053834688705
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.3662755489349365,
+            0.13138794898986816,
+            0.6760904788970947
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.7475855350494385,
+            0.10073375701904297,
+            0.7405910491943359
+          ],
+          "actual_margin_cross": 0.5587971210479736,
+          "fixed_margin_cross": 0.9062607288360596
+        }
+      }
+    },
+    {
+      "row_id": "9943ab4d05cbf90265eabd967c55dba0ef7c0110889862530c1a7b00bcb59806",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.9320016648874897,
+        0.9879544068826297,
+        0.9233481002894715
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -748.30049855679,
+            -774.7078074655087,
+            -697.8161398023201
+          ],
+          "numerator_cross": [
+            -758.6055230473468,
+            -796.972661899891,
+            -701.6729592902167
+          ],
+          "normalization_correction": [
+            10.305024490560555,
+            22.26485443438056,
+            3.8568194878949384
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.9297370910644531,
+            0.24063587188720703,
+            0.9082489013671875
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9087910652160645,
+            0.2452225685119629,
+            0.8862862586975098
+          ],
+          "actual_margin_cross": -0.2191476821899414,
+          "fixed_margin_cross": -0.2227177619934082
+        },
+        "exact": {
+          "scalar_cross": [
+            -801.7420736385238,
+            -820.8071898020557,
+            -732.0138669123071
+          ],
+          "numerator_cross": [
+            -798.269984469417,
+            -833.058713312378,
+            -729.4759063183955
+          ],
+          "normalization_correction": [
+            -3.4720891691069937,
+            12.251523510321334,
+            -2.537960593910583
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.028782844543457,
+            0.2587757110595703,
+            1.0051751136779785
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9904437065124512,
+            0.26125240325927734,
+            0.9637641906738281
+          ],
+          "actual_margin_cross": -0.2351679801940918,
+          "fixed_margin_cross": -0.2345728874206543
+        }
+      }
+    },
+    {
+      "row_id": "b232ad220cf75b5ef8baa803a6c67bf985debd0d0ebe58db6c95eefad1794390",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.096485204294922,
+        1.0232879256914655,
+        1.045751001861593
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            144.27402706593284,
+            -23.80814708332491,
+            268.096338036981
+          ],
+          "numerator_cross": [
+            106.61743490589026,
+            -107.14339876549988,
+            247.3614405112762
+          ],
+          "normalization_correction": [
+            37.656592160042266,
+            83.33525168217909,
+            20.73489752570223
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.004102230072021484,
+            -0.011765480041503906,
+            0.004127025604248047
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.0008182525634765625,
+            -0.01290273666381836,
+            0.002551555633544922
+          ],
+          "actual_margin_cross": 0.011740684509277344,
+          "fixed_margin_cross": 0.01116943359375
+        },
+        "exact": {
+          "scalar_cross": [
+            119.40850397687336,
+            -86.94378532421115,
+            252.0047263231619
+          ],
+          "numerator_cross": [
+            77.05728344177008,
+            -183.72677764314383,
+            228.4210317034369
+          ],
+          "normalization_correction": [
+            42.35122053510318,
+            96.78299231893182,
+            23.583694619721385
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.006884574890136719,
+            -0.017186641693115234,
+            -0.0009503364562988281
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.009003639221191406,
+            -0.017928123474121094,
+            -0.0017137527465820312
+          ],
+          "actual_margin_cross": 0.011252403259277344,
+          "fixed_margin_cross": 0.010638236999511719
+        }
+      }
+    },
+    {
+      "row_id": "3d46247b250135a9f3a9955d428fafd91a3f9c34810672ca60f724b6b9eae0a5",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8978306862884349,
+        0.9380704052225857,
+        0.9214021887570106
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -32.94783218626617,
+            -369.20594119765246,
+            256.854409998715
+          ],
+          "numerator_cross": [
+            -218.39422110943553,
+            -547.4716164552759,
+            140.24310673820023
+          ],
+          "normalization_correction": [
+            185.4463889231692,
+            178.2656752576277,
+            116.61130326051385
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.0532841682434082,
+            0.009349346160888672,
+            0.04078960418701172
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.056664466857910156,
+            0.013977527618408203,
+            0.04437065124511719
+          ],
+          "actual_margin_cross": 0.0031452178955078125,
+          "fixed_margin_cross": -0.0016837120056152344
+        },
+        "exact": {
+          "scalar_cross": [
+            -49.39665533306379,
+            -523.3856485408137,
+            246.52436630010857
+          ],
+          "numerator_cross": [
+            -204.74284092788963,
+            -641.2504008077018,
+            145.10238862560126
+          ],
+          "normalization_correction": [
+            155.34618559483067,
+            117.86475226689203,
+            101.42197767451454
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.04826021194458008,
+            0.007648944854736328,
+            0.04166269302368164
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.049352169036865234,
+            0.010757923126220703,
+            0.04304075241088867
+          ],
+          "actual_margin_cross": -0.0010514259338378906,
+          "fixed_margin_cross": -0.004446506500244141
+        }
+      }
+    },
+    {
+      "row_id": "45231f7af8695362bb5a870bfb447290787415e6619e95f969a224bec82a0277",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.7083988921654901,
+        0.8940550546888391,
+        0.7824110453588611
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -985.0634783875818,
+            -1371.4202133088545,
+            -615.1843956880913
+          ],
+          "numerator_cross": [
+            -1283.4894440309372,
+            -1616.583076020985,
+            -776.5452228424181
+          ],
+          "normalization_correction": [
+            298.4259656433601,
+            245.16286271212414,
+            161.36082715433164
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.119053840637207,
+            0.5182867050170898,
+            0.9618315696716309
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.018106460571289,
+            0.5452785491943359,
+            0.9207363128662109
+          ],
+          "actual_margin_cross": -0.36106443405151367,
+          "fixed_margin_cross": -0.4479084014892578
+        },
+        "exact": {
+          "scalar_cross": [
+            -966.4222391393293,
+            -1392.3399046209174,
+            -588.9311849734358
+          ],
+          "numerator_cross": [
+            -1289.012836477946,
+            -1612.4811163245329,
+            -803.0905252545574
+          ],
+          "normalization_correction": [
+            322.59059733862006,
+            220.14121170361767,
+            214.15934028112392
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.0413541793823242,
+            0.48981761932373047,
+            0.9171142578125
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9597711563110352,
+            0.5186338424682617,
+            0.8833065032958984
+          ],
+          "actual_margin_cross": -0.36557769775390625,
+          "fixed_margin_cross": -0.442169189453125
+        }
+      }
+    },
+    {
+      "row_id": "fe05c7adfce536293dff056ed99f5eb7015ad1e53d9b26ecdca0d29f70a682d2",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.1084562613613929,
+        1.028969493235271,
+        1.0626625644248342
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -525.0249043501872,
+            -491.8354471884288,
+            -525.643311332845
+          ],
+          "numerator_cross": [
+            -649.8212809450727,
+            -616.3162663412386,
+            -625.6723376169483
+          ],
+          "normalization_correction": [
+            124.79637659488975,
+            124.48081915281409,
+            100.02902628410405
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.5750274658203125,
+            0.022893905639648438,
+            0.4244260787963867
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.6025180816650391,
+            0.014225006103515625,
+            0.4307889938354492
+          ],
+          "actual_margin_cross": 0.12770748138427734,
+          "fixed_margin_cross": 0.15750408172607422
+        },
+        "exact": {
+          "scalar_cross": [
+            -563.4593098883072,
+            -552.9936813758427,
+            -540.446661108806
+          ],
+          "numerator_cross": [
+            -697.3854916141075,
+            -675.5097050972543,
+            -654.257915762262
+          ],
+          "normalization_correction": [
+            133.92618172580023,
+            122.51602372141028,
+            113.81125465345679
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.7152366638183594,
+            0.02622509002685547,
+            0.5531826019287109
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.732234001159668,
+            0.010912895202636719,
+            0.552800178527832
+          ],
+          "actual_margin_cross": 0.13582897186279297,
+          "fixed_margin_cross": 0.16852092742919922
+        }
+      }
+    },
+    {
+      "row_id": "d71740cc2a6c43ed283b5956890a3275233098a71415faedae833f962519492b",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.0456044535672375,
+        1.012456829074794,
+        1.0081882533712854
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            175.4576499333375,
+            7.910599205521066,
+            281.8575044778079
+          ],
+          "numerator_cross": [
+            140.7149074231627,
+            -56.45922579949533,
+            262.3091304585003
+          ],
+          "normalization_correction": [
+            34.74274251018339,
+            64.3698250050231,
+            19.548374019299118
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.030078411102294922,
+            -0.0035843849182128906,
+            0.027585983276367188
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.034297943115234375,
+            -0.0028409957885742188,
+            0.028322696685791016
+          ],
+          "actual_margin_cross": 0.006076812744140625,
+          "fixed_margin_cross": 0.008816242218017578
+        },
+        "exact": {
+          "scalar_cross": [
+            143.12987256260203,
+            -53.709709019274214,
+            257.2965093320024
+          ],
+          "numerator_cross": [
+            113.39404913100249,
+            -120.49294291123702,
+            244.1916236202775
+          ],
+          "normalization_correction": [
+            29.735823431597964,
+            66.78323389196515,
+            13.10488571172609
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.05036211013793945,
+            0.0025243759155273438,
+            0.038804054260253906
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.05497169494628906,
+            0.0031909942626953125,
+            0.039534568786621094
+          ],
+          "actual_margin_cross": 0.009033679962158203,
+          "fixed_margin_cross": 0.012246131896972656
+        }
+      }
+    },
+    {
+      "row_id": "5108aa90ac1ee3696ab46f277bb7cece1854dc1c6259dfa3849631e2662148f3",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8590526833529758,
+        0.9313153704265003,
+        0.8877144627092969
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -27.82074976959484,
+            -358.8302420582331,
+            251.69583898104224
+          ],
+          "numerator_cross": [
+            -223.08635343254772,
+            -536.2230114004071,
+            131.17398372739595
+          ],
+          "normalization_correction": [
+            195.26560366294808,
+            177.39276934217372,
+            120.52185525364548
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.0031766891479492188,
+            -0.0020923614501953125,
+            0.0016489028930664062
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.0021076202392578125,
+            -0.0023670196533203125,
+            0.0009708404541015625
+          ],
+          "actual_margin_cross": 0.003620147705078125,
+          "fixed_margin_cross": 0.0035037994384765625
+        },
+        "exact": {
+          "scalar_cross": [
+            -72.53530594266886,
+            -547.5341411401555,
+            201.05337374055148
+          ],
+          "numerator_cross": [
+            -239.5295981873703,
+            -657.579736584122,
+            89.22429502738419
+          ],
+          "normalization_correction": [
+            166.99429224470484,
+            110.04559544396471,
+            111.8290787131684
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.008524894714355469,
+            -0.0025053024291992188,
+            0.005608558654785156
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.006995201110839844,
+            -0.0025510787963867188,
+            0.004742622375488281
+          ],
+          "actual_margin_cross": 0.005421638488769531,
+          "fixed_margin_cross": 0.004803657531738281
+        }
+      }
+    },
+    {
+      "row_id": "d2f44a3857603bf348f9dbc1e2ba12565ac9dd82358be0cfc4a7d958a6955349",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.3930159869203131,
+        1.101502585430136,
+        1.2464507941962313
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -1013.9576339122782,
+            -1416.1394932810995,
+            -607.8619776494609
+          ],
+          "numerator_cross": [
+            -1770.9379961563147,
+            -2219.27326450001,
+            -1055.6435588018774
+          ],
+          "normalization_correction": [
+            756.9803622440353,
+            803.133771218911,
+            447.7815811524234
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.5609242916107178,
+            0.15825557708740234,
+            0.7482399940490723
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.9917315244674683,
+            0.12650132179260254,
+            0.8165841102600098
+          ],
+          "actual_margin_cross": 0.6544287204742432,
+          "fixed_margin_cross": 1.048646092414856
+        },
+        "exact": {
+          "scalar_cross": [
+            -1002.7097408502582,
+            -1443.5375834846986,
+            -597.4603920759257
+          ],
+          "numerator_cross": [
+            -1781.2991319940797,
+            -2218.652400702491,
+            -1098.9344051513965
+          ],
+          "normalization_correction": [
+            778.5893911438187,
+            775.1148172177894,
+            501.4740130754733
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.4200446605682373,
+            0.09858179092407227,
+            0.6578445434570312
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.8268152475357056,
+            0.06894803047180176,
+            0.7237539291381836
+          ],
+          "actual_margin_cross": 0.6636183261871338,
+          "fixed_margin_cross": 1.0341132879257202
+        }
+      }
+    },
+    {
+      "row_id": "8a376f90dc403b5e9de5fa32116fcdfbb4689a38a5678a12ca526e67b1a483f8",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.9752895044229953,
+        1.0012918626259524,
+        0.9480521586465531
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -900.5618013707499,
+            -939.7851138267324,
+            -842.4992715011178
+          ],
+          "numerator_cross": [
+            -869.3487654409299,
+            -931.2742818904107,
+            -814.6408531160632
+          ],
+          "normalization_correction": [
+            -31.21303592981456,
+            -8.51083193632024,
+            -27.858418385054918
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.1744585037231445,
+            0.3195810317993164,
+            1.1675610542297363
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.164827823638916,
+            0.31897878646850586,
+            1.1476731300354004
+          ],
+          "actual_margin_cross": -0.3126835823059082,
+          "fixed_margin_cross": -0.30182409286499023
+        },
+        "exact": {
+          "scalar_cross": [
+            -938.6253807480009,
+            -965.5026793689692,
+            -869.3816550985496
+          ],
+          "numerator_cross": [
+            -877.086613418951,
+            -940.1555706972063,
+            -815.935677764239
+          ],
+          "normalization_correction": [
+            -61.53876732904765,
+            -25.34710867176657,
+            -53.44597733431055
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.372696876525879,
+            0.3365058898925781,
+            1.36100435256958
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.3532299995422363,
+            0.3361830711364746,
+            1.3207001686096191
+          ],
+          "actual_margin_cross": -0.3248133659362793,
+          "fixed_margin_cross": -0.3036532402038574
+        }
+      }
+    },
+    {
+      "row_id": "22d9d77ace4f3207bf9696548b6b3cb089eca9a8b56e6c99647f49add6af87c8",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.0498275085272604,
+        1.0184757913507745,
+        1.0048822666609813
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            167.49498319280883,
+            4.392492441188551,
+            286.0712936491302
+          ],
+          "numerator_cross": [
+            133.4805640968881,
+            -62.1704097398747,
+            264.23092178124153
+          ],
+          "normalization_correction": [
+            34.014419095906334,
+            66.5629021810636,
+            21.840371867888724
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.05488443374633789,
+            0.00016450881958007812,
+            0.06016206741333008
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.04470205307006836,
+            -0.004597187042236328,
+            0.05918741226196289
+          ],
+          "actual_margin_cross": -0.005442142486572266,
+          "fixed_margin_cross": -0.009888172149658203
+        },
+        "exact": {
+          "scalar_cross": [
+            140.46970000465262,
+            -58.0121583795235,
+            255.20268526273685
+          ],
+          "numerator_cross": [
+            109.04306915322961,
+            -129.70349111641644,
+            240.4537170147515
+          ],
+          "normalization_correction": [
+            31.426630851420164,
+            71.69133273690021,
+            14.748968247984935
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.017173290252685547,
+            -0.011026859283447266,
+            0.03737831115722656
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.007115364074707031,
+            -0.015264511108398438,
+            0.03648519515991211
+          ],
+          "actual_margin_cross": -0.00917816162109375,
+          "fixed_margin_cross": -0.01410531997680664
+        }
+      }
+    },
+    {
+      "row_id": "04cef85f1ffaf039216a5bdcc48d5ecc8d79b449fb5e3638fc401f0a432d38ab",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8288862572428598,
+        0.9221960846619145,
+        0.8651091292568972
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -40.9189550842907,
+            -384.781952085395,
+            248.6762548565489
+          ],
+          "numerator_cross": [
+            -272.0897429568822,
+            -600.531705680789,
+            109.01533195077845
+          ],
+          "normalization_correction": [
+            231.17078787259132,
+            215.7497535953863,
+            139.6609229057663
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.10654640197753906,
+            0.03310060501098633,
+            0.10768508911132812
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.1169595718383789,
+            0.04339885711669922,
+            0.11572980880737305
+          ],
+          "actual_margin_cross": -0.03423929214477539,
+          "fixed_margin_cross": -0.04216909408569336
+        },
+        "exact": {
+          "scalar_cross": [
+            -59.630288784729146,
+            -536.6797319247571,
+            205.20839090084155
+          ],
+          "numerator_cross": [
+            -260.1566491418236,
+            -683.5545459882646,
+            79.85973743739898
+          ],
+          "normalization_correction": [
+            200.52636035710026,
+            146.87481406351105,
+            125.34865346344937
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.06821155548095703,
+            0.02825641632080078,
+            0.08245658874511719
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.08058023452758789,
+            0.03689289093017578,
+            0.09030628204345703
+          ],
+          "actual_margin_cross": -0.04250144958496094,
+          "fixed_margin_cross": -0.04661893844604492
+        }
+      }
+    },
+    {
+      "row_id": "b3c4f1dad8ee10dc364f0416152c3a55e8a86bef39cee23292a189aca91c537f",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.7242964539358367,
+        0.8934593770320708,
+        0.8005500070095671
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -924.1379762334379,
+            -1306.6425373097973,
+            -576.1608329854301
+          ],
+          "numerator_cross": [
+            -1225.3916878697642,
+            -1566.8011269475123,
+            -742.2853827185579
+          ],
+          "normalization_correction": [
+            301.2537116363328,
+            260.15858963771666,
+            166.12454973312748
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.1866679191589355,
+            0.5460991859436035,
+            1.0139546394348145
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.083369255065918,
+            0.5744471549987793,
+            0.9737386703491211
+          ],
+          "actual_margin_cross": -0.3733859062194824,
+          "fixed_margin_cross": -0.4648165702819824
+        },
+        "exact": {
+          "scalar_cross": [
+            -903.1296980281431,
+            -1330.0496529683614,
+            -546.6355849133156
+          ],
+          "numerator_cross": [
+            -1219.592789739073,
+            -1560.5540951865307,
+            -755.8770936825309
+          ],
+          "normalization_correction": [
+            316.4630917109306,
+            230.50444221816764,
+            209.2415087692134
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.1449384689331055,
+            0.5285711288452148,
+            0.9935932159423828
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.0356459617614746,
+            0.5520286560058594,
+            0.9447779655456543
+          ],
+          "actual_margin_cross": -0.3772258758544922,
+          "fixed_margin_cross": -0.46116065979003906
+        }
+      }
+    },
+    {
+      "row_id": "770097cb2d1b343d5c48fa39d0766d321b487ef58710d31e13e511ca4dc80155",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.0918845092979923,
+        0.9987682816614515,
+        1.0723229005207615
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -612.633791054418,
+            -625.143685272928,
+            -592.2301579545033
+          ],
+          "numerator_cross": [
+            -691.3979126916512,
+            -712.1343172885796,
+            -659.4497394587053
+          ],
+          "normalization_correction": [
+            78.7641216372287,
+            86.99063201565255,
+            67.2195815042005
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.8536572456359863,
+            0.017604827880859375,
+            0.6423568725585938
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9046339988708496,
+            0.01795196533203125,
+            0.6670918464660645
+          ],
+          "actual_margin_cross": 0.1936955451965332,
+          "fixed_margin_cross": 0.2195901870727539
+        },
+        "exact": {
+          "scalar_cross": [
+            -663.2623141392689,
+            -673.3613262531087,
+            -627.643036898379
+          ],
+          "numerator_cross": [
+            -739.6054494727392,
+            -753.8667250408788,
+            -696.9061049258996
+          ],
+          "normalization_correction": [
+            76.34313533347276,
+            80.50539878777178,
+            69.26306802752012
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.005356788635254,
+            0.023007869720458984,
+            0.7714567184448242
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.0446410179138184,
+            0.023687362670898438,
+            0.7853827476501465
+          ],
+          "actual_margin_cross": 0.2108922004699707,
+          "fixed_margin_cross": 0.23557090759277344
+        }
+      }
+    },
+    {
+      "row_id": "25659219b7f11bf1e4588dab6fa396cdfae8bfa0d40c6a9dd519a616289bc6fe",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.0380706817972623,
+        1.01518837434092,
+        0.998977568639908
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            114.83871860004956,
+            -27.696629057983955,
+            249.48375921373759
+          ],
+          "numerator_cross": [
+            79.92840997614185,
+            -92.66377179412378,
+            227.55057770098225
+          ],
+          "normalization_correction": [
+            34.910308623913004,
+            64.96714273614177,
+            21.933181512755734
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.039266109466552734,
+            -0.007246494293212891,
+            -0.04065370559692383
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.04315662384033203,
+            -0.008295536041259766,
+            -0.04054689407348633
+          ],
+          "actual_margin_cross": 0.008634090423583984,
+          "fixed_margin_cross": 0.0056858062744140625
+        },
+        "exact": {
+          "scalar_cross": [
+            77.9105093583239,
+            -89.44669224937888,
+            207.9861558752225
+          ],
+          "numerator_cross": [
+            43.87293356618492,
+            -162.92545514559953,
+            189.39918372102096
+          ],
+          "normalization_correction": [
+            34.037575792134284,
+            73.47876289621057,
+            18.58697215419731
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.06191205978393555,
+            -0.015077590942382812,
+            -0.05106782913208008
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.06613349914550781,
+            -0.016050338745117188,
+            -0.050966739654541016
+          ],
+          "actual_margin_cross": 0.004233360290527344,
+          "fixed_margin_cross": 0.0008835792541503906
+        }
+      }
+    },
+    {
+      "row_id": "5927540f7a91b69fd0a1403ff80288b251695c13cae8f0e269534324bb27f67d",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8622323494708768,
+        0.9387609205415376,
+        0.8909385203212483
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -62.944811036537885,
+            -331.9577840122415,
+            166.09325731085346
+          ],
+          "numerator_cross": [
+            -225.22336267388476,
+            -494.5914892322466,
+            67.10235036801576
+          ],
+          "normalization_correction": [
+            162.27855163735234,
+            162.63370522000332,
+            98.99090694283333
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.005566120147705078,
+            -0.0028181076049804688,
+            -0.0019130706787109375
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.007257938385009766,
+            -0.0016608238220214844,
+            0.0002346038818359375
+          ],
+          "actual_margin_cross": 0.010297298431396484,
+          "fixed_margin_cross": 0.008684158325195312
+        },
+        "exact": {
+          "scalar_cross": [
+            -111.91143002951162,
+            -492.38630915670865,
+            117.92679180414416
+          ],
+          "numerator_cross": [
+            -247.63219328349425,
+            -604.3423925885025,
+            28.77749134489274
+          ],
+          "normalization_correction": [
+            135.7207632539835,
+            111.95608343179516,
+            89.14930045925331
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.01929759979248047,
+            -0.0009703636169433594,
+            0.011982440948486328
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.017829418182373047,
+            -0.0004353523254394531,
+            0.011624813079833984
+          ],
+          "actual_margin_cross": 0.0082855224609375,
+          "fixed_margin_cross": 0.006639957427978516
+        }
+      }
+    },
+    {
+      "row_id": "2bee6a767ee9ee03d845a6a2d900ef93a7a74cafb64d7c221948e264a954b562",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.3904174592149545,
+        1.1132953197208841,
+        1.2395328536709254
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -835.0200759831152,
+            -1145.4132544795825,
+            -510.0241534499469
+          ],
+          "numerator_cross": [
+            -1514.645598646561,
+            -1862.4515285912191,
+            -930.8091807720936
+          ],
+          "normalization_correction": [
+            679.6255226634316,
+            717.0382741116397,
+            420.78502732214616
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.3436049222946167,
+            0.2464766502380371,
+            0.6502034068107605
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.6539409756660461,
+            0.21206450462341309,
+            0.6741710305213928
+          ],
+          "actual_margin_cross": 0.4469248652458191,
+          "fixed_margin_cross": 0.7677054405212402
+        },
+        "exact": {
+          "scalar_cross": [
+            -829.9587182749688,
+            -1171.721115657726,
+            -493.77090045124146
+          ],
+          "numerator_cross": [
+            -1530.1768777931163,
+            -1865.2406503337754,
+            -963.6289662214429
+          ],
+          "normalization_correction": [
+            700.2181595181522,
+            693.5195346760582,
+            469.85806577020014
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.345965027809143,
+            0.23522281646728516,
+            0.6588091254234314
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.6204639077186584,
+            0.18892717361450195,
+            0.6623692512512207
+          ],
+          "actual_margin_cross": 0.4519330859184265,
+          "fixed_margin_cross": 0.7691674828529358
+        }
+      }
+    },
+    {
+      "row_id": "3e9dd988636567634d02e19800eef8dcad207ef78e2972dff3f0e00e255b6f71",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.9633985394014086,
+        0.9957554969762117,
+        0.9453100960445946
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -652.1878523416808,
+            -730.2240519259226,
+            -618.486719621561
+          ],
+          "numerator_cross": [
+            -638.924065982696,
+            -729.5151741095095,
+            -605.6845165230915
+          ],
+          "normalization_correction": [
+            -13.263786358988085,
+            -0.7088778164165639,
+            -12.802203098474259
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.0369973182678223,
+            0.2574286460876465,
+            1.0243639945983887
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.0257201194763184,
+            0.259432315826416,
+            1.0082135200500488
+          ],
+          "actual_margin_cross": -0.2447953224182129,
+          "fixed_margin_cross": -0.24192571640014648
+        },
+        "exact": {
+          "scalar_cross": [
+            -721.809996811307,
+            -777.8031119449729,
+            -669.3762562615498
+          ],
+          "numerator_cross": [
+            -686.5576878426216,
+            -760.4710784869977,
+            -636.2217050969102
+          ],
+          "normalization_correction": [
+            -35.25230896868388,
+            -17.332033457978007,
+            -33.15455116463677
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.1896634101867676,
+            0.28951406478881836,
+            1.1636228561401367
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.164888858795166,
+            0.2904696464538574,
+            1.1280465126037598
+          ],
+          "actual_margin_cross": -0.2634735107421875,
+          "fixed_margin_cross": -0.25362730026245117
+        }
+      }
+    },
+    {
+      "row_id": "3391f70b0d4289e94d3510a51449d295d6fd295c7749bb6ac4f9977ebcf07656",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.1184432177741912,
+        1.0374383255088782,
+        1.0555016212191226
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            131.32769563002148,
+            -22.688891759064063,
+            246.773778879166
+          ],
+          "numerator_cross": [
+            108.98427049716895,
+            -88.53364022233056,
+            234.37341655837062
+          ],
+          "normalization_correction": [
+            22.343425132854108,
+            65.84474846326299,
+            12.40036232079148
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.05431365966796875,
+            0.01003122329711914,
+            0.05446958541870117
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.06013917922973633,
+            0.010233879089355469,
+            0.05719709396362305
+          ],
+          "actual_margin_cross": -0.010187149047851562,
+          "fixed_margin_cross": -0.0072917938232421875
+        },
+        "exact": {
+          "scalar_cross": [
+            92.18635170842799,
+            -93.17391386386862,
+            208.53560828262914
+          ],
+          "numerator_cross": [
+            58.46986403461674,
+            -183.32343254067138,
+            186.14062985349938
+          ],
+          "normalization_correction": [
+            33.71648767380776,
+            90.14951867680229,
+            22.394978429124485
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.07358932495117188,
+            0.01682758331298828,
+            0.06292438507080078
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.08050727844238281,
+            0.016894817352294922,
+            0.06556129455566406
+          ],
+          "actual_margin_cross": -0.0061626434326171875,
+          "fixed_margin_cross": -0.0019488334655761719
+        }
+      }
+    },
+    {
+      "row_id": "2acc99b355715945de5770ea52002e637ce1f1f1b8b994ef341db7a0e54116ae",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8673711422055749,
+        0.9315264471639294,
+        0.9012039553978124
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -55.06850708780894,
+            -315.85391539853117,
+            188.3806808663287
+          ],
+          "numerator_cross": [
+            -212.07571385021512,
+            -459.8939319659612,
+            93.32771332241778
+          ],
+          "normalization_correction": [
+            157.00720676239933,
+            144.04001656743173,
+            95.05296754390824
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.1421365737915039,
+            0.016527652740478516,
+            0.13466596603393555
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.14388370513916016,
+            0.025938987731933594,
+            0.1367039680480957
+          ],
+          "actual_margin_cross": -0.009057044982910156,
+          "fixed_margin_cross": -0.01875925064086914
+        },
+        "exact": {
+          "scalar_cross": [
+            -131.09821843344366,
+            -469.55490071483655,
+            126.96251837261104
+          ],
+          "numerator_cross": [
+            -251.96810872666694,
+            -549.1273854223465,
+            44.84591330381887
+          ],
+          "normalization_correction": [
+            120.86989029323198,
+            79.57248470751392,
+            82.11660506879437
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.13365650177001953,
+            0.01315450668334961,
+            0.1324167251586914
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.13060903549194336,
+            0.019806385040283203,
+            0.1302804946899414
+          ],
+          "actual_margin_cross": -0.011914730072021484,
+          "fixed_margin_cross": -0.01947784423828125
+        }
+      }
+    },
+    {
+      "row_id": "0292356e7beef38aadfe40929d80069d71e5b8e3ce4a409f8635c9ef0518e272",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.7298841219053628,
+        0.9115289704413662,
+        0.7896754078247544
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -1004.7246326750214,
+            -1384.5812720301496,
+            -635.5597203752967
+          ],
+          "numerator_cross": [
+            -1286.253398164083,
+            -1618.297620187868,
+            -796.6845565300107
+          ],
+          "normalization_correction": [
+            281.5287654890647,
+            233.71634815772006,
+            161.12483615471174
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.0804524421691895,
+            0.5153608322143555,
+            0.9504203796386719
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.0033540725708008,
+            0.5401320457458496,
+            0.9178009033203125
+          ],
+          "actual_margin_cross": -0.3853287696838379,
+          "fixed_margin_cross": -0.45457887649536133
+        },
+        "exact": {
+          "scalar_cross": [
+            -991.4035472364653,
+            -1410.5953932854895,
+            -618.1647682958696
+          ],
+          "numerator_cross": [
+            -1291.5436954281313,
+            -1621.7572915827704,
+            -821.5290232879192
+          ],
+          "normalization_correction": [
+            300.1401481916686,
+            211.16189829728162,
+            203.364254992052
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.0133004188537598,
+            0.48542022705078125,
+            0.9215021133422852
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9431533813476562,
+            0.5091652870178223,
+            0.8862528800964355
+          ],
+          "actual_margin_cross": -0.39362192153930664,
+          "fixed_margin_cross": -0.45226478576660156
+        }
+      }
+    },
+    {
+      "row_id": "0aa43f34867e5462e2cb12ae7feb5f5d246aab69e467842da003e057b4bd3fee",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        0.9899949623745422,
+        0.9707133309272097,
+        0.995103139503034
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -646.8079134353543,
+            -698.8318766847908,
+            -616.5156640604504
+          ],
+          "numerator_cross": [
+            -598.0825888511781,
+            -672.5561505133134,
+            -578.1449617523115
+          ],
+          "normalization_correction": [
+            -48.725324584176974,
+            -26.27572617147883,
+            -38.37070230814199
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.9649486541748047,
+            0.014238357543945312,
+            0.7454161643981934
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9586067199707031,
+            0.023602962493896484,
+            0.7433962821960449
+          ],
+          "actual_margin_cross": 0.20529413223266602,
+          "fixed_margin_cross": 0.19160747528076172
+        },
+        "exact": {
+          "scalar_cross": [
+            -669.081703059438,
+            -734.9723597902712,
+            -647.9823652655864
+          ],
+          "numerator_cross": [
+            -594.4547922803865,
+            -697.0769749395105,
+            -584.66414084575
+          ],
+          "normalization_correction": [
+            -74.62691077904762,
+            -37.89538485075994,
+            -63.31822441983335
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.1069374084472656,
+            0.024711132049560547,
+            0.8681201934814453
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.102118968963623,
+            0.042293548583984375,
+            0.8669395446777344
+          ],
+          "actual_margin_cross": 0.21410608291625977,
+          "fixed_margin_cross": 0.1928858757019043
+        }
+      }
+    },
+    {
+      "row_id": "eb706c54a33d1711abb1157954c96feac6670bd5bb2b43fcb76ea61cc3041bab",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.0665500098432572,
+        1.0228274599912113,
+        1.0210632294808324
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            88.53809370539739,
+            -29.10214552450543,
+            200.40837846860745
+          ],
+          "numerator_cross": [
+            67.9417702699622,
+            -80.77181125072093,
+            187.03257296514187
+          ],
+          "normalization_correction": [
+            20.596323435422846,
+            51.669665726213765,
+            13.375805503470069
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.03804922103881836,
+            -0.007424831390380859,
+            -0.03976917266845703
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.033031463623046875,
+            -0.004996299743652344,
+            -0.03821897506713867
+          ],
+          "actual_margin_cross": 0.009144783020019531,
+          "fixed_margin_cross": 0.01018381118774414
+        },
+        "exact": {
+          "scalar_cross": [
+            66.38682374781092,
+            -70.28799259339667,
+            189.95685345545849
+          ],
+          "numerator_cross": [
+            46.92732013851886,
+            -130.6861376411797,
+            177.54714158778208
+          ],
+          "normalization_correction": [
+            19.459503609285818,
+            60.398145047765894,
+            12.409711867668229
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.029138565063476562,
+            -0.006538867950439453,
+            -0.03291511535644531
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.02433300018310547,
+            -0.0043735504150390625,
+            -0.0314788818359375
+          ],
+          "actual_margin_cross": 0.010315418243408203,
+          "fixed_margin_cross": 0.011519432067871094
+        }
+      }
+    },
+    {
+      "row_id": "9e09116e25a32ef466d98c852a0820bc3a291c750fc5a4d70c20c79e267d85d5",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8834560738667475,
+        0.9288025515620534,
+        0.921443447102669
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -0.8775075395733438,
+            -316.3933323299839,
+            232.8578410225532
+          ],
+          "numerator_cross": [
+            -164.94785583436501,
+            -470.13094959990775,
+            142.7360117504077
+          ],
+          "normalization_correction": [
+            164.07034829479898,
+            153.7376172699219,
+            90.12182927214708
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.021526813507080078,
+            -0.0070476531982421875,
+            -0.01704549789428711
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.024580955505371094,
+            -0.010027408599853516,
+            -0.019459247589111328
+          ],
+          "actual_margin_cross": 0.0025663375854492188,
+          "fixed_margin_cross": 0.00490570068359375
+        },
+        "exact": {
+          "scalar_cross": [
+            -45.35547611086372,
+            -469.10621068359296,
+            206.9783743750753
+          ],
+          "numerator_cross": [
+            -185.86032184312742,
+            -566.9554399165576,
+            118.47800186919126
+          ],
+          "normalization_correction": [
+            140.50484573226512,
+            97.84922923296239,
+            88.50037250589017
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.018407344818115234,
+            -0.006139278411865234,
+            -0.01895761489868164
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.019896507263183594,
+            -0.00795888900756836,
+            -0.019913673400878906
+          ],
+          "actual_margin_cross": 0.006689548492431641,
+          "fixed_margin_cross": 0.007976055145263672
+        }
+      }
+    },
+    {
+      "row_id": "493cf9b0503e588769a1357f0b46c9b0405de5081a4814bbd11cd9f369055dda",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.3427236619837593,
+        1.075677588947069,
+        1.2236971807699393
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -1116.7130260908166,
+            -1603.6061412298675,
+            -685.8927168337452
+          ],
+          "numerator_cross": [
+            -1889.2034161466981,
+            -2448.1465890083996,
+            -1162.6230721378943
+          ],
+          "normalization_correction": [
+            772.4903900558714,
+            844.5404477785326,
+            476.73035530414853
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.3557817935943604,
+            0.09868097305297852,
+            0.7020263671875
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.7028437852859497,
+            0.07974767684936523,
+            0.7810826301574707
+          ],
+          "actual_margin_cross": 0.5550744533538818,
+          "fixed_margin_cross": 0.8420134782791138
+        },
+        "exact": {
+          "scalar_cross": [
+            -1097.6986052499415,
+            -1635.223992012367,
+            -667.9804883312181
+          ],
+          "numerator_cross": [
+            -1882.4539029485486,
+            -2451.4227136645586,
+            -1185.5546577935431
+          ],
+          "normalization_correction": [
+            784.7552976986076,
+            816.1987216521937,
+            517.5741694623293
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.192834496498108,
+            0.03662729263305664,
+            0.5884394645690918
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.5282011032104492,
+            0.022804737091064453,
+            0.6710481643676758
+          ],
+          "actual_margin_cross": 0.5677677392959595,
+          "fixed_margin_cross": 0.834348201751709
+        }
+      }
+    },
+    {
+      "row_id": "0a4edd1a87f90ad15ebeef9749a668aca535344d3f5d8152d5678e250fd589d3",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.9311455184779233,
+        0.9889470011586717,
+        0.9229232875885093
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -503.785993445945,
+            -527.3529137438013,
+            -480.1645244891149
+          ],
+          "numerator_cross": [
+            -512.996373376905,
+            -546.4415066807004,
+            -487.669574915624
+          ],
+          "normalization_correction": [
+            9.210379930960968,
+            19.088592936902423,
+            7.505050426511403
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.0027341842651367,
+            0.1894698143005371,
+            0.9653401374816895
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9712820053100586,
+            0.19341611862182617,
+            0.9330239295959473
+          ],
+          "actual_margin_cross": -0.15207576751708984,
+          "fixed_margin_cross": -0.15515804290771484
+        },
+        "exact": {
+          "scalar_cross": [
+            -550.3688605643354,
+            -582.2691850560425,
+            -527.7142039698156
+          ],
+          "numerator_cross": [
+            -544.3161299067164,
+            -590.1253659217874,
+            -520.1577637254314
+          ],
+          "normalization_correction": [
+            -6.052730657611505,
+            7.856180865749877,
+            -7.556440244380951
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.1908330917358398,
+            0.21481990814208984,
+            1.1419949531555176
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.1338467597961426,
+            0.21646881103515625,
+            1.0819745063781738
+          ],
+          "actual_margin_cross": -0.16598176956176758,
+          "fixed_margin_cross": -0.1645965576171875
+        }
+      }
+    },
+    {
+      "row_id": "9ed01d8d3395f92d67b58f34eeb0215ada00b6e36122514e27bc7abc73b6eda5",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.1394786646400448,
+        1.0341179970000658,
+        1.0829528095868344
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            128.84505815815555,
+            2.7269315759849633,
+            253.28513347624403
+          ],
+          "numerator_cross": [
+            137.80710475780555,
+            -34.48902738006367,
+            264.8670502890602
+          ],
+          "normalization_correction": [
+            -8.962046599646783,
+            37.21595895605333,
+            -11.581916812815777
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.0013356208801269531,
+            0.006729602813720703,
+            0.0033445358276367188
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.003287792205810547,
+            0.006541252136230469,
+            0.0025644302368164062
+          ],
+          "actual_margin_cross": -0.011409759521484375,
+          "fixed_margin_cross": -0.012393474578857422
+        },
+        "exact": {
+          "scalar_cross": [
+            115.739316218167,
+            -36.67449477869786,
+            233.2475064154321
+          ],
+          "numerator_cross": [
+            109.522106837739,
+            -101.71963356521456,
+            233.16600931858707
+          ],
+          "normalization_correction": [
+            6.217209380430319,
+            65.04513878652261,
+            0.08149709684964535
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.0020837783813476562,
+            0.009809017181396484,
+            -0.0008134841918945312
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.004923343658447266,
+            0.009518623352050781,
+            -0.0024123191833496094
+          ],
+          "actual_margin_cross": -0.01107931137084961,
+          "fixed_margin_cross": -0.012029647827148438
+        }
+      }
+    },
+    {
+      "row_id": "76cba63966710efdd4b79a1ef0d5a73a0710a7226d3fe6c7e55c645818cb8f94",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.9132521018090196,
+        0.9422646272313304,
+        0.9406787631924797
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -144.67548319151047,
+            -370.62839908083197,
+            92.81285902722948
+          ],
+          "numerator_cross": [
+            -276.1845354688498,
+            -498.1387994165266,
+            17.964855087129774
+          ],
+          "normalization_correction": [
+            131.5090522773401,
+            127.51040033569242,
+            74.84800394009388
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.013744831085205078,
+            -0.0053844451904296875,
+            -0.007207393646240234
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.015583515167236328,
+            -0.007168292999267578,
+            -0.008855342864990234
+          ],
+          "actual_margin_cross": -0.0011529922485351562,
+          "fixed_margin_cross": 0.0004401206970214844
+        },
+        "exact": {
+          "scalar_cross": [
+            -179.4762622755618,
+            -488.37625712432146,
+            69.23065209126639
+          ],
+          "numerator_cross": [
+            -286.9078704419037,
+            -572.6068119845215,
+            0.7587782938958362
+          ],
+          "normalization_correction": [
+            107.43160816634514,
+            84.23055486020972,
+            68.47187379737443
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.020390033721923828,
+            -0.003798961639404297,
+            -0.017885684967041016
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.02052450180053711,
+            -0.004878520965576172,
+            -0.018120288848876953
+          ],
+          "actual_margin_cross": 0.0012946128845214844,
+          "fixed_margin_cross": 0.0024743080139160156
+        }
+      }
+    },
+    {
+      "row_id": "87c36e0e9e001651d5c847ae7f311f29424ebfd1e9241b853a6d1b10215c6fe7",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.7032634658205071,
+        0.8972463077366115,
+        0.7756597610927465
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -965.3596027196754,
+            -1319.894140813963,
+            -610.3119771594934
+          ],
+          "numerator_cross": [
+            -1264.7960705883747,
+            -1580.3309235012412,
+            -771.7910773328824
+          ],
+          "normalization_correction": [
+            299.43646786869795,
+            260.4367826872851,
+            161.47910017338785
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.1208767890930176,
+            0.5446281433105469,
+            0.9234862327575684
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.0003070831298828,
+            0.5621209144592285,
+            0.8766775131225586
+          ],
+          "actual_margin_cross": -0.34723758697509766,
+          "fixed_margin_cross": -0.4384913444519043
+        },
+        "exact": {
+          "scalar_cross": [
+            -945.2736814115763,
+            -1333.8516294595088,
+            -581.2224627277234
+          ],
+          "numerator_cross": [
+            -1269.0947688214624,
+            -1574.1487037749926,
+            -795.6583787827967
+          ],
+          "normalization_correction": [
+            323.8210874098901,
+            240.29707431548127,
+            214.43591605507157
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.1204195022583008,
+            0.5371160507202148,
+            0.9304800033569336
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9886550903320312,
+            0.5514259338378906,
+            0.8735237121582031
+          ],
+          "actual_margin_cross": -0.34717655181884766,
+          "fixed_margin_cross": -0.4362945556640625
+        }
+      }
+    },
+    {
+      "row_id": "fefa77d8f9b4084f98a77eb19f04f31c0699e830b510e9324155ba3d0382a4ca",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.0609175876562993,
+        0.9825539543556484,
+        1.0532966296559632
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -695.4149715874801,
+            -765.5456679830905,
+            -655.2139712816972
+          ],
+          "numerator_cross": [
+            -733.2507288101258,
+            -819.2388477335714,
+            -686.9771892905537
+          ],
+          "normalization_correction": [
+            37.83575722264582,
+            53.69317975048783,
+            31.763218008853777
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.826629638671875,
+            0.0026264190673828125,
+            0.6038122177124023
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.8634729385375977,
+            0.0064907073974609375,
+            0.6240806579589844
+          ],
+          "actual_margin_cross": 0.22019100189208984,
+          "fixed_margin_cross": 0.23290157318115234
+        },
+        "exact": {
+          "scalar_cross": [
+            -780.475096984755,
+            -829.052892292967,
+            -725.6737833066279
+          ],
+          "numerator_cross": [
+            -804.8369173249754,
+            -873.9964827420628,
+            -747.5747511302873
+          ],
+          "normalization_correction": [
+            24.361820340217502,
+            44.94359044909936,
+            21.90096782365867
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.945103645324707,
+            0.021803855895996094,
+            0.6818828582763672
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9742136001586914,
+            0.029557228088378906,
+            0.6932544708251953
+          ],
+          "actual_margin_cross": 0.24141693115234375,
+          "fixed_margin_cross": 0.2514019012451172
+        }
+      }
+    },
+    {
+      "row_id": "cd15ba19c0d706f77d89b3f29612c0fc146d2017b7c3d15b3a0143610c92a2b8",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.0369499222720087,
+        1.0043503230218893,
+        1.0097524920786618
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            152.58053227662958,
+            18.08447797891631,
+            258.88880378730823
+          ],
+          "numerator_cross": [
+            113.2070695296807,
+            -44.43600397587792,
+            236.81241980503682
+          ],
+          "normalization_correction": [
+            39.373462746943076,
+            62.52048195479733,
+            22.07638398227388
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.04570627212524414,
+            0.002460479736328125,
+            0.0411067008972168
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.04913759231567383,
+            0.0026807785034179688,
+            0.041968345642089844
+          ],
+          "actual_margin_cross": 0.0021390914916992188,
+          "fixed_margin_cross": 0.004488468170166016
+        },
+        "exact": {
+          "scalar_cross": [
+            119.01712991221575,
+            -43.83261492548536,
+            219.2607057546171
+          ],
+          "numerator_cross": [
+            85.25039861663393,
+            -105.94776807146646,
+            202.65398855697217
+          ],
+          "normalization_correction": [
+            33.76673129558268,
+            62.115153145977715,
+            16.606717197649605
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.0685577392578125,
+            0.007635593414306641,
+            0.054759979248046875
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.07226705551147461,
+            0.007808685302734375,
+            0.05560302734375
+          ],
+          "actual_margin_cross": 0.006162166595458984,
+          "fixed_margin_cross": 0.008855342864990234
+        }
+      }
+    },
+    {
+      "row_id": "9a9d73192309d4a088e7b35c7da0c6a028cbbd5f965737e308bb50dbceddd137",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8950543218203629,
+        0.9407441554629065,
+        0.9178932258752095
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -102.05993088637388,
+            -412.38773874393655,
+            174.05635322703097
+          ],
+          "numerator_cross": [
+            -258.9592800648862,
+            -562.0830463695467,
+            84.36840130558659
+          ],
+          "normalization_correction": [
+            156.8993491785148,
+            149.6953076256189,
+            89.68795192144535
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.060007572174072266,
+            -0.018627166748046875,
+            0.05196714401245117
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.05343484878540039,
+            -0.017798900604248047,
+            0.04748249053955078
+          ],
+          "actual_margin_cross": 0.02666759490966797,
+          "fixed_margin_cross": 0.023751258850097656
+        },
+        "exact": {
+          "scalar_cross": [
+            -166.69600698924205,
+            -574.47535084642,
+            129.56108907767884
+          ],
+          "numerator_cross": [
+            -294.5132938272798,
+            -670.0118356840923,
+            49.81042494913735
+          ],
+          "normalization_correction": [
+            127.81728683804047,
+            95.53648483767108,
+            79.75066412854113
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.09997367858886719,
+            -0.018289566040039062,
+            0.08141183853149414
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.09036588668823242,
+            -0.01676654815673828,
+            0.07543373107910156
+          ],
+          "actual_margin_cross": 0.03685140609741211,
+          "fixed_margin_cross": 0.03169870376586914
+        }
+      }
+    },
+    {
+      "row_id": "306f3f5a114adba3515a63897cfca2965fbdf1dfa5732521cec9ed3497263f1c",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.4311943986307052,
+        1.1028408212267,
+        1.2840299031976818
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -988.2582095602738,
+            -1350.8133902726154,
+            -607.3367770400164
+          ],
+          "numerator_cross": [
+            -1819.7143578586763,
+            -2244.1581905006515,
+            -1105.2397749522188
+          ],
+          "normalization_correction": [
+            831.4561482984086,
+            893.3448002280425,
+            497.90299791220195
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.5640301704406738,
+            0.19607257843017578,
+            0.7826189994812012
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            2.0525150299072266,
+            0.17016983032226562,
+            0.878455638885498
+          ],
+          "actual_margin_cross": 0.5853385925292969,
+          "fixed_margin_cross": 1.003889560699463
+        },
+        "exact": {
+          "scalar_cross": [
+            -979.5365323638848,
+            -1372.5037678094886,
+            -593.1574596655732
+          ],
+          "numerator_cross": [
+            -1832.2456340998353,
+            -2244.6843702561055,
+            -1143.4618454409683
+          ],
+          "normalization_correction": [
+            852.7091017359528,
+            872.1806024466256,
+            550.3043857753954
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.4957695007324219,
+            0.15820789337158203,
+            0.7451896667480469
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.9407596588134766,
+            0.1255817413330078,
+            0.8220992088317871
+          ],
+          "actual_margin_cross": 0.592371940612793,
+          "fixed_margin_cross": 0.9930787086486816
+        }
+      }
+    },
+    {
+      "row_id": "e70007a7271e4bd59a45939b8152186c2530277ff255f84e637f54d4e10f96f4",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.9944316594536013,
+        0.9838824560490836,
+        0.9885196769295259
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -754.7060992215495,
+            -794.2951768483867,
+            -706.828003973025
+          ],
+          "numerator_cross": [
+            -772.1724286468609,
+            -828.6415904395731,
+            -723.6594604891277
+          ],
+          "normalization_correction": [
+            17.466329425305876,
+            34.34641359118455,
+            16.831456516107362
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.1433639526367188,
+            0.2626953125,
+            1.1558380126953125
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.1416606903076172,
+            0.27196693420410156,
+            1.1521778106689453
+          ],
+          "actual_margin_cross": -0.27516937255859375,
+          "fixed_margin_cross": -0.2824840545654297
+        },
+        "exact": {
+          "scalar_cross": [
+            -757.6887329699973,
+            -806.7016879037699,
+            -730.8346582619738
+          ],
+          "numerator_cross": [
+            -760.9063149091485,
+            -830.0569407116869,
+            -732.7689010963807
+          ],
+          "normalization_correction": [
+            3.217581939152346,
+            23.355252807920074,
+            1.9342428344074882
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.3332891464233398,
+            0.29320383071899414,
+            1.321578025817871
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.3295183181762695,
+            0.2990584373474121,
+            1.3139400482177734
+          ],
+          "actual_margin_cross": -0.2814927101135254,
+          "fixed_margin_cross": -0.283480167388916
+        }
+      }
+    },
+    {
+      "row_id": "926da77d95322954de04b4c87f33e9c0e8c18f091d65c0d983cd7a1dd084f021",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.1100659495302205,
+        1.0482317153117178,
+        1.0358729915674112
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            117.26176104103479,
+            -15.984709288456088,
+            233.03851958328346
+          ],
+          "numerator_cross": [
+            107.27440392947497,
+            -76.72927125661732,
+            227.56301574235437
+          ],
+          "normalization_correction": [
+            9.987357111559248,
+            60.744561968165826,
+            5.475503840929754
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.050179481506347656,
+            -0.009974479675292969,
+            0.050060272216796875
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.04959678649902344,
+            -0.013094902038574219,
+            0.049859046936035156
+          ],
+          "actual_margin_cross": 0.01009368896484375,
+          "fixed_margin_cross": 0.0128326416015625
+        },
+        "exact": {
+          "scalar_cross": [
+            87.16198361612715,
+            -63.47523066915437,
+            202.61560931213103
+          ],
+          "numerator_cross": [
+            70.24598337374323,
+            -144.9388969516579,
+            193.98180385404135
+          ],
+          "normalization_correction": [
+            16.916000242389735,
+            81.46366628250973,
+            8.63380545809052
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.051207542419433594,
+            -0.011816978454589844,
+            0.052657127380371094
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.05295085906982422,
+            -0.014077186584472656,
+            0.05327320098876953
+          ],
+          "actual_margin_cross": 0.010367393493652344,
+          "fixed_margin_cross": 0.013754844665527344
+        }
+      }
+    },
+    {
+      "row_id": "acaee2cce183e56254319f84866fa52ea511084fbd5912c2610aefa8f5b65cfa",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8887992151697616,
+        0.9372996540681591,
+        0.9112648288043179
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -25.924146719444252,
+            -377.5535980142304,
+            253.6668952139787
+          ],
+          "numerator_cross": [
+            -207.82351634780682,
+            -544.573499200383,
+            146.8142636168459
+          ],
+          "normalization_correction": [
+            181.8993696283561,
+            167.019901186153,
+            106.85263159713136
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.03419923782348633,
+            -0.005297660827636719,
+            -0.029325485229492188
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.03798675537109375,
+            -0.009356021881103516,
+            -0.03277730941772461
+          ],
+          "actual_margin_cross": 0.0004239082336425781,
+          "fixed_margin_cross": 0.004146575927734375
+        },
+        "exact": {
+          "scalar_cross": [
+            -57.39992627420361,
+            -540.8092698460825,
+            243.05735867691055
+          ],
+          "numerator_cross": [
+            -209.60301060544683,
+            -646.1694050043023,
+            143.70352271075598
+          ],
+          "normalization_correction": [
+            152.20308433124185,
+            105.36013515821185,
+            99.35383596615296
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.034381866455078125,
+            -0.003632068634033203,
+            -0.03635120391845703
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.035857200622558594,
+            -0.006442070007324219,
+            -0.03733682632446289
+          ],
+          "actual_margin_cross": 0.005601406097412109,
+          "fixed_margin_cross": 0.007921695709228516
+        }
+      }
+    },
+    {
+      "row_id": "c46d824d73ede2c123c25bb0c7850df80865a1ce6a6fad27b386f7e4aebc80f6",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.7238363271462618,
+        0.8932378681626656,
+        0.7953025414651771
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -1097.1768335646402,
+            -1585.534088685114,
+            -659.2875492468211
+          ],
+          "numerator_cross": [
+            -1410.5557144910792,
+            -1826.8146632183032,
+            -827.1497880301654
+          ],
+          "normalization_correction": [
+            313.3788809264396,
+            241.28057453318297,
+            167.86223878334619
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.4775958061218262,
+            0.7056117057800293,
+            1.2662382125854492
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.3423333168029785,
+            0.7357773780822754,
+            1.2092881202697754
+          ],
+          "actual_margin_cross": -0.49425411224365234,
+          "fixed_margin_cross": -0.6027321815490723
+        },
+        "exact": {
+          "scalar_cross": [
+            -1077.8401684636021,
+            -1613.8042551091307,
+            -638.6830572644132
+          ],
+          "numerator_cross": [
+            -1411.5692342029329,
+            -1824.286005519221,
+            -858.5011332474808
+          ],
+          "normalization_correction": [
+            333.72906573932937,
+            210.48175041009017,
+            219.81807598307373
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.4190258979797363,
+            0.6767973899841309,
+            1.239023208618164
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.2919774055480957,
+            0.7069282531738281,
+            1.1817436218261719
+          ],
+          "actual_margin_cross": -0.4967947006225586,
+          "fixed_margin_cross": -0.5966944694519043
+        }
+      }
+    },
+    {
+      "row_id": "1af952aca9179326f5b9b5ec2812aa92e62507c47da7b1fc98917b42afeeb356",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.0714064500118652,
+        1.0031859034174906,
+        1.0511457843882797
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -569.4810430183556,
+            -568.6448265579708,
+            -541.047421941544
+          ],
+          "numerator_cross": [
+            -639.3349811629747,
+            -645.3089393224085,
+            -598.6101561356516
+          ],
+          "normalization_correction": [
+            69.85393814461837,
+            76.66411276444049,
+            57.56273419410774
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.9286470413208008,
+            0.03050708770751953,
+            0.7016639709472656
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9741582870483398,
+            0.029669761657714844,
+            0.7225637435913086
+          ],
+          "actual_margin_cross": 0.19647598266601562,
+          "fixed_margin_cross": 0.2219247817993164
+        },
+        "exact": {
+          "scalar_cross": [
+            -638.0331402241509,
+            -651.7985961881426,
+            -595.9413788222371
+          ],
+          "numerator_cross": [
+            -706.8626381588864,
+            -726.4059692297167,
+            -656.1945435615341
+          ],
+          "normalization_correction": [
+            68.8294979347323,
+            74.60737304157325,
+            60.253164739296345
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.0473194122314453,
+            0.03768348693847656,
+            0.7864503860473633
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.0815973281860352,
+            0.036002159118652344,
+            0.7975959777832031
+          ],
+          "actual_margin_cross": 0.22318553924560547,
+          "fixed_margin_cross": 0.2479991912841797
+        }
+      }
+    },
+    {
+      "row_id": "1759ef47fcb001f63124f140df8945f8497b63e6d0b4ab99dd1f6a3dff6a6ed6",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.0199480880450809,
+        1.0147827642015697,
+        0.9789306788539989
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            169.72025121210254,
+            2.7100943949667453,
+            296.88155411094135
+          ],
+          "numerator_cross": [
+            129.9240902674945,
+            -67.50334569118026,
+            272.79859877052036
+          ],
+          "normalization_correction": [
+            39.79616094460945,
+            70.21344008615247,
+            24.082955340425176
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.09651851654052734,
+            0.0016140937805175781,
+            0.08382606506347656
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.09442806243896484,
+            -0.0013165473937988281,
+            0.08630084991455078
+          ],
+          "actual_margin_cross": 0.011078357696533203,
+          "fixed_margin_cross": 0.00944375991821289
+        },
+        "exact": {
+          "scalar_cross": [
+            131.83578463119693,
+            -61.75737507177246,
+            252.84489487076917
+          ],
+          "numerator_cross": [
+            98.61131409372325,
+            -131.93061146252512,
+            238.16746238166664
+          ],
+          "normalization_correction": [
+            33.22447053746913,
+            70.17323639074112,
+            14.677432489098793
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.07362985610961914,
+            -0.004512786865234375,
+            0.0680551528930664
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.07200002670288086,
+            -0.006862640380859375,
+            0.0698995590209961
+          ],
+          "actual_margin_cross": 0.01008749008178711,
+          "fixed_margin_cross": 0.00896310806274414
+        }
+      }
+    },
+    {
+      "row_id": "52175778a30d7da453189bdc1b22a7c78cd7d9e9d4b5c141d4dd78f177e1c3dd",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8840398597761214,
+        0.943780028541562,
+        0.9014065697693847
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -121.16631071969005,
+            -416.8505052732362,
+            189.4186887894955
+          ],
+          "numerator_cross": [
+            -272.3456948755815,
+            -560.5037675893882,
+            97.50975788986447
+          ],
+          "normalization_correction": [
+            151.17938415588532,
+            143.653262316155,
+            91.9089308996289
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.11744165420532227,
+            0.010516166687011719,
+            0.10959529876708984
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.11768722534179688,
+            0.016524791717529297,
+            0.11058187484741211
+          ],
+          "actual_margin_cross": -0.002669811248779297,
+          "fixed_margin_cross": -0.009419441223144531
+        },
+        "exact": {
+          "scalar_cross": [
+            -221.11135458340755,
+            -580.1699825494534,
+            78.13515130492624
+          ],
+          "numerator_cross": [
+            -332.2962867620926,
+            -669.44645186547,
+            11.811171231832448
+          ],
+          "normalization_correction": [
+            111.18493217867781,
+            89.27646931601859,
+            66.32398007308657
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.11550712585449219,
+            0.006471157073974609,
+            0.11381244659423828
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.11290359497070312,
+            0.011277198791503906,
+            0.11177778244018555
+          ],
+          "actual_margin_cross": -0.004776477813720703,
+          "fixed_margin_cross": -0.010151386260986328
+        }
+      }
+    },
+    {
+      "row_id": "3f4071ba81f6c2c4c9a97717eb8b6882f5832000a8a2a71d21f45d4f9cd251f0",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.3651010595860504,
+        1.0915484067611867,
+        1.2292959217348063
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -1119.948806116304,
+            -1586.0727618175858,
+            -681.3776867577085
+          ],
+          "numerator_cross": [
+            -1898.4549881194891,
+            -2433.221200302802,
+            -1150.5027021317535
+          ],
+          "normalization_correction": [
+            778.5061820031854,
+            847.1484384852175,
+            469.12501537403716
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.7045629024505615,
+            0.1867084503173828,
+            0.8212571144104004
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            2.139846086502075,
+            0.15575742721557617,
+            0.889432430267334
+          ],
+          "actual_margin_cross": 0.6965973377227783,
+          "fixed_margin_cross": 1.094656229019165
+        },
+        "exact": {
+          "scalar_cross": [
+            -1104.6194679283767,
+            -1607.9255025948855,
+            -667.3380382684609
+          ],
+          "numerator_cross": [
+            -1905.6318316304807,
+            -2433.587729945586,
+            -1189.3725893743704
+          ],
+          "normalization_correction": [
+            801.0123637021068,
+            825.6622273507093,
+            522.0345511059093
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.615222454071045,
+            0.1375727653503418,
+            0.7756209373474121
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            2.029508590698242,
+            0.10528707504272461,
+            0.8410944938659668
+          ],
+          "actual_margin_cross": 0.702028751373291,
+          "fixed_margin_cross": 1.0831270217895508
+        }
+      }
+    },
+    {
+      "row_id": "f250d5ae41d9eb4b0f5bf439d7d7088858461ea72f8bf8c608dfa76a31440403",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.9396020037324024,
+        0.9896950297760303,
+        0.9261720505068107
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -565.7675144848558,
+            -603.5825415650784,
+            -533.1799391748734
+          ],
+          "numerator_cross": [
+            -570.8814952814325,
+            -627.2922434852221,
+            -534.4013049320043
+          ],
+          "normalization_correction": [
+            5.11398079657171,
+            23.70970192014141,
+            1.221365757132375
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.8904051780700684,
+            0.18478775024414062,
+            0.8379864692687988
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.8620257377624512,
+            0.18721771240234375,
+            0.807164192199707
+          ],
+          "actual_margin_cross": -0.1323690414428711,
+          "fixed_margin_cross": -0.1323561668395996
+        },
+        "exact": {
+          "scalar_cross": [
+            -615.8721062140044,
+            -657.8712148787645,
+            -578.9316201346294
+          ],
+          "numerator_cross": [
+            -613.3055293136003,
+            -675.5186473931658,
+            -571.4036557952477
+          ],
+          "normalization_correction": [
+            -2.566576900400605,
+            17.647432514400954,
+            -7.527964339381754
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.0466914176940918,
+            0.22560787200927734,
+            0.965113639831543
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.004854679107666,
+            0.22693300247192383,
+            0.9199953079223633
+          ],
+          "actual_margin_cross": -0.14403009414672852,
+          "fixed_margin_cross": -0.1420736312866211
+        }
+      }
+    },
+    {
+      "row_id": "8ace4061e333993031bc479736eb58567848f9b047be83190bd03751fb1537df",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.0354050426223718,
+        1.0133782822190955,
+        0.9978114876565157
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            155.71381830656674,
+            -4.605959779124987,
+            269.70064204092523
+          ],
+          "numerator_cross": [
+            118.34879565726547,
+            -71.75104813427552,
+            246.84847931050305
+          ],
+          "normalization_correction": [
+            37.36502264929417,
+            67.14508835514803,
+            22.85216273042223
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.06534719467163086,
+            0.0018157958984375,
+            0.0705876350402832
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.06351089477539062,
+            0.0002918243408203125,
+            0.07069015502929688
+          ],
+          "actual_margin_cross": -0.007056236267089844,
+          "fixed_margin_cross": -0.0074710845947265625
+        },
+        "exact": {
+          "scalar_cross": [
+            121.64365926453547,
+            -57.18626386417691,
+            232.52575807328776
+          ],
+          "numerator_cross": [
+            91.0916199096672,
+            -125.02462913057667,
+            217.38520589974857
+          ],
+          "normalization_correction": [
+            30.552039354870793,
+            67.83836526640049,
+            15.140552173539602
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.06092119216918945,
+            0.002833843231201172,
+            0.06412029266357422
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.05938720703125,
+            0.0014848709106445312,
+            0.06420755386352539
+          ],
+          "actual_margin_cross": -0.0060329437255859375,
+          "fixed_margin_cross": -0.006305217742919922
+        }
+      }
+    },
+    {
+      "row_id": "d6397c7a849856740c955339c4b5f0bd4451bc049aaf3f78b16bd70e1658cd00",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.875634447484219,
+        0.9408003284544872,
+        0.8980392035291594
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -113.13297720601804,
+            -410.6849971695665,
+            182.3008126848813
+          ],
+          "numerator_cross": [
+            -278.1637357651906,
+            -568.017412618551,
+            81.43596681238476
+          ],
+          "normalization_correction": [
+            165.03075855916617,
+            157.3324154489915,
+            100.8648458724993
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.08110237121582031,
+            0.004604339599609375,
+            0.07941341400146484
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.0777273178100586,
+            0.0073947906494140625,
+            0.0768136978149414
+          ],
+          "actual_margin_cross": -0.0029153823852539062,
+          "fixed_margin_cross": -0.006481170654296875
+        },
+        "exact": {
+          "scalar_cross": [
+            -176.29572855149786,
+            -576.7446862058532,
+            127.6439727922077
+          ],
+          "numerator_cross": [
+            -303.99139493108487,
+            -672.8992826297501,
+            46.39432579607196
+          ],
+          "normalization_correction": [
+            127.695666379585,
+            96.15459642389581,
+            81.24964699613435
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.08183002471923828,
+            0.000823974609375,
+            0.07880878448486328
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.07794380187988281,
+            0.00370025634765625,
+            0.07594585418701172
+          ],
+          "actual_margin_cross": 0.002197265625,
+          "fixed_margin_cross": -0.0017023086547851562
+        }
+      }
+    },
+    {
+      "row_id": "61e58af52c2003dd651f5bd98a517fa03ac8492776bde0eaf4224d5b5767c422",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.7249811330293219,
+        0.90150272388232,
+        0.7921638156380018
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -1043.6331229962473,
+            -1452.5357805967947,
+            -647.4096104008897
+          ],
+          "numerator_cross": [
+            -1325.4844307069561,
+            -1680.7475478954275,
+            -804.1681375833194
+          ],
+          "normalization_correction": [
+            281.8513077107058,
+            228.21176729863447,
+            156.75852718242913
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.3557357788085938,
+            0.6839103698730469,
+            1.1421804428100586
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.2310404777526855,
+            0.7054738998413086,
+            1.0924072265625
+          ],
+          "actual_margin_cross": -0.4703550338745117,
+          "fixed_margin_cross": -0.566840648651123
+        },
+        "exact": {
+          "scalar_cross": [
+            -1024.8132382281067,
+            -1476.0733358307862,
+            -620.440980159361
+          ],
+          "numerator_cross": [
+            -1330.5690558280219,
+            -1680.1113298433381,
+            -825.866530177109
+          ],
+          "normalization_correction": [
+            305.7558175999135,
+            204.03799401255003,
+            205.42555001774616
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.3460941314697266,
+            0.6664438247680664,
+            1.153071403503418
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.2124919891357422,
+            0.6855740547180176,
+            1.0923008918762207
+          ],
+          "actual_margin_cross": -0.4734210968017578,
+          "fixed_margin_cross": -0.5653829574584961
+        }
+      }
+    },
+    {
+      "row_id": "1dcf52d80fb1bee762f550b5d211aff69fc7e91f2be513c2e088babadc55075e",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.0327532044633438,
+        0.9730269442442622,
+        1.0351548003550524
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -710.3731230259862,
+            -743.6795735856325,
+            -677.5811151696007
+          ],
+          "numerator_cross": [
+            -694.8276335321101,
+            -758.3588742862199,
+            -665.8381304005966
+          ],
+          "normalization_correction": [
+            -15.545489493874214,
+            14.679300700588556,
+            -11.742984769006682
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.8855772018432617,
+            0.035248756408691406,
+            0.6696987152099609
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9022684097290039,
+            0.04451179504394531,
+            0.6799449920654297
+          ],
+          "actual_margin_cross": 0.18062973022460938,
+          "fixed_margin_cross": 0.1778116226196289
+        },
+        "exact": {
+          "scalar_cross": [
+            -730.7618915743287,
+            -755.2804609356165,
+            -696.788394839406
+          ],
+          "numerator_cross": [
+            -700.7889130236047,
+            -764.3890679619253,
+            -668.910370809915
+          ],
+          "normalization_correction": [
+            -29.972978550727184,
+            9.10860702630491,
+            -27.878024029496707
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.9819736480712891,
+            0.05050849914550781,
+            0.7452917098999023
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9959039688110352,
+            0.0641775131225586,
+            0.7518529891967773
+          ],
+          "actual_margin_cross": 0.1861734390258789,
+          "fixed_margin_cross": 0.17987346649169922
+        }
+      }
+    },
+    {
+      "row_id": "1a8d61c720663b7c9b52c6489db1ebe77035327d6a510ddfd0a25fe0247c5e00",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.0638304538439887,
+        1.0264758448253757,
+        1.0131465966659394
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            130.57083487926639,
+            -16.540383392494732,
+            240.92938612298303
+          ],
+          "numerator_cross": [
+            102.5641709378156,
+            -82.20786728342668,
+            222.28763337806464
+          ],
+          "normalization_correction": [
+            28.006663941450622,
+            65.6674838909279,
+            18.64175274492146
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.059870243072509766,
+            -0.02143096923828125,
+            0.05530977249145508
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.06130552291870117,
+            -0.022960662841796875,
+            0.055545806884765625
+          ],
+          "actual_margin_cross": 0.025991439819335938,
+          "fixed_margin_cross": 0.028720378875732422
+        },
+        "exact": {
+          "scalar_cross": [
+            100.56477296384264,
+            -71.06283099071288,
+            209.4482687046701
+          ],
+          "numerator_cross": [
+            69.90425965144286,
+            -145.41675714317233,
+            190.90687724220078
+          ],
+          "normalization_correction": [
+            30.660513312396567,
+            74.35392615246155,
+            18.54139146246915
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.05674171447753906,
+            -0.02557516098022461,
+            0.055438995361328125
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.05978584289550781,
+            -0.026479721069335938,
+            0.0560460090637207
+          ],
+          "actual_margin_cross": 0.026877880096435547,
+          "fixed_margin_cross": 0.030219554901123047
+        }
+      }
+    },
+    {
+      "row_id": "b7e01a3ba8bd6095b902e7179cff860dddbf8315fef43dbed389d36728e14f33",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8785079797070564,
+        0.9321213752528482,
+        0.9049043919390398
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -88.04800110334418,
+            -408.41052024136434,
+            218.25810419857294
+          ],
+          "numerator_cross": [
+            -279.2639539915881,
+            -585.7385782584377,
+            106.45111699014252
+          ],
+          "normalization_correction": [
+            191.21595288823417,
+            177.32805801707843,
+            111.80698720842969
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.004407405853271484,
+            -0.025860309600830078,
+            -0.015458106994628906
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.014910697937011719,
+            -0.030388832092285156,
+            -0.022625446319580078
+          ],
+          "actual_margin_cross": 0.0369110107421875,
+          "fixed_margin_cross": 0.038103580474853516
+        },
+        "exact": {
+          "scalar_cross": [
+            -183.66371199564765,
+            -609.4670790486969,
+            145.13195060052317
+          ],
+          "numerator_cross": [
+            -340.04738290877975,
+            -715.3141746487388,
+            45.06060265881031
+          ],
+          "normalization_correction": [
+            156.38367091312952,
+            105.84709560004256,
+            100.07134794170982
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.060166358947753906,
+            -0.02531147003173828,
+            0.03448486328125
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.04670429229736328,
+            -0.027084827423095703,
+            0.026413440704345703
+          ],
+          "actual_margin_cross": 0.05099296569824219,
+          "fixed_margin_cross": 0.04737567901611328
+        }
+      }
+    },
+    {
+      "row_id": "9910e8661eb202402c7af1ff477dab5a1915af6873034a3bb07303d5363fbd0e",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.3995885365501626,
+        1.1119048394627242,
+        1.2429943837877575
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -1026.394358356114,
+            -1440.074332827036,
+            -617.323157053936
+          ],
+          "numerator_cross": [
+            -1860.8913455389693,
+            -2339.8220525173824,
+            -1121.99831080284
+          ],
+          "normalization_correction": [
+            834.4969871828608,
+            899.7477196903483,
+            504.6751537489018
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.3467683792114258,
+            0.22779011726379395,
+            0.6030685901641846
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.7018399238586426,
+            0.2011127471923828,
+            0.6364474296569824
+          ],
+          "actual_margin_cross": 0.5159096717834473,
+          "fixed_margin_cross": 0.8642797470092773
+        },
+        "exact": {
+          "scalar_cross": [
+            -1019.6076032128813,
+            -1468.3588845019865,
+            -605.4162449313549
+          ],
+          "numerator_cross": [
+            -1877.6030537181596,
+            -2347.7980408264034,
+            -1163.4679389249095
+          ],
+          "normalization_correction": [
+            857.9954505052759,
+            879.4391563244141,
+            558.051693993556
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.4113922119140625,
+            0.23936772346496582,
+            0.6511712074279785
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.7056801319122314,
+            0.18999505043029785,
+            0.6439540386199951
+          ],
+          "actual_margin_cross": 0.5208532810211182,
+          "fixed_margin_cross": 0.8717310428619385
+        }
+      }
+    },
+    {
+      "row_id": "e1e87ca5f4550c12d97a0d8e6e561c2e98d9d348ac8e5ca4b3efd01895f061ef",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.9313297261883596,
+        0.9700718409422993,
+        0.9417789298852697
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -442.77594846794,
+            -480.6295380003128,
+            -431.3460983066834
+          ],
+          "numerator_cross": [
+            -499.23802332322543,
+            -542.027106581009,
+            -472.4993404099613
+          ],
+          "normalization_correction": [
+            56.46207485528677,
+            61.39756858070027,
+            41.153242103277606
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.8610053062438965,
+            0.16959524154663086,
+            0.8112277984619141
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.8321757316589355,
+            0.17773103713989258,
+            0.7896833419799805
+          ],
+          "actual_margin_cross": -0.11981773376464844,
+          "fixed_margin_cross": -0.1352386474609375
+        },
+        "exact": {
+          "scalar_cross": [
+            -511.0971166394788,
+            -544.5393040072613,
+            -461.2667097508722
+          ],
+          "numerator_cross": [
+            -559.5103633723173,
+            -595.872720071064,
+            -498.344041342661
+          ],
+          "normalization_correction": [
+            48.41324673284126,
+            51.33341606380065,
+            37.0773315917895
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.012073040008545,
+            0.19201087951660156,
+            0.959251880645752
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9614744186401367,
+            0.19450712203979492,
+            0.9194307327270508
+          ],
+          "actual_margin_cross": -0.1391897201538086,
+          "fixed_margin_cross": -0.15246343612670898
+        }
+      }
+    },
+    {
+      "row_id": "a7237af553bb6a9c2e48b210e479612d63b014f463f2841e243d0dfff915c337",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.167524682176887,
+        1.0587771310991052,
+        1.0751842953064636
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            154.2788235884127,
+            -32.19019891523385,
+            291.5545198754303
+          ],
+          "numerator_cross": [
+            130.08583195806665,
+            -140.07631206641923,
+            283.90362806286134
+          ],
+          "normalization_correction": [
+            24.192991630355948,
+            107.88611315118624,
+            7.650891812572141
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.041878700256347656,
+            -0.023580551147460938,
+            0.03866910934448242
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.042700767517089844,
+            -0.027097225189208984,
+            0.03876638412475586
+          ],
+          "actual_margin_cross": 0.026790142059326172,
+          "fixed_margin_cross": 0.03103160858154297
+        },
+        "exact": {
+          "scalar_cross": [
+            124.54386554605526,
+            -93.59463439328465,
+            263.27979926294006
+          ],
+          "numerator_cross": [
+            70.6414871979668,
+            -242.80970913177435,
+            235.79439589684495
+          ],
+          "normalization_correction": [
+            53.90237834809895,
+            149.21507473850744,
+            27.48540336609878
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.03008747100830078,
+            -0.030791282653808594,
+            0.03386211395263672
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.03353071212768555,
+            -0.033150672912597656,
+            0.03564929962158203
+          ],
+          "actual_margin_cross": 0.027016639709472656,
+          "fixed_margin_cross": 0.031032085418701172
+        }
+      }
+    },
+    {
+      "row_id": "7ea96a5b0c0df992002aa1ce778661a3258fc6be3526225981167489e1f64e40",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.9130906870465536,
+        0.9509914453257635,
+        0.9236335313698056
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -121.30871232439176,
+            -448.5802610936862,
+            215.27071422570089
+          ],
+          "numerator_cross": [
+            -265.2192000975792,
+            -595.1731371712959,
+            126.22482826292976
+          ],
+          "normalization_correction": [
+            143.91048777318798,
+            146.59287607762377,
+            89.04588596277291
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.032039642333984375,
+            -0.03428077697753906,
+            -0.05465888977050781
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.037929534912109375,
+            -0.03759479522705078,
+            -0.058109283447265625
+          ],
+          "actual_margin_cross": 0.0569000244140625,
+          "fixed_margin_cross": 0.05777454376220703
+        },
+        "exact": {
+          "scalar_cross": [
+            -229.53771371154448,
+            -631.8666906655162,
+            116.93906062657368
+          ],
+          "numerator_cross": [
+            -333.1607642616972,
+            -726.3178390541628,
+            54.47233211274356
+          ],
+          "normalization_correction": [
+            103.62305055014505,
+            94.45114838864112,
+            62.4667285138288
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.026247024536132812,
+            -0.036998748779296875,
+            0.0016345977783203125
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.0157012939453125,
+            -0.039885520935058594,
+            -0.005736351013183594
+          ],
+          "actual_margin_cross": 0.061611175537109375,
+          "fixed_margin_cross": 0.06132316589355469
+        }
+      }
+    },
+    {
+      "row_id": "b61b5b2041ef0e4c7b87ffb78b11d2c310ebe2b55dd02fef14fc21c2d41f19eb",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.7143244261313809,
+        0.8959059411333061,
+        0.7889626565756128
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -923.5706154845948,
+            -1274.324499148052,
+            -588.4812012179517
+          ],
+          "numerator_cross": [
+            -1235.3224848310938,
+            -1549.1782376034025,
+            -761.4479722584147
+          ],
+          "normalization_correction": [
+            311.7518693465005,
+            274.85373845534957,
+            172.96677104046012
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.2447214126586914,
+            0.5616788864135742,
+            1.049321174621582
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.135488510131836,
+            0.5930299758911133,
+            1.0099554061889648
+          ],
+          "actual_margin_cross": -0.36627864837646484,
+          "fixed_margin_cross": -0.4674968719482422
+        },
+        "exact": {
+          "scalar_cross": [
+            -905.8835068163419,
+            -1294.8720459041856,
+            -562.7925111642453
+          ],
+          "numerator_cross": [
+            -1237.6918570865387,
+            -1544.7895882561604,
+            -782.4958620575472
+          ],
+          "normalization_correction": [
+            331.8083502701943,
+            249.9175423519704,
+            219.70335089330123
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.190908432006836,
+            0.5357789993286133,
+            1.0254926681518555
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.0887079238891602,
+            0.5667719841003418,
+            0.9849920272827148
+          ],
+          "actual_margin_cross": -0.3703632354736328,
+          "fixed_margin_cross": -0.4630560874938965
+        }
+      }
+    },
+    {
+      "row_id": "5f1a89d55c8ad3985e7618596fa72efede7beefded3e6c29377a5ef065554a17",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.0239763384521618,
+        0.9728939056433576,
+        1.026997689981894
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -781.3574682582268,
+            -842.2491931127219,
+            -725.8344065491822
+          ],
+          "numerator_cross": [
+            -769.4337459115454,
+            -850.7715202380907,
+            -718.2461482950246
+          ],
+          "normalization_correction": [
+            -11.923722346684809,
+            8.522327125364697,
+            -7.588258254156234
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.9713363647460938,
+            0.03192901611328125,
+            0.7219839096069336
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9873647689819336,
+            0.03938579559326172,
+            0.7332191467285156
+          ],
+          "actual_margin_cross": 0.2174234390258789,
+          "fixed_margin_cross": 0.21475982666015625
+        },
+        "exact": {
+          "scalar_cross": [
+            -799.9148670877605,
+            -862.4317482527526,
+            -757.8969181485215
+          ],
+          "numerator_cross": [
+            -770.4298142866189,
+            -866.7123261431143,
+            -733.1044221847078
+          ],
+          "normalization_correction": [
+            -29.485052801142146,
+            4.280577890364718,
+            -24.79249596381231
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.06842041015625,
+            0.033367156982421875,
+            0.8116693496704102
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.0822362899780273,
+            0.04583263397216797,
+            0.8202276229858398
+          ],
+          "actual_margin_cross": 0.22338390350341797,
+          "fixed_margin_cross": 0.21617603302001953
+        }
+      }
+    },
+    {
+      "row_id": "5f7b9d6759a04c3367e844a6bdeb93309f043fefccb03fc9c36f54f6b9e4b46f",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.079939675705663,
+        1.039361115773985,
+        1.018615210170821
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            118.09531545660002,
+            -19.422015041388477,
+            225.8992585455817
+          ],
+          "numerator_cross": [
+            99.14004499179555,
+            -75.14150249072695,
+            213.0561786312233
+          ],
+          "normalization_correction": [
+            18.955270464810894,
+            55.71948744934076,
+            12.843079914364282
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.09867095947265625,
+            -0.01788473129272461,
+            0.10010194778442383
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.0999608039855957,
+            -0.021788597106933594,
+            0.10042333602905273
+          ],
+          "actual_margin_cross": 0.01645374298095703,
+          "fixed_margin_cross": 0.021326065063476562
+        },
+        "exact": {
+          "scalar_cross": [
+            100.18592531686863,
+            -64.01001456133599,
+            212.1976411930474
+          ],
+          "numerator_cross": [
+            79.15963967610544,
+            -133.1217992531505,
+            202.68477863956917
+          ],
+          "normalization_correction": [
+            21.02628564076156,
+            69.11178469180891,
+            9.51286255348038
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.10890340805053711,
+            -0.018333911895751953,
+            0.10730791091918945
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.11336183547973633,
+            -0.02111959457397461,
+            0.10831403732299805
+          ],
+          "actual_margin_cross": 0.01992940902709961,
+          "fixed_margin_cross": 0.02616739273071289
+        }
+      }
+    },
+    {
+      "row_id": "bc32c5eb21c8217b4e3aaa3b4ee2721d8447105f095873b467a97ff36e51d684",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.9428890688449568,
+        0.9718649878890414,
+        0.9410420500152465
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -98.99031033274741,
+            -370.8488013901233,
+            157.08044471398966
+          ],
+          "numerator_cross": [
+            -176.45736111324942,
+            -450.59752169965145,
+            105.03693682596304
+          ],
+          "normalization_correction": [
+            77.46705078050908,
+            79.74872030952505,
+            52.04350788802223
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.0654144287109375,
+            -0.030813217163085938,
+            -0.06765985488891602
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.069183349609375,
+            -0.033678531646728516,
+            -0.07142066955566406
+          ],
+          "actual_margin_cross": 0.03305864334106445,
+          "fixed_margin_cross": 0.03591585159301758
+        },
+        "exact": {
+          "scalar_cross": [
+            -151.40812105783357,
+            -509.2802213746106,
+            108.30095982695354
+          ],
+          "numerator_cross": [
+            -202.18180906998464,
+            -554.9574237379768,
+            76.22012738335597
+          ],
+          "normalization_correction": [
+            50.773688012154544,
+            45.67720236335879,
+            32.08083244359703
+          ],
+          "actual_margin_effects": [
+            0.0,
+            -0.02980184555053711,
+            -0.03129863739013672,
+            -0.04054975509643555
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            -0.03362417221069336,
+            -0.033152103424072266,
+            -0.043859004974365234
+          ],
+          "actual_margin_cross": 0.042046546936035156,
+          "fixed_margin_cross": 0.04338693618774414
+        }
+      }
+    },
+    {
+      "row_id": "66608b1da63ca41feda64441ba5308d15a5f5e0703e0644fe8cb960c381f630e",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.3696736648331747,
+        1.089299185021639,
+        1.2308856874344611
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -1191.815328170329,
+            -1728.6032271217389,
+            -705.6732682114646
+          ],
+          "numerator_cross": [
+            -2065.2588495638365,
+            -2677.234585099781,
+            -1231.2913482707947
+          ],
+          "normalization_correction": [
+            873.4435213935121,
+            948.63135797803,
+            525.6180800593299
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.3987386226654053,
+            0.13867521286010742,
+            0.6810877323150635
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.7560513019561768,
+            0.1120138168334961,
+            0.7374328374862671
+          ],
+          "actual_margin_cross": 0.5789756774902344,
+          "fixed_margin_cross": 0.9066046476364136
+        },
+        "exact": {
+          "scalar_cross": [
+            -1183.232790897399,
+            -1776.1898018222075,
+            -697.6802153074696
+          ],
+          "numerator_cross": [
+            -2076.898416107919,
+            -2692.5765135890097,
+            -1271.2064657424833
+          ],
+          "normalization_correction": [
+            893.6656252105207,
+            916.3867117668029,
+            573.5262504350148
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.3383418321609497,
+            0.10754156112670898,
+            0.6386014223098755
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            1.6664568185806274,
+            0.07652616500854492,
+            0.6810158491134644
+          ],
+          "actual_margin_cross": 0.5921988487243652,
+          "fixed_margin_cross": 0.9089148044586182
+        }
+      }
+    },
+    {
+      "row_id": "b3592d2d154671cdf2b67c2f584c9f271739b8ce4514d775d535c3d987700987",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.8871528545193766,
+        0.9539206995890314,
+        0.9166837142182092
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -520.5355623027133,
+            -563.2246320173201,
+            -501.397809866084
+          ],
+          "numerator_cross": [
+            -611.2875442786989,
+            -652.6233824269548,
+            -572.7525709148952
+          ],
+          "normalization_correction": [
+            90.75198197598631,
+            89.3987504096398,
+            71.35476104881181
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.9109287261962891,
+            0.22189903259277344,
+            0.8460111618041992
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.8655529022216797,
+            0.2351694107055664,
+            0.8179302215576172
+          ],
+          "actual_margin_cross": -0.1569814682006836,
+          "fixed_margin_cross": -0.1875467300415039
+        },
+        "exact": {
+          "scalar_cross": [
+            -544.3250727102366,
+            -595.9879071924504,
+            -530.1693978138177
+          ],
+          "numerator_cross": [
+            -644.7144614575129,
+            -682.4472754043494,
+            -613.4708573351121
+          ],
+          "normalization_correction": [
+            100.38938874727495,
+            86.45936821190244,
+            83.30145952129257
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.06870698928833,
+            0.23360633850097656,
+            0.9981288909912109
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9883532524108887,
+            0.23933124542236328,
+            0.9446935653686523
+          ],
+          "actual_margin_cross": -0.16302824020385742,
+          "fixed_margin_cross": -0.19567155838012695
+        }
+      }
+    },
+    {
+      "row_id": "ad6219bc7b34df0c4770217742daa63d68ad3eebe6ff09e7bb4b9734310314ef",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.1325229515884465,
+        1.0400244688335805,
+        1.0669186470024257
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            100.70649043914545,
+            -10.813259194642342,
+            240.40034964836468
+          ],
+          "numerator_cross": [
+            87.42157806708938,
+            -71.02212484006346,
+            233.32589583664657
+          ],
+          "normalization_correction": [
+            13.284912372061541,
+            60.20886564542718,
+            7.074453811725192
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.030504703521728516,
+            -0.0038895606994628906,
+            0.027773380279541016
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.030549049377441406,
+            -0.005231380462646484,
+            0.02760601043701172
+          ],
+          "actual_margin_cross": 0.006620883941650391,
+          "fixed_margin_cross": 0.008174419403076172
+        },
+        "exact": {
+          "scalar_cross": [
+            69.6667985858021,
+            -75.63106787161678,
+            195.06691143893772
+          ],
+          "numerator_cross": [
+            43.95252006934349,
+            -165.45495670347015,
+            183.05029852830174
+          ],
+          "normalization_correction": [
+            25.714278516459743,
+            89.82388883184908,
+            12.016612910640234
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.03349876403808594,
+            -0.004073143005371094,
+            0.030259132385253906
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.03516435623168945,
+            -0.005069255828857422,
+            0.030864238739013672
+          ],
+          "actual_margin_cross": 0.007312774658203125,
+          "fixed_margin_cross": 0.009369373321533203
+        }
+      }
+    },
+    {
+      "row_id": "ff12fd48bb6fd3b1270d7c25949966519090cd2e1f9e7ef61d2c789218db2d39",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.8585917504106355,
+        0.9053985803899897,
+        0.9155574734419487
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            3.878811961363226,
+            -244.96911442413284,
+            168.51778678114079
+          ],
+          "numerator_cross": [
+            -241.81620333896916,
+            -479.9567458468581,
+            19.985813122157786
+          ],
+          "normalization_correction": [
+            245.69501530033247,
+            234.9876314227239,
+            148.53197365898058
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.06472492218017578,
+            -0.01582813262939453,
+            0.05361747741699219
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.05309104919433594,
+            -0.01618671417236328,
+            0.04761505126953125
+          ],
+          "actual_margin_cross": 0.026935577392578125,
+          "fixed_margin_cross": 0.02166271209716797
+        },
+        "exact": {
+          "scalar_cross": [
+            -77.75991762632657,
+            -400.84490364503176,
+            101.12236467208754
+          ],
+          "numerator_cross": [
+            -275.9613733972928,
+            -565.3797834607188,
+            -29.850247371666597
+          ],
+          "normalization_correction": [
+            198.2014557709682,
+            164.53487981568838,
+            130.97261204375218
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.08430004119873047,
+            -0.017838478088378906,
+            0.06600189208984375
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.06947898864746094,
+            -0.01817798614501953,
+            0.05871009826660156
+          ],
+          "actual_margin_cross": 0.036136627197265625,
+          "fixed_margin_cross": 0.028946876525878906
+        }
+      }
+    },
+    {
+      "row_id": "9ac9a8ea3dbf8a488b070d1fd942f7f4fbb4f8677f63ee93c4c7af07e58d93c7",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "input_denominator_ratios": [
+        1.0,
+        0.7109432849619315,
+        0.8947322880060726,
+        0.786640492663253
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -920.3711538022426,
+            -1261.3327026455288,
+            -576.7510688527186
+          ],
+          "numerator_cross": [
+            -1195.8789038401865,
+            -1485.9982905362717,
+            -723.0817972516357
+          ],
+          "normalization_correction": [
+            275.507750037949,
+            224.6655878907445,
+            146.33072839891264
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.0945534706115723,
+            0.5039939880371094,
+            0.9026303291320801
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9713869094848633,
+            0.5213308334350586,
+            0.8527030944824219
+          ],
+          "actual_margin_cross": -0.3120708465576172,
+          "fixed_margin_cross": -0.4026470184326172
+        },
+        "exact": {
+          "scalar_cross": [
+            -908.0588798735698,
+            -1285.5807589424328,
+            -554.0826936466569
+          ],
+          "numerator_cross": [
+            -1202.557128720569,
+            -1483.0459228086513,
+            -748.5434557734426
+          ],
+          "normalization_correction": [
+            294.49824884699535,
+            197.46516386621644,
+            194.46076212678355
+          ],
+          "actual_margin_effects": [
+            0.0,
+            1.0758771896362305,
+            0.485654354095459,
+            0.9033870697021484
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9547824859619141,
+            0.5037107467651367,
+            0.8508510589599609
+          ],
+          "actual_margin_cross": -0.31316423416137695,
+          "fixed_margin_cross": -0.3997793197631836
+        }
+      }
+    },
+    {
+      "row_id": "9e9600cb672daa20db6a696d9b191fd23a476b373dd73c1ebaaf994e0a373e63",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "input_denominator_ratios": [
+        1.0,
+        1.1013544247606029,
+        1.018733642655688,
+        1.064753201007897
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            -559.0414263310347,
+            -571.6813962382917,
+            -527.9535596212382
+          ],
+          "numerator_cross": [
+            -688.9018346516626,
+            -700.578878355326,
+            -634.5159402697334
+          ],
+          "normalization_correction": [
+            129.8604083206298,
+            128.89748211703628,
+            106.56238064849936
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.7125253677368164,
+            0.02872180938720703,
+            0.546422004699707
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.7488946914672852,
+            0.022583961486816406,
+            0.5587577819824219
+          ],
+          "actual_margin_cross": 0.13738155364990234,
+          "fixed_margin_cross": 0.16755294799804688
+        },
+        "exact": {
+          "scalar_cross": [
+            -584.1524911901015,
+            -615.7374877740613,
+            -538.0196227865529
+          ],
+          "numerator_cross": [
+            -719.8687530875014,
+            -742.5368304251238,
+            -654.1891632232583
+          ],
+          "normalization_correction": [
+            135.7162618974018,
+            126.79934265106839,
+            116.1695404367106
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.8766632080078125,
+            0.048900604248046875,
+            0.6862449645996094
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.9030466079711914,
+            0.03829765319824219,
+            0.6906642913818359
+          ],
+          "actual_margin_cross": 0.14151763916015625,
+          "fixed_margin_cross": 0.17408466339111328
+        }
+      }
+    },
+    {
+      "row_id": "93a3182807b63126f3aca87cd5970471e52145abf130459c877b1772c15070b2",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        1.0292422933745995,
+        1.0184069888828768,
+        0.9895047341764261
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            99.92118628591288,
+            -16.77754409699446,
+            204.02135241325368
+          ],
+          "numerator_cross": [
+            79.5795527365067,
+            -61.43769476033475,
+            193.140020805826
+          ],
+          "normalization_correction": [
+            20.341633549407984,
+            44.66015066334621,
+            10.881331607428299
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.04592704772949219,
+            -0.021671295166015625,
+            0.04848527908325195
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.049422264099121094,
+            -0.020698070526123047,
+            0.047204017639160156
+          ],
+          "actual_margin_cross": 0.01911306381225586,
+          "fixed_margin_cross": 0.022916316986083984
+        },
+        "exact": {
+          "scalar_cross": [
+            63.13348558893358,
+            -85.09610780578214,
+            167.60494621887858
+          ],
+          "numerator_cross": [
+            48.43437366380043,
+            -132.3722731489949,
+            161.88439409615634
+          ],
+          "normalization_correction": [
+            14.69911192513737,
+            47.27616534321796,
+            5.720552122725266
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.07241058349609375,
+            -0.020171165466308594,
+            0.0685577392578125
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.07724380493164062,
+            -0.018826007843017578,
+            0.06686162948608398
+          ],
+          "actual_margin_cross": 0.024024009704589844,
+          "fixed_margin_cross": 0.02920818328857422
+        }
+      }
+    },
+    {
+      "row_id": "fc226ea56b032f899d113fb5d08af0ec67a15d13bc99432049f1bfcd147f4bd1",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "input_denominator_ratios": [
+        1.0,
+        0.85737370904338,
+        0.9208264629680175,
+        0.9028970195552671
+      ],
+      "programs": {
+        "approximate": {
+          "scalar_cross": [
+            7.499165671071296,
+            -278.6515856404899,
+            222.01835464870283
+          ],
+          "numerator_cross": [
+            -188.4065420758236,
+            -448.18392277730635,
+            110.97014055664711
+          ],
+          "normalization_correction": [
+            195.90570774689647,
+            169.53233713681269,
+            111.048214092049
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.10928106307983398,
+            -0.0039048194885253906,
+            0.10417842864990234
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.1030263900756836,
+            0.0014352798461914062,
+            0.10041618347167969
+          ],
+          "actual_margin_cross": 0.009007453918457031,
+          "fixed_margin_cross": 0.0011749267578125
+        },
+        "exact": {
+          "scalar_cross": [
+            -52.4561975756144,
+            -421.12364478105565,
+            166.72132836539095
+          ],
+          "numerator_cross": [
+            -212.21459018984226,
+            -527.517083360108,
+            60.2892749048844
+          ],
+          "normalization_correction": [
+            159.75839261422692,
+            106.39343857905558,
+            106.4320534605078
+          ],
+          "actual_margin_effects": [
+            0.0,
+            0.11142921447753906,
+            -0.010885238647460938,
+            0.1061553955078125
+          ],
+          "fixed_margin_effects": [
+            0.0,
+            0.10242366790771484,
+            -0.006258964538574219,
+            0.10054302215576172
+          ],
+          "actual_margin_cross": 0.0161590576171875,
+          "fixed_margin_cross": 0.008139610290527344
+        }
+      }
+    }
+  ],
+  "source_producer_sha256": "c015e9dc5d7dc1b707eaa7b1a1c3e5dda35544f795e08f4725277ae5b592aefc",
+  "source_script_sha256": "3da70c29da7a7ddea2f60a107dcae61dd0e6de8949368941be5baa826ebb3469",
+  "scope": "Base input denominator accounting of a conditional component-only intervention; native final RMS/tanh retained. No fitting or whole-module attribution. Norm ratios are not additive variance fractions."
+}

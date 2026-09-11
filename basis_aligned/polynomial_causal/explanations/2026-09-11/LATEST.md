@@ -112,3 +112,7 @@ New words/constructions confirm small neighboring binary-choice changes and near
 ### Requested full update — findings through 21:42 UTC
 
 **[Latest report for Logan](../for_logan/research_update_2026-09-11_2142.md)** covers the work since13:27, starting with the high-level overview and four-property status. It includes the newest upstream result: attention17 contributes little to this component's changing input; MLP16 and the remaining residual have substantial interactions corroborated by the exact native reference.
+
+### 22:01 — User-directed interaction-path proposal
+
+[New proposal for Logan](../for_logan/interaction_path_decomposition_proposal_2026-09-11.md) distinguishes existing folding algebra from the proposed joint sparse path search, with related work and full math. New CPU accounting confirms a surviving numerator interaction with significant verb normalization correction; the all-output six-source-pair identity passes. No new joint sparse fit has run.

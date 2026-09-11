@@ -1,0 +1,27 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "sum_relative_error": 5.231711181933253e-15,
+  "mixed_relative_errors": [
+    3.932373427607878e-15,
+    2.848804106658305e-14,
+    1.710546523894414e-14
+  ],
+  "source_names": [
+    "remaining_incoming_residual",
+    "scaled_mlp16_output",
+    "attention17_output"
+  ],
+  "endpoints": 128,
+  "output_coordinates": 1152,
+  "price": {
+    "native_products": 4608,
+    "explicit_pair_terms": 6,
+    "no_persisted_dense_tensor": true,
+    "source_linear_reads": 27648,
+    "expanded_pair_product_multiplications": 41472,
+    "factored_execution_product_multiplications": 4608
+  },
+  "source_script_sha256": "5db25877a914d6c888d7dbe51b9832efc0274359dd27922b599f16ca987b6d29",
+  "scope": "Exact all-output polynomial numerator identity on cached sources. Shared input RMS squared, Down bias, direct residual and final RMS/tanh remain explicit. No fitted sparsity, independent source realizability, or behavioral circuit claim."
+}

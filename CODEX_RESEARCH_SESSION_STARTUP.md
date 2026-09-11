@@ -152,6 +152,8 @@ change, or when the user asks. Between those boundaries, preserve primary
 receipts and short coordination notes. Do not append a new explanatory essay
 or historical handoff block for every small control. No new publisher framework.
 
+Newest user-directed proposal: [joint composed interaction paths](basis_aligned/polynomial_causal/explanations/for_logan/interaction_path_decomposition_proposal_2026-09-11.md). It distinguishes earlier output-only folding from the proposed full-U joint sparse/block/DAG comparison, including MLP16 and mixed attention paths. Exact six-path CPU oracle is implemented; proposed joint fits have not run.
+
 ## Review clocks and throughput
 
 Latest hourly review:

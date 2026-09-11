@@ -1,11 +1,14 @@
 # Requested full reports for Logan
 
-**Newest: [11 September, 21:42 UTC — Shared graphs, local prediction, and circuit-separation limits](research_update_2026-09-11_2142.md).** Covers work since the 13:27 report, with a high-level overview, four-property status, explained computations, and the latest upstream result.
+**Newest proposal: [11 September — Composed interaction-path decomposition](interaction_path_decomposition_proposal_2026-09-11.md).** Includes related work, full derivations, method comparisons and the experimental plan.
+
+**Latest retrospective update: [11 September, 21:42 UTC — Shared graphs, local prediction, and circuit-separation limits](research_update_2026-09-11_2142.md).** Covers work since the 13:27 report, with a high-level overview, four-property status, explained computations, and the latest upstream result.
 
 **Background references:** [What the factorization means: CP versus LL1 versus shared-input groups](research_update_2026-09-11_1327.md#factorization-explained). [Copyable browser-Codex brief](factorization_browser_brief_2026-09-11.md).
 
 This directory is for fuller updates explicitly requested by Logan. Routine automatic experiment notes remain in the dated explanation folders.
 
+- [11 September — Interaction-path decomposition project proposal](interaction_path_decomposition_proposal_2026-09-11.md)
 - [11 September, 21:42 — Shared graphs, local prediction, and upstream dependencies](research_update_2026-09-11_2142.md)
 - [11 September, 13:27 — Progress since the methods update](research_update_2026-09-11_1327.md)
 - [11 September, 09:02 — Weights-first methods, assumptions, and bottlenecks](weights_first_methods_2026-09-11_0902.md)

@@ -11,7 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## [Read the latest requested full report → for_logan](for_logan/LATEST.md)
 
-**Newest full report: [11 September, 21:42 UTC — Shared graphs, local prediction, and circuit-separation limits](for_logan/research_update_2026-09-11_2142.md).**
+**Newest proposal: [11 September — Composed interaction-path decomposition](for_logan/interaction_path_decomposition_proposal_2026-09-11.md).**
+
+**Latest retrospective report: [11 September, 21:42 UTC — Shared graphs, local prediction, and circuit-separation limits](for_logan/research_update_2026-09-11_2142.md).**
 
 Fuller updates explicitly requested by Logan belong in [for_logan](for_logan/README.md). Routine automatic experiment notes remain in dated folders: [11 September](2026-09-11/README.md), [10 September](2026-09-10/README.md). The [current research-state pointer](2026-09-11/LATEST.md) tracks live experiment notes separately.
 
