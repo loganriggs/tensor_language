@@ -1,0 +1,46 @@
+{
+  "predictions": {
+    "pred_a_constructor_zero": true,
+    "pred_b_norm": true,
+    "pred_c_entries": true
+  },
+  "readers": [
+    {
+      "name": "Left",
+      "shape": [
+        4608,
+        1152
+      ],
+      "initial_entry_bound": 0.029462782549439483,
+      "maximum_initial_frobenius_norm": 67.88225099390857,
+      "native_frobenius_norm": 523.7303407834726,
+      "native_over_maximum_initial_norm": 7.715276572523643,
+      "entries_outside_initial_bound_fraction": 0.8956070888189622,
+      "minimum_coordinate_update_norm_fraction": 0.8703870184561766
+    },
+    {
+      "name": "Right",
+      "shape": [
+        4608,
+        1152
+      ],
+      "initial_entry_bound": 0.029462782549439483,
+      "maximum_initial_frobenius_norm": 67.88225099390857,
+      "native_frobenius_norm": 523.4849218951906,
+      "native_over_maximum_initial_norm": 7.711661210854155,
+      "entries_outside_initial_bound_fraction": 0.8955023494767554,
+      "minimum_coordinate_update_norm_fraction": 0.870326253623214
+    }
+  ],
+  "native_down_norm": 290.08910302836625,
+  "native_quadratic_energy": 99245061353.4728,
+  "constructor_output_max": 0.0,
+  "torch_version": "2.11.0+cu128",
+  "constructor_source": {
+    "path": "/workspace/tensor_language/jacclust/tt_model.py",
+    "sha256": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "linear_reset_source": "    def reset_parameters(self) -> None:\n        \"\"\"\n        Resets parameters based on their initialization used in ``__init__``.\n        \"\"\"\n        # Setting a=sqrt(5) in kaiming_uniform is the same as initializing with\n        # uniform(-1/sqrt(in_features), 1/sqrt(in_features)). For details, see\n        # https://github.com/pytorch/pytorch/issues/57109\n        init.kaiming_uniform_(self.weight, a=math.sqrt(5))\n        if self.bias is not None:\n            fan_in, _ = init._calculate_fan_in_and_fan_out(self.weight)\n            bound = 1 / math.sqrt(fan_in) if fan_in > 0 else 0\n            init.uniform_(self.bias, -bound, bound)\n",
+  "provenance": "Checked-in constructor plus installed Linear reset. No saved training initialization found in the inspected local model snapshot; external training-time overrides are not reconstructed.",
+  "scope": "Rules out an unchanged small constructor initialization dominating current reader entries under this initializer. Does not identify signal/noise, defeat gauge rescaling, or justify removing spectral bulk."
+}

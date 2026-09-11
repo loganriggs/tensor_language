@@ -127,3 +127,31 @@ dictionaries; reuseitforfurtherL1readerworkinsteadofcreatinganotheroptimizer.
 Completed[orthogonal MSP result](FULL_READER_DICTIONARY_MSP_V1_RESULT.json): bothconvergence/heldoutgainmisses. [Function stability](READER_DICTIONARY_FUNCTION_STABILITY_V1_AUDIT.json) cosine.34613misses.9, so lowatomalignment.2374isnotmerelyagaugechangeofthesamefunction. Nativeobliqueisnowlive; conditionalwritercomparisonqueued.
 
 [Overcomplete L1 native protocol](OVERCOMPLETE_L1_READER_V1_PREREGISTRATION.md) isqueuedafterconditionalwriters:2304features,alpha.05,twostarts1800fitsecondseach,sampled-dictionarybaselines,existingproximaloptimizer,FP64jointchecksandrecoverablecheckpoints. [Rectangularexecutor](RECTANGULAR_SPARSE_READER_V1_CONTROL.json) and[conditionalencoder](LASSO_READER_ENCODING_V1_CONTROL.json) controlspass. Price9,142,272matrixcoefficients+indicesisbiggerthancompleteMSP. No nativeL1resultyet.
+
+First oblique ordinary-covariance start [converged](OBLIQUE_READER_DICTIONARY_V1_ordinary_covariance_SEED_0.json)
+at739.92s; heldoutreader capture43.7888%, folded29.9058%. Its counterpartandTyler
+remain pending. [Fixed-basis native encoder audit](NATIVE_OBLIQUE_ENCODER_V1_AUDIT.json)
+on256already-heldoutreaders: parent43.367%, Lasso(.05)41.885%, dimension-scaled
+Lasso(.005103)45.253%. Bothcodesconverged; all256improveunderscaledpenalty,
+but+1.886ppmissesthe2ppbar. Thisis a post-resultsubsetdiagnostic, notfull-Uor
+freshbehavioralevidence. QueuednativeL1source/penaltyunchanged; penaltychoice
+mustremainexplicit when interpreting its result.
+
+[Initialization-background audit](INITIALIZATION_BACKGROUND_V1_AUDIT.json)
+passesitsnarrowchecks: checked-inconstructorzerosDown, tinyinitializedoutputzero;
+nativeL/Rnorms7.71xthemaximumallowedinitialnorm,89.55%entriesoutsideinitialrange.
+No actualsavedtraininginitializationwasfoundintheinspectedlocalsnapshot;
+externalinitializationoverridesnotreconstructed. Largecoordinateupdatesare
+notfunctionalstructurebecauseofscalinggauges. Do notlabelrandom-lookingspectra
+asremovableinitialnoise. [RMTweightstudy](https://arxiv.org/abs/2203.14661) is
+motivation, notnativeproof; [optimalshrinkage](https://arxiv.org/abs/1405.7511)
+assumesalow-ranksignalplusappropriateadditivenoise, notestablishedhere. Theolder
+09-03shrinkagereviewaddressednoisycausalfingerprints, adifferentobject.
+
+Previously omittedfromthisindex: [known full-U radial/traceless metric audit](FULLU_TRACE_METRIC_V1_AUDIT.json).
+The exactnorm/radialterm is0.2947%ofcoefficientenergy but63.04%ofidealuniform-
+spherefunctionenergy. This is priorwork, notnewdiscoveryoractualactivationstats.
+[New native bias comparison](NATIVE_BIAS_RADIAL_V1_AUDIT.json) rejects cancellation:
+cosine_U(radial,bias)=+.9722, biasnormonly.398%ofradialnorm. Exactsplitreplay2.90e-15;
+anticorrelation/cancellationbarsfailed. NativeRMSradiusisretainedexactly, not
+replacedbyaconstant; no spectraldenoisingorbodyreplacementqueuedfromthisaudit.
