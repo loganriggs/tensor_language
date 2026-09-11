@@ -1,0 +1,6 @@
+{
+  "scope": "Model-free enqueue gate, before native execution",
+  "reason": "Gate regex also counted pred_a/pred_b in control-key tuple, reporting duplicate result keys.",
+  "native_execution": false,
+  "repair": "Wrapper V3 computes control-check key names; result dictionary retains three explicit registered prediction keys. Numerical kernels and bars unchanged."
+}

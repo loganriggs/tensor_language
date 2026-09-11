@@ -82,31 +82,29 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 14:19 completion
+## Current handoff — 11 September 15:21 live run
 
 Use [the latest requested report](basis_aligned/polynomial_causal/explanations/for_logan/LATEST.md),
 [current state](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md).
 
-- **Native comparison completed14:19:20:** `MATCHED_SHARED_GROUPS_V1_RESULT.json`.
-  LL1 captures11.66/11.64%, shared-input8.53/8.54%; all120-second endpoints
-  unconverged. Full-function cosine is not individual-group identification.
-  No subsequent native run automatically queued; recheck live state.
-- User asks joint hierarchy/DAG discovery. Read the requestedreport's
-  `#hierarchy-and-dag-discovery` appendix and exactdense-coretoy receipt.
-  General graph search remains unimplemented; sparse Tucker is not prerequisite.
-- The older shared-input-only pilot remains unrun/superseded. Do not enqueue it.
-- Shared-group and normalizedLL1gradientcontrols pass. An exactjointLL1output
-  projection kernel also passes controls after a separately recorded control-only
-  JSONserialization repair. No nativeprojectedfitqueued; decide frompilotresults.
-- Both previous penalized dictionary starts completed13:29:35 and miss
-  convergence/stability; no identicalcontinuation.
-- User clarifies output-sharing LL1 as a distinct candidate. Read the latest
-  requestedreport's CP/LL1appendix and standalonebrowserbrief in `for_logan`.
-  SymmetricLL1conditionaltoycontrols pass; nativepilot is now complete.
-- Requestedfullerreports stay in`explanations/for_logan/`; automaticnotes staydated.
-- Diskcleanup reclaimed1.45GiB without removingresearch/model/history/activeeditor.
-  Receipt `DISK_CLEANUP_2026-09-11_1327.json` records actualscope/time.
+- Managed `run_projected_ll1_convergence_v3.py` started15:21:15, SHA
+  `fe66af8d88555577609e6965fccc3c6bcc77d50ecfc4387823013adf82f0fc5c`.
+  Two1200-second budgets, exact equilibrated output solves, explicit local
+  gradient/progress criteria. V1/V2 wrapper gate failures had no native execution.
+  Recheck the same live run; do not launch a duplicate or edit bound sources.
+- The original matched pilot completed: LL1 capture11.66/11.64%, shared-input
+  8.53/8.54%, all unconverged. Whole-function similarity did not identify groups.
+- One shared-parent graph proposal largely recovers prior square150. Its native
+  physical interface is saved; frozen text tests do not establish a quote circuit.
+- Joint shared-square-bank kernel passes controls, but eigen-square clustering
+  has negligible native savings. The uv/uw counterexample exposes its limitation.
+- Subspace-based proposals find15/17 mixed parents, usually with two consumers.
+  Some groups have multiple parents; joint accounting must avoid double-counting.
+  Read `LL1_SUBSPACE_PARENTS_V1_MATH.md` and the live run protocol.
+- Requested fuller reports stay in `explanations/for_logan/`; latest remains the
+  13:27 report with CP/LL1 and hierarchy/DAG appendices. No new requested report
+  has been manufactured. General DAG discovery remains incomplete.
 
 User correction: discover from weights first. No new data/CE/Fisher-guided fits
 until distinct weight-only assumptions and adequate optimization have been
@@ -131,8 +129,8 @@ or historical handoff block for every small control. No new publisher framework.
 ## Review clocks and throughput
 
 Latest hourly review:
-[14:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1422.md).
-Next hourly review is due **15:22 UTC on11September** at the first safe boundary.
+[15:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1522.md).
+Next hourly review is due **16:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [13:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1351.md).
 Next mathematical review is due **16:51 UTC on11September**. Derive later deadlines from the

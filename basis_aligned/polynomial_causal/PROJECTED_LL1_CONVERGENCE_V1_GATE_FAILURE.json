@@ -1,0 +1,6 @@
+{
+  "scope": "Model-free enqueue gate, before native execution",
+  "reason": "Gate regex found pred_a/pred_b but missed keyword-form pred_c; require explicit dictionary keys.",
+  "native_execution": false,
+  "repair": "Wrapper V2 uses explicit prediction dictionary; numerical kernels and registered bars unchanged."
+}

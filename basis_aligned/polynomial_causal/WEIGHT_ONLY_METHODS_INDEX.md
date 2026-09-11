@@ -263,3 +263,9 @@ An independent [LL1projectedoutputkernel](symmetric_ll1_projected_v1.py) elimina
 ### 11 September — Shared-square graph kernel and proposal limitation
 
 [Shared square bank](SHARED_SQUARE_LL1_V1_MATH.md): exact output projection and shared-reader gradients pass dense controls. Canonical eigen-square clustering removes zero/one readers across native starts; both registered saving bars fail. The executed uv/uw counterexample shows shared linear parents can be invisible to eigen-square merging. No native fit of the uninformative topology was queued. Next graph proposals must go beyond identical squares. Frozen square150 validation is recorded in its MLP17 dossier; quote gating and whole-reader sufficiency predictions fail without invalidating the underlying weight atom.
+
+### 11 September — Projected LL1 convergence run and mixed-parent incidence
+
+Managed wrapper V3 runs the [registered projected comparison](PROJECTED_LL1_CONVERGENCE_V1_PREREGISTRATION.md), two1200-second budgets with measured local stopping. Exact output elimination now uses diagonal equilibration; [control](EQUILIBRATED_LL1_PROJECTED_V1_CONTROL.json) passes. V1/V2 enqueue-format failures are preserved, with no native execution. V3 source fe66af8d88555577609e6965fccc3c6bcc77d50ecfc4387823013adf82f0fc5c started15:21:15; results pending.
+
+[Shared subspace parent census](LL1_SUBSPACE_PARENTS_V1_MATH.md) finds15/17 mixed-parent proposals in frozen pilot starts; only1/0 have three consumers, so broad-sharing prediction fails. Some groups use several proposed parents. Their overlapping components require joint accounting before they can form an executable graph. Proposal readers are now durable; no new circuit claim.
