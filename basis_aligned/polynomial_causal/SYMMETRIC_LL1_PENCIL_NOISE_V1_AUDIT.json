@@ -1,0 +1,85 @@
+{
+  "predictions": {
+    "pred_a_valid": true,
+    "pred_b_noise_reduction": true,
+    "pred_c_groups": true
+  },
+  "selection": "lowest observed tensor error among admissible mixture pairs; clean truth not used to choose",
+  "selected_seed": 2006,
+  "improvement_factor": 31.665270274692215,
+  "rows": [
+    {
+      "seed": 2001,
+      "valid": true,
+      "observed_relative_error": 0.000977549414893338,
+      "clean_relative_error": 0.0009774047975966104,
+      "matched_group_cosine": 0.9999991267810066,
+      "condition": 77.58267484275265,
+      "gap": 0.07313444538770453
+    },
+    {
+      "seed": 2002,
+      "valid": true,
+      "observed_relative_error": 0.0001508056481908837,
+      "clean_relative_error": 0.00015078766531633118,
+      "matched_group_cosine": 0.9999999818289379,
+      "condition": 888.7642362360838,
+      "gap": 9.490936455689003
+    },
+    {
+      "seed": 2003,
+      "valid": true,
+      "observed_relative_error": 4.259284344157816e-05,
+      "clean_relative_error": 4.122005237154578e-05,
+      "matched_group_cosine": 0.9999999983788104,
+      "condition": 23.270186817940925,
+      "gap": 1.276354396544783
+    },
+    {
+      "seed": 2004,
+      "valid": true,
+      "observed_relative_error": 4.238748219369862e-05,
+      "clean_relative_error": 4.147942688114994e-05,
+      "matched_group_cosine": 0.9999999965709596,
+      "condition": 23.284297773706164,
+      "gap": 1.2545065054938165
+    },
+    {
+      "seed": 2005,
+      "valid": true,
+      "observed_relative_error": 0.0002780185909611551,
+      "clean_relative_error": 0.0002781915042290014,
+      "matched_group_cosine": 0.9999998976654866,
+      "condition": 79.5906131626857,
+      "gap": 0.11771919071232806
+    },
+    {
+      "seed": 2006,
+      "valid": true,
+      "observed_relative_error": 3.194156055092856e-05,
+      "clean_relative_error": 3.0866775780460656e-05,
+      "matched_group_cosine": 0.9999999977300276,
+      "condition": 28.96409166259477,
+      "gap": 0.6707898108457134
+    },
+    {
+      "seed": 2007,
+      "valid": true,
+      "observed_relative_error": 0.00013768237220644397,
+      "clean_relative_error": 0.00013765803585469565,
+      "matched_group_cosine": 0.9999999693213629,
+      "condition": 79.83735259192152,
+      "gap": 0.59892706048935
+    },
+    {
+      "seed": 2008,
+      "valid": true,
+      "observed_relative_error": 0.00019182793733036184,
+      "clean_relative_error": 0.00019144932563206198,
+      "matched_group_cosine": 0.9999999524188051,
+      "condition": 44.77680258912996,
+      "gap": 0.33735581886630994
+    }
+  ],
+  "scope": "Fixed small noisy independent-input-block LL1; no native or robust general recovery guarantee."
+}

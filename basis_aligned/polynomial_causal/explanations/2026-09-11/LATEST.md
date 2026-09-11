@@ -1,6 +1,8 @@
 # Latest research update
 
-**14:04 queue update:** matched native shared-input versus output-sharing LL1 pilot is queued (four arms, approximately1.25Mparameters each). No native result yet. [Protocol](../../MATCHED_SHARED_GROUPS_V1_PREREGISTRATION.md).
+**14:19 completion:** matched native pilot finished: LL1 captures11.66/11.64%, shared-input8.53/8.54%, at approximately1.25Mparameters each. All four120-second endpoints are unconverged; these are cost/initialization pilots, not circuit evidence. [Result](../../MATCHED_SHARED_GROUPS_V1_RESULT.json).
+
+**User follow-up:** [Hierarchy and DAG discovery during fitting](../for_logan/research_update_2026-09-11_1327.md#hierarchy-and-dag-discovery): a sparse Tucker core is not a prerequisite. Includes the executed exact dense-core reuse control and a proposed joint arithmetic-graph search.
 
 **Current completion: both penalized starts finished at 13:29:35; capture 64.6851/64.6855%, convergence missed, function cosine 0.74484. Details in the requested report below.**
 

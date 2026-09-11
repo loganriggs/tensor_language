@@ -82,17 +82,19 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 14:04 UTC
+## Current handoff — 11 September 14:19 completion
 
 Use [the latest requested report](basis_aligned/polynomial_causal/explanations/for_logan/LATEST.md),
 [current state](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md).
 
-- **Queued native comparison:** `run_matched_shared_groups_v1.py`, SHA
-  `60c9dd7feed04cd47dd0e8bfb41ef80b7ea4102854607711b7faf41c5b069f9a`.
-  Four arms: shared-input64/rank8 and output-sharing symmetricLL1 64/rank16,
-  spectral/nativeweightedinitializations,120softseconds each.21bounddependencies.
-  Queued behindClaudev585 whilev583waslive; recheck currentrunner.
+- **Native comparison completed14:19:20:** `MATCHED_SHARED_GROUPS_V1_RESULT.json`.
+  LL1 captures11.66/11.64%, shared-input8.53/8.54%; all120-second endpoints
+  unconverged. Full-function cosine is not individual-group identification.
+  No subsequent native run automatically queued; recheck live state.
+- User asks joint hierarchy/DAG discovery. Read the requestedreport's
+  `#hierarchy-and-dag-discovery` appendix and exactdense-coretoy receipt.
+  General graph search remains unimplemented; sparse Tucker is not prerequisite.
 - The older shared-input-only pilot remains unrun/superseded. Do not enqueue it.
 - Shared-group and normalizedLL1gradientcontrols pass. An exactjointLL1output
   projection kernel also passes controls after a separately recorded control-only
@@ -101,7 +103,7 @@ and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX
   convergence/stability; no identicalcontinuation.
 - User clarifies output-sharing LL1 as a distinct candidate. Read the latest
   requestedreport's CP/LL1appendix and standalonebrowserbrief in `for_logan`.
-  SymmetricLL1conditionaltoycontrols pass; no nativeLL1result yet at this snapshot.
+  SymmetricLL1conditionaltoycontrols pass; nativepilot is now complete.
 - Requestedfullerreports stay in`explanations/for_logan/`; automaticnotes staydated.
 - Diskcleanup reclaimed1.45GiB without removingresearch/model/history/activeeditor.
   Receipt `DISK_CLEANUP_2026-09-11_1327.json` records actualscope/time.
@@ -129,8 +131,8 @@ or historical handoff block for every small control. No new publisher framework.
 ## Review clocks and throughput
 
 Latest hourly review:
-[13:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1322.md).
-Next hourly review is due **14:22 UTC on11September** at the first safe boundary.
+[14:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1422.md).
+Next hourly review is due **15:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [13:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1351.md).
 Next mathematical review is due **16:51 UTC on11September**. Derive later deadlines from the

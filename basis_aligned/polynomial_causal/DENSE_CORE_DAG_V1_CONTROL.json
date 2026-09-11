@@ -1,0 +1,19 @@
+{
+  "pred_a_exact_replay": true,
+  "pred_b_shared_linear_factor": true,
+  "pred_c_dense_monomials_exceed_product_nodes": true,
+  "input_transform_determinant": "1",
+  "output_transform_determinant": "-1",
+  "dense_unique_monomials_per_output": [
+    15,
+    15
+  ],
+  "dense_unique_monomials_across_outputs": 15,
+  "recovered_expressions": [
+    "(2*z0 + 3*z1 + 2*z2 + 2*z3 + 2*z4)*(4*z0 + 4*z1 + 5*z2 + 5*z3 + 6*z4)",
+    "(2*z0 + 3*z1 + 2*z2 + 2*z3 + 2*z4)*(11*z0 + 11*z1 + 14*z2 + 14*z3 + 16*z4)"
+  ],
+  "shared_linear_node": "2*z0 + 3*z1 + 2*z2 + 2*z3 + 2*z4",
+  "scalar_variable_product_nodes": 2,
+  "scope": "Exact known-structured integer toy, symbolic factoring each slice then common-factor detection. No noisy/native optimizer or uniqueness guarantee. Costs exclude linear readers, constants, additions and output adapters; these must be charged separately in native comparisons."
+}

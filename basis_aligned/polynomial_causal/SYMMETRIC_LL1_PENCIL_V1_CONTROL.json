@@ -1,0 +1,71 @@
+{
+  "predictions": {
+    "pred_a_exact": true,
+    "pred_b_conditions": true,
+    "pred_c_noise": true
+  },
+  "rows": [
+    {
+      "noise_relative_frobenius": 0.0,
+      "clean_relative_frobenius": 4.218239627081489e-14,
+      "minimum_matched_group_cosine": 0.9999999999999997,
+      "first_matrix_condition": 77.59215328157478,
+      "basis_condition": 7.353550389599322,
+      "eigen_cluster_centers": [
+        -2.3891564061759545,
+        -2.3159898452393763,
+        -0.016954415650306778
+      ],
+      "maximum_cluster_radius": 5.329070518200751e-15,
+      "minimum_cluster_gap": 0.07316656093657814,
+      "maximum_eigen_imaginary": 1.8964899607282827e-16,
+      "core_rank1_capture": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "relative_reconstruction_error": 4.218239627081489e-14
+    },
+    {
+      "noise_relative_frobenius": 1e-05,
+      "clean_relative_frobenius": 0.0009774047975966104,
+      "minimum_matched_group_cosine": 0.9999991267810066,
+      "first_matrix_condition": 77.58267484275265,
+      "basis_condition": 7.355940644201434,
+      "eigen_cluster_centers": [
+        -2.3890746772963802,
+        -2.3159402319086757,
+        -0.016959402959355233
+      ],
+      "maximum_cluster_radius": 0.0001357054139181635,
+      "minimum_cluster_gap": 0.07313444538770453,
+      "maximum_eigen_imaginary": 6.830153661213344e-06,
+      "core_rank1_capture": [
+        0.9999999998270871,
+        0.9999999998800148,
+        0.9999999995480723
+      ],
+      "relative_reconstruction_error": 0.000977549414893338
+    }
+  ],
+  "collapsed_output_control": {
+    "first_matrix_condition": 29.179737354727163,
+    "basis_condition": 47.53512267457105,
+    "eigen_cluster_centers": [
+      -2.389156406175954,
+      -2.3159898452393755,
+      -2.315989845239374
+    ],
+    "maximum_cluster_radius": 3.552713678800501e-15,
+    "minimum_cluster_gap": 1.4876804412249946e-15,
+    "maximum_eigen_imaginary": 9.930136612989092e-16,
+    "core_rank1_capture": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "relative_reconstruction_error": 27.599109485256285
+  },
+  "seconds": 0.01743530109524727,
+  "scope": "Exact independent-input-block symmetric LL1 restriction; one small-noise control. Conditions not established for native model; no overcomplete/global noisy guarantee."
+}
