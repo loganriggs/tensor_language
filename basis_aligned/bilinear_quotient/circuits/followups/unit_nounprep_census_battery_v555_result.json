@@ -1,0 +1,413 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.3,
+    "gain": 0.05,
+    "joint_min": 0.8,
+    "p_max": 0.23,
+    "tol_pool": 0.05,
+    "tol_pool_wide": 0.15,
+    "unit_min": 0.8
+  },
+  "candidate_id": "corpus.unit_nounprep_census_battery_v555",
+  "errored_groups": [],
+  "finished_utc": "2026-09-11T00:56:28.696491+00:00",
+  "groups": {
+    "at_beyond": {
+      "cells": [
+        "noun_preposition_at_beyond"
+      ],
+      "hypotheses": {
+        "A2_extraction": 0.746,
+        "A2_units_recovery": 0.834,
+        "C_same_answer_effect": 0.0054,
+        "P_damage": {
+          "ce_damage": 0.5467,
+          "ce_lb975": 0.4708,
+          "ce_ub975": 0.6221,
+          "margin_damage": 1.0667,
+          "top1_change_rate": 0.0
+        },
+        "P_same_answer_effect": 0.0248,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 2.527
+      },
+      "n_units": 29,
+      "per_shape": {
+        "noun_preposition_at_beyond": {
+          "A1_damage": {
+            "ce_damage": 0.5685,
+            "ce_lb975": 0.4948,
+            "ce_ub975": 0.6327,
+            "margin_damage": 1.1263,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0192,
+            "ce_lb975": -0.0157,
+            "ce_ub975": 0.0552,
+            "margin_damage": 0.1603,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": 0.0552,
+          "cross_abs_recovery": 0.976,
+          "joint_extraction": 1.019,
+          "n_held": 16,
+          "units_recovery": 0.958
+        },
+        "noun_preposition_belief": {
+          "A1_damage": {
+            "ce_damage": -0.0688,
+            "ce_lb975": -0.0831,
+            "ce_ub975": -0.0546,
+            "margin_damage": 0.035,
+            "top1_change_rate": 0.0312
+          },
+          "C_damage": {
+            "ce_damage": 0.0192,
+            "ce_lb975": -0.0157,
+            "ce_ub975": 0.0552,
+            "margin_damage": 0.1603,
+            "top1_change_rate": 0.0625
+          },
+          "C_ub975": 0.0552,
+          "cross_abs_recovery": 0.001,
+          "joint_extraction": 0.001,
+          "n_held": 16,
+          "units_recovery": 0.793
+        }
+      }
+    },
+    "between_with": {
+      "cells": [
+        "noun_preposition_between_with"
+      ],
+      "hypotheses": {
+        "A2_extraction": 0.869,
+        "A2_units_recovery": 0.989,
+        "C_same_answer_effect": 0.005,
+        "P_damage": {
+          "ce_damage": 0.626,
+          "ce_lb975": 0.4731,
+          "ce_ub975": 0.7758,
+          "margin_damage": 1.2578,
+          "top1_change_rate": 0.1562
+        },
+        "P_same_answer_effect": 0.0197,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 2.6593
+      },
+      "n_units": 12,
+      "per_shape": {
+        "noun_preposition_at_toward": {
+          "A1_damage": {
+            "ce_damage": -0.0977,
+            "ce_lb975": -0.1246,
+            "ce_ub975": -0.0691,
+            "margin_damage": -0.0251,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0066,
+            "ce_lb975": -0.0109,
+            "ce_ub975": -0.002,
+            "margin_damage": 0.0256,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": -0.002,
+          "cross_abs_recovery": 0.005,
+          "joint_extraction": 0.01,
+          "n_held": 16,
+          "units_recovery": 0.5
+        },
+        "noun_preposition_between_with": {
+          "A1_damage": {
+            "ce_damage": 0.644,
+            "ce_lb975": 0.4969,
+            "ce_ub975": 0.7969,
+            "margin_damage": 1.3173,
+            "top1_change_rate": 0.1562
+          },
+          "C_damage": {
+            "ce_damage": -0.0066,
+            "ce_lb975": -0.0109,
+            "ce_ub975": -0.002,
+            "margin_damage": 0.0256,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": -0.002,
+          "cross_abs_recovery": 0.999,
+          "joint_extraction": 1.004,
+          "n_held": 16,
+          "units_recovery": 0.995
+        }
+      }
+    },
+    "for_about": {
+      "cells": [
+        "noun_preposition_for_about"
+      ],
+      "hypotheses": {
+        "A2_extraction": 0.955,
+        "A2_units_recovery": 0.924,
+        "C_same_answer_effect": 0.0059,
+        "P_damage": {
+          "ce_damage": 1.1012,
+          "ce_lb975": 0.8308,
+          "ce_ub975": 1.3769,
+          "margin_damage": 3.6583,
+          "top1_change_rate": 0.3125
+        },
+        "P_same_answer_effect": 0.0172,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 8.0341
+      },
+      "n_units": 30,
+      "per_shape": {
+        "noun_preposition_for_about": {
+          "A1_damage": {
+            "ce_damage": 1.0805,
+            "ce_lb975": 0.8023,
+            "ce_ub975": 1.3425,
+            "margin_damage": 3.7955,
+            "top1_change_rate": 0.25
+          },
+          "C_damage": {
+            "ce_damage": -0.0059,
+            "ce_lb975": -0.0133,
+            "ce_ub975": 0.0014,
+            "margin_damage": 0.0469,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0014,
+          "cross_abs_recovery": 0.932,
+          "joint_extraction": 0.981,
+          "n_held": 16,
+          "units_recovery": 0.95
+        },
+        "noun_preposition_on_toward": {
+          "A1_damage": {
+            "ce_damage": -0.2214,
+            "ce_lb975": -0.2549,
+            "ce_ub975": -0.1909,
+            "margin_damage": -0.0771,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0059,
+            "ce_lb975": -0.0133,
+            "ce_ub975": 0.0014,
+            "margin_damage": 0.0469,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": 0.0014,
+          "cross_abs_recovery": 0.022,
+          "joint_extraction": 0.026,
+          "n_held": 16,
+          "units_recovery": 0.841
+        }
+      }
+    },
+    "reason": {
+      "cells": [
+        "noun_preposition_reason"
+      ],
+      "hypotheses": {
+        "A2_extraction": 1.051,
+        "A2_units_recovery": 0.922,
+        "C_same_answer_effect": 0.0067,
+        "P_damage": {
+          "ce_damage": 0.489,
+          "ce_lb975": 0.4334,
+          "ce_ub975": 0.5497,
+          "margin_damage": 0.8204,
+          "top1_change_rate": 0.125
+        },
+        "P_same_answer_effect": 0.0302,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 1.6071
+      },
+      "n_units": 6,
+      "per_shape": {
+        "noun_preposition_between_with": {
+          "A1_damage": {
+            "ce_damage": 0.0135,
+            "ce_lb975": 0.0104,
+            "ce_ub975": 0.0173,
+            "margin_damage": 0.0022,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": -0.0024,
+            "ce_lb975": -0.0046,
+            "ce_ub975": -0.0003,
+            "margin_damage": 0.001,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": -0.0003,
+          "cross_abs_recovery": -0.002,
+          "joint_extraction": -0.003,
+          "n_held": 16,
+          "units_recovery": 0.601
+        },
+        "noun_preposition_reason": {
+          "A1_damage": {
+            "ce_damage": 0.5006,
+            "ce_lb975": 0.4521,
+            "ce_ub975": 0.5556,
+            "margin_damage": 0.8085,
+            "top1_change_rate": 0.125
+          },
+          "C_damage": {
+            "ce_damage": -0.0024,
+            "ce_lb975": -0.0046,
+            "ce_ub975": -0.0003,
+            "margin_damage": 0.001,
+            "top1_change_rate": 0.0
+          },
+          "C_ub975": -0.0003,
+          "cross_abs_recovery": 1.053,
+          "joint_extraction": 1.005,
+          "n_held": 16,
+          "units_recovery": 1.048
+        }
+      }
+    },
+    "within_for": {
+      "cells": [
+        "noun_preposition_within_for"
+      ],
+      "hypotheses": {
+        "A2_extraction": 0.983,
+        "A2_units_recovery": 0.906,
+        "C_same_answer_effect": 0.0215,
+        "P_damage": {
+          "ce_damage": 0.8977,
+          "ce_lb975": 0.8365,
+          "ce_ub975": 0.9559,
+          "margin_damage": 1.9352,
+          "top1_change_rate": 0.3438
+        },
+        "P_same_answer_effect": 0.0347,
+        "n_a2": 16,
+        "n_p": 16,
+        "scale": 4.4202
+      },
+      "n_units": 30,
+      "per_shape": {
+        "noun_preposition_at_beyond": {
+          "A1_damage": {
+            "ce_damage": 0.1233,
+            "ce_lb975": 0.095,
+            "ce_ub975": 0.1487,
+            "margin_damage": 0.0272,
+            "top1_change_rate": 0.0
+          },
+          "C_damage": {
+            "ce_damage": 0.0067,
+            "ce_lb975": -0.005,
+            "ce_ub975": 0.0199,
+            "margin_damage": -0.0575,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0199,
+          "cross_abs_recovery": 0.042,
+          "joint_extraction": 0.055,
+          "n_held": 16,
+          "units_recovery": 0.757
+        },
+        "noun_preposition_within_for": {
+          "A1_damage": {
+            "ce_damage": 0.8767,
+            "ce_lb975": 0.8262,
+            "ce_ub975": 0.9333,
+            "margin_damage": 1.8855,
+            "top1_change_rate": 0.25
+          },
+          "C_damage": {
+            "ce_damage": 0.0067,
+            "ce_lb975": -0.005,
+            "ce_ub975": 0.0199,
+            "margin_damage": -0.0575,
+            "top1_change_rate": 0.0312
+          },
+          "C_ub975": 0.0199,
+          "cross_abs_recovery": 0.914,
+          "joint_extraction": 1.003,
+          "n_held": 16,
+          "units_recovery": 0.911
+        }
+      }
+    }
+  },
+  "per_target": {
+    "at_beyond": {
+      "A1": 1.019,
+      "A2": 0.746,
+      "C": 0.0054,
+      "P": 0.0248,
+      "measured": true,
+      "passes": false,
+      "reach": 0.793
+    },
+    "between_with": {
+      "A1": 1.004,
+      "A2": 0.869,
+      "C": 0.005,
+      "P": 0.0197,
+      "measured": true,
+      "passes": false,
+      "reach": 0.5
+    },
+    "for_about": {
+      "A1": 0.981,
+      "A2": 0.955,
+      "C": 0.0059,
+      "P": 0.0172,
+      "measured": true,
+      "passes": true,
+      "reach": 0.841
+    },
+    "reason": {
+      "A1": 1.005,
+      "A2": 1.051,
+      "C": 0.0067,
+      "P": 0.0302,
+      "measured": true,
+      "passes": false,
+      "reach": 0.601
+    },
+    "within_for": {
+      "A1": 1.003,
+      "A2": 0.983,
+      "C": 0.0215,
+      "P": 0.0347,
+      "measured": true,
+      "passes": false,
+      "reach": 0.757
+    }
+  },
+  "predictions": {
+    "pred_a_measured_A1": true,
+    "pred_b_measured_A2": false,
+    "pred_c_measured_P_and_C": true,
+    "pred_d_partners_reached": false,
+    "pred_e_all_measured": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "lam": 30.0,
+    "lr": 0.05,
+    "max_units": 30,
+    "min_gain": 0.005,
+    "pool": 40,
+    "steps": 120,
+    "target": 0.88
+  },
+  "schema": "unit_nounprep_census_battery_v555",
+  "seconds": 167.7
+}
