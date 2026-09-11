@@ -1,0 +1,1296 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "pred_d": false,
+  "max_replay_nats": 4.291534423828125e-06,
+  "partition_identity_error": 0.0,
+  "cells": [
+    {
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "approx_means": [
+        0.0,
+        1.209957242012024,
+        0.5724464058876038,
+        1.0262580513954163
+      ],
+      "exact_means": [
+        0.0,
+        1.1689899563789368,
+        0.5507004261016846,
+        1.0104584693908691
+      ],
+      "approx_producer_fraction": 0.4731129216894386,
+      "exact_producer_fraction": 0.47109081057251695,
+      "producer_effect_relative_rms": 0.04131174860784174,
+      "producer_sign_agreement": 1.0
+    },
+    {
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "approx_means": [
+        0.0,
+        1.4629618376493454,
+        0.1775636374950409,
+        0.7123394012451172
+      ],
+      "exact_means": [
+        0.0,
+        1.3982306495308876,
+        0.14306390285491943,
+        0.6739712804555893
+      ],
+      "approx_producer_fraction": 0.12137270633138743,
+      "exact_producer_fraction": 0.10231781351876243,
+      "producer_effect_relative_rms": 0.2652099458174394,
+      "producer_sign_agreement": 1.0
+    },
+    {
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "approx_means": [
+        0.0,
+        0.9937036633491516,
+        0.23076152801513672,
+        0.9645724296569824
+      ],
+      "exact_means": [
+        0.0,
+        1.1553419828414917,
+        0.2555055022239685,
+        1.1144832968711853
+      ],
+      "approx_producer_fraction": 0.2322236865237916,
+      "exact_producer_fraction": 0.22115140453527762,
+      "producer_effect_relative_rms": 0.10128650617109734,
+      "producer_sign_agreement": 1.0
+    },
+    {
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "approx_means": [
+        0.0,
+        0.8397936224937439,
+        0.022971272468566895,
+        0.6319724917411804
+      ],
+      "exact_means": [
+        0.0,
+        0.9683758616447449,
+        0.03327608108520508,
+        0.7380375266075134
+      ],
+      "approx_producer_fraction": 0.027353473345456396,
+      "exact_producer_fraction": 0.03436277421112819,
+      "producer_effect_relative_rms": 0.3519608416760299,
+      "producer_sign_agreement": 1.0
+    },
+    {
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approx_means": [
+        0.0,
+        0.03745830059051514,
+        -0.006602227687835693,
+        0.03657418489456177
+      ],
+      "exact_means": [
+        0.0,
+        0.03731629252433777,
+        -0.007842063903808594,
+        0.036773681640625
+      ],
+      "approx_producer_fraction": 0.19992412220610276,
+      "exact_producer_fraction": 0.2568461252698699,
+      "producer_effect_relative_rms": 0.3506422995984698,
+      "producer_sign_agreement": 0.8125
+    },
+    {
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approx_means": [
+        0.0,
+        0.035745978355407715,
+        -0.004866182804107666,
+        0.030643463134765625
+      ],
+      "exact_means": [
+        0.0,
+        0.04715168476104736,
+        -0.006332308053970337,
+        0.04016825556755066
+      ],
+      "approx_producer_fraction": 0.24715779639155103,
+      "exact_producer_fraction": 0.222850081129014,
+      "producer_effect_relative_rms": 0.1682702010858093,
+      "producer_sign_agreement": 1.0
+    }
+  ],
+  "compositions": [
+    {
+      "family": "A1",
+      "relative_cross": 0.3598335697846992
+    },
+    {
+      "family": "A2",
+      "relative_cross": 0.21078850543773311
+    }
+  ],
+  "records": [
+    {
+      "row_id": "13c5ade1e331673de20e14ce904792f7dc3b30c966a88308af0f9cf44fef8b4e",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        1.4292840957641602,
+        0.16784906387329102,
+        0.7102129459381104
+      ],
+      "exact_effects": [
+        0.0,
+        1.3662762641906738,
+        0.13138794898986816,
+        0.6760904788970947
+      ],
+      "approximate_cross": 0.5512220859527588
+    },
+    {
+      "row_id": "9943ab4d05cbf90265eabd967c55dba0ef7c0110889862530c1a7b00bcb59806",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        0.9297370910644531,
+        0.24063587188720703,
+        0.9082489013671875
+      ],
+      "exact_effects": [
+        0.0,
+        1.028782844543457,
+        0.2587757110595703,
+        1.005174160003662
+      ],
+      "approximate_cross": -0.2191476821899414
+    },
+    {
+      "row_id": "b232ad220cf75b5ef8baa803a6c67bf985debd0d0ebe58db6c95eefad1794390",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.004102230072021484,
+        -0.011765480041503906,
+        0.004127025604248047
+      ],
+      "exact_effects": [
+        0.0,
+        -0.006884574890136719,
+        -0.01718616485595703,
+        -0.0009503364562988281
+      ],
+      "approximate_cross": 0.011740684509277344
+    },
+    {
+      "row_id": "3d46247b250135a9f3a9955d428fafd91a3f9c34810672ca60f724b6b9eae0a5",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.0532841682434082,
+        0.009349346160888672,
+        0.040790557861328125
+      ],
+      "exact_effects": [
+        0.0,
+        0.048259735107421875,
+        0.007648468017578125,
+        0.04166269302368164
+      ],
+      "approximate_cross": 0.0031442642211914062
+    },
+    {
+      "row_id": "45231f7af8695362bb5a870bfb447290787415e6619e95f969a224bec82a0277",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.1190528869628906,
+        0.5182876586914062,
+        0.9618310928344727
+      ],
+      "exact_effects": [
+        0.0,
+        1.0413541793823242,
+        0.48981761932373047,
+        0.9171142578125
+      ],
+      "approximate_cross": -0.3610658645629883
+    },
+    {
+      "row_id": "fe05c7adfce536293dff056ed99f5eb7015ad1e53d9b26ecdca0d29f70a682d2",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        0.5750284194946289,
+        0.022893905639648438,
+        0.4244260787963867
+      ],
+      "exact_effects": [
+        0.0,
+        0.7152366638183594,
+        0.02622509002685547,
+        0.5531826019287109
+      ],
+      "approximate_cross": 0.12770843505859375
+    },
+    {
+      "row_id": "d71740cc2a6c43ed283b5956890a3275233098a71415faedae833f962519492b",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.030078411102294922,
+        -0.0035843849182128906,
+        0.027585983276367188
+      ],
+      "exact_effects": [
+        0.0,
+        0.050360679626464844,
+        0.0025243759155273438,
+        0.038804054260253906
+      ],
+      "approximate_cross": 0.006076812744140625
+    },
+    {
+      "row_id": "5108aa90ac1ee3696ab46f277bb7cece1854dc1c6259dfa3849631e2662148f3",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.0031766891479492188,
+        -0.0020923614501953125,
+        0.0016489028930664062
+      ],
+      "exact_effects": [
+        0.0,
+        0.008525848388671875,
+        -0.0025053024291992188,
+        0.005608558654785156
+      ],
+      "approximate_cross": 0.003620147705078125
+    },
+    {
+      "row_id": "d2f44a3857603bf348f9dbc1e2ba12565ac9dd82358be0cfc4a7d958a6955349",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        1.5609246492385864,
+        0.15825581550598145,
+        0.7482399940490723
+      ],
+      "exact_effects": [
+        0.0,
+        1.4200448989868164,
+        0.09858179092407227,
+        0.6578454971313477
+      ],
+      "approximate_cross": 0.6544288396835327
+    },
+    {
+      "row_id": "8a376f90dc403b5e9de5fa32116fcdfbb4689a38a5678a12ca526e67b1a483f8",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.1744585037231445,
+        0.3195819854736328,
+        1.1675610542297363
+      ],
+      "exact_effects": [
+        0.0,
+        1.3726959228515625,
+        0.33650636672973633,
+        1.36100435256958
+      ],
+      "approximate_cross": -0.3126845359802246
+    },
+    {
+      "row_id": "22d9d77ace4f3207bf9696548b6b3cb089eca9a8b56e6c99647f49add6af87c8",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.05488443374633789,
+        0.00016450881958007812,
+        0.06016206741333008
+      ],
+      "exact_effects": [
+        0.0,
+        0.017173290252685547,
+        -0.011026859283447266,
+        0.03737783432006836
+      ],
+      "approximate_cross": -0.005442142486572266
+    },
+    {
+      "row_id": "04cef85f1ffaf039216a5bdcc48d5ecc8d79b449fb5e3638fc401f0a432d38ab",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.10654640197753906,
+        0.03309965133666992,
+        0.10768651962280273
+      ],
+      "exact_effects": [
+        0.0,
+        0.06821155548095703,
+        0.028255462646484375,
+        0.0824575424194336
+      ],
+      "approximate_cross": -0.034239768981933594
+    },
+    {
+      "row_id": "b3c4f1dad8ee10dc364f0416152c3a55e8a86bef39cee23292a189aca91c537f",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.1866679191589355,
+        0.5460987091064453,
+        1.0139551162719727
+      ],
+      "exact_effects": [
+        0.0,
+        1.1449389457702637,
+        0.5285720825195312,
+        0.993593692779541
+      ],
+      "approximate_cross": -0.3733859062194824
+    },
+    {
+      "row_id": "770097cb2d1b343d5c48fa39d0766d321b487ef58710d31e13e511ca4dc80155",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        0.8536567687988281,
+        0.017604827880859375,
+        0.6423568725585938
+      ],
+      "exact_effects": [
+        0.0,
+        1.0053553581237793,
+        0.023007869720458984,
+        0.771456241607666
+      ],
+      "approximate_cross": 0.193695068359375
+    },
+    {
+      "row_id": "25659219b7f11bf1e4588dab6fa396cdfae8bfa0d40c6a9dd519a616289bc6fe",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        -0.03926515579223633,
+        -0.0072460174560546875,
+        -0.040653228759765625
+      ],
+      "exact_effects": [
+        0.0,
+        -0.06191301345825195,
+        -0.015077590942382812,
+        -0.05106782913208008
+      ],
+      "approximate_cross": 0.008634090423583984
+    },
+    {
+      "row_id": "5927540f7a91b69fd0a1403ff80288b251695c13cae8f0e269534324bb27f67d",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.005566120147705078,
+        -0.0028181076049804688,
+        -0.0019130706787109375
+      ],
+      "exact_effects": [
+        0.0,
+        0.019298076629638672,
+        -0.0009703636169433594,
+        0.011981964111328125
+      ],
+      "approximate_cross": 0.010297298431396484
+    },
+    {
+      "row_id": "2bee6a767ee9ee03d845a6a2d900ef93a7a74cafb64d7c221948e264a954b562",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        1.3436050415039062,
+        0.2464768886566162,
+        0.6502032279968262
+      ],
+      "exact_effects": [
+        0.0,
+        1.3459643721580505,
+        0.23522281646728516,
+        0.6588104963302612
+      ],
+      "approximate_cross": 0.44692492485046387
+    },
+    {
+      "row_id": "3e9dd988636567634d02e19800eef8dcad207ef78e2972dff3f0e00e255b6f71",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.0369973182678223,
+        0.2574286460876465,
+        1.0243639945983887
+      ],
+      "exact_effects": [
+        0.0,
+        1.1896648406982422,
+        0.28951406478881836,
+        1.1636228561401367
+      ],
+      "approximate_cross": -0.2447953224182129
+    },
+    {
+      "row_id": "3391f70b0d4289e94d3510a51449d295d6fd295c7749bb6ac4f9977ebcf07656",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.05431365966796875,
+        0.01003122329711914,
+        0.05446958541870117
+      ],
+      "exact_effects": [
+        0.0,
+        0.07358932495117188,
+        0.016826629638671875,
+        0.06292438507080078
+      ],
+      "approximate_cross": -0.010187149047851562
+    },
+    {
+      "row_id": "2acc99b355715945de5770ea52002e637ce1f1f1b8b994ef341db7a0e54116ae",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.1421365737915039,
+        0.016526222229003906,
+        0.13466644287109375
+      ],
+      "exact_effects": [
+        0.0,
+        0.13365650177001953,
+        0.013153553009033203,
+        0.1324176788330078
+      ],
+      "approximate_cross": -0.00905609130859375
+    },
+    {
+      "row_id": "0292356e7beef38aadfe40929d80069d71e5b8e3ce4a409f8635c9ef0518e272",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.0804524421691895,
+        0.5153608322143555,
+        0.9504208564758301
+      ],
+      "exact_effects": [
+        0.0,
+        1.0133004188537598,
+        0.48542118072509766,
+        0.9215021133422852
+      ],
+      "approximate_cross": -0.3853292465209961
+    },
+    {
+      "row_id": "0aa43f34867e5462e2cb12ae7feb5f5d246aab69e467842da003e057b4bd3fee",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        0.9649491310119629,
+        0.014238357543945312,
+        0.7454161643981934
+      ],
+      "exact_effects": [
+        0.0,
+        1.1069374084472656,
+        0.024711132049560547,
+        0.8681201934814453
+      ],
+      "approximate_cross": 0.20529460906982422
+    },
+    {
+      "row_id": "eb706c54a33d1711abb1157954c96feac6670bd5bb2b43fcb76ea61cc3041bab",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        -0.03804826736450195,
+        -0.007424354553222656,
+        -0.03976917266845703
+      ],
+      "exact_effects": [
+        0.0,
+        -0.029138565063476562,
+        -0.006538867950439453,
+        -0.032917022705078125
+      ],
+      "approximate_cross": 0.009145259857177734
+    },
+    {
+      "row_id": "9e09116e25a32ef466d98c852a0820bc3a291c750fc5a4d70c20c79e267d85d5",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        -0.021525859832763672,
+        -0.007048130035400391,
+        -0.01704549789428711
+      ],
+      "exact_effects": [
+        0.0,
+        -0.018407344818115234,
+        -0.006139278411865234,
+        -0.01895761489868164
+      ],
+      "approximate_cross": 0.002567768096923828
+    },
+    {
+      "row_id": "493cf9b0503e588769a1357f0b46c9b0405de5081a4814bbd11cd9f369055dda",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        1.3557813167572021,
+        0.09868097305297852,
+        0.7020263671875
+      ],
+      "exact_effects": [
+        0.0,
+        1.1928340196609497,
+        0.03662681579589844,
+        0.5884394645690918
+      ],
+      "approximate_cross": 0.5550739765167236
+    },
+    {
+      "row_id": "0a4edd1a87f90ad15ebeef9749a668aca535344d3f5d8152d5678e250fd589d3",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.0027341842651367,
+        0.1894688606262207,
+        0.9653401374816895
+      ],
+      "exact_effects": [
+        0.0,
+        1.1908321380615234,
+        0.21481943130493164,
+        1.1419949531555176
+      ],
+      "approximate_cross": -0.15207481384277344
+    },
+    {
+      "row_id": "9ed01d8d3395f92d67b58f34eeb0215ada00b6e36122514e27bc7abc73b6eda5",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        -0.0013337135314941406,
+        0.0067291259765625,
+        0.003345012664794922
+      ],
+      "exact_effects": [
+        0.0,
+        -0.002083301544189453,
+        0.009809017181396484,
+        -0.0008115768432617188
+      ],
+      "approximate_cross": -0.011407852172851562
+    },
+    {
+      "row_id": "76cba63966710efdd4b79a1ef0d5a73a0710a7226d3fe6c7e55c645818cb8f94",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        -0.013744831085205078,
+        -0.0053844451904296875,
+        -0.007206916809082031
+      ],
+      "exact_effects": [
+        0.0,
+        -0.020390033721923828,
+        -0.003799915313720703,
+        -0.017885208129882812
+      ],
+      "approximate_cross": -0.0011534690856933594
+    },
+    {
+      "row_id": "87c36e0e9e001651d5c847ae7f311f29424ebfd1e9241b853a6d1b10215c6fe7",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.120877742767334,
+        0.5446281433105469,
+        0.9234862327575684
+      ],
+      "exact_effects": [
+        0.0,
+        1.1204195022583008,
+        0.5371170043945312,
+        0.9304800033569336
+      ],
+      "approximate_cross": -0.34723663330078125
+    },
+    {
+      "row_id": "fefa77d8f9b4084f98a77eb19f04f31c0699e830b510e9324155ba3d0382a4ca",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        0.826629638671875,
+        0.0026264190673828125,
+        0.6038122177124023
+      ],
+      "exact_effects": [
+        0.0,
+        0.9451045989990234,
+        0.021803855895996094,
+        0.6818838119506836
+      ],
+      "approximate_cross": 0.22019100189208984
+    },
+    {
+      "row_id": "cd15ba19c0d706f77d89b3f29612c0fc146d2017b7c3d15b3a0143610c92a2b8",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.04570627212524414,
+        0.0024614334106445312,
+        0.0411067008972168
+      ],
+      "exact_effects": [
+        0.0,
+        0.0685572624206543,
+        0.007635593414306641,
+        0.05476045608520508
+      ],
+      "approximate_cross": 0.0021381378173828125
+    },
+    {
+      "row_id": "9a9d73192309d4a088e7b35c7da0c6a028cbbd5f965737e308bb50dbceddd137",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.060007572174072266,
+        -0.018626689910888672,
+        0.05196714401245117
+      ],
+      "exact_effects": [
+        0.0,
+        0.09997367858886719,
+        -0.018289566040039062,
+        0.08141279220581055
+      ],
+      "approximate_cross": 0.026667118072509766
+    },
+    {
+      "row_id": "306f3f5a114adba3515a63897cfca2965fbdf1dfa5732521cec9ed3497263f1c",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        1.5640301704406738,
+        0.19607257843017578,
+        0.7826189994812012
+      ],
+      "exact_effects": [
+        0.0,
+        1.49576997756958,
+        0.15821027755737305,
+        0.7451910972595215
+      ],
+      "approximate_cross": 0.5853385925292969
+    },
+    {
+      "row_id": "e70007a7271e4bd59a45939b8152186c2530277ff255f84e637f54d4e10f96f4",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.1433639526367188,
+        0.2626943588256836,
+        1.155838966369629
+      ],
+      "exact_effects": [
+        0.0,
+        1.3332881927490234,
+        0.29320383071899414,
+        1.321578025817871
+      ],
+      "approximate_cross": -0.27516937255859375
+    },
+    {
+      "row_id": "926da77d95322954de04b4c87f33e9c0e8c18f091d65c0d983cd7a1dd084f021",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.05017852783203125,
+        -0.009974479675292969,
+        0.05005931854248047
+      ],
+      "exact_effects": [
+        0.0,
+        0.051207542419433594,
+        -0.011816978454589844,
+        0.0526580810546875
+      ],
+      "approximate_cross": 0.01009368896484375
+    },
+    {
+      "row_id": "acaee2cce183e56254319f84866fa52ea511084fbd5912c2610aefa8f5b65cfa",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        -0.03419923782348633,
+        -0.005297660827636719,
+        -0.029325485229492188
+      ],
+      "exact_effects": [
+        0.0,
+        -0.03438091278076172,
+        -0.003632068634033203,
+        -0.03635120391845703
+      ],
+      "approximate_cross": 0.0004239082336425781
+    },
+    {
+      "row_id": "c46d824d73ede2c123c25bb0c7850df80865a1ce6a6fad27b386f7e4aebc80f6",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.4775958061218262,
+        0.7056117057800293,
+        1.2662382125854492
+      ],
+      "exact_effects": [
+        0.0,
+        1.4190258979797363,
+        0.6767983436584473,
+        1.2390246391296387
+      ],
+      "approximate_cross": -0.49425411224365234
+    },
+    {
+      "row_id": "1af952aca9179326f5b9b5ec2812aa92e62507c47da7b1fc98917b42afeeb356",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        0.9286470413208008,
+        0.03050708770751953,
+        0.7016639709472656
+      ],
+      "exact_effects": [
+        0.0,
+        1.047318458557129,
+        0.03768348693847656,
+        0.7864513397216797
+      ],
+      "approximate_cross": 0.19647598266601562
+    },
+    {
+      "row_id": "1759ef47fcb001f63124f140df8945f8497b63e6d0b4ab99dd1f6a3dff6a6ed6",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.09651947021484375,
+        0.0016140937805175781,
+        0.08382606506347656
+      ],
+      "exact_effects": [
+        0.0,
+        0.07362985610961914,
+        -0.004512310028076172,
+        0.0680551528930664
+      ],
+      "approximate_cross": 0.01107931137084961
+    },
+    {
+      "row_id": "52175778a30d7da453189bdc1b22a7c78cd7d9e9d4b5c141d4dd78f177e1c3dd",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.11744165420532227,
+        0.010516166687011719,
+        0.10959529876708984
+      ],
+      "exact_effects": [
+        0.0,
+        0.11550712585449219,
+        0.006471157073974609,
+        0.11381149291992188
+      ],
+      "approximate_cross": -0.002669811248779297
+    },
+    {
+      "row_id": "3f4071ba81f6c2c4c9a97717eb8b6882f5832000a8a2a71d21f45d4f9cd251f0",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        1.7045629024505615,
+        0.18670892715454102,
+        0.8212571144104004
+      ],
+      "exact_effects": [
+        0.0,
+        1.615222454071045,
+        0.1375727653503418,
+        0.7756209373474121
+      ],
+      "approximate_cross": 0.6965968608856201
+    },
+    {
+      "row_id": "f250d5ae41d9eb4b0f5bf439d7d7088858461ea72f8bf8c608dfa76a31440403",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        0.8904051780700684,
+        0.18478727340698242,
+        0.8379864692687988
+      ],
+      "exact_effects": [
+        0.0,
+        1.0466914176940918,
+        0.22560691833496094,
+        0.9651117324829102
+      ],
+      "approximate_cross": -0.1323685646057129
+    },
+    {
+      "row_id": "8ace4061e333993031bc479736eb58567848f9b047be83190bd03751fb1537df",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.06534719467163086,
+        0.0018157958984375,
+        0.07058858871459961
+      ],
+      "exact_effects": [
+        0.0,
+        0.06092119216918945,
+        0.002833843231201172,
+        0.06412029266357422
+      ],
+      "approximate_cross": -0.00705718994140625
+    },
+    {
+      "row_id": "d6397c7a849856740c955339c4b5f0bd4451bc049aaf3f78b16bd70e1658cd00",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.08110237121582031,
+        0.004604339599609375,
+        0.07941341400146484
+      ],
+      "exact_effects": [
+        0.0,
+        0.08183002471923828,
+        0.000823974609375,
+        0.07880878448486328
+      ],
+      "approximate_cross": -0.0029153823852539062
+    },
+    {
+      "row_id": "61e58af52c2003dd651f5bd98a517fa03ac8492776bde0eaf4224d5b5767c422",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.3557357788085938,
+        0.6839113235473633,
+        1.142181396484375
+      ],
+      "exact_effects": [
+        0.0,
+        1.3460941314697266,
+        0.6664438247680664,
+        1.1530718803405762
+      ],
+      "approximate_cross": -0.47035694122314453
+    },
+    {
+      "row_id": "1dcf52d80fb1bee762f550b5d211aff69fc7e91f2be513c2e088babadc55075e",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        0.8855772018432617,
+        0.035248756408691406,
+        0.6696987152099609
+      ],
+      "exact_effects": [
+        0.0,
+        0.9819736480712891,
+        0.05050849914550781,
+        0.7452917098999023
+      ],
+      "approximate_cross": 0.18062973022460938
+    },
+    {
+      "row_id": "1a8d61c720663b7c9b52c6489db1ebe77035327d6a510ddfd0a25fe0247c5e00",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.05986928939819336,
+        -0.02143096923828125,
+        0.05530977249145508
+      ],
+      "exact_effects": [
+        0.0,
+        0.05674171447753906,
+        -0.025574207305908203,
+        0.05543994903564453
+      ],
+      "approximate_cross": 0.02599048614501953
+    },
+    {
+      "row_id": "b7e01a3ba8bd6095b902e7179cff860dddbf8315fef43dbed389d36728e14f33",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        -0.004406929016113281,
+        -0.025860309600830078,
+        -0.015458106994628906
+      ],
+      "exact_effects": [
+        0.0,
+        0.06016683578491211,
+        -0.02531147003173828,
+        0.03448486328125
+      ],
+      "approximate_cross": 0.0369114875793457
+    },
+    {
+      "row_id": "9910e8661eb202402c7af1ff477dab5a1915af6873034a3bb07303d5363fbd0e",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        1.3467683792114258,
+        0.22778964042663574,
+        0.6030685901641846
+      ],
+      "exact_effects": [
+        0.0,
+        1.4113914966583252,
+        0.23936748504638672,
+        0.6511707305908203
+      ],
+      "approximate_cross": 0.5159101486206055
+    },
+    {
+      "row_id": "e1e87ca5f4550c12d97a0d8e6e561c2e98d9d348ac8e5ca4b3efd01895f061ef",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        0.8610053062438965,
+        0.16959619522094727,
+        0.8112287521362305
+      ],
+      "exact_effects": [
+        0.0,
+        1.0120725631713867,
+        0.19201135635375977,
+        0.959251880645752
+      ],
+      "approximate_cross": -0.11981964111328125
+    },
+    {
+      "row_id": "a7237af553bb6a9c2e48b210e479612d63b014f463f2841e243d0dfff915c337",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.041878700256347656,
+        -0.023580551147460938,
+        0.03866863250732422
+      ],
+      "exact_effects": [
+        0.0,
+        0.030086517333984375,
+        -0.030790328979492188,
+        0.03386211395263672
+      ],
+      "approximate_cross": 0.026790618896484375
+    },
+    {
+      "row_id": "7ea96a5b0c0df992002aa1ce778661a3258fc6be3526225981167489e1f64e40",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        -0.03204059600830078,
+        -0.03428077697753906,
+        -0.05465984344482422
+      ],
+      "exact_effects": [
+        0.0,
+        0.02624797821044922,
+        -0.036998748779296875,
+        0.0016326904296875
+      ],
+      "approximate_cross": 0.0569000244140625
+    },
+    {
+      "row_id": "b61b5b2041ef0e4c7b87ffb78b11d2c310ebe2b55dd02fef14fc21c2d41f19eb",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.2447214126586914,
+        0.5616788864135742,
+        1.049321174621582
+      ],
+      "exact_effects": [
+        0.0,
+        1.1909093856811523,
+        0.5357789993286133,
+        1.0254931449890137
+      ],
+      "approximate_cross": -0.36627864837646484
+    },
+    {
+      "row_id": "5f1a89d55c8ad3985e7618596fa72efede7beefded3e6c29377a5ef065554a17",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        0.9713363647460938,
+        0.03192901611328125,
+        0.7219839096069336
+      ],
+      "exact_effects": [
+        0.0,
+        1.0684185028076172,
+        0.033367156982421875,
+        0.8116693496704102
+      ],
+      "approximate_cross": 0.2174234390258789
+    },
+    {
+      "row_id": "5f7b9d6759a04c3367e844a6bdeb93309f043fefccb03fc9c36f54f6b9e4b46f",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.09866952896118164,
+        -0.01788473129272461,
+        0.10010194778442383
+      ],
+      "exact_effects": [
+        0.0,
+        0.10890340805053711,
+        -0.01833486557006836,
+        0.10730791091918945
+      ],
+      "approximate_cross": 0.016452312469482422
+    },
+    {
+      "row_id": "bc32c5eb21c8217b4e3aaa3b4ee2721d8447105f095873b467a97ff36e51d684",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        -0.0654144287109375,
+        -0.030813217163085938,
+        -0.06765985488891602
+      ],
+      "exact_effects": [
+        0.0,
+        -0.029801368713378906,
+        -0.03129863739013672,
+        -0.04054975509643555
+      ],
+      "approximate_cross": 0.03305864334106445
+    },
+    {
+      "row_id": "66608b1da63ca41feda64441ba5308d15a5f5e0703e0644fe8cb960c381f630e",
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        1.398738145828247,
+        0.13867521286010742,
+        0.6810879707336426
+      ],
+      "exact_effects": [
+        0.0,
+        1.3383417129516602,
+        0.10754132270812988,
+        0.638601541519165
+      ],
+      "approximate_cross": 0.5789749622344971
+    },
+    {
+      "row_id": "b3592d2d154671cdf2b67c2f584c9f271739b8ce4514d775d535c3d987700987",
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        0.9109277725219727,
+        0.22189903259277344,
+        0.8460111618041992
+      ],
+      "exact_effects": [
+        0.0,
+        1.0687079429626465,
+        0.23360633850097656,
+        0.9981284141540527
+      ],
+      "approximate_cross": -0.156982421875
+    },
+    {
+      "row_id": "ad6219bc7b34df0c4770217742daa63d68ad3eebe6ff09e7bb4b9734310314ef",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.03050518035888672,
+        -0.0038895606994628906,
+        0.027773380279541016
+      ],
+      "exact_effects": [
+        0.0,
+        0.03349876403808594,
+        -0.004073143005371094,
+        0.03025960922241211
+      ],
+      "approximate_cross": 0.006621360778808594
+    },
+    {
+      "row_id": "ff12fd48bb6fd3b1270d7c25949966519090cd2e1f9e7ef61d2c789218db2d39",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.06472492218017578,
+        -0.01582813262939453,
+        0.05361747741699219
+      ],
+      "exact_effects": [
+        0.0,
+        0.08430004119873047,
+        -0.017838478088378906,
+        0.06600189208984375
+      ],
+      "approximate_cross": 0.026935577392578125
+    },
+    {
+      "row_id": "9ac9a8ea3dbf8a488b070d1fd942f7f4fbb4f8677f63ee93c4c7af07e58d93c7",
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "approximate_effects": [
+        0.0,
+        1.0945539474487305,
+        0.5039939880371094,
+        0.9026303291320801
+      ],
+      "exact_effects": [
+        0.0,
+        1.0758771896362305,
+        0.485654354095459,
+        0.9033880233764648
+      ],
+      "approximate_cross": -0.312070369720459
+    },
+    {
+      "row_id": "9e9600cb672daa20db6a696d9b191fd23a476b373dd73c1ebaaf994e0a373e63",
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "approximate_effects": [
+        0.0,
+        0.7125244140625,
+        0.02872180938720703,
+        0.546422004699707
+      ],
+      "exact_effects": [
+        0.0,
+        0.8766622543334961,
+        0.04890155792236328,
+        0.6862449645996094
+      ],
+      "approximate_cross": 0.13738059997558594
+    },
+    {
+      "row_id": "93a3182807b63126f3aca87cd5970471e52145abf130459c877b1772c15070b2",
+      "family": "past",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.04592704772949219,
+        -0.021671295166015625,
+        0.04848527908325195
+      ],
+      "exact_effects": [
+        0.0,
+        0.07241058349609375,
+        -0.020171165466308594,
+        0.06855583190917969
+      ],
+      "approximate_cross": 0.01911306381225586
+    },
+    {
+      "row_id": "fc226ea56b032f899d113fb5d08af0ec67a15d13bc99432049f1bfcd147f4bd1",
+      "family": "progressive",
+      "direction": "base_to_inflected",
+      "approximate_effects": [
+        0.0,
+        0.10928106307983398,
+        -0.0039048194885253906,
+        0.10417842864990234
+      ],
+      "exact_effects": [
+        0.0,
+        0.11142921447753906,
+        -0.01088571548461914,
+        0.1061549186706543
+      ],
+      "approximate_cross": 0.009007453918457031
+    }
+  ],
+  "source_upstream_result_sha256": "edc71bcfcef474381bab046f4639b42539a8d51a8a7b89c6a3822f16c2176ae7",
+  "scope": "Conditional native/approximate suffix-component effect from MLP16 output versus remaining incoming residual, fixed base attention17. No whole-module causal claim or closed extraction."
+}

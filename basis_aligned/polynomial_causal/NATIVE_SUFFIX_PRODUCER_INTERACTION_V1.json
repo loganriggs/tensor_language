@@ -1,0 +1,26 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "cells": [
+    {
+      "family": "A1",
+      "n": 16,
+      "native_cross_meanabs": 0.4866822026669979,
+      "native_residual_effect_meanabs": 1.2836103029549122,
+      "native_relative_cross": 0.3791510566303806,
+      "approximation_relative_rms": 0.013632745417434474,
+      "sign_agreement": 1.0
+    },
+    {
+      "family": "A2",
+      "n": 16,
+      "native_cross_meanabs": 0.20585453510284424,
+      "native_residual_effect_meanabs": 1.0618589222431183,
+      "native_relative_cross": 0.1938624150447292,
+      "approximation_relative_rms": 0.06663818185616201,
+      "sign_agreement": 1.0
+    }
+  ],
+  "source_sha256": "c015e9dc5d7dc1b707eaa7b1a1c3e5dda35544f795e08f4725277ae5b592aefc",
+  "scope": "Exact-reference interaction corroboration; original producer B/C/D misses remain. Does not isolate input normalization, bilinear numerator or output-tail causes."
+}

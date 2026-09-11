@@ -1,0 +1,93 @@
+{
+  "pred_a": true,
+  "errors": [
+    3.5920840994654606e-16,
+    2.156070695477119e-15,
+    2.2421177727441215e-15,
+    1.9074875483393032e-15,
+    1.866988540937582e-15,
+    2.360174493663072e-15,
+    1.8944563452914793e-15,
+    2.0688939210079738e-15,
+    2.3197180218010394e-15,
+    3.1610808447323382e-15,
+    2.1803168637200634e-15
+  ],
+  "head_checks": [
+    {
+      "head": 0,
+      "fold_error": 2.2421177727441215e-15,
+      "folded_output_rank": 48,
+      "current_map_norm": 646.7404863064434,
+      "first_value_map_norm": 54.19290962540202
+    },
+    {
+      "head": 1,
+      "fold_error": 1.9074875483393032e-15,
+      "folded_output_rank": 48,
+      "current_map_norm": 843.3797316366481,
+      "first_value_map_norm": 52.00899806202894
+    },
+    {
+      "head": 2,
+      "fold_error": 1.866988540937582e-15,
+      "folded_output_rank": 48,
+      "current_map_norm": 868.7388416432497,
+      "first_value_map_norm": 40.753634685271386
+    },
+    {
+      "head": 3,
+      "fold_error": 2.360174493663072e-15,
+      "folded_output_rank": 48,
+      "current_map_norm": 1107.7211361271852,
+      "first_value_map_norm": 108.41405921467329
+    },
+    {
+      "head": 4,
+      "fold_error": 1.8944563452914793e-15,
+      "folded_output_rank": 48,
+      "current_map_norm": 1514.833784140471,
+      "first_value_map_norm": 130.0773590632301
+    },
+    {
+      "head": 5,
+      "fold_error": 2.0688939210079738e-15,
+      "folded_output_rank": 48,
+      "current_map_norm": 733.4392066029914,
+      "first_value_map_norm": 43.11715018503487
+    },
+    {
+      "head": 6,
+      "fold_error": 2.3197180218010394e-15,
+      "folded_output_rank": 48,
+      "current_map_norm": 832.5446413552604,
+      "first_value_map_norm": 51.01495788387688
+    },
+    {
+      "head": 7,
+      "fold_error": 3.1610808447323382e-15,
+      "folded_output_rank": 48,
+      "current_map_norm": 821.0529643673781,
+      "first_value_map_norm": 43.37751689051527
+    },
+    {
+      "head": 8,
+      "fold_error": 2.1803168637200634e-15,
+      "folded_output_rank": 48,
+      "current_map_norm": 887.3879331525916,
+      "first_value_map_norm": 57.81239134838323
+    }
+  ],
+  "value_mix": -0.0888671875,
+  "source_sha256": "726d784c3b95d87ea3368620b8a654fefe806f821cf4887bc3d8f31b3265fb08",
+  "artifact_sha256": "f361399045599af72a35807e76b6c786e94b63dfcb2da207b3e4879c78fb15ad",
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "price": {
+    "reader_floats": 55296,
+    "folded_output_floats": 55296,
+    "scalar_products": 45,
+    "normalization_radius_required": true,
+    "native_routing_required": true
+  },
+  "scope": "Existing exact linear-reader pullback applied to a new validated suffix component. No head behavioral importance, source closure, compression adoption or full extraction claim."
+}

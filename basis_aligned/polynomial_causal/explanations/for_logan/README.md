@@ -1,11 +1,12 @@
 # Requested full reports for Logan
 
-**Newest: [11 September, 13:27 UTC — Research update](research_update_2026-09-11_1327.md).**
+**Newest: [11 September, 21:42 UTC — Shared graphs, local prediction, and circuit-separation limits](research_update_2026-09-11_2142.md).** Covers work since the 13:27 report, with a high-level overview, four-property status, explained computations, and the latest upstream result.
 
-**Added to that report:** [What the factorization means: CP versus LL1 versus shared-input groups](research_update_2026-09-11_1327.md#factorization-explained). [Copyable browser-Codex brief](factorization_browser_brief_2026-09-11.md).
+**Background references:** [What the factorization means: CP versus LL1 versus shared-input groups](research_update_2026-09-11_1327.md#factorization-explained). [Copyable browser-Codex brief](factorization_browser_brief_2026-09-11.md).
 
 This directory is for fuller updates explicitly requested by Logan. Routine automatic experiment notes remain in the dated explanation folders.
 
+- [11 September, 21:42 — Shared graphs, local prediction, and upstream dependencies](research_update_2026-09-11_2142.md)
 - [11 September, 13:27 — Progress since the methods update](research_update_2026-09-11_1327.md)
 - [11 September, 09:02 — Weights-first methods, assumptions, and bottlenecks](weights_first_methods_2026-09-11_0902.md)
 - [10 September, 18:42 — Consolidated research update](research_update_2026-09-10_1842.md)

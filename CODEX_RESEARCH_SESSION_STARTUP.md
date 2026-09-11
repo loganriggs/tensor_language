@@ -125,8 +125,9 @@ and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX
   nonorthogonal node deletion uses dual readers and oblique input removal.
   Execution/composition holds, but generic controls prevent a special-circuit
   interpretation of improved cross-start agreement. Costs increase; no adoption.
-- Requested fuller reports remain in explanations/for_logan/; latest remains
-  the13:27report with CP/LL1 and hierarchy/DAG appendices. General reliable DAG
+- Requested fuller reports remain in explanations/for_logan/; latest is
+  the21:42report covering shared graphs, local prediction and upstream interactions.
+  The13:27report retains the CP/LL1 and hierarchy/DAG reference appendices. General reliable DAG
   discovery and the four behavioral properties remain unfinished. Follow
   RESIDUAL_PARENT_EDGE_V1_MATH.md and livequeue for the current two matched
   closed-component graph refits; older completed runs must not be restarted.

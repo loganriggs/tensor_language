@@ -108,3 +108,7 @@ A fixed weight-derived branch largely preserves neighboring binary inflection ch
 ### 21:31 — Frozen output distinction generalizes, broader preservation still fails
 
 New words/constructions confirm small neighboring binary-choice changes and nearly additive branch margins. Full CE preservation and original verb-retention thresholds fail again. Exact-native CPU comparison passes intended change-prediction bars, with private margin errors 4–14%. Native background remains required. [Primary fresh results](../../NATIVE_RELATION_OUTPUT_SPLIT_V1_MATH.md#fresh-lexical-and-construction-validation). Hourly21:27completed; next22:27, math22:51.
+
+### Requested full update — findings through 21:42 UTC
+
+**[Latest report for Logan](../for_logan/research_update_2026-09-11_2142.md)** covers the work since13:27, starting with the high-level overview and four-property status. It includes the newest upstream result: attention17 contributes little to this component's changing input; MLP16 and the remaining residual have substantial interactions corroborated by the exact native reference.
