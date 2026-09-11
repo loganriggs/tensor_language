@@ -1,0 +1,161 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "all_pairs_identity_errors": [
+    1.3877787807814457e-17,
+    6.938893903907228e-18,
+    1.3877787807814457e-17,
+    5.204170427930421e-18,
+    3.469446951953614e-18
+  ],
+  "panels": {
+    "fineweb": {
+      "mean_linear_effect": [
+        0.008007662517442985,
+        0.01628845543797804
+      ],
+      "paired_document_95": [
+        [
+          0.004955396309603505,
+          0.012109782751809526
+        ],
+        [
+          0.011073195397970224,
+          0.020794951583771325
+        ]
+      ],
+      "pred_b": true,
+      "pred_c": true,
+      "domains": {
+        "all": {
+          "documents": 128,
+          "per_family_linear_effect": [
+            [
+              0.021789207812536085,
+              0.026818075391894777
+            ],
+            [
+              0.007308804760388653,
+              0.01886467936827543
+            ],
+            [
+              -0.0050750250205957815,
+              0.0031826115537639125
+            ]
+          ],
+          "mean_linear_effect": [
+            0.008007662517442985,
+            0.01628845543797804
+          ]
+        }
+      }
+    },
+    "corpus_shift": {
+      "mean_linear_effect": [
+        0.00985749431383831,
+        0.01660692637645048
+      ],
+      "paired_document_95": [
+        [
+          0.0067049762455219375,
+          0.012396791828605147
+        ],
+        [
+          0.012691776058857908,
+          0.019904498245573107
+        ]
+      ],
+      "pred_b": true,
+      "pred_c": true,
+      "domains": {
+        "biomedical": {
+          "documents": 32,
+          "per_family_linear_effect": [
+            [
+              0.01158065587529001,
+              0.02334834322016622
+            ],
+            [
+              0.004835944625709741,
+              0.024666623460525103
+            ],
+            [
+              -0.001256550449278225,
+              0.003817904760414339
+            ]
+          ],
+          "mean_linear_effect": [
+            0.005053350017240509,
+            0.017277623813701886
+          ]
+        },
+        "discussion": {
+          "documents": 32,
+          "per_family_linear_effect": [
+            [
+              0.022307194864706736,
+              0.023968746852588593
+            ],
+            [
+              0.012515562047312502,
+              0.02096303216449055
+            ],
+            [
+              0.0024312076561248297,
+              0.017239671812907278
+            ]
+          ],
+          "mean_linear_effect": [
+            0.012417988189381356,
+            0.020723816943328807
+          ]
+        },
+        "legal_patent": {
+          "documents": 32,
+          "per_family_linear_effect": [
+            [
+              0.024209308473124202,
+              0.019162659898019817
+            ],
+            [
+              0.0053364393997117595,
+              0.005859811332445945
+            ],
+            [
+              0.003311693954352324,
+              0.005993136979851107
+            ]
+          ],
+          "mean_linear_effect": [
+            0.01095248060906276,
+            0.010338536070105623
+          ]
+        },
+        "reference": {
+          "documents": 32,
+          "per_family_linear_effect": [
+            [
+              0.02060978849266907,
+              0.02882673511571247
+            ],
+            [
+              0.018961969195125116,
+              0.016042435875224748
+            ],
+            [
+              -0.006553282368788357,
+              0.009394015045059594
+            ]
+          ],
+          "mean_linear_effect": [
+            0.011006158439668609,
+            0.018087728678665604
+          ]
+        }
+      }
+    }
+  },
+  "source_sha256": "31723f46c377a6ff76f975974d6ecf499cb0ac3e47cbed89b96b727b75d60c1b",
+  "scope": "Exact expected first-order interchange over all nonself donors within family/domain. Paired document bootstrap recomputes covariances; these previously inspected panels are not fresh confirmation. No full-dose all-donor result, learned circuit factors, semantic task gate, or extraction claim."
+}

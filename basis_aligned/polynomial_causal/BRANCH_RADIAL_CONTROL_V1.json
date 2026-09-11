@@ -1,0 +1,363 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "replay_errors": [
+    1.7821790952030286e-15,
+    1.675176983127023e-15,
+    1.591266947417894e-15,
+    1.5833588449410592e-15
+  ],
+  "alpha": [
+    -0.000494949187626647,
+    0.0002898874896901054
+  ],
+  "coefficient_radial_energy_fraction": [
+    0.0005644217049575682,
+    0.00019361607938802672
+  ],
+  "panels": {
+    "fineweb": {
+      "overall": {
+        "relative_rms_error": [
+          0.8919236466784776,
+          0.9212972762030949
+        ],
+        "radial_to_actual_rms": [
+          0.26894067623402257,
+          0.14614592478070093
+        ],
+        "sign_agreement": [
+          0.765625,
+          0.7526041666666666
+        ],
+        "actual_mean": [
+          -1.091033876794361,
+          1.3490987211566507
+        ],
+        "actual_rms": [
+          2.120101233460529,
+          2.2850475362292237
+        ],
+        "radial_mean": [
+          -0.5701814594114573,
+          0.3339503853500805
+        ],
+        "endpoints": 384
+      },
+      "families": [
+        {
+          "relative_rms_error": [
+            0.8351723996177202,
+            0.9110376694973644
+          ],
+          "radial_to_actual_rms": [
+            0.3388306713547905,
+            0.13290848729158106
+          ],
+          "sign_agreement": [
+            0.8125,
+            0.796875
+          ],
+          "actual_mean": [
+            -1.0362369086490464,
+            1.7739975576338556
+          ],
+          "actual_rms": [
+            1.6827917594189752,
+            2.5126340193450662
+          ],
+          "radial_mean": [
+            -0.5701814615942373,
+            0.33395038662851606
+          ],
+          "endpoints": 128
+        },
+        {
+          "relative_rms_error": [
+            0.9196517979020794,
+            0.9137021389738309
+          ],
+          "radial_to_actual_rms": [
+            0.2771830766698099,
+            0.11874797049462384
+          ],
+          "sign_agreement": [
+            0.6875,
+            0.890625
+          ],
+          "actual_mean": [
+            -0.8574231100933118,
+            2.1225477676778053
+          ],
+          "actual_rms": [
+            2.0570572588610734,
+            2.8122618369264973
+          ],
+          "radial_mean": [
+            -0.5701814598970751,
+            0.3339503856345028
+          ],
+          "endpoints": 128
+        },
+        {
+          "relative_rms_error": [
+            0.8975806023243293,
+            1.0037498679106733
+          ],
+          "radial_to_actual_rms": [
+            0.22501137927549184,
+            0.27808153774654865
+          ],
+          "sign_agreement": [
+            0.796875,
+            0.5703125
+          ],
+          "actual_mean": [
+            -1.3794416116407247,
+            0.15075083815829168
+          ],
+          "actual_rms": [
+            2.5340116512283686,
+            1.2009081454792443
+          ],
+          "radial_mean": [
+            -0.5701814567430592,
+            0.33395038378722275
+          ],
+          "endpoints": 128
+        }
+      ]
+    },
+    "corpus_shift": {
+      "overall": {
+        "relative_rms_error": [
+          0.8789032548367405,
+          0.9276197708937621
+        ],
+        "radial_to_actual_rms": [
+          0.29250861778008547,
+          0.14148429917613056
+        ],
+        "sign_agreement": [
+          0.7161458333333334,
+          0.7369791666666666
+        ],
+        "actual_mean": [
+          -1.0432189342705946,
+          1.3307709577288087
+        ],
+        "actual_rms": [
+          1.9492808842559366,
+          2.3603352877451877
+        ],
+        "radial_mean": [
+          -0.5701814571188442,
+          0.33395038400731664
+        ],
+        "endpoints": 384
+      },
+      "families": [
+        {
+          "relative_rms_error": [
+            0.8478935923929773,
+            0.910495969699958
+          ],
+          "radial_to_actual_rms": [
+            0.3178527038781779,
+            0.12987778181627707
+          ],
+          "sign_agreement": [
+            0.7421875,
+            0.828125
+          ],
+          "actual_mean": [
+            -1.0782414482212834,
+            1.8596398875735516
+          ],
+          "actual_rms": [
+            1.7938543384857748,
+            2.571266434120072
+          ],
+          "radial_mean": [
+            -0.5701814518513009,
+            0.3339503809221618
+          ],
+          "endpoints": 128
+        },
+        {
+          "relative_rms_error": [
+            0.8933199358929222,
+            0.9269194481046769
+          ],
+          "radial_to_actual_rms": [
+            0.27575100311915074,
+            0.11763097985397669
+          ],
+          "sign_agreement": [
+            0.640625,
+            0.8671875
+          ],
+          "actual_mean": [
+            -1.0423702077727257,
+            1.8662902042124139
+          ],
+          "actual_rms": [
+            2.067740310072211,
+            2.8389663068146627
+          ],
+          "radial_mean": [
+            -0.5701814646923133,
+            0.3339503884430326
+          ],
+          "endpoints": 128
+        },
+        {
+          "relative_rms_error": [
+            0.8880428154924395,
+            0.9836117544000069
+          ],
+          "radial_to_actual_rms": [
+            0.2885146321248957,
+            0.23367420521894988
+          ],
+          "sign_agreement": [
+            0.765625,
+            0.515625
+          ],
+          "actual_mean": [
+            -1.0090451468177748,
+            0.26638278140046084
+          ],
+          "actual_rms": [
+            1.9762652958484748,
+            1.4291281416528185
+          ],
+          "radial_mean": [
+            -0.570181454812918,
+            0.3339503826567556
+          ],
+          "endpoints": 128
+        }
+      ],
+      "domains": {
+        "biomedical": {
+          "relative_rms_error": [
+            0.9072402792641132,
+            0.9008732154688658
+          ],
+          "radial_to_actual_rms": [
+            0.405280325620106,
+            0.15422889560144007
+          ],
+          "sign_agreement": [
+            0.6666666666666666,
+            0.8125
+          ],
+          "actual_mean": [
+            -0.5921603615762648,
+            1.4896851511200457
+          ],
+          "actual_rms": [
+            1.4068816538587798,
+            2.1652906307732915
+          ],
+          "radial_mean": [
+            -0.5701814547848371,
+            0.3339503826403088
+          ],
+          "endpoints": 96
+        },
+        "discussion": {
+          "relative_rms_error": [
+            0.8840520347343633,
+            0.9229539967442523
+          ],
+          "radial_to_actual_rms": [
+            0.2671223935690369,
+            0.12444324804301332
+          ],
+          "sign_agreement": [
+            0.6770833333333334,
+            0.7708333333333334
+          ],
+          "actual_mean": [
+            -1.1578983568825831,
+            1.7644289136103894
+          ],
+          "actual_rms": [
+            2.1345326115914065,
+            2.6835556862827232
+          ],
+          "radial_mean": [
+            -0.5701814603594616,
+            0.33395038590531856
+          ],
+          "endpoints": 96
+        },
+        "legal_patent": {
+          "relative_rms_error": [
+            0.8488650485081214,
+            0.9184593934052682
+          ],
+          "radial_to_actual_rms": [
+            0.3171663412768352,
+            0.14392387134894974
+          ],
+          "sign_agreement": [
+            0.7395833333333334,
+            0.78125
+          ],
+          "actual_mean": [
+            -1.0770065746491717,
+            1.4279686122048993
+          ],
+          "actual_rms": [
+            1.7977363411042333,
+            2.3203265818800944
+          ],
+          "radial_mean": [
+            -0.5701814578884311,
+            0.33395038445805714
+          ],
+          "endpoints": 96
+        },
+        "reference": {
+          "relative_rms_error": [
+            0.8816423738766188,
+            0.9678929569365413
+          ],
+          "radial_to_actual_rms": [
+            0.2446571406691491,
+            0.14918521532549203
+          ],
+          "sign_agreement": [
+            0.78125,
+            0.5833333333333334
+          ],
+          "actual_mean": [
+            -1.3458104439743581,
+            0.6410011539799001
+          ],
+          "actual_rms": [
+            2.3305326543226004,
+            2.238495163860385
+          ],
+          "radial_mean": [
+            -0.5701814554426465,
+            0.3339503830255823
+          ],
+          "endpoints": 96
+        }
+      }
+    }
+  },
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_CANONICAL_BRANCHES_V1_SPECTRAL.pt": "b1e90771d51ea355e1b1f636ece07816034dc3aeeb220513262ee69292beeeb3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_SUPPRESSION_V1_ENDPOINTS.pt": "64a4904dbdd3c031c591bec338e97c0ab558f66aeb6a55829362b9f4e98dc10f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_SUPPRESSION_V1_ROWS.pt": "594db034ff60014a74e82251e8f3e6112d9a41b77f4a317b0aadd3ef8ce18fac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_CORPUS_SHIFT_V1_ENDPOINTS.pt": "70ae7099a4c71c1e4d45a8c69eff50573817cdcf7a5f76509ac1402555f01ba6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_CORPUS_SHIFT_V1_ROWS.pt": "074193a2d2778e0c71174f3c25d8a3daad266ff69529db29fc3392dedfa3d5fc"
+  },
+  "scope": "Post-result diagnostic on frozen validation caches; exact spherical-constant term from weights. No fitted mean, no behavioral tail replay, no claim that remaining variation is meaningful context."
+}

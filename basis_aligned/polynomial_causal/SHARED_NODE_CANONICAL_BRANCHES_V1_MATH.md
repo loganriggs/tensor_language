@@ -214,3 +214,60 @@ All four registered corpus-screen bars held. Pooled own-family removal CE effect
 The domain table limits the interpretation. In Wikipedia, branch1's own-minus-other point estimate is **+0.03023**, reversing the pooled preference; its post-result paired interval[-0.01058,0.07555]includeszero. Wikipedia minus the other three domains is+0.07021, with stratified-bootstrap95%interval[0.02704,0.11765]. This supports heterogeneity of the relative effect, not a confirmed positive reversal within Wikipedia alone. Branch0native top20capability is only0.406/0.438in discussion/biomedical domains, although the pooled capability bar passes. The registered per-domain D checked suppression signs and collateral size, not relative branch preference or per-domain capability. Preserve its pass without silently broadening it. [Post-result analysis](PARENT1_CORPUS_DOMAIN_HETEROGENEITY_V1.json).
 
 The prospectively specified input-gating check again misses: standardized own-family amplitude differences are0.0159/0.0031, and both intervals includezero. Exact coefficient replay holds9.69e-17. [Gating receipt](BRANCH_INPUT_GATING_V2_CORPUS_SHIFT.json). We therefore have replicated, pooled token-facing suppression under a corpus shift, while context-selective input gates and domain-invariant branch assignment remain unestablished. This is no OOD/extraction/circuit promotion. No factor was refitted to these texts.
+
+## Do the branch amplitudes carry useful context? — 19:33 follow-up
+
+The failed family-gating checks ask whether branch strength distinguishes the two broad token families. They do not determine whether its variation *within* a family helps prediction. Two controls separate those questions.
+
+First, the exact spherical-constant part of the scalar product is
+
+$$
+a(x)=(u^\top x)(p^\top x)
+=\alpha\|x\|^2+x^\top S_0x,
+\qquad \alpha=\frac{u^\top p}{1152},\quad
+S_0=\operatorname{sym}(up^\top)-\alpha I.
+$$
+
+This uses only the weights, with no activation mean fitted. Its coefficient energy is 0.0564%/0.0194% of the two scalar quadratics. On the separate FineWeb and corpus-shift caches, replacing the amplitude by this radial term leaves 87.9–92.8% relative RMS error; sign agreement is only 71.6–76.6%. Exact decomposition replay holds within $1.79\times10^{-15}$. A holds, B/C miss. The products therefore have substantial nonconstant variation, but this alone says nothing about whether that variation is useful. This quadratic trace split differs from older radial-versus-tangential *residual write* studies. [Code](branch_radial_control_v1.py) · [Receipt](BRANCH_RADIAL_CONTROL_V1.json).
+
+Second, replace an amplitude by another document's amplitude while retaining its physical writer and the entire native background:
+
+$$
+h'_i=h_i+\big[a_j(x_{\pi(i)})-a_j(x_i)\big]w_j.
+$$
+
+Four fixed donor permutations stay within the same endpoint family and, for the corpus-shift panel, the same domain. The joint arm uses the same donor for both branches. These swaps preserve each stratum's amplitude distribution while changing its alignment to individual contexts. The native tail includes final RMS normalization, the complete unembedding and the tanh cap. No factor is refitted.
+
+V1's 32-row tail batches missed the absolute cached CE replay allowance: $1.23171\times10^{-5}$ versus $10^{-5}$. It remains an invalid instrument. V2 changed only the batch size back to the original eight; cached CE replay then became exactly zero. Its analytic FP64 tail derivative agrees with autograd within $5.63\times10^{-16}$, and identity swaps are exact. [V1](BRANCH_CONTEXT_INTERCHANGE_V1_RESULT.json) · [V2](BRANCH_CONTEXT_INTERCHANGE_V2_RESULT.json).
+
+| Mean replacement CE cost, nats | FineWeb | Four-domain corpus shift |
+|---|---:|---:|
+| Branch 0 | 0.00878 | 0.01142 |
+| Branch 1 | 0.01943 | 0.01943 |
+| Both | 0.02863 | 0.03071 |
+
+Higher CE is worse. All four single-branch exact costs exceed the 0.005 bar, and their descriptive paired-document intervals exclude zero: V2 A/B hold. First-order costs are 0.00689/0.01795 on FineWeb and 0.00955/0.01769 on the corpus-shift panel. FineWeb branch 0's interval crosses zero, so the stricter C prediction misses. Joint-minus-singles mean effects are 0.000432 and -0.000137 nats, respectively; this is a limited composition observation on these interventions, not a general guarantee.
+
+These results suggest useful context alignment, especially for branch 1, even though the broad family-gating test failed. They do not establish what contextual information is represented. Swaps also change the exact target-token pairing and may add nonlinear noise cost. The panels were previously inspected, and the fixed-donor intervals do not fully capture donor dependence. The next all-donor covariance test directly addresses the four-donor sampling limitation while preserving V2's C miss. [Protocol](BRANCH_ALL_DONOR_ALIGNMENT_V1_PREREGISTRATION.md).
+
+### Averaging every donor and controlling the exact target token
+
+The all-donor follow-up completed at 19:33:35. For amplitude $a_i$ and local loss sensitivity $g_i=\nabla_h\ell_i^\top w$ in a stratum of $n$ documents,
+
+$$
+\mathbb E_{i,j\ne i}\!\left[g_i(a_j-a_i)\right]
+=-\frac{n}{n-1}\left(\overline{ag}-\bar a\,\bar g\right).
+$$
+
+This is minus the sample covariance, so we can average all nonself donors exactly. The bootstrap now resamples paired documents within domains and recomputes the covariance, rather than conditioning on four fixed donor assignments. All numerical and B/C bars hold; explicit pairwise sums agree within $1.39\times10^{-17}$.
+
+| Expected first-order interchange cost | FineWeb, mean [95% interval] | Corpus shift, mean [95% interval] |
+|---|---|---|
+| Branch 0 | 0.00801 [0.00496, 0.01107] | 0.00986 [0.00670, 0.01269] |
+| Branch 1 | 0.01629 [0.01211, 0.02079] | 0.01661 [0.01240, 0.01990] |
+
+These are the exact donor-averaged **linearized** effects, not exact full-dose losses over all donors. This follow-up addresses a plausible methodological reason for V2's FineWeb branch 0 uncertainty, while the original four-donor C miss remains. [Extraction](BRANCH_ALL_DONOR_ALIGNMENT_V1_EXTRACTION.json) · [CPU analysis](branch_all_donor_alignment_v1.py) · [Result](BRANCH_ALL_DONOR_ALIGNMENT_V1_RESULT.json).
+
+A subsequent CPU control restricts donors further to the **same actual target token**, family and domain. This removes variation in target identity as the sole explanation of the mean alignment. Cells need at least two documents; 253/256 target-family endpoints qualify on FineWeb and 244/256 on the corpus-shift panel. Control-family endpoints are excluded from this particular check. Conditional mean linear costs remain positive: 0.01266/0.02244 nats on FineWeb and 0.01025/0.02142 on the corpus-shift panel. A/B/C hold, with pairwise identity error $6.94\times10^{-17}$. These covered-cell means have no registered uncertainty claim and should not be compared directly with the three-family averages above as an improvement. [Code](branch_exact_token_alignment_v1.py) · [Result](BRANCH_EXACT_TOKEN_ALIGNMENT_V1.json).
+
+The stronger supported interpretation is **context-dependent amplitude alignment within output-token families**, including a positive mean under exact-token conditioning. We still do not know the represented contextual variable. A branch can suppress a token on average yet vary that suppression usefully between contexts; deletion improving selected-token CE and swapping amplitudes worsening CE are therefore compatible. These are post-result diagnostics on existing panels, not fresh OOD confirmation, standalone extraction, semantic task identification, or a full four-property circuit. The next circuit-level question is how much of this alignment comes from the shared reader versus each private partner.

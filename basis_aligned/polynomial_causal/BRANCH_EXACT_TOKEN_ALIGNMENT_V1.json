@@ -1,0 +1,624 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "max_all_pairs_error": 6.938893903907228e-17,
+  "panels": {
+    "fineweb": {
+      "eligible_endpoints": 253,
+      "total_target_endpoints": 256,
+      "coverage": 0.98828125,
+      "mean_linear_effect": [
+        0.012663154418802202,
+        0.02243561462150274
+      ],
+      "coverage_by_family_domain": {
+        "family0/all": {
+          "eligible": 127,
+          "total": 128,
+          "fraction": 0.9921875
+        },
+        "family1/all": {
+          "eligible": 126,
+          "total": 128,
+          "fraction": 0.984375
+        }
+      },
+      "cells": [
+        {
+          "family": 0,
+          "domain": "all",
+          "target_id": 2523,
+          "documents": 34,
+          "mean_linear_effect": [
+            0.019066961083544658,
+            0.021188756280415
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "all",
+          "target_id": 3382,
+          "documents": 27,
+          "mean_linear_effect": [
+            0.015243793961412186,
+            0.030308580664925318
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "all",
+          "target_id": 3544,
+          "documents": 12,
+          "mean_linear_effect": [
+            0.020251488623469555,
+            0.020958337312041827
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "all",
+          "target_id": 3848,
+          "documents": 7,
+          "mean_linear_effect": [
+            0.010931130341237305,
+            0.027190871470516437
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "all",
+          "target_id": 4539,
+          "documents": 17,
+          "mean_linear_effect": [
+            0.019492441204034955,
+            0.012092055438414816
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "all",
+          "target_id": 4940,
+          "documents": 5,
+          "mean_linear_effect": [
+            0.03048217330902823,
+            0.025297385869189296
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "all",
+          "target_id": 5341,
+          "documents": 11,
+          "mean_linear_effect": [
+            0.024252618199752274,
+            0.02390229945204652
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "all",
+          "target_id": 6100,
+          "documents": 2,
+          "mean_linear_effect": [
+            0.005884891417413829,
+            0.07097556114765526
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "all",
+          "target_id": 7228,
+          "documents": 7,
+          "mean_linear_effect": [
+            0.03209249697496854,
+            0.029163698748245967
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "all",
+          "target_id": 9911,
+          "documents": 5,
+          "mean_linear_effect": [
+            0.051194158691365316,
+            0.03820603574852018
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "all",
+          "target_id": 318,
+          "documents": 73,
+          "mean_linear_effect": [
+            0.007217484015702598,
+            0.027642458308141857
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "all",
+          "target_id": 373,
+          "documents": 20,
+          "mean_linear_effect": [
+            -0.015371584539244101,
+            -0.003932794787264339
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "all",
+          "target_id": 468,
+          "documents": 18,
+          "mean_linear_effect": [
+            0.011344465885730876,
+            0.021032206791324972
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "all",
+          "target_id": 857,
+          "documents": 6,
+          "mean_linear_effect": [
+            0.01077774259775876,
+            0.03304380453038345
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "all",
+          "target_id": 2058,
+          "documents": 3,
+          "mean_linear_effect": [
+            -0.007783189625073234,
+            -0.01449220696063152
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "all",
+          "target_id": 2753,
+          "documents": 3,
+          "mean_linear_effect": [
+            0.007718307134644272,
+            0.01923302028899363
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "all",
+          "target_id": 3073,
+          "documents": 3,
+          "mean_linear_effect": [
+            0.031105706513580297,
+            0.011070683835844676
+          ]
+        }
+      ],
+      "pred_b": true,
+      "pred_c": true
+    },
+    "corpus_shift": {
+      "eligible_endpoints": 244,
+      "total_target_endpoints": 256,
+      "coverage": 0.953125,
+      "mean_linear_effect": [
+        0.010252699853082239,
+        0.021423268811774542
+      ],
+      "coverage_by_family_domain": {
+        "family0/biomedical": {
+          "eligible": 30,
+          "total": 32,
+          "fraction": 0.9375
+        },
+        "family0/discussion": {
+          "eligible": 32,
+          "total": 32,
+          "fraction": 1.0
+        },
+        "family0/legal_patent": {
+          "eligible": 30,
+          "total": 32,
+          "fraction": 0.9375
+        },
+        "family0/reference": {
+          "eligible": 30,
+          "total": 32,
+          "fraction": 0.9375
+        },
+        "family1/biomedical": {
+          "eligible": 32,
+          "total": 32,
+          "fraction": 1.0
+        },
+        "family1/discussion": {
+          "eligible": 29,
+          "total": 32,
+          "fraction": 0.90625
+        },
+        "family1/legal_patent": {
+          "eligible": 29,
+          "total": 32,
+          "fraction": 0.90625
+        },
+        "family1/reference": {
+          "eligible": 32,
+          "total": 32,
+          "fraction": 1.0
+        }
+      },
+      "cells": [
+        {
+          "family": 0,
+          "domain": "biomedical",
+          "target_id": 2523,
+          "documents": 17,
+          "mean_linear_effect": [
+            0.0007831714271025647,
+            0.011498932096259063
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "biomedical",
+          "target_id": 3544,
+          "documents": 2,
+          "mean_linear_effect": [
+            0.07667724198026626,
+            0.14582361431288066
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "biomedical",
+          "target_id": 3848,
+          "documents": 2,
+          "mean_linear_effect": [
+            0.013186345296891121,
+            -0.0023702607848247684
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "biomedical",
+          "target_id": 5341,
+          "documents": 9,
+          "mean_linear_effect": [
+            0.006196442894370165,
+            0.0074746065083609245
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "discussion",
+          "target_id": 2523,
+          "documents": 8,
+          "mean_linear_effect": [
+            0.00714390643801419,
+            0.000213108145402287
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "discussion",
+          "target_id": 3544,
+          "documents": 6,
+          "mean_linear_effect": [
+            0.03647639567619965,
+            0.036143006221586005
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "discussion",
+          "target_id": 3848,
+          "documents": 3,
+          "mean_linear_effect": [
+            0.11588015910143012,
+            0.02461969787332008
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "discussion",
+          "target_id": 4539,
+          "documents": 4,
+          "mean_linear_effect": [
+            0.00018509974758288786,
+            0.025932419295369314
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "discussion",
+          "target_id": 4940,
+          "documents": 5,
+          "mean_linear_effect": [
+            0.016540360062341296,
+            0.003332221425791501
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "discussion",
+          "target_id": 7228,
+          "documents": 3,
+          "mean_linear_effect": [
+            0.0021523384324146563,
+            0.0004786997870880813
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "discussion",
+          "target_id": 9911,
+          "documents": 3,
+          "mean_linear_effect": [
+            0.008797755571504858,
+            0.002544442554381833
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "legal_patent",
+          "target_id": 2523,
+          "documents": 8,
+          "mean_linear_effect": [
+            0.021962609087214258,
+            0.013865217615927156
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "legal_patent",
+          "target_id": 3382,
+          "documents": 2,
+          "mean_linear_effect": [
+            0.0028778658296918502,
+            -0.00015402157416036233
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "legal_patent",
+          "target_id": 3544,
+          "documents": 9,
+          "mean_linear_effect": [
+            0.016256060700412592,
+            0.015823842240268202
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "legal_patent",
+          "target_id": 3848,
+          "documents": 3,
+          "mean_linear_effect": [
+            0.0009687111511501234,
+            -0.0002492225475476561
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "legal_patent",
+          "target_id": 6100,
+          "documents": 6,
+          "mean_linear_effect": [
+            0.008681929065258026,
+            0.017694901194821377
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "legal_patent",
+          "target_id": 7228,
+          "documents": 2,
+          "mean_linear_effect": [
+            0.00720007102109646,
+            0.034306728653221236
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "reference",
+          "target_id": 2523,
+          "documents": 5,
+          "mean_linear_effect": [
+            0.018306301927086127,
+            0.010580535188312045
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "reference",
+          "target_id": 3382,
+          "documents": 2,
+          "mean_linear_effect": [
+            0.03437220527995484,
+            0.15986465583681406
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "reference",
+          "target_id": 3544,
+          "documents": 8,
+          "mean_linear_effect": [
+            0.012336462922442408,
+            0.03089129482722557
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "reference",
+          "target_id": 4539,
+          "documents": 5,
+          "mean_linear_effect": [
+            0.005655561547954092,
+            0.03887935332789985
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "reference",
+          "target_id": 5341,
+          "documents": 5,
+          "mean_linear_effect": [
+            0.0013225079948775594,
+            0.0118214732600753
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "reference",
+          "target_id": 6100,
+          "documents": 2,
+          "mean_linear_effect": [
+            -0.00011468604447584241,
+            0.000657735999030672
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "reference",
+          "target_id": 8404,
+          "documents": 3,
+          "mean_linear_effect": [
+            0.030443915117205053,
+            0.04747595873214365
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "biomedical",
+          "target_id": 318,
+          "documents": 22,
+          "mean_linear_effect": [
+            0.007822106686422862,
+            0.025135586743331616
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "biomedical",
+          "target_id": 373,
+          "documents": 6,
+          "mean_linear_effect": [
+            -0.008855041763177243,
+            0.003922356765156371
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "biomedical",
+          "target_id": 468,
+          "documents": 4,
+          "mean_linear_effect": [
+            0.0017496967685944425,
+            0.030278683534498085
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "discussion",
+          "target_id": 318,
+          "documents": 23,
+          "mean_linear_effect": [
+            0.011150779938389678,
+            0.03001623205843399
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "discussion",
+          "target_id": 373,
+          "documents": 4,
+          "mean_linear_effect": [
+            -0.043960452079982,
+            0.004183341540998535
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "discussion",
+          "target_id": 468,
+          "documents": 2,
+          "mean_linear_effect": [
+            0.0023624670937200873,
+            -0.012869107983603911
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "legal_patent",
+          "target_id": 318,
+          "documents": 22,
+          "mean_linear_effect": [
+            0.008365823204738916,
+            0.008830317286642153
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "legal_patent",
+          "target_id": 373,
+          "documents": 2,
+          "mean_linear_effect": [
+            -0.015128704045280538,
+            0.021324388495824298
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "legal_patent",
+          "target_id": 468,
+          "documents": 5,
+          "mean_linear_effect": [
+            0.008185050461005493,
+            0.010939680795661235
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "reference",
+          "target_id": 318,
+          "documents": 14,
+          "mean_linear_effect": [
+            0.02783920716568472,
+            0.05459268812069134
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "reference",
+          "target_id": 373,
+          "documents": 15,
+          "mean_linear_effect": [
+            -0.013291370145220091,
+            0.0198753642055491
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "reference",
+          "target_id": 468,
+          "documents": 3,
+          "mean_linear_effect": [
+            0.04479583636715828,
+            0.026206513514698243
+          ]
+        }
+      ],
+      "pred_b": true,
+      "pred_c": true
+    }
+  },
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/BRANCH_ALL_DONOR_ALIGNMENT_V1_SCALARS.pt": "31723f46c377a6ff76f975974d6ecf499cb0ac3e47cbed89b96b727b75d60c1b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_SUPPRESSION_V1_ROWS.pt": "594db034ff60014a74e82251e8f3e6112d9a41b77f4a317b0aadd3ef8ce18fac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_CORPUS_SHIFT_V1_ROWS.pt": "074193a2d2778e0c71174f3c25d8a3daad266ff69529db29fc3392dedfa3d5fc"
+  },
+  "scope": "Post-result first-order donor expectation conditional on identical target token and domain. Only covered cells counted; no uncertainty claim, new corpus, causal task semantics or fitted factors."
+}

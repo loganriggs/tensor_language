@@ -592,3 +592,7 @@ The 128-prefix follow-up holds signed suppression and own-token specificity, wit
 ### 11 September 19:12 — Corpus-shift suppression and its limits
 
 The original two branches pass pooled four-domain suppression/specificity and per-domain mean suppression/control bars. The relative branch1preference differs in Wikipedia (point reversal, own interval crosseszero; difference from other domains excludeszero). Prospective input-gating specificity misses again. This supports token-facing suppression across the selected corpus domains, not domain-invariant tasks or an independent circuit. [Primary evidence](../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md). The three input ports' conditional MLP16producers have an exact fold but no16-square simplification even after arbitrary output mixing within their fixedspan; see [producer derivation](../PARENT1_MLP16_PRODUCER_V1_MATH.md).
+
+### Parent1 branch context alignment — 11 September 19:36
+
+The two frozen branches have more than token-facing suppression: within-family/domain amplitude interchange increases CE on both existing panels; all-donor first-order alignment passes for both, with positive covered-cell means after exact-target conditioning. Their scalar products are poorly approximated by the weight-defined spherical constant. This does not identify what the common reader or private partners represent, and does not establish standalone extraction or fresh OOD confirmation. Failed broad family-gating tests remain. [Derivation and all receipts](../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md).
