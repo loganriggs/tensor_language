@@ -94,6 +94,13 @@ Current receipts/processes override this snapshot; executed sources and bindings
   started10:20:52. Two saved starts,600softfitseconds each, same weight-only L1
   objective and corrected encoder. Full joint checks, atomic round states;
   protocol `NATIVE_COUPLED_L1_POLISH_V1`. No native convergence verdict yet.
+- **Queued next:** `run_folded_sparse_dictionary_step_v1.py`, SHA
+  `230c017e26cf1a9b53e9e8755dad0adbc77d2a99bbb8b0dc8bebc793f169d42a`.
+  Full-U gradient/one-step test through all shared features and sparse values
+  of the frozen repaired parents; no text, unchanged supports/Down. Uses all
+  native weights, so historical reader holdout is no longer a held-out metric.
+  Protocol `FOLDED_SPARSE_DICTIONARY_STEP_V1`; reuse the existing chunked CP
+  gradient and new controlled sparse dictionary chain rule.
 - **Completed:** `OVERCOMPLETE_L1_READER_V1` and `OVERCOMPLETE_OLS_REENCODE_V1`.
   Both parent fits unconverged; repaired encoding improves full tensor capture
   but reader-gain/stability bars miss. Use current LATEST and primary receipts.

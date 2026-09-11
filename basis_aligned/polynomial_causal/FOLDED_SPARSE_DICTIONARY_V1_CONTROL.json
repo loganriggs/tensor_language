@@ -1,0 +1,53 @@
+{
+  "predictions": {
+    "pred_a_dense_gradient": true,
+    "pred_b_finite_and_gauge": true,
+    "pred_c_functional_recovery": false,
+    "pred_d_proxy_conflict": true
+  },
+  "gradient_controls": [
+    {
+      "chunk": 1,
+      "loss_error": 4.440892098500626e-16,
+      "gradient_errors": [
+        3.6568752396909e-16,
+        2.8421321229448828e-16
+      ]
+    },
+    {
+      "chunk": 4,
+      "loss_error": 8.881784197001252e-16,
+      "gradient_errors": [
+        3.817085303720812e-16,
+        2.825263128022117e-16
+      ]
+    },
+    {
+      "chunk": 16,
+      "loss_error": 8.881784197001252e-16,
+      "gradient_errors": [
+        3.817085303720812e-16,
+        2.825263128022117e-16
+      ]
+    }
+  ],
+  "directional_fd_error": 2.945574339996426e-11,
+  "gauge_replay_error": 1.0710081769226242e-16,
+  "cancellation": {
+    "initial_function_error": 1.5,
+    "final_function_error": 1.162625551387464e-12,
+    "initial_reader_squared_error": 2.0,
+    "final_reader_squared_error": 4.898081113856252,
+    "optimized_values": [
+      1.0540356065088332,
+      0.0012347503121532208,
+      -0.9487345356407244,
+      0.0012347503121532208
+    ],
+    "solver_success": true,
+    "iterations": 26,
+    "maximum_code_gradient": 3.8598895191199745e-08,
+    "dense_final_error": 1.1625505431129589e-12
+  },
+  "scope": "Known small weight polynomial, fixed supports. Demonstrates reader-proxy conflict and exact chain rule; no native performance, convergence or circuit claim."
+}
