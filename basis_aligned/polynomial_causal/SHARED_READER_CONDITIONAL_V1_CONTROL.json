@@ -1,0 +1,261 @@
+{
+  "predictions": {
+    "pred_a_conditional_instrument": true,
+    "pred_b_monotonic_updates": true,
+    "pred_c_near_planted_recovery": true
+  },
+  "force_error": 2.783147040160986e-16,
+  "tangent_gradient_error": 2.582231143638304e-16,
+  "sphere_cases": [
+    {
+      "name": "generic",
+      "lagrange": 121.03562676540442,
+      "hard_case": false,
+      "retained_rank": 2,
+      "kkt_relative_residual": 2.0833746021598633e-16,
+      "unit_error": 0.0,
+      "certificate_error": 3.3802011342913733e-16,
+      "minimum_sample_objective_gap": 20.263387098174263
+    },
+    {
+      "name": "zero",
+      "lagrange": 0.0,
+      "hard_case": true,
+      "retained_rank": 2,
+      "kkt_relative_residual": 7.412643852544821e-18,
+      "unit_error": 0.0,
+      "certificate_error": 1.152795070409169e-16,
+      "minimum_sample_objective_gap": 0.07942297767216899
+    },
+    {
+      "name": "hard",
+      "lagrange": 0.0,
+      "hard_case": true,
+      "retained_rank": 2,
+      "kkt_relative_residual": 7.418868354854677e-17,
+      "unit_error": 0.0,
+      "certificate_error": 1.2670548699478154e-16,
+      "minimum_sample_objective_gap": 0.023714842549460213
+    }
+  ],
+  "recovery": [
+    {
+      "groups": 1,
+      "initialization": "near",
+      "sweeps": 6,
+      "initial_error": 0.015937303162363973,
+      "final_error": 4.740653573994489e-13,
+      "maximum_step_increase": 0.0,
+      "maximum_kkt_error": 1.496505673825408e-16,
+      "history": [
+        {
+          "sweep": 0,
+          "relative_error": 0.0019370687489936613
+        }
+      ]
+    },
+    {
+      "groups": 1,
+      "initialization": "random",
+      "sweeps": 500,
+      "initial_error": 1.0,
+      "final_error": 0.1434610567341858,
+      "maximum_step_increase": 5.551115123125783e-17,
+      "maximum_kkt_error": 2.5797576144884277e-16,
+      "history": [
+        {
+          "sweep": 0,
+          "relative_error": 0.2978870805137473
+        },
+        {
+          "sweep": 25,
+          "relative_error": 0.1434610567341858
+        },
+        {
+          "sweep": 50,
+          "relative_error": 0.14346105673418577
+        },
+        {
+          "sweep": 75,
+          "relative_error": 0.14346105673418577
+        },
+        {
+          "sweep": 100,
+          "relative_error": 0.14346105673418577
+        },
+        {
+          "sweep": 125,
+          "relative_error": 0.14346105673418577
+        },
+        {
+          "sweep": 150,
+          "relative_error": 0.14346105673418577
+        },
+        {
+          "sweep": 175,
+          "relative_error": 0.14346105673418577
+        },
+        {
+          "sweep": 200,
+          "relative_error": 0.1434610567341858
+        },
+        {
+          "sweep": 225,
+          "relative_error": 0.1434610567341858
+        },
+        {
+          "sweep": 250,
+          "relative_error": 0.14346105673418577
+        },
+        {
+          "sweep": 275,
+          "relative_error": 0.14346105673418577
+        },
+        {
+          "sweep": 300,
+          "relative_error": 0.1434610567341858
+        },
+        {
+          "sweep": 325,
+          "relative_error": 0.1434610567341858
+        },
+        {
+          "sweep": 350,
+          "relative_error": 0.1434610567341858
+        },
+        {
+          "sweep": 375,
+          "relative_error": 0.1434610567341858
+        },
+        {
+          "sweep": 400,
+          "relative_error": 0.1434610567341858
+        },
+        {
+          "sweep": 425,
+          "relative_error": 0.14346105673418577
+        },
+        {
+          "sweep": 450,
+          "relative_error": 0.14346105673418577
+        },
+        {
+          "sweep": 475,
+          "relative_error": 0.14346105673418577
+        }
+      ]
+    },
+    {
+      "groups": 2,
+      "initialization": "near",
+      "sweeps": 42,
+      "initial_error": 0.013727547457794257,
+      "final_error": 9.905751504802792e-13,
+      "maximum_step_increase": 0.0,
+      "maximum_kkt_error": 1.9254631807041116e-16,
+      "history": [
+        {
+          "sweep": 0,
+          "relative_error": 0.001499648601394431
+        },
+        {
+          "sweep": 25,
+          "relative_error": 8.667834066718662e-11
+        }
+      ]
+    },
+    {
+      "groups": 2,
+      "initialization": "random",
+      "sweeps": 500,
+      "initial_error": 1.0,
+      "final_error": 0.02140617470488915,
+      "maximum_step_increase": 0.0,
+      "maximum_kkt_error": 2.7075862043314004e-16,
+      "history": [
+        {
+          "sweep": 0,
+          "relative_error": 0.37458105321753066
+        },
+        {
+          "sweep": 25,
+          "relative_error": 0.02782162306875621
+        },
+        {
+          "sweep": 50,
+          "relative_error": 0.02592213651694871
+        },
+        {
+          "sweep": 75,
+          "relative_error": 0.024971750022173035
+        },
+        {
+          "sweep": 100,
+          "relative_error": 0.024327015052431223
+        },
+        {
+          "sweep": 125,
+          "relative_error": 0.023846570814545553
+        },
+        {
+          "sweep": 150,
+          "relative_error": 0.023469480137512336
+        },
+        {
+          "sweep": 175,
+          "relative_error": 0.023162860274968035
+        },
+        {
+          "sweep": 200,
+          "relative_error": 0.022906915313179364
+        },
+        {
+          "sweep": 225,
+          "relative_error": 0.022688871570286578
+        },
+        {
+          "sweep": 250,
+          "relative_error": 0.02250006035032432
+        },
+        {
+          "sweep": 275,
+          "relative_error": 0.022334363058649852
+        },
+        {
+          "sweep": 300,
+          "relative_error": 0.022187321333089125
+        },
+        {
+          "sweep": 325,
+          "relative_error": 0.022055599451728653
+        },
+        {
+          "sweep": 350,
+          "relative_error": 0.021936645137012312
+        },
+        {
+          "sweep": 375,
+          "relative_error": 0.021828467674776596
+        },
+        {
+          "sweep": 400,
+          "relative_error": 0.02172948825711991
+        },
+        {
+          "sweep": 425,
+          "relative_error": 0.021638436335569652
+        },
+        {
+          "sweep": 450,
+          "relative_error": 0.02155427616289603
+        },
+        {
+          "sweep": 475,
+          "relative_error": 0.02147615366018729
+        }
+      ]
+    }
+  ],
+  "seconds": 1.9295248612761497,
+  "scope": "Small planted recovery and exact conditional updates. Random starts descriptive. No native multi-group fit, joint/global certificate, or behavioral circuit claim."
+}

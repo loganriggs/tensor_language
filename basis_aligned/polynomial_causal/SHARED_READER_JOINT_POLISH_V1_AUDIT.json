@@ -1,0 +1,21 @@
+{
+  "predictions": {
+    "pred_a_parent_replay": true,
+    "pred_b_joint_recovery": false,
+    "pred_c_group_identification": false
+  },
+  "initial_error": 0.05039366342952198,
+  "parent_replay_error": 0.0,
+  "final_error": 0.048225788455688035,
+  "matched_minimum_function_cosine": -0.05469729960634857,
+  "evaluations": 1000,
+  "jacobian_evaluations": 996,
+  "optimality": 0.0005009394659903649,
+  "termination": "The maximum number of function evaluations is exceeded.",
+  "seconds": 11.091307520866394,
+  "cache": {
+    "path": "/dev/shm/bilin18_shared_reader_joint_polish_v1.pt",
+    "sha256": "de2fe14bd0b94ddb8fe3311c30d3a77967083aee09894afc1b239e8cb1ae7f04"
+  },
+  "scope": "Exact small dense joint Jacobian/trust-region polish of a reproduced stalled toy. Not a scalable native implementation or global identifiability certificate."
+}

@@ -1,0 +1,47 @@
+{
+  "predictions": {
+    "pred_a_identity": true,
+    "pred_b_large_cancellation": false
+  },
+  "rows": [
+    {
+      "name": "planted",
+      "summed_group_energy_relative": 1.0338206842425772,
+      "group_energies_relative": [
+        0.38315762283996324,
+        0.6506630614026141
+      ],
+      "fit_energy_relative": 1.0,
+      "cross_energy_relative": -0.033820684242577344,
+      "energy_identity_error": 2.5964223134137078e-17,
+      "relative_error": 9.86816824459879e-33
+    },
+    {
+      "name": "initial",
+      "summed_group_energy_relative": 3.5453222279504986,
+      "group_energies_relative": [
+        2.4476238706753475,
+        1.0976983572751513
+      ],
+      "fit_energy_relative": 0.946157090949991,
+      "cross_energy_relative": -2.5991651370005084,
+      "energy_identity_error": 8.308551402923865e-16,
+      "relative_error": 0.05039366342952198
+    },
+    {
+      "name": "final",
+      "summed_group_energy_relative": 1242181.8057184338,
+      "group_energies_relative": [
+        621450.3141077242,
+        620731.4916107095
+      ],
+      "fit_energy_relative": 0.9517454414686178,
+      "cross_energy_relative": -1242180.8539729922,
+      "energy_identity_error": 0.0,
+      "relative_error": 0.04822578845568805
+    }
+  ],
+  "source": "/dev/shm/bilin18_shared_reader_joint_polish_v1.pt",
+  "sha256": "de2fe14bd0b94ddb8fe3311c30d3a77967083aee09894afc1b239e8cb1ae7f04",
+  "scope": "Saved planted toy; no native negative or global optimization claim."
+}

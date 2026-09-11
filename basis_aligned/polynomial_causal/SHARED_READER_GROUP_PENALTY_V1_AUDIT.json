@@ -1,0 +1,28 @@
+{
+  "predictions": {
+    "pred_a_bound": true,
+    "pred_b_recovery": false,
+    "pred_c_stationarity": true
+  },
+  "penalty": 0.01,
+  "initial_objective": 0.08584688570902761,
+  "final_objective": 0.07037334318725197,
+  "final_details": {
+    "residual": 0.055134746376888116,
+    "component_energy": 1.52179119983305,
+    "fitted_energy": 0.9143880579098312,
+    "cross_energy": 0.9296266557664715,
+    "group_energy": 1.523859681036386,
+    "group_energy_by_group": [
+      1.034450113651848,
+      0.48940956738453806
+    ]
+  },
+  "gradient_inf": 1.5859321840809223e-08,
+  "known_planted_objective": 0.010338206842425363,
+  "iterations": 1538,
+  "evaluations": 1602,
+  "termination": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+  "seconds": 0.5669696405529976,
+  "scope": "Penalized fit on saved small stalled initial; known feasible planted reference; no native/global guarantee."
+}

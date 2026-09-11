@@ -1,0 +1,99 @@
+{
+  "predictions": {
+    "pred_a_monotone": true,
+    "pred_b_spectral_reduced_recovery": false,
+    "pred_c_group_identification": true
+  },
+  "rows": [
+    {
+      "groups": 1,
+      "initialization": "spectral",
+      "method": "alternating",
+      "sweeps": 8,
+      "final_error": 2.3346330178366907e-13,
+      "maximum_increase": 0.0,
+      "matched_minimum_function_cosine": 0.9999999999999277,
+      "evaluations": 0,
+      "seconds": 0.009441211819648743
+    },
+    {
+      "groups": 1,
+      "initialization": "spectral",
+      "method": "reduced_rcg",
+      "sweeps": 1,
+      "final_error": 8.638828461708025e-20,
+      "maximum_increase": 0.0,
+      "matched_minimum_function_cosine": 1.0000000000000002,
+      "evaluations": 63,
+      "seconds": 0.021052122116088867
+    },
+    {
+      "groups": 1,
+      "initialization": "random",
+      "method": "alternating",
+      "sweeps": 9,
+      "final_error": 1.0183366266291774e-13,
+      "maximum_increase": 0.0,
+      "matched_minimum_function_cosine": 0.9999999999999496,
+      "evaluations": 0,
+      "seconds": 0.00995653122663498
+    },
+    {
+      "groups": 1,
+      "initialization": "random",
+      "method": "reduced_rcg",
+      "sweeps": 1,
+      "final_error": 4.344153235919601e-20,
+      "maximum_increase": 0.0,
+      "matched_minimum_function_cosine": 0.9999999999999999,
+      "evaluations": 73,
+      "seconds": 0.011419527232646942
+    },
+    {
+      "groups": 2,
+      "initialization": "spectral",
+      "method": "alternating",
+      "sweeps": 200,
+      "final_error": 0.030740069746494944,
+      "maximum_increase": 0.0,
+      "matched_minimum_function_cosine": 0.5681595750289972,
+      "evaluations": 0,
+      "seconds": 0.45976920425891876
+    },
+    {
+      "groups": 2,
+      "initialization": "spectral",
+      "method": "reduced_rcg",
+      "sweeps": 200,
+      "final_error": 0.05039366342952198,
+      "maximum_increase": 0.0,
+      "matched_minimum_function_cosine": 0.1133977939256658,
+      "evaluations": 36772,
+      "seconds": 4.263641156256199
+    },
+    {
+      "groups": 2,
+      "initialization": "random",
+      "method": "alternating",
+      "sweeps": 200,
+      "final_error": 0.027011112615564898,
+      "maximum_increase": 0.0,
+      "matched_minimum_function_cosine": 0.8525696218065846,
+      "evaluations": 0,
+      "seconds": 0.45704708993434906
+    },
+    {
+      "groups": 2,
+      "initialization": "random",
+      "method": "reduced_rcg",
+      "sweeps": 52,
+      "final_error": 9.444672370753964e-13,
+      "maximum_increase": 0.0,
+      "matched_minimum_function_cosine": 0.9999999999953199,
+      "evaluations": 9225,
+      "seconds": 1.1284064054489136
+    }
+  ],
+  "seconds": 6.363390635699034,
+  "scope": "Independent planted problems; no retrospective repair to original random-start controls, no native fit/global guarantee."
+}
