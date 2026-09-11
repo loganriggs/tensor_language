@@ -1,0 +1,45 @@
+{
+  "predictions": {
+    "pred_a_execution": true,
+    "pred_b_full_mode_ranks": true,
+    "pred_c_compact": true
+  },
+  "execution_relative_error": 4.431266565175929e-16,
+  "gradient_relative_error": 5.975320283009565e-16,
+  "unfolding_ranks": [
+    24,
+    24,
+    24
+  ],
+  "minimum_singular_ratios": [
+    0.09353768574634413,
+    0.14399679646921576,
+    0.14399679646921576
+  ],
+  "toy_price": {
+    "dim": 24,
+    "branches": 1,
+    "maps": 3,
+    "learned_coefficients": 648,
+    "dense_factor_coefficients": 1728,
+    "quadratic_products": 24,
+    "multiplications": 672,
+    "additions": 360,
+    "scope": "Bilinear component only; fixed wiring and code explicit, native unembedding/background retained."
+  },
+  "native_dimension_price": {
+    "dim": 1152,
+    "branches": 4,
+    "maps": 12,
+    "learned_coefficients": 276480,
+    "dense_factor_coefficients": 15925248,
+    "quadratic_products": 4608,
+    "multiplications": 281088,
+    "additions": 155520,
+    "scope": "Bilinear component only; fixed wiring and code explicit, native unembedding/background retained."
+  },
+  "body_forwards": 0,
+  "corpus_access": false,
+  "gpu_access": false,
+  "scope": "Planted random construction, no fitting. Full-rank compactness is possible; no evidence yet that native weights admit this wiring or can be optimized into it."
+}

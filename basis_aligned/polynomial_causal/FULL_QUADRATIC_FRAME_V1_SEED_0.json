@@ -1,0 +1,140 @@
+{
+  "seed": 0,
+  "indices": [
+    1863,
+    3145,
+    1515,
+    4445,
+    2780,
+    2852,
+    2447,
+    436,
+    1335,
+    2556,
+    1076,
+    1483,
+    2771,
+    3504,
+    907,
+    3088,
+    2662,
+    2645,
+    4088,
+    4486,
+    3589,
+    1472,
+    58,
+    2678,
+    1478,
+    1155,
+    4432,
+    1032,
+    3703,
+    4274,
+    906,
+    3368,
+    3806,
+    934,
+    3513,
+    810,
+    376,
+    1464,
+    3356,
+    3461,
+    699,
+    3248,
+    2920,
+    3369,
+    1117,
+    4526
+  ],
+  "minimum_initial_qr_ratio": 0.7687336833190871,
+  "initial_loss": 0.9862864573275638,
+  "initial_capture": 0.013849004994095138,
+  "final": {
+    "loss": 0.941144989661919,
+    "residual": 0.9405326160265681,
+    "gradient_norm": 8.787473038086808e-08,
+    "iterations": 284,
+    "stop": "Terminated - min grad norm reached after 284 iterations, 239.42 seconds.",
+    "seconds": 239.43215918913484,
+    "evaluations": 330,
+    "hessian_vectors": 7836,
+    "accepted_points": 240,
+    "history": [
+      {
+        "accepted": 0,
+        "loss": 0.9862864573275638,
+        "residual": 0.9861509950059049,
+        "seconds": 0.015009935945272446
+      },
+      {
+        "accepted": 25,
+        "loss": 0.9558729212792964,
+        "residual": 0.9553959934469519,
+        "seconds": 2.5767123103141785
+      },
+      {
+        "accepted": 50,
+        "loss": 0.9437581280283313,
+        "residual": 0.9431223624613456,
+        "seconds": 8.534891553223133
+      },
+      {
+        "accepted": 75,
+        "loss": 0.9414902248888211,
+        "residual": 0.940869904452221,
+        "seconds": 16.413791570812464
+      },
+      {
+        "accepted": 100,
+        "loss": 0.9412539442559572,
+        "residual": 0.9406382759506485,
+        "seconds": 37.64977516978979
+      },
+      {
+        "accepted": 125,
+        "loss": 0.9412373831225328,
+        "residual": 0.9406194694507545,
+        "seconds": 75.75483094528317
+      },
+      {
+        "accepted": 150,
+        "loss": 0.9411569896533116,
+        "residual": 0.9405444067938047,
+        "seconds": 106.1817853525281
+      },
+      {
+        "accepted": 175,
+        "loss": 0.9411535402417676,
+        "residual": 0.9405413682496007,
+        "seconds": 144.69203877449036
+      },
+      {
+        "accepted": 200,
+        "loss": 0.941147863092533,
+        "residual": 0.9405350962967758,
+        "seconds": 178.9839990399778
+      },
+      {
+        "accepted": 225,
+        "loss": 0.9411450471421422,
+        "residual": 0.9405326883865567,
+        "seconds": 218.1627670377493
+      }
+    ]
+  },
+  "capture": 0.059467383973431875,
+  "component_energy": 0.06123736353508719,
+  "relative_stationarity": 1.4173564529136025e-05,
+  "converged": true,
+  "native_manifold_hessian_error": 2.9891836147523363e-10,
+  "maximum_instrument_error": 2.6645352591003757e-15,
+  "writer_condition": 9.684350948250152,
+  "cache": {
+    "path": "/dev/shm/bilin18_full_quadratic_frame_v1_s0.pt",
+    "sha256": "ea8cc3072e3a27bb34d2e82bddf79a7e62adf008410d25cc287962a193b15a8f",
+    "bytes": 2991508,
+    "ephemeral": true
+  }
+}

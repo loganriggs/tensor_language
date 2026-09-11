@@ -1,0 +1,49 @@
+{
+  "predictions": {
+    "pred_a_jacobian": true,
+    "pred_b_all_recovered": false,
+    "pred_c_nontrivial_starts": true
+  },
+  "starts": [
+    {
+      "seed": 614,
+      "initial_error": 0.8157168308055979,
+      "final_error": 0.011312872320726301,
+      "gradient_max": 5.596827407385897e-09,
+      "evaluations": 28,
+      "jacobians": 20,
+      "seconds": 0.22866565734148026,
+      "status": 1,
+      "message": "`gtol` termination condition is satisfied."
+    },
+    {
+      "seed": 615,
+      "initial_error": 0.7741828531772428,
+      "final_error": 8.97926025944575e-09,
+      "gradient_max": 5.080006199268209e-09,
+      "evaluations": 28,
+      "jacobians": 15,
+      "seconds": 0.17322209104895592,
+      "status": 1,
+      "message": "`gtol` termination condition is satisfied."
+    },
+    {
+      "seed": 616,
+      "initial_error": 0.7738533771610119,
+      "final_error": 6.584428241984822e-09,
+      "gradient_max": 2.4335582042823333e-09,
+      "evaluations": 29,
+      "jacobians": 15,
+      "seconds": 0.1731995902955532,
+      "status": 1,
+      "message": "`gtol` termination condition is satisfied."
+    }
+  ],
+  "maximum_jacobian_error": 6.028258968661241e-11,
+  "parameters": 144,
+  "tensor_entries": 512,
+  "body_forwards": 0,
+  "corpus_access": false,
+  "gpu_access": false,
+  "scope": "Small known-wiring local planted fit. No native result, unrestricted initialization guarantee, or factor identification."
+}

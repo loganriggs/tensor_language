@@ -20210,3 +20210,71 @@ actualfailure; V3exact-HessianGrassmannTR recovers3/3independentstarts, max
 projectorerror2.22e-8. Nativewrapper/HVPcheck/managedsubmissionstillpending.
 CPUconsequence andrepair actuallyexecuted; noNativeclaim. Fullgoalactive,
 next0622/0749reviews. Publishingownedfilesonly; noqueuedGPU/datajob.
+
+### 2026-09-11T05:51:58.444572+00:00 — Codex: SMALL-FRAME NATIVE IMPLEMENTATION CLAIM
+Previous turn progressc3116e393. Implementing registered23x4full-quadratic
+native benchmark, seeds0/937 each300fitseconds. Same nextprotocol; no
+additionaldatafit. Exactcurvature Grassmann solver gets scalarlogging and
+reuseofsame-pointcost/gradient evaluations, checkedagainstpriorcontrols.
+Native HVP/replay preflight required before optimization; saveeachsmallstate
+and reportall limits. Managedlane1 only; no competing/duplicatenativejob.
+
+### 2026-09-11T05:57:07.551999+00:00 — Codex: SMALL-FRAME LIVE; CLAIM CACHED INPUT-SUPPORT CEILING
+Managed run_full_quadratic_frame_v1 source9fa45f1e... live since05:55; first
+startnativeHVP2.99e-10 passed. No duplicate. CPU consequence uses existing
+SHARED_INPUT_SUBSPACE_NATIVE saved secondmoment/eigenvalues, not recapture.
+Any23x4frame program has global inputspan<=92 and everyquadratic inside that
+span. Its coefficientcapture<=sumtop92eig(sum_v T_v²)/nativeenergy. This is
+half the old mixed-touch spectral expression, because both inputs stayinside.
+Pred_a saved eigreplay/toyinside bound <=1e-10; pred_b rank92ceiling<.25;
+pred_c ceiling remainsabove .08634383 so improvementisnotexcluded. Numerical
+bound, not intervalcertificate or behavioral impossibility.
+
+### 2026-09-11T06:00:49.524473+00:00 — Codex: INPUT CEILING HELD; CLAIM FULL-RANK STRUCTURED CONTROL
+Cached rank92 inside-support bound18.76013%full/17.34029%centered, all3
+predictionsheld. Dense readerparameter count is a substantive shared bias.
+No localbutterfly/Givens/kaleidoscopemethod found inpoly prior-art search.
+PrimaryDao2019butterflyfactorization motivates compactfull-rankmaps. CPU
+control will implement mixed-radixsmallblocklinearstages andq=B[(Ax)*(Cx)].
+Pred_a directvsdensequadraticexecution<=1e-10; pred_b all3tensorunfoldings
+fullrank atd24 andminsingular/maximum>1e-10; pred_c fewerlearnedcoefficients
+than3dense24x24matrices. Fixedradices[2,2,2,3], genericinvertibleblocks.
+Native1152=2^7*3^2 gives23040coefficients/map; fourbilinearbranches use
+276480coefficients and4608products, withfullmode-ranksallowed. This is
+a representation/control, not learnednativeweights or circuits. Native
+smallframe benchmark continues unchanged; no newGPUjob.
+
+### 2026-09-11T06:02:52.009842+00:00 — Codex: FIRST SMALL-FRAME START CONVERGED; STRUCTURED RECOVERY CLAIM
+Native seed0 locallyconverged239.43s, capture5.94674%, gradient8.79e-8.
+Capturetargetmiss preserved; seed937 live, no overallverdict yet.
+Mixed-radix construction controls held: dense/gradientreplay<6e-16, full
+24/24/24mode-ranks,648vs1728densecoefficients. No nativefitclaim.
+NextCPU: SciPy trust-region nonlinear least squares on planted d8tensor
+with3structuredmaps, from3independentnear-identityrandomstarts. Pred_a
+analyticJacobian directionalFD<=1e-6; pred_b all3relativecoefficienterrors
+<=1e-5 andgradientmax<=1e-7 within300evaluations; pred_c allinitialerrors>.1.
+This islocalplantedrecoverability, not unknown-wiring/global/nativeguarantee.
+Preserveallfailures; no GPU/corpus.
+
+### 2026-09-11T06:06:36.114951+00:00 — Codex: NATIVE STARTS CONVERGED; CLAIM TWO CPU RED-TEAM CONSEQUENCES
+Smallframes native421.91s total, bothconverged, capturegainmissed, wholefunction
+cosine.931494. Claims now: (1) existingcommon/centered decomposition onNEW
+23x4states, pred_a frame/packing controls<=1e-8, B eachcommoncapture>=.5,
+C eachcenteredcapture<.05. Usesexistingnativefull/centeredtotals; noGPU/text.
+(2) mixed-radixplanted seed614 stationary at1.13%relativeerror, other2recover.
+Replaysamefailedstart andsavepoint. ExactHessianFD<=1e-5/gradientmax<=1e-7
+(pred_a); min-eigenvalue<-1e-6*maxabs-eigenvalue(pred_b); bounded±eigendirection
+steps[1e-4,1e-3,.01,.1]*max(||params||,1) gain>=1e-4relativeobjective(pred_c).
+This distinguishes residual-curvature saddle from localminimum/initialization
+issues. Originalfailedresult preserved. No ownliveGPUjob now.
+
+### 2026-09-11T06:10:56.670177+00:00 — Codex: FULL-QUADRATIC RESULT AND FULL-RANK CONTROLS PUBLISHED
+Native23x4 bothlocallyconverged in239.43/179.95s, capture5.9467/5.9385%,
+gainmissed; functioncosine.9315. Commoncapture43.66/44.46%(halfbarfailed),
+centered3.02/2.95%. Inputsupportceiling18.76%full verifiedcachedspectra.
+Mixedradixfull-rankconstruction controlsheld; proposednativecomponent276480
+coefficients, NOTnativefit. Planted2/3recover, seed6141.13%relativeerror;
+exactHessianFD5.51e-11, no usefulnegativecurvatureescape (B/Cmissed).
+CPUconsequences actuallyexecuted, failedpoint saved. Next nativeinit/wiring
+andjointstructuredfit design; no ownliveGPU ordatajob. Combinedexplanation0608
+isLATEST. Fullgoalactive; reviewclocks0622/0749. Publishingownedfilesonly.

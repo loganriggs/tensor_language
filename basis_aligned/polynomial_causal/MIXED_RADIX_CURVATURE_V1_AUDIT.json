@@ -1,0 +1,52 @@
+{
+  "predictions": {
+    "pred_a_replay_and_hessian": true,
+    "pred_b_negative_curvature": false,
+    "pred_c_eigendirection_improvement": false
+  },
+  "replay_error": 0.0,
+  "hessian_fd_error": 5.506412959619477e-11,
+  "gradient_max": 5.596827407386771e-09,
+  "minimum_eigenvalue": -1.1983236418608641e-09,
+  "maximum_absolute_eigenvalue": 2.1179857312941537,
+  "relative_trial_improvement": -4.445716628052117e-11,
+  "trials": [
+    {
+      "step": -0.000874617727272093,
+      "loss": 6.399054007537249e-05
+    },
+    {
+      "step": 0.000874617727272093,
+      "loss": 6.399054007538117e-05
+    },
+    {
+      "step": -0.00874617727272093,
+      "loss": 6.399057282860389e-05
+    },
+    {
+      "step": 0.00874617727272093,
+      "loss": 6.39905733775883e-05
+    },
+    {
+      "step": -0.0874617727272093,
+      "loss": 6.429526713158998e-05
+    },
+    {
+      "step": 0.0874617727272093,
+      "loss": 6.435027910821346e-05
+    },
+    {
+      "step": -0.874617727272093,
+      "loss": 0.0016973837123152465
+    },
+    {
+      "step": 0.874617727272093,
+      "loss": 0.0083206917735915
+    }
+  ],
+  "cache": "/dev/shm/bilin18_mixed_radix_failed_seed614.pt",
+  "scope": "Exact Hessian of one failed planted point; not a native or global landscape theorem.",
+  "body_forwards": 0,
+  "corpus_access": false,
+  "gpu_access": false
+}

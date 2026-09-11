@@ -1,0 +1,32 @@
+{
+  "predictions": {
+    "pred_a_frame_and_packing": true,
+    "pred_b_both_common_half": false,
+    "pred_c_both_centered_below_five_percent": true
+  },
+  "starts": [
+    {
+      "seed": 0,
+      "full_capture": 0.059467383973431875,
+      "common_capture": 0.4365843610606681,
+      "centered_capture": 0.03022964292059982,
+      "orthogonality_error": 2.6645352591003757e-15,
+      "packing_error": 0.0,
+      "common_contribution_to_full_capture": 0.031412802476697255
+    },
+    {
+      "seed": 937,
+      "full_capture": 0.05938543823833331,
+      "common_capture": 0.4445851267005215,
+      "centered_capture": 0.029521047534215694,
+      "orthogonality_error": 3.1086244689504383e-15,
+      "packing_error": 0.0,
+      "common_contribution_to_full_capture": 0.031988467784763885
+    }
+  ],
+  "native_common_fraction": 0.07195127741264215,
+  "body_forwards": 0,
+  "corpus_access": false,
+  "gpu_access": false,
+  "scope": "New fit decomposition in coefficient metric. Common output before native normalization/tanh is not a discardable softmax constant. No independent native-total recomputation."
+}

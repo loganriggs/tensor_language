@@ -2,6 +2,8 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [Converged small-block fits and a compact full-rank alternative](explanation_2026-09-11_0608.md): completed native comparison, input ceiling, structured-transform controls and failed-start audit.
+
 - [Weights-first methods, assumptions, and bottlenecks](explanation_2026-09-11_0531.md): current method inventory, completed unconverged block run, and exact penalty audit.
 
 - [Optimizer bottleneck and equivalent repair](explanation_2026-09-11_0517.md): latest trust-region result, failed threading hypothesis, measured Hessian-kernel repair and live continuation.

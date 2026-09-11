@@ -82,29 +82,31 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 05:49 UTC
+## Current handoff — 11 September 06:10 UTC
 
-Read explanations/2026-09-11/LATEST.md and the05:49appendix of explanation_2026-09-11_0531.md.
-WEIGHT_ONLY_METHODS_INDEX.md prevents missed prior receipts. User priority remains
-weight-only structural discovery; FineWeb frozen validation later, Pile OOD.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0608.md.
+WEIGHT_ONLY_METHODS_INDEX.md links priorart/currentreceipts. Weights-first,
+FineWeb frozenvalidationlater, Pile OOD. No newdatafits. Fullgoalactive.
 
-Exact conditional block SVD fit completed4.35s: no meaningful capture gain,
-conditional gap4.71e-14. Whole fit stillunconverged, remaininggradient mostly
-inputframe. Latest saved point /dev/shm/bilin18_conditional_block_svd_v1.pt,
-SHA in CONDITIONAL_BLOCK_SVD_V1_RESULT.json. No content-only continuation.
-Conditional outputcapacity spectra1.55s:10/16rank8 isolated gains>=1e-4; modest,
-notadditive. BothGPUjobs complete, no own live/queuednativejob.
+FULL_QUADRATIC_FRAME_V1 native completed421.91s, bothstarts locallyconverged,
+capture5.9467/5.9385%, gainpredictionmissed. Functioncosine.9315, centeredcapture
+3.02/2.95%; differentpenalty than old16x16x4fit. Laststates in/dev/shm paths/hashes
+inresult. full_quadratic_frame_v3.py is memoizedexact-HessianGrassmannsolver;
+V1CGtoyfailure andindependentTRrepair remainrecorded. No automaticcontinuation.
+Cachedinput-supportbound for23x4frames:18.76%full;352globalinputdirections
+necessaryfor50%coefficientcapture withininside-onlysubspacefamily, notanyprogram.
 
-Next implementation underway: FULL_QUADRATIC_FRAME_V1_PREREGISTRATION.md,
-23overlapping4-readerframes, all10quadraticoutputs,370944coefficients.
-Different block-Frobenius penalty; do not claim sameobjective as oldblocks.
-full_quadratic_frame_v1.py core/CG; V1seed544toy accidentally initializedtruth.
-Independent restart auditV2 findsCGseed1902failure. full_quadratic_frame_v2.py
-usesexact-Hessian GrassmannTR and auditV3 recoversall3independentstarts.
-Nativewrapper, finite-differenceHVPpreflight andmanagedsubmission pending.
-Do notmodify executed sources/bindings. Lastturn completedregisteredCPU
-consequence, corrected its failure and committednextprotocol/implementation.
-Fullgoalactive; nexthourly0622, math0749. No newdatafits.
+Newbroaderfamily implemented/controlsonly: mixed_radix_bilinear_v1.py,
+compactfull-rankmaps B[(Ax)*(Cx)] withsmall2x2/3x3mixingstages. Four1152-wide
+branches cost276480mapcoefficients with4608products; no nativefit yet.
+Planted d24 constructionfullmode-ranks24/24/24; execution/gradchecks<6e-16.
+Planted d8fit usesknownwiring/nearidentitystarts:2/3recoverexactly; seed614
+stationary at1.13%relativeerror. ExactHessian audit replaypassed, no useful
+negativecurvatureescape. Failedpoint saved /dev/shm/bilin18_mixed_radix_failed_seed614.pt.
+Nextdecision: nativeinitialization/wiring andjointstructuredweightfitting; do
+notassume the toycontrolproves native structure orglobalrecoverability.
+The lastturn performedtheseCPUconsequences andpreservedallnegativepredictions.
+No ownGPUjob live/queued. Nexthourly0622, math0749. Sources/bindings frozen.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

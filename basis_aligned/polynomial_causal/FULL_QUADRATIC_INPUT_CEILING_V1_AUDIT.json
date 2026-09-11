@@ -1,0 +1,33 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_quarter_ceiling": true,
+    "pred_c_improvement_not_excluded": true
+  },
+  "metrics": {
+    "full": {
+      "rank92_bound": 0.1876013102787323,
+      "residual_padded_bound": 0.18760131027874027,
+      "eigen_residual_over_total": 8.632254205307221e-17,
+      "rank256_bound": 0.39883567871475095,
+      "minimum_input_union_for_half": 352
+    },
+    "centered": {
+      "rank92_bound": 0.17340292253149228,
+      "residual_padded_bound": 0.17340292253149894,
+      "eigen_residual_over_total": 7.217533355845958e-17,
+      "rank256_bound": 0.3853591261871059,
+      "minimum_input_union_for_half": 363
+    }
+  },
+  "toy": {
+    "inside": 26.88472784929436,
+    "one_sided": 83.35489503425373,
+    "upper": 147.87701540058168
+  },
+  "source_cache_sha256": "6b1e2a821d65a76721fa08cbdcdcbc4debb6f1b0900bb369db493020755b6a1f",
+  "body_forwards": 0,
+  "corpus_access": false,
+  "gpu_access": false,
+  "scope": "Input-union support ceiling, not a tight block optimum or natural-state/circuit bound. Eigen residual padding is numerical, not interval certification."
+}

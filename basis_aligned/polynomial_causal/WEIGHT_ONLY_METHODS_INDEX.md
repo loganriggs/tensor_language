@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 05:49 UTC. Use this index before opening a structural family
+Updated 11 September 06:10 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -52,7 +52,17 @@ New follow-up: [conditional output-capacity spectra](BLOCK_CONDITIONAL_CAPACITY_
 show modest rank8 gains in10/16fixed frames; isolated gains are not additive.
 The [23x4 full-quadratic frame protocol](FULL_QUADRATIC_FRAME_V1_PREREGISTRATION.md)
 changes input/output allocation at370944coefficients and changes the penalty.
-Core and exact-curvature Grassmann solver are implemented; [independent-start
-CG failure](FULL_QUADRATIC_FRAME_V2_RESTART_AUDIT.json) and [TR repair](FULL_QUADRATIC_FRAME_V3_RESTART_AUDIT.json)
-are preserved. Native wrapper/run pending. This is not an already-completed
-native family. Full-U weight discovery only, with frozen validation later.
+[Native result](FULL_QUADRATIC_FRAME_V1_RESULT.json): both starts locallyconverged,
+capture5.9467/5.9385%, gain targetmissed, wholefunctioncosine.9315. [Outputsplit](FULL_QUADRATIC_OUTPUT_SPLIT_V1_AUDIT.json)
+gives only3.02/2.95%centered capture. [Input-union ceiling](FULL_QUADRATIC_INPUT_CEILING_V1_AUDIT.json)
+is18.76%full forany92-dimensional inside-onlyinputspan. No identical fit queued.
+The earlier [CG failure](FULL_QUADRATIC_FRAME_V2_RESTART_AUDIT.json) and [TR repair](FULL_QUADRATIC_FRAME_V3_RESTART_AUDIT.json)
+remain recorded; memoizedV3solver used natively.
+
+New family under development: mixed-radix full-rank linear stages around a
+bilinear product bank. [Construction control](MIXED_RADIX_BILINEAR_V1_CONTROL.json)
+passes execution/gradient/full-mode-rank checks, with276480proposedcoefficients
+atnativewidth4608. [Small planted fit](MIXED_RADIX_PLANTED_V1_RESULT.json) recovers
+2/3starts; [failed-point curvature audit](MIXED_RADIX_CURVATURE_V1_AUDIT.json)
+finds no useful negative-curvature escape. No native fit or globalrecoverability
+claim; known wiring and near-identity initialization are limitations.
