@@ -105,6 +105,10 @@ families or infer convergence from an elapsed budget.
   exact sparse encoding, same program price. Protocol and binding prefix
   `OBLIQUE_READER_DICTIONARY_V1`. Native runner saves fitted rotations before
   encoding/scoring. No native oblique result yet; do not duplicate the queue.
+- **Queued after oblique:** `run_reader_conditional_writer_v1.py`, sourceSHA
+  `edd39ca049917a5be54bfa866046f58efe4ff8dedb24a88afa8ccbdf7a837c78`.
+  Eight frozen dictionaries; exact conditional Down comparison with numerical
+  rank diagnostics, same parameter count. Protocol prefix `READER_CONDITIONAL_WRITER_V1`.
 - **Ready:** `sparse_reader_program_v1.py` consumes savedbasis/codes plus
   Down/bias, with exact feature-edit and interaction algebra. Synthetic
   controls are not native circuit evidence. All queued/executed bindings frozen.

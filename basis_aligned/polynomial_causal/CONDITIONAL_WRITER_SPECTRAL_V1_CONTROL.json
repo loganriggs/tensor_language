@@ -1,0 +1,30 @@
+{
+  "predictions": {
+    "pred_a_reference": true,
+    "pred_b_normal": true
+  },
+  "arms": [
+    {
+      "duplicate": false,
+      "writer_error": 2.8350363811259537e-15,
+      "rank": 9,
+      "size": 9,
+      "rtol": 1e-10,
+      "minimum_eigenvalue": 1.7141148700282296,
+      "maximum_eigenvalue": 138.36761058132592,
+      "retained_condition": 80.7224842399548,
+      "normal_residual": 7.79999020615247e-16
+    },
+    {
+      "duplicate": true,
+      "writer_error": 2.0740072100844973e-15,
+      "rank": 8,
+      "size": 9,
+      "rtol": 1e-10,
+      "minimum_eigenvalue": -2.2715389159243016e-14,
+      "maximum_eigenvalue": 136.04158910578164,
+      "retained_condition": 16.664437492084595,
+      "normal_residual": 5.079960550505067e-16
+    }
+  ]
+}
