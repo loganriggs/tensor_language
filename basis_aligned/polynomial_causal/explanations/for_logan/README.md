@@ -2,6 +2,8 @@
 
 **Newest: [11 September, 13:27 UTC — Research update](research_update_2026-09-11_1327.md).**
 
+**Added to that report:** [What the factorization means: CP versus LL1 versus shared-input groups](research_update_2026-09-11_1327.md#factorization-explained). [Copyable browser-Codex brief](factorization_browser_brief_2026-09-11.md).
+
 This directory is for fuller updates explicitly requested by Logan. Routine automatic experiment notes remain in the dated explanation folders.
 
 - [11 September, 13:27 — Progress since the methods update](research_update_2026-09-11_1327.md)

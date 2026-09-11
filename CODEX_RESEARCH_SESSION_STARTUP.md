@@ -90,8 +90,11 @@ and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX
 
 - Both penalized starts completed13:29:35. Numerical/energy gains held;
   convergence/stability missed. Do not enqueue an identical continuation.
-- A new shared-reader group allocation bound was executed from existing weights.
-  The conditional reader update is derived but unimplemented; no native multi-group fit queued.
+- Shared-input group conditional/objective tools are implemented and planted-tested.
+  Their native64group/rank8pilot is draft, unbound and notqueued.
+- User clarifies output-sharing LL1 as a distinct candidate. Read the requested
+  report appendix/browser brief and13:51mathreview. Symmetric LL1 conditional
+  CPU controls pass; implicit native/zero-case controller remains to implement.
 - The managed runner is healthy; queue was empty after its canary13:29:56.
   Recheck live state before choosing GPU work.
 - Requested fuller reports belong in `explanations/for_logan/`, with `LATEST.md`
@@ -125,8 +128,8 @@ Latest hourly review:
 [13:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1322.md).
 Next hourly review is due **14:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
-[10:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1051.md).
-Next mathematical review is due **13:51 UTC on11September**. Derive later deadlines from the
+[13:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1351.md).
+Next mathematical review is due **16:51 UTC on11September**. Derive later deadlines from the
 newest authoritative review files, not this snapshot. Do not duplicate reviews.
 
 Hourly reviews restate seven circuit targets: explicit computation;

@@ -189,3 +189,176 @@ Disk was down to about 146 MiB free. I removed two confirmed inactive older VS C
 The second penalized start finished at **64.6855% capture**, **0.61356 component energy**, and missed convergence. The final two-start function cosine is **0.74484**, still far below 0.9. Numerical validity, objective improvement, and the capture/energy tradeoff passed; convergence and stability failed. Reduced cancellation alone has therefore not repaired this family's identification problem. No identical continuation was queued. [Final two-start receipt](../../PENALIZED_PROJECTED_FIT_V1_RESULT.json).
 
 I also executed a cheap allocation check for the proposed shared-reader groups, using the existing native spectral cache. At the same matrix-coefficient budget, 122 groups with partner rank 32 can capture at most **46.20%** of coefficient energy under this family, even with perfect optimization. Rank 16 permits 240 groups and has a looser **76.11%** upper bound; the rank 4/8 allocations are not excluded by this bound. This helps avoid an allocation that cannot meet the current weight score. It is not a bound on natural-input fidelity or general circuit structure. The new conditional-reader solver remains unimplemented. [Executed allocation check](../../SHARED_READER_GROUP_ALLOCATION_V1_AUDIT.json).
+
+<a id="factorization-explained"></a>
+## Requested explanation: what counts as a factor, and are we doing CP or LL1?
+
+**Added 11 September, 13:50 UTC.** Your starting picture is right: take the bilinear layer, fold in the unembedding, view the result as a third-order tensor, and slice it along the output axis. Each slice is a complete quadratic interaction matrix for one output token. We then look for a simpler set of computations shared across those matrices.
+
+**We are not committed to finding only a smaller CP decomposition.** CP/product factors, LL1 blocks with a shared output, and groups with a shared input reader are different ways to organize the same polynomial. Your proposed “multiple input spaces, provided they write to one output direction” is precisely the kind of grouping LL1 is designed to express. The latest shared-reader experiment instead shares an *input* direction. I should have made this distinction explicit earlier.
+
+### 1. A token slice is a function, not yet a discovered factor
+
+The exact object is
+
+$$
+T_{vij}=\sum_{k=1}^{4608}(UD)_{vk}
+\frac{L_{ki}R_{kj}+R_{ki}L_{kj}}2,
+\qquad F_v(x)=\sum_{i,j}T_{vij}x_ix_j.
+$$
+
+The three axes are **output token, first input coordinate, second input coordinate**. Both input coordinates belong to the same vector $x$. Consequently, $T_{vij}=T_{vji}$: exchanging the two input indices cannot change the polynomial.
+
+For example, a token slice could encode
+
+$$
+F_v(x)=2x_1x_2-3x_3^2+x_2x_4.
+$$
+
+That entire quadratic is the slice. Calling the slice a “factor” would skip the discovery problem. We want to find common subexpressions that many slices use, and describe how each token combines them.
+
+In the generic shared-function notation,
+
+$$
+F_v(x)=\sum_{g=1}^{G}c_{vg}\phi_g(x).
+$$
+
+The function $\phi_g$ is one proposed shared computation. The column $c_{:g}$ tells us how it writes across **all** output tokens. Tokens can use several functions, with positive or negative coefficients. This naturally allows overlapping token sets; it does not force a token clustering or a hierarchy.
+
+The central question is what restrictions make each $\phi_g$ simple. If arbitrary dense quadratics are allowed, reducing the number of columns can just hide the complexity inside each function.
+
+### 2. Product factors and CP: one pair of readers per contribution
+
+The product-based model is
+
+$$
+\widehat F(x)=\sum_{k=1}^{K}c_k(a_k^\top x)(b_k^\top x).
+$$
+
+Each term reads two linear features, multiplies them, and writes one output direction $c_k$. Every token shares the same input products but has its own coefficients $c_{vk}$. We jointly learn the factors across outputs; we are not independently eigendecomposing each token and matching the results afterward.
+
+There is a terminology subtlety. An ordinary rank-one **CP term** is $c_k\otimes a_k\otimes b_k$. Our symmetric coefficient tensor uses
+
+$$
+c_k\otimes\operatorname{sym}(a_kb_k^\top)
+=\frac12c_k\otimes a_k\otimes b_k
++\frac12c_k\otimes b_k\otimes a_k.
+$$
+
+Thus a general real two-reader product corresponds to a tied pair of ordinary CP terms. A square, with $a_k=b_k$, is one partially symmetric CP term. Counting products, ordinary CP terms, and squares as if they were the same rank can mislead comparisons. The standard CP definition is a sum of rank-one outer products. [Kolda–Bader survey](https://www.kolda.net/publication/koba09/).
+
+The native layer already gives an exact **4,608-product** representation. A new product decomposition asks whether different readers and writers need fewer products, or yield more useful and stable computations at comparable cost. Restricting each output slice to a low matrix rank independently is a different problem; it does not force sharing across tokens.
+
+### 3. LL1: several input interactions share one output direction
+
+In our output-first axis order, the output-sharing block model is
+
+$$
+\widehat T=\sum_{g=1}^{G}c_g\otimes Q_g,
+\qquad
+\widehat F(x)=\sum_{g=1}^{G}c_g\underbrace{x^\top Q_gx}_{\phi_g(x)}.
+$$
+
+If $Q_g$ has matrix rank at most $L_g$, the block has multilinear ranks at most $(1,L_g,L_g)$. Put the output axis last and these become $(L_g,L_g,1)$—the usual **LL1** convention. Tensorlab writes this as an outer product of a low-rank matrix and one vector. Its documented solvers include generalized-eigenvalue initialization and nonlinear least-squares refinement. [Tensorlab LL1 documentation](https://tensorlab.net/doc/ll1.html).
+
+For a symmetric quadratic, one convenient parameterization is
+
+$$
+Q_g=A_gH_gA_g^\top,\qquad H_g=H_g^\top,
+$$
+
+where the columns of $A_g$ span that group's input space and $H_g$ specifies interactions within it. The computation is: read $A_g^\top x$, evaluate the small quadratic form, write $c_g$ times the resulting scalar. Different groups' input spaces may overlap. The output direction can also overlap other groups' output directions.
+
+Alternatively, to retain explicit two-reader products,
+
+$$
+\phi_g(x)=\sum_{s=1}^{p_g}(a_{gs}^\top x)(b_{gs}^\top x).
+$$
+
+All $p_g$ products now share the same output vector $c_g$. This is the output reuse you described. The resulting symmetric $Q_g$ has rank **at most $2p_g$**, not necessarily $p_g$. In an unconstrained unsymmetric LL1 parameterization, symmetrizing $AB^\top$ can likewise double its input matrix rank. We must keep that distinction when translating software's LL1 rank to our same-input polynomial.
+
+LL1's group count alone does not price the computation. One group containing a full-rank 1,152-dimensional quadratic can be expensive. We should report both **how many output groups** and **how complicated each input function is**, including shared input features between groups.
+
+An LL1 block can be expanded into smaller product terms. Its benefit is the hypothesis that those terms belong together because they write the same scalar variable into the same output direction. The internal basis may rotate without changing the block, so the whole block can be more meaningful than its individual factor columns.
+
+### 4. The newest method shares an input reader instead
+
+The new family I implemented is
+
+$$
+\widehat F(x)=\sum_{g=1}^{G}(a_g^\top x)M_gx,
+\qquad M_g=W_gV_g,\quad\operatorname{rank}(M_g)\le r_g.
+$$
+
+Here one feature $a_g^\top x$ is reused by several partner readers. The partner products may write **different output directions**, supplied by columns of $W_g$.
+
+This is not output-sharing LL1. Before symmetrization it has one rank-one *input* mode; after symmetrization, the group's input space is contained in the span of $a_g$ and the partner readers. Its multilinear ranks are bounded by $(r_g,r_g+1,r_g+1)$ in output-first order, with additional shared-reader structure. These are upper bounds, not assertions that every group attains those ranks.
+
+I chose this family to ask whether the model reuses a common input feature across several downstream operations. Your LL1 proposal asks the complementary question: do several input operations cooperate to write one common output variable? **Both are reasonable structural hypotheses. Success or failure of one does not settle the other.**
+
+### 5. The same computation can have several sensible organizations
+
+Consider a toy vector output with two output directions $c_1,c_2$:
+
+$$
+F(x)=c_1(x_1x_2+x_3x_4)+c_2x_1x_3.
+$$
+
+| View | The units it exposes |
+|---|---|
+| Individual products | Three contributions: $c_1x_1x_2$, $c_1x_3x_4$, $c_2x_1x_3$. |
+| Output-sharing blocks | Two scalar functions: $x_1x_2+x_3x_4$ writes $c_1$; $x_1x_3$ writes $c_2$. Their symmetric input ranks are four and two. |
+| Shared-input-reader groups | $x_1(c_1x_2+c_2x_3)$ reuses $x_1$; the remaining group is $x_3(c_1x_4)$. |
+
+All three are exact. Each exposes a different kind of reuse. Which organization deserves to be called a circuit depends on how its variables are used and what its interventions predict—not just which grouping has the shortest name or the fewest top-level terms.
+
+### 6. Why “fewer than vocabulary size” is too weak by itself
+
+The vocabulary has 50,304 rows, but the layer already has only 4,608 native products. More strongly, since all token matrices are linear combinations through $U$, their linear span has dimension at most **1,152**, the residual width:
+
+$$
+T_v=\sum_{o=1}^{1152}U_{vo}S_o,
+$$
+
+where $S_o$ is the quadratic matrix for residual output coordinate $o$. So an exact representation with at most 1,152 shared **unrestricted quadratic functions** is available before discovering any new structure. Those functions can still be dense and opaque.
+
+That is an upper bound on the number of unrestricted scalar functions, **not** an upper bound of 1,152 on product/CP rank. Each dense scalar quadratic may require many products. A smaller approximate output basis can be obtained by matrix SVD of the output unfolding, but that only minimizes error at the specified output rank; it does not make the input functions simple or identify semantic units.
+
+Our meaningful comparison should therefore include:
+
+- the number of groups/output variables;
+- the ranks, products, or small cores needed to compute each variable;
+- reusable readers and intermediate results shared between groups;
+- all learned constants, adapters, and remaining native background;
+- reconstruction and frozen behavioral fidelity;
+- stability and the four eventual circuit properties.
+
+A token hierarchy is an additional hypothesis about the loading matrix $[c_{vg}]$. It need not be imposed before discovering the input functions. A coherent output loading can involve antonyms or positive/negative contrasts rather than a conventional cluster.
+
+### 7. What we have actually optimized so far
+
+The strongest completed native dictionary fit is **not a search for minimum CP rank**. It retains 4,608 product slots, but generates their readers from 2,304 reusable features, with 128 connections per reader. It optimizes those features, connection strengths, and output writes against the full folded tensor. Its approximately 65% coefficient capture measures that family at that budget. It does not answer whether a much smaller output-sharing LL1 representation exists.
+
+Earlier work includes free product banks, signed squares, output-function dictionaries, block/core fits, and one-output local group approximations. Those are relevant prior results, but they do **not** establish that a broad, adaptive-rank, jointly optimized, symmetric LL1 model of the whole tensor has been exhausted. We should not relabel the recent shared-input experiment as that missing experiment.
+
+The latest multi-group results are still **planted-problem tests**. Near-initialized exact block updates work. Some random/spectral starts fail. A joint solver can generate huge opposing groups; a whole-group energy penalty controls that growth. With the penalty, three of eight random starts recover the planted grouping closely. One selected candidate has relative coefficient error 0.0001604 and matched group cosine 0.999752, but the four-of-eight recovery-rate prediction fails. This is a demonstrated initialization problem, not evidence against structure.
+
+A native 64-group/rank-8 **shared-input** cost pilot is implemented in draft, but it is not yet bound, fully checked, or queued at this appendix's cutoff. It must not be described as a native LL1 result. Your clarification also makes a direct output-sharing LL1 comparison a distinct candidate for the next mathematical review.
+
+### 8. The fitting criterion, signs, and remaining assumptions
+
+The default discovery loss compares the complete symmetric coefficient tensor, using every unembedding row. It stays implicit through factor contractions and $U^\top U$; we need not materialize the giant vocabulary tensor. We can work in at most 1,152 output coordinates using a metric-preserving factor of $U^\top U$. This is an exact representation of the folded objective, not an arbitrary token subsample.
+
+A coefficient objective favors some errors differently from natural model states. That is why frozen FineWeb validation remains necessary. It does not require using FineWeb to learn the factors. The latest small-panel result already showed a reversal: native selection wins on coefficient capture but loses badly on prediction preservation.
+
+All factors are real and signed. Nonnegative CP/NMF assumptions would therefore be inappropriate without a justified reformulation. Also, every homogeneous quadratic satisfies $F(-x)=F(x)$. This antipodal symmetry is automatic; by itself it neither identifies a unique basis nor proves semantic clusters. The bias and full network's residual/normalization operations must be accounted for separately.
+
+We also must distinguish three claims: a low-error representation **exists**; our optimizer **finds** it; its groups are **identified circuits**. The planted failures explicitly separate the first two. Your four properties—OOD prediction, extraction, selective removal, and composition/reuse—address the third.
+
+### 9. A self-contained brief for browser Codex
+
+I created **[factorization_browser_brief_2026-09-11.md](factorization_browser_brief_2026-09-11.md)** with the equations, dimensions, actual methods/results, constraints, key literature, and concrete questions. Paste that file's contents into browser Codex; it contains the essential context without requiring access to this workspace. It asks specifically about symmetric LL1/output-sharing blocks, adaptive block ranks, scalable solvers, and ways to distinguish poor optimization from absent structure.
+
+A relevant method-selection lead is Rontogiannis, Kofidis and Giampouras's work on jointly estimating block counts and ranks using hierarchical sparsity and iteratively reweighted least squares. That is a literature candidate to inspect and adapt, not a method already run here or a proven recovery guarantee for this model. [Primary paper](https://arxiv.org/abs/2002.09759).
+
+**Implementation note,13:54:** the scheduled mathematical review has now produced a small symmetric LL1 conditional-update tool: fixed output direction → best signed low-rank input quadratic, and fixed quadratic → best output direction. Dense numerical checks pass; two near-initialized planted blocks recover to4.63e-13error. This is a CPU algebra/control result, not a native LL1 fit. [Math review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1351.md).
