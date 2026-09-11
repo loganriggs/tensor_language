@@ -84,6 +84,16 @@ token-specific remainders, folded backward through the actual model.
 
 ## Current handoff — updated 11 September 2026, 04:33
 
+UPDATE04:48: SIMPLE_PRODUCT_SHARED_SPAN_V1 finished75.74s,A/BheldCmissed.
+All36starts converge, meanoneproduct3.01%->5.38%, noheadpassescombinedscreen.
+Whole-span bound<=20.57%; only5/9heads agree acrossallstarts. See REDTEAM and
+updated finalsection ofexplanation0433. Next ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V1
+PREREGISTRATION and adapterimplemented; CPUdense/gradientcontrols andtoyfitpass.
+Native wrapper/binding/enqueue pending. Reuse existingQRgaugeinitial cache and
+samefull-Ulambda.01objective; no newdatafit. Math0449 complete; next0749/hourly0522. Saved native QR-gauge program bridge through
+new blockadapter is exact; see ORTHOGONAL_MULTIOUTPUT_PYMANOPT_V1_INITIAL_BRIDGE.
+
+
 Read [LATEST.md](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md)
 and its current explanation_2026-09-11_0433.md for the combined methods/result update.
 Coupled native fit is FINISHED. Original A/D held, B/C missed; same-objective
@@ -210,8 +220,8 @@ Latest hourly review:
 [04:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0422.md).
 Next hourly review is due **05:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
-[01:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0149.md).
-Next mathematical review is due **04:49 UTC on11September**. Derive later deadlines from the
+[04:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0449.md).
+Next mathematical review is due **07:49 UTC on11September**. Derive later deadlines from the
 newest authoritative review files, not this snapshot. Do not duplicate reviews.
 
 Hourly reviews restate seven circuit targets: explicit computation;

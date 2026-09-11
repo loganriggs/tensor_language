@@ -1,0 +1,18 @@
+{
+  "instrument_passed": true,
+  "finite_gradient_error": 4.6906090123144395e-12,
+  "dense_contraction_error": 7.105427357601002e-15,
+  "initial_loss": 0.7176774460729556,
+  "solver": {
+    "loss": 0.13800884160860982,
+    "residual": 0.12806606557920883,
+    "component_energy": 0.9942776029400998,
+    "tangent_stationarity": 9.751669542993907e-06,
+    "converged": true,
+    "seconds": 1.4803600311279297,
+    "iterations": 834,
+    "evaluations": 1529,
+    "stopping_criterion": "Terminated - min grad norm reached after 834 iterations, 1.48 seconds."
+  },
+  "scope": "Same penalized overlapping-block objective, conditional-gradient and dense function controls. Toy solver improvement required; native convergence untested."
+}

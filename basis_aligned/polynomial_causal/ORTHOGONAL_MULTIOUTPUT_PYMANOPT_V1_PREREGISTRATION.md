@@ -1,0 +1,44 @@
+# Resume unresolved overlapping blocks with a standard manifold solver
+
+The full-U16-block fit (16input readers and4quadratic outputs per block) never
+converged. The already executed QR-gauge repair preserves its function and
+component-energy penalty to2.6e-15. This is a solver change on that same model
+family and lambda=.01 objective, not evidence from a new structural family.
+
+Use the saved MULTIOUTPUT_BLOCK_ORTHOGONAL_GAUGE_V1_INITIAL.pt after hash binding.
+Each block has an orthonormal1152x16 input frame; frames from different blocks
+may overlap. Each of64 symmetric16-square cores is represented by136 entries
+with off-diagonal1/sqrt(2) weighting and unit norm. Its amplitude lives in its
+1152-vector writer. Writers are solved exactly conditionally using the existing
+full unembedding metric. Native4608products and all50304output rows enter the
+objective implicitly; no data or truncated output metric.
+
+Pymanopt2.2.1 Product(Stiefel^16, Oblique(136,64)), Polak–Ribiere CG, analytic
+Torch envelope gradient, QR retraction. Initial native chunk120seconds with
+saved state; end-of-chunk is not convergence. Original penalized objective and
+representation stay fixed. Canonical manifold gradient threshold1e-5, with
+same-objective continuation or restart if the time/step limit wins. Record
+the original objective and its saved-state value before any update. A new
+coordinate gradient threshold is not retrospectively the old convergence bar.
+
+- pred_a: native initial function/objective replay<=1e-8; conditional writer
+  residual<=1e-8; finite differences and independent dense toy contractions<=1e-8.
+- pred_b: native final manifold gradient norm<=1e-5. Limits count as a miss.
+- pred_c: at least5%relative improvement in coefficient capture over the original
+ 8.62302%full-U block fit, on the same lambda=.01 objective and literal capacity.
+
+Null: redundancy repair does not materially improve fit or fails to converge.
+An unconverged result cannot close this overlapping-block hypothesis. Higher
+capture alone does not identify a circuit; a converged family will need stable
+block functions/output groups and frozen FineWeb validation before promotion.
+
+Price:16*16*1152 input coefficients +16*4*136 core coordinates +64*1152 writers
+=377344 stored coefficients (redundant constrained coordinates are still charged).
+Each of16 blocks computes16 readers once and136 unique quadratic monomials,
+then4linear core combinations:2176monomials plus output mixing. U and the native
+remainder/background remain charged. No claimed whole-model savings.
+
+The differentiable adapter and CPU controls are implemented. Native wrapper,
+execution binding and managed queue submission are still pending; do not report
+native convergence from the toy control. No duplicate fit may start without
+checking the current runner and result receipt.

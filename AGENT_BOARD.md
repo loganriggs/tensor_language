@@ -20009,3 +20009,54 @@ includes actual methods/status, coupled36-start repair and midpoint audit. No
 new data fitting. Next weight-only selection must include simplicity or cover
 unresolved overlapping/hierarchical family; no same-weight tradeoff sweep. Full
 goalactive; current CPU consequence executed, next hourly0522/math0449.
+
+### 2026-09-11T04:40:23.667344+00:00 — Codex: CLAIM SIMPLE FUNCTIONS INSIDE SHARED SPANS
+Prior turn progress b46827995. Search normalized combinations of each frozen
+17D common producer-function span, rather than only its leading canonical pair.
+Exact one-real-product capture from positive/negative extreme eigenvalues is
+the objective; Pymanopt sphere CG, four starts/head, gradient1e-7 and original
+function-space gauge preserved. Also compute whole-span spectral upper bound
+from S=sum_i H_i^2. Report paired QK/OV similarity separately; arithmetic gain
+cannot be renamed sharing gain. Native weights only, no data or new source span.
+Pred_a Gram/gradient/eigen/construction checks1e-8; pred_b all36starts converge;
+pred_c >=6heads achieve >=2x leading-pair capture, >=.05 absolute gain, and
+paired-function cosine>=.5. Null: fixed-span mixing yields little product
+simplicity or loses sharing. Exact broader bound/red-team and known-product
+control distinguish numerical failures. Existing dossier and scalar audit checked.
+GPU lane1 idle and queues empty at04:37; managed wrapper only, no directGPU.
+
+### 2026-09-11T04:43:15.351935+00:00 — Codex: PRE-ENQUEUE SERIALIZATION REPAIR
+Gate could not parse dict keyword prediction keys; job was NOT queued or run.
+Changed only prediction dictionary syntax to literal string keys, recomputed
+pre-execution binding. Numerical objective/protocol unchanged. No FORCE bypass.
+
+### 2026-09-11T04:47:23.291198+00:00 — Codex: SHARED-SPAN RESULT; CLAIM OVERLAPPING-BLOCK SOLVER ADAPTER
+Shared-span managed75.74s A/BheldCmissed, all36startsconverged, zero passingheads.
+Meanoneproductcapture3.0055%->5.3836%; some starts find different local functions.
+All-span one-product upper bounds10.99–20.56% exclude50% for these fixed spans;
+16-product bound vacuous. Do not close broader upstream/simple-program search.
+Next highest-information coverage repair: original16x16x4 overlapping full-U
+block fit never converged. Existing QR-gauge initial cache/receipt preserve its
+function/objective. Build a Pymanopt Product(Stiefel perblock, Oblique core)
+adapter using existing exact writer solves and lambda.01 objective, with CPU
+function/conditional-gradient controls. Blocks remain mutually overlapping;
+within-block orthogonality is coordinate gauge, not disjointness. Native fit
+not yet queued; no extra data work. Previous source bytes remain frozen.
+
+### 2026-09-11T04:49:16.721110+00:00 — Codex: SHARED-SPAN RESULT AND NEXT BLOCK ADAPTER READY
+Detailed results appended to explanation0433 (latest update04:48). Five of nine
+heads agree across all starts; bounds exclude50% one-product capture only in
+these fixed spans. Next CPU consequence executed: existing overlapping-block
+objective via Pymanopt Product adapter, dense/gradient controls pass and toy
+fit converges1.48s. Native protocol prepared; wrapper/binding/enqueue pending.
+This repairs an unconverged family instead of more single-product span sweeps.
+Fullgoalactive; math0449/hourly0522. Committing only owned files.
+
+### 2026-09-11T04:51:48.979008+00:00 — Codex: MATH0449 COMPLETE; SAVED BLOCK BRIDGE EXECUTED
+Review maps fixed-span inertia bound and overlapping symmetric block family,
+retains all normalization/background/gauge and literal-price limits. Next CPU
+bridge executed: saved native QR-gauge block program exactly replays through
+new adapter; inter-block overlap retained. Native fitting remains pending.
+Next mathematical review0749, hourly0522. No own live GPU job; next protocol,
+standard solver implementation and its controls completed and committed now.
+Full goal active, weights-first continues. Preserve all existing result misses.

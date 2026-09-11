@@ -490,3 +490,6 @@ Leading common MLP16 scalar functions remain dense under exact product spectra:
 mean16-product capture18.20%, median256products for90%, versus259private. These
 fixed-function results do not rule out simpler feature combinations or shared
 multioutput programs. No behavioral identification. [Combined explanation](2026-09-11/explanation_2026-09-11_0433.md).
+
+
+11September04:48: selecting combinations within the frozen17D common producer spans improves meanone-product capture3.01%to5.38%; all36starts converge, noheadpasses joint gain/sharing screen. Whole-span one-product upperbounds<=20.57%, not a limit on larger/different programs. Returning to unconverged overlapping full-U blocks; standard manifold adapter and saved-state bridge pass, native continuation pending. [Details](2026-09-11/explanation_2026-09-11_0433.md).

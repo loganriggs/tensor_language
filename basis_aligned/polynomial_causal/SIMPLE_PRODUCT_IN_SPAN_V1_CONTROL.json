@@ -1,0 +1,33 @@
+{
+  "instrument_passed": true,
+  "finite_gradient_error": 7.898683096474457e-11,
+  "span_bound_error": 0.0,
+  "basis_rotation_error": 6.661338147750939e-16,
+  "planted_fits": [
+    {
+      "score": 1.0000000000000002,
+      "initial_score": 0.6400000000000002,
+      "tangent_stationarity": 2.3010699468738388e-08,
+      "converged": true,
+      "extreme_eigenvalue_gap": 0.7071067760411988,
+      "iterations": 15,
+      "evaluations": 65,
+      "seconds": 0.006580788642168045,
+      "stopping_criterion": "Terminated - min grad norm reached after 15 iterations, 0.01 seconds.",
+      "pymanopt_version": "2.2.1"
+    },
+    {
+      "score": 1.0000000000000002,
+      "initial_score": 0.6400000000000002,
+      "tangent_stationarity": 2.3010699468738388e-08,
+      "converged": true,
+      "extreme_eigenvalue_gap": 0.7071067760411988,
+      "iterations": 15,
+      "evaluations": 65,
+      "seconds": 0.006363242864608765,
+      "stopping_criterion": "Terminated - min grad norm reached after 15 iterations, 0.01 seconds.",
+      "pymanopt_version": "2.2.1"
+    }
+  ],
+  "scope": "Analytic derivative, known product recovery, and basis-invariant scalar objective. Generic native objective is nonsmooth at tied extreme eigenvalues; gaps must be reported."
+}

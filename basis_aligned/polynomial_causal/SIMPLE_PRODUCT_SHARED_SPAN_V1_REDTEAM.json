@@ -1,0 +1,76 @@
+{
+  "source_sha256": "b71e05f47337b14e5e0882b6a1e0e13316014cad5a33f1630802372d56126b58",
+  "rows": [
+    {
+      "head": 0,
+      "minimum_restart_function_absolute_cosine": 0.09189004986356902,
+      "score_spread": 0.026579798689471967,
+      "one_product_upper_bound": 0.11954285969678485,
+      "four_product_upper_bound": 0.36300204336772024
+    },
+    {
+      "head": 1,
+      "minimum_restart_function_absolute_cosine": 0.9999999999995847,
+      "score_spread": 3.4659775050016606e-14,
+      "one_product_upper_bound": 0.15113818367922985,
+      "four_product_upper_bound": 0.4536973824490635
+    },
+    {
+      "head": 2,
+      "minimum_restart_function_absolute_cosine": 0.9999999999999006,
+      "score_spread": 4.649058915617843e-15,
+      "one_product_upper_bound": 0.17353004873853997,
+      "four_product_upper_bound": 0.5067178413311719
+    },
+    {
+      "head": 3,
+      "minimum_restart_function_absolute_cosine": 0.9999999999995737,
+      "score_spread": 2.238487173400472e-14,
+      "one_product_upper_bound": 0.12970690365268955,
+      "four_product_upper_bound": 0.3833650647277498
+    },
+    {
+      "head": 4,
+      "minimum_restart_function_absolute_cosine": 0.44821524852478256,
+      "score_spread": 0.0035501021900334537,
+      "one_product_upper_bound": 0.10987948568829886,
+      "four_product_upper_bound": 0.3541638549649014
+    },
+    {
+      "head": 5,
+      "minimum_restart_function_absolute_cosine": 0.8198199401602752,
+      "score_spread": 0.00010558519081065032,
+      "one_product_upper_bound": 0.11124205014162217,
+      "four_product_upper_bound": 0.3513402583551869
+    },
+    {
+      "head": 6,
+      "minimum_restart_function_absolute_cosine": 0.999999999999778,
+      "score_spread": 9.46465128492946e-15,
+      "one_product_upper_bound": 0.2056466266030732,
+      "four_product_upper_bound": 0.5340007017856492
+    },
+    {
+      "head": 7,
+      "minimum_restart_function_absolute_cosine": 0.02955001252074247,
+      "score_spread": 0.0024926618086896016,
+      "one_product_upper_bound": 0.11026216869700034,
+      "four_product_upper_bound": 0.35583979652264297
+    },
+    {
+      "head": 8,
+      "minimum_restart_function_absolute_cosine": 0.9999999999901554,
+      "score_spread": 1.2514295155696686e-13,
+      "one_product_upper_bound": 0.1368894217564363,
+      "four_product_upper_bound": 0.39260145800528234
+    }
+  ],
+  "maximum_one_product_upper_bound": 0.2056466266030732,
+  "all_spans_exclude_half_energy_one_product": true,
+  "converged_function_agreement_heads": 5,
+  "narrow_failed_claim": "Six heads with >=2x and >=.05 capture gain while retaining paired cosine>=.5; zero pass.",
+  "redteam": "All36 locally converged but four heads have different local functions. Global bound excludes50% one-product capture in each fixed span, not the registered improvement bar or sixteen-product structure. Source-span selection remains restrictive; original multi-output overlapping block family remains unconverged.",
+  "next_executed_consequence": "Existing overlapping-block objective reused in standard Product manifold adapter; independent dense and envelope-gradient CPU controls executed.",
+  "data_used": false,
+  "utc": "2026-09-11T04:48:15.436283+00:00"
+}
