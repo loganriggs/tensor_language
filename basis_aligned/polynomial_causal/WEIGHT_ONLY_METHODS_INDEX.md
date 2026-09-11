@@ -294,3 +294,5 @@ Managed wrapper V3 runs the [registered projected comparison](PROJECTED_LL1_CONV
 ## Joint composed interaction paths, 11September22:10
 
 [User proposal](explanations/for_logan/interaction_path_decomposition_proposal_2026-09-11.md) → [coupled sparse path kernel and controls](COUPLED_SPARSE_PATH_V1_MATH.md) → [matched native pilot](COUPLED_SPARSE_PATH_PILOT_V1_PREREGISTRATION.md). Full-U residual/attention self and mixed blocks, exact eliminated edge writers, jointly optimized source readers. Shared versus independent features at147456fitted floats each. Edge/group sparsity, not learned output-core entry sparsity. Native status in managed runner/results; controls do not establish circuits.
+
+[Composed quartic contraction](COMPOSED_QUARTIC_CONTRACTION_V1_MATH.md) adds the exact symmetric four-linear oracle for U→MLP17→MLP16 producer/producer numerator. CPU tensor/norm/gradient checks pass; Gaussian/random-sign native coefficient-estimator cost check submitted. Keeps upstream product constraints rather than fitting formal independent products; actual sparse quartic fit and normalized circuit validation remain open.

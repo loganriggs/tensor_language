@@ -1,0 +1,24 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "contraction_relative_error": 8.632377543077199e-16,
+  "diagonal_relative_error": 4.976114477261591e-16,
+  "basis_norm_relative_error": 2.220446049250313e-16,
+  "gradient_relative_errors": [
+    1.7502039428588948e-15,
+    2.5061923257236136e-15,
+    4.522493522893532e-15,
+    3.017480959235355e-15,
+    4.2532939927277006e-15,
+    4.155468374209736e-15
+  ],
+  "synthetic_estimator": {
+    "probes": 8192,
+    "exact_norm2": 677712.3521459207,
+    "estimated_norm2": 654475.5954373926,
+    "estimated_standard_error": 34968.087131277396,
+    "z_score": -0.6645132352047906
+  },
+  "scope": "Exact four-linear coefficient contraction and gradient oracle for homogeneous two-bilinear composition. Gaussian estimate unbiased in expectation; finite sample uncertainty is estimated, not a rigorous bound. No native result, bias/normalizer omission from complete model allowed, text fitting or circuit claim."
+}

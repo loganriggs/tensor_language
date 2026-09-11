@@ -120,3 +120,7 @@ New words/constructions confirm small neighboring binary-choice changes and near
 ### 22:10 — Joint sparse path kernel ready for native comparison
 
 [Method and exact controls](../../COUPLED_SPARSE_PATH_V1_MATH.md): full-output edge selection and reader gradients pass; both tiny planted functions recover, one strict optimizer stop misses. Matched shared/independent full-U pilot has been submitted through lane1; check its current runner/receipt for status. It is not a completed sparse-fit result.
+
+### 22:22 — Deeper two-MLP coefficient objective implemented
+
+[Quartic contraction method](../../COMPOSED_QUARTIC_CONTRACTION_V1_MATH.md) evaluates the actual symmetric two-bilinear composition without a huge tensor. Exact small-tensor/gradient controls pass. Independent synthetic vectors give a coefficient-loss estimator, distinct from text-weighted fitting and independent native-product coordinates. Native uncertainty/cost check submitted behind the live sparse path fit; no new sparse or circuit result.
