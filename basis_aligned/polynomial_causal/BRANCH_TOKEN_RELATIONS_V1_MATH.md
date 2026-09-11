@@ -144,3 +144,34 @@ Using the dual-writer metric $V^\top V$, the summed endpoint error energy is exa
 The next priority is a frozen test on different lexical items and grammatical constructions, followed by explicit removal/composition checks if transfer survives. General-text prediction and ordinary replacement remain separate unresolved requirements. Successful task differences do not exhaust the native tensor or establish a unique hierarchy.
 
 One final weight-only audit identifies a narrower approximation detail to check before interpreting replacement failure: truncating a traceless matrix does not preserve its trace. The original explicit radial term was retained, but the retained sixteen-square remainder adds trace -33.17, -199.00 and -3.46 for the three suffix readouts. The known trace-preserving repair subtracts this retained trace times $\lVert x\rVert^2/1152$ from the approximation. Its algebraic trace identity passes exactly; it has not yet been evaluated as a corrected physical replacement. This correction comes from weights, not an empirical offset, and is existing radial-repair methodology applied to this new program. It leaves donor differences unchanged when input radii are equal. [Trace-leak audit](NATIVE_RELATION_TRACE_LEAK_V1.json). Preserve every existing replacement/prediction failure until that separate check is executed.
+
+### Trace correction completed without repairing replacement
+
+The separate trace-preserving physical replay now passes A/B/C/E and still fails D. Count-noun replacement mean absolute CE is **0.16510**, slightly worse than the previous 0.15930. Verb/pronoun replacement changes are 0.03810 and unrelated-control change is 0.01833. Swap effects and their successful approximation/control verdicts are essentially unchanged. The trace correction replaces three existing radial coefficients; it adds no factors and fits no data. This closes the trace-leak explanation for the observed replacement failure. [Physical replay](NATIVE_RELATION_TRACE_PHYSICAL_V1_RESULT.json).
+
+The matching general-text scalar validation still fails its absolute prediction bar, while paired-change prediction continues to pass. That result preserves the distinction between a useful change predictor and an accurate ordinary replacement. [Scalar validation](NATIVE_TOKEN_RELATION_TRACE_VALIDATION_V1.json).
+
+### Frozen construction holdout and a smaller-component check
+
+A new panel is frozen with 16 different verbs and 16 different nouns; all task answer/foil token IDs are disjoint from the earlier panel. Subject–verb prompts use a noun head followed by either an intervening plural noun or a relative clause, with construction and swap direction crossed. Count prompts use `a single`/`several` in place of `one`/`two`. Adjective changes provide answer-preserving controls; the historical unrelated controls are retained and explicitly labelled. The same trace-corrected 48-square program is queued through the managed runner, with no factor changes or outcome filtering. These are new validation constructions and lexemes, not proof of corpus or pretraining disjointness. [Frozen rows](NATIVE_RELATION_HOLDOUT_V1_ROWS.json).
+
+While that job waits behind the peer's live run, an independent CPU test evaluates the already saved **one real product per readout**, three products total. It retains the correct trace and bias. On the original panel, the small program preserves the sign of every scalar change, but its joint physical-write relative error is **18–19% for verbs and 42–44% for count nouns**. Scalar errors likewise miss the 25% bar for the noun `s`/`es` readouts. A passes; B/C fail. Thus a three-product simplification is not an adequate substitute for the demonstrated two-task 48-square change predictor under the registered criterion. It was not fitted or rescaled on these data. [Original-panel result](NATIVE_RELATION_ONE_PRODUCT_V1_ORIGINAL.json).
+
+### Construction holdout completed successfully for changes
+
+The managed holdout completed at **20:49:59**, after the peer's live job finished. It used 20 body forwards, 144 sequences and 1.48 seconds inside execution. All task and adjective-control endpoints pass native answer-versus-foil capability. Instrument, capability, effect approximation, transfer and swap-control bars pass: **A/B/C/D/E true; ordinary replacement F false**. No rows were filtered by outcomes. [Completed result](NATIVE_RELATION_HOLDOUT_V1_RESULT.json).
+
+| New task / direction | Exact native span recovery | Frozen 48-square recovery | Relative effect error |
+|---|---:|---:|---:|
+| Verb base → suffixed | 16.59% | 17.16% | 3.76% |
+| Verb suffixed → base | 16.38% | 17.10% | 4.25% |
+| Noun base → suffixed | 18.10% | 16.60% | 8.67% |
+| Noun suffixed → base | 13.69% | 12.40% | 9.47% |
+
+All task intervention-effect signs match the exact native span. Mean absolute approximate-swap CE changes are **0.02920** on adjective controls and **0.00590** on the reused unrelated controls. Relative-error/sign fidelity is registered for the task effects, not for the small control effects; some control-relative errors are large despite their small absolute CE changes.
+
+Descriptive construction-specific accounting also retains the result: plural-attractor prompts recover 19.01% of the native gap with 3.55% effect error; relative-clause prompts recover 14.14% with 5.75% error; single/several noun prompts recover 14.44% with 8.99% error. These are eight, eight and sixteen pairs respectively, without a separately registered confidence claim. The fixed program has therefore predicted useful signed effects across new lexical items and constructions. This is evidence for that limited form of generalization, not proof of corpus OOD, pretraining disjointness, complete extraction or the entire four-property goal.
+
+Ordinary replacement still changes CE too much: mean absolute changes are **0.08663/0.09459/0.08292/0.01833** for verb, noun, adjective and unrelated families. All original replacement failures remain. The trace-corrected program is useful for the tested changes, not an adopted replacement.
+
+The prospectively specified three-product CPU check was then executed on the new cache. Algebra passes; the simplification criteria still fail. Physical-write relative error is about **15% for verbs and 53–55% for nouns**, with all scalar signs correct. [Holdout one-product result](NATIVE_RELATION_ONE_PRODUCT_V1_HOLDOUT.json). These are the saved coefficient-optimal leading products, not the best possible three-product task predictor. The differing errors motivate a concrete next reuse test: separate those leading products from the remaining fixed quadratic terms and measure whether a shared component plus additional terms predicts the two behaviors' effects and their composition. It does not yet establish that split as a semantic hierarchy.

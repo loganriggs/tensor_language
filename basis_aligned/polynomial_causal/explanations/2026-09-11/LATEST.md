@@ -88,3 +88,7 @@ A weights-only atlas finds broad suffix preferences. The frozen bank then moves 
 ### 20:38 — Full-native fold yields a stronger change predictor
 
 Forty-eight weight-derived squares transfer 18–21% of grammatical answer changes and match the exact native readout-span effects within 4–6% error, with small control effects. Ordinary replacement fails on count nouns; broad-text absolute prediction also remains poor. Executed remainder accounting rejects a simple invariant-offset explanation. No data fitting, replacement adoption or OOD promotion. [Primary math and all receipts](../../BRANCH_TOKEN_RELATIONS_V1_MATH.md). Hourly review completed at the 20:27 boundary; next due 21:27, math due 22:51.
+
+### 20:50 — Change prediction survives new words and harder constructions
+
+The same frozen 48-square program passes transfer, effect-fidelity and swap-control bars on new lexical items, plural attractors, relative clauses and single/several noun cues. Recovery is 12–17% of native answer change, with 4–9% effect error. Ordinary replacement remains failed; restoring the original trace did not repair it. A three-product simplification predicts verb changes much better than noun changes and fails the joint criterion. [Primary results and scope](../../BRANCH_TOKEN_RELATIONS_V1_MATH.md).

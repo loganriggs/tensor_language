@@ -1,0 +1,146 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "label": "original",
+  "replay_errors": [
+    1.3923693245902953e-15,
+    0.0,
+    1.363557673926798e-15,
+    0.0,
+    1.381225716790178e-15,
+    0.0
+  ],
+  "cells": [
+    {
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "n": 8,
+      "scalar_metrics": [
+        {
+          "relation": "add_s",
+          "relative_rms": 0.1639326462852949,
+          "sign_agreement": 1.0,
+          "native_mean": 5786.047532835981,
+          "predicted_mean": 4845.846985074524
+        },
+        {
+          "relation": "add_es",
+          "relative_rms": 0.18453764487500632,
+          "sign_agreement": 1.0,
+          "native_mean": 5305.7887278826975,
+          "predicted_mean": 4330.1995080726065
+        },
+        {
+          "relation": "y_to_ies",
+          "relative_rms": 0.12130696727329777,
+          "sign_agreement": 1.0,
+          "native_mean": 3897.3921575372283,
+          "predicted_mean": 3441.692674882447
+        }
+      ],
+      "physical_relative_rms": 0.19467553060672652
+    },
+    {
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "n": 8,
+      "scalar_metrics": [
+        {
+          "relation": "add_s",
+          "relative_rms": 0.14572617343895097,
+          "sign_agreement": 1.0,
+          "native_mean": -5455.993758347698,
+          "predicted_mean": -4662.123873181616
+        },
+        {
+          "relation": "add_es",
+          "relative_rms": 0.16802499726408046,
+          "sign_agreement": 1.0,
+          "native_mean": -5020.071509927186,
+          "predicted_mean": -4178.046268447486
+        },
+        {
+          "relation": "y_to_ies",
+          "relative_rms": 0.09487649136445966,
+          "sign_agreement": 1.0,
+          "native_mean": -3653.928437548295,
+          "predicted_mean": -3311.1134025453116
+        }
+      ],
+      "physical_relative_rms": 0.18242682549468947
+    },
+    {
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "n": 8,
+      "scalar_metrics": [
+        {
+          "relation": "add_s",
+          "relative_rms": 0.32522713519827845,
+          "sign_agreement": 1.0,
+          "native_mean": 6013.749252623422,
+          "predicted_mean": 4052.2138170645358
+        },
+        {
+          "relation": "add_es",
+          "relative_rms": 0.428863418823799,
+          "sign_agreement": 1.0,
+          "native_mean": 5162.615323643148,
+          "predicted_mean": 2943.6056541282824
+        },
+        {
+          "relation": "y_to_ies",
+          "relative_rms": 0.1901471743641127,
+          "sign_agreement": 1.0,
+          "native_mean": 5015.908480111949,
+          "predicted_mean": 4060.2216643450874
+        }
+      ],
+      "physical_relative_rms": 0.4233072578264809
+    },
+    {
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "n": 8,
+      "scalar_metrics": [
+        {
+          "relation": "add_s",
+          "relative_rms": 0.3421335872837717,
+          "sign_agreement": 1.0,
+          "native_mean": -5488.92235463632,
+          "predicted_mean": -3617.0652685326504
+        },
+        {
+          "relation": "add_es",
+          "relative_rms": 0.4456195588840707,
+          "sign_agreement": 1.0,
+          "native_mean": -4658.892423138262,
+          "predicted_mean": -2589.2947898101384
+        },
+        {
+          "relation": "y_to_ies",
+          "relative_rms": 0.19748526443572814,
+          "sign_agreement": 1.0,
+          "native_mean": -4521.166563123441,
+          "predicted_mean": -3640.9904817698325
+        }
+      ],
+      "physical_relative_rms": 0.44495614959501895
+    }
+  ],
+  "price": {
+    "variable_products": 3,
+    "dense_input_readers": 6,
+    "physical_writers": 3,
+    "shared_radius_required": true,
+    "native_background_retained": true
+  },
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/NATIVE_TOKEN_RELATION_FOLD_V1.pt": "c367ffa2671b63ce1c73d4582581f66f9447dc1c9d2aaf3840b7a52b39a8b077",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FROZEN_BRANCH_MORPHOLOGY_V1_ENDPOINTS.pt": "e7e196aa127f03a61cfaf90cc168ee3f52cf7c9de47150bf604dd39313f906a1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FROZEN_BRANCH_MORPHOLOGY_V1_ROWS.json": "0fb48d8078b030beee027ae8fc8ffaf2eeaf9fe1ec6e5e951f67e58c6443a30e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FROZEN_BRANCH_MORPHOLOGY_V1_RESULT.json": "f5f6cac59088b4f019574ac1448da60dfc8113dfc22caf04fb0f252277445678"
+  },
+  "scope": "Saved optimal scalar coefficient products, no data-fit/scale/rank search. This predicts native readout changes and their lifted physical write, not yet final capped logits, ordinary replacement, selective removal or composition."
+}
