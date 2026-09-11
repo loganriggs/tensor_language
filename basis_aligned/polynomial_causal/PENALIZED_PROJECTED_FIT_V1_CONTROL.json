@@ -1,0 +1,2210 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_convergence": true
+  },
+  "rows": [
+    {
+      "seed": 91,
+      "fd_error": 3.932568715114826e-10,
+      "dense_objective_replay": 7.28583859910259e-17,
+      "optimization": {
+        "initial_loss": 0.016740486086968882,
+        "initial_details": {
+          "residual": 0.007004961516654085,
+          "component_energy": 0.97355245703148,
+          "fitted_energy": 0.9735239893427164,
+          "cross_energy": 0.9832595139130311,
+          "dictionary_relative_stationarity": 16.313369491909683,
+          "codes_relative_stationarity": 12.507802406548358,
+          "output_solve": {
+            "normal_residual": 1.8193103499006695e-16,
+            "product_norm_min": 0.980332707855138,
+            "product_norm_max": 1.000954148508351
+          },
+          "penalty": 0.01,
+          "parameterization": "unit dictionary rows and unit code rows"
+        },
+        "final_loss": 0.00990099010498184,
+        "final_details": {
+          "residual": 9.802960705555346e-05,
+          "component_energy": 0.9802960497926286,
+          "fitted_energy": 0.9802960493970918,
+          "cross_energy": 0.9900990098950181,
+          "dictionary_relative_stationarity": 6.971369157168225e-06,
+          "codes_relative_stationarity": 3.83097009054012e-06,
+          "output_solve": {
+            "normal_residual": 1.4332917622431435e-16,
+            "product_norm_min": 0.9816459721149227,
+            "product_norm_max": 0.9999690459738244
+          },
+          "penalty": 0.01,
+          "parameterization": "unit dictionary rows and unit code rows"
+        },
+        "converged": true,
+        "stop": "joint_convergence",
+        "solver": {
+          "success": true,
+          "status": null,
+          "message": "joint_convergence"
+        },
+        "iterations": 58,
+        "evaluations": 71,
+        "seconds": 0.03608560562133789,
+        "evaluation_seconds": [
+          0.006220374256372452,
+          0.0007847175002098083,
+          0.0006078071892261505,
+          0.0005431659519672394,
+          0.0005142614245414734,
+          0.0005152672529220581,
+          0.00048643723130226135,
+          0.00048362091183662415,
+          0.0004999786615371704,
+          0.0005039870738983154,
+          0.0005042888224124908,
+          0.0004845857620239258,
+          0.0005010329186916351,
+          0.00047951191663742065,
+          0.00047996267676353455,
+          0.00047513842582702637,
+          0.0004765354096889496,
+          0.0004831776022911072,
+          0.0004891902208328247,
+          0.0004699192941188812,
+          0.0004798099398612976,
+          0.00046389177441596985,
+          0.00047831982374191284,
+          0.0004734620451927185,
+          0.00047800689935684204,
+          0.0004734732210636139,
+          0.0004928559064865112,
+          0.00048484280705451965,
+          0.0004704706370830536,
+          0.00047336146235466003,
+          0.00046553462743759155,
+          0.0004704967141151428,
+          0.00048661231994628906,
+          0.0004834793508052826,
+          0.0004678890109062195,
+          0.0004869922995567322,
+          0.00046139582991600037,
+          0.000491064041852951,
+          0.00048406049609184265,
+          0.0004834607243537903,
+          0.0005139783024787903,
+          0.0004816874861717224,
+          0.00048317015171051025,
+          0.0004761740565299988,
+          0.0004738420248031616,
+          0.00048483163118362427,
+          0.00046991556882858276,
+          0.00047046318650245667,
+          0.0004759281873703003,
+          0.0004630535840988159,
+          0.0004940107464790344,
+          0.0004764460027217865,
+          0.00047307088971138,
+          0.0004648938775062561,
+          0.0005225688219070435,
+          0.0004619210958480835,
+          0.0005027353763580322,
+          0.0004805140197277069,
+          0.000477377325296402,
+          0.000469014048576355,
+          0.0004893094301223755,
+          0.0004777275025844574,
+          0.0004843808710575104,
+          0.0004661381244659424,
+          0.0004701092839241028,
+          0.0004634000360965729,
+          0.00047750771045684814,
+          0.0004764162003993988,
+          0.0004693455994129181,
+          0.0004793405532836914,
+          0.00048866868019104
+        ],
+        "history": [
+          {
+            "iteration": 1,
+            "seconds": 0.002852264791727066,
+            "loss": 0.01003270184783835,
+            "relative_stationarity": 3.672980336229232,
+            "relative_objective_change": null,
+            "details": {
+              "residual": 0.00023097390134078447,
+              "component_energy": 0.9801727946497566,
+              "fitted_energy": 0.9801655702056649,
+              "cross_energy": 0.989967298152162,
+              "dictionary_relative_stationarity": 3.672980336229232,
+              "codes_relative_stationarity": 1.178492354581063,
+              "output_solve": {
+                "normal_residual": 1.2820680972424928e-16,
+                "product_norm_min": 0.9811154211545721,
+                "product_norm_max": 0.9998048676558845
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 8
+          },
+          {
+            "iteration": 2,
+            "seconds": 0.0034407414495944977,
+            "loss": 0.009918317230582967,
+            "relative_stationarity": 1.337827996066362,
+            "relative_objective_change": 0.0115326637166514,
+            "details": {
+              "residual": 0.00011544902809657032,
+              "component_energy": 0.9802868202486397,
+              "fitted_energy": 0.9802788145669306,
+              "cross_energy": 0.990081682769417,
+              "dictionary_relative_stationarity": 1.337827996066362,
+              "codes_relative_stationarity": 0.36811803837334683,
+              "output_solve": {
+                "normal_residual": 9.065013151166117e-17,
+                "product_norm_min": 0.9813763931189613,
+                "product_norm_max": 0.9998480373433396
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 9
+          },
+          {
+            "iteration": 3,
+            "seconds": 0.004011359065771103,
+            "loss": 0.009901344600963317,
+            "relative_stationarity": 0.1726357531604305,
+            "relative_objective_change": 0.0017141742160957656,
+            "details": {
+              "residual": 9.830712701989579e-05,
+              "component_energy": 0.9803037473943421,
+              "fitted_energy": 0.9802956179250938,
+              "cross_energy": 0.990098655399037,
+              "dictionary_relative_stationarity": 0.1726357531604305,
+              "codes_relative_stationarity": 0.12893932966045196,
+              "output_solve": {
+                "normal_residual": 2.1259183306358162e-16,
+                "product_norm_min": 0.9814102356314269,
+                "product_norm_max": 0.9998831537621098
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 10
+          },
+          {
+            "iteration": 4,
+            "seconds": 0.004560742527246475,
+            "loss": 0.009901097861215267,
+            "relative_stationarity": 0.0522302414731166,
+            "relative_objective_change": 2.492044331936445e-05,
+            "details": {
+              "residual": 9.805794896274496e-05,
+              "component_energy": 0.9803039912252521,
+              "fitted_energy": 0.9802958622265328,
+              "cross_energy": 0.990098902138785,
+              "dictionary_relative_stationarity": 0.0522302414731166,
+              "codes_relative_stationarity": 0.04531261598631984,
+              "output_solve": {
+                "normal_residual": 2.0269824663473478e-16,
+                "product_norm_min": 0.98142036692431,
+                "product_norm_max": 0.9998848985152059
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 11
+          },
+          {
+            "iteration": 5,
+            "seconds": 0.0050864629447460175,
+            "loss": 0.009901072540052343,
+            "relative_stationarity": 0.0023443547118781297,
+            "relative_objective_change": 2.55741616081829e-06,
+            "details": {
+              "residual": 9.8032384833265e-05,
+              "component_energy": 0.9803040155219077,
+              "fitted_energy": 0.9802958873047286,
+              "cross_energy": 0.9900989274599477,
+              "dictionary_relative_stationarity": 0.0023443547118781297,
+              "codes_relative_stationarity": 0.001094604522589516,
+              "output_solve": {
+                "normal_residual": 1.4333042191296176e-16,
+                "product_norm_min": 0.9814188238290223,
+                "product_norm_max": 0.9998840403142452
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 12
+          },
+          {
+            "iteration": 6,
+            "seconds": 0.005657389760017395,
+            "loss": 0.0099010724879586,
+            "relative_stationarity": 0.0009667967679755832,
+            "relative_objective_change": 5.261424387329248e-09,
+            "details": {
+              "residual": 9.803233935527327e-05,
+              "component_energy": 0.9803040148603327,
+              "fitted_energy": 0.980295887363439,
+              "cross_energy": 0.9900989275120419,
+              "dictionary_relative_stationarity": 0.0008233150250207576,
+              "codes_relative_stationarity": 0.0009667967679755832,
+              "output_solve": {
+                "normal_residual": 2.7940037966605866e-16,
+                "product_norm_min": 0.9814189120661925,
+                "product_norm_max": 0.9998840677620093
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 13
+          },
+          {
+            "iteration": 7,
+            "seconds": 0.006177637726068497,
+            "loss": 0.009901072465181281,
+            "relative_stationarity": 0.0009633694405603139,
+            "relative_objective_change": 2.300490003085531e-09,
+            "details": {
+              "residual": 9.803233308591786e-05,
+              "component_energy": 0.9803040132095363,
+              "fitted_energy": 0.9802958874027232,
+              "cross_energy": 0.9900989275348185,
+              "dictionary_relative_stationarity": 0.0002585439674594806,
+              "codes_relative_stationarity": 0.0009633694405603139,
+              "output_solve": {
+                "normal_residual": 1.4332943435231293e-16,
+                "product_norm_min": 0.9814189308142628,
+                "product_norm_max": 0.9998840922182982
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 14
+          },
+          {
+            "iteration": 8,
+            "seconds": 0.006698358803987503,
+            "loss": 0.009901072442388675,
+            "relative_stationarity": 0.0009731838329752098,
+            "relative_objective_change": 2.3020340954570296e-09,
+            "details": {
+              "residual": 9.80323384534761e-05,
+              "component_energy": 0.9803040103935197,
+              "fitted_energy": 0.9802958874536764,
+              "cross_energy": 0.9900989275576114,
+              "dictionary_relative_stationarity": 0.0008598828537268381,
+              "codes_relative_stationarity": 0.0009731838329752098,
+              "output_solve": {
+                "normal_residual": 1.812986779184716e-16,
+                "product_norm_min": 0.9814189628558598,
+                "product_norm_max": 0.9998841069780906
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 15
+          },
+          {
+            "iteration": 9,
+            "seconds": 0.007214415818452835,
+            "loss": 0.009901072340084412,
+            "relative_stationarity": 0.0025825337163423627,
+            "relative_objective_change": 1.0332644664121967e-08,
+            "details": {
+              "residual": 9.803238895263651e-05,
+              "component_energy": 0.9803039951131775,
+              "fitted_energy": 0.9802958877087845,
+              "cross_energy": 0.990098927659916,
+              "dictionary_relative_stationarity": 0.0025825337163423627,
+              "codes_relative_stationarity": 0.0010470611463862154,
+              "output_solve": {
+                "normal_residual": 2.311119970392778e-16,
+                "product_norm_min": 0.9814190475740042,
+                "product_norm_max": 0.9998841542515957
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 16
+          },
+          {
+            "iteration": 10,
+            "seconds": 0.007737293839454651,
+            "loss": 0.00990107211469278,
+            "relative_stationarity": 0.004898851818110965,
+            "relative_objective_change": 2.2764366306029972e-08,
+            "details": {
+              "residual": 9.803253890350305e-05,
+              "component_energy": 0.9803039575789277,
+              "fitted_energy": 0.9802958883095179,
+              "cross_energy": 0.9900989278853071,
+              "dictionary_relative_stationarity": 0.004898851818110965,
+              "codes_relative_stationarity": 0.0012317298638907994,
+              "output_solve": {
+                "normal_residual": 1.570093273056516e-16,
+                "product_norm_min": 0.9814192108230726,
+                "product_norm_max": 0.9998842290100546
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 17
+          },
+          {
+            "iteration": 11,
+            "seconds": 0.008287116885185242,
+            "loss": 0.009901071488392074,
+            "relative_stationarity": 0.008871993324995192,
+            "relative_objective_change": 6.325585129608701e-08,
+            "details": {
+              "residual": 9.803301507756619e-05,
+              "component_energy": 0.9803038473314508,
+              "fitted_energy": 0.980295890038294,
+              "cross_energy": 0.9900989285116082,
+              "dictionary_relative_stationarity": 0.008871993324995192,
+              "codes_relative_stationarity": 0.0016806181362736823,
+              "output_solve": {
+                "normal_residual": 2.642866790134184e-16,
+                "product_norm_min": 0.9814195642236523,
+                "product_norm_max": 0.9998843890651204
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 18
+          },
+          {
+            "iteration": 12,
+            "seconds": 0.00881931558251381,
+            "loss": 0.009901069929749292,
+            "relative_stationarity": 0.014875667320015674,
+            "relative_objective_change": 1.574216517615893e-07,
+            "details": {
+              "residual": 9.803425846932612e-05,
+              "component_energy": 0.9803035671279966,
+              "fitted_energy": 0.9802958943989711,
+              "cross_energy": 0.9900989300702508,
+              "dictionary_relative_stationarity": 0.014875667320015674,
+              "codes_relative_stationarity": 0.002502103010349522,
+              "output_solve": {
+                "normal_residual": 2.398364382502584e-16,
+                "product_norm_min": 0.9814203473949562,
+                "product_norm_max": 0.9998847110564325
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 19
+          },
+          {
+            "iteration": 13,
+            "seconds": 0.009332466870546341,
+            "loss": 0.009901066059389925,
+            "relative_stationarity": 0.023678521054485476,
+            "relative_objective_change": 3.909032969900092e-07,
+            "details": {
+              "residual": 9.80372121119899e-05,
+              "component_energy": 0.9803028847277936,
+              "fitted_energy": 0.9802959050933325,
+              "cross_energy": 0.9900989339406102,
+              "dictionary_relative_stationarity": 0.023678521054485476,
+              "codes_relative_stationarity": 0.003774310296548113,
+              "output_solve": {
+                "normal_residual": 1.5700996082964498e-16,
+                "product_norm_min": 0.9814220808954085,
+                "product_norm_max": 0.99988539481392
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 20
+          },
+          {
+            "iteration": 14,
+            "seconds": 0.009854428470134735,
+            "loss": 0.009901057340521114,
+            "relative_stationarity": 0.034282867881138504,
+            "relative_objective_change": 8.805997694080237e-07,
+            "details": {
+              "residual": 9.804250781897395e-05,
+              "component_energy": 0.9803014832702139,
+              "fitted_energy": 0.9802959278267768,
+              "cross_energy": 0.990098942659479,
+              "dictionary_relative_stationarity": 0.034282867881138504,
+              "codes_relative_stationarity": 0.005426299256776654,
+              "output_solve": {
+                "normal_residual": 1.9229628584154616e-16,
+                "product_norm_min": 0.9814257734787177,
+                "product_norm_max": 0.9998867619502219
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 21
+          },
+          {
+            "iteration": 15,
+            "seconds": 0.010359566658735275,
+            "loss": 0.009901040475592935,
+            "relative_stationarity": 0.04169207945067461,
+            "relative_objective_change": 1.7033490794478703e-06,
+            "details": {
+              "residual": 9.804704550031573e-05,
+              "component_energy": 0.9802993430092618,
+              "fitted_energy": 0.9802959660943146,
+              "cross_energy": 0.9900989595244071,
+              "dictionary_relative_stationarity": 0.04169207945067461,
+              "codes_relative_stationarity": 0.0063074129924009245,
+              "output_solve": {
+                "normal_residual": 1.1102349810264517e-16,
+                "product_norm_min": 0.9814323990605057,
+                "product_norm_max": 0.9998891887796945
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 22
+          },
+          {
+            "iteration": 16,
+            "seconds": 0.010903030633926392,
+            "loss": 0.009901023241151184,
+            "relative_stationarity": 0.04558021375582808,
+            "relative_objective_change": 1.7406727901445346e-06,
+            "details": {
+              "residual": 9.80502669788071e-05,
+              "component_energy": 0.9802972974172377,
+              "fitted_energy": 0.9802960037846763,
+              "cross_energy": 0.9900989767588487,
+              "dictionary_relative_stationarity": 0.04558021375582808,
+              "codes_relative_stationarity": 0.027428180776428505,
+              "output_solve": {
+                "normal_residual": 1.9229643356395757e-16,
+                "product_norm_min": 0.9814465205616124,
+                "product_norm_max": 0.9998925987449467
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 23
+          },
+          {
+            "iteration": 17,
+            "seconds": 0.011421378701925278,
+            "loss": 0.009900998451206077,
+            "relative_stationarity": 0.02423064841310088,
+            "relative_objective_change": 2.5037823436969854e-06,
+            "details": {
+              "residual": 9.803504403945358e-05,
+              "component_energy": 0.9802963407166624,
+              "fitted_energy": 0.9802960381416277,
+              "cross_energy": 0.9900990015487942,
+              "dictionary_relative_stationarity": 0.02423064841310088,
+              "codes_relative_stationarity": 0.00633232950822826,
+              "output_solve": {
+                "normal_residual": 2.311113689261828e-16,
+                "product_norm_min": 0.9814543804086775,
+                "product_norm_max": 0.9998967765882265
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 24
+          },
+          {
+            "iteration": 18,
+            "seconds": 0.01194090023636818,
+            "loss": 0.009900992464746308,
+            "relative_stationarity": 0.009058743562764895,
+            "relative_objective_change": 6.04632292185936e-07,
+            "details": {
+              "residual": 9.803050225502356e-05,
+              "component_energy": 0.9802961962491286,
+              "fitted_energy": 0.9802960455727621,
+              "cross_energy": 0.9900990075352535,
+              "dictionary_relative_stationarity": 0.009058743562764895,
+              "codes_relative_stationarity": 0.004294974522960182,
+              "output_solve": {
+                "normal_residual": 1.5700925248817845e-16,
+                "product_norm_min": 0.981458245584234,
+                "product_norm_max": 0.9998983384398042
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 25
+          },
+          {
+            "iteration": 19,
+            "seconds": 0.012460220605134964,
+            "loss": 0.009900991231693943,
+            "relative_stationarity": 0.002835507507618132,
+            "relative_objective_change": 1.2453827462514696e-07,
+            "details": {
+              "residual": 9.802979182419828e-05,
+              "component_energy": 0.9802961439869745,
+              "fitted_energy": 0.9802960473284364,
+              "cross_energy": 0.9900990087683063,
+              "dictionary_relative_stationarity": 0.002835507507618132,
+              "codes_relative_stationarity": 0.0019859320913231553,
+              "output_solve": {
+                "normal_residual": 1.5700925143588876e-16,
+                "product_norm_min": 0.9814628988669495,
+                "product_norm_max": 0.9998995120389755
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 26
+          },
+          {
+            "iteration": 20,
+            "seconds": 0.012994948774576187,
+            "loss": 0.00990099111343382,
+            "relative_stationarity": 0.0017063871731081693,
+            "relative_objective_change": 1.194427129172412e-08,
+            "details": {
+              "residual": 9.802973752333817e-05,
+              "component_energy": 0.980296137591048,
+              "fitted_energy": 0.9802960475106555,
+              "cross_energy": 0.990099008886566,
+              "dictionary_relative_stationarity": 0.0017063871731081693,
+              "codes_relative_stationarity": 0.00041930304170157383,
+              "output_solve": {
+                "normal_residual": 9.064934167815464e-17,
+                "product_norm_min": 0.981463362629865,
+                "product_norm_max": 0.9998997893327485
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 27
+          },
+          {
+            "iteration": 21,
+            "seconds": 0.013549555093050003,
+            "loss": 0.009900990995113003,
+            "relative_stationarity": 0.001561650143541372,
+            "relative_objective_change": 1.195040140370381e-08,
+            "details": {
+              "residual": 9.802972748248114e-05,
+              "component_energy": 0.9802961267630521,
+              "fitted_energy": 0.9802960477372565,
+              "cross_energy": 0.990099009004887,
+              "dictionary_relative_stationarity": 0.001561650143541372,
+              "codes_relative_stationarity": 0.000936972839406019,
+              "output_solve": {
+                "normal_residual": 2.5639503098709573e-16,
+                "product_norm_min": 0.9814648351367244,
+                "product_norm_max": 0.9999003784003524
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 28
+          },
+          {
+            "iteration": 22,
+            "seconds": 0.01406165212392807,
+            "loss": 0.009900990865564422,
+            "relative_stationarity": 0.001088174461967982,
+            "relative_objective_change": 1.3084405586840495e-08,
+            "details": {
+              "residual": 9.802971153523761e-05,
+              "component_energy": 0.9802961154029184,
+              "fitted_energy": 0.9802960479804068,
+              "cross_energy": 0.9900990091344358,
+              "dictionary_relative_stationarity": 0.001088174461967982,
+              "codes_relative_stationarity": 0.0009224626552862864,
+              "output_solve": {
+                "normal_residual": 1.281975175779189e-16,
+                "product_norm_min": 0.9814678051501703,
+                "product_norm_max": 0.9999014208299029
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 29
+          },
+          {
+            "iteration": 23,
+            "seconds": 0.014576546847820282,
+            "loss": 0.009900990847909762,
+            "relative_stationarity": 0.002261052349064583,
+            "relative_objective_change": 1.7831205977919221e-09,
+            "details": {
+              "residual": 9.802974489817966e-05,
+              "component_energy": 0.9802961103011582,
+              "fitted_energy": 0.9802960480490782,
+              "cross_energy": 0.99009900915209,
+              "dictionary_relative_stationarity": 0.002261052349064583,
+              "codes_relative_stationarity": 0.0017319489203559326,
+              "output_solve": {
+                "normal_residual": 2.0269808047239273e-16,
+                "product_norm_min": 0.9814699745303392,
+                "product_norm_max": 0.9999024044848166
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 30
+          },
+          {
+            "iteration": 24,
+            "seconds": 0.015096340328454971,
+            "loss": 0.009900990788025652,
+            "relative_stationarity": 0.0003536679433515918,
+            "relative_objective_change": 6.048294671290889e-09,
+            "details": {
+              "residual": 9.802969781140074e-05,
+              "component_energy": 0.9802961090214252,
+              "fitted_energy": 0.9802960481217603,
+              "cross_energy": 0.9900990092119745,
+              "dictionary_relative_stationarity": 0.0003536679433515918,
+              "codes_relative_stationarity": 0.00019773417244394777,
+              "output_solve": {
+                "normal_residual": 1.1102230755662094e-16,
+                "product_norm_min": 0.981471984113034,
+                "product_norm_max": 0.9999029236995071
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 31
+          },
+          {
+            "iteration": 25,
+            "seconds": 0.015611540526151657,
+            "loss": 0.009900990776717763,
+            "relative_stationarity": 0.00028133663184647,
+            "relative_objective_change": 1.142096675800677e-09,
+            "details": {
+              "residual": 9.802969643146753e-05,
+              "component_energy": 0.9802961080286297,
+              "fitted_energy": 0.9802960481429963,
+              "cross_energy": 0.9900990092232824,
+              "dictionary_relative_stationarity": 0.00028133663184647,
+              "codes_relative_stationarity": 0.00023359488592549223,
+              "output_solve": {
+                "normal_residual": 2.398355866192522e-16,
+                "product_norm_min": 0.9814736303747805,
+                "product_norm_max": 0.9999034509432249
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 32
+          },
+          {
+            "iteration": 26,
+            "seconds": 0.016172077506780624,
+            "loss": 0.009900990759177549,
+            "relative_stationarity": 0.0004417518172290393,
+            "relative_objective_change": 1.7715615032358775e-09,
+            "details": {
+              "residual": 9.802969557230294e-05,
+              "component_energy": 0.9802961063605248,
+              "fitted_energy": 0.9802960481772175,
+              "cross_energy": 0.9900990092408226,
+              "dictionary_relative_stationarity": 0.0004417518172290393,
+              "codes_relative_stationarity": 0.00037596402032105165,
+              "output_solve": {
+                "normal_residual": 1.922962744757661e-16,
+                "product_norm_min": 0.9814768575740563,
+                "product_norm_max": 0.9999045900377598
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 33
+          },
+          {
+            "iteration": 27,
+            "seconds": 0.01719484105706215,
+            "loss": 0.009900990744239639,
+            "relative_stationarity": 0.0005563740162380993,
+            "relative_objective_change": 1.5087288403355746e-09,
+            "details": {
+              "residual": 9.8029694716395e-05,
+              "component_energy": 0.9802961049523243,
+              "fitted_energy": 0.9802960482062368,
+              "cross_energy": 0.9900990092557603,
+              "dictionary_relative_stationarity": 0.0005563740162380993,
+              "codes_relative_stationarity": 0.0004524706040097169,
+              "output_solve": {
+                "normal_residual": 1.5700925062672492e-16,
+                "product_norm_min": 0.9814801263311362,
+                "product_norm_max": 0.9999057401129061
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 35
+          },
+          {
+            "iteration": 28,
+            "seconds": 0.01821114495396614,
+            "loss": 0.009900990742177112,
+            "relative_stationarity": 0.0005496746275797956,
+            "relative_objective_change": 2.0831523693402777e-10,
+            "details": {
+              "residual": 9.802969433181374e-05,
+              "component_energy": 0.9802961047845297,
+              "fitted_energy": 0.980296048209977,
+              "cross_energy": 0.9900990092578225,
+              "dictionary_relative_stationarity": 0.0005496746275797956,
+              "codes_relative_stationarity": 0.0004591242728585985,
+              "output_solve": {
+                "normal_residual": 6.409875844009025e-17,
+                "product_norm_min": 0.9814807880361343,
+                "product_norm_max": 0.9999060001548925
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 37
+          },
+          {
+            "iteration": 29,
+            "seconds": 0.019254550337791443,
+            "loss": 0.00990099074007632,
+            "relative_stationarity": 0.00038545545125621836,
+            "relative_objective_change": 2.1217995430173923e-10,
+            "details": {
+              "residual": 9.802969245331639e-05,
+              "component_energy": 0.9802961047623002,
+              "fitted_energy": 0.9802960482123005,
+              "cross_energy": 0.9900990092599237,
+              "dictionary_relative_stationarity": 0.00038545545125621836,
+              "codes_relative_stationarity": 0.00032465748224561904,
+              "output_solve": {
+                "normal_residual": 9.064934260748934e-17,
+                "product_norm_min": 0.9814817175547382,
+                "product_norm_max": 0.9999063375266758
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 39
+          },
+          {
+            "iteration": 30,
+            "seconds": 0.019779838621616364,
+            "loss": 0.009900990738946416,
+            "relative_stationarity": 0.00020300124216792996,
+            "relative_objective_change": 1.1412024233247072e-10,
+            "details": {
+              "residual": 9.802969153671626e-05,
+              "component_energy": 0.9802961047409701,
+              "fitted_energy": 0.9802960482136441,
+              "cross_energy": 0.9900990092610537,
+              "dictionary_relative_stationarity": 0.00020300124216792996,
+              "codes_relative_stationarity": 9.733668991055451e-05,
+              "output_solve": {
+                "normal_residual": 1.922962718035443e-16,
+                "product_norm_min": 0.9814813961776964,
+                "product_norm_max": 0.9999062285028659
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 40
+          },
+          {
+            "iteration": 31,
+            "seconds": 0.020367972552776337,
+            "loss": 0.0099009907385882,
+            "relative_stationarity": 4.515119005872375e-05,
+            "relative_objective_change": 3.6179907425439884e-11,
+            "details": {
+              "residual": 9.802969115391136e-05,
+              "component_energy": 0.9802961047434288,
+              "fitted_energy": 0.9802960482139778,
+              "cross_energy": 0.9900990092614119,
+              "dictionary_relative_stationarity": 4.515119005872375e-05,
+              "codes_relative_stationarity": 2.562563463640559e-05,
+              "output_solve": {
+                "normal_residual": 3.006498181981999e-16,
+                "product_norm_min": 0.9814813957603289,
+                "product_norm_max": 0.9999062548995431
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 41
+          },
+          {
+            "iteration": 32,
+            "seconds": 0.020891867578029633,
+            "loss": 0.009900990738563866,
+            "relative_stationarity": 2.4339116109073448e-05,
+            "relative_objective_change": 2.4576294271997426e-12,
+            "details": {
+              "residual": 9.802969113259508e-05,
+              "component_energy": 0.9802961047431271,
+              "fitted_energy": 0.9802960482140044,
+              "cross_energy": 0.9900990092614359,
+              "dictionary_relative_stationarity": 9.582756962832804e-06,
+              "codes_relative_stationarity": 2.4339116109073448e-05,
+              "output_solve": {
+                "normal_residual": 1.812986615548096e-16,
+                "product_norm_min": 0.9814813906359481,
+                "product_norm_max": 0.9999062579185739
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 42
+          },
+          {
+            "iteration": 33,
+            "seconds": 0.02141687646508217,
+            "loss": 0.009900990738553534,
+            "relative_stationarity": 2.4430998504037094e-05,
+            "relative_objective_change": 1.0435332479088147e-12,
+            "details": {
+              "residual": 9.802969113229902e-05,
+              "component_energy": 0.9802961047421236,
+              "fitted_energy": 0.9802960482140252,
+              "cross_energy": 0.9900990092614464,
+              "dictionary_relative_stationarity": 9.527080026757347e-06,
+              "codes_relative_stationarity": 2.4430998504037094e-05,
+              "output_solve": {
+                "normal_residual": 1.922962729208286e-16,
+                "product_norm_min": 0.9814813890564429,
+                "product_norm_max": 0.999906257916274
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 43
+          },
+          {
+            "iteration": 34,
+            "seconds": 0.021938391029834747,
+            "loss": 0.009900990738527893,
+            "relative_stationarity": 3.330971908082421e-05,
+            "relative_objective_change": 2.5897355502653013e-12,
+            "details": {
+              "residual": 9.802969113940445e-05,
+              "component_energy": 0.9802961047388489,
+              "fitted_energy": 0.9802960482140834,
+              "cross_energy": 0.990099009261472,
+              "dictionary_relative_stationarity": 3.330971908082421e-05,
+              "codes_relative_stationarity": 2.6393675998914994e-05,
+              "output_solve": {
+                "normal_residual": 2.7194799221607425e-16,
+                "product_norm_min": 0.9814813893314621,
+                "product_norm_max": 0.9999062584659346
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 44
+          },
+          {
+            "iteration": 35,
+            "seconds": 0.022453419864177704,
+            "loss": 0.009900990738457693,
+            "relative_stationarity": 7.505232175130286e-05,
+            "relative_objective_change": 7.0902792942885654e-12,
+            "details": {
+              "residual": 9.802969117226705e-05,
+              "component_energy": 0.9802961047285427,
+              "fitted_energy": 0.9802960482142563,
+              "cross_energy": 0.990099009261542,
+              "dictionary_relative_stationarity": 7.505232175130286e-05,
+              "codes_relative_stationarity": 3.3590583801993715e-05,
+              "output_solve": {
+                "normal_residual": 3.2684081316622795e-16,
+                "product_norm_min": 0.9814814002084629,
+                "product_norm_max": 0.9999062613301051
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 45
+          },
+          {
+            "iteration": 36,
+            "seconds": 0.023007020354270935,
+            "loss": 0.009900990738278218,
+            "relative_stationarity": 0.0001414932690649053,
+            "relative_objective_change": 1.812692240289592e-11,
+            "details": {
+              "residual": 9.802969127884846e-05,
+              "component_energy": 0.9802961046999369,
+              "fitted_energy": 0.980296048214723,
+              "cross_energy": 0.9900990092617222,
+              "dictionary_relative_stationarity": 0.0001414932690649053,
+              "codes_relative_stationarity": 4.9340484122827715e-05,
+              "output_solve": {
+                "normal_residual": 2.3983558638045094e-16,
+                "product_norm_min": 0.9814814435879101,
+                "product_norm_max": 0.9999062709003644
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 46
+          },
+          {
+            "iteration": 37,
+            "seconds": 0.023522939532995224,
+            "loss": 0.009900990737802892,
+            "relative_stationarity": 0.00024988823251345047,
+            "relative_objective_change": 4.800796082629764e-11,
+            "details": {
+              "residual": 9.80296915926715e-05,
+              "component_energy": 0.9802961046210221,
+              "fitted_energy": 0.9802960482159865,
+              "cross_energy": 0.990099009262197,
+              "dictionary_relative_stationarity": 0.00024988823251345047,
+              "codes_relative_stationarity": 7.900776270647426e-05,
+              "output_solve": {
+                "normal_residual": 9.064933589197176e-17,
+                "product_norm_min": 0.9814815806928308,
+                "product_norm_max": 0.9999062990587916
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 47
+          },
+          {
+            "iteration": 38,
+            "seconds": 0.024034705013036728,
+            "loss": 0.00990099073656505,
+            "relative_stationarity": 0.0004241963971930389,
+            "relative_objective_change": 1.2502197603426772e-10,
+            "details": {
+              "residual": 9.80296924648627e-05,
+              "component_energy": 0.9802961044100188,
+              "fitted_energy": 0.9802960482193351,
+              "cross_energy": 0.9900990092634352,
+              "dictionary_relative_stationarity": 0.0004241963971930389,
+              "codes_relative_stationarity": 0.0001288973153412402,
+              "output_solve": {
+                "normal_residual": 1.5700924816034388e-16,
+                "product_norm_min": 0.9814819750034505,
+                "product_norm_max": 0.9999063772704532
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 48
+          },
+          {
+            "iteration": 39,
+            "seconds": 0.024554934352636337,
+            "loss": 0.00990099073334316,
+            "relative_stationarity": 0.0007034315594019926,
+            "relative_objective_change": 3.254108458072954e-10,
+            "details": {
+              "residual": 9.80296948025483e-05,
+              "component_energy": 0.9802961038540611,
+              "fitted_energy": 0.9802960482281166,
+              "cross_energy": 0.990099009266657,
+              "dictionary_relative_stationarity": 0.0007034315594019926,
+              "codes_relative_stationarity": 0.00021009399326931614,
+              "output_solve": {
+                "normal_residual": 1.4332917695978064e-16,
+                "product_norm_min": 0.9814830566620439,
+                "product_norm_max": 0.9999065873384348
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 49
+          },
+          {
+            "iteration": 40,
+            "seconds": 0.025057949125766754,
+            "loss": 0.009900990725057403,
+            "relative_stationarity": 0.0011418170540163023,
+            "relative_objective_change": 8.368614542597955e-10,
+            "details": {
+              "residual": 9.802970079242357e-05,
+              "component_energy": 0.980296102426498,
+              "fitted_energy": 0.9802960482506778,
+              "cross_energy": 0.9900990092749428,
+              "dictionary_relative_stationarity": 0.0011418170540163023,
+              "codes_relative_stationarity": 0.0003373914318996817,
+              "output_solve": {
+                "normal_residual": 2.39835587476079e-16,
+                "product_norm_min": 0.9814859187304938,
+                "product_norm_max": 0.9999071381976233
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 50
+          },
+          {
+            "iteration": 41,
+            "seconds": 0.025616202503442764,
+            "loss": 0.009900990704289004,
+            "relative_stationarity": 0.0017986639062724326,
+            "relative_objective_change": 2.0976081862412187e-09,
+            "details": {
+              "residual": 9.80297149351846e-05,
+              "component_energy": 0.9802960989353818,
+              "fitted_energy": 0.9802960483063569,
+              "cross_energy": 0.9900990092957108,
+              "dictionary_relative_stationarity": 0.0017986639062724326,
+              "codes_relative_stationarity": 0.000527107306612186,
+              "output_solve": {
+                "normal_residual": 9.064933622115992e-17,
+                "product_norm_min": 0.9814931651716032,
+                "product_norm_max": 0.9999085344364614
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 51
+          },
+          {
+            "iteration": 42,
+            "seconds": 0.02613365650177002,
+            "loss": 0.009900990655294073,
+            "relative_stationarity": 0.0026664525531751716,
+            "relative_objective_change": 4.948487790935554e-09,
+            "details": {
+              "residual": 9.8029742376049e-05,
+              "component_energy": 0.9802960912918023,
+              "fitted_energy": 0.9802960484317884,
+              "cross_energy": 0.9900990093447062,
+              "dictionary_relative_stationarity": 0.0026664525531751716,
+              "codes_relative_stationarity": 0.0007783851580965465,
+              "output_solve": {
+                "normal_residual": 1.2819751364732867e-16,
+                "product_norm_min": 0.9815100222769904,
+                "product_norm_max": 0.9999118415526351
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 52
+          },
+          {
+            "iteration": 43,
+            "seconds": 0.02664753422141075,
+            "loss": 0.009900990552860924,
+            "relative_stationarity": 0.003480594734961183,
+            "relative_objective_change": 1.034574755139813e-08,
+            "details": {
+              "residual": 9.802977276418545e-05,
+              "component_energy": 0.9802960780096738,
+              "fitted_energy": 0.9802960486670428,
+              "cross_energy": 0.9900990094471394,
+              "dictionary_relative_stationarity": 0.003480594734961183,
+              "codes_relative_stationarity": 0.0010006332710872064,
+              "output_solve": {
+                "normal_residual": 6.409875625686746e-17,
+                "product_norm_min": 0.9815431945271855,
+                "product_norm_max": 0.9999186929884858
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 53
+          },
+          {
+            "iteration": 44,
+            "seconds": 0.0271528922021389,
+            "loss": 0.009900990381583218,
+            "relative_stationarity": 0.003507136056621412,
+            "relative_objective_change": 1.729904776786051e-08,
+            "details": {
+              "residual": 9.802975461929246e-05,
+              "component_energy": 0.9802960626963927,
+              "fitted_energy": 0.9802960489914528,
+              "cross_energy": 0.9900990096184169,
+              "dictionary_relative_stationarity": 0.003507136056621412,
+              "codes_relative_stationarity": 0.0011971081202707082,
+              "output_solve": {
+                "normal_residual": 1.433291772567674e-16,
+                "product_norm_min": 0.9815916600344324,
+                "product_norm_max": 0.9999300516180166
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 54
+          },
+          {
+            "iteration": 45,
+            "seconds": 0.02820436656475067,
+            "loss": 0.009900990361704505,
+            "relative_stationarity": 0.003637431182341481,
+            "relative_objective_change": 2.0077499858702875e-09,
+            "details": {
+              "residual": 9.802975377996385e-05,
+              "component_energy": 0.9802960607924541,
+              "fitted_energy": 0.9802960490303713,
+              "cross_energy": 0.9900990096382957,
+              "dictionary_relative_stationarity": 0.003637431182341481,
+              "codes_relative_stationarity": 0.000958794874332308,
+              "output_solve": {
+                "normal_residual": 2.125915242699544e-16,
+                "product_norm_min": 0.9815993883276922,
+                "product_norm_max": 0.999932007096359
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 56
+          },
+          {
+            "iteration": 46,
+            "seconds": 0.028772123157978058,
+            "loss": 0.00990099019100817,
+            "relative_stationarity": 0.002089374696295515,
+            "relative_objective_change": 1.7240329729201148e-08,
+            "details": {
+              "residual": 9.802965965347947e-05,
+              "component_energy": 0.9802960531354691,
+              "fitted_energy": 0.9802960492776371,
+              "cross_energy": 0.9900990098089918,
+              "dictionary_relative_stationarity": 0.002089374696295515,
+              "codes_relative_stationarity": 0.0005931768701814868,
+              "output_solve": {
+                "normal_residual": 6.409875778312106e-17,
+                "product_norm_min": 0.9816368450629618,
+                "product_norm_max": 0.9999438639113868
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 57
+          },
+          {
+            "iteration": 47,
+            "seconds": 0.029294412583112717,
+            "loss": 0.009900990136350743,
+            "relative_stationarity": 0.001397195597401932,
+            "relative_objective_change": 5.5204000207861464e-09,
+            "details": {
+              "residual": 9.802963049250953e-05,
+              "component_energy": 0.9802960505858233,
+              "fitted_energy": 0.9802960493577911,
+              "cross_energy": 0.9900990098636493,
+              "dictionary_relative_stationarity": 0.001397195597401932,
+              "codes_relative_stationarity": 0.0012070302686196938,
+              "output_solve": {
+                "normal_residual": 2.311113523241706e-16,
+                "product_norm_min": 0.9816543498461731,
+                "product_norm_max": 0.9999531738300085
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 58
+          },
+          {
+            "iteration": 48,
+            "seconds": 0.029813069850206375,
+            "loss": 0.009900990114626498,
+            "relative_stationarity": 0.000693058119306973,
+            "relative_objective_change": 2.194148808832072e-09,
+            "details": {
+              "residual": 9.802961454171329e-05,
+              "component_energy": 0.9802960500084783,
+              "fitted_energy": 0.9802960493852888,
+              "cross_energy": 0.9900990098853736,
+              "dictionary_relative_stationarity": 0.000693058119306973,
+              "codes_relative_stationarity": 0.00047417386961305023,
+              "output_solve": {
+                "normal_residual": 2.5639502493507975e-16,
+                "product_norm_min": 0.9816586385815849,
+                "product_norm_max": 0.9999584686229498
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 59
+          },
+          {
+            "iteration": 49,
+            "seconds": 0.03032751753926277,
+            "loss": 0.00990099011127363,
+            "relative_stationarity": 0.00024029819165211574,
+            "relative_objective_change": 3.386397009305005e-10,
+            "details": {
+              "residual": 9.802961077998162e-05,
+              "component_energy": 0.9802960500493647,
+              "fitted_energy": 0.9802960493882328,
+              "cross_energy": 0.9900990098887265,
+              "dictionary_relative_stationarity": 0.00024029819165211574,
+              "codes_relative_stationarity": 9.916966897563751e-05,
+              "output_solve": {
+                "normal_residual": 1.570092459216224e-16,
+                "product_norm_min": 0.9816583852002863,
+                "product_norm_max": 0.9999579768766356
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 60
+          },
+          {
+            "iteration": 50,
+            "seconds": 0.03085753694176674,
+            "loss": 0.009900990109838243,
+            "relative_stationarity": 0.00013959869569316565,
+            "relative_objective_change": 1.449740395589188e-10,
+            "details": {
+              "residual": 9.802961004427384e-05,
+              "component_energy": 0.980296049979397,
+              "fitted_energy": 0.980296049390368,
+              "cross_energy": 0.9900990098901619,
+              "dictionary_relative_stationarity": 0.00013959869569316565,
+              "codes_relative_stationarity": 5.289604456508856e-05,
+              "output_solve": {
+                "normal_residual": 1.4332917626582852e-16,
+                "product_norm_min": 0.981658553588605,
+                "product_norm_max": 0.9999589724328508
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 61
+          },
+          {
+            "iteration": 51,
+            "seconds": 0.03140095993876457,
+            "loss": 0.00990099010652546,
+            "relative_stationarity": 6.0100403304572786e-05,
+            "relative_objective_change": 3.3459101609760343e-10,
+            "details": {
+              "residual": 9.802960850920546e-05,
+              "component_energy": 0.9802960498016254,
+              "fitted_energy": 0.9802960493954579,
+              "cross_energy": 0.9900990098934743,
+              "dictionary_relative_stationarity": 6.0100403304572786e-05,
+              "codes_relative_stationarity": 3.0500652424509728e-05,
+              "output_solve": {
+                "normal_residual": 1.5700924589553482e-16,
+                "product_norm_min": 0.9816568097558759,
+                "product_norm_max": 0.9999632124123072
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 62
+          },
+          {
+            "iteration": 52,
+            "seconds": 0.03192684054374695,
+            "loss": 0.009900990105335442,
+            "relative_stationarity": 8.21526300987435e-05,
+            "relative_objective_change": 1.2019187547266985e-10,
+            "details": {
+              "residual": 9.802960767224533e-05,
+              "component_energy": 0.9802960497663197,
+              "fitted_energy": 0.9802960493970017,
+              "cross_energy": 0.9900990098946648,
+              "dictionary_relative_stationarity": 8.21526300987435e-05,
+              "codes_relative_stationarity": 6.407186957535995e-05,
+              "output_solve": {
+                "normal_residual": 3.330669074012625e-16,
+                "product_norm_min": 0.9816520466793454,
+                "product_norm_max": 0.9999665294991942
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 63
+          },
+          {
+            "iteration": 53,
+            "seconds": 0.03293025121092796,
+            "loss": 0.009900990105200826,
+            "relative_stationarity": 9.537395644080342e-05,
+            "relative_objective_change": 1.3596243913885391e-11,
+            "details": {
+              "residual": 9.802960750319538e-05,
+              "component_energy": 0.980296049769763,
+              "fitted_energy": 0.9802960493971008,
+              "cross_energy": 0.9900990098947987,
+              "dictionary_relative_stationarity": 9.537395644080342e-05,
+              "codes_relative_stationarity": 6.708611419703383e-05,
+              "output_solve": {
+                "normal_residual": 2.1259152390596102e-16,
+                "product_norm_min": 0.9816503738651262,
+                "product_norm_max": 0.9999673441450592
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 65
+          },
+          {
+            "iteration": 54,
+            "seconds": 0.03344269469380379,
+            "loss": 0.009900990105013455,
+            "relative_stationarity": 5.051046073140575e-05,
+            "relative_objective_change": 1.8924466149332878e-11,
+            "details": {
+              "residual": 9.802960715947033e-05,
+              "component_energy": 0.9802960497853984,
+              "fitted_energy": 0.980296049397133,
+              "cross_energy": 0.9900990098949868,
+              "dictionary_relative_stationarity": 5.051046073140575e-05,
+              "codes_relative_stationarity": 4.268793620156491e-05,
+              "output_solve": {
+                "normal_residual": 2.398355847005116e-16,
+                "product_norm_min": 0.9816470882600457,
+                "product_norm_max": 0.9999686548169673
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 66
+          },
+          {
+            "iteration": 55,
+            "seconds": 0.03396129608154297,
+            "loss": 0.009900990104989819,
+            "relative_stationarity": 2.037846250403947e-05,
+            "relative_objective_change": 2.3871963419367844e-12,
+            "details": {
+              "residual": 9.802960709522542e-05,
+              "component_energy": 0.9802960497894593,
+              "fitted_energy": 0.980296049397115,
+              "cross_energy": 0.9900990098950099,
+              "dictionary_relative_stationarity": 2.037846250403947e-05,
+              "codes_relative_stationarity": 8.580241116800187e-06,
+              "output_solve": {
+                "normal_residual": 1.5700924602953453e-16,
+                "product_norm_min": 0.9816464724383148,
+                "product_norm_max": 0.9999688670031102
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 67
+          },
+          {
+            "iteration": 56,
+            "seconds": 0.03451533243060112,
+            "loss": 0.009900990104986544,
+            "relative_stationarity": 1.0441546877310295e-05,
+            "relative_objective_change": 3.3079094998738645e-13,
+            "details": {
+              "residual": 9.802960707627761e-05,
+              "component_energy": 0.9802960497910266,
+              "fitted_energy": 0.9802960493971032,
+              "cross_energy": 0.9900990098950134,
+              "dictionary_relative_stationarity": 1.0441546877310295e-05,
+              "codes_relative_stationarity": 3.2048268201620455e-06,
+              "output_solve": {
+                "normal_residual": 1.433291761876032e-16,
+                "product_norm_min": 0.9816462563681123,
+                "product_norm_max": 0.9999689454820613
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 68
+          },
+          {
+            "iteration": 57,
+            "seconds": 0.03502698615193367,
+            "loss": 0.009900990104985236,
+            "relative_stationarity": 6.7472556033055e-06,
+            "relative_objective_change": 1.3210613150981056e-13,
+            "details": {
+              "residual": 9.802960706887613e-05,
+              "component_energy": 0.9802960497916361,
+              "fitted_energy": 0.9802960493970981,
+              "cross_energy": 0.9900990098950148,
+              "dictionary_relative_stationarity": 6.7472556033055e-06,
+              "codes_relative_stationarity": 2.4044951429265375e-06,
+              "output_solve": {
+                "normal_residual": 6.409875624393355e-17,
+                "product_norm_min": 0.9816461609889567,
+                "product_norm_max": 0.9999689794469615
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 69
+          },
+          {
+            "iteration": 58,
+            "seconds": 0.03555259481072426,
+            "loss": 0.00990099010498184,
+            "relative_stationarity": 6.971369157168225e-06,
+            "relative_objective_change": 3.430554449553021e-13,
+            "details": {
+              "residual": 9.802960705555346e-05,
+              "component_energy": 0.9802960497926286,
+              "fitted_energy": 0.9802960493970918,
+              "cross_energy": 0.9900990098950181,
+              "dictionary_relative_stationarity": 6.971369157168225e-06,
+              "codes_relative_stationarity": 3.83097009054012e-06,
+              "output_solve": {
+                "normal_residual": 1.4332917622431435e-16,
+                "product_norm_min": 0.9816459721149227,
+                "product_norm_max": 0.9999690459738244
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 70
+          }
+        ],
+        "parameter_block_scales": [
+          2.5635606204110037,
+          2.4060891773641084
+        ],
+        "maximum_accepted_loss_increase": 0.0
+      }
+    },
+    {
+      "seed": 92,
+      "fd_error": 1.357032819448989e-10,
+      "dense_objective_replay": 4.40619762898109e-16,
+      "optimization": {
+        "initial_loss": 0.020354728453722333,
+        "initial_details": {
+          "residual": 0.01065220554513946,
+          "component_energy": 0.9702522908582875,
+          "fitted_energy": 0.9699427486376949,
+          "cross_energy": 0.9796452715462777,
+          "dictionary_relative_stationarity": 16.06389725923562,
+          "codes_relative_stationarity": 7.4018288819390685,
+          "output_solve": {
+            "normal_residual": 1.822799056336611e-16,
+            "product_norm_min": 0.9928089684444852,
+            "product_norm_max": 1.001738705044494
+          },
+          "penalty": 0.01,
+          "parameterization": "unit dictionary rows and unit code rows"
+        },
+        "final_loss": 0.009900990108674425,
+        "final_details": {
+          "residual": 9.802960819182971e-05,
+          "component_energy": 0.9802960500482595,
+          "fitted_energy": 0.9802960493908427,
+          "cross_energy": 0.9900990098913254,
+          "dictionary_relative_stationarity": 6.2520326650917115e-06,
+          "codes_relative_stationarity": 5.330737065083338e-06,
+          "output_solve": {
+            "normal_residual": 2.6428594243639266e-16,
+            "product_norm_min": 0.9882114019194919,
+            "product_norm_max": 0.9993346315044483
+          },
+          "penalty": 0.01,
+          "parameterization": "unit dictionary rows and unit code rows"
+        },
+        "converged": true,
+        "stop": "joint_convergence",
+        "solver": {
+          "success": true,
+          "status": null,
+          "message": "joint_convergence"
+        },
+        "iterations": 28,
+        "evaluations": 36,
+        "seconds": 0.017581254243850708,
+        "evaluation_seconds": [
+          0.00048737600445747375,
+          0.0004716813564300537,
+          0.0004739724099636078,
+          0.0004640929400920868,
+          0.0005070343613624573,
+          0.0004876479506492615,
+          0.0004824437201023102,
+          0.00048489123582839966,
+          0.00047696754336357117,
+          0.0004871785640716553,
+          0.00046999379992485046,
+          0.0004865899682044983,
+          0.00047689303755760193,
+          0.0004817359149456024,
+          0.00047255679965019226,
+          0.0004978962242603302,
+          0.00048810988664627075,
+          0.0004889592528343201,
+          0.00047900155186653137,
+          0.0004918389022350311,
+          0.0004990771412849426,
+          0.0004870705306529999,
+          0.0004863440990447998,
+          0.00048375874757766724,
+          0.00048474594950675964,
+          0.0004777461290359497,
+          0.00048451125621795654,
+          0.0005349479615688324,
+          0.000484321266412735,
+          0.00047872960567474365,
+          0.0004924386739730835,
+          0.00047879666090011597,
+          0.0004949197173118591,
+          0.0004809461534023285,
+          0.00048791617155075073,
+          0.0004905201494693756
+        ],
+        "history": [
+          {
+            "iteration": 1,
+            "seconds": 0.0021184682846069336,
+            "loss": 0.0171020039386178,
+            "relative_stationarity": 15.784087828701011,
+            "relative_objective_change": null,
+            "details": {
+              "residual": 0.007368758062064273,
+              "component_energy": 0.9733245876553526,
+              "fitted_energy": 0.9731647501848291,
+              "cross_energy": 0.9828979960613825,
+              "dictionary_relative_stationarity": 15.784087828701011,
+              "codes_relative_stationarity": 11.717260184232659,
+              "output_solve": {
+                "normal_residual": 6.434061387513019e-17,
+                "product_norm_min": 0.9849157707291576,
+                "product_norm_max": 1.0049361603530143
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 7
+          },
+          {
+            "iteration": 2,
+            "seconds": 0.002662885934114456,
+            "loss": 0.009902863316458071,
+            "relative_stationarity": 0.44625288742302266,
+            "relative_objective_change": 0.7269756627050593,
+            "details": {
+              "residual": 9.991101947311638e-05,
+              "component_energy": 0.9802952296984954,
+              "fitted_energy": 0.9802941843865569,
+              "cross_energy": 0.9900971366835419,
+              "dictionary_relative_stationarity": 0.44625288742302266,
+              "codes_relative_stationarity": 0.35591576419542215,
+              "output_solve": {
+                "normal_residual": 1.4332937676601321e-16,
+                "product_norm_min": 0.9879299598826321,
+                "product_norm_max": 0.998052610161209
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 8
+          },
+          {
+            "iteration": 3,
+            "seconds": 0.0031795576214790344,
+            "loss": 0.009901024782238161,
+            "relative_stationarity": 0.048122284966320046,
+            "relative_objective_change": 0.0001856913057331582,
+            "details": {
+              "residual": 9.805424367600087e-05,
+              "component_energy": 0.980297053856216,
+              "fitted_energy": 0.9802960046791994,
+              "cross_energy": 0.9900989752177618,
+              "dictionary_relative_stationarity": 0.048122284966320046,
+              "codes_relative_stationarity": 0.020890772389398158,
+              "output_solve": {
+                "normal_residual": 1.5700939175351702e-16,
+                "product_norm_min": 0.9880207725255349,
+                "product_norm_max": 0.9980735275139253
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 9
+          },
+          {
+            "iteration": 4,
+            "seconds": 0.003706555813550949,
+            "loss": 0.00990100523830184,
+            "relative_stationarity": 0.013052445352393948,
+            "relative_objective_change": 1.9739345502145484e-06,
+            "details": {
+              "residual": 9.803450613787845e-05,
+              "component_energy": 0.9802970732163959,
+              "fitted_energy": 0.9802960240295339,
+              "cross_energy": 0.9900989947616979,
+              "dictionary_relative_stationarity": 0.013052445352393948,
+              "codes_relative_stationarity": 0.001875073333384563,
+              "output_solve": {
+                "normal_residual": 3.73756846868558e-16,
+                "product_norm_min": 0.9880183483462065,
+                "product_norm_max": 0.9980740022851443
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 10
+          },
+          {
+            "iteration": 5,
+            "seconds": 0.004215896129608154,
+            "loss": 0.009901003664818296,
+            "relative_stationarity": 0.0004007557896999368,
+            "relative_objective_change": 1.5892162010849208e-07,
+            "details": {
+              "residual": 9.803291753544367e-05,
+              "component_energy": 0.9802970747282854,
+              "fitted_energy": 0.980296025587899,
+              "cross_energy": 0.9900989963351817,
+              "dictionary_relative_stationarity": 0.0004007557896999368,
+              "codes_relative_stationarity": 0.0003406133343262168,
+              "output_solve": {
+                "normal_residual": 2.6428597165477226e-16,
+                "product_norm_min": 0.9880194766327263,
+                "product_norm_max": 0.9980746277239572
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 11
+          },
+          {
+            "iteration": 6,
+            "seconds": 0.004766333848237991,
+            "loss": 0.009901003662660838,
+            "relative_stationarity": 0.0002424285203902774,
+            "relative_objective_change": 2.1790298371203618e-10,
+            "details": {
+              "residual": 9.803291588550422e-05,
+              "component_energy": 0.9802970746775334,
+              "fitted_energy": 0.9802960255905638,
+              "cross_energy": 0.9900989963373391,
+              "dictionary_relative_stationarity": 7.593790274162993e-05,
+              "codes_relative_stationarity": 0.0002424285203902774,
+              "output_solve": {
+                "normal_residual": 9.0649719950289e-17,
+                "product_norm_min": 0.9880195469696473,
+                "product_norm_max": 0.9980747048329949
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 12
+          },
+          {
+            "iteration": 7,
+            "seconds": 0.00528363510966301,
+            "loss": 0.009901003661899872,
+            "relative_stationarity": 0.00023863171577504468,
+            "relative_objective_change": 7.68574549633384e-11,
+            "details": {
+              "residual": 9.80329157191188e-05,
+              "component_energy": 0.9802970746180754,
+              "fitted_energy": 0.980296025591919,
+              "cross_energy": 0.9900989963380998,
+              "dictionary_relative_stationarity": 8.734093569809393e-05,
+              "codes_relative_stationarity": 0.00023863171577504468,
+              "output_solve": {
+                "normal_residual": 1.4332923788128585e-16,
+                "product_norm_min": 0.9880195663651097,
+                "product_norm_max": 0.9980747456402138
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 13
+          },
+          {
+            "iteration": 8,
+            "seconds": 0.005805395543575287,
+            "loss": 0.009901003655625892,
+            "relative_stationarity": 0.0004950890612302524,
+            "relative_objective_change": 6.336710719393363e-10,
+            "details": {
+              "residual": 9.803291595892698e-05,
+              "component_energy": 0.9802970739666966,
+              "fitted_energy": 0.9802960256047069,
+              "cross_energy": 0.9900989963443739,
+              "dictionary_relative_stationarity": 0.0004950890612302524,
+              "codes_relative_stationarity": 0.0003984073320861664,
+              "output_solve": {
+                "normal_residual": 1.5700935685784977e-16,
+                "product_norm_min": 0.9880196799731684,
+                "product_norm_max": 0.9980751715844821
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 14
+          },
+          {
+            "iteration": 9,
+            "seconds": 0.0063181184232234955,
+            "loss": 0.00990100364251494,
+            "relative_stationarity": 0.0010457911256204252,
+            "relative_objective_change": 1.3242042962429551e-09,
+            "details": {
+              "residual": 9.803291901189226e-05,
+              "component_energy": 0.9802970723503047,
+              "fitted_energy": 0.9802960256339822,
+              "cross_energy": 0.9900989963574852,
+              "dictionary_relative_stationarity": 0.0010457911256204252,
+              "codes_relative_stationarity": 0.0007437321928590851,
+              "output_solve": {
+                "normal_residual": 1.433295101141598e-16,
+                "product_norm_min": 0.9880198566748255,
+                "product_norm_max": 0.9980762034009434
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 15
+          },
+          {
+            "iteration": 10,
+            "seconds": 0.006856895983219147,
+            "loss": 0.00990100360493279,
+            "relative_stationarity": 0.002028157441562692,
+            "relative_objective_change": 3.795792066396678e-09,
+            "details": {
+              "residual": 9.80329320216337e-05,
+              "component_energy": 0.9802970672911157,
+              "fitted_energy": 0.9802960257221561,
+              "cross_energy": 0.9900989963950672,
+              "dictionary_relative_stationarity": 0.002028157441562692,
+              "codes_relative_stationarity": 0.001409759647960588,
+              "output_solve": {
+                "normal_residual": 1.9229674440552947e-16,
+                "product_norm_min": 0.9880202665150658,
+                "product_norm_max": 0.9980794014914777
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 16
+          },
+          {
+            "iteration": 11,
+            "seconds": 0.007410407066345215,
+            "loss": 0.009901003510757974,
+            "relative_stationarity": 0.003539303532922307,
+            "relative_objective_change": 9.511643482703379e-09,
+            "details": {
+              "residual": 9.803297075509458e-05,
+              "component_energy": 0.980297054000288,
+              "fitted_energy": 0.9802960259492391,
+              "cross_energy": 0.9900989964892419,
+              "dictionary_relative_stationarity": 0.003539303532922307,
+              "codes_relative_stationarity": 0.0024537019477101313,
+              "output_solve": {
+                "normal_residual": 1.9229634818998676e-16,
+                "product_norm_min": 0.9880211430056498,
+                "product_norm_max": 0.9980877885251014
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 17
+          },
+          {
+            "iteration": 12,
+            "seconds": 0.00794113427400589,
+            "loss": 0.009901003266687814,
+            "relative_stationarity": 0.0059249921649136795,
+            "relative_objective_change": 2.4651053367206783e-08,
+            "details": {
+              "residual": 9.803307673106332e-05,
+              "component_energy": 0.980297018995675,
+              "fitted_energy": 0.9802960265433559,
+              "cross_energy": 0.9900989967333124,
+              "dictionary_relative_stationarity": 0.0059249921649136795,
+              "codes_relative_stationarity": 0.0041104200490058185,
+              "output_solve": {
+                "normal_residual": 6.409921925489433e-17,
+                "product_norm_min": 0.9880231773126503,
+                "product_norm_max": 0.9981100715995678
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 18
+          },
+          {
+            "iteration": 13,
+            "seconds": 0.008464612066745758,
+            "loss": 0.009901002667514185,
+            "relative_stationarity": 0.009384507334238113,
+            "relative_objective_change": 6.051645971987436e-08,
+            "details": {
+              "residual": 9.80333188289606e-05,
+              "component_energy": 0.9802969348685225,
+              "fitted_energy": 0.9802960279838006,
+              "cross_energy": 0.9900989973324857,
+              "dictionary_relative_stationarity": 0.009384507334238113,
+              "codes_relative_stationarity": 0.006516613989529422,
+              "output_solve": {
+                "normal_residual": 2.3983564519858007e-16,
+                "product_norm_min": 0.9880278187066759,
+                "product_norm_max": 0.9981652467087387
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 19
+          },
+          {
+            "iteration": 14,
+            "seconds": 0.008998241275548935,
+            "loss": 0.009901001297738972,
+            "relative_stationarity": 0.01364289134710218,
+            "relative_objective_change": 1.3834714007232263e-07,
+            "details": {
+              "residual": 9.803370460422418e-05,
+              "component_energy": 0.9802967593134747,
+              "fitted_energy": 0.9802960311091263,
+              "cross_energy": 0.990098998702261,
+              "dictionary_relative_stationarity": 0.01364289134710218,
+              "codes_relative_stationarity": 0.009453701298146168,
+              "output_solve": {
+                "normal_residual": 3.4518251413998247e-16,
+                "product_norm_min": 0.9880379899969114,
+                "product_norm_max": 0.9982896224399505
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 20
+          },
+          {
+            "iteration": 15,
+            "seconds": 0.009539209306240082,
+            "loss": 0.009900998606868683,
+            "relative_stationarity": 0.016757405368600327,
+            "relative_objective_change": 2.717776656262461e-07,
+            "details": {
+              "residual": 9.803374815072392e-05,
+              "component_energy": 0.9802964858717959,
+              "fitted_energy": 0.9802960365344133,
+              "cross_energy": 0.9900990013931312,
+              "dictionary_relative_stationarity": 0.016757405368600327,
+              "codes_relative_stationarity": 0.011528254721968197,
+              "output_solve": {
+                "normal_residual": 9.064945310377086e-17,
+                "product_norm_min": 0.9880575278483743,
+                "product_norm_max": 0.9985203561953675
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 21
+          },
+          {
+            "iteration": 16,
+            "seconds": 0.010097235441207886,
+            "loss": 0.00990099457936932,
+            "relative_stationarity": 0.014868610034268138,
+            "relative_objective_change": 4.0677725164283117e-07,
+            "details": {
+              "residual": 9.80323515825295e-05,
+              "component_energy": 0.980296222778679,
+              "fitted_energy": 0.9802960431928436,
+              "cross_energy": 0.9900990054206305,
+              "dictionary_relative_stationarity": 0.014868610034268138,
+              "codes_relative_stationarity": 0.010826168434337449,
+              "output_solve": {
+                "normal_residual": 4.4247984709550044e-20,
+                "product_norm_min": 0.9880879740645042,
+                "product_norm_max": 0.9988338687138407
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 22
+          },
+          {
+            "iteration": 17,
+            "seconds": 0.011139798909425735,
+            "loss": 0.00990099417317324,
+            "relative_stationarity": 0.014996496149891823,
+            "relative_objective_change": 4.1025787222894736e-08,
+            "details": {
+              "residual": 9.803222644529559e-05,
+              "component_energy": 0.9802961946727944,
+              "fitted_energy": 0.9802960438800992,
+              "cross_energy": 0.990099005826827,
+              "dictionary_relative_stationarity": 0.014996496149891823,
+              "codes_relative_stationarity": 0.008265596662387615,
+              "output_solve": {
+                "normal_residual": 1.4332918153579097e-16,
+                "product_norm_min": 0.9880923241969839,
+                "product_norm_max": 0.9988793296050534
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 24
+          },
+          {
+            "iteration": 18,
+            "seconds": 0.011666890233755112,
+            "loss": 0.009900991099678538,
+            "relative_stationarity": 0.006368745120288678,
+            "relative_objective_change": 3.104229335080826e-07,
+            "details": {
+              "residual": 9.803017855514184e-05,
+              "component_energy": 0.9802960921123396,
+              "fitted_energy": 0.9802960479791983,
+              "cross_energy": 0.9900990089003217,
+              "dictionary_relative_stationarity": 0.006368745120288678,
+              "codes_relative_stationarity": 0.0036253919478172604,
+              "output_solve": {
+                "normal_residual": 1.9229627096282881e-16,
+                "product_norm_min": 0.9881229117289544,
+                "product_norm_max": 0.9991118809729623
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 25
+          },
+          {
+            "iteration": 19,
+            "seconds": 0.012190695852041245,
+            "loss": 0.00990099035739392,
+            "relative_stationarity": 0.0013046575337189057,
+            "relative_objective_change": 7.497074440621981e-08,
+            "details": {
+              "residual": 9.80297059891555e-05,
+              "component_energy": 0.9802960651404765,
+              "fitted_energy": 0.9802960489912009,
+              "cross_energy": 0.9900990096426058,
+              "dictionary_relative_stationarity": 0.0013046575337189057,
+              "codes_relative_stationarity": 0.0010086401058133528,
+              "output_solve": {
+                "normal_residual": 1.4332917741603367e-16,
+                "product_norm_min": 0.9881434538117211,
+                "product_norm_max": 0.9992248157277053
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 26
+          },
+          {
+            "iteration": 20,
+            "seconds": 0.012716896831989288,
+            "loss": 0.009900990279797543,
+            "relative_stationarity": 0.001650473203760277,
+            "relative_objective_change": 7.8372339581723e-09,
+            "details": {
+              "residual": 9.80296874549443e-05,
+              "component_energy": 0.9802960592342598,
+              "fitted_energy": 0.9802960491278601,
+              "cross_energy": 0.9900990097202026,
+              "dictionary_relative_stationarity": 0.001650473203760277,
+              "codes_relative_stationarity": 0.0013774651032275194,
+              "output_solve": {
+                "normal_residual": 1.4332917643786092e-16,
+                "product_norm_min": 0.9881527816940803,
+                "product_norm_max": 0.9992626059058616
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 27
+          },
+          {
+            "iteration": 21,
+            "seconds": 0.013321328908205032,
+            "loss": 0.00990099024171355,
+            "relative_stationarity": 0.0013277667832454685,
+            "relative_objective_change": 3.846483192795263e-09,
+            "details": {
+              "residual": 9.802966884227733e-05,
+              "component_energy": 0.9802960572871272,
+              "fitted_energy": 0.9802960491854149,
+              "cross_energy": 0.9900990097582864,
+              "dictionary_relative_stationarity": 0.0013277667832454685,
+              "codes_relative_stationarity": 0.0010069750128333284,
+              "output_solve": {
+                "normal_residual": 2.866583525500591e-16,
+                "product_norm_min": 0.988157206732727,
+                "product_norm_max": 0.9992777887451627
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 28
+          },
+          {
+            "iteration": 22,
+            "seconds": 0.013847675174474716,
+            "loss": 0.009900990162786644,
+            "relative_stationarity": 0.0005908228546259816,
+            "relative_objective_change": 7.97161752302725e-09,
+            "details": {
+              "residual": 9.802963221646384e-05,
+              "component_energy": 0.980296053057018,
+              "fitted_energy": 0.9802960493066433,
+              "cross_energy": 0.9900990098372134,
+              "dictionary_relative_stationarity": 0.0005908228546259816,
+              "codes_relative_stationarity": 0.00037110142829155867,
+              "output_solve": {
+                "normal_residual": 2.311113522366738e-16,
+                "product_norm_min": 0.9881731163194478,
+                "product_norm_max": 0.9993188793377149
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 29
+          },
+          {
+            "iteration": 23,
+            "seconds": 0.01436813548207283,
+            "loss": 0.009900990130661808,
+            "relative_stationarity": 0.00030169980815918676,
+            "relative_objective_change": 3.2446084031687365e-09,
+            "details": {
+              "residual": 9.802961805090622e-05,
+              "component_energy": 0.9802960512610901,
+              "fitted_energy": 0.9802960493567275,
+              "cross_energy": 0.9900990098693384,
+              "dictionary_relative_stationarity": 0.00030169980815918676,
+              "codes_relative_stationarity": 0.0001769842398949651,
+              "output_solve": {
+                "normal_residual": 1.4332917645174295e-16,
+                "product_norm_min": 0.9881870982447452,
+                "product_norm_max": 0.9993382538253458
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 30
+          },
+          {
+            "iteration": 24,
+            "seconds": 0.014910195022821426,
+            "loss": 0.009900990125683636,
+            "relative_stationarity": 0.001367749770525365,
+            "relative_objective_change": 5.027954098540129e-10,
+            "details": {
+              "residual": 9.802962542752407e-05,
+              "component_energy": 0.9802960500256113,
+              "fitted_energy": 0.9802960493740606,
+              "cross_energy": 0.9900990098743166,
+              "dictionary_relative_stationarity": 0.001367749770525365,
+              "codes_relative_stationarity": 0.0010030374827985627,
+              "output_solve": {
+                "normal_residual": 9.064933037489007e-17,
+                "product_norm_min": 0.9882092028070945,
+                "product_norm_max": 0.9993369752232302
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 31
+          },
+          {
+            "iteration": 25,
+            "seconds": 0.015433091670274734,
+            "loss": 0.009900990109422024,
+            "relative_stationarity": 0.00026907771328935027,
+            "relative_objective_change": 1.642422794997118e-09,
+            "details": {
+              "residual": 9.802960901635534e-05,
+              "component_energy": 0.9802960500405667,
+              "fitted_energy": 0.9802960493901728,
+              "cross_energy": 0.9900990098905783,
+              "dictionary_relative_stationarity": 0.00026907771328935027,
+              "codes_relative_stationarity": 0.00016651360800114704,
+              "output_solve": {
+                "normal_residual": 1.1102230251926401e-16,
+                "product_norm_min": 0.9882103668132494,
+                "product_norm_max": 0.9993358324897389
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 32
+          },
+          {
+            "iteration": 26,
+            "seconds": 0.015994466841220856,
+            "loss": 0.009900990108757031,
+            "relative_stationarity": 7.594874967930405e-05,
+            "relative_objective_change": 6.716422897339752e-11,
+            "details": {
+              "residual": 9.802960832949736e-05,
+              "component_energy": 0.9802960500427534,
+              "fitted_energy": 0.9802960493908154,
+              "cross_energy": 0.9900990098912429,
+              "dictionary_relative_stationarity": 7.594874967930405e-05,
+              "codes_relative_stationarity": 4.4218530548567795e-05,
+              "output_solve": {
+                "normal_residual": 2.3983558471914597e-16,
+                "product_norm_min": 0.9882107293462072,
+                "product_norm_max": 0.9993354030569771
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 33
+          },
+          {
+            "iteration": 27,
+            "seconds": 0.01651713252067566,
+            "loss": 0.009900990108677789,
+            "relative_stationarity": 8.748478419188226e-06,
+            "relative_objective_change": 8.003458998829644e-12,
+            "details": {
+              "residual": 9.802960816251982e-05,
+              "component_energy": 0.9802960500515269,
+              "fitted_energy": 0.9802960493908071,
+              "cross_energy": 0.9900990098913223,
+              "dictionary_relative_stationarity": 8.748478419188226e-06,
+              "codes_relative_stationarity": 6.876402148511312e-06,
+              "output_solve": {
+                "normal_residual": 2.0269806494601578e-16,
+                "product_norm_min": 0.9882116881459986,
+                "product_norm_max": 0.9993343059802005
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 34
+          },
+          {
+            "iteration": 28,
+            "seconds": 0.017050795257091522,
+            "loss": 0.009900990108674425,
+            "relative_stationarity": 6.2520326650917115e-06,
+            "relative_objective_change": 3.3972651048020913e-13,
+            "details": {
+              "residual": 9.802960819182971e-05,
+              "component_energy": 0.9802960500482595,
+              "fitted_energy": 0.9802960493908427,
+              "cross_energy": 0.9900990098913254,
+              "dictionary_relative_stationarity": 6.2520326650917115e-06,
+              "codes_relative_stationarity": 5.330737065083338e-06,
+              "output_solve": {
+                "normal_residual": 2.6428594243639266e-16,
+                "product_norm_min": 0.9882114019194919,
+                "product_norm_max": 0.9993346315044483
+              },
+              "penalty": 0.01,
+              "parameterization": "unit dictionary rows and unit code rows"
+            },
+            "evaluations": 35
+          }
+        ],
+        "parameter_block_scales": [
+          2.428874294530193,
+          2.529702899515444
+        ],
+        "maximum_accepted_loss_increase": 0.0
+      }
+    }
+  ],
+  "scope": "Planted local integration; not native or global recovery."
+}
