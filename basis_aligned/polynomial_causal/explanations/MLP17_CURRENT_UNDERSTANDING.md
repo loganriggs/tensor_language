@@ -506,3 +506,5 @@ multioutput programs. No behavioral identification. [Combined explanation](2026-
 11 September06:34: nativefullrankstructured-map fit isrunning. Exactfull-Uobjective/parameterchain controls pass; V1stoppedonFDtruncation beforejointfit, V2reuses savedinitialization withverifiedRichardsoncheck. No structuralverdict yet. [Current update](2026-09-11/explanation_2026-09-11_0608.md#native-fit-update0634).
 
 - 11 September06:48: full-rank structured maps completed initial chunks at1.4968/0.9388% full-U coefficient capture; both time-limited and unconverged. Same-objective saved-state continuation is live. See [initial result](../STRUCTURED_BILINEAR_NATIVE_V2_RESULT.json) and [continuation protocol](../STRUCTURED_BILINEAR_CONTINUE_V1_PREREGISTRATION.md); no circuit identification claim.
+
+- 11 September06:54: structured-stage diagonal balancing preserves complete maps (<=2.26e-15), but 5.55/5.66x smaller squared parameter norms do not imply a fitting improvement. Actual seed0 stationarity/max-gradient reductions1.62/1.02x miss2x bars; see [gradient audit](../STRUCTURED_BALANCED_GRADIENT_V1_AUDIT.json). Native weights and live continuation untouched.

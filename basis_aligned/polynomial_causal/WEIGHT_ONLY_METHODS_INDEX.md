@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 06:48 UTC. Use this index before opening a structural family
+Updated 11 September 06:54 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -71,3 +71,9 @@ is managed-live from06:47:48, exact first-start replay passed. V1stoppedbeforejo
 [step-sizeaudit](STRUCTURED_GRADIENT_STEP_AUDIT_V1_RESULT.json) verifiesrepair.
 No converged native verdict or globalrecoverabilityclaim; fixedwiring/initialization
 remain limitations. Inspect currentresult/runner before any resubmission.
+
+[Internal stage balancing](STRUCTURED_STAGE_BALANCE_V1_AUDIT.json) is exact,
+reducing squared stage norms5.55/5.66x; [actual gradient audit](STRUCTURED_BALANCED_GRADIENT_V1_AUDIT.json)
+finds only1.62xrelative-stationarity and1.02xmax-gradient reductions. Both2xtargets
+missed. Not a convergence repair or measured speedup; unchanged continuation
+remains live. Balanced copies are separate, no optimizer-history reuse.

@@ -1,0 +1,44 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_stationarity_halved": false,
+    "pred_c_max_gradient_halved": false
+  },
+  "replay": {
+    "loss": 1.1269780237569565e-16,
+    "stationarity": 3.613112125754116e-15,
+    "factor_error": 2.0015159527572355e-15
+  },
+  "original": {
+    "relative_stationarity": 0.26118469011930157,
+    "gradient_max": 5.943436933555668e-05
+  },
+  "balanced": {
+    "relative_stationarity": 0.16154649242223657,
+    "gradient_max": 5.826962378144788e-05
+  },
+  "reduction_factors": {
+    "relative_stationarity": 1.6167772274289876,
+    "gradient_max": 1.0199888977913674
+  },
+  "loss": 0.985132807580449,
+  "capture": 0.014968365949806772,
+  "seconds": 13.230760633945465,
+  "source_sha256": "0e4a9cc347249e1cebd972616f66e69b5ee7c59c73399154554ee40eef4731cc",
+  "inputs": [
+    {
+      "path": "/dev/shm/bilin18_structured_bilinear_v2_s0.pt",
+      "sha256": "32b9289e457a38e6128fd05e6b14c50f8b2588fcc9267dde4d99f4889f04a62f",
+      "bytes": 95214939,
+      "ephemeral": true
+    },
+    {
+      "path": "/dev/shm/bilin18_structured_balanced_v1_s0.pt",
+      "sha256": "279a50e941abafce8904b25c31924710b0fe60c1e21d8d8c458bb3f40cd11a72",
+      "bytes": 2249531
+    }
+  ],
+  "gpu_access": false,
+  "corpus_access": false,
+  "scope": "Same function and factor-space gradient, chain rule through alternate stages; no optimization-speed inference."
+}

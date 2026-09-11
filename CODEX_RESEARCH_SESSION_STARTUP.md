@@ -82,13 +82,17 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 06:48 UTC
+## Current handoff — 11 September 06:54 UTC
 
-Read explanations/2026-09-11/LATEST.md and structured-continuation0648 in
+Read explanations/2026-09-11/LATEST.md and stage-balance0654 in
 explanation_2026-09-11_0608.md. WEIGHT_ONLY_METHODS_INDEX.md links prior art.
 Weights-first; no new data fits. Hourly next0722; math next0749.
 
-Previous progress973e9d564. Native structured V2 completed06:44:07; both starts
+Previous progresse7f27a587. Stage balancing CPU audits completed: exact maps,
+parameter norm-squared5.55/5.66x lower, actual stationarity/maxgradient only
+1.62/1.02x lower (2x predictions missed). No near-convergence or speed claim.
+Do not mutate live optimizer; balanced copies saved separately.
+ Native structured V2 completed06:44:07; both starts
 time-limited at1.4968/0.9388%capture, stationarity.261/.599, not converged.
 Both still improving. Same-objective continuation managed-live from06:47:48:
 run_structured_bilinear_continue_v1.py sourceSHA
