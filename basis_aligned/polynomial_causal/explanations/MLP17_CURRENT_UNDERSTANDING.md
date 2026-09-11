@@ -352,3 +352,14 @@ Do not call arbitrary sparse output codes a native residual/MLP replacement.
 This quantifies the earlier sparse-support warning for the actual fitted tensor.
 [Receipt](../SPARSE_WRITER_INTERFACE_V1_AUDIT.json),
 [explanation](2026-09-11/explanation_2026-09-11_0130.md).
+
+## 11 September: combined product/token sparsity is not yet converged
+
+512single-product input functions with sparse token usage reached1.22%centered
+capture in12sweeps without jointconvergence. Fixedsame-supportdebias1.89%; exact
+unrestrictedwriter refit5.56%centered. This limits the returned functions only.
+SeparatefullUlegalwriter baseline6.99%; weakerL1contrastpenalty provisionally6.07%
+withmoreconcentratedloadings, butconstraintconvergenceunmet. Same-objective repair
+queued; no circuit identification or native physical replacement claim.
+[Source](../SPARSE_PRODUCT_DICTIONARY_V1_RESULT.json),
+[writer audit](../PRODUCT_WRITER_REDTEAM_V1_RESULT.json).

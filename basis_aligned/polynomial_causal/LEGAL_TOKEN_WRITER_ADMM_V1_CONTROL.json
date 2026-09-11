@@ -1,0 +1,152 @@
+{
+  "instrument_passed": true,
+  "sylvester_equation_error": 2.8043100473553287e-16,
+  "independent_epigraph_qp_objective_error": 9.556201774339271e-12,
+  "reference_success": true,
+  "admm": {
+    "converged": true,
+    "steps": 120,
+    "seconds": 0.007279280573129654,
+    "final": {
+      "objective": -2.348474094491376,
+      "relative_feasibility": 3.236704038828692e-10,
+      "relative_stationarity": 5.638493453233749e-11,
+      "relative_l1_subgradient": 0.0,
+      "actual_writer_nonzeros": 39,
+      "auxiliary_nonzeros": 37
+    },
+    "history": [
+      {
+        "step": 1,
+        "elapsed": 0.0002482011914253235,
+        "objective": -2.1562285476164496,
+        "relative_feasibility": 0.28726922807641914,
+        "relative_stationarity": 0.16449481437939142,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 27
+      },
+      {
+        "step": 10,
+        "elapsed": 0.0008286014199256897,
+        "objective": -2.348383437326957,
+        "relative_feasibility": 0.006911992262720945,
+        "relative_stationarity": 0.0005408129291830763,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 35
+      },
+      {
+        "step": 20,
+        "elapsed": 0.0014168061316013336,
+        "objective": -2.348467834328288,
+        "relative_feasibility": 8.847814295067841e-05,
+        "relative_stationarity": 1.601444144448311e-05,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      },
+      {
+        "step": 30,
+        "elapsed": 0.0020030736923217773,
+        "objective": -2.348472331620197,
+        "relative_feasibility": 2.5158305067129038e-05,
+        "relative_stationarity": 4.383901937691033e-06,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      },
+      {
+        "step": 40,
+        "elapsed": 0.0025752149522304535,
+        "objective": -2.348473591784514,
+        "relative_feasibility": 7.198905354183362e-06,
+        "relative_stationarity": 1.254086201231373e-06,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      },
+      {
+        "step": 50,
+        "elapsed": 0.0031678788363933563,
+        "objective": -2.348473950796978,
+        "relative_feasibility": 2.060017310760474e-06,
+        "relative_stationarity": 3.5886488921212164e-07,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      },
+      {
+        "step": 60,
+        "elapsed": 0.003750000149011612,
+        "objective": -2.3484740533999875,
+        "relative_feasibility": 5.894886413510998e-07,
+        "relative_stationarity": 1.0269174769414703e-07,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      },
+      {
+        "step": 70,
+        "elapsed": 0.004358392208814621,
+        "objective": -2.3484740827498496,
+        "relative_feasibility": 1.686863809744574e-07,
+        "relative_stationarity": 2.938597648621385e-08,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      },
+      {
+        "step": 80,
+        "elapsed": 0.004931852221488953,
+        "objective": -2.348474091147645,
+        "relative_feasibility": 4.8270811817650326e-08,
+        "relative_stationarity": 8.409006849565918e-09,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      },
+      {
+        "step": 90,
+        "elapsed": 0.0054937489330768585,
+        "objective": -2.348474093550661,
+        "relative_feasibility": 1.3813037346824807e-08,
+        "relative_stationarity": 2.4062973427901245e-09,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      },
+      {
+        "step": 100,
+        "elapsed": 0.00606580451130867,
+        "objective": -2.3484740942382976,
+        "relative_feasibility": 3.952699198381624e-09,
+        "relative_stationarity": 6.885791309768959e-10,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      },
+      {
+        "step": 110,
+        "elapsed": 0.006637081503868103,
+        "objective": -2.348474094435068,
+        "relative_feasibility": 1.1310930800268626e-09,
+        "relative_stationarity": 1.9704176040542764e-10,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      },
+      {
+        "step": 120,
+        "elapsed": 0.007214102894067764,
+        "objective": -2.348474094491376,
+        "relative_feasibility": 3.236704038828692e-10,
+        "relative_stationarity": 5.638493453233749e-11,
+        "relative_l1_subgradient": 0.0,
+        "actual_writer_nonzeros": 39,
+        "auxiliary_nonzeros": 37
+      }
+    ]
+  },
+  "scope": "Convex fixed-atom writer update only. Exact native output parameterization, centered L1 penalty, independent QP reference. No joint product convergence theorem."
+}

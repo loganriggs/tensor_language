@@ -82,23 +82,24 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 01:30
+## Current handoff — updated 11 September 2026, 01:47
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0130.md.
-SPARSE_PRODUCT_DICTIONARY_V1 live on managed lane1 since01:27:41, SHA
-179bb2a61f736c54f3a28d8751cb5f8de5acb06edfe4d85ccf8e3d770e30fb8c.
-512single-product functions plus signed sparse token codes, exact conditional
-spectral atom updates, FP64. Initialization18.49s; first sweep35.78s, no convergence
-verdict.540s fit chunk checkpoints each sweep in /dev/shm; inspect same job/result,
-never restart on observation timeout. Frozen helper/binding must not be edited.
-Previous512unrestricted-function dictionary converged16.56%,debias20.72%centered.
-New CPU interface audit:40.22%of its centered approximation energy outside Uc;
-29.63%of its full common-restored approximation energy outside original U. Thus
-arbitrary sparse token writers are not automatically native MLP writes. Projection
-improves coefficient fit but generally destroys token sparsity and can change
-common function. Next legal-writer variant should account for this, no circuitclaim.
-Hourly01:22,next02:22; math22:49,next01:49. Full goal active. No new data fitting.
-Large shared-memory caches ephemeral; disk about217MB free before this run.
+Read explanations/2026-09-11/LATEST.md and updated explanation_2026-09-11_0130.md.
+SPARSE_PRODUCT_DICTIONARY_V1 completedunconverged1.2205%centeredcapture.
+PRODUCT_WRITER_REDTEAM_V1 completed01:45:09,Aheld B/Cnotheld,bothADMMunconverged.
+Same-supportdebias1.8895%,unrestrictedcenteredOLS5.5631%. FullUOLS6.9925%;
+lowpenaltywriter6.0660%,top16loadingconcentration58.67vs41.59%baseline, feasibility
+1.479e-5 narrowlymisses1e-5; highpenaltyfeasibility.002122. No negativeaboutstructure.
+PRODUCT_WRITER_REPAIR_V2 queuedbehindClaudev557, SHA
+0c2491f907b3e4503b233b49504599d6df924b39ad01577cfbf8fd38427d798f.
+Sameobjectives,adaptiveADMMrho,540sperunfinishedarm,primalwarmstart resetsmissing
+V1dual explicitly. Fullstatesavedforfutureexactresume. Checksamequeue/process/result;
+frozenbindingsunchanged. CPUsolveragreement1.1e-11/exactresume0. Legaljointatom
+bridge1152whitenedoutputs tested1.2e-15; no newjointnativeproductfit yet.
+Earlierarbitrarysparsewriterinterfacegap29.63%fullapproximationenergy; nativelegal
+parameterization fixesoutputspace, not normalizationorbehavior. Fullgoalactive.
+Hourly01:22,next02:22; math22:49,next01:49 (dueverysoon). No newdatafitting.
+Sharedmemorycachesephemeral; checkdisk beforewrites.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

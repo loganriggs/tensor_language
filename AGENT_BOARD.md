@@ -19635,3 +19635,21 @@ Single-product dictionary queued managed lane1. While it runs, check whether pre
 
 ### 2026-09-11T01:31:53.761165+00:00 — Codex: SPARSE PRODUCT LIVE; WRITER INTERFACE CONSEQUENCE COMPLETE
 Exact conditional product controls pass; managed native512fit since01:27:41, firstsweep35.78s, no convergence. Previous sparse dictionary fullcommon-restored tensor has29.63%of approximationenergy outside nativeU columnspace; centered40.22%. Projection improvescenteredcapture20.72→29.05% but destroys exactsparseusage. Future native-writer parameterization should impose U-times-residual writer or explicitly account for terminal-only interface. Latest0130explanation, hourly0122completed,next0222; math0149. Fullgoalactive.
+
+### 2026-09-11T01:33:54.151036+00:00 — Codex: CLAIM LIVE PRODUCT COHERENCE AUDIT AND LEGAL WRITER SOLVER
+Previous turn progress7b1227ce5; same native product job verified live PID2712578. Snapshot one completed sweep to measure product Gram effective rank, near-duplicate atoms and dead codes; no convergence/negative claim from live state. In parallel derive convex fixed-product writer update with full native U parameterization and L1 concentrated centered token effects, using ADMM/Sylvester solve. This targets the measured output-interface gap without extra data.
+
+### 2026-09-11T01:38:41.189549+00:00 — Codex: PRODUCT CHUNK UNCONVERGED; CLAIM FIXED-WRITER RED-TEAM
+Source12sweeps562.28s, Aheld B/C/Dnotheld dueunconverged,1.2205%centeredcapture. No broadnegative. Exactsame-support andunrestricted coefficient refits will distinguish shrinkage/support frominput limitation. Then full-U native-writer ADMM atsource lambda and0.1lambda, fixedproducts, validated againstindependentQP. Registered180sperconvexsolve; no newdata, nojointconvergenceclaim.
+
+### 2026-09-11T01:41:21.227628+00:00 — Codex: CLAIM COMPRESSED LEGAL ATOM UPDATE CONTROL
+Writer red-team verified livePID2715118. Derive/test exact atom updates for a future joint legal-writer model: U=P R^T, A=PZ implies A^T A=Z^T Z and A^T U D=Z^T R^T D. Thus all-token atom updates can execute in1152whitenedoutputcoordinates without changing native full-U coefficient objective. This bridges controlled native writer solve to existing exact product updates; no newnativejointfit yet.
+
+### 2026-09-11T01:42:17.381925+00:00 — Codex: EXACT LEGAL WRITER/PRODUCT BRIDGE COMPLETE
+Full-U PZwriter atom updates equal1152whitenedoutput-coordinate updates; CPUfunctions1.2e-15/loss2e-16. Writer red-team remainslive, results pending. Latest0130explanation now includes unfinishedsourcefit andconvexwriter math; no newjointnativefit queued. Fullgoalactive.
+
+### 2026-09-11T01:43:42.063487+00:00 — Codex: CLAIM ADMM RESIDUAL-BALANCE AND RESUME REPAIR
+First nativefixedwriter arm180s endsunconverged: feasibility.002122 vsstationarity8.50e-7, objectiveunchanged. Lowerpenaltyarm stilllive. Implement standard primal/dual residualbalancing and full Z/A/dual/rho/step checkpoint state in newversion, CPU agreementandresume controls. FrozenV1helpers untouched. Do not interpret incomplete auxiliary sparsity as executable sparsity.
+
+### 2026-09-11T01:46:00.383136+00:00 — Codex: WRITER RED-TEAM COMPLETE; CLAIM SAME-OBJECTIVE REPAIR
+V1Aheld B/Cnotheld duebothunconverged. Sourcecenteredcapture1.22%,same-support1.89%,unrestricted5.56%; errorsnotsolelyshrinkage. FullUunpenalized6.9925%,lowpenalty6.0660%withtop16concentration58.67vs41.59%; originalfeasibilitybar narrowlymissed1.479e-5. QueueV2residualbalancing, sameobjectivesandthresholds, fullstatesaving. Initialprimalwarmstart resetsmissingV1dual explicitly. CPUfixedobjectiveagreement1.1e-11/exactresume0.

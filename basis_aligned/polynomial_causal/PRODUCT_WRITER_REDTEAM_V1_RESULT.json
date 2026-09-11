@@ -1,0 +1,4262 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_legal_writer_convergence": false,
+    "pred_c_concentration_at_retained_capture": false
+  },
+  "source_product_status": "optimization_unfinished",
+  "source_penalty": 0.057395310984569445,
+  "source_centered_capture": 0.012205272594976835,
+  "fixed_support_debiased_centered_capture": 0.018894739731900166,
+  "unrestricted_fixed_product_centered_capture": 0.055630968123341985,
+  "fixed_support_links": 171023,
+  "maximum_support_solve_residual": 4.02182602844425e-16,
+  "maximum_support_condition": 701.723115788855,
+  "full_legal_unpenalized_baseline": {
+    "full_coefficient_capture": 0.0699252809577023,
+    "median_top16_contrast_loading_energy": 0.4158688902082655,
+    "mean_top16_contrast_loading_energy": 0.427033458154576,
+    "actual_contrast_nonzero_entries": 25755648
+  },
+  "legal_arms": [
+    {
+      "penalty_multiplier": 1.0,
+      "penalty": 0.057395310984569445,
+      "full_coefficient_capture": 0.019333406993425197,
+      "median_top16_contrast_loading_energy": 0.9242577033016923,
+      "mean_top16_contrast_loading_energy": 0.9206430131384866,
+      "actual_contrast_nonzero_entries": 25755648,
+      "solver": {
+        "converged": false,
+        "steps": 2088,
+        "seconds": 180.16488026827574,
+        "final": {
+          "objective": -324.1083288449646,
+          "relative_feasibility": 0.0021221975257982987,
+          "relative_stationarity": 8.496055584037562e-07,
+          "relative_l1_subgradient": 4.531379770440123e-16,
+          "actual_writer_nonzeros": 25755648,
+          "auxiliary_nonzeros": 5935890
+        },
+        "history": [
+          {
+            "step": 1,
+            "elapsed": 0.20123417675495148,
+            "objective": 12373.953036210292,
+            "relative_feasibility": 0.9370298122441538,
+            "relative_stationarity": 0.370402518711585,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 208674
+          },
+          {
+            "step": 10,
+            "elapsed": 0.9834837280213833,
+            "objective": 12.509600747019476,
+            "relative_feasibility": 0.747606119267816,
+            "relative_stationarity": 0.0013931835304684165,
+            "relative_l1_subgradient": 5.005908385057323e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 268005
+          },
+          {
+            "step": 20,
+            "elapsed": 1.8436711952090263,
+            "objective": -137.87263007365937,
+            "relative_feasibility": 0.5921205955784208,
+            "relative_stationarity": 0.0004913832417052707,
+            "relative_l1_subgradient": 4.490189020172727e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 711601
+          },
+          {
+            "step": 30,
+            "elapsed": 2.7038009725511074,
+            "objective": -193.98773828427358,
+            "relative_feasibility": 0.47778513707175435,
+            "relative_stationarity": 0.0002926454106480438,
+            "relative_l1_subgradient": 4.1487618614291804e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 1125137
+          },
+          {
+            "step": 40,
+            "elapsed": 3.5637515150010586,
+            "objective": -225.66844077989833,
+            "relative_feasibility": 0.38711047420745875,
+            "relative_stationarity": 0.00021257982452438205,
+            "relative_l1_subgradient": 4.158746484406085e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 1503677
+          },
+          {
+            "step": 50,
+            "elapsed": 4.423641335219145,
+            "objective": -246.5591402372936,
+            "relative_feasibility": 0.31671192991674946,
+            "relative_stationarity": 0.00016629782721115,
+            "relative_l1_subgradient": 4.213203141673595e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 1843694
+          },
+          {
+            "step": 60,
+            "elapsed": 5.283543113619089,
+            "objective": -261.45392388149384,
+            "relative_feasibility": 0.26270409506261544,
+            "relative_stationarity": 0.00013183432563832248,
+            "relative_l1_subgradient": 4.2721159762660084e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 2148142
+          },
+          {
+            "step": 70,
+            "elapsed": 6.143638294190168,
+            "objective": -272.47068443230614,
+            "relative_feasibility": 0.2211844613308821,
+            "relative_stationarity": 0.00010854654439684099,
+            "relative_l1_subgradient": 4.3113005609534387e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 2420717
+          },
+          {
+            "step": 80,
+            "elapsed": 7.003615479916334,
+            "objective": -280.8360922799182,
+            "relative_feasibility": 0.1886702488176348,
+            "relative_stationarity": 9.304731893441235e-05,
+            "relative_l1_subgradient": 4.3220448265720167e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 2666608
+          },
+          {
+            "step": 90,
+            "elapsed": 7.863736756145954,
+            "objective": -287.2855301483974,
+            "relative_feasibility": 0.1631511125382793,
+            "relative_stationarity": 7.975673863553091e-05,
+            "relative_l1_subgradient": 4.35592378859741e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 2883897
+          },
+          {
+            "step": 100,
+            "elapsed": 8.723785243928432,
+            "objective": -292.3611923264858,
+            "relative_feasibility": 0.14283925497595043,
+            "relative_stationarity": 6.918272220377865e-05,
+            "relative_l1_subgradient": 4.3800852404688214e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 3079009
+          },
+          {
+            "step": 110,
+            "elapsed": 9.583785630762577,
+            "objective": -296.4036097108686,
+            "relative_feasibility": 0.12643069752711467,
+            "relative_stationarity": 6.056974077021473e-05,
+            "relative_l1_subgradient": 4.477351090768956e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 3255216
+          },
+          {
+            "step": 120,
+            "elapsed": 10.4437685161829,
+            "objective": -299.66164772174426,
+            "relative_feasibility": 0.11288980602973529,
+            "relative_stationarity": 5.650006394212461e-05,
+            "relative_l1_subgradient": 4.4913230090557775e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 3417081
+          },
+          {
+            "step": 130,
+            "elapsed": 11.303739495575428,
+            "objective": -302.3487063449091,
+            "relative_feasibility": 0.10159289974510377,
+            "relative_stationarity": 4.906982967543414e-05,
+            "relative_l1_subgradient": 4.4105448533806774e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 3564145
+          },
+          {
+            "step": 140,
+            "elapsed": 12.163611847907305,
+            "objective": -304.5825836707362,
+            "relative_feasibility": 0.0921304171813363,
+            "relative_stationarity": 4.4833388746748926e-05,
+            "relative_l1_subgradient": 4.526310409330262e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 3699042
+          },
+          {
+            "step": 150,
+            "elapsed": 13.023524466902018,
+            "objective": -306.4620348344546,
+            "relative_feasibility": 0.08409119268548033,
+            "relative_stationarity": 4.023448796407728e-05,
+            "relative_l1_subgradient": 4.573270347318518e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 3822287
+          },
+          {
+            "step": 160,
+            "elapsed": 13.88383923843503,
+            "objective": -308.05929296124316,
+            "relative_feasibility": 0.07716145180367902,
+            "relative_stationarity": 3.7735791673320924e-05,
+            "relative_l1_subgradient": 4.492737226339511e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 3936750
+          },
+          {
+            "step": 170,
+            "elapsed": 14.744027201086283,
+            "objective": -309.4321571919769,
+            "relative_feasibility": 0.07118883572522584,
+            "relative_stationarity": 3.406751056882859e-05,
+            "relative_l1_subgradient": 4.448787720686343e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4040812
+          },
+          {
+            "step": 180,
+            "elapsed": 15.603868924081326,
+            "objective": -310.61162829457135,
+            "relative_feasibility": 0.06597020351435644,
+            "relative_stationarity": 3.1647511636853385e-05,
+            "relative_l1_subgradient": 4.532484982791783e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4135681
+          },
+          {
+            "step": 190,
+            "elapsed": 16.463683035224676,
+            "objective": -311.6331119812602,
+            "relative_feasibility": 0.06138847242626759,
+            "relative_stationarity": 2.9664137828058075e-05,
+            "relative_l1_subgradient": 4.539682591371856e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4222248
+          },
+          {
+            "step": 200,
+            "elapsed": 17.32354024797678,
+            "objective": -312.5241802698944,
+            "relative_feasibility": 0.05732804851109058,
+            "relative_stationarity": 2.7392016819877398e-05,
+            "relative_l1_subgradient": 4.591782950939958e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4303630
+          },
+          {
+            "step": 210,
+            "elapsed": 18.18334959819913,
+            "objective": -313.30619359098637,
+            "relative_feasibility": 0.05372157404500831,
+            "relative_stationarity": 2.578606054208076e-05,
+            "relative_l1_subgradient": 4.518623775588723e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4381613
+          },
+          {
+            "step": 220,
+            "elapsed": 19.04325632378459,
+            "objective": -313.9969188336669,
+            "relative_feasibility": 0.050486137670698476,
+            "relative_stationarity": 2.457176879961634e-05,
+            "relative_l1_subgradient": 4.469994610102344e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4454267
+          },
+          {
+            "step": 230,
+            "elapsed": 19.903129655867815,
+            "objective": -314.61096532880225,
+            "relative_feasibility": 0.047573736125735386,
+            "relative_stationarity": 2.2901133166581884e-05,
+            "relative_l1_subgradient": 4.448545500176992e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4522240
+          },
+          {
+            "step": 240,
+            "elapsed": 20.763003155589104,
+            "objective": -315.16364548938816,
+            "relative_feasibility": 0.044957476017780044,
+            "relative_stationarity": 2.1453895466658207e-05,
+            "relative_l1_subgradient": 4.496288742864865e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4585607
+          },
+          {
+            "step": 250,
+            "elapsed": 21.622865464538336,
+            "objective": -315.65996040353593,
+            "relative_feasibility": 0.04259573947625833,
+            "relative_stationarity": 2.0548347134909424e-05,
+            "relative_l1_subgradient": 4.49537083090743e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4645222
+          },
+          {
+            "step": 260,
+            "elapsed": 22.482690941542387,
+            "objective": -316.1073981450372,
+            "relative_feasibility": 0.0404591045883232,
+            "relative_stationarity": 1.9133282145667613e-05,
+            "relative_l1_subgradient": 4.506049175386406e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4700857
+          },
+          {
+            "step": 270,
+            "elapsed": 23.342498160898685,
+            "objective": -316.51577582226116,
+            "relative_feasibility": 0.03850454671207528,
+            "relative_stationarity": 1.8199165095010857e-05,
+            "relative_l1_subgradient": 4.479960614116337e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4753635
+          },
+          {
+            "step": 280,
+            "elapsed": 24.202386688441038,
+            "objective": -316.8883997082917,
+            "relative_feasibility": 0.036723178210188646,
+            "relative_stationarity": 1.73715108353751e-05,
+            "relative_l1_subgradient": 4.46971441116713e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4802665
+          },
+          {
+            "step": 290,
+            "elapsed": 25.062335159629583,
+            "objective": -317.2283165204868,
+            "relative_feasibility": 0.03510020523347699,
+            "relative_stationarity": 1.6511495543659697e-05,
+            "relative_l1_subgradient": 4.501518420715679e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4849616
+          },
+          {
+            "step": 300,
+            "elapsed": 25.92221126332879,
+            "objective": -317.54215057543445,
+            "relative_feasibility": 0.03358998945536078,
+            "relative_stationarity": 1.591962025024756e-05,
+            "relative_l1_subgradient": 4.532087772975537e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4894433
+          },
+          {
+            "step": 310,
+            "elapsed": 26.782193463295698,
+            "objective": -317.8295849733606,
+            "relative_feasibility": 0.032197470196726086,
+            "relative_stationarity": 1.5197810000867698e-05,
+            "relative_l1_subgradient": 4.534534851503333e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4934888
+          },
+          {
+            "step": 320,
+            "elapsed": 27.64225885644555,
+            "objective": -318.0951342632912,
+            "relative_feasibility": 0.0309171480114399,
+            "relative_stationarity": 1.457221321626463e-05,
+            "relative_l1_subgradient": 4.512525336810795e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 4970897
+          },
+          {
+            "step": 330,
+            "elapsed": 28.50216982513666,
+            "objective": -318.3400241363471,
+            "relative_feasibility": 0.029715791346814756,
+            "relative_stationarity": 1.4111432443588948e-05,
+            "relative_l1_subgradient": 4.519445371413054e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5003678
+          },
+          {
+            "step": 340,
+            "elapsed": 29.362179838120937,
+            "objective": -318.5680526320268,
+            "relative_feasibility": 0.02859457302626124,
+            "relative_stationarity": 1.3478354905230005e-05,
+            "relative_l1_subgradient": 4.455946671951406e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5030532
+          },
+          {
+            "step": 350,
+            "elapsed": 30.22217011079192,
+            "objective": -318.7823806365206,
+            "relative_feasibility": 0.027559228666900824,
+            "relative_stationarity": 1.2836791337848108e-05,
+            "relative_l1_subgradient": 4.496359116100046e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5061338
+          },
+          {
+            "step": 360,
+            "elapsed": 31.08205347880721,
+            "objective": -318.98410240088606,
+            "relative_feasibility": 0.026584177488491404,
+            "relative_stationarity": 1.2482294585469511e-05,
+            "relative_l1_subgradient": 4.465714791542878e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5093052
+          },
+          {
+            "step": 370,
+            "elapsed": 31.942009802907705,
+            "objective": -319.17287022901996,
+            "relative_feasibility": 0.02568543473748301,
+            "relative_stationarity": 1.2199073385427908e-05,
+            "relative_l1_subgradient": 4.530861915417066e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5122853
+          },
+          {
+            "step": 380,
+            "elapsed": 32.80196950212121,
+            "objective": -319.35078102341254,
+            "relative_feasibility": 0.024814363112587792,
+            "relative_stationarity": 1.1839914168893748e-05,
+            "relative_l1_subgradient": 4.630295738101768e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5152503
+          },
+          {
+            "step": 390,
+            "elapsed": 33.66188419982791,
+            "objective": -319.51963828728265,
+            "relative_feasibility": 0.024013583841925645,
+            "relative_stationarity": 1.1452141831848036e-05,
+            "relative_l1_subgradient": 4.482940423145354e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5180566
+          },
+          {
+            "step": 400,
+            "elapsed": 34.52179968357086,
+            "objective": -319.679437014888,
+            "relative_feasibility": 0.023263052142786244,
+            "relative_stationarity": 1.1049370754266332e-05,
+            "relative_l1_subgradient": 4.465494667564055e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5208093
+          },
+          {
+            "step": 410,
+            "elapsed": 35.38153822347522,
+            "objective": -319.8299962059564,
+            "relative_feasibility": 0.02255429468992605,
+            "relative_stationarity": 1.0827620299789938e-05,
+            "relative_l1_subgradient": 4.468316511292682e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5234307
+          },
+          {
+            "step": 420,
+            "elapsed": 36.24123248830438,
+            "objective": -319.97273175376995,
+            "relative_feasibility": 0.021878280738182005,
+            "relative_stationarity": 1.0617755409107917e-05,
+            "relative_l1_subgradient": 4.539526989721997e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5259691
+          },
+          {
+            "step": 430,
+            "elapsed": 37.10095538571477,
+            "objective": -320.10856672927883,
+            "relative_feasibility": 0.02123887667809023,
+            "relative_stationarity": 1.0381216080233385e-05,
+            "relative_l1_subgradient": 4.497935810787627e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5284284
+          },
+          {
+            "step": 440,
+            "elapsed": 37.96070325374603,
+            "objective": -320.2385044589141,
+            "relative_feasibility": 0.020629628505893668,
+            "relative_stationarity": 1.0032699955284763e-05,
+            "relative_l1_subgradient": 4.474580682373505e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5307955
+          },
+          {
+            "step": 450,
+            "elapsed": 38.82036879658699,
+            "objective": -320.3625564356721,
+            "relative_feasibility": 0.02005213961208197,
+            "relative_stationarity": 9.843651782234588e-06,
+            "relative_l1_subgradient": 4.494392998656673e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5330375
+          },
+          {
+            "step": 460,
+            "elapsed": 39.680053658783436,
+            "objective": -320.48049590110725,
+            "relative_feasibility": 0.01950318785648528,
+            "relative_stationarity": 9.580971862571217e-06,
+            "relative_l1_subgradient": 4.506345846719029e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5346946
+          },
+          {
+            "step": 470,
+            "elapsed": 40.53977882489562,
+            "objective": -320.5938959170269,
+            "relative_feasibility": 0.018978636069637813,
+            "relative_stationarity": 9.281983009270835e-06,
+            "relative_l1_subgradient": 4.522836089793882e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5365903
+          },
+          {
+            "step": 480,
+            "elapsed": 41.39947545155883,
+            "objective": -320.7011541602911,
+            "relative_feasibility": 0.018483000844339268,
+            "relative_stationarity": 9.010012936637323e-06,
+            "relative_l1_subgradient": 4.482756251564845e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5385399
+          },
+          {
+            "step": 490,
+            "elapsed": 42.25909731537104,
+            "objective": -320.8042648099664,
+            "relative_feasibility": 0.01800565157376994,
+            "relative_stationarity": 8.709534668443462e-06,
+            "relative_l1_subgradient": 4.527416069724813e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5404369
+          },
+          {
+            "step": 500,
+            "elapsed": 43.11881924048066,
+            "objective": -320.90269185780437,
+            "relative_feasibility": 0.017550307966365118,
+            "relative_stationarity": 8.469977495219275e-06,
+            "relative_l1_subgradient": 4.511135698681842e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5421347
+          },
+          {
+            "step": 510,
+            "elapsed": 43.9786201864481,
+            "objective": -320.9970364171996,
+            "relative_feasibility": 0.017118685715323358,
+            "relative_stationarity": 8.273847367638874e-06,
+            "relative_l1_subgradient": 4.549314951359462e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5438135
+          },
+          {
+            "step": 520,
+            "elapsed": 44.83834156766534,
+            "objective": -321.0866786402632,
+            "relative_feasibility": 0.016699602879488965,
+            "relative_stationarity": 8.094705091609179e-06,
+            "relative_l1_subgradient": 4.515462941184131e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5453979
+          },
+          {
+            "step": 530,
+            "elapsed": 45.69810135662556,
+            "objective": -321.17149282578123,
+            "relative_feasibility": 0.01629836795385297,
+            "relative_stationarity": 7.930799799022565e-06,
+            "relative_l1_subgradient": 4.50648877221711e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5468654
+          },
+          {
+            "step": 540,
+            "elapsed": 46.55779043957591,
+            "objective": -321.25410989371017,
+            "relative_feasibility": 0.015908762705946648,
+            "relative_stationarity": 7.855318505902854e-06,
+            "relative_l1_subgradient": 4.527176886920269e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5482060
+          },
+          {
+            "step": 550,
+            "elapsed": 47.41735519096255,
+            "objective": -321.33209697219365,
+            "relative_feasibility": 0.015542860130939981,
+            "relative_stationarity": 7.667921235343374e-06,
+            "relative_l1_subgradient": 4.477903712019362e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5493359
+          },
+          {
+            "step": 560,
+            "elapsed": 48.277022790163755,
+            "objective": -321.40683202526304,
+            "relative_feasibility": 0.015189315152001361,
+            "relative_stationarity": 7.480238853190077e-06,
+            "relative_l1_subgradient": 4.54230151764874e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5503975
+          },
+          {
+            "step": 570,
+            "elapsed": 49.13674644008279,
+            "objective": -321.47928815119076,
+            "relative_feasibility": 0.014845429958133066,
+            "relative_stationarity": 7.339198130062826e-06,
+            "relative_l1_subgradient": 4.471274547316718e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5512913
+          },
+          {
+            "step": 580,
+            "elapsed": 49.99642946571112,
+            "objective": -321.550729637387,
+            "relative_feasibility": 0.01451525463442757,
+            "relative_stationarity": 7.2037247759334e-06,
+            "relative_l1_subgradient": 4.457148644889851e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5523435
+          },
+          {
+            "step": 590,
+            "elapsed": 50.856008760631084,
+            "objective": -321.61878438258367,
+            "relative_feasibility": 0.014196663426950449,
+            "relative_stationarity": 7.1355225130641275e-06,
+            "relative_l1_subgradient": 4.478244769117243e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5532838
+          },
+          {
+            "step": 600,
+            "elapsed": 51.71564472094178,
+            "objective": -321.6849794739453,
+            "relative_feasibility": 0.013892938684673301,
+            "relative_stationarity": 7.014271532620068e-06,
+            "relative_l1_subgradient": 4.527445603845255e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5541998
+          },
+          {
+            "step": 610,
+            "elapsed": 52.57521139457822,
+            "objective": -321.74839374281896,
+            "relative_feasibility": 0.013600312326860375,
+            "relative_stationarity": 6.882473862219653e-06,
+            "relative_l1_subgradient": 4.553885162952022e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5543482
+          },
+          {
+            "step": 620,
+            "elapsed": 53.43561885878444,
+            "objective": -321.80904794549076,
+            "relative_feasibility": 0.01331501203469339,
+            "relative_stationarity": 6.901983202822844e-06,
+            "relative_l1_subgradient": 4.528047264446292e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5548096
+          },
+          {
+            "step": 630,
+            "elapsed": 54.299176160246134,
+            "objective": -321.86834292515346,
+            "relative_feasibility": 0.013037324039242874,
+            "relative_stationarity": 6.781422203819962e-06,
+            "relative_l1_subgradient": 4.517611463466918e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5556498
+          },
+          {
+            "step": 640,
+            "elapsed": 55.16254071891308,
+            "objective": -321.9256964363101,
+            "relative_feasibility": 0.012774771105510889,
+            "relative_stationarity": 6.700182592421466e-06,
+            "relative_l1_subgradient": 4.539950486664479e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5564759
+          },
+          {
+            "step": 650,
+            "elapsed": 56.02588747814298,
+            "objective": -321.9804616757321,
+            "relative_feasibility": 0.012513433275008,
+            "relative_stationarity": 7.0904072299543205e-06,
+            "relative_l1_subgradient": 4.509635226170608e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5572846
+          },
+          {
+            "step": 660,
+            "elapsed": 56.889256343245506,
+            "objective": -322.03388301974485,
+            "relative_feasibility": 0.012260144336959955,
+            "relative_stationarity": 6.533720646272847e-06,
+            "relative_l1_subgradient": 4.482091931338696e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5581292
+          },
+          {
+            "step": 670,
+            "elapsed": 57.75266423821449,
+            "objective": -322.086009069262,
+            "relative_feasibility": 0.012019301126784192,
+            "relative_stationarity": 6.458898512013118e-06,
+            "relative_l1_subgradient": 4.518207694842331e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5589583
+          },
+          {
+            "step": 680,
+            "elapsed": 58.61594895645976,
+            "objective": -322.1359801488282,
+            "relative_feasibility": 0.011785447474268646,
+            "relative_stationarity": 6.371244156478125e-06,
+            "relative_l1_subgradient": 4.519148921456899e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5589980
+          },
+          {
+            "step": 690,
+            "elapsed": 59.47916788980365,
+            "objective": -322.18170250448617,
+            "relative_feasibility": 0.011560510911860831,
+            "relative_stationarity": 6.355692010305852e-06,
+            "relative_l1_subgradient": 4.515643630547546e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5578983
+          },
+          {
+            "step": 700,
+            "elapsed": 60.34242293983698,
+            "objective": -322.22658661100286,
+            "relative_feasibility": 0.011341414854389794,
+            "relative_stationarity": 6.084578509596745e-06,
+            "relative_l1_subgradient": 4.535089584221455e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5586106
+          },
+          {
+            "step": 710,
+            "elapsed": 61.20565628260374,
+            "objective": -322.27149610404587,
+            "relative_feasibility": 0.011127739718917059,
+            "relative_stationarity": 6.145205565326289e-06,
+            "relative_l1_subgradient": 4.524764965424794e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5595175
+          },
+          {
+            "step": 720,
+            "elapsed": 62.068915240466595,
+            "objective": -322.3149021374011,
+            "relative_feasibility": 0.01092056857996832,
+            "relative_stationarity": 5.9233825677612606e-06,
+            "relative_l1_subgradient": 4.517003472725636e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5603315
+          },
+          {
+            "step": 730,
+            "elapsed": 62.932199981063604,
+            "objective": -322.35701521492456,
+            "relative_feasibility": 0.010717262948026588,
+            "relative_stationarity": 5.8792650742485135e-06,
+            "relative_l1_subgradient": 4.53404205477203e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5610926
+          },
+          {
+            "step": 740,
+            "elapsed": 63.795385245233774,
+            "objective": -322.39844288204495,
+            "relative_feasibility": 0.010521167139672766,
+            "relative_stationarity": 5.6537549980502185e-06,
+            "relative_l1_subgradient": 4.482570456641483e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5618501
+          },
+          {
+            "step": 750,
+            "elapsed": 64.658527251333,
+            "objective": -322.43899447092963,
+            "relative_feasibility": 0.01033225508783316,
+            "relative_stationarity": 5.591270927508661e-06,
+            "relative_l1_subgradient": 4.580255691021603e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5626089
+          },
+          {
+            "step": 760,
+            "elapsed": 65.52174410223961,
+            "objective": -322.4777496292744,
+            "relative_feasibility": 0.010146881190551073,
+            "relative_stationarity": 5.471005356952341e-06,
+            "relative_l1_subgradient": 4.528492885989265e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5634280
+          },
+          {
+            "step": 770,
+            "elapsed": 66.3850499689579,
+            "objective": -322.5160049722381,
+            "relative_feasibility": 0.009969991826505254,
+            "relative_stationarity": 5.384678327984354e-06,
+            "relative_l1_subgradient": 4.556982475291444e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5627896
+          },
+          {
+            "step": 780,
+            "elapsed": 67.24840212240815,
+            "objective": -322.55302787205403,
+            "relative_feasibility": 0.009793907247193838,
+            "relative_stationarity": 5.290761862338826e-06,
+            "relative_l1_subgradient": 4.514846572504716e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5635099
+          },
+          {
+            "step": 790,
+            "elapsed": 68.11162203922868,
+            "objective": -322.58901144871504,
+            "relative_feasibility": 0.009625152498129187,
+            "relative_stationarity": 5.186164397294426e-06,
+            "relative_l1_subgradient": 4.531831430456719e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5643215
+          },
+          {
+            "step": 800,
+            "elapsed": 68.97479400038719,
+            "objective": -322.62332962993776,
+            "relative_feasibility": 0.009458629335059589,
+            "relative_stationarity": 5.0719926583701756e-06,
+            "relative_l1_subgradient": 4.577036639967032e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5649697
+          },
+          {
+            "step": 810,
+            "elapsed": 69.83794647455215,
+            "objective": -322.65707831212046,
+            "relative_feasibility": 0.009297149168393528,
+            "relative_stationarity": 4.9597596854631234e-06,
+            "relative_l1_subgradient": 4.528510715551516e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5654700
+          },
+          {
+            "step": 820,
+            "elapsed": 70.70121191814542,
+            "objective": -322.6890559703588,
+            "relative_feasibility": 0.009138261415262727,
+            "relative_stationarity": 4.9055227856127765e-06,
+            "relative_l1_subgradient": 4.670946015803576e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5658176
+          },
+          {
+            "step": 830,
+            "elapsed": 71.56448717787862,
+            "objective": -322.71976227191,
+            "relative_feasibility": 0.00898575928569108,
+            "relative_stationarity": 4.717202968803793e-06,
+            "relative_l1_subgradient": 4.550686229064774e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5660214
+          },
+          {
+            "step": 840,
+            "elapsed": 72.42772256210446,
+            "objective": -322.74995058465606,
+            "relative_feasibility": 0.008833509782942508,
+            "relative_stationarity": 4.719795600172812e-06,
+            "relative_l1_subgradient": 4.531610985864001e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5662671
+          },
+          {
+            "step": 850,
+            "elapsed": 73.29101054742932,
+            "objective": -322.7792177211936,
+            "relative_feasibility": 0.008690950429610243,
+            "relative_stationarity": 4.512971500210658e-06,
+            "relative_l1_subgradient": 4.570953173847161e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5666121
+          },
+          {
+            "step": 860,
+            "elapsed": 74.15413000434637,
+            "objective": -322.8079655348817,
+            "relative_feasibility": 0.008550707553148662,
+            "relative_stationarity": 4.4092137267597065e-06,
+            "relative_l1_subgradient": 4.553800389485124e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5671347
+          },
+          {
+            "step": 870,
+            "elapsed": 75.01734887436032,
+            "objective": -322.83594024938657,
+            "relative_feasibility": 0.008413996913953552,
+            "relative_stationarity": 4.359605877425211e-06,
+            "relative_l1_subgradient": 4.564261677770216e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5676498
+          },
+          {
+            "step": 880,
+            "elapsed": 75.88054736703634,
+            "objective": -322.8631133747606,
+            "relative_feasibility": 0.008279672925367895,
+            "relative_stationarity": 4.326824566349687e-06,
+            "relative_l1_subgradient": 4.545819153349441e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5681959
+          },
+          {
+            "step": 890,
+            "elapsed": 76.74373448640108,
+            "objective": -322.88941467684515,
+            "relative_feasibility": 0.008147993767160104,
+            "relative_stationarity": 4.277425059290651e-06,
+            "relative_l1_subgradient": 4.519017231106393e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5686686
+          },
+          {
+            "step": 900,
+            "elapsed": 77.60676416382194,
+            "objective": -322.91580187767613,
+            "relative_feasibility": 0.00801934124317955,
+            "relative_stationarity": 4.226530778612141e-06,
+            "relative_l1_subgradient": 4.538807146894879e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5689665
+          },
+          {
+            "step": 910,
+            "elapsed": 78.4698513224721,
+            "objective": -322.94187936202695,
+            "relative_feasibility": 0.007892595762596846,
+            "relative_stationarity": 4.1367441952159435e-06,
+            "relative_l1_subgradient": 4.574977438411749e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5693428
+          },
+          {
+            "step": 920,
+            "elapsed": 79.33299792557955,
+            "objective": -322.9662011926969,
+            "relative_feasibility": 0.007770608720778988,
+            "relative_stationarity": 4.03596963914053e-06,
+            "relative_l1_subgradient": 4.585289133625588e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5697015
+          },
+          {
+            "step": 930,
+            "elapsed": 80.19614253565669,
+            "objective": -322.99084670852113,
+            "relative_feasibility": 0.007650610996228753,
+            "relative_stationarity": 3.9965137463101135e-06,
+            "relative_l1_subgradient": 4.573207268227586e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5702017
+          },
+          {
+            "step": 940,
+            "elapsed": 81.05942176282406,
+            "objective": -323.01500849057976,
+            "relative_feasibility": 0.007533783685590373,
+            "relative_stationarity": 3.872173728262098e-06,
+            "relative_l1_subgradient": 4.610387410278965e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5707358
+          },
+          {
+            "step": 950,
+            "elapsed": 81.92283659428358,
+            "objective": -323.03845309264204,
+            "relative_feasibility": 0.007421689652445895,
+            "relative_stationarity": 3.7625715358103543e-06,
+            "relative_l1_subgradient": 4.604508270738761e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5712313
+          },
+          {
+            "step": 960,
+            "elapsed": 82.78618456795812,
+            "objective": -323.06093241146004,
+            "relative_feasibility": 0.007312074699793048,
+            "relative_stationarity": 3.710799270009542e-06,
+            "relative_l1_subgradient": 4.616538407405658e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5710869
+          },
+          {
+            "step": 970,
+            "elapsed": 83.64949501305819,
+            "objective": -323.0829620421056,
+            "relative_feasibility": 0.007202241611536771,
+            "relative_stationarity": 3.7018839073029674e-06,
+            "relative_l1_subgradient": 4.617698394778877e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5715540
+          },
+          {
+            "step": 980,
+            "elapsed": 84.51279525458813,
+            "objective": -323.1046422311508,
+            "relative_feasibility": 0.007097157354317151,
+            "relative_stationarity": 3.5168449937854587e-06,
+            "relative_l1_subgradient": 4.581788388560114e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5720088
+          },
+          {
+            "step": 990,
+            "elapsed": 85.37591795250773,
+            "objective": -323.126277327792,
+            "relative_feasibility": 0.006992210159096091,
+            "relative_stationarity": 3.5263885916891266e-06,
+            "relative_l1_subgradient": 4.584482307773642e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5724297
+          },
+          {
+            "step": 1000,
+            "elapsed": 86.2389895580709,
+            "objective": -323.14735725475674,
+            "relative_feasibility": 0.006889897903519177,
+            "relative_stationarity": 3.5459231925585717e-06,
+            "relative_l1_subgradient": 4.564959672928587e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5728721
+          },
+          {
+            "step": 1010,
+            "elapsed": 87.10211558267474,
+            "objective": -323.16800849649013,
+            "relative_feasibility": 0.006790384282751874,
+            "relative_stationarity": 3.3955984360495667e-06,
+            "relative_l1_subgradient": 4.675752136314772e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5732882
+          },
+          {
+            "step": 1020,
+            "elapsed": 87.96526926755905,
+            "objective": -323.18841309507485,
+            "relative_feasibility": 0.006693338957286848,
+            "relative_stationarity": 3.325286464232414e-06,
+            "relative_l1_subgradient": 4.558434743585708e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5738003
+          },
+          {
+            "step": 1030,
+            "elapsed": 88.82836177572608,
+            "objective": -323.2078691128729,
+            "relative_feasibility": 0.006598602793001342,
+            "relative_stationarity": 3.260734714270915e-06,
+            "relative_l1_subgradient": 4.596505527899406e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5741152
+          },
+          {
+            "step": 1040,
+            "elapsed": 89.69142406433821,
+            "objective": -323.2270429218413,
+            "relative_feasibility": 0.006505116018398915,
+            "relative_stationarity": 3.22102516719642e-06,
+            "relative_l1_subgradient": 4.53963101796138e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5744004
+          },
+          {
+            "step": 1050,
+            "elapsed": 90.55454519763589,
+            "objective": -323.2455047136019,
+            "relative_feasibility": 0.006412953682346534,
+            "relative_stationarity": 3.4270352356126123e-06,
+            "relative_l1_subgradient": 4.519768291043095e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5745937
+          },
+          {
+            "step": 1060,
+            "elapsed": 91.41784807294607,
+            "objective": -323.26467356300986,
+            "relative_feasibility": 0.006323788424157327,
+            "relative_stationarity": 3.109320847560709e-06,
+            "relative_l1_subgradient": 4.542214755919381e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5748968
+          },
+          {
+            "step": 1070,
+            "elapsed": 92.28101222217083,
+            "objective": -323.28276404681696,
+            "relative_feasibility": 0.006236932529527351,
+            "relative_stationarity": 2.985872830761704e-06,
+            "relative_l1_subgradient": 4.565123337188911e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5749903
+          },
+          {
+            "step": 1080,
+            "elapsed": 93.14424601942301,
+            "objective": -323.30056676143215,
+            "relative_feasibility": 0.006151628478844636,
+            "relative_stationarity": 2.9892487388162366e-06,
+            "relative_l1_subgradient": 4.619929866627016e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5751078
+          },
+          {
+            "step": 1090,
+            "elapsed": 94.00749447196722,
+            "objective": -323.3180668835477,
+            "relative_feasibility": 0.0060674925871916,
+            "relative_stationarity": 2.9360880768392704e-06,
+            "relative_l1_subgradient": 4.590478445968586e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5752438
+          },
+          {
+            "step": 1100,
+            "elapsed": 94.87071330100298,
+            "objective": -323.33497178550556,
+            "relative_feasibility": 0.005984209685315119,
+            "relative_stationarity": 2.909389886914251e-06,
+            "relative_l1_subgradient": 4.596526030462742e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5753955
+          },
+          {
+            "step": 1110,
+            "elapsed": 95.73392934724689,
+            "objective": -323.3521715387117,
+            "relative_feasibility": 0.00590339504739833,
+            "relative_stationarity": 2.8282627864938935e-06,
+            "relative_l1_subgradient": 4.516231403267356e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5756510
+          },
+          {
+            "step": 1120,
+            "elapsed": 96.59709156677127,
+            "objective": -323.3683980087061,
+            "relative_feasibility": 0.0058240746220294005,
+            "relative_stationarity": 2.814603947696879e-06,
+            "relative_l1_subgradient": 4.524341589495257e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5758091
+          },
+          {
+            "step": 1130,
+            "elapsed": 97.46033222973347,
+            "objective": -323.3841323368822,
+            "relative_feasibility": 0.005743886943238003,
+            "relative_stationarity": 2.8335578879607425e-06,
+            "relative_l1_subgradient": 4.508435263294002e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5758150
+          },
+          {
+            "step": 1140,
+            "elapsed": 98.32355977222323,
+            "objective": -323.4001210093114,
+            "relative_feasibility": 0.0056672738098545875,
+            "relative_stationarity": 2.7125203505494705e-06,
+            "relative_l1_subgradient": 4.574553287587973e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5760748
+          },
+          {
+            "step": 1150,
+            "elapsed": 99.18668952584267,
+            "objective": -323.41562610712754,
+            "relative_feasibility": 0.005593440333764376,
+            "relative_stationarity": 2.629978619134035e-06,
+            "relative_l1_subgradient": 4.532206646419164e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5763946
+          },
+          {
+            "step": 1160,
+            "elapsed": 100.04999377578497,
+            "objective": -323.4304410195193,
+            "relative_feasibility": 0.005521497060761206,
+            "relative_stationarity": 2.5857233165415606e-06,
+            "relative_l1_subgradient": 4.533565797947749e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5765660
+          },
+          {
+            "step": 1170,
+            "elapsed": 100.91311928629875,
+            "objective": -323.44522758130086,
+            "relative_feasibility": 0.005450225656711362,
+            "relative_stationarity": 2.606354128075288e-06,
+            "relative_l1_subgradient": 4.636141874315443e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5767839
+          },
+          {
+            "step": 1180,
+            "elapsed": 101.77618427947164,
+            "objective": -323.4595387235353,
+            "relative_feasibility": 0.00537843842505071,
+            "relative_stationarity": 2.5688610670662045e-06,
+            "relative_l1_subgradient": 4.555779251655055e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5770018
+          },
+          {
+            "step": 1190,
+            "elapsed": 102.63930835202336,
+            "objective": -323.47398655432266,
+            "relative_feasibility": 0.005308884302686516,
+            "relative_stationarity": 2.4638833839745637e-06,
+            "relative_l1_subgradient": 4.609940082417124e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5773369
+          },
+          {
+            "step": 1200,
+            "elapsed": 103.50238852202892,
+            "objective": -323.48787964397985,
+            "relative_feasibility": 0.005241511062138551,
+            "relative_stationarity": 2.481262672922295e-06,
+            "relative_l1_subgradient": 4.564837291314052e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5775468
+          },
+          {
+            "step": 1210,
+            "elapsed": 104.36537479236722,
+            "objective": -323.5013938910646,
+            "relative_feasibility": 0.005174970421384479,
+            "relative_stationarity": 2.4217895693744292e-06,
+            "relative_l1_subgradient": 4.573079272932411e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5777800
+          },
+          {
+            "step": 1220,
+            "elapsed": 105.22869439423084,
+            "objective": -323.51487166242737,
+            "relative_feasibility": 0.0051104147200444604,
+            "relative_stationarity": 2.358753875945283e-06,
+            "relative_l1_subgradient": 4.528997644497958e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5780294
+          },
+          {
+            "step": 1230,
+            "elapsed": 106.09207877516747,
+            "objective": -323.5279651956999,
+            "relative_feasibility": 0.005047288535459065,
+            "relative_stationarity": 2.333510949748105e-06,
+            "relative_l1_subgradient": 4.614664365485835e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5783116
+          },
+          {
+            "step": 1240,
+            "elapsed": 106.95528641715646,
+            "objective": -323.5406152081441,
+            "relative_feasibility": 0.004984609833510655,
+            "relative_stationarity": 2.326017221273537e-06,
+            "relative_l1_subgradient": 4.591015132589034e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5786153
+          },
+          {
+            "step": 1250,
+            "elapsed": 107.81837269663811,
+            "objective": -323.55327562431603,
+            "relative_feasibility": 0.004922727492179599,
+            "relative_stationarity": 2.289904038726041e-06,
+            "relative_l1_subgradient": 4.553448809874024e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5787285
+          },
+          {
+            "step": 1260,
+            "elapsed": 108.68156969547272,
+            "objective": -323.5662152964479,
+            "relative_feasibility": 0.004862810025642381,
+            "relative_stationarity": 2.218941180984055e-06,
+            "relative_l1_subgradient": 4.521323003464888e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5791532
+          },
+          {
+            "step": 1270,
+            "elapsed": 109.54474431276321,
+            "objective": -323.5782569676904,
+            "relative_feasibility": 0.004803227781506089,
+            "relative_stationarity": 2.1685775910808006e-06,
+            "relative_l1_subgradient": 4.550320786448868e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5794324
+          },
+          {
+            "step": 1280,
+            "elapsed": 110.4077998585999,
+            "objective": -323.5905171337166,
+            "relative_feasibility": 0.0047449086446462365,
+            "relative_stationarity": 2.0957193082106845e-06,
+            "relative_l1_subgradient": 4.553139946594855e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5797606
+          },
+          {
+            "step": 1290,
+            "elapsed": 111.27087252959609,
+            "objective": -323.6025947328517,
+            "relative_feasibility": 0.0046870271885217805,
+            "relative_stationarity": 2.1104027756177942e-06,
+            "relative_l1_subgradient": 4.603301908840884e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5801622
+          },
+          {
+            "step": 1300,
+            "elapsed": 112.13401827216148,
+            "objective": -323.6140941534642,
+            "relative_feasibility": 0.004630124276435295,
+            "relative_stationarity": 2.0687315222854213e-06,
+            "relative_l1_subgradient": 4.521447678463234e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5804266
+          },
+          {
+            "step": 1310,
+            "elapsed": 112.99746554717422,
+            "objective": -323.6255587745704,
+            "relative_feasibility": 0.0045756595814278635,
+            "relative_stationarity": 2.045690176862008e-06,
+            "relative_l1_subgradient": 4.626980204566814e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5806864
+          },
+          {
+            "step": 1320,
+            "elapsed": 113.8611364364624,
+            "objective": -323.6364387685224,
+            "relative_feasibility": 0.004521161595582125,
+            "relative_stationarity": 2.070389283894422e-06,
+            "relative_l1_subgradient": 4.608405077386929e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5809475
+          },
+          {
+            "step": 1330,
+            "elapsed": 114.72419482842088,
+            "objective": -323.6473169974314,
+            "relative_feasibility": 0.00446882737805413,
+            "relative_stationarity": 1.9752442332092794e-06,
+            "relative_l1_subgradient": 4.499871955535502e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5812936
+          },
+          {
+            "step": 1340,
+            "elapsed": 115.58749195560813,
+            "objective": -323.6581580832367,
+            "relative_feasibility": 0.004416202849767574,
+            "relative_stationarity": 1.9608909844172595e-06,
+            "relative_l1_subgradient": 4.553392408575252e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5816527
+          },
+          {
+            "step": 1350,
+            "elapsed": 116.45302459597588,
+            "objective": -323.6686468256711,
+            "relative_feasibility": 0.004364871555601632,
+            "relative_stationarity": 1.9370732059775787e-06,
+            "relative_l1_subgradient": 4.58424000608186e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5818191
+          },
+          {
+            "step": 1360,
+            "elapsed": 117.31789316609502,
+            "objective": -323.67894141392054,
+            "relative_feasibility": 0.004314024436012695,
+            "relative_stationarity": 1.9198302041843907e-06,
+            "relative_l1_subgradient": 4.623619889128359e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5821291
+          },
+          {
+            "step": 1370,
+            "elapsed": 118.18201805651188,
+            "objective": -323.68896044412224,
+            "relative_feasibility": 0.004264412227481407,
+            "relative_stationarity": 1.868402433651302e-06,
+            "relative_l1_subgradient": 4.558896532205431e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5824837
+          },
+          {
+            "step": 1380,
+            "elapsed": 119.04504953697324,
+            "objective": -323.6990745133252,
+            "relative_feasibility": 0.004215444469460276,
+            "relative_stationarity": 1.8398938328130703e-06,
+            "relative_l1_subgradient": 4.589422689120135e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5827761
+          },
+          {
+            "step": 1390,
+            "elapsed": 119.90809600800276,
+            "objective": -323.70901347592826,
+            "relative_feasibility": 0.004167287679450104,
+            "relative_stationarity": 1.8727763520153437e-06,
+            "relative_l1_subgradient": 4.569231972367733e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5831194
+          },
+          {
+            "step": 1400,
+            "elapsed": 120.77127315104008,
+            "objective": -323.7189608739121,
+            "relative_feasibility": 0.0041202569613908524,
+            "relative_stationarity": 1.8017124566593822e-06,
+            "relative_l1_subgradient": 4.539779703128244e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5834490
+          },
+          {
+            "step": 1410,
+            "elapsed": 121.63437175005674,
+            "objective": -323.72816065728256,
+            "relative_feasibility": 0.004073465334211955,
+            "relative_stationarity": 1.7964999384512634e-06,
+            "relative_l1_subgradient": 4.577085295478734e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5836314
+          },
+          {
+            "step": 1420,
+            "elapsed": 122.49735575169325,
+            "objective": -323.7374956312167,
+            "relative_feasibility": 0.004027759954387141,
+            "relative_stationarity": 1.7602968422029877e-06,
+            "relative_l1_subgradient": 4.5424723368677205e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5839473
+          },
+          {
+            "step": 1430,
+            "elapsed": 123.36069546639919,
+            "objective": -323.74689108110283,
+            "relative_feasibility": 0.003983766452741526,
+            "relative_stationarity": 1.712855768356801e-06,
+            "relative_l1_subgradient": 4.547467971983363e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5842802
+          },
+          {
+            "step": 1440,
+            "elapsed": 124.22398306429386,
+            "objective": -323.755514433867,
+            "relative_feasibility": 0.003938178487507208,
+            "relative_stationarity": 1.7368813414433921e-06,
+            "relative_l1_subgradient": 4.523184264059156e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5844674
+          },
+          {
+            "step": 1450,
+            "elapsed": 125.08715110272169,
+            "objective": -323.7641284026377,
+            "relative_feasibility": 0.003893447538221925,
+            "relative_stationarity": 1.7107974444200708e-06,
+            "relative_l1_subgradient": 4.527190370813014e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5846401
+          },
+          {
+            "step": 1460,
+            "elapsed": 125.95033498480916,
+            "objective": -323.7731537624303,
+            "relative_feasibility": 0.003850976886040095,
+            "relative_stationarity": 1.669290089590186e-06,
+            "relative_l1_subgradient": 4.501949659483721e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5849674
+          },
+          {
+            "step": 1470,
+            "elapsed": 126.81362692639232,
+            "objective": -323.78172846422086,
+            "relative_feasibility": 0.0038093579376119132,
+            "relative_stationarity": 1.5958031857566603e-06,
+            "relative_l1_subgradient": 4.528667883431939e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5851845
+          },
+          {
+            "step": 1480,
+            "elapsed": 127.67681634426117,
+            "objective": -323.79004784872404,
+            "relative_feasibility": 0.0037678908583440233,
+            "relative_stationarity": 1.6002817210589065e-06,
+            "relative_l1_subgradient": 4.542744392237304e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5854573
+          },
+          {
+            "step": 1490,
+            "elapsed": 128.5400263182819,
+            "objective": -323.7982612609326,
+            "relative_feasibility": 0.003726878320983027,
+            "relative_stationarity": 1.6159068238604486e-06,
+            "relative_l1_subgradient": 4.541536989856926e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5857029
+          },
+          {
+            "step": 1500,
+            "elapsed": 129.40316909179091,
+            "objective": -323.8060835517683,
+            "relative_feasibility": 0.0036872748151628933,
+            "relative_stationarity": 1.5547974107329103e-06,
+            "relative_l1_subgradient": 4.526214046017502e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5858212
+          },
+          {
+            "step": 1510,
+            "elapsed": 130.26639990881085,
+            "objective": -323.8140191549194,
+            "relative_feasibility": 0.003647841429986436,
+            "relative_stationarity": 1.5389496338857908e-06,
+            "relative_l1_subgradient": 4.524298668715787e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5860427
+          },
+          {
+            "step": 1520,
+            "elapsed": 131.1295478157699,
+            "objective": -323.8217408593534,
+            "relative_feasibility": 0.00360813883106586,
+            "relative_stationarity": 1.5516736678318128e-06,
+            "relative_l1_subgradient": 4.524290230205594e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5862412
+          },
+          {
+            "step": 1530,
+            "elapsed": 131.99272392690182,
+            "objective": -323.8296122769431,
+            "relative_feasibility": 0.003568983344369573,
+            "relative_stationarity": 1.5231117331166066e-06,
+            "relative_l1_subgradient": 4.540298486236053e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5864568
+          },
+          {
+            "step": 1540,
+            "elapsed": 132.856408406049,
+            "objective": -323.836932003525,
+            "relative_feasibility": 0.003530480780287456,
+            "relative_stationarity": 1.5252406361262764e-06,
+            "relative_l1_subgradient": 4.515073131724645e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5865259
+          },
+          {
+            "step": 1550,
+            "elapsed": 133.7199632152915,
+            "objective": -323.8444222529457,
+            "relative_feasibility": 0.0034940927461555435,
+            "relative_stationarity": 1.4509823320102877e-06,
+            "relative_l1_subgradient": 4.528795189293348e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5867260
+          },
+          {
+            "step": 1560,
+            "elapsed": 134.58312917873263,
+            "objective": -323.8519409156045,
+            "relative_feasibility": 0.0034575976265072573,
+            "relative_stationarity": 1.4642430324927116e-06,
+            "relative_l1_subgradient": 4.54566891631814e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5870206
+          },
+          {
+            "step": 1570,
+            "elapsed": 135.44632438197732,
+            "objective": -323.8590881577419,
+            "relative_feasibility": 0.003421425267558236,
+            "relative_stationarity": 1.4610682339525361e-06,
+            "relative_l1_subgradient": 4.558430609713838e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5872196
+          },
+          {
+            "step": 1580,
+            "elapsed": 136.30946432054043,
+            "objective": -323.8660684400213,
+            "relative_feasibility": 0.0033860422631549056,
+            "relative_stationarity": 1.409071810956929e-06,
+            "relative_l1_subgradient": 4.541184485230147e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5873806
+          },
+          {
+            "step": 1590,
+            "elapsed": 137.17267659679055,
+            "objective": -323.8726587321342,
+            "relative_feasibility": 0.003350961427912154,
+            "relative_stationarity": 1.4633605160155005e-06,
+            "relative_l1_subgradient": 4.520821297552446e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5875822
+          },
+          {
+            "step": 1600,
+            "elapsed": 138.03582371026278,
+            "objective": -323.87932457129375,
+            "relative_feasibility": 0.003315803095516101,
+            "relative_stationarity": 1.4526305391556372e-06,
+            "relative_l1_subgradient": 4.594919388823137e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5876184
+          },
+          {
+            "step": 1610,
+            "elapsed": 138.89899801835418,
+            "objective": -323.8863131795362,
+            "relative_feasibility": 0.0032815999078279366,
+            "relative_stationarity": 1.4030876881807566e-06,
+            "relative_l1_subgradient": 4.541393945772954e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5878580
+          },
+          {
+            "step": 1620,
+            "elapsed": 139.76203303039074,
+            "objective": -323.89309519530707,
+            "relative_feasibility": 0.0032482428656270814,
+            "relative_stationarity": 1.3736736316750372e-06,
+            "relative_l1_subgradient": 4.533150854395534e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5880582
+          },
+          {
+            "step": 1630,
+            "elapsed": 140.62512926757336,
+            "objective": -323.89964957816517,
+            "relative_feasibility": 0.003215378781066174,
+            "relative_stationarity": 1.3340713971244448e-06,
+            "relative_l1_subgradient": 4.540457008064921e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5883464
+          },
+          {
+            "step": 1640,
+            "elapsed": 141.48814442381263,
+            "objective": -323.9060029335346,
+            "relative_feasibility": 0.0031830897703655505,
+            "relative_stationarity": 1.3669056562486535e-06,
+            "relative_l1_subgradient": 4.651651228704063e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5884403
+          },
+          {
+            "step": 1650,
+            "elapsed": 142.35111838579178,
+            "objective": -323.91214714142893,
+            "relative_feasibility": 0.0031511059883243655,
+            "relative_stationarity": 1.3293002674968741e-06,
+            "relative_l1_subgradient": 4.495182020205477e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5886134
+          },
+          {
+            "step": 1660,
+            "elapsed": 143.2140848375857,
+            "objective": -323.9183937097756,
+            "relative_feasibility": 0.003120707982145511,
+            "relative_stationarity": 1.2849416827790215e-06,
+            "relative_l1_subgradient": 4.499640608682614e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5887869
+          },
+          {
+            "step": 1670,
+            "elapsed": 144.07734310999513,
+            "objective": -323.92460432282076,
+            "relative_feasibility": 0.003089783305799218,
+            "relative_stationarity": 1.277902124031242e-06,
+            "relative_l1_subgradient": 4.520160988165543e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5889824
+          },
+          {
+            "step": 1680,
+            "elapsed": 144.94055354222655,
+            "objective": -323.93056205291686,
+            "relative_feasibility": 0.0030591627052099705,
+            "relative_stationarity": 1.2800183076165011e-06,
+            "relative_l1_subgradient": 4.529691889339713e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5891440
+          },
+          {
+            "step": 1690,
+            "elapsed": 145.80369504913688,
+            "objective": -323.9365599207772,
+            "relative_feasibility": 0.0030294319922893314,
+            "relative_stationarity": 1.2843420406876618e-06,
+            "relative_l1_subgradient": 4.53644895012985e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5892936
+          },
+          {
+            "step": 1700,
+            "elapsed": 146.66685901209712,
+            "objective": -323.9423522494892,
+            "relative_feasibility": 0.002999723770902787,
+            "relative_stationarity": 1.2419864238912975e-06,
+            "relative_l1_subgradient": 4.558687027813271e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5895031
+          },
+          {
+            "step": 1710,
+            "elapsed": 147.53011544048786,
+            "objective": -323.9480394056252,
+            "relative_feasibility": 0.002969936228279463,
+            "relative_stationarity": 1.2627735099618224e-06,
+            "relative_l1_subgradient": 4.60533889012753e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5896495
+          },
+          {
+            "step": 1720,
+            "elapsed": 148.39326516911387,
+            "objective": -323.9537754532152,
+            "relative_feasibility": 0.00294096595637822,
+            "relative_stationarity": 1.2323871487227038e-06,
+            "relative_l1_subgradient": 4.551757749614994e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5898309
+          },
+          {
+            "step": 1730,
+            "elapsed": 149.2562891691923,
+            "objective": -323.95951675445144,
+            "relative_feasibility": 0.002912781106861544,
+            "relative_stationarity": 1.1883521672582736e-06,
+            "relative_l1_subgradient": 4.523106293274458e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5900558
+          },
+          {
+            "step": 1740,
+            "elapsed": 150.11925978958607,
+            "objective": -323.9649200944288,
+            "relative_feasibility": 0.00288437151940424,
+            "relative_stationarity": 1.2074629840324012e-06,
+            "relative_l1_subgradient": 4.61700403766816e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5902708
+          },
+          {
+            "step": 1750,
+            "elapsed": 150.9822825267911,
+            "objective": -323.97013925254913,
+            "relative_feasibility": 0.0028563145894191016,
+            "relative_stationarity": 1.2234017303655097e-06,
+            "relative_l1_subgradient": 4.536228946024076e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5903235
+          },
+          {
+            "step": 1760,
+            "elapsed": 151.84513719007373,
+            "objective": -323.9755174815118,
+            "relative_feasibility": 0.00282930120103383,
+            "relative_stationarity": 1.1943644412823142e-06,
+            "relative_l1_subgradient": 4.535308518431967e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5905538
+          },
+          {
+            "step": 1770,
+            "elapsed": 152.70815473422408,
+            "objective": -323.9806218406033,
+            "relative_feasibility": 0.0028036277349479943,
+            "relative_stationarity": 1.1478125066233604e-06,
+            "relative_l1_subgradient": 4.537294545576352e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5906800
+          },
+          {
+            "step": 1780,
+            "elapsed": 153.57129561528563,
+            "objective": -323.98575018596614,
+            "relative_feasibility": 0.002776176354768689,
+            "relative_stationarity": 1.196842989987217e-06,
+            "relative_l1_subgradient": 4.530717746659436e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5908573
+          },
+          {
+            "step": 1790,
+            "elapsed": 154.4343036301434,
+            "objective": -323.99056874409575,
+            "relative_feasibility": 0.002750518270578849,
+            "relative_stationarity": 1.1644091840680721e-06,
+            "relative_l1_subgradient": 4.677645665576289e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5909394
+          },
+          {
+            "step": 1800,
+            "elapsed": 155.29714058339596,
+            "objective": -323.9953552714935,
+            "relative_feasibility": 0.0027246670271794957,
+            "relative_stationarity": 1.1305105277872635e-06,
+            "relative_l1_subgradient": 4.607843173783321e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5909713
+          },
+          {
+            "step": 1810,
+            "elapsed": 156.1599409095943,
+            "objective": -324.0002055288437,
+            "relative_feasibility": 0.0026993593040708745,
+            "relative_stationarity": 1.1299387035964741e-06,
+            "relative_l1_subgradient": 4.513276303882478e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5911370
+          },
+          {
+            "step": 1820,
+            "elapsed": 157.02272136881948,
+            "objective": -324.00496099762324,
+            "relative_feasibility": 0.002674543614719874,
+            "relative_stationarity": 1.1247296326527252e-06,
+            "relative_l1_subgradient": 4.522128685082928e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5911881
+          },
+          {
+            "step": 1830,
+            "elapsed": 157.88572454452515,
+            "objective": -324.0096700296908,
+            "relative_feasibility": 0.002649800927269029,
+            "relative_stationarity": 1.1158669955574976e-06,
+            "relative_l1_subgradient": 4.556744507959153e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5912349
+          },
+          {
+            "step": 1840,
+            "elapsed": 158.7485551200807,
+            "objective": -324.01410285146835,
+            "relative_feasibility": 0.002625633725478997,
+            "relative_stationarity": 1.1020418528063629e-06,
+            "relative_l1_subgradient": 4.603548661218797e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5912627
+          },
+          {
+            "step": 1850,
+            "elapsed": 159.6112697198987,
+            "objective": -324.0188674839262,
+            "relative_feasibility": 0.0026028949294301055,
+            "relative_stationarity": 1.0353028761826202e-06,
+            "relative_l1_subgradient": 4.564188040088984e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5915027
+          },
+          {
+            "step": 1860,
+            "elapsed": 160.47404221445322,
+            "objective": -324.0233604673582,
+            "relative_feasibility": 0.002579537511628484,
+            "relative_stationarity": 1.0654418959052786e-06,
+            "relative_l1_subgradient": 4.501314497545521e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5916112
+          },
+          {
+            "step": 1870,
+            "elapsed": 161.33680963888764,
+            "objective": -324.0275748365832,
+            "relative_feasibility": 0.0025560227603301073,
+            "relative_stationarity": 1.0725577214253615e-06,
+            "relative_l1_subgradient": 4.526941718703929e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5915879
+          },
+          {
+            "step": 1880,
+            "elapsed": 162.1996297352016,
+            "objective": -324.0319014591583,
+            "relative_feasibility": 0.002533482420094657,
+            "relative_stationarity": 1.038429530763745e-06,
+            "relative_l1_subgradient": 4.515577543801275e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5916195
+          },
+          {
+            "step": 1890,
+            "elapsed": 163.06253879144788,
+            "objective": -324.0361189839715,
+            "relative_feasibility": 0.002510387584469367,
+            "relative_stationarity": 1.0475603284279397e-06,
+            "relative_l1_subgradient": 4.545037317780667e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5916406
+          },
+          {
+            "step": 1900,
+            "elapsed": 163.92548766359687,
+            "objective": -324.04054026604445,
+            "relative_feasibility": 0.0024878578671086084,
+            "relative_stationarity": 1.027401023359709e-06,
+            "relative_l1_subgradient": 4.530673692827993e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5919217
+          },
+          {
+            "step": 1910,
+            "elapsed": 164.78842637687922,
+            "objective": -324.0446733936193,
+            "relative_feasibility": 0.0024652646945907677,
+            "relative_stationarity": 1.0194186464398632e-06,
+            "relative_l1_subgradient": 4.597377072464511e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5921781
+          },
+          {
+            "step": 1920,
+            "elapsed": 165.65135671943426,
+            "objective": -324.04887864784075,
+            "relative_feasibility": 0.0024437630365936333,
+            "relative_stationarity": 9.846339921403848e-07,
+            "relative_l1_subgradient": 4.553526333476455e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5923684
+          },
+          {
+            "step": 1930,
+            "elapsed": 166.51432950422168,
+            "objective": -324.05296483723737,
+            "relative_feasibility": 0.0024233841309333507,
+            "relative_stationarity": 9.490367636391455e-07,
+            "relative_l1_subgradient": 4.519891235020981e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5925437
+          },
+          {
+            "step": 1940,
+            "elapsed": 167.37729880213737,
+            "objective": -324.05671424229854,
+            "relative_feasibility": 0.0024033271513526897,
+            "relative_stationarity": 9.577702349702794e-07,
+            "relative_l1_subgradient": 4.529770842181763e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5925532
+          },
+          {
+            "step": 1950,
+            "elapsed": 168.24018105491996,
+            "objective": -324.06064476892834,
+            "relative_feasibility": 0.0023829141642823996,
+            "relative_stationarity": 9.531568036726753e-07,
+            "relative_l1_subgradient": 4.528029644399411e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5926405
+          },
+          {
+            "step": 1960,
+            "elapsed": 169.1030262298882,
+            "objective": -324.06430283172705,
+            "relative_feasibility": 0.0023622659035962014,
+            "relative_stationarity": 9.864419966743522e-07,
+            "relative_l1_subgradient": 4.568650168734228e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5926001
+          },
+          {
+            "step": 1970,
+            "elapsed": 169.96599064022303,
+            "objective": -324.0681968644833,
+            "relative_feasibility": 0.0023414654157594447,
+            "relative_stationarity": 9.617110696162026e-07,
+            "relative_l1_subgradient": 4.610337748495364e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5928184
+          },
+          {
+            "step": 1980,
+            "elapsed": 170.8289561457932,
+            "objective": -324.07193637680376,
+            "relative_feasibility": 0.0023213689019033644,
+            "relative_stationarity": 9.486128772059837e-07,
+            "relative_l1_subgradient": 4.571681211732891e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5929263
+          },
+          {
+            "step": 1990,
+            "elapsed": 171.69188498705626,
+            "objective": -324.0754559614774,
+            "relative_feasibility": 0.0023019021788303405,
+            "relative_stationarity": 9.34850859564621e-07,
+            "relative_l1_subgradient": 4.580452507257382e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5928916
+          },
+          {
+            "step": 2000,
+            "elapsed": 172.55478861182928,
+            "objective": -324.07917894892836,
+            "relative_feasibility": 0.002283135823853993,
+            "relative_stationarity": 9.341237309281028e-07,
+            "relative_l1_subgradient": 4.508434214967409e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5929625
+          },
+          {
+            "step": 2010,
+            "elapsed": 173.4177437722683,
+            "objective": -324.08275579635074,
+            "relative_feasibility": 0.002264344077410886,
+            "relative_stationarity": 9.301997835252694e-07,
+            "relative_l1_subgradient": 4.609086208213392e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5930084
+          },
+          {
+            "step": 2020,
+            "elapsed": 174.28071966022253,
+            "objective": -324.0862078534161,
+            "relative_feasibility": 0.002245418076420469,
+            "relative_stationarity": 9.243571699946219e-07,
+            "relative_l1_subgradient": 4.544050639747347e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5931094
+          },
+          {
+            "step": 2030,
+            "elapsed": 175.14371487498283,
+            "objective": -324.08956401598897,
+            "relative_feasibility": 0.0022270414537629386,
+            "relative_stationarity": 8.894855197419091e-07,
+            "relative_l1_subgradient": 4.564421390583414e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5931224
+          },
+          {
+            "step": 2040,
+            "elapsed": 176.0067914351821,
+            "objective": -324.0929583188773,
+            "relative_feasibility": 0.002208699289988236,
+            "relative_stationarity": 9.000750193131845e-07,
+            "relative_l1_subgradient": 4.579392904056976e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5932830
+          },
+          {
+            "step": 2050,
+            "elapsed": 176.86971686780453,
+            "objective": -324.0963772680741,
+            "relative_feasibility": 0.0021905037326883326,
+            "relative_stationarity": 8.828493356311333e-07,
+            "relative_l1_subgradient": 4.558561304752504e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5935106
+          },
+          {
+            "step": 2060,
+            "elapsed": 177.73262580111623,
+            "objective": -324.09960762241735,
+            "relative_feasibility": 0.0021728981954367258,
+            "relative_stationarity": 8.807763804575551e-07,
+            "relative_l1_subgradient": 4.570824228747375e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5935334
+          },
+          {
+            "step": 2070,
+            "elapsed": 178.59551720693707,
+            "objective": -324.1027459704684,
+            "relative_feasibility": 0.0021546252831053246,
+            "relative_stationarity": 8.704254096833469e-07,
+            "relative_l1_subgradient": 4.54519207935659e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5935504
+          },
+          {
+            "step": 2080,
+            "elapsed": 179.45834651589394,
+            "objective": -324.1057709193384,
+            "relative_feasibility": 0.00213582514367443,
+            "relative_stationarity": 8.953497626320114e-07,
+            "relative_l1_subgradient": 4.536684976992981e-16,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 5935373
+          }
+        ]
+      }
+    },
+    {
+      "penalty_multiplier": 0.1,
+      "penalty": 0.005739531098456945,
+      "full_coefficient_capture": 0.06066031322994092,
+      "median_top16_contrast_loading_energy": 0.5867249048754711,
+      "mean_top16_contrast_loading_energy": 0.598908621327847,
+      "actual_contrast_nonzero_entries": 25755648,
+      "solver": {
+        "converged": false,
+        "steps": 2086,
+        "seconds": 180.1559311710298,
+        "final": {
+          "objective": -1252.6723371116618,
+          "relative_feasibility": 1.4790963909037936e-05,
+          "relative_stationarity": 9.164722449074417e-08,
+          "relative_l1_subgradient": 0.0,
+          "actual_writer_nonzeros": 25755648,
+          "auxiliary_nonzeros": 22059571
+        },
+        "history": [
+          {
+            "step": 1,
+            "elapsed": 0.1942051164805889,
+            "objective": -468.20975940874814,
+            "relative_feasibility": 0.31270088273830643,
+            "relative_stationarity": 0.1106935465838011,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 13405899
+          },
+          {
+            "step": 10,
+            "elapsed": 0.9790895767509937,
+            "objective": -1242.3355291622959,
+            "relative_feasibility": 0.053134867353526016,
+            "relative_stationarity": 0.010680836174616987,
+            "relative_l1_subgradient": 9.40170870359661e-20,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 15199410
+          },
+          {
+            "step": 20,
+            "elapsed": 1.8420922122895718,
+            "objective": -1251.5916837575228,
+            "relative_feasibility": 0.014399829875459205,
+            "relative_stationarity": 0.0011156789064207405,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 17968408
+          },
+          {
+            "step": 30,
+            "elapsed": 2.7049537040293217,
+            "objective": -1252.23210863852,
+            "relative_feasibility": 0.006856602895224871,
+            "relative_stationarity": 0.000447055942039841,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 19059842
+          },
+          {
+            "step": 40,
+            "elapsed": 3.5679261051118374,
+            "objective": -1252.4211600152958,
+            "relative_feasibility": 0.004397506235980498,
+            "relative_stationarity": 0.00024477424682145554,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 19728610
+          },
+          {
+            "step": 50,
+            "elapsed": 4.430785238742828,
+            "objective": -1252.5022220059018,
+            "relative_feasibility": 0.0031650028917614374,
+            "relative_stationarity": 0.00015513908514949763,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 20161470
+          },
+          {
+            "step": 60,
+            "elapsed": 5.293728772550821,
+            "objective": -1252.5468771319088,
+            "relative_feasibility": 0.0024255949381847557,
+            "relative_stationarity": 0.00010493228919887256,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 20469921
+          },
+          {
+            "step": 70,
+            "elapsed": 6.156561184674501,
+            "objective": -1252.5769494483966,
+            "relative_feasibility": 0.001938628425194658,
+            "relative_stationarity": 6.905579126883451e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 20674350
+          },
+          {
+            "step": 80,
+            "elapsed": 7.0193739123642445,
+            "objective": -1252.5963923639479,
+            "relative_feasibility": 0.0015956998678774723,
+            "relative_stationarity": 5.2777975829275396e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 20867187
+          },
+          {
+            "step": 90,
+            "elapsed": 7.882218636572361,
+            "objective": -1252.6101149666556,
+            "relative_feasibility": 0.0013442224812216436,
+            "relative_stationarity": 4.221323391270341e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21020440
+          },
+          {
+            "step": 100,
+            "elapsed": 8.74525473639369,
+            "objective": -1252.6202570066016,
+            "relative_feasibility": 0.001154316102693289,
+            "relative_stationarity": 3.438309928832943e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21138644
+          },
+          {
+            "step": 110,
+            "elapsed": 9.608321912586689,
+            "objective": -1252.6279320404142,
+            "relative_feasibility": 0.001006477667486993,
+            "relative_stationarity": 2.8301610584321997e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21235215
+          },
+          {
+            "step": 120,
+            "elapsed": 10.471018251031637,
+            "objective": -1252.633947221978,
+            "relative_feasibility": 0.0008879224221420408,
+            "relative_stationarity": 2.3566113794823005e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21322723
+          },
+          {
+            "step": 130,
+            "elapsed": 11.333694040775299,
+            "objective": -1252.6386841095234,
+            "relative_feasibility": 0.0007911029939064786,
+            "relative_stationarity": 2.002512617435188e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21397225
+          },
+          {
+            "step": 140,
+            "elapsed": 12.196525622159243,
+            "objective": -1252.642554063441,
+            "relative_feasibility": 0.0007114056501227537,
+            "relative_stationarity": 1.7001442223338652e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21461760
+          },
+          {
+            "step": 150,
+            "elapsed": 13.05926039814949,
+            "objective": -1252.6457094645757,
+            "relative_feasibility": 0.0006444834957310373,
+            "relative_stationarity": 1.470391002329924e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21518838
+          },
+          {
+            "step": 160,
+            "elapsed": 13.922198418527842,
+            "objective": -1252.648350498891,
+            "relative_feasibility": 0.0005876074450021935,
+            "relative_stationarity": 1.2827796457039947e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21569805
+          },
+          {
+            "step": 170,
+            "elapsed": 14.78532275557518,
+            "objective": -1252.650586136835,
+            "relative_feasibility": 0.0005389211707709779,
+            "relative_stationarity": 1.1368512324774793e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21614128
+          },
+          {
+            "step": 180,
+            "elapsed": 15.648419696837664,
+            "objective": -1252.6524818426142,
+            "relative_feasibility": 0.0004968112127503145,
+            "relative_stationarity": 1.010293485419816e-05,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21653101
+          },
+          {
+            "step": 190,
+            "elapsed": 16.51137673482299,
+            "objective": -1252.6541299552223,
+            "relative_feasibility": 0.0004600223477553027,
+            "relative_stationarity": 9.037717895360801e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21688502
+          },
+          {
+            "step": 200,
+            "elapsed": 17.37420989200473,
+            "objective": -1252.6555757271867,
+            "relative_feasibility": 0.00042753427975342803,
+            "relative_stationarity": 8.179267095884512e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21719832
+          },
+          {
+            "step": 210,
+            "elapsed": 18.23711082711816,
+            "objective": -1252.6568429087595,
+            "relative_feasibility": 0.00039859610593355135,
+            "relative_stationarity": 7.4697072291355936e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21748141
+          },
+          {
+            "step": 220,
+            "elapsed": 19.100025698542595,
+            "objective": -1252.6579548645068,
+            "relative_feasibility": 0.0003729057265353915,
+            "relative_stationarity": 6.833556144469016e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21773656
+          },
+          {
+            "step": 230,
+            "elapsed": 19.96281011775136,
+            "objective": -1252.6589502445845,
+            "relative_feasibility": 0.0003498234105134099,
+            "relative_stationarity": 6.2454099732191e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21797270
+          },
+          {
+            "step": 240,
+            "elapsed": 20.825717218220234,
+            "objective": -1252.6598378279232,
+            "relative_feasibility": 0.0003292446357417462,
+            "relative_stationarity": 5.711170159751267e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21819103
+          },
+          {
+            "step": 250,
+            "elapsed": 21.688623256981373,
+            "objective": -1252.66062943499,
+            "relative_feasibility": 0.00031059346921702993,
+            "relative_stationarity": 5.290674717655815e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21838443
+          },
+          {
+            "step": 260,
+            "elapsed": 22.551542561501265,
+            "objective": -1252.6613466806202,
+            "relative_feasibility": 0.0002937326919995556,
+            "relative_stationarity": 4.901708428919525e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21857240
+          },
+          {
+            "step": 270,
+            "elapsed": 23.41452870890498,
+            "objective": -1252.6619959422774,
+            "relative_feasibility": 0.0002780964729196333,
+            "relative_stationarity": 4.547037990323249e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21874215
+          },
+          {
+            "step": 280,
+            "elapsed": 24.277362871915102,
+            "objective": -1252.6625877498604,
+            "relative_feasibility": 0.0002639732629125147,
+            "relative_stationarity": 4.2351489318192715e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21888974
+          },
+          {
+            "step": 290,
+            "elapsed": 25.140116982162,
+            "objective": -1252.6631196336903,
+            "relative_feasibility": 0.0002511192796868519,
+            "relative_stationarity": 3.951972143754263e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21902497
+          },
+          {
+            "step": 300,
+            "elapsed": 26.002929363399744,
+            "objective": -1252.6636026580618,
+            "relative_feasibility": 0.0002391205419966938,
+            "relative_stationarity": 3.690345485542963e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21916325
+          },
+          {
+            "step": 310,
+            "elapsed": 26.86573089659214,
+            "objective": -1252.664049303692,
+            "relative_feasibility": 0.00022831099117960054,
+            "relative_stationarity": 3.4451751987363652e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21928309
+          },
+          {
+            "step": 320,
+            "elapsed": 27.728520914912224,
+            "objective": -1252.664468438239,
+            "relative_feasibility": 0.00021834574154468495,
+            "relative_stationarity": 3.2471361173361898e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21940294
+          },
+          {
+            "step": 330,
+            "elapsed": 28.59131434932351,
+            "objective": -1252.664847631679,
+            "relative_feasibility": 0.00020902248457795437,
+            "relative_stationarity": 3.0620015520902617e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21950812
+          },
+          {
+            "step": 340,
+            "elapsed": 29.454185727983713,
+            "objective": -1252.665204233443,
+            "relative_feasibility": 0.00020031488411294179,
+            "relative_stationarity": 2.901171133591659e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21959596
+          },
+          {
+            "step": 350,
+            "elapsed": 30.31696507334709,
+            "objective": -1252.6655315729558,
+            "relative_feasibility": 0.00019223425158190958,
+            "relative_stationarity": 2.743842834368669e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21968432
+          },
+          {
+            "step": 360,
+            "elapsed": 31.17974841594696,
+            "objective": -1252.6658433180805,
+            "relative_feasibility": 0.00018461857185983412,
+            "relative_stationarity": 2.60912864148187e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21977511
+          },
+          {
+            "step": 370,
+            "elapsed": 32.04261386394501,
+            "objective": -1252.6661328485536,
+            "relative_feasibility": 0.0001776034918488468,
+            "relative_stationarity": 2.4829045186588888e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21984808
+          },
+          {
+            "step": 380,
+            "elapsed": 32.90538299456239,
+            "objective": -1252.6664002448097,
+            "relative_feasibility": 0.0001708920408361002,
+            "relative_stationarity": 2.3685546145424335e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21991522
+          },
+          {
+            "step": 390,
+            "elapsed": 33.7681994959712,
+            "objective": -1252.6666488787596,
+            "relative_feasibility": 0.00016470967806458877,
+            "relative_stationarity": 2.2328070057475806e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 21999422
+          },
+          {
+            "step": 400,
+            "elapsed": 34.63091878592968,
+            "objective": -1252.666880223315,
+            "relative_feasibility": 0.0001589336000949204,
+            "relative_stationarity": 2.117281998416715e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22006981
+          },
+          {
+            "step": 410,
+            "elapsed": 35.49373434111476,
+            "objective": -1252.6670956512485,
+            "relative_feasibility": 0.00015352686749290145,
+            "relative_stationarity": 2.0033713563913208e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22013521
+          },
+          {
+            "step": 420,
+            "elapsed": 36.356641851365566,
+            "objective": -1252.6672986395438,
+            "relative_feasibility": 0.00014840123611621953,
+            "relative_stationarity": 1.92487088172547e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22019262
+          },
+          {
+            "step": 430,
+            "elapsed": 37.2193420343101,
+            "objective": -1252.66748511834,
+            "relative_feasibility": 0.00014357257619412666,
+            "relative_stationarity": 1.8409685822406022e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22025156
+          },
+          {
+            "step": 440,
+            "elapsed": 38.08207768201828,
+            "objective": -1252.667659628445,
+            "relative_feasibility": 0.00013893702366925452,
+            "relative_stationarity": 1.7741591508842956e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22031082
+          },
+          {
+            "step": 450,
+            "elapsed": 38.944938369095325,
+            "objective": -1252.667825139176,
+            "relative_feasibility": 0.00013448842702779986,
+            "relative_stationarity": 1.6983812625709198e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22035947
+          },
+          {
+            "step": 460,
+            "elapsed": 39.807874489575624,
+            "objective": -1252.6679867353319,
+            "relative_feasibility": 0.00013029203107342495,
+            "relative_stationarity": 1.6288758185235364e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22039468
+          },
+          {
+            "step": 470,
+            "elapsed": 40.67069683223963,
+            "objective": -1252.6681379394572,
+            "relative_feasibility": 0.00012637275463424642,
+            "relative_stationarity": 1.5539167423651718e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22042030
+          },
+          {
+            "step": 480,
+            "elapsed": 41.53352803364396,
+            "objective": -1252.6682835438455,
+            "relative_feasibility": 0.00012262694667232912,
+            "relative_stationarity": 1.4882034933091281e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22046015
+          },
+          {
+            "step": 490,
+            "elapsed": 42.39637693017721,
+            "objective": -1252.668421248994,
+            "relative_feasibility": 0.00011908492032887088,
+            "relative_stationarity": 1.4303980819017615e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22048815
+          },
+          {
+            "step": 500,
+            "elapsed": 43.259305987507105,
+            "objective": -1252.6685506764866,
+            "relative_feasibility": 0.00011566070349058007,
+            "relative_stationarity": 1.3818368635705091e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22051660
+          },
+          {
+            "step": 510,
+            "elapsed": 44.122341986745596,
+            "objective": -1252.6686738510534,
+            "relative_feasibility": 0.00011237356441844737,
+            "relative_stationarity": 1.3334023370201561e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22053432
+          },
+          {
+            "step": 520,
+            "elapsed": 44.985397189855576,
+            "objective": -1252.6687909434477,
+            "relative_feasibility": 0.00010924439891659717,
+            "relative_stationarity": 1.2901729305452023e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22056521
+          },
+          {
+            "step": 530,
+            "elapsed": 45.84819093719125,
+            "objective": -1252.6689027212747,
+            "relative_feasibility": 0.0001062696824681208,
+            "relative_stationarity": 1.240453310615106e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22058456
+          },
+          {
+            "step": 540,
+            "elapsed": 46.7111541479826,
+            "objective": -1252.6690122057612,
+            "relative_feasibility": 0.00010342916112908673,
+            "relative_stationarity": 1.2083675068880916e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22060951
+          },
+          {
+            "step": 550,
+            "elapsed": 47.574238669127226,
+            "objective": -1252.6691140051748,
+            "relative_feasibility": 0.00010071442093298229,
+            "relative_stationarity": 1.1652926621881878e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22065058
+          },
+          {
+            "step": 560,
+            "elapsed": 48.43719482421875,
+            "objective": -1252.6692111666562,
+            "relative_feasibility": 9.810750722230909e-05,
+            "relative_stationarity": 1.1342389722206822e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22067297
+          },
+          {
+            "step": 570,
+            "elapsed": 49.29998144134879,
+            "objective": -1252.6693077920777,
+            "relative_feasibility": 9.55968562878572e-05,
+            "relative_stationarity": 1.099932216501527e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22070038
+          },
+          {
+            "step": 580,
+            "elapsed": 50.16272756829858,
+            "objective": -1252.6694009411242,
+            "relative_feasibility": 9.323684059214544e-05,
+            "relative_stationarity": 1.0592689252841292e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22071793
+          },
+          {
+            "step": 590,
+            "elapsed": 51.02558070793748,
+            "objective": -1252.6694892909366,
+            "relative_feasibility": 9.097267161299861e-05,
+            "relative_stationarity": 1.0159021602956777e-06,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22073782
+          },
+          {
+            "step": 600,
+            "elapsed": 51.88849912211299,
+            "objective": -1252.6695716376134,
+            "relative_feasibility": 8.879094101191674e-05,
+            "relative_stationarity": 9.808779074528706e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22076042
+          },
+          {
+            "step": 610,
+            "elapsed": 52.75149220973253,
+            "objective": -1252.6696503808428,
+            "relative_feasibility": 8.669484079224955e-05,
+            "relative_stationarity": 9.467989244686125e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22079200
+          },
+          {
+            "step": 620,
+            "elapsed": 53.61463722214103,
+            "objective": -1252.6697267883087,
+            "relative_feasibility": 8.470306921590188e-05,
+            "relative_stationarity": 9.19370597901385e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22081375
+          },
+          {
+            "step": 630,
+            "elapsed": 54.4776744581759,
+            "objective": -1252.6697994676788,
+            "relative_feasibility": 8.280571699955321e-05,
+            "relative_stationarity": 8.928544728462725e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22083669
+          },
+          {
+            "step": 640,
+            "elapsed": 55.34075082093477,
+            "objective": -1252.669869714935,
+            "relative_feasibility": 8.095840479678109e-05,
+            "relative_stationarity": 8.686485414901213e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22085229
+          },
+          {
+            "step": 650,
+            "elapsed": 56.20378880947828,
+            "objective": -1252.6699381040182,
+            "relative_feasibility": 7.918509581683612e-05,
+            "relative_stationarity": 8.447041900911652e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22086638
+          },
+          {
+            "step": 660,
+            "elapsed": 57.06674249097705,
+            "objective": -1252.6700030034121,
+            "relative_feasibility": 7.747713824832733e-05,
+            "relative_stationarity": 8.177992668741092e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22086568
+          },
+          {
+            "step": 670,
+            "elapsed": 57.929759070277214,
+            "objective": -1252.67006631811,
+            "relative_feasibility": 7.586481135817051e-05,
+            "relative_stationarity": 7.87674439072342e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22088018
+          },
+          {
+            "step": 680,
+            "elapsed": 58.79270941391587,
+            "objective": -1252.6701259146416,
+            "relative_feasibility": 7.429562500145827e-05,
+            "relative_stationarity": 7.628292295087101e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22089438
+          },
+          {
+            "step": 690,
+            "elapsed": 59.655685521662235,
+            "objective": -1252.670182084572,
+            "relative_feasibility": 7.278963603185464e-05,
+            "relative_stationarity": 7.386991574136841e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22089209
+          },
+          {
+            "step": 700,
+            "elapsed": 60.5185630582273,
+            "objective": -1252.6702365312965,
+            "relative_feasibility": 7.132311843786061e-05,
+            "relative_stationarity": 7.234213816436178e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22090242
+          },
+          {
+            "step": 710,
+            "elapsed": 61.38144835829735,
+            "objective": -1252.670288687175,
+            "relative_feasibility": 6.98948171274247e-05,
+            "relative_stationarity": 7.092140997467314e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22090355
+          },
+          {
+            "step": 720,
+            "elapsed": 62.24432551115751,
+            "objective": -1252.6703403780937,
+            "relative_feasibility": 6.850667863413393e-05,
+            "relative_stationarity": 6.945563142653563e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22090405
+          },
+          {
+            "step": 730,
+            "elapsed": 63.10724279657006,
+            "objective": -1252.670389233655,
+            "relative_feasibility": 6.716249999518423e-05,
+            "relative_stationarity": 6.741201492903549e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22091384
+          },
+          {
+            "step": 740,
+            "elapsed": 63.97018699720502,
+            "objective": -1252.6704370165455,
+            "relative_feasibility": 6.587517547990227e-05,
+            "relative_stationarity": 6.586649998017108e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22092430
+          },
+          {
+            "step": 750,
+            "elapsed": 64.8331377916038,
+            "objective": -1252.6704838892338,
+            "relative_feasibility": 6.462806658100778e-05,
+            "relative_stationarity": 6.403920592641727e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22092359
+          },
+          {
+            "step": 760,
+            "elapsed": 65.69609316065907,
+            "objective": -1252.6705297999715,
+            "relative_feasibility": 6.339939178128316e-05,
+            "relative_stationarity": 6.277349476949798e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22093362
+          },
+          {
+            "step": 770,
+            "elapsed": 66.55908812582493,
+            "objective": -1252.6705737548505,
+            "relative_feasibility": 6.22319128673649e-05,
+            "relative_stationarity": 6.059947374019185e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22094190
+          },
+          {
+            "step": 780,
+            "elapsed": 67.42222314700484,
+            "objective": -1252.6706174406659,
+            "relative_feasibility": 6.112556514344695e-05,
+            "relative_stationarity": 5.906202951213223e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22094548
+          },
+          {
+            "step": 790,
+            "elapsed": 68.28527537733316,
+            "objective": -1252.6706593779843,
+            "relative_feasibility": 6.004263425101354e-05,
+            "relative_stationarity": 5.748706909522939e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22096229
+          },
+          {
+            "step": 800,
+            "elapsed": 69.14830726757646,
+            "objective": -1252.670698895026,
+            "relative_feasibility": 5.900675330589314e-05,
+            "relative_stationarity": 5.578406955158497e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22097848
+          },
+          {
+            "step": 810,
+            "elapsed": 70.01124794408679,
+            "objective": -1252.6707363935354,
+            "relative_feasibility": 5.796926902959592e-05,
+            "relative_stationarity": 5.433765846923469e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22099169
+          },
+          {
+            "step": 820,
+            "elapsed": 70.8742813616991,
+            "objective": -1252.670774305917,
+            "relative_feasibility": 5.695507808029512e-05,
+            "relative_stationarity": 5.346928197450087e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22099786
+          },
+          {
+            "step": 830,
+            "elapsed": 71.73744377493858,
+            "objective": -1252.6708110000818,
+            "relative_feasibility": 5.5983655139170265e-05,
+            "relative_stationarity": 5.251735010457048e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22099864
+          },
+          {
+            "step": 840,
+            "elapsed": 72.6008269675076,
+            "objective": -1252.670846391697,
+            "relative_feasibility": 5.5021050734532224e-05,
+            "relative_stationarity": 5.205434968065496e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22100933
+          },
+          {
+            "step": 850,
+            "elapsed": 73.46402888000011,
+            "objective": -1252.6708808851718,
+            "relative_feasibility": 5.4083058629325655e-05,
+            "relative_stationarity": 5.14908307119371e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22100640
+          },
+          {
+            "step": 860,
+            "elapsed": 74.32701493799686,
+            "objective": -1252.6709150019701,
+            "relative_feasibility": 5.315346456156348e-05,
+            "relative_stationarity": 5.072377435778356e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22100987
+          },
+          {
+            "step": 870,
+            "elapsed": 75.1900476552546,
+            "objective": -1252.6709481699816,
+            "relative_feasibility": 5.228010317401526e-05,
+            "relative_stationarity": 4.924458071184946e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22102548
+          },
+          {
+            "step": 880,
+            "elapsed": 76.05285362526774,
+            "objective": -1252.6709801076988,
+            "relative_feasibility": 5.143051666076045e-05,
+            "relative_stationarity": 4.7622480073894424e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22103133
+          },
+          {
+            "step": 890,
+            "elapsed": 76.91567254438996,
+            "objective": -1252.6710107251165,
+            "relative_feasibility": 5.0594192410056296e-05,
+            "relative_stationarity": 4.67836094055049e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22102822
+          },
+          {
+            "step": 900,
+            "elapsed": 77.77835701033473,
+            "objective": -1252.6710408465417,
+            "relative_feasibility": 4.979812128960606e-05,
+            "relative_stationarity": 4.537308767042886e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22104672
+          },
+          {
+            "step": 910,
+            "elapsed": 78.64120577275753,
+            "objective": -1252.6710700057824,
+            "relative_feasibility": 4.901278447865716e-05,
+            "relative_stationarity": 4.4499277210017765e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22105990
+          },
+          {
+            "step": 920,
+            "elapsed": 79.50423161312938,
+            "objective": -1252.671098751986,
+            "relative_feasibility": 4.825814096259132e-05,
+            "relative_stationarity": 4.3287597910249175e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22106935
+          },
+          {
+            "step": 930,
+            "elapsed": 80.36718065664172,
+            "objective": -1252.6711261160797,
+            "relative_feasibility": 4.7515546930890546e-05,
+            "relative_stationarity": 4.285195930531707e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22107524
+          },
+          {
+            "step": 940,
+            "elapsed": 81.22998253256083,
+            "objective": -1252.6711526763738,
+            "relative_feasibility": 4.6790155647812446e-05,
+            "relative_stationarity": 4.1967281609586443e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22107849
+          },
+          {
+            "step": 950,
+            "elapsed": 82.09284329041839,
+            "objective": -1252.6711791356354,
+            "relative_feasibility": 4.607786523803161e-05,
+            "relative_stationarity": 4.1661018951123676e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22108351
+          },
+          {
+            "step": 960,
+            "elapsed": 82.95583310350776,
+            "objective": -1252.6712047176188,
+            "relative_feasibility": 4.5395587367704125e-05,
+            "relative_stationarity": 4.0934987290986713e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22107993
+          },
+          {
+            "step": 970,
+            "elapsed": 83.81853840127587,
+            "objective": -1252.6712294954966,
+            "relative_feasibility": 4.4714272802746124e-05,
+            "relative_stationarity": 4.0263863001924127e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22108216
+          },
+          {
+            "step": 980,
+            "elapsed": 84.68131558224559,
+            "objective": -1252.671254287438,
+            "relative_feasibility": 4.4023699786609724e-05,
+            "relative_stationarity": 3.9950737137534534e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22108243
+          },
+          {
+            "step": 990,
+            "elapsed": 85.54409521445632,
+            "objective": -1252.6712783685414,
+            "relative_feasibility": 4.337782466480045e-05,
+            "relative_stationarity": 3.836181400033931e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22109840
+          },
+          {
+            "step": 1000,
+            "elapsed": 86.40682668238878,
+            "objective": -1252.671301439222,
+            "relative_feasibility": 4.275664348246065e-05,
+            "relative_stationarity": 3.78590351509887e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22110365
+          },
+          {
+            "step": 1010,
+            "elapsed": 87.26964129135013,
+            "objective": -1252.671323964945,
+            "relative_feasibility": 4.212290075858393e-05,
+            "relative_stationarity": 3.751864705826516e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22109966
+          },
+          {
+            "step": 1020,
+            "elapsed": 88.1324597671628,
+            "objective": -1252.671347049429,
+            "relative_feasibility": 4.152761787203266e-05,
+            "relative_stationarity": 3.6718398865516135e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22110901
+          },
+          {
+            "step": 1030,
+            "elapsed": 88.99544287472963,
+            "objective": -1252.6713684621088,
+            "relative_feasibility": 4.0947638660555816e-05,
+            "relative_stationarity": 3.5798977877927405e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22109931
+          },
+          {
+            "step": 1040,
+            "elapsed": 89.8584399856627,
+            "objective": -1252.6713899641018,
+            "relative_feasibility": 4.0366822206439623e-05,
+            "relative_stationarity": 3.518855724561684e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22110466
+          },
+          {
+            "step": 1050,
+            "elapsed": 90.72116751596332,
+            "objective": -1252.671410779876,
+            "relative_feasibility": 3.981538519135783e-05,
+            "relative_stationarity": 3.434882995306665e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22111939
+          },
+          {
+            "step": 1060,
+            "elapsed": 91.58398320525885,
+            "objective": -1252.6714314177693,
+            "relative_feasibility": 3.928614178405369e-05,
+            "relative_stationarity": 3.341764151152885e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22112455
+          },
+          {
+            "step": 1070,
+            "elapsed": 92.44680252298713,
+            "objective": -1252.6714511892746,
+            "relative_feasibility": 3.8755422359289155e-05,
+            "relative_stationarity": 3.292449005649068e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22112416
+          },
+          {
+            "step": 1080,
+            "elapsed": 93.3103704303503,
+            "objective": -1252.67147044079,
+            "relative_feasibility": 3.8252009097567676e-05,
+            "relative_stationarity": 3.2332385483216796e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113532
+          },
+          {
+            "step": 1090,
+            "elapsed": 94.17394047603011,
+            "objective": -1252.671488124679,
+            "relative_feasibility": 3.7737120898281784e-05,
+            "relative_stationarity": 3.221757715883523e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22112292
+          },
+          {
+            "step": 1100,
+            "elapsed": 95.03677425161004,
+            "objective": -1252.6715065776516,
+            "relative_feasibility": 3.72333934047673e-05,
+            "relative_stationarity": 3.174982443540768e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113270
+          },
+          {
+            "step": 1110,
+            "elapsed": 95.89955918863416,
+            "objective": -1252.6715244713005,
+            "relative_feasibility": 3.674008271623555e-05,
+            "relative_stationarity": 3.117292421807536e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113116
+          },
+          {
+            "step": 1120,
+            "elapsed": 96.76231330260634,
+            "objective": -1252.6715418703036,
+            "relative_feasibility": 3.626258939826205e-05,
+            "relative_stationarity": 3.0688187585534126e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113224
+          },
+          {
+            "step": 1130,
+            "elapsed": 97.62509281933308,
+            "objective": -1252.67155962093,
+            "relative_feasibility": 3.5800342910369306e-05,
+            "relative_stationarity": 2.991499473414535e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22112836
+          },
+          {
+            "step": 1140,
+            "elapsed": 98.48778392001987,
+            "objective": -1252.671576667196,
+            "relative_feasibility": 3.533530010431355e-05,
+            "relative_stationarity": 2.951124633894838e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113237
+          },
+          {
+            "step": 1150,
+            "elapsed": 99.35053510591388,
+            "objective": -1252.6715936734236,
+            "relative_feasibility": 3.489298848023505e-05,
+            "relative_stationarity": 2.902217120598719e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113792
+          },
+          {
+            "step": 1160,
+            "elapsed": 100.21329371258616,
+            "objective": -1252.6716095675301,
+            "relative_feasibility": 3.446513295996143e-05,
+            "relative_stationarity": 2.837912539137242e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22114013
+          },
+          {
+            "step": 1170,
+            "elapsed": 101.07605993375182,
+            "objective": -1252.6716247971494,
+            "relative_feasibility": 3.4030924763277515e-05,
+            "relative_stationarity": 2.810504076488075e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113038
+          },
+          {
+            "step": 1180,
+            "elapsed": 101.93880893290043,
+            "objective": -1252.6716402917612,
+            "relative_feasibility": 3.361809743352385e-05,
+            "relative_stationarity": 2.752521977988165e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113015
+          },
+          {
+            "step": 1190,
+            "elapsed": 102.80167906731367,
+            "objective": -1252.6716551940565,
+            "relative_feasibility": 3.321878090396727e-05,
+            "relative_stationarity": 2.68041329105149e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113164
+          },
+          {
+            "step": 1200,
+            "elapsed": 103.66489198431373,
+            "objective": -1252.6716698933703,
+            "relative_feasibility": 3.282147400112247e-05,
+            "relative_stationarity": 2.626407938285186e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113408
+          },
+          {
+            "step": 1210,
+            "elapsed": 104.52780975401402,
+            "objective": -1252.671684497605,
+            "relative_feasibility": 3.2439826288410705e-05,
+            "relative_stationarity": 2.590065308429637e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22114228
+          },
+          {
+            "step": 1220,
+            "elapsed": 105.39085377380252,
+            "objective": -1252.6716987562704,
+            "relative_feasibility": 3.2079295951352796e-05,
+            "relative_stationarity": 2.5105769970586426e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22114742
+          },
+          {
+            "step": 1230,
+            "elapsed": 106.25382002443075,
+            "objective": -1252.6717118387226,
+            "relative_feasibility": 3.1713107758254386e-05,
+            "relative_stationarity": 2.473584960163171e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22114978
+          },
+          {
+            "step": 1240,
+            "elapsed": 107.11677230522037,
+            "objective": -1252.671724392993,
+            "relative_feasibility": 3.134698789131163e-05,
+            "relative_stationarity": 2.4773758356707896e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22114423
+          },
+          {
+            "step": 1250,
+            "elapsed": 107.97970069944859,
+            "objective": -1252.6717370731158,
+            "relative_feasibility": 3.1002054121405544e-05,
+            "relative_stationarity": 2.4554496207709277e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113583
+          },
+          {
+            "step": 1260,
+            "elapsed": 108.84258749708533,
+            "objective": -1252.6717504047633,
+            "relative_feasibility": 3.0652280206762386e-05,
+            "relative_stationarity": 2.4151734719931704e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22114034
+          },
+          {
+            "step": 1270,
+            "elapsed": 109.70547971501946,
+            "objective": -1252.6717628603885,
+            "relative_feasibility": 3.029974409329514e-05,
+            "relative_stationarity": 2.417854362382884e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113071
+          },
+          {
+            "step": 1280,
+            "elapsed": 110.56834089756012,
+            "objective": -1252.671775240141,
+            "relative_feasibility": 2.9962757818945863e-05,
+            "relative_stationarity": 2.367558580669039e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22113004
+          },
+          {
+            "step": 1290,
+            "elapsed": 111.43123418465257,
+            "objective": -1252.671787530892,
+            "relative_feasibility": 2.962720684264516e-05,
+            "relative_stationarity": 2.3434790109216225e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22111387
+          },
+          {
+            "step": 1300,
+            "elapsed": 112.29416643455625,
+            "objective": -1252.6717996791344,
+            "relative_feasibility": 2.9298074298974975e-05,
+            "relative_stationarity": 2.2803941542818936e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22110906
+          },
+          {
+            "step": 1310,
+            "elapsed": 113.15718085318804,
+            "objective": -1252.6718114686928,
+            "relative_feasibility": 2.8971775832943636e-05,
+            "relative_stationarity": 2.246567868012436e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22110123
+          },
+          {
+            "step": 1320,
+            "elapsed": 114.02016837522388,
+            "objective": -1252.6718233369936,
+            "relative_feasibility": 2.8661616870959043e-05,
+            "relative_stationarity": 2.209692367219434e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22110034
+          },
+          {
+            "step": 1330,
+            "elapsed": 114.88310827314854,
+            "objective": -1252.6718350985202,
+            "relative_feasibility": 2.8342246869795437e-05,
+            "relative_stationarity": 2.1676925330463965e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22110369
+          },
+          {
+            "step": 1340,
+            "elapsed": 115.74606528133154,
+            "objective": -1252.6718465106549,
+            "relative_feasibility": 2.802585288983921e-05,
+            "relative_stationarity": 2.1441842968472878e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22110305
+          },
+          {
+            "step": 1350,
+            "elapsed": 116.60905501618981,
+            "objective": -1252.6718577247527,
+            "relative_feasibility": 2.772801280771037e-05,
+            "relative_stationarity": 2.107440488971403e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22108668
+          },
+          {
+            "step": 1360,
+            "elapsed": 117.4720717817545,
+            "objective": -1252.6718690357498,
+            "relative_feasibility": 2.743688183664465e-05,
+            "relative_stationarity": 2.0916887120828675e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22107239
+          },
+          {
+            "step": 1370,
+            "elapsed": 118.33525625243783,
+            "objective": -1252.6718800821502,
+            "relative_feasibility": 2.7159196684961275e-05,
+            "relative_stationarity": 2.0338243262390149e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22108244
+          },
+          {
+            "step": 1380,
+            "elapsed": 119.198371745646,
+            "objective": -1252.6718907562777,
+            "relative_feasibility": 2.6882228252140632e-05,
+            "relative_stationarity": 2.0084941945800433e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22107874
+          },
+          {
+            "step": 1390,
+            "elapsed": 120.06150911748409,
+            "objective": -1252.6719010419483,
+            "relative_feasibility": 2.6608387017213636e-05,
+            "relative_stationarity": 1.9811476484890493e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22107883
+          },
+          {
+            "step": 1400,
+            "elapsed": 120.92448084428906,
+            "objective": -1252.671910604631,
+            "relative_feasibility": 2.6348027882539057e-05,
+            "relative_stationarity": 1.943231871115582e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22106738
+          },
+          {
+            "step": 1410,
+            "elapsed": 121.78740569204092,
+            "objective": -1252.6719207219144,
+            "relative_feasibility": 2.6071538161444127e-05,
+            "relative_stationarity": 1.9332250929835188e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22105353
+          },
+          {
+            "step": 1420,
+            "elapsed": 122.65033616125584,
+            "objective": -1252.6719298880237,
+            "relative_feasibility": 2.580093635729764e-05,
+            "relative_stationarity": 1.936461451712168e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22103359
+          },
+          {
+            "step": 1430,
+            "elapsed": 123.51340558752418,
+            "objective": -1252.6719395577566,
+            "relative_feasibility": 2.5535703940233858e-05,
+            "relative_stationarity": 1.941821776024546e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22098767
+          },
+          {
+            "step": 1440,
+            "elapsed": 124.37636563554406,
+            "objective": -1252.671949541837,
+            "relative_feasibility": 2.5278997090323194e-05,
+            "relative_stationarity": 1.8972056053088412e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22097198
+          },
+          {
+            "step": 1450,
+            "elapsed": 125.23925307020545,
+            "objective": -1252.6719589613353,
+            "relative_feasibility": 2.5026215847943337e-05,
+            "relative_stationarity": 1.8435496330873224e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22098272
+          },
+          {
+            "step": 1460,
+            "elapsed": 126.10222160816193,
+            "objective": -1252.6719681759478,
+            "relative_feasibility": 2.4781698912611744e-05,
+            "relative_stationarity": 1.8034299753042773e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22099843
+          },
+          {
+            "step": 1470,
+            "elapsed": 126.96512261405587,
+            "objective": -1252.67197692079,
+            "relative_feasibility": 2.4531464468601888e-05,
+            "relative_stationarity": 1.7899639183825246e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22099001
+          },
+          {
+            "step": 1480,
+            "elapsed": 127.8279872648418,
+            "objective": -1252.6719856926002,
+            "relative_feasibility": 2.4288168306335735e-05,
+            "relative_stationarity": 1.782080501189569e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22097317
+          },
+          {
+            "step": 1490,
+            "elapsed": 128.69091438502073,
+            "objective": -1252.6719944232962,
+            "relative_feasibility": 2.4063987172623576e-05,
+            "relative_stationarity": 1.740030420223718e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22097343
+          },
+          {
+            "step": 1500,
+            "elapsed": 129.5537958033383,
+            "objective": -1252.672003310877,
+            "relative_feasibility": 2.3839662435574395e-05,
+            "relative_stationarity": 1.6910403371951615e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22097533
+          },
+          {
+            "step": 1510,
+            "elapsed": 130.41681957617402,
+            "objective": -1252.6720115575586,
+            "relative_feasibility": 2.3616095340253635e-05,
+            "relative_stationarity": 1.6950538207080313e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22096633
+          },
+          {
+            "step": 1520,
+            "elapsed": 131.27984403446317,
+            "objective": -1252.672019554712,
+            "relative_feasibility": 2.3388218765036194e-05,
+            "relative_stationarity": 1.715031728024489e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22094345
+          },
+          {
+            "step": 1530,
+            "elapsed": 132.14283358305693,
+            "objective": -1252.672027524588,
+            "relative_feasibility": 2.3170093317429386e-05,
+            "relative_stationarity": 1.6913550409381953e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22093600
+          },
+          {
+            "step": 1540,
+            "elapsed": 133.0057850293815,
+            "objective": -1252.6720357404238,
+            "relative_feasibility": 2.2950927667805785e-05,
+            "relative_stationarity": 1.6743808724391112e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22093564
+          },
+          {
+            "step": 1550,
+            "elapsed": 133.86859050393105,
+            "objective": -1252.6720436267983,
+            "relative_feasibility": 2.273742779371422e-05,
+            "relative_stationarity": 1.661095669282988e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22093139
+          },
+          {
+            "step": 1560,
+            "elapsed": 134.73198452591896,
+            "objective": -1252.672051579881,
+            "relative_feasibility": 2.2536858332513506e-05,
+            "relative_stationarity": 1.618292379270581e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22093818
+          },
+          {
+            "step": 1570,
+            "elapsed": 135.59559594467282,
+            "objective": -1252.6720593283644,
+            "relative_feasibility": 2.2332782623482106e-05,
+            "relative_stationarity": 1.599320907590498e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22093158
+          },
+          {
+            "step": 1580,
+            "elapsed": 136.45864494517446,
+            "objective": -1252.6720669558877,
+            "relative_feasibility": 2.212478718596524e-05,
+            "relative_stationarity": 1.616151880199078e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22091800
+          },
+          {
+            "step": 1590,
+            "elapsed": 137.32156363129616,
+            "objective": -1252.6720740792123,
+            "relative_feasibility": 2.192758987459733e-05,
+            "relative_stationarity": 1.6067513964450576e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22091144
+          },
+          {
+            "step": 1600,
+            "elapsed": 138.18455722555518,
+            "objective": -1252.6720815131384,
+            "relative_feasibility": 2.173038809569478e-05,
+            "relative_stationarity": 1.557873146394513e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22092370
+          },
+          {
+            "step": 1610,
+            "elapsed": 139.04759775847197,
+            "objective": -1252.6720889647395,
+            "relative_feasibility": 2.1527893750933527e-05,
+            "relative_stationarity": 1.558966199372271e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22091975
+          },
+          {
+            "step": 1620,
+            "elapsed": 139.9104756936431,
+            "objective": -1252.6720962466288,
+            "relative_feasibility": 2.132907262646934e-05,
+            "relative_stationarity": 1.5473557485284365e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22090954
+          },
+          {
+            "step": 1630,
+            "elapsed": 140.77360971271992,
+            "objective": -1252.672103473502,
+            "relative_feasibility": 2.1133431112898302e-05,
+            "relative_stationarity": 1.510365870117329e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22091321
+          },
+          {
+            "step": 1640,
+            "elapsed": 141.63646843284369,
+            "objective": -1252.6721104417702,
+            "relative_feasibility": 2.0944376390106936e-05,
+            "relative_stationarity": 1.4787317281640326e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22091159
+          },
+          {
+            "step": 1650,
+            "elapsed": 142.49949759617448,
+            "objective": -1252.6721169703521,
+            "relative_feasibility": 2.075553992539119e-05,
+            "relative_stationarity": 1.4631630529845933e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22088991
+          },
+          {
+            "step": 1660,
+            "elapsed": 143.3624874651432,
+            "objective": -1252.6721234403983,
+            "relative_feasibility": 2.0582502946285802e-05,
+            "relative_stationarity": 1.4232620035275136e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22088653
+          },
+          {
+            "step": 1670,
+            "elapsed": 144.2257576920092,
+            "objective": -1252.672129772904,
+            "relative_feasibility": 2.0416926637231067e-05,
+            "relative_stationarity": 1.3819038160221425e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22088164
+          },
+          {
+            "step": 1680,
+            "elapsed": 145.08893613144755,
+            "objective": -1252.6721362321302,
+            "relative_feasibility": 2.0243646643098862e-05,
+            "relative_stationarity": 1.3914805547476902e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22088310
+          },
+          {
+            "step": 1690,
+            "elapsed": 145.95220712199807,
+            "objective": -1252.672142656753,
+            "relative_feasibility": 2.0067960080223055e-05,
+            "relative_stationarity": 1.3729697750089432e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22087553
+          },
+          {
+            "step": 1700,
+            "elapsed": 146.8150551058352,
+            "objective": -1252.67214898067,
+            "relative_feasibility": 1.990268456228188e-05,
+            "relative_stationarity": 1.3531346402212932e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22086412
+          },
+          {
+            "step": 1710,
+            "elapsed": 147.67786924913526,
+            "objective": -1252.6721551279388,
+            "relative_feasibility": 1.973880463140086e-05,
+            "relative_stationarity": 1.3581618995943107e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22084601
+          },
+          {
+            "step": 1720,
+            "elapsed": 148.54071358963847,
+            "objective": -1252.6721611582957,
+            "relative_feasibility": 1.9569813555205166e-05,
+            "relative_stationarity": 1.3452653461316583e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22082813
+          },
+          {
+            "step": 1730,
+            "elapsed": 149.40356958284974,
+            "objective": -1252.6721671537232,
+            "relative_feasibility": 1.9407746782969094e-05,
+            "relative_stationarity": 1.3472663871318424e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22080921
+          },
+          {
+            "step": 1740,
+            "elapsed": 150.2664250023663,
+            "objective": -1252.6721733419524,
+            "relative_feasibility": 1.9248568789448103e-05,
+            "relative_stationarity": 1.3148949553548567e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22082067
+          },
+          {
+            "step": 1750,
+            "elapsed": 151.1291655935347,
+            "objective": -1252.6721794051907,
+            "relative_feasibility": 1.9094466948652298e-05,
+            "relative_stationarity": 1.2929443880189855e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22082503
+          },
+          {
+            "step": 1760,
+            "elapsed": 151.9920163191855,
+            "objective": -1252.6721851551351,
+            "relative_feasibility": 1.8942296628713155e-05,
+            "relative_stationarity": 1.274795376750129e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22081381
+          },
+          {
+            "step": 1770,
+            "elapsed": 152.8551584109664,
+            "objective": -1252.672190689645,
+            "relative_feasibility": 1.8787993297141497e-05,
+            "relative_stationarity": 1.2655076989234944e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22080178
+          },
+          {
+            "step": 1780,
+            "elapsed": 153.71805561706424,
+            "objective": -1252.672196358639,
+            "relative_feasibility": 1.862877052885448e-05,
+            "relative_stationarity": 1.2635690116820836e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22078985
+          },
+          {
+            "step": 1790,
+            "elapsed": 154.58093262836337,
+            "objective": -1252.67220185604,
+            "relative_feasibility": 1.8474319529913253e-05,
+            "relative_stationarity": 1.2542525394963737e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22076797
+          },
+          {
+            "step": 1800,
+            "elapsed": 155.4437367618084,
+            "objective": -1252.6722073135288,
+            "relative_feasibility": 1.8329485210153625e-05,
+            "relative_stationarity": 1.2368182688814466e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22075797
+          },
+          {
+            "step": 1810,
+            "elapsed": 156.30682307109237,
+            "objective": -1252.6722126334312,
+            "relative_feasibility": 1.8180200428135137e-05,
+            "relative_stationarity": 1.235409040538206e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22074935
+          },
+          {
+            "step": 1820,
+            "elapsed": 157.16993310675025,
+            "objective": -1252.672217686642,
+            "relative_feasibility": 1.8031588036399065e-05,
+            "relative_stationarity": 1.2340391314835431e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22073109
+          },
+          {
+            "step": 1830,
+            "elapsed": 158.03290890157223,
+            "objective": -1252.672223304565,
+            "relative_feasibility": 1.7892859475029047e-05,
+            "relative_stationarity": 1.1963651574451736e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22073934
+          },
+          {
+            "step": 1840,
+            "elapsed": 158.89597064256668,
+            "objective": -1252.6722285945345,
+            "relative_feasibility": 1.775270097610391e-05,
+            "relative_stationarity": 1.1738867631475085e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22073911
+          },
+          {
+            "step": 1850,
+            "elapsed": 159.75889691337943,
+            "objective": -1252.672234048045,
+            "relative_feasibility": 1.7617570553871073e-05,
+            "relative_stationarity": 1.147948039603616e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22075143
+          },
+          {
+            "step": 1860,
+            "elapsed": 160.62181712687016,
+            "objective": -1252.6722389477568,
+            "relative_feasibility": 1.7486724563893884e-05,
+            "relative_stationarity": 1.1389665316773735e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22074847
+          },
+          {
+            "step": 1870,
+            "elapsed": 161.4847633242607,
+            "objective": -1252.672243741626,
+            "relative_feasibility": 1.735065730381396e-05,
+            "relative_stationarity": 1.1384444553290814e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22073790
+          },
+          {
+            "step": 1880,
+            "elapsed": 162.34772430732846,
+            "objective": -1252.672248489024,
+            "relative_feasibility": 1.7219410958518045e-05,
+            "relative_stationarity": 1.12333032744304e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22073214
+          },
+          {
+            "step": 1890,
+            "elapsed": 163.21059725806117,
+            "objective": -1252.6722530841314,
+            "relative_feasibility": 1.708609847722803e-05,
+            "relative_stationarity": 1.1324341691767928e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22072427
+          },
+          {
+            "step": 1900,
+            "elapsed": 164.07367921248078,
+            "objective": -1252.6722578513445,
+            "relative_feasibility": 1.696031341349418e-05,
+            "relative_stationarity": 1.1133812807286392e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22072118
+          },
+          {
+            "step": 1910,
+            "elapsed": 164.9367140084505,
+            "objective": -1252.6722624902711,
+            "relative_feasibility": 1.683383096145075e-05,
+            "relative_stationarity": 1.0987474597419591e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22070757
+          },
+          {
+            "step": 1920,
+            "elapsed": 165.7995971813798,
+            "objective": -1252.6722672140543,
+            "relative_feasibility": 1.670991584306022e-05,
+            "relative_stationarity": 1.0836624095800509e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22071797
+          },
+          {
+            "step": 1930,
+            "elapsed": 166.6623750217259,
+            "objective": -1252.6722717678063,
+            "relative_feasibility": 1.6584650790393396e-05,
+            "relative_stationarity": 1.0873057767105495e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22071158
+          },
+          {
+            "step": 1940,
+            "elapsed": 167.52520921081305,
+            "objective": -1252.6722762057022,
+            "relative_feasibility": 1.6462694772032196e-05,
+            "relative_stationarity": 1.0773137003527665e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22071878
+          },
+          {
+            "step": 1950,
+            "elapsed": 168.3882072865963,
+            "objective": -1252.6722808946893,
+            "relative_feasibility": 1.633296413764951e-05,
+            "relative_stationarity": 1.0794046397521305e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22071060
+          },
+          {
+            "step": 1960,
+            "elapsed": 169.25121723860502,
+            "objective": -1252.6722853636597,
+            "relative_feasibility": 1.6211338737166207e-05,
+            "relative_stationarity": 1.0592928856074653e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22069507
+          },
+          {
+            "step": 1970,
+            "elapsed": 170.11405562981963,
+            "objective": -1252.6722898329676,
+            "relative_feasibility": 1.6088255350342178e-05,
+            "relative_stationarity": 1.0486511470099624e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22069532
+          },
+          {
+            "step": 1980,
+            "elapsed": 170.97676165401936,
+            "objective": -1252.672294090784,
+            "relative_feasibility": 1.5971316923810837e-05,
+            "relative_stationarity": 1.0310405386545067e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22069285
+          },
+          {
+            "step": 1990,
+            "elapsed": 171.8395207040012,
+            "objective": -1252.6722981928028,
+            "relative_feasibility": 1.585067057397278e-05,
+            "relative_stationarity": 1.0248370726075743e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22068596
+          },
+          {
+            "step": 2000,
+            "elapsed": 172.70232410728931,
+            "objective": -1252.6723025488175,
+            "relative_feasibility": 1.5730354706294498e-05,
+            "relative_stationarity": 1.0251585520680563e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22067799
+          },
+          {
+            "step": 2010,
+            "elapsed": 173.56600587815046,
+            "objective": -1252.6723069226673,
+            "relative_feasibility": 1.5615709779479354e-05,
+            "relative_stationarity": 1.0040519647136919e-07,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22065730
+          },
+          {
+            "step": 2020,
+            "elapsed": 174.4288883842528,
+            "objective": -1252.6723109947654,
+            "relative_feasibility": 1.5503491502860967e-05,
+            "relative_stationarity": 9.970801461695578e-08,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22063614
+          },
+          {
+            "step": 2030,
+            "elapsed": 175.29184364154935,
+            "objective": -1252.672314866856,
+            "relative_feasibility": 1.538941603504925e-05,
+            "relative_stationarity": 9.988738550206861e-08,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22061810
+          },
+          {
+            "step": 2040,
+            "elapsed": 176.1548095047474,
+            "objective": -1252.6723191202645,
+            "relative_feasibility": 1.5278308710573423e-05,
+            "relative_stationarity": 9.780200953776406e-08,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22061688
+          },
+          {
+            "step": 2050,
+            "elapsed": 177.01760137826204,
+            "objective": -1252.6723233014677,
+            "relative_feasibility": 1.5171990344175122e-05,
+            "relative_stationarity": 9.564154230062856e-08,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22062893
+          },
+          {
+            "step": 2060,
+            "elapsed": 177.88035432249308,
+            "objective": -1252.6723272342078,
+            "relative_feasibility": 1.506202873063515e-05,
+            "relative_stationarity": 9.48274077492292e-08,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22062581
+          },
+          {
+            "step": 2070,
+            "elapsed": 178.74310977384448,
+            "objective": -1252.672331050188,
+            "relative_feasibility": 1.495940974934741e-05,
+            "relative_stationarity": 9.193369110243807e-08,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22061554
+          },
+          {
+            "step": 2080,
+            "elapsed": 179.60584825649858,
+            "objective": -1252.672334753378,
+            "relative_feasibility": 1.4853672382998329e-05,
+            "relative_stationarity": 9.219685664081901e-08,
+            "relative_l1_subgradient": 0.0,
+            "actual_writer_nonzeros": 25755648,
+            "auxiliary_nonzeros": 22059591
+          }
+        ]
+      }
+    }
+  ],
+  "gram_condition": 19525.438434766857,
+  "full_energy_error": 1.2212453270876722e-15,
+  "output_whitening_error": 2.299507991558791e-13,
+  "ols_stationarity": 1.2142168028777224e-15,
+  "direct_full_matrix_bridge_error": 5.725603086372835e-16,
+  "cache": {
+    "path": "/dev/shm/bilin18_product_writer_redteam_v1.pt",
+    "sha256": "cdf0bd82cb92a483efacef96079d9ea32a455bd51f0a46f7aa28254aef3667fc",
+    "bytes": 29494327,
+    "ephemeral": true
+  },
+  "wall_seconds": 362.61204067245126,
+  "scope": "Fixed learned products only. Centered penalty-shrinkage audit and separate full-U legal-writer solves; no joint input optimization or physical replacement. Loading concentration is not additive function energy."
+}

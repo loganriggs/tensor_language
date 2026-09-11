@@ -1,0 +1,15 @@
+{
+  "instrument_passed": true,
+  "fixed_rho_reference_objective_error": 1.0905219177050265e-11,
+  "exact_resume_state_error": 0.0,
+  "adaptive_rho_changes": 10,
+  "final": {
+    "objective": -2.3484740944657654,
+    "relative_feasibility": 6.90826983624764e-10,
+    "relative_stationarity": 1.2729786318746105e-10,
+    "relative_l1_subgradient": 5.016071527377334e-17,
+    "actual_writer_nonzeros": 39,
+    "auxiliary_nonzeros": 37
+  },
+  "scope": "Same convex objective, fixed-solver agreement and exact resume control. Adaptive residual balancing does not itself certify convergence; original residual checks still required."
+}
