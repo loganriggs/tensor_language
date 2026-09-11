@@ -81,6 +81,13 @@ def rows_for_any(cell_module, control) -> list[dict[str, Any]]:
     return out
 
 
+def rows_any(cell_module, control) -> list[dict[str, Any]]:
+    """Dispatch: spec-authored cells rebuild from their own `common`, older cells substitute into their C rows."""
+    if hasattr(cell_module, "SPEC"):
+        return rows_for(cell_module, control)
+    return rows_for_any(cell_module, control)
+
+
 def verify_against_any(cell_module) -> tuple[bool, str]:
     """KNOWN-GOOD CHECK for the no-SPEC path: with the canonical control it must reproduce the cell's own C rows."""
     rebuilt = rows_for_any(cell_module, control_v2)
