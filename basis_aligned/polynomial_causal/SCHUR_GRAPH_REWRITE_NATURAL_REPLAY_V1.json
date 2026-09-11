@@ -1,0 +1,46 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "panels": {
+    "fineweb": [
+      {
+        "intervention": "none",
+        "output_error": 1.7494673443252395e-07
+      },
+      {
+        "intervention": "zero1",
+        "output_error": 1.7675201036126964e-07,
+        "effect_error": 4.081696715729777e-06
+      },
+      {
+        "intervention": "swap1",
+        "output_error": 1.75745199726407e-07,
+        "effect_error": 4.018027084384812e-06
+      }
+    ],
+    "corpus_shift": [
+      {
+        "intervention": "none",
+        "output_error": 1.6324339924267406e-07
+      },
+      {
+        "intervention": "zero1",
+        "output_error": 1.645970257868612e-07,
+        "effect_error": 4.444285877980292e-06
+      },
+      {
+        "intervention": "swap1",
+        "output_error": 1.6349122233805247e-07,
+        "effect_error": 4.082211944478331e-06
+      }
+    ]
+  },
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_READER_JOINT_FIT_V1_SPECTRAL_GRAPH.pt": "b299cade29ca4446a29ea807579ac8ab53246a6303d284207af9ee06b26e6f5c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCHUR_GRAPH_REWRITE_V1_PATCH.pt": "11449ed9bae45f5cd91381f887e506306649c4184fd0275dab799ae21493240f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_SUPPRESSION_V1_ENDPOINTS.pt": "64a4904dbdd3c031c591bec338e97c0ab558f66aeb6a55829362b9f4e98dc10f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_CORPUS_SHIFT_V1_ENDPOINTS.pt": "70ae7099a4c71c1e4d45a8c69eff50573817cdcf7a5f76509ac1402555f01ba6"
+  },
+  "scope": "Frozen surrogate and its parent-port operations on768previously cached native inputs. No model-body or full-tail replay, factor fitting, new data, circuit discovery or global optimality."
+}

@@ -312,3 +312,21 @@ $$
 No activation mean is fitted into a model or substituted for a factor; this is statistical accounting of the measured intervention. The mean-shift contribution to the shared-reader cost is -0.02251/-0.01203 on FineWeb and -0.01987/-0.00586 on the corpus-shift panel. It explains 106.7% and 133.3% of branch 0's negative total, respectively. The centered-sensitivity remainders are **0.00141/0.00881** and **0.00496/0.00888** nats. The accounting A/B/C bars pass; identities hold within $1.34\times10^{-15}$. These positive remainder means have no registered confidence claim. [Code](branch_port_mean_accounting_v1.py) · [Receipt](BRANCH_PORT_MEAN_ACCOUNTING_V1.json).
 
 The executed red-team explains why the raw shared-port miss is not evidence that the shared reader carries no useful context. It does **not** repair that miss or establish a standalone shared-reader circuit: the remainder is an accounting term, not a separately validated executable intervention. The supported computation remains the paired product with useful context alignment. Further port-level interpretation must control the changed product distribution and test finite interventions before claiming independent extraction or selective reuse.
+
+### Closing the independent-reader screen with private-matched donors
+
+The next control selected one nonself donor permutation per family/domain by minimizing private-partner distance. If $P$ contains the two partner readers, the distance is $\Delta p^\top(P^\top P)^{-1}\Delta p$: the squared minimum residual-input displacement needed to change those coordinates. This metric comes from the weights; it is not data-fitted whitening. Donor selection uses existing validation states and leaves every factor fixed. It approximates holding partners constant; it is not sampling a verified conditional distribution.
+
+Quality bars held: private-distance energy fell to 3.52%/9.73% of independent-donor expectations, while common-reader perturbation energy retained 11.88%/14.17% on FineWeb/corpus shift. Stratum-averaged absolute product mean shifts fell to 2.25–10.01% of the independent-donor values. [Donor construction and receipt](BRANCH_PRIVATE_MATCHED_DONORS_V1.json).
+
+The finite native-tail screen replayed baseline CE exactly and passed algebra/source checks. It nevertheless **failed C**, the registered positive common-reader cost of at least 0.001 nats on both panels:
+
+| Mean finite CE cost | FineWeb | Corpus shift |
+|---|---:|---:|
+| Common reader only, both consumers | -0.000224 | -0.002166 |
+| Both private partners | -0.000962 | -0.002144 |
+| Coherent replacement of all three ports | 0.002368 | 0.006984 |
+
+No mean compensation or parameter fitting was applied. These are descriptive means, not significance claims. The control is adequate under its frozen distance, perturbation-size and mean-shift bars, but examines only a limited range of conditional variation. This closes the current independent-reader screen; it does not prove the reader is globally irrelevant. The useful complete-product result remains. Further tuning of these donor controls would not establish a new circuit. [Finite result](BRANCH_PRIVATE_MATCHED_PORTS_V1_RESULT.json).
+
+The 19:51 mathematical review instead produced an exact arithmetic rewrite of the frozen graph, with parent interventions preserved before its changed internal computations. It saves 25 variable multiplications without altering the represented tensor or increasing stored coefficients. This is a compiler result, not a rescue of the behavioral screen. [Derivation, literature and executed controls](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1951.md).

@@ -1,0 +1,350 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "metric_identity_errors": [
+    2.6645352591003757e-15,
+    2.6645352591003757e-15,
+    8.881784197001252e-16,
+    1.7763568394002505e-14,
+    1.3322676295501878e-15,
+    3.3306690738754696e-16,
+    8.881784197001252e-16,
+    1.1102230246251565e-15,
+    7.105427357601002e-15,
+    1.7763568394002505e-15,
+    4.440892098500626e-16,
+    3.552713678800501e-15,
+    8.881784197001252e-16,
+    1.9984014443252818e-15,
+    7.771561172376096e-16
+  ],
+  "panels": {
+    "fineweb": {
+      "private_distance_energy_ratio": 0.035245946918677,
+      "common_perturbation_energy_ratio": 0.11875020074770228,
+      "absolute_mean_shift_ratio": [
+        0.02253397761783336,
+        0.042920587627506564
+      ],
+      "mean_linear_effect": [
+        -0.0004974699217524595,
+        7.833934219841294e-05
+      ],
+      "pred_b": true,
+      "pred_c": true,
+      "strata": [
+        {
+          "family": 0,
+          "domain": "all",
+          "documents": 128,
+          "private_energy_ratio": 0.040936722108707115,
+          "common_energy_ratio": 0.11754716554780652,
+          "mean_product_shift": [
+            0.01961808766667011,
+            -0.03223126522153277
+          ],
+          "independent_mean_shift": [
+            0.5326849077204183,
+            -0.7522096585820504
+          ],
+          "mean_linear_effect": [
+            -0.0006520808267756794,
+            8.332429487494951e-05
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "all",
+          "documents": 128,
+          "private_energy_ratio": 0.03938884457857553,
+          "common_energy_ratio": 0.12470355770393761,
+          "mean_product_shift": [
+            0.01106379354316427,
+            -0.01192581744081787
+          ],
+          "independent_mean_shift": [
+            0.9195357889417825,
+            -0.30218984651749337
+          ],
+          "mean_linear_effect": [
+            -0.001235420630690402,
+            -0.0003545641372578287
+          ]
+        },
+        {
+          "family": 2,
+          "domain": "all",
+          "documents": 128,
+          "private_energy_ratio": 0.024715424108445003,
+          "common_energy_ratio": 0.1127837590864858,
+          "mean_product_shift": [
+            0.020325992702200087,
+            -0.009891260580036924
+          ],
+          "independent_mean_shift": [
+            0.8113776248195294,
+            -0.20486431746167297
+          ],
+          "mean_linear_effect": [
+            0.00039509169220870255,
+            0.0005062578689781181
+          ]
+        }
+      ]
+    },
+    "corpus_shift": {
+      "private_distance_energy_ratio": 0.09733192207492132,
+      "common_perturbation_energy_ratio": 0.14170719938293214,
+      "absolute_mean_shift_ratio": [
+        0.08433403784709487,
+        0.10006518440941109
+      ],
+      "mean_linear_effect": [
+        -0.002149345950078522,
+        -0.00026525403952247967
+      ],
+      "pred_b": true,
+      "pred_c": true,
+      "strata": [
+        {
+          "family": 0,
+          "domain": "biomedical",
+          "documents": 32,
+          "private_energy_ratio": 0.28336892978807526,
+          "common_energy_ratio": 0.31661539709803516,
+          "mean_product_shift": [
+            0.24086043932134615,
+            -0.06747755602733257
+          ],
+          "independent_mean_shift": [
+            0.5721998773136069,
+            -0.5297098647918392
+          ],
+          "mean_linear_effect": [
+            -0.017759406092820167,
+            -0.0005889903672180506
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "discussion",
+          "documents": 32,
+          "private_energy_ratio": 0.09042281109549523,
+          "common_energy_ratio": 0.1649858022190909,
+          "mean_product_shift": [
+            0.03494992580959229,
+            -0.07423546738305428
+          ],
+          "independent_mean_shift": [
+            0.47424372567879564,
+            -0.3944208283609819
+          ],
+          "mean_linear_effect": [
+            -0.001507672547580445,
+            -0.0013584471357341232
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "legal_patent",
+          "documents": 32,
+          "private_energy_ratio": 0.08643326881041091,
+          "common_energy_ratio": 0.11831480436442206,
+          "mean_product_shift": [
+            0.030913418154483095,
+            -0.020863789176093064
+          ],
+          "independent_mean_shift": [
+            0.6426952838732302,
+            -0.4750272008395835
+          ],
+          "mean_linear_effect": [
+            -0.001239489580051191,
+            0.0003940942309599645
+          ]
+        },
+        {
+          "family": 0,
+          "domain": "reference",
+          "documents": 32,
+          "private_energy_ratio": 0.0702245958005111,
+          "common_energy_ratio": 0.14616210750105657,
+          "mean_product_shift": [
+            0.04883393504304506,
+            -0.05486097528716648
+          ],
+          "independent_mean_shift": [
+            0.5070960508142714,
+            -0.6626953521803267
+          ],
+          "mean_linear_effect": [
+            -0.0012888498997239094,
+            -0.003810991183054292
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "biomedical",
+          "documents": 32,
+          "private_energy_ratio": 0.09101884047723309,
+          "common_energy_ratio": 0.13620021062126092,
+          "mean_product_shift": [
+            0.05300375927668277,
+            0.02268821195431062
+          ],
+          "independent_mean_shift": [
+            0.6758254651836826,
+            -0.514986756295593
+          ],
+          "mean_linear_effect": [
+            -0.002396670872273519,
+            0.0031847122802659777
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "discussion",
+          "documents": 32,
+          "private_energy_ratio": 0.23021757938082874,
+          "common_energy_ratio": 0.3728734834655235,
+          "mean_product_shift": [
+            0.22440801931335408,
+            -0.014306161069642581
+          ],
+          "independent_mean_shift": [
+            0.7166652759105843,
+            -0.1492480132407008
+          ],
+          "mean_linear_effect": [
+            -0.0019456225727762977,
+            -0.0048148432041994855
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "legal_patent",
+          "documents": 32,
+          "private_energy_ratio": 0.11930004672950847,
+          "common_energy_ratio": 0.17000026238587573,
+          "mean_product_shift": [
+            0.0313474336732546,
+            -0.027870971630177044
+          ],
+          "independent_mean_shift": [
+            0.6119012837513587,
+            0.10164306384567387
+          ],
+          "mean_linear_effect": [
+            -0.0006798318652685733,
+            0.002102726652636557
+          ]
+        },
+        {
+          "family": 1,
+          "domain": "reference",
+          "documents": 32,
+          "private_energy_ratio": 0.03865325987422779,
+          "common_energy_ratio": 0.07264536982839795,
+          "mean_product_shift": [
+            0.021523885879385713,
+            -0.01083957788202701
+          ],
+          "independent_mean_shift": [
+            1.9174126736459434,
+            0.054071126363250836
+          ],
+          "mean_linear_effect": [
+            0.0005794490794165559,
+            -0.0005647167135991434
+          ]
+        },
+        {
+          "family": 2,
+          "domain": "biomedical",
+          "documents": 32,
+          "private_energy_ratio": 0.09657432711734862,
+          "common_energy_ratio": 0.12830770485367954,
+          "mean_product_shift": [
+            0.04617454599603285,
+            -0.04780756186028161
+          ],
+          "independent_mean_shift": [
+            0.27996664387144804,
+            -0.660168005904252
+          ],
+          "mean_linear_effect": [
+            -0.00029527859312994615,
+            2.8750133800663604e-05
+          ]
+        },
+        {
+          "family": 2,
+          "domain": "discussion",
+          "documents": 32,
+          "private_energy_ratio": 0.059887963274724954,
+          "common_energy_ratio": 0.05429960636862072,
+          "mean_product_shift": [
+            0.034671450961162156,
+            -0.009628002242576872
+          ],
+          "independent_mean_shift": [
+            1.3067208264879804,
+            -0.3321205357194488
+          ],
+          "mean_linear_effect": [
+            3.927225165561819e-05,
+            0.001129687642453184
+          ]
+        },
+        {
+          "family": 2,
+          "domain": "legal_patent",
+          "documents": 32,
+          "private_energy_ratio": 0.05463832110715563,
+          "common_energy_ratio": 0.1338344811963439,
+          "mean_product_shift": [
+            0.03349782717870681,
+            -0.044089796819127655
+          ],
+          "independent_mean_shift": [
+            0.9411403677551244,
+            -0.2218375508322684
+          ],
+          "mean_linear_effect": [
+            -0.0003503220497573919,
+            0.0011554754216126892
+          ]
+        },
+        {
+          "family": 2,
+          "domain": "reference",
+          "documents": 32,
+          "private_energy_ratio": 0.0428096421689188,
+          "common_energy_ratio": 0.06942863265976215,
+          "mean_product_shift": [
+            0.027778123699332406,
+            -0.03208400887237882
+          ],
+          "independent_mean_shift": [
+            1.1717907980185476,
+            -0.16881255752793342
+          ],
+          "mean_linear_effect": [
+            0.0010522713413669978,
+            -4.050623219369745e-05
+          ]
+        }
+      ]
+    }
+  },
+  "partner_gram_condition": 1.7750316500833532,
+  "artifact_sha256": "daec767bb6762289adb825fbd354a41d376ea894c93a8b98d1984d6f2fc308d3",
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_CANONICAL_BRANCHES_V1_SPECTRAL.pt": "b1e90771d51ea355e1b1f636ece07816034dc3aeeb220513262ee69292beeeb3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/BRANCH_ALL_DONOR_ALIGNMENT_V1_SCALARS.pt": "31723f46c377a6ff76f975974d6ecf499cb0ac3e47cbed89b96b727b75d60c1b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_SUPPRESSION_V1_ENDPOINTS.pt": "64a4904dbdd3c031c591bec338e97c0ab558f66aeb6a55829362b9f4e98dc10f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_CORPUS_SHIFT_V1_ENDPOINTS.pt": "70ae7099a4c71c1e4d45a8c69eff50573817cdcf7a5f76509ac1402555f01ba6"
+  },
+  "scope": "Minimum-cost private-matched donor permutation within family/domain. Validation row matching only; not conditional-distribution sampling, factor fitting, finite-dose effect or circuit identification."
+}

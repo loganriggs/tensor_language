@@ -72,3 +72,7 @@ Frozen amplitude swaps hurt prediction on both panels. An all-donor first-order 
 ### 19:42 — Shared-reader intervention has a mean-shift confound
 
 Swapping only one product input fails the expected positive-loss test. Executed accounting shows that breaking the reader/partner correlation changes the mean product and explains the negative shared-reader result; this is not a standalone port validation. Complete-product context alignment remains supported. [Derivation and receipts](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md).
+
+### 19:56 — Math review yields a cheaper equivalent graph
+
+Completing the private squares reduces the frozen graph from1,041 to1,016variable multiplications, with unchanged coefficient counts and parent interventions preserved. Synthetic and cached-natural-input rounding checks pass. This does not improve its native-model fit or identify circuits. The closely matched private-input intervention closed the independent-reader screen at a valid miss. [Mathematical review and controls](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1951.md).

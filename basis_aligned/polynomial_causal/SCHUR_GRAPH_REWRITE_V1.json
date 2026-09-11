@@ -1,0 +1,236 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "skipped_groups": [],
+  "max_core_error": 1.0632639260613606e-16,
+  "reference_executor_error": 0.0,
+  "checks": {
+    "torch.float64": [
+      {
+        "intervention": null,
+        "output_relative_error": 1.666243266003259e-16
+      },
+      {
+        "intervention": "zero1",
+        "output_relative_error": 1.7045939887960708e-16,
+        "effect_relative_error": 5.646070453042228e-15
+      },
+      {
+        "intervention": "zero1_9",
+        "output_relative_error": 1.5835500606808067e-16,
+        "effect_relative_error": 4.2382280269044615e-15
+      },
+      {
+        "intervention": "zero_all",
+        "output_relative_error": 0.0,
+        "effect_relative_error": 1.1099274580996821e-15
+      },
+      {
+        "intervention": "swap1",
+        "output_relative_error": 1.6145850199826697e-16,
+        "effect_relative_error": 4.503208917280912e-15
+      }
+    ],
+    "torch.float32": [
+      {
+        "intervention": null,
+        "output_relative_error": 9.05839385723084e-08
+      },
+      {
+        "intervention": "zero1",
+        "output_relative_error": 8.642265925118409e-08,
+        "effect_relative_error": 3.0296098429971607e-06
+      },
+      {
+        "intervention": "zero1_9",
+        "output_relative_error": 8.744278545691486e-08,
+        "effect_relative_error": 2.461615395077388e-06
+      },
+      {
+        "intervention": "zero_all",
+        "output_relative_error": 0.0,
+        "effect_relative_error": 6.033093882251706e-07
+      },
+      {
+        "intervention": "swap1",
+        "output_relative_error": 8.652547478504857e-08,
+        "effect_relative_error": 2.5386559627804672e-06
+      }
+    ]
+  },
+  "growth": [
+    {
+      "group": 2,
+      "min_relative_pivot": 0.2130558979545499,
+      "max_mix": 3.300105394277854,
+      "schur_norm": 17081.078471789704,
+      "old_shared_norm": 1703.676723826114,
+      "schur_to_whole_core_norm": 1.1873758112953687
+    },
+    {
+      "group": 4,
+      "min_relative_pivot": 0.2608839029784751,
+      "max_mix": 0.6711463662985915,
+      "schur_norm": 4999.63773278102,
+      "old_shared_norm": 5804.522119597249,
+      "schur_to_whole_core_norm": 0.42196120457823966
+    },
+    {
+      "group": 6,
+      "min_relative_pivot": 0.21981547764785633,
+      "max_mix": 0.4587734881420367,
+      "schur_norm": 10981.902005254626,
+      "old_shared_norm": 12742.539346340638,
+      "schur_to_whole_core_norm": 0.49544940645686497
+    },
+    {
+      "group": 7,
+      "min_relative_pivot": 0.38965948148726454,
+      "max_mix": 2.0156760993219525,
+      "schur_norm": 20749.051868785922,
+      "old_shared_norm": 7700.197972181819,
+      "schur_to_whole_core_norm": 0.9079551018482456
+    },
+    {
+      "group": 10,
+      "min_relative_pivot": 0.3368561565713018,
+      "max_mix": 0.5331727259358777,
+      "schur_norm": 16423.452214944034,
+      "old_shared_norm": 16687.348905774597,
+      "schur_to_whole_core_norm": 0.7649275615270865
+    },
+    {
+      "group": 13,
+      "min_relative_pivot": 0.3217635053249182,
+      "max_mix": 2.4008979248488744,
+      "schur_norm": 19985.895876102,
+      "old_shared_norm": 3323.4684445906196,
+      "schur_to_whole_core_norm": 1.053964337845618
+    },
+    {
+      "group": 16,
+      "min_relative_pivot": 0.1880323462950082,
+      "max_mix": 0.33175338826720197,
+      "schur_norm": 10647.244225457844,
+      "old_shared_norm": 11243.135446366063,
+      "schur_to_whole_core_norm": 0.5147637359180041
+    },
+    {
+      "group": 19,
+      "min_relative_pivot": 0.13393669074372053,
+      "max_mix": 0.25727629534689,
+      "schur_norm": 5359.040939143853,
+      "old_shared_norm": 4830.114438370776,
+      "schur_to_whole_core_norm": 0.24620812135759423
+    },
+    {
+      "group": 22,
+      "min_relative_pivot": 0.10450373543934757,
+      "max_mix": 0.16751282036054688,
+      "schur_norm": 13791.028283279364,
+      "old_shared_norm": 13232.539944925156,
+      "schur_to_whole_core_norm": 0.5039529952190371
+    },
+    {
+      "group": 25,
+      "min_relative_pivot": 0.2960952578153772,
+      "max_mix": 0.5187898902761818,
+      "schur_norm": 9374.000773861215,
+      "old_shared_norm": 10455.227594954215,
+      "schur_to_whole_core_norm": 0.5152824301147176
+    },
+    {
+      "group": 26,
+      "min_relative_pivot": 0.12036592727925982,
+      "max_mix": 0.12947924394585136,
+      "schur_norm": 800.6884740260875,
+      "old_shared_norm": 491.6582346479637,
+      "schur_to_whole_core_norm": 0.035993278291877845
+    },
+    {
+      "group": 28,
+      "min_relative_pivot": 0.27782761073127205,
+      "max_mix": 0.2345993971562755,
+      "schur_norm": 9342.584265512223,
+      "old_shared_norm": 9879.28733519223,
+      "schur_to_whole_core_norm": 0.3457650120754643
+    },
+    {
+      "group": 35,
+      "min_relative_pivot": 0.21017672465214116,
+      "max_mix": 0.4995552243055564,
+      "schur_norm": 19216.821126039893,
+      "old_shared_norm": 19861.612965610355,
+      "schur_to_whole_core_norm": 0.8647178256028499
+    },
+    {
+      "group": 39,
+      "min_relative_pivot": 0.20343263585989138,
+      "max_mix": 0.3385311395548341,
+      "schur_norm": 7939.502522197637,
+      "old_shared_norm": 8033.410642727425,
+      "schur_to_whole_core_norm": 0.3934804158217398
+    },
+    {
+      "group": 40,
+      "min_relative_pivot": 0.39728079618934276,
+      "max_mix": 3.640966488722086,
+      "schur_norm": 51079.52735363859,
+      "old_shared_norm": 10522.40795838509,
+      "schur_to_whole_core_norm": 2.3090509285269283
+    },
+    {
+      "group": 43,
+      "min_relative_pivot": 0.3736477570820033,
+      "max_mix": 0.7881827601822559,
+      "schur_norm": 16552.15058393198,
+      "old_shared_norm": 11916.455240395106,
+      "schur_to_whole_core_norm": 0.9675320032278948
+    },
+    {
+      "group": 46,
+      "min_relative_pivot": 0.15041822685348355,
+      "max_mix": 0.3718604453620817,
+      "schur_norm": 6634.660340896762,
+      "old_shared_norm": 6106.042198799571,
+      "schur_to_whole_core_norm": 0.29164894631746424
+    },
+    {
+      "group": 48,
+      "min_relative_pivot": 0.2663930773394224,
+      "max_mix": 0.14339190629338464,
+      "schur_norm": 13370.63880553738,
+      "old_shared_norm": 13255.41517737716,
+      "schur_to_whole_core_norm": 0.5275930595055544
+    },
+    {
+      "group": 62,
+      "min_relative_pivot": 0.18591915263174505,
+      "max_mix": 0.3181909446587242,
+      "schur_norm": 12440.562691660363,
+      "old_shared_norm": 12393.769426967241,
+      "schur_to_whole_core_norm": 0.548494971009519
+    }
+  ],
+  "price": {
+    "old_variable_products": 1041,
+    "new_variable_products": 1016,
+    "old_local_additions": 1329,
+    "new_local_additions": 1329,
+    "old_local_coefficient_multiplies": 1393,
+    "new_local_coefficient_multiplies": 1393,
+    "floating_count_change": 0,
+    "integer_count_change": 0,
+    "note": "Compiled mix replaces cross; corrected shared coefficients replace old ones. Patch artifact stores only changed arrays. Shared/private dense reads, group writers and native background remain unchanged and charged by the original graph."
+  },
+  "planted": {
+    "original": 3.0,
+    "correct_clamped": 1.0,
+    "naive_drop_explicit_shared_only": 4.0,
+    "tripwire_held": true
+  },
+  "source_sha256": "b299cade29ca4446a29ea807579ac8ab53246a6303d284207af9ee06b26e6f5c",
+  "patch_sha256": "11449ed9bae45f5cd91381f887e506306649c4184fd0275dab799ae21493240f",
+  "scope": "Exact algebraic compiler rewrite of the frozen surrogate, not a new factor fit, global minimum or semantic circuit. Parent interventions must be applied before the shifted-square mix. Synthetic FP32 checks are not model runtime benchmarks."
+}
