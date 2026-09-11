@@ -1,0 +1,35 @@
+{
+  "gradient_relative_error": 1.7032779514767125e-10,
+  "gauge_error": 2.220446049250313e-16,
+  "dense_objective_error": 1.1102230246251565e-16,
+  "starts": [
+    {
+      "loss": 9.999999800000008e-09,
+      "residual": 0.0,
+      "gradient_norm": 4.2387379099641335e-16,
+      "iterations": 1,
+      "stop": "Terminated - min grad norm reached after 1 iterations, 0.00 seconds.",
+      "seed": 544,
+      "projector_error": 0.0
+    },
+    {
+      "loss": 9.999999398422117e-09,
+      "residual": -4.0157789270605234e-16,
+      "gradient_norm": 1.0776099173795191e-08,
+      "iterations": 28,
+      "stop": "Terminated - min step_size reached after 28 iterations, 0.08 seconds.",
+      "seed": 545,
+      "projector_error": 8.810189094790535e-09
+    },
+    {
+      "loss": 9.999999398422112e-09,
+      "residual": -4.0157789270605234e-16,
+      "gradient_norm": 6.1726126560178075e-09,
+      "iterations": 25,
+      "stop": "Terminated - min step_size reached after 25 iterations, 0.07 seconds.",
+      "seed": 546,
+      "projector_error": 3.1783167783222163e-09
+    }
+  ],
+  "seconds": 0.15425995364785194
+}

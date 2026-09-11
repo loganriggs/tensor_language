@@ -1,0 +1,37 @@
+{
+  "correction": "Original seed544 control started at truth; preserve receipt and replace recovery evidence with these independent starts.",
+  "starts": [
+    {
+      "seed": 1901,
+      "initial_projector_error": 1.1421260623953844,
+      "final_projector_error": 3.788495920495396e-08,
+      "loss": 9.999999518385611e-09,
+      "residual": -2.8161439417737126e-16,
+      "gradient_norm": 4.787949299743755e-08,
+      "iterations": 24,
+      "stop": "Terminated - min grad norm reached after 24 iterations, 0.06 seconds."
+    },
+    {
+      "seed": 1902,
+      "initial_projector_error": 1.2193257642596163,
+      "final_projector_error": 0.34541008539060547,
+      "loss": 0.12644222433941554,
+      "residual": 0.12644221560383787,
+      "gradient_norm": 0.7753433615826801,
+      "iterations": 11,
+      "stop": "Terminated - min step_size reached after 11 iterations, 0.03 seconds."
+    },
+    {
+      "seed": 1903,
+      "initial_projector_error": 0.9559678313617831,
+      "final_projector_error": 1.3085807757802797e-07,
+      "loss": 1.000000627713101e-08,
+      "residual": 6.477131066079539e-15,
+      "gradient_norm": 9.137536712323128e-08,
+      "iterations": 23,
+      "stop": "Terminated - min grad norm reached after 23 iterations, 0.06 seconds."
+    }
+  ],
+  "all_recovered": false,
+  "all_gradient_stops": false
+}

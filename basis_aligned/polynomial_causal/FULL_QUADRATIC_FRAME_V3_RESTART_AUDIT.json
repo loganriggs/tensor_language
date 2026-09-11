@@ -1,0 +1,37 @@
+{
+  "correction": "Exact-Hessian trust regions on the same independent starts after V1 CG seed1902 failed; original failure preserved.",
+  "starts": [
+    {
+      "seed": 1901,
+      "initial_projector_error": 1.1421260623953844,
+      "final_projector_error": 2.218041851435127e-08,
+      "loss": 1.0000000081614394e-08,
+      "residual": 2.8161439417737126e-16,
+      "gradient_norm": 1.743625034152564e-08,
+      "iterations": 8,
+      "stop": "Terminated - min grad norm reached after 8 iterations, 0.08 seconds."
+    },
+    {
+      "seed": 1902,
+      "initial_projector_error": 1.2193257642596163,
+      "final_projector_error": 1.0890664524155702e-10,
+      "loss": 9.999999799999998e-09,
+      "residual": 0.0,
+      "gradient_norm": 3.2032379675730456e-10,
+      "iterations": 8,
+      "stop": "Terminated - min grad norm reached after 8 iterations, 0.05 seconds."
+    },
+    {
+      "seed": 1903,
+      "initial_projector_error": 0.9559678313617831,
+      "final_projector_error": 1.7663911309318226e-12,
+      "loss": 9.999999800000005e-09,
+      "residual": 0.0,
+      "gradient_norm": 1.2664491793150376e-12,
+      "iterations": 7,
+      "stop": "Terminated - min grad norm reached after 7 iterations, 0.04 seconds."
+    }
+  ],
+  "all_recovered": true,
+  "all_gradient_stops": true
+}

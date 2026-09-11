@@ -1,0 +1,60 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_conditional_convergence": true,
+    "pred_c_capture_gain": false
+  },
+  "initial_loss": 0.9144556625267997,
+  "loss": 0.9144556625170704,
+  "residual": 0.9136561694159777,
+  "captured_energy": 0.08634383058402229,
+  "component_energy": 0.07994931010927141,
+  "conditional_gap_relative": 4.7103896822170085e-14,
+  "maximum_instrument_error": 2.220446049250313e-16,
+  "reduced_writer_loss": 0.9144556625170697,
+  "conditional_writer_extra_gain": 7.771561172376096e-16,
+  "input_tangent_norm": 7.944935509165798e-07,
+  "core_tangent_norm": 8.07695064125713e-09,
+  "original_relative_stationarity": 0.00014722414709520177,
+  "sweeps": 5,
+  "history": [
+    {
+      "sweep": 0,
+      "loss": 0.9144556625267997,
+      "capture": 0.08634383041327387
+    },
+    {
+      "sweep": 5,
+      "loss": 0.9144556625170704,
+      "capture": 0.08634383058402229,
+      "relative_conditional_gap": 4.7103896822170085e-14,
+      "seconds": 4.352565702050924
+    }
+  ],
+  "stop": "conditional_gap",
+  "fit_seconds": 4.352624844759703,
+  "wall_seconds": 5.3133769407868385,
+  "cache": {
+    "path": "/dev/shm/bilin18_conditional_block_svd_v1.pt",
+    "sha256": "6d20b8681691ccd29182eb08a250fb5ffce4a8efe7a144299cafde7e75dc02b9",
+    "bytes": 3023234,
+    "ephemeral": true
+  },
+  "binding": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_conditional_block_svd_v1.py": "acca4eecf81ab9d2b4d6a445d39c1774d431ac59cb7de577be722ad6e88a2b10",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/conditional_block_svd_v1.py": "5b6b1883ba1483c1476fd3fe33590bb13cecf39b788781e8f97437e5804f2c07",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/orthogonal_multioutput_pymanopt_v2.py": "e0f4bb74722063a08dc6785943acc67fcfd36dac6b12cc4c5df7bb71880a9482",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/multioutput_quadratic_blocks_v1.py": "6c638fce1e5769dc9276b7d4a412b3b10782bb54f009de5ed6ae69cebccfbe58",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/energy_regularized_quadratic_v1.py": "fe86606100722051fb5d46e6e971ffcdc14568491651a4dadcdff2abe8cb51d0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/structured_quadratic_models_v1.py": "facc1306668361d5f232d4334d0399a3c1cc991221fd00db61c4353bd0ae7bde",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_quadratic_fit_v1.py": "35930671781b0b802fe50c7d22288ca8f70c68f585d1df7e6c8a4417b3af4695",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CONDITIONAL_BLOCK_SVD_V1_CONTROL.json": "1cb6f2899179bec96ddfe4c2eca3090a086d2293dcdc7e7710f145f009d667ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CONDITIONAL_BLOCK_SVD_V1_PREREGISTRATION.md": "6cb56a056611ca13a50575f22cf535897e3c7b2ed93f7b3650921d3f19b4e8f0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/BLOCK_TRUST_REGION_THIN_V1_RESULT.json": "0bfed62b496f795053ef1c72546738b2c59a5b29e3210f54148c9ffb7c5e2fa7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FULLU_OUTPUT_FUNCTIONS_V1_AUDIT.json": "c70c968bfd90bf7a236dad3c9100188ab1c7a543a223b4b5369740ffd3c51a32",
+    "/dev/shm/bilin18_block_trust_region_thin_v1.pt": "2ae42554abbf8746abdabb1ff3dc90060f14529a162e680bba4fac6b008399fe"
+  },
+  "body_forwards": 0,
+  "corpus_access": false,
+  "scope": "Same fixed input frames and full-Ulambda.01family; exact one-block updates. Conditional convergence is not all-parameter convergence or circuit identification."
+}

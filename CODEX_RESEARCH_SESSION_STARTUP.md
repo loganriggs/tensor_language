@@ -82,21 +82,29 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 05:31 UTC
+## Current handoff — 11 September 05:49 UTC
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0531.md.
-WEIGHT_ONLY_METHODS_INDEX.md links current primary receipts and earlier solvers.
-User priority: diverse weight-only discovery with convergence and matched costs;
-frozen-candidate FineWeb validation later, Pile separately OOD. No new data fit.
+Read explanations/2026-09-11/LATEST.md and the05:49appendix of explanation_2026-09-11_0531.md.
+WEIGHT_ONLY_METHODS_INDEX.md prevents missed prior receipts. User priority remains
+weight-only structural discovery; FineWeb frozen validation later, Pile OOD.
 
-BLOCK_TRUST_REGION_THIN_V1 completed 600.49 fit seconds / 388 iterations:
-8.63438% capture, instrument held, convergence and gain missed. Latest cache
-/dev/shm/bilin18_block_trust_region_thin_v1.pt, hash in native result. No duplicate
-or automatic identical chunk queued. Exact CPU writer/core penalty gauge audit
-completed: function replay 2.03e-15, optimum attained, but reduction only7.36e-10
-of penalty (1% prediction missed). This cheap repair is exhausted. See report
-for adaptive block-model literature candidate and scope limits; not implemented.
-The last turn completed its board-registered CPU consequence. Full goal active.
+Exact conditional block SVD fit completed4.35s: no meaningful capture gain,
+conditional gap4.71e-14. Whole fit stillunconverged, remaininggradient mostly
+inputframe. Latest saved point /dev/shm/bilin18_conditional_block_svd_v1.pt,
+SHA in CONDITIONAL_BLOCK_SVD_V1_RESULT.json. No content-only continuation.
+Conditional outputcapacity spectra1.55s:10/16rank8 isolated gains>=1e-4; modest,
+notadditive. BothGPUjobs complete, no own live/queuednativejob.
+
+Next implementation underway: FULL_QUADRATIC_FRAME_V1_PREREGISTRATION.md,
+23overlapping4-readerframes, all10quadraticoutputs,370944coefficients.
+Different block-Frobenius penalty; do not claim sameobjective as oldblocks.
+full_quadratic_frame_v1.py core/CG; V1seed544toy accidentally initializedtruth.
+Independent restart auditV2 findsCGseed1902failure. full_quadratic_frame_v2.py
+usesexact-Hessian GrassmannTR and auditV3 recoversall3independentstarts.
+Nativewrapper, finite-differenceHVPpreflight andmanagedsubmission pending.
+Do notmodify executed sources/bindings. Lastturn completedregisteredCPU
+consequence, corrected its failure and committednextprotocol/implementation.
+Fullgoalactive; nexthourly0622, math0749. No newdatafits.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

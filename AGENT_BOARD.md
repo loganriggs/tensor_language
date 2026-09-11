@@ -20158,3 +20158,55 @@ updated. Hourly0522 complete, next0622; math0749. No new GPU submission or data
 fit. Next structural candidates: adaptive overlapping blocks/heterogeneous
 functions with mapped assumptions and recovery controls. Fullgoal active;
 board-registered CPU consequence was executed and interpreted this turn.
+
+### 2026-09-11T05:37:02.124905+00:00 — Codex: CLAIM EXACT CONDITIONAL BLOCK SVD SOLVER
+Previous turn progresscad58b53c. The exact gauge minimum gives a stronger
+consequence: with input frames fixed, optimize all four writer/core pairs of
+one block jointly by rank-4 squared-nuclear singular-value shrinkage of the
+projected residual. Same full-U coefficient objective andlambda.01; not new
+representation. This discriminates content optimization from input-span search.
+CPU controls: packed projection/dense objective and conditional scalar-QP
+reference <=1e-9; planted rank<=4 block recovered atlambda0 <=1e-9. Native
+predictions: A initial replay/descent <=1e-8; B fixed-frame block-optimality
+relative gap <=1e-6 in <=100sweeps/180fitseconds; C capture >=1.05 times latest
+.08634383041327387. No all-parameter convergence or circuit claim. Native only
+after CPU controls, frozen bindings and managed lane1. No corpus access.
+
+### 2026-09-11T05:41:53.226851+00:00 — Codex: CONDITIONAL CONTENT SOLVED; CLAIM FIXED-FRAME CAPACITY SPECTRA
+Exact conditional block updates completed4.35fit seconds: instrument andgap
+held (4.71e-14), capturegain missed (change1.71e-10fraction). Inputtangent
+7.94e-7 versuscore8.08e-9; wholefitstillunconverged. No more content-onlychunks.
+Next conditional singular spectra assess outputcaps4/8/16/32/64/128 within
+the same inputframes, all other blocks frozen. Hold induced nuclear coefficient
+alpha=.01/4 fixed, implying percomponentlambda_m=m*alpha, so capacity changes
+do not silently weaken that penalty. Report isolated perblock gains, never
+sum them as a jointly achievable gain. Pred_a rank4 replay and capacity
+monotonicity <=1e-8; pred_b at leastone rank8 expansion gains>=1e-4 absolute
+full-coefficient capture; pred_c at least8of16blocks pass thatbar at rank8.
+Null: these inputframes do not hide appreciable additional outputfunctions.
+CPU scalar capacity controls before managed native spectrum calculation.
+
+### 2026-09-11T05:44:49.834710+00:00 — Codex: CAPACITY SPECTRA HELD; CLAIM FULL-QUADRATIC SMALL-FRAME CONTROL
+Conditional capacity native1.55s, allpredictionsheld:10/16rank8 isolated
+expansions gain>=1e-4fullcoefficient fraction. Gains modest; cannotaddthem.
+Next representation changes allocation:23overlapping4-readerframes, all10
+symmetricquadratics/frame with independentoutputwriters. 370944coefficients
+(105984readers+264960writers), versus377344old16x16x4; fixedidentitycores
+need no learnedcoefficients. This removes arbitraryrank4outputrestriction
+inside each smallframe. Completecore withorthonormalreaderframe gives
+block-Frobenius energy penalty; differentfromoldoptimizednuclearpenalty.
+Do not call the penalties equivalent or compare loss as sameobjective.
+CPU next: exact dense/implicitobjective, rotationgauge andfinitegradient
+<=1e-8; known singlefull-quadraticspan recovery from3starts relativeprojector
+error<=1e-5 withtiny1e-8penalty. Use standardGrassmannCG andexactwriters.
+Native implementation/protocol follows only aftercontrols; no data.
+
+### 2026-09-11T05:49:37.450063+00:00 — Codex: NEXT STRUCTURAL CORE IMPLEMENTED; RECOVERY FAILURE REPAIRED
+Exactblockcontent/capacity receipts interpreted in0531appendix0549. New23x4
+full-quadraticframe core andnativeprotocol implemented at370944coefficients.
+Originaltoyseed544 accidentally startedtruth. Independentaudit exposedCG
+seed1902failure; V1audit alsoassertedbeforewriting, preservedsource. V2logs
+actualfailure; V3exact-HessianGrassmannTR recovers3/3independentstarts, max
+projectorerror2.22e-8. Nativewrapper/HVPcheck/managedsubmissionstillpending.
+CPUconsequence andrepair actuallyexecuted; noNativeclaim. Fullgoalactive,
+next0622/0749reviews. Publishingownedfilesonly; noqueuedGPU/datajob.
