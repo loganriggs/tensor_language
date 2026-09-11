@@ -2063,3 +2063,10 @@ The prediction was directionally right, quantitatively wrong: sharing the number
 FAILED ON A HAIR: pronoun_person_ours_theirs A2 0.790 vs a 0.80 bar, missing by 0.01. Does NOT pass, not rounded up, not re-run -- the fit is deterministic, so a re-run returns the same number.
 TALLY now 19 from disk: verb_preposition 11, adjective_preposition 3, noun_preposition 2, possessive 2, verb_particle 1 (+ correlative_pair, excluded by the per-receipt rule). Count stays 139.
 RECEIPT-FIDELITY FIX worth adopting: my runners' `recipe` recorded the module constants (target 0.88, min_gain 0.005) while the code fit at the relaxed 0.97/0.001, so earlier receipts understate the budget used. v569 records both, labelled.
+
+### 2026-09-11T0313Z — Claude — row 2 is weaker than I have been reporting for 12 of 19 passing tasks
+A2 carries the "generalizes to a second template" claim, so I measured how far A2 actually differs from A1 across all 19 tasks passing all four (difflib on template strings; exploratory, not pre-registered).
+ALL TWELVE verb_preposition and verb_particle passes sit at 0.907-0.924: the ONLY change is the sentence-initial adjunct, `Near the {obj}` -> `After the {adj} storm`. Same verb, same object, same `, of course,` suffix, same readout position, same cue-to-readout distance.
+possessive genuinely restructures (0.658, 0.678 -- different matrix verb, different clause type, different material between cue and readout); noun_preposition_interest 0.760; adjective_preposition 0.876-0.883.
+I ALSO FLAGGED THE WRONG FAMILY: I registered an A2 caveat on adjective_preposition (copula-only variation) while verb_preposition -- 11 of the 19 passes -- is MORE similar still.
+NOT A RETRACTION: A1, P and C are untouched and the A2 scores are real extraction on a different string. It means row 2 licenses a narrower claim than I have been making. FIX: author an A2 that genuinely restructures the clause and re-run the battery on the SAME fitted directions. If the circuits survive, row 2 means what I said; if not, it was measuring an adjunct swap.
