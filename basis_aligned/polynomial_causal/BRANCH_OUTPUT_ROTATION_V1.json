@@ -1,0 +1,862 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "angle_radians": -0.4054109183298433,
+  "angle_degrees": -23.228334588822925,
+  "errors": {
+    "writer_orthogonality": 8.881784197001252e-16,
+    "full_U_gram": 3.1308289294429414e-14,
+    "rotation_orthogonality": 0.0,
+    "analytic_global_optimum_relative": 0.0,
+    "analytic_original_relative": 5.5375080635637966e-17,
+    "stationarity_relative": 2.4262771203054723e-17,
+    "full_node_matrix_relative": 1.436979066619693e-16,
+    "function_replay": 1.6227417575656235e-15
+  },
+  "fourth_moment_before": 0.0002906293916522853,
+  "fourth_moment_after": 0.00034910808009748593,
+  "fourth_moment_relative_gain": 0.20121395194318703,
+  "overlap_before": 0.2903127814209471,
+  "overlap_after": 0.32764730886679805,
+  "overlap_relative_reduction": -0.12860104630294167,
+  "original": [
+    {
+      "positive": [
+        {
+          "id": 4539,
+          "token": " runs",
+          "loading": 0.033029454027294056
+        },
+        {
+          "id": 4394,
+          "token": " offers",
+          "loading": 0.032234586141034055
+        },
+        {
+          "id": 6100,
+          "token": " moves",
+          "loading": 0.0321707863878197
+        },
+        {
+          "id": 3848,
+          "token": " calls",
+          "loading": 0.032115813982044036
+        },
+        {
+          "id": 5341,
+          "token": " plays",
+          "loading": 0.03138209523522972
+        },
+        {
+          "id": 9911,
+          "token": " stops",
+          "loading": 0.03128086492447594
+        },
+        {
+          "id": 2523,
+          "token": " shows",
+          "loading": 0.031169443501454293
+        },
+        {
+          "id": 7228,
+          "token": " finds",
+          "loading": 0.030794222489773787
+        },
+        {
+          "id": 4940,
+          "token": " starts",
+          "loading": 0.029954479169862356
+        },
+        {
+          "id": 3544,
+          "token": " uses",
+          "loading": 0.029938901464545628
+        },
+        {
+          "id": 3382,
+          "token": " wants",
+          "loading": 0.029497830663504594
+        },
+        {
+          "id": 8404,
+          "token": " tries",
+          "loading": 0.029363110164809067
+        },
+        {
+          "id": 6529,
+          "token": " acts",
+          "loading": 0.029140226514901384
+        },
+        {
+          "id": 9457,
+          "token": " breaks",
+          "loading": 0.02910240820773812
+        },
+        {
+          "id": 2476,
+          "token": " needs",
+          "loading": 0.0290474024900887
+        },
+        {
+          "id": 468,
+          "token": " has",
+          "loading": 0.029042598055796783
+        },
+        {
+          "id": 6296,
+          "token": " stands",
+          "loading": 0.02893779295386056
+        },
+        {
+          "id": 3073,
+          "token": " looks",
+          "loading": 0.028937051159051343
+        },
+        {
+          "id": 10497,
+          "token": " promises",
+          "loading": 0.028714577805283244
+        },
+        {
+          "id": 6622,
+          "token": " holds",
+          "loading": 0.028679027453609417
+        }
+      ],
+      "negative": [
+        {
+          "id": 11339,
+          "token": "onia",
+          "loading": -0.0084856453235587
+        },
+        {
+          "id": 26860,
+          "token": " gallon",
+          "loading": -0.008257886561438995
+        },
+        {
+          "id": 7775,
+          "token": "roit",
+          "loading": -0.008220645365294751
+        },
+        {
+          "id": 48441,
+          "token": "uin",
+          "loading": -0.007884966743274206
+        },
+        {
+          "id": 1533,
+          "token": "eg",
+          "loading": -0.007876362965474538
+        },
+        {
+          "id": 46833,
+          "token": "IRD",
+          "loading": -0.007581176055260857
+        },
+        {
+          "id": 29923,
+          "token": " whim",
+          "loading": -0.007558229074453094
+        },
+        {
+          "id": 7836,
+          "token": "RL",
+          "loading": -0.007377806032668712
+        },
+        {
+          "id": 6519,
+          "token": "cript",
+          "loading": -0.007118888148137372
+        },
+        {
+          "id": 5126,
+          "token": "asp",
+          "loading": -0.007045086853352412
+        },
+        {
+          "id": 27215,
+          "token": "pill",
+          "loading": -0.00697301454251286
+        },
+        {
+          "id": 8176,
+          "token": "bow",
+          "loading": -0.00695099865958041
+        },
+        {
+          "id": 28039,
+          "token": "Similarly",
+          "loading": -0.006931650982299355
+        },
+        {
+          "id": 20520,
+          "token": "']",
+          "loading": -0.006879684032193397
+        },
+        {
+          "id": 12664,
+          "token": "odium",
+          "loading": -0.006844925975232376
+        },
+        {
+          "id": 36368,
+          "token": "enance",
+          "loading": -0.0068351410892276004
+        },
+        {
+          "id": 28120,
+          "token": "staff",
+          "loading": -0.006798605301662366
+        },
+        {
+          "id": 12535,
+          "token": "istle",
+          "loading": -0.006747723832567593
+        },
+        {
+          "id": 3380,
+          "token": "eared",
+          "loading": -0.006744086615218717
+        },
+        {
+          "id": 5998,
+          "token": "rome",
+          "loading": -0.006741056710045968
+        }
+      ]
+    },
+    {
+      "positive": [
+        {
+          "id": 6432,
+          "token": "terday",
+          "loading": 0.012672109713202996
+        },
+        {
+          "id": 42839,
+          "token": "KER",
+          "loading": 0.012186943655982056
+        },
+        {
+          "id": 3907,
+          "token": "\u00ad",
+          "loading": 0.01216803279076289
+        },
+        {
+          "id": 33300,
+          "token": "649",
+          "loading": 0.012082615803893339
+        },
+        {
+          "id": 44648,
+          "token": "'';",
+          "loading": 0.011947009549842107
+        },
+        {
+          "id": 38430,
+          "token": "],[",
+          "loading": 0.01193535760924395
+        },
+        {
+          "id": 48876,
+          "token": " VIDEOS",
+          "loading": 0.011935079523289222
+        },
+        {
+          "id": 37981,
+          "token": ">]",
+          "loading": 0.011918879239238591
+        },
+        {
+          "id": 28182,
+          "token": "LAND",
+          "loading": 0.01186361044107839
+        },
+        {
+          "id": 15451,
+          "token": "inery",
+          "loading": 0.01178308136185498
+        },
+        {
+          "id": 41796,
+          "token": "IUM",
+          "loading": 0.01171096376033931
+        },
+        {
+          "id": 50061,
+          "token": " Drawn",
+          "loading": 0.011575959160951136
+        },
+        {
+          "id": 27285,
+          "token": "WAY",
+          "loading": 0.01154181622326057
+        },
+        {
+          "id": 49656,
+          "token": "OGR",
+          "loading": 0.01152411822036296
+        },
+        {
+          "id": 12662,
+          "token": " Citiz",
+          "loading": 0.011476491709887772
+        },
+        {
+          "id": 13726,
+          "token": "aughed",
+          "loading": 0.011453904450873372
+        },
+        {
+          "id": 19288,
+          "token": "erers",
+          "loading": 0.01144208119603416
+        },
+        {
+          "id": 36408,
+          "token": "iannopoulos",
+          "loading": 0.011423145140457688
+        },
+        {
+          "id": 1849,
+          "token": "\u00a0",
+          "loading": 0.011404690259594013
+        },
+        {
+          "id": 43610,
+          "token": "612",
+          "loading": 0.011344831730293653
+        }
+      ],
+      "negative": [
+        {
+          "id": 468,
+          "token": " has",
+          "loading": -0.026534039793355724
+        },
+        {
+          "id": 318,
+          "token": " is",
+          "loading": -0.025830346249992725
+        },
+        {
+          "id": 373,
+          "token": " was",
+          "loading": -0.021129425606267203
+        },
+        {
+          "id": 3073,
+          "token": " looks",
+          "loading": -0.02031213315305441
+        },
+        {
+          "id": 2753,
+          "token": " takes",
+          "loading": -0.020224696033567465
+        },
+        {
+          "id": 2058,
+          "token": " comes",
+          "loading": -0.019850328348765885
+        },
+        {
+          "id": 4394,
+          "token": " offers",
+          "loading": -0.01972818512707913
+        },
+        {
+          "id": 857,
+          "token": " does",
+          "loading": -0.019431858176039166
+        },
+        {
+          "id": 3793,
+          "token": " remains",
+          "loading": -0.01908710658182492
+        },
+        {
+          "id": 3607,
+          "token": " gives",
+          "loading": -0.018937673873737355
+        },
+        {
+          "id": 1838,
+          "token": " makes",
+          "loading": -0.018674550766853495
+        },
+        {
+          "id": 6622,
+          "token": " holds",
+          "loading": -0.01852624818713363
+        },
+        {
+          "id": 4477,
+          "token": " continues",
+          "loading": -0.01850690624046241
+        },
+        {
+          "id": 4539,
+          "token": " runs",
+          "loading": -0.01840604245324483
+        },
+        {
+          "id": 3382,
+          "token": " wants",
+          "loading": -0.018372033595519633
+        },
+        {
+          "id": 3769,
+          "token": " provides",
+          "loading": -0.01807169261154635
+        },
+        {
+          "id": 2476,
+          "token": " needs",
+          "loading": -0.017979003335143656
+        },
+        {
+          "id": 3407,
+          "token": " includes",
+          "loading": -0.017968204139635055
+        },
+        {
+          "id": 3011,
+          "token": " gets",
+          "loading": -0.01795168644609079
+        },
+        {
+          "id": 5300,
+          "token": " feels",
+          "loading": -0.017946684076983577
+        }
+      ]
+    }
+  ],
+  "rotated": [
+    {
+      "positive": [
+        {
+          "id": 4539,
+          "token": " runs",
+          "loading": 0.03761137696648466
+        },
+        {
+          "id": 4394,
+          "token": " offers",
+          "loading": 0.03740238906012225
+        },
+        {
+          "id": 468,
+          "token": " has",
+          "loading": 0.03715334682073601
+        },
+        {
+          "id": 3848,
+          "token": " calls",
+          "loading": 0.035498628681789345
+        },
+        {
+          "id": 2523,
+          "token": " shows",
+          "loading": 0.0354807706530164
+        },
+        {
+          "id": 5341,
+          "token": " plays",
+          "loading": 0.03547380388521484
+        },
+        {
+          "id": 6100,
+          "token": " moves",
+          "loading": 0.03534504696866245
+        },
+        {
+          "id": 7228,
+          "token": " finds",
+          "loading": 0.03493343927546669
+        },
+        {
+          "id": 9911,
+          "token": " stops",
+          "loading": 0.03472402060589131
+        },
+        {
+          "id": 3073,
+          "token": " looks",
+          "loading": 0.034602457912701466
+        },
+        {
+          "id": 3382,
+          "token": " wants",
+          "loading": 0.034352612573287755
+        },
+        {
+          "id": 2753,
+          "token": " takes",
+          "loading": 0.034298299049392786
+        },
+        {
+          "id": 4940,
+          "token": " starts",
+          "loading": 0.03401154380971684
+        },
+        {
+          "id": 3544,
+          "token": " uses",
+          "loading": 0.03388469324552945
+        },
+        {
+          "id": 2476,
+          "token": " needs",
+          "loading": 0.03378368620190614
+        },
+        {
+          "id": 318,
+          "token": " is",
+          "loading": 0.03371191542542815
+        },
+        {
+          "id": 6622,
+          "token": " holds",
+          "loading": 0.03366100289608327
+        },
+        {
+          "id": 6296,
+          "token": " stands",
+          "loading": 0.033110653548227016
+        },
+        {
+          "id": 8404,
+          "token": " tries",
+          "loading": 0.03305674999400747
+        },
+        {
+          "id": 9457,
+          "token": " breaks",
+          "loading": 0.032870535906403875
+        }
+      ],
+      "negative": [
+        {
+          "id": 26860,
+          "token": " gallon",
+          "loading": -0.011386977848825138
+        },
+        {
+          "id": 7775,
+          "token": "roit",
+          "loading": -0.011237326213903503
+        },
+        {
+          "id": 11339,
+          "token": "onia",
+          "loading": -0.01122225703305223
+        },
+        {
+          "id": 6432,
+          "token": "terday",
+          "loading": -0.011168716432225147
+        },
+        {
+          "id": 46833,
+          "token": "IRD",
+          "loading": -0.01081803670912673
+        },
+        {
+          "id": 27215,
+          "token": "pill",
+          "loading": -0.010717685860615292
+        },
+        {
+          "id": 38430,
+          "token": "],[",
+          "loading": -0.010707945253352776
+        },
+        {
+          "id": 48441,
+          "token": "uin",
+          "loading": -0.01040189941061152
+        },
+        {
+          "id": 29923,
+          "token": " whim",
+          "loading": -0.010269730038668372
+        },
+        {
+          "id": 20520,
+          "token": "']",
+          "loading": -0.01015226568601921
+        },
+        {
+          "id": 44052,
+          "token": " expr",
+          "loading": -0.010125671243865864
+        },
+        {
+          "id": 1533,
+          "token": "eg",
+          "loading": -0.010084443943791321
+        },
+        {
+          "id": 15451,
+          "token": "inery",
+          "loading": -0.009983646273567019
+        },
+        {
+          "id": 40988,
+          "token": "icipated",
+          "loading": -0.009964005941615516
+        },
+        {
+          "id": 7836,
+          "token": "RL",
+          "loading": -0.009925431821263991
+        },
+        {
+          "id": 26413,
+          "token": "zzle",
+          "loading": -0.00985145470742125
+        },
+        {
+          "id": 28039,
+          "token": "Similarly",
+          "loading": -0.009848841162260482
+        },
+        {
+          "id": 9047,
+          "token": "ourse",
+          "loading": -0.009706155507885329
+        },
+        {
+          "id": 36368,
+          "token": "enance",
+          "loading": -0.009621669275738085
+        },
+        {
+          "id": 22739,
+          "token": "aned",
+          "loading": -0.009539205929713516
+        }
+      ]
+    },
+    {
+      "positive": [
+        {
+          "id": 48876,
+          "token": " VIDEOS",
+          "loading": 0.013739863379112663
+        },
+        {
+          "id": 48198,
+          "token": " Prosecutors",
+          "loading": 0.011775345408715571
+        },
+        {
+          "id": 35266,
+          "token": "\ufffd",
+          "loading": 0.011502227965214015
+        },
+        {
+          "id": 49656,
+          "token": "OGR",
+          "loading": 0.011341994249862403
+        },
+        {
+          "id": 28378,
+          "token": "LES",
+          "loading": 0.01103985974323727
+        },
+        {
+          "id": 42451,
+          "token": "WAYS",
+          "loading": 0.011004568734380465
+        },
+        {
+          "id": 44177,
+          "token": " Carnage",
+          "loading": 0.010851939894272475
+        },
+        {
+          "id": 45325,
+          "token": " IMAGES",
+          "loading": 0.010812004802814242
+        },
+        {
+          "id": 49409,
+          "token": " Parables",
+          "loading": 0.01078132439339068
+        },
+        {
+          "id": 15862,
+          "token": " REUTERS",
+          "loading": 0.01076041898273588
+        },
+        {
+          "id": 19288,
+          "token": "erers",
+          "loading": 0.010735682016793814
+        },
+        {
+          "id": 23054,
+          "token": " ACTIONS",
+          "loading": 0.010720221328741997
+        },
+        {
+          "id": 41853,
+          "token": " 000000",
+          "loading": 0.010704554825929918
+        },
+        {
+          "id": 27285,
+          "token": "WAY",
+          "loading": 0.01063075673458539
+        },
+        {
+          "id": 35165,
+          "token": " Witnesses",
+          "loading": 0.010621028796721308
+        },
+        {
+          "id": 49687,
+          "token": " JUSTICE",
+          "loading": 0.010565260512102752
+        },
+        {
+          "id": 49516,
+          "token": "BILITIES",
+          "loading": 0.010542661794684223
+        },
+        {
+          "id": 45644,
+          "token": " Journalists",
+          "loading": 0.01052916001826361
+        },
+        {
+          "id": 21903,
+          "token": " Depths",
+          "loading": 0.010446286002361029
+        },
+        {
+          "id": 39794,
+          "token": " Cells",
+          "loading": 0.010378809388342547
+        }
+      ],
+      "negative": [
+        {
+          "id": 318,
+          "token": " is",
+          "loading": -0.01364015329727734
+        },
+        {
+          "id": 373,
+          "token": " was",
+          "loading": -0.013281775781802325
+        },
+        {
+          "id": 468,
+          "token": " has",
+          "loading": -0.012928905197427249
+        },
+        {
+          "id": 857,
+          "token": " does",
+          "loading": -0.008274077723974852
+        },
+        {
+          "id": 2058,
+          "token": " comes",
+          "loading": -0.007939144602894565
+        },
+        {
+          "id": 2331,
+          "token": " seems",
+          "loading": -0.007686987143236616
+        },
+        {
+          "id": 423,
+          "token": " have",
+          "loading": -0.007429259513173325
+        },
+        {
+          "id": 5818,
+          "token": " hasn",
+          "loading": -0.007308508911720411
+        },
+        {
+          "id": 2753,
+          "token": " takes",
+          "loading": -0.007288361881015684
+        },
+        {
+          "id": 3073,
+          "token": " looks",
+          "loading": -0.007252971074579761
+        },
+        {
+          "id": 1838,
+          "token": " makes",
+          "loading": -0.007218001527314518
+        },
+        {
+          "id": 3607,
+          "token": " gives",
+          "loading": -0.007067794695944049
+        },
+        {
+          "id": 3407,
+          "token": " includes",
+          "loading": -0.00703098677653689
+        },
+        {
+          "id": 3793,
+          "token": " remains",
+          "loading": -0.0069476398897908714
+        },
+        {
+          "id": 1595,
+          "token": " doesn",
+          "loading": -0.006942196273250904
+        },
+        {
+          "id": 2125,
+          "token": " isn",
+          "loading": -0.006902834458600389
+        },
+        {
+          "id": 2492,
+          "token": " wasn",
+          "loading": -0.006632898627624123
+        },
+        {
+          "id": 4909,
+          "token": " contains",
+          "loading": -0.006587041484620432
+        },
+        {
+          "id": 10874,
+          "token": " consists",
+          "loading": -0.006583149830631465
+        },
+        {
+          "id": 4433,
+          "token": " requires",
+          "loading": -0.0064887283952752405
+        }
+      ]
+    }
+  ],
+  "price": {
+    "reader_coefficients": 1152,
+    "writer_coefficients": 2304,
+    "partner_coefficients": 2304,
+    "variable_products": 2,
+    "additional_execution_cost": 0,
+    "note": "Rotation absorbed into existing coefficients; common native background still required."
+  },
+  "source_sha256": "b1e90771d51ea355e1b1f636ece07816034dc3aeeb220513262ee69292beeeb3",
+  "artifact_sha256": "c649aaf361b8bd9da33e967ab0e70a516488af298eaa112a356501d32d106a49",
+  "scope": "Exact global 2D orthogonal rotation optimum only. Summed node function unchanged; individual branch deletions change. No data fitting or circuit identification."
+}

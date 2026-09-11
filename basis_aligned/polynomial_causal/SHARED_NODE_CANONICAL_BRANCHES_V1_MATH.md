@@ -148,3 +148,49 @@ The registered 128-prefix screen completed at 18:24:12. All three screen bars he
 This is selective suppression on separate historical FineWeb prefixes. The original support-direction prediction remains failed. It is neither OOD evidence nor isolated circuit sufficiency; native background remains installed. The two token families were selected from frozen output loadings, so stronger own-token effects can arise from the writers without different contextual input gates.
 
 The prospectively registered input-gating test addresses that alternative. Its exact coefficient reconstruction holds at 9.70e-17, but standardized paired own-family suppression differences are only 0.0748 and 0.1536 (bar 0.25), and both mean-difference intervals include zero. Both specificity bars miss. All-context amplitude correlation is 0.0128; low correlation does not establish task-selective activation. The narrower supported statement is distinct token-facing effects of two branches sharing one reader. We have not established that their input gates recognize distinct behaviors. No fitting occurred. [Prospective result](BRANCH_INPUT_GATING_V1_SEPARATE.json).
+
+
+### Exact branch-basis search, 18:33 UTC
+
+The two branches have almost equal singular values, so the selected output basis deserves scrutiny. Write this shared-reader node as
+
+$$
+D_u(x)=(u^\top x)M x,\qquad M=OP^\top,
+$$
+
+where the columns of $O$ are orthonormal in the full-unembedding metric coordinates. Absorb the original writer norms into $P$. For any orthogonal two-by-two rotation $R$,
+
+$$
+(OR)(PR)^\top=OP^\top.
+$$
+
+Thus the entire node is unchanged, while each branch and its deletion can change. Physical token loadings are $F=UW^{-1}O$, with $W^\top W=U^\top U$, using all 50,304 rows and no centering. Then $F^\top F=I$. The normalization is essential: arbitrary rescaling must not manufacture a sparsity gain.
+
+**Concentrating large loadings.** Existing varimax maximizes the sum of fourth powers of rotated loadings here; its column second-moment correction is constant. For token row $(a_t,b_t)$, define
+
+$$
+A=\frac14\sum_t(a_t^4-6a_t^2b_t^2+b_t^4),\qquad
+B=\sum_ta_tb_t(a_t^2-b_t^2).
+$$
+
+The objective is a constant plus $A\cos(4\theta)+B\sin(4\theta)$. Therefore $\theta=\operatorname{atan2}(B,A)/4$ is a global maximizing angle. This is a closed-form restriction of the existing varimax method, not a new method family or an iterative convergence claim.
+
+The optimum is -23.228 degrees. Fourth moment increases **20.12%**, passing the registered 10% bar. But squared token-loading overlap increases **12.86%**, failing the desired 25% reduction. The strongest verb loadings concentrate while broad overlap increases. More extreme top loadings need not mean more disjoint token support. Whole-function replay is 1.62e-15; the full-U metric identity is within 3.14e-14. [Code](branch_output_rotation_v1.py) · [Receipt](BRANCH_OUTPUT_ROTATION_V1.json).
+
+**Minimizing overlap directly.** To red-team that miss, minimize
+
+$$
+L(\theta)=\sum_t\min\{(FR)_{t0}^2,(FR)_{t1}^2\}.
+$$
+
+Using $\min(s,t)=(s+t-|s-t|)/2$, this is equivalent to maximizing
+
+$$
+\sum_t\left|(a_t^2-b_t^2)\cos(2\theta)+2a_tb_t\sin(2\theta)\right|.
+$$
+
+Each term changes sign at a known angle. Sort those events, maintain the summed sine/cosine coefficients, and inspect each interval's endpoints and any interior maximum. This gives a global solution in $O(V\log V)$ time and $O(V)$ storage, without a model forward pass or iterative optimizer. Independent direct-angle evaluations do not beat the computed optimum; a rotated planted disjoint pair recovers overlap below 7e-33. Numeric identities hold within 6.16e-15.
+
+The best overlap falls from **0.290313 to 0.278891**, only **3.93%**, so the registered 25% reduction bar misses even under its directly optimized objective. Fourth moment retains 109.10% of the original, passing the separate 95% retention bar. The optimum is 82.995 degrees, equivalent under column swap/sign to a small change from the original basis. The previous varimax choice had overlap 0.327647. [Code](branch_overlap_rotation_v1.py) · [Receipt](BRANCH_OVERLAP_ROTATION_V1.json).
+
+This establishes a narrow optimization limit: a large reduction in this overlap measure is unavailable through orthogonal rotation of this frozen unit-writer subspace. It does not constrain different subspaces, shared readers, nonorthogonal representations, or graph topology. Neither rotation changes product count or storage once absorbed into the weights. Neither is adopted as a better circuit basis. Their individual deletions have not received new behavioral validation; the completed original-basis suppression and gating verdicts remain unchanged. These results favor searching beyond cosmetic coordinate rotation when seeking substantially different reusable branches.

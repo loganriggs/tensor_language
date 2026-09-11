@@ -1,0 +1,26 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "errors": {
+    "analytic": 6.158419279708327e-15,
+    "full_node_matrix": 1.7282946782215283e-16,
+    "orthogonality": 1.1102230246251565e-16,
+    "grid_violation": 0.0,
+    "planted_overlap": 6.913251139504791e-33,
+    "planted_analytic": 0.0
+  },
+  "optimizer": {
+    "angle_degrees": 82.99484132229414,
+    "intervals": 50305,
+    "analytic_relative_error": 6.158419279708327e-15
+  },
+  "overlap_before": 0.2903127814209471,
+  "overlap_after": 0.278890913917909,
+  "overlap_relative_reduction": 0.039343316016378305,
+  "fourth_moment_ratio": 1.0909806990214888,
+  "varimax": 0.32764730886679805,
+  "source_sha256": "b1e90771d51ea355e1b1f636ece07816034dc3aeeb220513262ee69292beeeb3",
+  "artifact_sha256": "7595ffee8f86ea9adec857da9c6a2db76422aeed527d09fed51370e8a7a54723",
+  "scope": "Global minimum only within orthogonal rotations of this frozen, unit full-U two-writer subspace. No optimization over the shared reader, subspace, nonorthogonal rescalings, or model data. Summed node unchanged; individual deletions change."
+}
