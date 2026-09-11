@@ -583,3 +583,7 @@ The separate128-prefix screen is queued with unchanged factors and new registere
 suppression/specificity hypotheses. Earlier calibration and quote-suppression
 findings remain relevant; no novel circuit identity or OOD/sufficiency claim.
 [Primary result and sign accounting](../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md#native-behavioral-screen-completed-at-1759-utc).
+
+### 11 September 18:26 — Frozen shared-reader branches: separate suppression screen
+
+The 128-prefix follow-up holds signed suppression and own-token specificity, with mean absolute nearby-control CE changes about 0.005. Prospective input-gating specificity misses for both branches. This supports distinct token-facing effects while leaving contextual task specialization, OOD and sufficiency unestablished. Original support-direction screen remains failed. [Primary explanation and receipts](../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md).

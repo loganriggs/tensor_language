@@ -1,0 +1,34 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "rows": [
+    {
+      "family": "ORIGINAL",
+      "original_objective": 0.8841870347451682,
+      "conditional_objective": 0.8841869619631346,
+      "objective_gain": 7.278203362215407e-08,
+      "relative_function_change": 0.0007966495649054623,
+      "receipt_replay": 1.1102230246251565e-16,
+      "minimum_identity_error": 0.0,
+      "output_normal_residual": 8.332893315764827e-16,
+      "output_system_condition": 9.610325343126254,
+      "output_condition_bound": 6401.0,
+      "source_sha256": "2a5956ce353ae2fff904b788ec468d9a836e81b2cd33a65a987a667b6d8e549b"
+    },
+    {
+      "family": "GRAPH",
+      "original_objective": 0.8843382162124784,
+      "conditional_objective": 0.8843381809173236,
+      "objective_gain": 3.529515479883116e-08,
+      "relative_function_change": 0.000555400543730269,
+      "receipt_replay": 2.220446049250313e-16,
+      "minimum_identity_error": 0.0,
+      "output_normal_residual": 8.113201918053112e-16,
+      "output_system_condition": 9.582977206311748,
+      "output_condition_bound": 6401.0,
+      "source_sha256": "b299cade29ca4446a29ea807579ac8ab53246a6303d284207af9ee06b26e6f5c"
+    }
+  ],
+  "scope": "Exact conditional output-only diagnostic; inputs held fixed. No joint convergence, global recovery, or circuit claim; no fitted artifact adopted."
+}

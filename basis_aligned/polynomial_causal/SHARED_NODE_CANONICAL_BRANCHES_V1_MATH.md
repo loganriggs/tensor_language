@@ -118,3 +118,33 @@ tests suppression as a new hypothesis and requires paired evidence of own-versus
 branch specificity. No weights are fitted to the panel, and no OOD or isolated
 sufficiency claim is made. Related MLP17 calibration and earlier quote-suppression
 findings remain relevant controls, not grounds to declare this a novel circuit.
+
+## Separating input gating from selected output weights
+
+Different token loadings can yield apparent family specificity even if the input
+read products do not prefer those families. A [frozen gating test](branch_input_gating_v1.py)
+therefore compares the actual polynomial amplitudes before applying token-specific
+output weights. Orient each unit full-unembedding writer toward positive mean
+loading on its original token family. Its signed amplitude is then the input
+product times the writer norm, with the corresponding orientation sign.
+
+Within a prefix, compare branch0 suppression at the family0 versus family1
+position, and branch1 suppression in the opposite order. The registered bars
+require a paired standardized difference of at least0.25 and a positive95% lower
+bound for each branch. These bars were fixed before outcomes on the separate
+128-prefix panel; no reader or output coefficient is fitted to data.
+
+The [24-prefix diagnostic](BRANCH_INPUT_GATING_V1_INITIAL.json) passes coefficient
+replay to1.0e-16 but misses both gating bars. Standardized differences are−0.233
+and+0.146, with both intervals crossing zero. Their overall amplitude correlation
+is0.122. Thus the initial data neither establish own-family input gating nor
+support calling the branches duplicate signals. The same test remains prospective
+for the separate panel and will use its already-captured endpoint states.
+
+### Separate suppression screen and prospective input-gating check, 18:26 UTC
+
+The registered 128-prefix screen completed at 18:24:12. All three screen bars held. Removing branch 0 improved its own token-family CE by 0.04840; removing branch 1 improved its own family by 0.05736. Own-minus-other removal effects were -0.01659 and -0.03367, with paired prefix-bootstrap 95% intervals [-0.03069, -0.00271] and [-0.04901, -0.01779]. Mean absolute nearby-control CE changes were 0.00517 and 0.00507. Physical replay relative errors were below 8.97e-7. Execution used 50 body forwards, 400 sequences, 384 endpoints and 2.39 seconds inside the experiment. [Receipt](SHARED_NODE_PARENT1_SUPPRESSION_V1_RESULT.json).
+
+This is selective suppression on separate historical FineWeb prefixes. The original support-direction prediction remains failed. It is neither OOD evidence nor isolated circuit sufficiency; native background remains installed. The two token families were selected from frozen output loadings, so stronger own-token effects can arise from the writers without different contextual input gates.
+
+The prospectively registered input-gating test addresses that alternative. Its exact coefficient reconstruction holds at 9.70e-17, but standardized paired own-family suppression differences are only 0.0748 and 0.1536 (bar 0.25), and both mean-difference intervals include zero. Both specificity bars miss. All-context amplitude correlation is 0.0128; low correlation does not establish task-selective activation. The narrower supported statement is distinct token-facing effects of two branches sharing one reader. We have not established that their input gates recognize distinct behaviors. No fitting occurred. [Prospective result](BRANCH_INPUT_GATING_V1_SEPARATE.json).

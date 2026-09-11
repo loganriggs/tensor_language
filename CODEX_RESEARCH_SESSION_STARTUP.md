@@ -153,8 +153,8 @@ or historical handoff block for every small control. No new publisher framework.
 ## Review clocks and throughput
 
 Latest hourly review:
-[17:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1722.md).
-Next hourly review is due **18:22 UTC on11September** at the first safe boundary.
+[18:26](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1826.md).
+Next hourly review is due **19:26 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [16:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1651.md).
 Next mathematical review is due **19:51 UTC on11September**. Derive later deadlines from the

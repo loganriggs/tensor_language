@@ -162,3 +162,22 @@ and lifting one frozen reader to complete native weights. It exposes both omitte
 native branches and the difference between graph-node deletion and global input
 projection. The retained-history optimizer comparison and frozen native branch
 screen remain audited in the managed queue; their evidence is still pending.
+
+## Exact output-only stationarity check at 18:17
+
+The [conditional writer diagnostic](JOINT_FIT_OUTPUT_STATIONARITY_V1.json) holds
+each completed spectral fit's input quadratics fixed and solves all64 output
+vectors together under the same full-unembedding metric and0.01 group-energy
+penalty. It reuses the equilibrated output solve. Receipt, normal-equation and
+minimum-objective identities agree within8.34e-16.
+
+Objective gains are only7.28e-8 for the original group fit and3.53e-8 for the
+shared graph, missing the1e-4 bars. Whole-function changes are0.0797% / 0.0555%,
+also below the5% bar. Another output-only polish is therefore not supported by
+this diagnostic. It does not establish convergence in input readers or under
+coupled reader/core/writer changes; separately conditional optima need not be a
+joint optimum. No new fitted artifact or circuit is adopted.
+
+### Retained-history comparison completed, 18:19 UTC
+
+The matched 20-minute spectral-original run retaining L-BFGS history completed with numeric checks held, but convergence and objective-advantage bars missed. Its objective was 0.8843975585 versus 0.8841870347 for the 200-step restart baseline: worse by 0.0002105237. Capture was 11.8605%; fresh gradient was 5.1141e-5 and recent relative progress 1.1832e-5, both above convergence bars. Do not adopt this schedule from this result. This one controlled comparison does not establish that retaining history is generally worse, and both endpoints remain unconverged. The output-only conditional solve above also fails to explain the remaining joint optimization difficulty. [Receipt](SHARED_READER_RETAINED_HISTORY_V1_SPECTRAL_ORIGINAL.json).

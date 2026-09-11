@@ -43,3 +43,7 @@ First jointpenalized start:64.685%capture andfivefold less summed component ener
 The shared scalar candidate substantially overlaps knownpronoun-related structure and has a strong opening-parenthesis association. It isnot a newgendercircuit. [Prior comparison](../../SHARED_FUNCTION_PRIOR_ALIAS_V1_AUDIT.json).
 
 [Methods explanation12:22](explanation_2026-09-11_1222.md) · [Hourly12:22](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1222.md) · [Math10:51](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1051.md) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).
+
+### 18:26 UTC — Separate suppression screen passes; contextual gating remains unproven
+
+The frozen 128-prefix screen passes suppression and own-token specificity, but its prospective input-gating test misses. The retained-history optimizer remains unconverged and finishes worse than the restart baseline. [Branch evidence and limits](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md) · [Optimizer result](../../SHARED_READER_VARIABLE_PROJECTION_V2_MATH.md) · [Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1826.md).
