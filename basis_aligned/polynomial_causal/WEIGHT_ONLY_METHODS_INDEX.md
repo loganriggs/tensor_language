@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 07:13 UTC. Use this index before opening a structural family
+Updated 11 September 07:20 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -91,3 +91,10 @@ and retainedDown/bias without originalL/R. [CPU controls](SPARSE_READER_PROGRAM_
 verify feature removals, donorinterchange, nonzero pair interactions and exact
 quadratic-dose RMS/tanh prediction. Syntheticprogramalgebra only; no native
 selectivity/OOD or runtime-speed claim. Native queued sources unchanged.
+
+[Native product energy](NATIVE_READER_METRIC_V1_AUDIT.json) isbroad (topdecile14.76%,
+effective4184.65); [complete-product Gram](NATIVE_PRODUCT_GRAM_V1_AUDIT.json)
+effective4594.11/4608, maxpaircos.4645. [Constructive non-bound](PRODUCT_GRAM_NONBOUND_V1_CONTROL.json)
+shows orthogonalcomponents can shareinputs and admit fewernewproducts. Do not
+usecurrentdictionaryGramrank as an arithmetic-complexity lower bound.
+Structuredcontinuationseed0completed3.5097%,unconverged; seed937live.

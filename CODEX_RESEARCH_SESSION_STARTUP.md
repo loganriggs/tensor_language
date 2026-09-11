@@ -82,164 +82,57 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 07:13 UTC
+## Current handoff — 11 September 07:22 UTC
 
-Read explanations/2026-09-11/LATEST.md and reader-program0713 in
-explanation_2026-09-11_0608.md. WEIGHT_ONLY_METHODS_INDEX.md links prior art.
-Weights-first; no new data fits. Hourly next0722; math next0749.
+Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
+[method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
+and [hourly07:22 review](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0722.md).
+Current receipts/processes override this snapshot. Do not repeat completed
+families or infer convergence from an elapsed budget.
 
-Previous progress9b6e22896. sparse_reader_program_v1.py now executes queued
-dictionary artifacts with retainedDown/bias and no originalL/R. CPU control
-SPARSE_READER_PROGRAM_V1_CONTROL.json passes direct sparse/dense/reload,
-feature removal/interchange, nonzero pairinteraction and existing quadratic
-readout-state dose identities. FP64synthetic controls only. No nativeartifact
-yet; dictionaryjob stillqueued, structuredcontinuation stilllive. Do not mutate
-queued sources or publish behavioral claims from these algebra checks.
+- **Live:** `run_structured_bilinear_continue_v1.py`, sourceSHA
+  `18bb149033110806564a10b0e7e6939387bd71b41158609b5dd99213ddb03a20`.
+  First start finished3.5097%capture, unconverged; second start live. Check
+  `STRUCTURED_BILINEAR_CONTINUE_V1_RESULT.json` and per-seed receipts.
+- **Queued:** `run_full_reader_dictionary_msp_v1.py`, sourceSHA
+  `47855b088b7437906d27c0036bf52a2e51f6056630a97d329bfbf693bfaf8bdb`.
+  Full1152input basis; nativeL/Rweights only; paired3072/1536product holdout;
+  two900second fits; exactfull-Uscore. No native result yet. Protect its turn
+  after the live job. No automatic third identical structured continuation.
+- **Ready:** `sparse_reader_program_v1.py` consumes savedbasis/codes plus
+  Down/bias, with exact feature-edit and interaction algebra. Synthetic
+  controls are not native circuit evidence. All queued/executed bindings frozen.
+- **Latest CPU evidence:** native product energy broad; existing function-Gram
+  nearly full rank. A constructive counterexample proves that this does not
+  bound new factorization or shared intermediate reuse. Canonical index links
+  all results. Cached `/dev/shm/bilin18_native_product_energy_v1.pt` includes
+  UGram and native per-product energies; reuse it if needed.
 
+User correction: discover from weights first. No new data/CE/Fisher-guided fits
+until distinct weight-only assumptions and adequate optimization have been
+examined. FineWeb is the training corpus; Pile is separately labelled OOD.
+Historical Pile-adapted fits are not clean OOD evidence for those surrogates.
+The [25-hypothesis campaign](basis_aligned/polynomial_causal/explanations/2026-09-10/unsupervised_structure_campaign.md)
+remains an idea source; its initial status table is historical. Follow the
+bilinear handoff/pilot and unembedding_folding_in_math/unembedding_factors_how
+notes, not better_math_ideas. Check dossiers before opening component work.
 
-Previous progress3acf5a7d0. New full-rank shared-reader dictionary CPU controls
-pass sparse recovery and dense heldout null. Dense1902 first2000step miss
-preserved;2104step identical-run repair converged. Native job queued behind
-existing structured continuation: run_full_reader_dictionary_msp_v1.py SHA
-47855b088b7437906d27c0036bf52a2e51f6056630a97d329bfbf693bfaf8bdb.
-Protocol FULL_READER_DICTIONARY_MSP_V1_PREREGISTRATION.md; two900sec/20000step
-fits, full1152basis, nativeL/Rweightrows, paired3072/1536product holdout,
-128sparsecoordinates, identity/PCA controls, exactfull-U coefficient score.
-No native result yet. Fullgoalactive. No text/activation fits or duplicatejobs.
+Every negative or weak positive needs its narrow claim, strongest plausible
+methodological explanation and an executed discriminating check; otherwise
+mark the audit pending. Do not replace a failed prediction with a later repair.
+Local convergence is not global recovery; weight structure is not a circuit.
+Earlier snapshots and cache details remain in Git history and primary receipts.
 
-
-Previous progresse7f27a587. Stage balancing CPU audits completed: exact maps,
-parameter norm-squared5.55/5.66x lower, actual stationarity/maxgradient only
-1.62/1.02x lower (2x predictions missed). No near-convergence or speed claim.
-Do not mutate live optimizer; balanced copies saved separately.
- Native structured V2 completed06:44:07; both starts
-time-limited at1.4968/0.9388%capture, stationarity.261/.599, not converged.
-Both still improving. Same-objective continuation managed-live from06:47:48:
-run_structured_bilinear_continue_v1.py sourceSHA
-18bb149033110806564a10b0e7e6939387bd71b41158609b5dd99213ddb03a20.
-Loads both model and optimizer, exact native seed0 replay held, history20.
-1800 additional seconds per seed, own checkpoint every300s, same thresholds.
-Inspect STRUCTURED_BILINEAR_CONTINUE_V1_RESULT.json and SEED_0/937 receipts;
-periodic receipts can say running. Never duplicate or restart a live handle.
-Original failed convergence/quality predictions remain failed. CPU resume-next-
-step control exact. All sources and bindings frozen after enqueue. Source
-syntax for prediction keys was repaired before successful enqueue; no failed
-native continuation attempt. Full goal active; no circuit identification yet.
-
-V1factorinitializationseed0completed56.4s; jointfitneverstarted becauseFDstep
-1e-4 gave8.63e-4relativeerror. Savedstate inV1PREFLIGHT_0receipt. Nativeaudit
-showed100.07xerrorreduction for10xsmallerstep; Richardson1e-5/5e-6 error6.09e-10.
-V2reusesexactV1initialstate, sameobjective/optimizer/1e-5preflightthreshold.
-Oldsources/failure preserved. Do notredo factorinitialization. Allsourcebindings
-frozen; use newversionsforrepairs. LatestCPUdense/chain/branchcontrols<9e-16.
-
-Previoussmall23x4frames bothlocallyconverged at5.94%coefficientcapture, no gain;
-inputsupportceiling18.76%explainswhythiscannotreconstructmostweights. Mixedradix
-fullrankconstruction andsmallplantedfits2/3recover; failedseed614curvature
-checksfoundno usefulnegativecurvatureescape. Those are syntheticcontrols,
-notnativeevidence. Fullrankdoesnotguaranteefixedwiringmatchesnativeweights.
-
-USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
-substantially different weight-only assumptions with appropriate stronger solvers
-before incorporating data into discovery. FineWeb is the model's training corpus
-per user; Pile is shifted-corpus/OOD validation, and Pile-adapted fits are not clean
-OOD evidence for those fitted surrogates. Stop expanding data/CE/Fisher fitting.
-Use FineWeb for in-distribution validation, Pile for separately labelled transfer.
-Do not substitute more data experiments for the still-mostly-unrun25hypothesis list.
-No own data jobs remain queued. Existing completed data results are historical.
-
-Full goal active. User explicitly requests a broad unsupervised structural search,
-substantial data/optimization, convergence and red-team review of negatives.
-Read explanations/2026-09-10/unsupervised_structure_campaign.md first (25 hypotheses).
-Standing user instruction: red-team every future negative using that document's
-red-team gate before drawing structural conclusions. Record the narrow failed
-claim, strongest plausible methodological explanation and executed discriminating
-check; otherwise mark audit pending. Preserve original results and thresholds.
-The prior joint32 fit was a short pilot, not a census of two mechanisms.
-
-UNSUPERVISED_DATA_V2_RESULT.json:250forwards1000seq512000processed tokens,
-64000stored MLP17 pairs, fixed800/100/100row splits. Decode scaled FP16 as
-x.float()*x_scale and y.float()*y_scale before casting to FP64. Native bias key
-is transformer.h.17.mlp.Down_bias, not Down.bias. DataV1 fit failed before
-optimization on that key; V2 execution repair passed64-state native replay.
-Data capture itself remains valid. No fresh/document-level/OOD claim.
-
-Two V1 weight chunks finished but neither converged: product_s0 coefficient
-error.91262749; shared_reader_s0 .94666619. Saved checkpoints+CHUNK00 JSON exist.
-CPU validation errors on natural states are.093409/.082079 respectively, showing
-metric-dependent ranking. Stall audit: product cancellation ratio14264.96, saved
-LBFGS step0. Fresh/centered/projected refinements fail1e-8 improvement bar.
-Exact pair regrouping reduces cancellation8.17x, misses10xbar, costs130vs128products.
-Fixed-reader penalty.01 reduces cancellation to1.245 while retaining80%of captured
-coefficient energy. energy_regularized_quadratic_v1.py and8dense/gradientcontrols
-implemented; joint native penalized fit has now CONVERGED LOCALLY. New convergent_quadratic_fit_v2 tracks
-optimization_loss, reports reconstruction separately and preserves gradient bars.
-Planted/resume and nonstationary-stall controls pass. Sources/bindings are frozen.
-
-Penalized weight product V1 completed21:07:47: all3predictionsPASS, localconvergence
-in57.04s/3931closures, capture.086989,cancellation1.219, validation.091166.
-Original540s warm-start cost remains charged; changed objective not originalfitconvergence.
-V2 data_shared_reader_s0 completed, validation.019442, unconverged. Productchunk1
-completed21:16:52, train.01621265, stillunconverged; avoidmoreidenticalzero-progresschunks.
-Blockvalidation.024394; firstproductvalidation.025849; secondproductvalidation.029441
-worsened despite tinytraininggain; firstfunctionfrozen. Affine.031560.
-MILLION_TOKEN_PANEL_V1 rows prepared:2048distinct Pile-10kdocumentprefixes,1048576tokens,
-32sampledinputs/document,1600/224/224splits. Managedcapture completed21:18:19 in27.74s, all3instrumentchecksheld.
-MILLION_TOKEN_PANEL_V1_RESULT.json is authoritative; newdatasetfitpending. Input-onlycache~164MB; all819200trainingpositions
-contribute mean/secondmoment. Pile isnotverified pretrainingdistribution; covariancenotfourthmoment.
-See appended21:14/21:18campaignanswers foroptimizerdetails, costs and primaryliterature.
-QR variableprojection objective implemented and toy first-gradient/SVDcontrols held.
-PILE_FIXED_READER_TRANSFER_V1 completed21:26:07 in4.94s, all3predictionsPASS.
-Shared-reader frozen/refit Pilevalidation.015637/.014018; affine.023747.
-Matched>=64 sharedwriterrefit improves10.83%. No nonlinearreadertraining yet.
-QR/SVD andnormal-equation functionbridges held; qr_seconds are asynchronoushosttimings,
-not GPUbenchmarks. Writergeometryaudit completed: sharedfunction cosine.98575.
-PHYSICAL_QUADRATIC_V1 completed21:36:02: A heldexactly, B/C failed. Shared-refit
-MAE tokenCE.23836/top1.87653; mean CE damage+.05879; KL9.81% reduction misses10%bar.
-Do not turn localreconstruction into a circuit/prediction claim. Native MLP17
-replacedbyactualshared64 execution,238720coefficients vsnative15926400; backgroundretained.
-PILE_QR_REFINEMENT_V1 completed: Aheld B/Cfailed; bothunconverged. Validation
-normal.0130643/QR.0130386; QR not1%better, fewerclosuresinmatched240s.
-TERMINAL_PROBABILITY_REDTEAM_V1 completed: A/Bheld Cfailed. FisherKL predictions
-within.64–2.38%; normonly accountsfor.67–1.04%of fullKL. Preserve diagnostic,
-but user now defers probability/data-guided fitting until weight-first search exhausted.
-Native WEIGHT_PRODUCT_ALS_V1 completed: numericalchecksheld, convergence/referencequalityfailed;120.25s,517sweeps,113698CGiterations,obj.91425633. Redteam shows continuedouterprogress despite accurateinnersolves; no structuralnegative. New multioutput16x16x4 blockweightfit running, source/bindingfrozen. Signed-squarewrapperprepared butnotqueued; checkdiskbeforeexecution. See campaign22:08 formath/prices. Next strongerweight-onlysolvers anddistinctrepresentations; no newdatafit. JointGN core andstepacceptance controls nowpass; WEIGHT_PRODUCT_GN_V1 managedqueued behindblockfit. GNcompleted Aheld B/Cfailed,obj.91422509,stationarity.001625. Blockcompleted Aheld B/Cfailed,capture.0862302. CPUblockgeometry andexactcommon-outputsplit audited: commonchannel7.195%nativeenergy, blockcommonerror.279656, centerederror.962932. Preservecommonbeforetanh. SignedsquareV2completed369.75s,Aheld B/Cfailed,capture.0964521,stationarity.0003955. CPUstoppingaudit confirms maxgrad9.5e-11 belowinternal1e-10 butexternalbarfails; rawrownorms53–2037. Polishnowcompleted17.26s A/B/Cheld, capture.09645222, canonicalstation3.296e-5/original8.095e-5: locallyconverged. Newcenteredorthogonal128inputbasis/256edgebaselineAheld B/Cfailed,capture.01401, fullcore.06406. Stiefel sparseframeupdatecontrols pass; SPARSE_CORE_RCG_V1 native240s nowmanagedqueued, SHAde4b10eb6f52ac3301a70ba9f6147b3528152340fc0f4394d51048ee261cae25. NativeRCGcompleted74.30s A/Bheld Cfailed,capture.0366952,station8.49e-5. Math2249review andsquarepencil/nativeports auditscomplete. Independentseed937restartcompleted83.42s A/Bheld Cfailed,capture.032859, functioncos.795508. Exacttwofunctionspan capture.038967 atdoubledcenteredcost, noadoption. NativegeneralblockQRgaugerepair controlspass, INITIAL.pt saved; nextmanifold-awareoverlappingblockoptimizer onoriginalfull-Ulambda.01objective. No newblockoptimizationyet. See latestcampaignappendix. NoV1squarerun. See campaign22:26.
-FullU output-function andtrace red-team audits complete, coefficientmetric-only bounds.
-
-32original configs remain frozen:4representations x2metrics x4starts. Only first
-chunks described above have executed. Each540-second fit chunk saves optimizer
-state; ending a chunk is not convergence. V1 cores/bindings must stay frozen.
-Use corrected V2 runner for data configurations. States~296MB and unfinished
-optimizer checkpoints are local-only; most artifacts are not off-box backed up.
-Disk~238MBfree after million-token capture; monitor before further queueing.
-
-The previous fixed two-product causal screen held its instrument but failed
-sufficiency/selectivity. Math1949 gives tested limits on exact sparse output-token
-supports through U, not behavioral impossibility. QK V2/input pullback is a separate
-26-head/two-behavior experiment; it is NOT unembedding→MLP17→last-attention folding.
-The longer backward-folded path remains authorized and pending in the campaign.
-User authorities: unembedding_folding_in_math.md, unembedding_factors_how.md,
-and original bilinear reconstruction handoff/pilot; not better_math_ideas.md.
-
-Reusable saved states (avoid recapture):
-
-- `LEXICAL_FORM_INTERCHANGE_V1_STATES.pt`: final states, four token scores,
-  structured unembedding readers and their MLP17 product coefficients.
-- `TOKEN_CONTEXT_SOURCE_V1_ARTIFACT.pt`: base u17 and all36 module outputs,
-  token context readers and MLP16 product pullbacks.
-- `GERUND_READOUT_FACTORIAL_V2_STATES.pt`: native/edited terminal states,
-  normalized MLP17 inputs and compiled token/norm response states.
-
-Reusable code: `scalar_write_network_executor_v1.py`,
-`quadratic_readout_state_v1.py`, `paired_panel_bootstrap_v1.py` and
-`bilinear_quotient/circuit_registry_v2.py`. Files used by frozen bindings must
-not be changed retroactively. Build small wrappers for new semantics.
+Publication repair at07:22: update detailed narrative hourly, on a major decision
+change, or when the user asks. Between those boundaries, preserve primary
+receipts and short coordination notes. Do not append a new explanatory essay
+or historical handoff block for every small control. No new publisher framework.
 
 ## Review clocks and throughput
 
 Latest hourly review:
-[06:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0622.md).
-Next hourly review is due **07:22 UTC on11September** at the first safe boundary.
+[07:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0722.md).
+Next hourly review is due **08:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [04:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0449.md).
 Next mathematical review is due **07:49 UTC on11September**. Derive later deadlines from the

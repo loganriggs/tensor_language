@@ -20356,3 +20356,18 @@ Previous progress9b6e22896. Existing scalar_write_network harness and quadratic_
 
 ### 2026-09-11T07:12:59.047388+00:00 — Codex: SPARSE READER EXECUTOR AND INTERVENTION ALGEBRA COMPLETE
 CPU A/B/Cheld: sparse/dense/reload/interchange errors<=1.05e-15; disjointinteraction17.7%ofoutputnorm; existingquadraticreadoutstate predicts signed doses withmaxscoreerror6.66e-15. Biasretained, post-normalization featureedits explicit, no originalL/R needed at execution. Native dictionaryqueued and structuredcontinuationlive unchanged. These are syntheticprogramcontrols, notnativecircuit properties. Explanation0713/indexupdated; CPU consequenceexecuted, managedcontinuationheld. Hourly0722/math0749.
+
+### 2026-09-11T07:16:44.455566+00:00 — Codex: CLAIM NATIVE READER-METRIC WEIGHT AUDIT
+Previous progressa085fc38b. CurrentMSP discovery givesnormalizedL/Rrows equalweight; fullfolded coefficient scoring remainsregistered. CPUaudit native perproduct E_j=||UD_j||^2 (||l_j||^2||r_j||^2+(l_j.r_j)^2)/2. Pred_a rescaling l*a,r*b,w/(ab) energyreplay<=1e-10; pred_b top10%products carry>=50%sumE; pred_c effectivecount(sumE)^2/sum(E^2)<=2304; pred_d fixedMSPtrainproducts carry2/3+-0.05ofsumE. ReportsumE/fulltensorenergy toexposecross-term/cancellation limitation. No nativeweightsoptimization orqueuedsourcechange; cachemetricweightsforlateranalysis.
+
+### 2026-09-11T07:18:59.230007+00:00 — Codex: READER ENERGY NOT HIGHLY CONCENTRATED; CLAIM NATIVE FUNCTION GRAM
+CPU1.39s: topdecile14.76%sumE, effective4184.65/4608; B/C concentrationpredictionsmissed, scalingreplay2.38e-16 andsplit66.21%held. SumE/fulltensorenergy.95078 alone doesnotproveorthogonality. NextCPU exactnativeproductfunctionGram H_ij, normalizedC_ij=H_ij/sqrt(EiEj), cachedUGram reused. Pred_a diagenergy<=1e-10/totalreplay<=1e-8; pred_b normalizedGrameffectiverank>=.9*4608; pred_c maxabs offdiagcorrelation<=.5. This onlytestsmergingcompleteatoms; orthogonalfunctions canstillshareinputcomputations (matrix-unitcounterexample). No queuedfit changes.
+
+### 2026-09-11T07:20:19.836815+00:00 — Codex: NATIVE PRODUCT GRAM HELD; CLAIM CONSTRUCTIVE NON-BOUND
+CPU2.33s exactGramreplay1.08e-15, normalizedeffective4594.11/4608, maxpaircos.4645. Allpredictionsheld. This doesnotboundsharedreaders ornewCPfactorizations. CPUcounterexample next:36Frobenius-orthogonal quadraticmonomials on8rotatedfeatures (64basisnumbers), whose sumreconstructs with8spectralsquares. Pred_a Gramidentity<=1e-12; pred_b sharedexecution<=1e-12; pred_c eigensquareexecution<=1e-12 with8<36products. Protectsagainst turning dictionaryrank into absenceofsimplecomputation. Nativecontinuationseed0ended3.5097%capture/time1803.7s, unconverged; seed937live.
+
+### 2026-09-11T07:21:51.655775+00:00 — Codex: NATIVE METRIC/GRAM AUDITS AND NON-BOUND PUBLISHED
+EnergyconcentrationB/Cmissed; scaling/splitheld. Gramallpredictionsheld: effective4594.11, maxpaircos.4645. Constructive36orthogonalmonomials/8sharedfeatures/8spectralsquares controlheld, so no generalcompression/reuse lowerbound. CPUconsequencesexecuted. Structuredseed0finished3.5097% at1803.7s,unconverged; seed937live,dictionaryqueued. Explanation0720updated. Hourlydue0722/math0749; no duplicatedjobs. Fullgoalactive.
+
+### 2026-09-11T07:24:05.426154+00:00 — Codex: HOURLY0722 COMPLETE; PUBLICATION REPAIR EXECUTED
+CIRCUIT_FOCUS PASS underuserweights-firstscope, NOVELTY PASS, CEREMONY FAIL: recordedpublication/review/validation30.95min vs science/implementation29.05. Startupconsolidated tocurrentpointers; detailednarrative cadence nowhourly/majordecision/userrequest, not everycontrol. Primaryreceipts retained. Secondstructuredstartlive,dictionaryqueued; no thirdidenticalchunkdefault. Next hourly0822/math0749. Reviewlinksfullclaims/confounds.

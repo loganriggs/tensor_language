@@ -1,0 +1,60 @@
+{
+  "predictions": {
+    "pred_a_scaling_invariant": true,
+    "pred_b_top_decile_majority": false,
+    "pred_c_effective_count_halved": false,
+    "pred_d_weight_split_balanced": true
+  },
+  "gauge_relative_error": 2.376561099466131e-16,
+  "top_decile_energy_fraction": 0.14758920933552494,
+  "effective_product_count": 4184.64583743738,
+  "support_for_component_energy": {
+    "0.5": 1859,
+    "0.9": 3799,
+    "0.99": 4434
+  },
+  "training_product_energy_fraction": 0.6621238081504721,
+  "sum_component_energy": 94360329712.52022,
+  "native_total": 99245061353.4728,
+  "component_sum_over_full_tensor_energy": 0.9507811111773609,
+  "energy_quantiles": {
+    "0.0": 63382.04588046033,
+    "0.1": 13460763.063155856,
+    "0.5": 20985291.49413986,
+    "0.9": 25988826.524925824,
+    "0.99": 33550640.351221364,
+    "1.0": 148626908.76556137
+  },
+  "largest_products": [
+    4182,
+    2701,
+    3504,
+    4302,
+    2433,
+    3547,
+    1111,
+    4032,
+    511,
+    3093,
+    2059,
+    2124,
+    4238,
+    2216,
+    2035,
+    1983,
+    2381,
+    1266,
+    1348,
+    4460
+  ],
+  "cache": {
+    "path": "/dev/shm/bilin18_native_product_energy_v1.pt",
+    "sha256": "1ba5fdc8fe8455f80e9d8423ae1be1ae210c784493e244578598396c45569910",
+    "bytes": 10804481
+  },
+  "source_sha256": "3a028a602205f8cc75b11a7a97175c1215c12931674ca7608b6410092fb324d5",
+  "seconds": 1.3862540163099766,
+  "gpu_access": false,
+  "corpus_access": false,
+  "scope": "Native-factor metric mismatch diagnostic; not component selection, joint tensor factorization or behavioral importance."
+}

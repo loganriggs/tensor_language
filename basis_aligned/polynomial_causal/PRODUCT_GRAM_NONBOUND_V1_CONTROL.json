@@ -1,0 +1,19 @@
+{
+  "predictions": {
+    "pred_a_orthogonal_components": true,
+    "pred_b_shared_features": true,
+    "pred_c_fewer_new_products": true
+  },
+  "errors": {
+    "gram_identity": 3.6977672751154946e-15,
+    "shared_execution": 2.6725359388976643e-16,
+    "spectral_execution": 4.731011877179106e-16
+  },
+  "original_products": 36,
+  "shared_input_features": 8,
+  "stored_shared_basis_numbers": 64,
+  "naive_two_reader_numbers": 576,
+  "refactored_square_products": 8,
+  "source_sha256": "d718caa4d14c801edbc49f2448b037cd866536c9b835e773241a1859f6f9d3e8",
+  "scope": "Constructive counterexample: high component-Gram rank does not lower-bound new product count or shared-intermediate complexity. Not evidence native tensors share this structure."
+}
