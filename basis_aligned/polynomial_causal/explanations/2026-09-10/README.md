@@ -1,12 +1,14 @@
 # 10 September research explanations
 
+**Latest requested full report: [11 September, 13:27 UTC](../for_logan/research_update_2026-09-11_1327.md).** Requested reports now live in [for_logan](../for_logan/README.md); the dated notes below are historical or automatic updates.
+
 - [Latest experiment follow-up: joint unembedding and QK](joint_unembedding_and_qk_results.md), through19:14.
 
-**Newest consolidated explanation: [Research update — 18:42 UTC](research_update_1842.md).** Covers the interval after the previous report through 14:17; high-level findings first, computations and mathematical-cycle outcomes afterward.
+**Historical consolidated explanation: [Research update — 18:42 UTC](research_update_1842.md).** Covers the interval after the previous report through 14:17; high-level findings first, computations and mathematical-cycle outcomes afterward.
 
 ## [Read the latest update → LATEST.md](LATEST.md)
 
-**LATEST.md is the consolidated update requested by Logan, with a new follow-up at the top.** Its main report covers work since 9 September at 23:06 UTC through 10 September at 14:17 UTC; the follow-up at the top adds the weight audit and unembedding experiment completed at 14:59 UTC, followed by the attention-factor test at 15:17 UTC the token-function weight screen at 15:33 UTC, the shared gerund-state test at 15:49 UTC, and distributed scalar-write interventions at 16:06 UTC. It starts with the high-level sequence, defines terms and computations, and assesses whether the mathematical review cycles helped.
+**The former LATEST.md report has moved to for_logan and its old path is a navigation stub.** Its main report covers work since 9 September at 23:06 UTC through 10 September at 14:17 UTC; the follow-up at the top adds the weight audit and unembedding experiment completed at 14:59 UTC, followed by the attention-factor test at 15:17 UTC the token-function weight screen at 15:33 UTC, the shared gerund-state test at 15:49 UTC, and distributed scalar-write interventions at 16:06 UTC. It starts with the high-level sequence, defines terms and computations, and assesses whether the mathematical review cycles helped.
 
 The files below are supporting experiment notes, not newer consolidated updates.
 

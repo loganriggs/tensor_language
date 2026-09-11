@@ -1,0 +1,30 @@
+{
+  "utc": "2026-09-11T13:25:59.097513+00:00",
+  "before_free_bytes": 153042944,
+  "after_free_bytes": 1706708992,
+  "reclaimed_bytes": 1553666048,
+  "items": [
+    {
+      "path": "/root/.vscode-server/cli/servers/Stable-08d4889f9ec4a1685d257b9b95de036c8e1ce1e5",
+      "removed_allocated_bytes": 717381632,
+      "reason": "obsolete inactive editor distribution or reinstallable package/extension download cache"
+    },
+    {
+      "path": "/root/.vscode-server/cli/servers/Stable-520fb30b2d3d324b4cb2342f6e88e2cd93751de1",
+      "removed_allocated_bytes": 734068736,
+      "reason": "obsolete inactive editor distribution or reinstallable package/extension download cache"
+    },
+    {
+      "path": "/root/.vscode-server/data/CachedExtensionVSIXs/.trash",
+      "skipped_active_pids": [
+        "2864358"
+      ]
+    },
+    {
+      "path": "/root/.npm/_cacache",
+      "removed_allocated_bytes": 102215680,
+      "reason": "obsolete inactive editor distribution or reinstallable package/extension download cache"
+    }
+  ],
+  "preserved": "active editor version94e8 and newer fallback versions; installed extensions; model/data/research artifacts; Git; agent history; live runners"
+}

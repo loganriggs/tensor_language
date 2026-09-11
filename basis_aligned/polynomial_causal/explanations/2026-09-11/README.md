@@ -1,5 +1,7 @@
 # 11 September explanations
 
+**Latest requested full report: [11 September, 13:27 UTC](../for_logan/research_update_2026-09-11_1327.md).** Requested reports now live in [for_logan](../for_logan/README.md); the dated notes below are historical or automatic updates.
+
 Start with [LATEST.md](LATEST.md).
 
 - [Direct fitting improves the polynomial; individual features are still mixed](explanation_2026-09-11_1126.md): live64.68%fit, exact connection changes, feature-removal spectra and their coordinate counterexample.

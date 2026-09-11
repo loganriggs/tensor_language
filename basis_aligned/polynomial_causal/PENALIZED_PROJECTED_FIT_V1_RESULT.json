@@ -1,0 +1,158 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_convergence": false,
+    "pred_c_joint_gain": true,
+    "pred_d_capture_and_energy": true,
+    "pred_e_stability": false
+  },
+  "arms": [
+    {
+      "seed": 0,
+      "instrument_passed": true,
+      "preflight": {
+        "seed": 0,
+        "fd_error": 1.8323277894971568e-07,
+        "initial_cp_replay": 4.0332320816460765e-17,
+        "budget_replay": 3.885780586188048e-16,
+        "initial_penalized_objective": 0.3554703844229492,
+        "initial_capture": 0.6459739029891797,
+        "initial_component_energy": 0.7672848015530173,
+        "initial_gradient_seconds": 1.483109150081873,
+        "parent_capture": 0.6468524536726515,
+        "parent_converged": false
+      },
+      "converged": false,
+      "fit_receipt": {
+        "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/PENALIZED_PROJECTED_FIT_V1_SEED_0_FIT.json",
+        "sha256": "fbc2bdaff1596f6fb892dcb494d0e94da32a168194d13f532768bba3cc962871"
+      },
+      "final_capture": 0.6468513472334956,
+      "final_component_energy": 0.6130915834305702,
+      "final_objective": 0.3543026968119995,
+      "joint_objective_gain": 0.001167687610949708,
+      "parent_capture": 0.6468524536726515,
+      "independent_cp_replay": 2.220446049250313e-16,
+      "executor_replay": 2.8096124196111017e-15,
+      "unit_error": 3.3306690738754696e-16,
+      "normal_residual": 2.7343016773572615e-15,
+      "price": {
+        "float_coefficients": 9143424,
+        "code_nonzeros": 1179648,
+        "runtime_coo_index_entries": 2359296,
+        "products": 4608,
+        "input_features": 2304,
+        "scope": "Program buffers only; residual, unembedding and other native operations separately retained.",
+        "input_dimension": 1152
+      },
+      "source": {
+        "path": "/dev/shm/bilin18_projected_sparse_dictionary_fit_v1_s0.pt",
+        "sha256": "46142e7eec2c3deebe64a8e863c51996efe515864d2a65f02d850f026b8b1726",
+        "bytes": 106580701
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_penalized_projected_fit_v1_s0.pt",
+        "sha256": "4dd8f3a27d7ff4ab3a795afc40e188a640634a740c03e448cc74fa7e219a6d48",
+        "bytes": 106326461
+      }
+    },
+    {
+      "seed": 937,
+      "instrument_passed": true,
+      "preflight": {
+        "seed": 937,
+        "fd_error": 7.380749056373759e-08,
+        "initial_cp_replay": 2.5370330836160804e-16,
+        "budget_replay": 0.0,
+        "initial_penalized_objective": 0.35477238241595255,
+        "initial_capture": 0.6467291786819919,
+        "initial_component_energy": 0.7977117292448185,
+        "initial_gradient_seconds": 1.35316788777709,
+        "parent_capture": 0.6468655746571825,
+        "parent_converged": false
+      },
+      "converged": false,
+      "fit_receipt": {
+        "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/PENALIZED_PROJECTED_FIT_V1_SEED_937_FIT.json",
+        "sha256": "52874f03f54cb2c1ba250b95e8619aa8b395badb6d60a7c907726118d17847f5"
+      },
+      "final_capture": 0.6468548894234036,
+      "final_component_energy": 0.6135611020645868,
+      "final_objective": 0.35430003841367885,
+      "joint_objective_gain": 0.00047234400227369466,
+      "parent_capture": 0.6468655746571825,
+      "independent_cp_replay": 1.1102230246251565e-16,
+      "executor_replay": 2.766390710207806e-15,
+      "unit_error": 3.3306690738754696e-16,
+      "normal_residual": 2.4487866362451565e-15,
+      "price": {
+        "float_coefficients": 9143424,
+        "code_nonzeros": 1179648,
+        "runtime_coo_index_entries": 2359296,
+        "products": 4608,
+        "input_features": 2304,
+        "scope": "Program buffers only; residual, unembedding and other native operations separately retained.",
+        "input_dimension": 1152
+      },
+      "source": {
+        "path": "/dev/shm/bilin18_projected_sparse_dictionary_fit_v1_s937.pt",
+        "sha256": "5f580650d2e881405f878ddabf962d882a7247e1bea2da4f80ec3ca2b70c2c90",
+        "bytes": 106578357
+      },
+      "cache": {
+        "path": "/dev/shm/bilin18_penalized_projected_fit_v1_s937.pt",
+        "sha256": "ab596ae9bb92035e710f310e1d327f46f0261dd8d5bf3d3b5bc985551820beff",
+        "bytes": 106320469
+      }
+    }
+  ],
+  "function_cosine": 0.7448419786753859,
+  "penalty": 0.0018823354889938328,
+  "binding": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_overcomplete_ols_reencode_v1.py": "7a50b7f23e57545c03882b49636c411c4c1b7ee54ccd815be8e8f22d26e2c41c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/OVERCOMPLETE_OLS_REENCODE_V1_PREREGISTRATION.md": "aa43cd4a5402315bd7ed37baae5a2b8bb7e9ef446d40bb7624c5371c701ecc9b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/batched_lasso_ols_completion_v1.py": "fcfb2b7ac14a97c88462ad56b2f47fd9b3341b574a8e98f95bfc721540579faf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/batched_lasso_ols_completion_v1_control.py": "299a335ceee15bfdec25fda7bbc03e94d5c38831a6f23eb8489d842614fbadf6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/BATCHED_LASSO_OLS_COMPLETION_V1_CONTROL.json": "1ab1af27fed35437230491e668731faff19ef0b2bdddfeafbabe532cc830cc89",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/lasso_ols_completion_v1.py": "3639577fc425a1cedd5bec212fc5a5231e8a9162f3cda4bcd0199d2a39eb7594",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/quadratic_token_dictionary_v1.py": "918024ead458e748bd44d3577e541a178657b69e8dedf0091b1b7fafde2d053e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_quadratic_fit_v1.py": "35930671781b0b802fe50c7d22288ca8f70c68f585d1df7e6c8a4417b3af4695",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/rectangular_sparse_reader_v1.py": "829348df5d37268e35b69c23412f3e364e71b7e4b37a03c17e88fe740933192a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_reader_program_v1.py": "907b73fe6a47176a7c735774ef40e5b9b3f6eb326dae10de47713a2aaa261976",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/structured_branch_amplitudes_v1.py": "b10f1bca98945077cb8c51873b7befee09be71674ebeb54177dc1872585a5c67",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/native_reader_msp_generalization_v1.py": "ec1f58099b0c4bfa825b16d398f304336f669e7af9dcbcbaa6ecb98b029f4a72",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/NATIVE_READER_METRIC_V1_AUDIT.json": "89557fae73ad75f961adf28c091057ef22757f6cd98c639b2caf413d3027a0c3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/OVERCOMPLETE_L1_READER_V1_BINDING.json": "33ce735dc6221d90b8d33ea3af693b83d1ac238023739a6fd865cce3574d5724",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_overcomplete_l1_reader_v1.py": "fb66e5c5e223ee20f5e704ae20e577c909bd94527d3215ef5821a77651391768",
+    "/dev/shm/bilin18_native_product_energy_v1.pt": "1ba5fdc8fe8455f80e9d8423ae1be1ae210c784493e244578598396c45569910",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_folded_sparse_dictionary_step_v1.py": "230c017e26cf1a9b53e9e8755dad0adbc77d2a99bbb8b0dc8bebc793f169d42a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FOLDED_SPARSE_DICTIONARY_STEP_V1_PREREGISTRATION.md": "f1d16851ed762f1e51ea4f3a54e47e43536a34369aa664ed401011d6741de838",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_sparse_dictionary_v1.py": "25af256de105bd993b3e3d8ea1317abb0c259657a050522f23fee68b219e7c2a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/chunked_bilinear_coefficient_v1.py": "5f3210058192454f05aeebdc9666a7d92a05b25d9dcb6e34107ef027cbd0bfa3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FOLDED_SPARSE_DICTIONARY_V1_CONTROL.json": "33e95cc880a4e2259706a6e1dc616c2e0ad34300c524bfb77e27d8fff12db953",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FOLDED_SPARSE_CANCELLATION_POLISH_V1_AUDIT.json": "c77dc676ef08683476c3956271f12e1d84c18d2d54e1fbebfe5c7ba68460868a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/OVERCOMPLETE_OLS_REENCODE_V1_RESULT.json": "c954c833b1fc4a10f8dcedcdb798094040426a3000bb704a833f2b5a9b778fc1",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_projected_sparse_dictionary_fit_v1.py": "21359b590078914c4e615e0f45e1e5938d48b9ead8916b60b48d4505ce65eba2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PROJECTED_SPARSE_DICTIONARY_FIT_V1_PREREGISTRATION.md": "49e6035b6826870cc8f1b9a1a06434054ba1b97fc2230336bda8cab186dd83be",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/projected_sparse_dictionary_fit_v1.py": "1e6d2bf9617d641aa3254e53917ac4ef78d2d1083fa218623f7b580f7bfc60d6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/projected_sparse_dictionary_v1.py": "f4429de3044a76eaaf746f7f32ccc314b4d1067423dab6e5dfc171b8803e81a4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/conditional_writer_spectral_v1.py": "44d09385bff2c156be930791d0f099868b63915ab07815b6c2439ed2effeea77",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PROJECTED_SPARSE_DICTIONARY_V1_CONTROL.json": "5c31d665da6ff5eb22090dbf4dbdaed8a894c2c92ba2e11e1a1b428bbdbde6b6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FOLDED_SPARSE_DICTIONARY_STEP_V1_RESULT.json": "82904f3067c50301f6b28854216a0e9570aabd2404bbe1117a1dbeff0e457092",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PROJECTED_SPARSE_DICTIONARY_FIT_V1_BINDING.json": "ac002a08bff29853a8d80cd0d9910449b5d980478f170f40540d908467f0ef1a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PENALIZED_PROJECTED_FIT_V1_PREREGISTRATION.md": "7fe537292fb56cd5c359cf7ec095c1a43aae26da29118393c0a4a9d19ffa2e96",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/penalized_projected_sparse_v1.py": "e522113788f66fa4f18a002ec56e88dc6b972cb550108276c335753a49c59b27",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/penalized_projected_sparse_fit_v1.py": "96ac4ab73fac3b2367c1cefbd405eb6a042855ad7a8838032646e7a557c9d6f8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/penalized_projected_fit_v1_control.py": "393dbb0116d4388423a28809f2dd8a15c4a5eaa9bdc5d9f2a91abcad4f670fb4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PENALIZED_PROJECTED_FIT_V1_CONTROL.json": "40ba87bf6959856bd53ef2f55eb6be8275f0882882eb1808592d1a5bc14afa5b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PENALIZED_PROJECTED_SPARSE_V1_CONTROL.json": "c9e51ded31756bc10f224f64438b592b33ed7a9603b778f79a114eca466630d6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PENALIZED_SPARSE_FD_V1_AUDIT.json": "5fd382472926086fcd106ad040b5f65d0b23ec97cecce0826b9af8f25e1795c6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/OUTPUT_COMPONENT_BUDGET_V1_AUDIT.json": "acf3a9e4962c93f318495148afcda45c1e3e167eda650cf47fe54801390cd337"
+  },
+  "parent_result_sha256": "fe7556fd12d81b39437d6b7687173d9077e984d9b73d6515b76bb890354550ec",
+  "body_forwards": 0,
+  "corpus_access": false,
+  "wall_seconds": 2416.5591876618564,
+  "scope": "Joint penalized full folded fit, original fixed graphs. No global optimum, fresh-weight or circuit claim."
+}

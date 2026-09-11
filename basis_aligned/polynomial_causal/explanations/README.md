@@ -9,13 +9,11 @@ House style: define every specialized term on first use, give its computational 
 abbreviations, and distinguish a diagnostic attribution from an executable compression. Numerical headlines should
 state what was actually measured and what unit is being used.
 
-## [Read the latest update → 11 September](2026-09-11/LATEST.md)
+## [Read the latest requested full report → for_logan](for_logan/LATEST.md)
 
-**Newest focused update:** [Why the learned dictionary wins on cached text despite a worse coefficient score](2026-09-11/explanation_2026-09-11_1310.md).
+**Newest full report: [11 September, 13:27 UTC — Research update](for_logan/research_update_2026-09-11_1327.md).**
 
-**The newest consolidated report is [10 September, 18:42 UTC](2026-09-10/research_update_1842.md).** It covers progress since the previous requested update, defines the terms and computations, and explains what the mathematical cycles contributed.
-
-New explanations are in [the 11 September folder](2026-09-11/README.md). The [10 September folder](2026-09-10/README.md) preserves the preceding campaign and topic guide. Individual experiment notes are supporting detail; `LATEST.md` is the main update.
+Fuller updates explicitly requested by Logan belong in [for_logan](for_logan/README.md). Routine automatic experiment notes remain in dated folders: [11 September](2026-09-11/README.md), [10 September](2026-09-10/README.md). The [current research-state pointer](2026-09-11/LATEST.md) tracks live experiment notes separately.
 
 ## Earlier reports and project foundations
 

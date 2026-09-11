@@ -1,0 +1,49 @@
+{
+  "seed": 937,
+  "instrument_passed": true,
+  "preflight": {
+    "seed": 937,
+    "fd_error": 7.380749056373759e-08,
+    "initial_cp_replay": 2.5370330836160804e-16,
+    "budget_replay": 0.0,
+    "initial_penalized_objective": 0.35477238241595255,
+    "initial_capture": 0.6467291786819919,
+    "initial_component_energy": 0.7977117292448185,
+    "initial_gradient_seconds": 1.35316788777709,
+    "parent_capture": 0.6468655746571825,
+    "parent_converged": false
+  },
+  "converged": false,
+  "fit_receipt": {
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/PENALIZED_PROJECTED_FIT_V1_SEED_937_FIT.json",
+    "sha256": "52874f03f54cb2c1ba250b95e8619aa8b395badb6d60a7c907726118d17847f5"
+  },
+  "final_capture": 0.6468548894234036,
+  "final_component_energy": 0.6135611020645868,
+  "final_objective": 0.35430003841367885,
+  "joint_objective_gain": 0.00047234400227369466,
+  "parent_capture": 0.6468655746571825,
+  "independent_cp_replay": 1.1102230246251565e-16,
+  "executor_replay": 2.766390710207806e-15,
+  "unit_error": 3.3306690738754696e-16,
+  "normal_residual": 2.4487866362451565e-15,
+  "price": {
+    "float_coefficients": 9143424,
+    "code_nonzeros": 1179648,
+    "runtime_coo_index_entries": 2359296,
+    "products": 4608,
+    "input_features": 2304,
+    "scope": "Program buffers only; residual, unembedding and other native operations separately retained.",
+    "input_dimension": 1152
+  },
+  "source": {
+    "path": "/dev/shm/bilin18_projected_sparse_dictionary_fit_v1_s937.pt",
+    "sha256": "5f580650d2e881405f878ddabf962d882a7247e1bea2da4f80ec3ca2b70c2c90",
+    "bytes": 106578357
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_penalized_projected_fit_v1_s937.pt",
+    "sha256": "ab596ae9bb92035e710f310e1d327f46f0261dd8d5bf3d3b5bc985551820beff",
+    "bytes": 106320469
+  }
+}

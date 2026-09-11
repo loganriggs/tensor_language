@@ -82,29 +82,22 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September13:10 UTC
+## Current handoff — 11 September 13:30 UTC
 
-Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
-[method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
-and the current review clocks below. Executed sources and bindings stay frozen.
+Use [the latest requested report](basis_aligned/polynomial_causal/explanations/for_logan/LATEST.md),
+[current state](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
+and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md).
 
-- **Live:** `run_penalized_projected_fit_v1.py`, SHA
-  `305dd727edc31f4552dd26769b16dee5179073c4925b1d766bef58c8ed336d84`,
-  started12:49:15. First1200s start finished unconverged; second is running.
-  Fixed original graphs, joint unit-row readers/codes, exact penalized output solve.
-  No automatic identical continuation. Inspect current runner/result before acting.
-- **Completed:** original projected two-start fit and full support exchange.
-  Their convergence/stability limitations and all primary receipts are in the index.
-- **New validation:** dictionaries lose to native selection on matched-price
-  coefficient capture but outperform it on128frozen cached FineWebpositions.
-  Read [13:10explanation](basis_aligned/polynomial_causal/explanations/2026-09-11/explanation_2026-09-11_1310.md)
-  for the small-panel and non-selectivity limits. No new data-guided discovery.
-- **Prior recovery:** shared scalar candidate overlaps old pronoun products;
-  opening-parenthesis association limits input semantics. Do not duplicate old
-  gender/reflection benchmarks or count a new circuit from its token readout.
-- Reuse existing CP inner products, sparse executors, conditional output solvers,
-  support exchanges and cached covariance controls. Older completed families and
-  their non-repeat decisions are consolidated in the method index.
+- Both penalized starts completed13:29:35. Numerical/energy gains held;
+  convergence/stability missed. Do not enqueue an identical continuation.
+- A new shared-reader group allocation bound was executed from existing weights.
+  The conditional reader update is derived but unimplemented; no native multi-group fit queued.
+- The managed runner is healthy; queue was empty after its canary13:29:56.
+  Recheck live state before choosing GPU work.
+- Requested fuller reports belong in `explanations/for_logan/`, with `LATEST.md`
+  pointing unambiguously to the newest. Automatic notes remain dated.
+- Disk cleanup preserved research artifacts and active editor, reclaiming1.45GiB.
+  Receipt `DISK_CLEANUP_2026-09-11_1327.json` records scope and actual time.
 
 User correction: discover from weights first. No new data/CE/Fisher-guided fits
 until distinct weight-only assumptions and adequate optimization have been
@@ -129,8 +122,8 @@ or historical handoff block for every small control. No new publisher framework.
 ## Review clocks and throughput
 
 Latest hourly review:
-[12:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1222.md).
-Next hourly review is due **13:22 UTC on11September** at the first safe boundary.
+[13:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1322.md).
+Next hourly review is due **14:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [10:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1051.md).
 Next mathematical review is due **13:51 UTC on11September**. Derive later deadlines from the
