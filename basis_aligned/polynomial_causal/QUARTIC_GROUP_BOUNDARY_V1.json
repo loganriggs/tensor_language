@@ -1,0 +1,18 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "attribution_error": 5.815956906768911e-17,
+  "projected_replica_relative_rms": 0.5953530836376536,
+  "input_term_over_delta": 0.9903016319479647,
+  "output_term_over_delta": 0.08065465304217069,
+  "input_output_term_cosine": 0.08011214869599553,
+  "lifted_replica_relative_rms": 0.05655584114375762,
+  "lifted_norm_over_full": [
+    1.205934411241227,
+    1.2099925081892495
+  ],
+  "artifact_sha256": "dab582453755ea48e2f05def65e7db1a9f3e0682b6b5648cc4e17796d88a3c65",
+  "source_native_sha256": "405a559e91e889a3810778c787634531daca5e0c27ae85b942569144864d71e0",
+  "scope": "Exact same-source counterfactual attribution. Fullinputlift changescomponentdefinition and retainsnative2MLPweights; no compactimplementation or behavioralpromotion yet."
+}

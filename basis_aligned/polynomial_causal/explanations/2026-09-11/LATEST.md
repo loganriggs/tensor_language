@@ -146,3 +146,8 @@ New words/constructions confirm small neighboring binary-choice changes and near
 [Current findings](../../QUARTIC_GRAM_HIERARCHY_V1_MATH.md): sparse fit captures0.125–0.130%of the full quartic coefficient energy; its fixed16Dspaces are the major limitation. A separate scale check establishes local stationarity. Four centered output-mode Gram optimizations converge: eight squared-quadratic terms have0.8–1.3%coefficient error versus26–38%from canonical matrices. Structural result within projected functions; cross-start/native circuit validation remains open.
 
 Direct cross-start screen: groupfunctioncos0.91282passes, but only2individualterm matches>=0.9miss the4matchbar. No stable circuit naming. [Hourly23:27](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_2327.md) flagged publication/review overhead; the immediate direct-analysis repair is executed. Next hourly00:27September12, math01:56.
+
+
+### 23:50 — Input projection explains the quartic replication failure
+
+[Native group findings](../../QUARTIC_GRAM_HIERARCHY_V1_MATH.md#native-execution-and-the-input-subspace-limitation): the compact projected program accurately executes its own reference but fails replica agreement. Removing its input restriction gives 5.66% write and 6–10% swap disagreement; removal-CE replication still fails in two families. A weight-only hierarchy with separate input directions per intermediate is queued through the managed runner. No new identified circuit or OOD evidence.
