@@ -589,3 +589,11 @@ change the basis, expose common factors or sums, share them, and jointly refit t
 changed graph against the original folded weight tensor. Each approximate rewrite
 must earn its error/cost tradeoff; each claimed circuit must subsequently earn its
 behavioral interpretation.
+
+### Clarification at 19:21: graph discovery need not wait for factorization to finish
+
+The practical recommendation is to **alternate representation fitting and graph changes**. Start from native products, LL1 groups, or Tucker coordinates; propose a common reader, product, or sum; refit the affected computations against the original weight tensor; then retain the change only if its error and literal execution cost justify it. Sparse Tucker is one competing assumption, not a required intermediate stage. An exact dense Tucker representation preserves the function, whereas a truncated one can discard relations before the graph search sees them.
+
+Our implementation has now gone beyond fitting a completely fixed topology in one narrow way: it tested adding the existing shared reader `parent1` to a third consumer. The matched refits included every affected consumer and allowed their shared/private readers, cores, and output directions within a common output span to move. Both local optimizations converged, but the added edge cost approximately $2.51\times10^{-5}$ in normalized objective, above the registered $10^{-6}$ allowance, despite saving 1,137 stored numbers. We therefore did not adopt that edge. This is a completed local graph-edit test, not a general topology-search algorithm or evidence against other DAGs. [Result and scope](../../RESIDUAL_PARENT_EDGE_V1_MATH.md).
+
+The missing broader search includes shared sums inside readers, reusable quadratic combinations, and distributive rewrites that change which products are computed. Also distinguish **finding a cheaper equivalent program** from **recovering the model's unique internal hierarchy**: equivalent expressions can define different internal deletions. The four behavioral properties are needed to decide which proposed intermediate computations deserve a circuit interpretation.

@@ -587,3 +587,8 @@ findings remain relevant; no novel circuit identity or OOD/sufficiency claim.
 ### 11 September 18:26 — Frozen shared-reader branches: separate suppression screen
 
 The 128-prefix follow-up holds signed suppression and own-token specificity, with mean absolute nearby-control CE changes about 0.005. Prospective input-gating specificity misses for both branches. This supports distinct token-facing effects while leaving contextual task specialization, OOD and sufficiency unestablished. Original support-direction screen remains failed. [Primary explanation and receipts](../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md).
+
+
+### 11 September 19:12 — Corpus-shift suppression and its limits
+
+The original two branches pass pooled four-domain suppression/specificity and per-domain mean suppression/control bars. The relative branch1preference differs in Wikipedia (point reversal, own interval crosseszero; difference from other domains excludeszero). Prospective input-gating specificity misses again. This supports token-facing suppression across the selected corpus domains, not domain-invariant tasks or an independent circuit. [Primary evidence](../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md). The three input ports' conditional MLP16producers have an exact fold but no16-square simplification even after arbitrary output mixing within their fixedspan; see [producer derivation](../PARENT1_MLP16_PRODUCER_V1_MATH.md).

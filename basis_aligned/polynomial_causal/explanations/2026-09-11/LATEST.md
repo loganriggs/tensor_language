@@ -59,3 +59,8 @@ The [graph-edit study](../../RESIDUAL_PARENT_EDGE_V1_MATH.md) now releases share
 ### 19:03 UTC — Four-domain corpus-shift validation queued
 
 The original frozen two-branch suppression candidate will be tested on128documents across four Pile domains, separately from the pending graph refits. Rows and per-domain checks are frozen; no fitting or outcome yet. [Scope and protocol](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md). Bothlocalrefits and thisshortvalidation are queued behind peer609.
+
+
+### 19:12 UTC — Local fits converge; corpus effects replicate with domain limits
+
+Both [local graph fits](../../RESIDUAL_PARENT_EDGE_V1_MATH.md) converge, but the added connection still misses its error allowance. [Frozen corpus-shift suppression](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md) passes pooled checks; input-gating specificity misses and relative branch effects vary by domain. The [three-port upstream producer](../../PARENT1_MLP16_PRODUCER_V1_MATH.md) has an exact conditional fold and a bound against small square decompositions within its fixedspan. No four-property circuit promotion. All three previously queued jobs are completed.

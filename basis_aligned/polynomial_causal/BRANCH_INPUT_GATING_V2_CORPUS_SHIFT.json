@@ -1,0 +1,57 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "prefix_units": 128,
+  "label": "corpus_shift",
+  "prospective_validation": true,
+  "coefficient_replay": 9.686302371718534e-17,
+  "paired_mean_suppression_difference": [
+    348.8081481831106,
+    60.08394345072281
+  ],
+  "paired_standardized_difference": [
+    0.01588490828509164,
+    0.003087513121444781
+  ],
+  "paired_mean_95": [
+    [
+      -3262.4899465529425,
+      -3513.5805461841364
+    ],
+    [
+      3926.794261248982,
+      3456.971528430133
+    ]
+  ],
+  "family_mean_suppression": [
+    [
+      10484.705801788488,
+      16801.38013139636
+    ],
+    [
+      10135.897653605378,
+      16861.46407484708
+    ],
+    [
+      9811.848285520224,
+      2406.70164190097
+    ]
+  ],
+  "oriented_writer_family_loadings": [
+    0.030972454728255747,
+    0.020776218797326544
+  ],
+  "all_context_amplitude_correlation": -0.12233833925147007,
+  "within_family_amplitude_correlations": [
+    0.3481556100519884,
+    -0.320554254072872,
+    -0.37479745817855964
+  ],
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_CANONICAL_BRANCHES_V1_SPECTRAL.pt": "b1e90771d51ea355e1b1f636ece07816034dc3aeeb220513262ee69292beeeb3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_CORPUS_SHIFT_V1_ROWS.pt": "074193a2d2778e0c71174f3c25d8a3daad266ff69529db29fc3392dedfa3d5fc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_NODE_PARENT1_CORPUS_SHIFT_V1_ENDPOINTS.pt": "70ae7099a4c71c1e4d45a8c69eff50573817cdcf7a5f76509ac1402555f01ba6"
+  },
+  "scope": "Exact frozen polynomial amplitudes, paired historical-prefix diagnostic. Standardization is a reported statistic, not fitted model coefficients. No behavioral intervention, OOD, sufficiency, or semantic identification claim."
+}

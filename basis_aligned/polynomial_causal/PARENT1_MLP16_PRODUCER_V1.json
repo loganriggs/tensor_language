@@ -1,0 +1,79 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "errors": {
+    "producer": 2.1003509340557368e-15,
+    "radial_retention": 2.188932394543835e-15,
+    "ports": 1.7358682087746727e-15,
+    "whole_node_branch_replay": 2.608017914730434e-15,
+    "orthonormal_span": 2.220446049250313e-16,
+    "frame_reconstruction": 2.1868076715852398e-16
+  },
+  "block17_reentry_coefficient": 1.0234375,
+  "raw_output_rank1_capture": 0.40712623148024546,
+  "trace_removed_output_rank1_capture": 0.4062032464739784,
+  "raw_output_energy_fractions": [
+    0.40712623148024546,
+    0.33967774149577046,
+    0.253196027023984
+  ],
+  "trace_removed_output_energy_fractions": [
+    0.4062032464739784,
+    0.3401772598441233,
+    0.2536194936818983
+  ],
+  "radial_energy_fraction": 0.0020828367621992913,
+  "spectra": [
+    {
+      "mode": 0,
+      "fraction_of_trace_removed_energy": 0.4062032464739784,
+      "best_one_real_product_capture": 0.09771290035605085,
+      "square_capture": {
+        "1": 0.05505984258219504,
+        "2": 0.09771290035605085,
+        "4": 0.13195224098572017,
+        "8": 0.1648517024789172,
+        "16": 0.20661963844952122,
+        "64": 0.3701608880822795,
+        "256": 0.719607279496646
+      },
+      "rank90": 481,
+      "rank99": 825
+    },
+    {
+      "mode": 1,
+      "fraction_of_trace_removed_energy": 0.3401772598441233,
+      "best_one_real_product_capture": 0.03282478878699928,
+      "square_capture": {
+        "1": 0.017255324362691355,
+        "2": 0.03282478878699928,
+        "4": 0.05034703773991308,
+        "8": 0.07359522896131947,
+        "16": 0.1118041610771474,
+        "64": 0.28690062044786796,
+        "256": 0.6812856062784506
+      },
+      "rank90": 507,
+      "rank99": 839
+    },
+    {
+      "mode": 2,
+      "fraction_of_trace_removed_energy": 0.2536194936818983,
+      "best_one_real_product_capture": 0.049106016047922224,
+      "square_capture": {
+        "1": 0.032687620759703676,
+        "2": 0.049106016047922224,
+        "4": 0.06555568850393528,
+        "8": 0.09085070384508119,
+        "16": 0.12959489717568987,
+        "64": 0.30121217207006556,
+        "256": 0.6876032881285062
+      },
+      "rank90": 502,
+      "rank99": 835
+    }
+  ],
+  "artifact_sha256": "0ff6c02371a852bcffbb8270d1e393f5c36528bd91bffd29b49d755d67c9ca6b",
+  "scope": "Frozen three-port producer subspace of native MLP16. Conditional on intervening attention/residual background and actual RMS norms. Spectral statements are coefficient-space restrictions, not natural-input fidelity, independent extraction, OOD or semantic circuit identification."
+}

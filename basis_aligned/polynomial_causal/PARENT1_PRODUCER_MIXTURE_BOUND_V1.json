@@ -1,0 +1,65 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "orthonormal_function_gram_error": 5.551115123125783e-15,
+  "mixture_checks": [
+    {
+      "coefficients": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "norm_error": 1.9984014443252818e-15,
+      "spectral_bound_violation": 0.0,
+      "rank16_capture": 0.12959489717569023
+    },
+    {
+      "coefficients": [
+        0.5773502691896258,
+        0.5773502691896258,
+        0.5773502691896258
+      ],
+      "norm_error": 2.6645352591003757e-15,
+      "spectral_bound_violation": 0.0,
+      "rank16_capture": 0.13599315355439184
+    },
+    {
+      "coefficients": [
+        -0.9902936978267736,
+        -0.049675037836432484,
+        -0.12981056451816153
+      ],
+      "norm_error": 2.6645352591003757e-15,
+      "spectral_bound_violation": 0.0,
+      "rank16_capture": 0.1269865675825298
+    },
+    {
+      "coefficients": [
+        0.6323914468284422,
+        0.7741616115123259,
+        -0.027474665400476755
+      ],
+      "norm_error": 3.552713678800501e-15,
+      "spectral_bound_violation": 0.0,
+      "rank16_capture": 0.10212093540586112
+    }
+  ],
+  "uniform_capture_upper_bounds": {
+    "1": 0.06600701759323017,
+    "2": 0.12860274679696637,
+    "4": 0.19492372240202752,
+    "8": 0.26320256866336994,
+    "16": 0.3554993900928914,
+    "31": 0.4873079930559762,
+    "32": 0.49522811387768484,
+    "64": 0.7228857983842077,
+    "128": 1.0,
+    "256": 1.0
+  },
+  "rank90_uniform_lower_bound": 93,
+  "envelope_trace": 3.000000000000003,
+  "coefficient_gram_condition": 1.6016247039096212,
+  "source_sha256": "0ff6c02371a852bcffbb8270d1e393f5c36528bd91bffd29b49d755d67c9ca6b",
+  "scope": "Uniform over the three trace-removed native MLP16 producer quadratics for the frozen parent1 input span. Rank-r signed-square approximation in coefficient Frobenius norm only; numerical FP64 bounds, no formal interval certificate. Does not constrain different readers, reachable input distributions, other program families or the whole model."
+}
