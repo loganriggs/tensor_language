@@ -1,0 +1,582 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "blocks_ge_1e4": 0,
+  "global_reader_metric_condition": 1157.9032805048334,
+  "block_condition_quantiles": [
+    7.309192817746115,
+    23.134099635868452,
+    32.916501813552,
+    51.46799639396491,
+    389.75444782436443
+  ],
+  "rank90_quantiles": [
+    3.0,
+    9.0,
+    10.0,
+    11.0,
+    13.0
+  ],
+  "writer_metric_condition": 8.020140027674916,
+  "replays": [
+    {
+      "group": 20,
+      "direction": "weak",
+      "relative_error": 2.13372274123902e-15,
+      "horizontal_error": 1.9443783084103265e-16,
+      "metric_value": 34918222.751834154
+    },
+    {
+      "group": 20,
+      "direction": "strong",
+      "relative_error": 2.3353853640949467e-16,
+      "horizontal_error": 2.0865182433374333e-16,
+      "metric_value": 255224022.94616485
+    },
+    {
+      "group": 47,
+      "direction": "weak",
+      "relative_error": 8.47739428182176e-16,
+      "horizontal_error": 2.3502744588421206e-16,
+      "metric_value": 10985953.273549296
+    },
+    {
+      "group": 47,
+      "direction": "strong",
+      "relative_error": 3.3215254817574833e-16,
+      "horizontal_error": 2.2327154699471925e-16,
+      "metric_value": 358899217.25876784
+    },
+    {
+      "group": 18,
+      "direction": "weak",
+      "relative_error": 2.242536655269732e-15,
+      "horizontal_error": 1.386931210420615e-16,
+      "metric_value": 830597.415143218
+    },
+    {
+      "group": 18,
+      "direction": "strong",
+      "relative_error": 7.364757310066095e-16,
+      "horizontal_error": 1.386931210420615e-16,
+      "metric_value": 323729036.9034887
+    }
+  ],
+  "rows": [
+    {
+      "group": 0,
+      "metric_condition": 42.34099124899758,
+      "core_energy": 561250041.7750783,
+      "minimum_energy_fraction": 0.012714237738025186,
+      "maximum_energy_fraction": 0.5383334288033993,
+      "rank90": 10
+    },
+    {
+      "group": 1,
+      "metric_condition": 16.34183459228714,
+      "core_energy": 278888454.30974543,
+      "minimum_energy_fraction": 0.01741473846901722,
+      "maximum_energy_fraction": 0.28458877552861916,
+      "rank90": 12
+    },
+    {
+      "group": 2,
+      "metric_condition": 23.31696470944112,
+      "core_energy": 190547045.78402403,
+      "minimum_energy_fraction": 0.016436003097772826,
+      "maximum_energy_fraction": 0.3832377041950339,
+      "rank90": 11
+    },
+    {
+      "group": 3,
+      "metric_condition": 27.16917236984233,
+      "core_energy": 329713376.3947513,
+      "minimum_energy_fraction": 0.018096203892835023,
+      "maximum_energy_fraction": 0.4916588828042465,
+      "rank90": 12
+    },
+    {
+      "group": 4,
+      "metric_condition": 36.36501098167748,
+      "core_energy": 146617020.72877762,
+      "minimum_energy_fraction": 0.0127810622781044,
+      "maximum_energy_fraction": 0.4647834701007703,
+      "rank90": 10
+    },
+    {
+      "group": 5,
+      "metric_condition": 23.48088307731952,
+      "core_energy": 641339095.4511516,
+      "minimum_energy_fraction": 0.01645086692542512,
+      "maximum_energy_fraction": 0.38628088279645006,
+      "rank90": 12
+    },
+    {
+      "group": 6,
+      "metric_condition": 36.926793040516046,
+      "core_energy": 446077679.44475484,
+      "minimum_energy_fraction": 0.011050399569153126,
+      "maximum_energy_fraction": 0.4080558179051252,
+      "rank90": 10
+    },
+    {
+      "group": 7,
+      "metric_condition": 46.45843119588537,
+      "core_energy": 519154095.78711706,
+      "minimum_energy_fraction": 0.010410235560759644,
+      "maximum_energy_fraction": 0.483643212532511,
+      "rank90": 10
+    },
+    {
+      "group": 8,
+      "metric_condition": 147.38251000880052,
+      "core_energy": 213034176.47671562,
+      "minimum_energy_fraction": 0.0037758627534284855,
+      "maximum_energy_fraction": 0.5564961300490309,
+      "rank90": 3
+    },
+    {
+      "group": 9,
+      "metric_condition": 47.80098998849083,
+      "core_energy": 293141166.73797315,
+      "minimum_energy_fraction": 0.011943687453680801,
+      "maximum_energy_fraction": 0.5709200843990595,
+      "rank90": 10
+    },
+    {
+      "group": 10,
+      "metric_condition": 78.19302139333413,
+      "core_energy": 468715010.1212052,
+      "minimum_energy_fraction": 0.007992061461514394,
+      "maximum_energy_fraction": 0.6249234328370362,
+      "rank90": 8
+    },
+    {
+      "group": 11,
+      "metric_condition": 81.2441686796825,
+      "core_energy": 351168980.96265393,
+      "minimum_energy_fraction": 0.007750665664254583,
+      "maximum_energy_fraction": 0.6296963886065229,
+      "rank90": 7
+    },
+    {
+      "group": 12,
+      "metric_condition": 29.088891308032984,
+      "core_energy": 355584792.9278053,
+      "minimum_energy_fraction": 0.012656578191743812,
+      "maximum_energy_fraction": 0.36816582735125636,
+      "rank90": 10
+    },
+    {
+      "group": 13,
+      "metric_condition": 27.545211881453557,
+      "core_energy": 400643592.3073193,
+      "minimum_energy_fraction": 0.013722334268844715,
+      "maximum_energy_fraction": 0.37798460494345876,
+      "rank90": 10
+    },
+    {
+      "group": 14,
+      "metric_condition": 40.38887438482244,
+      "core_energy": 569662164.5672808,
+      "minimum_energy_fraction": 0.010736495366054555,
+      "maximum_energy_fraction": 0.43363496267280566,
+      "rank90": 9
+    },
+    {
+      "group": 15,
+      "metric_condition": 13.412279460101027,
+      "core_energy": 495810153.25801265,
+      "minimum_energy_fraction": 0.01660308685415588,
+      "maximum_energy_fraction": 0.22268524078826832,
+      "rank90": 12
+    },
+    {
+      "group": 16,
+      "metric_condition": 48.73718330231383,
+      "core_energy": 437852524.2969181,
+      "minimum_energy_fraction": 0.0104171430331331,
+      "maximum_energy_fraction": 0.5077022094922294,
+      "rank90": 10
+    },
+    {
+      "group": 17,
+      "metric_condition": 18.514535209620995,
+      "core_energy": 399891104.76469433,
+      "minimum_energy_fraction": 0.0125973094186305,
+      "maximum_energy_fraction": 0.2332333287777246,
+      "rank90": 11
+    },
+    {
+      "group": 18,
+      "metric_condition": 389.75444782436443,
+      "core_energy": 197891694.94045967,
+      "minimum_energy_fraction": 0.002098616153126388,
+      "maximum_energy_fraction": 0.8179449799570673,
+      "rank90": 3
+    },
+    {
+      "group": 19,
+      "metric_condition": 61.44200107054521,
+      "core_energy": 472888403.624352,
+      "minimum_energy_fraction": 0.010185753833586273,
+      "maximum_energy_fraction": 0.6258330979475178,
+      "rank90": 10
+    },
+    {
+      "group": 20,
+      "metric_condition": 7.309192817746115,
+      "core_energy": 1017398870.8708781,
+      "minimum_energy_fraction": 0.017160537401591906,
+      "maximum_energy_fraction": 0.12542967672437913,
+      "rank90": 12
+    },
+    {
+      "group": 21,
+      "metric_condition": 46.939943079486696,
+      "core_energy": 458648001.13858914,
+      "minimum_energy_fraction": 0.011694382665359123,
+      "maximum_energy_fraction": 0.5489336566616931,
+      "rank90": 10
+    },
+    {
+      "group": 22,
+      "metric_condition": 88.90050792327267,
+      "core_energy": 804338624.5705808,
+      "minimum_energy_fraction": 0.005801106700582285,
+      "maximum_energy_fraction": 0.5157213321988656,
+      "rank90": 6
+    },
+    {
+      "group": 23,
+      "metric_condition": 42.50066997311663,
+      "core_energy": 431098141.48640996,
+      "minimum_energy_fraction": 0.012194235801825186,
+      "maximum_energy_fraction": 0.5182631913877354,
+      "rank90": 10
+    },
+    {
+      "group": 24,
+      "metric_condition": 27.327228987070292,
+      "core_energy": 349169578.2272614,
+      "minimum_energy_fraction": 0.015748456567618613,
+      "maximum_energy_fraction": 0.4303616788162448,
+      "rank90": 11
+    },
+    {
+      "group": 25,
+      "metric_condition": 34.141887236756745,
+      "core_energy": 356209690.61558324,
+      "minimum_energy_fraction": 0.011383188750881464,
+      "maximum_energy_fraction": 0.38864354672731277,
+      "rank90": 10
+    },
+    {
+      "group": 26,
+      "metric_condition": 71.77481646494299,
+      "core_energy": 467653274.8869548,
+      "minimum_energy_fraction": 0.008343258056839931,
+      "maximum_energy_fraction": 0.598835815749343,
+      "rank90": 8
+    },
+    {
+      "group": 27,
+      "metric_condition": 125.62535294096051,
+      "core_energy": 655391817.6704297,
+      "minimum_energy_fraction": 0.005840560862724313,
+      "maximum_energy_fraction": 0.7337225197529026,
+      "rank90": 6
+    },
+    {
+      "group": 28,
+      "metric_condition": 14.640992553519906,
+      "core_energy": 768313658.2138875,
+      "minimum_energy_fraction": 0.013125212230145046,
+      "maximum_energy_fraction": 0.19216613452492204,
+      "rank90": 12
+    },
+    {
+      "group": 29,
+      "metric_condition": 19.339360433078916,
+      "core_energy": 801758332.4153092,
+      "minimum_energy_fraction": 0.009732064040675625,
+      "maximum_energy_fraction": 0.1882118942404323,
+      "rank90": 11
+    },
+    {
+      "group": 30,
+      "metric_condition": 60.724108530139645,
+      "core_energy": 563464026.3868144,
+      "minimum_energy_fraction": 0.009797364105531323,
+      "maximum_energy_fraction": 0.5949362012535785,
+      "rank90": 9
+    },
+    {
+      "group": 31,
+      "metric_condition": 28.200465509834327,
+      "core_energy": 314277413.802569,
+      "minimum_energy_fraction": 0.01577806431367318,
+      "maximum_energy_fraction": 0.4449487584896883,
+      "rank90": 12
+    },
+    {
+      "group": 32,
+      "metric_condition": 8.604120212658854,
+      "core_energy": 1175889036.6853123,
+      "minimum_energy_fraction": 0.017030801697952708,
+      "maximum_energy_fraction": 0.14653506512713962,
+      "rank90": 12
+    },
+    {
+      "group": 33,
+      "metric_condition": 33.164084661019956,
+      "core_energy": 358191550.89842874,
+      "minimum_energy_fraction": 0.013821651024960219,
+      "maximum_energy_fraction": 0.4583824047468539,
+      "rank90": 10
+    },
+    {
+      "group": 34,
+      "metric_condition": 41.05026578427095,
+      "core_energy": 216805519.67712715,
+      "minimum_energy_fraction": 0.01029487865535778,
+      "maximum_energy_fraction": 0.4226075050192548,
+      "rank90": 9
+    },
+    {
+      "group": 35,
+      "metric_condition": 200.95240166988862,
+      "core_energy": 481829675.5762781,
+      "minimum_energy_fraction": 0.004007975848807353,
+      "maximum_energy_fraction": 0.805412372652748,
+      "rank90": 3
+    },
+    {
+      "group": 36,
+      "metric_condition": 80.79115062003247,
+      "core_energy": 454442839.9303578,
+      "minimum_energy_fraction": 0.008906222239680954,
+      "maximum_energy_fraction": 0.7195439424215468,
+      "rank90": 8
+    },
+    {
+      "group": 37,
+      "metric_condition": 19.212836598941916,
+      "core_energy": 467623105.0166921,
+      "minimum_energy_fraction": 0.014130569655916556,
+      "maximum_energy_fraction": 0.2714883258490917,
+      "rank90": 11
+    },
+    {
+      "group": 38,
+      "metric_condition": 17.51956982245445,
+      "core_energy": 603876625.1564193,
+      "minimum_energy_fraction": 0.014430499005045856,
+      "maximum_energy_fraction": 0.25281613489176036,
+      "rank90": 11
+    },
+    {
+      "group": 39,
+      "metric_condition": 23.557203941631094,
+      "core_energy": 511073411.75106174,
+      "minimum_energy_fraction": 0.01180327466328712,
+      "maximum_energy_fraction": 0.27805214842214176,
+      "rank90": 10
+    },
+    {
+      "group": 40,
+      "metric_condition": 52.80713095601026,
+      "core_energy": 484336184.8984277,
+      "minimum_energy_fraction": 0.009815769376544043,
+      "maximum_energy_fraction": 0.5183426189011565,
+      "rank90": 9
+    },
+    {
+      "group": 41,
+      "metric_condition": 29.432137615795025,
+      "core_energy": 412035802.58790475,
+      "minimum_energy_fraction": 0.016068571747862345,
+      "maximum_energy_fraction": 0.47293241497236055,
+      "rank90": 12
+    },
+    {
+      "group": 42,
+      "metric_condition": 53.68613029914503,
+      "core_energy": 404918853.9903829,
+      "minimum_energy_fraction": 0.011458533672545925,
+      "maximum_energy_fraction": 0.6151643317814413,
+      "rank90": 9
+    },
+    {
+      "group": 43,
+      "metric_condition": 57.88387592290307,
+      "core_energy": 265494182.76542196,
+      "minimum_energy_fraction": 0.009806303923057327,
+      "maximum_energy_fraction": 0.567626879544528,
+      "rank90": 9
+    },
+    {
+      "group": 44,
+      "metric_condition": 47.18402698291309,
+      "core_energy": 385986654.3469503,
+      "minimum_energy_fraction": 0.012011266691775657,
+      "maximum_energy_fraction": 0.5667399316837078,
+      "rank90": 10
+    },
+    {
+      "group": 45,
+      "metric_condition": 21.73231940936068,
+      "core_energy": 390221158.46278656,
+      "minimum_energy_fraction": 0.016498725739282055,
+      "maximum_energy_fraction": 0.35855557761351803,
+      "rank90": 11
+    },
+    {
+      "group": 46,
+      "metric_condition": 51.02161820661646,
+      "core_energy": 439890310.03319407,
+      "minimum_energy_fraction": 0.00888175927092907,
+      "maximum_energy_fraction": 0.45316173052441916,
+      "rank90": 8
+    },
+    {
+      "group": 47,
+      "metric_condition": 32.66891896608404,
+      "core_energy": 437221808.1800839,
+      "minimum_energy_fraction": 0.012563363798432028,
+      "maximum_energy_fraction": 0.4104315138724097,
+      "rank90": 10
+    },
+    {
+      "group": 48,
+      "metric_condition": 15.531523248037086,
+      "core_energy": 585370948.7130667,
+      "minimum_energy_fraction": 0.012008930725868592,
+      "maximum_energy_fraction": 0.1865169867528949,
+      "rank90": 11
+    },
+    {
+      "group": 49,
+      "metric_condition": 92.39029619644138,
+      "core_energy": 641218363.4062142,
+      "minimum_energy_fraction": 0.006655196027594809,
+      "maximum_energy_fraction": 0.6148755322348644,
+      "rank90": 7
+    },
+    {
+      "group": 50,
+      "metric_condition": 34.15991788083082,
+      "core_energy": 409192484.92318857,
+      "minimum_energy_fraction": 0.011933313000599759,
+      "maximum_energy_fraction": 0.4076409921467386,
+      "rank90": 9
+    },
+    {
+      "group": 51,
+      "metric_condition": 14.251421697980813,
+      "core_energy": 469300156.0754429,
+      "minimum_energy_fraction": 0.017053050842658832,
+      "maximum_energy_fraction": 0.24303021879583808,
+      "rank90": 12
+    },
+    {
+      "group": 52,
+      "metric_condition": 26.882722520363185,
+      "core_energy": 408565433.12985796,
+      "minimum_energy_fraction": 0.015915771815314086,
+      "maximum_energy_fraction": 0.42785927740850566,
+      "rank90": 11
+    },
+    {
+      "group": 53,
+      "metric_condition": 20.006081747857433,
+      "core_energy": 412216012.5123353,
+      "minimum_energy_fraction": 0.015305151123932664,
+      "maximum_energy_fraction": 0.30619610454870894,
+      "rank90": 11
+    },
+    {
+      "group": 54,
+      "metric_condition": 30.257071427564572,
+      "core_energy": 344502935.175459,
+      "minimum_energy_fraction": 0.013068631521053177,
+      "maximum_energy_fraction": 0.3954185173930278,
+      "rank90": 11
+    },
+    {
+      "group": 55,
+      "metric_condition": 14.925217873328108,
+      "core_energy": 347840605.2075691,
+      "minimum_energy_fraction": 0.020062726839347674,
+      "maximum_energy_fraction": 0.2994405692103314,
+      "rank90": 13
+    },
+    {
+      "group": 56,
+      "metric_condition": 23.46346669693323,
+      "core_energy": 402986674.65483546,
+      "minimum_energy_fraction": 0.01533149998320865,
+      "maximum_energy_fraction": 0.3597301392700486,
+      "rank90": 11
+    },
+    {
+      "group": 57,
+      "metric_condition": 27.620096307206698,
+      "core_energy": 431050715.09489095,
+      "minimum_energy_fraction": 0.01293403748201252,
+      "maximum_energy_fraction": 0.35723936089420705,
+      "rank90": 10
+    },
+    {
+      "group": 58,
+      "metric_condition": 21.058191696995802,
+      "core_energy": 521513297.9767256,
+      "minimum_energy_fraction": 0.012840577691825885,
+      "maximum_energy_fraction": 0.2703993465346374,
+      "rank90": 10
+    },
+    {
+      "group": 59,
+      "metric_condition": 23.9524184897841,
+      "core_energy": 823017708.512624,
+      "minimum_energy_fraction": 0.008861991166539627,
+      "maximum_energy_fraction": 0.21226612107372714,
+      "rank90": 9
+    },
+    {
+      "group": 60,
+      "metric_condition": 100.42958406603272,
+      "core_energy": 457853512.3277267,
+      "minimum_energy_fraction": 0.007821545223607328,
+      "maximum_energy_fraction": 0.7855145335605488,
+      "rank90": 7
+    },
+    {
+      "group": 61,
+      "metric_condition": 36.387776725544335,
+      "core_energy": 431585873.0162432,
+      "minimum_energy_fraction": 0.011114016120099109,
+      "maximum_energy_fraction": 0.4044143371022668,
+      "rank90": 10
+    },
+    {
+      "group": 62,
+      "metric_condition": 22.585504415150442,
+      "core_energy": 613747997.4133601,
+      "minimum_energy_fraction": 0.012361531453345127,
+      "maximum_energy_fraction": 0.2791914232175474,
+      "rank90": 11
+    },
+    {
+      "group": 63,
+      "metric_condition": 32.18533223120972,
+      "core_energy": 481739595.420327,
+      "minimum_energy_fraction": 0.013236773880228413,
+      "maximum_energy_fraction": 0.42602996500455054,
+      "rank90": 10
+    }
+  ],
+  "source_sha256": "2a5956ce353ae2fff904b788ec468d9a836e81b2cd33a65a987a667b6d8e549b",
+  "scope": "Fixed-core selfmetric geometry only; excludes cross-group coupling, core elimination and residual curvature. Does not establish optimizer speedup or missing native structure."
+}
