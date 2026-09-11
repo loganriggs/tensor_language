@@ -1,0 +1,39 @@
+{
+  "variants": {
+    "learned": {
+      "no_change_ce_mae": 0.0004715750394122438,
+      "predictor_ce_mae": 6.263079797821838e-07,
+      "no_change_to_predictor_ce_error_ratio": 752.9443255317414,
+      "no_change_passes_absolute_ce_bar": true,
+      "no_change_logit_change_relative_error": 1.0,
+      "predictor_logit_change_relative_error": 0.0003837226827408275,
+      "median_absolute_ce_change": 0.00031845861029045075,
+      "maximum_absolute_ce_change": 0.002079009316251046,
+      "rows_ce_increased": 19,
+      "rows_ce_decreased": 13,
+      "logit_change_rms": 0.001697522516564834,
+      "logit_prediction_residual_rms": 6.513778940692008e-07,
+      "attention_change_to_original_norm": 0.004141161844334547
+    },
+    "random": {
+      "no_change_ce_mae": 0.00012343149196033308,
+      "predictor_ce_mae": 7.092567046476336e-07,
+      "no_change_to_predictor_ce_error_ratio": 174.02936222034756,
+      "no_change_passes_absolute_ce_bar": true,
+      "no_change_logit_change_relative_error": 1.0,
+      "predictor_logit_change_relative_error": 0.0020619510980223244,
+      "median_absolute_ce_change": 3.802212693848617e-05,
+      "maximum_absolute_ce_change": 0.0014087630281487407,
+      "rows_ce_increased": 16,
+      "rows_ce_decreased": 16,
+      "logit_change_rms": 0.0003660511930112662,
+      "logit_prediction_residual_rms": 7.547796593619566e-07,
+      "attention_change_to_original_norm": 0.0008906647808030105
+    }
+  },
+  "source_cache_sha256": "8a91b76ab1e8ebb2cb82d1913175fead6d5f6bbb3ac7c09e836457f7c6cb5c3c",
+  "body_forwards": 0,
+  "corpus_access": false,
+  "wall_seconds": 0.18796758726239204,
+  "scope": "Post-result nontriviality audit of a fixed single-source FineWeb validation. Absolute CE tolerance alone is weak for tiny effects; relative logit prediction distinguishes the compiled predictor from no change. No semantic or selective circuit identification."
+}

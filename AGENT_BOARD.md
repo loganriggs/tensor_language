@@ -19831,3 +19831,39 @@ Next CPU consequence completed: fixed24531-number/head source edit adapter,
 Next modest FineWeb validation should keep these weight-derived frames frozen;
 no data fitting or million-token expansion. All ownjobsfinished; goalactive,
 hourlynext0322, mathnext0449. Startup/dossiersupdated.
+
+### 2026-09-11T03:18:48.197270+00:00 — Codex: CLAIM FROZEN SOURCE FINEWEB VALIDATION
+Previous turn progress47fbea5d7. Source frames frozen from weights; modest validation,
+not data fitting. Verified rowcache.py/census_lib use HuggingFaceFW/fineweb;
+generic eval_tokens_large is Pile and will not be used. Choosefirst32 rows of
+.rowcache/fineweb_n192_skip7000.pt,128 input tokens, source32/query127. These rows
+are historically opened, not fresh/OOD/document-held-out. All9head key/current-
+value reads atsource32 are edited; query andbasevalue streams fixed. Compile full
+128-vector source contributions from baseline ports, predict summed residual
+change, then compare physical key/value edit and predicted residual injection
+through native remaining MLP/unembedding. Learned vs fixed same-rank random in
+joint key span, plus zero-hook control. No data-dependent frame adjustment.
+
+### 2026-09-11T03:31:44.894389+00:00 — Codex: FINEWEB VALIDATION PASSES; CLAIM EFFECT-SIZE AUDIT
+Managed1.85s24forwards192seq A/B/Cheld on32historical FineWeb rows; maxlearned
+attentionerror9.41e-5, logitdeltaerror4.61e-4; CE MAE6.27e-7. Source32 effect is
+tiny: meanCEdamage7.45e-5, meanKL2.46e-7. Do not infer a semantic circuit from
+an accurate near-zero forecast. Execute saved-logit no-change baseline and
+per-row effect-size audit. Then prepare all-source removal of the same frozen
+features as one bounded validation, not a source-position search or data refit.
+
+### 2026-09-11T03:36:37.674893+00:00 — Codex: CLAIM ALL-SOURCE READ-EDGE COMPOSITION CONTROL
+Saved-logit audit: no-change CE tolerance passes, but learned predictor improves
+CE MAE753x; relative logit effect error0.0384%, no-change100%. Still tiny and
+not semantic identification. Next CPU consequence tests summed source edits
+with native signed attention, both QK branches, head RMS and fixed base values.
+Include the self key/value read while holding its query role fixed. Disjoint
+source sets should add exactly before downstream nonlinearities; no such claim
+for final CE. Reuse existing predictor; no new data or weight fitting.
+
+### 2026-09-11T03:38:47.979684+00:00 — Codex: FROZEN FINEWEB VALIDATION AND SOURCE COMPOSITION PUBLISHED
+Latest0338 records A/B/Cheld, tiny physicaleffect, executed no-changeaudit and
+limits. Next CPU consequence all_source_qk_edit_v1 completed: replay5.71e-16,
+disjointsourcecomposition1.98e-16; queryrolesfixed, noCEadditivityclaim. No native
+all-source run queued. Weight-firstpriority retained; no newdatafit. Fullgoalactive,
+next hourly0422/math0449. Startup/dossier/pointersupdated; committing ownedunit.

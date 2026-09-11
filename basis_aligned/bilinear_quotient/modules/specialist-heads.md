@@ -220,3 +220,15 @@ on FineWeb without refitting; no new data-guided discovery.
 Receipts: POSITION_SHARED_QK_SOURCE_V1_RESULT.json,
 POSITION_SHARED_QK_SOURCE_V1_REDTEAM.json, SHARED_POSITION_QK_EDIT_V1_RESULT.json.
 Explanation0310 defines the metrics and retained interfaces.
+
+
+## 11 September 03:38 — frozen source read-edge validation
+
+Attention17 rank17 source frames, frozen from weights, predict source32 key/current-
+value removal on32historical FineWeb rows; query127 endpoint. Learned logit-change
+relativeerror0.0384% aggregated, CEpredictionMAE6.26e-7nats. MeanCEeffect+7.45e-5
+is tiny. No-change passes absoluteCEbar but is753xworse inCEerror. Notsemantic,
+selective, fresh/OOD or whole-model extraction evidence. Nativebackground retained.
+All-source summation CPUcontrol5.71e-16 withqueryrolesfixed, including selfkey/value.
+No nativeall-source result. See explanation0338 and FROZEN_QK_FINEWEB_V1_RESULT,
+FROZEN_QK_FINEWEB_EFFECT_SIZE_V1_AUDIT, ALL_SOURCE_QK_EDIT_V1_CONTROL.

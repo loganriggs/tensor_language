@@ -2,6 +2,8 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [Frozen weight features on FineWeb](explanation_2026-09-11_0338.md): latest physical-edit validation, weak-effect audit and source-composition control.
+
 - [Source features shared across positions](explanation_2026-09-11_0310.md): latest stable source-space result, coverage tradeoff and smaller fixed adapter.
 - [Executable local edits with normalization](explanation_2026-09-11_0255.md): latest conditional prediction tool, composition checks, literal price and next shared-position method.
 - [Joint QK source structure and red-team result](explanation_2026-09-11_0243.md): latest native source-space discovery, weak value alignment, mixed interfaces and bounds.

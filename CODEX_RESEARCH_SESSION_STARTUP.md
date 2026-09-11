@@ -82,42 +82,28 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 03:10
+## Current handoff — updated 11 September 2026, 03:38
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0310.md.
-POSITION_SHARED_QK_SOURCE_V1_RESULT completed managed lane1 in3.26s: A/D held,
-B/C missed. One rank17 source space per attention17head selected from odd
-relative distances (query511, even sources0..510); even distances held out.
-Validation touch mean41.643%, inside5.951%+mixed35.692%. Per-head means34.9–49.7%;
-common/separate spectral retention77.6–92.0%, mean88.3%. All minimumtouch>.30;
-all-head90%retention and45%mean targets failed. Split spaces extremely stable,
-mean squaredprincipalcosines>.9998. No text or OODclaim.
-Executed POSITION_SHARED_QK_SOURCE_V1_REDTEAM: discovery rank17 upper bounds for
-heads1/4/8 below.45. Bounds scoped to discovery, not validation/sample32. Exact
-influence optimization is not necessarily optimal true-touch selection.
-Cache /dev/shm/bilin18_position_shared_qk_source_v1.pt,
-SHA1db8d91e66607b1180e8c3c802930da97ed809fda7e2596d8015752770e5a4ce.
-Next CPU consequence completed: SHARED_POSITION_QK_EDIT_V1_RESULT passes fixed
-adapter reuse across5positionpairs, all9heads, full/mixedsourceedits, error4.69e-15.
-Static adapter24531numbers/head instead98515/head/position. Reuses native raw
-query/key vectors and actual roundedRoPE;92prepared predictor ports remain.
-This is conditional local prediction with full native background, not semantic
-identification or a full-model saving. Original normalizer omission errors
-10.8–33.3% and exact edit-composition results remain in explanation0255.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0338.md.
+Frozen weight-derived attention17 source frames passed a32-row FineWeb physical
+key/value intervention prediction atsource32/query127. No refit; rows previously
+opened, no fresh/OOD claim. FROZEN_QK_FINEWEB_V1_RESULT and effect-size audit are
+primary. Effect tiny; no-change also passes absoluteCEbar, but predictor is753x
+better inCEerror. No semantic identification. Full native background retained.
+Managed1.85s run finished03:28:31. No own GPUjob queued/live at snapshot.
+Saved logits/ports /dev/shm/bilin18_frozen_qk_fineweb_v1.pt, hash in result.
 
-Next useful step: modest FineWeb validation of these FROZEN weight-derived source
-variables and local intervention interfaces, without adjusting/refitting them
-on examples. This is permitted validation, not a return to data-guided discovery
-or million-token fitting. Establish explicit endpoint, implementation and task
-scope before interpreting any semantic effects; review dossiers first. Pile is
-separately labelled OOD, not an in-distribution fitting corpus.
-No own GPU job queued/live at snapshot; all current runs finished. Inspect shared
-runner before enqueue. Next hourly03:22, math04:49. Full goal active.
-Previous MLP shared-reader cache /dev/shm/bilin18_joint_shared_reader_rank16_v1.pt,
-SHAb869e1660394a72194b2ce999474247c8f257b4685b4fb1b97008067dd87b930.
-Filesystem about185MB free at03:10; shared-memory caches are ephemeral. Earlier
-inactive /tmp compile caches were byte-verified into /dev/shm with originalpaths
-symlinked; receipt /dev/shm/codex_relocated_inactive_compile_cache_20260911/receipt.json.
+Next CPU consequence executed: all_source_qk_edit_v1.py, CONTROL passes5.71e-16.
+Disjoint source key/value read edits add atattention output whilequeries stayfixed,
+including selfkey/value role; downstreamCE doesnotadd. Native all-source run is
+not authored/queued yet. Reuse existing executor for a bounded frozen-frame check
+if it remains highest-information; do notexpanddatafitting. Broader weight-only
+structural families remain unfinished. No basis for declaring structure absent.
+
+Previous source frame/adapter results are in explanation0310; shared-reader result
+in0226; methods/assumptions in0022. Check component dossiers before newclaims.
+Next hourly04:22, math04:49. Fullgoalactive. Filesystem~156MBfree at03:35;
+largecachesin/dev/shm areephemeral. Preserve sharedClaude edits andmanagedrunner.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
@@ -218,8 +204,8 @@ not be changed retroactively. Build small wrappers for new semantics.
 ## Review clocks and throughput
 
 Latest hourly review:
-[01:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0122.md).
-Next hourly review is due **02:22 UTC on11September** at the first safe boundary.
+[03:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0322.md).
+Next hourly review is due **04:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [01:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0149.md).
 Next mathematical review is due **04:49 UTC on11September**. Derive later deadlines from the
