@@ -559,3 +559,6 @@ The follow-up finds 32 quote targets across 15 cached rows. Compared with neares
 
 ###11 September16:51 — stable whole-group directions are not square aliases
 Two same-start cross-optimizer canonical directions coincide with old LL1groups8/18, but their best individual prior-square cosines are0.73742(atom190)and0.90148(atom150), below0.95. The earlier square150 alias concerned a shared-square component, not the complete rank16group18. No new circuit identity. [Audit](../LL1_CANONICAL_MODE_ALIASES_V1.json), [math and scope](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1651.md).
+
+###11 September17:02 — fitted shared nodes retain mixed computations
+All12spectral graph parents retain two effective consumers after joint fitting. None matches an individual old256-square atom at0.95whole-function cosine. The most temporally consistent parent6reads close to atom71(inputcos0.99695), but its removal function has16.05%mixed energy and only0.57674cosine to thatatom. No semantic identity or independent-start evidence. [All-parent audit](../SHARED_READER_POSTFIT_ALIASES_V1_SPECTRAL.json), [intervention accounting](../SHARED_READER_POSTFIT_INTERFACE_V1_SPECTRAL.json).

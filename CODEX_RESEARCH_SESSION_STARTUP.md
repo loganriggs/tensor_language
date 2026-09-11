@@ -103,11 +103,16 @@ and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX
 - Native kernel preflight completed with all bars held at~.28s/evaluation.
   The bounded/re-encoded controller preserves function but still recovers only
   1/4independent planted starts; no global guarantee or absent-structure claim.
-- Four run_shared_reader_joint_fit_v1_<label>_<family>.py arms are managed:
-  spectral-original started16:22:02; spectral-graph/native-original/native-graph
-  queued. Each has20minutes, matched initial CPU objective and fresh-coordinate
-  convergence checks. Read SHARED_READER_JOINT_FIT_V1_PREREGISTRATION.md and
-  current queue/results. Helper and25dependencies frozen; no duplicate GPU runs.
+- First spectral pair completed: original11.88387%, sharedgraph11.86782%capture;
+  gap.000160538 with1.16446%floats saved, but bothunconverged. Postfit12parents
+  retain twoeffectiveconsumers and exact joint-removal accounting. See
+  SHARED_READER_POSTFIT_INTERFACE_V1_SPECTRAL.json and the primary method note.
+- Native-original started17:02:12; native-graph remainsqueued. The separately
+  audited retained-history20minute comparison isqueuedafterpeerwork. Check
+  livequeue/results beforeaction. Allboundhelpers remainfrozen.
+- Cross-start node correspondence is frozen before the nativegraphfit finishes:
+  SHARED_READER_CROSS_START_MATCHING_V1_FROZEN.json. Score fixedmatches and
+  report later rematching separately; do not call current nodes identifiedcircuits.
 - Hourly1622 records CEREMONY_BUDGET failure. Next block should interpret the
   live fits using existing receipts and reduce repeated validation/publication,
   not start another unrelated toy suite or reporting framework.

@@ -110,3 +110,22 @@ The circuit consequence is specific: reconstruction-score similarity cannot just
 The16:51review's fixed-core horizontal-reader metric was measured on the completed spectral-original graph. Median block condition32.92, maximum389.75;0/64exceed1e4, and the global reader-metric ratio1157.90misses1e6. Writer-metric ratio8.02. Dense directional checks agree with the derived metric to2.3e-15. These are moderate-to-large local scale differences, not the extreme self-conditioning predicted; cross-group coupling and the eliminated-core Hessian remain unmeasured. [Receipt](LL1_NATIVE_CORE_CONDITIONING_V1.json).
 
 A simpler numerical hypothesis is that mandatory200-step re-encodings discard useful L-BFGS history. One matched20-minute spectral-original run is now queued with the existing controller's iteration limit set to1000000, retaining history until solver termination or budget. Bounds, core solves and fresh-coordinate checks remain. The C bar now asks for1e-4objective advantage over the completed200-step baseline; earlier gain-over-initial results keep their original meaning. No new preconditioner, corpus fitting or circuit claim. [Protocol](SHARED_READER_RETAINED_HISTORY_V1_PREREGISTRATION.md), [29frozen dependencies](SHARED_READER_RETAINED_HISTORY_V1_BINDING.json).
+
+
+## Spectral shared graph completed: reuse survives joint fitting
+
+The spectral graph completed17:02:12UTC. Numeric and objective-improvement bars hold; convergence misses (freshgradient3.23e-5,progress1.93e-5). Capture11.8678183% versus the matched original11.8838721% leaves a gap0.000160538, below the registered0.001bar for this start. It stores1,239,793floats versus1,254,400, saving1.16446%; readers fall1024→1011, while variable products rise1024→1041and90int64indices are added. The four-arm aggregate remains pending. Comparing to the stronger older spectral solver still leaves only0.000212800capture gap. None of these endpoints converged. [Fit](SHARED_READER_JOINT_FIT_V1_SPECTRAL_GRAPH.json).
+
+[Reused postfit intervention scorer](SHARED_READER_POSTFIT_INTERFACE_V1_SPECTRAL.json) passes all three original interface bars: exact executor/CP replay≤1.8e-14; at least one shared-pair correction exceeds1%joint-removal energy; all12parents still have at least two consumers each with removal energy≥1%of its group. Naively adding single-parent deletions incurs6.2327%relative output error; subtracting shared-pair terms once reduces it to2.1e-15. This establishes internally consistent reuse in the approximation, not native selectivity, sufficiency or OOD behavior.
+
+The matched original and graph functions have cosine0.97253but23.43%relative difference; close capture scores are not interchangeability. Most parent removal functions move substantially during fitting. Parent6has the highest before/after cosine0.987665, but even it has15.66%relative function change. This is fitting evolution, not an independent-start stability test.
+
+For each unit input reader $u$, its node-removal quadratic has an orthogonal decomposition
+
+$$
+D_u(x)=(u^\top x)^2v+(u^\top x)M(I-uu^\top)x.
+$$
+
+The squared and mixed coefficient tensors are orthogonal. The [all-parent census](SHARED_READER_POSTFIT_ALIASES_V1_SPECTRAL.json) verifies the energy identity and prior-square comparisons: every fitted parent has11.45–84.55%mixed energy, and none matches a single old square at0.95function cosine. Parent6reads almost the old atom71direction(inputcos0.99695)but its whole removal function matches that atom at only0.57674and includes16.05%mixed energy. A reader match alone is not a whole-function alias or a new circuit.
+
+The [frozen cross-start correspondence](SHARED_READER_CROSS_START_MATCHING_V1_FROZEN.json) now matches these12nodes to16native-start prefit nodes, before the native graph's final fit exists. Later fixed-match bars require at least4pairs with functioncos≥0.8andinputabs≥0.95, each with two effective consumers. Current baseline matches are mostly weak; no future bar is scored yet. Postfit rematching will be reported separately, so a poor initial correspondence can be distinguished from absent final matches. The native-original arm is live; native-graph and the retained-history comparison remain queued.
