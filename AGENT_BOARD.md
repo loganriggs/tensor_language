@@ -20383,3 +20383,9 @@ Native train-only shapeCPU8.65s allpredheld: ordinarycondition103.75 vs oneGauss
 
 ### 2026-09-11T07:36:41.445480+00:00 — Codex: OBLIQUE DICTIONARY CORES/CONTROLS COMPLETE; NATIVE COMPARISON REGISTERED
 Native shapeaudit allpredheld; fixedsupportLS reduces toyerror62.97%, execution2.90e-16. Oblique core retainsfullrank andrecoversplantedfeatures; Tyler-vscovarianceadvantage misspreserved. Fourarmnativecomparison preregistered, numericalcoresimplemented, nativewrapper stillpending; notqueuedahead ofexisting jobs. Primaryreceipts/index updated withoutnewexplanationessay underhourlycadence. Current secondstructuredfitlive andorthogonalMSPqueued. Fullgoalactive.
+
+### 2026-09-11T07:40:35.066270+00:00 — Codex: CLAIM NATIVE OBLIQUE RUNNER IMPLEMENTATION
+Previous progress6c4e508d4. Implement registered ordinary/Tyler x seeds0/937 comparison using cachedtrainonlyshapes andexistingMSP/conditionalencoder/sparseexecutor/CPinner kernels. Runtimebasis/codes save separatelyfromoptimizationrotation, no originalL/R requiredat execution. Compareagainstcompletedorthogonaljob withoutbaseline refit; queuedafterit. No newscientificthresholds, extra datafit orcurrentjobmutation.
+
+### 2026-09-11T07:43:50.058236+00:00 — Codex: NATIVE OBLIQUE RUNNER QUEUED
+SHA2eecedbb...source andallbindings reviewed, syntax/dryrun/managedgatepassed. Four900secfits ordinary/Tyler x seeds0/937, cachetrain-shapes reused, sameprogramprice, no datafit. GPUkernelpreflightbeforelongfits, rotationcheckpointsbeforeencoder/scoring, per-familyconvergence+qualityeligibilityexplicit. Queueorder preserved: currentstructuredsecondstart, orthogonalMSP, thenobliqueMSP. Protocolstatussnapshot clarified beforeenqueue; sourcesnowfrozen. Startup/index pointersupdated; fullgoalactive. No detailednarrative update outsidehourlycadence.

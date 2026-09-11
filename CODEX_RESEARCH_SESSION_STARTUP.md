@@ -82,7 +82,7 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 07:22 UTC
+## Current handoff — 11 September 07:44 UTC
 
 Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 [method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
@@ -99,6 +99,12 @@ families or infer convergence from an elapsed budget.
   Full1152input basis; nativeL/Rweights only; paired3072/1536product holdout;
   two900second fits; exactfull-Uscore. No native result yet. Protect its turn
   after the live job. No automatic third identical structured continuation.
+- **Queued after orthogonal dictionary:** `run_oblique_reader_dictionary_v1.py`,
+  sourceSHA `2eecedbb95ccb50591a2e8a60c53074beee5e0f8cd53eb6dfed26da57672469a`.
+  Ordinary/Tyler shape x two starts,900seconds each; cached training shapes,
+  exact sparse encoding, same program price. Protocol and binding prefix
+  `OBLIQUE_READER_DICTIONARY_V1`. Native runner saves fitted rotations before
+  encoding/scoring. No native oblique result yet; do not duplicate the queue.
 - **Ready:** `sparse_reader_program_v1.py` consumes savedbasis/codes plus
   Down/bias, with exact feature-edit and interaction algebra. Synthetic
   controls are not native circuit evidence. All queued/executed bindings frozen.

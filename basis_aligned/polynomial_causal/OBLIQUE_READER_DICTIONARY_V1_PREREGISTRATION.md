@@ -1,6 +1,6 @@
 # Oblique shared-reader dictionaries — registered 11 September 07:36 UTC
 
-Status: numerical cores and CPU controls complete; native runner not yet queued.
+Status at registration: numerical cores and CPU controls complete; native runner not yet queued.
 Keep the current structured continuation and orthogonal dictionary queue intact.
 
 Question: does a complete nonorthogonal input dictionary organize native

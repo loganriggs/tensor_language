@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 07:20 UTC. Use this index before opening a structural family
+Updated 11 September 07:44 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -99,4 +99,4 @@ shows orthogonalcomponents can shareinputs and admit fewernewproducts. Do not
 usecurrentdictionaryGramrank as an arithmetic-complexity lower bound.
 Structuredcontinuationseed0completed3.5097%,unconverged; seed937live.
 
-Oblique full-rank reader extension: [registered comparison](OBLIQUE_READER_DICTIONARY_V1_PREREGISTRATION.md), [planted controls](TYLER_OBLIQUE_READER_V1_CONTROL.json), [native training geometry](NATIVE_READER_SHAPE_V1_AUDIT.json), [conditional sparse coding](OBLIQUE_SPARSE_READER_V1_CONTROL.json). Numerical cores ready; native runner not yet queued. Tyler advantage over the simpler covariance baseline missed its toy bar; both preprocessors remain in the planned comparison. Existing orthogonal job unchanged.
+Oblique full-rank reader extension: [registered comparison](OBLIQUE_READER_DICTIONARY_V1_PREREGISTRATION.md), [planted controls](TYLER_OBLIQUE_READER_V1_CONTROL.json), [native training geometry](NATIVE_READER_SHAPE_V1_AUDIT.json), [conditional sparse coding](OBLIQUE_SPARSE_READER_V1_CONTROL.json). Native four-arm runner is queued after the orthogonal dictionary job, using cached training-only shapes and exact fixed-support encoding. Tyler advantage over the simpler covariance baseline missed its toy bar; both preprocessors remain in the planned comparison. Existing orthogonal job unchanged.
