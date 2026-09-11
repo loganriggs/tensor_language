@@ -19590,3 +19590,21 @@ Previous turn progress5896ea8a5. Apply full-output Q_vZ=Z^TQ_v normal operator i
 
 ### 2026-09-11T00:40:41.201600+00:00 — Codex: CLAIM CONGRUENCE CANDIDATE ERROR TRANSFER
 Native spectrum live; core trace/adjoint checks pass, FP64matvec~.29s. In parallel CPU math, derive and test how residual Q_vZ-Z^TQ_v bounds original-coordinate block deletion error through spectral separation and condition(W). This prepares candidate evaluation without assuming small eigenvalue alone means a usable circuit.
+
+### 2026-09-11T00:44:54.844037+00:00 — Codex: CLAIM MIXED-PRECISION CONGRUENCE SEARCH CONTROL
+Full FP64 native search remains live, ~.29s/matvec. Prepare CPU-tested FP32 search operator with FP64 eigenpair verification as a possible faster independent-start check. Original convergence/near-null bars remain unchanged; lower search precision is acceptable only if independent full-precision residuals pass. Do not enqueue before interpreting current result.
+
+### 2026-09-11T00:48:48.074061+00:00 — Codex: FULL FP64 CONGRUENCE PARTIAL CONVERGENCE; CLAIM INDEPENDENT MIXED SEARCH
+V1core passed;3of4requestedmodesconverged after479.91s/1540matvecs. Values5.79208e-5,7.28304e-5,7.39322e-5, residuals/operatorbound<=1.4e-15. Registered A/B/C notheld because full4-mode convergence missing; no structural negative. Run independentseed997, ncv40,tol1e-5 FP32search with originalFP64residual<=1e-7 acceptance, preserved near-null/gap thresholds. Compare3convergedold modes/functions and measure matvec speed.
+
+### 2026-09-11T00:49:45.634493+00:00 — Codex: CLAIM RETURNED WITNESS GEOMETRY AUDIT
+Inspect3convergedV1trace-free matrices on CPU: singular concentration, symmetry and square-norm/nonnormality. A near-null algebraic matrix need not be a separated block projector, especially for indefinite forms; diagnostics do not identify native blocks. Mixed independent search queued separately.
+
+### 2026-09-11T00:51:20.006618+00:00 — Codex: CLAIM RANK-ONE WITNESS RESPONSE AUDIT
+V1witnesses95.5–99.6%top-singular energy, near-half symmetric energy and small square norms; not clean block projectors. For top dyad uv^T, derive E=2||v||²sum||Q_vu||²-2sum(v^TQ_vu)². Compute exact full-U derivative moment M_u=sum(Q_vu)(Q_vu)^T on CPU: distinguish common response direction from merely weak input u. Conditional perturbation formula yields a possible shared product only if normalized alignment is high. No native block/circuit claim from rank concentration.
+
+### 2026-09-11T00:52:39.278256+00:00 — Codex: MIXED NATIVE CONGRUENCE CONVERGED; CLAIM COMMON-RESPONSE CHECK
+Mixed native A/Dheld B/Cfailed,52.50s,32.84xmatvecspeed,all4FP64residuals<=5.65e-8bound. Independentfirst3values agree<=1.6e-14 andsubspacecosines>=.99999999967. Strict near-null/gap screen failed, not all approximate/overlapping blocks. Firstdyad response direction63.30%optimalalignment with inputenergy9.45%isotropicmean; other directionsweaker. NextCPUsplit full derivative moment into known common-output pluscentered components before attributing shared response to new structure.
+
+### 2026-09-11T00:56:15.055077+00:00 — Codex: CONGRUENCE RESULT PUBLISHED; COMMON-RESPONSE CONTINUATION COMPLETE
+Full native mixed spectrum converged, A/Dheld B/Cfailed; strongest numerical alternative checked by independent FP64 modes. Common-response CPU follow-up complete: leading alignment63.30% falls to32.19%centered, commonresponse47.82%. Latest explanation0054. Next full common-channel-plus-centered-block spectrum remains unrun; no own GPU queued. Four program properties remain open.

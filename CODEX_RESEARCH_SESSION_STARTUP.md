@@ -82,16 +82,19 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 00:35
+## Current handoff — updated 11 September 2026, 00:54
 
-Latest native OLS result and nonorthogonal block-method controls: explanations/
-2026-09-11/LATEST.md. Full-U128/1024nativeproducts capture6.86%/31.58%; Aheld B/C
-failed, exact conditional/conditioning/random audit complete. Next full-output
-congruence block operator Q_vZ=Z^TQ_v is implemented and controlled for indefinite,
-nonorthogonal planted blocks and a dense null. Complex-conjugate eigenpairs can
-represent real2Dblocks; nullity is not block count. Native eigen-search not queued.
+Latest full-U congruence spectrum and response audit: explanations/2026-09-11/LATEST.md.
+FP64 first run3/4converged in480s; independent mixed search4/4converged in52.5s,
+originalFP64residualbar held; matvec32.84xfaster. Near-null/gap bars failed.
+Independent eigenvalue/subspace agreement and response/common audits executed.
+Leading dyad inputenergy9.45%isotropicmean; fullresponsealignment63.30%, common
+fraction47.82%, centeredalignment32.19%. No new shared product/circuit claim.
+Next structural distinction: explicit exact common channel plus centered blocks;
+response split done, centered spectrum not run. No own GPU job queued.
+Eigenvectors are checksummed ephemeral /dev/shm caches, not off-box artifacts.
 No new data discovery. Latest hourly00:22,next01:22; math22:49,next01:49.
-Full goal active; check disk before checkpoints, only~10MBfree this turn.
+Full goal active. Disk~1.7MBfree: avoid large disk checkpoints; shared memory has room.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

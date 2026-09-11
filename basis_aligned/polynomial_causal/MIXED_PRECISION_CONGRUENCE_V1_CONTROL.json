@@ -1,0 +1,36 @@
+{
+  "instrument_passed": true,
+  "fp32_action_relative_error": 1.372623583251544e-07,
+  "fp64_verification": [
+    {
+      "search_eigenvalue": 0.01691538969051427,
+      "fp64_rayleigh": 0.01691538698085479,
+      "fp64_residual_over_bound": 2.842986109472273e-08,
+      "search_value_difference_over_bound": 2.207019736507693e-09,
+      "identity_overlap": 7.008609231168303e-10
+    },
+    {
+      "search_eigenvalue": 0.021398024446103444,
+      "fp64_rayleigh": 0.021398033754657778,
+      "fp64_residual_over_bound": 2.6346988485935368e-08,
+      "search_value_difference_over_bound": 7.58182468628579e-09,
+      "identity_overlap": 1.0153435707945427e-09
+    },
+    {
+      "search_eigenvalue": 0.024894204631275174,
+      "fp64_rayleigh": 0.024894214589673204,
+      "fp64_residual_over_bound": 2.5092800150534193e-08,
+      "search_value_difference_over_bound": 8.111122878209442e-09,
+      "identity_overlap": 6.897273678122914e-10
+    },
+    {
+      "search_eigenvalue": 0.026984119154485692,
+      "fp64_rayleigh": 0.02698411595105691,
+      "fp64_residual_over_bound": 3.014932846674585e-08,
+      "search_value_difference_over_bound": 2.6091952149267953e-09,
+      "identity_overlap": 1.502964896057021e-09
+    }
+  ],
+  "search_converged": true,
+  "scope": "Synthetic precision/verification control only. Native final convergence bar remains1e-7 of operator bound."
+}

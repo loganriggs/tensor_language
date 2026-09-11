@@ -308,3 +308,11 @@ Exact multi-output OLS over native4608products gives full-U128capture6.86% and
 1024capture31.58%, with well-conditioned exact writer solves. This is weight-only
 coefficient geometry, unlike the older natural-data own-neuron ceiling. No broad
 structural negative. See [result and next nonorthogonal block method](2026-09-11/explanation_2026-09-11_0035.md).
+
+
+## 11 September00:54: full-U congruence block spectrum
+
+Independent search converged with full-FP64verification; two-near-null and gap bars
+failed. Leading approximate dyad responds along a relatively weak input direction,
+with substantial known common-output contribution. This does not rule out approximate
+or overlapping blocks. [Spectrum, response and common-channel audits](2026-09-11/explanation_2026-09-11_0054.md).

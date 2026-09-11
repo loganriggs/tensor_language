@@ -1,0 +1,122 @@
+{
+  "predictions": {
+    "pred_a_fp64_verified_convergence": true,
+    "pred_b_two_near_null_modes": false,
+    "pred_c_gap_after_two_modes": false,
+    "pred_d_matvec_speed": true
+  },
+  "solver": {
+    "converged": true,
+    "terminal_reason": "arpack_converged",
+    "eigenvalues": [
+      5.7920839175555184e-05,
+      7.283042959949875e-05,
+      7.393225643432955e-05,
+      8.062194192089271e-05
+    ],
+    "residuals_over_operator_bound": [
+      6.252421908442389e-08,
+      6.227830157421797e-08,
+      6.151180043294618e-08,
+      5.529127650849763e-08
+    ],
+    "identity_overlaps": [
+      3.3683759485409e-10,
+      1.9928429443039096e-10,
+      2.9243379398158303e-10,
+      1.9407559759205305e-10
+    ],
+    "orthogonality_error": 8.939682157465013e-15,
+    "operator_norm_upper_bound": 0.04134555104701996,
+    "mean_nontrivial_eigenvalue": 0.0017346053772766695,
+    "matvecs": 1239,
+    "matvec_seconds": 13.581662517040968,
+    "wall_seconds": 48.07309874892235,
+    "requested_modes": 4,
+    "ncv": 40,
+    "maxiter": 150,
+    "tolerance": 1e-05,
+    "seed": 997
+  },
+  "fp64_verification": [
+    {
+      "search_eigenvalue": 5.7920839175555184e-05,
+      "fp64_rayleigh": 5.792080555744702e-05,
+      "fp64_residual_over_bound": 5.533346294639527e-08,
+      "search_value_difference_over_bound": 8.1310098209611e-10,
+      "identity_overlap": 3.3683759567184513e-10
+    },
+    {
+      "search_eigenvalue": 7.283042959949875e-05,
+      "fp64_rayleigh": 7.283042160729423e-05,
+      "fp64_residual_over_bound": 5.645021414059749e-08,
+      "search_value_difference_over_bound": 1.9330264832283267e-10,
+      "identity_overlap": 1.9928429463483017e-10
+    },
+    {
+      "search_eigenvalue": 7.393225643432955e-05,
+      "fp64_rayleigh": 7.393223808803066e-05,
+      "fp64_residual_over_bound": 5.531295621465653e-08,
+      "search_value_difference_over_bound": 4.4373090747164785e-10,
+      "identity_overlap": 2.9243379393047283e-10
+    },
+    {
+      "search_eigenvalue": 8.062194192089271e-05,
+      "fp64_rayleigh": 8.062192504156468e-05,
+      "fp64_residual_over_bound": 4.8563751992915785e-08,
+      "search_value_difference_over_bound": 4.082501647587162e-10,
+      "identity_overlap": 1.9407559766871726e-10
+    }
+  ],
+  "fp64_eigenvalues": [
+    5.792080555744702e-05,
+    7.283042160729423e-05,
+    7.393223808803066e-05,
+    8.062192504156468e-05
+  ],
+  "action_relative_error": 4.2961818445346426e-07,
+  "native_trace_relative_error": 0.0,
+  "precision_timings": {
+    "fp64": [
+      0.2920053005218506,
+      0.2919955216348171,
+      0.29196688905358315,
+      0.2919468879699707,
+      0.2919791080057621
+    ],
+    "fp32_search": [
+      0.008846916258335114,
+      0.00887414813041687,
+      0.00888998806476593,
+      0.008950319141149521,
+      0.009003896266222
+    ]
+  },
+  "matvec_speed_ratio": 32.84358830165086,
+  "prior_comparison": {
+    "principal_cosines": [
+      0.9999999999159133,
+      0.9999999996872825,
+      0.999999999678439
+    ],
+    "nearest_eigenvalue_absolute_differences": [
+      9.447819046201622e-15,
+      1.5530803097567325e-14,
+      1.3945116762725807e-14
+    ]
+  },
+  "witness_cache": {
+    "path": "/dev/shm/bilin18_native_congruence_mixed_v1_vectors.pt",
+    "sha256": "14bb294ab18fa8cd2c5ef8aaaaef17e680c2eb43070ac43bb3aa6b204e973957",
+    "bytes": 42471326,
+    "ephemeral": true
+  },
+  "price": {
+    "body_forwards": 0,
+    "corpus_access": false,
+    "output_rank_truncation": false,
+    "input_rank_truncation": false
+  },
+  "wall_seconds": 52.50431524962187,
+  "scope": "Independent mixed search with original FP64 convergence verification; no native blocks or circuits identified by eigenvalues alone."
+}

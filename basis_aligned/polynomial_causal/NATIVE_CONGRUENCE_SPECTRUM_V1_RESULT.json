@@ -1,0 +1,57 @@
+{
+  "predictions": {
+    "pred_a_numerics_and_convergence": false,
+    "pred_b_two_near_null_modes": false,
+    "pred_c_gap_after_two_modes": false
+  },
+  "solver": {
+    "converged": false,
+    "terminal_reason": "arpack_iteration_limit",
+    "eigenvalues": [
+      5.7920805547999203e-05,
+      7.283042159176343e-05,
+      7.393223807408555e-05
+    ],
+    "residuals_over_operator_bound": [
+      4.895436480767625e-16,
+      1.3155282339779294e-15,
+      1.3837074830323587e-15
+    ],
+    "identity_overlaps": [
+      2.273363039135883e-16,
+      3.872076974931081e-16,
+      1.929905313798807e-16
+    ],
+    "orthogonality_error": 1.587763405304246e-14,
+    "operator_norm_upper_bound": 0.04134555104701996,
+    "mean_nontrivial_eigenvalue": 0.0017346053772766695,
+    "matvecs": 1540,
+    "matvec_seconds": 452.1856258660555,
+    "wall_seconds": 477.9028872773051,
+    "requested_modes": 4,
+    "ncv": 20,
+    "maxiter": 100,
+    "tolerance": 1e-08,
+    "seed": 961
+  },
+  "native_total": 99245061353.473,
+  "native_trace_error": 2.220446049250313e-15,
+  "adjoint_error": 1.35809106328622e-18,
+  "identity_error": 0.0,
+  "random_normalized_energy": 0.0017342144949668004,
+  "instrument_core_passed": true,
+  "witness_cache": {
+    "path": "/dev/shm/bilin18_native_congruence_spectrum_v1_vectors.pt",
+    "sha256": "13afe2b2d3643da68be2418b48f8e60e98b75aa103130d079bd1dda1ad970c11",
+    "bytes": 31854067,
+    "ephemeral": true
+  },
+  "price": {
+    "body_forwards": 0,
+    "corpus_access": false,
+    "output_rank_truncation": false,
+    "input_rank_truncation": false
+  },
+  "wall_seconds": 479.9086168296635,
+  "scope": "Full-U native congruence spectrum; additional near-null solutions are only block candidates. No circuit identification."
+}
