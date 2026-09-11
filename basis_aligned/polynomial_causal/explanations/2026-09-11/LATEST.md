@@ -80,3 +80,7 @@ Completing the private squares reduces the frozen graph from1,041 to1,016variabl
 ### 20:12 — Temporal cue response is stronger than answer transfer
 
 Frozen branch 1 distinguishes present/past on all 32 tested pairs, but the two-branch swap fails tense transfer and the stricter per-side native capability gate also misses. Executed native-MLP-output-only swaps oppose the answer change in all four cell means, so weak branch transfer is not evidence of losing a strong positive local MLP signal. No circuit promotion or repaired verdict. [Primary explanation and receipts](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md).
+
+### 20:24 — Suffix-directed writes transfer a small part of two grammatical behaviors
+
+A weights-only atlas finds broad suffix preferences. The frozen bank then moves subject–verb and count-noun answers correctly with small control effects, but transfers only 3.6–4.5% of the native answer change, below its 10% bar. Exact local accounting finds a larger native last-MLP signal (25–33% of the full change), mostly unexplained by this bank. No sufficiency or circuit promotion. [Math, red-team and results](../../BRANCH_TOKEN_RELATIONS_V1_MATH.md).

@@ -1,0 +1,2004 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": false,
+  "pred_e": true,
+  "capability_transfer_cells": [
+    {
+      "family": "A1",
+      "direction": "base_to_suffix",
+      "native_capability": 1.0,
+      "native_base_capability": 1.0,
+      "native_donor_capability": 1.0,
+      "capability_held": true,
+      "mean_native_gap": 12.25905704498291,
+      "mean_bank_margin_shift": 0.5521712899208069,
+      "recovery": 0.04504190558006957,
+      "transfer_held": false
+    },
+    {
+      "family": "A1",
+      "direction": "suffix_to_base",
+      "native_capability": 1.0,
+      "native_base_capability": 1.0,
+      "native_donor_capability": 1.0,
+      "capability_held": true,
+      "mean_native_gap": 11.633651971817017,
+      "mean_bank_margin_shift": 0.5231155157089233,
+      "recovery": 0.04496571815765087,
+      "transfer_held": false
+    },
+    {
+      "family": "A2",
+      "direction": "base_to_suffix",
+      "native_capability": 1.0,
+      "native_base_capability": 1.0,
+      "native_donor_capability": 1.0,
+      "capability_held": true,
+      "mean_native_gap": 8.930216550827026,
+      "mean_bank_margin_shift": 0.3779575824737549,
+      "recovery": 0.04232345098493186,
+      "transfer_held": false
+    },
+    {
+      "family": "A2",
+      "direction": "suffix_to_base",
+      "native_capability": 1.0,
+      "native_base_capability": 1.0,
+      "native_donor_capability": 1.0,
+      "capability_held": true,
+      "mean_native_gap": 9.34972757101059,
+      "mean_bank_margin_shift": 0.3355623483657837,
+      "recovery": 0.035890066936946435,
+      "transfer_held": false
+    },
+    {
+      "family": "P",
+      "direction": "base_to_suffix",
+      "native_capability": 1.0,
+      "native_base_capability": 1.0,
+      "native_donor_capability": 1.0,
+      "capability_held": true,
+      "mean_native_gap": 0.0533176064491272,
+      "mean_bank_margin_shift": 0.022466301918029785,
+      "recovery": 0.42136741339778494,
+      "transfer_held": false
+    },
+    {
+      "family": "P",
+      "direction": "suffix_to_base",
+      "native_capability": 1.0,
+      "native_base_capability": 1.0,
+      "native_donor_capability": 1.0,
+      "capability_held": true,
+      "mean_native_gap": 0.20938187837600708,
+      "mean_bank_margin_shift": 0.03722178936004639,
+      "recovery": 0.17776987029032024,
+      "transfer_held": false
+    },
+    {
+      "family": "C",
+      "direction": "base_to_suffix",
+      "native_capability": 1.0,
+      "native_base_capability": 1.0,
+      "native_donor_capability": 1.0,
+      "capability_held": true,
+      "mean_native_gap": 0.2683294415473938,
+      "mean_bank_margin_shift": 0.0006021857261657715,
+      "recovery": 0.002244202956981186,
+      "transfer_held": false
+    },
+    {
+      "family": "C",
+      "direction": "suffix_to_base",
+      "native_capability": 0.875,
+      "native_base_capability": 1.0,
+      "native_donor_capability": 0.875,
+      "capability_held": true,
+      "mean_native_gap": -0.6852620840072632,
+      "mean_bank_margin_shift": 0.00022852420806884766,
+      "recovery": -0.00033348438999059737,
+      "transfer_held": false
+    }
+  ],
+  "activation": {
+    "A1": {
+      "mean_direct_contrast": 1658.307525967129,
+      "positive_fraction": 1.0,
+      "held": true
+    },
+    "A2": {
+      "mean_direct_contrast": 1050.588312641653,
+      "positive_fraction": 1.0,
+      "held": true
+    }
+  },
+  "control_mean_abs_ce_change": {
+    "P": 0.006191007190647219,
+    "C": 0.004161233529457416
+  },
+  "records": [
+    {
+      "row_id": "929777268df1b6a354b70e4defe2c8cc62e743d1b6b9d7029bf538e379850fa0",
+      "family": "A1",
+      "group": 0,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 2504.36551438855,
+      "native_mlp_only_effect": 3.293630599975586,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 12.997734069824219,
+      "margin_shifts": [
+        0.7014436721801758,
+        0.07555484771728516,
+        0.7800827026367188
+      ],
+      "ce_changes": [
+        0.29963536882454767,
+        0.022418929235022977,
+        0.3356581192118453
+      ],
+      "base_amplitudes": [
+        -2.6365748851642783,
+        3.8918200979416357
+      ],
+      "donor_amplitudes": [
+        -10.897012511868379,
+        5.825991512868039
+      ]
+    },
+    {
+      "row_id": "c5c68a163d85eef24d901cb1b10082f2586f42cc37f21975eb132e4957fc031a",
+      "family": "A2",
+      "group": 0,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 279.4424997709161,
+      "native_mlp_only_effect": 2.108096122741699,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 7.6258320808410645,
+      "margin_shifts": [
+        0.09272336959838867,
+        0.1123056411743164,
+        0.20461130142211914
+      ],
+      "ce_changes": [
+        -0.017701728221694246,
+        0.012298340421208476,
+        -0.00588277075894883
+      ],
+      "base_amplitudes": [
+        -8.659627885683292,
+        -4.523792447259218
+      ],
+      "donor_amplitudes": [
+        0.26361439993384606,
+        0.6292311244561097
+      ]
+    },
+    {
+      "row_id": "ec5a87517f158ca7296ee80ba4bc462960e1863f6b99fb2d7637d4d72d9758a0",
+      "family": "P",
+      "group": 0,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 78.62360057058538,
+      "native_mlp_only_effect": 0.003276824951171875,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.23098087310791016,
+      "margin_shifts": [
+        0.021645545959472656,
+        0.011617660522460938,
+        0.033245086669921875
+      ],
+      "ce_changes": [
+        -0.007724575615530416,
+        -0.003287588074429859,
+        -0.010955577341152933
+      ],
+      "base_amplitudes": [
+        -2.6365748851642783,
+        3.8918200979416357
+      ],
+      "donor_amplitudes": [
+        -2.3772415950479644,
+        3.593438666667325
+      ]
+    },
+    {
+      "row_id": "d336b8a6079ec35bfa9d7221a95c949c786363459e6d35af4003bde717febe00",
+      "family": "C",
+      "group": 0,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 3.75586408338269,
+      "native_mlp_only_effect": -0.16224956512451172,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.15800094604492188,
+      "margin_shifts": [
+        0.0009202957153320312,
+        -1.33514404296875e-05,
+        0.0009069442749023438
+      ],
+      "ce_changes": [
+        -0.003943180470057817,
+        0.0002838987890676492,
+        -0.003665648683605971
+      ],
+      "base_amplitudes": [
+        -2.313123682932884,
+        -1.1046162693900923
+      ],
+      "donor_amplitudes": [
+        -3.45151344212754,
+        -1.2853056943354653
+      ]
+    },
+    {
+      "row_id": "771c721cce39d66cb4e181644bbdd5ac6f57291465acf81ca4e7bf28ef29a10b",
+      "family": "A1",
+      "group": 1,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 2172.656830144314,
+      "native_mlp_only_effect": 3.115335464477539,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 11.969532012939453,
+      "margin_shifts": [
+        0.6549506187438965,
+        0.0505223274230957,
+        0.7047691345214844
+      ],
+      "ce_changes": [
+        0.002995287698290383,
+        0.003982360576415989,
+        0.0073486837740088795
+      ],
+      "base_amplitudes": [
+        -11.02491631635632,
+        5.720243451383362
+      ],
+      "donor_amplitudes": [
+        -2.5207915153743707,
+        3.9369905617889724
+      ]
+    },
+    {
+      "row_id": "b67b98c883d09ac2372ff8d3f6d2b603c488876349b0b90bb85e27a9f94900ec",
+      "family": "A2",
+      "group": 1,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 688.0491897744544,
+      "native_mlp_only_effect": 2.761892318725586,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 9.623995780944824,
+      "margin_shifts": [
+        0.2134237289428711,
+        0.047926902770996094,
+        0.2610931396484375
+      ],
+      "ce_changes": [
+        0.1591812190785995,
+        0.06030408657699993,
+        0.22123280501573772
+      ],
+      "base_amplitudes": [
+        0.3148470304551496,
+        0.6201770943316157
+      ],
+      "donor_amplitudes": [
+        -8.467749283920915,
+        -4.8420665843514445
+      ]
+    },
+    {
+      "row_id": "f95d67a72186ddffb72cd5ea45e262fae8f3cd66eb9b7379f666e0f3086a8494",
+      "family": "P",
+      "group": 1,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": -150.57176737723358,
+      "native_mlp_only_effect": -0.1368083953857422,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.7872085571289062,
+      "margin_shifts": [
+        -0.045522212982177734,
+        0.03436851501464844,
+        -0.01118326187133789
+      ],
+      "ce_changes": [
+        0.0001298033384875552,
+        -0.0026280587531513078,
+        -0.00251459882053906
+      ],
+      "base_amplitudes": [
+        -11.02491631635632,
+        5.720243451383362
+      ],
+      "donor_amplitudes": [
+        -10.435554442214713,
+        6.9323801895157775
+      ]
+    },
+    {
+      "row_id": "07620231079d342e5e83161bab0f8b74bc4215a7bbdb5ffa2cc910645d8b699a",
+      "family": "C",
+      "group": 1,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": -1.6893702454260957,
+      "native_mlp_only_effect": -0.4501504898071289,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -2.081130027770996,
+      "margin_shifts": [
+        -0.000362396240234375,
+        9.5367431640625e-07,
+        -0.00035953521728515625
+      ],
+      "ce_changes": [
+        0.0015076250524242996,
+        -9.753801364076331e-05,
+        0.001408583994835455
+      ],
+      "base_amplitudes": [
+        -2.280359474461037,
+        -1.107217018188251
+      ],
+      "donor_amplitudes": [
+        -1.7683170405002355,
+        -1.0434724151987236
+      ]
+    },
+    {
+      "row_id": "df13fb2c036825a68b6a9da7558f5c389dc3a3327c5cdd753f616666b8aab063",
+      "family": "A1",
+      "group": 2,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1720.3221117983235,
+      "native_mlp_only_effect": 3.2393922805786133,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 12.520854949951172,
+      "margin_shifts": [
+        0.5019769668579102,
+        0.08615398406982422,
+        0.5904140472412109
+      ],
+      "ce_changes": [
+        0.151645850200953,
+        0.004122516604105009,
+        0.16880516685531655
+      ],
+      "base_amplitudes": [
+        -2.518138022403071,
+        3.9546740342429
+      ],
+      "donor_amplitudes": [
+        -9.813726316589115,
+        6.199371640156399
+      ]
+    },
+    {
+      "row_id": "879e8becfd677aaa3add6ce6926fa2dc40425ac143208ed30b8e3693ac5399b3",
+      "family": "A2",
+      "group": 2,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1096.9646914228745,
+      "native_mlp_only_effect": 2.5789074897766113,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 9.330493450164795,
+      "margin_shifts": [
+        0.39463281631469727,
+        0.02221393585205078,
+        0.4163651466369629
+      ],
+      "ce_changes": [
+        -0.01775345497908587,
+        -0.01832589006468255,
+        -0.03638252029717082
+      ],
+      "base_amplitudes": [
+        -8.711966983821133,
+        -4.551285040344978
+      ],
+      "donor_amplitudes": [
+        0.16182981681811576,
+        0.21855128567402535
+      ]
+    },
+    {
+      "row_id": "4f1834ae9769414ce7af99161c6f8d7d6d1234aec67ea45bc2e5d6b6f4b08c3e",
+      "family": "P",
+      "group": 2,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": -43.86422947237428,
+      "native_mlp_only_effect": 0.0794229507446289,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.5509433746337891,
+      "margin_shifts": [
+        -0.012639999389648438,
+        0.0049076080322265625,
+        -0.00772857666015625
+      ],
+      "ce_changes": [
+        0.0029817246682153353,
+        -0.0001541978334551608,
+        0.0028105743390076654
+      ],
+      "base_amplitudes": [
+        -2.518138022403071,
+        3.9546740342429
+      ],
+      "donor_amplitudes": [
+        -2.7041586268453512,
+        3.8264436568860765
+      ]
+    },
+    {
+      "row_id": "571d01e83e58bc848511783b81735cef236bb2b5204cfb700201f1bf7e440ab9",
+      "family": "C",
+      "group": 2,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 2.333703254490482,
+      "native_mlp_only_effect": 0.17104053497314453,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.3012418746948242,
+      "margin_shifts": [
+        0.000621795654296875,
+        -5.054473876953125e-05,
+        0.0005702972412109375
+      ],
+      "ce_changes": [
+        -0.0033317852802705605,
+        0.0013746415251065791,
+        -0.0019664440627875646
+      ],
+      "base_amplitudes": [
+        -3.247911933140624,
+        -1.4697550112566575
+      ],
+      "donor_amplitudes": [
+        -3.95524953293963,
+        -2.079838221985346
+      ]
+    },
+    {
+      "row_id": "5fae532f73b1a1654724b23abd9e43052ad92f71a72fd4328202a923c19df115",
+      "family": "A1",
+      "group": 3,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1660.6839722439163,
+      "native_mlp_only_effect": 2.758824348449707,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 13.518586158752441,
+      "margin_shifts": [
+        0.5586271286010742,
+        0.014422416687011719,
+        0.5729551315307617
+      ],
+      "ce_changes": [
+        -0.04588072626715478,
+        0.0003617593284759302,
+        -0.04546570076019263
+      ],
+      "base_amplitudes": [
+        -9.599174146917274,
+        5.5751137671098006
+      ],
+      "donor_amplitudes": [
+        -3.277121655600817,
+        5.278610144971179
+      ]
+    },
+    {
+      "row_id": "5cff9744658d12516f0111230da4f36e94881d8de908a2e68a139abd0da0790f",
+      "family": "A2",
+      "group": 3,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 766.7320311121488,
+      "native_mlp_only_effect": 2.660454750061035,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 9.030766487121582,
+      "margin_shifts": [
+        0.23235702514648438,
+        0.06522750854492188,
+        0.29749298095703125
+      ],
+      "ce_changes": [
+        0.105014520933848,
+        0.03868251729664496,
+        0.14534909670312945
+      ],
+      "base_amplitudes": [
+        0.041211699221015974,
+        0.0537245669772225
+      ],
+      "donor_amplitudes": [
+        -7.763384340885066,
+        -4.461310535527736
+      ]
+    },
+    {
+      "row_id": "dd09ed55a826f5954b4bcf3120956cb76b79a3de65cac123cae2b8e3c295a358",
+      "family": "P",
+      "group": 3,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 201.52704728434793,
+      "native_mlp_only_effect": 0.0813608169555664,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.35489463806152344,
+      "margin_shifts": [
+        0.06782245635986328,
+        0.047698020935058594,
+        0.11555099487304688
+      ],
+      "ce_changes": [
+        0.005681745382724035,
+        -0.0011718172615653444,
+        0.004531733309857344
+      ],
+      "base_amplitudes": [
+        -9.599174146917274,
+        5.5751137671098006
+      ],
+      "donor_amplitudes": [
+        -10.366366817314487,
+        6.5551212603714095
+      ]
+    },
+    {
+      "row_id": "6fdd541753ccbf2b356b07fceb8b6b2cd4ebe0e400ab3c5461889510cd7deb96",
+      "family": "C",
+      "group": 3,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 4.351024263009766,
+      "native_mlp_only_effect": -0.12866973876953125,
+      "native_base_correct": true,
+      "native_donor_correct": false,
+      "native_gap": -0.7000713348388672,
+      "margin_shifts": [
+        0.001499176025390625,
+        -2.384185791015625e-05,
+        0.0014791488647460938
+      ],
+      "ce_changes": [
+        -0.008777107293770126,
+        0.0012650354770755712,
+        -0.007539028168118023
+      ],
+      "base_amplitudes": [
+        -2.3214105539229886,
+        -0.8755341117521148
+      ],
+      "donor_amplitudes": [
+        -3.6401913598984708,
+        -1.3240302067062433
+      ]
+    },
+    {
+      "row_id": "26cdf8a81908a9ef2d58e7b519ae07e5ab2433c8d4fc7d54d5fffab67c7741a6",
+      "family": "A1",
+      "group": 4,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1431.748799065926,
+      "native_mlp_only_effect": 3.452235221862793,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 12.210902214050293,
+      "margin_shifts": [
+        0.3905792236328125,
+        0.024408340454101562,
+        0.41560935974121094
+      ],
+      "ce_changes": [
+        0.06334037248071045,
+        -0.014157587639414437,
+        0.05468860557305044
+      ],
+      "base_amplitudes": [
+        -2.756751949501937,
+        4.637106276659745
+      ],
+      "donor_amplitudes": [
+        -10.813085032479608,
+        5.879155002404933
+      ]
+    },
+    {
+      "row_id": "b0481cdc8bd7bf13acf9ea841d1029d7e8b5b07a162c9c31789c3cf16c87734d",
+      "family": "A2",
+      "group": 4,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1442.7743584737432,
+      "native_mlp_only_effect": 4.030559062957764,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 11.541841506958008,
+      "margin_shifts": [
+        0.5153822898864746,
+        0.007531642913818359,
+        0.5216245651245117
+      ],
+      "ce_changes": [
+        0.0036424389401572554,
+        -0.04887971730610907,
+        -0.04622694335813904
+      ],
+      "base_amplitudes": [
+        -11.50062065793321,
+        -5.066011847132214
+      ],
+      "donor_amplitudes": [
+        0.34301913060085654,
+        0.8582720051908058
+      ]
+    },
+    {
+      "row_id": "b9cd9934103819d55fb7797fb5b31776135acbaecabc694d875de7c56d4db2fb",
+      "family": "P",
+      "group": 4,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 53.53921090786176,
+      "native_mlp_only_effect": -0.0948324203491211,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.033421993255615234,
+      "margin_shifts": [
+        0.014438629150390625,
+        0.009022235870361328,
+        0.023450374603271484
+      ],
+      "ce_changes": [
+        -0.0011532756652230525,
+        0.0053936981256610395,
+        0.004307047488655069
+      ],
+      "base_amplitudes": [
+        -2.756751949501937,
+        4.637106276659745
+      ],
+      "donor_amplitudes": [
+        -2.4554912001617417,
+        4.17734447349524
+      ]
+    },
+    {
+      "row_id": "338c978783f3414f7697f0cc1c4ba03a2fa7c3c9b297d6b7da911655fa7cff8e",
+      "family": "C",
+      "group": 4,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": -0.5872488280030499,
+      "native_mlp_only_effect": 0.2709169387817383,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.025919437408447266,
+      "margin_shifts": [
+        -0.00016307830810546875,
+        0.0,
+        -0.00015926361083984375
+      ],
+      "ce_changes": [
+        0.0008840012479711667,
+        -0.00021416628494153045,
+        0.0006671566854572486
+      ],
+      "base_amplitudes": [
+        -3.1929114325635273,
+        -1.5651857091687496
+      ],
+      "donor_amplitudes": [
+        -3.014918289825615,
+        -1.461899464972879
+      ]
+    },
+    {
+      "row_id": "8a7784ce713bc29bf1ea2080c43d0ccdc935e1e75aee9a92120fe519c43e793e",
+      "family": "A1",
+      "group": 5,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1095.7771685486373,
+      "native_mlp_only_effect": 2.9114933013916016,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 11.869136810302734,
+      "margin_shifts": [
+        0.3255491256713867,
+        0.011057853698730469,
+        0.3365626335144043
+      ],
+      "ce_changes": [
+        0.02396400189836978,
+        0.0023510158083750454,
+        0.026359282044213117
+      ],
+      "base_amplitudes": [
+        -9.428791892978877,
+        4.9880114067796955
+      ],
+      "donor_amplitudes": [
+        -3.816578604795942,
+        4.6740793626513835
+      ]
+    },
+    {
+      "row_id": "6a391889d911a9cd321d4c02f0710a38dc22943887c290ef94b71d02527e2a8a",
+      "family": "A2",
+      "group": 5,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1189.1119075473916,
+      "native_mlp_only_effect": 2.6339406967163086,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 9.666996479034424,
+      "margin_shifts": [
+        0.34958744049072266,
+        0.00472259521484375,
+        0.35386180877685547
+      ],
+      "ce_changes": [
+        0.19469722370340792,
+        0.024092960544634723,
+        0.22143318638592846
+      ],
+      "base_amplitudes": [
+        0.3141235961165989,
+        0.5657807798999662
+      ],
+      "donor_amplitudes": [
+        -7.535354074831284,
+        -4.446514872761868
+      ]
+    },
+    {
+      "row_id": "b304034ea0b83e93decb95ca684aed11db1619de2ba3bca9d8738875ba905dc4",
+      "family": "P",
+      "group": 5,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": -29.747337827030492,
+      "native_mlp_only_effect": 0.003834247589111328,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.3181147575378418,
+      "margin_shifts": [
+        -0.00883626937866211,
+        0.05052757263183594,
+        0.0416865348815918
+      ],
+      "ce_changes": [
+        0.0006376973493318339,
+        -0.010678281440307025,
+        -0.010047418749469017
+      ],
+      "base_amplitudes": [
+        -9.428791892978877,
+        4.9880114067796955
+      ],
+      "donor_amplitudes": [
+        -9.276435730218111,
+        6.42184952363022
+      ]
+    },
+    {
+      "row_id": "d51e421d14b123ce7a9fe92472755a58237d6c9a7c185c5eeb77d2a85d54adbd",
+      "family": "C",
+      "group": 5,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 3.98187794296215,
+      "native_mlp_only_effect": -0.11030769348144531,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.9864506721496582,
+      "margin_shifts": [
+        0.0011148452758789062,
+        -2.574920654296875e-05,
+        0.0010919570922851562
+      ],
+      "ce_changes": [
+        -0.006552883833012446,
+        0.0016060030811857473,
+        -0.004979892698014687
+      ],
+      "base_amplitudes": [
+        -1.9354290280283468,
+        -0.9640864362461542
+      ],
+      "donor_amplitudes": [
+        -3.1423228271640835,
+        -1.626437418619378
+      ]
+    },
+    {
+      "row_id": "56e84842966f724cf090c750f9db632f4e51470641222b59487340c1f1945936",
+      "family": "A1",
+      "group": 6,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1658.8480190126065,
+      "native_mlp_only_effect": 2.6339359283447266,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 10.09400463104248,
+      "margin_shifts": [
+        0.48015499114990234,
+        0.06673049926757812,
+        0.5482444763183594
+      ],
+      "ce_changes": [
+        0.15091854043068653,
+        0.009992742982072533,
+        0.1681197283121827
+      ],
+      "base_amplitudes": [
+        -3.254425811847963,
+        4.212702776926773
+      ],
+      "donor_amplitudes": [
+        -9.117394780070347,
+        5.8111535522726205
+      ]
+    },
+    {
+      "row_id": "bb41b3852343d0dc1584f6a38855c3e1e31747532fb4bbc267989c3c20a15942",
+      "family": "A2",
+      "group": 6,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 716.4069514287519,
+      "native_mlp_only_effect": 3.0944337844848633,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 8.49563217163086,
+      "margin_shifts": [
+        0.24096202850341797,
+        0.03855419158935547,
+        0.27890872955322266
+      ],
+      "ce_changes": [
+        0.005044627647723843,
+        -0.022401475274206994,
+        -0.018032804417085657
+      ],
+      "base_amplitudes": [
+        -9.521612089440048,
+        -4.565838826302124
+      ],
+      "donor_amplitudes": [
+        0.3093719975244452,
+        0.7096830077252246
+      ]
+    },
+    {
+      "row_id": "3ccbc9cc014ba0b94926819a104902200a6258bf1c405f904f8f359cc40ab78a",
+      "family": "P",
+      "group": 6,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 60.73466671755281,
+      "native_mlp_only_effect": 0.04741191864013672,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.15777015686035156,
+      "margin_shifts": [
+        0.017416954040527344,
+        0.02718067169189453,
+        0.044577598571777344
+      ],
+      "ce_changes": [
+        -0.004632154677422173,
+        -0.0037089871775948247,
+        -0.008245982400289176
+      ],
+      "base_amplitudes": [
+        -3.254425811847963,
+        4.212702776926773
+      ],
+      "donor_amplitudes": [
+        -3.039767529606837,
+        3.5600742806409342
+      ]
+    },
+    {
+      "row_id": "983de756bb06642f421c17289d9c2e5962aa082eec0c463db9d3cf2c81d55162",
+      "family": "C",
+      "group": 6,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1.4928642312479967,
+      "native_mlp_only_effect": -0.10411453247070312,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 1.8663406372070312,
+      "margin_shifts": [
+        0.00051116943359375,
+        5.7220458984375e-06,
+        0.0005159378051757812
+      ],
+      "ce_changes": [
+        -0.003514204025718559,
+        -0.00016669359680943074,
+        -0.0036790490349418725
+      ],
+      "base_amplitudes": [
+        -1.3381366492722653,
+        -0.8238700087575975
+      ],
+      "donor_amplitudes": [
+        -1.7906187718921325,
+        -0.7641889117320755
+      ]
+    },
+    {
+      "row_id": "68ab38dc9ee468205941aec260ae27572be3685f49464ae180e206ebc6db4721",
+      "family": "A1",
+      "group": 7,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1801.8819030400098,
+      "native_mlp_only_effect": 3.334482192993164,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 13.440580368041992,
+      "margin_shifts": [
+        0.5587096214294434,
+        0.012940406799316406,
+        0.5715408325195312
+      ],
+      "ce_changes": [
+        -0.030478187515551536,
+        0.00206393077857836,
+        -0.028324954748343067
+      ],
+      "base_amplitudes": [
+        -10.761541765118459,
+        5.4342400439762875
+      ],
+      "donor_amplitudes": [
+        -2.989171999650886,
+        4.979666677169936
+      ]
+    },
+    {
+      "row_id": "48cfdf15b3a470347481b00aec1a35a030fcced3e2cbf45ff28c198c439af777",
+      "family": "A2",
+      "group": 7,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1160.7385128609226,
+      "native_mlp_only_effect": 2.8442745208740234,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 10.985408782958984,
+      "margin_shifts": [
+        0.36524009704589844,
+        -0.06819725036621094,
+        0.29608821868896484
+      ],
+      "ce_changes": [
+        0.2299395389873109,
+        -0.009851023382209778,
+        0.21965874963002419
+      ],
+      "base_amplitudes": [
+        0.23930342525032838,
+        0.32156246871363914
+      ],
+      "donor_amplitudes": [
+        -7.007260378366061,
+        -4.338850389164026
+      ]
+    },
+    {
+      "row_id": "d7dd91a77f7770cbd54d501535bde15c8c533fd8e115968d1a24c815049eff32",
+      "family": "P",
+      "group": 7,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": -137.0600781328106,
+      "native_mlp_only_effect": -0.21695327758789062,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.48735904693603516,
+      "margin_shifts": [
+        -0.04253196716308594,
+        0.03334760665893555,
+        -0.009205341339111328
+      ],
+      "ce_changes": [
+        -0.0023881768403337666,
+        -0.005274181154935498,
+        -0.007678597098411899
+      ],
+      "base_amplitudes": [
+        -10.761541765118459,
+        5.4342400439762875
+      ],
+      "donor_amplitudes": [
+        -10.170336755769727,
+        6.605514885966395
+      ]
+    },
+    {
+      "row_id": "82c54410417b48f3fbec13fc8542963b17d2f2f98cca0dc5a1221a9847859bdc",
+      "family": "C",
+      "group": 7,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 2.4392306662947867,
+      "native_mlp_only_effect": 0.43956470489501953,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.2189922332763672,
+      "margin_shifts": [
+        0.0006580352783203125,
+        -4.57763671875e-05,
+        0.0006113052368164062
+      ],
+      "ce_changes": [
+        -0.005493741686077858,
+        0.000677868643629953,
+        -0.004824887573133374
+      ],
+      "base_amplitudes": [
+        -1.9019951720660135,
+        -1.1015228733244307
+      ],
+      "donor_amplitudes": [
+        -2.6413177751146955,
+        -1.3219689904435326
+      ]
+    },
+    {
+      "row_id": "b84711b6640391510ce3f169d0b8228d8879d49463253baf1a4df2e7aaebc5b7",
+      "family": "A1",
+      "group": 8,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1528.2017916029044,
+      "native_mlp_only_effect": 3.3859782218933105,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 11.59842824935913,
+      "margin_shifts": [
+        0.45980358123779297,
+        0.014530658721923828,
+        0.47466087341308594
+      ],
+      "ce_changes": [
+        0.09208758896871494,
+        -0.0071281010652377574,
+        0.08817738440424083
+      ],
+      "base_amplitudes": [
+        -2.4252209762393386,
+        4.380565089234317
+      ],
+      "donor_amplitudes": [
+        -10.31299267764072,
+        5.030750642707865
+      ]
+    },
+    {
+      "row_id": "5b9e34fd38b6c1b9e80a207d6930f51f4425a842d3d20af952020049e5518b38",
+      "family": "A2",
+      "group": 8,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 904.6921362490691,
+      "native_mlp_only_effect": 2.8125438690185547,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 9.268272399902344,
+      "margin_shifts": [
+        0.31287336349487305,
+        0.05360841751098633,
+        0.36579418182373047
+      ],
+      "ce_changes": [
+        0.016317341964868337,
+        -0.028854732435001917,
+        -0.013200617681371263
+      ],
+      "base_amplitudes": [
+        -9.664802700881927,
+        -5.161780656851649
+      ],
+      "donor_amplitudes": [
+        0.2313857117719908,
+        0.36209703840408053
+      ]
+    },
+    {
+      "row_id": "70afedef56abf739ca65b9a4c1f3dee284ce4b3fd2686ba753965024175ed985",
+      "family": "P",
+      "group": 8,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 0.5256373922195565,
+      "native_mlp_only_effect": 0.03254842758178711,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.29206275939941406,
+      "margin_shifts": [
+        0.000156402587890625,
+        0.00898885726928711,
+        0.009147167205810547
+      ],
+      "ce_changes": [
+        -1.8531731793558492e-05,
+        0.0045012292507555784,
+        0.0044796341561301745
+      ],
+      "base_amplitudes": [
+        -2.4252209762393386,
+        4.380565089234317
+      ],
+      "donor_amplitudes": [
+        -2.4225079132326535,
+        3.9780783344739947
+      ]
+    },
+    {
+      "row_id": "83265377c581e2534d29e83a1ef34de1ef544017c98aac7dc41965c8e7bf6c39",
+      "family": "C",
+      "group": 8,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 4.648654764222677,
+      "native_mlp_only_effect": 0.2985658645629883,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.44823217391967773,
+      "margin_shifts": [
+        0.0012416839599609375,
+        -0.00010204315185546875,
+        0.0011415481567382812
+      ],
+      "ce_changes": [
+        -0.007904564117513946,
+        0.0013952687557323706,
+        -0.006539965193935959
+      ],
+      "base_amplitudes": [
+        -1.8886691656017867,
+        -0.8673597711446006
+      ],
+      "donor_amplitudes": [
+        -3.29766077449312,
+        -1.7040413937384429
+      ]
+    },
+    {
+      "row_id": "ad43c102f101313812f5cdea1fa787204854fc44e851b413f7dc68f1f021e64b",
+      "family": "A1",
+      "group": 9,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1848.7772016018469,
+      "native_mlp_only_effect": 2.959780216217041,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 12.660507678985596,
+      "margin_shifts": [
+        0.5563511848449707,
+        0.037752628326416016,
+        0.5937976837158203
+      ],
+      "ce_changes": [
+        -0.012234125615329106,
+        0.005973563273818039,
+        -0.006045939844906423
+      ],
+      "base_amplitudes": [
+        -10.977088509547622,
+        5.561288694481067
+      ],
+      "donor_amplitudes": [
+        -2.673889637475026,
+        4.404280369977968
+      ]
+    },
+    {
+      "row_id": "d1ebdc7233b714d5096bb02a334cae96df3921c3e2f0ba6216fd1b9e709d1ced",
+      "family": "A2",
+      "group": 9,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1698.3825463168673,
+      "native_mlp_only_effect": 2.7189550399780273,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 10.338497161865234,
+      "margin_shifts": [
+        0.5009841918945312,
+        -0.03987312316894531,
+        0.46031761169433594
+      ],
+      "ce_changes": [
+        0.17297116686046898,
+        0.006847450375879305,
+        0.1811485479340389
+      ],
+      "base_amplitudes": [
+        0.3171437073401591,
+        0.5405177060964139
+      ],
+      "donor_amplitudes": [
+        -8.583905239935655,
+        -4.4311769235318295
+      ]
+    },
+    {
+      "row_id": "9dbdb4d354862cbe6922f826ed7869d9b59dd14b1244c49a4accb7136db4fb38",
+      "family": "P",
+      "group": 9,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": -109.02857786958207,
+      "native_mlp_only_effect": 0.054327964782714844,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.5198044776916504,
+      "margin_shifts": [
+        -0.03284406661987305,
+        0.03772544860839844,
+        0.004867076873779297
+      ],
+      "ce_changes": [
+        -0.0007846639223259011,
+        -0.005906089531229508,
+        -0.006702920663436807
+      ],
+      "base_amplitudes": [
+        -10.977088509547622,
+        5.561288694481067
+      ],
+      "donor_amplitudes": [
+        -10.487421088288846,
+        6.716882889481663
+      ]
+    },
+    {
+      "row_id": "53a9c183ed7f4dc4e84deeea30e3e40c02e1091d1549471e25ed5e77f2f3f9b0",
+      "family": "C",
+      "group": 9,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 0.7908578653402656,
+      "native_mlp_only_effect": -0.31853294372558594,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.42012882232666016,
+      "margin_shifts": [
+        0.0002079010009765625,
+        -2.765655517578125e-05,
+        0.00018215179443359375
+      ],
+      "ce_changes": [
+        -0.0014639817451813641,
+        0.0003143593126506694,
+        -0.001151499812825918
+      ],
+      "base_amplitudes": [
+        -2.0909168987145015,
+        -1.0620847499302561
+      ],
+      "donor_amplitudes": [
+        -2.330623255199865,
+        -1.2326507476257085
+      ]
+    },
+    {
+      "row_id": "60ae490d830b8677e2d0518f6dd5ef8d04d4e63f7495eb6a1b145c930e385c68",
+      "family": "A1",
+      "group": 10,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1433.5346733433935,
+      "native_mlp_only_effect": 2.598526954650879,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 9.828357219696045,
+      "margin_shifts": [
+        0.40408897399902344,
+        0.026719093322753906,
+        0.43144798278808594
+      ],
+      "ce_changes": [
+        0.03453810532563972,
+        -0.015011421016120963,
+        0.026121372622468275
+      ],
+      "base_amplitudes": [
+        -2.7183044033846016,
+        3.942704454810763
+      ],
+      "donor_amplitudes": [
+        -10.330540800030189,
+        5.3240831902928765
+      ]
+    },
+    {
+      "row_id": "b41255f6cc827f956bc9a188ca640404a9f7758ef0f0037478bdde62785ce0ee",
+      "family": "A2",
+      "group": 10,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 888.2676035232412,
+      "native_mlp_only_effect": 2.8066134452819824,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 9.125546932220459,
+      "margin_shifts": [
+        0.3067946434020996,
+        0.016210079193115234,
+        0.32237958908081055
+      ],
+      "ce_changes": [
+        -0.0038983425175904696,
+        -0.0437634066847814,
+        -0.04834044195341902
+      ],
+      "base_amplitudes": [
+        -7.708011176264248,
+        -4.352639832504012
+      ],
+      "donor_amplitudes": [
+        0.5066752762047818,
+        0.8206465675265483
+      ]
+    },
+    {
+      "row_id": "7c915da82c238f10b7c094f0f56ac4bb47ad229a8293c8d898db42d8ed601995",
+      "family": "P",
+      "group": 10,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 94.30425429048384,
+      "native_mlp_only_effect": -0.07827949523925781,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.30927371978759766,
+      "margin_shifts": [
+        0.02634143829345703,
+        0.009649276733398438,
+        0.03597450256347656
+      ],
+      "ce_changes": [
+        1.5907387116431693e-05,
+        0.005635960169456222,
+        0.00578971162096531
+      ],
+      "base_amplitudes": [
+        -2.7183044033846016,
+        3.942704454810763
+      ],
+      "donor_amplitudes": [
+        -2.217537808605082,
+        3.4429501038982737
+      ]
+    },
+    {
+      "row_id": "b704860443897eaee954bd6965377bf35ff3e03eabfbe5bf51fe8dc216f1ba0a",
+      "family": "C",
+      "group": 10,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 3.342613655706943,
+      "native_mlp_only_effect": 0.21876192092895508,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 1.4789495468139648,
+      "margin_shifts": [
+        0.0013728141784667969,
+        -5.340576171875e-05,
+        0.0013203620910644531
+      ],
+      "ce_changes": [
+        -0.010131385590688602,
+        0.001763689051758277,
+        -0.008386482282560337
+      ],
+      "base_amplitudes": [
+        -1.7143287818693587,
+        -0.925144659696098
+      ],
+      "donor_amplitudes": [
+        -2.727463727682911,
+        -1.3819468288574768
+      ]
+    },
+    {
+      "row_id": "4f634dbd7c590b35d27f7268d852c2238b530b940d5297d4a1f85b8095bb1d9b",
+      "family": "A1",
+      "group": 11,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1034.8959733022946,
+      "native_mlp_only_effect": 2.624319553375244,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 10.661372661590576,
+      "margin_shifts": [
+        0.32638120651245117,
+        0.038570404052734375,
+        0.3649287223815918
+      ],
+      "ce_changes": [
+        0.024773843749108515,
+        0.033835659764670734,
+        0.05921025990797579
+      ],
+      "base_amplitudes": [
+        -10.374262803178453,
+        6.553756236737981
+      ],
+      "donor_amplitudes": [
+        -3.464248721521243,
+        3.9602177813043093
+      ]
+    },
+    {
+      "row_id": "5f2d727fb7c7fb3ae0ba4b30db7a5a91b25a12c339ddbb9a94459859f9761d30",
+      "family": "A2",
+      "group": 11,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 967.9254634008287,
+      "native_mlp_only_effect": 2.13778018951416,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 6.94877815246582,
+      "margin_shifts": [
+        0.3057737350463867,
+        0.009426116943359375,
+        0.3148059844970703
+      ],
+      "ce_changes": [
+        0.16971169799418906,
+        0.04527782789474388,
+        0.216793539980209
+      ],
+      "base_amplitudes": [
+        0.3558742967756324,
+        0.6708247717359638
+      ],
+      "donor_amplitudes": [
+        -8.651579143391976,
+        -4.5497544590782715
+      ]
+    },
+    {
+      "row_id": "dcc4d1420ca6dbad350aa8d278ebe7612574b9ace27884a571fc6eddee62645d",
+      "family": "P",
+      "group": 11,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 33.11068174308829,
+      "native_mlp_only_effect": -0.08795928955078125,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.2337355613708496,
+      "margin_shifts": [
+        0.010431289672851562,
+        0.01522684097290039,
+        0.025657176971435547
+      ],
+      "ce_changes": [
+        -0.0007627400546574847,
+        -0.013244932424634648,
+        -0.01399893103426697
+      ],
+      "base_amplitudes": [
+        -10.374262803178453,
+        6.553756236737981
+      ],
+      "donor_amplitudes": [
+        -10.59534326247132,
+        7.5792278081306
+      ]
+    },
+    {
+      "row_id": "122d1376ac5639b0796979725b855d4b2659b92e8821e64418d3bbc0c6016fc2",
+      "family": "C",
+      "group": 11,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": -1.0762259427648768,
+      "native_mlp_only_effect": -0.02262401580810547,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.44575977325439453,
+      "margin_shifts": [
+        -0.0002899169921875,
+        -3.4332275390625e-05,
+        -0.000324249267578125
+      ],
+      "ce_changes": [
+        0.0016783125596084858,
+        0.0006957917141237058,
+        0.0023781484136438102
+      ],
+      "base_amplitudes": [
+        -2.1959126300376446,
+        -0.5797812732722348
+      ],
+      "donor_amplitudes": [
+        -1.869712170004034,
+        -0.8595351341262197
+      ]
+    },
+    {
+      "row_id": "81688cf702beedd6c4258fe369296f6e9150938c2f4ddc7f555dc07c2a162702",
+      "family": "A1",
+      "group": 12,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1810.3717144841835,
+      "native_mlp_only_effect": 3.125638961791992,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 12.404939651489258,
+      "margin_shifts": [
+        0.5182600021362305,
+        0.036818504333496094,
+        0.5562219619750977
+      ],
+      "ce_changes": [
+        0.17775463612487918,
+        0.0012924553590936139,
+        0.1853747022847907
+      ],
+      "base_amplitudes": [
+        -2.8928346978912205,
+        4.1118679669142555
+      ],
+      "donor_amplitudes": [
+        -9.974594758761576,
+        5.311338427819506
+      ]
+    },
+    {
+      "row_id": "21d4d9b158651eb02d33d1d7c7a8d3e544462e29a1469671ccc416ecfd68a84b",
+      "family": "A2",
+      "group": 12,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1109.5517676762197,
+      "native_mlp_only_effect": 2.8204164505004883,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 8.072463512420654,
+      "margin_shifts": [
+        0.3891630172729492,
+        -0.0036869049072265625,
+        0.38526248931884766
+      ],
+      "ce_changes": [
+        -0.015557802701693824,
+        -0.017974667136360534,
+        -0.034168792780952195
+      ],
+      "base_amplitudes": [
+        -9.124695063062731,
+        -4.747179641125608
+      ],
+      "donor_amplitudes": [
+        0.2697250226269805,
+        0.4939249760214842
+      ]
+    },
+    {
+      "row_id": "b3d7c2831aa0b3e92892abb60a6b0e9c8f666fdcb268dba417869318cc7e3c23",
+      "family": "P",
+      "group": 12,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 61.144652390595326,
+      "native_mlp_only_effect": 0.050487518310546875,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.12636661529541016,
+      "margin_shifts": [
+        0.017269134521484375,
+        0.009194374084472656,
+        0.02645397186279297
+      ],
+      "ce_changes": [
+        -0.004765288200066609,
+        -0.00021697375725060475,
+        -0.004935997729685226
+      ],
+      "base_amplitudes": [
+        -2.8928346978912205,
+        4.1118679669142555
+      ],
+      "donor_amplitudes": [
+        -2.653650803351146,
+        3.8118042073834157
+      ]
+    },
+    {
+      "row_id": "ef4fee1779d55f8e23e89e8da3bf1c7787c74db11b0228b7246cdc62f6037798",
+      "family": "C",
+      "group": 12,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": -3.4483334372655463,
+      "native_mlp_only_effect": -0.16127300262451172,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.24721050262451172,
+      "margin_shifts": [
+        -0.0010042190551757812,
+        2.574920654296875e-05,
+        -0.000980377197265625
+      ],
+      "ce_changes": [
+        0.006300227461487395,
+        -0.00022546422852798287,
+        0.006071292345170232
+      ],
+      "base_amplitudes": [
+        -3.0933642890667357,
+        -1.246814608267922
+      ],
+      "donor_amplitudes": [
+        -2.048186033378609,
+        -1.096032925227313
+      ]
+    },
+    {
+      "row_id": "4ea9e874a2702cd88ffa63801fbe8b35e04af0577103cf87bd571341f20f3ef2",
+      "family": "A1",
+      "group": 13,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1454.9028341389835,
+      "native_mlp_only_effect": 4.012674331665039,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 13.126219749450684,
+      "margin_shifts": [
+        0.47731685638427734,
+        0.038216590881347656,
+        0.5152578353881836
+      ],
+      "ce_changes": [
+        -0.009814901778894214,
+        0.002835958979441777,
+        -0.006794943997388447
+      ],
+      "base_amplitudes": [
+        -10.942165475238738,
+        5.622752897592871
+      ],
+      "donor_amplitudes": [
+        -3.1944418496110414,
+        4.438987831865429
+      ]
+    },
+    {
+      "row_id": "24b5de61346714b7367ab34ccfcb89a5a039ca7c2ffd830d434b566e3954f710",
+      "family": "A2",
+      "group": 13,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 879.5553543365754,
+      "native_mlp_only_effect": 2.1859207153320312,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 7.673161029815674,
+      "margin_shifts": [
+        0.27774810791015625,
+        -0.010732650756835938,
+        0.26660919189453125
+      ],
+      "ce_changes": [
+        0.20749862353829251,
+        0.045013072590569525,
+        0.25496216046877174
+      ],
+      "base_amplitudes": [
+        0.38469579188400105,
+        0.787550154075142
+      ],
+      "donor_amplitudes": [
+        -10.001072333895772,
+        -4.454917458567231
+      ]
+    },
+    {
+      "row_id": "adf9150ea44e1c7ec3d1e297086f9abb0f322d501c14d9908576473b9d63b1db",
+      "family": "P",
+      "group": 13,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 40.22817480223915,
+      "native_mlp_only_effect": -0.25673389434814453,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.15887737274169922,
+      "margin_shifts": [
+        0.013207435607910156,
+        0.043396949768066406,
+        0.056609153747558594
+      ],
+      "ce_changes": [
+        0.0002961465721693646,
+        -0.0031533686646192383,
+        -0.002850300507049708
+      ],
+      "base_amplitudes": [
+        -10.942165475238738,
+        5.622752897592871
+      ],
+      "donor_amplitudes": [
+        -11.156390626924308,
+        6.966018230594774
+      ]
+    },
+    {
+      "row_id": "7f37175d08f07fe7a7b247fcc20357270f4c18a2e12326491ba01454effc29c3",
+      "family": "C",
+      "group": 13,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": -4.1456821761512614,
+      "native_mlp_only_effect": -0.08838081359863281,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -1.0091462135314941,
+      "margin_shifts": [
+        -0.001041412353515625,
+        -1.9073486328125e-06,
+        -0.0010442733764648438
+      ],
+      "ce_changes": [
+        0.0028666573654513305,
+        -8.425746629503461e-05,
+        0.002781646518202341
+      ],
+      "base_amplitudes": [
+        -3.6063705835702695,
+        -1.262710963789711
+      ],
+      "donor_amplitudes": [
+        -2.349828272817658,
+        -1.1992243678876526
+      ]
+    },
+    {
+      "row_id": "263315d9cef17201c0828405042dcd2698186d1b2d4749f0a734aba39997c615",
+      "family": "A1",
+      "group": 14,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1418.9943890180507,
+      "native_mlp_only_effect": 3.0819473266601562,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 11.413994789123535,
+      "margin_shifts": [
+        0.3814868927001953,
+        0.0065212249755859375,
+        0.3882427215576172
+      ],
+      "ce_changes": [
+        0.044198165026820835,
+        -0.009643680103578411,
+        0.03710233328038948
+      ],
+      "base_amplitudes": [
+        -3.019062206175037,
+        4.780681566220759
+      ],
+      "donor_amplitudes": [
+        -10.996367538478196,
+        5.355238273592039
+      ]
+    },
+    {
+      "row_id": "0881ab9a94fc887626b61223bf9ee54e944da896a31505dfee01a86934f0bb81",
+      "family": "A2",
+      "group": 14,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1485.4094324946677,
+      "native_mlp_only_effect": 3.3202457427978516,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 7.981650352478027,
+      "margin_shifts": [
+        0.5330123901367188,
+        -0.003445148468017578,
+        0.528714656829834
+      ],
+      "ce_changes": [
+        0.017055196259544658,
+        -0.03717968597198684,
+        -0.02114727459355281
+      ],
+      "base_amplitudes": [
+        -11.767571458699557,
+        -4.873969939911167
+      ],
+      "donor_amplitudes": [
+        0.3520871322958456,
+        1.2758774063232232
+      ]
+    },
+    {
+      "row_id": "bd1984f2bd7c5f8ececebc1a9984d25b4119173d337f7c36720778adf4218c14",
+      "family": "P",
+      "group": 14,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 38.20445122519278,
+      "native_mlp_only_effect": 0.0830678939819336,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.24393463134765625,
+      "margin_shifts": [
+        0.01015472412109375,
+        0.004458427429199219,
+        0.01461029052734375
+      ],
+      "ce_changes": [
+        -0.00029289725216496976,
+        0.006666760138257732,
+        0.006414357654663139
+      ],
+      "base_amplitudes": [
+        -3.019062206175037,
+        4.780681566220759
+      ],
+      "donor_amplitudes": [
+        -2.8042843502263977,
+        4.387659230275775
+      ]
+    },
+    {
+      "row_id": "e4d92be20d72991323cf8412705085368d24fc34329c530883a79a342367c805",
+      "family": "C",
+      "group": 14,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 5.0825085575435835,
+      "native_mlp_only_effect": -0.1477680206298828,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": -0.06988859176635742,
+      "margin_shifts": [
+        0.0015568733215332031,
+        -5.7697296142578125e-05,
+        0.0015020370483398438
+      ],
+      "ce_changes": [
+        -0.011104749797413938,
+        0.0006560313257599759,
+        -0.010465160500118031
+      ],
+      "base_amplitudes": [
+        -2.029517293797747,
+        -1.001159342579156
+      ],
+      "donor_amplitudes": [
+        -3.570008526834007,
+        -1.2903643874822848
+      ]
+    },
+    {
+      "row_id": "077f4d12b7a27ffb7b1e278f496d2decb8a38771874d10ae843524a54a8c8b5e",
+      "family": "A1",
+      "group": 15,
+      "direction": "base_to_suffix",
+      "direct_branch0_contrast": 1956.9575197401246,
+      "native_mlp_only_effect": 2.997519016265869,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 10.826520919799805,
+      "margin_shifts": [
+        0.6224994659423828,
+        0.13631629943847656,
+        0.7575583457946777
+      ],
+      "ce_changes": [
+        -0.03666055188094797,
+        0.005233860234012511,
+        -0.030640843352750302
+      ],
+      "base_amplitudes": [
+        -11.86744325405816,
+        7.233920623818545
+      ],
+      "donor_amplitudes": [
+        -2.6365814653035486,
+        4.061282935713095
+      ]
+    },
+    {
+      "row_id": "d7afe8be545bdcd85a8f74c499e3908294c2ae13548ba93a4a8c4932c655f1ed",
+      "family": "A2",
+      "group": 15,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 1535.4085558777729,
+      "native_mlp_only_effect": 2.9971799850463867,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 10.530216693878174,
+      "margin_shifts": [
+        0.43506813049316406,
+        -0.00038814544677734375,
+        0.43422985076904297
+      ],
+      "ce_changes": [
+        0.20832572744255629,
+        0.031930276570429905,
+        0.24366648632704546
+      ],
+      "base_amplitudes": [
+        0.4412997861050275,
+        1.0526367686988216
+      ],
+      "donor_amplitudes": [
+        -9.542917574449302,
+        -4.362090406721976
+      ]
+    },
+    {
+      "row_id": "7a3f03e49f9c430e6d560694b435dc3bfc2b2f619065ec56b0424ce2a717ead4",
+      "family": "P",
+      "group": 15,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": -5.386577685629593,
+      "native_mlp_only_effect": 0.11616134643554688,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.7072324752807617,
+      "margin_shifts": [
+        -0.0017175674438476562,
+        0.07550621032714844,
+        0.0737919807434082
+      ],
+      "ce_changes": [
+        -0.00010195448874483759,
+        -0.00268555547355831,
+        -0.0027927321367759994
+      ],
+      "base_amplitudes": [
+        -11.86744325405816,
+        7.233920623818545
+      ],
+      "donor_amplitudes": [
+        -11.842035061172583,
+        8.98804606062537
+      ]
+    },
+    {
+      "row_id": "4547c72c80fbe273ddcdd2b78ad0c19b1b75b0b2f30fca92a8452564e842d4ae",
+      "family": "C",
+      "group": 15,
+      "direction": "suffix_to_base",
+      "direct_branch0_contrast": 0.7001040931142017,
+      "native_mlp_only_effect": -0.04017448425292969,
+      "native_base_correct": true,
+      "native_donor_correct": true,
+      "native_gap": 0.37958240509033203,
+      "margin_shifts": [
+        0.00019550323486328125,
+        -4.76837158203125e-06,
+        0.00019168853759765625
+      ],
+      "ce_changes": [
+        -0.0006975900571901672,
+        0.0006255829948158542,
+        -7.485050396782711e-05
+      ],
+      "base_amplitudes": [
+        -2.188810668563812,
+        -0.9332747058663335
+      ],
+      "donor_amplitudes": [
+        -2.4010098622187814,
+        -1.2051439670716964
+      ]
+    }
+  ],
+  "physical_controls": [
+    {
+      "branch": null,
+      "input_error": 0.0,
+      "logit_error": 7.736140901215549e-07
+    },
+    {
+      "branch": 0,
+      "input_error": 0.0,
+      "logit_error": 7.828946877452836e-07
+    }
+  ],
+  "price": {
+    "body_forwards": 20,
+    "sequences": 144,
+    "length_range": [
+      8,
+      16
+    ],
+    "native_background_retained": true
+  },
+  "seconds": 1.4989194311201572,
+  "cache_sha256": "e7e196aa127f03a61cfaf90cc168ee3f52cf7c9de47150bf604dd39313f906a1",
+  "binding_sha256": "5ecd175cfb2642638c063be875fca1f8ac4b6483951b97fe12de4be529337dcd",
+  "scope": "Spelling-guided subject agreement and count-noun validation of frozen weight branches. Historical V6 unrelated controls reused. No new grammatical behavior, fitting, fresh OOD, isolated extraction or semantic circuit promotion."
+}
