@@ -1,0 +1,45 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "maximum_replay_error": 2.397091339087303e-16,
+  "exhaustive_minimum_pairs": 3,
+  "dag": {
+    "pairs": [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ]
+    ],
+    "children": [
+      [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2,
+        2,
+        2
+      ]
+    ],
+    "optimal": true,
+    "solver_status": 0,
+    "pair_count": 3,
+    "quartic_count": 5,
+    "scalar_products": 8,
+    "independent_scalar_products": 15,
+    "dual_bound": 3.0,
+    "mip_gap": 0.0
+  },
+  "scope": "Exact minimum only among fixedmonomial 2+2 pair schedules, no distributive rewrites or semantic circuit proof."
+}
