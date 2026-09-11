@@ -1,13 +1,11 @@
 # Latest research update
 
-**11 September, 12:54 UTC — current results.**
+**11 September,13:10 UTC:** [Weights-first dictionaries perform better on cached text despite a worse coefficient score](explanation_2026-09-11_1310.md).
 
-The direct weight-only fits finished at **64.685% / 64.687% coefficient capture**, but both missed convergence and their complete-function cosine is only **0.745**. A full connection-change sweep passed its gain checks, reaching **64.998%** in both starts; agreement remains low. [Fit result](../../PROJECTED_SPARSE_DICTIONARY_FIT_V1_RESULT.json) · [Connection result](../../FULL_SUPPORT_EXCHANGE_V1_RESULT.json).
+A native-product baseline uses slightly fewer parameters and captures68.63%ofcoefficients versus65.00%for the dictionaries. But on128fixed cached FineWebpositions, its next-token cross-entropy damage is**+0.355nats**, versus**+0.012/+0.036**for the two dictionaries; KL isalso muchlowerfor the dictionaries. Allprograms were frozen before validation. This supports a functional advantage on this small historical panel, not fresh/OOD confirmation or identified circuits.
 
-The joint cancellation-penalized fit is now running, with readers allowed to move and no text-based discovery. [Protocol](../../PENALIZED_PROJECTED_FIT_V1_PREREGISTRATION.md).
+First jointpenalized start:64.685%capture andfivefold less summed component energy, but still unconverged. Secondstart is running. [Receipt](../../PENALIZED_PROJECTED_FIT_V1_SEED_0.json).
 
-The shared scalar candidate writes toward he/his/him and away from she/her. It substantially recovers **previously documented pronoun-related structure**, rather than establishing a new circuit. Its frozen16-product approximation has9.94%error on cached FineWeb; strong opening-parenthesis association limits a clean gender interpretation. [Prior overlap](../../SHARED_FUNCTION_PRIOR_ALIAS_V1_AUDIT.json) · [Validation](../../SHARED_FUNCTION_FINEWEB_V1_AUDIT.json) · [Context confound](../../SHARED_FUNCTION_PUNCTUATION_V1_AUDIT.json).
+The shared scalar candidate substantially overlaps knownpronoun-related structure and has a strong opening-parenthesis association. It isnot a newgendercircuit. [Prior comparison](../../SHARED_FUNCTION_PRIOR_ALIAS_V1_AUDIT.json).
 
-**Latest detailed explanation:** [12:22 — weights-first methods, assumptions and bottlenecks](explanation_2026-09-11_1222.md).
-
-[Hourly12:22 review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1222.md) · [Math10:51 review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1051.md) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).
+[Methods explanation12:22](explanation_2026-09-11_1222.md) · [Hourly12:22](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1222.md) · [Math10:51](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1051.md) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).

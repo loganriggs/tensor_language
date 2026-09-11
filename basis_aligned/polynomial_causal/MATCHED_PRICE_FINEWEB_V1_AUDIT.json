@@ -1,0 +1,74 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_native_behavior_advantage": false,
+    "pred_c_preservation": false
+  },
+  "rows": [
+    {
+      "name": "native_selection",
+      "native_ce": 3.2135507220902797,
+      "candidate_ce": 3.56816359556496,
+      "ce_added": 0.35461287347467974,
+      "absolute_mean_ce_change": 0.35461287347467974,
+      "mean_absolute_position_ce_change": 0.6120272245328854,
+      "kl": 0.2940156346404812,
+      "relative_mlp_error": 0.28060098395649874
+    },
+    {
+      "name": "dictionary_0",
+      "native_ce": 3.2135507220902797,
+      "candidate_ce": 3.2254438867028195,
+      "ce_added": 0.011893164612538844,
+      "absolute_mean_ce_change": 0.011893164612538844,
+      "mean_absolute_position_ce_change": 0.13360992756265067,
+      "kl": 0.021247907302741512,
+      "relative_mlp_error": 0.03724353716928173
+    },
+    {
+      "name": "dictionary_937",
+      "native_ce": 3.2135507220902797,
+      "candidate_ce": 3.2493966342049556,
+      "ce_added": 0.035845912114675096,
+      "absolute_mean_ce_change": 0.035845912114675096,
+      "mean_absolute_position_ce_change": 0.13289219011481898,
+      "kl": 0.022411802574890588,
+      "relative_mlp_error": 0.03520193077794769
+    }
+  ],
+  "native_logit_precision_replay": 4.394595123358158e-07,
+  "native_ce_precision_replay": 2.0422706725753415e-07,
+  "positions": [
+    63,
+    127
+  ],
+  "sequence_rows": 64,
+  "prediction_positions": 128,
+  "body_forwards": 0,
+  "fit_steps": 0,
+  "source": {
+    "path": "/dev/shm/bilin18_frozen_radial_fineweb_v1.pt",
+    "sha256": "b1107a91d55df69bc05eefade10ffb362a5c1a81c783e7dfa3c746ea2dec72de",
+    "previously_opened": true
+  },
+  "program_sources": {
+    "native_selection": {
+      "path": "/dev/shm/bilin18_matched_price_native_v1.pt",
+      "sha256": "5fc4861a0252cb140d78526b524657d0c86a923a314a4ff8e98d2d70cae809d6"
+    },
+    "dictionary_0": {
+      "path": "/dev/shm/bilin18_full_support_exchange_v1_exchange_s0.pt",
+      "sha256": "6f04560ea9752b56484ad5c521e22db17f6a8ffdd8c76b815d544cb2a8a6f5ef"
+    },
+    "dictionary_937": {
+      "path": "/dev/shm/bilin18_full_support_exchange_v1_exchange_s937.pt",
+      "sha256": "02d55051711ae3aaf1caf22c5009708ca1f22cbf15af178d79c8082a290f84cc"
+    }
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_matched_price_fineweb_v1.pt",
+    "sha256": "bb0549ae19dc0407fe39c5fa5c5120ae1d8d3b16e50c01bf48eecb3c19af9cb6"
+  },
+  "seconds": 1.7714422270655632,
+  "scope": "Frozen tail replacement on a small historical FineWeb panel; not fresh/OOD, whole-corpus ranking, extraction or selective circuit evidence."
+}

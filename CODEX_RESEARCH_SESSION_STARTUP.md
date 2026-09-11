@@ -82,44 +82,29 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 10:48 UTC
+## Current handoff — 11 September13:10 UTC
 
 Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 [method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
-and [hourly10:22 review](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_1022.md).
-Current receipts/processes override this snapshot; executed sources and bindings stay frozen.
+and the current review clocks below. Executed sources and bindings stay frozen.
 
-- **Live:** `run_projected_sparse_dictionary_fit_v1.py`, SHA
-  `21359b590078914c4e615e0f45e1e5938d48b9ead8916b60b48d4505ce65eba2`,
-  started10:47:24. Two original repaired starts,3600softfitseconds each, full
-  folded objective, exact output solve each evaluation, fixed support graph.
-  Protocol `PROJECTED_SPARSE_DICTIONARY_FIT_V1`; states saved every60seconds.
-  All native weights are in the objective; no historical held-out-weight claim.
-- **Completed:** coupled L1 polish missed all improvement/convergence/stability
-  bars. Direct full-tensor one-step probe passed all bars and establishes usable
-  native gradient cost. See LATEST/method index for receipts. Do not repeat
-  an identical L1 continuation. Reuse projected_sparse_dictionary_v1 and the
-  existing exact output solver/chunked CP gradients for the live route.
-- **Completed:** `OVERCOMPLETE_L1_READER_V1` and `OVERCOMPLETE_OLS_REENCODE_V1`.
-  Both parent fits unconverged; repaired encoding improves full tensor capture
-  but reader-gain/stability bars miss. Use current LATEST and primary receipts.
-  No identical alternating continuation or new dictionary rotation is queued.
-- **Completed:** `FROZEN_RADIAL_FINEWEB_V1`; execution held, all improvement
-  predictions missed. `FINEWEB_RADIAL_CANCELLATION_V1_AUDIT.json` diagnoses
-  strong natural-state cancellation from cached ports, no fitting/new forwards.
-- **Reuse:** `active_orthant_dictionary_v1.py`, batched OLS completion and their
-  controlled CPU implementations. Fixed-orthant solver success is not full
-  convergence. Native runtime and objective tradeoffs must be measured.
-- **Completed:** orthogonalMSP, obliqueMSP and exactconditionalDown comparison.
-  Latestsummary [09:18](basis_aligned/polynomial_causal/explanations/2026-09-11/explanation_2026-09-11_0902.md#update0918).
-  Ordinarybasesbothconverged but refittedfunctions unstable. Do not enqueue an
-  identical MSP continuation. All original convergence/quality misses preserved.
-- **Settled locally:** fixed128-product supportcoefficient fit underfullU,
-  `FOLDED_SUPPORT_CONTINUE_V2_RESULT.json`; V1timeoutpreserved. This isnot a
-  full dictionary solve. No identical continuation.
-- **Reuse:** sparse/rectangular readerexecutors, radial correction wrapper,
-  symmetric-productALS and fixed-support projection, CPinner and cachedUGram.
-  Their source paths and prior controls are indexed; avoid duplicate kernels.
+- **Live:** `run_penalized_projected_fit_v1.py`, SHA
+  `305dd727edc31f4552dd26769b16dee5179073c4925b1d766bef58c8ed336d84`,
+  started12:49:15. First1200s start finished unconverged; second is running.
+  Fixed original graphs, joint unit-row readers/codes, exact penalized output solve.
+  No automatic identical continuation. Inspect current runner/result before acting.
+- **Completed:** original projected two-start fit and full support exchange.
+  Their convergence/stability limitations and all primary receipts are in the index.
+- **New validation:** dictionaries lose to native selection on matched-price
+  coefficient capture but outperform it on128frozen cached FineWebpositions.
+  Read [13:10explanation](basis_aligned/polynomial_causal/explanations/2026-09-11/explanation_2026-09-11_1310.md)
+  for the small-panel and non-selectivity limits. No new data-guided discovery.
+- **Prior recovery:** shared scalar candidate overlaps old pronoun products;
+  opening-parenthesis association limits input semantics. Do not duplicate old
+  gender/reflection benchmarks or count a new circuit from its token readout.
+- Reuse existing CP inner products, sparse executors, conditional output solvers,
+  support exchanges and cached covariance controls. Older completed families and
+  their non-repeat decisions are consolidated in the method index.
 
 User correction: discover from weights first. No new data/CE/Fisher-guided fits
 until distinct weight-only assumptions and adequate optimization have been

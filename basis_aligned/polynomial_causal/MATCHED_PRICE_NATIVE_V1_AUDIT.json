@@ -1,0 +1,70 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_learned_advantage": false,
+    "pred_c_selection_advantage": true
+  },
+  "rows": [
+    {
+      "selection": "energy",
+      "products": 2645,
+      "retained_output_capture": 0.6820690657535975,
+      "refitted_output_capture": 0.6862598383096641,
+      "output_refit_gain": 0.0041907725560666464,
+      "cp_replay": 5.551115123125783e-17,
+      "executor_replay": 9.131041212160802e-17,
+      "solver": {
+        "rank": 2645,
+        "size": 2645,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 1042.9990045120674,
+        "maximum_eigenvalue": 11375.888974698335,
+        "retained_condition": 10.906903003248953,
+        "normal_residual": 7.383558653588649e-15
+      },
+      "solve_and_score_seconds": 6.080418553203344,
+      "matrix_float_coefficients": 9141120,
+      "bias_floats": 1152,
+      "graph_indices": 0
+    },
+    {
+      "selection": "random",
+      "products": 2645,
+      "retained_output_capture": 0.5879694915313649,
+      "refitted_output_capture": 0.5938943442183728,
+      "output_refit_gain": 0.005924852687007931,
+      "cp_replay": 0.0,
+      "executor_replay": 1.0186308816351218e-16,
+      "solver": {
+        "rank": 2645,
+        "size": 2645,
+        "rtol": 1e-10,
+        "minimum_eigenvalue": 33.82498746937067,
+        "maximum_eigenvalue": 10190.435333325484,
+        "retained_condition": 301.2694488816342,
+        "normal_residual": 7.087732646258705e-15
+      },
+      "solve_and_score_seconds": 6.107925835996866,
+      "matrix_float_coefficients": 9141120,
+      "bias_floats": 1152,
+      "graph_indices": 0
+    }
+  ],
+  "learned_captures": [
+    0.6499782471340319,
+    0.6499844364883485
+  ],
+  "learned_minus_best_native": [
+    -0.03628159117563223,
+    -0.03627540182131561
+  ],
+  "learned_matrix_float_budget": 9142272,
+  "learned_stored_graph_indices": 1179648,
+  "cache": {
+    "path": "/dev/shm/bilin18_matched_price_native_v1.pt",
+    "sha256": "5fc4861a0252cb140d78526b524657d0c86a923a314a4ff8e98d2d70cae809d6"
+  },
+  "seconds": 16.956892125308514,
+  "body_forwards": 0,
+  "scope": "Conservative matched-float native selection control with exact outputs. No global support optimum, behavioral comparison or stable-circuit claim."
+}

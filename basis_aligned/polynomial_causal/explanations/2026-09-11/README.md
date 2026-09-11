@@ -42,3 +42,5 @@ Start with [LATEST.md](LATEST.md).
 - [10 September campaign and25structural hypotheses](../2026-09-10/unsupervised_structure_campaign.md).
 
 - **12:22 UTC — [Weights-first methods, assumptions and bottlenecks](explanation_2026-09-11_1222.md): newest methods rundown and current optimization results.**
+
+- **13:10 UTC — [Matched-parameter comparison and frozen FineWeb validation](explanation_2026-09-11_1310.md): latest detailed update; coefficient and functional rankings disagree.**

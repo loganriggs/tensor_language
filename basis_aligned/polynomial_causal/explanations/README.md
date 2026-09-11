@@ -11,7 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## [Read the latest update → 11 September](2026-09-11/LATEST.md)
 
-**Newest focused update:** [Weights-first methods: assumptions, optimization and bottlenecks](2026-09-11/explanation_2026-09-11_1222.md).
+**Newest focused update:** [Why the learned dictionary wins on cached text despite a worse coefficient score](2026-09-11/explanation_2026-09-11_1310.md).
 
 **The newest consolidated report is [10 September, 18:42 UTC](2026-09-10/research_update_1842.md).** It covers progress since the previous requested update, defines the terms and computations, and explains what the mathematical cycles contributed.
 
