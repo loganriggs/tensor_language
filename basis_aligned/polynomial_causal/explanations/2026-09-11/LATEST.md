@@ -151,3 +151,5 @@ Direct cross-start screen: groupfunctioncos0.91282passes, but only2individualter
 ### 23:50 — Input projection explains the quartic replication failure
 
 [Native group findings](../../QUARTIC_GRAM_HIERARCHY_V1_MATH.md#native-execution-and-the-input-subspace-limitation): the compact projected program accurately executes its own reference but fails replica agreement. Removing its input restriction gives 5.66% write and 6–10% swap disagreement; removal-CE replication still fails in two families. A weight-only hierarchy with separate input directions per intermediate is queued through the managed runner. No new identified circuit or OOD evidence.
+
+Full-input spectral test now completed: outer approximation passes at4.8–5.7%write error; inner approximations fail at55%. Executed weights-only isotropic-complement repair worsens error to80%. [Results and interpretation](../../QUARTIC_GRAM_HIERARCHY_V1_MATH.md#full-input-spectral-result-and-executed-negative-result-check). No extraction or circuit promotion.

@@ -121,3 +121,21 @@ The [full-input native-effect screen](QUARTIC_GROUP_LIFTED_NATIVE_V1.json) passe
 [Prior-output comparison](QUARTIC_OUTPUT_PRIOR_ALIAS_V1.json) finds negligible overlap with the known quote writer 150, but substantial output-direction overlap with old writers 141 and 103. This does not establish complete function aliases or a new semantic interpretation.
 
 The next [full-input spectral hierarchy](FULLSOURCE_QUARTIC_SPECTRAL_V1_PREREGISTRATION.md) lets each quadratic intermediate have its own input directions. Two successive weight-only symmetric eigendecompositions yield 592,672 fitted floats per seed, rather than sharing one global 16-dimensional input space. Fixed ranks are evaluated against the exact lifted component. The experiment separates error from the outer quadratic truncation from error introduced by the inner truncations. These individually optimal quadratic approximations need not be optimal for their quartic composition. See its result receipt when present; queue acceptance is not a result.
+
+
+### Full-input spectral result and executed negative-result check
+
+The [spectral baseline](FULLSOURCE_QUARTIC_SPECTRAL_V1_RESULT.json) completed in 3.30 GPU seconds. Algebraic checks pass within 3.6e-14. Keeping 16 outer quadratic eigenmodes while retaining the exact producer gives 5.74% and 4.83% write error, passing the 10% criterion. Replacing each inner quadratic by its own rank16 approximation raises errors to 55.44% and 54.89%, failing. Thus this proposed extraction fails at the inner approximation, even though its input spaces can differ. This is not an optimization-convergence failure: each individual spectral truncation solves its own symmetric Frobenius approximation problem. It is a restrictive representation and an objective mismatch with the composition.
+
+A [CPU red-team](FULLSOURCE_TRACE_COMPLEMENT_V1.json) tested whether a broad isotropic remainder explains the miss. For an inner symmetric matrix $N$, retained orthonormal eigenvectors $B$, and eigenvalues $\nu$, add the weight-derived correction
+
+$$
+\alpha=\frac{\operatorname{tr}(N)-\sum_k\nu_k}{d-16},
+\qquad
+\widehat q(x)=\sum_k\nu_k(b_k^\top x)^2
++\alpha\left(\|x\|^2-\|B^\top x\|^2\right).
+$$
+
+This assigns the discarded subspace a common eigenvalue equal to its mean omitted eigenvalue. It adds 32 scalars per seed, with one shared input norm; no text fitting. It is a Frobenius projection of the omitted matrix onto that subspace's identity, not an optimal quartic correction. The original board's estimate of 512 added scalars was a counting error; there are two outputs times16 inner quadratics.
+
+The independent full-native fold replay passes at1.5e-15, but corrected write errors worsen to80.45% and79.82%. Both improvement and10% accuracy predictions fail. This rules out that specific isotropic repair on the developmental cache; it does not rule out a more general shared residual or coupled quartic fit. A future coupled objective should retain the cross terms between inner approximations and their residuals, rather than choosing factors solely by individual quadratic energy. Frozen candidates still require native swap/removal and fresh/OOD validation before identification.
