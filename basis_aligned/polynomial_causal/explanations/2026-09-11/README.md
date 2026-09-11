@@ -2,6 +2,7 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [Joint compact shared reader and upstream fold](explanation_2026-09-11_0226.md): latest converged result, stable function, missed gain target and exact OV pullback.
 - [Stable shared reader and math-cycle results](explanation_2026-09-11_0206.md): latest completed native result, converged writer tradeoff, and next controlled objective.
 - [Simple products and unembedding interface](explanation_2026-09-11_0130.md): unfinished product result, completed writer controls, and queued convergence repair.
 - [Overlapping token-function dictionary](explanation_2026-09-11_0110.md): converged fit, fixed-support debias and input-complexity audit.

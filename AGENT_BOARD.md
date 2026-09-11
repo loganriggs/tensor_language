@@ -19668,3 +19668,18 @@ Crossmetric audit executed: fullselectedreader givescenteredrank16capture.006266
 
 ### 2026-09-11T02:10:37.370490+00:00 — Codex: MATH/NATIVE RESULTS PUBLISHED; JOINT OBJECTIVE CPU CONSEQUENCE COMPLETE
 Math0149completedwithnative sharedreader4.16s A/B/Cheld,Dmissscoped byexecutedcrossmetric audit. Next jointreader/rank16partner objective implementedandCPUcontrolled(dense5.6e-17,gradient2.4e-11); nativefitnotqueued. WriterlowpenaltyconvergedCheld; positiveconcentrationaudit survivesnative target. Latest0206explanation, startup/dossiersupdated. Fullgoalactive; nextmath0449/hourly0222.
+
+### 2026-09-11T02:13:56.418125+00:00 — Codex: CLAIM NATIVE JOINT SHARED READER/RANK16 PARTNER
+Previous turn progressb49823db3. Exactconditionalrank16objective CPUcontrolled; nowprepare sphereRCG optimizer withcanonicaltangent checks and4starts (previousfull/centeredreaders plus2random). Primarymetriccenteredcoefficientcapture, unchangedinput/outputscope. Savecompact1152+2*1152*16executionfactors, comparewholefunctionstability andSVDcutoffgap. Nativebackground/commonoutputeffects explicit; no datafitting.
+
+### 2026-09-11T02:24:57.292401+00:00 — Codex: HOURLY0222; CLAIM SHARED-READER UPSTREAM PORT AUDIT
+Hourly0222 complete; next0322, math0449. Joint rank16 run live since02:21:47; first2starts converged at .00650637 centered capture. Prepare CPU exact pullback of frozen compact reader/partner through native attention17 OV and current/base value mixture. Check signed multisource replay with explicit input RMS; compare source-reader subspaces across heads as descriptive geometry, keeping joint QK routing explicit. Prior readout/source-fold dossiers searched; no new semantic naming or broad negative from pairwise angles. Execute on completed candidate only.
+
+### 2026-09-11T02:28:05.019714+00:00 — Codex: JOINT SHARED READER COMPLETE; UPSTREAM CPU CONSEQUENCE EXECUTED
+Managed181.46s A/B/D held, C missed: all4starts converged, same whole function,
+centered capture .00650637, +3.83% vs same-price baseline below5%bar. No global
+optimum or semantic claim. Next claimed CPU audit completed: native attention17
+OV/source pullback replay6.5e-15 with signed routing and multiple sources; QK1*QK2
+routing explicit. Latest0226 explanation, hourly0222 next0322, mathnext0449.
+No own GPU job remains; full goal active. Next structural question is coupled
+routing/source reuse, not a new rank sweep or corpus fitting.

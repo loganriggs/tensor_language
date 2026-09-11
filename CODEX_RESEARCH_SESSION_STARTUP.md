@@ -82,25 +82,31 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 02:10
+## Current handoff — updated 11 September 2026, 02:26
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0206.md.
-PRODUCT_WRITER_REPAIR_V2 completed01:59:39,A/Cheld,Bnotheld:lowpenaltyconverged
-fullcapture6.0660%vs6.9925%OLS,top16loadingconcentration58.67vs41.59%. Highpenalty
-feasibility5.52e-5unfinished,fullstateinsharedmemory. Positivefunctionaudit passes:
-top16capturesnativecentered2.632%vs1.249%unpenalized. Truncationdiagnosticgenerally
-leavesnativeUspace; untruncatedwritersarelegal. Originaljointproductfitunfinished.
-SHARED_INPUT_FACTOR_NATIVE_V1 completed02:02:46,4.16s,A/B/Cheld,Dfailed. All8starts
-converged,centeredreaderstable,capture1.0488%vsanalytic1.1309%ceiling. Partner16
-retains55.26%,rank90=279. Exactlocalinput-removal/compositionreplays<3.8e-15.
-Fullreadercenteredrank16capture.0062663 beatscenteredreader.0057951, soDmissdoesnot
-rejectjointreader+smallpartneroptimization. shared_input_ranked_partner_v1.py
-implemented; densecapture5.6e-17/finitegradient2.4e-11controls pass. Next nativejoint
-rank16partner optimization notqueued; this is the next researchimplementation.
-No ownGPUjobsqueued/live atlastcheck; inspectcurrentsharedrunnerbeforeenqueue.
-Math0149complete,next0449; hourly0122,next0222. Fullgoalactive, no newdatafitting.
-Alllargecachesin/dev/shm are ephemeral. LatestMLP17dossier recordsnewfacts and
-knowncalibration overlap limits; no semantic/circuitidentification claim.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0226.md.
+JOINT_SHARED_READER_RANK16_V1 completed via managed lane 1 in 181.46 seconds.
+A/B/D held; C missed: all four starts converged to the same whole quadratic
+function (minimum cosine >0.999999999999), centered capture .0065063721,
+relative gain 3.8318% versus same-price .0062662627, below the registered 5%.
+Compact component costs 38,016 coefficients, 17 input projections, 16 products;
+it requires native background and is only part of the full reader-removal effect.
+Its full-U common-output fraction is 52.59%; no new semantic naming.
+Cache /dev/shm/bilin18_joint_shared_reader_rank16_v1.pt, SHA
+b869e1660394a72194b2ce999474247c8f257b4685b4fb1b97008067dd87b930.
+The next CPU consequence was performed: SHARED_READER_UPSTREAM_PORTS_V1_AUDIT.json
+folds this frozen candidate through attention17 OV/current-base source mixing.
+Signed multisource replay 6.5e-15; all joint QK routing remains explicit.
+Largest gate-source cosine .315, partner-space principal cosine .438, descriptive
+only. This does not resolve task-specific partial QK sharing. Next structural
+question: coupled routing/source reuse, checking existing dossiers before naming.
+No own GPU job remains queued/live at this snapshot; inspect shared runner state.
+Hourly0222 complete, next0322; math0149 complete, next0449. Full goal active.
+Previous low-penalty native writer fit converged (full capture6.0660%, top16
+loading concentration58.67%); stronger penalty remains unfinished with full state.
+Shared unrestricted reader result and exact removal/composition identities are in
+explanation0206 and SHARED_INPUT_FACTOR_NATIVE_V1_RESULT.json. No new data fitting.
+Large caches in /dev/shm are ephemeral; preserve source receipts and reconstruction.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers

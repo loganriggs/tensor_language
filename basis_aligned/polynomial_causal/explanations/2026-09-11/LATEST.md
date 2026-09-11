@@ -1,7 +1,14 @@
 # Latest research update
 
-**11 September, 02:10 UTC:** [A stable shared reader, and what the math cycle changed](explanation_2026-09-11_0206.md). The new native shared-reader search converged from all8starts in4.16seconds. Centeredreader is stable and captures1.05%of coefficientenergy, near its1.13%upperbound; its partner remainscomplex. A CPU audit shows joint reader/partner selection matters, and that joint objective is implemented and controlled. Native joint optimization remains pending.
+**11 September, 02:26 UTC:** [A stable compact shared-input component](explanation_2026-09-11_0226.md).
+The joint shared-reader/rank-16 partner fit converged from all four starts to the
+same quadratic function. Centered coefficient capture is 0.6506%, a 3.83% gain
+at the same size: accuracy, convergence and stability passed; the 5% gain target
+failed. The frozen component was then folded through native attention OV on CPU,
+with exact signed multisource replay. Routing and background remain explicit.
+No semantic circuit promotion or new data fitting.
 
-The weaker native-writer fit also converged and passed its concentration/capture screen. Its concentration gain survives both function-space and native-target checks. The stronger penalty remains unconverged with state saved. No semantic circuit promotion.
-
-[Detailed writer and interface report](explanation_2026-09-11_0130.md) · [Methods and assumptions](explanation_2026-09-11_0022.md) · [Three-hour math review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0149.md).
+[Previous shared-reader/math result](explanation_2026-09-11_0206.md) ·
+[Writer/interface report](explanation_2026-09-11_0130.md) ·
+[Methods and assumptions](explanation_2026-09-11_0022.md) ·
+[Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_0222.md).

@@ -379,3 +379,20 @@ nativenotyetfit. Foursemanticcircuitpropertiesremainuntested.
 [Receipt](../SHARED_INPUT_FACTOR_NATIVE_V1_RESULT.json),
 [audit](../SHARED_INPUT_PARTNER_OBJECTIVE_V1_AUDIT.json),
 [explanation](2026-09-11/explanation_2026-09-11_0206.md).
+
+
+## 11 September 02:26 — joint compact shared-input component
+
+Joint reader/rank-16 partner optimization converged from all four starts with
+whole-function cosines above 0.999999999999. Centered coefficient capture 0.6506%
+beats the prior same-price 0.6266% by 3.83%, missing its 5% target. Numerical,
+convergence and stability clauses held. This is a stable local weight component,
+not semantic identification. Full-U component energy is 52.59% common output;
+known calibration evidence remains relevant. The compact partner retains 66.72%
+of its exact reader-removal component, so an omitted remainder is required for
+exact removal. Price: 38,016 numbers, 17 input projections, 16 products plus
+native background. CPU native OV/source pullback replay passed at 6.5e-15 with
+signed multisource routing explicit. Descriptive source angles do not identify
+behavioral QK sharing. [Explanation](2026-09-11/explanation_2026-09-11_0226.md),
+[result](../JOINT_SHARED_READER_RANK16_V1_RESULT.json),
+[upstream audit](../SHARED_READER_UPSTREAM_PORTS_V1_AUDIT.json).

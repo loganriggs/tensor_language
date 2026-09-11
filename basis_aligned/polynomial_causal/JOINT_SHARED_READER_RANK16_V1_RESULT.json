@@ -1,0 +1,241 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_all_converged": true,
+    "pred_c_improved_capture": false,
+    "pred_d_function_stability": true
+  },
+  "fits": [
+    {
+      "label": "centered",
+      "converged": true,
+      "terminal": "stationarity",
+      "initial_capture": 0.005795090712343288,
+      "capture": 0.00650637212495744,
+      "tangent_stationarity": 9.6355335742545e-09,
+      "steps": 20,
+      "evaluations": 49,
+      "seconds": 43.88262837007642,
+      "history": [
+        {
+          "step": 1,
+          "capture": 0.0062707184899397864,
+          "tangent_stationarity": 0.0020646428586773456,
+          "rate": 50.0,
+          "beta": 0.0,
+          "seconds": 2.803939778357744
+        },
+        {
+          "step": 6,
+          "capture": 0.006506247286051346,
+          "tangent_stationarity": 4.801666879108678e-05,
+          "rate": 23.73046875,
+          "beta": 0.0,
+          "seconds": 15.368943460285664
+        },
+        {
+          "step": 11,
+          "capture": 0.006506372118752416,
+          "tangent_stationarity": 3.4066479816412467e-07,
+          "rate": 180.2032470703125,
+          "beta": 0.2639390234219362,
+          "seconds": 24.277015440165997
+        },
+        {
+          "step": 16,
+          "capture": 0.006506372124786103,
+          "tangent_stationarity": 6.452306775890411e-08,
+          "rate": 171.0523009300232,
+          "beta": 1.0426343832118197,
+          "seconds": 35.861807841807604
+        }
+      ],
+      "implicit_native_capture": 0.006506372124953138,
+      "fraction_of_exact_reader_component": 0.6672038699010395,
+      "cutoff_relative_singular_gap": 0.04244773084199702,
+      "common_fraction_of_full_component": 0.5258847815430123,
+      "compact_execution_relative_error": 1.479216807067978e-15
+    },
+    {
+      "label": "full",
+      "converged": true,
+      "terminal": "stationarity",
+      "initial_capture": 0.006266262704509047,
+      "capture": 0.006506372124960163,
+      "tangent_stationarity": 5.267643954971818e-09,
+      "steps": 19,
+      "evaluations": 47,
+      "seconds": 41.81239910423756,
+      "history": [
+        {
+          "step": 1,
+          "capture": 0.006443758564980071,
+          "tangent_stationarity": 0.0011036741373852566,
+          "rate": 50.0,
+          "beta": 0.0,
+          "seconds": 2.6734927520155907
+        },
+        {
+          "step": 6,
+          "capture": 0.006506365747558657,
+          "tangent_stationarity": 1.1185086903188264e-05,
+          "rate": 189.84375,
+          "beta": 0.4803238080777355,
+          "seconds": 12.503284964710474
+        },
+        {
+          "step": 11,
+          "capture": 0.0065063717054184645,
+          "tangent_stationarity": 3.0691882791354246e-06,
+          "rate": 180.2032470703125,
+          "beta": 1.5102957231216005,
+          "seconds": 24.000782873481512
+        },
+        {
+          "step": 16,
+          "capture": 0.006506372124929953,
+          "tangent_stationarity": 2.8415794666448317e-08,
+          "rate": 85.5261504650116,
+          "beta": 0.1354699663326818,
+          "seconds": 36.48311427235603
+        }
+      ],
+      "implicit_native_capture": 0.006506372124955613,
+      "fraction_of_exact_reader_component": 0.6672038810840674,
+      "cutoff_relative_singular_gap": 0.04244778111092775,
+      "common_fraction_of_full_component": 0.5258847831064231,
+      "compact_execution_relative_error": 1.507128650107504e-15
+    },
+    {
+      "label": 1163,
+      "converged": true,
+      "terminal": "stationarity",
+      "initial_capture": 0.00023642326444773192,
+      "capture": 0.006506372124958289,
+      "tangent_stationarity": 7.594710407549648e-09,
+      "steps": 16,
+      "evaluations": 39,
+      "seconds": 34.97577750310302,
+      "history": [
+        {
+          "step": 1,
+          "capture": 0.0003442737515440193,
+          "tangent_stationarity": 0.002136664645289758,
+          "rate": 50.0,
+          "beta": 1.1542781670431916,
+          "seconds": 2.6966082490980625
+        },
+        {
+          "step": 6,
+          "capture": 0.006494077456197124,
+          "tangent_stationarity": 0.0005094003299370818,
+          "rate": 94.921875,
+          "beta": 0.07132487307320111,
+          "seconds": 13.493549212813377
+        },
+        {
+          "step": 11,
+          "capture": 0.00650637052586164,
+          "tangent_stationarity": 6.489020333661987e-06,
+          "rate": 90.10162353515625,
+          "beta": 0.18978915742387317,
+          "seconds": 25.17565108835697
+        }
+      ],
+      "implicit_native_capture": 0.006506372124954233,
+      "fraction_of_exact_reader_component": 0.6672038961981023,
+      "cutoff_relative_singular_gap": 0.042447827547820956,
+      "common_fraction_of_full_component": 0.5258847612971318,
+      "compact_execution_relative_error": 1.7460620772611781e-15
+    },
+    {
+      "label": 1171,
+      "converged": true,
+      "terminal": "stationarity",
+      "initial_capture": 0.00019438577377540856,
+      "capture": 0.006506372124958832,
+      "tangent_stationarity": 6.656138379269137e-09,
+      "steps": 25,
+      "evaluations": 63,
+      "seconds": 56.37185297906399,
+      "history": [
+        {
+          "step": 1,
+          "capture": 0.00022194840510605682,
+          "tangent_stationarity": 0.0009442011286306202,
+          "rate": 50.0,
+          "beta": 0.5459673634322473,
+          "seconds": 2.6571646258234978
+        },
+        {
+          "step": 6,
+          "capture": 0.0061217572728507206,
+          "tangent_stationarity": 0.002832280710914957,
+          "rate": 189.84375,
+          "beta": 0.5963442398787857,
+          "seconds": 12.479439739137888
+        },
+        {
+          "step": 11,
+          "capture": 0.006506079896893244,
+          "tangent_stationarity": 7.457418769138264e-05,
+          "rate": 90.10162353515625,
+          "beta": 0.0,
+          "seconds": 25.00005766749382
+        },
+        {
+          "step": 16,
+          "capture": 0.006506359682370651,
+          "tangent_stationarity": 1.6739165660362324e-05,
+          "rate": 21.3815376162529,
+          "beta": 0.0,
+          "seconds": 38.42468675598502
+        },
+        {
+          "step": 21,
+          "capture": 0.006506372124502188,
+          "tangent_stationarity": 9.5684327090588e-08,
+          "rate": 162.36605127342045,
+          "beta": 0.8979283344529575,
+          "seconds": 47.42805024981499
+        }
+      ],
+      "implicit_native_capture": 0.006506372124954388,
+      "fraction_of_exact_reader_component": 0.6672039262319502,
+      "cutoff_relative_singular_gap": 0.04244791915175683,
+      "common_fraction_of_full_component": 0.5258848046607785,
+      "compact_execution_relative_error": 1.3183314305839008e-15
+    }
+  ],
+  "best": 1,
+  "function_cosines": [
+    0.9999999999999264,
+    1.0,
+    0.9999999999993834,
+    0.9999999999995324
+  ],
+  "reader_cosines": [
+    0.9999999999999414,
+    1.0,
+    0.9999999999995377,
+    0.9999999999996445
+  ],
+  "relative_capture_gain_over_best_prior": 0.03831780309524979,
+  "maximum_instrument_error": 4.5493123157491766e-15,
+  "cache": {
+    "path": "/dev/shm/bilin18_joint_shared_reader_rank16_v1.pt",
+    "sha256": "b869e1660394a72194b2ce999474247c8f257b4685b4fb1b97008067dd87b930",
+    "bytes": 1346203,
+    "ephemeral": true
+  },
+  "price": {
+    "component_numbers": 38016,
+    "input_projections": 17,
+    "products": 16,
+    "native_background_required": true,
+    "body_forwards": 0,
+    "corpus_access": false
+  },
+  "wall_seconds": 181.45792853459716,
+  "scope": "Joint shared-reader/rank16-partner partial component. Full reader-removal formula needs the omitted partner remainder; no semantic selectivity or model-level adoption."
+}
