@@ -1,0 +1,25 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_low_cost": true
+  },
+  "penalty": 0.0018823354889938328,
+  "component_energy": 0.7672848015528907,
+  "original_component_energy": 3.0691392062115628,
+  "capture": 0.6459739029891798,
+  "capture_loss": 0.0008785506834717571,
+  "budget_relative_error": 0.0,
+  "normal_residual": 1.5175723405949802e-14,
+  "cp_replay": 3.3306690738754696e-16,
+  "source": {
+    "path": "/dev/shm/bilin18_projected_sparse_dictionary_fit_v1_s0.pt",
+    "sha256": "46142e7eec2c3deebe64a8e863c51996efe515864d2a65f02d850f026b8b1726",
+    "bytes": 106580701
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_output_component_budget_v1.pt",
+    "sha256": "34a4c96aa41a607779d782e20c43a961aec5e74c7e07f6800cc5ccb15b47bd67"
+  },
+  "seconds": 17.94335438683629,
+  "scope": "Global convex optimum for output weights at this fixed reader configuration and component budget. Not a joint feature optimum, convergence repair, same objective or circuit adoption."
+}

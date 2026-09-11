@@ -1,0 +1,77 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_low_cost_cancellation": false,
+    "pred_c_stationarity": false
+  },
+  "rows": [
+    {
+      "penalty": 0.0,
+      "capture": 0.646852453672658,
+      "capture_loss": -6.439293542825908e-15,
+      "component_energy": 3.069139206211563,
+      "component_reduction": 0.9999999999982487,
+      "regularized_normal_residual": 4.414024628401002e-14,
+      "penalized_objective": 0.353147546327342
+    },
+    {
+      "penalty": 1e-08,
+      "capture": 0.6468524536722743,
+      "capture_loss": 3.772537837676282e-13,
+      "component_energy": 3.069062437551911,
+      "component_reduction": 1.000025013715374,
+      "regularized_normal_residual": 4.427929004866982e-14,
+      "penalized_objective": 0.3531475770183501
+    },
+    {
+      "penalty": 1e-06,
+      "capture": 0.6468524498460922,
+      "capture_loss": 3.826559291653098e-09,
+      "component_energy": 3.0614801010554977,
+      "component_reduction": 1.0025017654526156,
+      "regularized_normal_residual": 4.901829348150823e-14,
+      "penalized_objective": 0.3531506116340088
+    },
+    {
+      "penalty": 0.0001,
+      "capture": 0.6468237350204913,
+      "capture_loss": 2.8718652160253377e-05,
+      "component_energy": 2.4499334548005245,
+      "component_reduction": 1.2527439062446208,
+      "regularized_normal_residual": 4.985850135714027e-14,
+      "penalized_objective": 0.3534212583249888
+    },
+    {
+      "penalty": 0.01,
+      "capture": 0.6454016485198107,
+      "capture_loss": 0.001450805152840795,
+      "component_energy": 0.6079428910029085,
+      "component_reduction": 5.048400518580133,
+      "regularized_normal_residual": 7.95950423141499e-15,
+      "penalized_objective": 0.36067778039021836
+    }
+  ],
+  "parent_replay": 5.374811706815308e-12,
+  "cp_replay": 1.4432899320127035e-15,
+  "gradient_loss_replay": 1.2212453270876722e-15,
+  "normalized_product_gram_eigen_min": 0.0006404351747588637,
+  "normalized_product_gram_eigen_max": 10.872771586016729,
+  "selected_stationarity": {
+    "dictionary": 0.1436917966229753,
+    "codes": 0.5185308788757897,
+    "combined": 0.5185308788757897,
+    "unregularized_parent": 0.010793883366719608,
+    "reduction": 0.02081627884943223
+  },
+  "source": {
+    "path": "/dev/shm/bilin18_projected_sparse_dictionary_fit_v1_s0.pt",
+    "sha256": "46142e7eec2c3deebe64a8e863c51996efe515864d2a65f02d850f026b8b1726",
+    "bytes": 106580701
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_projected_output_penalty_v1.pt",
+    "sha256": "8159e6dfe9d55adc3431af5841f9d243cd25c025242c3d2f97e940ba66e6f07f"
+  },
+  "seconds": 31.80021321773529,
+  "scope": "Exact output-only penalty path, fixed learned features/codes. Penalized joint gradient at one point is not solver convergence or a global minimum. No live-fit/data changes."
+}

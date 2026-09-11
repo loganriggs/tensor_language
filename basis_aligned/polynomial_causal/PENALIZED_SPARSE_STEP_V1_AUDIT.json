@@ -1,0 +1,63 @@
+{
+  "predictions": {
+    "pred_a_instrument": false,
+    "pred_b_descent": true,
+    "pred_c_cost": true
+  },
+  "initial_objective": 0.35547038442294887,
+  "final_objective": 0.3551043619051766,
+  "objective_gain": 0.0003660225177722909,
+  "initial_details": {
+    "residual": 0.35402609701082055,
+    "component_energy": 0.7672848015527547,
+    "fitted_energy": 0.6430853281649226,
+    "cross_energy": 0.644529615577051,
+    "dictionary_relative_stationarity": 0.4872121260541253,
+    "codes_relative_stationarity": 1.3834218099464521,
+    "output_solve": {
+      "normal_residual": 3.802052755116335e-15,
+      "product_norm_min": 0.3758392906934215,
+      "product_norm_max": 1.7066100267188042
+    },
+    "penalty": 0.0018823354889938328,
+    "parameterization": "unit dictionary rows and unit code rows"
+  },
+  "final_details": {
+    "residual": 0.3537553043794123,
+    "component_energy": 0.7166934553655924,
+    "fitted_energy": 0.6435465805690593,
+    "cross_energy": 0.6448956380948234,
+    "dictionary_relative_stationarity": 0.35852411413710955,
+    "codes_relative_stationarity": 0.7511189409059524,
+    "output_solve": {
+      "normal_residual": 3.7425473475849865e-15,
+      "product_norm_min": 0.37599640285102953,
+      "product_norm_max": 1.6894767028559818
+    },
+    "penalty": 0.0018823354889938328,
+    "parameterization": "unit dictionary rows and unit code rows"
+  },
+  "final_capture": 0.6462446956205877,
+  "step": 0.001,
+  "trials": [
+    {
+      "step": 0.001,
+      "loss": 0.3551043619051766
+    }
+  ],
+  "initial_replay": 1.3600232051658168e-13,
+  "fd_error": 2.282210889781311e-05,
+  "cp_replay": 1.1102230246251565e-16,
+  "gradient_seconds": 16.719877921044827,
+  "seconds": 70.5323273576796,
+  "source": {
+    "path": "/dev/shm/bilin18_projected_sparse_dictionary_fit_v1_s0.pt",
+    "sha256": "46142e7eec2c3deebe64a8e863c51996efe515864d2a65f02d850f026b8b1726",
+    "bytes": 106580701
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_penalized_sparse_step_v1.pt",
+    "sha256": "faadb3bf04b1dc7bc46a0020ff255694779355eb4b91847e9c60f9594abe41d3"
+  },
+  "scope": "One CPU Armijo step in penalized fixed-support unit-code coordinates; no joint convergence or stable/native behavioral circuit evidence, and no live run changed."
+}

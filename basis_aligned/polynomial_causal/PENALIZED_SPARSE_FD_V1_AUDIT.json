@@ -1,0 +1,21 @@
+{
+  "predictions": {
+    "pred_a_initial": true,
+    "pred_b_fd": true,
+    "pred_c_truncation": true
+  },
+  "h": 1e-06,
+  "finite_difference": -0.6649547365789044,
+  "analytic_slope": -0.664954964344739,
+  "fd_error": 2.277658346372391e-07,
+  "coarse_error": 2.282210889781311e-05,
+  "error_reduction": 100.19987823969169,
+  "initial_replay": 0.0,
+  "seconds": 49.462881091982126,
+  "source": {
+    "path": "/dev/shm/bilin18_projected_sparse_dictionary_fit_v1_s0.pt",
+    "sha256": "46142e7eec2c3deebe64a8e863c51996efe515864d2a65f02d850f026b8b1726",
+    "bytes": 106580701
+  },
+  "scope": "Same native initial point/direction at smaller difference step. Original instrument miss preserved; no optimizer convergence or independent circuit evidence."
+}
