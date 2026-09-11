@@ -1,0 +1,27 @@
+{
+  "seed": 937,
+  "name": "untrained",
+  "scores": {
+    "train_capture": 0.6642427098720679,
+    "heldout_capture": 0.45897374202481434,
+    "coefficient_capture": 0.38883612539588364,
+    "executor_replay": 2.5866480852352287e-15,
+    "atom_norm_max": 1.0000000000000002
+  },
+  "encoding": {
+    "steps": 350,
+    "relative_stationarity": 3.846386925764493e-08,
+    "converged": true,
+    "resets": 2,
+    "terminal": "stationarity",
+    "maximum_objective_increase": 0.0,
+    "maximum_code_kkt": 1.3595159889245867e-06,
+    "support_ls_normal_residual": 2.5003293902809137e-16
+  },
+  "instrument_passed": true,
+  "cache": {
+    "path": "/dev/shm/bilin18_overcomplete_l1_reader_v1_untrained_s937.pt",
+    "sha256": "f6ce1e4e4f4812274e285991da7fd6cf9a0eb9e0b6750144445e7cdc945ba728",
+    "bytes": 33074615
+  }
+}

@@ -1,11 +1,11 @@
 # Latest research update
 
-**11 September, 09:47 UTC:** [First overcomplete result, with unfinished optimization](explanation_2026-09-11_0940.md#update0947).
+**11 September, 10:22 UTC:** [Better sparse inference helps; the spherical shortcut fails on FineWeb](explanation_2026-09-11_1021.md).
 
-The first overcomplete dictionary reaches **43.77%** full folded coefficient capture versus its sampled-dictionary baseline of **38.68%**. Joint convergence is missed; historical held-out reader gain is **0.94 percentage points**, below the two-point target. This is a larger dictionary and is not a matched-capacity comparison with earlier methods. The second start is running.
+Corrected encoding raises both learned overcomplete dictionaries to **53.60% / 53.61%** full folded coefficient capture, versus initial dictionaries **39.17% / 39.38%**. Joint convergence and stable identification remain unmet: complete-function cosine **0.698**, below **0.9**. This is a larger dictionary, not a matched-capacity comparison with earlier methods.
 
-Separately, [better support encoding](explanation_2026-09-11_0940.md) raises two complete dictionaries to **33.21% / 33.16%** at unchanged size. Their functions remain different (cosine0.423). The live overcomplete experiment retains its original encoder and protocol.
+A small frozen FineWeb check finds that the exact radial correction worsens output probabilities. Cached-state analysis shows strong radial/traceless cancellation on natural inputs. No text-based discovery or new million-token sweep.
 
-A small frozen FineWeb diagnostic is queued afterward. No text-based discovery or new million-token sweep.
+**Running:** coupled dictionary/code optimization of both saved starts, with unchanged L1 objective and corrected encoder. Native convergence is pending.
 
-[09:22 hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_0922.md) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).
+[10:22 hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1022.md) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).

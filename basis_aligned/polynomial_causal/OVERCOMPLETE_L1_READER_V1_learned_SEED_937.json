@@ -1,0 +1,27 @@
+{
+  "seed": 937,
+  "name": "learned",
+  "scores": {
+    "train_capture": 0.6978867176081298,
+    "heldout_capture": 0.4684009179406651,
+    "coefficient_capture": 0.43781958884135774,
+    "executor_replay": 2.4695252351854215e-15,
+    "atom_norm_max": 1.0000000000000002
+  },
+  "encoding": {
+    "steps": 120,
+    "relative_stationarity": 8.68885856610931e-08,
+    "converged": true,
+    "resets": 3,
+    "terminal": "stationarity",
+    "maximum_objective_increase": 0.0,
+    "maximum_code_kkt": 3.506696094945916e-06,
+    "support_ls_normal_residual": 2.9075745268884505e-16
+  },
+  "instrument_passed": true,
+  "cache": {
+    "path": "/dev/shm/bilin18_overcomplete_l1_reader_v1_learned_s937.pt",
+    "sha256": "b98c4e8bad6fed11f6914e0bb26ebdfdb8787574664d7a9ef6cea0b123c0b6cf",
+    "bytes": 33074595
+  }
+}
