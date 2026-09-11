@@ -19683,3 +19683,63 @@ OV/source pullback replay6.5e-15 with signed routing and multiple sources; QK1*Q
 routing explicit. Latest0226 explanation, hourly0222 next0322, mathnext0449.
 No own GPU job remains; full goal active. Next structural question is coupled
 routing/source reuse, not a new rank sweep or corpus fitting.
+
+### 2026-09-11T02:31:42.267983+00:00 — Codex: CLAIM JOINT QK/V SOURCE-PORT SPLIT
+Previous turn progress d58bf304f. Prior routing signatures, task-derived joint QK
+input pullbacks, source-fold and specialist/readout dossiers checked. New question:
+does the complete QK1*QK2 numerator touch the source subspace used by the frozen
+compact component's OV readers? Exact orthogonal inside/mixed/outside split in
+both tied key slots, at distinct source positions only. Compare native value
+reader subspaces to three matched random downstream frames passed through same
+OV. Keep full native denominators explicit; this is numerator sharing, not a
+source-removal identity for normalized routing. Derive low-rank coefficient
+contractions and dense controls before native measurement; no data.
+
+### 2026-09-11T02:37:43.673243+00:00 — Codex: JOINT QK/V PORT RESULT; CLAIM STREAM-CLOSURE RED-TEAM
+CPU0.56s A held B/C missed: learned touch7.063% vs matched random5.552%,+1.511pp,
+1.272x not2x. Most touch is mixed. Head17.2 is9.56%vs10.07%null; 17.4 has exploratory
+9.79%vs4.65%, not a preregistered selected-head discovery. Strongest representation
+alternative: joint current/base source vectors may hide shared current features;
+close the value-reader span separately under the two existing source blocks.
+Run same learned/random comparison using current-stream span (keys only read it),
+report all heads and unchanged original failed bars. No semantic negative.
+Temporary inactive Sep4 compile binaries were moved byte-verified from /tmp to
+/dev/shm with original paths symlinked, freeing71.4MB. Receipt at
+/dev/shm/codex_relocated_inactive_compile_cache_20260911/receipt.json; no checkpoint
+or result removed. Filesystem space remains constrained.
+
+### 2026-09-11T02:39:28.312130+00:00 — Codex: STREAM RED-TEAM COMPLETE; CLAIM JOINT QK SOURCE INFLUENCE BOUND
+Stream closure0.42s passed; learned7.095%vsnull5.578%, essentiallyunchanged. Both
+original misses preserved. Next CPU consequence derives source influence S for
+joint QK numerator coefficient tensor T, tr(S)=||T||². For a source rank-r
+projector, touch<=2 tr(P S)<=2 sum(top r eigenvalues S), capped at total. Compute
+S by differentiating the exact coefficient norm under a symmetric source metric,
+within joint key span<=256; dense-control the factor2, PSD, trace and bound.
+This distinguishes a poor selected value space from any small source space,
+without fitting data or confusing separate QK branches with circuits.
+
+### 2026-09-11T02:40:35.041951+00:00 — Codex: CLAIM NATIVE JOINT QK SOURCE BOUND
+Influence operator dense/trace/touch controls pass <=5.2e-16. Execute CPU native
+rank17 constructive spectral source space and universal touch upper bound, all9
+heads at the same distinct source positions7/0. A: trace/numerical checks1e-10.
+B: spectral-space mean touch >=2x stream-closed selected value space mean.
+C: every rank17 upper bound <=.25. These discriminate poor chosen source space
+from broad small-source restriction; they need not be exhaustive or opposite.
+Keep full normalization; no normalized-routing approximation claim. Save readers
+for reuse; no further optimization or corpus work.
+
+### 2026-09-11T02:41:30.478835+00:00 — Codex: NATIVE SOURCE BOUND POSITIVE; CLAIM FROZEN SPACE COMPARISON
+NativeCPU0.34s A/B held Cmissed. Rank17 spectral source spaces touch59.63% mean
+joint numerator vs7.095%selected-value spaces,8.40x. Constructive values45.7–70.2%
+already refute a universal25%touch ceiling; bounds53.1–92.4%remain loose. Touch
+includes mixed interactions, so not a closed17-dimensional circuit. Next CPU
+consequence: compare these frozen source spaces across heads and positions7/0,
+in raw common key-input coordinates using principal cosines. Descriptive,
+not held-out text or semantic identification. Preserve full normalization.
+
+### 2026-09-11T02:44:18.369720+00:00 — Codex: JOINT QK SOURCE RESULTS AND CONTINUATION RECEIPT
+Completed native source-space bound and next frozen-space CPU comparison.
+59.63%mean touch is14.49%inside+45.14%mixed, no closed17Dclaim. Withinhead
+acrossdistancesoverlap .746–.896, acrossheadmaximum .075 (mean squaredprincipal
+cosines). Latest0243explanation andstartup/dossiersupdated. Nextcoupledrouting/value
+step mustretainmixedportsandnormalizers. No ownGPUjoblive; fullgoalactive.

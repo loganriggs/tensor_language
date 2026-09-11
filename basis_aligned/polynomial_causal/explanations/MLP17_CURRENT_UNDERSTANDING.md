@@ -396,3 +396,24 @@ signed multisource routing explicit. Descriptive source angles do not identify
 behavioral QK sharing. [Explanation](2026-09-11/explanation_2026-09-11_0226.md),
 [result](../JOINT_SHARED_READER_RANK16_V1_RESULT.json),
 [upstream audit](../SHARED_READER_UPSTREAM_PORTS_V1_AUDIT.json).
+
+
+## 11 September 02:43 — joint routing/value source ports
+
+The frozen compact MLP17 component's 17 OV source readers touch 7.06% of joint
+QK1×QK2 numerator coefficient energy across nine heads and two distinct source
+distances, versus 5.55% for matched random downstream frames. The registered
+alignment and 17.2/17.3 bars failed. Separating current/base streams barely
+changes this (7.10% versus 5.58%). This is a fixed-component numerator-space
+result, not a negative about task-specific sharing.
+
+An executed source-influence spectral calculation instead finds rank-17 source
+spaces with 59.63% mean touch (45.7–70.2%), demonstrating that the choice of source
+space matters. Mean inside energy is 14.49%, mixed energy 45.14%; outside readers
+and full normalizers remain required. Within-head overlap across distances is
+0.746–0.896, while the maximum across heads is 0.075 (mean squared principal
+cosines). No new behavior or identified circuit; head17.4 enrichment was post hoc.
+
+Primary receipts in polynomial_causal: JOINT_QK_VALUE_PORTS_V1_RESULT.json,
+JOINT_QK_VALUE_STREAM_CLOSURE_V1_AUDIT.json, JOINT_QK_SOURCE_BOUND_V1_RESULT.json,
+JOINT_QK_SOURCE_SPACE_COMPARISON_V1_AUDIT.json. Explanation0243 defines the metrics.

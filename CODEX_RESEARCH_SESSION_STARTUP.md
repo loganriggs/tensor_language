@@ -82,31 +82,36 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 02:26
+## Current handoff — updated 11 September 2026, 02:43
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0226.md.
-JOINT_SHARED_READER_RANK16_V1 completed via managed lane 1 in 181.46 seconds.
-A/B/D held; C missed: all four starts converged to the same whole quadratic
-function (minimum cosine >0.999999999999), centered capture .0065063721,
-relative gain 3.8318% versus same-price .0062662627, below the registered 5%.
-Compact component costs 38,016 coefficients, 17 input projections, 16 products;
-it requires native background and is only part of the full reader-removal effect.
-Its full-U common-output fraction is 52.59%; no new semantic naming.
-Cache /dev/shm/bilin18_joint_shared_reader_rank16_v1.pt, SHA
-b869e1660394a72194b2ce999474247c8f257b4685b4fb1b97008067dd87b930.
-The next CPU consequence was performed: SHARED_READER_UPSTREAM_PORTS_V1_AUDIT.json
-folds this frozen candidate through attention17 OV/current-base source mixing.
-Signed multisource replay 6.5e-15; all joint QK routing remains explicit.
-Largest gate-source cosine .315, partner-space principal cosine .438, descriptive
-only. This does not resolve task-specific partial QK sharing. Next structural
-question: coupled routing/source reuse, checking existing dossiers before naming.
-No own GPU job remains queued/live at this snapshot; inspect shared runner state.
-Hourly0222 complete, next0322; math0149 complete, next0449. Full goal active.
-Previous low-penalty native writer fit converged (full capture6.0660%, top16
-loading concentration58.67%); stronger penalty remains unfinished with full state.
-Shared unrestricted reader result and exact removal/composition identities are in
-explanation0206 and SHARED_INPUT_FACTOR_NATIVE_V1_RESULT.json. No new data fitting.
-Large caches in /dev/shm are ephemeral; preserve source receipts and reconstruction.
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0243.md.
+Previous turn d58bf304f recovered stable compact MLP shared reader,4starts,
+centered capture .00650637,38,016 numbers; original5%gainbar missed,+3.83%.
+Current JOINT_QK_VALUE_PORTS_V1_RESULT Aheld B/Cmissed: joint QK1*QK2 numerator
+uses its OV value-source spaces weakly:7.063%touch vs5.552%matched random.
+Stream closure red-team executed:7.095%vs5.578%, essentially unchanged.
+Do NOT infer absence of small routing spaces. New joint_qk_source_influence_v1.py
+and dense controls derive S=source coefficient influence, traceS=||T||²,
+rank-r touch<=min(total,2sumtopr eigenvaluesS). Compressed key span<=256.
+JOINT_QK_SOURCE_BOUND_V1_RESULT nativeCPU0.34s,A/Bheld,Cmissed: spectral rank17
+spaces touch59.63%mean,45.7–70.2%acrossheads/positions,8.40xpriorvalue spaces.
+Bounds53.1–92.4%loose. Mean14.49%inside+45.14%mixed; notclosed17Dcircuits.
+All results numerator-only with full original normalized routing denominators
+retained, distinct query8/source7 or0. No self-position or behavioral claim.
+Next CPU consequence completed: JOINT_QK_SOURCE_SPACE_COMPARISON_V1_AUDIT;
+within-head acrosspositions meansquaredprincipalcos .746–.896, largestacrosshead
+.075. Raw common source coordinates, no OODtext or tasksharing inference.
+Readercache /dev/shm/bilin18_joint_qk_source_bound_v1.pt,
+SHA dbc0a69df1a7850a012c2cddc00c05d60ec65b1e2d6f84264bbe185f88461465.
+Next structural question: coupled routing/value computation with explicit mixed
+ports and full normalizer dependencies. Check dossiers and existing source-fold
+work before experiments. Head17.4alignmentwasposthoc, no newsemanticlabel.
+No own GPU jobs queued/live atsnapshot; allcurrentCPUauditsfinished. Inspectshared
+runner beforeenqueue. Hourlynext0322, mathnext0449. Fullgoalactive, no newdatafits.
+Filesystem filled duringturn; inactive Sep4temporarycompile binaries moved with
+hashverification andoriginalpathsymlinks to/dev/shm, freed71.4MB, noresult/checkpoint
+removed. Receipt /dev/shm/codex_relocated_inactive_compile_cache_20260911/receipt.json.
+Large caches in /dev/shm are ephemeral. Preserve source receipts/reconstruction.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
