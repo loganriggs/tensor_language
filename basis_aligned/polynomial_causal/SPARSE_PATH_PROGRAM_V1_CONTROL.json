@@ -1,0 +1,25 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "reports": [
+    {
+      "mode": "joint",
+      "execution_error": 2.808013606348247e-16,
+      "edge_removal_error": 8.6015792828643835e-16,
+      "node_union_error": 0.0,
+      "composition_error": 3.9416385962985613e-16,
+      "common_edge_write_norm": 36.027020057595365
+    },
+    {
+      "mode": "independent",
+      "execution_error": 2.188366041379243e-16,
+      "edge_removal_error": 2.0068284739225957e-15,
+      "node_union_error": 0.0,
+      "composition_error": 1.4259868688074552e-15,
+      "common_edge_write_norm": 41.28964651602719
+    }
+  ],
+  "scope": "Synthetic exact sparse path execution and internal node/edge edit semantics. Shared denominator externally supplied. No native behavioral result or standalone extraction."
+}

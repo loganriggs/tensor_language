@@ -63,3 +63,17 @@ Joint feature reuse is counted when a feature supplies both a same-source and a 
 [Kernel](coupled_sparse_path_v1.py) reuses the earlier orthogonal-core computation and standard manifold solver. [CPU check](check_coupled_sparse_path_v1.py). No new audit or publishing framework was introduced.
 
 Execution version note: V1 passed model-free dry-run but the enqueue gate did not recognize keyword-style prediction keys. The immutable [V2 runner](../bilinear_quotient/ops/run_coupled_sparse_path_pilot_v2.py) uses explicit keys with unchanged scientific predictions; native results will use `COUPLED_SPARSE_PATH_PILOT_V2_RESULT.json`. No native V1 result exists.
+
+## Executable edge and node interventions
+
+[The executable](sparse_path_program_v1.py) maps either arm's selected-edge indices to scalar products and full physical writes, preserving the source gain and supplied native input RMS squared. It returns both the numerator and normalized write. Bias, direct residual and final tail are separate native operations.
+
+An edge removal subtracts one product's write. A shared-feature node removal removes every incident edge. Removing two nodes must count their common edges once. If $w_A,w_B$ denote sums of incident writes and $w_{A\cap B}$ their overlap, then
+
+$$
+\Delta_{A\cup B}=-w_A-w_B+w_{A\cap B}.
+$$
+
+This is a computation-level intervention: deleting an internal candidate node does not alter the native input normalization denominator. A source intervention instead changes the source values and requires the caller to recompute that denominator. The interfaces should not be conflated when evaluating selective removal.
+
+[CPU execution controls](SPARSE_PATH_PROGRAM_V1_CONTROL.json) pass dense output replay, nonunit gain absorption, edge removal, node/incident-edge equivalence and two-node inclusion-exclusion for both arm conventions. Maximum error2.01e-15, with deliberately nonzero shared-edge effects. These synthetic identities prepare subsequent native validation; they are not themselves evidence of circuit extraction or behavioral composition. [Check source](check_sparse_path_program_v1.py).
