@@ -107,17 +107,18 @@ and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX
   gap.000160538 with1.16446%floats saved, but bothunconverged. Postfit12parents
   retain twoeffectiveconsumers and exact joint-removal accounting. See
   SHARED_READER_POSTFIT_INTERFACE_V1_SPECTRAL.json and the primary method note.
-- Native-original completed17:22:16 (11.85428% capture, unconverged);
-  native-graph is live. The separately audited retained-history20minute comparison
-  and frozen parent1 branch-removal screen are queued after peer work. Check
+- All four matched arms completed by17:42:21. Both price/capture comparisons
+  hold, all fits remain unconverged, and zero frozen cross-start node matches
+  meet stability bars. See SHARED_READER_JOINT_FIT_V1_AGGREGATE.json and
+  SHARED_READER_CROSS_START_V1_RESULT.json. The separately audited retained-history
+  comparison and frozen parent1 branch-removal screen are queued after peer work. Check
   livequeue/results beforeaction. Allboundhelpers remainfrozen.
-- Cross-start node correspondence is frozen before the nativegraphfit finishes:
-  SHARED_READER_CROSS_START_MATCHING_V1_FROZEN.json. Score fixedmatches and
-  report later rematching separately; do not call current nodes identifiedcircuits.
-- Hourly1722 records all three workflow gates held. Use existing tools to
-  interpret native-graph completion and the frozen cross-start matches. Read
-  SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md for the completed branching analysis;
-  the behavioral screen is validation of frozen weights, with no data fitting.
+- Frozen cross-start correspondence has been scored; descriptive rematching
+  does not repair its miss. Do not call current nodes identified circuits.
+- Hourly1722 records all three workflow gates held. Read
+  SHARED_FACTOR_OUTPUT_MIXTURES_V1_MATH.md for exact output-basis search, full-native
+  reader lifting, and graph-node versus global input-removal scope. The queued
+  behavioral screen is validation of frozen weights, with no data fitting.
 - Requested fuller reports remain in explanations/for_logan/; latest remains
   the13:27report with CP/LL1 and hierarchy/DAG appendices. General reliable DAG
   discovery and the four behavioral properties remain unfinished.

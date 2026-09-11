@@ -1,0 +1,51 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "execution_replay": 9.082778869010161e-14,
+  "svd_norm_error": 3.39928771627049e-16,
+  "function_cosine": 0.3321498846204627,
+  "old_writer_span_capture": 0.33220833804648314,
+  "old_node_over_native_projection_energy": 0.25119236838226106,
+  "full_native_projection_coefficient_fraction": 0.003533566510940541,
+  "rank95": 463,
+  "rank99": 722,
+  "rank_curve": {
+    "1": 0.2116447949957496,
+    "2": 0.3701993424913829,
+    "4": 0.4189875252974734,
+    "8": 0.4716001441686555,
+    "16": 0.5247133164743499,
+    "32": 0.583489668080739,
+    "64": 0.6555908365539634,
+    "128": 0.7503615247330458,
+    "256": 0.8627462124269962,
+    "512": 0.961759636311648,
+    "1152": 0.9999999999999987
+  },
+  "top_native_output_projection_into_old_span": [
+    0.8915441137905432,
+    0.8916131849363781,
+    0.008830243412111893,
+    0.037240634358906836,
+    0.006848514111112434,
+    0.004353822881302773,
+    0.04762037338144259,
+    0.0021990344410537685,
+    0.009862724469255518,
+    0.0022839596548325236,
+    0.012388248114662027,
+    0.00025429947192857525,
+    0.003572283749870356,
+    0.0025475578555231304,
+    0.0035822981799065196,
+    0.0008831605582851303
+  ],
+  "source_sha256": "b1e90771d51ea355e1b1f636ece07816034dc3aeeb220513262ee69292beeeb3",
+  "checkpoint": {
+    "path": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin",
+    "bound_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "artifact_sha256": "bd5cd85ca453e869dc2b73d3cac8fde1755d690faf7f28953307a51c92d13bbe",
+  "scope": "Complete native orthogonal shared-factor projection at one frozen reader, not the graph-node removal or input intervention through RMS. No behavioral/circuit claim."
+}

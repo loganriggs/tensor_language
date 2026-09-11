@@ -129,3 +129,36 @@ $$
 The squared and mixed coefficient tensors are orthogonal. The [all-parent census](SHARED_READER_POSTFIT_ALIASES_V1_SPECTRAL.json) verifies the energy identity and prior-square comparisons: every fitted parent has11.45–84.55%mixed energy, and none matches a single old square at0.95function cosine. Parent6reads almost the old atom71direction(inputcos0.99695)but its whole removal function matches that atom at only0.57674and includes16.05%mixed energy. A reader match alone is not a whole-function alias or a new circuit.
 
 The [frozen cross-start correspondence](SHARED_READER_CROSS_START_MATCHING_V1_FROZEN.json) now matches these12nodes to16native-start prefit nodes, before the native graph's final fit exists. Later fixed-match bars require at least4pairs with functioncos≥0.8andinputabs≥0.95, each with two effective consumers. Current baseline matches are mostly weak; no future bar is scored yet. Postfit rematching will be reported separately, so a poor initial correspondence can be distinguished from absent final matches. The native-original arm is live; native-graph and the retained-history comparison remain queued.
+# Matched four-arm completion at 17:42 UTC
+
+All four bounded joint fits have now completed. The [registered aggregate](SHARED_READER_JOINT_FIT_V1_AGGREGATE.json)
+passes the price/capture comparison in both starts: spectral graph/original capture
+11.86782% / 11.88387%, native graph/original 11.83619% / 11.85428%. Floating
+coefficient savings are 1.164% / 1.432%. Variable products increase from 1024
+to 1041 / 1047, so this is not a blanket computation saving. All four per-arm
+numeric and objective-improvement bars hold; all four convergence bars miss.
+
+The [native postfit audit](SHARED_READER_POSTFIT_INTERFACE_V1_NATIVE.json) retains
+14 of 16 parents with two effective consumers, missing the all-parents bar.
+Parents 13 and 15 each have one consumer below the registered 1% own-group
+energy threshold. Naively summing node deletions produces 17.96% relative
+output error; the existing shared-pair correction reduces it to 3.86e-15.
+[Canonical native branches](SHARED_NODE_CANONICAL_BRANCHES_V1_NATIVE.json):
+13 of 16 need multiple branches for 95% energy, but only two have a second/first
+singular-value ratio at least 0.5, missing the four-node strong-branch bar.
+
+The [pre-frozen cross-start comparison](SHARED_READER_CROSS_START_V1_RESULT.json)
+finds **zero of 12 stable node matches** against a bar of four. Signed and
+absolute postfit rematching also fail to find qualifying matches. Two reader
+directions remain close across starts (cosines 0.9834 and 0.9838), while their
+node-removal functions agree only at 0.4405 and 0.4888. This distinguishes stable
+input overlap from stable assignment of downstream computation. Different fixed
+topologies and unconverged endpoints remain confounds; no absence-of-structure
+claim follows. Do not promote these graph nodes as identified circuits.
+
+The [output-basis/native-scope analysis](SHARED_FACTOR_OUTPUT_MIXTURES_V1_MATH.md)
+executes two discriminating follow-ups: full-span output mixing at fixed readers,
+and lifting one frozen reader to complete native weights. It exposes both omitted
+native branches and the difference between graph-node deletion and global input
+projection. The retained-history optimizer comparison and frozen native branch
+screen remain audited in the managed queue; their evidence is still pending.

@@ -562,3 +562,13 @@ Two same-start cross-optimizer canonical directions coincide with old LL1groups8
 
 ###11 September17:02 — fitted shared nodes retain mixed computations
 All12spectral graph parents retain two effective consumers after joint fitting. None matches an individual old256-square atom at0.95whole-function cosine. The most temporally consistent parent6reads close to atom71(inputcos0.99695), but its removal function has16.05%mixed energy and only0.57674cosine to thatatom. No semantic identity or independent-start evidence. [All-parent audit](../SHARED_READER_POSTFIT_ALIASES_V1_SPECTRAL.json), [intervention accounting](../SHARED_READER_POSTFIT_INTERFACE_V1_SPECTRAL.json).
+## 11 September 17:44 — Shared-reader scope and native remainder
+
+For the frozen spectral graph's parent1, the complete native fixed-reader
+projection has two leading branches covering37.02% of its coefficient energy;
+16 cover52.47%, with a broad remainder. Its old two-writer span captures33.22%.
+Named graph-node removal affects two declared consumers, while15 fitted groups
+have at least1% own quadratic energy touching the same input direction. These
+are different intervention scopes, not15 semantic circuits. The frozen native
+behavioral screen retains named-node branch removal. [Derivation and receipts](../SHARED_FACTOR_OUTPUT_MIXTURES_V1_MATH.md).
+Cross-start fitted node stability also misses; no new circuit identity is added.

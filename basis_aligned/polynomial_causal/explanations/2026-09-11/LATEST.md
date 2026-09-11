@@ -1,5 +1,7 @@
 # Latest research update
 
+**17:44:** [All four joint fits completed](../../SHARED_READER_VARIABLE_PROJECTION_V2_MATH.md#matched-four-arm-completion-at-1742-utc): matched price/capture bars hold, convergence and cross-start node stability do not. [New exact output-basis and full-native reader checks](../../SHARED_FACTOR_OUTPUT_MIXTURES_V1_MATH.md) distinguish hidden branches from intervention-scope differences. Retained-history and frozen native-removal jobs remain queued.
+
 **17:33:** [Canonical shared-node branches](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md): 10 of 12 fitted readers need multiple algebraic branches at 95% energy. One frozen native removal screen is audited and queued; no behavioral result yet. The [requested report](../for_logan/research_update_2026-09-11_1327.md#hierarchy-and-dag-discovery) clarifies dense/sparse Tucker versus joint graph discovery.
 
 **17:02 completed:** [spectral shared graph](../../SHARED_READER_VARIABLE_PROJECTION_V2_MATH.md#spectral-shared-graph-completed-reuse-survives-joint-fitting) nearly matches original capture, saves1.16%floats, and retains12shared nodes with multiple effective consumers. Bothfitsunconverged; independent-start and behavioral claims remain open. Native-start pair is in progress.
