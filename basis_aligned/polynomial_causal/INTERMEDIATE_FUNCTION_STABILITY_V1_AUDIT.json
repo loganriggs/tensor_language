@@ -1,0 +1,41 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_function_stability": false,
+    "pred_c_shared_residual": false
+  },
+  "captures": [
+    0.6468524536726536,
+    0.6468596398293922
+  ],
+  "fitted_energies": [
+    0.6468524536726591,
+    0.6468596398293921
+  ],
+  "native_crosses": [
+    0.6468524536726563,
+    0.6468596398293922
+  ],
+  "function_cross": 0.481783521085156,
+  "function_cosine": 0.7448079422190618,
+  "residual_cosine": 0.53256306914661,
+  "squared_function_difference": 0.3301450513317392,
+  "loss_replay": 2.55351295663786e-15,
+  "sources": [
+    {
+      "path": "/dev/shm/bilin18_projected_sparse_dictionary_fit_v1_s0.pt",
+      "sha256": "46142e7eec2c3deebe64a8e863c51996efe515864d2a65f02d850f026b8b1726",
+      "bytes": 106580701
+    },
+    {
+      "path": "/dev/shm/bilin18_intermediate_function_stability_v1_s937.pt",
+      "sha256": "8b3da99b48805eddf5419be243db1c9631945dc4ccd4d32c98ecdcb776ab9649",
+      "bytes": 106435061,
+      "iteration": 1097,
+      "fit_seconds": 2323.199192304164,
+      "loss": 0.35314036017060796
+    }
+  ],
+  "seconds": 12.346236020326614,
+  "scope": "Independent starts, unequal durations, seed937 intermediate. No final or individual-unit stability verdict."
+}
