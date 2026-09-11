@@ -82,20 +82,23 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 01:19
+## Current handoff — updated 11 September 2026, 01:30
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0110.md.
-CENTERED_CONGRUENCE_V1 converged; strict near-null/gap screen failed. Stop further
-congruence-metric variants. TOKEN_FUNCTION_DICTIONARY_V1 completed at01:10:01,
-locally converged95.65s/308cycles:16.56%centeredcapture,median6functions/token.
-CPU fixed-support debias20.72%,same315718links; strongest8inputfunctions remain
-dense (single-productcapture10.6–21.1%,rank90=406–470). All receipts available.
-No own GPU fit live or queued. Next structural question is joint sparse token
-usage plus simple/overlapping input computations, not sparse usage alone.
-One initialization/penalty does not exhaust dictionary learning. All findings
-are weight-only; four circuit properties remain open. Latest hourly00:22,next01:22;
-math22:49,next01:49. Full goal active. Large reconstructible caches in /dev/shm
-are ephemeral; check disk before writes (~222MB free at01:17).
+Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0130.md.
+SPARSE_PRODUCT_DICTIONARY_V1 live on managed lane1 since01:27:41, SHA
+179bb2a61f736c54f3a28d8751cb5f8de5acb06edfe4d85ccf8e3d770e30fb8c.
+512single-product functions plus signed sparse token codes, exact conditional
+spectral atom updates, FP64. Initialization18.49s; first sweep35.78s, no convergence
+verdict.540s fit chunk checkpoints each sweep in /dev/shm; inspect same job/result,
+never restart on observation timeout. Frozen helper/binding must not be edited.
+Previous512unrestricted-function dictionary converged16.56%,debias20.72%centered.
+New CPU interface audit:40.22%of its centered approximation energy outside Uc;
+29.63%of its full common-restored approximation energy outside original U. Thus
+arbitrary sparse token writers are not automatically native MLP writes. Projection
+improves coefficient fit but generally destroys token sparsity and can change
+common function. Next legal-writer variant should account for this, no circuitclaim.
+Hourly01:22,next02:22; math22:49,next01:49. Full goal active. No new data fitting.
+Large shared-memory caches ephemeral; disk about217MB free before this run.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
@@ -196,8 +199,8 @@ not be changed retroactively. Build small wrappers for new semantics.
 ## Review clocks and throughput
 
 Latest hourly review:
-[00:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0022.md).
-Next hourly review is due **01:22 UTC on11September** at the first safe boundary.
+[01:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0122.md).
+Next hourly review is due **02:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [22:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-10_2249.md).
 Next mathematical review is due **01:49 UTC on11September**. Derive later deadlines from the

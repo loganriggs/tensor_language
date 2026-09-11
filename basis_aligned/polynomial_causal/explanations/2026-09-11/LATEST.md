@@ -1,5 +1,5 @@
 # Latest research update
 
-**11 September, 01:19 UTC:** [Overlapping token functions: results and remaining assumptions](explanation_2026-09-11_0110.md). The new weight-only dictionary converged locally in 95.65 seconds: 16.56% centered coefficient-energy capture, median six functions per token. Exact refitting on the same links raises capture to 20.72%. The eight strongest functions still require hundreds of signed-square modes; sparse token usage alone did not expose simple input computations. No new text/data fitting or identified circuits.
+**11 September, 01:30 UTC:** [Simple input products, sparse token groups, and the unembedding interface](explanation_2026-09-11_0130.md). The combined512-product/sparse-token fit is running through the managed GPU runner; exact conditional atom controls pass, no convergence verdict yet. A completed audit of the previous dictionary finds29.63%of its full common-restored approximation energy outside the native unembedding output space. This is an interface limitation, not a behavioral percentage or a negative about all shared circuits.
 
-[Methods and assumptions overview](explanation_2026-09-11_0022.md) · [Full-U spectrum and response audit](explanation_2026-09-11_0054.md) · [Previous day’s campaign](../2026-09-10/unsupervised_structure_campaign.md).
+[Previous converged dictionary and input audit](explanation_2026-09-11_0110.md) · [Methods and assumptions overview](explanation_2026-09-11_0022.md) · [Previous day’s campaign](../2026-09-10/unsupervised_structure_campaign.md).

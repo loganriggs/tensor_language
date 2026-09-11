@@ -1,0 +1,29 @@
+{
+  "instrument_passed": true,
+  "spectral_optimum_error": 0.0,
+  "dense_objective_error": 2.861843941415498e-16,
+  "dense_after_error": 3.1809741534018453e-16,
+  "conditional_gain_identity_error": 1.657910202454572e-16,
+  "one_atom_remaining_gain": 9.362445459427202e-14,
+  "code_report": {
+    "steps": 50,
+    "relative_stationarity": 5.0620534193294674e-11,
+    "converged": true,
+    "resets": 7,
+    "terminal": "stationarity",
+    "maximum_objective_increase": 2.2737367544323206e-13
+  },
+  "sweep": {
+    "sum_conditional_gain": 328.3274404452991,
+    "maximum_conditional_gain": 109.27353962545217,
+    "minimum_conditional_gain": 54.319614537253855,
+    "frozen_point": false
+  },
+  "frozen_joint_gap": {
+    "sum_conditional_gain": 44.92667989423063,
+    "maximum_conditional_gain": 18.495393164043087,
+    "minimum_conditional_gain": -5.3499688339584013e-14,
+    "frozen_point": true
+  },
+  "scope": "Exact dense objective, signed inertia, conditional optimum and monotonicity. Not native/global recovery."
+}

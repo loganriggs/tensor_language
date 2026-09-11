@@ -339,3 +339,16 @@ See [explanation](2026-09-11/explanation_2026-09-11_0110.md),
 [fit](../TOKEN_FUNCTION_DICTIONARY_V1_RESULT.json),
 [debias](../TOKEN_DICTIONARY_DEBIAS_V1_AUDIT.json),
 [input audit](../TOKEN_DICTIONARY_FUNCTIONS_V1_AUDIT.json).
+
+## 11 September: sparse token writers need an output-interface check
+
+Previous debiased512-function dictionary has40.22%of its centered approximation
+energy outside centeredU's column space. Restoring the exactcommonfunction and
+checking originalU still leaves29.63%of fullapproximationenergy outside its
+column space. These are approximation-energy fractions, not behavioral or target
+fractions. Projecting centeredwriters improvescenteredcapture20.72%→29.05% but
+usually destroys token sparsity. Fullprojection can change the common function.
+Do not call arbitrary sparse output codes a native residual/MLP replacement.
+This quantifies the earlier sparse-support warning for the actual fitted tensor.
+[Receipt](../SPARSE_WRITER_INTERFACE_V1_AUDIT.json),
+[explanation](2026-09-11/explanation_2026-09-11_0130.md).
