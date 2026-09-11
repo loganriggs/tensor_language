@@ -1,5 +1,7 @@
 # Latest research update
 
+**Stability/alias correction:** the selectedsharedparent is99.67%one square and matchespreviouslyknown square150. Groups disagree acrossstarts, but thatatom recurs acrossfactorizationfamilies. Its exactnative reader/writeinterface is saved; no newbehavioralcircuitclaim. [Evidence](../../LL1_SHARED_PARENT_GRAPH_V1_MATH.md#cross-start-matching-changes-the-interpretation).
+
 **Shared-parent graph step:** one actual cross-LL1 reader merge plus joint weight refitting is implemented. Each selected pair saves1122floats; strict bars are mixed and stable identification remains unproven. [Algorithm, results, and durable pair artifacts](../../LL1_SHARED_PARENT_GRAPH_V1_MATH.md).
 
 **14:19 completion:** matched native pilot finished: LL1 captures11.66/11.64%, shared-input8.53/8.54%, at approximately1.25Mparameters each. All four120-second endpoints are unconverged; these are cost/initialization pilots, not circuit evidence. [Result](../../MATCHED_SHARED_GROUPS_V1_RESULT.json).

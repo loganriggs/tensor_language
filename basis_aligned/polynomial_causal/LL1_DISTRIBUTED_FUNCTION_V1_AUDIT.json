@@ -1,0 +1,96 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "rows": [
+    {
+      "mode": "whole_groups",
+      "target": "group_20",
+      "numerical_rank": 64,
+      "squared_relative_residual": 0.6339092633761916,
+      "maximum_function_cosine": 0.6050543253492265,
+      "normalized_coefficient_energy": 0.36550077872825004,
+      "normal_residual": 1.7126043689388455e-15,
+      "independent_cp_replay": 6.661338147750939e-16,
+      "pred_a": true
+    },
+    {
+      "mode": "whole_groups",
+      "target": "group_62",
+      "numerical_rank": 64,
+      "squared_relative_residual": 0.9264591805441493,
+      "maximum_function_cosine": 0.2711841062006598,
+      "normalized_coefficient_energy": 0.07960517008905782,
+      "normal_residual": 1.7591722751908378e-15,
+      "independent_cp_replay": 1.1102230246251565e-16,
+      "pred_a": true
+    },
+    {
+      "mode": "whole_groups",
+      "target": "pair_sum",
+      "numerical_rank": 64,
+      "squared_relative_residual": 0.3879701367068218,
+      "maximum_function_cosine": 0.7823233751417485,
+      "normalized_coefficient_energy": 0.6179942437623747,
+      "normal_residual": 1.5422114157047963e-15,
+      "independent_cp_replay": 1.2212453270876722e-15,
+      "pred_a": true
+    },
+    {
+      "mode": "whole_groups",
+      "target": "shared_parent",
+      "numerical_rank": 64,
+      "squared_relative_residual": 0.18719112587742273,
+      "maximum_function_cosine": 0.9015591351223607,
+      "normalized_coefficient_energy": 0.8131085959067937,
+      "normal_residual": 1.6016002250663473e-15,
+      "independent_cp_replay": 1.8041124150158794e-15,
+      "pred_a": true
+    },
+    {
+      "mode": "square_components",
+      "target": "group_20",
+      "numerical_rank": 1024,
+      "squared_relative_residual": 0.6204833865107798,
+      "maximum_function_cosine": 0.6160491972961412,
+      "normalized_coefficient_energy": 0.3714372304475313,
+      "normal_residual": 4.843845105785538e-15,
+      "independent_cp_replay": 3.3306690738754696e-16,
+      "pred_a": true
+    },
+    {
+      "mode": "square_components",
+      "target": "group_62",
+      "numerical_rank": 1024,
+      "squared_relative_residual": 0.8996083989879466,
+      "maximum_function_cosine": 0.3168463365924456,
+      "normalized_coefficient_energy": 0.13693519244093863,
+      "normal_residual": 6.130704479249777e-15,
+      "independent_cp_replay": 0.0,
+      "pred_a": true
+    },
+    {
+      "mode": "square_components",
+      "target": "pair_sum",
+      "numerical_rank": 1024,
+      "squared_relative_residual": 0.3460088934745448,
+      "maximum_function_cosine": 0.8086971661416004,
+      "normalized_coefficient_energy": 0.6839240384188453,
+      "normal_residual": 5.123321699882714e-15,
+      "independent_cp_replay": 1.1102230246251565e-16,
+      "pred_a": true
+    },
+    {
+      "mode": "square_components",
+      "target": "shared_parent",
+      "numerical_rank": 1024,
+      "squared_relative_residual": 0.0072089374630050496,
+      "maximum_function_cosine": 0.996389011650067,
+      "normalized_coefficient_energy": 0.9926843209294405,
+      "normal_residual": 5.574039017460245e-15,
+      "independent_cp_replay": 2.275957200481571e-15,
+      "pred_a": true
+    }
+  ],
+  "scope": "Best normalized coefficient-space linear projection onto frozen other-start group or fixed-writer component spans. Not a nonlinear basis search, behavioral preservation test, or proof of absent native structure."
+}

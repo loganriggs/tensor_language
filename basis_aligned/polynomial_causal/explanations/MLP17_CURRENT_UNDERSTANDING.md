@@ -544,3 +544,9 @@ Secondordinaryseed937OLScompletionreplicates[fullgain](../FULL_OBLIQUE_OLS_COMPL
 ### 11 September13:30 — Cancellation reduction does not align the dictionaries
 
 Both joint penalized starts retain64.685%coefficientcapture and reduce componentenergy to.613native, but miss convergence and have wholefunctioncosine.744842. No stable-unit promotion or prior pronoun-test repair. [Final receipt](../PENALIZED_PROJECTED_FIT_V1_RESULT.json), [requested report](for_logan/research_update_2026-09-11_1327.md).
+
+### 11 September — LL1 shared-parent proposal recovers prior square 150
+
+Group matching across two native LL1 pilots fails broadly: only 4 of 64 matches have cosine >=0.8. Yet a selected shared-parent function reaches cosine 0.996389 in the other start's component span; one component from group 18 already gives 0.996387. Its energy is 99.6705% a squared reader, so this is repeated-square recovery rather than a rich DAG hierarchy. It matches atom 150 of the earlier converged 256-square fit at input cosine 0.999108 and function cosine 0.994917. Do not count a new circuit. [Alias](../LL1_SHARED_SQUARE_ALIAS_V1_AUDIT.json), [support](../LL1_SHARED_FUNCTION_SUPPORT_V1_AUDIT.json), [math and results](../LL1_SHARED_PARENT_GRAPH_V1_MATH.md).
+
+The old unit reader's exact native writer, D[(Lu)*(Ru)], agrees with its old fitted writer at cosine 0.999944. A physical pair of 2,304 coefficients is now saved. Its 0.16999% share of native coefficient energy and exact projection identity do not prove behavioral extraction. Token writes before normalization include strong negative quotation/apostrophe loadings; no semantic label or selective effect is validated. Existing dossier entries were searched for quotation, apostrophe, and square-150 aliases without finding a direct entry. That bounded search does not establish novelty. [Interface receipt](../STABLE_SQUARE150_NATIVE_INTERFACE_V1_AUDIT.json).

@@ -1,0 +1,142 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "index": 150,
+  "prior_writer_native_cosine": 0.999944457026407,
+  "prior_writer_norm_over_native": 0.9869005795581668,
+  "native_coefficient_energy_fraction": 0.0016999188706397293,
+  "projection_identity_error": 3.532994851320356e-16,
+  "unembedding_metric_replay": 4.451573512663648e-14,
+  "top128_token_energy": 0.19542598778365464,
+  "common_token_energy": 0.17425237635108035,
+  "tokens": {
+    "positive": [
+      {
+        "id": 44572,
+        "text": " Goff",
+        "normalized_loading": 0.01812838594069824
+      },
+      {
+        "id": 44807,
+        "text": "_.",
+        "normalized_loading": 0.01735442710382517
+      },
+      {
+        "id": 25081,
+        "text": "��",
+        "normalized_loading": 0.017117915179957987
+      },
+      {
+        "id": 49293,
+        "text": "urated",
+        "normalized_loading": 0.017099729602524722
+      },
+      {
+        "id": 12240,
+        "text": "></",
+        "normalized_loading": 0.01661715783093283
+      },
+      {
+        "id": 24890,
+        "text": " INFO",
+        "normalized_loading": 0.016183161375597273
+      },
+      {
+        "id": 34088,
+        "text": " Cache",
+        "normalized_loading": 0.016075936933116416
+      },
+      {
+        "id": 29716,
+        "text": "ovsky",
+        "normalized_loading": 0.015928208926513327
+      },
+      {
+        "id": 23440,
+        "text": "raine",
+        "normalized_loading": 0.015706338485238266
+      },
+      {
+        "id": 20895,
+        "text": "uo",
+        "normalized_loading": 0.015666789190391092
+      },
+      {
+        "id": 25064,
+        "text": " sys",
+        "normalized_loading": 0.015568336391412621
+      },
+      {
+        "id": 9333,
+        "text": "‐",
+        "normalized_loading": 0.015516855695824403
+      }
+    ],
+    "negative": [
+      {
+        "id": 366,
+        "text": " \"",
+        "normalized_loading": -0.10017100253773402
+      },
+      {
+        "id": 705,
+        "text": " '",
+        "normalized_loading": -0.08733143094104581
+      },
+      {
+        "id": 564,
+        "text": " �",
+        "normalized_loading": -0.07185249358624
+      },
+      {
+        "id": 338,
+        "text": "'s",
+        "normalized_loading": -0.06849717110893964
+      },
+      {
+        "id": 10148,
+        "text": " ''",
+        "normalized_loading": -0.062060740140023024
+      },
+      {
+        "id": 9962,
+        "text": "…\"",
+        "normalized_loading": -0.0614270007066922
+      },
+      {
+        "id": 6,
+        "text": "'",
+        "normalized_loading": -0.060857137151896036
+      },
+      {
+        "id": 1,
+        "text": "\"",
+        "normalized_loading": -0.05990334713257583
+      },
+      {
+        "id": 470,
+        "text": "'t",
+        "normalized_loading": -0.05947196554675532
+      },
+      {
+        "id": 821,
+        "text": "'re",
+        "normalized_loading": -0.05855242762245363
+      },
+      {
+        "id": 1549,
+        "text": "'d",
+        "normalized_loading": -0.05788384144399416
+      },
+      {
+        "id": 27896,
+        "text": " \"...",
+        "normalized_loading": -0.05709085488872971
+      }
+    ]
+  },
+  "artifact": "STABLE_SQUARE150_NATIVE_INTERFACE_V1.pt",
+  "artifact_sha256": "6c85d0c69efd6e6819a622d2910f6083cf3f3253e638b2382b0da8af50be11a7",
+  "parameter_numbers": 2304,
+  "scope": "Exact native coefficient projection onto a frozen previously discovered squared reader. Remainder is required; direct token writes precede final normalization/tanh and do not prove a semantic or selective behavioral effect. No corpus used."
+}
