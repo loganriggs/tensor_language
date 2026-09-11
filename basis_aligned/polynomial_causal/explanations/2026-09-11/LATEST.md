@@ -100,3 +100,7 @@ Removing the fixed component attenuates grammatical contrasts by 13–21%, with 
 ### 21:15 — Broader inflection controls limit selectivity
 
 Frozen component removal fails CE preservation on past/progressive controls, although their grammatical contrasts change only 3–4%. Exact native span removal also spills over; executed CPU accounting finds final normalization contributes little. Preserve the limited earlier removal success and the new broader miss. [Primary evidence](../../BRANCH_TOKEN_RELATIONS_V1_MATH.md#neighboring-inflections-expose-the-limit-of-selective-removal).
+
+### 21:23 — Output split distinguishes grammatical choice from lexical probability
+
+A fixed weight-derived branch largely preserves neighboring binary inflection choices but still changes their probability relative to other words. Intended-effect retention and full CE-preservation bars fail; executed probability accounting explains the difference. Known-panel development only. [Primary explanation](../../NATIVE_RELATION_OUTPUT_SPLIT_V1_MATH.md).

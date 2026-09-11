@@ -1,0 +1,671 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "max_identity_error": 6.439293542825908e-15,
+  "max_gpu_replay_nats": 5.830031707620975e-06,
+  "cells": [
+    {
+      "family": "past",
+      "full_meanabs": 0.06566820016061276,
+      "binary_meanabs": 0.00118151397306241,
+      "pair_mass_meanabs": 0.06529246618337059,
+      "pair_mass_relative_rms": 0.995159535360867,
+      "binary_relative_rms": 0.02214531522980821,
+      "pair_mass_and_binary_cosine": 0.20798243049148998
+    },
+    {
+      "family": "progressive",
+      "full_meanabs": 0.051043647411977276,
+      "binary_meanabs": 0.003085572680605353,
+      "pair_mass_meanabs": 0.04910935252567672,
+      "pair_mass_relative_rms": 0.9897331073142963,
+      "binary_relative_rms": 0.1633568797041776,
+      "pair_mass_and_binary_cosine": -0.019350275236962686
+    }
+  ],
+  "records": [
+    {
+      "family": "past",
+      "verb": "walk",
+      "side": "base",
+      "ce_change": 0.13738384757937583,
+      "binary_ce_change": 0.0021542866660765134,
+      "pair_mass_cost_change": 0.13522956091329696,
+      "native_binary_ce": 0.011997385882560531,
+      "native_pair_probability": 0.1266229935581255
+    },
+    {
+      "family": "past",
+      "verb": "walk",
+      "side": "donor",
+      "ce_change": 0.024882603684818427,
+      "binary_ce_change": -0.0006508061078030567,
+      "pair_mass_cost_change": 0.025533409792622308,
+      "native_binary_ce": 0.008633785822265053,
+      "native_pair_probability": 0.13474482669240592
+    },
+    {
+      "family": "past",
+      "verb": "work",
+      "side": "base",
+      "ce_change": 0.16165093849405388,
+      "binary_ce_change": -0.0006257677059009342,
+      "pair_mass_cost_change": 0.1622767061999557,
+      "native_binary_ce": 0.01379385061400211,
+      "native_pair_probability": 0.13159654830840464
+    },
+    {
+      "family": "past",
+      "verb": "work",
+      "side": "donor",
+      "ce_change": 0.11084619163716969,
+      "binary_ce_change": 0.001002884024726567,
+      "pair_mass_cost_change": 0.10984330761244365,
+      "native_binary_ce": 0.02712890975059637,
+      "native_pair_probability": 0.07731615529309954
+    },
+    {
+      "family": "past",
+      "verb": "play",
+      "side": "base",
+      "ce_change": 0.07458383820382242,
+      "binary_ce_change": -0.000971171466270503,
+      "pair_mass_cost_change": 0.07555500967009188,
+      "native_binary_ce": 0.01268301827783874,
+      "native_pair_probability": 0.07733282339169971
+    },
+    {
+      "family": "past",
+      "verb": "play",
+      "side": "donor",
+      "ce_change": 0.05340904794493628,
+      "binary_ce_change": 0.0007155529016859181,
+      "pair_mass_cost_change": 0.052693495043245164,
+      "native_binary_ce": 0.015500078764690693,
+      "native_pair_probability": 0.20899358782635044
+    },
+    {
+      "family": "past",
+      "verb": "talk",
+      "side": "base",
+      "ce_change": 0.07046009984238033,
+      "binary_ce_change": -0.0010240693814969736,
+      "pair_mass_cost_change": 0.0714841692238739,
+      "native_binary_ce": 0.007893602219742647,
+      "native_pair_probability": 0.03977721368496675
+    },
+    {
+      "family": "past",
+      "verb": "talk",
+      "side": "donor",
+      "ce_change": 0.09078581540837138,
+      "binary_ce_change": 0.0015514232289431142,
+      "pair_mass_cost_change": 0.08923439217942786,
+      "native_binary_ce": 0.018557683803309345,
+      "native_pair_probability": 0.07192603185459517
+    },
+    {
+      "family": "past",
+      "verb": "laugh",
+      "side": "base",
+      "ce_change": 0.024249964508082478,
+      "binary_ce_change": 0.0007391867554173964,
+      "pair_mass_cost_change": 0.02351077775266397,
+      "native_binary_ce": 0.0071900334235928485,
+      "native_pair_probability": 0.028139632016675624
+    },
+    {
+      "family": "past",
+      "verb": "laugh",
+      "side": "donor",
+      "ce_change": 0.001689726144507464,
+      "binary_ce_change": 0.00023071256653523636,
+      "pair_mass_cost_change": 0.001459013577971291,
+      "native_binary_ce": 0.02560037304197223,
+      "native_pair_probability": 0.0374240004016278
+    },
+    {
+      "family": "past",
+      "verb": "wait",
+      "side": "base",
+      "ce_change": -0.09660672073537468,
+      "binary_ce_change": 8.121993195557304e-05,
+      "pair_mass_cost_change": -0.09668794066733177,
+      "native_binary_ce": 0.003594982543919218,
+      "native_pair_probability": 0.16870295038565386
+    },
+    {
+      "family": "past",
+      "verb": "wait",
+      "side": "donor",
+      "ce_change": -0.010778525788750493,
+      "binary_ce_change": 7.693984007367538e-05,
+      "pair_mass_cost_change": -0.010855465628825556,
+      "native_binary_ce": 0.017429676204962788,
+      "native_pair_probability": 0.08496020398492736
+    },
+    {
+      "family": "past",
+      "verb": "jump",
+      "side": "base",
+      "ce_change": 0.06177050303511411,
+      "binary_ce_change": 0.000650593049277933,
+      "pair_mass_cost_change": 0.06111990998583572,
+      "native_binary_ce": 0.0059312246283358865,
+      "native_pair_probability": 0.09384015406869009
+    },
+    {
+      "family": "past",
+      "verb": "jump",
+      "side": "donor",
+      "ce_change": -0.018286871969456886,
+      "binary_ce_change": -0.0015170108631552132,
+      "pair_mass_cost_change": -0.016769861106304518,
+      "native_binary_ce": 0.02211321775761975,
+      "native_pair_probability": 0.18059474952037752
+    },
+    {
+      "family": "past",
+      "verb": "cook",
+      "side": "base",
+      "ce_change": 0.04848793606668478,
+      "binary_ce_change": 0.00011465340266943354,
+      "pair_mass_cost_change": 0.04837328266401997,
+      "native_binary_ce": 0.007421309440585914,
+      "native_pair_probability": 0.10414860053750581
+    },
+    {
+      "family": "past",
+      "verb": "cook",
+      "side": "donor",
+      "ce_change": 0.04607791842962383,
+      "binary_ce_change": 9.769603894229251e-05,
+      "pair_mass_cost_change": 0.045980222390685555,
+      "native_binary_ce": 0.004983635491986897,
+      "native_pair_probability": 0.1001484090641085
+    },
+    {
+      "family": "past",
+      "verb": "help",
+      "side": "base",
+      "ce_change": -0.11004145732817694,
+      "binary_ce_change": -0.0025211247290758375,
+      "pair_mass_cost_change": -0.10752033259910121,
+      "native_binary_ce": 0.024910094386615886,
+      "native_pair_probability": 0.051819023701403115
+    },
+    {
+      "family": "past",
+      "verb": "help",
+      "side": "donor",
+      "ce_change": -0.024089858521302965,
+      "binary_ce_change": 0.0020883719310263865,
+      "pair_mass_cost_change": -0.02617823045233081,
+      "native_binary_ce": 0.02488532996670052,
+      "native_pair_probability": 0.0869208040807767
+    },
+    {
+      "family": "past",
+      "verb": "clean",
+      "side": "base",
+      "ce_change": 0.026846253832591316,
+      "binary_ce_change": 0.00035037498322165045,
+      "pair_mass_cost_change": 0.02649587884937432,
+      "native_binary_ce": 0.011234793433682324,
+      "native_pair_probability": 0.12511155825795484
+    },
+    {
+      "family": "past",
+      "verb": "clean",
+      "side": "donor",
+      "ce_change": 0.031846788204216825,
+      "binary_ce_change": 0.00016814747730871035,
+      "pair_mass_cost_change": 0.031678640726910956,
+      "native_binary_ce": 0.014659871356946002,
+      "native_pair_probability": 0.10844449195721668
+    },
+    {
+      "family": "past",
+      "verb": "paint",
+      "side": "base",
+      "ce_change": -0.14725025975412542,
+      "binary_ce_change": -0.0014938647453449213,
+      "pair_mass_cost_change": -0.14575639500877635,
+      "native_binary_ce": 0.009091530805931548,
+      "native_pair_probability": 0.1669718184756051
+    },
+    {
+      "family": "past",
+      "verb": "paint",
+      "side": "donor",
+      "ce_change": -0.016839651523208987,
+      "binary_ce_change": 0.0007549103777597568,
+      "pair_mass_cost_change": -0.017594561900974526,
+      "native_binary_ce": 0.008937120761381433,
+      "native_pair_probability": 0.286837390407906
+    },
+    {
+      "family": "past",
+      "verb": "watch",
+      "side": "base",
+      "ce_change": 0.15124614756662202,
+      "binary_ce_change": -0.00011528562274405567,
+      "pair_mass_cost_change": 0.15136143318936668,
+      "native_binary_ce": 0.008585884330202269,
+      "native_pair_probability": 0.034462051414234245
+    },
+    {
+      "family": "past",
+      "verb": "watch",
+      "side": "donor",
+      "ce_change": 0.08127319904027619,
+      "binary_ce_change": -8.644291515035561e-05,
+      "pair_mass_cost_change": 0.081359641955423,
+      "native_binary_ce": 0.012087775956509393,
+      "native_pair_probability": 0.1221065853712369
+    },
+    {
+      "family": "past",
+      "verb": "open",
+      "side": "base",
+      "ce_change": 0.10630594955739237,
+      "binary_ce_change": 0.0016684614706467382,
+      "pair_mass_cost_change": 0.10463748808674822,
+      "native_binary_ce": 0.008153966634650747,
+      "native_pair_probability": 0.25347182205395224
+    },
+    {
+      "family": "past",
+      "verb": "open",
+      "side": "donor",
+      "ce_change": -0.0248030630144771,
+      "binary_ce_change": -0.006621555506755909,
+      "pair_mass_cost_change": -0.018181507507717853,
+      "native_binary_ce": 0.06311855623785374,
+      "native_pair_probability": 0.16936029207662084
+    },
+    {
+      "family": "past",
+      "verb": "close",
+      "side": "base",
+      "ce_change": 0.25424459575411884,
+      "binary_ce_change": 0.0015657208645768802,
+      "pair_mass_cost_change": 0.2526788748895399,
+      "native_binary_ce": 0.008030905797300241,
+      "native_pair_probability": 0.0705229742237303
+    },
+    {
+      "family": "past",
+      "verb": "close",
+      "side": "donor",
+      "ce_change": 0.05630171676936868,
+      "binary_ce_change": -0.006389197911928782,
+      "pair_mass_cost_change": 0.06269091468129773,
+      "native_binary_ce": 0.06002490777551903,
+      "native_pair_probability": 0.04620796081379627
+    },
+    {
+      "family": "past",
+      "verb": "listen",
+      "side": "base",
+      "ce_change": 0.013157372652548016,
+      "binary_ce_change": 0.0010801460005814495,
+      "pair_mass_cost_change": 0.0120772266519662,
+      "native_binary_ce": 0.0076840632858348355,
+      "native_pair_probability": 0.06185557894343323
+    },
+    {
+      "family": "past",
+      "verb": "listen",
+      "side": "donor",
+      "ce_change": -0.015176696642959842,
+      "binary_ce_change": -0.0005165225869066224,
+      "pair_mass_cost_change": -0.014660174056050579,
+      "native_binary_ce": 0.01897490805298922,
+      "native_pair_probability": 0.1644368248081398
+    },
+    {
+      "family": "past",
+      "verb": "learn",
+      "side": "base",
+      "ce_change": -0.004448174412062578,
+      "binary_ce_change": 2.829674100944795e-05,
+      "pair_mass_cost_change": -0.004476471153074257,
+      "native_binary_ce": 0.0022710718961992857,
+      "native_pair_probability": 0.16721591128707047
+    },
+    {
+      "family": "past",
+      "verb": "learn",
+      "side": "donor",
+      "ce_change": -0.005560671093637337,
+      "binary_ce_change": -0.00015604934302928218,
+      "pair_mass_cost_change": -0.0054046217506105165,
+      "native_binary_ce": 0.013360874234590182,
+      "native_pair_probability": 0.14165829483734488
+    },
+    {
+      "family": "progressive",
+      "verb": "walk",
+      "side": "base",
+      "ce_change": 0.10061851924644838,
+      "binary_ce_change": 6.703433877414556e-05,
+      "pair_mass_cost_change": 0.10055148490767785,
+      "native_binary_ce": 0.000872675475130497,
+      "native_pair_probability": 0.06387951235400496
+    },
+    {
+      "family": "progressive",
+      "verb": "walk",
+      "side": "donor",
+      "ce_change": 0.04880316407308927,
+      "binary_ce_change": -0.0001515847173736741,
+      "pair_mass_cost_change": 0.048954748790459135,
+      "native_binary_ce": 0.006526789482115383,
+      "native_pair_probability": 0.028769647754985764
+    },
+    {
+      "family": "progressive",
+      "verb": "work",
+      "side": "base",
+      "ce_change": 0.06990261195186398,
+      "binary_ce_change": -0.00016567613568054624,
+      "pair_mass_cost_change": 0.07006828808754939,
+      "native_binary_ce": 0.000696146859039218,
+      "native_pair_probability": 0.21253330309633706
+    },
+    {
+      "family": "progressive",
+      "verb": "work",
+      "side": "donor",
+      "ce_change": 0.02875637203155157,
+      "binary_ce_change": 8.949754855253848e-05,
+      "pair_mass_cost_change": 0.028666874482999205,
+      "native_binary_ce": 0.006788377670457509,
+      "native_pair_probability": 0.16683026293940562
+    },
+    {
+      "family": "progressive",
+      "verb": "play",
+      "side": "base",
+      "ce_change": 0.007386442489800471,
+      "binary_ce_change": -7.56759294776088e-05,
+      "pair_mass_cost_change": 0.007462118419280017,
+      "native_binary_ce": 0.0006321502205762135,
+      "native_pair_probability": 0.15411659702007027
+    },
+    {
+      "family": "progressive",
+      "verb": "play",
+      "side": "donor",
+      "ce_change": -0.00394816674747811,
+      "binary_ce_change": -8.556425056998121e-05,
+      "pair_mass_cost_change": -0.003862602496909062,
+      "native_binary_ce": 0.005253579278704128,
+      "native_pair_probability": 0.15814490937650102
+    },
+    {
+      "family": "progressive",
+      "verb": "talk",
+      "side": "base",
+      "ce_change": 0.014162670901026075,
+      "binary_ce_change": -0.00015042760016244217,
+      "pair_mass_cost_change": 0.014313098501189003,
+      "native_binary_ce": 0.0011879603883608314,
+      "native_pair_probability": 0.09331929546450009
+    },
+    {
+      "family": "progressive",
+      "verb": "talk",
+      "side": "donor",
+      "ce_change": 0.050938789146541374,
+      "binary_ce_change": 0.0002600815555549906,
+      "pair_mass_cost_change": 0.05067870759098447,
+      "native_binary_ce": 0.006509852345407699,
+      "native_pair_probability": 0.01638158308173529
+    },
+    {
+      "family": "progressive",
+      "verb": "laugh",
+      "side": "base",
+      "ce_change": -0.018593101959186065,
+      "binary_ce_change": 0.00014109035771996928,
+      "pair_mass_cost_change": -0.01873419231691109,
+      "native_binary_ce": 0.0014106809648317654,
+      "native_pair_probability": 0.05917202237592444
+    },
+    {
+      "family": "progressive",
+      "verb": "laugh",
+      "side": "donor",
+      "ce_change": -0.018546354645143204,
+      "binary_ce_change": 8.302667786941982e-05,
+      "pair_mass_cost_change": -0.018629381323014726,
+      "native_binary_ce": 0.0034801729888325576,
+      "native_pair_probability": 0.009948790907560104
+    },
+    {
+      "family": "progressive",
+      "verb": "wait",
+      "side": "base",
+      "ce_change": -0.1310786117858722,
+      "binary_ce_change": -7.846198757969754e-05,
+      "pair_mass_cost_change": -0.13100014979829133,
+      "native_binary_ce": 0.0007574011208301393,
+      "native_pair_probability": 0.08585208387304696
+    },
+    {
+      "family": "progressive",
+      "verb": "wait",
+      "side": "donor",
+      "ce_change": 0.01975788986374516,
+      "binary_ce_change": -9.187270229308458e-06,
+      "pair_mass_cost_change": 0.019767077133968414,
+      "native_binary_ce": 0.004227651687340354,
+      "native_pair_probability": 0.0657385898375248
+    },
+    {
+      "family": "progressive",
+      "verb": "jump",
+      "side": "base",
+      "ce_change": 0.014531107561441159,
+      "binary_ce_change": 9.000385488167105e-06,
+      "pair_mass_cost_change": 0.014522107175952925,
+      "native_binary_ce": 0.0014449257947473637,
+      "native_pair_probability": 0.17333283872043997
+    },
+    {
+      "family": "progressive",
+      "verb": "jump",
+      "side": "donor",
+      "ce_change": 0.052172962726287686,
+      "binary_ce_change": 0.000544668847859045,
+      "pair_mass_cost_change": 0.051628293878424714,
+      "native_binary_ce": 0.038719494434968076,
+      "native_pair_probability": 0.012412526606997662
+    },
+    {
+      "family": "progressive",
+      "verb": "cook",
+      "side": "base",
+      "ce_change": -0.005951098283265566,
+      "binary_ce_change": 1.731883125096075e-05,
+      "pair_mass_cost_change": -0.005968417114514679,
+      "native_binary_ce": 0.0011466283102127006,
+      "native_pair_probability": 0.1174179739446411
+    },
+    {
+      "family": "progressive",
+      "verb": "cook",
+      "side": "donor",
+      "ce_change": 0.004089007676503886,
+      "binary_ce_change": -1.9196075899135037e-05,
+      "pair_mass_cost_change": 0.004108203752402062,
+      "native_binary_ce": 0.0057921291241025165,
+      "native_pair_probability": 0.07224178244534243
+    },
+    {
+      "family": "progressive",
+      "verb": "help",
+      "side": "base",
+      "ce_change": -0.1413158302118389,
+      "binary_ce_change": -0.0005800609050172886,
+      "pair_mass_cost_change": -0.14073576930681853,
+      "native_binary_ce": 0.0017709444002625527,
+      "native_pair_probability": 0.05268232977442035
+    },
+    {
+      "family": "progressive",
+      "verb": "help",
+      "side": "donor",
+      "ce_change": 0.022677736457097364,
+      "binary_ce_change": 0.00039219869545154733,
+      "pair_mass_cost_change": 0.022285537761643326,
+      "native_binary_ce": 0.0037783246830301047,
+      "native_pair_probability": 0.02600199489377813
+    },
+    {
+      "family": "progressive",
+      "verb": "clean",
+      "side": "base",
+      "ce_change": -0.014028041091954435,
+      "binary_ce_change": 0.00013051260073579244,
+      "pair_mass_cost_change": -0.014158553692691811,
+      "native_binary_ce": 0.0035975142147916207,
+      "native_pair_probability": 0.07787343252329727
+    },
+    {
+      "family": "progressive",
+      "verb": "clean",
+      "side": "donor",
+      "ce_change": -0.005492709454778755,
+      "binary_ce_change": -0.0039465297619315776,
+      "pair_mass_cost_change": -0.0015461796928466498,
+      "native_binary_ce": 0.22145308988316,
+      "native_pair_probability": 0.05951950350498844
+    },
+    {
+      "family": "progressive",
+      "verb": "paint",
+      "side": "base",
+      "ce_change": -0.14033800110190686,
+      "binary_ce_change": -0.0005517847408756113,
+      "pair_mass_cost_change": -0.13978621636103128,
+      "native_binary_ce": 0.0023483836267389193,
+      "native_pair_probability": 0.21007743272858662
+    },
+    {
+      "family": "progressive",
+      "verb": "paint",
+      "side": "donor",
+      "ce_change": -0.03633778093144535,
+      "binary_ce_change": 0.0006350996545215447,
+      "pair_mass_cost_change": -0.036972880585965484,
+      "native_binary_ce": 0.030259317448830213,
+      "native_pair_probability": 0.09036172011340449
+    },
+    {
+      "family": "progressive",
+      "verb": "watch",
+      "side": "base",
+      "ce_change": 0.08857944785999505,
+      "binary_ce_change": 0.0001549820250265168,
+      "pair_mass_cost_change": 0.08842446583496688,
+      "native_binary_ce": 0.001246355622997869,
+      "native_pair_probability": 0.05221913127736932
+    },
+    {
+      "family": "progressive",
+      "verb": "watch",
+      "side": "donor",
+      "ce_change": -1.833086096425518e-05,
+      "binary_ce_change": -0.0006086184739213917,
+      "pair_mass_cost_change": 0.0005902876129546542,
+      "native_binary_ce": 0.01128333752509455,
+      "native_pair_probability": 0.12324355014757613
+    },
+    {
+      "family": "progressive",
+      "verb": "open",
+      "side": "base",
+      "ce_change": 0.10022779717699004,
+      "binary_ce_change": 6.284751986132433e-05,
+      "pair_mass_cost_change": 0.1001649496571293,
+      "native_binary_ce": 0.0008684522591031411,
+      "native_pair_probability": 0.1117324515711166
+    },
+    {
+      "family": "progressive",
+      "verb": "open",
+      "side": "donor",
+      "ce_change": -0.049360451351923906,
+      "binary_ce_change": -0.06550753339211113,
+      "pair_mass_cost_change": 0.016147082040189886,
+      "native_binary_ce": 2.5270426096372356,
+      "native_pair_probability": 0.08241023418788795
+    },
+    {
+      "family": "progressive",
+      "verb": "close",
+      "side": "base",
+      "ce_change": 0.26380267970365434,
+      "binary_ce_change": 0.00016654676507342047,
+      "pair_mass_cost_change": 0.2636361329385828,
+      "native_binary_ce": 0.0010508026274900406,
+      "native_pair_probability": 0.03032332419898544
+    },
+    {
+      "family": "progressive",
+      "verb": "close",
+      "side": "donor",
+      "ce_change": -0.03371094419446674,
+      "binary_ce_change": -0.023815020391894093,
+      "pair_mass_cost_change": -0.009895923802574202,
+      "native_binary_ce": 0.48860703145350914,
+      "native_pair_probability": 0.010952531630092625
+    },
+    {
+      "family": "progressive",
+      "verb": "listen",
+      "side": "base",
+      "ce_change": -0.02776412284268881,
+      "binary_ce_change": 0.0001042792048159475,
+      "pair_mass_cost_change": -0.027868402047504404,
+      "native_binary_ce": 0.0011859738111129681,
+      "native_pair_probability": 0.05416158891163671
+    },
+    {
+      "family": "progressive",
+      "verb": "listen",
+      "side": "donor",
+      "ce_change": 0.027545687246649297,
+      "binary_ce_change": 7.502348504972588e-05,
+      "pair_mass_cost_change": 0.027470663761596015,
+      "native_binary_ce": 0.0017200413980898808,
+      "native_pair_probability": 0.15025069963847326
+    },
+    {
+      "family": "progressive",
+      "verb": "learn",
+      "side": "base",
+      "ce_change": -0.07614986670482926,
+      "binary_ce_change": -5.707807706831951e-05,
+      "pair_mass_cost_change": -0.07609278862775959,
+      "native_binary_ce": 0.0012018979992806896,
+      "native_pair_probability": 0.06925692074771876
+    },
+    {
+      "family": "progressive",
+      "verb": "learn",
+      "side": "donor",
+      "ce_change": -0.016810418902845292,
+      "binary_ce_change": -2.7175759744283703e-06,
+      "pair_mass_cost_change": -0.01680770132687215,
+      "native_binary_ce": 0.0004934249662608281,
+      "native_pair_probability": 0.09350663279890153
+    }
+  ],
+  "source_result_sha256": "f1fb5977a8bc640c3c06ce783e61cb4d68d57e673d1ace35442670f50bdab705",
+  "scope": "Exact probability accounting for frozen ambient-private component. Known developmental control panel; no verdict repair or data fitting."
+}
