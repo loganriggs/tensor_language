@@ -1,0 +1,46 @@
+{
+  "predictions": {
+    "pred_a_normal": true,
+    "pred_b_explicit": true,
+    "pred_c_perturbations": true
+  },
+  "arms": [
+    {
+      "duplicate": false,
+      "output_rank": 2,
+      "gram_rank": 8,
+      "normal_residual": 2.0038263422447407e-15,
+      "implicit_explicit_error": 4.298231959561732e-16,
+      "minimum_relative_loss_increase": 0.003178261621454686,
+      "quadratic_identity_error": 2.7087815995154665e-16
+    },
+    {
+      "duplicate": false,
+      "output_rank": 5,
+      "gram_rank": 8,
+      "normal_residual": 2.0038263422447407e-15,
+      "implicit_explicit_error": 0.0,
+      "minimum_relative_loss_increase": 0.006052002313788716,
+      "quadratic_identity_error": 3.443073288464914e-16
+    },
+    {
+      "duplicate": true,
+      "output_rank": 2,
+      "gram_rank": 7,
+      "normal_residual": 2.3205646983805734e-15,
+      "implicit_explicit_error": 0.0,
+      "minimum_relative_loss_increase": 0.0034245006554773165,
+      "quadratic_identity_error": 2.1574191228856916e-16
+    },
+    {
+      "duplicate": true,
+      "output_rank": 5,
+      "gram_rank": 7,
+      "normal_residual": 2.3205646983805734e-15,
+      "implicit_explicit_error": 2.8026351270104224e-16,
+      "minimum_relative_loss_increase": 0.003920005638742391,
+      "quadratic_identity_error": 3.3500248002546455e-16
+    }
+  ],
+  "scope": "Synthetic FP64 conditional output solve; no native fit or data"
+}

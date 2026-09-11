@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 07:44 UTC. Use this index before opening a structural family
+Updated 11 September 07:54 UTC. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -100,3 +100,5 @@ usecurrentdictionaryGramrank as an arithmetic-complexity lower bound.
 Structuredcontinuationseed0completed3.5097%,unconverged; seed937live.
 
 Oblique full-rank reader extension: [registered comparison](OBLIQUE_READER_DICTIONARY_V1_PREREGISTRATION.md), [planted controls](TYLER_OBLIQUE_READER_V1_CONTROL.json), [native training geometry](NATIVE_READER_SHAPE_V1_AUDIT.json), [conditional sparse coding](OBLIQUE_SPARSE_READER_V1_CONTROL.json). Native four-arm runner is queued after the orthogonal dictionary job, using cached training-only shapes and exact fixed-support encoding. Tyler advantage over the simpler covariance baseline missed its toy bar; both preprocessors remain in the planned comparison. Existing orthogonal job unchanged.
+
+Current07:54: structured continuation completed3.5097/3.3098%capture, both unconverged. Full-reader MSP is live; oblique comparison remains queued. [07:51math review](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md) explains the assumptions and existing conditional writer solve. [Output-metric control](CONDITIONAL_WRITER_METRIC_V1_CONTROL.json) passes; native dictionary writer refitting is pending, not a completed improvement.

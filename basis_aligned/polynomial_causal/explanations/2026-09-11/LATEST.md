@@ -1,13 +1,9 @@
 # Latest research update
 
-**11 September, 07:20 UTC:** [Native product metrics, their limits, and first continuation result](explanation_2026-09-11_0608.md#reader-metric0720).
+**11 September, 07:54 UTC:** [Methods, assumptions, bottlenecks and completed structured continuation](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md).
 
-Native product energy is broad, and complete product functions have little pairwise redundancy. A verified counterexample shows why that does not rule out shared input features or a better factorization.
+The longer structured fits reached3.5097%and3.3098%coefficient capture; both remain unconverged. A full-rank sparse reader dictionary is now fitting from weights alone. Its oblique counterpart is queued. The math review explains how to separate reader error from fixed-output-weight error using our existing exact conditional solver; a CPU control passed, native application is pending.
 
-First structured continuation finished at3.5097%coefficient capture and remains unconverged. The second start is live. The full-rank shared-reader dictionary fit remains queued; no dictionary-native result yet.
+[Detailed experiment narrative through07:20](explanation_2026-09-11_0608.md#reader-metric0720) · [Current method index](../../WEIGHT_ONLY_METHODS_INDEX.md) · [Hourly07:22review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_0722.md).
 
-[Method index](../../WEIGHT_ONLY_METHODS_INDEX.md) · [Reader-dictionary protocol](../../FULL_READER_DICTIONARY_MSP_V1_PREREGISTRATION.md) · [Executable program](explanation_2026-09-11_0608.md#reader-program0713).
-
-Weights first; no text or activation fitting. Inspect current runner and per-seed receipts before any resubmission.
-
-[Hourly07:22review and next decisions](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_0722.md).
+Weights first. FineWeb validation follows frozen discovery; Pile is separately labelled OOD. Inspect runner and receipts before resubmitting jobs.

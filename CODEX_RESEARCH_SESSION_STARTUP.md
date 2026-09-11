@@ -82,7 +82,7 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 07:44 UTC
+## Current handoff — 11 September 07:54 UTC
 
 Use [LATEST](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
 [method/receipt index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md)
@@ -90,15 +90,15 @@ and [hourly07:22 review](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW
 Current receipts/processes override this snapshot. Do not repeat completed
 families or infer convergence from an elapsed budget.
 
-- **Live:** `run_structured_bilinear_continue_v1.py`, sourceSHA
+- **Completed, unconverged:** `run_structured_bilinear_continue_v1.py`, sourceSHA
   `18bb149033110806564a10b0e7e6939387bd71b41158609b5dd99213ddb03a20`.
-  First start finished3.5097%capture, unconverged; second start live. Check
+  Starts finished3.5097/3.3098%capture, both unconverged. Check
   `STRUCTURED_BILINEAR_CONTINUE_V1_RESULT.json` and per-seed receipts.
-- **Queued:** `run_full_reader_dictionary_msp_v1.py`, sourceSHA
+- **Live:** `run_full_reader_dictionary_msp_v1.py`, sourceSHA
   `47855b088b7437906d27c0036bf52a2e51f6056630a97d329bfbf693bfaf8bdb`.
   Full1152input basis; nativeL/Rweights only; paired3072/1536product holdout;
   two900second fits; exactfull-Uscore. No native result yet. Protect its turn
-  after the live job. No automatic third identical structured continuation.
+  in the managed lane. No automatic third identical structured continuation.
 - **Queued after orthogonal dictionary:** `run_oblique_reader_dictionary_v1.py`,
   sourceSHA `2eecedbb95ccb50591a2e8a60c53074beee5e0f8cd53eb6dfed26da57672469a`.
   Ordinary/Tyler shape x two starts,900seconds each; cached training shapes,
@@ -140,8 +140,8 @@ Latest hourly review:
 [07:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0722.md).
 Next hourly review is due **08:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
-[04:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0449.md).
-Next mathematical review is due **07:49 UTC on11September**. Derive later deadlines from the
+[07:51](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0751.md).
+Next mathematical review is due **10:51 UTC on11September**. Derive later deadlines from the
 newest authoritative review files, not this snapshot. Do not duplicate reviews.
 
 Hourly reviews restate seven circuit targets: explicit computation;
