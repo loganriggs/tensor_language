@@ -1,0 +1,7 @@
+{
+  "status": "execution_failed",
+  "error": "TypeError: dict() got multiple values for keyword argument 'gain'",
+  "cause": "Normalized total gain and raw swap gain used the same dictionary keyword.",
+  "native_verdict": null,
+  "repair": "sequential_support_exchange_v2_audit.py separates total_gain from raw report gain; same snapshot/schedule/predictions."
+}

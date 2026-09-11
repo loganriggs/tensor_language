@@ -13,3 +13,5 @@ The coupled L1 optimizer completed without convergence and added less than0.1per
 [10:22 hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-11_1022.md) · [Method index](../../WEIGHT_ONLY_METHODS_INDEX.md).
 
 [10:51 mathematical review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_1051.md): when feature changes are real versus compensable coordinate changes; assumptions behind identifiability guarantees.
+
+**11:18 continuation:** a small native connection-swap probe passes, but its32joint swaps add only0.001025percentage point. A [full connection sweep against a same-capacity refit control](../../FULL_SUPPORT_EXCHANGE_V1_PREREGISTRATION.md) is queued after the live continuous fit. This tests its fixed-connection restriction; no new text fitting.

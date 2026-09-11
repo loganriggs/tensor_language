@@ -1,0 +1,61 @@
+{
+  "predictions": {
+    "pred_a_dense_exhaustive": true,
+    "pred_b_nonincrease": true,
+    "pred_c_planted": true,
+    "pred_d_settled": true
+  },
+  "random_controls": [
+    {
+      "seed": 813,
+      "quadratic_error": 8.881784197001252e-15,
+      "exhaustive_best_error": 0.0,
+      "gain_error": 8.881784197001252e-15,
+      "before": 646.0657854695621,
+      "after": 644.8187398186267,
+      "gain": 1.2470456509354246,
+      "replay_gain": 1.2470456509354246,
+      "changed": true,
+      "dropped": 0,
+      "added": 3
+    },
+    {
+      "seed": 814,
+      "quadratic_error": 5.684341886080802e-14,
+      "exhaustive_best_error": 0.0,
+      "gain_error": 5.684341886080802e-14,
+      "before": 1686.1570516753895,
+      "after": 1476.2441476150552,
+      "gain": 209.91290406033437,
+      "replay_gain": 209.9129040603343,
+      "changed": true,
+      "dropped": 0,
+      "added": 6
+    },
+    {
+      "seed": 815,
+      "quadratic_error": 3.552713678800501e-15,
+      "exhaustive_best_error": 0.0,
+      "gain_error": 1.7763568394002505e-14,
+      "before": 1071.497928223338,
+      "after": 1060.6358088846373,
+      "gain": 10.86211933870074,
+      "replay_gain": 10.862119338700744,
+      "changed": true,
+      "dropped": 2,
+      "added": 7
+    }
+  ],
+  "planted": {
+    "support": [
+      2
+    ],
+    "error": 6.162975822039155e-33,
+    "gain": 0.5,
+    "replay_gain": 0.49999999999999994,
+    "changed": true,
+    "dropped": 0,
+    "added": 2
+  },
+  "scope": "One-reader fixed-writer full-tensor control, not native or joint/global recovery."
+}
