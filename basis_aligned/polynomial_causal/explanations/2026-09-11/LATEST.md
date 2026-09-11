@@ -96,3 +96,7 @@ The same frozen 48-square program passes transfer, effect-fidelity and swap-cont
 ### 21:03 — Limited removal passes; composition is accounted for
 
 Removing the fixed component attenuates grammatical contrasts by 13–21%, with small effects on the reused unrelated controls. An exact leading/remainder split composes in state space; its strict task-specificity and CE-additivity criteria fail. Executed CE accounting attributes most nonadditivity to loss curvature, with small extra tail corrections. Ordinary replacement and broader selectivity remain open. [Primary results and caveats](../../BRANCH_TOKEN_RELATIONS_V1_MATH.md).
+
+### 21:15 — Broader inflection controls limit selectivity
+
+Frozen component removal fails CE preservation on past/progressive controls, although their grammatical contrasts change only 3–4%. Exact native span removal also spills over; executed CPU accounting finds final normalization contributes little. Preserve the limited earlier removal success and the new broader miss. [Primary evidence](../../BRANCH_TOKEN_RELATIONS_V1_MATH.md#neighboring-inflections-expose-the-limit-of-selective-removal).

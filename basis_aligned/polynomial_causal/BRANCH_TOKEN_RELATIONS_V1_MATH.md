@@ -226,3 +226,42 @@ $$
 The split identity holds within $2.23\times10^{-16}$ and GPU CE cross-terms replay within $1.09\times10^{-5}$ nats. The tail correction has mean absolute magnitude **0.00127–0.00602 nats** across task/panel cells and only **3.9–7.1%** of the measured cross-term's RMS. The separately registered accounting A/B/C bars pass. Most of the failure of scalar CE addition is therefore accounted for by the loss function's curvature. No loss correction or empirical offset was fitted, and the original D failure remains. [Accounting and receipt](NATIVE_RELATION_CE_CURVATURE_V1.json).
 
 The supported object is now a fixed, executable weight-derived component with tested cross-construction change prediction, a limited selective-removal result, and explicit joint execution of its parts. It is **not** an adopted replacement, the full text-to-answer circuit, a broadly OOD-validated model, or a completed four-property decomposition. The next priority is stronger neighboring-behavior collateral tests rather than further rank reduction or relabeling the failed specificity criterion.
+
+## Neighboring inflections expose the limit of selective removal
+
+The broader control screen completed at **21:12:40 UTC**. The same frozen component was removed on 32 pairs spanning 16 verbs, with plural subjects throughout. One family contrasts `Every day they walk` with `Yesterday they walked`; the other contrasts `They often walk` with `They are currently walking`. Each prompt first introduces its verb in an infinitive. These choices test nearby inflections without requiring singular-subject `-s` agreement. The two families share their 16 lexemes; they are not 32 independent lexical tests. No examples or factors were selected by model outcomes. [Frozen rows](NATIVE_RELATION_NEIGHBOR_V1_ROWS.json).
+
+The model prefers the specified answer over its foil on all past-family endpoints and all base-form progressive endpoints; it succeeds on 15 of 16 progressive-inflected endpoints. Every family/side exceeds the registered 85% capability bar. Hooked native and removal execution agrees with manual tail execution within $7.47\times10^{-7}$ relative logit error. Instrument and capability pass, so this is a valid control test. [Physical result](NATIVE_RELATION_NEIGHBOR_V1_RESULT.json).
+
+| Removal measurement | Past versus base | Progressive versus base |
+|---|---:|---:|
+| Whole-component mean absolute target CE change | 0.07078 nats | 0.05948 nats |
+| Leading-part removal, same metric | 0.07832 | 0.06368 |
+| Remainder removal, same metric | 0.02155 | 0.02402 |
+| Whole-component attenuation of grammatical contrast | 4.17% | 3.21% |
+| Exact native readout-span removal, mean absolute CE change | 0.06105 | 0.05258 |
+
+The preservation bar was 0.05 nats and at most 5% absolute contrast attenuation, separately for each family. The contrast criterion holds, but whole-component CE preservation fails on both families. The separate requirement that both partial removals preserve CE also fails because the leading part exceeds the allowance. **A/B pass; C/D fail.** Averaged signed CE changes are much smaller because improvements and damage cancel; they cannot replace the absolute-preservation criterion.
+
+Compared with the previously measured 13–21% attenuation of the intended agreement/count contrasts, 3–4% on these neighboring contrasts suggests relative selectivity on the tested panels. It does not establish clean isolation, a universal selectivity ratio, or preservation of all other behavior. Removal of the *exact native* three-readout component also exceeds 0.05 nats on both families: approximation error alone cannot explain the spillover. That exact-span arm is a descriptive control, not a separately registered success.
+
+### Red-team: is this mainly final normalization?
+
+The CPU successor recomputes both full-vocabulary tails from the cached native state $h$ and the removed write $w$. The actual and fixed-denominator logits are
+
+$$
+z_{\mathrm{actual}}=30\tanh\!\left(\frac{U(h-w)}{30\rho(h-w)}\right),
+\qquad
+z_{\mathrm{fixed}}=30\tanh\!\left(\frac{U(h-w)}{30\rho(h)}\right),
+$$
+
+$$
+\rho(h)=\sqrt{\frac{1}{1152}\lVert h\rVert^2+\epsilon},
+\qquad \epsilon=1.1920928955078125\times10^{-7}.
+$$
+
+Holding the denominator fixed isolates the write's effect through the unembedding and logit cap. The difference between these two outcomes measures the additional effect of changing the normalization denominator. This is diagnostic accounting, not a substitute model or a repair to the failed preservation criterion.
+
+Actual CE and margin replay agrees with the GPU within $9.54\times10^{-6}$ nats. The independent identity $\Delta\mathrm{CE}=\Delta\log\sum_v e^{z_v}-\Delta z_{\mathrm{answer}}$ holds within $6.22\times10^{-15}$. For whole-component removal, the denominator correction averages **0.00388 / 0.00364 nats** in absolute magnitude for past/progressive, respectively; it is only **4.52% / 6.29%** of actual CE-effect RMS. Exact-span removal has similarly small corrections. The separately registered accounting A/B/C all pass. [CPU result](NATIVE_RELATION_NEIGHBOR_NORM_V1.json).
+
+Thus direct output writing dominates this spillover. The failed preservation claim remains failed. The useful next structural question is whether the weight-derived output functions contain a shared inflection computation plus separable branches, rather than assuming that the original `s/es/ies` readout grouping already identifies an isolated number circuit. Any new grouping must be frozen before fresh behavioral validation; this control panel is evidence about the current program, not training data for a replacement.
