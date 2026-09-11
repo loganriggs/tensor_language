@@ -13,7 +13,12 @@ WHAT IT CHECKS, all without loading the model:
      `lexical_number` but whose module is `lexical_number_pp`, a mismatch that would have errored that cell on GPU;
   3. every cell builds all four families at the expected row count;
   4. no module-level CONSTANT is assigned twice, which is how a stale value from the predecessor shadows a new one;
-  5. the predicate names returned by PREDS match the names registered in the docstring.
+  5. the predicate names returned by PREDS match the names registered in the docstring;
+  6. no cell's READOUT vocabulary lands in the lane this agent is told to avoid (is/was/has/had/will/were/been).
+     Added 2026-09-11 after seven of 89 lifted cells turned out to answer with those tokens: my batch selection
+     filtered on TASK_ID, and none of those seven has "temporal" or "tense" in its name -- coordination_agreement
+     answers " were"/" was", gerund_subject_agreement " is"/" are", and so on. Filtering names does not filter
+     behaviour; this checks the vocabulary itself.
 
 WHAT IT DOES NOT CHECK, and why it is not a smoke replacement: it never runs the fit, so it cannot catch a
 mis-specified bar, an unfalsifiable predicate, or a panel that prepares empty. Those need the smoke or a synthetic
@@ -69,6 +74,11 @@ def check(path, expect_rows=32, families=("A1", "A2", "P", "C")):
         if bad:
             problems.append(f"{behaviour}: unexpected row counts {bad}")
 
+    avoided = _avoided_readouts(names)
+    if avoided:
+        problems.append("readout in the avoided lane (is/was/has/had/will/were/been): "
+                        + ", ".join(f"{b} {v}" for b, v in avoided))
+
     registered = set(re.findall(r"^\s*(pred_[A-Za-z0-9_]+)", src, re.M))
     returned = set(re.findall(r'"(pred_[A-Za-z0-9_]+)"\s*:', src))
     if returned and registered:
@@ -76,6 +86,24 @@ def check(path, expect_rows=32, families=("A1", "A2", "P", "C")):
         if missing:
             problems.append(f"returned but not registered in the docstring: {sorted(missing)}")
     return problems
+
+
+AVOIDED_READOUTS = (" is", " was", " has", " had", " will", " were", " been")
+
+
+def _avoided_readouts(names):
+    """Cells whose readout vocabulary sits in the avoided lane, checked on the VOCABULARY not the name."""
+    import os as _os
+    out = []
+    for behaviour, suffix in (names or {}).items():
+        path = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)),
+                             f"circuit_fast_screen_candidate_{suffix}.py")
+        if not _os.path.exists(path):
+            continue
+        m = re.search(r"""vocabulary\s*=\s*\(\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]""", open(path).read())
+        if m and set(m.groups()) & set(AVOIDED_READOUTS):
+            out.append((behaviour, m.groups()))
+    return out
 
 
 def _const_counts(tree):

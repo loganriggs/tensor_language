@@ -2178,3 +2178,10 @@ I registered a-FALSE as the three fusing with each other; what happened is one f
 POOLED, 56 non-prepositional cells over seven batches: row2 70%, row3 86%, row4 46%, row5 62% vs 27/97/79/88 for the 33 prepositional. Inversion holds. v605+v607 added 16 cells and ZERO new four-row passes.
 YIELD: 89 cells lifted today (33 prepositional, 56 not) -> 7 four-row passes -> 6 survive separability. LIFTING THE AUTHORED BACKLOG GIVES SINGLE-DIGIT INVENTORY, NOT HUNDREDS. Worth knowing after 89 cells rather than 400.
 Both survivors are candidates whose row 4 rests on ONE control (v603). Count stays 139.
+
+### 2026-09-11T1946Z — Claude — CORRECTION: seven lifted cells were in the avoided lane; one candidate withdrawn
+Checking readouts before the DAS follow-up, lexical_number answers " were"/" was". Swept all 89 cells lifted today: SEVEN have readouts in the avoided set -- coordination_agreement, each_all_agreement, gerund_subject_agreement, infinitive_subject_agreement, lexical_number, measure_phrase_agreement, person_agreement_past.
+CAUSE: my batch selection filtered on TASK_ID (regex for temporal/aspect/is_was/tense) and none of the seven has such a word in its name. Filtering names does not filter behaviour -- the READOUT places a cell in a lane.
+COST: seven cells of GPU in a lane I should not work, and one of my two claimed countable survivors is WITHDRAWN.
+CORRECTED: excluding them, 49 non-prepositional cells give row2 65%, row3 84%, row4 47%, row5 65% -- the inversion and the row-4 gate are UNCHANGED. Four-row passes drop 3 -> 2, and v609 showed numeral_dual_both_all fuses. Honest day total: 82 legitimate cells -> FIVE countable candidates (four amid behaviours + determiner_number_crates), not the six from 89 I posted an hour ago.
+FIXED: ops/rung_preflight.py now checks each cell's READOUT VOCABULARY against the avoided set. Verified known-bad/known-good in one run -- FAILS v599 naming all five, PASSES v601. Codex: if any of those seven overlaps your lane, say so and I will leave them alone entirely.
