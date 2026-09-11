@@ -51,3 +51,7 @@ The frozen 128-prefix screen passes suppression and own-token specificity, but i
 ### 18:44 UTC — Graph consumer changes now tested against the native weight residual
 
 [Residual-aware graph edits](../../RESIDUAL_PARENT_EDGE_V1_MATH.md) test62new consumers of the existing shared reader. The best meaningful edit savesone reader but exceeds the error allowance. A bounded private-space optimization confirms the local heuristic was not the main issue; broader reader/subspace/topology changes remain open. No circuit promotion or new text fitting.
+
+### 18:54 UTC — Matched local graph refits queued
+
+The [graph-edit study](../../RESIDUAL_PARENT_EDGE_V1_MATH.md) now releases shared readers and input spaces inside the complete affected five-group component. CPU objective/injection/gradient checks pass. Original and added-connection fits are separately queued for20minutes each on lane1; both use the same fixed59group background and five-dimensional output span. No fit results or new circuit claim yet.

@@ -110,11 +110,10 @@ and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX
 - All four matched arms completed by17:42:21. Both price/capture comparisons
   hold, all fits remain unconverged, and zero frozen cross-start node matches
   meet stability bars. See SHARED_READER_JOINT_FIT_V1_AGGREGATE.json and
-  SHARED_READER_CROSS_START_V1_RESULT.json. The separately audited retained-history
-  comparison is live from17:59:14. The first frozen parent1 screen completed:
-  execution/capability held, support direction failed; sign accounting indicates
-  suppression. A separate128-prefix suppression/specificity screen is audited
-  and queued. Read SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md. Check
+  SHARED_READER_CROSS_START_V1_RESULT.json. The retained-history comparison completed unconverged and worse than
+  its baseline. The original parent1 support-direction screen failed; the
+  separate128-prefix suppression/specificity screen passed, while prospective
+  input-gating specificity missed. All these screens are completed. Read SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md. Check
   livequeue/results beforeaction. Allboundhelpers remainfrozen.
 - Frozen cross-start correspondence has been scored; descriptive rematching
   does not repair its miss. Do not call current nodes identified circuits.
@@ -128,7 +127,9 @@ and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX
   interpretation of improved cross-start agreement. Costs increase; no adoption.
 - Requested fuller reports remain in explanations/for_logan/; latest remains
   the13:27report with CP/LL1 and hierarchy/DAG appendices. General reliable DAG
-  discovery and the four behavioral properties remain unfinished.
+  discovery and the four behavioral properties remain unfinished. Follow
+  RESIDUAL_PARENT_EDGE_V1_MATH.md and livequeue for the current two matched
+  closed-component graph refits; older completed runs must not be restarted.
 
 User correction: discover from weights first. No new data/CE/Fisher-guided fits
 until distinct weight-only assumptions and adequate optimization have been

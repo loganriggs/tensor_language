@@ -79,3 +79,24 @@ Even the cheapest unconstrained addition, group 18, costs $4.33627\times10^{-6}$
 We now have residual-aware graph incidence proposals, exact conditional core fitting, and a numerically bounded alternative to the private-space heuristic. These tools address shared computation and allow a failed graph move to be distinguished from a failed local solver.
 
 The negative result is restricted to **this frozen parent, existing writers, fixed group rank, and each old-span-plus-parent union**. It does not rule out moving the parent, learning a different shared sum, changing several connections together, or changing the input/output subspaces. The overall weight fit remains unconverged. A useful next graph search must change one of those restrictions; simply spending more steps on this discarded-direction subproblem is not justified. No corpus was used for discovery, and no new OOD, extraction or behavioral selectivity claim is made.
+
+
+## Releasing the reader and input-space restrictions: matched local refits
+
+The next experiment lets the readers and private input spaces move after the connection changes. It includes every affected consumer: starting from groups 11,16,25 and following all shared-reader connections gives groups **10,11,16,19,25** and parents **1,8,9**. Moving those three readers changes no other group. The other59groups can remain a literal frozen background.
+
+Let $T_{\rm outside}$ be that background and let the columns of $C$ be an orthonormal basis of the five original group writers. For any permitted local tensor $\widehat T_{\rm local}$ whose output is in this span,
+
+$$
+\|T-T_{\rm outside}-\widehat T_{\rm local}\|_F^2
+=
+\|C^\top(T-T_{\rm outside})-C^\top\widehat T_{\rm local}\|_F^2
++
+\|(I-CC^\top)(T-T_{\rm outside})\|_F^2.
+$$
+
+The last term is fixed. This reduces the output dimension from1152metric coordinates to5without changing any allowed objective difference. Writers may vary within that five-dimensional span; all private input spans and all three shared readers may move. The five cores are still solved jointly. This restriction is explicit: it does not allow writers to leave the original span or change the other59groups.
+
+[CPU preflight](CLOSED_COMPONENT_REFIT_V1_PREFLIGHT.json) passes independent full/local objective differences and graph injection at errors below4.15e-16; directional gradient relative error is at most8.42e-8. The legacy objective's leading1creates a harmless constant shift, **-0.09978352475059615**, which the runner adds back before reporting full objectives. Its shifted capture is never called whole-model capture.
+
+Two separately managed20-minute fits are now queued: original connections versus parent1additionally used by group11. Both use the same frozen outside graph/outputspan and the established bounded solver. Each may stop early only when fresh gradient and recent progress bars hold. The comparison asks whether reader/private-space movement brings the new graph within1e-6of the equally optimized original, saves at least1000floats, and keeps at least1%parent1removal energy in consumers11,16,25. These are weight/interface criteria; native behavioral validation remains separate. [Registered protocol](CLOSED_COMPONENT_REFIT_V1_PREREGISTRATION.md).

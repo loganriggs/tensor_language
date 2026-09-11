@@ -1,0 +1,43 @@
+{
+  "pred_a": true,
+  "rows": [
+    {
+      "name": "original",
+      "shifted_initial_objective": 0.9841217409630748,
+      "whole_initial_objective": 0.8843382162124787,
+      "whole_local_delta_error": 3.0189018928656566e-17,
+      "injection_relative_error": 4.0209968654851736e-16,
+      "directional_fd_relative_error": 8.412827270472346e-08,
+      "gradient_inf": 2.6248269129915012e-06,
+      "initial_evaluation_cpu_seconds": 0.30578382685780525,
+      "reduced_identity_error": 9.547918011776346e-15
+    },
+    {
+      "name": "new_edge",
+      "shifted_initial_objective": 0.9841508948472761,
+      "whole_initial_objective": 0.8843673700966801,
+      "whole_local_delta_error": 6.936861024833818e-17,
+      "injection_relative_error": 4.1431757530297617e-16,
+      "directional_fd_relative_error": 5.63990870597974e-09,
+      "gradient_inf": 6.977220798428322e-05,
+      "initial_evaluation_cpu_seconds": 0.1270860806107521,
+      "reduced_identity_error": 8.326672684688674e-15
+    }
+  ],
+  "full_objective_offset": -0.09978352475059615,
+  "groups": [
+    10,
+    11,
+    16,
+    19,
+    25
+  ],
+  "parents": [
+    1,
+    8,
+    9
+  ],
+  "native_output_span": 5,
+  "source_sha256": "b299cade29ca4446a29ea807579ac8ab53246a6303d284207af9ee06b26e6f5c",
+  "scope": "Exact conditional local/full objective differences, fixed outside graph and fixed output span. Shifted local capture is not whole-graph capture. No optimizer convergence or circuit claim."
+}
