@@ -1,0 +1,105 @@
+{
+  "instrument_passed": true,
+  "heads": [
+    {
+      "head": 0,
+      "sharing": 0.1594306474989611,
+      "validation_position_touch": 0.4077235348642037,
+      "discovery_position_touch": 0.4079858548054334,
+      "validation_inside": 0.0564262710506341,
+      "validation_mixed": 0.3512972638135695,
+      "smallest_endpoint_principal_cosine": 0.04347479749415383
+    },
+    {
+      "head": 1,
+      "sharing": 0.18133439905768503,
+      "validation_position_touch": 0.315719996284856,
+      "discovery_position_touch": 0.315899787956582,
+      "validation_inside": 0.03159040988162198,
+      "validation_mixed": 0.28412958640323405,
+      "smallest_endpoint_principal_cosine": 0.00986699270414035
+    },
+    {
+      "head": 2,
+      "sharing": 0.21480063462088916,
+      "validation_position_touch": 0.45885945230547415,
+      "discovery_position_touch": 0.45911268060707777,
+      "validation_inside": 0.07396567210210002,
+      "validation_mixed": 0.3848937802033741,
+      "smallest_endpoint_principal_cosine": 0.0535263231005439
+    },
+    {
+      "head": 3,
+      "sharing": 0.1401545052097312,
+      "validation_position_touch": 0.40813900297814054,
+      "discovery_position_touch": 0.4084526635488843,
+      "validation_inside": 0.05427839549185846,
+      "validation_mixed": 0.3538606074862821,
+      "smallest_endpoint_principal_cosine": 0.0035415588991107878
+    },
+    {
+      "head": 4,
+      "sharing": 0.15671898182055002,
+      "validation_position_touch": 0.3404662165579616,
+      "discovery_position_touch": 0.34097479692867194,
+      "validation_inside": 0.038471286142093705,
+      "validation_mixed": 0.30199493041586795,
+      "smallest_endpoint_principal_cosine": 0.00795821105949615
+    },
+    {
+      "head": 5,
+      "sharing": 0.15250334730127615,
+      "validation_position_touch": 0.37705126229090624,
+      "discovery_position_touch": 0.37718596495951845,
+      "validation_inside": 0.04813803406152107,
+      "validation_mixed": 0.3289132282293852,
+      "smallest_endpoint_principal_cosine": 0.017225844889695318
+    },
+    {
+      "head": 6,
+      "sharing": 0.1850953147458152,
+      "validation_position_touch": 0.3670848049150751,
+      "discovery_position_touch": 0.3673585016653627,
+      "validation_inside": 0.04394129305117574,
+      "validation_mixed": 0.3231435118638994,
+      "smallest_endpoint_principal_cosine": 0.04197814730884624
+    },
+    {
+      "head": 7,
+      "sharing": 0.16049925591001826,
+      "validation_position_touch": 0.3816452458016541,
+      "discovery_position_touch": 0.3818040237081774,
+      "validation_inside": 0.047859821969968575,
+      "validation_mixed": 0.3337854238316856,
+      "smallest_endpoint_principal_cosine": 0.01217552174229648
+    },
+    {
+      "head": 8,
+      "sharing": 0.1836867816650523,
+      "validation_position_touch": 0.3520097779419095,
+      "discovery_position_touch": 0.3521915221312335,
+      "validation_inside": 0.04028997393124243,
+      "validation_mixed": 0.3117198040106671,
+      "smallest_endpoint_principal_cosine": 0.04977708907993967
+    }
+  ],
+  "summary": {
+    "sharing": 0.17046931864777537,
+    "touch": 0.3787443659933534,
+    "sharing_over_original": 2.9352931798299493,
+    "touch_retention": 0.90949697815508,
+    "meets_same_numerical_tradeoff_bars": true
+  },
+  "maximum_instrument_error": 6.8124737066112004e-15,
+  "body_forwards": 0,
+  "corpus_access": false,
+  "wall_seconds": 10.35367989167571,
+  "cache": {
+    "path": "/dev/shm/bilin18_coupled_producer_midpoint_v1.pt",
+    "sha256": "3fd2905a8df25d8f772229cebbda295dd8ae197503d8fd72e9562345f44b7ab0",
+    "bytes": 1412020,
+    "ephemeral": true
+  },
+  "redteam": "Original half-weight objective selected one tradeoff; a fixed midpoint tests a different feasible candidate. No weight or position sweep. Original C failure unchanged.",
+  "scope": "Post-result weight-only constructive audit on previously inspected position split. Not an optimized joint objective, fresh validation, semantic circuit or normalized-effect result."
+}

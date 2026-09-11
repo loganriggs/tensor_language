@@ -1,17 +1,17 @@
 # Latest research update
 
-**11 September, 04:06 UTC:** [MLP16 producer folding and the sharing/routing tradeoff](explanation_2026-09-11_0406.md).
+**11 September, 04:33 UTC:** [Weights-first methods, coupled-fit results and remaining assumptions](explanation_2026-09-11_0433.md).
 
-Frozen QK/OV features show weak producer sharing:5.81%overlap versus5.33%rotated
-controls; strong-sharing predictions missed. Exact joint key-feature selection
-raises overlap to33.63%, but jointQKcoverage falls42.03%to16.63%on8fixedpositions.
-No text or activation fitting. No semantic circuit identification.
+The joint producer/routing fit finished; all 36 starts now have converged
+continuations. Original tradeoff target missed. A fixed midpoint gives **2.94×
+producer sharing with 90.95% routing retention**, a post-result audit on already
+inspected positions. The next exact scalar-product check found the selected
+common functions still dense: 16 products capture18.20%, median256 for90%.
+These are coefficient-space results, not identified semantic circuits.
 
-Joint optimization is now preregistered: equal weights after normalizing both
-objectives by their attainable maxima, four starts per head, and a1e-7gradient
-convergence bar. Standard Pymanopt solver controls passed. Native GPU matrix
-preparation is queued; CPU fitting is ready but has not started.
-[Fit protocol](../../COUPLED_PRODUCER_NATIVE_V1_PREREGISTRATION.md).
+The report includes the actual methods and convergence status, restrictive
+assumptions, and remaining weight-only coverage. No new text fitting. FineWeb
+is in-distribution validation; Pile is separately labelled corpus-shift testing.
 
-[Previous reader-family bounds](explanation_2026-09-11_0352.md) ·
-[Methods and assumptions](explanation_2026-09-11_0022.md).
+[Previous producer fold](explanation_2026-09-11_0406.md) ·
+[Earlier methods report](explanation_2026-09-11_0022.md).

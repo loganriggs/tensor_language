@@ -1,0 +1,82 @@
+{
+  "all_stalled_starts_now_converged": true,
+  "repaired_starts": 4,
+  "previously_converged": 32,
+  "rows": [
+    {
+      "head": 0,
+      "start": 0,
+      "old_stationarity": 8.08545167005188e-07,
+      "original_score": 0.7607470889468273,
+      "converged": true,
+      "score": 0.7607470889514385,
+      "tangent_stationarity": 9.135065564637503e-08,
+      "orthogonality_error": 1.1102230246251565e-15,
+      "iterations": 11,
+      "stopping_criterion": "Terminated - min grad norm reached after 11 iterations, 0.04 seconds.",
+      "seconds": 0.04740448296070099,
+      "pymanopt_version": "2.2.1",
+      "initial_score": 0.7607470889468273,
+      "subspace_overlap_with_original": 0.9999999999727841
+    },
+    {
+      "head": 1,
+      "start": 3,
+      "old_stationarity": 1.696461489237203e-07,
+      "original_score": 0.7736843906427401,
+      "converged": true,
+      "score": 0.7736843906428164,
+      "tangent_stationarity": 8.026341829620929e-08,
+      "orthogonality_error": 2.220446049250313e-15,
+      "iterations": 2,
+      "stopping_criterion": "Terminated - min grad norm reached after 2 iterations, 0.02 seconds.",
+      "seconds": 0.018957439810037613,
+      "pymanopt_version": "2.2.1",
+      "initial_score": 0.7736843906427401,
+      "subspace_overlap_with_original": 0.9999999999999465
+    },
+    {
+      "head": 5,
+      "start": 0,
+      "old_stationarity": 2.0397338717032943e-06,
+      "original_score": 0.7488317820918472,
+      "converged": true,
+      "score": 0.7488317823399089,
+      "tangent_stationarity": 2.797123167755345e-08,
+      "orthogonality_error": 1.1102230246251565e-15,
+      "iterations": 45,
+      "stopping_criterion": "Terminated - min grad norm reached after 45 iterations, 0.12 seconds.",
+      "seconds": 0.122357077896595,
+      "pymanopt_version": "2.2.1",
+      "initial_score": 0.7488317820918472,
+      "subspace_overlap_with_original": 0.9999999786445865
+    },
+    {
+      "head": 7,
+      "start": 1,
+      "old_stationarity": 1.6363453988842003e-07,
+      "original_score": 0.7675696323548231,
+      "converged": true,
+      "score": 0.7675696323548982,
+      "tangent_stationarity": 6.608965690874168e-08,
+      "orthogonality_error": 7.771561172376096e-16,
+      "iterations": 2,
+      "stopping_criterion": "Terminated - min grad norm reached after 2 iterations, 0.02 seconds.",
+      "seconds": 0.020942997187376022,
+      "pymanopt_version": "2.2.1",
+      "initial_score": 0.7675696323548231,
+      "subspace_overlap_with_original": 0.9999999999999467
+    }
+  ],
+  "maximum_score_change": 2.480616823063997e-10,
+  "cache": {
+    "path": "/dev/shm/bilin18_coupled_producer_convergence_repair_v1.pt",
+    "sha256": "55c545db00388f0bc072683c67a1c913875b53c92aa45ae6a3f63ed735949e22",
+    "bytes": 142179,
+    "ephemeral": true
+  },
+  "wall_seconds": 0.32065581157803535,
+  "body_forwards": 0,
+  "corpus_access": false,
+  "scope": "Same-objective continuation with fresh CG line search. Original B miss retained. No replacement of originally selected best frames or C score."
+}

@@ -19964,3 +19964,48 @@ normalizedtoeachmax/gradnorm1e-7/heldoutQKtouch. GPUpreparationqueued44e95d1e...
 behindlivev579; CPUfit_coupled_producer_native_v1.pyready, notstarted. Preserve
 queuedhelperbindings; startup/LATESTstateupdated. Nextreadnativeprepreceipt,
 thenexecuteCPUfit. Fullgoalactive, review0422/math0449.
+
+### 2026-09-11T04:20:22.744456+00:00 — Codex: CAPACITY REPAIR WHILE NATIVE PREPARATION WAITS
+Previous turnprogress0ea65ef93. v579PID2752443 verifiedlive/progressing; no duplicate
+preparation. Disk5MBfree threatenedreceipts. ArchivedunusedCodex0.151.0release:
+activeprocesses/currentlink are0.153.4. All6archivefileshashverified beforeold
+release removal; persistentarchive146MB replaces347MBunusedrelease, frees201MB.
+No researchartifact orconversationhistorytouched. Restorearchive/receipt under
+/root/.codex/packages/standalone/archive. NativefitreadyafterqueuedGPUreceipt.
+
+### 2026-09-11T04:22:28.285210+00:00 — Codex: COUPLED NATIVE RESULT; CLAIM CONVERGENCE REPAIR AND MIDPOINT AUDIT
+GPUprep.94s controlsheld; CPU36fits36.69s A/DheldB/Cmissed. Sharing27.705%vs5.808%
+(4.77x); heldouttouch30.643%vs41.643%(73.58%retention) misses80%. Fourstalled
+starts atgrad1.6e-7..2e-6 despiteagreementinfunctionspace. Restartonlythese from
+ownsavedpoints, sameobjective/bar, recordseparaterepairreceipt. ThenfixedGrassmann
+midpoint(originalrouting,jointoptimum), withoutweightsweep, testsifaforward
+tradeoffcounterexample exists. Samepositionsalreadyinspected: postresultaudit,
+notnewheldoutvalidation. Original B/Cmissespreserved; no semanticclaim.
+
+### 2026-09-11T04:34Z — Codex: MIDPOINT AUDIT HELD; CLAIM SCALAR PRODUCER PRODUCT AUDIT
+All four stalled starts converge on same-objective restart; score changes <=2.5e-10.
+Original fit B/C misses preserved. Fixed midpoint gives 2.935x producer sharing and
+90.950% original QK touch on already inspected positions, a constructive post-result
+tradeoff example, not new held-out evidence. Next bounded CPU consequence: leading
+canonical common and private MLP16 function per head for those fixed midpoint/OV
+spans. Reuse existing producer pairs and real-product spectral algebra. Pred_a:
+Gram/eigenspectrum/product reconstruction errors <1e-9. Pred_b: >=7/9 common
+functions retain >=50% coefficient energy with16 real products. Pred_c: median
+common product count for90% energy <=0.8 times private median. Null: shared
+functions remain diffuse and no simpler than the paired differences. No data,
+no optimizer or new factor-selection sweep. Price:2*1152*k input coefficients per
+scalar function, upstream states and residual/RMS/background retained. Current
+MLP16/MLP17/readout dossiers checked; known producer Gram rank does not answer
+individual common-function inertia. This is a narrow constructive-factor audit.
+
+### 2026-09-11T04:36:04.567587+00:00 — Codex: COUPLED FIT AND SCALAR CONSEQUENCE PUBLISHED
+Correction: preceding scalar-audit claim label04:34 was an estimated label; it was
+actually appended before04:33, before script execution. Native scalar audit4.70s
+AheldB/Cmissed. Exact16-product mean common capture18.20% vs14.19%private; median
+k90=256vs259. Selection maximized alignment, not simple arithmetic. Spectral and
+constructive product checks4.4e-15 eliminate optimizer failure for these fixed
+functions, not broader structural possibilities. Combined explanation0433 now
+includes actual methods/status, coupled36-start repair and midpoint audit. No
+new data fitting. Next weight-only selection must include simplicity or cover
+unresolved overlapping/hierarchical family; no same-weight tradeoff sweep. Full
+goalactive; current CPU consequence executed, next hourly0522/math0449.

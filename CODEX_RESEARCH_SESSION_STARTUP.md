@@ -82,47 +82,31 @@ token-specific remainders, folded backward through the actual model.
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — updated 11 September 2026, 04:06
+## Current handoff — updated 11 September 2026, 04:33
 
-Read explanations/2026-09-11/LATEST.md and explanation_2026-09-11_0406.md.
-MLP16_PRODUCER_OVERLAP_V1 managed2.00s: AheldB/Cmissed. FrozenQK/OVsourcefeature
-functionoverlap5.81%vsraw4.75%,rotatedcontrols5.33%; positiveexcessmisses.05bar,
-noheadtopcos>=.95. Exactlocalresidual/bias/RMS/x0replay3.2e-15. No textfit.
-Cache /dev/shm/bilin18_mlp16_producer_overlap_v1.pt, hashinresult.
+Read [LATEST.md](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md)
+and its current explanation_2026-09-11_0433.md for the combined methods/result update.
+Coupled native fit is FINISHED. Original A/D held, B/C missed; same-objective
+repair now converges all36 starts without replacing the original selected frames.
+Fixed midpoint audit:2.94x sharing,90.95% routing retention, post-result positions.
+Next CPU consequence EXECUTED: PRODUCER_SCALAR_PRODUCTS_V1_AUDIT,4.70s,AheldB/Cmissed.
+Leading common functions still dense:mean16-product capture18.20%,median256products
+for90%; private median259. Exact scalar spectral optimum is not a bound on other
+feature selections/shared multioutput programs. No data fit or semantic promotion.
 
-Redteamexecuted: MLP16_PRODUCER_KEY_ENVELOPE_V1_AUDIT exactfulljointkeyspace
-canonicalalignment raisesmean33.63%,5.79xold. Perheadmaximumcos.672–.843,stillno.95.
-Candidate17framescached /dev/shm/bilin18_mlp16_producer_key_envelope_v1.pt.
-NextCPUroutingtradeoffaudit executed: 8fixedpositionsquery511,oldQKtouch42.03%,
-new16.63%; newframesoptimizeproduceralignment atcosttorouting. No adoption.
-NativeG16notlowrank,rank90=848; radialcoefficientfraction.0142%. Checkdossiers.
+Primary receipts: COUPLED_PRODUCER_NATIVE_V1_RESULT, CONVERGENCE_REPAIR_V1_RESULT,
+COUPLED_PRODUCER_MIDPOINT_V1_AUDIT, PRODUCER_SCALAR_PRODUCTS_V1_AUDIT. See full
+filenames in explanation. Source and caches are hash-bound; cachepaths/hashes in
+receipts. No own job remains live. Next choose weight-only structure with simple
+shared computation in the selection criterion, or resume uncovered overlapping
+block/hierarchical methods; do not repeat an alignment-weight sweep. Check dossiers.
+Hourly0422 completed; next0522, math0449. Preserve original misses. Fullgoalactive.
 
-NextCPUconsequence completed: coupled_producer_routing_objective_v1.py,CONTROL
-passesgradient/gauge/finite-difference. Combineexactfunctiontracequotient with
-normalizedsourceinfluencetrace on17Dsubspace restrictedtojointkeyspace. Need
-registeredtradeoffweight, nativeinfluencepreparation andexistingmanifoldoptimizer;
-reuseinsteadnewsolver. Nativejointfitnotrun/queued. ActualQKtouchseparatefrom
-influencesurrogate; fullnormalizers/backgroundremain. No datafitting authorized
-untilweightstructuralavenuesexhausted. Old B/Cmissespreserved.
-
-UPDATE04:16: managedrun_coupled_producer_prepare_v1.py QUEUED behindliveClaude
-v579, SHA44e95d1e208a5ffd5abb400da815173b2f602687fb6b7d28a9d7e8ed794aa348.
-Check COUPLED_PRODUCER_PREPARE_V1_RESULT andrunner; do notduplicatepreparation.
-Then runCPU fit_coupled_producer_native_v1.py withCUDA_VISIBLE_DEVICES empty and
-OMP/OPENBLAS_NUM_THREADS=2. It verifiescachedmatrices andbindings; savesheadwise
-progress to/dev/shm andfinalresult. NoCPUfitstarted at04:16. Nativeprotocol:
-COUPLED_PRODUCER_NATIVE_V1_PREREGISTRATION, weight=.5 AFTERnormalizingeachterm
-by itswithin-keyspanmaximum; fourstarts/head, gradnorm1e-7, limitsnotconvergence.
-Pymanopt2.2.1installed(no-deps), standardGrassmannPRconjugategradient. Known
-spectral andcondition100plantedcontrolsconverge. Exactobjectivebindings frozen.
-Fitcodeandprepcode prepared; onceexecutionbeginsfreezebytes. Interpret36fits,
-held-outdistanceQKtouch andproduceralignment, preservingpredictions. Fullgoalactive.
- Next hourly
-04:22, math04:49. Fullgoalactive. Filesystem filledduringwrite; relocated48MBof
-verifiedinactiveSep4temporarycompilefiles to/dev/shm, originalpaths aresymlinks.
-Receipt /dev/shm/codex_relocated_inactive_compile_cache_20260911_0403/receipt.json.
-About46MBfree afterrepair; do notdeletecurrentexperiments orotheragentstate.
-Priorreaderfamilybounds0352 andfrozenFineWebvalidation0338 remaincurrenthistory.
+Disk capacity repaired by archiving unusedCodex0.151.0 (active0.153.4), all6files
+verified before removal. Persistent archive and receipt under
+/root/.codex/packages/standalone/archive; freedabout201MB. About200MBfree04:30.
+Do not delete research artifacts or other agent state. Large /dev/shm caches are
+ephemeral; source and numerical receipts are committed, not full tensor caches.
 
 USER PRIORITY CORRECTION, 21:47 UTC: weight-first structural discovery. Exhaust
 substantially different weight-only assumptions with appropriate stronger solvers
@@ -223,8 +207,8 @@ not be changed retroactively. Build small wrappers for new semantics.
 ## Review clocks and throughput
 
 Latest hourly review:
-[03:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0322.md).
-Next hourly review is due **04:22 UTC on11September** at the first safe boundary.
+[04:22](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-11_0422.md).
+Next hourly review is due **05:22 UTC on11September** at the first safe boundary.
 Latest mathematical review:
 [01:49](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_0149.md).
 Next mathematical review is due **04:49 UTC on11September**. Derive later deadlines from the

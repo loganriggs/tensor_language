@@ -2,6 +2,8 @@
 
 Start with [LATEST.md](LATEST.md).
 
+- [Weights-first methods and latest coupled-fit results](explanation_2026-09-11_0433.md): current method coverage, convergence repair, fixed midpoint, and exact scalar-product audit.
+
 - [MLP16 producer fold and joint-selection tradeoff](explanation_2026-09-11_0406.md): latest native fold, exact red-team envelope, routing cost and next controlled objective.
 
 - [Shared input features, mixed interactions and bounds](explanation_2026-09-11_0352.md): latest native weight-only result and next producer-function tool.

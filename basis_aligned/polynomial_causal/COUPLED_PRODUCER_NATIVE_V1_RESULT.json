@@ -1,0 +1,745 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_all_converged": false,
+    "pred_c_joint_tradeoff": false,
+    "pred_d_subspace_stability": true
+  },
+  "heads": [
+    {
+      "head": 0,
+      "fits": [
+        {
+          "label": "routing",
+          "converged": false,
+          "score": 0.7607470889468273,
+          "tangent_stationarity": 8.08545167005188e-07,
+          "orthogonality_error": 1.1102230246251565e-15,
+          "iterations": 88,
+          "stopping_criterion": "Terminated - min step_size reached after 88 iterations, 0.24 seconds.",
+          "seconds": 0.2470732443034649,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.5764652595457326
+        },
+        {
+          "label": "producer",
+          "converged": true,
+          "score": 0.7607470889514182,
+          "tangent_stationarity": 5.9517714996721436e-08,
+          "orthogonality_error": 1.1102230246251565e-15,
+          "iterations": 100,
+          "stopping_criterion": "Terminated - min grad norm reached after 100 iterations, 0.25 seconds.",
+          "seconds": 0.25568416714668274,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.666172846389403
+        },
+        {
+          "label": "random_1409",
+          "converged": true,
+          "score": 0.7607470889514796,
+          "tangent_stationarity": 9.292138990211891e-08,
+          "orthogonality_error": 1.7763568394002505e-15,
+          "iterations": 100,
+          "stopping_criterion": "Terminated - min grad norm reached after 100 iterations, 0.27 seconds.",
+          "seconds": 0.27175913006067276,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.16686366350163223
+        },
+        {
+          "label": "random_1423",
+          "converged": true,
+          "score": 0.7607470889514067,
+          "tangent_stationarity": 9.778104642030151e-08,
+          "orthogonality_error": 1.7763568394002505e-15,
+          "iterations": 77,
+          "stopping_criterion": "Terminated - min grad norm reached after 77 iterations, 0.20 seconds.",
+          "seconds": 0.20306628569960594,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.1660588214547558
+        }
+      ],
+      "best": 2,
+      "subspace_stability": [
+        0.9999999999425628,
+        0.9999999999961209,
+        1.0000000000000002,
+        0.9999999999972201
+      ],
+      "sharing": 0.26479165648944664,
+      "old_sharing": 0.049799798405311894,
+      "normalized_routing_influence": 0.7083437882479535,
+      "normalized_sharing": 0.8131503896550055,
+      "actual": {
+        "discovery_touch": 0.33061935680064963,
+        "validation_touch": 0.3303589447503276,
+        "validation_min_touch": 0.2999761090142431,
+        "validation_inside": 0.03596619932928264,
+        "validation_mixed": 0.294392745421045
+      },
+      "prior": {
+        "discovery_touch": 0.4481811288530756,
+        "validation_touch": 0.44792210600313825,
+        "validation_min_touch": 0.41218074897612733,
+        "validation_inside": 0.06933679263936371,
+        "validation_mixed": 0.37858531336377454
+      }
+    },
+    {
+      "head": 1,
+      "fits": [
+        {
+          "label": "routing",
+          "converged": true,
+          "score": 0.7736843906423334,
+          "tangent_stationarity": 9.210679627462761e-08,
+          "orthogonality_error": 1.3322676295501878e-15,
+          "iterations": 257,
+          "stopping_criterion": "Terminated - min grad norm reached after 257 iterations, 0.64 seconds.",
+          "seconds": 0.6421748176217079,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.5936542007089796
+        },
+        {
+          "label": "producer",
+          "converged": true,
+          "score": 0.7736843906444493,
+          "tangent_stationarity": 3.744861332143776e-08,
+          "orthogonality_error": 8.881784197001252e-16,
+          "iterations": 231,
+          "stopping_criterion": "Terminated - min grad norm reached after 231 iterations, 0.59 seconds.",
+          "seconds": 0.5964961089193821,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.7071692117186729
+        },
+        {
+          "label": "random_1509",
+          "converged": true,
+          "score": 0.7736843906442625,
+          "tangent_stationarity": 6.931374890979222e-08,
+          "orthogonality_error": 8.881784197001252e-16,
+          "iterations": 165,
+          "stopping_criterion": "Terminated - min grad norm reached after 165 iterations, 0.43 seconds.",
+          "seconds": 0.4362418092787266,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.2051545413226064
+        },
+        {
+          "label": "random_1523",
+          "converged": false,
+          "score": 0.7736843906427401,
+          "tangent_stationarity": 1.696461489237203e-07,
+          "orthogonality_error": 9.992007221626409e-16,
+          "iterations": 224,
+          "stopping_criterion": "Terminated - min step_size reached after 224 iterations, 0.62 seconds.",
+          "seconds": 0.6213735863566399,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.2133067467245079
+        }
+      ],
+      "best": 1,
+      "subspace_stability": [
+        0.9999999993239961,
+        1.0,
+        0.9999999997447743,
+        0.9999999994455547
+      ],
+      "sharing": 0.290248621603991,
+      "old_sharing": 0.06420974316083403,
+      "normalized_routing_influence": 0.7006747649270437,
+      "normalized_sharing": 0.8466940163618552,
+      "actual": {
+        "discovery_touch": 0.25244302041130345,
+        "validation_touch": 0.2522680445391374,
+        "validation_min_touch": 0.23577711888675812,
+        "validation_inside": 0.019521532995934725,
+        "validation_mixed": 0.23274651154320272
+      },
+      "prior": {
+        "discovery_touch": 0.3489485278924206,
+        "validation_touch": 0.3487719311577896,
+        "validation_min_touch": 0.33097518401355075,
+        "validation_inside": 0.03919558463482589,
+        "validation_mixed": 0.30957634652296373
+      }
+    },
+    {
+      "head": 2,
+      "fits": [
+        {
+          "label": "routing",
+          "converged": true,
+          "score": 0.7746430871665528,
+          "tangent_stationarity": 8.150345756569416e-08,
+          "orthogonality_error": 2.6645352591003757e-15,
+          "iterations": 105,
+          "stopping_criterion": "Terminated - min grad norm reached after 105 iterations, 0.27 seconds.",
+          "seconds": 0.27582989260554314,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.6057963030279672
+        },
+        {
+          "label": "producer",
+          "converged": true,
+          "score": 0.7746430871660731,
+          "tangent_stationarity": 9.307234558377305e-08,
+          "orthogonality_error": 1.5543122344752192e-15,
+          "iterations": 117,
+          "stopping_criterion": "Terminated - min grad norm reached after 117 iterations, 0.31 seconds.",
+          "seconds": 0.3074811026453972,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.6823550197155546
+        },
+        {
+          "label": "random_1609",
+          "converged": true,
+          "score": 0.7746430871662747,
+          "tangent_stationarity": 9.771160863723773e-08,
+          "orthogonality_error": 2.220446049250313e-15,
+          "iterations": 112,
+          "stopping_criterion": "Terminated - min grad norm reached after 112 iterations, 0.29 seconds.",
+          "seconds": 0.29359862580895424,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.15202731975955117
+        },
+        {
+          "label": "random_1623",
+          "converged": true,
+          "score": 0.7746430871667381,
+          "tangent_stationarity": 7.226912518244396e-08,
+          "orthogonality_error": 1.5543122344752192e-15,
+          "iterations": 134,
+          "stopping_criterion": "Terminated - min grad norm reached after 134 iterations, 0.35 seconds.",
+          "seconds": 0.3552061542868614,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.15436709165760593
+        }
+      ],
+      "best": 3,
+      "subspace_stability": [
+        0.9999999999468114,
+        0.9999999999903711,
+        0.9999999999848022,
+        1.0000000000000004
+      ],
+      "sharing": 0.33162160024894216,
+      "old_sharing": 0.08602857082524316,
+      "normalized_routing_influence": 0.7336422789623408,
+      "normalized_sharing": 0.8156438953711351,
+      "actual": {
+        "discovery_touch": 0.3817745401818759,
+        "validation_touch": 0.3815109486426439,
+        "validation_min_touch": 0.3374184521485545,
+        "validation_inside": 0.048395211830078964,
+        "validation_mixed": 0.3331157368125649
+      },
+      "prior": {
+        "discovery_touch": 0.4970322931792292,
+        "validation_touch": 0.4967906995947456,
+        "validation_min_touch": 0.4510936250648555,
+        "validation_inside": 0.08931933985996464,
+        "validation_mixed": 0.407471359734781
+      }
+    },
+    {
+      "head": 3,
+      "fits": [
+        {
+          "label": "routing",
+          "converged": true,
+          "score": 0.7488230219182159,
+          "tangent_stationarity": 3.014503160043645e-08,
+          "orthogonality_error": 1.4432899320127035e-15,
+          "iterations": 379,
+          "stopping_criterion": "Terminated - min grad norm reached after 379 iterations, 0.97 seconds.",
+          "seconds": 0.9724642559885979,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.5594295668766219
+        },
+        {
+          "label": "producer",
+          "converged": true,
+          "score": 0.7488230219129974,
+          "tangent_stationarity": 9.842801787692856e-08,
+          "orthogonality_error": 1.1102230246251565e-15,
+          "iterations": 414,
+          "stopping_criterion": "Terminated - min grad norm reached after 414 iterations, 1.06 seconds.",
+          "seconds": 1.065082412213087,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.6487797610439124
+        },
+        {
+          "label": "random_1709",
+          "converged": true,
+          "score": 0.7488230219181686,
+          "tangent_stationarity": 9.844236426332235e-08,
+          "orthogonality_error": 1.5543122344752192e-15,
+          "iterations": 438,
+          "stopping_criterion": "Terminated - min grad norm reached after 438 iterations, 1.11 seconds.",
+          "seconds": 1.1118707545101643,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.16960356378732444
+        },
+        {
+          "label": "random_1723",
+          "converged": true,
+          "score": 0.7488230219176024,
+          "tangent_stationarity": 5.909285134201151e-08,
+          "orthogonality_error": 1.5543122344752192e-15,
+          "iterations": 380,
+          "stopping_criterion": "Terminated - min grad norm reached after 380 iterations, 0.97 seconds.",
+          "seconds": 0.9739178009331226,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.1664774420471601
+        }
+      ],
+      "best": 0,
+      "subspace_stability": [
+        0.9999999999999996,
+        0.9999999992004137,
+        0.9999999998497169,
+        0.9999999996378529
+      ],
+      "sharing": 0.24099044614872842,
+      "old_sharing": 0.03580013643465138,
+      "normalized_routing_influence": 0.6975397167465488,
+      "normalized_sharing": 0.8001063270898827,
+      "actual": {
+        "discovery_touch": 0.3285215416016937,
+        "validation_touch": 0.3281952751769699,
+        "validation_min_touch": 0.2924221989010587,
+        "validation_inside": 0.03385513393301984,
+        "validation_mixed": 0.2943401412439501
+      },
+      "prior": {
+        "discovery_touch": 0.4519906981821602,
+        "validation_touch": 0.4517010825895359,
+        "validation_min_touch": 0.41340916885061507,
+        "validation_inside": 0.06751900857307074,
+        "validation_mixed": 0.3841820740164651
+      }
+    },
+    {
+      "head": 4,
+      "fits": [
+        {
+          "label": "routing",
+          "converged": true,
+          "score": 0.7675584892933822,
+          "tangent_stationarity": 6.043408171320797e-08,
+          "orthogonality_error": 1.9984014443252818e-15,
+          "iterations": 102,
+          "stopping_criterion": "Terminated - min grad norm reached after 102 iterations, 0.28 seconds.",
+          "seconds": 0.28162793442606926,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.5703113133382938
+        },
+        {
+          "label": "producer",
+          "converged": true,
+          "score": 0.76755848929339,
+          "tangent_stationarity": 6.316727575996162e-08,
+          "orthogonality_error": 1.9984014443252818e-15,
+          "iterations": 110,
+          "stopping_criterion": "Terminated - min grad norm reached after 110 iterations, 0.29 seconds.",
+          "seconds": 0.293361384421587,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.6904889417648864
+        },
+        {
+          "label": "random_1809",
+          "converged": true,
+          "score": 0.7675584892933282,
+          "tangent_stationarity": 7.786365151142419e-08,
+          "orthogonality_error": 1.9984014443252818e-15,
+          "iterations": 112,
+          "stopping_criterion": "Terminated - min grad norm reached after 112 iterations, 0.29 seconds.",
+          "seconds": 0.29058627039194107,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.19182276572457074
+        },
+        {
+          "label": "random_1823",
+          "converged": true,
+          "score": 0.7675584892934577,
+          "tangent_stationarity": 3.969070211982296e-08,
+          "orthogonality_error": 1.1102230246251565e-15,
+          "iterations": 115,
+          "stopping_criterion": "Terminated - min grad norm reached after 115 iterations, 0.30 seconds.",
+          "seconds": 0.3042958490550518,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.1980273897807072
+        }
+      ],
+      "best": 3,
+      "subspace_stability": [
+        0.9999999999989477,
+        0.9999999999990289,
+        0.9999999999929701,
+        1.0000000000000007
+      ],
+      "sharing": 0.262985350935012,
+      "old_sharing": 0.04393207195808107,
+      "normalized_routing_influence": 0.6933244298258978,
+      "normalized_sharing": 0.8417925487610175,
+      "actual": {
+        "discovery_touch": 0.2722018707901012,
+        "validation_touch": 0.27164469960827514,
+        "validation_min_touch": 0.23699280945842016,
+        "validation_inside": 0.02423784936603686,
+        "validation_mixed": 0.24740685024223827
+      },
+      "prior": {
+        "discovery_touch": 0.37944524660453494,
+        "validation_touch": 0.37897741531219253,
+        "validation_min_touch": 0.34946407815374325,
+        "validation_inside": 0.048171118038403925,
+        "validation_mixed": 0.3308062972737886
+      }
+    },
+    {
+      "head": 5,
+      "fits": [
+        {
+          "label": "routing",
+          "converged": false,
+          "score": 0.7488317820918472,
+          "tangent_stationarity": 2.0397338717032943e-06,
+          "orthogonality_error": 1.3322676295501878e-15,
+          "iterations": 165,
+          "stopping_criterion": "Terminated - min step_size reached after 165 iterations, 0.45 seconds.",
+          "seconds": 0.44718803837895393,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.5650355024911593
+        },
+        {
+          "label": "producer",
+          "converged": true,
+          "score": 0.748831782339073,
+          "tangent_stationarity": 8.588473229241561e-08,
+          "orthogonality_error": 1.3322676295501878e-15,
+          "iterations": 181,
+          "stopping_criterion": "Terminated - min grad norm reached after 181 iterations, 0.48 seconds.",
+          "seconds": 0.479854941368103,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.6705848561932967
+        },
+        {
+          "label": "random_1909",
+          "converged": true,
+          "score": 0.7488317823392086,
+          "tangent_stationarity": 5.1832613822265887e-08,
+          "orthogonality_error": 1.5543122344752192e-15,
+          "iterations": 142,
+          "stopping_criterion": "Terminated - min grad norm reached after 142 iterations, 0.36 seconds.",
+          "seconds": 0.3628191910684109,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.17839702183698472
+        },
+        {
+          "label": "random_1923",
+          "converged": true,
+          "score": 0.7488317823382633,
+          "tangent_stationarity": 8.524134695107701e-08,
+          "orthogonality_error": 1.9984014443252818e-15,
+          "iterations": 231,
+          "stopping_criterion": "Terminated - min grad norm reached after 231 iterations, 0.59 seconds.",
+          "seconds": 0.5956191904842854,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.1886276732597751
+        }
+      ],
+      "best": 2,
+      "subspace_stability": [
+        0.9999999771157794,
+        0.9999999999981317,
+        1.0000000000000009,
+        0.9999999999824067
+      ],
+      "sharing": 0.26148253184750153,
+      "old_sharing": 0.04177949051299877,
+      "normalized_routing_influence": 0.6835967753253069,
+      "normalized_sharing": 0.8140667893531107,
+      "actual": {
+        "discovery_touch": 0.297542855059662,
+        "validation_touch": 0.29740526931525124,
+        "validation_min_touch": 0.2738218607805941,
+        "validation_inside": 0.028615943812010426,
+        "validation_mixed": 0.2687893255032408
+      },
+      "prior": {
+        "discovery_touch": 0.41680621293917375,
+        "validation_touch": 0.41667087797989,
+        "validation_min_touch": 0.3892262722901738,
+        "validation_inside": 0.06031297658257886,
+        "validation_mixed": 0.3563579013973111
+      }
+    },
+    {
+      "head": 6,
+      "fits": [
+        {
+          "label": "routing",
+          "converged": true,
+          "score": 0.7765964447152602,
+          "tangent_stationarity": 8.804681148072587e-08,
+          "orthogonality_error": 8.881784197001252e-16,
+          "iterations": 195,
+          "stopping_criterion": "Terminated - min grad norm reached after 195 iterations, 0.49 seconds.",
+          "seconds": 0.49439720436930656,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.6115077553723003
+        },
+        {
+          "label": "producer",
+          "converged": true,
+          "score": 0.7765964447152385,
+          "tangent_stationarity": 5.251944320675826e-08,
+          "orthogonality_error": 1.2212453270876722e-15,
+          "iterations": 147,
+          "stopping_criterion": "Terminated - min grad norm reached after 147 iterations, 0.37 seconds.",
+          "seconds": 0.37667258456349373,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.6949293974875671
+        },
+        {
+          "label": "random_2009",
+          "converged": true,
+          "score": 0.7765964447157084,
+          "tangent_stationarity": 4.055593527987048e-08,
+          "orthogonality_error": 1.9984014443252818e-15,
+          "iterations": 177,
+          "stopping_criterion": "Terminated - min grad norm reached after 177 iterations, 0.47 seconds.",
+          "seconds": 0.4707716554403305,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.18982425876532966
+        },
+        {
+          "label": "random_2023",
+          "converged": true,
+          "score": 0.7765964447156197,
+          "tangent_stationarity": 7.799765102667962e-08,
+          "orthogonality_error": 1.5543122344752192e-15,
+          "iterations": 152,
+          "stopping_criterion": "Terminated - min grad norm reached after 152 iterations, 0.41 seconds.",
+          "seconds": 0.4076913632452488,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.18510592678284218
+        }
+      ],
+      "best": 2,
+      "subspace_stability": [
+        0.9999999999912712,
+        0.9999999999359552,
+        1.0000000000000016,
+        0.9999999999786127
+      ],
+      "sharing": 0.2872004811947839,
+      "old_sharing": 0.07745421689524422,
+      "normalized_routing_influence": 0.7262506703089041,
+      "normalized_sharing": 0.8269422191225125,
+      "actual": {
+        "discovery_touch": 0.3018299301179793,
+        "validation_touch": 0.3015686050160575,
+        "validation_min_touch": 0.2776901673143455,
+        "validation_inside": 0.028858968338965386,
+        "validation_mixed": 0.2727096366770921
+      },
+      "prior": {
+        "discovery_touch": 0.40183768621414573,
+        "validation_touch": 0.4015740743399369,
+        "validation_min_touch": 0.37784825613698414,
+        "validation_inside": 0.053496896818303795,
+        "validation_mixed": 0.3480771775216332
+      }
+    },
+    {
+      "head": 7,
+      "fits": [
+        {
+          "label": "routing",
+          "converged": true,
+          "score": 0.7675696323548409,
+          "tangent_stationarity": 7.360697979613804e-08,
+          "orthogonality_error": 9.992007221626409e-16,
+          "iterations": 132,
+          "stopping_criterion": "Terminated - min grad norm reached after 132 iterations, 0.35 seconds.",
+          "seconds": 0.3504015579819679,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.5836725641726869
+        },
+        {
+          "label": "producer",
+          "converged": false,
+          "score": 0.7675696323548231,
+          "tangent_stationarity": 1.6363453988842003e-07,
+          "orthogonality_error": 1.1102230246251565e-15,
+          "iterations": 122,
+          "stopping_criterion": "Terminated - min step_size reached after 122 iterations, 0.36 seconds.",
+          "seconds": 0.36202749237418175,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.688458910462709
+        },
+        {
+          "label": "random_2109",
+          "converged": true,
+          "score": 0.7675696323546667,
+          "tangent_stationarity": 7.507548205616988e-08,
+          "orthogonality_error": 1.3322676295501878e-15,
+          "iterations": 93,
+          "stopping_criterion": "Terminated - min grad norm reached after 93 iterations, 0.26 seconds.",
+          "seconds": 0.2610880583524704,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.18096555020879737
+        },
+        {
+          "label": "random_2123",
+          "converged": true,
+          "score": 0.7675696323550182,
+          "tangent_stationarity": 8.630640224926215e-08,
+          "orthogonality_error": 2.6645352591003757e-15,
+          "iterations": 107,
+          "stopping_criterion": "Terminated - min grad norm reached after 107 iterations, 0.29 seconds.",
+          "seconds": 0.2897934168577194,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.1692974785443661
+        }
+      ],
+      "best": 3,
+      "subspace_stability": [
+        0.9999999999983252,
+        0.9999999999992246,
+        0.9999999999969861,
+        1.0000000000000033
+      ],
+      "sharing": 0.26459431484575674,
+      "old_sharing": 0.053281965501098524,
+      "normalized_routing_influence": 0.7041156873908692,
+      "normalized_sharing": 0.8310235773191672,
+      "actual": {
+        "discovery_touch": 0.3081943028155796,
+        "validation_touch": 0.3080586264448152,
+        "validation_min_touch": 0.28639150726944174,
+        "validation_inside": 0.03022941358021098,
+        "validation_mixed": 0.2778292128646042
+      },
+      "prior": {
+        "discovery_touch": 0.42124254154239515,
+        "validation_touch": 0.4210791342765023,
+        "validation_min_touch": 0.39437588125124445,
+        "validation_inside": 0.059377278904240334,
+        "validation_mixed": 0.361701855372262
+      }
+    },
+    {
+      "head": 8,
+      "fits": [
+        {
+          "label": "routing",
+          "converged": true,
+          "score": 0.7732543153426903,
+          "tangent_stationarity": 8.535262438252615e-08,
+          "orthogonality_error": 2.220446049250313e-15,
+          "iterations": 332,
+          "stopping_criterion": "Terminated - min grad norm reached after 332 iterations, 0.85 seconds.",
+          "seconds": 0.8571874834597111,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.6002571576936027
+        },
+        {
+          "label": "producer",
+          "converged": true,
+          "score": 0.7732543153417375,
+          "tangent_stationarity": 7.753405243510878e-08,
+          "orthogonality_error": 2.4424906541753444e-15,
+          "iterations": 302,
+          "stopping_criterion": "Terminated - min grad norm reached after 302 iterations, 0.79 seconds.",
+          "seconds": 0.7882749773561954,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.6976633158425529
+        },
+        {
+          "label": "random_2209",
+          "converged": true,
+          "score": 0.7732543153414788,
+          "tangent_stationarity": 8.465099161082659e-08,
+          "orthogonality_error": 2.220446049250313e-15,
+          "iterations": 272,
+          "stopping_criterion": "Terminated - min grad norm reached after 272 iterations, 0.70 seconds.",
+          "seconds": 0.7021458223462105,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.1878205411600304
+        },
+        {
+          "label": "random_2223",
+          "converged": true,
+          "score": 0.7732543153393483,
+          "tangent_stationarity": 9.118655076179604e-08,
+          "orthogonality_error": 1.3322676295501878e-15,
+          "iterations": 452,
+          "stopping_criterion": "Terminated - min grad norm reached after 452 iterations, 1.14 seconds.",
+          "seconds": 1.1392672173678875,
+          "pymanopt_version": "2.2.1",
+          "initial_score": 0.18900672646916145
+        }
+      ],
+      "best": 0,
+      "subspace_stability": [
+        1.0000000000000022,
+        0.9999999948070214,
+        0.9999999946830096,
+        0.9999999998822304
+      ],
+      "sharing": 0.2895416588781224,
+      "old_sharing": 0.07039565131988473,
+      "normalized_routing_influence": 0.7217808752420127,
+      "normalized_sharing": 0.8247277554433675,
+      "actual": {
+        "discovery_touch": 0.28704880270088756,
+        "validation_touch": 0.28687198290604615,
+        "validation_min_touch": 0.27432538410879415,
+        "validation_inside": 0.025793712925110956,
+        "validation_mixed": 0.2610782699809352
+      },
+      "prior": {
+        "discovery_touch": 0.38458246675805163,
+        "validation_touch": 0.3844078073862206,
+        "validation_min_touch": 0.366689427928209,
+        "validation_inside": 0.0488444452431115,
+        "validation_mixed": 0.3355633621431091
+      }
+    }
+  ],
+  "summary": {
+    "old_sharing": 0.05807573833481642,
+    "new_sharing": 0.27705074024358717,
+    "sharing_ratio": 4.770507413032667,
+    "old_validation_touch": 0.41643279207110573,
+    "new_validation_touch": 0.3064313773777249,
+    "touch_retention": 0.7358483366636551
+  },
+  "maximum_instrument_error": 2.6645352591003757e-15,
+  "wall_seconds": 36.69483581185341,
+  "execution": {
+    "script_sha256": "d8b3991a3a459e24354c1901ed4e4ab320011c247b349fac08f0c162e161ea60",
+    "binding_sha256": "5a1b24cb77d011e93eead519d96f5bc2298686455853714fb218c5e593cd061a",
+    "prepared_cache_sha256": "eafee5c09b4366063dc3b1f2dd2904fe214121e895cf71f24fd4830acaf4c252",
+    "pymanopt_version": "2.2.1",
+    "solver_sources": {
+      "/venv/main/lib/python3.12/site-packages/pymanopt/optimizers/conjugate_gradient.py": "4df13f407bf7e80037f6cf6a28dd8b672a2430ce046b7003a9e391226707de07",
+      "/venv/main/lib/python3.12/site-packages/pymanopt/manifolds/grassmann.py": "401d2fa15f29117edc9bda92dc9cf2cf3f818afb2a99e34eccf73e15bd9f5bdb"
+    }
+  },
+  "cache": {
+    "path": "/dev/shm/bilin18_coupled_producer_native_v1.pt",
+    "sha256": "4e5494a0159209e895a00bd20c43d798b671bf46d7a011d50e757b6656d0c024",
+    "bytes": 2670197,
+    "ephemeral": true
+  },
+  "price": {
+    "body_forwards": 0,
+    "corpus_access": false,
+    "source_frame_numbers": 176256,
+    "cpu_fits": 36
+  },
+  "scope": "Fixed balanced weight-only coupled subspace objective. Influence surrogate optimized, actual joint-QK touch checked on held-out distances. No semantic identity or normalized behavioral effect evidence."
+}

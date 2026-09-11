@@ -478,3 +478,15 @@ MLP16quadraticoutputcoefficientrank90=848; doesnotcontradictnaturalstate/CEdossi
 Newjointobjectivecontrolled,nativenotfit. Seeexplanation0406 and
 MLP16_PRODUCER_OVERLAP_V1_RESULT, MLP16_PRODUCER_KEY_ENVELOPE_V1_AUDIT,
 PRODUCER_COUPLED_QK_TOUCH_V1_AUDIT, COUPLED_PRODUCER_ROUTING_OBJECTIVE_V1_CONTROL.
+
+
+## 11 September04:33 — coupled producer/routing selection completed
+
+Joint weight-only fit improves producer-function overlap4.77x but retains73.58%
+of prior QK touch, missing80%. All36 starts have converged continuations after
+same-objective repair; original miss preserved. Fixed midpoint gives2.94x sharing
+with90.95% retention on already inspected positions: post-result audit only.
+Leading common MLP16 scalar functions remain dense under exact product spectra:
+mean16-product capture18.20%, median256products for90%, versus259private. These
+fixed-function results do not rule out simpler feature combinations or shared
+multioutput programs. No behavioral identification. [Combined explanation](2026-09-11/explanation_2026-09-11_0433.md).
