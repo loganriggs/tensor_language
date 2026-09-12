@@ -1,0 +1,22 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "attention_errors": [
+    2.7773352144894216e-15,
+    2.224124973135584e-15,
+    2.5002573772527448e-15
+  ],
+  "full_unembedding_decoder_error": 3.506710365538126e-15,
+  "permutation_error": 1.5025554424275464e-15,
+  "execution_seconds": 0.42751801013946533,
+  "value_mix": -0.0888671875,
+  "body_forwards": 0,
+  "scope": "Native-weight replay on synthetic normalized ports, not native text or learned factorization. Final RMS and capped logits beyond this unembedded MLP write are not eliminated.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/audit_joint_routing_value_native_v1.py": "875d6b5631e6c63b221942fb2a69eaa6d03fd0f9ebe3879110b3f032a44364ad",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_routing_value_polynomial_v1.py": "f0af5035abcbc6924145e0fe95fd833f867d4003a71804a3fd793a59170918f1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/JOINT_ROUTING_VALUE_NATIVE_V1_PREREGISTRATION.md": "e116053409a0f9fc0a200e54958c04673a25d399d8154c7f485033b8121ef776"
+  }
+}

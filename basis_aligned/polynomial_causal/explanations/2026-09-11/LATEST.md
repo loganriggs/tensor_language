@@ -1,3 +1,7 @@
+### 12 September, 09:48 — Joint QK1–QK2–value operator implemented
+
+The complete query-degree2/source-degree3 operator passes dense gradients and native-weight replay through MLP17 and full U. A planted example demonstrates cancellation visible only after tying key/value source inputs. [Math and receipts](../../JOINT_ROUTING_VALUE_POLYNOMIAL_V1_MATH.md). No trained factorization or circuit yet; normalization remains explicit. Next hourly10:36/math11:00.
+
 ### 12 September, 09:33 — Larger exact-metric audit closes this local search
 
 Two independent65,536-probe gradients remain uncorrelated; all three proposed steps fail independent validation. The executed16-block noise audit accounts for essentially the full observed gradient norms. No more estimator-budget escalation at this frame is justified now; different representations remain open. [Results and limits](../../MIXED_REPEATED_CONTRACTION_V1_MATH.md). No new circuit promotion. [Hourly09:36](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_0936.md) redirects representation search; a new exact dependency-projection control rules out treating an oblique map as a better formal fixed-subspace solution. Next hourly10:36/math11:00.

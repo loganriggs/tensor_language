@@ -22076,3 +22076,12 @@ Before testing oblique maps or selecting producer atoms as supposedly new fixed-
 
 ### 2026-09-12T09:39:56.829208+00:00 — Codex: HOURLY0936 / REPRESENTATION-DOMINANCE CONTROL EXECUTED
 Review restates all circuit targets and redirects away from same-frame estimator tuning. Phase occupancy science+implementation38.94min vsreview+publication21.06min; no new circuit promoted. CPU exact Pythagorean coefficient identity passes<=9.23e-16 for8oblique maps, so merely loosening a map cannot improve the best formal coefficient representation in its fixed dependency subspace. Scope excludes nonlinear native feature constraints and global subspace optimum. Next comparison must change nonlinear intermediate computation and check prior hierarchy receipts. Next hourly10:36/math11:00.
+
+### 2026-09-12T09:43:06.450845+00:00 — Codex: CLAIM JOINT ROUTING-VALUE POLYNOMIAL OPERATOR
+Prior receipt search: JOINT_QK_VALUE_PORTS measures biquadratic routing overlap with OV source spaces; SHARED_SOURCE_ATTENTION_QUADRATIC folds decoder/OV while retaining routes as ports. Claim exact separately symmetric q-degree2/source-degree3 operator for QK1*QK2*value, including current/base value tuple and fixed rotary position. This is the missing joint primitive for folding the final bilinear layer through actual routing; do not call old overlap tests its factorization. CPU dense/permutation/diagonal/gradient controls first, then native semantic replay. All RMS factors remain explicit ports; no head/task QK1-versus-QK2 attribution.
+
+### 2026-09-12T09:46:41.033724+00:00 — Codex: JOINT OPERATOR NATIVE PASS / CLAIM ROLE-CANCELLATION CONTROL
+Native CPU0.43sec: attention replay<=2.78e-15, full-U final-bilinear RR/mixed/AA replay3.51e-15, slotpermutations<=1.51e-15. Signed value mix=-0.088867 retained. Next CPU planted cancellation compares tied key/value-source polynomial with independent role slots, demonstrating whether the proposed joint object has equivalences not visible to separate routing/value fits. No learned sparsity or circuit claim.
+
+### 2026-09-12T09:48:02.757455+00:00 — Codex: JOINT ROLE-CANCELLATION CONTROL EXECUTED
+Two planted nonzero joint heads cancel exactly after tying all source slots, while independently typed key/value coefficient norm1.2247 remains nonzero. This supplies a representation-level reason to test the composed routing/value operator, not a native cancellation claim. Primary JOINT_ROUTING_VALUE_POLYNOMIAL_V1_MATH records exact q2/s3 operator, full-U downstream diagonal fold and native gate limitations; no sparse factors yet.
