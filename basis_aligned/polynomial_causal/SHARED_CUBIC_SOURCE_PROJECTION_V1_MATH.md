@@ -868,3 +868,93 @@ small token-source branch. It does not establish full source removal, guarantee
 all unrelated behaviors, or provide the remaining routing/current-state inputs.
 The next extraction work should close those dependencies rather than accumulate
 more easy positive screens of the already-tested token branch.
+
+
+## Exact conditional token-to-logit path
+
+The next extraction step composes the already validated first-value branch across
+attention8/9/13, the two child readings, attention17, and the native final suffix.
+It introduces no learned approximation. All recipient context-dependent ports
+remain fixed and explicitly required.
+
+Let $z_{jha}$ denote the two first-value readings ($a=1,2$) for each of nine heads
+in each of three producer layers. At the one changed cue position $s_*$ there
+are54such values. Let $R_{jh,t s_*}$ be the producer's joint QK routing. Define
+
+$$
+B_{tao}=\frac{p_t}{\rho_{17,t}}
+\sum_H \frac{g_{Ht}}{g_H^{(0)}}\beta_{Htao},
+\qquad
+K_{jhao}=\sum_t R_{jh,t s_*}B_{tao}.
+$$
+
+Here $p_t$ is the frozen shared quadratic parent; $g/g^{(0)}$ is the native
+attention17 normalization factor relative to the coefficient reference; and
+$\beta$ is the private query-dependent writer. Both QK factors and all positional
+operators remain represented. The full path change is
+
+$$
+\Delta w_o=\sum_{j,h,a}K_{jhao}\Delta z_{jha}.
+$$
+
+The [native compilation test](REGIONAL_TOKEN_PATH_COMPILE_V1_RESULT.json) passes
+on all32fresh-panel prefixes: actual donor-write error6.57e-16, independent
+synthetic54-port write error2.42e-16, and saved suffix-margin replay error0.
+The synthetic values are independent port edits, not necessarily token-realizable
+values. This is a conditional multi-layer operator, not a claim that changing
+an actual input token leaves its other model descendants fixed.
+
+A dense $K$ stores62,208numbers per context. Keeping the contraction graph is
+better:27routing coefficients per position and two1152-dimensional downstream
+writers per position. At the tested7–11positions that uses16,317–25,641numbers.
+[Literal interface pricing](REGIONAL_TOKEN_PATH_V1_PRICE.json). The two child
+values are shared intermediate computations with27incoming producer-head paths.
+This is exact structural reuse already exposed by the folded computation; it
+is not new low-rank fitting, nor does it make native context generation free.
+
+### Folding the final bilinear layer and full unembedding
+
+Flatten the54source changes into $\delta$ and let $y=y_0+K^\top\delta$ be the
+input to the final MLP. Precompute its reader maps $LK^\top,RK^\top$ and the
+normalization polynomial
+
+$$
+\rho(y)^2=
+\frac{\|y_0\|^2+2\delta^\top Ky_0+\delta^\top KK^\top\delta}{1152}
++\epsilon.
+$$
+
+The residual after the MLP is exactly
+
+$$
+h(\delta)=y_0+K^\top\delta+
+D\frac{(Ly_0+LK^\top\delta)\odot(Ry_0+RK^\top\delta)}{\rho(y)^2}+b,
+\qquad
+\ell(\delta)=30\tanh\!\left(\frac{U\operatorname{RMS}(h(\delta))}{30}\right).
+$$
+
+This retains the entire50304-row unembedding and both live suffix normalizations.
+It is a rational computation followed by the cap, not a global polynomial in
+raw tokens. The two folded input maps cost497,664numbers per context; Down, U,
+K/context generation and all native background dependencies still count.
+
+The original strict [full-U audit failed](REGIONAL_TOKEN_SUFFIX_V1_FAILURE.json)
+before saving cell values. The [logged audit](REGIONAL_TOKEN_SUFFIX_V2_RESULT.json)
+preserves that miss: all state/full-logit relative errors are~1e-15, and donor,
+negative, half and1.5-times-donor effect errors are at most1.43e-12, but the small
+synthetic edit has relative effect error5.67e-9 against the1e-10bar. Its effect
+norm is only0.0002033; absolute output discrepancies remain~1e-12.
+
+The executed [same-direction scale check](REGIONAL_TOKEN_SUFFIX_SCALE_V1_RESULT.json)
+raises synthetic amplitude by10,100,1000. Absolute logit errors remain
+7.6–8.9e-13 while relative effect error falls to5.36e-10,5.77e-11,6.59e-12.
+This supports cancellation at floating-point precision, not a missing algebraic
+term. It does not retroactively pass the original tiny-edit criterion. These
+are FP64 algebra checks at two preselected contexts using nativefloat32epsilon;
+they are not new OOD behavior or a bitwisefloat32 model equivalence claim.
+
+The result is a complete conditional token-value-to-all-logits specification for
+this path. The unresolved extraction problem is now explicit: generate the
+routing and downstream parent/query/normalization quantities with a smaller
+transparent program. Another fitted dense context-specific K would hide that
+problem. Retain the shared two-child-per-position graph when pursuing it.

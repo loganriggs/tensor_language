@@ -22262,3 +22262,21 @@ Previousgoalturnprogress:fullvocabendpointpass+tokenprofile,pushed. Freeze32newp
 
 ### 2026-09-12T12:06:41.288004+00:00 — Codex: MATCHED WRITE CONTROL PASS / FRESH RESULTS PUBLISHED
 True.05613nats vscontrol95th.002315,max.004723;Gram1.05e-15,replay7.10e-7. General tokenexecutor andfreshbehaviorcontrols recorded, nofullsource-removal/extractionclaim. Small2.079%nativecuefractionexplicit. Nextresearch shouldclose routing/current-state dependencies ratherthanrepeat easypositives. Fullgoalactive; matchedCPUauditexecuted.
+
+### 2026-09-12T12:10:07.633169+00:00 — Codex: CLAIM CONDITIONAL TOKEN-PATH COMPILATION
+Stop extraeasybehavior screens. Compile K[j,h,a,o]=sum_t route[j,h,t,cue]*parent17[t]*sum_H(gate17*writer17)[a,o]/rho17[t]. Thenfirst-tokenbranch delta w=sum_jha K*delta z, zthe54frozenH-tokenreads. Prior exactnormalizedsource-response andattention16 pathmathchecked; this closescurrentmultilayer first-valuepath algebra, notnewbilinearitytheorem. CPUcontractioncontrol thennativefullpathreplay. Kcontextcost/upstreamnativeports explicitlycharged.
+
+### 2026-09-12T12:14:56.647137+00:00 — Codex: CONDITIONAL PATH SCHEMA REPAIR / CLAIM SUFFIX FOLD
+Queue refused2predictionkeys beforeexecution; unchangedactual/synthetic/suffixchecks splitintoA/B/C,rebindingandsubmission. InparallelCPUderive54-affine-input lastMLP/RMS execution; preservesquadraticRMSdenominator andfullvectornorm. Existingnormalizedsource-responseidentityreusedconceptually; newmaps eliminate1152DLeft/Rightreads percounterfactual underfixedK. No lowrankfit orglobalclaim.
+
+### 2026-09-12T12:16:00.417636+00:00 — Codex: NATIVE TOKEN-PATH COMPILE PASS / CLAIM FULL-U AFFINE SUFFIX
+2.28secA/B/Cpass,actualwrite6.57e-16,synthetic2.42e-16,savedmargins0. CPUaffinesuffixcontrol7.11e-16. Nowuse2presavedrepresentativecontexts,sixfixedsourceedits (0,donor,-donor,.5donor,1.5donor,seededsynthetic), compareFP64 directnative vs foldedinputmaps throughfull50304capped logits, samefloat32epsilon. Requirestate/logit/effecterrors<=1e-10. Algebraaudit,notnewOODbehavior.
+
+### 2026-09-12T12:17:00.667388+00:00 — Codex: FULL-U SUFFIX STRICT AUDIT MISS / CLAIM LOGGED NUMERICAL DIAGNOSIS
+V1CPUasserted1e-10beforewritingcellmetrics; source/errorreceiptpreserved. V2onlyrecordsalloriginalcriteria/errors,nochangedbar. NativeKcompilerstillpassed. Distinguishformulaerrorfromfull-logit/effectcancellationbeforeclaimingnativefullsuffixsuccess.
+
+### 2026-09-12T12:17:42.052702+00:00 — Codex: SUFFIX MISS LOCALIZED / CLAIM SAME-DIRECTION SCALE CHECK
+Allstate/full-logiterrors~1e-15; donor-sizedeffecterrors<=1.43e-12pass. Onlystd.1synthetic effectnorm.000203failsrelativebar5.67e-9with~1e-12absolutediscrepancy. Testsamefixedsyntheticdirection at1/10/100/1000amplitude; expectabsoluteerrorflooranddecliningrelativeerror. Originalmissunchanged; no formula/thresholdrepair.
+
+### 2026-09-12T12:19:50.406965+00:00 — Codex: CONDITIONAL TOKEN PATH AND SUFFIX DIAGNOSIS PUBLISHED
+NativeKactual/synthetic/marginpass. Full-UFP64state/logit~1e-15;tinysyntheticrelativeeffectmisspreserved. Same-directionscalecontrolabsolute~1e-12,relativefalls5.67e-9to6.59e-12. Exactfactoredroute+twochildwriters16–26kfloatsvsdense62kpercontext; excludesgeneratorweights. Mainmathrecordsclosedconditionalspecification andremainingnativecontextdependency. Fullgoalactive.

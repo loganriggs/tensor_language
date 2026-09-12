@@ -1,0 +1,62 @@
+{
+  "passed": false,
+  "cells": [
+    {
+      "edit": "zero",
+      "relative_state_error": 3.881312927829633e-16,
+      "relative_full_logit_error": 7.867734089638376e-16,
+      "relative_logit_effect_error": 0.0,
+      "reference_effect_norm": 0.0,
+      "absolute_logit_error_norm": 8.736445518956368e-13,
+      "absolute_state_error_norm": 4.424005806439295e-11
+    },
+    {
+      "edit": "donor",
+      "relative_state_error": 7.293519508856927e-16,
+      "relative_full_logit_error": 1.1191108177340799e-15,
+      "relative_logit_effect_error": 8.716866635341289e-13,
+      "reference_effect_norm": 1.9108994084485562,
+      "absolute_logit_error_norm": 1.2424423310421188e-12,
+      "absolute_state_error_norm": 8.31355573681644e-11
+    },
+    {
+      "edit": "negative",
+      "relative_state_error": 4.886601607399211e-16,
+      "relative_full_logit_error": 1.0157993220836727e-15,
+      "relative_logit_effect_error": 8.303934653843832e-13,
+      "reference_effect_norm": 1.9125114494879258,
+      "absolute_logit_error_norm": 1.1281815585127566e-12,
+      "absolute_state_error_norm": 5.569687948828756e-11
+    },
+    {
+      "edit": "half",
+      "relative_state_error": 5.476232167648071e-16,
+      "relative_full_logit_error": 8.959940240227542e-16,
+      "relative_logit_effect_error": 1.4232669162286492e-12,
+      "reference_effect_norm": 0.9556480714354865,
+      "absolute_logit_error_norm": 9.948296774140585e-13,
+      "absolute_state_error_norm": 6.242021451556134e-11
+    },
+    {
+      "edit": "one_half",
+      "relative_state_error": 5.031331408835878e-16,
+      "relative_full_logit_error": 7.649604247306161e-16,
+      "relative_logit_effect_error": 3.934449103774754e-13,
+      "reference_effect_norm": 2.8657603087414327,
+      "absolute_logit_error_norm": 8.491856508357123e-13,
+      "absolute_state_error_norm": 5.7350701055169436e-11
+    },
+    {
+      "edit": "synthetic",
+      "relative_state_error": 4.1618853495682735e-16,
+      "relative_full_logit_error": 7.213814388800789e-16,
+      "relative_logit_effect_error": 5.669208444044218e-09,
+      "reference_effect_norm": 0.0002033143471362108,
+      "absolute_logit_error_norm": 8.010323828809803e-13,
+      "absolute_state_error_norm": 4.7438084031301353e-11
+    }
+  ],
+  "vocabulary_rows": 50304,
+  "folded_LR_floats_per_context": 497664,
+  "scope": "Two preselected contexts; exact FP64 conditional source-port algebra withnativeepsilon, notbitwisefloat32modelproof or newbehavioral/OODtest. K generation,Down,U andnativebackgroundremaincharged."
+}

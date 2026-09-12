@@ -1,3 +1,12 @@
+### 12 September — Conditional token-to-logit path compiled
+
+The54-value token branch now contracts exactly through three producer layers
+into the final attention write. Full suffix algebra includes all50304logits.
+A tiny synthetic-edit relative-tolerance miss is preserved; an executed scale
+check supports floating-point cancellation. The shared two-child-per-position
+representation is cheaper than a dense context map. Native context generation
+stillrequired. [Equations, receipts and limits](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+
 ### 12 September, 12:06 — Fresh behavior controls pass
 
 General token-first executor transfers0.056nats of a2.699nat regional cue gap

@@ -1,0 +1,53 @@
+{
+  "matched_large_edit_pass": true,
+  "cells": [
+    {
+      "edit": "zero",
+      "relative_state_error": 3.881312927829633e-16,
+      "relative_full_logit_error": 7.867734089638376e-16,
+      "relative_logit_effect_error": 0.0,
+      "reference_effect_norm": 0.0,
+      "absolute_logit_error_norm": 8.736445518956368e-13,
+      "absolute_state_error_norm": 4.424005806439295e-11
+    },
+    {
+      "edit": "1",
+      "relative_state_error": 4.1618853495682735e-16,
+      "relative_full_logit_error": 7.213814388800789e-16,
+      "relative_logit_effect_error": 5.669208444044218e-09,
+      "reference_effect_norm": 0.0002033143471362108,
+      "absolute_logit_error_norm": 8.010323828809803e-13,
+      "absolute_state_error_norm": 4.7438084031301353e-11
+    },
+    {
+      "edit": "10",
+      "relative_state_error": 3.2426826040540505e-16,
+      "relative_full_logit_error": 6.887342886012839e-16,
+      "relative_logit_effect_error": 5.362458707110126e-10,
+      "reference_effect_norm": 0.0020331439045725205,
+      "absolute_logit_error_norm": 7.647806750851353e-13,
+      "absolute_state_error_norm": 3.696080782468624e-11
+    },
+    {
+      "edit": "100",
+      "relative_state_error": 3.952858524009528e-16,
+      "relative_full_logit_error": 7.1789670401200535e-16,
+      "relative_logit_effect_error": 5.774034908089744e-11,
+      "reference_effect_norm": 0.020331482467428,
+      "absolute_logit_error_norm": 7.971647182676334e-13,
+      "absolute_state_error_norm": 4.50555333636707e-11
+    },
+    {
+      "edit": "1000",
+      "relative_state_error": 4.257564934980037e-16,
+      "relative_full_logit_error": 7.970850877211946e-16,
+      "relative_logit_effect_error": 6.589034123765917e-12,
+      "reference_effect_norm": 0.20331917825600326,
+      "absolute_logit_error_norm": 8.851154171027928e-13,
+      "absolute_state_error_norm": 4.852847621704215e-11
+    }
+  ],
+  "vocabulary_rows": 50304,
+  "folded_LR_floats_per_context": 497664,
+  "scope": "Executed scale diagnostic of the same synthetic direction; original std.1 relative-tolerance miss preserved. Not behavioral evidence or a repaired original verdict."
+}
