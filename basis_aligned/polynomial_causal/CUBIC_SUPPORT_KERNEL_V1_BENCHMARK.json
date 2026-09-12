@@ -1,0 +1,30 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "capture": 9.756986148443991e-06,
+  "gradient_norm": 4.8752713483641183e-05,
+  "value_relative_error": 3.472518805981423e-16,
+  "gradient_relative_error": 2.7798018906418152e-15,
+  "folded_value_reconstruction_error": 2.239657767622015e-15,
+  "source_coordinates": 520,
+  "query_coordinates": 512,
+  "seconds": {
+    "full": [
+      0.069239791482687,
+      0.0690644383430481,
+      0.06930160894989967,
+      0.06892254948616028,
+      0.06853080168366432
+    ],
+    "small": [
+      0.00928264856338501,
+      0.008749336004257202,
+      0.009265098720788956,
+      0.008696157485246658,
+      0.0094907246530056
+    ]
+  },
+  "median_speedup": 7.45425822480249,
+  "scope": "CPU2threads five alternating gradient evaluations, same seeded rank16 candidate in exact union support for heads8.2/9.8. Fullpath includes lifting latent readers. Reducedpath excludes one-time basis build; no GPU timing, fit convergence or circuit effect evidence."
+}
