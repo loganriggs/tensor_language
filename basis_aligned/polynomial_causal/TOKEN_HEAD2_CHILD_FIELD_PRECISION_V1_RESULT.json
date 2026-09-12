@@ -1,0 +1,30 @@
+{
+  "cells": [
+    {
+      "restored": "source_readers",
+      "relative_error": 2.8478219273409446e-08,
+      "extra_storage_bytes": 36864
+    },
+    {
+      "restored": "dual",
+      "relative_error": 3.353172526998386e-05,
+      "extra_storage_bytes": 128
+    },
+    {
+      "restored": "norm_maps",
+      "relative_error": 3.349992372017357e-05,
+      "extra_storage_bytes": 2359296
+    },
+    {
+      "restored": "atom_keys",
+      "relative_error": 3.347770350945245e-05,
+      "extra_storage_bytes": 49152
+    },
+    {
+      "restored": "atom_writers",
+      "relative_error": 3.3500473926324266e-05,
+      "extra_storage_bytes": 221184
+    }
+  ],
+  "scope": "Single failing case, all arithmetic FP64, one parameter group restored at a time. Local precision diagnosis, not a validated mixed-precision deployment or fresh-input guarantee."
+}

@@ -126,3 +126,11 @@ inputs at runtime, not the research factor-fitting code. Input-state generation
 and final readout remain external. An initial disk-full export was repaired by
 clearing regenerated npm downloads and rebuilding the incomplete owned file;
 see NPM_CACHE_STORAGE_2026-09-12_1457.json. No research/model data were removed.
+
+## First-state dependency fold and precision scope (15:10)
+
+[Full-vocabulary four-read fold](COMPILED_TOKEN_SHARED_HEAD2_V1_MATH.md) removes
+the separate first-state input and passes native full-write/effect checks. A
+strict child-local FP32 comparison fails; the same case is worse in the old
+FP32 package. Earlier tight child checks were FP64. Reader-weight precision is
+isolated as the main cause, with a mixed-precision native check still required.

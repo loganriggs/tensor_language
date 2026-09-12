@@ -1,0 +1,43 @@
+{
+  "cells": [
+    {
+      "name": "original64",
+      "relative_error": 1.2935442217480565e-12,
+      "absolute_error": 2.1491542593485573e-14
+    },
+    {
+      "name": "rounded_weights_64_arithmetic",
+      "relative_error": 3.349992372017357e-05,
+      "absolute_error": 5.565832426955524e-07
+    },
+    {
+      "name": "rounded_token_table_64_arithmetic",
+      "relative_error": 4.15701882593458e-05,
+      "absolute_error": 6.906663541719667e-07
+    },
+    {
+      "name": "rounded_weights_exact_first_readings_64_arithmetic",
+      "relative_error": 3.3499926750727055e-05,
+      "absolute_error": 5.565832930465711e-07
+    },
+    {
+      "name": "original_weights_exact_first_readings_64",
+      "relative_error": 2.1804247446070458e-12,
+      "absolute_error": 3.622658621387223e-14
+    }
+  ],
+  "reference_norm": 0.01661446298638523,
+  "source_child_values": [
+    0.00024810159690480393,
+    0.00024810159690480393,
+    0.00024810159690480393,
+    0.00024810159690480393,
+    0.00024810159690480393,
+    0.00024810159690480393,
+    0.00024810159690480393,
+    0.00024810159690480393
+  ],
+  "captured_old_fp32_relative_error": 0.00025133936700084356,
+  "captured_token_fp32_relative_error": 6.759269998820368e-05,
+  "scope": "Worst-case CPU arithmetic/parameter/lookup isolation. Exact per-case first readings are a diagnostic using captured native states, not an exported general-vocabulary repair. Original failed C unchanged."
+}

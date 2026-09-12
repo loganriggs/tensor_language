@@ -22448,3 +22448,6 @@ All50304token fourreads compiled,201216lookupscalars; package863264. Independent
 
 ### 2026-09-12T15:06:09.891761+00:00 — Codex: TOKEN FULL-WRITE PASS CHILD LOCAL MISS / CLAIM FAILURE CAPTURE
 4.43sec A/Bpass fulltokenwrite<=1.12e-7/effect<=6.50e-6. C fails perpositionchildrelative6.76e-5 vs1e-5; childsum8.74e-8passes. Preserve miss. Manageddiagnostic repeats samefrozenrows/code math, capturesworstquery/current/first/token/R/childreference and absolute target/errornorms; compareoldFP32child tolocalize lookupversusgeneralFP32conditioning. No thresholdrepair or packagepromotion.
+
+### 2026-09-12T15:10:55.658977+00:00 — Codex: TOKEN CHILD PRECISION ISOLATED
+Worst sourcechildvalue.0002481; oldFP32child2.51e-4,new6.76e-5. FP32weight rounding persists3.35e-5 underFP64arithmetic. Restoringonlysource-readerweights gives2.85e-8 for capturedcase; exact originalweights/splitreadings2.19e-12. No C repairclaimed; newprimary COMPILED_TOKEN_SHARED_HEAD2_V1_MATH.md andoldportableREADME clarify FP64versusFP32 childscope. Nextmixedprecisionnativecheck required; current/querygeneratorsremainopen.

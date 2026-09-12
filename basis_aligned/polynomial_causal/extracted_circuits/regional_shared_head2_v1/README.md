@@ -51,7 +51,7 @@ the native final layer need not add, because that layer is nonlinear.
 [Native integration](../../COMPILED_SHARED_HEAD2_NATIVE_V1_RESULT.json) tested
 48 geographic prompts across four families. FP64 matches the original branch
 writes within2.97e-15; FP32 within1.65e-7. FP32 signed-prefix removal-effect
-error is at most8.29e-6. Two child branches match their original factor
+error is at most8.29e-6. FP64 child branches match their original factor
 references within1.25e-14 and sum to the full write within1.60e-16. Their measured
 final-output interaction is0.112–0.159%of the joint effect.
 
@@ -69,3 +69,9 @@ successful retry. Model/research files were retained.
 Upstream state generation, final MLP/RMS/unembedding, rotary generation, broad
 selectivity and interaction with other extracted components remain outside this
 package. [Full derivation and price](../../COMPILED_SHARED_HEAD2_V1_MATH.md).
+
+**FP32 child-intervention precision limit:** later source-position testing found
+a small child reading for which the old FP32 package has2.51e-4relative write
+error. Full-component FP32 results above remain valid. Tight FP64 child results
+do not establish the same tolerance for every FP32 child edit. See the
+[precision diagnosis](../../COMPILED_TOKEN_SHARED_HEAD2_V1_MATH.md).
