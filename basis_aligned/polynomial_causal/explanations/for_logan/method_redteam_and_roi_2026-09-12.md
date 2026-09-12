@@ -1,0 +1,287 @@
+# Interaction decomposition: critical review, counter-review and best next investments
+
+12 September 2026. Written after completing the longer optimizer comparison and
+physical head13 screen; includes the subsequent CPU efficiency audit.
+
+## 1. High-level assessment
+
+**The interaction-path direction remains promising. Its strongest evidence is
+the selective regional-cue component and the explicit equation for producer
+interactions through an MLP. The latest generic cubic fitting is a useful tool,
+but its improved coefficient score has not improved that circuit.** These are
+different parts of the research, and neither should inherit the other's verdict.
+
+The strongest positive result still removes roughly 53–57% of the regional cue
+contrast on the three fresh template families and supports directed donor swaps,
+with passing tested newline controls. Its harder role test failed: this is a
+regional-cue component, not a clean writer-specific mechanism. It also still
+requires native contextual inputs. The [standalone derivation](standalone_best_result.md)
+explains precisely what has been extracted and what remains supplied.
+
+Three new results change where I would spend effort:
+
+1. Twenty more minutes of matched optimization improved the weaker starting fit
+   substantially, but none of the four fits converged. The new coordinates barely
+   outperformed the older coordinates at equal wall time.
+2. A physical head13 screen took 5.68 seconds. Two frozen source-polynomial
+   components had similar intervention effects but essentially zero regional
+   cue coverage. Improving this part of the weight fit is currently poorly
+   aligned with improving our regional circuit.
+3. An equation-based CPU audit found exact smaller input spaces: a single head's
+   source polynomial needs at most 384 coordinates rather than 2,304; the
+   four-consumer-read target needs at most 260. This is a concrete way to make
+   subsequent fits smaller without asking data to discover the structure.
+
+My recommendation is to exploit the known causal paths, use the exact support
+reduction, and test a small number of structures suggested by their equations.
+Keep broad fitting as a bounded discovery route, with early physical screens.
+Do not spend the next block extending the same large fit solely for its score.
+
+## 2. What just finished
+
+Each optimizer arm received 300 seconds and up to 512 iterations. “Secant” and
+“cluster” are alternative coordinates for the same rank16 cubic family, not
+extra freely fitted components. The cluster chart expands into more tied
+internal products to represent nearby factors more stably.
+
+| Starting fit | Old-chart capture | Cluster capture | Cluster gain over start | Converged? |
+|---|---:|---:|---:|---|
+| Stronger | 0.536380 | 0.536891 | 0.56% | No |
+| Weaker | 0.463323 | 0.463916 | 20.94% | No |
+
+“Capture” is the squared coefficient norm retained by the projection, in the
+fixed weight objective. These numbers are not fractions of behavior explained.
+All four arms hit their time limits. Their independently calculated gradients
+missed the stationarity bar. Held-position capture improved, but that is a
+positional coefficient check, not held-out language prediction.
+
+The complete functions from the two new cluster fits differ by 68.42% at the
+fit position and 71.74% at the held position, using symmetric relative
+Frobenius error. This does not establish stable discovery. It also does not
+prove a unique solution is absent: these are unconverged warm starts.
+[Optimizer receipt](../../FOLDED_CUBIC_CLUSTER_CONTINUE_V1_RESULT.json) ·
+[Function and cost audit](../../FOLDED_CUBIC_CLUSTER_CONTINUE_V1_ANALYSIS.json).
+
+The physical screen deliberately used the two **earlier frozen** banks, not
+whichever new fit looked best. It projected the full source-cubic polynomial
+before the physical output matrix, retained actual query/key normalizers and
+rotary positions, removed that component, and recomputed the native suffix.
+
+| Intervention | Family 1 cue contrast removed | Family 2 cue contrast removed |
+|---|---:|---:|
+| Earlier bank 0, head13.0 | 0.0053% | −0.0147% |
+| Earlier bank 1, head13.0 | −0.0010% | −0.0140% |
+| Whole head13.0 | 1.41% | 2.36% |
+
+Negative coverage means the removal slightly increases the contrast. Native
+baseline replay was exact at recorded precision; the FP32/FP64 projection
+check differed by less than one part per million. Both component norms were
+nonzero. The two banks' removal effects agreed within 5.23% and 7.55% relative
+RMS. Thus the instrument passed and the effect-agreement subtest passed, but
+the registered causal and combined stability criteria failed because the
+components did not carry meaningful cue contrast.
+
+Whole-head weakness is supporting context, not an upper bound on every possible
+subcomponent: opposing components can cancel. The actual component removals,
+rather than that whole-head argument alone, establish this narrow null.
+[Screen receipt](../../CUBIC_BANK_HEAD13_SCREEN_V1_RESULT.json).
+
+## 3. Red-team the method, then challenge the critique
+
+| Critique | Strongest counterargument | Verdict and consequence |
+|---|---|---|
+| We may be optimizing a convenient tensor norm rather than meaningful computation. | Weight structure can be useful before its behavioral role is known. Head13 might serve another task. | The new screen confirms objective/task mismatch here. Preserve the weight result, but prioritize the already causal heads8.2/9.8 for this circuit. Do not claim absence of other structure. |
+| This is not wholly unsupervised discovery. The regional consumer, producer layers and final path selection used behavior. | Within those declared boundaries, the factors and key subspaces came from weights; behavior can legitimately validate and choose among fixed candidates. | Call it component-conditioned, weights-first discovery. Keep discovery/selection/confirmation sets distinct. It is evidence for the method without being automatic model-wide discovery. |
+| Repeated screens and thresholds could manufacture a positive. | The selected component survived frozen fresh templates and donor swaps; the old adverse newline example was retained. | Fresh confirmation matters, but selection among many grades and a narrow task remain limitations. Test new cities, endpoints and unrelated behaviors before broad promotion. |
+| Passing fresh templates is weak evidence for OOD prediction. | It does rule out memorizing only the exact original strings. | Preserve that achievement, but do not call it broad corpus OOD. Same cities/endpoints and unused rows from the same FineWeb cache leave substantial generalization untested. |
+| The role failure invalidates the regional circuit. | The native model also uses reader-city information; the component carries both cues. | The failure kills a writer-specific label, not regional-cue transfer. Keep the failed numerical criterion and the narrower interpretation together. |
+| The extracted program still borrows most of the model. | Explicit interfaces and exact interaction equations are useful intermediate scientific objects. | Conditional extraction is real; autonomous extraction is unfinished. Charge native context generation, denominators and background rather than treating them as free. |
+| The exact MLP bridge makes the result tautological. | An algebraically derived finite-intervention equation can make independently checked signed predictions and expose indispensable mixed terms. | It is evidence for the computation and conditional sufficiency, not proof of a semantic module. The tested bridge concerns the broader producer components; do not silently transfer that result to every later selective split. |
+| Unstable fitted factors mean there are no identifiable units. | Gauge transformations can preserve a function; one head can agree even if a combined bank differs. | Compare complete functions and private components. The earlier banks differed by 57–60% overall but only about1.5% in head13's coefficient function, and their physical effects agreed. Whole-bank disagreement was too coarse to reject that head's stability. |
+| Solver failures show the proposed structure does not exist. | All native fits remain unconverged; the weaker fit improved another21% with more time. | No absence-of-structure conclusion. The evidence does show that indefinite continuation is not currently the best circuit return per minute. |
+| Keeping the original QK denominators makes the intervention artificial. | It defines a legitimate additive edit to the numerator while preserving a specified normalization interface. | State those semantics explicitly. It is not equivalent to deleting input coordinates and renormalizing; the attempted normalization shortcut already failed. |
+
+The counter-review is not a reason to erase failed bars. It separates a failed
+claim from a failed instrument, inadequate optimization, or an overly broad
+interpretation of a valid negative result.
+
+## 4. Best return: use what the equation already tells us
+
+For one head, let the query be $q\in\mathbb R^{1152}$ and combine current and
+first-layer source states as $s\in\mathbb R^{2304}$. Let
+$\bar K_1=[K_1\;0]$, $\bar K_2=[K_2\;0]$, and
+$\bar V=[(1-\mu)V_{\ell}\;\mu V_0]$, each with128rows. With relative rotary
+matrix $R_{tj}\in\mathbb R^{128\times128}$, the unnormalized physical write is
+
+$$
+N(q,s)=
+\bigl(q^TQ_1^TR_{tj}\bar K_1s\bigr)
+\bigl(q^TQ_2^TR_{tj}\bar K_2s\bigr)
+O\bar V s.
+$$
+
+This is quadratic in query coordinates and cubic in source coordinates. The
+normalized head multiplies it by the inverse product of the four original
+projected-vector norms and sums over causal source positions.
+
+### A. Remove provably irrelevant coordinates before optimizing
+
+Define the source and query spaces
+
+$$
+S=\operatorname{rowspan}
+\begin{bmatrix}\bar K_1\\\bar K_2\\\bar V\end{bmatrix},
+\qquad
+Q=\operatorname{rowspan}
+\begin{bmatrix}Q_1\\Q_2\end{bmatrix}.
+$$
+
+Then $\dim S\le384$ and $\dim Q\le256$. If $B_S,B_Q$ have orthonormal columns
+spanning these spaces, use $\tilde s=B_S^Ts$ and $\tilde q=B_Q^Tq$.
+Every required linear reading, and therefore the polynomial and its original
+QK norms, is preserved. Rotary positions do not change this conclusion because
+they mix projected128-dimensional coordinates after the original readings.
+This operates on supplied native states; it does not generate those states.
+
+For only four downstream readings $C\in\mathbb R^{4\times1152}$, replace the
+value rows by $CO\bar V$, giving $\dim S_C\le260$. This smaller bound preserves
+the four-read target, not the entire physical output. Physical extraction must
+still specify its output projection and remainder.
+
+There is also a useful approximation guarantee. If the target coefficient tensor
+$T$ lies in $\operatorname{Sym}^3(S)$ on its source modes, orthogonal projection
+$\Pi=P_S^{\otimes3}$ satisfies
+
+$$
+\|T-\Pi\widehat T\|_F
+\le\|T-\widehat T\|_F.
+$$
+
+Projecting each reader of a product keeps it a product. Thus restricting a
+single-head cubic-product fit to this exact support does not worsen the best
+achievable coefficient error at the same product count. For shared factors
+across heads use the **union** of their supports; independent per-head
+restrictions would change the shared-factor problem.
+
+The CPU audit checked all three heads and the8.2+9.8 union without truncating
+singular directions. Matrix reconstruction and normalized random-pair replay
+errors were below $5.4\times10^{-15}$, in0.56seconds.
+
+| Target | Source coordinates | Reduction from2,304 |
+|---|---:|---:|
+| One complete head | at most384 | 6× |
+| One head, four downstream reads | at most260 | 8.86× |
+| Heads8.2+9.8, complete outputs | at most768 | 3× |
+| Heads8.2+9.8, four-read targets | at most520 | 4.43× |
+
+For16 cubic products, source-reader parameters fall from110,592 to18,432 in the
+single full-head support, or12,480 in the four-read support. These are parameter
+counts, **not measured speedups**; basis storage, feature contractions, solves
+and adapters still cost something. No comparable reduction is established for
+the union of all27heads.
+For example, an explicitly stored2,304×384 source basis costs884,736 scalars, more than the92,160 reader parameters it removes at rank16. This is an optimization-coordinate saving, not extracted-program compression. [Literal price audit](../../CUBIC_EXACT_SUPPORT_V1_PRICE.json).
+
+This is an exact support calculation, before asking whether a Tucker core is
+sparse. Multilinear compression before CP fitting is established tensor practice;
+the architecture supplies our support directly. [Kolda–Bader survey](https://www.kolda.net/publication/koba09/).
+[Executed support audit](../../CUBIC_EXACT_SUPPORT_V1_AUDIT.json).
+
+### B. Choose a few equation-specific structures
+
+The next useful comparison is not twenty interchangeable regularizers:
+
+| Structure | Why this equation suggests it | What would make it useful |
+|---|---|---|
+| Known value reader times a joint-key quadratic | A scalar-value producer already has $(v^Ts)\,s^TA(q)s$. Preserve that known factor rather than rediscovering three arbitrary readers. | Stable key blocks that reproduce selective effects. |
+| Inside/mixed/outside joint-key blocks | An orthogonal projector gives the exact three-grade split of the product of both QK scores. | Repeat the selectivity result across genuinely different controls; account for mixed terms. |
+| Shared source parent with private quadratic partners | Nearby cubic products and the downstream shared reader suggest $\sum_g\ell_g(s)\,s^TA_g(q)s$. | Better stable computation at a charged matrix/block budget; not merely more capacity than CP. |
+| Exact directional MLP bridge | A bilinear MLP admits linear, quadratic and normalization-change terms for a finite edit. | Close another required circuit input or predict joint interventions across an additional boundary. |
+| Sparse/block Tucker within exact support | It allows several readers to interact without forcing every unit to be one product. | Stable blocks tied to consumers; sparsity must survive basis/gauge checks and matched-capacity controls. |
+
+The value-first and joint-key rows have the best immediate evidence. General
+shared-parent and sparse-core searches remain useful alternatives if those
+restrictions miss a measured computation. Retain output coefficients solved by
+linear least squares rather than optimizing them redundantly; this is the
+existing variable-projection idea. [O'Leary–Rust](https://www.cs.umd.edu/users/oleary/software/varpro.pdf).
+
+### C. Spend optimizer effort where it can change a circuit decision
+
+The long run used46–130 Hessian-vector products per objective evaluation. A
+Hessian-vector product measures curvature along one direction without storing
+the huge Hessian matrix. The cluster chart improved conditioning but expanded
+22 internal products to40 and did not markedly improve final capture at equal
+time. Better conditioning alone is not a measured throughput win.
+
+Use the reduced supports first, retain explicit stationarity checks, then compare
+a few diverse starts with bounded initial budgets. Continue promising starts
+and preserve the others as budget-limited, not disproven. Ten300-second native
+starts would cost about50 serial GPU-minutes under the current allocation;
+ten-way simultaneous execution is not an established50-minute-to5-minute
+speedup. Any batching belongs inside one managed job with measured memory and
+throughput. The earlier ten-start planted test took only about4seconds, but
+that tiny problem does not price the native one.
+
+The Riemannian Gauss–Newton literature specifically addresses ill-conditioned
+CP fits and hot restarts. Our native SciPy exact-Newton/Krylov fit is **not** that
+algorithm, and neither is a certificate of global recovery. A better mapped
+solver remains a candidate after reducing the problem, rather than an excuse
+to assume present failures are structural. [Breiding–Vannieuwenhoven](https://arxiv.org/abs/1709.00033).
+
+### D. Reduce authoring latency, not only GPU time
+
+The new physical screen executed192forwards in5.68seconds; the matched fit took
+1,201.67seconds. End-to-end screen preparation was much longer than execution.
+Reuse the new full-bank executor and existing row/scoring machinery. Screen
+fixed candidate functions early, preserve negative receipts, and reserve deeper
+confirmation for meaningful effects. This keeps weights-first discovery intact:
+the text measures what frozen structures do; it does not fit their weights.
+
+The disk emergency was resolved by removing one inactive, untracked, regenerable
+1.64GB fit cache after checking open files and mappings. Model weights and unique
+experiment artifacts were preserved. About1.6GB remained immediately afterward;
+that is working room, not abundant storage for a large sweep.
+
+## 5. Deferred note: normalized Frobenius tensor similarity
+
+**As requested, this is parked for a particularly good fit; no implementation
+campaign has been started.** Your paper's proposed normalized Frobenius matching
+idea is a natural option when we have a small set of concrete arithmetic-graph
+hypotheses and an inexpensive exact contraction for each.
+
+For target tensor $T$ and a guessed structure $S_\theta$, the basic score is
+
+$$
+\operatorname{sim}(T,S_\theta)=
+\frac{\langle T,S_\theta\rangle_F}
+{\|T\|_F\,\|S_\theta\|_F}.
+$$
+
+Its practical attraction would be comparing graph assumptions using a common
+weight-only objective. There is a simple relationship worth retaining: if an
+unconstrained signed global scale $\alpha$ is free, then
+
+$$
+\min_\alpha\|T-\alpha S_\theta\|_F^2
+=\|T\|_F^2\bigl(1-\operatorname{sim}(T,S_\theta)^2\bigr).
+$$
+
+So in that setting it is closely related to least squares with scale eliminated,
+not automatically a different discovery signal. Signed orientation, calibrated
+amplitude, symmetric-tensor multiplicities, normalization interfaces and literal
+graph costs still need to be handled correctly. A high cosine alone would not
+establish circuit identity or behavioral fidelity. Those are reasons to use it
+when the existing contraction machinery makes it cheap and reliable, exactly
+as you suggested.
+
+## 6. Resulting order of work
+
+The current optimizer comparison and physical screen are complete. The critical
+review and its counter-review are above; the first ROI consequence has already
+been executed as the exact-support audit.
+
+Next: use the causally supported8.2/9.8 paths and their known value factors to
+build a smaller joint-key comparison, measure its actual optimization cost,
+and validate frozen candidates through the shared physical executor. In parallel
+as a research priority, the strongest existing component still needs broader
+selectivity/generalization and closure of a declared input dependency. Further
+head13 regional fitting and a generic tensor-sim graph search are lower priority.

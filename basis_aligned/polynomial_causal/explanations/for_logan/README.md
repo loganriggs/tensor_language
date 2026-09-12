@@ -1,6 +1,8 @@
 # Requested full reports for Logan
 
-**Newest material (results through 19:55, 12 September): [updated report, sections 11–12](research_update_2026-09-12_1536_interaction_decomposition.md#11-update-through-1955-utc) and [standalone_best_result.md](standalone_best_result.md).** Includes new selectivity/role results and answers about solvers, costs, `ing` targets, and further folding.
+**Latest: [12 September — Critical review, counter-review and best ROI](method_redteam_and_roi_2026-09-12.md).** Completed optimizer and physical screen; equation-specific savings; tensor-sim kept as a deferred note.
+
+**Previous material (results through 19:55, 12 September): [updated report, sections 11–12](research_update_2026-09-12_1536_interaction_decomposition.md#11-update-through-1955-utc) and [standalone_best_result.md](standalone_best_result.md).** Includes new selectivity/role results and answers about solvers, costs, `ing` targets, and further folding.
 
 **Previous full update: [12 September, 18:55 — Predicting composed circuit interactions](research_update_2026-09-12_1855_composed_circuit_interactions.md).** Covers the work since17:30, including exact composed math, fresh removal and donor swaps, source-sector splitting, and the unresolved newline-selectivity failure.
 

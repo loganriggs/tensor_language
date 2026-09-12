@@ -1,3 +1,7 @@
+## 12 September, 21:09 — Current optimizer, physical screen and requested review
+
+[Latest requested review](../for_logan/method_redteam_and_roi_2026-09-12.md): longerfits remain unconverged; head13 physicalprojection has negligible regionalcuecoverage despite stable replica effects. Existing selective8.2/9.8 regional result remains. Exactsupport audit opens a smaller equation-specific fit; tensor-sim search deferred. [Primary method note](../../FOLDED_CUBIC_TRUST_PILOT_V1_MATH.md).
+
 ## 12 September, 18:55 — New requested full update
 
 [Latest full report](../for_logan/research_update_2026-09-12_1855_composed_circuit_interactions.md) covers all work since17:30. Donor interchange passes; the four-sector screen has no joint regional/newline passer. The exact finite-interaction audit shows mostly additive newline collateral on the preserved outlier. All four-property completion claims remain open.

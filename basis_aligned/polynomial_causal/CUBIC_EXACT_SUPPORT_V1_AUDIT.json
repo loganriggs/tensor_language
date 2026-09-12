@@ -1,0 +1,118 @@
+{
+  "pred_a": true,
+  "records": [
+    {
+      "head": "8.2",
+      "object": "full_source",
+      "ambient": 2304,
+      "support_columns": 384,
+      "coordinate_reduction": 6.0,
+      "relative_reconstruction_error": 2.0879690686915906e-15
+    },
+    {
+      "head": "8.2",
+      "object": "four_read_source",
+      "ambient": 2304,
+      "support_columns": 260,
+      "coordinate_reduction": 8.861538461538462,
+      "relative_reconstruction_error": 1.5758876950705457e-15
+    },
+    {
+      "head": "8.2",
+      "object": "query",
+      "ambient": 1152,
+      "support_columns": 256,
+      "coordinate_reduction": 4.5,
+      "relative_reconstruction_error": 1.647046904015611e-15
+    },
+    {
+      "head": "8.2",
+      "object": "normalized_pair_replay",
+      "relative_reconstruction_error": 5.349861822933525e-15
+    },
+    {
+      "head": "9.8",
+      "object": "full_source",
+      "ambient": 2304,
+      "support_columns": 384,
+      "coordinate_reduction": 6.0,
+      "relative_reconstruction_error": 2.1885411985319473e-15
+    },
+    {
+      "head": "9.8",
+      "object": "four_read_source",
+      "ambient": 2304,
+      "support_columns": 260,
+      "coordinate_reduction": 8.861538461538462,
+      "relative_reconstruction_error": 1.6630491304932795e-15
+    },
+    {
+      "head": "9.8",
+      "object": "query",
+      "ambient": 1152,
+      "support_columns": 256,
+      "coordinate_reduction": 4.5,
+      "relative_reconstruction_error": 1.6543124109326685e-15
+    },
+    {
+      "head": "9.8",
+      "object": "normalized_pair_replay",
+      "relative_reconstruction_error": 5.051849154223502e-15
+    },
+    {
+      "head": "13.0",
+      "object": "full_source",
+      "ambient": 2304,
+      "support_columns": 384,
+      "coordinate_reduction": 6.0,
+      "relative_reconstruction_error": 1.7962545143428705e-15
+    },
+    {
+      "head": "13.0",
+      "object": "four_read_source",
+      "ambient": 2304,
+      "support_columns": 260,
+      "coordinate_reduction": 8.861538461538462,
+      "relative_reconstruction_error": 1.0069615517320043e-15
+    },
+    {
+      "head": "13.0",
+      "object": "query",
+      "ambient": 1152,
+      "support_columns": 256,
+      "coordinate_reduction": 4.5,
+      "relative_reconstruction_error": 1.6490148009360155e-15
+    },
+    {
+      "head": "13.0",
+      "object": "normalized_pair_replay",
+      "relative_reconstruction_error": 5.3574037115956865e-15
+    },
+    {
+      "head": "8.2+9.8",
+      "object": "full_source",
+      "ambient": 2304,
+      "support_columns": 768,
+      "coordinate_reduction": 3.0,
+      "relative_reconstruction_error": 2.5398155118126165e-15
+    },
+    {
+      "head": "8.2+9.8",
+      "object": "four_read_source",
+      "ambient": 2304,
+      "support_columns": 520,
+      "coordinate_reduction": 4.430769230769231,
+      "relative_reconstruction_error": 2.616310623148294e-15
+    },
+    {
+      "head": "8.2+9.8",
+      "object": "query",
+      "ambient": 1152,
+      "support_columns": 512,
+      "coordinate_reduction": 2.25,
+      "relative_reconstruction_error": 2.03749124871034e-15
+    }
+  ],
+  "seconds": 0.5626144111156464,
+  "scope": "Untruncated QR spans; column counts are safe dimension upper bounds, not estimated minimal ranks. Source and query support of supplied native states; no prefix closure. Four-read source bound preserves folded C O V only, not the entire physical value output. Random FP64 pair replay at identity relative rotation; matrix identities imply all rotations. No fit or GPU speedup measured."
+}

@@ -1,0 +1,94 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "baseline_relative_error": 0.0,
+  "max_fp32_projection_error": 9.321854999816597e-07,
+  "min_component_norm": 32.70744254629686,
+  "capability": [
+    {
+      "family": 0,
+      "mean": 3.0883202155431113,
+      "positive": 12
+    },
+    {
+      "family": 1,
+      "mean": 1.9914970795313518,
+      "positive": 12
+    }
+  ],
+  "cells": [
+    {
+      "family": 0,
+      "arm": 1,
+      "coverage": 5.284345728583059e-05,
+      "positive_pairs": 6,
+      "target_meanabs": 0.004211604595184326,
+      "control_meanabs": 0.0023536433776219687,
+      "passed": false
+    },
+    {
+      "family": 0,
+      "arm": 2,
+      "coverage": -9.907344073554799e-06,
+      "positive_pairs": 6,
+      "target_meanabs": 0.0040747324625651045,
+      "control_meanabs": 0.0024270315965016684,
+      "passed": false
+    },
+    {
+      "family": 0,
+      "arm": 3,
+      "coverage": 0.014131398119377653,
+      "positive_pairs": 11,
+      "target_meanabs": 0.05192295710245768,
+      "control_meanabs": 0.043194646636645,
+      "passed": false
+    },
+    {
+      "family": 1,
+      "arm": 1,
+      "coverage": -0.00014719360927928306,
+      "positive_pairs": 6,
+      "target_meanabs": 0.0017968614896138508,
+      "control_meanabs": 0.0009146432081858317,
+      "passed": false
+    },
+    {
+      "family": 1,
+      "arm": 2,
+      "coverage": -0.0001396912645471412,
+      "positive_pairs": 6,
+      "target_meanabs": 0.00172652800877889,
+      "control_meanabs": 0.0009528100490570068,
+      "passed": false
+    },
+    {
+      "family": 1,
+      "arm": 3,
+      "coverage": 0.023597328407059665,
+      "positive_pairs": 12,
+      "target_meanabs": 0.040692031383514404,
+      "control_meanabs": 0.06494973103205363,
+      "passed": false
+    }
+  ],
+  "replicas": [
+    {
+      "family": 0,
+      "reference_rms": 0.00612502693139732,
+      "relative_rms": 0.05229348873181111,
+      "passed": true
+    },
+    {
+      "family": 1,
+      "reference_rms": 0.0024567648177413774,
+      "relative_rms": 0.07545702663312868,
+      "passed": true
+    }
+  ],
+  "body_forwards": 192,
+  "seconds": 5.67972856014967,
+  "scope": "Existing48 regional prompts, frozen earlier trust-pilot cluster banks, physical O head13.0 projection removal with native prefix/norms/suffix. Not fresh/OOD, donor or sufficiency evidence. Full head descriptive: components may oppose. FP64 polynomial identity is distinct from FP32-native arithmetic.",
+  "artifact_sha": "cbd8fdf4d706ed586d88110a89df4944410af1606f20631fb0d9a5c2546335b4"
+}

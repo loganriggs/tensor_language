@@ -22490,3 +22490,216 @@ Completed7armquery/sourceGPUtest replaysCPU selected24logits in.141s,63.82MBweig
 
 ### 2026-09-12T15:56:06.700556+00:00 — Codex: FEATURE-READ PASS / CLAIM FOLDED PRODUCER SOURCE DICTIONARY
 Feature-only source native effecterror6.5–9.5%all8cells passes10%;norm-onlyfails. ExistingMLP16dominancefailed; attention8/9/13producer group alreadyhasheld-outcontribution. Newweights-onlyobject: fold all4frozen currentreaders andactualresidualcoefficients into these27producerheadsOV; keepjointQK1*QK2*value, headnormreferenceexplicit. Fitshared16cubic sourcefeatures withprivatequery-to-4readwriters; commonresidualcoordinate functions, differentnative layerstates, noassumedactivationidentity. ReuseV2scale-repairedsolver andexactvariableprojection;2starts4000steps/300seceach,800sec cap. This is component-conditioned weights-first discovery, notfull-U or textfit. CPUfoldcommutationcontrol beforequeue; no behavioral claim from coefficientfit.
+
+### 2026-09-12T16:02:09.461171+00:00 — Codex: FOLDED PRODUCER FIT B/C MISS / CLAIM QR-SECANT AUDIT
+93.9sec Apreflightpass; bothline-searchfailed. Fitcapture.66–.99%,held.33–.54%,2crossstartmatches; cancellation549/1.08million,Gram2.96k/8.32million. No absentstructureorconvergenceclaim. CPU independentQR objective/gradient onbothendpoints; identifymostcoincidentpair andexactsecantrewrite, keepingoldsourcefunctionspan. Test sharedquadraticcollapse onlyasexplicitapproximation ifreaderagreement supportsit. Nativecachevalidationdeferreduntilrepresentationaudit.
+
+### 2026-09-12T16:04:29.456771+00:00 — Codex: SECANT REWRITE STABILIZES / CLAIM SHARED LINEAR PARENT
+QR andGramgradientagree4.72e-6/3.98e-8relative; notprimarilyroundoff. Exactsecantcondition2.55/1.36, unchangedcapture~1e-12. One readerespeciallysharedineachpair. Compare5-reader sharedlinearparent withtwoquadraticchildren versus4-reader commonquadraticparent; zero selectedsmall delta axes inexactsecant expressions, nofit. Scorefullcoefficientfunctionerror+marginalretained+absoluteproducerenergies, notjustcapture. OldB/Cmissretained.
+
+### 2026-09-12T16:05:53.631410+00:00 — Codex: SHARED LINEAR PARENT PRESERVES PRODUCER FIT / CLAIM BLOCK RECURRENCE
+5readsharedlinearparent+2quadraticchildren gives.024–.170%fullprojectionerror; forcing4readsharedquadraticparent gives12.5–21.1%despitesmallcaptureloss. Bothstableblocksdominantlyattention13. NextCPU comparecomplete2-child blockfunctions acrossstarts usingcrosssourceGram/privatequerykernel, plusparent/source-subspacecosines; nocircuitpromotionfromreader-onlymatch.
+
+### 2026-09-12T16:08:22.462148+00:00 — Codex: PRODUCER BLOCK RECURRENCE / CLAIM WEIGHT ALIAS CHECK
+Completecollapsedblockcos.99609/.99492,source-subspacecos.99832/.99468;functionerrors8.84/10.09%notautomaticnativeguarantee. Energyoverwhelminghead13.0; existingdossieralreadybroadexpressivehead. CPUtestsharedlinearparentagainstfoldedvalue andQKrowspaces beforeclaimingnewsemanticunit. Nativeproducer-edgevalidationstillpending.
+
+### 2026-09-12T16:11:06.766466+00:00 — Codex: PARENT IS NATIVE FOLDED VALUE DIRECTION / CLAIM STRUCTURED BASELINE
+Parentcos withhead13.0leadingfoldedvaluereader>.999995bothstarts; existingbroadheadaliasnotnewsemanticcircuit. Compare nativejointQK timesrank1foldedvalue againstfull4-outputhead13.0, using independent coefficient probes. This tests a representation restriction: fixedsourcecubics may miss a simple query-source bilinear-product program. No input/output datafit; preservefullQKmapsandnormdependencyprices.
+
+### 2026-09-12T16:15:37.128291+00:00 — Codex: CLAIM NATIVE STRUCTURED VALUE BASELINE
+FulljointQK*rank1foldedvalue retains~63–65%head13.0coefficientenergy; fittedblockcaptures~.29 versusfullhead~11–12 (probed). Differentparameterization/cost, notmatchedcapacitywin. Prepare96contextnativecache ofthreeproducerfourreadsum/head13.0/rank1value contributions, thenCPU recipient-reading interventions. Primarynativebars:rank1vsfullheadswap effect<=10%;rank1transfer>=10%fullproducer-group plusdirection/specificityeach4cells. No expectationofwholemodelclosure; cacheinstrumentfirst.
+
+### 2026-09-12T16:21:57.601360+00:00 — Codex: REQUESTED REPORT REFRESH / CLAIM PRODUCER CONCENTRATION CHECK
+Updated for_logan report through 16:20 with failed producer fit, exact conditioning repair, recurring shared linear parent and full-QK value baseline. Native baseline behavior remains pending. CPU quantify complete fitted block concentration in head13.0 across starts and positions to verify whether the proposed native test addresses the recurring component rather than incidental cross-head residue.
+
+### 2026-09-12T16:27:52.864776+00:00 — Codex: STRUCTURED VALUE BEHAVIOR MISS / CLAIM READER-GAUGE AUDIT
+Cache all bars pass; CPU A pass B/C miss. Rank1 versus fullhead effect error59–141%; rank1 transfer1.3–2.5% three-producer group,95/96 directed signs positive. Fullhead sign flips across city-pair assignments. Test mathematical confound: four reader outputs have exact compensating diagonal scale freedom in downstream cubic dual. Re-encode one reading by100 or .01, compensate dual rows; verify branch function unchanged and measure leading folded value source-direction change. No new fit or negative-result rescue; assesses whether four-output coefficient energy is a defensible circuit search metric.
+
+### 2026-09-12T16:29:21.020263+00:00 — Codex: READER-GAUGE CONFOUND / CLAIM CONSUMER PULLBACK METRIC
+Exact branch replay unchanged under compensated diagonal scale; top value source cosine can drop to.00577 while apparentenergy>.998. Replace arbitrary four-output norm with H=E[J_f F^T J_f F] of frozen regional numerator: independent isotropic current/query, uniform complete-vocabulary first-token lookup, exact degree4 moments, average relative offsets0..31. No text fitting; gates remainexplicit/omittedfromthispolynomialsearchmetric. Weighted leading map M v v^T with v top eig of M^T H M; invariant under compensated reader gauges. CPU exact gaugecontrol+Gaussian/token MonteCarlo momentcontrol before same fixed native effect bars; original Euclidean B/C miss remains.
+
+### 2026-09-12T16:35:41.533293+00:00 — Codex: INVARIANT METRIC STILL B/C MISS / CLAIM EXACT PRODUCER INTERACTION CUT
+Consumer metric controls pass, sourcecos.99916 with original, native51–148%head error and1.6–3.0%grouptransfer. No repair claim. New CPU object: split downstream four readings into background B, wholehead13.0 H, other selectedproducer O=G-H. Expand cubic into10 unordered source-group paths, summing all ordered products exactly. Same96targetdonors, query/norm/background fixed. A summedwrites<=1e-5 and fullGswap effect<=1e-4 prior; B seven mixed paths reproducefullG effect<=10%eachcell; C three H-O crossproducer paths carry>=10%fullG L2 and positive mean directed effecteachcell. Pure/background and mixedpath contributions explicitly separated; no fitting or circuitpromotion.
+
+### 2026-09-12T16:40:31.520034+00:00 — Codex: CLAIM FROZEN27-PRODUCER COMPONENT BANK
+Exact mixed-path result implicates other selected producers, not head13.0 cross terms. Prior regional atlas was layer/update-level; new bank: same gauge-invariant weights-only consumer metric yields one fixed value component per27 heads in layers8/9/13, retainingfullQK. No rank or hyperparameter sweep. Cache all27 four-reader contributions with same12nativebatches, thenCPU screen eachfullhead/component/remainder under fixed10%fullheadfidelity and10%grouptransfer +20/24direction and.5unrelated EACH4cells. Reportall27 inclnulls; no posthoconlywinnerclaim; anypassneedsfreshlexical/context confirmation beforeidentification. Nativeheadboundariesonlybankproposals,notsemanticunits.
+
+### 2026-09-12T16:45:12.004195+00:00 — Codex: HOURLY1643 / TWO BANK SCREENS / CLAIM GEOMETRY
+All27 bank scored; only8.2 and9.8 pass B/C across4cells: effectfidelity1.7–3.8%,grouptransfer28–32%/60–72%. Reused96panel,notidentifiedcircuits. Hourlygatespass with95%phasecoverage/late-boundarycaveat.8.2alreadynewline-setter;9.8aliasnotfoundinspectedsubset. CPU comparefrozenreaders(current/first)+H-weightedwriters before shared-versusdistinct interface confirmation. FullnativeQK/background remainscharged; nextfreshlexical/context+newlinecontrols andjointcomposition, no datarefit.
+
+### 2026-09-12T16:49:09.902483+00:00 — Codex: COMMON OUTPUT LEAD / FRESH CONFIRMATION STARTED
+8.2/9.8outputwriterHcos.999491 butsourcecosmagnitude.5162(current.6308,first.0114),distinctnative layerstates. Freeze commonH-normalizedoutput direction andoriginalsource/QKbranches; fresh48rows built/token-validated withBristol/Boston/Oxford/Austin andsixnewspellingpairs/twonewtemplates. Nativecapabilityand effects pending; nofit/rowscreenusingmodel. Confirmation prereg coversindividual+jointsufficiency,outputmergefidelity; newline endpointonspellingpaneldescriptive only, separatecapabilityneededbeforepreservationclaim.
+
+### 2026-09-12T16:56:48.980963+00:00 — Codex: FRESH SHARED-OUTPUT CONFIRMATION PASS / CLAIM SCALAR PRODUCER EXECUTOR
+Freshnativecap24/24positive; component/headerrors2.3–3.0%,joint89–93%grouptransfer,sharedoutputjointerror.23–.25%,allA/B/Cpass. Conditional interface,notwholemodelclosure. CompiletwofulljointQK scalar-value producers fromnative layer8/9 normalizedinputs +tokens, common4-outputdirection. Full-vocabularyfirstvalue lookup closesfirst-stateinput. Native8bodybatchreplay<=1e-5individual/jointcontributions; compiledfreshindividual/jointswap andremovaleffects<=1e-4versusfrozenmerged reference, explicitbyteprice. Preserveallnativecurrentgeneratorsandgates. Separate newline-capability control stillneededbeforewhole-serviceselectivityclaims.
+
+### 2026-09-12T17:05:08.503444+00:00 — Codex: SCALAR EXECUTION PASS / CLAIM NEWLINE SERVICE CONTROL
+5.54MBtorch-onlypackage exported; nativewrite<=3.02e-7, individual/jointswap/removaleffect<=6.86e-5passes1e-4. Native layer8/9 currentgenerators remain. Nextfixed16newline-capability contexts(8lists,8forms), modelnotusedforrowchoice. Baseline newline/comma mean>=.2,>=6/8positive,meannewlineCE<=5eachfamily. Positivecontrol: actualwholehead8.2removal mustincrease newlineCE>=.02meanand>=4/8positiveeachfamily. Candidate regionaledge removals meanabsnewlineCE<=.02,maxabs<=.1eachfamily. Inadequatecapability/positivecontrolmeansinconclusivepreservation,notpass.32bodyforwardsbudget(no textfit); rowbuilderstarted.
+
+### 2026-09-12T17:08:56.584611+00:00 — Codex: MATH1706 CLAIM RAW-INPUT QUOTIENT CONTROL
+Prior turn progress: freshsharedoutput/nativecompiledprogram pass, nextnewline rows/prereg frozen. Reviewexactlumping/observable-state closure versus localinterfacecompression. CPU stack four128QK maps+onecurrentvaluereader perproducer; certifylinearprojectionpreservesnormalized-inputexecution, constructrawinputnullspaceperturbation showingRMSmissing, thenexactrawprojection+rho²formula replay. No globalminimalityclaim ornewrankapproximation. Normobservablemustbeexplicitbeforefoldingcurrentgeneratorsback; publiclumpingtheorems polynomial/rational restrictions differfromnativeRMS/tanh/rotary.
+
+### 2026-09-12T17:12:31.885432+00:00 — Codex: MATH1706 EXECUTED / READS PLUS NORM REQUIRED
+Exactlumpingliteraturemappedwithpolynomial/rational/nativeviolations. Bothproducerreadstacksrank513; normalizedprojectionreplays5.13e-15. Rawnullperturbationpreservesreads9.56e-16butchangesoutput15–24%; addingactualrho²replays5.72e-15(FP32within4.2e-7). Denseencoderincreasesprice590976→854145scalars/head,notadopted. Nextbackwardinterfacesmustgeneratereads+norm/crossobservablesexplicitly. Continuefrozennewlinecontrol; nextmath20:12,hourly17:43.
+
+### 2026-09-12T17:12:54.505533+00:00 — Codex: MATH CLOCK ACTUAL RECEIPT
+Review1706cycle recorded17:12UTC; nextdue20:12UTC. Thisactualtimestamp supersedes the provisional20:12clock in the preceding summary.
+
+### 2026-09-12T17:24:18.457210+00:00 — Codex: NEWLINE V1 INCONCLUSIVE / CLAIM FACTORIAL CONTROL AUDIT
+InstrumentApass; authoredlists/formsnativeCE9.0/10.9,NL-comma marginsnegative,wholeheadzeroimprovesCE. Smallcandidatechangesnotpreservationevidence. Priornewline_crews/crew_screen usedFineWebnextnewline labels ANDmeanreplacement,notzero. V2factorial:32FineWebtrue-nextNL prefixes selectedwithoutmodelscores +same16authored, native/zero/meanheadcontrols plus3frozencandidateedges. Mean fromseparatefirst24cachedrows onlynuisancecontrol. Source fineweb_n192_skip11000 sha b1564b... knowncorpuscache, notnewcorpusOOD/documentdisjointclaim. PreserveV1miss; V2 distinguishescontext/interventionratherthansilentlychangingbar.
+
+### 2026-09-12T17:29:59.610470+00:00 — Codex: REQUESTED FULL UPDATE / CLAIM NATIVE WRITER LIFT CPU
+Report since prior16:20cutoff; preserve failed head13 and newline controls. Next CPU analysis derives each unmerged8.2/9.8 physical residual writer d=OV*v from frozen source reader. Test residual-scaled C*d equals registered four-reader writer<=1e-10; compare physical writer geometry to downstream writer similarity. This prepares actual recursive component removal; no model intervention or new behavioral claim from algebra. V2newline rows/prereg exist, runner not yet implemented.
+
+### 2026-09-12T17:37:30.186488+00:00 — Codex: NATURAL NEWLINE CONTROL PASS / CLAIM RECURSIVE PHYSICAL REMOVAL
+V2A/B/Cpass12.99sec150bodyforwards; authoredV1replaysbitexactandfailsbothmean/zero. NaturalCE.893/.610; meanwholeheadCEdamage.0333/.0248; conditionaljointmeanabsCE.000260/.000347. Bothzeroandmean damage natural; context mismatch strongest explanation. Next frozen physical unmerged8.2/9.8 components removed at producers, all subsequent layers recomputed.48regional7arms +32natural5arms=496bodyforwards300seccap. Compare actualwholehead zero fidelity and nonlinear joint effects; natural meanheadcontrol replay and originalselectivitybars. No input fitting or posthoccomponentchange.
+
+### 2026-09-12T17:42:29.323137+00:00 — Codex: PHYSICAL REMOVAL STRONG BUT B/C MISS / CLAIM SERIAL INTERACTION AUDIT
+496forwards6.61sec Aholds; pairremovalreducesnativecontrast67–70%,all24pairsdirection. Wholeheadfidelitymiss10–39%;nonadditivity17.7/32.8%. Newlinemeanabsjoint.010/.015passesmeanbutonefixedrow177max.1665misses. CPU rowwiseauditpreservesoutlier; next frozen-native9scalar versus recomputed9scalar under8removal, to distinguish serial component dependence from remaining downstream nonlinearity. Recover native scalar fields from existingcompiledwrite artifact and validate againstnativebefore comparing144forwards. No refit/dose tuning or outlierdrop.
+
+### 2026-09-12T17:45:36.238885+00:00 — Codex: SERIAL DEPENDENCE AUDIT PASS / CLAIM EXACT MLP8 BRIDGE
+144forwards3.13secA/B/Cpass. Freezingsecondremovedwrite alignswithjointinteractioncos.958/.998 andleaves43.6/11.3%interactionnorm. Hybridcounterfactualnotdirectedgeproof. Next CPU derive exact component8->preRMS9 read change through intervening MLP8: directwrite +normalizer-rescaledbackground quadratic +mixedlinear-in-amplitude term +amplitude-square term. Validate projected all513QK/value reads on independent algebra probes with actual weights, retain actual norms andbiascancellation; no native route-mediation claim from probes. This opens a composed interaction path rather than new rank sweeps.
+
+### 2026-09-12T17:50:13.174328+00:00 — Codex: CLAIM NATIVE MLP8 INTERACTION BRIDGE
+Prior-turn progress: actualrecursivepair/serialdiagnostic andexactalgebraderivation. DossierMLP8/9/12checked; notgenericactivation/rankladder. Native48rows96forwards capture pristinez8,rawr9before/after8componentremoval, anda8/a9fields; replaypriornative/removal margins. CPUexactfourtermpath plusfixeddirect/mixed/norm/quadratic ablations predicts actuala9change, nofit. Strongestclaimisconditionalgenerationofnextproducercomponent,notwholemodelclosure. Sourcecache~15MB.
+
+### 2026-09-12T17:53:25.207541+00:00 — Codex: CLAIM EXACT DIRECTIONAL MLP8 PROGRAM CPU
+Nativecachequeuedbehindlivepeer663, no competingGPU. Fourtermpath permits exactJ_d=D[diag(Rd)L+diag(Ld)R],h=J_d*d/2. Givenz, pristinebiasfreeMLPoutputu,andscalara, delta=-a*d+(rho²/rhop²-1)*u-a/rhop²*J_d(z-a*d/2). CPUderiveJfromactualweights andverifyfullnativeMLPdelta onrandominputs,FP64<=1e-10andFP32<=1e-4relative. PriceJ+d versusfullMLP, explicitopaqueu/nativeprefixremain; no rankapproximation oradoptionclaim.
+
+### 2026-09-12T17:59:59.241669+00:00 — Codex: NEWLINE OUTLIER AUDIT / CLAIM FIXED COUNTRY COUNTERFACTUALS
+Failure is realparagraph-endnewline, originalpNL.741->.627 underpairremoval (~15%relativeprobabilityloss), source177mentionsAustralia. Do not exclude it orcallcontrolinvalid. CPUbuild6one-tokenmatched countryvariants Australia/Britain/Canada/America/France/Germany, sameprefixlength/remainingtokens. No variant model scores yet. Hypothesis countryidentity changes collateral vs stableparagraphcontext; sourcecasepostselectedaudit, notnewrepresentativeOOD. No newGPUenqueue until nativebridge cache/scorer evaluated.
+
+### 2026-09-12T18:03:18.738882+00:00 — Codex: NATIVE MLP8 BRIDGE PASS / CLAIM BEHAVIORAL BRIDGE
+Cache96forwards2.28secA/B/Cpass; CPUexactrawdelta1.38e-5, scalardelta<8e-7. Direct+mixed scalardeltaerror1.32/.50%;directonly33.5/36.2%; originalA/B/Cpass. Directionalconstant-map FP32runtimealsoallbars. Next240forwards native/dynamicjoint/exactbridgejoint/directmixedjoint/directonlyjoint, comparechangefrompreviousfrozen9joint to retainserialinteractiondenominator, notdilutedwholeeffect. Nofit/nativegeneratorclosureclaim; countriesauditwaitsuntilthisregisteredbridgepathscored.
+
+### 2026-09-12T18:06:16.350389+00:00 — Codex: SIGNED BEHAVIORAL BRIDGE PASS / COUNTRY AUDIT IMPLEMENTATION
+240forwards4.08secA/B/Cpass; exactserialeffect4.78e-6, direct+mixed1.14/.38%,directonly33.7%bothfamilies. Conditionalproducer->MLP->producerpathnowpredictssignednativeinteraction, backgroundgenerationstillnative. Nextimplementalreadyfrozen6country30forwardnewlineoutlieraudit; noposthoccountrychanges/exclusions.
+
+### 2026-09-12T18:07:58.015277+00:00 — Codex: COUNTRY AUDIT B MISS / CLAIM JOINT-QK VALUE FACTORIAL CPU
+30forwards1.37secA/Cpass,Bmiss: all6cap/controlvalid; jointnewlineCEdamage.098–.167,range41.2%original<50%bar. Fivevariantsstill>.1max, sourcecasepostselectednotindependentgeneralization. NoAustralia-onlyexplanationorcontrolretraction. Next CPU4-corner decompositionofscalar9change afterphysical8removal: completejointQK routing versuscurrent+first scalarvalues. BothQKsremainjoint; no taskassignmenttoQK1/QK2. A exactnative/4term<=1e-5; B value-onlydeltaerror<=10%; C interactionnorm<=10%fulldeltaeachtemplate, reportallports regardless. No fitting; priornativecacheinputs.
+
+### 2026-09-12T18:10:04.002611+00:00 — Codex: COMPOSED-PATH RESULTS RECORDED
+Native/scalar/signedbridgepasses, countrycounterfactualBmissandnewlinefailureretained, value-onlyscalarB/Cmiss. IndependentmixedcontractionV2auditsV1tautologicalidentitywithoutchangingquantitativeverdict. PrimaryFOLDED_PRODUCER_NATIVE_V1_MATH anddossiersupdated; no newfullfor_loganreport. NextnativejointQK/value signed-effect test shouldreusefixedfields, notre-fitnativepanels.
+
+### 2026-09-12T18:11:32.043664+00:00 — Codex: CLAIM SIGNED JOINT-QK VALUE EFFECT TEST
+Previousgoalturnprogress:nativecomposedpath+signedfidelity, countrymisspreserved, CPUjointQK/valuefactorial. Next240forwards identicalserial-effectreference, substitutealreadyfrozenjoint/value-only/routing-onlyscalar9fields duringphysical8+9removal. Aexact<=1e-4; Bvalue-only<=10%; Crouteonly>=25% EACHtemplate. This is generatedremovedcomponent scope, notwholeheadroutingedit. Thenfreshcontextual48panel withfrozenphysicalpair, nofactorrefit ornewrank.
+
+### 2026-09-12T18:14:19.557496+00:00 — Codex: SIGNED VALUE-ONLY MISS / CLAIM FRESH CONTEXT TRANSFER
+240forwards4.12sec A/Cpass,Bmiss: value-onlyserialeffecterror35.1/6.2%,routingonly139.5/102.0%;fulljointreplay5.24e-6. Newfixed48rows useGlasgow/Phoenix,Cambridge/Detroit,sixnewendpointpairs and email/letter templates. Token/citynoveltychecked againstREGIONAL*/STRUCTURED_PRODUCER*rows; newcontrolledcontextnotcorpusOOD. Frozenphysicalpair anddirectionalMLPbridge,7arms336forwards, testnativecap,>=50%jointcuecoverage +directions/controls, directmixedserialeffect<=10%. No rowscreen/modelrefit.
+
+### 2026-09-12T18:22:36.876495+00:00 — Codex: FRESH CONTEXT PASS / CLAIM INTERCHANGE PREPARATION
+336forwards5.29sec A/B/Cpass: native24/24contrastpositive; pairremoval65.1/70.5%nativecue, allindividual/joint24pairsdirection; directmixedserialeffecterror.87/.93%. No newcorpusOOD ornewlinefix. Handoffsuccesscriterionreread: opaqueweights/background charged, bytesnotinterpretability. NextCPUheterogeneityaudit all4family/citystrata andsigneddonormapping, thenfrozen8/9scalarinterchange—notjustzero-removal—plusgenerated9responseunder8donorinterchange. No fit orregionalsemanticrenaming.
+
+### 2026-09-12T18:26:08.583746+00:00 — Codex: DONOR INTERCHANGE IMPLEMENTATION
+Previousgoalturnprogress:fresh48context A/B/C and subgroupaudit, matched donor map/prereg committed. Implement384forwards asregistered: native paircache then single/jointscalar donor swaps, frozen/exact/mixed9generation andselfdonornoop. Signeda8recipient-donor passedtoJbridge. No newfactorselection orzero-lesion substitution.
+
+### 2026-09-12T18:30:21.699378+00:00 — Codex: INTERCHANGE PASS / CLAIM CURRENT-FIRST SOURCE SPLIT
+384forwards5.96secA/B/Cpass; jointtransfer72.4/67.7%nativecue,48/48eachsingle/jointdirection,selfnoopbitexact; signedbridge1.43/2.33%error. Next weight-definedsplitofeachfixedscalarvalue into currentstate andfirststate lookup, SAMEjointQKroutingandphysicalwriter. CPU head9cacheverifiesparts andreportscompletecue/serialchangegeometry. Then native4-element(8cur,8first,9cur,9first)factorial determineswhetheranyfixedsubsetpreservesnewlinewhilecarrying>=50%regionalcontrast; all15nonempty masks reported, exploratoryscreenneedsfreshconfirmation. No factorrefit/ranksearch or QK1/taskassignment.
+
+### 2026-09-12T18:37:26.613295+00:00 — Codex: SOURCE-SECTOR B PASS C MISS / CLAIM FINITE-INTERACTION AUDIT
+1312forwards17.40sec A/Bpass Cmiss, allnative/fullmaskreplayexact. Regionalpassers6/7/14/15; nojointselectivitypasser.8firstalone35.5/37.1%regional andNLmax.0602;9currentalone52.9/42.8%regional,NLmax.0767;pairmask6regional67.8/61.0%,NLmax.1371. Do not lower50%bar orclaimscreenrescued. CPUexactBooleanMöbiustransformall16effects: quantify regionalserialoverlap vs newlineadditive/mixedcollateral, preservingallmasks/outlier. Sourceinputtypeclarified, selectivejointprogramunfinished.
+
+### 2026-09-12T18:55:37.123528+00:00 — Codex: REQUESTED FULL UPDATE / CLAIM LOSS-SPACE AUDIT
+Writing for_logan update since17:30, preserving physical-removal selectivity miss. CPU compare exact mask6 finite interaction on newline CE versus newline-comma margin to check whether the observed additive collateral is specific to the loss readout; descriptive, no new pass bars or factor fitting. Peer665 owns live lane1.
+
+### 2026-09-12T19:02:00.327245+00:00 — Codex: CLAIM SERIAL JOINT-QUERY/KEY/VALUE FACTORIAL CPU
+Prior correlative jointQK subspaces/raw pullback and last-attention port tests inspected; not repeated. New object is head9.8 response after physical8component removal on existing48native cache. Three ports are jointquery(q1 tensor q2), jointkey(k1 tensor k2), scalarvalues; bothQKs stay together. Independently contract all8delta terms, sum<=1e-5native scalar-change relative and<=1e-10algebra; source-only(key+value change) prediction<=10%eachtemplate, query-only error>=25%eachtemplate. Report allterms regardless. No datafit, OOD/selectivity claim; determines which composed response port to examine next.
+
+### 2026-09-12T19:02:47.855377+00:00 — Codex: SERIAL PORT B MISS / CLAIM SIGNED PORT EFFECT
+CPU exact jointproduct<=3.46e-15 and expansion<=1.64e-14; native scalar-change<=8.24e-7. Source-only error24.1/5.3% misses10%both; query-source mixednorm12.3/5.7%. Narrow inference is scalarchange, notbehavior. Next reuse240forward signed-effect executor with independently contracted full/source-only/query-only fields. A replay<=1e-4; Bsource-only<=10%eachtemplate; Cquery-only>=25%eachtemplate. No fit or query/key rawstate realizability claim.
+
+### 2026-09-12T19:05:32.256006+00:00 — Codex: CLAIM WEIGHT-ONLY JOINT-KEY PATH BANK CPU
+Signedporttest waits behind verifiedpeer665 PID3408734. Next weights-only sourceinput partition for frozen8.2/9.8 jointQK numerators: eigendecompose uniform32relative-position averaged influence in complete256D jointkey rowspace; retain all directions as4rank64bands, notranktruncation. Ten unordered bandpairs include both keyslot assignments, same native fullnormalizers. These are full-QK product paths with common value/writer, notQK1/task split. CPU trace/PSD/completeness and native9sum replay<=1e-5; report gaps/positionstability without naming semantic units. New candidate bank targets within-module task splitting; later frozen allcandidate regional+newline test required. No datafit or claimed selectivity.
+
+### 2026-09-12T19:07:38.823502+00:00 — Codex: JOINTKEY BANK CONTROL PASS / NEXT SCREEN REGISTERED
+Weight-only complete256D bands constructed, no ranktruncation. Native9sum replay<=1.64e-7, change<=5.75e-7. Top-top path carries.844/.865ofscalar-change norm, descriptive notcausalshare. Registered all100cross-head keypath pairs +20singles on8first/9current, same50%regional and.02/.1newlinebars,9872bodyforwards600sec. Existing queued signedporttest stillwaitingbehindpeer665. Implemented complete path executor; GPU screen integration next, not yet queued.
+
+### 2026-09-12T19:09:00.566159+00:00 — Codex: JOINTKEY SCREEN EXECUTOR INTEGRATION
+Previousgoalturnprogress: weights-only fullspace path bank and native9control, preregcommitted. Integrating frozen120candidate/9872forward screen using original factorial scorer and controls. No new candidate/threshold changes; retained32newlineincludesoutlier. Native sumcheckbothheads on all80baseline prefixes. Managedlane1 only.
+
+### 2026-09-12T19:10:20.287641+00:00 — Codex: CLAIM JOINTKEY POSITION-ROBUSTNESS AUDIT CPU
+Previousturnprogress: full120candidate GPU executor committed and queued. Audit shallowbandboundaries withoutchangingfrozenbank: construct independent near(source16..31)/far(source0..15) position-average influence bases for eachhead using samequery32. Four64bands retained. A orthogonalrotationwithinbands leaves paths<=1e-10; Bnative9top-top scalar field relativeerror<=.1 bothpositionbanks/bothtemplatefamilies versusfrozenuniformbank; Ctop64projector mean squared overlap>=.9 bothheads/bothhalves. Reportallpathdifferences and gaps; no taskfitting/selection orqueuedcandidate replacement.
+
+### 2026-09-12T19:11:56.411738+00:00 — Codex: POSITION AUDIT PASS WITH SMALL-PATH LIMIT
+Leadingpathfield2.1–6.6%variation undernear/farpositionweightconstruction, top64overlap>=.965, bandrotation5.7e-16. AllA/B/Cregisteredleadingbars pass; smallpathsindividuallyunstable. Executedfullfield-denominator audit reportsabsolutecontext; no tinydenominator rescue orchangedcandidate. Bothnativejobsremainqueuedbehindpeer665; primarynoteupdated, no newfor_loganreport.
+
+### 2026-09-12T19:13:17.165051+00:00 — Codex: CLAIM FROZEN PROSPECTIVE CONFIRMATION ROWS CPU
+Before pathscreenresults exist, build72regional rows: same6spelling endpoints/cities as discovery, new diary/school templates plus explicit writer-versus-reader opposed-city role challenge. No capabilityfilter/modelscore, all3families retained.32newFineWeb newlinecacheindices disjoint from prior32evaluation and24mean rows, seed191224; samecache notdocument/corpusOOD. Candidate selection rule frozen: if anyA/B/Cscreenpass, highest minimum regionalcoverage then lowermaxnewlinechange then lowerarmid. One selectedcandidate plus native/fullsector/meancontrol on freshrows; no runner until currentresults interpreted. If nonepass, no promotionrun.
+
+### 2026-09-12T19:16:00.677956+00:00 — Codex: CLAIM SHARED-INPUT PRODUCT GEOMETRY CPU
+Compare8.2/9.8frozenleadingkeyspaces via Sym²supportoverlap and exact separately symmetric jointQK numerator cosine atquery32/source0,15,31. Sameformalquery/source coordinates, notsameactual layerstate. A lowrankcrossinnerproduct matches independent dense toy<=1e-10; B allleading/fullnumerator abs cos<=.2 testsdistinctinputs despite sharedwriter; C leadingSym²support overlap<=.1. No task/disjointness promotion from geometry. Fullnormalizers/nativeQK behavior remain outside coefficientmetric.
+
+### 2026-09-12T19:16:48.470721+00:00 — Codex: CROSSHEAD JOINT-NUMERATOR GEOMETRY PASS / NULL AUDIT
+Commonwriterdoesnotimplycommonformalrouting: full/topbandjointQKcos−.009to−.014, productsupportoverlap.01747. Densecontrolsheld. Executed32Haarspace comparison contextualizes overlap; actualexceedsrandom, no disjointtaskclaim. Differentlayerstates/normalizersstillcaveat. Primarynoteupdated; queued GPU jobs unchanged.
+
+### 2026-09-12T19:32:21.757972+00:00 — Codex: SIGNED SOURCE-PORT PASS / JOINTKEY SCREEN LIVE
+Peer665finished19:31:23, serialporttestfinished19:31:30,240forwards4.14sec A/B/Cpass. Source-onlybehaviorerror9.825/2.812% meets10%both despitepriorintermediate24.1/5.3%miss; queryonly115.94/101.30%missesfidelity as predicted. Exactreplay<=5.24e-6. Borderlinefirstfamily/reusedcontext, no universalqueryomission. Nextregistered9872forwardjointkeyscreen nowlive, noduplicatejob.
+
+### 2026-09-12T19:36:07.173186+00:00 — Codex: JOINTKEY SCREEN B/C MISS / CLAIM GROUPED-PATH AUDIT
+9872forwards188.05secApassB/Cmiss. Bestarm21insideleadingpaircovers59.14/49.44%,all24pairspositive,NLmax.09029passes. No50%barrelaxation orconfirmationpromotion. Allpriorbaseline/fullsector/fullpairreplayexact. Strongmethodalternative: onebandpairperhead excludes coherent inside/mixed/outside grouping. CPU quantify fullsector-minusinsidepair and singles/joint interaction, preserve all120results; then prereg complete3grade sourcepath partition atfrozenleading64Dspace, no basisrefit.
+
+### 2026-09-12T19:41:20.016599+00:00 — Codex: GRADED SCREEN PASS / FREEZE MASK45 CONFIRMATION
+5232forwards107.67sec A/B/Cpass; passers13/45, rule selects45. Coverage59.60/50.168%,NLmax.094946, narrow margins; allcontrolsheld. This is inside-inside+outside-outside forbothheads (8first/9current), omittingmixedsourceproducts. Originalone-pathmissremains. Newgradedconfirmation adopts existingfixed72regional/32newnewline rows, same7/4arms andbars, no alternatecandidateafterresults. Also CPU derive even-reflection numerator identity (normalizers original, values unreflected), no behavioralpromotionfromalgebra.
+
+### 2026-09-12T19:45:32.495710+00:00 — Codex: PROSPECTIVE GRADE CONFIRMATION PASS / CLAIM CONDITIONAL PACKAGE
+632forwards14.88secA/B/Cpass: regionalcoverage53.80/52.51/57.30%,donor56.24/54.82/60.26%,all36pairedremovals/all72directed donorspositive. NewNLmax.05036/.03323,cap/meanheadcontrolheld; fullsectoralsoholds onnewNL, oldfailurestilldistinguishes. Rolechallenge swapsbothcitymentions, notindependentroleidentification. Reflection-even native9 identity3.90e-16. Nextpack weights-only selectedparityexecutor, pruneunused8current/9first parameters, keepcompleteQK/basis/writers; native states remain explicit. Then native208forward baseline/removalprogramreplay overfresh104rows, no newscientificthresholdorrefit.
+
+### 2026-09-12T19:49:19.623406+00:00 — Codex: CLAIM PACKAGED PARITY NATIVE REPLAY IMPLEMENTATION
+Previousgoalturnprogress:freshgradedconfirmation allbars, conditional6.33MBpackage exported andCPUequivalent. Implement preregistered208forward native/physicaljoint removal replay on72regional/32newline confirmationrows. Sourcefieldcheckbothnative/changedcontexts; baseline-subtracted effects againstfrozenconfirmedcandidate. No additionaldata/factorselection or newindependentcircuitclaim.
+
+### 2026-09-12T19:51:16.336773+00:00 — Codex: CLAIM INDEPENDENT WRITER/READER FACTORIAL CPU
+Package208forwardreplayqueuedbehindnewpeer667, no duplicate. Previousrolechallenge swappedbothcitymentions; cannotidentifywriter-specific response. Build96fixedrows2mentionorders x2citypairs x6spellings x2writerlabels x2readerlabels, eachsingleportcityswapexactly1token; sameexplicitwriter-localinstruction. Freeze candidate45 andnativepackage. Registered later384forward native/removal/writer-donor/reader-donor, capwritercontrast>=.2/10of12positive eachorder; Bwritercoverage/transfer>=.5,direction/control; Creader-donor effectnorm<=.25writer-donor eachorder. Report native reader/writer ratio regardless. No rowscorefilter or renamingregionalcomponentaswriterlogicbeforetest.
+
+### 2026-09-12T19:53:51.163821+00:00 — Codex: CLAIM REFLECTION NORMALIZER CLOSURE CPU
+Previousprogress: roleexecutorcommitted/queued. For frozenleadingP, actualkeyRMS reflectioninvariance requires[P,Kj^T Kj]=0 forbothkeys. Compute exactcrossblockGram defect and independentdensecheck; then compare selectedeven numerator with averageoriginal/reflected routing recomputing eachbranchkeynorm, value/queryfixed, onoldnative9states. AGramidentity<=1e-10; Bbothheads/bothkeyrelativeGramreflectiondefect<=.01; Cnative9scalarfielddifference<=.01eachfamily. This tests conditionalnormalizerclosure, not completeinputreflection or newbehavior. Keepfullnormalizersifmiss.
+
+### 2026-09-12T19:56:33.646197+00:00 — Codex: NORMALIZER CLOSURE B/C MISS
+Denseconditioncontrol4.44e-16; Gramreflectiondefect.60–.69, native9renormalizedevenfield3.0–3.6% misses1%. Originalnormalizeddependencyretained, no selectedcandidatechange. Geometricerrornotbehavioralerror. Package/role GPUjobsalreadyqueuedbehindlivepeer667. Hourlyreviewbeingrecorded.
+
+### 2026-09-12T20:04:27.270241+00:00 — Codex: requested explanation and role-result analysis
+Interpreting completed package and independent-role results; correcting ing-target denominator in the 15:36 report and writing standalone_best_result.md. CPU role effect accounting follows; no new GPU launch or peer-file ownership. Weight-first handoff remains authoritative.
+
+### 2026-09-12T20:08:45.811630+00:00 — Codex: explanation and role interpretation complete
+Package replay passed; independent role test failed coverage/specificity. CPU accounting measures 44.87/41.07% reader-contrast removal alongside 48.73/44.84% writer removal. General regional-cue label retained. Requested report sections 11–12 and standalone_best_result.md written, local links/display delimiters checked; hourly review records remaining throughput limitation. Both managed runner services running.
+
+### 2026-09-12T20:11:50.900352+00:00 — Codex: CLAIM matched secant solver recovery comparison CPU
+Prior raw/QR and exact secant audit checked: no optimization after rewrite. Implement invertible fixed-separation coordinate adapter and ten matched random starts on known rank2 symmetric cubic source span, raw/secant x L-BFGS/TRF, exact variable projection. Same represented family, full dense synthetic coefficients; recovery <=1e-5, gradient <=1e-8, fixed250evaluation/update budgets. Native scalable implementation remains separate; circuit purpose is robust discovery of shared source functions, not compression adoption.
+
+### 2026-09-12T20:17:35.510189+00:00 — Codex: curvature control PASS / native pilot claimed
+Ten matched cubic starts: TRF3/10 recoveries vs L-BFGS0/10, secant no extra recovery count. Exact native HVP validated<=6.44e-10 FD, CPU~2.24s; unit-reader gradient pullback passes. Implemented/registered four warm native trust-krylov arms raw/secant x saved endpoints,64steps/60sec each. Same function family/weight objective, no data fit; Brequires10%gain plusstationarity, unfinishednotstructuralnull. Managedlane1 only. Three-hour review recorded.
+
+### 2026-09-12T20:19:12.402749+00:00 — Codex: native trust pilot queued
+Four raw/secant warm arms queued on managedlane1, reviewed SHA3a6653b9ce8bdb6c0451684ef81a53ee00bc8e1ca8c64ef3a1de6a3dd2c59711. Shared gate/fast tests/dryrun passed after literal prediction-key syntax repair. Native results pending; no recovery/convergence claim. Toy ten-start and native HVP controls committed/pushed. Next decision uses terminal stationarity, held coefficient function and costs before diverse native starts or behavioral promotion.
+
+### 2026-09-12T20:20:35.745430+00:00 — Codex: CLAIM complete-function restart comparison CPU
+Native trust pilot verified live PID3450841. Prepare exact cross-bank projected-function comparison retaining private query/output weights and head labels, using existing recurrence Gram derivation. Dense independent control plus permutation/scaling equivalence; applies to full rank16 raw/secant banks. Avoid choosing circuits by source-factor cosine alone. No GPU competitor.
+
+### 2026-09-12T20:27:57.949225+00:00 — Codex: trust pilot terminal / consumer-metric audit CPU claimed
+A/C pass, B fails stationarity: secant capture+22.75/+31.54%, held gains too, four time limits. Complete-function cross-start error57.24%fit/60.28%held, not stable circuit identity. Most gain appears head13.0, whereas prior causal passers were8.2/9.8. Re-score SAME frozen functions under existing weight-only consumer Jacobian metric before committing a broad expensive sweep; no source refit or text data. This tests whether improved generic read-coordinate fitting serves the downstream circuit.
+
+### 2026-09-12T20:31:39.300809+00:00 — Codex: CLAIM exact three-product cluster chart CPU
+Post-trust conditioning finds ordinary product almostparallel to existing secant-even feature, so fixedone-pair chart is incomplete. Implement mean plus reader-SVD directions for three aligned product triples, preserving three source features and all nonlinear parameter count. Exact degree0/1 coefficient identities avoid cancellation; degree2/3 retained. Independent polynomial/gradient/HVP control before any native chart/fit. This is continuation of measured optimizer failure, not new unconstrained partner capacity.
+
+### 2026-09-12T20:33:19.042221+00:00 — Codex: CLAIM native three-product chart audit
+Apply exact cluster chart to measured colliding triples in both secant endpoints. A fullfunction energy<=1e-6 and independent syntheticexecution<=1e-5; B normalizedGramcondition<=100 and10xlower. Fit/heldpositions, no refit, originalquery/outputfunctions retained. Native optimization only if instrumentandconditioning justify it; circuitgoal remains stable sharedsource computations plus later physicaltests.
+
+### 2026-09-12T20:37:33.694809+00:00 — Codex: cluster native control complete / longer fit claimed
+Samefunction replay~1e-12; normalizedcondition11996→300 and8367→12. Both improve>10x but first misses<=100, retained as Bmiss. Native HVPFD<=4e-9, unitreader gradientcontrolpassed. Registered4matched continuationarms oldpair/newcluster x2parents,300sec/512steps each, explicitunitgradientstationarity. Same16features/110592parameters;40vs22internalproducts charged. No newsemanticclaim or dataguidedfit. Managedlane1 only.
+
+### 2026-09-12T20:39:42.317080+00:00 — Codex: longer matched cluster continuation queued
+Shared fast tests, gate and model-free dryrun pass; hash80e4ee72004040dfe599493ecc5981929d99e1106e2a5cde94fa6f664a5c36b1 queued managedlane1. Four300sec/512step arms, oldpairvscluster atsameparentfunctions. Native controls andcontinuationcommitted/pushed. Conditiontargetmissforarm0 retained; completefunction unchanged. Terminal interpretation must checkunitgradient, heldposition, crossstartfunctionagreement andheadgainallocation before anycircuitclaim.
+
+### 2026-09-12T20:43:06.138181+00:00 — Codex: CLAIM full mixed cubic-bank head executor CPU
+Cluster continuation verified livePID3462484; no competingGPU. Extend existing compiled_shared_head and cubic_source_mixture executor to arbitrary mixedbank, actualrelativeRoPE/fullnativeQKnorms andcausalsum. Projection before originalO gives physicalcomponent; Cfoldingmustcommute. Independent fullcubicbasis vsnormalizedhead control, prior-mixture control, consumercommutation andsequence sum <=1e-10. NativeFP32/text replay separate. This closes executor gap before fitting results can become physical intervention candidates.
+
+### 2026-09-12T20:45:10.592079+00:00 — Codex: CLAIM native cubic-bank executor audit CPU
+Fullbasis normalized-head and prior-mixture controls pass<=1.2e-15. Test frozenclusterbanks onhead9.8 nativeweights,48cached pristine/after8contexts, actualfirst-state generation and3query/sourcepositions. A independentFP64projectedfunction<=1e-8/nonzero; B nativeFP32projection arithmetic vsFP64<=1e-4; C physicalO vsfoldedC O commutation<=1e-8. This is implementation equivalence, not projection fidelity or native effect evidence. Fitjob unchanged.
+
+### 2026-09-12T21:00:15.243075+00:00 — Codex: CLAIM cubic-bank head13 physical screen and requested review
+Native cached executor audit passed. Freeze two earlier cluster banks and test physical head13.0 source-polynomial removals on existing48 regional rows, alongside native/full-head arms;192 forwards,600sec. Independent of live long-fit selection. After optimizer and screen, user requests method/results red-team, challenge to that critique, then equation-specific computational/decomposition ROI review. Normalized Frobenius tensor-sim fitting is a deferred note only; no implementation now. Disk emergency: removed inactive untracked regenerable .fitcache/stack_5c5a8900d60fa34272bfe7184fad48c2.pt (1,639,285,227bytes), after /proc maps/fd check; source cache generator preserved. Model and unique experiment artifacts untouched.
+
+### 2026-09-12T21:04:42.278387+00:00 — Codex: head13 screen terminal / requested critical review and ROI audit
+Head13 screen A holds; B/C fail because nearzero cue coverage despite stable replica effects (5.23/7.55% relative RMS). Whole head covers1.41/2.36%; this is a task-allocation null, not absence of weight structure. Long continuation remains unconverged; newcluster+0.56/+20.94%, nearoldchart atmatchedtime. Claim CPU exact Q/K/value support reduction for heads8.2,9.8,13.0 and8.2+9.8 union, including folded4read outputs; check native matrix reconstruction/random normalized pair replay<=1e-10. This measures equation-specific savings before any new optimizer campaign. Existing keyrowspace/SVD work acknowledged; new audit adds value and query support plus full-versus-folded output accounting. No data fitting or tensor-sim implementation.
+
+### 2026-09-12T21:11:25.235998+00:00 — Codex: requested review complete / hourly continuation receipt
+Report explanations/for_logan/method_redteam_and_roi_2026-09-12.md covers critical review, counter-review, completed optimizer/screen and ROI. Exactsupport audit executed0.56sec,<=5.4e-15. Hourly21:09 retains narrow head13null and previous8.2/9.8positive; ceremony measurement limited/serialtargetmiss forces executor reuse. Follow-throughCPU price accounting performed: explicitbases cost0.60–1.77Mscalars in auditedcases and do not establish packagecompression. Next scientific priority supported8.2/9.8 knownvalue/jointkey structure in exactsupport; no broadtensor-sim implementation.

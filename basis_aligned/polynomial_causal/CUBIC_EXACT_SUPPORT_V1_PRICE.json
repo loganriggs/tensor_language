@@ -1,0 +1,77 @@
+{
+  "rows": [
+    {
+      "head": "8.2",
+      "target": "full_source",
+      "rank": 16,
+      "ambient_reader_parameters": 110592,
+      "reduced_reader_parameters": 18432,
+      "explicit_orthonormal_basis_scalars": 884736,
+      "combined_basis_and_reader_scalars": 903168
+    },
+    {
+      "head": "8.2",
+      "target": "four_read_source",
+      "rank": 16,
+      "ambient_reader_parameters": 110592,
+      "reduced_reader_parameters": 12480,
+      "explicit_orthonormal_basis_scalars": 599040,
+      "combined_basis_and_reader_scalars": 611520
+    },
+    {
+      "head": "9.8",
+      "target": "full_source",
+      "rank": 16,
+      "ambient_reader_parameters": 110592,
+      "reduced_reader_parameters": 18432,
+      "explicit_orthonormal_basis_scalars": 884736,
+      "combined_basis_and_reader_scalars": 903168
+    },
+    {
+      "head": "9.8",
+      "target": "four_read_source",
+      "rank": 16,
+      "ambient_reader_parameters": 110592,
+      "reduced_reader_parameters": 12480,
+      "explicit_orthonormal_basis_scalars": 599040,
+      "combined_basis_and_reader_scalars": 611520
+    },
+    {
+      "head": "13.0",
+      "target": "full_source",
+      "rank": 16,
+      "ambient_reader_parameters": 110592,
+      "reduced_reader_parameters": 18432,
+      "explicit_orthonormal_basis_scalars": 884736,
+      "combined_basis_and_reader_scalars": 903168
+    },
+    {
+      "head": "13.0",
+      "target": "four_read_source",
+      "rank": 16,
+      "ambient_reader_parameters": 110592,
+      "reduced_reader_parameters": 12480,
+      "explicit_orthonormal_basis_scalars": 599040,
+      "combined_basis_and_reader_scalars": 611520
+    },
+    {
+      "head": "8.2+9.8",
+      "target": "full_source",
+      "rank": 16,
+      "ambient_reader_parameters": 110592,
+      "reduced_reader_parameters": 36864,
+      "explicit_orthonormal_basis_scalars": 1769472,
+      "combined_basis_and_reader_scalars": 1806336
+    },
+    {
+      "head": "8.2+9.8",
+      "target": "four_read_source",
+      "rank": 16,
+      "ambient_reader_parameters": 110592,
+      "reduced_reader_parameters": 24960,
+      "explicit_orthonormal_basis_scalars": 1198080,
+      "combined_basis_and_reader_scalars": 1223040
+    }
+  ],
+  "scope": "Literal scalar accounting from audited dimensions. Explicit support bases add storage even while nonlinear coordinates shrink; no program compression or GPU speedup inferred."
+}
