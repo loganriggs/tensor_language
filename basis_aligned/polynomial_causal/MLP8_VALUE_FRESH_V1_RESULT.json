@@ -1,0 +1,57 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "replay": {
+    "anchor": 0.0,
+    "selfdonor": 0.0
+  },
+  "records": [
+    {
+      "family": 0,
+      "native_contrast": 3.118912180264791,
+      "native_positive": 12,
+      "capable": true,
+      "removal_coverage": 0.08831813532412633,
+      "removal_positive": 12,
+      "removal_unrelated": 0.122796636439766,
+      "donor_transfer": 0.09034898014708753,
+      "donor_positive": 24,
+      "donor_unrelated": 0.12494505739343109,
+      "removal_pass": false,
+      "donor_pass": false
+    },
+    {
+      "family": 1,
+      "native_contrast": 2.1045790712038674,
+      "native_positive": 12,
+      "capable": true,
+      "removal_coverage": 0.014617406132206245,
+      "removal_positive": 6,
+      "removal_unrelated": 0.14054528694828944,
+      "donor_transfer": -0.04102256505434741,
+      "donor_positive": 2,
+      "donor_unrelated": 0.1570304863848815,
+      "removal_pass": false,
+      "donor_pass": false
+    },
+    {
+      "family": 2,
+      "native_contrast": 4.088684439659119,
+      "native_positive": 12,
+      "capable": true,
+      "removal_coverage": 0.0733283805227951,
+      "removal_positive": 12,
+      "removal_unrelated": 0.13928884757045443,
+      "donor_transfer": 0.10645636299558756,
+      "donor_positive": 24,
+      "donor_unrelated": 0.12191492307332054,
+      "removal_pass": false,
+      "donor_pass": true
+    }
+  ],
+  "body_forwards": 288,
+  "seconds": 4.827727284282446,
+  "scope": "72 fresh full-prefix city contexts, 24 reused replay anchors; frozen phi4 donor with recipient QK/norm; native prefix/background retained. Controlled context shift, not corpus OOD.",
+  "artifact_sha": "63105201f3aaf33f039dc56fbffd85292031bb4326c7ce7a2dc0a282805abb25"
+}
