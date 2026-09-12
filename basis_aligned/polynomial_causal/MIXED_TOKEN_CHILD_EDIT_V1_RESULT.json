@@ -1,0 +1,35 @@
+{
+  "scope": "Post-native CPU manipulation stress check on two captured native batches only; 69 masks each. Original FP64 reference. No native suffix effects or general OOD guarantee.",
+  "results": [
+    {
+      "capture": "TOKEN_HEAD2_CHILD_CAPTURE_V1",
+      "cases": 69,
+      "max_relative_error": 2.0096433205662896e-07,
+      "max_branch_scaled_error": 2.0088551428153125e-07,
+      "cancellation_case": {
+        "mask": [
+          1.0,
+          -55.42195406433013
+        ],
+        "relative_error": 1.7498000246328195e-07,
+        "branch_scaled_error": 1.682576059566164e-07,
+        "reference_norm": 23.498615209580073
+      }
+    },
+    {
+      "capture": "MIXED_TOKEN_HEAD2_NATIVE_V1",
+      "cases": 69,
+      "max_relative_error": 1.9355566308927104e-07,
+      "max_branch_scaled_error": 1.7344471000873498e-07,
+      "cancellation_case": {
+        "mask": [
+          1.0,
+          0.05895059773444476
+        ],
+        "relative_error": 1.624083565842754e-07,
+        "branch_scaled_error": 1.5821777674556714e-07,
+        "reference_norm": 13.668581041117324
+      }
+    }
+  ]
+}

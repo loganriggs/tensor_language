@@ -70,3 +70,33 @@ under the unchanged child criterion. This single-case diagnosis does not prove
 a mixed-precision package succeeds elsewhere. Full token-input effects pass,
 but precise child manipulation remains explicitly unverified for this FP32
 candidate. No broader four-property completion follows.
+
+
+## Mixed-precision native validation and export — 12 September, 15:20 UTC
+
+The [distinct mixed candidate](MIXED_TOKEN_HEAD2_NATIVE_V1_RESULT.json) passes
+all unchanged A/B/C bars in 4.55 seconds. It retains original FP64 source readers
+and dual rows, and builds every token reading using native GPU initialization
+followed by an FP64 dot product. Large projection matrices and remaining output
+arithmetic stay FP32. Maximum child-reference relative error is 2.782e-7;
+full-write error is at most 6.522e-8 and removal-effect error at most 7.460e-6.
+The old FP32 failure above is preserved. The inherited `token_fp32` result label
+refers to the mixed candidate here; the saved field dtypes specify its precision.
+The inherited partition and interaction statistics still use the old FP32 joint
+arm, so they are not pure within-mixed-program composition statistics.
+
+The [portable token-input package](extracted_circuits/regional_shared_head2_token_mixed_v1/README.md)
+contains exactly the validated tensor values and a standalone torch executor.
+Reload, runtime AST and execution identity checks pass. It stores 863,264 scalars
+in 4,276,480 tensor bytes. This closes the first-state input generator for all
+50,304 token IDs, at increased storage cost. Query/current generators, positional
+operators and the final native suffix remain external dependencies.
+
+A subsequent [CPU signed-child-edit check](MIXED_TOKEN_CHILD_EDIT_V1_RESULT.json)
+compares 69 masks on each of two captured native batches against the original
+FP64 program: individual children, joint addition, subtraction, 64 angular
+mixtures and the least-squares cancelling coefficient. Maximum relative write
+error is 2.010e-7; branch-scaled errors are also below 2.009e-7. This supports
+local independently editable branches, including the earlier difficult reading.
+It is limited to these captured inputs and does not establish arbitrary-state
+robustness, native behavioral composition under those edits, or OOD sufficiency.

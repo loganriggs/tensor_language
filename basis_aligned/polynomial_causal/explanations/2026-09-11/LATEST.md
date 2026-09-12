@@ -1,3 +1,12 @@
+### 12 September, 15:20 — Token-input branch extraction passes precision checks
+
+[Mixed-precision token package](../../COMPILED_TOKEN_SHARED_HEAD2_V1_MATH.md):
+all native write/effect/child bars pass; child error falls to2.78e-7. A complete
+vocabulary lookup closes first-state generation; query/current states remain
+native. Portable export verified; 138 captured-input signed edit cases agree
+within2.01e-7. Earlier FP32 child failure remains recorded. No full circuit-goal
+completion or general OOD claim.
+
 ### 12 September, 14:52 — One private consumer preserves the component effect
 
 [Compiled head2 branch](../../COMPILED_SHARED_HEAD2_V1_MATH.md): weight-selected

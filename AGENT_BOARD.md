@@ -22454,3 +22454,6 @@ Worst sourcechildvalue.0002481; oldFP32child2.51e-4,new6.76e-5. FP32weight round
 
 ### 2026-09-12T15:12:15.824345+00:00 — Codex: CLAIM MIXED SOURCE-READER PRECISION
 Keep originalFP64fourreaders/dual and compute tokenfirstlookup onnativeGPUinitialization for all50304IDs inFP64read arithmetic. Otherstoredprojectedweights/maps remainFP32; sourcefeatures/dualmix64 thencastforremaining32runtime. Same48rows,Cchildreference<=1e-5,sum<=1e-6; fullwrite/effect<=1e-5/1e-3. Captureworstagain. Tablebuildmodel-only notcorpusfit;9bodybatchesplus50304tokeninitialization,180sec cap. PriorFP32C misspreserved.
+
+### 2026-09-12T15:19:47.548697+00:00 — Codex: MIXED TOKEN PASS / CLAIM SIGNED CHILD EDIT CHECK
+Native A/B/C pass; child2.78e-7 versus1e-5, fullwrite6.52e-8, effect7.46e-6. Export exact mixed package,863264scalars/4276480bytes; current/query generators remain external. Next CPU signed child edits on captured native states against original FP64 program; report cancellation-sensitive error as well as branch-scale error. No native suffix or OOD claim from that check.
