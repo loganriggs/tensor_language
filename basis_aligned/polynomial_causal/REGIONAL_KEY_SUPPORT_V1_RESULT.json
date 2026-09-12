@@ -1,0 +1,54 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "scores": {
+    "forward": {
+      "original_max": 0.2538740851464858,
+      "heldout_max": 0.2752812701583904
+    },
+    "backward": {
+      "original_max": 0.20734436194872138,
+      "heldout_max": 0.28456754622876074
+    }
+  },
+  "supports": {
+    "forward": [
+      7,
+      8,
+      11,
+      12,
+      13,
+      14,
+      15,
+      17,
+      18,
+      19,
+      21,
+      22,
+      23
+    ],
+    "backward": [
+      7,
+      9,
+      11,
+      12,
+      13,
+      14,
+      15,
+      17,
+      18,
+      21,
+      22,
+      23,
+      25
+    ]
+  },
+  "all_port_replay_error": 3.5430102771652773e-07,
+  "dense_metric_agreement": 5.551115123125783e-17,
+  "seconds": 0.19015273824334145,
+  "source_sha": "b62b1f60fedcafa6006f71ce33cc971a5ecbf76a80121258887776461b9f8605",
+  "artifact_sha": "ebbd3f8fe1fbe17960abf3f5c4a9fdfbea30e46ad12c49bea4f4d8a47be263a0",
+  "frozen_sha": "d054d0a4d835d5ae25b16ad7d10535099e712b33212c1f2f16bcce2eac8670e5",
+  "scope": "Original-prefix conditional dependency localization of frozen weight-discovered branch. Geographic support validation, no weights or amplitudes fitted; no recursively pruned execution or behavioral sufficiency claim."
+}

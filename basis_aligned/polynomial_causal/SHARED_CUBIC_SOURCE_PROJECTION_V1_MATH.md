@@ -1174,3 +1174,38 @@ context's compiled interface only. The native weights and work generating $Z$,
 the queries, and the downstream branch are still required and charged. The next
 extraction task is to simplify those port-producing computations jointly across
 prefixes, rather than treating a native-generated table as the circuit.
+
+
+### Shared native-update support: selection and actual-query audit
+
+[Preregistered support localization](REGIONAL_KEY_SUPPORT_V1_PREREGISTRATION.md)
+selects13of26 native update terms on the four original cue prefixes, shared
+across keys at8/9/13. This is dependency localization of the existing frozen
+weight-discovered branch, not new unsupervised discovery or a weight fit.
+The eight geographic prefixes do not enter support selection. Both forward
+and backward supports are serialized before geographic scoring.
+
+[CPU results](REGIONAL_KEY_SUPPORT_V1_RESULT.json): forward greedy gives25.39%
+worst original joint-key error and27.53% geographic error. Backward elimination,
+the registered optimization red-team, gives20.73% and28.46%. Both miss10%.
+All-port replay passes3.54e-7 and dense/contracted metric agreement is5.55e-17.
+Backward search does not rescue the forward prediction; neither establishes a
+global optimum or rules out smaller cross-module features.
+
+The [actual-query native audit](REGIONAL_KEY_SUPPORT_ROUTES_V1_RESULT.json)
+addresses a different confound: key error may lie in directions that queries
+do not use. It evaluates both QK factors together with native queries and RoPE
+on all112prompts. Forward routing error improves to19.41% on the original panel
+and23.40% on geographic prefixes, but both10%predictions still fail. Positive
+all-port routing replay passes4.28e-7; experiment time1.25seconds,18batches.
+The criterion aggregates heads and causal query positions separately per layer
+and panel; it is not a per-head guarantee.
+
+The remaining readout question is whether these score errors matter to the
+specific first-value branch after its value and downstream write weighting.
+[That next test is registered](REGIONAL_KEY_SUPPORT_EFFECT_V1_PREREGISTRATION.md)
+and its existing five-arm executor adaptation is written and syntax-checked.
+Binding, managed preflight and native execution remain pending. It keeps both
+supports frozen, preserves every earlier miss and uses correctedfresh32 queries
+for a basic fidelity/control screen. These duplicate original key prefixes;
+new geographic downstream evidence is not claimed.

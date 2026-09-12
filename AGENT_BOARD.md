@@ -22313,3 +22313,12 @@ Native V3 completed1.35sec33batches: prefix joint-key error9.96e-7, unroll1.31e-
 
 ### 2026-09-12T12:55:12.178204+00:00 — Codex: FOLDED KEY-PORT AUDIT COMPLETE
 144 FP64 native/family/synthetic amplitude cases pass, max2.50e-15. Fold both K readers and norm Gram;27ports/62,937scalars atlayer13 percontext, generator costs retained. Prefix native replay and family misses recorded in primarymath andmiddlepoolingdossier. Concrete CPU continuation executed; next unresolved task is shared simplification of port producers, not table adoption. Full four-property goal active.
+
+### 2026-09-12T12:58:02.975657+00:00 — Codex: CLAIM CROSS-PREFIX KEY DEPENDENCY LOCALIZATION
+Original4 cue prefixes select a shared13-of26 attention/MLP update support across keylayers8/9/13; geographic8 prefixes held out of selection. Frozen weight-discovered regional branch, no weight/data factor fit: this is task-local dependency localization. Forward greedy minimizes worst original-prefix joint-key error; backward elimination is preregistered optimization red-team. Freeze both supports before heldout scoring. A exact all-port replay<=2e-5 and dense/contracted metric agreement<=1e-10; B forward13 support originalmax<=.1; C A/B plusheldoutmax<=.1. Native port generation remains required.
+
+### 2026-09-12T13:00:32.341554+00:00 — Codex: SHARED13 KEY SUPPORT FAIL / CLAIM ACTUAL-QUERY ROUTING AUDIT
+CPU A pass B/C fail: forward original25.39% geographic27.53%; backward20.73/28.46%. Native module support and query-independent key norm may be wrong boundaries. Freeze both supports unchanged; next managed audit evaluates actual jointQK score sequences onall112prompts, actualqueries/RoPE/RMS and saved prefix port reconstructions. A all-port score replay<=2e-5; B forward original3layers<=10%aggregate relative routingerror; C A/B plus geographic3layers<=10%. Fresh32query contexts separatelydiagnostic. No support re-selection, nofit, no behaviorclaim.
+
+### 2026-09-12T13:02:49.279640+00:00 — Codex: ACTUAL-QUERY SUPPORT MISS / CLAIM DOWNSTREAM EFFECT PREREGISTRATION
+Native A pass, forward original19.41% geographic23.40%scoreerror, B/Cfail. Actualqueries reduce butdo not eliminate keynorm miss. Next discriminant is downstream first-branch write and signedlogit effects with unchanged support/nativequeries; register and begin existing five-arm executor adaptation on correctedfresh32, then geographic validation only ifbasicfaithfulnesspasses. No new factor fit or changing failed key/route bars.
