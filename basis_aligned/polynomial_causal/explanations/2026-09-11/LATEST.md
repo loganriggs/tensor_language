@@ -1,6 +1,6 @@
 # Current result —12 September05:35 UTC
 
-[Full-input sparse interaction screen](../../FULL_INPUT_SPARSE_CORE_V1_RESULTS.md): producer folding raises4096edge capture4.56%→8.18%, but misses50% concentration. Fullinputs scarcelychange best256edge capture. Fixed-frame restriction remains; streamed frame optimizer implemented and CPU-tested, native wrapper pending.
+[Full-input sparse interaction screen](../../FULL_INPUT_SPARSE_CORE_V1_RESULTS.md): producer folding raises4096edge capture4.56%→8.18%, but misses50% concentration. Fullinputs scarcelychange best256edge capture. Fixed-frame restriction remains; streamed frame optimizer native job now queued (two starts,600seconds each; check live runner before interpreting status).
 
 # Current research state
 

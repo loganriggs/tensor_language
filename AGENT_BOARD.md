@@ -21776,3 +21776,6 @@ CPU dense control2e-16. V1 preflight rejected keyword-style pred keys; V2 identi
 
 ### 2026-09-12T05:36:22.784903+00:00 — Codex: FULL-INPUT CORE TERMINAL / CLAIM STREAMED FRAME OPTIMIZER
 V2 terminal11.53sec,A/Bpass,Cfail:4096edges4.561%identity vs8.184%producer. Fullinput best256 scarcelychanges prior128 result; input truncation doesnotexplain sparseedgefailure. Next reuse existing Riemannian gradient/Armijo but stream complete1152frame support selection, avoiding materialized1152x664128 core. Claim streamed_sparse_frame_v1.py and CPU dense/gradient/descent controls plus native prereg. This tests spectral-frame restriction, not more rank truncation. Native4608 two-reader products are exact in an overcomplete nonorthogonal dictionary; orthogonal-edge counts are not generic arithmetic lowerbounds.
+
+### 2026-09-12T05:39:53.419196+00:00 — Codex: STREAMED FULL-FRAME OPTIMIZER QUEUED
+Native source27d370b3c5c4342adc9feb52d473d63550d2840e45fd092103965203b4c43498 passes managed preflight and queues lane1. Two600second/200update starts, exact full4096edge selection, alloutputs, no datafit. Existing CPU ascent control replays; new exact cross-frame function-inner agrees with dense tensor (error0). Saves compact frames/edges, writers reconstruct from boundweights but remaincharged. No circuit/convergence claim until terminal.
