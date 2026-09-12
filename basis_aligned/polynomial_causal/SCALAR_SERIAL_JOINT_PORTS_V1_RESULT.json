@@ -1,0 +1,66 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "max_joint_product_error": 3.459166058464265e-15,
+  "max_expansion_error": 1.6341640641338234e-14,
+  "cells": [
+    {
+      "family": 0,
+      "native_delta_replay": 8.239715793616665e-07,
+      "source_only_error": 0.241076294443988,
+      "query_only_error": 1.1097448758626474,
+      "query_source_interaction_fraction": 0.12252472798201854,
+      "term_to_full_norm": [
+        0.3323074757759477,
+        0.42414616029996133,
+        0.07047437107845815,
+        1.2171351647511557,
+        0.09420633713622066,
+        0.11901836023489992,
+        0.0219693101153742
+      ],
+      "query_source_cosine": -0.4061925123044789,
+      "source_to_full_norm": 1.017326712501106,
+      "query_to_full_norm": 0.3323074757759477,
+      "change_norm": 6.269769880421085
+    },
+    {
+      "family": 1,
+      "native_delta_replay": 4.1054937864121543e-07,
+      "source_only_error": 0.05291990117497152,
+      "query_only_error": 1.011899375397356,
+      "query_source_interaction_fraction": 0.05688189181122942,
+      "term_to_full_norm": [
+        0.08165095905183634,
+        0.14590485378205248,
+        0.06713872314261489,
+        1.0319555069241608,
+        0.03650135912723806,
+        0.05945194644681228,
+        0.028870290249453246
+      ],
+      "query_source_cosine": -0.14753623099658347,
+      "source_to_full_norm": 0.9756096081920499,
+      "query_to_full_norm": 0.08165095905183634,
+      "change_norm": 7.551474683199868
+    }
+  ],
+  "term_masks": {
+    "1": "delta joint query",
+    "2": "delta joint key",
+    "3": "delta query x delta key",
+    "4": "delta value",
+    "5": "delta query x delta value",
+    "6": "delta key x delta value",
+    "7": "delta query x delta key x delta value"
+  },
+  "seconds": 0.2582564018666744,
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_CACHE_V1_ARTIFACT.pt": "53ecbf1d68fb58c16e9d8890f079ce5512e05638d739668c3df6415a607156b8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_COMPILE_V1_PROGRAM.pt": "d2e5fd65ab43dd25bf8548438c918ea7b4c9a93e6664931b5d52b37dcbd92490",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_CONFIRMATION_V1_ROWS.json": "e6bf664fa6dc88cc4ca52763d46fb7ab9085121aead3453192dcd867b03c1ede",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_serial_joint_ports_v1.py": "d2c8d6b4776e722ce06bf0728abd5bd1a16a6347d87f64d0a52a1a55b7ba3b06"
+  },
+  "scope": "Independent exact joint-query/key/value finite expansion on reused head9 native states after component8 removal. Joint feature ports need not be realizable as raw state edits. No data fitting, behavioral selectivity, or new OOD claim."
+}
