@@ -1476,3 +1476,32 @@ all native routing would trivially restore this identity without improving
 extraction; no such fallback is counted as a new circuit. Future simplifications
 must preserve both common and difference computations, with their dependencies
 charged. The standalone producer and multi-task criteria remain open.
+
+## Fresh cities and longer contexts: small contribution transports (14:23)
+
+The [fresh geographic test](REGIONAL_VALUE_FRESH_GEO_V1_RESULT.json) freezes all
+source atoms and producer8/9/13 folds. Manchester/Seattle and Liverpool/Denver
+appear in two new13–19-token templates, with48prompts and the six prior spelling
+endpoints. First values are computed directly from token identity using actual
+embedding/reentry/RMS and folded readers; full native routing remains. These
+new contexts were constructed before model scoring, without factor fitting.
+
+A replay and B native-capability/positive-transfer checks pass in4.15seconds.
+Native cue gaps1.97–3.37nats and all24pairs have the expected direction. Current,
+first and both value swaps each transfer in the expected direction on24/24pairs.
+First contributions0.0322–0.0849nats are1.63–2.63%of native cue gaps; combined
+contributions6.36–7.31%. C's10%first-coverage requirement fails in everyfamily.
+First unrelated-contrast magnitudes are8.37–10.02%of regional magnitudes, passing
+the registered50%bar. These limited contrasts are not broad selectivity proof.
+
+The executed [verdict audit](REGIONAL_VALUE_FRESH_GEO_V1_VERDICT_AUDIT.json)
+separates coverage from sign/control failures: only coverage fails. The older
+corrected fresh first branch was about2.35%of its native gap, so this is a
+consistent small contribution, not a new collapse under geographic shift.
+First values account for25.7–36.0%of these two upstream value branches; neither
+that share nor the branch's consistent sign makes it a sufficient circuit.
+
+The earlier approximate-routing cancellation failure is preserved separately;
+this experiment retains full native routing. A frozen dry-run print incorrectly
+retains6–14tokens; actual rows, length assertions, BQGATE and preregistration
+specify13–19 and9batches. Execution followed those correct values.

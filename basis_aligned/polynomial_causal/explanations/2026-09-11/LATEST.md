@@ -1,3 +1,11 @@
+### 12 September, 14:23 — Generalization passes direction, misses coverage
+
+[Current primary findings](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md):
+frozen first-value branch transports to24/24 new city/template pairs, but explains
+only1.63–2.63%of native cue gaps (10%coverage bar fails). Separately, approximate
+routing passes ordinary consumer swaps but fails some cancelling combinations;
+exact span witnesses confirm that limitation. No standalone circuit promotion.
+
 ### 12 September, 14:06 — Fixed writer state closes extracted-program execution
 
 [Mathematical review and results](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_1400.md):
