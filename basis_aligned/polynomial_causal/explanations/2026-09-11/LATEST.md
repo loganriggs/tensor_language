@@ -1,3 +1,12 @@
+### 12 September, 17:03 — Fresh confirmation and executable shared producers pass
+
+[Primary results](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): frozen head8.2/head9.8
+components retain89–93%of producer-group transfer on48newlexical/templatecontexts;
+shared-output join changes effects by.23–.25%. A5.54MBtorch-only producer package
+passes native write and intervention replay. Layer8/9 current-state generation
+remains native. Dedicated newline-capability/wholehead-positive-control rows and
+preregistration are prepared; that test has not run.
+
 ### 12 September, 16:48 — Two frozen producer components pass exploratory screen
 
 [Producer bank and common-output lead](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md):

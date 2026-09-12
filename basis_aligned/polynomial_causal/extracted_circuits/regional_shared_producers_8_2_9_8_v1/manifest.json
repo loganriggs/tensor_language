@@ -1,0 +1,42 @@
+{
+  "name": "regional_shared_producers_8_2_9_8_v1",
+  "status": "Native-validated conditional producer pair; independent context generation unfinished",
+  "files": {
+    "program.pt": "d2e5fd65ab43dd25bf8548438c918ea7b4c9a93e6664931b5d52b37dcbd92490",
+    "execute.py": "aa0666a6dc2d2f840e830d4107811958038fe9305556e9857e75059c89d6be4b"
+  },
+  "producer_heads": [
+    [
+      8,
+      2
+    ],
+    [
+      9,
+      8
+    ]
+  ],
+  "program_scalars": 1282566,
+  "tensor_bytes": 5541936,
+  "full_qk_scalars": 1179648,
+  "vocabulary_rows": 50304,
+  "inputs": [
+    "FP32 normalized native layer8 attention input [batch,sequence,1152]",
+    "FP32 normalized native layer9 attention input [batch,sequence,1152]",
+    "token IDs [batch,sequence]"
+  ],
+  "output": "FP64 [batch,sequence,4]: contribution to four readings of pre-attention residual17, before recipient rho17 division",
+  "native_dependencies": [
+    "layer8/9 input generators",
+    "downstream residual17 RMS",
+    "regional consumer query/current key norms, other producer/background readings",
+    "last MLP and unembedding suffix"
+  ],
+  "validation": {
+    "max_native_individual_relative_error": 3.0183473650648343e-07,
+    "joint_relative_error": 8.748597269007762e-08,
+    "first_token_lookup_relative_error": 8.678746679740998e-08,
+    "max_effect_relative_error": 6.853911290463048e-05,
+    "fresh_semantic_confirmation": "../../PRODUCER_FRESH_CONFIRMATION_EFFECT_V1_RESULT.json"
+  },
+  "scope": "Separate scalar source/QK branches with a shared four-output writer. Token lookup closes first-state value input only. No standalone model or wholehead removal claim."
+}

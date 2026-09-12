@@ -310,3 +310,8 @@ A coefficient-recurring shared linear source parent aliases the leading value re
 ## 2026-09-12 — head8.2/head9.8 regional edge screens
 
 A frozen27-head consumer-weighted value bank has two passers:8.2and9.8. Components reproduce corresponding wholehead effects at the four-reader regional interface within1.7–3.8%on96reusedcontexts, and carry28–32%/60–72%of selected producer-group transfer. Writers nearly align(Hcos.99949), source readers differ. This is consumer-specific edge evidence, not wholehead semantic renaming;8.2newline-setter record above still governs. Fresh confirmation/common-output grouping pending. [Primary results and all-candidate receipt](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).
+
+
+### 12September17:03 — Regional producer confirmation and execution
+
+The8.2/9.8regional edge components pass48freshcity/spelling/templateexamples:2.3–3.0%head-effecterror,89–93%grouptransferjointly. Commonoutputeffecterror.23–.25%;5.54MBscalarproducerpackageexecutes withnative8/9currentinputs+completefirst-tokenlookup. This doesnotclosetheinputgeneratorsorcertifynewlinepreservation. Dedicated16newlinecontextsandactualwholehead8.2positivecontrolregistered; nativecontrolpending. [Primary evidence](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).
