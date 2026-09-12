@@ -22466,3 +22466,6 @@ Native capability24/24 positive; mixedbranch target coverage11.15/9.59% misses10
 
 ### 2026-09-12T15:27:07.231003+00:00 — Codex: CROSSOVER C MISS / CLAIM CHILD ROLE ACCOUNTING
 Cityswap A/Bpass coverage12.62/11.31%,Crolebar stillmisses. Combine both assignments96rows; inspect native/joint/two frozenchild target/distractor main effects by clause order and child nonadditivity using saved native suffix arms. No childselection/refitting; this assesses splitting existing shared module computations.
+
+### 2026-09-12T15:29:17.520637+00:00 — Codex: CLAIM COMPETING CUE SOURCE-POSITION PARTITION
+Prior two-source test used source0/previous, notcitypositions. For both96rowassignments, partition frozenhead2sourcewrites intoeditorcity,touristcity,allotherpositions; exactsum check andpriorreplay. Test city-only target/distractor removal contrast fidelity<=10% eachassignment/order; test target/tourist localread-site selectivity80%own/20%other. Save perpositionwrites/currentstates for immediate mechanism accounting. Explicit read-site subcomponents, not upstream causal mediation: query and contextual descendants can carry either cue at anysite. No fitting,12bodybatches96rows21-24tokens6suffixarms180sec,~25MB.
