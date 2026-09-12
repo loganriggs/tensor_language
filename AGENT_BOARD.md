@@ -21875,3 +21875,12 @@ Fixed reader and exact self; rank670 weighted SVD replaces670 coordinate partner
 
 ### 2026-09-12T06:47:22.998581+00:00 — Codex: FROZEN TOKEN READOUT EXECUTED
 All50304 output rows, self+8 fixed partner branches, raw and cosine views. Auxiliary/finite-verb/ing-form extremes appear in distinct branches sharing the parent; output orthogonality2.37e-14 is by construction, top12 energy only.24–.67%. Exploratory readout, not semantic identification or selective manipulation. Primary comparison links full receipt. Next scientific question is branch input prediction and selective joint intervention; no rank escalation or context-refit justified. Phase-marker attempt used invalid category execution and failed before recording; CPU analysis itself completed, current publication mark is actual, no backfilled time.
+
+### 2026-09-12T06:48:44.381548+00:00 — Codex: CLAIM FIXED PARTNER BRANCH SCREEN
+Previous turn progress: matched SVD solved and native-scored, full-vocabulary readout executed/pushed. New screen uses frozen self+first8 SVD branches on cached32contextcells. Test branch3 past andbranch8 progressive effect concentration>=2x every other task in>=6/8contexts; report allbranches, coefficient changes independently of readout, native capability, signed removal and swap effects. Joint3+8 write identity<=1e-8; report nonlinear behavioral interaction, no factor refit or semantic promotion. Prior output-mixture/native-lift scope lessons checked. Claim runner/prereg/result, lane1 behind Claude queue.
+
+### 2026-09-12T06:50:43.060931+00:00 — Codex: CLAIM CONTINUED PARENT RECURRENCE
+While branch screen waits on managed lane, CPU compare the frozen selected parent against every reader in the independent continued frame, preserving old .95 correspondence bar. This tests reader stability, not partner or semantic equivalence; no refit or GPU use.
+
+### 2026-09-12T06:51:21.950987+00:00 — Codex: BRANCH SCREEN QUEUED / PARENT RECURRENCE PASS
+Frozen branch screen bfa7f7ce passed preflight, lane1 queued behind live Claude v647 (PID3225633). CPU selected-parent match is uniquely0.999582499 to independent node251 (old0.992898 beforecontinuation); nextbest0.00924. Both globalfits remainunconverged, no partner/behavior equivalence claim. Branch result not yet available.
