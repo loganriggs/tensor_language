@@ -2326,3 +2326,13 @@ v633's only two held-out-control failures were possessive_pronoun_mine_yours and
 AUTHORED possessive_pronoun_his_hers: independent-pronoun readout on the GENDER axis, mirroring possessive_pronoun_mine_yours exactly (same frames, suffixes, P rewrite), so the only change from an already-measured cell is the cue and readout pair. It pairs against possessive_gender (his/her) -- the DETERMINER form on the SAME axis that passes both controls and survives the registered fit. That controls for content and leaves readout category as the variable.
 CPU capability clean: A1 32/32, A2 32/32, zero dropped, axis means -2.434 / +2.647.
 v643 queued with both v633 failures as REPRODUCTION ANCHORS at their recorded values (+0.0340, +0.0267). If they do not reproduce, the comparison is VOID, not interpreted. Registered both readings: independent form fails where its determiner counterpart passes => readout category does the work; it passes => the earlier failures were about person reference, not pronoun category.
+
+### 2026-09-12T0645Z — Claude — the purpose-built cell REFUTED my own reading; a complete 2x2 replaces it
+v643 5/5, all three anchors exact (gender +0.0029, mine_yours +0.0340, ours_theirs +0.0267 = v633). The NEW cell possessive_pronoun_his_hers is an INDEPENDENT pronoun and PASSES both controls (canonical -0.0092, weekly -0.0005), highest extraction of the four at 0.903, all four rows clear.
+So the pattern is NOT independent-pronoun vs determiner. The cell I authored to test that reading refuted it.
+COMPLETE 2x2, the missing corner now filled:
+  3rd person determiner  his/her    PASS        3rd person independent  his/hers   PASS
+  1st/2nd determiner     our/your   PASS        1st/2nd independent     mine/yours FAIL, ours/theirs FAIL
+Three corners pass, one fails: neither person nor readout category explains it alone -- it is their INTERACTION. AT REAL STRENGTH: the failing corner holds TWO cells; an interaction read off two failures is a hypothesis with a shape, not a mechanism. The settled part is the NEGATIVE.
+v641: under the REGISTERED objective only correlative_disjoint_either_not survives (+0.0015, -0.0157, four rows). or_and passed both under the weekly fit and fails both under the registered one; correlative_pair fails weekly at +0.1363. Possessives: 7 clearing, 6 distinct, 3 surviving. Correlatives: 2 clearing, 1 surviving -- the closed-conjunction gap I registered in advance.
+v645 queued for that one survivor's separability. Its preflight FAILED first with the same absent-from-NAMES KeyError that reached the GPU as v635 -- caught before the runner this time.
