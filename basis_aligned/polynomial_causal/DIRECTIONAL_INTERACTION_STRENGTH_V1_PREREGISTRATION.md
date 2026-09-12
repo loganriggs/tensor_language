@@ -1,0 +1,9 @@
+# Frozen producer response across intervention strengths
+
+12 September 2026, before strength scores. Reuse all72 longer contexts, frozen rank64 response weights and selective routing runtime. Change only head8 edit amplitude to t times its pristine scalar, with t=-1,0.5,1.5,2. Negative strength adds the component;2 reverses its scalar sign. This tests manipulation/composition over finite interventions, not additional corpus OOD or fresh text.
+
+Reuse the six-arm native interaction test, with a seventh arm using the same rank64 map in the derivative at zero edit. For squared pristine RMS r and pristine bias-free MLP output u0, the linearized residual response is t*a*(-d+2*mean(z*d)*u0/r-J64*z/r). Both finite and linearized predictors then recompute attention9 QK/value/normalization. Thus this comparator isolates finite MLP response from a tangent approximation, not all downstream nonlinearities.
+
+A: full-map signed-interaction relative error <=1e-4 and actual norm>1e-6 in all12 strength/family cells; each native family mean paired contrast>=0.2 and at least10/12 positive pairs. B: A and rank64 signed-interaction error<=5% in every cell. C: B and joint-removal effect error<=1% in every cell. Exact-map full strength1 baseline has already passed; no rescaling of bars based on these outcomes. Same-rank tangent errors are descriptive; no registered assertion that finite response must beat tangent. Null: approximation does not transfer beyond its previously tested intervention amplitude.
+
+2016 body forwards (4 strengths x72 contexts x7 arms),180-second managed GPU cap. Original native background and pristine z/u0/raw9 ports retained. Rank is not reselected. Pristine field cache resets per context/strength. Full-map control distinguishes numerical/instrument error from approximation failure. Keep all failed cells. No new model weights or data-driven fitting.
