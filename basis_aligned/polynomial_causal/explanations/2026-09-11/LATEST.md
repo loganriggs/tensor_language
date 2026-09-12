@@ -1,3 +1,11 @@
+### 12 September, 12:06 — Fresh behavior controls pass
+
+General token-first executor transfers0.056nats of a2.699nat regional cue gap
+onnewprefixes;all24tense/number/factualcontrols staycorrect withsmallmeasured
+changes. Targettransfer exceeds matchedwrite controls (95thpercentile0.0023nats).
+This strengthens selectiveinterchange for a small branch; routing/current-state
+extraction remainsopen. [Results and limits](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+
 ### 12 September, 12:00 — Token branch passes full-vocabulary endpoint audit
 
 Across80tested prefixes, off-pair probability-weighted changes are5.6–8.3%of

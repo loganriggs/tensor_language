@@ -22253,3 +22253,12 @@ All6familiesA/B/Cpass;offpairweightedRMS5.55–8.28%targeteffect,TV.00072–.002
 
 ### 2026-09-12T11:59:47.554581+00:00 — Codex: FULL-VOCAB PROFILE COMPLETE
 Probability-weighted endpointselectivity passes; descriptiveprofile regional/geographyplusnonregionalshifts. FullTVincludesintendedpair .00259–.00560heldout; notsilentlycomparedtooffpairbar. Primarymath+channelsupdated. Nextunresolveddecisions: independentrouting/current-sourceclosure or freshbehaviorcontrolpanel; no whole-goalpromotion. CPUtokenprofileexecuted ascontinuationreceipt.
+
+### 2026-09-12T12:02:18.407893+00:00 — Codex: CLAIM FRESH REGIONAL/BEHAVIOR CONTROL PANEL
+Previousgoalturnprogress:fullvocabendpointpass+tokenprofile,pushed. Freeze32newprefixes:4regionalpositivecases and4eachtense/number/semanticcontrols, eachBritish/Americanpair. No nativeoutcomesread. Samefirst-valueproducerbranch; selectiveinterchange ratherthanfullmoduleablation. Capabilitymeasuredbeforepreservation; no removingweakrowsafterinspection. Existinglexical/formcontrols motivatefreshbehavior choices.
+
+### 2026-09-12T12:05:55.432152+00:00 — Codex: FRESH BEHAVIOR CONTROL PASS / CLAIM MATCHED WRITE CONTROL
+2.26secA/B/Cpass. Nativegap2.699nats,firsttransfer.05613=2.079%;all24controls capable/preserved,meanabs.00026–.00297. Sinceeffectsmallandcontrolseasy,CPU16fixedseed sharedsignedcoordinatepermutations ofsavedwrite delta, exactlypreserveeachrownorm andpairwiseGram. Requireactualregionaltransfer>95thpercentilecontrols; diagnostic controlsneitherrefitnorpostselected. Native suffixscored withsameendpoints.
+
+### 2026-09-12T12:06:41.288004+00:00 — Codex: MATCHED WRITE CONTROL PASS / FRESH RESULTS PUBLISHED
+True.05613nats vscontrol95th.002315,max.004723;Gram1.05e-15,replay7.10e-7. General tokenexecutor andfreshbehaviorcontrols recorded, nofullsource-removal/extractionclaim. Small2.079%nativecuefractionexplicit. Nextresearch shouldclose routing/current-state dependencies ratherthanrepeat easypositives. Fullgoalactive; matchedCPUauditexecuted.

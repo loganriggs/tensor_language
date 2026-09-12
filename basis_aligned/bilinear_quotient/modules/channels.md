@@ -108,3 +108,11 @@ are5.6–8.3%of regional logodds effects; TVmeans0.07–0.29%. Otherregional tok
 and some nonregional tokens change. This doesnot repair the older whole-channel
 lexical/form selectivity failures above: the intervention is a different narrow
 reader-directed branch with recipient routing/background fixed.
+
+[Fresh behavior controls](../../polynomial_causal/REGIONAL_BEHAVIOR_CONTROLS_V1_RESULT.json)
+subsequently pass:0.056nat regionaltransfer(~2.08%fullcuegap), all24tense/number/
+factualanswers preserved, meanabscontrastchanges0.00026–0.00297nats. General
+embedding/RMS/H execution replaces the restricted48-token table. Norm/Gram-matched
+signedcoordinatewrite controls have95thpercentileregionaltransfer0.0023nats.
+The small branch is orientation-specific; easycontrolsuccess is not independent
+extraction or a claim about every unrelated behavior.

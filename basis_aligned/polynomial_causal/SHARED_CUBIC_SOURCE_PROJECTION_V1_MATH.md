@@ -824,3 +824,47 @@ Thus the compiled token branch now has a passing full-vocabulary endpoint
 spillover screen in addition to narrow control contrasts. This is still a paired
 interchange with recipient routing/background fixed. Broad behavior-preservation
 panels, standalone extraction and independent multi-task reuse remain open.
+
+
+### Fresh behavior controls and matched write directions
+
+A [new32-prefix panel](REGIONAL_BEHAVIOR_CONTROLS_V1_ROWS.json) tests regional
+spelling alongside tense, number agreement and simple factual completions. Each
+pair changes only “British” to “American”; none of the prefix texts appeared in
+the earlier panels. Regional answer words overlap earlier tests, so this is new
+context/control evidence rather than entirely new output vocabulary. The first
+branch now executes from arbitrary input-token embeddings and the frozen RMS/H
+maps, without restricting inputs to the earlier48-token lookup table.
+
+The [native test](REGIONAL_BEHAVIOR_CONTROLS_V1_RESULT.json) passes all registered
+criteria. Native regional cue gap is2.6993nats; first-branch transfer is0.05613nats,
+or2.079%of that gap. This passes the2%bar narrowly and is a small fraction of the
+full regional computation. All24control prefixes are natively correct and remain
+correct after the swap. Their mean absolute correct-minus-foil changes are
+0.000710nats for tense,0.000259for number,0.002972for factual completions. Native
+mean margins are4.171,7.769,3.983nats respectively. These are relatively easy
+controls; absence of flips alone would be weak evidence. The registered effect
+size bars also pass. Six body forwards took2.26seconds; no fitting occurred.
+
+To test whether a small generic perturbation could explain the target effect,
+the [matched write control](REGIONAL_FIRST_MATCHED_WRITE_V1_RESULT.json) applies
+16fixed-seed common signed-coordinate permutations to the saved first-branch
+write deltas. For a row matrix $\Delta W$ and orthogonal signed permutation $Q$,
+
+$$
+(\Delta WQ)(\Delta WQ)^\top=\Delta W\Delta W^\top.
+$$
+
+Thus every write norm and every cross-row inner product is preserved; only its
+orientation relative to the model changes. Gram error is1.05e-15relative and
+CPU suffix replay error7.10e-7. Actual regional transfer0.05613nats exceeds the
+controls'95thpercentile0.002315nats (largestcontrol0.004723). This supports
+orientation-specificity of the extracted write. These controls are signed
+coordinate permutations, not uniformly random rotations or a universal null
+model for all circuit mechanisms.
+
+The fresh control screen strengthens selective-interchange evidence for this
+small token-source branch. It does not establish full source removal, guarantee
+all unrelated behaviors, or provide the remaining routing/current-state inputs.
+The next extraction work should close those dependencies rather than accumulate
+more easy positive screens of the already-tested token branch.
