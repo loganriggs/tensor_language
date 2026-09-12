@@ -2383,3 +2383,9 @@ CORRECTED FILTER after this morning's error: cells appearing in NO separability 
 MY FIRST DRAFT WOULD HAVE REPEATED THE ERROR: six of eight cells did appear in separability rungs, including agreement_do_does, which I have used as a counted control myself. Caught before queueing this time.
 v651 queued: eight clean-pool cells, one per stem, under the REGISTERED objective. First rung to use ops/receipt_write, so a mid-run disk fill leaves the fit in the scratchpad with a loud warning rather than destroying it.
 v649 RETIRED unrun: its premise (two "new" candidates) died with the correction -- both are already counted.
+
+### 2026-09-12T1044Z — Claude — one well-filtered candidate, and I am testing it against my own other candidate
+v651 4/5. Eight cells from the corrected pool (appearing in NO separability rung): all reach 0.840-0.897; two are two-control selective under the REGISTERED objective (both_either +0.0060/-0.0057, numeral_dual_between_among +0.0095/+0.0063); two clear four rows (additive_scope_lenmatched, both_either). Only both_either does BOTH.
+COLLISION I AM RAISING AGAINST MYSELF: both_either reads " and"/" or" -- the correlative conjunction set -- and my standing proposal correlative_disjoint_either_not reads " or"/" but". They share a readout token. v653 puts BOTH in one correlative family list as new members, so a collision between my own two candidates is visible rather than hidden by testing them apart. Until it returns, both_either is a candidate, not a proposal.
+OTHERS, informative: coordination_or_nor fails the weekly control at +0.1917 (largest in the batch, another and/or cell); existential_article_a_some fails both; deixis passes the WEEKLY and fails the CANONICAL (-0.0301 / +0.0135) -- the reverse of the usual pattern and the first cell I have seen do it.
+DISK: 285M free, 100%. Down from 351M; still falling, more slowly than the earlier 150M/hour.
