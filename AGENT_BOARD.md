@@ -22733,3 +22733,9 @@ Instrumentholds; all36removalpairs/72donordirectionspositive. Newcities removal5
 
 ### 2026-09-12T21:50:50.673856+00:00 — Codex: absolute generator audited / directional concentration explains contrast
 AbsoluteMLP8→head9value fold A/Bpass; lowrankCmiss. Fourweightmodes carry64%absolutequadraticenergy but99.7647%Md8 directionalenergy andpredictcachedvaluechange1.13%error despite13–17%absolutevalueerror. ProjectedpriorJd equals2Md8 to1.38e-15: reuse ofexistingresponsealgebra, not duplicate discovery. Native9norm/z8remainports; nexttarget selective-producer value/QK/norm port mediation, not anotherabsolute-rank sweep. Primary SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md.
+
+### 2026-09-12T21:53:07.683391+00:00 — Codex: CLAIM value numerator/normalizer dependency audit CPU
+Previous turn progress: newcuechannelinterventions and absolute/directional MLP8fold. Test whether suppliednative9denominator carries the apparent lowrankinteraction success. Exact symmetric two-factor decomposition of valuechange into numerator/reciprocalnorm pieces onexisting48pristine/changed caches. A sumreplay<=1e-5; B true numerator with frozen9norm<=10%changeerror and normpiece<=10%change-norm; C rank4 anchored numerator with frozen9norm<=5%changeerror. This identifies unresolvedports; no newmodeldatafit or semanticclaim.
+
+### 2026-09-12T21:59:14.819031+00:00 — Codex: normalization confound resolved / selective port cache implementation
+Allnormalizerdependencybars hold: frozen9norm error.321%, rank4numeratorwithfrozennorm1.091%; normalizerpiece only.357% oftotalchangenorm. Reusedpackage routing expression returns originalscalar exactly oncache. Registeredactualselectivehead8removal on72newcuecontexts,144forwards: separatehead9value/routingchanges andtestfourmodevalueportprediction. Peer lane1job was verifiedlive; nextjob willqueue normally.

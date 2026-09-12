@@ -1,0 +1,52 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "split_replay_error": 2.0094733277833327e-07,
+  "oracle_numerator_frozen_norm_error": 0.003209901870086516,
+  "numerator_aligned_fraction": 1.001533280329033,
+  "normalizer_aligned_fraction": -0.0015332684538924303,
+  "numerator_norm_ratio": 1.001538471128576,
+  "normalizer_norm_ratio": 0.0035704348057887724,
+  "normalizer_numerator_cosine": -0.43234001963732394,
+  "records": [
+    {
+      "rank": 0,
+      "numerator_change_error": 0.36674611164770743,
+      "frozen_norm_change_error": 0.3628389816155531,
+      "oracle_changed_norm_anchored_error": 0.3643324616803491
+    },
+    {
+      "rank": 1,
+      "numerator_change_error": 0.22027231906736014,
+      "frozen_norm_change_error": 0.21901088605610602,
+      "oracle_changed_norm_anchored_error": 0.21844925773073082
+    },
+    {
+      "rank": 4,
+      "numerator_change_error": 0.010804992468198334,
+      "frozen_norm_change_error": 0.010910881992240426,
+      "oracle_changed_norm_anchored_error": 0.011284935548473173
+    },
+    {
+      "rank": 16,
+      "numerator_change_error": 0.010461991547933971,
+      "frozen_norm_change_error": 0.009873940048366801,
+      "oracle_changed_norm_anchored_error": 0.010496898361079062
+    },
+    {
+      "rank": 64,
+      "numerator_change_error": 0.008275436225773147,
+      "frozen_norm_change_error": 0.008056102954245595,
+      "oracle_changed_norm_anchored_error": 0.00832373527425685
+    },
+    {
+      "rank": 1152,
+      "numerator_change_error": 8.672215125828151e-07,
+      "frozen_norm_change_error": 0.0032096192602206527,
+      "oracle_changed_norm_anchored_error": 9.094866496548501e-07
+    }
+  ],
+  "seconds": 0.10863415896892548,
+  "scope": "Existing broaderhead8removal cache, actual native numerator and9RMSreciprocal. Symmetric product allocation avoids arbitrary ordering; aligned fractions can be signed or exceedone. Anchored lowrank rows use nativebaseline and, whenlabelled, actualchangednorm. These are scalar dependency diagnostics, not selectivecomponent/logit or autonomous extraction results."
+}
