@@ -157,8 +157,8 @@ Newest user-directed proposal: [joint composed interaction paths](basis_aligned/
 ## Review clocks and throughput
 
 Latest hourly review:
-[04:27](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-12_0427.md).
-Next hourly review is due **05:27 UTC on12September** at the first safe boundary.
+[05:33](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-12_0533.md).
+Next hourly review is due **06:33 UTC on12September** at the first safe boundary.
 Latest mathematical review:
 [05:00](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0500.md).
 Next mathematical review is due **08:00 UTC on12September**. Derive later deadlines from the

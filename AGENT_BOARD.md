@@ -21767,3 +21767,9 @@ Weight alias audit passes but fullfunction residual remains35.7%. Test oldcenter
 
 ### 2026-09-12T05:23:50.514977+00:00 — Codex: PARENT INTERCHANGE FAILS / KEEP DISTINCT INTERFACES
 Managed source05dfc6ab terminal1.33sec,ApassB/C/Dfail. Fullmatchedpartners give swaps5.07/11.51/15.99/30.13%,removalerrors.0255/.0420/.0221/.0230; zeroexactreferencewritereplay. Originalunchangedpartnerbaseline includedandfails. Parentrelatedness isnotbehavioralequivalence, evenwithout rankcut. No mergednode/adoption; primary COMPOSED_SHARED_PARENT_V1_RESULTS andMLP17dossier updated.
+
+### 2026-09-12T05:30:59.113996+00:00 — Codex: CLAIM FULL-INPUT SPARSE PATH CORE
+Prior spectral sparse core restricted inputs to128 and captured6.406% before edge selection. Claim streaming full1152input/fulloutput edge-energy kernel, dense CPU control and matched identity/MLP16producer metric screen. Fixed spectral frames, exact best edge selection, no claim of globally optimal basis. Compare256/1024/4096 edges and retain old128 restriction as within-run control. Targets explicit interacting readers and shared dependencies for later frozen native extraction, not circuit promotion from sparsity. No text fitting.
+
+### 2026-09-12T05:34:26.316354+00:00 — Codex: FULL-INPUT CORE QUEUED / HOURLY05:33
+CPU dense control2e-16. V1 preflight rejected keyword-style pred keys; V2 identical computation with explicit pred keys passes and is queued on lane1, SHAa0f066e7053fbdf6d26f661d922f6255c27fc7df1739be927695f129aa4afddb. Full1152input/alloutput fixed-frame comparison, no text fit. Hourly ceremony gate fails on phase accounting; repair is this reused streaming computation, not extra audit scaffolding. Next hourly06:33/math08:00.
