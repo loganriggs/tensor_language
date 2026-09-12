@@ -1,0 +1,277 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "prior_replay_errors": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "endpoint_relative_error": 0.0,
+  "capability": [
+    true,
+    true
+  ],
+  "records": [
+    {
+      "cut": 0,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6779408058726283,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05438988140735831,
+          "effect_error_vs64": 0.13705693042400327,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.6096323962096492,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048788389460928915,
+          "effect_error_vs64": 0.2008935023512226,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "meanabs": 0.007376614958047867,
+          "maxabs": 0.02775251865386963,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "meanabs": 0.012055877596139908,
+          "maxabs": 0.13708990812301636,
+          "passed": false
+        }
+      ],
+      "joint_pass": false
+    },
+    {
+      "cut": 48,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5658789564985639,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05497514218561533,
+          "effect_error_vs64": 0.053560454500234146,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.47715947188792796,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04666279105588865,
+          "effect_error_vs64": 0.05436160209584935,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "meanabs": 0.0040760040283203125,
+          "maxabs": 0.01195991039276123,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "meanabs": 0.008386834058910608,
+          "maxabs": 0.08996045589447021,
+          "passed": true
+        }
+      ],
+      "joint_pass": false
+    },
+    {
+      "cut": 56,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5775488993913841,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05477896630667513,
+          "effect_error_vs64": 0.033445025183077855,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.4886009058764937,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.047108407563855086,
+          "effect_error_vs64": 0.03199221901105702,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "meanabs": 0.004120402038097382,
+          "maxabs": 0.012237310409545898,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "meanabs": 0.008669756585732102,
+          "maxabs": 0.0928279459476471,
+          "passed": true
+        }
+      ],
+      "joint_pass": false
+    },
+    {
+      "cut": 64,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5960116356220494,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05389957696415933,
+          "effect_error_vs64": 0.0,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5016803462573024,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04635104240182211,
+          "effect_error_vs64": 0.0,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "meanabs": 0.00456530787050724,
+          "maxabs": 0.012945294380187988,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "meanabs": 0.009109775768592954,
+          "maxabs": 0.09494638442993164,
+          "passed": true
+        }
+      ],
+      "joint_pass": true
+    },
+    {
+      "cut": 72,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6198090775791949,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05383387423830883,
+          "effect_error_vs64": 0.03909154428356899,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.525327431745108,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04649747124226642,
+          "effect_error_vs64": 0.04568793545533749,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "meanabs": 0.004906166344881058,
+          "maxabs": 0.014636695384979248,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "meanabs": 0.009390337858349085,
+          "maxabs": 0.09842082858085632,
+          "passed": true
+        }
+      ],
+      "joint_pass": true
+    },
+    {
+      "cut": 80,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6246072065840506,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054120862737063444,
+          "effect_error_vs64": 0.047279544080580424,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.529774889818376,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0470417315197422,
+          "effect_error_vs64": 0.05374396212198524,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "meanabs": 0.004894530400633812,
+          "maxabs": 0.014694154262542725,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "meanabs": 0.009471157332882285,
+          "maxabs": 0.09795144200325012,
+          "passed": true
+        }
+      ],
+      "joint_pass": true
+    },
+    {
+      "cut": 256,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6779408058726283,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05438988140735831,
+          "effect_error_vs64": 0.13705693042400327,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.6096323962096492,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048788389460928915,
+          "effect_error_vs64": 0.2008935023512226,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "meanabs": 0.007376614958047867,
+          "maxabs": 0.02775251865386963,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "meanabs": 0.012055877596139908,
+          "maxabs": 0.13708990812301636,
+          "passed": false
+        }
+      ],
+      "joint_pass": false
+    }
+  ],
+  "body_forwards": 672,
+  "seconds": 10.924341101199389,
+  "scope": "Frozen nested keyspace boundaries on existingregional/FineWeb panels including earlieroutlier; coupledQK maintained, originalnorms andsequentialnativeinputs retained. Boundaryrobustness screen, not newOOD or roleidentification; any alternatecut requires freshconfirmation.",
+  "artifact_sha": "bb31bab009b87f0f5e732d956c1b0f2c45d959ed9def9b60bbb0835dfa04af79"
+}

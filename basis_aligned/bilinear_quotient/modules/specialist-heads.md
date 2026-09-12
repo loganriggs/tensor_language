@@ -347,3 +347,7 @@ Distinct from the earlier leading-value split: two frozen rank16 source-polynomi
 ## 2026-09-12 21:27 — head9.8 fixed-value separated-quadratic probe
 
 For the known current-value sector, a weighted matrix-free SVD gives numerically stable leading8 query/source quadratic blocks (fulljointkey and selectedeven). Capture6.35/9.29%; cached pristine/changed source scalar errors66.6–69.8%. No new LM intervention; no circuitpromotion. This is a negative for8 separatedquadratic blocks, not for the existing coupled jointQK/value program. A coupled dot-product-square counterexample explicitly disproves treating separatedrank as arithmetic simplicity. [Primary derivation/results](../../polynomial_causal/FIXED_VALUE_QUADRATIC_OPERATOR_V1_MATH.md).
+
+## 2026-09-12 — Regional coupled key-boundary robustness
+
+Cuts48/56/64/72/80change frozencomponent target effects by<=5.44%relative to64. Jointregional/newline bars hold64/72/80;56and48fail lettercoverage(48.86/47.72%), so registeredB/Cmiss. Original64, fullsector andactualmeanheadcontrol replay exactly. Boundarypassfragility is narrower than largefunctionalinstability;64remains primary because it owns freshconfirmation. [Receipt and interpretation](../../polynomial_causal/SCALAR_KEY_BOUNDARY_V1_MATH.md).

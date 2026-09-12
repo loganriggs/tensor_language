@@ -1,0 +1,55 @@
+{
+  "rows": [
+    {
+      "cut": 48,
+      "regional_coverage_margin": [
+        0.0658789564985639,
+        -0.022840528112072045
+      ],
+      "max_effect_error_vs64": 0.05436160209584935,
+      "newline_max_margin": 0.01003954410552979,
+      "joint_pass": false
+    },
+    {
+      "cut": 56,
+      "regional_coverage_margin": [
+        0.0775488993913841,
+        -0.011399094123506315
+      ],
+      "max_effect_error_vs64": 0.033445025183077855,
+      "newline_max_margin": 0.007172054052352911,
+      "joint_pass": false
+    },
+    {
+      "cut": 64,
+      "regional_coverage_margin": [
+        0.0960116356220494,
+        0.0016803462573024008
+      ],
+      "max_effect_error_vs64": 0.0,
+      "newline_max_margin": 0.005053615570068365,
+      "joint_pass": true
+    },
+    {
+      "cut": 72,
+      "regional_coverage_margin": [
+        0.1198090775791949,
+        0.025327431745107987
+      ],
+      "max_effect_error_vs64": 0.04568793545533749,
+      "newline_max_margin": 0.0015791714191436823,
+      "joint_pass": true
+    },
+    {
+      "cut": 80,
+      "regional_coverage_margin": [
+        0.12460720658405056,
+        0.02977488981837595
+      ],
+      "max_effect_error_vs64": 0.05374396212198524,
+      "newline_max_margin": 0.0020485579967498835,
+      "joint_pass": true
+    }
+  ],
+  "interpretation": "Binary neighbor criterion fails but all nearby targeteffect differences<=5.44%;64/72/80 all pass. No threshold change or newrank promotion. Rank64 remains primary."
+}
