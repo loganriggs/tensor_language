@@ -1,3 +1,12 @@
+### 12 September, 14:52 — One private consumer preserves the component effect
+
+[Compiled head2 branch](../../COMPILED_SHARED_HEAD2_V1_MATH.md): weight-selected
+consumer preserves removal effects within0.404–0.434%; explicit666,656-scalar
+package matches the original branch on algebra probes. Native input generation
+and final suffix remain outside the package. Normalizer32/64variants failed;
+[hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_1439.md) redirects effort.
+Next hourly15:40, math17:06 UTC.
+
 ### 12 September, 14:23 — Generalization passes direction, misses coverage
 
 [Current primary findings](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md):

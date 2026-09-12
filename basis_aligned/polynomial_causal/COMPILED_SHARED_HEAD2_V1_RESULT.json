@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "cells": [
+    {
+      "position": 0,
+      "relative_error": 3.967346549001865e-15
+    },
+    {
+      "position": 1,
+      "relative_error": 2.6441704824090976e-15
+    },
+    {
+      "position": 2,
+      "relative_error": 2.0963243841491746e-15
+    },
+    {
+      "position": 4,
+      "relative_error": 3.3214376754234217e-15
+    },
+    {
+      "position": 8,
+      "relative_error": 3.440467196831465e-15
+    },
+    {
+      "position": 16,
+      "relative_error": 4.634527790852703e-15
+    }
+  ],
+  "stored_scalars": 666656,
+  "fp32_storage_bytes": 2666624,
+  "parts": {
+    "parent": 4608,
+    "children": 4608,
+    "dual": 32,
+    "q1": 147456,
+    "q2": 147456,
+    "k1": 147456,
+    "k2": 147456,
+    "atom_k1": 6144,
+    "atom_k2": 6144,
+    "atom_write": 55296
+  },
+  "scope": "Exact weight-derived selected shared-head program. Requires query1152,source2304 and fixed rounded relative rotary map. No original attention module or inverse solve at runtime. Upstream state generation, final suffix/unembedding and positional-map generation are outside this package and remain required."
+}

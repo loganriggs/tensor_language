@@ -22424,3 +22424,9 @@ CIRCUIT_FOCUSpass,NOVELTYpass,CEREMONYfail: recordedvalidation22.9min exceeds im
 
 ### 2026-09-12T14:44:56.801883+00:00 — Codex: CLAIM WEIGHT-SELECTED PRIVATE CONSUMER REMOVAL
 Exact9x9coefficientGram across6positions identifieshead2 then4; no native effectselection. Test fullsharedcomponent,head2privatebranch,heads2+4,remainder on48georows usingexactnativegates. A prior/fullattention/writepartition replay<=1e-5; B head2 removalwrite/effect<=10%eachfamily; C heads2+4same. This removes only other shared-component consumers, not entire nativeheads.9bodybatches5suffixarms180sec; preserveallupstreamstatecosts.
+
+### 2026-09-12T14:49:39.197645+00:00 — Codex: PRIVATE HEAD2 PASS / CLAIM EXPLICIT COMPILED BRANCH
+Head2write3.03–3.92%,removaleffect.404–.434%; heads2+4effect.173–.272%; nativepartition1.50e-16. Preserve nativehead2norms, drop other sharedfeatureconsumers only. Compile four source readers, two-source dual rowmaps, four nativehead Q/K matrices, K*atom projections and OV*atom writers. Cancel referenceg0 analytically. CPU compare to existing factor contraction on independent q/source probes at6positions; explicit normalizedinput boundary, upstream/final suffix excluded and charged separately.
+
+### 2026-09-12T14:52:48.124856+00:00 — Codex: COMPILED PRIVATE BRANCH CHECK PASS
+Standaloneq1152/source2304/R interface,666656storedscalars withnativehead2norms. Sixpositions16independentprobe pairs<=4.64e-15 versusexistingfactoralgebra. Selectedbranchnativeeffectpass separatefromcompiledprobe; nativeintegration remainsnext. Newprimary COMPILED_SHARED_HEAD2_V1_MATH.md containsmath/price/scopes; no fullgoalpromotion.

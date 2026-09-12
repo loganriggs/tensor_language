@@ -1604,3 +1604,13 @@ not by itself explain the complete text-domain miss. It does establish that
 isotropic completion and kernel-preserving truncation are distinct assumptions.
 The latter deserves the same native effect test before rejecting these reader
 counts. No fitted scale or changed old verdict is adopted.
+
+## Dominant private consumer and compiled package (14:52)
+
+[New primary derivation and literal price](COMPILED_SHARED_HEAD2_V1_MATH.md):
+weight-only cross-consumer Grams identify head2; its shared-feature branch
+preserves full-component native removal effects within0.404–0.434%. An explicit
+666,656-scalar program matches that branch algebraically within4.64e-15 on
+independent probes. It retains exact native head2normalizers. Upstream input
+generation and final suffix remain required; native integration of the compiled
+package and broader manipulation checks remain open.
