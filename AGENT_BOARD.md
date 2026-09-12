@@ -22439,3 +22439,9 @@ Load666656-scalar savedpackage, execute onnativeq/source/R across48geocontexts. 
 
 ### 2026-09-12T14:59:08.505348+00:00 — Codex: PORTABLE FP32 EXPORT VERIFIED
 extracted_circuits/regional_shared_head2_v1 contains666656scalars/2669957serializedbytes,torch-onlyruntime. Exporttensoridentity/ASTidentity/executionroundtrip pass; nativeFP32validation alreadyheld. Initialdiskfullpartialartifact rebuilt after npmcacheonlycleanup,receipt preserved. Inputgenerators/finalreadout remainexternal; fullgoalactive.
+
+### 2026-09-12T15:01:44.740587+00:00 — Codex: CLAIM FULL-VOCAB FOUR-READ FIRST-INPUT FOLD
+Prior54producer-read token compiler covers48IDs; newtarget four directsourcefeature reads in portablehead2. Nativefirstinput is token-only normalizedembedding then actualblock0reentry/RMS. Fold into50304x4table, remove runtimefirststate1152 andfirstreadweights; currentstate/query remainnative. No textfit. CPU allvocabtable construction, independentquery/current256probe runtime replay<=1e-5; native48write/effect<=1e-5/1e-3; childpartition<=1e-6FP32. Full table costs201216scalars; package grows666656→863264 while closingthisinputgenerator. No totalmodelcompressionclaim.
+
+### 2026-09-12T15:03:09.640612+00:00 — Codex: TOKEN LOOKUP CPU PASS / CLAIM NATIVE INTEGRATION
+All50304token fourreads compiled,201216lookupscalars; package863264. Independent256probeFP32 replay8.61e-7,childsum1.09e-7. Native9batch comparison oldFP32 andtokenFP32 versusoriginalfactorbranch:write<=1e-5/effect<=1e-3eachfamily; childrenref<=1e-5,sum<=1e-6. Explicitly closesfirststate only; no current/query generatorclosure.
