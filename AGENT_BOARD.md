@@ -21848,3 +21848,9 @@ Prepare samefrozen fullgraph/oneweightselectednode scorer forpendingamortizedfin
 
 ### 2026-09-12T06:15:04.309628+00:00 — Codex: FIRST AMORTIZED ARM TERMINAL / UNCHANGED FIDELITY PREPARED
 Spectral1180updates/602.98sec,60selections,10.37xold update rate. Capture9.08584→10.35799%, gradient.00817→.000962; stilltime_limit/unconverged. This iscontinuationnotmatchedinitializationbenchmark. Secondarm live. Prepared samefrozen fullgraph/nodefidelity forfinalpair, oldoptimizedgraphbaseline andreaderidentitycosinereport; bindafterterminalonly.
+
+### 2026-09-12T06:19:04.362779+00:00 — Codex: CLAIM FULL SYMMETRIC METRIC AUDIT
+Prior COMPOSED_QUARTIC_NATIVE_V1 alreadyimplements fullU quarticoracle (3.61sec); reusecontract byexpressingfrozensparseedges as two-reader products. Rescore oldbestgraph under actualfullysymmetric quartic coefficient norm versuspairedfit metric,4096Gaussian+4096Rademacher probes, no text/no refit. Reportcentered/fullU, pairedratio SE via correlatedsamples. Test>=25%relativecapture increase fromsymmetrization; a miss narrowsmetricexcusefor thisfixedgraph,notgeneralstructure. Claimrunner/prereg/binding.
+
+### 2026-09-12T06:20:12.297650+00:00 — Codex: SYMMETRIC METRIC AUDIT QUEUED
+Source1c17af5bb602f4ac41fd76f69d0e1213306c937dc340e46b7cc5ef40d71baff2 passespreflight, queuedafterdictionarybaseline. Reusesnativequarticoracle, no newfactorfit/text. Pred25%capturegain tests pairedmetricexcuse onfixedoldgraph; full/centeredmetrics andpaired-sampleSEreported. Currentindependentamortizedarm720updates9.1836%,stillunconverged.
