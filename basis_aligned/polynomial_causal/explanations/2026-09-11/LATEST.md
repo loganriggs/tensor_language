@@ -1,3 +1,7 @@
+## 12 September, 22:46 — New output contrasts expose omitted regional contribution
+
+[Lexical transfer and executed controls](../../SCALAR_NEW_ENDPOINTS_V1_MATH.md): all signed effects transfer, but selected64removal44.7–48.1% misses50%. Fullvalue-sector54.5–57.5% identifies9.5–10.3points outside the selectedboundary; its retainednewlinefailure preventspromotion. Endpoint and conditionalincrementdiagnostics executed.
+
 ## 12 September, 22:27 — Coupled interaction predicts signed final-logit changes
 
 [Primary derivation and results](../../DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md): frozen rank64 response predicts fresh longer-context interactions within0.58–1.58%, and new signed edit strengths within0.38–3.57%. Exact-map controls pass; native pristine inputs/background remain. Donor response now passes at0.53–0.74% interaction error; direct QK/value contraction also passes CPU numerical checks. See the22:32 continuation in the same primary note.

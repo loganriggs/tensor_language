@@ -1,0 +1,57 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "primary_replay_error": 0.0,
+  "records": [
+    {
+      "family": 0,
+      "name": "city_cue",
+      "selected": {
+        "coverage": 0.4809549517855049,
+        "positive_pairs": 12,
+        "unrelated_ratio": 0.10761245457228326
+      },
+      "full": {
+        "coverage": 0.5754633194551995,
+        "positive_pairs": 12,
+        "unrelated_ratio": 0.10980563156901996
+      },
+      "coverage_gain": 0.09450836766969456
+    },
+    {
+      "family": 1,
+      "name": "nationality",
+      "selected": {
+        "coverage": 0.44668606593835214,
+        "positive_pairs": 12,
+        "unrelated_ratio": 0.09402472430079017
+      },
+      "full": {
+        "coverage": 0.5451745757998154,
+        "positive_pairs": 12,
+        "unrelated_ratio": 0.09342737103007502
+      },
+      "coverage_gain": 0.09848850986146329
+    },
+    {
+      "family": 2,
+      "name": "style_rule",
+      "selected": {
+        "coverage": 0.46548208728892365,
+        "positive_pairs": 12,
+        "unrelated_ratio": 0.07207379202373702
+      },
+      "full": {
+        "coverage": 0.5687447314859209,
+        "positive_pairs": 12,
+        "unrelated_ratio": 0.06900710521311683
+      },
+      "coverage_gain": 0.10326264419699721
+    }
+  ],
+  "body_forwards": 216,
+  "seconds": 4.997934356331825,
+  "scope": "Same newendpoint panel. Fullvalue-sector reference uses zero reflection basis, hence original fulljointkey numerator. Existing fullsector newlinefailure is retained. This is a scope diagnostic, not primarycomponent promotion or newOOD confirmation.",
+  "artifact_sha": "4522c6e819cd55fef8aa47beaf8770f28533f19c6e283c0c8d1ca57c14a8d00f"
+}

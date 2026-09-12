@@ -375,3 +375,7 @@ Frozen64 donor-response predictor passes on72reusedlongercontexts: interaction.7
 ## 2026-09-12 22:38 — Regional response no longer requires explicit pristine MLP8 output
 
 Omit beta*u0 in fixedwriter response: cached scalar/routing bars hold; native12strength/family cells allpass with max3.515%interaction/.413%joint-effect error. A declared901scalar/token port executor (plusamplitude) numericallyreplays simplifiedstateexecutor<=3.57e-7; fixedexecutor54,211scalars, projectionmatrices1,034,496additional. Nativeh9 stillcontainsMLP8computation, no autonomy or total-price shortcut. [Primary result and interface](../../polynomial_causal/DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md#2238--pristine-mlp-output-port-removed-conditional-interface-made-explicit).
+
+## 2026-09-12 22:46 — Regional component transfers directionally to six new output spellings but misses50%coverage
+
+72score-free newendpointprefixes: selected64removal48.10/44.67/46.55%, donor52.40/46.33/48.40%; primaryApass,B/Cmiss. All36removalpairs/72donordirectionspositive; eachendpoint nativelycapable, no singleendpoint exclusion repairsallmisses. Fullvalue-sector control54.52–57.55% passes, adding9.45–10.33points; oldnewlinefullsectorfailure stays. Conditionalincrement positiveall36pairs, notisolatedmixed-onlyeffect. [Primary evidence and executed negative-result controls](../../polynomial_causal/SCALAR_NEW_ENDPOINTS_V1_MATH.md).
