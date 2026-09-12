@@ -1,3 +1,7 @@
+# Current result —12 September07:33 UTC
+
+[Natural-text and corpus-shift screen](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#natural-text-removal-and-corpus-shift-12-september0733): branch8 ing removaldamage+.00728FineWeb/+.01833Pile, selective-control/joint bars pass. Pile native-capability bar fails8/24top20. Document audit supports positive means without exclusions; no complete OOD/circuit claim.
+
 # Current result —12 September07:24 UTC
 
 [Compact executable input fold](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#compact-executable-input-fold-12-september0724): two-branch local program7.98MB,5.33x smaller than standalone native factors; CPU FP32/FP64 execution passes without originalweights. Native x16/den/background remain external; no whole-model savings or corpusOOD claim.

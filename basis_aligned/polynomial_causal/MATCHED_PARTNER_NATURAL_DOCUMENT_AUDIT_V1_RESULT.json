@@ -1,0 +1,68 @@
+{
+  "reports": [
+    {
+      "corpus": "fineweb",
+      "documents": 24,
+      "ing_mean": 0.0072773837691051885,
+      "ing_bootstrap95": [
+        0.003666870496490952,
+        0.011029346732463478
+      ],
+      "contrast_mean": 0.008154127755950787,
+      "contrast_bootstrap95": [
+        0.002841092454062489,
+        0.013684364440503863
+      ],
+      "ing_positive_documents": 20,
+      "leave_one_out_ing_min": 0.006395860025487502,
+      "leave_one_out_contrast_min": 0.006606902916542256,
+      "capability_strata": [
+        {
+          "top20": true,
+          "count": 13,
+          "mean": 0.0023310862684321454,
+          "positive_fraction": 0.7692307692307693
+        },
+        {
+          "top20": false,
+          "count": 11,
+          "mean": 0.013123008088082422,
+          "positive_fraction": 0.9090909090909091
+        }
+      ]
+    },
+    {
+      "corpus": "pile_ood",
+      "documents": 24,
+      "ing_mean": 0.018327970587543874,
+      "ing_bootstrap95": [
+        0.011073375209257805,
+        0.026854044951000917
+      ],
+      "contrast_mean": 0.019477574836863215,
+      "contrast_bootstrap95": [
+        0.012072453913332459,
+        0.028018761698725428
+      ],
+      "ing_positive_documents": 20,
+      "leave_one_out_ing_min": 0.015878833800240785,
+      "leave_one_out_contrast_min": 0.017075845579038854,
+      "capability_strata": [
+        {
+          "top20": true,
+          "count": 8,
+          "mean": 0.006960699925626979,
+          "positive_fraction": 0.625
+        },
+        {
+          "top20": false,
+          "count": 16,
+          "mean": 0.02401160591850232,
+          "positive_fraction": 0.9375
+        }
+      ]
+    }
+  ],
+  "source_sha": "4a15fa077b63be601d95c46eebb9ae8e72fe8b8b1d120dc728f52384703c67ff",
+  "scope": "Descriptive paired-document bootstrap,10000 draws,seed73103. No new acceptance bar, exclusions or repair of failed Pile capability criterion."
+}

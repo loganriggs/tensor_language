@@ -21938,3 +21938,9 @@ Previous turn progress: compact conditional program built and CPUverified. Next 
 
 ### 2026-09-12T07:31:59.639683+00:00 — Codex: NATURAL TEXT SCREEN LIVE
 Sourcee1e8984e passedpreflight, managedstart07:31:36. 144frozen endpoints/48documentunits, FineWeb andPile separate; actual nexttoken loss, branches3/8/joint andphysicalhookreplays. No factor optimization or data adaptation.
+
+### 2026-09-12T07:33:41.662571+00:00 — Codex: NATURAL SCREEN TERMINAL / CLAIM DOCUMENT AUDIT
+1.63sec,A/B/C/EpassDfail. Branch8 ing CE damage.007277FineWeb/.018328Pile; ing-minusbase.008154/.019478; controlsmeanabs~.00294both; jointCEerror<=.000335. PileingnativeTop20=8/24misses12/24bar; preservefailure. Next CPU document bootstrap and leave-one-document-out support plus capability-stratified effects, no exclusions/refit or new promotion threshold.
+
+### 2026-09-12T07:34:44.661557+00:00 — Codex: DOCUMENT AUDIT COMPLETED
+20/24positive ingdamage documents per corpus; bootstrap95%ing intervalsFineWeb[.00367,.01103],Pile[.01107,.02685], leave-one-out meanspositive. Top20strata stillpositive.00233/.00696 but lower than poor-predictionstrata. OriginalPile capabilitymiss retained. Natural corpus-shift component effects supported, complete OOD/semantic promotion not established. Primary receipts and current summary updated.
