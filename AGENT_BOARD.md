@@ -21653,3 +21653,15 @@ Pairedcandidateinspectedpanelswap5.985/3.175/4.549/4.519%,all64signs,removal<=.0
 
 ### 2026-09-12T03:48:15.214105+00:00 — Codex: CONTEXT HOLDOUT AUDITED / RESULTS RECORDED
 512pair/32cell job submittedlane1 reviewedSHA96374be30bee79570ac5f5841d256f069e2ccfd0fc8b3a0a05f6abea87186391; queuedbehindsharedwork atlastcheck. PrimaryPRODUCER_METRIC_SPECTRAL_V1_RESULTS preservespairedgainmissanddiagnostic-onlyinspectedpanelpass. Frozennewcontexts/providerprograms/bars unchanged. Inspectrunner/resultbeforeanycontinuation; donotduplicate.
+
+### 2026-09-12T03:50:43.314204+00:00 — Codex: VERIFIED QUEUE WAIT / CLAIM SHARED PRODUCER READ SPACE
+Contextjob remainsqueued; ClaudePID3188942 verifiedliveGPUv635. IndependentlyCPUmeasure exactH-innerproduct overlap ofthetwo32readerbanks frompairedprogram, includingprincipalangles andindividualmatches. Distinctfromoldlearned32corepencil/inner-rank16truncation: theseareH-orthogonalnativeproducerreaders. Algebraicreuseprobeonly, notsemanticunit; no newGPUjob orfitbeforecontextresult.
+
+### 2026-09-12T03:54:07.047904+00:00 — Codex: SHARED SPACE PROBE COMPLETE / CLAIM EXACT COMMON-DIFFERENCE GRAPH
+CPUoverlap: principalcos0.985/0.961/0.925,mean squaredcos0.371 vs0.0278isotropicreference; noindividualcos>=.9, noexactsharedspace. Buildactualweight-based common/difference coordinates forfixedtop3principalpairs. A exactreader/write replay<=1e-8. Thenomit3differenceparents asregisteredapproximation: B bothpairedbrancherrors<=5%; Cwritechange<=1%; Dsharednativeallfamily swap/removalbars. Exactgraphhas64parentsandadaptercost; approximate61parentsmaynotpreservebehavior. No newGPU orfitting; contextjobremainsqueuedbehindverifiedlivev635.
+
+### 2026-09-12T03:55:47.726974+00:00 — Codex: SHARED MERGE FAILS / CLAIM CROSS-TERM ACCOUNTING
+Exactcommon/difference graphreplays<=2.3e-15. Dropping3differenceparents gives12.31/12.64%pairedbrancherror,3.118%writechange; swapsallpassbutagreement/countremoval0.020009/0.027362fail. NextCPUdecomposeomittedquadraticcoreintomixed retained/difference termsversuspuredifferencesquares, usingexactGram. Testswhyhighparentcosinedoesnotpermitmerging; nofit/sweep.
+
+### 2026-09-12T03:57:05.668290+00:00 — Codex: SHARED GRAPH NEGATIVE ACCOUNTED
+Mixedretained/differenceproducts account99.44/99.51%ofpairedmergeerror; puredifferencesquares<0.56%. Exactaccountingreplays0difference. PrimaryPRODUCER_METRIC_SPECTRAL_V1_RESULTS ownsdetails/pricing. Do notmergereadersbycosinealone; preservedcrossinteractionsarenextgraphconstraint. Unmodifiedcontextconfirmation remainsqueuedbehindlivev635; no mergeadoption/newGPUjob.

@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 03:48 UTC:** [producer-metric results](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md) pass original developmental swaps/removals at equal size; coefficient-error improvement3.1–3.3% misses the10% prediction. The inspected-panel diagnostic also passes, including progressive4.52%, but is not clean confirmation. A frozen512-pair contextual test comparing both programs is submitted through the shared runner; no circuit promotion.
+**12 September, 03:48 UTC:** [producer-metric results](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md) pass original developmental swaps/removals at equal size; coefficient-error improvement3.1–3.3% misses the10% prediction. The inspected-panel diagnostic also passes, including progressive4.52%, but is not clean confirmation. A frozen512-pair contextual test comparing both programs is submitted through the shared runner; no circuit promotion. Independent CPU analysis finds strong shared mixtures but a three-parent merge fails removal fidelity: over99% of its coefficient error comes from mixed products involving the discarded differences.
 
 ## Earlier entries — historical status, superseded where stated above
 

@@ -9,7 +9,7 @@ global recovery or semantic circuit identification.
 
 ## Current composed-path methods
 
-[Latest composed-path result](QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#reusing-the-native-producer-and-recovering-the-stronger-baseline): native producer outer32 passes developmental swap/removal fidelity;76,096 fitted values plus15.93M native parents. Fresh validation remains pending. Full-matrix eigenbank and projected variants fail all-family fidelity despite improved writes.
+[Latest composed-path result](PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md): producer weighting passes developmental effects and the explicitly inspected-panel diagnostic;512-pair contextual confirmation is queued. A common/difference re-expression is exact but increases adapter cost; merging three difference parents fails preservation, with over99% of coefficient error in mixed products. No semantic reuse or circuit promotion.
 
 No new circuit has passed the four-property gate. Coefficient improvement and exact algebra below are not extraction, selective removal, OOD prediction, or semantic reuse. The active objective follows the bilinear handoff and later user directions, not the stale `better_math_ideas` wording in the goal record.
 
