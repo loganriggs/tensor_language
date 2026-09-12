@@ -1,0 +1,58 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "name": "neuron_products",
+      "matrix_relative_errors": [
+        0.13331555731121153,
+        0.09052544773374542,
+        0.1532920089959568,
+        0.0981434500621294,
+        0.16779308629368095,
+        0.0768571772827742,
+        0.1122111947297414,
+        0.099818704634296
+      ],
+      "native_write_change": 0.056260824563138884,
+      "native_reference_error": 0.06743912603748706
+    },
+    {
+      "name": "native_output_readers",
+      "matrix_relative_errors": [
+        0.20171002919094394,
+        0.11081857947490131,
+        0.2004624901955674,
+        0.1369597426859183,
+        0.22501278898363608,
+        0.09173592338715056,
+        0.17893372229658214,
+        0.12975915321183482
+      ],
+      "native_write_change": 0.20955704822865984,
+      "native_reference_error": 0.0841072872508024
+    }
+  ],
+  "identity_errors": [
+    2.9988074287479054e-15,
+    1.6466099048054826e-15,
+    2.2569105971465762e-15,
+    3.0602802436938274e-15,
+    2.2887042742849022e-15,
+    3.195993440817292e-15
+  ],
+  "normal_residuals": [
+    2.9988074287479054e-15,
+    1.6466099048054826e-15
+  ],
+  "artifact_sha256": "1837d4e32da21965f80a1a571d3f0dbfe250924f2504fca7b6a7bfe3759a3126",
+  "source_artifact_sha256": "2e22a1abf0920ab00cbbc068bf3784542866419342ab3f8c67a43ae262685d23",
+  "additional_neuron_coefficients": 36864,
+  "additional_output_readers": 9216,
+  "shared_product_parent_floats": 10616832,
+  "shared_output_parent_floats": 15925248,
+  "wall_seconds": 1.1181848235428333,
+  "peak_gpu_bytes": 917194752,
+  "scope": "Weight-only projection of learned quadratic intermediates onto native product/output spans. Native parent weights charged separately; frozen output mix, reused developmental validation. No circuit or OOD claim."
+}

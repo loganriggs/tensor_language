@@ -1,6 +1,6 @@
 # Weight-only structural methods: current receipt index
 
-Current composed-route status verified **12 September 01:24 UTC**. Use this index before opening a structural family
+Current composed-route status verified **12 September 03:26 UTC**. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
@@ -8,6 +8,8 @@ Different capacities, penalties and centered/full metrics are not a leaderboard.
 global recovery or semantic circuit identification.
 
 ## Current composed-path methods
+
+[Latest composed-path result](QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#reusing-the-native-producer-and-recovering-the-stronger-baseline): native producer outer32 passes developmental swap/removal fidelity;76,096 fitted values plus15.93M native parents. Fresh validation remains pending. Full-matrix eigenbank and projected variants fail all-family fidelity despite improved writes.
 
 No new circuit has passed the four-property gate. Coefficient improvement and exact algebra below are not extraction, selective removal, OOD prediction, or semantic reuse. The active objective follows the bilinear handoff and later user directions, not the stale `better_math_ideas` wording in the goal record.
 

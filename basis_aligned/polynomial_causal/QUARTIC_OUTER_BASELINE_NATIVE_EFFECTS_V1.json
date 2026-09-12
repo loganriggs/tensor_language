@@ -1,0 +1,115 @@
+{
+  "reports": [
+    {
+      "name": "initial",
+      "physical_error": 0.26652073742700316,
+      "families": [
+        {
+          "family": "A1",
+          "swap_relative_rms": 0.6550780518258853,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.9375,
+          "zero_ce_meanabs_disagreement": 0.042735934257507324,
+          "zero_ce_mean": [
+            0.13790981471538544,
+            0.17224235832691193
+          ]
+        },
+        {
+          "family": "A2",
+          "swap_relative_rms": 0.5556573378955243,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.875,
+          "zero_ce_meanabs_disagreement": 0.09247902780771255,
+          "zero_ce_mean": [
+            0.24611229822039604,
+            0.3286854363977909
+          ]
+        },
+        {
+          "family": "past",
+          "swap_relative_rms": 0.3563699271399413,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.031469523906707764,
+          "zero_ce_mean": [
+            -0.009389236569404602,
+            0.0033954083919525146
+          ]
+        },
+        {
+          "family": "progressive",
+          "swap_relative_rms": 0.3406210436369837,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.05532444268465042,
+          "zero_ce_mean": [
+            0.05230282247066498,
+            0.09450850635766983
+          ]
+        }
+      ]
+    },
+    {
+      "name": "candidate",
+      "physical_error": 0.05742064627491911,
+      "families": [
+        {
+          "family": "A1",
+          "swap_relative_rms": 0.03678524695825343,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.015757739543914795,
+          "zero_ce_mean": [
+            0.15687207877635956,
+            0.17224235832691193
+          ]
+        },
+        {
+          "family": "A2",
+          "swap_relative_rms": 0.08311971266274033,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.03378962725400925,
+          "zero_ce_mean": [
+            0.296151515096426,
+            0.3286854363977909
+          ]
+        },
+        {
+          "family": "past",
+          "swap_relative_rms": 0.07170687721794189,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.005796752870082855,
+          "zero_ce_mean": [
+            0.0027479156851768494,
+            0.0033954083919525146
+          ]
+        },
+        {
+          "family": "progressive",
+          "swap_relative_rms": 0.012392774035561998,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.00993325561285019,
+          "zero_ce_mean": [
+            0.09087306261062622,
+            0.09450850635766983
+          ]
+        }
+      ]
+    }
+  ],
+  "prior_reference_effect_max_error": 0.0,
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "old_write_error_replay": 1.333079480136945e-12,
+  "initial_effect_regression": true,
+  "artifact_sha256": "cd6a6a0a6441e5638fe748e1d970274ad3b7dd9bb4a42a1c5e02eb8f836b0b8f",
+  "fitted_floats": 39200,
+  "native_parent_floats": 15925248,
+  "wall_seconds": 2.48511004075408,
+  "scope": "Previously fixed outer16 per output, exact bias-free MLP16 producer, two-output group. Reused developmental native background. No OOD, selective circuit or new weight fit."
+}

@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 03:17 UTC:** the [eight-full-quadratic bank](../../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#eight-full-bank-completed-substantial-improvement-intervention-thresholds-still-missed) completes with10.89% native write error,73.13% more coefficient capture than the one-full-node model, and5.89million fitted floats. Its fixed-bank output solve converges. All64 swap signs agree, but15.85–26.16% swap errors and two failed removal families prevent circuit promotion. Executed CPU analysis finds amplified error in small paired differences and correlated/cancelling factors. Weight-only discovery remains separate from developmental validation.
+**12 September, 03:26 UTC:** [native producer reuse and the completed baseline comparison](../../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#reusing-the-native-producer-and-recovering-the-stronger-baseline) redirect the work. The old outer16 baseline passes all swaps but misses count removal; a fixed outer32 check passes every developmental swap/removal bar with1.69% write error. It uses76,096 fitted values plus15.93million shared native producer values. Frozen fresh lexical/construction validation is next; no circuit or OOD promotion. Dense learned-bank growth is demoted.
 
 ## Earlier entries — historical status, superseded where stated above
 

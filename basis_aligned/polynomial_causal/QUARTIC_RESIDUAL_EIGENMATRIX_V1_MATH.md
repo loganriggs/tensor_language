@@ -194,3 +194,35 @@ $$
 The same CPU receipt measures redundancy in coefficient space. Deleting any one of the eight full nodes and optimally refitting the remaining output coefficients loses only0.20–2.93% of total captured energy, whereas individual unfitted node energies range2.99–125.37% of that capture. These are different interventions: conditional importance permits compensation, direct node energy does not. Their disparity shows correlated/cancelling features and cautions against treating eigenmatrices as independent circuits. No behavioral data were used to repair the factors.
 
 The remaining question is how to discover stable shared quadratic subcomputations and preserve their small input-dependent differences. This result justifies relaxing the rank restriction; it does not justify unlimited bank growth or a claim that eigendecomposition alone has found the circuit DAG.
+
+## Reusing the native producer, and recovering the stronger baseline
+
+The [producer-span test](QUARTIC_BANK_PRODUCER_SPAN_V1_RESULT.json) asks whether the learned full matrices can read already existing MLP16 computations. Write its neuron product matrices as
+
+$$
+A_a=\operatorname{sym}(l_a r_a^T),\qquad z_a(x)=x^TA_ax.
+$$
+
+Their Frobenius Gram is computed without materializing4608 dense matrices:
+
+$$
+G_{ab}=\frac{(l_a^Tl_b)(r_a^Tr_b)+(l_a^Tr_b)(r_a^Tl_b)}2.
+$$
+
+For each learned quadratic $Q$, solve $G\beta=c$, with $c_a=l_a^TQr_a$, to project it onto the neuron-product span. To restrict it further to readers of the actual MLP16 output $D z$, solve $(DGD^T)a=Dc$ and set $\beta=D^Ta$. These are different shared interfaces. Bias is outside the homogeneous path; the learned residual scale can be absorbed in the reader coefficients.
+
+Both exact linear projections and native execution checks agree within3.2e-15. Neuron-span matrix errors are7.69–16.78%, missing the all-below10% prediction. Their composed write changes5.63%, missing the5% preservation bar, but reference error improves10.89→6.74%. Output-reader projection gives8.41% reference error. This is compatible with the known canonical-flattening caveat: symmetrization mixes matrix slots, so canonical eigenmatrices need not be native producer variables. The earlier [flattening counterexample](QUARTIC_FLATTENING_COMPLEXITY_V1_RESULT.json) already demonstrates this phenomenon; no new toy is needed.
+
+Neuron-product reuse needs36,864 new coefficients for eight readers; native-output reuse needs9,216. The native parent weights are **not free**: the shared product interface requires10,616,832 L/R values, and the shared output interface15,925,248 L/R/D values. Retained31 low-rank terms and downstream writers/mixing also remain. Small marginal reader storage is not a smaller standalone program.
+
+The [neuron effects](QUARTIC_BANK_NEURON_NATIVE_EFFECTS_V1.json) and [output-reader effects](QUARTIC_BANK_OUTPUT_NATIVE_EFFECTS_V1.json) both fail the all-family swap/removal criteria. Neuron swaps are39.60/16.62/14.64/19.43%; output-reader swaps22.61/12.81/10.16/4.98%. Improved level reconstruction does not uniformly improve interventions.
+
+### The old outer16 baseline was missing its intervention screen
+
+The earlier exact-producer outer16-per-output baseline already had5.74% write error. Its [newly completed intervention screen](QUARTIC_OUTER_BASELINE_NATIVE_EFFECTS_V1.json) passes every swap family:3.68/8.31/7.17/1.24%, with all signs agreeing. Removal CE disagreement is0.0158/0.0338/0.0058/0.0099nats; only count nouns fail. Reconstructing the old weight formula reproduces its write error within1.3e-12. The extracted [shared numerical scorer](quartic_frozen_native_score_v1.py) exactly reproduces the previous initial-program effect report, avoiding further format-specific scoring copies.
+
+This is a material comparison correction: the new full-matrix fits were not the best developmental intervention approximation available. The earlier spectral result had been screened for write accuracy but not fully compared on interventions. Completing that missing comparison changes the next action.
+
+A separately registered, fixed **32 outer terms per output** then tests that single unresolved extraction limit. Its [receipt](QUARTIC_OUTER32_NATIVE_EFFECTS_V1.json) passes replay, swaps and removals in2.50CPU seconds. Write error is1.69%; swaps are2.01/7.44/2.53/0.80%, all64 signs agree, and removal disagreements0.0018/0.0118/0.0016/0.0024nats all pass. This uses76,096 fitted values plus the15,925,248-value shared native producer and its declared normalization/background dependencies. Eigen truncation solves its individual symmetric-matrix approximation; it does not establish global optimality for the composed quartic or semantic uniqueness.
+
+The result supports a faithful **partial-component interface on developmental rows**, not an isolated linguistic circuit, full-unembedding decomposition, or the four-property goal. The next step is a frozen fresh lexical/construction validation before naming or adopting factors. Continued growth of the dense eigenmatrix bank is demoted in light of this stronger simple baseline.
