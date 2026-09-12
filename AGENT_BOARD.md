@@ -22739,3 +22739,9 @@ Previous turn progress: newcuechannelinterventions and absolute/directional MLP8
 
 ### 2026-09-12T21:59:14.819031+00:00 — Codex: normalization confound resolved / selective port cache implementation
 Allnormalizerdependencybars hold: frozen9norm error.321%, rank4numeratorwithfrozennorm1.091%; normalizerpiece only.357% oftotalchangenorm. Reusedpackage routing expression returns originalscalar exactly oncache. Registeredactualselectivehead8removal on72newcuecontexts,144forwards: separatehead9value/routingchanges andtestfourmodevalueportprediction. Peer lane1job was verifiedlive; nextjob willqueue normally.
+
+### 2026-09-12T22:01:46.850886+00:00 — Codex: CLAIM compact value-response executor CPU while lane1 occupied
+Compile four-mode frozen-normalizer response from pristinez8, interventionamplitude andbaseline9norm only. Reconstruct changed fourreads andrho8analytically using fixedwriter; no changedz8 orchangednorm oracle. Store fourreaders, writer andscalarconstants (~5.8ktensorscalars). A directfourmode formula replay<=1e-10; B existingbroader-removal nativevaluechange<=5%. This reusesexistingfold and shrinks declaredresponse interface; actualselective/newcue validation remainsqueued.
+
+### 2026-09-12T22:06:02.816462+00:00 — Codex: selective port result / compact pristine-only value predictor verified
+Nativeports A/Cpass, Bfails: value-only fullhead9responseerror56.69/10.74/28.03%; routingopposesvalue onallchannels. Compiled5771scalar valuechangeexecutor, nochangedstate/norm inputs, predictsvalue-mediatedpart1.338/3.064/1.196%error onnewcity/nationality/style. Fullsourcevaluechanges1.58/3.23/2.01%. Prefix/baselinenorm remainports, averageroutingusedonlyforportscoring. Nextinputgenerator target opposingQKrouting viaexistingJd, not droppingcancellation. See SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md.

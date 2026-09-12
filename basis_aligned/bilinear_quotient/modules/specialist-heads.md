@@ -355,3 +355,7 @@ Cuts48/56/64/72/80change frozencomponent target effects by<=5.44%relative to64. 
 ## 2026-09-12 — Regional cue-channel shift and value-generator audit
 
 Frozen64component passes newcity andstyle-rule removal/donor bars; nationality48.12/49.46% misses50% despiteallcorrectdirections. OverallB/Cfail, no corpusOODclaim. [Cue-channel receipt](../../polynomial_causal/SCALAR_CUE_CHANNEL_SHIFT_V1_MATH.md). Head9.8value numerator folded throughMLP8 replays<=5.7e-5 withnative9norm supplied; fourleadingweightmodes carry99.76%ofits Md8directionalenergy but64%ofabsolutequadraticenergy. This reusespriorJd and doesnotcloseallhead9ports. [Absolute/directional comparison](../../polynomial_causal/SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md).
+
+## 2026-09-12 — Selective producer response and routing cancellation
+
+Actualrank64head8removal on72newcuecontexts: four-mode pristine-only valuechangeexecutor(5771scalars) predictshead9value-mediatedresponse1.34/3.06/1.20%error. Valuealone misses fullscalarresponse56.69/10.74/28.03%; routingopposesit. No totalhead/logitprediction or autonomousprefixclaim. [Port evidence and compiled interface](../../polynomial_causal/SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md).

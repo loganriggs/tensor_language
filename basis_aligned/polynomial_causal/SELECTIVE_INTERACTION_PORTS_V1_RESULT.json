@@ -1,0 +1,56 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "baseline_relative_error": 0.0,
+  "max_scalar_replay_error": 0.0,
+  "max_symmetric_split_error": 7.958799001427334e-16,
+  "records": [
+    {
+      "family": 0,
+      "name": "new_cities",
+      "response_norm": 1.312680070201265,
+      "valueport_norm": 2.2089954677758312,
+      "value_aligned_fraction": 1.6581650192610085,
+      "routing_aligned_fraction": -0.6581650192610091,
+      "value_norm_ratio": 1.6828132900937085,
+      "routing_norm_ratio": 0.718004547892279,
+      "value_only_error": 0.5669316235719178,
+      "rank4_valueport_error": 0.013380998772581785,
+      "value_only_pass": false,
+      "rank4_valueport_pass": true
+    },
+    {
+      "family": 1,
+      "name": "nationality",
+      "response_norm": 1.065590938966047,
+      "valueport_norm": 1.192245805074852,
+      "value_aligned_fraction": 1.1176576806932257,
+      "routing_aligned_fraction": -0.11765768069322571,
+      "value_norm_ratio": 1.1188588054546516,
+      "routing_norm_ratio": 0.12856774539890836,
+      "value_only_error": 0.10735547814956053,
+      "rank4_valueport_error": 0.03063636349262884,
+      "value_only_pass": false,
+      "rank4_valueport_pass": true
+    },
+    {
+      "family": 2,
+      "name": "style_rule",
+      "response_norm": 1.054783687676563,
+      "valueport_norm": 1.3797821282399128,
+      "value_aligned_fraction": 1.300675174598737,
+      "routing_aligned_fraction": -0.30067517459873694,
+      "value_norm_ratio": 1.3081185691060921,
+      "routing_norm_ratio": 0.33139680391140774,
+      "value_only_error": 0.28025325028153125,
+      "rank4_valueport_error": 0.011957758896662894,
+      "value_only_pass": false,
+      "rank4_valueport_pass": true
+    }
+  ],
+  "body_forwards": 144,
+  "seconds": 3.7732120640575886,
+  "scope": "Newcuepanel, actualrank64head8removal; head9observed. Conditionalvalue/routingport decomposition; rank4predictor holds baseline9norm but uses nativez8states andaveragerouting. Not completehead/logit or independentinputgenerator prediction.",
+  "artifact_sha": "8d22934e77a1ad32963a3badad6812bc78a58d18d0530e62d1ceebba25675e42"
+}

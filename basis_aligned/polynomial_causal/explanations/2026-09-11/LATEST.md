@@ -1,3 +1,7 @@
+## 12 September, 22:05 — Compact value response and opposing routing
+
+[Latest primary result](../../SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md):5771scalar pristine-input response predicts the value-mediated selectiveinteraction within1.20–3.06% acrossnewcuechannels. Native routingopposes that effect; value-only fullresponse fails11–57%. Sourceprefix andbaselinenorm remain supplied; nexttarget is routingprediction, not droppingcancellation.
+
 ## 12 September, 21:27 — Fixed-value native SVD probe
 
 [Primary result](../../FIXED_VALUE_QUADRATIC_OPERATOR_V1_MATH.md): native matrix-free solves finish1.47sec with stable singularvalues; rank8 fails coefficient and cachedfield fidelity. An executed coupled-arithmetic counterexample limits the negative: high query/source-separated rank does not imply a complex circuit. Preserve jointQK coupling; known selective component remains unchanged.

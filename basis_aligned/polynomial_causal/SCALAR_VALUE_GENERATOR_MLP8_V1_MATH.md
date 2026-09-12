@@ -98,3 +98,67 @@ include the broader original head8component removal, not a fresh test of every
 later selective edit. Next validation should use the actual selective producer
 and distinguish value from QK/norm ports; do not attach the observed1.13%value-change
 error to full attention or logit effects without testing them.
+
+## 22:05 — Changed-state oracle removed from the value-response executor
+
+[Normalizer dependency audit](SCALAR_VALUE_NORMALIZER_DEPENDENCY_V1_RESULT.json)
+separates y=N/rho9 into symmetric numerator/reciprocal-norm change terms. The
+normalizer term has only0.357%of the total change norm on the older cache.
+Freezing rho9 gives0.321%error with the true numerator and1.091%with four modes.
+This rules out supplied changed normalization as the main source of the earlier
+value-change success on that cache; it is not a universal normalization shortcut.
+
+The [compiled response](COMPILED_VALUE_INTERACTION_V1_CONTROL.json) stores5771
+FP64tensor scalars/46,168tensorbytes. It accepts pristine z, amplitude a and
+baseline rho9, with no changed state, changed norm or nativebaselinevalue.
+Let t_i=u_i^Tz, c_i=u_i^Td and k=r^Td. Its computation is
+
+$$
+\rho_8'^2=\rho_8^2+
+\frac{-2a(z^Td)+a^2\|d\|^2}{1152},
+$$
+
+$$
+\widehat{\Delta s_9}=
+\frac{\lambda_0}{\rho_{9,0}}
+\left[-ak+\sum_{i=1}^4\mu_i
+\left(\frac{(t_i-ac_i)^2}{\rho_8'^2}
+-\frac{t_i^2}{\rho_8^2}\right)\right].
+$$
+
+Thus it reconstructs the changed readings and MLP8norm analytically. Fixed
+weights are four readers, the producer writer, four eigenvalues and scalar
+contractions. Source context and baseline9norm remain supplied inputs; the
+prefix and QK/routing generator have not been extracted. Direct-formula checks
+agree within2.15e-14.
+
+[New native selective-interaction test](SELECTIVE_INTERACTION_PORTS_V1_RESULT.json)
+uses the actual rank64head8removal on72newcue prompts. Baseline and scalar routing
+replay agree exactly; symmetric port accounting agrees7.96e-16. It decomposes
+
+$$
+\Delta(\Gamma v)=
+\Delta\Gamma\,\frac{v_1+v_0}{2}
++\frac{\Gamma_1+\Gamma_0}{2}\,\Delta v.
+$$
+
+The second term is the value-mediated response; the first is routing-mediated.
+For newcities, their aligned fractions of the total response are+1.658 and−.658;
+for nationality,+1.118 and−.118; forstyle rules,+1.301 and−.301. These signed
+projections sum toone and can exceedone because the terms oppose. They are not
+probabilities or independently additive loss fractions.
+
+The value-only whole-scalar prediction fails:56.69%,10.74%,28.03%relativeerror.
+This preserves the known need for jointQK/routing interactions. The four-mode
+prediction of the value-mediated part passes all5%bars. A separate
+[compiled pristine-input replay](COMPILED_VALUE_INTERACTION_SELECTIVE_V1_RESULT.json)
+confirms1.338%,3.064%,1.196%errors on those same three families; analytic changed-z
+reconstruction differs3.60e-8 from native. Across all valid source positions,
+value-change errors are1.58%,3.23%,2.01%.
+
+This advances conditional prediction/extraction of the value response on held
+cue channels, not the entire attention or logits. Average routing is used to
+score the value-mediated effect and is not predicted by this small executor.
+Next work must predict the opposing routing change, using the existing exact
+MLP8directional bridge as the anchor. Replacing the full response by the value
+path would discard a measured cancellation.
