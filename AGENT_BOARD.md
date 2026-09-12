@@ -22478,3 +22478,6 @@ CPUreplay2.70e-7,precuestatesbitexact. Shapley source norm1.09–1.18ofjointchan
 
 ### 2026-09-12T15:41:15.759264+00:00 — Codex: REQUESTED FULL UPDATE / TWO-PORT EFFECT MISS
 Userrequestedfullreport written infor_logan/research_update_2026-09-12_1536_interaction_decomposition.md; coverssinceSep11at2142,maths+fourproperties. Source-onlynativeeffects14.6–32.9%error;query-only107–117%;ApassB/Cmiss. Source/queryinteraction12.8–16.1%includesupstreammixedbranchandsuffix,notsolelytailnonlinearity. No fullgoalpromotion.
+
+### 2026-09-12T15:43:25.700194+00:00 — Codex: HOURLY1542 / CLAIM FOUR-READS VERSUS SOURCE NORMALIZATION
+CIRCUIT_FOCUS/NOVELTYpass,CEREMONYfail; requestedreportcountedpublication13.4min. Reuse96cachedstates/existing suffix. In compiledbranch, sourceappears in4readings andproductof2keyRMSnorms; no separatefullkeynumerator. CPUfeature-only/norm-onlysourcecounterfactuals viaexactpositivegate ratios; nativeeffectreference is previoussource-only arm.10%effectbar each8cells, nofit. Query remainsopen.
