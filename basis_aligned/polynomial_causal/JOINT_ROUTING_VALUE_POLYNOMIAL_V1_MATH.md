@@ -129,3 +129,67 @@ or cancel beyond what their separate maps suggest, and whether those relations
 survive restoration of native gates. Any proposed group must then be tested for
 held-out/OOD prediction, declared-boundary extraction, selective intervention
 and composition/reuse. Exact folding alone does not satisfy those requirements.
+
+## Whole-function reuse screen: training correlations do not generalize
+
+The next [registered screen](JOINT_ROUTING_VALUE_REUSE_V1_PREREGISTRATION.md)
+compares scalar computations in the128 value-output coordinates of different
+heads, before their different output writers. It uses *canonical correlation*:
+choose linear combinations in each head whose coefficient-space functions are
+most correlated, after normalizing their coefficient variances. For covariance
+blocks $C_{hh},C_{kk},C_{hk}$, the fit takes singular vectors of
+
+$$
+C_{hh}^{-1/2}C_{hk}C_{kk}^{-1/2},
+$$
+
+restricted to numerical support. The covariance is an uncentered Gram of
+independent multilinear weight probes, not observed text activations.
+A [positive control](COEFFICIENT_CANONICAL_REUSE_V1_CONTROL.json) recovers three
+planted shared computations through different coordinate maps, with held-out
+error5.19e-15. Thus different physical writers need not prevent a match.
+
+The [native screen](JOINT_ROUTING_VALUE_REUSE_V1_RESULT.json) fits all36 pairs
+on4096 probes pooled over query8/source0 and7. The pair with the largest mean
+of eight training correlations is heads17.6/17.7, using zero-based indices.
+Its training correlations are0.320–0.374; none reaches the0.95 training bar.
+Independent fixed-reader correlations range from-0.0564 to0.0599, with zero
+passing modes. Restoring each destination's private native normalization gate
+gives scalar-prediction errors1.28–1.70. Instrument checks pass in2.57seconds;
+both registered reuse criteria fail. No scalar component is adopted.
+
+The [executed permutation diagnostic](JOINT_ROUTING_VALUE_REUSE_V1_PERMUTATION_AUDIT.json)
+calibrates the largest absolute validation cosine across modes and positions.
+Observed0.0599 is below the256-shuffle95th percentile0.0674; the tail fraction
+is0.117. This is a conditional diagnostic on fixed validation projections, not
+a circuit-identification p-value or a universal null for polynomial features.
+It is consistent with the training fit exploiting finite-probe correlations.
+All36 training scores and selected validation projections are retained.
+
+## The failed screen does not exclude shared partial computations
+
+The [executed partial-reuse counterexample](JOINT_ROUTING_VALUE_PARTIAL_REUSE_V1_CONTROL.json)
+has two head functions
+
+$$
+f_1(q,s)=q_0^2s_0^3,\qquad f_2(q,s)=q_1^2s_0^3.
+$$
+
+Their complete coefficient functions are orthogonal, so whole-function
+correlation finds no sharing. Nevertheless both reuse the identical cubic
+source intermediate $s_0^3$. Grouping the query and output indices against
+the source indices gives a rank-one unfolding in this exact example.
+
+This establishes a limitation of the screen, not a trained-model finding.
+The next decomposition should allow
+
+$$
+a_h(q,s)=\sum_r h_r(s)\,G_{hr}(q),
+$$
+
+where $h_r$ is a shared cubic source function and $G_{hr}$ is a head-specific
+quadratic query-to-value-output function. Private native gates are restored
+after this numerator computation. This is a different representation from
+requiring two entire head functions to be proportional. Its coefficient
+contractions, fit and implementation price are still to be evaluated; simply
+calling the source unfolding low rank would not establish a useful circuit.

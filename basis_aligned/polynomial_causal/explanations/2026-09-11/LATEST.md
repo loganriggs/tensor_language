@@ -1,3 +1,7 @@
+### 12 September, 09:57 — Whole-function head reuse misses; partial reuse remains open
+
+The weight-probe CCA screen selects17.6/17.7 but its training correlations do not generalize; no mode passes. A permutation audit supports the finite-probe explanation. An exact counterexample shows shared source factors can exist despite orthogonal complete head functions, motivating a query/source factorization. [Results and math](../../JOINT_ROUTING_VALUE_POLYNOMIAL_V1_MATH.md). No circuit promotion.
+
 ### 12 September, 09:48 — Joint QK1–QK2–value operator implemented
 
 The complete query-degree2/source-degree3 operator passes dense gradients and native-weight replay through MLP17 and full U. A planted example demonstrates cancellation visible only after tying key/value source inputs. [Math and receipts](../../JOINT_ROUTING_VALUE_POLYNOMIAL_V1_MATH.md). No trained factorization or circuit yet; normalization remains explicit. Next hourly10:36/math11:00.
