@@ -1,0 +1,70 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "records": [
+    {
+      "family": 0,
+      "name": "new_cities",
+      "native_paired_contrast": 3.456251780192057,
+      "positive_native_pairs": 12,
+      "capable": true,
+      "actual_interaction_norm": 2.320178437884027,
+      "full_interaction_error": 2.7877743386829585e-06,
+      "rank64_interaction_error": 0.007291496565516799,
+      "rank64_joint_effect_error": 0.002759573323801477,
+      "actual_joint_coverage": 0.658418282926316,
+      "control_interaction_error": 0.005503395344202845,
+      "anchor_pass": true,
+      "interaction_pass": true,
+      "joint_effect_pass": true
+    },
+    {
+      "family": 1,
+      "name": "nationality",
+      "native_paired_contrast": 2.2716999848683677,
+      "positive_native_pairs": 12,
+      "capable": true,
+      "actual_interaction_norm": 1.3860209741588003,
+      "full_interaction_error": 5.102836215596612e-06,
+      "rank64_interaction_error": 0.007372523535543086,
+      "rank64_joint_effect_error": 0.0029423573440265794,
+      "actual_joint_coverage": 0.5839975516887572,
+      "control_interaction_error": 0.007806883488832451,
+      "anchor_pass": true,
+      "interaction_pass": true,
+      "joint_effect_pass": true
+    },
+    {
+      "family": 2,
+      "name": "style_rule",
+      "native_paired_contrast": 2.4493550459543862,
+      "positive_native_pairs": 12,
+      "capable": true,
+      "actual_interaction_norm": 1.409268958307121,
+      "full_interaction_error": 3.7065240991080364e-06,
+      "rank64_interaction_error": 0.005294944911997912,
+      "rank64_joint_effect_error": 0.0017618734320396475,
+      "actual_joint_coverage": 0.6067980035962989,
+      "control_interaction_error": 0.004557488134068108,
+      "anchor_pass": true,
+      "interaction_pass": true,
+      "joint_effect_pass": true
+    }
+  ],
+  "max_full_scalar_relative_error": 1.917208551127232e-06,
+  "native_baseline_error": 0.0,
+  "prefix_forwards_8blocks": 72,
+  "body_forwards": 432,
+  "seconds": 7.768282923847437,
+  "arms": [
+    "native",
+    "swap8",
+    "swap8_actual9",
+    "swap8_predicted64_9",
+    "swap8_frozen9",
+    "swap8_predicted_full9"
+  ],
+  "scope": "Frozen rank64 on reused longer contexts; paired-native head8 donor replacement induces nonuniform tokenwise edits. All six arms retain actual recipient background; head9 is removed, not donor-swapped. No new text OOD. Pristine z8, bias-free MLP8 output, raw9 and head8 amplitude are inputs. Conditional surrogate-removal simulator with native prefix/background/suffix, not autonomous circuit extraction or corpus OOD.",
+  "artifact_sha": "b4d4c958a25bfe7612566df4b79fc8eeff2cc04639ecc61b29ecbaf2ce5030ee"
+}

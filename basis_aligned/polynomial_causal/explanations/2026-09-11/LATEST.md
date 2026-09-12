@@ -1,6 +1,6 @@
 ## 12 September, 22:27 — Coupled interaction predicts signed final-logit changes
 
-[Primary derivation and results](../../DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md): frozen rank64 response predicts fresh longer-context interactions within0.58–1.58%, and new signed edit strengths within0.38–3.57%. Exact-map controls pass; native pristine inputs/background remain. Donor-field novelty audit executed; native donor-response prediction remains next.
+[Primary derivation and results](../../DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md): frozen rank64 response predicts fresh longer-context interactions within0.58–1.58%, and new signed edit strengths within0.38–3.57%. Exact-map controls pass; native pristine inputs/background remain. Donor response now passes at0.53–0.74% interaction error; direct QK/value contraction also passes CPU numerical checks. See the22:32 continuation in the same primary note.
 
 ## 12 September, 22:05 — Compact value response and opposing routing
 

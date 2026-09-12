@@ -367,3 +367,7 @@ Rank64 weight-SVD of existing MLP8 fixed-writer mixed map predicts changed raw a
 ## 2026-09-12 22:27 — Regional interaction rule transfers across edit strength
 
 Frozen64response passes all12strength/family cells at t=-1,.5,1.5,2 onreusedlongercontexts: signedinteractionerror.382–3.570%, joint-effect.064–.419%; fullmapcontrols pass. Same-rank tangenterror.892–9.442%, worseineverycell. No newtextOOD or autonomyclaim. CPUdonorfieldaudit establishes21.28–30.97%residual frombestuniformgain, justifying a distinct donorresponse test. [Primary continuation](../../polynomial_causal/DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md#2227--signed-intervention-strength-transfer).
+
+## 2026-09-12 22:32 — Donor interaction transfer and direct QK contraction
+
+Frozen64 donor-response predictor passes on72reusedlongercontexts: interaction.729/.737/.529%, joint-edit.276/.294/.176%; fullanchor<=5.11e-6relative. Subsequent CPUdirectQK/value contraction agrees with existingstateexecutor<=3.43e-7relative and Gramnorm<=2.45e-16. No changedattention9residual output is built; pristinez8/u0/raw9 remaininputs. Expanded769reader implementation isnot a price/speedadoption. [Primary derivation and receipts](../../polynomial_causal/DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md#2232--donor-transfer-and-direct-contraction-into-qkvalue).

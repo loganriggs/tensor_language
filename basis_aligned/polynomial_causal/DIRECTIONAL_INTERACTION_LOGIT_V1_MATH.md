@@ -114,3 +114,33 @@ $$
 then recomputes the nonlinear attention9 and suffix. Its interaction errors are0.892–9.442%; the finite-response formula wins every cell. This is a descriptive mechanistic comparison, not a preregistered superiority claim. It supports retaining finite MLP normalization/quadratic terms, without claiming they alone explain all downstream nonlinearity. Both alternatives retain the same native ports.
 
 Next, a CPU novelty check asks whether paired donor-field edits merely duplicate uniform strengths. On the earlier short-cue cache, the displacement at each token is $a_i-a_{\mathrm{donor},i}$. Even the best separately fitted scalar gain for each recipient leaves21.28–30.97% relative residual across families; every donor displacement is nonzero. Thus donor transfer tests a meaningfully different tokenwise intervention. This diagnostic does not establish successful native donor-response prediction. [Executed novelty check](DIRECTIONAL_DONOR_FIELD_V1_NOVELTY.json).
+
+## 22:32 — Donor transfer and direct contraction into QK/value
+
+The frozen64 predictor passes under paired-native head8 donor replacement on the72 longer contexts. Signed interaction errors are0.729%,0.737%,0.529% for city/nationality/style, and total joint-edit errors0.276%,0.294%,0.176%. Full-map errors are below0.000511%; native baseline replay is exact.432full forwards plus72eight-block donor prefixes took7.77seconds. Head9 is removed after the donor edit, not itself donor-swapped. This is a new tokenwise manipulation on reused text, with the same conditional native background. [Donor receipt](DIRECTIONAL_INTERACTION_DONOR_V1_RESULT.json) · [Frozen semantics](DIRECTIONAL_INTERACTION_DONOR_V1_PREREGISTRATION.md).
+
+We then folded the response into head9's actual query, key, reflected-key-inside and value readings. Let $C\in\mathbb R^{769\times1152}$ stack $Q_1,K_1,Q_2,K_2,K_1P,K_2P,v^T$, where $P$ is the original rank64 key projector. The769 rows are explicit and redundant; this is an executable contraction rather than a minimal representation. Write $J_{64}=AB$, $\beta=r/r_--1$, and
+
+$$
+c=-\frac a{r_-}B\left(z-\frac a2d\right),\qquad
+h_-=h+\lambda(-ad+\beta u_0+Ac).
+$$
+
+Instead of constructing the changed attention9 residual $h_-$, evaluate its readings directly:
+
+$$
+Ch_-=Ch+\lambda[-aCd+\beta Cu_0+(CA)c].
+$$
+
+Its squared norm is a Gram contraction using pristine $\|h\|^2$, $h^Tu_0$, $\|u_0\|^2$, the projections $A^Th,A^Tu_0$, and fixed $A^TA,A^Td,d^Td$. No changed attention9 vector is needed. Retain $\rho_9^2=\|h_-\|^2/1152+\epsilon$. The two nested RMS operations give, in real arithmetic,
+
+$$
+\operatorname{RMS}\left(Q\frac{h_-}{\rho_9}\right)
+=\frac{Qh_-}{\sqrt{\operatorname{mean}((Qh_-)^2)+\epsilon\rho_9^2}}.
+$$
+
+The corresponding key denominator has the same form, and the value is $v^Th_-/\rho_9$. Thus normalization does not disappear: its epsilon correction and value scale stay explicit. Rotary tables keep the native BF16 rounding, and both QK products plus their reflection-even combination remain.
+
+CPU checks on the earlier72short contexts: direct raw-feature baseline error<=1.89e-7relative; contracted predicted scalar versus the existing rank64 state executor<=3.43e-7; Gram squared-norm error<=2.45e-16. All registered numerical bars pass. This is algebraic execution evidence, not another native behavioral confirmation. [Control](CONTRACTED_QK_RESPONSE_V1_CONTROL.json) · [Executor](contracted_qk_response_v1.py).
+
+The first explicit implementation stores1,088,643FP64 scalars (8,709,144tensor bytes), including expanded reader matrices and redundant precomputations. No speedup or storage adoption is claimed. Its scientific gain is making the composed QK/value computation and remaining pristine inputs explicit. Those native inputs still need independent generation for autonomous extraction; this step does not resolve that gap.
