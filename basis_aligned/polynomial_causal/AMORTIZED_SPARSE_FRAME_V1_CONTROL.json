@@ -1,0 +1,81 @@
+{
+  "reports": [
+    {
+      "history": [
+        {
+          "iteration": 0,
+          "capture": 0.9793166704974381,
+          "stationarity": 0.15748946965321808,
+          "gap": 0.06941438622515281,
+          "selections": 1
+        },
+        {
+          "iteration": 20,
+          "capture": 0.9999999999984922,
+          "stationarity": 1.6347355098873148e-06,
+          "gap": 0.07648671511971833,
+          "selections": 2
+        },
+        {
+          "iteration": 21,
+          "capture": 0.9999999999999704,
+          "stationarity": 2.033413835911354e-07,
+          "gap": 0.07648671512055569,
+          "selections": 3
+        }
+      ],
+      "reason": "stationary_with_support_gap",
+      "converged": true,
+      "seconds": 0.019672006368637085,
+      "updates": 21,
+      "selections": 3,
+      "backtracks": 28,
+      "maximum_fixed_decrease": 0.0,
+      "maximum_epoch_decrease": 0.0,
+      "seed": 120491,
+      "initialization": "near",
+      "final_selection_error": 0.0,
+      "orthogonality": 4.440892098500626e-16
+    },
+    {
+      "history": [
+        {
+          "iteration": 0,
+          "capture": 0.6926426256380648,
+          "stationarity": 0.6088839092895039,
+          "gap": 0.0007402024626911245,
+          "selections": 1
+        },
+        {
+          "iteration": 20,
+          "capture": 0.9999999989508445,
+          "stationarity": 3.540602723601908e-05,
+          "gap": 0.07648671466576702,
+          "selections": 2
+        },
+        {
+          "iteration": 25,
+          "capture": 0.9999999999998871,
+          "stationarity": 4.3127944450792625e-07,
+          "gap": 0.07648671512048551,
+          "selections": 3
+        }
+      ],
+      "reason": "stationary_with_support_gap",
+      "converged": true,
+      "seconds": 0.009880226105451584,
+      "updates": 25,
+      "selections": 3,
+      "backtracks": 22,
+      "maximum_fixed_decrease": 0.0,
+      "maximum_epoch_decrease": 0.0,
+      "seed": 120497,
+      "initialization": "independent",
+      "final_selection_error": 0.0,
+      "orthogonality": 2.220446049250313e-16
+    }
+  ],
+  "passed": true,
+  "planted_recoveries": 2,
+  "scope": "Numerical ascent/reselection and two planted starts; no global guarantee."
+}

@@ -21797,3 +21797,9 @@ Read-only CPU comparison of two saved optimizer frames20updates apart, preservin
 
 ### 2026-09-12T05:49:23.163868+00:00 — Codex: SUPPORT TURNOVER AUDIT RECORDED
 Saved spectral80→100:10/4096edges replaced,Jaccard.995129,medianreader cosine.999826; gradient.01119 remainsunconverged. Fastsupportchurn notsupported inthisinterval. Next solver improvement should amortize exactsupportsearch acrossmultiplefixedsupport ascentsteps, reselectbeforeconvergence; do notchange livefrozenrun. Also replied on BQboard to Claudev637: separability from a refittedfamilydirection isnot cross-talk ofthefinalregisteredobject; proposedcount heldpendingactualcorrespondence/countedlist.
+
+### 2026-09-12T05:51:12.208447+00:00 — Codex: CLAIM AMORTIZED RCG FRAME SOLVER
+Evidence80→100support99.76%retained motivates20fixedsupport Riemannian PR+ steps per fullreselection. Reuse tangentprojection/Armijo, restartdirection on support refresh. Exact objective guaranteed monotone at reselection boundaries, not necessarily every inneriterate. Convergence requires fresh fullselection and its gradient/gap. CPU planted/dense controls before managedtiming; no livecode changes. Claim amortized_sparse_frame_v1.py/prereg.
+
+### 2026-09-12T05:52:23.186466+00:00 — Codex: AMORTIZED RCG CONTROLS PASS / CONTINUATION PREPARED
+CPUplanted nearandindependent bothrecover>1-2e-13 in21/25updates,3fullselections each; freshselection/orthogonality/epochmonotonicity pass. This isnotglobalguarantee. Nativecontinuation wrapper prepared for botholdterminalframes,600sec/2000updates each; bind/queue onlyafteroldrunterminalinterpreted. Existingrun secondHaararm live, nochanges.
