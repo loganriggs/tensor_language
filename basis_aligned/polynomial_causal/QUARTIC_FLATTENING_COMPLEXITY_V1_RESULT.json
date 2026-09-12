@@ -1,0 +1,35 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "rows": [
+    {
+      "quadratic_rank": 1,
+      "arithmetic_square_nodes": 1,
+      "flattening_rank": 1,
+      "expected_rank": 1,
+      "eigenvalue_error": 0.0
+    },
+    {
+      "quadratic_rank": 2,
+      "arithmetic_square_nodes": 1,
+      "flattening_rank": 3,
+      "expected_rank": 3,
+      "eigenvalue_error": 1.6653345369377348e-16
+    },
+    {
+      "quadratic_rank": 4,
+      "arithmetic_square_nodes": 1,
+      "flattening_rank": 10,
+      "expected_rank": 10,
+      "eigenvalue_error": 2.7755575615628914e-17
+    },
+    {
+      "quadratic_rank": 8,
+      "arithmetic_square_nodes": 1,
+      "flattening_rank": 36,
+      "expected_rank": 36,
+      "eigenvalue_error": 1.6653345369377348e-16
+    }
+  ],
+  "scope": "Exact synthetic counterexample, not a native model measurement or recovery guarantee."
+}

@@ -63,4 +63,18 @@ The [CPU native check](QUARTIC_WEIGHTED_TRACE_NATIVE_V1_PRICE.json) uses the act
 
 ## Decision boundary
 
+### Why a large flattening rank does not rule out simple intermediates
+
+The following is an analytic counterexample, checked independently of the native fit. Let a single quadratic be $q(x)=x^TQx$, with $Q=I_r/\sqrt r$ on an $r$-dimensional subspace. Its square has just one quadratic intermediate followed by one squaring operation. Nevertheless its symmetric flattening acts as
+
+$$
+\mathcal F(X)=\frac{\operatorname{tr}(X)I_r+2X}{3r}.
+$$
+
+The identity direction has eigenvalue $(r+2)/(3r)$; every traceless symmetric direction has eigenvalue $2/(3r)$. Thus its matrix rank is $r(r+1)/2$, despite having one quadratic-square node. At our permitted inner rank16 this can be136. The [executed control](QUARTIC_FLATTENING_COMPLEXITY_V1_RESULT.json) verifies ranks1,3,10,36 for inner ranks1,2,4,8 and spectral error at most1.67e-16. Reader storage still grows with inner rank: this is not a constant-cost program claim.
+
+Consequently neither a broad matrix spectrum nor the number of required eigenmatrices counts reusable arithmetic nodes. Spectral initialization can help search; preserving eigencomponents individually can miss the cheaper quadratic representation. This is a concrete reason to red-team negative spectral results before concluding that the composition lacks structure.
+
+Related algorithms solve different objects. [Hopkins, Schramm and Shi (2019)](https://proceedings.mlr.press/v99/hopkins19b.html) give robust fourth-order decomposition under algebraic nondegeneracy assumptions, with runtime $\widetilde O(n^2d^3)$ up to conditioning factors. Those assumptions have not been checked here, and their component count is not our count of rank16 quadratic intermediates. [Nie and Wang](https://arxiv.org/abs/1308.6562) formulate best symmetric rank-one approximation as polynomial optimization on a sphere and propose semidefinite relaxations. That is relevant to fourth powers of linear forms; replacing them with squares of signed, rank-limited quadratics changes the feasible set. Neither source supplies a verified global solution to our retained-span conditional atom problem.
+
 The tool is ready for a possible residual-informed initialization after the pending comparisons. No native eigenmatrix has yet been found, rank-truncated, optimized or behaviorally scored. A future native test must verify eigen residuals, retain exact conditional-gain selection, and compare frozen native effects at the same final program cost. Estimating a multi-output residual direction would require a declared method; the small control's exact residual Gram is not available automatically at native scale. Preserve the distinction between finding a useful starting point, fitting coefficients, and obtaining circuits with the four requested properties.
