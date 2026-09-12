@@ -1,0 +1,9 @@
+# Weight-only rotation-plane audit of terminal graded fits
+
+Interpret the terminal two-start fit before enqueue. Preserve its original status and native validation. Runtime must verify the terminal result's bound fit source and digest of its saved program. Read only final FP64 frames, fixed coefficient inputs and weight-only objective. No text, model-body forwards or native outcome selection.
+
+For each arm, inspect eight planes against the unchanged final frame: four random retained/excluded direction pairs from seed73160+arm; four structured pairs using largest retained and smallest excluded eigenvalues of the symmetric derivative with respect to the projector Q. An orthogonal complement comes from complete QR. For a retained direction v=P c and excluded unit w, the rotated frame is P+(v*cos(theta)+w*sin(theta)-v)c^T. Its columns remain orthonormal.
+
+Use the tested nine-sample Fourier stationary-polynomial method, with thirteen additional interpolation checks. A: every plane interpolation maxerror<=1e-8 and bestframe orthogonality<=1e-10; finite original and candidate objectives. B: at least one plane improves loss by>=1e-6 in each arm. C: at least one plane in either arm has improvement>=1e-5 at angular distance>=pi/8 from the original subspace. C is a nonlocal-improvement screen, not proof of a native strict local minimum; original gradients/status are retained explicitly. Null: no useful escape in this bounded chosen-plane panel. Missing an escape never certifies global optimality.
+
+No sequential plane updates, no change to the original fit, and no validation-driven choice. Save the best weight-objective candidate per arm separately; it is a development candidate requiring subsequent native validation. Limit300seconds, at most496scalar objective evaluations plus two projector-gradient evaluations,0bodyforwards, approximately3MBcandidateframes. Local or nonlocal coefficient improvement alone is not a circuit success.

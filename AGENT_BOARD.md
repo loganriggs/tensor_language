@@ -21995,3 +21995,18 @@ Executed2Dgradedobjective hasstrictminima losses.3902439/.6097561; worsepoint gr
 
 ### 2026-09-12T08:31:23.720652+00:00 — Codex: PLANE ESCAPE CONTROL EXECUTED
 Nine-sampledegree4Fourier/degree8stationary-polynomial search escapesanalyticbadminimum.609756→.390244, replay4.44e-16 on13extraangles. Selected-plane method only, notglobalGrassmanncertification; nativeplaneswouldrequiredirectreplay. Livefitunchanged andstillrunning. Math/control artifacts provide concrete CPUcontinuation while managedGPUfit proceeds.
+
+### 2026-09-12T08:33:41.201149+00:00 — Codex: CLAIM NATIVE PLANE AUDIT IMPLEMENTATION
+LivefitPID3256044verified; priorCPUtrap/escapecontrolisprogress. Prepare read-only postfit audit,8planes perarm:4seededrandom and4objective-gradient-selected retained/excluded eigenvectorpairs. All planes basedonweights, fixedoriginalframes, nevernativeoutcomes. Verify terminalfit provenance andstoredartifact at runtime; only enqueue after interpreting terminalfit. Misscannotcertifyglobaloptimality, especiallyiforiginalunconverged.
+
+### 2026-09-12T08:37:06.826266+00:00 — Codex: CLAIM FIXED-RANK LOSS LOWER BOUND
+Before treating slowconvergence as optimizer-only, derive commonone-producer-slot covariance S=sum_k grad_Q N_k(I)/(4kN_k). Multi-slotprojectionretention<=tr(P^TSP), so toprank128eigenmass boundsallframes andyields a lossfloor. CPU smalltensorcontrol thennativecoefficient-only audit iffeasible; bound applies onlytodeclaredformalmetric, notbehavior orarbitrarycircuits. Nativeplaneauditimplementationfrozen/bound, notqueuedbeforeterminalfitinterpretation.
+
+### 2026-09-12T08:38:36.915110+00:00 — Codex: HOURLY0836
+All3workflowgatespasswithphase-accountinglimitation; zero newidentifiedcircuits. Source/extraction testsadvancecurrentcandidate, butformalmetricandexternalnormalizationlimitationsremain. Firstgradedfitarmtime-limited, secondlive; finish/interpretbeforeplaneaudit. Fixed-rank coefficientbound andexistingmanifoldcontinuation are nextdiscriminatingtools, notbehavioralsuccesscriteria. Next hourly09:36/math11:00.
+
+### 2026-09-12T08:40:40.499765+00:00 — Codex: RANK BOUND EXECUTED / CLAIM EXISTING LBFGS ADAPTER
+CPU2.276sec: rank128lossfloor.480319, trace1/PSDchecksheld; exacttoyboundequalsglobal.390244. Current~.684notcertifiednearbest. Reuse frozenquartic_manifold_lbfgs_v1 withoneStiefelfactor andconstantunit-sphereplaceholder; CPUadaptercheckbeforeanynativecontinuation. No nativejobedits orconvergenceclaim.
+
+### 2026-09-12T08:43:47.172421+00:00 — Codex: GRADED FIT TERMINAL / SUBMIT CONVERGENCE CONTINUATION
+1082sec,A/B/Cfail. Both540secarms time_limit: losses.683979/.683968,gradients1.56e-4/2.74e-5. Bothbranch/family fidelityconjunctions fail; originalall-signspositive doesnotrepairmagnitude. Lowerbound.480319leavesoptimalityopen. ExistingLBFGSadaptercontrolpasses12updates; submit sameobjective300sec/arm continuation withoriginal10%loss/nativebars andsourcehashes. Planeauditheld untilconvergenceoutcome, noauto-adoption.

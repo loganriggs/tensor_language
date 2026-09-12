@@ -1,3 +1,7 @@
+### 12 September, 08:43 — Two fits time-limited; convergence continuation submitted
+
+Both degree-balanced fits finishnear0.684loss withoutmeetinggradientthresholds; allthree registered criteria fail, including jointnativeeffectfidelity. The exact rank128lowerbound0.4803doesnotcertify near-optimality. Existing manifoldLBFGS passes its adaptercontrol and is submitted as a same-objective continuation. [Results, bound and optimizer status](../../COUPLED_GRADED_SOURCE_V1_MATH.md). Originalmissesremain. Hourly08:36completed; next09:36, math11:00.
+
 ### 12 September, 08:24 — Exact coupled objective controlled; two-start fitting submitted
 
 The new objective preserves complete shared-parent/partner products in formal coefficient space. Native derivatives pass and cost~0.13seconds. An executed grade audit found99.9976%rawnorm in pureproducer terms; the new explicit degree-balanced metric keeps mixed terms influential without data-derived weights. [Math, controls, assumptions and fitting protocol](../../COUPLED_GRADED_SOURCE_V1_MATH.md). Two rank128fits submitted through the managed runner; inspectlivejob/receipt for currentstatus. No converged-fit or behavioral result yet. Next hourly08:36, math11:00.

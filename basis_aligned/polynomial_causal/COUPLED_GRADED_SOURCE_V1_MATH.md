@@ -113,3 +113,32 @@ At $\alpha=.8$, the losses are0.390244 and0.609756. Both stationary gradients va
 A constructive follow-up is [one-plane search](GRADED_PROJECTION_PLANE_V1_CONTROL.json). Replace one retained direction $v$ by $v\cos\theta+w\sin\theta$, where $w$ lies in the excluded orthogonal space. The projector depends linearly on $\cos2\theta$ and $\sin2\theta$. Its quartic coefficient norm therefore has Fourier frequencies at most4 in $\phi=2\theta$. Nine equally spaced evaluations recover those coefficients. Multiplying the derivative Laurent polynomial by $z^4$, $z=e^{i\phi}$, yields a polynomial of degree at most8; unit-circle roots give stationary-angle candidates.
 
 The executed CPU control starts at the bad minimum and finds the good one, reducing loss by0.219512. Thirteen additional direct evaluations agree with the interpolation within4.44e-16. This is global search on a **specified two-dimensional rotation plane**, not over all rank128subspaces. Floating-point roots remain candidates requiring interpolation and direct-objective verification; the helper is not a general interval certificate. There are many possible native planes, so failing to find an escape in a small panel would not certify native global optimality. A weight-only plane panel is a concrete post-fit red-team option, preserving the original fit and behavioral verdicts rather than silently replacing them.
+
+
+## A bound for every frame at the fixed rank (08:39)
+
+The [CPU rank-bound audit](GRADED_SOURCE_RANK_BOUND_CPU_V1_RESULT.json) distinguishes representation capacity from optimization, without text fitting. For degree group $k$, let $N_k(Q)$ be the retained norm polynomial with a symmetric producer-slot operator $Q$ in every producer slot. At $Q=I$,
+
+$$
+R_k=\frac1k\nabla_QN_k(I),\qquad
+S=\frac14\sum_{k=1}^4\frac{R_k}{N_k(I)}.
+$$
+
+$R_k$ is the covariance from contracting every index except one producer index. It is positive semidefinite, with trace $N_k(I)$; consequently $S$ is positive semidefinite with trace1. For an orthogonal projector $Q=PP^T$, projecting every producer slot retains no more norm than projecting only one slot. Hence
+
+$$
+1-L(P)\leq\operatorname{tr}(P^TSP)
+\leq\sum_{i=1}^{128}\lambda_i(S),
+\qquad L(P)\geq1-\sum_{i=1}^{128}\lambda_i(S).
+$$
+
+One weighted reverse-mode derivative computes $S$ without a large tensor. The2.28second CPU audit gives native rank128loss lower bound0.480319, trace error below1.2e-14, and positive minimum eigenvalue. On the analytic two-dimensional trap, the same bound equals the known global minimum0.390244. For the native model, the gap between this lower bound and current~0.684fits is unresolved: the bound does not prove that a0.480solution exists, nor certify current near-optimality. It applies only to this fixed common-projector representation and coefficient metric, not arbitrary tensor programs or causal-effect error.
+
+The [native plane audit](GRADED_NATIVE_PLANE_AUDIT_V1_PREREGISTRATION.md) is implemented but must await terminal fit interpretation. It tests four random and four weight-gradient-selected planes per arm, preserving original frames and verdicts. Separately, the [existing LBFGS adapter control](GRADED_LBFGS_ADAPTER_CONTROL_V1_RESULT.json) passes on a planted common subspace: coefficient loss8.91e-15, gradient2.00e-7, orthogonality4.97e-16 in12updates. This reuses the project's existing limited-memory manifold optimizer, with no new optimizer framework. It supports a same-objective convergence continuation, not a guarantee against local minima.
+
+
+## First two-start fit is terminal; convergence remains unresolved (08:43)
+
+[GRADED_SOURCE_FIT_V1_RESULT.json](GRADED_SOURCE_FIT_V1_RESULT.json) records1082seconds of managed execution. Both540second arms hit their time limits: spectral loss0.68397897/gradient1.558e-4, independent loss0.68396756/gradient2.740e-5. A/B/C all fail as registered. The spectral arm improves its coefficient objective about4.87%, below10%. Both frames preserve active-family signs, but fail joint magnitude fidelity. Branch3 adverb/progressive errors are17.54/23.04%in the first arm and15.64/20.95%in the second; branch8 gerund/progressive also miss. Full write errors remain only2.7–2.8%forbranch3 and5.2–6.6%forbranch8, again showing why write reconstruction alone is insufficient.
+
+The original results and frames remain immutable. A [same-objective LBFGS continuation](GRADED_SOURCE_LBFGS_V1_PREREGISTRATION.md) has been submitted, with300seconds perarm, exact final gradients, the original loss baseline and original behavioral thresholds. The separate plane audit is held pending its outcome. Small differences between unconverged objective values do not certify unique computation, native stability or absent structure.
