@@ -657,3 +657,6 @@ Thefrozen671edge approximation ofthatnodepasses removalCEpreservation onallfourd
 
 
 12 September06:45: the continued version of this same reader passes all four developmental swap/write/removal families. Broader context confirmation passes all32 write/removal cells but fails12 swap cells; six failed cells have strong native capability. No semantic or OOD promotion. [Comparison and receipts](../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md).
+
+
+12 September07:09: a frozen producer-folded shared-parent SVD branch has broad ing-form output contrasts and negative donor-swap effects that transfer to16newverbs across progressive/adverb/gerund constructions. Unmatched quote control fails20.9%; matched quote control passes13.1%. Joint branch3+8 native effects compose within0.56%relative error on new constructions. This is conditional component evidence; no semantic/corpusOOD promotion. [Primary account](../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#new-verbs-new-constructions-and-joint-behavior-12-september0709).

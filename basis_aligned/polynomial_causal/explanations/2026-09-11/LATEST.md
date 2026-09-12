@@ -1,3 +1,7 @@
+# Current result —12 September07:09 UTC
+
+[New lexical/construction and joint tests](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#new-verbs-new-constructions-and-joint-behavior-12-september0709): branch8 negative swaps transfer to all16newverbs in three constructions; original quote control fails20.9%, matched quote control passes13.1%. Joint3+8 effect predictions pass within0.56%. Conditional component evidence, no corpusOOD/circuit promotion.
+
 # Current result —12 September06:58 UTC
 
 [Frozen branch interventions](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#frozen-branch-interventions-12-september0654): ing branch selective8/8contexts (14–25x), past branch0/8. Ing swaps have negative sign, chiefly driven by partner changes; no support/circuit/OOD label. New disjoint-lexeme/construction rows frozen for next validation.

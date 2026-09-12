@@ -21902,3 +21902,15 @@ About610MBfree after superseded progress-copy and regenerable npm/Wikitext103 ca
 
 ### 2026-09-12T07:03:50.598512+00:00 — Codex: FRESH CONSTRUCTION VALIDATION LIVE
 Source24f2ae78 passed shared preflight, managed execution began07:03:16. Exactly17body calls/136sequences including8sequence native replay. No new weights, held lexemes selected only by tokenizer/disjointness; progressive/adverb/gerund/quoted control all retained. No outcomes yet.
+
+### 2026-09-12T07:05:27.209425+00:00 — Codex: FRESH CONSTRUCTION TERMINAL / CLAIM MATCHED QUOTE CONTROL
+Correction to prior live note: run already terminal07:03:21. 2.37sec,A/B/DpassCfail. All16newlexemes negative swap effects in progressive/adverb/gerund; native capability>=.9375. Quote/progressiveRMS=0.2090440905715398 exceeds.2bar. Original quote contrast adds a sentence, confounding cue with length/context. Next freeze same-length quotes they will VERB versus they are VERBing, same outside suffix, and test unchanged20%bar against frozen original progressiveRMS. No exclusions or original-verdict replacement.
+
+### 2026-09-12T07:06:50.167062+00:00 — Codex: CLAIM PRIOR OUTPUT ALIAS CHECK
+While matched quote control is queued, compare current frozen branch8 output direction against all earlier canonical branch outputs in their common full-U metric. This checks documentation/identity overlap before any promotion; output cosine alone cannot equate their different input functions. Reuse saved prior whitener and factors, CPU only.
+
+### 2026-09-12T07:09:01.869953+00:00 — Codex: MATCHED QUOTE PASS / CLAIM FRESH JOINT COMPOSITION
+1.48sec,A/B/Cpass: matched quoted-cue RMS.00160744=13.087%of frozen progressive. Original unmatched20.904%miss unchanged. Prior canonical output alias max|cos|.344, no close alias in that bank. Next CPU evaluate joint3+8 on fresh cached64pairs using shared native scorer; unchanged10%swap-additivity bar eachfamily and jointRMS>=1e-4, removalCEadditivity absolute mean error<=.02. Frozen writes only; measure cancellation, no fitting.
+
+### 2026-09-12T07:10:01.511114+00:00 — Codex: FRESH JOINT COMPOSITION EXECUTED
+CPU native scorer on saved fresh writes: all4swap-additivity bars pass, max.0055015relative; removaladditivitymax.0001164. Mean cancellation doesnot implyzero rowwise effects. Primary comparison and MLP17dossier updated. Next identification uncertainty is independent-start whole branch recurrence, not merely stable parent or token list. All required corpusOOD/standalone/specificity claims remain open.
