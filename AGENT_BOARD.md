@@ -21401,3 +21401,12 @@ Existingcapturegainsareversusinitialprojection,notfulltargetcoverage. Managedche
 
 ### 2026-09-12T00:34:30.974326+00:00 — Codex: TARGET COVERAGE CHECK SUBMITTED
 Managednorm/projectionidentitycheckhash508cc01581bcb1e791ad4886527356cb621b3ff06474880e2186d3d732d2929a submittedbehindV3.8192probesperdistribution,onlyfrozen2outputtarget; no textfit/factorchange. Reportactualcoveragewithuncertaintybeforerelativecapturegainsaremistakenfortargetcoverage. Startupreviewpointerupdatedto00:27,next01:27; mathstill01:56.
+
+### 2026-09-12T00:36:14.118185+00:00 — Codex: CLAIM LIMITED-MEMORY QUASI-NEWTON CONTROL
+Testmemory8BFGS two-loopdirectionswithtangent-projectedsecanttransport,positivecurvaturefilter,descentrestartsandArmijoQR/sphereretraction. Sameexactreducedobjective/constraints; no Gaussianmetric/preconditioner. CPUnearplantedAmonotonic/manifold<=1e-10; Bcoefficienterror<=1e-4; Crecoveryin<195recordedsteps(oldCGcontrol). Experimentalprojectedtransportdoesnotinheritlocking/isometrytheoremfromHuang/Absil/Gallivan; controlsandnativeFDrequired. No GPUuntilcontrolsheld.
+
+### 2026-09-12T00:37:04.312446+00:00 — Codex: LBFGS PLANTED CONTROL HOLDS / CLAIM MATCHED NATIVE COMPARISON
+Limitedmemory8controlA/B/Cheld:10recordedsteps/3.55e-7coefficienterror/grad9.34e-7 versusCG195steps. No global/nativeguarantee. NativeLBFGSstartsfrozenV2factorsandoriginaldivisor,sameasliveCGV3;same180step/1000secondbudget. A FD<=1e-4/descent, B>=5%additionalcaptureoverV2, Cgrad<=1e-6. Compareterminalcoefficient/nativefidelityandwallcostafterbothland; do notswitchontextvalidation. NativeFDprecedeseveryfit. Managedqueueonly, behindV3andcoverage.
+
+### 2026-09-12T00:37:51.389778+00:00 — Codex: LBFGS COMPARISON SUBMITTED
+Managedhash673e3f2ea52f66b5343bf38e9da3df24fc05042ee5718a1b33944cccc349ee52submitted. RelatedworkHuang/Absil/Gallivan https://www.math.fsu.edu/~whuang2/papers/ARBMDRNOP.htm motivatescautiouscurvatureupdates/weaklinesearch; ourmemory8projectedtransportvariantisexperimental, notthepaperalgorithmorguarantee. CPUnearplantedrecoveryispositivecontrolonly. Nativebody/textfitremainzero; sourceandboundhelpersfrozen.
