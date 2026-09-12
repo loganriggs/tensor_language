@@ -21518,3 +21518,21 @@ Dense composedoracle, identitytrace, selfadjoint and fittedsubtraction controls 
 
 ### 2026-09-12T01:42:27.010090+00:00 — Codex: RESIDUAL OPERATOR READY, NO NATIVE EIGENFIT
 Nativeweightedtracecheck Aheld:1.42e-12 identity/1.58e-15 scalaroracle, CPUactions3.70s each,170MBprecomputedcore. Plantedresidualcandidate recoversknownmiss2.28e-7in19steps. QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md gives exactmapping/normalization caveat/operator/price. This prepares directedinitialization forresult-dependentnextchoice; no newGPUjob ornativefactorresult. Currentlongfitandtwoqueuedcomparisonsstillcome first.
+
+### 2026-09-12T01:43:43.088345+00:00 — Codex: CLAIM TERMINAL SCORING OF LIVE AND QUEUED ARMS
+Monitor existing longLBFGS V2 thenreplacement thenlearnedmixedcore; aftereachcomplete numericalresult run sharedquartic_native_effects_v2.py withfrozenLBFGS V1 initial. Outputs QUARTIC_LBFGS_V2_NATIVE_EFFECTS_V1, QUARTIC_NODE_REPLACEMENT_NATIVE_EFFECTS_V1, QUARTIC_LEARNED_MIXED_FULL_EFFECTS_V1, QUARTIC_LEARNED_MIXED_SPARSE_EFFECTS_V1. Samecache/background/thresholds; no fit/runrestart. Stop oninstrumentfailure forinterpretation.
+
+### 2026-09-12T01:48:21.751128+00:00 — Codex: proposal location confirmed / continuation retained
+Confirmed requested composed interaction-path proposal exists in explanations/for_logan and is linked first in its LATEST.md. Existing lane1 LBFGS V2 process3158512 remains live; node-replacement and learned mixed-core jobs remain queued. Retain terminal-scoring claim above; no duplicate proposal or run.
+
+### 2026-09-12T01:49:40.683363+00:00 — Codex: CLAIM QUARTIC FLATTENING COMPLEXITY FALSIFIER
+CPU analytic control: one rank-r quadratic square has symmetric flattening rank r(r+1)/2 for a positive equal-eigenvalue quadratic. Check r=1,2,4,8 against exact fitted_action. This discriminates matrix-rank complexity from arithmetic-node complexity before applying spectral/FOOBI interpretations. Existing managed runs and terminal scorer retained.
+
+### 2026-09-12T01:54:06.484865+00:00 — Codex: TERMINAL THREE-ARM RESULTS / CLAIM LEARNED QUADRATIC CORE REENCODING
+Long LBFGS V2 +8.96% capture, unconverged, write29.32%; old-bank replacement +0.277%, write26.50%; learned fullmixed +55.76%, write30.62%, sparse +3.49%,write33.69%. All numerical checks hold; all effect B/C fail. Next CPU discriminator: generic real pair-pencil on the learned32-by32 quadratic core, not prior native1152-by1152 outer forms; exact function replay then rank16 truncation of transformed quadratic readers. Reuse real_pair_pencil_v1; A exact replay<=1e-8, B condition<=1e4, C fixed rank16 writeerror<=0.8*fullmixed error. No data fitting or coefficient-loss/circuit claim for truncated program; charge32 quadraticreaders plus sparse blocks.
+
+### 2026-09-12T01:56:56.321092+00:00 — Codex: LEARNED CORE PENCIL RESULT / CLAIM JOINT MIXED-EDGE GRADIENT
+Learned core exactreplay2.09e-13,22scalar+5pairblocks,condition666; truncatingnewquadratics torank16 worsenswrite30.62->50.79%. Keeporiginalquadratics as sharedparents for exactDAG; tinyoverallpricegain, no semanticclaim. Next highest-information method: optimize readers under learned32-edge mixed graph itself, rather than square-only objective then postfitcrosscore. Implement selected-edge Gram/targetcross and comparefullkernel plus tangentFD CPUcontrol; nativeprice and optimization follow validcontrol. This changes nonlinearfunctionclass while preserving32quadratics/rank16/32outerproducts.
+
+### 2026-09-12T02:01:42.867630+00:00 — Codex: 02:00 MATHEMATICAL REVIEW / MIXED-GRAPH PRICE QUEUED
+Primaryterminalcomparison and THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0200.md recorded. Selected-edge Gram/targetcross CPUidentitiesexact, tangentFD3.11e-10. Nativeprice queued lane1 SHA7af76175dbafe91b30aaf551bc6c128d806e845c2efb54372b0015a269f6cd41 behindClaudev631. Firstsubmission was staticgatefalsepositive counting controlkeytuple asnewpredictions, beforeexecution; equivalentexplicitcontrolchecks fixed it. No nativefit yet: price receipt controls nextbudget. No newcircuits orOOD claim.

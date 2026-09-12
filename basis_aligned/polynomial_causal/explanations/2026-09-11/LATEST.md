@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 01:24 UTC:** [Current method comparison](../../WEIGHT_ONLY_METHODS_INDEX.md#current-composed-path-methods) consolidates the completed optimizer, restart, isotropic, harmonic and pair-pencil checks. No new circuit passes extraction or swap/removal fidelity. The longer weight-only fit remains live; residual-scored replacement and learned cross-products are queued. [Two-output pencil blocks](../../PAIR_PENCIL_QUARTIC_V1_MATH.md) reconstruct exactly but their tested compact versions fail after upstream folding.
+**12 September, 02:00 UTC:** [Terminal comparison](../../COUPLED_QUARTIC_WRITER_V1_MATH.md#terminal-comparison-12-september-0154): longer square optimization, node replacement and learned mixed-core tests are complete; all fail native-effect fidelity. Full mixed products gain55.76% coefficient capture but are not yet circuits. [Mathematical review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0200.md) identifies exact shared-parent re-encoding and selects joint mixed-graph reader optimization. Its gradient is CPU checked; native pricing is submitted through the managed runner.
 
 ## Earlier entries — historical status, superseded where stated above
 

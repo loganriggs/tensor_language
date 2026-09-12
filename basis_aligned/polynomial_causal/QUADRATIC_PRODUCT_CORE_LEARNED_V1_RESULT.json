@@ -1,0 +1,30 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "objective_replay_error": 0.0,
+      "native_replay_error": 0.0,
+      "sparse_native_error": 0.3368558139728289,
+      "sparse_capture_ratio": 1.0349034077792958,
+      "full_capture_ratio": 1.557628096872017,
+      "selected_cross_edges": 28,
+      "seed": 11511,
+      "diagnostics": {
+        "rank": 528,
+        "normal_residual": 6.864081705725325e-14,
+        "minimum_scaled_eigenvalue": 8.707596430506949e-05
+      },
+      "baseline_native_error": 0.26652073742700383,
+      "coupled_native_error": 0.3062120941607271,
+      "objective_without_target_constant_before": -5.333258367740676e+17,
+      "objective_without_target_constant_after": -8.307233081470669e+17,
+      "objective_delta": -2.973974713729993e+17,
+      "relative_objective_delta": -0.557628096872017
+    }
+  ],
+  "artifact_sha256": "3bd8295bb1b7a6dfa67ae5300cd757fabb4f689b6a43915509e7b8c692e86589",
+  "wall_seconds": 24.88240261375904,
+  "scope": "Full528mixed core ceiling and matched32edgegreedyprogram on frozen learned LBFGS V1 bank; no textfit or OOD claim."
+}
