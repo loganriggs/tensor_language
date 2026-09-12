@@ -1,0 +1,116 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "name": "initial",
+      "physical_error": 0.5691156740163624,
+      "families": [
+        {
+          "family": "A1",
+          "swap_relative_rms": 1.3393276356550805,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.6875,
+          "zero_ce_meanabs_disagreement": 0.13969607651233673,
+          "zero_ce_mean": [
+            0.03784888982772827,
+            0.17224235832691193
+          ]
+        },
+        {
+          "family": "A2",
+          "swap_relative_rms": 0.7951918378868431,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.9375,
+          "zero_ce_meanabs_disagreement": 0.23821601271629333,
+          "zero_ce_mean": [
+            0.10650773718953133,
+            0.3286854363977909
+          ]
+        },
+        {
+          "family": "past",
+          "swap_relative_rms": 0.9021133275149916,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.9375,
+          "zero_ce_meanabs_disagreement": 0.06106729060411453,
+          "zero_ce_mean": [
+            -0.0009020492434501648,
+            0.0033954083919525146
+          ]
+        },
+        {
+          "family": "progressive",
+          "swap_relative_rms": 0.8462436038055441,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.11094918847084045,
+          "zero_ce_mean": [
+            0.03550940006971359,
+            0.09450850635766983
+          ]
+        }
+      ]
+    },
+    {
+      "name": "candidate",
+      "physical_error": 0.5618895297204373,
+      "families": [
+        {
+          "family": "A1",
+          "swap_relative_rms": 1.2871317652471306,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.6875,
+          "zero_ce_meanabs_disagreement": 0.1483769565820694,
+          "zero_ce_mean": [
+            0.029043346643447876,
+            0.17224235832691193
+          ]
+        },
+        {
+          "family": "A2",
+          "swap_relative_rms": 0.597204089608542,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.23314743116497993,
+          "zero_ce_mean": [
+            0.11081711947917938,
+            0.3286854363977909
+          ]
+        },
+        {
+          "family": "past",
+          "swap_relative_rms": 0.9972327523181383,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.9375,
+          "zero_ce_meanabs_disagreement": 0.06090075522661209,
+          "zero_ce_mean": [
+            -0.00013608485460281372,
+            0.0033954083919525146
+          ]
+        },
+        {
+          "family": "progressive",
+          "swap_relative_rms": 0.7366152286943457,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.11115770787000656,
+          "zero_ce_mean": [
+            0.038298100233078,
+            0.09450850635766983
+          ]
+        }
+      ]
+    }
+  ],
+  "write_replay_errors": [
+    1.4432899320127035e-15,
+    3.3306690738754696e-16
+  ],
+  "prior_reference_effect_max_error": 0.0,
+  "artifact_sha256": "ca9431ca9d63b22b33be65a61cfa9114b3e8b928657b0c1063778ad054e8428c",
+  "scope": "Frozen partialcomponent fidelity on reuseddevelopmentalrows, nativebackground retained; no OOD/selectivity proof.",
+  "format": "mixed_full",
+  "initial_artifact_sha256": "6b7373b7bcd846626f6178d075aa9b56ebbbc4ccb2baa52515f8254b8bfdbbab"
+}

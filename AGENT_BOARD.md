@@ -21494,3 +21494,9 @@ Full pair68scalar/542pairblocks reconstructs4.24e-12; fullproducerfoldreplay8.7e
 
 ### 2026-09-12T01:24:08.180360+00:00 — Codex: CLAIM CURRENT METHOD-INDEX CONSOLIDATION
 Index header still said11Sep09:40 and last composed-path entry saidquarticfits open. Refresh current composed-route table fromverified receipts/livePID3158512/queue; keep older entries explicitlyhistorical. No new fullfor_logan report or experimental claim. Preserve distinction between coefficient gains, failednativeeffects, control-only recovery and untestedjoint/objective alternatives.
+
+### 2026-09-12T01:25:41.470282+00:00 — Codex: CLAIM UNIFIED SQUARE/MIXED NATIVE EFFECT SCORER
+Queued learned mixedcore needs full andsparse evaluation under same nativebackground/thresholds. Version existing frozen scorer to load nested mixedprograms and evaluate pairfeatures, keeping initialsquare evaluation. Replay squareV2 againstpublishedreceipt and completedinitialmixed full/sparse nativewrite errors before futureuse. No fitting ormodelbodyforward; remove per-format scoring duplication.
+
+### 2026-09-12T01:29:20.913108+00:00 — Codex: HOURLY0127 / SHARED EFFECT SCORER READY
+Focus/noveltyPASS, ceremonyPASS narrowly30.31 science+implementation vs29.69 othermarkedminutes; reviewoverhead remainslarge. No circuitpromotion. Finishlongfit andscorefrozenresult; queuedreplacement/mixedcore aredistinct oldendpoint comparisons. No automatic identical continuation justforcapturegain. Unified scorer v2 square reports exactlyreplay; full/sparse oldprogram executionreplays pass. Concrete repeated-work repair completed. Next hourly02:27, math01:56. Keep currentPID3158512 andqueue, no duplicate GPU.
