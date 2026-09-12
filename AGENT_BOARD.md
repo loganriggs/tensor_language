@@ -22148,3 +22148,6 @@ Exploratory regional/geographic logits motivate—not establish—a spelling rol
 
 ### 2026-09-12T10:51:36.392144+00:00 — Codex: REGIONAL SEMANTIC SCREEN QUEUED
 Frozen32prompts2families8spellingpairs, nativecuecapability/parentremoval/matchedpaired-direction control. Runner85e6fb17 passesmanagedgate. Warningsnonblocking: metric is native-relative matched-control excess; replay isrelative. No fitting, originalthresholdsfrozen.
+
+### 2026-09-12T10:52:49.108706+00:00 — Codex: REGIONAL SCREEN A PASS B/C FAIL / CLAIM GRAMMAR AND SOURCE-COVERAGE AUDIT
+1.85sec, nativecue1.836/2.578nats8/8positiveeach; removal.0496/.0564nats8/8positiveeach, only2.7/2.2%vs10%bar. Matchedcontrolreductionsnegative; unrelatedcontrastchanges~.0018. Family1has a American grammaticalconfound, caughtafterrun. V2correctsarticle to the and reports originaltwo-source versusall-source removals separately with unchangedbars. Do not promote V1 or replaceitsverdict; broadercoverage is a new declaredprogram.
