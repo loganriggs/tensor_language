@@ -1,0 +1,710 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "checks": {
+    "regional_baseline": 0.0,
+    "regional_fullmask_effect": 0.0,
+    "newline_baseline": 0.0,
+    "newline_fullmask_effect": 0.0,
+    "newline_mean_effect": 0.0,
+    "meanhead_subtraction": 1.6231204824634915e-07,
+    "sector_sum": 3.8169003810996553e-16
+  },
+  "capability": [
+    {
+      "family": 0,
+      "regional": true,
+      "newline": true,
+      "meanhead": true
+    },
+    {
+      "family": 1,
+      "regional": true,
+      "newline": true,
+      "meanhead": true
+    }
+  ],
+  "records": [
+    {
+      "mask": 1,
+      "elements": [
+        "8current"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.037700687939901965,
+          "positive_pairs": 7,
+          "unrelated_ratio": 0.08859860427927548,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.042313395120155,
+          "positive_pairs": 6,
+          "unrelated_ratio": 0.06496899518365991,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0006790384650230408,
+          "meanabs_change": 0.002779453992843628,
+          "maxabs_change": 0.010083794593811035,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0006987492088228464,
+          "meanabs_change": 0.0026263620238751173,
+          "maxabs_change": 0.019099324941635132,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 2,
+      "elements": [
+        "8first"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.3552569573756754,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0637151901800774,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3709715450827273,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.051071418385866374,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0021690968424081802,
+          "meanabs_change": 0.0033240150660276413,
+          "maxabs_change": 0.018007636070251465,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004554410232231021,
+          "meanabs_change": 0.00639657280407846,
+          "maxabs_change": 0.06021583080291748,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 3,
+      "elements": [
+        "8current",
+        "8first"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.41235577097396303,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0653292738874755,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.4523521630815771,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05201939805347667,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.003101848065853119,
+          "meanabs_change": 0.0049702487885952,
+          "maxabs_change": 0.0284804105758667,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.006875726627185941,
+          "meanabs_change": 0.01012247265316546,
+          "maxabs_change": 0.10833728313446045,
+          "passed": false
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": false
+    },
+    {
+      "mask": 4,
+      "elements": [
+        "9current"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.529176291648043,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054617191640716496,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.42829858546329513,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05262342402358628,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.002037469297647476,
+          "meanabs_change": 0.004668671637773514,
+          "maxabs_change": 0.012266039848327637,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.003616333706304431,
+          "meanabs_change": 0.007751020835712552,
+          "maxabs_change": 0.07672381401062012,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 5,
+      "elements": [
+        "8current",
+        "9current"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5517114475318117,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05596029297253697,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.46350558433461103,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04844263173330231,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.003620486706495285,
+          "meanabs_change": 0.007373977452516556,
+          "maxabs_change": 0.025999367237091064,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00480469805188477,
+          "meanabs_change": 0.010238414397463202,
+          "maxabs_change": 0.10507267713546753,
+          "passed": false
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": false
+    },
+    {
+      "mask": 6,
+      "elements": [
+        "8first",
+        "9current"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.677940820892691,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054390002057130626,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.6096323962096492,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04878829073036266,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.004366204142570496,
+          "meanabs_change": 0.007376261055469513,
+          "maxabs_change": 0.027752578258514404,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.007857770193368196,
+          "meanabs_change": 0.012055543716996908,
+          "maxabs_change": 0.13708946108818054,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 7,
+      "elements": [
+        "8current",
+        "8first",
+        "9current"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.7016404822413442,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05494243940173935,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.6483434051296442,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04930286444050189,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.006002955138683319,
+          "meanabs_change": 0.00983370840549469,
+          "maxabs_change": 0.04657697677612305,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.008986422326415777,
+          "meanabs_change": 0.014564169105142355,
+          "maxabs_change": 0.16803759336471558,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 8,
+      "elements": [
+        "9first"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": -0.00040428000893633656,
+          "positive_pairs": 6,
+          "unrelated_ratio": 0.06831632988149602,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00919522088522352,
+          "positive_pairs": 10,
+          "unrelated_ratio": 0.06262932976809042,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": 8.283741772174835e-05,
+          "meanabs_change": 0.0007120463997125626,
+          "maxabs_change": 0.0034993886947631836,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -0.0005867660511285067,
+          "meanabs_change": 0.0006062623579055071,
+          "maxabs_change": 0.003597438335418701,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 9,
+      "elements": [
+        "8current",
+        "9first"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.036948693478339824,
+          "positive_pairs": 11,
+          "unrelated_ratio": 0.0681639586246661,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.050807410058215804,
+          "positive_pairs": 10,
+          "unrelated_ratio": 0.05145356323319093,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.000604899600148201,
+          "meanabs_change": 0.0033341962844133377,
+          "maxabs_change": 0.0128098726272583,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00011105649173259735,
+          "meanabs_change": 0.0026936717331409454,
+          "maxabs_change": 0.01768818497657776,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 10,
+      "elements": [
+        "8first",
+        "9first"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.3587683476449999,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06001928291923355,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3759307999011022,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05272358740773493,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0020906981080770493,
+          "meanabs_change": 0.0037557650357484818,
+          "maxabs_change": 0.018502771854400635,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.003998348489403725,
+          "meanabs_change": 0.005958546884357929,
+          "maxabs_change": 0.058860182762145996,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 11,
+      "elements": [
+        "8current",
+        "8first",
+        "9first"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.4153814724942547,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.061972627095122614,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.4555032628981935,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.053469417406779705,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.003037957474589348,
+          "meanabs_change": 0.005590515211224556,
+          "maxabs_change": 0.031109273433685303,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.006313440855592489,
+          "meanabs_change": 0.009762295056134462,
+          "maxabs_change": 0.10694071650505066,
+          "passed": false
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": false
+    },
+    {
+      "mask": 12,
+      "elements": [
+        "9current",
+        "9first"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5332060543229409,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05411544342104918,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.43973220821155296,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05296427080009306,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0020136702805757523,
+          "meanabs_change": 0.004775496199727058,
+          "maxabs_change": 0.01487112045288086,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.002997944364324212,
+          "meanabs_change": 0.007989668985828757,
+          "maxabs_change": 0.07473459839820862,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 13,
+      "elements": [
+        "8current",
+        "9current",
+        "9first"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5553914680456126,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05450419360698556,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.47381531138192007,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04923653653641786,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.003611302003264427,
+          "meanabs_change": 0.007495200261473656,
+          "maxabs_change": 0.02889496088027954,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004193007713183761,
+          "meanabs_change": 0.010520529234781861,
+          "maxabs_change": 0.1032646894454956,
+          "passed": false
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": false
+    },
+    {
+      "mask": 14,
+      "elements": [
+        "8first",
+        "9current",
+        "9first"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6820023359802388,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05305761731394143,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.6143878231323863,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.049627950897072705,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.004351163282990456,
+          "meanabs_change": 0.007484177127480507,
+          "maxabs_change": 0.03053516149520874,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.007280876860022545,
+          "meanabs_change": 0.012083371169865131,
+          "maxabs_change": 0.1355169713497162,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 15,
+      "elements": [
+        "8current",
+        "8first",
+        "9current",
+        "9first"
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.7049297708428078,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05357608456988642,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.650972623140893,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05010624447791612,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.006003739312291145,
+          "meanabs_change": 0.009954707697033882,
+          "maxabs_change": 0.049407243728637695,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.008410195587202907,
+          "meanabs_change": 0.01476385141722858,
+          "maxabs_change": 0.1665392518043518,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    }
+  ],
+  "regional_passers": [
+    6,
+    7,
+    14,
+    15
+  ],
+  "joint_passers": [],
+  "body_forwards": 1312,
+  "seconds": 17.39651172608137,
+  "scope": "All15 fixed current/first value-sector masks; exploratory reused-panel screen with native recursive interactions. Candidate selection requires fresh confirmation; fullmask prior failure preserved.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_NATIVE_V1_PREREGISTRATION.md": "40a5a81fa3ec49c575f4feb59812ce91867d16f907b58e80b69a537c82791bc0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_COMPETING_CUES_V1_ROWS.json": "7eeafb875fd3687f7e8225264a129d015d807d677235b3b6129af6d04dc19621",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_CITY_ROLE_CROSSOVER_V1_ROWS.json": "e79ab43eff592829724de70e6ac038d1046d0172b4a26975896b738311b995cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MIXED_TOKEN_HEAD2_NATIVE_V1_PROGRAM.pt": "75d043f471023fa70455f22f634f1372b3cd4347bb2646ea2cec85347dbe88ee",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_POSITIONS_V1_ARTIFACT.pt": "b66146b4945366051eeb8641d3c85bd4918ced6b28103dcecfb0cb5d600d1829",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "c6dda30ba85cff6d7cccff280faec0f1a437362ecb4875511aca263c258d16ed",
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_reading_head_v1.py": "c829a4dd80c61c3ba70cbdf4e405e4a23bb94b2aa13b4f2f310f8b549835aba8",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_BANK_V1_PREREGISTRATION.md": "3a19319760502562ecb2cd7186b642607dc9e9aba7a62c83cd82dcdf86fbb4f2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_PASSERS_CONFIRMATION_V1_PREREGISTRATION.md": "a26809fbfe6e9e43d0eeaa74280ac931f66b628f5045f45840612a12cf3d3084",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_CONFIRMATION_V1_ROWS.json": "e6bf664fa6dc88cc4ca52763d46fb7ab9085121aead3453192dcd867b03c1ede",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_SHARED_OUTPUT_V1_ARTIFACT.pt": "fbf2df661f1a09a063fe068aff166f37750a29973ff4f215a9d88d6e851816aa",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_mixed_token_head_v1.py": "adb47f8387c75f557d13c0dfaf192180547fce677417b5b89c47406b3a29b331",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NATIVE_V1_PREREGISTRATION.md": "8d39a530df165fc8df1ea94f70dfa59d1ddbd89b55d506d6e8226c3ae1e2f524",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_COMPILE_V1_PROGRAM.pt": "d2e5fd65ab43dd25bf8548438c918ea7b4c9a93e6664931b5d52b37dcbd92490",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PRODUCER_FRESH_CONFIRMATION_CACHE_V1_ARTIFACT.pt": "50626223f54f56c261127f0154a54f3ef9b5b8a7fec1abf8ac1692023c4dcb4f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_scalar_producers_v1.py": "aa0666a6dc2d2f840e830d4107811958038fe9305556e9857e75059c89d6be4b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_BANK_WEIGHTS_V1_ARTIFACT.pt": "5cf244ecf66632b6145f2f32c8d013958a2d98217607f680a91d0d9e7dd92e5b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_PREREGISTRATION.md": "e977e0646181d1b782a4f943c923282f2f2032a2c3ac04ed38dbd9d096dd425c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_ROWS.json": "c41e462bfda16d3fa0e1f5ca18275ea219f63525e31db8e8920f2c9506980f40",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_PREREGISTRATION.md": "e1a7bcbdd958b52703fd4aca510086c1033dfe58cdd8b1c39d8c553901917deb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_ROWS.json": "2bbd64ee8d4e6dd98b42b313786370b1f1f0a6984f0cde174510bb1f99a3d042",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_ARTIFACT.pt": "8ba9cf53ba687387d006b208bd9df556d576191701580b5fc5a2d1688ebeef75",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_producers_newline_natural_rows_v2.py": "de1a5ff0a6ff63bcf2aadaa9d614598fbead8d732e8c6ddc0f1d13cf3c634708",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_PREREGISTRATION.md": "b08fdf2d6968452ef7d101a2cc309f10aa610e2cb1cad9644e165b800d1c59e1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_NATIVE_LIFT_V1_RESULT.json": "68bfdd6a7697ca5d9a5fa890fc4a8ea29dff7edb691571c73509b568e067aa76",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_NATIVE_LIFT_V1_ARTIFACT.pt": "abac8ee3ad606366028ff0c26dbf6110a6edb08b71bb8ba379de74b2cc5bbf51",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_RESULT.json": "a351c1318926c7e700a17e16d86fd4924739e0724190b7bef7f3d1dd290c53b1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_ARTIFACT.pt": "a43d66e0650d83cf0f27ef868dc17e7473a0bac0aa0767a74d20cc15eae5e2c1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_PREREGISTRATION.md": "6f9831ed0901ac08f440100232b624e9be10e14d8bdb412c3d9721b302b5609b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_NATIVE_SCALARS_V1_ARTIFACT.pt": "fcf1ae76dfc04ce295fedc38e05bab297ca409c69a9991345683fba99ba521dd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_ARTIFACT.pt": "171e01f2c5b4d30500c08e4119f61d895ccfd72738eddb56c2229ed1e91179bd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_RESULT.json": "53a376e6139df1d0182391950a557d1e0b1394f3becc3b3c81d11c69fb664577",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_PREREGISTRATION.md": "5a22072aa0c196162a5e0bfc8ef4b4a377e60319fac40c7c2aa9b60bd1ac950a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_V1_RESULT.json": "13cf919769530af5064e364632f5ff7cde3e6191efc6c5db85e36286bc278437",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_EFFECT_V1_PREREGISTRATION.md": "0e873f62b64dade1f88554150bc992b5b17273d372c271a97369ddb27c566e29",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_ARTIFACT.pt": "b66448cbca59cf113abff0d1c9a8bce9f6cbf5209e5101d4d29b6044edbbc39b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_RESULT.json": "7d3a5d9ed44bd52c686122f6aad853fc50bde2d6e38efa35743dd31cdf8f7e87",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_ARTIFACT.pt": "25d07a1b6f8f721ea3f48b051596a1f4cc30f6b90600f0bfaf1aee8f0a2e6bf1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_PREREGISTRATION.md": "35760079dfe5d2dfb95bb6465473aaafe0bc35a0f65763fe3f5a60f3b8e9a906",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_ROWS.json": "738d430059208837acf8871924cef0a1b38d755dfd26d5fa69282da54cb15f55",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_DIRECTIONAL_MLP_V1_PROGRAM.pt": "2e07e9eb98ac60f5f0acde03875a08bdd16014ecadcb1605c0e1307e83c6bbcc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/directional_mlp_bridge_v1.py": "2dd44cc26e7699e0cdebc26f1feae8508e34f5edf5299a4f35608acc925655d3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_producers_context_transfer_rows_v1.py": "53ca2ca1bd7ce1a27f8b7ae5529eb10410726eda3a837ee94f973734a4e5d05e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTOR_FACTORIAL_V1_PREREGISTRATION.md": "2f45d41248012fbfa9a499cf5c0bd22396466c68f60f5444f3e94c286895ec62",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_value_sectors_v1.py": "a9f2e3dd080d486919d3ba895083b9e21cb202684da91582501d7c6f1d2971fe",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTORS_V1_CONTROL.json": "53b3d081d65adf90ca27ef7eaefc0bd5d8c91073375d5d2cd0b83c1be7e97396",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_ARTIFACT.pt": "494d907c6f40008060a6d08801681d0560865e55258043e1846038188f2829c4"
+  },
+  "artifact_sha": "0281877b2bb48eadb23496f10628c15ea2560534252d70f9e35a62005e96f369"
+}

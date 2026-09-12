@@ -1,3 +1,7 @@
+## 12 September, 18:55 — New requested full update
+
+[Latest full report](../for_logan/research_update_2026-09-12_1855_composed_circuit_interactions.md) covers all work since17:30. Donor interchange passes; the four-sector screen has no joint regional/newline passer. The exact finite-interaction audit shows mostly additive newline collateral on the preserved outlier. All four-property completion claims remain open.
+
 ### 12 September, 18:23 — Fresh email/letter contexts confirm removal and composition
 
 [Primary results](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): frozen physical pair removes65–70%of regional cue contrast on48newcity/endpoint/template rows; all24pairsdirection. Direct+mixed bridge predicts signed interaction within.87–.93%. Controlled contextual transfer strengthened; native input dependencies and newline failure remain. Donor-interchange protocol/map prepared, not yet executed.

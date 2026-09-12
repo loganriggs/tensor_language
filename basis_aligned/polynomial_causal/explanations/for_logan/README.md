@@ -1,11 +1,12 @@
 # Requested full reports for Logan
 
-**Latest full update: [12 September, 17:30 — Shared producers and interaction-path decomposition](research_update_2026-09-12_1730_shared_producer_interactions.md).** Covers the work since the previous report’s 16:20 addendum, with high-level events, explained computations, results and failures, and the four-property status.
+**Latest full update: [12 September, 18:55 — Predicting composed circuit interactions](research_update_2026-09-12_1855_composed_circuit_interactions.md).** Covers the work since17:30, including exact composed math, fresh removal and donor swaps, source-sector splitting, and the unresolved newline-selectivity failure.
 
 **Background references:** [What the factorization means: CP versus LL1 versus shared-input groups](research_update_2026-09-11_1327.md#factorization-explained). [Copyable browser-Codex brief](factorization_browser_brief_2026-09-11.md).
 
 This directory is for fuller updates explicitly requested by Logan. Routine automatic experiment notes remain in the dated explanation folders.
 
+- [12 September, 18:55 — Predicting composed circuit interactions](research_update_2026-09-12_1855_composed_circuit_interactions.md)
 - [12 September, 17:30 — Shared producers and interaction-path decomposition](research_update_2026-09-12_1730_shared_producer_interactions.md)
 - [12 September — Interaction-path decomposition and extraction update](research_update_2026-09-12_1536_interaction_decomposition.md)
 - [11 September — Interaction-path decomposition project proposal](interaction_path_decomposition_proposal_2026-09-11.md)

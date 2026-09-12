@@ -126,3 +126,7 @@ Fixed MLP8 direct+mixed response predicts head9.8scalar change within.5–1.3% a
 ### 12September18:23 — Held-out contextual bridge transfer
 
 The fixed MLP8direct+mixed response predicts signed head8.2/head9.8serial interaction within.87–.93%on48newcity/endpoint/email-letter contexts. FullnativebackgroundandJmatrixcontentremaincharged. This is controlled contextual confirmation of one specific path, not new generalMLPunderstanding. [Receipt](../SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_RESULT.json).
+
+### 12 September, 18:55 — Signed donor extension of MLP8 directional response
+
+The fixed exact directional map through MLP8 also predicts head9.8 serial response under signed head8.2 donor interchange. Direct+mixed approximation errors1.43/2.33% on known email/letter families, exact response~1.2e-6. Native contextual inputs and bias-free MLP background remain external; no independent full-MLP extraction claim. [Primary math/results](../FOLDED_PRODUCER_NATIVE_V1_MATH.md).

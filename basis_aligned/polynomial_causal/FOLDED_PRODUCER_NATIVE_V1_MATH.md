@@ -229,3 +229,13 @@ The controlling handoff's appended success criterion was reread: memory savings 
 ### Next intervention is donor interchange, not another removal-only validation
 
 [Interchange preregistration](SCALAR_PRODUCERS_INTERCHANGE_V1_PREREGISTRATION.md) and [all-row matched donor map](SCALAR_PRODUCERS_INTERCHANGE_V1_DONORS.json) are now prepared. Replace component8/9scalar fields with the opposite-cue donor's fields, singly and jointly. The bridge then receives signed amplitude a8_recipient-a8_donor instead of the earlier zero-removal amplitude. Preserve native re-execution and compare exact/directmixed generated9effects against the explicit frozen-recipient9 control. This tests whether the operation supports new manipulations, not just its original lesion. Runner implementation and native outcomes are still pending.
+
+## 18:55 — Interchange passes; source-sector selectivity misses
+
+[Interchange](SCALAR_PRODUCERS_INTERCHANGE_V1_RESULT.json) passes all registered bars: joint donor transfer72.4/67.7% of native cue contrast, every48directed row positive for each individual/joint arm, self-donor bit-exact. The direct+mixed directional response predicts the signed serial effect within1.43/2.33%. These are new manipulations on known email/letter contexts, not another OOD panel.
+
+[Four-sector factorial](SCALAR_VALUE_SECTOR_FACTORIAL_V1_RESULT.json) executes1312forwards in17.40seconds. Native/fullmask/control replay is exact. Split each frozen value into current and first-state sectors, preserving the same full joint QK routing and physical writer. Masks6/7/14/15 meet regional coverage; no mask meets regional plus newline criteria. Head8-first plus head9-current covers67.8/61.0% but has maximum newline CE change.13709 against.1. The full pair remains.16654. No bar or example changed.
+
+[Exact finite-intervention expansion](SCALAR_SECTOR_MOBIUS_V1_RESULT.json) reconstructs all16masks exactly. For the selected two-sector pair, regional interaction norm is~30% of joint effect with negative mean. On preserved newline row30, damage.137089=.060216+.076724+.000150; interaction is only.11% of joint damage. [Loss/readout audit](SCALAR_SECTOR_LOSS_SPACE_AUDIT_V1_RESULT.json) finds2.66% interaction fraction for newline-comma margin on that same row, so mostly additive collateral is not solely the CE readout. Descriptive post-result audit, no selectivity rescue or independent causal ownership claim.
+
+The [requested full update](explanations/for_logan/research_update_2026-09-12_1855_composed_circuit_interactions.md) explains the computations and scope. Finer consumer paths and joint-routing input spaces remain hypotheses, not completed decompositions.

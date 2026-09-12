@@ -1,0 +1,21 @@
+# Strategic review — 12 September, state checked18:55 UTC
+
+Circuit targets: explicit reads/operations/writes/consumers; grouping across modules and splitting within them; held-out/OOD prediction; extraction with stated background; selective removal/interchange; composition/reuse; stable identification. Full goal is a simpler executable predictive, composable, manipulable explanation. No local pass completes it.
+
+This review was due18:44 and performed during the requested update after18:55; no claim of an on-time checkpoint. Next hourly19:55; mathematical review remains due20:12.
+
+Since17:44: exact producer-direction response through MLP8 derived and verified on native states; direct+mixed term predicts serial behavior while direct-only misses~34%. Country audit fails to explain away newline collateral. Complete joint-QK/value test rejects generally value-only response. Fresh48email/letter contexts and then signed donor interchange pass. Four current/first value sectors clarify regional inputs but no subset passes both coverage and natural newline preservation. Exact Boolean analysis shows the preserved worst-row collateral is mostly additive. A further executed CPU margin-versus-CE audit corroborates that on the same row, not a new independent sample.
+
+CIRCUIT_FOCUS: PASS. Explicit cross-module arithmetic, fresh prediction, interchange, selective controls and input-source splitting advanced one candidate family. No new general circuit count is claimed.
+
+NOVELTY_LESSON_GATE: PASS. Existing newline dossier, frozen factors, native caches and failed examples retained; QK1/QK2 kept joint. Source-sector result is not a disjoint QK-space discovery. Data validates frozen weights; path choice remains behavior-informed. Fresh templates are not corpusOOD.
+
+CEREMONY_BUDGET: PASS with measurement caveat. Recorded phase labels17:44–18:55: science33.71min, implementation20.91, publication13.55, review2.90. Late phase marks and turn gaps are not precise labor attribution; no separate recorded validation interval does not imply no validation. Review+publication remain below science+implementation; current full report explicitly requested. Several native tests took1–17seconds, so fitting new sweep capacity is not justified by GPU utilization alone.
+
+Claim-to-terminal samples: native bridge behavioral test18:03–18:06~3min; country implementation18:06–18:08~2min; joint routing/value signed test18:11–18:14~3min; fresh context claim18:14 to runner terminal18:16~2min; interchange implementation18:26 to18:27~1min (preparation began earlier); sector claim18:30 to18:33~3min. Native cache waited behind peer663 until18:00. These are refinements and audits of one motif, not independent circuit discoveries or full end-to-end preparation costs.
+
+Confounds: conditional backgrounds still large; dense directional map is not an explained primitive for free; hybrid frozen-field subtraction is diagnostic; shared downstream writer does not imply shared physical writer; sector selection exploratory; natural outlier retained; both loss and score-margin audit remain one postselected example. Country variants cannot be counted as six independent documents. No posthoc lowering of50%coverage/.1max preservation bars.
+
+Highest-information alternatives: (1) finer consumer/path separation of8first and9current with complete joint routing, followed by fresh confirmation; (2) task-specific jointQK product-space split from weights; (3) return to a global full-U fit. Prefer bounded1 or2 over another coarse sector mask sweep. General full-U structure remains unresolved; this local motif cannot substitute indefinitely. Kill any finer candidate if selectivity fails on retained controls or if complexity merely moves into opaque adapters.
+
+Concrete continuation performed: board claim followed by CPU loss/readout audit of frozen factorial effects. Newline worst-case interaction is.109%of joint CE damage and2.664%of joint newline-comma margin change. This disfavors blaming a large finite interaction for the threshold miss and motivates finer paths rather than a dose/bar rescue. Receipt SCALAR_SECTOR_LOSS_SPACE_AUDIT_V1_RESULT.json. No additional decomposition GPU job claimed live; peer665 owns lane1 at state check.

@@ -331,3 +331,7 @@ Head8.2->MLP8->head9.8 direct+mixed generator predicts signed serial effect with
 ### 12September18:23 — Fresh contextual confirmation of the regional producer pair
 
 Frozen8.2/9.8physicalpair reduces65–70%cuecontrast on48newemail/letter rows with newcities/endpoints; all24pairsdirection, unrelatedmarginratios.05–.065. MLP8direct+mixed bridge predicts signed serial effect within.87–.93%. Scalarinputgeneration/backgroundremainnative; originalnewlinefailurepreserved. Donorinterchangepending. [Primary results](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).
+
+### 12 September, 18:55 — Regional producer sectors and newline overlap
+
+Frozen8.2/9.8scalar donor interchange passes; head8.2first-state value and head9.8current-state value dominate the regional source effect. Their joint removal covers67.8/61.0% on email/letter families but fails natural newline max-preservation(.1371>.1). All15nonempty current/first masks were tested; none passes both requirements. Routing remains the complete jointQK product, so this does not identify separate task-specific QK spaces. On the preserved worst newline row the two sector damages mostly add. [Primary math/results](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).

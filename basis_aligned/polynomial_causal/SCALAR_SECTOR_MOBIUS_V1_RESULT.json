@@ -1,0 +1,48 @@
+{
+  "pred_a": true,
+  "regional_reconstruction_error": 0.0,
+  "newline_reconstruction_error": 0.0,
+  "records": [
+    {
+      "family": 0,
+      "regional_mask6_mean": 1.7935309807459514,
+      "regional_single_means": [
+        0.9398524761199951,
+        1.3999659617741902
+      ],
+      "regional_pair_interaction_mean": -0.546287457148234,
+      "regional_pair_interaction_to_full_norm": 0.2997669391042091,
+      "newline_single_meanabs": [
+        0.0033240150660276413,
+        0.004668671637773514
+      ],
+      "newline_pair_interaction_meanabs": 0.0007462110370397568,
+      "newline_pair_interaction_to_full_norm": 0.11025364289645659
+    },
+    {
+      "family": 1,
+      "regional_mask6_mean": 1.811130444208781,
+      "regional_single_means": [
+        1.1021032730738323,
+        1.272413690884908
+      ],
+      "regional_pair_interaction_mean": -0.5633865197499593,
+      "regional_pair_interaction_to_full_norm": 0.2974038030389464,
+      "newline_single_meanabs": [
+        0.00639657280407846,
+        0.007751020835712552
+      ],
+      "newline_pair_interaction_meanabs": 0.000649171881377697,
+      "newline_pair_interaction_to_full_norm": 0.039972105257314226
+    }
+  ],
+  "preserved_outlier": {
+    "index": 30,
+    "single_8first": 0.06021583080291748,
+    "single_9current": 0.07672381401062012,
+    "pair_interaction": 0.00014981627464294434,
+    "joint": 0.13708946108818054,
+    "fullmask": 0.1665392518043518
+  },
+  "scope": "Exact Boolean finite-intervention expansion, basis fixed by masks. Descriptive interaction magnitudes, not allocation of independent causal ownership or rescue of failed preservation."
+}
