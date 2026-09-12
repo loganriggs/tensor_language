@@ -266,3 +266,10 @@ all causal source positions: removal reduces British/American cue effects by
 direction. Two-source coverage still misses. This adds a candidate within-head
 role beyond the old exclamation/capitalization labels; it is not yet an identified
 four-property circuit. New location cues and spelling pairs are frozen for testing.
+
+
+The [unseen spelling/city-cue screen](../../polynomial_causal/REGIONAL_SOURCE_BLOCK_OOD_V1_RESULT.json)
+also passes all4families:10.2–13.9%regional cue reduction,24/24positive contrasts,
+with the frozen all-source block. This supports limited lexical/template transfer.
+Which of the parent, children, query writers or gates carries the regional cue
+remains unresolved; a four-port interchange test is registered.

@@ -160,8 +160,8 @@ Latest hourly review:
 [10:36](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-12_1036.md).
 Next hourly review is due **11:36 UTC on12September** at the first safe boundary.
 Latest mathematical review:
-[08:00](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0800.md).
-Next mathematical review is due **11:00 UTC on12September**. Derive later deadlines from the
+[11:00](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_1100.md).
+Next mathematical review is due **14:00 UTC on12September**. Derive later deadlines from the
 newest authoritative review files, not this snapshot. Do not duplicate reviews.
 
 Hourly reviews restate seven circuit targets: explicit computation;

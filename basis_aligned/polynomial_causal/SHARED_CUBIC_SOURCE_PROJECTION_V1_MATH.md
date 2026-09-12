@@ -431,3 +431,30 @@ The next frozen test changes both the output spelling pairs and the cues:
 Edinburgh/Chicago contexts, six previously unused spelling pairs and two new
 sentence templates. These are out-of-template/lexicon tests, not a new natural
 corpus or an OOD guarantee. No scores were inspected during their construction.
+
+
+### Unseen spellings and city cues also pass the basic screen
+
+The [frozen OOD protocol](REGIONAL_SOURCE_BLOCK_OOD_V1_PREREGISTRATION.md)
+[passes A/B/C in all four families](REGIONAL_SOURCE_BLOCK_OOD_V1_RESULT.json).
+Six previously unused spelling pairs and London/Boston or Edinburgh/Chicago cues
+replace the original words and explicit regional adjectives. Native cue gaps
+average2.335,3.226,1.652,2.982nats; all-source block removal reduces them by
+0.310,0.447,0.168,0.364nats, or13.28%,13.86%,10.18%,12.21%. All24paired contrasts
+have positive native gaps and positive removal reductions. The norm-matched
+paired-direction controls give negative mean reductions in every family;
+unrelated contrast changes are about11%of the regional changes. Collapsed/old
+block write error is0.206%. Execution takes5.53seconds and10bodyforwards.
+
+This supports transfer across these unseen lexical contrasts, cue formulations
+and templates, with no factor fitting. It does not prove natural-corpus OOD or
+exhaustive semantic selectivity. Individual removal fractions span roughly5.6–20.3%;
+the registered bars apply to each family mean, not every individual pair.
+See the [full per-pair audit](REGIONAL_SOURCE_BLOCK_OOD_V1_PAIR_AUDIT.json).
+
+The [11:00 mathematical review](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_1100.md)
+and [next preregistration](REGIONAL_FACTOR_INTERCHANGE_V1_PREREGISTRATION.md)
+separate the block into actual gate, quadratic parent, child-linear bundle and
+private query writers. Exact controlled extraction and16vertex intervention
+algebra now permit a test of which port carries the cue. A useful shared operation
+need not itself be the semantic label; preserve that distinction during naming.

@@ -1,3 +1,7 @@
+### 12 September, 11:04 — Regional component transfers to unseen spellings and city cues
+
+All4newfamilies pass; removal reduces regional cue gaps10.2–13.9%,24/24contrasts positive, no fitting. [Results and limits](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). [Math11:00](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_1100.md) supplies exact four-port interchange to locate the cue within the shared graph; controls and paired-position checks pass. Native interchange remains next. Nextmath14:00/hourly11:36.
+
 ### 12 September, 10:56 — All-source regional-spelling basic screen passes
 
 Corrected templates: frozen parent removal reduces regional cue effects13.1%/18.2%, all16contrasts in predicted direction, beyond matched direction controls; unrelated contrasts much smaller. Two-source program still misses. [Math and scope](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).48unseen spelling/location-template rows frozen for next test; no four-property promotion.

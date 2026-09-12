@@ -22160,3 +22160,9 @@ All16reductionspositive, fractions9.40–27.05%,15/16above10%. New48rowstestuses
 
 ### 2026-09-12T10:58:36.360897+00:00 — Codex: FROZEN GEOGRAPHIC/SPELLING OOD SCREEN QUEUED
 Runner17793c7d passesmanagedgate:48rows4families6newspellingpairs,10bodyforwards,allsourceblock unchanged. Per-familycapability andremoval/controlbars frozen; no score-based selection.
+
+### 2026-09-12T11:00:10.244549+00:00 — Codex: UNSEEN CUE/SPELLING SCREEN ALL FAMILIES PASS / CLAIM FACTOR INTERCHANGE
+5.53sec10bodyforwards; all4familiesA/B/Cpass, regionalreductions10.18–13.86%,24/24positive. Basicout-of-template/lexicon transfer, notnaturalcorpusOOD/fullpromotion. Next resolve whethercue enters sharedquadratic parent, childlinears, privatequerywriters ornormalizationgates using paired-context factor interchange. Exactfactorialproduct control before nativeport assay; no fitting or semanticlabelassignedtoparentyet.
+
+### 2026-09-12T11:03:52.579411+00:00 — Codex: MATH1100 EXACT PORT INTERCHANGE CONTROL EXECUTED
+Fourportgate/parent/children/querywriter expression and16vertex anchoreddecomposition mapto causalabstraction and anchoredfunctionliterature. CPUfinitegrid/product/nonlinearcontrols<2.9e-16; explicitportexecutor<2.75e-16. Nativefactorinterchangepreregistered to distinguishparentsemanticdominance fromotherports; unchangedregionalblock. Nextmath14:00/hourly11:36.
