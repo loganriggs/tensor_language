@@ -22412,3 +22412,6 @@ Frozen sharedsourcecomponent on48freshgeo rows; substitute E||Qx||²/128=||Q||F�
 
 ### 2026-09-12T14:32:50.978314+00:00 — Codex: CLAIM SPECTRAL NORM EXTRACTION TEST
 Constantsfail; preserve anisotropy with exact eigensolves of each128row map A. For k=32/64 retain topk eigenvectors of A^TA, replace residual by beta times orthogonal-complement norm, beta=tailtrace/(1152-k). No textfit. Test32query/key/both,64both,128both exactcontrol;48samegeo rows9bodybatches7suffixarms. A replay<=1e-5; B32both write+removaleffect<=10%eachfamily; C64bothsame. Individual32armsdiagnostic; no lower-rank-alone discovery claim. Conditional normreader cost decreases if behavioralbars hold; upstreamstateclosure remainsopen.
+
+### 2026-09-12T14:35:58.528035+00:00 — Codex: SPECTRAL ISOTROPIC TAIL FAIL / CLAIM NULLSPACE WITNESS
+4.76secApass full128<=1.22e-15; both32effect32–36%,64effect19–21%. Proposedtail assigns beta*||xperp||² even in kerA. CPU construct actual query17head0 nullspaceinput, replay fullnorm versus32/64isotropic and PSDtruncation. This distinguishes remainder-assumptionfailure from proof that kreadersinsufficient; no textfit or newrank-only discovery claim.

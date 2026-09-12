@@ -1568,3 +1568,39 @@ norm quadratic and model its remaining orthogonal complement isotropically.
 That preserves anisotropy and can be checked against the exact full-rank endpoint.
 Any such test must score component removal effects and combined use, not merely
 norm reconstruction. Original opaque upstream states remain an extraction cost.
+
+## Spectral readers with an isotropic remainder also fail (14:36)
+
+The [spectral test](REGIONAL_SPECTRAL_NORMALIZERS_V1_RESULT.json) eigendecomposes
+each weight-only norm quadratic, retaining32 or64 leading eigenreaders. For
+$A^\top A=\sum_{i=1}^{128}\lambda_i v_iv_i^\top$, its approximation is
+
+$$
+\widehat{\|Ax\|^2}
+=\sum_{i\leq k}\lambda_i(v_i^\top x)^2
++\frac{\sum_{i>k}\lambda_i}{1152-k}
+\left(\|x\|^2-\sum_{i\leq k}(v_i^\top x)^2\right).
+$$
+
+The full128 control matches component writes within1.22e-15 and removal effects
+exactly in the native scorer. Smaller approximations miss the10%bars: both32
+write33.3–36.9%, effect32.4–36.5%; both64 write20.2–21.8%, effect19.3–21.4%.
+Separate query32/key32 also miss. The run took4.76seconds. This is a converged
+symmetric eigensolve; no optimization failure or absence-of-structure conclusion.
+Conditional norm-reader packages would contain1,328,292/2,656,548 scalars for
+32/64 versus5,308,416 raw native map scalars. Their behavioral misses preclude
+adoption; upstream and numerator costs are additional.
+
+The executed [native nullspace witness](SPECTRAL_NORMALIZER_NULLSPACE_V1_RESULT.json)
+exposes a specific limitation of the remainder assumption. For query17/head0,
+a constructed $x\in\ker A$ with squared norm1152 has native mean squared projection
+$5.30\times10^{-28}$, while the isotropic tail gives29.75 at32 and15.88 at64.
+A truncated PSD quadratic using only the retained sum stays below3.4e-28.
+Thus spreading omitted spectral energy over the entire ambient complement
+introduces sensitivity to directions the original map cannot read.
+
+This all-real-input witness is not asserted reachable from tokens, and it does
+not by itself explain the complete text-domain miss. It does establish that
+isotropic completion and kernel-preserving truncation are distinct assumptions.
+The latter deserves the same native effect test before rejecting these reader
+counts. No fitted scale or changed old verdict is adopted.

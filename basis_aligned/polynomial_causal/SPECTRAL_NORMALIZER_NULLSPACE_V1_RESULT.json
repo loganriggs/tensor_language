@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "cells": [
+    {
+      "rank": 32,
+      "native_squared_projection": 5.302301939433753e-28,
+      "isotropic_tail_squared_projection": 29.74813758366818,
+      "kernel_preserving_truncation_squared_projection": 2.036912744227494e-28
+    },
+    {
+      "rank": 64,
+      "native_squared_projection": 5.302301939433753e-28,
+      "isotropic_tail_squared_projection": 15.879888972359876,
+      "kernel_preserving_truncation_squared_projection": 3.3129122393155183e-28
+    }
+  ],
+  "scope": "Exact native-weight all-real-input nullspace witness. Isotropic remainder injects false norm in kerA; PSD truncation preserves kerA. This does not show token reachability or that truncation passes native effect bars."
+}
