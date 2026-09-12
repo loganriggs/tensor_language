@@ -1,3 +1,11 @@
+### 12 September, 13:16 — Mixed interaction correction passes geographic effects
+
+Keeping retained/omitted mixed QK numerator terms and the true key denominator
+predicts allfour geographic families within1.2–3.1% write/effect error. Denominator
+restoration alone fails; exact accounting shows numerator and normalization
+corrections cancel substantially. No fitted scalar, no independent generator
+extraction or compute saving claimed. [Math and evidence](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md#mixed-key-interactions-plus-shared-normalization-predict-geographic-effects).
+
 ### 12 September, 13:10 — Composed-path pass; one geographic amplitude miss
 
 The frozen half-update key support passes downstream write/effect fidelity on

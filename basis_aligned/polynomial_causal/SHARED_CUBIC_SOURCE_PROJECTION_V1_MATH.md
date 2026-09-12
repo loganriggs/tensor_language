@@ -1257,3 +1257,87 @@ All prefix update terms are still generated natively. Thirteen selected terms
 in a conditional expression are not thirteen recursively executable modules;
 removing upstream computation can change later retained terms. Independent
 extraction and joint composition of the resulting replacements remain open.
+
+
+## Mixed key interactions plus shared normalization predict geographic effects
+
+The [registered correction experiment](REGIONAL_KEY_CORRECTION_V1_RESULT.json)
+now separates the missing numerator interaction from key normalization. The
+frozen13 support,48geographic rows and original native generators are unchanged.
+No scalar or support is fit. The result is **A pass, B fail, C pass**: exact
+replay holds, normalization alone fails, and retained-plus-mixed numerator with
+the true denominator predicts every family's write and signed effect within10%.
+
+Let $r_0$ be the retained raw key input, $\delta r=r-r_0$ the omitted contribution,
+and $p_i=K_i r_0$, $\delta p_i=K_i\delta r$. For a fixed native query and cue
+position, absorb the actual rounded rotary map into the query-key pairing:
+
+$$
+a=q_1^\top R_c p_1,\quad b=q_2^\top R_c p_2,
+\qquad
+\delta a=q_1^\top R_c\delta p_1,\quad
+\delta b=q_2^\top R_c\delta p_2.
+$$
+
+Both QK factors belong to the same routing operation. The numerator is exactly
+
+$$
+N=(a+\delta a)(b+\delta b)
+=\underbrace{ab}_{N_0}
++\underbrace{a\delta b+b\delta a}_{N_{\mathrm{mixed}}}
++\underbrace{\delta a\delta b}_{N_{\mathrm{omitted}}}.
+$$
+
+For raw input $r$, retain the shared denominator
+
+$$
+D(r)=128^2\sqrt{
+\left(\frac{\|K_1r\|^2}{128}+\epsilon\rho(r)^2\right)
+\left(\frac{\|K_2r\|^2}{128}+\epsilon\rho(r)^2\right)},
+\qquad \rho(r)^2=\frac{\|r\|^2}{1152}+\epsilon.
+$$
+
+The key norms are computed **before** rotation; rounded RoPE is not silently
+assumed exactly orthogonal. The compared routes are $N_0/D(r_0)$,
+$N_0/D(r)$, $N/D(r_0)$, $(N_0+N_{\mathrm{mixed}})/D(r)$ and $N/D(r)$.
+Native queries, first-token values and downstream readers remain fixed.
+
+| Geographic family | Denominator-only write/effect error | Numerator-only write/effect error | Mixed numerator + true denominator write/effect error |
+|---|---:|---:|---:|
+| 0 | 23.99% / 23.94% | 34.62% / 34.57% | 1.74% / 1.73% |
+| 1 | 19.91% / 20.00% | 31.46% / 31.78% | 1.23% / 1.21% |
+| 2 | 28.96% / 29.23% | 17.34% / 17.25% | 3.01% / 3.07% |
+| 3 | 20.24% / 21.33% | 19.28% / 19.62% | 1.73% / 1.89% |
+
+The CPU product identity error is2.80e-16. Native execution takes3.35seconds,
+10bodybatches and7suffixarms. The passing approximation omits only
+$\delta a\delta b$ while keeping both mixed terms and the full denominator.
+It is linear in the omitted contribution **in its numerator**; the full
+normalized computation is not linear in that contribution.
+
+The [executed factorial write audit](JOINT_KEY_CORRECTION_ACCOUNTING_V1_RESULT.json)
+checks numerator/denominator compensation, with7.01e-16 identity error. Let
+$w_{00}$ use retained numerator/denominator, $w_{10}$ restore the numerator,
+$w_{01}$ restore the denominator, and $w_{11}$ restore both. Then
+
+$$
+w_{11}-w_{00}
+=(w_{10}-w_{00})+(w_{01}-w_{00})
++(w_{11}-w_{10}-w_{01}+w_{00}).
+$$
+
+On family2, signed projections onto the required write correction are
++2.006 for numerator restoration,−0.702 for denominator restoration, and−0.303
+for their interaction; these sum to1. Thus restoring normalization alone moves
+opposite the needed correction. Norm changes by themselves did not identify
+the mechanism. In other families the terms also substantially cancel; their
+norm ratios are not additive explained-variance shares.
+
+This supports a specific composed interaction approximation across the frozen
+geographic panel. It preserves the earlier uncorrected support failure and does
+not establish discovery of an independently executable small circuit. Computing
+$\delta a$, $\delta b$ and $D(r)$ still uses omitted native information. Expanding
+mixed terms may even use more scalar arithmetic than directly multiplying two
+full scores; degree reduction alone is not a storage/compute saving. The next
+extraction requirement is to fold and simplify those correction readers and the
+shared normalization together, with all generator and adapter costs included.

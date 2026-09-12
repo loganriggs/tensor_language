@@ -1,0 +1,92 @@
+{
+  "relative_identity_error": 7.005085489788693e-16,
+  "cells": [
+    {
+      "family": 0,
+      "terms": {
+        "denominator": {
+          "norm_over_required": 7.098566451403064,
+          "signed_projection_over_required": 4.94305637090116
+        },
+        "numerator": {
+          "norm_over_required": 8.648472887374346,
+          "signed_projection_over_required": -5.301261221157944
+        },
+        "interaction": {
+          "norm_over_required": 2.2063723181300867,
+          "signed_projection_over_required": 1.3582048502567834
+        },
+        "omitted_quadratic": {
+          "norm_over_required": 0.4679999738971773,
+          "signed_projection_over_required": -0.2530644197526578
+        }
+      }
+    },
+    {
+      "family": 1,
+      "terms": {
+        "denominator": {
+          "norm_over_required": 4.550873184617973,
+          "signed_projection_over_required": 4.365112982077649
+        },
+        "numerator": {
+          "norm_over_required": 4.747635312564975,
+          "signed_projection_over_required": -4.436261691720603
+        },
+        "interaction": {
+          "norm_over_required": 1.1451082825529917,
+          "signed_projection_over_required": 1.0711487096429548
+        },
+        "omitted_quadratic": {
+          "norm_over_required": 0.22301800484769546,
+          "signed_projection_over_required": -0.20379187345727745
+        }
+      }
+    },
+    {
+      "family": 2,
+      "terms": {
+        "denominator": {
+          "norm_over_required": 0.7217609064940116,
+          "signed_projection_over_required": -0.7022836093439463
+        },
+        "numerator": {
+          "norm_over_required": 2.0148687719587395,
+          "signed_projection_over_required": 2.0057234791911247
+        },
+        "interaction": {
+          "norm_over_required": 0.3045198098174242,
+          "signed_projection_over_required": -0.30343986984717825
+        },
+        "omitted_quadratic": {
+          "norm_over_required": 0.17750123241360247,
+          "signed_projection_over_required": 0.17739573660479516
+        }
+      }
+    },
+    {
+      "family": 3,
+      "terms": {
+        "denominator": {
+          "norm_over_required": 2.7035045522932357,
+          "signed_projection_over_required": -2.2966319214831215
+        },
+        "numerator": {
+          "norm_over_required": 4.311019682377299,
+          "signed_projection_over_required": 3.935773577985634
+        },
+        "interaction": {
+          "norm_over_required": 0.7249361195857528,
+          "signed_projection_over_required": -0.6391416565025119
+        },
+        "omitted_quadratic": {
+          "norm_over_required": 0.3073962743696627,
+          "signed_projection_over_required": 0.2887714135989857
+        }
+      }
+    }
+  ],
+  "artifact_sha": "0ecc9b4ddf341128914f879bb1def26c505d94f594bbebc673ae77fb3a7fcf1e",
+  "source_sha": "2e7080248f6777ad80980590c32adf23cbe4e6930a3ce1092cc3e5b03cac156b",
+  "scope": "Exact conditional write factorial accounting. Norm ratios are not additive variance shares; signed projections can cancel. No intervention independence or native generator simplification is proved."
+}

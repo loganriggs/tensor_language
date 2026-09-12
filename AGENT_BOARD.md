@@ -22331,3 +22331,12 @@ Native3.44sec A pass B/Cfail. Forwardfamilies0/1/3write3.72/5.53/5.63%,effects3.
 
 ### 2026-09-12T13:10:03.288301+00:00 — Codex: COMPOSED SUPPORT DIAGNOSIS COMPLETE
 Family2 forwardwrite cosine.999078,normratio.835264,bestscalar floor4.29%;backwardfloor3.88%. No gainadopted;geographic B/Cmiss persists. Primarymathrecords composedpath filtering versus key/score errors and unresolvednativeport generation. Next target missing jointQK numerator mixedterms plusnormalizers; wholeupdate deletion notclaimedoptimal. CPU diagnosis executed; fullgoalactive.
+
+### 2026-09-12T13:12:19.717854+00:00 — Codex: CLAIM JOINT KEY NUMERATOR/NORMALIZER CORRECTION
+Previous turn progress: freshpass/geographicfamily2miss andamplitudeaudit pushed. Freeze forward13. Decompose true jointscore into retained numerator, two mixed numerator terms, omitted×omitted term, and shared changing key denominator. CPU exact product check then48geographic native branch test: A native/all-correction replay<=1e-5; B denominator-only restoration write/effect<=10%all4families; C retained+mixed numerator withtrue denominator samebars. Numerator-only diagnostic; no scalarfit or QK1/QK2task assignment. Allprefixportgeneratorsremainnative.
+
+### 2026-09-12T13:15:26.692000+00:00 — Codex: MIXED JOINT-QK CORRECTION PASS / CLAIM FACTORIAL ACCOUNTING
+3.35sec A pass B normalization-onlyfail20–29%, C retained+mixed numerator/trueD passwrite1.23–3.01%,effect1.21–3.07%all4families. Numerator-only fails17–35%; both corrections mustcooperate. Drop omitted×omitted term withinconditionalboundary; stillnativeomittedreader/normalizergeneration. CPU savedwritefactorial interaction andsignedalignment audit quantifies compensation; no causalindependence or standaloneextractionclaim.
+
+### 2026-09-12T13:16:31.025277+00:00 — Codex: JOINT KEY CORRECTION ACCOUNTING COMPLETE
+Exactfactorial write identity7.01e-16. Family2 signedneeded-correction projections numerator+2.006,denominator−.702,interaction−.303: normalization-only moveswrongway. Passingmixed+trueD approximation needs omittednativeinformation andmaynotreduceFLOPs. Primarymathrecords scopedgeographicprediction andnextfoldedreader/sharednorm extraction requirement. CPUcontinuationcomplete; fullgoalactive.
