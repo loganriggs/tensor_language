@@ -1,0 +1,6537 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "checks": {
+    "regional_baseline": 0.0,
+    "regional_fullmask_effect": 0.0,
+    "regional_sector_effect": 0.0,
+    "newline_baseline": 0.0,
+    "newline_fullmask_effect": 0.0,
+    "newline_sector_effect": 0.0,
+    "newline_mean_effect": 0.0,
+    "meanhead_subtraction": 1.6231204824634915e-07,
+    "sector_sum": 5.430961175439032e-07
+  },
+  "capability": [
+    {
+      "family": 0,
+      "regional": true,
+      "newline": true,
+      "meanhead": true
+    },
+    {
+      "family": 1,
+      "regional": true,
+      "newline": true,
+      "meanhead": true
+    }
+  ],
+  "records": [
+    {
+      "mask": 1,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.2700460986753837,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06349281657415702,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.2595650677320806,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04932962701438211,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005538873374462128,
+          "meanabs_change": 0.0018826387822628021,
+          "maxabs_change": 0.007694840431213379,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.002649025060236454,
+          "meanabs_change": 0.0035407571122050285,
+          "maxabs_change": 0.024782776832580566,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 2,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.03693452955916807,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08944828677196909,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.050155452376145195,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07344596081150453,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003166031092405319,
+          "meanabs_change": 0.001052381470799446,
+          "maxabs_change": 0.005886673927307129,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0006046833004802465,
+          "meanabs_change": 0.001015825429931283,
+          "maxabs_change": 0.008110970258712769,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 3,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.019216382899129855,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06891062247360072,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.02215995373712675,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07056751458260904,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003938395529985428,
+          "meanabs_change": 0.0004571694880723953,
+          "maxabs_change": 0.001401364803314209,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00023848004639148712,
+          "meanabs_change": 0.0006916262209415436,
+          "maxabs_change": 0.005081444978713989,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 4,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00748104265310303,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08649788182384001,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.002967415290676783,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08942963003028992,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -8.237175643444061e-05,
+          "meanabs_change": 0.0001104157418012619,
+          "maxabs_change": 0.0005109310150146484,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -1.2170756235718727e-05,
+          "meanabs_change": 0.00011402345262467861,
+          "maxabs_change": 0.000571519136428833,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 5,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0014424066658557837,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.1145138274780931,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0024614100987433063,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.1030675180002717,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00013797730207443237,
+          "meanabs_change": 0.00020673125982284546,
+          "maxabs_change": 0.001354217529296875,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -2.865586429834366e-05,
+          "meanabs_change": 0.0001832433044910431,
+          "maxabs_change": 0.0006961822509765625,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 6,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0019173861101489092,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09182170694449884,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0029905547525478655,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08650586351560473,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0002178288996219635,
+          "meanabs_change": 0.0002472288906574249,
+          "maxabs_change": 0.001092076301574707,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -4.561152309179306e-07,
+          "meanabs_change": 0.00022562849335372448,
+          "maxabs_change": 0.0010863244533538818,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 7,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0012493237592249096,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08456664702982795,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00030289956851591314,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.10331256149557232,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -8.821859955787659e-05,
+          "meanabs_change": 8.987635374069214e-05,
+          "maxabs_change": 0.000467836856842041,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -1.5337485820055008e-05,
+          "meanabs_change": 5.602231249213219e-05,
+          "maxabs_change": 0.00022241473197937012,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 8,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00034996746203806814,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07563367014899812,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0005710498179907444,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09149997657750504,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -6.20037317276001e-05,
+          "meanabs_change": 9.483098983764648e-05,
+          "maxabs_change": 0.0005767345428466797,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 4.332279786467552e-06,
+          "meanabs_change": 6.83970283716917e-05,
+          "maxabs_change": 0.0003829002380371094,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 9,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0004641950392397637,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09043844038181524,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00018055467965187282,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.11036325509030644,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -2.865120768547058e-05,
+          "meanabs_change": 3.3404678106307983e-05,
+          "maxabs_change": 0.00020700693130493164,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -4.581175744533539e-06,
+          "meanabs_change": 3.1122006475925446e-05,
+          "maxabs_change": 0.00014656782150268555,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 10,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 6.843140588177847e-05,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.13882978723404255,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": -2.9024642924999182e-06,
+          "positive_pairs": 4,
+          "unrelated_ratio": 0.09307135470527404,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -1.86823308467865e-06,
+          "meanabs_change": 1.0153278708457947e-05,
+          "maxabs_change": 6.103515625e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -4.110857844352722e-06,
+          "meanabs_change": 6.206333637237549e-06,
+          "maxabs_change": 2.6047229766845703e-05,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 11,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.4612532848501729,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054300958232474404,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.33780396207776586,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05056155083899432,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0006678663194179535,
+          "meanabs_change": 0.0028316043317317963,
+          "maxabs_change": 0.008683323860168457,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0030465631280094385,
+          "meanabs_change": 0.006095425458624959,
+          "maxabs_change": 0.06035301089286804,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 12,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.03504987216574795,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06851573384094617,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.049049091839654765,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06333163262940916,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003910772502422333,
+          "meanabs_change": 0.0007554404437541962,
+          "maxabs_change": 0.0019963979721069336,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00038572587072849274,
+          "meanabs_change": 0.0006660278886556625,
+          "maxabs_change": 0.007200300693511963,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 13,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.01741939761197224,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.059098489146724005,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.02505111580692085,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.050559740042703305,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005247965455055237,
+          "meanabs_change": 0.0006532296538352966,
+          "maxabs_change": 0.0038353800773620605,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 5.993572995066643e-05,
+          "meanabs_change": 0.0006353207863867283,
+          "maxabs_change": 0.004874765872955322,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 14,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.007803523400311499,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08468741579089194,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.007249406148449278,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06388124607684056,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003188047558069229,
+          "meanabs_change": 0.00042869336903095245,
+          "maxabs_change": 0.0028444528579711914,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -4.8736343160271645e-05,
+          "meanabs_change": 0.00023304461501538754,
+          "maxabs_change": 0.0016991496086120605,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 15,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 5.739165976169349e-05,
+          "positive_pairs": 8,
+          "unrelated_ratio": 0.08420854203694726,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0004184764991679491,
+          "positive_pairs": 8,
+          "unrelated_ratio": 0.08653040859601918,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -1.6838312149047852e-06,
+          "meanabs_change": 1.9922852516174316e-05,
+          "maxabs_change": 8.970499038696289e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 1.9582221284508705e-05,
+          "meanabs_change": 2.944772131741047e-05,
+          "maxabs_change": 0.00019276142120361328,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 16,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 3.071602832050855e-05,
+          "positive_pairs": 7,
+          "unrelated_ratio": 0.08861535033975716,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00019051936120907298,
+          "positive_pairs": 8,
+          "unrelated_ratio": 0.05942766295707472,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -5.938112735748291e-06,
+          "meanabs_change": 2.8304755687713623e-05,
+          "maxabs_change": 0.00010454654693603516,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 1.8454156816005707e-05,
+          "meanabs_change": 2.971664071083069e-05,
+          "maxabs_change": 0.00017756223678588867,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 17,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0001778375429412329,
+          "positive_pairs": 11,
+          "unrelated_ratio": 0.09159558103761713,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0004761780243193069,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07619436504695794,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -3.302469849586487e-06,
+          "meanabs_change": 1.61733478307724e-05,
+          "maxabs_change": 6.300210952758789e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 6.480840966105461e-06,
+          "meanabs_change": 1.2082280591130257e-05,
+          "maxabs_change": 6.16610050201416e-05,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 18,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": -4.9806528073743944e-05,
+          "positive_pairs": 3,
+          "unrelated_ratio": 0.1000762485703393,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": -1.3375411486174739e-05,
+          "positive_pairs": 4,
+          "unrelated_ratio": 0.06991629739044807,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": 2.855435013771057e-06,
+          "meanabs_change": 9.035691618919373e-06,
+          "maxabs_change": 4.1961669921875e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 1.7220154404640198e-06,
+          "meanabs_change": 9.251758456230164e-06,
+          "maxabs_change": 4.601478576660156e-05,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 19,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 7.963637269209601e-05,
+          "positive_pairs": 10,
+          "unrelated_ratio": 0.07464262508122156,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 8.229890687443318e-05,
+          "positive_pairs": 10,
+          "unrelated_ratio": 0.05627679118187385,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -3.4831464290618896e-06,
+          "meanabs_change": 1.0494142770767212e-05,
+          "maxabs_change": 6.628036499023438e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 8.898787200450897e-07,
+          "meanabs_change": 8.834060281515121e-06,
+          "maxabs_change": 5.692243576049805e-05,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 20,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": -4.866500330486441e-06,
+          "positive_pairs": 4,
+          "unrelated_ratio": 0.10190865712338106,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": -4.1450400195655516e-05,
+          "positive_pairs": 4,
+          "unrelated_ratio": 0.0803176682495497,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": 2.6263296604156494e-06,
+          "meanabs_change": 7.141381502151489e-06,
+          "maxabs_change": 6.598234176635742e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -1.1278316378593445e-06,
+          "meanabs_change": 6.249174475669861e-06,
+          "maxabs_change": 4.470348358154297e-05,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 21,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5913981332284973,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.053811627246581416,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.49443376232067665,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04610693219662362,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0013519581407308578,
+          "meanabs_change": 0.004017723724246025,
+          "maxabs_change": 0.009862184524536133,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.005905794678255916,
+          "meanabs_change": 0.008908630115911365,
+          "maxabs_change": 0.09028750658035278,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 22,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.29348857148959584,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0628465944072013,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.29188519804068946,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.049212050248456624,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0009014196693897247,
+          "meanabs_change": 0.0020459555089473724,
+          "maxabs_change": 0.009492456912994385,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.003112570848315954,
+          "meanabs_change": 0.004129333887249231,
+          "maxabs_change": 0.03341075778007507,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 23,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.2827842834509339,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06269068253938577,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.27729150057470797,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048582859933925464,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0010197274386882782,
+          "meanabs_change": 0.0020889975130558014,
+          "maxabs_change": 0.011091113090515137,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.002817741595208645,
+          "meanabs_change": 0.003759663552045822,
+          "maxabs_change": 0.03098905086517334,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 24,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.27569916965187913,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06365077208367197,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.26489523608637866,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.049249994016554305,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0008403491228818893,
+          "meanabs_change": 0.002106277272105217,
+          "maxabs_change": 0.01025611162185669,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0026346626691520214,
+          "meanabs_change": 0.003538415301591158,
+          "maxabs_change": 0.02578747272491455,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 25,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.27004156261643364,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06349811032195611,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.259870896515712,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04939358182164992,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005580782890319824,
+          "meanabs_change": 0.0018865689635276794,
+          "maxabs_change": 0.007632732391357422,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0026662994641810656,
+          "meanabs_change": 0.0035598448012024164,
+          "maxabs_change": 0.024935752153396606,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 26,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.2700521367406086,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06350477334429104,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.2597187512100567,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.049315037311201834,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005615539848804474,
+          "meanabs_change": 0.0018797330558300018,
+          "maxabs_change": 0.007598280906677246,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0026700973976403475,
+          "meanabs_change": 0.00355862476862967,
+          "maxabs_change": 0.025010377168655396,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 27,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.27013112725060245,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06350997379048076,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.2598221431408449,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0493467121350717,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005568694323301315,
+          "meanabs_change": 0.0018795933574438095,
+          "maxabs_change": 0.007634401321411133,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.002655202290043235,
+          "meanabs_change": 0.0035457683261483908,
+          "maxabs_change": 0.024833709001541138,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 28,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.2700142110821688,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06348777094697568,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.25956354293517114,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.049324403047445634,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005509015172719955,
+          "meanabs_change": 0.0018779020756483078,
+          "maxabs_change": 0.007659435272216797,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0026505966670811176,
+          "meanabs_change": 0.0035410462878644466,
+          "maxabs_change": 0.024829238653182983,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 29,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.27009919459719933,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06349437657962068,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.2595989877756095,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04933186313149796,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005561113357543945,
+          "meanabs_change": 0.0018821805715560913,
+          "maxabs_change": 0.007642567157745361,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.002649821573868394,
+          "meanabs_change": 0.0035406139213591814,
+          "maxabs_change": 0.024755477905273438,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 30,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            0
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.2700404361117275,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06349843083315104,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.25952803121767537,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.049333265235190105,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005512796342372894,
+          "meanabs_change": 0.001879822462797165,
+          "maxabs_change": 0.007637083530426025,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.002648567780852318,
+          "meanabs_change": 0.003538763150572777,
+          "maxabs_change": 0.024751663208007812,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 31,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.48511372095048527,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05475956875712202,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.374679128894226,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04872014242483123,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0012166667729616165,
+          "meanabs_change": 0.0034297052770853043,
+          "maxabs_change": 0.007872462272644043,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.003772848518565297,
+          "meanabs_change": 0.006995438830927014,
+          "maxabs_change": 0.07202738523483276,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 32,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.07112358690874161,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0761566628421501,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0961593107810966,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05822296036031525,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0006885472685098648,
+          "meanabs_change": 0.0013753268867731094,
+          "maxabs_change": 0.00725245475769043,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.001012005377560854,
+          "meanabs_change": 0.0015594852156937122,
+          "maxabs_change": 0.015788793563842773,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 33,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.05386135923336879,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0767292226546803,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.07379809722733738,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.060583295347756076,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0008157771080732346,
+          "meanabs_change": 0.0014205928891897202,
+          "maxabs_change": 0.00668025016784668,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0007009643595665693,
+          "meanabs_change": 0.0014523437712341547,
+          "maxabs_change": 0.01346445083618164,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 34,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.04447737977048083,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0870406166693345,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.057081721958499976,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06823046629055118,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0006177574396133423,
+          "meanabs_change": 0.001199927181005478,
+          "maxabs_change": 0.006880760192871094,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0005643442273139954,
+          "meanabs_change": 0.0011005932465195656,
+          "maxabs_change": 0.00893297791481018,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 35,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.036998545066601815,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08937654139306411,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.05053370901297421,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07289871509658943,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003190375864505768,
+          "meanabs_change": 0.0010453127324581146,
+          "maxabs_change": 0.005930900573730469,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0006224298849701881,
+          "meanabs_change": 0.0010347804054617882,
+          "maxabs_change": 0.008257031440734863,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 36,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.036964900126045364,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08946845534500729,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.05032553410860339,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07324278991245545,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00032374635338783264,
+          "meanabs_change": 0.0010406337678432465,
+          "maxabs_change": 0.0059201717376708984,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00062337308190763,
+          "meanabs_change": 0.001030633458867669,
+          "maxabs_change": 0.008297950029373169,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 37,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.03710377562621721,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08943294305384691,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.05058967173463237,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07301266508191204,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00032002106308937073,
+          "meanabs_change": 0.0010473765432834625,
+          "maxabs_change": 0.0059272050857543945,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0006113953422755003,
+          "meanabs_change": 0.0010219730902463198,
+          "maxabs_change": 0.008172214031219482,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 38,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0368863602179339,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08942298373731475,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.05014198333677861,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0734492845478228,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003130286931991577,
+          "meanabs_change": 0.001049138605594635,
+          "maxabs_change": 0.005872011184692383,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0006057859864085913,
+          "meanabs_change": 0.0010159055236727,
+          "maxabs_change": 0.008158445358276367,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 39,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.037011056778871246,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08939401195077488,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.05022891013602726,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07339806466404834,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00031954236328601837,
+          "meanabs_change": 0.0010439660400152206,
+          "maxabs_change": 0.005890369415283203,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0006055936682969332,
+          "meanabs_change": 0.0010157616343349218,
+          "maxabs_change": 0.008080810308456421,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 40,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.036930369001786756,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08949984870274809,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.05011493825475357,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07347370927053408,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00031351111829280853,
+          "meanabs_change": 0.0010474268347024918,
+          "maxabs_change": 0.005895256996154785,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0006033938843756914,
+          "meanabs_change": 0.0010134277399629354,
+          "maxabs_change": 0.008069068193435669,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 41,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.4729372264414747,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054037147481086976,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3552105620809358,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04954055020257949,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.001148691400885582,
+          "meanabs_change": 0.0031151454895734787,
+          "maxabs_change": 0.009501338005065918,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0033827631268650293,
+          "meanabs_change": 0.006742038996890187,
+          "maxabs_change": 0.06777676939964294,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 42,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.053745960091272714,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06671253602990042,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.06990771166705712,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0566376623813948,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0007681194692850113,
+          "meanabs_change": 0.0009016338735818863,
+          "maxabs_change": 0.0030672550201416016,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0006486140191555023,
+          "meanabs_change": 0.0013360083103179932,
+          "maxabs_change": 0.012718796730041504,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 43,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.036451469321116294,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06171637166172474,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.046657260631462534,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05157790960947583,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0009070243686437607,
+          "meanabs_change": 0.0009976010769605637,
+          "maxabs_change": 0.004914820194244385,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00032014865428209305,
+          "meanabs_change": 0.0012703146785497665,
+          "maxabs_change": 0.010291188955307007,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 44,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.026914901040767186,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07110099166820133,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.029294745984550997,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06245885067715463,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0007054246962070465,
+          "meanabs_change": 0.000793159008026123,
+          "maxabs_change": 0.003956139087677002,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00019239075481891632,
+          "meanabs_change": 0.0008803326636552811,
+          "maxabs_change": 0.005870997905731201,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 45,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.019278851340100513,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0688129092114808,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.022565710219971346,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06905057423845833,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003955680876970291,
+          "meanabs_change": 0.0004577208310365677,
+          "maxabs_change": 0.001399219036102295,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00025750300846993923,
+          "meanabs_change": 0.0006861940491944551,
+          "maxabs_change": 0.005237281322479248,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 46,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.019247369288579837,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06892935363372682,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.022344293658229212,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06972045134835833,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00039955414831638336,
+          "meanabs_change": 0.00046551413834095,
+          "maxabs_change": 0.0013707876205444336,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00025778147391974926,
+          "meanabs_change": 0.0006864618044346571,
+          "maxabs_change": 0.005270481109619141,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 47,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.019388888319795402,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06921058868910132,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.02261810170676269,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06944680166597578,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00039693526923656464,
+          "meanabs_change": 0.0004611518234014511,
+          "maxabs_change": 0.001376509666442871,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00024451548233628273,
+          "meanabs_change": 0.0006940546445548534,
+          "maxabs_change": 0.005138754844665527,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 48,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.019168228577958437,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06875149927761191,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.022146377694468283,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07048726470675276,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00038987211883068085,
+          "meanabs_change": 0.0004527624696493149,
+          "maxabs_change": 0.0013957619667053223,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00023949495516717434,
+          "meanabs_change": 0.0006945610512048006,
+          "maxabs_change": 0.0051268041133880615,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 49,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.019295193168370788,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06889148920299855,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.022237985887737094,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07039838758764877,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003965049982070923,
+          "meanabs_change": 0.000460207462310791,
+          "maxabs_change": 0.0013990998268127441,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00023911893367767334,
+          "meanabs_change": 0.0006878543645143509,
+          "maxabs_change": 0.005053132772445679,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 50,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.019212898244572223,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06901444476590714,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.02211915873209392,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07069101261521007,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00039109960198402405,
+          "meanabs_change": 0.0004544295370578766,
+          "maxabs_change": 0.001409769058227539,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00023686280474066734,
+          "meanabs_change": 0.000687147956341505,
+          "maxabs_change": 0.005041450262069702,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 51,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.4665861881691232,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054416906382611464,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.34061897792996915,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05039942188142521,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0007755178958177567,
+          "meanabs_change": 0.0029112640768289566,
+          "maxabs_change": 0.008806943893432617,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.003038204275071621,
+          "meanabs_change": 0.006206017918884754,
+          "maxabs_change": 0.06123533844947815,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 52,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.042388960205815715,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0704741339599937,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.05171422283074399,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06229585152979608,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00047041475772857666,
+          "meanabs_change": 0.0008128508925437927,
+          "maxabs_change": 0.002497732639312744,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0003790576010942459,
+          "meanabs_change": 0.0007516322657465935,
+          "maxabs_change": 0.007863909006118774,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 53,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.02482777320149844,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0652971553091579,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.027874504666714508,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05049085633425159,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0006040427833795547,
+          "meanabs_change": 0.0007489193230867386,
+          "maxabs_change": 0.0043264031410217285,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 5.1120296120643616e-05,
+          "meanabs_change": 0.0007073627784848213,
+          "maxabs_change": 0.005496770143508911,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 54,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.015237868678329707,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0832054379443687,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.010185415972956522,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.062029302576614924,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00039833784103393555,
+          "meanabs_change": 0.0005067288875579834,
+          "maxabs_change": 0.0033382177352905273,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -6.05208333581686e-05,
+          "meanabs_change": 0.000319082522764802,
+          "maxabs_change": 0.0019345879554748535,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 55,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0075410928639711924,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08600627803405116,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.003380755631834041,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07753235295281276,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -8.442997932434082e-05,
+          "meanabs_change": 0.00011134892702102661,
+          "maxabs_change": 0.0005272626876831055,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 7.206341251730919e-06,
+          "meanabs_change": 0.00010851002298295498,
+          "maxabs_change": 0.0007279813289642334,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 56,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00751297530650616,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08640712840566499,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0031554468253494274,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08255550751545054,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -8.837506175041199e-05,
+          "meanabs_change": 0.00011977925896644592,
+          "maxabs_change": 0.0005724430084228516,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 6.295274943113327e-06,
+          "meanabs_change": 0.00011336756870150566,
+          "maxabs_change": 0.0007505714893341064,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 57,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0076581592330323385,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08637631359073632,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.003439767947311044,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07946074790703461,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -8.494779467582703e-05,
+          "meanabs_change": 0.00011356547474861145,
+          "maxabs_change": 0.0005123615264892578,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -5.5138953030109406e-06,
+          "meanabs_change": 0.00011285161599516869,
+          "maxabs_change": 0.0006320774555206299,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 58,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.007431476446033261,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08630575823109728,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.002954160257893984,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08885518303035791,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -7.847882807254791e-05,
+          "meanabs_change": 0.00010658986866474152,
+          "maxabs_change": 0.000469207763671875,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -1.0664109140634537e-05,
+          "meanabs_change": 0.00011702487245202065,
+          "maxabs_change": 0.0006166398525238037,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 59,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.007560844246485359,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08613918229260821,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.003049299559795145,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08773214959338181,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -8.526258170604706e-05,
+          "meanabs_change": 0.00011277012526988983,
+          "maxabs_change": 0.0005328655242919922,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -1.1360738426446915e-05,
+          "meanabs_change": 0.0001087305136024952,
+          "maxabs_change": 0.000543445348739624,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 60,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            0,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.007476581694466751,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08682773071259389,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0029260451429500445,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09069860991118242,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -7.95610249042511e-05,
+          "meanabs_change": 0.0001071728765964508,
+          "maxabs_change": 0.00046706199645996094,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -1.377076841890812e-05,
+          "meanabs_change": 0.00010879128240048885,
+          "maxabs_change": 0.0005266666412353516,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 61,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.46252048248406846,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054342518644836614,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3400039096327774,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05049726257648926,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0008543748408555984,
+          "meanabs_change": 0.002986656501889229,
+          "maxabs_change": 0.008707523345947266,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0030138948932290077,
+          "meanabs_change": 0.0063040247187018394,
+          "maxabs_change": 0.06150054931640625,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 62,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.036504700423496676,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06971621085617323,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.051363479415342035,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06257997751124829,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005256924778223038,
+          "meanabs_change": 0.0008532311767339706,
+          "maxabs_change": 0.0027054548263549805,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0003557701129466295,
+          "meanabs_change": 0.0007991089951246977,
+          "maxabs_change": 0.007937699556350708,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 63,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.018852521879049504,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.062035715082428,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.02743698158159024,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05052162043582119,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.000654829666018486,
+          "meanabs_change": 0.0008090939372777939,
+          "maxabs_change": 0.004229903221130371,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 3.622891381382942e-05,
+          "meanabs_change": 0.0007865806110203266,
+          "maxabs_change": 0.00561186671257019,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 64,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.009233027832266394,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08793778560076002,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.009694458118944992,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0657101229723633,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00045250914990901947,
+          "meanabs_change": 0.0005722846835851669,
+          "maxabs_change": 0.003257453441619873,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -7.837358862161636e-05,
+          "meanabs_change": 0.00037895888090133667,
+          "maxabs_change": 0.0021530985832214355,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 65,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0014996781651154896,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.11082821699110582,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.002876328738455933,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0948657496535625,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00013968907296657562,
+          "meanabs_change": 0.00019805319607257843,
+          "maxabs_change": 0.0013988018035888672,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -9.360956028103828e-06,
+          "meanabs_change": 0.00017562624998390675,
+          "maxabs_change": 0.0008518993854522705,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 66,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0014730325737998017,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.11499754663889529,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.002649883021994995,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0956384138585475,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00014350935816764832,
+          "meanabs_change": 0.00020843371748924255,
+          "maxabs_change": 0.001387476921081543,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -1.0405434295535088e-05,
+          "meanabs_change": 0.00017851288430392742,
+          "maxabs_change": 0.0008736252784729004,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 67,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0016197034865380736,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.11197592171809718,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.002935541685105229,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09232115112109461,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00014115124940872192,
+          "meanabs_change": 0.00020759552717208862,
+          "maxabs_change": 0.001392960548400879,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -2.2134743630886078e-05,
+          "meanabs_change": 0.0001810118556022644,
+          "maxabs_change": 0.0007576346397399902,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 68,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0013919843152093547,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.11525073653529602,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0024477939298503805,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.10225838355909883,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00013460032641887665,
+          "meanabs_change": 0.00020753033459186554,
+          "maxabs_change": 0.0013414621353149414,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -2.7397414669394493e-05,
+          "meanabs_change": 0.00018648593686521053,
+          "maxabs_change": 0.0007412135601043701,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 69,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.001522208259238112,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.1127535302292584,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0025433211186846405,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.10026347758862787,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00014093518257141113,
+          "meanabs_change": 0.0002019628882408142,
+          "maxabs_change": 0.0013567209243774414,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -2.7829548344016075e-05,
+          "meanabs_change": 0.00017759366892278194,
+          "maxabs_change": 0.0006679296493530273,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 70,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            1
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0014376152658390393,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.11582350512141325,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.002419959698547651,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.10464222941976277,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00013539381325244904,
+          "meanabs_change": 0.00020332448184490204,
+          "maxabs_change": 0.001363992691040039,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -3.023352473974228e-05,
+          "meanabs_change": 0.0001778220757842064,
+          "maxabs_change": 0.0006510019302368164,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 71,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.46281140607944254,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05429930424227452,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3404588475036566,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05047553469219321,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0009532477706670761,
+          "meanabs_change": 0.003065710887312889,
+          "maxabs_change": 0.008838653564453125,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0030570088420063257,
+          "meanabs_change": 0.006296625593677163,
+          "maxabs_change": 0.06191068887710571,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 72,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.03695898222132249,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06906411784571581,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.051894349497228306,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06231055880770095,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0006010178476572037,
+          "meanabs_change": 0.0008948761969804764,
+          "maxabs_change": 0.0023973584175109863,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00038635521195828915,
+          "meanabs_change": 0.0008508677128702402,
+          "maxabs_change": 0.008326083421707153,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 73,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.019330850797335528,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0609664942245622,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.02797617116942092,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.050017402845269586,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0007331687957048416,
+          "meanabs_change": 0.0008469317108392715,
+          "maxabs_change": 0.004211366176605225,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 6.395322270691395e-05,
+          "meanabs_change": 0.0007920318748801947,
+          "maxabs_change": 0.00600394606590271,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 74,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.009713249278458716,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08457440639569497,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.01022899306357848,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06331716706265095,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005307961255311966,
+          "meanabs_change": 0.0006137881428003311,
+          "maxabs_change": 0.003229856491088867,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -5.025416612625122e-05,
+          "meanabs_change": 0.000415995717048645,
+          "maxabs_change": 0.0019322037696838379,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 75,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.001976234715997199,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08782956989655932,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0034071988203422084,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08073260159537718,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0002196040004491806,
+          "meanabs_change": 0.00024792738258838654,
+          "maxabs_change": 0.0011532306671142578,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 1.8527032807469368e-05,
+          "meanabs_change": 0.00021980213932693005,
+          "maxabs_change": 0.001240760087966919,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 76,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0019491385227990586,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09059559679122133,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0031800575824839886,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07924998107287365,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00022396259009838104,
+          "meanabs_change": 0.00025540776550769806,
+          "maxabs_change": 0.0011963844299316406,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 1.740199513733387e-05,
+          "meanabs_change": 0.00022019189782440662,
+          "maxabs_change": 0.0012635290622711182,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 77,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0020951185126509035,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0898428538655655,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.003465087601254373,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07970424296698884,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00022046640515327454,
+          "meanabs_change": 0.0002510584890842438,
+          "maxabs_change": 0.0011390447616577148,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 5.807727575302124e-06,
+          "meanabs_change": 0.00022533349692821503,
+          "maxabs_change": 0.0011466145515441895,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 78,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0018675495419496683,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0910268061799786,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0029773665968224968,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08594788858939802,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00021439604461193085,
+          "meanabs_change": 0.0002431292086839676,
+          "maxabs_change": 0.0010716915130615234,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 4.975590854883194e-07,
+          "meanabs_change": 0.00022856681607663631,
+          "maxabs_change": 0.0011309981346130371,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 79,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0019975632050999483,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0899972178986864,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.003072251765905421,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0849086175520475,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0002210605889558792,
+          "meanabs_change": 0.0002503972500562668,
+          "maxabs_change": 0.0011589527130126953,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -6.379559636116028e-08,
+          "meanabs_change": 0.0002216673456132412,
+          "maxabs_change": 0.001057744026184082,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 80,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0019136160743990572,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09285815202034473,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.002949599242577198,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08764352179354629,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00021526776254177094,
+          "meanabs_change": 0.0002444405108690262,
+          "maxabs_change": 0.001096487045288086,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -2.161134034395218e-06,
+          "meanabs_change": 0.00022025825455784798,
+          "maxabs_change": 0.001041322946548462,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 81,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.4621418116821182,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0543128786994121,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.33819992775940255,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.050541407664674014,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0007806792855262756,
+          "meanabs_change": 0.002907700836658478,
+          "maxabs_change": 0.008744239807128906,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.003021219512447715,
+          "meanabs_change": 0.0061370262410491705,
+          "maxabs_change": 0.060529232025146484,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 82,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.03627812277693684,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06873379867023337,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.04931938215496738,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06320259418975911,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00047714635729789734,
+          "meanabs_change": 0.0008055455982685089,
+          "maxabs_change": 0.002459883689880371,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.000369661720469594,
+          "meanabs_change": 0.0007048237603157759,
+          "maxabs_change": 0.0074256956577301025,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 83,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.01865916861128916,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.060171877100467445,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.025335811440404078,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.050451956701692745,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0006114020943641663,
+          "meanabs_change": 0.0007155835628509521,
+          "maxabs_change": 0.0042999982833862305,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 4.544248804450035e-05,
+          "meanabs_change": 0.0006662667728960514,
+          "maxabs_change": 0.005099266767501831,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 84,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.009044420904334547,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08373245471273226,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.007548560601749062,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06339596758812918,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0004049241542816162,
+          "meanabs_change": 0.0004887990653514862,
+          "maxabs_change": 0.0033039450645446777,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -6.436184048652649e-05,
+          "meanabs_change": 0.00027242209762334824,
+          "maxabs_change": 0.0018875598907470703,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 85,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0013072261011200493,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0821192205165916,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0007199850248893001,
+          "positive_pairs": 10,
+          "unrelated_ratio": 0.08252411953878735,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -8.973665535449982e-05,
+          "meanabs_change": 9.02954488992691e-05,
+          "maxabs_change": 0.00038051605224609375,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 4.297588020563126e-06,
+          "meanabs_change": 5.584815517067909e-05,
+          "maxabs_change": 0.00037938356399536133,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 86,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0012801899881729024,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08515581002440398,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0004927902853851359,
+          "positive_pairs": 10,
+          "unrelated_ratio": 0.06888129504282492,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -9.402632713317871e-05,
+          "meanabs_change": 9.582191705703735e-05,
+          "maxabs_change": 0.0003707408905029297,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 2.9837246984243393e-06,
+          "meanabs_change": 5.714478902518749e-05,
+          "maxabs_change": 0.00040021538734436035,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 87,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0014273115027936267,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08392877813674009,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0007788100846054966,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08054103128835387,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -9.080953896045685e-05,
+          "meanabs_change": 9.236298501491547e-05,
+          "maxabs_change": 0.000405728816986084,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -8.806353434920311e-06,
+          "meanabs_change": 5.6750839576125145e-05,
+          "maxabs_change": 0.000284343957901001,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 88,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0011993069502726878,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08387916891054141,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00028908276845069465,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08866193472398723,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -8.42660665512085e-05,
+          "meanabs_change": 8.728727698326111e-05,
+          "maxabs_change": 0.00042515993118286133,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -1.367693766951561e-05,
+          "meanabs_change": 6.144167855381966e-05,
+          "maxabs_change": 0.0002684295177459717,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 89,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.001329590974552439,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08320059646863456,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.000384716960576844,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09275786393562546,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -9.076856076717377e-05,
+          "meanabs_change": 9.255670011043549e-05,
+          "maxabs_change": 0.00041550397872924805,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -1.4377059414982796e-05,
+          "meanabs_change": 5.033169873058796e-05,
+          "maxabs_change": 0.00019469857215881348,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 90,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            1,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0012450130012161146,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08601158161418748,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00026118166009053413,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.10313400459740343,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -8.527375757694244e-05,
+          "meanabs_change": 8.758716285228729e-05,
+          "maxabs_change": 0.00040471553802490234,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -1.689232885837555e-05,
+          "meanabs_change": 5.025416612625122e-05,
+          "maxabs_change": 0.0001780986785888672,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 91,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.4615040598178205,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05428793633345951,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3383456528675444,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0505527474143932,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0007540974766016006,
+          "meanabs_change": 0.0028832945972681046,
+          "maxabs_change": 0.008733272552490234,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0030555177945643663,
+          "meanabs_change": 0.006154641741886735,
+          "maxabs_change": 0.060860633850097656,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 92,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.03539570911053021,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0683162590247997,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.04959368509372586,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06319540431384976,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00045016221702098846,
+          "meanabs_change": 0.0007920917123556137,
+          "maxabs_change": 0.0021385550498962402,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0003898858558386564,
+          "meanabs_change": 0.000716464826837182,
+          "maxabs_change": 0.007586777210235596,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 93,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.017769184833257328,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.058897914676719954,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0256094857348227,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05048052692136343,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005843564867973328,
+          "meanabs_change": 0.0007108747959136963,
+          "maxabs_change": 0.003976583480834961,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 6.472249515354633e-05,
+          "meanabs_change": 0.0006725031416863203,
+          "maxabs_change": 0.005264610052108765,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 94,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.008152154076764957,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08297635564006331,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00781763375461644,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06219158077060232,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00037841126322746277,
+          "meanabs_change": 0.00047460198402404785,
+          "maxabs_change": 0.002984464168548584,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -4.4807326048612595e-05,
+          "meanabs_change": 0.00028097955510020256,
+          "maxabs_change": 0.0017542243003845215,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 95,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00040785478387045935,
+          "positive_pairs": 10,
+          "unrelated_ratio": 0.06566345396132629,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0009890849285796495,
+          "positive_pairs": 11,
+          "unrelated_ratio": 0.08758530636379315,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -6.397627294063568e-05,
+          "meanabs_change": 9.54214483499527e-05,
+          "maxabs_change": 0.0006412267684936523,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 2.3801112547516823e-05,
+          "meanabs_change": 7.861689664423466e-05,
+          "maxabs_change": 0.0005384981632232666,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 96,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00038131433299401013,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08225008627631428,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.000761542428376845,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06626093635210044,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -6.81653618812561e-05,
+          "meanabs_change": 9.86829400062561e-05,
+          "maxabs_change": 0.0006867647171020508,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 2.281065098941326e-05,
+          "meanabs_change": 7.111369632184505e-05,
+          "maxabs_change": 0.0005600452423095703,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 97,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0005277599447910558,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07909572826971081,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0010471609652526203,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07489462255715927,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -6.463378667831421e-05,
+          "meanabs_change": 9.514391422271729e-05,
+          "maxabs_change": 0.0006244182586669922,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 1.068180426955223e-05,
+          "meanabs_change": 7.018493488430977e-05,
+          "maxabs_change": 0.00044348835945129395,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 98,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00030001073333684006,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07832724039126569,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0005575941540356525,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.091213298791019,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -5.8284029364585876e-05,
+          "meanabs_change": 8.84179025888443e-05,
+          "maxabs_change": 0.0005562305450439453,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 5.763722583651543e-06,
+          "meanabs_change": 7.042824290692806e-05,
+          "maxabs_change": 0.0004284679889678955,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 99,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00042978407548314513,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06993080310337597,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0006530277149895094,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08360813550990312,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -6.44586980342865e-05,
+          "meanabs_change": 9.57585871219635e-05,
+          "maxabs_change": 0.0006455183029174805,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 5.116686224937439e-06,
+          "meanabs_change": 6.474647670984268e-05,
+          "maxabs_change": 0.00035500526428222656,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 100,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            2
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0003457618444685119,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08205907906168548,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0005298535506133261,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0985005301156157,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -5.8867037296295166e-05,
+          "meanabs_change": 9.193271398544312e-05,
+          "maxabs_change": 0.0005801916122436523,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 2.7455389499664307e-06,
+          "meanabs_change": 6.357487291097641e-05,
+          "maxabs_change": 0.0003375113010406494,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 101,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.461584206872646,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05430623434956624,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3379998717298038,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05056069706656142,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0007088314741849899,
+          "meanabs_change": 0.0028424616903066635,
+          "maxabs_change": 0.008708000183105469,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0030412895139306784,
+          "meanabs_change": 0.006116189761087298,
+          "maxabs_change": 0.06046786904335022,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 102,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.03550487492658569,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06864685700748362,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.04921766215061502,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06333539146541903,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.00041969120502471924,
+          "meanabs_change": 0.0007682815194129944,
+          "maxabs_change": 0.0022006630897521973,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.000380299286916852,
+          "meanabs_change": 0.0006885041948407888,
+          "maxabs_change": 0.007311344146728516,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 103,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.017880062936466126,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05959449333508062,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.02522531716611679,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05057220589974162,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.000553477555513382,
+          "meanabs_change": 0.0006694309413433075,
+          "maxabs_change": 0.0040438175201416016,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 5.5921729654073715e-05,
+          "meanabs_change": 0.0006477502174675465,
+          "maxabs_change": 0.004982799291610718,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 104,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.008266111292837181,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08459165094905313,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.007427981267201197,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06337492446055953,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003467407077550888,
+          "meanabs_change": 0.0004424098879098892,
+          "maxabs_change": 0.003050684928894043,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -5.352240987122059e-05,
+          "meanabs_change": 0.000259763328358531,
+          "maxabs_change": 0.0017017722129821777,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 105,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0005220823610721549,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08595194085027726,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0005982152787191653,
+          "positive_pairs": 9,
+          "unrelated_ratio": 0.08804833036263547,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -3.0307099223136902e-05,
+          "meanabs_change": 3.4729018807411194e-05,
+          "maxabs_change": 0.0001207590103149414,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 1.459755003452301e-05,
+          "meanabs_change": 5.0595030188560486e-05,
+          "maxabs_change": 0.00026473402976989746,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 106,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0004954818299447121,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09116676664667066,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00037087340968865314,
+          "positive_pairs": 10,
+          "unrelated_ratio": 0.05978600437363324,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -3.4574419260025024e-05,
+          "meanabs_change": 4.6681612730026245e-05,
+          "maxabs_change": 0.00016134977340698242,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 1.3717450201511383e-05,
+          "meanabs_change": 4.7839246690273285e-05,
+          "maxabs_change": 0.0002867281436920166,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 107,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.000641867361490764,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09054850938362896,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0006565989498563179,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07984314524343043,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -3.1676143407821655e-05,
+          "meanabs_change": 3.8292258977890015e-05,
+          "maxabs_change": 0.00014448165893554688,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 2.0563602447509766e-06,
+          "meanabs_change": 3.645569086074829e-05,
+          "maxabs_change": 0.00017055869102478027,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 108,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0004144786315425103,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08773328501540134,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00016692513534746076,
+          "positive_pairs": 11,
+          "unrelated_ratio": 0.09210841210960871,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -2.535805106163025e-05,
+          "meanabs_change": 3.061816096305847e-05,
+          "maxabs_change": 0.00016647577285766602,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -3.0456576496362686e-06,
+          "meanabs_change": 3.462587483227253e-05,
+          "maxabs_change": 0.0001557469367980957,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 109,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0005441318131868281,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08656526899826096,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00026243894877023456,
+          "positive_pairs": 11,
+          "unrelated_ratio": 0.08454084198016182,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -3.176182508468628e-05,
+          "meanabs_change": 3.714114427566528e-05,
+          "maxabs_change": 0.0001550912857055664,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -3.970228135585785e-06,
+          "meanabs_change": 3.106333315372467e-05,
+          "maxabs_change": 0.0001532435417175293,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 110,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            2,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0004600945621094465,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09480282057978585,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00013933166145148226,
+          "positive_pairs": 9,
+          "unrelated_ratio": 0.11088504577822991,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -2.607889473438263e-05,
+          "meanabs_change": 3.1268224120140076e-05,
+          "maxabs_change": 0.00014281272888183594,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -6.302958354353905e-06,
+          "meanabs_change": 2.8195558115839958e-05,
+          "maxabs_change": 0.00014412403106689453,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 111,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            0
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.46132487046923193,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05430391134492771,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3378128299755812,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05056079766689101,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0006705708801746368,
+          "meanabs_change": 0.0028237365186214447,
+          "maxabs_change": 0.00868368148803711,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0030429628677666187,
+          "meanabs_change": 0.006097837816923857,
+          "maxabs_change": 0.06033527851104736,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 112,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.035119279875708384,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06861191587565939,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.049044624452218376,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06333140157222628,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003927275538444519,
+          "meanabs_change": 0.0007543787360191345,
+          "maxabs_change": 0.002039194107055664,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0003816667012870312,
+          "meanabs_change": 0.0006676767952740192,
+          "maxabs_change": 0.007177591323852539,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 113,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.017488820341995413,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.059325949617130044,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.025047598073699988,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05055776275458439,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005263388156890869,
+          "meanabs_change": 0.0006511732935905457,
+          "maxabs_change": 0.003880143165588379,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 5.551776848733425e-05,
+          "meanabs_change": 0.0006365769077092409,
+          "maxabs_change": 0.0048507750034332275,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 114,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            0,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.007872059946632516,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08485736582313018,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.007245875039816928,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06391918679906225,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0003199968487024307,
+          "meanabs_change": 0.0004274379462003708,
+          "maxabs_change": 0.0028859376907348633,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -5.319691263139248e-05,
+          "meanabs_change": 0.00023481552489101887,
+          "maxabs_change": 0.0017215609550476074,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 115,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            1
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00012667920922013163,
+          "positive_pairs": 8,
+          "unrelated_ratio": 0.07921004615219492,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00041526640041126715,
+          "positive_pairs": 8,
+          "unrelated_ratio": 0.08768986707025767,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -3.4533441066741943e-06,
+          "meanabs_change": 1.4122575521469116e-05,
+          "maxabs_change": 4.5359134674072266e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 1.4940043911337852e-05,
+          "meanabs_change": 2.5030924007296562e-05,
+          "maxabs_change": 0.0001703500747680664,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 116,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00010003361790444351,
+          "positive_pairs": 9,
+          "unrelated_ratio": 0.107714233173961,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00018803153467264447,
+          "positive_pairs": 8,
+          "unrelated_ratio": 0.06018308856828621,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -7.817521691322327e-06,
+          "meanabs_change": 2.261437475681305e-05,
+          "maxabs_change": 0.00010180473327636719,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 1.3971002772450447e-05,
+          "meanabs_change": 2.5670276954770088e-05,
+          "maxabs_change": 0.0001520216464996338,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 117,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            1,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0002468096710819543,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09620918649695628,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.00047331568626126546,
+          "positive_pairs": 11,
+          "unrelated_ratio": 0.07824548796329564,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -4.343688488006592e-06,
+          "meanabs_change": 1.2777745723724365e-05,
+          "maxabs_change": 3.981590270996094e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 2.055428922176361e-06,
+          "meanabs_change": 1.0619871318340302e-05,
+          "maxabs_change": 3.719329833984375e-05,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 118,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            2
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 1.8745038310021846e-05,
+          "positive_pairs": 7,
+          "unrelated_ratio": 0.1320438282647585,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": -1.6411629893536404e-05,
+          "positive_pairs": 4,
+          "unrelated_ratio": 0.07214860120058897,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": 2.2407621145248413e-06,
+          "meanabs_change": 1.2381002306938171e-05,
+          "maxabs_change": 8.380413055419922e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -2.8677750378847122e-06,
+          "meanabs_change": 1.0171672329306602e-05,
+          "maxabs_change": 4.8160552978515625e-05,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 119,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            2,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00014862352089556585,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.10060271220492215,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 7.886142612248626e-05,
+          "positive_pairs": 10,
+          "unrelated_ratio": 0.061407440609592114,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -4.4424086809158325e-06,
+          "meanabs_change": 6.7818909883499146e-06,
+          "maxabs_change": 2.1755695343017578e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -3.6722049117088318e-06,
+          "meanabs_change": 1.2184493243694305e-05,
+          "maxabs_change": 5.239248275756836e-05,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 120,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "key_pair": [
+            3,
+            3
+          ]
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "key_pair": [
+            3,
+            3
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 6.39404071200024e-05,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.17014395994158146,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": -4.421911037329369e-05,
+          "positive_pairs": 4,
+          "unrelated_ratio": 0.08013910355486864,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": 1.085922122001648e-06,
+          "meanabs_change": 1.097656786441803e-05,
+          "maxabs_change": 6.020069122314453e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -6.126705557107925e-06,
+          "meanabs_change": 9.458977729082108e-06,
+          "maxabs_change": 7.006525993347168e-05,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    }
+  ],
+  "regional_passers": [],
+  "joint_passers": [],
+  "body_forwards": 9872,
+  "seconds": 188.05423313751817,
+  "scope": "All120 frozen joint-key paths/pairs in selected8first/9current value sectors; exploratory reused-panel screen. Full jointquery and native keynormalizers retained. Fresh confirmation required; prior sector/fullpair failure preserved.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_NATIVE_V1_PREREGISTRATION.md": "40a5a81fa3ec49c575f4feb59812ce91867d16f907b58e80b69a537c82791bc0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_COMPETING_CUES_V1_ROWS.json": "7eeafb875fd3687f7e8225264a129d015d807d677235b3b6129af6d04dc19621",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_CITY_ROLE_CROSSOVER_V1_ROWS.json": "e79ab43eff592829724de70e6ac038d1046d0172b4a26975896b738311b995cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MIXED_TOKEN_HEAD2_NATIVE_V1_PROGRAM.pt": "75d043f471023fa70455f22f634f1372b3cd4347bb2646ea2cec85347dbe88ee",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_POSITIONS_V1_ARTIFACT.pt": "b66146b4945366051eeb8641d3c85bd4918ced6b28103dcecfb0cb5d600d1829",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "c6dda30ba85cff6d7cccff280faec0f1a437362ecb4875511aca263c258d16ed",
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_reading_head_v1.py": "c829a4dd80c61c3ba70cbdf4e405e4a23bb94b2aa13b4f2f310f8b549835aba8",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_BANK_V1_PREREGISTRATION.md": "3a19319760502562ecb2cd7186b642607dc9e9aba7a62c83cd82dcdf86fbb4f2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_PASSERS_CONFIRMATION_V1_PREREGISTRATION.md": "a26809fbfe6e9e43d0eeaa74280ac931f66b628f5045f45840612a12cf3d3084",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_CONFIRMATION_V1_ROWS.json": "e6bf664fa6dc88cc4ca52763d46fb7ab9085121aead3453192dcd867b03c1ede",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_SHARED_OUTPUT_V1_ARTIFACT.pt": "fbf2df661f1a09a063fe068aff166f37750a29973ff4f215a9d88d6e851816aa",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_mixed_token_head_v1.py": "adb47f8387c75f557d13c0dfaf192180547fce677417b5b89c47406b3a29b331",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NATIVE_V1_PREREGISTRATION.md": "8d39a530df165fc8df1ea94f70dfa59d1ddbd89b55d506d6e8226c3ae1e2f524",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_COMPILE_V1_PROGRAM.pt": "d2e5fd65ab43dd25bf8548438c918ea7b4c9a93e6664931b5d52b37dcbd92490",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PRODUCER_FRESH_CONFIRMATION_CACHE_V1_ARTIFACT.pt": "50626223f54f56c261127f0154a54f3ef9b5b8a7fec1abf8ac1692023c4dcb4f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_scalar_producers_v1.py": "aa0666a6dc2d2f840e830d4107811958038fe9305556e9857e75059c89d6be4b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_BANK_WEIGHTS_V1_ARTIFACT.pt": "5cf244ecf66632b6145f2f32c8d013958a2d98217607f680a91d0d9e7dd92e5b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_PREREGISTRATION.md": "e977e0646181d1b782a4f943c923282f2f2032a2c3ac04ed38dbd9d096dd425c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_ROWS.json": "c41e462bfda16d3fa0e1f5ca18275ea219f63525e31db8e8920f2c9506980f40",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_PREREGISTRATION.md": "e1a7bcbdd958b52703fd4aca510086c1033dfe58cdd8b1c39d8c553901917deb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_ROWS.json": "2bbd64ee8d4e6dd98b42b313786370b1f1f0a6984f0cde174510bb1f99a3d042",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_ARTIFACT.pt": "8ba9cf53ba687387d006b208bd9df556d576191701580b5fc5a2d1688ebeef75",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_producers_newline_natural_rows_v2.py": "de1a5ff0a6ff63bcf2aadaa9d614598fbead8d732e8c6ddc0f1d13cf3c634708",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_PREREGISTRATION.md": "b08fdf2d6968452ef7d101a2cc309f10aa610e2cb1cad9644e165b800d1c59e1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_NATIVE_LIFT_V1_RESULT.json": "68bfdd6a7697ca5d9a5fa890fc4a8ea29dff7edb691571c73509b568e067aa76",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_NATIVE_LIFT_V1_ARTIFACT.pt": "abac8ee3ad606366028ff0c26dbf6110a6edb08b71bb8ba379de74b2cc5bbf51",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_RESULT.json": "a351c1318926c7e700a17e16d86fd4924739e0724190b7bef7f3d1dd290c53b1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_ARTIFACT.pt": "a43d66e0650d83cf0f27ef868dc17e7473a0bac0aa0767a74d20cc15eae5e2c1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_PREREGISTRATION.md": "6f9831ed0901ac08f440100232b624e9be10e14d8bdb412c3d9721b302b5609b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_NATIVE_SCALARS_V1_ARTIFACT.pt": "fcf1ae76dfc04ce295fedc38e05bab297ca409c69a9991345683fba99ba521dd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_ARTIFACT.pt": "171e01f2c5b4d30500c08e4119f61d895ccfd72738eddb56c2229ed1e91179bd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_RESULT.json": "53a376e6139df1d0182391950a557d1e0b1394f3becc3b3c81d11c69fb664577",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_PREREGISTRATION.md": "5a22072aa0c196162a5e0bfc8ef4b4a377e60319fac40c7c2aa9b60bd1ac950a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_V1_RESULT.json": "13cf919769530af5064e364632f5ff7cde3e6191efc6c5db85e36286bc278437",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_EFFECT_V1_PREREGISTRATION.md": "0e873f62b64dade1f88554150bc992b5b17273d372c271a97369ddb27c566e29",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_ARTIFACT.pt": "b66448cbca59cf113abff0d1c9a8bce9f6cbf5209e5101d4d29b6044edbbc39b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_RESULT.json": "7d3a5d9ed44bd52c686122f6aad853fc50bde2d6e38efa35743dd31cdf8f7e87",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_ARTIFACT.pt": "25d07a1b6f8f721ea3f48b051596a1f4cc30f6b90600f0bfaf1aee8f0a2e6bf1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_PREREGISTRATION.md": "35760079dfe5d2dfb95bb6465473aaafe0bc35a0f65763fe3f5a60f3b8e9a906",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_ROWS.json": "738d430059208837acf8871924cef0a1b38d755dfd26d5fa69282da54cb15f55",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_DIRECTIONAL_MLP_V1_PROGRAM.pt": "2e07e9eb98ac60f5f0acde03875a08bdd16014ecadcb1605c0e1307e83c6bbcc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/directional_mlp_bridge_v1.py": "2dd44cc26e7699e0cdebc26f1feae8508e34f5edf5299a4f35608acc925655d3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_producers_context_transfer_rows_v1.py": "53ca2ca1bd7ce1a27f8b7ae5529eb10410726eda3a837ee94f973734a4e5d05e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_value_sectors_v1.py": "a9f2e3dd080d486919d3ba895083b9e21cb202684da91582501d7c6f1d2971fe",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTORS_V1_CONTROL.json": "53b3d081d65adf90ca27ef7eaefc0bd5d8c91073375d5d2cd0b83c1be7e97396",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_ARTIFACT.pt": "494d907c6f40008060a6d08801681d0560865e55258043e1846038188f2829c4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_PATH_SCREEN_V1_PREREGISTRATION.md": "0e6cb2c71522d1b80b35388a2d8405ce268a123edea983db4356c24197b04e43",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTOR_FACTORIAL_V1_ARTIFACT.pt": "0281877b2bb48eadb23496f10628c15ea2560534252d70f9e35a62005e96f369",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTOR_FACTORIAL_V1_RESULT.json": "e06c5b20d1542b4801c9cfa8079a9f184606fd3c435bcf1b5f0c920328e8662f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_BANK_V1_ARTIFACT.pt": "523623c338a0220e2a6ab8cf2dd4bf241bb61e22d8efed3f4123399432aa6209",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_BANK_V1_RESULT.json": "f52503145cb32aae8dfdaae8f2b489d996abb9cb5a2d2dac265efae44fbf5165",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_PATHS_V1_CONTROL.json": "359a4696bc337bbab81f35f8d5aa9170a4d886c4a9b960b126b301780bf73b43",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_joint_key_paths_v1.py": "9ec0f791a424bffc240be67c7e02ba7469ee743555ca549742519e232b978d0e",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_scalar_joint_key_path_screen_v1.py": "0d18ef12b89a4cb0e155689799830dcba3349456b93dbd634bfcb3119ad71d5c"
+  },
+  "artifact_sha": "e1ba7bd5a408df1afe1bf6cd3b843ae38afbd07995d9a31e0b5ad3a84bc7a853"
+}
