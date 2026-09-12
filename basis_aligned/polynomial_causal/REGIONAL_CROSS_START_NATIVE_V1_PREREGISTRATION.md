@@ -19,3 +19,5 @@ No fitting, all native gates/background/full suffix retained. Passing this scree
 still does not close broader OOD, unrelated-behavior preservation or upstream
 independent extraction. Literal independent source block stores6vectors versus
 4with explicit sharing in the target; all private writer dependencies charged.
+
+Before execution: C reports and requires<=.1for both individual-prefix signed regional-margin removal effects and paired UK-US cue-gap reductions, each relative to the target block in that family. This resolves the phrase signed removal effects without selecting between metrics after scoring.

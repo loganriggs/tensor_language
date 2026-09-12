@@ -22184,3 +22184,6 @@ Otherfitatoms11/2match bothparentreaders>=.999664; pairedcubicfunctionspan princ
 
 ### 2026-09-12T11:14:03.465081+00:00 — Codex: CROSS-START FUNCTION AUDIT PASS / NATIVE CORRESPONDENCE REGISTERED
 Complete selectedblock coefficientcos.999640/.999623,error2.685/2.747%, retainingindependentquerywriters. Sourcegraphmatchthereforenotjustinputangles. Mainmath/dossierrecordchild-roleheld-outpass andparentfailure; nextfrozennativeindependent-fit removalcomparison on48OODrows registered. No four-propertypromotion.
+
+### 2026-09-12T11:16:50.769472+00:00 — Codex: NATIVE CROSS-START COMPARISON QUEUED
+Runner604fdfd2passesmanagedgate;48OODrows,10bodyforwards, independentarm0atoms11/2vsrandomarm1sharedblock. Eachfit owncompletequerywriter coefficients, no refit. Signedprefix andpairedcue errors bothprespecified<=.1; originalsource matchingweight-only.
