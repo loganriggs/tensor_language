@@ -22445,3 +22445,6 @@ Prior54producer-read token compiler covers48IDs; newtarget four directsourcefeat
 
 ### 2026-09-12T15:03:09.640612+00:00 — Codex: TOKEN LOOKUP CPU PASS / CLAIM NATIVE INTEGRATION
 All50304token fourreads compiled,201216lookupscalars; package863264. Independent256probeFP32 replay8.61e-7,childsum1.09e-7. Native9batch comparison oldFP32 andtokenFP32 versusoriginalfactorbranch:write<=1e-5/effect<=1e-3eachfamily; childrenref<=1e-5,sum<=1e-6. Explicitly closesfirststate only; no current/query generatorclosure.
+
+### 2026-09-12T15:06:09.891761+00:00 — Codex: TOKEN FULL-WRITE PASS CHILD LOCAL MISS / CLAIM FAILURE CAPTURE
+4.43sec A/Bpass fulltokenwrite<=1.12e-7/effect<=6.50e-6. C fails perpositionchildrelative6.76e-5 vs1e-5; childsum8.74e-8passes. Preserve miss. Manageddiagnostic repeats samefrozenrows/code math, capturesworstquery/current/first/token/R/childreference and absolute target/errornorms; compareoldFP32child tolocalize lookupversusgeneralFP32conditioning. No thresholdrepair or packagepromotion.
