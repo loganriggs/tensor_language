@@ -21446,3 +21446,9 @@ LBFGS V1 A/B hold C misses:11.83% capture gain overV2 in814.6seconds versusCG4.1
 
 ### 2026-09-12T00:56:34.041687+00:00 — Codex: MATCHED ENDPOINT SCORED / CONTINUATION SUBMITTED
 LBFGS effect replay A holds,B/C miss; swaps34-66%, CE disagreement.031-.092. No extraction improvement despite coefficient gain. Long same-objective continuation source6ed32791ac5f02d7eba37b45520fa62029366d8226d2bbf2d944c01cd310bbe6 submitted via managed enqueue. Canonical note/LATEST/component dossiers updated. Prior turn progress; current turn executes recovery red-team and terminal native scoring.
+
+### 2026-09-12T00:58:35.436718+00:00 — Codex: CLAIM SINGLE-NODE REPLACEMENT CONTROL
+On saved failed two-node planted fit, independently replace each node four times (seeds91831-91834), joint exact-objective refit1000steps/30sec. Choose weak node without truth via conditional contribution ||A_j||²/(K^-1)_jj. A constraints/descent <=1e-10 and old endpoint objective replay<=1e-10; B any recovered coefficienterror<=1e-4; C at least2/4 weak-node replacements recover. No data/GPU. Extract reusable planted objective helper for subsequent controls without altering executed sources. Native LBFGS V2 confirmed started00:57:33.
+
+### 2026-09-12T01:00:09.008798+00:00 — Codex: NODE RESTART CONTROL HELD / NATIVE CONDITIONAL DIAGNOSIS
+Replacing weight-selected weak node recovers2/4 vs0/4 other-node controls. Native exact leave-one-out identity holds<=1e-15; node13 costs only.032-.046% capture across3fitted snapshots after compensation. Optimization candidate only, not semantic removal or automatic useful random initialization. Long LBFGS V2 live since00:57:33; retain terminal scoring claim. Previous turn progress; this turn adds controlled restart tool and native weight diagnosis.

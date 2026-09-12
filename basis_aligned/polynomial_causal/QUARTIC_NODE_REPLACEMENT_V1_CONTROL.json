@@ -1,0 +1,102 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "weak_node": 0,
+  "conditional_contribution": [
+    0.16784429138618398,
+    0.5918508626244628
+  ],
+  "replay_error": 0.0,
+  "reports": [
+    {
+      "node": 0,
+      "seed": 91831,
+      "error": 3.339924004565888e-07,
+      "gradient": 4.949707606919208e-07,
+      "iterations": 39,
+      "seconds": 0.06687631830573082,
+      "termination": "stationary",
+      "constraint_error": 3.3306690738754696e-16,
+      "monotonic": true
+    },
+    {
+      "node": 0,
+      "seed": 91832,
+      "error": 0.47891278414821137,
+      "gradient": 9.869229422229141e-07,
+      "iterations": 126,
+      "seconds": 0.19815801829099655,
+      "termination": "stationary",
+      "constraint_error": 3.608224830031759e-16,
+      "monotonic": true
+    },
+    {
+      "node": 0,
+      "seed": 91833,
+      "error": 2.1341148028199926e-07,
+      "gradient": 3.396177291954723e-07,
+      "iterations": 43,
+      "seconds": 0.06324247643351555,
+      "termination": "stationary",
+      "constraint_error": 1.1102230246251565e-16,
+      "monotonic": true
+    },
+    {
+      "node": 0,
+      "seed": 91834,
+      "error": 0.6604963536456555,
+      "gradient": 8.717729597667447e-07,
+      "iterations": 44,
+      "seconds": 0.06500396132469177,
+      "termination": "stationary",
+      "constraint_error": 4.440892098500626e-16,
+      "monotonic": true
+    },
+    {
+      "node": 1,
+      "seed": 91831,
+      "error": 0.6612826190999028,
+      "gradient": 0.018130873680217516,
+      "iterations": 1001,
+      "seconds": 2.2095894031226635,
+      "termination": "iteration_limit",
+      "constraint_error": 3.3306690738754696e-16,
+      "monotonic": true
+    },
+    {
+      "node": 1,
+      "seed": 91832,
+      "error": 0.660496353645551,
+      "gradient": 3.1649596309687725e-07,
+      "iterations": 30,
+      "seconds": 0.039204347878694534,
+      "termination": "stationary",
+      "constraint_error": 2.220446049250313e-16,
+      "monotonic": true
+    },
+    {
+      "node": 1,
+      "seed": 91833,
+      "error": 0.6661682578365273,
+      "gradient": 0.24565004581184435,
+      "iterations": 1001,
+      "seconds": 2.4091603495180607,
+      "termination": "iteration_limit",
+      "constraint_error": 3.3306690738754696e-16,
+      "monotonic": true
+    },
+    {
+      "node": 1,
+      "seed": 91834,
+      "error": 0.6604963536456872,
+      "gradient": 8.400957663692593e-07,
+      "iterations": 49,
+      "seconds": 0.07144534587860107,
+      "termination": "stationary",
+      "constraint_error": 4.440892098500626e-16,
+      "monotonic": true
+    }
+  ],
+  "scope": "Local replacement heuristic on one synthetic failed endpoint, no native or general recovery guarantee."
+}
