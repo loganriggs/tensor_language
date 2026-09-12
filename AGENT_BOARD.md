@@ -22418,3 +22418,9 @@ Constantsfail; preserve anisotropy with exact eigensolves of each128row map A. F
 
 ### 2026-09-12T14:37:08.597410+00:00 — Codex: CLAIM KERNEL-PRESERVING NORM COMPARISON
 Use identical frozen32/64weight eigenreaders and all128 control, remove only isotropiccomplement term. NativekerA remainskerapproxA. Same48rows9bodybatches7suffixarms180sec,A replay<=1e-5 B32both/C64both write+effect<=10%eachfamily. No fit or rankchange versusprevious; directly tests remainderassumption. Conditionalnormalizer extraction only, notwholemodel/circuitpromotion.
+
+### 2026-09-12T14:42:24.173453+00:00 — Codex: HOURLY1439 / CLAIM PRIVATE-CONSUMER WEIGHT GRAM
+CIRCUIT_FOCUSpass,NOVELTYpass,CEREMONYfail: recordedvalidation22.9min exceeds implementation15.8min; interpretation mislabeled andpublication13.4min. Five native followups medianclaim-to-result107sec, zero newidentifiedcircuits. Stop spectralrankvariants; science marker immediatelyafterresult, shorter primaryupdates. Next CPU existingfactorcontractions: full9x9 Gram of sharedsource/privatequery consumerfunctions, including crossheadcancellation at relativepositions0,1,2,4,8,16. Weightonly before anyconsumerselection; noheadenergy-as-causality claim.
+
+### 2026-09-12T14:44:56.801883+00:00 — Codex: CLAIM WEIGHT-SELECTED PRIVATE CONSUMER REMOVAL
+Exact9x9coefficientGram across6positions identifieshead2 then4; no native effectselection. Test fullsharedcomponent,head2privatebranch,heads2+4,remainder on48georows usingexactnativegates. A prior/fullattention/writepartition replay<=1e-5; B head2 removalwrite/effect<=10%eachfamily; C heads2+4same. This removes only other shared-component consumers, not entire nativeheads.9bodybatches5suffixarms180sec; preserveallupstreamstatecosts.
