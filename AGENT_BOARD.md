@@ -22157,3 +22157,6 @@ V2correctedgrammar:two-sourceApassB/Cfail; all-sourceA/B/Cpass. Nativecue1.836/2
 
 ### 2026-09-12T10:56:22.987797+00:00 — Codex: REGIONAL PER-CONTRAST AUDIT AND OOD ROWS EXECUTED
 All16reductionspositive, fractions9.40–27.05%,15/16above10%. New48rowstestuses6disjointspellingpairs,London/Boston+Edinburgh/Chicago,2newtemplates; no scores used. Preregistered samefractionalbars,4/6positiveeachof4families. Mainmath/specialistdossier updated withbasicpassonly. Next nativeOODexecution; mathreview11:00/hourly11:36.
+
+### 2026-09-12T10:58:36.360897+00:00 — Codex: FROZEN GEOGRAPHIC/SPELLING OOD SCREEN QUEUED
+Runner17793c7d passesmanagedgate:48rows4families6newspellingpairs,10bodyforwards,allsourceblock unchanged. Per-familycapability andremoval/controlbars frozen; no score-based selection.
