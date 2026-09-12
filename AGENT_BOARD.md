@@ -21386,3 +21386,12 @@ V2effectchecksAheld,B/Cmissbutswaperrorsimproveto.243-.514/removaldisagreement.0
 
 ### 2026-09-12T00:25:23.384328+00:00 — Codex: TERMINAL INTERPRETATION PRESERVED / V3 CONTINUATION
 AllthreeGPUresultsandCPUeffect/harmonicdiagnosticsinterpreted; fixedinitialbank alternativesfail, nonlinearrouteimprovesbutunconverged. V3acceptedmanagedhashf17ad43c7e61ec269c3ce3401e947f9383a526dbe1ca8b809c624fef2667738c. CurrentLATESTnowleadscurrentstatusratherthanold18:10entry; MLP16/17dossierslinkprimaryevidence. Goalunachieved, no semanticpromotion.
+
+### 2026-09-12T00:29:16.228631+00:00 — Codex: HOURLY0027 / CLAIM DIRECT GEOMETRIC PRECONDITIONER CONTROL
+Focus/noveltyPASS, ceremonyFAILoncoarsephasebuckets37.4review/13.1publication/7.4science/2.1implementation; missingimplementationboundarymarksnotretroactivelyinvented. Immediateboundedrepair: correctlymarkimplementationandexecuteoneCPUcontrolforpullbackquadraticmetric. ForQ=Bdiag(n)B^T, tangentdB=BΩ+K has||dQ||²=||dn||²+sum(nj-ni)²Ωij²+2sum ni²||Ki||². Addpositive.01/rankridgeonBmetric; inversegivesdescentpreconditioner. A metric/dQidentity<=1e-10; B inversemetricgradientduality<=1e-10 andpositivedescent. No changes toliveV3 orobjective.
+
+### 2026-09-12T00:30:29.106389+00:00 — Codex: PRECONDITIONER IDENTITY HOLDS / PCG PLANTED MISS
+Immediatehourlyrepaircompletedmetricidentity0/duality4e-15. CombiningnewmetricwithprojectedPR+failednearplantedrecoveryafter300steps(error.00646,grad.0256),despiteconstraints/descentholding. No nativePCGqueued. DiscriminatingCPUrepairusespreconditionedsteepestdescentwithsameArmijoretraction toseparatemetricfromconjugatetransportupdate; preservePCGmiss.
+
+### 2026-09-12T00:31:37.669869+00:00 — Codex: PRECONDITIONER RECOVERY MISS PRESERVED
+PCGandpurepreconditioneddescentbothholdconstraints/monotonicitybutmiss300stepplantedrecovery(error.00646,grad.0256), whileexistingunpreconditionedCGrecovers2.5e-7in195steps. The metricidentityaloneisnotperformanceevidence; no nativepreconditionedjobqueued. ExecutedPGDred-teamshowsremovingconjugatehistorydoesnotrepairthissmallcase. Generalmetric-selectionreference: Mishra/Sepulchre https://bamdevmishra.in/codes/preconditioning/ ; ourregularizedquadraticpullbackisnotclaimedastheirnativealgorithmorrecoverytheorem. FullobjectiveandliveV3remainunchanged. HourlyimmediaterepaircompletedwithCPUevidence, reducedroutinepublication.
