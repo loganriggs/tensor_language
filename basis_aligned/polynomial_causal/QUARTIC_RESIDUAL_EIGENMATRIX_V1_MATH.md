@@ -124,3 +124,55 @@ Registered comparisons are separate: all eigen/replay checks and nonincrease; at
 **Terminal candidate,02:36:** all four native eigensolves converged in22,22,22,13 operator actions, plus eight verification actions total. Maximum eigen residual is1.66e-7. The entire [candidate experiment](QUARTIC_RESIDUAL_EIGEN_CANDIDATE_V1_RESULT.json) takes26.89seconds and peaks at1.57GiB. Candidate33—the rank16 truncation of the positive eigenmatrix for the first output direction—replaces node13. Coefficient capture gains0.348%, and native write error improves26.65→26.12%. Numerical A passes; the1% gain and20% write-improvement bars both fail. The [native-effect scorer](QUARTIC_RESIDUAL_EIGEN_NATIVE_EFFECTS_V1.json) also passes replay and fails swap/removal fidelity. No candidate has been identified as a circuit.
 
 This is a valid but weak initialization result. The small planted example required joint refitting after its spectral proposal, so the next [managed refit](../bilinear_quotient/ops/run_quartic_residual_eigen_refit_v1.py) allows180updates or900fit seconds from the new node. It reuses the existing LBFGS implementation and compares coefficient capture with the saved180-update prefix of the original continuation: objective−1.829830191668918 after815.17seconds. Registered B requires at least1% more captured energy than that reference; C remains gradient at most1e-6, separate from gain. A checks gradient finite differences, starting replay and descent. Wall times and line-search work may differ; no exact time-matched claim is made. The old180-update prefix has no saved native program, so we will not invent a behavioral comparison at that prefix. The frozen final program will instead be scored against the exact selected component with the existing native background. This is the intended initialization-plus-refinement test, not an automatic unchanged continuation.
+
+## Refitting does not repair fidelity; rank truncation has a measurable cost
+
+The [180-update refit](QUARTIC_RESIDUAL_EIGEN_REFIT_V1_RESULT.json) finishes with objective−1.841864, only0.658% more capture than the old180-update reference, missing the1% bar. It takes814.79fit seconds versus815.17for that reference. Projected gradient0.0927 misses stationarity; native write error worsens26.12→28.80%. [Swap/removal scoring](QUARTIC_RESIDUAL_EIGEN_REFIT_NATIVE_EFFECTS_V1.json) passes replay but fails fidelity: swap errors50.88/38.47/35.62/33.07%, removal-effect CE disagreements0.0539/0.0988/0.0337/0.0609nats. The changed initialization has not yielded a circuit or a substantially better matched fit.
+
+A mathematical implication of the **already computed untruncated eigenvalues** identifies a different restriction. For a unit-Frobenius matrix $Q$,
+
+$$
+\|F_Q\|_F^2=\frac{1+2\operatorname{tr}(Q^4)}3\le1.
+$$
+
+Let $v$ be its coefficient norm squared after projection away from retained features. Then $v\le\|F_Q\|_F^2\le1$. If $Q$ is an exact eigenmatrix of a unit output-direction residual operator, its residual correlation in that direction equals its eigenvalue $\lambda$. Consequently its two-output conditional addition gain satisfies
+
+$$
+\Delta=\frac{\|c_{\mathrm{res}}(Q)\|_2^2}{v}\ge\lambda^2.
+$$
+
+Subtract the cost of removing the old node to obtain a net-improvement lower bound. The [evaluated receipt](QUARTIC_EIGEN_TRUNCATION_BOUND_V1.json) uses maximum absolute eigenvalue445960792, old captured energy5.33326e17 and removed-node cost2.45429e14. It implies **at least37.24% extra capture for an untruncated candidate**, under exact eigenpair/operator assumptions, versus the observed0.348% from the rank16 candidates. This is a mathematical bound evaluated with numerical eigenpairs, not an interval-certified floating-point bound or a behavioral guarantee. It does not mean37.24% of the whole target or model is explained.
+
+The next [native capacity comparison](../bilinear_quotient/ops/run_quartic_full_quadratic_candidate_v1.py) therefore tests full symmetric $Q$ against rank16 truncation using exact matrix-free target correlations, the same retained31-node span, and coefficient-only selection. It charges the larger full matrix explicitly and records its overlap with the identity matrix to diagnose possible radial structure. Rank16 replay and eigensolver accuracy are numerical A; full net capture gain at least30% is B; full native write error at most20% is C. A higher-capacity weight fit still needs functional validation. This test changes the rank restriction instead of repeating the same local optimizer.
+
+
+## Full quadratic result: the capacity restriction matters, but extraction still fails
+
+The [full-matrix comparison](QUARTIC_FULL_QUADRATIC_CANDIDATE_V1_RESULT.json) completed in34.70seconds with numerical and coefficient-gain bars held. One untruncated quadratic gives **121.77% additional captured coefficient energy** over the original32-node program, versus0.348% for rank16 replacement. This is relative captured energy, not fraction of the whole target. Its native write error is25.02%, missing the20% bar. It stores1,238,384 fitted floats, compared with592,704 originally; the validation-write cache is additional and not part of execution.
+
+The winning full quadratic is the negative eigenmatrix of the second output-direction residual. Rank16 keeps only14.99% of its squared matrix norm. Its squared overlap with the normalized identity is3.33%, so a predominantly identity/radial matrix does not explain the result. A high-rank intermediate can still be a useful arithmetic node; low matrix rank was an extra assumption in the earlier implementation.
+
+The extended [shared scorer](quartic_native_effects_v3.py) exactly reproduces the prior square-program receipt in its [regression check](QUARTIC_NATIVE_EFFECTS_V3_CONTROL.json). [Frozen full-quadratic effects](QUARTIC_FULL_QUADRATIC_NATIVE_EFFECTS_V1.json) reproduce native write accounting to2.8e-16 and the exact-reference effects bit-for-bit. Swap errors improve in every family:
+
+| Family | Original square program | One full quadratic | Removal CE disagreement, full quadratic |
+|---|---:|---:|---:|
+| Agreement verbs |65.51%|25.13%|0.0298 nats|
+| Count nouns |55.57%|31.98%|0.0879 nats|
+| Past |35.64%|21.37%|0.0289 nats|
+| Progressive |34.06%|18.78%|0.0503 nats|
+
+Nevertheless, every family misses the10% swap-error and0.02-nat removal-disagreement bars. Count-noun swap sign agreement is87.5%, below90%. These are reused developmental examples with the native background retained, not OOD evidence or standalone extraction. No circuits are promoted.
+
+### Next discriminating test: several full quadratic intermediates
+
+The [eight-node bank experiment](../bilinear_quotient/ops/run_quartic_full_quadratic_bank_v2.py) recomputes the same eight coefficient-derived eigenmatrices and refits their outputs jointly with the31 retained low-rank intermediates. This changes the number of unrestricted intermediates while preserving weight-only discovery. It asks whether the behavioral fidelity limit comes partly from keeping just one such intermediate. The cost rises to about5.89million fitted floats; any gain must be interpreted at that price.
+
+For symmetric full matrices $Q_i,Q_j$, their squared-quadratic features have exact coefficient Gram
+
+$$
+K_{ij}=\frac{\operatorname{tr}(Q_iQ_j)^2+2\operatorname{tr}(Q_iQ_jQ_iQ_j)}3.
+$$
+
+Combine this block with the retained-feature Gram and their cross terms, then solve $KA=C$ for the output coefficients. The existing scaled eigensolver discards eigenvalues below $10^{-12}$ of the maximum and reports its normal-equation residual. This is a converged linear output solve when the residual passes, not joint nonlinear convergence or a globally optimal discovery algorithm. Dense explicit-quartic and low-rank/full cross checks agree within2.3e-13 in [the focused control](QUARTIC_FULL_BANK_V1_CONTROL.json).
+
+Registered A requires single-full replay and normal-equation residual at most1e-8, with each eigen residual at most1e-5. B requires10% extra coefficient capture over the one-full-node program; C requires native write error at most20%. Native data do not choose the bank, weights or iterate. Shared swap/removal scoring follows the frozen result. A miss would not show that sparse arithmetic structure is absent: the eight matrices come from only four residual directions, their readers are frozen, and cross-products between distinct full quadratics are excluded.

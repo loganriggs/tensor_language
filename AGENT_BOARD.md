@@ -21581,3 +21581,24 @@ All4operators converged in26.89sec;maxeigenresidual1.66e-7. Chosen33 replaces13,
 
 ### 2026-09-12T02:39:32.434490+00:00 — Codex: RESIDUAL REFIT AUDITED / TERMINAL RECEIPTS SAVED
 Residualrefit lane1 SHA c7a0753ee3410529d7b0f7ac8a9e6987058f1b2a9176e8e07ff055dc079b488d,180updates/900fitsec. Afterterminal scorequartic_native_effects_v2 --stem QUARTIC_RESIDUAL_EIGEN_REFIT_V1 --initial QUARTIC_RESIDUAL_EIGEN_CANDIDATE_V1 --format square --output QUARTIC_RESIDUAL_EIGEN_REFIT_NATIVE_EFFECTS_V1. Old180-prefixcomparison iscoefficient-only; no nativeartifactexists there. Mixed/eigencandidate terminaleffects allAtrue B/Cfalse. No furthernewmethodprep before interpretingrefit.
+
+### 2026-09-12T02:41:56.873891+00:00 — Codex: CLAIM RESIDUAL REFIT TERMINAL MONITOR
+Monitor existingPID3176634; compareprogress withsavedoldprefix descriptively, nofitselection/restart. AfterterminalnumericalApass runexistingsquareeffectscorer to QUARTIC_RESIDUAL_EIGEN_REFIT_NATIVE_EFFECTS_V1 withresidualcandidate initial. Keep02:27ceremonyrepair: no newmethod preparation beforeinterpretation.
+
+### 2026-09-12T02:55:47.289572+00:00 — Codex: REFIT TERMINAL MISS / CLAIM TRUNCATION BOUND ANALYSIS
+Refit180updates completes: +0.658% vsold180(misses1%),grad0.0927,write26.12->28.80%,nativeeffectsAtrue B/Cfalse. Next reinterpretalreadycomputeduntruncatedeigenvalues: forunitFrobeniusQ,||symQxQ||²<=1,conditionalvariance<=that, sofullcandidateadditiongain>=lambda² ineachunitoutputdirection. Subtractoldnodeconditionalcost fornetlowerbound; compare rank16actual0.348%. CPUarithmetic usingboundreceipts, no newfit ornewtoy. This tests capacity/rounding ratherthananotherunchangedcontinuation.
+
+### 2026-09-12T02:58:54.727143+00:00 — Codex: TRUNCATION BOUND SUPPORTS CAPACITY TEST
+CPUreceipt QUARTIC_EIGEN_TRUNCATION_BOUND_V1 givesideal-exact-eigenpair netgain>=37.24% fromuntruncatedQ versusrank16observed0.348%. Next nativecheck repeatsbounded4eigsolves andcomparesfullQ/rank16 with exactmatrix-free targetcorrelations andconditionaloutputrefits. A rank16replay<=1e-8/eigenresid<=1e-5; B fullnetcapturegain>=30%; C fullnativewriteerror<=20%. Savefullcandidate coefficient-selected, disclose dense/symmetricpackedcost andradialoverlap. This capacitytest isnotanotherlocalfit orsemanticclaim.
+
+### 2026-09-12T03:05:15.631253+00:00 — Codex: FULL QUADRATIC CAPACITY RESULT / CLAIM SHARED HYBRID SCORING
+NativecapacityA/Bpass,Cmiss: fullQ +121.77%capture,write25.02%,1,238,384fittedfloats; rank16exactreplay3.1e-15,15%matrixenergykept forwinningfullQ. Identityoverlaponly3.33%, so notmostlyradialI. Extendexistingv2 scorer tohybridretainedlowrank+onefullpackedQ format, replayanexisting squarecase exactly, thenscorefrozenhybridcandidate. No newcomparisonselectedfromnativecache; samebars/background.
+
+### 2026-09-12T03:11:22.841046+00:00 — Codex: HYBRID EFFECTS MISS / CLAIM FULL QUADRATIC BANK
+Hybrid replay passes; all four swap errors improve to25.13/31.98/21.37/18.78%, but swap/removal bars fail. Test joint coefficient refit of all eight full eigenmatrix-square candidates plus retained31 low-rank nodes. Reuse four bounded eigensolves; exact square-feature Gram and target correlations, no data fitting. A single-full replay<=1e-8 and normal-equation residual<=1e-8; B >=10% extra coefficient capture over single-full; C native write error<=20%. Charge roughly5.89M fitted floats; full native effects after freeze. This tests extraction capacity, not circuit identification.
+
+### 2026-09-12T03:13:25.865697+00:00 — Codex: FULL BANK IMPLEMENTED / MANAGED SUBMISSION
+Exact dense/low-rank Gram control passes<=2.3e-13. Eight-full bank source SHA323cc12e8c6c9933c9b5fe835511d3de735ce37f5d3e34c08bf0b9edc1642e14 submitted through managed enqueue. Primary QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md records completed full-Q effects and next test. No global/semantic claims.
+
+### 2026-09-12T03:14:05.715083+00:00 — Codex: BANK SUBMISSION SYNTAX REPAIR
+V1 enqueue rejected by static prediction-key checker before experiment execution (dict keyword syntax). V2 uses literal pred_a/b/c keys with unchanged experiment; reviewedSHAbc88cb2700d225d1430f4ddfbc733f86cec69386baccadddba735cf91fb92777 resubmitted, no FORCE. Preserve rejectedV1.

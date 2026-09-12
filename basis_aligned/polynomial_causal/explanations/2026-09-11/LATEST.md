@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 02:39 UTC:** the joint mixed fit completed with17.69%additional coefficient capture and26.75%native write error, but failed convergence and native-effect bars. The [residual eigen-candidate](../../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md) completed in27seconds; eigensolves converged, but its0.348%gain and26.12%write error are insufficient. A matched180-update refit is now queued to test whether this initialization improves the optimizer's outcome. No circuits promoted.
+**12 September, 03:14 UTC:** the [full quadratic capacity test](../../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#full-quadratic-result-the-capacity-restriction-matters-but-extraction-still-fails) gives121.77% extra coefficient capture versus0.348% with rank16 truncation. Native write error is25.02%; swaps improve in all four families but swap/removal fidelity still fails. The earlier180-update residual refit also failed its gain/convergence/effect bars. The next eight-full-quadratic bank is implemented and submitted for managed execution; check its receipt for live status. No circuits promoted.
 
 ## Earlier entries — historical status, superseded where stated above
 
