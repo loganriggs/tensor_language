@@ -1,0 +1,32 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "rows": [
+    {
+      "scale": 0.3,
+      "replay": 1.1102065125450726e-14,
+      "effect": 3.886392033993009e-14,
+      "interaction": 5.155762046538816e-14,
+      "interaction_norm": 4.139538664204492,
+      "diagonal_gram_error": 0.6499651731513401
+    },
+    {
+      "scale": 1.0,
+      "replay": 1.0885819234379466e-15,
+      "effect": 2.339338066993809e-14,
+      "interaction": 8.931517296816619e-14,
+      "interaction_norm": 0.819936227936241,
+      "diagonal_gram_error": 0.13243036872879957
+    },
+    {
+      "scale": 3.0,
+      "replay": 5.092026310373117e-16,
+      "effect": 6.954413785375219e-14,
+      "interaction": 7.784045902966091e-13,
+      "interaction_norm": 0.06954203584814986,
+      "diagonal_gram_error": 0.021624219016786045
+    }
+  ],
+  "scope": "Synthetic repeated composition control; no native circuit or OOD claim."
+}

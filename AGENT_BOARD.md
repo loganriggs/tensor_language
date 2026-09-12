@@ -22361,3 +22361,15 @@ CIRCUIT_FOCUSpass,NOVELTYpass,CEREMONYfail: missingphaseboundaries preclude trus
 
 ### 2026-09-12T13:44:28.022891+00:00 — Codex: CLOSED FEATURE EXECUTOR CONTROL PASS
 18layers3scales64inputs4arms: output<=7.02e-16,effects<=1.86e-12,interaction<=8.24e-10; droppingcomplementnormgives1.33–2.13error. Storedscalarprice48,804→12,788 but105initialencodedscalars/inputexplicit. Commonreader/writerframe imposed onlyinsyntheticcontrol. Existingphasehelper nowmarks implementation/validation/publication atactualboundaries; nohistorybackfill. Reusableexecutor andpositivecontrols areconcretecontinuation; nativefeaturediscovery andfullgoalremainopen.
+
+### 2026-09-12T13:53:09.899698+00:00 — Codex: CLAIM SHARED GRAPH FEATURE-FRAME COMPILATION
+Useexisting unconvergedspectralgraph, notnewfit. Compile unionof12sharedparentdependentterms as mixed+pair bank once; private-onlyterms excluded andno nodebankdoublecount. Undooutputwhitener, buildexact commonspanofallinputreaders/physicalwriters, useclosedexecutor on72savednativepreMLP inputs withfullU and single/jointparentremovals. Selectlargest-normoffdiagonalparentpair fromweights only. Requireframe/factor/function/full-logit/effectreplay;priceagainst compactDAG aswellasexpandedCP. This validates extractedsurrogatecomponent execution, notfullMLPfaithfulness ornativeproducerclosure.
+
+### 2026-09-12T13:57:50.648128+00:00 — Codex: GRAPH FRAME PASS / CLAIM WRITER-STATE ALTERNATIVE
+Sharedunion42products frame56: fullU<=1.94e-15,edits<=1.88e-13,interaction8.88e-13. But71,626corescalars exceedcompactDAG64,543; noadoption. Activewriters19 suggest exactstate h=alpha*x0+W*a with19changingcoefficients, immutable inputreadervalues, W^T x0 andinitialnorm/readout. Fold F*W andW^T W; avoidcommoninput/writerframe andits56-columnoutputadapter. Testsameunchangedgraph/parents4,5/fullU72inputs, notnewnativefaithfulness.
+
+### 2026-09-12T14:04:36.173431+00:00 — Codex: WRITER STATE PASS / CLAIM REPEATED COMPOSITION CONTROL
+Same shared union: 19 changing coordinates, 955776 output-adapter scalars; fullU replay <=1.57e-15, effects <=1.81e-13, joint interaction8.56e-13. Core66395 still exceeds compactDAG64543. FullU and50361 initial scalars retained. Next CPU adversarial repeated composition with nonorthogonal writers, outside-span readers, signed reentry and joint edits; exact executor control only, not new native faithfulness. Mathematical review due14:00 will record fixed-writer closure and this consequence.
+
+### 2026-09-12T14:06:00Z — Codex: MATH REVIEW / REPEATED COMPOSITION PASS
+Fixedwriter h=alpha*x0+W*a closes all reads/norms with immutable input encodings. Native sharedunion replay passes; synthetic18block jointedits <=7.79e-13, wrong diagonalGram causes2.16–65%error. Primary THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_1400.md maps lowrankRNN/CLUE assumptions and literal prices. No native identification upgrade. Further compiler variants demoted; nextdecision joint producer/consumer replacement using existing candidate ledgers. Next math17:06/hourly14:39.

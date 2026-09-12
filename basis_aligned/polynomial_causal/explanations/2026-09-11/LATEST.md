@@ -1,3 +1,12 @@
+### 12 September, 14:06 — Fixed writer state closes extracted-program execution
+
+[Mathematical review and results](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_1400.md):
+existing shared graph executes in19 changing coordinates with exact single/joint
+removals; adapter955,776 scalars versus2,817,024 for common frame56. FullU and
+initial cache remain charged. Repeated18-block synthetic composition also passes.
+This is surrogate execution, not improved native faithfulness or new circuits.
+Next hourly14:39, mathematical17:06 UTC.
+
 ### 12 September, 13:44 — Closed-program positive control passes
 
 [Executor and math](../../CLOSED_FEATURE_PROGRAM_V1_MATH.md):18-layer synthetic

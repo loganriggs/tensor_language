@@ -1,0 +1,59 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "cells": [
+    {
+      "parents_removed": [],
+      "state_error": 9.101989026515334e-16,
+      "norm_error": 9.457657556867793e-16,
+      "logit_error": 1.5486942776532352e-15
+    },
+    {
+      "parents_removed": [
+        4
+      ],
+      "state_error": 9.02808951746987e-16,
+      "norm_error": 9.090282927043404e-16,
+      "logit_error": 1.5602593897150105e-15
+    },
+    {
+      "parents_removed": [
+        5
+      ],
+      "state_error": 9.065583905571105e-16,
+      "norm_error": 9.009950309040046e-16,
+      "logit_error": 1.5388722153154835e-15
+    },
+    {
+      "parents_removed": [
+        4,
+        5
+      ],
+      "state_error": 8.949449600932862e-16,
+      "norm_error": 8.280211282168361e-16,
+      "logit_error": 1.5428304462312732e-15
+    }
+  ],
+  "effect_errors": [
+    1.8038345165938116e-13,
+    1.2552041854700268e-13,
+    1.599998462624578e-13
+  ],
+  "interaction_relative_error": 8.556825447856654e-13,
+  "interaction_norm": 34.37786769919873,
+  "price": {
+    "core_scalars": 66395,
+    "output_adapter_scalars": 955776,
+    "changing_state": 19,
+    "encoded_scalars_per_input": 50361,
+    "fullU_common_scalars": 57950208,
+    "dense_mixing_scalars": 798,
+    "product_index_int64": 84,
+    "compact_DAG_reference": 64543,
+    "frame_core_reference": 71626,
+    "frame_output_adapter_reference": 2817024
+  },
+  "source_sha": "4366d82870320863e443322ff6846869c2686074e1c1f37dd05fa4bf7811b81a",
+  "scope": "Exact execution of the same extracted shared union from an unconverged graph fit. Reduced dynamic writer state and adapter cost do not establish native fullMLP fidelity or upstream extraction; fullU and50304 initial readout values remain explicitly charged."
+}

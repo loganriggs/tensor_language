@@ -1,0 +1,76 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "selected_parents": [
+    4,
+    5
+  ],
+  "frame_error": 2.4884349341197862e-15,
+  "graph_errors": [
+    3.3509231469024906e-15,
+    3.240077506394331e-15,
+    3.3211058516298955e-15,
+    3.3944577481960194e-15
+  ],
+  "cells": [
+    {
+      "parents_removed": [],
+      "logit_error": 1.8929080911042713e-15,
+      "feature_error": 2.257923751527656e-15,
+      "norm_error": 2.654673333614918e-15
+    },
+    {
+      "parents_removed": [
+        4
+      ],
+      "logit_error": 1.895504299150669e-15,
+      "feature_error": 2.3327830065404827e-15,
+      "norm_error": 2.6663057306425368e-15
+    },
+    {
+      "parents_removed": [
+        5
+      ],
+      "logit_error": 1.933021329783714e-15,
+      "feature_error": 2.351387670327597e-15,
+      "norm_error": 2.7954870988555404e-15
+    },
+    {
+      "parents_removed": [
+        4,
+        5
+      ],
+      "logit_error": 1.9159426717300327e-15,
+      "feature_error": 2.3237919982226477e-15,
+      "norm_error": 2.8101957804813694e-15
+    }
+  ],
+  "effect_errors": [
+    1.871187811187203e-13,
+    1.3161080324936933e-13,
+    1.6672754195790816e-13
+  ],
+  "effect_norms": [
+    115.52265118518298,
+    166.28650091903003,
+    130.44095199952199
+  ],
+  "interaction_norm": 34.377867699198724,
+  "interaction_relative_error": 8.877615738038206e-13,
+  "price": {
+    "ambient": 1152,
+    "frame_rank": 56,
+    "cp_terms": 42,
+    "compact_shared_dag_scalars": 64543,
+    "expanded_cp_scalars": 145152,
+    "frame_program_scalars": 71626,
+    "common_full_unembedding_scalars": 57950208,
+    "compiled_feature_unembedding_scalars": 2817024,
+    "per_input_encoded_scalars": 50361,
+    "scope": "Compact DAG counts folded private partners and each active group writer, with shared pairs computed once; integer indices excluded. Frame includes dense adapter. FullU/initial-complement readout remain charged, so compare all columns before claiming savings."
+  },
+  "source_sha": "73f84d23c817842c304302cba3418fddcb953e91c184541464250a01f796e9ac",
+  "graph_sha": "b299cade29ca4446a29ea807579ac8ab53246a6303d284207af9ee06b26e6f5c",
+  "scope": "Exact extracted shared union of an existing unconverged weight-fit graph. Native72preMLPinputs used as boundary inputs; private-onlyMLP/bias/background excluded. FullU replay is equivalence of subprograms, not native behavioral fidelity, producer closure or new linguistic OOD."
+}
