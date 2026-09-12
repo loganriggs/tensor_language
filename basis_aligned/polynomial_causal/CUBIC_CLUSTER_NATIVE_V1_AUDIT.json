@@ -1,0 +1,60 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "rows": [
+    {
+      "arm": 0,
+      "position": 7,
+      "old_normalized_condition": 11996.204676065568,
+      "new_normalized_condition": 300.27871215003375,
+      "relative_energy_error": 1.434834297497649e-14,
+      "coefficient_difference_squared_relative": 2.3760069025659328e-12,
+      "sampled_execution_relative_error": 4.216580717094623e-12,
+      "reader_singular_values": [
+        0.07565153060047493,
+        0.0005204836178726054
+      ]
+    },
+    {
+      "arm": 0,
+      "position": 0,
+      "old_normalized_condition": 11996.204676065568,
+      "new_normalized_condition": 300.27871215003375,
+      "relative_energy_error": 1.5911623680236845e-12,
+      "coefficient_difference_squared_relative": 1.819250690819695e-12,
+      "sampled_execution_relative_error": 2.0207234646974225e-12,
+      "reader_singular_values": [
+        0.07565153060047493,
+        0.0005204836178726054
+      ]
+    },
+    {
+      "arm": 1,
+      "position": 7,
+      "old_normalized_condition": 8367.334029792959,
+      "new_normalized_condition": 12.114135363268991,
+      "relative_energy_error": 7.028639171201637e-13,
+      "coefficient_difference_squared_relative": 1.896922571682764e-12,
+      "sampled_execution_relative_error": 3.0408339021010593e-12,
+      "reader_singular_values": [
+        0.11565831485523694,
+        0.028119643605532936
+      ]
+    },
+    {
+      "arm": 1,
+      "position": 0,
+      "old_normalized_condition": 8367.334029792959,
+      "new_normalized_condition": 12.114135363268991,
+      "relative_energy_error": 3.17083325540659e-12,
+      "coefficient_difference_squared_relative": 6.453293750021758e-13,
+      "sampled_execution_relative_error": 2.0539524994381634e-12,
+      "reader_singular_values": [
+        0.11565831485523694,
+        0.028119643605532936
+      ]
+    }
+  ],
+  "seconds": 20.981070026755333,
+  "scope": "Same frozen full coefficient functions at fit/held positions;128synthetic diagonal polynomial execution controls. No refit, language behavior, normalizer closure or globally stable chart claim."
+}

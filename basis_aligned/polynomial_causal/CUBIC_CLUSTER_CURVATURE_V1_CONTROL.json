@@ -1,0 +1,21 @@
+{
+  "pred_a": true,
+  "unit_reader_pullback_error": 1.482524230113028e-15,
+  "rows": [
+    {
+      "arm": 0,
+      "hvp_fd_error": 3.3426198071166986e-09,
+      "gradient_seconds": 1.8338826335966587,
+      "hvp_seconds": 3.8378253914415836,
+      "unit_reader_gradient": 1.962504975319129
+    },
+    {
+      "arm": 1,
+      "hvp_fd_error": 3.984938966311608e-09,
+      "gradient_seconds": 1.8229136541485786,
+      "hvp_seconds": 3.7929187268018723,
+      "unit_reader_gradient": 0.008804999281382382
+    }
+  ],
+  "scope": "Independent unit-reader gradient and native matrix-free Hessian-vector finite-difference checks. No continuation or circuit result."
+}

@@ -33,3 +33,8 @@ def components(theta,chart):
 
 def reconstruct(theta,chart):
  k=chart['cluster_size'];return torch.cat((theta[:-k],torch.einsum('ir,rjd->ijd',chart['loading'],theta[-k:])))
+
+def normalized_reader_gradient(theta,gradient,chart):
+ k=chart['cluster_size'];g=torch.linalg.solve(chart['loading'].T,gradient[-k:].flatten(1)).reshape(gradient[-k:].shape)
+ g=torch.cat((gradient[:-k],g));raw=reconstruct(theta,chart);norm=raw.norm(dim=-1,keepdim=True);unit=raw/norm
+ return norm*(g-(g*unit).sum(-1,keepdim=True)*unit)
