@@ -1,0 +1,36 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "native_diagonal_error": 1.0527913833582722e-16,
+  "program_diagonal_error": 3.1346820520289095e-16,
+  "reports": [
+    {
+      "distribution": "gaussian",
+      "seed": 91751,
+      "probes": 8192,
+      "target_norm2_estimate": 4.392316640182618e+18,
+      "estimated_standard_error": 5.8003055441908184e+16,
+      "relative_standard_error": 0.013205572410530176,
+      "exact_program_coefficient_energy": 4.768893182755813e+17,
+      "capture_fraction_estimate": 0.10857352903768655,
+      "residual_norm2_estimate": 3.891148028322126e+18,
+      "projection_identity_z": 0.8456728735782714
+    },
+    {
+      "distribution": "rademacher",
+      "seed": 91752,
+      "probes": 8192,
+      "target_norm2_estimate": 4.4295292514828247e+18,
+      "estimated_standard_error": 5.701618603277482e+16,
+      "relative_standard_error": 0.012871838697913134,
+      "exact_program_coefficient_energy": 4.768893182755813e+17,
+      "capture_fraction_estimate": 0.10766139948526998,
+      "residual_norm2_estimate": 3.9617204350665144e+18,
+      "projection_identity_z": 0.31581663074752403
+    }
+  ],
+  "distribution_discrepancy_z": 0.4575290352961048,
+  "wall_seconds": 4.395767472684383,
+  "scope": "Full-input frozen two-output coefficient target, not whole-model coverage. Empirical uncertainty, no textfit."
+}

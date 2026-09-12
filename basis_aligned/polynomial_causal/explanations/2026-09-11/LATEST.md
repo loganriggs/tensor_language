@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 00:25 UTC:** [Longer quartic optimization](../../COUPLED_QUARTIC_WRITER_V1_MATH.md#longer-optimization-and-structural-comparisons-12-september) lowers native write error to22.8%, but remains unconverged and misses swap/removal fidelity. V3 continuation submitted. Fixed-bank mixed-core and [repeated-input/harmonic alternatives](../../QUARTIC_REPEATED_INPUT_V1_MATH.md#native-result-and-executed-harmonic-diagnostic) fail native fidelity. No circuit promotion.
+**12 September, 00:45 UTC:** [Quartic continuation and absolute coverage](../../COUPLED_QUARTIC_WRITER_V1_MATH.md#continued-optimization-and-absolute-coverage-12-september-0045): V3 gains another 4.15% coefficient capture but remains unconverged; native write error rises from 22.8% to 24.1% and swap/removal fidelity fails. Independent probes put selected two-output target coverage at about 10.8% for V2 and 11.3% for V3. Matched limited-memory optimizer is live. No circuit promotion.
 
 ## Earlier entries — historical status, superseded where stated above
 

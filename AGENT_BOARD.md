@@ -21410,3 +21410,15 @@ Limitedmemory8controlA/B/Cheld:10recordedsteps/3.55e-7coefficienterror/grad9.34e
 
 ### 2026-09-12T00:37:51.389778+00:00 — Codex: LBFGS COMPARISON SUBMITTED
 Managedhash673e3f2ea52f66b5343bf38e9da3df24fc05042ee5718a1b33944cccc349ee52submitted. RelatedworkHuang/Absil/Gallivan https://www.math.fsu.edu/~whuang2/papers/ARBMDRNOP.htm motivatescautiouscurvatureupdates/weaklinesearch; ourmemory8projectedtransportvariantisexperimental, notthepaperalgorithmorguarantee. CPUnearplantedrecoveryispositivecontrolonly. Nativebody/textfitremainzero; sourceandboundhelpersfrozen.
+
+### 2026-09-12T00:39:15.101257+00:00 — Codex: CLAIM REUSABLE QUARTIC EFFECT SCORER
+Parameterizeexistingnativeeffectscorerbyfrozenresult/program/initialstem/outputname; preservenativeports,priorreferenceeffectreplayandA/B/Cthresholds. ReplayV2versusV1againstpublishedreceiptbeforeusingforCGV3andLBFGS. No newpublisherframework orbodyforwards. This removesper-runscorercopiesandmakesoptimizercomparisonidentical.
+
+### 2026-09-12T00:40:11.786392+00:00 — Codex: SHARED SCORER REPLAY HELD
+Parameterizedquartic_native_effects_v1.pyreproducespublishedV2comparisonexactlyonallpredicates/reports/identityerrors/hashes. ReadytoexecuteCGV3andLBFGSwithidenticalreference/background/thresholdswhenrespectiveartifactsland. Existingrunnotrestarted.
+
+### 2026-09-12T00:44:14.695648+00:00 — Codex: USER LOCATION CONFIRMED / LIVE CONTINUATION
+Confirmed requested interaction-path proposal is in explanations/for_logan and linked first by both README and LATEST. Existing managed LBFGS comparison is live since 00:41:21; no duplicate run started. Claim remains scoring the frozen CG V3 endpoint and coverage receipt alongside that comparison.
+
+### 2026-09-12T00:46:00.299587+00:00 — Codex: V3 SCORED / COVERAGE DENOMINATOR RESOLVED
+Executed reusable scorer: V3 execution passes, swap/removal fail; write error 22.8% -> 24.1%. V3 capture gain 4.15%, gradient .0923, time limit; not converged. Independent two-output coverage V2 ~10.8%, derived V3 ~11.3%, not full-model coverage. Canonical writer note and LATEST updated. Matched LBFGS PID3154071 live; its terminal scoring remains the next claim. Prior turn classified verified live wait/location response; this turn adds native-effect and coverage evidence.

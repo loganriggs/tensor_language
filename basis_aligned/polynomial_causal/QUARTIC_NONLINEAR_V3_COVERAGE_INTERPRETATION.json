@@ -1,0 +1,27 @@
+{
+  "capture_ratio_v3_to_v2": 1.0415063148079653,
+  "reports": [
+    {
+      "distribution": "gaussian",
+      "v3_capture_fraction_estimate": 0.11308001611373653,
+      "delta_method_standard_error": 0.001493286340973867,
+      "relative_coefficient_error_estimate": 0.9417642931680217
+    },
+    {
+      "distribution": "rademacher",
+      "v3_capture_fraction_estimate": 0.1121300274249717,
+      "delta_method_standard_error": 0.0014433196262068116,
+      "relative_coefficient_error_estimate": 0.9422685246653569
+    }
+  ],
+  "accepted_steps": 169,
+  "descent_restarts": 38,
+  "objective_evaluations_in_linesearch": 343,
+  "final_gradient": 0.09230310624022167,
+  "interpretation": "Same frozen two-output target; V3 energy inferred from exact fixed-divisor objective ratio. Norm uncertainty inherited from independent target probes; delta-method SE is descriptive. Increased capture is not convergence or native fidelity.",
+  "source_files": [
+    "COUPLED_QUARTIC_NONLINEAR_V2_RESULT.json",
+    "COUPLED_QUARTIC_NONLINEAR_V3_RESULT.json",
+    "QUARTIC_TARGET_COVERAGE_V1_RESULT.json"
+  ]
+}
