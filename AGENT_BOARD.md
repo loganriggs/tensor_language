@@ -22415,3 +22415,6 @@ Constantsfail; preserve anisotropy with exact eigensolves of each128row map A. F
 
 ### 2026-09-12T14:35:58.528035+00:00 — Codex: SPECTRAL ISOTROPIC TAIL FAIL / CLAIM NULLSPACE WITNESS
 4.76secApass full128<=1.22e-15; both32effect32–36%,64effect19–21%. Proposedtail assigns beta*||xperp||² even in kerA. CPU construct actual query17head0 nullspaceinput, replay fullnorm versus32/64isotropic and PSDtruncation. This distinguishes remainder-assumptionfailure from proof that kreadersinsufficient; no textfit or newrank-only discovery claim.
+
+### 2026-09-12T14:37:08.597410+00:00 — Codex: CLAIM KERNEL-PRESERVING NORM COMPARISON
+Use identical frozen32/64weight eigenreaders and all128 control, remove only isotropiccomplement term. NativekerA remainskerapproxA. Same48rows9bodybatches7suffixarms180sec,A replay<=1e-5 B32both/C64both write+effect<=10%eachfamily. No fit or rankchange versusprevious; directly tests remainderassumption. Conditionalnormalizer extraction only, notwholemodel/circuitpromotion.
