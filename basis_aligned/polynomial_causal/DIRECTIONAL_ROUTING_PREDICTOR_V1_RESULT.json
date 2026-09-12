@@ -1,0 +1,251 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "baseline_relative_error": 1.9191614886848317e-07,
+  "passing_ranks": [
+    64
+  ],
+  "records": [
+    {
+      "rank": 0,
+      "matrix_energy_fraction": 0.0,
+      "mixed_map_scalars": 0,
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 0.5042281738087334,
+          "routing_change_error": 0.37999845536621424,
+          "raw_state_change_error": 0.5713561286281889,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 0.3014921093520203,
+          "routing_change_error": 0.20963693952595777,
+          "raw_state_change_error": 0.5920792368229366,
+          "passed": false
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 0.21646196510062607,
+          "routing_change_error": 0.3581601180289848,
+          "raw_state_change_error": 0.5583772192006768,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "rank": 1,
+      "matrix_energy_fraction": 0.4149005593535916,
+      "mixed_map_scalars": 2304,
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 0.10101837485455571,
+          "routing_change_error": 0.15668594273296546,
+          "raw_state_change_error": 0.37451882437776635,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 0.04611459807541056,
+          "routing_change_error": 0.2653119813955343,
+          "raw_state_change_error": 0.5218549093496172,
+          "passed": false
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 0.11654549357798359,
+          "routing_change_error": 0.13570632964365753,
+          "raw_state_change_error": 0.42660697149824994,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "matrix_energy_fraction": 0.5312954913833344,
+      "mixed_map_scalars": 9216,
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 0.04021137774181743,
+          "routing_change_error": 0.04299699955533065,
+          "raw_state_change_error": 0.25916190519557003,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 0.02415579698395556,
+          "routing_change_error": 0.08958137100214852,
+          "raw_state_change_error": 0.4040561611215812,
+          "passed": false
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 0.015677849836009176,
+          "routing_change_error": 0.04468314114672765,
+          "raw_state_change_error": 0.3198577446618129,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "matrix_energy_fraction": 0.5760083207021657,
+      "mixed_map_scalars": 36864,
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 0.020117818666660875,
+          "routing_change_error": 0.034480798735164554,
+          "raw_state_change_error": 0.23894669069307045,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 0.009835828772687212,
+          "routing_change_error": 0.07406860893108362,
+          "raw_state_change_error": 0.3825607496456036,
+          "passed": false
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 0.012174435872402835,
+          "routing_change_error": 0.040030251649204956,
+          "raw_state_change_error": 0.30104144142108735,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rank": 64,
+      "matrix_energy_fraction": 0.6681175350235495,
+      "mixed_map_scalars": 147456,
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 0.012155635466345726,
+          "routing_change_error": 0.02006085616704151,
+          "raw_state_change_error": 0.20861806252406753,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 0.005362962852420058,
+          "routing_change_error": 0.04438926481758654,
+          "raw_state_change_error": 0.3414163103154093,
+          "passed": true
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 0.004438302446752237,
+          "routing_change_error": 0.022125863605114086,
+          "raw_state_change_error": 0.2673419733687038,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rank": 256,
+      "matrix_energy_fraction": 0.8605699054298787,
+      "mixed_map_scalars": 589824,
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 0.007134379036069293,
+          "routing_change_error": 0.009632140460619021,
+          "raw_state_change_error": 0.13745224842212336,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 0.0043919867674773886,
+          "routing_change_error": 0.0224554756749895,
+          "raw_state_change_error": 0.22372353892887492,
+          "passed": true
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 0.005314692658770679,
+          "routing_change_error": 0.018490899008526625,
+          "raw_state_change_error": 0.17405593653971524,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "rank": 1152,
+      "matrix_energy_fraction": 1.0,
+      "mixed_map_scalars": 1327104,
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 1.0645226980695693e-06,
+          "routing_change_error": 2.147730907918565e-06,
+          "raw_state_change_error": 1.2501853007089259e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 7.09604514377626e-07,
+          "routing_change_error": 4.292921616299052e-06,
+          "raw_state_change_error": 1.3681592748871039e-05,
+          "passed": true
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 9.640669543979316e-07,
+          "routing_change_error": 3.2768022401842273e-06,
+          "raw_state_change_error": 1.2595948371581011e-05,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "seconds": 0.6584973596036434,
+  "scope": "WeightSVD of existing exactJd. Changedraw9 predicted from pristinez8/raw9/nativebiasfreeMLP8output andamplitude; rho8analytic, head9RMS/QK/value recomputed. No changedstate orchangedrouting oracle. Cached72newcue selective-removal examples; conditionalresponse not autonomousprefix orlogit prediction."
+}
