@@ -53,8 +53,8 @@ def main():
     return adapter.hessp(x,d)
    try:
     fit=minimize(fun,x0,jac=True,hessp=hessp,method='trust-krylov',options={'maxiter':512,'gtol':1e-12,'initial_trust_radius':.1,'max_trust_radius':10.});reason=str(fit.message);iterations=int(fit.nit)
-   except FitStop as e:reason=str(e);iterations=None
-   except (torch.linalg.LinAlgError,ValueError,RuntimeError) as e:reason='numerical_failure: '+str(e);iterations=None
+   except FitStop as stop_reason:reason=str(stop_reason);iterations=None
+   except (torch.linalg.LinAlgError,ValueError,RuntimeError) as numeric_error:reason='numerical_failure: '+str(numeric_error);iterations=None
    z=adapter.tensor(best['x']);value,g=adapter.fun(best['x']);norm=float(pullback(z,adapter.tensor(g),chart).norm());final=-value*scale;held=float(cap(z,0));row=dict(arm=arm,coordinates=mode,initial_capture=prior[arm]['final_capture'],initial_held_capture=prior[arm]['held_capture'],coordinate_initial_error=abs(-initial*scale/prior[arm]['final_capture']-1),final_capture=final,gain_ratio=final/prior[arm]['final_capture'],held_capture=held,unit_reader_gradient=norm,stationary=norm<=1e-6,termination=reason,iterations=iterations,evaluations=adapter.evaluations,hessian_products=adapter.hessian_products,seconds=time.perf_counter()-began);rows.append(row)
    programs.append(dict(arm=arm,coordinates=mode,theta=z.cpu(),chart=source.get('chart',source.get('separation')),history=history));print(json.dumps(row),flush=True);(P/(STEM+'_PROGRESS.json')).write_text(json.dumps(rows,indent=2)+'\n')
  cluster_rows=[r for r in rows if r['coordinates']=='cluster'];bestrow=max(cluster_rows,key=lambda r:r['final_capture']);artifact=P/(STEM+'_ARTIFACT.pt');torch.save(dict(programs=programs,scale=scale),artifact)
