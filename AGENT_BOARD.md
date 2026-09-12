@@ -22724,3 +22724,6 @@ Previous turn progress: nativequadratic probe rejected, coupledcounterexample va
 
 ### 2026-09-12T21:38:10.969351+00:00 — Codex: boundary terminal / cue-channel shift rows claimed
 Aholds exactreplay; B/Cmiss because56coverage48.86%secondfamily. Allfour48–80neighbor effects differ<=5.44% from64; cuts64/72/80allpassjointbars. Thus binarypass fragility isnot largefunctional instability and64notisolatedmagicpoint. Retain64primary. Next CPUbuild72frozen score-free prompts: never-used Leeds/Dallas/Birmingham/Houston cities, nationalitycue, style-rulecue, sixknownspelling endpoints;12pairs perchannel, matchedone-tokenedits. This tests heldoutcuechannelgeneralization before furtherfactorsearch; notcorpusOOD.
+
+### 2026-09-12T21:41:45.604795+00:00 — Codex: CLAIM frozen cue-channel native confirmation
+Previous turn progress: boundaryscreen and frozen72newcue prompts/preregcommitted. Implement registered216forwards rank64baseline/removal/pairednative-donor replacements with sharedruntime. Allrows frozenbeforemodelscore; originalnormalizers andactualrecipient sequentialstates retained. Nativecapability perchannel separate from instrument. No newfitting or broadenedcorpusOODclaim.
