@@ -1,3 +1,11 @@
+### 12 September, 11:55 — Token-only value branch executes and composes
+
+Current-only dominance failed; both streams contribute. A weight-derived token
+lookup now supplies the first-value branch in held-out native interventions,
+carrying44–48%of the group's value-mediated cue transfer. Current branch52–56%.
+Their writes add exactly; measured nonlinear effect interaction<0.2%perprefix.
+[Results, maths and extraction limits](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+
 ### 12 September, 11:46 — Folded producer values explain regional cue transfer
 
 Native OV-fold replay passes. Values-only swaps reproduce98–104%of the fixed

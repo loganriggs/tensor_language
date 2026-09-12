@@ -1,0 +1,75 @@
+{
+  "panels": {
+    "V1": {
+      "relative_write_composition_error": 2.1653106644131126e-16,
+      "cells": [
+        {
+          "family": 0,
+          "prefix_nonlinear_interaction_relative_norm": 0.0008377182081656662,
+          "paired_nonlinear_interaction_relative_norm": 0.00032486963761863853,
+          "first_fraction_min": 0.32043467136256226,
+          "first_fraction_max": 0.5517325405721526,
+          "current_positive": 8,
+          "first_positive": 8,
+          "pairs": 8
+        },
+        {
+          "family": 1,
+          "prefix_nonlinear_interaction_relative_norm": 0.0018572818606485046,
+          "paired_nonlinear_interaction_relative_norm": 0.00035778385242609187,
+          "first_fraction_min": 0.4955519456030806,
+          "first_fraction_max": 0.6450644556720279,
+          "current_positive": 8,
+          "first_positive": 8,
+          "pairs": 8
+        }
+      ]
+    },
+    "OOD_V1": {
+      "relative_write_composition_error": 2.479894146076342e-16,
+      "cells": [
+        {
+          "family": 0,
+          "prefix_nonlinear_interaction_relative_norm": 0.0013682727898273839,
+          "paired_nonlinear_interaction_relative_norm": 0.0002373844580843903,
+          "first_fraction_min": 0.36304475496874544,
+          "first_fraction_max": 0.4984857381254056,
+          "current_positive": 6,
+          "first_positive": 6,
+          "pairs": 6
+        },
+        {
+          "family": 1,
+          "prefix_nonlinear_interaction_relative_norm": 0.0019448659027819955,
+          "paired_nonlinear_interaction_relative_norm": 0.0002578183715124522,
+          "first_fraction_min": 0.39702348915079233,
+          "first_fraction_max": 0.5409847112628086,
+          "current_positive": 6,
+          "first_positive": 6,
+          "pairs": 6
+        },
+        {
+          "family": 2,
+          "prefix_nonlinear_interaction_relative_norm": 0.001028014855604135,
+          "paired_nonlinear_interaction_relative_norm": 0.00024837620590108467,
+          "first_fraction_min": 0.4207174955116376,
+          "first_fraction_max": 0.5213896599747989,
+          "current_positive": 6,
+          "first_positive": 6,
+          "pairs": 6
+        },
+        {
+          "family": 3,
+          "prefix_nonlinear_interaction_relative_norm": 0.0019786148055984123,
+          "paired_nonlinear_interaction_relative_norm": 0.00021131612485215592,
+          "first_fraction_min": 0.4046259538598805,
+          "first_fraction_max": 0.48935386850737,
+          "current_positive": 6,
+          "first_positive": 6,
+          "pairs": 6
+        }
+      ]
+    }
+  },
+  "scope": "Exact additivity of upstream stream contributions with recipient routing/RMS/downstream ports fixed; nonlinear suffix interaction reported, not assumed absent. These two branches serve one regional behavior, not demonstrated multi-task reuse."
+}

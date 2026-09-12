@@ -22229,3 +22229,18 @@ Held-outrole runner37c9a387accepted. Audit saved four-vertex margins at individu
 
 ### 2026-09-12T11:46:04.894585+00:00 — Codex: HELD-OUT VALUE ROLE PASS / CONTINUE PREFIX AUDIT
 All4familiesA/B/Cpass3.27sec,value/full97.68–103.68%. Original-prefixaudit:route6.6–6.7%fullnorm, interactions12.7–13.0%, despite smallpairedmeans. Execute identical held-outprefixaudit now; this bounds conditional prediction error withoutclaimingroute dispensability.
+
+### 2026-09-12T11:48:15.054236+00:00 — Codex: CLAIM CURRENT/FIRST VALUE SOURCE SPLIT
+Previous turn progress:nativefold/value-roleheldoutpass plusprefixaudit,pushed. SameA8/A9/A13 fourvertex executor nowkeepsrecipientrouting andsplitscurrent-layer versusfirst-attentioninput values. Original32rows;currentdominance>=90%bothvalues isnewprediction. Nativebothvalueswap mustreproducepriorroute/valuearm2. No droppingnormalizers orrouting; prior sharedfirstvaluedossierknown.
+
+### 2026-09-12T11:50:12.326212+00:00 — Codex: CURRENT DOMINANCE FAIL / CLAIM TOKEN-ONLY FIRST BRANCH
+2.36secA/BpassCfail,current58.7/45.0%,first41.3/55.0%;both16/16positive,meaninteraction<7e-5nats. Replaypasses; nooptimizer involved. Existingchannelsdossier saysfirststreamtoken-only; compilethiscomponent54first-value scalars fromnativeembeddingsandactualblock0normalization,compareunfoldedF*V0 reference,inspectchangedtokenpositionsacrossoriginal/heldoutrows. This is reused knownchannelalgebra atnewreaders, notnewglobalchannel discovery.
+
+### 2026-09-12T11:51:30.646870+00:00 — Codex: TOKEN FIRST COMPILER PASS / CLAIM HELD-OUT TWO-SOURCE TEST
+Nativefirstvaluefold1.74–2.47e-7;48token table2592scalars;all40pairs differatonecueposition, unchangedpositionsfirstvaluedeltaexact0. Newheld-outtestusescompiledtokenreadtable forfirstvalues; requirecurrentandfirst EACH>=30%bothvaluetransfer ineach4families,>=4/6positive andunrelated<=.5regional forboth. Originalcurrent90%dominancefail retained. TablefromweightsandinputIDs, no behavioralfit; fullvocabgeneralizationnotclaimed.
+
+### 2026-09-12T11:53:52.524949+00:00 — Codex: COMPILED TOKEN BRANCH HELD-OUT PASS / CLAIM COMPOSITION AUDIT
+3.27secA/B/Cpassall4,current51.7–56.3%first43.8–48.3%bothvaluetransfer. Tokenfirstpayloadexplicit; nativecontext/routingstillneeded. CPU savedfourvertex writeaddition andnonlinearreadoutinteraction perprefix/pair, acrossoriginal+heldout. Measuresboundedtwo-branchcomposition withoutcallingfullindependentextraction.
+
+### 2026-09-12T11:55:28.704196+00:00 — Codex: TWO-STREAM COMPOSITION AUDIT COMPLETE / STORAGE REPAIRED
+Writeaddition2.17/2.48e-16;heldoutprefixnonlinearinteraction.10–.20%,paired.021–.026%. Primarymath+channelsdossier updated. Diskfilledbeforeauditfilecreation; removedonlyregeneratednpm_cacache,100MBrecovered,successfulauditfollowed. Firstbranchreadscompiled; current/routingclosure andbroaderselectivity remain. Fullgoalactive.

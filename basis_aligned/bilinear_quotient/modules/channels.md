@@ -84,3 +84,19 @@ Primary LEXICAL_FORM_INTERCHANGE_V1_RESULT.json, its AUDIT_V1 and
 LEXICAL_FORM_DRIFT_COMPONENTS_V1_RESULT.json in polynomial_causal; current dated
 gerund_scalar_writes_and_live_feedback.md. Next investigate explicit coupled
 lexical/form operations and their producers, not independent-axis relabeling.
+
+
+### 12 September — Token-only regional producer branch
+
+The known token-only first-value channel contributes44–48%of the value-mediated
+regional cue transfer through fixed attention8/9/13 producer readings on four
+held-out geographic/spelling families. A48-token table of54scalar readings per
+token replaces this branch's contextual capture in the native test; replay passes,
+24/24pairs move correctly. Current values supply52–56%, so the original>=90%
+current-dominance prediction fails. The two branches' write deltas add exactly;
+nonlinear suffix interactions remain<0.2%of effects on tested prefixes.
+This is a new reader-specific role, not a new discovery that v1is token-only.
+Actual mixing at these layers is4.0,−0.65625,4.1875; historicalone-half notation
+above is not the execution rule for this checkpoint. Native routing and remaining
+states are still required; no full independent circuit claim.
+[Primary maths and receipts](../../polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).

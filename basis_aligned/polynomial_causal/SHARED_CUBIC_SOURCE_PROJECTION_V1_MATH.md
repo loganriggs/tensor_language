@@ -717,3 +717,65 @@ input distinction is current-layer value state versus the shared first-layer
 value stream; those were bundled here. Closing that distinction can determine
 which upstream computation needs to be folded next. Broad selective removal,
 independent extraction and reuse across different behaviors remain unfinished.
+
+
+### A token-only branch and a contextual branch both contribute
+
+The [current/first stream test](REGIONAL_PRODUCER_VALUE_STREAM_V1_RESULT.json)
+passes execution and the both-value reference, but fails the registered
+current-stream dominance prediction. Current values explain58.7%/45.0%of the
+value-mediated effect; first-layer values explain41.3%/55.0%. Both streams move
+all16pairs correctly. There is no optimization involved in this negative result;
+the exact stream split and successful replay show a real second contribution.
+
+The first-value stream's token-only nature is already established in the
+[channels dossier](../bilinear_quotient/modules/channels.md). We reused that fact
+for these specific54producer readings. For token $v$, its embedding $e_v$ gives
+
+$$
+x_0(v)=\operatorname{RMS}(e_v),\qquad
+x_{\mathrm{first}}(v)=\operatorname{RMS}
+\left(\lambda_{0,0}x_0(v)+\lambda_{0,1}x_0(v)\right),
+\qquad z^{\mathrm{first}}_{jha}(v)=(H_{jh})_{a:}x_{\mathrm{first}}(v).
+$$
+
+Keep native normalization epsilon and signed coefficients. In particular the
+selected producer mixing coefficients are4.0,−0.65625,4.1875; they are not
+probability weights. The [token compiler](REGIONAL_FIRST_TOKEN_V1_RESULT.json)
+produces54readings pertoken, with1.74–2.47e-7relative error against the unfolded
+native first-value calculation. Its48-token panel table stores2592scalars.
+All40original/held-out pairs change exactly one cue-token position, so token-only
+readings at every unchanged position have exactly zero donor difference.
+
+The [held-out stream test](REGIONAL_PRODUCER_VALUE_STREAM_OOD_V1_RESULT.json)
+actually uses this compiled token table for the first branch. All4families pass:
+current shares51.7–56.3%, first shares43.8–48.3%; bothstreams have24/24positive
+pairs and pass unrelated-contrast bars. This new two-source prediction does not
+replace the original failed current-dominance prediction. The table covers these
+48IDs; arbitrary vocabulary support needs the original embedding table plus the
+fixed normalization and reader maps. No text fitting produced these readings.
+
+The [composition audit](REGIONAL_VALUE_COMPOSITION_V1_RESULT.json) checks
+
+$$
+\Delta w_{\mathrm{both}}=
+\Delta w_{\mathrm{current}}+\Delta w_{\mathrm{first}}.
+$$
+
+Relative write errors are2.17e-16original and2.48e-16held-out. Final nonlinear
+contrast interactions have relative norms0.10–0.20%on held-out individual
+prefixes, and0.021–0.026%on paired cue effects. These measured small interactions
+justify near-additive effect prediction on this interface; they are not a claim
+of globally linear logits or independent behavior under arbitrary edits.
+
+This closes a concrete source branch: its values can be computed directly from
+cue-token identity and reused at three producer layers. Native routing, current
+values, other residual contributions and downstream normalization still provide
+context. Independent end-to-end extraction, broad removal selectivity and reuse
+across different behaviors remain open. Next folding should target the current
+branch or the routing dependency, not re-establish the known token-only channel.
+
+Operational note: disk exhaustion interrupted audit-file creation before that
+script ran. Removing only the regenerated npm download cache recovered~100MB;
+model, installed packages and research artifacts were preserved. The audit then
+ran successfully. [Storage receipt](NPM_CACHE_STORAGE_2026-09-12_1154.json).
