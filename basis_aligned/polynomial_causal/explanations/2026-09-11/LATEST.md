@@ -1,3 +1,12 @@
+### 12 September, 15:28 — Competing cues limit semantic selectivity
+
+[New contextual screen](../../REGIONAL_COMPETING_CUES_V1_MATH.md): frozen token
+branch remains numerically faithful across96contexts. Removal moves48/48target
+contrasts in the expected direction; one coverage cell misses10%. Counterbalanced
+city roles show substantial distractor sensitivity in both native model and
+branch. Neither child isolates a robust role-specific computation; their native
+removal effects approximately add (0.21%relative nonlinear remainder).
+
 ### 12 September, 15:20 — Token-input branch extraction passes precision checks
 
 [Mixed-precision token package](../../COMPILED_TOKEN_SHARED_HEAD2_V1_MATH.md):

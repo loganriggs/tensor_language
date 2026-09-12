@@ -1,0 +1,87 @@
+{
+  "cells": [
+    {
+      "arm": "native",
+      "family": 0,
+      "target_mean": 2.4948861598968506,
+      "distractor_mean": 1.8483862678209941,
+      "absolute_role_ratio": 1.3497644963776945,
+      "target_positive": 24,
+      "target_count": 24
+    },
+    {
+      "arm": "native",
+      "family": 1,
+      "target_mean": 1.9910480678081512,
+      "distractor_mean": 2.0989642242590585,
+      "absolute_role_ratio": 0.9485859953191903,
+      "target_positive": 24,
+      "target_count": 24
+    },
+    {
+      "arm": "joint",
+      "family": 0,
+      "target_mean": 0.298890342315038,
+      "distractor_mean": 0.18275418877601624,
+      "absolute_role_ratio": 1.6354773825805897,
+      "target_positive": 24,
+      "target_count": 24
+    },
+    {
+      "arm": "joint",
+      "family": 1,
+      "target_mean": 0.20990663766860962,
+      "distractor_mean": 0.223531444867452,
+      "absolute_role_ratio": 0.939047469554355,
+      "target_positive": 24,
+      "target_count": 24
+    },
+    {
+      "arm": "child0",
+      "family": 0,
+      "target_mean": 0.24431168039639792,
+      "distractor_mean": 0.1396966278553009,
+      "absolute_role_ratio": 1.7488731413721617,
+      "target_positive": 24,
+      "target_count": 24
+    },
+    {
+      "arm": "child0",
+      "family": 1,
+      "target_mean": 0.16952048738797507,
+      "distractor_mean": 0.17043176293373108,
+      "absolute_role_ratio": 0.9946531354832588,
+      "target_positive": 24,
+      "target_count": 24
+    },
+    {
+      "arm": "child1",
+      "family": 0,
+      "target_mean": 0.053892811139424644,
+      "distractor_mean": 0.04265973965326945,
+      "absolute_role_ratio": 1.234434854910684,
+      "target_positive": 22,
+      "target_count": 24
+    },
+    {
+      "arm": "child1",
+      "family": 1,
+      "target_mean": 0.039927144845326744,
+      "distractor_mean": 0.052618821461995445,
+      "absolute_role_ratio": 0.7868840490637583,
+      "target_positive": 21,
+      "target_count": 24
+    }
+  ],
+  "interactions": [
+    {
+      "assignment": 0,
+      "nonlinear_interaction_relative": 0.0021507610954713615
+    },
+    {
+      "assignment": 1,
+      "nonlinear_interaction_relative": 0.0020987472843262966
+    }
+  ],
+  "scope": "Both city assignments averaged equally. Frozen child interventions, no fitted role separation. Native and removal effects include actual final nonlinear suffix; 96 controlled contexts, not broad OOD."
+}

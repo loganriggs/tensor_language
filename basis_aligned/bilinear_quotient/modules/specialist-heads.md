@@ -290,3 +290,13 @@ passes all4held-out families:1.067%write error,0.658–0.970%signed removal-effe
 error with each fit's own query writers. This strengthens grouped identification
 beyond input-angle matching. The two payload readers have now been folded exactly
 through MLP16; native producer mediation is registered, not yet measured.
+
+
+The frozen head17.2 regional branch now has a portable mixed-precision token-input
+executor; native query/current generators remain external. In96 competing-city
+contexts, removal affects all48editor-city contrasts positively, but one original
+coverage cell misses10% and neither native model nor either child has a robust
+twofold editor-over-tourist advantage after counterbalancing city assignments.
+This limits a role-specific regional interpretation. Within-package child
+removal effects have0.210–0.215%relative nonlinear nonadditivity on this panel.
+[Results, controls and scope](../../polynomial_causal/REGIONAL_COMPETING_CUES_V1_MATH.md).

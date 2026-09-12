@@ -42,3 +42,35 @@ swaps the city-pair assignments in48otherwise corresponding contexts. It is a
 new prospective test under unchanged bars; the first B/C misses are preserved.
 Combine both assignments before claiming role-insensitive regional priming.
 No fitting or selected-row removal is permitted.
+
+
+## Completed crossover and child accounting
+
+The [city-role crossover](REGIONAL_CITY_ROLE_CROSSOVER_V1_RESULT.json) passes
+A/B and fails C. Coverage is12.62/11.31% in its two orders; numerical child error
+is at most5.30e-7. Together the two panels comprise96contexts and48target
+contrasts, all of which show a positive joint-component removal effect.
+This does not repair the original9.59%coverage miss.
+
+[Balanced role accounting](REGIONAL_CITY_ROLE_CHILD_ACCOUNTING_V1_RESULT.json)
+averages each city pair over both roles. Native target/distractor response
+ratios are1.350 when the editor clause comes first and0.949 when it comes
+second. The joint component ratios are1.635 and0.939. The absence of a robust
+twofold editor advantage therefore persists after city-pair counterbalancing.
+This supports a regional-cue contribution with substantial distractor sensitivity
+on this panel; it does not establish global role blindness or a single lexical
+lookup as the complete mechanism. Clause order still changes the computation.
+
+Both existing child branches carry positive editor-city effects, with child0
+larger. Child0 role ratios are1.749/0.995 and child1 ratios1.234/0.787. Neither
+child alone supplies a robust role-specific split under this screen. The child
+programs remain independently executable; semantic exclusivity does not follow
+from their algebraic decomposition.
+
+Using the mixed joint arm and its own child arms, the final-margin nonadditive
+remainder is0.210–0.215% of the joint removal-effect norm. Unlike the inherited
+precision-run interaction statistic, this compares branches within the same
+package. It supports approximate behavioral addition on these96contexts,
+not a general composition guarantee. The next identification question is which
+source positions and contextual QK products create the clause-order dependence;
+more precision tuning cannot answer it.

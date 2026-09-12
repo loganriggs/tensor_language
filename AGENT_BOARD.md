@@ -22463,3 +22463,6 @@ Prior dossier has city-template generalization but no competing-role cue factori
 
 ### 2026-09-12T15:24:47.798807+00:00 — Codex: COMPETING CUES A PASS B/C MISS / CLAIM CITY-ROLE CROSSOVER
 Native capability24/24 positive; mixedbranch target coverage11.15/9.59% misses10%bothorders. Target/distractor responses bothlarge in nativeandcomponent; relevance2xbar fails. Numerical4.19e-7child,6.40e-8fullpass. Citypairassignedtorole confounds semantic conclusion. Next48samefactorialrows with editor Liverpool/Denver andtourist Manchester/Seattle; identical bars and frozenpackage. Combine96rows for role main effects, lexicalpair interaction; originalmisspreserved.
+
+### 2026-09-12T15:27:07.231003+00:00 — Codex: CROSSOVER C MISS / CLAIM CHILD ROLE ACCOUNTING
+Cityswap A/Bpass coverage12.62/11.31%,Crolebar stillmisses. Combine both assignments96rows; inspect native/joint/two frozenchild target/distractor main effects by clause order and child nonadditivity using saved native suffix arms. No childselection/refitting; this assesses splitting existing shared module computations.
