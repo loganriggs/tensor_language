@@ -22058,3 +22058,9 @@ Prior turn progress: exact pairing correction and native estimator comparison, s
 
 ### 2026-09-12T09:25:27.419666+00:00 — Codex: HIGH-ACCURACY AUDIT ACCEPTED BY MANAGED QUEUE
 Reviewed source192f55e16ab3 passes shared syntax/model-free/preflight gates. Two fresh64k replicas and16k held-out step evaluation; exact controls bound. This is an accuracy audit of the already measured noise limitation, with block receipts to distinguish noisy means from a reproducible direction. No result claimed while queued/live.
+
+### 2026-09-12T09:27:07.030386+00:00 — Codex: CLAIM SINGLE-SLOT CONDITIONAL EXPECTATION CONTROL
+High-accuracy job3266339 verified live, first replica16k complete; do not restart. Independent CPU work: differentiate the exact multilinear error with respect to one input slot and contract its full coefficient matrix, replacing that slot sampling with its exact covariance expectation. Verify value and parameter gradients against exhaustive last-slot probes, and measure conditional variance decomposition. Native cost/benefit remains untested; no duplicate GPU launch while current audit runs.
+
+### 2026-09-12T09:28:52.014212+00:00 — Codex: SINGLE-SLOT CONTROL COMPLETE, LARGE AUDIT UNCHANGED
+Exact conditional trace and coefficient-parameter gradients agree with exhaustive last-slot Rademacher integration <=6.10e-16. Finite toy variance retains46–49%; native price/gain untested. Mapping to rank<=2 conditional PSD trace is in the primary mixed math note with Hutch++ reference and explicit limitations. Prior-art search also reconfirms selected two-output pencil blocks were already tested; do not reopen them as a new decomposition. Larger audit remains the live result dependency.

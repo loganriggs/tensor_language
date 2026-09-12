@@ -207,3 +207,38 @@ cross-pairing contractions or a substantially larger deliberate probe budget.
 Blindly extending this small-batch fit is not supported. Nothing here rules
 out shared structure, establishes exact stationarity, or repairs the native
 extraction/removal/composition failures.
+
+## One-slot exact integration: controlled alternative, native price still open
+
+While the larger independent-gradient audit runs, a second estimator has passed
+[CPU controls](INTEGRATED_COEFFICIENT_SLOT_V1_CONTROL.json). Fix all coefficient
+slots except one. Multilinearity makes the two-output error a linear map
+$e(z)=Jz$, with $J\in\mathbb R^{2\times1152}$. Therefore
+
+$$
+\mathbb E_z[e(z)^TGe(z)\mid\text{other slots}]
+=\operatorname{tr}(J^TGJ),\qquad \mathbb E[zz^T]=I.
+$$
+
+Two reverse derivatives recover the two rows of $J$ without constructing the
+whole high-order tensor. Differentiating the trace through those derivatives
+gives a parameter-gradient estimator with this slot integrated exactly. Under
+the finite moments here, differentiation and expectation commute. The law of
+total covariance then guarantees that exact conditional integration cannot
+increase gradient covariance **per independent draw of the remaining slots**.
+It does not guarantee lower variance per second: second derivatives through
+the contraction cost more than ordinary sampling.
+
+This is closely related to PSD trace estimation. [Meyer et al., Hutch++](https://arxiv.org/abs/2010.09649)
+reduce stochastic trace variance by computing a low-rank part explicitly and
+sampling a remainder. Our conditional matrix is $J^TGJ$, PSD with rank at most2,
+and we can access its two-factor rows directly. Thus we use an exact trace,
+not Hutch++ or its matrix-query complexity guarantee. The other polynomial
+slots remain random; this does not integrate the entire eighth-degree norm.
+
+Exhausting all four Rademacher choices of a two-dimensional last slot agrees
+with the implementation's values and parameter gradients within
+$6.10\times10^{-16}$ across all four producer degrees. The finite toy design
+retains46–49%of the ordinary gradient variance. Those percentages are not
+native-model predictions. Native timing and variance need a separate test;
+the running larger-probe audit has not been changed to use this method.
