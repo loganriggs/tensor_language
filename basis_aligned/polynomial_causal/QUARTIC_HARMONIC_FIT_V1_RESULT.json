@@ -1,0 +1,33 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "stem": "COUPLED_QUARTIC_NONLINEAR_V2",
+      "program_sha256": "d4dfb51ea23e2668381903e90681d8f02ea2f6a5fdee5cd351a40cf60ce5e3e9",
+      "baseline_error": 0.2280854843899665,
+      "harmonic_combined_error": 0.6778663649070011,
+      "normal_residual": 1.4716657405862928e-15,
+      "native_replay_error": 4.163336342344337e-16,
+      "harmonic_objective_before": -4.7345649133908166e+17,
+      "harmonic_objective_after": -4.7362059504922566e+17,
+      "correction_write_norm_relative": 0.4632588878989673
+    },
+    {
+      "stem": "COUPLED_QUARTIC_LBFGS_V1",
+      "program_sha256": "44ab545a6110c9ba49cb449e03d328fa86924ed4ddc3fef7a5f7adeefa841524",
+      "baseline_error": 0.26652073742700316,
+      "harmonic_combined_error": 0.6816331186058514,
+      "normal_residual": 2.3506263557862852e-15,
+      "native_replay_error": 6.661338147750939e-16,
+      "harmonic_objective_before": -5.291891556764772e+17,
+      "harmonic_objective_after": -5.2932249672307136e+17,
+      "correction_write_norm_relative": 0.4290355928147059
+    }
+  ],
+  "artifact_sha256": "01bb60d0b0b8ef25abac081de57c3ad0af905af2621fbd29375a90e77dd0563b",
+  "target_trace_sha256": "a8e10a71925fe8e1d87ab0acf199a3ad17afed7638436e54a47d3e17e67f8d4e",
+  "diagnostic_floats": 3246912,
+  "scope": "Harmonic degree4 fit with exact dense lower correction; fixed learned banks, native radius and denominator retained. No data fit, no compact or causal claim."
+}

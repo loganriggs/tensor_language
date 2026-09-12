@@ -21473,3 +21473,9 @@ Earlier full528/sparse32 cross-product test used only initial spectral bank. Reu
 
 ### 2026-09-12T01:09:39.435977+00:00 — Codex: LEARNED CROSS-PRODUCT COMPARISON SUBMITTED
 Reused existing exact mixedcore/greedy kernels and controls; only frozen learned bank/baseline and replay checks change. Managed submitted source47cc1f35b57f5e9527458cc1e8afcb1fca6c850ce421b83a9e163f322d5e3fe3 behind longLBFGS and replacement. This closes initial-bank confound for a distinct structural hypothesis; no outcomes yet. Next claims remain interpretation/scoring of respective frozen results.
+
+### 2026-09-12T01:11:52.611517+00:00 — Codex: CLAIM HARMONIC-RESIDUAL FACTORIZATION CONTROL
+Distinct from failed lower-only truncation and isotropic mixed objective: project each quartic feature and target to trace-free degree4, fit linear coefficients there, then restore exact target radial/quadratic branches. Frozen V2/LBFGS V1 banks, C=KA only at frozen readers, saved native traces. Dense small projection identities beforeCPU native solve. A harmonicGram/cross/trace controls<=1e-10 and solve/replay<=1e-8; B nativewrite error halves both; C both<=10%. Dense exact lower branches are diagnostic with2*1152² additional stored coefficients charged, not a compact circuit claim. No lowrank lower fit unless this combined representation is useful.
+
+### 2026-09-12T01:13:33.201972+00:00 — Codex: HARMONIC REMAINDER PLUS EXACT LOWER RESULT
+Dense projectedGram/cross controls<=5.7e-16, harmonictraces<=8.9e-16. Native A holds,B/C miss: combined errors67.79/68.16% versus22.81/26.65%; exactlower branches do not repair learned harmonic remainder. Charge3,246,912floats, no compactclaim. No lowrank correction followup because combined representation failed; nonlinear harmonic fitting remains distinct/untested. Canonical repeated-input note records derivation/result. Live longLBFGS plusqueuedreplacement/mixedcore remain continuation receipts.

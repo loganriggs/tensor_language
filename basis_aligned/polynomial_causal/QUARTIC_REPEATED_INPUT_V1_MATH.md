@@ -94,6 +94,24 @@ The [fixed-bank repeated-input solve](QUARTIC_REPEATED_INPUT_NATIVE_V1_RESULT.js
 
 The [exact harmonic split](QUARTIC_HARMONIC_NATIVE_V1.json) explains another limitation of the simple isotropic picture. Keeping only the radial and quadratic components gives148.7% native write error and114–202% error in paired changes. The higher harmonic remainder is essential and cancels other components on these inputs. Reconstruction holds within9.1e-17 and the harmonic quadratic's trace is zero within4.6e-16. Component norms are not additive variance shares on the native distribution. Per the preregistration, no rank fit to the inadequate lower component is pursued. The generic harmonic decomposition is still exact; its lower-degree truncation is what failed.
 
+## Fit the harmonic remainder and restore exact lower terms, 12 September 01:14
+
+The lower-only truncation failed, but that does not test a representation retaining an approximate harmonic quartic alongside exact lower terms. We have now executed that distinct test on the frozen V2 and LBFGS V1 banks. If $A=\operatorname{Tr}T$ and $B=\operatorname{Tr}S$ are partial traces of fully symmetric quartic tensors in dimension $d$, their trace-free projections satisfy
+
+$$
+\langle H_4(T),H_4(S)\rangle
+=\langle T,S\rangle-\frac{6}{d+4}\langle A,B\rangle
++\frac{3}{(d+4)(d+2)}\operatorname{tr}(A)\operatorname{tr}(B).
+$$
+
+This follows by subtracting the orthogonal projection onto tensors containing an identity-matrix factor, using the earlier harmonic split. The [metric implementation](quartic_harmonic_metric_v1.py) agrees with explicit symmetrization and projection within5.7e-16; projected traces vanish within8.9e-16 in the [dense control](QUARTIC_HARMONIC_METRIC_V1_CONTROL.json).
+
+The experiment solves output coefficients for the harmonic-projected features and target, then evaluates the fitted quartic plus the exact lower component of the target-minus-fit. The native radius and downstream denominator remain explicit. The diagnostic charges3,246,912 floats: the592,704-float bank plus two dense1152-by1152 target-trace matrices. It is not a claimed compact replacement. Output coefficients are fitted using weights only; native inputs are loaded afterward for validation.
+
+[Native results](QUARTIC_HARMONIC_FIT_V1_RESULT.json) pass replay and solve checks but fail improvement and10% fidelity. V2 error changes from22.81% to **67.79%**; LBFGS V1 changes from26.65% to **68.16%**. Correction-write norms are46.3% and42.9% of reference-write norm. These norms are not variance shares. Exact lower components do not repair the approximation of the harmonic remainder on the native distribution; the combined error worsens through cancellation. This is not a contradiction of the coefficient-space orthogonality identity.
+
+The negative covers these fixed banks and this exact linear harmonic fit. Jointly learning harmonic factors remains untested. We will not compress the unsuccessful dense correction or treat it as an identified circuit. This also distinguishes the result from the previous isotropic solve, which forced the same output mixture to account for all harmonic degrees.
+
 ## Red-team using learned input banks, 12 September 01:08
 
 The initial-bank repeated-input refit failed native fidelity. The [new learned-bank test](QUARTIC_LEARNED_REPEATED_V1_RESULT.json) applies the same exact isotropic objective to the frozen V2 and LBFGS V1 readers. This directly tests whether the initial spectral bank caused that failure. The saved native target traces and fixed output writers are identical; coefficient target correlations are reconstructed as C=KA from each saved coefficient-optimal mixing. This identity applies at the fixed bank only, and must not be differentiated as a target formula when moving readers.
