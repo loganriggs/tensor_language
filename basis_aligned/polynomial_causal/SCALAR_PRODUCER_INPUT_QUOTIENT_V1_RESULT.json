@@ -1,0 +1,37 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "records": [
+    {
+      "head": "8.2",
+      "numerical_read_rank": 513,
+      "stack_singular_condition": 54.43619227750569,
+      "normalized_input_projection_error": 4.934799234183016e-15,
+      "raw_coordinates_change": 9.27266033129526e-16,
+      "raw_nullspace_output_change": 0.15406464181602506,
+      "augmented_norm_coordinate_error": 4.9200246520387335e-15,
+      "wrong_norm_output_error": 0.1618261407633397,
+      "augmented_vs_native_fp32_error": 4.1977980684532385e-07,
+      "original_linear_map_scalars": 590976,
+      "reduced_maps_scalars": 263169,
+      "encoder_scalars": 590976
+    },
+    {
+      "head": "9.8",
+      "numerical_read_rank": 513,
+      "stack_singular_condition": 80.11411923794236,
+      "normalized_input_projection_error": 5.128394100888417e-15,
+      "raw_coordinates_change": 9.55910033453369e-16,
+      "raw_nullspace_output_change": 0.2417476370725025,
+      "augmented_norm_coordinate_error": 5.715791608012693e-15,
+      "wrong_norm_output_error": 0.28840301291027765,
+      "augmented_vs_native_fp32_error": 3.4367668021378163e-07,
+      "original_linear_map_scalars": 590976,
+      "reduced_maps_scalars": 263169,
+      "encoder_scalars": 590976
+    }
+  ],
+  "seconds": 0.16704855486750603,
+  "scope": "Random mathematical interface controls, not language validation. Linear read span is sufficient after native input RMS; raw read coordinates alone omit a necessary norm observable. Augmenting with actual rho\u00b2 replays. Encoder/native prefix costs remain; no global minimum or closed producer-input generator claim."
+}
