@@ -59,6 +59,9 @@ def check(path, expect_rows=32, families=("A1", "A2", "P", "C")):
 
     import circuit_unit_greedy as g
     for behaviour, module_suffix in names.items():
+        if module_suffix is _MISSING:
+            problems.append(f"{behaviour}: absent from NAMES, and the runner indexes NAMES directly (KeyError)")
+            continue
         try:
             mod = importlib.import_module(f"circuit_fast_screen_candidate_{module_suffix}")
         except Exception as err:
@@ -88,6 +91,8 @@ def check(path, expect_rows=32, families=("A1", "A2", "P", "C")):
     return problems
 
 
+_MISSING = object()
+
 AVOIDED_READOUTS = (" is", " was", " has", " had", " will", " were", " been")
 
 
@@ -96,6 +101,8 @@ def _avoided_readouts(names):
     import os as _os
     out = []
     for behaviour, suffix in (names or {}).items():
+        if suffix is _MISSING:
+            continue
         path = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)),
                              f"circuit_fast_screen_candidate_{suffix}.py")
         if not _os.path.exists(path):
@@ -146,7 +153,9 @@ def _cells_evaluated(path):
     if isinstance(families, dict):
         members = [m for v in families.values() for m in v]
         if isinstance(names, dict):
-            return {m: names.get(m, m) for m in members}
+            # A member absent from NAMES is a REAL defect: the runner does NAMES[n] and raises KeyError.
+            # Falling back to the member name here hid exactly that and let v635 reach the GPU on 2026-09-12.
+            return {m: names[m] if m in names else _MISSING for m in members}
         return {m: m for m in members}
     return names if isinstance(names, dict) else None
 
