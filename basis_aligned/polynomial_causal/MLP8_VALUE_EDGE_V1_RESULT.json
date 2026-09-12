@@ -1,0 +1,131 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "max_path_sum_error": 3.850353244054164e-16,
+  "records": [
+    {
+      "family": 0,
+      "capable": true,
+      "quad4_fullquad_error_over_native": 0.014706383906301804,
+      "arms": [
+        {
+          "arm": 1,
+          "coverage": 0.3769517487816499,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.10273192560250832
+        },
+        {
+          "arm": 2,
+          "coverage": 0.23242716792807125,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.10895096347698435
+        },
+        {
+          "arm": 3,
+          "coverage": 0.12873063985897498,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09252852190422912
+        },
+        {
+          "arm": 4,
+          "coverage": 0.13377586421094928,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09344132655511592
+        },
+        {
+          "arm": 5,
+          "coverage": -0.0007649994995306477,
+          "positive_pairs": 6,
+          "unrelated_ratio": 0.10182930735798155
+        }
+      ]
+    },
+    {
+      "family": 1,
+      "capable": true,
+      "quad4_fullquad_error_over_native": 0.007877227109814118,
+      "arms": [
+        {
+          "arm": 1,
+          "coverage": 0.3301182714669437,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08443156294102719
+        },
+        {
+          "arm": 2,
+          "coverage": 0.33654382248926207,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08839502462996703
+        },
+        {
+          "arm": 3,
+          "coverage": -0.010365658963742853,
+          "positive_pairs": 3,
+          "unrelated_ratio": 0.09478097307858872
+        },
+        {
+          "arm": 4,
+          "coverage": -0.008594988440845509,
+          "positive_pairs": 3,
+          "unrelated_ratio": 0.09581105832674983
+        },
+        {
+          "arm": 5,
+          "coverage": -0.0017183859825744623,
+          "positive_pairs": 6,
+          "unrelated_ratio": 0.08889448451231072
+        }
+      ]
+    },
+    {
+      "family": 2,
+      "capable": true,
+      "quad4_fullquad_error_over_native": 0.005823183771861347,
+      "arms": [
+        {
+          "arm": 1,
+          "coverage": 0.3499323749962189,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08071637336625473
+        },
+        {
+          "arm": 2,
+          "coverage": 0.29470656826377,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08707137471795252
+        },
+        {
+          "arm": 3,
+          "coverage": 0.04487070598657971,
+          "positive_pairs": 7,
+          "unrelated_ratio": 0.08549008535320854
+        },
+        {
+          "arm": 4,
+          "coverage": 0.047647953135740384,
+          "positive_pairs": 7,
+          "unrelated_ratio": 0.08163472154162639
+        },
+        {
+          "arm": 5,
+          "coverage": -0.0021553788474372943,
+          "positive_pairs": 5,
+          "unrelated_ratio": 0.08615717817696104
+        }
+      ]
+    }
+  ],
+  "body_forwards": 432,
+  "seconds": 6.5503593645989895,
+  "arm_names": [
+    "native",
+    "selected9value",
+    "direct_reentry_bias",
+    "full_MLP8_quadratic",
+    "fourmode_quadratic",
+    "quadratic_remainder"
+  ],
+  "scope": "Physicalhead9value-edge removals; nativeQKroute/background retained. Fourmodesfrozenfromweights. Newendpointpanelreused, no newline/autonomouspredictionclaim.",
+  "artifact_sha": "53834b6a8d8d499243674bc9068bfc2a236afb0a17f17b8b9e93120a9f36a702"
+}
