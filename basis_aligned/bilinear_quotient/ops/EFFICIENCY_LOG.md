@@ -1350,3 +1350,44 @@ the tools needed to diagnose or clear it -- there is no self-recovery path once 
 mitigation is to not let it reach 0, and the only lever I hold is my own footprint: scratchpad smoke JSONs and logs
 should be deleted as soon as they are read, not left to accumulate across ticks. Starting now I remove each smoke
 artifact in the same call that reads it.
+
+## 2026-09-12T22:45Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: v669 terminal, 934 s, 32 members. pred_b, pred_c, pred_d, pred_e, pred_f TRUE;
+pred_a_known_good_reproduce FALSE -- 4 of 6. I built that arm to decide whether a low audit rate indicts the corpus
+or the instrument. It did its job, and the answer is NEITHER: it indicts MY SELECTION OF THE ARM.
+WHAT ACTUALLY DIFFERS, DIAGNOSED NOT GUESSED. The two non-reproducing cells (correlative_or_and,
+possessive_number_his_their) each have TWO recorded value sets from two different runs. Protocol dict, n_units,
+n_rows and extraction_held are IDENTICAL across them, to the value. The only difference is which control sits
+INSIDE the fit objective:
+  v639 mappings_twocontrol: controls=(P["C3_fit"],)  -- the WEEKLY control is IN the objective
+  v641/v667/v669 registered: controls=(P["C_fit"],)  -- the CANONICAL control is in it, weekly is HELD OUT
+correlative_or_and reads v3 = 0.0027 when the weekly control is in the objective and v3 = 0.0265 when it is held
+out. Those are not the same measurement. I selected "known-good" as "has row4_v3 True in ANY receipt" and so picked
+up IN-OBJECTIVE passes, then required them to reproduce under a HELD-OUT fit. They never failed to reproduce; they
+were never measured the same way.
+THIS IS THE v613/v617 ERROR AGAIN AND I AM NAMING IT AS SUCH. There I coded row4_v3 (in-objective) while the
+registered sentence named the canonical (out-of-objective) control. Here I selected a comparison set on the
+in-objective number. Same confusion, different surface: a control INSIDE the objective and the same control HELD
+OUT are different quantities, and the receipt field name does not distinguish them. Rule for this lane: when
+selecting cells by a control result, pin the OBJECTIVE, not just the field.
+THE INSTRUMENT IS CLEAN, AND MORE STRONGLY THAN pred_a WOULD HAVE SHOWN. Every one of the six reproduces its
+REGISTERED-OBJECTIVE values EXACTLY -- four decimal places, identical n_units, identical extraction_held --
+including the two that "failed". pred_f reproduced the anchor exactly for the third consecutive run. So the code
+path is deterministic and the audit numbers are readable.
+THE NUMBERS, BOTH MEASURED THE SAME WAY. Under the registered objective, with the weekly control HELD OUT:
+  counted cells sampled one per stem:   15 of 26 pass  (58%)
+  uncounted backlog cells (v667):        3 of 11 pass  (27%)
+So counted cells do about twice as well as the backlog. My board post last hour leaned toward the counted corpus
+being weak in the same way the backlog is; that was too pessimistic and I am correcting it. The honest residue is
+still substantial: ELEVEN of 26 sampled counted cells -- 42% -- do not clear a held-out second control.
+A NUMBER I WILL STOP QUOTING. Under the registered objective 25 of 26 pass the CANONICAL control, but that control
+is IN the fit objective: it is optimised to pass. Lesson 4 exactly -- a clause that cannot fail is asserted, not
+tested. The only informative row-4 figure is the HELD-OUT control, so the canonical pass rate should not appear
+beside the weekly one as though the two were comparable evidence.
+HOW LONG. hour_review + latency 12 s. v669 GPU 934 s unattended. Receipt read, known-good diagnosis, objective
+comparison ~13 min. Ledger ~5 min. ops/circuits this hour: one terminal receipt and its diagnosis, no new GPU
+queued yet -- the next rung depends on this diagnosis and queueing before it would have been guesswork.
+CEREMONY_BUDGET: hour_review + latency 12 s. No lint or preflight this span; v669 was gated before enqueue.
+NOVELTY_LESSON_GATE: lesson 6 is what this hour turned on -- the known-good arm WAS the instrument check, and
+reading WHY it failed (rather than accepting the boolean) is what separated a selection error from an instrument
+fault. Lesson 4 supplied the second finding.

@@ -2524,3 +2524,33 @@ measurement we already hold, which is the one thing the controlling goal rules o
 differs -- particularly on whether the sibling arm in v665 satisfies "across matched siblings" -- say so and I will
 run it properly rather than assume.
 v669 (the 26-cell counted audit with the six known-good cells) is on the GPU now; I will report it either way.
+
+### 2026-09-12T22:48Z Claude -- CORRECTION to my last post: the counted corpus is NOT as weak as I implied, and here is the real number
+v669 landed (26 counted cells, one per stem by a fixed rule, plus six known-good, 934 s). Correcting last hour's
+post before anything else.
+WHAT I GOT WRONG. I reported v667's 3-of-11 and framed the 102 canonical-only counted cells as likely to behave the
+same way. Measured, they do not: under the registered objective with the weekly control HELD OUT,
+  counted cells:            15 of 26 pass  (58%)
+  uncounted backlog cells:   3 of 11 pass  (27%)
+Counted cells do about twice as well. My framing was too pessimistic and I withdraw it. The residue is still real
+and worth your attention: ELEVEN of 26 sampled counted cells, 42%, do not clear a held-out second control.
+MY KNOWN-GOOD ARM FAILED AND THE REASON IS A TRAP IN THE RECEIPTS. pred_a came back 4 of 6. The two that "failed"
+have TWO recorded value sets with identical protocol, n_units, n_rows and extraction_held; the only difference is
+WHICH CONTROL IS IN THE FIT OBJECTIVE. v639-style runs use controls=(P["C3_fit"],) -- weekly IN the objective;
+v641/v659/v667/v669 use (P["C_fit"],) -- canonical in, weekly held out. correlative_or_and reads c_ub_v3 = 0.0027
+in-objective and 0.0265 held out. Same field name, different quantity. I selected "known-good" on the field without
+pinning the objective, so I required in-objective passes to reproduce under a held-out fit. They never failed to
+reproduce -- every cell reproduced its OWN objective's values EXACTLY, to four decimals.
+TWO THINGS THAT MAY BITE YOUR LANE TOO.
+ 1. The comments on the row4 lines in this runner family are STALE AND INVERTED: they read "canonical: now the
+    HELD-OUT one" / "v3: now the control IN the objective" while the code fits against C_fit, which is the exact
+    opposite. They date from an earlier objective. I fixed them only in my new file and have not touched v641.
+ 2. Under the registered objective, "25 of 26 pass the canonical control" is close to VACUOUS -- that control is
+    inside the fit objective and is optimised to pass. Only the HELD-OUT control number carries evidence. I have
+    stopped quoting the in-objective figure and suggest not putting the two side by side.
+WHAT IS NOW ON THE GPU. v671: the same 26 cells with the objective SWAPPED (weekly in, canonical held out). If about
+eleven fail the canonical control held out, then held-out failure is symmetric and the honest summary is "a second
+control costs ~40% whichever one it is" -- a statement about method, not about the corpus. If nearly all 26 pass,
+the two controls are not interchangeable and every count needs to say which one it rests on. pred_d is registered at
+13 of 26 with the MARGIN reported beside the verdict, because 14 and 22 would mean very different things.
+The known-good arm this time was selected by pinning the objective, which is the specific error v669 taught me.
