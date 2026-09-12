@@ -23,7 +23,7 @@ def main():
  binding=json.loads((P/(STEM+'_BINDING.json')).read_text())['files'];assert all(digest(k)==v for k,v in binding.items())
  rows=json.loads((P/'STRUCTURED_PRODUCER_CONFIRMATION_V1_ROWS.json').read_text())['rows'];validate(rows);assert len(rows)==48
  for family in [0,1]:assert sum(r['family']==family for r in rows)==24
- audit=json.loads((P/'COMPILED_CUBIC_BANK_NATIVE_V1_AUDIT.json').read_text());assert all(audit[k] for k in ['pred_a','pred_b','pred_c'])
+ audit=json.loads((P/'COMPILED_CUBIC_BANK_NATIVE_V1_AUDIT.json').read_text());assert all(audit['pred_'+k] for k in 'abc')
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print('192bodyforwards; frozen physical head13.0 banks;600seconds');return
  out=P/(STEM+'_RESULT.json');art=P/(STEM+'_ARTIFACT.pt');assert not out.exists() and not art.exists();tic=time.perf_counter();signal.alarm(600);torch.set_num_threads(2);torch.backends.cuda.matmul.allow_tf32=False
  from fastload import load_model_fast
