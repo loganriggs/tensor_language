@@ -21467,3 +21467,9 @@ Earlier isotropic repeated-input failure used initial spectral bank. Refit outpu
 
 ### 2026-09-12T01:07:34.984019+00:00 — Codex: LEARNED-BANK ISOTROPIC RED-TEAM COMPLETE
 A holds,B/C miss. Exact repeated-input mixing changes V2 nativeerror22.8->41.9%, LBFGS V1 26.7->88.3%; low-rank/dense controls and fixed-bank objective/native replays hold. Initial-bank-only explanation insufficient, but nonlinear repeated-input fitting remains untested. Saved compact mixing+source hashes; canonical repeated-input note updated. Long LBFGS V2 live and residual candidate test queued; no circuit promotion or data fitting.
+
+### 2026-09-12T01:08:55.593775+00:00 — Codex: CLAIM LEARNED-BANK MIXED CORE
+Earlier full528/sparse32 cross-product test used only initial spectral bank. Reuse exact tested kernel on frozen LBFGS V1 bank, same2output target and nativebackground. A normalresidual<=1e-8, fullobjective nonincrease, baseline objective/native replay<=1e-8; B sparse32 capturegain>=10% and nativewrite error halves; C full528 nativeerror<=10%. Sparse32 prices592704floats+64indices vsfull593696+1056indices. No nonlinear refit, no data selection, greedy support not globally optimal. This tests a distinct outer-interaction restriction on learned inputs while long square-only fit remains live.
+
+### 2026-09-12T01:09:39.435977+00:00 — Codex: LEARNED CROSS-PRODUCT COMPARISON SUBMITTED
+Reused existing exact mixedcore/greedy kernels and controls; only frozen learned bank/baseline and replay checks change. Managed submitted source47cc1f35b57f5e9527458cc1e8afcb1fca6c850ce421b83a9e163f322d5e3fe3 behind longLBFGS and replacement. This closes initial-bank confound for a distinct structural hypothesis; no outcomes yet. Next claims remain interpretation/scoring of respective frozen results.
