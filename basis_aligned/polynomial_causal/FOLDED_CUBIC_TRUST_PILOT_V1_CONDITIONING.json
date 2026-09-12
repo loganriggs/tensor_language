@@ -1,0 +1,65 @@
+{
+  "rows": [
+    {
+      "arm": 0,
+      "coordinates": "raw",
+      "gram_condition": 2380.009627385316,
+      "normalized_gram_condition": 2350.4920149209615,
+      "raw_normalized_gram_condition": 2350.4920149209615,
+      "source_feature_norm_range": [
+        0.4083488546664972,
+        0.5593634595703776
+      ],
+      "raw_reader_norm_range": [
+        0.9680139719164508,
+        1.030820616931523
+      ]
+    },
+    {
+      "arm": 0,
+      "coordinates": "secant",
+      "gram_condition": 12601.227584243128,
+      "normalized_gram_condition": 11996.204676065568,
+      "raw_normalized_gram_condition": 12032816.01707039,
+      "source_feature_norm_range": [
+        0.3386459701531907,
+        0.5520888603752911
+      ],
+      "raw_reader_norm_range": [
+        0.8617830802857065,
+        1.0028973961494447
+      ]
+    },
+    {
+      "arm": 1,
+      "coordinates": "raw",
+      "gram_condition": 36591.83521992004,
+      "normalized_gram_condition": 18514.238211322143,
+      "raw_normalized_gram_condition": 18514.238211322143,
+      "source_feature_norm_range": [
+        0.40830322387842477,
+        0.932610037918809
+      ],
+      "raw_reader_norm_range": [
+        0.9828391744074355,
+        1.2430218365363268
+      ]
+    },
+    {
+      "arm": 1,
+      "coordinates": "secant",
+      "gram_condition": 8375.586528922604,
+      "normalized_gram_condition": 8367.334029792959,
+      "raw_normalized_gram_condition": 9997.290971987408,
+      "source_feature_norm_range": [
+        0.4082076508885383,
+        0.45678102189076997
+      ],
+      "raw_reader_norm_range": [
+        0.9054305797751638,
+        1.1008423723680807
+      ]
+    }
+  ],
+  "scope": "Separates source-feature scaling from normalized span degeneracy at terminal warm fits; no refit."
+}
