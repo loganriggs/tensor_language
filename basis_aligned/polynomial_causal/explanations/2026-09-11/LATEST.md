@@ -1,3 +1,7 @@
+### 12 September, 17:54 — Exact directional MLP program; native test queued
+
+[Primary derivation](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): fixed producer direction turns the full MLP8 finite-amplitude response into one constant linear map plus explicit amplitude/norm/background terms. Actual-weight FP64/FP32 algebra controls pass;1.33Mscalars stored, native background still external. Native48-row cache and fixed term scorer implemented; cache queued behind livepeer663, not yet evaluated.
+
 ### 12 September, 17:46 — Recursive pair removal changes most of regional cue contrast
 
 [Primary evidence and bridge maths](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): physical8.2/9.8pair removal reduces67–70%native regional contrast on reused48rows. Wholehead-fidelity bars and one natural newline max-error control fail. Freezing the second removed write explains much of joint nonadditivity in a registered hybrid diagnostic. Exact producer->MLP8->head9raw-read expansion passes CPU algebra probes; native term attribution remains untested. Hourly1744 complete; next18:44, math20:12.

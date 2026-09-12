@@ -154,3 +154,31 @@ $$
 For the layer9 raw read stack E9 and residual coefficient lambda9, the next interface change is lambda9 E9 Delta x8. This is a direct producer term, a background term changed by normalization, a mixed producer/MLP term, and an amplitude-square term. After computing it, layer9 input RMS and projected QK normalization still need their actual norms; the expression alone does not close their generation.
 
 [CPU actual-weight algebra test](SCALAR_PRODUCER_MLP_BRIDGE_V1_RESULT.json) replays all513rawQK/value reads to2.33e-15aggregate relative error on32independent probes at perturbation/input norm ratios0,.01,.1,1. Dropping quadratic or normalization terms produces nonzero probe errors; these random-domain numbers are not native mediation estimates. The exact bridge is a new composed-path tool, not another fitted low-rank representation. Native z8/a8 evaluation is the next required evidence before attributing the regional interaction to these terms.
+
+## 17:54 — One fixed linear map exactly represents the directional MLP response
+
+For the fixed physical producer writer d, define
+
+$$
+J_d=D\left[\operatorname{diag}(Rd)L+\operatorname{diag}(Ld)R\right].
+$$
+
+This is a constant matrix, not a Jacobian frozen at one contextual state. It maps any z to the mixed bilinear term for that fixed direction. The pure quadratic term is not independent:
+
+$$
+D[(Ld)\odot(Rd)]=\tfrac12J_dd.
+$$
+
+Let u=M(z)/rho² be the original bias-free normalized MLP output, supplied as an explicit background input. The exact change in the residual-plus-MLP computation is
+
+$$
+\Delta x_8=-ad+
+\left(\frac{\rho^2}{\rho'^2}-1\right)u
+-\frac{a}{\rho'^2}J_d\left(z-\frac a2d\right).
+$$
+
+This packages the full finite-amplitude response as one linear map with a shared amplitude and norm terms. It is an exact interaction-path representation, without low-rank approximation or behavioral fitting. [Actual-weight CPU control](SCALAR_PRODUCER_DIRECTIONAL_MLP_V1_RESULT.json) verifies the quadratic identity to1.97e-15, complete response to4.17e-14inFP64 and6.46e-6inFP32 on independent probes. [Frozen program](SCALAR_PRODUCER_DIRECTIONAL_MLP_V1_PROGRAM.pt) contains J_d and d:1,328,256scalars/10,626,048FP64tensorbytes, compared with15,926,400scalars in the original full MLP.
+
+The comparison is conditional: z, the native background u, and amplitude a still require generation, and the rest of the native model remains charged. It is not a12fold whole-model compression claim. The square term is already implicit in this program; removing it is an approximation, not an equivalent rewrite.
+
+[Native-state preregistration](SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_PREREGISTRATION.md) and cache/scorer implementations are committed. At17:54 the96-forward native cache is queued behind the confirmed live peer663 process. It will capture pristine z8, pristine/changed raw r9 and scalar fields on48reusedregional rows; no native bridge result exists yet. The fixed CPU comparison tests exact four-term replay, direct+mixed sufficiency, and whether direct-only misses. It must complete before assigning native importance to any of the algebraic terms.

@@ -114,3 +114,7 @@ new K, or call the code list a model-wide circuit. The next object should remove
 the full bilinear MLP with its downstream causal response to obtain an input-space quadratic form, or define a
 state-level equivalence by indistinguishable downstream interventions. Either route must again pass code/natural
 transfer and exact causal removal.
+
+## 2026-09-12 — Specific regional producer interaction through MLP8
+
+A frozen physical head8.2 value-component removal changes head9.8's component and explains much of the pair's regional joint-removal nonadditivity in a hybrid frozen-second-write diagnostic. This is distinct from the earlier equality or generic rank ladders. For its fixed writer d, the exact MLP8 directional response has constant mixed map J_d=D[diag(Rd)L+diag(Ld)R] and square term J_d*d/2. Independent actual-weight algebra controls pass; native term-mediation testing is queued. The native background MLP output and prefix inputs remain explicit, so this is not standalone MLP extraction. [Primary evidence and exact equations](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md).
