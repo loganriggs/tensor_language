@@ -21761,3 +21761,9 @@ CPUoldcacheSHAverified: oldcenteredparent restrictedthroughMLP16 hasquadraticcos
 
 ### 2026-09-12T05:18:49.453855+00:00 — Codex: PRIOR REUSE AUDIT PASSES / NO INDEPENDENT CIRCUIT COUNT
 A/B/Cpass: oldcenteredparent with optimalnewmetricpartners captures2.64067%=94.678%ofnew, functioncos0.934228; unchangedoldstarcos0.812855. Most apparent concentrationgain is composition/reweightingaroundexistingparent. Best-scale residual35.67%stillprecludes assumingbehavioralequivalence. Primary COMPOSED_SHARED_PARENT_V1_RESULTS andMLP17dossier nowrecordthis; no semanticlabel, no reoptimization.
+
+### 2026-09-12T05:20:31.625641+00:00 — Codex: CLAIM FROZEN PRIOR-PARENT INTERCHANGEABILITY
+Weight alias audit passes but fullfunction residual remains35.7%. Test oldcenteredparent with exactnewmetricpartners versusnewfullstar on same128developmental endpoints; oldunchangedstar is secondarybaseline. A newreferencewrite/effectsreplay<=1e-8/1e-5; B swaps<=.1/sign>=.9/live>=4; C removalCEerror<=.02; D writes<=.05 eachfamily. No rankcut/no readerfit/no datafit. Onlypassingfidelitycanjustifymergingparentinterfaces; doesnotestablishsemanticOODcircuit.
+
+### 2026-09-12T05:23:50.514977+00:00 — Codex: PARENT INTERCHANGE FAILS / KEEP DISTINCT INTERFACES
+Managed source05dfc6ab terminal1.33sec,ApassB/C/Dfail. Fullmatchedpartners give swaps5.07/11.51/15.99/30.13%,removalerrors.0255/.0420/.0221/.0230; zeroexactreferencewritereplay. Originalunchangedpartnerbaseline includedandfails. Parentrelatedness isnotbehavioralequivalence, evenwithout rankcut. No mergednode/adoption; primary COMPOSED_SHARED_PARENT_V1_RESULTS andMLP17dossier updated.

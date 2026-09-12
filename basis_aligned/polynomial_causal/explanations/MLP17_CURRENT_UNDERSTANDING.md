@@ -643,3 +643,8 @@ the MLP16 producer path. Holding the old parent fixed with optimal new-metric
 partners retains94.7%of new capture; complete-star cosine0.934 is not exact
 identity or behavioral interchangeability. No new circuit count or semantic
 label. [Primary audit and limitations](../COMPOSED_SHARED_PARENT_V1_RESULTS.md#prior-parent-audit-substantial-refinement-not-an-independent-discovery).
+
+The subsequent full-partner native interchangeability test fails: matched old
+parent gives5.07/11.51/15.99/30.13%swap errors and allremoval bars fail. Preserve
+both interfaces; related weights are not sufficient for a merged circuit node.
+[Receipt](../PARENT_INTERCHANGE_NATIVE_V1_RESULT.json).

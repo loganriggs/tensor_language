@@ -95,3 +95,36 @@ after optimal scalar rescaling, cosine0.934228 leaves35.67%relative coefficient
 function residual. Given the measured counterfactual sensitivity, behavioral
 interchangeability requires testing. These are parent/path comparisons only;
 no semantic identity or OOD evidence is added.
+
+## Native interchangeability fails; retain the distinction
+
+The [frozen native comparison](PARENT_INTERCHANGE_NATIVE_V1_RESULT.json) completed
+in1.33seconds on the same128developmental endpoints. Numerical/reference replay
+A passes, but swaps B, removal C and writes D fail. The full old parent receives
+its exact optimal unrestricted partners in the new metric; there is no rank
+truncation or data fitting in this test.
+
+| Family | Candidate swap relative RMS | Candidate removal-CE error | Candidate write error |
+|---|---:|---:|---:|
+|A1|5.07%|0.0255nats|11.45%|
+|A2|11.51%|0.0420nats|15.31%|
+|Past|15.99%|0.0221nats|8.69%|
+|Progressive|30.13%|0.0230nats|10.27%|
+
+All64swaps are live, and sign agreement is at least93.75%per family. Exact new
+reference writes replay with zero error; the prior reference effects are also
+reused for the numerical check. Overall candidate write error is12.26%.
+The original old star with unchanged partners is a secondary baseline:
+swap errors14.77/45.25/18.67/27.20%, overall write13.46%. Updating partners
+therefore addresses a real coordinate/consumer mismatch but does not make the
+old and new components behaviorally interchangeable. Both interfaces keep
+full partners, so the failed rank16compression is not the explanation here.
+
+The candidate's conditional price is17,253,504values before further exact
+consumer folding, including native producer matrices. No combined graph
+deduplication or whole-model saving is implemented. Keep the new result described
+as a related refinement, while retaining both functions' distinct intervention
+semantics. Do not merge graph nodes based solely on the0.952parent cosine or
+94.7%capture preservation. This applies the earlier common/difference lesson:
+small-looking discrepancies can matter to counterfactual behavior, and must be
+preserved rather than hidden by a changed threshold. No circuit is promoted.

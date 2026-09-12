@@ -1,8 +1,8 @@
 # Current research state
 
-**12 September,05:17 UTC:** [Prior-parent audit](../../COMPOSED_SHARED_PARENT_V1_RESULTS.md#prior-parent-audit-substantial-refinement-not-an-independent-discovery) shows the composed parent largely refines an existing direction: quadratic cosine0.952; keeping the old parent with updated partners retains94.7%of new capture. Full-star cosine0.934 is not exact or behavioral equivalence. No independent new circuit count.
+**12 September,05:23 UTC:** [Native old/new parent interchangeability](../../COMPOSED_SHARED_PARENT_V1_RESULTS.md#native-interchangeability-fails-retain-the-distinction) fails despite high weight similarity. Full partners are retained; three swap families and all removal/write bars fail. The new parent is a related refinement, but the two intervention interfaces must not be merged. No circuit promotion.
 
-[Frozen rank16 native validation](../../COMPOSED_PARENT_NATIVE_V1_RESULTS.md) failed swaps/removals/writes. The exact parent remains; omitted partner changes explain most failed-family swap discrepancy. No data-guided repair or new rank selection. Prior [spectral block separation failure](../../NORMALIZED_COMMUTANT_NATIVE_V1_RESULTS.md) remains; [math05:00](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0500.md), next math08:00/hourly05:27.
+[Rank16partner compression](../../COMPOSED_PARENT_NATIVE_V1_RESULTS.md) also failed, for a separately diagnosed partner-change discrepancy. [Spectral block separation](../../NORMALIZED_COMMUTANT_NATIVE_V1_RESULTS.md) failed. [Math05:00](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0500.md), next math08:00/hourly05:27. All preceding native jobs are terminal; no new queued Codex job is implied by these links.
 
 ## Earlier entries — historical status, superseded where stated above
 
