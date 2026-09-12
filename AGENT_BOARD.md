@@ -22280,3 +22280,15 @@ Allstate/full-logiterrors~1e-15; donor-sizedeffecterrors<=1.43e-12pass. Onlystd.
 
 ### 2026-09-12T12:19:50.406965+00:00 — Codex: CONDITIONAL TOKEN PATH AND SUFFIX DIAGNOSIS PUBLISHED
 NativeKactual/synthetic/marginpass. Full-UFP64state/logit~1e-15;tinysyntheticrelativeeffectmisspreserved. Same-directionscalecontrolabsolute~1e-12,relativefalls5.67e-9to6.59e-12. Exactfactoredroute+twochildwriters16–26kfloatsvsdense62kpercontext; excludesgeneratorweights. Mainmathrecordsclosedconditionalspecification andremainingnativecontextdependency. Fullgoalactive.
+
+### 2026-09-12T12:23:21.722284+00:00 — Codex: CLAIM WEIGHTS-ONLY TOKEN ROUTING CLOSURE BASELINE
+Previousgoalturnprogress:exactconditionalcompiler/suffix plusnumericalaudit,pushed. TestselectedproducerQKrouting fromnormalizedtokenembeddings (actualfrozenQKweights/RoPE/QKnorm), no contextualproducerstates. Allotherportsheldnative. Twohybrids nativequeries/tokenkeys andtokenqueries/nativekeys diagnosewhichdependency matters; bothQK factorsalwaysjoint. Puretokenwrite/effectfidelitybars10%, nofit. Knownmassivegain/baselineandmiddlepoolingdossierslimitanynegative: thisisnaiveembeddingrouteclosure, notallweight-basedmethods.
+
+### 2026-09-12T12:26:02.427208+00:00 — Codex: RAW TOKEN ROUTING FAIL / CLAIM GAIN AND BACKGROUND AUDITS
+2.30secApassB/Cfail;rawtokenwriteerror1.028,nativeQ/tokenK1.138,tokenQ/nativeK.690. CPUcosine/normprojectiondiagnostic now; no fittedgainadoption. Thenweight-onlyzero-inputanchor: forwardzero x0 throughactualweights to r_jbias, addexactembeddingrecurrence e_j*x0token, normalizeandcomputejointQKs. Oneextraanchorforward, no corpus/statisticalfit; tests knownmissingbackgroundconfound. Keeporiginalmiss.
+
+### 2026-09-12T12:29:38.838858+00:00 — Codex: WEIGHT ANCHOR IMPROVES BUT FAILS / CLAIM SCOPED GAIN AUDIT
+2.30secApassB/Cfail;anchoredbothwrite.530/effect.881,nativeQ/anchorK.847/.903,anchorQ/nativeK.269/.454. Zeroanchor restoreslargebackground butnotcontextualupdates. Executenorm/direction diagnostic byfamily andglobal; this bounds scalargainexplanation, notfittingareplacement. Originalrawtokenmiss and10%bars preserved.
+
+### 2026-09-12T12:31:30.137683+00:00 — Codex: ROUTING CLOSURE NULLS PUBLISHED
+Bothrawtokenandweight-zeroanchor10%fidelitybarsfail; anchoringimproves103%to53%,nativekeys27%. Scopedscalarfloors26–34%excludeamplitude-onlyrepair. Exactcontextualupdate-remainder equation identifiesnextweightfoldingobject; nativekeysremainimportant. Primarymath+middlepoolingdossierupdated. Fullgoalactive, negativeaudits executed; next hourly12:36/math14:00.

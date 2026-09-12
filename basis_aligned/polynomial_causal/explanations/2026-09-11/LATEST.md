@@ -1,3 +1,11 @@
+### 12 September, 12:30 — Routing closure still needs contextual updates
+
+Raw token-derived routing fails. A zero-input background generated from weights
+reduces write error from103%to53%; keeping native keys lowers it to27%, still
+above the10%bar. Executed gain/direction audits rule out a single scalar repair.
+[Results and exact missing-update equation](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+The token-value branch remains validated; independent routing extraction staysopen.
+
 ### 12 September — Conditional token-to-logit path compiled
 
 The54-value token branch now contracts exactly through three producer layers

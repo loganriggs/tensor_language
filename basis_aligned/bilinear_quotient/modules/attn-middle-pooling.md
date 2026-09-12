@@ -73,3 +73,11 @@ individual-prefix value-only effect errors2.8–7.3%. Both QK factors remain joi
 and routing/value interaction norms can reach13.4%of the full effect. This is
 specific to the frozen downstream readers and contrasts, not an adoption of
 static attention. Current and shared-first value sources remain bundled.
+
+A reader-specific routing-closure test now distinguishes token-only values from
+contextual routing. Raw token-derived jointQK routes at8/9/13give103%writeerror
+for the frozenregional first-valuepath; a zero-inputweight-generated background
+reduces it to53%. Nativekeys plusbackground-restoredqueries give27%, stillabove
+10%fidelity. Single-gain diagnosticfloors remain26–34%. This doesnot reopen the
+old generic static-pooling replacementclaim; it exposes a contextual dependency
+of the new specificbranch. [Receipts and missing-update algebra](../../polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).

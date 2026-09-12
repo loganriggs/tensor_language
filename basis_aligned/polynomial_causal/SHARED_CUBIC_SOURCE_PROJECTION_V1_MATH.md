@@ -958,3 +958,62 @@ this path. The unresolved extraction problem is now explicit: generate the
 routing and downstream parent/query/normalization quantities with a smaller
 transparent program. Another fitted dense context-specific K would hide that
 problem. Retain the shared two-child-per-position graph when pursuing it.
+
+
+## Trying to generate routing without contextual producer states
+
+The [raw token-routing baseline](REGIONAL_TOKEN_ROUTING_V1_RESULT.json) applies
+the actual producer QK weights to token-derived normalized inputs, retaining
+both QK factors, their normalization and native RoPE. Nothing is fitted to text.
+The first-value readings and downstream conditional path stay unchanged.
+Execution passes, but write fidelity fails:102.8%relative error for token-derived
+queries and keys,113.8%with native queries/token keys,69.0%with token queries/
+native keys. The regional-effect errors are97.3%,115.4%,69.6%respectively.
+These failures reject the simple input approximation, not weight-based discovery.
+
+The [gain/direction audit](REGIONAL_TOKEN_ROUTING_V1_GAIN_AUDIT.json) shows the
+raw token candidate has cosine−0.317with the native write. Even a hypothetical
+best scalar leaves94.9%error. No such scalar is adopted. Keeping native keys
+improves direction cosine to0.939, but its scalar-only error floor is34.4%,
+still above the10%bar. The issue is not just output amplitude.
+
+A known confound is the large residual background documented in the channels
+and middle-pooling dossiers. The [background-restored test](REGIONAL_ANCHORED_ROUTING_V1_RESULT.json)
+constructs a zero-input trajectory through the actual weights, with $x_0=0$,
+and caches the resulting raw producer inputs $b_j$. It then uses
+
+$$
+\widehat r_j=b_j+e_jx_0,\qquad
+ e_{-1}=1,\quad e_j=\lambda_{j,0}e_{j-1}+\lambda_{j,1},
+$$
+
+followed by native RMS/QK/RoPE. The coefficients at layers8,9,13are29.4523,
+34.5761,70.7335. No lexical anchor, corpus statistic or learned correction is
+used. One extra zero-input pass supplies the position-dependent background.
+This approximation retains direct embedding re-entry but omits the
+input-dependent changes in attention and MLP updates.
+
+Background restoration improves all-input write error to53.0%, but the original
+10%fidelity bar still fails; regional-effect error remains88.1%. Native queries
+with background-restored keys give84.7%write error; background-restored queries
+with native keys give26.9%. The latter still has45.4%regional-effect error.
+The [scoped gain audit](REGIONAL_ANCHORED_ROUTING_V1_GAIN_AUDIT.json) finds
+single-scalar error floors33.8%for both approximated sides and25.9%when native
+keys are kept. On regional rows alone these floors are30.7%and21.2%. Thus neither
+pooling across control rows nor a single gain correction explains away the miss.
+
+The missing object can be written exactly. For actual attention/MLP updates
+$A_k(x),M_k(x)$ and their zero-input counterparts,
+
+$$
+r_j(x)-b_j-e_jx_0=
+\sum_{k<j}\left(\prod_{m=k+1}^{j}\lambda_{m,0}\right)
+\left[A_k(x)-A_k(0)+M_k(x)-M_k(0)\right].
+$$
+
+The next weight-folding target is this contextual update remainder as read by
+the joint QK computation. The tests demonstrate that a token-only value source
+can coexist with genuinely context-dependent routing. They do not identify
+which individual omitted update supplies the missing information, and they do
+not justify separate tasks for QK1andQK2. Preserve the shared two-child path
+while tracing these remaining reader dependencies.
