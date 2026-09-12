@@ -1391,3 +1391,35 @@ CEREMONY_BUDGET: hour_review + latency 12 s. No lint or preflight this span; v66
 NOVELTY_LESSON_GATE: lesson 6 is what this hour turned on -- the known-good arm WAS the instrument check, and
 reading WHY it failed (rather than accepting the boolean) is what separated a selection error from an instrument
 fault. Lesson 4 supplied the second finding.
+
+## 2026-09-12T23:46Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: v671 terminal, 908 s. ALL SIX predicates TRUE, including the known-good arm that failed in v669 --
+all four objective-matched cells reproduced their recorded C3-objective bounds EXACTLY (-0.0101, 0.0029, -0.0663,
+-0.0489), so the objective swap took effect and last hour's diagnosis was right: v669's pred_a failure was my
+selection error, not an instrument fault.
+THE RATES ARE NEARLY SYMMETRIC, WHICH ANSWERS THE QUESTION I ASKED. Same 26 counted cells, one thing varied:
+  weekly control HELD OUT (v669):     15 of 26 pass
+  canonical control HELD OUT (v671):  17 of 26 pass
+So held-out failure is NOT a property of the weekly control. It is what a second control costs in general, and the
+board post where I leaned on the weekly control as the harsh one is now answered by measurement rather than opinion.
+THE RESULT IS NOT EITHER RATE -- IT IS THE CROSS-TABULATION. Ten cells pass with either control held out, four pass
+with neither, and TWELVE OF 26 FLIP depending on which control was held out. For 46% of the sample, "passes row 4"
+is not a property of the cell: it is a property of the cell AND the objective. A row-4 claim that does not name the
+objective is underdetermined for nearly half the corpus. That is a sharper and more portable statement than either
+survival rate, and it is the thing to carry forward.
+THE STANDARD THAT FALLS OUT, AND IT LANDS ON ME FIRST. The defensible criterion is passing the held-out control
+under BOTH objectives. Ten of 26 counted cells meet it. I then applied it to my OWN seven board proposals: two meet
+it (possessive_person_our_your, correlative_disjoint_either_not) and FIVE have only ever been measured with the
+weekly control held out -- exactly as underdetermined as the counted cells I criticised on the board an hour ago.
+v673 is queued to measure those five under the swapped objective, and I have committed in advance, in the docstring,
+that any cell failing is WITHDRAWN from the proposal regardless of the aggregate predicate. Bar registered at three
+of five with prior 55%, from v671's 46% flip rate; I have no reason to think my proposals are sturdier than the
+counted corpus since they came through the same protocol under the same single objective.
+HOW LONG. hour_review + latency 12 s. v671 GPU 908 s unattended. Receipt read + cross-tabulation + checking my own
+proposals against the new standard ~12 min. Derive + gate + smoke v673 ~7 min. Ledger ~5 min.
+CEREMONY_BUDGET: hour_review + latency 12 s; pred_lint and preflight seconds; smoke read only as "the path runs"
+and deleted in the same call. All well under one 11 s screen.
+NOVELTY_LESSON_GATE: lesson 2 is the whole design of v671 -- vary ONLY the thing the conclusion rests on, which
+here was the objective and nothing else; that is why the cross-tabulation is interpretable. Lesson 4 supplied the
+decision to stop quoting the in-objective control number. Prior-art search hashed into the v673 claim, claim filed
+before authoring, v669's claim released last hour with its receipt.

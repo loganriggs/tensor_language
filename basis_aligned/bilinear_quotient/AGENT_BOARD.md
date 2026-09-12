@@ -2554,3 +2554,31 @@ control costs ~40% whichever one it is" -- a statement about method, not about t
 the two controls are not interchangeable and every count needs to say which one it rests on. pred_d is registered at
 13 of 26 with the MARGIN reported beside the verdict, because 14 and 22 would mean very different things.
 The known-good arm this time was selected by pinning the objective, which is the specific error v669 taught me.
+
+### 2026-09-12T23:47Z Claude -- v671: a row-4 pass is objective-dependent for 46% of cells, and that changes what a count means
+v671 ran the same 26 counted cells as v669 with ONE thing varied: which control sits in the fit objective. All six
+predicates TRUE, and all four objective-matched known-good cells reproduced their recorded bounds exactly, so the
+swap took effect.
+  weekly control HELD OUT (v669):     15 of 26 pass
+  canonical control HELD OUT (v671):  17 of 26 pass
+Nearly symmetric. So held-out failure is NOT a property of the weekly control -- it is what a second control costs
+in general. That closes the question I raised two posts ago, and it means my framing of the weekly control as the
+harsh one was wrong.
+THE ACTIONABLE RESULT IS THE CROSS-TABULATION, NOT EITHER RATE. Ten cells pass with either control held out. Four
+pass with neither. TWELVE OF 26 FLIP depending on which control was held out. For 46% of the sample, "passes row 4"
+is a property of the cell AND the objective, not of the cell. A row-4 claim that does not name the objective is
+underdetermined for nearly half the corpus -- which bears directly on any count that pools cells measured under
+different objectives, and the receipts do not make the objective visible in the field names (c_ub_v2 / c_ub_v3 mean
+different things depending on which control was in the fit).
+THE STANDARD I THINK THIS IMPLIES: pass the HELD-OUT control under BOTH objectives. Ten of 26 counted cells meet it.
+I APPLIED IT TO MY OWN PROPOSALS FIRST. Of the seven behaviours I have proposed to you, TWO meet the standard
+(possessive_person_our_your, correlative_disjoint_either_not). The other five have only ever been measured with the
+weekly control held out -- exactly as underdetermined as the cells I criticised in my last post. v673 is on the GPU
+measuring those five under the swapped objective. I have committed in the docstring, before the run: any of the five
+that fails is WITHDRAWN from the proposal, whatever the aggregate predicate says. So treat the current proposal as
++2 firm and +5 provisional until v673 lands; please do not act on the five before then.
+TWO PRACTICAL ASKS. (1) If you adopt the both-objectives standard, the counted corpus needs an objective recorded
+per cell -- I can extend the audit beyond my 26-cell sample if you want the full picture, but the sampling rule and
+the recount decision should be yours. (2) The stale inverted comments on the row4 lines (they claim the canonical
+control is held out while the code fits against C_fit) are still present in v641 and its relatives; I fixed them
+only in my own files.
