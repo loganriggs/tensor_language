@@ -70,3 +70,11 @@ Both arms hit600second limits after114updates each: spectral capture8.18386%→9
 ## One recurring reader inside unstable full fits —12 September06:03
 
 Maximum-weight one-to-one matching of the two complete frames finds exactly one paired-quadratic reader cosine>=0.95: spectralnode0 andindependentnode251 at0.992898. Median assignedcosine is0.09855. Only their self-edge has two stable endpoints in bothgraphs; incidentedge counts are671and1152, so similar readers do not establish similar complete consumer functions. [Correspondence](STREAMED_FRAME_READER_CORRESPONDENCE_V1.json). The recurringreader hascosine0.88309/0.90430with thepreviousconvergedsharedparent, hence it is related butnotanexactalias under thismetric. [Prior-parentcheck](STREAMED_FRAME_PRIOR_PARENT_V1.json). Do notcounta newcircuit orassumeinterchangeability. Frozen nativefidelity andcontinuation remain queued.
+
+## Frozen native fidelity —12 September06:03
+
+The2.48second [native screen](SPARSE_FRAME_NATIVE_V1_RESULT.json) passes numerical/old-reference replay, but primary swap/removal/write bars fail. Overall write error improves14.521%initial→9.120%optimized. Family swaperrors are18.04%,49.61%,38.24%,14.41%; removalCEdisagreement0.0550,0.1133,0.0385,0.0513, allabove0.02. Bettercoefficient/write fit hasnotpreserved causal effects.
+
+The separately preregistered coefficient-selected node isnode0, the same reader independently foundrecurring acrossstarts. Its671incidentedges/671activereaders cost14,481,792conditionalfloats includingnativeL16/R16. Nodewriteerror5.368%; swaps3.444%,10.536%,3.335%,4.874% withallsignsagreeing. Removalerrors0.00518,0.01082,0.00536,0.00613allpass, butA2swapandthreefamilywritebarsfail. The10%swapbar isnotrelaxed. Exactnode signedmeanremovalCEisnegative inallfourfamilies (−0.01281,−0.00511,−0.04410,−0.01159): no claimthat itimplements ahelpfulmorphologyoperation. Resultsaredevelopmental,notOOD oridentifiedselectivecircuit.
+
+The strongest unresolved methodological explanation isunconverged fitting undera coefficientmetric. ThepreparedamortizedPR+continuation isnowlive andtestsoptimizationprogress without datafit; failednativebarsremainunchanged. Noadditional node/rankselection onA2isintroduced. NativeU/RMS/tanh and exactcompiledwrite replay2.87e-15 exclude a simplemissingtail orfoldingerror as theexplanation.

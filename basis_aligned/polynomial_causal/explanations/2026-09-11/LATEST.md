@@ -1,3 +1,7 @@
+# Current result —12 September06:04 UTC
+
+[Native sparse graph fidelity](../../FULL_INPUT_SPARSE_CORE_V1_RESULTS.md): fullgraph writeerror9.12%, allswapfamiliesfail. Recurringnode removalpassesallfourfamilies, A2swap10.54%misses10%bar; no promotion. AmortizedPR+continuation live; previoustwofitsunconverged.
+
 # Current result —12 September06:00 UTC
 
 [Full-frame interaction fits](../../FULL_INPUT_SPARSE_CORE_V1_RESULTS.md): both time-limit/unconverged,9.09%/5.86%capture, functioncos.651. Frozen native graph/node screen and cheaper support-search continuation bound to final frames; check livequeue for execution. No circuit promotion.

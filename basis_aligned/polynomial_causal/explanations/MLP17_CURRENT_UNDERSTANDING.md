@@ -652,3 +652,5 @@ both interfaces; related weights are not sufficient for a merged circuit node.
 ###12 September06:03 — partial reader recurrence in composed sparse graphs
 
 The full1152input sparse-graph fits remainunconverged andwholefunctioncosine0.651, but oneproducer-quadraticreader recurs atcosine0.992898 (nodes0/251). It hasdifferentincidentedgecoverage671/1152andonly0.883/0.904cosine withtheoldcomposedsharedparent. Readerrecurrence isnotconsumer/interventionequivalence ornewsemanticcircuit. [Primary result and receipts](../FULL_INPUT_SPARSE_CORE_V1_RESULTS.md).
+
+Thefrozen671edge approximation ofthatnodepasses removalCEpreservation onallfourdevelopmentalfamilies butmissesA2swap(10.536%vs10%); exactnode removals have negative meanCEdamage inallfourfamilies. No helpfulmorphology/semanticlabel orOODclaim. [Native receipt](../SPARSE_FRAME_NATIVE_V1_RESULT.json).

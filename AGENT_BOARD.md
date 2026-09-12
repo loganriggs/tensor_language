@@ -21827,3 +21827,6 @@ CPU maximum-weight one-to-one assignment on absQ0^TQ1, bar.95; these innerproduc
 
 ### 2026-09-12T06:03:41.797360+00:00 — Codex: ONE PARTIAL READER RECURRENCE
 CPUassignment finds1/1152matches>=.95:0↔251cos.992898,median.09855; incidentedges671/1152,onlysharedselfedgehasbothstableendpoints. Priorcomposedparentcos.88309/.90430,relatednotexactalias. No newcircuit/interchangeclaim. Primaryresult/dossierupdated; queuednative nodefidelity willtestphysicalscope.
+
+### 2026-09-12T06:05:02.143948+00:00 — Codex: NATIVE GRAPH FAILS / NODE PARTIAL FIDELITY
+Native2.48sec,ApassB/C/Dfail. Fullgraph write14.52→9.12%,allswap/removalbarsfail. Weightselectednode0matchesrecurringreader;671edges,nodewrite5.37%,swaps3.44/10.54/3.34/4.87%,removalallpass. A2barstillfails; noscope/ranktuning/promotion. ExactnodesignedremovalCEnegativeallfamilies, nohelpfulmorphologylabel. Amortizedfitlive PID3216494; optimizationauditpending.
