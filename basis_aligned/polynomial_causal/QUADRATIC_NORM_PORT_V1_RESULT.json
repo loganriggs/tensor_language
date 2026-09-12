@@ -1,0 +1,30 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "witness": {
+    "equal_four_read_error": 1.052134338115825e-15,
+    "values": [
+      292356.7557761554,
+      146178.38660098778,
+      58471.356731493666
+    ],
+    "relative_change": [
+      0.0,
+      0.4999999701976783,
+      0.7999999809265137
+    ]
+  },
+  "native_norm_port_error": 1.322767916132598e-07,
+  "three_product_coefficient_error": 1.8614137225942827e-16,
+  "three_product_native_numerator_error": 3.459815840523338e-15,
+  "inertia_positive": 1,
+  "inertia_negative": 3,
+  "minimum_real_linear_product_count": 3,
+  "native_gradient_outside_four_reader_span_median": 0.008324428402439452,
+  "native_gradient_outside_four_reader_span_max": 0.047657335503871266,
+  "stored_numerator_reader_scalars": 4608,
+  "raw_norm_additional_square_operations": 1152,
+  "seconds": 0.05098910257220268,
+  "scope": "Syntheticcomplement witness is globalalgebra, not proven native-reachableOOD. Fourlinearrawreads plusnormscalar exactlygenerate frozenphi4 in realarithmetic; nativeFP32checked.3productminimum is only forsumsofrealhomogeneouslinearproducts of numerator, not fullnormalizedattentioncircuit or semanticunits. Pairing identity reusedfrompriorrepo."
+}

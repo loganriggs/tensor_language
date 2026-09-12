@@ -305,3 +305,73 @@ The red-team distinction still matters: these are **conditional interaction pred
 The computational lesson is to compress the response that a known downstream computation needs. Rank64 captures66.81% of the full mixed-map coefficient energy and predicts the residual change much less accurately than the final interaction. Whole-tensor or whole-residual fidelity would have undervalued this useful structure. Conversely, a separated quadratic SVD had low capture even though a coupled QK equation is cheap; an executed dot-product-square counterexample showed why flattened rank can overstate arithmetic complexity.
 
 The next priority is closing another declared native input or transferring the frozen response across intervention strengths, while retaining an exact-map control. The normalized Frobenius guessed-structure idea remains a deferred note, as requested; no generic search framework has been started.
+
+
+## 8. Follow-through through 23:35 UTC: a smaller causal value computation
+
+**The latest advance is a four-mode computation inside MLP8 that feeds the value path of head9.8.** Removing it reduces city-driven regional spelling contrast by13.38%; transplanting its computed value from the paired opposite-city prompt transfers12.32% of the native contrast, with all24 swap directions correct. This is a smaller part of the earlier regional component, not a replacement claim that four modes explain the entire behavior.
+
+The physical removal and transfer tests each passed their registered criteria. The transfer/preservation run took7.27seconds for472 full forwards. Four-mode removal also passed all four strata of the64 tested newline-control prefixes: maximum absolute CE change was0.02533nats, and the largest stratum mean absolute change was0.00375nats. Absolute change measures preservation; a negative CE change is not silently counted as zero damage. [Removal receipt](../../MLP8_VALUE_EDGE_V1_RESULT.json) · [Transfer and preservation receipt](../../MLP8_VALUE_TRANSFER_V1_RESULT.json).
+
+### What the four modes compute
+
+Let $z\in\mathbb R^{1152}$ be the residual entering MLP8 normalization, and let $x=\operatorname{RMS}(z)$. The MLP uses two input matrices $L,R\in\mathbb R^{4608\times1152}$ and an output matrix $D\in\mathbb R^{1152\times4608}$. For the frozen downstream value reader $r\in\mathbb R^{1152}$, folding that reader backward gives
+
+$$
+r^TD[(Lx)\odot(Rx)] = x^TMx,
+\qquad
+M=\operatorname{sym}\!\left(L^T\operatorname{diag}(D^Tr)R\right).
+$$
+
+Here $\operatorname{sym}(A)=(A+A^T)/2$: the antisymmetric part contributes zero to $x^TAx$. We reuse the four largest-magnitude eigenmodes of this **weight-derived** symmetric matrix:
+
+$$
+M_4=\sum_{i=1}^4\lambda_i u_i u_i^T,
+\qquad
+\phi_4(x)=\sum_{i=1}^4\lambda_i(u_i^Tx)^2.
+$$
+
+Each mode reads one linear direction, squares the reading, and gives it a signed weight. This is an ordinary symmetric matrix eigendecomposition after fixing the consumer, not a new CP optimization over a whole vocabulary tensor. The coefficients were not fitted to these spelling outcomes.
+
+At head9, the physical path sums these values across source positions using the frozen selected joint-QK routing computation and the native normalization. Donation replaces the source $\phi_4$ values with those computed on the paired donor prompt, while keeping the recipient routing and denominator. It therefore tests a specified value edge; it does not replace the entire MLP, head or donor hidden state.
+
+### Red-team the new positive, then test the critique
+
+| Critique | Counter-review and present evidence | Remaining decision |
+|---|---|---|
+| One spelling endpoint might dominate the12.32% result. | Executed endpoint audit: all six endpoints have4/4 correct swap directions; transfer ranges8.84–14.09%. Removing any one endpoint leaves11.99–13.38% transfer. Aggregate replay is exact. | This rules out single-endpoint domination on this panel; it is reused-data analysis, not six independent replications. |
+| Four modes cannot be a good description because their absolute value error is12–17%. | Their native paired cue-difference error is only1.73–3.70%; direct physical removal agrees closely with removing the full quadratic value contribution. The omitted background can be large while the cue-changing computation is small. | Keep the claim about this contrast and consumer. Do not claim a whole-MLP substitute. |
+| This is just a generic regional amplifier. | Donation transfers12.32% for city cues, approximately−0.63% for nationality cues, and5.42% for style cues. The distinction was predicted from the preceding value-path analysis and tested physically. | City association is supported; writer-role specificity and broad semantic identity are not established. |
+| We have selected among many structures and reused narrow controls. | Frozen donor transfer, retained adverse newline examples, and endpoint consistency are meaningful checks. | Truly fresh cue positions, cities and sentence constructions are the highest-value next confirmation. More reused panels cannot substitute for them. |
+| Four readings mean an almost autonomous four-dimensional circuit. | Four readings suffice for the numerator on already-normalized inputs. The raw-input computation additionally needs the full residual norm. | Charge that norm and the native routing/prefix/background. Autonomous extraction remains unfinished. |
+
+[Executed endpoint and leave-one-out audit](../../MLP8_VALUE_TRANSFER_ENDPOINT_V1_DIAGNOSTIC.json). These checks strengthen the narrower positive without erasing the broader component's failed50% coverage criteria on the new spelling endpoints.
+
+### The math cycle helped specify an honest executable interface
+
+For raw inputs, the four-mode computation is
+
+$$
+\phi_4(z)=\frac{z^TM_4z}{\|z\|^2/1152+\epsilon}.
+$$
+
+The review proved that a nonzero function of this form, with $\epsilon>0$, cannot globally depend on a noninjective linear projection alone. Moving in a discarded direction can leave the four linear readings unchanged while changing the denominator. An executed synthetic witness preserved all four readings yet changed the output by50% and80%. Those synthetic vectors are an algebraic control, not evidence of text-reachable failures.
+
+The constructive answer is **four raw linear readings plus one norm scalar**. The reloaded executor matches the cached native four-mode values to relative error $1.33\times10^{-7}$. The numerator has one positive and three negative eigenvalues, so scaled readings also allow
+
+$$
+b^2-a^2-c^2-e^2=(b+a)(b-a)-c^2-e^2.
+$$
+
+That uses three real scalar products. It reuses an earlier algebraic idea from this project; it does not identify three semantic circuits. Computing the four readings, the full norm, routing and surrounding states still costs work. [Mathematical review and proof](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_2328.md) · [Numerical interface control](../../PHI4_RAW_PORTS_V1_CONTROL.json).
+
+### Updated return-on-effort ranking
+
+1. **Confirm the frozen four-mode value path on new contexts and cue arrangements.** Cheap native tests can now discriminate a reusable city-information computation from a template-bound effect. Require native capability and keep failed cases.
+2. **Test composition with the known head8-to-head9 interaction rule.** Predict the joint edit with an explicit signed interaction term; do not infer composition merely because each part works separately.
+3. **Close or share a required input computation.** The norm-aware interface tells us exactly what must be generated or reused. This is more consequential than reducing the numerator from four squares to three products.
+4. **Use equation-specific decompositions when a measured missing dependency demands them.** Fold a fixed consumer first; retain known factors; use symmetric eigendecomposition for a quadratic, exact directional response for an MLP edit, and joint QK product blocks for routing. Larger sparse-core or shared-parent fits should earn their cost by resolving an observed failure.
+
+The latest six finer mixed-key additions did not solve the earlier coverage/preservation tradeoff: stronger additions hurt the adverse newline control; weaker ones left coverage below the registered bar. That rejects those six fixed assemblies, not the existence of another useful split. [Completed comparison](../../MIXED_BAND_ADDITIONS_V1_RESULT.json).
+
+The practical bottleneck remains experiment preparation and interpretation more than these small native runs. Reuse the existing executor and scorer, preserve exact controls, and avoid building a general structure-search framework now. **Your normalized Frobenius tensor-sim proposal remains the deferred note in section5.** It becomes attractive when several concrete graph hypotheses share an inexpensive, already-tested contraction objective; it is not a new implementation campaign.

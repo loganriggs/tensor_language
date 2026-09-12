@@ -1,0 +1,16 @@
+from pathlib import Path
+import json,time,torch
+import torch.nn.functional as F
+P=Path(__file__).resolve().parent
+EPS=torch.finfo(torch.float32).eps
+@torch.no_grad()
+def main():
+ torch.set_num_threads(2);torch.manual_seed(23021);tic=time.perf_counter();gen=torch.load(P/'SCALAR_VALUE_GENERATOR_MLP8_V1_PROGRAM.pt',weights_only=True);u=gen['eigenvectors'][:,:4];eig=gen['eigenvalues'][:4];d=u.shape[0];positive=(eig>0).nonzero().flatten().tolist();negative=(eig<0).nonzero().flatten().tolist();assert len(positive)==1 and len(negative)==3;order=positive+negative;scaled=(u[:,order]*eig[order].abs().sqrt()).T
+ def port(reads,norm2):return (reads.square()*eig).sum(-1)/(norm2/d+EPS)
+ def three(x):
+  b,a,c,e=(x@scaled.T).unbind(-1);return (b+a)*(b-a)-c.square()-e.square()
+ z=d**.5*u[:,positive[0]];w=torch.randn(d,dtype=torch.float64);w=w-u@(u.T@w);w=w/w.norm()*d**.5;xs=torch.stack([z+t*w for t in [0.,1.,2.]]);read=xs@u;norm2=xs.square().sum(-1);values=port(read,norm2);equal_read_error=float((read-read[:1]).norm()/read[:1].norm());changes=((values-values[0]).abs()/values[0].abs()).tolist();witness=dict(equal_four_read_error=equal_read_error,values=values.tolist(),relative_change=changes)
+ cache=torch.load(P/'SELECTIVE_INTERACTION_PORTS_V1_ARTIFACT.pt',weights_only=True);rows=json.loads((P/'SCALAR_CUE_CHANNEL_SHIFT_V1_ROWS.json').read_text())['rows'];raw=torch.cat([cache['z8'][0,i,:len(row['ids'])] for i,row in enumerate(rows)]).double();ref=(F.rms_norm(raw.float(),(d,)).double()@u).square()@eig;pred=port(raw@u,raw.square().sum(-1));direct=(raw@u).square()@eig;rewritten=three(raw);rel=lambda a,b:float((a-b).norm()/b.norm().clamp_min(1e-30));matrix=(u*eig)@u.T;left=torch.stack([scaled[0]+scaled[1],scaled[2],scaled[3]]);right=torch.stack([scaled[0]-scaled[1],scaled[2],scaled[3]]);coeff=torch.tensor([1.,-1.,-1.],dtype=torch.float64);m=(left.T*coeff)@right;m=(m+m.T)/2;coeferror=rel(m,matrix)
+ r=raw.square().mean(-1,keepdim=True)+EPS;q=direct[:,None];grad=2*((raw@u*eig)@u.T)/r-2*q*raw/(d*r.square());outside=grad-(grad@u)@u.T;ratio=outside.norm(dim=-1)/grad.norm(dim=-1).clamp_min(1e-30)
+ result={'pred_a':equal_read_error<=1e-12 and min(changes[1:])>=.4,'pred_b':rel(pred,ref)<=1e-5,'pred_c':coeferror<=1e-12 and rel(rewritten,direct)<=1e-12,'witness':witness,'native_norm_port_error':rel(pred,ref),'three_product_coefficient_error':coeferror,'three_product_native_numerator_error':rel(rewritten,direct),'inertia_positive':1,'inertia_negative':3,'minimum_real_linear_product_count':3,'native_gradient_outside_four_reader_span_median':float(ratio.median()),'native_gradient_outside_four_reader_span_max':float(ratio.max()),'stored_numerator_reader_scalars':scaled.numel(),'raw_norm_additional_square_operations':d,'seconds':time.perf_counter()-tic,'scope':'Syntheticcomplement witness is globalalgebra, not proven native-reachableOOD. Fourlinearrawreads plusnormscalar exactlygenerate frozenphi4 in realarithmetic; nativeFP32checked.3productminimum is only forsumsofrealhomogeneouslinearproducts of numerator, not fullnormalizedattentioncircuit or semanticunits. Pairing identity reusedfrompriorrepo.'};torch.save(dict(readers=scaled,epsilon=EPS,dimension=d),P/'QUADRATIC_NORM_PORT_V1_PROGRAM.pt');(P/'QUADRATIC_NORM_PORT_V1_RESULT.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
+if __name__=='__main__':main()

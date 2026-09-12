@@ -130,3 +130,8 @@ The fixed MLP8direct+mixed response predicts signed head8.2/head9.8serial intera
 ### 12 September, 18:55 — Signed donor extension of MLP8 directional response
 
 The fixed exact directional map through MLP8 also predicts head9.8 serial response under signed head8.2 donor interchange. Direct+mixed approximation errors1.43/2.33% on known email/letter families, exact response~1.2e-6. Native contextual inputs and bias-free MLP background remain external; no independent full-MLP extraction claim. [Primary math/results](../FOLDED_PRODUCER_NATIVE_V1_MATH.md).
+
+
+## 12 September: MLP8 quadratic value edge to head9.8
+
+Four frozen eigenmodes of the consumer-folded MLP8 quadratic support city-cue removal13.38% and donor transfer12.32% (24/24 directions), with all64 tested newline controls passing (maximum absolute CE change0.02533nats). This is a physical value-edge intervention with native routing and background; not whole-MLP replacement. Four raw linear readings require an additional norm scalar. [Detailed equations, caveats and receipts](for_logan/method_redteam_and_roi_2026-09-12.md#8-follow-through-through-2335-utc-a-smaller-causal-value-computation).

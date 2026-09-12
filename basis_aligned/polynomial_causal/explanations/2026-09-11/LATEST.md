@@ -1,3 +1,7 @@
+## 12 September, 23:35 — Four-mode MLP8 value path transfers city information
+
+[Latest requested review, section8](../for_logan/method_redteam_and_roi_2026-09-12.md#8-follow-through-through-2335-utc-a-smaller-causal-value-computation): city donor transfer12.32%,24/24 correct directions;64 newline controls pass, maximum absolute CE change0.02533nats. Endpoint concentration audit supports the narrow result. Four raw readings require a norm scalar; native routing/background remain supplied.
+
 ## 12 September, 22:46 — New output contrasts expose omitted regional contribution
 
 [Lexical transfer and executed controls](../../SCALAR_NEW_ENDPOINTS_V1_MATH.md): all signed effects transfer, but selected64removal44.7–48.1% misses50%. Fullvalue-sector54.5–57.5% identifies9.5–10.3points outside the selectedboundary; its retainednewlinefailure preventspromotion. Endpoint and conditionalincrementdiagnostics executed.
