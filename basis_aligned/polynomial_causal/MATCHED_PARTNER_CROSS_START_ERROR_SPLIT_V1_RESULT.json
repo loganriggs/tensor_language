@@ -1,0 +1,45 @@
+{
+  "identity_error": 1.2349779033532276e-15,
+  "cells": [
+    {
+      "family": "gerund",
+      "coefficient_error_energy_over_total": 0.6044711421130451,
+      "writer_error_energy_over_total": 0.3780117598932964,
+      "signed_cross_energy_over_total": 0.01751709799365858,
+      "pair_common_energy_fraction": 0.9708809627853362,
+      "pair_difference_energy_fraction": 0.029119037214664
+    },
+    {
+      "family": "intervening_adverb",
+      "coefficient_error_energy_over_total": 0.6521722859130821,
+      "writer_error_energy_over_total": 0.33133153034651147,
+      "signed_cross_energy_over_total": 0.016496183740406612,
+      "pair_common_energy_fraction": 0.9154731581874305,
+      "pair_difference_energy_fraction": 0.0845268418125695
+    },
+    {
+      "family": "progressive",
+      "coefficient_error_energy_over_total": 0.6048367669063512,
+      "writer_error_energy_over_total": 0.3775362363365516,
+      "signed_cross_energy_over_total": 0.01762699675709716,
+      "pair_common_energy_fraction": 0.9810074772898681,
+      "pair_difference_energy_fraction": 0.01899252271013208
+    },
+    {
+      "family": "quoted_control",
+      "coefficient_error_energy_over_total": 0.4971283161281496,
+      "writer_error_energy_over_total": 0.484408450443563,
+      "signed_cross_energy_over_total": 0.018463233428287394,
+      "pair_common_energy_fraction": 0.9955191375320712,
+      "pair_difference_energy_fraction": 0.0044808624679286155
+    }
+  ],
+  "physical_writer_cosine": 0.9994446606137389,
+  "physical_writer_norm_ratio": 0.9993706280376377,
+  "sources": {
+    "basis_aligned/polynomial_causal/MATCHED_PARTNER_SUBSPACE_V1_PROGRAM.pt": "d38be3eac79cb04accc880931ca628203baf6a97acc5327c79e00520f3baf032",
+    "basis_aligned/polynomial_causal/MATCHED_PARTNER_CROSS_START_V1_PROGRAM.pt": "90f426fa383d94e449189cc94a1f1816fbd6a4365d2677ee853b3108c220016d",
+    "basis_aligned/polynomial_causal/MATCHED_PARTNER_FRESH_CONSTRUCTION_V1_PORTS.pt": "d4292944a2e1825aae20bb24616d5aee174393ebf0ab691a0615be679d80cee5"
+  },
+  "scope": "Exact descriptive error decomposition. Separate coefficient/writer ratios need signed cross term and are not exclusive shares; no recalibration or failed-bar revision."
+}

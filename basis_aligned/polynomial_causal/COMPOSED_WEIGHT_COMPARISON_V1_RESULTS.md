@@ -150,3 +150,12 @@ The two branches have opposing signed effects, so the joint operation was evalua
 A prior-art output check finds maximum absolute full-U cosine0.344 against the saved earlier canonical branch bank. No close output alias appears in that particular bank; the test does not establish global novelty or compare every earlier input function. [Alias check](MATCHED_PARTNER_PRIOR_OUTPUT_ALIAS_V1_RESULT.json).
 
 The next unresolved identification issue is whether the **whole parent/partner/writer operation**, not only its parent, recurs across independently fitted frames. The shared parent already matches at0.99958, but that alone does not identify an SVD branch. CorpusOOD, standalone input-state production and stronger selective-removal semantics also remain unproved.
+
+
+## The whole branch recurs across starts —12 September07:14
+
+The fixed same-ordinal branch from independent arm1/node251 passes the coefficient-recurrence and native effect-preservation bars. Paired coefficient-function cosine is **0.998855**, output cosine0.999641 and partner cosine0.999633. This goes beyond the earlier shared-parent correspondence. Fresh swap errors are0.948%gerund,1.005%adverb,0.733%progressive and7.384%quoted, with100%sign agreement; removal-CE mean absolute disagreements are below0.000290. The comparison was selected by weights before these effects were inspected.
+
+The registered5%write criterion still **fails** in three families:5.31%,5.66%,5.31%; quoted control4.71%passes. A CPU error audit reconstructs the difference exactly. Between91.5%and99.6%of its squared error is common to both members of each base/donor pair; only0.45–8.45%lies in their difference. This explains how endpoint writes can differ more than interchange effects, without repairing the failed criterion. Both coefficient and writer changes contribute, with a small positive cross term; it is not a pure output-scale error. [Independent-start result](MATCHED_PARTNER_CROSS_START_V1_RESULT.json), [error split](MATCHED_PARTNER_CROSS_START_ERROR_SPLIT_V1_RESULT.json).
+
+The component now has weight-only discovery, stable whole-function correspondence between two fits, signed lexical/construction transfer, a matched control, and tested conditional composition. Remaining gaps include full input-state extraction, corpusOOD, broader selective removal and equivalence beyond these two unconverged fits. It is a promising conditional component, not a completed model decomposition or promoted circuit.

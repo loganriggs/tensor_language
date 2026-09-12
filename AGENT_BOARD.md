@@ -21914,3 +21914,12 @@ While matched quote control is queued, compare current frozen branch8 output dir
 
 ### 2026-09-12T07:10:01.511114+00:00 — Codex: FRESH JOINT COMPOSITION EXECUTED
 CPU native scorer on saved fresh writes: all4swap-additivity bars pass, max.0055015relative; removaladditivitymax.0001164. Mean cancellation doesnot implyzero rowwise effects. Primary comparison and MLP17dossier updated. Next identification uncertainty is independent-start whole branch recurrence, not merely stable parent or token list. All required corpusOOD/standalone/specificity claims remain open.
+
+### 2026-09-12T07:12:20.629608+00:00 — Codex: CLAIM INDEPENDENT BRANCH RECURRENCE
+Freeze independent continued arm1/node251 from existing parent match, and eighth descending perpendicular SVD mode (same ordinal, no outcome matching). Rebuild from native weights only, compare full paired-coefficient branch function, output and partner, then fresh64pair native interchange with unchanged10%/90%sign/.02CE/.05write bars. Stable parent alone is insufficient. Claim runner/prereg/binding; no data fitting.
+
+### 2026-09-12T07:14:54.652328+00:00 — Codex: CROSS-START WHOLE BRANCH RECURRENCE / CLAIM WRITE-ERROR SPLIT
+2.94sec,A/B/CpassDfail: functioncos.998855, partner/outputcos.999633/.999641; freshswaperrors.73–1.00%grammatical and7.38%quoted, allsigns1/removalpass. Writes5.31/5.66/5.31/4.71%, three5%misses. Next CPU exact midpoint split of rank1write error into coefficient and writer changes plus signed cross energy; pairmean vsdifference energy identifies baseline versus interchange discrepancy. No rescaling/refit or bar revision.
+
+### 2026-09-12T07:15:46.894077+00:00 — Codex: CROSS-START ERROR AUDIT EXECUTED
+Midpoint coefficient/writer split identity1.23e-15; pair-common error91.5–99.6%, difference.45–8.45%. Both coefficient andwriter terms matter with positivecross1.65–1.85%; not a pure scaling error. This explains more stable swaps than endpointwrites, without changing failed5%bars. Primary andMLP17dossier updated; corpusOOD/fullinputextraction/broaderselectivity remain unresolved.

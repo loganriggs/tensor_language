@@ -1,3 +1,7 @@
+# Current result —12 September07:14 UTC
+
+[Whole branch recurrence](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#the-whole-branch-recurs-across-starts-12-september0714): independent fit functioncos0.998855, all fresh swap/removal bars pass, three5%write bars fail. CPU audit locates91.5–99.6%of error in pair-common offsets. No corpusOOD or full-circuit promotion.
+
 # Current result —12 September07:09 UTC
 
 [New lexical/construction and joint tests](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#new-verbs-new-constructions-and-joint-behavior-12-september0709): branch8 negative swaps transfer to all16newverbs in three constructions; original quote control fails20.9%, matched quote control passes13.1%. Joint3+8 effect predictions pass within0.56%. Conditional component evidence, no corpusOOD/circuit promotion.

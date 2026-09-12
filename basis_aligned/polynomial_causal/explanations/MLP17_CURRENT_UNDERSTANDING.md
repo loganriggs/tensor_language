@@ -660,3 +660,6 @@ Thefrozen671edge approximation ofthatnodepasses removalCEpreservation onallfourd
 
 
 12 September07:09: a frozen producer-folded shared-parent SVD branch has broad ing-form output contrasts and negative donor-swap effects that transfer to16newverbs across progressive/adverb/gerund constructions. Unmatched quote control fails20.9%; matched quote control passes13.1%. Joint branch3+8 native effects compose within0.56%relative error on new constructions. This is conditional component evidence; no semantic/corpusOOD promotion. [Primary account](../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#new-verbs-new-constructions-and-joint-behavior-12-september0709).
+
+
+12 September07:14: independent-start same-ordinal ing branch has paired-function cosine0.998855 and passes all fresh swap/removal-preservation bars; three5%write bars fail. Most endpoint discrepancy is common across each counterfactual pair. [Whole-branch recurrence and limitations](../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#the-whole-branch-recurs-across-starts-12-september0714).
