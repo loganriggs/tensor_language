@@ -1,6 +1,6 @@
 # Research update: interaction-path decomposition, shared computations, and the remaining extraction gap
 
-**12 September 2026. Findings through 15:35 UTC. Requested update for Logan.**
+**12 September 2026. Main report through 15:35 UTC; latest findings added through 16:20 UTC. Requested update for Logan.**
 
 This covers the work since the [last major update, 11 September at 21:42](research_update_2026-09-11_2142.md), including implementation of the [interaction-path proposal](interaction_path_decomposition_proposal_2026-09-11.md). It covers Codex's research, without counting Claude's parallel experiments as mine. Layer numbers start at zero: MLP17 and attention17 are the last block.
 
@@ -20,6 +20,8 @@ The main events, in order, were:
 **The encouraging part is actual shared arithmetic and executable conditional components. The disappointing part is how often stable-looking weight structure fails stronger behavioral or upstream-closure tests.** I have preserved those failures rather than treating every successful algebra check as a circuit discovery.
 
 Discovery remained weights-first. These experiments did not use a new million-token training campaign or fit factors to the behavioral panels. Later semantic labels and test choices are supplied interpretations of frozen weight-derived candidates. FineWeb is the training-domain reference; Pile is a separate corpus-shift check, with limitations described below.
+
+**Latest development, through 16:20:** a further upstream fit exposed a recurring shared linear parent, but also showed that a fixed dictionary of source products can badly underrepresent a simple joint query–source computation. Keeping the complete joint QK operation with one folded value direction preserves much more coefficient energy. This is a representation lead awaiting behavioral validation; details are in section 10.
 
 ## Where we stand on your four properties
 
@@ -328,3 +330,59 @@ The next priorities are:
 There has been substantial implementation and analysis since the last report, but also too much repeated experiment authoring and publication overhead. Hourly reviews recorded that workflow failure. The useful progress to preserve is the exact interaction machinery, the converged comparisons and their limitations, the two explicit shared-component examples, and the sharper tests of what their inputs must contain—not the raw number of experiments.
 
 **Reading order if you want the core details:** this report; the [original interaction-path proposal](interaction_path_decomposition_proposal_2026-09-11.md); the [joint sparse path results](../../COUPLED_SPARSE_PATH_V1_MATH.md); the [shared cubic attention derivation](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md); and the [current portable branch interface](../../extracted_circuits/regional_shared_head2_token_mixed_v1/README.md).
+
+
+## 10. Latest follow-up: folding the regional readers into their upstream attention producers
+
+**This is directly testing your suggestion to decompose a longer interaction path.** We took the regional branch's four current-state readers and folded them backward into attention8, attention9 and attention13, including their actual residual propagation coefficients. These producers had already been implicated by earlier causal tests; their selection is therefore behavior-informed. The subsequent factorization uses weights, not a fit to text examples. This is a component-conditioned upstream experiment, not another full-unembedding fit.
+
+### What was fitted and what failed
+
+The target is the joint QK1 × QK2 × value numerator of all 27 producer heads, writing into those four downstream readings. We tried a common dictionary of 16 cubic source features, with separately solved query-dependent consumers for each head. Equal coordinate names across layers do not mean equal activations: the producers receive different native states.
+
+Two optimization starts completed in about 94 seconds. Both stopped with line-search failures, not convergence. Estimated coefficient capture was only **0.66–0.99% at the fitted position and 0.33–0.54% at the held position**. These are estimates from independent coefficient probes; the held position is not held-out language data. The candidate failed its main fit/stability criteria. [Terminal result](../../FOLDED_PRODUCER_CUBIC_NATIVE_V1_RESULT.json).
+
+The negative-result audit found severe cancellation between nearly identical products. An independent QR solve agreed with the original objective and gradient, so this was not primarily a mistaken Gram-matrix calculation. An exact average/difference rewrite preserved the represented function while reducing condition numbers from about 8.3 million and 2,962 to **2.55 and 1.36**. This repairs representation conditioning, not the failed optimizer or low capture. [Audit](../../FOLDED_PRODUCER_CUBIC_V1_AUDIT.json).
+
+### Another shared intermediate appeared, with a different structure
+
+The earlier downstream regional block used a shared quadratic parent and two linear children. Here the more faithful simplification is a **shared linear parent and two quadratic children**:
+
+$$
+h_0(s)=c(s)\,[a(s)b(s)+t^2\delta a(s)\delta b(s)],
+$$
+
+$$
+h_1(s)=c(s)\,[\delta a(s)b(s)+a(s)\delta b(s)].
+$$
+
+Each letter denotes a linear reading of the source state. The small scalar $t$ comes from the separation between the original nearly coincident products. Computing $c(s)$ once and reusing it gives the common parent. The exact rewrite first retains all difference terms; the displayed shared-parent form is a measured approximation that drops the tiny difference in one reader.
+
+This simplification changes the complete fitted function by only **0.024–0.170%** across starts and positions. Forcing a shared quadratic parent instead causes **12.5–21.1%** error. Thus “find shared structure” needs to allow different intermediate degrees, rather than always searching for the same parent pattern. [Comparison](../../FOLDED_PRODUCER_SHARED_PARENT_V1_RESULT.json).
+
+The complete two-child block recurs across starts with coefficient cosine **0.995–0.996**, although relative function disagreement remains about **8.8–10.1%**. Almost all its energy belongs to head13.0. These are coefficient statements; they do not establish semantic identity or native behavioral fidelity. [Recurrence](../../FOLDED_PRODUCER_BLOCK_RECURRENCE_V1_RESULT.json).
+
+### The important interpretation: the dictionary may be the wrong primitive
+
+Checking the existing head dossier and the actual weights revealed that the learned parent is almost exactly head13.0's leading folded value reader: cosine exceeds **0.999995** in both starts. It is not yet evidence of a newly discovered semantic variable. [Weight alias check](../../FOLDED_PRODUCER_PARENT_ALIAS_V1_RESULT.json).
+
+Let $M$ map the concatenated current/first source state into the four downstream readings through this head's value/output weights. Its leading singular component is $\sigma u v^T$. Retaining it while preserving the complete joint QK operation gives
+
+$$
+\widehat F(q,s)=g(q,s)
+(q^TAs)(q^TBs)\,\sigma u(v^Ts).
+$$
+
+This expression has a single value reading, but it retains a rich query-dependent source interaction through both QK forms. A small fixed source-product dictionary may require many terms to express that interaction. Low tensor-dictionary capture can therefore coexist with a relatively simple arithmetic program.
+
+With 2,048 independent coefficient probes per position, this structured baseline retains approximately **63–65% of head13.0's folded coefficient energy**. Its full QK matrices remain stored, so this is **not a matched-cost win** over the cubic dictionary. It also retains normalization and native producer-state dependencies. [Baseline and sampling uncertainty](../../FOLDED_PRODUCER_STRUCTURED_BASELINE_V1_RESULT.json).
+
+The next behavioral comparison is whether the selected value component reproduces the full head's contribution to the downstream regional readings and transfers a meaningful share of the three-producer group's cue effect. **That test is pending.** The explicit-reading executor already replays nine frozen reference cases bit-for-bit; that is an interface control, not a behavioral result. [Executor control](../../COMPILED_READING_HEAD_V1_CONTROL.json).
+
+### A separate extraction clarification and a practical speedup
+
+The intervening source-port test separated changes in four source features from changes in key normalization. Swapping just those features while retaining the recipient's normalization reproduces the full source-swap margin effect within **6.5–9.5%** in every tested cell. Swapping normalization alone fails badly. This helps specify the upstream information to generate, but does not justify deleting normalization or the opposing query correction. [Native effect receipt](../../REGIONAL_SOURCE_READ_NORM_EFFECT_V1_RESULT.json).
+
+We also checked that these cached interventions can run through the last MLP and selected unembedding rows on CPU. Seven 96-context evaluations took about **0.14 seconds**, agreeing with the completed GPU effects to relative error $2.4\times10^{-5}$. This avoids waiting for the shared GPU queue when only selected-token margins are required; full-vocabulary loss is a different computation. Both managed runners were running when checked at 16:20 UTC. [CPU replay](../../REGIONAL_SELECTED_SUFFIX_CPU_V2_RESULT.json).
+
+**What this changes in the proposal:** continue decomposing composed paths, but compare arithmetic representations that preserve joint bilinear operations against dictionaries that flatten them into fixed source factors. The new result supports that comparison; it does not yet show that deeper folding produces a more selective or independently executable circuit.

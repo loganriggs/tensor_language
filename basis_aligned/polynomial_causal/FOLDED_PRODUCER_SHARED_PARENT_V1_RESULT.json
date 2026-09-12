@@ -1,0 +1,161 @@
+{
+  "records": [
+    {
+      "arm": 0,
+      "kind": "shared_linear_parent",
+      "position": 7,
+      "shared_axes": [
+        2
+      ],
+      "source_reader_count": 5,
+      "full_projection_relative_error": 0.0014955349437691353,
+      "marginal_capture_retained": 0.9999969176059279,
+      "original_capture": 0.43494524319449107,
+      "new_capture": 0.43494434938901827,
+      "gram_condition": 2.546890625504122,
+      "block_layer_energies": [
+        0.00010703147757226145,
+        2.789293526896148e-06,
+        0.2886316999006271
+      ]
+    },
+    {
+      "arm": 0,
+      "kind": "shared_linear_parent",
+      "position": 0,
+      "shared_axes": [
+        2
+      ],
+      "source_reader_count": 5,
+      "full_projection_relative_error": 0.0016954815383730757,
+      "marginal_capture_retained": 0.9999949598411416,
+      "original_capture": 0.22738383870892936,
+      "new_capture": 0.22738314430043494,
+      "gram_condition": 2.546890625504122,
+      "block_layer_energies": [
+        5.849552274821604e-05,
+        1.6391995188275318e-06,
+        0.13760300901131828
+      ]
+    },
+    {
+      "arm": 0,
+      "kind": "shared_quadratic_parent",
+      "position": 7,
+      "shared_axes": [
+        2,
+        1
+      ],
+      "source_reader_count": 4,
+      "full_projection_relative_error": 0.12474556055873108,
+      "marginal_capture_retained": 0.9866631184357558,
+      "original_capture": 0.43494524319449107,
+      "new_capture": 0.43107793179511783,
+      "gram_condition": 2.681025279559664,
+      "block_layer_energies": [
+        9.976238471834396e-05,
+        2.6270404308655816e-06,
+        0.2845847844942556
+      ]
+    },
+    {
+      "arm": 0,
+      "kind": "shared_quadratic_parent",
+      "position": 0,
+      "shared_axes": [
+        2,
+        1
+      ],
+      "source_reader_count": 4,
+      "full_projection_relative_error": 0.14041618867758116,
+      "marginal_capture_retained": 0.9941292254552089,
+      "original_capture": 0.22738383870892936,
+      "new_capture": 0.22657499203815765,
+      "gram_condition": 2.681025279559664,
+      "block_layer_energies": [
+        5.49480672914989e-05,
+        1.5001539196044896e-06,
+        0.136604592392362
+      ]
+    },
+    {
+      "arm": 1,
+      "kind": "shared_linear_parent",
+      "position": 7,
+      "shared_axes": [
+        1
+      ],
+      "source_reader_count": 5,
+      "full_projection_relative_error": 0.00024479818380411197,
+      "marginal_capture_retained": 0.99999994545501,
+      "original_capture": 0.29162957152649965,
+      "new_capture": 0.29162955561959986,
+      "gram_condition": 1.3588558410617262,
+      "block_layer_energies": [
+        0.000108457757082041,
+        2.86990699672984e-06,
+        0.2916613405568427
+      ]
+    },
+    {
+      "arm": 1,
+      "kind": "shared_linear_parent",
+      "position": 0,
+      "shared_axes": [
+        1
+      ],
+      "source_reader_count": 5,
+      "full_projection_relative_error": 0.00028532089032492326,
+      "marginal_capture_retained": 1.0000000071614674,
+      "original_capture": 0.13866990509826077,
+      "new_capture": 0.13866990609133717,
+      "gram_condition": 1.3588558410617262,
+      "block_layer_energies": [
+        5.770507210832964e-05,
+        1.6726586225862515e-06,
+        0.13801700281658935
+      ]
+    },
+    {
+      "arm": 1,
+      "kind": "shared_quadratic_parent",
+      "position": 7,
+      "shared_axes": [
+        1,
+        0
+      ],
+      "source_reader_count": 4,
+      "full_projection_relative_error": 0.17875521260806687,
+      "marginal_capture_retained": 0.9812532663269183,
+      "original_capture": 0.29162957152649965,
+      "new_capture": 0.28616248070062594,
+      "gram_condition": 1.4749533929697018,
+      "block_layer_energies": [
+        9.931629047131324e-05,
+        2.683744725758502e-06,
+        0.2861027664964916
+      ]
+    },
+    {
+      "arm": 1,
+      "kind": "shared_quadratic_parent",
+      "position": 0,
+      "shared_axes": [
+        1,
+        0
+      ],
+      "source_reader_count": 4,
+      "full_projection_relative_error": 0.21061266141792884,
+      "marginal_capture_retained": 0.9859379895850157,
+      "original_capture": 0.13866990509826077,
+      "new_capture": 0.13671993454464126,
+      "gram_condition": 1.4749533929697018,
+      "block_layer_energies": [
+        5.2586103214759745e-05,
+        1.5030037731229452e-06,
+        0.13616622709979803
+      ]
+    }
+  ],
+  "scope": "Unfitted weight-only collapse of one or two tiny reader differences in an exact secant representation. Errors concern the entire projected producer function, not isolated block-native behavior. Layer energies are descriptive coefficient energies in the fixed reference metric."
+}

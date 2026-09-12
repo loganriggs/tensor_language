@@ -1,0 +1,136 @@
+{
+  "records": [
+    {
+      "arm": 0,
+      "top_pairs": [
+        {
+          "pair": [
+            5,
+            15
+          ],
+          "coefficient_cosine": -0.9999997587387787
+        },
+        {
+          "pair": [
+            5,
+            11
+          ],
+          "coefficient_cosine": -0.0521845240213984
+        },
+        {
+          "pair": [
+            11,
+            15
+          ],
+          "coefficient_cosine": 0.05218357819530528
+        },
+        {
+          "pair": [
+            5,
+            12
+          ],
+          "coefficient_cosine": 0.005073860231333942
+        },
+        {
+          "pair": [
+            12,
+            15
+          ],
+          "coefficient_cosine": -0.005073189247238276
+        }
+      ],
+      "reader_cosines": [
+        0.9999997285465727,
+        0.9999999841544449,
+        0.9999999999979536
+      ],
+      "evaluations": {
+        "gram": {
+          "capture": 0.4349452447837905,
+          "gradient_norm": 1.4176204020320762,
+          "seconds": 1.0326456353068352
+        },
+        "qr": {
+          "capture": 0.434945243194085,
+          "gradient_norm": 1.4176206320358158,
+          "seconds": 1.3668015897274017
+        }
+      },
+      "gradient_relative_difference": 4.712738338098322e-06,
+      "secant": {
+        "separation": 0.0003790125515322739,
+        "capture": 0.43494524319449096,
+        "relative_capture_change": 9.333428869643727e-13,
+        "gram_condition": 2.546890625731185,
+        "cancellation_ratio": 0.9960656706441234
+      }
+    },
+    {
+      "arm": 1,
+      "top_pairs": [
+        {
+          "pair": [
+            4,
+            5
+          ],
+          "coefficient_cosine": -0.9993249043493254
+        },
+        {
+          "pair": [
+            3,
+            5
+          ],
+          "coefficient_cosine": 0.00040559524083572275
+        },
+        {
+          "pair": [
+            3,
+            4
+          ],
+          "coefficient_cosine": -0.0003899285517109259
+        },
+        {
+          "pair": [
+            5,
+            15
+          ],
+          "coefficient_cosine": -0.00018384805592795833
+        },
+        {
+          "pair": [
+            4,
+            15
+          ],
+          "coefficient_cosine": 0.00018187803313350571
+        }
+      ],
+      "reader_cosines": [
+        0.9999334848237962,
+        0.9999999998955972,
+        0.9992710939114422
+      ],
+      "evaluations": {
+        "gram": {
+          "capture": 0.29162957152581515,
+          "gradient_norm": 0.0013707317116104752,
+          "seconds": 0.9701441563665867
+        },
+        "qr": {
+          "capture": 0.29162957152650054,
+          "gradient_norm": 0.0013707317106343695,
+          "seconds": 1.2058435343205929
+        }
+      },
+      "gradient_relative_difference": 3.9777255350033405e-08,
+      "secant": {
+        "separation": 0.01994268498929797,
+        "capture": 0.2916295715264997,
+        "relative_capture_change": -2.8552223428864533e-15,
+        "gram_condition": 1.3588558427063813,
+        "cancellation_ratio": 1.0004925532639684
+      }
+    }
+  ],
+  "seconds": 6.557037439197302,
+  "scope": "Diagnostic of frozen failed endpoints. QR independent source solve; exact secant changes coordinates, not function span or circuit behavior. No native fit continuation or convergence repair claimed."
+}

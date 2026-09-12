@@ -1,0 +1,103 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "native_fd_error": 3.402184430666735e-10,
+  "evaluation_seconds": 0.21261581405997276,
+  "reports": [
+    {
+      "arm": 0,
+      "initial_capture": 0.00020883702149712853,
+      "final_capture": 0.4349452450293555,
+      "gain_ratio": 2082.7018213115816,
+      "held_initial_capture": 0.0002314240320233335,
+      "held_final_capture": 0.22738383966633346,
+      "reason": "line_search_failed",
+      "gradient": 6788.165974232909,
+      "steps": 284,
+      "shared_atoms": 4,
+      "cross_layer_atoms": 2,
+      "cancellation_ratio": 1076832.5803375368,
+      "gram_condition": 8316632.840067507
+    },
+    {
+      "arm": 1,
+      "initial_capture": 3.1700243456924175e-07,
+      "final_capture": 0.2916295715259851,
+      "gain_ratio": 919960.0372857247,
+      "held_initial_capture": 2.901467353064508e-07,
+      "held_final_capture": 0.13866990509789184,
+      "reason": "line_search_failed",
+      "gradient": 6.563643273636063,
+      "steps": 375,
+      "shared_atoms": 10,
+      "cross_layer_atoms": 14,
+      "cancellation_ratio": 549.1318310655541,
+      "gram_condition": 2961.5486076365833
+    }
+  ],
+  "matched_source_atoms": 2,
+  "matched_cosines": [
+    2.8630706193113266e-05,
+    2.518048006540347e-05,
+    1.988315293794648e-06,
+    3.078583906920725e-05,
+    7.314877193372088e-05,
+    0.9613714261073256,
+    3.5768490707461766e-05,
+    8.628656785029072e-05,
+    7.384866780158447e-05,
+    5.112967176162368e-05,
+    7.914537693963775e-05,
+    2.379548100761965e-05,
+    8.014520638891323e-05,
+    4.0996139969628016e-05,
+    4.734720580436508e-05,
+    0.9703539669720423
+  ],
+  "coverage": [
+    {
+      "position": 7,
+      "total_energy_estimate": 43.88670584744824,
+      "standard_error": 1.342672498435517,
+      "capture_fractions": [
+        0.009910637780407596,
+        0.006645054940776369
+      ]
+    },
+    {
+      "position": 0,
+      "total_energy_estimate": 42.3729477972695,
+      "standard_error": 1.349277732300774,
+      "capture_fractions": [
+        0.005366250201761654,
+        0.0032726046288152674
+      ]
+    }
+  ],
+  "execution_seconds": 93.8721186593175,
+  "artifact_sha": "befdf5e1ce3e17e70e21e4c97329838d281e41094d62548e4933d725108a4452",
+  "source_shas": {
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_shared_cubic_source_native_v1.py": "a75876cf637c84625b3c578dcb7fcecba3de27686a369c4dcbc56ddf4188ac65",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_cubic_source_projection_v1.py": "78eb18cc03b5e82b19edb1951ddefbebda0a226df824e1959ca43a19f7545fe2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_cubic_source_fit_v1.py": "f0ad4984846fa378aa8d8d38703b1ab640e1ff95d221c460034c2a7c47e55b3f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/quartic_manifold_lbfgs_v1.py": "1b0f18f3b2215a4de4dd32f4e29e35102272715e2f63674c867ac023ef74cca5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/quartic_manifold_cg_v1.py": "bd2d0aef547ca12c332c669c4ee4cd503ef6f588c2c02ebda31b0554f7440dc2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_routing_value_polynomial_v1.py": "f0af5035abcbc6924145e0fe95fd833f867d4003a71804a3fd793a59170918f1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_path_stability_atlas_v1.py": "ccebc47d0c90b75c2a4b5646e6ef58c79cd55d3b518af265b55c747828549cf0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_CONTROL.json": "aae7c71027bac76cd405cf0ead8bf2c91f21edfafc0ef769f9ec7c6d1b3081d2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_CUBIC_SOURCE_FIT_V1_CONTROL.json": "968db922042f15d823d295f595790347885c7addd8318381db071036601bf377",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_CUBIC_SOURCE_NATIVE_V1_PREREGISTRATION.md": "080ac610a993b9272d3a6eedc0a37cf91cc952eafc390db6c6d8c3f430966db1",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_folded_producer_cubic_native_v1.py": "fb2b6040a28d36f52c0998f8b11c9b42e936c18e6e70786556da8b4e1a205beb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FOLDED_PRODUCER_CUBIC_NATIVE_V1_PREREGISTRATION.md": "7463ffe6941373d5f755734b40fa88d1a5827109bfd06bd011e2962429b850c4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_producer_cubic_weights_v1.py": "0150e32c6a1a659c3a75da6d9a03aed0a4a5c82e51cba6eed050a0f43d27a3ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FOLDED_PRODUCER_CUBIC_V1_CONTROL.json": "bce8bb346f6c7157ce367659877dbef4c521b8126e4a8db7f0c31a5781b95486",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_cubic_source_fit_v2.py": "1bd7389eca1057d5f084e619e987bd9a8a8e2a84a575befd340ae292bfd8f01b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/quartic_manifold_lbfgs_v2.py": "7c033b9270d4ab0d3e98d7fb0b9fc3f2019f417b7c43011dea2fee62dbbf16ba",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_CUBIC_SOURCE_FIT_V2_CONTROL.json": "10e0d2e5b98facd7012fb21a78dd8a0e4e3d79b1e18ebab10d1b85c9186993a5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MIXED_TOKEN_HEAD2_NATIVE_V1_PROGRAM.pt": "75d043f471023fa70455f22f634f1372b3cd4347bb2646ea2cec85347dbe88ee"
+  },
+  "scope": "Component-conditioned weights-only producer attention8/9/13 joint QK/value functions folded into four frozen current-source readings. Native input generators and gates remain external; no text fit or full-U objective."
+}

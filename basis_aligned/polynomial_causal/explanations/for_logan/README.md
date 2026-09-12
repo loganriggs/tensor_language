@@ -1,6 +1,6 @@
 # Requested full reports for Logan
 
-**Latest full update: [12 September — Interaction-path decomposition and extraction](research_update_2026-09-12_1536_interaction_decomposition.md).** Covers everything since the September11,21:42 report, with a high-level overview, explained maths, mathematical-review contributions, and four-property status.
+**Latest full update: [12 September — Interaction-path decomposition and extraction](research_update_2026-09-12_1536_interaction_decomposition.md).** Covers everything since the September11,21:42 report, with a high-level overview, explained maths, mathematical-review contributions, and four-property status. Updated through 16:20 UTC; section 10 covers the newest upstream interaction factorization.
 
 **Background references:** [What the factorization means: CP versus LL1 versus shared-input groups](research_update_2026-09-11_1327.md#factorization-explained). [Copyable browser-Codex brief](factorization_browser_brief_2026-09-11.md).
 
