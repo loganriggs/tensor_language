@@ -1,8 +1,8 @@
 # Current research state
 
-**12 September,05:12 UTC:** [Frozen shared-parent native validation](../../COMPOSED_PARENT_NATIVE_V1_RESULTS.md) fails swaps/removals/writes for rank16partners (13.39%overall write error). Exact parent is retained; executed counterfactual accounting localizes most failed-family margin discrepancy to changes in omitted partners, with negligible nonlinear remainder. The [weight-discovered full parent](../../COMPOSED_SHARED_PARENT_V1_RESULTS.md) remains stable but broad; no circuit promotion or data-guided repair.
+**12 September,05:17 UTC:** [Prior-parent audit](../../COMPOSED_SHARED_PARENT_V1_RESULTS.md#prior-parent-audit-substantial-refinement-not-an-independent-discovery) shows the composed parent largely refines an existing direction: quadratic cosine0.952; keeping the old parent with updated partners retains94.7%of new capture. Full-star cosine0.934 is not exact or behavioral equivalence. No independent new circuit count.
 
-Prior steps: [spectral block separation failure](../../NORMALIZED_COMMUTANT_NATIVE_V1_RESULTS.md), [exact conditional producer-reader compilation](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md#exact-producer-reader-compilation12-september0459), [full-U rank32 failure](../../FULLU_PAIRED_PRODUCER_V1_RESULTS.md). [Math05:00](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0500.md); next math08:00/hourly05:27.
+[Frozen rank16 native validation](../../COMPOSED_PARENT_NATIVE_V1_RESULTS.md) failed swaps/removals/writes. The exact parent remains; omitted partner changes explain most failed-family swap discrepancy. No data-guided repair or new rank selection. Prior [spectral block separation failure](../../NORMALIZED_COMMUTANT_NATIVE_V1_RESULTS.md) remains; [math05:00](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0500.md), next math08:00/hourly05:27.
 
 ## Earlier entries — historical status, superseded where stated above
 

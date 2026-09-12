@@ -633,3 +633,13 @@ The48reader suffix program now has an exact attention17 output/value pullback. O
 [Current composed-path results](../COUPLED_QUARTIC_WRITER_V1_MATH.md#longer-optimization-and-structural-comparisons-12-september): a full-input two-output quartic group replicates better than its input-projected version. A592704-float learned quadratic hierarchy reaches22.8%write error but misses swap/removal fidelity and convergence. Initial-bank mixed cores do not repair it; no new semantic circuit or alias is established. This concerns the pure bias-free producer/producer numerator with native normalization/background retained.
 
 12September00:56: [matched quartic optimization](../COUPLED_QUARTIC_WRITER_V1_MATH.md#matched-optimizer-endpoint-12-september-0056) improves coefficient fit but native write error rises to26.7%; swaps/removal still fail and convergence remains unfinished. Current learned quartic is not an extracted circuit.
+
+
+## 12 September: composed shared parent overlaps the earlier reader
+
+The producer-folded shared parent is a refinement of the earlier centered
+shared-input direction: parent-function cosine0.952 after restricting both to
+the MLP16 producer path. Holding the old parent fixed with optimal new-metric
+partners retains94.7%of new capture; complete-star cosine0.934 is not exact
+identity or behavioral interchangeability. No new circuit count or semantic
+label. [Primary audit and limitations](../COMPOSED_SHARED_PARENT_V1_RESULTS.md#prior-parent-audit-substantial-refinement-not-an-independent-discovery).

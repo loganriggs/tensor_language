@@ -21752,3 +21752,12 @@ Terminal2.37sec,ApassB/C/Dfail. Write13.39%; swaps6.92/44.09/38.33/41.55%,remova
 
 ### 2026-09-12T05:11:54.597603+00:00 — Codex: PARENT NATIVE FAILURE ACCOUNTED
 Exactdelta-error identity7.05e-15. Midpoint native-margin derivative predicts actualerror within0.0035–0.0072%; partner-change RMS dominates failed A2/past/progressive. Scalarincludesnative denominator; cross terms retained, no attribution percentages withoutcancellation. Primary COMPOSED_PARENT_NATIVE_V1_RESULTS contains scoredfailedbars,price andmixedreferenceeffects. No rankselection ordatafitrepair; fullparent stillnotsemantic circuit.
+
+### 2026-09-12T05:13:27.222178+00:00 — Codex: CLAIM COMPOSED PARENT PRIOR-ALIAS CHECK
+Compare frozen new parent against oldfull/centered shared-input parents restricted to the same MLP16 producer path. CPU fold each reader into one1152square quadratic rather than construct whole H; report normalized quadratic-function cosines and rawreader cosines, no labels or refit. Verify oldephemeralcacheSHA against priorreceipt before use. This tests parent identity only; sameparent wouldnotprove samepartner/star or wholemodelcircuit.
+
+### 2026-09-12T05:15:10.948738+00:00 — Codex: PARENT OVERLAPS PRIOR / CLAIM MATCHED-METRIC REUSE AUDIT
+CPUoldcacheSHAverified: oldcenteredparent restrictedthroughMLP16 hasquadraticcos0.951969 withnewparent (rawreadercos0.934563); oldfullabsquadcos0.867657. Distinct-parent interpretation unsupported. Nextmanagedweight-only audit compares oldparent with exactoptimal partners under newproducer metric and compares full projected-star functions. Reuse value_gradient/native_partner; replaynew2.7891%capture, no fits/data. Tests howmuchgaincomesfromnewparent vsfolding/reweightingexistingparent.
+
+### 2026-09-12T05:18:49.453855+00:00 — Codex: PRIOR REUSE AUDIT PASSES / NO INDEPENDENT CIRCUIT COUNT
+A/B/Cpass: oldcenteredparent with optimalnewmetricpartners captures2.64067%=94.678%ofnew, functioncos0.934228; unchangedoldstarcos0.812855. Most apparent concentrationgain is composition/reweightingaroundexistingparent. Best-scale residual35.67%stillprecludes assumingbehavioralequivalence. Primary COMPOSED_SHARED_PARENT_V1_RESULTS andMLP17dossier nowrecordthis; no semanticlabel, no reoptimization.

@@ -67,3 +67,31 @@ those outcomes. Consumer-first compilation can fold required readers intoD16,
 as the [existing exact compilation](PRODUCER_READER_COMPILE_V1_RESULT.json)
 demonstrates; parent/background costs are not automatically free or automatically
 equal to a full producer matrix.
+
+## Prior-parent audit: substantial refinement, not an independent discovery
+
+The old shared-parent artifact still exists and its SHA matches the original
+receipt. Restricting its centered-reader direction to the same MLP16 producer
+path gives quadratic-function cosine0.951969 with the new parent, versus
+raw-reader cosine0.934563. These compare the same input function; they do not
+equate all uses of that reader in the original model.
+
+The [matched-metric audit](COMPOSED_PARENT_REUSE_V1_RESULT.json) then holds the
+old parent fixed and computes its exact optimal unrestricted partners in the
+new producer metric. It captures2.64067%, or94.678% of the new2.78910% result.
+Their projected full-star functions have cosine0.934228. Thus most of the
+apparent before/after concentration gain comes from composing/reweighting
+around an existing parent, not finding a wholly different parent direction.
+The original old star, with its old partners unchanged and restricted to this
+path, has lower cosine0.812855 with the new star; updating partners matters.
+
+Numerical predictions A/B/C all pass, with identities within4.44e-16 and
+1.32seconds execution. The old full-output-metric parent gives lower matched
+capture2.40867% and function cosine0.818922. No new reader was optimized here.
+
+This should be described as a stable refinement of earlier shared-parent
+structure, not an independent circuit count. Nor is it an exact alias: even
+after optimal scalar rescaling, cosine0.934228 leaves35.67%relative coefficient
+function residual. Given the measured counterfactual sensitivity, behavioral
+interchangeability requires testing. These are parent/path comparisons only;
+no semantic identity or OOD evidence is added.
