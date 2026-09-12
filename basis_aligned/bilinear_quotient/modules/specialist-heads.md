@@ -315,3 +315,7 @@ A frozen27-head consumer-weighted value bank has two passers:8.2and9.8. Componen
 ### 12September17:03 — Regional producer confirmation and execution
 
 The8.2/9.8regional edge components pass48freshcity/spelling/templateexamples:2.3–3.0%head-effecterror,89–93%grouptransferjointly. Commonoutputeffecterror.23–.25%;5.54MBscalarproducerpackageexecutes withnative8/9currentinputs+completefirst-tokenlookup. This doesnotclosetheinputgeneratorsorcertifynewlinepreservation. Dedicated16newlinecontextsandactualwholehead8.2positivecontrolregistered; nativecontrolpending. [Primary evidence](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).
+
+### 12September17:40 — Head8.2 newline service and regional edge separation
+
+Natural FineWeb32-prefix V2 control passes: actual wholehead8.2mean replacement adds.0333/.0248newlineCE acrosshalves, while jointregional-edge removal changes CE by.000260/.000347meanabs. Zerohead also damagesnaturalmeanCE; originalauthoredprompts fail under bothinterventiontypes. This supports the existingnewline-service dossier and conditionalregional-edge preservation, not wholeproducer-component selectivity. [V2receipt](../../polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_RESULT.json).

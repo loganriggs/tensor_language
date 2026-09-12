@@ -1,3 +1,7 @@
+### 12 September, 17:40 — Natural newline preservation control passes
+
+[Primary results](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): V2 reproduces the authored failure exactly, while32natural FineWeb prefixes pass capability and actual mean-head positive controls. Conditional pair removal changes newline CE by<.00035meanabs perhalf. This supports consumer-edge preservation; recursive physical producer removal is the next committed test. The requested17:30fullreport remains a timestamped snapshot.
+
 ### 12 September, 17:30 — Requested full report and control correction
 
 [New full update for Logan](../for_logan/research_update_2026-09-12_1730_shared_producer_interactions.md) covers results since16:20. Fresh shared producers pass conditional confirmation; newlineV1 is inconclusive because native capability and whole-head positive controls fail. V2 rows/prereg exist but its runner is not yet implemented. A CPU physical-writer lift passes exact commutation; recursive producer removal remains untested.
