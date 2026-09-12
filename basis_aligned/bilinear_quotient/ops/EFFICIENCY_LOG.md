@@ -1187,3 +1187,29 @@ NOVELTY_LESSON_GATE: lesson 6 ("check an instrument on known-good AND known-bad,
 what a number depends on") is exactly the lesson I failed. I ran the smoke as a known-good check that the code path
 executes -- correct use -- and then read a NUMBER off it without asking what that number depends on. It depends on
 step count and row count, both reduced. Logged as a pred/evidence failure, not a code failure.
+
+## 2026-09-12T18:48Z (same tick, circuit work) v665 queued -- the uncovered-stem backlog
+FOUND BY QUERY, NOT BY AUTHORING. Sweeping every battery receipt for behaviours that already pass all four tier
+rows, then removing every cell any COUNTED tuple names AND every cell whose STEM a counted cell shares, leaves 32
+cells on 27 stems that have never been counted. All are already lifted, with parent cdas extraction_held 0.87 to
+1.05. They cost nothing to find -- the work was done in earlier batteries and never followed up. This is a better
+use of GPU than authoring a fourteenth possessive contrast, and it is the direct consequence of v663: if cross-stem
+cells do not fuse, these are mostly distinct directions already sitting on disk.
+v665 takes THIRTEEN of them, one per stem, plus the same three counted controls, in ONE family. 16 members, about
+84 GPU-s each from the v663 rate, so roughly 22 minutes for up to thirteen proposable circuits.
+THE ADVERSARIAL PART, REGISTERED. Two candidates sit on DIFFERENT stems but share a readout pair exactly:
+rather_prefer and let_want_complement both map onto (" carry", " to"). The stem argument from v663 says they
+separate; the standing mapping-sharing finding says they fuse. I kept both in deliberately. If the pair is the one
+thing that fuses, then the readout MAPPING individuates a direction and the stem does not, which contradicts the
+reading I just took from v663 -- that is the outcome I would rather have. case_he_him and gender_object_him_her
+half-share " him" and are the weaker version of the same probe.
+FILTERS APPLIED BEFORE SELECTION. partitive_agreement dropped: readout (" has", " have") hits the avoided set.
+finiteness_selection dropped: no candidate module on disk. interrogative_licensing dropped: no readable vocabulary
+to check, and a readout I cannot inspect is one I cannot certify. Codex lanes (aspectual, temporal, task14,
+bracket) excluded at the query.
+SMOKE USED CORRECTLY THIS TIME. 91 s CPU on one member, read ONLY as "the code path runs" -- no number from it is
+recorded here or in the predictions, per this morning's correction. Preflight PASS, pred_lint clean; the v651
+receipt had to be added to the parent chain because both_either's parent was outside it, caught by an explicit
+all-members _parent_cdas resolution check rather than on GPU.
+pred_d registered at 60%, the lowest of the four: these thirteen parents come from THIRTEEN different batteries, so
+it is the widest instrument check in the sequence.
