@@ -1,0 +1,1037 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 2,
+    "k_kept": 3,
+    "k_new": 6,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_possessive_variant_separability_v631",
+  "families": {
+    "number_readout": [
+      "agreement_do_does",
+      "agreement_lifts_lift",
+      "demonstrative_number",
+      "demonstrative_number_that_those",
+      "possessive_adjacent",
+      "possessive_medial",
+      "possessive_verbfinal",
+      "possessive_long_simple",
+      "possessive_argument",
+      "possessive_attractor"
+    ]
+  },
+  "finished_utc": "2026-09-12T02:09:56.137890+00:00",
+  "members": {
+    "agreement_do_does": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5184,
+            "ce_lb975": 0.4586,
+            "ce_ub975": 0.5763
+          },
+          "C": {
+            "ce_damage": 0.0038,
+            "ce_lb975": -0.0037,
+            "ce_ub975": 0.0114
+          },
+          "extraction": 0.972,
+          "sib_abs_max": 0.0123,
+          "siblings": {
+            "agreement_lifts_lift": -0.0026,
+            "demonstrative_number": 0.0068,
+            "demonstrative_number_that_those": -0.0009,
+            "possessive_adjacent": 0.0064,
+            "possessive_argument": -0.0076,
+            "possessive_attractor": 0.0123,
+            "possessive_long_simple": -0.0001,
+            "possessive_medial": 0.0032,
+            "possessive_verbfinal": -0.0061
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5559,
+            "ce_lb975": 0.498,
+            "ce_ub975": 0.6138
+          },
+          "C": {
+            "ce_damage": -0.0022,
+            "ce_lb975": -0.0064,
+            "ce_ub975": 0.0024
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.5574,
+          "siblings": {
+            "agreement_lifts_lift": 0.5574,
+            "demonstrative_number": 0.0633,
+            "demonstrative_number_that_those": 0.0511,
+            "possessive_adjacent": 0.0283,
+            "possessive_argument": 0.0416,
+            "possessive_attractor": 0.113,
+            "possessive_long_simple": 0.0512,
+            "possessive_medial": 0.0473,
+            "possessive_verbfinal": 0.042
+          }
+        }
+      },
+      "exact_held": 0.899,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 99.9,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:05:head:03",
+        "attn:13:head:01",
+        "attn:08:head:01",
+        "attn:06:head:03",
+        "attn:05:head:06",
+        "attn:09:head:01"
+      ]
+    },
+    "agreement_lifts_lift": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.641,
+            "ce_lb975": 0.5597,
+            "ce_ub975": 0.717
+          },
+          "C": {
+            "ce_damage": 0.0014,
+            "ce_lb975": -0.0044,
+            "ce_ub975": 0.0073
+          },
+          "extraction": 0.976,
+          "sib_abs_max": 0.0283,
+          "siblings": {
+            "agreement_do_does": -0.0001,
+            "demonstrative_number": 0.0028,
+            "demonstrative_number_that_those": -0.0041,
+            "possessive_adjacent": -0.0078,
+            "possessive_argument": 0.0133,
+            "possessive_attractor": 0.0283,
+            "possessive_long_simple": 0.017,
+            "possessive_medial": 0.0147,
+            "possessive_verbfinal": 0.0126
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6746,
+            "ce_lb975": 0.627,
+            "ce_ub975": 0.7218
+          },
+          "C": {
+            "ce_damage": 0.0004,
+            "ce_lb975": -0.0035,
+            "ce_ub975": 0.005
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.3853,
+          "siblings": {
+            "agreement_do_does": 0.3853,
+            "demonstrative_number": 0.0784,
+            "demonstrative_number_that_those": -0.0578,
+            "possessive_adjacent": 0.0161,
+            "possessive_argument": 0.066,
+            "possessive_attractor": 0.1506,
+            "possessive_long_simple": 0.0705,
+            "possessive_medial": 0.0638,
+            "possessive_verbfinal": 0.0703
+          }
+        }
+      },
+      "exact_held": 0.897,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 105.5,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:05:head:03",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:03:head:04",
+        "attn:17:head:04"
+      ]
+    },
+    "demonstrative_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6047,
+            "ce_lb975": 0.4899,
+            "ce_ub975": 0.7213
+          },
+          "C": {
+            "ce_damage": -0.0068,
+            "ce_lb975": -0.0126,
+            "ce_ub975": -0.001
+          },
+          "extraction": 0.987,
+          "sib_abs_max": 0.0142,
+          "siblings": {
+            "agreement_do_does": -0.0034,
+            "agreement_lifts_lift": 0.0008,
+            "demonstrative_number_that_those": -0.002,
+            "possessive_adjacent": 0.0087,
+            "possessive_argument": 0.0048,
+            "possessive_attractor": 0.0142,
+            "possessive_long_simple": 0.0055,
+            "possessive_medial": 0.0073,
+            "possessive_verbfinal": 0.0069
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.611,
+            "ce_lb975": 0.4963,
+            "ce_ub975": 0.728
+          },
+          "C": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.0074,
+            "ce_ub975": 0.0018
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0665,
+          "siblings": {
+            "agreement_do_does": -0.0328,
+            "agreement_lifts_lift": -0.0099,
+            "demonstrative_number_that_those": 0.0665,
+            "possessive_adjacent": 0.0281,
+            "possessive_argument": 0.0422,
+            "possessive_attractor": 0.0385,
+            "possessive_long_simple": 0.0304,
+            "possessive_medial": 0.0323,
+            "possessive_verbfinal": 0.0498
+          }
+        }
+      },
+      "exact_held": 0.898,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 103.1,
+      "separable": true,
+      "units": [
+        "attn:11:head:02",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:04:head:01",
+        "attn:05:head:06",
+        "attn:16:head:08",
+        "attn:06:head:03",
+        "attn:15:head:01"
+      ]
+    },
+    "demonstrative_number_that_those": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4185,
+            "ce_lb975": 0.3684,
+            "ce_ub975": 0.4688
+          },
+          "C": {
+            "ce_damage": -0.0042,
+            "ce_lb975": -0.0182,
+            "ce_ub975": 0.0077
+          },
+          "extraction": 0.8,
+          "sib_abs_max": 0.0398,
+          "siblings": {
+            "agreement_do_does": 0.0005,
+            "agreement_lifts_lift": 0.0043,
+            "demonstrative_number": 0.019,
+            "possessive_adjacent": -0.0299,
+            "possessive_argument": -0.0398,
+            "possessive_attractor": -0.0268,
+            "possessive_long_simple": -0.0057,
+            "possessive_medial": -0.0286,
+            "possessive_verbfinal": -0.031
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5263,
+            "ce_lb975": 0.4589,
+            "ce_ub975": 0.594
+          },
+          "C": {
+            "ce_damage": -0.0141,
+            "ce_lb975": -0.0313,
+            "ce_ub975": 0.0027
+          },
+          "extraction": 0.99,
+          "sib_abs_max": 0.1825,
+          "siblings": {
+            "agreement_do_does": -0.0635,
+            "agreement_lifts_lift": -0.0215,
+            "demonstrative_number": -0.0223,
+            "possessive_adjacent": 0.0905,
+            "possessive_argument": 0.1719,
+            "possessive_attractor": 0.0838,
+            "possessive_long_simple": 0.0909,
+            "possessive_medial": 0.1117,
+            "possessive_verbfinal": 0.1825
+          }
+        }
+      },
+      "exact_held": 0.888,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 16,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 106.7,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:05:head:06",
+        "attn:08:head:08",
+        "attn:11:head:01",
+        "attn:08:head:03",
+        "attn:13:head:07",
+        "attn:09:head:07",
+        "attn:10:head:03",
+        "attn:05:head:03",
+        "attn:10:head:08",
+        "attn:10:head:01",
+        "attn:11:head:03",
+        "attn:12:head:04",
+        "attn:07:head:00",
+        "attn:15:head:01",
+        "attn:07:head:08"
+      ]
+    },
+    "possessive_adjacent": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4509,
+            "ce_lb975": 0.3857,
+            "ce_ub975": 0.5152
+          },
+          "C": {
+            "ce_damage": -0.0054,
+            "ce_lb975": -0.0149,
+            "ce_ub975": 0.0038
+          },
+          "extraction": 0.938,
+          "sib_abs_max": 0.0554,
+          "siblings": {
+            "agreement_do_does": 0.0062,
+            "agreement_lifts_lift": 0.0,
+            "demonstrative_number": 0.0011,
+            "demonstrative_number_that_those": 0.0019,
+            "possessive_argument": 0.003,
+            "possessive_attractor": -0.0446,
+            "possessive_long_simple": -0.0455,
+            "possessive_medial": 0.0554,
+            "possessive_verbfinal": -0.0042
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5382,
+            "ce_lb975": 0.4733,
+            "ce_ub975": 0.6029
+          },
+          "C": {
+            "ce_damage": 0.0,
+            "ce_lb975": -0.0042,
+            "ce_ub975": 0.0047
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.6689,
+          "siblings": {
+            "agreement_do_does": -0.0078,
+            "agreement_lifts_lift": 0.042,
+            "demonstrative_number": -0.0003,
+            "demonstrative_number_that_those": -0.0204,
+            "possessive_argument": 0.6637,
+            "possessive_attractor": 0.2947,
+            "possessive_long_simple": 0.591,
+            "possessive_medial": 0.5548,
+            "possessive_verbfinal": 0.6689
+          }
+        }
+      },
+      "exact_held": 0.877,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "seconds": 111.3,
+      "separable": false,
+      "units": [
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:09:head:06",
+        "attn:10:head:05",
+        "attn:09:head:07",
+        "attn:15:head:01",
+        "attn:02:head:06",
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:06:head:01",
+        "attn:05:head:03"
+      ]
+    },
+    "possessive_argument": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4432,
+            "ce_lb975": 0.3683,
+            "ce_ub975": 0.5273
+          },
+          "C": {
+            "ce_damage": -0.0089,
+            "ce_lb975": -0.018,
+            "ce_ub975": -0.0007
+          },
+          "extraction": 0.72,
+          "sib_abs_max": 0.2179,
+          "siblings": {
+            "agreement_do_does": 0.0052,
+            "agreement_lifts_lift": 0.0132,
+            "demonstrative_number": -0.0075,
+            "demonstrative_number_that_those": 0.0069,
+            "possessive_adjacent": 0.0263,
+            "possessive_attractor": 0.0096,
+            "possessive_long_simple": -0.0167,
+            "possessive_medial": -0.0119,
+            "possessive_verbfinal": 0.2179
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6976,
+            "ce_lb975": 0.6144,
+            "ce_ub975": 0.7885
+          },
+          "C": {
+            "ce_damage": -0.0031,
+            "ce_lb975": -0.0076,
+            "ce_ub975": 0.0014
+          },
+          "extraction": 0.996,
+          "sib_abs_max": 0.7046,
+          "siblings": {
+            "agreement_do_does": 0.0124,
+            "agreement_lifts_lift": 0.0424,
+            "demonstrative_number": 0.0103,
+            "demonstrative_number_that_those": 0.0057,
+            "possessive_adjacent": 0.4387,
+            "possessive_attractor": 0.3633,
+            "possessive_long_simple": 0.5363,
+            "possessive_medial": 0.5245,
+            "possessive_verbfinal": 0.7046
+          }
+        }
+      },
+      "exact_held": 0.901,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 106.0,
+      "separable": false,
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:10:head:01",
+        "attn:09:head:07",
+        "attn:03:head:04"
+      ]
+    },
+    "possessive_attractor": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.2489,
+            "ce_lb975": 0.2066,
+            "ce_ub975": 0.2946
+          },
+          "C": {
+            "ce_damage": -0.0037,
+            "ce_lb975": -0.0071,
+            "ce_ub975": -0.0001
+          },
+          "extraction": 0.858,
+          "sib_abs_max": 0.0089,
+          "siblings": {
+            "agreement_do_does": -0.0031,
+            "agreement_lifts_lift": 0.0032,
+            "demonstrative_number": -0.0089,
+            "demonstrative_number_that_those": 0.0024,
+            "possessive_adjacent": -0.0023,
+            "possessive_argument": -0.001,
+            "possessive_long_simple": -0.0008,
+            "possessive_medial": -0.0074,
+            "possessive_verbfinal": -0.0021
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.3144,
+            "ce_lb975": 0.2599,
+            "ce_ub975": 0.3699
+          },
+          "C": {
+            "ce_damage": -0.0028,
+            "ce_lb975": -0.0061,
+            "ce_ub975": 0.0005
+          },
+          "extraction": 1.031,
+          "sib_abs_max": 0.191,
+          "siblings": {
+            "agreement_do_does": -0.0197,
+            "agreement_lifts_lift": 0.0018,
+            "demonstrative_number": -0.0101,
+            "demonstrative_number_that_those": 0.0061,
+            "possessive_adjacent": 0.0547,
+            "possessive_argument": 0.1785,
+            "possessive_long_simple": 0.1385,
+            "possessive_medial": 0.1399,
+            "possessive_verbfinal": 0.191
+          }
+        }
+      },
+      "exact_held": 1.224,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 1,
+        "held": 0
+      },
+      "n_units": 3,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "seconds": 99.4,
+      "separable": true,
+      "units": [
+        "attn:05:head:03",
+        "attn:03:head:04",
+        "attn:15:head:01"
+      ]
+    },
+    "possessive_long_simple": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4405,
+            "ce_lb975": 0.3491,
+            "ce_ub975": 0.5251
+          },
+          "C": {
+            "ce_damage": -0.0026,
+            "ce_lb975": -0.0113,
+            "ce_ub975": 0.0054
+          },
+          "extraction": 0.794,
+          "sib_abs_max": 0.1111,
+          "siblings": {
+            "agreement_do_does": -0.002,
+            "agreement_lifts_lift": 0.0041,
+            "demonstrative_number": -0.0245,
+            "demonstrative_number_that_those": 0.003,
+            "possessive_adjacent": 0.0365,
+            "possessive_argument": 0.0153,
+            "possessive_attractor": 0.018,
+            "possessive_medial": 0.1111,
+            "possessive_verbfinal": 0.0277
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6403,
+            "ce_lb975": 0.5396,
+            "ce_ub975": 0.7425
+          },
+          "C": {
+            "ce_damage": -0.0025,
+            "ce_lb975": -0.0152,
+            "ce_ub975": 0.0118
+          },
+          "extraction": 1.0,
+          "sib_abs_max": 0.6373,
+          "siblings": {
+            "agreement_do_does": -0.02,
+            "agreement_lifts_lift": 0.0705,
+            "demonstrative_number": -0.0426,
+            "demonstrative_number_that_those": 0.011,
+            "possessive_adjacent": 0.4796,
+            "possessive_argument": 0.6268,
+            "possessive_attractor": 0.4073,
+            "possessive_medial": 0.5902,
+            "possessive_verbfinal": 0.6373
+          }
+        }
+      },
+      "exact_held": 0.878,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": false
+      },
+      "seconds": 107.8,
+      "separable": false,
+      "units": [
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:10:head:01",
+        "attn:10:head:05",
+        "attn:09:head:07",
+        "attn:07:head:08"
+      ]
+    },
+    "possessive_medial": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4395,
+            "ce_lb975": 0.3638,
+            "ce_ub975": 0.5123
+          },
+          "C": {
+            "ce_damage": -0.0202,
+            "ce_lb975": -0.0349,
+            "ce_ub975": -0.0065
+          },
+          "extraction": 0.815,
+          "sib_abs_max": 0.1503,
+          "siblings": {
+            "agreement_do_does": -0.007,
+            "agreement_lifts_lift": -0.0069,
+            "demonstrative_number": -0.009,
+            "demonstrative_number_that_those": -0.0037,
+            "possessive_adjacent": 0.0733,
+            "possessive_argument": 0.0246,
+            "possessive_attractor": 0.0066,
+            "possessive_long_simple": 0.1503,
+            "possessive_verbfinal": 0.0169
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.627,
+            "ce_lb975": 0.5315,
+            "ce_ub975": 0.7186
+          },
+          "C": {
+            "ce_damage": -0.0016,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.002
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.6479,
+          "siblings": {
+            "agreement_do_does": -0.0093,
+            "agreement_lifts_lift": 0.0258,
+            "demonstrative_number": -0.0077,
+            "demonstrative_number_that_those": 0.0189,
+            "possessive_adjacent": 0.4338,
+            "possessive_argument": 0.6416,
+            "possessive_attractor": 0.4095,
+            "possessive_long_simple": 0.6192,
+            "possessive_verbfinal": 0.6479
+          }
+        }
+      },
+      "exact_held": 0.886,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": false
+      },
+      "seconds": 107.7,
+      "separable": false,
+      "units": [
+        "attn:05:head:03",
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:15:head:01",
+        "attn:09:head:06",
+        "attn:10:head:05",
+        "attn:12:head:04",
+        "attn:10:head:01",
+        "attn:09:head:07",
+        "attn:06:head:01",
+        "attn:04:head:04"
+      ]
+    },
+    "possessive_verbfinal": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4173,
+            "ce_lb975": 0.3572,
+            "ce_ub975": 0.4785
+          },
+          "C": {
+            "ce_damage": -0.0069,
+            "ce_lb975": -0.0174,
+            "ce_ub975": 0.0017
+          },
+          "extraction": 0.698,
+          "sib_abs_max": 0.2604,
+          "siblings": {
+            "agreement_do_does": 0.0138,
+            "agreement_lifts_lift": 0.0191,
+            "demonstrative_number": 0.0083,
+            "demonstrative_number_that_those": 0.0028,
+            "possessive_adjacent": 0.0142,
+            "possessive_argument": 0.2604,
+            "possessive_attractor": -0.0295,
+            "possessive_long_simple": -0.013,
+            "possessive_medial": -0.0482
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.7107,
+            "ce_lb975": 0.6282,
+            "ce_ub975": 0.7993
+          },
+          "C": {
+            "ce_damage": -0.0032,
+            "ce_lb975": -0.0076,
+            "ce_ub975": 0.0014
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.6983,
+          "siblings": {
+            "agreement_do_does": 0.0044,
+            "agreement_lifts_lift": 0.0426,
+            "demonstrative_number": -0.0013,
+            "demonstrative_number_that_those": 0.0306,
+            "possessive_adjacent": 0.4427,
+            "possessive_argument": 0.6983,
+            "possessive_attractor": 0.361,
+            "possessive_long_simple": 0.5325,
+            "possessive_medial": 0.5223
+          }
+        }
+      },
+      "exact_held": 0.901,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 105.9,
+      "separable": false,
+      "units": [
+        "attn:05:head:03",
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:10:head:01",
+        "attn:09:head:07",
+        "attn:03:head:04"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": false,
+    "pred_b_counted_kept": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "agreement_do_does",
+      "agreement_lifts_lift",
+      "demonstrative_number",
+      "demonstrative_number_that_those",
+      "possessive_adjacent",
+      "possessive_medial",
+      "possessive_verbfinal",
+      "possessive_long_simple",
+      "possessive_argument",
+      "possessive_attractor"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_possessive_variant_separability_v631",
+  "seconds": 1057.3,
+  "separable_counts": {
+    "number_readout": 5
+  },
+  "summary": {
+    "agreement_do_does": {
+      "fam": [
+        0.972,
+        0.0123,
+        0.0114
+      ],
+      "family": "number_readout",
+      "n_units": 8,
+      "own": [
+        0.992,
+        0.5574,
+        0.0024
+      ],
+      "separable": true
+    },
+    "agreement_lifts_lift": {
+      "fam": [
+        0.976,
+        0.0283,
+        0.0073
+      ],
+      "family": "number_readout",
+      "n_units": 7,
+      "own": [
+        0.995,
+        0.3853,
+        0.005
+      ],
+      "separable": true
+    },
+    "demonstrative_number": {
+      "fam": [
+        0.987,
+        0.0142,
+        -0.001
+      ],
+      "family": "number_readout",
+      "n_units": 8,
+      "own": [
+        0.986,
+        0.0665,
+        0.0018
+      ],
+      "separable": true
+    },
+    "demonstrative_number_that_those": {
+      "fam": [
+        0.8,
+        0.0398,
+        0.0077
+      ],
+      "family": "number_readout",
+      "n_units": 16,
+      "own": [
+        0.99,
+        0.1825,
+        0.0027
+      ],
+      "separable": true
+    },
+    "possessive_adjacent": {
+      "fam": [
+        0.938,
+        0.0554,
+        0.0038
+      ],
+      "family": "number_readout",
+      "n_units": 11,
+      "own": [
+        0.986,
+        0.6689,
+        0.0047
+      ],
+      "separable": false
+    },
+    "possessive_argument": {
+      "fam": [
+        0.72,
+        0.2179,
+        -0.0007
+      ],
+      "family": "number_readout",
+      "n_units": 9,
+      "own": [
+        0.996,
+        0.7046,
+        0.0014
+      ],
+      "separable": false
+    },
+    "possessive_attractor": {
+      "fam": [
+        0.858,
+        0.0089,
+        -0.0001
+      ],
+      "family": "number_readout",
+      "n_units": 3,
+      "own": [
+        1.031,
+        0.191,
+        0.0005
+      ],
+      "separable": true
+    },
+    "possessive_long_simple": {
+      "fam": [
+        0.794,
+        0.1111,
+        0.0054
+      ],
+      "family": "number_readout",
+      "n_units": 10,
+      "own": [
+        1.0,
+        0.6373,
+        0.0118
+      ],
+      "separable": false
+    },
+    "possessive_medial": {
+      "fam": [
+        0.815,
+        0.1503,
+        -0.0065
+      ],
+      "family": "number_readout",
+      "n_units": 11,
+      "own": [
+        1.006,
+        0.6479,
+        0.002
+      ],
+      "separable": false
+    },
+    "possessive_verbfinal": {
+      "fam": [
+        0.698,
+        0.2604,
+        0.0017
+      ],
+      "family": "number_readout",
+      "n_units": 9,
+      "own": [
+        0.999,
+        0.6983,
+        0.0014
+      ],
+      "separable": false
+    }
+  }
+}

@@ -2263,3 +2263,10 @@ Six possessive variants are all two-control selective, but only two carry the se
 NOT an A2-design artifact: A2 is built identically for all six ("In the notes" + the same A1 body).
 LENGTH CONFOUND ALREADY RULED OUT by the existing data: long_simple has NINE words of A1 and FAILS; argument has SEVEN and PASSES. The longer cell is the failing one.
 What survives: row 5 holds when a clause-like VP sits between cue and readout, fails when the intervening material is a PP or absent. NOT NAMING A MECHANISM -- observation recorded, refuting test queued: a LENGTH-MATCHED PP against a VP in the same frame, which separates clause boundary from phrase type. Next rung after v631.
+
+### 2026-09-12T0244Z — Claude — five of six possessive variants FUSE; the two that looked strongest leak the most
+v631 3/4, pred_a FALSE as registered at prior 20%. Sibling leaks vs the 0.05 bar: adjacent 0.0554, long_simple 0.1111, medial 0.1503, argument 0.2179, verbfinal 0.2604. Fusion is through LEAKS, not extraction collapse (family-constrained extraction stays 0.698-0.938, unlike v609's 0.359). Only possessive_attractor separates, at 0.0089.
+THE POINT: the two cells that looked STRONGEST in v629 -- argument and verbfinal, the only two clearing all four tier rows AND both controls -- have the LARGEST leaks of all six. The cells I would have put forward are precisely the most duplicative. Booking on the v629 receipt would have added two entries that are one behaviour already in the family.
+ESTABLISHED: possessive number agreement across an intervening PP, conjunct or nothing is ONE behaviour measured six ways. That is how v629 must be read.
+SEPARATELY: possessive ATTRACTION is distinct -- the attractor-noun variant separates from its own structural siblings, so agreement attraction is a different behaviour, not a distance variant. Still NOT countable: its row 5 fails (v629), so it is a candidate needing the second construction.
+Count stays 139; countable yield from this line is ZERO.
