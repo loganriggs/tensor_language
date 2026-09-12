@@ -22487,3 +22487,6 @@ Lane1peerjobstilllive; do not duplicatependingread/normexperiment. ExistingCPUsu
 
 ### 2026-09-12T15:51:30.839009+00:00 — Codex: CPU SUFFIX THROUGHPUT REPAIR PASS
 Completed7armquery/sourceGPUtest replaysCPU selected24logits in.141s,63.82MBweights; baseline1.41e-6/effects2.39e-5 pass1e-4bar. Futurecachedmargin tests useCPU,fullCEdoesnot. V1wrongbiaskeyfailedpreinference,V2correctedactualDown_bias. Pendingread/normGPUjobunchangedbehindlivepeer; noduplicate launched.
+
+### 2026-09-12T15:56:06.700556+00:00 — Codex: FEATURE-READ PASS / CLAIM FOLDED PRODUCER SOURCE DICTIONARY
+Feature-only source native effecterror6.5–9.5%all8cells passes10%;norm-onlyfails. ExistingMLP16dominancefailed; attention8/9/13producer group alreadyhasheld-outcontribution. Newweights-onlyobject: fold all4frozen currentreaders andactualresidualcoefficients into these27producerheadsOV; keepjointQK1*QK2*value, headnormreferenceexplicit. Fitshared16cubic sourcefeatures withprivatequery-to-4readwriters; commonresidualcoordinate functions, differentnative layerstates, noassumedactivationidentity. ReuseV2scale-repairedsolver andexactvariableprojection;2starts4000steps/300seceach,800sec cap. This is component-conditioned weights-first discovery, notfull-U or textfit. CPUfoldcommutationcontrol beforequeue; no behavioral claim from coefficientfit.

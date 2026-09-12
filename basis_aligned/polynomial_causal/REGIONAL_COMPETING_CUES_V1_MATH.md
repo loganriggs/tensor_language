@@ -96,3 +96,25 @@ as a measurement of final-suffix nonlinearity alone. These results require
 joint contextual-source/query extraction, not just a city lookup. Definitions
 and the exact four-vertex formula appear in the requested
 [full update](explanations/for_logan/research_update_2026-09-12_1536_interaction_decomposition.md).
+
+
+## Four source readings explain the source-swap effect — 15:52 UTC
+
+The [feature/normalizer test](REGIONAL_SOURCE_READ_NORM_EFFECT_V1_RESULT.json)
+passes A/B and fails C. With query fixed, changing only the four source readings
+predicts the full source-swap native margin effect within6.52–9.51% in everycell;
+changing only the product of the two projected key RMS factors gives104–107%error.
+Feature-only directions hold192/192directed swaps. This does not delete native
+normalization: its recipient value remains an input, and the earlier source-only
+versus whole query+source failure remains. The instrument replays prior source
+swaps within4.66e-6. Factor/normalizer nonadditivity includes both branch andsuffix.
+
+The next weights-only object folds these four current-stream readers into the
+joint QK/value functions of the previously supported attention8/9/13 producers.
+Its separate [preregistration](FOLDED_PRODUCER_CUBIC_NATIVE_V1_PREREGISTRATION.md)
+keeps actual recurrence coefficients, head normalization references, and native
+boundary dependencies explicit. It uses a shared16-cubic source dictionary with
+exact private query-to-four-output solves. The linear fold commutes with source
+projection and gradients within2.42e-16 in the densecontrol. The native fit's
+status belongs to its result/runner, not this preparation note. No global sparse
+model or semantic reuse claim follows from these coefficient controls.
