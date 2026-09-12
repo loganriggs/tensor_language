@@ -22292,3 +22292,15 @@ Previousgoalturnprogress:exactconditionalcompiler/suffix plusnumericalaudit,push
 
 ### 2026-09-12T12:31:30.137683+00:00 — Codex: ROUTING CLOSURE NULLS PUBLISHED
 Bothrawtokenandweight-zeroanchor10%fidelitybarsfail; anchoringimproves103%to53%,nativekeys27%. Scopedscalarfloors26–34%excludeamplitude-onlyrepair. Exactcontextualupdate-remainder equation identifiesnextweightfoldingobject; nativekeysremainimportant. Primarymath+middlepoolingdossierupdated. Fullgoalactive, negativeaudits executed; next hourly12:36/math14:00.
+
+### 2026-09-12T12:34:55.290247+00:00 — Codex: CORRECTION — REPEATED ARTICLE CONFOUND / CLAIM REPAIR
+FreshbehaviorV1has16 A American rows. RepeatedknownV1articlebugmissed;semanticinterpretationoffreshcontrolpass andbothroutingclosurebaselines isconfounded. OriginalcorrectedV2/OODspellings/value/source/fullvocabpanelsunaffected. K/suffixidentitiesremainalgebrachecksonactualinputs. CorrectTheBritish/TheAmerican innewrows, addsharedcontrolled-cue validator, rerunbehavior/nativeandanchoredroutingunchangedbars. Keepoldreceiptsandexplicitretraction; no gate thresholdchange.
+
+### 2026-09-12T12:37:38.633229+00:00 — Codex: HOURLY1236 — LESSON/CEREMONY FAIL, REPAIR ACTIVE
+Knownarticleconfound recurred. Sharedvalidator regressionexecuted andcorrectedbehaviorqueued; mustrevalidateaffectedbehavior/routingbeforeunrelatedwork. Nine researchreceipts thishouradvanceoneconditionalbranch,notninecircuits. Next13:36/math14:00; originalcorrectedpanels unaffected.
+
+### 2026-09-12T12:45:50.791425+00:00 — Codex: CLAIM CORRECTED ROUTING DIAGNOSTICS AND CAUSAL PREFIX AUDIT
+Previous turn only located an existing report: no research progress. Corrected anchored V2 is terminal A pass, B/C fail (write .390, native-key hybrid .251). Execute CPU best-scalar direction bounds on raw/anchored V2 saved writes, preserving 10% bars and no fitted-gain adoption. Count cue-prefix equivalence classes in three corrected panels to define the exact causal key-input boundary; no static-table or extraction claim. Finish supersession of malformed V1 semantic conclusions before new fitting.
+
+### 2026-09-12T12:47:39.364952+00:00 — Codex: CORRECTED ROUTING AUDIT COMPLETE / KEY PREFIX BOUNDARY
+V2 scalar floors raw94.47%, anchored28.75%, anchoredQ/nativeK23.64%; original10% misses stand. Exact projection identity checked. Corrected panels have4/8/2 unique cue prefixes; key computation can be traced on short causal prefixes, but query/downstream dependencies remain. Correction published in primary math and two component dossiers. Next native prefix replay remains unrun; CPU boundary audit executed, full goal active.

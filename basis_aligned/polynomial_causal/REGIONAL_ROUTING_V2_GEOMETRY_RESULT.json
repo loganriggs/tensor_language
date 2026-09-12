@@ -1,0 +1,466 @@
+{
+  "cells": [
+    {
+      "method": "TOKEN",
+      "family": null,
+      "arm": 2,
+      "cosine": -0.32782226380413565,
+      "norm_ratio": 0.0710685080200799,
+      "diagnostic_best_scalar": -4.612764119256761,
+      "minimum_scalar_error": 0.9447394155820605,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": null,
+      "arm": 3,
+      "cosine": -0.2686253394412027,
+      "norm_ratio": 0.18738176836710693,
+      "diagnostic_best_scalar": -1.4335724429440113,
+      "minimum_scalar_error": 0.9632447388956243,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": null,
+      "arm": 4,
+      "cosine": 0.9185626492898434,
+      "norm_ratio": 0.33224688954192316,
+      "diagnostic_best_scalar": 2.764699018119592,
+      "minimum_scalar_error": 0.3952754221168134,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 0,
+      "arm": 2,
+      "cosine": 0.29894074486213174,
+      "norm_ratio": 0.09268375260624345,
+      "diagnostic_best_scalar": 3.2253845626228355,
+      "minimum_scalar_error": 0.9542716757094252,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 0,
+      "arm": 3,
+      "cosine": -0.34747575793106533,
+      "norm_ratio": 0.2202568168575964,
+      "diagnostic_best_scalar": -1.5775936603847347,
+      "minimum_scalar_error": 0.9376889663690372,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 0,
+      "arm": 4,
+      "cosine": 0.8943285411277686,
+      "norm_ratio": 0.4361207326859541,
+      "diagnostic_best_scalar": 2.0506444066986487,
+      "minimum_scalar_error": 0.44741084086584054,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 1,
+      "arm": 2,
+      "cosine": -0.6074780506922591,
+      "norm_ratio": 0.055870344312545506,
+      "diagnostic_best_scalar": -10.872996366264601,
+      "minimum_scalar_error": 0.7943364639289402,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 1,
+      "arm": 3,
+      "cosine": -0.4618199683884439,
+      "norm_ratio": 0.1375686602664781,
+      "diagnostic_best_scalar": -3.357014362819794,
+      "minimum_scalar_error": 0.8869736843884918,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 1,
+      "arm": 4,
+      "cosine": 0.9916016466425183,
+      "norm_ratio": 0.30928993611229044,
+      "diagnostic_best_scalar": 3.206058558214804,
+      "minimum_scalar_error": 0.12932971188340553,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 2,
+      "arm": 2,
+      "cosine": -0.5803322318550199,
+      "norm_ratio": 0.0506217607779781,
+      "diagnostic_best_scalar": -11.464086253346629,
+      "minimum_scalar_error": 0.8143798258000805,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 2,
+      "arm": 3,
+      "cosine": -0.33044465867853945,
+      "norm_ratio": 0.20032969672303932,
+      "diagnostic_best_scalar": -1.6495041128893986,
+      "minimum_scalar_error": 0.9438253692028108,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 2,
+      "arm": 4,
+      "cosine": 0.8852026728920138,
+      "norm_ratio": 0.3199515737484555,
+      "diagnostic_best_scalar": 2.7666770396571208,
+      "minimum_scalar_error": 0.4652055759606005,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 3,
+      "arm": 2,
+      "cosine": -0.6204992494330938,
+      "norm_ratio": 0.07608179953408838,
+      "diagnostic_best_scalar": -8.155685764965117,
+      "minimum_scalar_error": 0.7842070399154596,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 3,
+      "arm": 3,
+      "cosine": -0.0469018425446761,
+      "norm_ratio": 0.19187250597165179,
+      "diagnostic_best_scalar": -0.24444274757950799,
+      "minimum_scalar_error": 0.9988995030361743,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "TOKEN",
+      "family": 3,
+      "arm": 4,
+      "cosine": 0.9637049818886154,
+      "norm_ratio": 0.2650836052584149,
+      "diagnostic_best_scalar": 3.635475611361008,
+      "minimum_scalar_error": 0.266969488674385,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": null,
+      "arm": 2,
+      "cosine": 0.9577699240810782,
+      "norm_ratio": 1.2209356300999517,
+      "diagnostic_best_scalar": 0.7844557079578951,
+      "minimum_scalar_error": 0.2875356891339364,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": null,
+      "arm": 3,
+      "cosine": 0.7506068889921316,
+      "norm_ratio": 0.15061077821110827,
+      "diagnostic_best_scalar": 4.983752809111844,
+      "minimum_scalar_error": 0.6607490432816032,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": null,
+      "arm": 4,
+      "cosine": 0.9716474517086651,
+      "norm_ratio": 0.886470697054898,
+      "diagnostic_best_scalar": 1.0960852456113301,
+      "minimum_scalar_error": 0.23643440863811904,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 0,
+      "arm": 2,
+      "cosine": 0.9741901858176796,
+      "norm_ratio": 1.4212766240097372,
+      "diagnostic_best_scalar": 0.6854332009410471,
+      "minimum_scalar_error": 0.22572877941573347,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 0,
+      "arm": 3,
+      "cosine": 0.42488255595803215,
+      "norm_ratio": 0.11898800944904243,
+      "diagnostic_best_scalar": 3.570801443989125,
+      "minimum_scalar_error": 0.9052484817123808,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 0,
+      "arm": 4,
+      "cosine": 0.9842106079854457,
+      "norm_ratio": 1.0917911612289635,
+      "diagnostic_best_scalar": 0.9014641654339643,
+      "minimum_scalar_error": 0.17700135346635165,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 1,
+      "arm": 2,
+      "cosine": 0.9689855537427807,
+      "norm_ratio": 0.9912976811488151,
+      "diagnostic_best_scalar": 0.9774920008082971,
+      "minimum_scalar_error": 0.24711737421273247,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 1,
+      "arm": 3,
+      "cosine": 0.8981108353833208,
+      "norm_ratio": 0.18910694893309907,
+      "diagnostic_best_scalar": 4.749221752295563,
+      "minimum_scalar_error": 0.4397691750987926,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 1,
+      "arm": 4,
+      "cosine": 0.9769938235351561,
+      "norm_ratio": 0.7523271128901509,
+      "diagnostic_best_scalar": 1.2986290229284996,
+      "minimum_scalar_error": 0.21326759897873634,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 2,
+      "arm": 2,
+      "cosine": 0.9645308071036452,
+      "norm_ratio": 1.0215491396024552,
+      "diagnostic_best_scalar": 0.9441844446944575,
+      "minimum_scalar_error": 0.26397030542845173,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 2,
+      "arm": 3,
+      "cosine": 0.9471790619050959,
+      "norm_ratio": 0.17128999108807652,
+      "diagnostic_best_scalar": 5.529681307637299,
+      "minimum_scalar_error": 0.32070519903578326,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 2,
+      "arm": 4,
+      "cosine": 0.9941766872639216,
+      "norm_ratio": 0.6641179850818493,
+      "diagnostic_best_scalar": 1.4969880497083567,
+      "minimum_scalar_error": 0.10776230556615772,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 3,
+      "arm": 2,
+      "cosine": 0.9696784976814284,
+      "norm_ratio": 1.3595951989542108,
+      "diagnostic_best_scalar": 0.7132111811128028,
+      "minimum_scalar_error": 0.24438414665089941,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 3,
+      "arm": 3,
+      "cosine": 0.6714133570295222,
+      "norm_ratio": 0.1131795142818774,
+      "diagnostic_best_scalar": 5.932286962792091,
+      "minimum_scalar_error": 0.7410830614731029,
+      "meets_original_10pct_write_bar": false
+    },
+    {
+      "method": "ANCHORED",
+      "family": 3,
+      "arm": 4,
+      "cosine": 0.9950565138052079,
+      "norm_ratio": 0.952219195440934,
+      "diagnostic_best_scalar": 1.0449868250602086,
+      "minimum_scalar_error": 0.09931029319172811,
+      "meets_original_10pct_write_bar": true
+    }
+  ],
+  "panels": [
+    {
+      "panel": "REGIONAL_SOURCE_BLOCK_V2",
+      "rows": 32,
+      "unique_cue_prefixes": 4,
+      "prefixes": [
+        {
+          "ids": [
+            464,
+            1605
+          ],
+          "length": 2,
+          "count": 8
+        },
+        {
+          "ids": [
+            464,
+            3517
+          ],
+          "length": 2,
+          "count": 8
+        },
+        {
+          "ids": [
+            818,
+            262,
+            1605
+          ],
+          "length": 3,
+          "count": 8
+        },
+        {
+          "ids": [
+            818,
+            262,
+            3517
+          ],
+          "length": 3,
+          "count": 8
+        }
+      ]
+    },
+    {
+      "panel": "REGIONAL_SOURCE_BLOCK_OOD_V1",
+      "rows": 48,
+      "unique_cue_prefixes": 8,
+      "prefixes": [
+        {
+          "ids": [
+            464,
+            3576
+          ],
+          "length": 2,
+          "count": 6
+        },
+        {
+          "ids": [
+            464,
+            4842
+          ],
+          "length": 2,
+          "count": 6
+        },
+        {
+          "ids": [
+            464,
+            6182
+          ],
+          "length": 2,
+          "count": 6
+        },
+        {
+          "ids": [
+            464,
+            23475
+          ],
+          "length": 2,
+          "count": 6
+        },
+        {
+          "ids": [
+            4821,
+            284,
+            257,
+            7533,
+            422,
+            3576
+          ],
+          "length": 6,
+          "count": 6
+        },
+        {
+          "ids": [
+            4821,
+            284,
+            257,
+            7533,
+            422,
+            4842
+          ],
+          "length": 6,
+          "count": 6
+        },
+        {
+          "ids": [
+            4821,
+            284,
+            257,
+            7533,
+            422,
+            6182
+          ],
+          "length": 6,
+          "count": 6
+        },
+        {
+          "ids": [
+            4821,
+            284,
+            257,
+            7533,
+            422,
+            23475
+          ],
+          "length": 6,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "panel": "REGIONAL_BEHAVIOR_CONTROLS_V2",
+      "rows": 32,
+      "unique_cue_prefixes": 2,
+      "prefixes": [
+        {
+          "ids": [
+            464,
+            1605
+          ],
+          "length": 2,
+          "count": 16
+        },
+        {
+          "ids": [
+            464,
+            3517
+          ],
+          "length": 2,
+          "count": 16
+        }
+      ]
+    }
+  ],
+  "source_sha": "85816ce728396b6249b6d64fe5a5ed7232f4131eb1384676268a863523d43295",
+  "bindings": {
+    "REGIONAL_BEHAVIOR_CONTROLS_V2_ROWS.json": "35cc4c36b27b0257b9bffaf6e16ce8ea42c5428498d9b1638e03afc82d0fca65",
+    "REGIONAL_TOKEN_ROUTING_V2_ARTIFACT.pt": "d596c377e5f4423df1a2a993103736f740b86acc180c4c3d6175f3bb241fe794",
+    "REGIONAL_ANCHORED_ROUTING_V2_ARTIFACT.pt": "a6bbcbc3261aea22cf00d8f828fdbe3ca204526ef3dc8c184653360bd3eb69d0",
+    "REGIONAL_SOURCE_BLOCK_V2_ROWS.json": "0da4a2faf6b1b9148bc2e707fcc8807d2870b0c5accea623fc99fbfbedbd0c0f",
+    "REGIONAL_SOURCE_BLOCK_OOD_V1_ROWS.json": "6ef7ce810de87d75a838335ae39152053158dce6a2d2ac7714000506334b5fa0"
+  },
+  "scope": "Diagnostic scalar optimum only; no fitted replacement. Prefix equivalence follows from causal attention, but native key replay under prefix truncation is not tested here. Full prompt remains necessary for queries/downstream context."
+}

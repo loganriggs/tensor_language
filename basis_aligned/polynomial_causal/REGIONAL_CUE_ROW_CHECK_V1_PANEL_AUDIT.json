@@ -1,0 +1,35 @@
+{
+  "records": [
+    {
+      "file": "REGIONAL_SOURCE_BLOCK_V1_ROWS.json",
+      "validator_accepts": false,
+      "expected": false,
+      "rows": 32
+    },
+    {
+      "file": "REGIONAL_SOURCE_BLOCK_V2_ROWS.json",
+      "validator_accepts": true,
+      "expected": true,
+      "rows": 32
+    },
+    {
+      "file": "REGIONAL_SOURCE_BLOCK_OOD_V1_ROWS.json",
+      "validator_accepts": true,
+      "expected": true,
+      "rows": 48
+    },
+    {
+      "file": "REGIONAL_BEHAVIOR_CONTROLS_V1_ROWS.json",
+      "validator_accepts": false,
+      "expected": false,
+      "rows": 32
+    },
+    {
+      "file": "REGIONAL_BEHAVIOR_CONTROLS_V2_ROWS.json",
+      "validator_accepts": true,
+      "expected": true,
+      "rows": 32
+    }
+  ],
+  "scope": "Known two malformed historical panels rejected; all three current corrected panels accepted. Case-specific regression check, not universal grammar verification."
+}

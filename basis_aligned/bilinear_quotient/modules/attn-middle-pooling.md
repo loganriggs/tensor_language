@@ -81,3 +81,9 @@ reduces it to53%. Nativekeys plusbackground-restoredqueries give27%, stillabove
 10%fidelity. Single-gain diagnosticfloors remain26–34%. This doesnot reopen the
 old generic static-pooling replacementclaim; it exposes a contextual dependency
 of the new specificbranch. [Receipts and missing-update algebra](../../polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+
+
+### 12 September: corrected article panel
+
+The routing closure numbers immediately above used the article-confounded fresh V1 panel. Corrected V2 gives raw write error 102.55%, background-restored 38.98%, and restored queries/native keys 25.13%. Diagnostic scalar error floors for the latter two are 28.75% and 23.64%. The 10% fidelity predictions still fail; contextual updates remain needed. Fresh cue keys see only two unique causal prefixes, so variation in following tasks is not independent key-context validation.
+[Corrected evidence and limitations](../../polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md#corrected-article-panel-and-routing-diagnosis--12-september-1248-utc).

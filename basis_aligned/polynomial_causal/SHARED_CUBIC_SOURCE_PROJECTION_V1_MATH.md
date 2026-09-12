@@ -1,5 +1,14 @@
 # Shared cubic source features with private query computations
 
+**Correction, 12 September 12:34 UTC:** the newest `REGIONAL_BEHAVIOR_CONTROLS_V1`
+panel contains “A American journalist.” Its regional/control interpretation and
+the subsequent token-routing comparisons are confounded by grammaticality.
+Earlier corrected source-block V2/OOD, stream-split and full-vocabulary panels
+are unaffected. The conditional compiler identities still hold on their actual
+inputs, but do not establish clean semantic generalization. The article-only V2 repair and shared validator are complete; see the corrected
+results at the end of this note. Original receipts remain as confounded history.
+
+
 This factorization allows heads to reuse part of a computation even when their
 complete functions are different. It searches for source features shared across
 heads and solves each head's query-dependent use of them exactly. The dense
@@ -1017,3 +1026,73 @@ can coexist with genuinely context-dependent routing. They do not identify
 which individual omitted update supplies the missing information, and they do
 not justify separate tasks for QK1andQK2. Preserve the shared two-child path
 while tracing these remaining reader dependencies.
+
+
+## Corrected article panel and routing diagnosis — 12 September 12:48 UTC
+
+The fresh behavior panel's repeated “A American” error is repaired with “The”
+on both sides. Cases, labels and thresholds are unchanged. The shared validator
+rejects both known malformed historical panels and accepts all three corrected
+panels ([regression receipt](REGIONAL_CUE_ROW_CHECK_V1_PANEL_AUDIT.json)). This
+is a specific regression check, not a universal grammar checker. Earlier V1
+fresh-panel semantic conclusions and routing numbers above are superseded by
+this section; their original receipts are preserved.
+
+The [corrected behavior test](REGIONAL_BEHAVIOR_CONTROLS_V2_RESULT.json) passes:
+the native cue gap is 2.6303 nats and first-value transfer is 0.06187 nats, about
+2.35% of that gap. All 24 tense/number/meaning controls retain their correct
+answers. Mean absolute contrast changes are 0.000728, 0.000218 and 0.002894 nats.
+The [matched-write control](REGIONAL_FIRST_MATCHED_WRITE_V2_RESULT.json) also
+passes: true transfer 0.06187 versus scrambled-write 95th percentile 0.002482
+nats (maximum 0.004960). Small selective transfer remains supported; independent
+extraction is still unproved.
+
+| Corrected routing approximation | Write error | Regional signed-effect error |
+|---|---:|---:|
+| Token queries and token keys | 102.55% | 97.44% |
+| Native queries and token keys | 106.57% | 109.31% |
+| Token queries and native keys | 70.71% | 60.19% |
+| Background-restored queries and keys | 38.98% | 58.59% |
+| Native queries and background-restored keys | 89.25% | 95.51% |
+| Background-restored queries and native keys | 25.13% | 24.04% |
+
+[Raw routing receipt](REGIONAL_TOKEN_ROUTING_V2_RESULT.json) and
+[background-restored receipt](REGIONAL_ANCHORED_ROUTING_V2_RESULT.json) both
+pass native replay but fail their unchanged 10% fidelity bars. Both QK factors
+remain jointly evaluated in every arm. The zero-input background helps; the
+omitted input-dependent updates still matter for this branch.
+
+The executed [geometry audit](REGIONAL_ROUTING_V2_GEOMETRY_RESULT.json) tests
+whether an arbitrary scalar could eliminate the remaining write error. For
+flattened predicted and reference changes $v,r$, the diagnostic optimum is
+
+$$
+\alpha_* = \frac{v^\top r}{v^\top v},
+\qquad
+\frac{\|\alpha_*v-r\|}{\|r\|}
+=\sqrt{1-\frac{(v^\top r)^2}{\|v\|^2\|r\|^2}}.
+$$
+
+These identities agree numerically within $10^{-12}$. Even allowing a signed
+scalar, the raw two-sided approximation has 94.47% minimum error; restoring
+the background reduces that floor to 28.75%. With native keys and restored
+queries it is still 23.64%. No scalar is installed or counted as a successful
+replacement. This rejects a single gain mismatch as the complete explanation,
+not other weight-based factorizations.
+
+### A smaller causal boundary for the next key computation
+
+The same CPU audit counts only 4 unique cue prefixes in the original corrected
+32-row panel, 8 in the 48-row geographic panel, and 2 in the fresh 32-row panel.
+For a causal transformer, a key at cue position $c$ depends on tokens through
+$c$, not later words. Thus the fresh panel's keys depend on “The British” or
+“The American”; varying the following task does not provide 32 independent key
+contexts. This limits the breadth of the routing validation and suggests a
+cheaper exact reference for tracing the missing key updates.
+
+The immediate scientific target is to replay those short prefixes and fold the
+joint QK readers through their contextual updates. Prefix truncation/native
+key equality has not yet been measured here. A finite prefix table would only
+cache native computation: it would not establish general extraction, and it
+would not close the full-prompt queries or downstream writers. Those dependencies
+remain explicitly charged.

@@ -141,6 +141,10 @@ remains an idea source; its initial status table is historical. Follow the
 bilinear handoff/pilot and unembedding_folding_in_math/unembedding_factors_how
 notes, not better_math_ideas. Check dossiers before opening component work.
 
+Controlled British/American paired panels must run `regional_cue_row_check_v1.validate`
+from polynomial_causal before native scoring. This shared check catches the repeated
+“A American” article confound; it is not a general language validator.
+
 Every negative or weak positive needs its narrow claim, strongest plausible
 methodological explanation and an executed discriminating check; otherwise
 mark the audit pending. Do not replace a failed prediction with a later repair.
@@ -157,8 +161,8 @@ Newest user-directed proposal: [joint composed interaction paths](basis_aligned/
 ## Review clocks and throughput
 
 Latest hourly review:
-[11:36](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-12_1136.md).
-Next hourly review is due **12:36 UTC on12September** at the first safe boundary.
+[12:36](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-12_1236.md).
+Next hourly review is due **13:36 UTC on12September** at the first safe boundary.
 Latest mathematical review:
 [11:00](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_1100.md).
 Next mathematical review is due **14:00 UTC on12September**. Derive later deadlines from the

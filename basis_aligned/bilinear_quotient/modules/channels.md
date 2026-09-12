@@ -116,3 +116,9 @@ embedding/RMS/H execution replaces the restricted48-token table. Norm/Gram-match
 signedcoordinatewrite controls have95thpercentileregionaltransfer0.0023nats.
 The small branch is orientation-specific; easycontrolsuccess is not independent
 extraction or a claim about every unrelated behavior.
+
+
+### 12 September: corrected article panel
+
+The fresh V1 behavior paragraph above used an article-confounded panel. Corrected V2 retains selective first-value transfer: 0.06187 nats (2.35% native cue gap), all 24 control answers preserved; matched-write control 95th percentile 0.002482 nats. Earlier original/OOD full-vocabulary results are unaffected.
+[Corrected evidence and limitations](../../polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md#corrected-article-panel-and-routing-diagnosis--12-september-1248-utc).

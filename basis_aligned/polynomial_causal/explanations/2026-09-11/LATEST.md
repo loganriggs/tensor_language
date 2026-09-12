@@ -1,3 +1,20 @@
+### 12 September, 12:48 — Article repair complete; routing dependency remains
+
+Corrected fresh controls and matched-write controls pass: 0.06187-nat regional
+transfer, all 24 control answers preserved. Corrected background-restored routing
+still fails: 39% write error, or 25% with native keys; a scalar cannot close the
+gap. Prior fresh V1 semantic numbers are superseded. The prefix audit finds only
+2 distinct cue-key contexts in the fresh panel, narrowing the next extraction
+boundary. [Corrected results and scope](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md#corrected-article-panel-and-routing-diagnosis--12-september-1248-utc).
+
+### 12 September, 12:34 — Correction to the newest behavior panel
+
+“A American journalist” introduces a grammaticality confound. Treat the newest
+behavior/routing interpretations as provisional pending article-corrected V2
+reruns. Earlier corrected spelling/value/full-vocabulary panels are unaffected;
+conditional algebra remains valid. A shared validator now catches the repeated
+error. [Correction and affected scope](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+
 ### 12 September, 12:30 — Routing closure still needs contextual updates
 
 Raw token-derived routing fails. A zero-input background generated from weights
