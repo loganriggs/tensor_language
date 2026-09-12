@@ -1,0 +1,1042 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 2,
+    "k_kept": 2,
+    "k_new": 7,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_possessive_mappings_separability_v635",
+  "families": {
+    "number_readout": [
+      "agreement_do_does",
+      "agreement_lifts_lift",
+      "demonstrative_number",
+      "possessive_disjoint_my_your",
+      "possessive_gender",
+      "possessive_number_attractor_conflict",
+      "possessive_number_his_their",
+      "possessive_number_its_their",
+      "possessive_person_our_your",
+      "possessive_pronoun_number_hers_theirs"
+    ]
+  },
+  "finished_utc": "2026-09-12T04:05:04.974522+00:00",
+  "members": {
+    "agreement_do_does": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5291,
+            "ce_lb975": 0.4678,
+            "ce_ub975": 0.5868
+          },
+          "C": {
+            "ce_damage": 0.0024,
+            "ce_lb975": -0.0058,
+            "ce_ub975": 0.0103
+          },
+          "extraction": 0.979,
+          "sib_abs_max": 0.0154,
+          "siblings": {
+            "agreement_lifts_lift": -0.0154,
+            "demonstrative_number": 0.0041,
+            "possessive_disjoint_my_your": 0.0004,
+            "possessive_gender": -0.0146,
+            "possessive_number_attractor_conflict": 0.0026,
+            "possessive_number_his_their": 0.0017,
+            "possessive_number_its_their": 0.006,
+            "possessive_person_our_your": -0.0015,
+            "possessive_pronoun_number_hers_theirs": -0.0031
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5559,
+            "ce_lb975": 0.498,
+            "ce_ub975": 0.6138
+          },
+          "C": {
+            "ce_damage": -0.0022,
+            "ce_lb975": -0.0064,
+            "ce_ub975": 0.0024
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.5574,
+          "siblings": {
+            "agreement_lifts_lift": 0.5574,
+            "demonstrative_number": 0.0633,
+            "possessive_disjoint_my_your": 0.0117,
+            "possessive_gender": 0.0019,
+            "possessive_number_attractor_conflict": 0.1012,
+            "possessive_number_his_their": 0.0136,
+            "possessive_number_its_their": 0.0149,
+            "possessive_person_our_your": 0.0019,
+            "possessive_pronoun_number_hers_theirs": 0.0321
+          }
+        }
+      },
+      "exact_held": 0.899,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 102.8,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:05:head:03",
+        "attn:13:head:01",
+        "attn:08:head:01",
+        "attn:06:head:03",
+        "attn:05:head:06",
+        "attn:09:head:01"
+      ]
+    },
+    "agreement_lifts_lift": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6576,
+            "ce_lb975": 0.5834,
+            "ce_ub975": 0.7272
+          },
+          "C": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.0079,
+            "ce_ub975": 0.0025
+          },
+          "extraction": 0.985,
+          "sib_abs_max": 0.0159,
+          "siblings": {
+            "agreement_do_does": -0.005,
+            "demonstrative_number": -0.004,
+            "possessive_disjoint_my_your": -0.0006,
+            "possessive_gender": -0.008,
+            "possessive_number_attractor_conflict": 0.0159,
+            "possessive_number_his_their": -0.0025,
+            "possessive_number_its_their": 0.0039,
+            "possessive_person_our_your": -0.0019,
+            "possessive_pronoun_number_hers_theirs": 0.0028
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6746,
+            "ce_lb975": 0.627,
+            "ce_ub975": 0.7218
+          },
+          "C": {
+            "ce_damage": 0.0004,
+            "ce_lb975": -0.0035,
+            "ce_ub975": 0.005
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.3853,
+          "siblings": {
+            "agreement_do_does": 0.3853,
+            "demonstrative_number": 0.0784,
+            "possessive_disjoint_my_your": -0.0007,
+            "possessive_gender": 0.0125,
+            "possessive_number_attractor_conflict": 0.1727,
+            "possessive_number_his_their": 0.023,
+            "possessive_number_its_their": 0.0704,
+            "possessive_person_our_your": -0.0133,
+            "possessive_pronoun_number_hers_theirs": 0.0555
+          }
+        }
+      },
+      "exact_held": 0.897,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 108.0,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:05:head:03",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:03:head:04",
+        "attn:17:head:04"
+      ]
+    },
+    "demonstrative_number": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6139,
+            "ce_lb975": 0.4927,
+            "ce_ub975": 0.7366
+          },
+          "C": {
+            "ce_damage": 0.0005,
+            "ce_lb975": -0.0032,
+            "ce_ub975": 0.0044
+          },
+          "extraction": 0.988,
+          "sib_abs_max": 0.0038,
+          "siblings": {
+            "agreement_do_does": -0.0014,
+            "agreement_lifts_lift": -0.0014,
+            "possessive_disjoint_my_your": 0.0002,
+            "possessive_gender": -0.0005,
+            "possessive_number_attractor_conflict": 0.0038,
+            "possessive_number_his_their": 0.0011,
+            "possessive_number_its_their": -0.0001,
+            "possessive_person_our_your": -0.0021,
+            "possessive_pronoun_number_hers_theirs": 0.0004
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.611,
+            "ce_lb975": 0.4963,
+            "ce_ub975": 0.728
+          },
+          "C": {
+            "ce_damage": -0.0029,
+            "ce_lb975": -0.0074,
+            "ce_ub975": 0.0018
+          },
+          "extraction": 0.986,
+          "sib_abs_max": 0.0556,
+          "siblings": {
+            "agreement_do_does": -0.0328,
+            "agreement_lifts_lift": -0.0099,
+            "possessive_disjoint_my_your": 0.0478,
+            "possessive_gender": 0.0082,
+            "possessive_number_attractor_conflict": 0.041,
+            "possessive_number_his_their": -0.006,
+            "possessive_number_its_their": 0.0556,
+            "possessive_person_our_your": -0.0294,
+            "possessive_pronoun_number_hers_theirs": -0.0237
+          }
+        }
+      },
+      "exact_held": 0.898,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 106.2,
+      "separable": true,
+      "units": [
+        "attn:11:head:02",
+        "attn:07:head:08",
+        "attn:09:head:07",
+        "attn:04:head:01",
+        "attn:05:head:06",
+        "attn:16:head:08",
+        "attn:06:head:03",
+        "attn:15:head:01"
+      ]
+    },
+    "possessive_disjoint_my_your": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6786,
+            "ce_lb975": 0.524,
+            "ce_ub975": 0.8075
+          },
+          "C": {
+            "ce_damage": -0.0005,
+            "ce_lb975": -0.0042,
+            "ce_ub975": 0.0028
+          },
+          "extraction": 0.999,
+          "sib_abs_max": 0.0119,
+          "siblings": {
+            "agreement_do_does": -0.0012,
+            "agreement_lifts_lift": -0.0013,
+            "demonstrative_number": -0.0119,
+            "possessive_gender": -0.0027,
+            "possessive_number_attractor_conflict": 0.0002,
+            "possessive_number_his_their": -0.0032,
+            "possessive_number_its_their": -0.0001,
+            "possessive_person_our_your": 0.0004,
+            "possessive_pronoun_number_hers_theirs": -0.0011
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6777,
+            "ce_lb975": 0.4879,
+            "ce_ub975": 0.8359
+          },
+          "C": {
+            "ce_damage": 0.0024,
+            "ce_lb975": -0.0042,
+            "ce_ub975": 0.0092
+          },
+          "extraction": 1.0,
+          "sib_abs_max": 0.1933,
+          "siblings": {
+            "agreement_do_does": -0.005,
+            "agreement_lifts_lift": 0.0035,
+            "demonstrative_number": 0.0667,
+            "possessive_gender": -0.0059,
+            "possessive_number_attractor_conflict": 0.0272,
+            "possessive_number_his_their": 0.0086,
+            "possessive_number_its_their": -0.0137,
+            "possessive_person_our_your": 0.1933,
+            "possessive_pronoun_number_hers_theirs": -0.0218
+          }
+        }
+      },
+      "exact_held": 0.892,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 16,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row4_v3": true,
+        "row5": true
+      },
+      "seconds": 124.5,
+      "separable": true,
+      "units": [
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:08:head:01",
+        "attn:01:head:05",
+        "attn:06:head:01",
+        "attn:08:head:05",
+        "attn:04:head:04",
+        "attn:05:head:03",
+        "attn:00:head:03",
+        "attn:10:head:01",
+        "attn:16:head:01",
+        "attn:02:head:06",
+        "attn:07:head:08",
+        "attn:12:head:04",
+        "attn:09:head:07",
+        "attn:04:head:07"
+      ]
+    },
+    "possessive_gender": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.3718,
+            "ce_lb975": 0.3463,
+            "ce_ub975": 0.3979
+          },
+          "C": {
+            "ce_damage": -0.0002,
+            "ce_lb975": -0.0125,
+            "ce_ub975": 0.011
+          },
+          "extraction": 0.894,
+          "sib_abs_max": 0.0339,
+          "siblings": {
+            "agreement_do_does": 0.0082,
+            "agreement_lifts_lift": -0.0018,
+            "demonstrative_number": -0.0199,
+            "possessive_disjoint_my_your": -0.0028,
+            "possessive_number_attractor_conflict": 0.0125,
+            "possessive_number_his_their": 0.0339,
+            "possessive_number_its_their": 0.0052,
+            "possessive_person_our_your": -0.0226,
+            "possessive_pronoun_number_hers_theirs": 0.0074
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.4413,
+            "ce_lb975": 0.4183,
+            "ce_ub975": 0.465
+          },
+          "C": {
+            "ce_damage": 0.0006,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.0047
+          },
+          "extraction": 0.99,
+          "sib_abs_max": 0.3586,
+          "siblings": {
+            "agreement_do_does": 0.0069,
+            "agreement_lifts_lift": 0.0181,
+            "demonstrative_number": -0.0044,
+            "possessive_disjoint_my_your": 0.0058,
+            "possessive_number_attractor_conflict": 0.1299,
+            "possessive_number_his_their": 0.225,
+            "possessive_number_its_their": 0.0012,
+            "possessive_person_our_your": -0.0009,
+            "possessive_pronoun_number_hers_theirs": 0.3586
+          }
+        }
+      },
+      "exact_held": 0.89,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 104.4,
+      "separable": true,
+      "units": [
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:06:head:01",
+        "attn:08:head:01",
+        "attn:15:head:01",
+        "attn:04:head:05"
+      ]
+    },
+    "possessive_number_attractor_conflict": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9228,
+            "ce_lb975": 0.6815,
+            "ce_ub975": 1.1532
+          },
+          "C": {
+            "ce_damage": -0.0001,
+            "ce_lb975": -0.009,
+            "ce_ub975": 0.0079
+          },
+          "extraction": 0.967,
+          "sib_abs_max": 0.0641,
+          "siblings": {
+            "agreement_do_does": 0.0111,
+            "agreement_lifts_lift": -0.0059,
+            "demonstrative_number": 0.007,
+            "possessive_disjoint_my_your": 0.0045,
+            "possessive_gender": 0.0058,
+            "possessive_number_his_their": 0.0641,
+            "possessive_number_its_their": -0.003,
+            "possessive_person_our_your": -0.0267,
+            "possessive_pronoun_number_hers_theirs": 0.0105
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9204,
+            "ce_lb975": 0.6558,
+            "ce_ub975": 1.1766
+          },
+          "C": {
+            "ce_damage": -0.0048,
+            "ce_lb975": -0.0136,
+            "ce_ub975": 0.0041
+          },
+          "extraction": 0.996,
+          "sib_abs_max": 0.6426,
+          "siblings": {
+            "agreement_do_does": 0.0075,
+            "agreement_lifts_lift": 0.0919,
+            "demonstrative_number": -0.0138,
+            "possessive_disjoint_my_your": 0.0247,
+            "possessive_gender": 0.6426,
+            "possessive_number_his_their": 0.3993,
+            "possessive_number_its_their": 0.1014,
+            "possessive_person_our_your": -0.0091,
+            "possessive_pronoun_number_hers_theirs": 0.0204
+          }
+        }
+      },
+      "exact_held": 0.893,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row4_v3": true,
+        "row5": true
+      },
+      "seconds": 109.9,
+      "separable": false,
+      "units": [
+        "attn:05:head:03",
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:09:head:07",
+        "attn:04:head:05",
+        "attn:10:head:05",
+        "attn:15:head:01",
+        "attn:03:head:04",
+        "attn:10:head:01",
+        "attn:07:head:08"
+      ]
+    },
+    "possessive_number_his_their": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8611,
+            "ce_lb975": 0.7103,
+            "ce_ub975": 1.0001
+          },
+          "C": {
+            "ce_damage": -0.0094,
+            "ce_lb975": -0.0151,
+            "ce_ub975": -0.0045
+          },
+          "extraction": 0.948,
+          "sib_abs_max": 0.021,
+          "siblings": {
+            "agreement_do_does": 0.0083,
+            "agreement_lifts_lift": -0.0008,
+            "demonstrative_number": 0.0141,
+            "possessive_disjoint_my_your": 0.0029,
+            "possessive_gender": -0.0133,
+            "possessive_number_attractor_conflict": 0.021,
+            "possessive_number_its_their": -0.009,
+            "possessive_person_our_your": 0.0028,
+            "possessive_pronoun_number_hers_theirs": 0.0102
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9172,
+            "ce_lb975": 0.7607,
+            "ce_ub975": 1.0613
+          },
+          "C": {
+            "ce_damage": 0.0012,
+            "ce_lb975": -0.0017,
+            "ce_ub975": 0.0044
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.3348,
+          "siblings": {
+            "agreement_do_does": 0.0421,
+            "agreement_lifts_lift": -0.0108,
+            "demonstrative_number": 0.0319,
+            "possessive_disjoint_my_your": 0.048,
+            "possessive_gender": 0.0796,
+            "possessive_number_attractor_conflict": 0.1436,
+            "possessive_number_its_their": 0.2985,
+            "possessive_person_our_your": 0.0064,
+            "possessive_pronoun_number_hers_theirs": 0.3348
+          }
+        }
+      },
+      "exact_held": 0.897,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 98.3,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:10:head:01",
+        "attn:10:head:05",
+        "attn:13:head:02",
+        "attn:09:head:07",
+        "attn:16:head:01",
+        "attn:07:head:00"
+      ]
+    },
+    "possessive_number_its_their": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5822,
+            "ce_lb975": 0.4803,
+            "ce_ub975": 0.6835
+          },
+          "C": {
+            "ce_damage": -0.0014,
+            "ce_lb975": -0.0054,
+            "ce_ub975": 0.0017
+          },
+          "extraction": 0.991,
+          "sib_abs_max": 0.0191,
+          "siblings": {
+            "agreement_do_does": -0.0028,
+            "agreement_lifts_lift": -0.0036,
+            "demonstrative_number": 0.0001,
+            "possessive_disjoint_my_your": 0.0001,
+            "possessive_gender": -0.0076,
+            "possessive_number_attractor_conflict": 0.0087,
+            "possessive_number_his_their": 0.0191,
+            "possessive_person_our_your": -0.0027,
+            "possessive_pronoun_number_hers_theirs": 0.0091
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5862,
+            "ce_lb975": 0.4527,
+            "ce_ub975": 0.7151
+          },
+          "C": {
+            "ce_damage": 0.0012,
+            "ce_lb975": -0.0027,
+            "ce_ub975": 0.0045
+          },
+          "extraction": 1.003,
+          "sib_abs_max": 0.2882,
+          "siblings": {
+            "agreement_do_does": -0.0017,
+            "agreement_lifts_lift": 0.0199,
+            "demonstrative_number": 0.1272,
+            "possessive_disjoint_my_your": 0.0235,
+            "possessive_gender": 0.007,
+            "possessive_number_attractor_conflict": 0.1703,
+            "possessive_number_his_their": 0.2882,
+            "possessive_person_our_your": -0.0067,
+            "possessive_pronoun_number_hers_theirs": 0.0885
+          }
+        }
+      },
+      "exact_held": 0.887,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 104.3,
+      "separable": true,
+      "units": [
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:05:head:03"
+      ]
+    },
+    "possessive_person_our_your": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9685,
+            "ce_lb975": 0.8676,
+            "ce_ub975": 1.0641
+          },
+          "C": {
+            "ce_damage": 0.0014,
+            "ce_lb975": -0.0015,
+            "ce_ub975": 0.0043
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.0035,
+          "siblings": {
+            "agreement_do_does": -0.0006,
+            "agreement_lifts_lift": -0.0004,
+            "demonstrative_number": 0.0011,
+            "possessive_disjoint_my_your": 0.0004,
+            "possessive_gender": 0.0035,
+            "possessive_number_attractor_conflict": 0.0004,
+            "possessive_number_his_their": -0.0032,
+            "possessive_number_its_their": -0.001,
+            "possessive_pronoun_number_hers_theirs": -0.0015
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9658,
+            "ce_lb975": 0.8443,
+            "ce_ub975": 1.079
+          },
+          "C": {
+            "ce_damage": 0.0014,
+            "ce_lb975": -0.0035,
+            "ce_ub975": 0.0075
+          },
+          "extraction": 0.997,
+          "sib_abs_max": 0.2795,
+          "siblings": {
+            "agreement_do_does": 0.05,
+            "agreement_lifts_lift": 0.0015,
+            "demonstrative_number": 0.0299,
+            "possessive_disjoint_my_your": 0.2795,
+            "possessive_gender": -0.0012,
+            "possessive_number_attractor_conflict": -0.0155,
+            "possessive_number_his_their": -0.0049,
+            "possessive_number_its_their": 0.0314,
+            "possessive_pronoun_number_hers_theirs": 0.0487
+          }
+        }
+      },
+      "exact_held": 0.89,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 104.5,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:13:head:02",
+        "attn:12:head:04",
+        "attn:10:head:01",
+        "attn:16:head:01",
+        "attn:09:head:07",
+        "attn:08:head:01",
+        "attn:08:head:05",
+        "attn:09:head:01",
+        "attn:06:head:01",
+        "attn:07:head:00"
+      ]
+    },
+    "possessive_pronoun_number_hers_theirs": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6467,
+            "ce_lb975": 0.6109,
+            "ce_ub975": 0.685
+          },
+          "C": {
+            "ce_damage": 0.0011,
+            "ce_lb975": -0.0059,
+            "ce_ub975": 0.008
+          },
+          "extraction": 0.946,
+          "sib_abs_max": 0.0104,
+          "siblings": {
+            "agreement_do_does": 0.001,
+            "agreement_lifts_lift": 0.0013,
+            "demonstrative_number": 0.0076,
+            "possessive_disjoint_my_your": 0.0015,
+            "possessive_gender": -0.0104,
+            "possessive_number_attractor_conflict": 0.0001,
+            "possessive_number_his_their": 0.0088,
+            "possessive_number_its_their": -0.0064,
+            "possessive_person_our_your": -0.0085
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6738,
+            "ce_lb975": 0.6429,
+            "ce_ub975": 0.7065
+          },
+          "C": {
+            "ce_damage": 0.0002,
+            "ce_lb975": -0.0127,
+            "ce_ub975": 0.0114
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 0.3218,
+          "siblings": {
+            "agreement_do_does": -0.0202,
+            "agreement_lifts_lift": -0.0149,
+            "demonstrative_number": -0.0175,
+            "possessive_disjoint_my_your": 0.0085,
+            "possessive_gender": 0.094,
+            "possessive_number_attractor_conflict": 0.0425,
+            "possessive_number_his_their": 0.3218,
+            "possessive_number_its_their": 0.138,
+            "possessive_person_our_your": 0.0252
+          }
+        }
+      },
+      "exact_held": 0.896,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "seconds": 101.6,
+      "separable": true,
+      "units": [
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:10:head:01",
+        "attn:16:head:01",
+        "attn:13:head:02",
+        "attn:06:head:01",
+        "attn:10:head:05",
+        "attn:13:head:01",
+        "attn:07:head:00"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": false,
+    "pred_b_counted_kept": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "agreement_do_does",
+      "agreement_lifts_lift",
+      "demonstrative_number",
+      "possessive_disjoint_my_your",
+      "possessive_gender",
+      "possessive_number_attractor_conflict",
+      "possessive_number_his_their",
+      "possessive_number_its_their",
+      "possessive_person_our_your",
+      "possessive_pronoun_number_hers_theirs"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_possessive_mappings_separability_v635",
+  "seconds": 1068.2,
+  "separable_counts": {
+    "number_readout": 9
+  },
+  "summary": {
+    "agreement_do_does": {
+      "fam": [
+        0.979,
+        0.0154,
+        0.0103
+      ],
+      "family": "number_readout",
+      "n_units": 8,
+      "own": [
+        0.992,
+        0.5574,
+        0.0024
+      ],
+      "separable": true
+    },
+    "agreement_lifts_lift": {
+      "fam": [
+        0.985,
+        0.0159,
+        0.0025
+      ],
+      "family": "number_readout",
+      "n_units": 7,
+      "own": [
+        0.995,
+        0.3853,
+        0.005
+      ],
+      "separable": true
+    },
+    "demonstrative_number": {
+      "fam": [
+        0.988,
+        0.0038,
+        0.0044
+      ],
+      "family": "number_readout",
+      "n_units": 8,
+      "own": [
+        0.986,
+        0.0556,
+        0.0018
+      ],
+      "separable": true
+    },
+    "possessive_disjoint_my_your": {
+      "fam": [
+        0.999,
+        0.0119,
+        0.0028
+      ],
+      "family": "number_readout",
+      "n_units": 16,
+      "own": [
+        1.0,
+        0.1933,
+        0.0092
+      ],
+      "separable": true
+    },
+    "possessive_gender": {
+      "fam": [
+        0.894,
+        0.0339,
+        0.011
+      ],
+      "family": "number_readout",
+      "n_units": 7,
+      "own": [
+        0.99,
+        0.3586,
+        0.0047
+      ],
+      "separable": true
+    },
+    "possessive_number_attractor_conflict": {
+      "fam": [
+        0.967,
+        0.0641,
+        0.0079
+      ],
+      "family": "number_readout",
+      "n_units": 10,
+      "own": [
+        0.996,
+        0.6426,
+        0.0041
+      ],
+      "separable": false
+    },
+    "possessive_number_his_their": {
+      "fam": [
+        0.948,
+        0.021,
+        -0.0045
+      ],
+      "family": "number_readout",
+      "n_units": 9,
+      "own": [
+        0.992,
+        0.3348,
+        0.0044
+      ],
+      "separable": true
+    },
+    "possessive_number_its_their": {
+      "fam": [
+        0.991,
+        0.0191,
+        0.0017
+      ],
+      "family": "number_readout",
+      "n_units": 7,
+      "own": [
+        1.003,
+        0.2882,
+        0.0045
+      ],
+      "separable": true
+    },
+    "possessive_person_our_your": {
+      "fam": [
+        0.995,
+        0.0035,
+        0.0043
+      ],
+      "family": "number_readout",
+      "n_units": 13,
+      "own": [
+        0.997,
+        0.2795,
+        0.0075
+      ],
+      "separable": true
+    },
+    "possessive_pronoun_number_hers_theirs": {
+      "fam": [
+        0.946,
+        0.0104,
+        0.008
+      ],
+      "family": "number_readout",
+      "n_units": 10,
+      "own": [
+        0.989,
+        0.3218,
+        0.0114
+      ],
+      "separable": true
+    }
+  }
+}
