@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 03:39 UTC:** [frozen fresh validation](../../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#frozen-fresh-validation-removal-generalizes-progressive-swaps-narrowly-fail) passes all removals, write errors and native capability, but progressive swap error10.54% misses10%. No threshold repair or circuit promotion. Executed diagnosis finds distributed, predominantly first-order error. A [weight-only producer-metric factorization](../../PRODUCER_METRIC_SPECTRAL_V1_MATH.md) is derived and controlled; native comparison is not yet queued.
+**12 September, 03:48 UTC:** [producer-metric results](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md) pass original developmental swaps/removals at equal size; coefficient-error improvement3.1–3.3% misses the10% prediction. The inspected-panel diagnostic also passes, including progressive4.52%, but is not clean confirmation. A frozen512-pair contextual test comparing both programs is submitted through the shared runner; no circuit promotion.
 
 ## Earlier entries — historical status, superseded where stated above
 
