@@ -22340,3 +22340,12 @@ Previous turn progress: freshpass/geographicfamily2miss andamplitudeaudit pushed
 
 ### 2026-09-12T13:16:31.025277+00:00 — Codex: JOINT KEY CORRECTION ACCOUNTING COMPLETE
 Exactfactorial write identity7.01e-16. Family2 signedneeded-correction projections numerator+2.006,denominator−.702,interaction−.303: normalization-only moveswrongway. Passingmixed+trueD approximation needs omittednativeinformation andmaynotreduceFLOPs. Primarymathrecords scopedgeographicprediction andnextfoldedreader/sharednorm extraction requirement. CPUcontinuationcomplete; fullgoalactive.
+
+### 2026-09-12T13:19:20.418500+00:00 — Codex: CLAIM RECURSIVE KEY GENERATOR CLOSURE
+Frozen forward/backward13 supports now actually skip omitted native updates, replacing each by its zero-input trajectory write; selected updates run on the resulting candidate state. Actual embedding reentry and first-valueV0 retained. No saved actual-prefix updates in candidate generator. Evaluate geographic48 downstreamsamewrite/effect10%bars, all26recursive controlreplay<=1e-5. Keyqueries/downstreambackground stillnative, so this closes only the key-prefix boundary. Record literal liveupdate/cacheprices andconditional-versusrecursive inputdeviation.
+
+### 2026-09-12T13:22:50.499106+00:00 — Codex: RECURSIVE KEY EXTRACTION FAIL / CLAIM LITERAL DEPENDENCY AUDIT
+3.45secApassB/Cfail,forwardwrite73–103%,family2only1/6native transfer signs retained. All26write<=1.86e-7; recursivevsconditionalkeyinputdifferences32–33%. Fixedzero background cannot replace omitted producer dependencies. CPUaudit conservative native graph closure and uniqueparameter footprint ofselected13 versusrequiredproducerclosure; includeembedding,V0,keymaps andzerocache. Distinguish syntacticnativeclosure from proof of semantic necessity; demote wholemodule support pruning as a standalone extraction route.
+
+### 2026-09-12T13:24:01.169891+00:00 — Codex: DEPENDENCY AUDIT COMPLETE / NATIVE SUPPORT PRUNING DEMOTED
+Opaque nativeclosureforward13→24updates347.27Mscalars;backward13→26updates371.16M,includingfullvocabembedding/keymaps butexcludingquery/downstreamweights. Selectedpackagesalready231.81/239.77M. Not an equivalent-program lowerbound. Recursivefailedcontrolandprice documented; preserveconditionalmixedpass. Nextstructuralwork shouldfoldcorrectionreaders/sharednormalizers acrossproducerboundaries, notassume13nativeupdatesareacircuit. CPUcontinuationexecuted,goalactive.

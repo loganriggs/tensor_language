@@ -1,0 +1,1114 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "native_branch_replay_error": 7.327237647660819e-08,
+  "producer_replay_errors": [
+    1.0248882602150968e-07,
+    9.141597690624863e-08,
+    2.235241175994864e-07,
+    9.506767874999418e-08,
+    9.159173969137624e-08,
+    1.302525668778202e-07,
+    1.0318561151553231e-07,
+    9.098174538064925e-08,
+    2.289016444382175e-07,
+    1.0326540073952857e-07,
+    9.848164740942653e-08,
+    1.9487212418279474e-07,
+    1.3347774604179314e-07,
+    9.403392048148735e-08,
+    1.9066067293582947e-07,
+    1.2248045708367996e-07,
+    1.3320320804053687e-07,
+    9.049772247276214e-08,
+    1.3427519720739348e-07,
+    1.528504255917782e-07,
+    1.2884745106527242e-07,
+    1.3127543428728917e-07,
+    1.1193249007716407e-07,
+    1.1923710397819642e-07,
+    1.402941185297435e-07,
+    1.366089177117632e-07,
+    1.062923508027827e-07,
+    8.867421222327209e-08,
+    1.468861405383863e-07,
+    1.3615698465058744e-07
+  ],
+  "native_attention_replay_errors": [
+    1.9633857134079375e-07,
+    1.5636393052360688e-07,
+    1.5321219887334847e-07,
+    2.0843946049202837e-07,
+    1.6907252730861153e-07,
+    1.9900889571617893e-07,
+    2.0897207257950145e-07,
+    1.8462723391437498e-07,
+    1.91599358376002e-07,
+    1.52779960516756e-07
+  ],
+  "cells": [
+    {
+      "name": "forward13_keys",
+      "family": 0,
+      "write_relative_error": 0.807140471869319,
+      "regional_effect_relative_error": 0.8187956581829212,
+      "native_transfer_mean": 0.07465386390686035,
+      "transfer_mean": 0.013902485370635986,
+      "transfer_sign_matches": 6,
+      "unrelated_meanabs": 0.0015111565589904785,
+      "regional_meanabs": 0.013902485370635986
+    },
+    {
+      "name": "forward13_keys",
+      "family": 1,
+      "write_relative_error": 0.7332211502796104,
+      "regional_effect_relative_error": 0.7416703700804423,
+      "native_transfer_mean": 0.11572678883870442,
+      "transfer_mean": 0.030429760615030922,
+      "transfer_sign_matches": 6,
+      "unrelated_meanabs": 0.0031411449114481607,
+      "regional_meanabs": 0.030429760615030922
+    },
+    {
+      "name": "forward13_keys",
+      "family": 2,
+      "write_relative_error": 1.0282129671027913,
+      "regional_effect_relative_error": 1.0335779687694238,
+      "native_transfer_mean": 0.06417073806126912,
+      "transfer_mean": -0.0023886958758036294,
+      "transfer_sign_matches": 1,
+      "unrelated_meanabs": 0.00029502312342325843,
+      "regional_meanabs": 0.002639472484588623
+    },
+    {
+      "name": "forward13_keys",
+      "family": 3,
+      "write_relative_error": 0.9147115468238888,
+      "regional_effect_relative_error": 0.9217837887175205,
+      "native_transfer_mean": 0.12016469240188599,
+      "transfer_mean": 0.009542266527811686,
+      "transfer_sign_matches": 6,
+      "unrelated_meanabs": 0.0010515252749125161,
+      "regional_meanabs": 0.009542266527811686
+    },
+    {
+      "name": "backward13_keys",
+      "family": 0,
+      "write_relative_error": 0.8012194155686293,
+      "regional_effect_relative_error": 0.8121269586565077,
+      "native_transfer_mean": 0.07465386390686035,
+      "transfer_mean": 0.014490226904551188,
+      "transfer_sign_matches": 6,
+      "unrelated_meanabs": 0.0015558799107869465,
+      "regional_meanabs": 0.014490226904551188
+    },
+    {
+      "name": "backward13_keys",
+      "family": 1,
+      "write_relative_error": 0.7549912763786091,
+      "regional_effect_relative_error": 0.7577099820162752,
+      "native_transfer_mean": 0.11572678883870442,
+      "transfer_mean": 0.028563618659973145,
+      "transfer_sign_matches": 6,
+      "unrelated_meanabs": 0.0029462973276774087,
+      "regional_meanabs": 0.028563618659973145
+    },
+    {
+      "name": "backward13_keys",
+      "family": 2,
+      "write_relative_error": 1.0141051381324764,
+      "regional_effect_relative_error": 1.0195258664153783,
+      "native_transfer_mean": 0.06417073806126912,
+      "transfer_mean": -0.0013981262842814126,
+      "transfer_sign_matches": 2,
+      "unrelated_meanabs": 0.0002538164456685384,
+      "regional_meanabs": 0.0019341707229614258
+    },
+    {
+      "name": "backward13_keys",
+      "family": 3,
+      "write_relative_error": 0.9092236306709525,
+      "regional_effect_relative_error": 0.9154622759615465,
+      "native_transfer_mean": 0.12016469240188599,
+      "transfer_mean": 0.010367294152577717,
+      "transfer_sign_matches": 6,
+      "unrelated_meanabs": 0.0011453827222188313,
+      "regional_meanabs": 0.010367294152577717
+    },
+    {
+      "name": "all_update_keys",
+      "family": 0,
+      "write_relative_error": 6.830489628693763e-08,
+      "regional_effect_relative_error": 1.142446781928065e-05,
+      "native_transfer_mean": 0.07465386390686035,
+      "transfer_mean": 0.0746539831161499,
+      "transfer_sign_matches": 6,
+      "unrelated_meanabs": 0.00824056069056193,
+      "regional_meanabs": 0.0746539831161499
+    },
+    {
+      "name": "all_update_keys",
+      "family": 1,
+      "write_relative_error": 1.73495088498711e-07,
+      "regional_effect_relative_error": 1.0383957401712648e-05,
+      "native_transfer_mean": 0.11572678883870442,
+      "transfer_mean": 0.11572682857513428,
+      "transfer_sign_matches": 6,
+      "unrelated_meanabs": 0.01242297887802124,
+      "regional_meanabs": 0.11572682857513428
+    },
+    {
+      "name": "all_update_keys",
+      "family": 2,
+      "write_relative_error": 1.8562799840064134e-07,
+      "regional_effect_relative_error": 1.1639240633570065e-05,
+      "native_transfer_mean": 0.06417073806126912,
+      "transfer_mean": 0.06417093674341837,
+      "transfer_sign_matches": 6,
+      "unrelated_meanabs": 0.007236818472544352,
+      "regional_meanabs": 0.06417093674341837
+    },
+    {
+      "name": "all_update_keys",
+      "family": 3,
+      "write_relative_error": 1.571094934746624e-07,
+      "regional_effect_relative_error": 7.083062173513619e-06,
+      "native_transfer_mean": 0.12016469240188599,
+      "transfer_mean": 0.12016483147939046,
+      "transfer_sign_matches": 6,
+      "unrelated_meanabs": 0.01325992743174235,
+      "regional_meanabs": 0.12016483147939046
+    }
+  ],
+  "body_forwards": 10,
+  "frozen_supports": {
+    "forward": [
+      7,
+      8,
+      11,
+      12,
+      13,
+      14,
+      15,
+      17,
+      18,
+      19,
+      21,
+      22,
+      23
+    ],
+    "backward": [
+      7,
+      9,
+      11,
+      12,
+      13,
+      14,
+      15,
+      17,
+      18,
+      21,
+      22,
+      23,
+      25
+    ],
+    "all": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ]
+  },
+  "generator_price": {
+    "prefixes": 8,
+    "zero_update_calls": 52,
+    "live_calls": {
+      "forward": {
+        "attention": 40,
+        "mlp": 64,
+        "first_value_only": 8
+      },
+      "backward": {
+        "attention": 32,
+        "mlp": 72,
+        "first_value_only": 8
+      },
+      "all": {
+        "attention": 104,
+        "mlp": 104,
+        "first_value_only": 0
+      }
+    },
+    "cached_zero_scalars": 239616,
+    "key_state_scalars": 82944,
+    "scope": "Cache-building uses native zero-input weights. Counts exclude embeddings, RMS, residual reentry, key projections, native queries and downstream background; this is not total program pricing."
+  },
+  "input_comparison": [
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "forward",
+      "relative_difference": 0.23855814337730408
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "backward",
+      "relative_difference": 0.24884669482707977
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "all",
+      "relative_difference": 1.4925751656846842e-07
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "forward",
+      "relative_difference": 0.25671887397766113
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "backward",
+      "relative_difference": 0.26607656478881836
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "all",
+      "relative_difference": 1.2308564123486576e-07
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "forward",
+      "relative_difference": 0.2543987035751343
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "backward",
+      "relative_difference": 0.2720525860786438
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "all",
+      "relative_difference": 1.5145411680350662e-07
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "forward",
+      "relative_difference": 0.2531306743621826
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "backward",
+      "relative_difference": 0.2615029811859131
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "all",
+      "relative_difference": 1.3682732458164537e-07
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "forward",
+      "relative_difference": 0.271353155374527
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "backward",
+      "relative_difference": 0.2795428931713104
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "all",
+      "relative_difference": 1.5278382647920807e-07
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "forward",
+      "relative_difference": 0.2666364908218384
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "backward",
+      "relative_difference": 0.27904462814331055
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "all",
+      "relative_difference": 1.690957560640527e-07
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "forward",
+      "relative_difference": 0.2531778812408447
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "backward",
+      "relative_difference": 0.2635110020637512
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "all",
+      "relative_difference": 9.582894477944137e-08
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "forward",
+      "relative_difference": 0.274746298789978
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "backward",
+      "relative_difference": 0.2837715446949005
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "all",
+      "relative_difference": 1.104107099081375e-07
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "forward",
+      "relative_difference": 0.28405439853668213
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "backward",
+      "relative_difference": 0.29467639327049255
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "all",
+      "relative_difference": 1.597215657511697e-07
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "forward",
+      "relative_difference": 0.25201061367988586
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "backward",
+      "relative_difference": 0.2620679438114166
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "all",
+      "relative_difference": 9.59042196768678e-08
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "forward",
+      "relative_difference": 0.27496251463890076
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "backward",
+      "relative_difference": 0.28271278738975525
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "all",
+      "relative_difference": 1.0983576714806986e-07
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "forward",
+      "relative_difference": 0.28086912631988525
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "backward",
+      "relative_difference": 0.28861385583877563
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "all",
+      "relative_difference": 1.7113772798893478e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "forward",
+      "relative_difference": 0.24630816280841827
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "backward",
+      "relative_difference": 0.254804402589798
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "all",
+      "relative_difference": 9.54468291070043e-08
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "forward",
+      "relative_difference": 0.2689042091369629
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "backward",
+      "relative_difference": 0.2762976288795471
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "all",
+      "relative_difference": 1.1235765384753904e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "forward",
+      "relative_difference": 0.3185036778450012
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "backward",
+      "relative_difference": 0.33263304829597473
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "all",
+      "relative_difference": 1.3546414834308962e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "forward",
+      "relative_difference": 0.2529042363166809
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "backward",
+      "relative_difference": 0.2599714696407318
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "all",
+      "relative_difference": 1.3974293722185394e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "forward",
+      "relative_difference": 0.27186331152915955
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "backward",
+      "relative_difference": 0.2767021358013153
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "all",
+      "relative_difference": 1.104205651358825e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "forward",
+      "relative_difference": 0.31646499037742615
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "backward",
+      "relative_difference": 0.32443463802337646
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "all",
+      "relative_difference": 1.4928072289421834e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "forward",
+      "relative_difference": 0.253694087266922
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "backward",
+      "relative_difference": 0.2620338499546051
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "all",
+      "relative_difference": 1.024901834512093e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "forward",
+      "relative_difference": 0.27221378684043884
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "backward",
+      "relative_difference": 0.2777864933013916
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "all",
+      "relative_difference": 1.1438392988338819e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "forward",
+      "relative_difference": 0.3120742440223694
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "backward",
+      "relative_difference": 0.32029539346694946
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "all",
+      "relative_difference": 1.4664168190847704e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "forward",
+      "relative_difference": 0.24905288219451904
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "backward",
+      "relative_difference": 0.256124883890152
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "all",
+      "relative_difference": 1.314352289227827e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "forward",
+      "relative_difference": 0.2670730650424957
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "backward",
+      "relative_difference": 0.27324238419532776
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "all",
+      "relative_difference": 1.4608903597945755e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "forward",
+      "relative_difference": 0.2922824025154114
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "backward",
+      "relative_difference": 0.30414503812789917
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "all",
+      "relative_difference": 1.529958524315589e-07
+    }
+  ],
+  "seconds": 3.446866549551487,
+  "artifact_sha": "66bea9c17c0b29aa68d3278d7a649dd60f804acd7d8855ab969418ec589dd011",
+  "source_shas": {
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fastload.py": "5803de7f127d1f556470107b559c06daecf7fbc2bccf4574aeb1c347b6225d90",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py": "c701af71491d29f33f5ad691f89380a9fa7c2d86514a61fd7423ad8a78fd4d16",
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/cubic_source_mixture_execute_v1.py": "76c2b3048c5e0fceba606d3d476f626b654f05a9c0008c45ed05b63aa2f9f8af",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CUBIC_SOURCE_MIXTURE_EXECUTE_V1_CONTROL.json": "431f49b79569b90ba0e9e692a3dc171232fc763a0f5261c5e62f51b7b8818109",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_cubic_source_projection_v1.py": "78eb18cc03b5e82b19edb1951ddefbebda0a226df824e1959ca43a19f7545fe2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_path_stability_atlas_v1.py": "ccebc47d0c90b75c2a4b5646e6ef58c79cd55d3b518af265b55c747828549cf0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CUBIC_SECANT_BLOCK_NATIVE_V1_ARTIFACT.pt": "f8075d535c7c88ee79be34e0a4360a4002efa3e98a64fcf611c7de4ad0c7baf9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_SOURCE_BLOCK_V1_ARTIFACT.pt": "c23fbb6658ca6a5176341c7ca3a99885bc16564ea0188af658bd467da854539e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_NATIVE_V1_RESULT.json": "8900ba6efae2d04ffd3735ec6f073940b426297c90a52993f3e31a78c2a1f659",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V1_RESULT.json": "9bde8529ee5997b586501bcc450da03bc46e1b45089d383fcd8d4dae186cced5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_FACTOR_INTERCHANGE_V1_PAIR_CONTROL.json": "2985464f7cad34d6df2884c1363d1813472b138b29e27daaf9b74b00782faea7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/common_quadratic_ports_v1.py": "28dc46aed076bf72d5d5b63db40fc7ae8fd8489961c1e7a8d40ea24af836aae3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/factorial_source_ports_v1.py": "b219f9bd36cd1dc3e58c6442a2de39275459d4776dbf48f47f0a7ede1d20cf2a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FACTORIAL_SOURCE_PORTS_V1_CONTROL.json": "b074c2cae0f2e489e9b2c402b93f69fbf5e845aa22af65170d248a1e629d7fae",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_PORTS_V1_CONTROL.json": "117a269948c069b655370614e6cf66e2a3801cfd9045b8c9d22d87c308ceacfd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V2_ARTIFACT.pt": "553647a6813c7f571aeada2e64f0ee1789cb5d3d09b9fa1bcb4e18f1b95ece3f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_MLP16_FOLD_V1_ARTIFACT.pt": "e4dd30afc8cf57b6320e9c88e3610190ff7477b96c11327191bd2704eeb41a4c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_MLP16_FOLD_V1_RESULT.json": "9131d01d2489ace2d12927efbac68ff120492382c9108701b73ea313ea08ca0b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/fold_regional_payload_mlp16_v1.py": "83c6a6818a29af33a1ad10c74743e63836e97457caa901607586acebfe46f913",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_FACTOR_INTERCHANGE_V1_ARTIFACT.pt": "d91af8b135f787773553ad596fb1b080f92b10a6279b42778144e4b68c0c17ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/residual_payload_unroll_v1.py": "b2244270c0b891811c77f3f4ef4a6657f677e3ac683f885c7b9f0df2e49f3cd3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/RESIDUAL_PAYLOAD_UNROLL_V1_CONTROL.json": "930438bf6e7bb8e6abcc87a6b2637f54c1756b3f58bd82599cfc59ecff75faa5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_PRODUCER_V1_RESULT.json": "6e0def1cc2de6cd9111cd05adcc7cc2c13e2c9cdd7f0711c7048cf13ea0b5597",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_ATLAS_V1_RESULT.json": "540ddf2b7108410b24218004792b751077b3bee3b87841e6c2e0315cfab0395d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_ATLAS_V1_ARTIFACT.pt": "073787525728ed6488867488a023445032b2584fe7b693d1c723f0db752b265a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PRODUCER_OV_FOLD_V1_RESULT.json": "975db7610fbd9b776b97561f98a242333844ae9ec9684c961b46741947c4c72d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PRODUCER_OV_FOLD_V1_ARTIFACT.pt": "bdfada4eea569f342e32542f5b138c029bb3299e78943b25eee3591b33bce1c4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PRODUCER_ROUTE_VALUE_V1_ARTIFACT.pt": "89bf60bb1674e3720b1e9f10743a2859a777acf7c2c3d7addef7ab506740c860",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PRODUCER_ROUTE_VALUE_V1_RESULT.json": "d260fbe6fa7995350b40fe11920e17b8844acbeb9ec5b1f8cca7d145032889e8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "c6dda30ba85cff6d7cccff280faec0f1a437362ecb4875511aca263c258d16ed",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_CUE_ROW_CHECK_V1_RESULT.json": "2632fce84f279b3db01f6d0ee83637df24ee1835dffb798fc47bcf8f5c24c4e3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_KEY_SUPPORT_V1_FROZEN.json": "d054d0a4d835d5ae25b16ad7d10535099e712b33212c1f2f16bcce2eac8670e5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_KEY_PREFIX_V3_ARTIFACT.pt": "ebbd3f8fe1fbe17960abf3f5c4a9fdfbea30e46ad12c49bea4f4d8a47be263a0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_KEY_PREFIX_V3_RESULT.json": "b336e6b577b00f8b5da442ecffb23dbd7e89303eff83d0e393dcadf973574538",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_KEY_SUPPORT_ROUTES_V1_RESULT.json": "fc62268c46f96d3ba91a7478b856c1f840b24ffc24bc20a637d0276b1410467a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_OOD_V1_ROWS.json": "6ef7ce810de87d75a838335ae39152053158dce6a2d2ac7714000506334b5fa0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PRODUCER_VALUE_STREAM_OOD_V1_ARTIFACT.pt": "ad242c530efbf654a21b6d04154937d6e741e7c1f64784a39c53d7e0608978c0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PRODUCER_VALUE_STREAM_OOD_V1_RESULT.json": "4f2a219b4aadffdaff52f813846ec54acd8e4390a21aefae7d650d33343c15fc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_KEY_SUPPORT_EFFECT_V1_RESULT.json": "03c8b830f845424dcb9876bd5fbc9fe8111b54b67a4d1a206efbde6047108193",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_regional_recursive_key_v1.py": "8ef1ac132c4bec7c2bd3d5c3e0b15f0bf1e4121b8522e52ee77ff59371b4f7dc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_RECURSIVE_KEY_V1_PREREGISTRATION.md": "753bba42c67ed36ba8166633b23f2a2c5a28a3fb791d09548024a52342f1f9ce",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/recursive_key_prefix_v1.py": "c949a4a965aa811d979c4d662f4211d537054886909d81daac5937902d89e6ce",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_KEY_SUPPORT_EFFECT_OOD_V1_RESULT.json": "1fc5cd44807a68d905aaa63ef21793bc4f3190e038db711a4c5dee03f5310f09"
+  },
+  "scope": "Recursive selected-update key generator uses tokens and fixed zero-background only; no native actual-prefix port cache in candidate. Native queries and downstream context remain external. Geographic48 validation of stronger key-boundary extraction; no standalone full circuit claim."
+}

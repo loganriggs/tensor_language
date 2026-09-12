@@ -1341,3 +1341,58 @@ mixed terms may even use more scalar arithmetic than directly multiplying two
 full scores; degree reduction alone is not a storage/compute saving. The next
 extraction requirement is to fold and simplify those correction readers and the
 shared normalization together, with all generator and adapter costs included.
+
+
+## Recursive extraction fails: conditional support is not a closed program
+
+The [recursive key-generator experiment](REGIONAL_RECURSIVE_KEY_V1_RESULT.json)
+executes retained updates on its own candidate state. Omitted attention/MLP
+writes are replaced with fixed outputs from a zero-input trajectory, rather
+than evaluated on native actual-prefix states. Actual residual reentry, token
+embeddings, shared first-layer values, RMS and RoPE are retained. No saved
+actual-prefix update is consumed by the candidate generator. The all26-update
+control checks the same execution machinery against native first-branch writes.
+
+All26 replay passes at<=1.86e-7. Both13-update candidates fail decisively:
+
+| Geographic family | Recursive forward write error | Signed-effect error | Transfer signs preserved |
+|---|---:|---:|---:|
+| 0 | 80.71% | 81.88% | 6/6 |
+| 1 | 73.32% | 74.17% | 6/6 |
+| 2 | 102.82% | 103.36% | 1/6 |
+| 3 | 91.47% | 92.18% | 6/6 |
+
+Backward13 has75–101%write error and retains only2/6signs in family2. Recursive
+key inputs differ from conditional selected-update inputs by up to32–33%; the
+all-update comparison is1.71e-7. The experiment takes3.45seconds. This rejects
+this fixed-zero-background recursive pruning scheme, not equivalent shared
+features or all weights-first methods. It does not undo the earlier conditional
+mixed-term prediction result: that result retained native omitted information.
+
+The helper verifies actual update-call counts. Per prefix, forward executes
+5attention and8MLP updates plus a direct first-value projection; backward uses
+4attention and9MLP updates plus that projection. The all-update control uses
+13of each. Two zero-input trajectories require52one-time update calls and
+239,616cached scalars (958,464bytes inFP32). Native full-prompt queries and
+all downstream computation remain external even in this stronger test.
+
+The [executed dependency and parameter audit](REGIONAL_KEY_DEPENDENCY_PRICE_V1_RESULT.json)
+explains why a selected native support was a weak simplicity claim. Treating
+native modules as opaque operations, the forward13's producer dependencies
+expand to24updates and the backward13's to26. This is conservative graph closure,
+not a proof that every edge is semantically necessary in an equivalent program.
+
+Counting unique checkpoint tensors, full-vocabulary embeddings, first values,
+residual reentry and needed key maps, the forward selected-module package already
+has231.81million scalars; its native producer closure has347.27million. Backward
+has239.77million and371.16million respectively. These counts still exclude
+full-prompt queries, attention17 shared features/writers, finalMLP/unembedding,
+and temporary runtime state. Regenerating the fixed zero cache also requires
+omitted weights unless the cache is retained as a charged constant.
+
+The next simplification target must therefore cross native module boundaries
+and preserve how retained features are produced. Whole-update selection and a
+fixed zero background are demoted as a standalone extraction method. The useful
+objects retained from these tests are the explicit correction readers, their
+mixed interactions and shared normalizers—not a claim that the13selected native
+modules form a small independently executable circuit.

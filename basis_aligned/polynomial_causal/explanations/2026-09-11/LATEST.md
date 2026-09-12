@@ -1,3 +1,12 @@
+### 12 September, 13:24 — Stronger extraction test fails
+
+Retained updates cannot reproduce their conditional behavior when run on their
+own pruned state: recursive key generation gives73–103%write error; the full
+control passes. A literal dependency audit expands the13selected native updates
+to24–26producer dependencies. Conditional mixed-term prediction remains valid,
+but whole-module pruning is demoted as an extraction method.
+[Math, costs and scope](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md#recursive-extraction-fails-conditional-support-is-not-a-closed-program).
+
 ### 12 September, 13:16 — Mixed interaction correction passes geographic effects
 
 Keeping retained/omitted mixed QK numerator terms and the true key denominator
