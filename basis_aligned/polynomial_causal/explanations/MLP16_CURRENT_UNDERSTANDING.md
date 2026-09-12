@@ -119,3 +119,8 @@ The proposed [token/hierarchy backward-fold experiment](../UNEMBEDDING_BACKWARD_
 The [registered test](../UNEMBEDDING_BACKWARD_VIEWS_V1_PREREGISTRATION.md) has completed: instrument, capability, live prediction and signed CE prediction held; the fixed hierarchy failed. Full-vocabulary effect error of the two-MLP fold versus live attention17 is .04556/.05609/.04608 on A1/A2/C; CE-change MAE .00335/.00216/.00256 nats. The 16-leaf unembedding shared-mean predictor leaves .94366/.96177/.97643 relative error. Its token-specific remainder remains required. Explicit contractions cover 518 token readers; the compiled state is scored on all 50,304 tokens.
 
 The native MLP16 donor swap has negative task recovery −.02162/−.02928/−.03475. Thus this predicts a small opposing contribution, not target-circuit sufficiency. All native weights plus 47,545,895 temporary folded coefficients remain charged. The largest weight cluster holds 35,758 rows; the hierarchy null is limited to this fixed coarse mean predictor. No conclusion that all structured unembedding decompositions fail. [Full explanation and receipts](2026-09-10/unembedding_token_and_hierarchy_backward_folds.md).
+
+
+### 12 September — Composed MLP16→MLP17 quartic
+
+[Current composed-path results](../COUPLED_QUARTIC_WRITER_V1_MATH.md#longer-optimization-and-structural-comparisons-12-september): a full-input two-output quartic group replicates better than its input-projected version. A592704-float learned quadratic hierarchy reaches22.8%write error but misses swap/removal fidelity and convergence. Initial-bank mixed cores do not repair it; no new semantic circuit or alias is established. This concerns the pure bias-free producer/producer numerator with native normalization/background retained.

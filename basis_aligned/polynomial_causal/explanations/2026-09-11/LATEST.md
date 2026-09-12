@@ -1,4 +1,8 @@
-# Latest research update
+# Current research state
+
+**12 September, 00:25 UTC:** [Longer quartic optimization](../../COUPLED_QUARTIC_WRITER_V1_MATH.md#longer-optimization-and-structural-comparisons-12-september) lowers native write error to22.8%, but remains unconverged and misses swap/removal fidelity. V3 continuation submitted. Fixed-bank mixed-core and [repeated-input/harmonic alternatives](../../QUARTIC_REPEATED_INPUT_V1_MATH.md#native-result-and-executed-harmonic-diagnostic) fail native fidelity. No circuit promotion.
+
+## Earlier entries — historical status, superseded where stated above
 
 **18:10:** [Native branch screen](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md#native-behavioral-screen-completed-at-1759-utc) passed execution/capability but failed the predicted support direction: removals improved target CE. Sign accounting supports direct suppression; branch specificity is unresolved. A separate128-prefix follow-up is queued, and the optimizer comparison is live. [Two-parent composition](../../GLOBAL_READER_REBASE_V2_MATH.md#two-parents-preserving-the-other-read-changes-the-intervention) now has a checked exact interface.
 

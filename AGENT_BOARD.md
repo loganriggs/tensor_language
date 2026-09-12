@@ -21374,3 +21374,15 @@ Alltrace/quadraturecontrols<=5e-16. Managedone-seed11511exactwritercomparisonuse
 
 ### 2026-09-12T00:18:37.052156+00:00 — Codex: REPEATED-INPUT METRIC QUEUED / STORAGE RECOVERED
 ExactnativeWickwritercomparisonacceptedbehindmixedcore, hashccb8084b5027e50a4d78502a04bfbc8f01dea31186a123da54e1ffbd0a4e864d. Derivation/primaryIsserlisreferenceinQUARTIC_REPEATED_INPUT_V1_MATH.md; no corpusfit. Diskhad90MBremaining; checkedallprocesscmdlines/maps/exe/cwd/fdsforinactive VSCode servercacheStable-88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f, zeroreferences. RemovedonlythatdownloadedversionanditsLRUentry, recovered731590656bytes; liveVSCodeversions/researchresults/checkpointsuntouched.
+
+### 2026-09-12T00:20:31.749792+00:00 — Codex: CLAIM HARMONIC TRACE SPLIT
+Whileterminalfits/tracespending, CPUverifycanonicalquartic decompositionf=H4+r2H2+r4H0 usingnativepartialtraceA. H0=3trA/[d(d+2)], H2matrix=6(A-trA I/d)/(d+4). A H4partialtracezero/H2tracezero<=1e-10; B Gaussianquadratureorthogonalityofthreehomogeneouscomponents<=1e-10. WhenqueuednativeTrTarrives, compareexactH0+H2writeandpairedchangesagainstfulltarget: A reconstructionandtracecontrols<=1e-8; B low-degreewriteerror<=.10; C pairedchangeerror<=.10everyfamily. No rankfitunlessexactlow-degreefidelitypasses; higherharmonicremainderretainedexplicitly. This isweights-onlystructuralgroupingwithdistinctremainder,notinferredfromdata.
+
+### 2026-09-12T00:22:25.752904+00:00 — Codex: NONLINEAR V2 TERMINAL / CLAIM SAME NATIVE EFFECT SCORER
+V2A/Bheld,Cmissat1000secondcap:57.495%capturegainfromoriginalscale,grad.02356notconverged;nativewriteerror53.89->22.81%. No linefailure. Executereusednativeeffectscorer onfrozenV2programversusexactliftedreference, withV1programasbaseline. SameAwrite/referenceeffectreplay, Bswap<=.10/sign>=.9everyfamily, C CEdisagreement<=.02everyfamily. Mixedcorejobnowlive; repeatedinputfollows. No fitfrombehavior.
+
+### 2026-09-12T00:24:00.585609+00:00 — Codex: THREE TERMINAL RESULTS / CLAIM V3 SAME-OBJECTIVE CONTINUATION
+V2effectchecksAheld,B/Cmissbutswaperrorsimproveto.243-.514/removaldisagreement.027-.066. MixedcoreAheld/B/Cmiss(full9.08%capturegain,32edge5.63%,native~56%); repeatedinputAheld/B/Cmissnative96.6%. ExecutedharmonicsplitAheld/B/Cmisslowdegreewrite149%,paired114-202%; remainderessential, no lowranklowerfit. CPUV2conditioningminGram.085/condition88.4/mixingamplification1.84doesnotindicatecatastrophicdegeneracy. ContinueV2factorssameobjective/ranks/divisorwith180moreCGsteps/1000seconds; A FD<=1e-4/descent; B>=5%additionalcaptureoverV2; Cgrad<=1e-6. Preserveallfailedbars. No covariance/textfit; optimizecurrentroutebeforedeclaringlimit.
+
+### 2026-09-12T00:25:23.384328+00:00 — Codex: TERMINAL INTERPRETATION PRESERVED / V3 CONTINUATION
+AllthreeGPUresultsandCPUeffect/harmonicdiagnosticsinterpreted; fixedinitialbank alternativesfail, nonlinearrouteimprovesbutunconverged. V3acceptedmanagedhashf17ad43c7e61ec269c3ce3401e947f9383a526dbe1ca8b809c624fef2667738c. CurrentLATESTnowleadscurrentstatusratherthanold18:10entry; MLP16/17dossierslinkprimaryevidence. Goalunachieved, no semanticpromotion.

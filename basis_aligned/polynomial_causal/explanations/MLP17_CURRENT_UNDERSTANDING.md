@@ -626,3 +626,8 @@ The48reader suffix program now has an exact attention17 output/value pullback. O
 11September: full-U source-path fits now converge, with18edge correspondences passing both full and centered0.9coefficient cosine screens. Native-cache intervention replication fails; exact accounting attributes more physical-write discrepancy to writers than input amplitudes. The prominent quote-AA pieces recover oldsquare150at0.997/0.997, not a newquote circuit. [Converged path results, alias audit and limits](../COUPLED_SPARSE_PATH_V1_MATH.md#converged-fits-and-reproducible-coefficient-structure).
 
 11September23:01: whole96edge programs and leading-eight output groups have much better native level/removal replication than the selected18edge banks, but past/progressive swaps still fail. Output-subspace agreement alone omits differences in the input computations; no new semantic component identified. [Exact grouping, native comparison and executed red-team](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-11_2256.md).
+
+
+### 12 September — Composed MLP16→MLP17 quartic
+
+[Current composed-path results](../COUPLED_QUARTIC_WRITER_V1_MATH.md#longer-optimization-and-structural-comparisons-12-september): a full-input two-output quartic group replicates better than its input-projected version. A592704-float learned quadratic hierarchy reaches22.8%write error but misses swap/removal fidelity and convergence. Initial-bank mixed cores do not repair it; no new semantic circuit or alias is established. This concerns the pure bias-free producer/producer numerator with native normalization/background retained.

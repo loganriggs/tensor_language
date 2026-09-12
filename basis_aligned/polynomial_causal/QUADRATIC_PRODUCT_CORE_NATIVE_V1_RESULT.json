@@ -1,0 +1,28 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "sparse_native_error": 0.556230352613257,
+      "sparse_capture_ratio": 1.0563424520490214,
+      "full_capture_ratio": 1.0908167725419744,
+      "selected_cross_edges": 17,
+      "seed": 11511,
+      "diagnostics": {
+        "rank": 528,
+        "normal_residual": 2.6073828571356978e-15,
+        "minimum_scaled_eigenvalue": 0.006232893604883535
+      },
+      "baseline_native_error": 0.5691156740163639,
+      "coupled_native_error": 0.5618895297204369,
+      "objective_without_target_constant_before": -3.027959768220523e+17,
+      "objective_without_target_constant_after": -3.302949301757256e+17,
+      "objective_delta": -2.749895335367328e+16,
+      "relative_objective_delta": -0.09081677254197441
+    }
+  ],
+  "artifact_sha256": "ca9431ca9d63b22b33be65a61cfa9114b3e8b928657b0c1063778ad054e8428c",
+  "wall_seconds": 24.881266746670008,
+  "scope": "Full528mixed core ceiling and matched32edgegreedyprogram on fixedinitialbank; no textfit or OOD claim."
+}

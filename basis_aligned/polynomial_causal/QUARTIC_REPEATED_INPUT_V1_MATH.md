@@ -67,3 +67,29 @@ Keep the initial seed11511's32 quadratics and two centered-unembedding output di
 The native check requires: partial-trace replay against direct basis contractions within1e-8; a normal-equation residual within1e-8 and nonincreasing new objective; halved native write error relative to the old coefficient-optimal writer; and native write error at most10%. Two fixed probe vectors test the partial trace by summing over all1152 coordinate basis vectors. Cached native states are used only after fitting for validation. No text-weighted objective or covariance estimate enters discovery.
 
 If the fixed-bank comparison passes, the next question is whether the trace-aware objective improves nonlinear extraction and its interventions. If it fails, distinguish insufficient fixed features from the isotropic assumption; neither outcome licenses a circuit claim. The earlier per-inner-quadratic isotropic correction was a different operation and its failure remains preserved.
+
+## An exact radial and harmonic decomposition
+
+The trace also gives a canonical structural split, rather than merely a different fitting loss. Write $r^2=\|x\|^2$. The homogeneous polynomial decomposition into harmonic components is described in [Kazdan's notes, chapter5 section6](https://www2.math.upenn.edu/~kazdan/425S11/Australia/AMSI-PDEnotes-08/AMSI-2up.pdf). For our quartic, specializing that decomposition gives
+
+$$
+f(x)=H_4(x)+r^2H_2(x)+r^4H_0,
+$$
+
+$$
+H_0=\frac{3\operatorname{tr}(A)}{d(d+2)},
+\qquad
+H_2(x)=\frac{6}{d+4}x^\top\left(A-\frac{\operatorname{tr}(A)}{d}I\right)x.
+$$
+
+“Harmonic” here means zero Laplacian: $\Delta H_4=\Delta H_2=0$. It is a mathematical angular decomposition, not a claim that a feature is periodic or semantically meaningful. The formulas follow from $\Delta f=12x^\top Ax$, $\Delta^2 f=24\operatorname{tr}(A)$, $\Delta(r^2H_2)=2(d+4)H_2$, and $\Delta(r^4)=4(d+2)r^2$.
+
+On a fixed-radius sphere, the first two displayed lower components act as a constant and a quadratic. Native normalization is not an excuse to replace the radius or downstream denominator silently: execution keeps $r^2$ and the actual MLP17 input denominator. The remaining harmonic quartic remains an explicitly accounted-for function.
+
+[Controls](QUARTIC_HARMONIC_V1_CONTROL.json) verify vanishing traces and exact quadrature orthogonality within5.9e-16. The planned CPU native check uses the queued exact trace artifact and asks whether the radial-plus-quadratic part approximates both write levels and paired input changes within10%. No lower-rank fit is attempted unless this exact lower component first passes fidelity. Spherical orthogonality does not imply orthogonality on text; native component norm ratios must not be reported as additive variance shares.
+
+## Native result and executed harmonic diagnostic
+
+The [fixed-bank repeated-input solve](QUARTIC_REPEATED_INPUT_NATIVE_V1_RESULT.json) passes exact partial-trace replay at1.7e-15 and its normal equations at6.2e-16. It improves its own isotropic objective, but native write error worsens from56.91% to96.59%. The improvement and10% fidelity predictions fail. This is not an unconverged writer solve; the changed metric is insufficient for native extraction in the current fixed feature bank.
+
+The [exact harmonic split](QUARTIC_HARMONIC_NATIVE_V1.json) explains another limitation of the simple isotropic picture. Keeping only the radial and quadratic components gives148.7% native write error and114–202% error in paired changes. The higher harmonic remainder is essential and cancels other components on these inputs. Reconstruction holds within9.1e-17 and the harmonic quadratic's trace is zero within4.6e-16. Component norms are not additive variance shares on the native distribution. Per the preregistration, no rank fit to the inadequate lower component is pursued. The generic harmonic decomposition is still exact; its lower-degree truncation is what failed.

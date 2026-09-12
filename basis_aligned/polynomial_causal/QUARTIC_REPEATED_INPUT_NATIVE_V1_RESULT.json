@@ -1,0 +1,25 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "native_trace_error": 1.6349513297199451e-15,
+      "seed": 11511,
+      "diagnostics": {
+        "rank": 32,
+        "normal_residual": 6.146217530778911e-16,
+        "minimum_scaled_eigenvalue": 0.12886813033892847
+      },
+      "baseline_native_error": 0.5691156740163639,
+      "coupled_native_error": 0.965938512340943,
+      "objective_without_target_constant_before": -1.5023896709070016e+20,
+      "objective_without_target_constant_after": -2.6055396789834576e+21,
+      "objective_delta": -2.4553007118927575e+21,
+      "relative_objective_delta": -16.342635731850297
+    }
+  ],
+  "artifact_sha256": "a8e10a71925fe8e1d87ab0acf199a3ad17afed7638436e54a47d3e17e67f8d4e",
+  "wall_seconds": 3.8157775290310383,
+  "scope": "Exact isotropic repeated-input writer optimum in fixed32feature span; no textfitting or OOD validation."
+}
