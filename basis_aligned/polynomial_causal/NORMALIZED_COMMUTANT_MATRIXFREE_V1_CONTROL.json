@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "kind": "planted",
+      "relaxed_eigenvalues": [
+        0.0,
+        0.17216901178690214
+      ],
+      "dense_eigenvalue_error": 4.163336342344337e-16,
+      "symmetry_error": 1.217958028600771e-16,
+      "shifted_spectrum_range": [
+        4.440892098500626e-16,
+        0.9999999999999998
+      ],
+      "identity_action_norm": 0.0,
+      "rounded": {
+        "offblock_energy_fraction": -1.8256951137896189e-16,
+        "incident_fraction": 0.4369265298703662,
+        "normalized_cut": -3.7104345602498914e-16
+      },
+      "solver": {
+        "status": "converged",
+        "operator_actions": 69,
+        "verification_actions": 2,
+        "relative_eigen_residuals": [
+          2.811712855633764e-13,
+          4.908619742128218e-16
+        ],
+        "packed_dimension": 36,
+        "requested_eigenpairs": 2,
+        "lanczos_vectors": 12,
+        "seed": 120438
+      }
+    },
+    {
+      "kind": "dense",
+      "relaxed_eigenvalues": [
+        0.18761785758864713,
+        0.20720034724309722
+      ],
+      "dense_eigenvalue_error": 3.0808688933348094e-15,
+      "symmetry_error": 1.2108212398233014e-16,
+      "shifted_spectrum_range": [
+        -2.220446049250313e-16,
+        0.9061910712056761
+      ],
+      "identity_action_norm": 0.0,
+      "rounded": {
+        "offblock_energy_fraction": 0.11594046871740968,
+        "incident_fraction": 0.45640496986593104,
+        "normalized_cut": 0.23365722456606486
+      },
+      "solver": {
+        "status": "converged",
+        "operator_actions": 71,
+        "verification_actions": 2,
+        "relative_eigen_residuals": [
+          2.3827209494692133e-12,
+          8.785510106130464e-16
+        ],
+        "packed_dimension": 36,
+        "requested_eigenpairs": 2,
+        "lanczos_vectors": 12,
+        "seed": 120438
+      }
+    }
+  ],
+  "passed": true
+}

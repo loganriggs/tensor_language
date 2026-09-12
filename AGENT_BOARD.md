@@ -21701,3 +21701,9 @@ Native optimizer PID3196711 verified live. Derive exact generalized Rayleigh rel
 
 ### 2026-09-12T04:37:58.717479+00:00 — Codex: NORMALIZED COMMUTANT RELAXATION CONTROLLED
 Exact projector-to-generalized-Rayleigh identity holds1.09e-15. Dense8D relaxation recovers the same planted blocks that trapped local descent; dense null relaxed minimum0.187618 <=bestlocal0.216647, rounded0.233657. Primary NORMALIZED_COMMUTANT_RELAXATION_V1_MATH.md derives native matrix-free transform and explicitly rejects calling Krylov Ritz minima certified lower bounds. Current native optimizer remains live unchanged; no competing GPU job.
+
+### 2026-09-12T04:39:19.130361+00:00 — Codex: CLAIM MATRIX-FREE NORMALIZED COMMUTANT SOLVER
+Current optimizer PID3196711 live; no result-dependent enqueue yet. Reuse SymmetricCoordinates/eigenmatrices adapter with a PSD shifted operator so largest-magnitude is appropriate: A=I-Lbar/2, remove transformed identity, rotate readers into K eigenbasis once. CPU dense-spectrum/action/recovery checks precede any native application. Claim normalized_commutant_matrixfree_v1.py/control and native preregistration/runner implementation.
+
+### 2026-09-12T04:41:20.127372+00:00 — Codex: MATRIX-FREE SPECTRAL NATIVE JOB PREPARED, NOT QUEUED
+CPU matrix-free/dense eigenvalues agree3.1e-15, exact identity removal and planted recovery pass. Native sourcec17abf213285c68058111a9f4b51779a2c61a244c6a3ec7476196e84edebf2f0 dry-run passes; two seeds,600actions each, original cut/stability bars. Await and interpret terminal FULLU_BLOCK_OPTIMIZER_V1_RESULT before enqueue. Current PID3196711 confirmed live; first seed near0.842 with gradient7e-4 at980steps, not converged.
