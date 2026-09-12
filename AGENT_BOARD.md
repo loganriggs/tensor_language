@@ -22451,3 +22451,6 @@ All50304token fourreads compiled,201216lookupscalars; package863264. Independent
 
 ### 2026-09-12T15:10:55.658977+00:00 — Codex: TOKEN CHILD PRECISION ISOLATED
 Worst sourcechildvalue.0002481; oldFP32child2.51e-4,new6.76e-5. FP32weight rounding persists3.35e-5 underFP64arithmetic. Restoringonlysource-readerweights gives2.85e-8 for capturedcase; exact originalweights/splitreadings2.19e-12. No C repairclaimed; newprimary COMPILED_TOKEN_SHARED_HEAD2_V1_MATH.md andoldportableREADME clarify FP64versusFP32 childscope. Nextmixedprecisionnativecheck required; current/querygeneratorsremainopen.
+
+### 2026-09-12T15:12:15.824345+00:00 — Codex: CLAIM MIXED SOURCE-READER PRECISION
+Keep originalFP64fourreaders/dual and compute tokenfirstlookup onnativeGPUinitialization for all50304IDs inFP64read arithmetic. Otherstoredprojectedweights/maps remainFP32; sourcefeatures/dualmix64 thencastforremaining32runtime. Same48rows,Cchildreference<=1e-5,sum<=1e-6; fullwrite/effect<=1e-5/1e-3. Captureworstagain. Tablebuildmodel-only notcorpusfit;9bodybatchesplus50304tokeninitialization,180sec cap. PriorFP32C misspreserved.
