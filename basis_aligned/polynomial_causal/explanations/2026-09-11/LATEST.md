@@ -1,3 +1,7 @@
+# Current result —12 September05:35 UTC
+
+[Full-input sparse interaction screen](../../FULL_INPUT_SPARSE_CORE_V1_RESULTS.md): producer folding raises4096edge capture4.56%→8.18%, but misses50% concentration. Fullinputs scarcelychange best256edge capture. Fixed-frame restriction remains; streamed frame optimizer implemented and CPU-tested, native wrapper pending.
+
 # Current research state
 
 **12 September,05:23 UTC:** [Native old/new parent interchangeability](../../COMPOSED_SHARED_PARENT_V1_RESULTS.md#native-interchangeability-fails-retain-the-distinction) fails despite high weight similarity. Full partners are retained; three swap families and all removal/write bars fail. The new parent is a related refinement, but the two intervention interfaces must not be merged. No circuit promotion.

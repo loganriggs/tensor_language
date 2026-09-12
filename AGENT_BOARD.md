@@ -21773,3 +21773,6 @@ Prior spectral sparse core restricted inputs to128 and captured6.406% before edg
 
 ### 2026-09-12T05:34:26.316354+00:00 — Codex: FULL-INPUT CORE QUEUED / HOURLY05:33
 CPU dense control2e-16. V1 preflight rejected keyword-style pred keys; V2 identical computation with explicit pred keys passes and is queued on lane1, SHAa0f066e7053fbdf6d26f661d922f6255c27fc7df1739be927695f129aa4afddb. Full1152input/alloutput fixed-frame comparison, no text fit. Hourly ceremony gate fails on phase accounting; repair is this reused streaming computation, not extra audit scaffolding. Next hourly06:33/math08:00.
+
+### 2026-09-12T05:36:22.784903+00:00 — Codex: FULL-INPUT CORE TERMINAL / CLAIM STREAMED FRAME OPTIMIZER
+V2 terminal11.53sec,A/Bpass,Cfail:4096edges4.561%identity vs8.184%producer. Fullinput best256 scarcelychanges prior128 result; input truncation doesnotexplain sparseedgefailure. Next reuse existing Riemannian gradient/Armijo but stream complete1152frame support selection, avoiding materialized1152x664128 core. Claim streamed_sparse_frame_v1.py and CPU dense/gradient/descent controls plus native prereg. This tests spectral-frame restriction, not more rank truncation. Native4608 two-reader products are exact in an overcomplete nonorthogonal dictionary; orthogonal-edge counts are not generic arithmetic lowerbounds.
