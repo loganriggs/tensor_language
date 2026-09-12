@@ -351,3 +351,7 @@ For the known current-value sector, a weighted matrix-free SVD gives numerically
 ## 2026-09-12 — Regional coupled key-boundary robustness
 
 Cuts48/56/64/72/80change frozencomponent target effects by<=5.44%relative to64. Jointregional/newline bars hold64/72/80;56and48fail lettercoverage(48.86/47.72%), so registeredB/Cmiss. Original64, fullsector andactualmeanheadcontrol replay exactly. Boundarypassfragility is narrower than largefunctionalinstability;64remains primary because it owns freshconfirmation. [Receipt and interpretation](../../polynomial_causal/SCALAR_KEY_BOUNDARY_V1_MATH.md).
+
+## 2026-09-12 — Regional cue-channel shift and value-generator audit
+
+Frozen64component passes newcity andstyle-rule removal/donor bars; nationality48.12/49.46% misses50% despiteallcorrectdirections. OverallB/Cfail, no corpusOODclaim. [Cue-channel receipt](../../polynomial_causal/SCALAR_CUE_CHANNEL_SHIFT_V1_MATH.md). Head9.8value numerator folded throughMLP8 replays<=5.7e-5 withnative9norm supplied; fourleadingweightmodes carry99.76%ofits Md8directionalenergy but64%ofabsolutequadraticenergy. This reusespriorJd and doesnotcloseallhead9ports. [Absolute/directional comparison](../../polynomial_causal/SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md).

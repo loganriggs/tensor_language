@@ -1,0 +1,58 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "max_noedit_relative_error": 0.0,
+  "min_native_scalar_norm": 0.1514556782950581,
+  "records": [
+    {
+      "family": 0,
+      "name": "new_cities",
+      "native_mean_contrast": 4.004716555277507,
+      "native_positive_pairs": 12,
+      "capable": true,
+      "removal_coverage": 0.5126462672021802,
+      "removal_positive_pairs": 12,
+      "removal_unrelated_ratio": 0.05691956560887271,
+      "donor_transfer": 0.5576521597231379,
+      "donor_positive_directions": 24,
+      "donor_unrelated_ratio": 0.05306605877083385,
+      "removal_pass": true,
+      "donor_pass": true
+    },
+    {
+      "family": 1,
+      "name": "nationality",
+      "native_mean_contrast": 2.3822494745254517,
+      "native_positive_pairs": 12,
+      "capable": true,
+      "removal_coverage": 0.4811790729174032,
+      "removal_positive_pairs": 12,
+      "removal_unrelated_ratio": 0.07735251590469637,
+      "donor_transfer": 0.4946423154231376,
+      "donor_positive_directions": 24,
+      "donor_unrelated_ratio": 0.07356035322270761,
+      "removal_pass": false,
+      "donor_pass": false
+    },
+    {
+      "family": 2,
+      "name": "style_rule",
+      "native_mean_contrast": 2.196915785471598,
+      "native_positive_pairs": 12,
+      "capable": true,
+      "removal_coverage": 0.5082635588898378,
+      "removal_positive_pairs": 12,
+      "removal_unrelated_ratio": 0.09158236247005132,
+      "donor_transfer": 0.51949471266367,
+      "donor_positive_directions": 24,
+      "donor_unrelated_ratio": 0.08271157581909465,
+      "removal_pass": true,
+      "donor_pass": true
+    }
+  ],
+  "body_forwards": 216,
+  "seconds": 4.216504380106926,
+  "scope": "Frozenrank64 on72score-free newcueprompts. Removal/pairednative-donorfields with actual sequentialrecipient states; hybrid conditionalintervention, not full donor model. Weak nativecapability reportedwithoutdroppingrows. Controlleddistribution shift, notcorpus/pretraining OOD; oldendpoints/controlcontrast reused.",
+  "artifact_sha": "18eeac964d7d5172ba46f0111474e34c5aea9212906f135587dccaeef4964ec3"
+}

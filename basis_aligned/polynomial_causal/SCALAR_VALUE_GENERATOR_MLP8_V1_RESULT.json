@@ -1,0 +1,105 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "random_coefficient_relative_error": 2.7668182381908885e-15,
+  "native_value_relative_errors": [
+    4.3884164506912394e-05,
+    5.69694857656504e-05
+  ],
+  "change_reference_norm": 7.92622552507921,
+  "records": [
+    {
+      "rank": 0,
+      "coefficient_energy_fraction": 0.0,
+      "native_value_errors": [
+        0.4408327425358714,
+        0.4656530446504455
+      ],
+      "intervention_change_error": 0.36349310305605714,
+      "positive_modes": 0,
+      "negative_modes": 0
+    },
+    {
+      "rank": 1,
+      "coefficient_energy_fraction": 0.3611403650567007,
+      "native_value_errors": [
+        0.17748433171153108,
+        0.18660461384195967
+      ],
+      "intervention_change_error": 0.21799415607545455,
+      "positive_modes": 0,
+      "negative_modes": 1
+    },
+    {
+      "rank": 4,
+      "coefficient_energy_fraction": 0.6400242681553445,
+      "native_value_errors": [
+        0.1306337258252711,
+        0.17008655014452628
+      ],
+      "intervention_change_error": 0.01127953270567876,
+      "positive_modes": 1,
+      "negative_modes": 3
+    },
+    {
+      "rank": 16,
+      "coefficient_energy_fraction": 0.6954507557554526,
+      "native_value_errors": [
+        0.12762868892845564,
+        0.16594126461267728
+      ],
+      "intervention_change_error": 0.010462982056207683,
+      "positive_modes": 7,
+      "negative_modes": 9
+    },
+    {
+      "rank": 64,
+      "coefficient_energy_fraction": 0.7585738325766176,
+      "native_value_errors": [
+        0.09379890455342756,
+        0.12196692953843755
+      ],
+      "intervention_change_error": 0.008299431549068662,
+      "positive_modes": 32,
+      "negative_modes": 32
+    },
+    {
+      "rank": 256,
+      "coefficient_energy_fraction": 0.8927351934547398,
+      "native_value_errors": [
+        0.06561812677813339,
+        0.0854462611671826
+      ],
+      "intervention_change_error": 0.005350068478520161,
+      "positive_modes": 128,
+      "negative_modes": 128
+    },
+    {
+      "rank": 1152,
+      "coefficient_energy_fraction": 1.0,
+      "native_value_errors": [
+        4.3884164506912394e-05,
+        5.69694857656504e-05
+      ],
+      "intervention_change_error": 9.167324911753332e-07,
+      "positive_modes": 577,
+      "negative_modes": 575
+    }
+  ],
+  "spectrum_top10": [
+    -335.3460512731807,
+    253.78193630885073,
+    -118.87686591213732,
+    -91.13625964402871,
+    -64.24340791717658,
+    -44.53786476158556,
+    43.33711961865804,
+    -39.80364372063324,
+    38.480663312522886,
+    35.20256540498712
+  ],
+  "positions_per_state": 960,
+  "seconds": 0.4000351279973984,
+  "scope": "Exact absolute numerator of head9.8 currentvalue throughMLP8 plusresidual/reentry/bias. Native9RMSdenominator supplied, z8/x0 inputs supplied. Cachedbroaderhead8removal states, not a newselectivecomponent intervention. Eigenrank selected onlybyweights; nativefield checks notend-task adoption."
+}

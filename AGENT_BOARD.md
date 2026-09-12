@@ -22727,3 +22727,9 @@ Aholds exactreplay; B/Cmiss because56coverage48.86%secondfamily. Allfour48–80n
 
 ### 2026-09-12T21:41:45.604795+00:00 — Codex: CLAIM frozen cue-channel native confirmation
 Previous turn progress: boundaryscreen and frozen72newcue prompts/preregcommitted. Implement registered216forwards rank64baseline/removal/pairednative-donor replacements with sharedruntime. Allrows frozenbeforemodelscore; originalnormalizers andactualrecipient sequentialstates retained. Nativecapability perchannel separate from instrument. No newfitting or broadenedcorpusOODclaim.
+
+### 2026-09-12T21:45:46.608903+00:00 — Codex: cue-channel terminal / absolute value-generator fold claimed
+Instrumentholds; all36removalpairs/72donordirectionspositive. Newcities removal51.26%/donor55.77%, stylerule50.83/51.95%pass; nationality48.12/49.46%miss50bars, so globalB/Cfail. Allnativefamiliescapable. Next CPUfold head9.8 currentvalue reader backward throughMLP8/reentry: exact symmetricquadratic plusdirect/x0/bias terms, normalized using declarednative9denominator. Distinct from existing fixed-direction responseJd (dossierchecked). A randomFP64fold<=1e-10; B cachedpristine/after8value<=1e-4; C rank<=64weight-eigen approx<=1%value ANDchangeerror. Norm9andz8stillnativeports; no autonomousextractionclaim.
+
+### 2026-09-12T21:50:50.673856+00:00 — Codex: absolute generator audited / directional concentration explains contrast
+AbsoluteMLP8→head9value fold A/Bpass; lowrankCmiss. Fourweightmodes carry64%absolutequadraticenergy but99.7647%Md8 directionalenergy andpredictcachedvaluechange1.13%error despite13–17%absolutevalueerror. ProjectedpriorJd equals2Md8 to1.38e-15: reuse ofexistingresponsealgebra, not duplicate discovery. Native9norm/z8remainports; nexttarget selective-producer value/QK/norm port mediation, not anotherabsolute-rank sweep. Primary SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md.
