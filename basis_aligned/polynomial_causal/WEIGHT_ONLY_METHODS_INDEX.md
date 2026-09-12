@@ -1,4 +1,4 @@
-Current composed comparison: [12 September06:32 results](COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md). Sparse-frame continuation remains unconverged; one recurring node passes development but fails12of32context swap cells. Matched-cost trained-product OLS captures39.67%but hasworse nativewrite24.22%; symmetricquartic rescore doesnotrescueoldgraph. Earlier status rows below are historical.
+Current composed comparison: [12 September, exact mixed repeated-input audit](MIXED_REPEATED_CONTRACTION_V1_MATH.md). The formal common-interface fits converge reproducibly but fail native effect fidelity. Exact mixed coefficient rescoring does not resolve a large fixed-frame error change. The completed exact-metric direction pilot finds nearly orthogonal independent gradients and no held-out step improvement at512 probes per degree; its noise audit motivates a better estimator before a long fit. Earlier status rows below are historical.
 
 # Weight-only structural methods: current receipt index
 

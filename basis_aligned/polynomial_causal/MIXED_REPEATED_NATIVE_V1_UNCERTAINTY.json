@@ -1,0 +1,126 @@
+{
+  "reports": [
+    {
+      "grade": 1,
+      "error_intervals": [
+        [
+          0.6978660836521452,
+          0.7368931169852793
+        ],
+        [
+          0.6978970423444928,
+          0.7369178711360068
+        ]
+      ],
+      "leave_batch_out_ranges": [
+        [
+          0.7136533140756612,
+          0.7204300509942079
+        ],
+        [
+          0.7136633098920673,
+          0.7204470043856521
+        ]
+      ],
+      "symmetrized_to_paired_squared_norm": 1.0401490458639102,
+      "norm_ratio_interval": [
+        0.9737392737993956,
+        1.1086734505815214
+      ],
+      "pairings": 1,
+      "mean_other_pairing_overlap": null
+    },
+    {
+      "grade": 2,
+      "error_intervals": [
+        [
+          0.8053474285844853,
+          0.83932616530619
+        ],
+        [
+          0.8053218812300428,
+          0.8393190642931193
+        ]
+      ],
+      "leave_batch_out_ranges": [
+        [
+          0.8189355964982179,
+          0.8239226193104219
+        ],
+        [
+          0.8189377225860026,
+          0.8239270636308336
+        ]
+      ],
+      "symmetrized_to_paired_squared_norm": 0.3243862728906748,
+      "norm_ratio_interval": [
+        0.3064182997052806,
+        0.3423066231573959
+      ],
+      "pairings": 3,
+      "mean_other_pairing_overlap": -0.01342059066398782
+    },
+    {
+      "grade": 3,
+      "error_intervals": [
+        [
+          0.8653395922741531,
+          0.8957551570534438
+        ],
+        [
+          0.8653107953308059,
+          0.8957164589873293
+        ]
+      ],
+      "leave_batch_out_ranges": [
+        [
+          0.8761864379695248,
+          0.8828075738217523
+        ],
+        [
+          0.8761568200939787,
+          0.8827812277325499
+        ]
+      ],
+      "symmetrized_to_paired_squared_norm": 0.06761358184940254,
+      "norm_ratio_interval": [
+        0.06411757753177659,
+        0.0710801122151896
+      ],
+      "pairings": 15,
+      "mean_other_pairing_overlap": 0.0010145519815027188
+    },
+    {
+      "grade": 4,
+      "error_intervals": [
+        [
+          0.8605236227852536,
+          0.8920421360775254
+        ],
+        [
+          0.8605150853083388,
+          0.8920503269423619
+        ]
+      ],
+      "leave_batch_out_ranges": [
+        [
+          0.8733786661205303,
+          0.8802997599628763
+        ],
+        [
+          0.8733741902779709,
+          0.8802978857028532
+        ]
+      ],
+      "symmetrized_to_paired_squared_norm": 0.009574335129064748,
+      "norm_ratio_interval": [
+        0.009094705513570363,
+        0.010056585523432072
+      ],
+      "pairings": 105,
+      "mean_other_pairing_overlap": 5.1011428382678e-05
+    }
+  ],
+  "energies_sha": "bf03d6509d8061bfa725895a37e2c906193a9b3ce56b4c1a6c668d042f5e4d95",
+  "scope": "Monte Carlo uncertainty of weight probes, not native-document validation. Individual pairing overlaps and optimal frames are not determined by these averages."
+}

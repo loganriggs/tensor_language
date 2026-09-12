@@ -276,3 +276,8 @@ The next exact common-source objective and its native/dense controls are documen
 ## Convergence does not repair fidelity; actual eighth-degree audit completed (08:57)
 
 Both [continued fits](COUPLED_GRADED_SOURCE_V1_MATH.md#converged-continuation-and-bounded-escape-audit-0850) converge reproducibly; the original joint effect-fidelity criterion remains failed. Sixteen registered rotationplanes offer no meaningful improvement. A [new exact eighth-degree contraction](COMPOSED_EIGHTH_CONTRACTION_V2_MATH.md) passes dense/native/gradient controls and compares the actual repeated-input coefficient metric using2048syntheticprobes. Error85.8%versusformal87.0%doesnotmeet the material-gap bar; pairedbootstrap agrees. This narrows two methodological explanations—unfinished local optimization and a large fixed-frame purepath metric discrepancy—without denying other structures or mixedpath effects. No new circuit is identified.
+
+
+## Exact mixed repeated-input metric (09:16)
+
+The [complete mixed contraction and uncertainty audit](MIXED_REPEATED_CONTRACTION_V1_MATH.md) extends the eighth-degree oracle to all producer/background degrees. Exact controls pass; mixed-degree fixed-frame errors do not show a material metric gap. The completed synthetic-gradient pilot finds unreliable directions at512 probes per degree and no held-out improvement; a two-replica CPU noise audit quantifies the limitation. This motivates improving the estimator before a long new fit. All native intervention failures remain recorded.

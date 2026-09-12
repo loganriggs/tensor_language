@@ -22028,3 +22028,18 @@ V1forwardchecksheldbutambientreadergradient24.6%miss exposedimplicitmatrixsymmet
 
 ### 2026-09-12T08:59:24.446967+00:00 — Codex: EIGHTH UNCERTAINTY AUDIT EXECUTED
 Pairedbootstrap95%errorinterval~[.8433,.8730], leave64probebatchout~[.8554,.8613]; materialmetricgapmissretained. Symmetric/pairedsquarednorm.010738impliesmeanotherpairingcosetoverlap.001226 via105cosets; averageonly, notindividualindependence. Exactdeeperoracle ready; no mixedpathorstructureabsenceclaim. Goalactive; nextCPUaudit wasexecuted after native result andallreceipts published.
+
+### 2026-09-12T09:01:59.504154+00:00 — Codex: CLAIM EXACT MIXED REPEATED-INPUT CONTRACTION
+Prior turnprogress: convergedreplication, boundedplane null, exactpure8oracle/nativeaudit. Extend toproducerdegree k=0..4 with4-kbackgroundslots and2kshared-inputslots. Averageproducerperfectmatchings1/1/3/15/105 andquartic6splits, multiplybinom(4,k). This replacesformalproducercoordinates inallmixedterms, retainsbackgroundasdeclaredport. CPUdensegroup/diagonalsum/permutation/gradientcontrols before nativecomparison; no fit or semanticclaim fromnorms.
+
+### 2026-09-12T09:07:24.310379+00:00 — Codex: MIXED NATIVE TERMINAL / CLAIM GRADE UNCERTAINTY AUDIT
+6.708sec,A/CpassBfail. Actualmixedgrade2/3errors.8220/.8798 vsformal.8290/.8747,SE.00867/.00795; oneproducerinternalcontrolheld. Allgradeddiagonal/oraclereplays<=1.78e-15. NextCPU pairedbootstrap andleavebatchout forgrades1..4; normalize rawgroupednorm bybinom(4,k) beforecomparingproducer-pairingcoset averages. No actualmetric-fit claim orabsenceofstructure.
+
+### 2026-09-12T09:14:33.744742+00:00 — Codex: CLAIM REPEATED-METRIC DIRECTION PILOT
+Previous response only clarified a file location: no research progress in that response. Mixed uncertainty audit is terminal: grade2/3 intervals include formal errors; norm ratios approximate inverse pairing counts. Next test uses exact mixed contraction gradients at the converged formal frame, two independent synthetic batches and independent validation of fixed angular steps. Targets: reliable weight-only identification of shared producer inputs, with eventual frozen native extraction tests; no text-guided fitting. Limited method viability test, not a new circuit. Prior repeated-input index entry concerns isotropic quartic evaluation, a different metric from coefficient symmetrization after MLP15. No collision with Claude queue.
+
+### 2026-09-12T09:16:44.546677+00:00 — Codex: DIRECTION PILOT TERMINAL / CLAIM CPU NOISE AUDIT
+14.60sec: instrument pass; independent gradient cosine0.00877 fails0.5, all three held-out steps fail improvement. Next CPU noise decomposition of the two saved gradients estimates signal/noise and probe-scaling implications, with only two replicates explicitly limiting certainty. This is a stochastic estimator limitation at512 probes/grade, not absence of structure or proof of exact stationarity. No fit/native adoption.
+
+### 2026-09-12T09:17:41.068313+00:00 — Codex: CPU GRADIENT NOISE AUDIT EXECUTED
+Two-replica signal-squared estimate0.00652 vsnoise0.73706; crude58k probes/grade cosine0.5 forecast is explicitly uncertain, not a budget commitment. Completed direction pilot and mixed contraction are documented once in MIXED_REPEATED_CONTRACTION_V1_MATH.md. Next decision is estimator variance reduction versus deliberately larger gradient audit, not blind512-probe optimization. No new four-property circuit; current misses preserved.

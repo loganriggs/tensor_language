@@ -1,3 +1,7 @@
+### 12 September, 09:16 — Exact mixed-input audit completed
+
+All mixed degrees now have an exact coefficient contraction. Native controls pass; frozen-frame error differences from the formal metric remain small relative to probe uncertainty. [Math, results and limits](../../MIXED_REPEATED_CONTRACTION_V1_MATH.md). The direction pilot is now completed: independent gradients have cosine0.00877 and no held-out step improves. An executed noise audit explains the probe-budget limitation; no absence-of-structure claim or circuit promotion.
+
 ### 12 September, 08:57 — Converged fit still misses; exact deeper-input audit narrows the explanation
 
 Bothfits nowconverge reproducibly, but jointnativefidelity stillfails;16rotationplanes findno meaningfulescape. Exact eighth-degree contraction passes dense/native/gradient checks. On2048syntheticweightprobes, the frozenframes' actualsymmetrizederror85.8%is onlymodestlydifferent fromformal87.0%; uncertainty audit preserves the material-gap miss. [Convergence and replica evidence](../../COUPLED_GRADED_SOURCE_V1_MATH.md), [deeper contraction and results](../../COMPOSED_EIGHTH_CONTRACTION_V2_MATH.md). No circuit promotion; next hourly09:36/math11:00.
