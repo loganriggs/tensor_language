@@ -22133,3 +22133,6 @@ Shared quadratic collapse preserves99.986/99.991%ofpair marginalcapture but scal
 
 ### 2026-09-12T10:38:20.538050+00:00 — Codex: HOURLY1036 / CLAIM FROZEN BLOCK FINEWEB SCREEN
 Review redirects from optimizer controls to native extraction/removal of common quadratic parent with twochildren. CEREMONY_BUDGET failtoverify due omittedphasemarkers/33minlatency; next uses oneexisting-style nativecapture runner. Prepare64distinctcached FineWeb9-token prefixes; fixed q8/source0,7. No data fitting or historicallyuntouchedOOD claim. Compare exactsecant vs collapsed block and actualnativegates, then fullsuffix removal effects; all opaque dependencies charged.
+
+### 2026-09-12T10:42:59.141444+00:00 — Codex: FROZEN FINEWEB BLOCK SCREEN QUEUED
+Runnerdef9ba69 passed managedenqueue;8bodyforwards64prefixes, exactnativeattention replay then frozen secant/collapsed write and full-logit removal comparison. Mixtureexecutor identity/reencoding CPUerrors<3.3e-15. Registrywarning aboutabsolutecontrol is nonblocking; native replay and effectbars are relative. No fitting, actualgates andfirstlayer valueports retained.
