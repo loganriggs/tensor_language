@@ -4,6 +4,8 @@
 
 **04:34:** [Exact input-partition optimization](../../FULLU_BLOCK_OPTIMIZER_V1_PREREGISTRATION.md) is audited and queued: two frozen starts, exact full-output loss, explicit local-convergence checks. Planted recovery2/3 exposes a strict local minimum; no global-recovery claim.
 
+**04:54:** [Direct full-output block rotation](../../FULLU_BLOCK_OPTIMIZER_V1_RESULTS.md) completed: numerical A passes; separation/stability/convergence B/C/D fail. Cuts0.839/0.840, overlap0.718, both1500step limits. The controlled [spectral audit](../../NORMALIZED_COMMUTANT_NATIVE_V1_PREREGISTRATION.md) is queued in managed lane1 behind existing work; [shared-parent reuse](../../COMPOSED_SHARED_PARENT_V1_PREREGISTRATION.md) is prepared for a result-dependent next decision.
+
 ## Earlier entries — historical status, superseded where stated above
 
 **18:10:** [Native branch screen](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md#native-behavioral-screen-completed-at-1759-utc) passed execution/capability but failed the predicted support direction: removals improved target CE. Sign accounting supports direct suppression; branch specificity is unresolved. A separate128-prefix follow-up is queued, and the optimizer comparison is live. [Two-parent composition](../../GLOBAL_READER_REBASE_V2_MATH.md#two-parents-preserving-the-other-read-changes-the-intervention) now has a checked exact interface.

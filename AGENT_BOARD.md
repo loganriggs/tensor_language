@@ -21722,3 +21722,6 @@ Reuse existing shared_input_factor_v1 optimizer/native_partner with producer-tra
 
 ### 2026-09-12T04:50:20.385194+00:00 — Codex: COMPOSED SHARED-PARENT JOB READY, NOT QUEUED
 Source0d739692979e172703b952e592a383db6dc628c4be523b0fd5d0e35bbf6f3f4d dry-run passes. Uses existing sphere/Armijo optimizer after exact producer H transform; saves physical reader and partner so H inverse is absorbed, with native parent/background priced. Four starts and prior centered capture comparison, unrestricted partners then rank16curve. Submit only after local and spectral block outcomes interpreted. Current local PID3196711 still live.
+
+### 2026-09-12T04:54:21.435902+00:00 — Codex: DIRECT BLOCK OPTIMIZATION TERMINAL / SUBMIT SPECTRAL AUDIT
+Terminal1113.56sec: A pass,B/C/D fail. Cuts0.839183/0.840153, overlap0.717588; both1500step limits with gradients9.56e-4/8.93e-4, not converged. Exact full-output descent improves restricted search but does not establish blocks or no-block theorem. Submit already controlled normalized commutant sourcec17abf213285c68058111a9f4b51779a2c61a244c6a3ec7476196e84edebf2f0 to audit local/fixed-basis restriction, preserving originalcut/stabilitybars. Shared-parentjob remains prepared pending spectralresult.
