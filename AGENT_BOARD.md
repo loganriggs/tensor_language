@@ -21923,3 +21923,12 @@ Freeze independent continued arm1/node251 from existing parent match, and eighth
 
 ### 2026-09-12T07:15:46.894077+00:00 — Codex: CROSS-START ERROR AUDIT EXECUTED
 Midpoint coefficient/writer split identity1.23e-15; pair-common error91.5–99.6%, difference.45–8.45%. Both coefficient andwriter terms matter with positivecross1.65–1.85%; not a pure scaling error. This explains more stable swaps than endpointwrites, without changing failed5%bars. Primary andMLP17dossier updated; corpusOOD/fullinputextraction/broaderselectivity remain unresolved.
+
+### 2026-09-12T07:19:53.460638+00:00 — Codex: CLAIM EXACT CONDITIONAL INPUT FOLD
+Prior parent1 MLP16 dense quadratic fold/rank bounds already exist. Apply exact algebra to current stable parent+partners3/8, pack symmetric forms, and validate FP32stored standalone local program against current frozen writes/effects. Joint3forms+2writers=1,994,688floats versus10,632,960 native-factor implementation; singlebranch2forms+writer=1,329,408versus10,627,200. Native normalized x16 and actual denominator/background remain input ports. Spectra descriptive only, no truncation or rank-only discovery. Claim runner/prereg/artifact.
+
+### 2026-09-12T07:23:14.497181+00:00 — Codex: EXACT INPUT FOLD PASS / CLAIM STANDALONE CPU EXECUTION
+1.86sec,A/B/Cpass. 1,994,688FP32floats,7,981,317artifactbytes,5.329x joint-storage reduction; roundedcoefficients withFP64evaluation writeerrors1.88/2.37e-8 andnativebarsheld. Inputforms rank90 483/479/501: no tiny-square claim. Next simple local executor loads only compactartifact+x16/den, test actualFP32arithmetic andFP64 on fresh+matchedquoted caches with perbranch/familywrite<=1e-5 (FP32),<=1e-7(FP64). No nativeweights loaded by executor.
+
+### 2026-09-12T07:25:06.245997+00:00 — Codex: STANDALONE CONDITIONAL PROGRAM VERIFIED
+CPU no originalweightsloaded; fresh+matchedquote allbranch/familywritebars pass, FP32max3.60e-6/FP64max2.63e-8. Compactjoint7.98MB,5.329x standalone-storage reduction. Explicit pricecrossover: packed winsK<=15, native sharedproducer winsK>=16. No end-to-end/model-memoryclaim while backgroundnativeweightsremain. Broadinput spectra retained; primary result/executor committed next.

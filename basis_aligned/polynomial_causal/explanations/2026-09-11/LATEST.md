@@ -1,3 +1,7 @@
+# Current result —12 September07:24 UTC
+
+[Compact executable input fold](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#compact-executable-input-fold-12-september0724): two-branch local program7.98MB,5.33x smaller than standalone native factors; CPU FP32/FP64 execution passes without originalweights. Native x16/den/background remain external; no whole-model savings or corpusOOD claim.
+
 # Current result —12 September07:14 UTC
 
 [Whole branch recurrence](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#the-whole-branch-recurs-across-starts-12-september0714): independent fit functioncos0.998855, all fresh swap/removal bars pass, three5%write bars fail. CPU audit locates91.5–99.6%of error in pair-common offsets. No corpusOOD or full-circuit promotion.
