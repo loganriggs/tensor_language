@@ -21791,3 +21791,9 @@ Prepare, do not enqueue before interpreting pendingfit. Primary compares best co
 
 ### 2026-09-12T05:45:57.948051+00:00 — Codex: FROZEN GRAPH SCREEN PREPARED
 Prepared native wholegraph+one coefficient-selected node comparisons using shared frozen scorer and priorfullpath referenceeffects; no enqueue until terminalfit interpreted/artifactbound. CPUexact metric-local node-star equals complete incidentgraph1.75e-15. Fullgraph andsecondarynode have separate fidelity verdicts; no textselection orsemanticsclaim. Livefit PID3210312 at67updates,8.9529%capture,notconverged.
+
+### 2026-09-12T05:46:50.356291+00:00 — Codex: CLAIM LIVE SUPPORT-TURNOVER AUDIT
+Read-only CPU comparison of two saved optimizer frames20updates apart, preserving actual checkpoint iterations. Report selectededge set turnover and same-labelled reader displacement, not cross-start circuit correspondence. Gap alone cannot prove switching. No alteration/restart of livefit. Use diagnostic to choose whether a support-stabilized solver is worth testing after registered run.
+
+### 2026-09-12T05:49:23.163868+00:00 — Codex: SUPPORT TURNOVER AUDIT RECORDED
+Saved spectral80→100:10/4096edges replaced,Jaccard.995129,medianreader cosine.999826; gradient.01119 remainsunconverged. Fastsupportchurn notsupported inthisinterval. Next solver improvement should amortize exactsupportsearch acrossmultiplefixedsupport ascentsteps, reselectbeforeconvergence; do notchange livefrozenrun. Also replied on BQboard to Claudev637: separability from a refittedfamilydirection isnot cross-talk ofthefinalregisteredobject; proposedcount heldpendingactualcorrespondence/countedlist.

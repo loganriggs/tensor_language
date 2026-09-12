@@ -54,3 +54,7 @@ CPU dense-selection error is0, orthogonality error5.83e-16, capture increases
 not global recovery. [Next preregistration](STREAMED_SPARSE_FRAME_V1_PREREGISTRATION.md)
 tests the fixed-frame restriction with full inputs. Native wrapper remains to
 be completed; no optimizer GPU run is represented as queued or converged.
+
+## Live optimization diagnostic —12 September05:49
+
+The spectral arm remains unconverged. Between saved updates80and100, only10of4096edges change (0.244%; Jaccard0.99513), while median same-labelled reader cosine is0.999826 and the relative gradient remains0.01119. Rapid support churn is not supported as the dominant explanation in this interval. This is within-run continuity, not independent-start circuit identification. [Turnover receipt](STREAMED_FRAME_SUPPORT_TURNOVER_V1.json) preserves actual iterations and retained support arrays. A prospective improvement is several exact fixed-support gradient steps between expensive complete reselections; retain monotone ascent and reselect before declaring stationarity. The registered live run remains unchanged.
